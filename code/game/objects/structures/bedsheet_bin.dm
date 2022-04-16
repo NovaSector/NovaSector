@@ -399,68 +399,6 @@ LINEN BINS
 	light_power = 2
 	light_range = 1.4
 
-<<<<<<< HEAD
-/obj/item/bedsheet/random
-	icon_state = "random_bedsheet"
-	name = "random bedsheet"
-	desc = "If you're reading this description ingame, something has gone wrong! Honk!"
-	bedsheet_type = BEDSHEET_ABSTRACT
-	item_flags = ABSTRACT
-	var/static/list/bedsheet_list
-	var/spawn_type = BEDSHEET_SINGLE
-
-/obj/item/bedsheet/random/Initialize(mapload)
-	..()
-	if(!LAZYACCESS(bedsheet_list, spawn_type))
-		var/list/spawn_list = list()
-		var/list/possible_types = typesof(/obj/item/bedsheet)
-		for(var/obj/item/bedsheet/sheet as anything in possible_types)
-			if(initial(sheet.bedsheet_type) == spawn_type)
-				spawn_list += sheet
-		LAZYSET(bedsheet_list, spawn_type, spawn_list)
-	var/chosen_type = pick(bedsheet_list[spawn_type])
-	new chosen_type(loc)
-	return INITIALIZE_HINT_QDEL
-
-/obj/item/bedsheet/random/double
-	icon_state = "random_bedsheet"
-	spawn_type = BEDSHEET_DOUBLE
-
-/obj/item/bedsheet/dorms
-	icon_state = "random_bedsheet"
-	name = "random dorms bedsheet"
-	desc = "If you're reading this description ingame, something has gone wrong! Honk!"
-	bedsheet_type = BEDSHEET_DOUBLE
-	item_flags = ABSTRACT
-	slot_flags = null
-
-/obj/item/bedsheet/dorms/Initialize(mapload)
-	..()
-	var/type = pick_weight(list("Colors" = 80, "Special" = 20))
-	switch(type)
-		if("Colors")
-			type = pick(list(/obj/item/bedsheet,
-				/obj/item/bedsheet/blue,
-				/obj/item/bedsheet/green,
-				/obj/item/bedsheet/grey,
-				/obj/item/bedsheet/orange,
-				/obj/item/bedsheet/purple,
-				/obj/item/bedsheet/red,
-				/obj/item/bedsheet/yellow,
-				/obj/item/bedsheet/brown,
-				/obj/item/bedsheet/black))
-		if("Special")
-			type = pick(list(/obj/item/bedsheet/patriot,
-				/obj/item/bedsheet/rainbow,
-				/obj/item/bedsheet/ian,
-				/obj/item/bedsheet/cosmos,
-				/obj/item/bedsheet/nanotrasen))
-	var/obj/item/bedsheet = new type(loc)
-	bedsheet.dir = dir
-	return INITIALIZE_HINT_QDEL
-
-=======
->>>>>>> 16009a3ccfe ([MDB Ignore] Converts random bedsheets to spawners + 3 bedsheets I made long time ago. (#81435))
 /obj/item/bedsheet/double
 	icon_state = "double_sheetwhite"
 	worn_icon_state = "sheetwhite"
