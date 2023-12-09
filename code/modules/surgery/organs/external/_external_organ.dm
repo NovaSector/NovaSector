@@ -69,11 +69,8 @@
 	if(bodypart_overlay.imprint_on_next_insertion) //We only want this set *once*
 		var/feature_name = receiver.dna.features[bodypart_overlay.feature_key]
 		if (isnull(feature_name))
-			bodypart_overlay.set_appearance_from_dna(receiver.dna) // SKYRAT EDIT CHANGE - ORIGINAL: feature_name = receiver.dna.species.external_organs[type]
-		// SKYRAT EDIT CHANGE START - Puts the following line in an else block
-		else
-			bodypart_overlay.set_appearance_from_name(feature_name)
-		// SKYRAT EDIT CHANGE END
+			feature_name = receiver.dna.species.external_organs[type]
+		bodypart_overlay.set_appearance_from_name(feature_name)
 		bodypart_overlay.imprint_on_next_insertion = FALSE
 
 	if(external_bodytypes)
