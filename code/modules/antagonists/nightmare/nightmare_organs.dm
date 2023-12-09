@@ -14,7 +14,7 @@
 	///Our associated terrorize spell, for antagonist nightmares
 	var/datum/action/cooldown/spell/pointed/terrorize/terrorize_spell
 
-/obj/item/organ/internal/brain/shadow/nightmare/on_insert(mob/living/carbon/brain_owner)
+/obj/item/organ/internal/brain/shadow/nightmare/on_mob_insert(mob/living/carbon/brain_owner)
 	. = ..()
 	if(brain_owner.dna.species.id != SPECIES_NIGHTMARE)
 		brain_owner.set_species(/datum/species/shadow/nightmare)
@@ -76,13 +76,13 @@
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	Insert(user)
 
-/obj/item/organ/internal/heart/nightmare/on_insert(mob/living/carbon/heart_owner, special)
+/obj/item/organ/internal/heart/nightmare/on_mob_insert(mob/living/carbon/heart_owner, special)
 	. = ..()
 	if(special != HEART_SPECIAL_SHADOWIFY)
 		blade = new/obj/item/light_eater
 		heart_owner.put_in_hands(blade)
 
-/obj/item/organ/internal/heart/nightmare/on_remove(mob/living/carbon/heart_owner, special)
+/obj/item/organ/internal/heart/nightmare/on_mob_remove(mob/living/carbon/heart_owner, special)
 	. = ..()
 	respawn_progress = 0
 	if(blade && special != HEART_SPECIAL_SHADOWIFY)
