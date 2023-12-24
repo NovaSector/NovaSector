@@ -271,7 +271,7 @@ const SpeciesPageInner = (props: {
           <Stack.Item>
             <Box height="calc(100vh - 170px)" overflowY="auto" pr={3}>
               {species.map(([speciesKey, species]) => {
-                // SKYRAT EDIT START - Veteran-only species
+                // NOVA EDIT START - Veteran-only species
                 let speciesPage = (
                   <Button
                     key={speciesKey}
@@ -306,7 +306,7 @@ const SpeciesPageInner = (props: {
                   );
                 }
                 return speciesPage;
-                // SKYRAT EDIT END
+                // NOVA EDIT END
               })}
             </Box>
           </Stack.Item>
@@ -326,9 +326,9 @@ const SpeciesPageInner = (props: {
                         )
                       }
                     >
-                      {/* SKYRAT EDIT CHANGE START - Adds maxHeight, scrollable*/}
+                      {/* NOVA EDIT CHANGE START - Adds maxHeight, scrollable*/}
                       <Section title="Description" maxHeight="14vh" scrollable>
-                        {/* SKYRAT EDIT CHANGE END */}
+                        {/* NOVA EDIT CHANGE END */}
                         {currentSpecies.desc}
                       </Section>
 
@@ -349,10 +349,10 @@ const SpeciesPageInner = (props: {
 
               <Box mt={1}>
                 <Section title="Lore">
-                  <BlockQuote /* SKYRAT EDIT START - scrollable lore */
+                  <BlockQuote /* NOVA EDIT START - scrollable lore */
                     overflowY="auto"
                     maxHeight="45vh"
-                    mr={-1} /* SKYRAT EDIT END */
+                    mr={-1} /* NOVA EDIT END */
                   >
                     {currentSpecies.lore.map((text, index) => (
                       <Box key={index} maxWidth="100%">

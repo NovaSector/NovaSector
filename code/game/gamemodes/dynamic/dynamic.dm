@@ -525,10 +525,10 @@ GLOBAL_LIST_EMPTY(dynamic_forced_rulesets)
 	if (!CONFIG_GET(flag/no_intercept_report))
 		addtimer(CALLBACK(src, PROC_REF(send_intercept)), rand(waittime_l, waittime_h))
 
-	//SKYRAT EDIT START - DIVERGENCY/GOALS REPORT
+	//NOVA EDIT START - DIVERGENCY/GOALS REPORT
 	else
 		addtimer(CALLBACK(src, PROC_REF(send_trait_report)), rand(waittime_l, waittime_h))
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	..()
 
@@ -825,7 +825,7 @@ GLOBAL_LIST_EMPTY(dynamic_forced_rulesets)
 		ruleset.restricted_roles |= ruleset.protected_roles
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
 		ruleset.restricted_roles |= JOB_ASSISTANT
-	// SKYRAT EDIT ADDITION
+	// NOVA EDIT ADDITION
 	for(var/datum/job/iterating_job as anything in subtypesof(/datum/job))
 		if(!initial(iterating_job.antagonist_restricted))
 			continue
@@ -836,7 +836,7 @@ GLOBAL_LIST_EMPTY(dynamic_forced_rulesets)
 			ruleset.restricted_roles |= initial(iterating_job.title)
 		else
 			ruleset.restricted_roles |= initial(iterating_job.title)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /// Get station traits and call for their config
 /datum/game_mode/dynamic/proc/configure_station_trait_costs()

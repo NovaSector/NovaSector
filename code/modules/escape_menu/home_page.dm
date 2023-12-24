@@ -30,7 +30,7 @@
 			/* offset = */ 2,
 		)
 	)
-	//SKYRAT EDIT REMOVAL BEGIN
+	//NOVA EDIT REMOVAL BEGIN
 	/*
 	page_holder.give_screen_object(
 		new /atom/movable/screen/escape_menu/home_button/leave_body(
@@ -43,7 +43,7 @@
 		)
 	)
 	*/
-	// SKYRAT EDIT REMOVAL END
+	// NOVA EDIT REMOVAL END
 
 /datum/escape_menu/proc/home_resume()
 	qdel(src)

@@ -72,7 +72,7 @@
 	///Controls if the limb is disabled. TRUE means it is disabled (similar to being removed, but still present for the sake of targeted interactions).
 	var/bodypart_disabled = FALSE
 	///Handles limb disabling by damage. If 0 (0%), a limb can't be disabled via damage. If 1 (100%), it is disabled at max limb damage. Anything between is the percentage of damage against maximum limb damage needed to disable the limb.
-	var/disabling_threshold_percentage = 1 //SKYRAT EDIT CHANGE - COMBAT - ORIGINAL : var/disabling_threshold_percentage = 0
+	var/disabling_threshold_percentage = 1 //NOVA EDIT CHANGE - COMBAT - ORIGINAL : var/disabling_threshold_percentage = 0
 
 	// Damage variables
 	///A mutiplication of the burn and brute damage that the limb's stored damage contributes to its attached mob's overall wellbeing.
@@ -333,17 +333,17 @@
 	for(var/datum/wound/wound as anything in wounds)
 		switch(wound.severity)
 			if(WOUND_SEVERITY_TRIVIAL)
-				// check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)].")]" // SKYRAT EDIT - Medical overhaul-ish - ORIGINAL
-				check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)].")]" // SKYRAT EDIT - Medical overhaul-ish
+				// check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)].")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)].")]" // NOVA EDIT - Medical overhaul-ish
 			if(WOUND_SEVERITY_MODERATE)
-				// check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!")]" // SKYRAT EDIT - Medical overhaul-ish - ORIGINAL
-				check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!")]" // SKYRAT EDIT - Medical overhaul-ish
+				// check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!")]" // NOVA EDIT - Medical overhaul-ish
 			if(WOUND_SEVERITY_SEVERE)
-				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!")]" // SKYRAT EDIT - Medical overhaul-ish - ORIGINAL
-				check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!")]" // SKYRAT EDIT - Medical overhaul-ish
+				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!")]" // NOVA EDIT - Medical overhaul-ish
 			if(WOUND_SEVERITY_CRITICAL)
-				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!!")]" // SKYRAT EDIT - Medical overhaul-ish - ORIGINAL
-				check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!!")]" // SKYRAT EDIT - Medical overhaul-ish
+				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!!")]" // NOVA EDIT - Medical overhaul-ish
 
 	for(var/obj/item/embedded_thing in embedded_objects)
 		var/stuck_word = embedded_thing.isEmbedHarmless() ? "stuck" : "embedded"
@@ -529,7 +529,7 @@
 			return
 		// now we have our wounding_type and are ready to carry on with wounds and dealing the actual damage
 		if(wounding_dmg >= WOUND_MINIMUM_DAMAGE && wound_bonus != CANT_WOUND)
-			//SKYRAT EDIT ADDITION - MEDICAL
+			//NOVA EDIT ADDITION - MEDICAL
 			//This makes it so the more damaged bodyparts are, the more likely they are to get wounds
 			//However, this bonus isn't applied when the object doesn't pass the initial wound threshold, nor is it when it already has enough wounding dmg
 			if(wounding_dmg < DAMAGED_BODYPART_BONUS_WOUNDING_BONUS)
@@ -541,7 +541,7 @@
 			if (istype(current_gauze, /obj/item/stack/medical/gauze))
 				var/obj/item/stack/medical/gauze/our_gauze = current_gauze
 				our_gauze.get_hit()
-			//SKYRAT EDIT ADDITION END - MEDICAL
+			//NOVA EDIT ADDITION END - MEDICAL
 			check_wounding(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus, attack_direction, damage_source = damage_source)
 
 	for(var/datum/wound/iter_wound as anything in wounds)
@@ -668,12 +668,12 @@
 			update_disabled()
 		if(updating_health)
 			owner.updatehealth()
-		//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+		//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 		//Consider moving this to a new species proc "spec_heal" maybe?
 		if(owner.stat == DEAD && HAS_TRAIT(owner, TRAIT_REVIVES_BY_HEALING))
 			if(owner.health > 50)
 				owner.revive(FALSE)
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 	cremation_progress = min(0, cremation_progress - ((brute_dam + burn_dam)*(100/max_damage)))
 	return update_bodypart_damage_state()
 
@@ -945,7 +945,7 @@
 	if(should_draw_greyscale) //Should the limb be colored?
 		draw_color ||= species_color || (skin_tone ? skintone2hex(skin_tone) : null)
 
-	// SKYRAT EDIT ADDITION
+	// NOVA EDIT ADDITION
 	var/datum/species/owner_species = human_owner.dna.species
 
 	if(owner_species && owner_species.specific_alpha != 255)
@@ -955,7 +955,7 @@
 	if(aux_zone)
 		aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
 	markings_alpha = owner_species.markings_alpha
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	recolor_external_organs()
 	return TRUE
@@ -1037,13 +1037,13 @@
 			draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone))
 
 		if(draw_color)
-			//SKYRAT EDIT BEGIN - Alpha values on limbs //We check if the limb is attached and if the owner has an alpha value to append
+			//NOVA EDIT BEGIN - Alpha values on limbs //We check if the limb is attached and if the owner has an alpha value to append
 			var/limb_color = alpha != 255 ? "[draw_color][num2hex(alpha, 2)]" : "[draw_color]"
 
 			limb.color = limb_color
 			if(aux_zone)
 				aux.color = limb_color
-			//SKYRAT EDIT END
+			//NOVA EDIT END
 
 		//EMISSIVE CODE START
 		// For some reason this was applied as an overlay on the aux image and limb image before.
@@ -1082,7 +1082,7 @@
 				if(overlay.layers & external_layer)
 					. += overlay.get_overlay(external_layer, src)
 
-	// SKYRAT EDIT ADDITION BEGIN - MARKINGS CODE
+	// NOVA EDIT ADDITION BEGIN - MARKINGS CODE
 	var/override_color
 	var/atom/offset_spokesman = owner || src
 	// First, check to see if this bodypart is husked. If so, we don't want to apply our sparkledog colors to the limb.
@@ -1137,7 +1137,7 @@
 				. += accessory_overlay
 				if (emissive)
 					. += emissive
-	// SKYRAT EDIT END - MARKINGS CODE END
+	// NOVA EDIT END - MARKINGS CODE END
 
 	return .
 
@@ -1393,8 +1393,8 @@
 	var/burn_damage = AUGGED_LIMB_EMP_BURN_DAMAGE
 	if(severity == EMP_HEAVY)
 		time_needed *= 2
-		brute_damage *= 1.3 // SKYRAT EDIT : Balance - Lowers total damage from ~125 Brute to ~30
-		burn_damage *= 1.3 // SKYRAT EDIT : Balance - Lowers total damage from ~104 Burn to ~24
+		brute_damage *= 1.3 // NOVA EDIT : Balance - Lowers total damage from ~125 Brute to ~30
+		burn_damage *= 1.3 // NOVA EDIT : Balance - Lowers total damage from ~104 Burn to ~24
 
 	receive_damage(brute_damage, burn_damage)
 	do_sparks(number = 1, cardinal_only = FALSE, source = owner || src)

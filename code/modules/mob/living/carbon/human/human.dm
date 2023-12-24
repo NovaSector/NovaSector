@@ -23,7 +23,7 @@
 
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_FACE_ACT, PROC_REF(clean_face))
 	AddComponent(/datum/component/personal_crafting)
-	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 0.6, -6) //SKYRAT EDIT CHANGE - AESTHETICS
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 0.6, -6) //NOVA EDIT CHANGE - AESTHETICS
 	AddComponent(/datum/component/bloodysoles/feet)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
 	AddElement(/datum/element/strippable, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human/, should_strip))
@@ -32,7 +32,7 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	GLOB.human_list += src
-	SSopposing_force.give_opfor_button(src) //SKYRAT EDIT - OPFOR SYSTEM
+	SSopposing_force.give_opfor_button(src) //NOVA EDIT - OPFOR SYSTEM
 
 /mob/living/carbon/human/proc/setup_physiology()
 	physiology = new()
@@ -194,12 +194,12 @@
 					to_chat(human_user,  "<span class='notice ml-1'>Detected physiological traits:</span>\n<span class='notice ml-2'>[quirkstring]</span>")
 				else
 					to_chat(usr,  "<span class='notice ml-1'>No physiological traits found.</span>")
-			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(href_list["medrecords"])
 				to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
 			if(href_list["genrecords"])
 				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
-			//SKYRAT EDIT END
+			//NOVA EDIT END
 			return //Medical HUD ends here.
 
 		if(href_list["hud"] == "s")
@@ -267,7 +267,7 @@
 
 				return
 
-			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(href_list["genrecords"])
 				if(!human_user.canUseHUD())
 					return
@@ -281,7 +281,7 @@
 				if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
 					return
 				to_chat(human_user, "<b>Security Record:</b> [target_record.past_security_records]")
-			//SKYRAT EDIT END
+			//NOVA EDIT END
 
 			if(href_list["add_citation"])
 				var/max_fine = CONFIG_GET(number/maxfine)
@@ -321,7 +321,7 @@
 
 				return
 
-	//SKYRAT EDIT ADDITION BEGIN - VIEW RECORDS
+	//NOVA EDIT ADDITION BEGIN - VIEW RECORDS
 	if(href_list["bgrecords"])
 		if(isobserver(usr) || usr.mind.can_see_exploitables || usr.mind.has_exploitables_override)
 			var/examined_name = get_face_name(get_id_name(""))
@@ -332,7 +332,7 @@
 			var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
 			var/datum/record/crew/target_record = find_record(examined_name)
 			to_chat(usr, "<b>Exploitable information:</b> [target_record.exploitable_information]")
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
 
@@ -432,7 +432,7 @@
 	if(istype(head, /obj/item/clothing/head/wizard))
 		threatcount += 2
 
-	/* SKYRAT EDIT - REMOVAL
+	/* NOVA EDIT - REMOVAL
 	//Check for nonhuman scum
 	if(dna && dna.species.id && dna.species.id != "human")
 		threatcount += 1
@@ -816,10 +816,10 @@
 			var/datum/quirk/quirk_type = type
 			if(initial(quirk_type.abstract_parent_type) == type)
 				continue
-			// SKYRAT EDIT ADDITION START
+			// NOVA EDIT ADDITION START
 			if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
 				continue
-			// SKYRAT EDIT ADDITION END
+			// NOVA EDIT ADDITION END
 			var/qname = initial(quirk_type.name)
 			options[has_quirk(quirk_type) ? "[qname] (Remove)" : "[qname] (Add)"] = quirk_type
 		var/result = input(usr, "Choose quirk to add/remove","Quirk Mod") as null|anything in sort_list(options)
@@ -950,11 +950,11 @@
 		skills_space = " very quickly"
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	else if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	visible_message(span_notice("[src] starts[skills_space] lifting [target] onto [p_their()] back..."),
 		span_notice("You[skills_space] start to lift [target] onto your back..."))
 	if(!do_after(src, carrydelay, target))
@@ -981,7 +981,7 @@
 	if(target.incapacitated(IGNORE_GRAB) || incapacitated(IGNORE_GRAB))
 		target.visible_message(span_warning("[target] can't hang onto [src]!"))
 		return
-	//SKYRAT EDIT START
+	//NOVA EDIT START
 	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
 		target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
@@ -1003,7 +1003,7 @@
 		if(get_turf(target) != get_turf(src))
 			target.throw_at(get_turf(src), 1, 1, spin=FALSE, quickstart=FALSE)
 		return
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 
 	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
@@ -1075,7 +1075,7 @@
 	if (!isnull(race))
 		dna.species = new race
 
-/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // SKYRAT EDIT - Customization
+/mob/living/carbon/human/species/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT - Customization
 	. = ..()
 	if(use_random_name)
 		fully_replace_character_name(real_name, dna.species.random_name())

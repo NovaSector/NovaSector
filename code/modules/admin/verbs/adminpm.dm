@@ -395,7 +395,7 @@
 		var/already_logged = FALSE
 		// Full boinks will always be done to players, so we are not guarenteed that they won't have a ticket
 		if(!recipient_ticket)
-			new /datum/admin_help(send_message, recipient, TRUE, src) // SKYRAT EDIT - Handling tickets - ORIGINAL: new /datum/admin_help(send_message, recipient, TRUE)
+			new /datum/admin_help(send_message, recipient, TRUE, src) // NOVA EDIT - Handling tickets - ORIGINAL: new /datum/admin_help(send_message, recipient, TRUE)
 			already_logged = TRUE
 			// This action mutates our existing cached ticket information, so we recache
 			ticket = current_ticket
@@ -435,11 +435,11 @@
 		SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
 		return TRUE
 
-	//SKYRAT EDIT ADDITION BEGIN - ADMIN
+	//NOVA EDIT ADDITION BEGIN - ADMIN
 	// Basically, if we realized that we shouldn't've been handling the ticket, let's bail. Otherwise, we just change who's handling it.
 	if(ticket && our_holder && !ticket.handle_issue())
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	// Ok if we're here, either this message is for an admin, or someone somehow figured out how to send a new message as a player
 	// First case well, first

@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { sortBy } from 'common/collections';
 
 import { useBackend } from '../backend';

@@ -44,7 +44,7 @@
 	. += create_table_notices(list(
 		"name",
 		"job",
-		"is_robot", //SKYRAT EDIT ADDITION - Displaying robotic species Icon
+		"is_robot", //NOVA EDIT ADDITION - Displaying robotic species Icon
 		"life_status",
 		"suffocation",
 		"toxin",
@@ -65,7 +65,7 @@
 		var/list/entry = list()
 		entry["name"] = player_record["name"]
 		entry["job"] = player_record["assignment"]
-		entry["is_robot"] = player_record["is_robot"] //SKYRAT EDIT ADDITION - Displaying robotic species Icon
+		entry["is_robot"] = player_record["is_robot"] //NOVA EDIT ADDITION - Displaying robotic species Icon
 		entry["life_status"] = player_record["life_status"]
 		entry["suffocation"] = player_record["oxydam"]
 		entry["toxin"] = player_record["toxdam"]
@@ -108,7 +108,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_SECURITY_OFFICER_SCIENCE = 15,
 		JOB_SECURITY_OFFICER_SUPPLY = 16,
 		*/
-		JOB_CORRECTIONS_OFFICER = 13, // SKYRAT EDIT ADDITION
+		JOB_CORRECTIONS_OFFICER = 13, // NOVA EDIT ADDITION
 		JOB_DETECTIVE = 14,
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
@@ -117,25 +117,25 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_MEDICAL_DOCTOR = 23,
 		JOB_PARAMEDIC = 24,
 		JOB_CORONER = 25,
-		JOB_ORDERLY = 26, // SKYRAT EDIT ADDITION
-		JOB_PSYCHOLOGIST = 27, // SKYRAT EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
+		JOB_ORDERLY = 26, // NOVA EDIT ADDITION
+		JOB_PSYCHOLOGIST = 27, // NOVA EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
 		// 30-39: Science
 		JOB_RESEARCH_DIRECTOR = 30,
 		JOB_SCIENTIST = 31,
 		JOB_ROBOTICIST = 32,
 		JOB_GENETICIST = 33,
-		JOB_SCIENCE_GUARD = 34, // SKYRAT EDIT ADDITION
+		JOB_SCIENCE_GUARD = 34, // NOVA EDIT ADDITION
 		// 40-49: Engineering
 		JOB_CHIEF_ENGINEER = 40,
 		JOB_STATION_ENGINEER = 41,
 		JOB_ATMOSPHERIC_TECHNICIAN = 42,
-		JOB_ENGINEERING_GUARD = 43, // SKYRAT EDIT ADDITION
+		JOB_ENGINEERING_GUARD = 43, // NOVA EDIT ADDITION
 		// 50-59: Cargo
 		JOB_QUARTERMASTER = 50,
 		JOB_SHAFT_MINER = 51,
 		JOB_CARGO_TECHNICIAN = 52,
 		JOB_BITRUNNER = 53,
-		JOB_CUSTOMS_AGENT = 54, // SKYRAT EDIT ADDITION
+		JOB_CUSTOMS_AGENT = 54, // NOVA EDIT ADDITION
 		// 60+: Civilian/other
 		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,
@@ -147,8 +147,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_MIME = 67,
 		JOB_JANITOR = 68,
 		JOB_LAWYER = 69,
-		JOB_BARBER = 71, // SKYRAT EDIT ADDITION
-		JOB_BOUNCER = 72, // SKYRAT EDIT ADDITION
+		JOB_BARBER = 71, // NOVA EDIT ADDITION
+		JOB_BOUNCER = 72, // NOVA EDIT ADDITION
 		// 200-239: Centcom
 		JOB_CENTCOM_ADMIRAL = 200,
 		JOB_CENTCOM = 201,
@@ -166,8 +166,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_ERT_CHAPLAIN = 225,
 		JOB_ERT_JANITOR = 226,
 		JOB_ERT_DEATHSQUAD = 227,
-		JOB_NT_REP = 230, // SKYRAT EDIT ADDITION
-		JOB_BLUESHIELD = 231, // SKYRAT EDIT ADDITION
+		JOB_NT_REP = 230, // NOVA EDIT ADDITION
+		JOB_BLUESHIELD = 231, // NOVA EDIT ADDITION
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,
@@ -257,10 +257,10 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
 
-		// SKYRAT EDIT BEGIN: Checking for robotic race
+		// NOVA EDIT BEGIN: Checking for robotic race
 		if (issynthetic(tracked_human))
 			entry["is_robot"] = TRUE
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 
 		// Binary living/dead status
 		// Current status

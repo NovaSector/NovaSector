@@ -181,7 +181,7 @@
 			hud_list[hud] = list()
 
 		else
-			var/image/I = image('modular_skyrat/master_files/icons/mob/huds/hud.dmi', src, "")	//SKYRAT EDIT: original filepath 'icons/mob/huds/hud.dmi'
+			var/image/I = image('modular_skyrat/master_files/icons/mob/huds/hud.dmi', src, "")	//NOVA EDIT: original filepath 'icons/mob/huds/hud.dmi'
 			I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
 			hud_list[hud] = I
 		set_hud_image_active(hud, update_huds = FALSE) //by default everything is active. but dont add it to huds to keep control.
@@ -267,7 +267,7 @@
  * * vision_distance (optional) define how many tiles away the message can be seen.
  * * ignored_mob (optional) doesn't show any message to a given mob if TRUE.
  */
-/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check) // SKYRAT EDIT ADDITION - separation, pref checks
+/atom/proc/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - separation, pref checks
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
@@ -277,7 +277,7 @@
 	var/list/hearers = get_hearers_in_view(vision_distance, src) //caches the hearers and then removes ignored mobs.
 	hearers -= ignored_mobs
 
-	//SKYRAT EDIT ADDITION BEGIN - AI QoL
+	//NOVA EDIT ADDITION BEGIN - AI QoL
 	for(var/mob/camera/ai_eye/ai_eye in hearers)
 		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
 			hearers -= ai_eye
@@ -286,22 +286,22 @@
 	for(var/obj/effect/overlay/holo_pad_hologram/holo in hearers)
 		if(holo.Impersonation?.client)
 			hearers |= holo.Impersonation
-	//SKYRAT EDIT ADDITION END - AI QoL
+	//NOVA EDIT ADDITION END - AI QoL
 
 	if(self_message)
 		hearers -= src
 
 	var/raw_msg = message
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" // SKYRAT EDIT - Better emotes
+		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" // NOVA EDIT - Better emotes
 
 	for(var/mob/M in hearers)
 		if(!M.client)
 			continue
-		// SKYRAT EDIT ADDITION - Emote pref checks
+		// NOVA EDIT ADDITION - Emote pref checks
 		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
 			continue
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
@@ -327,7 +327,7 @@
 
 
 ///Adds the functionality to self_message.
-/mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // SKYRAT EDIT ADDITION - Better emotes, pref checks
+/mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // NOVA EDIT ADDITION - Better emotes, pref checks
 	. = ..()
 	if(self_message)
 		show_message(self_message, MSG_VISUAL, blind_message, MSG_AUDIBLE)
@@ -342,10 +342,10 @@
  * * deaf_message (optional) is what deaf people will see.
  * * hearing_distance (optional) is the range, how many tiles away the message can be heard.
  */
-/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // SKYRAT EDIT ADDITION - Better emotes, pref checks
+/atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - Better emotes, pref checks
 	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
-	//SKYRAT EDIT ADDITION BEGIN - AI QoL
+	//NOVA EDIT ADDITION BEGIN - AI QoL
 	for(var/mob/camera/ai_eye/ai_eye in hearers)
 		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
 			hearers -= ai_eye
@@ -354,18 +354,18 @@
 	for(var/obj/effect/overlay/holo_pad_hologram/holo in hearers)
 		if(holo.Impersonation?.client)
 			hearers |= holo.Impersonation
-	//SKYRAT EDIT ADDITION END - AI QoL
+	//NOVA EDIT ADDITION END - AI QoL
 
 	if(self_message)
 		hearers -= src
 	var/raw_msg = message
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" //SKYRAT EDIT CHANGE
+		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" //NOVA EDIT CHANGE
 	for(var/mob/M in hearers)
-	// SKYRAT EDIT ADDITION - Emote pref checks
+	// NOVA EDIT ADDITION - Emote pref checks
 		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
 			continue
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
 		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
@@ -381,7 +381,7 @@
  * * deaf_message (optional) is what deaf people will see.
  * * hearing_distance (optional) is the range, how many tiles away the message can be heard.
  */
-/mob/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // SKYRAT EDIT ADDITION - Better emotes, pref checks
+/mob/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - Better emotes, pref checks
 	. = ..()
 	if(self_message)
 		show_message(self_message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
@@ -502,7 +502,7 @@
  *
  * returns 0 if it cannot, 1 if successful
  */
-/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE, blacklist, initial) //SKYRAT EDIT CHANGE
+/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE, blacklist, initial) //NOVA EDIT CHANGE
 
 	if(!istype(W))
 		return FALSE
@@ -520,7 +520,7 @@
 			ITEM_SLOT_DEX_STORAGE\
 		)
 
-	//SKYRAT EDIT CHANGE BEGIN - CUSTOMIZATION
+	//NOVA EDIT CHANGE BEGIN - CUSTOMIZATION
 	/*
 	for(var/slot in slot_priority)
 		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE, FALSE, FALSE)) //qdel_on_fail = FALSE; disable_warning = TRUE; redraw_mob = TRUE;
@@ -529,7 +529,7 @@
 		slot_priority -= blacklist
 	for(var/slot in slot_priority)
 		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE, FALSE, initial, indirect_action = indirect_action)) //qdel_on_fail = FALSE; disable_warning = TRUE; redraw_mob = TRUE;
-	//SKYRAT EDIT CHANGE END
+	//NOVA EDIT CHANGE END
 			return TRUE
 
 	if(qdel_on_fail)
@@ -625,7 +625,7 @@
 	else
 		result = examinify.examine(src) // if a tree is examined but no client is there to see it, did the tree ever really exist?
 
-	//SKYRAT EDIT CHANGE
+	//NOVA EDIT CHANGE
 	if(result.len)
 		for(var/i = 1; i <= length(result); i++)
 			if(result[i] != EXAMINE_SECTION_BREAK)
@@ -635,7 +635,7 @@
 				if((i == 1) || (i == length(result)) || (result[i - 1] == EXAMINE_SECTION_BREAK))
 					result.Cut(i, i + 1)
 					i--
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	to_chat(src, examine_block("<span class='infoplain'>[result.Join()]</span>"))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)
@@ -849,12 +849,12 @@
 	if(!check_respawn_delay())
 		return
 
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if(ckey)
 		if(is_banned_from(ckey, BAN_RESPAWN))
 			to_chat(usr, "<span class='boldnotice'>You are respawn banned, you can't respawn!</span>")
 			return
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	usr.log_message("used the respawn button.", LOG_GAME)
 

@@ -31,7 +31,7 @@ const PriorityButton = (props: {
   const className = `PreferencesMenu__Jobs__departments__priority`;
 
   return (
-    // SKYRAT EDIT START
+    // NOVA EDIT START
     <Button
       className={classes([
         className,
@@ -45,7 +45,7 @@ const PriorityButton = (props: {
       height={PRIORITY_BUTTON_SIZE}
       width={PRIORITY_BUTTON_SIZE}
     />
-    // SKYRAT EDIT END
+    // NOVA EDIT END
   );
 };
 
@@ -112,14 +112,14 @@ const PriorityButtons = (props: {
   const { createSetPriority, isOverflow, priority } = props;
 
   return (
-    <Box // SKYRAT EDIT - Originally a stack
+    <Box // NOVA EDIT - Originally a stack
       style={{
         alignItems: 'center',
         height: '100%',
         justifyContent: 'flex-end',
         paddingLeft: '0.3em',
-        paddingTop: '0.12em', // SKYRAT EDIT ADDITION - Add some vertical padding
-        paddingBottom: '0.12em', // SKYRAT EDIT ADDITION - To make this look nicer
+        paddingTop: '0.12em', // NOVA EDIT ADDITION - Add some vertical padding
+        paddingBottom: '0.12em', // NOVA EDIT ADDITION - To make this look nicer
       }}
     >
       {isOverflow ? (
@@ -171,12 +171,12 @@ const PriorityButtons = (props: {
           />
         </>
       )}
-    </Box> // SKYRAT EDIT - Originally a stack
+    </Box> // NOVA EDIT - Originally a stack
   );
 };
 
 const JobRow = (props: { className?: string; job: Job; name: string }) => {
-  const { data, act } = useBackend<PreferencesMenuData>(); // SKYRAT EDIT CHANGE - Adds act param
+  const { data, act } = useBackend<PreferencesMenuData>(); // NOVA EDIT CHANGE - Adds act param
   const { className, job, name } = props;
 
   const isOverflow = data.overflow_role === name;
@@ -188,11 +188,11 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
     data.job_required_experience && data.job_required_experience[name];
   const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
-  // SKYRAT EDIT ADDITION
+  // NOVA EDIT ADDITION
   const alt_title_selected = data.job_alt_titles[name]
     ? data.job_alt_titles[name]
     : name;
-  // SKYRAT EDIT END
+  // NOVA EDIT END
 
   let rightSide: ReactNode;
 
@@ -223,7 +223,7 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
         </Stack.Item>
       </Stack>
     );
-    // SKYRAT EDIT START
+    // NOVA EDIT START
   } else if (job.veteran && !data.is_veteran) {
     rightSide = (
       <Stack align="center" height="100%" pr={1}>
@@ -243,7 +243,7 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
         </Stack.Item>
       </Stack>
     );
-    // SKYRAT EDIT END
+    // NOVA EDIT END
   } else {
     rightSide = (
       <PriorityButtons
@@ -266,7 +266,7 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
             }}
           >
             {
-              // SKYRAT EDIT CHANGE START - ORIGINAL: {name}
+              // NOVA EDIT CHANGE START - ORIGINAL: {name}
               !job.alt_titles ? (
                 name
               ) : (
@@ -279,7 +279,7 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
                   }
                 />
               )
-              // SKYRAT EDIT CHANGE END
+              // NOVA EDIT CHANGE END
             }
           </Stack.Item>
         </Tooltip>
@@ -324,7 +324,7 @@ const Department = (props: { department: string } & PropsWithChildren) => {
             {
               jobsForDepartment.map(([name, job]) => {
                 return (
-                  <JobRow /* SKYRAT EDIT START - Fixing alt titles */
+                  <JobRow /* NOVA EDIT START - Fixing alt titles */
                     className={classes([
                       className,
                       name === department.head && 'head',
@@ -334,7 +334,7 @@ const Department = (props: { department: string } & PropsWithChildren) => {
                     name={name}
                   />
                 );
-              }) /* SKYRAT EDIT END */
+              }) /* NOVA EDIT END */
             }
 
             {children}

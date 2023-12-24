@@ -11,7 +11,7 @@
 	var/datum/antagonist/changeling/ling_datum = ling.mind.has_antag_datum(/datum/antagonist/changeling)
 
 	// Get the ability we're testing
-	ling_datum.give_power(/datum/action/changeling/sting/transformation) // SKYRAT EDIT CHANGE - Transformation sting not purchasable here - ORIGINAL : ling_datum.purchase_power(/datum/action/changeling/sting/transformation)
+	ling_datum.give_power(/datum/action/changeling/sting/transformation) // NOVA EDIT CHANGE - Transformation sting not purchasable here - ORIGINAL : ling_datum.purchase_power(/datum/action/changeling/sting/transformation)
 	var/datum/action/changeling/sting/transformation/sting_action = locate() in ling.actions
 	sting_action.selected_dna = ling_datum.current_profile
 	sting_action.sting_duration = 0.5 SECONDS // just makes sure everything settles.
@@ -75,12 +75,12 @@
 	// The more DNA features and random things we change, the more likely we are to catch something not updating correctly.
 	// Yeah guess who/what this is, I dare you.
 	ling.dna.features["mcolor"] = "#886600"
-	ling.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // SKYRAT EDIT CHANGE - ORIGINAL: ling.dna.features["tail_lizard"] = "Smooth"
-	ling.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // SKYRAT EDIT CHANGE - ORIGINAL: ling.dna.features["snout"] = "Sharp + Light"
-	ling.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // SKYRAT EDIT CHANGE - ORIGINAL: ling.dna.features["horns"] = "Curved"
-	ling.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // SKYRAT EDIT CHANGE - ORIGINAL: ling.dna.features["frills"] = "Sort"
-	ling.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // SKYRAT EDIT CHANGE - ORIGINAL: ling.dna.features["spines"] = "Long + Membrane"
-	ling.dna.body_markings["chest"] = list("Light Belly" = list("#886600", 0)) // SKYRAT EDIT CHANGE - ORIGINAL : ling.dna.features[body_markings] = list("Light Belly")
+	ling.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["tail_lizard"] = "Smooth"
+	ling.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Sharp + Light", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["snout"] = "Sharp + Light"
+	ling.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list("#292826", "#292826", "#8292826")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["horns"] = "Curved"
+	ling.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["frills"] = "Sort"
+	ling.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["spines"] = "Long + Membrane"
+	ling.dna.body_markings["chest"] = list("Light Belly" = list("#886600", 0)) // NOVA EDIT CHANGE - ORIGINAL : ling.dna.features[body_markings] = list("Light Belly")
 	ling.dna.features["legs"] = DIGITIGRADE_LEGS
 	ling.eye_color_left = "#FFFFFF"
 	ling.eye_color_right = "#FFFFFF"

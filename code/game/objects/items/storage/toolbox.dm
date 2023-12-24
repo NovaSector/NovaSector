@@ -162,14 +162,14 @@
 		new_cable_three.set_cable_color(pickedcolor)
 
 /obj/item/storage/toolbox/syndicate
-	name = "tactical toolbox" //SKYRAT EDIT
+	name = "tactical toolbox" //NOVA EDIT
 	icon_state = "syndicate"
 	inhand_icon_state = "toolbox_syndi"
 	force = 15
 	throwforce = 18
 	material_flags = NONE
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // Skyrat edit
-	special_desc = "A toolbox manufactured by the Syndicate containing extra tactical tools. Made of more robust materials than the average toolbox." // Skyrat edit
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
+	special_desc = "A toolbox manufactured by the Syndicate containing extra tactical tools. Made of more robust materials than the average toolbox." // NOVA EDIT
 
 /obj/item/storage/toolbox/syndicate/Initialize(mapload)
 	. = ..()

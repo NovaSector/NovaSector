@@ -137,7 +137,7 @@
 #define INIT_ORDER_BLACKBOX 94
 #define INIT_ORDER_SERVER_MAINT 93
 #define INIT_ORDER_INPUT 85
-#define INIT_ORDER_PLAYER_RANKS 84 // SKYRAT EDIT - Player Ranks Subsystem
+#define INIT_ORDER_PLAYER_RANKS 84 // NOVA EDIT - Player Ranks Subsystem
 #define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_INSTRUMENTS 82
 #define INIT_ORDER_GREYSCALE 81
@@ -155,7 +155,7 @@
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref
 #define INIT_ORDER_TICKER 55
 #define INIT_ORDER_TCG 55
-#define INIT_ORDER_AUTOMAPPER 51 // SKYRAT EDIT ADDITION - We need to load just before mapping.
+#define INIT_ORDER_AUTOMAPPER 51 // NOVA EDIT ADDITION - We need to load just before mapping.
 #define INIT_ORDER_MAPPING 50
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_RESEARCH 47
@@ -164,10 +164,10 @@
 #define INIT_ORDER_ECONOMY 40
 #define INIT_ORDER_OUTPUTS 35
 #define INIT_ORDER_RESTAURANT 34
-#define INIT_ORDER_POLLUTION 32 //SKYRAT EDIT ADDITION - //Needs to be above atoms
+#define INIT_ORDER_POLLUTION 32 //NOVA EDIT ADDITION - //Needs to be above atoms
 #define INIT_ORDER_TTS 33
 #define INIT_ORDER_ATOMS 30
-#define INIT_ORDER_ARMAMENTS 27 // SKYRAT EDIT ADDITION - Needs to be between atoms and default so it runs before gun companies
+#define INIT_ORDER_ARMAMENTS 27 // NOVA EDIT ADDITION - Needs to be between atoms and default so it runs before gun companies
 #define INIT_ORDER_LANGUAGE 25
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_SKILLS 15
@@ -187,7 +187,7 @@
 #define INIT_ORDER_SHUTTLE -21
 #define INIT_ORDER_MINOR_MAPPING -40
 #define INIT_ORDER_PATH -50
-#define INIT_ORDER_DECAY -61 //SKYRAT EDIT ADDITION
+#define INIT_ORDER_DECAY -61 //NOVA EDIT ADDITION
 #define INIT_ORDER_EXPLOSIONS -69
 #define INIT_ORDER_STATPANELS -97
 #define INIT_ORDER_BAN_CACHE -98

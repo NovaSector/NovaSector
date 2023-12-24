@@ -19,5 +19,5 @@
 			F.copy_air(GM)
 			F.update_visuals()
 
-			if(F.pollution) //SKYRAT EDIT ADDITION
+			if(F.pollution) //NOVA EDIT ADDITION
 				qdel(F.pollution)

@@ -12,8 +12,8 @@
 	name = "cryptographic sequencer" //SKYRAT COMMENT: Everyone knows what an emag is, both IC and OOC, they even make toy lookalikes.
 	icon_state = "emag"
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // SKYRAT EDIT ADDITION
-	special_desc = "An specially modified ID card used to break machinery and disable safeties. Notoriously used by Syndicate agents." // Skyrat edit
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT ADDITION
+	special_desc = "An specially modified ID card used to break machinery and disable safeties. Notoriously used by Syndicate agents." // NOVA EDIT
 	slot_flags = ITEM_SLOT_ID
 	worn_icon_state = "emag"
 	var/prox_check = TRUE //If the emag requires you to be in range
@@ -36,13 +36,13 @@
 	icon_state = "hack_o_lantern"
 
 /obj/item/card/emagfake
-	desc = "It's a card with a magnetic strip attached to some circuitry." //SKYRAT EDIT CHANGE
+	desc = "It's a card with a magnetic strip attached to some circuitry." //NOVA EDIT CHANGE
 	name = "cryptographic sequencer"
 	icon_state = "emag"
 	slot_flags = ITEM_SLOT_ID
 	worn_icon_state = "emag"
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE_TOY // SKYRAT EDIT ADDITION - It's a toy, we're not hiding it.
-	special_desc = "Closer inspection shows that this card is a poorly made replica, with a \"DonkCo\" logo stamped on the back." // SKYRAT EDIT ADDITION
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE_TOY // NOVA EDIT ADDITION - It's a toy, we're not hiding it.
+	special_desc = "Closer inspection shows that this card is a poorly made replica, with a \"DonkCo\" logo stamped on the back." // NOVA EDIT ADDITION
 
 /obj/item/card/emagfake/attack_self(mob/user) //for assistants with balls of plasteel
 	if(Adjacent(user))
@@ -85,11 +85,11 @@
  * DOORMAG
  */
 /obj/item/card/emag/doorjack
-	desc = "This dated-looking ID card has been obviously and illegally modified with extra circuitry. Resembles the infamous \"emag\"." //SKYRAT EDIT CHANGE
+	desc = "This dated-looking ID card has been obviously and illegally modified with extra circuitry. Resembles the infamous \"emag\"." //NOVA EDIT CHANGE
 	name = "modified ID card"
 	icon_state = "doorjack"
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // SKYRAT EDIT ADDITION
-	special_desc = "Identifies commonly as a \"doorjack\", this illegally modified ID card can disrupt airlock electronics. Has a self recharging cell. Used often by Syndicate agents." // SKYRAT EDIT ADDITION
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT ADDITION
+	special_desc = "Identifies commonly as a \"doorjack\", this illegally modified ID card can disrupt airlock electronics. Has a self recharging cell. Used often by Syndicate agents." // NOVA EDIT ADDITION
 	worn_icon_state = "doorjack"
 	var/type_whitelist //List of types
 	var/charges = 3

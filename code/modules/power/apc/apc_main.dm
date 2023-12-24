@@ -561,7 +561,7 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-		else if(cell.percent() < 7 && long_term_power < 0) // SKYRAT EDIT CHANGE - orig: 15
+		else if(cell.percent() < 7 && long_term_power < 0) // NOVA EDIT CHANGE - orig: 15
 			equipment = autoset(equipment, AUTOSET_OFF)
 			lighting = autoset(lighting, AUTOSET_OFF)
 			environ = autoset(environ, AUTOSET_ON)
@@ -569,9 +569,9 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-		else if(cell.percent() < 17 && long_term_power < 0) // SKYRAT EDIT CHANGE - orig: 30
-			equipment = autoset(equipment, AUTOSET_ON) // SKYRAT EDIT CHANGE - orig: AUTOSET_OFF
-			lighting = autoset(lighting, AUTOSET_OFF) // SKYRAT EDIT CHANGE - orig: AUTOSET_ON
+		else if(cell.percent() < 17 && long_term_power < 0) // NOVA EDIT CHANGE - orig: 30
+			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - orig: AUTOSET_OFF
+			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - orig: AUTOSET_ON
 			environ = autoset(environ, AUTOSET_ON)
 			alarm_manager.send_alarm(ALARM_POWER)
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))

@@ -492,7 +492,7 @@
 	///List of shuttle events that can run or are running
 	var/list/datum/shuttle_event/event_list = list()
 
-	var/admin_forced = FALSE //SKYRAT EDIT ADDITION
+	var/admin_forced = FALSE //NOVA EDIT ADDITION
 
 #define WORLDMAXX_CUTOFF (world.maxx + 1)
 #define WORLDMAXY_CUTOFF (world.maxx + 1)
@@ -699,15 +699,15 @@
  * Arguments:
  * * destination_port - Stationary docking port to move the shuttle to
  */
-/obj/docking_port/mobile/proc/request(obj/docking_port/stationary/destination_port, forced = FALSE) // SKYRAT EDIT ADDITION - Forced check
-	if(!check_dock(destination_port) && !forced) // SKYRAT EDIT ADDITION - Forced check
+/obj/docking_port/mobile/proc/request(obj/docking_port/stationary/destination_port, forced = FALSE) // NOVA EDIT ADDITION - Forced check
+	if(!check_dock(destination_port) && !forced) // NOVA EDIT ADDITION - Forced check
 		testing("check_dock failed on request for [src]")
 		return
 
-	// SKYRAT EDIT START - Forced check
+	// NOVA EDIT START - Forced check
 	if(forced)
 		admin_forced = TRUE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	if(mode == SHUTTLE_IGNITING && destination == destination_port)
 		return
@@ -730,10 +730,10 @@
 		if(SHUTTLE_IDLE, SHUTTLE_IGNITING)
 			destination = destination_port
 			mode = SHUTTLE_IGNITING
-			// SKYRAT EDIT ADD START
+			// NOVA EDIT ADD START
 			bolt_all_doors()
 			play_engine_sound(src, TRUE)
-			// SKYRAT EDIT ADD END
+			// NOVA EDIT ADD END
 			setTimer(ignitionTime)
 
 //recall the shuttle to where it was previously
@@ -882,7 +882,7 @@
 				return
 			if(rechargeTime)
 				mode = SHUTTLE_RECHARGING
-				unbolt_all_doors() //SKYRAT EDIT ADDITION
+				unbolt_all_doors() //NOVA EDIT ADDITION
 				setTimer(rechargeTime)
 				return
 		if(SHUTTLE_RECALL)
@@ -899,8 +899,8 @@
 				enterTransit()
 				return
 
-	admin_forced = FALSE //SKYRAT EDIT ADDITION
-	unbolt_all_doors() //SKYRAT EDIT ADDITION
+	admin_forced = FALSE //NOVA EDIT ADDITION
+	unbolt_all_doors() //NOVA EDIT ADDITION
 	mode = SHUTTLE_IDLE
 	timer = 0
 	destination = null
@@ -911,8 +911,8 @@
 			var/tl = timeLeft(1)
 			if(tl <= SHUTTLE_RIPPLE_TIME)
 				create_ripples(destination, tl)
-				play_engine_sound(src, FALSE) //SKYRAT EDIT ADDITION
-				play_engine_sound(destination, FALSE) //SKYRAT EDIT ADDITION
+				play_engine_sound(src, FALSE) //NOVA EDIT ADDITION
+				play_engine_sound(destination, FALSE) //NOVA EDIT ADDITION
 
 	var/obj/docking_port/stationary/S0 = get_docked()
 	if(istype(S0, /obj/docking_port/stationary/transit) && timeLeft(1) <= PARALLAX_LOOP_TIME)

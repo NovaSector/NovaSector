@@ -13,10 +13,10 @@
 		#include "map_files\Mining\Lavaland.dmm"
 		#include "map_files\NorthStar\north_star.dmm"
 		#include "map_files\tramstation\tramstation.dmm"
-		// SKYRAT EDIT ADDITON START - Compiling our modular maps too!
+		// NOVA EDIT ADDITON START - Compiling our modular maps too!
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 
 		#ifdef CIBUILDING
 			#include "templates.dm"

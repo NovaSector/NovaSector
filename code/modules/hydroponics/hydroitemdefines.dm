@@ -1,5 +1,5 @@
 // Plant analyzer
-/obj/item/plant_analyzer//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/item/plant_analyzer//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "plant analyzer"
 	desc = "A scanner used to evaluate a plant's various areas of growth, and genetic traits. Comes with a growth scanning mode and a chemical scanning mode."
 	icon = 'icons/obj/devices/scanner.dmi'
@@ -504,7 +504,7 @@
 	resistance_flags = FLAMMABLE
 	flags_1 = NONE
 
-/* Skyrat Edit Start - Modularization and New Scythes
+/* NOVA EDIT Start - Modularization and New Scythes
 /obj/item/scythe
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
