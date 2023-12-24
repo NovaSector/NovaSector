@@ -13,7 +13,7 @@
 | Guide to Modularization   | [./modular_skyrat/readme.md](./modular_skyrat/readme.md)            |
 | Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
 | Code                      | [https://github.com/GalacticStation/GalaxiaStation](https://github.com/GalacticStation/GalaxiaStation)    |
-| Wiki                      | [https://wiki.novasector13.com](wiki.novasector13.com)   |
+| Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
 | Codedocs                  | [https://GalacticStation.github.io/GalaxiaStation/](https://GalacticStation.github.io/GalaxiaStation/)       |
 | Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
