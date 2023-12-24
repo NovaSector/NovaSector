@@ -7,8 +7,8 @@
 /obj/item/clothing/mask/balaclavaadjust
 	name = "adjustable balaclava"
 	desc = "Wider eyed and made of an elastic based material, this one seems like it can contort more."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "balaclava"
 	inhand_icon_state = "balaclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
@@ -54,8 +54,8 @@
 /obj/item/clothing/mask/balaclava/threehole
 	name = "three hole balaclava"
 	desc = "Tiocfaidh ar la."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "balaclavam"
 	inhand_icon_state = "balaclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
@@ -64,28 +64,28 @@
 /obj/item/clothing/mask/balaclava/threehole/green
 	name = "three hole green balaclava"
 	desc = "Tiocfaidh ar la."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "swatclavam"
 	inhand_icon_state = "balaclava"
 
 /obj/item/clothing/mask/muzzle/ball
 	name = "ballgag"
 	desc = "I'm pretty fuckin far from okay."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "ballgag"
 
 /obj/item/clothing/mask/muzzle/ring
 	name = "ring gag"
 	desc = "A mouth wrap seemingly designed to hold the mouth open."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "ringgag"
 
 /obj/item/clothing/mask/surgical/greyscale
-	icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'
-	worn_icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'
+	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
+	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#AAE4DB"
 	greyscale_config = /datum/greyscale_config/sterile_mask

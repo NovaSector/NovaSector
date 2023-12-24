@@ -1,7 +1,7 @@
 /obj/item/stack/medical/suture/bloody
 	name = "hemostatic suture"
 	desc = "Bloodclotting agent-infused sterile sutures used to seal up cuts and lacerations and reverse critical bleedings."
-	icon = 'modular_skyrat/modules/food_replicator/icons/medicine.dmi'
+	icon = 'modular_nova/modules/food_replicator/icons/medicine.dmi'
 	icon_state = "hemo_suture"
 	heal_brute = 7
 	stop_bleeding = 1
@@ -17,7 +17,7 @@
 /obj/item/stack/medical/mesh/bloody
 	name = "hemostatic mesh"
 	desc = "A hemostatic mesh used to dress burns and stimulate hemopoiesis. Due to its blood-related purpose, it is worse at sanitizing infections."
-	icon = 'modular_skyrat/modules/food_replicator/icons/medicine.dmi'
+	icon = 'modular_nova/modules/food_replicator/icons/medicine.dmi'
 	icon_state = "hemo_mesh"
 	heal_burn = 7
 	sanitization = 0.5
@@ -41,7 +41,7 @@
 /obj/item/reagent_containers/hypospray/medipen/glucose
 	name = "pressurised glucose medipen"
 	desc = "A medipen for keeping yourself going during prolonged EVA shifts, injects a dose of glucose into your bloodstream. Recommended for use in low-pressure environments."
-	icon = 'modular_skyrat/modules/food_replicator/icons/medicine.dmi'
+	icon = 'modular_nova/modules/food_replicator/icons/medicine.dmi'
 	icon_state = "glupen"
 	inhand_icon_state = "stimpen"
 	base_icon_state = "glupen"

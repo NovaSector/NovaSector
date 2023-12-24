@@ -18,7 +18,7 @@
 	id_trim = /datum/id_trim/solfed_bitrun
 
 /datum/id_trim/solfed_bitrun
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "SolFed Marine"
 	trim_state = "trim_solfed"
 	department_color = COLOR_SOLFED_GOLD

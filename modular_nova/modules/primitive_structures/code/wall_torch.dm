@@ -1,7 +1,7 @@
 /obj/structure/wall_torch
 	name = "mounted torch"
 	desc = "A simple torch mounted to the wall, for lighting and such."
-	icon = 'modular_skyrat/modules/primitive_structures/icons/lighting.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/lighting.dmi'
 	icon_state = "walltorch"
 	base_icon_state = "walltorch"
 	anchored = TRUE

@@ -7,7 +7,7 @@
 	unique_pet = TRUE
 	ai_controller = /datum/ai_controller/basic_controller/dog
 	desc = "It's a Cybersun MiniVix robotic model wearing a microsized syndicate MODsuit and a cute little cap. Quite pretty."
-	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "syndifox"
 	icon_living = "syndifox"
 	icon_dead = "syndifox_dead"

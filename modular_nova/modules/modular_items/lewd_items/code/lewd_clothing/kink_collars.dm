@@ -29,8 +29,8 @@
 /obj/item/clothing/neck/kink_collar
 	name = "collar"
 	desc = "A nice, tight collar. It fits snug to your skin"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "collar_cyan"
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
@@ -86,8 +86,8 @@
 /obj/item/clothing/neck/kink_collar/locked
 	name = "locked collar"
 	desc = "A tight collar. It appears to have some kind of lock."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "lock_collar_cyan"
 	treat_path = /obj/item/key/kink_collar
 	/// If the collar is currently locked
@@ -173,7 +173,7 @@
 /obj/item/key/kink_collar
 	name = "kink collar key"
 	desc = "A key for a tiny lock on a collar or bag."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "collar_key_metal"
 	base_icon_state = "collar_key"
 	/// The name inscribed on the key
@@ -258,9 +258,9 @@
 /obj/item/mind_controller
 	name = "mind controller"
 	desc = "A small remote for sending basic emotion patterns to a collar."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	icon_state = "mindcontroller"
 	/// Reference to the mind control collar
 	var/obj/item/clothing/neck/mind_collar/collar = null
@@ -285,8 +285,8 @@
 /obj/item/clothing/neck/mind_collar
 	name = "mind collar"
 	desc = "A tight collar. It has some strange high-tech emitters on the side."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "mindcollar"
 	inhand_icon_state = null
 	/// Reference to the mind control remote

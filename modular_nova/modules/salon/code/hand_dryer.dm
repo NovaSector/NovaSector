@@ -1,7 +1,7 @@
 /obj/machinery/dryer
 	name = "hand dryer"
 	desc = "The Breath Of Lizards-3000, an experimental dryer."
-	icon = 'modular_skyrat/modules/salon/icons/dryer.dmi'
+	icon = 'modular_nova/modules/salon/icons/dryer.dmi'
 	icon_state = "dryer"
 	density = FALSE
 	anchored = TRUE
@@ -19,7 +19,7 @@
 		return
 
 	to_chat(user, span_notice("You start drying your hands."))
-	playsound(src, 'modular_skyrat/modules/salon/sound/drying.ogg', 50)
+	playsound(src, 'modular_nova/modules/salon/sound/drying.ogg', 50)
 	add_fingerprint(user)
 	busy = TRUE
 	if(do_after(user, 4 SECONDS, src))

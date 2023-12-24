@@ -1,9 +1,9 @@
 /obj/item/bong
 	name = "bong"
 	desc = "Technically known as a water pipe."
-	icon = 'modular_skyrat/modules/bongs/icons/bong.dmi'
-	lefthand_file = 'modular_skyrat/modules/bongs/icons/lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/bongs/icons/righthand.dmi'
+	icon = 'modular_nova/modules/bongs/icons/bong.dmi'
+	lefthand_file = 'modular_nova/modules/bongs/icons/lefthand.dmi'
+	righthand_file = 'modular_nova/modules/bongs/icons/righthand.dmi'
 	icon_state = "bongoff"
 	inhand_icon_state = "bongoff"
 
@@ -104,10 +104,10 @@
 			spawn_cloud(pos, smoke_range)
 	if(moan_chance > 0)
 		if(prob(moan_chance))
-			playsound(hit_mob, pick('modular_skyrat/master_files/sound/effects/lungbust_moan1.ogg','modular_skyrat/master_files/sound/effects/lungbust_moan2.ogg', 'modular_skyrat/master_files/sound/effects/lungbust_moan3.ogg'), 50, TRUE)
+			playsound(hit_mob, pick('modular_nova/master_files/sound/effects/lungbust_moan1.ogg','modular_nova/master_files/sound/effects/lungbust_moan2.ogg', 'modular_nova/master_files/sound/effects/lungbust_moan3.ogg'), 50, TRUE)
 			hit_mob.emote("moan")
 		else
-			playsound(hit_mob, pick('modular_skyrat/master_files/sound/effects/lungbust_cough1.ogg','modular_skyrat/master_files/sound/effects/lungbust_cough2.ogg'), 50, TRUE)
+			playsound(hit_mob, pick('modular_nova/master_files/sound/effects/lungbust_cough1.ogg','modular_nova/master_files/sound/effects/lungbust_cough2.ogg'), 50, TRUE)
 			hit_mob.emote("cough")
 	if(bong_hits <= 0)
 		balloon_alert(hit_mob, "out of uses!")

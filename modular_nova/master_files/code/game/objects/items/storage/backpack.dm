@@ -46,10 +46,10 @@
 	desc = "A trendy looking messenger bag; sometimes known as a courier bag. Fashionable and portable."
 	icon_state = "messenger"
 	inhand_icon_state = "messenger"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	lefthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
-	righthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
 
 /obj/item/storage/backpack/messenger/eng
 	name = "industrial messenger bag"

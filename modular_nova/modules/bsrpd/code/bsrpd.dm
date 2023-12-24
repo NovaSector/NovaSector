@@ -5,10 +5,10 @@
 /obj/item/pipe_dispenser/bluespace
 	name = "bluespace RPD"
 	desc = "State of the art technology being tested by NT scientists; this is their only working prototype."
-	icon = 'modular_skyrat/modules/bsrpd/icons/bsrpd.dmi'
+	icon = 'modular_nova/modules/bsrpd/icons/bsrpd.dmi'
 	icon_state = "bsrpd"
-	lefthand_file = 'modular_skyrat/modules/bsrpd/icons/bsrpd_left.dmi'
-	righthand_file = 'modular_skyrat/modules/bsrpd/icons/bsrpd_right.dmi'
+	lefthand_file = 'modular_nova/modules/bsrpd/icons/bsrpd_left.dmi'
+	righthand_file = 'modular_nova/modules/bsrpd/icons/bsrpd_right.dmi'
 	inhand_icon_state = "bsrpd"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	custom_materials = null

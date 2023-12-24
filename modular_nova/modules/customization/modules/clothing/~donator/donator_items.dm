@@ -1,8 +1,8 @@
 //Donator reward for UltramariFox
 /obj/item/clothing/mask/cigarette/khi
 	name = "\improper Kitsuhana Singularity cigarette"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "khioff"
 	icon_on = "khion"
 	icon_off = "khioff"
@@ -10,12 +10,12 @@
 	list_reagents = list(/datum/reagent/drug/nicotine = 10, /datum/reagent/toxin/mindbreaker = 5)
 
 /obj/item/cigbutt/khi
-	icon = 'modular_skyrat/master_files/icons/obj/cigarettes_khi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/cigarettes_khi.dmi'
 	icon_state = "khibutt"
 
 /obj/item/storage/fancy/cigarettes/khi
 	name = "\improper Kitsuhana Singularity packet"
-	icon = 'modular_skyrat/master_files/icons/obj/cigarettes_khi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/cigarettes_khi.dmi'
 	icon_state = "khi_cig_packet"
 	base_icon_state = "khi_cig_packet"
 	spawn_type = /obj/item/clothing/mask/cigarette/khi
@@ -23,7 +23,7 @@
 //Donator reward for Stonetear
 /obj/item/hairbrush/switchblade
 	name = "switchcomb"
-	icon = 'modular_skyrat/master_files/icons/donator/obj/custom.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	icon_state = "switchblade"
 	base_icon_state = "switchblade"
 	desc = "A sharp, concealable, spring-loaded comb."
@@ -67,10 +67,10 @@
 /obj/item/donator/transponder
 	name = "broken Helian transponder"
 	desc = "Used by Helians to communicate with their mothership, the screen is cracked and its edges scuffed. This one has seen better days."
-	icon = 'modular_skyrat/master_files/icons/donator/obj/custom.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/donator/mob/clothing/custom_w.dmi'
-	lefthand_file = 'modular_skyrat/master_files/icons/donator/mob/inhands/donator_left.dmi'
-	righthand_file = 'modular_skyrat/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/custom_w.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "transponder"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
@@ -102,7 +102,7 @@
 				"[icon2html(src, oviewers(2, user))] As [user] turns the red dial on the side of \the [src], it spits out some encrypted static and warbles before silencing itself.",
 				"[icon2html(src, user)] As you turn the red dial on the side of the device, it spits out some encrypted static and warbles before silencing itself.",
 				vision_distance=2)
-			playsound(user, 'modular_skyrat/master_files/sound/effects/bab1.ogg', 100, TRUE)
+			playsound(user, 'modular_nova/master_files/sound/effects/bab1.ogg', 100, TRUE)
 			sparks.start()
 			current_state = TAP_SCREEN
 			next_activate = world.time + 20
@@ -112,7 +112,7 @@
 				"[icon2html(src, oviewers(2, user))] [user] taps the screen of \the [src], making it light up and starting the boot sequence. \the [src] displays an error message and shuts off.",
 				"[icon2html(src, user)] You tap the device's screen, making it light up and starting the boot sequence. The device displays an error message and shuts off.",
 				vision_distance=2)
-			playsound(user, 'modular_skyrat/master_files/sound/effects/platform_call.ogg', 100, TRUE)
+			playsound(user, 'modular_nova/master_files/sound/effects/platform_call.ogg', 100, TRUE)
 			current_state = PRESS_KEYS
 			next_activate = world.time + 20
 			return
@@ -122,7 +122,7 @@
 				"[icon2html(src, user)] You press some keys, producing some promising beeps, before a harsh buzz returns the device to silence again.",
 				vision_distance=2)
 			sparks.start()
-			playsound(user, 'modular_skyrat/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
+			playsound(user, 'modular_nova/master_files/sound/effects/gmalfunction.ogg', 100, TRUE)
 			current_state = EXTEND_ANTENNA
 			next_activate = world.time + 20
 			return
@@ -139,7 +139,7 @@
 				"[icon2html(src, oviewers(2, user))] [user] slaps the side of \the [src] and it whirrs into life, before thunking and remains still.",
 				"[icon2html(src, user)] You slap the side of the device and it whirrs into life, before thunking and remaining still.",
 				vision_distance=2)
-			playsound(user, 'modular_skyrat/master_files/sound/effects/hacked.ogg', 100, TRUE)
+			playsound(user, 'modular_nova/master_files/sound/effects/hacked.ogg', 100, TRUE)
 			sparks.start()
 			current_state = TURN_DIAL
 			next_activate = world.time + 110
@@ -226,9 +226,9 @@
 	name = "Cat-Ear Headphones"
 	desc = "Merch of their Electric Guitarist Demi Galgan from the Singularity Shredders. It's heavily customizable and even comes with a holographic tail!"
 	icon_state = "catear_headphone"
-	worn_icon = 'modular_skyrat/modules/GAGS/icons/head/catear_headphone.dmi'
-	lefthand_file = 'modular_skyrat/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
-	righthand_file = 'modular_skyrat/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
+	worn_icon = 'modular_nova/modules/GAGS/icons/head/catear_headphone.dmi'
+	lefthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
+	righthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
 	inhand_icon_state = "catear_headphone"
 	slot_flags = ITEM_SLOT_EARS | ITEM_SLOT_HEAD | ITEM_SLOT_NECK
 	var/catTailToggled = FALSE
@@ -249,9 +249,9 @@
 /obj/item/instrument/piano_synth/headphones/catear_headphone/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
-		. += emissive_appearance('modular_skyrat/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_[song?.playing ? "on" : "off"]_emissive", src, alpha = src.alpha)
+		. += emissive_appearance('modular_nova/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_[song?.playing ? "on" : "off"]_emissive", src, alpha = src.alpha)
 		if(catTailToggled)
-			. += emissive_appearance('modular_skyrat/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_tail_on_emissive", src, alpha = src.alpha)
+			. += emissive_appearance('modular_nova/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_tail_on_emissive", src, alpha = src.alpha)
 			icon_state = "catear_headphone_tail[song?.playing ? "_on" : null]"
 		else
 			icon_state = "catear_headphone[song?.playing ? "_on" : null]"
@@ -264,4 +264,4 @@
 
 /obj/item/instrument/piano_synth/headphones/catear_headphone/update_overlays()
 	. = ..()
-	. += emissive_appearance('modular_skyrat/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_obj_lights_emissive", src, alpha = src.alpha)
+	. += emissive_appearance('modular_nova/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_obj_lights_emissive", src, alpha = src.alpha)

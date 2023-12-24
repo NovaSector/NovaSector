@@ -13,9 +13,9 @@
 	name = "'Touvou' peacekeeper armor vest"
 	desc = "A bright blue vest, proudly bearing 'SF' in white on its front and back. Dense fabric with a thin layer of rolled metal \
 		will protect you from bullets best, a few blunt blows, and the wounds they cause. Lasers will burn more or less straight through it."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "soft_peacekeeper"
-	worn_icon = 'modular_skyrat/modules/specialist_armor/icons/armor_worn.dmi'
+	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_sf_peacekeeper
@@ -44,9 +44,9 @@
 	name = "'Kastrol' peacekeeper helmet"
 	desc = "A large, almost always ill-fitting helmet painted in bright blue. It proudly bears the emblems of SolFed on its sides. \
 		It will protect from bullets best, with some protection against blunt blows, but falters easily in the presence of lasers."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "helmet_peacekeeper"
-	worn_icon = 'modular_skyrat/modules/specialist_armor/icons/armor_worn.dmi'
+	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_sf_peacekeeper
 	dog_fashion = null

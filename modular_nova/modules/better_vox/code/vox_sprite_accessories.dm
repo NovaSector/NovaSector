@@ -1,6 +1,6 @@
 //The tail
 /datum/sprite_accessory/tails/vox_primalis
-	icon = 'modular_skyrat/modules/better_vox/icons/accessories/vox_tail.dmi'
+	icon = 'modular_nova/modules/better_vox/icons/accessories/vox_tail.dmi'
 	name = "Vox Primalis Tail"
 	icon_state = "vox"
 	color_src = 0
@@ -25,7 +25,7 @@
 
 // HAIR
 /datum/sprite_accessory/hair/vox_primalis
-	icon = 'modular_skyrat/modules/better_vox/icons/accessories/vox_hair.dmi'
+	icon = 'modular_nova/modules/better_vox/icons/accessories/vox_hair.dmi'
 	recommended_species = list(SPECIES_VOX_PRIMALIS)
 	name = "Vox Primalis Shortquills"
 	icon_state = "vox_shortquills_s"
@@ -80,7 +80,7 @@
 
 // MARKINGS
 /datum/body_marking/vox_primalis
-	icon = 'modular_skyrat/modules/better_vox/icons/accessories/vox_bodymarkings.dmi'
+	icon = 'modular_nova/modules/better_vox/icons/accessories/vox_bodymarkings.dmi'
 	default_color = "#64e8ff"
 	recommended_species = list(SPECIES_VOX_PRIMALIS)
 	affected_bodyparts = CHEST
@@ -116,7 +116,7 @@
 
 // THE BEAK
 /datum/sprite_accessory/snouts/vox_primalis_beak
-	icon = 'modular_skyrat/modules/better_vox/icons/accessories/vox_snout.dmi'
+	icon = 'modular_nova/modules/better_vox/icons/accessories/vox_snout.dmi'
 	name = "Vox Primalis Beak"
 	icon_state = "vox"
 	color_src = 0

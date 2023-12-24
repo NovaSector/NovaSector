@@ -47,7 +47,7 @@
 		dissipate()
 	else if (!stat && !robot_resting)
 		do_jitter_animation(10)
-		playsound(src, 'modular_skyrat/master_files/sound/effects/robot_smoke.ogg', 50)
+		playsound(src, 'modular_nova/master_files/sound/effects/robot_smoke.ogg', 50)
 		particles = new /particles/smoke/robot()
 
 /mob/living/silicon/robot/proc/dissipate()
@@ -85,7 +85,7 @@
 
 // Another smoke effect
 /obj/effect/temp_visual/mook_dust/robot
-	icon = 'modular_skyrat/modules/borgs/icons/misc/tallrobot_effects.dmi'
+	icon = 'modular_nova/modules/borgs/icons/misc/tallrobot_effects.dmi'
 	icon_state = "impact_cloud"
 	color = "#a9a9a93c"
 

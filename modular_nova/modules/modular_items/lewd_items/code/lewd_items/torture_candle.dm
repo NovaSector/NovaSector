@@ -4,9 +4,9 @@
 /obj/item/bdsm_candle
 	name = "soy candle"
 	desc = "A candle with low melting temperature."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	icon_state = "candle_pink_off"
 	base_icon_state = "candle"
 	inhand_icon_state = "candle_pink_off"
@@ -196,8 +196,8 @@
 		if(prob(50))
 			attacked.try_lewd_autoemote(pick("twitch_s" , "gasp", "shiver"))
 	user.visible_message(span_purple("[user] [message]!"))
-	play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/vax1.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/vax2.ogg'), 70, TRUE)
+	play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/vax2.ogg'), 70, TRUE)
 
 #undef CANDLE_LUMINOSITY
 #undef PAIN_DEFAULT

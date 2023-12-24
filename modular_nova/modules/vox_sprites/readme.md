@@ -21,27 +21,27 @@ Ports the Vox species and clothing sprites from Paradise plus some new GAGS-comp
 
 Species sprites:
 
-- modular_skyrat/master_files/icons/mob/body_markings/vox_secondary.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/species/vox_eyes.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/species/vox_parts_greyscale.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/sprite_accessory/vox_facial_hair.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/sprite_accessory/vox_hair.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/sprite_accessory/vox_snouts.dmi #CHANGE
+- modular_nova/master_files/icons/mob/body_markings/vox_secondary.dmi #CHANGE
+- modular_nova/master_files/icons/mob/species/vox_eyes.dmi #CHANGE
+- modular_nova/master_files/icons/mob/species/vox_parts_greyscale.dmi #CHANGE
+- modular_nova/master_files/icons/mob/sprite_accessory/vox_facial_hair.dmi #CHANGE
+- modular_nova/master_files/icons/mob/sprite_accessory/vox_hair.dmi #CHANGE
+- modular_nova/master_files/icons/mob/sprite_accessory/vox_snouts.dmi #CHANGE
 
 Clothing sprites:
 
-- modular_skyrat/master_files/icons/mob/clothing/head_vox.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/clothing/mask_vox.dmi #CHANGE
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/back.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/color_gags_vox.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/ears.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/eyes.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/feet.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/hands.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/head.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/helmet.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/suit.dmi #ADD
-- modular_skyrat/master_files/icons/mob/clothing/species/vox/uniform.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/head_vox.dmi #CHANGE
+- modular_nova/master_files/icons/mob/clothing/mask_vox.dmi #CHANGE
+- modular_nova/master_files/icons/mob/clothing/species/vox/back.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/color_gags_vox.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/ears.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/eyes.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/feet.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/hands.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/head.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/helmet.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/suit.dmi #ADD
+- modular_nova/master_files/icons/mob/clothing/species/vox/uniform.dmi #ADD
 
 ### Included files that are not contained in this module:
 

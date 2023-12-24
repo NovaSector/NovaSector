@@ -18,7 +18,7 @@
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	wander = FALSE
-	attack_sound = 'modular_skyrat/master_files/sound/weapons/crowbar2.ogg'
+	attack_sound = 'modular_nova/master_files/sound/weapons/crowbar2.ogg'
 	loot = list(/obj/item/crowbar/freeman/ultimate, /obj/item/keycard/freeman_boss_exit)
 	gold_core_spawnable = NO_SPAWN
 
@@ -43,7 +43,7 @@
 /obj/machinery/door/puzzle/keycard/xen/freeman_boss_entry
 	name = "entry door"
 	desc = "Complete the puzzle to open this door."
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_door.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "freeman_entry"
 
@@ -55,7 +55,7 @@
 /obj/machinery/door/puzzle/keycard/xen/freeman_boss_exit
 	name = "exit door"
 	desc = "You must defeat him."
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_door.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "freeman_exit"
 

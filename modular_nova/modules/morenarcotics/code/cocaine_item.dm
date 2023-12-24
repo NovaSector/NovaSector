@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/crack
 	name = "crack"
 	desc = "A rock of freebase cocaine, otherwise known as crack."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "crack"
 	volume = 10
 	has_variable_transfer_amount = FALSE
@@ -10,7 +10,7 @@
 /obj/item/reagent_containers/crackbrick
 	name = "crack brick"
 	desc = "A brick of crack cocaine."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "crackbrick"
 	volume = 40
 	has_variable_transfer_amount = FALSE
@@ -35,7 +35,7 @@
 /obj/item/reagent_containers/cocaine
 	name = "cocaine"
 	desc = "Reenact your favorite scenes from Scarface!"
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "cocaine"
 	volume = 5
 	has_variable_transfer_amount = FALSE
@@ -80,7 +80,7 @@
 /obj/item/reagent_containers/cocainebrick
 	name = "cocaine brick"
 	desc = "A brick of cocaine. Good for transport!"
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "cocainebrick"
 	volume = 25
 	has_variable_transfer_amount = FALSE

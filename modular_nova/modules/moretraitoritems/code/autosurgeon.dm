@@ -38,12 +38,12 @@
 
 /obj/item/autosurgeon/bodypart/r_arm_robotic/Initialize(mapload)
 	. = ..()
-	storedbodypart.icon = 'modular_skyrat/master_files/icons/mob/augmentation/hi2ipc.dmi'
+	storedbodypart.icon = 'modular_nova/master_files/icons/mob/augmentation/hi2ipc.dmi'
 
 //xeno-organs
 /obj/item/autosurgeon/xeno
 	name = "strange autosurgeon"
-	icon = 'modular_skyrat/modules/moretraitoritems/icons/alien.dmi'
+	icon = 'modular_nova/modules/moretraitoritems/icons/alien.dmi'
 	surgery_speed = 2
 	organ_whitelist = list(/obj/item/organ/internal/alien)
 
@@ -54,7 +54,7 @@
 
 /obj/item/storage/organbox/strange
 	name = "strange organ transport box"
-	icon = 'modular_skyrat/modules/moretraitoritems/icons/alien.dmi'
+	icon = 'modular_nova/modules/moretraitoritems/icons/alien.dmi'
 
 /obj/item/storage/organbox/strange/Initialize(mapload)
 	. = ..()

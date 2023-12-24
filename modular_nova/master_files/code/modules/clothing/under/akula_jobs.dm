@@ -1,5 +1,5 @@
 /// The DMI containing the tail overlay sprites
-#define TAIL_OVERLAY_DMI 'modular_skyrat/master_files/icons/mob/clothing/under/akula.dmi'
+#define TAIL_OVERLAY_DMI 'modular_nova/master_files/icons/mob/clothing/under/akula.dmi'
 /// The proper layer to render the tail overlays onto
 #define TAIL_OVERLAY_LAYER 5.9
 
@@ -15,8 +15,8 @@
 		a great many chemicals or even drinks have been loaded in by adventurous or careless explorers of the New Principalities-- at fantastic personal risk to their gills. "
 	icon_state = "default"
 	base_icon_state = "default"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/akula.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/akula.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/akula.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/akula.dmi'
 	armor_type = /datum/armor/clothing_under/wetsuit
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	can_adjust = FALSE
@@ -198,8 +198,8 @@
 		The 'flexiglass' glass comprising the unit is chemically strengthened to be thin, light, and damage-resistant, but capable of bending even in half without shattering; all to allow you to touch your face. \n\
 		Some have taken to putting electronic displays around the face to help express emotion, or to signal nonverbally. \
 		These helms are normally attached to Shoredresses or Stardresses, but comes with a fitted neoprene collar to allow wear on essentially anything."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/akula.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/akula.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/akula.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/akula.dmi'
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | STACKABLE_HELMET_EXEMPT | HEADINTERNALS
 	icon_state = "helmet"
 	inhand_icon_state = "helmet"

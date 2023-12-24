@@ -1,8 +1,8 @@
 /obj/item/electropack/shockcollar
 	name = "shock collar"
 	desc = "A reinforced metal collar. It has some sort of wiring near the front."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "shockcollar"
 	inhand_icon_state = null
 	body_parts_covered = NECK

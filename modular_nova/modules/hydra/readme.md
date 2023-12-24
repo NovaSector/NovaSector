@@ -18,7 +18,7 @@ MODULE ID: hydra
 
 ### Master file additions
 
-- modular_skyrat/master_files/code/datums/traits/neutral.dm // Added Hydra Heads trait
+- modular_nova/master_files/code/datums/traits/neutral.dm // Added Hydra Heads trait
 
 ### Included files that are not contained in this module:
 

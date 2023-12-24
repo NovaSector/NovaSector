@@ -538,7 +538,7 @@
 		iterating_equipment.status = OPFOR_EQUIPMENT_STATUS_DENIED
 	for(var/datum/opposing_force_objective/opfor in objectives)
 		opfor.status = OPFOR_OBJECTIVE_STATUS_DENIED
-	SEND_SOUND(mind_reference.current, sound('modular_skyrat/modules/opposing_force/sound/denied.ogg'))
+	SEND_SOUND(mind_reference.current, sound('modular_nova/modules/opposing_force/sound/denied.ogg'))
 	add_log(denier.ckey, "Denied application")
 	to_chat(mind_reference.current, examine_block(span_redtext("Your OPFOR application has been denied by [denier ? get_admin_ckey(denier) : "the OPFOR subsystem"]!")))
 	send_system_message(get_admin_ckey(denier) + " has denied the application with the following reason: [reason]")
@@ -551,7 +551,7 @@
 	status = OPFOR_STATUS_APPROVED
 	can_edit = FALSE
 
-	SEND_SOUND(mind_reference.current, sound('modular_skyrat/modules/opposing_force/sound/approved.ogg'))
+	SEND_SOUND(mind_reference.current, sound('modular_nova/modules/opposing_force/sound/approved.ogg'))
 	add_log(approver.ckey, "Approved application")
 	var/objective_denied = FALSE
 	for(var/datum/opposing_force_objective/opfor_obj as anything in objectives)

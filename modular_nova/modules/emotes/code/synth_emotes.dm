@@ -6,7 +6,7 @@
 	key_third_person = "dwoops"
 	message = "chirps happily!"
 	vary = TRUE
-	sound = 'modular_skyrat/modules/emotes/sound/emotes/dwoop.ogg'
+	sound = 'modular_nova/modules/emotes/sound/emotes/dwoop.ogg'
 	silicon_allowed = TRUE
 	allowed_species = list(/datum/species/synthetic)
 	cooldown = 2 SECONDS
@@ -15,7 +15,7 @@
 	key = "yes"
 	message = "emits an affirmative blip."
 	vary = TRUE
-	sound = 'modular_skyrat/modules/emotes/sound/emotes/synth_yes.ogg'
+	sound = 'modular_nova/modules/emotes/sound/emotes/synth_yes.ogg'
 	silicon_allowed = TRUE
 	allowed_species = list(/datum/species/synthetic)
 	cooldown = 2 SECONDS
@@ -24,7 +24,7 @@
 	key = "no"
 	message = "emits a negative blip."
 	vary = TRUE
-	sound = 'modular_skyrat/modules/emotes/sound/emotes/synth_no.ogg'
+	sound = 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg'
 	silicon_allowed = TRUE
 	allowed_species = list(/datum/species/synthetic)
 	cooldown = 2 SECONDS
@@ -66,7 +66,7 @@
 	message_param = "beeps sharply at %t."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_skyrat/modules/emotes/sound/emotes/twobeep.ogg'
+	sound = 'modular_nova/modules/emotes/sound/emotes/twobeep.ogg'
 	silicon_allowed = TRUE
 	allowed_species = list(/datum/species/synthetic)
 	cooldown = 2 SECONDS

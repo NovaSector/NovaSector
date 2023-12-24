@@ -2,8 +2,8 @@
 	name = "shibari arms bondage"
 	desc = "Bondage ropes that cover arms."
 	icon_state = "shibari_arms"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	body_parts_covered = NONE
 	//strip_delay = 100
 	breakouttime = 5 SECONDS

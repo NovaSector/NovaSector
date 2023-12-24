@@ -1,9 +1,9 @@
 /obj/item/clothing/sextoy
 	name = "sextoy"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
-	equip_sound = 'modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg'
-	drop_sound = 'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
+	equip_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg'
+	drop_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg'
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
 	/// This is used to decide what lewd slot a toy should be able to be inserted into.
 	/// The currently accepted defines are all prefixes with LEWD_SLOT_, and there is one for each lewd organ.

@@ -8,7 +8,7 @@
 	name = "clay brick"
 	desc = "A heavy clay brick."
 	singular_name = "clay brick"
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "sheet-clay"
 	inhand_icon_state = null
 	throw_speed = 3
@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	return ..()
 
 /obj/item/ceramic
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	var/forge_item
 
 /obj/item/ceramic/attackby(obj/item/attacking_item, mob/living/user, params)
@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 /obj/item/stack/clay
 	name = "clay"
 	desc = "A pile of clay that can be used to create ceramic artwork."
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "clay"
 	merge_type = /obj/item/stack/clay
 	singular_name = "glob of clay"
@@ -112,7 +112,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 /obj/item/plate/ceramic
 	name = "ceramic plate"
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "clay_plate"
 
 /obj/item/ceramic/tray
@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 /obj/item/plate/oven_tray/material/ceramic
 	name = "ceramic oven tray"
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "clay_tray"
 
 /obj/item/ceramic/bowl
@@ -134,7 +134,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 /obj/item/reagent_containers/cup/bowl/ceramic
 	name = "ceramic bowl"
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "clay_bowl"
 	custom_materials = null
 
@@ -147,21 +147,21 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 /obj/item/reagent_containers/cup/beaker/large/ceramic
 	name = "ceramic cup"
 	desc = "A cup that is made from ceramic."
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "clay_cup"
 	custom_materials = null
 
 /obj/item/ceramic/brick
 	name = "ceramic brick"
 	desc = "A dense block of clay, ready to be fired into a brick!"
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "sheet-clay"
 	forge_item = /obj/item/stack/sheet/mineral/clay
 
 /obj/structure/throwing_wheel
 	name = "throwing wheel"
 	desc = "A machine that allows you to throw clay."
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "throw_wheel_empty"
 	density = TRUE
 	anchored = TRUE

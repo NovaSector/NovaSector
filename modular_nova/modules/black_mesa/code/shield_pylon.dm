@@ -26,7 +26,7 @@
 /obj/structure/xen_pylon
 	name = "shield plant"
 	desc = "It seems to be some kind of force field generator."
-	icon = 'modular_skyrat/modules/black_mesa/icons/plants.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/plants.dmi'
 	icon_state = "crystal_pylon"
 	max_integrity = 70
 	density = TRUE

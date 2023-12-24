@@ -12,7 +12,7 @@
 /obj/structure/chair/milking_machine
 	name = "milking machine"
 	desc = "A stationary device for milking... things."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi'
 	icon_state = "milking_pink_off"
 	max_buckled_mobs = 1
 	item_chair = null
@@ -108,13 +108,13 @@
 	semen_vessel.reagents.maximum_volume = MILKING_PUMP_MAX_CAPACITY
 	current_vessel = milk_vessel
 
-	vessel_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "liquid_empty", LYING_MOB_LAYER)
+	vessel_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "liquid_empty", LYING_MOB_LAYER)
 	vessel_overlay.name = "vessel_overlay"
-	indicator_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "indicator_empty", ABOVE_MOB_LAYER + 0.1)
+	indicator_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "indicator_empty", ABOVE_MOB_LAYER + 0.1)
 	indicator_overlay.name = "indicator_overlay"
-	locks_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "locks_open", BELOW_MOB_LAYER)
+	locks_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "locks_open", BELOW_MOB_LAYER)
 	locks_overlay.name = "locks_overlay"
-	organ_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "none", ABOVE_MOB_LAYER)
+	organ_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi', "none", ABOVE_MOB_LAYER)
 	organ_overlay.name = "organ_overlay"
 
 	add_overlay(locks_overlay)

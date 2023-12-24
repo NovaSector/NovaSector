@@ -20,5 +20,5 @@
         "nga", "nge", "ngi", "ngo", "ngu", "pa", "pe", "pi", "po", "pu", "ra", "re", "ri", "ro", "ru", "ta", "te", "ti", "to", "tu", "wa", "we", "wi", "wo", "wu", "wha", "whe", "whi",
     )
     icon_state = "azulean"
-    icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+    icon = 'modular_nova/master_files/icons/misc/language.dmi'
     default_priority = 94

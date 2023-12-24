@@ -1,5 +1,5 @@
 /obj/machinery/xenoarch
-	icon = 'modular_skyrat/modules/xenoarch/icons/xenoarch_machines.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_machines.dmi'
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
 	use_power = IDLE_POWER_USE

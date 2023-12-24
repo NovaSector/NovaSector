@@ -24,6 +24,6 @@
 		"brut","vaahk","nah'za","diierk","piut","vuurk","cs'eer","jeirk","qiruvk",
 	)
 	icon_state = "ashtongue"
-	icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 90
 	secret = TRUE

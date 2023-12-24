@@ -1,7 +1,7 @@
 /obj/machinery/automatic_respawner
 	name = "Automatic Respawner"
 	desc = "Allows for lost souls to find a new body."
-	icon = 'modular_skyrat/modules/mapping/icons/machinery/automatic_respawner.dmi'
+	icon = 'modular_nova/modules/mapping/icons/machinery/automatic_respawner.dmi'
 	icon_state = "respawner"
 	use_power = FALSE //It doesn't make sense for this to require power in most of the use cases.
 
@@ -80,7 +80,7 @@
 /obj/item/respawn_implant //Not actually an implanter
 	name = "Respawn Implanter"
 	desc = "Life doesn't end after death."
-	icon = 'modular_skyrat/modules/aesthetics/implanter/implanter.dmi'
+	icon = 'modular_nova/modules/aesthetics/implanter/implanter.dmi'
 	icon_state = "implanter0"
 	inhand_icon_state = "syringe_0"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

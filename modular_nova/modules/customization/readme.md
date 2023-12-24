@@ -58,27 +58,27 @@ Re-writes how mutant bodyparts exist and how they're handled. Adds in a per limb
 ./code/__DEFINES/~skyrat_defines/say.dm > MAX_FLAVOR_LEN
 ./code/__DEFINES/~skyrat_defines/traits.dm > TRAIT_NO_HUSK
 
-.\modular_skyrat\modules\customization\modules\reagents\chemistry\reagents.dm > var/process_flags
+.\modular_nova\modules\customization\modules\reagents\chemistry\reagents.dm > var/process_flags
 
 ### Master file additions
 
-.\modular_skyrat\master_files\icons\mob\clothing\eyes_vox.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\feet_digi.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\head_muzzled.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\head_vox.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\mask_muzzled.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\mask_vox.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\suit_digi.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\suit_taur_hoof.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\suit_taur_paw.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\suit_taur_snake.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\uniform_digi.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\under\uniform_digi.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\under\uniform_taur_hoof.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\under\uniform_taur_paw.dmi
-.\modular_skyrat\master_files\icons\mob\clothing\under\uniform_taur_snake.dmi
+.\modular_nova\master_files\icons\mob\clothing\eyes_vox.dmi
+.\modular_nova\master_files\icons\mob\clothing\feet_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\head_muzzled.dmi
+.\modular_nova\master_files\icons\mob\clothing\head_vox.dmi
+.\modular_nova\master_files\icons\mob\clothing\mask_muzzled.dmi
+.\modular_nova\master_files\icons\mob\clothing\mask_vox.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_taur_hoof.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_taur_paw.dmi
+.\modular_nova\master_files\icons\mob\clothing\suit_taur_snake.dmi
+.\modular_nova\master_files\icons\mob\clothing\uniform_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_digi.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_taur_hoof.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_taur_paw.dmi
+.\modular_nova\master_files\icons\mob\clothing\under\uniform_taur_snake.dmi
 
-./modular_skyrat/master_files/icons/obj/drinks.dmi
+./modular_nova/master_files/icons/obj/drinks.dmi
 
 ### Included files that are not contained in this module:
 

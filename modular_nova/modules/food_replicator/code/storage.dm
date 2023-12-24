@@ -1,7 +1,7 @@
 /obj/item/storage/pouch/cin_medipens
 	name = "colonial medipen pouch"
 	desc = "A pouch for your (medi-)pens that goes in your pocket."
-	icon = 'modular_skyrat/modules/food_replicator/icons/pouch.dmi'
+	icon = 'modular_nova/modules/food_replicator/icons/pouch.dmi'
 	icon_state = "medipen_pouch"
 	w_class = WEIGHT_CLASS_NORMAL
 
@@ -23,7 +23,7 @@
 /obj/item/storage/pouch/cin_medkit
 	name = "colonial first aid kit"
 	desc = "A medical case that goes in your pocket. Can be used to store things unrelated to medicine, except for guns, ammo and raw materials."
-	icon = 'modular_skyrat/modules/food_replicator/icons/pouch.dmi'
+	icon = 'modular_nova/modules/food_replicator/icons/pouch.dmi'
 	icon_state = "cfak"
 	w_class = WEIGHT_CLASS_NORMAL
 

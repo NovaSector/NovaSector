@@ -1,6 +1,6 @@
 /obj/item/organ/internal/stomach/synth
 	name = "synthetic bio-reactor"
-	icon = 'modular_skyrat/master_files/icons/obj/surgery.dmi'
+	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "stomach-ipc"
 	w_class = WEIGHT_CLASS_NORMAL
 	zone = BODY_ZONE_CHEST

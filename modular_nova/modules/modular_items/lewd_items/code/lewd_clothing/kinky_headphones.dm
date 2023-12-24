@@ -4,8 +4,8 @@
 	icon_state = "kinkphones_pink_off"
 	base_icon_state = "kinkphones"
 	inhand_icon_state = "kinkphones_pink_off"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_ears.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_ears.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_ears.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_ears.dmi'
 	strip_delay = 15
 	custom_price = PAYCHECK_CREW * 2
 	/// If the headphones are on or off
@@ -18,8 +18,8 @@
 	var/static/list/kinkphones_designs
 	actions_types = list(/datum/action/item_action/toggle_kinky_headphones)
 	slot_flags = ITEM_SLOT_EARS | ITEM_SLOT_HEAD | ITEM_SLOT_NECK
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 
 //create radial menu
 /obj/item/clothing/ears/kinky_headphones/proc/populate_kinkphones_designs()

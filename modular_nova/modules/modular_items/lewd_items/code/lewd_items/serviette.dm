@@ -2,7 +2,7 @@
 	name = "serviette"
 	desc = "To clean all the mess."
 	icon_state = "serviette_clean"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	/// How much time it takes to clean something using it
 	var/cleanspeed = 5 SECONDS
 	/// Which item spawns after it's used
@@ -14,7 +14,7 @@
 	name = "dirty serviette"
 	desc = "Eww... Throw it in the trash!"
 	icon_state = "serviette_dirty"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/serviette/afterattack(atom/target, mob/user, proximity)
@@ -76,7 +76,7 @@
 	desc = "I wonder why LustWish makes them..."
 	icon_state = "serviettepack_4"
 	base_icon_state = "serviettepack"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	/// A count of how many serviettes are left in the pack
 	var/number_remaining = 4
 	w_class = WEIGHT_CLASS_SMALL

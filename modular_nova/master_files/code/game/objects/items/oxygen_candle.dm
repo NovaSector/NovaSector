@@ -3,7 +3,7 @@
 /obj/item/oxygen_candle
 	name = "oxygen candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side.\nA small label reads <span class='warning'>'WARNING: NOT FOR LIGHTING USE. WILL IGNITE FLAMMABLE GASSES'</span>"
-	icon = 'modular_skyrat/master_files/icons/obj/oxygen_candle.dmi'
+	icon = 'modular_nova/master_files/icons/obj/oxygen_candle.dmi'
 	icon_state = "oxycandle"
 	w_class = WEIGHT_CLASS_SMALL
 	light_color = LIGHT_COLOR_LAVA // Very warm chemical burn

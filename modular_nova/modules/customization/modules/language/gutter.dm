@@ -10,5 +10,5 @@
 		"tá", "vé", "sál", "fáb", "l'e", "seu", "deu", "meu", "vai", "ción", "tá"
 	)
 	icon_state = "gutter"
-	icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 40

@@ -2,11 +2,11 @@
 //MISC FILES = UNSORTED FILES. EVEN TG HATES THIS ONE.
 
 /obj/item/clothing/under/misc
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/misc_digi.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/misc_digi.dmi'
 
 /obj/item/clothing/under/misc/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/misc.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/misc.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/misc.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/misc.dmi'
 	can_adjust = FALSE
 
 /*

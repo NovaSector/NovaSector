@@ -4,9 +4,9 @@
 	icon_state = "fleshlight_pink"
 	base_icon_state = "fleshlight"
 	inhand_icon_state = "fleshlight_pink"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	/// Current color of the toy, can be changed, affects sprite
 	var/current_color = "pink"
@@ -77,9 +77,9 @@
 			target.adjust_arousal(6)
 			target.adjust_pleasure(9)
 			user.visible_message(span_purple("[user] [message]!"))
-			play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
-								'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',
-								'modular_skyrat/modules/modular_items/lewd_items/sounds/bang3.ogg',
-								'modular_skyrat/modules/modular_items/lewd_items/sounds/bang4.ogg',
-								'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
-								'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 70, 1, -1)
+			play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+								'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
+								'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
+								'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
+								'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
+								'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 70, 1, -1)

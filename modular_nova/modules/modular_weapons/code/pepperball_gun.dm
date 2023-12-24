@@ -1,7 +1,7 @@
 /obj/item/gun/ballistic/automatic/pistol/pepperball
 	name = "\improper Bolt Pepperball AHG"
 	desc = "An incredibly mediocre 'firearm' designed to fire soft pepper balls meant to easily subdue targets."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
 	icon_state = "peppergun"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/pepperball
@@ -21,7 +21,7 @@
 /obj/item/ammo_box/magazine/pepperball
 	name = "pistol magazine (pepperball)"
 	desc = "A gun magazine filled with balls."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
 	icon_state = "pepperball"
 	ammo_type = /obj/item/ammo_casing/pepperball
 	caliber = CALIBER_PEPPERBALL
@@ -37,7 +37,7 @@
 
 /obj/projectile/bullet/pepperball
 	name = "pepperball orb"
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/pepperball/projectiles.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/projectiles.dmi'
 	icon_state = "pepperball"
 	damage = 0
 	stamina = 5
@@ -67,7 +67,7 @@
 
 /obj/item/ammo_box/advanced/pepperballs
 	name = "pepperball ammo box"
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/pepperball/ammoboxes.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/ammoboxes.dmi'
 	icon_state = "box10x24"
 	ammo_type = /obj/item/ammo_casing/pepperball
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3)

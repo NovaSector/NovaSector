@@ -21,9 +21,9 @@
 	desc = "Did that sting? SAW-ry!"
 	force = 20
 	icon_state = "bonesaw"
-	icon = 'modular_skyrat/modules/exp_corps/icons/bonesaw.dmi'
-	lefthand_file = 'modular_skyrat/modules/exp_corps/icons/bonesaw_l.dmi'
-	righthand_file = 'modular_skyrat/modules/exp_corps/icons/bonesaw_r.dmi'
+	icon = 'modular_nova/modules/exp_corps/icons/bonesaw.dmi'
+	lefthand_file = 'modular_nova/modules/exp_corps/icons/bonesaw_l.dmi'
+	righthand_file = 'modular_nova/modules/exp_corps/icons/bonesaw_r.dmi'
 	inhand_icon_state = "bonesaw"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	toolspeed = 0.2
@@ -35,9 +35,9 @@
 	name = "pointman shield"
 	desc = "A shield fit for those that want to sprint headfirst into the unknown! Cumbersome as hell."
 	icon_state = "riot"
-	icon = 'modular_skyrat/modules/exp_corps/icons/riot.dmi'
-	lefthand_file = 'modular_skyrat/modules/exp_corps/icons/riot_left.dmi'
-	righthand_file = 'modular_skyrat/modules/exp_corps/icons/riot_right.dmi'
+	icon = 'modular_nova/modules/exp_corps/icons/riot.dmi'
+	lefthand_file = 'modular_nova/modules/exp_corps/icons/riot_left.dmi'
+	righthand_file = 'modular_nova/modules/exp_corps/icons/riot_right.dmi'
 	force = 14
 	throwforce = 5
 	throw_speed = 1
@@ -71,7 +71,7 @@
 	name = "broken pointman shield"
 	desc = "Might be able to be repaired with plasteel and a welder."
 	icon_state = "riot_broken"
-	icon = 'modular_skyrat/modules/exp_corps/icons/riot.dmi'
+	icon = 'modular_nova/modules/exp_corps/icons/riot.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 
 //broken shield fixing
@@ -89,7 +89,7 @@
 /obj/item/knife/combat/marksman
 	name = "throwing knife"
 	desc = "Very well weighted for throwing, feels awkward to use for anything else."
-	icon = 'modular_skyrat/modules/exp_corps/icons/throwing.dmi'
+	icon = 'modular_nova/modules/exp_corps/icons/throwing.dmi'
 	icon_state = "throwing"
 	force = 12
 	throwforce = 30

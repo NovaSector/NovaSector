@@ -2,7 +2,7 @@
 /obj/structure/shockplant
 	name = "electrical plant"
 	desc = "It glows with a warm buzz."
-	icon = 'modular_skyrat/modules/black_mesa/icons/plants.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/plants.dmi'
 	icon_state = "electric_plant"
 	density = TRUE
 	anchored = TRUE

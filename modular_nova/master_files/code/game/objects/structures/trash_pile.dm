@@ -1,7 +1,7 @@
 /obj/structure/trash_pile
 	name = "trash pile"
 	desc = "A heap of garbage, but maybe there's something interesting inside?"
-	icon = 'modular_skyrat/master_files/icons/obj/trash_piles.dmi'
+	icon = 'modular_nova/master_files/icons/obj/trash_piles.dmi'
 	icon_state = "randompile"
 	density = TRUE
 	anchored = TRUE

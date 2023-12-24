@@ -16,7 +16,7 @@
 	/// If this type of organ has a unique sprite for what its corrupted
 	/// version should look like, this will be the icon file it will be pulled
 	/// from.
-	var/corrupted_icon = 'modular_skyrat/modules/organs/icons/hemophage_organs.dmi'
+	var/corrupted_icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
 	/// If this type of organ has a unique sprite for what its corrupted
 	/// version should look like, this will be the icon state it will be pulled
 	/// from.

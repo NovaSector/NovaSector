@@ -6,7 +6,7 @@
 	name = "expedition survival pack"
 	desc = "A box filled with useful items for your expedition!"
 	icon_state = "survival_pack"
-	icon = 'modular_skyrat/modules/exp_corps/icons/survival_pack.dmi'
+	icon = 'modular_nova/modules/exp_corps/icons/survival_pack.dmi'
 	illustration = null
 
 /obj/item/storage/box/expeditionary_survival/PopulateContents()

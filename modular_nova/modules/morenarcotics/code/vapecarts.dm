@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/vapecart
 	name = "vape cart"
 	desc = "A vape cart filled with nicotine."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "vapecart"
 	fill_icon_state = "vapecart"
 	volume = 50

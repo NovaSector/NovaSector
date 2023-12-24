@@ -16,5 +16,5 @@
 		"zhen", "zhi", "zhuai", "zhui", "zou", "zun", "zuo"
 	)
 	icon_state = "hanzi"
-	icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 94

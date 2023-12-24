@@ -10,7 +10,7 @@ MODULE ID: BORGS
 Condenses modular borg skins, items, upgrades and buffs to one folder for sanity's sake
 
 ### TG Proc Changes:
-- APPEND: modular_skyrat/modules/altborgs > modular_skyrat/modules/borgs
+- APPEND: modular_nova/modules/altborgs > modular_nova/modules/borgs
 - /code/modules/mob/living/silicon/robot/robot_modules.dm
 - /code/modules/research/techweb/all_nodes.dm
 

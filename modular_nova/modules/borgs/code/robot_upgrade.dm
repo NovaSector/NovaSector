@@ -341,7 +341,7 @@
 /obj/item/quadborg_tongue
 	name = "synthetic tongue"
 	desc = "Useful for slurping mess off the floor before affectionally licking the crew members in the face."
-	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "synthtongue"
 	hitsound = 'sound/effects/attackblob.ogg'
 	desc = "For giving affectionate kisses."
@@ -368,7 +368,7 @@
 /obj/item/quadborg_nose
 	name = "boop module"
 	desc = "The BOOP module"
-	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "nose"
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = NOBLUDGEON

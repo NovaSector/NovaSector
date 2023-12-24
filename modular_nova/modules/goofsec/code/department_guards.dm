@@ -16,44 +16,44 @@
 	desc = "White scrubs with gray pants underneath. Be warned, wearers of this uniform may only take the Hippocratic Oath as a suggestion."
 	icon_state = "orderly_uniform"
 	worn_icon_state = "orderly_uniform"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/medical.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/medical.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/medical_digi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 
 /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/engineering_guard
 	name = "engineering guard uniform"
 	desc = "Effectively just padded hi-vis coveralls, they do the trick both inside of, and while keeping people out of, a hardhat zone."
 	icon_state = "engineering_guard_uniform"
 	worn_icon_state = "engineering_guard_uniform"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/engineering.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/engineering.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/engineering_digi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/engineering.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/engineering.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/engineering_digi.dmi'
 
 /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/customs_agent
 	name = "customs agent uniform"
 	desc = "A cargo-brown short-sleeve shirt, and cargo shorts in an authoritative charcoal color. Only for the FTU's finest strong-hands."
 	icon_state = "customs_uniform"
 	worn_icon_state = "customs_uniform"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/cargo.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/cargo.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
 
 /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/bouncer
 	name = "bouncer uniform"
 	desc = "Short-sleeves and jeans, for that aura of cool that makes the drunk people listen."
 	icon_state = "bouncer"
 	worn_icon_state = "bouncer"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/civilian.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/civilian.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/civilian_digi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/civilian.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/civilian.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
 
 /*
 	SUITS
 */
 /obj/item/clothing/suit/armor/vest/blueshirt/skyrat
 	//Effectively the same as TG's blueshirt, including icon. The /skyrat path makes it easier for sorting.
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -90,8 +90,8 @@
 	unique_reskin = null
 
 /obj/item/clothing/head/helmet/blueshirt/skyrat/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
 	icon_state = "mallcop_helm"
 	worn_icon_state = "mallcop_helm"
 
@@ -127,27 +127,27 @@
 /obj/effect/landmark/start/science_guard
 	name = "Science Guard"
 	icon_state = "Science Guard"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 
 /obj/effect/landmark/start/orderly
 	name = "Orderly"
 	icon_state = "Orderly"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 
 /obj/effect/landmark/start/engineering_guard
 	name = "Engineering Guard"
 	icon_state = "Engineering Guard"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 
 /obj/effect/landmark/start/customs_agent
 	name = "Customs Agent"
 	icon_state = "Customs Agent"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 
 /obj/effect/landmark/start/bouncer
 	name = "Service Guard"
 	icon_state = "Bouncer"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 
 /*
 	SCIENCE GUARD DATUMS
@@ -212,7 +212,7 @@
 
 /datum/id_trim/job/science_guard
 	assignment = "Science Guard"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_calhoun"
 	department_color = COLOR_SCIENCE_PINK
 	subdepartment_color = COLOR_SCIENCE_PINK
@@ -317,7 +317,7 @@
 
 /datum/id_trim/job/orderly
 	assignment = "Orderly"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_orderly"
 	department_color = COLOR_MEDICAL_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
@@ -415,7 +415,7 @@
 
 /datum/id_trim/job/engineering_guard
 	assignment = "Engineering Guard"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_engiguard"
 	department_color = COLOR_ENGINEERING_ORANGE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
@@ -519,7 +519,7 @@
 
 /datum/id_trim/job/customs_agent
 	assignment = "Customs Agent"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_customs"
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN
@@ -617,7 +617,7 @@
 
 /datum/id_trim/job/bouncer
 	assignment = "Bouncer"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_bouncer"
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME // Personally speaking I'd have one of these with sec colors but I'm being authentic
@@ -655,7 +655,7 @@
 /obj/item/melee/baton/security/loaded/departmental
 	name = "departmental stun baton"
 	desc = "A stun baton fitted with a departmental area-lock, based off the station's blueprint layout - outside of its department, it only has three uses."
-	icon = 'modular_skyrat/modules/goofsec/icons/departmental_batons.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/departmental_batons.dmi'
 	icon_state = "prison_baton"
 	var/list/valid_areas = list()
 	var/emagged = FALSE

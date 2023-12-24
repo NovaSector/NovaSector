@@ -84,16 +84,16 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Engineering" = 'icons/mob/augmentation/augments_engineer.dmi',
 	"Mining" = 'icons/mob/augmentation/augments_mining.dmi',
 	"Security" = 'icons/mob/augmentation/augments_security.dmi',
-	"Morpheus Cyberkinetics" = 'modular_skyrat/master_files/icons/mob/augmentation/mcgipc.dmi',
-	"Bishop Cyberkinetics" = 'modular_skyrat/master_files/icons/mob/augmentation/bshipc.dmi',
-	"Bishop Cyberkinetics 2.0" = 'modular_skyrat/master_files/icons/mob/augmentation/bs2ipc.dmi',
-	"Hephaestus Industries" = 'modular_skyrat/master_files/icons/mob/augmentation/hsiipc.dmi',
-	"Hephaestus Industries 2.0" = 'modular_skyrat/master_files/icons/mob/augmentation/hi2ipc.dmi',
-	"Shellguard Munitions Standard Series" = 'modular_skyrat/master_files/icons/mob/augmentation/sgmipc.dmi',
-	"Ward-Takahashi Manufacturing" = 'modular_skyrat/master_files/icons/mob/augmentation/wtmipc.dmi',
-	"Xion Manufacturing Group" = 'modular_skyrat/master_files/icons/mob/augmentation/xmgipc.dmi',
-	"Xion Manufacturing Group 2.0" = 'modular_skyrat/master_files/icons/mob/augmentation/xm2ipc.dmi',
-	"Zeng-Hu Pharmaceuticals" = 'modular_skyrat/master_files/icons/mob/augmentation/zhpipc.dmi'
+	"Morpheus Cyberkinetics" = 'modular_nova/master_files/icons/mob/augmentation/mcgipc.dmi',
+	"Bishop Cyberkinetics" = 'modular_nova/master_files/icons/mob/augmentation/bshipc.dmi',
+	"Bishop Cyberkinetics 2.0" = 'modular_nova/master_files/icons/mob/augmentation/bs2ipc.dmi',
+	"Hephaestus Industries" = 'modular_nova/master_files/icons/mob/augmentation/hsiipc.dmi',
+	"Hephaestus Industries 2.0" = 'modular_nova/master_files/icons/mob/augmentation/hi2ipc.dmi',
+	"Shellguard Munitions Standard Series" = 'modular_nova/master_files/icons/mob/augmentation/sgmipc.dmi',
+	"Ward-Takahashi Manufacturing" = 'modular_nova/master_files/icons/mob/augmentation/wtmipc.dmi',
+	"Xion Manufacturing Group" = 'modular_nova/master_files/icons/mob/augmentation/xmgipc.dmi',
+	"Xion Manufacturing Group 2.0" = 'modular_nova/master_files/icons/mob/augmentation/xm2ipc.dmi',
+	"Zeng-Hu Pharmaceuticals" = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi'
 	))
 
 //ghoul colors

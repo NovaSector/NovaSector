@@ -1,7 +1,7 @@
 /obj/structure/wormfarm
 	name = "worm farm"
 	desc = "A wonderfully dirty barrel where worms can have a happy little life."
-	icon = 'modular_skyrat/modules/ashwalkers/icons/structures.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/structures.dmi'
 	icon_state = "wormbarrel"
 	density = TRUE
 	anchored = FALSE
@@ -132,7 +132,7 @@
 /obj/item/stack/worm_fertilizer
 	name = "worm fertilizer"
 	desc = "When you fed your worms, you should have expected this."
-	icon = 'modular_skyrat/modules/ashwalkers/icons/misc_tools.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/misc_tools.dmi'
 	icon_state = "fertilizer"
 	grind_results = list(/datum/reagent/plantnutriment/eznutriment = 3, /datum/reagent/plantnutriment/left4zednutriment = 3, /datum/reagent/plantnutriment/robustharvestnutriment = 3)
 	singular_name = "fertilizer"

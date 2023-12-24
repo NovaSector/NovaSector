@@ -12,7 +12,7 @@ Module ID:
 
 ### Modular Overrides:
 
-- `modular_skyrat/master_files/code/modules/cargo/orderconsole.dm`: `proc/ui_act`
+- `modular_nova/master_files/code/modules/cargo/orderconsole.dm`: `proc/ui_act`
 
 ### Defines:
 

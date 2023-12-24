@@ -7,9 +7,9 @@
 /obj/item/fancy_pillow
 	name = "pillow"
 	desc = "A big, soft pillow."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
 	inhand_icon_state = "pillow_pink_round"
@@ -99,7 +99,7 @@
 /obj/effect/temp_visual/feathers
 	name = "feathers"
 	icon_state = "feathers"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_decals/lewd_decals.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_decals/lewd_decals.dmi'
 	duration = 14
 
 /datum/effect_system/feathers
@@ -123,7 +123,7 @@
 			if(prob(30))
 				affected_mob.emote(pick("laugh", "giggle"))
 			user.visible_message(span_notice("[user] [message]!"))
-			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
+			playsound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
 
 		if(BODY_ZONE_CHEST)
 			var/message = ""
@@ -131,7 +131,7 @@
 			if(prob(30))
 				affected_mob.emote(pick("laugh", "giggle"))
 			user.visible_message(span_notice("[user] [message]!"))
-			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
+			playsound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
 
 		else
 			var/message = ""
@@ -139,7 +139,7 @@
 			if(prob(30))
 				affected_mob.emote(pick("laugh", "giggle"))
 			user.visible_message(span_notice("[user] [message]!"))
-			playsound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
+			playsound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/hug.ogg', 50, 1, -1)
 
 //spawning pillow on the ground when clicking on pillow	by LBM
 
@@ -163,7 +163,7 @@
 /obj/structure/bed/pillow_tiny
 	name = "pillow"
 	desc = "A tiny pillow, for tiny heads."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
 	var/current_color = "pink"
@@ -249,7 +249,7 @@
 /obj/structure/chair/pillow_small
 	name = "small pillow pile"
 	desc = "A small pile of pillows. A comfortable seat, especially for taurs or nagas."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillowpile_small_pink"
 	base_icon_state = "pillowpile_small"
 	pseudo_z_axis = 4
@@ -277,9 +277,9 @@
 
 /obj/structure/chair/pillow_small/proc/GetArmrest()
 	if(current_color == "pink")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_pink_overlay")
+		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_pink_overlay")
 	if(current_color == "teal")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_teal_overlay")
+		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_teal_overlay")
 
 /obj/structure/chair/pillow_small/Destroy()
 	QDEL_NULL(armrest)
@@ -295,7 +295,7 @@
 /obj/structure/chair/pillow_small/update_overlays()
 	. = ..()
 	if(has_buckled_mobs())
-		. += mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
+		. += mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
 
 /obj/structure/chair/pillow_small/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()
@@ -375,7 +375,7 @@
 /obj/structure/bed/pillow_large
 	name = "large pillow pile"
 	desc = "A large pile of pillows. Jump on it!"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillowpile_large_pink"
 	base_icon_state = "pillowpile_large"
 	pseudo_z_axis = 4
@@ -406,9 +406,9 @@
 
 /obj/structure/bed/pillow_large/proc/GetArmrest()
 	if(current_color == "pink")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_pink_overlay")
+		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_pink_overlay")
 	if(current_color == "teal")
-		return mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_teal_overlay")
+		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_teal_overlay")
 
 /obj/structure/bed/pillow_large/Destroy()
 	QDEL_NULL(armrest)
@@ -424,7 +424,7 @@
 /obj/structure/bed/pillow_large/update_overlays()
 	. = ..()
 	if(has_buckled_mobs())
-		. += mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
+		. += mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_large_[current_color]_overlay", layer = ABOVE_MOB_LAYER + 0.2)
 
 /obj/structure/bed/pillow_large/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()

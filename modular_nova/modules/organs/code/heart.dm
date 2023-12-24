@@ -1,7 +1,7 @@
 /obj/item/organ/internal/heart/snail
 	name = "twin gastropod hearts"
 	desc = "A primary heart normally nestled inside a gastropod's shell, and another in the owner's actual chest; necessary to maintain ample bloodflow through essentially two torsos."
-	icon = 'modular_skyrat/master_files/icons/obj/surgery.dmi'
+	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "heart-snail-on"
 	base_icon_state = "heart-snail"
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD // There's two of them. Also, due to the special interaction below, it's best we make sure these aren't easily lost.

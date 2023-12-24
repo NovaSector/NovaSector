@@ -6,7 +6,7 @@
 /obj/machinery/bluespace_miner
 	name = "bluespace miner"
 	desc = "Through the power of bluespace, it is capable of producing materials."
-	icon = 'modular_skyrat/modules/bluespace_miner/icons/bluespace_miner.dmi'
+	icon = 'modular_nova/modules/bluespace_miner/icons/bluespace_miner.dmi'
 	icon_state = "miner"
 
 	density = TRUE

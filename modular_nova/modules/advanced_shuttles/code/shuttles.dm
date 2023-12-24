@@ -89,7 +89,7 @@
 	desc = "The terminal used to control the arrivals interlink shuttle."
 	shuttleId = "arrivals_shuttle"
 	possible_destinations = "arrivals_stationary;arrivals_shuttle"
-	icon = 'modular_skyrat/modules/advanced_shuttles/icons/computer.dmi'
+	icon = 'modular_nova/modules/advanced_shuttles/icons/computer.dmi'
 	icon_state = "computer_frame"
 	icon_keyboard = "arrivals_key"
 	icon_screen = "arrivals"

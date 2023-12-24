@@ -1,13 +1,13 @@
 /obj/item/clothing/glasses/hud/eyepatch
 	name = "eyepatch HUD"
 	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
 	inhand_icon_state = "sunhudmed"
 	uses_advanced_reskins = TRUE
-	can_switch_eye = TRUE	//See modular_skyrat\modules\customization\modules\clothing\glasses\glasses.dm
+	can_switch_eye = TRUE	//See modular_nova\modules\customization\modules\clothing\glasses\glasses.dm
 	actions_types = list(/datum/action/item_action/flip)
 
 
@@ -119,8 +119,8 @@
 /obj/item/clothing/glasses/trickblindfold/obsolete
 	name = "obsolete fake blindfold"
 	desc = "An ornate fake blindfold, devoid of any electronics. It's belived to be originally worn by members of bygone military force that sought to protect humanity."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "obsoletefold"
 	base_icon_state = "obsoletefold"
 	can_switch_eye = TRUE

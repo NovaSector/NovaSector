@@ -1,17 +1,17 @@
 /obj/item/clothing/under/rank/engineering
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/engineering_digi.dmi' // Anything that was in the engineering.dmi, should be in the engineering_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/engineering_digi.dmi' // Anything that was in the engineering.dmi, should be in the engineering_digi.dmi
 
 /obj/item/clothing/under/rank/engineering/engineer/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/engineering.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/engineering.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/engineering.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/engineering.dmi'
 
 /obj/item/clothing/under/rank/engineering/chief_engineer/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/engineering.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/engineering.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/engineering.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/engineering.dmi'
 
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/engineering.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/engineering.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/engineering.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/engineering.dmi'
 
 /*
 *	ENGINEER

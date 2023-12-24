@@ -35,7 +35,7 @@
 
 	aoe_radius = 1
 
-	button_icon = 'modular_skyrat/modules/xenos_skyrat_redo/icons/xeno_actions.dmi'
+	button_icon = 'modular_nova/modules/xenos_skyrat_redo/icons/xeno_actions.dmi'
 	button_icon_state = "crush_tail"
 
 	sparkle_path = /obj/effect/temp_visual/dir_setting/tailsweep/defender
@@ -89,7 +89,7 @@
 	victim_living.safe_throw_at(throwtarget, ((clamp((max_throw - (clamp(dist_from_caster - 2, 0, dist_from_caster))), 3, max_throw))), 1, caster, force = repulse_force)
 
 /obj/effect/temp_visual/dir_setting/tailsweep/defender
-	icon = 'modular_skyrat/modules/xenos_skyrat_redo/icons/xeno_actions.dmi'
+	icon = 'modular_nova/modules/xenos_skyrat_redo/icons/xeno_actions.dmi'
 	icon_state = "crush_tail_anim"
 
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/defender
@@ -100,13 +100,13 @@
 	charge_distance = 5
 	destroy_objects = FALSE
 	charge_damage = 50
-	button_icon = 'modular_skyrat/modules/xenos_skyrat_redo/icons/xeno_actions.dmi'
+	button_icon = 'modular_nova/modules/xenos_skyrat_redo/icons/xeno_actions.dmi'
 	button_icon_state = "defender_charge"
 	unset_after_click = TRUE
 
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/defender/do_charge_indicator(atom/charger, atom/charge_target)
 	. = ..()
-	playsound(charger, 'modular_skyrat/modules/xenos_skyrat_redo/sound/alien_roar1.ogg', 100, TRUE, 8, 0.9)
+	playsound(charger, 'modular_nova/modules/xenos_skyrat_redo/sound/alien_roar1.ogg', 100, TRUE, 8, 0.9)
 
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/defender/Activate(atom/target_atom)
 	. = ..()

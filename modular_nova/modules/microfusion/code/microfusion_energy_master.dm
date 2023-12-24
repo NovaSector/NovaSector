@@ -6,11 +6,11 @@
 /obj/item/gun/microfusion
 	name = "prototype detatchable cell energy projection aparatus"
 	desc = "The coders have obviously failed to realise this is broken."
-	icon = 'modular_skyrat/modules/microfusion/icons/microfusion_gun40x32.dmi'
+	icon = 'modular_nova/modules/microfusion/icons/microfusion_gun40x32.dmi'
 	icon_state = "mcr01"
 	inhand_icon_state = "mcr01"
-	lefthand_file = 'modular_skyrat/modules/microfusion/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/microfusion/icons/guns_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/microfusion/icons/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/microfusion/icons/guns_righthand.dmi'
 	can_bayonet = FALSE
 	weapon_weight = WEAPON_HEAVY
 	w_class = WEIGHT_CLASS_BULKY
@@ -39,13 +39,13 @@
 	/// The microfusion lens used for generating the beams.
 	var/obj/item/ammo_casing/energy/laser/microfusion/microfusion_lens
 	/// The sound played when you insert a cell.
-	var/sound_cell_insert = 'modular_skyrat/modules/microfusion/sound/mag_insert.ogg'
+	var/sound_cell_insert = 'modular_nova/modules/microfusion/sound/mag_insert.ogg'
 	/// Should the insertion sound played vary?
 	var/sound_cell_insert_vary = TRUE
 	/// The volume at which we will play the insertion sound.
 	var/sound_cell_insert_volume = 50
 	/// The sound played when you remove a cell.
-	var/sound_cell_remove = 'modular_skyrat/modules/microfusion/sound/mag_insert.ogg'
+	var/sound_cell_remove = 'modular_nova/modules/microfusion/sound/mag_insert.ogg'
 	/// Should the removal sound played vary?
 	var/sound_cell_remove_vary = TRUE
 	/// The volume at which we will play the removal sound.

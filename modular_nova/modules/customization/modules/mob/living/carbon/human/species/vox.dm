@@ -2,7 +2,7 @@
 	// Bird-like humanoids
 	name = "Vox"
 	id = SPECIES_VOX
-	eyes_icon = 'modular_skyrat/modules/organs/icons/vox_eyes.dmi'
+	eyes_icon = 'modular_nova/modules/organs/icons/vox_eyes.dmi'
 	can_augment = FALSE
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,

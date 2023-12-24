@@ -39,7 +39,7 @@
 
 /obj/structure/closet/secure_closet/interdynefob/armory_gear_locker
 	anchored = 1
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_door = "riot"
 	icon_state = "riot"
 	name = "armory gear locker"
@@ -63,7 +63,7 @@
 
 /obj/structure/closet/secure_closet/interdynefob/munitions_locker
 	anchored = 1;
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_door = "riot"
 	icon_state = "riot"
 	name = "armory munitions locker"

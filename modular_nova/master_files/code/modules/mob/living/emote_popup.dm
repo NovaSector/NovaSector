@@ -1,5 +1,5 @@
 /obj/effect/overlay/emote_popup
-	icon = 'modular_skyrat/master_files/icons/mob/popup_flicks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/popup_flicks.dmi'
 	icon_state = "combat"
 	layer = FLY_LAYER
 	plane = GAME_PLANE

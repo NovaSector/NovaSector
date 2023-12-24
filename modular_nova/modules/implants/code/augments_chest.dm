@@ -6,7 +6,7 @@
 	name = "internal health analyzer"
 	desc = "An advanced health analyzer implant, designed to directly interface with a host's body and relay scan information to the brain on command."
 	slot = ORGAN_SLOT_SCANNER
-	icon = 'modular_skyrat/modules/implants/icons/internal_HA.dmi'
+	icon = 'modular_nova/modules/implants/icons/internal_HA.dmi'
 	icon_state = "internal_HA"
 	implant_overlay = null
 	implant_color = null

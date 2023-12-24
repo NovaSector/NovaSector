@@ -1,6 +1,6 @@
 /obj/item/organ/internal/lungs/cold
 	name = "cold-adapted lungs"
-	icon = 'modular_skyrat/modules/organs/icons/lungs.dmi'
+	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to low temperatures, though they are more susceptible to high temperatures"
 	icon_state = "lungs_cold"
 	cold_message = "a slightly painful, though bearable, cold sensation"
@@ -24,7 +24,7 @@
 
 /obj/item/organ/internal/lungs/hot
 	name = "heat-adapted lungs"
-	icon = 'modular_skyrat/modules/organs/icons/lungs.dmi'
+	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to high temperatures, though they are more susceptible to low temperatures"
 	icon_state = "lungs_heat"
 	cold_message = "the freezing cold with every breath you take"
@@ -47,7 +47,7 @@
 
 /obj/item/organ/internal/lungs/toxin
 	name = "toxin-adapted lungs"
-	icon = 'modular_skyrat/modules/organs/icons/lungs.dmi'
+	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to toxic environments, though more susceptible to extreme temperatures."
 	icon_state = "lungs_toxin"
 	safe_plasma_max = 27
@@ -74,7 +74,7 @@
 
 /obj/item/organ/internal/lungs/oxy
 	name = "low-oxygen-adapted lungs"
-	icon = 'modular_skyrat/modules/organs/icons/lungs.dmi'
+	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to lower-pressure environments, though more susceptible to extreme temperatures."
 	icon_state = "lungs_toxin"
 	safe_oxygen_min = 5

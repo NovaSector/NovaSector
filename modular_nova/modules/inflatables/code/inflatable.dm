@@ -12,7 +12,7 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 40
-	icon = 'modular_skyrat/modules/inflatables/icons/inflatable.dmi'
+	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "wall"
 	/// The type we drop when damaged.
 	var/torn_type = /obj/item/inflatable/torn
@@ -100,7 +100,7 @@
 /obj/structure/inflatable/door
 	name = "inflatable door"
 	can_atmos_pass = ATMOS_PASS_DENSITY
-	icon = 'modular_skyrat/modules/inflatables/icons/inflatable.dmi'
+	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "door_closed"
 	base_icon_state = "door"
 	torn_type = /obj/item/inflatable/door/torn
@@ -139,7 +139,7 @@
 /obj/item/inflatable
 	name = "inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation."
-	icon = 'modular_skyrat/modules/inflatables/icons/inflatable.dmi'
+	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "folded_wall"
 	base_icon_state = "folded_wall"
 	w_class = WEIGHT_CLASS_SMALL
@@ -181,7 +181,7 @@
 		return
 	if(!do_after(user, 2 SECONDS, src))
 		return
-	playsound(user, 'modular_skyrat/modules/inflatables/sound/ducttape1.ogg', 50, 1)
+	playsound(user, 'modular_nova/modules/inflatables/sound/ducttape1.ogg', 50, 1)
 	to_chat(user, span_notice("You fix [src] using [attacking_tape]!"))
 	attacking_tape.use(TAPE_REQUIRED_TO_FIX)
 	torn = FALSE
@@ -206,7 +206,7 @@
 /obj/item/inflatable/door
 	name = "inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation."
-	icon = 'modular_skyrat/modules/inflatables/icons/inflatable.dmi'
+	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "folded_door"
 	base_icon_state = "folded_door"
 	structure_type = /obj/structure/inflatable/door
@@ -224,7 +224,7 @@
 
 /// The box full of inflatables
 /obj/item/storage/inflatable
-	icon = 'modular_skyrat/modules/more_briefcases/icons/briefcases.dmi'
+	icon = 'modular_nova/modules/more_briefcases/icons/briefcases.dmi'
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
 	icon_state = "briefcase_inflate"

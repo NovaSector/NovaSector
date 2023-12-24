@@ -25,8 +25,8 @@
 /obj/item/clothing/gloves/combat/naval
 	name = "nanotrasen naval gloves"
 	desc = "A high quality pair of thick gloves covered in gold stitching, given to Nanotrasen's Naval Commanders."
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	icon_state = "naval_command"
 
 /obj/item/clothing/gloves/combat/naval/fleet_admiral
@@ -39,8 +39,8 @@
 	name = "naval cap"
 	desc = "A cap worn by those in the Nanotrasen Navy."
 	icon_state = "naval_command"
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/hats/caphat/naval/fleet_admiral
@@ -53,8 +53,8 @@
 /obj/item/clothing/neck/pauldron
 	name = "lieutenant commander's pauldron"
 	desc = "A red padded pauldron signifying the rank of Lieutenant Commander of the Nanotrasen Navy."
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "pauldron_ltcr"
 
 /obj/item/clothing/neck/pauldron/commander
@@ -70,23 +70,23 @@
 /obj/item/clothing/neck/cloak/admiral
 	name = "admiral's cape"
 	desc = "A vibrant green cape with gold stitching, worn by Nanotrasen Navy Admirals."
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "cape_admiral"
 
 /obj/item/clothing/neck/cloak/fleet_admiral
 	name = "fleet admiral's cape"
 	desc = "A godly cape worn by the highest ranking person in the Nanotrasen Navy, the Fleet Admiral."
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "cape_fleet_admiral"
 
 // SUITS
 /obj/item/clothing/suit/armor/vest/capcarapace/naval
 	name = "naval carapace"
 	desc = "A carapace worn by Naval Command members."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "naval_carapace"
 
 // GLASSES

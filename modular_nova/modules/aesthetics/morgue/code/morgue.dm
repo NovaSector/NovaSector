@@ -1,2 +1,2 @@
 /obj/structure/bodycontainer
-	icon = 'modular_skyrat/modules/aesthetics/morgue/icons/morgue.dmi'
+	icon = 'modular_nova/modules/aesthetics/morgue/icons/morgue.dmi'

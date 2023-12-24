@@ -3,7 +3,7 @@
 
 /* ----------------- Computers ----------------- */
 /obj/item/gps/computer/space //Subtype that runs pod computer code, with a texture to blend better with normal walls
-	icon = 'modular_skyrat/modules/mapping/icons/machinery/gps_computer.dmi'	//needs its own file for pixel size ;-;
+	icon = 'modular_nova/modules/mapping/icons/machinery/gps_computer.dmi'	//needs its own file for pixel size ;-;
 	name = "gps computer"
 	icon_state = "pod_computer"
 	anchored = TRUE

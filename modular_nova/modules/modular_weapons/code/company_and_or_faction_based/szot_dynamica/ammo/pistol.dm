@@ -5,7 +5,7 @@
 	name = ".27-54 Cesarzowa piercing bullet casing"
 	desc = "A purple-bodied caseless cartridge home to a small projectile with a fine point."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "27-54cesarzowa"
 
 	caliber = CALIBER_CESARZOWA
@@ -27,7 +27,7 @@
 	name = "ammo box (.27-54 Cesarzowa piercing)"
 	desc = "A box of .27-54 Cesarzowa piercing pistol rounds, holds eighteen cartridges."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "27-54cesarzowa_box"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

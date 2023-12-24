@@ -2,7 +2,7 @@
 	key = "horns"
 	generic = "Horns"
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/horns.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
 	genetic = TRUE
 	organ_type = /obj/item/organ/external/horns
@@ -59,7 +59,7 @@
 	icon_state = "oni_large"
 
 /datum/sprite_accessory/horns/big
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/horns_big.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns_big.dmi'
 
 /datum/sprite_accessory/horns/big/antlers
 	name = "Antlers"

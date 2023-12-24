@@ -4,7 +4,7 @@
 	name = "High-Functioning mutant"
 	id = SPECIES_MUTANT
 	meat = /obj/item/food/meat/slab/human/mutant/zombie
-	eyes_icon = 'modular_skyrat/modules/mutants/icons/mutant_eyes.dmi'
+	eyes_icon = 'modular_nova/modules/mutants/icons/mutant_eyes.dmi'
 	inherent_traits = list(
 		TRAIT_NOBLOOD,
 		TRAIT_NODISMEMBER,
@@ -184,8 +184,8 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "bloodhand_left"
 	inhand_icon_state = "mutant"
-	lefthand_file = 'modular_skyrat/modules/mutants/icons/mutant_hand_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/mutants/icons/mutant_hand_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/mutants/icons/mutant_hand_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/mutants/icons/mutant_hand_righthand.dmi'
 	hitsound = 'sound/hallucinations/growl1.ogg'
 	force = 26
 	sharpness = SHARP_EDGED

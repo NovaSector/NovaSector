@@ -4,7 +4,7 @@
 	name = "large sigil"
 	desc = "A very large, glowing sigil."
 	max_integrity = 10
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_effects_96.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_effects_96.dmi'
 	icon_state = "research_sigil"
 	resistance_flags = INDESTRUCTIBLE
 	can_dispel_by_hand = FALSE

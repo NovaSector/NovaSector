@@ -41,7 +41,7 @@
 /turf/open/floor/plating/ocean/rock
 	name = "rock"
 	baseturfs = /turf/open/floor/plating/ocean/rock
-	icon = 'modular_skyrat/modules/liquids/icons/turf/seafloor.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/seafloor.dmi'
 	icon_state = "seafloor"
 	base_icon_state = "seafloor"
 	rand_variants = 0
@@ -51,7 +51,7 @@
 
 /turf/open/floor/plating/ocean/rock/warm/fissure
 	name = "fissure"
-	icon = 'modular_skyrat/modules/liquids/icons/turf/fissure.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/fissure.dmi'
 	icon_state = "fissure-0"
 	base_icon_state = "fissure"
 	smoothing_flags = SMOOTH_BITMASK
@@ -192,7 +192,7 @@
 
 /turf/open/floor/iron/submarine
 	name = "submarine floor"
-	icon = 'modular_skyrat/modules/liquids/icons/turf/submarine.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/submarine.dmi'
 	base_icon_state = "submarine_floor"
 	icon_state = "submarine_floor"
 	liquid_height = -30
@@ -203,7 +203,7 @@
 
 /turf/open/floor/iron/submarine_vents
 	name = "submarine floor"
-	icon = 'modular_skyrat/modules/liquids/icons/turf/submarine.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/submarine.dmi'
 	base_icon_state = "submarine_vents"
 	icon_state = "submarine_vents"
 	liquid_height = -30
@@ -214,7 +214,7 @@
 
 /turf/open/floor/iron/submarine_perf
 	name = "submarine floor"
-	icon = 'modular_skyrat/modules/liquids/icons/turf/submarine.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/submarine.dmi'
 	base_icon_state = "submarine_perf"
 	icon_state = "submarine_perf"
 	liquid_height = -30

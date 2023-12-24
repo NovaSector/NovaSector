@@ -21,7 +21,7 @@
 	name = ".980 Tydhouer practice grenade"
 	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Practice shells disintegrate into harmless sparks."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "980_solid"
 
 	caliber = CALIBER_980TYDHOUER
@@ -65,7 +65,7 @@
 
 /// Generic proc that is called when the projectile should 'detonate', being either on impact or when the range runs out
 /obj/projectile/bullet/c980grenade/proc/fuse_activation(atom/target)
-	playsound(src, 'modular_skyrat/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	do_sparks(3, FALSE, src)
 
 
@@ -73,7 +73,7 @@
 	name = "ammo box (.980 Tydhouer practice)"
 	desc = "A box of four .980 Tydhouer practice grenades. Instructions on the box indicate these are dummy practice rounds that will disintegrate into sparks on detonation. Neat!"
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "980box_solid"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -101,7 +101,7 @@
 
 
 /obj/projectile/bullet/c980grenade/smoke/fuse_activation(atom/target)
-	playsound(src, 'modular_skyrat/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
 	var/datum/effect_system/fluid_spread/smoke/bad/smoke = new
 	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
@@ -146,7 +146,7 @@
 	shrapnel_maker.detonate()
 	qdel(shrapnel_maker)
 
-	playsound(src, 'modular_skyrat/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 
 
 /obj/item/ammo_box/c980grenade/shrapnel
@@ -237,7 +237,7 @@
 	name = ".980 Tydhouer tear gas grenade"
 
 /obj/projectile/bullet/c980grenade/riot/fuse_activation(atom/target)
-	playsound(src, 'modular_skyrat/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
 	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
 	smoke.chemholder.add_reagent(/datum/reagent/consumable/condensedcapsaicin, 10)

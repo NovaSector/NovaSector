@@ -1,5 +1,5 @@
 /obj/character_event_spawner
-	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
+	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod"
 
 	var/list/species_whitelist

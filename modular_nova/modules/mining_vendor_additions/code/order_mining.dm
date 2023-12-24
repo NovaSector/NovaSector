@@ -17,12 +17,12 @@
 			RESKIN_INHAND_STATE = "crusher0",
 		),
 		"Glaive" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/kinetic_glaive.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/kinetic_glaive.dmi',
 			RESKIN_ICON_STATE = "crusher-glaive",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "crusher-glaive",
-			RESKIN_INHAND_L = 'modular_skyrat/master_files/icons/mob/64x64_lefthand.dmi',
-			RESKIN_INHAND_R = 'modular_skyrat/master_files/icons/mob/64x64_righthand.dmi',
+			RESKIN_INHAND_L = 'modular_nova/master_files/icons/mob/64x64_lefthand.dmi',
+			RESKIN_INHAND_R = 'modular_nova/master_files/icons/mob/64x64_righthand.dmi',
 		),
 	)
 

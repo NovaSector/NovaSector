@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/hash
 	name = "hash"
 	desc = "Concentrated cannabis extract. Delivers a much better high when used in a bong."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "hash"
 	volume = 20
 	has_variable_transfer_amount = FALSE
@@ -10,7 +10,7 @@
 /obj/item/reagent_containers/hash/dabs
 	name = "dab"
 	desc = "Oil extract from cannabis plants. Just delivers a different type of hit."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "dab"
 	volume = 40
 	has_variable_transfer_amount = FALSE
@@ -19,7 +19,7 @@
 /obj/item/reagent_containers/hashbrick
 	name = "hash brick"
 	desc = "A brick of hash. Good for transport!"
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "hashbrick"
 	volume = 80
 	has_variable_transfer_amount = FALSE

@@ -97,7 +97,7 @@
 	)
 	all_emotes += human_emotes
 
-	// modular_skyrat\modules\emotes\code\emote.dm
+	// modular_nova\modules\emotes\code\emote.dm
 	var/static/list/skyrat_living_emotes = list(
 		/mob/living/proc/emote_peep,
 		/mob/living/proc/emote_peep2,
@@ -168,7 +168,7 @@
 	)
 	all_emotes += alien_emotes
 
-	// modular_skyrat\modules\emotes\code\synth_emotes.dm
+	// modular_nova\modules\emotes\code\synth_emotes.dm
 	var/static/list/synth_emotes = list(
 		/mob/living/proc/emote_dwoop,
 		/mob/living/proc/emote_yes,
@@ -190,7 +190,7 @@
 		/datum/species/synthetic
 	)
 
-	// modular_skyrat\modules\emotes\code\additionalemotes\overlay_emote.dm
+	// modular_nova\modules\emotes\code\additionalemotes\overlay_emote.dm
 	var/static/list/skyrat_living_emotes_overlay = list(
 		/mob/living/proc/emote_sweatdrop,
 		/mob/living/proc/emote_exclaim,
@@ -201,7 +201,7 @@
 	)
 	all_emotes += skyrat_living_emotes_overlay
 
-	// modular_skyrat\modules\emotes\code\additionalemotes\turf_emote.dm
+	// modular_nova\modules\emotes\code\additionalemotes\turf_emote.dm
 	all_emotes += /mob/living/proc/emote_mark_turf
 
 	// Clearing all emotes before applying new ones
@@ -625,7 +625,7 @@
 	set category = "Emotes"
 	usr.emote("wing", intentional = TRUE)
 
-// modular_skyrat\modules\emotes\code\emote.dm
+// modular_nova\modules\emotes\code\emote.dm
 
 /mob/living/proc/emote_peep()
 	set name = "> Peep"
@@ -910,7 +910,7 @@
 	set category = "Emotes"
 	usr.emote("roar", intentional = TRUE)
 
-//modular_skyrat\modules\emotes\code\synth_emotes.dm
+//modular_nova\modules\emotes\code\synth_emotes.dm
 
 /mob/living/proc/emote_dwoop()
 	set name = "< Dwoop >"
@@ -982,7 +982,7 @@
 	set category = "Emotes"
 	usr.emote("slowclap", intentional = TRUE)
 
-// modular_skyrat\modules\emotes\code\additionalemotes\overlay_emote.dm
+// modular_nova\modules\emotes\code\additionalemotes\overlay_emote.dm
 /mob/living/proc/emote_sweatdrop()
 	set name = "| Sweatdrop |"
 	set category = "Emotes+"
@@ -1013,7 +1013,7 @@
 	set category = "Emotes+"
 	usr.emote("glasses", intentional = TRUE)
 
-//modular_skyrat\modules\emotes\code\additionalemotes\turf_emote.dm
+//modular_nova\modules\emotes\code\additionalemotes\turf_emote.dm
 /mob/living/proc/emote_mark_turf()
 	set name = "| Mark Turf |"
 	set category = "Emotes+"

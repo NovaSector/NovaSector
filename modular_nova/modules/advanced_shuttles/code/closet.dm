@@ -13,7 +13,7 @@
 	anchored = TRUE
 	density = TRUE
 	can_be_unanchored = FALSE
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_state = "wallcloset"
 	icon_door = "wallcloset_mesh"
 	door_anim_time = 0 //Somebody needs to remove the hard-sprited shuttles, or at least their lockers. These are a sin.
@@ -81,7 +81,7 @@
 	anchored = TRUE
 	anchorable = FALSE //Prevents it being unwrenched and dragged around. Gotta unweld it!
 	paint_jobs = FALSE //Prevents it being repainted into other non-wall lockers.
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "locker_wall"
 
 /obj/structure/closet/emcloset/wall
@@ -94,7 +94,7 @@
 	anchored = TRUE
 	anchorable = FALSE
 	paint_jobs = FALSE
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "emergency_wall"
 
 /obj/structure/closet/firecloset/wall
@@ -107,7 +107,7 @@
 	anchored = TRUE
 	anchorable = FALSE
 	paint_jobs = FALSE
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "fire_wall"
 
 //These two are pre-locked versions of closet/generic/wall, for mapping only
@@ -121,7 +121,7 @@
 	anchored = TRUE
 	anchorable = FALSE
 	paint_jobs = FALSE
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "locker_wall"
 
 /obj/structure/closet/secure_closet/personal/wall
@@ -134,7 +134,7 @@
 	anchored = TRUE
 	anchorable = FALSE
 	paint_jobs = FALSE
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "locker_wall"
 
 //These procs create empty subtypes, for when it's placed by a user rather than mapped in...
@@ -152,7 +152,7 @@
 /obj/item/wallframe/closet
 	name = "wall mounted closet"
 	desc = "It's a wall mounted storage unit for... well, whatever you put in this one. Apply to wall to use."
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "locker_mount"
 	result_path = /obj/structure/closet/generic/wall/empty
 	pixel_shift = 32
@@ -160,7 +160,7 @@
 /obj/item/wallframe/emcloset
 	name = "wall mounted emergency closet"
 	desc = "It's a wall mounted storage unit for emergency breath masks and O2 tanks. Apply to wall to use."
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "emergency_mount"
 	result_path = /obj/structure/closet/emcloset/wall/empty
 	pixel_shift = 32
@@ -168,7 +168,7 @@
 /obj/item/wallframe/firecloset
 	name = "wall mounted fire-safety closet"
 	desc = "It's a wall mounted storage unit for fire-fighting supplies. Apply to wall to use."
-	icon = 'modular_skyrat/master_files/icons/obj/closet_wall.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "fire_mount"
 	result_path = /obj/structure/closet/firecloset/wall/empty
 	pixel_shift = 32

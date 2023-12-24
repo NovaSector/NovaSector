@@ -1,7 +1,7 @@
 /obj/item/straight_razor
 	name = "straight razor"
 	desc = "A very sharp blade, mostly used for shaving faces..."
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "straight_razor"
 	force = 12
 	throw_speed = 3

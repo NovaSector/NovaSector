@@ -4,7 +4,7 @@
 	
 	//load only what we need from the icon files,format is icon_file_name = list of icon_states we need from this file
 	var/list/essentials = list(
-		'modular_skyrat/modules/liquids/icons/obj/structures/drains.dmi' = list(
+		'modular_nova/modules/liquids/icons/obj/structures/drains.dmi' = list(
 			"drain",
 			"active_input",
 			"active_output",

@@ -29,7 +29,7 @@
 
 /// An atmos device that uses freezing cold air to attempt an emergency shutdown of the supermatter engine
 /obj/machinery/atmospherics/components/unary/delam_scram
-	icon = 'modular_skyrat/modules/delam_emergency_stop/icons/scram.dmi'
+	icon = 'modular_nova/modules/delam_emergency_stop/icons/scram.dmi'
 	icon_state = "dispenser-idle"
 	name = "\improper delamination suppression system"
 	desc = "The latest model in Nakamura Engineering's line of delamination suppression systems.<br>You don't want to be in the chamber when it's activated!<br>\
@@ -262,7 +262,7 @@
 	desc = "Your last hope to try and save the crystal during a delamination.<br>\
 		While it is indeed a big red button, pressing it outside of an emergency \
 		will probably get the engineering department out for your blood."
-	icon = 'modular_skyrat/modules/delam_emergency_stop/icons/scram.dmi'
+	icon = 'modular_nova/modules/delam_emergency_stop/icons/scram.dmi'
 	can_alter_skin = FALSE
 	silicon_access_disabled = TRUE
 	resistance_flags = FREEZE_PROOF | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -433,7 +433,7 @@
 /obj/structure/sign/delam_procedure
 	name = "Safety Moth - Delamination Emergency Procedure"
 	desc = "This informational sign uses Safety Moth™ to tell the viewer how to use the emergency stop button if the Supermatter Crystal is delaminating."
-	icon = 'modular_skyrat/modules/delam_emergency_stop/icons/scram.dmi'
+	icon = 'modular_nova/modules/delam_emergency_stop/icons/scram.dmi'
 	icon_state = "moff-poster"
 	pixel_y = 4
 	armor_type = /datum/armor/sign_delam

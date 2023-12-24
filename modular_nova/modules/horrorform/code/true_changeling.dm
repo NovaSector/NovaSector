@@ -10,7 +10,7 @@
 	desc = "Holy shit, what the fuck is that thing?!"
 	speak_emote = list("says with one of its faces")
 	emote_hear = list("says with one of its faces")
-	icon = 'modular_skyrat/modules/horrorform/icons/animal.dmi'
+	icon = 'modular_nova/modules/horrorform/icons/animal.dmi'
 	icon_state = "horror"
 	icon_living = "horror"
 	icon_dead = "horror_dead"
@@ -85,10 +85,10 @@
 			if(M_turf && M_turf.z == src.z)
 				var/dist = get_dist(M_turf, src)
 				if(dist <= 7) //source of sound very close
-					M.playsound_local(src, 'modular_skyrat/modules/horrorform/sound/horror_scream.ogg', 80, 1, frequency)
+					M.playsound_local(src, 'modular_nova/modules/horrorform/sound/horror_scream.ogg', 80, 1, frequency)
 				else
 					var/vol = clamp(100-((dist-7)*5), 10, 100) //Every tile decreases sound volume by 5
-					M.playsound_local(src, 'modular_skyrat/modules/horrorform/sound/horror_scream_reverb.ogg', vol, 1, frequency)
+					M.playsound_local(src, 'modular_nova/modules/horrorform/sound/horror_scream_reverb.ogg', vol, 1, frequency)
 			if(M.stat == DEAD && (M.client.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(M in viewers(get_turf(src),null)))
 				M.show_message(message)
 	audible_message(message)
@@ -136,7 +136,7 @@
 
 /obj/projectile/bullet/pellet/bone_fragment
 	name = "bone fragment"
-	icon = 'modular_skyrat/modules/horrorform/icons/bone_fragment.dmi'
+	icon = 'modular_nova/modules/horrorform/icons/bone_fragment.dmi'
 	icon_state = "bone_fragment"
 	damage = 8
 	ricochets_max = 3
@@ -157,7 +157,7 @@
 
 /obj/item/grenade/stingbang/bonebang
 	name = "bonebang"
-	icon = 'modular_skyrat/modules/horrorform/icons/bone_fragment.dmi'
+	icon = 'modular_nova/modules/horrorform/icons/bone_fragment.dmi'
 	icon_state = "grenade_bone"
 	shrapnel_type = /obj/projectile/bullet/pellet/bone_fragment
 	shrapnel_radius = 8
@@ -169,8 +169,8 @@
 /datum/action/innate/turn_to_human
 	name = "Re-Form Human Shell"
 	desc = "We turn back into a human. This takes considerable effort and will stun us for some time afterwards."
-	button_icon = 'modular_skyrat/modules/horrorform/icons/actions_changeling.dmi'
-	button_icon = 'modular_skyrat/modules/horrorform/icons/actions_changeling.dmi'
+	button_icon = 'modular_nova/modules/horrorform/icons/actions_changeling.dmi'
+	button_icon = 'modular_nova/modules/horrorform/icons/actions_changeling.dmi'
 	background_icon_state = "bg_changeling"
 	button_icon_state = "change_to_human"
 
@@ -198,7 +198,7 @@
 /datum/action/innate/devour
 	name = "Devour"
 	desc = "We tear into the innards of a human. After some time, they will be significantly damaged and our health partially restored."
-	button_icon = 'modular_skyrat/modules/horrorform/icons/actions_changeling.dmi'
+	button_icon = 'modular_nova/modules/horrorform/icons/actions_changeling.dmi'
 	background_icon_state = "bg_changeling"
 	button_icon_state = "devour"
 
@@ -247,7 +247,7 @@
 		guts.dismember()
 		dismembered = TRUE
 	playsound(lunch, 'sound/effects/splat.ogg', 50, 1)
-	playsound(lunch, 'modular_skyrat/modules/horrorform/sound/tear.ogg', 50, 1)
+	playsound(lunch, 'modular_nova/modules/horrorform/sound/tear.ogg', 50, 1)
 	lunch.emote("scream")
 	if(lunch.nutrition >= NUTRITION_LEVEL_FAT)
 		horrorform.adjustBruteLoss(-100) //Tasty leetle peegy

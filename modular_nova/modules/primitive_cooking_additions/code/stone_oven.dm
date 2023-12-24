@@ -3,7 +3,7 @@
 /obj/machinery/oven/stone
 	name = "stone oven"
 	desc = "Sorry buddy, all this stone used up the budget that would have normally gone to garfield comic jokes."
-	icon = 'modular_skyrat/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
+	icon = 'modular_nova/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
 	circuit = null
 	use_power = FALSE
 	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION

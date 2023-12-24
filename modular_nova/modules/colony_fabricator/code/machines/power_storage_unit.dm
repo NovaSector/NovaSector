@@ -4,7 +4,7 @@
 		Smaller units such as these tend to have a respectively <b>smaller energy storage</b>, though also are capable of \
 		<b>higher maximum output</b> than some larger units. Most commonly seen being used not for their ability to store \
 		power, but rather for use in regulating power input and output."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/power_storage_unit/small_battery.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/small_battery.dmi'
 	capacity = 75e4
 	input_level_max = 4e5
 	output_level_max = 4e5
@@ -57,7 +57,7 @@
 		Larger units such as these tend to have a respectively <b>larger energy storage</b>, though only capable of \
 		<b>low maximum output</b> compared to smaller units. Most commonly seen as large backup batteries, or simply \
 		for large power storage where throughput is not a concern."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/power_storage_unit/large_battery.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/large_battery.dmi'
 	capacity = 1e7
 	input_level_max = 5e4
 	output_level_max = 5e4

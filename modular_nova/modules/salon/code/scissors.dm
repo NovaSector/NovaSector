@@ -1,7 +1,7 @@
 /obj/item/scissors
 	name = "barber's scissors"
 	desc = "Some say a barbers best tool is his electric razor, that is not the case. These are used to cut hair in a professional way!"
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "scissors"
 	w_class = WEIGHT_CLASS_TINY
 	sharpness = SHARP_EDGED
@@ -47,7 +47,7 @@
 
 		to_chat(user, span_notice("You begin to masterfully sculpt [target_human]'s hair!"))
 
-		playsound(target_human, 'modular_skyrat/modules/salon/sound/haircut.ogg', 100)
+		playsound(target_human, 'modular_nova/modules/salon/sound/haircut.ogg', 100)
 
 		if(do_after(user, haircut_duration, target_human))
 			target_human.set_hairstyle(hair_id, update = TRUE)
@@ -67,7 +67,7 @@
 
 		to_chat(user, "You begin to masterfully sculpt [target_human]'s facial hair!")
 
-		playsound(target_human, 'modular_skyrat/modules/salon/sound/haircut.ogg', 100)
+		playsound(target_human, 'modular_nova/modules/salon/sound/haircut.ogg', 100)
 
 		if(do_after(user, facial_haircut_duration, target_human))
 			target_human.set_facial_hairstyle(facial_hair_id, update = TRUE)

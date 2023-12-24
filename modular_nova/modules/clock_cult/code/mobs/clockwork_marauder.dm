@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(clockwork_marauders)
 /mob/living/basic/clockwork_marauder
 	name = "clockwork marauder"
 	desc = "A brass machine of destruction."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_mobs.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_mobs.dmi'
 	icon_state = "clockwork_marauder"
 	icon_living = "clockwork_marauder"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(clockwork_marauders)
 /// Damage the marauder's shield by one tick
 /mob/living/basic/clockwork_marauder/proc/damage_shield()
 	shield_health--
-	playsound(src, 'modular_skyrat/modules/clock_cult/sound/magic/anima_fragment_attack.ogg', 60, TRUE)
+	playsound(src, 'modular_nova/modules/clock_cult/sound/magic/anima_fragment_attack.ogg', 60, TRUE)
 	if(!shield_health)
 		to_chat(src, span_userdanger("Your shield breaks!"))
 		to_chat(src, span_brass("You require a <b>welding tool</b> to repair your damaged shield!"))

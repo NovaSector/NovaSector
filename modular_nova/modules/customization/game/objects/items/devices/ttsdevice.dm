@@ -10,13 +10,13 @@
 
 /obj/item/ttsdevice/attack_self(mob/user)
 	user.balloon_alert_to_viewers("typing...", "started typing...")
-	playsound(src, 'modular_skyrat/master_files/sound/items/tts/started_type.ogg', 50, TRUE)
+	playsound(src, 'modular_nova/master_files/sound/items/tts/started_type.ogg', 50, TRUE)
 	var/str = tgui_input_text(user, "What would you like the device to say?", "Say Text", "", MAX_MESSAGE_LEN, encode = FALSE)
 	if(QDELETED(src) || !user.can_perform_action(src))
 		return
 	if(!str)
 		user.balloon_alert_to_viewers("stops typing", "stopped typing")
-		playsound(src, 'modular_skyrat/master_files/sound/items/tts/stopped_type.ogg', 50, TRUE)
+		playsound(src, 'modular_nova/master_files/sound/items/tts/stopped_type.ogg', 50, TRUE)
 		return
 	src.say(str)
 	str = null

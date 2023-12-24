@@ -7,7 +7,7 @@
 	projectile_type = /obj/projectile/beam/laser/microfusion
 	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE) // 10 shots with a normal cell.
 	select_name = "laser"
-	fire_sound = 'modular_skyrat/modules/microfusion/sound/laser_1.ogg'
+	fire_sound = 'modular_nova/modules/microfusion/sound/laser_1.ogg'
 	fire_sound_volume = 100
 
 /obj/item/ammo_casing/proc/refresh_shot()
@@ -15,12 +15,12 @@
 
 /obj/projectile/beam/laser/microfusion
 	name = "microfusion laser"
-	icon = 'modular_skyrat/modules/microfusion/icons/projectiles.dmi'
+	icon = 'modular_nova/modules/microfusion/icons/projectiles.dmi'
 	damage = 25
 
 /obj/projectile/beam/microfusion_disabler
 	name = "microfusion disabler laser"
-	icon = 'modular_skyrat/modules/microfusion/icons/projectiles.dmi'
+	icon = 'modular_nova/modules/microfusion/icons/projectiles.dmi'
 	icon_state = "disabler"
 	damage = 41
 	damage_type = STAMINA

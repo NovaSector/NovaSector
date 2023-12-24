@@ -3,8 +3,8 @@
 	desc = "Sometimes you need a special way to humiliate someone."
 	icon_state = "strapon_human"
 	base_icon_state = "strapon"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	var/in_hands = FALSE
 	var/type_changed = FALSE
@@ -102,7 +102,7 @@
 /obj/item/clothing/strapon/proc/update_mob_action_buttonss()
 	for(var/datum/action/item_action/take_strapon/action_button in actions_types)
 		action_button.button_icon_state = "dildo_[strapon_type]"
-		action_button.button_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+		action_button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	update_icon()
 
 //button stuff
@@ -123,7 +123,7 @@
 		to_chat(user, span_warning("You need to put the strapon around your waist before you can use it!"))
 
 /obj/item/clothing/strapon/proc/toggle(mob/living/carbon/human/user)
-	play_lewd_sound(user, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
+	play_lewd_sound(user, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
 	var/obj/item/held = user.get_active_held_item()
 	var/obj/item/unheld = user.get_inactive_held_item()
 
@@ -169,7 +169,7 @@
 /obj/item/strapon_dildo
 	name = "strapon"
 	desc = "An item with which to be menacing and merciless."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "dildo_human"
 	base_icon_state = "dildo"
 	inhand_icon_state = "nothing"
@@ -208,12 +208,12 @@
 						if(prob(40))
 							hit_mob.try_lewd_autoemote(pick("twitch_s", "moan"))
 						user.visible_message(span_purple("[user] [message]!"))
-						play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
-											'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',
-											'modular_skyrat/modules/modular_items/lewd_items/sounds/bang3.ogg',
-											'modular_skyrat/modules/modular_items/lewd_items/sounds/bang4.ogg',
-											'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
-											'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 60, TRUE)
+						play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+											'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
+											'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
+											'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
+											'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
+											'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 60, TRUE)
 					else
 						to_chat(user, span_danger("[hit_mob]'s groin is covered!"))
 						return
@@ -230,12 +230,12 @@
 					if(prob(70))
 						hit_mob.try_lewd_autoemote(pick("gasp", "moan"))
 					user.visible_message(span_purple("[user] [message]!"))
-					play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang3.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang4.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 40, TRUE)
+					play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 40, TRUE)
 
 				else
 					to_chat(user, span_danger("[hit_mob]'s mouth is covered!"))
@@ -249,12 +249,12 @@
 					if(prob(60))
 						hit_mob.try_lewd_autoemote(pick("twitch_s", "moan", "shiver"))
 					user.visible_message(span_purple("[user] [message]!"))
-					play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang3.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang4.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
-										'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE)
+					play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
+										'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE)
 
 				else
 					to_chat(user, span_danger("[hit_mob]'s anus is covered!"))

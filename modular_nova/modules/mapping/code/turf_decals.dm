@@ -1,5 +1,5 @@
 /obj/effect/turf_decal/skyrat_decals
-	icon = 'modular_skyrat/modules/mapping/icons/turf/turf_decals.dmi'
+	icon = 'modular_nova/modules/mapping/icons/turf/turf_decals.dmi'
 	icon_state = "bad_coder"
 
 /obj/effect/decal/fakelattice/passthru	//Why the hell did TG make it dense anyways

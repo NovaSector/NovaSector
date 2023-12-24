@@ -5,11 +5,11 @@
 	desc = "A weapon that could hardly be called a 'sub' machinegun, firing the monstrous .585 cartridge. \
 		It provides enough kick to bruise a shoulder pretty bad if used without protection."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns32x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns32x.dmi'
 	icon_state = "bogseo"
 
-	lefthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/xhihao_light_arms/guns_righthand.dmi'
 	inhand_icon_state = "bogseo"
 
 	special_mags = FALSE
@@ -22,7 +22,7 @@
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c585trappiste_pistol
 
-	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/smg_heavy.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_heavy.ogg'
 	can_suppress = TRUE
 
 	can_bayonet = FALSE

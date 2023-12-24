@@ -620,7 +620,7 @@
 2022-05-12:
   ErdinyoBarboza:
   - rscadd: Vintorez, PCR-9, Pitbull and DTR-6 came back in ballistic flavor
-  - rscdel: Removed hardlight guns (modular_skyrat\modules\goofsec\code\projectiles.dm)
+  - rscdel: Removed hardlight guns (modular_nova\modules\goofsec\code\projectiles.dm)
   - balance: Dozer now uses 9x25mm for its namesake.
   - balance: Zeta-6 now uses 10mm Magnum.
   - bugfix: 9x19mm now is properly defined and cant be loaded to 9x25mm magazines

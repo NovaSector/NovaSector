@@ -34,7 +34,7 @@
 /obj/machinery/door/firedoor/solid
 	name = "solid emergency shutter"
 	desc = "Emergency air-tight shutter, capable of sealing off breached areas. It has a mechanism to open it with just your hands."
-	icon = 'modular_skyrat/modules/aesthetics/firedoor/icons/firedoor.dmi'
+	icon = 'modular_nova/modules/aesthetics/firedoor/icons/firedoor.dmi'
 	glass = FALSE
 
 /obj/machinery/door/firedoor/solid/closed

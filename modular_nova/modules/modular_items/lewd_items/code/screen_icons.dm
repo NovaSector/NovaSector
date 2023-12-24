@@ -3,7 +3,7 @@
 /atom/movable/screen/alert/aroused
 	name = "Aroused"
 	desc = "It's a little hot in here"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 	icon_state = "arousal_small"
 	var/mutable_appearance/pain_overlay
 	var/mutable_appearance/pleasure_overlay

@@ -29,5 +29,5 @@ MASTER CODE FILES
 - /master_files/code/modules/antagonists/_common/antag_datum.dm
 
 MASTER GLOBAL VARS
-- modular_skyrat/master_files/code/_globalvars/configuration.dm > GLOBAL_VAR_INIT(looc_allowed, TRUE)
+- modular_nova/master_files/code/_globalvars/configuration.dm > GLOBAL_VAR_INIT(looc_allowed, TRUE)
 

@@ -18,7 +18,7 @@ Adds a new sound system for the jukebox, and also updates the jukebox to be good
 
 ### Master file additions
 
-- modular_skyrat\master_files\code\game\sound.dm
+- modular_nova\master_files\code\game\sound.dm
 
 ### Included files that are not contained in this module:
 

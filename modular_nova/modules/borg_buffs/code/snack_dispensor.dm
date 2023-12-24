@@ -132,13 +132,13 @@
 /obj/item/food/cookie/bacon
 	name = "strip of bacon"
 	desc = "BACON!!!"
-	icon = 'modular_skyrat/master_files/icons/obj/food/snacks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/snacks.dmi'
 	icon_state = "bacon_strip"
 	foodtypes = MEAT
 
 /obj/item/food/cookie/cloth
 	name = "odd cookie"
 	desc = "A cookie that appears to be made out of... some form of cloth?"
-	icon = 'modular_skyrat/master_files/icons/obj/food/snacks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/snacks.dmi'
 	icon_state = "cookie_cloth"
 	foodtypes = CLOTH

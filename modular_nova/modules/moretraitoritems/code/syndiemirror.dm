@@ -1,7 +1,7 @@
 /obj/item/hhmirror/syndie
 	name = "handheld mirror"
 	desc = "A handheld mirror that allows you to change your looks. Reminds you of old times for some reason..."
-	icon = 'modular_skyrat/master_files/icons/obj/hhmirror.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hhmirror.dmi'
 	icon_state = "hhmirror"
 	special_desc_requirement = EXAMINE_CHECK_SYNDICATE
 	special_desc = "A mirror manufactured by the Syndicate containing barber-nanites that can alter your hair on the spot. Target your head and use it on yourself to activate the nanites."

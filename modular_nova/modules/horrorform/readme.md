@@ -18,9 +18,9 @@ Allows changelings to turn into the simple_mob horror_form which they are powerf
 
 ### Master file additions
 
-- modular_skyrat\master_files\sound\misc\tear.ogg
-- modular_skyrat\master_files\sound\effects\horror_scream_reverb.ogg
-- modular_skyrat\master_files\sound\effects\horror_scream.ogg
+- modular_nova\master_files\sound\misc\tear.ogg
+- modular_nova\master_files\sound\effects\horror_scream_reverb.ogg
+- modular_nova\master_files\sound\effects\horror_scream.ogg
 
 ### Included files that are not contained in this module:
 

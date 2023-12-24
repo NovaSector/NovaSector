@@ -2,8 +2,8 @@
 /obj/item/clothing/under/costume/cybersleek
 	name = "sleek modern coat"
 	desc = "A modern-styled coat typically worn on more urban planets, made with a neo-laminated fiber lining."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/uniform.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "cyberpunksleek"
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	supports_variations_flags = NONE

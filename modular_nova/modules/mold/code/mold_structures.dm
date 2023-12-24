@@ -49,7 +49,7 @@
 
 /datum/looping_sound/core_heartbeat
 	mid_length = 3 SECONDS
-	mid_sounds = list('modular_skyrat/master_files/sound/effects/heart_beat_loop3.ogg' = 1)
+	mid_sounds = list('modular_nova/master_files/sound/effects/heart_beat_loop3.ogg' = 1)
 	volume = 20
 
 /**
@@ -57,7 +57,7 @@
  */
 /obj/structure/mold/structure/core
 	name = "core"
-	icon = 'modular_skyrat/modules/mold/icons/blob_core.dmi'
+	icon = 'modular_nova/modules/mold/icons/blob_core.dmi'
 	icon_state = "blob_core"
 	layer = TABLE_LAYER
 	max_integrity = 1200
@@ -128,7 +128,7 @@
 /obj/structure/mold/resin
 	name = "mold"
 	desc = "It looks like mold, but it seems alive."
-	icon = 'modular_skyrat/modules/mold/icons/blob_resin.dmi'
+	icon = 'modular_nova/modules/mold/icons/blob_resin.dmi'
 	icon_state = "blob_floor"
 	density = FALSE
 	plane = FLOOR_PLANE
@@ -215,7 +215,7 @@
  */
 /obj/structure/mold/structure/bulb
 	name = "bulb"
-	icon = 'modular_skyrat/modules/mold/icons/blob_bulb.dmi'
+	icon = 'modular_nova/modules/mold/icons/blob_bulb.dmi'
 	icon_state = "blob_bulb_empty"
 	density = FALSE
 	layer = TABLE_LAYER
@@ -328,7 +328,7 @@
 	name = "pulsating vent"
 	desc = "An unsightly vent, it appears to be puffing something out."
 	density = FALSE
-	icon = 'modular_skyrat/modules/mold/icons/blob_spawner.dmi'
+	icon = 'modular_nova/modules/mold/icons/blob_spawner.dmi'
 	icon_state = "blob_vent"
 	density = FALSE
 	layer = SIGIL_LAYER
@@ -367,7 +367,7 @@
  */
 /obj/structure/mold/structure/spawner
 	name = "hatchery"
-	icon = 'modular_skyrat/modules/mold/icons/blob_spawner.dmi'
+	icon = 'modular_nova/modules/mold/icons/blob_spawner.dmi'
 	icon_state = "blob_spawner"
 	density = FALSE
 	layer = SIGIL_LAYER

@@ -91,8 +91,8 @@
 /obj/item/clothing/under/rank/security/officer/hecu //Subtype of security for armor (and because I dont want to repath it)
 	name = "urban camouflage BDU"
 	desc = "A baggy military camouflage uniform with an ERDL pattern. The range of whites and greys proves useful in urban environments."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/syndicate.dmi' //Camo goes into the syndicate.dmi
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/syndicate.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/syndicate.dmi' //Camo goes into the syndicate.dmi
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/syndicate.dmi'
 	icon_state = "urban_camo"
 	inhand_icon_state = "w_suit"
 	uses_advanced_reskins = FALSE
@@ -100,9 +100,9 @@
 
 /obj/item/storage/backpack/ert/odst/hecu
 	name = "hecu backpack"
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
 	icon_state = "hecu_pack"
 	worn_icon_state = "hecu_pack"
 	uses_advanced_reskins = TRUE
@@ -119,9 +119,9 @@
 
 /obj/item/storage/belt/military/assault/hecu
 	name = "hecu warbelt"
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_skyrat/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
 	icon_state = "hecu_belt"
 	worn_icon_state = "hecu_belt"
 	uses_advanced_reskins = TRUE

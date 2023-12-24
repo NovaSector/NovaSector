@@ -9,7 +9,7 @@
 		While not necessarily increasing performance in any way, the magazine is slightly longer. The weapon \
 		is also overall a bit shorter, making it easier to handle for some people. Cannot be sawn off, cutting \
 		really any part of this weapon off would make it non-functional."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns40x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns40x.dmi'
 	icon_state = "rengo"
 	worn_icon_state = "enchanted_rifle" // Not actually magical looking, just looks closest to this one
 	inhand_icon_state = "enchanted_rifle"
@@ -45,5 +45,5 @@
 
 /obj/item/storage/toolbox/guncase/soviet/sakhno
 	desc = "A weapon's case. This one is green and looks pretty old, but is otherwise in decent condition."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/cases.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/cases.dmi'
 	material_flags = NONE // ????? Why do these have materials enabled??

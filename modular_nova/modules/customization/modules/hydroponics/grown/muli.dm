@@ -2,12 +2,12 @@
 /obj/item/seeds/muli
 	name = "pack of muli starters"
 	desc = "This bacterial colony forms into muli pods."
-	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/seeds.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hydroponics/seeds.dmi'
 	icon_state = "seed-muli"
 	species = "muli"
 	plantname = "Muli Colony"
 	product = /obj/item/food/grown/muli
-	growing_icon = 'modular_skyrat/master_files/icons/obj/hydroponics/growing.dmi'
+	growing_icon = 'modular_nova/master_files/icons/obj/hydroponics/growing.dmi'
 	icon_grow = "muli-grow"
 	icon_dead = "muli-dead"
 	lifespan = 60
@@ -19,7 +19,7 @@
 	seed = /obj/item/seeds/muli
 	name = "muli pod"
 	desc = "A soft, oval-shaped pod. Contains a minty pale-blue juice used for many applications in teshari cuisine."
-	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/harvest.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hydroponics/harvest.dmi'
 	icon_state = "muli"
 	foodtypes = VEGETABLES
 	juice_typepath = /datum/reagent/consumable/muli_juice

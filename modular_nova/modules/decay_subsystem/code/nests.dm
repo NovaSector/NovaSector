@@ -3,7 +3,7 @@
 /obj/structure/mob_spawner
 	name = "nest"
 	desc = "A nasty looking pile of sticks and debris."
-	icon = 'modular_skyrat/modules/decay_subsystem/icons/nests.dmi'
+	icon = 'modular_nova/modules/decay_subsystem/icons/nests.dmi'
 	icon_state = "nest"
 	density = FALSE
 	anchored = TRUE
@@ -94,7 +94,7 @@
 	spawn_mob()
 
 /obj/structure/mob_spawner/proc/spawn_mob()
-	var/sound/sound_to_play = pick('modular_skyrat/master_files/sound/effects/rustle1.ogg', 'modular_skyrat/master_files/sound/effects/rustle2.ogg')
+	var/sound/sound_to_play = pick('modular_nova/master_files/sound/effects/rustle1.ogg', 'modular_nova/master_files/sound/effects/rustle2.ogg')
 	playsound(src, sound_to_play, 100)
 	do_squish(0.8, 1.2)
 
@@ -146,7 +146,7 @@
 /obj/item/spider_egg
 	name = "spider egg"
 	desc = "A white egg with something crawling around inside. Looks... fragile."
-	icon = 'modular_skyrat/modules/decay_subsystem/icons/loot.dmi'
+	icon = 'modular_nova/modules/decay_subsystem/icons/loot.dmi'
 	icon_state = "spider_egg"
 
 /obj/item/spider_egg/attack_self(mob/user, modifiers)

@@ -5,7 +5,7 @@
 	antagpanel_category = "Mutant"
 	show_in_antagpanel = TRUE
 	antag_hud_name = "mutant"
-	hud_icon = 'modular_skyrat/modules/mutants/icons/antag_hud.dmi'
+	hud_icon = 'modular_nova/modules/mutants/icons/antag_hud.dmi'
 	antag_memory = "You are a mutated abomination. You yearn for flesh. Your mind is torn apart, you do not remember who you are. \
 	All you know is that you want to kill. \
 	You retain some capability to reason. \

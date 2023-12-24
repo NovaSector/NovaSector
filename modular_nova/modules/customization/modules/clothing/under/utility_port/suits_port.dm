@@ -1,7 +1,7 @@
 //Base Jacket - same stats as /obj/item/clothing/suit/jacket, just toggleable and serving as the base for all the departmental jackets and flannels
 /obj/item/clothing/suit/toggle/jacket
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	name = "bomber jacket"
 	desc = "A warm bomber jacket, with synthetic-wool lining to keep you nice and warm in the depths of space. Aviators not included."
 	icon_state = "bomberalt"
@@ -82,8 +82,8 @@
 
 //Flannels
 /obj/item/clothing/suit/toggle/jacket/flannel
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	name = "flannel jacket"
 	desc = "A cozy and warm plaid flannel jacket. Praised by Lumberjacks and Truckers alike."
 	icon_state = "flannel"

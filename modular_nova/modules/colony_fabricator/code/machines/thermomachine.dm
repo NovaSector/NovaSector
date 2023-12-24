@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/deployable
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/thermomachine.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/thermomachine.dmi'
 	name = "atmospheric temperature regulator"
 	desc = "A much more tame variant of the thermomachines commonly seen in station scale temperature control devices. \
 		Its upper and lower bounds for temperature are highly limited, though it has a higher than standard heat capacity \
@@ -56,4 +56,4 @@
 
 /datum/greyscale_config/thermomachine/deployable
 	name = "Deployable Thermomachine"
-	icon_file = 'modular_skyrat/modules/colony_fabricator/icons/thermomachine.dmi'
+	icon_file = 'modular_nova/modules/colony_fabricator/icons/thermomachine.dmi'

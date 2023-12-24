@@ -3,7 +3,7 @@
 	name = "SmartDart"
 	desc = "Allows the user to safely inject chemicals at a range without harming the patient."
 	volume = 10
-	icon = 'modular_skyrat/modules/medical/icons/obj/smartdarts.dmi'
+	icon = 'modular_nova/modules/medical/icons/obj/smartdarts.dmi'
 	icon_state = "dart_0"
 	possible_transfer_amounts = list(1, 2, 5, 10)
 	base_icon_state = "dart"
@@ -44,7 +44,7 @@
 	name = "medical SmartDart gun"
 	desc = "An adjusted version of the medical syringe gun that only allows SmartDarts to be chambered."
 	w_class = WEIGHT_CLASS_NORMAL //I might need to look into changing this later depending on feedback
-	icon = 'modular_skyrat/modules/medical/icons/obj/dartguns.dmi'
+	icon = 'modular_nova/modules/medical/icons/obj/dartguns.dmi'
 	icon_state = "smartdartgun"
 	worn_icon_state = "medicalsyringegun"
 	item_flags = null

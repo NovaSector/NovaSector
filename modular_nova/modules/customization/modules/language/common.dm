@@ -12,4 +12,4 @@
 		"di", "tol", "mi", "solari", "ite", "domum"
 	)
 	icon_state = "solcommon"
-	icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+	icon = 'modular_nova/master_files/icons/misc/language.dmi'

@@ -5,7 +5,7 @@
 /obj/structure/decorative/shelf
 	name = "shelf"
 	desc = "A sturdy wooden shelf to store a variety of items on."
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi'
 	icon_state = "empty_shelf_1"
 	density = 0
 

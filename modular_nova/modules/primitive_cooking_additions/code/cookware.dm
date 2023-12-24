@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/cup/soup_pot/material
-	icon = 'modular_skyrat/modules/primitive_cooking_additions/icons/cookware.dmi'
+	icon = 'modular_nova/modules/primitive_cooking_additions/icons/cookware.dmi'
 	custom_materials = null // We're going to apply custom materials when this baby is actually made
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 
@@ -26,7 +26,7 @@
 // Oven Trays
 /obj/item/plate/oven_tray/material
 	desc = "Time to bake hardtack!"
-	icon = 'modular_skyrat/modules/primitive_cooking_additions/icons/cookware.dmi'
+	icon = 'modular_nova/modules/primitive_cooking_additions/icons/cookware.dmi'
 	custom_materials = null // We're going to apply custom materials when this baby is actually made
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	fragile = FALSE

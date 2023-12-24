@@ -43,7 +43,7 @@
 	return assault_team
 
 /datum/antagonist/assault_operative/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'modular_skyrat/modules/assault_operatives/sound/assault_operatives_greet.ogg', 30, 0, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'modular_nova/modules/assault_operatives/sound/assault_operatives_greet.ogg', 30, 0, use_reverb = FALSE)
 	to_chat(owner, span_big("You are an assault operative!"))
 	to_chat(owner, span_red(spawn_text))
 	owner.announce_objectives()
@@ -189,7 +189,7 @@
 		final_icon.Blend(teammate, ICON_UNDERLAY, -world.icon_size / 4, 0)
 		final_icon.Blend(teammate, ICON_UNDERLAY, world.icon_size / 4, 0)
 
-	var/icon/disky = icon('modular_skyrat/modules/assault_operatives/icons/goldeneye.dmi', "goldeneye_key")
+	var/icon/disky = icon('modular_nova/modules/assault_operatives/icons/goldeneye.dmi', "goldeneye_key")
 	disky.Shift(SOUTH, 12)
 	final_icon.Blend(disky, ICON_OVERLAY)
 

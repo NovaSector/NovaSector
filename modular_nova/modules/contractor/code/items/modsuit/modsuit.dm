@@ -1,7 +1,7 @@
 
 /obj/item/mod/control/pre_equipped/contractor
-	worn_icon = 'modular_skyrat/modules/contractor/icons/worn_modsuit.dmi'
-	icon = 'modular_skyrat/modules/contractor/icons/modsuit.dmi'
+	worn_icon = 'modular_nova/modules/contractor/icons/worn_modsuit.dmi'
+	icon = 'modular_nova/modules/contractor/icons/modsuit.dmi'
 	icon_state = "contractor-control"
 	theme = /datum/mod_theme/contractor
 	starting_frequency = MODLINK_FREQ_SYNDICATE

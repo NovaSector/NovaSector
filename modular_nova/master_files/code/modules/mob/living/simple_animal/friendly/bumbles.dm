@@ -1,7 +1,7 @@
 /mob/living/basic/pet/bumbles
 	name = "Bumbles"
 	desc = "Bumbles, the very humble bumblebee."
-	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "bumbles"
 	icon_living = "bumbles"
 	icon_dead = "bumbles_dead"

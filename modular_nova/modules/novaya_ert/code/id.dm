@@ -6,7 +6,7 @@
 
 /datum/id_trim/nri
 	assignment = "NRI Soldier"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_nri"
 	department_color = COLOR_RED_LIGHT
 	subdepartment_color = COLOR_COMMAND_BLUE

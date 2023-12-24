@@ -21,9 +21,9 @@
 	if(!override)
 		return
 	if(iscyborg(user))
-		return 'modular_skyrat/modules/emotes/sound/voice/scream_silicon.ogg'
+		return 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg'
 	if(ismonkey(user))
-		return 'modular_skyrat/modules/emotes/sound/voice/scream_monkey.ogg'
+		return 'modular_nova/modules/emotes/sound/voice/scream_monkey.ogg'
 	if(istype(user, /mob/living/basic/gorilla))
 		return 'sound/creatures/gorilla.ogg'
 	if(isalien(user))

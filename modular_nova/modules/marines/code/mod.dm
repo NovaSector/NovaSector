@@ -30,8 +30,8 @@
 	)
 	skins = list(
 		"marine" = list(
-			MOD_ICON_OVERRIDE = 'modular_skyrat/modules/marines/icons/mod.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_skyrat/modules/marines/icons/wornmod.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/wornmod.dmi',
 			HELMET_FLAGS = list(
 				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = SNUG_FIT,

@@ -15,7 +15,7 @@
 									/datum/material/plasma = SMALL_MATERIAL_AMOUNT * 2)
 
 /obj/item/ammo_casing/shotgun
-	icon = 'modular_skyrat/modules/shotgunrebalance/icons/shotshells.dmi'
+	icon = 'modular_nova/modules/shotgunrebalance/icons/shotshells.dmi'
 	desc = "A 12 gauge iron slug."
 	custom_materials = AMMO_MATS_SHOTGUN
 
@@ -161,7 +161,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/flechette
 	name = "flechette"
-	icon = 'modular_skyrat/modules/shotgunrebalance/icons/projectiles.dmi'
+	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
 	damage = 6
 	wound_bonus = 10
@@ -187,7 +187,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	name = "hornet flechette"
-	icon = 'modular_skyrat/modules/shotgunrebalance/icons/projectiles.dmi'
+	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "hornet"
 	damage = 4
 	stamina = 15
@@ -219,7 +219,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/antitide
 	name = "electrode"
-	icon = 'modular_skyrat/modules/shotgunrebalance/icons/projectiles.dmi'
+	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "stardust"
 	damage = 2
 	stamina = 8

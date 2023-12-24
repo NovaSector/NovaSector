@@ -2,9 +2,9 @@
 	name = "chinchilla"
 	desc = "They're like a mouse, but Australian."
 
-	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
-	held_lh = 'modular_skyrat/master_files/icons/mob/inhands/pets_held_lh.dmi'
-	held_rh = 'modular_skyrat/master_files/icons/mob/inhands/pets_held_rh.dmi'
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
+	held_lh = 'modular_nova/master_files/icons/mob/inhands/pets_held_lh.dmi'
+	held_rh = 'modular_nova/master_files/icons/mob/inhands/pets_held_rh.dmi'
 	icon_state = "chinchilla_white"
 	icon_living = "chinchilla_white"
 	icon_dead = "chinchilla_white_dead"

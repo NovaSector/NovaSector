@@ -10,15 +10,15 @@
 #define TOWEL_USED "used"
 
 /// Icon path to the obj icon of the towel.
-#define TOWEL_OBJ_ICON 'modular_skyrat/master_files/icons/obj/clothing/towel.dmi'
+#define TOWEL_OBJ_ICON 'modular_nova/master_files/icons/obj/clothing/towel.dmi'
 /// Icon path to the worn icon of the towel.
-#define TOWEL_WORN_ICON 'modular_skyrat/master_files/icons/mob/clothing/towel.dmi'
+#define TOWEL_WORN_ICON 'modular_nova/master_files/icons/mob/clothing/towel.dmi'
 /// Icon path to the worn icon of the towel for digitigrades.
-#define TOWEL_WORN_ICON_DIGI 'modular_skyrat/master_files/icons/mob/clothing/towel_digi.dmi'
+#define TOWEL_WORN_ICON_DIGI 'modular_nova/master_files/icons/mob/clothing/towel_digi.dmi'
 /// Icon path to the left-hand inhand icons of the towel.
-#define TOWEL_LEFTHAND_ICON 'modular_skyrat/master_files/icons/mob/inhands/clothing/towel_lefthand.dmi'
+#define TOWEL_LEFTHAND_ICON 'modular_nova/master_files/icons/mob/inhands/clothing/towel_lefthand.dmi'
 /// Icon path to the right-hand inhand icons of the towel.
-#define TOWEL_RIGHTHAND_ICON 'modular_skyrat/master_files/icons/mob/inhands/clothing/towel_righthand.dmi'
+#define TOWEL_RIGHTHAND_ICON 'modular_nova/master_files/icons/mob/inhands/clothing/towel_righthand.dmi'
 
 /// How much cloth goes into a towel.
 #define TOWEL_CLOTH_AMOUNT 2

@@ -20,9 +20,9 @@ Adds the blueshield job to the game. It does not however add the blueshield offi
 
 ### Master file additions
 
-- ./modular_skyrat/master_files/icons/mob/hud.dmi #NEW
-- ./modular_skyrat/master_files/icons/clothing/hands.dmi #NEW
-- ./modular_skyrat/master_files/icons/obj/clothing/gloves.dmi #NEW
+- ./modular_nova/master_files/icons/mob/hud.dmi #NEW
+- ./modular_nova/master_files/icons/clothing/hands.dmi #NEW
+- ./modular_nova/master_files/icons/obj/clothing/gloves.dmi #NEW
 
 ### Included files that are not contained in this module:
 

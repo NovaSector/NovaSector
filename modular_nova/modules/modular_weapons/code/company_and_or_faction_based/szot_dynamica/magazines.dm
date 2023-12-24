@@ -4,7 +4,7 @@
 	name = "\improper Lanca rifle magazine"
 	desc = "A standard size magazine for Lanca rifles, holds five rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "lanca_mag"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -22,7 +22,7 @@
 	name = "\improper Miecz submachinegun magazine"
 	desc = "A standard size magazine for Miecz submachineguns, holds eighteen rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "miecz_mag"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -39,7 +39,7 @@
 /obj/item/ammo_box/magazine/recharge/plasma_battery
 	name = "plasma power pack"
 	desc = "A rechargeable, detachable battery that serves as a power source for plasma projectors."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	base_icon_state = "plasma_battery"
 	icon_state = "plasma_battery"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -64,7 +64,7 @@
 
 /obj/item/ammo_box/magazine/wylom
 	name = "anti-materiel magazine (.60 Strela)"
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "wylom_mag"
 	base_icon_state = "wylom_mag"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/cup/vial
 	name = "broken hypovial"
 	desc = "You probably shouldn't be seeing this. Shout at a coder."
-	icon = 'modular_skyrat/modules/hyposprays/icons/vials.dmi'
+	icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 	icon_state = "hypovial"
 	spillable = FALSE
 	volume = 10
@@ -29,7 +29,7 @@
 				fill_overlay = 75
 			if(89 to 100)
 				fill_overlay = 100
-		var/mutable_appearance/filling = mutable_appearance('modular_skyrat/modules/hyposprays/icons/hypospray_fillings.dmi', "[fill_name][fill_overlay]")
+		var/mutable_appearance/filling = mutable_appearance('modular_nova/modules/hyposprays/icons/hypospray_fillings.dmi', "[fill_name][fill_overlay]")
 
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		chem_color = filling.color

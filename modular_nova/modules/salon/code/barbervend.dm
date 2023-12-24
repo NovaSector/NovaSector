@@ -1,7 +1,7 @@
 /obj/machinery/vending/barbervend
 	name = "Fab-O-Vend"
 	desc = "It would seem it vends dyes, and other stuff to make you pretty."
-	icon = 'modular_skyrat/modules/salon/icons/vendor.dmi'
+	icon = 'modular_nova/modules/salon/icons/vendor.dmi'
 	icon_state = "barbervend"
 	product_slogans = "Spread the colour, like butter, onto toast... Onto their hair.; Sometimes, I dream about dyes...; Paint 'em up and call me Mr. Painter.; Look brother, I'm a vendomat, I solve practical problems."
 	product_ads = "Cut 'em all!; To sheds!; Hair be gone!; Prettify!; Beautify!"

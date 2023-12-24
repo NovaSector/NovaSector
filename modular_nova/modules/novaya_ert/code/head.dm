@@ -16,10 +16,10 @@
 /obj/item/clothing/head/helmet/space/hev_suit/nri
 	name = "\improper VOSKHOD powered combat armor helmet"
 	desc = "A composite graphene-plasteel helmet with a ballistic nylon inner padding, complete with a deployable airtight polycarbonate visor and respirator system. 'НРИ - Оборонная Коллегия' is imprinted on the back."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/head_muzzled.dmi'
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/head_muzzled.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/head.dmi'
 	icon_state = "nri_soldier"
 	armor_type = /datum/armor/hev_suit_nri
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT

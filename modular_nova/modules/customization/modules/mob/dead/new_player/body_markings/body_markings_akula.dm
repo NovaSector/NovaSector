@@ -1,5 +1,5 @@
 /datum/body_marking/akula
-	icon = 'modular_skyrat/master_files/icons/mob/body_markings/akula_markings.dmi'
+	icon = 'modular_nova/master_files/icons/mob/body_markings/akula_markings.dmi'
 
 /datum/body_marking/akula/secondary
 	name = "Akula"

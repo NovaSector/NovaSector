@@ -1,8 +1,8 @@
 /obj/item/seeds/poppy/opiumpoppy
 	name = "pack of opium poppy seeds"
 	desc = "These seeds grow into real opium poppies."
-	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/seeds.dmi'
-	growing_icon = 'modular_skyrat/master_files/icons/obj/hydroponics/growing.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hydroponics/seeds.dmi'
+	growing_icon = 'modular_nova/master_files/icons/obj/hydroponics/growing.dmi'
 	icon_state = "seed-opiumpoppy"
 	species = "opiumpoppy"
 	icon_grow = "opiumpoppy-grow"
@@ -16,7 +16,7 @@
 	seed = /obj/item/seeds/poppy/opiumpoppy
 	name = "opium poppy seedpod"
 	desc = "The seedpod of the opium poppy plant, which contain opium latex."
-	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/harvest.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hydroponics/harvest.dmi'
 	icon_state = "opiumpoppy"
 	worn_icon_state = "map_flower"
 	greyscale_config = null

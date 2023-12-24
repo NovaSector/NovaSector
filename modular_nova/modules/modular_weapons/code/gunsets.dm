@@ -5,10 +5,10 @@
 /obj/item/storage/toolbox/guncase/skyrat
 	desc = "A thick gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/gunsets.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/gunsets.dmi'
 	icon_state = "guncase"
 
-	worn_icon = 'modular_skyrat/modules/modular_weapons/icons/mob/worn/cases.dmi'
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/worn/cases.dmi'
 	worn_icon_state = "darkcase"
 
 	slot_flags = ITEM_SLOT_BACK

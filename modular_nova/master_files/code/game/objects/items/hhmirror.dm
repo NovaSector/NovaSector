@@ -1,7 +1,7 @@
 /obj/item/hhmirror
 	name = "handheld mirror"
 	desc = "A handheld mirror."
-	icon = 'modular_skyrat/master_files/icons/obj/hhmirror.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hhmirror.dmi'
 	icon_state = "hhmirror"
 
 /obj/item/hhmirror/attack_self(mob/user)
@@ -12,7 +12,7 @@
 /obj/item/hhmirror/fullmagic
 	name = "full handheld magic mirror"
 	desc = "A handheld mirror that allows you to change your... self?" // Later, maybe add a charge to the description.
-	icon = 'modular_skyrat/master_files/icons/obj/hhmirror.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hhmirror.dmi'
 	icon_state = "hhmirrormagic"
 	var/list/races_blacklist = list(SPECIES_SKELETON, "agent", "angel", SPECIES_ZOMBIE, "clockwork golem servant", SPECIES_MUSHROOM, "memezombie")
 	var/list/choosable_races = list()
@@ -138,7 +138,7 @@
 /obj/item/hhmirror/wracemagic
 	name = "raceless handheld magic mirror"
 	desc = "A handheld mirror that allows you to change your... self?" // Later, maybe add a charge to the description.
-	icon = 'modular_skyrat/master_files/icons/obj/hhmirror.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hhmirror.dmi'
 	icon_state = "hhmirrormagic"
 	var/charges = 4
 

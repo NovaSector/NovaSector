@@ -4,11 +4,11 @@
 	name = "\improper Carwo 'Sindano' Submachinegun"
 	desc = "A small submachinegun commonly seen in the hands of PMCs and other unsavory corpos. Accepts any standard Sol pistol magazine."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
 	icon_state = "sindano"
 
-	lefthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
 	inhand_icon_state = "sindano"
 
 	special_mags = TRUE
@@ -22,7 +22,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_pistol
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c35sol_pistol/stendo
 
-	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/smg_light.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 	can_suppress = TRUE
 
 	can_bayonet = FALSE

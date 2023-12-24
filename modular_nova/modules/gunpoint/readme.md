@@ -8,7 +8,7 @@ Allows anyone with a gun to use SHIFT + MMB to hold someone at gunpoint, much li
 
 ### TG Proc Changes:
 
- ./modular_skyrat/modules/gunpoint/code/datum/gunpoint/gunpoint.dm > /mob/living/ShiftMiddleClickOn() > CHILD PROC
+ ./modular_nova/modules/gunpoint/code/datum/gunpoint/gunpoint.dm > /mob/living/ShiftMiddleClickOn() > CHILD PROC
  ./code/_onclick/hud/radial.dm > /datum/radial_menu/proc/setup_menu()
  ./code/_onclick/item_attack.dm > /obj/item/proc/attack_self()
  ./code/game/objects/items/devices/radio/radio.dm > /obj/item/radio/talk_into()

@@ -10,9 +10,9 @@
 	icon_state = "dildo_human"
 	base_icon_state = "dildo"
 	inhand_icon_state = "dildo_human"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	/// Current design of the toy, affects sprite and can change
 	var/current_type = "human"
 	/// If the design has been changed before
@@ -163,12 +163,12 @@
 		target.try_lewd_autoemote(pick(possible_emotes))
 
 	user.visible_message(span_purple("[user] [message]!"))
-	play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/bang1.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang2.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang3.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang4.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang5.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE)
+	play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 100, TRUE)
 
 /*
 *	COLOUR CHANGING
@@ -194,9 +194,9 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	icon_state = "polydildo_small"
 	base_icon_state = "polydildo"
 	inhand_icon_state = "polydildo_small"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	current_type = null
 
 	var/static/list/dildo_sizes = list()
@@ -270,10 +270,10 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 	icon_state = "dildo_double"
 	inhand_icon_state = "dildo_double"
 	worn_icon_state = "dildo_side"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	lewd_slot_flags = LEWD_SLOT_ANUS | LEWD_SLOT_VAGINA
 	actions_types = list(/datum/action/item_action/take_dildo)
@@ -389,7 +389,7 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 
 /// Code for taking out/putting away the other end of the toy when one end is in you
 /obj/item/clothing/sextoy/dildo/double_dildo/proc/toggle(mob/living/carbon/human/user)
-	play_lewd_sound(user, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
+	play_lewd_sound(user, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
 
 	if(!end_in_hand)
 		take_in_hand(user)
@@ -419,7 +419,7 @@ GLOBAL_LIST_INIT(dildo_colors, list(//mostly neon colors
 /obj/item/clothing/sextoy/dildo/double_dildo_end
 	name = "dildo side"
 	desc = "You looking so hot!"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 	icon_state = "dildo_side"
 	inhand_icon_state = null
 	worn_icon_state = ""

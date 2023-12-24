@@ -1,7 +1,7 @@
 /obj/item/ammo_box/advanced/s12gauge
 	name = "Slug ammo box"
 	desc = "A box of 15 slug shells. Large, singular shots that pack a punch."
-	icon = 'modular_skyrat/modules/shotgunrebalance/icons/shotbox.dmi'
+	icon = 'modular_nova/modules/shotgunrebalance/icons/shotbox.dmi'
 	icon_state = "slug"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 15

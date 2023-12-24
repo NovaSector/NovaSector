@@ -141,14 +141,14 @@
 /obj/item/robot_model/clown
 	borg_skins = list(
 		"Default" = list(SKIN_ICON_STATE = "clown"),
-		"Bootyborg" = list(SKIN_ICON_STATE = "bootyclown", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi'),
-		"Male Bootyborg" = list(SKIN_ICON_STATE = "male_bootyclown", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi'),
-		"ARACHNE" = list(SKIN_ICON_STATE = "arachne_clown", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi'),
-		"Slipper" = list(SKIN_ICON_STATE = "slipper_clown", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi'),
-		"Marina" = list(SKIN_ICON_STATE = "marina_mommy", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
-		"Garish" = list(SKIN_ICON_STATE = "garish", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi'),
-		"Robot" = list(SKIN_ICON_STATE = "clownbot", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi'),
-		"Sleek" = list(SKIN_ICON_STATE = "clownman", SKIN_ICON = 'modular_skyrat/modules/borgs/icons/robots_clown.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
+		"Bootyborg" = list(SKIN_ICON_STATE = "bootyclown", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi'),
+		"Male Bootyborg" = list(SKIN_ICON_STATE = "male_bootyclown", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi'),
+		"ARACHNE" = list(SKIN_ICON_STATE = "arachne_clown", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi'),
+		"Slipper" = list(SKIN_ICON_STATE = "slipper_clown", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi'),
+		"Marina" = list(SKIN_ICON_STATE = "marina_mommy", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
+		"Garish" = list(SKIN_ICON_STATE = "garish", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi'),
+		"Robot" = list(SKIN_ICON_STATE = "clownbot", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi'),
+		"Sleek" = list(SKIN_ICON_STATE = "clownman", SKIN_ICON = 'modular_nova/modules/borgs/icons/robots_clown.dmi', SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
 		/// 32x64 skins
 		"K4T" = list(SKIN_ICON_STATE = "k4tclown", SKIN_ICON = CYBORG_ICON_CLOWN_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = 15)
 	)
@@ -461,7 +461,7 @@
 	cyborg_base_icon = "ninja_sec"
 	cyborg_icon_override = CYBORG_ICON_NINJA
 	model_select_icon = "ninjaborg"
-	model_select_alternate_icon = 'modular_skyrat/modules/borgs/icons/screen_cyborg.dmi'
+	model_select_alternate_icon = 'modular_nova/modules/borgs/icons/screen_cyborg.dmi'
 	model_traits = list(TRAIT_PUSHIMMUNE, TRAIT_NOFLASH) //No more charging them with a flash and thinking it is a good idea
 	hat_offset = 3
 	borg_skins = list(
@@ -515,7 +515,7 @@
 	cyborg_base_icon = "ninja_medical"
 	cyborg_icon_override = CYBORG_ICON_NINJA
 	model_select_icon = "ninjaborg"
-	model_select_alternate_icon = 'modular_skyrat/modules/borgs/icons/screen_cyborg.dmi'
+	model_select_alternate_icon = 'modular_nova/modules/borgs/icons/screen_cyborg.dmi'
 
 /obj/item/robot_model/ninja_saboteur
 	name = "Spider Clan Saboteur"
@@ -544,7 +544,7 @@
 	cyborg_base_icon = "ninja_engi"
 	cyborg_icon_override = CYBORG_ICON_NINJA
 	model_select_icon = "ninjaborg"
-	model_select_alternate_icon = 'modular_skyrat/modules/borgs/icons/screen_cyborg.dmi'
+	model_select_alternate_icon = 'modular_nova/modules/borgs/icons/screen_cyborg.dmi'
 	model_traits = list(TRAIT_PUSHIMMUNE, TRAIT_NOFLASH)
 	model_traits = list(TRAIT_NEGATES_GRAVITY)
 	hat_offset = -4

@@ -143,7 +143,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 
 /datum/sprite_accessory/pod_hair
 	name = "None"
-	icon = 'modular_skyrat/master_files/icons/mob/species/podperson_hair.dmi'
+	icon = 'modular_nova/master_files/icons/mob/species/podperson_hair.dmi'
 	icon_state = "None"
 	key = "pod_hair"
 	recommended_species = list(SPECIES_PODPERSON, SPECIES_PODPERSON_WEAK)
@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 /datum/sprite_accessory/spines
 	key = "spines"
 	generic = "Spines"
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/lizard_spines.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_spines.dmi'
 	special_render_case = TRUE
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER)
@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	genetic = TRUE
 
 /datum/sprite_accessory/socks
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/underwear.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	use_static = TRUE
 
 /datum/sprite_accessory/socks/socks_norm
@@ -370,7 +370,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	erp_accessory = TRUE
 
 /datum/sprite_accessory/underwear
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/underwear.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	///Whether the underwear uses a special sprite for digitigrade style (i.e. briefs, not panties). Adds a "_d" suffix to the icon state
 	var/has_digitigrade = FALSE
 	///Whether this underwear includes a top (Because gender = FEMALE doesn't actually apply here.). Hides breasts, nothing more.
@@ -590,7 +590,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 
 /// BRAS and all the fun stuff of moving these about.
 /datum/sprite_accessory/bra
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/underwear.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	use_static = FALSE
 	em_block = TRUE
 
@@ -794,7 +794,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	icon_state = "binder_strapless"
 
 /datum/sprite_accessory/undershirt
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/underwear.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	use_static = TRUE
 	///Whether this underwear includes a bottom (For Leotards and the likes)
 	var/hides_groin = FALSE

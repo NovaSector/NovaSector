@@ -67,7 +67,7 @@
 		return skintone2hex(human.skin_tone)
 
 /datum/sprite_accessory/genital/penis
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/penis_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/penis
 	associated_organ_slot = ORGAN_SLOT_PENIS
 	key = ORGAN_SLOT_PENIS
@@ -87,7 +87,7 @@
 	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & STYLE_TAUR_SNAKE)
 		return icon
 
-	return 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/taur_penis_onmob.dmi'
+	return 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/taur_penis_onmob.dmi'
 
 /datum/sprite_accessory/genital/penis/get_special_x_dimension(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
@@ -144,7 +144,7 @@
 	name = "Knotted Hemi"
 
 /datum/sprite_accessory/genital/testicles
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/testicles
 	associated_organ_slot = ORGAN_SLOT_TESTICLES
 	key = ORGAN_SLOT_TESTICLES
@@ -162,7 +162,7 @@
 	if(!taur_mode || !target_mob.dna.features["penis_taur_mode"] || taur_mode & STYLE_TAUR_SNAKE)
 		return icon
 
-	return 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/taur_penis_onmob.dmi'
+	return 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/taur_penis_onmob.dmi'
 
 /datum/sprite_accessory/genital/testicles/get_special_x_dimension(mob/living/carbon/human/target_mob)
 	var/taur_mode = target_mob?.get_taur_mode()
@@ -190,7 +190,7 @@
 	has_size = FALSE
 
 /datum/sprite_accessory/genital/vagina
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/vagina_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/vagina
 	associated_organ_slot = ORGAN_SLOT_VAGINA
 	key = ORGAN_SLOT_VAGINA
@@ -276,7 +276,7 @@
 	color_src = null
 
 /datum/sprite_accessory/genital/breasts
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'
 	organ_type = /obj/item/organ/external/genital/breasts
 	associated_organ_slot = ORGAN_SLOT_BREASTS
 	key = ORGAN_SLOT_BREASTS

@@ -31,23 +31,23 @@
 	UnregisterSignal(user, COMSIG_CARBON_UNEQUIP_HAT)
 
 /obj/item/clothing/head/bio_hood
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head/bio_muzzled.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head/bio_muzzled.dmi'
 
 /obj/item/clothing/head/helmet
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet_muzzled.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head/helmet_muzzled.dmi'
 
 /obj/item/clothing/head/helmet/toggleable/riot
 	flags_inv = HIDEEARS|HIDEFACE //Removes HIDESNOUT so that transparent helmets still show the snout
 
 /obj/item/clothing/head/helmet/space
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head/spacehelm_muzzled.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head/spacehelm_muzzled.dmi'
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR //Removes HIDESNOUT so that transparent helmets still show the snout
 
 /obj/item/clothing/head/helmet/chaplain
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head/chaplain_muzzled.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head/chaplain_muzzled.dmi'
 
 /obj/item/clothing/head/collectable/welding
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head_muzzled.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head_muzzled.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
 
 //Re-adds HIDESNOUT to whatever needs it, and marks them CLOTHING_NO_VARIATION so they don't look for muzzled sprites

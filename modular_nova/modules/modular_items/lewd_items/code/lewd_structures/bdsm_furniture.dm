@@ -4,14 +4,14 @@
 /obj/structure/bed/bdsm_bed
 	name = "bdsm bed"
 	desc = "A latex bed with D-rings on the sides. Looks comfortable."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
 	icon_state = "bdsm_bed"
 	max_integrity = 50
 	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
 /obj/item/bdsm_bed_kit
 	name = "bdsm bed construction kit"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
 	throwforce = 0
 	icon_state = "bdsm_bed_kit"
 	w_class = WEIGHT_CLASS_HUGE
@@ -84,7 +84,7 @@
 /obj/structure/chair/x_stand
 	name = "x stand"
 	desc = "A stand for buckling people in an X shape."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
 	icon_state = "xstand_open"
 	base_icon_state = "xstand"
 	max_buckled_mobs = 1
@@ -92,7 +92,7 @@
 	///What state is the stand currently in? This is here for sprites.
 	var/stand_state = "open"
 	///What overlay is the stand using when stand_state is set to closed?
-	var/static/mutable_appearance/xstand_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi', "xstand_overlay", LYING_MOB_LAYER)
+	var/static/mutable_appearance/xstand_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi', "xstand_overlay", LYING_MOB_LAYER)
 	///What human is currently buckled in?
 	var/mob/living/carbon/human/current_mob = null
 	item_chair = null

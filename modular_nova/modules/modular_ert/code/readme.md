@@ -29,8 +29,8 @@ MODULE ID: modular_ert
 ### Master file additions
 
 - Most clothing icon files:
-- modular_skyrat/master_files/icons/mob/clothing/xyz
-- modular_skyrat/master_files/icons/obj/clothing/xyz
+- modular_nova/master_files/icons/mob/clothing/xyz
+- modular_nova/master_files/icons/obj/clothing/xyz
 
 ### Included files that are not contained in this module:
 

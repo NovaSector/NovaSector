@@ -4,7 +4,7 @@
 /obj/item/fur_dyer
 	name = "electric fur dyer"
 	desc = "Dye that is capable of recoloring fur in a mostly permanent way."
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "fur_sprayer"
 	w_class = WEIGHT_CLASS_TINY
 

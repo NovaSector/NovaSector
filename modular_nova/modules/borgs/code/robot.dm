@@ -21,11 +21,11 @@
 		var/obj/structure/table/tabled = locate(/obj/structure/table) in sit_pos.contents
 		if(!tabled)
 			new /obj/effect/temp_visual/mook_dust/robot(get_turf(src))
-			playsound(src, 'modular_skyrat/master_files/sound/effects/robot_sit.ogg', 25, TRUE)
+			playsound(src, 'modular_nova/master_files/sound/effects/robot_sit.ogg', 25, TRUE)
 			return
 		else
 			new /obj/effect/temp_visual/mook_dust/robot/table(get_turf(src))
-			playsound(src, 'modular_skyrat/master_files/sound/effects/robot_bump.ogg', 50, TRUE)
+			playsound(src, 'modular_nova/master_files/sound/effects/robot_bump.ogg', 50, TRUE)
 
 		var/list/items_to_move = list()
 
@@ -100,7 +100,7 @@
 /**
  * Safe check of the cyborg's model_features list.
  *
- * model_features is defined in modular_skyrat\modules\altborgs\code\modules\mob\living\silicon\robot\robot_model.dm.
+ * model_features is defined in modular_nova\modules\altborgs\code\modules\mob\living\silicon\robot\robot_model.dm.
  */
 /mob/living/silicon/robot/proc/can_rest()
 	if(model && model.model_features && ((TRAIT_R_WIDE in model.model_features) || (TRAIT_R_TALL in model.model_features)))

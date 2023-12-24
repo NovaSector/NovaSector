@@ -1,5 +1,5 @@
 /obj/item/organ/internal/eyes/robotic
-	icon = 'modular_skyrat/modules/implants/icons/internal_HA.dmi' //So I had to fucking include the eye sprites
+	icon = 'modular_nova/modules/implants/icons/internal_HA.dmi' //So I had to fucking include the eye sprites
 	icon_state = "cybernetic_eyeballs"
 
 /obj/item/organ/internal/eyes/robotic/xray
@@ -19,7 +19,7 @@
 
 /obj/item/organ/internal/eyes/night_vision/cyber
 	name = "nightvision eyes"
-	icon = 'modular_skyrat/modules/implants/icons/internal_HA.dmi' //All in the chest implants .dmi
+	icon = 'modular_nova/modules/implants/icons/internal_HA.dmi' //All in the chest implants .dmi
 	icon_state = "eyes_nvcyber"
 	desc = "A pair of eyes with built-in nightvision optics, with the additional bonus of being rad as hell."
 	eye_color_left = "#0ffc03"

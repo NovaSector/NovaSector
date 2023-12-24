@@ -1,6 +1,6 @@
 // All available options
 // Remember these are read from:
-// 'modular_skyrat/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi'
+// 'modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/MOD_mask.dmi'
 
 #define STANDARD_BLUE "standard_blue"
 #define ALERT_AMBER "alert_amber"

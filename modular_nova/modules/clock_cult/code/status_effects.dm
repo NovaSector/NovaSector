@@ -25,7 +25,7 @@
 /atom/movable/screen/alert/status_effect/interdiction
 	name = "Interdicted"
 	desc = "I don't think I am meant to go this way."
-	icon = 'modular_skyrat/modules/clock_cult/icons/actions_clock.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/actions_clock.dmi'
 	icon_state = "interdiction_effect" //fix later
 
 /datum/movespeed_modifier/clock_interdiction

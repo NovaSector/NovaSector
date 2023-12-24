@@ -1,7 +1,7 @@
 /obj/item/conveyor_sorter
 	name = "conveyor sorter lister"
 	desc = "A tool that is used to not only create the conveyor sorters, but give lists to the conveyor sorters."
-	icon = 'modular_skyrat/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
+	icon = 'modular_nova/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
 	icon_state = "lister"
 	///the list of conveyor sorters spawned by
 	var/list/spawned_sorters = list()
@@ -61,7 +61,7 @@
 /obj/effect/decal/conveyor_sorter
 	name = "conveyor sorter"
 	desc = "A mark that will sort items out based on what they are."
-	icon = 'modular_skyrat/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
+	icon = 'modular_nova/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
 	icon_state = "sorter"
 	layer = OBJ_LAYER
 	plane = GAME_PLANE
@@ -169,7 +169,7 @@
 /obj/effect/decal/conveyor_sorter/improved
 	name = "improved conveyor sorter"
 	desc = "A mark that will sort items out based on what they are. This one can sort in ordinal directions as well!"
-	icon = 'modular_skyrat/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
+	icon = 'modular_nova/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
 	icon_state = "sorter_improved"
 	light_range = 3
 	light_color = COLOR_BLUE_LIGHT

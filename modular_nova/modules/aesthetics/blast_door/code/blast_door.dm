@@ -1,10 +1,10 @@
 /obj/machinery/door/poddoor
-	icon = 'modular_skyrat/modules/aesthetics/blast_door/icons/blast_door.dmi'
-	animation_sound = 'modular_skyrat/modules/aesthetics/blast_door/sound/blast_door.ogg'
+	icon = 'modular_nova/modules/aesthetics/blast_door/icons/blast_door.dmi'
+	animation_sound = 'modular_nova/modules/aesthetics/blast_door/sound/blast_door.ogg'
 
 /obj/machinery/door/poddoor/shutters
-	var/door_open_sound = 'modular_skyrat/modules/aesthetics/blast_door/sound/shutters_open.ogg'
-	var/door_close_sound = 'modular_skyrat/modules/aesthetics/blast_door/sound/shutters_close.ogg'
+	var/door_open_sound = 'modular_nova/modules/aesthetics/blast_door/sound/shutters_open.ogg'
+	var/door_close_sound = 'modular_nova/modules/aesthetics/blast_door/sound/shutters_close.ogg'
 
 /obj/machinery/door/poddoor/shutters/do_animate(animation)
 	switch(animation)

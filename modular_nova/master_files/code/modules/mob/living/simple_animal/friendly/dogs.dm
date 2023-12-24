@@ -1,7 +1,7 @@
 /mob/living/basic/pet/dog/markus
 	name = "\proper Markus"
 	desc = "The supply department's overfed yet still beloved dog."
-	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "markus"
 	icon_dead = "markus_dead"
 	icon_living = "markus"
@@ -59,12 +59,12 @@
 	. = ..()
 	var/location = get_turf(holder.my_atom)
 	new /mob/living/basic/pet/dog/markus(location)
-	playsound(location, 'modular_skyrat/master_files/sound/effects/dorime.ogg', vol = 100, vary = FALSE, extrarange = 7)
+	playsound(location, 'modular_nova/master_files/sound/effects/dorime.ogg', vol = 100, vary = FALSE, extrarange = 7)
 
 /mob/living/basic/pet/dog/corgi/borgi
 	name = "E-N"
 	desc = "It's a borgi."
-	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "borgi"
 	icon_living = "borgi"
 	icon_dead = "borgi_dead"
@@ -337,7 +337,7 @@
 /mob/living/basic/pet/dog/dobermann
 	name = "\improper dobermann"
 	desc = "A larger breed of dog."
-	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "dobber"
 	icon_dead = "dobbydead"
 	icon_living = "dobber"

@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth
 	name = "nihilanth"
 	desc = "Holy shit."
-	icon = 'modular_skyrat/modules/black_mesa/icons/nihilanth.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/nihilanth.dmi'
 	icon_state = "nihilanth"
 	icon_living = "nihilanth"
 	SET_BASE_PIXEL(-32, -32)
@@ -50,13 +50,13 @@
 		alert_cooldown_time = world.time + alert_cooldown
 		switch(health)
 			if(0 to 999)
-				playsound(src, pick(list('modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_pain01.ogg', 'modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_freeeemmaan01.ogg')), 100)
+				playsound(src, pick(list('modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_pain01.ogg', 'modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_freeeemmaan01.ogg')), 100)
 			if(1000 to 2999)
-				playsound(src, pick(list('modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_youalldie01.ogg', 'modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_foryouhewaits01.ogg')), 100)
+				playsound(src, pick(list('modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_youalldie01.ogg', 'modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_foryouhewaits01.ogg')), 100)
 			if(3000 to 6000)
-				playsound(src, pick(list('modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_whathavedone01.ogg', 'modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_deceiveyou01.ogg')), 100)
+				playsound(src, pick(list('modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_whathavedone01.ogg', 'modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_deceiveyou01.ogg')), 100)
 			else
-				playsound(src, pick(list('modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_thetruth01.ogg', 'modular_skyrat/modules/black_mesa/sound/mobs/nihilanth/nihilanth_iamthelast01.ogg')), 100)
+				playsound(src, pick(list('modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_thetruth01.ogg', 'modular_nova/modules/black_mesa/sound/mobs/nihilanth/nihilanth_iamthelast01.ogg')), 100)
 	set_combat_mode(TRUE)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth/death(gibbed)

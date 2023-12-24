@@ -160,13 +160,13 @@ GLOBAL_VAR(first_officer)
 /obj/item/card/id/advanced/nri_police
 	name = "\improper NRI police identification card"
 	desc = "A retro-looking card model modified to work with the modern identification systems."
-	icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	icon_state = "card_nri_police"
 	assigned_icon_state = "assigned_nri_police"
 
 /datum/id_trim/nri_police
 	assignment = "NRI Field Officer"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_nri_police"
 	department_color = COLOR_NRI_POLICE_BLUE
 	subdepartment_color = COLOR_NRI_POLICE_SILVER
@@ -181,7 +181,7 @@ GLOBAL_VAR(first_officer)
 	name = "NRI Raider sleeper"
 	desc = "Cozy. You get the feeling you aren't supposed to be here, though..."
 	prompt_name = "a NRI Marine"
-	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
+	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod"
 	mob_species = /datum/species/human
 	faction = list(FACTION_RAIDER)
@@ -278,14 +278,14 @@ GLOBAL_VAR(first_officer)
 /area/shuttle/pirate/nri
 	name = "NRI Starship"
 	forced_ambience = TRUE
-	ambient_buzz = 'modular_skyrat/modules/encounters/sounds/amb_ship_01.ogg'
+	ambient_buzz = 'modular_nova/modules/encounters/sounds/amb_ship_01.ogg'
 	ambient_buzz_vol = 15
-	ambientsounds = list('modular_skyrat/modules/encounters/sounds/alarm_radio.ogg',
-						'modular_skyrat/modules/encounters/sounds/alarm_small_09.ogg',
-						'modular_skyrat/modules/encounters/sounds/gear_loop.ogg',
-						'modular_skyrat/modules/encounters/sounds/gear_start.ogg',
-						'modular_skyrat/modules/encounters/sounds/gear_stop.ogg',
-						'modular_skyrat/modules/encounters/sounds/intercom_loop.ogg')
+	ambientsounds = list('modular_nova/modules/encounters/sounds/alarm_radio.ogg',
+						'modular_nova/modules/encounters/sounds/alarm_small_09.ogg',
+						'modular_nova/modules/encounters/sounds/gear_loop.ogg',
+						'modular_nova/modules/encounters/sounds/gear_start.ogg',
+						'modular_nova/modules/encounters/sounds/gear_stop.ogg',
+						'modular_nova/modules/encounters/sounds/intercom_loop.ogg')
 
 /obj/machinery/computer/shuttle/pirate/nri
 	name = "police shuttle console"
@@ -295,7 +295,7 @@ GLOBAL_VAR(first_officer)
 	desc = "Used to designate a precise transit location for the police shuttle."
 
 /obj/machinery/base_alarm/nri_raider
-	alarm_sound_file = 'modular_skyrat/modules/encounters/sounds/env_horn.ogg'
+	alarm_sound_file = 'modular_nova/modules/encounters/sounds/env_horn.ogg'
 	alarm_cooldown = 32
 
 /obj/machinery/porta_turret/syndicate/nri_raider
@@ -304,14 +304,14 @@ GLOBAL_VAR(first_officer)
 	scan_range = 9
 	shot_delay = 15
 	faction = list(FACTION_RAIDER)
-	icon = 'modular_skyrat/modules/encounters/icons/turrets.dmi'
+	icon = 'modular_nova/modules/encounters/icons/turrets.dmi'
 	icon_state = "gun_turret"
 	base_icon_state = "gun_turret"
 	max_integrity = 250
 	stun_projectile = /obj/projectile/bullet/ciws
 	lethal_projectile = /obj/projectile/bullet/ciws
-	lethal_projectile_sound = 'modular_skyrat/modules/encounters/sounds/shell_out_tiny.ogg'
-	stun_projectile_sound = 'modular_skyrat/modules/encounters/sounds/shell_out_tiny.ogg'
+	lethal_projectile_sound = 'modular_nova/modules/encounters/sounds/shell_out_tiny.ogg'
+	stun_projectile_sound = 'modular_nova/modules/encounters/sounds/shell_out_tiny.ogg'
 
 /obj/machinery/porta_turret/syndicate/nri_raider/target(atom/movable/target)
 	if(target)
@@ -337,8 +337,8 @@ GLOBAL_VAR(first_officer)
 	rechargeTime = 3 MINUTES
 	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
 	can_move_docking_ports = TRUE
-	takeoff_sound = sound('modular_skyrat/modules/encounters/sounds/engine_ignit_int.ogg')
-	landing_sound = sound('modular_skyrat/modules/encounters/sounds/env_ship_down.ogg')
+	takeoff_sound = sound('modular_nova/modules/encounters/sounds/engine_ignit_int.ogg')
+	landing_sound = sound('modular_nova/modules/encounters/sounds/env_ship_down.ogg')
 
 /obj/structure/plaque/static_plaque/golden/commission/ks13/nri_raider
 	desc = "NRI Terentiev-Yermolayev Orbital Shipworks, Providence High Orbit, Ship OSTs-02\n'Potato Beetle' Class Corvette\nCommissioned 10/11/2562 'Keeping Promises'"

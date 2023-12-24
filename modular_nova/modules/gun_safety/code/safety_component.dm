@@ -85,5 +85,5 @@
 // The actual action, used by the component
 /datum/action/item_action/gun_safety_toggle
 	name = "Toggle Gun Safety"
-	button_icon = 'modular_skyrat/modules/gun_safety/icons/actions.dmi'
+	button_icon = 'modular_nova/modules/gun_safety/icons/actions.dmi'
 	button_icon_state = "safety_on"

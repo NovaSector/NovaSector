@@ -4,8 +4,8 @@
 /obj/item/clothing/suit/clockwork
 	name = "bronze armor"
 	desc = "A strong, bronze suit worn by the soldiers of the Ratvarian armies."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	icon_state = "clockwork_cuirass"
 	armor_type = /datum/armor/suit_clockwork
 	slowdown = 0.6
@@ -132,8 +132,8 @@
 
 /obj/item/clothing/glasses/clockwork
 	name = "base clock glasses"
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	icon_state = "clockwork_cuirass"
 	/// What additional desc to show if the person examining is a clock cultist
 	var/clock_desc = ""
@@ -384,8 +384,8 @@
 /obj/item/clothing/head/helmet/clockwork
 	name = "brass helmet"
 	desc = "A strong, brass helmet worn by the soldiers of the Ratvarian armies. Includes an integrated light-dimmer for flash protection, as well as occult-grade muffling for factory based environments."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	icon_state = "clockwork_helmet"
 	armor_type = /datum/armor/helmet_clockwork
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -411,8 +411,8 @@
 /obj/item/clothing/shoes/clockwork
 	name = "brass treads"
 	desc = "A strong pair of brass boots worn by the soldiers of the Ratvarian armies."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	icon_state = "clockwork_treads"
 
 /obj/item/clothing/shoes/clockwork/Initialize(mapload)
@@ -423,8 +423,8 @@
 /obj/item/clothing/gloves/clockwork
 	name = "brass gauntlets"
 	desc = "A strong pair of brass gloves worn by the soldiers of the Ratvarian armies."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	icon_state = "clockwork_gauntlets"
 	siemens_coefficient = 0
 	strip_delay = 8 SECONDS

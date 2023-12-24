@@ -5,7 +5,7 @@
 	name = ".40 Sol Long lethal bullet casing"
 	desc = "A SolFed standard caseless lethal rifle round."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "40sol"
 
 	caliber = CALIBER_SOL40LONG
@@ -30,7 +30,7 @@
 	name = "ammo box (.40 Sol Long lethal)"
 	desc = "A box of .40 Sol Long rifle rounds, holds thirty bullets."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "40box"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

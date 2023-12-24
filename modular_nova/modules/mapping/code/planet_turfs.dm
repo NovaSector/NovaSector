@@ -57,7 +57,7 @@
 
 /obj/effect/overlay/snow
 	name = "snow"
-	icon = 'modular_skyrat/modules/mapping/icons/dungeon.dmi'
+	icon = 'modular_nova/modules/mapping/icons/dungeon.dmi'
 	icon_state = "deep_snow"
 	density = 0
 	mouse_opacity = 0
@@ -131,7 +131,7 @@
 */
 
 /turf/open/chasm/sandy	//just a retexture of the other chasm. making this was nothing but painful.
-	icon = 'modular_skyrat/modules/mapping/icons/turf/open/sandychasm.dmi'
+	icon = 'modular_nova/modules/mapping/icons/turf/open/sandychasm.dmi'
 	icon_state = "chasms-255"	//No I'm not going to go change all the different icon names
 	base_icon_state = "chasms"
 	baseturfs = /turf/open/chasm/sandy

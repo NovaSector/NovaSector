@@ -1,7 +1,7 @@
 /obj/structure/ore_vein
 	name = "ore vein"
 	desc = "An ore vein that can mined."
-	icon = 'modular_skyrat/modules/stone/icons/ore.dmi'
+	icon = 'modular_nova/modules/stone/icons/ore.dmi'
 	icon_state = "stone1"
 	base_icon_state = "stone"
 	density = TRUE

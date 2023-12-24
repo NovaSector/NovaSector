@@ -1,8 +1,8 @@
 /obj/item/clothing/neck/chaplain
 	name = "bishop's cloak"
 	desc = "Become the space pope."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "bishopcloak"
 
 /obj/item/clothing/neck/chaplain/black
@@ -18,8 +18,8 @@
 	desc = "A sand covered cloak, there seems to be a small deer head with antlers embroidered inside."
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "cowboy_poncho"
 	heat_protection = CHEST
 

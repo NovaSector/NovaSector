@@ -2,7 +2,7 @@
 	name = "snowmobile"
 	desc = "A tracked vehicle designed for use in the snow, it looks like it would have difficulty moving elsewhere, however."
 	icon_state = "snowmobile"
-	icon = 'modular_skyrat/master_files/icons/obj/vehicles/vehicles.dmi'
+	icon = 'modular_nova/master_files/icons/obj/vehicles/vehicles.dmi'
 	var/static/list/snow_typecache = typecacheof(list(/turf/open/misc/asteroid/snow/icemoon, /turf/open/floor/plating/snowed/smoothed/icemoon))
 
 /obj/vehicle/ridden/atv/snowmobile/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
@@ -19,7 +19,7 @@
 	name = "security snowmobile"
 	desc = "For when you want to look like even more of a tool than riding a secway."
 	icon_state = "snowcurity"
-	icon = 'modular_skyrat/master_files/icons/obj/vehicles/vehicles.dmi'
+	icon = 'modular_nova/master_files/icons/obj/vehicles/vehicles.dmi'
 	key_type = /obj/item/key/security
 
 /datum/component/riding/vehicle/atv/snowmobile/snowcurity
@@ -40,5 +40,5 @@
 	name = "snowmobile"
 	desc = "A tracked vehicle designed for use in the snow, emblazened with Syndicate colors."
 	icon_state = "syndimobile"
-	icon = 'modular_skyrat/master_files/icons/obj/vehicles/vehicles.dmi'
+	icon = 'modular_nova/master_files/icons/obj/vehicles/vehicles.dmi'
 

@@ -5,9 +5,9 @@
 /obj/item/gun/energy/alien/zeta
 	name = "Zeta Blaster"
 	desc = "Having this too close to your face makes you start to taste blood, is this safe?"
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/alienblaster.dmi'
-	lefthand_file = 'modular_skyrat/modules/awaymissions_skyrat/icons/alienhand.dmi'
-	righthand_file = 'modular_skyrat/modules/awaymissions_skyrat/icons/alienhand2.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/alienblaster.dmi'
+	lefthand_file = 'modular_nova/modules/awaymissions_skyrat/icons/alienhand.dmi'
+	righthand_file = 'modular_nova/modules/awaymissions_skyrat/icons/alienhand2.dmi'
 	icon_state = "alienblaster"
 	inhand_icon_state = "alienblaster"
 	pin = /obj/item/firing_pin

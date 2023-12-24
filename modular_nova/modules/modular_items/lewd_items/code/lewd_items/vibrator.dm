@@ -8,9 +8,9 @@
 	icon_state = "vibrator_pink_off"
 	base_icon_state = "vibrator"
 	inhand_icon_state = "vibrator_pink"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	lewd_slot_flags = LEWD_SLOT_VAGINA | LEWD_SLOT_ANUS
 	/// If the toy is on or not
 	var/toy_on = FALSE
@@ -167,7 +167,7 @@
 	if(!targetedsomewhere)
 		return
 	user.visible_message(span_purple("[user] [message]!"))
-	play_lewd_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/vibrate.ogg', 10, TRUE)
+	play_lewd_sound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/vibrate.ogg', 10, TRUE)
 
 /obj/item/clothing/sextoy/vibrator/attack_self(mob/user, obj/item/attack_item)
 	toggle_mode()

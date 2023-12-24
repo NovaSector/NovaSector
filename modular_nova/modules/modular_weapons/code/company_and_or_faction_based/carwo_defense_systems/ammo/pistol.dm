@@ -5,7 +5,7 @@
 	name = ".35 Sol Short lethal bullet casing"
 	desc = "A SolFed standard caseless lethal pistol round."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "35sol"
 
 	caliber = CALIBER_SOL35SHORT
@@ -30,7 +30,7 @@
 	name = "ammo box (.35 Sol Short lethal)"
 	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "35box"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

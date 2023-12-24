@@ -5,7 +5,7 @@
 // Change the 'color' variable on any white sprite to simply recolour it!
 
 /obj/effect/turf_decal/vg_decals
-	icon = 'modular_skyrat/modules/mapping/icons/turf/decals/vgstation_decals.dmi'
+	icon = 'modular_nova/modules/mapping/icons/turf/decals/vgstation_decals.dmi'
 	icon_state = "no"
 
 // NUMBERS START

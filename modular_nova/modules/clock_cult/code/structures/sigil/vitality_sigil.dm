@@ -44,7 +44,7 @@
 		visible_message(span_clockred("[src] fails to siphon [affected_mob]'s spirit!"))
 		return
 
-	playsound(loc, 'modular_skyrat/modules/clock_cult/sound/magic/ratvar_attack.ogg', 40)
+	playsound(loc, 'modular_nova/modules/clock_cult/sound/magic/ratvar_attack.ogg', 40)
 	if((affected_mob.stat == DEAD) || (affected_mob.getBruteLoss() >= affected_mob.maxHealth))
 		affected_mob.do_jitter_animation()
 		affected_mob.death()

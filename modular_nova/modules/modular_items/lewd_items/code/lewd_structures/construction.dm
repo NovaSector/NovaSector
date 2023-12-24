@@ -54,7 +54,7 @@
 // MILKER
 
 /obj/item/construction_kit/milker
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/milking_machine.dmi'
 	icon_state = "milkbuild_pink"
 	base_icon_state = "milkbuild"
 	current_color = "pink"
@@ -71,13 +71,13 @@
 
 
 /obj/item/construction_kit/pole
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/dancing_pole.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/dancing_pole.dmi'
 	icon_state = "pole_base"
 	resulting_structure = /obj/structure/stripper_pole
 
 // BDSM FURNITURE
 /obj/item/construction_kit/bdsm
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/bdsm_furniture.dmi'
 
 // X-STAND
 

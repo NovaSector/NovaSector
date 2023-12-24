@@ -4,11 +4,11 @@
 /obj/item/knife/bowie
 	name = "\improper Bowie knife"
 	desc = "A frontiersman's classic, closer to a shortsword than a knife. It boasts a full-tanged build, a brass handguard and pommel, a wicked sharp point, and a large, heavy blade, It's almost everything you could want in a knife, besides portability."
-	icon = 'modular_skyrat/modules/knives/icons/bowie.dmi'
+	icon = 'modular_nova/modules/knives/icons/bowie.dmi'
 	icon_state = "bowiehand"
 	inhand_icon_state = "bowiehand"
-	lefthand_file = 'modular_skyrat/modules/knives/icons/bowie_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/knives/icons/bowie_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/knives/icons/bowie_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/knives/icons/bowie_righthand.dmi'
 	worn_icon_state = "knife"
 	force = 20 // Zoowee Momma!
 	w_class = WEIGHT_CLASS_NORMAL
@@ -19,7 +19,7 @@
 /obj/item/storage/belt/bowie_sheath
 	name = "\improper Bowie knife sheath"
 	desc = "A dressed-up leather sheath featuring a brass tip. It has a large pocket clip right in the center, for ease of carrying an otherwise burdensome knife."
-	icon = 'modular_skyrat/modules/knives/icons/bowiepocket.dmi'
+	icon = 'modular_nova/modules/knives/icons/bowiepocket.dmi'
 	icon_state = "bowiesheath"
 	slot_flags = ITEM_SLOT_POCKETS
 	w_class = WEIGHT_CLASS_BULKY

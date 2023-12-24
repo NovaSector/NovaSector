@@ -11,12 +11,12 @@ Reworks and rebalances xenomorphs to be more in line a tgmc style of alien, espe
 - MOVED:
 	code\modules\mob\living\carbon\alien\larva\powers.dm > /datum/action/cooldown/alien/larva_evolve/Activate
 	TO:
-	modular_skyrat\modules\xenos_skyrat_redo\code\larva.dm
+	modular_nova\modules\xenos_skyrat_redo\code\larva.dm
 
 - MOVED:
 	code\modules\mob\living\carbon\human\human_defense.dm > /mob/living/carbon/human/attack_alien
 	TO:
-	modular_skyrat\modules\xenos_skyrat_redo\code\human_defense.dm
+	modular_nova\modules\xenos_skyrat_redo\code\human_defense.dm
 
 ### Defines:
 

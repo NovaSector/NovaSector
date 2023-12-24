@@ -1,9 +1,9 @@
 /obj/structure/extinguisher_cabinet
-	icon = 'modular_skyrat/modules/aesthetics/extinguisher/icons/extinguisher.dmi'
+	icon = 'modular_nova/modules/aesthetics/extinguisher/icons/extinguisher.dmi'
 	icon_state = "extinguisher_standard_closed"
 
 /obj/item/wallframe/extinguisher_cabinet
-	icon = 'modular_skyrat/modules/aesthetics/extinguisher/icons/extinguisher.dmi'
+	icon = 'modular_nova/modules/aesthetics/extinguisher/icons/extinguisher.dmi'
 
 /obj/structure/extinguisher_cabinet/Initialize(mapload, ndir, building)
 	. = ..()

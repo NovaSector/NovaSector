@@ -1,12 +1,12 @@
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag
 	name = "latex sleeping bag"
 	desc = "A tight sleeping bag made of a shiny material. It would be dangerous to put it on yourself."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_suits.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_normal.dmi'
-	worn_icon_digi = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_digi.dmi'
-	worn_icon_taur_snake = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
-	worn_icon_taur_paw = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
-	worn_icon_taur_hoof = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_suits.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_normal.dmi'
+	worn_icon_digi = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_digi.dmi'
+	worn_icon_taur_snake = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
+	worn_icon_taur_paw = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
+	worn_icon_taur_hoof = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suit/sleepbag_special.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
 	icon_state = "sleepbag_pink_deflated_folded"
 	base_icon_state = "sleepbag"
@@ -132,7 +132,7 @@
 
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/fold(mob/user, src)
 	bag_fold = !bag_fold
-	play_lewd_sound(user, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
+	play_lewd_sound(user, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
 	if(bag_fold == TRUE)
 		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = NONE
@@ -182,7 +182,7 @@
 /obj/item/clothing/suit/straight_jacket/kinky_sleepbag/process(seconds_per_tick)
 	if(time_to_sound_left <= 0)
 		if(tt <= 0)
-			play_lewd_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 100, TRUE)
+			play_lewd_sound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 100, TRUE)
 			tt = rand(15, 35) //to do random funny sounds when character inside that thing.
 		else
 			tt -= seconds_per_tick

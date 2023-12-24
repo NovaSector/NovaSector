@@ -19,7 +19,7 @@
 /obj/item/hypospray/mkii
 	name = "hypospray mk.II"
 	icon_state = "hypo2"
-	icon = 'modular_skyrat/modules/hyposprays/icons/hyposprays.dmi'
+	icon = 'modular_nova/modules/hyposprays/icons/hyposprays.dmi'
 	desc = "A new development from DeForest Medical, this hypospray takes 60-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
@@ -84,7 +84,7 @@
 		vial_spritetype += "[vial.type_suffix]"
 	else
 		vial_spritetype += "-s"
-	var/mutable_appearance/chem_loaded = mutable_appearance('modular_skyrat/modules/hyposprays/icons/hyposprays.dmi', vial_spritetype)
+	var/mutable_appearance/chem_loaded = mutable_appearance('modular_nova/modules/hyposprays/icons/hyposprays.dmi', vial_spritetype)
 	chem_loaded.color = vial.chem_color
 	. += chem_loaded
 
@@ -243,7 +243,7 @@
 			vial.reagents.trans_to(injectee, vial.amount_per_transfer_from_this, methods = PATCH)
 
 	var/long_sound = vial.amount_per_transfer_from_this >= 15
-	playsound(loc, long_sound ? 'modular_skyrat/modules/hyposprays/sound/hypospray_long.ogg' : pick('modular_skyrat/modules/hyposprays/sound/hypospray.ogg','modular_skyrat/modules/hyposprays/sound/hypospray2.ogg'), 50, 1, -1)
+	playsound(loc, long_sound ? 'modular_nova/modules/hyposprays/sound/hypospray_long.ogg' : pick('modular_nova/modules/hyposprays/sound/hypospray.ogg','modular_nova/modules/hyposprays/sound/hypospray2.ogg'), 50, 1, -1)
 	to_chat(user, span_notice("You [fp_verb] [vial.amount_per_transfer_from_this] units of the solution. The hypospray's cartridge now contains [vial.reagents.total_volume] units."))
 	update_appearance()
 

@@ -1,8 +1,8 @@
 /obj/item/storage/backpack/duffelbag/syndie/nri
 	name = "imperial assault pack"
 	desc = "A large green backpack for holding extra tactical supplies. It appears to be made from lighter yet sturdier materials."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	icon_state = "russian_green_backpack"
 	worn_icon_state = "russian_green_backpack"
 	inhand_icon_state = "securitypack"
@@ -28,8 +28,8 @@
 /obj/item/storage/backpack/nri
 	name = "imperial assault pack"
 	desc = "A large green backpack for holding extra tactical supplies."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	icon_state = "russian_green_backpack"
 	worn_icon_state = "russian_green_backpack"
 	inhand_icon_state = "securitypack"

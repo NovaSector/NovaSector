@@ -1,7 +1,7 @@
 /obj/item/stock_parts/cell/crank
 	name = "crank cell"
 	desc = "Go ahead, wind it up to charge it."
-	icon = 'modular_skyrat/modules/new_cells/icons/power.dmi'
+	icon = 'modular_nova/modules/new_cells/icons/power.dmi'
 	icon_state = "crankcell"
 	/// how much each crank will give the cell charge
 	var/crank_amount = 100
@@ -31,12 +31,12 @@
 		if(!do_after(user, crank_speed, src))
 			return
 		give(crank_amount)
-		playsound(src, 'modular_skyrat/modules/new_cells/sound/crank.ogg', 25, FALSE)
+		playsound(src, 'modular_nova/modules/new_cells/sound/crank.ogg', 25, FALSE)
 
 /obj/item/stock_parts/cell/self_charge
 	name = "charging cell"
 	desc = "A special cell that will recharge itself over time."
-	icon = 'modular_skyrat/modules/new_cells/icons/power.dmi'
+	icon = 'modular_nova/modules/new_cells/icons/power.dmi'
 	icon_state = "chargecell"
 	maxcharge = 2500
 	charge_light_type = "old"

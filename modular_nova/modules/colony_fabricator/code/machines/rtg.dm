@@ -4,7 +4,7 @@
 		design of generator has forgone the heavy radiation shielding that most RTG designs include. \
 		In better news, these tend to be pretty good with making a passable trickle of power for any \
 		application."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/machines.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
 	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	power_gen = 7500

@@ -1,5 +1,5 @@
 /obj/item/storage/briefcase
-	icon = 'modular_skyrat/modules/more_briefcases/icons/briefcases.dmi'
+	icon = 'modular_nova/modules/more_briefcases/icons/briefcases.dmi'
 	inhand_icon_state = "briefcase"
 
 /obj/item/storage/briefcase/lawyer
@@ -26,7 +26,7 @@
 	icon_state = "briefcase_eng"
 
 /obj/item/storage/briefcase/secure
-	icon = 'modular_skyrat/modules/more_briefcases/icons/briefcases.dmi'
+	icon = 'modular_nova/modules/more_briefcases/icons/briefcases.dmi'
 	inhand_icon_state = "sec-case"
 	icon_state = "briefcase_secure_black"
 

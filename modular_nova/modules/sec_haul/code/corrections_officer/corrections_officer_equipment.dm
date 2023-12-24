@@ -1,8 +1,8 @@
 /obj/item/clothing/under/rank/security/corrections_officer
 	desc = "A white satin shirt with some bronze rank pins at the neck."
 	name = "corrections officer's suit"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "corrections_officer"
 	armor_type = /datum/armor/clothing_under/security_corrections_officer
 	can_adjust = FALSE
@@ -34,8 +34,8 @@
 /obj/item/clothing/suit/toggle/jacket/corrections_officer
 	name = "corrections officer's suit jacket"
 	desc = "A pressed and ironed suit jacket, it has light armor against stabbings. There's some rank badges on the right breast."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "co_coat"
 	body_parts_covered = CHEST|ARMS
 	armor_type = /datum/armor/jacket_corrections_officer
@@ -49,7 +49,7 @@
 
 /obj/structure/closet/secure_closet/corrections_officer
 	name = "corrections officer riot gear"
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_state = "riot"
 	door_anim_time = 0 //Somebody resprite or remove this 'riot' locker. It's evil.
 

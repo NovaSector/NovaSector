@@ -16,9 +16,9 @@
 /datum/action/innate/alter_form/nif
 	name = "Polymorph"
 	slime_restricted =  FALSE
-	background_icon = 'modular_skyrat/master_files/icons/mob/actions/action_backgrounds.dmi'
+	background_icon = 'modular_nova/master_files/icons/mob/actions/action_backgrounds.dmi'
 	background_icon_state = "android"
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_nif.dmi'
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_nif.dmi'
 	button_icon_state = "slime"
 	shapeshift_text = "closes their eyes to focus, their body subtly shifting and contorting."
 
@@ -27,9 +27,9 @@
 		alterer,
 		alterer,
 		list(
-			"DNA" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "dna"),
-			"Hair" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
-			"Markings" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan"),
+			"DNA" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "dna"),
+			"Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
+			"Markings" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan"),
 		),
 		tooltips = TRUE,
 	)

@@ -22,7 +22,7 @@
 /obj/machinery/vending/imported
 	name = "NT Sustenance Supplier"
 	desc = "A vending machine serving up only the finest of human college student food."
-	icon = 'modular_skyrat/modules/imported_vendors/icons/imported_vendors.dmi'
+	icon = 'modular_nova/modules/imported_vendors/icons/imported_vendors.dmi'
 	icon_state = "nt_food"
 	panel_type = "panel15"
 	light_mask = "nt_food-light-mask"

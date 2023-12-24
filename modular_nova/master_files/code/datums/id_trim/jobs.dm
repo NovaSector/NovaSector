@@ -5,17 +5,17 @@
 	subdepartment_color = COLOR_ASSEMBLY_BLACK
 
 /datum/id_trim/job/warden
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	department_color = COLOR_ASSEMBLY_BLACK
 	subdepartment_color = COLOR_ASSEMBLY_BLACK
 
 /datum/id_trim/job/security_officer
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	department_color = COLOR_ASSEMBLY_BLACK
 	subdepartment_color = COLOR_ASSEMBLY_BLACK
 
 /datum/id_trim/job/detective
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	department_color = COLOR_ASSEMBLY_BLACK
 	subdepartment_color = COLOR_ASSEMBLY_BLACK
 
@@ -48,7 +48,7 @@
 
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_blueshield"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_CENTCOM_BLUE // Not the other way around. I think.
@@ -82,7 +82,7 @@
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_corrections_officer"
 	department_color = COLOR_ASSEMBLY_BLACK
 	subdepartment_color = COLOR_ASSEMBLY_BLACK
@@ -97,7 +97,7 @@
 
 /datum/id_trim/job/barber
 	assignment = "Barber"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_barber"
 	department_color = COLOR_SERVICE_LIME
 	subdepartment_color = COLOR_SERVICE_LIME

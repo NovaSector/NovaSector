@@ -14,9 +14,9 @@ Adds the ability for living mobs to shift their sprite to fit an RP situation be
 
 ### Modular Overrides:
 
-- `modular_skyrat/master_files/code/datums/keybinding/mob.dm`: `var/list/hotkey_keys`
-- `modular_skyrat/master_files/code/modules/mob/living/living.dm`: `proc/set_pull_offsets`, `proc/reset_pull_offsets`
-- `modular_skyrat/master_files/code/modules/mob/living/living_movement.dm`: `proc/CanAllowThrough`
+- `modular_nova/master_files/code/datums/keybinding/mob.dm`: `var/list/hotkey_keys`
+- `modular_nova/master_files/code/modules/mob/living/living.dm`: `proc/set_pull_offsets`, `proc/reset_pull_offsets`
+- `modular_nova/master_files/code/modules/mob/living/living_movement.dm`: `proc/CanAllowThrough`
 
 ### Defines:
 

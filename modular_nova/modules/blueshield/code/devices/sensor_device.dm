@@ -1,7 +1,7 @@
 /obj/item/sensor_device/blueshield
 	name = "blueshield's handheld monitor"
 	desc = "A unique model of handheld crew monitor that seems to have been customized for Executive Protection purposes."
-	icon = 'modular_skyrat/modules/blueshield/icons/device.dmi'
+	icon = 'modular_nova/modules/blueshield/icons/device.dmi'
 	icon_state = "blueshield_scanner"
 
 /obj/item/sensor_device/blueshield/attack_self(mob/user)

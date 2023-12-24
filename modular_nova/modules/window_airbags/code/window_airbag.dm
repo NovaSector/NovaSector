@@ -57,7 +57,7 @@
 /obj/item/airbag
 	name = "airbag"
 	desc = "A small package with an explosive attached. Stand clear!"
-	icon = 'modular_skyrat/modules/inflatables/icons/inflatable.dmi'
+	icon = 'modular_nova/modules/inflatables/icons/inflatable.dmi'
 	icon_state = "airbag_safe"
 	base_icon_state = "airbag"
 	max_integrity = 10
@@ -70,9 +70,9 @@
 	/// Are we currently armed?
 	var/armed = FALSE
 	/// The sound we play when armed
-	var/armed_sound = 'modular_skyrat/modules/window_airbags/sound/airbag_arm.ogg'
+	var/armed_sound = 'modular_nova/modules/window_airbags/sound/airbag_arm.ogg'
 	/// The sound we play when we go bang
-	var/bang_sound = 'modular_skyrat/modules/window_airbags/sound/airbag_bang.ogg'
+	var/bang_sound = 'modular_nova/modules/window_airbags/sound/airbag_bang.ogg'
 
 /obj/item/airbag/Initialize(mapload)
 	. = ..()

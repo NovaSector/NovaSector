@@ -3,7 +3,7 @@
 	desc = "These bad boys are seen just about anywhere someone would want or need to build fast, damn the consequences. \
 		That tends to be colonies, especially on dangerous worlds, where the influences of this one machine can be seen \
 		in every bit of architecture."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/machines.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	icon_state = "colony_lathe"
 	base_icon_state = "colony_lathe"
 	production_animation = null
@@ -79,7 +79,7 @@
 
 /obj/item/flatpacked_machine
 	name = "flat-packed rapid construction fabricator"
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/packed_machines.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "colony_lathe_packed"
 	w_class = WEIGHT_CLASS_BULKY
 	/// What structure is created by this item.

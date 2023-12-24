@@ -2,7 +2,7 @@
 
 /obj/item/storage/toolbox/guncase/skyrat/xhihao_large_case
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/gunsets.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/gunsets.dmi'
 	icon_state = "case_xhihao"
 
 // Empty version of the case

@@ -4,11 +4,11 @@
 	icon_state = "dephelmet_pink"
 	base_icon_state = "dephelmet"
 	inhand_icon_state = "dephelmet_pinkn"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/head_muzzled.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head_muzzled.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	body_parts_covered = HEAD
@@ -150,13 +150,13 @@
 	for(action_button in src.actions)
 		if(istype(action_button, /datum/action/item_action/toggle_vision))
 			action_button.button_icon_state = "[current_helmet_color]_blind"
-			action_button.button_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+			action_button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 		if(istype(action_button, /datum/action/item_action/toggle_hearing))
 			action_button.button_icon_state = "[current_helmet_color]_deaf"
-			action_button.button_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+			action_button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 		if(istype(action_button, /datum/action/item_action/toggle_speech))
 			action_button.button_icon_state = "[current_helmet_color]_mute"
-			action_button.button_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+			action_button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 	update_icon()
 
 // To check if we can change helmet's model

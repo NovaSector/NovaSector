@@ -1,7 +1,7 @@
 /obj/structure/plant_tank
 	name = "plant tank"
 	desc = "A small little glass tank that is used to grow plants; this tank promotes the nitrogen and oxygen cycle."
-	icon = 'modular_skyrat/modules/ashwalkers/icons/structures.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/structures.dmi'
 	icon_state = "plant_tank_e"
 	anchored = FALSE
 	density = TRUE

@@ -5,7 +5,7 @@
 	desc = "The ultimate in multi purpose construction tools. With heads for wire cutting, bolt driving, and driving \
 		screws, what's not to love? Well, the slow speed. Compared to other power drills these tend to be \
 		<b>not much quicker than unpowered tools</b>."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tools.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "drill"
 	belt_icon_state = null
 	inhand_icon_state = "drill"
@@ -93,7 +93,7 @@
 	name = "prybar"
 	desc = "A large, sturdy crowbar, painted orange. This one just happens to be tough enough to \
 		survive <b>forcing doors open</b>."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tools.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "prybar"
 	toolspeed = 1.3
 	force_opens = TRUE
@@ -111,7 +111,7 @@
 /obj/item/pickaxe/drill/compact
 	name = "compact mining drill"
 	desc = "A powered mining drill, it drills all over the place. Compact enough to hopefully fit in a backpack."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tools.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "drilla"
 	worn_icon_state = "drill"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -132,9 +132,9 @@
 	desc = "A specialized welding tool utilizing high powered arcs of electricity to weld things together. \
 		Compared to other electrically-powered welders, this model is slow and highly power inefficient, \
 		but it still gets the job done and chances are you printed this bad boy off for free."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tools.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "arc_welder"
-	usesound = 'modular_skyrat/modules/colony_fabricator/sound/arc_welder/arc_welder.ogg'
+	usesound = 'modular_nova/modules/colony_fabricator/sound/arc_welder/arc_welder.ogg'
 	light_range = 2
 	light_power = 0.75
 	toolspeed = 1

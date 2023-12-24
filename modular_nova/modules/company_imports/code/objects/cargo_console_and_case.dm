@@ -14,4 +14,4 @@
 
 /obj/structure/closet/crate/large/import
 	name = "heavy-duty wooden crate"
-	icon = 'modular_skyrat/modules/company_imports/icons/import_crate.dmi'
+	icon = 'modular_nova/modules/company_imports/icons/import_crate.dmi'

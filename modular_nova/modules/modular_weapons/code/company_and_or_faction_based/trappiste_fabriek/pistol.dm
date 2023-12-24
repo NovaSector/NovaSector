@@ -4,10 +4,10 @@
 	name = "\improper Trappiste 'Wespe' Pistol"
 	desc = "The standard issue service pistol of SolFed's various military branches. Comes with attached light."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "wespe"
 
-	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_light.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pistol_light.ogg'
 
 	w_class = WEIGHT_CLASS_NORMAL
 
@@ -59,11 +59,11 @@
 	name = "\improper Trappiste 'Skild' Pistol"
 	desc = "A somewhat rare to see Trappiste pistol firing the high caliber .585 developed by the same company. Sees rare use mainly due to its tendency to cause severe wrist discomfort."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "skild"
 
-	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/pistol_heavy.ogg'
-	suppressed_sound = 'modular_skyrat/modules/modular_weapons/sounds/suppressed_heavy.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pistol_heavy.ogg'
+	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 
 	w_class = WEIGHT_CLASS_NORMAL
 

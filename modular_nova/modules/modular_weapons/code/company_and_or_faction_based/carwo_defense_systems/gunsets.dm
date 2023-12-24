@@ -3,13 +3,13 @@
 /obj/item/storage/toolbox/guncase/skyrat/carwo_large_case
 	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/gunsets.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/gunsets.dmi'
 	icon_state = "case_carwo"
 
 	worn_icon_state = "yellowcase"
 
-	lefthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_weapons/icons/mob/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/cases_righthand.dmi'
 	inhand_icon_state = "yellowcase"
 
 // Empty version of the case
@@ -66,7 +66,7 @@
 
 /obj/structure/closet/secure_closet/armory_kiboko_but_evil
 	name = "heavy equipment locker"
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_door = "riot"
 	icon_state = "riot"
 	req_access = list(ACCESS_SYNDICATE)

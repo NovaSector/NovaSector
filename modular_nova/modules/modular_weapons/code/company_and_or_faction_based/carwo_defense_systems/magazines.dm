@@ -4,7 +4,7 @@
 	name = "\improper Sol pistol magazine"
 	desc = "A standard size magazine for SolFed pistols, holds twelve rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "pistol_35_standard"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -37,7 +37,7 @@
 	name = "\improper Sol rifle short magazine"
 	desc = "A shortened magazine for SolFed rifles, holds fifteen rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "rifle_short"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -85,7 +85,7 @@
 	name = "\improper Kiboko grenade box"
 	desc = "A standard size box for .980 grenades, holds four shells."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "granata_standard"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

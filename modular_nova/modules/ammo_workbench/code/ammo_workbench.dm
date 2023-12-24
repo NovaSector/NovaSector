@@ -1,7 +1,7 @@
 /obj/machinery/ammo_workbench
 	name = "ammunitions workbench"
 	desc = "A machine, somewhat akin to a lathe, made specifically for manufacturing ammunition. It has a slot for magazines, ammo boxes, clips... anything that holds ammo."
-	icon = 'modular_skyrat/modules/ammo_workbench/icons/ammo_workbench.dmi'
+	icon = 'modular_nova/modules/ammo_workbench/icons/ammo_workbench.dmi'
 	icon_state = "ammobench"
 	density = TRUE
 	use_power = IDLE_POWER_USE
@@ -31,7 +31,7 @@
 	var/list/casing_mat_strings = list()
 	/// can it print ammunition flagged as harmful (e.g. most ammo)?
 	var/allowed_harmful = FALSE
-	/// can it print advanced ammunition types (e.g. armor-piercing)? see modular_skyrat\modules\modular_weapons\code\modular_projectiles.dm
+	/// can it print advanced ammunition types (e.g. armor-piercing)? see modular_nova\modules\modular_weapons\code\modular_projectiles.dm
 	var/allowed_advanced = FALSE
 	/// what datadisks have been loaded. uh... honestly this doesn't really do much either
 	var/list/loaded_datadisks = list()

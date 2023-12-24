@@ -3,7 +3,7 @@
 /obj/item/mmi/posibrain/circuit
 	name = "compact AI circuit"
 	desc = "A compact circuit, perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
-	icon = 'modular_skyrat/master_files/icons/obj/alt_silicon_brains.dmi'
+	icon = 'modular_nova/master_files/icons/obj/alt_silicon_brains.dmi'
 	icon_state = "circuit"
 	base_icon_state = "circuit"
 	inhand_icon_state = "electronic"
@@ -18,7 +18,7 @@
 	recharge_message = span_warning("The compact AI circuit isn't ready to activate again yet! Give it some time to recharge.")
 
 // CODE THAT ACTUALLY APPLIES THE BRAINS.
-// See modular_skyrat/master_files/code/modules/client/preferences/brain.dm for Synth/IPC application.
+// See modular_nova/master_files/code/modules/client/preferences/brain.dm for Synth/IPC application.
 
 /// Returns a type to use based off of a given preference value (ORGAN_PREF_POSI_BRAIN, ORGAN_PREF_MMI_BRAIN and ORGAN_PREF_CIRCUIT_BRAIN), and if they're a cyborg or not.
 /mob/living/proc/prefs_get_brain_to_use(value, is_cyborg = FALSE)

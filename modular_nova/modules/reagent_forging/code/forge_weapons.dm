@@ -1,8 +1,8 @@
 /obj/item/forging/reagent_weapon
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
-	righthand_file = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
-	worn_icon = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
+	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
+	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
+	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
+	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME
 	skyrat_obj_flags = ANVIL_REPAIR
@@ -168,13 +168,13 @@
 /obj/item/shield/buckler/reagent_weapon //Same as a buckler, but metal.
 	name = "reagent plated buckler shield"
 	desc = "A small, round shield best used in tandem with a melee weapon in close-quarters combat."
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi'
-	worn_icon = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
+	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
+	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
 	icon_state = "buckler"
 	inhand_icon_state = "buckler"
 	worn_icon_state = "buckler_back"
-	lefthand_file = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
-	righthand_file = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
+	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
+	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
 	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT)
 	resistance_flags = FIRE_PROOF
 	block_chance = 30

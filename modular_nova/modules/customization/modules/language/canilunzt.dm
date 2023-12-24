@@ -15,5 +15,5 @@
 		"mak","lich","gen","or","ag","eck","gec","stag","onn","bin","ket","einech","cresthz","azunein","ghzth"
 	)
 	icon_state = "canilunzt"
-	icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 90

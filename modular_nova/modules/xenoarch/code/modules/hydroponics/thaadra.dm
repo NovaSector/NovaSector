@@ -1,7 +1,7 @@
 /obj/item/seeds/thaadra
 	name = "pack of thaadra seeds"
 	desc = "These seeds grow into thaadra plants. A strange flower full of unique medicines and silver."
-	icon = 'modular_skyrat/modules/xenoarch/icons/seeds.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/seeds.dmi'
 	icon_state = "thaadra"
 	species = "thaadra"
 	plantname = "Thaadra Plant"
@@ -9,7 +9,7 @@
 	lifespan = 55
 	endurance = 35
 	yield = 5
-	growing_icon = 'modular_skyrat/modules/xenoarch/icons/growing.dmi'
+	growing_icon = 'modular_nova/modules/xenoarch/icons/growing.dmi'
 	icon_grow = "thaadra-stage"
 	growthstages = 4
 	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/preserved)
@@ -19,7 +19,7 @@
 	seed = /obj/item/seeds/thaadra
 	name = "thaadra"
 	desc = "A cluster of thaadra petals, full of niche medicinal chemicals."
-	icon = 'modular_skyrat/modules/xenoarch/icons/harvest.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/harvest.dmi'
 	icon_state = "thaadra"
 	filling_color = "#FF4500"
 	bite_consumption_mod = 0.5

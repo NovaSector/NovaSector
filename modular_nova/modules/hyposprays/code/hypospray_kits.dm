@@ -1,7 +1,7 @@
 /obj/item/storage/hypospraykit
 	name = "hypospray kit"
 	desc = "It's a kit containing a hypospray and specific treatment chemical-filled vials."
-	icon = 'modular_skyrat/modules/hyposprays/icons/hypokits.dmi'
+	icon = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
 	icon_state = "firstaid-mini"
 	worn_icon_state = "healthanalyzer" // Get a better sprite later
 	inhand_icon_state = "medkit"

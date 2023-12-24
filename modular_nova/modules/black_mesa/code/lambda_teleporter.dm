@@ -1,6 +1,6 @@
 
 /datum/looping_sound/lambda
-	mid_sounds = list('modular_skyrat/modules/black_mesa/sound/lc_mainbeam.ogg' = 1)
+	mid_sounds = list('modular_nova/modules/black_mesa/sound/lc_mainbeam.ogg' = 1)
 	mid_length = 8.1 SECONDS
 	volume = 100
 
@@ -31,7 +31,7 @@
 
 /obj/effect/bump_teleporter/lambda/teleport_action(atom/movable/target, turf/destination)
 	// Play sound before moving.
-	playsound(src, 'modular_skyrat/modules/black_mesa/sound/lc_teleport.ogg', 100)
+	playsound(src, 'modular_nova/modules/black_mesa/sound/lc_teleport.ogg', 100)
 
 	. = ..()
 

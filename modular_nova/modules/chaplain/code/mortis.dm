@@ -20,7 +20,7 @@
 
 /obj/item/implant/mortis/proc/on_deathgasp(mob/source)
 	SIGNAL_HANDLER
-	playsound(source.loc, 'modular_skyrat/modules/chaplain/sound/mortis.ogg', 50, 0)
+	playsound(source.loc, 'modular_nova/modules/chaplain/sound/mortis.ogg', 50, 0)
 
 /obj/item/implanter/mortis
 	name = "implanter (MORTIS)"

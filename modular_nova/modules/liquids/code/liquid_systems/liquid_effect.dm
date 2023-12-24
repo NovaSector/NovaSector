@@ -1,6 +1,6 @@
 /obj/effect/abstract/liquid_turf
 	name = "liquid"
-	icon = 'modular_skyrat/modules/liquids/icons/obj/effects/liquid.dmi'
+	icon = 'modular_nova/modules/liquids/icons/obj/effects/liquid.dmi'
 	icon_state = "water-0"
 	base_icon_state = "water"
 	anchored = TRUE
@@ -207,7 +207,7 @@
 	PRIVATE_PROC(TRUE)
 
 	return mutable_appearance(
-		'modular_skyrat/modules/liquids/icons/obj/effects/liquid_overlays.dmi',
+		'modular_nova/modules/liquids/icons/obj/effects/liquid_overlays.dmi',
 		overlay_state,
 		overlay_layer,
 		src,
@@ -380,10 +380,10 @@
 		//Splash
 		if(prob(WATER_HEIGH_DIFFERENCE_SOUND_CHANCE))
 			var/sound_to_play = pick(list(
-				'modular_skyrat/modules/liquids/sound/effects/water_wade1.ogg',
-				'modular_skyrat/modules/liquids/sound/effects/water_wade2.ogg',
-				'modular_skyrat/modules/liquids/sound/effects/water_wade3.ogg',
-				'modular_skyrat/modules/liquids/sound/effects/water_wade4.ogg'
+				'modular_nova/modules/liquids/sound/effects/water_wade1.ogg',
+				'modular_nova/modules/liquids/sound/effects/water_wade2.ogg',
+				'modular_nova/modules/liquids/sound/effects/water_wade3.ogg',
+				'modular_nova/modules/liquids/sound/effects/water_wade4.ogg'
 				))
 			playsound(my_turf, sound_to_play, 60, 0)
 		var/obj/splashy = new /obj/effect/temp_visual/liquid_splash(my_turf)
@@ -429,10 +429,10 @@
 	if(liquid_state >= LIQUID_STATE_ANKLES)
 		if(prob(30))
 			var/sound_to_play = pick(list(
-				'modular_skyrat/modules/liquids/sound/effects/water_wade1.ogg',
-				'modular_skyrat/modules/liquids/sound/effects/water_wade2.ogg',
-				'modular_skyrat/modules/liquids/sound/effects/water_wade3.ogg',
-				'modular_skyrat/modules/liquids/sound/effects/water_wade4.ogg'
+				'modular_nova/modules/liquids/sound/effects/water_wade1.ogg',
+				'modular_nova/modules/liquids/sound/effects/water_wade2.ogg',
+				'modular_nova/modules/liquids/sound/effects/water_wade3.ogg',
+				'modular_nova/modules/liquids/sound/effects/water_wade4.ogg'
 				))
 			playsound(T, sound_to_play, 50, 0)
 		if(iscarbon(AM))
@@ -449,7 +449,7 @@
 	SIGNAL_HANDLER
 	var/turf/T = source
 	if(liquid_state >= LIQUID_STATE_ANKLES && T.has_gravity(T))
-		playsound(T, 'modular_skyrat/modules/liquids/sound/effects/splash.ogg', 50, 0)
+		playsound(T, 'modular_nova/modules/liquids/sound/effects/splash.ogg', 50, 0)
 		if(iscarbon(M))
 			var/mob/living/carbon/falling_carbon = M
 
@@ -625,7 +625,7 @@
 	return lowertext(reagents_string)
 
 /obj/effect/temp_visual/liquid_splash
-	icon = 'modular_skyrat/modules/liquids/icons/obj/effects/splash.dmi'
+	icon = 'modular_nova/modules/liquids/icons/obj/effects/splash.dmi'
 	icon_state = "splash"
 	layer = FLY_LAYER
 	randomdir = FALSE

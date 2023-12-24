@@ -1,7 +1,7 @@
 /obj/structure/chair/shibari_stand
 	name = "shibari stand"
 	desc = "A stand for buckling people with ropes."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi'
 	icon_state = "shibari_stand"
 	max_integrity = 75
 	layer = 4
@@ -11,7 +11,7 @@
 	///Overlays for ropes
 	var/static/mutable_appearance/shibari_rope_overlay
 	var/static/mutable_appearance/shibari_rope_overlay_behind
-	var/static/mutable_appearance/shibari_shadow_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi', "shibari_shadow", LOW_OBJ_LAYER)
+	var/static/mutable_appearance/shibari_shadow_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi', "shibari_shadow", LOW_OBJ_LAYER)
 
 	greyscale_config = /datum/greyscale_config/shibari_stand
 	greyscale_colors = "#bd8fcf"

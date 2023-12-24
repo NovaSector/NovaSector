@@ -107,5 +107,5 @@
 
 	for(var/client/admin_client in GLOB.admins)
 		if(admin_client?.prefs?.toggles & SOUND_ADMINHELP)
-			SEND_SOUND(admin_client, sound('modular_skyrat/modules/admin/sound/duckhonk.ogg'))
+			SEND_SOUND(admin_client, sound('modular_nova/modules/admin/sound/duckhonk.ogg'))
 		window_flash(admin_client, ignorepref = TRUE)

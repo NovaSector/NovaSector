@@ -1,7 +1,7 @@
 /obj/item/storage/box/spaceman_ration
 	name = "unlabeled ration container"
 	desc = "You get the feeling you sholdn't have been sent this one?"
-	icon = 'modular_skyrat/modules/paycheck_rations/icons/food_containers.dmi'
+	icon = 'modular_nova/modules/paycheck_rations/icons/food_containers.dmi'
 	icon_state = "plants"
 	illustration = null
 	/// How many storage slots this has, yes I'm being lazy

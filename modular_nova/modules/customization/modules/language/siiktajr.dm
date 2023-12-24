@@ -17,5 +17,5 @@
 		"län","ny","kor","stå","vär","nning","mmen","ärr","det","vil"
 	)
 	icon_state = "siiktajr"
-	icon = 'modular_skyrat/master_files/icons/misc/language.dmi'
+	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 90

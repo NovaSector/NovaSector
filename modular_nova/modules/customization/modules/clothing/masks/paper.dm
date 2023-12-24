@@ -15,8 +15,8 @@
 /obj/item/clothing/mask/paper
 	name = "paper mask"
 	desc = "It's true. Once you wear a mask for so long, you forget about who you are. Wonder if that happens with shitty paper ones."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "mask_paper"
 	clothing_flags = MASKINTERNALS
 	flags_inv = HIDEFACIALHAIR|HIDESNOUT

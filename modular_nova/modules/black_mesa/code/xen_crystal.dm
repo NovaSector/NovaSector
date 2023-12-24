@@ -1,7 +1,7 @@
 /obj/structure/xen_crystal
 	name = "resonating crystal"
 	desc = "A strange resinating crystal."
-	icon = 'modular_skyrat/modules/black_mesa/icons/plants.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/plants.dmi'
 	icon_state = "crystal"
 	light_power = 2
 	light_range = 4
@@ -44,7 +44,7 @@
 /obj/item/grenade/xen_crystal
 	name = "xen crystal"
 	desc = "A crystal with anomalous properties."
-	icon = 'modular_skyrat/modules/black_mesa/icons/plants.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/plants.dmi'
 	icon_state = "crystal_grenade"
 	/// What range do we effect mobs?
 	var/effect_range = 6

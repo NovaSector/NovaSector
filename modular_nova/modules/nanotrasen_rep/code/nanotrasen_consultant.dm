@@ -91,7 +91,7 @@
 /obj/effect/landmark/start/nanotrasen_consultant
 	name = "Nanotrasen Consultant"
 	icon_state = "Nanotrasen Consultant"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 
 /obj/item/clothing/accessory/medal/gold/nanotrasen_consultant
 	name = "medal of diplomacy"
@@ -137,7 +137,7 @@
 	name = "nanotrasen consultant's locker"
 	req_access = list(ACCESS_CAPTAIN, ACCESS_CENT_GENERAL)
 	icon_state = "cc"
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant/PopulateContents()
 	..()

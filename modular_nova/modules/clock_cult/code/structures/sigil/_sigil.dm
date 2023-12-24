@@ -7,7 +7,7 @@
 	name = "sigil"
 	desc = "It's a sigil that does something."
 	max_integrity = 10
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_effects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_effects.dmi'
 	icon_state = "sigilvitality"
 	density = FALSE
 	alpha = 90

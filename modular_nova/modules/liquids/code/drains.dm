@@ -1,7 +1,7 @@
 //Structure as this doesn't need any power to work
 /obj/structure/drain
 	name = "drain"
-	icon = 'modular_skyrat/modules/liquids/icons/obj/structures/drains.dmi'
+	icon = 'modular_nova/modules/liquids/icons/obj/structures/drains.dmi'
 	icon_state = "drain"
 	desc = "Drainage inlet embedded in the floor to prevent flooding."
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF

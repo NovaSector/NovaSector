@@ -7,7 +7,7 @@
 /obj/structure/reagent_crafting_bench
 	name = "forging workbench"
 	desc = "A crafting bench fitted with tools, securing mechanisms, and a steady surface for blacksmithing."
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_structures.dmi'
+	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_structures.dmi'
 	icon_state = "crafting_bench_empty"
 
 	anchored = TRUE
@@ -159,7 +159,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/reagent_crafting_bench/hammer_act(mob/living/user, obj/item/tool)
-	playsound(src, 'modular_skyrat/modules/reagent_forging/sound/forge.ogg', 50, TRUE)
+	playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE)
 	if(length(contents))
 		if(!istype(contents[1], /obj/item/forging/complete))
 			balloon_alert(user, "invalid item")

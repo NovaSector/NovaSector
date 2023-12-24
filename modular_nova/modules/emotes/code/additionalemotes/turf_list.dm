@@ -2,7 +2,7 @@
 
 /obj/structure/mark_turf
 	name = "turf"
-	icon = 'modular_skyrat/master_files/icons/effects/turf_effects.dmi'
+	icon = 'modular_nova/master_files/icons/effects/turf_effects.dmi'
 	desc = "It's turf." //Debug stuff, won't be seen
 	layer = ABOVE_OBJ_LAYER
 	anchored = TRUE
@@ -17,7 +17,7 @@
 			name = "hand-sewn web"
 			desc = "It's a sticky web."
 			icon_state = pick("stickyweb1", "stickyweb2")
-			playsound(get_turf(src), 'modular_skyrat/master_files/sound/effects/weave.ogg', 25, TRUE)
+			playsound(get_turf(src), 'modular_nova/master_files/sound/effects/weave.ogg', 25, TRUE)
 
 		if("vines")
 			name = "sprouted vines"
@@ -30,15 +30,15 @@
 			name = "puddle of water"
 			desc = "It's a patch of water."
 			icon_state = "water"
-			src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects.dmi', "water_top", EXTRA_ABOVE_MOB_LAYER))
-			flick_overlay_static(image('modular_skyrat/modules/liquids/icons/obj/effects/splash.dmi', "splash", EXTRA_ABOVE_MOB_LAYER), 20)
-			playsound(get_turf(src), 'modular_skyrat/master_files/sound/effects/watersplash.ogg', 25, TRUE)
+			src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects.dmi', "water_top", EXTRA_ABOVE_MOB_LAYER))
+			flick_overlay_static(image('modular_nova/modules/liquids/icons/obj/effects/splash.dmi', "splash", EXTRA_ABOVE_MOB_LAYER), 20)
+			playsound(get_turf(src), 'modular_nova/master_files/sound/effects/watersplash.ogg', 25, TRUE)
 
 		if("smoke")
 			name = "blazing mist"
 			desc = "It's a storm of smoke."
 			icon_state = "smoke"
-			src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects.dmi', "smoke_top", EXTRA_ABOVE_MOB_LAYER))
+			src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects.dmi', "smoke_top", EXTRA_ABOVE_MOB_LAYER))
 			playsound(get_turf(src), 'sound/effects/wounds/sizzle2.ogg', 25, TRUE)
 
 		if("xenoresin")
@@ -57,7 +57,7 @@
 			name = "physical hologram"
 			desc = "It's a hologram of a barstool."
 			icon_state = "holoseat"
-			src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects.dmi', "holoseat_top", EXTRA_ABOVE_MOB_LAYER))
+			src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects.dmi', "holoseat_top", EXTRA_ABOVE_MOB_LAYER))
 			playsound(get_turf(src), 'sound/misc/compiler-stage2.ogg', 25, TRUE)
 
 		if("slime")
@@ -68,13 +68,13 @@
 			switch(rand(1,1000))
 				if(-INFINITY to 400)
 					icon_state = "slimeobj1"
-					src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects.dmi', "slimeobj1_top", EXTRA_ABOVE_MOB_LAYER))
+					src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects.dmi', "slimeobj1_top", EXTRA_ABOVE_MOB_LAYER))
 				if(400 to 800)
 					icon_state = "slimeobj2"
-					src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects.dmi', "slimeobj2_top", EXTRA_ABOVE_MOB_LAYER))
+					src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects.dmi', "slimeobj2_top", EXTRA_ABOVE_MOB_LAYER))
 				if(800 to 980)
 					icon_state = "slimeobj3"
-					src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects.dmi', "slimeobj3_top", EXTRA_ABOVE_MOB_LAYER))
+					src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects.dmi', "slimeobj3_top", EXTRA_ABOVE_MOB_LAYER))
 				if(980 to INFINITY)
 					name = "slime bust" //rare obj/item/statuebust
 					desc = "A priceless slime bust, the kind that belongs in a museum."
@@ -86,16 +86,16 @@
 		if("dust")
 			name = "cloud of dust"
 			desc = "It's a cloud of glittering dust."
-			icon = 'modular_skyrat/master_files/icons/effects/turf_effects_64.dmi'
+			icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi'
 			icon_state = "dust"
 			pixel_x = -16
-			src.add_overlay(image('modular_skyrat/master_files/icons/effects/turf_effects_64.dmi', "dust_top", EXTRA_ABOVE_MOB_LAYER))
-			playsound(get_turf(src), 'modular_skyrat/master_files/sound/effects/wing_flap.ogg', 25, TRUE)
+			src.add_overlay(image('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "dust_top", EXTRA_ABOVE_MOB_LAYER))
+			playsound(get_turf(src), 'modular_nova/master_files/sound/effects/wing_flap.ogg', 25, TRUE)
 
 		if("borgmat")
 			name = "soft-foam mat"
 			desc = "It's a rolled out mat, doesn't include wireless charging."
-			icon = 'modular_skyrat/master_files/icons/effects/turf_effects_64.dmi'
+			icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi'
 			icon_state = "borgmat"
 			pixel_x = -16
 			pixel_y = -4
@@ -105,10 +105,10 @@
 		if("tails")
 			name = "tail"
 			desc = "It's a fluffy tail."
-			icon = 'modular_skyrat/master_files/icons/effects/turf_effects_64.dmi'
+			icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi'
 			icon_state = "tails"
 			pixel_x = -16 //correcting the offset for 64
-			var/mutable_appearance/overlay = mutable_appearance('modular_skyrat/master_files/icons/effects/turf_effects_64.dmi', "tails_top", EXTRA_ABOVE_MOB_LAYER, src, GAME_PLANE_UPPER)
+			var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "tails_top", EXTRA_ABOVE_MOB_LAYER, src, GAME_PLANE_UPPER)
 			overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 			src.add_overlay(overlay)
 			playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 25, TRUE)
@@ -116,13 +116,13 @@
 		if("constrict")
 			name = "tail"
 			desc = "It's a scaly tail."
-			icon = 'modular_skyrat/master_files/icons/effects/turf_effects_64.dmi'
+			icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi'
 			icon_state = "naga"
 			pixel_x = -16
-			var/mutable_appearance/overlay = mutable_appearance('modular_skyrat/master_files/icons/effects/turf_effects_64.dmi', "naga_top", EXTRA_ABOVE_MOB_LAYER, src, GAME_PLANE_UPPER)
+			var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "naga_top", EXTRA_ABOVE_MOB_LAYER, src, GAME_PLANE_UPPER)
 			overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 			src.add_overlay(overlay)
-			playsound(get_turf(src), 'modular_skyrat/modules/emotes/sound/emotes/hiss.ogg', 25, TRUE)
+			playsound(get_turf(src), 'modular_nova/modules/emotes/sound/emotes/hiss.ogg', 25, TRUE)
 
 		//prints
 		if("pawprint")

@@ -4,7 +4,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 /proc/generate_DNR_trait_overlay()
 	RETURN_TYPE(/mutable_appearance)
 
-	var/mutable_appearance/DNR_trait_overlay = mutable_appearance('modular_skyrat/modules/indicators/icons/DNR_trait_overlay.dmi', "DNR", FLY_LAYER)
+	var/mutable_appearance/DNR_trait_overlay = mutable_appearance('modular_nova/modules/indicators/icons/DNR_trait_overlay.dmi', "DNR", FLY_LAYER)
 	DNR_trait_overlay.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	return DNR_trait_overlay
 
@@ -119,7 +119,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 /obj/item/paper/joker
 	name = "disability card"
-	icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	icon_state = "joker"
 	desc = "Smile, though your heart is aching."
 	default_raw_text = "<i>\

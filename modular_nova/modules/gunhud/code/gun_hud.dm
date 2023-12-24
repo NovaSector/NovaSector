@@ -14,7 +14,7 @@
 
 /atom/movable/screen/ammo_counter
 	name = "ammo counter"
-	icon = 'modular_skyrat/modules/gunhud/icons/gun_hud.dmi'
+	icon = 'modular_nova/modules/gunhud/icons/gun_hud.dmi'
 	icon_state = "backing"
 	screen_loc = ui_ammocounter
 	invisibility = INVISIBILITY_ABSTRACT

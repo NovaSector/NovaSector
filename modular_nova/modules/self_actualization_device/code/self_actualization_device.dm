@@ -15,7 +15,7 @@
 /obj/machinery/self_actualization_device
 	name = "Self-Actualization Device"
 	desc = "A state of the art medical device that can restore someone's physical appearance to the last known database backup."
-	icon = 'modular_skyrat/modules/self_actualization_device/icons/self_actualization_device.dmi'
+	icon = 'modular_nova/modules/self_actualization_device/icons/self_actualization_device.dmi'
 	icon_state = "sad_open"
 	circuit = /obj/item/circuitboard/machine/self_actualization_device
 	state_open = FALSE

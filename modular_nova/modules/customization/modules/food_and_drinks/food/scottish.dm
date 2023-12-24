@@ -1,7 +1,7 @@
 /obj/item/food/snacks/store/bread/haggis
 	name = "haggis"
 	desc = "A savoury pudding containing intestines."
-	icon = 'modular_skyrat/master_files/icons/obj/food/irnbru.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "haggis"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 50,
@@ -16,7 +16,7 @@
 /obj/item/food/snacks/breadslice/haggis
 	name = "haggis chunk"
 	desc = "A chunk of delicious haggis."
-	icon = 'modular_skyrat/master_files/icons/obj/food/irnbru.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "haggis_chunk"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -30,7 +30,7 @@
 	name = "haggis neeps and tatties "
 	desc = "Oi mate! No neeps, but double beets! SCAM!!!"
 	icon_state = "neep_tatty_haggis"
-	icon = 'modular_skyrat/master_files/icons/obj/food/irnbru.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
 		/datum/reagent/consumable/nutriment/vitamin = 10,
@@ -42,7 +42,7 @@
 /obj/item/food/raw_sausage/battered
 	name = "raw battered sausage"
 	desc = "A raw sausage coated in thick beer batter."
-	icon = 'modular_skyrat/master_files/icons/obj/food/irnbru.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "batteredsausage"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 5,
@@ -57,7 +57,7 @@
 /obj/item/food/sausage/battered
 	name = "battered sausage"
 	desc = "A sausage coated in thick beer batter, best served with a portion of chips wrapped in a newspaper, it however, is pure cholesterol, Scottish people eat it. Few of them make it to 60."
-	icon = 'modular_skyrat/master_files/icons/obj/food/irnbru.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "grilled_batteredsausage"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 5,
@@ -74,7 +74,7 @@
 /obj/item/food/cookie/shortbread
 	name = "shortbread"
 	desc = "A rectangular piece of cooked flour. Said to control the sun during Hogmanay."
-	icon = 'modular_skyrat/master_files/icons/obj/food/irnbru.dmi'
+	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "shortbread"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,

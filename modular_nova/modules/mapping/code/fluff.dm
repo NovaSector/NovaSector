@@ -228,7 +228,7 @@
 
 /* ----------------- Fluff/Decor ----------------- */
 /obj/structure/decorative/fluff/ai_node //Budding AI's way of interfacing with stuff it couldn't normally do so with. Needed to be placed by a willing human, before borgs were created. Used in any ruins regarding pre-bluespace, self-aware AIs
-	icon = 'modular_skyrat/modules/mapping/icons/obj/fluff.dmi'
+	icon = 'modular_nova/modules/mapping/icons/obj/fluff.dmi'
 	name = "ai node"
 	desc = "A mysterious, blinking device, attached straight to a surface. It's function is beyond you."
 	icon_state = "ai_node"	//credit to @Hay#7679 on the SR Discord
@@ -244,7 +244,7 @@
 		return
 	else if(. && !QDELETED(src))
 		visible_message(span_notice("[src] sparks and explodes! You hear a faint, buzzy scream..."), span_hear("You hear a loud pop, followed by a faint, buzzy scream."))
-		playsound(src.loc, 'modular_skyrat/modules/mapping/sounds/MachineDeath.ogg', 75, TRUE)	//Credit to @yungfunnyman#3798 on the SR Discord
+		playsound(src.loc, 'modular_nova/modules/mapping/sounds/MachineDeath.ogg', 75, TRUE)	//Credit to @yungfunnyman#3798 on the SR Discord
 		do_sparks(2, TRUE, src)
 		qdel(src)
 		return
@@ -253,7 +253,7 @@
 /* ----- Metal Poles (These shouldn't be in this file but there's not a better place tbh) -----*/
 //Just a re-done Tram Rail, but with all 4 directions instead of being stuck east/west - more varied placement, and a more vague name. Good for mapping support beams/antennae/etc
 /obj/structure/fluff/metalpole
-	icon = 'modular_skyrat/modules/mapping/icons/obj/fluff.dmi'
+	icon = 'modular_nova/modules/mapping/icons/obj/fluff.dmi'
 	name = "metal pole"
 	desc = "A metal pole, the likes of which are commonly used as an antennae, structural support, or simply to maneuver in zero-g."
 	icon_state = "pole"

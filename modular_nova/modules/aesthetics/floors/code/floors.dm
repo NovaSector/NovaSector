@@ -1,5 +1,5 @@
 /turf/open/floor
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
 
 //Removes redundant textured stuff from this radial, as all of ours are textured by default
 /obj/item/stack/tile/iron
@@ -59,7 +59,7 @@
 /turf/open/indestructible/cobble
 	name = "cobblestone path"
 	desc = "A simple but beautiful path made of various sized stones."
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
 	icon_state = "cobble"
 	baseturfs = /turf/open/indestructible/cobble
 	footstep = FOOTSTEP_FLOOR

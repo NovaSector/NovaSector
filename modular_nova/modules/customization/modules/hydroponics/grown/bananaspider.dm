@@ -1,10 +1,10 @@
 /obj/item/seeds/banana/spider_banana
 	name = "pack of leggy banana seeds"
 	desc = "They're seeds that grow into banana trees. However, those bananas might be alive."
-	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/seeds.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hydroponics/seeds.dmi'
 	icon_state = "seed-spibanana"
 	species = "spibanana"
-	growing_icon = 'modular_skyrat/master_files/icons/obj/hydroponics/growing.dmi'
+	growing_icon = 'modular_nova/master_files/icons/obj/hydroponics/growing.dmi'
 	icon_grow = "spibanana-grow"
 	icon_dead = "spibanana-dead"
 	icon_harvest = "spibanana-harvest"
@@ -15,7 +15,7 @@
 /obj/item/food/grown/banana/banana_spider_spawnable
 	name = "banana spider"
 	desc = "You do not know what it is, but you can bet the clown would love it."
-	icon = 'modular_skyrat/master_files/icons/obj/hydroponics/harvest.dmi'
+	icon = 'modular_nova/master_files/icons/obj/hydroponics/harvest.dmi'
 	icon_state = "spibanana"
 	foodtypes = GORE | MEAT | RAW | FRUIT
 	var/awakening = FALSE

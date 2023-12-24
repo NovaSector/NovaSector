@@ -3,7 +3,7 @@
 /obj/structure/rack/wooden
 	name = "shelf"
 	icon_state = "shelf_wood"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
@@ -35,7 +35,7 @@
 	desc = "This barrel can't hold liquids, it can just hold things inside of it however!"
 	icon_state = "barrel"
 	base_icon_state = "barrel"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
@@ -55,7 +55,7 @@
 	name = "Produce Bin"
 	desc = "A wooden hamper, used to hold plant products and try keep them safe from pests."
 	icon_state = "producebin"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/producebin
 	contents_icon_state = "produce"
@@ -86,7 +86,7 @@
 	name = "Seedshelf"
 	desc = "A wooden shelf, used to hold seeds preventing them from germinating early."
 	icon_state = "seedshelf"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/seedshelf
 	contents_icon_state = "seed"
@@ -116,7 +116,7 @@
 	name = "Ration shelf"
 	desc = "A wooden shelf, used to store food... preferably preserved."
 	icon_state = "rationshelf"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/rationshelf
 	contents_icon_state = "ration"
@@ -146,7 +146,7 @@
 	name = "Produce display"
 	desc = "A wooden table with awning, used to display produce items."
 	icon_state = "producedisplay"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/producedisplay
 	contents_icon_state = "nonfood"

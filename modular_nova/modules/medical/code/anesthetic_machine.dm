@@ -3,7 +3,7 @@
 /obj/machinery/anesthetic_machine
 	name = "portable anesthetic tank stand"
 	desc = "A stand on wheels, similar to an IV drip, that can hold a canister of anesthetic along with a gas mask."
-	icon = 'modular_skyrat/modules/medical/icons/obj/machinery.dmi'
+	icon = 'modular_nova/modules/medical/icons/obj/machinery.dmi'
 	icon_state = "breath_machine"
 	anchored = FALSE
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER

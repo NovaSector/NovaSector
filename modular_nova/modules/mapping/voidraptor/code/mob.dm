@@ -1,7 +1,7 @@
 /mob/living/basic/lizard/tegu
 	name = "tegu"
 	desc = "That's a tegu."
-	icon = 'modular_skyrat/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "tegu"
 	icon_living = "tegu"
 	icon_dead = "tegu_dead"

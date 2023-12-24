@@ -88,7 +88,7 @@
 
 
 /obj/item/reagent_containers/borghypo/borgshaker/specific
-	icon = 'modular_skyrat/modules/borg_buffs/icons/items_cyborg.dmi'
+	icon = 'modular_nova/modules/borg_buffs/icons/items_cyborg.dmi'
 	icon_state = "misc"
 
 /obj/item/reagent_containers/borghypo/borgshaker/specific/juice
@@ -114,7 +114,7 @@
 /obj/item/cooking/cyborg/power
 	name =	"automated cooking tool"
 	desc = "A cyborg fitted module resembling the rolling pins and Knifes"
-	icon = 'modular_skyrat/modules/borg_buffs/icons/items_cyborg.dmi'
+	icon = 'modular_nova/modules/borg_buffs/icons/items_cyborg.dmi'
 	icon_state = "knife_screw_cyborg"
 	hitsound = 'sound/items/drill_hit.ogg'
 	usesound = 'sound/items/drill_use.ogg'

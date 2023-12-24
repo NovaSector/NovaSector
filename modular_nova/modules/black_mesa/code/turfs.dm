@@ -25,7 +25,7 @@
 /turf/open/misc/xen
 	name = "strange weeds"
 	desc = "It feels soft to the touch, like a carpet... only... wet."
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_turfs.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_turfs.dmi'
 	icon_state = "xen_turf"
 	baseturfs = /turf/open/misc/xen
 	footstep = FOOTSTEP_GRASS
@@ -35,7 +35,7 @@
 /turf/open/water/beach/xen
 	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_turfs.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_turfs.dmi'
 	baseturfs = /turf/open/water/beach/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
@@ -43,7 +43,7 @@
 /turf/open/misc/beach/coastline_t/xen
 	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_turfs.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_turfs.dmi'
 	baseturfs = /turf/open/misc/beach/coastline_t/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
@@ -51,7 +51,7 @@
 /turf/open/misc/beach/coastline_t/sandwater_inner/xen
 	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_turfs.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_turfs.dmi'
 	baseturfs = /turf/open/misc/beach/coastline_t/sandwater_inner/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
@@ -59,7 +59,7 @@
 /turf/open/misc/beach/coastline_b/xen
 	name = "xen water"
 	desc = "It's mirky and filled with strange organisms."
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_turfs.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_turfs.dmi'
 	baseturfs = /turf/open/misc/beach/coastline_b/xen
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE

@@ -15,9 +15,9 @@
 
 /datum/action/innate/nif_hypnotize
 	name = "Hypnotize"
-	background_icon = 'modular_skyrat/master_files/icons/mob/actions/action_backgrounds.dmi'
+	background_icon = 'modular_nova/master_files/icons/mob/actions/action_backgrounds.dmi'
 	background_icon_state = "android"
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_nif.dmi'
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_nif.dmi'
 	button_icon_state = "hypnotize"
 
 /datum/action/innate/nif_hypnotize/Activate()

@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 /proc/generate_taur_clothing(index, icon/icon_to_process, icon_state)
 	var/icon/taur_clothing_icon = icon("icon" = icon_to_process, "icon_state" = icon_state)
 	var/taur_icon_state = "taur" // Leaving this here in case we ever want to have different ones
-	var/icon/taur_cropping_mask = icon("icon" = 'modular_skyrat/master_files/icons/mob/clothing/taur_masking_helpers.dmi', "icon_state" = taur_icon_state)
+	var/icon/taur_cropping_mask = icon("icon" = 'modular_nova/master_files/icons/mob/clothing/taur_masking_helpers.dmi', "icon_state" = taur_icon_state)
 	taur_clothing_icon.Blend(taur_cropping_mask, ICON_MULTIPLY)
 	taur_clothing_icon = fcopy_rsc(taur_clothing_icon)
 	GLOB.taur_clothing_icons[index] = taur_clothing_icon

@@ -10,7 +10,7 @@
 /obj/item/organ/internal/liver/hemophage
 	name = "liver" // Name change is handled by /datum/component/organ_corruption/corrupt_organ()
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
-	icon = 'modular_skyrat/modules/organs/icons/hemophage_organs.dmi'
+	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
 	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 
 
@@ -70,7 +70,7 @@
 /obj/item/organ/internal/stomach/hemophage
 	name = "stomach" // Name change is handled by /datum/component/organ_corruption/corrupt_organ()
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
-	icon = 'modular_skyrat/modules/organs/icons/hemophage_organs.dmi'
+	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
 	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 
 
@@ -92,7 +92,7 @@
 /obj/item/organ/internal/tongue/hemophage
 	name = "tongue" // Name change is handled by /datum/component/organ_corruption/corrupt_organ()
 	desc = GENERIC_CORRUPTED_ORGAN_DESC
-	icon = 'modular_skyrat/modules/organs/icons/hemophage_organs.dmi'
+	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
 	organ_flags = ORGAN_EDIBLE | ORGAN_TUMOR_CORRUPTED
 	liked_foodtypes = BLOODY
 	disliked_foodtypes = NONE

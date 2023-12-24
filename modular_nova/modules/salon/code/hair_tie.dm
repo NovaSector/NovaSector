@@ -1,12 +1,12 @@
 /obj/item/clothing/head/hair_tie
 	name = "hair tie"
 	desc = "An elastic hair tie, made to hold your hair up!"
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "hairtie"
-	worn_icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	worn_icon = 'modular_nova/modules/salon/icons/items.dmi'
 	worn_icon_state = "hair_tie_worn_no_icon"
-	lefthand_file = 'modular_skyrat/modules/salon/icons/items.dmi'
-	righthand_file = 'modular_skyrat/modules/salon/icons/items.dmi'
+	lefthand_file = 'modular_nova/modules/salon/icons/items.dmi'
+	righthand_file = 'modular_nova/modules/salon/icons/items.dmi'
 	inhand_icon_state = "hair_tie_worn_no_icon"
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW * 0.2
@@ -117,7 +117,7 @@
 	qdel(src)
 
 /obj/projectile/bullet/hair_tie
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "hairtie"
 	hitsound = 'sound/weapons/genhit.ogg'
 	damage = 0 //its just about the knockdown

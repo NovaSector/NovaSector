@@ -56,7 +56,7 @@
 /obj/item/attachable_soulcatcher
 	name = "Poltergeist-Type RSD"
 	desc = "This device, a polymorphic nanomachine net, wraps around objects of most sizes and allows them to function as a container for Resonance. The soul in question within the vessel is imbued much like it would be in a body or a normal Soulcatcher, perceiving the world and even speaking out of their new form. The nanomachine net of the device allows for the consciousness to somewhat manipulate their container, but any large-scale movement is out of the question."
-	icon = 'modular_skyrat/modules/modular_implants/icons/obj/devices.dmi'
+	icon = 'modular_nova/modules/modular_implants/icons/obj/devices.dmi'
 	icon_state = "attachable-soulcatcher"
 	w_class = WEIGHT_CLASS_SMALL
 	/// Do we want to destory the item once it is attached to an item?

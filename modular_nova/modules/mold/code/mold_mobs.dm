@@ -12,7 +12,7 @@
 /mob/living/basic/mold
 	name = "mold mob"
 	desc = "A debug mob for molds. You should report seeing this."
-	icon = 'modular_skyrat/modules/mold/icons/blob_mobs.dmi'
+	icon = 'modular_nova/modules/mold/icons/blob_mobs.dmi'
 	gold_core_spawnable = NO_SPAWN
 	faction = list(FACTION_MOLD)
 	basic_mob_flags = DEL_ON_DEATH
@@ -275,7 +275,7 @@
 	var/mob/living/radiation_target = target
 	if(prob(irradiate_chance))
 		radiation_pulse(radiation_target, CENTAUR_RAD_PULSE_RANGE, CENTAUR_RAD_PULSE_THRESHOLD, FALSE, TRUE)
-		playsound(src, 'modular_skyrat/modules/horrorform/sound/horror_scream.ogg', CENTAUR_ATTACK_SCREAM_VOLUME, TRUE)
+		playsound(src, 'modular_nova/modules/horrorform/sound/horror_scream.ogg', CENTAUR_ATTACK_SCREAM_VOLUME, TRUE)
 
 /datum/ai_controller/basic_controller/centaur
 	blackboard = list(

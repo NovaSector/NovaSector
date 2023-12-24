@@ -1,6 +1,6 @@
 /obj/item/clothing/head/helmet/chaplain/bland
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/chaplain.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/chaplain.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/chaplain.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/chaplain.dmi'
 	name = "crusader helmet"
 	desc = "Helfen, Wehren, Heilen."
 	icon_state = "knight_generic"
@@ -11,8 +11,8 @@
 		)
 
 /obj/item/clothing/suit/chaplainsuit/armor/templar/generic
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/chaplain.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/chaplain.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/chaplain.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain.dmi'
 	desc = "Protect the weak and defenceless, live by honor and glory, and fight for the welfare of all!"
 	icon_state = "knight_generic"
 	unique_reskin = list(
@@ -116,7 +116,7 @@
 /obj/item/nullrod/rosary
 	name = "prayer beads"
 	desc = "A set of prayer beads used by many of the more traditional religions in space"
-	icon = 'modular_skyrat/modules/chaplain/icons/holy_weapons.dmi'
+	icon = 'modular_nova/modules/chaplain/icons/holy_weapons.dmi'
 	icon_state = "rosary"
 	worn_icon_state = "nullrod"
 	force = 4

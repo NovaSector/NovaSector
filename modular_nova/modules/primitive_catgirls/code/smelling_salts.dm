@@ -2,7 +2,7 @@
 	name = "smelling salts"
 	desc = "A small pile of a salt-like substance that smells absolutely repulsive. Rumor has it that the smell is so pungent that even the dead will come back to life to escape it."
 	icon_state = "smelling_salts"
-	icon = 'modular_skyrat/modules/primitive_catgirls/icons/salts.dmi'
+	icon = 'modular_nova/modules/primitive_catgirls/icons/salts.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
 	item_flags = NOBLUDGEON
@@ -59,7 +59,7 @@
 		return
 
 	carbon_target.adjustOxyLoss(amount = 60, updating_health = TRUE)
-	playsound(src, 'modular_skyrat/modules/emotes/sound/emotes/female/female_sniff.ogg', 50, FALSE)
+	playsound(src, 'modular_nova/modules/emotes/sound/emotes/female/female_sniff.ogg', 50, FALSE)
 
 	if(defib_result == DEFIB_POSSIBLE)
 		carbon_target.grab_ghost()

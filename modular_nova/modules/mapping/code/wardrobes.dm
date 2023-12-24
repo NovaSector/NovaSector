@@ -4,7 +4,7 @@
 /obj/machinery/vending/wardrobe/syndie_wardrobe
 	name = "\improper SynDrobe"
 	desc = "A vending machine for our boys in red, now in brand new crimson!"
-	icon = 'modular_skyrat/modules/mapping/icons/obj/vending.dmi'
+	icon = 'modular_nova/modules/mapping/icons/obj/vending.dmi'
 	icon_state = "syndrobe"
 	product_ads = "Put a Donk on it!;Aim, Style, Shoot!;Brigged for wearing the best!"
 	vend_reply = "Thank you for using the SynDrobe!"

@@ -4,7 +4,7 @@
 
 // // MODULAR PLUSHES
 /obj/item/toy/plush/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/plushes.dmi'
+	icon = 'modular_nova/master_files/icons/obj/plushes.dmi'
 	inhand_icon_state = null
 
 /obj/item/toy/plush/skyrat/borbplushie
@@ -13,7 +13,7 @@
 	icon_state = "plushie_borb"
 	attack_verb_continuous = list("pecks", "peeps")
 	attack_verb_simple = list("peck", "peep")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/peep_once.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/peep_once.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/deer
 	name = "deer plushie"
@@ -21,7 +21,7 @@
 	icon_state = "plushie_deer"
 	attack_verb_continuous = list("headbutts", "boops", "bapps", "bumps")
 	attack_verb_simple = list("headbutt", "boop", "bap", "bump")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/fermis
 	name = "medcat plushie"
@@ -29,7 +29,7 @@
 	icon_state = "plushie_fermis"
 	attack_verb_continuous = list("cuddles", "petpatts", "wigglepurrs")
 	attack_verb_simple = list("cuddle", "petpatt", "wigglepurr")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
 	gender = FEMALE
 
 /obj/item/toy/plush/skyrat/fermis/chen
@@ -96,7 +96,7 @@
 	icon_state = "plushie_fox"
 	attack_verb_continuous = list("geckers", "boops", "nuzzles")
 	attack_verb_simple = list("gecker", "boop", "nuzzle")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/duffmoth
 	name = "suspicious moth plushie"
@@ -104,7 +104,7 @@
 	icon_state = "plushie_duffy"
 	attack_verb_continuous = list("flutters", "flaps", "squeaks")
 	attack_verb_simple = list("flutter", "flap", "squeak")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/mothsqueak.ogg'= 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/mothsqueak.ogg'= 1)
 	gender = MALE
 
 /obj/item/toy/plush/skyrat/leaplush
@@ -113,7 +113,7 @@
 	icon_state = "plushie_lea"
 	attack_verb_continuous = list("headbutts", "plaps")
 	attack_verb_simple = list("headbutt", "plap")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/leaplush.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/leaplush.ogg' = 1)
 	gender = FEMALE
 
 /obj/item/toy/plush/skyrat/sarmieplush
@@ -122,7 +122,7 @@
 	icon_state = "plushie_sarmie"
 	attack_verb_continuous = list("baps")
 	attack_verb_simple = list("bap")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/weh.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
 	gender = MALE
 
 /obj/item/toy/plush/skyrat/sharknet
@@ -132,7 +132,7 @@
 	attack_verb_continuous = list("cuddles", "squishes", "wehs")
 	attack_verb_simple = list("cuddle", "squish", "weh")
 	w_class = WEIGHT_CLASS_NORMAL
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/slime_squish.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/slime_squish.ogg' = 1)
 	young = TRUE //No.
 
 /obj/item/toy/plush/sharknet/Initialize(mapload)
@@ -145,7 +145,7 @@
 	icon_state = "plushie_pinta"
 	attack_verb_continuous = list("bonks", "snugs")
 	attack_verb_simple = list("bonk", "snug")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/slime_squish.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/slime_squish.ogg' = 1)
 	young = TRUE //No.
 
 /obj/item/toy/plush/skyrat/szaplush
@@ -154,7 +154,7 @@
 	icon_state = "plushie_sza"
 	attack_verb_continuous = list("scuttles", "chitters", "bites")
 	attack_verb_simple = list("scuttle", "chitter", "bite")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/spiderplush.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/spiderplush.ogg' = 1)
 	young = TRUE //No.
 
 /obj/item/toy/plush/skyrat/riffplush
@@ -171,7 +171,7 @@
 	icon_state = "ianplushie"
 	attack_verb_continuous = list("barks", "woofs", "wags his tail at")
 	attack_verb_simple = list("lick", "nuzzle", "bite")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/bark2.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/bark2.ogg' = 1)
 	young = TRUE //No.
 
 /obj/item/toy/plush/skyrat/ian/small
@@ -192,7 +192,7 @@
 	icon_state = "blackcat"
 	attack_verb_continuous = list("cuddles", "meows", "hisses")
 	attack_verb_simple = list("cuddle", "meow", "hiss")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/cat/tux
 	name = "tux cat plushie"
@@ -208,7 +208,7 @@
 	icon_state = "plushie_seadu"
 	attack_verb_continuous = list("beeps", "sneeds", "swords")
 	attack_verb_simple = list("beep", "sneed", "sword")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/synth_yes.ogg' = 1,'modular_skyrat/modules/emotes/sound/emotes/synth_no.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/synth_yes.ogg' = 1,'modular_nova/modules/emotes/sound/emotes/synth_no.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/lizzyplush
 	name = "odd yoga lizzy plushie"
@@ -216,7 +216,7 @@
 	icon_state = "plushie_lizzy"
 	attack_verb_continuous = list("wehs")
 	attack_verb_simple = list("weh")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/weh.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/mechanic_fox
 	name = "mechanist fox plushie"
@@ -224,7 +224,7 @@
 	icon_state = "plushie_cali"
 	attack_verb_continuous = list("fixes", "updates", "hugs")
 	attack_verb_simple = list("fix", "update", "hug")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/tribal_salamander
 	name = "tribal salamander plushie"
@@ -232,7 +232,7 @@
 	icon_state = "plushie_azu"
 	attack_verb_continuous = list("wurbles at", "warbles at")
 	attack_verb_simple = list("wurbles at", "warbles at")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/wurble.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/wurble.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/commanding_teshari
 	name = "commanding teshari plushy"
@@ -240,7 +240,7 @@
 	icon_state = "plushie_alara"
 	attack_verb_continuous = list("peeps", "wurbles", "hugs")
 	attack_verb_simple = list("peeps", "wurbles", "hugs")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/peep_once.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/peep_once.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/breakdancing_bird
 	name = "breakdancing bird plushie"
@@ -256,7 +256,7 @@
 	icon_state = "plushie_toko"
 	attack_verb_continuous = list("rustles at", "threatens", "skreks at")
 	attack_verb_simple = list("rustle at", "threaten", "skrek at")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/voxrustle.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/voxrustle.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/blue_dog
 	name = "blue dog plushie"
@@ -264,7 +264,7 @@
 	icon_state = "plushie_cobalt"
 	attack_verb_continuous = list("barks at", "borks at", "woofs at")
 	attack_verb_simple = list("bark at", "bork at", "woof at")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/bark1.ogg'=1, 'modular_skyrat/modules/emotes/sound/voice/bark2.ogg'=1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/bark1.ogg'=1, 'modular_nova/modules/emotes/sound/voice/bark2.ogg'=1)
 
 /obj/item/toy/plush/skyrat/engi_snek
 	name = "engineering snek plushie"
@@ -296,7 +296,7 @@
 	icon_state = "plushie_skyy"
 	attack_verb_continuous = list("kisses", "nuzzles", "cuddles", "purrs against")
 	attack_verb_simple = list("kiss", "nuzzle", "cuddle", "purr against")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/nya.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/nya.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/igneous_synth
 	name = "igneous synth plushie"
@@ -304,7 +304,7 @@
 	icon_state = "plushie_granite"
 	attack_verb_continuous = list("bleps", "SQUEEZES", "pies")
 	attack_verb_simple = list("blep", "SQUEEZE", "pie")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/twobeep.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/edgy_bird
 	name = "edgy birb plushie"
@@ -312,7 +312,7 @@
 	icon_state = "plushie_koto"
 	attack_verb_continuous = list("pecks", "teleports behind", "caws at")
 	attack_verb_simple = list("peck", "teleport behind", "caw at")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/caw.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/caw.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/tree_ferret
 	name = "tree ferret plushy"
@@ -333,7 +333,7 @@
 	icon_state = "teasefox"
 	attack_verb_continuous = list("sneezes on", "detains", "tazes")
 	attack_verb_simple = list("sneeze on", "detain", "taze")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/female/female_sneeze.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/female/female_sneeze.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/xixi
 	name = "familiar looking harpy plushie"
@@ -341,7 +341,7 @@
 	icon_state = "plushie_xixi"
 	attack_verb_continuous = list("caws", "skrees", "pecks")
 	attack_verb_simple = list("caw", "skree", "peck")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/peep_once.ogg' = 1,'modular_skyrat/modules/emotes/sound/voice/caw.ogg' = 1,'modular_skyrat/modules/emotes/sound/voice/bawk.ogg' = 1,'modular_skyrat/modules/emotes/sound/emotes/voxscream.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/peep_once.ogg' = 1,'modular_nova/modules/emotes/sound/voice/caw.ogg' = 1,'modular_nova/modules/emotes/sound/voice/bawk.ogg' = 1,'modular_nova/modules/emotes/sound/emotes/voxscream.ogg' = 1)
 
 /obj/item/toy/plush/skyrat/zapp
 	name = "Lil' Zapp"
@@ -440,7 +440,7 @@
 	icon_state = "plushie_roselia"
 	attack_verb_continuous = list("hugs")
 	attack_verb_simple = list("hug")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/merp.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/merp.ogg' = 1)
 	young = FALSE
 
 /obj/item/toy/plush/skyrat/chunko
@@ -471,7 +471,7 @@
 	gender = FEMALE
 	attack_verb_continuous = list("pats", "hugs", "scolds", "pets")
 	attack_verb_simple = list("pat", "hug", "scold", "pet")
-	squeak_override = list('sound/creatures/mousesqueek.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/mothsqueak.ogg' = 1,)
+	squeak_override = list('sound/creatures/mousesqueek.ogg' = 1, 'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg' = 1,)
 	responses = list("Rabbits are prey animals and are therefore constantly aware of their surroundings.", "Things to jump up on (they like to be in high places)", "become a rabbit today!", "Be cunning and full of tricks...", "Subscription confirmed! Thank you for choosing RABBITFACTS +TM+!", "Holland Lops are a breed of rabbit originating in the Netherlands.", "Rabbits may need medication to keep themselves healthy, and that's ok! Make sure to take yours too!", "rabbits really liked this product", "A healthy rabbit diet includes fresh vegetables.", "Rabbits do not hibernate. Their schedules are much too busy.", "the rate of bunnies is measured by RPB (rabbits per bunny)", )
 
 /obj/item/toy/plush/skyrat/chunko/andrew
@@ -481,7 +481,7 @@
 	gender = MALE
 	attack_verb_continuous = list("pats", "hugs", "scolds", "pets")
 	attack_verb_simple = list("pat", "hug", "scold", "pet")
-	squeak_override = list('sound/creatures/mousesqueek.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/mothsqueak.ogg' = 1,)
+	squeak_override = list('sound/creatures/mousesqueek.ogg' = 1, 'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg' = 1,)
 	// All lowercase messages are intentional
 	responses = list("bunny who you best pray you never encounter, lest you suffer a fate worse than death.", "this is a bunny!", "I wonder what would happen if you took bunnies, and combined them with rabbits, and merged their properties and characteristics. It's something to think about.", "If you're cold, they're cold. Give them the deed to your house.", "bunny that goes yeah! woo! yeah! woo! yeah! woo! yeah! woo! yeah! woo! yeah!", "the bunnies are beyond my comprehension", "it's a bunny thing, you wouldn't get it", "this bunny has an unfathomable power level", "%pull the string and I'll bink at you...I'm your bunny.", "Bunny (1954)", "the bunny that pulls the strings....", )
 
@@ -492,7 +492,7 @@
 	gender = FEMALE
 	attack_verb_continuous = list("slashes", "dissects", "yawns", "smokes")
 	attack_verb_simple = list("slash", "dissect", "yawn", "smoke")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/female/female_cough_3.ogg' = 1, 'modular_skyrat/modules/emotes/sound/emotes/female/female_cough_2.ogg' = 1, 'modular_skyrat/modules/emotes/sound/emotes/female/female_cough_1.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/female/female_cough_3.ogg' = 1, 'modular_nova/modules/emotes/sound/emotes/female/female_cough_2.ogg' = 1, 'modular_nova/modules/emotes/sound/emotes/female/female_cough_1.ogg' = 1)
 	responses = list("The human body can survive three weeks without skiiiiiiiiiiin.", "The thigh bone is connected to the hip boooooooooone.", "Yeeeessss?", "Helloooooo.", "Don't be such a baby, ribs grow baaaaaaaaaack.",)
 
 // Donation reward for tobjv
@@ -531,7 +531,7 @@
 	desc = "The plushie of a celestial in the known universe."
 	icon_state = "plushie_star"
 	gender = FEMALE
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/trills.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/trills.ogg' = 1)
 
 // Donation reward for SRQ
 /obj/item/toy/plush/skyrat/plushie_chiara
@@ -581,7 +581,7 @@
 	icon_state = "plush_lonie"
 	attack_verb_continuous = list("snuggles", "nibbles", "awoos", "tail whaps")
 	attack_verb_simple = list("snuggle", "nibble", "awoo", "tail whap")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
 
 //Donation reward for syntax1112
 /obj/item/toy/plush/skyrat/plushie_syntax1112
@@ -590,7 +590,7 @@
 	icon_state = "fuzz_bunny"
 	attack_verb_continuous = list("nibbles", "squeaks", "nose twitches", "thumps", "whops")
 	attack_verb_simple = list("nibble", "squeak", "nose twitch", "thump", "whop")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 // Donation reward for SomeRandomOwl
 /obj/item/toy/plush/skyrat/snow_owl
@@ -599,7 +599,7 @@
 	icon_state = "plushie_owl"
 	attack_verb_continuous = list("hoots", "screms", "hugs")
 	attack_verb_simple = list("hoot", "screm", "hug")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/hoot.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/hoot.ogg' = 1)
 
 // Donation reward for Jolly66
 /obj/item/toy/plush/skyrat/derg_plushie
@@ -609,7 +609,7 @@
 	icon_state = "plushie_derg"
 	attack_verb_continuous = list("wehs", "wehs softly", "stutters")
 	attack_verb_simple = list("weh", "weh softly", "stutter")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/weh.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
 
 // Donation reward for Gofawful5
 /obj/item/toy/plush/skyrat/tracy
@@ -618,7 +618,7 @@
 	icon_state = "plush_tracy"
 	attack_verb_continuous = list("expands")
 	attack_verb_simple = list("expand")
-	squeak_override = list('modular_skyrat/modules/customization/game/objects/items/sound/tracymrowr.ogg' = 1)
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/tracymrowr.ogg' = 1)
 	gender = FEMALE
 
 //Donation reward for Frixit
@@ -628,7 +628,7 @@
 	icon_state = "plushie_synthia"
 	attack_verb_continuous = list("blushes", "hugs", "whips")
 	attack_verb_simple = list("blush", "hug", "whip")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/twobeep.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
 //Donation reward for Kitsun
 /obj/item/toy/plush/skyrat/jecca
@@ -637,7 +637,7 @@
 	icon_state = "plushie_jecca"
 	attack_verb_continuous = list("sighs")
 	attack_verb_simple = list("sigh")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/female/female_sigh.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/female/female_sigh.ogg' = 1)
 	gender = FEMALE
 
 //Donation reward for BriareosBlue
@@ -647,7 +647,7 @@
 	icon_state = "plushie_courier"
 	attack_verb_continuous = list("delivers", "export scans", "dwoops", "bwuhs", "stamps")
 	attack_verb_simple = list("deliver", "export scan", "dwoop", "bwuh", "stamp")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/emotes/twobeep.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
 //Donation reward for olirant
 /obj/item/toy/plush/skyrat/plush_janiborg

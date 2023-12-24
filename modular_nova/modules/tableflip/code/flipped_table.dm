@@ -1,7 +1,7 @@
 /obj/structure/flippedtable
 	name = "flipped table"
 	desc = "A flipped table."
-	icon = 'modular_skyrat/modules/tableflip/icons/flipped_tables.dmi'
+	icon = 'modular_nova/modules/tableflip/icons/flipped_tables.dmi'
 	icon_state = "table"
 	anchored = TRUE
 	density = TRUE

@@ -1,7 +1,7 @@
 /obj/item/seeds/telriis
 	name = "pack of telriis seeds"
 	desc = "These seeds grow into telriis plants. A distant relative of milkweed, this grass can actually be juiced into milk."
-	icon = 'modular_skyrat/modules/xenoarch/icons/seeds.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/seeds.dmi'
 	icon_state = "telriis"
 	species = "telriis"
 	plantname = "Telriis Plant"
@@ -9,7 +9,7 @@
 	lifespan = 55
 	endurance = 35
 	yield = 5
-	growing_icon = 'modular_skyrat/modules/xenoarch/icons/growing.dmi'
+	growing_icon = 'modular_nova/modules/xenoarch/icons/growing.dmi'
 	icon_grow = "telriis-stage"
 	growthstages = 4
 	plant_icon_offset = 7
@@ -20,7 +20,7 @@
 	seed = /obj/item/seeds/telriis
 	name = "telriis"
 	desc = "A sheaf of telris, it can be ground or juiced into a milky liquid."
-	icon = 'modular_skyrat/modules/xenoarch/icons/harvest.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/harvest.dmi'
 	icon_state = "telriis"
 	filling_color = "#FF4500"
 	bite_consumption_mod = 0.5

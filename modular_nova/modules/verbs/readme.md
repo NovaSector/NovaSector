@@ -20,7 +20,7 @@ Adds a few emotes and verbs for players to use, such as LOOC, subtle.
 
 ### Master file additions
 
-- D:\Documents\Github\SS13\Skyrat-tg\modular_skyrat\master_files\code\_globalvars\configuration.dm
+- D:\Documents\Github\SS13\Skyrat-tg\modular_nova\master_files\code\_globalvars\configuration.dm
 
 ### Included files that are not contained in this module:
 

@@ -1,5 +1,5 @@
 /obj/structure/flora/ocean
-	icon = 'modular_skyrat/modules/liquids/icons/obj/flora/ocean_flora.dmi'
+	icon = 'modular_nova/modules/liquids/icons/obj/flora/ocean_flora.dmi'
 	var/random_variants = 0
 
 /obj/structure/flora/ocean/Initialize(mapload)
@@ -43,7 +43,7 @@
 /obj/structure/flora/scrap
 	name = "scrap metal"
 	desc = "A huge chunk of metal, rusted and worn. Perhaps it can still be salvaged into something useful."
-	icon = 'modular_skyrat/modules/liquids/icons/obj/flora/scrap.dmi'
+	icon = 'modular_nova/modules/liquids/icons/obj/flora/scrap.dmi'
 	icon_state = "scrap"
 	anchored = FALSE
 	density = TRUE

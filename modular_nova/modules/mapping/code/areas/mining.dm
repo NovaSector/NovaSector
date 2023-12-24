@@ -2,7 +2,7 @@
 
 // Xeno arch
 /area/mine/xenoarch
-	icon = 'modular_skyrat/modules/xenoarch/icons/xenoarch_area.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_area.dmi'
 
 /area/mine/xenoarch/engineering
 	name = "Xenoarch Engineering"

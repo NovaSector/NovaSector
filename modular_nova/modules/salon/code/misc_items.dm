@@ -55,7 +55,7 @@
 /obj/item/hairbrush/comb
 	name = "comb"
 	desc = "A rather simple tool, used to straighten out hair and knots in it."
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "blackcomb"
 
 /obj/item/hairstyle_preview_magazine
@@ -68,13 +68,13 @@
 
 /obj/effect/decal/cleanable/hair
 	name = "hair cuttings"
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "cut_hair"
 
 /obj/item/razor
 	name = "electric razor"
 	desc = "The latest and greatest power razor born from the science of shaving."
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "razor"
 	obj_flags = CONDUCTS_ELECTRICITY
 	w_class = WEIGHT_CLASS_TINY
@@ -174,7 +174,7 @@
 /obj/structure/sign/barber
 	name = "barbershop sign"
 	desc = "A glowing red-blue-white stripe you won't mistake for any other!"
-	icon = 'modular_skyrat/modules/salon/icons/items.dmi'
+	icon = 'modular_nova/modules/salon/icons/items.dmi'
 	icon_state = "barber"
 	buildable_sign = FALSE // Don't want them removed, they look too jank.
 

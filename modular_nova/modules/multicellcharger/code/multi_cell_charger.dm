@@ -1,7 +1,7 @@
 /obj/machinery/cell_charger_multi
 	name = "multi-cell charging rack"
 	desc = "A cell charging rack for multiple batteries."
-	icon = 'modular_skyrat/modules/aesthetics/cells/cell.dmi'
+	icon = 'modular_nova/modules/aesthetics/cells/cell.dmi'
 	icon_state = "cchargermulti"
 	base_icon_state = "cchargermulti"
 	use_power = IDLE_POWER_USE

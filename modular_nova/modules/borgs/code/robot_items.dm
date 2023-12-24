@@ -440,14 +440,14 @@
 
 /obj/item/shockpaddles/syndicate/cyborg/ninja
 	name = "modified defibrillator paddles"
-	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "ninjapaddles0"
 	base_icon_state = "ninjapaddles"
 
 /obj/item/reagent_containers/borghypo/syndicate/ninja
 	name = "modified cyborg hypospray"
 	desc = "An experimental piece of technology used to produce powerful restorative nanites used to very quickly restore injuries of all types. metabolizes potassium iodide for radiation poisoning, inacusiate for ear damage and morphine for offense and nutriment for the operative in the field."
-	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "borghypo_n"
 	charge_cost = 20
 	recharge_time = 2
@@ -458,7 +458,7 @@
 /obj/item/crowbar/cyborg/power
 	name = "modular crowbar"
 	desc = "A cyborg fitted module resembling the jaws of life."
-	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "jaws_pry_cyborg"
 	usesound = 'sound/items/jaws_pry.ogg'
 	force = 10
@@ -484,7 +484,7 @@
 /obj/item/screwdriver/cyborg/power
 	name =	"automated drill"
 	desc = "A cyborg fitted module resembling the hand drill"
-	icon = 'modular_skyrat/modules/borgs/icons/robot_items.dmi'
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
 	icon_state = "drill_screw_cyborg"
 	hitsound = 'sound/items/drill_hit.ogg'
 	usesound = 'sound/items/drill_use.ogg'
@@ -532,7 +532,7 @@
 	var/disguise_icon_override
 	var/disguise_pixel_offset = 0
 	var/disguise_hat_offset = 0
-	/// Traits unique to this model (deadsprite, wide/dogborginess, etc.). Mirrors the definition in modular_skyrat\modules\borgs\code\modules\mob\living\silicon\robot\robot_model.dm
+	/// Traits unique to this model (deadsprite, wide/dogborginess, etc.). Mirrors the definition in modular_nova\modules\borgs\code\modules\mob\living\silicon\robot\robot_model.dm
 	var/list/disguise_model_features = list()
 	var/disguise_special_light_key
 	var/mob/listeningTo

@@ -2,7 +2,7 @@
 /obj/structure/destructible/clockwork
 	name = "meme structure"
 	desc = "Some frog or something, the fuck?"
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	icon_state = "rare_pepe"
 	anchored = TRUE
 	density = TRUE

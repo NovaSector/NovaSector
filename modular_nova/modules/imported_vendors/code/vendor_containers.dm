@@ -1,7 +1,7 @@
 /obj/item/storage/box/foodpack
 	name = "wrapped meal container"
 	desc = "A generic brown paper food package, you aren't quite sure where this comes from."
-	icon = 'modular_skyrat/modules/imported_vendors/icons/imported_quick_foods.dmi'
+	icon = 'modular_nova/modules/imported_vendors/icons/imported_quick_foods.dmi'
 	icon_state = "foodpack_generic_big"
 	illustration = null
 	custom_price = PAYCHECK_CREW * 1.8

@@ -1,6 +1,6 @@
 /datum/action/innate/clockcult
-	button_icon = 'modular_skyrat/modules/clock_cult/icons/actions_clock.dmi'
-	background_icon = 'modular_skyrat/modules/clock_cult/icons/background_clock.dmi'
+	button_icon = 'modular_nova/modules/clock_cult/icons/actions_clock.dmi'
+	background_icon = 'modular_nova/modules/clock_cult/icons/background_clock.dmi'
 	background_icon_state = "bg_clock"
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
 
@@ -56,5 +56,5 @@
 		to_chat(owner, span_brass("You fail to invoke [name]."))
 
 /datum/action/item_action/toggle/clock
-	button_icon = 'modular_skyrat/modules/clock_cult/icons/background_clock.dmi'
+	button_icon = 'modular_nova/modules/clock_cult/icons/background_clock.dmi'
 	background_icon_state = "bg_clock"

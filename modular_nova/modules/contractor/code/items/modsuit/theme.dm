@@ -32,8 +32,8 @@
 	)
 	skins = list(
 		"contractor" = list(
-			MOD_ICON_OVERRIDE = 'modular_skyrat/modules/contractor/icons/modsuit.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_skyrat/modules/contractor/icons/worn_modsuit.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/modules/contractor/icons/modsuit.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/contractor/icons/worn_modsuit.dmi',
 			HELMET_LAYER = NECK_LAYER,
 			HELMET_FLAGS = list(
 				UNSEALED_CLOTHING = SNUG_FIT,

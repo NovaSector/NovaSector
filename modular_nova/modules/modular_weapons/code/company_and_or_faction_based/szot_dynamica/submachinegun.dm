@@ -6,7 +6,7 @@
 		Due to the intended purpose of the weapon, and less than optimal ranged performance of the projectile, it has \
 		nothing more than basic glow-sights as opposed to the ranged scope Lanca users might be used to."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "miecz"
 
 	inhand_icon_state = "c20r"
@@ -24,7 +24,7 @@
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/miecz
 
-	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/smg_light.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 	can_suppress = TRUE
 	suppressor_x_offset = 0
 	suppressor_y_offset = 0

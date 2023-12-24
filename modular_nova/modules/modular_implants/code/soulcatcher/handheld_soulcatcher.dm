@@ -3,7 +3,7 @@
 /obj/item/handheld_soulcatcher
 	name = "\improper Evoker-type RSD"
 	desc = "The Evoker-Type Resonance Simulation Device is a sort of 'Soulcatcher' instrument that's been designated for handheld usage. These RSDs were designed with the Medical field in mind, a tool meant to offer comfort to the temporarily-departed while their bodies are being repaired, healed, or produced. The Evoker is essentially a very specialized handheld NIF, still using the same nanomachinery for the software and hardware. This careful instrument is able to host a virtual space for a great number of Engrams for an essentially indefinite amount of time in an unlimited variety of simulations, even able to transfer them to and from a NIF. However, it's best Medical practice to not lollygag."
-	icon = 'modular_skyrat/modules/modular_implants/icons/obj/devices.dmi'
+	icon = 'modular_nova/modules/modular_implants/icons/obj/devices.dmi'
 	icon_state = "soulcatcher-device"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
@@ -98,7 +98,7 @@
 		return FALSE
 
 	target_room.add_soul(target_mob.mind, TRUE)
-	playsound(src, 'modular_skyrat/modules/modular_implants/sounds/default_good.ogg', 50, FALSE, ignore_walls = FALSE)
+	playsound(src, 'modular_nova/modules/modular_implants/sounds/default_good.ogg', 50, FALSE, ignore_walls = FALSE)
 	visible_message(span_notice("[src] beeps: [target_mob]'s mind transfer is now complete."))
 
 	if(!target_mob.GetComponent(/datum/component/previous_body))
@@ -152,7 +152,7 @@
 		SEND_SIGNAL(old_body, COMSIG_SOULCATCHER_CHECK_SOUL, FALSE)
 
 	chosen_soul.mind.transfer_to(target_mob, TRUE)
-	playsound(src, 'modular_skyrat/modules/modular_implants/sounds/default_good.ogg', 50, FALSE, ignore_walls = FALSE)
+	playsound(src, 'modular_nova/modules/modular_implants/sounds/default_good.ogg', 50, FALSE, ignore_walls = FALSE)
 	visible_message(span_notice("[src] beeps: Body transfer complete."))
 	log_admin("[src] was used by [user] to transfer [chosen_soul]'s soulcatcher soul to [target_mob].")
 

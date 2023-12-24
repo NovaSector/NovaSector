@@ -5,11 +5,11 @@
 	icon_state = "ballgag"
 	inhand_icon_state = "ballgag"
 	worn_icon_state = "ballgag"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/mask_muzzled.dmi'
-	lefthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	greyscale_config = /datum/greyscale_config/ballgag
 	greyscale_config_worn = /datum/greyscale_config/ballgag/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/ballgag/left_hand
@@ -34,10 +34,10 @@
 	var/moans_alt_probability = 5
 
 	/// Sounds that the player makes when they try to speak.
-	var/list/moan_sounds = list('modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg')
+	var/list/moan_sounds = list('modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg')
 	/// How loud the moan audio is
 	var/moan_volume = 50
 	/// How loud are these moan-noises if we're choking on it?

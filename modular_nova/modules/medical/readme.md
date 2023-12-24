@@ -28,8 +28,8 @@ E.g:
 - N/A
 <!-- If you added a new modular override (file or code-wise) for your module, you should list it here. Code files should specify what procs they changed, in case of multiple modules using the same file.
 E.g: 
-- `modular_skyrat/master_files/sound/my_cool_sound.ogg`
-- `modular_skyrat/master_files/code/my_modular_override.dm`: `proc/overriden_proc`, `var/overriden_var`
+- `modular_nova/master_files/sound/my_cool_sound.ogg`
+- `modular_nova/master_files/code/my_modular_override.dm`: `proc/overriden_proc`, `var/overriden_var`
 -->
 
 ### Defines:

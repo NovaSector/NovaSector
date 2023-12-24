@@ -1,4 +1,4 @@
-// Modular DRINK REAGENTS, see the following file for the mixes: modular_skyrat\modules\customization\modules\food_and_drinks\recipes\drinks_recipes.dm
+// Modular DRINK REAGENTS, see the following file for the mixes: modular_nova\modules\customization\modules\food_and_drinks\recipes\drinks_recipes.dm
 
 /datum/reagent/consumable/pinkmilk
 	name = "Strawberry Milk"
@@ -9,7 +9,7 @@
 
 /datum/glass_style/drinking_glass/pinkmilk
 	required_drink_type = /datum/reagent/consumable/pinkmilk
-	icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
 	icon_state = "pinkmilk"
 	name = "tall glass of strawberry milk"
 	desc = "Delicious flavored strawberry syrup mixed with milk."
@@ -29,7 +29,7 @@
 
 /datum/glass_style/drinking_glass/pinktea
 	required_drink_type = /datum/reagent/consumable/pinktea
-	icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
 	icon_state = "pinktea"
 	name = "mug of strawberry tea"
 	desc = "Delicious traditional tea flavored with strawberries."
@@ -48,7 +48,7 @@
 
 /datum/glass_style/drinking_glass/catnip_tea
 	required_drink_type = /datum/reagent/consumable/catnip_tea
-	icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
 	icon_state = "catnip_tea"
 	name = "glass of catnip tea"
 	desc = "A purrfect drink for a cat."

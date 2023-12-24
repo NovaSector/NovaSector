@@ -1,7 +1,7 @@
 /obj/item/wargame_projector
 	name = "holographic projector"
 	desc = "A handy-dandy holographic projector developed by Nanotrasen Naval Command for playing wargames with, this one seems broken."
-	icon = 'modular_skyrat/modules/wargame_projectors/icons/projectors_and_holograms.dmi'
+	icon = 'modular_nova/modules/wargame_projectors/icons/projectors_and_holograms.dmi'
 	icon_state = "projector"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"

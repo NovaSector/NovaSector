@@ -347,7 +347,7 @@ SUBSYSTEM_DEF(area_spawn)
 
 /obj/effect/turf_test
 	name = "PASS"
-	icon = 'modular_skyrat/modules/automapper/icons/area_test.dmi'
+	icon = 'modular_nova/modules/automapper/icons/area_test.dmi'
 	icon_state = "area_test"
 	color = COLOR_BLUE
 	anchored = TRUE

@@ -1,18 +1,18 @@
 /obj/structure/sign/shuttleg250
 	name = "Transfer Shuttle G250"
 	desc = "Transfer Shuttle G250."
-	icon = 'modular_skyrat/modules/advanced_shuttles/icons/g250.dmi' //LARGE icon
+	icon = 'modular_nova/modules/advanced_shuttles/icons/g250.dmi' //LARGE icon
 	icon_state = "g250"
 
 /obj/structure/fans/tiny/forcefield
 	name = "forcefield"
 	desc = "A fluctuating forcefield for ships to cross."
-	icon = 'modular_skyrat/modules/advanced_shuttles/icons/effects.dmi'
+	icon = 'modular_nova/modules/advanced_shuttles/icons/effects.dmi'
 	icon_state = "forcefield"
 
 //Floor Decals -----
 /obj/effect/turf_decal/shuttle/exploration
-	icon = 'modular_skyrat/modules/advanced_shuttles/icons/exploration_floor.dmi'
+	icon = 'modular_nova/modules/advanced_shuttles/icons/exploration_floor.dmi'
 	icon_state = "decal1"
 
 /obj/effect/turf_decal/shuttle/exploration/medbay

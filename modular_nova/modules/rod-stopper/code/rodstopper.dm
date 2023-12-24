@@ -10,7 +10,7 @@
 /obj/machinery/rodstopper
 	name = "rodstopper"
 	desc = "An advanced machine which can halt immovable rods."
-	icon = 'modular_skyrat/modules/rod-stopper/icons/rodstopper.dmi'
+	icon = 'modular_nova/modules/rod-stopper/icons/rodstopper.dmi'
 	icon_state = "rodstopper"
 	density = TRUE
 	use_power = NO_POWER_USE

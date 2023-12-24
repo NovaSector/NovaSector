@@ -2,16 +2,16 @@
 //Try to keep them all a subtype of centcom/skyrat, for file sorting and balance - all faction representatives should have the same/similarly armored uniforms
 
 /obj/item/clothing/under/rank/centcom
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/centcom_digi.dmi'	// Anything that was in the rnd.dmi, should be in the rnd_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/centcom_digi.dmi'	// Anything that was in the rnd.dmi, should be in the rnd_digi.dmi
 
 /obj/item/clothing/under/rank/centcom/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/centcom.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/centcom.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/centcom.dmi'
 
 /*
 *	NANOTRASEN
 */
-//Check modular_skyrat\modules\nanotrasen_naval_command\code\clothing.dm for more of these! (Or, currently, ALL of these.)
+//Check modular_nova\modules\nanotrasen_naval_command\code\clothing.dm for more of these! (Or, currently, ALL of these.)
 
 /*
 *	LOPLAND

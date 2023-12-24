@@ -2,7 +2,7 @@
 * Wings!
 *
 * When adding or making new wing sprites, try to use matrixed colors!
-* You can find a color palette to work with in modular_skyrat\modules\customization\icons\mob\sprite_accessory\wings.dmi as 'colorpalette matrixcolors'
+* You can find a color palette to work with in modular_nova\modules\customization\icons\mob\sprite_accessory\wings.dmi as 'colorpalette matrixcolors'
 * Check some of the wings that make use of them for examples on how to make it look decent.
 */
 /datum/sprite_accessory/wings
@@ -121,7 +121,7 @@
 */
 
 /datum/sprite_accessory/wings/mammal
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/wings.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/wings.dmi'
 	default_color = DEFAULT_PRIMARY
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_INSECT)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
@@ -260,7 +260,7 @@
 */
 
 /datum/sprite_accessory/wings/low_wings
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/wings.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/wings.dmi'
 	name = "Low wings"
 	icon_state = "low"
 	dimension_x = 46
@@ -294,7 +294,7 @@
 */
 
 /datum/sprite_accessory/wings/moth
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/moth_wings.dmi' // Needs new icon to suit new naming convention
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moth_wings.dmi' // Needs new icon to suit new naming convention
 	default_color = "#FFFFFF"
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT) // Mammals too, I guess. They wont get flight though, see the wing organs for that logic
 	organ_type = /obj/item/organ/external/wings/moth

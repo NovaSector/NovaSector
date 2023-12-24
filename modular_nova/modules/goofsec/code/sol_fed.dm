@@ -377,7 +377,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_skyrat/modules/radiosound/sound/radio/security.ogg'
+	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"
@@ -517,7 +517,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /obj/item/solfed_reporter
 	name = "SolFed reporter"
 	desc = "Use this in-hand to vote to call SolFed backup. If half your team votes for it, SWAT will be dispatched."
-	icon = 'modular_skyrat/modules/goofsec/icons/reporter.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/reporter.dmi'
 	icon_state = "reporter_off"
 	w_class = WEIGHT_CLASS_SMALL
 	/// Was the reporter turned on?
@@ -745,7 +745,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /obj/item/beamout_tool
 	name = "beam-out tool" // TODO, find a way to make this into drop pods cuz that's cooler visually
 	desc = "Use this to begin the lengthy beam-out  process to return to Sol Federation space. It will bring anyone you are pulling with you."
-	icon = 'modular_skyrat/modules/goofsec/icons/reporter.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/reporter.dmi'
 	icon_state = "beam_me_up_scotty"
 	w_class = WEIGHT_CLASS_SMALL
 

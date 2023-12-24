@@ -1,6 +1,6 @@
 /obj/item/mod/control/pre_equipped/blueshield
-	worn_icon = 'modular_skyrat/modules/blueshield/icons/worn_praetorian.dmi'
-	icon = 'modular_skyrat/modules/blueshield/icons/praetorian.dmi'
+	worn_icon = 'modular_nova/modules/blueshield/icons/worn_praetorian.dmi'
+	icon = 'modular_nova/modules/blueshield/icons/praetorian.dmi'
 	icon_state = "praetorian-control"
 	theme = /datum/mod_theme/blueshield
 	applied_cell = /obj/item/stock_parts/cell/super

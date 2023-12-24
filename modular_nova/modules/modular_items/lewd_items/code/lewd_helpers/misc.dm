@@ -3,11 +3,11 @@
 */
 
 /datum/looping_sound/lewd/vibrator
-	start_sound = 'modular_skyrat/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
+	start_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
 	start_length = 1
-	mid_sounds = 'modular_skyrat/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
+	mid_sounds = 'modular_nova/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
 	mid_length = 1
-	end_sound = 'modular_skyrat/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
+	end_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/bzzz-loop-1.ogg'
 	falloff_distance = 1
 	falloff_exponent = 5
 	extra_range = SILENCED_SOUND_EXTRARANGE

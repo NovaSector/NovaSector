@@ -14,7 +14,7 @@
 
 /obj/item/organ/internal/heart/hemophage
 	name = "pulsating tumor"
-	icon = 'modular_skyrat/modules/organs/icons/hemophage_organs.dmi'
+	icon = 'modular_nova/modules/organs/icons/hemophage_organs.dmi'
 	icon_state = "tumor-on"
 	base_icon_state = "tumor"
 	desc = "This pulsating organ nearly resembles a normal heart, but it's been twisted beyond any human appearance, having turned to the color of coal. The way it barely fits where the original organ was sends shivers down your spine... <i>The fact that it's what keeps them alive makes it all the more terrifying.</i>"

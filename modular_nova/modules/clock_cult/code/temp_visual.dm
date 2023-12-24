@@ -3,7 +3,7 @@
 //temporary visual effects(/obj/effect/temp_visual) used by clock stuff
 /obj/effect/temp_visual/ratvar
 	name = "ratvar's light"
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_effects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_effects.dmi'
 	duration = 8
 	randomdir = FALSE
 	layer = ABOVE_NORMAL_TURF_LAYER
@@ -84,7 +84,7 @@
 
 /obj/effect/temp_visual/ratvar/belligerent
 	layer = ABOVE_MOB_LAYER
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	icon_state = "belligerent_eye"
 	pixel_y = 20
 	duration = 2 SECONDS
@@ -127,7 +127,7 @@
 	animate(src, alpha = 0, time = duration, easing = EASE_OUT)
 
 /obj/effect/temp_visual/ratvar/component
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	icon_state = "belligerent_eye"
 	layer = ABOVE_MOB_LAYER
 	duration = 1 SECONDS
@@ -202,7 +202,7 @@
 		var/turf/cardinal_step = get_step(src, cardinal)
 		new/obj/effect/temp_visual/steam(cardinal_step, cardinal)
 
-	playsound(src, 'modular_skyrat/modules/clock_cult/sound/machinery/steam_whoosh.ogg', 30)
+	playsound(src, 'modular_nova/modules/clock_cult/sound/machinery/steam_whoosh.ogg', 30)
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/temp_visual/ratvar/constructing_effect

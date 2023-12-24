@@ -3,7 +3,7 @@
 //Also make sure you properly var-edit everything hnngh
 
 /turf/closed/wall/mineral/titanium/spaceship
-	icon = 'modular_skyrat/modules/mapping/icons/unique/spaceships/shipwalls.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/spaceships/shipwalls.dmi'
 	icon_state = "ship_walls-0"
 	base_icon_state = "ship_walls"
 	sheet_type = /obj/item/stack/sheet/spaceship
@@ -47,7 +47,7 @@
 /obj/structure/window/reinforced/shuttle/spaceship
 	name = "spaceship window"
 	desc = "A pressure-resistant spaceship window."
-	icon = 'modular_skyrat/modules/mapping/icons/unique/spaceships/shipwindows.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/spaceships/shipwindows.dmi'
 	icon_state = "pod_window-0"
 	base_icon_state = "pod_window"
 	glass_type = /obj/item/stack/sheet/spaceshipglass

@@ -1,3 +1,3 @@
 /obj/structure/plasticflaps
-	icon = 'modular_skyrat/modules/aesthetics/plasticflaps/icons/plasticflaps.dmi'
+	icon = 'modular_nova/modules/aesthetics/plasticflaps/icons/plasticflaps.dmi'
 

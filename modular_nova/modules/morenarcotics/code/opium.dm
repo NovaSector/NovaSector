@@ -25,7 +25,7 @@
 /obj/item/reagent_containers/heroin
 	name = "heroin"
 	desc = "Take a line and take some time of man."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "heroin"
 	volume = 4
 	has_variable_transfer_amount = FALSE
@@ -70,7 +70,7 @@
 /obj/item/reagent_containers/heroinbrick
 	name = "heroin brick"
 	desc = "A brick of heroin. Good for transport!"
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
 	icon_state = "heroinbrick"
 	volume = 20
 	has_variable_transfer_amount = FALSE

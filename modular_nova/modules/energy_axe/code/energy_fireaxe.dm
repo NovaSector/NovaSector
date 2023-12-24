@@ -1,13 +1,13 @@
 // Energy fire axes, for DS-2
 
 /obj/item/fireaxe/energy
-	icon = 'modular_skyrat/master_files/icons/obj/energy_axe.dmi'
+	icon = 'modular_nova/master_files/icons/obj/energy_axe.dmi'
 	icon_state = "energy_axe0"
 	base_icon_state = "energy_axe"
 	worn_icon_state = "energy_axe"
-	lefthand_file = 'modular_skyrat/master_files/icons/mob/energyaxe_lefthand.dmi'
-	righthand_file = 'modular_skyrat/master_files/icons/mob/energyaxe_righthand.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/mob/energyaxe_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/energyaxe_righthand.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	name = "energy fire axe"
 	desc = "You aren't quite sure if this counts as a fire axe anymore, but it sure is fancy! A tag hangs off of it reading: \"property of the Gorlex Marauders\""
 	force = 5

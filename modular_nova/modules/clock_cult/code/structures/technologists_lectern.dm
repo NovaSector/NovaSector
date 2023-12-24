@@ -254,7 +254,7 @@
 		. += list(list(
 			"name" = initial(type.name),
 			"icon" = sanitize_css_class_name(initial(type.button_icon_state)),
-			"icon2" = sanitize_css_class_name("modular_skyrat/modules/clock_cult/icons/actions_clock.dmi[initial(type.button_icon_state)]"),
+			"icon2" = sanitize_css_class_name("modular_nova/modules/clock_cult/icons/actions_clock.dmi[initial(type.button_icon_state)]"),
 		))
 
 	return .
@@ -295,7 +295,7 @@
 
 	AddComponent(/datum/component/brass_spreader, range = 6)
 
-	playsound(target_turf, 'modular_skyrat/modules/clock_cult/sound/machinery/ark_deathrattle.ogg', 80, FALSE, pressure_affected = FALSE)
+	playsound(target_turf, 'modular_nova/modules/clock_cult/sound/machinery/ark_deathrattle.ogg', 80, FALSE, pressure_affected = FALSE)
 	research_sigil = new(target_turf)
 	send_clock_message(null, "A research ritual has begun in [get_area(src)], ensure nobody stops it until it is completed in [DisplayTimeText(selected_research.time_to_research)]!", msg_ghosts = FALSE)
 	notify_ghosts("[owner] has begun a research ritual in [get_area(src)]",
@@ -334,7 +334,7 @@
 			else
 				message += "very far, to your [dir2text(dir)]!"
 
-		living_mob.playsound_local(get_turf(src), 'modular_skyrat/modules/clock_cult/sound/machinery/research_notice.ogg', volume, FALSE, pressure_affected = FALSE)
+		living_mob.playsound_local(get_turf(src), 'modular_nova/modules/clock_cult/sound/machinery/research_notice.ogg', volume, FALSE, pressure_affected = FALSE)
 		to_chat(living_mob, span_brass(message))
 
 
@@ -379,7 +379,7 @@
 
 	switch(side_effect_num)
 		if(1 to 10) // Cult-ify everything nearby
-			playsound(src, 'modular_skyrat/modules/clock_cult/sound/machinery/ark_scream.ogg', 100, FALSE, pressure_affected = FALSE)
+			playsound(src, 'modular_nova/modules/clock_cult/sound/machinery/ark_scream.ogg', 100, FALSE, pressure_affected = FALSE)
 			for(var/atom/nearby_atom in range(8))
 				if(istype(nearby_atom, /turf/open/floor))
 					var/turf/floor_tile = nearby_atom
@@ -459,7 +459,7 @@
 
 
 /obj/effect/lectern_light
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	icon_state = "lectern_closed"
 	pixel_y = 10
 	layer = FLY_LAYER

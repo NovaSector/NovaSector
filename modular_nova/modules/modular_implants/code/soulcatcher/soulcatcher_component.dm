@@ -139,7 +139,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 	if(istype(parent, /obj/item/handheld_soulcatcher))
 		var/obj/item/handheld_soulcatcher/parent_device = parent
-		playsound(parent_device, 'modular_skyrat/modules/modular_implants/sounds/default_good.ogg', 50, FALSE, ignore_walls = FALSE)
+		playsound(parent_device, 'modular_nova/modules/modular_implants/sounds/default_good.ogg', 50, FALSE, ignore_walls = FALSE)
 		parent_device.visible_message(span_notice("[parent_device] beeps: [parent_body] is now scanned."))
 
 	return TRUE
@@ -372,9 +372,9 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 /datum/action/innate/join_soulcatcher
 	name = "Enter Soulcatcher"
-	background_icon = 'modular_skyrat/master_files/icons/mob/actions/action_backgrounds.dmi'
+	background_icon = 'modular_nova/master_files/icons/mob/actions/action_backgrounds.dmi'
 	background_icon_state = "android"
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_nif.dmi'
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_nif.dmi'
 	button_icon_state = "soulcatcher_enter"
 
 /datum/action/innate/join_soulcatcher/Activate()

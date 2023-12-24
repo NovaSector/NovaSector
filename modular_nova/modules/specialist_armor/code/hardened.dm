@@ -14,9 +14,9 @@
 	desc = "A large white breastplate, and a semi-flexible mail of dense panels that cover the torso. \
 		While not so incredible at directly stopping bullets, the vest is uniquely suited to cause bullets \
 		to lose much of their armor penetrating energy before any damage can be done."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "hardened_standard"
-	worn_icon = 'modular_skyrat/modules/specialist_armor/icons/armor_worn.dmi'
+	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_sf_hardened
@@ -55,9 +55,9 @@
 	name = "'Muur' enclosed helmet"
 	desc = "A thick-fronted helmet with extendable visor for whole face protection. The materials and geometry of the helmet \
 		combine in such a way that bullets lose much of their armor penetrating energy before any damage can be done, rather than penetrate into it."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "enclosed_standard"
-	worn_icon = 'modular_skyrat/modules/specialist_armor/icons/armor_worn.dmi'
+	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_sf_hardened
 	toggle_message = "You extend the visor on"

@@ -22,7 +22,7 @@
 //CODING SIN BYOND HERE
 
 /obj/item/trash/can/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/janitor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/janitor.dmi'
 	icon_state = "lemonade"
 
 /*
@@ -35,7 +35,7 @@
 #define SODA_FIZZINESS_SHAKE 5
 
 /obj/item/reagent_containers/cup/soda_cans/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/drinks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
 	icon_state = null
 
 /obj/item/reagent_containers/cup/soda_cans/skyrat/attack(mob/M, mob/living/user)

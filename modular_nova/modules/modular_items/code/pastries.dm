@@ -3,7 +3,7 @@
 	name = "mince pie"
 	desc = "The edible embodiment of christmas cheer."
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'modular_skyrat/modules/modular_items/icons/pastries.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/pastries.dmi'
 	icon_state = "mince_pie"
 	food_flags = FOOD_FINGER_FOOD
 	foodtypes = GRAIN | SUGAR | FRUIT
@@ -15,7 +15,7 @@
 	name = "mimce pie"
 	desc = "A pastry with a star-shaped lid, filled with Nothing."
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'modular_skyrat/modules/modular_items/icons/pastries.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/pastries.dmi'
 	icon_state = "mimce_pie"
 	food_flags = FOOD_FINGER_FOOD
 	foodtypes = GRAIN | SUGAR | FRUIT

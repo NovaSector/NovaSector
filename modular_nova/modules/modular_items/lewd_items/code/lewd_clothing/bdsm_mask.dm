@@ -9,9 +9,9 @@
 /obj/item/clothing/mask/gas/bdsm_mask
 	name = "latex gasmask"
 	desc = "A toned gas mask that completely muffles the wearer. Wearing this makes breathing a lot difficult."
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/mask_muzzled.dmi'
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
 	icon_state = "mask_pink_off"
 	base_icon_state = "mask"
 	slot_flags = ITEM_SLOT_MASK
@@ -49,10 +49,10 @@
 	for(button in src.actions)
 		if(istype(button, /datum/action/item_action/toggle_breathcontrol))
 			button.button_icon_state = "[current_mask_color]_switch_[mask_on? "on" : "off"]"
-			button.button_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+			button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 		if(istype(button, /datum/action/item_action/mask_inhale))
 			button.button_icon_state = "[current_mask_color]_breath"
-			button.button_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
+			button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 	update_icon()
 
 /obj/item/clothing/mask/gas/bdsm_mask/handle_speech(datum/source, list/speech_args)
@@ -60,10 +60,10 @@
 		return
 
 	speech_args[SPEECH_MESSAGE] = pick((prob(moans_alt_probability) && LAZYLEN(moans_alt)) ? moans_alt : moans)
-	play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg'), 70, 1, -1)
+	play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg'), 70, 1, -1)
 
 // Create radial menu
 /obj/item/clothing/mask/gas/bdsm_mask/proc/populate_mask_designs()
@@ -309,7 +309,7 @@
 /obj/item/reagent_containers/cup/lewd_filter
 	name = "gasmask filter"
 	desc = "A strange looking air filter. It may not be a good idea to breathe this in..."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "filter_pink"
 	unique_reskin = list("pink" = "filter_pink",
 						"teal" = "filter_teal")

@@ -94,7 +94,7 @@
 	desc = "A bowman headset with a large red cross on the earpiece, has a small 'IP' written on the top strap. Protects the ears from flashbangs."
 	icon_state = "syndie_headset"
 	inhand_icon_state = null
-	radiosound = 'modular_skyrat/modules/radiosound/sound/radio/syndie.ogg'
+	radiosound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
 	keyslot = /obj/item/encryptionkey/headset_syndicate/interdyne
 
 /obj/item/radio/headset/interdyne/Initialize(mapload)

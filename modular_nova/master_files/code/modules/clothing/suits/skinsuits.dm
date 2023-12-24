@@ -8,8 +8,8 @@
 		An attached Shoredress helm is often used in conjunction with a third-party oxygen supply to allow one to breathe, \
 		and open pores in the suit allow the body to be cooled by the perspiration of internal water. \n\
 		These suits are reputable among orbital workers for having very little interference with movement, and easy storage by simply folding them inside of any bubble-shaped helmet."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/akula.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/akula.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/akula.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/akula.dmi'
 	icon_state = "skinsuit"
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -35,8 +35,8 @@
 		and for what remains to stay in the frame. These are typically made of up to four layers of the stuff, working unintentionally to ensure the faces of their wearers are difficult to identify. \n\n\
 		In addition, the interlayer gives the helms sound insulation properties, and the ability to block UV radiation. \
 		These helmets are known for being distinctly uncomfortable in comparison to their civilian counterparts; cramped and with only the most barebones climate control tech."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/akula.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/akula.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/akula.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/akula.dmi'
 	icon_state = "skinsuithelmet"
 
 /obj/item/clothing/head/helmet/space/skinsuit_helmet/Initialize(mapload)
@@ -54,8 +54,8 @@
 		Having sparse plating around the wearer's arms and legs, boarding teams are encouraged after their pod lands to do one thing: \
 		make use of their rapid movement, and render their enemies past tense. The armor is relatively hardy against ranged weapons, \
 		but the alloys involved are primarily constructed around resisting strikes from boarding axes, lances, and other common pirate-repellant weapons."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/akula.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/akula.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/akula.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/akula.dmi'
 	icon_state = "skinsuitarmor"
 	base_icon_state = "skinsuitarmor"
 

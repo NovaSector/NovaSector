@@ -4,7 +4,7 @@
 	name = "nipple clamps"
 	desc = "For causing nipple pain."
 	icon_state = "clamps"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	lewd_slot_flags = LEWD_SLOT_NIPPLES
 	/// What kind are the wearer's breasts?
@@ -26,7 +26,7 @@
 
 	update_icon_state()
 
-	clamps_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi', "[initial(icon_state)]_[breast_type]_[breast_size]", ABOVE_ALL_MOB_LAYER + 0.1) //two arguments. Yes, all mob layer. Fuck person who was working on genitals, they're working wrong.ABOVE_NORMAL_TURF_LAYER
+	clamps_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi', "[initial(icon_state)]_[breast_type]_[breast_size]", ABOVE_ALL_MOB_LAYER + 0.1) //two arguments. Yes, all mob layer. Fuck person who was working on genitals, they're working wrong.ABOVE_NORMAL_TURF_LAYER
 
 	update_icon()
 	update_appearance()
@@ -52,7 +52,7 @@
 
 	update_icon_state()
 
-	clamps_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi', "[initial(icon_state)]_[breast_type]_[breast_size]", ABOVE_ALL_MOB_LAYER + 0.1) //two arguments
+	clamps_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_items/lewd_items.dmi', "[initial(icon_state)]_[breast_type]_[breast_size]", ABOVE_ALL_MOB_LAYER + 0.1) //two arguments
 
 	update_icon()
 	update_appearance()

@@ -1,7 +1,7 @@
 /obj/structure/flora/biolumi
 	name = "glowing plants"
 	desc = "Several sticks with bulbous, bioluminescent tips."
-	icon = 'modular_skyrat/modules/jungle/icons/jungleflora.dmi'
+	icon = 'modular_nova/modules/jungle/icons/jungleflora.dmi'
 	icon_state = "stick"
 	gender = PLURAL
 	light_range = 15

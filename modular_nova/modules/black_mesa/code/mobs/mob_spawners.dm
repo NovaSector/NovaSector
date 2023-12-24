@@ -20,7 +20,7 @@
 
 /obj/effect/random_mob_placer
 	name = "mob placer"
-	icon = 'modular_skyrat/modules/black_mesa/icons/mapping_helpers.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/mapping_helpers.dmi'
 	icon_state = "mobspawner"
 	var/list/possible_mobs = list(/mob/living/simple_animal/hostile/blackmesa/xen/headcrab)
 

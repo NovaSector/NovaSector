@@ -2,8 +2,8 @@
 	name = "dominant cap"
 	desc = "For special types of inspections."
 	icon_state = "dominacap"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
 	supports_variations_flags = NONE
 
 //message when equipping that thing

@@ -1,7 +1,7 @@
 /obj/item/storage/ration_ticket_book
 	name = "ration ticket book"
 	desc = "A small booklet able to hold all your ration tickets. More will be available here as your paychecks come in."
-	icon = 'modular_skyrat/modules/paycheck_rations/icons/tickets.dmi'
+	icon = 'modular_nova/modules/paycheck_rations/icons/tickets.dmi'
 	icon_state = "ticket_book"
 	w_class = WEIGHT_CLASS_SMALL
 

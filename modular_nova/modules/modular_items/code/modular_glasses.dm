@@ -142,10 +142,10 @@
 /obj/item/clothing/glasses/hud/ar/aviator
 	name = "aviators"
 	desc = "A pair of designer sunglasses with electrochromatic darkening lenses!"
-	worn_icon = 'modular_skyrat/modules/modular_items/icons/modular_glasses_mob.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/icons/modular_glasses_mob.dmi'
 	icon_state = "aviator"
 	off_state = "aviator_off"
-	icon = 'modular_skyrat/modules/modular_items/icons/modular_glasses.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/modular_glasses.dmi'
 	flash_protect = FLASH_PROTECTION_FLASH
 	modes = list(MODE_OFF, MODE_ON)
 	tint = 0
@@ -153,9 +153,9 @@
 /obj/item/clothing/glasses/fake_sunglasses/aviator
 	name = "aviators"
 	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
-	worn_icon = 'modular_skyrat/modules/modular_items/icons/modular_glasses_mob.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/icons/modular_glasses_mob.dmi'
 	icon_state = "aviator"
-	icon = 'modular_skyrat/modules/modular_items/icons/modular_glasses.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/modular_glasses.dmi'
 
 // Security Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/security
@@ -247,8 +247,8 @@
 	name = "retinal projector"
 	desc = "A headset equipped with a scanning lens and mounted retinal projector. It doesn't provide any eye protection, but it's less obtrusive than a visor."
 	icon_state = "projector"
-	worn_icon = 'modular_skyrat/modules/modular_items/icons/modular_glasses_mob.dmi'
-	icon = 'modular_skyrat/modules/modular_items/icons/modular_glasses.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/icons/modular_glasses_mob.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/modular_glasses.dmi'
 	flags_cover = null /// It doesn't actually cover up any parts
 	off_state = "projector-off"
 	modes = list(MODE_OFF, MODE_ON, MODE_FREEZE_ANIMATION)

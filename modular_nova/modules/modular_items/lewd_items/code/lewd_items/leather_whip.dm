@@ -7,9 +7,9 @@
 	worn_icon_state = "leather_whip"
 	base_icon_state = "leather"
 	inhand_icon_state = null
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
-	worn_icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/mask_muzzled.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/weapons/whip.ogg'
 	clothing_flags = INEDIBLE_CLOTHING
@@ -53,10 +53,10 @@
 // Speech handler for moansing when talking
 /obj/item/clothing/mask/leatherwhip/handle_speech(datum/source, list/speech_args)
 	speech_args[SPEECH_MESSAGE] = pick((prob(moans_alt_probability) && LAZYLEN(moans_alt)) ? moans_alt : moans)
-	play_lewd_sound(loc, pick('modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
-						'modular_skyrat/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg'), 70, 1, -1)
+	play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
+						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg'), 70, 1, -1)
 
 /// Radial menu helper
 /obj/item/clothing/mask/leatherwhip/proc/populate_whip_designs()
@@ -81,7 +81,7 @@
 
 	update_icon_state()
 
-	whip_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi', "[base_icon_state]_[current_whip_form]", ABOVE_MOB_LAYER + 0.1) //two arguments. Yes, all mob layer. Fuck person who was working on genitals, they're working wrong.ABOVE_NORMAL_TURF_LAYER
+	whip_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi', "[base_icon_state]_[current_whip_form]", ABOVE_MOB_LAYER + 0.1) //two arguments. Yes, all mob layer. Fuck person who was working on genitals, they're working wrong.ABOVE_NORMAL_TURF_LAYER
 
 	update_icon()
 	update_appearance()
@@ -137,7 +137,7 @@
 
 	update_icon_state()
 
-	whip_overlay = mutable_appearance('modular_skyrat/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi', "[base_icon_state]_[current_whip_form]", ABOVE_MOB_LAYER + 0.1) //two arguments. Yes, all mob layer. Fuck person who was working on genitals, they're working wrong.ABOVE_NORMAL_TURF_LAYER
+	whip_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi', "[base_icon_state]_[current_whip_form]", ABOVE_MOB_LAYER + 0.1) //two arguments. Yes, all mob layer. Fuck person who was working on genitals, they're working wrong.ABOVE_NORMAL_TURF_LAYER
 
 	update_icon()
 	update_appearance()
@@ -221,7 +221,7 @@
 				target.try_lewd_autoemote(pick("gasp", "choke", "moan"))
 			target.adjust_arousal(3)
 			target.adjust_pain(5)
-			play_lewd_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 80)
+			play_lewd_sound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 80)
 
 		if(BODY_ZONE_PRECISE_GROIN)
 			targetedsomewhere = TRUE

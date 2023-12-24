@@ -1,7 +1,7 @@
 /obj/structure/sign/flag
 	name = "blank flag"
 	desc = "The flag of nothing. It has nothing on it. Magnificient."
-	icon = 'modular_skyrat/modules/aesthetics/flag/icons/flags.dmi'
+	icon = 'modular_nova/modules/aesthetics/flag/icons/flags.dmi'
 	icon_state = "flag_coder"
 	buildable_sign = FALSE
 	custom_materials = null
@@ -101,7 +101,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 /obj/item/sign/flag
 	name = "folded blank flag"
 	desc = "The folded flag of nothing. It has nothing on it. Beautiful."
-	icon = 'modular_skyrat/modules/aesthetics/flag/icons/flags.dmi'
+	icon = 'modular_nova/modules/aesthetics/flag/icons/flags.dmi'
 	icon_state = "folded_coder"
 	sign_path = /obj/structure/sign/flag
 	is_editable = FALSE

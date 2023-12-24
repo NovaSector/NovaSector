@@ -1,7 +1,7 @@
 /mob/living/basic/kiwi
 	name = "kiwi"
 	desc = "It's a kiwi!"
-	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "kiwi"
 	icon_living = "kiwi"
 	icon_dead = "kiwi_dead"

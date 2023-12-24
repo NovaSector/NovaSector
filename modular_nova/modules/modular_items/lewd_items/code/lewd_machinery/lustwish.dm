@@ -3,7 +3,7 @@
 	desc = "A vending machine with various toys. Not for the faint of heart."
 	icon_state = "lustwish"
 	base_icon_state = "lustwish"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/lustwish.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/lustwish.dmi'
 	light_mask = "lustwish-light-mask"
 	age_restrictions = TRUE
 	///Has the discount card been used on the vending machine?
@@ -217,4 +217,4 @@
 /obj/item/vending_refill/lustwish
 	machine_name = "LustWish"
 	icon_state = "lustwish_refill"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'

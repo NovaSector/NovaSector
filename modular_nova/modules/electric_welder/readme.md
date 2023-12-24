@@ -12,7 +12,7 @@ Module ID:
 
 ### Modular Overrides:
 
-- `modular_skyrat/master_files/code/modules/cargo/exports/tools.dm`: `var/export_types`
+- `modular_nova/master_files/code/modules/cargo/exports/tools.dm`: `var/export_types`
 
 ### Defines:
 

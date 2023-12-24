@@ -1,51 +1,51 @@
 /obj/item/clothing/mask/gas/glass
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	name = "glass gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. This one doesn't obscure your face however."
 	icon_state = "gas_clear"
 	flags_inv = NONE
 
 /obj/item/clothing/mask/gas/atmos/glass
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	name = "advanced gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. This one doesn't obscure your face however."
 	icon_state = "gas_clear"
 	flags_inv = NONE
 
 /obj/item/clothing/mask/gas/alt
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	icon_state = "gas_alt2"
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 
 /obj/item/clothing/mask/gas/german
 	name = "black gas mask"
 	desc = "A black gas mask. Are you my Mummy?"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "m38_mask"
 
 /obj/item/clothing/mask/gas/hecu1
 	name = "modern gas mask"
 	desc = "MY. ASS. IS. HEAVY."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "hecu"
 
 /obj/item/clothing/mask/gas/hecu2
 	name = "M40 gas mask"
 	desc = "A deprecated field protective mask developed during the 20th century in Sol-3. It's designed to protect from chemical agents, biological agents, and nuclear fallout particles. It does not protect the user from ammonia or from lack of oxygen, though the filter can be replaced with a tube for any air tank."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
 	icon_state = "hecu2"
 
 /obj/item/clothing/mask/gas/soviet
 	name = "soviet gas mask"
 	desc = "A white gas mask with a green filter, there's a small sticker attached saying it's not got Asbestos anymore."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "gp5_mask"
 
 /obj/item/clothing/mask/gas/clown_colourable
@@ -65,8 +65,8 @@
 	name = "bald clown mask"
 	desc = "HE'S BALD, HE'S FUCKIN' BALDIN!"
 	clothing_flags = MASKINTERNALS
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "baldclown"
 	inhand_icon_state = null
 	flags_cover = MASKCOVERSEYES
@@ -75,8 +75,8 @@
 /obj/item/clothing/mask/gas/respirator
 	name = "half mask respirator"
 	desc = "A half mask respirator that's really just a standard gas mask with the glass taken off."
-	icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'
-	worn_icon = 'modular_skyrat/modules/GAGS/icons/masks.dmi'
+	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
+	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	icon_state = "respirator"
 	inhand_icon_state = "sechailer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -109,10 +109,10 @@
 
 /obj/item/clothing/mask/gas/clown_hat/vox
 	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask. This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_better_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_better_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 	starting_filter_type = /obj/item/gas_filter/vox
 
 /obj/item/clothing/mask/gas/clown_hat/vox/Initialize(mapload)
@@ -151,10 +151,10 @@
 
 /obj/item/clothing/mask/gas/mime/vox
 	desc = "The traditional mime's mask. It has an eerie facial posture. This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_better_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_better_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 	starting_filter_type = /obj/item/gas_filter/vox
 
 /obj/item/clothing/mask/gas/mime/vox/Initialize(mapload)
@@ -183,14 +183,14 @@
 	if(src && choice && !user.incapacitated() && in_range(user,src))
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.dna.species.mutant_bodyparts["snout"])
-			icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-			worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask_muzzled.dmi'
+			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
 			if(human_user.dna.species.mutant_bodyparts["snout"][MUTANT_INDEX_NAME] in avian_snouts)
 				icon_state = "[options[choice]]_b"
 		else
-			icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-			worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
+			icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+			worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 			icon_state = options[choice]
 		icon_state = options[choice]
 
@@ -201,18 +201,18 @@
 
 /obj/item/clothing/mask/gas/atmos/vox
 	desc = "Improved gas mask utilized by atmospheric technicians. It's flameproof! This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_better_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_better_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 	starting_filter_type = /obj/item/gas_filter/vox
 
 /obj/item/clothing/mask/gas/sechailer/vox
 	desc = "A standard issue Security gas mask with integrated 'Compli-o-nator 3000' device. Plays over a dozen pre-recorded compliance phrases designed to get scumbags to stand still whilst you tase them. Do not tamper with the device. This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
-	worn_icon_better_vox = 'modular_skyrat/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	worn_icon_better_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS | GAS_FILTERING
 	visor_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS | GAS_FILTERING
 	starting_filter_type = /obj/item/gas_filter/vox

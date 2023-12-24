@@ -1,7 +1,7 @@
 /obj/item/uber_teleporter
 	name = "\improper Nihilanth's Divinity"
 	desc = "It glows harshly, the power of a portal wielding monster lays within."
-	icon = 'modular_skyrat/modules/black_mesa/icons/plants.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/plants.dmi'
 	icon_state = "crystal_pylon"
 
 /obj/item/uber_teleporter/attack_self(mob/living/user, modifiers)

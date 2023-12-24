@@ -1,7 +1,7 @@
 //Trek Jacket(s?)
 /obj/item/clothing/suit/fedcoat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	name = "Federation uniform jacket"
 	desc = "A uniform jacket from the United Federation. Set phasers to awesome."
 	icon_state = "fedcoat"

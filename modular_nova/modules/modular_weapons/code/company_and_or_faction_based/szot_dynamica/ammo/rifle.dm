@@ -4,7 +4,7 @@
 	name = "ammo box (.310 Strilka lethal)"
 	desc = "A box of .310 Strilka lethal rifle rounds, holds ten cartridges."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "310_box"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -41,7 +41,7 @@
 	name = ".60 Strela caseless cartridge"
 	desc = "A massive block of plasma-purple propellant with an equally massive round sticking out the top of it. \
 		While good at killing a man, you'll find most effective use out of destroying things with it."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "amr_bullet"
 	caliber = CALIBER_60STRELA
 	projectile_type = /obj/projectile/bullet/p60strela

@@ -77,7 +77,7 @@
 /obj/item/storage/box/emergency_spacesuit
 	name = "emergency space suit case"
 	desc =  "A small case containing an emergency space suit and helmet."
-	icon = 'modular_skyrat/modules/more_briefcases/icons/briefcases.dmi'
+	icon = 'modular_nova/modules/more_briefcases/icons/briefcases.dmi'
 	icon_state = "briefcase_suit"
 	illustration = null
 

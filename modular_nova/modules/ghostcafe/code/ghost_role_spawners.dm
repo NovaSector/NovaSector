@@ -10,7 +10,7 @@
 	prompt_name = "a ghost cafe robot"
 	infinite_use = TRUE
 	deletes_on_zero_uses_left = FALSE
-	icon = 'modular_skyrat/modules/ghostcafe/icons/robot_storage.dmi'
+	icon = 'modular_nova/modules/ghostcafe/icons/robot_storage.dmi'
 	icon_state = "robostorage"
 	anchored = TRUE
 	density = FALSE

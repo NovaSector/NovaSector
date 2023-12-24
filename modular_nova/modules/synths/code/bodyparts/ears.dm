@@ -1,6 +1,6 @@
 /obj/item/organ/internal/ears/synth
 	name = "auditory sensors"
-	icon = 'modular_skyrat/master_files/icons/obj/surgery.dmi'
+	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "ears-ipc"
 	desc = "A pair of microphones intended to be installed in an IPC or Synthetics head, that grant the ability to hear."
 	zone = BODY_ZONE_HEAD

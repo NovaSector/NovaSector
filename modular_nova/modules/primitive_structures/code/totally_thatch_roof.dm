@@ -4,5 +4,5 @@
 	baseturfs = /turf/open/openspace/icemoon
 	initial_gas_mix = "ICEMOON_ATMOS"
 	icon_state = "grass-255"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/roofing.dmi'
-	smooth_icon = 'modular_skyrat/modules/primitive_structures/icons/roofing.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/roofing.dmi'
+	smooth_icon = 'modular_nova/modules/primitive_structures/icons/roofing.dmi'

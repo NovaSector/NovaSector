@@ -3,10 +3,10 @@
 	desc = "A specialized Nanotrasen-produced ballistic pulse rifle that uses compressed magazines to output absurd firepower in a compact package."
 	icon_state = "m44a"
 	inhand_icon_state = "m44a"
-	icon = 'modular_skyrat/modules/marines/icons/m44a.dmi'
-	righthand_file = 'modular_skyrat/modules/marines/icons/m44a_r.dmi'
-	lefthand_file = 'modular_skyrat/modules/marines/icons/m44a_l.dmi'
-	fire_sound = 'modular_skyrat/modules/marines/sound/m44a.ogg'
+	icon = 'modular_nova/modules/marines/icons/m44a.dmi'
+	righthand_file = 'modular_nova/modules/marines/icons/m44a_r.dmi'
+	lefthand_file = 'modular_nova/modules/marines/icons/m44a_l.dmi'
+	fire_sound = 'modular_nova/modules/marines/sound/m44a.ogg'
 	fire_delay = 1
 	burst_size = 3
 	spread = 6
@@ -30,7 +30,7 @@
 /obj/item/ammo_box/magazine/m44a
 	name = "m44a magazine (.300 compressed)"
 	desc = "This magazine uses a bluespace compression chamber to hold a maximum of ninety-nine .300 caliber caseless rounds for the M44A pulse rifle."
-	icon = 'modular_skyrat/modules/marines/icons/m44a.dmi'
+	icon = 'modular_nova/modules/marines/icons/m44a.dmi'
 	icon_state = "300compressed"
 	max_ammo = 99
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

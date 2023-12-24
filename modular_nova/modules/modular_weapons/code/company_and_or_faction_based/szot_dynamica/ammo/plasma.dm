@@ -2,7 +2,7 @@
 
 /obj/item/ammo_casing/energy/laser/plasma_glob
 	projectile_type = /obj/projectile/beam/laser/plasma_glob
-	fire_sound = 'modular_skyrat/modules/microfusion/sound/incinerate.ogg'
+	fire_sound = 'modular_nova/modules/microfusion/sound/incinerate.ogg'
 
 /obj/item/ammo_casing/energy/laser/plasma_glob/Initialize(mapload)
 	. = ..()
@@ -11,7 +11,7 @@
 
 /obj/projectile/beam/laser/plasma_glob
 	name = "plasma globule"
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "plasma_glob"
 	damage = 10
 	speed = 1.5

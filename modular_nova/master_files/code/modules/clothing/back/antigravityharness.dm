@@ -7,15 +7,15 @@
 #define EXTRAGRAVITY_STATE "gravityharness-extra"
 
 /obj/item/gravity_harness
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	name = "gravity suspension harness"
 	desc = "A bootleg derivative of common Skrellian construction equipment, manufactured and heavily used by Deep Spacer tribes, this harness employs suspensor tech to either nullify or magnify gravity around the wearer."
 	slot_flags = ITEM_SLOT_BACK
 	icon_state = "gravityharness-off"
 	worn_icon_state = "gravityharness-off"
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/suit_digi.dmi'
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/back.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/back.dmi'
 	actions_types = list(/datum/action/item_action/toggle_mode)
 	w_class = WEIGHT_CLASS_HUGE
 	/// The current operating mode
@@ -122,7 +122,7 @@
 				new /obj/effect/temp_visual/mook_dust/robot(get_turf(src))
 
 			ADD_TRAIT(user, TRAIT_NEGATES_GRAVITY, CLOTHING_TRAIT)
-			playsound(src, 'modular_skyrat/master_files/sound/effects/robot_sit.ogg', 25)
+			playsound(src, 'modular_nova/master_files/sound/effects/robot_sit.ogg', 25)
 			to_chat(user, span_notice("[src] shudders and hisses, projecting a local extra-gravity field."))
 			gravity_on = TRUE
 			icon_state = EXTRAGRAVITY_STATE
@@ -131,7 +131,7 @@
 		if(MODE_GRAVOFF)
 			if(!user.has_gravity() && mode != MODE_GRAVOFF)
 				new /obj/effect/temp_visual/mook_dust/robot(get_turf(src))
-				playsound(src, 'modular_skyrat/master_files/sound/effects/robot_sit.ogg', 25)
+				playsound(src, 'modular_nova/master_files/sound/effects/robot_sit.ogg', 25)
 				to_chat(user, span_notice("[src] lets out a soft whine as your suspension field dissipates, gravity around you normalizing."))
 				mode = MODE_GRAVOFF
 

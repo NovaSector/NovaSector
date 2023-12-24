@@ -9,7 +9,7 @@
 
 /obj/effect/overlay/water
 	name = "water"
-	icon = 'modular_skyrat/modules/mapping/icons/unique/pool.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/pool.dmi'
 	icon_state = "bottom"
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -30,7 +30,7 @@
 /turf/open/water/overlay
 	name = "shallow water"
 	desc = "A natural body of shallow water."
-	icon = 'modular_skyrat/modules/mapping/icons/unique/pool.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/pool.dmi'
 	icon_state = "rocky"
 	baseturfs = /turf/open/water/overlay
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

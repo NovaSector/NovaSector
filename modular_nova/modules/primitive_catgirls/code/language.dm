@@ -13,6 +13,6 @@
 		"bar", "dar", "akur", "jer", "bær", "múl", "fjörð", "jah", "dah", "dim", "din", "dir", "dur", "nya", "miau", "mjau", "ný", "kt", "hø",
 	)
 	icon_state = "omgkittyhiii"
-	icon = 'modular_skyrat/modules/primitive_catgirls/icons/language_icon.dmi'
+	icon = 'modular_nova/modules/primitive_catgirls/icons/language_icon.dmi'
 	default_priority = 94
 	secret = TRUE

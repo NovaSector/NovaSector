@@ -4,7 +4,7 @@
 	name = "\improper Trappiste 'Eland' Revolver"
 	desc = "A small revolver with a comically short barrel and cylinder space for eight .35 Sol Short rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "eland"
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/c35sol
@@ -42,11 +42,11 @@
 	name = "\improper Trappiste 'Takbok' Revolver"
 	desc = "A hefty revolver with an equally large cylinder capable of holding five .585 Trappiste rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
 	icon_state = "takbok"
 
-	fire_sound = 'modular_skyrat/modules/modular_weapons/sounds/revolver_heavy.ogg'
-	suppressed_sound = 'modular_skyrat/modules/modular_weapons/sounds/suppressed_heavy.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/revolver_heavy.ogg'
+	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/c585trappiste
 

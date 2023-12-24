@@ -7,9 +7,9 @@
 /obj/item/clothing/neck/necklace/ashwalker
 	name = "ashen necklace"
 	desc = "A necklace crafted from ash, connected to the Necropolis through the core of a Legion. This imbues overdwellers with an unnatural understanding of Ashtongue, the native language of Lavaland, while worn."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "ashnecklace"
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "ashnecklace"
 	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
 

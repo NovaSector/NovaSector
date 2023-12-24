@@ -22,9 +22,9 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 ))
 
 /obj/item/forging
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi'
-	lefthand_file = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
-	righthand_file = 'modular_skyrat/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
+	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
+	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
+	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
 	toolspeed = 1 SECONDS
 	///whether the item is in use or not
 	var/in_use = FALSE
@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 /obj/item/forging/tongs
 	name = "forging tongs"
 	desc = "A set of tongs specifically crafted for use in forging. A wise man once said 'I lift things up and put them down.'"
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi'
+	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
 	icon_state = "tong_empty"
 	tool_behaviour = TOOL_TONG
 
@@ -175,7 +175,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/incomplete/rail_nail
 	name = "incomplete rail nail"
-	icon = 'modular_skyrat/modules/ashwalkers/icons/railroad.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/railroad.dmi'
 	icon_state = "hot_nail"
 	average_hits = 10
 	average_wait = 0.5 SECONDS
@@ -183,7 +183,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/incomplete/rail_cart
 	name = "incomplete rail cart"
-	icon = 'modular_skyrat/modules/ashwalkers/icons/railroad.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/railroad.dmi'
 	icon_state = "hot_cart"
 	spawn_item = /obj/vehicle/ridden/rail_cart
 
@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 /obj/item/forging/complete/rail_nail
 	name = "rail nail"
 	desc = "A nail, ready to be used with some wood in order to make tracks."
-	icon = 'modular_skyrat/modules/ashwalkers/icons/railroad.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/railroad.dmi'
 	icon_state = "nail"
 	spawning_item = /obj/item/stack/rail_track/ten
 

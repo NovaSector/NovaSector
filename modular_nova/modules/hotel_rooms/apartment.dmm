@@ -40,7 +40,7 @@
 	},
 /obj/structure/showcase{
 	name = "doorphone";
-	icon = 'modular_skyrat/modules/aesthetics/intercom/icons/intercom.dmi';
+	icon = 'modular_nova/modules/aesthetics/intercom/icons/intercom.dmi';
 	icon_state = "intercom";
 	pixel_y = 24;
 	density = 0

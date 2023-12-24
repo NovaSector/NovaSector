@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab
 	name = "headcrab"
 	desc = "Don't let it latch onto your hea-... hey, that's kinda cool."
-	icon = 'modular_skyrat/modules/black_mesa/icons/mobs.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/mobs.dmi'
 	icon_state = "headcrab"
 	icon_living = "headcrab"
 	icon_dead = "headcrab_dead"
@@ -29,7 +29,7 @@
 	gold_core_spawnable = HOSTILE_SPAWN
 	loot = list(/obj/item/stack/sheet/bone)
 	alert_sounds = list(
-		'modular_skyrat/modules/black_mesa/sound/mobs/headcrab/alert1.ogg'
+		'modular_nova/modules/black_mesa/sound/mobs/headcrab/alert1.ogg'
 	)
 	var/is_zombie = FALSE
 	var/mob/living/carbon/human/oldguy
@@ -48,15 +48,15 @@
 	throw_at(targeted_atom, throw_at_range, throw_at_speed)
 	playsound(
 		src,
-		pick('modular_skyrat/modules/black_mesa/sound/mobs/headcrab/attack1.ogg', 'modular_skyrat/modules/black_mesa/sound/mobs/headcrab/attack2.ogg', 'modular_skyrat/modules/black_mesa/sound/mobs/headcrab/attack3.ogg'),
+		pick('modular_nova/modules/black_mesa/sound/mobs/headcrab/attack1.ogg', 'modular_nova/modules/black_mesa/sound/mobs/headcrab/attack2.ogg', 'modular_nova/modules/black_mesa/sound/mobs/headcrab/attack3.ogg'),
 		100
 		)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/death(gibbed)
 	. = ..()
 	playsound(src, pick(list(
-		'modular_skyrat/modules/black_mesa/sound/mobs/headcrab/die1.ogg',
-		'modular_skyrat/modules/black_mesa/sound/mobs/headcrab/die2.ogg'
+		'modular_nova/modules/black_mesa/sound/mobs/headcrab/die1.ogg',
+		'modular_nova/modules/black_mesa/sound/mobs/headcrab/die2.ogg'
 	)), 100)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -65,7 +65,7 @@
 		return
 	if(!isliving(hit_atom))
 		return
-	playsound(src, 'modular_skyrat/modules/black_mesa/sound/mobs/headcrab/headbite.ogg', 100)
+	playsound(src, 'modular_nova/modules/black_mesa/sound/mobs/headcrab/headbite.ogg', 100)
 	var/mob/living/hit_mob = hit_atom
 	hit_mob.apply_damage(melee_damage_upper, BRUTE)
 	if(!ishuman(hit_atom))
@@ -129,7 +129,7 @@
 	. = ..()
 	if(is_zombie)
 		copy_overlays(oldguy, TRUE)
-		var/mutable_appearance/blob_head_overlay = mutable_appearance('modular_skyrat/modules/black_mesa/icons/mobs.dmi', "headcrab_zombie")
+		var/mutable_appearance/blob_head_overlay = mutable_appearance('modular_nova/modules/black_mesa/icons/mobs.dmi', "headcrab_zombie")
 		add_overlay(blob_head_overlay)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/fast

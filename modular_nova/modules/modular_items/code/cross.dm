@@ -1,10 +1,10 @@
 /obj/item/crucifix
 	name = "ornate crucifix"
 	desc = "An ornate golden crucifix, adorned with various gemstones and tiny carvings. For some reason, it always feels warm to the touch."
-	icon = 'modular_skyrat/modules/modular_items/icons/crucifix.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/crucifix.dmi'
 	icon_state = "cross_ornate"
-	lefthand_file = 'modular_skyrat/modules/modular_items/icons/cross_left.dmi'
-	righthand_file = 'modular_skyrat/modules/modular_items/icons/cross_right.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/icons/cross_left.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/icons/cross_right.dmi'
 	force = 5 //Gem-encrusted and reinforced with GOD
 	throw_speed = 3
 	throw_range = 4

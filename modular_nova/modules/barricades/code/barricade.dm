@@ -1,7 +1,7 @@
 // Snow, wood, sandbags, metal, plasteel
 
 /obj/structure/deployable_barricade
-	icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi'
+	icon = 'modular_nova/modules/barricades/icons/barricade.dmi'
 	anchored = TRUE
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
@@ -198,9 +198,9 @@
 	. = ..()
 	if(is_wired)
 		if(!closed)
-			. += image('modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "[barricade_type]_wire")
+			. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "[barricade_type]_wire")
 		else
-			. += image('modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "[barricade_type]_closed_wire")
+			. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "[barricade_type]_closed_wire")
 
 /obj/structure/deployable_barricade/verb/rotate()
 	set name = "Rotate barricade counterclockwise <"
@@ -286,7 +286,7 @@
 /obj/structure/deployable_barricade/wooden
 	name = "wooden barricade"
 	desc = "A wall hammered out of wooden planks may not even look very strong, but it still provides some protection."
-	icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi'
+	icon = 'modular_nova/modules/barricades/icons/barricade.dmi'
 	icon_state = "wooden"
 	max_integrity = 100
 	layer = OBJ_LAYER
@@ -412,11 +412,11 @@
 			damage_state = 0
 	switch(barricade_upgrade_type)
 		if(BARRICADE_TYPE_BOMB)
-			. += image('modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "+explosive_upgrade_[damage_state]")
+			. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "+explosive_upgrade_[damage_state]")
 		if(BARRICADE_TYPE_MELEE)
-			. += image('modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "+brute_upgrade_[damage_state]")
+			. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "+brute_upgrade_[damage_state]")
 		if(BARRICADE_TYPE_ACID)
-			. += image('modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "+burn_upgrade_[damage_state]")
+			. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "+burn_upgrade_[damage_state]")
 
 /obj/structure/deployable_barricade/metal/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/stack/sheet/iron))
@@ -452,7 +452,7 @@
 		to_chat(user, span_warning("You need at least <b>[BARRICADE_UPGRADE_REQUIRED_SHEETS]</b> to upgrade [src]!"))
 		return FALSE
 
-	var/static/list/cade_types = list(BARRICADE_TYPE_BOMB = image(icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "explosive_obj"), BARRICADE_TYPE_MELEE = image(icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "brute_obj"), BARRICADE_TYPE_ACID = image(icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "burn_obj"))
+	var/static/list/cade_types = list(BARRICADE_TYPE_BOMB = image(icon = 'modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "explosive_obj"), BARRICADE_TYPE_MELEE = image(icon = 'modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "brute_obj"), BARRICADE_TYPE_ACID = image(icon = 'modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "burn_obj"))
 	var/choice = show_radial_menu(user, src, cade_types, require_near = TRUE, tooltips = TRUE)
 
 	user.visible_message(span_notice("[user] starts attaching [choice] to [src]."),
@@ -733,7 +733,7 @@
 		for(var/direction in GLOB.cardinals)
 			for(var/obj/structure/deployable_barricade/metal/plasteel/cade in get_step(src, direction))
 				if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == closed)
-					. += image('modular_skyrat/modules/barricades/icons/barricade.dmi', icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
+					. += image('modular_nova/modules/barricades/icons/barricade.dmi', icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
 
 /obj/structure/deployable_barricade/metal/plasteel/ex_act(severity)
 	switch(severity)
@@ -754,7 +754,7 @@
 /obj/item/quickdeploy
 	name = "C.U.C.K.S"
 	desc = "Compact Universal Complex Kinetic Self-expanding Barricade. Great for deploying quick fortifications."
-	icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi'
+	icon = 'modular_nova/modules/barricades/icons/barricade.dmi'
 	w_class = WEIGHT_CLASS_SMALL //While this is small, normal 50 stacks of metal is NORMAL so this is a bit on the bad space to cade ratio
 	var/delay = 0 //Delay on deploying the thing
 	var/atom/movable/thing_to_deploy = null
@@ -818,7 +818,7 @@
 	icon_state = "plasteel"
 
 /obj/item/storage/barricade
-	icon = 'modular_skyrat/modules/barricades/icons/barricade.dmi'
+	icon = 'modular_nova/modules/barricades/icons/barricade.dmi'
 	name = "C.U.C.K.S box"
 	desc = "Contains several deployable barricades."
 	icon_state = "box_metal"

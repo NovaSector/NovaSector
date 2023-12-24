@@ -1,6 +1,6 @@
 /obj/item/perfume
 	desc = "A bottle of pleasantly smelling fragrance."
-	icon = 'modular_skyrat/modules/pollution/icons/perfume.dmi'
+	icon = 'modular_nova/modules/pollution/icons/perfume.dmi'
 	icon_state = "perfume"
 	inhand_icon_state = "cleaner"
 	worn_icon_state = "spraybottle"

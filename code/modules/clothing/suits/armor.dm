@@ -202,15 +202,15 @@
 			RESKIN_WORN_ICON_STATE = "warden_alt"
 		),
 		"Standard" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "vest_warden",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "vest_warden",
 		),
 		"Peacekeeper" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "peacekeeper_trench_warden",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "peacekeeper_trench_warden",
 			RESKIN_SUPPORTS_VARIATIONS_FLAGS = NONE
 		)

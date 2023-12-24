@@ -4,7 +4,7 @@
 	name = "prefabricated wall"
 	desc = "A conservatively built metal frame with plastic paneling covering a thin air-seal layer. \
 		It's a little unnerving, but its better than nothing at all."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/prefab_wall.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/prefab_wall.dmi'
 	icon_state = "prefab-0"
 	base_icon_state = "prefab"
 	can_engrave = FALSE
@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	desc = "What better material to make the walls of your soon to be home out of than sheets of flimsy plastic? \
 		Metal? What are you talking about, metal walls, in this economy? May also be used to make structures other \
 		than walls."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tiles_item.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tiles_item.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
 	mats_per_unit = list(
@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 // Stacks of floor tiles
 
 /obj/item/stack/tile/catwalk_tile/colony_lathe
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tiles_item.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tiles_item.dmi'
 	icon_state = "prefab_catwalk"
 	mats_per_unit = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT)
 	turf_type = /turf/open/floor/catwalk_floor/colony_fabricator
@@ -94,7 +94,7 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	name = "prefab floor tiles"
 	singular_name = "prefab floor tile"
 	desc = "A stack of large floor tiles that are a common sight in frontier colonies and prefab buildings."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tiles_item.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tiles_item.dmi'
 	icon_state = "colony_grey"
 	turf_type = /turf/open/floor/iron/colony
 	merge_type = /obj/item/stack/tile/iron/colony
@@ -113,7 +113,7 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 // Grated floor tile, for seeing wires under
 
 /turf/open/floor/catwalk_floor/colony_fabricator
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tiles.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tiles.dmi'
 	icon_state = "prefab_above"
 	catwalk_type = "prefab"
 	baseturfs = /turf/open/floor/plating
@@ -130,7 +130,7 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	turf_type = /turf/open/floor/iron/colony/bolts
 
 /turf/open/floor/iron/colony
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/tiles.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/tiles.dmi'
 	icon_state = "colony_grey"
 	base_icon_state = "colony_grey"
 	floor_tile = /obj/item/stack/tile/iron/colony

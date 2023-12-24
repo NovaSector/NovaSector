@@ -3,7 +3,7 @@
 /obj/machinery/time_clock
 	name = "time clock"
 	desc = "Allows employees to clock in and out of their jobs"
-	icon = 'modular_skyrat/modules/time_clock/icons/machinery/console.dmi'
+	icon = 'modular_nova/modules/time_clock/icons/machinery/console.dmi'
 	icon_state = "timeclock"
 	density = FALSE
 

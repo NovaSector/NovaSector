@@ -1,7 +1,7 @@
 /obj/item/clothing/under/rank/azulean
 	icon_state = "oldblood"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/centcom.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/centcom.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/centcom.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/centcom.dmi'
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 

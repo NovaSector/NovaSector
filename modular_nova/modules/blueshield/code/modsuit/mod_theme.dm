@@ -27,8 +27,8 @@
 	)
 	skins = list(
 		"praetorian" = list(
-			MOD_ICON_OVERRIDE = 'modular_skyrat/modules/blueshield/icons/praetorian.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_skyrat/modules/blueshield/icons/worn_praetorian.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/modules/blueshield/icons/praetorian.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/blueshield/icons/worn_praetorian.dmi',
 			HELMET_FLAGS = list(
 				UNSEALED_LAYER = null,
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,

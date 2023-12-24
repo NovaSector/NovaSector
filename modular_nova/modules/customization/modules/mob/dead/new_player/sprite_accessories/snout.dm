@@ -1,7 +1,7 @@
 /datum/sprite_accessory/snouts
 	key = "snout"
 	generic = "Snout"
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi'
 	flags_for_organ = SPRITE_ACCESSORY_USE_MUZZLED_SPRITE
 	organ_type = /obj/item/organ/external/snout
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER)
@@ -59,7 +59,7 @@
 	factual = FALSE
 
 /datum/sprite_accessory/snouts/mammal
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMANOID)
 
@@ -429,31 +429,31 @@
 	flags_for_organ = NONE
 
 /datum/sprite_accessory/snouts/acrador
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	name = "Acrador (Short)"
 	icon_state = "acrador_short"
 
 /datum/sprite_accessory/snouts/acrador_1
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	name = "Acrador 1 (Normal)"
 	icon_state = "acrador_1"
 
 /datum/sprite_accessory/snouts/acrador_2
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	name = "Acrador 2 (Normal)"
 	icon_state = "acrador_2"
 
 /datum/sprite_accessory/snouts/acrador_3
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	name = "Acrador 3 (Normal)"
 	icon_state = "acrador_3"
 
 /datum/sprite_accessory/snouts/acrador_4
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
 	name = "Acrador 4 (Normal)"
 	icon_state = "acrador_4"

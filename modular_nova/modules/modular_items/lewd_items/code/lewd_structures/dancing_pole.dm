@@ -1,7 +1,7 @@
 /obj/structure/stripper_pole
 	name = "stripper pole"
 	desc = "A pole fastened to the ceiling and floor, used to show of one's goods to company."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_structures/dancing_pole.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/dancing_pole.dmi'
 	icon_state = "pole_purple_off"
 	base_icon_state = "pole"
 	density = TRUE

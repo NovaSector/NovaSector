@@ -9,7 +9,7 @@
 	desc = "Don't worry, I have protection."
 	icon_state = "condom_pack_pink"
 	base_icon_state = "condom_pack"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	/// The current color of the condom, can be changed and affects sprite
 	var/current_color = "pink"
@@ -51,7 +51,7 @@
 	desc = "I wonder if I can put this over my head..."
 	icon_state = "condom_pink_unused"
 	base_icon_state = "condom"
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	var/current_color = "pink"
 	var/condom_state = "unused"

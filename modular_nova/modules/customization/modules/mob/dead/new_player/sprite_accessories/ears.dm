@@ -35,7 +35,7 @@
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/mutant
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/ears.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears.dmi'
 	organ_type = /obj/item/organ/external/ears // SET BACK TO THIS AS SOON AS WE GET EARS AS EXTERNAL ORGANS: organ_type = /obj/item/organ/internal/ears/mutant
 	color_src = USE_MATRIXED_COLORS
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
@@ -48,7 +48,7 @@
 	factual = FALSE
 
 /datum/sprite_accessory/ears/mutant/big
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
 
 /datum/sprite_accessory/ears/mutant/vulpkanin
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_VULP, SPECIES_HUMANOID, SPECIES_GHOUL)
@@ -392,7 +392,7 @@
 	icon_state = "four_ears_3"
 
 /datum/sprite_accessory/ears/acrador
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/ears/acrador/long

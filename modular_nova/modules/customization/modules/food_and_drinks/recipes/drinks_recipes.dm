@@ -1,4 +1,4 @@
-// Modular Booze MIXES, see the following file for the reagents: modular_skyrat\modules\customization\modules\reagents\chemistry\reagents\alcohol_reagents.dm
+// Modular Booze MIXES, see the following file for the reagents: modular_nova\modules\customization\modules\reagents\chemistry\reagents\alcohol_reagents.dm
 
 // ROBOT ALCOHOL PAST THIS POINT
 // WOOO!
@@ -125,7 +125,7 @@
 	results = list(/datum/reagent/consumable/ethanol/hippie_hooch = 5)
 	required_reagents = list(/datum/reagent/medicine/antihol = 1, /datum/reagent/consumable/ethanol/crevice_spike = 3, /datum/reagent/medicine/earthsblood = 1)
 	mix_message = "You hear wood flutes and nature as it mixes."
-	mix_sound = 'modular_skyrat/modules/emotes/sound/voice/hoot.ogg'
+	mix_sound = 'modular_nova/modules/emotes/sound/voice/hoot.ogg'
 
 /datum/chemical_reaction/drink/research_rum
 	results = list(/datum/reagent/consumable/ethanol/research_rum = 4)
@@ -199,7 +199,7 @@
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
 
 
-// Non-Booze, see modular_skyrat\modules\customization\modules\reagents\chemistry\reagents\drink_reagents.dm
+// Non-Booze, see modular_nova\modules\customization\modules\reagents\chemistry\reagents\drink_reagents.dm
 
 /datum/chemical_reaction/drink/pinkmilk
 	results = list(/datum/reagent/consumable/pinkmilk = 2)

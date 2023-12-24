@@ -38,8 +38,8 @@
 	)
 	skins = list(
 		"stealth" = list(
-			MOD_ICON_OVERRIDE = 'modular_skyrat/modules/assault_operatives/icons/modsuits/mod.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_skyrat/modules/assault_operatives/icons/modsuits/wornmod.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/modules/assault_operatives/icons/modsuits/mod.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/assault_operatives/icons/modsuits/wornmod.dmi',
 			HELMET_LAYER = NECK_LAYER,
 			HELMET_FLAGS = list(
 				UNSEALED_CLOTHING = SNUG_FIT,
@@ -75,8 +75,8 @@
 	wound = 25
 
 /obj/item/mod/control/pre_equipped/stealth_operative
-	worn_icon = 'modular_skyrat/modules/assault_operatives/icons/modsuits/wornmod.dmi'
-	icon = 'modular_skyrat/modules/assault_operatives/icons/modsuits/mod.dmi'
+	worn_icon = 'modular_nova/modules/assault_operatives/icons/modsuits/wornmod.dmi'
+	icon = 'modular_nova/modules/assault_operatives/icons/modsuits/mod.dmi'
 	icon_state = "stealth-control"
 	theme = /datum/mod_theme/covert
 	applied_cell = /obj/item/stock_parts/cell/hyper

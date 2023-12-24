@@ -42,7 +42,7 @@
 
 /obj/item/ammo_box/c46x30mm
 	name = "ammo box (4.6x30mm)"
-	icon = 'modular_skyrat/modules/company_imports/icons/ammo.dmi'
+	icon = 'modular_nova/modules/company_imports/icons/ammo.dmi'
 	icon_state = "ammo_46"
 	ammo_type = /obj/item/ammo_casing/c46x30mm
 	max_ammo = 20
@@ -57,7 +57,7 @@
 
 /obj/item/ammo_box/c34
 	name = "ammo box (.34)"
-	icon = 'modular_skyrat/modules/company_imports/icons/ammo.dmi'
+	icon = 'modular_nova/modules/company_imports/icons/ammo.dmi'
 	icon_state = "ammo_34"
 	ammo_type = /obj/item/ammo_casing/c34
 	max_ammo = 20

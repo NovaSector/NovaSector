@@ -2,6 +2,6 @@
 /datum/id_trim/chameleon/contractor
 	assignment = "Syndicate Contractor"
 	trim_state = "trim_contractor"
-	trim_icon = 'modular_skyrat/master_files/icons/obj/card.dmi'
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	department_color = COLOR_ORANGE
 	subdepartment_color = COLOR_ORANGE

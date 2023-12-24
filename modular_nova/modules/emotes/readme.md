@@ -34,7 +34,7 @@ code/modules/mob/living/carbon/carbon_defense.dm | `/mob/living/carbon/proc/help
 File Location | Defines
 ------------- | -------
 code/__DEFINES/~skyrat_defines/traits.dm 		| `#define TRAIT_EXCITABLE	"wagwag"`
-modular_skyrat/modules/emotes/code/emotes.dm 	| `#define EMOTE_DELAY`
+modular_nova/modules/emotes/code/emotes.dm 	| `#define EMOTE_DELAY`
 
 ### Master file additions
 

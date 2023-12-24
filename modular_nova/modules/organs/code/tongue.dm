@@ -56,7 +56,7 @@
 
 /obj/item/organ/internal/tongue/cybernetic
 	name = "cybernetic tongue"
-	icon = 'modular_skyrat/modules/organs/icons/cyber_tongue.dmi'
+	icon = 'modular_nova/modules/organs/icons/cyber_tongue.dmi'
 	icon_state = "cybertongue"
 	desc =  "A fully-functional synthetic tongue, encased in soft silicone. Features include high-resolution vocals and taste receptors."
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES

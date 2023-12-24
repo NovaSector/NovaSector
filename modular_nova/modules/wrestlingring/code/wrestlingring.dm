@@ -1,7 +1,7 @@
 /obj/structure/railing/wrestling
 	name = "wrestling ropes"
 	desc = "Ropes that are meant to go around a wrestling ring."
-	icon = 'modular_skyrat/modules/wrestlingring/icons/wrestling.dmi'
+	icon = 'modular_nova/modules/wrestlingring/icons/wrestling.dmi'
 	icon_state = "ropes"
 	climbable = FALSE
 
@@ -58,7 +58,7 @@
 
 /obj/structure/wrestling_corner
 	name = "wrestling turnbuckle"
-	icon = 'modular_skyrat/modules/wrestlingring/icons/wrestling.dmi'
+	icon = 'modular_nova/modules/wrestlingring/icons/wrestling.dmi'
 	icon_state = "turnbuckle"
 	density = TRUE
 	anchored = TRUE

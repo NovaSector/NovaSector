@@ -5,7 +5,7 @@
 /mob/living/basic/abductor
 	name = "abductor scientist"
 	desc = "From the depths of space."
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/abductors.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/abductors.dmi'
 	icon_state = "abductor_scientist"
 	icon_living = "abductor_scientist"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -106,7 +106,7 @@
 /mob/living/simple_animal/hostile/megafauna/hierophant/astrum
 	name = "abductor captain"
 	desc = "The one you've come here for. Finish this."
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/abductors.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/abductors.dmi'
 	icon_state = "abductor_agent_combat"
 	icon_living = "abductor_agent_combat"
 	icon_gib = "syndicate_gib"

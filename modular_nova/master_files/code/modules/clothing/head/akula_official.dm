@@ -1,7 +1,7 @@
 /obj/item/clothing/head/hats/caphat/azulean
 	icon_state = "oldbloodcap"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/akula_official.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/akula_official.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/akula_official.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/akula_official.dmi'
 
 /obj/item/clothing/head/hats/caphat/azulean/old_blood
 	name = "\improper Oldblood's royal cap"

@@ -1,10 +1,10 @@
 
 /obj/item/clothing/under/suit
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/suits_digi.dmi' //Anything that was in TG's suits.dmi, should be in our suits_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi' //Anything that was in TG's suits.dmi, should be in our suits_digi.dmi
 
 /obj/item/clothing/under/suit/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/suits.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
 
 //DO NOT ADD A /obj/item/clothing/under/rank/civilian/lawyer/skyrat. USE /obj/item/clothing/under/suit/skyrat FOR MODULAR SUITS
 

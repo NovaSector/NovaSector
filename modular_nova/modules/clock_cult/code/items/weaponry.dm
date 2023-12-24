@@ -5,10 +5,10 @@
 /obj/item/clockwork/weapon
 	name = "clockwork weapon"
 	desc = "Something"
-	icon = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_weapons.dmi'
-	lefthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_weapons.dmi'
+	lefthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	throwforce = 20
@@ -149,9 +149,9 @@
 /obj/item/gun/ballistic/bow/clockwork
 	name = "brass bow"
 	desc = "A bow made from brass and other components that you can't quite understand. It glows with a deep energy and frabricates arrows by itself."
-	icon = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_weapons.dmi'
-	lefthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_weapons.dmi'
+	lefthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
 	icon_state = "bow_clockwork_unchambered_undrawn"
 	inhand_icon_state = "clockwork_bow"
 	base_icon_state = "bow_clockwork"
@@ -194,7 +194,7 @@
 
 	to_chat(user, span_notice("You draw back the bowstring."))
 	drawn = TRUE
-	playsound(src, 'modular_skyrat/modules/tribal_extended/sound/sound_weapons_bowdraw.ogg', 75, 0) //gets way too high pitched if the freq varies
+	playsound(src, 'modular_nova/modules/tribal_extended/sound/sound_weapons_bowdraw.ogg', 75, 0) //gets way too high pitched if the freq varies
 	update_icon()
 
 
@@ -223,14 +223,14 @@
 /obj/item/ammo_casing/arrow/clockbolt
 	name = "energy bolt"
 	desc = "An arrow made from a strange energy."
-	icon = 'modular_skyrat/modules/clock_cult/icons/weapons/ammo.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/weapons/ammo.dmi'
 	icon_state = "arrow_redlight"
 	projectile_type = /obj/projectile/energy/clockbolt
 
 
 /obj/projectile/energy/clockbolt
 	name = "energy bolt"
-	icon = 'modular_skyrat/modules/clock_cult/icons/projectiles.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/projectiles.dmi'
 	icon_state = "arrow_energy"
 	damage = 35
 	damage_type = BURN
@@ -239,10 +239,10 @@
 /obj/item/gun/ballistic/rifle/lionhunter/clockwork
 	name = "brass rifle"
 	desc = "An antique, brass rifle made with the finest of care. It has an ornate scope in the shape of a cog built into the top."
-	icon = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_weapons_40x32.dmi'
-	lefthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
-	worn_icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_garb_worn.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_weapons_40x32.dmi'
+	lefthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
+	worn_icon = 'modular_nova/modules/clock_cult/icons/clockwork_garb_worn.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	icon_state = "clockwork_rifle"
 	inhand_icon_state = "clockwork_rifle"
@@ -288,7 +288,7 @@
 /obj/item/ammo_box/strilka310/lionhunter/clock
 	name = "stripper clip (.310 brass)"
 	desc = "A stripper clip that's just as brass as the rounds it holds."
-	icon = 'modular_skyrat/modules/clock_cult/icons/weapons/ammo.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/weapons/ammo.dmi'
 	icon_state = "762_brass"
 	ammo_type = /obj/item/ammo_casing/strilka310/lionhunter/clock
 	unique_reskin = NONE

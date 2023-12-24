@@ -9,8 +9,8 @@
 */
 
 /obj/item/clothing/under/plasmaman/security
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/plasmaman.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/plasmaman.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi'
 	icon_state = "security_envirosuit_new"
 
 /obj/item/clothing/under/plasmaman/security/warden
@@ -20,8 +20,8 @@
 	icon_state = "hos_envirosuit_new"
 
 /obj/item/clothing/head/helmet/space/plasmaman/security
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/plasmaman_hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/plasmaman_head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi'
 	icon_state = "security_envirohelm_new"
 
 /obj/item/clothing/head/helmet/space/plasmaman/security/warden
@@ -34,8 +34,8 @@
 * ACCESSORIES
 */
 /obj/item/clothing/accessory/armband/deputy
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/accessories.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/accessories.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	icon_state = "armband_lopland"
 
 /obj/item/clothing/accessory/armband/deputy/lopland
@@ -45,10 +45,10 @@
 * BACKPACKS
 */
 /obj/item/storage/backpack/security
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	lefthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
-	righthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
 	icon_state = "backpack_security_black"
 	inhand_icon_state = "backpack_security_black"
 	uses_advanced_reskins = TRUE
@@ -66,10 +66,10 @@
 	)
 
 /obj/item/storage/backpack/satchel/sec
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	lefthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
-	righthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
 	icon_state = "satchel_security_black"
 	inhand_icon_state = "satchel_security_black"
 	uses_advanced_reskins = TRUE
@@ -87,10 +87,10 @@
 	)
 
 /obj/item/storage/backpack/duffelbag/sec
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi'
-	lefthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
-	righthand_file = 'modular_skyrat/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
 	icon_state = "duffel_security_black"
 	inhand_icon_state = "duffel_security_black"
 	uses_advanced_reskins = TRUE
@@ -111,8 +111,8 @@
 * BELTS
 */
 /obj/item/storage/belt/security
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/belt.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "belt_white"
 	worn_icon_state = "belt_white"
 	uses_advanced_reskins = TRUE
@@ -167,7 +167,7 @@
 		return ..()
 	resolve_parent.add_fingerprint(user)
 	attempt_remove(gun_to_draw, get_turf(user))
-	playsound(resolve_parent, 'modular_skyrat/modules/sec_haul/sound/holsterout.ogg', 50, TRUE, -5)
+	playsound(resolve_parent, 'modular_nova/modules/sec_haul/sound/holsterout.ogg', 50, TRUE, -5)
 	INVOKE_ASYNC(user, TYPE_PROC_REF(/mob, put_in_hands), gun_to_draw)
 	user.visible_message(span_warning("[user] draws [gun_to_draw] from [resolve_parent]!"), span_notice("You draw [gun_to_draw] from [resolve_parent]."))
 
@@ -175,8 +175,8 @@
 * GLASSES
 */
 /obj/item/clothing/glasses/hud/security
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/glasses.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/eyes.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "security_hud"
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
@@ -209,15 +209,15 @@
 
 //Overrides the bulletproof helm with the older non red visor version.
 /obj/item/clothing/head/helmet/alt
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
 	icon_state = "helmetalt_blue"
 	base_icon_state = "helmetalt_blue"
 
 //Standard helmet (w/ visor)
 /obj/item/clothing/head/helmet/sec
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
 	icon_state = "security_helmet"
 	base_icon_state = "security_helmet"
 	actions_types = list(/datum/action/item_action/toggle)
@@ -259,8 +259,8 @@
 /obj/item/clothing/head/security_garrison
 	name = "security garrison cap"
 	desc = "A robust garrison cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "garrison_black"
 	uses_advanced_reskins = TRUE
 	armor_type = /datum/armor/head_helmet
@@ -280,8 +280,8 @@
 /obj/item/clothing/head/security_cap
 	name = "security cap"
 	desc = "A robust cap with the security insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "security_cap_black"
 	uses_advanced_reskins = TRUE
 	armor_type = /datum/armor/head_helmet
@@ -304,8 +304,8 @@
 	)
 
 /obj/item/clothing/head/hats/hos/cap
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "hoscap_blue"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -338,16 +338,16 @@
 * NECK
 */
 /obj/item/clothing/neck/cloak/hos
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "hoscloak_blue"
 
 //Not technically an override but oh well
 /obj/item/clothing/neck/security_cape
 	name = "security cape"
 	desc = "A fashionable cape worn by security officers."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "cape_black"
 	inhand_icon_state = "" //no unique inhands
 	uses_advanced_reskins = TRUE
@@ -409,8 +409,8 @@
 /obj/item/clothing/gloves/color/black/security
 	name = "security gloves"
 	desc = "A pair of security gloves."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "gloves_white"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -429,13 +429,13 @@
 	)
 
 /obj/item/clothing/gloves/tackler/security	//Can't just overwrite tackler, as there's a ton of subtypes that we'd then need to account for. This is easier. MUCH easier.
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "tackle_blue"
 
 /obj/item/clothing/gloves/krav_maga/sec
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "fightgloves_blue"
 
 /*
@@ -444,8 +444,8 @@
 /obj/item/clothing/suit/armor/vest/alt/sec
 	name = "armored security vest"
 	desc = "A Type-II-AD-P armored vest that provides decent protection against most types of damage."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_white"
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -480,9 +480,9 @@
 			RESKIN_WORN_ICON_STATE = "hostrench"
 		),
 		"Trenchcloak" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
 			RESKIN_ICON_STATE = "trenchcloak",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
 			RESKIN_WORN_ICON_STATE = "trenchcloak"
 		),
 	)
@@ -498,8 +498,8 @@
 //Riot Armor
 /obj/item/clothing/suit/armor/riot
 	icon_state = "riot_ad" //replaces the NT on the back
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 
 /obj/item/clothing/suit/armor/riot/knight //This needs to be sent back to its original .dmis
 	icon = 'icons/obj/clothing/suits/armor.dmi'
@@ -507,8 +507,8 @@
 
 //Warden's Vest
 /obj/item/clothing/suit/armor/vest/warden
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_warden"
 
 /obj/item/clothing/suit/armor/vest/warden/alt //un-overrides this since its sprite is TG
@@ -519,20 +519,20 @@
 //Security Wintercoat (and hood)
 /obj/item/clothing/head/hooded/winterhood/security
 	desc = "A blue, armour-padded winter hood. Definitely not bulletproof, especially not the part where your face goes." //God dammit TG stop putting color in the desc of items like this
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/winterhood.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/winterhood.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/winterhood.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/winterhood.dmi'
 	icon_state = "winterhood_security"
 
 /obj/item/clothing/suit/hooded/wintercoat/security
 	name = "security winter coat" //TG has this as a Jacket now, so unless we update ours, this needs to be re-named as Coat
 	desc = "A blue, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority. The zipper tab is a small <b>\"Lopland\"</b> logo."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/wintercoat.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 	icon_state = "coatsecurity_winter"
 
 /obj/item/clothing/suit/armor/hos/hos_formal
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hosformal_blue"
 	current_skin = "hosformal_blue"	//prevents reskinning (but not toggling!)
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
@@ -543,8 +543,8 @@
 //Officer
 /obj/item/clothing/under/rank/security/officer
 	desc = "A tactical security uniform for officers, complete with a Lopland belt buckle."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "security_black"
 	alt_covers_chest = TRUE
 	uses_advanced_reskins = TRUE
@@ -577,14 +577,14 @@
 
 //Warden
 /obj/item/clothing/under/rank/security/warden
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "warden_black"
 
 //HoS
 /obj/item/clothing/under/rank/security/head_of_security
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/security.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	icon_state = "hos_black"
 
 /obj/item/clothing/under/rank/security/head_of_security/parade
@@ -607,8 +607,8 @@
 	name = "security jackboots"
 	desc = "Lopland's Peacekeeper-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
 	icon_state = "security_boots"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) // We have other footsteps.
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -628,7 +628,7 @@
 
 /obj/item/clothing/shoes/jackboots/sec/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_skyrat/master_files/sound/effects/footstep1.ogg'=1,'modular_skyrat/master_files/sound/effects/footstep2.ogg'=1, 'modular_skyrat/master_files/sound/effects/footstep3.ogg'=1), 100)
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep1.ogg'=1,'modular_nova/master_files/sound/effects/footstep2.ogg'=1, 'modular_nova/master_files/sound/effects/footstep3.ogg'=1), 100)
 
 //
 // This code overrides security's jumpskirt preference, as we're not going to be giving them jumpskirts

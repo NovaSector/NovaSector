@@ -1,6 +1,6 @@
 /obj/item/xenoarch
 	name = "parent dev item"
-	icon = 'modular_skyrat/modules/xenoarch/icons/xenoarch_items.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
 
 // HAMMERS
 
@@ -175,7 +175,7 @@
 /obj/item/storage/belt/utility/xenoarch
 	name = "xenoarch toolbelt"
 	desc = "Holds tools."
-	icon = 'modular_skyrat/modules/xenoarch/icons/xenoarch_items.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
 	icon_state = "xenoarch_belt"
 	content_overlays = FALSE
 	custom_premium_price = PAYCHECK_CREW * 2
@@ -198,7 +198,7 @@
 /obj/item/storage/bag/xenoarch
 	name = "xenoarch mining satchel"
 	desc = "This little bugger can be used to store and transport strange rocks."
-	icon = 'modular_skyrat/modules/xenoarch/icons/xenoarch_items.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
 	icon_state = "satchel"
 	worn_icon_state = "satchel"
 	w_class = WEIGHT_CLASS_TINY

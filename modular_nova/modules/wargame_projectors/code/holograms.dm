@@ -1,7 +1,7 @@
 /obj/structure/wargame_hologram
 	name = "broken holographic wargame marker"
 	desc = "You have a feeling like this is supposed to be telling you something, but the hologram must have broken."
-	icon = 'modular_skyrat/modules/wargame_projectors/icons/projectors_and_holograms.dmi'
+	icon = 'modular_nova/modules/wargame_projectors/icons/projectors_and_holograms.dmi'
 	icon_state = "broke"
 	anchored = TRUE
 	density = FALSE

@@ -19,15 +19,15 @@
 /obj/structure/mineral_door/xen
 	name = "organic door"
 	color = "#ff8d58"
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_door.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_door.dmi'
 	icon_state = "resin"
-	openSound = 'modular_skyrat/modules/black_mesa/sound/xen_door.ogg'
-	closeSound = 'modular_skyrat/modules/black_mesa/sound/xen_door.ogg'
+	openSound = 'modular_nova/modules/black_mesa/sound/xen_door.ogg'
+	closeSound = 'modular_nova/modules/black_mesa/sound/xen_door.ogg'
 
 /obj/machinery/door/puzzle/keycard/xen
 	name = "locktight organic door"
 	desc = "An oddly robust organic looking door."
-	icon = 'modular_skyrat/modules/black_mesa/icons/xen_door.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "xen"
 
@@ -57,7 +57,7 @@
 /obj/structure/pod
 	name = "supply pod"
 	desc = "Someone must have sent this a long way."
-	icon = 'modular_skyrat/modules/black_mesa/icons/structures.dmi'
+	icon = 'modular_nova/modules/black_mesa/icons/structures.dmi'
 	icon_state = "pod"
 	pixel_x = SUPPLYPOD_X_OFFSET
 	anchored = TRUE

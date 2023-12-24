@@ -104,7 +104,7 @@
 
 	deploy(user)
 
-	playsound(src, 'modular_skyrat/modules/aesthetics/airlock/sound/bolts_down.ogg', 50, FALSE)
+	playsound(src, 'modular_nova/modules/aesthetics/airlock/sound/bolts_down.ogg', 50, FALSE)
 
 	balloon_alert(user, "deployment successful!")
 

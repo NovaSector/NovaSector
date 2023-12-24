@@ -1,7 +1,7 @@
 /obj/item/stack/sheet/spaceship
 	name = "spaceship plating"
 	desc = "A metal sheet made out of a titanium alloy, rivited for use in spaceship walls."
-	icon = 'modular_skyrat/modules/mapping/icons/unique/spaceships/shipstacks.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/spaceships/shipstacks.dmi'
 	icon_state = "sheet-spaceship"
 	inhand_icon_state = "sheet-plastitaniumglass"
 	singular_name = "spaceship plate"
@@ -12,7 +12,7 @@
 /obj/item/stack/sheet/spaceshipglass
 	name = "spaceship window plates"
 	desc = "A glass sheet made out of a titanium-silicate alloy, rivited for use in spaceship window frames."
-	icon = 'modular_skyrat/modules/mapping/icons/unique/spaceships/shipstacks.dmi'
+	icon = 'modular_nova/modules/mapping/icons/unique/spaceships/shipstacks.dmi'
 	icon_state = "sheet-spaceshipglass"
 	inhand_icon_state = "sheet-plastitaniumglass"
 	singular_name = "spaceship window plate"

@@ -17,12 +17,12 @@
 /mob/living/simple_animal/hostile/megafauna/gladiator
 	name = "\proper The Marked One"
 	desc = "An ancient miner lost to time, chosen and changed by the Necropolis, encased in a suit of armor. Only a chosen few can match his speed and strength."
-	icon = 'modular_skyrat/modules/gladiator/icons/markedone.dmi'
+	icon = 'modular_nova/modules/gladiator/icons/markedone.dmi'
 	icon_state = "marked1"
 	icon_dead = "marked_dying"
 	attack_verb_simple = "cleave"
 	attack_verb_continuous = "cleaves"
-	attack_sound = 'modular_skyrat/master_files/sound/weapons/bloodyslice.ogg'
+	attack_sound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
 	death_sound = 'sound/creatures/space_dragon_roar.ogg'
 	death_message = "falls on his sword, ash evaporating from every hole in his armor."
 	gps_name = "Forgotten Signal"
@@ -338,7 +338,7 @@
 		QDEL_IN(smonk, 0.5 SECONDS)
 		for(var/mob/living/slapped in targeted)
 			if(!faction_check(faction, slapped.faction) && !(slapped in hit_things))
-				playsound(src, 'modular_skyrat/modules/gladiator/Clang_cut.ogg', 75, 0)
+				playsound(src, 'modular_nova/modules/gladiator/Clang_cut.ogg', 75, 0)
 				if(slapped.apply_damage(40, BRUTE, BODY_ZONE_CHEST, slapped.run_armor_check(BODY_ZONE_CHEST), wound_bonus = CANT_WOUND))
 					visible_message(span_danger("[src] slashes through [slapped] with his spinning blade!"))
 				else
@@ -379,7 +379,7 @@
 	charging = FALSE
 	minimum_distance = initial(minimum_distance)
 	chargetiles = 0
-	playsound(src, 'modular_skyrat/modules/gladiator/Clang_cut.ogg', 75, 0)
+	playsound(src, 'modular_nova/modules/gladiator/Clang_cut.ogg', 75, 0)
 	animate(src, color = initial(color), 0.5 SECONDS)
 	move_to_delay += CHARGE_MODIFIER
 	update_phase()

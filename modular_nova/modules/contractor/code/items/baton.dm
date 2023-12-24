@@ -81,7 +81,7 @@
 	return
 
 /obj/item/baton_upgrade
-	icon = 'modular_skyrat/modules/contractor/icons/baton_upgrades.dmi'
+	icon = 'modular_nova/modules/contractor/icons/baton_upgrades.dmi'
 	var/upgrade_flag
 
 /obj/item/baton_upgrade/cuff

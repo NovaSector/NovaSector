@@ -1,6 +1,6 @@
 /*
 *	The hoodies and attached sprites [WERE ORIGINALLY FROM] https://github.com/Citadel-Station-13/Citadel-Station-13-RP before GAGSification
-*	Respective datums can be found in modular_skyrat/modules/customization/datums/greyscale/hoodies
+*	Respective datums can be found in modular_nova/modules/customization/datums/greyscale/hoodies
 *	These are now a subtype of toggle/jacket too, so it properly toggles and isnt the unused 'storage' type
 */
 

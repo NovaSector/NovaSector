@@ -3,7 +3,7 @@
 #define RESTING_STATE_REST 2
 
 /mob/living/basic/pet/dog/corgi/ian
-	icon = 'modular_skyrat/modules/chadian/icons/ian.dmi'
+	icon = 'modular_nova/modules/chadian/icons/ian.dmi'
 	ai_controller = /datum/ai_controller/basic_controller/dog/corgi/chadian
 
 	var/resting_state = 0

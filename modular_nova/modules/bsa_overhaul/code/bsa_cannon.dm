@@ -275,7 +275,7 @@
 		return
 	system_state = BSA_SYSTEM_PREFIRE
 	priority_announce("BLUESPACE TARGETING PARAMETERS SET, PREIGNITION STARTING... CAPACITOR CHARGE AT [round(capacitor_power / 1000000, 0.1)] MW, FIRING IN T-20 SECONDS!", "BLUESPACE ARTILLERY", ANNOUNCER_BLUESPACEARTY)
-	alert_sound_to_playing('modular_skyrat/modules/bsa_overhaul/sound/superlaser_prefire.ogg', override_volume = TRUE)
+	alert_sound_to_playing('modular_nova/modules/bsa_overhaul/sound/superlaser_prefire.ogg', override_volume = TRUE)
 	message_admins("[user] has started the fire cycle of [src]! Firing at: [ADMIN_VERBOSEJMP(bullseye)]")
 	set_light(5, 5, COLOR_BLUE_LIGHT)
 	addtimer(CALLBACK(src, PROC_REF(fire), user, bullseye), 20 SECONDS, TIMER_CLIENT_TIME)
@@ -318,7 +318,7 @@
 		log_game("[key_name(user)] has launched an artillery strike targeting [AREACOORD(bullseye)].")
 		minor_announce("BLUESPACE ARTILLERY FIRE SUCCESSFUL! DIRECT HIT!", "BLUESPACE ARTILLERY", TRUE)
 		create_calculated_explosion(bullseye)
-		alert_sound_to_playing('modular_skyrat/modules/bsa_overhaul/sound/superlaser_firing.ogg', override_volume = TRUE)
+		alert_sound_to_playing('modular_nova/modules/bsa_overhaul/sound/superlaser_firing.ogg', override_volume = TRUE)
 		capacitor_power = 0
 	else
 		message_admins("[ADMIN_LOOKUPFLW(user)] has launched an artillery strike targeting [ADMIN_VERBOSEJMP(bullseye)] but it was blocked by [blocker] at [ADMIN_VERBOSEJMP(target)].")

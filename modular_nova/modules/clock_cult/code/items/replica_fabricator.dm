@@ -4,9 +4,9 @@
 /obj/item/clockwork/replica_fabricator
 	name = "replica fabricator"
 	desc = "A strange, brass device with many twisting cogs and vents."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
-	lefthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
+	lefthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
 	icon_state = "replica_fabricator"
 	/// How much power this has. 5 generated per sheet inserted, one sheet of bronze costs 10, one floor tile costs 15, one wall costs 20
 	var/power = 0
@@ -209,7 +209,7 @@
 /// Any extra actions that need to be taken when an object is created
 /datum/replica_fabricator_output/proc/on_create(atom/created_atom, turf/creation_turf, mob/creator)
 	SHOULD_CALL_PARENT(TRUE)
-	playsound(creation_turf, 'modular_skyrat/modules/clock_cult/sound/machinery/integration_cog_install.ogg', 50, 1) // better sound?
+	playsound(creation_turf, 'modular_nova/modules/clock_cult/sound/machinery/integration_cog_install.ogg', 50, 1) // better sound?
 	to_chat(creator, span_clockyellow("You create \an [name] for [cost]W of power."))
 
 

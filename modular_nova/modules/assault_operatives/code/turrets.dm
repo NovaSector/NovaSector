@@ -11,7 +11,7 @@
 /obj/machinery/porta_turret/syndicate/assaultops/shuttle
 	scan_range = 9
 	lethal_projectile = /obj/projectile/bullet/a357
-	lethal_projectile_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle.ogg'
+	lethal_projectile_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle.ogg'
 	stun_projectile = /obj/projectile/energy/electrode
 	stun_projectile_sound = 'sound/weapons/taser.ogg'
 	max_integrity = 600

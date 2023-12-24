@@ -3,7 +3,7 @@
 /obj/structure/railing/wooden_fencing
 	name = "wooden fence"
 	desc = "A basic wooden fence meant to prevent people like you either in or out of somewhere."
-	icon = 'modular_skyrat/modules/primitive_structures/icons/wooden_fence.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/wooden_fence.dmi'
 	icon_state = "fence"
 	layer = BELOW_OBJ_LAYER // I think this is the default but lets be safe?
 	resistance_flags = FLAMMABLE
@@ -58,7 +58,7 @@
 
 /obj/structure/mineral_door/wood/large_gate
 	name = "large wooden gate"
-	icon = 'modular_skyrat/modules/primitive_structures/icons/wooden_gate.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/wooden_gate.dmi'
 	icon_state = "gate"
 	openSound = 'sound/machines/wooden_closet_open.ogg'
 	closeSound = 'sound/machines/wooden_closet_close.ogg'

@@ -2,7 +2,7 @@
 /obj/item/clockwork/trap_placer
 	name = "trap"
 	desc = "don't trust it"
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	/// The path of the trap to make when this is set down
 	var/result_path = /obj/structure/destructible/clockwork/trap
@@ -45,7 +45,7 @@
 /obj/item/wallframe/clocktrap
 	name = "clockwork trap item"
 	desc = "It's a... Wait what?"
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	pixel_shift = 24
 	w_class = WEIGHT_CLASS_HUGE
 	result_path = /obj/structure/destructible/clockwork/trap
@@ -62,7 +62,7 @@
 /obj/structure/destructible/clockwork/trap
 	name = "clockwork trap item"
 	desc = "Probably doesn't do much."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	density = FALSE
 	layer = LOW_OBJ_LAYER
 	break_message = span_warning("The intricate looking device falls apart.")

@@ -1,5 +1,5 @@
 /datum/emote
-	var/overlay_emote = 'modular_skyrat/master_files/icons/effects/overlay_effects.dmi'
+	var/overlay_emote = 'modular_nova/master_files/icons/effects/overlay_effects.dmi'
 
 /datum/emote/proc/get_toggle(mob/living/user)
 	if(user.client)
@@ -19,7 +19,7 @@
 		overlay.pixel_x = 10
 		overlay.pixel_y = 10
 		user.flick_overlay_static(overlay, 50)
-		playsound(get_turf(user), 'modular_skyrat/modules/emotes/sound/emotes/sweatdrop.ogg', 25, TRUE)
+		playsound(get_turf(user), 'modular_nova/modules/emotes/sound/emotes/sweatdrop.ogg', 25, TRUE)
 
 /datum/emote/living/exclaim
 	key = "exclaim"
@@ -45,7 +45,7 @@
 		overlay.pixel_x = 10
 		overlay.pixel_y = 28
 		user.flick_overlay_static(overlay, 50)
-		playsound(get_turf(user), 'modular_skyrat/modules/emotes/sound/emotes/question.ogg', 25, TRUE)
+		playsound(get_turf(user), 'modular_nova/modules/emotes/sound/emotes/question.ogg', 25, TRUE)
 
 
 /datum/emote/living/realize
@@ -61,7 +61,7 @@
 		else
 			overlay.pixel_y = 15
 		user.flick_overlay_static(overlay, 50)
-		playsound(get_turf(user), 'modular_skyrat/modules/emotes/sound/emotes/realize.ogg', 25, TRUE)
+		playsound(get_turf(user), 'modular_nova/modules/emotes/sound/emotes/realize.ogg', 25, TRUE)
 
 /datum/emote/living/annoyed
 	key = "annoyed"
@@ -74,4 +74,4 @@
 		overlay.pixel_x = 10
 		overlay.pixel_y = 10
 		user.flick_overlay_static(overlay, 50)
-		playsound(get_turf(user), 'modular_skyrat/modules/emotes/sound/emotes/annoyed.ogg', 25, TRUE)
+		playsound(get_turf(user), 'modular_nova/modules/emotes/sound/emotes/annoyed.ogg', 25, TRUE)

@@ -1,6 +1,6 @@
 /obj/item/clothing/head/costume/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	dog_fashion = null
 
@@ -45,8 +45,8 @@
 //Ushankas
 //These have to be subtypes of TG's ushanka to inherit the toggleability
 /obj/item/clothing/head/costume/ushanka/sec
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 	name = "security ushanka"
 	desc = "A warm and comfortable ushanka, dyed with 'all natural flavors' according to the tag."
 	icon_state = "ushankablue"
@@ -58,8 +58,8 @@
 //Pelts
 //Not made into a subtype of /costume but stored in the same file
 /obj/item/clothing/head/pelt
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 	name = "bear pelt"
 	desc = "A luxurious bear pelt, good to keep warm in winter. Or to sleep through it."
 	icon_state = "bearpelt_brown"
@@ -96,7 +96,7 @@
 /obj/item/clothing/head/pelt/wolf
 	name = "wolf pelt"
 	desc = "A fuzzy wolf pelt that demands respect as a hunter... assuming it wasn't just purchased, that is, for all the glory but none of the credit."
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/pelt_big.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/pelt_big.dmi'
 	icon_state = "wolfpelt_brown"
 
 /obj/item/clothing/head/pelt/wolf/black

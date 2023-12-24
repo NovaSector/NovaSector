@@ -1,8 +1,8 @@
 //DS-2/Syndicate clothing.
 
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
-	icon = 'modular_skyrat/modules/syndie_edits/icons/obj.dmi'
-	worn_icon = 'modular_skyrat/modules/syndie_edits/icons/worn.dmi'
+	icon = 'modular_nova/modules/syndie_edits/icons/obj.dmi'
+	worn_icon = 'modular_nova/modules/syndie_edits/icons/worn.dmi'
 	icon_state = "syndievest"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -14,8 +14,8 @@
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate/winter
 	name = "syndicate captain's winter vest"
 	desc = "A sinister yet comfortable looking vest of advanced armor worn over a black and red fireproof jacket. The fur is said to be from wolves on the icemoon."
-	icon = 'modular_skyrat/modules/syndie_edits/icons/obj.dmi'
-	worn_icon = 'modular_skyrat/modules/syndie_edits/icons/worn.dmi'
+	icon = 'modular_nova/modules/syndie_edits/icons/obj.dmi'
+	worn_icon = 'modular_nova/modules/syndie_edits/icons/worn.dmi'
 	icon_state = "syndievest_winter"
 	body_parts_covered = CHEST|GROIN
 	cold_protection = CHEST|GROIN|ARMS
@@ -29,16 +29,16 @@
 /obj/item/clothing/head/hats/warden/syndicate
 	name = "master at arms' police hat"
 	desc = "A fashionable police cap emblazoned with a golden badge, issued to the Master at Arms. Protects the head from impacts."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "policehelm_syndie"
 	dog_fashion = null
 
 /obj/item/clothing/head/helmet/swat/ds
 	name = "SWAT helmet"
 	desc = "A robust and spaceworthy helmet with a small cross on it along with 'IP' written across the earpad."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
 	icon_state = "swat_ds"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
 
@@ -53,8 +53,8 @@
 /obj/item/clothing/mask/gas/syndicate/ds
 	name = "balaclava"
 	desc = "A fancy balaclava, while it doesn't muffle your voice, it's fireproof and has a miniature rebreather for internals. Comfy to boot!"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "balaclava_ds"
 	flags_inv = HIDEFACE | HIDEEARS | HIDEFACIALHAIR
 	alternate_worn_layer = LOW_FACEMASK_LAYER //This lets it layer below glasses and headsets; yes, that's below hair, but it already has HIDEHAIR
@@ -65,20 +65,20 @@
 	actions_types = list(/datum/action/item_action/adjust)
 	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
 	icon_state = "half_mask"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi'
-	unique_death = 'modular_skyrat/master_files/sound/effects/hacked.ogg'
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	voice_filter = null
 	use_radio_beeps_tts = FALSE
 
 /obj/item/clothing/shoes/combat //TO-DO: Move these overrides out of a syndicate file!
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "combat"
 
 /obj/item/clothing/gloves/combat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 	worn_icon_teshari = TESHARI_HANDS_ICON
 
@@ -87,13 +87,13 @@
 	worn_icon = null
 
 /obj/item/clothing/gloves/tackler/combat/insulated
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
 /obj/item/clothing/gloves/krav_maga/combatglovesplus
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "combat"
 
 /obj/item/clothing/gloves/krav_maga/combatglovesplus/maa
@@ -103,8 +103,8 @@
 
 /obj/item/storage/belt/security/webbing/ds
 	name = "brig officer webbing"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/belt.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "webbingds"
 	worn_icon_state = "webbingds"
 	uses_advanced_reskins = FALSE
@@ -133,8 +133,8 @@
 /obj/item/clothing/head/soft/sec/syndicate
 	name = "engine tech utility cover"
 	desc = "A utility cover for an engine technician, there's a tag that reads 'IP-DS-2'."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "dssoft"
 	soft_type = "ds"
 
@@ -143,8 +143,8 @@
 	name = "tactical maid headband"
 	desc = "Tacticute."
 	icon_state = "syndimaid_headband"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/costume.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 
 /obj/item/clothing/gloves/combat/maid
 	name = "combat maid sleeves"
@@ -168,8 +168,8 @@
 /obj/item/clothing/accessory/maidcorset/syndicate
 	name = "syndicate maid apron"
 	desc = "Practical? No. Tactical? Also no. Cute? Most definitely yes."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/accessories.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/accessories.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	icon_state = "syndimaid_corset"
 	minimize_when_attached = FALSE
 	attachment_slot = null

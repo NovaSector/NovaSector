@@ -1,7 +1,7 @@
 GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_indicator())
 
 /proc/generate_temporary_flavor_text_indicator()
-	var/mutable_appearance/temporary_flavor_text_indicator = mutable_appearance('modular_skyrat/modules/indicators/icons/temporary_flavor_text_indicator.dmi', "flavor", FLY_LAYER)
+	var/mutable_appearance/temporary_flavor_text_indicator = mutable_appearance('modular_nova/modules/indicators/icons/temporary_flavor_text_indicator.dmi', "flavor", FLY_LAYER)
 	temporary_flavor_text_indicator.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	return temporary_flavor_text_indicator
 

@@ -4,10 +4,10 @@
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
 	name = "\improper Szot 'Słońce' plasma projector"
 	desc = "An outdated sidearm rarely seen in use by some members of the CIN. Spews an inaccurate stream of searing plasma out the magnetic barrel so long as it has power and the trigger is pulled."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "slonce"
 
-	fire_sound = 'modular_skyrat/modules/microfusion/sound/incinerate.ogg'
+	fire_sound = 'modular_nova/modules/microfusion/sound/incinerate.ogg'
 	fire_sound_volume = 40 // This thing is comically loud otherwise
 
 	w_class = WEIGHT_CLASS_NORMAL
@@ -50,10 +50,10 @@
 /obj/item/gun/ballistic/automatic/pistol/plasma_marksman
 	name = "\improper Szot 'Gwiazda' plasma sharpshooter"
 	desc = "An outdated sidearm rarely seen in use by some members of the CIN. Fires relatively accurate globs of searing plasma."
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "gwiazda"
 
-	fire_sound = 'modular_skyrat/modules/microfusion/sound/burn.ogg'
+	fire_sound = 'modular_nova/modules/microfusion/sound/burn.ogg'
 	fire_sound_volume = 40 // This thing is comically loud otherwise
 
 	w_class = WEIGHT_CLASS_NORMAL
@@ -94,9 +94,9 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev12ga
 	recoil = SAWN_OFF_RECOIL
 	weapon_weight = WEAPON_MEDIUM
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "bobr"
-	fire_sound = 'modular_skyrat/modules/sec_haul/sound/revolver_fire.ogg'
+	fire_sound = 'modular_nova/modules/sec_haul/sound/revolver_fire.ogg'
 	spread = SAWN_OFF_ACC_PENALTY
 
 /obj/item/gun/ballistic/revolver/shotgun_revolver/give_manufacturer_examine()

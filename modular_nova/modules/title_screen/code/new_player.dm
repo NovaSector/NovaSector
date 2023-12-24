@@ -112,7 +112,7 @@
 		winset(client, "status_bar", "is-visible=true")
 
 /mob/dead/new_player/proc/play_lobby_button_sound()
-	SEND_SOUND(src, sound('modular_skyrat/master_files/sound/effects/save.ogg'))
+	SEND_SOUND(src, sound('modular_nova/master_files/sound/effects/save.ogg'))
 
 /**
  * Allows the player to select a server to join from any loaded servers.

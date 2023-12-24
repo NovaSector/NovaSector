@@ -1,2 +1,2 @@
 /obj/structure/dresser
-	icon = 'modular_skyrat/modules/aesthetics/stationobjs/stationobjs.dmi'
+	icon = 'modular_nova/modules/aesthetics/stationobjs/stationobjs.dmi'

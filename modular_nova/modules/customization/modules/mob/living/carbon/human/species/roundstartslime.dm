@@ -64,7 +64,7 @@
 	name = "Alter Form"
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "alter_form"
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi'
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
 	background_icon_state = "bg_alien"
 	/// Do you need to be a slime-person to use this ability?
 	var/slime_restricted = TRUE
@@ -110,10 +110,10 @@
 		alterer,
 		alterer,
 		list(
-			"Body Colours" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_rainbow"),
-			"DNA" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "dna"),
-			"Hair" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
-			"Markings" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan"),
+			"Body Colours" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_rainbow"),
+			"DNA" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "dna"),
+			"Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
+			"Markings" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan"),
 		),
 		tooltips = TRUE,
 	)
@@ -138,10 +138,10 @@
 		alterer,
 		alterer,
 		list(
-			"Primary" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_red"),
-			"Secondary" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_green"),
-			"Tertiary" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_blue"),
-			"All" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_rainbow"),
+			"Primary" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_red"),
+			"Secondary" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_green"),
+			"Tertiary" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_blue"),
+			"All" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_rainbow"),
 		),
 		tooltips = TRUE,
 	)
@@ -240,9 +240,9 @@
 		alterer,
 		alterer,
 		list(
-			"Hair" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
-			"Facial Hair" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "straight_razor"),
-			"Hair Color" = image(icon = 'modular_skyrat/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan")
+			"Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
+			"Facial Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "straight_razor"),
+			"Hair Color" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan")
 		),
 		tooltips = TRUE,
 	)

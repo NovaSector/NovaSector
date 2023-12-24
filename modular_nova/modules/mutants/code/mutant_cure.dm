@@ -1,7 +1,7 @@
 /obj/item/rna_extractor
 	name = "advanced virus RNA extractor"
 	desc = "A tool used to extract the RNA from viruses. Apply to skin."
-	icon = 'modular_skyrat/modules/mutants/icons/extractor.dmi'
+	icon = 'modular_nova/modules/mutants/icons/extractor.dmi'
 	icon_state = "extractor"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT)
 	/// Our loaded vial.
@@ -82,7 +82,7 @@
 /obj/item/rna_vial
 	name = "raw RNA vial"
 	desc = "A glass vial containing raw virus RNA. Slot this into the combinator to upload the sample."
-	icon = 'modular_skyrat/modules/mutants/icons/extractor.dmi'
+	icon = 'modular_nova/modules/mutants/icons/extractor.dmi'
 	icon_state = "rnavial"
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 	var/contains_rna = FALSE
@@ -104,7 +104,7 @@
 /obj/item/hnz_cure
 	name = "HNZ-1 cure vial"
 	desc = "A counter to the HNZ-1 virus, used to rapidly reverse the effects of the virus."
-	icon = 'modular_skyrat/modules/mutants/icons/extractor.dmi'
+	icon = 'modular_nova/modules/mutants/icons/extractor.dmi'
 	icon_state = "tvirus_cure"
 	var/used = FALSE
 
@@ -145,7 +145,7 @@
 /obj/machinery/rnd/rna_recombinator
 	name = "RNA recombinator"
 	desc = "This machine is used to recombine RNA sequences from extracted vials of raw virus."
-	icon = 'modular_skyrat/modules/mutants/icons/cure_machine.dmi'
+	icon = 'modular_nova/modules/mutants/icons/cure_machine.dmi'
 	icon_state = "h_lathe"
 	base_icon_state = "h_lathe"
 	density = TRUE
@@ -346,7 +346,7 @@
 /obj/item/reagent_containers/cup/bottle/hnz
 	name = "HNZ-1 bottle"
 	desc = "A small bottle of the HNZ-1 pathogen. Nanotrasen Bioweapons inc."
-	icon = 'modular_skyrat/modules/mutants/icons/extractor.dmi'
+	icon = 'modular_nova/modules/mutants/icons/extractor.dmi'
 	icon_state = "tvirus_infector"
 	list_reagents = list(/datum/reagent/hnz = 30)
 	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT * 5)

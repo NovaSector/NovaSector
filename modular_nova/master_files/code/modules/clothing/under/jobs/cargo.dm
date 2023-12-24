@@ -1,13 +1,13 @@
 /obj/item/clothing/under/rank/cargo
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/cargo_digi.dmi' // Anything that was in the cargo.dmi, should be in the cargo_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi' // Anything that was in the cargo.dmi, should be in the cargo_digi.dmi
 
 /obj/item/clothing/under/rank/cargo/tech/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/cargo.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/cargo.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
 
 /obj/item/clothing/under/rank/cargo/qm/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/cargo.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/cargo.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
 
 // Add a /obj/item/clothing/under/rank/cargo/miner/skyrat if you add miner uniforms
 

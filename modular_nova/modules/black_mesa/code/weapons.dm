@@ -1,14 +1,14 @@
 /obj/item/crowbar/freeman
 	name = "blood soaked crowbar"
 	desc = "A heavy handed crowbar, it drips with blood."
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/freeman.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/freeman.dmi'
 	icon_state = "crowbar"
 	force = 35
 	throwforce = 45
 	toolspeed = 0.1
 	wound_bonus = 10
-	hitsound = 'modular_skyrat/master_files/sound/weapons/crowbar2.ogg'
-	mob_throw_hit_sound = 'modular_skyrat/master_files/sound/weapons/crowbar2.ogg'
+	hitsound = 'modular_nova/master_files/sound/weapons/crowbar2.ogg'
+	mob_throw_hit_sound = 'modular_nova/master_files/sound/weapons/crowbar2.ogg'
 	force_opens = TRUE
 
 /obj/item/crowbar/freeman/ultimate
@@ -24,12 +24,12 @@
 	name = "ballistic shield"
 	desc = "A shield fit for those that want to sprint headfirst into the unknown! Cumbersome as hell. Repair with iron."
 	icon_state = "ballistic"
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/ballistic.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic.dmi'
 	worn_icon_state = "ballistic_worn"
-	worn_icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/ballistic.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic.dmi'
 	inhand_icon_state = "ballistic"
-	lefthand_file = 'modular_skyrat/modules/awaymissions_skyrat/icons/ballistic_l.dmi'
-	righthand_file = 'modular_skyrat/modules/awaymissions_skyrat/icons/ballistic_r.dmi'
+	lefthand_file = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic_l.dmi'
+	righthand_file = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic_r.dmi'
 	force = 14
 	throwforce = 5
 	throw_speed = 1
@@ -52,5 +52,5 @@
 	name = "broken ballistic shield"
 	desc = "An unsalvageable, unrecoverable mess of armor steel and kevlar. Should've maintained it, huh?"
 	icon_state = "ballistic_broken"
-	icon = 'modular_skyrat/modules/awaymissions_skyrat/icons/ballistic.dmi'
+	icon = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic.dmi'
 	w_class = WEIGHT_CLASS_BULKY

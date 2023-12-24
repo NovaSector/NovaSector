@@ -4,7 +4,7 @@
 /obj/structure/millstone
 	name = "millstone"
 	desc = "Two big disks of something heavy and tough. Put a plant between them and spin, and you'll end up with seeds and a really ground up plant."
-	icon = 'modular_skyrat/modules/primitive_cooking_additions/icons/millstone.dmi'
+	icon = 'modular_nova/modules/primitive_cooking_additions/icons/millstone.dmi'
 	icon_state = "millstone"
 	density = TRUE
 	anchored = TRUE

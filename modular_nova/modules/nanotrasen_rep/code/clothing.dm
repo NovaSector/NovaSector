@@ -4,8 +4,8 @@
 /obj/item/clothing/suit/armor/vest/nanotrasen_consultant
 	name = "nanotrasen officers coat"
 	desc = "A premium black coat with real fur round the neck, it seems to have some armor padding inside as well."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "bladerunner"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "suit"
@@ -20,8 +20,8 @@
 /obj/item/clothing/head/nanotrasen_consultant
 	name = "nanotrasen consultant's hat"
 	desc = "A cap made from durathread, it has an insignia on the front denoting the rank of \"Nanotrasen Consultant\"."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "nt_consultant_cap"
 	inhand_icon_state = "that"
 	flags_inv = 0

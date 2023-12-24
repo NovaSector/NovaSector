@@ -9,7 +9,7 @@
 		amounts of electricity. While not nearly as fast and efficient as other ore refining methods, the arc furnace is \
 		capable of returning <b>larger amounts of refined material</b> than a standard refining process can. \
 		A sticker on the side notes that this may <b>exhaust waste gasses to the air</b> during operation."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/machines.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	icon_state = "arc_furnace"
 	base_icon_state = "arc_furnace"
 	appearance_flags = KEEP_TOGETHER | LONG_GLIDE | PIXEL_SCALE

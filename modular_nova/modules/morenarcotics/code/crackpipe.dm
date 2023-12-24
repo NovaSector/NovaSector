@@ -1,8 +1,8 @@
 /obj/item/clothing/mask/cigarette/pipe/crackpipe
 	name = "crack pipe"
 	desc = "A slick glass pipe made for smoking one thing: crack."
-	icon = 'modular_skyrat/modules/morenarcotics/icons/crack.dmi'
-	worn_icon = 'modular_skyrat/modules/morenarcotics/icons/mask.dmi'
+	icon = 'modular_nova/modules/morenarcotics/icons/crack.dmi'
+	worn_icon = 'modular_nova/modules/morenarcotics/icons/mask.dmi'
 	icon_state = "glass_pipeoff" //it seems like theres some unused crack pipe sprite in masks.dmi, sweet!
 	icon_on = "glass_pipeon"
 	icon_off = "glass_pipeoff"

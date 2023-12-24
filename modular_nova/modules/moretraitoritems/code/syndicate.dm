@@ -150,7 +150,7 @@
 /obj/item/codeword_granter
 	name = "codeword manual"
 	desc = "A black manual with a red S lovingly inscribed on the cover by only the finest of presses from a factory."
-	icon = 'modular_skyrat/modules/opposing_force/icons/items.dmi'
+	icon = 'modular_nova/modules/opposing_force/icons/items.dmi'
 	icon_state = "codeword_book"
 	/// Number of charges the book has, limits the number of times it can be used.
 	var/charges = 1
@@ -203,7 +203,7 @@
 
 
 /obj/item/antag_granter
-	icon = 'modular_skyrat/modules/opposing_force/icons/items.dmi'
+	icon = 'modular_nova/modules/opposing_force/icons/items.dmi'
 	/// What antag datum to give
 	var/antag_datum = /datum/antagonist/traitor
 	/// What to tell the user when they use the granter
@@ -246,7 +246,7 @@
 /obj/item/antag_granter/clock_cultist
 	name = "brass contraption"
 	desc = "A cogwheel-shaped device of brass, with a glass lens floating, suspended in the center."
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	icon_state = "vanguard_cogwheel"
 	antag_datum = /datum/antagonist/clock_cultist/solo
 	user_message = "A whirring fills your ears as <span class='brass'>knowledge of His Eminence fills your mind</span>."

@@ -604,7 +604,7 @@
 
 //OBJECTS//
 /obj/structure/showcase/machinery/oldpod/used
-	icon = 'modular_skyrat/modules/cryosleep/icons/cryogenics.dmi'
+	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cryopod-open"
 
 //IDS//

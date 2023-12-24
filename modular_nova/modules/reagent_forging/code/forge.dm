@@ -41,7 +41,7 @@
 /obj/structure/reagent_forge
 	name = "forge"
 	desc = "A structure built out of bricks, for heating up metal, or glass, or ceramic, or food, or anything really."
-	icon = 'modular_skyrat/modules/reagent_forging/icons/obj/forge_structures.dmi'
+	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_structures.dmi'
 	icon_state = "forge_inactive"
 
 	anchored = TRUE

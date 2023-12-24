@@ -1,5 +1,5 @@
 /datum/sprite_accessory/xenodorsal
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	generic = "Dorsal Spines"
 	key = "xenodorsal"
 	color_src = USE_ONE_COLOR
@@ -36,14 +36,14 @@
 
 //TAILS
 /datum/sprite_accessory/tails/mammal/wagging/xeno_tail
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	name = "Xenomorph Tail"
 	icon_state = "xeno"
 	recommended_species = list(SPECIES_XENO)
 
 //HEADS
 /datum/sprite_accessory/xenohead
-	icon = 'modular_skyrat/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	generic = "Caste Head"
 	key = "xenohead"
 	relevent_layers = list(BODY_ADJ_LAYER)

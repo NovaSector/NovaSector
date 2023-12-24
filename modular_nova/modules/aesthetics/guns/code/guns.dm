@@ -66,9 +66,9 @@
 
 ///GUN SPRITE OVERWRITES
 /obj/item/gun/energy/ionrifle
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/energy.dmi'
-	lefthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_righthand.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
+	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/energy/ionrifle/carbine
 	icon = 'icons/obj/weapons/guns/energy.dmi'
@@ -78,10 +78,10 @@
 /obj/item/gun/ballistic/shotgun/automatic/combat
 	name = "\improper Peacekeeper combat shotgun"
 	desc = "A semi-automatic Nanotrasen Peacekeeper shotgun with tactical furnishing and heavier internals meant for sustained fire. Lacks a threaded barrel."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
-	worn_icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_back.dmi'
-	lefthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_righthand.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
+	worn_icon = 'modular_nova/modules/aesthetics/guns/icons/guns_back.dmi'
+	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 	inhand_icon_state = "shotgun_combat"
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
@@ -96,38 +96,38 @@
 	worn_icon = null
 
 /obj/item/gun/grenadelauncher
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
-	lefthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_righthand.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
+	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/m1911
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 	inhand_icon_state = "colt"
-	lefthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/c20r
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/m90
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 /obj/item/gun/ballistic/revolver/c38/detective
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/aps
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/regal
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 
 /obj/item/gun/energy/e_gun/nuclear
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/nucgun.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/nucgun.dmi'
 	ammo_x_offset = 2
-	lefthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/aesthetics/guns/icons/guns_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 	worn_icon_state = "gun"
 	worn_icon = null
 
@@ -137,23 +137,23 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/rainbow, /obj/item/ammo_casing/energy/disabler/rainbow)
 
 /obj/item/ammo_casing/energy/laser/rainbow
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/nucgun.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/nucgun.dmi'
 	icon_state = "laser"
 	select_name = "kill"
 	projectile_type = /obj/projectile/beam/laser/rainbow
 
 /obj/projectile/beam/laser/rainbow
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/nucgun.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/nucgun.dmi'
 	icon_state = "laser"
 
 /obj/item/ammo_casing/energy/disabler/rainbow
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/nucgun.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/nucgun.dmi'
 	icon_state = "laser"
 	select_name = "disable"
 	projectile_type = /obj/projectile/beam/disabler/rainbow
 
 /obj/projectile/beam/disabler/rainbow
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/nucgun.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/nucgun.dmi'
 	icon_state = "laser"
 
 /obj/item/gun/energy/e_gun/nuclear/emag_act(mob/user, obj/item/card/emag/E)
@@ -178,24 +178,24 @@
 
 //BEAM SOUNDS
 /obj/item/ammo_casing/energy
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/laser.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/laser.ogg'
 
 /obj/item/ammo_casing/energy/laser/pulse
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/pulse.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/pulse.ogg'
 
 /obj/item/gun/energy/xray
 	fire_sound_volume = 100
 
 /obj/item/ammo_casing/energy/xray
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/xray_laser.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/xray_laser.ogg'
 
 /obj/item/ammo_casing/energy/laser/accelerator
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/laser_cannon_fire.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/laser_cannon_fire.ogg'
 
 /obj/item/gun/ballistic/automatic/sniper_rifle
 	name = "sniper rifle"
 	desc = "A long ranged weapon that does significant damage. No, you can't quickscope."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "sniper"
@@ -231,7 +231,7 @@
 /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 	name = "syndicate sniper rifle"
 	desc = "An illegally modified .50 cal sniper rifle with suppression compatibility. Quickscoping still doesn't work."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper2"
 	worn_icon_state = "sniper"
 	fire_delay = 5.5 SECONDS
@@ -242,11 +242,11 @@
 /obj/item/gun/ballistic/automatic/sniper_rifle/modular
 	name = "AUS-107 anti-materiel rifle"
 	desc = "A devastating Aussec Armory heavy sniper rifle, fitted with a modern scope."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper"
 	worn_icon_state = "sniper"
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle.ogg'
-	suppressed_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle.ogg'
+	suppressed_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	can_suppress = FALSE
 
@@ -254,8 +254,8 @@
 	name = "'Caracal' anti-materiel rifle"  //we flop out
 	desc = "A sleek, light bullpup .416 Stabilis sniper rifle with a reciprocating barrel, nicknamed 'Caracal' by Scarborough Arms. Its compact folding parts make it able to fit into a backpack, and its modular barrel can have a suppressor installed within it rather than as a muzzle extension. Its advanced scope accounts for all ballistic inaccuracies of a reciprocating barrel."
 	icon_state = "sysniper"
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle.ogg'
-	suppressed_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle.ogg'
+	suppressed_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
 	fire_delay = 4 SECONDS //Delay reduced thanks to recoil absorption
 	burst_size = 0.5
 	recoil = 1
@@ -270,8 +270,8 @@
 	name = "SA-107 anti-materiel rifle"
 	desc = "An illegal Scarborough Arms rendition of an Aussec Armory sniper rifle. This one has been fitted with a heavy duty scope, a sturdier stock, and has a removable muzzle brake that allows easy attachment of suppressors."
 	icon_state = "sniper2"
-	fire_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle.ogg'
-	suppressed_sound = 'modular_skyrat/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle.ogg'
+	suppressed_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
 	load_sound = 'sound/weapons/gun/sniper/mag_insert.ogg'
@@ -290,7 +290,7 @@
 /obj/item/gun/ballistic/automatic/ar/modular
 	name = "\improper NT ARG-63"
 	desc = "Nanotrasen's prime ballistic option based on the Stoner design, fitted with a light polymer frame and other tactical furniture, and chambered in .277 Aestus - nicknamed 'Boarder' by Special Operations teams."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns_gubman2.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "arg"
 	inhand_icon_state = "arg"
 	can_suppress = FALSE
@@ -298,12 +298,12 @@
 /obj/item/gun/ballistic/automatic/surplus
 	name = "\improper Type-69 surplus rifle"
 	desc = "One of countless obsolete ballistic rifles that still sees use as a cheap deterrent. Uses 10mm ammo and its bulky frame prevents one-hand firing."
-	icon = 'modular_skyrat/modules/aesthetics/guns/icons/guns.dmi'
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 // GUBMAN3 - FULL BULLET RENAME
 // i loathe the above
 
-// overrides for 10mm ammo in modular_skyrat\modules\sec_haul\code\guns\bullets.dm
+// overrides for 10mm ammo in modular_nova\modules\sec_haul\code\guns\bullets.dm
 
 // overrides for .310 Strilka-derived ammo, e.g. lionhunter ammo, because you don't want to give security the ability to print infinite wallhack ammo, right?
 /obj/item/ammo_casing/strilka310/lionhunter
@@ -327,7 +327,7 @@
 	advanced_print_req = TRUE
 	custom_materials = AMMO_MATS_PHASIC
 
-// shotgun ammo overrides moved to modular_skyrat\modules\shotgunrebalance\code\shotgun.dm
+// shotgun ammo overrides moved to modular_nova\modules\shotgunrebalance\code\shotgun.dm
 
 // overrides for tgcode .50cal, used in their sniper/anti-materiel rifles
 /obj/item/ammo_casing/p50

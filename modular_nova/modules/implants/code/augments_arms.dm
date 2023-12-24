@@ -17,9 +17,9 @@
 /obj/item/melee/implantarmblade
 	name = "implanted arm blade"
 	desc = "A long, sharp, mantis-like blade implanted into someones arm. Cleaves through flesh like its particularly strong butter."
-	icon = 'modular_skyrat/modules/implants/icons/implanted_blade.dmi'
-	righthand_file = 'modular_skyrat/modules/implants/icons/implanted_blade_righthand.dmi'
-	lefthand_file = 'modular_skyrat/modules/implants/icons/implanted_blade_lefthand.dmi'
+	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/implanted_blade_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/implanted_blade_lefthand.dmi'
 	icon_state = "mantis_blade"
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = CONDUCTS_ELECTRICITY
@@ -27,7 +27,7 @@
 	force = 25
 	armour_penetration = 20
 	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
-	hitsound = 'modular_skyrat/master_files/sound/weapons/bloodyslice.ogg'
+	hitsound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
 
 /obj/item/melee/implantarmblade/energy
 	name = "energy arm blade"
@@ -41,7 +41,7 @@
 	name = "arm blade implant"
 	desc = "An integrated blade implant designed to be installed into a persons arm. Stylish and deadly; Although, being caught with this without proper permits is sure to draw unwanted attention."
 	items_to_create = list(/obj/item/melee/implantarmblade)
-	icon = 'modular_skyrat/modules/implants/icons/implanted_blade.dmi'
+	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	icon_state = "mantis_blade"
 
 /obj/item/organ/internal/cyberimp/arm/armblade/emag_act()
@@ -55,9 +55,9 @@
 /obj/item/knife/razor_claws
 	name = "implanted razor claws"
 	desc = "A set of sharp, retractable claws built into the fingertips, five double-edged blades sure to turn people into mincemeat. Capable of shifting into 'Precision' mode to act similar to wirecutters."
-	icon = 'modular_skyrat/modules/implants/icons/razorclaws.dmi'
-	righthand_file = 'modular_skyrat/modules/implants/icons/razorclaws_righthand.dmi'
-	lefthand_file = 'modular_skyrat/modules/implants/icons/razorclaws_lefthand.dmi'
+	icon = 'modular_nova/modules/implants/icons/razorclaws.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/razorclaws_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/razorclaws_lefthand.dmi'
 	icon_state = "wolverine"
 	inhand_icon_state = "wolverine"
 	var/knife_force = 10
@@ -123,7 +123,7 @@
 	desc = "A set of hidden, retractable blades built into the fingertips; cyborg mercenary approved."
 	items_to_create = list(/obj/item/knife/razor_claws)
 	actions_types = list(/datum/action/item_action/organ_action/toggle/razor_claws)
-	icon = 'modular_skyrat/modules/implants/icons/razorclaws.dmi'
+	icon = 'modular_nova/modules/implants/icons/razorclaws.dmi'
 	icon_state = "wolverine"
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
@@ -141,7 +141,7 @@
 /datum/action/item_action/organ_action/toggle/razor_claws
 	name = "Extend Claws"
 	desc = "You can also activate the claws in your hand to change their mode."
-	button_icon = 'modular_skyrat/master_files/icons/hud/actions.dmi'
+	button_icon = 'modular_nova/master_files/icons/hud/actions.dmi'
 	button_icon_state = "wolverine"
 
 /obj/item/organ/internal/cyberimp/arm/hacker

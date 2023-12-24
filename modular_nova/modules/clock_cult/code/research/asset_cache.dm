@@ -34,7 +34,7 @@
 
 		// And now scripture icons
 		for(var/datum/scripture/unlocked_scripture as anything in new_research.unlocked_scriptures)
-			var/icon_file = 'modular_skyrat/modules/clock_cult/icons/actions_clock.dmi'
+			var/icon_file = 'modular_nova/modules/clock_cult/icons/actions_clock.dmi'
 			var/icon_state = initial(unlocked_scripture.button_icon_state)
 
 			var/id = sanitize_css_class_name("[icon_file][icon_state]")

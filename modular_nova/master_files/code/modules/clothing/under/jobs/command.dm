@@ -1,10 +1,10 @@
 /obj/item/clothing/under/rank/captain
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/command_digi.dmi' //Anything that was in TG's captain.dmi, should be in our command_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/command_digi.dmi' //Anything that was in TG's captain.dmi, should be in our command_digi.dmi
 	//NOTE - TG uses "captain.dmi"; because we have a few non-captain items going in here for ease of access, this will just be "command.dmi"
 
 /obj/item/clothing/under/rank/captain/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/command.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/command.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/command.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/command.dmi'
 
 /*
 *	CAPTAIN
@@ -36,9 +36,9 @@
 //on-station often.
 
 /obj/item/clothing/under/rank/blueshield
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/command.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/command.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/command_digi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/command.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/command.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/command_digi.dmi'
 	name = "blueshield's suit"
 	desc = "A classic bodyguard's suit, with custom-fitted Blueshield-Blue cuffs and a Nanotrasen insignia over one of the pockets."
 	icon_state = "blueshield"
@@ -88,9 +88,9 @@
 //See Blueshield note - tl;dr, this role is a station role, while Centcom.dmi is more event roles
 
 /obj/item/clothing/under/rank/nanotrasen_consultant
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/command.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/command.dmi'
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/command_digi.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/command.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/command.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/command_digi.dmi'
 	desc = "It's a green jumpsuit with some gold markings denoting the rank of \"Nanotrasen Consultant\"."
 	name = "nanotrasen consultant's jumpsuit"
 	icon_state = "nt_consultant"

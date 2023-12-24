@@ -1,18 +1,18 @@
 /obj/item/stamp/cat
 	name = "\improper Official Cat Stamp"
 	desc = "A rubber stamp for stamping documents of questionable importance."
-	icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi'
+	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
 	icon_state = "stamp-cat_blue"
 	inhand_icon_state = "stamp"
 // Radial menu options
-	var/static/cat_blue = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_blue")
-	var/static/paw_blue = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_blue")
-	var/static/cat_red = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_red")
-	var/static/paw_red = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_red")
-	var/static/cat_orange = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_orange")
-	var/static/paw_orange = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_orange")
-	var/static/cat_green = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_green")
-	var/static/paw_green = image(icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_green")
+	var/static/cat_blue = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_blue")
+	var/static/paw_blue = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_blue")
+	var/static/cat_red = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_red")
+	var/static/paw_red = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_red")
+	var/static/cat_orange = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_orange")
+	var/static/paw_orange = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_orange")
+	var/static/cat_green = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_cat_green")
+	var/static/paw_green = image(icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi', icon_state = "radial_paw_green")
 // Choices for the radial menu
 	var/static/list/radial_options = list(
 		"cat_blue" = cat_blue,
@@ -71,12 +71,12 @@
 /obj/item/stamp/nri
 	name = "\improper Novaya Rossiyskaya Imperia stamp"
 	desc = "A rubber stamp for stamping important documents. Used in various NRI documents."
-	icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi'
+	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
 	icon_state = "stamp-nri"
 	dye_color = DYE_CENTCOM
 
 /obj/item/stamp/solfed
 	name = "\improper Solar Federation stamp"
-	icon = 'modular_skyrat/master_files/icons/obj/bureaucracy.dmi'
+	icon = 'modular_nova/master_files/icons/obj/bureaucracy.dmi'
 	icon_state = "stamp-solfed"
 	dye_color = DYE_CE

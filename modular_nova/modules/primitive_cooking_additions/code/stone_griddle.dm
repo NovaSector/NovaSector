@@ -1,7 +1,7 @@
 /obj/machinery/griddle/stone
 	name = "stone griddle"
 	desc = "You could probably cook an egg on this... the griddle slab looks very unsanitary."
-	icon = 'modular_skyrat/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
+	icon = 'modular_nova/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
 	icon_state = "griddle1_off"
 	density = TRUE
 	pass_flags_self = PASSMACHINE | PASSTABLE| LETPASSTHROW // It's roughly the height of a table.

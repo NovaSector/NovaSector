@@ -1,5 +1,5 @@
 //	This DMI holds our radial icons for the 'hide mutant parts' verb
-#define HIDING_RADIAL_DMI 'modular_skyrat/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/radial.dmi'
+#define HIDING_RADIAL_DMI 'modular_nova/modules/customization/modules/mob/living/carbon/human/MOD_sprite_accessories/icons/radial.dmi'
 
 /mob/living/carbon/human/Topic(href, href_list)
 	. = ..()

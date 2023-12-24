@@ -7,7 +7,7 @@
 	force = 15
 	weapon_weight = WEAPON_HEAVY
 	fire_delay = 4 SECONDS
-	fire_sound = 'modular_skyrat/modules/sec_haul/sound/chaingun_fire.ogg'
+	fire_sound = 'modular_nova/modules/sec_haul/sound/chaingun_fire.ogg'
 
 /obj/item/gun/ballistic/automatic/laser/marksman/Initialize(mapload)
 	. = ..()

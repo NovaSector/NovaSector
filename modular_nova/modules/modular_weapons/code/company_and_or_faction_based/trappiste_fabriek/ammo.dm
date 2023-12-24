@@ -5,7 +5,7 @@
 	name = ".585 Trappiste lethal bullet casing"
 	desc = "A white polymer cased high caliber round commonly used in handguns."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
 	icon_state = "585trappiste"
 
 	caliber = CALIBER_585TRAPPISTE
@@ -20,7 +20,7 @@
 	name = "ammo box (.585 Trappiste lethal)"
 	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
 	icon_state = "585box"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

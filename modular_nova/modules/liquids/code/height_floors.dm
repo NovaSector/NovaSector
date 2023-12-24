@@ -39,7 +39,7 @@
 /turf/open/floor/iron/pool
 	name = "pool floor"
 	floor_tile = /obj/item/stack/tile/iron/pool
-	icon = 'modular_skyrat/modules/liquids/icons/turf/pool_tile.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/pool_tile.dmi'
 	base_icon_state = "pool_tile"
 	icon_state = "pool_tile"
 	liquid_height = -30
@@ -50,7 +50,7 @@
 
 /turf/open/floor/iron/pool/cobble
 	name = "cobblestone pool floor"
-	icon = 'modular_skyrat/modules/aesthetics/floors/icons/floors.dmi'
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
 	base_icon_state = "cobble"
 	icon_state = "cobble"
 	footstep = FOOTSTEP_FLOOR
@@ -69,7 +69,7 @@
 /turf/open/floor/iron/elevated
 	name = "elevated floor"
 	floor_tile = /obj/item/stack/tile/iron/elevated
-	icon = 'modular_skyrat/modules/liquids/icons/turf/elevated_plasteel.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/elevated_plasteel.dmi'
 	icon_state = "elevated_plasteel-0"
 	base_icon_state = "elevated_plasteel"
 	smoothing_flags = SMOOTH_BITMASK
@@ -84,7 +84,7 @@
 /turf/open/floor/iron/lowered
 	name = "lowered floor"
 	floor_tile = /obj/item/stack/tile/iron/lowered
-	icon = 'modular_skyrat/modules/liquids/icons/turf/lowered_plasteel.dmi'
+	icon = 'modular_nova/modules/liquids/icons/turf/lowered_plasteel.dmi'
 	icon_state = "lowered_plasteel-0"
 	base_icon_state = "lowered_plasteel"
 	smoothing_flags = SMOOTH_BITMASK

@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 
 
 /obj/item/clockwork
-	icon = 'modular_skyrat/modules/clock_cult/icons/clockwork_objects.dmi'
+	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	/// Extra info to give clock cultists, added via the /datum/element/clockwork_description element
 	var/clockwork_desc = ""
 
@@ -21,8 +21,8 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 	clockwork_desc = "A beautiful work of art, harnessing mechanical energy for a variety of useful powers."
 	item_flags = NOBLUDGEON
 	icon_state = "clockwork_slab"
-	lefthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
-	righthand_file = 'modular_skyrat/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/clock_cult/icons/weapons/clockwork_righthand.dmi'
 
 	/// The scripture currently being invoked
 	var/datum/scripture/invoking_scripture

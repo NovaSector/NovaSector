@@ -2,7 +2,7 @@
 	name = "stone"
 	desc = "Stone brick."
 	singular_name = "stone block"
-	icon = 'modular_skyrat/modules/stone/icons/ore.dmi'
+	icon = 'modular_nova/modules/stone/icons/ore.dmi'
 	icon_state = "sheet-stone"
 	inhand_icon_state = "sheet-metal"
 	mats_per_unit = list(/datum/material/stone=SHEET_MATERIAL_AMOUNT)
@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 /obj/item/stack/stone
 	name = "rough stone"
 	desc = "Large chunks of uncut stone, tough enough to safely build out of... if you could manage to cut them into something usable."
-	icon = 'modular_skyrat/modules/stone/icons/ore.dmi'
+	icon = 'modular_nova/modules/stone/icons/ore.dmi'
 	icon_state = "stone_ore"
 	singular_name = "rough stone boulder"
 	mats_per_unit = list(/datum/material/stone = SHEET_MATERIAL_AMOUNT)
@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 /turf/closed/wall/mineral/stone
 	name = "stone wall"
 	desc = "A wall made of solid stone bricks."
-	icon = 'modular_skyrat/modules/stone/icons/wall.dmi'
+	icon = 'modular_nova/modules/stone/icons/wall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	sheet_type = /obj/item/stack/sheet/mineral/stone
@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 /turf/closed/indestructible/stone
 	name = "stone wall"
 	desc = "A wall made of unusually solid stone bricks."
-	icon = 'modular_skyrat/modules/stone/icons/wall.dmi'
+	icon = 'modular_nova/modules/stone/icons/wall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	smoothing_flags = SMOOTH_BITMASK
@@ -126,10 +126,10 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 /obj/structure/falsewall/stone
 	name = "stone wall"
 	desc = "A wall made of solid stone bricks."
-	icon = 'modular_skyrat/modules/stone/icons/wall.dmi'
+	icon = 'modular_nova/modules/stone/icons/wall.dmi'
 	icon_state = "wall-open"
 	base_icon_state = "wall"
-	fake_icon = 'modular_skyrat/modules/stone/icons/wall.dmi'
+	fake_icon = 'modular_nova/modules/stone/icons/wall.dmi'
 	mineral = /obj/item/stack/sheet/mineral/stone
 	walltype = /turf/closed/wall/mineral/stone
 	smoothing_flags = SMOOTH_BITMASK

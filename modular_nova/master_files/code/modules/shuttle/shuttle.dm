@@ -2,9 +2,9 @@
 	/// Does this shuttle play sounds upon landing and takeoff?
 	var/shuttle_sounds = TRUE
 	/// The take off sound to be played
-	var/takeoff_sound = sound('modular_skyrat/modules/advanced_shuttles/sound/engine_startup.ogg')
+	var/takeoff_sound = sound('modular_nova/modules/advanced_shuttles/sound/engine_startup.ogg')
 	/// The landing sound to be played
-	var/landing_sound = sound('modular_skyrat/modules/advanced_shuttles/sound/engine_landing.ogg')
+	var/landing_sound = sound('modular_nova/modules/advanced_shuttles/sound/engine_landing.ogg')
 	/// The sound range coeff for the landing and take off sound effect
 	var/sound_range = 20
 

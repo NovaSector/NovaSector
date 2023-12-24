@@ -508,7 +508,7 @@
 	name = "salve globule"
 	desc = "A ball of regenerative synthetic plant matter, contained within a soft hardlight field."
 	embedding = list("embed_chance" = 100, ignore_throwspeed_threshold = TRUE, "pain_mult" = 0, "jostle_pain_mult" = 0, "fall_chance" = 0)
-	icon = 'modular_skyrat/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
+	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "globule"
 	heals_left = 40 //This means it'll be heaing 15 damage per type max.
 
@@ -534,7 +534,7 @@
 /obj/structure/bed/medical/medigun
 	name = "hardlight medical bed"
 	desc = "A medical bed made out of Hardlight"
-	icon = 'modular_skyrat/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
+	icon = 'modular_nova/modules/cellguns/icons/obj/guns/mediguns/misc.dmi'
 	icon_state = "hardlight_down"
 	base_icon_state = "hardlight"
 	max_integrity = 1

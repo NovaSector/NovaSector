@@ -65,7 +65,7 @@
 			use_power = ACTIVE_POWER_USE
 			set_light(new_brightness, new_power, new_color)
 			if(play_sound)
-				playsound(src.loc, 'modular_skyrat/modules/aesthetics/lights/sound/light_on.ogg', 65, 1)
+				playsound(src.loc, 'modular_nova/modules/aesthetics/lights/sound/light_on.ogg', 65, 1)
 
 /obj/machinery/light/proc/start_flickering()
 	on = FALSE

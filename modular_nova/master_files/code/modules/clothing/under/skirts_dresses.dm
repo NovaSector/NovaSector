@@ -1,4 +1,4 @@
-#define SKIRTS_DRESSES_DIGIFILE 'modular_skyrat/master_files/icons/mob/clothing/under/skirts_dresses_digi.dmi'
+#define SKIRTS_DRESSES_DIGIFILE 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses_digi.dmi'
 
 /obj/item/clothing/under/dress
 	body_parts_covered = CHEST|GROIN	//For reference
@@ -9,12 +9,12 @@
 	//God bless the skirt being a subtype of the dress, only need one worn_digi_icon definition
 
 /obj/item/clothing/under/dress/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 /obj/item/clothing/under/dress/skirt/skyrat	//Just so they can stay under TG's skirts in case code needs subtypes of them (also SDMM dropdown looks nicer like this)
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 //TG's icons only have a dress.dmi, but that means its not ABC-sorted to be beside shorts_pants_shirts.dmi. So its skirts_dresses for us.
 

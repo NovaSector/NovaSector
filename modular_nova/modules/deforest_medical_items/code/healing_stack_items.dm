@@ -8,7 +8,7 @@
 		injectors will surround the wound and form a subdermal, self healing splint. While convenient \
 		for keeping appearances and rapid healing, the nanomachines tend to leave their host particularly \
 		vulnerable to new damage for several minutes after application."
-	icon = 'modular_skyrat/modules/deforest_medical_items/icons/stack_items.dmi'
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "subsplint"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -112,7 +112,7 @@
 	singular_name = "red sun balm"
 	desc = "A popular brand of ointment for handling anything under the red sun, which tends to be terrible burns. \
 		Which red sun may this be referencing? Not even the producers of the balm are sure."
-	icon = 'modular_skyrat/modules/deforest_medical_items/icons/stack_items.dmi'
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "balm"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -141,7 +141,7 @@
 	desc = "A small roll of elastic material specially treated to be entirely sterile, and sealed in plastic just to be sure. \
 		These make excellent treatment against burn wounds, but due to their small nature are sub-par for serving as \
 		bone wound wrapping."
-	icon = 'modular_skyrat/modules/deforest_medical_items/icons/stack_items.dmi'
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "burndaid"
 	inhand_icon_state = null
 	novariants = TRUE
@@ -163,7 +163,7 @@
 	desc = "A small packet of fabricated coagulant for bleeding. Not as effective as some \
 		other methods of coagulating wounds, but is more effective than plain sutures. \
 		The downsides? It repairs less of the actual damage that's there."
-	icon = 'modular_skyrat/modules/deforest_medical_items/icons/stack_items.dmi'
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "clotter_slow"
 	inhand_icon_state = null
 	novariants = TRUE

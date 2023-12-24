@@ -1,7 +1,7 @@
 /obj/structure/antfarm
 	name = "ant farm"
 	desc = "Though it may look natural, this was not made by ants."
-	icon = 'modular_skyrat/modules/ashwalkers/icons/structures.dmi'
+	icon = 'modular_nova/modules/ashwalkers/icons/structures.dmi'
 	icon_state = "anthill"
 	density = TRUE
 	anchored = TRUE

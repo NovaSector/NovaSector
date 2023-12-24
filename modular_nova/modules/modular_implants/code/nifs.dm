@@ -15,7 +15,7 @@
 /obj/item/organ/internal/cyberimp/brain/nif
 	name = "Nanite Implant Framework"
 	desc = "A brain implant that infuses the user with nanites."
-	icon = 'modular_skyrat/modules/modular_implants/icons/obj/nifs.dmi'
+	icon = 'modular_nova/modules/modular_implants/icons/obj/nifs.dmi'
 	icon_state = "base_nif"
 	w_class = WEIGHT_CLASS_NORMAL
 	slot = ORGAN_SLOT_BRAIN_NIF
@@ -99,12 +99,12 @@
 
 	//Appearance Variables
 	///This is the sound that plays when doing most things!
-	var/good_sound ='modular_skyrat/modules/modular_implants/sounds/default_good.ogg'
+	var/good_sound ='modular_nova/modules/modular_implants/sounds/default_good.ogg'
 	///This is the sound that plays if there is an issue going on.
-	var/bad_sound = 'modular_skyrat/modules/modular_implants/sounds/default_bad.ogg'
+	var/bad_sound = 'modular_nova/modules/modular_implants/sounds/default_bad.ogg'
 	///This is the sound that you would hear if you enable if you activate or enable something.
-	var/click_sound = 'modular_skyrat/modules/modular_implants/sounds/default_click.ogg'
-	///What icon does the NIF display in chat when sending out alerts? Icon states are stored in 'modular_skyrat/modules/modular_implants/icons/chat.dmi'
+	var/click_sound = 'modular_nova/modules/modular_implants/sounds/default_click.ogg'
+	///What icon does the NIF display in chat when sending out alerts? Icon states are stored in 'modular_nova/modules/modular_implants/icons/chat.dmi'
 	var/chat_icon = "standard"
 
 /obj/item/organ/internal/cyberimp/brain/nif/Initialize(mapload)
@@ -483,7 +483,7 @@
 /datum/asset/spritesheet/chat/create_spritesheets()
 	. = ..()
 
-	InsertAll("nif", 'modular_skyrat/modules/modular_implants/icons/chat.dmi')
+	InsertAll("nif", 'modular_nova/modules/modular_implants/icons/chat.dmi')
 
 /obj/item/autosurgeon/organ/nif
 	starting_organ = /obj/item/organ/internal/cyberimp/brain/nif/standard

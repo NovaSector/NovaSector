@@ -1,5 +1,5 @@
 /obj/item/stock_parts/cell
-	icon = 'modular_skyrat/modules/aesthetics/cells/cell.dmi'
+	icon = 'modular_nova/modules/aesthetics/cells/cell.dmi'
 	/// The charge overlay icon file for the cell charge lights
 	var/charging_icon = "cell_in"
 	connector_type = null
@@ -40,13 +40,13 @@
 		return
 	var/icon_link
 	if(!grown_battery)
-		icon_link = 'modular_skyrat/modules/aesthetics/cells/cell.dmi'
+		icon_link = 'modular_nova/modules/aesthetics/cells/cell.dmi'
 	else
 		icon_link = 'icons/obj/machines/cell_charger.dmi'
 	. += mutable_appearance(icon_link, "cell-[charge_light_type]-o[(percent() >= 99.5) ? 2 : 1]")
 
 /obj/machinery/cell_charger
-	icon = 'modular_skyrat/modules/aesthetics/cells/cell.dmi'
+	icon = 'modular_nova/modules/aesthetics/cells/cell.dmi'
 
 /obj/machinery/cell_charger/update_overlays()
 	. = ..()
@@ -60,4 +60,4 @@
 	if(!charging.charging_icon)
 		. += image(charging.icon, charging.icon_state)
 	else
-		.+= image('modular_skyrat/modules/aesthetics/cells/cell.dmi', charging.charging_icon)\
+		.+= image('modular_nova/modules/aesthetics/cells/cell.dmi', charging.charging_icon)\

@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/ring
-	icon = 'modular_skyrat/master_files/icons/obj/ring.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/ring.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	name = "gold ring"
 	desc = "A tiny gold ring, sized to wrap around a finger."
 	gender = NEUTER

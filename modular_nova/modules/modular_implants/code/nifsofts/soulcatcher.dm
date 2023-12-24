@@ -115,9 +115,9 @@
 
 /datum/action/innate/soulcatcher
 	name = "Soulcatcher"
-	background_icon = 'modular_skyrat/master_files/icons/mob/actions/action_backgrounds.dmi'
+	background_icon = 'modular_nova/master_files/icons/mob/actions/action_backgrounds.dmi'
 	background_icon_state = "android"
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_nif.dmi'
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_nif.dmi'
 	button_icon_state = "soulcatcher"
 	/// The weakref of the parent NIFSoft we belong to.
 	var/datum/weakref/parent_nifsoft

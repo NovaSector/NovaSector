@@ -6,7 +6,7 @@
 /obj/item/stack/shibari_rope
 	name = "shibari ropes"
 	desc = "Coil of bondage ropes."
-	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "shibari_rope"
 	amount = 1
 	merge_type = /obj/item/stack/shibari_rope
@@ -317,15 +317,15 @@
 	switch(tightness)
 		if(ROPE_TIGHTNESS_HIGH)
 			tightness = ROPE_TIGHTNESS_LOW
-			play_lewd_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 25)
+			play_lewd_sound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 25)
 			balloon_alert(user, span_notice("You slightly tightened the ropes"))
 		if(ROPE_TIGHTNESS_LOW)
 			tightness = ROPE_TIGHTNESS_MED
-			play_lewd_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 50)
+			play_lewd_sound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 50)
 			balloon_alert(user, span_notice("You moderately tightened the ropes"))
 		if(ROPE_TIGHTNESS_MED)
 			tightness = ROPE_TIGHTNESS_HIGH
-			play_lewd_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 75)
+			play_lewd_sound(loc, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 75)
 			balloon_alert(user, span_notice("You strongly tightened the ropes"))
 
 #undef ROPE_TIGHTNESS_LOW

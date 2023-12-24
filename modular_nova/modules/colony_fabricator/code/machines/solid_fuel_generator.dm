@@ -7,7 +7,7 @@
 		but at least it makes a hell of a lot more power. Must be <b>bolted to the ground</b> \
 		and <b>attached to a wire</b> before use. A massive warning label wants you to know that this generator \
 		<b>outputs waste heat and gasses to the air around it</b>."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/machines.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	icon_state = "fuel_generator_0"
 	base_icon_state = "fuel_generator"
 	circuit = null

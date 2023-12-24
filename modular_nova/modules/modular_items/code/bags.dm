@@ -2,7 +2,7 @@
 /obj/item/storage/pouch
 	name = "storage pouch"
 	desc = "It's a nondescript pouch made with dark fabric. It has a clip, for fitting in pockets."
-	icon = 'modular_skyrat/modules/modular_items/icons/storage.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/storage.dmi'
 	icon_state = "survival"
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FLAMMABLE
@@ -16,7 +16,7 @@
 /obj/item/storage/pouch/ammo
 	name = "ammo pouch"
 	desc = "A pouch for your ammo that goes in your pocket."
-	icon = 'modular_skyrat/modules/modular_items/icons/storage.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/storage.dmi'
 	icon_state = "ammopouch"
 	w_class = WEIGHT_CLASS_BULKY
 	custom_price = PAYCHECK_CREW * 4
@@ -52,7 +52,7 @@
 /obj/item/storage/pouch/material
 	name = "material pouch"
 	desc = "A pouch for sheets and RCD ammunition that manages to hang where you would normally put things in your pocket."
-	icon = 'modular_skyrat/modules/modular_items/icons/storage.dmi'
+	icon = 'modular_nova/modules/modular_items/icons/storage.dmi'
 	icon_state = "materialpouch"
 	w_class = WEIGHT_CLASS_BULKY
 	custom_price = PAYCHECK_CREW * 4
@@ -125,7 +125,7 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
 	/*
 	hi. you might think this is egregious. five slots? that's a lot!
-	here's a thought: the pocket first aid kit from the colonial replicator [modular_skyrat\modules\food_replicator\code\storage.dm] has
+	here's a thought: the pocket first aid kit from the colonial replicator [modular_nova\modules\food_replicator\code\storage.dm] has
 	mostly unrestricted storage, limited by having 4 max total storage, so at best you're only fitting 4 tiny items. but that's 4 of *any* tiny item.
 	or 2 small items (that aren't guns/mags). so it's basically just turning 1 pocket slot into 2, if you think about it hard enough.
 	this is a thing you have to buy from cargo's goodies tab. not even an import. and it only fits medical supplies.

@@ -1,7 +1,7 @@
 /obj/item/seeds/nofruit
 	name = "pack of nofruit seeds"
 	desc = "These seeds grow into nofruit plants. A strange plant often cultivated by silent performers."
-	icon = 'modular_skyrat/modules/xenoarch/icons/seeds.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/seeds.dmi'
 	icon_state = "nofruit"
 	species = "nofruit"
 	plantname = "Nofruit Plant"
@@ -9,7 +9,7 @@
 	lifespan = 55
 	endurance = 35
 	yield = 5
-	growing_icon = 'modular_skyrat/modules/xenoarch/icons/growing.dmi'
+	growing_icon = 'modular_nova/modules/xenoarch/icons/growing.dmi'
 	icon_grow = "nofruit-stage"
 	growthstages = 4
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
@@ -19,7 +19,7 @@
 	seed = /obj/item/seeds/nofruit
 	name = "nofruit"
 	desc = "A cubic nofruit, the leaf on top of the nofruit gesticulates wildly."
-	icon = 'modular_skyrat/modules/xenoarch/icons/harvest.dmi'
+	icon = 'modular_nova/modules/xenoarch/icons/harvest.dmi'
 	icon_state = "nofruit"
 	filling_color = "#FF4500"
 	bite_consumption_mod = 0.5

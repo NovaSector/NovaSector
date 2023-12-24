@@ -3,7 +3,7 @@
 /mob/living/basic/banana_spider
 	name = "banana spider"
 	desc = "What the fuck is this abomination?"
-	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "bananaspider"
 	icon_dead = "bananaspider_peel"
 	health = 1
@@ -37,7 +37,7 @@
 /obj/item/food/deadbanana_spider
 	name = "dead banana spider"
 	desc = "Thank god it's gone...but it does look slippery."
-	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "bananaspider_peel"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	foodtypes = GORE | MEAT | RAW
@@ -52,7 +52,7 @@
 /mob/living/basic/spider/giant/badnana_spider
 	name = "badnana spider"
 	desc = "WHY WOULD GOD ALLOW THIS?!"
-	icon = 'modular_skyrat/master_files/icons/mob/newmobs.dmi'
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "badnanaspider" // created by Coldstorm on the Skyrat Discord
 	icon_living = "badnanaspider"
 	icon_dead = "badnanaspider_d"

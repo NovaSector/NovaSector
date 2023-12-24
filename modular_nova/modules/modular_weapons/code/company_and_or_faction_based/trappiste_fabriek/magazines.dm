@@ -4,7 +4,7 @@
 	name = "\improper Trappiste pistol magazine"
 	desc = "A standard size magazine for Trappiste pistols, holds six rounds."
 
-	icon = 'modular_skyrat/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
 	icon_state = "pistol_585_standard"
 
 	multiple_sprites = AMMO_BOX_FULL_EMPTY

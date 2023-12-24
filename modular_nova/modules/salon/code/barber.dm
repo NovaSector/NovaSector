@@ -38,7 +38,7 @@
 /obj/structure/closet/secure_closet/barber
 	name = "barber's locker"
 	icon_state = "barber"
-	icon = 'modular_skyrat/master_files/icons/obj/closet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	req_access = list(ACCESS_BARBER)
 
 /obj/structure/closet/secure_closet/barber/PopulateContents()
@@ -64,5 +64,5 @@
 /obj/effect/landmark/start/barber
 	name = "Barber"
 	icon_state = "Barber"
-	icon = 'modular_skyrat/master_files/icons/mob/landmarks.dmi'
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
 

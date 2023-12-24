@@ -15,9 +15,9 @@
 		As the 'sacrificial' name might imply, this vest has extremely high bullet protection \
 		in exchange for allowing itself to be destroyed by impacts. It'll protect you from hell, \
 		but only for so long."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "hexagon"
-	worn_icon = 'modular_skyrat/modules/specialist_armor/icons/armor_worn.dmi'
+	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_sf_sacrificial
@@ -48,9 +48,9 @@
 		As the 'sacrificial' name might imply, this helmet has extremely high bullet protection \
 		in exchange for allowing itself to be destroyed by impacts. It'll protect you from hell, \
 		but only for so long."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "bulletproof"
-	worn_icon = 'modular_skyrat/modules/specialist_armor/icons/armor_worn.dmi'
+	worn_icon = 'modular_nova/modules/specialist_armor/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_sf_sacrificial
 	max_integrity = 200
@@ -151,6 +151,6 @@
 	name = "'Val' ballistic add-on face plate"
 	desc = "A thick piece of glass with mounting points for slotting onto a 'Val' sacrificial ballistic helmet. \
 		While it does not make the helmet any stronger, it does protect your face much like a riot helmet would."
-	icon = 'modular_skyrat/modules/specialist_armor/icons/armor.dmi'
+	icon = 'modular_nova/modules/specialist_armor/icons/armor.dmi'
 	icon_state = "face_shield"
 	w_class = WEIGHT_CLASS_NORMAL

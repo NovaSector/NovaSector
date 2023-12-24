@@ -5,7 +5,7 @@
 	special_desc = "Given the relatively recent and sudden proliferation of NIFs, their use in crime both petty and organized has skyrocketed in recent years. \
 	The existence of nanomachine-based real-time burst communication that cannot be effectively monitored or hacked into has given most PMCs cause enough for concern \
 	to invent their own devices. This one is a 'Wrangler' model NIF-Cutter, used for crudely wiping programs directly off a user's Framework."
-	icon = 'modular_skyrat/modules/modular_implants/icons/obj/devices.dmi'
+	icon = 'modular_nova/modules/modular_implants/icons/obj/devices.dmi'
 	icon_state = "nifsoft_remover"
 
 	///Is a disk with the corresponding NIFSoft created when said NIFSoft is removed?
@@ -69,7 +69,7 @@
 	Frameworks, complicated devices as they are, are normally locked at the firmware level to requiring specific 'approved' brands of repair paste or repair-docks. \
 	This hacked-kit has been developed by the Altspace Coven as a freeware alternative, spread far and wide throughout extra-Solarian space for quality of life \
 	for users located on the peripheries of society."
-	icon = 'modular_skyrat/modules/modular_implants/icons/obj/devices.dmi'
+	icon = 'modular_nova/modules/modular_implants/icons/obj/devices.dmi'
 	icon_state = "repair_paste"
 	w_class = WEIGHT_CLASS_SMALL
 	///How much does this repair each time it is used?
@@ -102,7 +102,7 @@
 /obj/item/nif_hud_adapter
 	name = "Scrying Lens Adapter"
 	desc = "A kit that modifies select glasses to display HUDs for NIFs"
-	icon = 'modular_skyrat/master_files/icons/donator/obj/kits.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/kits.dmi'
 	icon_state = "partskit"
 
 	/// Can this item be used multiple times? If not, it will delete itself after being used.

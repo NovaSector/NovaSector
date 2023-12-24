@@ -1,12 +1,12 @@
 #define SHELL_TRANSPARENCY_ALPHA 90
 
 /datum/species/snail
-	eyes_icon = 'modular_skyrat/modules/organs/icons/snail_eyes.dmi' //This is to consolidate our icons and prevent future calamity.
+	eyes_icon = 'modular_nova/modules/organs/icons/snail_eyes.dmi' //This is to consolidate our icons and prevent future calamity.
 	mutantliver = /obj/item/organ/internal/liver/snail //This is just a better liver to deal with toxins, it's a thematic thing.
 	mutantheart = /obj/item/organ/internal/heart/snail //This gives them the shell buff where they take less damage from behind, and their heart's more durable.
 	exotic_blood = null
 
-	eyes_icon = 'modular_skyrat/modules/organs/icons/snail_eyes.dmi'
+	eyes_icon = 'modular_nova/modules/organs/icons/snail_eyes.dmi'
 
 /datum/species/snail/on_species_gain(mob/living/carbon/new_snailperson, datum/species/old_species, pref_load)
 	. = ..()
@@ -24,9 +24,9 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Conical Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "coneshell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "coneshell"
 		),
 		"Round Shell" = list(
@@ -36,57 +36,57 @@
 			RESKIN_WORN_ICON_STATE = "snailshell"
 		),
 		"Cinnamon Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "cinnamonshell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "cinnamonshell"
 		),
 		"Caramel Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "caramelshell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "caramelshell"
 		),
 		"Metal Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "mechashell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "mechashell"
 		),
 		"Pyramid Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "pyramidshell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "pyramidshell"
 		),
 		"Ivory Pyramid Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "pyramidshellwhite",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "pyramidshellwhite"
 		),
 		"Spiral Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "spiralshell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "spiralshell"
 		),
 		"Ivory Spiral Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "spiralshellwhite",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "spiralshellwhite"
 		),
 		"Rocky Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "rockshell",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "rockshell"
 		),
 		"Ivory Rocky Shell" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/backpacks.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
 			RESKIN_ICON_STATE = "rockshellwhite",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/back.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/back.dmi',
 			RESKIN_WORN_ICON_STATE = "rockshellwhite"
 		),
 	)

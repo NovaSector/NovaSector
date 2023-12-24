@@ -59,7 +59,7 @@ tl;dr it tries its best but ultimately is just a dumb program, therefore, we mus
 
 Our answer to this is modularization of the code.
 
-**Modularization** means, that most of the changes and additions we do, will be kept in a separate **`modular_skyrat/`** folder, as independent from the core code as possible, and those which absolutely cannot be modularized, will need to be properly marked by comments, specifying where the changes start, where they end, and which feature they are a part of, but more on that in the next section.
+**Modularization** means, that most of the changes and additions we do, will be kept in a separate **`modular_nova/`** folder, as independent from the core code as possible, and those which absolutely cannot be modularized, will need to be properly marked by comments, specifying where the changes start, where they end, and which feature they are a part of, but more on that in the next section.
 
 ## The modularization protocol
 
@@ -69,7 +69,7 @@ Always start by thinking of the theme/purpose of your work. It's oftentimes a go
 
 Otherwise, pick a new ID for your module. E.g. `DNA-FEATURE-WINGS` or `XENOARCHEAOLOGY` or `SHUTTLE_TOGGLE` - We will use this in future documentation. It is essentially your module ID. It must be uniform throughout the entire module. All references MUST be exactly the same. This is to allow for easy searching.
 
-And then you'll want to establish your core folder that you'll be working out of which is normally your module ID. E.g. `modular_skyrat/modules/shuttle_toggle`
+And then you'll want to establish your core folder that you'll be working out of which is normally your module ID. E.g. `modular_nova/modules/shuttle_toggle`
 
 ### Maps
 
@@ -94,7 +94,7 @@ All assets added by us should be placed into the same modular folder as your cod
 
 - ***Example:*** You're adding a new lavaland mob.
 
-  First of all you create your modular folder. E.g. `modular_skyrat/modules/lavalandmob`
+  First of all you create your modular folder. E.g. `modular_nova/modules/lavalandmob`
 
   And then you'd want to create sub-folders for each component. E.g. `/code` for code and `/sounds` for sound files and `/icons` for any icon files.
 
@@ -102,9 +102,9 @@ All assets added by us should be placed into the same modular folder as your cod
 
   ```byond
     /mob/lavaland/newmob
-      icon = 'modular_skyrat/modules/lavalandmob/icons/mob.dmi'
+      icon = 'modular_nova/modules/lavalandmob/icons/mob.dmi'
       icon_state = "dead_1"
-      sound = 'modular_skyrat/modules/lavalandmob/sounds/boom.ogg'
+      sound = 'modular_nova/modules/lavalandmob/sounds/boom.ogg'
   ```
 
   This ensures your code is fully modular and will make it easier for future edits.
@@ -117,7 +117,7 @@ All assets added by us should be placed into the same modular folder as your cod
 
 You should always put any modular overrides of icons, sound, code, etc. inside this folder, and it **must** follow the core code folder layout.
 
-Example: `code/modules/mob/living/living.dm` -> `modular_skyrat/master_files/code/modules/mob/living/living.dm`
+Example: `code/modules/mob/living/living.dm` -> `modular_nova/master_files/code/modules/mob/living/living.dm`
 
 This is to make it easier to figure out what changed about a base file without having to search through proc definitions. 
 
@@ -129,9 +129,9 @@ This section will be fairly straightforward, however, I will try to go over the 
 
 The rule of thumb is that if you don't absolutely have to, you shouldn't make any changes to core codebase files. With some exceptions that will be mentioned shortly.
 
-In short, most of the modular code will be placed in the subfolders of your main module folder **`modular_skyrat/modules/yourmodule/code/`**, with similar rules as with the assets. Do not mirror core code folder structures inside your modular folder.
+In short, most of the modular code will be placed in the subfolders of your main module folder **`modular_nova/modules/yourmodule/code/`**, with similar rules as with the assets. Do not mirror core code folder structures inside your modular folder.
 
-For example, `modular_skyrat/modules/xenoarcheaology/code` containing all the code, tools, items and machinery related to it.
+For example, `modular_nova/modules/xenoarcheaology/code` containing all the code, tools, items and machinery related to it.
 
 Such modules, unless _very_ simple, **need** to have a `readme.md` in their folder, containing the following:
 
@@ -222,7 +222,7 @@ In those cases, we've decided to apply the following convention, with examples:
   And for any removals that are moved to different files:
 
   ```byond
-  //NOVA EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Moved to modular_skyrat/shuttle_toggle/randomverbs.dm)
+  //NOVA EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
   /*
   /client/proc/admin_call_shuttle()
   set category = "Admin - Events"
@@ -282,13 +282,13 @@ Top most folder: module_id
 
 **Code**: Any .DM files must go in here.
 
-- Good: /modular_skyrat/modules/example_module/code/disease_mob.dm
-- Bad: /modular_skyrat/modules/example_module/code/modules/antagonists/disease/disease_mob.dm
+- Good: /modular_nova/modules/example_module/code/disease_mob.dm
+- Bad: /modular_nova/modules/example_module/code/modules/antagonists/disease/disease_mob.dm
 
 **Icons**: Any .DMI files must go in here.
 
-- Good: /modular_skyrat/modules/example_module/icons/mining_righthand.dmi
-- Bad: /modular_skyrat/modules/example_module/icons/mob/inhands/equipment/mining_righthand.dmi
+- Good: /modular_nova/modules/example_module/icons/mining_righthand.dmi
+- Bad: /modular_nova/modules/example_module/icons/mob/inhands/equipment/mining_righthand.dmi
 
 **Sound**: Any SOUND files must go in here.
 

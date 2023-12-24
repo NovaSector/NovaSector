@@ -1,7 +1,7 @@
 /obj/item/organ/internal/tongue/synth
 	name = "synthetic voicebox"
 	desc = "A fully-functional synthetic tongue, encased in soft silicone. Features include high-resolution vocals and taste receptors."
-	icon = 'modular_skyrat/modules/organs/icons/cyber_tongue.dmi'
+	icon = 'modular_nova/modules/organs/icons/cyber_tongue.dmi'
 	icon_state = "cybertongue"
 	say_mod = "beeps"
 	attack_verb_continuous = list("beeps", "boops")

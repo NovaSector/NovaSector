@@ -30,8 +30,8 @@
 /obj/machinery/door/airlock/keyed
 	name = "locked airlock"
 	desc = "This door only opens when a keycard with the proper access is swiped. It looks virtually indestructible."
-	icon = 'modular_skyrat/modules/aesthetics/keyed_doors/icons/keyed.dmi'
-	// overlays_file = 'modular_skyrat/modules/aesthetics/keyed_doors/icons/keyed_overlays.dmi' // if this route is ever taken
+	icon = 'modular_nova/modules/aesthetics/keyed_doors/icons/keyed.dmi'
+	// overlays_file = 'modular_nova/modules/aesthetics/keyed_doors/icons/keyed_overlays.dmi' // if this route is ever taken
 	icon_state = "closed"
 	explosion_block = 3
 	heat_proof = TRUE

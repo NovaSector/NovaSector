@@ -1,17 +1,17 @@
 /obj/item/clothing/under/rank/rnd
-	worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd_digi.dmi'	// Anything that was in the rnd.dmi, should be in the rnd_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/rnd_digi.dmi'	// Anything that was in the rnd.dmi, should be in the rnd_digi.dmi
 
 /obj/item/clothing/under/rank/rnd/scientist/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
 
 /obj/item/clothing/under/rank/rnd/roboticist/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
 
 /obj/item/clothing/under/rank/rnd/research_director/skyrat
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
 
 // Add a 'rnd/geneticist/skyrat' if you make Geneticist uniforms
 
@@ -77,24 +77,24 @@
 */
 
 /obj/item/clothing/under/rank/rnd/scientist
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
 	icon_state = "science_new"
 
 /obj/item/clothing/under/rank/rnd/scientist/skirt
 	icon_state = "sciwhite_skirt_new"
 
 /obj/item/clothing/under/rank/rnd/roboticist
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
 	icon_state = "robotics_new"
 
 /obj/item/clothing/under/rank/rnd/roboticist/skirt
 	icon_state = "robotics_skirt_new"
 
 /obj/item/clothing/under/rank/rnd/geneticist
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
 	icon_state = "genetics_new"
 
 /obj/item/clothing/under/rank/rnd/geneticist/skirt

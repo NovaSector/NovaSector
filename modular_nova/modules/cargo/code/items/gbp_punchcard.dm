@@ -8,7 +8,7 @@
 	desc = "The Good Assistant Points program is designed to supplement the income of otherwise unemployed or unpaid individuals on board Nanotrasen vessels and colonies.<br>\
 	Simply get your punchcard stamped by a Head of Staff to earn 100 credits per punch upon turn-in at a Good Assistant Point machine!<br>\
 	Maximum of six punches per any given card. Card replaced upon redemption of existing card. Do not lose your punchcard."
-	icon = 'modular_skyrat/modules/cargo/icons/punchcard.dmi'
+	icon = 'modular_nova/modules/cargo/icons/punchcard.dmi'
 	icon_state = "punchcard_0"
 	w_class = WEIGHT_CLASS_TINY
 	var/max_punches = 6
@@ -40,14 +40,14 @@
 /obj/item/gbp_puncher
 	name = "Good Assistant Points puncher"
 	desc = "A puncher for use with the Good Assistant Points system. Use it on a punchcard to punch a hole. Expect to be hassled for punches by assistants."
-	icon = 'modular_skyrat/modules/cargo/icons/punchcard.dmi'
+	icon = 'modular_nova/modules/cargo/icons/punchcard.dmi'
 	icon_state = "puncher"
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/machinery/gbp_redemption
 	name = "Good Assistant Points Redemption Machine"
 	desc = "Turn your Good Assistant Points punchcards in here for a payout based on the amount of punches you have, and get a new card!"
-	icon = 'modular_skyrat/modules/cargo/icons/punchcard.dmi'
+	icon = 'modular_nova/modules/cargo/icons/punchcard.dmi'
 	icon_state = "gbp_machine"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/gbp_redemption

@@ -1,6 +1,6 @@
 /obj/item/clothing/head/hats/flakhelm	//Actually the M1 Helmet
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	name = "flak helmet"
 	icon_state = "m1helm"
 	inhand_icon_state = "helmet"
@@ -26,8 +26,8 @@
 /obj/item/clothing/head/fedora/det_hat/cybergoggles //Subset of detective fedora so that detectives dont have to sacrifice candycorns for style
 	name = "type-34C semi-enclosed headwear"
 	desc = "Civilian model of a popular helmet used by certain law enforcement agencies. It does not have any armor plating, but has a neo-laminated fiber lining."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "cyberpunkgoggle"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
@@ -68,8 +68,8 @@
 /obj/item/clothing/head/hats/imperial
 	name = "grey naval officer cap"
 	desc = "A grey naval cap with a silver disk in the center."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "impcom"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
@@ -136,8 +136,8 @@
 /obj/item/clothing/head/hats/imperial/helmet
 	name = "blast helmet"
 	desc = "A sharp helmet with some goggles on the top. Unfortunately, both those and the helmet itself are made of flimsy plastic." //No armor moment
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "blast_helmet"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
@@ -148,8 +148,8 @@
 /obj/item/clothing/head/soft/yankee
 	name = "fashionable baseball cap"
 	desc = "Rimmed and brimmed."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "yankeesoft"
 	soft_type = "yankee"
 	dog_fashion = /datum/dog_fashion/head/yankee
@@ -158,8 +158,8 @@
 /obj/item/clothing/head/soft/yankee/rimless
 	name = "rimless fashionable baseball cap"
 	desc = "Rimless for her pleasure."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "yankeenobrimsoft"
 	soft_type = "yankeenobrim"
 
@@ -171,9 +171,9 @@
 /obj/item/clothing/head/standalone_hood
 	name = "hood"
 	desc = "A hood with a bit of support around the neck so it actually stays in place, for all those times you want a hood without the coat."
-	icon = 'modular_skyrat/modules/GAGS/icons/head/head.dmi'
-	worn_icon = 'modular_skyrat/modules/GAGS/icons/head/head.dmi'
-	worn_icon_teshari = 'modular_skyrat/modules/GAGS/icons/head/head_teshari.dmi'
+	icon = 'modular_nova/modules/GAGS/icons/head/head.dmi'
+	worn_icon = 'modular_nova/modules/GAGS/icons/head/head.dmi'
+	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/head/head_teshari.dmi'
 	icon_state = "hood"
 	body_parts_covered = HEAD
 	cold_protection = HEAD
@@ -198,8 +198,8 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/costume/cowboyhat_old
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	name = "old cowboy hat"
 	desc = "An older cowboy hat, perfect for any outlaw, though lacking fancy colour magic."
 	icon_state = "cowboyhat_black"

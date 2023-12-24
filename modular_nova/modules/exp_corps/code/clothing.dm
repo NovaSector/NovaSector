@@ -2,8 +2,8 @@
 	name = "expeditionary corps uniform"
 	desc = "A rugged uniform for those who see the worst at the edges of the galaxy."
 	icon_state = "exp_corps"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/uniforms.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/uniform.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	armor_type = /datum/armor/clothing_under/rank_expeditionary_corps
 	strip_delay = 7 SECONDS
 	alt_covers_chest = TRUE
@@ -19,8 +19,8 @@
 	desc = "A set of tactical webbing worn by expeditionary corps."
 	icon_state = "webbing_exp_corps"
 	worn_icon_state = "webbing_exp_corps"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/belt.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Webbing" = list(
@@ -77,16 +77,16 @@
 /obj/item/clothing/shoes/combat/expeditionary_corps
 	name = "expeditionary corps boots"
 	desc = "High speed, low drag combat boots."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/feet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "exp_corps"
 	inhand_icon_state = "jackboots"
 
 /obj/item/clothing/gloves/color/black/expeditionary_corps
 	name = "expeditionary corps gloves"
 	icon_state = "exp_corps"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
@@ -96,8 +96,8 @@
 /obj/item/clothing/gloves/chief_engineer/expeditionary_corps
 	name = "expeditionary corps insulated gloves"
 	icon_state = "exp_corps_eng"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	worn_icon_state = "exp_corps"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -113,8 +113,8 @@
 /obj/item/clothing/gloves/latex/nitrile/expeditionary_corps
 	name = "expeditionary corps medic gloves"
 	icon_state = "exp_corps_med"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	worn_icon_state = "exp_corps"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -132,8 +132,8 @@
 	desc = "A large bag for holding extra tactical supplies."
 	icon_state = "exp_corps"
 	inhand_icon_state = "backpack"
-	icon = 'modular_skyrat/modules/exp_corps/icons/backpack.dmi'
-	worn_icon = 'modular_skyrat/modules/exp_corps/icons/mob_backpack.dmi'
+	icon = 'modular_nova/modules/exp_corps/icons/backpack.dmi'
+	worn_icon = 'modular_nova/modules/exp_corps/icons/mob_backpack.dmi'
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Backpack" = list(
@@ -149,8 +149,8 @@
 /obj/item/clothing/suit/armor/vest/expeditionary_corps
 	name = "expeditionary corps armor vest"
 	desc = "An armored vest that provides okay protection against most types of damage."
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "exp_corps"
 	body_parts_covered = CHEST|GROIN|ARMS
 	armor_type = /datum/armor/vest_expeditionary_corps
@@ -185,8 +185,8 @@
 	name = "expeditionary corps helmet"
 	desc = "A robust helmet worn by Expeditionary Corps troopers. Alt+click it to toggle the NV system."
 	icon_state = "exp_corps"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head/helmet.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
 	armor_type = /datum/armor/helmet_expeditionary_corps
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	var/nightvision = FALSE

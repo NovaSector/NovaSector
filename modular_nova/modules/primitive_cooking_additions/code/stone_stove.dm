@@ -1,7 +1,7 @@
 /obj/machinery/primitive_stove
 	name = "stone stove"
 	desc = "You think you'll stick to just putting pots on this, the grill part looks very unsanitary."
-	icon = 'modular_skyrat/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
+	icon = 'modular_nova/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
 	icon_state = "stove_off"
 	base_icon_state = "stove"
 	density = TRUE
