@@ -6166,6 +6166,7 @@
 #include "modular_skyrat\master_files\code\datums\traits\negative.dm"
 #include "modular_skyrat\master_files\code\datums\traits\neutral.dm"
 #include "modular_skyrat\master_files\code\datums\votes\_vote_datum.dm"
+#include "modular_nova\master_files\code\datums\votes\map_vote.dm"
 #include "modular_skyrat\master_files\code\game\atoms.dm"
 #include "modular_skyrat\master_files\code\game\sound.dm"
 #include "modular_skyrat\master_files\code\game\effects\spawners\random\structure.dm"
@@ -8032,5 +8033,4 @@
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\sentinel.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\spitter.dm"
 #include "modular_skyrat\modules\xenos_skyrat_redo\code\xeno_types\warrior.dm"
-#include "modular_nova\master_files\code\datums\votes\map_vote.dm"
 // END_INCLUDE
