@@ -146,7 +146,7 @@ const TargetPrintout = (props) => {
   const { act, data } = useBackend<Info>();
   const { available_targets, extracted_targets } = data;
   return (
-    <Section grow>
+    <Section>
       <Box textColor="red" fontSize="20px" mb={1}>
         Target List
       </Box>
@@ -201,7 +201,7 @@ const KeyPrintout = (props) => {
   const { act, data } = useBackend<Info>();
   const { goldeneye_keys } = data;
   return (
-    <Section grow>
+    <Section>
       <Box textColor="red" fontSize="20px">
         GoldenEye Keycards
       </Box>

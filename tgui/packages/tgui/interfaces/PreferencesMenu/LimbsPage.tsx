@@ -162,7 +162,6 @@ export const AugmentationPage = (props) => {
                 <Stack.Item>Style:</Stack.Item>
                 <Stack.Item grow>
                   <Dropdown
-                    grow
                     width="100%"
                     options={props.data.robotic_styles}
                     displayText={props.limb.chosen_style}
@@ -225,7 +224,6 @@ export const LimbsPage = (props) => {
         <Section fill scrollable title="Markings" height="197%">
           <div>
             <Dropdown
-              grow
               width="100%"
               options={Object.values(markings)}
               displayText="Pick a preset:"

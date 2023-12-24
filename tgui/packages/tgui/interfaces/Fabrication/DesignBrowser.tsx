@@ -52,7 +52,7 @@ export type DesignBrowserProps<T extends Design = Design> = {
      * A callback to print the design.
      */
     onPrintDesign: (design: T, amount: number) => void,
-  ) => ReactNode;
+  ) => return ReactNode;
 
   /**
    * If provided, renders a node into each category in the output.

@@ -63,7 +63,6 @@ export const InteractionMenu = (props) => {
                         lineHeight={1.75}
                         disabled={block_interact}
                         color={block_interact ? 'grey' : colors[interaction]}
-                        content={interaction}
                         tooltip={descriptions[interaction]}
                         icon="exclamation-circle"
                         onClick={() =>
@@ -73,7 +72,9 @@ export const InteractionMenu = (props) => {
                             userref: ref_user,
                           })
                         }
-                      />
+                      >
+                        {interaction}
+                      </Button>
                     ))}
                   </Box>
                 </Section>
