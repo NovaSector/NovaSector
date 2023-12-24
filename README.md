@@ -13,9 +13,9 @@
 | Guide to Modularization   | [./modular_skyrat/readme.md](./modular_skyrat/readme.md)            |
 | Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
 | Code                      | [https://github.com/GalacticStation/GalaxiaStation](https://github.com/GalacticStation/GalaxiaStation)    |
-| Wiki                      | [https://wiki.skyrat13.com/index.php/Main_Page](https://wiki.skyrat13.com/index.php/Main_Page)   |
+| Wiki                      | [wiki.novasector13.com](wiki.novasector13.com)   |
 | Codedocs                  | [https://GalacticStation.github.io/GalaxiaStation/](https://GalacticStation.github.io/GalaxiaStation/)       |
-| Nova Sector's Discord | [https://discord.gg/FXrMvsYAbH](https://discord.gg/FXrMvsYAbH) |
+| Nova Sector's Discord | [discord.gg/novasector](discord.gg/novasector) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
 This is Nova Sector's downstream fork of /tg/station created in byond.
