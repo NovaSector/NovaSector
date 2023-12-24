@@ -36,7 +36,7 @@
 		/datum/computer_file/program/messenger,
 		/datum/computer_file/program/nt_pay,
 		/datum/computer_file/program/notepad,
-		// SKYRAT EDIT ADDITION START
+		// NOVA EDIT ADDITION START
 		/datum/computer_file/program/crew_manifest, // Adds crew manifest to all base tablets
 		/datum/computer_file/program/maintenance/camera // Adds camera to all base tablets
 		// SKRAT EDIT ADDITION END
@@ -307,8 +307,8 @@
 	starting_programs = list(
 		/datum/computer_file/program/filemanager,
 		/datum/computer_file/program/robotact,
-		/datum/computer_file/program/crew_manifest, // SKYRAT EDIT ADDITION - Manifests for borgs
-		/datum/computer_file/program/messenger, // SKYRAT EDIT ADDITION - Messenger for borgs
+		/datum/computer_file/program/crew_manifest, // NOVA EDIT ADDITION - Manifests for borgs
+		/datum/computer_file/program/messenger, // NOVA EDIT ADDITION - Messenger for borgs
 	)
 
 /obj/item/modular_computer/pda/silicon/Initialize(mapload)

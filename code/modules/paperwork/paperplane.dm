@@ -14,7 +14,7 @@
 	var/hit_probability = 2 //%
 	var/obj/item/paper/internalPaper
 
-	// SKYRAT EDIT START - Better paper planes
+	// NOVA EDIT START - Better paper planes
 	/// How long does getting shot in the eyes knock you down for?
 	var/knockdown_duration = 4 SECONDS
 	/// How much eye damage does it deal at minimum on eye impact?
@@ -23,7 +23,7 @@
 	var/impact_eye_damage_higher = 8
 	/// Does it get deleted when hitting anything or landing?
 	var/delete_on_impact = FALSE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /obj/item/paperplane/syndicate
 	desc = "Paper, masterfully folded in the shape of a plane."
@@ -62,7 +62,7 @@
 	user.visible_message(span_suicide("[user] jams [src] in [user.p_their()] nose. It looks like [user.p_theyre()] trying to commit suicide!"))
 	user.adjust_eye_blur(12 SECONDS)
 	if(eyes)
-		eyes.apply_organ_damage(rand(impact_eye_damage_lower, impact_eye_damage_higher)) // SKYRAT EDIT START - Better paper planes
+		eyes.apply_organ_damage(rand(impact_eye_damage_lower, impact_eye_damage_higher)) // NOVA EDIT START - Better paper planes
 	sleep(1 SECONDS)
 	return BRUTELOSS
 
@@ -111,19 +111,19 @@
 				C.throw_mode_on(THROW_MODE_TOGGLE)
 
 	if(..() || !ishuman(hit_atom))//if the plane is caught or it hits a nonhuman
-		// SKYRAT EDIT START - Better paper planes
+		// NOVA EDIT START - Better paper planes
 		if(delete_on_impact)
 			qdel(src)
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 		return
 	var/mob/living/carbon/human/H = hit_atom
 	var/obj/item/organ/internal/eyes/eyes = H.get_organ_slot(ORGAN_SLOT_EYES)
 	if(prob(hit_probability))
 		if(H.is_eyes_covered())
-			// SKYRAT EDIT START - Better paper planes
+			// NOVA EDIT START - Better paper planes
 			if(delete_on_impact)
 				qdel(src)
-			// SKYRAT EDIT END
+			// NOVA EDIT END
 			return
 		visible_message(span_danger("\The [src] hits [H] in the eye[eyes ? "" : " socket"]!"))
 		H.adjust_eye_blur(12 SECONDS)
@@ -133,7 +133,7 @@
 
 	if(delete_on_impact)
 		qdel(src)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /obj/item/paper/examine(mob/user)
 	. = ..()

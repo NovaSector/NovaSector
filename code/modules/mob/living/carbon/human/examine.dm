@@ -9,10 +9,10 @@
 	var/obscure_name
 	var/obscure_examine
 
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	if(isliving(user))
 		var/mob/living/L = user
@@ -22,7 +22,7 @@
 			obscure_name = TRUE
 			obscure_examine = TRUE
 
-	//SKYRAT EDIT CHANGE BEGIN - CUSTOMIZATION
+	//NOVA EDIT CHANGE BEGIN - CUSTOMIZATION
 	var/species_visible
 	var/species_name_string
 	if(skipface || get_visible_name() == "Unknown")
@@ -40,15 +40,15 @@
 	else
 		species_name_string = ", [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!"
 
-	. = list("<span class='info'>This is <EM>[!obscure_name ? name : "Unknown"]</EM>[species_name_string]", EXAMINE_SECTION_BREAK) //SKYRAT EDIT CHANGE
+	. = list("<span class='info'>This is <EM>[!obscure_name ? name : "Unknown"]</EM>[species_name_string]", EXAMINE_SECTION_BREAK) //NOVA EDIT CHANGE
 	if(species_visible) //If they have a custom species shown, show the real one too
 		if(!dna.species.lore_protected && dna.features["custom_species"])
 			. += "[t_He] [t_is] [prefix_a_or_an(dna.species.name)] [dna.species.name]!"
 	else
 		. += "You can't make out what species they are."
-	//SKYRAT EDIT CHANGE END
+	//NOVA EDIT CHANGE END
 
-	/* SKYRAT EDIT REMOVAL
+	/* NOVA EDIT REMOVAL
 	var/apparent_species
 	if(dna?.species && !skipface)
 		apparent_species = ", \an [dna.species.name]"
@@ -61,7 +61,7 @@
 
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
-	*/ //SKYRAT EDIT END
+	*/ //NOVA EDIT END
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))
@@ -141,7 +141,7 @@
 
 		. += wear_id.get_id_examine_strings(user)
 
-	. += EXAMINE_SECTION_BREAK // SKYRAT EDIT ADDITION - hr sections
+	. += EXAMINE_SECTION_BREAK // NOVA EDIT ADDITION - hr sections
 
 	//Status effects
 	var/list/status_examines = get_status_effect_examinations()
@@ -366,7 +366,7 @@
 			if(!key)
 				msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
 			else if(!client)
-				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and [t_has] been completely unresponsive to anything for [round(((world.time - lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon.")]\n" // SKYRAT EDIT CHANGE - SSD_INDICATOR - ORIGINAL: msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon.")]\n" 
+				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and [t_has] been completely unresponsive to anything for [round(((world.time - lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon.")]\n" // NOVA EDIT CHANGE - SSD_INDICATOR - ORIGINAL: msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon.")]\n" 
 
 	var/scar_severity = 0
 	for(var/i in all_scars)
@@ -422,10 +422,10 @@
 			if(target_record)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1;examine_time=[world.time]'>\[Medical evaluation\]</a><br>"
 			. += "<a href='?src=[REF(src)];hud=m;quirk=1;examine_time=[world.time]'>\[See quirks\]</a>"
-			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(target_record && length(target_record.past_medical_records) > RECORDS_INVISIBLE_THRESHOLD)
 				. += "<a href='?src=[REF(src)];hud=m;medrecords=1;examine_time=[world.time]'>\[View medical records\]</a>"
-			//SKYRAT EDIT END
+			//NOVA EDIT END
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)
@@ -445,18 +445,18 @@
 					"<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"), "")
-				// SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+				// NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 				if(target_record && length(target_record.past_security_records) > RECORDS_INVISIBLE_THRESHOLD)
 					. += "<span class='deptradio'>Past security records:</span> <a href='?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
 
 		if (target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 	else if(isobserver(user))
 		. += span_info("<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 	. += "</span>"
 
-	//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+	//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 	if(isobserver(user) || user.mind?.can_see_exploitables || user.mind?.has_exploitables_override)
 		var/datum/record/crew/target_records = find_record(perpname)
 		if(target_records)
@@ -466,16 +466,16 @@
 				. += "<a href='?src=[REF(src)];bgrecords=1'>\[View background info\]</a>"
 			if((length(exploitable_text) > RECORDS_INVISIBLE_THRESHOLD) && ((exploitable_text) != EXPLOITABLE_DEFAULT_TEXT))
 				. += "<a href='?src=[REF(src)];exprecords=1'>\[View exploitable info\]</a>"
-	//SKYRAT EDIT END
-	//SKYRAT EDIT ADDITION BEGIN - GUNPOINT
+	//NOVA EDIT END
+	//NOVA EDIT ADDITION BEGIN - GUNPOINT
 	if(gunpointing)
 		. += "<span class='warning'><b>[t_He] [t_is] holding [gunpointing.target.name] at gunpoint with [gunpointing.aimed_gun.name]!</b></span>\n"
 	if(length(gunpointed))
 		for(var/datum/gunpoint/GP in gunpointed)
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	for(var/genital in GLOB.possible_genitals)
 		if(dna.species.mutant_bodyparts[genital])
 			var/datum/sprite_accessory/genital/G = GLOB.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
@@ -535,10 +535,10 @@
 		return
 	var/age_text
 	switch(age)
-		if(-INFINITY to 17) // SKYRAT EDIT ADD START -- AGE EXAMINE
+		if(-INFINITY to 17) // NOVA EDIT ADD START -- AGE EXAMINE
 			age_text = "too young to be here"
 		if(18 to 25)
-			age_text = "a young adult" // SKYRAT EDIT END
+			age_text = "a young adult" // NOVA EDIT END
 		if(26 to 35)
 			age_text = "of adult age"
 		if(36 to 55)

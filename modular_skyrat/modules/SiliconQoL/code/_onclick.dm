@@ -8,7 +8,7 @@
 		if(airlock)
 			airlock.AICtrlShiftClick(src)
 	else
-		A.AICtrlShiftClick(src) // End of skyrat edit
+		A.AICtrlShiftClick(src) // End of NOVA EDIT
 
 /mob/living/silicon/ai/ShiftClickOn(atom/A)
 	if(isturf(A))
@@ -56,7 +56,7 @@
 
 /mob/living/silicon/robot/CtrlShiftClickOn(atom/A)
 	if(isturf(A))
-		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // Skyrat edit
+		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // NOVA EDIT
 		if(airlock)
 			airlock.BorgCtrlShiftClick(src)
 	else
@@ -64,7 +64,7 @@
 
 /mob/living/silicon/robot/ShiftClickOn(atom/A)
 	if(isturf(A))
-		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // Skyrat edit
+		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // NOVA EDIT
 		if(airlock)
 			airlock.BorgShiftClick(src)
 	else
@@ -72,15 +72,15 @@
 
 /mob/living/silicon/robot/CtrlClickOn(atom/A)
 	if(isturf(A))
-		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // Skyrat edit
+		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // NOVA EDIT
 		if(airlock)
 			airlock.BorgCtrlClick(src)
 	else
-		A.BorgCtrlClick(src) // End of skyrat edit
+		A.BorgCtrlClick(src) // End of NOVA EDIT
 
 /mob/living/silicon/robot/AltClickOn(atom/A)
 	if(isturf(A))
-		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // Skyrat edit
+		var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in A // NOVA EDIT
 		if(airlock)
 			airlock.BorgAltClick(src)
 	else

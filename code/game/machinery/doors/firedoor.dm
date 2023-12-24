@@ -273,10 +273,10 @@
 /obj/machinery/door/firedoor/proc/check_atmos(turf/checked_turf)
 	var/datum/gas_mixture/environment = checked_turf.return_air()
 
-	var/pressure = environment?.return_pressure() //SKYRAT EDIT ADDITION - Micro optimisation
-	if(environment?.temperature >= BODYTEMP_HEAT_DAMAGE_LIMIT || pressure > WARNING_HIGH_PRESSURE) //SKYRAT EDIT CHANGE - BETTER LOCKS
+	var/pressure = environment?.return_pressure() //NOVA EDIT ADDITION - Micro optimisation
+	if(environment?.temperature >= BODYTEMP_HEAT_DAMAGE_LIMIT || pressure > WARNING_HIGH_PRESSURE) //NOVA EDIT CHANGE - BETTER LOCKS
 		return FIRELOCK_ALARM_TYPE_HOT
-	if(environment?.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT || pressure < WARNING_LOW_PRESSURE) //SKYRAT EDIT CHANGE - BETTER LOCKS
+	if(environment?.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT || pressure < WARNING_LOW_PRESSURE) //NOVA EDIT CHANGE - BETTER LOCKS
 		return FIRELOCK_ALARM_TYPE_COLD
 	return
 
@@ -746,7 +746,7 @@
 
 /obj/machinery/door/firedoor/heavy
 	name = "heavy firelock"
-	icon = 'icons/obj/doors/Doorfire.dmi'  //SKYRAT EDIT - ICON OVERRIDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/doors/Doorfire.dmi'  //NOVA EDIT - ICON OVERRIDEN IN AESTHETICS MODULE
 	glass = FALSE
 	explosion_block = 2
 	assemblytype = /obj/structure/firelock_frame/heavy
@@ -761,7 +761,7 @@
 /obj/structure/firelock_frame
 	name = "firelock frame"
 	desc = "A partially completed firelock."
-	icon = 'icons/obj/doors/Doorfire.dmi' //SKYRAT EDIT - ICON OVERRIDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/doors/Doorfire.dmi' //NOVA EDIT - ICON OVERRIDEN IN AESTHETICS MODULE
 	icon_state = "frame1"
 	base_icon_state = "frame"
 	anchored = FALSE

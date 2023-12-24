@@ -8,7 +8,7 @@ import {
   Stack,
 } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import { Objective } from './common/Objectives';
 
 type Data = {
@@ -32,7 +32,7 @@ export const AntagInfoBlob = (props) => {
           <Structures />
           <Minions />
           <ObjectiveDisplay />
-          <Rules /* SKYRAT EDIT ADDITION */ />
+          <Rules /* NOVA EDIT ADDITION */ />
         </Section>
       </Window.Content>
     </Window>

@@ -92,7 +92,7 @@
 	var/holopay_name = "holographic pay stand"
 
 	/// Registered owner's age.
-	var/registered_age = 18 //SKYRAT EDIT - ORIGINAL (13)
+	var/registered_age = 18 //NOVA EDIT - ORIGINAL (13)
 
 	/// The job name registered on the card (for example: Assistant).
 	var/assignment
@@ -419,7 +419,7 @@
 	if(Adjacent(user))
 		var/minor
 		if(registered_name && registered_age && registered_age < AGE_MINOR)
-			minor = " <b>[registered_age]</b>" //SKYRAT EDIT CHANGE
+			minor = " <b>[registered_age]</b>" //NOVA EDIT CHANGE
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name][minor]."), span_notice("You show \the [src.name][minor]."))
 	add_fingerprint(user)
 
@@ -569,11 +569,11 @@
 		if (money_added)
 			to_chat(user, span_notice("You stuff the contents into the card! They disappear in a puff of bluespace smoke, adding [money_added] worth of credits to the linked account."))
 		return
-	/// SKYRAT EDIT BEGINS - Trim Tokens - Proc defined in modular_skyrat/modules/trim_tokens/code/cards_id.dm
+	/// NOVA EDIT BEGINS - Trim Tokens - Proc defined in modular_skyrat/modules/trim_tokens/code/cards_id.dm
 	else if(istype(W, /obj/item/trim_token))
 		apply_token(W, user)
 		return
-	/// SKYRAT EDIT ENDS
+	/// NOVA EDIT ENDS
 	else
 		return ..()
 
@@ -1345,7 +1345,7 @@
 	desc = "A highly advanced chameleon ID card. Touch this card on another ID card or player to choose which accesses to copy. \
 		Has special magnetic properties which force it to the front of wallets."
 	trim = /datum/id_trim/chameleon
-	wildcard_slots = WILDCARD_LIMIT_CHAMELEON_PLUS // SKYRAT EDIT - Original WILDCARD_LIMIT_CHAMELEON
+	wildcard_slots = WILDCARD_LIMIT_CHAMELEON_PLUS // NOVA EDIT - Original WILDCARD_LIMIT_CHAMELEON
 	actions_types = list(/datum/action/item_action/chameleon/change/id, /datum/action/item_action/chameleon/change/id_trim)
 
 	/// Have we set a custom name and job assignment, or will we use what we're given when we chameleon change?

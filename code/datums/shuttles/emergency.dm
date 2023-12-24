@@ -1,6 +1,6 @@
 #define EMAG_LOCKED_SHUTTLE_COST (CARGO_CRATE_VALUE * 50)
 
-/datum/map_template/shuttle/emergency // SKYRAT EDIT OVERRIDE - OVERRIDEN IN ADVANCED_SHUTTLES - shuttles.dm
+/datum/map_template/shuttle/emergency // NOVA EDIT OVERRIDE - OVERRIDEN IN ADVANCED_SHUTTLES - shuttles.dm
 	port_id = "emergency"
 	name = "Base Shuttle Template (Emergency)"
 	///assoc list of shuttle events to add to this shuttle on spawn (typepath = weight)
@@ -130,7 +130,7 @@
 	credit_cost = EMAG_LOCKED_SHUTTLE_COST * 1.8
 	movement_force = list("KNOCKDOWN" = 3, "THROW" = 5)
 	occupancy_limit = "70"
-	who_can_purchase = null //SKYRAT EDIT ADDITION
+	who_can_purchase = null //NOVA EDIT ADDITION
 
 /datum/map_template/shuttle/emergency/luxury
 	suffix = "luxury"

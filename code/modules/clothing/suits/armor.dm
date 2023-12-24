@@ -192,7 +192,7 @@
 	strip_delay = 70
 	resistance_flags = FLAMMABLE
 	dog_fashion = null
-	//SKYRAT EDIT ADDITION START
+	//NOVA EDIT ADDITION START
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Basic Warden Armor" = list(
@@ -215,7 +215,7 @@
 			RESKIN_SUPPORTS_VARIATIONS_FLAGS = NONE
 		)
 	)
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
 /obj/item/clothing/suit/armor/vest/warden/alt
 	name = "warden's armored jacket"

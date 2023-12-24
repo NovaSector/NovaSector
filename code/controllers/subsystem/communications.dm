@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(communications)
 		if(syndicate)
 			priority_announce(html_decode(message_data["message"]), null, 'sound/misc/announce_syndi.ogg', ANNOUNCEMENT_TYPE_SYNDICATE, has_important_message = TRUE, players = players, color_override = "red")
 		else
-			priority_announce(html_decode(message_data["message"]), null, ANNOUNCER_CAPTAIN, ANNOUNCEMENT_TYPE_CAPTAIN, has_important_message = TRUE, players = players) // SKYRAT EDIT CHANGE - 'sound/misc/announce.ogg' to ANNOUNCER_CAPTAIN
+			priority_announce(html_decode(message_data["message"]), null, ANNOUNCER_CAPTAIN, ANNOUNCEMENT_TYPE_CAPTAIN, has_important_message = TRUE, players = players) // NOVA EDIT CHANGE - 'sound/misc/announce.ogg' to ANNOUNCER_CAPTAIN
 		COOLDOWN_START(src, nonsilicon_message_cooldown, COMMUNICATION_COOLDOWN)
 	user.log_talk(input, LOG_SAY, tag="priority announcement")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has made a priority announcement.")

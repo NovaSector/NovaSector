@@ -29,7 +29,7 @@
 	/// The original profile of this changeling.
 	var/datum/changeling_profile/first_profile = null
 	/// How many DNA strands the changeling can store for transformation.
-	var/dna_max = 8 // SKYRAT EDIT - ORIGINAL: 6
+	var/dna_max = 8 // NOVA EDIT - ORIGINAL: 6
 	/// The amount of DNA gained. Includes DNA sting.
 	var/absorbed_count = 0
 	/// The amount of DMA gained using absorb, not DNA sting. Start with one (your original DNA)
@@ -47,9 +47,9 @@
 	/// Changeling name, what other lings see over the hivemind when talking.
 	var/changelingID = "Changeling"
 	/// The number of genetics points (to buy powers) this ling currently has.
-	var/genetic_points = 15 // SKYRAT EDIT - ORIGINAL: 10
+	var/genetic_points = 15 // NOVA EDIT - ORIGINAL: 10
 	/// The max number of genetics points (to buy powers) this ling can have..
-	var/total_genetic_points = 15 // SKYRAT EDIT - ORIGINAL: 10
+	var/total_genetic_points = 15 // NOVA EDIT - ORIGINAL: 10
 	/// List of all powers we start with.
 	var/list/innate_powers = list()
 	/// Associated list of all powers we have evolved / bought from the emporium. [path] = [instance of path]
@@ -85,7 +85,7 @@
 	var/static/list/slot2type = list(
 		"head" = /obj/item/clothing/head/changeling,
 		"wear_mask" = /obj/item/clothing/mask/changeling,
-		"wear_neck" = /obj/item/changeling, // SKYRAT EDIT
+		"wear_neck" = /obj/item/changeling, // NOVA EDIT
 		"back" = /obj/item/changeling,
 		"wear_suit" = /obj/item/clothing/suit/changeling,
 		"w_uniform" = /obj/item/clothing/under/changeling,
@@ -101,9 +101,9 @@
 	/// A list of all memories we've stolen through absorbs.
 	var/list/stolen_memories = list()
 
-	var/true_form_death //SKYRAT EDIT ADDITION: The time that the horror form died.
+	var/true_form_death //NOVA EDIT ADDITION: The time that the horror form died.
 
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	var/datum/changeling_profile/current_profile = null
 	var/list/mimicable_quirks_list = list(
 		"Bad Touch",
@@ -125,7 +125,7 @@
 		"Webbing aspect (Emotes)",
 		"Friendly",
 	)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /datum/antagonist/changeling/New()
 	. = ..()
@@ -551,7 +551,7 @@
 	new_profile.undershirt = target.undershirt
 	new_profile.socks = target.socks
 
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	new_profile.bra = target.bra
 
 	new_profile.underwear_color = target.underwear_color
@@ -569,7 +569,7 @@
 	new_profile.age = target.age
 	for(var/datum/quirk/target_quirk in target.quirks)
 		LAZYADD(new_profile.quirks, new target_quirk.type)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
@@ -589,7 +589,7 @@
 	// Grab the target's sechut icon.
 	new_profile.id_icon = target.wear_id?.get_sechud_job_icon_state()
 
-	var/list/slots = list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store") // SKYRAT EDIT
+	var/list/slots = list("head", "wear_mask", "wear_neck", "back", "wear_suit", "w_uniform", "shoes", "belt", "gloves", "glasses", "ears", "wear_id", "s_store") // NOVA EDIT
 	for(var/slot in slots)
 		if(!(slot in target.vars))
 			continue
@@ -606,13 +606,13 @@
 		new_profile.worn_icon_state_list[slot] = clothing_item.worn_icon_state
 		new_profile.exists_list[slot] = 1
 
-		// SKYRAT EDIT START
+		// NOVA EDIT START
 		new_profile.worn_icon_digi_list[slot] = clothing_item.worn_icon_digi
 		new_profile.worn_icon_monkey_list[slot] = clothing_item.worn_icon_monkey
 		new_profile.worn_icon_teshari_list[slot] = clothing_item.worn_icon_teshari
 		new_profile.worn_icon_vox_list[slot] = clothing_item.worn_icon_vox
 		new_profile.supports_variations_flags_list[slot] = clothing_item.supports_variations_flags
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 	new_profile.voice = target.voice
 	new_profile.voice_filter = target.voice_filter
 
@@ -631,7 +631,7 @@
 
 	if(!first_profile)
 		first_profile = new_profile
-		current_profile = first_profile  // SKYRAT EDIT
+		current_profile = first_profile  // NOVA EDIT
 
 	stored_profiles += new_profile
 	absorbed_count++
@@ -782,7 +782,7 @@
 	var/static/list/slot2slot = list(
 		"head" = ITEM_SLOT_HEAD,
 		"wear_mask" = ITEM_SLOT_MASK,
-		"wear_neck" = ITEM_SLOT_NECK, // SKYRAT EDIT
+		"wear_neck" = ITEM_SLOT_NECK, // NOVA EDIT
 		"back" = ITEM_SLOT_BACK,
 		"wear_suit" = ITEM_SLOT_OCLOTHING,
 		"w_uniform" = ITEM_SLOT_ICLOTHING,
@@ -801,7 +801,7 @@
 	user.undershirt = chosen_profile.undershirt
 	user.socks = chosen_profile.socks
 
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	user.bra = chosen_profile.bra
 
 	user.underwear_color = chosen_profile.underwear_color
@@ -835,7 +835,7 @@
 				user.add_quirk(target_quirk.type)
 				break
 
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	user.voice = chosen_profile.voice
 	user.voice_filter = chosen_profile.voice_filter
 
@@ -844,7 +844,7 @@
 	for(var/obj/item/bodypart/limb as anything in user.bodyparts)
 		limb.update_limb(is_creating = TRUE)
 
-	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE) // SKYRAT EDIT
+	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE) // NOVA EDIT
 	user.domutcheck()
 
 	// Get rid of any scars from previous Changeling-ing
@@ -917,13 +917,13 @@
 		new_flesh_item.worn_icon = chosen_profile.worn_icon_list[slot]
 		new_flesh_item.worn_icon_state = chosen_profile.worn_icon_state_list[slot]
 
-		// SKYRAT EDIT START
+		// NOVA EDIT START
 		new_flesh_item.worn_icon_digi = chosen_profile.worn_icon_digi_list[slot]
 		new_flesh_item.worn_icon_monkey = chosen_profile.worn_icon_monkey_list[slot]
 		new_flesh_item.worn_icon_teshari = chosen_profile.worn_icon_teshari_list[slot]
 		new_flesh_item.worn_icon_vox = chosen_profile.worn_icon_vox_list[slot]
 		new_flesh_item.supports_variations_flags = chosen_profile.supports_variations_flags_list[slot]
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 
 		if(istype(new_flesh_item, /obj/item/changeling/id) && chosen_profile.id_icon)
 			var/obj/item/changeling/id/flesh_id = new_flesh_item
@@ -942,13 +942,13 @@
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
 	current_profile = chosen_profile
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	chosen_dna.transfer_identity(user, TRUE)
 	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE)
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
 	current_profile = chosen_profile
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.
 /datum/changeling_profile
@@ -1029,7 +1029,7 @@
 	new_profile.profile_snapshot = profile_snapshot
 	new_profile.id_icon = id_icon
 
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	new_profile.underwear_color = underwear_color
 	new_profile.undershirt_color = undershirt_color
 	new_profile.socks_color = socks_color
@@ -1051,7 +1051,7 @@
 	new_profile.laugh_type = laugh_type
 	new_profile.age = age
 	new_profile.quirks = quirks.Copy()
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	new_profile.voice = voice
 	new_profile.voice_filter = voice_filter
@@ -1059,13 +1059,13 @@
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()
 
-	// SKYRAT EDIT REMOVAL START
+	// NOVA EDIT REMOVAL START
 	/*
 	var/changeling_win = TRUE
 	if(!owner.current)
 		changeling_win = FALSE
 	*/
-	// SKYRAT EDIT REMOVAL END
+	// NOVA EDIT REMOVAL END
 
 	parts += printplayer(owner)
 	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
@@ -1073,24 +1073,24 @@
 	if(objectives.len)
 		var/count = 1
 		for(var/datum/objective/objective in objectives)
-			// SKYRAT EDIT START - No greentext
+			// NOVA EDIT START - No greentext
 			/*
 			if(!objective.check_completion())
 				changeling_win = FALSE
 			parts += "<b>Objective #[count]</b>: [objective.explanation_text] [objective.get_roundend_success_suffix()]"
 			*/
 			parts += "<b>Objective #[count]</b>: [objective.explanation_text]"
-			// SKYRAT EDIT END - No greentext
+			// NOVA EDIT END - No greentext
 			count++
 
-	// SKYRAT EDIT REMOVAL START - No greentext
+	// NOVA EDIT REMOVAL START - No greentext
 	/*
 	if(changeling_win)
 		parts += span_greentext("The changeling was successful!")
 	else
 		parts += span_redtext("The changeling has failed.")
 	*/
-	// SKYRAT EDIT REMOVAL END - No greentext
+	// NOVA EDIT REMOVAL END - No greentext
 
 	return parts.Join("<br>")
 

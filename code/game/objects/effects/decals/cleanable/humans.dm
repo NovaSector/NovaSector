@@ -128,7 +128,7 @@
 	. = ..()
 	if(!.)
 		return
-	//AddComponent(/datum/component/rot, 0, 5 MINUTES, 0.7) skyrat edit
+	//AddComponent(/datum/component/rot, 0, 5 MINUTES, 0.7) NOVA EDIT
 
 /obj/effect/decal/cleanable/blood/gibs/ex_act(severity, target)
 	return FALSE
