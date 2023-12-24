@@ -324,7 +324,7 @@
 	surplus = 10
 
 */
-// SKYRAT EDIT END
+// NOVA EDIT END
 /datum/uplink_item/role_restricted/blastcannon
 	name = "Blast Cannon"
 	desc = "A highly specialized weapon, the Blast Cannon is actually relatively simple. It contains an attachment for a tank transfer valve mounted to an angled pipe specially constructed \

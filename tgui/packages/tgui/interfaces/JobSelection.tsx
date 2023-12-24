@@ -37,7 +37,7 @@ type Data = {
   disable_jobs_for_non_observers: BooleanLike;
   priority: BooleanLike;
   round_duration: string;
-  alert_level: { name: string; color: string }; // SKYRAT EDIT ADDITION - Alert level on jobs menu
+  alert_level: { name: string; color: string }; // NOVA EDIT ADDITION - Alert level on jobs menu
 };
 
 export const JobEntry = (data: {
@@ -113,9 +113,9 @@ export const JobSelection = (props) => {
   return (
     <Window
       width={1012}
-      /* SKYRAT EDIT CHANGE START - Expand UI for available jobs */
+      /* NOVA EDIT CHANGE START - Expand UI for available jobs */
       height={data.shuttle_status ? 916 : 900 /* Hahahahahaha */}
-      /* SKYRAT EDIT CHANGE END */
+      /* NOVA EDIT CHANGE END */
     >
       <Window.Content scrollable>
         <StyleableSection
@@ -125,7 +125,7 @@ export const JobSelection = (props) => {
                 <NoticeBox info>{data.shuttle_status}</NoticeBox>
               )}
               {
-                // SKYRAT EDIT ADDITION - Alert level on jobs menu
+                // NOVA EDIT ADDITION - Alert level on jobs menu
                 <NoticeBox color={data.alert_level.color}>
                   The current alert level is: {data.alert_level.name}
                 </NoticeBox>

@@ -12,14 +12,14 @@
 	to_chat(user, span_notice("We cleanse impurities from our form."))
 	..()
 	var/list/bad_organs = list(
-		user.get_organ_by_type(/obj/item/organ/internal/empowered_borer_egg), // SKYRAT EDIT ADDITION
+		user.get_organ_by_type(/obj/item/organ/internal/empowered_borer_egg), // NOVA EDIT ADDITION
 		user.get_organ_by_type(/obj/item/organ/internal/body_egg),
 		user.get_organ_by_type(/obj/item/organ/internal/legion_tumour),
 		user.get_organ_by_type(/obj/item/organ/internal/zombie_infection),
 	)
 
 
-	try_to_mutant_cure(user) //SKYRAT EDIT ADDITION
+	try_to_mutant_cure(user) //NOVA EDIT ADDITION
 
 	for(var/o in bad_organs)
 		var/obj/item/organ/O = o
@@ -31,11 +31,11 @@
 			var/mob/living/carbon/C = user
 			C.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = 0)
 		O.forceMove(get_turf(user))
-	//Skyrat Edit Start: Cortical Borer
+	//NOVA EDIT Start: Cortical Borer
 	var/mob/living/basic/cortical_borer/cb_inside = user.has_borer()
 	if(cb_inside)
 		cb_inside.leave_host()
-	//Skyrat Edit Stop: Cortical Borer
+	//NOVA EDIT Stop: Cortical Borer
 	user.reagents.add_reagent(/datum/reagent/medicine/mutadone, 10)
 	user.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 20)
 	user.reagents.add_reagent(/datum/reagent/medicine/antihol, 10)

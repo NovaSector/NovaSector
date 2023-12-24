@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useBackend } from '../backend';
 import { BlockQuote, Box, Button, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import {
   Objective,
   ObjectivePrintout,
@@ -70,11 +70,11 @@ const IntroductionSection = (props) => {
           <Stack vertical>
             <FlavorSection />
             <Stack.Divider />
-            {/* SKYRAT EDIT ADDITION START */}
+            {/* NOVA EDIT ADDITION START */}
             <Stack.Item>
               <Rules />
             </Stack.Item>
-            {/* SKYRAT EDIT ADDITION END */}
+            {/* NOVA EDIT ADDITION END */}
             <Stack.Divider />
             <GuideSection />
             <Stack.Divider />
@@ -87,8 +87,8 @@ const IntroductionSection = (props) => {
                   fill
                   titleMessage={
                     can_change_objective
-                      ? 'Your OPFOR objectives are your primary ones, but in order to ascend, you have these tasks to fulfill' /* SKYRAT EDIT CHANGE - opfor objectives */
-                      : 'Your OPFOR objectives are your primary ones. Use your dark knowledge to fulfill your personal goal' /* SKYRAT EDIT CHANGE - opfor objectives  */
+                      ? 'Your OPFOR objectives are your primary ones, but in order to ascend, you have these tasks to fulfill' /* NOVA EDIT CHANGE - opfor objectives */
+                      : 'Your OPFOR objectives are your primary ones. Use your dark knowledge to fulfill your personal goal' /* NOVA EDIT CHANGE - opfor objectives  */
                   }
                   objectives={objectives}
                   objectiveFollowup={

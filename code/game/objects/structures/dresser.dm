@@ -1,6 +1,6 @@
-//THIS FILE HAS BEEN EDITED BY SKYRAT EDIT
+//THIS FILE HAS BEEN EDITED BY NOVA EDIT
 
-/obj/structure/dresser//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/structure/dresser//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "dresser"
 	desc = "A nicely-crafted wooden dresser. It's filled with lots of undies."
 	icon = 'icons/obj/fluff/general.dmi'
@@ -36,7 +36,7 @@
 		to_chat(dressing_human, span_warning("You are not capable of wearing underwear."))
 		return
 
-	var/choice = tgui_input_list(user, "Underwear, Bra, Undershirt, or Socks?", "Changing", list("Underwear", "Underwear Color", "Bra", "Bra Color", "Undershirt", "Undershirt Color", "Socks", "Socks Color")) //SKYRAT EDIT ADDITION - Colorable Undershirt/Socks/Bra
+	var/choice = tgui_input_list(user, "Underwear, Bra, Undershirt, or Socks?", "Changing", list("Underwear", "Underwear Color", "Bra", "Bra Color", "Undershirt", "Undershirt Color", "Socks", "Socks Color")) //NOVA EDIT ADDITION - Colorable Undershirt/Socks/Bra
 	if(isnull(choice))
 		return
 
@@ -59,7 +59,7 @@
 			var/new_socks = tgui_input_list(user, "Select your socks", "Changing", GLOB.socks_list)
 			if(new_socks)
 				dressing_human.socks = new_socks
-		//SKYRAT EDIT ADDITION BEGIN - Colorable Undershirt/Socks/Bras
+		//NOVA EDIT ADDITION BEGIN - Colorable Undershirt/Socks/Bras
 		if("Undershirt Color")
 			var/new_undershirt_color = input(dressing_human, "Choose your undershirt color", "Undershirt Color", dressing_human.undershirt_color) as color|null
 			if(new_undershirt_color)
@@ -79,7 +79,7 @@
 			if(new_bra_color)
 				dressing_human.bra_color = sanitize_hexcolor(new_bra_color)
 
-		//SKYRAT EDIT ADDITION END - Colorable Undershirt/Socks/Bras
+		//NOVA EDIT ADDITION END - Colorable Undershirt/Socks/Bras
 
 	add_fingerprint(dressing_human)
 	dressing_human.update_body()

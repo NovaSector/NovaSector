@@ -142,7 +142,7 @@
 	else
 		finalized_announcement = CHAT_ALERT_DEFAULT_SPAN(jointext(minor_announcement_strings, ""))
 
-	var/custom_sound = sound_override || (alert ? 'modular_skyrat/modules/alerts/sound/alerts/alert1.ogg' : 'sound/misc/notice2.ogg') // SKYRAT EDIT CHANGE - CUSTOM ANNOUNCEMENTS - Original: 'sound/misc/notice1.ogg'
+	var/custom_sound = sound_override || (alert ? 'modular_skyrat/modules/alerts/sound/alerts/alert1.ogg' : 'sound/misc/notice2.ogg') // NOVA EDIT CHANGE - CUSTOM ANNOUNCEMENTS - Original: 'sound/misc/notice1.ogg'
 	dispatch_announcement_to_players(finalized_announcement, players, custom_sound, should_play_sound)
 
 /// Sends an announcement about the level changing to players. Uses the passed in datum and the subsystem's previous security level to generate the message.
@@ -186,7 +186,7 @@
 
 /// Proc that just dispatches the announcement to our applicable audience. Only the announcement is a mandatory arg.
 /proc/dispatch_announcement_to_players(announcement, list/players = GLOB.player_list, sound_override = null, should_play_sound = TRUE)
-	// SKYRAT EDIT CHANGE BEGIN - CUSTOM ANNOUNCEMENTS
+	// NOVA EDIT CHANGE BEGIN - CUSTOM ANNOUNCEMENTS
 	/* Original:
 
 	var/sound_to_play = !isnull(sound_override) ? sound_override : 'sound/misc/notice2.ogg'
@@ -219,7 +219,7 @@
 			continue
 
 		to_chat(target, announcement)
-	// SKYRAT EDIT CHANGE END - CUSTOM ANNOUNCEMENTS
+	// NOVA EDIT CHANGE END - CUSTOM ANNOUNCEMENTS
 
 #undef MAJOR_ANNOUNCEMENT_TITLE
 #undef MAJOR_ANNOUNCEMENT_TEXT

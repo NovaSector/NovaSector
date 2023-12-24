@@ -18,7 +18,7 @@
 /obj/item/mod/module/magnetic_harness/Initialize(mapload)
 	. = ..()
 	if(!guns_typecache)
-		guns_typecache = typecacheof(list(/obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher, /obj/item/gun/chem, /obj/item/gun/syringe, /obj/item/gun/microfusion)) //SKYRAT EDIT - MICROFUSION
+		guns_typecache = typecacheof(list(/obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher, /obj/item/gun/chem, /obj/item/gun/syringe, /obj/item/gun/microfusion)) //NOVA EDIT - MICROFUSION
 
 /obj/item/mod/module/magnetic_harness/on_install()
 	already_allowed_guns = guns_typecache & mod.chestplate.allowed
@@ -424,7 +424,7 @@
 
 		if(oldgroup == newgroup)
 			return
-			
+
 		sorted_creatures[oldgroup] -= creature
 
 	sorted_creatures[newgroup] += creature

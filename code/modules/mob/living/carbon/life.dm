@@ -2,12 +2,12 @@
 	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM))
 		return
 
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if(isopenturf(loc))
 		var/turf/open/my_our_turf = loc
 		if(my_our_turf.pollution)
 			my_our_turf.pollution.touch_act(src)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
@@ -112,7 +112,7 @@
 				breath = loc_as_obj.handle_internal_lifeform(src, BREATH_VOLUME)
 
 			else if(isturf(loc)) //Breathe from loc as turf
-				//SKYRAT EDIT ADDITION
+				//NOVA EDIT ADDITION
 				//Underwater breathing
 				var/turf/our_turf = loc
 				if(our_turf.liquids && !HAS_TRAIT(src, TRAIT_NOBREATH) && ((body_position == LYING_DOWN && our_turf.liquids.liquid_state >= LIQUID_STATE_WAIST) || (body_position == STANDING_UP && our_turf.liquids.liquid_state >= LIQUID_STATE_FULLTILE)))
@@ -140,7 +140,7 @@
 							next_smell = world.time + SMELL_COOLDOWN
 							open_turf.pollution.smell_act(src)
 						open_turf.pollution.breathe_act(src)
-				//SKYRAT EDIT END
+				//NOVA EDIT END
 				var/breath_moles = 0
 				if(environment)
 					breath_moles = environment.total_moles()*BREATH_PERCENTAGE

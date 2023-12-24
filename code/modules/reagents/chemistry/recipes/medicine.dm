@@ -9,10 +9,10 @@
 	rate_up_lim = 35
 	reaction_tags = REACTION_TAG_HEALING | REACTION_TAG_EASY
 
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	pollutant_type = /datum/pollutant/chemical_vapors
 	pollutant_amount = 0.2
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 /datum/chemical_reaction/medicine/leporazine
 	results = list(/datum/reagent/medicine/leporazine = 2)

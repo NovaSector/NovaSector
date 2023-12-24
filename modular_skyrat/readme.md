@@ -33,7 +33,7 @@ in the core code, that we decide to change from 1 to 2 on our end,
 
 ```diff
 - var/something = 1
-+ var/something = 2 //SKYRAT EDIT
++ var/something = 2 //NOVA EDIT
 ```
 
 but then our upstream introduces a change in their codebase, changing it from 1 to 4
@@ -46,7 +46,7 @@ but then our upstream introduces a change in their codebase, changing it from 1 
 As easy of an example as it is, it results in a relatively simple conflict, in the form of
 
 ```byond
-var/something = 2 //SKYRAT EDIT
+var/something = 2 //NOVA EDIT
 ```
 
 where we pick the preferable option manually.
@@ -149,7 +149,7 @@ Note, that it is possible to append code in front, or behind a core proc, in a m
 
 **Note about proc overrides: Just because you can, doesn't mean you should!!**
 
-In general they are a good idea and encouraged whenever it is possible to do so. However this is not a hard rule, and sometimes Nova Sector edits are preferable. Just try to use your common sense about it.
+In general they are a good idea and encouraged whenever it is possible to do so. However this is not a hard rule, and sometimes Nova edits are preferable. Just try to use your common sense about it.
 
 For example: please do not copy paste an entire TG proc into a modular override, make one small change, and then bill it as 'fully modular'. These procs are an absolute nightmare to maintain because once something changes upstream you have to update the overridden proc.
 
@@ -157,7 +157,7 @@ Sometimes you aren't even aware the override exists if it compiles fine and does
 
 The best candidates for modular proc overrides are ones where you can just tack something on after calling the parent, or weave a parent call cleverly in the middle somewhere to achieve your desired effect.
 
-Performance should also be considered when you are overriding a hot proc (like Life() for example), as each additional call adds overhead. Nova Sector edits are much more performant in those cases. For most procs this won't be something you have to think about, though.
+Performance should also be considered when you are overriding a hot proc (like Life() for example), as each additional call adds overhead. Nova edits are much more performant in those cases. For most procs this won't be something you have to think about, though.
 
 ### These modular overrides should be kept in `master_files`, and you should avoid putting them inside modules as much as possible.
 
@@ -199,30 +199,30 @@ In those cases, we've decided to apply the following convention, with examples:
 - **Addition:**
 
   ```byond
-  //SKYRAT EDIT ADDITION BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  //NOVA EDIT ADDITION BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
   var/adminEmergencyNoRecall = FALSE
   var/lastMode = SHUTTLE_IDLE
   var/lastCallTime = 6000
-  //SKYRAT EDIT ADDITION END
+  //NOVA EDIT ADDITION END
   ```
 
 - **Removal:**
 
   ```byond
-  //SKYRAT EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  //NOVA EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
   /*
   for(var/obj/docking_port/stationary/S in stationary)
     if(S.id = id)
       return S
   */
-  //SKYRAT EDIT REMOVAL END
+  //NOVA EDIT REMOVAL END
   WARNING("couldn't find dock with id: [id]")
   ```
 
   And for any removals that are moved to different files:
 
   ```byond
-  //SKYRAT EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Moved to modular_skyrat/shuttle_toggle/randomverbs.dm)
+  //NOVA EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Moved to modular_skyrat/shuttle_toggle/randomverbs.dm)
   /*
   /client/proc/admin_call_shuttle()
   set category = "Admin - Events"
@@ -244,16 +244,16 @@ In those cases, we've decided to apply the following convention, with examples:
   message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the emergency shuttle."))
   return
   */
-  //SKYRAT EDIT REMOVAL END
+  //NOVA EDIT REMOVAL END
   ```
 
 - **Change:**
 
   ```byond
-  //SKYRAT EDIT CHANGE BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
-  //if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE) - SKYRAT EDIT - ORIGINAL
+  //NOVA EDIT CHANGE BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  //if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE) - NOVA EDIT - ORIGINAL
   if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED)
-  //SKYRAT EDIT CHANGE END
+  //NOVA EDIT CHANGE END
       return 1
   ```
 
@@ -318,24 +318,24 @@ ALL of the tgui files are located in `/tgui/packages/tgui/interfaces` and its su
 
 When modifying upstream TGUI files the same rules apply as modifying upstream DM code, however the grammar for comments may be slightly different.
 
-You can do both `// NOVA SECTOR EDIT` and `/* NOVA SECTOR EDIT */`, though in some cases you may have to use one over the other.
+You can do both `// NOVA EDIT` and `/* NOVA EDIT */`, though in some cases you may have to use one over the other.
 
 In general try to keep your edit comments on the same line as the change. Preferably inside the JSX tag. e.g:
 
 ```js
 <Button
 	onClick={() => act('spin', { high_quality: true })}
-	icon="rat" // NOVA SECTOR EDIT ADDITION
+	icon="rat" // NOVA EDIT ADDITION
 </Button>
 ```
 
 ```js
 <Button
 	onClick={() => act('spin', { high_quality: true })}
-	// NOVA SECTOR EDIT ADDITION START - another example, multiline changes
+	// NOVA EDIT ADDITION START - another example, multiline changes
 	icon="rat"
 	tooltip="spin the rat."
-	// NOVA SECTOR EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 </Button>
 ```
 
@@ -346,11 +346,11 @@ In general try to keep your edit comments on the same line as the change. Prefer
 If that is not possible, you can wrap your edit in curly brackets e.g. 
 
 ```js
-{/* NOVA SECTOR EDIT ADDITION START */} 
+{/* NOVA EDIT ADDITION START */} 
 <SomeThing>
 	someProp="whatever"
 </SomeThing>
-{/* NOVA SECTOR EDIT ADDITION END */}
+{/* NOVA EDIT ADDITION END */}
 ```
 
 ### Creating new TGUI files 
@@ -360,7 +360,7 @@ If that is not possible, you can wrap your edit in curly brackets e.g.
 // THIS IS A NOVA SECTOR UI FILE
 ```
 
-This way they are easily identifiable as modular TGUI .tsx/.jsx files. You do not have to do anything further, and there will never be any need for a Nova Sector edit comment in a modular TGUI file.
+This way they are easily identifiable as modular TGUI .tsx/.jsx files. You do not have to do anything further, and there will never be any need for a Nova edit comment in a modular TGUI file.
 
 <!-- ## Exemplary PR's // TODO: REPLACE THESE!
 

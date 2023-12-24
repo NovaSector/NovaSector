@@ -1,4 +1,4 @@
-// THIS FILE HAS BEEN EDITED BY SKYRAT EDIT
+// THIS FILE HAS BEEN EDITED BY NOVA EDIT
 
 /datum/preference/color/underwear_color
 	savefile_key = "underwear_color"
@@ -16,7 +16,7 @@
 	var/datum/species/species = new species_type
 	return !(TRAIT_NO_UNDERWEAR in species.inherent_traits)
 
-// SKYRAT EDIT ADDITION BEGIN - Colorable Undershirt/Socks
+// NOVA EDIT ADDITION BEGIN - Colorable Undershirt/Socks
 /datum/preference/color/undershirt_color
 	savefile_key = "undershirt_color"
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -48,7 +48,7 @@
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
 	return !(TRAIT_NO_UNDERWEAR in species.inherent_traits)
-// SKYRAT EDIT ADDITION END - Colorable Undershirt/Socks
+// NOVA EDIT ADDITION END - Colorable Undershirt/Socks
 
 
 /datum/preference/color/bra_color

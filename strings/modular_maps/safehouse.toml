@@ -33,8 +33,8 @@ modules = ["test_only_safehouse.dmm"]
 [rooms.wood]
 modules = ["wood.dmm"]
 
-# SKYRAT EDIT ADDITION START - custom domains / Disabled until solution found
+# NOVA EDIT ADDITION START - custom domains / Disabled until solution found
 [rooms.ancient_milsim]
 modules = ["skyrat_ancientmilsim.dmm"]
-# SKYRAT EDIT ADDITION END
+# NOVA EDIT ADDITION END
 

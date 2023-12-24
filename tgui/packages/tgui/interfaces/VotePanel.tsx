@@ -212,7 +212,7 @@ const ChoicesPanel = (props) => {
                   {
                     user.isLowerAdmin
                       ? `${choice.votes} Votes`
-                      : '' /* SKYRAT EDIT*/
+                      : '' /* NOVA EDIT*/
                   }
                 </LabeledList.Item>
                 <LabeledList.Divider />
@@ -254,7 +254,7 @@ const ChoicesPanel = (props) => {
                   {
                     user.isLowerAdmin
                       ? `${choice.votes} Votes`
-                      : '' /* SKYRAT EDIT*/
+                      : '' /* NOVA EDIT*/
                   }
                 </LabeledList.Item>
                 <LabeledList.Divider />

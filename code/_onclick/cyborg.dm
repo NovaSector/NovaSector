@@ -197,14 +197,14 @@
 /mob/living/silicon/robot/RangedAttack(atom/A)
 	A.attack_robot(src)
 
-/*	//SKYRAT EDIT - MOVED TO modular_skyrat/master_files/code/_onclick/cyborg.dm
+/*	//NOVA EDIT - MOVED TO modular_skyrat/master_files/code/_onclick/cyborg.dm
 /atom/proc/attack_robot(mob/user)
 	if (SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_ROBOT, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return
 
 	attack_ai(user)
 	return
-*/	//SKYRAT EDIT END
+*/	//NOVA EDIT END
 
 /**
  * What happens when the cyborg without active module holds right-click on an item. Returns a SECONDARY_ATTACK_* value.

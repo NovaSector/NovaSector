@@ -251,7 +251,7 @@
 			candidates.Remove(candidate_player)
 			continue
 
-		//SKYRAT EDIT ADDITION
+		//NOVA EDIT ADDITION
 		if(!candidate_client.prefs?.read_preference(/datum/preference/toggle/be_antag))
 			candidates.Remove(candidate_player)
 			continue
@@ -259,7 +259,7 @@
 		if(is_banned_from(candidate_client.ckey, BAN_ANTAGONIST))
 			candidates.Remove(candidate_player)
 			continue
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 
 		if(candidate_client.get_remaining_days(minimum_required_age) > 0)
 			candidates.Remove(candidate_player)

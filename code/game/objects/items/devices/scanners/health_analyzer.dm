@@ -44,7 +44,7 @@
 	return BRUTELOSS
 
 /obj/item/healthanalyzer/attack_self(mob/user)
-	if(!user.can_read(src)) //SKYRAT EDIT: Blind People Can Analyze Again
+	if(!user.can_read(src)) //NOVA EDIT: Blind People Can Analyze Again
 		return
 
 	scanmode = (scanmode + 1) % SCANMODE_COUNT
@@ -57,7 +57,7 @@
 /obj/item/healthanalyzer/interact_with_atom(atom/interacting_with, mob/living/user)
 	if(!isliving(interacting_with))
 		return NONE
-	if(!user.can_read(src)) //SKYRAT EDIT CHANGE - Blind People Can Analyze Again- ORIGINAL: if(!user.can_read(src) || user.is_blind())
+	if(!user.can_read(src)) //NOVA EDIT CHANGE - Blind People Can Analyze Again- ORIGINAL: if(!user.can_read(src) || user.is_blind())
 		return ITEM_INTERACT_BLOCKING
 
 	var/mob/living/M = interacting_with
@@ -95,7 +95,7 @@
 /obj/item/healthanalyzer/interact_with_atom_secondary(atom/interacting_with, mob/living/user)
 	if(!isliving(interacting_with))
 		return NONE
-	if(!user.can_read(src)) // SKYRAT EDIT CHANGE - Blind people can analyze again - ORIGINAL: if(!user.can_read(src) || user.is_blind())
+	if(!user.can_read(src)) // NOVA EDIT CHANGE - Blind people can analyze again - ORIGINAL: if(!user.can_read(src) || user.is_blind())
 		return ITEM_INTERACT_BLOCKING
 
 	chemscan(user, interacting_with)
@@ -180,16 +180,16 @@
 	if (!target.get_organ_slot(ORGAN_SLOT_BRAIN)) // kept exclusively for soul purposes
 		render_list += "<span class='alert ml-1'>Subject lacks a brain.</span>\n"
 
-	var/death_consequences_status_text // SKYRAT EDIT ADDITION: Death consequences quirk
+	var/death_consequences_status_text // NOVA EDIT ADDITION: Death consequences quirk
 	if(iscarbon(target))
 		var/mob/living/carbon/carbontarget = target
 		if(LAZYLEN(carbontarget.get_traumas()))
 			var/list/trauma_text = list()
 			for(var/datum/brain_trauma/trauma in carbontarget.get_traumas())
-				//SKYRAT EDIT: Scary Traits (Bimbo)
+				//NOVA EDIT: Scary Traits (Bimbo)
 				if(!trauma.display_scanner)
 					continue
-				//SKYRAT EDIT: Scary Traits (Bimbo)
+				//NOVA EDIT: Scary Traits (Bimbo)
 				var/trauma_desc = ""
 				switch(trauma.resilience)
 					if(TRAUMA_RESILIENCE_SURGERY)
@@ -202,11 +202,11 @@
 						trauma_desc += "permanent "
 				trauma_desc += trauma.scan_desc
 				trauma_text += trauma_desc
-				// SKYRAT EDIT ADDITION START: Death Consequences Quirk
+				// NOVA EDIT ADDITION START: Death Consequences Quirk
 				if (istype(trauma, /datum/brain_trauma/severe/death_consequences))
 					var/datum/brain_trauma/severe/death_consequences/consequences_trauma = trauma
 					death_consequences_status_text = consequences_trauma.get_health_analyzer_link_text(user)
-				// SKYRAT EDIT ADDITION END: Death Consequences Quirk
+				// NOVA EDIT ADDITION END: Death Consequences Quirk
 			render_list += "<span class='alert ml-1'>Cerebral traumas detected: subject appears to be suffering from [english_list(trauma_text)].</span>\n"
 		if(carbontarget.quirks.len)
 			render_list += "<span class='info ml-1'>Subject Major Disabilities: [carbontarget.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE)].</span>\n"
@@ -404,15 +404,15 @@
 			render_list += "<span class='notice ml-2'>[cyberimp_detect]</span>\n"
 	// we handled the last <br> so we don't need handholding
 
-	// SKYRAT EDIT ADDITION - Mutant stuff
+	// NOVA EDIT ADDITION - Mutant stuff
 	if(target.GetComponent(/datum/component/mutant_infection))
 		render_list += span_userdanger("UNKNOWN PROTO-VIRAL INFECTION DETECTED. ISOLATE IMMEDIATELY.")
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
-	// SKYRAT EDIT ADDITION - DEATH CONSEQUENCES QUIRK
+	// NOVA EDIT ADDITION - DEATH CONSEQUENCES QUIRK
 	if(death_consequences_status_text)
 		render_list += death_consequences_status_text
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	if(tochat)
 		to_chat(user, examine_block(jointext(render_list, "")), trailing_newline = FALSE, type = MESSAGE_TYPE_INFO)
@@ -594,7 +594,7 @@
 /obj/item/healthanalyzer/simple/interact_with_atom(atom/interacting_with, mob/living/user)
 	if(!isliving(interacting_with))
 		return NONE
-	if(!user.can_read(src)) //SKYRAT EDIT CHANGE - Blind People Can Analyze Again - ORIGINAL: if(!user.can_read(src) || user.is_blind())
+	if(!user.can_read(src)) //NOVA EDIT CHANGE - Blind People Can Analyze Again - ORIGINAL: if(!user.can_read(src) || user.is_blind())
 		return ITEM_INTERACT_BLOCKING
 
 	add_fingerprint(user)

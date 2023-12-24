@@ -8,7 +8,7 @@
 	switch(preview_pref)
 		if(PREVIEW_PREF_JOB)
 			mannequin.underwear_visibility = NONE
-			if(preview_job) // SKYRAT EDIT CHANGE
+			if(preview_job) // NOVA EDIT CHANGE
 				// Silicons only need a very basic preview since there is no customization for them.
 				if (istype(preview_job, /datum/job/ai))
 					return image('icons/mob/silicon/ai.dmi', icon_state = resolve_ai_icon(read_preference(/datum/preference/choiced/ai_core_display)), dir = SOUTH)
@@ -36,7 +36,7 @@
 				if(gent)
 					gent.aroused = AROUSAL_FULL
 					gent.update_sprite_suffix()
-	
+
 	// Apply visual quirks
 	// Yes we do it every time because it needs to be done after job gear
 	if(SSquirks?.initialized)

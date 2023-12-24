@@ -600,7 +600,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	. = ..()
 	if((acidpwr <= 0) || (acid_volume <= 0))
 		return FALSE
-	if(QDELETED(src)) //skyrat edit: fix createanddestroy
+	if(QDELETED(src)) //NOVA EDIT: fix createanddestroy
 		return FALSE
 	AddComponent(/datum/component/acid, acidpwr, acid_volume, GLOB.acid_overlay)
 
@@ -618,7 +618,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	AddElement(/datum/element/rust)
 
 /turf/handle_fall(mob/faller)
-	SEND_SIGNAL(src, COMSIG_TURF_MOB_FALL, faller) //SKYRAT EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_TURF_MOB_FALL, faller) //NOVA EDIT ADDITION
 	if(has_gravity(src))
 		playsound(src, SFX_BODYFALL, 50, TRUE)
 	faller.drop_all_held_items()

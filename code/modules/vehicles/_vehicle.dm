@@ -6,7 +6,7 @@
 	max_integrity = 300
 	armor_type = /datum/armor/obj_vehicle
 	layer = VEHICLE_LAYER
-	plane = GAME_PLANE // SKYRAT EDIT - ORIGINAL: plane = GAME_PLANE_FOV_HIDDEN
+	plane = GAME_PLANE // NOVA EDIT - ORIGINAL: plane = GAME_PLANE_FOV_HIDDEN
 	density = TRUE
 	anchored = FALSE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
@@ -191,5 +191,5 @@
 	. = ..()
 	if(trailer && .)
 		var/dir_to_move = get_dir(trailer.loc, old_loc)
-		trailer.glide_size = glide_size //SKYRAT EDIT: Carts
+		trailer.glide_size = glide_size //NOVA EDIT: Carts
 		step(trailer, dir_to_move)
