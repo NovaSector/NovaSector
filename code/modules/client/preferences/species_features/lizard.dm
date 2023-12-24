@@ -1,4 +1,4 @@
-/* SKYRAT EDIT REMOVAL
+/* NOVA EDIT REMOVAL
 /proc/generate_lizard_side_shot(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
 	var/static/icon/lizard
 	var/static/icon/lizard_with_snout

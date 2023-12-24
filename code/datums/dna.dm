@@ -1,4 +1,4 @@
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
 /*
 /**
  * Some identity blocks (basically pieces of the unique_identity string variable of the dna datum, commonly abbreviated with ui)
@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		. += total_block_len
 		total_block_len += GET_UF_BLOCK_LEN(blocknumber)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 /////////////////////////// DNA DATUM
 /datum/dna
 	///An md5 hash of the dna holder's real name
@@ -137,17 +137,17 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	destination.dna.features = features.Copy()
 	destination.dna.real_name = real_name
 	destination.dna.temporary_mutations = temporary_mutations.Copy()
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	destination.dna.mutant_bodyparts = mutant_bodyparts.Copy()
 	destination.dna.body_markings = body_markings.Copy()
 	destination.dna.update_body_size()
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	if(transfer_SE)
 		destination.dna.mutation_index = mutation_index
 		destination.dna.default_mutation_genes = default_mutation_genes
 	if(transfer_species)
 		//destination.set_species(species.type, icon_update=0) - ORIGINAL
-		destination.set_species(species.type, TRUE, FALSE, features.Copy(), mutant_bodyparts.Copy(), body_markings.Copy()) //SKYRAT EDIT CHANGE - CUSTOMIZATION
+		destination.set_species(species.type, TRUE, FALSE, features.Copy(), mutant_bodyparts.Copy(), body_markings.Copy()) //NOVA EDIT CHANGE - CUSTOMIZATION
 
 /datum/dna/proc/copy_dna(datum/dna/new_dna)
 	new_dna.unique_enzymes = unique_enzymes
@@ -157,11 +157,11 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.unique_features = unique_features
 	new_dna.blood_type = blood_type
 	new_dna.features = features.Copy()
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	new_dna.mutant_bodyparts = mutant_bodyparts.Copy()
 	new_dna.body_markings = body_markings.Copy()
 	new_dna.update_body_size()
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	//if the new DNA has a holder, transform them immediately, otherwise save it
 	if(new_dna.holder)
 		new_dna.holder.set_species(species.type, icon_update = 0)
@@ -233,7 +233,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	for(var/blocknum in 1 to DNA_UNI_IDENTITY_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
 
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
 /*
 /datum/dna/proc/generate_unique_features()
 	. = ""
@@ -275,7 +275,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 	return data.Join()
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /datum/dna/proc/generate_dna_blocks()
 	var/bonus
@@ -373,7 +373,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(DNA_HAIRSTYLE_BLOCK)
 			set_uni_identity_block(blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
 
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
 /*
 /datum/dna/proc/update_uf_block(blocknumber)
 	if(!blocknumber)
@@ -412,7 +412,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(DNA_POD_HAIR_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.pod_hair_list.Find(features["pod_hair"]), GLOB.pod_hair_list.len))
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 //Please use add_mutation or activate_mutation instead
 /datum/dna/proc/force_give(datum/mutation/human/human_mutation)
@@ -497,7 +497,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(create_mutation_blocks) //I hate this
 		generate_dna_blocks()
 	if(randomize_features)
-		/* SKYRAT EDIT REMOVAL - We don't really want this. We instead let get_mutant_bodyparts() handle the bodypart randomization on our end, to prevent getting any crazy cross-species features.
+		/* NOVA EDIT REMOVAL - We don't really want this. We instead let get_mutant_bodyparts() handle the bodypart randomization on our end, to prevent getting any crazy cross-species features.
 		var/static/list/all_species_protoypes
 		if(isnull(all_species_protoypes))
 			all_species_protoypes = list()
@@ -506,12 +506,12 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 		for(var/datum/species/random_species as anything in all_species_protoypes)
 			features |= random_species.randomize_features()
-		SKYRAT EDIT REMOVAL END */
+		NOVA EDIT REMOVAL END */
 
-		features = species.randomize_features() | features // SKYRAT EDIT CHANGE - Where applicable, replace features with the features generated by species/randomize_features() - Original: features["mcolor"] = "#[random_color()]"
-		body_markings = species.get_random_body_markings(features) // SKYRAT EDIT ADDITION
+		features = species.randomize_features() | features // NOVA EDIT CHANGE - Where applicable, replace features with the features generated by species/randomize_features() - Original: features["mcolor"] = "#[random_color()]"
+		body_markings = species.get_random_body_markings(features) // NOVA EDIT ADDITION
 
-	mutant_bodyparts = species.get_mutant_bodyparts(features, existing_mutant_bodyparts = randomize_features ? list() : mutant_bodyparts) // SKYRAT EDIT ADDITION
+	mutant_bodyparts = species.get_mutant_bodyparts(features, existing_mutant_bodyparts = randomize_features ? list() : mutant_bodyparts) // NOVA EDIT ADDITION
 	update_dna_identity()
 
 /datum/dna/stored //subtype used by brain mob's stored_dna
@@ -545,7 +545,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			stored_dna.species = mrace //not calling any species update procs since we're a brain, not a monkey/human
 
 
-/mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings) // SKYRAT EDIT CHANGE - ORIGINAL: /mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE)
+/mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE)
 	if(QDELETED(src))
 		CRASH("You're trying to change your species post deletion, this is a recipe for madness")
 	if(isnull(mrace))
@@ -571,7 +571,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if (old_species.properly_gained)
 		old_species.on_species_loss(src, new_race, pref_load)
 
-	// SKYRAT EDIT ADDITION START - BODYPARTS AND FEATURES
+	// NOVA EDIT ADDITION START - BODYPARTS AND FEATURES
 	// We need to instantiate the list with compatible mutant parts so we don't break things
 
 	if(override_mutantparts && override_mutantparts.len)
@@ -593,7 +593,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	dna.unique_features = dna.generate_unique_features()
 
 	dna.update_body_size()
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	dna.species.on_species_gain(src, old_species, pref_load)
 	log_mob_tag("TAG: [tag] SPECIES: [key_name(src)] \[[mrace]\]")
@@ -687,7 +687,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		else
 			gender = PLURAL
 
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
 /*
 /mob/living/carbon/human/updateappearance(icon_update = TRUE, mutcolor_update = FALSE, mutations_overlay_update = FALSE)
 	..()
@@ -756,7 +756,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(mutations_overlay_update)
 			update_mutations_overlay()
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /mob/proc/domutcheck()
 	return

@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { BooleanLike } from 'common/react';
 import { useState } from 'react';
 

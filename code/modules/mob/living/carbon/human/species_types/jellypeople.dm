@@ -41,7 +41,7 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly,
 	)
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
-	var/datum/action/innate/alter_form/alter_form //SKYRAT EDIT ADDITION - CUSTOMIZATION
+	var/datum/action/innate/alter_form/alter_form //NOVA EDIT ADDITION - CUSTOMIZATION
 
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
 	. = ..()
@@ -49,19 +49,19 @@
 		regenerate_limbs = new
 		regenerate_limbs.Grant(new_jellyperson)
 		update_mail_goodies(new_jellyperson)
-		//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+		//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 	new_jellyperson.AddElement(/datum/element/soft_landing)
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	if(regenerate_limbs)
 		regenerate_limbs.Remove(former_jellyperson)
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	if(alter_form)
 		alter_form.Remove(former_jellyperson)
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	former_jellyperson.RemoveElement(/datum/element/soft_landing)
 
 	return ..()

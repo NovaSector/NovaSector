@@ -1,5 +1,5 @@
 /mob/living/silicon/ai/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] <EM>[src]</EM>!", EXAMINE_SECTION_BREAK) //SKYRAT EDIT CHANGE
+	. = list("<span class='info'>This is [icon2html(src, user)] <EM>[src]</EM>!", EXAMINE_SECTION_BREAK) //NOVA EDIT CHANGE
 	if(stat == DEAD)
 		. += span_deadsay("It appears to be powered-down.")
 	. += span_notice("Its floor <b>bolts</b> are [is_anchored ? "tightened" : "loose"].")
@@ -26,9 +26,9 @@
 			. += "The wireless networking light is blinking."
 		else if (!shunted && !client)
 			. += "[src]Core.exe has stopped responding! NTOS is searching for a solution to the problem..."
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	. += get_silicon_flavortext()
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	. += "</span>"
 
 	. += ..()

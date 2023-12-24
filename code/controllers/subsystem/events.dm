@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(events)
 	///Will wizard events be included in the event pool?
 	var/wizardmode = FALSE
 
-	var/list/previously_run = list() //SKYRAT EDIT ADDITION
+	var/list/previously_run = list() //NOVA EDIT ADDITION
 
 /datum/controller/subsystem/events/Initialize()
 	for(var/type in typesof(/datum/round_event_control))
@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(events)
 	scheduled = world.time + rand(frequency_lower, max(frequency_lower,frequency_upper))
 
 //selects a random event based on whether it can occur and it's 'weight'(probability)
-/datum/controller/subsystem/events/proc/spawnEvent(threat_override = FALSE) //SKYRAT EDIT CHANGE
+/datum/controller/subsystem/events/proc/spawnEvent(threat_override = FALSE) //NOVA EDIT CHANGE
 	set waitfor = FALSE //for the admin prompt
 	if(!CONFIG_GET(flag/allow_random_events))
 		return
@@ -73,10 +73,10 @@ SUBSYSTEM_DEF(events)
 	for(var/datum/round_event_control/event_to_check in control)
 		if(!event_to_check.can_spawn_event(players_amt))
 			continue
-		//SKYRAT EDIT ADDITION
+		//NOVA EDIT ADDITION
 		if(threat_override && !event_to_check.alert_observers)
 			continue
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		if(event_to_check.weight < 0) //for round-start events etc.
 			var/res = TriggerEvent(event_to_check)
 			if(res == EVENT_INTERRUPTED)

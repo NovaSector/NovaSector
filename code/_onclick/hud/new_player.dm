@@ -1,4 +1,4 @@
-/* SKYRAT EDIT REMOVAL - Custom HTML Lobby Screen
+/* NOVA EDIT REMOVAL - Custom HTML Lobby Screen
 #define SHUTTER_MOVEMENT_DURATION 0.4 SECONDS
 #define SHUTTER_WAIT_DURATION 0.2 SECONDS
 
@@ -84,7 +84,7 @@
 		return
 	flick("[base_icon_state]_pressed", src)
 	update_appearance(UPDATE_ICON)
-	SEND_SOUND(hud.mymob, sound('modular_skyrat/master_files/sound/effects/save.ogg')) //SKYRAT EDIT ADDITION
+	SEND_SOUND(hud.mymob, sound('modular_skyrat/master_files/sound/effects/save.ogg')) //NOVA EDIT ADDITION
 	return TRUE
 
 /atom/movable/screen/lobby/button/MouseEntered(location,control,params)
@@ -184,11 +184,11 @@
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
 
-	// SKYRAT EDIT BEGIN
+	// NOVA EDIT BEGIN
 	if(!is_admin(new_player.client) && length_char(new_player.client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < FLAVOR_TEXT_CHAR_REQUIREMENT)
 		to_chat(new_player, span_notice("You need at least [FLAVOR_TEXT_CHAR_REQUIREMENT] characters of flavor text to ready up for the round. You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters."))
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	ready = !ready
 	if(ready)
@@ -253,11 +253,11 @@
 			to_chat(new_player, span_notice("You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len]."))
 		return
 
-	// SKYRAT EDIT BEGIN
+	// NOVA EDIT BEGIN
 	if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= FLAVOR_TEXT_CHAR_REQUIREMENT)
 		to_chat(new_player, span_notice("You need at least [FLAVOR_TEXT_CHAR_REQUIREMENT] characters of flavor text to join the round. You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters."))
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	if(!LAZYACCESS(params2list(params), CTRL_CLICK))
 		GLOB.latejoin_menu.ui_interact(new_player)
@@ -541,4 +541,4 @@
 #undef SHUTTER_MOVEMENT_DURATION
 #undef SHUTTER_WAIT_DURATION
 
-*/ // SKYRAT EDIT END
+*/ // NOVA EDIT END

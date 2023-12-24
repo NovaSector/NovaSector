@@ -602,9 +602,9 @@
 		return FALSE
 
 
-	// SKYRAT EDIT BEGIN - PDA messages show a visible message; again!
+	// NOVA EDIT BEGIN - PDA messages show a visible message; again!
 	sender.visible_message(span_notice("[sender]'s PDA rings out with the soft sound of keypresses"), vision_distance = COMBAT_MESSAGE_RANGE)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	// Log in the talk log
 	sender.log_talk(message, LOG_PDA, tag="[rigged ? "Rigged" : ""] PDA: [computer.saved_identification] to [signal.format_target()]")

@@ -13,7 +13,7 @@
 //Blood levels
 #define BLOOD_VOLUME_MAX_LETHAL 2150
 #define BLOOD_VOLUME_EXCESS 2100
-#define BLOOD_VOLUME_MAXIMUM 1000 // SKYRAT EDIT - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL VALUE: 2000
+#define BLOOD_VOLUME_MAXIMUM 1000 // NOVA EDIT - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL VALUE: 2000
 #define BLOOD_VOLUME_SLIME_SPLIT 1120
 #define BLOOD_VOLUME_NORMAL 560
 #define BLOOD_VOLUME_SAFE 475
@@ -97,7 +97,7 @@
 #define BODYTYPE_ALIEN (1<<7)
 ///The limb is from a golem
 #define BODYTYPE_GOLEM (1<<8)
-// SKYRAT EDIT ADDITION
+// NOVA EDIT ADDITION
 ///The limb fits a modular custom shape
 #define BODYTYPE_CUSTOM (1<<9)
 ///The limb fits a taur body
@@ -106,7 +106,7 @@
 #define BODYTYPE_HIDE_SHOES (1<<11)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
 #define BODYTYPE_ALT_FACEWEAR_LAYER (1<<12)
-// SKYRAT EDIT END
+// NOVA EDIT END
 
 #define BODYTYPE_BIOSCRAMBLE_COMPATIBLE (BODYTYPE_HUMANOID | BODYTYPE_MONKEY | BODYTYPE_ALIEN)
 #define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_ROBOTIC) && (bodytype & BODYTYPE_BIOSCRAMBLE_COMPATIBLE))
@@ -456,12 +456,12 @@
 #define OFFSET_SUIT "suit"
 #define OFFSET_NECK "neck"
 #define OFFSET_HELD "held"
-#define OFFSET_ACCESSORY "accessory" // Skyrat edit - addition
-#define OFFSET_HAIR "hair" // Skyrat edit - addition - Akulas
+#define OFFSET_ACCESSORY "accessory" // NOVA EDIT - addition
+#define OFFSET_HAIR "hair" // NOVA EDIT - addition - Akulas
 
 //MINOR TWEAKS/MISC
 //#define AGE_MIN 17	//youngest a character can be //ORIGINAL
-#define AGE_MIN	18	//youngest a character can be //SKYRAT EDIT CHANGE - age
+#define AGE_MIN	18	//youngest a character can be //NOVA EDIT CHANGE - age
 #define AGE_MAX 85 //oldest a character can be
 #define AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
@@ -707,36 +707,36 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 40 // SKYRAT EDIT CHANGE - ORIGINAL: 34
+#define TOTAL_LAYERS 40 // NOVA EDIT CHANGE - ORIGINAL: 34
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 40 // SKYRAT EDIT CHANGE - ORIGINAL: 34
+#define MUTATIONS_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: 34
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 39 // SKYRAT EDIT CHANGE - ORIGINAL: 33
+#define BODY_BEHIND_LAYER 39 // NOVA EDIT CHANGE - ORIGINAL: 33
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 38 // SKYRAT EDIT CHANGE - ORIGINAL: 32
+#define BODYPARTS_LOW_LAYER 38 // NOVA EDIT CHANGE - ORIGINAL: 32
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 37 // SKYRAT EDIT CHANGE - ORIGINAL: 31
+#define BODYPARTS_LAYER 37 // NOVA EDIT CHANGE - ORIGINAL: 31
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 36 // SKYRAT EDIT CHANGE - ORIGINAL: 30
+#define BODY_ADJ_LAYER 36 // NOVA EDIT CHANGE - ORIGINAL: 30
 /// Underwear, undershirts, socks, eyes, lips(makeup)
-#define BODY_LAYER 35 // SKYRAT EDIT CHANGE - ORIGINAL: 29
+#define BODY_LAYER 35 // NOVA EDIT CHANGE - ORIGINAL: 29
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 34 // SKYRAT EDIT CHANGE - ORIGINAL: 28
+#define FRONT_MUTATIONS_LAYER 34 // NOVA EDIT CHANGE - ORIGINAL: 28
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 33 // SKYRAT EDIT CHANGE - ORIGINAL: 27
-// SKYRAT EDIT ADDITION START
+#define DAMAGE_LAYER 33 // NOVA EDIT CHANGE - ORIGINAL: 27
+// NOVA EDIT ADDITION START
 /// This layer is used for things that shouldn't be over clothes, but should be over mutations
 #define BODY_FRONT_UNDER_CLOTHES 32
-// SKYRAT EDIT ADDITION END
+// NOVA EDIT ADDITION END
 /// Jumpsuit clothing layer
-#define UNIFORM_LAYER 31 // SKYRAT EDIT CHANGE - ORIGINAL: 26
-// SKYRAT EDIT ADDITION BEGIN - cursed layers under clothing
+#define UNIFORM_LAYER 31 // NOVA EDIT CHANGE - ORIGINAL: 26
+// NOVA EDIT ADDITION BEGIN - cursed layers under clothing
 #define ANUS_LAYER 30
 #define VAGINA_LAYER 29
 #define PENIS_LAYER 28
 #define NIPPLES_LAYER 27
 #define BANDAGE_LAYER 26
-//SKYRAT EDIT ADDITION END
+//NOVA EDIT ADDITION END
 /// ID card layer
 #define ID_LAYER 25
 /// ID card layer (might be deprecated)
@@ -839,14 +839,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_ADJACENT (1 << 2)
 /// Draws organ on the BODY_BEHIND_LAYER
 #define EXTERNAL_BEHIND (1 << 3)
-// SKYRAT EDIT ADDITION - Customization
+// NOVA EDIT ADDITION - Customization
 /// Draws organ on the BODY_FRONT_UNDER_CLOTHES
 #define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 4)
 /// Draws organ on the ABOVE_BODY_FRONT_HEAD_LAYER
 #define EXTERNAL_FRONT_OVER (1 << 5)
 /// Draws organ on the HEAD_LAYER, for things that need to be above hair but below hats.
 #define EXTERNAL_FRONT_ABOVE_HAIR (1 << 6)
-// SKYRAT EDIT END (not touching what comes next because we don't actually have to (nor want to))
+// NOVA EDIT END (not touching what comes next because we don't actually have to (nor want to))
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 

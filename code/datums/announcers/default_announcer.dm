@@ -1,4 +1,4 @@
-/* SKYRAT EDIT REMOVAL
+/* NOVA EDIT REMOVAL
 /datum/centcom_announcer/default
 	welcome_sounds = list('sound/ai/default/welcome.ogg')
 	alert_sounds = list('sound/ai/default/attention.ogg')

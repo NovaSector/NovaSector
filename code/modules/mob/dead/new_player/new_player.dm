@@ -5,7 +5,7 @@
 	invisibility = INVISIBILITY_ABSTRACT
 	density = FALSE
 	stat = DEAD
-	//hud_type = /datum/hud/new_player SKYRAT EDIT REMOVAL
+	//hud_type = /datum/hud/new_player NOVA EDIT REMOVAL
 	hud_possible = list()
 
 	var/ready = FALSE
@@ -74,13 +74,13 @@
 	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
 		less_input_message = " - Notice: Observer freelook is currently disabled."
 	// Don't convert this to tgui please, it's way too important
-	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe?[less_input_message]", "Observe", "Yes", "No") //SKYRAT EDIT CHANGE
+	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe?[less_input_message]", "Observe", "Yes", "No") //NOVA EDIT CHANGE
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
-		show_title_screen() // SKYRAT EDIT ADDITION
+		show_title_screen() // NOVA EDIT ADDITION
 		return FALSE
 
-	hide_title_screen() // SKYRAT EDIT ADDITION - Skyrat Titlescreen
+	hide_title_screen() // NOVA EDIT ADDITION - Skyrat Titlescreen
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
 
@@ -121,7 +121,7 @@
 			return "Your account is not old enough for [jobtitle]."
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] is already filled to capacity."
-		//SKYRAT EDIT ADDITION
+		//NOVA EDIT ADDITION
 		if(JOB_NOT_VETERAN)
 			return "You need to be veteran to join as [jobtitle]."
 		if(JOB_UNAVAILABLE_QUIRK)
@@ -134,7 +134,7 @@
 			return "[jobtitle] requires you to have flavour text for your character."
 		if(JOB_UNAVAILABLE_AUGMENT)
 			return "[jobtitle] is restricted due to your selected body augments."
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		if(JOB_UNAVAILABLE_ANTAG_INCOMPAT)
 			return "[jobtitle] is not compatible with some antagonist role assigned to you."
 		if(JOB_UNAVAILABLE_AGE)
@@ -162,7 +162,7 @@
 
 	if(latejoin && !job.special_check_latejoin(client))
 		return JOB_UNAVAILABLE_GENERIC
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if(!job.has_required_languages(client.prefs))
 		return JOB_UNAVAILABLE_LANGUAGE
 	if(job.has_banned_quirk(client.prefs))
@@ -171,7 +171,7 @@
 		return JOB_NOT_VETERAN
 	if(job.has_banned_species(client.prefs))
 		return JOB_UNAVAILABLE_SPECIES
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	return JOB_AVAILABLE
 
 
@@ -205,7 +205,7 @@
 		tgui_alert(usr, "There was an unexpected error putting you into your requested job. If you cannot join with any job, you should contact an admin.")
 		return FALSE
 
-	hide_title_screen()// SKYRAT EDIT ADDITION
+	hide_title_screen()// NOVA EDIT ADDITION
 	mind.late_joiner = TRUE
 	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
 	if(!destination)
@@ -226,7 +226,7 @@
 	// If we already have a captain, are they a "Captain" rank and are we allowing multiple of them to be assigned?
 	if(is_captain_job(job))
 		is_captain = IS_FULL_CAPTAIN
-		captain_sound = ANNOUNCER_DEPARTMENTAL // SKYRAT EDIT CHANGE - Announcer Sounds
+		captain_sound = ANNOUNCER_DEPARTMENTAL // NOVA EDIT CHANGE - Announcer Sounds
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.
 	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(ckey, list(JOB_CAPTAIN)))
 		is_captain = IS_ACTING_CAPTAIN
@@ -244,19 +244,19 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-		// BEGIN SKYRAT EDIT CHANGE - ALTERNATIVE_JOB_TITLES
+		// BEGIN NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES
 		var/chosen_rank = humanc.client?.prefs.alt_job_titles[rank] || rank
 		GLOB.manifest.inject(humanc, humanc.client)
 		if(SSshuttle.arrivals)
 			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank)
 		else
 			announce_arrival(humanc, chosen_rank)
-		// END SKYRAT EDIT CHANGE - customization
+		// END NOVA EDIT CHANGE - customization
 		AddEmploymentContract(humanc)
 
 		humanc.increment_scar_slot()
 		humanc.load_persistent_scars()
-		SSpersistence.load_modular_persistence(humanc.get_organ_slot(ORGAN_SLOT_BRAIN)) // SKYRAT EDIT ADDITION - MODULAR_PERSISTENCE
+		SSpersistence.load_modular_persistence(humanc.get_organ_slot(ORGAN_SLOT_BRAIN)) // NOVA EDIT ADDITION - MODULAR_PERSISTENCE
 
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)
@@ -277,13 +277,13 @@
 
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
-	// SKYRAT EDIT ADDITION START
+	// NOVA EDIT ADDITION START
 	if(humanc)
 		for(var/datum/loadout_item/item as anything in loadout_list_to_datums(humanc?.client?.prefs?.loadout_list))
 			if (item.restricted_roles && length(item.restricted_roles) && !(job.title in item.restricted_roles))
 				continue
 			item.post_equip_item(humanc.client?.prefs, humanc)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.
@@ -296,7 +296,7 @@
 /mob/dead/new_player/proc/create_character(atom/destination)
 	spawning = TRUE
 
-	hide_title_screen() // SKYRAT EDIT ADDITION - titlescreen
+	hide_title_screen() // NOVA EDIT ADDITION - titlescreen
 
 	mind.active = FALSE //we wish to transfer the key manually
 	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)

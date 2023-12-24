@@ -121,7 +121,7 @@
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	///Icon state of the welding visor.
 	var/visor_state = "weldvisor"
-	var/visor_sprite_path	//SKYRAT EDIT --- Lets the visor not smush the snout
+	var/visor_sprite_path	//NOVA EDIT --- Lets the visor not smush the snout
 
 /obj/item/clothing/head/utility/hardhat/welding/Initialize(mapload)
 	. = ..()
@@ -141,11 +141,11 @@
 /obj/item/clothing/head/utility/hardhat/welding/proc/toggle_welding_screen(mob/living/user)
 	if(weldingvisortoggle(user))
 		playsound(src, 'sound/mecha/mechmove03.ogg', 50, TRUE) //Visors don't just come from nothing
-	var/mob/living/carbon/carbon_user = user	//SKYRAT EDIT --- Lets the visor not smush the snout
+	var/mob/living/carbon/carbon_user = user	//NOVA EDIT --- Lets the visor not smush the snout
 	if(carbon_user.dna.species.mutant_bodyparts["snout"])
 		visor_sprite_path = 'modular_skyrat/master_files/icons/mob/clothing/head_muzzled.dmi'
 	else
-		visor_sprite_path = 'icons/mob/clothing/head/utility.dmi'	//END SKYRAT EDIT
+		visor_sprite_path = 'icons/mob/clothing/head/utility.dmi'	//END NOVA EDIT
 	update_appearance()
 
 /obj/item/clothing/head/utility/hardhat/welding/worn_overlays(mutable_appearance/standing, isinhands)
@@ -154,8 +154,8 @@
 		return
 
 	if(!up)
-		// SKYRAT EDIT: ORIGINAL - . += mutable_appearance('icons/mob/clothing/head/utility.dmi', visor_state)
-		// SKYRAT EDIT: WELDING MUZZLES
+		// NOVA EDIT: ORIGINAL - . += mutable_appearance('icons/mob/clothing/head/utility.dmi', visor_state)
+		// NOVA EDIT: WELDING MUZZLES
 		. += mutable_appearance(visor_sprite_path, visor_state)
 
 /obj/item/clothing/head/utility/hardhat/welding/update_overlays()

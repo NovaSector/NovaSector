@@ -275,7 +275,7 @@ GLOBAL_LIST_INIT(admin_visible_traits, list(
 	/obj/item/organ/internal/lungs = list(
 		"TRAIT_SPACEBREATHING" = TRAIT_SPACEBREATHING,
 	),
-	// SKYRAT EDIT ADDITION START - SKYRAT TRAITS
+	// NOVA EDIT ADDITION START - SKYRAT TRAITS
 	/obj/item/toy/plush/skyrat = list(
 		"TRAIT_AFFECTION_AVERSION" = TRAIT_AFFECTION_AVERSION,
 		"TRAIT_APHRO" = TRAIT_APHRO,
@@ -349,7 +349,7 @@ GLOBAL_LIST_INIT(admin_visible_traits, list(
 		"TRAIT_XENO_INNATE" = TRAIT_XENO_INNATE,
 		"TRAIT_CLOTHES_DAMAGED_BY_PIERCING" = TRAIT_CLOTHES_DAMAGED_BY_PIERCING,
 	),
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 ))
 
 /// value -> trait name, generated as needed for adminning.

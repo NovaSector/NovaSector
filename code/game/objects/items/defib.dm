@@ -578,12 +578,12 @@
 	do_cancel()
 
 /obj/item/shockpaddles/proc/do_help(mob/living/carbon/H, mob/living/user)
-	var/target_synthetic = (H.mob_biotypes & MOB_ROBOTIC) // SKYRAT EDIT ADDITION BEGIN - SYNTH REVIVAL
+	var/target_synthetic = (H.mob_biotypes & MOB_ROBOTIC) // NOVA EDIT ADDITION BEGIN - SYNTH REVIVAL
 	if (target_synthetic)
 		to_chat(user, span_boldwarning("[H] is a synthetic lifeform! This defibrillator probably isn't calibrated to revive [H.p_them()] properly and could have some serious consequences! \
 		[span_warning("You might want to [span_blue("surgically revive [H.p_them()]")]...")]"))
 		balloon_alert(user, "target is synthetic!") // immediately grabs their attention even if they dont see chat
-	// SKYRAT EDIT ADDITION END - SYNTH REVIVAL
+	// NOVA EDIT ADDITION END - SYNTH REVIVAL
 	user.visible_message(span_warning("[user] begins to place [src] on [H]'s chest."), span_warning("You begin to place [src] on [H]'s chest..."))
 	busy = TRUE
 	update_appearance()
@@ -630,10 +630,10 @@
 						fail_reason = "Patient's brain is missing. Further attempts futile."
 					if (DEFIB_FAIL_BLACKLISTED)
 						fail_reason = "Patient has been blacklisted from revival. Further attempts futile."
-					//SKYRAT EDIT ADDITION - DNR TRAIT
+					//NOVA EDIT ADDITION - DNR TRAIT
 					if (DEFIB_FAIL_DNR)
 						fail_reason = "Patient has been flagged as Do Not Resuscitate. Further attempts futile."
-					//SKYRAT EDIT ADDITION END - DNR TRAIT
+					//NOVA EDIT ADDITION END - DNR TRAIT
 
 				if(fail_reason)
 					user.visible_message(span_warning("[req_defib ? "[defib]" : "[src]"] buzzes: Resuscitation failed - [fail_reason]"))
@@ -663,14 +663,14 @@
 					H.revive()
 					H.emote("gasp")
 					H.set_jitter_if_lower(200 SECONDS)
-					to_chat(H, "<span class='userdanger'>[CONFIG_GET(string/blackoutpolicy)]</span>") //SKYRAT EDIT ADDITION
+					to_chat(H, "<span class='userdanger'>[CONFIG_GET(string/blackoutpolicy)]</span>") //NOVA EDIT ADDITION
 					SEND_SIGNAL(H, COMSIG_LIVING_MINOR_SHOCK)
 					if(HAS_MIND_TRAIT(user, TRAIT_MORBID))
 						user.add_mood_event("morbid_saved_life", /datum/mood_event/morbid_saved_life)
 					else
 						user.add_mood_event("saved_life", /datum/mood_event/saved_life)
 					log_combat(user, H, "revived", defib)
-					// SKYRAT EDIT ADDITION BEGIN - SYNTH REVIVAL
+					// NOVA EDIT ADDITION BEGIN - SYNTH REVIVAL
 					if (target_synthetic)
 						user.visible_message(span_boldwarning("[src] fire a powerful jolt of electricity into [H]'s vulnerable circuitry!"))
 						to_chat(H, span_userdanger("[user]'s defibrillator fires a powerful jolt of electricity into your vulnerable circuitry, overloading it!"))
@@ -685,7 +685,7 @@
 							var/datum/brain_trauma/trauma = brain_organ.gain_trauma_type(SYNTH_DEFIBBED_TRAUMA_SEVERITY, TRAUMA_LIMIT_BASIC)
 							if (!QDELETED(trauma))
 								addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_synth_defib_trauma), brain_organ, trauma), SYNTH_DEFIBBED_TRAUMA_DURATION)
-					// SKYRAT EDIT ADDITION END - SYNTH REVIVAL
+					// NOVA EDIT ADDITION END - SYNTH REVIVAL
 
 				do_success()
 				return

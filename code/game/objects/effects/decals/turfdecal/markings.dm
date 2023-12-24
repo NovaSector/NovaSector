@@ -244,7 +244,7 @@
 	icon_state = "siding_plain_end"
 
 /obj/effect/turf_decal/siding/red
-	color = "#486091" //SKYRAT EDIT CHANGE
+	color = "#486091" //NOVA EDIT CHANGE
 
 /obj/effect/turf_decal/siding/red/corner
 	icon_state = "siding_plain_corner"

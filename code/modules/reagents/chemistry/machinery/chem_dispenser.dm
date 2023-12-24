@@ -36,14 +36,14 @@
 	var/obj/item/reagent_containers/beaker = null
 	/// Dispensable_reagents is copypasted in plumbing synthesizers. Please update accordingly. (I didn't make it global because that would limit custom chem dispensers)
 	var/list/dispensable_reagents = list()
-	/// These become available once the manipulator has been upgraded to tier 2 (nano) // SKYRAT EDIT CHANGE - ORIGINAL: /// These become available once the manipulator has been upgraded to tier 4 (femto)
+	/// These become available once the manipulator has been upgraded to tier 2 (nano) // NOVA EDIT CHANGE - ORIGINAL: /// These become available once the manipulator has been upgraded to tier 4 (femto)
 	var/list/upgrade_reagents = list()
-	// SKYRAT EDIT ADDITION BEGIN
+	// NOVA EDIT ADDITION BEGIN
 	/// These become available once the manipulator has been upgraded to tier 3 (pico)
 	var/list/upgrade2_reagents = list()
 	/// These become available once the manipulator has been upgraded to tier 4 (femto)
 	var/list/upgrade3_reagents = list()
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 	/// These become available once the machine has been emaged
 	var/list/emagged_reagents = list()
 	/// Starting purity of the created reagents
@@ -52,12 +52,12 @@
 	var/list/recording_recipe
 	/// Saves all the recipes recorded by the machine
 	var/list/saved_recipes = list()
-	// SKYRAT EDIT ADDITION BEGIN
+	// NOVA EDIT ADDITION BEGIN
 	/// Used for custom transfer amounts
 	var/list/transferAmounts = list()
 	/// The custom transfer amount
 	var/customTransferAmount
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	/// The default list of dispensable_reagents
 	var/static/list/default_dispensable_reagents = list(
@@ -88,7 +88,7 @@
 		/datum/reagent/fuel,
 	)
 
-	//SKYRAT EDIT CHANGE BEGIN - ORIGINAL
+	//NOVA EDIT CHANGE BEGIN - ORIGINAL
 	/*
 	/// The default list of reagents upgrade_reagents
 	var/static/list/default_upgrade_reagents = list(
@@ -133,7 +133,7 @@
 		/datum/reagent/toxin/histamine,
 		/datum/reagent/medicine/morphine
 	)
-	//SKYRAT EDIT CHANGE END
+	//NOVA EDIT CHANGE END
 
 /obj/machinery/chem_dispenser/Initialize(mapload)
 	if(dispensable_reagents != null && !dispensable_reagents.len)
@@ -145,7 +145,7 @@
 		upgrade_reagents = default_upgrade_reagents
 	if(upgrade_reagents)
 		upgrade_reagents = sort_list(upgrade_reagents, GLOBAL_PROC_REF(cmp_reagents_asc))
-	//SKYRAT EDIT ADDITION BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	if(upgrade2_reagents != null && !upgrade2_reagents.len)
 		upgrade2_reagents = default_upgrade2_reagents
 	if(upgrade2_reagents)
@@ -154,7 +154,7 @@
 		upgrade3_reagents = default_upgrade3_reagents
 	if(upgrade3_reagents)
 		upgrade3_reagents = sort_list(upgrade3_reagents, GLOBAL_PROC_REF(cmp_reagents_asc))
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
 	if(emagged_reagents != null && !emagged_reagents.len)
 		emagged_reagents = default_emagged_reagents
@@ -422,7 +422,7 @@
 			if(is_operational)
 				recording_recipe = null
 				return TRUE
-		//SKYRAT EDIT ADDITION BEGIN - CHEMISTRY QOL
+		//NOVA EDIT ADDITION BEGIN - CHEMISTRY QOL
 		if("custom_amount")
 			if(!beaker)
 				to_chat(usr, span_warning("Insert a container first!"))
@@ -432,7 +432,7 @@
 			customTransferAmount = clamp(input(usr, "Please enter your desired transfer amount.", "Transfer amount", 0) as num|null, 0, beaker.volume)
 			transferAmounts += customTransferAmount
 			return TRUE
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 
 		if("reaction_lookup")
 			if(beaker)
@@ -465,12 +465,12 @@
 
 /obj/machinery/chem_dispenser/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	if(is_reagent_container(tool) && !(tool.item_flags & ABSTRACT) && tool.is_open_container())
-		//SKYRAT EDIT ADDITION START - CHEMISTRY QOL
+		//NOVA EDIT ADDITION START - CHEMISTRY QOL
 		var/obj/item/reagent_containers/container = tool
 		if(customTransferAmount)
 			transferAmounts -= customTransferAmount
 		transferAmounts = container.possible_transfer_amounts
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 		if(!user.transferItemToLoc(tool, src))
 			return ..()
 		replace_beaker(user, tool)
@@ -516,13 +516,13 @@
 		recharge_amount *= capacitor.tier
 		parts_rating += capacitor.tier
 	for(var/datum/stock_part/servo/servo in component_parts)
-		/* SKYRAT EDIT - ORIGINAL
+		/* NOVA EDIT - ORIGINAL
 		if (servo.tier > 3)
 			dispensable_reagents |= upgrade_reagents
 		else
 			dispensable_reagents -= upgrade_reagents
 		*/
-		//SKYRAT EDIT START
+		//NOVA EDIT START
 		if (servo.tier > 1)
 			dispensable_reagents |= upgrade_reagents
 		else
@@ -537,7 +537,7 @@
 			dispensable_reagents |= upgrade3_reagents
 		else
 			dispensable_reagents -= upgrade3_reagents
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		parts_rating += servo.tier
 	powerefficiency = round(newpowereff, 0.01)
 
@@ -620,7 +620,7 @@
 		/datum/reagent/consumable/tonic,
 		/datum/reagent/water,
 	)
-	//SKYRAT EDIT ADDITION BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	var/static/list/drink_upgrade_reagents = list(
 		/datum/reagent/consumable/applejuice,
 		/datum/reagent/consumable/pumpkinjuice,
@@ -636,7 +636,7 @@
 		/datum/reagent/consumable/peachjuice,
 		/datum/reagent/consumable/sol_dry
 	)
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	upgrade_reagents = null
 	/// The default list of emagged reagents dispensable by the soda dispenser
 	var/static/list/drink_emagged_reagents = list(
@@ -652,7 +652,7 @@
 		dispensable_reagents = drinks_dispensable_reagents
 	if(emagged_reagents != null && !emagged_reagents.len)
 		emagged_reagents = drink_emagged_reagents
-	//SKYRAT EDIT ADDITION BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	if(upgrade_reagents != null && !upgrade_reagents.len)
 		upgrade_reagents = drink_upgrade_reagents
 	if(upgrade_reagents)
@@ -665,7 +665,7 @@
 		upgrade3_reagents = drink_upgrade3_reagents
 	if(upgrade3_reagents)
 		upgrade3_reagents = sort_list(upgrade3_reagents, GLOBAL_PROC_REF(cmp_reagents_asc))
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
 
@@ -729,7 +729,7 @@
 		/datum/reagent/consumable/ethanol/rice_beer,
 		/datum/reagent/consumable/ethanol/rum,
 		/datum/reagent/consumable/ethanol/sake,
-		/datum/reagent/consumable/ethanol/synthanol, // SKYRAT EDIT
+		/datum/reagent/consumable/ethanol/synthanol, // NOVA EDIT
 		/datum/reagent/consumable/ethanol/tequila,
 		/datum/reagent/consumable/ethanol/triple_sec,
 		/datum/reagent/consumable/ethanol/vermouth,
@@ -739,8 +739,8 @@
 		/datum/reagent/consumable/ethanol/yuyake,
 	)
 	upgrade_reagents = null
-	upgrade2_reagents = null //SKYRAT EDIT
-	upgrade3_reagents = null //SKYRAT EDIT
+	upgrade2_reagents = null //NOVA EDIT
+	upgrade3_reagents = null //NOVA EDIT
 	/// The default list of emagged reagents dispensable by the beer dispenser
 	var/static/list/beer_emagged_reagents = list(
 		/datum/reagent/consumable/ethanol,
