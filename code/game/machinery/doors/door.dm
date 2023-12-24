@@ -1,4 +1,4 @@
-// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose // SKYRAT EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
+// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose // NOVA EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
 /obj/machinery/door
 	name = "door"
 	desc = "It opens and closes."
@@ -381,12 +381,12 @@
 			if(glass)
 				playsound(loc, 'sound/effects/glasshit.ogg', 90, TRUE)
 			else if(damage_amount)
-				//SKYRAT EDIT ADDITION - CREDITS TO WHITEDREAM(valtos)
+				//NOVA EDIT ADDITION - CREDITS TO WHITEDREAM(valtos)
 				playsound(src, pick('modular_skyrat/master_files/sound/effects/metalblock1.wav', 'modular_skyrat/master_files/sound/effects/metalblock2.wav', \
 									'modular_skyrat/master_files/sound/effects/metalblock3.wav', 'modular_skyrat/master_files/sound/effects/metalblock4.wav', \
 									'modular_skyrat/master_files/sound/effects/metalblock5.wav', 'modular_skyrat/master_files/sound/effects/metalblock6.wav', \
 									'modular_skyrat/master_files/sound/effects/metalblock7.wav', 'modular_skyrat/master_files/sound/effects/metalblock8.wav'), 50, TRUE)
-				//SKYRAT EDIT END
+				//NOVA EDIT END
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
@@ -508,11 +508,11 @@
 			else if(ismonkey(future_pancake)) //For monkeys
 				future_pancake.emote("screech")
 				future_pancake.adjustBruteLoss(DOOR_CRUSH_DAMAGE)
-				future_pancake.StaminaKnockdown(20, TRUE, TRUE) // SKYRAT EDIT CHANGE - AIRLOCKS - ORIGINAL: future_pancake.Paralyze(100)
+				future_pancake.StaminaKnockdown(20, TRUE, TRUE) // NOVA EDIT CHANGE - AIRLOCKS - ORIGINAL: future_pancake.Paralyze(100)
 			else if(ishuman(future_pancake)) //For humans
 				future_pancake.adjustBruteLoss(DOOR_CRUSH_DAMAGE)
 				future_pancake.emote("scream")
-				future_pancake.StaminaKnockdown(20, TRUE, TRUE) // SKYRAT EDIT CHANGE - AIRLOCKS - ORIGINAL: future_pancake.Paralyze(100)
+				future_pancake.StaminaKnockdown(20, TRUE, TRUE) // NOVA EDIT CHANGE - AIRLOCKS - ORIGINAL: future_pancake.Paralyze(100)
 			else //for simple_animals & borgs
 				future_pancake.adjustBruteLoss(DOOR_CRUSH_DAMAGE)
 				var/turf/location = get_turf(src)
@@ -599,4 +599,4 @@
 		return ..()
 	return ..(0)
 
-// #undef DOOR_CLOSE_WAIT // SKYRAT EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
+// #undef DOOR_CLOSE_WAIT // NOVA EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm

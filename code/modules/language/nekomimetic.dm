@@ -6,7 +6,7 @@
 	syllables = list(
 		"neko", "nyan", "mimi", "moe", "mofu", "fuwa", "kyaa", "kawaii", "poka", "munya",
 		"puni", "munyu", "ufufu", "uhuhu", "icha", "doki", "kyun", "kusu", "nya", "nyaa",
-		"desu", "kis", "ama", "chuu", "baka", "hewo", "boop", "gatto", "kit", "sune", "yori", //SKYRAT EDIT gatto
+		"desu", "kis", "ama", "chuu", "baka", "hewo", "boop", "gatto", "kit", "sune", "yori", //NOVA EDIT gatto
 		"sou", "baka", "chan", "san", "kun", "mahou", "yatta", "suki", "usagi", "domo", "ori",
 		"uwa", "zaazaa", "shiku", "puru", "ira", "heto", "etto"
 	)

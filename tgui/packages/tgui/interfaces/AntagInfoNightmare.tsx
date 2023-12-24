@@ -1,6 +1,6 @@
 import { BlockQuote, LabeledList, Section, Stack } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 
 const tipstyle = {
   color: 'white',
@@ -69,11 +69,11 @@ export const AntagInfoNightmare = (props) => {
               </LabeledList>
             </Section>
           </Stack.Item>
-          {/* SKYRAT EDIT ADDITION START */}
+          {/* NOVA EDIT ADDITION START */}
           <Stack.Item>
             <Rules />
           </Stack.Item>
-          {/* SKYRAT EDIT ADDITION END */}
+          {/* NOVA EDIT ADDITION END */}
         </Stack>
       </Window.Content>
     </Window>

@@ -337,7 +337,7 @@
 
 	. = ..()
 
-/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null, silent=FALSE) // SKYRAT EDIT CHANGE - AUTOTRANSFER - adds silent arg
+/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null, silent=FALSE) // NOVA EDIT CHANGE - AUTOTRANSFER - adds silent arg
 	if(!isnum(set_coefficient))
 		set_coefficient = SSsecurity_level.current_security_level.shuttle_call_time_mod
 	alert_coeff = set_coefficient
@@ -358,10 +358,10 @@
 	else
 		SSshuttle.emergency_last_call_loc = null
 
-	// SKYRAT EDIT ADDITION START
+	// NOVA EDIT ADDITION START
 	if(silent)
 		return
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 	priority_announce(
 		text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [(timeLeft(60 SECONDS))] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
 		title = "Emergency Shuttle Dispatched",
@@ -544,7 +544,7 @@
 					color_override = "orange",
 				)
 				INVOKE_ASYNC(SSticker, TYPE_PROC_REF(/datum/controller/subsystem/ticker, poll_hearts))
-				bolt_all_doors() //SKYRAT EDIT ADDITION
+				bolt_all_doors() //NOVA EDIT ADDITION
 				SSmapping.mapvote() //If no map vote has been run yet, start one.
 
 				if(!is_reserved_level(z))
@@ -598,8 +598,8 @@
 						supervisor.", "SYSTEM ERROR:", sound_override = 'sound/misc/announce_syndi.ogg')
 
 				dock_id(destination_dock)
-				unbolt_all_doors() //SKYRAT EDIT ADDITION
-				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(process_eorg_bans)) //SKYRAT EDIT ADDITION
+				unbolt_all_doors() //NOVA EDIT ADDITION
+				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(process_eorg_bans)) //NOVA EDIT ADDITION
 				mode = SHUTTLE_ENDGAME
 				timer = 0
 

@@ -90,7 +90,7 @@
 ///hides mutant/moth wings, does not apply to functional wings
 #define HIDEMUTWINGS (1<<13)
 
-//SKYRAT EDIT ADDITION: CUSTOM EAR TOGGLE FOR ANTHRO/ETC EAR SHOWING -
+//NOVA EDIT ADDITION: CUSTOM EAR TOGGLE FOR ANTHRO/ETC EAR SHOWING -
 /// Manually set this on items you want anthro ears to show on!
 #define SHOWSPRITEEARS (1<<14)
 /// Does this sprite hide the tail?
@@ -99,7 +99,7 @@
 #define HIDESPINE (1<<16)
 /// Does this sprite hide devious devices?
 #define HIDESEXTOY (1<<17)
-//SKYRAT EDIT ADDITION END
+//NOVA EDIT ADDITION END
 
 //bitflags for clothing coverage - also used for limbs
 #define HEAD (1<<0)
@@ -133,10 +133,10 @@
 #define FEMALE_UNIFORM_TOP_ONLY (1<<1)
 /// For when you don't want the "breast" effect to be applied (the one that cuts two pixels in the middle of the front of the uniform when facing east or west).
 #define FEMALE_UNIFORM_NO_BREASTS (1<<2)
-// SKYRAT EDIT ADDITION START
+// NOVA EDIT ADDITION START
 /// For when you -don't- want to apply FEMALE_UNIFORM_TOP_ONLY to the digi version (which happens by default).
 #define FEMALE_UNIFORM_DIGI_FULL (1<<3)
-// SKYRAT EDIT ADDITION END
+// NOVA EDIT ADDITION END
 
 //flags for alternate styles: These are hard sprited so don't set this if you didn't put the effort in
 #define NORMAL_STYLE 0
@@ -152,7 +152,7 @@
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
 ///has a sprite for monkeys
 #define CLOTHING_MONKEY_VARIATION (1<<3)
-// SKYRAT EDIT ADDITION START
+// NOVA EDIT ADDITION START
 /// The sprite works fine for snouts.
 #define CLOTHING_SNOUTED_VARIATION (1<<4)
 /// The sprite works fine for snouts as-is.
@@ -165,7 +165,7 @@
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION (1<<8)
 /// The sprite works fine for vox snouts as is.
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<9)
-// SKYRAT EDIT END
+// NOVA EDIT END
 
 //flags for covering body parts
 #define GLASSESCOVERSEYES (1<<0)
@@ -210,7 +210,7 @@ GLOBAL_LIST_INIT(detective_vest_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
-	/obj/item/gun/microfusion, //SKYRAT EDIT ADDITION
+	/obj/item/gun/microfusion, //NOVA EDIT ADDITION
 ))
 
 GLOBAL_LIST_INIT(security_vest_allowed, list(
@@ -228,7 +228,7 @@ GLOBAL_LIST_INIT(security_vest_allowed, list(
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 	/obj/item/pen/red/security,
-	/obj/item/gun/microfusion, //SKYRAT EDIT ADDITION
+	/obj/item/gun/microfusion, //NOVA EDIT ADDITION
 ))
 
 GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
@@ -241,7 +241,7 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
-	/obj/item/gun/microfusion, //SKYRAT EDIT ADDITION
+	/obj/item/gun/microfusion, //NOVA EDIT ADDITION
 ))
 
 //Allowed list for all chaplain suits (except the honkmother robe)

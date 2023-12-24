@@ -1,15 +1,15 @@
 import { exhaustiveCheck } from 'common/exhaustive';
 
 import { useBackend, useLocalState } from '../../backend';
-import { Dropdown, Flex, Stack } from '../../components'; // SKYRAT EDIT CHANGE - ORIGINAL: import { Button, Stack } from '../../components';
+import { Dropdown, Flex, Stack } from '../../components'; // NOVA EDIT CHANGE - ORIGINAL: import { Button, Stack } from '../../components';
 import { Window } from '../../layouts';
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
 import { JobsPage } from './JobsPage';
-// SKYRAT EDIT
+// NOVA EDIT
 import { LanguagesPage } from './LanguagesMenu';
 import { LimbsPage } from './LimbsPage';
-// SKYRAT EDIT END
+// NOVA EDIT END
 import { MainPage } from './MainPage';
 import { PageButton } from './PageButton';
 import { QuirksPage } from './QuirksPage';
@@ -19,10 +19,10 @@ enum Page {
   Antags,
   Main,
   Jobs,
-  // SKYRAT EDIT
+  // NOVA EDIT
   Limbs,
   Languages,
-  // SKYRAT EDIT END
+  // NOVA EDIT END
   Species,
   Quirks,
 }
@@ -32,10 +32,10 @@ const CharacterProfiles = (props: {
   onClick: (index: number) => void;
   profiles: (string | null)[];
 }) => {
-  const { profiles, activeSlot, onClick } = props; // SKYRAT EDIT CHANGE
+  const { profiles, activeSlot, onClick } = props; // NOVA EDIT CHANGE
 
   return (
-    <Flex /* SKYRAT EDIT CHANGE START - Skyrat uses a dropdown instead of buttons */
+    <Flex /* NOVA EDIT CHANGE START - Skyrat uses a dropdown instead of buttons */
       align="center"
       justify="center"
     >
@@ -53,7 +53,7 @@ const CharacterProfiles = (props: {
           }}
         />
       </Flex.Item>
-    </Flex> /* SKYRAT EDIT CHANGE END */
+    </Flex> /* NOVA EDIT CHANGE END */
   );
 };
 
@@ -71,14 +71,14 @@ export const CharacterPreferenceWindow = (props) => {
     case Page.Jobs:
       pageContents = <JobsPage />;
       break;
-    // SKYRAT EDIT
+    // NOVA EDIT
     case Page.Limbs:
       pageContents = <LimbsPage />;
       break;
     case Page.Languages:
       pageContents = <LanguagesPage />;
       break;
-    // SKYRAT EDIT END
+    // NOVA EDIT END
     case Page.Main:
       pageContents = (
         <MainPage openSpecies={() => setCurrentPage(Page.Species)} />
@@ -149,7 +149,7 @@ export const CharacterPreferenceWindow = (props) => {
                 </PageButton>
               </Stack.Item>
               {
-                // SKYRAT EDIT
+                // NOVA EDIT
               }
               <Stack.Item grow>
                 <PageButton
@@ -171,7 +171,7 @@ export const CharacterPreferenceWindow = (props) => {
                 </PageButton>
               </Stack.Item>
               {
-                // SKYRAT EDIT END
+                // NOVA EDIT END
               }
               <Stack.Item grow>
                 <PageButton

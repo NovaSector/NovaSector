@@ -411,7 +411,7 @@
 	name = "AI Triumvirate"
 	trait_type = STATION_TRAIT_NEUTRAL
 	show_in_report = TRUE
-	weight = 0 // SKYRAT EDIT Original = 1
+	weight = 0 // NOVA EDIT Original = 1
 	report_message = "Your station has been instated with three Nanotrasen Artificial Intelligence models."
 
 /datum/station_trait/triple_ai/New()

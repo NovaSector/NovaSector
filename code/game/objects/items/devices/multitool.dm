@@ -10,7 +10,7 @@
 
 
 
-/obj/item/multitool //SKYRAT EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/multitool //NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	name = "multitool"
 	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors."
 	icon = 'icons/obj/devices/tool.dmi'
@@ -67,8 +67,8 @@
 // Syndicate device disguised as a multitool; it will turn red when an AI camera is nearby.
 
 /obj/item/multitool/ai_detect
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // Skyrat edit
-	special_desc = "A special sensor embedded stealthily into this device can detect and warn of nearby silicon activity and camera vision range." // Skyrat edit
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
+	special_desc = "A special sensor embedded stealthily into this device can detect and warn of nearby silicon activity and camera vision range." // NOVA EDIT
 	actions_types = list(/datum/action/item_action/toggle_multitool)
 	var/detect_state = PROXIMITY_NONE
 	var/rangealert = 8 //Glows red when inside

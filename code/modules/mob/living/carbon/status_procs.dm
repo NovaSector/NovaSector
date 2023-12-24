@@ -13,7 +13,7 @@
 
 	to_chat(src, span_notice("You're too exhausted to keep going..."))
 	add_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_FLOORED), STAMINA)
-	if(getStaminaLoss() < 162) // Puts you a little further into the initial stamcrit, makes stamcrit harder to outright counter with chems. //SKYRAT EDIT CHANGE
+	if(getStaminaLoss() < 162) // Puts you a little further into the initial stamcrit, makes stamcrit harder to outright counter with chems. //NOVA EDIT CHANGE
 		adjustStaminaLoss(30, FALSE)
 
 /mob/living/carbon/adjust_disgust(amount, max = DISGUST_LEVEL_MAXEDOUT)

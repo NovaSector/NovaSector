@@ -31,8 +31,8 @@ GLOBAL_VAR_INIT(dchat_allowed, TRUE)
 
 /datum/admin_help/ClosureLinks(ref_src)
 	. = ..()
-	. += " (<A HREF='?_src_=holder;[HrefToken(forceGlobal = TRUE)];ahelp=[ref_src];ahelp_action=handle_issue'>HANDLE</A>)" //SKYRAT EDIT ADDITION
-	. += " (<A HREF='?_src_=holder;[HrefToken(forceGlobal = TRUE)];ahelp=[ref_src];ahelp_action=pingmute'>PING MUTE</A>)" //SKYRAT EDIT ADDITION
+	. += " (<A HREF='?_src_=holder;[HrefToken(forceGlobal = TRUE)];ahelp=[ref_src];ahelp_action=handle_issue'>HANDLE</A>)" //NOVA EDIT ADDITION
+	. += " (<A HREF='?_src_=holder;[HrefToken(forceGlobal = TRUE)];ahelp=[ref_src];ahelp_action=pingmute'>PING MUTE</A>)" //NOVA EDIT ADDITION
 	. += " (<A HREF='?_src_=holder;[HrefToken(forceGlobal = TRUE)];ahelp=[ref_src];ahelp_action=convert'>MHELP</A>)"
 
 //Let the initiator know their ahelp is being handled
@@ -66,12 +66,12 @@ GLOBAL_VAR_INIT(dchat_allowed, TRUE)
 /datum/admin_help/proc/convert_to_mentorhelp(key_name = key_name_admin(usr))
 	if(state != AHELP_ACTIVE)
 		return FALSE
-	
+
 	if(handler && handler != usr.ckey)
 		var/response = tgui_alert(usr, "This ticket is already being handled by [handler]. Do you want to continue?", "Ticket already assigned", list("Yes", "No"))
 		if(!response || response == "No")
 			return FALSE
-	
+
 	add_verb(initiator, /client/verb/mentorhelp) // Way to override mentorhelp cooldown.
 
 	to_chat(initiator, span_adminhelp("Your ticket was converted to Mentorhelp"))

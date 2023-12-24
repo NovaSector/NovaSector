@@ -227,7 +227,7 @@
 	priority_announce(
 		text = "Emergency Shuttle uplink failure, shuttle disabled until further notice.",
 		title = "Uplink Failure",
-		sound = ANNOUNCER_SHUTTLE, // SKYRAT EDIT CHANGE - Announcer Sounds - ORIGINAL: sound = 'sound/misc/announce_dig.ogg',
+		sound = ANNOUNCER_SHUTTLE, // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: sound = 'sound/misc/announce_dig.ogg',
 		sender_override = "Emergency Shuttle Uplink Alert",
 		color_override = "grey",
 	)
@@ -259,7 +259,7 @@
 	priority_announce(
 		text = "Emergency Shuttle uplink reestablished, shuttle enabled.",
 		title = "Uplink Restored",
-		sound = ANNOUNCER_SHUTTLE, // SKYRAT EDIT CHANGE - Announcer Sounds - ORIGINAL: sound = 'sound/misc/announce_dig.ogg',
+		sound = ANNOUNCER_SHUTTLE, // NOVA EDIT CHANGE - Announcer Sounds - ORIGINAL: sound = 'sound/misc/announce_dig.ogg',
 		sender_override = "Emergency Shuttle Uplink Alert",
 		color_override = "green",
 	)

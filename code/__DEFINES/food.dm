@@ -19,7 +19,7 @@
 #define BUGS (1<<18)
 #define GORE (1<<19)
 #define STONE (1<<20)
-#define BLOODY (1<<21) // SKYRAT EDIT - Hemophage Food
+#define BLOODY (1<<21) // NOVA EDIT - Hemophage Food
 
 DEFINE_BITFIELD(foodtypes, list(
 	"MEAT" = MEAT,
@@ -43,7 +43,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"BUGS" = BUGS,
 	"GORE" = GORE,
 	"STONE" = STONE,
-	"BLOODY" = BLOODY, // SKYRAT EDIT - Hemophage Food
+	"BLOODY" = BLOODY, // NOVA EDIT - Hemophage Food
 ))
 
 /// A list of food type names, in order of their flags
@@ -69,7 +69,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"BUGS", \
 	"GORE", \
 	"STONE", \
-	"BLOODY", /* SKYRAT EDIT - Hemophage Food */ \
+	"BLOODY", /* NOVA EDIT - Hemophage Food */ \
 )
 
 /// IC meaning (more or less) for food flags
@@ -95,7 +95,7 @@ DEFINE_BITFIELD(foodtypes, list(
 	"Bugs", \
 	"Gore", \
 	"Rocks", \
-	"Bloody", /* SKYRAT EDIT - Hemophage Food */ \
+	"Bloody", /* NOVA EDIT - Hemophage Food */ \
 )
 
 #define DRINK_REVOLTING 1
@@ -182,7 +182,7 @@ DEFINE_BITFIELD(food_flags, list(
 	"FOOD_IN_CONTAINER" = FOOD_IN_CONTAINER,
 ))
 
-#define STOP_SERVING_BREAKFAST (35 MINUTES) // SKYRAT EDIT - ORIGINAL: 15 MINUTES
+#define STOP_SERVING_BREAKFAST (35 MINUTES) // NOVA EDIT - ORIGINAL: 15 MINUTES
 
 #define FOOD_MEAT_NORMAL 5
 #define FOOD_MEAT_HUMAN 50

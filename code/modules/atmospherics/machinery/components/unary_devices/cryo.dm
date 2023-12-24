@@ -72,7 +72,7 @@
 	density = TRUE
 	max_integrity = 350
 	armor_type = /datum/armor/unary_cryo_cell
-	layer = MOB_LAYER - 0.2 //SKYRAT EDIT - Fixing the opacity of cryo cells - ORIGINAL: layer = MOB_LAYER
+	layer = MOB_LAYER - 0.2 //NOVA EDIT - Fixing the opacity of cryo cells - ORIGINAL: layer = MOB_LAYER
 	state_open = FALSE
 	circuit = /obj/item/circuitboard/machine/cryo_tube
 	occupant_typecache = list(/mob/living/carbon, /mob/living/simple_animal)

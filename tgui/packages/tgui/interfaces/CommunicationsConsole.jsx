@@ -253,11 +253,11 @@ const PageMain = (props) => {
     canSendToSectors,
     canSetAlertLevel,
     canToggleEmergencyAccess,
-    canToggleEngineeringOverride, // SKYRAT EDIT - Engineering Override
+    canToggleEngineeringOverride, // NOVA EDIT - Engineering Override
     emagged,
     syndicate,
     emergencyAccess,
-    engineeringOverride, // SKYRAT EDIT - Engineering Override
+    engineeringOverride, // NOVA EDIT - Engineering Override
     importantActionReady,
     sectors,
     shuttleCalled,
@@ -357,7 +357,7 @@ const PageMain = (props) => {
               />
 
               <AlertButton
-                // SKYRAT EDIT ADDTION BEGIN - ALERTS
+                // NOVA EDIT ADDTION BEGIN - ALERTS
                 alertLevel="violet"
                 showAlertLevelConfirm={showAlertLevelConfirm}
                 setShowAlertLevelConfirm={setShowAlertLevelConfirm}
@@ -373,7 +373,7 @@ const PageMain = (props) => {
                 alertLevel="amber"
                 showAlertLevelConfirm={showAlertLevelConfirm}
                 setShowAlertLevelConfirm={setShowAlertLevelConfirm}
-                // SKYRAT EDIT END
+                // NOVA EDIT END
               />
             </Flex.Item>
           </Flex>
@@ -400,7 +400,7 @@ const PageMain = (props) => {
             />
           )}
 
-          {/* SKYRAT EDIT ADDITION START - Engineering Override */}
+          {/* NOVA EDIT ADDITION START - Engineering Override */}
           {!!canToggleEngineeringOverride && (
             <Button.Confirm
               icon="wrench"
@@ -411,7 +411,7 @@ const PageMain = (props) => {
               onClick={() => act('toggleEngOverride')}
             />
           )}
-          {/* SKYRAT EDIT ADDITION END */}
+          {/* NOVA EDIT ADDITION END */}
 
           {!syndicate && (
             <Button
@@ -466,7 +466,7 @@ const PageMain = (props) => {
             />
           )}
           {
-            // SKYRAT EDIT BEGIN
+            // NOVA EDIT BEGIN
           }
           {!!canMakeAnnouncement && (
             <Button
@@ -497,7 +497,7 @@ const PageMain = (props) => {
             />
           )}
           {
-            // SKYRAT EDIT END
+            // NOVA EDIT END
           }
         </Flex>
       </Section>

@@ -58,7 +58,7 @@
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
 
-// SKYRAT EDIT REMOVAL - CUSTOMIZATION (moved to modular)
+// NOVA EDIT REMOVAL - CUSTOMIZATION (moved to modular)
 /*
 /proc/random_features()
 	if(!GLOB.tails_list.len)
@@ -114,7 +114,7 @@
 		"pod_hair" = pick(GLOB.pod_hair_list),
 	))
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /proc/random_hairstyle(gender)
 	switch(gender)
@@ -218,7 +218,7 @@ GLOBAL_LIST_EMPTY(species_list)
 
 /proc/age2agedescription(age)
 	switch(age)
-		if(0 to 30) //SKYRAT EDIT CHANGE - NO
+		if(0 to 30) //NOVA EDIT CHANGE - NO
 			return "young adult"
 		if(30 to 45)
 			return "adult"
@@ -623,10 +623,10 @@ GLOBAL_LIST_EMPTY(species_list)
 		moblist += mob_to_sort
 	for(var/mob/living/basic/mob_to_sort in sortmob)
 		moblist += mob_to_sort
-	// SKYRAT EDIT START - SOULCATCHERS
+	// NOVA EDIT START - SOULCATCHERS
 	for(var/mob/living/soulcatcher_soul/mob_to_sort in sortmob)
 		moblist += mob_to_sort
-	// SKYRAT EDIT END - SOULCATCHERS
+	// NOVA EDIT END - SOULCATCHERS
 	return moblist
 ///returns a mob type controlled by a specified ckey
 /proc/get_mob_by_ckey(key)

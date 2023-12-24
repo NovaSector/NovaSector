@@ -11,7 +11,7 @@ import {
   NumberInput,
   Slider,
   Stack,
-  TextArea, // SKYRAT EDIT ADDITION
+  TextArea, // NOVA EDIT ADDITION
 } from '../../../../components';
 import { createSetPreference, PreferencesMenuData } from '../../data';
 import { ServerPreferencesFetcher } from '../../ServerPreferencesFetcher';
