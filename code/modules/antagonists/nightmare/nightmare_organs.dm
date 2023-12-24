@@ -29,7 +29,7 @@
 
 	RegisterSignal(brain_owner, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(dodge_bullets))
 
-/obj/item/organ/internal/brain/shadow/nightmare/on_remove(mob/living/carbon/brain_owner)
+/obj/item/organ/internal/brain/shadow/nightmare/on_mob_remove(mob/living/carbon/brain_owner)
 	. = ..()
 	QDEL_NULL(our_jaunt)
 	QDEL_NULL(terrorize_spell)
