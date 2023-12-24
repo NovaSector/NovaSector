@@ -13965,8 +13965,8 @@
 /obj/machinery/door/window/right/directional/east{
 	name = "Pharmacy Desk";
 	req_access = list("pharmacy");
-	pixel_x = -25;
-	safe = 4
+	safe = 4;
+	dir = 8
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/pharmacy)
@@ -46943,7 +46943,7 @@
 /obj/machinery/door/window/right/directional/west{
 	name = "Pharmacy Desk";
 	req_access = list("pharmacy");
-	pixel_x = 25
+	dir = 4
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/pharmacy)
