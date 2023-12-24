@@ -194,6 +194,10 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 	name = "Green Snakeskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
+/datum/loadout_item/shoes/kim
+	name = "Aerostatic Shoes"
+	item_path = /obj/item/clothing/shoes/kim
+
 /datum/loadout_item/shoes/dominaheels
 	name = "Dominant Heels"
 	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
@@ -235,12 +239,10 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 /datum/loadout_item/shoes/jester
 	name = "Jester Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/jester
-	restricted_roles = list(JOB_CLOWN)
 
 /datum/loadout_item/shoes/clown_shoes/pink
 	name = "Pink Clown Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/pink
-	restricted_roles = list(JOB_CLOWN)
 
 /*
 *	DONATOR
