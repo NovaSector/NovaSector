@@ -708,3 +708,78 @@
   - bugfix: fixed the Mafia Warden having a hat that didn't match his jacket, and
       fixed SpacePol masks not covering the nose
   - bugfix: Emojipedia should copy the text on click properly, now
+2023-12-21:
+  KannaLisvern:
+  - rscadd: Added a new ERP emote. *lewdmoan
+  Nerev4r:
+  - rscadd: Due to increased availability of calcium supplements in Sector 13 due
+      to Deep Spacer lobbying, snailpeople have found their shells to be more suited
+      towards protection of themselves and their recently-discovered-to-be-binary
+      hearts in a combat scenario.
+  - rscadd: Snailpeople have been invited to recent EVA training sessions, and have
+      learned to attach themselves to the floors if gravity generators go out; who'd
+      have thunk it?
+  - bugfix: Snailpeople no longer benefit from Settler's equipment load reduction
+      while crawling. I could not think of a funny caption for this.
+  Paxilmaniac:
+  - balance: Shotgun shells, ESPECIALLY skyrat's shotgun shells, have been rebalanced
+      to not either be useless or insane in every situation, see pr for details.
+  - image: New sprites for some projectiles, like flechettes and whatnot
+  - sound: The sound effect that the arc welder uses has been changed to be less quiet
+      and more noticable
+  - balance: SolFed response team equipment has been changed around a bit with the
+      new armor and whatnot.
+  - image: SolFed response teams (and cargo imports) can now see a new set of SolFed
+      uniforms, one for peacekeepers and one for EMTs. No longer do they have to dress
+      as wild west larpers, or half life HECU.
+  - qol: The sol rifles have had their names changed so that they suck less to refer
+      to as characters that don't speak french-afrikaans (coming 2023)
+  RaShCat:
+  - bugfix: offsets of items in teshari's paws and worn head
+  - image: simple redraw of teshari's sabres.
+  SkyratBot:
+  - bugfix: fixes some dropdowns not displaying the right text after selecting something
+  nikothedude:
+  - bugfix: Unspillable organs no longer spill
+  vinylspiders:
+  - bugfix: fixes company imports bluescreen
+  - bugfix: fixed a bug where certain loadout menu items would duplicate themselves
+      across tabs
+2023-12-22:
+  LT3:
+  - qol: Roundstart intercept report and security level announcements are combined
+      into a single announcement
+  Melbert:
+  - qol: When you place a beaker in a chem-master, you no longer thwack it.
+  - bugfix: Crewmembers immune to viruses won't be picked by the fake virus event.
+  Paxilmaniac:
+  - rscadd: A small series of items have been added to the construction section of
+      the rapid construction fabricator to allow users to actually... Rapidly construct
+      things.
+  - image: Sprites for all of the new things made by me.
+  Rhials:
+  - bugfix: Disease Outbreak events will only select players on the station/lavaland
+      as patient zero.
+  SkyratBot:
+  - qol: The bitrunning equipment vending machine now has a unique description for
+      each of the bitrunning disks
+  - rscadd: 'Added new quirk: Cyborg Lover!'
+  - bugfix: Name input in character setup should work properly now.
+  - bugfix: Many inputs should feel more responsive.
+  - bugfix: Examine text on disconnected players is no longer accidentally subtle
+2023-12-23:
+  Melbert:
+  - bugfix: Gibbing a bot will no longer spawn bloody gibs.
+  Rhials:
+  - qol: Wizard apprentices now spawn on the same tile as the contract that summoned
+      them.
+  SkyratBot:
+  - balance: Doing experiments AFTER their tech is researched now gives full 100%
+      points instead of 66%.
+  - bugfix: Fixes Holy Water giving you more blood and making you less drunk than
+      water normally does.
+  - bugfix: '''A whole bunch of spiders in a SWAT suit'' to ''A whole bunch of spiders
+      in a MODsuit'''
+  sqnztb:
+  - bugfix: blueshift - corrects some request console names, virology's outlet now
+      sends to space, and R&D now has a proper R&D console instead of a civilian one.
