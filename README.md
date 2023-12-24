@@ -1,4 +1,4 @@
-## Galaxia Station (/tg/station Downstream)
+## Nova Sector (/tg/station Downstream)
 
 [![CI Suite](https://github.com/GalacticStation/GalaxiaStation/workflows/CI%20Suite/badge.svg)](https://github.com/GalacticStation/GalaxiaStation/actions?query=workflow%3A%22CI+Suite%22)
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/GalacticStation/GalaxiaStation.svg)](https://isitmaintained.com/project/GalacticStation/GalaxiaStation "Percentage of issues still open")
@@ -15,10 +15,10 @@
 | Code                      | [https://github.com/GalacticStation/GalaxiaStation](https://github.com/GalacticStation/GalaxiaStation)    |
 | Wiki                      | [https://wiki.skyrat13.com/index.php/Main_Page](https://wiki.skyrat13.com/index.php/Main_Page)   |
 | Codedocs                  | [https://GalacticStation.github.io/GalaxiaStation/](https://GalacticStation.github.io/GalaxiaStation/)       |
-| Galaxia Station's Discord | [https://discord.gg/FXrMvsYAbH](https://discord.gg/FXrMvsYAbH) |
+| Nova Sector's Discord | [https://discord.gg/FXrMvsYAbH](https://discord.gg/FXrMvsYAbH) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
-This is Galaxia Station's downstream fork of /tg/station created in byond.
+This is Nova Sector's downstream fork of /tg/station created in byond.
 
 **Please note that this repository contains sexually explicit content and is not suitable for those under the age of 18.**
 
