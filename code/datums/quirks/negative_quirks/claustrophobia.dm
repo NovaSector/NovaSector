@@ -20,14 +20,12 @@
 
 	var/nick_spotted = FALSE
 
-
-/* Nova Sector edit
-
+/* NOVA EDIT REMOVAL START
 	for(var/mob/living/carbon/human/possible_claus in view(5, quirk_holder))
 		if(evaluate_jolly_levels(possible_claus))
 			nick_spotted = TRUE
 			break
-*/
+NOVA EDIT REMOVAL END */
 
 	if(!nick_spotted && isturf(quirk_holder.loc))
 		quirk_holder.clear_mood_event("claustrophobia")
