@@ -185,27 +185,27 @@ export class Changelog extends Component {
 
     const header = (
       <Section>
-        <h1>Skyrat Space Station 13</h1>
+        <h1>Nova Sector</h1>
         <p>
           <b>Thanks to: </b>
-          Traditional Games 13, Baystation 12, /vg/station, NTstation, CDK
-          Station devs,FacepunchStation, GoonStation devs, the original Space
-          Station 13 developers, Invisty for the title image and the countless
-          others who have contributed to the game.
+          Traditional Games 13, Skyrat Station 13, Baystation 12, /vg/station,
+          NTstation, CDK Station devs, FacepunchStation, GoonStation devs, the
+          original Space Station 13 developers, Invisty for the title image and
+          the countless others who have contributed to the game.
         </p>
         <p>
           {'Current project maintainers can be found '}
-          <a href="https://github.com/skyrat-ss13?tab=members">here</a>
+          <a href="https://github.com/GalacticStation?tab=members">here</a>
           {', recent GitHub contributors can be found '}
-          <a href="https://github.com/Skyrat-SS13/Skyrat-tg/pulse/monthly">
+          <a href="https://github.com/GalacticStation/GalaxiaStation/pulse/monthly">
             here
           </a>
           .
         </p>
-        <p>
+        {/* <p>
           {'You can also join our forums '}
-          <a href="https://forum.skyrat13.tk/">here</a>.
-        </p>
+          <a href="">here</a>.
+        </p> */}
         {dateDropdown}
       </Section>
     );
