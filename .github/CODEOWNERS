@@ -5,8 +5,11 @@
 # to the same file or dir, add them to the end under Multiple Owners
 
 # GoldenAlpharex
-/modular_skyrat/ @GoldenAlpharex
+/.github/workflows/ @GoldenAlpharex
+/SQL/ @GoldenAlpharex
 /tools/ @GoldenAlpharex
+/modular_skyrat/ @GoldenAlpharex
+/icons/ @GoldenAlpharex
 
 # Jolly-66
 /modular_skyrat/modules/mapping @Jolly-66
