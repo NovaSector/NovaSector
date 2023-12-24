@@ -110,7 +110,7 @@ export const AntagInfoAssaultops = (props) => {
             </Section>
           </Stack.Item>
           <Stack.Item>
-            <Stack vertical grow mb={1}>
+            <Stack vertical mb={1}>
               <Stack.Item>
                 <Tabs fill>
                   <Tabs.Tab
