@@ -52,7 +52,7 @@ export type DesignBrowserProps<T extends Design = Design> = {
      * A callback to print the design.
      */
     onPrintDesign: (design: T, amount: number) => void,
-  ) => return ReactNode;
+  ) => ReactNode;
 
   /**
    * If provided, renders a node into each category in the output.
@@ -199,10 +199,6 @@ export const DesignBrowser = <T extends Design = Design>(
     }
   }
 
-  const designWrapper = (design: T) => {
-    buildRecipeElement(design, availableMaterials || {}, onPrintDesign || NOOP);
-  };
-
   return (
     <Stack fill>
       {/* Left Column */}
@@ -283,12 +279,24 @@ export const DesignBrowser = <T extends Design = Design>(
                         .toLowerCase()
                         .includes(searchText.toLowerCase()),
                     )
-                    .map((design) => designWrapper(design))
+                    .map((design) =>
+                      buildRecipeElement(
+                        design,
+                        availableMaterials || {},
+                        onPrintDesign || NOOP,
+                      ),
+                    )
                 ) : selectedCategory === ALL_CATEGORY ? (
                   <>
                     {sortBy((design: T) => design.name)(
                       Object.values(root.descendants),
-                    ).map((design) => designWrapper(design))}
+                    ).map((design) =>
+                      buildRecipeElement(
+                        design,
+                        availableMaterials || {},
+                        onPrintDesign || NOOP,
+                      ),
+                    )}
                   </>
                 ) : (
                   root.subcategories[selectedCategory] && (
