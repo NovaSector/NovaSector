@@ -18,6 +18,8 @@
 
 #define DETOMATIX_RESIST_MINOR 1
 #define DETOMATIX_RESIST_MAJOR 2
+///This app gives a diminished protection against being PDA bombed if installed.
+#define DETOMATIX_RESIST_MALUS -4
 
 //NTNet transfer speeds, used when downloading/uploading a file/program.
 #define NTNETSPEED_LOWSIGNAL 0.5 // GQ/s transfer speed when the device is wirelessly connected and on Low signal

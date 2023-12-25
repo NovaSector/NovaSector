@@ -92,7 +92,14 @@
 			download_netspeed = NTNETSPEED_HIGHSIGNAL
 		if(NTNET_ETHERNET_SIGNAL)
 			download_netspeed = NTNETSPEED_ETHERNET
+<<<<<<< HEAD
 	download_completion += download_netspeed
+=======
+	if(download_netspeed)
+		if(HAS_TRAIT(computer, TRAIT_MODPC_HALVED_DOWNLOAD_SPEED))
+			download_netspeed *= 0.5
+		download_completion += download_netspeed
+>>>>>>> fec7ccc6fd9 (The Coupon Master PDA app (#80240))
 
 /datum/computer_file/program/ntnetdownload/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	switch(action)
