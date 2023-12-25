@@ -13,6 +13,10 @@
 	has_sensor = SENSOR_COORDS
 	random_sensor = FALSE
 
+/obj/item/clothing/under/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
+
 // Boots
 
 /obj/item/clothing/shoes/jackboots/frontier_colonist
@@ -27,6 +31,10 @@
 	worn_icon_state = "boots"
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
+
+/obj/item/clothing/shoes/jackboots/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
 // Jackets
 
@@ -49,7 +57,7 @@
 /obj/item/clothing/suit/jacket/frontier_colonist/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.colonist_suit_allowed
-	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
 /obj/item/clothing/suit/jacket/frontier_colonist/short
 	name = "frontier jacket"
@@ -93,7 +101,7 @@
 /obj/item/clothing/suit/frontier_colonist_flak/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.colonist_suit_allowed
-	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
 // Various softcaps
 
@@ -108,6 +116,10 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "cap"
+
+/obj/item/clothing/head/soft/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
 /obj/item/clothing/head/soft/frontier_colonist/medic
 	name = "frontier medical cap"
@@ -132,6 +144,10 @@
 	flags_inv = 0
 	clothing_flags = SNUG_FIT | STACKABLE_HELMET_EXEMPT
 
+/obj/item/clothing/head/frontier_colonist_helmet/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
+
 // Headset
 
 /obj/item/radio/headset/headset_frontier_colonist
@@ -150,7 +166,7 @@
 
 /obj/item/radio/headset/headset_frontier_colonist/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
 // Gloves
 
@@ -173,6 +189,10 @@
 	resistance_flags = NONE
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 
+/obj/item/clothing/gloves/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
+
 // Special mask
 
 /obj/item/clothing/mask/gas/atmos/frontier_colonist
@@ -188,3 +208,7 @@
 	worn_icon_state = "mask"
 	flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	armor_type = /datum/armor/colonist_hazard
+
+/obj/item/clothing/mask/gas/atmos/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)

@@ -66,7 +66,7 @@
 	. = ..()
 	soundloop = new(src, FALSE)
 	AddElement(/datum/element/repackable, undeploy_type, 4 SECONDS)
-	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
 /obj/machinery/power/colony_ore_thumper/add_context(
 	atom/source,
@@ -264,3 +264,6 @@
 	. += span_notice("Its must be constructed <b>outdoors</b> to function.")
 	. += span_notice("It must be constructed on <b>suitable terrain</b>, like ash, snow, or sand.")
 	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it to function.")
+
+/obj/item/flatpacked_machine/ore_thumper/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)

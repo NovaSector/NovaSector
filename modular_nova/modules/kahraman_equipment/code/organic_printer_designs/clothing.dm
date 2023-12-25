@@ -4,7 +4,7 @@
 	name = "Frontier Jumpsuit"
 	id = "frontier_jumpsuit"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 200)
+	materials = list(/datum/material/biomass = 75)
 	build_path = /obj/item/clothing/under/frontier_colonist
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -17,8 +17,21 @@
 	name = "Heavy Frontier Boots"
 	id = "frontier_boots"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 150)
+	materials = list(/datum/material/biomass = 50)
 	build_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_AKHTER_CLOTHING,
+	)
+
+// Gloves
+
+/datum/design/frontier_gloves
+	name = "Frontier Gloves"
+	id = "frontier_gloves"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 50)
+	build_path = /obj/item/clothing/gloves/frontier_colonist
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_AKHTER_CLOTHING,
@@ -30,7 +43,7 @@
 	name = "Frontier Trenchcoat"
 	id = "frontier_trench"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 250)
+	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/clothing/suit/jacket/frontier_colonist
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -41,7 +54,7 @@
 	name = "Frontier Jacket"
 	id = "frontier_jacket"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 250)
+	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -52,7 +65,7 @@
 	name = "Frontier Medical Jacket"
 	id = "frontier_med_jacket"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 250)
+	materials = list(/datum/material/biomass = 125)
 	build_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -63,7 +76,7 @@
 	name = "Frontier Flak Jacket"
 	id = "frontier_flak_jacket"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 250)
+	materials = list(/datum/material/biomass = 150)
 	build_path = /obj/item/clothing/suit/frontier_colonist_flak
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -74,7 +87,7 @@
 	name = "Frontier Soft Helmet"
 	id = "frontier_tanker_helmet"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 250)
+	materials = list(/datum/material/biomass = 150)
 	build_path = /obj/item/clothing/head/frontier_colonist_helmet
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -87,7 +100,7 @@
 	name = "Frontier Soft Cap"
 	id = "frontier_cap"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 150)
+	materials = list(/datum/material/biomass = 75)
 	build_path = /obj/item/clothing/head/soft/frontier_colonist
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -98,21 +111,21 @@
 	name = "Frontier Medical Cap"
 	id = "frontier_cap_med"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 150)
+	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/clothing/head/soft/frontier_colonist/medic
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_AKHTER_CLOTHING,
 	)
 
-// Gloves
+// That one gas mask
 
-/datum/design/frontier_gloves
-	name = "Frontier Gloves"
-	id = "frontier_gloves"
+/datum/design/frontier_mask
+	name = "Frontier Gas Mask"
+	id = "frontier_mask"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/clothing/gloves/frontier_colonist
+	build_path = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_AKHTER_CLOTHING,

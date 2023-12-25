@@ -88,6 +88,10 @@
 		/obj/item/mod/module/thermal_regulator,
 	)
 
+/obj/item/mod/control/pre_equipped/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
+
 // Plate compression module that cannot be removed
 
 /obj/item/mod/module/plate_compression/permanent

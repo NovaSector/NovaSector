@@ -11,6 +11,10 @@
 	worn_icon_state = "backpack"
 	inhand_icon_state = "backpack"
 
+/obj/item/storage/backpack/industrial/frontier_colonist/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
+
 /obj/item/storage/backpack/industrial/frontier_colonist/satchel
 	name = "frontier satchel"
 	desc = "A rugged satchel often used by settlers and explorers. Holds less of your equipment than a backpack will."
@@ -40,7 +44,7 @@
 
 /obj/item/storage/belt/utility/frontier_colonist/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 	atom_storage.max_slots = 6
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	// Can hold whatever a toolbelt can + some mining equipment for convenience
