@@ -48,7 +48,7 @@
 		backpack_contents += list(/obj/item/gun/ballistic/revolver)
 		r_pocket = /obj/item/ammo_box/a357
 
-//NOVA EDIT REMOVAL BEGIN - JANITOR KEY - (Moved to modular_skyrat/master_files/code/modules/jobs/job_types/janitor.dm)
+//NOVA EDIT REMOVAL BEGIN - JANITOR KEY - (Moved to modular_nova/master_files/code/modules/jobs/job_types/janitor.dm)
 /*
 	var/static/access_key_given = FALSE
 	if(!access_key_given && !visuals_only)
