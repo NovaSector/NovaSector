@@ -56,7 +56,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		if (!SSticker.mode)
+		if(!SSticker.HasRoundStarted())
 			to_chat(usr, "<span class='danger'>Not until the round starts!</span>", confidential = TRUE)
 			return
 
