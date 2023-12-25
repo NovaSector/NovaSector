@@ -1841,8 +1841,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		var/datum/controller/subsystem/dynamic = SSticker.mode
-		if(!dynamic.picking_specific_rule(/datum/dynamic_ruleset/midround/from_living/opfor_candidate, forced = TRUE, ignore_cost = TRUE))
+		if(!SSdynamic.picking_specific_rule(/datum/dynamic_ruleset/midround/from_living/opfor_candidate, forced = TRUE, ignore_cost = TRUE))
 			message_admins("An OPFOR candidate could not be selected.")
 
 	// SKYRAT ADDITION END
