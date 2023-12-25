@@ -1,7 +1,18 @@
 import { BooleanLike } from 'common/react';
-import { FakeTerminal } from '../components/FakeTerminal';
+
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Grid, Icon, LabeledList, Modal, NoticeBox, Section } from '../components';
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Icon,
+  LabeledList,
+  Modal,
+  NoticeBox,
+  Section,
+} from '../components';
+import { FakeTerminal } from '../components/FakeTerminal';
 import { NtosWindow } from '../layouts';
 
 const CONTRACT_STATUS_INACTIVE = 1;
@@ -26,9 +37,9 @@ type Data = {
   logged_in: BooleanLike;
   first_load: BooleanLike;
   info_screen: BooleanLike;
-  redeemable_tc: Number;
-  earned_tc: Number;
-  contracts_completed: Number;
+  redeemable_tc: number;
+  earned_tc: number;
+  contracts_completed: number;
   contracts: ContractData[];
   ongoing_contract: BooleanLike;
   extraction_enroute: BooleanLike;
@@ -36,20 +47,20 @@ type Data = {
 };
 
 type ContractData = {
-  id: Number;
-  status: Number;
+  id: number;
+  status: number;
   target: string;
   target_rank: string;
   extraction_enroute: BooleanLike;
   message: string;
   contract: string;
   dropoff: string;
-  payout: Number;
-  payout_bonus: Number;
+  payout: number;
+  payout_bonus: number;
 };
 
-export const SyndicateContractorContent = (props, context) => {
-  const { data, act } = useBackend<Data>(context);
+export const SyndicateContractorContent = (props) => {
+  const { data, act } = useBackend<Data>();
   const { error, logged_in, first_load, info_screen } = data;
 
   const terminalMessages = [
@@ -115,7 +126,7 @@ export const SyndicateContractorContent = (props, context) => {
           <Box width="260px" textAlign="left" minHeight="80px">
             {error}
           </Box>
-          <Button content="Dismiss" onClick={() => act('PRG_clear_error')} />
+          <Button onClick={() => act('PRG_clear_error')}>Dismiss</Button>
         </Flex.Item>
       </Flex>
     </Modal>
@@ -125,11 +136,9 @@ export const SyndicateContractorContent = (props, context) => {
     return (
       <Section minHeight="525px">
         <Box width="100%" textAlign="center">
-          <Button
-            content="REGISTER USER"
-            color="transparent"
-            onClick={() => act('PRG_login')}
-          />
+          <Button color="transparent" onClick={() => act('PRG_login')}>
+            REGISTER USER
+          </Button>
         </Box>
         {!!error && <NoticeBox>{error}</NoticeBox>}
       </Section>
@@ -156,11 +165,12 @@ export const SyndicateContractorContent = (props, context) => {
         </Box>
         <Button
           fluid
-          content="CONTINUE"
           color="transparent"
           textAlign="center"
           onClick={() => act('PRG_toggle_info')}
-        />
+        >
+          CONTINUE
+        </Button>
       </>
     );
   }
@@ -175,7 +185,7 @@ export const SyndicateContractorContent = (props, context) => {
 };
 
 export const StatusPane = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { redeemable_tc, earned_tc, contracts_completed } = data;
 
   return (
@@ -191,7 +201,8 @@ export const StatusPane = (props, context) => {
             onClick={() => act('PRG_toggle_info')}
           />
         </>
-      }>
+      }
+    >
       <Grid>
         <Grid.Column size={0.85}>
           <LabeledList>
@@ -203,7 +214,8 @@ export const StatusPane = (props, context) => {
                   disabled={redeemable_tc <= 0}
                   onClick={() => act('PRG_redeem_TC')}
                 />
-              }>
+              }
+            >
               {redeemable_tc}
             </LabeledList.Item>
             <LabeledList.Item label="TC Earned">{earned_tc}</LabeledList.Item>
@@ -223,7 +235,7 @@ export const StatusPane = (props, context) => {
 };
 
 const ContractsTab = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { contracts, ongoing_contract, extraction_enroute, dropoff_direction } =
     data;
 
@@ -237,7 +249,8 @@ const ContractsTab = (props, context) => {
             disabled={!ongoing_contract || extraction_enroute}
             onClick={() => act('PRG_call_extraction')}
           />
-        }>
+        }
+      >
         {contracts.map((contract) => {
           if (ongoing_contract && contract.status !== CONTRACT_STATUS_ACTIVE) {
             return;
@@ -260,7 +273,6 @@ const ContractsTab = (props, context) => {
                     {contract.payout} (+{contract.payout_bonus}) TC
                   </Box>
                   <Button
-                    content={active ? 'Abort' : 'Accept'}
                     disabled={contract.extraction_enroute}
                     color={active && 'bad'}
                     onClick={() =>
@@ -268,9 +280,12 @@ const ContractsTab = (props, context) => {
                         contract_id: contract.id,
                       })
                     }
-                  />
+                  >
+                    {active ? 'Abort' : 'Accept'}
+                  </Button>
                 </>
-              }>
+              }
+            >
               <Grid>
                 <Grid.Column>{contract.message}</Grid.Column>
                 <Grid.Column size={0.5}>
@@ -287,7 +302,8 @@ const ContractsTab = (props, context) => {
       <Section
         title="Dropoff Locator"
         textAlign="center"
-        opacity={ongoing_contract ? 100 : 0}>
+        opacity={ongoing_contract ? 100 : 0}
+      >
         <Box bold>{dropoff_direction}</Box>
       </Section>
     </>
