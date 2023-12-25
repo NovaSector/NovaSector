@@ -19,7 +19,7 @@ export const ArmamentStation = (props) => {
   return (
     <Window theme="armament" title="Armament Station" width={1000} height={600}>
       <Window.Content>
-        <Section grow height="100%" title="Armaments Station">
+        <Section height="100%" title="Armaments Station">
           {card_inserted ? (
             <Stack>
               <Stack.Item grow fill>
