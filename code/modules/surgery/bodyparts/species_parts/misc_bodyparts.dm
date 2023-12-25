@@ -36,7 +36,7 @@
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
 	burn_modifier = 2
-	// speed_modifier = 3 //disgustingly slow // SKYRAT EDIT REMOVAL - Moved the movespeed to the shell.
+	// speed_modifier = 3 //disgustingly slow // NOVA EDIT REMOVAL - Moved the movespeed to the shell.
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 /obj/item/bodypart/leg/right/snail
@@ -44,7 +44,7 @@
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
 	burn_modifier = 2
-	// speed_modifier = 3 //disgustingly slow // SKYRAT EDIT REMOVAL - Moved the movespeed to the shell.
+	// speed_modifier = 3 //disgustingly slow // NOVA EDIT REMOVAL - Moved the movespeed to the shell.
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 ///ABDUCTOR
@@ -260,7 +260,7 @@
 	limb_id = SPECIES_FLYPERSON
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
-	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN // SKYRAT EDIT - Flies deserve hair - ORIGINAL: head_flags = HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN
+	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN // NOVA EDIT - Flies deserve hair - ORIGINAL: head_flags = HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN
 
 /obj/item/bodypart/chest/fly
 	limb_id = SPECIES_FLYPERSON

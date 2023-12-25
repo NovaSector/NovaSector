@@ -575,16 +575,16 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(affecting && IS_ROBOTIC_LIMB(affecting))
 		if(user == H)
 			user.visible_message(span_notice("[user] starts to fix some of the wires in [H]'s [affecting.name]."), span_notice("You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name]."))
-			/* SKYRAT EDIT START - ORIGINAL:
+			/* NOVA EDIT START - ORIGINAL:
 			if(!do_after(user, 50, H))
 				return
 			*/
-		// SKYRAT EDIT CHANGE START
+		// NOVA EDIT CHANGE START
 		if(!do_after(user, (user == H ? self_delay : other_delay)))
 			return
-		// SKYRAT EDIT CHANGE END
+		// NOVA EDIT CHANGE END
 		if(item_heal_robotic(H, user, 0, 15))
-			user.visible_message(span_green("[user] fixes some of the wires in to [H]'s [affecting.name]."), span_green("You fix some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name].")) // SKYRAT EDIT ADD
+			user.visible_message(span_green("[user] fixes some of the wires in to [H]'s [affecting.name]."), span_green("You fix some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name].")) // NOVA EDIT ADD
 			use(1)
 		return
 	else

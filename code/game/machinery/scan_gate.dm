@@ -16,7 +16,7 @@
 #define SCANGATE_POD "pod"
 #define SCANGATE_GOLEM "golem"
 #define SCANGATE_ZOMBIE "zombie"
-//SKYRAT EDIT BEGIN - MORE SCANNER GATE OPTIONS
+//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 #define SCANGATE_MAMMAL "mammal"
 #define SCANGATE_VOX "vox"
 #define SCANGATE_AQUATIC "aquatic"
@@ -31,7 +31,7 @@
 #define SCANGATE_SNAIL "snail"
 
 #define SCANGATE_GENDER "Gender"
-//SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
+//NOVA EDIT END - MORE SCANNER GATE OPTIONS
 
 /obj/machinery/scanner_gate
 	name = "scanner gate"
@@ -61,7 +61,7 @@
 	var/light_fail = FALSE
 	///Does the scanner ignore light_pass and light_fail for sending signals?
 	var/ignore_signals = FALSE
-	var/detect_gender = "male" //SKYRAT EDIT - MORE SCANNER GATE OPTIONS
+	var/detect_gender = "male" //NOVA EDIT - MORE SCANNER GATE OPTIONS
 
 
 /obj/machinery/scanner_gate/Initialize(mapload)
@@ -175,7 +175,7 @@
 						scan_species = /datum/species/golem
 					if(SCANGATE_ZOMBIE)
 						scan_species = /datum/species/zombie
-					//SKYRAT EDIT BEGIN - MORE SCANNER GATE OPTIONS
+					//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 					if(SCANGATE_MAMMAL)
 						scan_species = /datum/species/mammal
 					if(SCANGATE_VOX)
@@ -200,7 +200,7 @@
 						scan_species = /datum/species/hemophage
 					if(SCANGATE_SNAIL)
 						scan_species = /datum/species/snail
-					//SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
+					//NOVA EDIT END - MORE SCANNER GATE OPTIONS
 				if(is_species(H, scan_species))
 					beep = TRUE
 				if(detect_species == SCANGATE_ZOMBIE) //Can detect dormant zombies
@@ -218,14 +218,14 @@
 					beep = TRUE
 				if(H.nutrition >= detect_nutrition && detect_nutrition == NUTRITION_LEVEL_FAT)
 					beep = TRUE
-		//SKYRAT EDIT BEGIN - MORE SCANNER GATE OPTIONS
+		//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 		if(SCANGATE_GENDER)
 			if(ishuman(M))
 				var/mob/living/carbon/human/scanned_human = M
 				if((scanned_human.gender in list("male", "female"))) //funny thing: nb people will always get by the scan B)
 					if(scanned_human.gender == detect_gender)
 						beep = TRUE
-		//SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
+		//NOVA EDIT END - MORE SCANNER GATE OPTIONS
 
 	if(reverse)
 		beep = !beep
@@ -273,7 +273,7 @@
 	data["disease_threshold"] = disease_threshold
 	data["target_species"] = detect_species
 	data["target_nutrition"] = detect_nutrition
-	data["target_gender"] = detect_gender //SKYRAT EDIT - MORE SCANNER GATE OPTIONS
+	data["target_gender"] = detect_gender //NOVA EDIT - MORE SCANNER GATE OPTIONS
 	return data
 
 /obj/machinery/scanner_gate/ui_act(action, params)
@@ -315,7 +315,7 @@
 					if("Obese")
 						detect_nutrition = NUTRITION_LEVEL_FAT
 			. = TRUE
-		//SKYRAT EDIT BEGIN - MORE SCANNER GATE OPTIONS
+		//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 		if("set_target_gender")
 			var/new_gender = params["new_gender"]
 			var/gender_list = list(
@@ -329,7 +329,7 @@
 					if("Female")
 						detect_gender = "female"
 			. = TRUE
-		//SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
+		//NOVA EDIT END - MORE SCANNER GATE OPTIONS
 
 #undef SCANGATE_NONE
 #undef SCANGATE_MINDSHIELD
@@ -349,7 +349,7 @@
 #undef SCANGATE_POD
 #undef SCANGATE_GOLEM
 #undef SCANGATE_ZOMBIE
-//SKYRAT EDIT BEGIN - MORE SCANNER GATE OPTIONS
+//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 #undef SCANGATE_MAMMAL
 #undef SCANGATE_VOX
 #undef SCANGATE_AQUATIC
@@ -364,4 +364,4 @@
 #undef SCANGATE_SNAIL
 
 #undef SCANGATE_GENDER
-//SKYRAT EDIT END - MORE SCANNER GATE OPTIONS
+//NOVA EDIT END - MORE SCANNER GATE OPTIONS

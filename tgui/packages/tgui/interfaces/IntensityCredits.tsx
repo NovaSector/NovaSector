@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
 import { Flex, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';

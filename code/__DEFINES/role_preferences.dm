@@ -16,10 +16,10 @@
 #define ROLE_OPERATIVE "Operative"
 #define ROLE_TRAITOR "Traitor"
 #define ROLE_WIZARD "Wizard"
-// SKYRAT EDIT START
+// NOVA EDIT START
 #define ROLE_ASSAULT_OPERATIVE "Assault Operative"
 #define ROLE_OPFOR_CANDIDATE "OPFOR Candidate"
-// SKYRAT EDIT END
+// NOVA EDIT END
 
 // Midround roles
 #define ROLE_ABDUCTOR "Abductor"
@@ -41,13 +41,13 @@
 #define ROLE_SPACE_DRAGON "Space Dragon"
 #define ROLE_SPIDER "Spider"
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
-//SKYRAT EDIT START
+//NOVA EDIT START
 #define ROLE_BORER "Borer"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
 #define ROLE_LONE_INFILTRATOR "Lone Infiltrator"
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
-// SKYRAT EDIT END
+// NOVA EDIT END
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -122,13 +122,13 @@
 #define ROLE_CYBER_POLICE "Cyber Police"
 #define ROLE_CYBER_TAC "Cyber Tac"
 #define ROLE_NETGUARDIAN "NetGuardian Prime"
-//SKYRAT EDIT START - Skyrat roles
+//NOVA EDIT START - Skyrat roles
 #define ROLE_BLACK_MARKET_DEALER "Black Market Dealer"
 #define ROLE_DS2 "DS2 Syndicate"
 #define ROLE_FREIGHTER_CREW "Freighter Crew"
 #define ROLE_GHOST_CAFE "Ghost Cafe Visitor"
 #define ROLE_PORT_TARKON "Port Tarkon Survivor"
-//SKYRAT EDIT END
+//NOVA EDIT END
 
 /// This defines the antagonists you can operate with in the settings.
 /// Keys are the antagonist, values are the number of days since the player's
@@ -145,9 +145,9 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_REV_HEAD = 14,
 	ROLE_TRAITOR = 0,
 	ROLE_WIZARD = 14,
-	// SKYRAT EDIT ADDITION
+	// NOVA EDIT ADDITION
 	ROLE_ASSAULT_OPERATIVE = 14,
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	// Midround
 	ROLE_ABDUCTOR = 0,
@@ -169,12 +169,12 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPACE_DRAGON = 0,
 	ROLE_SPIDER = 0,
 	ROLE_WIZARD_MIDROUND = 14,
-	//SKYRAT EDIT START
+	//NOVA EDIT START
 	ROLE_LONE_INFILTRATOR = 0,
 	ROLE_BORER = 0,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,

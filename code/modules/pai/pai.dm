@@ -166,9 +166,9 @@
 /mob/living/silicon/pai/examine(mob/user)
 	. = ..()
 	. += "Its master ID string seems to be [(!master_name || emagged) ? "empty" : master_name]."
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	. += get_silicon_flavortext()
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
 /mob/living/silicon/pai/get_status_tab_items()
 	. += ..()
@@ -258,6 +258,15 @@
 	icon_state = resting ? "[chassis]_rest" : "[chassis]"
 	held_state = "[chassis]"
 	return ..()
+
+/mob/living/silicon/pai/set_stat(new_stat)
+	. = ..()
+	update_stat()
+
+/mob/living/silicon/pai/on_knockedout_trait_loss(datum/source)
+	. = ..()
+	set_stat(CONSCIOUS)
+	update_stat()
 
 /**
  * Resolves the weakref of the pai's master.

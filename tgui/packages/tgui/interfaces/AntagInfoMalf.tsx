@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useBackend } from '../backend';
 import { BlockQuote, Button, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import {
   Objective,
   ObjectivePrintout,
@@ -62,7 +62,7 @@ const IntroductionSection = (props) => {
               />
             }
           />
-          <Rules /* SKYRAT EDIT ADDITION */ />
+          <Rules /* NOVA EDIT ADDITION */ />
         </Stack.Item>
       </Stack>
     </Section>
@@ -81,7 +81,7 @@ const FlavorSection = (props) => {
           mr={-0.8}
           mt={-0.5}
           icon="hammer"
-          /* SKYRAT EDIT: ORIGINAL TOOLTIP
+          /* NOVA EDIT: ORIGINAL TOOLTIP
           tooltip={multiline`
             This is a gameplay suggestion for bored ais.
             You don't have to follow it, unless you want some

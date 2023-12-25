@@ -171,7 +171,7 @@
 	else
 		display = span_notice("The dogtag is all scratched up.")
 
-/* MODULAR SKYRAT - OVERRIDDEN IN (\modular_skyrat\modules\customization\modules\clothing\under\accessories.dm)
+/* MODULAR SKYRAT - OVERRIDDEN IN (\modular_nova\modules\customization\modules\clothing\under\accessories.dm)
 /// Reskins for the pride pin accessory, mapped by display name to icon state
 GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	"Rainbow Pride" = "pride",

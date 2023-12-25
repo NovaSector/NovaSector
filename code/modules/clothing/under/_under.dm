@@ -89,7 +89,7 @@
 	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		. += mutable_appearance('icons/effects/blood.dmi', "uniformblood")
 	if(accessory_overlay)
-		. += modify_accessory_overlay() // SKYRAT EDIT CHANGE - ORIGINAL: . += accessory_overlay
+		. += modify_accessory_overlay() // NOVA EDIT CHANGE - ORIGINAL: . += accessory_overlay
 
 /obj/item/clothing/under/attackby(obj/item/attacking_item, mob/user, params)
 	if(has_sensor == BROKEN_SENSORS && istype(attacking_item, /obj/item/stack/cable_coil))
@@ -149,13 +149,13 @@
 	if(adjusted == ALT_STYLE)
 		adjust_to_normal()
 
-	/* SKYRAT EDIT REMOVAL - This breaks jumpsuit adjustment. Plus, we don't support it.
+	/* NOVA EDIT REMOVAL - This breaks jumpsuit adjustment. Plus, we don't support it.
 	if((supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION) && ishuman(user))
 		var/mob/living/carbon/human/wearer = user
 		if(wearer.bodytype & BODYTYPE_DIGITIGRADE)
 			adjusted = DIGITIGRADE_STYLE
 			update_appearance()
-		*/ // SKYRAT EDIT END
+		*/ // NOVA EDIT END
 
 /obj/item/clothing/under/equipped(mob/living/user, slot)
 	..()

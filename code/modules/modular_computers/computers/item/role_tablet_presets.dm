@@ -396,12 +396,12 @@
 		/datum/computer_file/program/newscaster,
 	)
 
-/* // SKYRAT EDIT REMOVAL BEGIN - Mutes the Curator's ringer on spawn
+/* // NOVA EDIT REMOVAL BEGIN - Mutes the Curator's ringer on spawn
 /obj/item/modular_computer/pda/curator/Initialize(mapload)
 	. = ..()
 	for(var/datum/computer_file/program/messenger/msg in stored_files)
 		msg.alert_silenced = TRUE
-*/ // SKYRAT EDIT REMOVAL END
+*/ // NOVA EDIT REMOVAL END
 
 /obj/item/modular_computer/pda/psychologist
 	name = "psychologist PDA"

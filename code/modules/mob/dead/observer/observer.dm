@@ -334,11 +334,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(!HAS_TRAIT(src, TRAIT_CORPSELOCKED)) //corpse-locked have to confirm with the alert below
 			ghostize(TRUE)
 			return TRUE
-	// SKYRAT EDIT ADDITION -- Free Ghost Cafe Ghosting
+	// NOVA EDIT ADDITION -- Free Ghost Cafe Ghosting
 	if(HAS_TRAIT(src, TRAIT_FREE_GHOST))
 		ghostize(TRUE) // Can return with TRUE
 		return TRUE
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 	var/response = tgui_alert(usr, "Are you sure you want to ghost? If you ghost whilst still alive you cannot re-enter your body!", "Confirm Ghost Observe", list("Ghost", "Stay in Body"))
 	if(response != "Ghost")
 		return FALSE//didn't want to ghost after-all
@@ -393,7 +393,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!mind || QDELETED(mind.current))
 		to_chat(src, span_warning("You have no body."))
 		return
-	if(!can_reenter_corpse && !mind.has_antag_datum(/datum/antagonist/changeling)) //SKYRAT EDIT
+	if(!can_reenter_corpse && !mind.has_antag_datum(/datum/antagonist/changeling)) //NOVA EDIT
 		to_chat(src, span_warning("You cannot re-enter your body."))
 		return
 	if(mind.current.key && mind.current.key[1] != "@") //makes sure we don't accidentally kick any clients
@@ -426,13 +426,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		// Update med huds
 		current_mob.med_hud_set_status()
 		current_mob.log_message("had their player ([key_name(src)]) do-not-resuscitate / DNR", LOG_GAME, color = COLOR_GREEN, log_globally = FALSE)
-		//SKYRAT EDIT ADDITION - DNR TRAIT (Technically this is just to fix ghost-DNR'ing not actually DNR'ing, but it pairs with the trait so)
+		//NOVA EDIT ADDITION - DNR TRAIT (Technically this is just to fix ghost-DNR'ing not actually DNR'ing, but it pairs with the trait so)
 		if(!current_mob.has_quirk(/datum/quirk/dnr))
 			current_mob.add_quirk(/datum/quirk/dnr)
 		var/datum/job/job_to_free = SSjob.GetJob(current_mob.mind.assigned_role.title)
 		if(job_to_free)
 			job_to_free.current_positions = max(0, job_to_free.current_positions - 1)
-		//SKYRAT EDIT ADDITION END - DNR TRAIT
+		//NOVA EDIT ADDITION END - DNR TRAIT
 	log_message("has opted to do-not-resuscitate / DNR from their body ([current_mob])", LOG_GAME, color = COLOR_GREEN)
 
 	// Disassociates observer mind from the body mind
@@ -450,10 +450,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			var/atom/movable/screen/alert/A = throw_alert("[REF(source)]_revival", /atom/movable/screen/alert/revival)
 			if(A)
 				var/ui_style = client?.prefs?.read_preference(/datum/preference/choiced/ui_style)
-				var/erp_ui_style = client?.prefs?.read_preference(/datum/preference/choiced/ui_style) //SKYRAT EDIT - ADDITION - ERP ICONS FIX
+				var/erp_ui_style = client?.prefs?.read_preference(/datum/preference/choiced/ui_style) //NOVA EDIT - ADDITION - ERP ICONS FIX
 				if(ui_style)
 					A.icon = ui_style2icon(ui_style)
-					A.icon = erp_ui_style2icon(erp_ui_style) //SKYRAT EDIT - ADDITION - ERP ICONS FIX
+					A.icon = erp_ui_style2icon(erp_ui_style) //NOVA EDIT - ADDITION - ERP ICONS FIX
 				A.desc = message
 				var/old_layer = source.layer
 				var/old_plane = source.plane
@@ -984,7 +984,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(is_secret_level(mob_eye.z) && !client?.holder)
 			set_sight(null) //we dont want ghosts to see through walls in secret areas
 		RegisterSignal(mob_eye, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_observing_z_changed))
-		if(mob_eye.hud_used && src != usr) // can't view your own inventory and hud but you're either A: permanently ghosted out. Or B: dead and it barely matters.
+		if(mob_eye.hud_used)
 			client.clear_screen()
 			LAZYOR(mob_eye.observers, src)
 			mob_eye.hud_used.show_hud(mob_eye.hud_used.hud_version, src)

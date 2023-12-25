@@ -12,7 +12,7 @@ import {
   Stack,
 } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import {
   Objective,
   ObjectivePrintout,
@@ -68,7 +68,7 @@ type Info = {
   can_change_objective: BooleanLike;
 };
 
-// SKYRAT EDIT change height from 750 to 900
+// NOVA EDIT change height from 750 to 900
 export const AntagInfoChangeling = (props) => {
   return (
     <Window width={720} height={900}>
@@ -81,11 +81,11 @@ export const AntagInfoChangeling = (props) => {
           <Stack.Item maxHeight={16}>
             <IntroductionSection />
           </Stack.Item>
-          {/* SKYRAT EDIT ADDITION START */}
+          {/* NOVA EDIT ADDITION START */}
           <Stack.Item>
             <Rules />
           </Stack.Item>
-          {/* SKYRAT EDIT ADDITION END */}
+          {/* NOVA EDIT ADDITION END */}
           <Stack.Item grow={4}>
             <AbilitiesSection />
           </Stack.Item>

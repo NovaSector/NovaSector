@@ -61,14 +61,14 @@
 		if (isnull(creature.client)) // Are they connected?
 			trimmed_list.Remove(creature)
 			continue
-		//SKYRAT EDIT ADDITION
+		//NOVA EDIT ADDITION
 		if(is_banned_from(creature.client.ckey, BAN_ANTAGONIST))
 			trimmed_list.Remove(creature)
 			continue
 		if(!creature.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
 			trimmed_list.Remove(creature)
 			continue
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		if(creature.client.get_remaining_days(minimum_required_age) > 0)
 			trimmed_list.Remove(creature)
 			continue

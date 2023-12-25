@@ -83,7 +83,7 @@
 		parcel.base_icon_state = "deliverypackage5"
 		parcel.update_icon()
 		user.forceMove(parcel)
-		parcel.contains_mobs = TRUE // SKYRAT EDIT - CARGO BORGS
+		parcel.contains_mobs = TRUE // NOVA EDIT - CARGO BORGS
 		parcel.add_fingerprint(user)
 		return OXYLOSS
 	else
@@ -110,10 +110,10 @@
 		return
 	if(target.anchored)
 		return
-	// SKYRAT EDIT START - Cargo borgs
+	// NOVA EDIT START - Cargo borgs
 	if(!amount)
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	if(isitem(target))
 		. |= AFTERATTACK_PROCESSED_ITEM
@@ -156,12 +156,12 @@
 			closet.forceMove(parcel)
 			parcel.add_fingerprint(user)
 			closet.add_fingerprint(user)
-			// SKYRAT EDIT START - CARGO BORGS
+			// NOVA EDIT START - CARGO BORGS
 			for(var/item in closet.get_all_contents())
 				if(istype(item, /mob))
 					parcel.contains_mobs = TRUE
 					break
-			// SKYRAT EDIT END
+			// NOVA EDIT END
 		else
 			balloon_alert(user, "not enough paper!")
 			return

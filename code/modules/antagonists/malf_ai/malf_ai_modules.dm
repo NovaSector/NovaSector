@@ -619,7 +619,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /// Robotic Factory: Places a large machine that converts humans that go through it into cyborgs. Unlocking this ability removes shunting.
 /datum/ai_module/utility/place_cyborg_transformer
 	name = "Robotic Factory (Removes Shunting)"
-	description = "Build a machine anywhere, using expensive nanomachines, that will slowly create loyal cyborgs for you." // Skyrat edit
+	description = "Build a machine anywhere, using expensive nanomachines, that will slowly create loyal cyborgs for you." // NOVA EDIT
 	cost = 100
 	power_type = /datum/action/innate/ai/place_transformer
 	unlock_text = span_notice("You make contact with Space Amazon and request a robotics factory for delivery.")
@@ -627,7 +627,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /datum/action/innate/ai/place_transformer
 	name = "Place Robotics Factory"
-	desc = "Places a machine that creates cyborgs efficiently. Conveyor belts included!" // Skyrat edit
+	desc = "Places a machine that creates cyborgs efficiently. Conveyor belts included!" // NOVA EDIT
 	button_icon_state = "robotic_factory"
 	uses = 1
 	auto_use_uses = FALSE //So we can attempt multiple times
@@ -650,7 +650,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		active = FALSE
 		return
 	var/turf/T = get_turf(owner_AI.eyeobj)
-	var/obj/machinery/transformer_rp/conveyor = new(T) //SKYRAT EDIT CHANGE - SILLICONQOL - ORIGINAL: var/obj/machinery/transformer/conveyor = new(T)
+	var/obj/machinery/transformer_rp/conveyor = new(T) //NOVA EDIT CHANGE - SILLICONQOL - ORIGINAL: var/obj/machinery/transformer/conveyor = new(T)
 	conveyor.master_ai = owner
 	playsound(T, 'sound/effects/phasein.ogg', 100, TRUE)
 	if(owner_AI.can_shunt) //prevent repeated messages
@@ -891,7 +891,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/ai_module/upgrade/mecha_domination
 	name = "Unlock Mech Domination"
 	description = "Allows you to hack into a mech's onboard computer, shunting all processes into it and ejecting any occupants. \
-		Once uploaded to the mech, it is impossible to leave. Do not allow the mech to leave the station's vicinity or allow it to be destroyed. \
+		Do not allow the mech to leave the station's vicinity or allow it to be destroyed. \
 		Upgrade is done immediately upon purchase."
 	cost = 30
 	upgrade = TRUE

@@ -1,11 +1,11 @@
 //#define MAX_TIMER (15 MINUTES) //ORIGINAL
-#define MAX_TIMER (60 MINUTES) //SKYRAT EDIT CHANGE
+#define MAX_TIMER (60 MINUTES) //NOVA EDIT CHANGE
 //#define PRESET_SHORT (2 MINUTES) //ORIGINAL
-#define PRESET_SHORT (5 MINUTES) //SKYRAT EDIT CHANGE
+#define PRESET_SHORT (5 MINUTES) //NOVA EDIT CHANGE
 //#define PRESET_MEDIUM (3 MINUTES) //ORIGINAL
-#define PRESET_MEDIUM (10 MINUTES) //SKYRAT EDIT CHANGE
+#define PRESET_MEDIUM (10 MINUTES) //NOVA EDIT CHANGE
 //#define PRESET_LONG (5 MINUTES) //ORIGINAL
-#define PRESET_LONG (15 MINUTES) //SKYRAT EDIT CHANGE
+#define PRESET_LONG (15 MINUTES) //NOVA EDIT CHANGE
 
 /**
  * Brig Door control displays.
@@ -72,7 +72,7 @@
 	if(!timing)
 		return PROCESS_KILL
 
-	if(REALTIMEOFDAY - activation_time >= timer_duration) // SKYRAT EDIT CHANGE: original was world.time
+	if(REALTIMEOFDAY - activation_time >= timer_duration) // NOVA EDIT CHANGE: original was world.time
 		timer_end() // open doors, reset timer, clear status screen
 	update_content()
 
@@ -98,7 +98,7 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return 0
 
-	activation_time = REALTIMEOFDAY // SKYRAT EDIT CHANGE: original was world.time
+	activation_time = REALTIMEOFDAY // NOVA EDIT CHANGE: original was world.time
 	timing = TRUE
 	begin_processing()
 
@@ -171,7 +171,7 @@
  * * seconds - return time in seconds it TRUE, else deciseconds.
  */
 /obj/machinery/status_display/door_timer/proc/time_left(seconds = FALSE)
-	. = max(0, timer_duration - (activation_time ? REALTIMEOFDAY - activation_time : 0))  // SKYRAT EDIT CHANGE: original was world.time
+	. = max(0, timer_duration - (activation_time ? REALTIMEOFDAY - activation_time : 0))  // NOVA EDIT CHANGE: original was world.time
 	if(seconds)
 		. /= 10
 
@@ -263,7 +263,7 @@
 			user.investigate_log("set cell [id]'s timer to [preset_time/10] seconds", INVESTIGATE_RECORDS)
 			user.log_message("set cell [id]'s timer to [preset_time/10] seconds", LOG_ATTACK)
 			if(timing)
-				activation_time = REALTIMEOFDAY // SKYRAT EDIT CHANGE: original was world.time
+				activation_time = REALTIMEOFDAY // NOVA EDIT CHANGE: original was world.time
 		else
 			. = FALSE
 

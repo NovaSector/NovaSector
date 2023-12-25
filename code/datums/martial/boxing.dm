@@ -33,14 +33,14 @@
 	var/obj/item/bodypart/affecting = defender.get_bodypart(defender.get_random_valid_zone(attacker.zone_selected))
 	var/armor_block = defender.run_armor_check(affecting, MELEE)
 
-	// SKYRAT EDIT CHANGE
+	// NOVA EDIT CHANGE
 	var/sound/attack_sound
 	if(!active_arm.unarmed_attack_sound)
 		attack_sound = get_sfx("punch")
 	else
 		attack_sound = active_arm.unarmed_attack_sound
 	playsound(defender.loc, attack_sound, 25, TRUE, -1)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	defender.visible_message(span_danger("[attacker] [atk_verb]ed [defender]!"), \
 					span_userdanger("You're [atk_verb]ed by [attacker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, attacker)

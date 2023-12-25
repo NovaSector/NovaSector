@@ -7,7 +7,7 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_EXTERNAL_TAIL
 
-	//dna_block = DNA_TAIL_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = DNA_TAIL_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	// defaults to cat, but the parent type shouldn't be created regardless
@@ -87,16 +87,16 @@
 ///Tail parent type, with wagging functionality
 /datum/bodypart_overlay/mutant/tail
 	layers = EXTERNAL_FRONT|EXTERNAL_BEHIND
-	feature_key = "tail" // SKYRAT EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
+	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return (wagging ? "wagging_" : "") + sprite_datum.icon_state //add the wagging tag if we be wagging
 
-// SKYRAT EDIT ADDITION - CUSTOMIZATION
+// NOVA EDIT ADDITION - CUSTOMIZATION
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
 	return GLOB.sprite_accessories["tail"]
-// SKYRAT EDIT ADDITION END
+// NOVA EDIT ADDITION END
 
 /datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(mob/living/carbon/human/human)
 	if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
@@ -113,11 +113,11 @@
 
 ///Cat tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/cat
-	feature_key = "tail" // SKYRAT EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
-	// color_source = ORGAN_COLOR_HAIR // SKYRAT EDIT REMOVAL
+	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
+	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
 
 /datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
-	return GLOB.sprite_accessories["tail"] // SKYRAT EDIT - Customization - ORIGINAL: return GLOB.tails_list_human
+	return GLOB.sprite_accessories["tail"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.tails_list_human
 
 /obj/item/organ/external/tail/monkey
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
@@ -125,7 +125,7 @@
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey
 	color_source = NONE
-	feature_key = "tail" // SKYRAT EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
+	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_monkey"
 
 /datum/bodypart_overlay/mutant/tail/monkey/get_global_feature_list()
 	return GLOB.tails_list_monkey
@@ -167,10 +167,10 @@
 
 ///Lizard tail bodypart overlay datum
 /datum/bodypart_overlay/mutant/tail/lizard
-	feature_key = "tail" // SKYRAT EDIT - Customization - ORIGINAL: feature_key = "tail_lizard"
+	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_lizard"
 
 /datum/bodypart_overlay/mutant/tail/lizard/get_global_feature_list()
-	return GLOB.sprite_accessories["tail"] // SKYRAT EDIT - Customization - ORIGINAL: return GLOB.tails_list_lizard
+	return GLOB.sprite_accessories["tail"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.tails_list_lizard
 
 /obj/item/organ/external/tail/lizard/fake
 	name = "fabricated lizard tail"

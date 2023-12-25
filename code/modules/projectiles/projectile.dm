@@ -14,7 +14,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	//The sound this plays on impact.
-	var/hitsound // SKYRAT EDIT CHANGE
+	var/hitsound // NOVA EDIT CHANGE
 	var/hitsound_wall = ""
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -297,7 +297,7 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
-	// SKYRAT EDIT ADDITION BEGIN - IMPACT SOUNDS
+	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS
 	var/impact_sound
 	if(hitsound)
 		impact_sound = hitsound
@@ -305,7 +305,7 @@
 		impact_sound = target.impact_sound
 		get_sfx()
 	playsound(src, get_sfx_skyrat(impact_sound), vol_by_damage(), TRUE, -1)
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
 		var/turf/closed/wall/target_wall = target_turf
@@ -319,13 +319,13 @@
 	if(!isliving(target))
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_turf, hitx, hity)
-		/* SKYRAT EDIT REMOVAL - IMPACT SOUNDS
+		/* NOVA EDIT REMOVAL - IMPACT SOUNDS
 		if(isturf(target) && hitsound_wall)
 			var/volume = clamp(vol_by_damage() + 20, 0, 100)
 			if(suppressed)
 				volume = 5
 			playsound(loc, hitsound_wall, volume, TRUE, -1)
-		SKYRAT EDIT REMOVAL END */
+		NOVA EDIT REMOVAL END */
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -358,16 +358,16 @@
 		if(hit_limb_zone)
 			organ_hit_text = " in \the [parse_zone(hit_limb_zone)]"
 		if(suppressed == SUPPRESSED_VERY)
-			//playsound(loc, hitsound, 5, TRUE, -1) SKYRAT EDIT REMOVAL - IMPACT SOUNDS
+			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 		else if(suppressed)
-			//playsound(loc, hitsound, 5, TRUE, -1) SKYRAT EDIT REMOVAL - IMPACT SOUNDS
+			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 			to_chat(living_target, span_userdanger("You're shot by \a [src][organ_hit_text]!"))
 		else
-			/* SKYRAT EDIT REMOVAL - IMPACT SOUNDS
+			/* NOVA EDIT REMOVAL - IMPACT SOUNDS
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(src, hitsound, volume, TRUE, -1)
-			SKYRAT EDIT REMOVAL END */
+			NOVA EDIT REMOVAL END */
 			living_target.visible_message(span_danger("[living_target] is hit by \a [src][organ_hit_text]!"), \
 					span_userdanger("You're hit by \a [src][organ_hit_text]!"), null, COMBAT_MESSAGE_RANGE)
 			if(living_target.is_blind())
@@ -613,7 +613,7 @@
 		var/mob/M = firer
 		if((target == firer) || ((target == firer.loc) && ismecha(firer.loc)) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
 			return FALSE
-	if(ignored_factions?.len && ismob(target) && (!direct_target || ignore_direct_target)) //SKYRAT EDIT: ignore_direct_target
+	if(ignored_factions?.len && ismob(target) && (!direct_target || ignore_direct_target)) //NOVA EDIT: ignore_direct_target
 		var/mob/target_mob = target
 		if(faction_check(target_mob.faction, ignored_factions))
 			return FALSE
@@ -792,7 +792,7 @@
 	if(!log_override && firer && original)
 		log_combat(firer, original, "fired at", src, "from [get_area_name(src, TRUE)]")
 			//note: mecha projectile logging is handled in /obj/item/mecha_parts/mecha_equipment/weapon/action(). try to keep these messages roughly the sameish just for consistency's sake.
-	if(direct_target && (get_dist(direct_target, get_turf(fired_from)) <= 1)) // point blank shots // SKYRAT EDIT - ORIGINAL: if(direct_target && (get_dist(direct_target, get_turf(src)) <= 1))
+	if(direct_target && (get_dist(direct_target, get_turf(fired_from)) <= 1)) // point blank shots // NOVA EDIT - ORIGINAL: if(direct_target && (get_dist(direct_target, get_turf(src)) <= 1))
 		process_hit(get_turf(direct_target), direct_target)
 		if(QDELETED(src))
 			return

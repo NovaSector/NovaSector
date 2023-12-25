@@ -46,9 +46,9 @@
 			. += span_warning("It doesn't seem to be responding.")
 		if(DEAD)
 			. += span_deadsay("It looks like its system is corrupted and requires a reset.")
-	//SKYRAT EDIT ADDITION BEGIN - CUSTOMIZATION
+	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	. += get_silicon_flavortext()
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	. += "</span>"
 
 	. += ..()

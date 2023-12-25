@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { BooleanLike, classes } from '../../common/react';
 import { useBackend } from '../backend';
 import { Box, Button, Divider, Flex, Section, Stack } from '../components';
@@ -101,7 +101,7 @@ const ResearchSection = (props) => {
   const { act, data } = useBackend<Data>();
   return (
     <Stack vertical>
-      <Stack.Item fill>
+      <Stack.Item>
         <Section fill title="Basic Research">
           <div style={{ textAlign: 'center' }}>
             {ResearchNode(data.starting_research, act)}

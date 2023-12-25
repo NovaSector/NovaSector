@@ -267,7 +267,7 @@
 			reason = reason,
 			paying_account = account,
 			coupon = applied_coupon,
-			charge_on_purchase = TRUE, // SKYRAT EDIT ADDITION
+			charge_on_purchase = TRUE, // NOVA EDIT ADDITION
 		)
 		working_list += order
 

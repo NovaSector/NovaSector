@@ -40,7 +40,7 @@
 
 #define DNA_UNI_IDENTITY_BLOCKS 8
 
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/_DEFINES/DNA.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/_DEFINES/DNA.dm)
 /*
 /// This number needs to equal the total number of DNA blocks
 #define DNA_MUTANT_COLOR_BLOCK 1
@@ -60,7 +60,7 @@
 #define DNA_POD_HAIR_BLOCK 15
 
 #define DNA_FEATURE_BLOCKS 15
-*/ //SKYRAT EDIT CHANGE - ORIGINAL
+*/ //NOVA EDIT CHANGE - ORIGINAL
 #define DNA_FEATURE_BLOCKS GLOB.dna_total_feature_blocks
 
 #define DNA_MANDATORY_COLOR_BLOCKS 5
@@ -72,7 +72,7 @@
 
 #define DNA_POD_HAIR_BLOCK 15
 
-// SKYRAT EDIT CHANGE END
+// NOVA EDIT CHANGE END
 
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8

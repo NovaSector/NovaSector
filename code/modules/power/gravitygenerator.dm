@@ -419,14 +419,14 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		if(mobs.client)
 			shake_camera(mobs, 15, 1)
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
-	//SKYRAT EDIT ADDITON BEGIN
+	//NOVA EDIT ADDITON BEGIN
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION)) // SHUT THE FUCK UP ABANDONED STATIONS, I DON'T CARE
 		return
 	if(on)
 		priority_announce("A gravity generator has successfully restarted its graviton field, artificial gravity is online.", "Gravity Generator", ANNOUNCER_GRAVGENON)
 	else
 		priority_announce("A gravity generator has lost its graviton field integrity ballast, artificial gravity is offline.", "Gravity Generator", ANNOUNCER_GRAVGENOFF)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 /obj/machinery/gravity_generator/main/proc/gravity_in_level()
 	var/turf/T = get_turf(src)

@@ -35,7 +35,7 @@
 	*/ //SKYRAT REMOVAL END
 	var/mob/living/silicon/ai/ai_spawn = spawned
 	ai_spawn.log_current_laws()
-	// SKYRAT EDIT ADDITION START
+	// NOVA EDIT ADDITION START
 	for(var/mob/living/silicon/robot/sync_target in GLOB.silicon_mobs)
 		if(!(sync_target.z in SSmapping.levels_by_trait(ZTRAIT_STATION)) || (sync_target.z in SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND))) // Skip ghost cafe, interlink, and other cyborgs.
 			continue
@@ -56,7 +56,7 @@
 		sync_target.lawsync()
 		sync_target.lawupdate = TRUE
 		sync_target.show_laws()
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 
 /datum/job/ai/get_roundstart_spawn_point()

@@ -115,7 +115,7 @@
 /// log attack messages
 /datum/config_entry/flag/log_attack
 
-/datum/config_entry/flag/log_subtler // log subtler emotes //SKYRAT EDIT ADDITION
+/datum/config_entry/flag/log_subtler // log subtler emotes //NOVA EDIT ADDITION
 
 /datum/config_entry/flag/log_econ // log economy actions
 
@@ -317,7 +317,7 @@
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	default = "https://wiki.skyrat13.com/index.php" //SKYRAT EDIT - Original: "http://www.tgstation13.org/wiki"
+	default = "https://wiki.skyrat13.com/index.php" //NOVA EDIT - Original: "http://www.tgstation13.org/wiki"
 
 /datum/config_entry/string/forumurl
 	default = "http://tgstation13.org/phpBB/index.php"

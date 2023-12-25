@@ -35,7 +35,7 @@
 	item = /obj/item/storage/backpack/duffelbag/syndie/x4
 	cost = 4
 	cant_discount = TRUE
-/* //SKYRAT EDIT REMOVAL START
+/* //NOVA EDIT REMOVAL START
 /datum/uplink_item/explosives/detomatix
 	name = "Detomatix disk"
 	desc = "When inserted into a tablet, this cartridge gives you four opportunities to \

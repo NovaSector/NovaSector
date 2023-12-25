@@ -10,11 +10,11 @@ const commandJobs = [
   'Chief Engineer',
   'Research Director',
   'Chief Medical Officer',
-  'Quartermaster', // SKYRAT EDIT
-  'Nanotrasen Consultant', // SKYRAT EDIT
+  'Quartermaster', // NOVA EDIT
+  'Nanotrasen Consultant', // NOVA EDIT
 ];
 
-// SKYRAT EDIT CHANGE BEGIN - ALTERNATIVE_JOB_TITLES
+// NOVA EDIT CHANGE BEGIN - ALTERNATIVE_JOB_TITLES
 // Any instance of crewMember.trim was originally crewMember.rank
 export const CrewManifest = (props) => {
   const {
@@ -105,4 +105,4 @@ export const CrewManifest = (props) => {
     </Window>
   );
 };
-// SKYRAT EDIT CHANGE END - ALTERNATIVE_JOB_TITLES
+// NOVA EDIT CHANGE END - ALTERNATIVE_JOB_TITLES

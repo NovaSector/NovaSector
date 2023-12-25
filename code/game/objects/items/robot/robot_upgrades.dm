@@ -551,14 +551,14 @@
 	if(robot.hasExpanded)
 		to_chat(usr, span_warning("This unit already has an expand module installed!"))
 		return FALSE
-	// SKYRAT EDIT BEGIN
+	// NOVA EDIT BEGIN
 	if(robot.model.model_select_icon == "nomod")
 		to_chat(usr, span_warning("Default models cannot take expand or shrink upgrades."))
 		return FALSE
 	if((TRAIT_R_WIDE in robot.model.model_features) || (TRAIT_R_TALL in robot.model.model_features))
 		to_chat(usr, span_warning("This unit's chassis cannot be enlarged any further."))
 		return FALSE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	ADD_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
 	var/prev_lockcharge = robot.lockcharge
@@ -576,7 +576,7 @@
 	robot.set_anchored(FALSE)
 	REMOVE_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
 	robot.hasExpanded = TRUE
-	robot.update_transform(1.5) // SKYRAT EDIT CHANGE - ORIGINAL: robot.update_transform(2)
+	robot.update_transform(1.5) // NOVA EDIT CHANGE - ORIGINAL: robot.update_transform(2)
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -584,9 +584,9 @@
 		if (R.hasExpanded)
 			R.hasExpanded = FALSE
 			//R.update_transform(0.5) // Original
-			R.update_transform(0.8) // SKYRAT EDIT CHANGE
+			R.update_transform(0.8) // NOVA EDIT CHANGE
 
-/obj/item/borg/upgrade/rped//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/item/borg/upgrade/rped//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "engineering cyborg RPED"
 	desc = "A rapid part exchange device for the engineering cyborg."
 	icon = 'icons/obj/storage/storage.dmi'

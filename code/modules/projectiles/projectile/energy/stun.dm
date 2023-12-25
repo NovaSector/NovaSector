@@ -2,12 +2,12 @@
 	name = "electrode"
 	icon_state = "spark"
 	color = "#FFFF00"
-	stamina = 80 // SKYRAT EDIT CHANGE
+	stamina = 80 // NOVA EDIT CHANGE
 	stutter = 10 SECONDS
 	jitter = 40 SECONDS
 	hitsound = 'sound/weapons/taserhit.ogg'
 	//range = 7 //ORIGINAL
-	range = 5  //SKYRAT EDIT CHANGE - COMBAT
+	range = 5  //NOVA EDIT CHANGE - COMBAT
 	tracer_type = /obj/effect/projectile/tracer/stun
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	impact_type = /obj/effect/projectile/impact/stun
@@ -18,7 +18,7 @@
 		do_sparks(1, TRUE, src)
 	else if(iscarbon(target))
 		var/mob/living/carbon/C = target
-		C.adjust_confusion_up_to(15 SECONDS, 30 SECONDS) // SKYRAT EDIT ADDITION - Electrode jitteriness
+		C.adjust_confusion_up_to(15 SECONDS, 30 SECONDS) // NOVA EDIT ADDITION - Electrode jitteriness
 		C.add_mood_event("tased", /datum/mood_event/tased)
 		SEND_SIGNAL(C, COMSIG_LIVING_MINOR_SHOCK)
 		if(C.dna && C.dna.check_mutation(/datum/mutation/human/hulk))

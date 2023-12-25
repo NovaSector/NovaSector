@@ -6,7 +6,7 @@ import {
   Autofocus,
   Box,
   Button,
-  Dropdown, // SKYRAT EDIT ADDITION
+  Dropdown, // NOVA EDIT ADDITION
   Flex,
   LabeledList,
   Popper,
@@ -32,7 +32,7 @@ import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 import { useRandomToggleState } from './useRandomToggleState';
 
 const CLOTHING_CELL_SIZE = 48;
-const CLOTHING_SIDEBAR_ROWS = 13.4; // SKYRAT EDIT CHANGE - ORIGINAL:  9
+const CLOTHING_SIDEBAR_ROWS = 13.4; // NOVA EDIT CHANGE - ORIGINAL:  9
 
 const CLOTHING_SELECTION_CELL_SIZE = 48;
 const CLOTHING_SELECTION_WIDTH = 5.4;
@@ -41,7 +41,7 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 const CharacterControls = (props: {
   handleRotate: () => void;
   handleOpenSpecies: () => void;
-  handleLoadout: () => void; // SKYRAT EDIT ADDITION
+  handleLoadout: () => void; // NOVA EDIT ADDITION
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
@@ -77,7 +77,7 @@ const CharacterControls = (props: {
         </Stack.Item>
       )}
       {props.handleLoadout && (
-        // SKYRAT EDIT ADDITION
+        // NOVA EDIT ADDITION
         <Stack.Item>
           <Button
             onClick={props.handleLoadout}
@@ -577,13 +577,13 @@ export const MainPage = (props: { openSpecies: () => void }) => {
 
                   <Stack.Item grow>
                     <CharacterPreview
-                      height="80%" // SKYRAT EDIT - ORIGINAL: height="100%"
+                      height="80%" // NOVA EDIT - ORIGINAL: height="100%"
                       id={data.character_preview_view}
                     />
                   </Stack.Item>
 
                   <Stack.Item
-                    // SKYRAT EDIT ADDITION
+                    // NOVA EDIT ADDITION
                     position="relative"
                   >
                     <Dropdown

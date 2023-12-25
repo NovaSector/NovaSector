@@ -490,11 +490,11 @@
 	if(move_intent == MOVE_INTENT_RUN)
 		move_intent = MOVE_INTENT_WALK
 	else
-		//SKYRAT EDIT ADDITION BEGIN - GUNPOINT
+		//NOVA EDIT ADDITION BEGIN - GUNPOINT
 		if (HAS_TRAIT(src,TRAIT_NORUNNING))
 			to_chat(src, "You find yourself unable to run.")
 			return FALSE
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 		move_intent = MOVE_INTENT_RUN
 	if(hud_used?.static_inventory)
 		for(var/atom/movable/screen/mov_intent/selector in hud_used.static_inventory)
