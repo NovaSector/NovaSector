@@ -23,7 +23,7 @@
 	/// How many times we've slammed, counts up until the number is high enough to make a box of materials
 	var/slam_jams = 0
 	/// How many times we need to slam in order to produce a box of materials
-	var/slam_jams_needed = 20
+	var/slam_jams_needed = 15
 	/// List of the thumping sounds we can choose from
 	var/static/list/list_of_thumper_sounds = list(
 		'modular_nova/modules/kahraman_equipment/sound/thumper_thump/punch_press_1.wav',
