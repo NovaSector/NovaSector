@@ -82,10 +82,9 @@
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
 
-
+///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
 
-///Xenomorph organs modified to suit roundstart styling
 //Plasma vessel
 /obj/item/organ/internal/alien/plasmavessel/roundstart
 	stored_plasma = 55
@@ -98,10 +97,10 @@
 	)
 
 /datum/action/cooldown/alien/make_structure/plant_weeds
-	var/build_duration = 0 SECONDS
+	var/build_duration = 0 SECONDS //regular aliens can build instantly
 
 /datum/action/cooldown/alien/make_structure/plant_weeds/roundstart
-	build_duration = BUILD_DURATION
+	build_duration = BUILD_DURATION //hybrids are a bit slower
 
 /datum/action/cooldown/alien/make_structure/plant_weeds/Activate(atom/target)
 	if(build_duration && !do_after(owner, build_duration))
@@ -122,7 +121,7 @@
 
 //Organ resprites
 /obj/item/organ/internal/brain/xeno_hybrid
-	icon_state = "brain-x"
+	icon_state = "brain-x" //rebranding
 
 /obj/item/organ/internal/stomach/xeno_hybrid
 	icon_state = "stomach-x"
