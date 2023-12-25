@@ -4,7 +4,7 @@
 
 /turf/closed/mineral //wall piece
 	name = "rock"
-	icon = MAP_SWITCH('modular_skyrat/modules/liquids/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // NOVA EDIT CHANGE
+	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi') // NOVA EDIT CHANGE
 	icon_state = "rock"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	baseturfs = /turf/open/misc/asteroid/airless
