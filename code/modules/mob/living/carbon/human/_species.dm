@@ -2,6 +2,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 ///List of all roundstart languages by path except common
 GLOBAL_LIST_EMPTY(uncommon_roundstart_languages)
 
+// NOVA EDIT ADDITION START
+///List of all roundstart languages
+GLOBAL_LIST_EMPTY(roundstart_languages)
+// NOVA EDIT ADDITION END
+
 /// An assoc list of species types to their features (from get_features())
 GLOBAL_LIST_EMPTY(features_by_species)
 
@@ -234,6 +239,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			var/datum/language_holder/temp_holder = new species.species_language_holder
 			for(var/datum/language/spoken_language as anything in temp_holder.understood_languages)
 				GLOB.uncommon_roundstart_languages |= spoken_language
+				// NOVA EDIT ADDITION START
+				GLOB.roundstart_languages |= spoken_language
+				// NOVA EDIT ADDITION END
 			qdel(temp_holder)
 			qdel(species)
 
