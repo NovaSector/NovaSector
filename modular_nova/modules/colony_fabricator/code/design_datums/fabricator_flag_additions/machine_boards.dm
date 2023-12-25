@@ -67,9 +67,3 @@
 /datum/design/turbine_part_stator/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
-
-// No more turbine stuff :(
-
-/datum/design/board/electrolyzer/New()
-	. = ..()
-	build_type |= COLONY_FABRICATOR
