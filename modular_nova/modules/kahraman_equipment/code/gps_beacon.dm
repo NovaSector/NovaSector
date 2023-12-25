@@ -16,7 +16,7 @@
 	name = "packed GPS beacon"
 	icon = 'modular_nova/modules/kahraman_equipment/icons/gps_beacon.dmi'
 	icon_state = "beacon_folded"
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	type_to_deploy = /obj/item/gps/computer/beacon
 
 /obj/item/flatpacked_machine/gps_beacon/give_manufacturer_examine()
