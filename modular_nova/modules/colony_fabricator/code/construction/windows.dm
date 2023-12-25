@@ -1,7 +1,7 @@
 /obj/structure/window/fulltile/colony_fabricator
 	name = "prefabricated window"
 	desc = "A conservatively built metal frame with a thick sheet of space-grade glass slotted into it."
-	icon = 'modular_skyrat/modules/colony_fabricator/icons/prefab_window.dmi'
+	icon = 'modular_nova/modules/colony_fabricator/icons/prefab_window.dmi'
 	icon_state = "prefab-0"
 	base_icon_state = "prefab"
 	fulltile = TRUE
@@ -36,8 +36,8 @@
 			return
 		var/obj/structure/window/new_window = new /obj/structure/window/fulltile/colony_fabricator(drop_location())
 		new_window.setDir(dir_to_set)
-		new_window.set_anchored(FALSE)
 		new_window.state = 0
 		stack_in_question.use(1)
 		to_chat(user, span_notice("You place [new_window] on [src]."))
+		return
 	return ..()

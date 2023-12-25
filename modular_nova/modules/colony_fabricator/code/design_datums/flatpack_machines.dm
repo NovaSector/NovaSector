@@ -210,7 +210,7 @@
 	desc = "An all-in-one materials management solution. Connects resource-using machines \
 		through a network of distrobution systems."
 	id = "flatpack_ore_silo"
-	build_type = COLONY_ENGI_FAB
+	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
@@ -230,7 +230,7 @@
 		rapidly constructing functional structures given resources and power. While it cannot be upgraded, it can be repacked \
 		and moved to any location you see fit. This one makes specialized engineering designs and tools."
 	id = "flatpack_turbine_team_fortress_two"
-	build_type = COLONY_FABRICATOR | COLONY_ENGI_FAB
+	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,

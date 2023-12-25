@@ -56,23 +56,23 @@
 
 /datum/design/ignition_control/New()
 	. = ..()
-	build_type |= COLONY_ENGI_FAB
+	build_type |= COLONY_FABRICATOR
 
 /datum/design/sparker/New()
 	. = ..()
-	build_type |= COLONY_ENGI_FAB
+	build_type |= COLONY_FABRICATOR
 
 /datum/design/newscaster_frame/New()
 	. = ..()
-	build_type |= COLONY_ENGI_FAB
+	build_type |= COLONY_FABRICATOR
 
 /datum/design/status_display_frame/New()
 	. = ..()
-	build_type |= COLONY_ENGI_FAB
+	build_type |= COLONY_FABRICATOR
 
 /datum/design/requests_console/New()
 	. = ..()
-	build_type |= COLONY_ENGI_FAB
+	build_type |= COLONY_FABRICATOR
 
 // Lights
 
