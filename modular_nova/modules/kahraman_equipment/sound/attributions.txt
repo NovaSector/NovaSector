@@ -1,0 +1,3 @@
+The sounds at modular_skyrat/modules/colony_fabriactor_event_code/sound/thumper_fan are from https://pixabay.com/sound-effects/fan-1-6360/
+
+The sounds at modular_skyrat/modules/colony_fabriactor_event_code/sound/thumper_thump are from https://pixabay.com/sound-effects/punch-press-10-ton-clip1-104921/

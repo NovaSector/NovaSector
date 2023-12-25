@@ -7273,6 +7273,8 @@
 #include "modular_nova\modules\jukebox\code\dance_machine.dm"
 #include "modular_nova\modules\jukebox\code\jukebox_subsystem.dm"
 #include "modular_nova\modules\jungle\code\flora.dm"
+#include "modular_nova\modules\kahraman_equipment\code\looping_sounds.dm"
+#include "modular_nova\modules\kahraman_equipment\code\ore_thumper.dm"
 #include "modular_nova\modules\knives\knives.dm"
 #include "modular_nova\modules\layer_shift\code\mob_movement.dm"
 #include "modular_nova\modules\liquids\code\drains.dm"
