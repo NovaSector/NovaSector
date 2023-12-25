@@ -14,7 +14,7 @@ export const pet_owner: FeatureChoiced = {
 export const pet_name: Feature<string> = {
   name: 'Pet Name',
   description:
-    "If blank, will use the mob's default name. Ex. Axolotls will be called axolotl.",
+    "If blank, will use the mob's default name. For example, 'axolotl' or 'chinchilla'.",
   component: FeatureShortTextInput,
 };
 
