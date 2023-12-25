@@ -84,7 +84,7 @@
 		return
 	flick("[base_icon_state]_pressed", src)
 	update_appearance(UPDATE_ICON)
-	SEND_SOUND(hud.mymob, sound('modular_skyrat/master_files/sound/effects/save.ogg')) //NOVA EDIT ADDITION
+	SEND_SOUND(hud.mymob, sound('modular_nova/master_files/sound/effects/save.ogg')) //NOVA EDIT ADDITION
 	return TRUE
 
 /atom/movable/screen/lobby/button/MouseEntered(location,control,params)
