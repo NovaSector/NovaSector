@@ -1,5 +1,4 @@
-// THIS IS A NOVA SECTOR UI FILE
-import { useState } from 'react';
+import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
 import {
@@ -12,8 +11,6 @@ import {
   Modal,
   NoticeBox,
   Section,
-  Table,
-  Tabs,
 } from '../components';
 import { FakeTerminal } from '../components/FakeTerminal';
 import { NtosWindow } from '../layouts';
@@ -25,18 +22,46 @@ const CONTRACT_STATUS_EXTRACTING = 4;
 const CONTRACT_STATUS_COMPLETE = 5;
 const CONTRACT_STATUS_ABORTED = 6;
 
-export const SyndContractor = (props) => {
+export const SyndicateContractor = (props) => {
   return (
-    <NtosWindow width={500} height={600} theme="syndicate">
+    <NtosWindow width={500} height={600}>
       <NtosWindow.Content scrollable>
-        <SyndContractorContent />
+        <SyndicateContractorContent />
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
 
-export const SyndContractorContent = (props) => {
-  const { data, act } = useBackend();
+type Data = {
+  error: string;
+  logged_in: BooleanLike;
+  first_load: BooleanLike;
+  info_screen: BooleanLike;
+  redeemable_tc: Number;
+  earned_tc: Number;
+  contracts_completed: Number;
+  contracts: ContractData[];
+  ongoing_contract: BooleanLike;
+  extraction_enroute: BooleanLike;
+  dropoff_direction: string;
+};
+
+type ContractData = {
+  id: Number;
+  status: Number;
+  target: string;
+  target_rank: string;
+  extraction_enroute: BooleanLike;
+  message: string;
+  contract: string;
+  dropoff: string;
+  payout: Number;
+  payout_bonus: Number;
+};
+
+export const SyndicateContractorContent = (props) => {
+  const { data, act } = useBackend<Data>();
+  const { error, logged_in, first_load, info_screen } = data;
 
   const terminalMessages = [
     'Recording biometric data...',
@@ -91,7 +116,7 @@ export const SyndContractorContent = (props) => {
     'identity.',
   ];
 
-  const errorPane = !!data.error && (
+  const errorPane = !!error && (
     <Modal backgroundColor="red">
       <Flex align="center">
         <Flex.Item mr={2}>
@@ -99,7 +124,7 @@ export const SyndContractorContent = (props) => {
         </Flex.Item>
         <Flex.Item mr={2} grow={1} textAlign="center">
           <Box width="260px" textAlign="left" minHeight="80px">
-            {data.error}
+            {error}
           </Box>
           <Button content="Dismiss" onClick={() => act('PRG_clear_error')} />
         </Flex.Item>
@@ -107,7 +132,7 @@ export const SyndContractorContent = (props) => {
     </Modal>
   );
 
-  if (!data.logged_in) {
+  if (!logged_in) {
     return (
       <Section minHeight="525px">
         <Box width="100%" textAlign="center">
@@ -117,12 +142,12 @@ export const SyndContractorContent = (props) => {
             onClick={() => act('PRG_login')}
           />
         </Box>
-        {!!data.error && <NoticeBox>{data.error}</NoticeBox>}
+        {!!error && <NoticeBox>{error}</NoticeBox>}
       </Section>
     );
   }
 
-  if (data.logged_in && data.first_load) {
+  if (logged_in && first_load) {
     return (
       <Box backgroundColor="rgba(0, 0, 0, 0.8)" minHeight="525px">
         <FakeTerminal
@@ -134,7 +159,7 @@ export const SyndContractorContent = (props) => {
     );
   }
 
-  if (data.info_screen) {
+  if (info_screen) {
     return (
       <>
         <Box backgroundColor="rgba(0, 0, 0, 0.8)" minHeight="500px">
@@ -154,13 +179,15 @@ export const SyndContractorContent = (props) => {
   return (
     <>
       {errorPane}
-      <SyndPane />
+      <StatusPane state={props.state} />
+      <ContractsTab />
     </>
   );
 };
 
 export const StatusPane = (props) => {
-  const { act, data } = useBackend();
+  const { act, data } = useBackend<Data>();
+  const { redeemable_tc, earned_tc, contracts_completed } = data;
 
   return (
     <Section
@@ -176,11 +203,6 @@ export const StatusPane = (props) => {
           />
         </>
       }
-      buttons={
-        <Box bold mr={1}>
-          {data.contract_rep} Rep
-        </Box>
-      }
     >
       <Grid>
         <Grid.Column size={0.85}>
@@ -190,22 +212,22 @@ export const StatusPane = (props) => {
               buttons={
                 <Button
                   content="Claim"
-                  disabled={data.redeemable_tc <= 0}
+                  disabled={redeemable_tc <= 0}
                   onClick={() => act('PRG_redeem_TC')}
                 />
               }
             >
-              {String(data.redeemable_tc)}
+              {String(redeemable_tc)}
             </LabeledList.Item>
             <LabeledList.Item label="TC Earned">
-              {String(data.earned_tc)}
+              {String(earned_tc)}
             </LabeledList.Item>
           </LabeledList>
         </Grid.Column>
         <Grid.Column>
           <LabeledList>
             <LabeledList.Item label="Contracts Completed">
-              {String(data.contracts_completed)}
+              {String(contracts_completed)}
             </LabeledList.Item>
             <LabeledList.Item label="Current Status">ACTIVE</LabeledList.Item>
           </LabeledList>
@@ -215,28 +237,11 @@ export const StatusPane = (props) => {
   );
 };
 
-export const SyndPane = (props) => {
-  const [tab, setTab] = useState(1);
-  return (
-    <>
-      <StatusPane state={props.state} />
-      <Tabs>
-        <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
-          Contracts
-        </Tabs.Tab>
-        <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
-          Hub
-        </Tabs.Tab>
-      </Tabs>
-      {tab === 1 && <ContractsTab />}
-      {tab === 2 && <HubTab />}
-    </>
-  );
-};
-
 const ContractsTab = (props) => {
-  const { act, data } = useBackend();
-  const contracts = data.contracts || [];
+  const { act, data } = useBackend<Data>();
+  const { contracts, ongoing_contract, extraction_enroute, dropoff_direction } =
+    data;
+
   return (
     <>
       <Section
@@ -244,16 +249,13 @@ const ContractsTab = (props) => {
         buttons={
           <Button
             content="Call Extraction"
-            disabled={!data.ongoing_contract || data.extraction_enroute}
+            disabled={!ongoing_contract || extraction_enroute}
             onClick={() => act('PRG_call_extraction')}
           />
         }
       >
         {contracts.map((contract) => {
-          if (
-            data.ongoing_contract &&
-            contract.status !== CONTRACT_STATUS_ACTIVE
-          ) {
+          if (ongoing_contract && contract.status !== CONTRACT_STATUS_ACTIVE) {
             return;
           }
           const active = contract.status > CONTRACT_STATUS_INACTIVE;
@@ -268,7 +270,6 @@ const ContractsTab = (props) => {
                   ? `${contract.target} (${contract.target_rank})`
                   : 'Invalid Target'
               }
-              level={active ? 1 : 2}
               buttons={
                 <>
                   <Box inline bold mr={1}>
@@ -303,61 +304,10 @@ const ContractsTab = (props) => {
       <Section
         title="Dropoff Locator"
         textAlign="center"
-        opacity={data.ongoing_contract ? 100 : 0}
+        opacity={ongoing_contract ? 100 : 0}
       >
-        <Box bold>{data.dropoff_direction}</Box>
+        <Box bold>{dropoff_direction}</Box>
       </Section>
     </>
-  );
-};
-
-const HubTab = (props) => {
-  const { act, data } = useBackend();
-  const contractor_hub_items = data.contractor_hub_items || [];
-  return (
-    <Section>
-      {contractor_hub_items.map((item) => {
-        const repInfo = item.cost ? item.cost + ' Rep' : 'FREE';
-        const limited = item.limited !== -1;
-        return (
-          <Section
-            key={item.name}
-            title={item.name + ' - ' + repInfo}
-            level={2}
-            buttons={
-              <>
-                {limited && (
-                  <Box inline bold mr={1}>
-                    {item.limited} remaining
-                  </Box>
-                )}
-                <Button
-                  content="Purchase"
-                  disabled={
-                    data.contract_rep < item.cost ||
-                    (limited && item.limited <= 0)
-                  }
-                  onClick={() =>
-                    act('buy_hub', {
-                      item: item.name,
-                      cost: item.cost,
-                    })
-                  }
-                />
-              </>
-            }
-          >
-            <Table>
-              <Table.Row>
-                <Table.Cell>
-                  <Icon fontSize="60px" name={item.item_icon} />
-                </Table.Cell>
-                <Table.Cell verticalAlign="top">{item.desc}</Table.Cell>
-              </Table.Row>
-            </Table>
-          </Section>
-        );
-      })}
-    </Section>
   );
 };
