@@ -798,7 +798,7 @@
 		/obj/item/toy/eightball/haunted,
 	)
 	for(var/i in 1 to 3)
-		var/selected_item = pick_n_take(list(item_list + modular_item_list)) // NOVA EDIT CHANGE - ORIGINAL : var/selected_item = pick_n_take(item_list)
+		var/selected_item = pick_n_take(item_list + modular_item_list) // NOVA EDIT CHANGE - ORIGINAL : var/selected_item = pick_n_take(item_list)
 		new selected_item(src)
 
 	// Paper guide is always last.

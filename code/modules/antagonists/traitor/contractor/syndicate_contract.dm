@@ -1,8 +1,8 @@
-// SKYRAT EDIT - DEFINES
+// NOVA EDIT ADDITION - DEFINES
 #define RANSOM_LOWER 75 // TG: 18
-#define RANSOM_UPPER 150 //TG: 45
+#define RANSOM_UPPER 150 // TG: 45
 #define CONTRACTOR_RANSOM_CUT 0.35
-// SKYRAT EDIT END
+// NOVA EDIT ADDITION END
 
 /datum/syndicate_contract
 	///The 'id' of this particular contract. Used to keep track of statuses from TGUI.
@@ -51,7 +51,7 @@
 	contract.payout = rand(0, 2)
 	contract.generate_dropoff()
 
-	ransom = 100 * rand(RANSOM_LOWER, RANSOM_UPPER) //SKYRAT EDIT - ORIGINAL: ransom = 100 * rand(18, 45)
+	ransom = 100 * rand(RANSOM_LOWER, RANSOM_UPPER) // NOVA EDIT CHANGE - ORIGINAL: ransom = 100 * rand(18, 45)
 
 	var/base = pick_list(WANTED_FILE, "basemessage")
 	var/verb_string = pick_list(WANTED_FILE, "verb")
@@ -92,19 +92,19 @@
 	if(!isliving(sent_mob))
 		return
 	var/mob/living/person_sent = sent_mob
-	var/datum/antagonist/traitor/traitor_data = contract.owner.has_antag_datum(/datum/antagonist/traitor)
+	var/datum/opposing_force/opfor_data = contract.owner.opposing_force // NOVA EDIT CHANGE - ORIGINAL: var/datum/antagonist/traitor/traitor_data = contract.owner.has_antag_datum(/datum/antagonist/traitor)
 	if(person_sent == contract.target.current)
-		traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout
-		traitor_data.uplink_handler.contractor_hub.contracts_completed++
+		opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout
+		traitor_data.contractor_hub.contracts_completed++ // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contracts_completed++
 		if(person_sent.stat != DEAD)
-			traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout_bonus
+			opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout_bonus // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout_bonus
 		status = CONTRACT_STATUS_COMPLETE
-		if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
-			traitor_data.uplink_handler.contractor_hub.current_contract = null
+		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
+			traitor_data.uplink_handler.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
 	else
 		status = CONTRACT_STATUS_ABORTED // Sending a target that wasn't even yours is as good as just aborting it
-		if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
-			traitor_data.uplink_handler.contractor_hub.current_contract = null
+		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
+			opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
 
 	if(iscarbon(person_sent))
 		for(var/obj/item/person_contents in person_sent.gather_belongings())
@@ -151,19 +151,13 @@
 	if(status != CONTRACT_STATUS_COMPLETE)
 		return
 	var/obj/item/card/id/contractor_id = contract.owner.current?.get_idcard(TRUE)
-	/*SKYRAT EDIT - START
-	ORIGINAL:
-	if(!contractor_id || !contractor_id.registered_account)
+	if(!contractor_id?.registered_account.account_id) // NOVA EDIT CHANGE - ORIGINAL: if(!contractor_id || !contractor_id.registered_account)
+		to_chat(contract.owner.current, span_notice("A briefcase appears at your feet!")) // NOVA EDIT ADDITION
+		var/obj/item/storage/briefcase/secure/case = new(get_turf(contract.owner.current)) // NOVA EDIT ADDITION
+		for(var/i in 1 to (round((ransom * CONTRACTOR_RANSOM_CUT) / 1000))) // NOVA EDIT ADDITION - Gets slightly less/more but whatever
+			new /obj/item/stack/spacecash/c1000(case) // NOVA EDIT ADDITION
+	// NOVA EDIT CHANGE - END
 		return
-	*/
-	if(!contractor_id?.registered_account.account_id)
-		to_chat(contract.owner.current, span_notice("A briefcase appears at your feet!"))
-		var/obj/item/storage/briefcase/secure/case = new(get_turf(contract.owner.current))
-		for(var/i in 1 to (round((ransom * CONTRACTOR_RANSOM_CUT) / 1000))) // Gets slightly less/more but whatever
-			new /obj/item/stack/spacecash/c1000(case)
-
-		return
-	//SKYRAT EDIT - END
 	contractor_id.registered_account.adjust_money(ransom * 0.35)
 	contractor_id.registered_account.bank_card_talk("We've processed the ransom, agent. \
 		Here's your cut - your balance is now [contractor_id.registered_account.account_balance] cr.", TRUE)
