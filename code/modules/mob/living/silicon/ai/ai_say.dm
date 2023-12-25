@@ -51,7 +51,7 @@
 	else
 		to_chat(src, span_alert("No holopad connected."))
 
-/* NOVA EDIT REMOVAL - MOVED TO: MODULAR_SKYRAT/MODULES/ALT_VOX/CODE/VOX_PROCS.DM
+/* NOVA EDIT REMOVAL - MOVED TO: modular_nova/MODULES/ALT_VOX/CODE/VOX_PROCS.DM
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
 #define VOX_DELAY 600

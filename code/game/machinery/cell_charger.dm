@@ -9,7 +9,7 @@
 	var/obj/item/stock_parts/cell/charging = null
 	var/charge_rate = 250
 
-/* OVERWRITTEN IN modular_skyrat\modules\aesthetics\cells\cell.dm
+/* OVERWRITTEN IN modular_nova\modules\aesthetics\cells\cell.dm
 /obj/machinery/cell_charger/update_overlays()
 	. = ..()
 
