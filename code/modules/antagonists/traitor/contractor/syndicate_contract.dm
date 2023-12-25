@@ -95,12 +95,12 @@
 	var/datum/opposing_force/opfor_data = contract.owner.opposing_force // NOVA EDIT CHANGE - ORIGINAL: var/datum/antagonist/traitor/traitor_data = contract.owner.has_antag_datum(/datum/antagonist/traitor)
 	if(person_sent == contract.target.current)
 		opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout
-		traitor_data.contractor_hub.contracts_completed++ // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contracts_completed++
+		opfor_data.contractor_hub.contracts_completed++ // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contracts_completed++
 		if(person_sent.stat != DEAD)
 			opfor_data.contractor_hub.contract_TC_to_redeem += contract.payout_bonus // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem += contract.payout_bonus
 		status = CONTRACT_STATUS_COMPLETE
 		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
-			traitor_data.uplink_handler.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
+			opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
 	else
 		status = CONTRACT_STATUS_ABORTED // Sending a target that wasn't even yours is as good as just aborting it
 		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
