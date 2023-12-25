@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(spooky_ambience,list(
 ))
 
 GLOBAL_LIST_INIT(space_ambience,list(
-	'modular_skyrat/master_files/sound/ambience/starlight.ogg', //NOVA EDIT ADDITION
+	'modular_nova/master_files/sound/ambience/starlight.ogg', //NOVA EDIT ADDITION
 	'sound/ambience/ambiatmos.ogg',
 	'sound/ambience/ambispace.ogg',
 	'sound/ambience/ambispace2.ogg',
