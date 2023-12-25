@@ -149,7 +149,7 @@
 	name = "Labor Camp Shuttle"
 
 /area/shuttle/supply
-	name = "NLV Consign" //SKYRAT EDIT CHANGE
+	name = "NLV Consign" //NOVA EDIT CHANGE
 	area_flags = NOTELEPORT
 
 /area/shuttle/escape

@@ -1124,7 +1124,7 @@
   - bugfix: Healium sleep now respects sleep immunity
   vinylspiders:
   - bugfix: interdyne siphon vents will siphon properly again
-  - refactor: moves ALL of the skyrat edits out of modules/research/techweb/all_nodes.dm
+  - refactor: moves ALL of the NOVA EDITs out of modules/research/techweb/all_nodes.dm
       and into modular overrides
   xXPawnStarrXx:
   - rscadd: Added new crafting options to throwing wheels

@@ -8,7 +8,7 @@
 	var/static/size_boost = list(0, 1/16, 1/8, 3/16, 2/8, 3/8, 4/8)
 	// skill_item_path - your mob sprite gets bigger to showoff so we don't get a special item
 
-/* SKYRAT EDIT REMOVAL START - NO SIZE INCREASE
+/* NOVA EDIT REMOVAL START - NO SIZE INCREASE
 /datum/skill/fitness/level_gained(datum/mind/mind, new_level, old_level, silent)
 	. = ..()
 	var/old_gym_size = RESIZE_DEFAULT_SIZE + size_boost[old_level]
@@ -22,4 +22,4 @@
 	var/new_gym_size = RESIZE_DEFAULT_SIZE + size_boost[new_level]
 
 	mind.current.update_transform(new_gym_size / old_gym_size)
-SKYRAT EDIT REMOVAL END */
+NOVA EDIT REMOVAL END */

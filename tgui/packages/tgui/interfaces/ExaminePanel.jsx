@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { ByondUi, Section, Stack } from '../components';

@@ -210,7 +210,7 @@ Temporary Items
 # Autowiki
 /tools/autowiki/node_modules
 
-# TGUI bundles - SKYRAT EDIT
+# TGUI bundles - NOVA EDIT
 /tgui/public/tgui-common.bundle.js
 
 # Built auxtools libraries and intermediate files

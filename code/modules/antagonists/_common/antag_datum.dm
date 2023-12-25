@@ -332,9 +332,9 @@ GLOBAL_LIST_EMPTY(antagonists)
 			antag_hud.hide_from(current)
 
 	qdel(src)
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	owner?.handle_exploitables() //Inefficient here, but on_removal() is called in multiple locations
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /**
  * Proc that sends fluff or instructional messages to the player when they are given this antag datum.
@@ -343,7 +343,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/greet()
 	if(!silent)
 		to_chat(owner.current, span_big("You are \the [src]."))
-		to_chat(owner.current, span_infoplain(span_doyourjobidiot("Remember that being an antagonist does not exclude you from the server rules regarding RP standards."))) //SKYRAT EDIT - RP REMINDER
+		to_chat(owner.current, span_infoplain(span_doyourjobidiot("Remember that being an antagonist does not exclude you from the server rules regarding RP standards."))) //NOVA EDIT - RP REMINDER
 
 /**
  * Proc that sends fluff or instructional messages to the player when they lose this antag datum.
@@ -463,6 +463,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/render_preview_outfit(datum/outfit/outfit, mob/living/carbon/human/dummy)
 	dummy = dummy || new /mob/living/carbon/human/dummy/consistent
 	dummy.equipOutfit(outfit, visualsOnly = TRUE)
+	dummy.wear_suit?.update_greyscale()
 	var/icon = getFlatIcon(dummy)
 
 	// We don't want to qdel the dummy right away, since its items haven't initialized yet.

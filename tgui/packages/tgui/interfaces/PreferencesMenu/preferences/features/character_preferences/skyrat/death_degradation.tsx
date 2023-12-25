@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { CheckboxInput, Feature, FeatureNumberInput } from '../../base';
 
 export const dc_starting_degradation: Feature<number> = {

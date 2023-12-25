@@ -65,7 +65,7 @@
 	lip_style = human_head_owner.lip_style
 	lip_color = human_head_owner.lip_color
 	hairstyle = human_head_owner.hairstyle
-	hair_alpha = human_head_owner.hair_alpha ? human_head_owner.hair_alpha : owner_species.hair_alpha // SKYRAT EDIT - Customization - Hair alpha - ORIGINAL: hair_alpha = owner_species.hair_alpha
+	hair_alpha = human_head_owner.hair_alpha ? human_head_owner.hair_alpha : owner_species.hair_alpha // NOVA EDIT - Customization - Hair alpha - ORIGINAL: hair_alpha = owner_species.hair_alpha
 	hair_color = human_head_owner.hair_color
 	facial_hairstyle = human_head_owner.facial_hairstyle
 	facial_hair_alpha = owner_species.facial_hair_alpha

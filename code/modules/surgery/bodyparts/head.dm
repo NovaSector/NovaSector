@@ -225,7 +225,7 @@
 				worn_face_offset.apply_offset(eye_left)
 				worn_face_offset.apply_offset(eye_right)
 
-			// SKYRAT EDIT ADDITION START - Customization (Emissives and synths)
+			// NOVA EDIT ADDITION START - Customization (Emissives and synths)
 			if(eyes.eye_icon_state == "None")
 				eye_left.alpha = 0
 				eye_right.alpha = 0
@@ -244,7 +244,7 @@
 				eye_left.overlays += emissive_left
 				eye_right.overlays += emissive_right
 
-			// SKYRAT EDIT END
+			// NOVA EDIT END
 
 			. += eye_left
 			. += eye_right

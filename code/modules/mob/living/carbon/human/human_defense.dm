@@ -184,7 +184,7 @@
 			apply_damage(damage, BRUTE, affecting, run_armor_check(affecting, MELEE))
 		return TRUE
 
-//SKYRAT EDIT REMOVAL BEGIN - SKYRAT_XENO_REDO - Moved to: modular_skyrat\modules\xenos_skyrat_redo\code\human_defense.dm
+//NOVA EDIT REMOVAL BEGIN - SKYRAT_XENO_REDO - Moved to: modular_nova\modules\xenos_skyrat_redo\code\human_defense.dm
 /*
 /mob/living/carbon/human/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
 	. = ..()
@@ -238,7 +238,7 @@
 			return TRUE
 		apply_damage(damage, BRUTE, affecting, armor_block)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 
 /mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L, list/modifiers)
@@ -397,14 +397,14 @@
 	//Don't go further if the shock was blocked/too weak.
 	if(!.)
 		return
-	//SKYRAT EDIT BEGIN: MAKES POWERFUL SHOCKS HAVE A CHANCE TO STOP YOUR HEART. DANGER
+	//NOVA EDIT BEGIN: MAKES POWERFUL SHOCKS HAVE A CHANCE TO STOP YOUR HEART. DANGER
 	if(can_heartattack() && !(flags & SHOCK_ILLUSION) && shock_damage >= 70)
 		if(shock_damage * siemens_coeff >= 1 && prob(30))//Higher chance to disrupt the pacemaker cells
 			var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
 			heart.Stop()
 			visible_message("<span class='danger'>[src.name] briefly twitches; before falling limp - their breathing irratic and chest spasming violently!</span>", \
 								"<span class='danger'>You feel your heart thump eratically; before ceasing to beat, a violent twitch overcoming your form!</span>", ignored_mobs=src)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	if(!(flags & SHOCK_ILLUSION))
 		if(shock_damage * siemens_coeff >= 5)
 			force_say()
@@ -597,10 +597,10 @@
 
 		body_part.check_for_injuries(src, combined_msg)
 
-		//SKYRAT EDIT ADDITION BEGIN - MEDICAL
+		//NOVA EDIT ADDITION BEGIN - MEDICAL
 		if(body_part.current_gauze)
 			combined_msg += "\t [span_notice("Your [body_part.name] is [body_part.current_gauze.get_gauze_usage_prefix()] with <a href='?src=[REF(body_part.current_gauze)];remove=1'>[body_part.current_gauze.get_gauze_description()]</a>.")]"
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 
 	for(var/t in missing)
 		combined_msg += span_boldannounce("Your [parse_zone(t)] is missing!")

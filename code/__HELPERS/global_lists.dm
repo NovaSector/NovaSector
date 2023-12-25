@@ -14,7 +14,7 @@
 	//socks
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
 	//bodypart accessories (blizzard intensifies)
-	//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION
+	//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION
 	/*
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/body_markings, GLOB.body_markings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, GLOB.tails_list_human, add_blank = TRUE)
@@ -33,15 +33,15 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae, GLOB.moth_antennae_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
-	*/ //SKYRAT EDIT REMOVAL END
+	*/ //NOVA EDIT REMOVAL END
 	//bras
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/bra, GLOB.bra_list, GLOB.bra_m, GLOB.bra_f) // SKYRAT EDIT ADDITION
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/bra, GLOB.bra_list, GLOB.bra_m, GLOB.bra_f) // NOVA EDIT ADDITION
 
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings/moth, GLOB.moth_wings_list) // SKYRAT EDIT ADDITION - Customization
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE) // SKYRAT EDIT ADDITION - We don't want monkeys getting randomized non-monkey tails
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list, add_blank = TRUE) // SKYRAT EDIT - Customization - ORIGINAL: init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings/moth, GLOB.moth_wings_list) // NOVA EDIT ADDITION - Customization
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE) // NOVA EDIT ADDITION - We don't want monkeys getting randomized non-monkey tails
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list, add_blank = TRUE) // NOVA EDIT - Customization - ORIGINAL: init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
 
-	//SKYRAT EDIT ADDITION BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	//Scream types
 	for(var/spath in subtypesof(/datum/scream_type))
 		var/datum/scream_type/S = new spath()
@@ -53,7 +53,7 @@
 		var/datum/laugh_type/L = new spath()
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()
@@ -89,7 +89,7 @@
 
 	GLOB.emote_list = init_emote_list() // WHY DOES THIS NEED TO GO HERE? IT JUST INITS DATUMS
 
-	make_skyrat_datum_references() //SKYRAT EDIT ADDITION - CUSTOMIZATION
+	make_skyrat_datum_references() //NOVA EDIT ADDITION - CUSTOMIZATION
 	init_crafting_recipes()
 	init_crafting_recipes_atoms()
 
@@ -99,7 +99,7 @@
 		if(ispath(path, /datum/crafting_recipe/stack))
 			continue
 		var/datum/crafting_recipe/recipe = new path()
-		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_skyrat)) // SKYRAT EDIT - Add skyrat food crafting category
+		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_skyrat)) // NOVA EDIT - Add skyrat food crafting category
 		recipe.reqs = sort_list(recipe.reqs, GLOBAL_PROC_REF(cmp_crafting_req_priority))
 		if(recipe.name != "" && recipe.result)
 			if(is_cooking)
@@ -120,7 +120,7 @@
 		/obj/item/stack/sheet/sinew = GLOB.sinew_recipes,
 		/obj/item/stack/sheet/animalhide/carp = GLOB.carp_recipes,
 		/obj/item/stack/sheet/mineral/sandstone = GLOB.sandstone_recipes,
-		/obj/item/stack/sheet/mineral/clay = GLOB.clay_recipes, // SKYRAT EDIT ADDITION
+		/obj/item/stack/sheet/mineral/clay = GLOB.clay_recipes, // NOVA EDIT ADDITION
 		/obj/item/stack/sheet/mineral/sandbags = GLOB.sandbag_recipes,
 		/obj/item/stack/sheet/mineral/diamond = GLOB.diamond_recipes,
 		/obj/item/stack/sheet/mineral/uranium = GLOB.uranium_recipes,
@@ -262,7 +262,7 @@ GLOBAL_LIST_INIT(WALLITEMS_INTERIOR, typecacheof(list(
 	/obj/machinery/status_display,
 	/obj/machinery/ticket_machine,
 	/obj/machinery/turretid,
-	/obj/machinery/time_clock, //SKYRAT EDIT TIME CLOCK
+	/obj/machinery/time_clock, //NOVA EDIT TIME CLOCK
 	/obj/machinery/barsign,
 	/obj/structure/extinguisher_cabinet,
 	/obj/structure/fireaxecabinet,

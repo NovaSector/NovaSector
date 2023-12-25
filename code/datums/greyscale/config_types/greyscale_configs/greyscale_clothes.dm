@@ -35,7 +35,7 @@
 	name = "Held Sombrero Style (Held, Right)"
 	json_config = 'code/datums/greyscale/json_configs/sombrero_base_righthand.json'
 
-/* SKYRAT EDIT START - Beret-lliant (moved to modular_skyrat/modules/berets/code/datums/config_types)
+/* NOVA EDIT START - Beret-lliant (moved to modular_nova/modules/berets/code/datums/config_types)
 /datum/greyscale_config/beret/worn
 	name = "Beret Worn"
 	name = "Beret (Worn)"
@@ -51,7 +51,7 @@
 	name = "Beret With Badge Worn"
 	name = "Badged Beret (Worn)"
 	json_config = 'code/datums/greyscale/json_configs/beret_badge_worn.json'
-SKYRAT EDIT END */
+NOVA EDIT END */
 
 /datum/greyscale_config/beanie
 	name = "Beanie"
@@ -78,6 +78,15 @@ SKYRAT EDIT END */
 
 /datum/greyscale_config/party_hat/worn
 	name = "Party Hat (Worn)"
+	icon_file = 'icons/mob/clothing/head/costume.dmi'
+
+/datum/greyscale_config/santa_hat
+	name = "Santa Hat"
+	icon_file = 'icons/obj/clothing/head/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/santa_hat.json'
+
+/datum/greyscale_config/santa_hat/worn
+	name = "Santa Hat (Worn)"
 	icon_file = 'icons/mob/clothing/head/costume.dmi'
 
 //
@@ -354,6 +363,18 @@ SKYRAT EDIT END */
 	icon_file = 'icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'code/datums/greyscale/json_configs/buttondown_skirt_worn.json'
 
+//
+// LABCOATS
+//
+
+/datum/greyscale_config/labcoat
+	name = "Labcoat"
+	icon_file = 'icons/obj/clothing/suits/labcoat.dmi'
+	json_config = 'code/datums/greyscale/json_configs/labcoat.json'
+
+/datum/greyscale_config/labcoat/worn
+	name = "Labcoat (Worn)"
+	icon_file = 'icons/mob/clothing/suits/labcoat.dmi'
 
 //
 // SUITS

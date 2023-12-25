@@ -3,7 +3,7 @@
 #define GRILL_FUELUSAGE_IDLE 0.5
 #define GRILL_FUELUSAGE_ACTIVE 5
 
-/obj/machinery/grill//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/grill//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "grill"
 	desc = "Just like the old days."
 	icon = 'icons/obj/machines/kitchen.dmi'

@@ -3,7 +3,7 @@ import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
 import { Icon, Section, Stack } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import {
   Objective,
   ObjectivePrintout,
@@ -54,11 +54,11 @@ export const AntagInfoNinja = (props) => {
                 what you can do!
               </Section>
             </Stack.Item>
-            {/* SKYRAT EDIT ADDITION START */}
+            {/* NOVA EDIT ADDITION START */}
             <Stack.Item>
               <Rules />
             </Stack.Item>
-            {/* SKYRAT EDIT ADDITION END */}
+            {/* NOVA EDIT ADDITION END */}
             <Stack.Item>
               <ObjectivePrintout
                 objectives={objectives}

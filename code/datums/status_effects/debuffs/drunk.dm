@@ -1,4 +1,4 @@
-// SKYRAT EDIT CHANGE BEGIN (#21546 DRUNK EFFECTS)
+// NOVA EDIT CHANGE BEGIN (#21546 DRUNK EFFECTS)
 // Defines for the ballmer peak.
 #define BALLMER_PEAK_LOW_END 25.8 // Original 12.9
 #define BALLMER_PEAK_HIGH_END 27.6 // Original 13.8
@@ -6,7 +6,7 @@
 
 /// The threshld which determine if someone is tipsy vs drunk
 #define TIPSY_THRESHOLD 21 // Original 6
-// SKYRAT EDIT CHANGE END (#21546 DRUNK EFFECTS)
+// NOVA EDIT CHANGE END (#21546 DRUNK EFFECTS)
 
 /**
  * The drunk status effect.
@@ -71,7 +71,7 @@
 	// Every tick, the drunk value decrases by
 	// 4% the current drunk_value + 0.01
 	// (until it reaches 0 and terminates)
-	set_drunk_value(drunk_value - (0.0075 + drunk_value * 0.0075)) // SKYRAT EDIT CHANGE - Alcohol Tolerance - Original: set_drunk_value(drunk_value - (0.01 + drunk_value * 0.04)
+	set_drunk_value(drunk_value - (0.0075 + drunk_value * 0.0075)) // NOVA EDIT CHANGE - Alcohol Tolerance - Original: set_drunk_value(drunk_value - (0.01 + drunk_value * 0.04)
 	if(QDELETED(src))
 		return
 
@@ -146,7 +146,7 @@
 		if(drunk_value > BALLMER_PEAK_WINDOWS_ME) // by this point you're into windows ME territory
 			owner.say(pick_list_replacements(VISTA_FILE, "ballmer_windows_me_msg"), forced = "ballmer")
 
-	// SKYRAT EDIT CHANGE BEGIN (#21546 DRUNK EFFECTS)
+	// NOVA EDIT CHANGE BEGIN (#21546 DRUNK EFFECTS)
 	/* ORIGINAL
 	// Drunk slurring scales in intensity based on how drunk we are -at 16 you will likely not even notice it,
 	// but when we start to scale up you definitely will
@@ -201,7 +201,7 @@
 			if(iscarbon(owner))
 				var/mob/living/carbon/carbon_owner = owner
 				carbon_owner.vomit() // Vomiting clears toxloss - consider this a blessing
-	// SKYRAT EDIT CHANGE END (#21546 DRUNK EFFECTS)
+	// NOVA EDIT CHANGE END (#21546 DRUNK EFFECTS)
 
 	// Over 81, we will gain constant toxloss
 	if(drunk_value >= 81)
@@ -221,7 +221,7 @@
 		owner.adjustToxLoss(2)
 
 /datum/status_effect/inebriated/drunk/proc/attempt_to_blackout()
-	/* SKYRAT EDIT REMOVAL - Blackout drunk begone
+	/* NOVA EDIT REMOVAL - Blackout drunk begone
 	var/mob/living/carbon/drunkard = owner
 	if(drunkard.has_trauma_type(/datum/brain_trauma/severe/split_personality/blackout))// prevent ping spamming
 		if(prob(10))
@@ -231,7 +231,7 @@
 	if(drunkard.gain_trauma(/datum/brain_trauma/severe/split_personality/blackout, TRAUMA_LIMIT_ABSOLUTE))
 		drunk_value -= 70 //So that the drunk personality can spice things up without being killed by liver failure
 		return
-	*/ // SKYRAT EDIT REMOVAL END
+	*/ // NOVA EDIT REMOVAL END
 	if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(owner.z))// Don't put us in a deep sleep if the shuttle's here. QoL, mainly.
 		to_chat(owner, span_warning("You're so tired... but you can't miss that shuttle..."))
 	else

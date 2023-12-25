@@ -92,10 +92,10 @@
 
 //ash walker nest
 /area/ruin/unpowered/ash_walkers
-	//SKYRAT EDIT ADDITION BEGIN - ASH WALKER MACHINES FIX
+	//NOVA EDIT ADDITION BEGIN - ASH WALKER MACHINES FIX
 	always_unpowered = FALSE
 	power_equip = TRUE
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 	ambient_buzz = 'sound/ambience/magma.ogg'
 
 /area/ruin/unpowered/ratvar

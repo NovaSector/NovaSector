@@ -95,18 +95,18 @@
 	SSwardrobe.provide_type(/obj/item/multitool, src)
 	SSwardrobe.provide_type(/obj/item/stack/cable_coil, src)
 	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
-	SSwardrobe.provide_type(/obj/item/analyzer/ranged, src) //SKYRAT EDIT - Ranged Analyzer for CE - ORIGINAL: SSwardrobe.provide_type(/obj/item/analyzer, src)
+	SSwardrobe.provide_type(/obj/item/analyzer/ranged, src) //NOVA EDIT - Ranged Analyzer for CE - ORIGINAL: SSwardrobe.provide_type(/obj/item/analyzer, src)
 	//much roomier now that we've managed to remove two tools
 
 /obj/item/storage/belt/utility/chief/full/get_types_to_preload()
 	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
 	to_preload += /obj/item/screwdriver/power
 	to_preload += /obj/item/crowbar/power
-	to_preload += /obj/item/weldingtool/electric // SKYRAT EDIT - Electric welder
+	to_preload += /obj/item/weldingtool/electric // NOVA EDIT - Electric welder
 	to_preload += /obj/item/multitool
 	to_preload += /obj/item/stack/cable_coil
 	to_preload += /obj/item/extinguisher/mini
-	to_preload += /obj/item/analyzer/ranged // SKYRAT EDIT - Ranged Analyzer for CE
+	to_preload += /obj/item/analyzer/ranged // NOVA EDIT - Ranged Analyzer for CE
 	return to_preload
 
 /obj/item/storage/belt/utility/full/PopulateContents()
@@ -135,7 +135,7 @@
 /obj/item/storage/belt/utility/full/powertools/PopulateContents()
 	new /obj/item/screwdriver/power(src)
 	new /obj/item/crowbar/power(src)
-	new /obj/item/weldingtool/electric(src) // SKYRAT EDIT - original: new /obj/item/weldingtool/experimental(src)
+	new /obj/item/weldingtool/electric(src) // NOVA EDIT - original: new /obj/item/weldingtool/experimental(src)
 	new /obj/item/multitool(src)
 	new /obj/item/holosign_creator/atmos(src)
 	new /obj/item/extinguisher/mini(src)
@@ -225,7 +225,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/hospitalgown,	//SKYRAT EDIT ADDITION - adds surgery gowns to belts
+		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,	//NOVA EDIT ADDITION - adds surgery gowns to belts
 		/obj/item/construction/plumbing,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
@@ -235,7 +235,7 @@
 		/obj/item/healthanalyzer,
 		/obj/item/hemostat,
 		/obj/item/holosign_creator/medical,
-		/obj/item/hypospray/mkii, //SKYRAT EDIT ADDITION - HYPOSPRAYS
+		/obj/item/hypospray/mkii, //NOVA EDIT ADDITION - HYPOSPRAYS
 		/obj/item/implant,
 		/obj/item/implantcase,
 		/obj/item/implanter,
@@ -248,7 +248,7 @@
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/cup/beaker,
 		/obj/item/reagent_containers/cup/bottle,
-		/obj/item/reagent_containers/cup/vial, //SKYRAT EDIT ADDITION - HYPOSPRAYS
+		/obj/item/reagent_containers/cup/vial, //NOVA EDIT ADDITION - HYPOSPRAYS
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/medigel,
@@ -267,8 +267,8 @@
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/surgicaldrill,
 		/obj/item/tank/internals/emergency_oxygen,
-		/obj/item/weaponcell/medical, //SKYRAT EDIT MEDIGUNS
-		/obj/item/handheld_soulcatcher, // SKYRAT EDIT SOULCATCHERS
+		/obj/item/weaponcell/medical, //NOVA EDIT MEDIGUNS
+		/obj/item/handheld_soulcatcher, // NOVA EDIT SOULCATCHERS
 		/obj/item/wrench/medical,
 	))
 
@@ -334,7 +334,7 @@
 	inhand_icon_state = "security"//Could likely use a better one.
 	worn_icon_state = "security"
 	content_overlays = TRUE
-	// SKYRAT EDIT ADDITION START
+	// NOVA EDIT ADDITION START
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Basic Security" = list(
@@ -344,13 +344,13 @@
 			RESKIN_WORN_ICON_STATE = "security"
 		),
 		"Peacekeeper" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/belts.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
 			RESKIN_ICON_STATE = "peacekeeperbelt",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/belt.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi',
 			RESKIN_WORN_ICON_STATE = "peacekeeperbelt"
 		)
 	)
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 /obj/item/storage/belt/security/Initialize(mapload)
 	. = ..()
@@ -365,7 +365,7 @@
 		/obj/item/flashlight/seclite,
 		/obj/item/food/donut,
 		/obj/item/grenade,
-		/obj/item/gun, //SKYRAT EDIT ADDITION
+		/obj/item/gun, //NOVA EDIT ADDITION
 		/obj/item/holosign_creator/security,
 		/obj/item/knife/combat,
 		/obj/item/melee/baton,
@@ -373,7 +373,7 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/stock_parts/cell/microfusion, //SKYRAT EDIT ADDITION
+		/obj/item/stock_parts/cell/microfusion, //NOVA EDIT ADDITION
 		))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -674,7 +674,7 @@
 /obj/item/storage/belt/wands/full/PopulateContents()
 	new /obj/item/gun/magic/wand/death(src)
 	new /obj/item/gun/magic/wand/resurrection(src)
-	new /obj/item/gun/magic/wand/fireball(src) //SKYRAT EDIT - Trades polymorph for second fireball
+	new /obj/item/gun/magic/wand/fireball(src) //NOVA EDIT - Trades polymorph for second fireball
 	new /obj/item/gun/magic/wand/teleport(src)
 	new /obj/item/gun/magic/wand/door(src)
 	new /obj/item/gun/magic/wand/fireball(src)
@@ -705,12 +705,12 @@
 		/obj/item/key/janitor,
 		/obj/item/lightreplacer,
 		/obj/item/melee/flyswatter,
-		/obj/item/mop, //SKYRAT EDIT - For when you're lazy to use soap
-		/obj/item/mop/advanced, //SKYRAT EDIT For when you're lazy to use a bucket
+		/obj/item/mop, //NOVA EDIT - For when you're lazy to use soap
+		/obj/item/mop/advanced, //NOVA EDIT For when you're lazy to use a bucket
 		/obj/item/paint/paint_remover,
 		/obj/item/plunger,
 		/obj/item/pushbroom,
-		/obj/item/reagent_containers/cup/bucket, //SKYRAT EDIT - Bucket
+		/obj/item/reagent_containers/cup/bucket, //NOVA EDIT - Bucket
 		/obj/item/reagent_containers/spray,
 		/obj/item/soap,
 		/obj/item/wirebrush,
