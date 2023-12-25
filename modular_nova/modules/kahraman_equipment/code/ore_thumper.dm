@@ -240,7 +240,7 @@
 		var/obj/item/stack/new_ore = pick_weight(ore_weight_list)
 		var/obj/new_ore_pile = new new_ore(target_turf, ore_spawn_values[new_ore.type])
 		new /obj/effect/temp_visual/mook_dust/robot(target_turf)
-		playsound(new_ore_pile, 'modular_skyrat/master_files/sound/effects/robot_sit.ogg', 25, TRUE)
+		playsound(new_ore_pile, 'modular_nova/master_files/sound/effects/robot_sit.ogg', 25, TRUE)
 
 	slam_jams -= slam_jams_needed
 
