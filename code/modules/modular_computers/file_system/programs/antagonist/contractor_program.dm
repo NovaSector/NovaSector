@@ -88,7 +88,7 @@
 
 				uplink_computer.opfor_data = opfor_data
 
-				program_icon_state = "contractor-contractlist"
+				program_open_overlay = "contractor-contractlist"
 				assigned = TRUE
 			// NOVA EDIT ADDITION END
 			return TRUE

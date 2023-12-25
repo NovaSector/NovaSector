@@ -2,7 +2,7 @@
 	filename = "NewsArchive"
 	filedesc = "Nanotrasen News Archives"
 	category = PROGRAM_CATEGORY_CREW
-	program_icon_state = "generic"
+	program_open_overlay = "generic"
 	extended_desc = "This program lets you view out-of-circulation articles from the Nanotrasen News Network."
 	usage_flags = PROGRAM_ALL
 	requires_ntnet = TRUE
