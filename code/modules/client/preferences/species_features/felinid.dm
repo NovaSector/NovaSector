@@ -1,4 +1,4 @@
-/* SKYRAT EDIT REMOVAL
+/* NOVA EDIT REMOVAL
 /datum/preference/choiced/tail_human
 	savefile_key = "feature_human_tail"
 	savefile_identifier = PREFERENCE_CHARACTER

@@ -16,7 +16,7 @@
 	name = "blink (Rapid)"
 	message = "blinks rapidly."
 
-//SKYRAT EDIT REMOVAL BEGIN - EMOTES - (Moved to modular_skyrat/modules/emotes/code/emotes.dm as /datum/emote/living/clap)
+//NOVA EDIT REMOVAL BEGIN - EMOTES - (Moved to modular_nova/modules/emotes/code/emotes.dm as /datum/emote/living/clap)
 /*
 /datum/emote/living/carbon/clap
 	key = "clap"
@@ -38,7 +38,7 @@
 							'sound/misc/clap3.ogg',
 							'sound/misc/clap4.ogg')
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /datum/emote/living/carbon/crack
 	key = "crack"

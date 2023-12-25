@@ -138,17 +138,17 @@
 	var/open_feature_key = "wingsopen"
 
 /datum/bodypart_overlay/mutant/wings/functional/get_global_feature_list()
-	/* SKYRAT EDIT - CUSTOMIZATION - ORIGINAL:
+	/* NOVA EDIT - CUSTOMIZATION - ORIGINAL:
 	if(wings_open)
 		return GLOB.wings_open_list
 	else
 		return GLOB.wings_list
-	*/ // ORIGINAL END - SKYRAT EDIT START - CUSTOMIZATION - TODO: Add support for wings_open
+	*/ // ORIGINAL END - NOVA EDIT START - CUSTOMIZATION - TODO: Add support for wings_open
 	if(wings_open)
 		return GLOB.sprite_accessories["wings_open"]
 
 	return GLOB.sprite_accessories["wings"]
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 ///Update our wingsprite to the open wings variant
 /datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()

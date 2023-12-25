@@ -37,13 +37,13 @@ Assistant
 	rpg_title = "Lout"
 	config_tag = "ASSISTANT"
 
-	allow_bureaucratic_error = FALSE // SKYRAT EDIT ADDITION
+	allow_bureaucratic_error = FALSE // NOVA EDIT ADDITION
 
 /datum/outfit/job/assistant
 	name = JOB_ASSISTANT
 	jobtype = /datum/job/assistant
 	id_trim = /datum/id_trim/job/assistant
-	uniform = /obj/item/clothing/under/color/random // SKYRAT EDIT ADD
+	uniform = /obj/item/clothing/under/color/random // NOVA EDIT ADD
 	belt = /obj/item/modular_computer/pda/assistant
 
 /datum/outfit/job/assistant/pre_equip(mob/living/carbon/human/target)
@@ -66,10 +66,10 @@ Assistant
 
 	var/index = (jumpsuit_number % GLOB.colored_assistant.jumpsuits.len) + 1
 
-	// SKYRAT EDIT - Loadouts (we don't want jumpsuits to override the person's loadout item)
+	// NOVA EDIT - Loadouts (we don't want jumpsuits to override the person's loadout item)
 	if(modified_outfit_slots & ITEM_SLOT_ICLOTHING)
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	//We don't cache these, because they can delete on init
 	//Too fragile, better to just eat the cost

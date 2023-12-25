@@ -3,7 +3,7 @@ import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
 import { Box, Section, Stack } from '../components';
 import { Window } from '../layouts';
-import { Rules } from './AntagInfoRules'; // SKYRAT EDIT ADDITION
+import { Rules } from './AntagInfoRules'; // NOVA EDIT ADDITION
 import {
   Objective,
   ObjectivePrintout,
@@ -85,11 +85,11 @@ export const AntagInfoWizard = (props) => {
                 <Stack.Item>
                   <RitualPrintout ritual={ritual} />
                 </Stack.Item>
-                {/* SKYRAT EDIT ADDITION START */}
+                {/* NOVA EDIT ADDITION START */}
                 <Stack.Item>
                   <Rules />
                 </Stack.Item>
-                {/* SKYRAT EDIT ADDITION END */}
+                {/* NOVA EDIT ADDITION END */}
               </Stack>
             </Section>
           </Stack.Item>

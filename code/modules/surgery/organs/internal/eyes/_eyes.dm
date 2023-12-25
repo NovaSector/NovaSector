@@ -50,7 +50,7 @@
 	/// indication that the eyes are undergoing some negative effect
 	var/damaged = FALSE
 	/// Native FOV that will be applied if a config is enabled
-	var/native_fov = FOV_180_DEGREES //SKYRAT EDIT CHANGE
+	var/native_fov = FOV_180_DEGREES //NOVA EDIT CHANGE
 
 /obj/item/organ/internal/eyes/Insert(mob/living/carbon/eye_recipient, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 	// If we don't do this before everything else, heterochromia will be reset leading to eye_color_right no longer being accurate
@@ -91,10 +91,10 @@
 	if(CONFIG_GET(flag/native_fov) && native_fov)
 		affected_human.add_fov_trait(type, native_fov)
 
-	// SKYRAT EDIT ADDITION - EMISSIVES
+	// NOVA EDIT ADDITION - EMISSIVES
 	if (affected_human.emissive_eyes)
 		is_emissive = TRUE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	if(call_update)
 		affected_human.update_body()
@@ -124,7 +124,7 @@
 
 	eye_owner.update_tint()
 	eye_owner.update_sight()
-	is_emissive = FALSE // SKYRAT EDIT ADDITION
+	is_emissive = FALSE // NOVA EDIT ADDITION
 
 #define OFFSET_X 1
 #define OFFSET_Y 2
@@ -137,16 +137,16 @@
 	if(isnull(eye_icon_state))
 		return list()
 
-	var/eye_icon = parent.dna?.species.eyes_icon || 'icons/mob/human/human_face.dmi' // SKYRAT EDIT ADDITION
+	var/eye_icon = parent.dna?.species.eyes_icon || 'icons/mob/human/human_face.dmi' // NOVA EDIT ADDITION
 
-	var/mutable_appearance/eye_left = mutable_appearance(eye_icon, "[eye_icon_state]_l", -eyes_layer) // SKYRAT EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_left = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_l", -BODY_LAYER)
-	var/mutable_appearance/eye_right = mutable_appearance(eye_icon, "[eye_icon_state]_r", -eyes_layer) // SKYRAT EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_r", -BODY_LAYER)
+	var/mutable_appearance/eye_left = mutable_appearance(eye_icon, "[eye_icon_state]_l", -eyes_layer) // NOVA EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_left = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_l", -BODY_LAYER)
+	var/mutable_appearance/eye_right = mutable_appearance(eye_icon, "[eye_icon_state]_r", -eyes_layer) // NOVA EDIT CHANGE - Customization - ORIGINAL: var/mutable_appearance/eye_right = mutable_appearance('icons/mob/human/human_face.dmi', "[eye_icon_state]_r", -BODY_LAYER)
 	var/list/overlays = list(eye_left, eye_right)
 
 	var/obscured = parent.check_obscured_slots(TRUE)
 	if(overlay_ignore_lighting && !(obscured & ITEM_SLOT_EYES))
-		overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -eyes_layer, alpha = eye_left.alpha) // SKYRAT EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
-		overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -eyes_layer, alpha = eye_right.alpha) // SKYRAT EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
+		overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -eyes_layer, alpha = eye_left.alpha) // NOVA EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
+		overlays += emissive_appearance(eye_right.icon, eye_right.icon_state, parent, -eyes_layer, alpha = eye_right.alpha) // NOVA EDIT CHANGE - ORIGINAL: overlays += emissive_appearance(eye_left.icon, eye_left.icon_state, parent, -BODY_LAYER, alpha = eye_left.alpha)
 	var/obj/item/bodypart/head/my_head = parent.get_bodypart(BODY_ZONE_HEAD)
 	if(my_head)
 		if(my_head.head_flags & HEAD_EYECOLOR)
@@ -156,7 +156,7 @@
 			my_head.worn_face_offset.apply_offset(eye_left)
 			my_head.worn_face_offset.apply_offset(eye_right)
 
-	// SKYRAT EDIT START - Customization (Synths + Emissives)
+	// NOVA EDIT START - Customization (Synths + Emissives)
 	if(eye_icon_state == "None")
 		eye_left.alpha = 0
 		eye_right.alpha = 0
@@ -172,7 +172,7 @@
 		overlays += emissive_left
 		overlays += emissive_right
 
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	return overlays
 
@@ -729,7 +729,7 @@
 	desc = "These eyes seem to have a large range, but might be cumbersome with glasses."
 	eye_icon_state = "snail_eyes"
 	icon_state = "snail_eyeballs"
-	eyes_layer = ABOVE_BODY_FRONT_HEAD_LAYER //SKYRAT EDIT - Roundstart Snails
+	eyes_layer = ABOVE_BODY_FRONT_HEAD_LAYER //NOVA EDIT - Roundstart Snails
 
 /obj/item/organ/internal/eyes/jelly
 	name = "jelly eyes"

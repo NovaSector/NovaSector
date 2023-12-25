@@ -21,7 +21,7 @@
 	pixel_y = -32
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
-//SKYRAT EDIT START: Nicer RodStopper
+//NOVA EDIT START: Nicer RodStopper
 /obj/boh_tear/Initialize(mapload)
 	. = ..()
 	QDEL_IN(src, 10 SECONDS) // vanishes after 10 seconds
@@ -36,7 +36,7 @@
 		roaming = FALSE, \
 		singularity_size = STAGE_SIX, \
 	)
-//SKYRAT EDIT STOP: Nicer RodStopper
+//NOVA EDIT STOP: Nicer RodStopper
 /obj/boh_tear/attack_tk(mob/user)
 	if(!isliving(user))
 		return

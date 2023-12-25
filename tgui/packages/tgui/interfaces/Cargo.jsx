@@ -31,9 +31,9 @@ export const Cargo = (props) => {
 };
 
 export const CargoContent = (props) => {
-  /* SKYRAT EDIT BELOW - ADDS act */
+  /* NOVA EDIT BELOW - ADDS act */
   const { act, data } = useBackend();
-  /* SKYRAT EDIT END */
+  /* NOVA EDIT END */
   const [tab, setTab] = useSharedState('tab', 'catalog');
   const { cart = [], requests = [], requestonly } = data;
   const cart_length = cart.reduce((total, entry) => total + entry.amount, 0);

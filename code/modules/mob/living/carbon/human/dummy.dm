@@ -18,7 +18,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /mob/living/carbon/human/dummy/attach_rot(mapload)
 	return
 
-/mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // SKYRAT EDIT - Customization
+/mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE, list/override_features, list/override_mutantparts, list/override_markings, retain_features = FALSE, retain_mutantparts = FALSE) // NOVA EDIT - Customization
 	harvest_organs()
 	return ..()
 
@@ -87,7 +87,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	return consistent_entry
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
-	/* SKYRAT EDIT START - Customization - ORIGINAL:
+	/* NOVA EDIT START - Customization - ORIGINAL:
 	target.dna.features["mcolor"] = COLOR_VIBRANT_LIME
 	target.dna.features["ethcolor"] = COLOR_WHITE
 	target.dna.features["body_markings"] = get_consistent_feature_entry(GLOB.body_markings_list)
@@ -102,10 +102,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = get_consistent_feature_entry(GLOB.tails_list_human) // it's a lie
 	target.dna.features["tail_lizard"] = get_consistent_feature_entry(GLOB.tails_list_lizard)
 	target.dna.features["pod_hair"] = get_consistent_feature_entry(GLOB.pod_hair_list)
-	*/ // ORIGINAL END - SKYRAT EDIT START
+	*/ // ORIGINAL END - NOVA EDIT START
 	target.dna.features["mcolor"] = COLOR_VIBRANT_LIME
 	target.dna.features["ethcolor"] = COLOR_WHITE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	target.dna.initialize_dna(create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly
 	// In practice this doesn't matter, but this is for the sake of 100%(ish) consistency
@@ -168,9 +168,9 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 		if(ishuman(target))
 			var/mob/living/carbon/human/human_target = target
 			human_target.copy_clothing_prefs(copycat)
-			// SKYRAT EDIT
+			// NOVA EDIT
 			target?.client?.prefs?.apply_prefs_to(copycat, TRUE)
-			// SKYRAT EDIT END
+			// NOVA EDIT END
 
 		copycat.updateappearance(icon_update=TRUE, mutcolor_update=TRUE, mutations_overlay_update=TRUE)
 	else

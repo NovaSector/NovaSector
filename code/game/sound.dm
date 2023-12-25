@@ -150,8 +150,8 @@
 			sound_to_use.environment = A.sound_environment
 
 		if(use_reverb && sound_to_use.environment != SOUND_ENVIRONMENT_NONE) //We have reverb, reset our echo setting
-			sound_to_use.echo[3] = -1300 //Room setting, 0 means normal reverb //SKYRAT EDIT CHANGE
-			sound_to_use.echo[4] = -1300 //RoomHF setting, 0 means normal reverb. //SKYRAT EDIT CHANGE
+			sound_to_use.echo[3] = -1300 //Room setting, 0 means normal reverb //NOVA EDIT CHANGE
+			sound_to_use.echo[4] = -1300 //RoomHF setting, 0 means normal reverb. //NOVA EDIT CHANGE
 
 	SEND_SOUND(src, sound_to_use)
 
@@ -183,7 +183,7 @@
 
 /proc/get_sfx(soundin)
 	if(istext(soundin))
-		soundin = get_sfx_skyrat(soundin) //SKYRAT EDIT ADDITION - This overrides the default sound effects too, so use it to modularly change a sound effect output.
+		soundin = get_sfx_skyrat(soundin) //NOVA EDIT ADDITION - This overrides the default sound effects too, so use it to modularly change a sound effect output.
 		switch(soundin)
 			if(SFX_SHATTER)
 				soundin = pick('sound/effects/glassbr1.ogg','sound/effects/glassbr2.ogg','sound/effects/glassbr3.ogg')

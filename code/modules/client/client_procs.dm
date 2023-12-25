@@ -32,10 +32,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob) //stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
-	//SKYRAT EDIT ADDITION BEGIN - MENTOR
+	//NOVA EDIT ADDITION BEGIN - MENTOR
 	if(mentor_client_procs(href_list))
 		return
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
 #ifndef TESTING
 	if (lowertext(hsrc_command) == "_debug") //disable the integrated byond vv in the client side debugging tools since it doesn't respect vv read protections
@@ -251,11 +251,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	else if(GLOB.deadmins[ckey])
 		add_verb(src, /client/proc/readmin)
 		connecting_admin = TRUE
-	//SKYRAT EDIT ADDITION //We will check the population here, because we need to know if the client is an admin or not.
+	//NOVA EDIT ADDITION //We will check the population here, because we need to know if the client is an admin or not.
 	if(!check_population(connecting_admin))
 		qdel(src)
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	if(CONFIG_GET(flag/autoadmin))
 		if(!GLOB.admin_datums[ckey])
 			var/list/autoadmin_ranks = ranks_from_rank_name(CONFIG_GET(string/autoadmin_rank))
@@ -603,7 +603,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	QDEL_NULL(view_size)
 	QDEL_NULL(void)
 	QDEL_NULL(tooltips)
-	QDEL_NULL(open_loadout_ui) //SKYRAT EDIT ADDITION
+	QDEL_NULL(open_loadout_ui) //NOVA EDIT ADDITION
 	seen_messages = null
 	Master.UpdateTickRate()
 	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
@@ -681,7 +681,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/client_is_in_db = query_client_in_db.NextRow()
 
 	if(!client_is_in_db)
-		//SKYRAT EDIT ADDITION BEGIN - PANICBUNKER
+		//NOVA EDIT ADDITION BEGIN - PANICBUNKER
 		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !(ckey in GLOB.bunker_passthrough))
 			log_access("Failed Login: [key] - [address] - New account attempting to connect during panic bunker")
 			message_admins("<span class='adminnotice'>Failed Login: [key] - [address] - New account attempting to connect during panic bunker</span>")
@@ -696,7 +696,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			qdel(query_client_in_db)
 			qdel(src)
 			return
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		new_player = 1
 		account_join_date = findJoinDate()
 		var/datum/db_query/query_add_player = SSdbcore.NewQuery({"
@@ -711,10 +711,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		if(!account_join_date)
 			account_join_date = "Error"
 			account_age = -1
-		//SKYRAT EDIT ADDITION BEGIN - PANICBUNKER
+		//NOVA EDIT ADDITION BEGIN - PANICBUNKER
 		else if(ckey in GLOB.bunker_passthrough)
 			GLOB.bunker_passthrough -= ckey
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 	qdel(query_client_in_db)
 	var/datum/db_query/query_get_client_age = SSdbcore.NewQuery(
 		"SELECT firstseen, DATEDIFF(Now(),firstseen), accountjoindate, DATEDIFF(Now(),accountjoindate) FROM [format_table_name("player")] WHERE ckey = :ckey",
@@ -757,10 +757,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		qdel(query_log_player)
 	if(!account_join_date)
 		account_join_date = "Error"
-	var/datum/db_query/query_log_connection = SSdbcore.NewQuery(/* SKYRAT EDIT CHANGE - MULTISERVER */{"
+	var/datum/db_query/query_log_connection = SSdbcore.NewQuery(/* NOVA EDIT CHANGE - MULTISERVER */{"
 		INSERT INTO `[format_table_name("connection_log")]` (`id`,`datetime`,`server_name`,`server_ip`,`server_port`,`round_id`,`ckey`,`ip`,`computerid`)
 		VALUES(null,Now(),:server_name,INET_ATON(:internet_address),:port,:round_id,:ckey,INET_ATON(:ip),:computerid)
-	"}, list("server_name" = CONFIG_GET(string/serversqlname), "internet_address" = world.internet_address || "0", "port" = world.port, "round_id" = GLOB.round_id, "ckey" = ckey, "ip" = address, "computerid" = computer_id)) //SKYRAT EDIT CHANGE - MULTISERVER
+	"}, list("server_name" = CONFIG_GET(string/serversqlname), "internet_address" = world.internet_address || "0", "port" = world.port, "round_id" = GLOB.round_id, "ckey" = ckey, "ip" = address, "computerid" = computer_id)) //NOVA EDIT CHANGE - MULTISERVER
 	query_log_connection.Execute()
 	qdel(query_log_connection)
 

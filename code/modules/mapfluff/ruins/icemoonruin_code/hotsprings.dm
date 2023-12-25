@@ -14,7 +14,7 @@
 	baseturfs = /turf/open/water/cursed_spring
 	planetary_atmos = TRUE
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
-/* SKYRAT EDIT REMOVAL
+/* NOVA EDIT REMOVAL
 /turf/open/water/cursed_spring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	if(!isliving(arrived))

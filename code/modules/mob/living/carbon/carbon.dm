@@ -164,20 +164,20 @@
 		power_throw--
 	if(HAS_TRAIT(thrown_thing, TRAIT_DWARF))
 		power_throw++
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if(HAS_TRAIT(src, TRAIT_OVERSIZED))
 		power_throw++
 	if(HAS_TRAIT(thrown_thing, TRAIT_OVERSIZED))
 		power_throw--
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	if(neckgrab_throw)
 		power_throw++
 	if(isitem(thrown_thing))
 		var/obj/item/thrown_item = thrown_thing
 		if(thrown_item.throw_verb)
 			verb_text = thrown_item.throw_verb
-	do_attack_animation(target, no_effect = 1) //SKYRAT EDIT ADDITION - AESTHETICS
-	playsound(loc, 'sound/weapons/punchmiss.ogg', 50, TRUE, -1) //SKYRAT EDIT ADDITION - AESTHETICS
+	do_attack_animation(target, no_effect = 1) //NOVA EDIT ADDITION - AESTHETICS
+	playsound(loc, 'sound/weapons/punchmiss.ogg', 50, TRUE, -1) //NOVA EDIT ADDITION - AESTHETICS
 	visible_message(span_danger("[src] [verb_text][plural_s(verb_text)] [thrown_thing][power_throw ? " really hard!" : "."]"), \
 					span_danger("You [verb_text] [thrown_thing][power_throw ? " really hard!" : "."]"))
 	log_message("has thrown [thrown_thing] [power_throw > 0 ? "really hard" : ""]", LOG_ATTACK)
@@ -920,18 +920,18 @@
 /mob/living/carbon/can_be_revived()
 	if(!get_organ_by_type(/obj/item/organ/internal/brain) && (!mind || !mind.has_antag_datum(/datum/antagonist/changeling)) || HAS_TRAIT(src, TRAIT_HUSK))
 		return FALSE
-//SKYRAT EDIT ADDITION - DNR TRAIT
+//NOVA EDIT ADDITION - DNR TRAIT
 	if(HAS_TRAIT(src, TRAIT_DNR))
 		return FALSE
-//SKYRAT EDIT ADDITION END - DNR TRAIT
+//NOVA EDIT ADDITION END - DNR TRAIT
 
 	return ..()
 
 /mob/living/carbon/proc/can_defib()
-//SKYRAT EDIT ADDITION - DNR TRAIT
+//NOVA EDIT ADDITION - DNR TRAIT
 	if(HAS_TRAIT(src, TRAIT_DNR)) //This is also added when a ghost DNR's!
 		return DEFIB_FAIL_DNR
-//SKYRAT EDIT ADDITION END - DNR TRAIT
+//NOVA EDIT ADDITION END - DNR TRAIT
 	if (HAS_TRAIT(src, TRAIT_SUICIDED))
 		return DEFIB_FAIL_SUICIDE
 
@@ -971,7 +971,7 @@
 	return DEFIB_POSSIBLE
 
 /mob/living/carbon/proc/can_defib_client()
-	return (client || get_ghost(FALSE, FALSE)) && (can_defib() & DEFIB_REVIVABLE_STATES) // SKYRAT EDIT - ORIGINAL: return (client || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES)
+	return (client || get_ghost(FALSE, FALSE)) && (can_defib() & DEFIB_REVIVABLE_STATES) // NOVA EDIT - ORIGINAL: return (client || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES)
 
 /mob/living/carbon/harvest(mob/living/user)
 	if(QDELETED(src))
@@ -1345,14 +1345,14 @@
 /// Special carbon interaction on lying down, to transform its sprite by a rotation.
 /mob/living/carbon/proc/lying_angle_on_lying_down(new_lying_angle)
 	if(!new_lying_angle)
-		//SKYRAT EDIT ADDITION BEGIN
+		//NOVA EDIT ADDITION BEGIN
 		if(dir == WEST)
 			set_lying_angle(270)
 			return
 		else if(dir == EAST)
 			set_lying_angle(90)
 			return
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		set_lying_angle(pick(90, 270))
 	else
 		set_lying_angle(new_lying_angle)

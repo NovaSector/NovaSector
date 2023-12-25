@@ -235,11 +235,11 @@
 	for(var/mob/candidate_mob as anything in group)
 		if(!candidate_mob.key || !candidate_mob.client || (ignore_category && GLOB.poll_ignore[ignore_category] && (candidate_mob.ckey in GLOB.poll_ignore[ignore_category])))
 			continue
-		//SKYRAT EDIT ADDITION BEGIN
+		//NOVA EDIT ADDITION BEGIN
 		if(is_banned_from(candidate_mob.ckey, BAN_GHOST_TAKEOVER) || is_banned_from(candidate_mob.ckey, BAN_ANTAGONIST))
 			to_chat(candidate_mob, "There was a ghost prompt for: [question], unfortunately you are banned from ghost takeovers.")
 			continue
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		if(be_special_flag)
 			if(!(candidate_mob.client.prefs) || !(be_special_flag in candidate_mob.client.prefs.be_special))
 				continue

@@ -2,7 +2,7 @@
 	name = "Mushroomperson"
 	plural_form = "Mushroompeople"
 	id = SPECIES_MUSHROOM
-	mutant_bodyparts = list("caps" = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list("#FF4B19"))) // SKYRAT EDIT - Customization - ORIGINAL: mutant_bodyparts = list("caps" = "Round")
+	mutant_bodyparts = list("caps" = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list("#FF4B19"))) // NOVA EDIT - Customization - ORIGINAL: mutant_bodyparts = list("caps" = "Round")
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 
 	fixed_mut_color = "#DBBF92"
@@ -42,8 +42,8 @@
 	. = ..()
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		if(!H.dna.mutant_bodyparts["caps"] || H.dna.mutant_bodyparts["caps"][MUTANT_INDEX_NAME] != "None") // SKYRAT EDIT - Customization - ORIGINAL: if(!H.dna.features["caps"])
-			H.dna.mutant_bodyparts["caps"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(H.hair_color)) // SKYRAT EDIT - Customization - ORIGINAL: H.dna.features["caps"] = "Round"
+		if(!H.dna.mutant_bodyparts["caps"] || H.dna.mutant_bodyparts["caps"][MUTANT_INDEX_NAME] != "None") // NOVA EDIT - Customization - ORIGINAL: if(!H.dna.features["caps"])
+			H.dna.mutant_bodyparts["caps"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(H.hair_color)) // NOVA EDIT - Customization - ORIGINAL: H.dna.features["caps"] = "Round"
 			handle_mutant_bodyparts(H)
 		mush = new(null)
 		mush.teach(H)
@@ -60,6 +60,6 @@
 	if(chem.type == /datum/reagent/toxin/plantbgone/weedkiller)
 		affected.adjustToxLoss(3 * REM * seconds_per_tick)
 
-/datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE) //SKYRAT EDIT - ORIGINAL: /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour) (one parameter added)
+/datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE) //NOVA EDIT - ORIGINAL: /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour) (one parameter added)
 	forced_colour = FALSE
 	return ..()

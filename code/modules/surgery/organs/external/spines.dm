@@ -8,7 +8,7 @@
 	slot = ORGAN_SLOT_EXTERNAL_SPINES
 
 	preference = "feature_lizard_spines"
-	//dna_block = DNA_SPINES_BLOCK // SKYRAT EDIT REMOVAL - Customization - We have our own system to handle DNA.
+	//dna_block = DNA_SPINES_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/spines
@@ -36,7 +36,7 @@
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/spines/get_global_feature_list()
-	return GLOB.sprite_accessories["spines"] // SKYRAT EDIT - Customization - ORIGINAL: return GLOB.spines_list
+	return GLOB.sprite_accessories["spines"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.spines_list
 
 /datum/bodypart_overlay/mutant/spines/get_base_icon_state()
 	return (wagging ? "wagging_" : "") + sprite_datum.icon_state //add the wagging tag if we be wagging
