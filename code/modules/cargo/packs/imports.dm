@@ -201,7 +201,7 @@
 		/obj/item/grenade/mirage = 5,
 	)
 
-// NOVA EDIT REMOVAL BEGIN - REPLACED BY LORE BEFITTING CRATE AT: modular_skyrat/modules/cargo/code/packs.dm
+// NOVA EDIT REMOVAL BEGIN - REPLACED BY LORE BEFITTING CRATE AT: modular_nova/modules/cargo/code/packs.dm
 /*
 /datum/supply_pack/imports/russian
 	name = "Russian Surplus Military Gear Crate"
