@@ -23,7 +23,7 @@
 	mutanttongue = /obj/item/organ/internal/tongue/cat/primitive
 
 	species_language_holder = /datum/language_holder/primitive_felinid
-	language_prefs_whitelist = list(/datum/language/primitive_catgirl, /datum/language/common)
+	language_prefs_whitelist = list(/datum/language/primitive_catgirl, /datum/language/uncommon)
 
 	bodytemp_normal = 270 // If a normal human gets hugged by one its gonna feel cold
 	bodytemp_heat_damage_limit = 283 // To them normal station atmos would be sweltering
