@@ -37,3 +37,39 @@
 /datum/design/board/biogenerator/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
+
+// Turbine Stuff
+
+/datum/design/board/turbine_computer/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/turbine_compressor/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/turbine_rotor/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/turbine_stator/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/turbine_part_compressor/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/turbine_part_rotor/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/turbine_part_stator/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+// No more turbine stuff :(
+
+/datum/design/board/electrolyzer/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
