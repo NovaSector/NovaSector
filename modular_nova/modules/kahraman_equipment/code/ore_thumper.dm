@@ -5,7 +5,7 @@
 	desc = "A frame with a heavy block of metal suspended atop a pipe. \
 		Must be deployed outdoors and given a wired power connection. \
 		Forces pressurized gas into the ground which brings up buried resources."
-	icon = 'modular_skyrat/modules/colony_fabriactor_event_code/icons/ore_thumper.dmi'
+	icon = 'modular_nova/modules/kahraman_equipment/icons/ore_thumper.dmi'
 	icon_state = "thumper_idle"
 	density = TRUE
 	max_integrity = 250
@@ -248,7 +248,7 @@
 // Item for deploying ore thumpers
 /obj/item/flatpacked_machine/ore_thumper
 	name = "flat-packed ore thumper"
-	icon = 'modular_skyrat/modules/colony_fabriactor_event_code/icons/packed_machines.dmi'
+	icon = 'modular_nova/modules/kahraman_equipment/icons/ore_thumper_item.dmi'
 	icon_state = "thumper_packed"
 	type_to_deploy = /obj/machinery/power/colony_ore_thumper
 	custom_materials = list(
