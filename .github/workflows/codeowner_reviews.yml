@@ -2,7 +2,7 @@ name: Codeowner Reviews
 
 # Controls when the workflow will run
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
