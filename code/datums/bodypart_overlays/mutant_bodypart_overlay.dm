@@ -102,7 +102,7 @@
 	if(draw_color && !force)
 		return FALSE
 
-	alpha = ownerlimb.alpha // NOVA EDIT ADDITION - Mutant bodyparts transparency are based on limb transparency
+	alpha = bodypart_owner.alpha // NOVA EDIT ADDITION - Mutant bodyparts transparency are based on limb transparency
 	switch(color_source)
 		if(ORGAN_COLOR_OVERRIDE)
 			draw_color = override_color(bodypart_owner.draw_color)
