@@ -49,7 +49,7 @@
 	mid_round_budget = threat_level
 
 /// Gets the chance for a heavy ruleset midround injection, the dry_run argument is only used for forced injection.
-datum/controller/subsystem/dynamic/get_heavy_midround_injection_chance(dry_run)
+/datum/controller/subsystem/dynamic/get_heavy_midround_injection_chance(dry_run)
 	var/next_midround_roll = next_midround_injection() - SSticker.round_start_time
 
 	var/heavy_coefficient = CLAMP01((next_midround_roll - midround_light_upper_bound) / (midround_heavy_lower_bound - midround_light_upper_bound))
