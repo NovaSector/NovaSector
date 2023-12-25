@@ -3,7 +3,7 @@
 #define ALT_MIDROUND_UPPER_TIME 10500
 
 // A lite version of the intercept, which only sends a paper with goals and a trait report (or a lack thereof)
-datum/controller/subsystem/dynamic/proc/send_trait_report()
+/datum/controller/subsystem/dynamic/proc/send_trait_report()
 	. = "<b><i>Central Command Status Summary</i></b><hr>"
 
 	var/greenshift = GLOB.dynamic_forced_extended || (threat_level < MIN_MIDROUND_COST && shown_threat < MIN_MIDROUND_COST) // if both shown and real threat are below any ruleset, its greenshift time
@@ -40,7 +40,7 @@ datum/controller/subsystem/dynamic/proc/send_trait_report()
 	var/midround_median_frequency = 36000
 
 /// Divides threat budget based on the server config
-datum/controller/subsystem/dynamic/generate_budgets()/generate_budgets()
+/datum/controller/subsystem/dynamic/generate_budgets()/generate_budgets()
 	if(CONFIG_GET(flag/split_threat_budget))
 		return ..()
 
