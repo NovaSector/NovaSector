@@ -128,3 +128,17 @@
 	lose_text = span_danger("Somehow, you've completely cleaned yourself of glitter..")
 	medical_record_text = "Patient seems to be looking fabulous."
 	icon = FA_ICON_HAND_SPARKLES
+
+/datum/quirk/no_appendix
+	name = "Appendicitis Survivor"
+	desc = "You had a run in with appendicitis in the past and no longer have an appendix."
+	icon = FA_ICON_NOTES_MEDICAL
+	value = 2
+	gain_text = span_notice("You no longer have an appendix.")
+	lose_text = span_danger("You miss your appendix?")
+	medical_record_text = "Patient had appendicitis in the past and has had their appendix surgically removed."
+
+/datum/quirk/no_appendix/post_add()
+	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
+	var/obj/item/organ/internal/appendix/dumb_appendix = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_APPENDIX)
+	dumb_appendix?.Remove(quirk_holder, TRUE)
