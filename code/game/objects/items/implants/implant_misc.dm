@@ -26,10 +26,10 @@
 		qdel(src)
 
 /obj/item/implanter/emp
-	name = "implanter" // Skyrat edit, was implanter (EMP)
+	name = "implanter" // NOVA EDIT, was implanter (EMP)
 	imp_type = /obj/item/implant/emp
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // Skyrat edit
-	special_desc = "A Syndicate implanter used for a EMP implant" // Skyrat edit
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
+	special_desc = "A Syndicate implanter used for a EMP implant" // NOVA EDIT
 
 /obj/item/implant/radio
 	name = "internal radio implant"
@@ -88,8 +88,8 @@
 	imp_type = /obj/item/implant/radio
 
 /obj/item/implanter/radio/syndicate
-	name = "implanter" // Skyrat edit , was originally implanter (internal syndicate radio)
+	name = "implanter" // NOVA EDIT , was originally implanter (internal syndicate radio)
 	imp_type = /obj/item/implant/radio/syndicate
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // Skyrat edit
-	special_desc = "A Syndicate implanter used for a internal radio implant" // Skyrat edit
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
+	special_desc = "A Syndicate implanter used for a internal radio implant" // NOVA EDIT
 

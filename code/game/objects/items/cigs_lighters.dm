@@ -43,10 +43,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/match/proc/matchignite()
 	if(lit || burnt)
 		return
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	var/turf/my_turf = get_turf(src)
 	my_turf.pollute_turf(/datum/pollutant/sulphur, 5)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	playsound(src, 'sound/items/match_strike.ogg', 15, TRUE)
 	lit = TRUE
 	icon_state = "match_lit"
@@ -173,7 +173,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	/// When choking, what is the maximum amount of time we COULD choke for
 	var/choke_time_max = 30 SECONDS // I am mean
 
-	var/pollution_type = /datum/pollutant/smoke //SKYRAT EDIT ADDITION /// What type of pollution does this produce on smoking, changed to weed pollution sometimes
+	var/pollution_type = /datum/pollutant/smoke //NOVA EDIT ADDITION /// What type of pollution does this produce on smoking, changed to weed pollution sometimes
 
 
 /obj/item/clothing/mask/cigarette/Initialize(mapload)
@@ -294,12 +294,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		e.start(src)
 		qdel(src)
 		return
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	// Setting the puffed pollutant to cannabis if we're smoking the space drugs reagent(obtained from cannabis)
 	if(reagents.has_reagent(/datum/reagent/drug/space_drugs))
 		pollution_type = /datum/pollutant/smoke/cannabis
 	// allowing reagents to react after being lit
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	reagents.flags &= ~(NO_REACT)
 	reagents.handle_reactions()
@@ -379,10 +379,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		extinguish()
 		return
 
-	// SKYRAT EDIT ADDITION START - Pollution
+	// NOVA EDIT ADDITION START - Pollution
 	var/turf/location = get_turf(src)
 	location.pollute_turf(pollution_type, 5, POLLUTION_PASSIVE_EMITTER_CAP)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	smoketime -= seconds_per_tick * (1 SECONDS)
 	if(smoketime <= 0)
@@ -847,7 +847,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				span_notice("You hear a quiet click, as [user] shuts off [src] without even looking at what [user.p_theyre()] doing. Wow."),
 				span_notice("You quietly shut off [src] without even looking at what you're doing. Wow.")
 			)
-			playsound(src, 'modular_skyrat/master_files/sound/items/zippo_close.ogg', 50, TRUE) // SKYRAT EDIT ADDITION
+			playsound(src, 'modular_nova/master_files/sound/items/zippo_close.ogg', 50, TRUE) // NOVA EDIT ADDITION
 		else
 			user.visible_message(
 				span_notice("[user] quietly shuts off [src]."),
@@ -861,7 +861,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			span_notice("Without even breaking stride, [user] flips open and lights [src] in one smooth movement."),
 			span_notice("Without even breaking stride, you flip open and light [src] in one smooth movement.")
 		)
-		playsound(src, 'modular_skyrat/master_files/sound/items/zippo_open.ogg', 50, TRUE) // SKYRAT EDIT ADDITION
+		playsound(src, 'modular_nova/master_files/sound/items/zippo_open.ogg', 50, TRUE) // NOVA EDIT ADDITION
 		return
 
 	var/hand_protected = FALSE
@@ -1053,12 +1053,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper E-Cigarette"
 	desc = "A classy and highly sophisticated electronic cigarette, for classy and dignified gentlemen. A warning label reads \"Warning: Do not fill with flammable materials.\""//<<< i'd vape to that.
 	icon = 'icons/obj/clothing/masks.dmi'
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi' //SKYRAT EDIT: ADDITION
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask.dmi' //NOVA EDIT: ADDITION
 	icon_state = "vape"
 	worn_icon_state = "vape_worn"
 	greyscale_config = /datum/greyscale_config/vape
 	greyscale_config_worn = /datum/greyscale_config/vape/worn
-	greyscale_config_worn_muzzled = /datum/greyscale_config/vape/worn/muzzled //SKYRAT EDIT ADDITION
+	greyscale_config_worn_muzzled = /datum/greyscale_config/vape/worn/muzzled //NOVA EDIT ADDITION
 	greyscale_colors = "#2e2e2e"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_TINY
@@ -1208,11 +1208,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	//Time to start puffing those fat vapes, yo.
 	COOLDOWN_START(src, drag_cooldown, dragtime)
 
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	//open flame removed because vapes are a closed system, they won't light anything on fire
 	var/turf/my_turf = get_turf(src)
 	my_turf.pollute_turf(/datum/pollutant/smoke/vape, 5, POLLUTION_PASSIVE_EMITTER_CAP)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	if(obj_flags & EMAGGED)
 		var/datum/effect_system/fluid_spread/smoke/chem/smoke_machine/puff = new

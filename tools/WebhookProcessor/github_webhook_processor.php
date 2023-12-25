@@ -44,11 +44,11 @@ $discordWebHooks = array();
 // Only these repositories will announce in game.
 // Any repository that players actually care about.
 $game_announce_whitelist = array(
-	/* SKYRAT EDIT - We want it to announce to us - ORIGINAL:
+	/* NOVA EDIT - We want it to announce to us - ORIGINAL:
 	"tgstation",
 	"TerraGov-Marine-Corps",
-	// ORIGINAL END - SKYRAT EDIT: */
-	"Skyrat-tg",
+	// ORIGINAL END - NOVA EDIT: */
+	"GalaxiaStation",
 );
 
 // Any repository that matches in this blacklist will not appear on Discord.

@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { toTitleCase } from 'common/string';
 import { useState } from 'react';
 

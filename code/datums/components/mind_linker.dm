@@ -65,11 +65,11 @@
 	master_speech.Grant(owner)
 	*/ //ORIGINAL CODE END
 
-	//SKYRAT EDIT - NIFs
+	//NOVA EDIT - NIFs
 	if(speech_action)
 		master_speech = new(src)
 		master_speech.Grant(owner)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 /datum/component/mind_linker/Destroy(force, silent)
 	for(var/mob/living/remaining_mob as anything in linked_mobs)
@@ -102,12 +102,12 @@
 	if(to_link.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 		return FALSE
 	*/ //ORIGINAL CODE END
-	//SKYRAT EDIT START
+	//NOVA EDIT START
 	if(HAS_TRAIT(to_link, TRAIT_MINDSHIELD) && linking_protection) // Mindshield implant - no dice
 		return FALSE
 	if(to_link.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0) && linking_protection)
 		return FALSE
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	if(linked_mobs[to_link])
 		return FALSE
 

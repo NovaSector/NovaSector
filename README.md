@@ -10,12 +10,12 @@
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
 | Git / GitHub cheatsheet   | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization   | [./modular_skyrat/readme.md](./modular_skyrat/readme.md)            |
+| Guide to Modularization   | [./modular_nova/readme.md](./modular_nova/readme.md)            |
 | Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
 | Code                      | [https://github.com/GalacticStation/GalaxiaStation](https://github.com/GalacticStation/GalaxiaStation)    |
-| Wiki                      | [https://wiki.skyrat13.com/index.php/Main_Page](https://wiki.skyrat13.com/index.php/Main_Page)   |
+| Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
 | Codedocs                  | [https://GalacticStation.github.io/GalaxiaStation/](https://GalacticStation.github.io/GalaxiaStation/)       |
-| Nova Sector's Discord | [https://discord.gg/FXrMvsYAbH](https://discord.gg/FXrMvsYAbH) |
+| Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
 This is Nova Sector's downstream fork of /tg/station created in byond.
@@ -31,7 +31,7 @@ You are responsible for the testing of your content and providing proof of such 
 ## DEVELOPMENT FLOWCHART
 ![image](https://i.imgur.com/aJnE4WT.png)
 
-[Modularisation Guide](./modular_skyrat/readme.md)
+[Modularisation Guide](./modular_nova/readme.md)
 
 ## DOWNLOADING
 [Downloading](.github/guides/DOWNLOADING.md)

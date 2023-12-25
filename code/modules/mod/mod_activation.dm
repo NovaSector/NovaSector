@@ -19,7 +19,7 @@
 	var/obj/item/part = locate(part_reference) in mod_parts
 	if(!istype(part) || user.incapacitated())
 		return
-	if(activating) // SKYRAT EDIT - RETRACTABLE EVERYTHING
+	if(activating) // NOVA EDIT - RETRACTABLE EVERYTHING
 		balloon_alert(user, "deactivate the suit first!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
@@ -43,7 +43,7 @@
 
 /// Quickly deploys all parts (or retracts if all are on the wearer)
 /obj/item/mod/control/proc/quick_deploy(mob/user)
-	if(activating) // SKYRAT EDIT - RETRACTABLE EVERYTHING
+	if(activating) // NOVA EDIT - RETRACTABLE EVERYTHING
 		balloon_alert(user, "deactivate the suit first!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
@@ -115,11 +115,11 @@
 		if(!wearer.equip_to_slot_if_possible(overslot, overslot.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
 			wearer.dropItemToGround(overslot, force = TRUE, silent = TRUE)
 		overslotting_parts[part] = null
-	// SKYRAT EDIT START - Avoiding exploits with the modules staying active when any of the parts are retracted.
+	// NOVA EDIT START - Avoiding exploits with the modules staying active when any of the parts are retracted.
 	for(var/obj/item/mod/module/module as anything in modules)
 		if(module.active)
 			module.on_deactivation(display_message = !!user)
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	if(!user)
 		return
 	wearer.visible_message(span_notice("[wearer]'s [part.name] retract[part.p_s()] back into [src] with a mechanical hiss."),

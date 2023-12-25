@@ -149,7 +149,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m12g
 	can_suppress = FALSE
 	burst_size = 1
-	fire_delay = 10 //Skyrat edit - Original: 0
+	fire_delay = 10 //NOVA EDIT - Original: 0
 	pin = /obj/item/firing_pin/implant/pindicate
 	fire_sound = 'sound/weapons/gun/shotgun/shot_alt.ogg'
 	mag_display = TRUE

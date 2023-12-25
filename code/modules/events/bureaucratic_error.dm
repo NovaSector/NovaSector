@@ -25,9 +25,9 @@
 				continue
 			current.total_positions = 0
 	else // Adds/removes a random amount of job slots from all jobs.
-	*/ // SKYRAT EDIT REMOVAL - no more locking off jobs
+	*/ // NOVA EDIT REMOVAL - no more locking off jobs
 	for(var/datum/job/current as anything in jobs)
 		if(!current.allow_bureaucratic_error)
 			continue
-		var/ran = rand(1,4) // SKYRAT EDIT - no more locking off jobs
+		var/ran = rand(1,4) // NOVA EDIT - no more locking off jobs
 		current.total_positions = max(current.total_positions + ran, 0)

@@ -2,10 +2,10 @@
 	. = ..()
 	if(!.)
 		return
-	// SKYRAT EDIT ADDITION START - No AIs in MODsuits
+	// NOVA EDIT ADDITION START - No AIs in MODsuits
 	if(!allow_ai)
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	if(!open) //mod must be open
 		balloon_alert(user, "suit must be open to transfer!")
 		return
@@ -92,10 +92,10 @@
 	pai_assistant.can_holo = FALSE
 	if (pai_assistant.holoform)
 		pai_assistant.fold_in()
-	// SKYRAT EDIT ADDITION START - pAIs in MODsuits
+	// NOVA EDIT ADDITION START - pAIs in MODsuits
 	if(can_pai_move_suit)
 		pai_assistant.remote_control = src
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	SStgui.close_uis(card)
 	on_gained_assistant(card.pai)
 	return TRUE
@@ -144,10 +144,10 @@
 /obj/item/mod/control/relaymove(mob/user, direction)
 	if((!active && wearer) || get_charge() < CHARGE_PER_STEP  || user != ai_assistant || !COOLDOWN_FINISHED(src, cooldown_mod_move) || (wearer?.pulledby?.grab_state > GRAB_PASSIVE))
 		return FALSE
-	// SKYRAT EDIT START - pAIs in MODsuits with a bit more functionalities
+	// NOVA EDIT START - pAIs in MODsuits with a bit more functionalities
 	if(active && !can_pai_move_suit && ispAI(ai_assistant))
 		return FALSE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	var/timemodifier = MOVE_DELAY * (ISDIAGONALDIR(direction) ? sqrt(2) : 1) * (wearer ? WEARER_DELAY : LONE_DELAY)
 	if(wearer && !wearer.Process_Spacemove(direction))
 		return FALSE

@@ -179,12 +179,12 @@
 				return
 
 			gloves = equipping
-			//SKYRAT EDIT ADDITION - ERP UPDATE
+			//NOVA EDIT ADDITION - ERP UPDATE
 			if(gloves.breakouttime)
 				ADD_TRAIT(src, TRAIT_RESTRAINED, TRAIT_GLOVES)
 				stop_pulling()
 				update_mob_action_buttons()
-			//SKYRAT EDIT ADDITION END
+			//NOVA EDIT ADDITION END
 			update_worn_gloves()
 		if(ITEM_SLOT_FEET)
 			if(shoes)
@@ -257,10 +257,10 @@
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_worn_undersuit()
 
-			// SKYRAT EDIT ADDITION START - ERP Overlays
+			// NOVA EDIT ADDITION START - ERP Overlays
 			if(I.flags_inv & HIDESEXTOY)
 				update_inv_lewd()
-			// SKYRAT EDIT ADDITION END
+			// NOVA EDIT ADDITION END
 
 			update_worn_oversuit()
 	else if(I == w_uniform)
@@ -278,12 +278,12 @@
 		if(!QDELETED(src))
 			update_worn_undersuit()
 	else if(I == gloves)
-		//SKYRAT EDIT ADDITION - ERP UPDATE
+		//NOVA EDIT ADDITION - ERP UPDATE
 		if(gloves.breakouttime) //when unequipping a straightjacket
 			REMOVE_TRAIT(src, TRAIT_RESTRAINED, TRAIT_GLOVES)
 			drop_all_held_items() //suit is restraining
 			update_mob_action_buttons() //certain action buttons may be usable again.
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 		gloves = null
 		if(!QDELETED(src))
 			update_worn_gloves()

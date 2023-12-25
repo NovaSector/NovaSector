@@ -348,7 +348,7 @@ GLOBAL_VAR(restart_counter)
 	auxcleanup()
 	. = ..()
 
-/* SKYRAT EDIT REMOVAL - OVERRIDEN
+/* NOVA EDIT REMOVAL - OVERRIDEN
 /world/proc/update_status()
 
 	var/list/features = list()

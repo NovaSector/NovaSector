@@ -8,12 +8,12 @@
 
 //MONKEY PATHS
 ///The dmi for monkey uniforms
-#define MONKEY_UNIFORM_FILE 'modular_skyrat/master_files/icons/mob/clothing/species/monkey/uniform.dmi' // SKYRAT EDIT CHANGE
+#define MONKEY_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/species/monkey/uniform.dmi' // NOVA EDIT CHANGE
 
 //DIGITIGRADE PATHS
 ///The dmi containing digitigrade uniforms
-#define DIGITIGRADE_UNIFORM_FILE 'modular_skyrat/master_files/icons/mob/clothing/uniform_digi.dmi' // SKYRAT EDIT CHANGE
+#define DIGITIGRADE_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/uniform_digi.dmi' // NOVA EDIT CHANGE
 ///The dmi containing digitigrade shoes
-#define DIGITIGRADE_SHOES_FILE 'modular_skyrat/master_files/icons/mob/clothing/feet_digi.dmi' // SKYRAT EDIT CHANGE
+#define DIGITIGRADE_SHOES_FILE 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi' // NOVA EDIT CHANGE
 ///The dmi containing digitigrade oversuits
-#define DIGITIGRADE_SUIT_FILE 'modular_skyrat/master_files/icons/mob/clothing/suit_digi.dmi' // SKYRAT EDIT CHANGE
+#define DIGITIGRADE_SUIT_FILE 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi' // NOVA EDIT CHANGE

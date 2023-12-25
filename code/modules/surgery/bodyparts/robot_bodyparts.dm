@@ -269,19 +269,19 @@
 
 	if(all_robotic)
 		owner.add_traits(list(
-			/* SKYRAT EDIT REMOVAL BEGIN - Synths are not immune to temperature
+			/* NOVA EDIT REMOVAL BEGIN - Synths are not immune to temperature
 			TRAIT_RESISTCOLD,
 			TRAIT_RESISTHEAT,
-			SKYRAT EDIT REMOVAL END */
+			NOVA EDIT REMOVAL END */
 			TRAIT_RESISTLOWPRESSURE,
 			TRAIT_RESISTHIGHPRESSURE,
 			), AUGMENTATION_TRAIT)
 	else
 		owner.remove_traits(list(
-			/* SKYRAT EDIT REMOVAL BEGIN - Synths are not immune to temperature
+			/* NOVA EDIT REMOVAL BEGIN - Synths are not immune to temperature
 			TRAIT_RESISTCOLD,
 			TRAIT_RESISTHEAT,
-			SKYRAT EDIT REMOVAL END */
+			NOVA EDIT REMOVAL END */
 			TRAIT_RESISTLOWPRESSURE,
 			TRAIT_RESISTHIGHPRESSURE,
 			), AUGMENTATION_TRAIT)

@@ -1,4 +1,4 @@
-// THIS IS A SKYRAT UI FILE
+// THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -24,7 +24,7 @@ export const CargoImportConsole = (props) => {
       height={600}
     >
       <Window.Content>
-        <Section grow height="100%" title="Company Import Requisition Console">
+        <Section height="100%" title="Company Import Requisition Console">
           <Stack>
             <Stack.Item grow fill>
               <Button.Checkbox

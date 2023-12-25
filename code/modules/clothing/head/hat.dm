@@ -270,7 +270,7 @@
 	flags_inv = 0
 	armor_type = /datum/armor/hats_centcom_cap
 	strip_delay = (8 SECONDS)
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON //SKYRAT EDIT lets anthros wear the hat
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON //NOVA EDIT lets anthros wear the hat
 
 /datum/armor/hats_centcom_cap
 	melee = 30
@@ -292,7 +292,7 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = "ushankadown"
 	inhand_icon_state = null
-	flags_inv = HIDEEARS //SKYRAT EDIT (Original: HIDEEARS|HIDEHAIR)
+	flags_inv = HIDEEARS //NOVA EDIT (Original: HIDEEARS|HIDEHAIR)
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 	dog_fashion = /datum/dog_fashion/head/ushanka

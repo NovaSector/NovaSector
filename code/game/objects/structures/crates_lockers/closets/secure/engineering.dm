@@ -18,17 +18,17 @@
 	new /obj/item/extinguisher/advanced(src)
 	new /obj/item/storage/photo_album/ce(src)
 	new /obj/item/storage/box/skillchips/engineering(src)
-	new /obj/item/storage/box/gas_miner_beacons(src) // SKYRAT EDIT ADDITION
-	new /obj/item/construction/plumbing/engineering(src) //SKYRAT EDIT ADDITION
-	new /obj/item/circuitboard/machine/rodstopper(src) //SKYRAT EDIT ADDITION
-	new /obj/item/card/id/departmental_budget/eng(src) //SKYRAT EDIT ADDITION
+	new /obj/item/storage/box/gas_miner_beacons(src) // NOVA EDIT ADDITION
+	new /obj/item/construction/plumbing/engineering(src) //NOVA EDIT ADDITION
+	new /obj/item/circuitboard/machine/rodstopper(src) //NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget/eng(src) //NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/engineering_chief/populate_contents_immediate()
 	. = ..()
 
 	// Traitor steal objective
 	new /obj/item/areaeditor/blueprints(src)
-	new /obj/item/pipe_dispenser/bluespace(src) // SKYRAT EDIT -- BLUESPACE RPD -- ORIGINAL: new /obj/item/pipe_dispenser(src)
+	new /obj/item/pipe_dispenser/bluespace(src) // NOVA EDIT -- BLUESPACE RPD -- ORIGINAL: new /obj/item/pipe_dispenser(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies locker"
@@ -79,7 +79,7 @@
 	new /obj/item/clothing/glasses/meson/engine(src)
 	new /obj/item/storage/box/emptysandbags(src)
 	new /obj/item/storage/bag/construction(src)
-	new /obj/item/construction/plumbing/engineering(src) //SKYRAT EDIT ADDITION
+	new /obj/item/construction/plumbing/engineering(src) //NOVA EDIT ADDITION
 
 
 /obj/structure/closet/secure_closet/atmospherics

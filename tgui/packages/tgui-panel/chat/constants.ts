@@ -37,7 +37,7 @@ export const MESSAGE_TYPE_EVENTCHAT = 'eventchat';
 export const MESSAGE_TYPE_ADMINLOG = 'adminlog';
 export const MESSAGE_TYPE_ATTACKLOG = 'attacklog';
 export const MESSAGE_TYPE_DEBUG = 'debug';
-export const MESSAGE_TYPE_MENTOR = 'mentor'; // SKYRAT EDIT ADDITION
+export const MESSAGE_TYPE_MENTOR = 'mentor'; // NOVA EDIT ADDITION
 
 // Metadata for each message type
 export const MESSAGE_TYPES = [
@@ -147,7 +147,7 @@ export const MESSAGE_TYPES = [
     admin: true,
   },
   {
-    type: MESSAGE_TYPE_MENTOR, // SKYRAT EDIT
+    type: MESSAGE_TYPE_MENTOR, // NOVA EDIT
     name: 'Mentor Log',
     description: 'Mentor PMs and other mentor things.',
     selector: '.mentor, .mentornotice',
