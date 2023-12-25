@@ -12,7 +12,7 @@
 	fakeable = FALSE
 
 /datum/round_event/ghost_role/contractor/spawn_role()
-	var/list/candidates = get_candidates(ROLE_DRIFTING_CONTRACTOR)
+	var/list/candidates = SSpolling.poll_ghost_candidates(check_jobban = ROLE_DRIFTING_CONTRACTOR, role = ROLE_DRIFTING_CONTRACTOR, pic_source = /obj/item/melee/baton/telescopic/contractor_baton, role_name_text = role_name)
 	if(!length(candidates))
 		return NOT_ENOUGH_PLAYERS
 
