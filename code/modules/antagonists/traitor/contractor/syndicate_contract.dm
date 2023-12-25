@@ -101,6 +101,7 @@
 		status = CONTRACT_STATUS_COMPLETE
 		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
 			opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
+		opfor_data.contractor_hub.contract_rep += 2 // NOVA EDIT ADDITION
 	else
 		status = CONTRACT_STATUS_ABORTED // Sending a target that wasn't even yours is as good as just aborting it
 		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)

@@ -22,7 +22,7 @@ const CONTRACT_STATUS_EXTRACTING = 4;
 const CONTRACT_STATUS_COMPLETE = 5;
 const CONTRACT_STATUS_ABORTED = 6;
 
-export const SyndicateContractor = (props, context) => {
+export const SyndicateContractor = (props) => {
   return (
     <NtosWindow width={500} height={600}>
       <NtosWindow.Content scrollable>
@@ -37,9 +37,9 @@ type Data = {
   logged_in: BooleanLike;
   first_load: BooleanLike;
   info_screen: BooleanLike;
-  redeemable_tc: number;
-  earned_tc: number;
-  contracts_completed: number;
+  redeemable_tc: Number;
+  earned_tc: Number;
+  contracts_completed: Number;
   contracts: ContractData[];
   ongoing_contract: BooleanLike;
   extraction_enroute: BooleanLike;
@@ -47,16 +47,16 @@ type Data = {
 };
 
 type ContractData = {
-  id: number;
-  status: number;
+  id: Number;
+  status: Number;
   target: string;
   target_rank: string;
   extraction_enroute: BooleanLike;
   message: string;
   contract: string;
   dropoff: string;
-  payout: number;
-  payout_bonus: number;
+  payout: Number;
+  payout_bonus: Number;
 };
 
 export const SyndicateContractorContent = (props) => {
@@ -126,7 +126,7 @@ export const SyndicateContractorContent = (props) => {
           <Box width="260px" textAlign="left" minHeight="80px">
             {error}
           </Box>
-          <Button onClick={() => act('PRG_clear_error')}>Dismiss</Button>
+          <Button content="Dismiss" onClick={() => act('PRG_clear_error')} />
         </Flex.Item>
       </Flex>
     </Modal>
@@ -136,9 +136,11 @@ export const SyndicateContractorContent = (props) => {
     return (
       <Section minHeight="525px">
         <Box width="100%" textAlign="center">
-          <Button color="transparent" onClick={() => act('PRG_login')}>
-            REGISTER USER
-          </Button>
+          <Button
+            content="REGISTER USER"
+            color="transparent"
+            onClick={() => act('PRG_login')}
+          />
         </Box>
         {!!error && <NoticeBox>{error}</NoticeBox>}
       </Section>
@@ -165,12 +167,11 @@ export const SyndicateContractorContent = (props) => {
         </Box>
         <Button
           fluid
+          content="CONTINUE"
           color="transparent"
           textAlign="center"
           onClick={() => act('PRG_toggle_info')}
-        >
-          CONTINUE
-        </Button>
+        />
       </>
     );
   }
@@ -184,7 +185,7 @@ export const SyndicateContractorContent = (props) => {
   );
 };
 
-export const StatusPane = (props, context) => {
+export const StatusPane = (props) => {
   const { act, data } = useBackend<Data>();
   const { redeemable_tc, earned_tc, contracts_completed } = data;
 
@@ -216,15 +217,17 @@ export const StatusPane = (props, context) => {
                 />
               }
             >
-              {redeemable_tc}
+              {String(redeemable_tc)}
             </LabeledList.Item>
-            <LabeledList.Item label="TC Earned">{earned_tc}</LabeledList.Item>
+            <LabeledList.Item label="TC Earned">
+              {String(earned_tc)}
+            </LabeledList.Item>
           </LabeledList>
         </Grid.Column>
         <Grid.Column>
           <LabeledList>
             <LabeledList.Item label="Contracts Completed">
-              {contracts_completed}
+              {String(contracts_completed)}
             </LabeledList.Item>
             <LabeledList.Item label="Current Status">ACTIVE</LabeledList.Item>
           </LabeledList>
@@ -234,7 +237,7 @@ export const StatusPane = (props, context) => {
   );
 };
 
-const ContractsTab = (props, context) => {
+const ContractsTab = (props) => {
   const { act, data } = useBackend<Data>();
   const { contracts, ongoing_contract, extraction_enroute, dropoff_direction } =
     data;
@@ -273,6 +276,7 @@ const ContractsTab = (props, context) => {
                     {`${contract.payout} (+${contract.payout_bonus}) TC`}
                   </Box>
                   <Button
+                    content={active ? 'Abort' : 'Accept'}
                     disabled={contract.extraction_enroute}
                     color={active && 'bad'}
                     onClick={() =>
@@ -280,9 +284,7 @@ const ContractsTab = (props, context) => {
                         contract_id: contract.id,
                       })
                     }
-                  >
-                    {active ? 'Abort' : 'Accept'}
-                  </Button>
+                  />
                 </>
               }
             >
