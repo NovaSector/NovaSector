@@ -12,7 +12,9 @@
 /datum/preference/choiced/language/init_possible_values()
 	var/list/values = list()
 
+// NOVA EDIT ADDITION START
 	if(!GLOB.roundstart_languages.len)
+// NOVA EDIT ADDITION END
 		generate_selectable_species_and_languages()
 
 	values += "Random"
@@ -21,7 +23,9 @@
 	var/datum/language/uncommon/uncommon_language = /datum/language/uncommon
 	values += initial(uncommon_language.name)
 
+// NOVA EDIT ADDITION START
 	for(var/datum/language/language_type as anything in GLOB.roundstart_languages)
+// NOVA EDIT ADDITION END
 		if(initial(language_type.name) in values)
 			continue
 		values += initial(language_type.name)
