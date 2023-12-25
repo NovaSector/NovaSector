@@ -1,5 +1,5 @@
 /obj/structure/mineral_door/manual_colony_door
-	name = "large wooden gate"
+	name = "manual airlock"
 	icon = 'modular_nova/modules/colony_fabricator/icons/doors/airlock_manual.dmi'
 	material_flags = NONE
 	icon_state = "manual"
