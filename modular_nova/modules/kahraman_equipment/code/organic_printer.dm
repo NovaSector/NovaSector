@@ -1,7 +1,7 @@
 /obj/machinery/biogenerator/organic_printer
 	name = "organic materials printer"
 	desc = "An advanced machine seen in frontier outposts and colonies capable of turning organic plant matter into \
-		reagents and items of use that a fabricator can't make. While the exact designs these machines have differs from \
+		reagents and items of use that a fabricator can't typically make. While the exact designs these machines have differs from \
 		location to location, and upon who designed them, this one should be able to at the very least provide you with \
 		some clothing, basic food supplies, and whatever else you may require."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/biogenerator.dmi'

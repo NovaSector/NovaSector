@@ -9,14 +9,21 @@
 
 /datum/armament_entry/company_import/kahraman/machinery/biogenerator
 	item_type = /obj/item/flatpacked_machine/organics_printer
+	description = "An advanced machine seen in frontier outposts and colonies capable of turning organic plant matter into \
+		reagents and items of use that a fabricator can't typically make."
 	cost = CARGO_CRATE_VALUE * 3
 
 /datum/armament_entry/company_import/kahraman/machinery/ore_thumper
 	item_type = /obj/item/flatpacked_machine/ore_thumper
+	description = "A frame with a heavy block of metal suspended atop a pipe. \
+		Must be deployed outdoors and given a wired power connection. \
+		Forces pressurized gas into the ground which brings up buried resources."
 	cost = CARGO_CRATE_VALUE * 5
 
 /datum/armament_entry/company_import/kahraman/machinery/gps_beacon
 	item_type = /obj/item/flatpacked_machine/gps_beacon
+	description = "A packed GPS beacon, can be deployed and anchored into the ground to \
+		provide and unobstructed homing beacon for wayward travellers across the galaxy."
 	cost = PAYCHECK_LOWER
 
 // Occupational health and safety? Never heard of her.

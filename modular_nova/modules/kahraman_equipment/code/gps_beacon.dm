@@ -1,5 +1,6 @@
 /obj/item/gps/computer/beacon
 	name = "\improper GPS beacon"
+	desc = "A GPS beacon, anchored to the ground to prevent loss or accidental movement."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/gps_beacon.dmi'
 	icon_state = "gps_beacon"
 	pixel_y = 0
