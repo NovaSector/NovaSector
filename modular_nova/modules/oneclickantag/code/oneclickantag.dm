@@ -31,6 +31,8 @@
 			src.add_antag_datum(/datum/antagonist/brother, team)
 		if(ROLE_HERETIC)
 			src.add_antag_datum(/datum/antagonist/heretic)
+		if(ROLE_DRIFTING_CONTRACTOR)
+			src.add_antag_datum(/datum/antagonist/contractor)
 		else
 			message_admins("[src] could not be turned into [antagtype] as it is not implemented; blame coders.")
 			return FALSE
