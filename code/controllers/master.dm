@@ -216,7 +216,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	add_startup_message("Initializing subsystems...") //SKYRAT EDIT CHANGE - Custom HTML Lobby Screen
+	add_startup_message("Initializing subsystems...") //NOVA EDIT CHANGE - Custom HTML Lobby Screen
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -250,7 +250,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 				SetRunLevel(1) // Intentionally not using the defines here because the MC doesn't care about them
 			// Loop.
 			Master.StartProcessing(0)
-			add_startup_message("Clearing clutter...") //SKYRAT EDIT ADDITION
+			add_startup_message("Clearing clutter...") //NOVA EDIT ADDITION
 
 
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
@@ -349,12 +349,12 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			chat_warning = TRUE
 
 	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	// SKYRAT EDIT REMOVAL BEGIN -- chat_message not used anymore due to change below
+	// NOVA EDIT REMOVAL BEGIN -- chat_message not used anymore due to change below
 	// var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
-	// SKYRAT EDIT REMOVAL END
+	// NOVA EDIT REMOVAL END
 
 	if(result != SS_INIT_NO_MESSAGE)
-		add_startup_message(message, chat_warning) //SKYRAT EDIT CHANGE - ORIGINAL: to_chat(world, chat_message)
+		add_startup_message(message, chat_warning) //NOVA EDIT CHANGE - ORIGINAL: to_chat(world, chat_message)
 	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)

@@ -71,7 +71,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	  * Layer hiding is handled by [/datum/species/proc/handle_mutant_bodyparts] below.
 	  */
 	//var/list/mutant_bodyparts = list() //ORIGINAL
-	var/list/list/mutant_bodyparts = list() //SKYRAT EDIT CHANGE - CUSTOMIZATION (typed list)
+	var/list/list/mutant_bodyparts = list() //NOVA EDIT CHANGE - CUSTOMIZATION (typed list)
 	///The bodyparts this species uses. assoc of bodypart string - bodypart type. Make sure all the fucking entries are in or I'll skin you alive.
 	var/list/bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
@@ -610,7 +610,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * Arguments:
  * * species_human - Human, whoever we're handling the body for
  */
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
 /datum/species/proc/handle_body(mob/living/carbon/human/species_human)
 	species_human.remove_overlay(BODY_LAYER)
@@ -703,7 +703,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	species_human.apply_overlay(BODY_LAYER)
 	handle_mutant_bodyparts(species_human)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /**
  * Handles the mutant bodyparts of a human
@@ -714,7 +714,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * * H - Human, whoever we're handling the body for
  * * forced_colour - The forced color of an accessory. Leave null to use mutant color.
  */
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	var/list/bodyparts_to_add = mutant_bodyparts.Copy()
@@ -821,7 +821,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	source.apply_overlay(BODY_ADJ_LAYER)
 	source.apply_overlay(BODY_FRONT_LAYER)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 
 //This exists so sprite accessories can still be per-layer without having to include that layer's
@@ -834,12 +834,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return "ADJ"
 		if(BODY_FRONT_LAYER)
 			return "FRONT"
-		//SKYRAT EDIT ADDITION BEGIN
+		//NOVA EDIT ADDITION BEGIN
 		if(BODY_FRONT_UNDER_CLOTHES)
 			return "FRONT_UNDER"
 		if(ABOVE_BODY_FRONT_HEAD_LAYER)
 			return "FRONT_OVER"
-		//SKYRAT EDIT ADDITION END
+		//NOVA EDIT ADDITION END
 
 ///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
 /datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
@@ -851,7 +851,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	human_mob.undershirt = random_undershirt(human_mob.gender)
 	human_mob.underwear = random_underwear(human_mob.gender)
 	human_mob.socks = random_socks(human_mob.gender)
-	human_mob.bra = random_bra(human_mob.gender) //SKYRAT EDIT ADDITION - Underwear and Bra split
+	human_mob.bra = random_bra(human_mob.gender) //NOVA EDIT ADDITION - Underwear and Bra split
 
 ///Proc that will randomise the underwear (i.e. top, pants and socks) of a species' associated mob
 /datum/species/proc/randomize_active_underwear(mob/living/carbon/human/human_mob)
@@ -934,7 +934,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
-			/* SKYRAT EDIT REMOVAL
+			/* NOVA EDIT REMOVAL
 			if((H.bodytype & BODYTYPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
 				if(!(I.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)))
 					if(!disable_warning)
@@ -1209,7 +1209,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/armor_block = target.run_armor_check(affecting, MELEE)
 
-		playsound(target.loc, attacking_bodypart.unarmed_attack_sound || get_sfx("punch"), 25, TRUE, -1) // SKYRAT EDIT - ORIGINAL: playsound(target.loc, attacking_bodypart.unarmed_attack_sound, 25, TRUE, -1)
+		playsound(target.loc, attacking_bodypart.unarmed_attack_sound || get_sfx("punch"), 25, TRUE, -1) // NOVA EDIT - ORIGINAL: playsound(target.loc, attacking_bodypart.unarmed_attack_sound, 25, TRUE, -1)
 
 		if(grappled && attacking_bodypart.grappled_attack_verb)
 			atk_verb = attacking_bodypart.grappled_attack_verb
@@ -1225,7 +1225,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/attack_direction = get_dir(user, target)
 		var/attack_type = attacking_bodypart.attack_type
-		var/unarmed_sharpness = attacking_bodypart.unarmed_sharpness //SKYRAT EDIT ADDITION - If unarmed damage sharpness needs to be taken into account.
+		var/unarmed_sharpness = attacking_bodypart.unarmed_sharpness //NOVA EDIT ADDITION - If unarmed damage sharpness needs to be taken into account.
 		if(atk_effect == ATTACK_EFFECT_KICK || grappled) //kicks and punches when grappling bypass armor slightly.
 			if(damage >= 9)
 				target.force_say()
@@ -1233,7 +1233,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.apply_damage(damage, attack_type, affecting, armor_block - limb_accuracy, attack_direction = attack_direction)
 			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block - limb_accuracy)
 		else // Normal attacks do not gain the benefit of armor penetration.
-			target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //SKYRAT EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
+			target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //NOVA EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
 			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
 			if(damage >= 9)
 				target.force_say()
@@ -1244,11 +1244,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.visible_message(span_danger("[user] knocks [target] down!"), \
 							span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, span_danger("You knock [target] down!"))
-			/* SKYRAT EDIT REMOVAL - Less combat lethality and hard stungs
+			/* NOVA EDIT REMOVAL - Less combat lethality and hard stungs
 			var/knockdown_duration = 4 SECONDS + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 4 second base stun + 4 second stun modifier = 8 second knockdown duration
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
 			*/ // SKYRAT REMOVAL END
-			target.StaminaKnockdown(20) //SKYRAT EDIT ADDITION
+			target.StaminaKnockdown(20) //NOVA EDIT ADDITION
 			log_combat(user, target, "got a stun punch with their previous punch")
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
@@ -1366,14 +1366,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// Get the temperature of the environment for area
 	var/area_temp = humi.get_temperature(environment)
 
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	//Special handling for getting liquids temperature
 	if(isturf(humi.loc))
 		var/turf/T = humi.loc
 		if(T.liquids && T.liquids.liquid_state > LIQUID_STATE_PUDDLE)
 			var/submergment_percent = SUBMERGEMENT_PERCENT(humi, T.liquids)
 			area_temp = (area_temp*(1-submergment_percent)) + (T.liquids.temp * submergment_percent)
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	// Get the insulation value based on the area's temp
 	var/thermal_protection = humi.get_insulation_protection(area_temp)
 
@@ -1648,7 +1648,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	former_tail_owner.clear_mood_event("tail_balance_lost")
 	former_tail_owner.clear_mood_event("wrong_tail_regained")
 
-/* SKYRAT EDIT REMOVAL - MOVED TO MODULAR
+/* NOVA EDIT REMOVAL - MOVED TO MODULAR
 
 /// Returns a list of strings representing features this species has.
 /// Used by the preferences UI to know what buttons to show.
@@ -2164,11 +2164,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "comment",
 			SPECIES_PERK_NAME = "Native Speaker",
-			/* SKYRAT EDIT - Digitigrade customization - ORIGINAL:
+			/* NOVA EDIT - Digitigrade customization - ORIGINAL:
 			SPECIES_PERK_DESC = "Alongside [initial(common_language.name)], [plural_form] gain the ability to speak [english_list(bonus_languages)].",
-			*/ // ORIGINAL END - SKYRAT EDIT START:
+			*/ // ORIGINAL END - NOVA EDIT START:
 			SPECIES_PERK_DESC = "Alongside [initial(common_language.name)], [plural_form] commonly speak [english_list(bonus_languages)].",
-			// SKYRAT EDIT END
+			// NOVA EDIT END
 		))
 
 	else
@@ -2186,7 +2186,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	new_species ||= target.dna.species //If no new species is provided, assume its src.
 	//Note for future: Potentionally add a new C.dna.species() to build a template species for more accurate limb replacement
 
-	// SKYRAT EDIT ADDITION START - Synth digitigrade sanitization
+	// NOVA EDIT ADDITION START - Synth digitigrade sanitization
 	var/ignore_digi = FALSE // You can jack into this var with other checks, if you want.
 	if(issynthetic(target))
 		var/list/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
@@ -2197,21 +2197,21 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				body_choice = chassis_accessory[chassis[MUTANT_INDEX_NAME]]
 			if(body_choice && !body_choice.is_digi_compatible)
 				ignore_digi = TRUE
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	var/list/final_bodypart_overrides = new_species.bodypart_overrides.Copy()
-	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // SKYRAT EDIT - Digitigrade customization - ORIGINAL
-		/* SKYRAT EDIT - Digitigrade customization - ORIGINAL:
+	if(!ignore_digi && ((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED)) //if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == DIGITIGRADE_LEGS) || new_species.digitigrade_customization == DIGITIGRADE_FORCED) // NOVA EDIT - Digitigrade customization - ORIGINAL
+		/* NOVA EDIT - Digitigrade customization - ORIGINAL:
 		final_bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/digitigrade
 		final_bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/digitigrade
-		*/ // ORIGINAL END - SKYRAT EDIT START:
+		*/ // ORIGINAL END - NOVA EDIT START:
 		var/obj/item/bodypart/leg/right/r_leg = new_species.bodypart_overrides[BODY_ZONE_R_LEG]
 		if(r_leg)
 			final_bodypart_overrides[BODY_ZONE_R_LEG] = initial(r_leg.digitigrade_type)
 		var/obj/item/bodypart/leg/left/l_leg = new_species.bodypart_overrides[BODY_ZONE_L_LEG]
 		if(l_leg)
 			final_bodypart_overrides[BODY_ZONE_L_LEG] = initial(l_leg.digitigrade_type)
-		// SKYRAT EDIT END
+		// NOVA EDIT END
 
 	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
 		if((old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES) || (old_part.bodypart_flags & BODYPART_IMPLANTED))

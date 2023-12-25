@@ -89,7 +89,7 @@
 							human.set_species(species_to_transform)
 							log_game("[human] ([key_name(human)]) was turned into a [initial(species_to_transform.name)] through [src].")
 
-					*/ //SKYRAT EDIT REMOVAL END
+					*/ //NOVA EDIT REMOVAL END
 					//SKRYAT EDIT CHANGE BEGIN
 					to_chat(human, span_danger("Your limbs lose molecular cohesion as you teleport!"))
 					var/list/bodyparts_dismember = list()
@@ -106,7 +106,7 @@
 						bodyparts_dismember.Remove(BP) //GC optimisation
 						BP.dismember()
 						qdel(BP)
-					//SKYRAT EDIT CHANGE END
+					//NOVA EDIT CHANGE END
 			calibrated = FALSE
 	return
 

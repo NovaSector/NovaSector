@@ -327,7 +327,6 @@
 
 /datum/asset/spritesheet/decals
 	name = "floor_decals"
-	cross_round_cachable = TRUE
 
 	/// The floor icon used for blend_preview_floor()
 	var/preview_floor_icon = 'icons/turf/floors.dmi'
@@ -395,7 +394,7 @@
 		list("Neutral", "#D4D4D432"),
 		list("Dark", "#0e0f0f"),
 		list("Bar Burgundy", "#79150082"),
-		list("Sec Blue", "#486091"), // SKYRAT EDIT CHANGE
+		list("Sec Blue", "#486091"), // NOVA EDIT CHANGE
 		list("Cargo Brown", "#A46106"),
 		list("Engi Yellow", "#EFB341"),
 		list("Service Green", "#9FED58"),

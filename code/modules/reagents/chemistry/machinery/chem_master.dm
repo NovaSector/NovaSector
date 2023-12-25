@@ -181,8 +181,8 @@
 		CAT_TUBES = GLOB.reagent_containers[CAT_TUBES],
 		CAT_PILLS = GLOB.reagent_containers[CAT_PILLS],
 		CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
-		CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // SKYRAT EDIT ADDITION
-		CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // SKYRAT EDIT ADDITION
+		CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION
+		CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // NOVA EDIT ADDITION
 	)
 
 /obj/machinery/chem_master/ui_assets(mob/user)

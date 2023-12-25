@@ -6,7 +6,7 @@
 	gender = PLURAL
 	name = "red lipstick"
 	desc = "A generic brand of lipstick."
-	icon =  'modular_skyrat/modules/salon/icons/items.dmi' //SKYRAT EDIT CHANGE - ORIGINAL: icon = 'icons/obj/cosmetic.dmi'
+	icon =  'modular_nova/modules/salon/icons/items.dmi' //NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "lipstick"
 	inhand_icon_state = "lipstick"
 	w_class = WEIGHT_CLASS_TINY
@@ -182,7 +182,7 @@
 		span_notice("You wipe off [target]'s lipstick."))
 	target.update_lips(null)
 
-/* SKYRAT EDIT REMOVAL
+/* NOVA EDIT REMOVAL
 /obj/item/razor
 	name = "electric razor"
 	desc = "The latest and greatest power razor born from the science of shaving."

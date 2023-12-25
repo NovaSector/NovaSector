@@ -8,7 +8,7 @@
 
 	var/datum/strip_menu/strip_menu = allocate(/datum/strip_menu, target, strippable)
 
-	run_loc_floor_bottom_left.luminosity = 6 // SKYRAT EDIT - Making this unit test pass by lighting a turf up.
+	run_loc_floor_bottom_left.luminosity = 6 // NOVA EDIT - Making this unit test pass by lighting a turf up.
 
 	var/ui_state = strip_menu.ui_state(user)
 

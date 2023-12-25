@@ -111,7 +111,7 @@
 	for AI shift, ctrl, and alt clicking.
 */
 
-/mob/living/silicon/ai/CtrlShiftClickOn(atom/target) // Procs overriden in modular_skyrat/modules/Silicon_QoL
+/mob/living/silicon/ai/CtrlShiftClickOn(atom/target) // Procs overriden in modular_nova/modules/Silicon_QoL
 	target.AICtrlShiftClick(src)
 
 /mob/living/silicon/ai/ShiftClickOn(atom/target)

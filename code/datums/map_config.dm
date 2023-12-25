@@ -34,7 +34,7 @@
 		"cargo" = "cargo_skyrat",
 		"ferry" = "ferry_fancy",
 		"whiteship" = "whiteship_meta",
-		"emergency" = "emergency_skyrat") //SKYRAT EDIT CHANGE
+		"emergency" = "emergency_skyrat") //NOVA EDIT CHANGE
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()

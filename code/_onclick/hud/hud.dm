@@ -17,29 +17,29 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Detective" = 'icons/hud/screen_detective.dmi',
 ))
 
-//SKYRAT EDIT - ADDITION - ERP ICONS FIX
+//NOVA EDIT - ADDITION - ERP ICONS FIX
 
 GLOBAL_LIST_INIT(available_erp_ui_styles, list(
-	"Midnight" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/midnight.dmi',
-	"Retro" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/retro.dmi',
-	"Plasmafire" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/plasmafire.dmi',
-	"Slimecore" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/slimecore.dmi',
-	"Operative" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/operative.dmi',
-	"Clockwork" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/clockwork.dmi',
-	"Glass" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/glass.dmi'
+	"Midnight" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/midnight.dmi',
+	"Retro" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/retro.dmi',
+	"Plasmafire" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/plasmafire.dmi',
+	"Slimecore" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/slimecore.dmi',
+	"Operative" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/operative.dmi',
+	"Clockwork" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/clockwork.dmi',
+	"Glass" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/glass.dmi'
 ))
 
-//SKYRAT EDIT - ADDITION - ERP ICONS FIX - END
+//NOVA EDIT - ADDITION - ERP ICONS FIX - END
 
 /proc/ui_style2icon(ui_style)
 	return GLOB.available_ui_styles[ui_style] || GLOB.available_ui_styles[GLOB.available_ui_styles[1]]
 
-//SKYRAT EDIT - ADDITION - ERP ICONS FIX
+//NOVA EDIT - ADDITION - ERP ICONS FIX
 
 /proc/erp_ui_style2icon(ui_style)
 	return GLOB.available_erp_ui_styles[ui_style] || GLOB.available_erp_ui_styles[GLOB.available_erp_ui_styles[1]]
 
-//SKYRAT EDIT - ADDITION - ERP ICONS FIX - END
+//NOVA EDIT - ADDITION - ERP ICONS FIX - END
 
 /datum/hud
 	var/mob/mymob
@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/inventory_shown = FALSE //Equipped item inventory
 	var/hotkey_ui_hidden = FALSE //This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
-	var/atom/movable/screen/ammo_counter //SKYRAT EDIT ADDITION
+	var/atom/movable/screen/ammo_counter //NOVA EDIT ADDITION
 
 	var/atom/movable/screen/blobpwrdisplay
 
@@ -120,7 +120,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/atom/movable/screen/spacesuit
 	// subtypes can override this to force a specific UI style
 	var/ui_style
-	var/erp_ui_style //SKYRAT EDIT - ADDITION - ERP ICONS FIX
+	var/erp_ui_style //NOVA EDIT - ADDITION - ERP ICONS FIX
 
 	// List of weakrefs to objects that we add to our screen that we don't expect to DO anything
 	// They typically use * in their render target. They exist solely so we can reuse them,
@@ -133,7 +133,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	if (!ui_style)
 		// will fall back to the default if any of these are null
 		ui_style = ui_style2icon(owner.client?.prefs?.read_preference(/datum/preference/choiced/ui_style))
-		erp_ui_style = erp_ui_style2icon(owner.client?.prefs?.read_preference(/datum/preference/choiced/ui_style)) //SKYRAT EDIT - ADDITION - ERP ICONS FIX
+		erp_ui_style = erp_ui_style2icon(owner.client?.prefs?.read_preference(/datum/preference/choiced/ui_style)) //NOVA EDIT - ADDITION - ERP ICONS FIX
 
 	toggle_palette = new()
 	toggle_palette.set_hud(src)
@@ -269,9 +269,9 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	alien_queen_finder = null
 	combo_display = null
 
-	//SKYRAT EDIT START - SKYRAT HUD
+	//NOVA EDIT START - SKYRAT HUD
 	wanted_lvl = null
-	// SKYRAT EDIT END - SKYRAT HUD
+	// NOVA EDIT END - SKYRAT HUD
 
 	QDEL_LIST_ASSOC_VAL(master_groups)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)

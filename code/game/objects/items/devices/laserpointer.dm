@@ -262,18 +262,18 @@
 
 	//catpeople: make any felinid near the target to face the target, chance for felinids to pounce at the light, stepping to the target
 	for(var/mob/living/carbon/human/target_felinid in view(1, targloc))
-		if(!isfeline(target_felinid) || target_felinid.stat == DEAD || target_felinid.is_blind() || target_felinid.incapacitated()) // SKYRAT EDIT - FELINE TRAITS. Was: isfelinid(H)
+		if(!isfeline(target_felinid) || target_felinid.stat == DEAD || target_felinid.is_blind() || target_felinid.incapacitated()) // NOVA EDIT - FELINE TRAITS. Was: isfelinid(H)
 			continue
 		if(target_felinid.body_position == STANDING_UP)
 			target_felinid.setDir(get_dir(target_felinid, targloc)) // kitty always looks at the light
-			//SKYRAT EDIT REMOVAL BEGIN (removes forced felinid movement from laserpointers, also fixes the longstanding windoor negation glitch)
+			//NOVA EDIT REMOVAL BEGIN (removes forced felinid movement from laserpointers, also fixes the longstanding windoor negation glitch)
 			/* if(prob(effectchance * diode.rating))
 				target_felinid.visible_message(span_warning("[target_felinid] makes a grab for the light!"), span_userdanger("LIGHT!"))
 				target_felinid.Move(targloc)
 				log_combat(user, target_felinid, "moved with a laser pointer", src)
 			else 
-			SKYRAT EDIT REMOVAL END */
-			target_felinid.visible_message(span_notice("[target_felinid] looks briefly distracted by the light."), span_warning("You're briefly tempted by the shiny light...")) //SKYRAT EDIT CHANGE : indent this block if re-enabling above
+			NOVA EDIT REMOVAL END */
+			target_felinid.visible_message(span_notice("[target_felinid] looks briefly distracted by the light."), span_warning("You're briefly tempted by the shiny light...")) //NOVA EDIT CHANGE : indent this block if re-enabling above
 		else
 			target_felinid.visible_message(span_notice("[target_felinid] stares at the light."), span_warning("You stare at the light..."))
 	//The pointer is shining, change its sprite to show
@@ -292,9 +292,9 @@
 		laser.pixel_y = target.pixel_y + rand(-5,5)
 
 	if(outmsg)
-		user.visible_message(span_danger("[user] points [src] at [target]!"), outmsg) //SKYRAT EDIT CHANGE - ORIGINAL: to_chat(user, outmsg)
+		user.visible_message(span_danger("[user] points [src] at [target]!"), outmsg) //NOVA EDIT CHANGE - ORIGINAL: to_chat(user, outmsg)
 	else
-		user.visible_message(span_notice("[user] points [src] at [target]."), span_notice("You point [src] at [target].")) //SKYRAT EDIT CHANGE - ORIGINAL: to_chat(user, span_info("You point [src] at [target]."))
+		user.visible_message(span_notice("[user] points [src] at [target]."), span_notice("You point [src] at [target].")) //NOVA EDIT CHANGE - ORIGINAL: to_chat(user, span_info("You point [src] at [target]."))
 
 	//we have successfully shone our pointer, reduce our battery depending on whether we have an extra lens or not
 	energy -= crystal_lens ? 2 : 1

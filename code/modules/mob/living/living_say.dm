@@ -20,11 +20,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	RADIO_KEY_SYNDICATE = RADIO_CHANNEL_SYNDICATE,
 	RADIO_KEY_UPLINK = RADIO_CHANNEL_UPLINK,
 	RADIO_KEY_CENTCOM = RADIO_CHANNEL_CENTCOM,
-	RADIO_KEY_FACTION = RADIO_CHANNEL_FACTION, //SKYRAT EDIT ADDITION - FACTION
-	RADIO_KEY_CYBERSUN = RADIO_CHANNEL_CYBERSUN, //SKYRAT EDIT ADDITION - MAPPING
-	RADIO_KEY_INTERDYNE = RADIO_CHANNEL_INTERDYNE, //SKYRAT EDIT ADDITION - MAPPING
-	RADIO_KEY_GUILD = RADIO_CHANNEL_GUILD, //SKYRAT EDIT ADDITION - MAPPING
-	RADIO_KEY_TARKON = RADIO_CHANNEL_TARKON, //SKYRAT EDIT ADDITION - MAPPING
+	RADIO_KEY_FACTION = RADIO_CHANNEL_FACTION, //NOVA EDIT ADDITION - FACTION
+	RADIO_KEY_CYBERSUN = RADIO_CHANNEL_CYBERSUN, //NOVA EDIT ADDITION - MAPPING
+	RADIO_KEY_INTERDYNE = RADIO_CHANNEL_INTERDYNE, //NOVA EDIT ADDITION - MAPPING
+	RADIO_KEY_GUILD = RADIO_CHANNEL_GUILD, //NOVA EDIT ADDITION - MAPPING
+	RADIO_KEY_TARKON = RADIO_CHANNEL_TARKON, //NOVA EDIT ADDITION - MAPPING
 
 	// Admin
 	MODE_KEY_ADMIN = MODE_ADMIN,
@@ -506,11 +506,11 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	return list("message" = message, "tts_message" = tts_message, "tts_filter" = tts_filter)
 
 /mob/living/proc/radio(message, list/message_mods = list(), list/spans, language)
-	//SKYRAT EDIT ADDITION BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	if((message_mods[MODE_HEADSET] || message_mods[RADIO_EXTENSION]) && !(mobility_flags & MOBILITY_USE) && !isAI(src) && !ispAI(src) && !ismecha(loc)) // If can't use items, you can't press the button
 		to_chat(src, span_warning("You can't use the radio right now as you can't reach the button!"))
 		return ITALICS | REDUCE_RANGE
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	var/obj/item/implant/radio/imp = locate() in src
 	if(imp?.radio.is_on())
 		if(message_mods[MODE_HEADSET])

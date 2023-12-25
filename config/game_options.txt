@@ -251,7 +251,7 @@ SPECIFIED_LAWS asimovpp
 ## See datums\ai_laws.dm for the full law lists
 
 ## standard-ish laws. These are fairly ok to run
-#SKYRAT EDIT ADDITION BEGIN
+#NOVA EDIT ADDITION BEGIN
 RANDOM_LAWS armadyne_safeguard
 RANDOM_LAWS asimov
 RANDOM_LAWS asimovpp
@@ -289,10 +289,10 @@ LAW_WEIGHT custom,0
 
 ## standard-ish laws. These are fairly ok to run
 ## Unique AI station trait uses weights so we don't want asimov
-#SKYRAT EDIT ADDITION BEGIN
+#NOVA EDIT ADDITION BEGIN
 LAW_WEIGHT armadyne_safeguard,40
 LAW_WEIGHT dagothbot,8
-#SKYRAT EDIT ADDITION END
+#NOVA EDIT ADDITION END
 LAW_WEIGHT asimov,0
 LAW_WEIGHT asimovpp,5
 LAW_WEIGHT paladin,5

@@ -85,7 +85,7 @@
 	if(toppaper)
 		. += toppaper.icon_state
 		. += toppaper.overlays
-	if(!integrated_pen && pen) // SKYRAT EDIT - CARGO BORGS - ORIGINAL: if(pen)
+	if(!integrated_pen && pen) // NOVA EDIT - CARGO BORGS - ORIGINAL: if(pen)
 		. += "clipboard_pen"
 	. += "clipboard_over"
 
