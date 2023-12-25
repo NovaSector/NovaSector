@@ -15,7 +15,7 @@
 	name = "Toggle Hood"
 
 /datum/action/item_action/toggle_firemode
-	button_icon = 'modular_skyrat/master_files/icons/mob/actions/actions_items.dmi' //NOVA EDIT ADDITION
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi' //NOVA EDIT ADDITION
 	button_icon_state = "fireselect_no" //NOVA EDIT ADDITION
 	name = "Toggle Firemode"
 

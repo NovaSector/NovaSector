@@ -143,7 +143,7 @@
 		playsound(src, 'sound/mecha/mechmove03.ogg', 50, TRUE) //Visors don't just come from nothing
 	var/mob/living/carbon/carbon_user = user	//NOVA EDIT --- Lets the visor not smush the snout
 	if(carbon_user.dna.species.mutant_bodyparts["snout"])
-		visor_sprite_path = 'modular_skyrat/master_files/icons/mob/clothing/head_muzzled.dmi'
+		visor_sprite_path = 'modular_nova/master_files/icons/mob/clothing/head_muzzled.dmi'
 	else
 		visor_sprite_path = 'icons/mob/clothing/head/utility.dmi'	//END NOVA EDIT
 	update_appearance()

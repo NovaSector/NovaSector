@@ -40,7 +40,7 @@
 
 #define DNA_UNI_IDENTITY_BLOCKS 8
 
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/_DEFINES/DNA.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/_DEFINES/DNA.dm)
 /*
 /// This number needs to equal the total number of DNA blocks
 #define DNA_MUTANT_COLOR_BLOCK 1

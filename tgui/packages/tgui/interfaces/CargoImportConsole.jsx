@@ -24,7 +24,7 @@ export const CargoImportConsole = (props) => {
       height={600}
     >
       <Window.Content>
-        <Section grow height="100%" title="Company Import Requisition Console">
+        <Section height="100%" title="Company Import Requisition Console">
           <Stack>
             <Stack.Item grow fill>
               <Button.Checkbox
