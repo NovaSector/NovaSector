@@ -11,7 +11,7 @@
 //box
 /obj/item/storage/box/donkpockets/nova/donkpocketcaffe
 	name = "box of coffee donk-pockets"
-	icon_state = "donkpocketcaffe"
+	icon_state = "donkpocketboxcaffe"
 	donktype = /obj/item/food/donkpocket/nova/caffe
 
 //plain
@@ -29,7 +29,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 	var/static/list/caffe_added_reagents = list(
 		/datum/reagent/medicine/omnizine = 2,
-		/datum/reagent/medicine/modafinil = 2,
+		/datum/reagent/medicine/epinephrine = 4,
+		/datum/reagent/consumable/coffee = 4, //more coffee
 	)
 
 /obj/item/food/donkpocket/nova/caffe/make_bakeable()
@@ -47,9 +48,9 @@
 		/datum/reagent/consumable/nutriment = 4,
 		/datum/reagent/consumable/coffee = 4,
 		/datum/reagent/medicine/omnizine = 2,
-		/datum/reagent/medicine/modafinil = 2,
+		/datum/reagent/medicine/epinephrine = 4,
 	)
-	tastes = list("banana" = 2, "dough" = 2, "melting caramel" = 1)
+	tastes = list("coffee" = 2, "dough" = 2, "melting caramel" = 1)
 	foodtypes = GRAIN
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -64,11 +65,11 @@
 	result = /obj/item/food/donkpocket/nova/caffe
 	category = CAT_PASTRY
 
-///Dank pockets
+///Dank pockets - Overwriting the pre-dating yet strangely unfinished dank-pockets
 //box
-/obj/item/storage/box/donkpockets/nova/dankpocket
+/obj/item/storage/box/donkpockets/nova/donkpocketdank
 	name = "box of weed donk-pockets"
-	icon_state = "donkpocketdank"
+	icon_state = "donkpocketboxdank"
 	donktype = /obj/item/food/donkpocket/nova/dank
 
 //plain

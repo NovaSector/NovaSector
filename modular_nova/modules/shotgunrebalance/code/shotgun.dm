@@ -257,7 +257,7 @@
 
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"
-	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti. Who is making all these?"
+	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti, yippie!"
 	icon_state = "honkshell"
 	projectile_type = /obj/projectile/bullet/honkshot
 	pellets = 12
@@ -294,6 +294,11 @@
 /obj/projectile/bullet/honkshot/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	new /obj/effect/decal/cleanable/confetti(get_turf(old_loc))
 	..()
+
+/obj/projectile/bullet/honkshot/on_hit(atom/target, blocked, pierce_hit)
+	if(!isliving(target))
+		return ..()
+	target.SpinAnimation(7,1)
 
 /obj/projectile/bullet/honkshot/on_range()
 	do_sparks(1, TRUE, src)
