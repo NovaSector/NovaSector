@@ -1602,12 +1602,12 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/det)
 "dT" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/window/survival_pod{
-	name = "detention cell door";
+	name = "Detention Cell door";
 	dir = 8;
 	req_access = list("syndicate")
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/det)
 "dU" = (
@@ -1708,7 +1708,7 @@
 "ek" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/machinery/door/window/survival_pod{
-	name = "detention cell door";
+	name = "Detention Cell door";
 	dir = 8;
 	req_access = list("syndicate")
 	},
@@ -1941,6 +1941,7 @@
 	dir = 4;
 	layer = 2.52
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/catwalk_floor/flat_white,
 /area/ruin/interdyne_planetary_base/med)
 "eP" = (
@@ -2289,6 +2290,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/catwalk_floor/flat_white,
 /area/ruin/interdyne_planetary_base/med)
 "fQ" = (
@@ -2949,8 +2951,8 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "hw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "hx" = (
@@ -3137,6 +3139,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/science)
 "hV" = (
@@ -3940,7 +3943,7 @@
 /obj/structure/sign/flag{
 	name = "flag of Interdyne";
 	desc = "The corporate flag of Interdyne Pharmaceutics. Hey, wait -- this is the French flag!";
-	pixel_w = 32
+	pixel_x = 32
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -4033,6 +4036,7 @@
 	name = "Unisex Restrooms"
 	},
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "ka" = (
@@ -4556,6 +4560,7 @@
 /obj/machinery/door/airlock{
 	name = "Library"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lm" = (
@@ -4567,6 +4572,7 @@
 /obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "ln" = (
@@ -4686,7 +4692,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lE" = (
-/obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4752,15 +4757,14 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "lL" = (
-/obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Wing"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "lM" = (
@@ -5625,6 +5629,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/duct,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "nI" = (
@@ -6262,6 +6267,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/thinplating/dark,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "pe" = (
@@ -6276,6 +6282,7 @@
 	},
 /obj/machinery/duct,
 /obj/effect/turf_decal/siding/thinplating/dark,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pf" = (
@@ -6619,8 +6626,8 @@
 /obj/structure/sign/flag{
 	name = "flag of Interdyne";
 	desc = "The corporate flag of Interdyne Pharmaceutics. Hey, wait -- this is the French flag!";
-	pixel_z = 32;
-	pixel_w = -16
+	pixel_y = 32;
+	pixel_x = -16
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
