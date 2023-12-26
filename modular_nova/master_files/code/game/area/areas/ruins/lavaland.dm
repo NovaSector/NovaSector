@@ -3,15 +3,17 @@
 
 // Interdyne planetary base
 
-/area/ruin/interdyne_planetary_base
+/area/ruin/interdyne_planetary_base // used as parent type and for turret control
 	name = "Interdyne Pharmaceutics Spinward Sector Base"
-	icon_state = "syndicate"
+	icon = 'icons/area/areas_centcom.dmi'
+	icon_state = "syndie-control"
 	ambience_index = AMBIENCE_DANGER
 	ambient_buzz = 'sound/ambience/magma.ogg'
 	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
 
 /area/ruin/interdyne_planetary_base/cargo
 	name = "Interdyne Cargo Bay"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "mining"
 
 /area/ruin/interdyne_planetary_base/cargo/deck
@@ -28,6 +30,7 @@
 
 /area/ruin/interdyne_planetary_base/main
 	name = "Interdyne Main Hall"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "secondaryhall"
 
 /area/ruin/interdyne_planetary_base/main/vault
@@ -47,6 +50,7 @@
 
 /area/ruin/interdyne_planetary_base/med
 	name = "Interdyne Medical Wing"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "medbay"
 
 /area/ruin/interdyne_planetary_base/med/pharm
@@ -66,6 +70,7 @@
 
 /area/ruin/interdyne_planetary_base/science
 	name = "Interdyne Science Wing"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "science"
 
 /area/ruin/interdyne_planetary_base/science/xeno
@@ -74,6 +79,7 @@
 
 /area/ruin/interdyne_planetary_base/serv
 	name = "Interdyne Service Wing"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "hall_service"
 
 /area/ruin/interdyne_planetary_base/serv/rstrm
@@ -98,6 +104,7 @@
 
 /area/ruin/interdyne_planetary_base/eng
 	name = "Interdyne Engineering"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "radstorm_shelter" // given interdyne's powerplant is 5 rtg's, thought this looked good on the frontend
 
 /area/ruin/interdyne_planetary_base/eng/disp

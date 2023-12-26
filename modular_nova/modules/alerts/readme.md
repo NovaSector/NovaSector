@@ -14,7 +14,7 @@ Adds new alert levels, and some extra details regarding the alerts
 
 ### Defines:
 
- ./code/__DEFINES/misc.dm > moved alert defines to:  code/__DEFINES/~skyrat_defines/security_alerts.dm 
+ ./code/__DEFINES/misc.dm > moved alert defines to:  code/__DEFINES/~nova_defines/security_alerts.dm 
 
 ### Master file additions
 

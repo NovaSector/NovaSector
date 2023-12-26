@@ -30,87 +30,87 @@
 	name = "Scrap Heap"
 
 ///Interdyne, Forward Operating Base
-/area/ruin/space/has_grav/nova/interdynefob
+/area/ruin/space/has_grav/nova/ds-two
 	name = "DS-2" //If DS-1 is so great...
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "syndie-ship"
 
 //Cargo
-/area/ruin/space/has_grav/nova/interdynefob/cargo
+/area/ruin/space/has_grav/nova/ds-two/cargo
 	name = "DS-2 Warehouse"
 
-/area/ruin/space/has_grav/nova/interdynefob/cargo/hangar
+/area/ruin/space/has_grav/nova/ds-two/cargo/hangar
 	name = "DS-2 Hangar"
 
 //Bridge
-/area/ruin/space/has_grav/nova/interdynefob/bridge
+/area/ruin/space/has_grav/nova/ds-two/bridge
 	name = "DS-2 Bridge"
 	icon_state = "syndie-control"
 
-/area/ruin/space/has_grav/nova/interdynefob/bridge/cl
+/area/ruin/space/has_grav/nova/ds-two/bridge/cl
 	name = "DS-2 Corporate Liaison's Office"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
-/area/ruin/space/has_grav/nova/interdynefob/bridge/admiral
+/area/ruin/space/has_grav/nova/ds-two/bridge/admiral
 	name = "DS-2 Station Admiral's Office"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
-/area/ruin/space/has_grav/nova/interdynefob/bridge/vault
+/area/ruin/space/has_grav/nova/ds-two/bridge/vault
 	name = "DS-2 Vault"
 
-/area/ruin/space/has_grav/nova/interdynefob/bridge/eva
+/area/ruin/space/has_grav/nova/ds-two/bridge/eva
 	name = "DS-2 E.V.A."
 
 //Security
-/area/ruin/space/has_grav/nova/interdynefob/security
+/area/ruin/space/has_grav/nova/ds-two/security
 	name = "DS-2 Security"
 	ambience_index = AMBIENCE_DANGER
 
-/area/ruin/space/has_grav/nova/interdynefob/security/armory
+/area/ruin/space/has_grav/nova/ds-two/security/armory
 	name = "DS-2 Armory"
 
-/area/ruin/space/has_grav/nova/interdynefob/security/lawyer
+/area/ruin/space/has_grav/nova/ds-two/security/lawyer
 	name = "DS-2 Interrogation Office"
 
-/area/ruin/space/has_grav/nova/interdynefob/security/prison
+/area/ruin/space/has_grav/nova/ds-two/security/prison
 	name = "DS-2 Long-Term Brig"
 
 //Service
-/area/ruin/space/has_grav/nova/interdynefob/service
+/area/ruin/space/has_grav/nova/ds-two/service
 	name = "DS-2 Service Wing"
 
-/area/ruin/space/has_grav/nova/interdynefob/service/diner
+/area/ruin/space/has_grav/nova/ds-two/service/diner
 	name = "DS-2 Diner"
 
-/area/ruin/space/has_grav/nova/interdynefob/service/dorms
+/area/ruin/space/has_grav/nova/ds-two/service/dorms
 	name = "DS-2 Dormitories"
 
-/area/ruin/space/has_grav/nova/interdynefob/service/dorms/fitness
+/area/ruin/space/has_grav/nova/ds-two/service/dorms/fitness
 	name = "DS-2 Fitness Room"
 
-/area/ruin/space/has_grav/nova/interdynefob/service/lounge
+/area/ruin/space/has_grav/nova/ds-two/service/lounge
 	name = "DS-2 Lounge"
 
-/area/ruin/space/has_grav/nova/interdynefob/service/hydroponics
+/area/ruin/space/has_grav/nova/ds-two/service/hydroponics
 	name = "DS-2 Hydroponics"
 
 //Hallways
-/area/ruin/space/has_grav/nova/interdynefob/halls
+/area/ruin/space/has_grav/nova/ds-two/halls
 	name = "DS-2 Central Halls"
 
 //Engineering
-/area/ruin/space/has_grav/nova/interdynefob/engineering
+/area/ruin/space/has_grav/nova/ds-two/engineering
 	name = "DS-2 Engineering"
 
 //Research
-/area/ruin/space/has_grav/nova/interdynefob/research
+/area/ruin/space/has_grav/nova/ds-two/research
 	name = "DS-2 Research"
 
 //Medbay
-/area/ruin/space/has_grav/nova/interdynefob/medbay
+/area/ruin/space/has_grav/nova/ds-two/medbay
 	name = "DS-2 Medical Bay"
 
-/area/ruin/space/has_grav/nova/interdynefob/medbay/chem
+/area/ruin/space/has_grav/nova/ds-two/medbay/chem
 	name = "DS-2 Chemistry"
 
 /area/ruin/space/has_grav/shuttle8532engineering

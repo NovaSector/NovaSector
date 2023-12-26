@@ -3,9 +3,9 @@
 	desc = "Vest designed to take heavy beating and probably keep the user alive in the process."
 	armor_type = /datum/armor/vest_hecu
 	icon_state = "ceramic_vest"
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_digi.dmi'
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Basic" = list(
@@ -41,9 +41,9 @@
 	desc = "Helmet designed to take heavy beating and probably keep the user alive in the process."
 	armor_type = /datum/armor/helmet_hecu
 	icon_state = "ceramic_helmet"
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_muzzled.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_muzzled.dmi'
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Basic" = list(

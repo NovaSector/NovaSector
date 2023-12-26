@@ -4182,11 +4182,7 @@
 	id = "interdynescience";
 	req_access = list("syndicate")
 	},
-/obj/machinery/skill_station{
-	desc = "Learn skills with only minimal chance for brain damage. This one seems to have a plasma glass chamber";
-	icon_state = "hypnochair";
-	base_icon_state = "hypnochair"
-	},
+/obj/machinery/skill_station/plasmaglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "kt" = (

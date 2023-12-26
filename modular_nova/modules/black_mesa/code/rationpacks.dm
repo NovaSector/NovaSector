@@ -25,7 +25,7 @@
 /obj/item/food/mre_course
 	name = "undefined MRE course"
 	desc = "Something you shouldn't see. But it's edible."
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/courses.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/courses.dmi'
 	icon_state = "main_course"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20)
 	tastes = list("crayon powder" = 1)
@@ -104,7 +104,7 @@
 /obj/item/storage/box/hecu_rations
 	name = "Meal, Ready-to-Eat"
 	desc = "A box containing a few rations and some chewing gum, for keeping a starving crayon-eater going."
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/mre_hecu.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/mre_hecu.dmi'
 	icon_state = "mre_package"
 	illustration = null
 

@@ -21,7 +21,7 @@ Makes soulstone no longer permakill people, and makes construct's souls return t
 
 ### Defines
 
-- code/__DEFINES/~skyrat_defines/traits.dm > TRAIT_SACRIFICED
+- code/__DEFINES/~nova_defines/traits.dm > TRAIT_SACRIFICED
 <!-- If you needed to add any defines, mention the files you added those defines in -->
 
 ### Master file additions

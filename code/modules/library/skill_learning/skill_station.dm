@@ -18,6 +18,10 @@
 	var/work_timer
 	/// What we're implanting
 	var/obj/item/skillchip/inserted_skillchip
+// NOVA EDIT START
+	/// What path boards used to construct it should build into when dropped.
+	var/base_build_path = /obj/machinery/smartfridge
+// NOVA EDIT END
 
 /obj/machinery/skill_station/Initialize(mapload)
 	. = ..()
