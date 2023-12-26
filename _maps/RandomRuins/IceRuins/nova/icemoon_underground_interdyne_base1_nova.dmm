@@ -4893,14 +4893,7 @@
 /obj/effect/turf_decal/weather/snow{
 	layer = 3
 	},
-/obj/structure/sign/poster/official/there_is_no_gas_giant{
-	pixel_x = -35;
-	pixel_y = -1
-	},
-/obj/structure/sign/poster/contraband/the_big_gas_giant_truth{
-	pixel_x = -27;
-	pixel_y = 15
-	},
+/obj/structure/sign/poster/official/there_is_no_gas_giant/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -6718,10 +6711,6 @@
 /obj/machinery/door/poddoor/shutters{
 	id = "interdynekitchen"
 	},
-/obj/structure/sign/poster/contraband/moffuchis_pizza/directional/east{
-	pixel_x = 28;
-	pixel_z = 3
-	},
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/open/floor/iron/freezer,
@@ -6810,10 +6799,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/obj/structure/sign/poster/contraband/gorlex_recruitment{
-	pixel_x = -30;
-	pixel_y = 5
-	},
+/obj/structure/sign/poster/contraband/the_big_gas_giant_truth/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -6843,10 +6829,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/obj/structure/sign/poster/random{
-	pixel_x = -29;
-	pixel_y = 3
-	},
+/obj/structure/sign/poster/contraband/gorlex_recruitment/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -6886,6 +6869,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
+/obj/structure/sign/poster/random/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -7419,6 +7403,10 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"XB" = (
+/obj/structure/sign/poster/contraband/moffuchis_pizza,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/serv/kitchen)
 "Yw" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Wing";
@@ -9262,7 +9250,7 @@ jr
 lL
 jp
 mp
-mL
+XB
 nN
 nE
 op

@@ -2903,14 +2903,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
-/obj/structure/sign/poster/contraband/the_big_gas_giant_truth{
-	pixel_x = -27;
-	pixel_y = 15
-	},
-/obj/structure/sign/poster/official/there_is_no_gas_giant{
-	pixel_x = -35;
-	pixel_y = -1
-	},
+/obj/structure/sign/poster/contraband/the_big_gas_giant_truth/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -5086,10 +5079,6 @@
 /obj/machinery/door/poddoor/shutters{
 	id = "interdynekitchen"
 	},
-/obj/structure/sign/poster/contraband/moffuchis_pizza/directional/east{
-	pixel_x = 28;
-	pixel_z = 3
-	},
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
 /turf/open/floor/iron/terracotta,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
@@ -5592,10 +5581,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
-/obj/structure/sign/poster/contraband/gorlex_recruitment{
-	pixel_x = -30;
-	pixel_y = 5
-	},
+/obj/structure/sign/poster/official/there_is_no_gas_giant/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -6427,10 +6413,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
-/obj/structure/sign/poster/random{
-	pixel_x = -29;
-	pixel_y = 3
-	},
+/obj/structure/sign/poster/contraband/gorlex_recruitment/directional/west,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -6693,6 +6676,16 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"tM" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/obj/structure/sign/poster/random/directional/west,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/ruin/interdyne_planetary_base/main)
 "vc" = (
 /obj/structure/shipping_container/kahraman/alt{
 	pixel_x = -8;
@@ -6831,6 +6824,10 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"XO" = (
+/obj/structure/sign/poster/contraband/moffuchis_pizza,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/serv/kitchen)
 "XP" = (
 /obj/structure/pod,
 /obj/effect/supplypod_rubble,
@@ -8661,7 +8658,7 @@ ja
 li
 kJ
 lZ
-mz
+XO
 mZ
 nv
 nZ
@@ -8773,7 +8770,7 @@ mo
 hj
 nK
 pD
-jX
+tM
 jX
 kM
 jv
