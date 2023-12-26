@@ -30,28 +30,49 @@
 #define PROGRAM_RUNS_WITHOUT_POWER (1<<5)
 
 //Program categories
-#define PROGRAM_CATEGORY_CREW "Crew"
-#define PROGRAM_CATEGORY_ENGI "Engineering"
-#define PROGRAM_CATEGORY_SUPL "Supply"
-#define PROGRAM_CATEGORY_SCI "Science"
-#define PROGRAM_CATEGORY_MISC "Other"
+#define PROGRAM_CATEGORY_DEVICE "Device Tools"
+#define PROGRAM_CATEGORY_EQUIPMENT "Equipment"
+#define PROGRAM_CATEGORY_GAMES "Games"
+#define PROGRAM_CATEGORY_SECURITY "Security & Records"
+#define PROGRAM_CATEGORY_ENGINEERING "Engineering"
+#define PROGRAM_CATEGORY_SUPPLY "Supply"
+#define PROGRAM_CATEGORY_SCIENCE "Science"
 
+///The default amount a program should take in cell use.
+#define PROGRAM_BASIC_CELL_USE 15
+
+///This app grants a minor protection against being PDA bombed if installed.
+///(can sometimes prevent it from being sent, while wasting a PDA bomb from the sender).
 #define DETOMATIX_RESIST_MINOR 1
+///This app grants a larger protection against being PDA bombed if installed.
+///(can sometimes prevent it from being sent, while wasting a PDA bomb from the sender).
 #define DETOMATIX_RESIST_MAJOR 2
+///This app gives a diminished protection against being PDA bombed if installed.
+#define DETOMATIX_RESIST_MALUS -4
 
-//NTNet transfer speeds, used when downloading/uploading a file/program.
-#define NTNETSPEED_LOWSIGNAL 0.5 // GQ/s transfer speed when the device is wirelessly connected and on Low signal
-#define NTNETSPEED_HIGHSIGNAL 1 // GQ/s transfer speed when the device is wirelessly connected and on High signal
-#define NTNETSPEED_ETHERNET 2 // GQ/s transfer speed when the device is using wired connection
+/**
+ * NTNet transfer speeds, used when downloading/uploading a file/program.
+ * The define is how fast it will download an app every program's process_tick.
+ */
+///Used for wireless devices with low signal.
+#define NTNETSPEED_LOWSIGNAL 0.5
+///Used for wireless devices with high signal.
+#define NTNETSPEED_HIGHSIGNAL 1
+///Used for laptops with a high signal, or computers, which is connected regardless of z level.
+#define NTNETSPEED_ETHERNET 2
 
-// NTNet connection signals
-///When you're away from the station/mining base and not on a console, you can't access the internet
+/**
+ * NTNet connection signals
+ * Used to calculate the defines above from NTNet Downloader, this is how
+ * good a ModPC's signal is.
+ */
+///When you're away from the station/mining base and not on a console, you can't access the internet.
 #define NTNET_NO_SIGNAL 0
 ///Low signal, so away from the station, but still connected
 #define NTNET_LOW_SIGNAL 1
-///On station, good signal
+///On station with good signal.
 #define NTNET_GOOD_SIGNAL 2
-///Using a Computer, ethernet-connected.
+///Using a Computer or Laptop with good signal, ethernet-connected.
 #define NTNET_ETHERNET_SIGNAL 3
 
 /// The default ringtone of the Messenger app.
@@ -59,6 +80,11 @@
 
 /// The maximum length of the ringtone of the Messenger app.
 #define MESSENGER_RINGTONE_MAX_LENGTH 20
+
+/**
+ * PDA Themes
+ * For these to work, the defines must be defined in tgui/styles/themes/[define].scss
+ */
 
 ///Default NtOS PDA theme
 #define PDA_THEME_NTOS "ntos"
