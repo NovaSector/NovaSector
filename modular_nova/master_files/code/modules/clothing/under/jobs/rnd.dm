@@ -19,14 +19,14 @@
 *	SCIENTIST
 */
 
-/obj/item/clothing/under/rank/rnd/scientist/skyrat/utility
+/obj/item/clothing/under/rank/rnd/scientist/nova/utility
 	name = "science utility uniform"
 	desc = "A utility uniform worn by NT-certified Science staff."
 	icon_state = "util_sci"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_MONKEY_VARIATION
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/rnd/scientist/skyrat/utility/syndicate
+/obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate
 	desc = "A utility uniform worn by Science staff."
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
