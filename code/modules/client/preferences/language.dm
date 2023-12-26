@@ -20,9 +20,7 @@
 	//we add uncommon as it's foreigner-only.
 	var/datum/language/uncommon/uncommon_language = /datum/language/uncommon
 	values += initial(uncommon_language.name)
-	// NOVA EDIT ADDITION START Let's you pick common
-	values += /datum/language/common::name
-	// NOVA EDIT ADDITION START
+	values += /datum/language/common::name // NOVA EDIT ADDITION START - Let's you select common
 
 	for(var/datum/language/language_type as anything in GLOB.uncommon_roundstart_languages)
 		if(initial(language_type.name) in values)
