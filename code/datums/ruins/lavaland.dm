@@ -66,6 +66,7 @@
 	allow_duplicates = FALSE
 */
 //NOVA EDIT REMOVAL END
+
 /datum/map_template/ruin/lavaland/free_golem
 	name = "Free Golem Ship"
 	id = "golem-ship"

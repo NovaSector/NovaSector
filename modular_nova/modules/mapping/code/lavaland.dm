@@ -17,7 +17,7 @@
 	name = "Interdyne Pharmaceutics Nova Sector Base 3c76928"
 	id = "lava-base"
 	description = "A planetside Interdyne research facility developing biological weapons; it is closely guarded by an elite team of agents."
-	suffix = "lavaland_surface_interdyne_base_nova.dmm"
+	suffix = "lavaland_surface_interdyne_base1_nova.dmm"
 	allow_duplicates = FALSE
 	never_spawn_with = list(/datum/map_template/ruin/icemoon/underground/nova/interdyne_base)
 	always_place = TRUE
