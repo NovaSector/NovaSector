@@ -1,7 +1,7 @@
 // Evil .585 smg that blueshields spawn with that will throw your screen like hell but itll sure kill whoever threatens a head really good
 
 /obj/item/gun/ballistic/automatic/xhihao_smg
-	name = "\improper Bogseo Submachinegun"
+	name = "\improper Bogseo Submachine Gun"
 	desc = "A weapon that could hardly be called a 'sub' machinegun, firing the monstrous .585 cartridge. \
 		It provides enough kick to bruise a shoulder pretty bad if used without protection."
 
