@@ -17,13 +17,13 @@
 *	ENGINEER
 */
 
-/obj/item/clothing/under/rank/engineering/engineer/skyrat/utility
+/obj/item/clothing/under/rank/engineering/engineer/nova/utility
 	name = "engineering utility uniform"
 	desc = "A utility uniform worn by Engineering personnel."
 	icon_state = "util_eng"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/engineering/engineer/skyrat/utility/syndicate
+/obj/item/clothing/under/rank/engineering/engineer/nova/utility/syndicate
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 
@@ -74,7 +74,7 @@
 	fire = 70
 	acid = 70
 
-/obj/item/clothing/under/rank/engineering/atmospheric_technician/skyrat/utility/advanced
+/obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
 	name = "advanced atmospherics uniform"
 	desc = "A jumpsuit worn by advanced atmospherics crews."
 	icon_state = "util_atmos"

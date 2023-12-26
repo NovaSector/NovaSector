@@ -15,13 +15,13 @@
 *	CARGO TECH
 */
 
-/obj/item/clothing/under/rank/cargo/tech/skyrat/utility
+/obj/item/clothing/under/rank/cargo/tech/nova/utility
 	name = "supply utility uniform"
 	desc = "A utility uniform worn by employees of the Supply department."
 	icon_state = "util_cargo"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/cargo/tech/skyrat/utility/syndicate
+/obj/item/clothing/under/rank/cargo/tech/nova/utility/syndicate
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 
@@ -81,15 +81,15 @@
 	icon_state = "skirtleneckQM"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/under/rank/cargo/qm/skyrat/syndie
+/obj/item/clothing/under/rank/cargo/qm/nova/interdyne
 	name = "deck officer's jumpsuit"
 	desc = "A dark suit with a classic cargo vest. For the ultimate master of all things paper."
 	icon_state = "qmsynd"
 	has_sensor = NO_SENSORS
-	armor_type = /datum/armor/clothing_under/skyrat_syndie
+	armor_type = /datum/armor/clothing_under/nova_interdyne
 	can_adjust = FALSE
 
-/datum/armor/clothing_under/skyrat_syndie
+/datum/armor/clothing_under/nova_interdyne
 	melee = 10
 	fire = 50
 	acid = 40

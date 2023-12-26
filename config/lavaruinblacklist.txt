@@ -12,8 +12,9 @@
 ##RESPAWN
 #_maps/RandomRuins/LavaRuins/lavaland_surface_seed_vault.dmm
 _maps/RandomRuins/LavaRuins/lavaland_surface_ash_walker1.dmm
-#modular_nova/modules/mapping/_maps/RandomRuins/LavaRuins/lavaland_surface_syndicate_base1_skyrat.dmm
-#_maps/RandomRuins/LavaRuins/skyrat/lavaland_surface_ash_walker1_skyrat.dmm
+#_maps/RandomRuins/LavaRuins/skyrat/lavaland_surface_ash_walker1_nova.dmm
+#modular_nova/modules/mapping/_maps/RandomRuins/LavaRuins/lavaland_surface_interdyne_base1_nova.dmm
+modular_nova/modules/mapping/_maps/RandomRuins/LavaRuins/lavaland_surface_syndicate_base1_skyrat.dmm
 #_maps/RandomRuins/AnywhereRuins/golem_ship.dmm
 
 ##SIN

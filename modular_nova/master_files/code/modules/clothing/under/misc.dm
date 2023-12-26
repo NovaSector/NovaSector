@@ -47,14 +47,14 @@
 	desc = "An old-fashioned pair of brown overalls, along with assorted pockets and belt-loops."
 	icon_state = "mechanic"
 
-/obj/item/clothing/under/misc/skyrat/utility
+/obj/item/clothing/under/misc/nova/utility
 	name = "general utility uniform"
 	desc = "A utility uniform worn by civilian-ranked crew."
 	icon_state = "utility"
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/misc/skyrat/utility/syndicate
+/obj/item/clothing/under/misc/nova/utility/syndicate
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 

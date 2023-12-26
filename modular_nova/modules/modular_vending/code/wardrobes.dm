@@ -7,7 +7,7 @@
 		/obj/item/clothing/under/rank/engineering/engineer/skyrat/hazard_chem/emt = 2,
 		/obj/item/clothing/under/rank/medical/scrubs/skyrat/red = 4,
 		/obj/item/clothing/under/rank/medical/scrubs/skyrat/white = 4,
-		/obj/item/clothing/under/rank/medical/doctor/skyrat/utility = 4,
+		/obj/item/clothing/under/rank/medical/doctor/nova/utility = 4,
 		/obj/item/clothing/suit/toggle/labcoat/medical = 4,
 		/obj/item/storage/backpack/messenger/med = 4,
 	)
@@ -16,7 +16,7 @@
 	skyrat_products = list(
 		/obj/item/radio/headset/headset_eng = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/skyrat/trouser = 3,
-		/obj/item/clothing/under/rank/engineering/engineer/skyrat/utility = 3,
+		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/skyrat/hazard_chem = 3,
 		/obj/item/clothing/under/misc/overalls = 3,
 		/obj/item/clothing/suit/toggle/jacket/engi = 3,
@@ -41,7 +41,7 @@
 		/obj/item/clothing/under/rank/cargo/tech/skyrat/gorka = 3,
 		/obj/item/clothing/under/rank/cargo/tech/skyrat/turtleneck = 3,
 		/obj/item/clothing/under/rank/cargo/tech/skyrat/turtleneck/skirt = 3,
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/utility = 3,
+		/obj/item/clothing/under/rank/cargo/tech/nova/utility = 3,
 		/obj/item/clothing/under/rank/cargo/tech/skyrat/casualman = 3,
 		/obj/item/clothing/suit/toggle/jacket/supply = 3,
 		/obj/item/clothing/glasses/hud/gun_permit = 5, //from company imports module
@@ -76,7 +76,7 @@
 /obj/machinery/vending/wardrobe/science_wardrobe
 	skyrat_products = list(
 		/obj/item/clothing/under/rank/rnd/scientist/skyrat/hlscience = 3,
-		/obj/item/clothing/under/rank/rnd/scientist/skyrat/utility = 3,
+		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
 		/obj/item/clothing/suit/toggle/jacket/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)

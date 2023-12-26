@@ -14,8 +14,8 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/science(src)
 	new /obj/item/clothing/suit/toggle/labcoat/science(src)
 	new /obj/item/clothing/glasses/sunglasses/chemical(src)
-	new /obj/item/clothing/under/rank/rnd/scientist/skyrat/utility/syndicate(src)
-	new /obj/item/clothing/under/rank/rnd/scientist/skyrat/utility/syndicate(src)
+	new /obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate(src)
+	new /obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate(src)
 	new /obj/item/clothing/accessory/armband/science/syndicate(src)
 	new /obj/item/clothing/accessory/armband/science/syndicate(src)
 

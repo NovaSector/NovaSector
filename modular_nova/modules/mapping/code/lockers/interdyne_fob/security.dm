@@ -20,7 +20,7 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to a brig officer."
 
 /obj/item/storage/bag/garment/brig_officer/PopulateContents()
-	new /obj/item/clothing/under/rank/security/skyrat/utility/redsec/syndicate(src)
+	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
 	new /obj/item/clothing/head/beret/sec/syndicate(src)
 	new /obj/item/clothing/accessory/armband(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)

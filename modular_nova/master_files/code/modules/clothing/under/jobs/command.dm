@@ -111,13 +111,13 @@
 *	UNASSIGNED (Any head of staff)
 */
 
-/obj/item/clothing/under/rank/captain/skyrat/utility
+/obj/item/clothing/under/rank/captain/nova/utility
 	name = "command utility uniform"
 	desc = "A utility uniform worn by Station Command."
 	icon_state = "util_com"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/captain/skyrat/utility/syndicate
+/obj/item/clothing/under/rank/captain/nova/utility/syndicate
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 

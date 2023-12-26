@@ -31,13 +31,13 @@
 *	DOCTOR
 */
 
-/obj/item/clothing/under/rank/medical/doctor/skyrat/utility
+/obj/item/clothing/under/rank/medical/doctor/nova/utility
 	name = "medical utility uniform"
 	desc = "A utility uniform worn by Medical doctors."
 	icon_state = "util_med"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_MONKEY_VARIATION
 
-/obj/item/clothing/under/rank/medical/doctor/skyrat/utility/syndicate
+/obj/item/clothing/under/rank/medical/doctor/nova/utility/syndicate
 	armor_type = /datum/armor/clothing_under/utility_syndicate
 	has_sensor = NO_SENSORS
 

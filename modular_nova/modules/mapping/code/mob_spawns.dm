@@ -222,7 +222,7 @@
 
 /datum/outfit/ds2/syndicate/researcher
 	name = "DS-2 Researcher"
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/utility/syndicate
+	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate
 	id_trim = /datum/id_trim/syndicom/skyrat/ds2/researcher
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
 	glasses = /obj/item/clothing/glasses/sunglasses/chemical
@@ -300,7 +300,7 @@
 
 /datum/outfit/ds2/syndicate_command/admiral
 	name = "DS-2 Admiral"
-	uniform = /obj/item/clothing/under/rank/captain/skyrat/utility/syndicate
+	uniform = /obj/item/clothing/under/rank/captain/nova/utility/syndicate
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/gun/ballistic/automatic/pistol/aps
@@ -473,7 +473,7 @@
 
 /datum/outfit/tarkon
 	name = "default port tarkon outfit"
-	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/utility
+	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/utility
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/winterboots
 	gloves = /obj/item/clothing/gloves/fingerless
@@ -502,7 +502,7 @@
 
 /datum/outfit/tarkon/sci
 	name = "Port Tarkon Science Outfit"
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/utility
+	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/utility
 	glasses = /obj/item/clothing/glasses/hud/diagnostic
 	id = /obj/item/card/id/away/tarkon/sci
 	l_hand = /obj/item/inducer
@@ -515,7 +515,7 @@
 
 /datum/outfit/tarkon/med
 	name = "Port Tarkon Medical Outfit"
-	uniform = /obj/item/clothing/under/rank/medical/doctor/skyrat/utility
+	uniform = /obj/item/clothing/under/rank/medical/doctor/nova/utility
 	glasses = /obj/item/clothing/glasses/hud/health
 	id = /obj/item/card/id/away/tarkon/med
 	neck = /obj/item/clothing/neck/stethoscope
@@ -528,7 +528,7 @@
 
 /datum/outfit/tarkon/engi
 	name = "Port Tarkon Engineering Outfit"
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/skyrat/utility
+	uniform = /obj/item/clothing/under/rank/engineering/engineer/nova/utility
 	glasses = /obj/item/clothing/glasses/meson/engine/tray
 	id = /obj/item/card/id/away/tarkon/engi
 	gloves = /obj/item/clothing/gloves/combat
@@ -541,7 +541,7 @@
 
 /datum/outfit/tarkon/sec
 	name = "Port Tarkon Security Outfit"
-	uniform = /obj/item/clothing/under/rank/security/skyrat/utility/redsec
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec
 	glasses = /obj/item/clothing/glasses/hud/security/redsec
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	id = /obj/item/card/id/away/tarkon/sec
@@ -562,7 +562,7 @@
 
 /datum/outfit/tarkon/ensign //jack of all trades, master of none, spent all his credits, every last one
 	name = "Port Tarkon Ensigns Outfit"
-	uniform = /obj/item/clothing/under/misc/skyrat/utility
+	uniform = /obj/item/clothing/under/misc/nova/utility
 	ears = /obj/item/radio/headset/tarkon/ensign
 	id = /obj/item/card/id/away/tarkon/ensign
 	neck = /obj/item/clothing/neck/security_cape/armplate

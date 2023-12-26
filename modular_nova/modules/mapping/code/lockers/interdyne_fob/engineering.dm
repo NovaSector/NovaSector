@@ -45,7 +45,7 @@
 	new /obj/item/clothing/head/soft/sec/syndicate(src)
 	new /obj/item/clothing/under/syndicate/skyrat/overalls(src)
 	new /obj/item/clothing/under/syndicate/skyrat/overalls/skirt(src)
-	new /obj/item/clothing/under/rank/engineering/engineer/skyrat/utility/syndicate(src)
+	new /obj/item/clothing/under/rank/engineering/engineer/nova/utility/syndicate(src)
 	new /obj/item/clothing/suit/jacket/gorlex_harness(src)
 	new /obj/item/clothing/suit/hazardvest(src)
 	new /obj/item/clothing/accessory/armband/engine/syndicate(src)

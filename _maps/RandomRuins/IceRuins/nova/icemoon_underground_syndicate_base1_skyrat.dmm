@@ -3834,8 +3834,8 @@
 	name = "deck offficer's locker";
 	req_access = list("syndicate_leader")
 	},
-/obj/item/clothing/neck/cloak/qm/syndie,
-/obj/item/clothing/under/rank/cargo/qm/skyrat/syndie,
+/obj/item/clothing/neck/cloak/qm/nova/interdyne,
+/obj/item/clothing/under/rank/cargo/qm/nova/interdyne,
 /obj/item/circuitboard/computer/advanced_camera,
 /obj/item/megaphone/cargo,
 /obj/item/clothing/glasses/sunglasses,

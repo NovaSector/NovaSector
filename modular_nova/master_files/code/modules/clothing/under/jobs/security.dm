@@ -15,20 +15,20 @@
 *	SECURITY OFFICER
 */
 
-/obj/item/clothing/under/rank/security/skyrat/utility
+/obj/item/clothing/under/rank/security/nova/utility
 	name = "security utility uniform"
 	desc = "A utility uniform worn by Lopland-certified Security officers."
 	icon_state = "util_sec"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_MONKEY_VARIATION
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/security/skyrat/utility/redsec
+/obj/item/clothing/under/rank/security/nova/utility/redsec
 	desc = "A utility uniform worn by trained Security officers."
 	icon_state = "util_sec_old"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/security/skyrat/utility/redsec/syndicate
+/obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
 	armor_type = /datum/armor/clothing_under/redsec_syndicate
 	has_sensor = NO_SENSORS
 
