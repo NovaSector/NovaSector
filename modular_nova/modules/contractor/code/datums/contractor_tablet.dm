@@ -1,5 +1,5 @@
 /datum/computer_file/program/contract_uplink
-	category = PROGRAM_CATEGORY_MISC
+	downloader_category = PROGRAM_CATEGORY_EQUIPMENT
 	tgui_id = "SyndContractor"
 	/// If the contract uplink's been assigned to a person yet
 	var/assigned = FALSE
