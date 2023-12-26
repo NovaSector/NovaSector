@@ -77,7 +77,7 @@
 	uniform = /obj/item/clothing/under/rank/cargo/qm/nova/interdyne
 	neck = /obj/item/clothing/neck/cloak/qm/nova/interdyne
 	ears = /obj/item/radio/headset/interdyne/command
-	/obj/item/card/id/advanced/chameleon/black/silver
+	id = /obj/item/card/id/advanced/chameleon/black/silver
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/deckofficer/Destroy()
