@@ -20,7 +20,7 @@
 	/// How much time between the storing of cyborgs?
 	var/stored_duration = 5 MINUTES
 	/// Handles the stored Cyborg timer.
-	var/stored_timer = 0
+	var/stored_timer
 	/// The countdown itself
 	var/obj/effect/countdown/transformer_rp/countdown
 	/// The master AI , assigned when placed down with the ability.
@@ -30,7 +30,7 @@
 	// On us
 	. = ..()
 	new /obj/machinery/conveyor/auto(loc, WEST)
-	stored_timer = world.time + stored_duration
+	stored_timer = stored_duration
 	countdown = new(src)
 	countdown.start()
 
@@ -38,11 +38,13 @@
 	. = ..()
 	if(issilicon(user) || isobserver(user))
 		. += "<br>It has [stored_cyborgs] cyborgs stored."
+		if(!is_operational)
+			return
 		if(cooldown && cooldown_timer)
-			. += "<br>It will be ready to deploy a stored cyborg in [DisplayTimeText(max(0, cooldown_timer - world.time))]."
+			. += "<br>It will be ready to deploy a stored cyborg in [DisplayTimeText(max(0, cooldown_timer))]."
 		if(stored_cyborgs >= max_stored_cyborgs)
 			return
-		. += "<br>It will store a new cyborg in [DisplayTimeText(max(0, stored_timer - world.time))]."
+		. += "<br>It will store a new cyborg in [DisplayTimeText(max(0, stored_timer))]."
 
 /obj/machinery/transformer_rp/Destroy()
 	QDEL_NULL(countdown)
@@ -50,23 +52,25 @@
 
 /obj/machinery/transformer_rp/update_icon_state()
 	. = ..()
-	if(machine_stat & (BROKEN|NOPOWER))
-		icon_state = base_icon_state
-	else
+	if(is_operational)
 		icon_state = "separator-AO1"
+	else
+		icon_state = base_icon_state
 
 /obj/machinery/transformer_rp/attack_ghost(mob/dead/observer/target_ghost)
 	. = ..()
 	create_a_cyborg(target_ghost)
 
-/obj/machinery/transformer_rp/process()
-	if(cooldown_timer < world.time)
+/obj/machinery/transformer_rp/process(seconds_per_tick)
+	cooldown_timer = max(0, cooldown_timer - (seconds_per_tick * 10))
+	if(cooldown_timer == 0)
 		cooldown = FALSE
 
-	if(stored_timer > world.time)
+	stored_timer = max(0, stored_timer - (seconds_per_tick * 10))
+	if(stored_timer > 0)
 		return
 
-	stored_timer = world.time + stored_duration
+	stored_timer = stored_duration
 
 	if(stored_cyborgs >= max_stored_cyborgs)
 		return
@@ -79,7 +83,7 @@
 	)
 
 /obj/machinery/transformer_rp/proc/create_a_cyborg(mob/dead/observer/target_ghost)
-	if(machine_stat & (BROKEN|NOPOWER))
+	if(!is_operational)
 		return
 	if(stored_cyborgs < 1)
 		return
@@ -98,4 +102,4 @@
 	stored_cyborgs--
 
 	cooldown = TRUE
-	cooldown_timer = world.time + cooldown_duration
+	cooldown_timer = cooldown_duration
