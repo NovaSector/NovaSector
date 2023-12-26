@@ -202,7 +202,7 @@ If anyone can figure out how to get Obsessed to work I would be very appreciativ
 		"Do you wish to be considered for the position of a Wizard Foundation 'diplomat'?",
 		role = ROLE_WIZARD,
 		pic_source = /obj/item/clothing/head/wizard,
-		role_text_name = "wizard",
+		role_name_text = "wizard",
 	)
 	var/mob/living/carbon/human/target
 	do

@@ -147,10 +147,10 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		poll_question,
 		check_jobban = ROLE_DEATHSQUAD,
 		pic_source = /obj/item/solfed_reporter,
-		role_text_name = cops_to_send::name,
+		role_name_text = cops_to_send::name,
 	)
 
-	if(candidates.len)
+	if(length(candidates))
 		//Pick the (un)lucky players
 		var/agents_number = min(team_size, candidates.len)
 
@@ -587,7 +587,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 				ghost_poll_msg,
 				jobban_to_check,
 				pic_source = /obj/item/solfed_reporter,
-				role_text_name = summoned_type,
+				role_name_text = summoned_type,
 			)
 
 			if(candidates.len)
