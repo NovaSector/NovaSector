@@ -1,8 +1,7 @@
 /// Maximum an Hemophage will drain, they will drain less if they hit their cap.
 #define HEMOPHAGE_DRAIN_AMOUNT 50
 /// The multiplier for blood received by Hemophages out of humans with ckeys.
-#define BLOOD_DRAIN_MULTIPLIER_CKEY 1.5
-
+#define BLOOD_DRAIN_MULTIPLIER_CKEY 1.15
 
 /datum/component/organ_corruption/tongue
 	corruptable_organ_type = /obj/item/organ/internal/tongue
@@ -149,6 +148,10 @@
 
 	playsound(hemophage, 'sound/items/drink.ogg', 30, TRUE, -2)
 
+	// just let the hemophage know they're capped out on blood if they're trying to go for an exsanguinate and wondering why it isn't working
+	if(drained_blood != HEMOPHAGE_DRAIN_AMOUNT && hemophage.blood_volume >= (BLOOD_VOLUME_MAXIMUM - HEMOPHAGE_DRAIN_AMOUNT))
+		to_chat(hemophage, span_boldnotice("Your thirst is temporarily slaked, and you can digest no more new blood for the moment."))
+
 	if(victim.blood_volume <= BLOOD_VOLUME_OKAY)
 		to_chat(hemophage, span_warning("That definitely left them looking pale..."))
 		to_chat(victim, span_warning("A groaning lethargy creeps into your muscles as you begin to feel slightly clammy...")) //let the victim know too
@@ -159,12 +162,21 @@
 		hemophage.clear_mood_event("gross_food") // it's a real palate cleanser, you know
 		hemophage.disgust *= 0.85 //also clears a little bit of disgust too
 
-	if(!victim.blood_volume || victim.blood_volume < BLOOD_VOLUME_SURVIVE)
-		to_chat(hemophage, span_warning("You drain the last drop of blood from [victim]'s barren veins."))
+	// for this to ever occur, the hemophage actually has to be decently hungry, otherwise they'll cap their own blood reserves and be unable to pull it off.
+	if(!victim.blood_volume || victim.blood_volume <= BLOOD_VOLUME_SURVIVE)
+		to_chat(hemophage, span_boldwarning("Sensing an opportunity, your tumour produces an UNCONTROLLABLE URGE to draw extra deeply from [victim], forcing you to violently drain the last drops of blood from their veins."))
+		to_chat(victim, span_bolddanger("The faint warmth of life flees your cooling body as [hemophage]'s ravenous hunger violently drains the last of your precious blood in one fell swoop, sending you hurtling headlong into the cold embrace of death."))
+		victim.visible_message(span_warning("[victim] turns a terrible shade of ashen grey."))
+		victim.death()
+		victim.blood_volume = 0 // the rest of the blood goes towards the tumour making happy juice for you.
 		if (is_target_human_with_client)
 			to_chat(hemophage, span_boldnotice("A rush of unbidden exhilaration surges through you as the predatory urges of your terrible coexistence are momentarily sated."))
 			hemophage.add_mood_event("hemophage_killed", /datum/mood_event/hemophage_exsanguinate) // this is the tumour-equivalent of a nice little headpat. you murderer, you!
 			hemophage.disgust = 0 // all is forgiven.
+			if (prob(33))
+				to_chat(hemophage, span_warning("...what have you done?"))
+	else if ((victim.blood_volume + HEMOPHAGE_DRAIN_AMOUNT) <= BLOOD_VOLUME_SURVIVE)
+		to_chat(hemophage, span_warning("A sense of hesitation gnaws: you know for certain that taking much more blood from [victim] WILL kill them. <b>...but another part of you sees only opportunity.</b>"))
 
 
 #undef HEMOPHAGE_DRAIN_AMOUNT
