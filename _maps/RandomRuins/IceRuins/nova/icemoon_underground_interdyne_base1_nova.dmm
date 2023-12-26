@@ -646,12 +646,6 @@
 /obj/item/book/manual/wiki/infections,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
-"bL" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/space/basic,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/cargo)
 "bM" = (
 /obj/effect/turf_decal/arrows,
 /turf/open/floor/iron/diagonal,
@@ -1184,7 +1178,6 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1485,7 +1478,6 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1604,7 +1596,7 @@
 "dT" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/window/survival_pod{
-	name = "Detention Cell door";
+	name = "Detention Cell";
 	dir = 8;
 	req_access = list("syndicate")
 	},
@@ -1708,7 +1700,7 @@
 "ek" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/machinery/door/window/survival_pod{
-	name = "Detention Cell door";
+	name = "Detention Cell";
 	dir = 8;
 	req_access = list("syndicate")
 	},
@@ -3146,9 +3138,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/button/door/directional/south{
 	name = "window security button";
 	pixel_x = -24;
@@ -3190,9 +3179,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -4045,7 +4031,6 @@
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "kb" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west{
 	layer = 3.21
 	},
@@ -4549,7 +4534,7 @@
 /obj/structure/cable,
 /obj/structure/sign/poster/contraband/jumbo_bar/directional/east{
 	pixel_x = 29;
-	pixel_z = 3
+	pixel_y = 3
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
@@ -4804,7 +4789,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/duct,
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4;
@@ -8492,7 +8476,7 @@ an
 az
 aA
 aU
-bL
+qE
 bY
 qE
 qE
