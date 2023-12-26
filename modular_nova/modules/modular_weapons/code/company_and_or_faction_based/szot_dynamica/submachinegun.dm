@@ -1,7 +1,7 @@
 // Rapid firing submachinegun firing .27-54 Cesarzowa
 
 /obj/item/gun/ballistic/automatic/miecz
-	name = "\improper Miecz Submachinegun"
+	name = "\improper Miecz Submachine Gun"
 	desc = "A short barrel, further compacted conversion of the 'Lanca' rifle to fire pistol caliber .27-54 cartridges. \
 		Due to the intended purpose of the weapon, and less than optimal ranged performance of the projectile, it has \
 		nothing more than basic glow-sights as opposed to the ranged scope Lanca users might be used to."
