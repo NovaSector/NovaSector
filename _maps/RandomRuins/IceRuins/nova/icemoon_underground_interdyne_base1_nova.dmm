@@ -116,42 +116,8 @@
 /obj/structure/curtain,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"ar" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner,
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 9
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "as" = (
 /turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
-"at" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"au" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
 /area/icemoon/underground/explored)
 "av" = (
 /obj/machinery/light/directional/west,
@@ -277,30 +243,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"aI" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"aJ" = (
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"aK" = (
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "aL" = (
 /obj/structure/dresser,
 /turf/open/floor/wood,
@@ -344,17 +286,6 @@
 /obj/structure/mirror/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"aS" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "aT" = (
 /obj/structure/sign/warning/gas_mask/directional/east,
 /obj/effect/turf_decal/weather/snow{
@@ -389,15 +320,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/cargo)
-"aX" = (
-/obj/structure/shipping_container/kosmologistika{
-	pixel_x = -6;
-	pixel_y = 7
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "aY" = (
 /obj/structure/dresser,
 /turf/open/floor/iron/smooth_large,
@@ -713,13 +635,6 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/cargo)
-"bJ" = (
-/obj/structure/pod,
-/obj/effect/supplypod_rubble,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "bK" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/dropper{
@@ -995,20 +910,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cq" = (
-/obj/item/toy/figure/syndie,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"cr" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "cs" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
@@ -1050,17 +951,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cx" = (
-/obj/structure/shipping_container/interdyne{
-	pixel_x = 2
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "cy" = (
 /obj/effect/turf_decal/siding/brown{
 	dir = 1
@@ -1255,22 +1145,6 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
-"cL" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"cM" = (
-/obj/structure/shipping_container/kahraman{
-	pixel_y = -14
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "cN" = (
 /obj/item/storage/box/stockparts/deluxe,
 /obj/item/storage/box/stockparts/deluxe,
@@ -1303,18 +1177,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cQ" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/power/floodlight{
-	anchored = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "cR" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo/det)
@@ -1735,16 +1597,6 @@
 	},
 /turf/open/floor/eighties,
 /area/ruin/interdyne_planetary_base/cargo)
-"dR" = (
-/obj/structure/pod,
-/obj/effect/supplypod_rubble,
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "dS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
@@ -1772,23 +1624,6 @@
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "dW" = (
 /turf/closed/mineral/random/snow,
-/area/icemoon/underground/explored)
-"dX" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"dY" = (
-/obj/structure/shipping_container/donk_co{
-	pixel_x = 6
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
 /area/icemoon/underground/explored)
 "dZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2189,33 +2024,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"fa" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
-"fb" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/snow/corner,
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "fc" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/science)
@@ -2379,17 +2187,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/science)
-"fA" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "fB" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
 /turf/open/floor/iron/dark/textured_large,
@@ -2400,20 +2197,6 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
-"fD" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 8
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "fE" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
@@ -2907,20 +2690,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"gN" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "gO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2951,21 +2720,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/interdyne_planetary_base/main)
-"gQ" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 10
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "gR" = (
 /obj/machinery/firealarm/directional/west{
 	dir = 4
@@ -3074,21 +2828,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"hg" = (
-/obj/machinery/door/airlock/medical/glass{
-	name = "Medical Wing";
-	req_access = list("syndicate")
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "interdyne-medbay"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/flat_white,
-/area/ruin/interdyne_planetary_base/med)
 "hh" = (
 /obj/machinery/turretid{
 	name = "Base turret controls";
@@ -3172,21 +2911,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/interdyne_planetary_base/main)
-"hr" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "hs" = (
 /obj/machinery/vending/drugs{
 	name = "\improper SyndiDrug Plus";
@@ -3549,21 +3273,6 @@
 /obj/structure/disposalpipe/junction/flip,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"ij" = (
-/obj/machinery/door/airlock/medical/glass{
-	name = "Medical Wing";
-	req_access = list("syndicate")
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "interdyne-medbay"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/catwalk_floor/flat_white,
-/area/ruin/interdyne_planetary_base/med)
 "ik" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/airlock/maintenance/external,
@@ -6932,10 +6641,6 @@
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/main/vault)
-"qa" = (
-/obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/med)
 "qb" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -6958,20 +6663,6 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"qe" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Service Wing"
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "interdyne-service"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/duct,
-/obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/serv)
 "qf" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -7454,11 +7145,269 @@
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/med/morgue)
-"za" = (
+"rF" = (
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"ti" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"tt" = (
+/obj/effect/baseturf_helper/reinforced_plating/ceiling,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/science/xeno)
+"tZ" = (
+/obj/structure/pod,
+/obj/effect/supplypod_rubble,
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"uJ" = (
+/obj/structure/pod,
+/obj/effect/supplypod_rubble,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"xc" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"xS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"zt" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Al" = (
+/obj/structure/shipping_container/interdyne{
+	pixel_x = 2
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Br" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Service Wing"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "interdyne-service"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
+/obj/effect/baseturf_helper/reinforced_plating/ceiling,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/serv)
+"BG" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"BT" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"CW" = (
+/obj/structure/shipping_container/kosmologistika{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"DJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"ET" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/power/floodlight{
+	anchored = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"GW" = (
+/obj/item/toy/figure/syndie,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"HC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"HK" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Iu" = (
+/obj/structure/shipping_container/kahraman{
+	pixel_y = -14
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Iv" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"JE" = (
+/obj/machinery/door/airlock/medical/glass{
+	name = "Medical Wing";
+	req_access = list("syndicate")
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "interdyne-medbay"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/flat_white,
+/area/ruin/interdyne_planetary_base/med)
+"JM" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Lg" = (
+/obj/effect/baseturf_helper/reinforced_plating,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/med)
+"LJ" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/serv)
-"Wg" = (
+"LM" = (
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Mc" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"OK" = (
 /obj/machinery/camera/autoname/directional/west{
 	pixel_y = -10;
 	network = list("intd13");
@@ -7466,10 +7415,61 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
-"WE" = (
-/obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/science/xeno)
+"Pg" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Ur" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"WQ" = (
+/obj/structure/shipping_container/donk_co{
+	pixel_x = 6
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
+"Yw" = (
+/obj/machinery/door/airlock/medical/glass{
+	name = "Medical Wing";
+	req_access = list("syndicate")
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "interdyne-medbay"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor/flat_white,
+/area/ruin/interdyne_planetary_base/med)
+"Zd" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
 
 (1,1,1) = {"
 aa
@@ -7857,7 +7857,7 @@ fz
 fz
 fz
 fc
-WE
+tt
 ip
 iT
 jk
@@ -8863,7 +8863,7 @@ hb
 iy
 eQ
 ja
-za
+LJ
 lt
 lt
 lt
@@ -8922,7 +8922,7 @@ hb
 gj
 fv
 jb
-qe
+Br
 jO
 jO
 jO
@@ -9327,10 +9327,10 @@ cW
 fx
 pP
 fr
-qa
-hg
+Lg
+JE
 fs
-ij
+Yw
 eb
 ik
 fx
@@ -9490,7 +9490,7 @@ rl
 aW
 br
 bI
-Wg
+OK
 ci
 cw
 aW
@@ -9543,17 +9543,17 @@ dW
 dW
 ab
 ab
-ar
-fD
-aI
-fD
-cL
-cL
-cQ
-dX
-dX
-fD
-gQ
+Zd
+Mc
+Ur
+Mc
+Pg
+Pg
+ET
+DJ
+DJ
+Mc
+HK
 ab
 ab
 ab
@@ -9602,17 +9602,17 @@ dW
 dW
 ab
 as
-at
-aJ
-aJ
-aJ
-cx
-aK
-aK
-aK
-dY
-aJ
-fb
+BT
+LM
+LM
+LM
+Al
+rF
+rF
+rF
+WQ
+LM
+Iv
 ab
 ab
 ae
@@ -9661,17 +9661,17 @@ dW
 dW
 ab
 as
-at
-aJ
-aX
-aK
-aK
-aK
-bJ
-aK
-cq
-aK
-fb
+BT
+LM
+CW
+rF
+rF
+rF
+uJ
+rF
+GW
+rF
+Iv
 as
 ab
 mM
@@ -9720,17 +9720,17 @@ dW
 dW
 ab
 as
-at
-aJ
-aJ
-cq
-aK
-cM
-aK
-aK
-aK
-aJ
-fA
+BT
+LM
+LM
+GW
+rF
+Iu
+rF
+rF
+rF
+LM
+BG
 ac
 ab
 aC
@@ -9779,17 +9779,17 @@ dW
 ab
 ab
 ab
-au
-aK
-aK
-aK
-aK
-aK
-aK
-aK
-aJ
-aJ
-fb
+xc
+rF
+rF
+rF
+rF
+rF
+rF
+rF
+LM
+LM
+Iv
 rm
 as
 aC
@@ -9838,17 +9838,17 @@ dW
 ab
 ab
 ab
-au
-aJ
-bJ
-aK
-aK
-aK
-aJ
-dR
-aJ
-aJ
-fA
+xc
+LM
+uJ
+rF
+rF
+rF
+LM
+tZ
+LM
+LM
+BG
 as
 ad
 aD
@@ -9897,17 +9897,17 @@ dW
 ab
 ab
 ab
-fa
-gN
-aS
-cr
-aS
-gN
-aS
-gN
-gN
-aS
-hr
+JM
+ti
+xS
+HC
+xS
+ti
+xS
+ti
+ti
+xS
+zt
 ab
 ab
 aC

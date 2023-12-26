@@ -93,30 +93,6 @@
 /obj/structure/curtain,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
-"ap" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner,
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"aq" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"ar" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "as" = (
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
@@ -235,27 +211,6 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"aE" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"aF" = (
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"aG" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "aH" = (
 /obj/structure/dresser,
 /turf/open/floor/wood,
@@ -306,15 +261,6 @@
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"aP" = (
-/obj/structure/shipping_container/kahraman/alt{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "aQ" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate,
@@ -335,13 +281,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/cargo)
-"aT" = (
-/obj/structure/pod,
-/obj/effect/supplypod_rubble,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "aU" = (
 /obj/structure/dresser,
 /turf/open/floor/iron/smooth_large,
@@ -640,14 +579,6 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/cargo)
-"bD" = (
-/obj/structure/shipping_container/kosmologistika{
-	pixel_y = -14
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "bE" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /obj/structure/window/reinforced/tinted/spawner/directional/north,
@@ -967,20 +898,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cq" = (
-/obj/structure/shipping_container/interdyne{
-	pixel_x = -10
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"cr" = (
-/obj/item/toy/figure/syndie,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "cs" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 10;
@@ -1058,15 +975,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cB" = (
-/obj/structure/shipping_container/donk_co{
-	pixel_x = -1;
-	pixel_y = 11
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "cC" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -1227,29 +1135,6 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cN" = (
-/obj/structure/shipping_container/gorlex/red,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"cO" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
-"cP" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "cQ" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Cargo Bay"
@@ -1301,12 +1186,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/det)
-"cV" = (
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "cW" = (
 /obj/structure/railing{
 	dir = 8
@@ -2346,13 +2225,6 @@
 /obj/machinery/cryo_cell,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
-"fA" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "fB" = (
 /turf/closed/wall/r_wall/syndicate{
 	fixed_underlay = list(icon='icons/turf/floors.dmi', icon_state="textured_dark_large")
@@ -3284,15 +3156,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
-"hM" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "hN" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/cup/beaker/cryoxadone,
@@ -4418,15 +4281,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
-"kz" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "kA" = (
 /obj/machinery/duct,
 /obj/structure/disposalpipe/segment{
@@ -4629,15 +4483,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"lc" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "ld" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6027,16 +5872,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"oo" = (
-/obj/structure/marker_beacon/burgundy,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/sand/plating/volcanic,
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "LAVALAND_ATMOS"
-	},
-/area/lavaland/surface/outdoors)
 "op" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 8
@@ -6867,10 +6702,175 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
-"Rn" = (
+"sK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"sQ" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"tG" = (
+/obj/structure/shipping_container/kosmologistika{
+	pixel_y = -14
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"vc" = (
+/obj/structure/shipping_container/kahraman/alt{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"vR" = (
+/obj/item/toy/figure/syndie,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"zw" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"BS" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"Cx" = (
+/obj/structure/shipping_container/gorlex/red,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"De" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"DH" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"DV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"Is" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"II" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"Nx" = (
+/obj/structure/shipping_container/interdyne{
+	pixel_x = -10
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"Qm" = (
+/obj/structure/shipping_container/donk_co{
+	pixel_x = -1;
+	pixel_y = 11
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"QT" = (
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"RO" = (
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"Si" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"Vf" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/serv)
+"VA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/sand/plating/volcanic,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"XP" = (
+/obj/structure/pod,
+/obj/effect/supplypod_rubble,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
+"XV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
+/area/lavaland/surface/outdoors)
 
 (1,1,1) = {"
 aa
@@ -8264,7 +8264,7 @@ eW
 hL
 eh
 pU
-Rn
+Vf
 kN
 kN
 kN
@@ -8944,17 +8944,17 @@ ac
 ac
 ac
 ac
-ap
-kz
-kz
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-cO
+DH
+Si
+Si
+sK
+sK
+sK
+sK
+sK
+sK
+sK
+De
 ac
 ac
 ac
@@ -9003,17 +9003,17 @@ ac
 ac
 ac
 ac
-fA
-aF
-aF
-aT
-aF
-aF
-aF
-aF
-aF
-cN
-lc
+II
+RO
+RO
+XP
+RO
+RO
+RO
+RO
+RO
+Cx
+zw
 ac
 ac
 ad
@@ -9062,17 +9062,17 @@ ac
 ac
 ac
 ac
-aq
-aF
-aF
-bD
-aF
-cq
-aF
-aT
-cr
-aF
-cP
+sQ
+RO
+RO
+tG
+RO
+Nx
+RO
+XP
+vR
+RO
+DV
 ac
 ac
 dp
@@ -9121,17 +9121,17 @@ ac
 ac
 ac
 ac
-fA
-cV
-aP
-aF
-aF
-aF
-aF
-aF
-cB
-aF
-lc
+II
+QT
+vc
+RO
+RO
+RO
+RO
+RO
+Qm
+RO
+zw
 ac
 ac
 dk
@@ -9180,17 +9180,17 @@ ab
 ac
 ac
 ac
-fA
-cV
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-lc
+II
+QT
+RO
+RO
+RO
+RO
+RO
+RO
+RO
+RO
+zw
 ac
 as
 dk
@@ -9239,17 +9239,17 @@ ab
 ac
 ac
 ac
-fA
-cV
-cV
-cV
-aT
-aF
-aF
-aF
-aF
-cV
-lc
+II
+QT
+QT
+QT
+XP
+RO
+RO
+RO
+RO
+QT
+zw
 ac
 dj
 dr
@@ -9298,17 +9298,17 @@ ab
 ac
 ac
 ac
-ar
-hM
-hM
-hM
-hM
-aG
-aG
-aG
-hM
-hM
-oo
+BS
+VA
+VA
+VA
+VA
+XV
+XV
+XV
+VA
+VA
+Is
 ac
 ac
 dk
