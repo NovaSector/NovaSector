@@ -7906,6 +7906,7 @@
 #include "modular_nova\modules\shotgunrebalance\code\autolathe_design.dm"
 #include "modular_nova\modules\shotgunrebalance\code\shotgun.dm"
 #include "modular_nova\modules\SiliconQoL\code\_onclick.dm"
+#include "modular_nova\modules\SiliconQoL\code\countdown.dm"
 #include "modular_nova\modules\SiliconQoL\code\robotic_factory.dm"
 #include "modular_nova\modules\skyrat-uplinks\code\categories\bundles.dm"
 #include "modular_nova\modules\skyrat-uplinks\code\categories\dangerous.dm"
