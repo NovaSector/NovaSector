@@ -81,5 +81,5 @@
 	name = "Confetti ammo box"
 	desc = "A box of 35 shotgun shells. These ones contain harmless confetti, yippie!"
 	icon_state = "honk"
-	ammo_type = /obj/item/ammo_casing/shotgun/honk
+	ammo_type = /obj/item/ammo_casing/shotgun/honkshot
 	max_ammo = 35

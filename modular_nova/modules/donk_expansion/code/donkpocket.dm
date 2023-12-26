@@ -12,7 +12,7 @@
 /obj/item/storage/box/donkpockets/nova/donkpocketcaffe
 	name = "box of coffee donk-pockets"
 	icon_state = "donkpocketcaffe"
-	donktype = /obj/item/food/donkpocket/caffe
+	donktype = /obj/item/food/donkpocket/nova/caffe
 
 //plain
 /obj/item/food/donkpocket/nova/caffe
@@ -61,7 +61,7 @@
 		/datum/reagent/consumable/coffee = 5,
 		/datum/reagent/consumable/sugar = 3
 	)
-	result = /obj/item/food/donkpocket/caffe
+	result = /obj/item/food/donkpocket/nova/caffe
 	category = CAT_PASTRY
 
 ///Dank pockets
