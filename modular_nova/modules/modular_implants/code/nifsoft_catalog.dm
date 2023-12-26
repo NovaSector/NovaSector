@@ -19,6 +19,7 @@ GLOBAL_LIST_INIT(purchasable_nifsofts, list(
 	tgui_id = "NtosNifsoftCatalog"
 	program_icon = "bag-shopping"
 	can_run_on_flags = PROGRAM_PDA
+	program_flags = PROGRAM_ON_NTNET_STORE | PROGRAM_REQUIRES_NTNET
 	///What bank account is money being drawn out of?
 	var/datum/bank_account/paying_account
 	///What NIF are the NIFSofts being sent to?
