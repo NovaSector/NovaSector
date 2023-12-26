@@ -1,8 +1,8 @@
 /datum/computer_file/program/budgetorders
 	filename = "orderapp"
 	filedesc = "NT IRN"
-	category = PROGRAM_CATEGORY_SUPL
-	program_icon_state = "request"
+	downloader_category = PROGRAM_CATEGORY_SUPPLY
+	program_open_overlay = "request"
 	extended_desc = "Nanotrasen Internal Requisition Network interface for supply purchasing using a department budget account."
 	program_flags = PROGRAM_ON_NTNET_STORE | PROGRAM_REQUIRES_NTNET
 	can_run_on_flags = PROGRAM_LAPTOP | PROGRAM_PDA

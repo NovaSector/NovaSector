@@ -2,8 +2,7 @@
 	filename = "contractor uplink"
 	filedesc = "Syndicate Contractor Uplink"
 	extended_desc = "A standard, Syndicate issued system for handling important contracts while on the field."
-	category = PROGRAM_CATEGORY_MISC
-	program_icon_state = "contractor-assign"
+	program_open_overlay = "contractor-assign"
 	program_icon = "tasks"
 	size = 10
 
@@ -48,11 +47,11 @@
 			var/contract_id = text2num(params["contract_id"])
 			uplink_computer.opfor_data.contractor_hub.assigned_contracts[contract_id].status = CONTRACT_STATUS_ACTIVE // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.assigned_contracts[contract_id].status = CONTRACT_STATUS_ACTIVE
 			uplink_computer.opfor_data.contractor_hub.current_contract = uplink_computer.opfor_data.contractor_hub.assigned_contracts[contract_id] // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract
-			program_icon_state = "contractor-contract"
+			program_open_overlay = "contractor-contract"
 			return TRUE
 
 		if("PRG_login")
-			/*
+			/* NOVA EDIT REMOVAL START
 			var/datum/antagonist/traitor/traitor_user = user.mind.has_antag_datum(/datum/antagonist/traitor)
 			if(!traitor_user)
 				error = "UNAUTHORIZED USER"
@@ -63,8 +62,8 @@
 				traitor_data.uplink_handler.contractor_hub = new
 				traitor_data.uplink_handler.contractor_hub.create_contracts(traitor_user.owner)
 				user.playsound_local(user, 'sound/effects/contractstartup.ogg', 100, FALSE)
-				program_icon_state = "contractor-contractlist"
-			*/
+				program_open_overlay = "contractor-contractlist"
+			NOVA EDIT REMOVAL END */
 			// NOVA EDIT ADDITION START
 			if(!user.mind.opposing_force)
 				var/datum/opposing_force/opposing_force = new(user.mind)
@@ -86,7 +85,7 @@
 
 				uplink_computer.opfor_data = opfor_data
 
-				program_icon_state = "contractor-contractlist"
+				program_open_overlay = "contractor-contractlist"
 				assigned = TRUE
 			// NOVA EDIT ADDITION END
 			return TRUE
@@ -97,7 +96,7 @@
 					user.playsound_local(user, 'sound/effects/confirmdropoff.ogg', 100, TRUE)
 					uplink_computer.opfor_data.contractor_hub.current_contract.status = CONTRACT_STATUS_EXTRACTING // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract.status = CONTRACT_STATUS_EXTRACTING
 
-					program_icon_state = "contractor-extracted"
+					program_open_overlay = "contractor-extracted"
 				else
 					user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
 					error = "Either both you or your target aren't at the dropoff location, or the pod hasn't got a valid place to land. Clear space, or make sure you're both inside."
@@ -112,7 +111,7 @@
 			uplink_computer.opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
 			uplink_computer.opfor_data.contractor_hub.assigned_contracts[contract_id].status = CONTRACT_STATUS_ABORTED // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.assigned_contracts[contract_id].status = CONTRACT_STATUS_ABORTED
 
-			program_icon_state = "contractor-contractlist"
+			program_open_overlay = "contractor-contractlist"
 
 			return TRUE
 		if("PRG_redeem_TC")
@@ -171,10 +170,10 @@
 	var/datum/opposing_force/opfor_data = uplink_computer.opfor_data // NOVA EDIT ADDITION
 	data["ongoing_contract"] = !!opfor_data.contractor_hub.current_contract // NOVA EDIT CHANGE - ORIGINAL:
 	if(opfor_data.contractor_hub.current_contract) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract)
-		program_icon_state = "contractor-contract"
+		program_open_overlay = "contractor-contract"
 		if (opfor_data.contractor_hub.current_contract.status == CONTRACT_STATUS_EXTRACTING) // NOVA EDIT CHANGE - ORIGINAL: if (traitor_data.uplink_handler.contractor_hub.current_contract.status == CONTRACT_STATUS_EXTRACTING)
 			data["extraction_enroute"] = TRUE
-			program_icon_state = "contractor-extracted"
+			program_open_overlay = "contractor-extracted"
 		else
 			data["extraction_enroute"] = FALSE
 		var/turf/curr = get_turf(user)
