@@ -1,7 +1,7 @@
 // Base Sol SMG
 
 /obj/item/gun/ballistic/automatic/sol_smg
-	name = "\improper Sindano Submachinegun"
+	name = "\improper Sindano Submachine Gun"
 	desc = "A small submachine gun firing .35 Sol. Commonly seen in the hands of PMCs and other unsavory corpos. Accepts any standard Sol pistol magazine."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns32x.dmi'
