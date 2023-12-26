@@ -44,7 +44,6 @@
 	if(QDELETED(bot_pawn))
 		return SUBTREE_RETURN_FINISH_PLANNING
 	// NOVA EDIT ADDITION END
-
 	//we are DONE listening to orders
 	if(bot_pawn.bot_access_flags & BOT_COVER_EMAGGED)
 		return
