@@ -2155,6 +2155,7 @@
 	req_access = list("syndicate")
 	},
 /obj/structure/table/glass/plasmaglass,
+/obj/structure/sign/poster/official/periodic_table/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "fv" = (
@@ -3203,9 +3204,6 @@
 /obj/item/storage/toolbox/syndicate,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
-	},
-/obj/structure/sign/poster/official/periodic_table/directional/south{
-	pixel_y = -24
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
