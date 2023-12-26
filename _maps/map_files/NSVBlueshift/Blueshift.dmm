@@ -16768,8 +16768,7 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/beer{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
@@ -17117,6 +17116,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
+"djD" = (
+/obj/machinery/computer/personal_shuttle_order/station{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/hallway/secondary/exit)
 "djE" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave/engineering/cell_included{
@@ -70905,9 +70911,7 @@
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "nCn" = (
-/obj/structure/musician/piano{
-	icon_state = "piano"
-	},
+/obj/structure/musician/piano,
 /turf/open/floor/wood,
 /area/station/service/bar/atrium)
 "nCq" = (
@@ -71752,9 +71756,7 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "nKr" = (
-/obj/structure/musician/piano{
-	icon_state = "piano"
-	},
+/obj/structure/musician/piano,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "nKs" = (
@@ -211138,7 +211140,7 @@ soz
 pFg
 jLT
 pFg
-soz
+pFg
 soz
 soz
 soz
@@ -211651,8 +211653,8 @@ gLc
 gLc
 ott
 oRT
-ott
-gLc
+pFg
+pFg
 gLc
 gLc
 gLc
@@ -211908,8 +211910,8 @@ gLc
 oNc
 ott
 oRT
+djD
 ott
-gLc
 gLc
 gLc
 oNc
@@ -212165,8 +212167,8 @@ gLc
 gLc
 ott
 oRT
-ott
-ott
+pFg
+pFg
 pFg
 gLc
 gLc
