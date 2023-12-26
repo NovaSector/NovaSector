@@ -13,10 +13,6 @@
 
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
-#include "_maps\skyrat\automapper\templates\deltastation\deltastation_ship_order.dmm"
-#include "_maps\skyrat\automapper\templates\metastation\metastation_arrivals.dmm"
-#include "_maps\skyrat\automapper\templates\northstar\northstar_ship_order.dmm"
-#include "_maps\skyrat\automapper\templates\tramstation\tramstation_arrivals.dmm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
 #include "code\_experiments.dm"
