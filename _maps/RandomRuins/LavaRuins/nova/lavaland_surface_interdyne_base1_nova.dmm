@@ -1342,8 +1342,8 @@
 	},
 /obj/machinery/disposal/bin,
 /obj/item/kirbyplants/synthetic/plant27{
-	pixel_z = 5;
-	pixel_w = 12
+	pixel_x = 12;
+	pixel_y = 5
 	},
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/textured_large,
@@ -2899,18 +2899,18 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "hj" = (
-/obj/structure/sign/poster/official/there_is_no_gas_giant/directional/west{
-	pixel_x = -35;
-	pixel_z = -1
-	},
-/obj/structure/sign/poster/contraband/the_big_gas_giant_truth/directional/west{
-	pixel_x = -32;
-	pixel_z = 0
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
+/obj/structure/sign/poster/contraband/the_big_gas_giant_truth{
+	pixel_x = -27;
+	pixel_y = 15
+	},
+/obj/structure/sign/poster/official/there_is_no_gas_giant{
+	pixel_x = -35;
+	pixel_y = -1
+	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -3793,9 +3793,6 @@
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jq" = (
 /obj/machinery/photocopier,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/main/dorms/lib)
-"jr" = (
 /obj/structure/sign/flag{
 	name = "flag of Interdyne";
 	desc = "The corporate flag of Interdyne Pharmaceutics. Hey, wait -- this is the French flag!";
@@ -3804,11 +3801,14 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
+"jr" = (
+/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/main/dorms/lib)
 "js" = (
 /obj/structure/sign/painting/library{
 	pixel_x = 32
 	},
-/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
 /obj/machinery/modular_computer/preset/curator{
 	dir = 8
 	},
@@ -3836,14 +3836,15 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "jw" = (
-/obj/machinery/dryer{
-	pixel_w = -28
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "jx" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/machinery/dryer{
+	pixel_y = 32;
+	pixel_x = -6
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "jy" = (
@@ -4441,6 +4442,7 @@
 "kY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "kZ" = (
@@ -4826,10 +4828,6 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lT" = (
 /obj/machinery/light/directional/west,
-/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west{
-	pixel_x = -29;
-	pixel_z = 3
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -4837,10 +4835,7 @@
 "lU" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
-/obj/structure/sign/poster/contraband/syndiemoth/directional/east{
-	pixel_x = 29;
-	pixel_z = 3
-	},
+/obj/structure/sign/poster/contraband/syndiemoth/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
 "lV" = (
@@ -5044,15 +5039,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
-"mr" = (
-/obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west{
-	pixel_x = -29;
-	pixel_z = 3
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "ms" = (
 /obj/structure/chair/sofa/bench/right,
@@ -5602,14 +5588,14 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/interdyne_planetary_base/eng)
 "nK" = (
-/obj/structure/sign/poster/contraband/gorlex_recruitment/directional/west{
-	pixel_x = -30;
-	pixel_z = 5
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
+/obj/structure/sign/poster/contraband/gorlex_recruitment{
+	pixel_x = -30;
+	pixel_y = 5
+	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -5977,8 +5963,8 @@
 	pixel_w = -6
 	},
 /obj/structure/sign/poster/contraband/blasto_detergent/directional/west{
-	pixel_x = -31;
-	pixel_z = 9
+	pixel_z = 9;
+	pixel_w = -31
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -6437,14 +6423,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pD" = (
-/obj/structure/sign/poster/random/directional/west{
-	pixel_x = -29;
-	pixel_z = 3
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/sand/plating/volcanic,
+/obj/structure/sign/poster/random{
+	pixel_x = -29;
+	pixel_y = 3
+	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -6789,6 +6775,12 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"LH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Nx" = (
 /obj/structure/shipping_container/interdyne{
 	pixel_x = -10
@@ -8017,10 +8009,10 @@ jP
 jR
 ql
 iV
-kY
+LH
 kY
 lT
-mr
+kZ
 mQ
 nn
 nN

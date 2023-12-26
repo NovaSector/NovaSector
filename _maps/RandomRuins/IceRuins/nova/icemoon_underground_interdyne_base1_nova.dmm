@@ -3922,6 +3922,12 @@
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jL" = (
 /obj/machinery/photocopier,
+/obj/structure/sign/flag{
+	name = "flag of Interdyne";
+	desc = "The corporate flag of Interdyne Pharmaceutics. Hey, wait -- this is the French flag!";
+	pixel_y = 32;
+	pixel_x = -16
+	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jM" = (
@@ -3940,7 +3946,6 @@
 /obj/structure/sign/painting/library{
 	pixel_x = 32
 	},
-/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
 /obj/machinery/modular_computer/preset/curator{
 	dir = 8
 	},
@@ -4144,14 +4149,15 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "kr" = (
-/obj/machinery/dryer{
-	pixel_w = -28
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "ks" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/machinery/dryer{
+	pixel_y = 32;
+	pixel_x = -6
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "kt" = (
@@ -4314,11 +4320,11 @@
 	dir = 4
 	},
 /obj/machinery/disposal/bin,
-/obj/item/kirbyplants/synthetic/plant27{
-	pixel_z = 5;
-	pixel_w = 12
-	},
 /obj/machinery/light_switch/directional/west,
+/obj/item/kirbyplants/synthetic/plant27{
+	pixel_x = 12;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "kM" = (
@@ -4532,10 +4538,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/structure/sign/poster/contraband/jumbo_bar/directional/east{
-	pixel_x = 29;
-	pixel_y = 3
-	},
+/obj/structure/sign/poster/contraband/jumbo_bar/directional/east,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "ll" = (
@@ -4637,6 +4640,7 @@
 "ly" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lz" = (
@@ -4729,8 +4733,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/obj/structure/sign/poster/contraband/donk_co/directional/north,
 /obj/machinery/light/directional/north,
+/obj/structure/sign/poster/contraband/donk_co/directional/north,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "lK" = (
@@ -4883,19 +4887,19 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "md" = (
-/obj/structure/sign/poster/official/there_is_no_gas_giant/directional/west{
-	pixel_x = -32;
-	pixel_z = 0
-	},
-/obj/structure/sign/poster/contraband/the_big_gas_giant_truth/directional/west{
-	pixel_x = -27;
-	pixel_z = 12
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/weather/snow{
 	layer = 3
+	},
+/obj/structure/sign/poster/official/there_is_no_gas_giant{
+	pixel_x = -35;
+	pixel_y = -1
+	},
+/obj/structure/sign/poster/contraband/the_big_gas_giant_truth{
+	pixel_x = -27;
+	pixel_y = 15
 	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
@@ -4955,10 +4959,6 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "mj" = (
 /obj/machinery/light/directional/west,
-/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west{
-	pixel_x = -29;
-	pixel_z = 3
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -5155,15 +5155,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/smooth_half,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"mD" = (
-/obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west{
-	pixel_x = -29;
-	pixel_z = 3
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "mE" = (
 /obj/structure/chair/sofa/bench/right{
 	greyscale_colors = "#263188"
@@ -5253,10 +5244,7 @@
 "mR" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
-/obj/structure/sign/poster/contraband/syndiemoth/directional/east{
-	pixel_x = 29;
-	pixel_z = 3
-	},
+/obj/structure/sign/poster/contraband/syndiemoth/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
 "mS" = (
@@ -5938,11 +5926,8 @@
 	pixel_z = 10;
 	pixel_w = -6
 	},
-/obj/structure/sign/poster/contraband/blasto_detergent/directional/west{
-	pixel_x = -31;
-	pixel_z = 9
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/poster/contraband/blasto_detergent/directional/west,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "oy" = (
@@ -6607,12 +6592,7 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pX" = (
-/obj/structure/sign/flag{
-	name = "flag of Interdyne";
-	desc = "The corporate flag of Interdyne Pharmaceutics. Hey, wait -- this is the French flag!";
-	pixel_y = 32;
-	pixel_x = -16
-	},
+/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "pY" = (
@@ -6821,10 +6801,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
 "qF" = (
-/obj/structure/sign/poster/contraband/gorlex_recruitment/directional/west{
-	pixel_x = -30;
-	pixel_z = 5
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -6833,6 +6809,10 @@
 	},
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
+	},
+/obj/structure/sign/poster/contraband/gorlex_recruitment{
+	pixel_x = -30;
+	pixel_y = 5
 	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
@@ -6854,10 +6834,6 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "qJ" = (
-/obj/structure/sign/poster/random/directional/west{
-	pixel_x = -29;
-	pixel_z = 3
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -6866,6 +6842,10 @@
 	},
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
+	},
+/obj/structure/sign/poster/random{
+	pixel_x = -29;
+	pixel_y = 3
 	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
@@ -7425,6 +7405,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"Va" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "WQ" = (
 /obj/structure/shipping_container/donk_co{
 	pixel_x = 6
@@ -8624,10 +8610,10 @@ ki
 kp
 rp
 lv
-ly
+Va
 ly
 mj
-mD
+lz
 mU
 ns
 nO
