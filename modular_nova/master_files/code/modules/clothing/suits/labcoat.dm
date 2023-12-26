@@ -1,33 +1,33 @@
 /obj/item/clothing/suit/toggle/labcoat
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat
+/obj/item/clothing/suit/toggle/labcoat/nova
 	name = "SR LABCOAT SUIT DEBUG"
 	desc = "REPORT THIS IF FOUND"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/labcoat.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/labcoat.dmi'
 	icon_state = null //Keeps this from showing up under the chameleon hat
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/rd
+/obj/item/clothing/suit/toggle/labcoat/nova/rd
 	name = "research directors labcoat"
 	desc = "A Nanotrasen standard labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
 	icon_state = "labcoat_rd"
 	body_parts_covered = CHEST|ARMS|LEGS
-	armor_type = /datum/armor/skyrat_rd
+	armor_type = /datum/armor/nova_rd
 
-/datum/armor/skyrat_rd
+/datum/armor/nova_rd
 	melee = 5
 	bio = 80
 	fire = 80
 	acid = 70
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/highvis
+/obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
 	desc = "A high visibility vest for emergency responders, intended to draw attention away from the blood."
 	icon_state = "labcoat_highvis"
 	blood_overlay_type = "armor"
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/highvis/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/clothing/suit/toggle/labcoat/nova/highvis/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)

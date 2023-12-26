@@ -283,11 +283,11 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/christmas
 	name = "Red Christmas Hat"
-	item_path = /obj/item/clothing/head/costume/skyrat/christmas
+	item_path = /obj/item/clothing/head/costume/nova/christmas
 
 /datum/loadout_item/head/christmas/green
 	name = "Green Christmas Hat"
-	item_path = /obj/item/clothing/head/costume/skyrat/christmas/green
+	item_path = /obj/item/clothing/head/costume/nova/christmas/green
 
 /*
 *	HALLOWEEN
@@ -339,7 +339,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/flowerpin
 	name = "Flower Pin"
-	item_path = /obj/item/clothing/head/costume/skyrat/flowerpin
+	item_path = /obj/item/clothing/head/costume/nova/flowerpin
 
 /datum/loadout_item/head/rice_hat
 	name = "Rice Hat"
@@ -352,11 +352,11 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/wrussian
 	name = "Black Papakha"
-	item_path = /obj/item/clothing/head/costume/skyrat/papakha
+	item_path = /obj/item/clothing/head/costume/nova/papakha
 
 /datum/loadout_item/head/wrussianw
 	name = "White Papakha"
-	item_path = /obj/item/clothing/head/costume/skyrat/papakha/white
+	item_path = /obj/item/clothing/head/costume/nova/papakha/white
 
 /datum/loadout_item/head/slime
 	name = "Slime Hat"
@@ -368,7 +368,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/maidhead
 	name = "Simple Maid Headband"
-	item_path = /obj/item/clothing/head/costume/skyrat/maid
+	item_path = /obj/item/clothing/head/costume/nova/maid
 	additional_tooltip_contents = list("Small headband that only fits on top the head.")
 
 /datum/loadout_item/head/maidhead2
@@ -407,39 +407,39 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/cowboyhat
 	name = "Recolorable Cattleman Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/cattleman
+	item_path = /obj/item/clothing/head/cowboy/nova/cattleman
 
 /datum/loadout_item/head/cowboyhat_black
 	name = "Recolorable Wide-Brimmed Cattleman Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/cattleman/wide
+	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide
 
 /datum/loadout_item/head/cowboyhat_wide
 	name = "Wide-Brimmed Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/wide
+	item_path = /obj/item/clothing/head/cowboy/nova/wide
 
 /datum/loadout_item/head/cowboyhat_wide_feather
 	name = "Wide-Brimmed Feathered Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/wide/feathered
+	item_path = /obj/item/clothing/head/cowboy/nova/wide/feathered
 
 /datum/loadout_item/head/cowboyhat_flat
 	name = "Flat-Brimmed Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/flat
+	item_path = /obj/item/clothing/head/cowboy/nova/flat
 
 /datum/loadout_item/head/cowboyhat_flat_cowl
 	name = "Flat-Brimmed Hat with Cowl"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/flat/cowl
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl
 
 /datum/loadout_item/head/cowboyhat_sheriff
 	name = "Sheriff Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/flat/sheriff
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/sheriff
 
 /datum/loadout_item/head/cowboyhat_deputy
 	name = "Deputy Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/flat/deputy
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/deputy
 
 /datum/loadout_item/head/cowboyhat_winter
 	name = "Winter Cowboy Hat"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/flat/cowl/sheriff
+	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff
 
 /*
 *	TREK HATS (JOB-LOCKED)
@@ -497,12 +497,12 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/cowboyhat_sec
 	name = "Cattleman Hat, Security"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/cattleman/sec
+	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/head/cowboyhat_secwide
 	name = "Wide-Brimmed Cattleman Hat, Security"
-	item_path = /obj/item/clothing/head/cowboy/skyrat/cattleman/wide/sec
+	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/head/ushanka/sec

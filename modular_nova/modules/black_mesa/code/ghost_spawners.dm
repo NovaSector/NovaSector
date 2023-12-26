@@ -16,7 +16,7 @@
 
 /datum/outfit/science_team
 	name = "Scientist"
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/hlscience
+	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/hlscience
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack

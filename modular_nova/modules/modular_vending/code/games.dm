@@ -1,5 +1,5 @@
 /obj/machinery/vending/games
-	skyrat_product_categories = list(
+	nova_product_categories = list(
 		list(
 			"name" = "Toys",
 			"icon" = "hat-wizard",

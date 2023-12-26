@@ -75,7 +75,7 @@
 
 // Gunset for the pepperball pistol
 
-/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball
+/obj/item/storage/toolbox/guncase/nova/pistol/pepperball
 	name = "Pepperball AHG gunset"
 
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/pistol/pepperball

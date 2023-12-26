@@ -1,6 +1,6 @@
 /datum/outfit/centcom/naval
 	name = "Nanotrasen Naval Command - Default"
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval
 	id = /obj/item/card/id/advanced/centcom
 	l_pocket = /obj/item/melee/baton/telescopic
 	shoes = /obj/item/clothing/shoes/combat/swat
@@ -25,13 +25,13 @@
 
 	head = /obj/item/clothing/head/beret/centcom_formal
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval
 
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/lieutenant
@@ -43,13 +43,13 @@
 
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/naval
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/commander
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/commander
 
 	gloves = /obj/item/clothing/gloves/combat/naval
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/lieutenant_commander
@@ -63,13 +63,13 @@
 
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/naval
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/commander
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/commander
 
 	gloves = /obj/item/clothing/gloves/combat/naval
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/commander
@@ -83,13 +83,13 @@
 
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/naval
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/commander
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/commander
 
 	gloves = /obj/item/clothing/gloves/combat/naval
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/captain
@@ -103,13 +103,13 @@
 
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/naval
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/commander
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/commander
 
 	gloves = /obj/item/clothing/gloves/combat/naval
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/rear_admiral
@@ -119,13 +119,13 @@
 
 	head = /obj/item/clothing/head/hats/caphat/naval
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/admiral
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/admiral
 
 	gloves = /obj/item/clothing/gloves/combat/naval
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/admiral
@@ -137,13 +137,13 @@
 
 	neck = /obj/item/clothing/neck/cloak/admiral
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/admiral
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/admiral
 
 	gloves = /obj/item/clothing/gloves/combat/naval
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/fleet_admiral
@@ -155,11 +155,11 @@
 
 	neck = /obj/item/clothing/neck/cloak/fleet_admiral
 
-	uniform = /obj/item/clothing/under/rank/centcom/skyrat/naval/fleet_admiral
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/fleet_admiral
 
 	gloves = /obj/item/clothing/gloves/combat/naval/fleet_admiral
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)

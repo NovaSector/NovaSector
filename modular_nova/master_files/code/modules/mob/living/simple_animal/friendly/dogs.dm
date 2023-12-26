@@ -74,7 +74,7 @@
 	maxHealth = 150
 	health = 150
 	butcher_results = list(
-		/obj/item/clothing/head/costume/skyrat/en = 1,
+		/obj/item/clothing/head/costume/nova/en = 1,
 		/obj/item/clothing/suit/corgisuit/en = 1,
 	)
 	death_message = "beeps, its mechanical parts hissing before the chassis collapses in a loud thud."

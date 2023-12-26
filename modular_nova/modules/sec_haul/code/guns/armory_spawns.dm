@@ -89,7 +89,7 @@
 /obj/effect/spawner/armory_spawn/smg
 	vertical_guns = FALSE
 	guns = list(
-		/obj/item/storage/toolbox/guncase/skyrat/carwo_large_case/sindano,
-		/obj/item/storage/toolbox/guncase/skyrat/carwo_large_case/sindano,
-		/obj/item/storage/toolbox/guncase/skyrat/carwo_large_case/sindano,
+		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano,
+		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano,
+		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano,
 	)

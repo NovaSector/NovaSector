@@ -73,11 +73,11 @@
 	subcategory = "Weapon Cases"
 
 /datum/armament_entry/company_import/sol_defense/case/trappiste
-	item_type = /obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/empty
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/carwo
-	item_type = /obj/item/storage/toolbox/guncase/skyrat/carwo_large_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/sidearm

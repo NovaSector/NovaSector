@@ -34,15 +34,15 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 
 /datum/loadout_item/suit/aformal
 	name = "Assistant's Formal Winter Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/skyrat
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova
 
 /datum/loadout_item/suit/runed
 	name = "Runed Winter Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/skyrat/narsie
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/narsie
 
 /datum/loadout_item/suit/brass
 	name = "Brass Winter Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/skyrat/ratvar
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/ratvar
 
 /datum/loadout_item/suit/korea
 	name = "Eastern Winter Coat"
@@ -272,11 +272,11 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 
 /datum/loadout_item/suit/winter_coat/christmas
 	name = "Christmas Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/skyrat/christmas
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas
 
 /datum/loadout_item/suit/winter_coat/christmas/green
 	name = "Green Christmas Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/skyrat/christmas/green
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green
 
 /*
 *	MISC
@@ -571,7 +571,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 
 /datum/loadout_item/suit/coat_bar
 	name = "Bartender Winter Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/skyrat/bartender
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/bartender
 	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_BARTENDER) //Reserved for Bartenders and their boss, the Head of Personnel
 
 /datum/loadout_item/suit/coat_cargo
@@ -652,7 +652,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 // LABCOATS
 /datum/loadout_item/suit/labcoat_highvis
 	name = "High-Vis Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/skyrat/highvis
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_PARAMEDIC, JOB_ATMOSPHERIC_TECHNICIAN, JOB_DETECTIVE, JOB_CHEMIST, JOB_ORDERLY) // And now chemist and orderly get it too.
 
 /*

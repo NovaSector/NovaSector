@@ -2,22 +2,22 @@
 
 /obj/machinery/vending
 	/// Additions to the `products` list  of the vending machine, modularly. Will become null after Initialize, to free up memory.
-	var/list/skyrat_products
+	var/list/nova_products
 	/// Additions to the `product_categories` list of the vending machine, modularly. Will become null after Initialize, to free up memory.
-	var/list/skyrat_product_categories
+	var/list/nova_product_categories
 	/// Additions to the `premium` list  of the vending machine, modularly. Will become null after Initialize, to free up memory.
-	var/list/skyrat_premium
+	var/list/nova_premium
 	/// Additions to the `contraband` list  of the vending machine, modularly. Will become null after Initialize, to free up memory.
-	var/list/skyrat_contraband
+	var/list/nova_contraband
 
 /obj/machinery/vending/Initialize(mapload)
-	if(skyrat_products)
+	if(nova_products)
 		// We need this, because duplicates screw up the spritesheet!
-		for(var/item_to_add in skyrat_products)
-			products[item_to_add] = skyrat_products[item_to_add]
+		for(var/item_to_add in nova_products)
+			products[item_to_add] = nova_products[item_to_add]
 
-	if(skyrat_product_categories)
-		for(var/category in skyrat_product_categories)
+	if(nova_product_categories)
+		for(var/category in nova_product_categories)
 			var/already_exists = FALSE
 			for(var/existing_category in product_categories)
 				if(existing_category["name"] == category["name"])
@@ -28,15 +28,15 @@
 			if(!already_exists)
 				product_categories += category
 
-	if(skyrat_premium)
+	if(nova_premium)
 		// We need this, because duplicates screw up the spritesheet!
-		for(var/item_to_add in skyrat_premium)
-			premium[item_to_add] = skyrat_premium[item_to_add]
+		for(var/item_to_add in nova_premium)
+			premium[item_to_add] = nova_premium[item_to_add]
 
-	if(skyrat_contraband)
+	if(nova_contraband)
 		// We need this, because duplicates screw up the spritesheet!
-		for(var/item_to_add in skyrat_contraband)
-			contraband[item_to_add] = skyrat_contraband[item_to_add]
+		for(var/item_to_add in nova_contraband)
+			contraband[item_to_add] = nova_contraband[item_to_add]
 
 	// Time to make clothes amounts consistent!
 	for (var/obj/item/clothing/item in products)
@@ -52,10 +52,10 @@
 		if(premium[item] < MINIMUM_CLOTHING_STOCK && allow_increase(item))
 			premium[item] = MINIMUM_CLOTHING_STOCK
 
-	QDEL_NULL(skyrat_products)
-	QDEL_NULL(skyrat_product_categories)
-	QDEL_NULL(skyrat_premium)
-	QDEL_NULL(skyrat_contraband)
+	QDEL_NULL(nova_products)
+	QDEL_NULL(nova_product_categories)
+	QDEL_NULL(nova_premium)
+	QDEL_NULL(nova_contraband)
 	return ..()
 
 /// This proc checks for forbidden traits cause it'd be pretty bad to have 5 insuls available to assistants roundstart at the vendor!

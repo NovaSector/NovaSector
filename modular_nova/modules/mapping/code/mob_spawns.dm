@@ -48,7 +48,7 @@
 	flavour_text = "Unfortunately, your hated enemy, Nanotrasen, has begun mining in this sector. Continue operating as best you can, and try to keep a low profile."
 	quirks_enabled = TRUE
 	random_appearance = FALSE
-	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/service/dorms
+	computer_area = /area/ruin/space/has_grav/nova/interdynefob/service/dorms
 	spawner_job_path = /datum/job/ds2
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/prisoner
@@ -59,7 +59,7 @@
 	important_text = "You are still subject to standard prisoner policy and must Adminhelp before antagonizing DS2."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
-	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/security/prison
+	computer_area = /area/ruin/space/has_grav/nova/interdynefob/security/prison
 	outfit = /datum/outfit/ds2/prisoner
 	spawner_job_path = /datum/job/ds2
 
@@ -72,7 +72,7 @@
 	flavour_text = "The Sothran Syndicate has found it fit to send a forward operating base to Sector 13 to monitor NT's operations. Your orders are maintaining the ship's integrity and keeping a low profile as well as possible."
 	important_text = "You are not an antagonist. Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate
-	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/halls
+	computer_area = /area/ruin/space/has_grav/nova/interdynefob/halls
 	spawner_job_path = /datum/job/ds2
 	loadout_enabled = TRUE
 
@@ -85,7 +85,7 @@
 	flavour_text = "The Sothran Syndicate has found it fit to send you to help command the forward operating base in Sector 13. Your orders are commanding the crew of DS-2 while keeping a low profile as well as possible."
 	important_text = "Keep yourself to the same standards as Command Policy. You are not an antagonist and must Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate_command
-	computer_area = /area/ruin/space/has_grav/skyrat/interdynefob/halls
+	computer_area = /area/ruin/space/has_grav/nova/interdynefob/halls
 	spawner_job_path = /datum/job/ds2
 	loadout_enabled = TRUE
 
@@ -141,11 +141,11 @@
 //OUTFITS//
 /datum/outfit/syndicatespace/syndicrew
 	ears = /obj/item/radio/headset/cybersun
-	id_trim = /datum/id_trim/syndicom/skyrat/crew
+	id_trim = /datum/id_trim/syndicom/nova/crew
 
 /datum/outfit/syndicatespace/syndicaptain
 	ears = /obj/item/radio/headset/cybersun/captain
-	id_trim = /datum/id_trim/syndicom/skyrat/captain
+	id_trim = /datum/id_trim/syndicom/nova/captain
 
 /datum/outfit/ds2
 	name = "default ds2 outfit"
@@ -166,12 +166,12 @@
 	uniform = /obj/item/clothing/under/rank/prisoner/syndicate
 	shoes = /obj/item/clothing/shoes/sneakers/crimson
 	id = /obj/item/card/id/advanced/prisoner/ds2
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/prisoner
+	id_trim = /datum/id_trim/syndicom/nova/ds2/prisoner
 
 //DS-2 Crew
 /datum/outfit/ds2/syndicate
 	name = "DS-2 Operative"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	shoes = /obj/item/clothing/shoes/combat
 	ears = /obj/item/radio/headset/interdyne
 	back = /obj/item/storage/backpack
@@ -181,11 +181,11 @@
 		)
 	id = /obj/item/card/id/advanced/black
 	implants = list(/obj/item/implant/weapons_auth)
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2
+	id_trim = /datum/id_trim/syndicom/nova/ds2
 
 /datum/outfit/ds2/syndicate/miner
 	name = "DS-2 Mining Officer"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/overalls
+	uniform = /obj/item/clothing/under/syndicate/nova/overalls
 	belt = /obj/item/storage/bag/ore
 	back = /obj/item/storage/backpack/satchel/explorer
 	backpack_contents = list(
@@ -195,27 +195,27 @@
 		/obj/item/t_scanner/adv_mining_scanner/lesser = 1,
 		/obj/item/gun/energy/recharge/kinetic_accelerator = 1,
 		)
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/miner
+	id_trim = /datum/id_trim/syndicom/nova/ds2/miner
 	l_pocket = /obj/item/card/mining_point_card
 	r_pocket = /obj/item/mining_voucher
 	head = /obj/item/clothing/head/soft/black
 
 /datum/outfit/ds2/syndicate/service
 	name = "DS-2 General Staff"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/syndicatestaff
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
+	id_trim = /datum/id_trim/syndicom/nova/ds2/syndicatestaff
 	back = /obj/item/storage/backpack/satchel
 	suit = /obj/item/clothing/suit/apron/chef
 	head = /obj/item/clothing/head/soft/mime
 
 /datum/outfit/ds2/syndicate/enginetech
 	name = "DS-2 Engine Technician"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/overalls
+	uniform = /obj/item/clothing/under/syndicate/nova/overalls
 	head = /obj/item/clothing/head/soft/sec/syndicate
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		)
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/enginetechnician
+	id_trim = /datum/id_trim/syndicom/nova/ds2/enginetechnician
 	glasses = /obj/item/clothing/glasses/welding/up
 	belt = /obj/item/storage/belt/utility/syndicate
 	gloves = /obj/item/clothing/gloves/combat
@@ -223,7 +223,7 @@
 /datum/outfit/ds2/syndicate/researcher
 	name = "DS-2 Researcher"
 	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/researcher
+	id_trim = /datum/id_trim/syndicom/nova/ds2/researcher
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
 	glasses = /obj/item/clothing/glasses/sunglasses/chemical
 	gloves = /obj/item/clothing/gloves/color/black
@@ -232,7 +232,7 @@
 /datum/outfit/ds2/syndicate/stationmed
 	name = "DS-2 Medical Officer"
 	uniform = /obj/item/clothing/under/syndicate/scrubs
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/medicalofficer
+	id_trim = /datum/id_trim/syndicom/nova/ds2/medicalofficer
 	suit = /obj/item/clothing/suit/toggle/labcoat/interdyne
 	belt = /obj/item/storage/belt/medical/paramedic
 	gloves = /obj/item/clothing/gloves/latex/nitrile/ntrauma
@@ -246,7 +246,7 @@
 /datum/outfit/ds2/syndicate/brigoff
 	name = "DS-2 Brig Officer"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/brigofficer
+	id_trim = /datum/id_trim/syndicom/nova/ds2/brigofficer
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/bulletproof/old
 	back = /obj/item/storage/backpack/security/redsec
@@ -263,7 +263,7 @@
 //DS-2 Command
 /datum/outfit/ds2/syndicate_command
 	name = "DS-2 Command Operative"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	shoes = /obj/item/clothing/shoes/combat
 	ears = /obj/item/radio/headset/interdyne/command
 	back = /obj/item/storage/backpack
@@ -273,12 +273,12 @@
 		)
 	id = /obj/item/card/id/advanced/black
 	implants = list(/obj/item/implant/weapons_auth)
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2
+	id_trim = /datum/id_trim/syndicom/nova/ds2
 
 /datum/outfit/ds2/syndicate_command/masteratarms
 	name = "DS-2 Master At Arms"
 	uniform = /obj/item/clothing/under/syndicate/combat
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/masteratarms
+	id_trim = /datum/id_trim/syndicom/nova/ds2/masteratarms
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/vest/warden/syndicate
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
@@ -296,7 +296,7 @@
 	head = /obj/item/clothing/head/fedora
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/corporateliasion
+	id_trim = /datum/id_trim/syndicom/nova/ds2/corporateliasion
 
 /datum/outfit/ds2/syndicate_command/admiral
 	name = "DS-2 Admiral"
@@ -306,7 +306,7 @@
 	belt = /obj/item/gun/ballistic/automatic/pistol/aps
 	head = /obj/item/clothing/head/hats/hos/cap/syndicate
 	id = /obj/item/card/id/advanced/gold/generic
-	id_trim = /datum/id_trim/syndicom/skyrat/ds2/stationadmiral
+	id_trim = /datum/id_trim/syndicom/nova/ds2/stationadmiral
 
 /datum/outfit/ds2/syndicate_command/post_equip(mob/living/carbon/human/syndicate)
 	syndicate.faction |= ROLE_SYNDICATE
@@ -359,7 +359,7 @@
 
 /datum/outfit/freighter_crew
 	name = "Freighter Crew"
-	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/casualman
+	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/casualman
 	shoes = /obj/item/clothing/shoes/workboots
 	back = /obj/item/storage/backpack
 	id = /obj/item/card/id/away/freightcrew
@@ -393,7 +393,7 @@
 
 /datum/outfit/freighter_excavator
 	name = "Freighter Excavator"
-	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/gorka
+	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/gorka
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	back = /obj/item/storage/backpack
 	backpack_contents = list(/obj/item/flashlight/seclite=1,\
@@ -435,7 +435,7 @@
 
 /datum/outfit/freighter_boss
 	name = "Freighter Boss"
-	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/turtleneck
+	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/turtleneck
 	shoes = /obj/item/clothing/shoes/workboots
 	neck = /obj/item/clothing/neck/cloak/qm
 	back = /obj/item/storage/backpack

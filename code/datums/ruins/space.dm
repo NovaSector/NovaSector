@@ -177,11 +177,15 @@
 	description = "Based on the trace elements we've detected on the gutted asteroids, we suspect that a mining ship using a restricted engine is somewhere in the area. \
 	We'd like to request a patrol vessel to investigate."
 
+// NOVA EDIT BEGIN - MAPPING
+/*
 /datum/map_template/ruin/space/spacehotel
 	id = "spacehotel"
-	suffix = "spacehotel_skyrat.dmm"	// NOVA EDIT CHANGE - ORIGINAL: suffix = "spacehotel.dmm"
+	suffix = "spacehotel.dmm
 	name = "The Twin-Nexus Hotel"
 	description = "An interstellar hotel, where the weary spaceman can rest their head and relax, assured that the residental staff will not murder them in their sleep. Probably."
+*/
+// NOVA EDIT END
 
 /datum/map_template/ruin/space/turreted_outpost
 	id = "turreted-outpost"
@@ -283,19 +287,16 @@
 	name = "Gondoland"
 	description = "Just an ordinary rock- wait, what's that thing?"
 
-// NOVA EDIT CHANGE START -- Reworked whiteship ruin
-/* NOVA EDIT CHANGE -- ORIGINAL COMMENTED OUT
+// NOVA EDIT BEGIN - MAPPING
+/*
 /datum/map_template/ruin/space/whiteshipruin_box
 id = "whiteshipruin_box"
-suffix = "whiteshipruin_box.dmm"*/
-
-/datum/map_template/ruin/space/whiteshipruin_box_skyrat//NOVA EDIT
-	id = "whiteshipruin_box_skyrat"
-	suffix = "whiteshipruin_box_skyrat.dmm"
-	// NOVA EDIT CHANGE END
+suffix = "whiteshipruin_box.dmm"
 	name = "NT Medical Ship"
 	description = "An ancient ship, said to be among the first discovered derelicts near Space Station 13 that was still in working order. \
 	Aged and deprecated by time, this relic of a vessel is now broken beyond repair."
+*/
+// NOVA EDIT END
 
 /datum/map_template/ruin/space/whiteshipdock
 	id = "whiteshipdock"

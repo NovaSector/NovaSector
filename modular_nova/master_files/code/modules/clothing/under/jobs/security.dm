@@ -1,11 +1,11 @@
 /obj/item/clothing/under/rank/security
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi' // Anything that was in the security.dmi, should be in the security_digi.dmi
 
-/obj/item/clothing/under/rank/security/skyrat
+/obj/item/clothing/under/rank/security/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 
-/obj/item/clothing/under/rank/security/head_of_security/skyrat
+/obj/item/clothing/under/rank/security/head_of_security/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 
@@ -51,7 +51,7 @@
 	fire = 50
 	acid = 40
 
-/obj/item/clothing/under/rank/security/head_of_security/skyrat/imperial //Rank pins of the Grand General
+/obj/item/clothing/under/rank/security/head_of_security/nova/imperial //Rank pins of the Grand General
 	desc = "A tar black naval suit and a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
 	name = "head of security's naval jumpsuit"
 	icon_state = "imphos"

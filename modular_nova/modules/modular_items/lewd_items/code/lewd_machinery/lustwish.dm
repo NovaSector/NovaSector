@@ -49,7 +49,7 @@
 			"name" = "Outfits",
 			"icon" = FA_ICON_SHIRT,
 			"products" = list(
-				/obj/item/clothing/under/pants/skyrat/chaps = 4,
+				/obj/item/clothing/under/pants/nova/chaps = 4,
 				/obj/item/clothing/under/costume/bunnylewd = 5,
 				/obj/item/clothing/under/costume/bunnylewd/white = 5,
 				/obj/item/clothing/head/costume/rabbitears = 4,//Ears together, right after Bunny Suit.
@@ -59,7 +59,7 @@
 				/obj/item/clothing/shoes/latex_heels/domina_heels = 4,
 				/obj/item/clothing/gloves/evening = 5,
 
-				/obj/item/clothing/under/misc/skyrat/gear_harness = 6,//Important "not-nude" outfit
+				/obj/item/clothing/under/misc/nova/gear_harness = 6,//Important "not-nude" outfit
 				/obj/item/clothing/shoes/jackboots/knee = 3,
 
 				/obj/item/clothing/under/misc/latex_catsuit = 8,
@@ -69,7 +69,7 @@
 
 				/obj/item/storage/belt/erpbelt = 5,//Leather Belt, holds a lot of tools.
 
-				/obj/item/clothing/head/costume/skyrat/maid = 5,
+				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/under/costume/lewdmaid = 5,

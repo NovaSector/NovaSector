@@ -1,16 +1,16 @@
 /obj/machinery/vending/boozeomat
-	skyrat_product_categories = list(
+	nova_product_categories = list(
 		list(
 		"name" = "Alcoholic",
 		"icon" = "wine-bottle",
 		"products" = list(
-			/obj/item/reagent_containers/cup/soda_cans/skyrat/synthanolcan = 6,
+			/obj/item/reagent_containers/cup/soda_cans/nova/synthanolcan = 6,
 				)
 			)
 		)
 
 /obj/machinery/vending/boozeomat/cafe
-	skyrat_premium = list(
+	nova_premium = list(
 		/obj/item/stack/sheet/mineral/uranium = 5,
 		/obj/item/stack/sheet/mineral/plasma = 5,
 		/obj/item/stack/sheet/mineral/silver = 5,

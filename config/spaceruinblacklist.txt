@@ -90,6 +90,6 @@
 #_maps/RandomRuins/SpaceRuins/whiteshipdock.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipruin_box.dmm
 #_maps/RandomRuins/SpaceRuins/skyrat/drones_derelict.dmm
-#modular_nova/modules/mapping/_maps/RandomRuins/SpaceRuins/forgottenship_skyrat.dmm
+#modular_nova/modules/mapping/_maps/RandomRuins/SpaceRuins/forgottenship_nova.dmm
 #modular_nova/modules/mapping/_maps/RandomRuins/SpaceRuins/shuttle8532.dmm
 #modular_nova/modules/ruins/maps/space/dangerous_research.dmm

@@ -1,23 +1,23 @@
 /obj/machinery/vending/wardrobe/medi_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/radio/headset/headset_med = 3,
 		/obj/item/clothing/gloves/latex/nitrile = 2,
 		/obj/item/clothing/suit/toggle/labcoat/hospitalgown = 5,
 		/obj/item/storage/belt/medbandolier = 2,
-		/obj/item/clothing/under/rank/engineering/engineer/skyrat/hazard_chem/emt = 2,
-		/obj/item/clothing/under/rank/medical/scrubs/skyrat/red = 4,
-		/obj/item/clothing/under/rank/medical/scrubs/skyrat/white = 4,
+		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem/emt = 2,
+		/obj/item/clothing/under/rank/medical/scrubs/nova/red = 4,
+		/obj/item/clothing/under/rank/medical/scrubs/nova/white = 4,
 		/obj/item/clothing/under/rank/medical/doctor/nova/utility = 4,
 		/obj/item/clothing/suit/toggle/labcoat/medical = 4,
 		/obj/item/storage/backpack/messenger/med = 4,
 	)
 
 /obj/machinery/vending/wardrobe/engi_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/radio/headset/headset_eng = 3,
-		/obj/item/clothing/under/rank/engineering/engineer/skyrat/trouser = 3,
+		/obj/item/clothing/under/rank/engineering/engineer/nova/trouser = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
-		/obj/item/clothing/under/rank/engineering/engineer/skyrat/hazard_chem = 3,
+		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem = 3,
 		/obj/item/clothing/under/misc/overalls = 3,
 		/obj/item/clothing/suit/toggle/jacket/engi = 3,
 		/obj/item/clothing/head/utility/hardhat/orange = 2,
@@ -29,34 +29,34 @@
 	)
 
 /obj/machinery/vending/wardrobe/atmos_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/clothing/glasses/meson/engine = 2,
 		/obj/item/clothing/head/beret/atmos = 4,
 		/obj/item/storage/backpack/messenger/eng = 3,
 	)
 
 /obj/machinery/vending/wardrobe/cargo_wardrobe
-	skyrat_products = list(
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/long = 3,
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/gorka = 3,
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/turtleneck = 3,
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/turtleneck/skirt = 3,
+	nova_products = list(
+		/obj/item/clothing/under/rank/cargo/tech/nova/long = 3,
+		/obj/item/clothing/under/rank/cargo/tech/nova/gorka = 3,
+		/obj/item/clothing/under/rank/cargo/tech/nova/turtleneck = 3,
+		/obj/item/clothing/under/rank/cargo/tech/nova/turtleneck/skirt = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/utility = 3,
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/casualman = 3,
+		/obj/item/clothing/under/rank/cargo/tech/nova/casualman = 3,
 		/obj/item/clothing/suit/toggle/jacket/supply = 3,
 		/obj/item/clothing/glasses/hud/gun_permit = 5, //from company imports module
 		/obj/item/storage/backpack/messenger = 3,
 	)
 
-	skyrat_contraband = list(
-		/obj/item/clothing/under/suit/skyrat/scarface = 2,
-		/obj/item/clothing/under/rank/cargo/tech/skyrat/evil = 2,
+	nova_contraband = list(
+		/obj/item/clothing/under/suit/nova/scarface = 2,
+		/obj/item/clothing/under/rank/cargo/tech/nova/evil = 2,
 	)
 
 /obj/machinery/vending/wardrobe/robo_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
-		/obj/item/clothing/under/rank/rnd/roboticist/skyrat/sleek = 2,
+		/obj/item/clothing/under/rank/rnd/roboticist/nova/sleek = 2,
 		/obj/item/tank/internals/anesthetic = 2,
 		/obj/item/clothing/mask/breath = 2,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
@@ -74,65 +74,65 @@
 	)
 
 /obj/machinery/vending/wardrobe/science_wardrobe
-	skyrat_products = list(
-		/obj/item/clothing/under/rank/rnd/scientist/skyrat/hlscience = 3,
+	nova_products = list(
+		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
 		/obj/item/clothing/suit/toggle/jacket/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)
 
 /obj/machinery/vending/wardrobe/hydro_wardrobe
-	skyrat_contraband = list(
-		/obj/item/clothing/under/suit/skyrat/scarface = 2,
-		/obj/item/clothing/under/misc/skyrat/gear_harness/adam = 2,
-		/obj/item/clothing/under/misc/skyrat/gear_harness/eve = 2,
+	nova_contraband = list(
+		/obj/item/clothing/under/suit/nova/scarface = 2,
+		/obj/item/clothing/under/misc/nova/gear_harness/adam = 2,
+		/obj/item/clothing/under/misc/nova/gear_harness/eve = 2,
 		/obj/item/storage/backpack/messenger/hyd = 3,
 	)
 
 /obj/machinery/vending/wardrobe/bar_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/storage/fancy/candle_box/vanilla = 1,
 		/obj/item/storage/fancy/candle_box/pear = 1,
 		/obj/item/storage/fancy/candle_box/amber = 1,
 		/obj/item/storage/fancy/candle_box/jasmine = 1,
 		/obj/item/storage/fancy/candle_box/mint = 1,
-		/obj/item/clothing/suit/hooded/wintercoat/skyrat/bartender = 2,
+		/obj/item/clothing/suit/hooded/wintercoat/nova/bartender = 2,
 	)
 
 /obj/machinery/vending/wardrobe/chap_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/clothing/suit/costume/nemes = 1,
 		/obj/item/clothing/head/costume/nemes = 1,
 		/obj/item/clothing/head/costume/pharaoh = 1, //dont google camel by camel worst mistake of my life
 	)
 
-	skyrat_contraband = list(
+	nova_contraband = list(
 		/obj/item/clothing/neck/chaplain = 1,
 		/obj/item/clothing/neck/chaplain/black = 1,
 		/obj/item/implanter/mortis = 1,
 	)
 
 /obj/machinery/vending/cart
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/radio/headset/headset_srv = 3,
 	)
 
 /obj/machinery/vending/wardrobe/chem_wardrobe
-	skyrat_products = list(
-		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal = 2,
-		/obj/item/clothing/under/rank/medical/chemist/skyrat/formal/skirt = 2,
+	nova_products = list(
+		/obj/item/clothing/under/rank/medical/chemist/nova/formal = 2,
+		/obj/item/clothing/under/rank/medical/chemist/nova/formal/skirt = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
 		/obj/item/storage/backpack/messenger/chem = 2,
 	)
 
 /obj/machinery/vending/wardrobe/viro_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/clothing/head/beret/medical/virologist = 2,
 		/obj/item/storage/backpack/messenger/vir = 2,
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe
-	skyrat_products = list(
+	nova_products = list(
 		/obj/item/clothing/head/fedora/beige = 2,
 		/obj/item/clothing/head/fedora/white = 2,
 		/obj/item/clothing/under/costume/cybersleek = 2,
@@ -141,19 +141,19 @@
 		/obj/item/clothing/suit/toggle/deckard = 2,
 		/obj/item/clothing/suit/armor/vest/det_suit/runner = 2,
 		/obj/item/clothing/under/rank/security/detective/runner = 2,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/highvis = 2,
+		/obj/item/clothing/suit/toggle/labcoat/nova/highvis = 2,
 		/obj/item/clothing/under/rank/security/detective/cowboy = 2,
 		/obj/item/clothing/suit/jacket/det_suit/cowboyvest = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 	)
 
 /obj/machinery/vending/wardrobe/law_wardrobe
-	skyrat_products = list(
-		/obj/item/clothing/under/suit/skyrat/black_really_collared = 3,
-		/obj/item/clothing/under/suit/skyrat/black_really_collared/skirt = 3,
-		/obj/item/clothing/under/suit/skyrat/inferno = 3,
-		/obj/item/clothing/under/suit/skyrat/inferno/skirt = 3,
-		/obj/item/clothing/under/suit/skyrat/inferno/beeze = 2,
+	nova_products = list(
+		/obj/item/clothing/under/suit/nova/black_really_collared = 3,
+		/obj/item/clothing/under/suit/nova/black_really_collared/skirt = 3,
+		/obj/item/clothing/under/suit/nova/inferno = 3,
+		/obj/item/clothing/under/suit/nova/inferno/skirt = 3,
+		/obj/item/clothing/under/suit/nova/inferno/beeze = 2,
 	)
 
 /// GHOST CAFE WARDROBES

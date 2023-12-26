@@ -46,12 +46,12 @@
 	return ..()
 
 /datum/outfit/lavaland_syndicate/ice
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
-	suit = /obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
+	suit = /obj/item/clothing/suit/hooded/wintercoat/nova/syndicate
 	ears = /obj/item/radio/headset/interdyne
 
 /datum/outfit/lavaland_syndicate/comms
-	uniform = /obj/item/clothing/under/rank/security/skyrat/utility/redsec/syndicate
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
 	ears = /obj/item/radio/headset/interdyne/comms
 
 /datum/outfit/lavaland_syndicate/comms/space
@@ -59,10 +59,10 @@
 
 /datum/outfit/lavaland_syndicate/shaftminer
 	name = "Interdyne Shaft Miner"
-	uniform = /obj/item/clothing/under/rank/cargo/tech/skyrat/utility/syndicate
+	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/utility/syndicate
 	suit = null //Subtype moment
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/skyrat/interdyne
+	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/flashlight/seclite=1,
@@ -78,7 +78,7 @@
 	neck = /obj/item/clothing/neck/cloak/qm/nova/interdyne
 	ears = /obj/item/radio/headset/interdyne/command
 	/obj/item/card/id/advanced/chameleon/black/silver
-	id_trim = /datum/id_trim/syndicom/skyrat/interdyne/deckofficer
+	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/deckofficer/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate/captain(get_turf(src))
@@ -86,8 +86,8 @@
 
 /datum/outfit/lavaland_syndicate/shaftminer/ice
 	name = "Icemoon Interdyne Shaft Miner"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
-	suit = /obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
+	suit = /obj/item/clothing/suit/hooded/wintercoat/nova/syndicate
 
 //ITEMS
 

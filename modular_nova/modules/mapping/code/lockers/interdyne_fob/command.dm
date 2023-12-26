@@ -54,7 +54,7 @@
 	new /obj/item/clothing/accessory/medal/silver/maa_medal(src)
 	new /obj/item/clothing/suit/armor/vest/warden/syndicate(src)
 	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
-	new /obj/item/clothing/under/suit/skyrat/helltaker(src)
+	new /obj/item/clothing/under/suit/nova/helltaker(src)
 	new /obj/item/clothing/suit/armor/hos/maa_greatcoat(src)
 	new /obj/item/clothing/head/beret/sec/navywarden/syndicate(src)
 	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
@@ -83,9 +83,9 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the corprate liaison."
 
 /obj/item/storage/bag/garment/corprate_liaison/PopulateContents()
-	new /obj/item/clothing/under/syndicate/skyrat/baseball(src)
+	new /obj/item/clothing/under/syndicate/nova/baseball(src)
 	new /obj/item/clothing/under/rank/captain/nova/utility/syndicate(src)
-	new /obj/item/clothing/under/suit/skyrat/helltaker(src)
+	new /obj/item/clothing/under/suit/nova/helltaker(src)
 	new /obj/item/clothing/neck/chaplain/black/cl_cloak(src)
 	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
