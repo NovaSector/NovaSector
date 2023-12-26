@@ -91,7 +91,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /// Internal. Polls ghosts and sends in a team of space cops according to the alert level, accompanied by an announcement.
 /obj/machinery/computer/communications/proc/call_911(ordered_team)
 	var/team_size
-	var/cops_to_send
+	var/datum/antagonist/ert/cops_to_send
 	var/announcement_message = "sussus amogus"
 	var/announcer = "Sol Federation Marshal Department"
 	var/poll_question = "fuck you leatherman"
@@ -143,7 +143,12 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 			cell_phone_number = "Dogginos"
 			list_to_use = "dogginos"
 	priority_announce(announcement_message, announcer, 'sound/effects/families_police.ogg', has_important_message=TRUE, color_override = "yellow")
-	var/list/candidates = SSpolling.poll_ghost_candidates(poll_question, ROLE_DEATHSQUAD)
+	var/list/candidates = SSpolling.poll_ghost_candidates(
+		poll_question,
+		check_jobban = ROLE_DEATHSQUAD,
+		pic_source = /obj/item/solfed_reporter,
+		role_text_name = cops_to_send::name,
+	)
 
 	if(candidates.len)
 		//Pick the (un)lucky players
@@ -578,7 +583,12 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 				station_balance?.adjust_money(SOLFED_FINE_AMOUNT) // paying for the gas to drive all the fuckin' way out to the frontier
 
 			priority_announce(announcement_message, announcement_source, 'sound/effects/families_police.ogg', has_important_message = TRUE, color_override = "yellow")
-			var/list/candidates = SSpolling.poll_ghost_candidates(ghost_poll_msg, jobban_to_check)
+			var/list/candidates = SSpolling.poll_ghost_candidates(
+				ghost_poll_msg,
+				jobban_to_check,
+				pic_source = /obj/item/solfed_reporter,
+				role_text_name = summoned_type,
+			)
 
 			if(candidates.len)
 				//Pick the (un)lucky players
