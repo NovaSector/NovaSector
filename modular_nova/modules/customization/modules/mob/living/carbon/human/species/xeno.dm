@@ -117,7 +117,7 @@
 
 /datum/action/cooldown/alien/make_structure/resin/roundstart
 	build_duration = BUILD_DURATION
-	 //Non-modularly checked in `code\modules\mob\living\carbon\alien\adult\alien_powers.dm`
+	//Non-modularly checked in `code\modules\mob\living\carbon\alien\adult\alien_powers.dm`
 
 //Organ resprites
 /obj/item/organ/internal/brain/xeno_hybrid
@@ -136,6 +136,5 @@
 		return
 	if(chem.type == /datum/reagent/toxin/plasma)
 		chem.toxpwr = 0
-		return
 
 #undef BUILD_DURATION
