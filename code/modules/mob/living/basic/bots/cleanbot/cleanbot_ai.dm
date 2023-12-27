@@ -40,6 +40,10 @@
 
 /datum/ai_planning_subtree/pet_planning/cleanbot/SelectBehaviors(datum/ai_controller/basic_controller/bot/controller, seconds_per_tick)
 	var/mob/living/basic/bot/bot_pawn = controller.pawn
+	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
+	if(QDELETED(bot_pawn))
+		return SUBTREE_RETURN_FINISH_PLANNING
+	// NOVA EDIT ADDITION END
 	//we are DONE listening to orders
 	if(bot_pawn.bot_access_flags & BOT_COVER_EMAGGED)
 		return
@@ -50,6 +54,10 @@
 
 /datum/ai_planning_subtree/cleaning_subtree/SelectBehaviors(datum/ai_controller/basic_controller/bot/cleanbot/controller, seconds_per_tick)
 	var/mob/living/basic/bot/cleanbot/bot_pawn = controller.pawn
+	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
+	if(QDELETED(bot_pawn))
+		return SUBTREE_RETURN_FINISH_PLANNING
+	// NOVA EDIT ADDITION END
 
 	if(LAZYLEN(bot_pawn.do_afters))
 		return SUBTREE_RETURN_FINISH_PLANNING
@@ -84,6 +92,10 @@
 
 /datum/ai_planning_subtree/acid_spray/SelectBehaviors(datum/ai_controller/basic_controller/bot/controller, seconds_per_tick)
 	var/mob/living/basic/bot/cleanbot/bot_pawn = controller.pawn
+	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
+	if(QDELETED(bot_pawn))
+		return SUBTREE_RETURN_FINISH_PLANNING
+	// NOVA EDIT ADDITION END
 	if(!(bot_pawn.bot_access_flags & BOT_COVER_EMAGGED))
 		return
 	if(controller.reachable_key(BB_ACID_SPRAY_TARGET, BOT_CLEAN_PATH_LIMIT))
@@ -152,6 +164,10 @@
 
 /datum/ai_planning_subtree/use_mob_ability/foam_area/SelectBehaviors(datum/ai_controller/basic_controller/bot/controller, seconds_per_tick)
 	var/mob/living/basic/bot/bot_pawn = controller.pawn
+	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
+	if(QDELETED(bot_pawn))
+		return SUBTREE_RETURN_FINISH_PLANNING
+	// NOVA EDIT ADDITION END
 	if(!(bot_pawn.bot_access_flags & BOT_COVER_EMAGGED))
 		return
 	return ..()
@@ -160,6 +176,10 @@
 
 /datum/ai_planning_subtree/befriend_janitors/SelectBehaviors(datum/ai_controller/basic_controller/bot/controller, seconds_per_tick)
 	var/mob/living/basic/bot/bot_pawn = controller.pawn
+	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
+	if(QDELETED(bot_pawn))
+		return SUBTREE_RETURN_FINISH_PLANNING
+	// NOVA EDIT ADDITION END
 	//we are now evil. dont befriend the janitors
 	if(bot_pawn.bot_access_flags & BOT_COVER_EMAGGED)
 		return

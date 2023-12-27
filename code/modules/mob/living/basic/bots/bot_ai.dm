@@ -97,6 +97,10 @@
 
 /datum/ai_planning_subtree/find_patrol_beacon/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	var/mob/living/basic/bot/bot_pawn = controller.pawn
+	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
+	if(QDELETED(bot_pawn))
+		return SUBTREE_RETURN_FINISH_PLANNING
+	// NOVA EDIT ADDITION END
 	if(!(bot_pawn.bot_mode_flags & BOT_MODE_AUTOPATROL) || bot_pawn.mode == BOT_SUMMON)
 		return
 
