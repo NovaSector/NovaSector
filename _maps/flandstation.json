@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"map_name": "Flandstation",
+	"map_path": "map_files/Flandstation",
+	"map_file": "FlandStation.dmm",
+	"shuttles": {
+		"cargo": "cargo_skyrat",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_fland",
+		"emergency": "emergency_fland"
+	},
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/service/bar", "/area/station/commons/lounge"]
+		}
+	}
+}
