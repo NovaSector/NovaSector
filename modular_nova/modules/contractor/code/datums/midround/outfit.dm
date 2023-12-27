@@ -2,13 +2,13 @@
 	name = "Syndicate Contractor - Full Kit"
 
 	glasses = /obj/item/clothing/glasses/night
-	mask = /obj/item/clothing/mask/gas/syndicate
+	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
 	back = /obj/item/mod/control/pre_equipped/contractor/upgraded
 	r_pocket = /obj/item/tank/internals/emergency_oxygen/engi
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/storage/belt/military
 
-	uniform = /obj/item/clothing/under/syndicate/coldres
+	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicate/alt
