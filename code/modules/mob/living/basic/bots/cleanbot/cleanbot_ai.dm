@@ -55,8 +55,7 @@
 
 /datum/ai_planning_subtree/cleaning_subtree/SelectBehaviors(datum/ai_controller/basic_controller/bot/cleanbot/controller, seconds_per_tick)
 	// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
-	var/mob/living/basic/bot/cleanbot/bot_pawn = controller.pawn
-	if(QDELETED(bot_pawn))
+	if(QDELETED(controller.pawn))
 		return SUBTREE_RETURN_FINISH_PLANNING
 	// NOVA EDIT ADDITION END
 	if(controller.reachable_key(BB_CLEAN_TARGET, BOT_CLEAN_PATH_LIMIT))
