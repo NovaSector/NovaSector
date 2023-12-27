@@ -17,7 +17,11 @@
 	if(!ishuman(owner.current))
 		return
 	var/mob/living/carbon/human/person = owner.current
-	person.equipOutfit(contractor_outfit)
+	var/datum/outfit/outfit_to_apply = new contractor_outfit
+	if(person.physique == FEMALE)
+		outfit_to_apply.uniform = /obj/item/clothing/under/syndicate/skirt/coldres
+	person.equipOutfit(outfit_to_apply)
+	SSquirks.AssignQuirks(person, person.client)
 	return TRUE
 
 /datum/antagonist/contractor/on_gain()

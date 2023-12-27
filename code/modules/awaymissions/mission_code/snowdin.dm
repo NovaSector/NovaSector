@@ -379,6 +379,13 @@
 	cold_protection = CHEST|GROIN|ARMS|LEGS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
+/obj/item/clothing/under/syndicate/skirt/coldres
+	name = "insulated tactical turtleneck skirt"
+	desc = "A nondescript and slightly suspicious-looking turtleneck with a digital camouflage skirt. The interior has been padded with special insulation for both warmth and protection."
+	armor_type = /datum/armor/clothing_under/syndicate/coldres
+	cold_protection = CHEST|GROIN|ARMS|LEGS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
 /datum/armor/clothing_under/syndicate/coldres
 	melee = 20
 	bullet = 10
