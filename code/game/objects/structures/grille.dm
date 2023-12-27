@@ -344,7 +344,7 @@
 		take_damage(1, BURN, FIRE, sound_effect = FALSE)
 	var/obj/structure/cable/C = T.get_cable_node()
 	if(C)
-		if(electrocute_mob(user, C, src, 1, TRUE))
+		if(electrocute_mob(user, C, src, 1, TRUE, damage_mult = 2.5)) // NOVA EDIT ADDITION - Added "damage_mult = 2.5"
 			var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 			s.set_up(3, 1, src)
 			s.start()
