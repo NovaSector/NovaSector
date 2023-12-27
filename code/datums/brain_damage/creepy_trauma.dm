@@ -142,8 +142,8 @@
 			continue
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_KILL)
 			continue
-		viable_minds += player.mind
 		// NOVA EDIT ADDITION END
+		viable_minds += player.mind
 	for(var/datum/mind/possible_target as anything in viable_minds)
 		if(possible_target != owner && ishuman(possible_target.current))
 			var/job = possible_target.assigned_role.title
