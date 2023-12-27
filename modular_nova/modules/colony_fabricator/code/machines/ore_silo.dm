@@ -1,7 +1,7 @@
 /obj/machinery/ore_silo/colony_lathe
 	name = "colony ore silo"
 	desc = "An all-in-one materials management solution. Connects resource-using machines \
-		through a network of distrobution systems."
+		through a network of distribution systems."
 	icon = 'modular_nova/modules/colony_fabricator/icons/ore_silo.dmi'
 	circuit = null
 	/// What this unpacks into
