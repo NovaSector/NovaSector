@@ -161,11 +161,10 @@
 /datum/job/proc/has_required_languages(datum/preferences/pref)
 	if(!required_languages)
 		return TRUE
-	// NOVA EDIT ADDITION START - if we have a bilingual quirk, check that as well
+	// if we have a bilingual quirk, check that as well
 	var/bilingual_pref
 	if(/datum/quirk/bilingual::name in pref.all_quirks)
 		bilingual_pref = pref.read_preference(/datum/preference/choiced/language)
-	// NOVA EDIT ADDITION END
 
 	for(var/datum/language/lang as anything in required_languages)
 		//Doesnt have language, or the required "level" is too low (understood, while needing spoken)
