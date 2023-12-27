@@ -41,12 +41,18 @@
 
 
 /obj/machinery/power/colony_wind_turbine/process()
-	var/turf/our_turf = get_turf(src)
-	var/datum/gas_mixture/environment = our_turf.return_air()
 	var/area/our_current_area = get_area(src)
 	if(!our_current_area.outdoors)
 		icon_state = "turbine"
 		return
+	var/datum/gas_mixture/environment = our_turf.return_air()
+	if(environment.return_pressure() < minimum_pressure)
+		pressure_too_low = TRUE
+		icon_state = "turbine"
+		add_avail(0)
+		return
+
+	var/turf/our_turf = get_turf(src)
 	if(environment.return_pressure() < minimum_pressure)
 		pressure_too_low = TRUE
 		icon_state = "turbine"
