@@ -1,4 +1,4 @@
-/obj/structure/closet/secure_closet/ds-two/science_gear
+/obj/structure/closet/secure_closet/des_two/science_gear
 	icon_state = "science"
 	name = "scientist gear locker"
 
@@ -19,12 +19,12 @@
 	new /obj/item/clothing/accessory/armband/science/syndicate(src)
 	new /obj/item/clothing/accessory/armband/science/syndicate(src)
 
-/obj/structure/closet/secure_closet/ds-two/science_gear/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/science_gear/PopulateContents()
 	..()
 
 	new /obj/item/storage/bag/garment/syndicate_scientist(src)
 
-/obj/structure/closet/secure_closet/ds-two/robotics
+/obj/structure/closet/secure_closet/des_two/robotics
 	icon_state = "science"
 	name = "roboticist gear locker"
 
@@ -41,7 +41,7 @@
 	new /obj/item/clothing/glasses/hud/diagnostic(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/science/robotics(src)
 
-/obj/structure/closet/secure_closet/ds-two/robotics/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/robotics/PopulateContents()
 	..()
 
 	new /obj/item/storage/bag/garment/syndicate_scientist(src)

@@ -1,15 +1,15 @@
 // Parent type since most of the lockers required syndicate access
-/obj/structure/closet/secure_closet/ds-two
+/obj/structure/closet/secure_closet/des_two
 	req_access = list("syndicate")
 
 // Generic lockers/subtypes
-/obj/structure/closet/secure_closet/ds-two/mod_locker
+/obj/structure/closet/secure_closet/des_two/mod_locker
 	icon_door = "syndicate"
 	icon_state = "syndicate"
 	name = "MODsuit module locker"
 	req_access = list("syndicate_leader")
 
-/obj/structure/closet/secure_closet/ds-two/mod_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/mod_locker/PopulateContents()
 	..()
 
 	new /obj/item/mod/module/stealth(src)

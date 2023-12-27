@@ -1,4 +1,4 @@
-/obj/structure/closet/secure_closet/ds-two/medical
+/obj/structure/closet/secure_closet/des_two/medical
 	icon_state = "med_secure"
 	name = "medical gear locker"
 
@@ -13,7 +13,7 @@
 	new /obj/item/clothing/glasses/hud/ar/aviator/health(src)
 	new /obj/item/clothing/glasses/hud/ar/aviator/health(src)
 
-/obj/structure/closet/secure_closet/ds-two/medical/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/medical/PopulateContents()
 	..()
 
 	new /obj/item/storage/belt/medbandolier(src)

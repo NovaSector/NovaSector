@@ -1,4 +1,4 @@
-/obj/structure/closet/secure_closet/ds-two/sa_locker
+/obj/structure/closet/secure_closet/des_two/sa_locker
 	icon_door = "cap"
 	icon_state = "cap"
 	name = "\proper station admiral's locker"
@@ -20,14 +20,14 @@
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/medal/gold/admiral(src)
 
-/obj/structure/closet/secure_closet/ds-two/sa_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/sa_locker/PopulateContents()
 	..()
 
 	new /obj/item/ammo_box/magazine/m9mm_aps(src)
 	new /obj/item/storage/bag/garment/station_admiral(src)
 	new /obj/item/radio/headset/interdyne/command(src)
 
-/obj/structure/closet/secure_closet/ds-two/maa_locker
+/obj/structure/closet/secure_closet/des_two/maa_locker
 	icon_door = "warden"
 	icon_state = "warden"
 	name = "master at arms' locker"
@@ -59,7 +59,7 @@
 	new /obj/item/clothing/head/beret/sec/navywarden/syndicate(src)
 	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
 
-/obj/structure/closet/secure_closet/ds-two/maa_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/maa_locker/PopulateContents()
 	..()
 
 	new /obj/item/storage/belt/security/full(src)
@@ -68,7 +68,7 @@
 	new /obj/item/storage/bag/garment/master_arms(src)
 	new /obj/item/radio/headset/interdyne(src)
 
-/obj/structure/closet/secure_closet/ds-two/cl_locker
+/obj/structure/closet/secure_closet/des_two/cl_locker
 	icon_door = "hop"
 	icon_state = "hop"
 	name = "\proper corporate liaison's locker"
@@ -90,7 +90,7 @@
 	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 
-/obj/structure/closet/secure_closet/ds-two/cl_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/cl_locker/PopulateContents()
 	..()
 
 	new /obj/item/card/id/advanced/chameleon/black(src)

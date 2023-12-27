@@ -1,9 +1,9 @@
-/obj/structure/closet/secure_closet/ds-two/welding_supplies
+/obj/structure/closet/secure_closet/des_two/welding_supplies
 	icon_door = "eng_weld"
 	icon_state = "eng"
 	name = "welding supplies locker"
 
-/obj/structure/closet/secure_closet/ds-two/welding_supplies/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/welding_supplies/PopulateContents()
 	..()
 
 	new /obj/item/weldingtool/largetank(src)
@@ -11,12 +11,12 @@
 	new /obj/item/clothing/glasses/welding(src)
 	new /obj/item/clothing/glasses/welding(src)
 
-/obj/structure/closet/secure_closet/ds-two/electrical_supplies
+/obj/structure/closet/secure_closet/des_two/electrical_supplies
 	icon_door = "eng_elec"
 	icon_state = "eng"
 	name = "electrical supplies locker"
 
-/obj/structure/closet/secure_closet/ds-two/electrical_supplies/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/electrical_supplies/PopulateContents()
 	..()
 
 	new /obj/item/electronics/airlock(src)
@@ -31,7 +31,7 @@
 	new /obj/item/stock_parts/cell/high(src)
 	new /obj/item/clothing/glasses/meson/engine(src)
 
-/obj/structure/closet/secure_closet/ds-two/engie_locker
+/obj/structure/closet/secure_closet/des_two/engie_locker
 	icon_door = "eng_secure"
 	icon_state = "eng_secure"
 	name = "engine technician gear locker"
@@ -56,7 +56,7 @@
 	name = "engine technician armband"
 	desc = "An armband, worn by the FOB's operatives to display which department they're assigned to."
 
-/obj/structure/closet/secure_closet/ds-two/engie_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/engie_locker/PopulateContents()
 	..()
 
 	new /obj/item/storage/bag/garment/syndicate_engie(src)

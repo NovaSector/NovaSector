@@ -1,4 +1,4 @@
-/obj/structure/closet/secure_closet/ds-two/mining_locker
+/obj/structure/closet/secure_closet/des_two/mining_locker
 	icon_door = "mining"
 	icon_state = "mining"
 	name = "mining gear locker"
@@ -7,7 +7,7 @@
 	name = "mining officer armband"
 	desc = "An armband, worn by the FOB's operatives to display which department they're assigned to."
 
-/obj/structure/closet/secure_closet/ds-two/mining_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/mining_locker/PopulateContents()
 	..()
 
 	new /obj/item/storage/bag/ore(src)
@@ -19,7 +19,7 @@
 	new /obj/item/storage/backpack/messenger/explorer(src)
 	new /obj/item/clothing/accessory/armband/cargo/syndicate(src)
 
-/obj/structure/closet/secure_closet/ds-two/mining_locker/populate_contents_immediate()
+/obj/structure/closet/secure_closet/des_two/mining_locker/populate_contents_immediate()
 	. = ..()
 
 	new /obj/item/gun/energy/recharge/kinetic_accelerator(src)

@@ -1,8 +1,8 @@
-/obj/structure/closet/secure_closet/ds-two/prisoner_locker
+/obj/structure/closet/secure_closet/des_two/prisoner_locker
 	name = "prisoner item locker"
 	req_access = list("syndicate_leader")
 
-/obj/structure/closet/secure_closet/ds-two/brig_officer_locker
+/obj/structure/closet/secure_closet/des_two/brig_officer_locker
 	icon_door = "sec"
 	icon_state = "sec"
 	name = "brig officer gear locker"
@@ -29,7 +29,7 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/redsec(src)
 
-/obj/structure/closet/secure_closet/ds-two/brig_officer_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/brig_officer_locker/PopulateContents()
 	..()
 
 	new /obj/item/storage/belt/security/full(src)
@@ -37,7 +37,7 @@
 	new /obj/item/storage/bag/garment/brig_officer(src)
 	new /obj/item/radio/headset/interdyne(src)
 
-/obj/structure/closet/secure_closet/ds-two/armory_gear_locker
+/obj/structure/closet/secure_closet/des_two/armory_gear_locker
 	anchored = 1
 	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_door = "riot"
@@ -45,7 +45,7 @@
 	name = "armory gear locker"
 	req_access = list("syndicate_leader")
 
-/obj/structure/closet/secure_closet/ds-two/armory_gear_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/armory_gear_locker/PopulateContents()
 	..()
 
 	new /obj/item/storage/belt/holster/nukie(src)
@@ -61,14 +61,14 @@
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/head/helmet(src)
 
-/obj/structure/closet/secure_closet/ds-two/munitions_locker
+/obj/structure/closet/secure_closet/des_two/munitions_locker
 	anchored = 1;
 	icon = 'modular_nova/master_files/icons/obj/closet.dmi'
 	icon_door = "riot"
 	icon_state = "riot"
 	name = "armory munitions locker"
 
-/obj/structure/closet/secure_closet/ds-two/munitions_locker/PopulateContents()
+/obj/structure/closet/secure_closet/des_two/munitions_locker/PopulateContents()
 	..()
 
 	generate_items_inside(list(
