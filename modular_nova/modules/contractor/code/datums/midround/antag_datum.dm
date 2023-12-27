@@ -18,7 +18,7 @@
 		return
 	var/mob/living/carbon/human/person = owner.current
 	var/datum/outfit/outfit_to_apply = new contractor_outfit
-	if(person.physique == FEMALE)
+	if(person.jumpsuit_style == PREF_SKIRT)
 		outfit_to_apply.uniform = /obj/item/clothing/under/syndicate/skyrat/tactical/skirt
 	person.equipOutfit(outfit_to_apply)
 	SSquirks.AssignQuirks(person, person.client)
