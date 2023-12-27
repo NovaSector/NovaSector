@@ -51,7 +51,7 @@
 /obj/item/crusher_trophy/deer_fur
 	name = "deer fur"
 	desc = "It's fur from a mega deer."
-	icon = 'modular_skyrat/modules/serenitystation/icons/misc.dmi'
+	icon = 'modular_nova/modules/serenitystation/icons/misc.dmi'
 	icon_state = "deer_fur"
 	denied_type = /obj/item/crusher_trophy/deer_fur
 
