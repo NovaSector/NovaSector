@@ -2,7 +2,7 @@
 /// Assoc list of stringified opt_in_## define to the front-end string to show users as a representation of the setting.
 GLOBAL_LIST_INIT(antag_opt_in_strings, list(
 	"0" = "No",
-	"1" = "Yes - Temporary/Inconvienence",
+	"1" = "Yes - Temporary/Inconvenience",
 	"2" = "Yes - Kill",
 	"3" = "Yes - Round Remove",
 ))
