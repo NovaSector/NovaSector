@@ -195,9 +195,9 @@ export class Changelog extends Component {
         </p>
         <p>
           {'Current project maintainers can be found '}
-          <a href="https://github.com/GalacticStation?tab=members">here</a>
+          <a href="https://github.com/NovaSector?tab=members">here</a>
           {', recent GitHub contributors can be found '}
-          <a href="https://github.com/GalacticStation/GalaxiaStation/pulse/monthly">
+          <a href="https://github.com/NovaSector/NovaSector/pulse/monthly">
             here
           </a>
           .
