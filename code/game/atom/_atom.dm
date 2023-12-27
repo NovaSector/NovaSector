@@ -133,6 +133,8 @@
 
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY
+	///whether ghosts can see screentips on it
+	var/ghost_screentips = FALSE
 
 /**
  * Top level of the destroy chain for most atoms
@@ -842,11 +844,11 @@
 	var/mob/user = client?.mob
 	if (isnull(user))
 		return
-	///SKYRAT EDIT ADDITION BEGIN
+	///NOVA EDIT ADDITION BEGIN
 	// Face directions on combat mode. No procs, no typechecks, just a var for speed
 	if(user.face_mouse)
 		user.face_atom(src)
-	///SKYRAT EDIT ADDITION END
+	///NOVA EDIT ADDITION END
 
 	// Screentips
 	var/datum/hud/active_hud = user.hud_used
@@ -866,7 +868,7 @@
 	var/extra_lines = 0
 	var/extra_context = ""
 
-	if (isliving(user) || isovermind(user) || isaicamera(user))
+	if(isliving(user) || isovermind(user) || isaicamera(user) || (ghost_screentips && isobserver(user)))
 		var/obj/item/held_item = user.get_active_held_item()
 
 		if (flags_1 & HAS_CONTEXTUAL_SCREENTIPS_1 || held_item?.item_flags & ITEM_HAS_CONTEXTUAL_SCREENTIPS)

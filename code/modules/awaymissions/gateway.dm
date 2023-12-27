@@ -25,14 +25,14 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 		. = "Connection desynchronized. Recalibration in progress."
 
 /* Check if the movable is allowed to arrive at this destination (exile implants mostly) */
-/** SKYRAT EDIT - CYBORGS CANT USE GETWAY
+/** NOVA EDIT - CYBORGS CANT USE GETWAY
 /datum/gateway_destination/proc/incoming_pass_check(atom/movable/AM)
 	return TRUE
 **/
 // Just a reminder that the home gateway overrides this proc so if a borg someone finds themself in an away mission they can still leave
 /datum/gateway_destination/proc/incoming_pass_check(atom/movable/AM)
 	return !iscyborg(AM)
-// SKYRAT EDIT - END
+// NOVA EDIT - END
 /* Get the actual turf we'll arrive at */
 /datum/gateway_destination/proc/get_target_turf()
 	CRASH("get target turf not implemented for this destination type")
@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	var/list/type_blacklist = list(
 		/obj/item/mmi,
 		/mob/living/silicon,
@@ -150,7 +150,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			continue
 		to_chat(AM, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
 		return
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	if(get_dir(src,AM) == SOUTH)
 		gateway.Transfer(AM)
 
@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	var/teleportion_possible = FALSE
 	var/transport_active = FALSE
 
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	var/requires_key = FALSE
 	var/key_used = FALSE
 
@@ -203,7 +203,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 		key_used = TRUE
 		qdel(I)
 		return
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 /obj/machinery/gateway/Initialize(mapload)
 	generate_destination()
@@ -287,10 +287,10 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/gateway/proc/activate(datum/gateway_destination/D)
 	if(!powered() || target)
 		return
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if(requires_key && !key_used)
 		return
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	target = D
 	target.activate(destination)
 	portal_visuals.setup_visuals(target)
@@ -348,7 +348,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/away/interact(mob/user, special_state)
 	. = ..()
-	//SKYRAT EDIT ADDITION
+	//NOVA EDIT ADDITION
 	var/list/type_blacklist = list(
 		/obj/item/mmi,
 		/mob/living/silicon,
@@ -361,7 +361,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			continue
 		to_chat(user, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
 		return
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 	if(!target)
 		if(!GLOB.the_gateway)
 			to_chat(user,span_warning("Home gateway is not responding!"))
@@ -375,7 +375,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control
 	name = "Gateway Control"
 	desc = "Human friendly interface to the mysterious gate next to it."
-	req_access = list(ACCESS_CENT_GENERAL) //SKYRAT EDIT ADDITION
+	req_access = list(ACCESS_CENT_GENERAL) //NOVA EDIT ADDITION
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)
@@ -413,13 +413,13 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			try_to_linkup()
 			return TRUE
 		if("activate")
-			//SKYRAT EDIT ADDITION BEGIN
+			//NOVA EDIT ADDITION BEGIN
 			if(ishuman(usr))
 				var/mob/living/carbon/human/interacting_human = usr
 				if(!allowed(interacting_human))
 					to_chat(interacting_human, "<span class='notice'>Error, you do not have the required access to link up the gateway.</span>")
 					return FALSE
-			//SKYRAT EDIT END
+			//NOVA EDIT END
 			var/datum/gateway_destination/D = locate(params["destination"]) in GLOB.gateway_destinations
 			try_to_connect(D)
 			return TRUE

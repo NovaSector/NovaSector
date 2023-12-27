@@ -19,7 +19,7 @@
 		return MAP_ERROR
 
 	//selecting a candidate player
-	var/list/candidates = get_candidates(ROLE_NINJA, ROLE_NINJA)
+	var/list/candidates = SSpolling.poll_ghost_candidates(check_jobban = ROLE_NINJA, role = ROLE_NINJA, pic_source = /obj/item/energy_katana)
 	if(!candidates.len)
 		return NOT_ENOUGH_PLAYERS
 
@@ -31,7 +31,7 @@
 	ninja.key = key
 	ninja.mind.add_antag_datum(/datum/antagonist/ninja)
 	spawned_mobs += ninja
-// SKYRAT EDIT ADDITION BEGIN: Preference Ninjas
+// NOVA EDIT ADDITION BEGIN: Preference Ninjas
 	var/loadme = tgui_input_list(ninja, "Do you wish to load your character slot?", "Load Character?", list("Yes!", "No, I want to be random!"), default = "No, I want to be random!", timeout = 60 SECONDS)
 	var/codename
 	if(loadme == "Yes!")
@@ -45,7 +45,7 @@
 		ninja.randomize_human_appearance(~(RANDOMIZE_NAME|RANDOMIZE_SPECIES))
 		ninja.dna.update_dna_identity()
 
-// SKYRAT EDIT ADDITION END: Preference Ninjas
+// NOVA EDIT ADDITION END: Preference Ninjas
 	message_admins("[ADMIN_LOOKUPFLW(ninja)] has been made into a space ninja by an event.")
 	ninja.log_message("was spawned as a ninja by an event.", LOG_GAME)
 
@@ -56,9 +56,9 @@
 
 /proc/create_space_ninja(spawn_loc)
 	var/mob/living/carbon/human/new_ninja = new(spawn_loc)
-//	new_ninja.randomize_human_appearance(~(RANDOMIZE_NAME|RANDOMIZE_SPECIES)) //SKYRAT EDIT: Player Prefs Ninjas
+//	new_ninja.randomize_human_appearance(~(RANDOMIZE_NAME|RANDOMIZE_SPECIES)) //NOVA EDIT: Player Prefs Ninjas
 	var/new_name = "[pick(GLOB.ninja_titles)] [pick(GLOB.ninja_names)]"
 	new_ninja.name = new_name
 	new_ninja.real_name = new_name
-//	new_ninja.dna.update_dna_identity()  //SKYRAT EDIT: Player Prefs Ninjas
+//	new_ninja.dna.update_dna_identity()  //NOVA EDIT: Player Prefs Ninjas
 	return new_ninja

@@ -217,10 +217,10 @@
 	var/override_notes = FALSE
 	/// Used if we want to have a custom verb text for throwing. "John Spaceman flicks the ciggerate" for example.
 	var/throw_verb
-	// SKYRAT EDIT ADDITION START
+	// NOVA EDIT ADDITION START
 	/// Does this use the advanced reskinning setup?
 	var/uses_advanced_reskins = FALSE
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	/// A lazylist used for applying fantasy values, contains the actual modification applied to a variable.
 	var/list/fantasy_modifications = null
@@ -371,7 +371,7 @@
 		return
 	if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
-	// SKYRAT EDIT ADD START
+	// NOVA EDIT ADD START
 	if(greyscale_config_worn_digi)
 		worn_icon_digi = SSgreyscale.GetColoredIconByType(greyscale_config_worn_digi, greyscale_colors)
 	if(greyscale_config_worn_muzzled)
@@ -390,7 +390,7 @@
 		worn_icon_taur_paw = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_paw, greyscale_colors)
 	if(greyscale_config_worn_taur_hoof)
 		worn_icon_taur_hoof = SSgreyscale.GetColoredIconByType(greyscale_config_worn_taur_hoof, greyscale_colors)
-	// SKYRAT EDIT ADD END
+	// NOVA EDIT ADD END
 	if(greyscale_config_inhand_left)
 		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
 	if(greyscale_config_inhand_right)
@@ -1189,13 +1189,13 @@
 	return !HAS_TRAIT(src, TRAIT_NODROP) && !(item_flags & ABSTRACT)
 
 /obj/item/proc/doStrip(mob/stripper, mob/owner)
-	//SKYRAT EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: return owner.dropItemToGround(src)
+	//NOVA EDIT CHANGE BEGIN - THIEVING GLOVES - ORIGINAL: return owner.dropItemToGround(src)
 	if (!owner.dropItemToGround(src))
 		return FALSE
 	if (HAS_TRAIT(stripper, TRAIT_STICKY_FINGERS))
 		stripper.put_in_hands(src)
 	return TRUE
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 
 
@@ -1409,7 +1409,7 @@
 	if(SEND_SIGNAL(src, COMSIG_ITEM_OFFER_TAKEN, offerer, taker) & COMPONENT_OFFER_INTERRUPT)
 		return TRUE
 
-/// SKYRAT EDIT ADDITION START
+/// NOVA EDIT ADDITION START
 /obj/item/reskin_obj(mob/M)
 	if(!uses_advanced_reskins)
 		return ..()
@@ -1475,7 +1475,7 @@
 /obj/item/proc/post_reskin(mob/our_mob)
 	return
 
-/// SKYRAT EDIT ADDITION END
+/// NOVA EDIT ADDITION END
 
 /// Special stuff you want to do when an outfit equips this item.
 /obj/item/proc/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)

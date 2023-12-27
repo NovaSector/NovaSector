@@ -2,7 +2,7 @@
 /* EMOTE DATUMS */
 /datum/emote/living
 	mob_type_allowed_typecache = /mob/living
-	mob_type_blacklist_typecache = list(/mob/living/brain) //SKYRAT EDIT - OVERWIRTTEN BY `modular_skyrat\modules\modular_implants\code\soulcatcher\soulcatcher_mob.dm`
+	mob_type_blacklist_typecache = list(/mob/living/brain) //NOVA EDIT - OVERWIRTTEN BY `modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_mob.dm`
 
 /datum/emote/living/blush
 	key = "blush"
@@ -140,7 +140,7 @@
 	hands_use_check = TRUE
 	var/wing_time = 20
 
-//SKYRAT EDIT REMOVAL BEGIN - EMOTES - Not working due to modified mutant code, will be fixed later
+//NOVA EDIT REMOVAL BEGIN - EMOTES - Not working due to modified mutant code, will be fixed later
 /*
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -162,7 +162,7 @@
 		if(istype(wings, /obj/item/organ/external/wings/moth))
 			playsound(H, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /datum/emote/living/flap/aflap
 	key = "aflap"
@@ -205,7 +205,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/human_user = user
-	if(!HAS_MIND_TRAIT(human_user, TRAIT_MIMING)) // SKYRAT EDIT CHANGE - Let other species gasp - ORIGINAL: if(human_user.dna.species.id == SPECIES_HUMAN && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
+	if(!HAS_MIND_TRAIT(human_user, TRAIT_MIMING)) // NOVA EDIT CHANGE - Let other species gasp - ORIGINAL: if(human_user.dna.species.id == SPECIES_HUMAN && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
 		if(human_user.physique == FEMALE)
 			return pick('sound/voice/human/gasp_female1.ogg', 'sound/voice/human/gasp_female2.ogg', 'sound/voice/human/gasp_female3.ogg')
 		else
@@ -278,7 +278,7 @@
 		qdel(kiss_blower)
 		to_chat(user, span_warning("You're incapable of blowing a kiss in your current state."))
 
-/* SKYRAT EDIT REMOVAL - EMOTES - MOVED TO EMOTES.DM MODULAR
+/* NOVA EDIT REMOVAL - EMOTES - MOVED TO EMOTES.DM MODULAR
 /datum/emote/living/laugh
 	key = "laugh"
 	key_third_person = "laughs"
@@ -301,7 +301,7 @@
 			return 'sound/voice/human/womanlaugh.ogg'
 		else
 			return pick('sound/voice/human/manlaugh1.ogg', 'sound/voice/human/manlaugh2.ogg')
-*/ //SKYRAT EDIT END
+*/ //NOVA EDIT END
 
 /datum/emote/living/look
 	key = "look"
@@ -424,7 +424,7 @@
 	message_mime = "sniffs silently."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
-//SKYRAT EDIT ADDITION
+//NOVA EDIT ADDITION
 /datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(.)
@@ -436,7 +436,7 @@
 					return
 				carbon_user.next_smell = world.time + SMELL_COOLDOWN
 			current_turf.pollution.smell_act(user)
-//SKYRAT EDIT END
+//NOVA EDIT END
 
 /datum/emote/living/snore
 	key = "snore"
@@ -468,7 +468,7 @@
 	message = "puts their hands on their head and falls to the ground, they surrender%s!"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
-/*	SKYRAT EDIT CHANGE - MOVED TO combat_indicator.dm IN INDICATORS MODULE
+/*	NOVA EDIT CHANGE - MOVED TO combat_indicator.dm IN INDICATORS MODULE
 /datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && isliving(user))
@@ -560,9 +560,9 @@
 	message = "smiles weakly."
 
 /// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-#define YAWN_PROPAGATE_CHANCE_BASE 0 // SKYRAT EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 40
-/// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-#define YAWN_PROPAGATE_CHANCE_DECAY 8
+#define YAWN_PROPAGATE_CHANCE_BASE 16 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
+/// The amount the base chance to propagate yawns falls for each tile of distance
+#define YAWN_PROPAGATE_CHANCE_DECAY 4
 
 /datum/emote/living/yawn
 	key = "yawn"
@@ -670,7 +670,7 @@
 	return TRUE
 
 /datum/emote/living/custom/proc/get_custom_emote_from_user()
-	return stripped_multiline_input(usr, "Choose an emote to display.", "Me" , null, MAX_MESSAGE_LEN) // SKYRAT EDIT CHANGE - ORIGINAL : return copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
+	return stripped_multiline_input(usr, "Choose an emote to display.", "Me" , null, MAX_MESSAGE_LEN) // NOVA EDIT CHANGE - ORIGINAL : return copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
 
 /datum/emote/living/custom/proc/get_custom_emote_type_from_user()
 	var/type = input("Is this a visible or hearable emote?") as null|anything in list("Visible", "Hearable")
@@ -715,7 +715,7 @@
 	else if(type_override)
 		emote_type = type_override
 
-	message = user.say_emphasis(message) //SKYRAT EDIT ADDITION - EMOTES
+	message = user.say_emphasis(message) //NOVA EDIT ADDITION - EMOTES
 
 	. = ..()
 
@@ -725,7 +725,7 @@
 /datum/emote/living/custom/replace_pronoun(mob/user, message)
 	return message
 
-//SKYRAT EDIT REMOVAL BEGIN - SYNTH EMOTES, NOW HANDLED IN SYNTH_EMOTES.DM
+//NOVA EDIT REMOVAL BEGIN - SYNTH EMOTES, NOW HANDLED IN SYNTH_EMOTES.DM
 /* /datum/emote/living/beep
 	key = "beep"
 	key_third_person = "beeps"
@@ -734,7 +734,7 @@
 	sound = 'sound/machines/twobeep.ogg'
 	mob_type_allowed_typecache = list(/mob/living/brain, /mob/living/silicon)
 	emote_type = EMOTE_AUDIBLE */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 /datum/emote/living/inhale
 	key = "inhale"

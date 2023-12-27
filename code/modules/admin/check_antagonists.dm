@@ -95,8 +95,7 @@
 		tgui_alert(usr, "The game hasn't started yet!")
 		return
 	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Round Status</title></head><body><h1><B>Round Status</B></h1>")
-	if(istype(SSticker.mode, /datum/game_mode/dynamic)) // Currently only used by dynamic. If more start using this, find a better way.
-		dat += "<a href='?_src_=holder;[HrefToken()];gamemode_panel=1'>Game Mode Panel</a><br>"
+	dat += "<a href='?_src_=holder;[HrefToken()];gamemode_panel=1'>Game Mode Panel</a><br>"
 	dat += "Round Duration: <B>[DisplayTimeText(world.time - SSticker.round_start_time)]</B><BR>"
 	dat += "<B>Emergency shuttle</B><BR>"
 	if(EMERGENCY_IDLE_OR_RECALLED)
@@ -181,7 +180,7 @@
 
 	dat += build_antag_listing()
 
-	dat += SSopposing_force.get_check_antag_listing() //SKYRAT EDIT ADDITION
+	dat += SSopposing_force.get_check_antag_listing() //NOVA EDIT ADDITION
 
 	dat += "</body></html>"
 	usr << browse(dat.Join(), "window=roundstatus;size=500x500")

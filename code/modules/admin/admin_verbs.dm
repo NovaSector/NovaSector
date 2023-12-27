@@ -22,10 +22,10 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/stop_sounds,
 	/client/proc/tag_datum_mapview,
 
-	/client/proc/addbunkerbypass,		/*SKYRAT EDIT ADDITION - PANICBUNKER*/
-	/client/proc/cmd_loud_admin_say,	/*admin-only chat except its annoying - SKYRAT EDIT ADDITION - ADMIN*/
-	/client/proc/remove_liquid,			/*SKYRAT EDIT ADDITION*/
-	/client/proc/revokebunkerbypass,	/*SKYRAT EDIT ADDITION - PANICBUNKER*/
+	/client/proc/addbunkerbypass,		/*NOVA EDIT ADDITION - PANICBUNKER*/
+	/client/proc/cmd_loud_admin_say,	/*admin-only chat except its annoying - NOVA EDIT ADDITION - ADMIN*/
+	/client/proc/remove_liquid,			/*NOVA EDIT ADDITION*/
+	/client/proc/revokebunkerbypass,	/*NOVA EDIT ADDITION - PANICBUNKER*/
 	)
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 GLOBAL_PROTECT(admin_verbs_admin)
@@ -102,13 +102,13 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/cmd_admin_law_panel,
 	/client/proc/log_viewer_new,
 	/client/proc/player_ticket_history,
-	/datum/admins/proc/toggleaooc,					/*Toggle Antag OOC - SKYRAT EDIT ADDITION*/
-	/datum/admins/proc/toggledchat, 				/*SKYRAT EDIT ADDITION*/
-	/datum/admins/proc/togglesooc,					/*Toggle Security OOC - SKYRAT EDIT ADDITION*/
-	/client/proc/admin_open_event_spawners_menu,	/*EVENTS - SKYRAT EDIT ADDITION*/
-	/client/proc/request_help,						/*SKYRAT EDIT ADDITION*/
-	/client/proc/view_opfors,						/*OPFOR - SKYRAT EDIT ADDITION*/
-	/client/proc/lorecaster_story_manager,          /* SKYRAT EDIT ADDITION */
+	/datum/admins/proc/toggleaooc,					/*Toggle Antag OOC - NOVA EDIT ADDITION*/
+	/datum/admins/proc/toggledchat, 				/*NOVA EDIT ADDITION*/
+	/datum/admins/proc/togglesooc,					/*Toggle Security OOC - NOVA EDIT ADDITION*/
+	/client/proc/admin_open_event_spawners_menu,	/*EVENTS - NOVA EDIT ADDITION*/
+	/client/proc/request_help,						/*NOVA EDIT ADDITION*/
+	/client/proc/view_opfors,						/*OPFOR - NOVA EDIT ADDITION*/
+	/client/proc/lorecaster_story_manager,          /* NOVA EDIT ADDITION */
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/library_control))
 GLOBAL_PROTECT(admin_verbs_ban)
@@ -144,20 +144,20 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/summon_ert,
 	/client/proc/toggle_nuke,
 	/client/proc/toggle_random_events,
-	/client/proc/admin_change_title_screen, 	/*SKYRAT EDIT ADDITION*/
-	/client/proc/change_title_screen_html, 		/*SKYRAT EDIT ADDITION*/
-	/client/proc/change_title_screen_notice, 	/*SKYRAT EDIT ADDITION*/
-	/client/proc/fix_say, 						/*SKYRAT EDIT ADDITION*/
-	/client/proc/one_click_antag,				/*ONE CLICK ANTAG - SKYRAT EDIT ADDITION*/
-	/client/proc/request_more_opfor,			/*SKYRAT EDIT ADDITION*/
-	/client/proc/spawn_liquid,					/*SKYRAT EDIT ADDITION*/
-	/client/proc/spawn_mob_spawner,				/*SKYRAT EDIT ADDITION*/
-	/client/proc/spawn_pollution,				/*SKYRAT EDIT ADDITION*/
-	/client/proc/spawn_sunbeam,					/*SKYRAT EDIT ADDITION*/
-	/client/proc/intensity_credits_panel,		/*SKYRAT EDIT ADDITION*/
-	/client/proc/toggle_bsa,					/*SKYRAT EDIT ADDITION*/
-	/client/proc/try_stop_delam, /*SKYRAT EDIT ADDITION*/
-	/client/proc/toggle_delam_suppression, /*SKYRAT EDIT ADDITION*/
+	/client/proc/admin_change_title_screen, 	/*NOVA EDIT ADDITION*/
+	/client/proc/change_title_screen_html, 		/*NOVA EDIT ADDITION*/
+	/client/proc/change_title_screen_notice, 	/*NOVA EDIT ADDITION*/
+	/client/proc/fix_say, 						/*NOVA EDIT ADDITION*/
+	/client/proc/one_click_antag,				/*ONE CLICK ANTAG - NOVA EDIT ADDITION*/
+	/client/proc/request_more_opfor,			/*NOVA EDIT ADDITION*/
+	/client/proc/spawn_liquid,					/*NOVA EDIT ADDITION*/
+	/client/proc/spawn_mob_spawner,				/*NOVA EDIT ADDITION*/
+	/client/proc/spawn_pollution,				/*NOVA EDIT ADDITION*/
+	/client/proc/spawn_sunbeam,					/*NOVA EDIT ADDITION*/
+	/client/proc/intensity_credits_panel,		/*NOVA EDIT ADDITION*/
+	/client/proc/toggle_bsa,					/*NOVA EDIT ADDITION*/
+	/client/proc/try_stop_delam, /*NOVA EDIT ADDITION*/
+	/client/proc/toggle_delam_suppression, /*NOVA EDIT ADDITION*/
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, /datum/admins/proc/podspawn_atom, /datum/admins/proc/spawn_cargo, /datum/admins/proc/spawn_objasmob, /client/proc/respawn_character, /datum/admins/proc/beaker_panel))
@@ -195,7 +195,6 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	return list(
 	#ifdef TESTING /* Keep these at the top to not make the list look fugly */
 	/client/proc/check_missing_sprites,
-	/client/proc/run_dynamic_simulations,
 	#endif
 	/proc/machine_upgrade,
 	/datum/admins/proc/create_or_modify_area,
@@ -260,19 +259,19 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/GeneratePipeSpritesheet,
 	/client/proc/view_runtimes,
 
-	/client/proc/reload_interactions,	/*SKYRAT EDIT ADDITION*/
-	/client/proc/test_area_spawner,		/*AUTOMAPPER - SKYRAT EDIT ADDITION*/
-	/client/proc/toggle_liquid_debug,	/*SKYRAT EDIT ADDITION*/
+	/client/proc/reload_interactions,	/*NOVA EDIT ADDITION*/
+	/client/proc/test_area_spawner,		/*AUTOMAPPER - NOVA EDIT ADDITION*/
+	/client/proc/toggle_liquid_debug,	/*NOVA EDIT ADDITION*/
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(release)))
 GLOBAL_PROTECT(admin_verbs_possess)
-/// SKYRAT EDIT BEGIN - Player Rank Manager - ORIGINAL: GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions))
+/// NOVA EDIT BEGIN - Player Rank Manager - ORIGINAL: GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions))
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(
 	/client/proc/edit_admin_permissions,
 	/client/proc/manage_player_ranks,
 	/client/proc/migrate_player_ranks,
 	))
-/// SKYRAT EDIT END
+/// NOVA EDIT END
 GLOBAL_PROTECT(admin_verbs_permissions)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
 GLOBAL_PROTECT(admin_verbs_poll)

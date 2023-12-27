@@ -2,7 +2,7 @@
 /obj/item/kirbyplants
 	name = "potted plant"
 	//icon = 'icons/obj/fluff/flora/plants.dmi' // ORIGINAL
-	icon = 'modular_skyrat/modules/aesthetics/plants/plants.dmi' // SKYRAT EDIT CHANGE
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' // NOVA EDIT CHANGE
 	icon_state = "plant-01"
 	base_icon_state = "plant-01"
 	desc = "A little bit of nature contained in a pot."
@@ -23,7 +23,7 @@
 	var/custom_plant_name = FALSE
 	var/list/static/random_plant_states
 	/// Maximum icon state number - KEEP THIS UP TO DATE
-	var/random_state_cap = 43 // SKYRAT EDIT ADDITION
+	var/random_state_cap = 43 // NOVA EDIT ADDITION
 
 /obj/item/kirbyplants/Initialize(mapload)
 	. = ..()
@@ -77,14 +77,14 @@
 
 /obj/item/kirbyplants/proc/generate_states()
 	random_plant_states = list()
-	for(var/i in 1 to random_state_cap) //SKYRAT EDIT CHANGE - ORIGINAL: for(var/i in 1 to 24)
+	for(var/i in 1 to random_state_cap) //NOVA EDIT CHANGE - ORIGINAL: for(var/i in 1 to 24)
 		var/number
 		if(i < 10)
 			number = "0[i]"
 		else
 			number = "[i]"
 		random_plant_states += "plant-[number]"
-	random_plant_states += list("applebush", "monkeyplant") //SKYRAT EDIT CHANGE - ORIGINAL:random_plant_states += "applebush"
+	random_plant_states += list("applebush", "monkeyplant") //NOVA EDIT CHANGE - ORIGINAL:random_plant_states += "applebush"
 
 /obj/item/kirbyplants/random
 	icon = 'icons/obj/fluff/flora/_flora.dmi'
@@ -93,7 +93,7 @@
 /obj/item/kirbyplants/random/Initialize(mapload)
 	. = ..()
 	//icon = 'icons/obj/flora/plants.dmi' // ORIGINAL
-	icon = 'modular_skyrat/modules/aesthetics/plants/plants.dmi' //SKYRAT EDIT CHANGE
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE
 	randomize_base_icon_state()
 
 //Handles randomizing the icon during initialize()
@@ -128,13 +128,13 @@
 	base_icon_state = "plant-[rand(26, 29)]"
 	update_appearance(UPDATE_ICON)
 
-//SKYRAT EDIT ADDITION START
+//NOVA EDIT ADDITION START
 /obj/item/kirbyplants/monkey
 	name = "monkey plant"
 	desc = "Something that seems to have been made by the Nanotrasen science division, one might call it an abomination. It's heads seem... alive."
 	icon_state = "monkeyplant"
 	trimmable = FALSE
-//SKYRAT EDIT ADDITION END
+//NOVA EDIT ADDITION END
 
 /obj/item/kirbyplants/photosynthetic
 	name = "photosynthetic potted plant"

@@ -203,7 +203,7 @@ const ChoicesPanel = (props) => {
                   {user.singleSelection &&
                     choice.name === user.singleSelection && (
                       <Icon
-                        alignSelf="right"
+                        align="right"
                         mr={2}
                         color="green"
                         name="vote-yea"
@@ -212,7 +212,7 @@ const ChoicesPanel = (props) => {
                   {
                     user.isLowerAdmin
                       ? `${choice.votes} Votes`
-                      : '' /* SKYRAT EDIT*/
+                      : '' /* NOVA EDIT*/
                   }
                 </LabeledList.Item>
                 <LabeledList.Divider />
@@ -244,17 +244,12 @@ const ChoicesPanel = (props) => {
                 >
                   {user.multiSelection &&
                   user.multiSelection[user.ckey.concat(choice.name)] === 1 ? (
-                    <Icon
-                      alignSelf="right"
-                      mr={2}
-                      color="blue"
-                      name="vote-yea"
-                    />
+                    <Icon align="right" mr={2} color="blue" name="vote-yea" />
                   ) : null}
                   {
                     user.isLowerAdmin
                       ? `${choice.votes} Votes`
-                      : '' /* SKYRAT EDIT*/
+                      : '' /* NOVA EDIT*/
                   }
                 </LabeledList.Item>
                 <LabeledList.Divider />

@@ -188,11 +188,11 @@
 	if(HAS_TRAIT(M, TRAIT_NO_SOUL))
 		to_chat(user, span_warning("This body does not possess a soul to capture."))
 		return
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	if(!do_after(user, 5 SECONDS, M))
 		to_chat(user, span_warning("You must stand still to capture their soul!"))
 		return
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 	log_combat(user, M, "captured [M.name]'s soul", src)
 	capture_soul(M, user)
 
@@ -503,7 +503,7 @@
 		SM.Grant(newstruct)
 	newstruct.key = target.key
 	var/atom/movable/screen/alert/bloodsense/BS
-	if(newstruct.mind && ((stoner && IS_CULTIST(stoner)) || cultoverride) && SSticker?.mode)
+	if(newstruct.mind && ((stoner && IS_CULTIST(stoner)) || cultoverride) && SSticker.HasRoundStarted())
 		newstruct.mind.add_antag_datum(/datum/antagonist/cult/construct)
 	if(IS_CULTIST(stoner) || cultoverride)
 		to_chat(newstruct, "<b>You are still bound to serve the cult[stoner ? " and [stoner]":""], follow [stoner ? stoner.p_their() : "their"] orders and help [stoner ? stoner.p_them() : "them"] complete [stoner ? stoner.p_their() : "their"] goals at all costs.</b>")

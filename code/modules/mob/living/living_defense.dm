@@ -1,6 +1,6 @@
 
 /mob/living/proc/run_armor_check(def_zone = null, attack_flag = MELEE, absorb_text = null, soften_text = null, armour_penetration, penetrated_text, silent=FALSE, weak_against_armour = FALSE)
-	SEND_SIGNAL(src, COMSIG_MOB_RUN_ARMOR) //SKYRAT EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_MOB_RUN_ARMOR) //NOVA EDIT ADDITION
 
 	var/our_armor = getarmor(def_zone, attack_flag)
 
@@ -151,17 +151,17 @@
 		return
 	. = combat_mode
 	combat_mode = new_mode
-	SEND_SIGNAL(src, COMSIG_LIVING_COMBAT_MODE_TOGGLE, new_mode) //SKYRAT EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_LIVING_COMBAT_MODE_TOGGLE, new_mode) //NOVA EDIT ADDITION
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
-	//SKYRAT EDIT ADDITION BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	if(!ishuman(src) && !ckey)
 		if(combat_mode)
 			set_combat_indicator(TRUE)
 		else
 			set_combat_indicator(FALSE)
 	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
 	if(silent || !(client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)))
 		return

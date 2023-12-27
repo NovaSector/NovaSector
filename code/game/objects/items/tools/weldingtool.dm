@@ -30,8 +30,8 @@
 	heat = 3800
 	tool_behaviour = TOOL_WELDER
 	toolspeed = 1
-	//wound_bonus = 10 //SKYRAT EDIT REMOVAL
-	//bare_wound_bonus = 15 //SKYRAT EDIT REMOVAL
+	//wound_bonus = 10 //NOVA EDIT REMOVAL
+	//bare_wound_bonus = 15 //NOVA EDIT REMOVAL
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.7, /datum/material/glass=SMALL_MATERIAL_AMOUNT*0.3)
 	/// Whether the welding tool is on or off.
 	var/welding = FALSE
@@ -151,12 +151,12 @@
 	if(user == attacked_humanoid)
 		user.visible_message(span_notice("[user] starts to fix some of the dents on [attacked_humanoid]'s [affecting.name]."),
 			span_notice("You start fixing some of the dents on [attacked_humanoid == user ? "your" : "[attacked_humanoid]'s"] [affecting.name]."))
-		if(!do_after(user, self_delay, attacked_humanoid)) // SKYRAT EDIT CHANGE - ORIGINAL: if(!do_after(user, 5 SECONDS, attacked_humanoid))
+		if(!do_after(user, self_delay, attacked_humanoid)) // NOVA EDIT CHANGE - ORIGINAL: if(!do_after(user, 5 SECONDS, attacked_humanoid))
 			return ITEM_INTERACT_BLOCKING
-	// SKYRAT EDIT ADDITION START
+	// NOVA EDIT ADDITION START
 	if(!do_after(user, other_delay, attacked_humanoid))
 		return ITEM_INTERACT_BLOCKING
-	// SKYRAT EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	item_heal_robotic(attacked_humanoid, user, 15, 0)
 	return ITEM_INTERACT_SUCCESS

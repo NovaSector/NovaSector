@@ -293,7 +293,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/replace_banned_player()
 	set waitfor = FALSE
 
-	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as a [name]?", "[name]", job_rank, 5 SECONDS, owner.current)
+	var/list/mob/dead/observer/candidates = SSpolling.poll_ghost_candidates_for_mob("Do you want to play as a [name]?", check_jobban = "[name]", role = job_rank, poll_time = 5 SECONDS, target_mob = owner.current, pic_source = owner.current, role_name_text = name)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
 		to_chat(owner, "Your mob has been taken over by a ghost! Appeal your job ban if you want to avoid this in the future!")
@@ -332,9 +332,9 @@ GLOBAL_LIST_EMPTY(antagonists)
 			antag_hud.hide_from(current)
 
 	qdel(src)
-	// SKYRAT EDIT START
+	// NOVA EDIT START
 	owner?.handle_exploitables() //Inefficient here, but on_removal() is called in multiple locations
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 /**
  * Proc that sends fluff or instructional messages to the player when they are given this antag datum.
@@ -343,7 +343,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/greet()
 	if(!silent)
 		to_chat(owner.current, span_big("You are \the [src]."))
-		to_chat(owner.current, span_infoplain(span_doyourjobidiot("Remember that being an antagonist does not exclude you from the server rules regarding RP standards."))) //SKYRAT EDIT - RP REMINDER
+		to_chat(owner.current, span_infoplain(span_doyourjobidiot("Remember that being an antagonist does not exclude you from the server rules regarding RP standards."))) //NOVA EDIT - RP REMINDER
 
 /**
  * Proc that sends fluff or instructional messages to the player when they lose this antag datum.

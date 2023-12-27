@@ -20,8 +20,6 @@ SUBSYSTEM_DEF(ticker)
 	/// Boolean to track and check if our subsystem setup is done.
 	var/setup_done = FALSE
 
-	var/datum/game_mode/mode = null
-
 	var/login_music //music played in pregame lobby
 	var/round_end_sound //music/jingle played when the world reboots
 	var/round_end_sound_sent = TRUE //If all clients have loaded it
@@ -69,9 +67,9 @@ SUBSYSTEM_DEF(ticker)
 	/// Why an emergency shuttle was called
 	var/emergency_reason
 
-	var/real_round_start_time = 0 //SKYRAT EDIT ADDITION
+	var/real_round_start_time = 0 //NOVA EDIT ADDITION
 
-	var/discord_alerted = FALSE //SKYRAT EDIT - DISCORD PING SPAM PREVENTION
+	var/discord_alerted = FALSE //NOVA EDIT - DISCORD PING SPAM PREVENTION
 
 /datum/controller/subsystem/ticker/Initialize()
 	var/list/byond_sound_formats = list(
@@ -165,14 +163,14 @@ SUBSYSTEM_DEF(ticker)
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
 			/* ORIGINAL:
 			send2chat("New round starting on [SSmapping.config.map_name]!", CONFIG_GET(string/channel_announce_new_game))
-			*/ // SKYRAT EDIT START - DISCORD SPAM PREVENTION
+			*/ // NOVA EDIT START - DISCORD SPAM PREVENTION
 			if(!discord_alerted)
 				discord_alerted = TRUE
-				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.config.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game)) // SKYRAT EDIT - Role ping and round ID in game-alert
-			// SKYRAT EDIT END
+				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.config.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game)) // NOVA EDIT - Role ping and round ID in game-alert
+			// NOVA EDIT END
 			current_state = GAME_STATE_PREGAME
-			SStitle.change_title_screen() //SKYRAT EDIT ADDITION - Title screen
-			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) //SKYRAT EDIT ADDITION - Title screen
+			SStitle.change_title_screen() //NOVA EDIT ADDITION - Title screen
+			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) //NOVA EDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 			fire()
@@ -205,7 +203,7 @@ SUBSYSTEM_DEF(ticker)
 				SEND_SIGNAL(src, COMSIG_TICKER_ENTER_SETTING_UP)
 				current_state = GAME_STATE_SETTING_UP
 				Master.SetRunLevel(RUNLEVEL_SETUP)
-				SSevents.reschedule() // SKYRAT EDIT ADDITION
+				SSevents.reschedule() // NOVA EDIT ADDITION
 				if(start_immediately)
 					fire()
 
@@ -219,10 +217,9 @@ SUBSYSTEM_DEF(ticker)
 				SEND_SIGNAL(src, COMSIG_TICKER_ERROR_SETTING_UP)
 
 		if(GAME_STATE_PLAYING)
-			mode.process(wait * 0.1)
 			check_queue()
 
-			if(!roundend_check_paused && (mode.check_finished() || force_ending))
+			if(!roundend_check_paused && (check_finished() || force_ending))
 				current_state = GAME_STATE_FINISHED
 				toggle_ooc(TRUE) // Turn it on
 				toggle_dooc(TRUE)
@@ -230,17 +227,27 @@ SUBSYSTEM_DEF(ticker)
 				check_maprotate()
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
+/// Checks if the round should be ending, called every ticker tick
+/datum/controller/subsystem/ticker/proc/check_finished()
+	if(!setup_done)
+		return FALSE
+	if(SSshuttle.emergency && (SSshuttle.emergency.mode == SHUTTLE_ENDGAME))
+		return TRUE
+	if(GLOB.station_was_nuked)
+		return TRUE
+	if(GLOB.revolutionary_win)
+		return TRUE
+	return FALSE
+
 
 /datum/controller/subsystem/ticker/proc/setup()
 	to_chat(world, span_boldannounce("Starting game..."))
 	var/init_start = world.timeofday
 
-	mode = new /datum/game_mode/dynamic
-
 	CHECK_TICK
-	//Configure mode and assign player to special mode stuff
-	var/can_continue = 0
-	can_continue = src.mode.pre_setup() //Choose antagonists
+	//Configure mode and assign player to antagonists
+	var/can_continue = FALSE
+	can_continue = SSdynamic.pre_setup() //Choose antagonists
 	CHECK_TICK
 	can_continue = can_continue && SSjob.DivideOccupations() //Distribute jobs
 	CHECK_TICK
@@ -248,7 +255,6 @@ SUBSYSTEM_DEF(ticker)
 	if(!GLOB.Debug2)
 		if(!can_continue)
 			log_game("Game failed pre_setup")
-			QDEL_NULL(mode)
 			to_chat(world, "<B>Error setting up game.</B> Reverting to pre-game lobby.")
 			SSjob.ResetOccupations()
 			return FALSE
@@ -284,14 +290,14 @@ SUBSYSTEM_DEF(ticker)
 
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
-	real_round_start_time = REALTIMEOFDAY //SKYRAT EDIT ADDITION
-	SSautotransfer.new_shift(real_round_start_time) //SKYRAT EDIT ADDITION
+	real_round_start_time = REALTIMEOFDAY //NOVA EDIT ADDITION
+	SSautotransfer.new_shift(real_round_start_time) //NOVA EDIT ADDITION
 
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
 	to_chat(world, span_notice("<B>Welcome to [station_name()], enjoy your stay!</B>"))
-	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) //SKYRAT EDIT CHANGE
+	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) //NOVA EDIT CHANGE
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
@@ -308,7 +314,7 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
-	mode.post_setup()
+	SSdynamic.post_setup()
 	GLOB.start_state = new /datum/station_state()
 	GLOB.start_state.count()
 
@@ -332,7 +338,7 @@ SUBSYSTEM_DEF(ticker)
 
 		iter_human.increment_scar_slot()
 		iter_human.load_persistent_scars()
-		SSpersistence.load_modular_persistence(iter_human.get_organ_slot(ORGAN_SLOT_BRAIN)) // SKYRAT EDIT ADDITION - MODULAR_PERSISTENCE
+		SSpersistence.load_modular_persistence(iter_human.get_organ_slot(ORGAN_SLOT_BRAIN)) // NOVA EDIT ADDITION - MODULAR_PERSISTENCE
 
 		if(!iter_human.hardcore_survival_score)
 			continue
@@ -366,11 +372,11 @@ SUBSYSTEM_DEF(ticker)
 			GLOB.joined_player_list += player.ckey
 			var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
 			if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
-				player.show_title_screen() //SKYRAT EDIT CHANGE
+				player.show_title_screen() //NOVA EDIT CHANGE
 				continue
 			player.create_character(destination)
 		else
-			player.show_title_screen() //SKYRAT EDIT ADDITION
+			player.show_title_screen() //NOVA EDIT ADDITION
 
 
 		CHECK_TICK
@@ -443,13 +449,13 @@ SUBSYSTEM_DEF(ticker)
 				new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
 
-		//SKYRAT EDIT ADDITION
+		//NOVA EDIT ADDITION
 		if(ishuman(new_player_living))
 			for(var/datum/loadout_item/item as anything in loadout_list_to_datums(new_player_mob.client?.prefs?.loadout_list))
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-		//SKYRAT EDIT END
+		//NOVA EDIT END
 		CHECK_TICK
 
 	if(captainless)
@@ -554,7 +560,6 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state
 	force_ending = SSticker.force_ending
-	mode = SSticker.mode
 
 	login_music = SSticker.login_music
 	round_end_sound = SSticker.round_end_sound
@@ -591,7 +596,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/send_news_report()
 	var/news_message
 	var/news_source = "Nanotrasen News Network"
-	var/decoded_station_name = html_decode(CONFIG_GET(string/cross_comms_name)) //decode station_name to avoid minor_announce double encode // SKYRAT EDIT: CROSS COMMS CONFIG
+	var/decoded_station_name = html_decode(CONFIG_GET(string/cross_comms_name)) //decode station_name to avoid minor_announce double encode // NOVA EDIT: CROSS COMMS CONFIG
 
 	switch(news_report)
 		// The nuke was detonated on the syndicate recon outpost
@@ -682,24 +687,24 @@ SUBSYSTEM_DEF(ticker)
 			news_message = "Officials are advising nearby colonies about a newly declared exclusion zone in \
 				the sector surrounding [decoded_station_name]."
 
-	//SKYRAT EDIT - START
+	//NOVA EDIT - START
 	if(SSblackbox.first_death)
 		var/list/ded = SSblackbox.first_death
 		if(ded.len)
 			news_message += " NT Sanctioned Psykers picked up faint traces of someone near the station, allegedly having had died. Their name was: [ded["name"]], [ded["role"]], at [ded["area"]].[ded["last_words"] ? " Their last words were: \"[ded["last_words"]]\"" : ""]" // " // An Extra quote and comment because highlighting goes weird
 		else
 			news_message += " NT Sanctioned Psykers proudly confirm reports that nobody died this shift!"
-	//SKYRAT EDIT - END
+	//NOVA EDIT - END
 
-	if(news_message && length(CONFIG_GET(keyed_list/cross_server))) //SKYRAT EDIT - CONFIG CHECK MOVED FROM ROUNDEND.DM
-		news_message += " (Shift on [CONFIG_GET(string/cross_server_name)] ending!)" //SKYRAT EDIT ADDITION
+	if(news_message && length(CONFIG_GET(keyed_list/cross_server))) //NOVA EDIT - CONFIG CHECK MOVED FROM ROUNDEND.DM
+		news_message += " (Shift on [CONFIG_GET(string/cross_server_name)] ending!)" //NOVA EDIT ADDITION
 		send2otherserver(news_source, news_message,"News_Report")
-	//SKYRAT EDIT - START
+	//NOVA EDIT - START
 	if(news_message)
 		return news_message
 	else
 		return "We regret to inform you that shit be whack, yo. None of our reporters have any idea of what may or may not have gone on."
-	//SKYRAT EDIT - END
+	//NOVA EDIT - END
 
 /datum/controller/subsystem/ticker/proc/GetTimeLeft()
 	if(isnull(SSticker.timeLeft))

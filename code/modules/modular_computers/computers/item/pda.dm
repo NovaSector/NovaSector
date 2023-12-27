@@ -18,7 +18,7 @@
 	icon_state_menu = "menu"
 	max_capacity = 64
 	allow_chunky = TRUE
-	hardware_flag = PROGRAM_TABLET
+	hardware_flag = PROGRAM_PDA
 	max_idle_programs = 2
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
@@ -36,7 +36,7 @@
 		/datum/computer_file/program/messenger,
 		/datum/computer_file/program/nt_pay,
 		/datum/computer_file/program/notepad,
-		// SKYRAT EDIT ADDITION START
+		// NOVA EDIT ADDITION START
 		/datum/computer_file/program/crew_manifest, // Adds crew manifest to all base tablets
 		/datum/computer_file/program/maintenance/camera // Adds camera to all base tablets
 		// SKRAT EDIT ADDITION END
@@ -276,6 +276,19 @@
 	if(msg)
 		msg.invisible = TRUE
 
+/obj/item/modular_computer/pda/syndicate_contract_uplink
+	name = "contractor tablet"
+	device_theme = PDA_THEME_SYNDICATE
+	icon_state_menu = "contractor-assign"
+	comp_light_luminosity = 6.3
+	has_pda_programs = FALSE
+	greyscale_config = /datum/greyscale_config/tablet/stripe_double
+	greyscale_colors = "#696969#000000#FFA500"
+
+	starting_programs = list(
+		/datum/computer_file/program/contract_uplink,
+	)
+
 /**
  * Silicon PDA
  *
@@ -307,8 +320,8 @@
 	starting_programs = list(
 		/datum/computer_file/program/filemanager,
 		/datum/computer_file/program/robotact,
-		/datum/computer_file/program/crew_manifest, // SKYRAT EDIT ADDITION - Manifests for borgs
-		/datum/computer_file/program/messenger, // SKYRAT EDIT ADDITION - Messenger for borgs
+		/datum/computer_file/program/crew_manifest, // NOVA EDIT ADDITION - Manifests for borgs
+		/datum/computer_file/program/messenger, // NOVA EDIT ADDITION - Messenger for borgs
 	)
 
 /obj/item/modular_computer/pda/silicon/Initialize(mapload)
@@ -368,7 +381,7 @@
 		return robotact
 	qdel(robotact)
 	robotact = null
-	CRASH("Cyborg [silicon_owner]'s tablet hard drive rejected recieving a new copy of the self-manage app. To fix, check the hard drive's space remaining. Please make a bug report about this.")
+	CRASH("Cyborg [silicon_owner]'s tablet hard drive rejected receiving a new copy of the self-manage app. To fix, check the hard drive's space remaining. Please make a bug report about this.")
 
 //Makes the light settings reflect the borg's headlamp settings
 /obj/item/modular_computer/pda/silicon/cyborg/ui_data(mob/user)
