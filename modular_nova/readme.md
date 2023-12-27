@@ -264,7 +264,7 @@ From every rule, there's exceptions, due to many circumstances. Don't think abou
 ### Defines
 
 Due to the way byond loads files, it has become necessary to make a different folder for handling our modular defines.
-That folder is **`code/__DEFINES/~skyrat_defines`**, in which you can add them to the existing files, or create those files as necessary.
+That folder is **`code/__DEFINES/~nova_defines`**, in which you can add them to the existing files, or create those files as necessary.
 
 If you have a define that's used in more than one file, it **must** be declared here.
 

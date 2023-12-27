@@ -1,4 +1,4 @@
-// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose // NOVA EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
+// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose // NOVA EDIT REMOVAL - moved to code/__DEFINES/~nova_defines/airlock.dm
 /obj/machinery/door
 	name = "door"
 	desc = "It opens and closes."
@@ -599,4 +599,4 @@
 		return ..()
 	return ..(0)
 
-// #undef DOOR_CLOSE_WAIT // NOVA EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
+// #undef DOOR_CLOSE_WAIT // NOVA EDIT REMOVAL - moved to code/__DEFINES/~nova_defines/airlock.dm

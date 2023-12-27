@@ -34,7 +34,7 @@ E.g:
 
 ### Included files that are not contained in this module:
 
-- ~skyrat_defines/research.dm
+- ~nova_defines/research.dm
 <!-- Likewise, be it a non-modular file or a modular one that's not contained within the folder belonging to this specific module, it should be mentioned here. Good examples are icons or sounds that are used between multiple modules, or other such edge-cases. -->
 
 ### Credits:
