@@ -316,7 +316,7 @@
 			info += span_bolddanger("This job can be sacrificed by heretics.")
 		if (contractable)
 			info += span_bolddanger("This job can be targeted by contractors.")
-	//SKYRAT EDIT ADDITION END
+	//NOVA EDIT ADDITION END
 
 	//NOVA EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
 	if(alt_title != title)
