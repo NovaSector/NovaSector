@@ -2045,7 +2045,7 @@
 	},
 /area/station/service/hydroponics)
 "auZ" = (
-/obj/item/toy/plush/skyrat/borbplushie,
+/obj/item/toy/plush/nova/borbplushie,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
 "avb" = (
@@ -5272,7 +5272,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/upper)
 "bbX" = (
-/obj/effect/turf_decal/skyrat_decals/departments/bridge{
+/obj/effect/turf_decal/nova_decals/departments/bridge{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -25270,7 +25270,7 @@
 /obj/effect/turf_decal/siding/wood/end,
 /obj/item/clothing/suit/apron/chef,
 /obj/item/clothing/shoes/sandal,
-/obj/item/clothing/under/shorts/skyrat,
+/obj/item/clothing/under/shorts/nova,
 /turf/open/floor/wood,
 /area/station/hallway/primary/central)
 "eMT" = (
@@ -57459,7 +57459,7 @@
 	dwidth = 2;
 	height = 5;
 	name = "fore bay 1";
-	roundstart_template = /datum/map_template/shuttle/labour/skyrat;
+	roundstart_template = /datum/map_template/shuttle/labour/nova;
 	shuttle_id = "laborcamp_home";
 	width = 9
 	},
@@ -59414,7 +59414,7 @@
 	dwidth = 3;
 	height = 5;
 	name = "SS13: Common Mining Dock";
-	roundstart_template = /datum/map_template/shuttle/mining_common/skyrat;
+	roundstart_template = /datum/map_template/shuttle/mining_common/nova;
 	shuttle_id = "commonmining_home";
 	width = 7
 	},
@@ -107740,7 +107740,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_holding_cell)
 "uyx" = (
-/obj/item/toy/plush/skyrat/plushie_syntax1112,
+/obj/item/toy/plush/nova/plushie_syntax1112,
 /obj/item/paper/fluff{
 	default_raw_text = "if yor readin this!! its 2 late! it has been unleahsed";
 	name = "Ominous Note"
