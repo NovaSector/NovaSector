@@ -132,7 +132,6 @@
 	var/chosen_victim  //The obsession target
 
 	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
-
 	for(var/mob/player as anything in GLOB.player_list)//prevents crew members falling in love with nuke ops they never met, and other annoying hijinks
 		if(!player.client || !player.mind || isnewplayer(player) || player.stat == DEAD || isbrain(player) || player == owner)
 			continue
@@ -144,7 +143,7 @@
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_KILL)
 			continue
 		viable_minds += player.mind
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 	for(var/datum/mind/possible_target as anything in viable_minds)
 		if(possible_target != owner && ishuman(possible_target.current))
 			var/job = possible_target.assigned_role.title

@@ -157,9 +157,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 		var/datum/mind/O = I
 		if(O.late_joiner)
 			try_target_late_joiners = TRUE
-
 	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
-
 	for(var/datum/mind/possible_target in get_crewmember_minds())
 		if(possible_target in owners)
 			continue
@@ -169,10 +167,10 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 			continue
 		if(!is_valid_target(possible_target))
 			continue
-		// NOVA EDIT START - Antag Opt In
+		// NOVA EDIT ADDITION START - Antag Opt In
 		if (!opt_in_disabled && !opt_in_valid(possible_target))
 			continue
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		possible_targets += possible_target
 	if(try_target_late_joiners)
 		var/list/all_possible_targets = possible_targets.Copy()
