@@ -5,6 +5,7 @@
 #define FABRICATOR_SUBCATEGORY_ATMOS "/Atmospherics"
 #define FABRICATOR_SUBCATEGORY_FLUIDS "/Liquids"
 #define FABRICATOR_SUBCATEGORY_MATERIALS "/Materials"
+#define FABRICATOR_SUBCATEGORY_SUSTENANCE "/Sustenance"
 
 // Techweb node that shouldnt show up anywhere ever specifically for the fabricator to work with
 
@@ -126,7 +127,7 @@
 	build_path = /obj/machinery/chem_dispenser/frontier_appliance
 	category = list(
 		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_FLUIDS,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
 	)
 	construction_time = 30 SECONDS
 
@@ -181,7 +182,7 @@
 	build_path = /obj/item/flatpacked_machine/organics_ration_printer
 	category = list(
 		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_MATERIALS,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
 	)
 	construction_time = 30 SECONDS
 
@@ -190,3 +191,4 @@
 #undef FABRICATOR_SUBCATEGORY_ATMOS
 #undef FABRICATOR_SUBCATEGORY_FLUIDS
 #undef FABRICATOR_SUBCATEGORY_MATERIALS
+#undef FABRICATOR_SUBCATEGORY_SUSTENANCE
