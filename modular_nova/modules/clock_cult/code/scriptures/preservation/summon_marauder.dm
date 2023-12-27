@@ -22,7 +22,15 @@
 
 
 /datum/scripture/marauder/invoke()
-	var/list/candidates = poll_ghost_candidates("Do you want to play as a Clockwork Marauder?", ROLE_PAI, FALSE, 100, POLL_IGNORE_CONSTRUCT)
+	var/list/candidates = SSpolling.poll_ghost_candidates(
+		"Do you want to play as a Clockwork Marauder?",
+		role = ROLE_PAI,
+		check_jobban = FALSE,
+		poll_time = 10 SECONDS,
+		ignore_category = POLL_IGNORE_CONSTRUCT,
+		pic_source = /obj/item/clockwork/clockwork_slab,
+		role_name_text = "clockwork marauder",
+	)
 	if(length(candidates))
 		selected = pick(candidates)
 
