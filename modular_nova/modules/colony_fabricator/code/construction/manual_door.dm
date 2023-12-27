@@ -25,7 +25,7 @@
 		return
 	if(!do_after(user, manual_actuation_delay, src))
 		return
-	. = ..()
+	return ..()
 
 // We don't care about being bumped, just a copy of the base bumped proc
 /obj/structure/mineral_door/manual_colony_door/Bumped(atom/movable/bumped_atom)
