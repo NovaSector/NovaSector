@@ -6,7 +6,7 @@
 /datum/map_template/ruin/space/whiteshipruin_box_nova/
 	id = "whiteshipruin_box_nova"
 	prefix = "_maps/RandomRuins/SpaceRuins/nova/"
-	suffix = "whiteshipruin_box_nova.dmm"
+	suffix = "whiteshipruin_box.dmm"
 	name = "NT Medical Ship"
 	description = "An ancient ship, said to be among the first discovered derelicts near Space Station 13 that was still in working order. \
 	Aged and deprecated by time, this relic of a vessel is now broken beyond repair."
@@ -14,7 +14,7 @@
 /datum/map_template/ruin/space/spacehotel
 	id = "spacehotel"
 	prefix = "_maps/RandomRuins/SpaceRuins/nova/"
-	suffix = "spacehotel_nova.dmm"
+	suffix = "spacehotel.dmm"
 	name = "The Twin-Nexus Hotel"
 	description = "An interstellar hotel, where the weary spaceman can rest their head and relax, assured that the residental staff will not murder them in their sleep. Probably."
 

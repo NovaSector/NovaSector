@@ -4,8 +4,8 @@
 // BEGIN TRAIT DEFINES
 
 /*
-Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
-*/
+ *Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
+ */
 
 //mob traits
 /// Forces the user to stay unconscious.
