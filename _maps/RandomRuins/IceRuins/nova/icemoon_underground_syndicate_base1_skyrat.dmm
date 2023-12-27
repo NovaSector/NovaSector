@@ -1825,7 +1825,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
-/obj/item/reagent_containers/pill/sansufentanyl,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/medbay)
 "oZ" = (
@@ -2102,6 +2101,7 @@
 	},
 /obj/item/storage/pill_bottle/mannitol,
 /obj/item/reagent_containers/dropper,
+/obj/item/storage/pill_bottle/sansufentanyl,
 /turf/open/floor/iron/dark,
 /area/ruin/syndicate_lava_base/medbay)
 "sa" = (

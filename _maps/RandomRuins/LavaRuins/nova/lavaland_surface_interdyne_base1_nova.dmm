@@ -296,7 +296,7 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "aW" = (
 /obj/structure/bed,
-/obj/item/bedsheet/brown,
+/obj/item/bedsheet/dorms,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "aX" = (
@@ -1350,6 +1350,7 @@
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "dp" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
+/obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dq" = (
@@ -3015,10 +3016,6 @@
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"hA" = (
-/obj/effect/baseturf_helper/reinforced_plating/ceiling,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/interdyne_planetary_base/med/pharm)
 "hB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3253,15 +3250,15 @@
 "ic" = (
 /obj/structure/filingcabinet{
 	dir = 4;
-	layer = 3;
+	layer = 3.01;
 	pixel_x = 11;
 	pixel_y = 16
 	},
 /obj/machinery/computer/crew/syndie{
 	dir = 8;
-	layer = 3;
 	pixel_x = -6;
-	pixel_y = 16
+	pixel_y = 16;
+	layer = 3.01
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -4787,8 +4784,8 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lQ" = (
 /obj/structure/closet/secure_closet/personal/wall{
-	pixel_w = -30;
-	icon_door = "closet_wall"
+	icon_door = "closet_wall";
+	pixel_x = -30
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -4805,8 +4802,8 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/personal/wall{
-	pixel_w = 30;
-	icon_door = "closet_wall"
+	icon_door = "closet_wall";
+	pixel_x = 30
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -4934,6 +4931,7 @@
 /obj/item/circuitboard/machine/deep_fryer,
 /obj/item/circuitboard/machine/gibber,
 /obj/item/circuitboard/machine/processor,
+/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "mg" = (
@@ -4983,7 +4981,6 @@
 "mm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/trashcart/filled,
-/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "mn" = (
@@ -5029,24 +5026,12 @@
 /turf/open/floor/iron/dark/textured_corner,
 /area/ruin/interdyne_planetary_base/serv)
 "mt" = (
-/obj/effect/turf_decal/syndicateemblem/top/left{
-	color = ""
-	},
 /obj/structure/chair/sofa/bench/left,
-/turf/open/floor/iron/dark/small,
-/area/ruin/interdyne_planetary_base/serv)
-"mu" = (
-/obj/effect/turf_decal/syndicateemblem/top/middle{
-	color = ""
-	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "mv" = (
 /obj/structure/table{
 	layer = 2.79
-	},
-/obj/effect/turf_decal/syndicateemblem/top/right{
-	color = ""
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
@@ -5237,15 +5222,9 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "mT" = (
-/obj/effect/turf_decal/syndicateemblem/middle/middle{
-	color = ""
-	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "mU" = (
-/obj/effect/turf_decal/syndicateemblem/middle/right{
-	color = ""
-	},
 /obj/structure/chair{
 	dir = 1;
 	pixel_z = 8
@@ -5413,9 +5392,6 @@
 	},
 /area/ruin/interdyne_planetary_base/serv)
 "np" = (
-/obj/effect/turf_decal/syndicateemblem/bottom/left{
-	color = ""
-	},
 /obj/structure/chair/sofa/bench/right{
 	dir = 1;
 	pixel_z = 8
@@ -5424,16 +5400,10 @@
 /area/ruin/interdyne_planetary_base/serv)
 "nq" = (
 /obj/structure/chair/stool/bar/directional/south,
-/obj/effect/turf_decal/syndicateemblem/bottom/middle{
-	color = ""
-	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "nr" = (
 /obj/structure/chair/stool/bar/directional/south{
-	color = ""
-	},
-/obj/effect/turf_decal/syndicateemblem/bottom/right{
 	color = ""
 	},
 /turf/open/floor/iron/dark/small,
@@ -6328,20 +6298,20 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "ps" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	anchored = 1;
-	req_access = list("syndicate")
-	},
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/soymilk,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/kitchen)
-"pt" = (
 /obj/structure/closet/secure_closet/freezer/meat{
 	anchored = 1;
 	req_access = list("syndicate")
 	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/kitchen)
+"pt" = (
 /obj/machinery/light/directional/south,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	anchored = 1;
+	req_access = list("syndicate")
+	},
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/milk,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "pu" = (
@@ -6645,6 +6615,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
+"ru" = (
+/obj/effect/baseturf_helper/reinforced_plating,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/cargo/deck)
+"rM" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "sK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6680,12 +6657,17 @@
 "vc" = (
 /obj/structure/shipping_container/kahraman/alt{
 	pixel_x = -8;
-	pixel_y = 3
+	pixel_y = 3;
+	layer = 4.69
 	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"vm" = (
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/med/morgue)
 "vR" = (
 /obj/item/toy/figure/syndie,
 /turf/open/floor/plating/reinforced{
@@ -6712,7 +6694,9 @@
 	},
 /area/lavaland/surface/outdoors)
 "Cx" = (
-/obj/structure/shipping_container/gorlex/red,
+/obj/structure/shipping_container/gorlex/red{
+	layer = 4.71
+	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
@@ -6742,6 +6726,13 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"Fq" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	faction = list("Syndicate","neutral")
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base)
 "Is" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/stripes/corner{
@@ -6765,14 +6756,29 @@
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"LJ" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 9;
+	faction = list("Syndicate","neutral")
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/ruin/interdyne_planetary_base)
 "Nx" = (
 /obj/structure/shipping_container/interdyne{
-	pixel_x = -10
+	pixel_x = -10;
+	layer = 4.8
 	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"OK" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 5;
+	faction = list("Syndicate","neutral")
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base)
 "Qm" = (
 /obj/structure/shipping_container/donk_co{
 	pixel_x = -1;
@@ -6815,6 +6821,16 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"WZ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = 30;
+	icon_door = "closet_wall"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "XO" = (
 /obj/structure/sign/poster/contraband/moffuchis_pizza,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -7549,7 +7565,7 @@ ab
 ab
 ac
 ac
-ae
+ru
 ah
 at
 aH
@@ -7881,7 +7897,7 @@ kr
 iV
 kX
 lz
-lS
+WZ
 kG
 mO
 kG
@@ -8139,7 +8155,7 @@ ab
 ac
 ac
 ac
-ag
+rM
 ae
 ae
 ae
@@ -8354,7 +8370,7 @@ kJ
 le
 jT
 lX
-mu
+mT
 mT
 nq
 nS
@@ -8377,7 +8393,7 @@ ac
 ac
 ac
 ac
-aC
+Fq
 aC
 aC
 bf
@@ -8495,7 +8511,7 @@ ab
 ac
 ac
 ac
-aC
+OK
 aC
 aC
 bg
@@ -8979,7 +8995,7 @@ Cx
 zw
 ac
 ac
-ad
+LJ
 dk
 dk
 dk
@@ -9344,7 +9360,7 @@ fk
 gc
 gG
 hh
-hA
+hk
 id
 iD
 jd
@@ -9641,7 +9657,7 @@ gK
 ho
 hk
 io
-hP
+vm
 hP
 hP
 jD
