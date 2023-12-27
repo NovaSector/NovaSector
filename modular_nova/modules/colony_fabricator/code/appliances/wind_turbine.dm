@@ -23,10 +23,6 @@
 	var/pressure_too_low = FALSE
 	/// Minimum external pressure needed to work
 	var/minimum_pressure = 5
-	/// If we can't work because there's another turbine too close to us
-	var/nearby_turbine_too_close = FALSE
-	/// How far away we check for other turbines
-	var/turbine_range_limit = 2
 	/// What we undeploy into
 	var/undeploy_type = /obj/item/flatpacked_machine/wind_turbine
 
@@ -42,19 +38,9 @@
 		. += span_notice("Its must be constructed <b>outdoors</b> to function.")
 	if(pressure_too_low)
 		. += span_notice("There must be enough atmospheric <b>pressure</b> for the turbine to spin.")
-	if(nearby_turbine_too_close)
-		. += span_notice("There cannot be another turbine within [turbine_range_limit] tiles of the turbine.")
 
 
 /obj/machinery/power/colony_wind_turbine/process()
-	for(var/obj/machinery/power/colony_wind_turbine/nearby_turbine in orange(turbine_range_limit, src))
-		nearby_turbine_too_close = TRUE
-		icon_state = "turbine"
-		add_avail(0)
-		return
-
-	nearby_turbine_too_close = FALSE
-
 	var/area/our_current_area = get_area(src)
 	if(!our_current_area.outdoors)
 		icon_state = "turbine"
