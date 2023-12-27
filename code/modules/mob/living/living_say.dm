@@ -221,7 +221,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	//ensure EOL punctuation exists and that word-bounded 'i' are capitalized before we do anything else
 	message = autopunct_bare(message)
 	// NOVA EDIT ADDITION END
-
 	//This is before anything that sends say a radio message, and after all important message type modifications, so you can scumb in alien chat or something
 	if(saymode && !saymode.handle_message(src, message, language))
 		return
