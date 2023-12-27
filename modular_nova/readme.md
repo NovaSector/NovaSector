@@ -78,7 +78,7 @@ IMPORTANT: MAP CONTRIBUTION GUIDELINES HAVE BEEN UPDATED
 When you are adding a new item to the map you MUST follow this procedure:
 Start by deciding how big of a change it is going to be, if it is a small 1 item change, you should use the simple area automapper. If it is an entire room, you should use the template automapper.
 
-We will no longer have _skyrat map versions.
+We will no longer have _nova map versions.
 
 DO NOT CHANGE TG MAPS, THEY ARE HELD TO THE SAME STANDARD AS ICONS. USE THE ABOVE TO MAKE MAP EDITS.
 
