@@ -60,6 +60,11 @@ endmap
 
 ##SKYRAT MAPS##
 
+map Flandstation
+	maxplayers 100
+	votable
+endmap
+
 map voidraptor
 	maxplayers 100
 	votable
