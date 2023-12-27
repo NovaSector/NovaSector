@@ -47,3 +47,12 @@
 	icon_state = "police_vest"
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
+
+// Just some extra police equipment
+/obj/item/clothing/neck/cloak/colonial/nri_police/Initialize()
+	allowed += list(
+		/obj/item/restraints/handcuffs,
+		/obj/item/ammo_box,
+		/obj/item/ammo_casing,
+	)
+	return ..()
