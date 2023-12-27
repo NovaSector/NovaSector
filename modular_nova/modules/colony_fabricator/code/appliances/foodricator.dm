@@ -28,11 +28,6 @@
 	efficiency = 1
 	productivity = 3
 
-/obj/machinery/biogenerator/foodricator/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
-	default_unfasten_wrench(user, tool)
-	return ITEM_INTERACT_SUCCESS
-
 /obj/machinery/biogenerator/foodricator/default_deconstruction_crowbar()
 	return
 
@@ -43,3 +38,9 @@
 	icon = 'modular_nova/modules/colony_fabricator/icons/foodricator.dmi'
 	icon_state = "biogenerator_parts"
 	type_to_deploy = /obj/machinery/biogenerator/foodricator
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+	)

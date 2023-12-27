@@ -159,7 +159,25 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT, // Titan for the crushing element
 	)
-	build_path = /obj/machinery/electrolyzer/co2_cracker
+	build_path = /obj/machinery/colony_recycler
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_MATERIALS,
+	)
+	construction_time = 30 SECONDS
+
+// Rations printer, turns biomass into seeds, some synthesized foods, ingredients, so on
+
+/datum/design/foodricator
+	name = "Organic Rations Printer"
+	id = "foodricator"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT, // Titan for the crushing element
+	)
+	build_path = /obj/machinery/colony_recycler
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_MATERIALS,
