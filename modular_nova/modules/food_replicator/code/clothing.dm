@@ -37,7 +37,7 @@
 	worn_icon = 'modular_nova/modules/food_replicator/icons/clothing_worn.dmi'
 	worn_icon_digi = 'modular_nova/modules/food_replicator/icons/clothing_digi.dmi'
 	icon_state = "cloak_colonial"
-	var/allowed = /obj/item/clothing/suit/jacket/leather::allowed // these are special and can be worn in the suit slot, so we need this var to be defined
+	allowed = /obj/item/clothing/suit/jacket/leather::allowed // these are special and can be worn in the suit slot, so we need this var to be defined
 
 /obj/item/clothing/neck/cloak/colonial/mob_can_equip(mob/living/equipper, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	if(is_species(equipper, /datum/species/teshari))
