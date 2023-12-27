@@ -39,6 +39,7 @@
 	if(issilicon(user) || isobserver(user))
 		. += "<br>It has [stored_cyborgs] cyborgs stored."
 		if(!is_operational)
+			. += span_warning("It has no power!")
 			return
 		if(cooldown && cooldown_timer)
 			. += "<br>It will be ready to deploy a stored cyborg in [DisplayTimeText(max(0, cooldown_timer))]."
