@@ -290,10 +290,12 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 /datum/loadout_item/neck/holobadge
 	name = "Holobadge"
 	item_path = /obj/item/clothing/accessory/badge/holo
+	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/neck/holobadge_cord
 	name = "Holobadge with Lanyard"
 	item_path = /obj/item/clothing/accessory/badge/holo/cord
+	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /*
 *	DONATOR
