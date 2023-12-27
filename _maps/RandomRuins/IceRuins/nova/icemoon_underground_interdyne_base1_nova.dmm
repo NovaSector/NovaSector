@@ -6674,10 +6674,6 @@
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "qu" = (
-/obj/structure/closet/secure_closet/freezer/meat{
-	anchored = 1;
-	req_access = list("syndicate")
-	},
 /obj/machinery/light/directional/south,
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	anchored = 1;
