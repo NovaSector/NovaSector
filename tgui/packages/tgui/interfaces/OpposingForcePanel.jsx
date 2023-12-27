@@ -203,7 +203,6 @@ export const OpposingForceTab = (props) => {
       <Stack.Item>
         <Section title="Backstory">
           <TextArea
-            disabled={!can_edit}
             height="100px"
             value={backstory}
             placeholder="Provide a description of why you want to do bad things. Include specifics such as what lead upto the events that made you want to do bad things, think of it as though you were your character, react appropriately. If you don't have any ideas, check the #player-shared-opfors channel for some. (2000 char limit)"
@@ -422,7 +421,6 @@ export const OpposingForceObjectives = (props) => {
                   <Stack.Item>
                     <TextArea
                       fluid
-                      disabled={!can_edit}
                       height="85px"
                       value={selectedObjective.description}
                       onChange={(e, value) =>
@@ -447,7 +445,6 @@ export const OpposingForceObjectives = (props) => {
                   </Stack.Item>
                   <Stack.Item>
                     <TextArea
-                      disabled={!can_edit}
                       height="85px"
                       value={selectedObjective.justification}
                       onChange={(e, value) =>
