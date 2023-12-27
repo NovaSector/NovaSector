@@ -260,7 +260,7 @@
 	dust()
 
 /mob/living/basic/drone/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] \a <b>[src]</b>!", EXAMINE_SECTION_BREAK) //SKYRAT EDIT CHANGE
+	. = list("<span class='info'>This is [icon2html(src, user)] \a <b>[src]</b>!", EXAMINE_SECTION_BREAK) //NOVA EDIT CHANGE
 
 	//Hands
 	for(var/obj/item/held_thing in held_items)

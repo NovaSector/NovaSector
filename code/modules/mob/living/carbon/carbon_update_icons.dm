@@ -85,8 +85,8 @@
 	SEND_SIGNAL(src, COMSIG_CARBON_REMOVE_OVERLAY, cache_index, I)
 
 //used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/proc/update_mutant_bodyparts(force_update = FALSE) // SKYRAT EDIT CHANGE
-	dna?.species.handle_mutant_bodyparts(src, force_update = force_update) // SKYRAT EDIT CHANGE
+/mob/living/carbon/human/proc/update_mutant_bodyparts(force_update = FALSE) // NOVA EDIT CHANGE
+	dna?.species.handle_mutant_bodyparts(src, force_update = force_update) // NOVA EDIT CHANGE
 	update_body_parts()
 
 /mob/living/carbon/update_body(is_creating = FALSE)
@@ -364,7 +364,7 @@
 
 	apply_overlay(WOUND_LAYER)
 
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
 /mob/living/carbon/update_worn_mask()
 	remove_overlay(FACEMASK_LAYER)
@@ -397,9 +397,9 @@
 
 	apply_overlay(NECK_LAYER)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
-//SKYRAT EDIT REMOVAL BEGIN - TESHARI CLOTHES (moved to modular)
+//NOVA EDIT REMOVAL BEGIN - TESHARI CLOTHES (moved to modular)
 /*
 /mob/living/carbon/update_worn_back()
 	remove_overlay(BACK_LAYER)
@@ -414,9 +414,9 @@
 
 	apply_overlay(BACK_LAYER)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
-//SKYRAT EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
 /mob/living/carbon/update_worn_head()
 	remove_overlay(HEAD_LAYER)
@@ -434,12 +434,12 @@
 
 	apply_overlay(HEAD_LAYER)
 */
-//SKYRAT EDIT REMOVAL END
+//NOVA EDIT REMOVAL END
 
 
 /mob/living/carbon/update_worn_handcuffs()
 	remove_overlay(HANDCUFF_LAYER)
-	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) //SKYRAT EDIT ADDED !(handcuffed.item_flags & ABSTRACT)
+	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) //NOVA EDIT ADDED !(handcuffed.item_flags & ABSTRACT)
 		var/mutable_appearance/handcuff_overlay = mutable_appearance('icons/mob/simple/mob.dmi', "handcuff1", -HANDCUFF_LAYER)
 		if(handcuffed.blocks_emissive != EMISSIVE_BLOCK_NONE)
 			handcuff_overlay.overlays += emissive_blocker(handcuff_overlay.icon, handcuff_overlay.icon_state, src, alpha = handcuff_overlay.alpha)
@@ -477,10 +477,10 @@
 //Overlays for the worn overlay so you can overlay while you overlay
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
-// SKYRAT EDIT CHANGE BEGIN - CUSTOMIZATION
+// NOVA EDIT CHANGE BEGIN - CUSTOMIZATION
 // obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file) - original
 /obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, mutant_styles = NONE)
-// SKYRAT EDIT CHANGE END
+// NOVA EDIT CHANGE END
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/list)
 

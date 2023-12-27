@@ -1134,7 +1134,7 @@
 	singular_name = "floor tile"
 	desc = "The ground you walk on."
 	//throwforce = 10 //ORIGINAL
-	throwforce = 6 //SKYRAT EDIT CHANGE
+	throwforce = 6 //NOVA EDIT CHANGE
 	icon_state = "material_tile"
 	turf_type = /turf/open/floor/material
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS

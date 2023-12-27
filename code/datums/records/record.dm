@@ -105,13 +105,13 @@
 	physical_status = PHYSICAL_ACTIVE,
 	mental_status = MENTAL_STABLE,
 	quirk_notes,
-	// SKYRAT EDIT START - RP Records
+	// NOVA EDIT START - RP Records
 	background_information = "",
 	exploitable_information = "",
 	past_general_records = "",
 	past_medical_records = "",
 	past_security_records = "",
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 )
 	. = ..()
 	src.lock_ref = lock_ref
@@ -122,13 +122,13 @@
 	src.physical_status = physical_status
 	src.mental_status = mental_status
 	src.quirk_notes = quirk_notes
-	// SKYRAT EDIT START - RP Records
+	// NOVA EDIT START - RP Records
 	src.background_information = background_information
 	src.exploitable_information = exploitable_information
 	src.past_general_records = past_general_records
 	src.past_medical_records = past_medical_records
 	src.past_security_records = past_security_records
-	// SKYRAT EDIT END
+	// NOVA EDIT END
 
 	GLOB.manifest.general += src
 
@@ -239,18 +239,18 @@
 
 	final_paper_text += "Species: [species]<br>Fingerprint: [fingerprint]<br>Wanted Status: [wanted_status]<br><br>"
 
-	//SKYRAT EDIT ADD - RP RECORDS
+	//NOVA EDIT ADD - RP RECORDS
 	if(past_general_records != "")
 		final_paper_text += "<br><B>General Records:</B>"
 		final_paper_text += "<br>[past_general_records]<br>"
-	//SKYRAT EDIT ADD END
+	//NOVA EDIT ADD END
 	final_paper_text += "<center><B>Security Data</B></center><br><br>"
 
-	//SKYRAT EDIT ADDITION START - RP RECORDS
+	//NOVA EDIT ADDITION START - RP RECORDS
 	if(past_security_records != "")
 		final_paper_text += "<B>Security Records:</B>"
 		final_paper_text += "<br>[past_security_records]<br>"
-	//SKYRAT EDIT END
+	//NOVA EDIT END
 
 	final_paper_text += "Crimes:<br>"
 	final_paper_text += {"<table style="text-align:center;" border="1" cellspacing="0" width="100%">
@@ -298,9 +298,9 @@
 
 	printed_paper.name = "SR-[print_count] '[name]'"
 
-	/// SKYRAT EDIT ADD - TRUE
+	/// NOVA EDIT ADD - TRUE
 	printed_paper.add_raw_text(final_paper_text,TRUE)
-	/// SKYRAT EDIT ADD END
+	/// NOVA EDIT ADD END
 	printed_paper.update_appearance()
 
 	return printed_paper

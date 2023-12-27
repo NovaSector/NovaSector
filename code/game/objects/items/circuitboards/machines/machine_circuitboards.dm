@@ -656,17 +656,17 @@
 		/obj/machinery/vending/robotics = "Robotech Deluxe",
 		/obj/machinery/vending/engineering = "Robco Tool Maker",
 		/obj/machinery/vending/sovietsoda = "BODA",
-		/obj/machinery/vending/security = "Armadyne Peacekeeper Equipment Vendor", //SKYRAT EDIT CHANGE - SEC_HUAL - ORIGINAL: /obj/machinery/vending/security = "SecTech",
+		/obj/machinery/vending/security = "Armadyne Peacekeeper Equipment Vendor", //NOVA EDIT CHANGE - SEC_HUAL - ORIGINAL: /obj/machinery/vending/security = "SecTech",
 		/obj/machinery/vending/modularpc = "Deluxe Silicate Selections",
 		/obj/machinery/vending/tool = "YouTool",
 		/obj/machinery/vending/custom = "Custom Vendor",
-		/obj/machinery/vending/dorms = "LustWish",	//SKYRAT EDIT CHANGE - ERP UPDATE - ORIGINAL: /obj/machinery/vending/dorms = "KinkVend"
-		/obj/machinery/vending/access/command = "Command Outfitting Station", //SKYRAT EDIT ADDITION
-		/obj/machinery/vending/barbervend = "Fab-O-Vend", //SKYRAT EDIT ADDITION
-		/obj/machinery/vending/imported = "NT Sustenance Supplier", //SKYRAT EDIT ADDITION
-		/obj/machinery/vending/imported/yangyu = "Fudobenda", //SKYRAT EDIT ADDITION
-		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //SKYRAT EDIT ADDITION
-		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies",) //SKYRAT EDIT ADDITION
+		/obj/machinery/vending/dorms = "LustWish",	//NOVA EDIT CHANGE - ERP UPDATE - ORIGINAL: /obj/machinery/vending/dorms = "KinkVend"
+		/obj/machinery/vending/access/command = "Command Outfitting Station", //NOVA EDIT ADDITION
+		/obj/machinery/vending/barbervend = "Fab-O-Vend", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported = "NT Sustenance Supplier", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/yangyu = "Fudobenda", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies",) //NOVA EDIT ADDITION
 
 /obj/item/circuitboard/machine/vendor/screwdriver_act(mob/living/user, obj/item/tool)
 	var/static/list/display_vending_names_paths

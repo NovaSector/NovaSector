@@ -25,13 +25,13 @@ GLOBAL_LIST_INIT(exp_specialmap, list(
 		ROLE_SYNDICATE_DRONE,
 		ROLE_VENUSHUMANTRAP,
 		ROLE_GHOST_ROLE,
-		//Skyrat Edit Start - Custom Ghost roles
+		//NOVA EDIT Start - Custom Ghost roles
 		ROLE_BLACK_MARKET_DEALER,
 		ROLE_DS2,
 		ROLE_FREIGHTER_CREW,
 		ROLE_GHOST_CAFE,
 		ROLE_PORT_TARKON,
-		//Skyrat Edit Start - End Custom Ghost roles
+		//NOVA EDIT Start - End Custom Ghost roles
 		), // Ghost roles
 	EXP_TYPE_GHOST = list() // dead people, observers
 ))

@@ -380,7 +380,7 @@
 /datum/status_effect/regenerative_core/on_apply()
 	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, STATUS_EFFECT_TRAIT)
 	owner.adjustBruteLoss(-25)
-	owner.adjustStaminaLoss(-40) //Skyrat edit. Removes stamina on usage of regen core.
+	owner.adjustStaminaLoss(-40) //NOVA EDIT. Removes stamina on usage of regen core.
 	owner.adjustFireLoss(-25)
 	owner.fully_heal(HEAL_CC_STATUS)
 	owner.bodytemperature = owner.get_body_temp_normal()

@@ -901,8 +901,8 @@
 
 	weighted_crits[CRUSH_CRIT_SHATTER_LEGS] = 100
 	weighted_crits[CRUSH_CRIT_PARAPALEGIC] = 80
-	//weighted_crits[CRUSH_CRIT_HEADGIB] = 20 // SKYRAT EDIT REMOVAL
-	weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 80 // SKYRAT EDIT CHANGE - ORIGINAL: weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 100
+	//weighted_crits[CRUSH_CRIT_HEADGIB] = 20 // NOVA EDIT REMOVAL
+	weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 80 // NOVA EDIT CHANGE - ORIGINAL: weighted_crits[CRUSH_CRIT_SQUISH_LIMB] = 100
 
 	return weighted_crits
 
@@ -1342,7 +1342,7 @@
 					sec_radio = new (src)
 					sec_radio.set_listening(FALSE)
 				sec_radio.set_frequency(FREQ_SECURITY)
-				sec_radio.talk_into(src, "SECURITY ALERT: [usr] recorded attempting to purchase [item_record.name] in [get_area(src)]. Please watch for substance abuse.", FREQ_SECURITY) // SKYRAT EDIT CHANGE
+				sec_radio.talk_into(src, "SECURITY ALERT: [usr] recorded attempting to purchase [item_record.name] in [get_area(src)]. Please watch for substance abuse.", FREQ_SECURITY) // NOVA EDIT CHANGE
 				GLOB.narcd_underages += usr
 			flick(icon_deny,src)
 			vend_ready = TRUE

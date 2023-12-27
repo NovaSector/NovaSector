@@ -1,11 +1,11 @@
 /obj/item/dyespray
 	name = "hair dye spray"
-	desc = "A spray to dye hair as well as giving it any gradient you'd like." // SKYRAT EDIT - Making the dyespray change hair color
+	desc = "A spray to dye hair as well as giving it any gradient you'd like." // NOVA EDIT - Making the dyespray change hair color
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "dyespray"
 
-	var/uses = 40 //SKYRAT EDIT ADDITION
+	var/uses = 40 //NOVA EDIT ADDITION
 
 /obj/item/dyespray/attack_self(mob/user)
 	dye(user, user)
@@ -20,13 +20,13 @@
  * Arguments:
  * * target - The mob who we will apply the gradient and gradient color to.
  */
-/* SKYRAT EDIT REMOVAL - MOVED TO MODULAR (modular_skyrat\master_files\code\game\objects\items\dyekit.dm)
+/* NOVA EDIT REMOVAL - MOVED TO MODULAR (modular_nova\master_files\code\game\objects\items\dyekit.dm)
 /obj/item/dyespray/proc/dye(mob/target, mob/user)
 	if(!ishuman(target))
 		return
 
-	if(!uses) //SKYRAT EDIT ADDITION
-		return //SKYRAT EDIT ADDITION
+	if(!uses) //NOVA EDIT ADDITION
+		return //NOVA EDIT ADDITION
 
 	var/mob/living/carbon/human/human_target = target
 	var/beard_or_hair = tgui_alert(user, "What do you want to dye?", "Character Preference", list("Hair", "Facial Hair"))

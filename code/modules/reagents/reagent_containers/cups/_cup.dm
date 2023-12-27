@@ -84,7 +84,7 @@
 		to_chat(user, span_notice("You swallow a gulp of [src]."))
 
 	SEND_SIGNAL(src, COMSIG_GLASS_DRANK, target_mob, user)
-	SEND_SIGNAL(target_mob, COMSIG_GLASS_DRANK, src, user) // SKYRAT EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
+	SEND_SIGNAL(target_mob, COMSIG_GLASS_DRANK, src, user) // NOVA EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
 	reagents.trans_to(target_mob, gulp_size, transferred_by = user, methods = INGEST)
 	checkLiked(fraction, target_mob)
@@ -219,7 +219,7 @@
 
 /obj/item/reagent_containers/cup/beaker
 	name = "beaker"
-	desc = "A beaker. It can hold up to 60 units." //SKYRAT EDIT: Used to say can hold up to 50 units.
+	desc = "A beaker. It can hold up to 60 units." //NOVA EDIT: Used to say can hold up to 50 units.
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "beaker"
 	inhand_icon_state = "beaker"
@@ -228,8 +228,8 @@
 	worn_icon_state = "beaker"
 	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*5)
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
-	volume = 60 //SKYRAT EDIT: Addition
-	possible_transfer_amounts = list(5,10,15,20,30,60) //SKYRAT EDIT: Addition
+	volume = 60 //NOVA EDIT: Addition
+	possible_transfer_amounts = list(5,10,15,20,30,60) //NOVA EDIT: Addition
 
 /obj/item/reagent_containers/cup/beaker/Initialize(mapload)
 	. = ..()
@@ -246,24 +246,24 @@
 
 /obj/item/reagent_containers/cup/beaker/large
 	name = "large beaker"
-	desc = "A large beaker. Can hold up to 120 units." //SKYRAT EDIT: Used to say Can hold up to 100 units.
+	desc = "A large beaker. Can hold up to 120 units." //NOVA EDIT: Used to say Can hold up to 100 units.
 	icon_state = "beakerlarge"
 	custom_materials = list(/datum/material/glass= SHEET_MATERIAL_AMOUNT*1.25)
-	volume = 120 //SKYRAT EDIT: Original value (100)
+	volume = 120 //NOVA EDIT: Original value (100)
 	amount_per_transfer_from_this = 10
-	//possible_transfer_amounts = list(5,10,15,20,25,30,50,100) //SKYRAT EDIT: Original Values
-	possible_transfer_amounts = list(5,10,15,20,30,40,60,120) //SKYRAT EDIT: New Values
+	//possible_transfer_amounts = list(5,10,15,20,25,30,50,100) //NOVA EDIT: Original Values
+	possible_transfer_amounts = list(5,10,15,20,30,40,60,120) //NOVA EDIT: New Values
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
 
 /obj/item/reagent_containers/cup/beaker/plastic
 	name = "x-large beaker"
-	desc = "An extra-large beaker. Can hold up to 150 units." //SKYRAT EDIT: Used to say Can hold up to 120 units
+	desc = "An extra-large beaker. Can hold up to 150 units." //NOVA EDIT: Used to say Can hold up to 120 units
 	icon_state = "beakerwhite"
 	custom_materials = list(/datum/material/glass=SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plastic=SHEET_MATERIAL_AMOUNT * 1.5)
-	volume = 150 //SKYRAT EDIT: Original Value (120)
+	volume = 150 //NOVA EDIT: Original Value (120)
 	amount_per_transfer_from_this = 10
-	//possible_transfer_amounts = list(5,10,15,20,25,30,60,120) //SKYRAT EDIT: Original values
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,75,150) //SKYRAT EDIT: New Values
+	//possible_transfer_amounts = list(5,10,15,20,25,30,60,120) //NOVA EDIT: Original values
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,75,150) //NOVA EDIT: New Values
 	fill_icon_thresholds = list(0, 1, 10, 20, 40, 60, 80, 100)
 
 /obj/item/reagent_containers/cup/beaker/meta
@@ -348,7 +348,7 @@
 
 /obj/item/reagent_containers/cup/bucket
 	name = "bucket"
-	desc = "It's a bucket. You can squeeze a mop's contents into it by using right-click." //SKYRAT EDIT CHANGE - ORIGINAL: desc = "It's a bucket."
+	desc = "It's a bucket. You can squeeze a mop's contents into it by using right-click." //NOVA EDIT CHANGE - ORIGINAL: desc = "It's a bucket."
 	icon = 'icons/obj/service/janitor.dmi'
 	worn_icon = 'icons/mob/clothing/head/utility.dmi'
 	icon_state = "bucket"
@@ -360,8 +360,8 @@
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 2)
 	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 20
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100) //SKYRAT EDIT CHANGE
-	volume = 100 //SKYRAT EDIT CHANGE
+	possible_transfer_amounts = list(5,10,15,20,25,30,50,100) //NOVA EDIT CHANGE
+	volume = 100 //NOVA EDIT CHANGE
 	flags_inv = HIDEHAIR
 	slot_flags = ITEM_SLOT_HEAD
 	resistance_flags = NONE
@@ -394,7 +394,7 @@
 	melee = 10
 	acid = 50
 
-// SKYRAT EDIT CHANGE START - LIQUIDS
+// NOVA EDIT CHANGE START - LIQUIDS
 /* Original
 /obj/item/reagent_containers/cup/bucket/attackby(obj/O, mob/user, params)
 	if(istype(O, /obj/item/mop))
@@ -433,7 +433,7 @@
 		var/obj/item/bot_assembly/cleanbot/new_cleanbot_ass = new(null, src)
 		user.put_in_hands(new_cleanbot_ass)
 		return
-// SKYRAT EDIT CHANGE END - LIQUIDS
+// NOVA EDIT CHANGE END - LIQUIDS
 
 /obj/item/reagent_containers/cup/bucket/equipped(mob/user, slot)
 	. = ..()

@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	/obj/item/reagent_containers/syringe,
 )))
 
-/obj/machinery/deepfryer//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/deepfryer//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
 	name = "deep fryer"
 	desc = "Deep fried <i>everything</i>."
 	icon = 'icons/obj/machines/kitchen.dmi'

@@ -25,9 +25,9 @@
 	plane = GAME_PLANE_FOV_HIDDEN
 	max_integrity = 100
 	item_flags = XENOMORPH_HOLDABLE
-	special_desc_requirement = EXAMINE_CHECK_JOB //SKYRAT EDIT
-	special_desc_jobs = list("Scientist, Research Director") //SKYRAT EDIT
-	special_desc = "This alien is an extremely dangerous life form capable of creating a xenomorph. You would know well not to approach without full body biological protection." //SKYRAT EDIT
+	special_desc_requirement = EXAMINE_CHECK_JOB //NOVA EDIT
+	special_desc_jobs = list("Scientist, Research Director") //NOVA EDIT
+	special_desc = "This alien is an extremely dangerous life form capable of creating a xenomorph. You would know well not to approach without full body biological protection." //NOVA EDIT
 	var/stat = CONSCIOUS //UNCONSCIOUS is the idle state in this case
 
 	var/sterile = FALSE
@@ -271,9 +271,9 @@
 /obj/item/clothing/mask/facehugger/lamarr
 	name = "Lamarr"
 	desc = "The Research Director's pet, a domesticated and debeaked xenomorph facehugger. Friendly, but may still try to couple with your head."
-	special_desc_requirement = EXAMINE_CHECK_ROLE //SKYRAT EDIT
-	special_desc_roles = list("ROLE_ALIEN") //SKYRAT EDIT
-	special_desc = "This young one has been cruelly mutilated. It lacks the capability to fill a host with our sisters." //SKYRAT EDIT
+	special_desc_requirement = EXAMINE_CHECK_ROLE //NOVA EDIT
+	special_desc_roles = list("ROLE_ALIEN") //NOVA EDIT
+	special_desc = "This young one has been cruelly mutilated. It lacks the capability to fill a host with our sisters." //NOVA EDIT
 	sterile = TRUE
 
 /obj/item/clothing/mask/facehugger/dead

@@ -18,7 +18,7 @@
 	required_count = 2
 	wanted_types = list(/obj/item/oar = TRUE)
 
-//SKYRAT EDIT REMOVAL
+//NOVA EDIT REMOVAL
 /*
 /datum/bounty/item/mining/bone_axe
 	name = "Bone Axe"
@@ -26,7 +26,7 @@
 	reward = CARGO_CRATE_VALUE * 15
 	wanted_types = list(/obj/item/fireaxe/boneaxe = TRUE)
 */
-//END SKYRAT EDIT REMOVAL
+//END NOVA EDIT REMOVAL
 
 /datum/bounty/item/mining/bone_armor
 	name = "Bone Armor"
@@ -46,7 +46,7 @@
 	reward = CARGO_CRATE_VALUE * 15
 	required_count = 3
 	wanted_types = list(/obj/item/clothing/accessory/talisman = TRUE)
-//SKYRAT EDIT REMOVAL
+//NOVA EDIT REMOVAL
 /*
 /datum/bounty/item/mining/bone_dagger
 	name = "Bone Daggers"
@@ -55,7 +55,7 @@
 	required_count = 3
 	wanted_types = list(/obj/item/knife/combat/bone = TRUE)
 */
-//END SKYRAT EDIT REMOVAL
+//END NOVA EDIT REMOVAL
 
 /datum/bounty/item/mining/polypore_mushroom
 	name = "Mushroom Bowl"
