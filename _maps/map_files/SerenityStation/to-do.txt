@@ -1,4 +1,8 @@
-elilstation to do list
+serenitystation to do list
 
 
 -commission plaque
+-underground caves map gen
+-birds 
+-bird shrine
+-actually making a station
