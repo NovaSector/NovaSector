@@ -110,3 +110,26 @@
 	command = TRUE
 
 /obj/item/radio/headset/interdyne/comms
+	keyslot = /obj/item/encryptionkey/headset_syndicate/interdyne
+	keyslot2 = /obj/item/encryptionkey/syndicate
+
+/obj/structure/closet/crate/freezer/sansufentanyl
+	name = "sansufentanyl crate"
+	desc = "A freezer. Contains refrigerated Sansufentanyl, for managing Hereditary Manifold Sickness. A product of Interdyne Pharmaceuticals."
+
+/obj/structure/closet/crate/freezer/sansufentanyl/PopulateContents()
+	. = ..()
+	for(var/grabbin_pills in 1 to 10)
+		new /obj/item/storage/pill_bottle/sansufentanyl(src)
+
+//MOBS
+
+// hivelords that stand guard where they spawn
+/mob/living/basic/mining/hivelord/no_wander
+	ai_controller = /datum/ai_controller/basic_controller/hivelord/no_wander
+
+//MOB AI
+
+// same as a regular hivelord minus the idle walking
+/datum/ai_controller/basic_controller/hivelord/no_wander
+	idle_behavior = null

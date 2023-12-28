@@ -147,7 +147,7 @@
 	contains = list(/obj/item/mod/control/pre_equipped/security)
 	crate_name = "security MODsuit crate"
 
-/datum/supply_pack/security/armor_skyrat
+/datum/supply_pack/security/armor_nova
 	name = "Armor Crate"
 	desc = "Three vests of well-rounded, decently-protective armor."
 	cost = CARGO_CRATE_VALUE * 2
@@ -159,7 +159,7 @@
 	)
 	crate_name = "armor crate"
 
-/datum/supply_pack/security/helmets_skyrat
+/datum/supply_pack/security/helmets_nova
 	name = "Helmets Crate"
 	desc = "Contains three standard-issue brain buckets."
 	cost = CARGO_CRATE_VALUE * 2

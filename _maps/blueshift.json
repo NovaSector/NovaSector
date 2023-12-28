@@ -4,10 +4,10 @@
 	"map_path": "map_files/NSVBlueshift",
 	"map_file": "Blueshift.dmm",
 	"shuttles": {
-		"cargo": "cargo_skyrat",
-		"ferry": "ferry_skyrat",
+		"cargo": "cargo",
+		"ferry": "ferry",
 		"whiteship": "whiteship_blueshift",
-		"emergency": "emergency_skyrat"
+		"emergency": "emergency"
 	},
 	"traits": [
 		{

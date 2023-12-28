@@ -336,6 +336,6 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 	if(length(tool.contents))
 		user.balloon_alert(user, "tongs are full already!")
 		return FALSE
-	if(skyrat_obj_flags & ANVIL_REPAIR)
+	if(obj_flags_nova & ANVIL_REPAIR)
 		forceMove(tool)
 		tool.icon_state = "tong_full"

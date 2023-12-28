@@ -2,7 +2,7 @@
 #define ARRIVALS_INTERLINK "arrivals_shuttle"
 #define CONSOLE_ANNOUNCE_COOLDOWN 5 SECONDS
 
-/obj/docking_port/mobile/arrivals_nova
+/obj/docking_port/mobile/arrivals/nova
 	name = "NTV Relay"
 	shuttle_id = "arrivals_shuttle"
 	dir = WEST
@@ -21,16 +21,16 @@
 	///State variable. True when our shuttle is waiting before autoreturn
 	var/waiting = FALSE // would've been better to use shuttle's mode variable, but check() resets it to SHUTTLE_IDLE so it's more sane way to make this fully modular
 
-/obj/docking_port/mobile/arrivals_nova/Initialize(mapload)
+/obj/docking_port/mobile/arrivals/nova/Initialize(mapload)
 	. = ..()
 	wait_time = CONFIG_GET(number/arrivals_wait)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/docking_port/mobile/arrivals_nova/LateInitialize()
+/obj/docking_port/mobile/arrivals/nova/LateInitialize()
 	. = ..()
 	console = get_control_console()
 
-/obj/docking_port/mobile/arrivals_nova/check()
+/obj/docking_port/mobile/arrivals/nova/check()
 	. = ..()
 
 	if(!wait_time) //0 disables autoreturn
@@ -70,14 +70,14 @@
 		console.say("Commencing automatic return subroutine in [wait_time / 10] seconds.")
 		console.last_depart_announce = world.time
 
-/obj/docking_port/mobile/arrivals_nova/getModeStr()
+/obj/docking_port/mobile/arrivals/nova/getModeStr()
 	. = ..()
 	return waiting ? "RTN" : .
 
 /**
  * Checks if our shuttle is occupied by someone alive, and returns `TRUE` if it is, `FALSE` otherwise.
 */
-/obj/docking_port/mobile/arrivals_nova/proc/check_occupied()
+/obj/docking_port/mobile/arrivals/nova/proc/check_occupied()
 	for(var/alive_player in GLOB.alive_player_list)
 		if (get_area(alive_player) in shuttle_areas)
 			return TRUE
@@ -115,13 +115,11 @@
 /datum/map_template/shuttle/ferry
 	name = "NAV Monarch (Ferry)"
 	prefix = "_maps/shuttles/nova/"
-	port_id = "ferry"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/cargo/nova
 	name = "NLV Consign (Cargo)"
 	prefix = "_maps/shuttles/nova/"
-	port_id = "cargo"
 
 /datum/map_template/shuttle/cargo/nova/delta
 	suffix = "delta_nova"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
@@ -130,13 +128,11 @@
 	name = "SFS Christian"
 	description = "A large corvette that seems to have come under attack by some kind of alien infestation. A true asset if it's cleared out and repaired."
 	prefix = "_maps/shuttles/nova/"
-	port_id = "whiteship"
 	suffix = "blueshift"
 
-/datum/map_template/shuttle/arrivals_nova
+/datum/map_template/shuttle/arrivals/nova
 	name = "NTV Relay (Arrivals)"
 	prefix = "_maps/shuttles/nova/"
-	port_id = "arrivals"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/emergency/default
