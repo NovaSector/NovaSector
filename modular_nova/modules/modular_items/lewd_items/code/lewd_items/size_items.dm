@@ -120,7 +120,7 @@
 	human_parent.dna.update_body_size()
 	return TRUE
 
-/datum/component/temporary_size/Destroy(force, silent)
+/datum/component/temporary_size/Destroy(force)
 	apply_size(original_size)
 	UnregisterSignal(parent, COMSIG_ENTER_AREA)
 

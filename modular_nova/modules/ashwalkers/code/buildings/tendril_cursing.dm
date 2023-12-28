@@ -43,7 +43,7 @@
 	RegisterSignal(human_target, COMSIG_MOVABLE_MOVED, PROC_REF(do_move))
 	RegisterSignal(human_target, COMSIG_LIVING_DEATH, PROC_REF(remove_curse))
 
-/datum/component/ash_cursed/Destroy(force, silent)
+/datum/component/ash_cursed/Destroy(force)
 	. = ..()
 	REMOVE_TRAIT(human_target, TRAIT_NO_TELEPORT, REF(src))
 	human_target.remove_movespeed_modifier(/datum/movespeed_modifier/ash_cursed)
