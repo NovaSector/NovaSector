@@ -1,4 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - bugfix: "The bokken's deflects now also have a visual indicator"

@@ -1,4 +1,0 @@
-author: "GalaxiaBot"
-delete-after: True
-changes:
-  - bugfix: "fixes a hard del with thrown items"

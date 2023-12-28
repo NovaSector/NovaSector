@@ -1,5 +1,0 @@
-author: "Jolly"
-delete-after: True
-changes:
-  - rscdel: "[North Star] Removed the prison cryo auto mapper template, as this is automatically handled by code. If there's any issues in the future please report them on Github!"
-  - rscdel: "{Automapper] Removed the logic for spawning prison privacy curtains. This doesn't affect 4/5 base /tg/ station maps."

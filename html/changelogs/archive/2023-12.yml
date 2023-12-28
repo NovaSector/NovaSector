@@ -818,3 +818,184 @@
   - bugfix: removed nonfunctional tutorial button
   xXPawnStarrXx:
   - image: Made Skyrat Christmas clothes GAGS compatable.
+2023-12-28:
+  A.C.M.O.:
+  - bugfix: Fixed Personal AI cards, allowing them to wake up from sleep.
+  BurgerBB:
+  - balance: Miasma is now filtered through gas mask filters, at medium strength.
+  GalaxiaBot:
+  - bugfix: Fixed integrated circuit UI breaking.
+  - bugfix: Cut down a significant amount of time that caused the start of rounds
+      to lag.
+  - bugfix: Fixed a bug that would give you the chat message "/datum/element/damage_threshold
+      looks unharmed!"
+  - bugfix: mat container displays correct number of sheets inserted for alloy materials.
+  - bugfix: remote materials now properly respect the `MATCONTAINER_NO_INSERT` flag.
+  - code_imp: removes material breakdown flags and related traits.
+  - code_imp: adds helper proc to insert materials via the remote material component
+      with proper context.
+  - bugfix: fixes a hard del with thrown items
+  - qol: Head of Security beret added to their garmet bag
+  - qol: Head of Security bowman added to their locker
+  - qol: Wendigo Cave ruin gets an aesthetic refresh
+  - bugfix: Wendigos (Wendigi?) no longer attack corpses
+  - bugfix: Camera console search should update automatically
+  - bugfix: Autolathe search should now properly show designs
+  - rscadd: You can now look up and down through the IC menu
+  - rscadd: Added the 'Coupon Master' program for the PDA. Install it to receive periodical,
+      redeemable coupons for several cargo packs. Requires NTnet connection and the
+      messenger enabled to work.
+  - rscadd: Coupons are no longer only limited to goodies, but may also apply discount
+      to some other packs as well.
+  - bugfix: Regal rats (and others), won't be punished by the automute system for
+      repeating the same command several times.
+  - bugfix: debug chem heater now withdraws more than 100 units from its inserted
+      beaker.
+  - bugfix: chem heater has correct overlay when its panel is closed with a screwdriver
+      while a beaker is inside.
+  - qol: added more examines and tooltips for the chem heater.
+  - code_imp: converted chem heater UI to typescript. removed unused procs, vars,
+      ui tracking code. Added auto doc for everything.
+  - refactor: removed chem heater tutorial help button & its related reward, chem
+      heater code has been optimized as a whole.
+  - balance: Cyborg lover has been replaced with Transhumanist. Transhumanists start
+      with a robotic limb and get mood buffs by being near to silicon-based lifeforms.
+      However, they get mood debuffs by being near organics, so there is a tradeoff
+      to taking this quirk. The cost for this quirk has been reduced from 2 to 0.
+  - bugfix: fixes a potential mob hard del with cardboard boxes
+  - rscadd: Added weapon recharger boards to designs available to print on sec techfab.
+  - bugfix: polymorphing into drone no longer gibs
+  - rscadd: Adds a mint condition clear PDA to the Goodies menu for 100,000 credits.
+  - qol: You can now build multiple pipe layers with the RPD, with just 1 click!
+  - bugfix: plumbing rcd ui no longer has any graphical glitches
+  - bugfix: the boozeomat ui will stop duplicating space beer bottles
+  - refactor: refactored vending machine backend to have unique keys for their data
+      structures. should fix bugs related to items that happen to have the same name.
+  - rscadd: Canisters now have wires! You can pulse wires to do various canister functions
+      like opening/closing the valve. Make sure it has a cell though.
+  - rscadd: You can rig assembly combos (igniter-timer, prox-signaler, etc.) onto
+      canisters
+  - qol: Canisters now have screentips
+  - bugfix: LUA editor should be usable again
+  - bugfix: Camera circuits actually print pictures again!
+  - qol: Camera circuits can now take pictures while on a carbon, whether held, hung
+      around the neck, or sneakily hidden in either pocket. When held they try to
+      deposit their pictures into the holder's hands if possible.
+  - bugfix: Camera circuits should now actually use the camera's x axis picture size,
+      rather than using the camera's y axis picture size setting for both axis.
+  - rscadd: Adds a brown suit jacket to the detective's vendor
+  - image: 'Adds a new sprite for the a brown detective suit jacket
+
+      :cl:'
+  - balance: Ai's using the mech domination ability can now eject from the mech
+  - spellcheck: changes mutiline text to multiline text in vv
+  - bugfix: Injecting yourself twice with a luxury medipen in pressure doesn't runtime
+      and mechs with a cell with no max charge won't runtime.
+  - refactor: Gives hyposprays a var to check if they're fully used up rather than
+      setting total_volume to 0.
+  - qol: MOD wearers and internal AIs can pin the individual actions in a MOD circuit
+      module in a similar way to how they can pin modules. Circuit module actions
+      can be pinned from the configuration menu of the circuit
+  - refactor: The MOD action and BCI action components have been merged into one component
+      - the Equipment Action component.
+  - bugfix: fixing damaged sandy dirt lacking an icon
+  - bugfix: AI voice changer UI should show defaults properly
+  - bugfix: NTOS Software Hub should focus on the input immediately now
+  - bugfix: Ore container UI should autofocus on the search bar now
+  - bugfix: Vend-a-tray registration text should display as intended
+  - code_imp: removed excess calls to `update_total()` making reaction code slightly
+      faster.
+  - code_imp: removed excessive use of chemical constants (quantisation & rounding
+      constants) in places where they were not needed i.e. plumbing buffer, reaction
+      chamber, pyrotechnics & the liver.
+  GoldenAlpharex:
+  - bugfix: We're Nova Sector now!
+  - qol: Map votes are once again going to respect the majority vote, instead of being
+      a weighted random vote.
+  Jolly:
+  - rscdel: '[North Star] Removed the prison cryo auto mapper template, as this is
+      automatically handled by code. If there''s any issues in the future please report
+      them on Github!'
+  - rscdel: '{Automapper] Removed the logic for spawning prison privacy curtains.
+      This doesn''t affect 4/5 base /tg/ station maps.'
+  - rscadd: 'New quirk for those who hate their appendix: Appendicitis Survivor! A
+      positive (-2) quirk.'
+  KannaLisvern:
+  - qol: Removed Bluespace Crystals and Diamonds from medical emergency bed's recipe.
+  LT3:
+  - qol: TGUI will now wait longer trying to reconnect to a new round
+  Lutowski:
+  - rscadd: Void Raptor pharmacy and lab is slightly more spacious and prettier.
+  - qol: Chem vendor moved from pharmacy to chemistry lab on Void Raptor.
+  Melbert:
+  - bugfix: Fixed some occasions in which heartbeat SFX will continue on revival for
+      longer than expected
+  MelokGleb and KREKS:
+  - image: modified wizard weapon textures
+  NovaBot13:
+  - rscdel: Removes the wires from canisters. It's a cool idea, but cheap controlled
+      maxcaps are bad actually
+  Paxilmaniac:
+  - qol: The names and descriptions of every paxilmaniac weapon have been improved
+      to be shorter (names) and mention at least what bullet the weapon fires (description)
+  - qol: Every weapon with an extended description has a hint in its normal examine
+      telling you that you can look further to get more info on the weapon
+  - code_imp: Two instances of now-deleted weapons paths (which i found out about
+      through someone getting one in a christmas tree) existing due to manufacturer
+      examines of all things have been cleaned up, players wont notice this one i
+      think
+  Rhials:
+  - qol: Obsessed crewmembers are now displayed in the orbit panel.
+  - qol: The Paradox Clone orbit menu tab is now white. Neat!
+  Ryll/Shaps:
+  - balance: Yawns are less likely to propagate
+  goobliner:
+  - rscadd: You can now pick common with the bilingual trait.
+  honkpocket:
+  - rscadd: Chitter emote has a different sound effect, unless you're a moth
+  - bugfix: The bokken's deflects now also have a visual indicator
+  nikothedude:
+  - rscadd: Pet owners can now name and describe their pet
+  vinylspiders:
+  - qol: NTNet Downloader now has a search bar, and programs are now better sorted.
+  - bugfix: Fixed the surgery menu spamming chat messages when on the eyes section
+      of a player with no eyes.
+  - bugfix: mercury & lithium will no longer make you randomly move outside of cryotubes
+      or in ground less turfs (space, water, lava etc)
+  - rscadd: basic bots can now display their paths on huds
+  - bugfix: medbots can research healing again
+  - refactor: Ghost roles now offer ghosts a clickable poll button. Ghosts can select
+      a role, deselect it, alt-click it for "Never For This Round", can cancel "Never",
+      can see the countdown, and can see how many other people are signed up for the
+      role poll.
+  - rscadd: PDAs with a dead power cell are now limited to using their Messenger app.
+  - bugfix: Microwaves now stop charging PDAs if the cell was removed mid-charge.
+  - bugfix: Microwaves can now charge laptops.
+  - bugfix: PDA Flashlights can't be turned on while the PDA is dead.
+  - bugfix: You can now hold a laptop up to a camera (if it has a notekeeper app installed)
+      like PDAs already could.
+  - rscadd: Infiltrators (Latejoin/Midround traitors) can now buy and use Contract
+      kits again.
+  - rscdel: Contractor baton can now only be purchased once.
+  - bugfix: lab coats no longer have directional sprites when thrown
+  - rscadd: Added a "postal workers strike" negative station trait. In the case of
+      holidays and sunday though, it'll be a "postal system overtime" instead.
+  - bugfix: clockcult slab now lets you change tabs once again
+  - spellcheck: Fixes a typo in chat message when starting a Death Knell with the
+      Vorpal Scythe
+  - admin: Adds logging for the death knell, both when starts and when it is completed
+      successfully.
+  - bugfix: NTOS Messenger should search as you type now
+  wiverns:
+  - rscdel: Cured the fear of santa in claustrophobes
+  yooriss:
+  - rscadd: Right clicking with shoulder holsters on any suit slot item will now attempt
+      to fit the holster to that item, allowing it to be worn in its suit storage
+      slot afterwards. Holsters can also be renamed and customized with a pen, too!
+  - rscadd: The Chaplain's vendor equipment can now be renamed and customized with
+      a pen to better suit their themes/religion. Never go without your trusty bible
+      again!
+  - balance: The sacred waters of the Icewalker's Hearth now ensure that polypore
+      mushrooms and embershrooms are always available for intrepid botanists to use
+      in their concoctions.
+  - rscadd: Watermelon and grass seeds are now available in the Hearth's seed stores.

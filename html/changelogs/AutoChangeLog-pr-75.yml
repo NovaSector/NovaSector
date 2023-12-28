@@ -1,5 +1,0 @@
-author: "GalaxiaBot"
-delete-after: True
-changes:
-  - qol: "Wendigo Cave ruin gets an aesthetic refresh"
-  - bugfix: "Wendigos (Wendigi?) no longer attack corpses"
