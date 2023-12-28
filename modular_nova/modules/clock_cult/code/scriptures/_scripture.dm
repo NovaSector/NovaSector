@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(clock_scriptures_by_type)
 		desc += " Requires research to unlock."
 
 
-/datum/scripture/Destroy(force, ...)
+/datum/scripture/Destroy(force) ...)
 	invoker = null
 	invoking_slab = null
 	return ..()
