@@ -31,10 +31,10 @@
 
 	var/allow_custom_shuttles = TRUE
 	var/shuttles = list(
-		"cargo" = "nova/cargo_skyrat",
+		"cargo" = "cargo_nova",
 		"ferry" = "ferry_fancy",
 		"whiteship" = "whiteship_meta",
-		"emergency" = "nova/emergency") //NOVA EDIT CHANGE
+		"emergency" = "emergency_nova") //NOVA EDIT CHANGE
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
