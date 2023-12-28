@@ -19,8 +19,8 @@
 //TG's icons only have a dress.dmi, but that means its not ABC-sorted to be beside shorts_pants_shirts.dmi. So its skirts_dresses for us.
 
 /*
-*	TG DIGI VERSION DRESSES
-*/
+ *	TG DIGI VERSION DRESSES
+ */
 /obj/item/clothing/under/dress/striped
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
@@ -28,8 +28,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /*
-*	Skirts
-*/
+ *	Skirts
+ */
 
 /obj/item/clothing/under/dress/skirt/nova/swept
 	name = "swept skirt"
@@ -38,7 +38,7 @@
 	body_parts_covered = GROIN
 
 /obj/item/clothing/under/dress/skirt/nova/striped_skirt
-	name = "Striped Skirt"
+	name = "red bra and striped skirt"
 	desc = "A red side-slit skirt with stripes! Comes with a matching two-tone bra."
 	icon_state = "striped_skirt"
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -46,7 +46,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/dress/skirt/nova/red_skirt
-	name = "Red Skirt"
+	name = "red bra and skirt"
 	desc = "An eye-catching knee-length red skirt, with a golden-yellow trim. Comes with a matching two-tone bra."
 	icon_state = "red_skirt"
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -54,7 +54,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/dress/skirt/nova/black_skirt
-	name = "Black Skirt"
+	name = "black bra and skirt"
 	desc = "A black side-slit skirt with a golden-yellow trim. Screams 'affluent goth'. Comes with a funky-looking matching bra."
 	icon_state = "black_skirt"
 	body_parts_covered = CHEST|GROIN|LEGS
@@ -119,8 +119,8 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
-*	Dresses
-*/
+ *	Dresses
+ */
 
 /obj/item/clothing/under/dress/nova/short_dress
 	name = "short dress"

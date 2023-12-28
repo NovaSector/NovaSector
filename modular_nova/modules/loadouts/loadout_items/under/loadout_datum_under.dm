@@ -28,8 +28,8 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	outfit.modified_outfit_slots |= ITEM_SLOT_ICLOTHING
 
 /*
-*	JUMPSUITS
-*/
+ *	JUMPSUITS
+ */
 
 /datum/loadout_item/under/jumpsuit
 
@@ -227,8 +227,8 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	restricted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER)
 
 /*
-*	MISC UNDERSUITS
-*/
+ *	MISC UNDERSUITS
+ */
 
 /datum/loadout_item/under/miscellaneous
 
@@ -374,16 +374,16 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Jacarta Dress"
 	item_path = /obj/item/clothing/under/dress/nova/jute
 
-/datum/loadout_item/under/miscellaneous/striped_skirt
-	name = "Red Striped Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/nova/striped_skirt
-
 /datum/loadout_item/under/miscellaneous/red_skirt
-	name = "Red Skirt"
+	name = "Red Bra and Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/red_skirt
 
+/datum/loadout_item/under/miscellaneous/striped_skirt
+	name = "Red Bra and Striped Skirt"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/striped_skirt
+
 /datum/loadout_item/under/miscellaneous/black_skirt
-	name = "Black Skirt (nova)"
+	name = "Black Bra and Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/black_skirt
 
 /datum/loadout_item/under/miscellaneous/swept_skirt
