@@ -1,4 +1,4 @@
-// Skyrat space area defines - Mostly for ruins
+// Nova Sector space area defines - Mostly for ruins
 
 ///Cybersun, Forgotten Ship
 /area/ruin/space/has_grav/cybersun
@@ -9,7 +9,7 @@
 	name = "Abandoned Atmospherics Wing"
 	icon_state = "atmos"
 
-///Generic Skyrat Ruins
+///Generic Nova Sector Ruins
 
 /area/ruin/space/has_grav/powered/nova/smugglies
 	name = "Suspicious Cargo Installation"
@@ -29,7 +29,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap
 	name = "Scrap Heap"
 
-///Interdyne, Forward Operating Base
+///Syndicate Deep Space Two
 /area/ruin/space/has_grav/nova/des_two
 	name = "DS-2" //If DS-1 is so great...
 	icon = 'icons/area/areas_centcom.dmi'
@@ -260,7 +260,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/exterior
 	name = "Freighter Exterior"
 
-// Skyrat's Space Hotel
+// Nova Sector's Space Hotel
 
 /area/ruin/space/has_grav/hotel/sauna
 	name = "Hotel Sauna Room"
