@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "colonial cloaks and imperial police cloaks can now carry suit storage items when worn in the suit slot."
