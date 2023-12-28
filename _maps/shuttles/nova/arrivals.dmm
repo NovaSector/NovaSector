@@ -70,7 +70,7 @@
 	},
 /area/shuttle/arrival)
 "o" = (
-/obj/docking_port/mobile/arrivals/nova,
+/obj/docking_port/mobile/arrivals_nova,
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals{
 	icon_state = "12,1"
 	},

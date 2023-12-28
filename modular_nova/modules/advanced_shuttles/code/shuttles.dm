@@ -2,7 +2,7 @@
 #define ARRIVALS_INTERLINK "arrivals_shuttle"
 #define CONSOLE_ANNOUNCE_COOLDOWN 5 SECONDS
 
-/obj/docking_port/mobile/arrivals/nova
+/obj/docking_port/mobile/arrivals_nova
 	name = "NTV Relay"
 	shuttle_id = "arrivals_shuttle"
 	dir = WEST
@@ -21,16 +21,16 @@
 	///State variable. True when our shuttle is waiting before autoreturn
 	var/waiting = FALSE // would've been better to use shuttle's mode variable, but check() resets it to SHUTTLE_IDLE so it's more sane way to make this fully modular
 
-/obj/docking_port/mobile/arrivals/nova/Initialize(mapload)
+/obj/docking_port/mobile/arrivals_nova/Initialize(mapload)
 	. = ..()
 	wait_time = CONFIG_GET(number/arrivals_wait)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/docking_port/mobile/arrivals/nova/LateInitialize()
+/obj/docking_port/mobile/arrivals_nova/LateInitialize()
 	. = ..()
 	console = get_control_console()
 
-/obj/docking_port/mobile/arrivals/nova/check()
+/obj/docking_port/mobile/arrivals_nova/check()
 	. = ..()
 
 	if(!wait_time) //0 disables autoreturn
@@ -70,14 +70,14 @@
 		console.say("Commencing automatic return subroutine in [wait_time / 10] seconds.")
 		console.last_depart_announce = world.time
 
-/obj/docking_port/mobile/arrivals/nova/getModeStr()
+/obj/docking_port/mobile/arrivals_nova/getModeStr()
 	. = ..()
 	return waiting ? "RTN" : .
 
 /**
  * Checks if our shuttle is occupied by someone alive, and returns `TRUE` if it is, `FALSE` otherwise.
 */
-/obj/docking_port/mobile/arrivals/nova/proc/check_occupied()
+/obj/docking_port/mobile/arrivals_nova/proc/check_occupied()
 	for(var/alive_player in GLOB.alive_player_list)
 		if (get_area(alive_player) in shuttle_areas)
 			return TRUE
