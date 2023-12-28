@@ -22,6 +22,7 @@
 		/obj/item/ammo_casing,
 	)
 	return ..()
+
 /obj/item/clothing/head/hats/colonial/nri_police
 	name = "imperial police cap"
 	desc = "A puffy cap made out of tarpaulin covered by some textile. It is sturdy and comfortable, and seems to retain its form very well. <br>\
