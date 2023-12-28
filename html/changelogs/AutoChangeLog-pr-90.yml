@@ -1,0 +1,6 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - qol: "The names and descriptions of every paxilmaniac weapon have been improved to be shorter (names) and mention at least what bullet the weapon fires (description)"
+  - qol: "Every weapon with an extended description has a hint in its normal examine telling you that you can look further to get more info on the weapon"
+  - code_imp: "Two instances of now-deleted weapons paths (which i found out about through someone getting one in a christmas tree) existing due to manufacturer examines of all things have been cleaned up, players wont notice this one i think"
