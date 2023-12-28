@@ -19,7 +19,7 @@
 	RegisterSignal(atom_parent, COMSIG_ATOM_EXAMINE, PROC_REF(check_examine))
 	RegisterSignal(atom_parent, COMSIG_QDELETING, PROC_REF(delete_farm))
 
-/datum/component/simple_farm/Destroy(force, silent)
+/datum/component/simple_farm/Destroy(force)
 	//lets not hard del
 	UnregisterSignal(atom_parent, list(COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_EXAMINE, COMSIG_QDELETING))
 	atom_parent = null
