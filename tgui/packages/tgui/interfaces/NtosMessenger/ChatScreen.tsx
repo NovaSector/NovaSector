@@ -303,6 +303,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                   <Input
                     placeholder={`Send message to ${recipient.name}...`}
                     fluid
+                    selfClear
                     autoFocus
                     width="100%"
                     value={message}
