@@ -5573,7 +5573,7 @@
 /area/centcom/interlink)
 "dXN" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
-	name = "Interlink Bar"
+	name = "Interlink Cafe"
 	},
 /turf/open/floor/iron/cafeteria,
 /area/centcom/interlink)
@@ -8086,10 +8086,10 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "kNd" = (
-/obj/machinery/door/airlock/service{
-	name = "Interlink Bar"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
+/obj/machinery/door/airlock/service{
+	name = "Interlink Kitchen"
+	},
 /turf/open/floor/iron/cafeteria,
 /area/centcom/interlink)
 "kOf" = (
@@ -10605,7 +10605,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/public/glass{
 	dir = 4;
-	name = "Interlink Cafe"
+	name = "Interlink Bar"
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)
@@ -11186,10 +11186,10 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "std" = (
-/obj/machinery/door/airlock/service{
-	name = "Interlink Kitchen"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/service/bar,
+/obj/machinery/door/airlock/service{
+	name = "Interlink Bar"
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "stk" = (
@@ -12495,14 +12495,14 @@
 /turf/closed/indestructible/rock,
 /area/centcom/interlink)
 "vLY" = (
-/obj/machinery/door/airlock/multi_tile/public/glass{
-	dir = 4;
-	name = "Interlink Bar"
-	},
 /obj/effect/turf_decal/trimline/green/corner{
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/green/filled/arrow_ccw,
+/obj/machinery/door/airlock/multi_tile/public/glass{
+	dir = 4;
+	name = "Interlink Cafe"
+	},
 /turf/open/floor/iron/cafeteria,
 /area/centcom/interlink)
 "vPe" = (
@@ -13180,7 +13180,7 @@
 "xIR" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/door/airlock/multi_tile/public/glass{
-	name = "Interlink Cafe"
+	name = "Interlink Bar"
 	},
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)

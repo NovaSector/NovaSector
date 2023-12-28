@@ -115,17 +115,17 @@
 /datum/map_template/shuttle/ferry
 	name = "NAV Monarch (Ferry)"
 	prefix = "_maps/shuttles/nova/"
-	suffix = "ferry"
+	suffix = "nova"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/cargo/nova
 	name = "NLV Consign (Cargo)"
 	prefix = "_maps/shuttles/nova/"
-	suffix = "cargo"
+	suffix = "nova"
 
 /datum/map_template/shuttle/cargo/nova/delta
 	prefix = "_maps/shuttles/nova/"
-	suffix = "delta"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
+	suffix = "delta_nova"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
 
 /datum/map_template/shuttle/whiteship/blueshift
 	name = "SFS Christian"
@@ -138,6 +138,7 @@
 	name = "NTV Relay (Arrivals)"
 	prefix = "_maps/shuttles/nova/"
 	port_id = "arrivals"
+	suffix = "nova"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/emergency/default
@@ -145,10 +146,12 @@
 	description = "Nanotrasen's standard issue emergency shuttle."
 	occupancy_limit = 60
 	prefix = "_maps/shuttles/nova/"
+	suffix = "nova"
 
 /datum/map_template/shuttle/labour/nova
 	name = "NMC Drudge (Labour)"
 	prefix = "_maps/shuttles/nova/"
+	suffix = "nova"
 
 /obj/docking_port/stationary/laborcamp_home
 	roundstart_template = /datum/map_template/shuttle/labour/nova
@@ -159,6 +162,7 @@
 /datum/map_template/shuttle/mining_common/nova
 	name = "NMC Chimera (Mining)"
 	prefix = "_maps/shuttles/nova/"
+	suffix = "nova"
 
 /obj/docking_port/stationary/mining_home/common
 	roundstart_template = /datum/map_template/shuttle/mining_common/nova
@@ -169,6 +173,7 @@
 /datum/map_template/shuttle/mining/nova
 	name = "NMC Phoenix (Mining)"
 	prefix = "_maps/shuttles/nova/"
+	suffix = "nova"
 
 /obj/docking_port/stationary/mining_home
 	roundstart_template = /datum/map_template/shuttle/mining/nova
@@ -176,7 +181,7 @@
 /datum/map_template/shuttle/mining/nova/large
 	name = "NMC Manticore (Mining)"
 	prefix = "_maps/shuttles/nova/"
-	suffix = "large"
+	suffix = "large_nova"
 
 #undef ARRIVALS_STATION
 #undef ARRIVALS_INTERLINK
