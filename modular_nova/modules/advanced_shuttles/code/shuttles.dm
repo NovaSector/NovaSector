@@ -75,8 +75,8 @@
 	return waiting ? "RTN" : .
 
 /**
- * Checks if our shuttle is occupied by someone alive, and returns `TRUE` if it is, `FALSE` otherwise.
-*/
+ ** Checks if our shuttle is occupied by someone alive, and returns `TRUE` if it is, `FALSE` otherwise.
+ **/
 /obj/docking_port/mobile/arrivals_nova/proc/check_occupied()
 	for(var/alive_player in GLOB.alive_player_list)
 		if (get_area(alive_player) in shuttle_areas)
@@ -109,30 +109,35 @@
 	possible_destinations = "arrivals_stationary;arrivals_shuttle"
 
 /*
-*	MAP TEMPLATES
-*/
+ *	MAP TEMPLATES
+ */
 
 /datum/map_template/shuttle/ferry
 	name = "NAV Monarch (Ferry)"
 	prefix = "_maps/shuttles/nova/"
+	suffix = "ferry"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/cargo/nova
 	name = "NLV Consign (Cargo)"
 	prefix = "_maps/shuttles/nova/"
+	suffix = "cargo"
 
 /datum/map_template/shuttle/cargo/nova/delta
-	suffix = "delta_nova"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
+	prefix = "_maps/shuttles/nova/"
+	suffix = "delta"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
 
 /datum/map_template/shuttle/whiteship/blueshift
 	name = "SFS Christian"
 	description = "A large corvette that seems to have come under attack by some kind of alien infestation. A true asset if it's cleared out and repaired."
 	prefix = "_maps/shuttles/nova/"
+	port_id = "whiteship"
 	suffix = "blueshift"
 
-/datum/map_template/shuttle/arrivals/nova
+/datum/map_template/shuttle/arrivals_nova
 	name = "NTV Relay (Arrivals)"
 	prefix = "_maps/shuttles/nova/"
+	port_id = "arrivals"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/emergency/default
