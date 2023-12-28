@@ -1,0 +1,5 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - rscadd: "Right clicking with shoulder holsters on any suit slot item will now attempt to fit the holster to that item, allowing it to be worn in its suit storage slot afterwards. Holsters can also be renamed and customized with a pen, too!"
+  - rscadd: "The Chaplain's vendor equipment can now be renamed and customized with a pen to better suit their themes/religion. Never go without your trusty bible again!"
