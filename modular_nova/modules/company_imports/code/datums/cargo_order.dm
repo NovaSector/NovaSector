@@ -4,7 +4,7 @@
 	/// The component used to create the order
 	var/datum/component/armament/company_imports/used_component
 
-/datum/supply_order/company_import/Destroy(force) ...)
+/datum/supply_order/company_import/Destroy(force)
 	selected_entry = null
 	used_component = null
 	. = ..()

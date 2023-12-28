@@ -13,7 +13,7 @@
 	/// Our currently open greyscaling menu.
 	var/datum/greyscale_modify_menu/menu
 
-/datum/loadout_manager/Destroy(force) ...)
+/datum/loadout_manager/Destroy(force)
 	if(menu)
 		SStgui.close_uis(menu)
 		menu = null

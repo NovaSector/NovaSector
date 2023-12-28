@@ -49,7 +49,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 			/mob/living/proc/soulcatcher_emote,
 		))
 
-/datum/component/soulcatcher/Destroy(force) ...)
+/datum/component/soulcatcher/Destroy(force)
 	GLOB.soulcatchers -= src
 
 	targeted_soulcatcher_room = null
@@ -364,7 +364,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	recepient_soulcatcher.recieve_message(message)
 	return TRUE
 
-/datum/soulcatcher_room/Destroy(force) ...)
+/datum/soulcatcher_room/Destroy(force)
 	for(var/mob/living/soulcatcher_soul/soul as anything in current_souls)
 		remove_soul(soul)
 
