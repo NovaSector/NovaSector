@@ -2407,7 +2407,7 @@
 	req_access = list("brig")
 	},
 /obj/item/knife/combat,
-/obj/item/clothing/under/syndicate/skyrat/enclave/real,
+/obj/item/clothing/under/syndicate/nova/enclave/real,
 /obj/item/reagent_containers/hypospray/medipen/stimpack,
 /obj/item/clothing/glasses/hud/security/sunglasses/gars/giga,
 /turf/open/floor/iron/dark,

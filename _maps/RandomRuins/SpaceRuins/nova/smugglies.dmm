@@ -6,7 +6,7 @@
 /obj/machinery/door/airlock/medical,
 /obj/effect/mapping_helpers/airlock/access/all,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "d" = (
 /obj/item/reagent_containers/cocainebrick{
 	pixel_x = 7;
@@ -17,15 +17,15 @@
 	},
 /obj/structure/table,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "e" = (
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/grass,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "g" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "h" = (
 /obj/effect/turf_decal/stripes/asteroid/corner{
 	dir = 4
@@ -40,14 +40,14 @@
 /area/ruin/unpowered/no_grav)
 "m" = (
 /turf/open/floor/iron/grimy,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "o" = (
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "t" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "u" = (
 /obj/machinery/door/airlock/mining{
 	name = "Backroom"
@@ -57,11 +57,11 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "v" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "w" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
@@ -72,19 +72,19 @@
 /obj/effect/spawner/random/entertainment/money,
 /obj/effect/spawner/random/entertainment/money,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "z" = (
 /turf/closed/mineral/random,
 /area/ruin/unpowered/no_grav)
 "A" = (
 /obj/structure/chair/office,
 /turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "B" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/access/all,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "C" = (
 /obj/effect/turf_decal/stripes/asteroid/corner{
 	dir = 1
@@ -94,79 +94,79 @@
 "E" = (
 /obj/machinery/vending/hydronutrients,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "F" = (
 /turf/open/misc/asteroid/airless,
 /area/ruin/unpowered/no_grav)
 "H" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/grimy,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "I" = (
 /obj/structure/closet/secure_closet/hydroponics{
 	req_access = null
 	},
 /obj/item/gun/energy/floragun,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "K" = (
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "L" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/left/directional/north,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "N" = (
 /obj/structure/sink/directional/west,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "O" = (
 /turf/closed/wall/mineral/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "Q" = (
 /obj/machinery/light/directional/north,
 /obj/structure/table,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "R" = (
 /obj/structure/sign/poster/contraband/random/directional/north,
 /obj/structure/table,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "S" = (
 /obj/effect/turf_decal/siding/thinplating,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "U" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "V" = (
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "W" = (
 /obj/structure/table,
 /obj/item/seeds/cocoapod,
 /obj/item/folded_navigation_gigabeacon,
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "Y" = (
 /obj/machinery/computer/crew/syndie{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 "Z" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/skyrat/smugglies)
+/area/ruin/space/has_grav/powered/nova/smugglies)
 
 (1,1,1) = {"
 a

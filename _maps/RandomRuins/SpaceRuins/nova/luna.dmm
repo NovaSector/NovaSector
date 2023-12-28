@@ -6,12 +6,12 @@
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "bp" = (
 /turf/open/floor/stone{
 	color = "#fceb03"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "cG" = (
 /obj/structure/railing{
 	color = "#03fcf0";
@@ -24,13 +24,13 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "cL" = (
 /obj/effect/light_emitter,
 /turf/open/floor/stone{
 	color = "#fceb03"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "cM" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
@@ -39,72 +39,72 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "dC" = (
 /obj/structure/flora/bush/grassy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "dE" = (
 /obj/structure/flora/biolumi/lamp/weaklight,
 /obj/structure/flora/bush/leafy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "dG" = (
 /turf/closed/wall/mineral/iron{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "eF" = (
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/leafy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "fT" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "hj" = (
 /obj/structure/flora/bush/leafy,
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "hp" = (
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/flora/bush/jungle,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "hN" = (
 /obj/structure/flora/biolumi,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "il" = (
 /obj/item/food/grown/moonflower,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "iv" = (
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "ko" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "lb" = (
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/flora/bush/leafy,
 /obj/structure/flora/bush/flowers_pp,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "lh" = (
 /obj/structure/flora/bush/ferny,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "lB" = (
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "lD" = (
 /turf/template_noop,
 /area/space)
@@ -113,24 +113,24 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "lO" = (
 /obj/structure/flora/bush/flowers_pp,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "mN" = (
 /obj/structure/flora/rock,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "nx" = (
 /obj/structure/flora/bush/lavendergrass,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "oj" = (
 /obj/structure/flora/bush/leafy,
 /obj/structure/flora/bush/flowers_pp,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "oT" = (
 /obj/structure/railing{
 	color = "#03fcf0";
@@ -143,33 +143,33 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "pf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "qD" = (
 /obj/structure/flora/bush/flowers_pp,
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "qR" = (
 /obj/structure/flora/biolumi/mine/weaklight,
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "sY" = (
 /obj/structure/flora/bush/sparsegrass,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "tn" = (
 /obj/structure/flora/bush/leafy,
 /obj/structure/flora/bush/grassy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "tt" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
@@ -178,7 +178,7 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "tQ" = (
 /turf/open/misc/asteroid/airless,
 /area/ruin/unpowered)
@@ -186,32 +186,32 @@
 /obj/structure/flora/biolumi/flower/weaklight,
 /obj/structure/flora/bush/grassy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "uM" = (
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "vn" = (
 /obj/structure/flora/bush/jungle,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "vp" = (
 /obj/structure/flora/bush/flowers_yw,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "wa" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/stone,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "wL" = (
 /obj/structure/flora/bush/jungle/a/style_3,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "wS" = (
 /obj/effect/light_emitter,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/stone,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "wY" = (
 /obj/structure/railing{
 	color = "#03fcf0"
@@ -221,7 +221,7 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "xg" = (
 /obj/structure/railing{
 	color = "#03fcf0";
@@ -234,7 +234,7 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "xC" = (
 /obj/structure/railing{
 	color = "#03fcf0";
@@ -250,7 +250,7 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "ye" = (
 /obj/machinery/door/airlock/hatch{
 	color = "#03fcf0"
@@ -261,28 +261,28 @@
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "yg" = (
 /turf/open/floor/stone,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "yh" = (
 /obj/structure/flora/bush/flowers_pp,
 /obj/structure/flora/bush/grassy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "yU" = (
 /obj/structure/flora/biolumi/lamp/weaklight,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "zq" = (
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/flora/bush/leafy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "As" = (
 /obj/structure/flora/rock/pile,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Bi" = (
 /obj/effect/turf_decal/siding/thinplating/corner{
 	dir = 4
@@ -291,12 +291,12 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "BP" = (
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/flora/bush/flowers_pp,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Cx" = (
 /obj/structure/mineral_door/iron{
 	color = "#03fcf0"
@@ -305,29 +305,29 @@
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "CW" = (
 /obj/structure/flora/bush/fullgrass,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "CZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/stone{
 	color = "#fc8403"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Da" = (
 /obj/effect/light_emitter,
 /obj/item/melee/sabre/luna,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Fo" = (
 /turf/closed/mineral/random,
 /area/ruin/unpowered)
 "Fv" = (
 /obj/structure/flora/grass/jungle,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "IA" = (
 /mob/living/basic/carp{
 	dir = 8
@@ -339,7 +339,7 @@
 /turf/open/floor/stone{
 	color = "#fceb03"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Lz" = (
 /obj/structure/railing{
 	color = "#03fcf0";
@@ -355,11 +355,11 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Mk" = (
 /obj/structure/flora/biolumi/mine/weaklight,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "MG" = (
 /obj/machinery/quantumpad{
 	desc = "A bluespace quantum-linked telepad used for teleporting objects to other quantum pads. This one seems crudely modified - though whatever effects it was meant to have seem inert. The modifications look frail...";
@@ -367,7 +367,7 @@
 	},
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "MU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -375,38 +375,38 @@
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Ng" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "OR" = (
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/flora/bush/grassy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "PJ" = (
 /turf/open/floor/stone{
 	color = "#fc8403"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "QL" = (
 /obj/structure/flora/bush/flowers_br,
 /obj/structure/flora/bush/flowers_yw,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Rp" = (
 /obj/effect/light_emitter,
 /turf/open/floor/stone{
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "RZ" = (
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Sj" = (
 /obj/structure/railing{
 	color = "#03fcf0"
@@ -417,21 +417,21 @@
 	color = "#03fcf0";
 	initial_gas_mix = "TEMP=2.7"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Sl" = (
 /obj/structure/flora/bush/stalky,
 /obj/structure/flora/bush/flowers_yw,
 /obj/structure/flora/bush/flowers_pp,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Tj" = (
 /obj/structure/flora/bush/jungle/b,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Tt" = (
 /obj/structure/flora/biolumi/flower/weaklight,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "TH" = (
 /mob/living/basic/carp,
 /turf/open/misc/asteroid/airless,
@@ -439,11 +439,11 @@
 "Vs" = (
 /obj/structure/flora/bush/leafy,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Wf" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "Wn" = (
 /obj/structure/window/fulltile{
 	color = "#03fcf0"
@@ -451,18 +451,18 @@
 /turf/open/floor/plating{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "YT" = (
 /obj/structure/flora/biolumi/flower/weaklight,
 /obj/structure/flora/bush/flowers_br,
 /turf/open/misc/grass,
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 "ZW" = (
 /obj/effect/light_emitter,
 /turf/open/floor/stone{
 	color = "#03fcf0"
 	},
-/area/ruin/space/has_grav/powered/skyrat/luna)
+/area/ruin/space/has_grav/powered/nova/luna)
 
 (1,1,1) = {"
 lD

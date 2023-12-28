@@ -26,7 +26,7 @@
 /area/ruin/unpowered/no_grav)
 "k" = (
 /turf/closed/wall/mineral/plastitanium,
-/area/ruin/space/has_grav/skyrat)
+/area/ruin/space/has_grav/nova)
 "r" = (
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/iron/dark/airless,
