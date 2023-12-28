@@ -1,0 +1,4 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - qol: "Map votes are once again going to respect the majority vote, instead of being a weighted random vote."
