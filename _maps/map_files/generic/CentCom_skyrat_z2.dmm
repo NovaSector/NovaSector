@@ -13417,8 +13417,8 @@
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "qGA" = (
-/obj/structure/closet/secure_closet/brig,
 /obj/effect/turf_decal/tile/red/opposingcorners,
+/obj/machinery/vending/wardrobe/sec_wardrobe,
 /turf/open/floor/iron/dark,
 /area/centcom/holding/cafe)
 "qGW" = (
