@@ -6,11 +6,13 @@
 	icon = 'modular_nova/modules/GAGS/icons/mask/masquerade_mask.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/mask/masquerade_mask_worn.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
+	clothing_flags = MASKINTERNALS
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION | CLOTHING_SNOUTED_VOX_VARIATION | CLOTHING_SNOUTED_BETTER_VOX_VARIATION
 	greyscale_colors = "#ececec#333333#9b1e1e"
 	greyscale_config = /datum/greyscale_config/masquerade_mask
 	greyscale_config_worn = /datum/greyscale_config/masquerade_mask/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/masquerade_mask/worn/snouted
+	greyscale_config_worn_muzzled = /datum/greyscale_config/masquerade_mask/worn/snouted
 	greyscale_config_worn_better_vox = /datum/greyscale_config/masquerade_mask/worn/better_vox
 	greyscale_config_worn_vox = /datum/greyscale_config/masquerade_mask/worn/vox
 	greyscale_config_worn_teshari = /datum/greyscale_config/masquerade_mask/worn/teshari
