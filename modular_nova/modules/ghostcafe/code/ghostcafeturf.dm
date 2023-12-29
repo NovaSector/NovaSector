@@ -21,3 +21,18 @@
 	footstep = FOOTSTEP_FLOOR
 	tiled_dirt = FALSE
 
+/turf/open/indestructible/carpet
+	desc = "It's really cozy! Great for soft paws!";
+	icon = 'modular_nova/modules/ghostcafe/icons/carpet_royalblack.dmi';
+	icon_state = "carpet";
+	name = "soft carpet"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET
+	canSmoothWith = SMOOTH_GROUP_CARPET
+	flags_1 = NONE
+	bullet_bounce_sound = null
+	footstep = FOOTSTEP_CARPET
+	barefootstep = FOOTSTEP_CARPET_BAREFOOT
+	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE

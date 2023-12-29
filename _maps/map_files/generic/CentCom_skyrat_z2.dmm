@@ -310,7 +310,7 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "ahk" = (
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "ahs" = (
 /obj/structure/flora/bush/leavy/style_2,
@@ -358,7 +358,7 @@
 /obj/machinery/door/airlock{
 	id_tag = "CCD2"
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "ahQ" = (
 /obj/structure/flora/bush/sparsegrass,
@@ -470,7 +470,7 @@
 	color = "#B22222";
 	name = "Curtain"
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "ajK" = (
 /obj/structure/flora/rock/pile{
@@ -582,7 +582,7 @@
 "alk" = (
 /obj/item/bedsheet/dorms_double,
 /obj/structure/bed/double,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "alm" = (
 /obj/effect/turf_decal/tile/blue{
@@ -761,7 +761,7 @@
 /turf/open/floor/iron/freezer,
 /area/centcom/holding/cafe)
 "amF" = (
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "amG" = (
 /obj/structure/chair/sofa/corp/left,
@@ -1100,7 +1100,7 @@
 	},
 /obj/structure/bed/double/pod,
 /obj/item/bedsheet/dorms_double,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aqy" = (
 /obj/machinery/vending/wardrobe/cargo_wardrobe/ghost_cafe,
@@ -1206,7 +1206,7 @@
 "asz" = (
 /obj/structure/table/wood/fancy/blue,
 /obj/machinery/light/directional/north,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "asC" = (
 /obj/effect/turf_decal/tile/blue{
@@ -2040,7 +2040,7 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aAY" = (
 /obj/effect/turf_decal/tile/blue{
@@ -2121,7 +2121,7 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aBH" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -2144,7 +2144,7 @@
 /area/centcom/holding/cafe)
 "aBT" = (
 /obj/structure/table/wood,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aBW" = (
 /obj/machinery/hydroponics/constructable,
@@ -3393,7 +3393,7 @@
 /obj/structure/fireplace{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aQR" = (
 /obj/effect/turf_decal/stripes/line{
@@ -3774,7 +3774,7 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aUw" = (
 /obj/structure/stone_tile/surrounding_tile{
@@ -4766,7 +4766,7 @@
 /obj/structure/chair/sofa/corp{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "bQZ" = (
 /obj/structure/reagent_dispensers/plumbed,
@@ -4804,7 +4804,7 @@
 /obj/structure/fireplace{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "bTR" = (
 /obj/structure/table/reinforced,
@@ -4920,7 +4920,7 @@
 /area/centcom/interlink)
 "bZt" = (
 /obj/structure/chair/sofa/corp/corner,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "cal" = (
 /obj/structure/railing{
@@ -5035,7 +5035,7 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "cmh" = (
 /obj/effect/turf_decal/siding{
@@ -5292,7 +5292,7 @@
 /obj/structure/sign/painting/library_secure{
 	pixel_x = 32
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "cHY" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -5719,7 +5719,7 @@
 /obj/structure/chair/sofa/corp/corner{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "dzn" = (
 /obj/structure/fence{
@@ -5764,7 +5764,7 @@
 /area/centcom/interlink)
 "dDF" = (
 /obj/structure/chair/sofa/corp,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "dFj" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -6004,7 +6004,7 @@
 	id_tag = "CCD1"
 	},
 /obj/structure/fans/tiny/invisible,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "dXe" = (
 /obj/structure/flora/grass/jungle/b/style_2,
@@ -6946,7 +6946,7 @@
 /area/centcom/interlink)
 "fPs" = (
 /obj/item/kirbyplants/random,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "fQt" = (
 /mob/living/basic/crab{
@@ -7584,7 +7584,7 @@
 /obj/structure/dresser{
 	pixel_y = 7
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "hbE" = (
 /obj/structure/fence/interlink{
@@ -8388,7 +8388,7 @@
 /area/centcom/interlink)
 "ioZ" = (
 /obj/machinery/light/directional/east,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "ipc" = (
 /obj/structure/sign/poster/random/directional/east,
@@ -9274,7 +9274,7 @@
 "jYf" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "jYy" = (
 /obj/effect/turf_decal/sand,
@@ -11195,7 +11195,7 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "nii" = (
 /obj/structure/fireplace,
@@ -11352,7 +11352,7 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "npe" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
@@ -12309,7 +12309,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "pao" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -12330,7 +12330,7 @@
 	specialfunctions = 4
 	},
 /obj/item/kirbyplants/random,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "pbz" = (
 /obj/effect/turf_decal/tile/blue{
@@ -12935,7 +12935,7 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "pTO" = (
 /obj/structure/table/reinforced,
@@ -13105,7 +13105,7 @@
 /area/centcom/interlink)
 "qfy" = (
 /obj/structure/table/wood/fancy/blue,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "qgh" = (
 /obj/structure/stone_tile/surrounding,
@@ -13430,7 +13430,7 @@
 /obj/item/stack/sheet/mineral/wood/fifty,
 /obj/item/stack/sheet/mineral/wood/fifty,
 /obj/item/lighter,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "qHJ" = (
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -13532,7 +13532,7 @@
 /obj/structure/chair/sofa/corp{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "qQl" = (
 /obj/machinery/light/directional/south,
@@ -14488,7 +14488,7 @@
 	},
 /obj/structure/bed/double,
 /obj/item/bedsheet/dorms_double,
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "ssn" = (
 /obj/machinery/status_display/shuttle{
@@ -16471,7 +16471,7 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 4
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "vZv" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -17114,7 +17114,7 @@
 	light_power = 10;
 	name = "Super Light"
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "xgz" = (
 /obj/effect/turf_decal/siding/wood{
@@ -17507,7 +17507,7 @@
 /obj/structure/sign/painting/library_secure{
 	pixel_y = -32
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "xRx" = (
 /obj/item/stack/sheet/mineral/wood/fifty,
