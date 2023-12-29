@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
 		unlock_content = !!parent.IsByondMember()
-		donator_status = !!SSplayer_ranks.is_donator(parent) //NOVA EDIT ADD - DONATOR CHECK
+		donator_status = !!GLOB.donator_list[parent.ckey] //NOVA EDIT ADD - DONATOR CHECK
 		if(unlock_content || donator_status) //NOVA EDIT CHANGE - ADD DONATOR CHECK
 			max_save_slots = 50 //NOVA EDIT - ORIGINAL 8
 	else
