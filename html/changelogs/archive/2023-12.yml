@@ -999,3 +999,42 @@
       mushrooms and embershrooms are always available for intrepid botanists to use
       in their concoctions.
   - rscadd: Watermelon and grass seeds are now available in the Hearth's seed stores.
+2023-12-29:
+  A.C.M.O.:
+  - bugfix: Fixed the Automatic Robotic Factory, making its cooldown timers visible
+      to ghosts.
+  - bugfix: Fixed the Automatic Robotic Factory to stop processing when it breaks
+      or loses power.
+  - balance: Balanced the Automatic Robotic Factory by adding a 60 second cooldown
+      for spawning cyborgs.
+  HalcyonicWolf:
+  - image: modified many sprites for Vox Primalis, they will have a broader wardrobe
+      now
+  NovaBot13:
+  - spellcheck: changes some let's to lets
+  - bugfix: Fixed a lot of missing/broken images, such as emojis, language icons,
+      commendation hearts, icons in R&D menu, etc.
+  - bugfix: reduces lag in the tgui textarea input boxes
+  - bugfix: Dear mappers, the light debugger tool no longer deletes dragged wall lights
+  - bugfix: Fixed "was shocked by /datum/component/energized" message.
+  - bugfix: reaction chamber open its UI when inserting/removing beakers from it
+  - bugfix: reaction chamber triggers new reactions & updates UI more often during
+      heating
+  - bugfix: instant and  normal reactions now get triggered more often so for e.g.
+      more plastic sheets from polymer reactions or more reactions occur when there
+      are multiple reagents present
+  - bugfix: NTOS Messenger should clear on enter now
+  - bugfix: Off station ORM's can redeem points again.
+  - rscadd: Add 50% graffiti speed boost to tagger quirk
+  - bugfix: Fix time duration of large graffiti not applying properly
+  - bugfix: ai can now tell if it is in a do_after for resisting and will not interrupt
+      it. monkeys also now don't freeze up when aggressively grabbed and will resist
+      out of those and cuffs.
+  - refactor: Photo albums and photo frames are now more resilient to data loss, especially
+      when a server crashes.
+  Thlumyn:
+  - rscadd: Added new areas to the ghost cafe, including a ashwalker and icewalker
+      zones.
+  vinylspiders:
+  - bugfix: colonial cloaks and imperial police cloaks can now carry suit storage
+      items when worn in the suit slot.
