@@ -7522,7 +7522,7 @@
 /area/centcom/holding/cafepark)
 "gPD" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/reagent_containers/cup/bucket/wooden,
@@ -10037,7 +10037,7 @@
 /area/centcom/holding/cafepark)
 "lgm" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/structure/stone_tile/slab,
@@ -12299,7 +12299,7 @@
 /area/centcom/interlink)
 "oSG" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/bedsheet/black{
@@ -15330,7 +15330,7 @@
 /area/centcom/interlink)
 "tDj" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/structure/wall_torch/spawns_lit/directional/west,
