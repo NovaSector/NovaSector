@@ -299,6 +299,7 @@
 	if(!isliving(target))
 		return ..()
 	target.SpinAnimation(7,1)
+	..()
 
 /obj/projectile/bullet/honkshot/on_range()
 	do_sparks(1, TRUE, src)
