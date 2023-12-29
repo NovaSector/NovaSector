@@ -720,10 +720,7 @@
 "bV" = (
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/box/white,
-/obj/item/construction/rcd/loaded{
-	desc = "A device used to rapidly build and deconstruct. Reload with iron, plasteel, glass or compressed matter cartridges. This one looks like it has been repainted in black and red, but retains standard functionality.";
-	icon_state = "ircd"
-	},
+/obj/item/construction/rcd/loaded/interdyne,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -2076,10 +2073,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "fj" = (
-/obj/structure/reagent_dispensers/water_cooler{
-	layer = 3.4;
-	pixel_z = 16
-	},
+/obj/structure/reagent_dispensers/water_cooler/directional/north,
 /obj/machinery/airalarm/directional/east{
 	req_access = list("syndicate")
 	},
@@ -4459,9 +4453,8 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "le" = (
-/obj/structure/reagent_dispensers/water_cooler{
-	layer = 3.4;
-	pixel_z = 16
+/obj/structure/reagent_dispensers/water_cooler/directional/north{
+	layer = 3.4 /
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
