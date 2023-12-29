@@ -1,6 +1,6 @@
 /turf/closed/wall
 	flags_1 = CAN_BE_DIRTY_1
-	// Allow walls to get filthy (Does TG really not already have this?)
+	// Allow walls to be dirty at round start
 
 /turf/open/floor
 	turf_flags = IS_SOLID | CAN_DECAY_BREAK_1
