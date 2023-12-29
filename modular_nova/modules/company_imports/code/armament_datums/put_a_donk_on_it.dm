@@ -2,23 +2,20 @@
 	category = DONK_CO_NAME
 	company_bitflag = CARGO_COMPANY_DONK
 
-// Donk Co foods, like donk pockets and ready donk
-
+///Donk Co food - EAT DONK
 /datum/armament_entry/company_import/donk/food
 	subcategory = "Microwave Foods"
 	cost = PAYCHECK_CREW
 
-/datum/armament_entry/company_import/donk/food/ready_donk
-	item_type = /obj/item/food/ready_donk
-
-/datum/armament_entry/company_import/donk/food/ready_donkhiladas
-	item_type = /obj/item/food/ready_donk/donkhiladas
-
-/datum/armament_entry/company_import/donk/food/ready_donk_n_cheese
-	item_type = /obj/item/food/ready_donk/mac_n_cheese
-
 /datum/armament_entry/company_import/donk/food/pockets
 	item_type = /obj/item/storage/box/donkpockets
+
+/datum/armament_entry/company_import/donk/food/dank_pockets
+	item_type = /obj/item/storage/box/donkpockets/nova/donkpocketdank
+	contraband = TRUE
+
+/datum/armament_entry/company_import/donk/food/caffe_pockets
+	item_type = /obj/item/storage/box/donkpockets/nova/donkpocketcaffe
 
 /datum/armament_entry/company_import/donk/food/berry_pockets
 	item_type = /obj/item/storage/box/donkpockets/donkpocketberry
@@ -35,47 +32,16 @@
 /datum/armament_entry/company_import/donk/food/teriyaki_pockets
 	item_type = /obj/item/storage/box/donkpockets/donkpocketteriyaki
 
-// Random donk toy items, fake jumpsuits, balloons, so on
+/datum/armament_entry/company_import/donk/food/ready_donk
+	item_type = /obj/item/food/ready_donk
 
-// Donk merch gives you more interest than other items, buy donk bling and get company interest faster!
+/datum/armament_entry/company_import/donk/food/ready_donkhiladas
+	item_type = /obj/item/food/ready_donk/donkhiladas
 
-/datum/armament_entry/company_import/donk/merch
-	subcategory = "Donk Co. Merchandise"
+/datum/armament_entry/company_import/donk/food/ready_donk_n_cheese
+	item_type = /obj/item/food/ready_donk/mac_n_cheese
 
-/datum/armament_entry/company_import/donk/merch/donk_carpet
-	item_type = /obj/item/stack/tile/carpet/donk/thirty
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/donk/merch/tacticool_turtleneck
-	item_type = /obj/item/clothing/under/syndicate/tacticool
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/donk/merch/tacticool_turtleneck_skirt
-	item_type = /obj/item/clothing/under/syndicate/tacticool/skirt
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/donk/merch/fake_centcom_turtleneck
-	item_type = /obj/item/clothing/under/rank/centcom/officer/replica
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/donk/merch/fake_centcom_turtleneck_skirt
-	item_type = /obj/item/clothing/under/rank/centcom/officer_skirt/replica
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/donk/merch/snack_rig
-	item_type = /obj/item/storage/belt/military/snack
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/donk/merch/fake_syndie_suit
-	item_type = /obj/item/storage/box/fakesyndiesuit
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/donk/merch/valid_bloon
-	item_type = /obj/item/toy/balloon/arrest
-	cost = PAYCHECK_CREW
-
-// Donksoft weapons
-
+///Donksoft
 /datum/armament_entry/company_import/donk/foamforce
 	subcategory = "Foam Force (TM) Blasters"
 
@@ -99,18 +65,7 @@
 	item_type = /obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/donk/mod_modules
-	subcategory = "Donk Co. MOD modules"
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/donk/mod_modules/dart_collector_safe
-	item_type = /obj/item/mod/module/recycler/donk/safe
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/donk/mod_modules/dart_collector
-	item_type = /obj/item/mod/module/recycler/donk
-	cost = PAYCHECK_COMMAND * 4
-
+///Donksoft Ammunition
 /datum/armament_entry/company_import/donk/foamforce_ammo
 	subcategory = "Foam Force (TM) Dart Accessories"
 	cost = PAYCHECK_CREW
@@ -134,3 +89,16 @@
 
 /datum/armament_entry/company_import/donk/foamforce_ammo/m762_mag
 	item_type = /obj/item/ammo_box/magazine/toy/m762
+
+///Donksoft MOD modules
+/datum/armament_entry/company_import/donk/mod_modules
+	subcategory = "Donk Co. MOD modules"
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/donk/mod_modules/dart_collector_safe
+	item_type = /obj/item/mod/module/recycler/donk/safe
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/donk/mod_modules/dart_collector
+	item_type = /obj/item/mod/module/recycler/donk
+	cost = PAYCHECK_COMMAND * 4

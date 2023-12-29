@@ -12,6 +12,7 @@
 		/obj/item/storage/box/donkpockets/donkpocketpizza,
 		/obj/item/storage/box/donkpockets/donkpocketberry,
 		/obj/item/storage/box/donkpockets/donkpockethonk,
+		/obj/item/storage/box/donkpockets/nova/donkpocketcaffe, //NOVA ADD - More Donk Co Items
 	)
 
 /obj/effect/spawner/random/food_or_drink/donkpockets_single
@@ -24,6 +25,7 @@
 		/obj/item/food/donkpocket/pizza,
 		/obj/item/food/donkpocket/berry,
 		/obj/item/food/donkpocket/honk,
+		/obj/item/food/donkpocket/nova/caffe, //NOVA ADD - More Donk Co Items
 	)
 
 /obj/effect/spawner/random/food_or_drink/seed
