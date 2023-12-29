@@ -5,6 +5,7 @@ import {
   Button,
   Collapsible,
   Icon,
+  Image,
   NoticeBox,
   Section,
   Stack,
@@ -23,10 +24,10 @@ class Interaction {
   block_interact;
 }
 
-class LewdSlot {
-  img;
-  name;
-}
+type LewdSlot = {
+  img: string;
+  name: string;
+};
 
 export const InteractionMenu = (props) => {
   const { act, data } = useBackend<Interaction>();
@@ -48,38 +49,36 @@ export const InteractionMenu = (props) => {
         {(block_interact && <NoticeBox>Unable to Interact</NoticeBox>) || (
           <NoticeBox>Able to Interact</NoticeBox>
         )}
-        <Stack fill vertical>
-          <Section key="interactions">
-            {categories.map((category) => (
-              <Collapsible key={category} title={category}>
-                <Section fill>
-                  <Box mt={0.2}>
-                    {interactions[category].map((interaction) => (
-                      <Button
-                        key={interaction}
-                        width="150.5px"
-                        lineHeight={1.75}
-                        disabled={block_interact}
-                        color={block_interact ? 'grey' : colors[interaction]}
-                        tooltip={descriptions[interaction]}
-                        icon="exclamation-circle"
-                        onClick={() =>
-                          act('interact', {
-                            interaction: interaction,
-                            selfref: ref_self,
-                            userref: ref_user,
-                          })
-                        }
-                      >
-                        {interaction}
-                      </Button>
-                    ))}
-                  </Box>
-                </Section>
-              </Collapsible>
-            ))}
-          </Section>
-        </Stack>
+        <Section key="interactions">
+          {categories.map((category) => (
+            <Collapsible key={category} title={category}>
+              <Section fill>
+                <Box mt={0.2}>
+                  {interactions[category].map((interaction) => (
+                    <Button
+                      key={interaction}
+                      width="150.5px"
+                      lineHeight={1.75}
+                      disabled={block_interact}
+                      color={block_interact ? 'grey' : colors[interaction]}
+                      tooltip={descriptions[interaction]}
+                      icon="exclamation-circle"
+                      onClick={() =>
+                        act('interact', {
+                          interaction: interaction,
+                          selfref: ref_self,
+                          userref: ref_user,
+                        })
+                      }
+                    >
+                      {interaction}
+                    </Button>
+                  ))}
+                </Box>
+              </Section>
+            </Collapsible>
+          ))}
+        </Section>
         {lewd_slots.length > 0 ? (
           <Section key="item_slots" title={'Lewd Slots'}>
             <Stack fill>
@@ -104,8 +103,8 @@ export const InteractionMenu = (props) => {
                         }}
                       >
                         {element.img ? (
-                          <img
-                            src={'data:image/png;base64,' + element.img}
+                          <Image
+                            src={`data:image/jpeg;base64,${element.img}`}
                             style={{
                               width: '100%',
                               height: '100%',

@@ -53,9 +53,8 @@
 	color_changed = TRUE
 
 /obj/item/clothing/sextoy/fleshlight/attack(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	. = ..()
-	if(!istype(target))
-		return
+	if(user.combat_mode || !istype(target))
+		return ..()
 
 	var/message = ""
 	if(!target.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
@@ -83,3 +82,4 @@
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang5.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang6.ogg'), 70, 1, -1)
+	return ..()
