@@ -328,7 +328,7 @@
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_y = 30;
 	pixel_w = 0;
-	icon_door = "locker_wall_door"
+	icon_door = "locker_wall"
 	},
 /turf/open/floor/iron/smooth_edge,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -4924,7 +4924,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall_door";
+	icon_door = "locker_wall";
 	pixel_x = 30
 	},
 /turf/open/floor/iron/smooth_large,
