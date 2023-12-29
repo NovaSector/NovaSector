@@ -4691,7 +4691,7 @@
 /area/ruin/interdyne_planetary_base/serv)
 "lH" = (
 /obj/structure/reagent_dispensers/water_cooler/directional/north{
-	layer = 3.4 /
+	layer = 3.4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
