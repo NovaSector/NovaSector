@@ -30,11 +30,21 @@
 	var/blacklist_file
 
 	var/allow_custom_shuttles = TRUE
+	// NOVA EDIT BEGIN - SHUTTLE OVERRIDE
+	/*
+	// TG original
+	var/shuttles = list(
+		"cargo" = "cargo_box",
+		"ferry" = "ferry_fancy",
+		"whiteship" = "whiteship_meta",
+		"emergency" = "emergency_meta")
+	*/
 	var/shuttles = list(
 		"cargo" = "cargo_nova",
 		"ferry" = "ferry_fancy",
 		"whiteship" = "whiteship_meta",
-		"emergency" = "emergency_nova") //NOVA EDIT CHANGE
+		"emergency" = "emergency_nova")
+	// NOVA EDIT END
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
