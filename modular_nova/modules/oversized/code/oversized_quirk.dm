@@ -23,13 +23,22 @@
 	human_holder.mob_size = MOB_SIZE_LARGE
 	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)
 	if(left_arm)
-		left_arm.unarmed_damage_low += OVERSIZED_HARM_DAMAGE_BONUS
 		left_arm.unarmed_damage_high += OVERSIZED_HARM_DAMAGE_BONUS
 
 	var/obj/item/bodypart/arm/right/right_arm = human_holder.get_bodypart(BODY_ZONE_R_ARM)
 	if(right_arm)
-		right_arm.unarmed_damage_low += OVERSIZED_HARM_DAMAGE_BONUS
 		right_arm.unarmed_damage_high += OVERSIZED_HARM_DAMAGE_BONUS
+
+	// Before this, we never actually did anything with Oversized legs.
+	// This brings their unarmed_effectiveness up to 20 from 15, which is on par with mushroom legs.
+	// Functionally, this makes their prone kicks more accurate and increases the chance of extending prone knockdown... but only while the victim is already prone.
+	var/obj/item/bodypart/leg/left/left_leg = human_holder.get_bodypart(BODY_ZONE_L_LEG)
+	if(left_leg)
+		left_leg.unarmed_effectiveness += OVERSIZED_KICK_EFFECTIVENESS_BONUS
+
+	var/obj/item/bodypart/leg/right/right_leg = human_holder.get_bodypart(BODY_ZONE_R_LEG)
+	if(right_leg)
+		right_leg.unarmed_effectiveness += OVERSIZED_KICK_EFFECTIVENESS_BONUS
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
