@@ -291,17 +291,19 @@
 		COLOR_PRIDE_PURPLE,
 	)
 
+/// This proc addition will spawn a decal on each tile the projectile travels over
 /obj/projectile/bullet/honkshot/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	new /obj/effect/decal/cleanable/confetti(get_turf(old_loc))
-	..()
+	return ..()
 
+/// This proc addition will make living humanoids do a flip animation when hit by the projectile
 /obj/projectile/bullet/honkshot/on_hit(atom/target, blocked, pierce_hit)
 	if(!isliving(target))
 		return ..()
 	target.SpinAnimation(7,1)
-	..()
+	return ..()
 
+/// This proc addition adds a spark effect when the projectile expires/hits
 /obj/projectile/bullet/honkshot/on_range()
 	do_sparks(1, TRUE, src)
-	..()
-
+	return ..()
