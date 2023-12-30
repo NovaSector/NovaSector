@@ -21,7 +21,7 @@
 	else if(istype(parent, /obj/item/modular_computer))
 		console_state = IRN_CONSOLE
 
-/datum/component/armament/company_imports/Destroy(force, silent)
+/datum/component/armament/company_imports/Destroy(force)
 	parent_prog = null
 	. = ..()
 

@@ -129,7 +129,6 @@
 		"universal_scanner",
 		"voice_analyzer",
 		"watering_can",
-		"gbp_machine", // NOVA EDIT ADDITION
 	)
 	experiments_to_unlock = list(
 		/datum/experiment/autopsy/nonhuman,

@@ -4,8 +4,6 @@ These procs are incredibly expensive and should only really be run once. That's 
 */
 
 
-#define WALL_RUST_PERCENT_CHANCE 15
-
 #define FLOOR_DIRT_PERCENT_CHANCE 15
 #define FLOOR_BLOOD_PERCENT_CHANCE 1
 #define FLOOR_VOMIT_PERCENT_CHANCE 1
@@ -92,12 +90,6 @@ SUBSYSTEM_DEF(decay)
 
 		if(prob(FLOOR_DIRT_PERCENT_CHANCE * severity_modifier))
 			new /obj/effect/decal/cleanable/dirt(iterating_floor)
-
-	for(var/turf/closed/iterating_wall in possible_turfs)
-		if(HAS_TRAIT(iterating_wall, TRAIT_RUSTY))
-			continue
-		if(prob(WALL_RUST_PERCENT_CHANCE * severity_modifier))
-			iterating_wall.AddElement(/datum/element/rust)
 
 /datum/controller/subsystem/decay/proc/do_maintenance()
 	for(var/area/station/maintenance/iterating_maintenance in possible_areas)

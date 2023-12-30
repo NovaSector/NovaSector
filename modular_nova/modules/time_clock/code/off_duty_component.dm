@@ -25,7 +25,7 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(attempt_unlock))
 
-/datum/component/off_duty_timer/Destroy(force, silent)
+/datum/component/off_duty_timer/Destroy(force)
 	UnregisterSignal(parent, COMSIG_ATOM_ATTACKBY)
 	if(stored_trim)
 		qdel(stored_trim)
