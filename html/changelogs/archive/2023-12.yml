@@ -1038,3 +1038,27 @@
   vinylspiders:
   - bugfix: colonial cloaks and imperial police cloaks can now carry suit storage
       items when worn in the suit slot.
+2023-12-30:
+  Ghommie, 13spacemen:
+  - bugfix: Signing or removing your candidature from ghost roles now properly updates
+      the screen button for it.
+  Kyogon:
+  - rscadd: Re-Adds Cat Scream to the list of available screams to choose in character
+      creation
+  NovaBot13:
+  - bugfix: Poll alert buttons candidate number should be more responsive
+  OrionTheFox:
+  - bugfix: fixed some missing scrollbar icons in the Cyborg UI
+  ReturnToZender:
+  - bugfix: JSX files, when edited, cause TGUI to recompile on build
+  Thlumyn:
+  - bugfix: ghost cafe bathroom turfs are no longer solid black blocks of missing
+      icon-ness
+  mogeoko:
+  - bugfix: Atmospherics components will now move air into connected pipeline on deconstruction
+      if possible. Otherwise, air will be released to the outside from open nodes.
+  - bugfix: Unsafe pressure release on atmos components will now work the same way
+      it does in the normal pipes if there is an empty node with air.
+  - bugfix: The HFR user interface would close when the machine is shut down.
+  - bugfix: Atmospherics machinery will now share air from nodes after being rotated
+      and reconnected to pipenet.
