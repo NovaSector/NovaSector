@@ -1,4 +1,0 @@
-author: "Thlumyn"
-delete-after: True
-changes:
-  - bugfix: "ghost cafe bathroom turfs are no longer solid black blocks of missing icon-ness"
