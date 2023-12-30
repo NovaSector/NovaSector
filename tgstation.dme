@@ -6748,6 +6748,7 @@
 #include "modular_nova\modules\central_command_module\code\obj\wall.dm"
 #include "modular_nova\modules\chadian\code\chadian.dm"
 #include "modular_nova\modules\chaplain\code\mortis.dm"
+#include "modular_nova\modules\character_directory\code\character_directory.dm"
 #include "modular_nova\modules\clock_cult\code\antagonist.dm"
 #include "modular_nova\modules\clock_cult\code\area.dm"
 #include "modular_nova\modules\clock_cult\code\globals.dm"
