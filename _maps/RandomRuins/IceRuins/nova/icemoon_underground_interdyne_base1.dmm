@@ -56,7 +56,7 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/interdyne_planetary_base/cargo)
 "aj" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/deckofficer{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -460,7 +460,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "bs" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/shaftminer{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice{
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
@@ -4790,7 +4790,7 @@
 	},
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lS" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/ice{
 	dir = 8
 	},
 /obj/machinery/light/directional/east,

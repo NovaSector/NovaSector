@@ -34,7 +34,7 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/interdyne_planetary_base)
 "ah" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/deckofficer{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -406,7 +406,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "bm" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/shaftminer{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer{
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
@@ -4608,7 +4608,7 @@
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "lw" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
@@ -4637,7 +4637,7 @@
 	},
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lz" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate{
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
 	dir = 8
 	},
 /obj/machinery/light/directional/east,

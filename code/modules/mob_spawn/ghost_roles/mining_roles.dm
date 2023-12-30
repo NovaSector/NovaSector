@@ -296,13 +296,10 @@
 	important_text = "The base is rigged with explosives, DO NOT abandon it or let it fall into enemy hands!"
 	outfit = /datum/outfit/lavaland_syndicate
 	spawner_job_path = /datum/job/lavaland_syndicate
-	loadout_enabled = TRUE // NOVA EDIT ADDITION - ghost role loadouts
-	quirks_enabled = TRUE // NOVA EDIT ADDITION - ghost role loadouts
-	random_appearance = FALSE // NOVA EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/special(mob/living/new_spawn)
 	. = ..()
-	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_SPAWNER) // NOVA EDIT CHANGE - ORIGINAL: new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
+	new_spawn.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms
 	name = "Syndicate Comms Agent"
@@ -323,23 +320,33 @@
 	ears = /obj/item/radio/headset/syndicate/alt
 	shoes = /obj/item/clothing/shoes/combat
 	r_pocket = /obj/item/gun/ballistic/automatic/pistol
-	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil // NOVA EDIT - Original: /obj/item/gun/ballistic/rifle/sniper_rifle
+	r_hand = /obj/item/gun/ballistic/rifle/sniper_rifle
 
 	implants = list(/obj/item/implant/weapons_auth)
-	id_trim = /datum/id_trim/syndicom/nova/interdyne //NOVA EDIT
 
-// NOVA EDIT REMOVAL BEGIN -- mapping
-/*
 /datum/outfit/lavaland_syndicate/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
 	syndicate.faction |= ROLE_SYNDICATE
-*/
-// NOVA EDIT REMOVAL END
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Lavaland Syndicate Comms Agent"
+// NOVA EDIT BEGIN - Comms Agent outfit edit
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
+	ears = /obj/item/radio/headset/interdyne/comms
+// NOVA EDIT END
 	suit = /obj/item/clothing/suit/armor/vest
 	mask = /obj/item/clothing/mask/chameleon/gps
 	r_hand = /obj/item/melee/energy/sword/saber
+
+// NOVA ADD - Comms Agent Space
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
+	outfit = /datum/outfit/lavaland_syndicate/comms/space
+	loadout_enabled = TRUE
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+
+/datum/outfit/lavaland_syndicate/comms/space
+	ears = /obj/item/radio/headset/syndicate/alt
+// NOVA ADD END
 
 /obj/item/clothing/mask/chameleon/gps/Initialize(mapload)
 	. = ..()
