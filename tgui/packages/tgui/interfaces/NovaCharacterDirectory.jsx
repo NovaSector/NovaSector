@@ -6,13 +6,13 @@ import { Window } from '../layouts';
 
 const erpTagColor = {
   Unset: 'label',
-  'Yes - Dom': 'red',
-  'Yes - Sub': 'blue',
-  'Yes - Switch': 'yellow',
-  Yes: 'yellow',
-  'Check OOC': 'black',
-  Ask: 'black',
-  No: 'black',
+  'Yes - Dom': '#570000',
+  'Yes - Sub': '#002B57',
+  'Yes - Switch': '#022E00',
+  Yes: '#022E00',
+  'Check OOC': '#222222',
+  Ask: '#222222',
+  No: '#000000',
 };
 
 export const NovaCharacterDirectory = (props, context) => {
@@ -28,13 +28,9 @@ export const NovaCharacterDirectory = (props, context) => {
     prefsOnly,
   } = data;
 
-  const [overlay, setOverlay] = useState(context, 'overlay', null);
+  const [overlay, setOverlay] = useState(null);
 
-  const [overwritePrefs, setOverwritePrefs] = useState(
-    context,
-    'overwritePrefs',
-    prefsOnly,
-  );
+  const [overwritePrefs, setOverwritePrefs] = useState(prefsOnly);
 
   return (
     <Window width={640} height={480} resizeable>
@@ -96,7 +92,7 @@ export const NovaCharacterDirectory = (props, context) => {
 };
 
 const ViewCharacter = (props, context) => {
-  const [overlay, setOverlay] = useState(context, 'overlay', null);
+  const [overlay, setOverlay] = useState(null);
 
   return (
     <Section
@@ -158,9 +154,9 @@ const CharacterDirectoryList = (props, context) => {
 
   const { directory, canOrbit } = data;
 
-  const [sortId, _setSortId] = useState(context, 'sortId', 'name');
-  const [sortOrder, _setSortOrder] = useState(context, 'sortOrder', 'name');
-  const [overlay, setOverlay] = useState(context, 'overlay', null);
+  const [sortId, _setSortId] = useState('name');
+  const [sortOrder, _setSortOrder] = useState('name');
+  const [overlay, setOverlay] = useState(null);
 
   return (
     <Section
@@ -230,8 +226,8 @@ const SortButton = (props, context) => {
   const { id, children } = props;
 
   // Hey, same keys mean same data~
-  const [sortId, setSortId] = useState(context, 'sortId', 'name');
-  const [sortOrder, setSortOrder] = useState(context, 'sortOrder', 'name');
+  const [sortId, setSortId] = useState('name');
+  const [sortOrder, setSortOrder] = useState('name');
 
   return (
     <Table.Cell collapsing>
