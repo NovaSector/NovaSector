@@ -126,32 +126,16 @@
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
 	// Calculate target color if not already present
-	/* BEGIN NOVASECTOR EDIT
-	if (!target.chat_color || target.chat_color_name != target.name)
+	// NOVA EDIT ADDITION START - Unknown chat color is always white
+	var/is_unknown
+	if(target.name == "Unknown")
+		is_unknown = TRUE
+	// NOVA EDIT ADDITION END
+	// Calculate target color if not already present
+	if (!target.chat_color || !is_unknown && target.chat_color_name != target.name) // NOVA EDIT CHANGE - ORIGINAL: if (!target.chat_color || target.chat_color_name != target.name)
 		target.chat_color = colorize_string(target.name)
 		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
 		target.chat_color_name = target.name
-	*/
-	if (!target.chat_color || target.chat_color_name != target.name)
-		if(!istype(target, /mob/living/carbon/human))
-			target.chat_color = colorize_string(target.name)
-			target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-			target.chat_color_name = target.name
-		else
-			var/mob/living/carbon/human/player = target
-			var/player_color = player.client?.prefs.read_preference(/datum/preference/color/chat_color)
-			if(!isnull(player_color))
-				if(target.name == "Unknown")
-					target.chat_color = process_chat_color(COLOR_WHITE, sat_shift = 1, lum_shift = 1)
-					target.chat_color_darkened = process_chat_color(COLOR_WHITE, sat_shift = 0.85, lum_shift = 0.85)
-					target.chat_color_name = target.name
-				else
-					player.apply_preference_chat_color(player_color)
-			else
-				target.chat_color = colorize_string(target.name)
-				target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-				target.chat_color_name = target.name
-	// END NOVASECTOR EDIT
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
@@ -195,6 +179,10 @@
 
 	// We dim italicized text to make it more distinguishable from regular text
 	var/tgt_color = extra_classes.Find("italics") ? target.chat_color_darkened : target.chat_color
+	// NOVA EDIT ADDITION START - Unknown chat color is white
+	if(is_unknown)
+		tgt_color = target.chat_color_darkened ? "#d8d8d8" : "#ffffff"
+	// NOVA EDIT ADDITION END
 
 	// Approximate text height
 	var/complete_text = "<span style='color: [tgt_color]'><span class='center [extra_classes.Join(" ")]'>[owner.say_emphasis(text)]</span></span>"
