@@ -115,17 +115,19 @@
 /datum/map_template/shuttle/ferry
 	name = "NAV Monarch (Ferry)"
 	prefix = "_maps/shuttles/nova/"
+	port_id = "ferry"
 	suffix = "nova"
 	who_can_purchase = null
 
 /datum/map_template/shuttle/cargo/nova
 	name = "NLV Consign (Cargo)"
 	prefix = "_maps/shuttles/nova/"
+	port_id = "cargo"
 	suffix = "nova"
 
 /datum/map_template/shuttle/cargo/nova/delta
 	prefix = "_maps/shuttles/nova/"
-	suffix = "delta_nova"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
+	suffix = "nova_delta"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
 
 /datum/map_template/shuttle/whiteship/blueshift
 	name = "SFS Christian"

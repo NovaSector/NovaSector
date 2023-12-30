@@ -162,6 +162,7 @@
 
 // NOVA ADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
 	shuttles["emergency"] = "emergency_nova"
+	shuttles["cargo"] = "cargo_nova"
 // NOVA ADD END
 
 	traits = json["traits"]
