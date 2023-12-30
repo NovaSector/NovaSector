@@ -6,10 +6,10 @@
 	turf_flags = IS_SOLID | CAN_DECAY_BREAK_1
 
 /turf/open/floor/plating
-	turf_flags = IS_SOLID	// No breaking plating (Duh)
+	turf_flags = IS_SOLID // No breaking plating (Duh)
 
 /turf/open/floor/glass
-	turf_flags = IS_SOLID	// No breaking glass (doesn't leave plating behind)
+	turf_flags = IS_SOLID // No breaking glass (doesn't leave plating behind)
 
 /turf/open/floor/tram
-	turf_flags = IS_SOLID	// No breaking the irreplacable Tram Line
+	turf_flags = IS_SOLID // No breaking the irreplacable Tram Line
