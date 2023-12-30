@@ -1,5 +1,5 @@
 
-# Whether or not we log game logs to the SQL database. Requires the SQL database to function, as well as our Skyrat-only table, `game_log`.
+# Whether or not we log game logs to the SQL database. Requires the SQL database to function, as well as our Nova Sector-only table, `game_log`.
 #SQL_GAME_LOG
 
 # Whether or not we log game logs to files on the server when we're already logging them on the server, if SQL_GAME_LOG is enabled.

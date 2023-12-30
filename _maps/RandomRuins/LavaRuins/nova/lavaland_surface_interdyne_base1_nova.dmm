@@ -290,7 +290,7 @@
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_y = 30;
 	pixel_w = 0;
-	icon_door = "closet_wall"
+	icon_door = "locker_wall"
 	},
 /turf/open/floor/iron/smooth_edge,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -720,10 +720,7 @@
 "bV" = (
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/box/white,
-/obj/item/construction/rcd/loaded{
-	desc = "A device used to rapidly build and deconstruct. Reload with iron, plasteel, glass or compressed matter cartridges. This one looks like it has been repainted in black and red, but retains standard functionality.";
-	icon_state = "ircd"
-	},
+/obj/item/construction/rcd/loaded/interdyne,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -830,7 +827,7 @@
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_y = -30;
 	pixel_w = 0;
-	icon_door = "closet_wall"
+	icon_door = "locker_wall"
 	},
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
@@ -2076,10 +2073,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "fj" = (
-/obj/structure/reagent_dispensers/water_cooler{
-	layer = 3.4;
-	pixel_z = 16
-	},
+/obj/structure/reagent_dispensers/water_cooler/directional/north,
 /obj/machinery/airalarm/directional/east{
 	req_access = list("syndicate")
 	},
@@ -4459,9 +4453,8 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "le" = (
-/obj/structure/reagent_dispensers/water_cooler{
-	layer = 3.4;
-	pixel_z = 16
+/obj/structure/reagent_dispensers/water_cooler/directional/north{
+	layer = 3.4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4784,7 +4777,7 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lQ" = (
 /obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "closet_wall";
+	icon_door = "locker_wall";
 	pixel_x = -30
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -4802,7 +4795,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "closet_wall";
+	icon_door = "locker_wall";
 	pixel_x = 30
 	},
 /turf/open/floor/iron/smooth_large,
@@ -6827,7 +6820,7 @@
 	},
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_x = 30;
-	icon_door = "closet_wall"
+	icon_door = "locker_wall"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)

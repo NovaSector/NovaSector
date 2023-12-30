@@ -328,7 +328,7 @@
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_y = 30;
 	pixel_w = 0;
-	icon_door = "closet_wall"
+	icon_door = "locker_wall"
 	},
 /turf/open/floor/iron/smooth_edge,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -829,10 +829,7 @@
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/box/white,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/construction/rcd/loaded{
-	desc = "A device used to rapidly build and deconstruct. Reload with iron, plasteel, glass or compressed matter cartridges. This one looks like it has been repainted in black and red, but retains standard functionality.";
-	icon_state = "ircd"
-	},
+/obj/item/construction/rcd/loaded/interdyne,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "ch" = (
@@ -2484,24 +2481,17 @@
 /area/ruin/interdyne_planetary_base/med)
 "go" = (
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/north,
-/obj/structure/chair/sofa/bench/right{
-	greyscale_colors = "#263188"
-	},
+/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gp" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/sign/poster/official/moth_epi/directional/north,
-/obj/structure/chair/sofa/bench/left{
-	greyscale_colors = "#263188"
-	},
+/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gq" = (
-/obj/structure/reagent_dispensers/water_cooler{
-	layer = 3.4;
-	pixel_z = 16
-	},
+/obj/structure/reagent_dispensers/water_cooler/directional/north,
 /obj/machinery/airalarm/directional/east{
 	req_access = list("syndicate")
 	},
@@ -4700,9 +4690,8 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "lH" = (
-/obj/structure/reagent_dispensers/water_cooler{
-	layer = 3.4;
-	pixel_z = 16
+/obj/structure/reagent_dispensers/water_cooler/directional/north{
+	layer = 3.4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4935,7 +4924,7 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "closet_wall";
+	icon_door = "locker_wall";
 	pixel_x = 30
 	},
 /turf/open/floor/iron/smooth_large,
@@ -5139,13 +5128,11 @@
 /turf/open/floor/iron/smooth_half,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "mE" = (
-/obj/structure/chair/sofa/bench/right{
-	greyscale_colors = "#263188"
-	},
+/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right,
 /turf/open/floor/iron/dark/textured_corner,
 /area/ruin/interdyne_planetary_base/serv)
 "mF" = (
-/obj/structure/chair/sofa/bench/left,
+/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "mH" = (
@@ -5445,20 +5432,18 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "nt" = (
-/obj/structure/chair/sofa/bench/left{
+/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left{
 	dir = 1;
-	pixel_z = 8;
-	greyscale_colors = "#263188"
+	pixel_z = 8
 	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 4
 	},
 /area/ruin/interdyne_planetary_base/serv)
 "nu" = (
-/obj/structure/chair/sofa/bench/right{
+/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right{
 	dir = 1;
-	pixel_z = 8;
-	greyscale_colors = "#263188"
+	pixel_z = 8
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
