@@ -1,0 +1,5 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - qol: "After complaints of excess rusting, CC has finally installed some dehumidifiers in their stations! (SSDecay will no longer rust tiles)"
+  - bugfix: "Due to new maintenance measures, the Tram rail-line should no longer rarely start the shift with damage. (SSDecay will no longer destroy Tram tiles)"
