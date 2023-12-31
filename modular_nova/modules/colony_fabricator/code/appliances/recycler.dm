@@ -26,7 +26,7 @@
 		/datum/material/uranium,
 		/datum/material/bananium,
 		/datum/material/titanium,
-		/datum/material/bluespace
+		/datum/material/bluespace,
 	)
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/recycler
