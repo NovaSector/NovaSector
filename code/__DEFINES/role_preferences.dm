@@ -102,7 +102,7 @@
 #define ROLE_GHOST_ROLE "Ghost Role"
 #define ROLE_HERMIT "Hermit"
 #define ROLE_HOTEL_STAFF "Hotel Staff"
-#define ROLE_LAVALAND_SYNDICATE "Syndicate Lavaland Personnel" // NOVA EDIT - Original: "Lavaland Syndicate"
+#define ROLE_LAVALAND_SYNDICATE "Syndicate Lavaland Personnel" // NOVA EDIT CHANGE - Original: #define ROLE_LAVALAND_SYNDICATE "Lavaland Syndicate"
 //NOVA EDIT START - Nova Sector Spawner roles
 #define ROLE_INTERDYNE_PLANETARY_BASE "Interdyne Lavaland Personnel"
 #define ROLE_INTERDYNE_PLANETARY_BASE_ICEBOX "Interdyne Icemoon Personnel"
