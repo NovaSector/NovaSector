@@ -52,7 +52,7 @@ def string_to_props(propstring, verbose = False):
     return props
 
 
-def parse_rep_string(replacement_string, verbose = True):
+def parse_rep_string(replacement_string, verbose = False):
     # translates /blah/blah {meme = "test",} into path,prop dictionary tuple
     match = re.match(replacement_re, replacement_string)
     path = match['path']

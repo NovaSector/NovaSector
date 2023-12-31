@@ -66,7 +66,7 @@
 	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil // NOVA EDIT - Original: /obj/item/gun/ballistic/rifle/sniper_rifle
 	implants = list(/obj/item/implant/weapons_auth)
 	id_trim = /datum/id_trim/syndicom/nova/interdyne
-	jobtype = /datum/job/interdyne_planetary_base
+	var/jobtype = /datum/job/interdyne_planetary_base
 
 /datum/outfit/interdyne_planetary_base/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
 	syndicate.faction |= ROLE_SYNDICATE
