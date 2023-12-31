@@ -22,9 +22,6 @@
 
 # Objects
 
-# Docking Ports
-/obj/docking_port/mobile/arrivals_skyrat : /obj/docking_port/mobile/arrivals_nova{@OLD}
-
 # Clothing
 # Head
 # Cowboy Hats
@@ -93,7 +90,7 @@
 
 # Trash
 # Lemonade Can
-/obj/item/trash/can/skyrat/@SUBTYPES  : /obj/item/trash/can/nova/@SUBTYPES{@OLD}
+/obj/item/trash/can/skyrat/@SUBTYPES : /obj/item/trash/can/nova/@SUBTYPES{@OLD}
 
 # Toys
 # Plushes
