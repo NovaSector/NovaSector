@@ -1,6 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - balance: "Contractor midrounds now spawn with their chosen character quirks"
-  - balance: "Contractor midrounds now have a uniform with less projectile armor, but gain some wounding, thermo and acid armor"
-  - qol: "Contractor midrounds their uniform now abides to the character's uniform preference"

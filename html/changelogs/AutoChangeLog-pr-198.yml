@@ -1,5 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Holodeck monkeys are properly cleaned up now"
-  - bugfix: "Holodeck monkeys have organs now"
