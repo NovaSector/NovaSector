@@ -2,8 +2,7 @@
 	category = KAHRAMAN_INDUSTRIES_NAME
 	company_bitflag = CARGO_COMPANY_KAHRAMAN
 
-// Kahraman-made machines
-
+/// Kahraman-made machines
 /datum/armament_entry/company_import/kahraman/machinery
 	subcategory = "Machinery"
 
