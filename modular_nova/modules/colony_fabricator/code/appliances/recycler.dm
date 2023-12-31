@@ -1,6 +1,6 @@
 /obj/machinery/colony_recycler
 	name = "materials recycler"
-	desc = "A large crushing machine used to recycle small items inefficiently. Items are inserted by hand, rather than through belt. \
+	desc = "A large crushing machine used to recycle small items inefficiently. Items are inserted by hand, rather than by belt. \
 		Mind your fingers."
 	icon = 'modular_nova/modules/colony_fabricator/icons/portable_machines.dmi'
 	icon_state = "recycler"
