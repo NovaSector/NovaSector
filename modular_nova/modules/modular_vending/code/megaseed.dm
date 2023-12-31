@@ -1,5 +1,5 @@
 /obj/machinery/vending/hydroseeds //sneed
-	nova_product_categories = list(
+	product_categories_nova = list(
 		list(
 			"name" = "Miscellaneous",
 			"icon" = "question",
@@ -11,7 +11,7 @@
 			),
 		),
 	)
-	nova_contraband = list(
+	contraband_nova = list(
 		/obj/item/seeds/cocaleaf = 3,
 		/obj/item/seeds/poppy/opiumpoppy = 3,
 		/obj/item/seeds/tea/catnip = 3,

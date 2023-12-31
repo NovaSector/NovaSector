@@ -1,5 +1,5 @@
 /obj/machinery/vending/autodrobe
-	nova_product_categories = list(
+	product_categories_nova = list(
 		list(
 			"name" = "Costumes",
 			"icon" = "mask",
@@ -77,7 +77,7 @@
 		),
 	)
 
-	nova_contraband = list(
+	contraband_nova = list(
 		/obj/item/clothing/mask/balaclavaadjust = 5,
 		/obj/item/clothing/mask/balaclava/threehole = 5,
 		/obj/item/clothing/mask/balaclava/threehole/green = 5,

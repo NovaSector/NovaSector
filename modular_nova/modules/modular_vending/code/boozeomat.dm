@@ -1,5 +1,5 @@
 /obj/machinery/vending/boozeomat
-	nova_product_categories = list(
+	product_categories_nova = list(
 		list(
 		"name" = "Alcoholic",
 		"icon" = "wine-bottle",
@@ -10,7 +10,7 @@
 		)
 
 /obj/machinery/vending/boozeomat/cafe
-	nova_premium = list(
+	premium_nova = list(
 		/obj/item/stack/sheet/mineral/uranium = 5,
 		/obj/item/stack/sheet/mineral/plasma = 5,
 		/obj/item/stack/sheet/mineral/silver = 5,

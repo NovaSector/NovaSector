@@ -183,7 +183,7 @@
 /datum/map_template/shuttle/mining/nova/large
 	name = "NMC Manticore (Mining)"
 	prefix = "_maps/shuttles/nova/"
-	suffix = "large_nova"
+	suffix = "nova_large"
 
 #undef ARRIVALS_STATION
 #undef ARRIVALS_INTERLINK

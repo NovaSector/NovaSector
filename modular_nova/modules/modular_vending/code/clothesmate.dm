@@ -1,5 +1,5 @@
 /obj/machinery/vending/clothing
-	nova_product_categories = list(
+	product_categories_nova = list(
 		list(
 			"name" = "Head",
 			"icon" = "hat-cowboy",
@@ -159,7 +159,7 @@
 		)
 	)
 
-	nova_premium = list( //being here means you're artificially rare, congratulations
+	premium_nova = list( //being here means you're artificially rare, congratulations
 		/obj/item/clothing/shoes/jackboots/timbs = 2,
 		/obj/item/clothing/head/soft/yankee = 3,
 		/obj/item/clothing/suit/brownbattlecoat = 1,

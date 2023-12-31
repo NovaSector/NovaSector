@@ -1,5 +1,5 @@
 /obj/machinery/vending/games
-	nova_product_categories = list(
+	product_categories_nova = list(
 		list(
 			"name" = "Toys",
 			"icon" = "hat-wizard",

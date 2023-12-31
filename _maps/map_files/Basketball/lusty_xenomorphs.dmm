@@ -16,8 +16,7 @@
 	id = null;
 	name = "Xenobiology Blast Door"
 	},
-/obj/effect/mapping_helpers/damaged_window,
-/turf/closed/indestructible/fakeglass,
+/turf/open/floor/engine,
 /area/centcom/basketball)
 "bA" = (
 /obj/structure/alien/weeds,
@@ -292,6 +291,8 @@
 /turf/closed/indestructible/fakeglass,
 /area/centcom/basketball)
 "zZ" = (
+/obj/effect/mapping_helpers/damaged_window,
+/obj/structure/window/reinforced/fulltile,
 /obj/effect/particle_effect/water/extinguisher/stomach_acid,
 /obj/machinery/door/poddoor/preopen{
 	id = null;
@@ -489,6 +490,8 @@
 /turf/open/floor/engine,
 /area/centcom/basketball)
 "PW" = (
+/obj/effect/mapping_helpers/damaged_window,
+/obj/structure/window/reinforced/fulltile,
 /obj/machinery/door/poddoor/preopen{
 	id = null;
 	name = "Xenobiology Blast Door"

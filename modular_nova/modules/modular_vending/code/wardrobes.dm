@@ -1,5 +1,5 @@
 /obj/machinery/vending/wardrobe/medi_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/radio/headset/headset_med = 3,
 		/obj/item/clothing/gloves/latex/nitrile = 2,
 		/obj/item/clothing/suit/toggle/labcoat/hospitalgown = 5,
@@ -13,7 +13,7 @@
 	)
 
 /obj/machinery/vending/wardrobe/engi_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/radio/headset/headset_eng = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/trouser = 3,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/utility = 3,
@@ -29,14 +29,14 @@
 	)
 
 /obj/machinery/vending/wardrobe/atmos_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/glasses/meson/engine = 2,
 		/obj/item/clothing/head/beret/atmos = 4,
 		/obj/item/storage/backpack/messenger/eng = 3,
 	)
 
 /obj/machinery/vending/wardrobe/cargo_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/under/rank/cargo/tech/nova/long = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/gorka = 3,
 		/obj/item/clothing/under/rank/cargo/tech/nova/turtleneck = 3,
@@ -48,13 +48,13 @@
 		/obj/item/storage/backpack/messenger = 3,
 	)
 
-	nova_contraband = list(
+	contraband_nova = list(
 		/obj/item/clothing/under/suit/nova/scarface = 2,
 		/obj/item/clothing/under/rank/cargo/tech/nova/evil = 2,
 	)
 
 /obj/machinery/vending/wardrobe/robo_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
 		/obj/item/clothing/under/rank/rnd/roboticist/nova/sleek = 2,
 		/obj/item/tank/internals/anesthetic = 2,
@@ -74,7 +74,7 @@
 	)
 
 /obj/machinery/vending/wardrobe/science_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
 		/obj/item/clothing/suit/toggle/jacket/sci = 3,
@@ -82,7 +82,7 @@
 	)
 
 /obj/machinery/vending/wardrobe/hydro_wardrobe
-	nova_contraband = list(
+	contraband_nova = list(
 		/obj/item/clothing/under/suit/nova/scarface = 2,
 		/obj/item/clothing/under/misc/nova/gear_harness/adam = 2,
 		/obj/item/clothing/under/misc/nova/gear_harness/eve = 2,
@@ -90,7 +90,7 @@
 	)
 
 /obj/machinery/vending/wardrobe/bar_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/storage/fancy/candle_box/vanilla = 1,
 		/obj/item/storage/fancy/candle_box/pear = 1,
 		/obj/item/storage/fancy/candle_box/amber = 1,
@@ -100,25 +100,25 @@
 	)
 
 /obj/machinery/vending/wardrobe/chap_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/suit/costume/nemes = 1,
 		/obj/item/clothing/head/costume/nemes = 1,
 		/obj/item/clothing/head/costume/pharaoh = 1, //dont google camel by camel worst mistake of my life
 	)
 
-	nova_contraband = list(
+	contraband_nova = list(
 		/obj/item/clothing/neck/chaplain = 1,
 		/obj/item/clothing/neck/chaplain/black = 1,
 		/obj/item/implanter/mortis = 1,
 	)
 
 /obj/machinery/vending/cart
-	nova_products = list(
+	products_nova = list(
 		/obj/item/radio/headset/headset_srv = 3,
 	)
 
 /obj/machinery/vending/wardrobe/chem_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/under/rank/medical/chemist/nova/formal = 2,
 		/obj/item/clothing/under/rank/medical/chemist/nova/formal/skirt = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
@@ -126,13 +126,13 @@
 	)
 
 /obj/machinery/vending/wardrobe/viro_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/head/beret/medical/virologist = 2,
 		/obj/item/storage/backpack/messenger/vir = 2,
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/head/fedora/beige = 2,
 		/obj/item/clothing/head/fedora/white = 2,
 		/obj/item/clothing/under/costume/cybersleek = 2,
@@ -148,7 +148,7 @@
 	)
 
 /obj/machinery/vending/wardrobe/law_wardrobe
-	nova_products = list(
+	products_nova = list(
 		/obj/item/clothing/under/suit/nova/black_really_collared = 3,
 		/obj/item/clothing/under/suit/nova/black_really_collared/skirt = 3,
 		/obj/item/clothing/under/suit/nova/inferno = 3,

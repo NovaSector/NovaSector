@@ -8,7 +8,7 @@
 	icon_state = "sleeper_s"
 	prompt_name = "an Interdyne bioweapon scientist"
 	you_are_text = "You are a science technician employed in an Interdyne research facility developing biological weapons."
-	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector, and rumors of a Syndicate FOB seem more credible each day. Continue your research as best you can, and try to keep out of trouble."
+	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, powering the quantum pad to their rumored starship in the system. Continue your research as best you can, and try to keep out of trouble."
 	important_text = "The base is rigged with explosives, DO NOT abandon it or let it fall into enemy hands!"
 	outfit = /datum/outfit/interdyne_planetary_base
 	spawner_job_path = /datum/job/interdyne_planetary_base
@@ -23,23 +23,28 @@
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/ice
 	outfit = /datum/outfit/interdyne_planetary_base/ice
 	interdyne_planetary_base_icebox
+	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer
 	name = "Interdyne Shaft Miner"
+	prompt_name = "an Interdyne shaft miner"
 	you_are_text = "You are a shaft miner, employed in an Interdyne research facility developing biological weapons."
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/ice
+	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer
 	name = "Interdyne Deck Officer"
+	prompt_name = "an Interdyne deck officer"
 	you_are_text = "You are a Deck Officer, employed in an Interdyne research facility developing biological weapons."
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice
+	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
 //OUTFITS//
@@ -61,6 +66,7 @@
 	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil // NOVA EDIT - Original: /obj/item/gun/ballistic/rifle/sniper_rifle
 	implants = list(/obj/item/implant/weapons_auth)
 	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	jobtype = /datum/job/interdyne_planetary_base
 
 /datum/outfit/interdyne_planetary_base/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
 	syndicate.faction |= ROLE_SYNDICATE
@@ -70,6 +76,7 @@
 		id_card.registered_name = syndicate.real_name
 		id_card.update_label()
 		id_card.update_icon()
+		//assignment
 
 	handlebank(syndicate)
 	return ..()

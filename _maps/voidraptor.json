@@ -6,7 +6,7 @@
 	"shuttles": {
 		"emergency": "emergency_nova",
 		"ferry": "ferry_nova",
-		"mining": "mining_large_nova",
+		"mining": "mining_nova_large",
 		"cargo": "cargo_nova_delta",
 		"whiteship": "whiteship_delta"
 	},

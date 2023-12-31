@@ -1,7 +1,7 @@
-//#define TESTING //By using the testing("message") proc you can create debug-feedback for people with this
+#define TESTING //By using the testing("message") proc you can create debug-feedback for people with this
 								//uncommented, but not visible in the release version)
 
-//#define DATUMVAR_DEBUGGING_MODE //Enables the ability to cache datum vars and retrieve later for debugging which vars changed.
+#define DATUMVAR_DEBUGGING_MODE //Enables the ability to cache datum vars and retrieve later for debugging which vars changed.
 
 // Comment this out if you are debugging problems that might be obscured by custom error handling in world/Error
 #ifdef DEBUG
@@ -25,7 +25,7 @@
 
 ///Used for doing dry runs of the reference finder, to test for feature completeness
 ///Slightly slower, higher in memory. Just not optimal
-//#define REFERENCE_TRACKING_DEBUG
+#define REFERENCE_TRACKING_DEBUG
 
 ///Run a lookup on things hard deleting by default.
 //#define GC_FAILURE_HARD_LOOKUP
