@@ -22,7 +22,7 @@
 /obj/item/clothing/shoes/jackboots/frontier_colonist
 	name = "heavy frontier boots"
 	desc = "A well built pair of tall boots usually seen on the feet of explorers, first wave colonists, \
-		and larpers across the galaxy."
+		and LARPers across the galaxy."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "boots"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
