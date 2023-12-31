@@ -22,7 +22,7 @@
 /datum/armament_entry/company_import/kahraman/machinery/gps_beacon
 	item_type = /obj/item/flatpacked_machine/gps_beacon
 	description = "A packed GPS beacon, can be deployed and anchored into the ground to \
-		provide and unobstructed homing beacon for wayward travellers across the galaxy."
+		provide and unobstructed homing beacon for wayward travelers across the galaxy."
 	cost = PAYCHECK_LOWER
 
 // Occupational health and safety? Never heard of her.
