@@ -24,7 +24,6 @@
 	chat_color = process_chat_color(value, sat_shift = 1, lum_shift = 1)
 	chat_color_darkened = process_chat_color(value, sat_shift = 0.85, lum_shift = 0.85)
 	chat_color_name = name
-	GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened)
 	return TRUE
 
 #define CHAT_COLOR_NORMAL 1
