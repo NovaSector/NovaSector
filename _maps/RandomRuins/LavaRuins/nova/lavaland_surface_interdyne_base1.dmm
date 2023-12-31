@@ -1465,11 +1465,19 @@
 /area/ruin/interdyne_planetary_base/med/viro)
 "dC" = (
 /obj/structure/bed/pod,
+/mob/living/carbon/human/species/monkey{
+	faction = list("neutral","Syndicate");
+	ai_controller = null
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dD" = (
 /obj/machinery/light/directional/north,
 /obj/structure/bed/pod,
+/mob/living/carbon/human/species/monkey{
+	faction = list("neutral","Syndicate");
+	ai_controller = null
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dE" = (
