@@ -1,3 +1,4 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -15,8 +16,8 @@ const erpTagColor = {
   No: '#000000',
 };
 
-export const NovaCharacterDirectory = (props, context) => {
-  const { act, data } = useBackend(context);
+export const NovaCharacterDirectory = (props) => {
+  const { act, data } = useBackend();
 
   const {
     personalVisibility,
@@ -91,7 +92,7 @@ export const NovaCharacterDirectory = (props, context) => {
   );
 };
 
-const ViewCharacter = (props, context) => {
+const ViewCharacter = (props) => {
   const [overlay, setOverlay] = useState(null);
 
   return (
@@ -149,8 +150,8 @@ const ViewCharacter = (props, context) => {
   );
 };
 
-const CharacterDirectoryList = (props, context) => {
-  const { act, data } = useBackend(context);
+const CharacterDirectoryList = (props) => {
+  const { act, data } = useBackend();
 
   const { directory, canOrbit } = data;
 
@@ -220,8 +221,8 @@ const CharacterDirectoryList = (props, context) => {
   );
 };
 
-const SortButton = (props, context) => {
-  const { act, data } = useBackend(context);
+const SortButton = (props) => {
+  const { act, data } = useBackend();
 
   const { id, children } = props;
 
