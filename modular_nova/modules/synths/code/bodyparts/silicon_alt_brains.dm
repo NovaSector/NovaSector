@@ -91,6 +91,10 @@
 	. = ..()
 	transfer_silicon_prefs(player_client)
 
+/mob/living/silicon/ai/apply_prefs_job(client/player_client, datum/job/job)
+	. = ..()
+	transfer_silicon_prefs(player_client)
+
 // hooks into this proc in order to make sure chat color prefs get applied
 /mob/living/silicon/robot/updatename(client/player_client)
 	. = ..()
