@@ -177,8 +177,6 @@
 	description = "Based on the trace elements we've detected on the gutted asteroids, we suspect that a mining ship using a restricted engine is somewhere in the area. \
 	We'd like to request a patrol vessel to investigate."
 
-// NOVA EDIT BEGIN - MAPPING
-/*
 /datum/map_template/ruin/space/spacehotel
 	id = "spacehotel"
 	suffix = "spacehotel.dmm
