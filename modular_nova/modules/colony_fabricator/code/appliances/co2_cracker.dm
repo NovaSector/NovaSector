@@ -82,7 +82,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 		soundloop.start()
 	else if(soundloop.loop_started)
 		soundloop.stop()
-	. = ..()
+	return ..()
 
 /obj/machinery/electrolyzer/co2_cracker/call_reactions(datum/gas_mixture/env)
 	for(var/reaction in GLOB.cracker_reactions)
