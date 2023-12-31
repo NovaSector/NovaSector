@@ -30,7 +30,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	if((requirements["MIN_TEMP"] && temp < requirements["MIN_TEMP"]) || (requirements["MAX_TEMP"] && temp > requirements["MAX_TEMP"]))
 		return FALSE
 	for(var/id in requirements)
-		if (id == "MIN_TEMP" || id == "MAX_TEMP")
+		if(id == "MIN_TEMP" || id == "MAX_TEMP")
 			continue
 		if(!cached_gases[id] || cached_gases[id][MOLES] < requirements[id])
 			return FALSE
