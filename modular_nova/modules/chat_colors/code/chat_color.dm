@@ -24,8 +24,24 @@
 	chat_color = process_chat_color(value, sat_shift = 1, lum_shift = 1)
 	chat_color_darkened = process_chat_color(value, sat_shift = 0.85, lum_shift = 0.85)
 	chat_color_name = name
+	GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened)
 	return TRUE
 
+#define CHAT_COLOR_NORMAL 1
+#define CHAT_COLOR_DARKENED 2
+
+/// Get the mob's chat color by looking up their name in the cached list, if no match is found default to colorize_string().
+/datum/chatmessage/proc/get_chat_color_string(name, darkened)
+	var/chat_color_strings = GLOB.chat_colors_by_mob_name[name]
+	if(chat_color_strings)
+		return darkened ? chat_color_strings[CHAT_COLOR_DARKENED] : chat_color_strings[CHAT_COLOR_NORMAL]
+	if(darkened)
+		return colorize_string(name, 0.85, 0.85)
+
+	return colorize_string(name)
+
+#undef CHAT_COLOR_NORMAL
+#undef CHAT_COLOR_DARKENED
 #define CM_COLOR_SAT_MIN 0
 #define CM_COLOR_SAT_MAX 1
 #define CM_COLOR_LUM_MIN 0.35
