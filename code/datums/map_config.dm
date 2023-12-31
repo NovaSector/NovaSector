@@ -30,7 +30,7 @@
 	var/blacklist_file
 
 	var/allow_custom_shuttles = TRUE
-// NOVA EDIT BEGIN - CUSTOM SHUTTLE LIST OVERRIDE
+// NOVA EDIT REMOVAL BEGIN - CUSTOM SHUTTLE LIST OVERRIDE
 	/*
 	// TG original
 	var/shuttles = list(
