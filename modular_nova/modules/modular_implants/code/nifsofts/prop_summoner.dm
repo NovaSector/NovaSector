@@ -145,7 +145,7 @@
 				single_card.add_atom_colour("#acccff",FIXED_COLOUR_PRIORITY)
 				sub_items += single_card
 
-/datum/component/summoned_item/Destroy(force, silent)
+/datum/component/summoned_item/Destroy(force)
 	for(var/obj/item in sub_items)
 		sub_items -= item
 		qdel(item)

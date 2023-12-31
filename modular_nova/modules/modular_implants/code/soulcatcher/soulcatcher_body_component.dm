@@ -45,7 +45,7 @@
 	return TRUE
 
 /// Attempts to destroy the component. If `restore_mind` is true, it will attempt to place the mind back inside of the body and delete the soulcatcher soul.
-/datum/component/previous_body/Destroy(force, silent)
+/datum/component/previous_body/Destroy(force)
 	UnregisterSignal(parent, COMSIG_SOULCATCHER_CHECK_SOUL)
 	UnregisterSignal(parent, COMSIG_SOULCATCHER_SCAN_BODY)
 

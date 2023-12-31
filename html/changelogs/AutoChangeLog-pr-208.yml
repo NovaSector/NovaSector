@@ -1,0 +1,4 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - bugfix: "NIFsoft settings panel now works once again"

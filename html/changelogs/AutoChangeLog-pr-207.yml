@@ -1,0 +1,4 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - qol: "PAI's now have a larger limit for their OOC notes and description, they can now put up to 500 characters for both"

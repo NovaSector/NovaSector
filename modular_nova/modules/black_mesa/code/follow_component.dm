@@ -36,7 +36,7 @@
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	parent_mob = parent
 
-/datum/component/follow/Destroy(force, silent)
+/datum/component/follow/Destroy(force)
 	UnregisterSignal(parent, COMSIG_HOSTILE_MOB_LOST_TARGET)
 	UnregisterSignal(parent, COMSIG_CLICK_ALT)
 	parent_mob = null

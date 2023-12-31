@@ -16,7 +16,7 @@
 	var/mob/dead/observer/selected
 
 
-/datum/scripture/marauder/Destroy(force, ...)
+/datum/scripture/marauder/Destroy(force)
 	selected = null
 	return ..()
 
