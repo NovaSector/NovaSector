@@ -13,12 +13,14 @@
 
 /area/ruin/interdyne_planetary_base/cargo
 	name = "Interdyne Cargo Bay"
-	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon = 'icons/area/areas_station.dmi'
 	icon_state = "mining"
+	ambientsounds = list('sound/ambience/ambiicemelody2.ogg')
 
 /area/ruin/interdyne_planetary_base/cargo/deck
 	name = "Interdyne Deck Officer's Office"
-	icon_state = "quart"
+	icon_state = "qm_office"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/ruin/interdyne_planetary_base/cargo/det
 	name = "Interdyne Detention Center"
@@ -26,19 +28,27 @@
 
 /area/ruin/interdyne_planetary_base/cargo/obs
 	name = "Interdyne Observation Center"
-	icon_state = "holding_cell"
+	icon = 'icons/area/areas_centcom.dmi'
+	icon_state = "observatory"
+	ambient_buzz = list('modular_nova/modules/encounters/sounds/morse.ogg',
+	'sound/ambience/ambitech.ogg',
+	'sound/ambience/signal.ogg',
+	'modular_nova/modules/encounters/sounds/morse.ogg')
+	ambient_buzz_vol = 3
 
 /area/ruin/interdyne_planetary_base/main
 	name = "Interdyne Main Hall"
-	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
-	icon_state = "secondaryhall"
+	icon = 'icons/area/areas_station.dmi'
+	icon_state = "hall"
 
 /area/ruin/interdyne_planetary_base/main/vault
 	name = "Interdyne Vault"
+	icon = 'icons/area/areas_centcom.dmi'
+	icon_state = "syndie-control"
 
 /area/ruin/interdyne_planetary_base/main/dorms
 	name = "Interdyne Dormitories"
-	icon_state = "dorms"
+	icon_state = "crew_quarters"
 
 /area/ruin/interdyne_planetary_base/main/dorms/lib
 	name = "Interdyne Library"
@@ -50,8 +60,9 @@
 
 /area/ruin/interdyne_planetary_base/med
 	name = "Interdyne Medical Wing"
-	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon = 'icons/area/areas_station.dmi'
 	icon_state = "medbay"
+	ambience_index = AMBIENCE_MEDICAL
 
 /area/ruin/interdyne_planetary_base/med/pharm
 	name = "Interdyne Pharmacy"
@@ -66,11 +77,12 @@
 	name = "Interdyne Morgue"
 	icon_state = "morgue"
 	ambience_index = AMBIENCE_SPOOKY
+	ambientsounds = list('sound/ambience/ambiicemelody4.ogg')// creepy, but a bit wistful
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ruin/interdyne_planetary_base/science
 	name = "Interdyne Science Wing"
-	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon = 'icons/area/areas_station.dmi'
 	icon_state = "science"
 
 /area/ruin/interdyne_planetary_base/science/xeno
@@ -79,7 +91,7 @@
 
 /area/ruin/interdyne_planetary_base/serv
 	name = "Interdyne Service Wing"
-	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon = 'icons/area/areas_station.dmi'
 	icon_state = "hall_service"
 
 /area/ruin/interdyne_planetary_base/serv/rstrm
@@ -92,7 +104,7 @@
 	mood_bonus = 5
 	mood_message = "I love being in the base's bar!"
 	mood_trait = TRAIT_EXTROVERT
-	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+
 
 /area/ruin/interdyne_planetary_base/serv/kitchen
 	name = "Interdyne Kitchen"
@@ -104,9 +116,16 @@
 
 /area/ruin/interdyne_planetary_base/eng
 	name = "Interdyne Engineering"
-	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
-	icon_state = "radstorm_shelter" // given interdyne's powerplant is 5 rtg's, thought this looked good on the frontend
+	icon = 'icons/area/areas_station.dmi'
+	icon_state = "maint_electrical" // given interdyne's powerplant is 7 rtg's, thought this looked good on the frontend for mappers
+	ambient_buzz = list('modular_nova/modules/encounters/sounds/gear_loop.ogg', // also fits the rtgs, tbh
+						'sound/items/geiger/low1.ogg',
+						'sound/items/geiger/low2.ogg')
+	ambient_buzz_vol = 10
 
 /area/ruin/interdyne_planetary_base/eng/disp
 	name = "Interdyne Disposals"
 	icon_state = "disposal"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambient_buzz = 'modular_nova/modules/encounters/sounds/gear_loop.ogg'
+	ambient_buzz_vol = 5 // next room over, it's quieter!

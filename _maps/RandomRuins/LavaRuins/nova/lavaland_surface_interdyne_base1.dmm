@@ -1309,7 +1309,6 @@
 /obj/machinery/door/airlock/command{
 	name = "Deck Officer"
 	},
-/obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
@@ -6334,6 +6333,10 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "px" = (
 /obj/structure/table/reinforced,
+/obj/item/storage/box/medipens{
+	pixel_x = 4;
+	pixel_y = 13
+	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "py" = (
@@ -6544,7 +6547,7 @@
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/eng/disp)
 "pZ" = (
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 2
@@ -8232,7 +8235,7 @@ cX
 cX
 cX
 cX
-ef
+aC
 dS
 eh
 ez

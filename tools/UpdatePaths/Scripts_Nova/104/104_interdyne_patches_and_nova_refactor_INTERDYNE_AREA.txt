@@ -42,7 +42,7 @@
 # cargo area
 /area/ruin/syndicate_lava_base/cargo : /area/ruin/interdyne_planetary_base/cargo{@OLD}
 
-# NEW shuttle pad / resupply / docking / hangar / trade platform area
+# NEW deck officer's room area
 # /area/ruin/interdyne_planetary_base/cargo/deck{@OLD}
 
 # NEW detention cells / brig area
