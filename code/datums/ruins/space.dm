@@ -283,8 +283,6 @@
 	name = "Gondoland"
 	description = "Just an ordinary rock- wait, what's that thing?"
 
-// NOVA EDIT BEGIN - MAPPING
-/*
 /datum/map_template/ruin/space/whiteshipruin_box
 id = "whiteshipruin_box"
 suffix = "whiteshipruin_box.dmm"
