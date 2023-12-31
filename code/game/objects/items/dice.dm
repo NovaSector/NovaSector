@@ -108,10 +108,10 @@
 	microwave_riggable = FALSE // You can't melt wood in the microwave
 
 /obj/item/dice/d6/bone
-   	name = "bone die"
-   	desc = "A die carved from a creature's bone. Dried blood marks the indented pits."
-   	icon_state = "db6"
-   	microwave_riggable = FALSE // You can't melt bone in the microwave
+	name = "bone die"
+	desc = "A die carved from a creature's bone. Dried blood marks the indented pits."
+	icon_state = "db6"
+	microwave_riggable = FALSE // You can't melt bone in the microwave
 
 /obj/item/dice/d6/space
 	name = "space cube"
