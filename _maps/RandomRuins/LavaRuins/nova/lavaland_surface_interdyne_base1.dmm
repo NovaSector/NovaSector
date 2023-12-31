@@ -1345,7 +1345,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "dp" = (
-/obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/med/viro)
@@ -3884,13 +3883,6 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/ruin/interdyne_planetary_base/main)
-"jC" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/interdyne_planetary_base/eng)
 "jD" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/interdyne_planetary_base/med/morgue)
@@ -4119,7 +4111,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/lava/smooth/lava_land_surface,
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "kj" = (
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -4728,6 +4720,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
+/obj/structure/table{
+	layer = 2.79;
+	smoothing_groups = "-52,"
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "lJ" = (
@@ -5030,9 +5026,7 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "mv" = (
-/obj/structure/table{
-	layer = 2.79
-	},
+/obj/structure/table,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv)
 "mw" = (
@@ -5554,14 +5548,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"nM" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk,
-/obj/effect/turf_decal/sand/volcanic,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/interdyne_planetary_base/eng)
 "nN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/bedsheetbin,
@@ -6255,7 +6241,7 @@
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "pn" = (
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
@@ -6415,7 +6401,7 @@
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/sand/volcanic,
 /turf/open/lava/smooth/lava_land_surface,
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "pL" = (
 /obj/item/storage/box/stockparts/deluxe,
 /obj/structure/closet/crate,
@@ -9369,10 +9355,10 @@ id
 iD
 jd
 hk
-nM
-nM
-nM
-jC
+cW
+cW
+cW
+cR
 kP
 lo
 lI
