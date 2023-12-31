@@ -123,7 +123,7 @@
 
 /obj/item/clothing/head/soft/frontier_colonist/medic
 	name = "frontier medical cap"
-	desc = "It's a robust baseball hat in a stylish red color. Has a white diamond to denote its wearer might be able to provide medical assistance."
+	desc = "It's a robust baseball hat in a stylish red color. Has a white diamond to denote that its wearer might be able to provide medical assistance."
 	icon_state = "cap_medical"
 	soft_type = "cap_medical"
 	worn_icon_state = "cap_medical"
