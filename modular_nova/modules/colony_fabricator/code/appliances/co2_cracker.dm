@@ -41,7 +41,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	id = "co2_cracking"
 	desc = "Conversion of CO2 into equal amounts of O2"
 	requirements = list(
-		/datum/gas/carbon_dioxide = MINIMUM_MOLE_COUNT
+		/datum/gas/carbon_dioxide = MINIMUM_MOLE_COUNT,
 	)
 	factor = list(
 		/datum/gas/carbon_dioxide = "1 mole of CO2 gets consumed",
