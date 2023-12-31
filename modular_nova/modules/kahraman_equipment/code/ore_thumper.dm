@@ -207,7 +207,10 @@
 		for(var/ore as anything in nearby_turf.contents)
 			if(istype(ore, /obj/item/stack/ore))
 				nearby_ore += 1
+				continue
 			if(istype(ore, /obj/machinery/power/colony_ore_thumper))
+				if(ore == src)
+					continue
 				is_there_a_thumper_too = TRUE
 				break
 
