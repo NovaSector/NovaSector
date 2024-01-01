@@ -166,7 +166,7 @@
 		liquids.reagent_list[reagent] += reagent_list[reagent]
 		liquids.total_reagents += reagent_list[reagent]
 
-	if(total_reagents)
+	if(liquids.total_reagents)
 		var/recieved_thermal_energy = (liquids.total_reagents - prev_total_reagents) * chem_temp
 		liquids.temp = (recieved_thermal_energy + prev_thermal_energy) / liquids.total_reagents
 
