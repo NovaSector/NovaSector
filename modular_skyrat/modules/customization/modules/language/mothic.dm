@@ -4,7 +4,6 @@
 	 The moths developed gesticulation through antennas and wings to convey deeper intent, with mandibles providing emotional context through clicks and trills. \
 	 After First Contact, human speakers managed to achieve a similar effect from clicking their tongue to roof, and steer the tone with the width of their mouth while using their hands in place of antennas. \
 	 It is informally spoken, deploying many slangs and shorthands from Common. Has phonetic resemblance to Italian."
-	key = "m"
 	space_chance = 40
 	// Syllables derived from Italian.
 	syllables = list(
@@ -19,5 +18,3 @@
 		"dici", "tru", "zo", "ze", "ul", "bo", "ba", "gh", "ino", "etta", "i", "in",
 		"chh", "rio", "ie", "bar", "bas", "die", "ter", "pa", "pe", "pu", "fe", "fi",
 	)
-	icon_state = "moth"
-	default_priority = 90
