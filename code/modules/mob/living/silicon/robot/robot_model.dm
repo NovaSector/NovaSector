@@ -820,7 +820,7 @@
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/juice,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/misc,
-		// /obj/item/borg/apparatus/beaker/service,
+		/obj/item/borg/apparatus/beaker/service,
 		/obj/item/borg/apparatus/beaker, // Allows the pickup of different beakers for easier drink mixing
 		//NOVA EDIT END
 		/obj/item/reagent_containers/cup/beaker/large, //I know a shaker is more appropiate but this is for ease of identification
