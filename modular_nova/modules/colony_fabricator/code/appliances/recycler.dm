@@ -7,7 +7,6 @@
 	anchored = FALSE
 	density = TRUE
 	circuit = null
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	/// The percentage of materials returned
 	var/amount_produced = 80
 	/// The sound made when an item is eaten
