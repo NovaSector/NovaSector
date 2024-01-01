@@ -1,3 +1,4 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 
 import { useBackend } from '../backend';

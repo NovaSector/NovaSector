@@ -771,10 +771,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait applied when an integrated circuit opens a UI on a player (see list pick component)
 #define TRAIT_CIRCUIT_UI_OPEN "circuit_ui_open"
 
-/// PDA Traits. This one makes PDAs explode if the user opens the messages menu
+/// PDA/ModPC Traits. This one makes PDAs explode if the user opens the messages menu
 #define TRAIT_PDA_MESSAGE_MENU_RIGGED "pda_message_menu_rigged"
 /// This one denotes a PDA has received a rigged message and will explode when the user tries to reply to a rigged PDA message
 #define TRAIT_PDA_CAN_EXPLODE "pda_can_explode"
+///The download speeds of programs from the dowloader is halved.
+#define TRAIT_MODPC_HALVED_DOWNLOAD_SPEED "modpc_halved_download_speed"
 
 /// If present on a [/mob/living/carbon], will make them appear to have a medium level disease on health HUDs.
 #define TRAIT_DISEASELIKE_SEVERITY_MEDIUM "diseaselike_severity_medium"
@@ -1004,6 +1006,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Trait given to foam darts that have an insert in them
 #define TRAIT_DART_HAS_INSERT "dart_has_insert"
+
+/// Trait determines if this mob has examined an eldritch painting
+#define TRAIT_ELDRITCH_PAINTING_EXAMINE "eldritch_painting_examine"
+
+/// Trait used by the /datum/brain_trauma/severe/flesh_desire trauma to change their preferences of what they eat
+#define TRAIT_FLESH_DESIRE "flesh_desire"
 
 ///Trait granted by janitor skillchip, allows communication with cleanbots
 #define TRAIT_CLEANBOT_WHISPERER "cleanbot_whisperer"

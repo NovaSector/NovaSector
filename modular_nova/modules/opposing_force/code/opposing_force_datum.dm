@@ -14,7 +14,7 @@
 	if(opfor_equipment)
 		opposing_force_equipment = opfor_equipment
 
-/datum/opposing_force_selected_equipment/Destroy(force, ...)
+/datum/opposing_force_selected_equipment/Destroy(force)
 	opposing_force_equipment = null
 	return ..()
 
