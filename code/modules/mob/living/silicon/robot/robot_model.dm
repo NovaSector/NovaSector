@@ -225,6 +225,10 @@
 	new_model.rebuild_modules()
 	cyborg.radio.recalculateChannels()
 	cyborg.set_modularInterface_theme()
+	cyborg.diag_hud_set_health()
+	cyborg.diag_hud_set_status()
+	cyborg.diag_hud_set_borgcell()
+	cyborg.diag_hud_set_aishell()
 	log_silicon("CYBORG: [key_name(cyborg)] has transformed into the [new_model] model.")
 
 	//NOVA EDIT ADDITION BEGIN - ALTBORGS - Old check for 'dogborg' var no longer necessary, refactored into model_features instead.
@@ -266,6 +270,7 @@
 		if(!isnull(details[SKIN_ICON]))
 			cyborg.icon = details[SKIN_ICON]
 			cyborg_icon_override = details[SKIN_ICON] // NOVA EDIT ADDITION
+		if(!isnull(details[SKIN_PIXEL_X]))
 			cyborg.base_pixel_x = details[SKIN_PIXEL_X]
 		if(!isnull(details[SKIN_PIXEL_Y]))
 			cyborg.base_pixel_y = details[SKIN_PIXEL_Y]
@@ -381,8 +386,8 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,
-		/obj/item/screwdriver/cyborg/power, // Skyrat Removal/Edit - Combines Screwdriver and Wrench into one
-		/obj/item/crowbar/cyborg/power, // Skyrat Removal/Edit - Combines Crowbar and Wirecutters into one
+		/obj/item/screwdriver/cyborg/power, // NOVA Removal/Edit - Combines Screwdriver and Wrench into one
+		/obj/item/crowbar/cyborg/power, // NOVA Removal/Edit - Combines Crowbar and Wirecutters into one
 		/obj/item/multitool/cyborg,
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
@@ -684,6 +689,7 @@
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
 		/obj/item/bonesetter,
+		/obj/item/blood_filter,
 		/obj/item/extinguisher/mini,
 		/obj/item/emergency_bed/silicon,
 		/obj/item/borg/cyborghug/medical,
@@ -700,6 +706,10 @@
 	model_select_icon = "medical"
 	model_traits = list(TRAIT_PUSHIMMUNE)
 	hat_offset = 3
+	borg_skins = list(
+		"Machinified Doctor" = list(SKIN_ICON_STATE = "medical"),
+		"Qualified Doctor" = list(SKIN_ICON_STATE = "qualified_doctor"),
+	)
 
 /obj/item/robot_model/miner
 	name = "Miner"
@@ -804,16 +814,23 @@
 	name = "Service"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		/obj/item/reagent_containers/borghypo/borgshaker,
-		/obj/item/borg/apparatus/beaker/service,
+		//NOVA EDIT START
+		// /obj/item/reagent_containers/borghypo/borgshaker,
+		/obj/item/reagent_containers/borghypo/borgshaker/specific/alcohol,
+		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda,
+		/obj/item/reagent_containers/borghypo/borgshaker/specific/juice,
+		/obj/item/reagent_containers/borghypo/borgshaker/specific/misc,
+		// /obj/item/borg/apparatus/beaker/service,
+		/obj/item/borg/apparatus/beaker, // Allows the pickup of different beakers for easier drink mixing
+		//NOVA EDIT END
 		/obj/item/reagent_containers/cup/beaker/large, //I know a shaker is more appropiate but this is for ease of identification
-		//NOVA EDIT Start: Borg Buff
-		//obj/item/reagent_containers/condiment/enzyme, //edit - Borg shaker has it
-		/obj/item/borg/apparatus/beaker, // NOVA EDIT: allows the pickup of different beakers for easier drink mixing
+		//obj/item/reagent_containers/condiment/enzyme, // NOVA EDIT - Borg shaker has it
 		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/syringe, //NOVA EDIT
 		/obj/item/rsf,
 		/obj/item/storage/bag/tray,
 		/obj/item/storage/bag/tray, // NOVA EDIT: Moves the second tray up to be near the default one
+		/obj/item/cooking/cyborg/power, //NOVA EDIT
 		/obj/item/pen,
 		/obj/item/toy/crayon/spraycan/borg,
 		/obj/item/extinguisher/mini,
@@ -821,12 +838,6 @@
 		/obj/item/razor,
 		/obj/item/instrument/guitar,
 		/obj/item/instrument/piano_synth,
-		/obj/item/reagent_containers/borghypo/borgshaker/specific/juice, //edit
-		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda, //edit
-		/obj/item/reagent_containers/borghypo/borgshaker/specific/alcohol, //edit
-		/obj/item/reagent_containers/borghypo/borgshaker/specific/misc, //edit
-		/obj/item/reagent_containers/syringe, //edit
-		/obj/item/cooking/cyborg/power, //edit
 		/obj/item/lighter,
 		/obj/item/borg/lollipop,
 		/obj/item/stack/pipe_cleaner_coil/cyborg,
