@@ -92,7 +92,7 @@
 	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it to function.")
 	. += span_notice("It will produce a box of materials after it has slammed [slam_jams_needed] times.")
 	. += span_notice("Currently, it has slammed [slam_jams] / [slam_jams_needed] times needed.")
-	. += span_notice("It will stop producing new boxes if one is left on top of the thumper, building up resources instead.")
+	. += span_notice("It will stop producing resources if there are too many piles of ore near it.")
 
 
 /obj/machinery/power/colony_ore_thumper/process()
