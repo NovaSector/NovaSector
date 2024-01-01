@@ -1175,7 +1175,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 		hud.remove_atom_from_hud(src)
 
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
-	path_images.Cut()
+	path_images.Cut() // NOVA EDIT - Replaces the unpleasant QDEL with a Cut() for server stability.
 	if(length(newpath))
 		var/mutable_appearance/path_image = new /mutable_appearance()
 		path_image.icon = path_image_icon
