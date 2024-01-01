@@ -7,6 +7,7 @@ export const headshot: Feature<string> = {
     'Requires a link ending with .png, .jpeg, or .jpg, starting with \
     https://, and hosted on Gyazo or Discord. Renders the image underneath \
     your character preview in the examine more window. \
-    Image must be at least 250x250 pixels.',
+    Image larger than 250x250 will be resized to 250x250. \
+    Aim for 250x250 whenever possible',
   component: FeatureShortTextInput,
 };
