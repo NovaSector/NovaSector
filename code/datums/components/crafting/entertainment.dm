@@ -211,6 +211,6 @@
 	result = /obj/item/dice/d6/bone
 	time = 5 SECONDS
 	reqs = list(
-		/obj/item/stack/sheet/bone = 2,
+		/obj/item/stack/sheet/bone = 1,
 	)
 	category = CAT_EQUIPMENT
