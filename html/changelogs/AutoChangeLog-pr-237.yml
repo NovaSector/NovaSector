@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "Wind turbines will now correctly connect to a wire that was placed before they were"
