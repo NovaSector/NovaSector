@@ -69,10 +69,6 @@
 	var/list/flag_list = controller.clean_flags
 	var/mob/living/basic/bot/cleanbot/bot_pawn = controller.pawn
 	for(var/list_key in flag_list)
-		// NOVA EDIT ADDITION START - TODO - Remove when cleanbot AI runtimes are fixed
-		if(QDELETED(bot_pawn))
-			return SUBTREE_RETURN_FINISH_PLANNING
-		// NOVA EDIT ADDITION END
 		if(!(bot_pawn.janitor_mode_flags & flag_list[list_key]))
 			continue
 		final_hunt_list += controller.blackboard[list_key]
