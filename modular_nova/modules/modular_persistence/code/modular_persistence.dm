@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	var/mob/living/carbon/human/human = owner.owner
 	human.load_nif_data(src)
 
-/datum/modular_persistence/Destroy(force, ...)
+/datum/modular_persistence/Destroy(force)
 	owner = null
 	return ..()
 

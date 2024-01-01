@@ -31,7 +31,7 @@
 
 	RegisterSignal(parent, COMSIG_MOB_EXAMINATE, PROC_REF(add_examine))
 
-/datum/component/money_sense/Destroy(force, silent)
+/datum/component/money_sense/Destroy(force)
 	. = ..()
 	UnregisterSignal(parent, COMSIG_MOB_EXAMINATE)
 

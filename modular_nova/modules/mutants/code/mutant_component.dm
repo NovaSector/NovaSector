@@ -50,7 +50,7 @@
 
 	START_PROCESSING(SSobj, src)
 
-/datum/component/mutant_infection/Destroy(force, silent)
+/datum/component/mutant_infection/Destroy(force)
 	STOP_PROCESSING(SSobj, src)
 	UnregisterSignal(parent, list(COMSIG_MUTANT_CURED, COMSIG_LIVING_DEATH))
 	if(timer_id)
