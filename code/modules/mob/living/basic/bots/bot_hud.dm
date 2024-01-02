@@ -50,7 +50,7 @@
 	clear_path_hud()
 
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
-	path_images.Cut() // NOVA EDIT - Replaces the unpleasant QDEL with a Cut() for server stability.
+	path_images?.Cut() // NOVA EDIT - Replaces the unpleasant QDEL with a Cut() for server stability.
 
 	var/list/path_huds_watching_me = list(GLOB.huds[DATA_HUD_DIAGNOSTIC_ADVANCED])
 
