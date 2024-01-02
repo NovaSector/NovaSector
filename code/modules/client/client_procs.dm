@@ -694,6 +694,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				to_chat(src, "<span class='notice'>Sending you to [panic_name ? panic_name : panic_addr].</span>")
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
+			qdel(query_client_in_db)
 			qdel(src)
 			return
 		//NOVA EDIT END
