@@ -1365,7 +1365,6 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/hotel/pool)
 "ho" = (
