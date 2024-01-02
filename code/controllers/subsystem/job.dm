@@ -544,7 +544,7 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/EquipRank(mob/living/equipping, datum/job/job, client/player_client)
 	// NOVA EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
 	// The alt job title, if user picked one, or the default
-	var/alt_title = player_client?.prefs.alt_job_titles[job.title]
+	var/alt_title = player_client?.prefs.alt_job_titles?[job.title] || job.title
 	// NOVA EDIT ADDITION END
 
 	equipping.job = job.title
