@@ -1,7 +1,7 @@
 /mob/living/basic/mining/cervimorph
 	name = "cervimorph"
 	desc = "The descendents of the common deer, turned into angry beasts by the harshness of the land."
-	icon = 'modular_skyrat/modules/serenitystation/icons/newfauna_wide.dmi'
+	icon = 'modular_nova/modules/serenitystation/icons/newfauna_wide.dmi'
 	icon_state = "cervimorph"
 	icon_living = "cervimorph"
 	icon_dead = "cervimorph_dead"
