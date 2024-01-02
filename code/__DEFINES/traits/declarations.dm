@@ -415,6 +415,13 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // Being close enough to the supermatter makes it heal at higher temperatures
 // and emit less heat. Present on /mob or /datum/mind
 #define TRAIT_SUPERMATTER_SOOTHER "supermatter_soother"
+<<<<<<< HEAD
+=======
+/// Mob has fov applied to it
+#define TRAIT_FOV_APPLIED "fov_applied"
+/// Mob is using the scope component
+#define TRAIT_USER_SCOPED "user_scoped"
+>>>>>>> 81a668a727d (Changes the scope component to be appliable to other items and not just guns. Binocs and the Curator's mothic cap use it. (#80445))
 
 /// Trait added when a revenant is visible.
 #define TRAIT_REVENANT_REVEALED "revenant_revealed"
