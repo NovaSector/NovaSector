@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - admin: "opfor panel 'approve objective' button is no longer annoyingly in the way of the objective title text"
+  - qol: "when you send a message as an admin via the opfor panel and no one is handling the opfor, it will automatically mark you as handling it"
