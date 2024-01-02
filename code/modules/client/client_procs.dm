@@ -683,7 +683,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!client_is_in_db)
 		//NOVA EDIT ADDITION BEGIN - PANICBUNKER
 		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !(ckey in GLOB.bunker_passthrough))
-			qdel(query_client_in_db)
 			log_access("Failed Login: [key] - [address] - New account attempting to connect during panic bunker")
 			message_admins(span_adminnotice("Failed Login: [key] - [address] - New account attempting to connect during panic bunker"))
 			to_chat_immediate(src, span_notice("Hi! We have temporarily enabled safety measures that prevents new players from joining currently. <br>Please try again later, or contact a staff on Discord if you have any questions. <br> <br> To join our community, check out our Discord! To gain full access to our Discord, read the rules and post a request in the #access-requests channel under the \"Landing Zone\" category in the Discord server linked here: <a href='https://discord.gg/novasector'>https://discord.gg/novasector</a>"))
