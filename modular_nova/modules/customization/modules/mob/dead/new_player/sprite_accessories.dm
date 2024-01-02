@@ -846,7 +846,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	icon_state = "tank_stripes"
 	use_static = TRUE
 	
-/datum/sprite_accessory/undershirt/tank_top_sun
+/datum/sprite_accessory/undershirt/tank_top_rainbow
 	name = "Tank Top - Rainbow"
 	icon_state = "tank_rainbow"
 	use_static = TRUE
