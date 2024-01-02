@@ -8,33 +8,44 @@
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "syndie-control"
 	ambience_index = AMBIENCE_DANGER
-	ambient_buzz = 'sound/ambience/magma.ogg'
+	ambient_buzz = list('sound/ambience/magma.ogg',
+						'modular_nova/modules/encounters/sounds/gear_loop.ogg')
 	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
+
+/area/ruin/interdyne_planetary_base/Initialize(mapload)
+	if(!ambientsounds)
+		ambientsounds = GLOB.ambience_assoc[ambience_index]
+		ambientsounds += 'sound/ambience/ambiicemelody2.ogg'
+	return ..()
 
 /area/ruin/interdyne_planetary_base/cargo
 	name = "Interdyne Cargo Bay"
 	icon = 'icons/area/areas_station.dmi'
 	icon_state = "mining"
-	ambientsounds = list('sound/ambience/ambiicemelody2.ogg')
 
 /area/ruin/interdyne_planetary_base/cargo/deck
 	name = "Interdyne Deck Officer's Office"
 	icon_state = "qm_office"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
-/area/ruin/interdyne_planetary_base/cargo/det
-	name = "Interdyne Detention Center"
-	icon_state = "holding_cell"
+/area/ruin/interdyne_planetary_base/cargo/ware
+	name = "Interdyne Warehouse"
+	icon_state = "cargo_warehouse"
 
 /area/ruin/interdyne_planetary_base/cargo/obs
 	name = "Interdyne Observation Center"
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "observatory"
-	ambient_buzz = list('modular_nova/modules/encounters/sounds/morse.ogg',
-	'sound/ambience/ambitech.ogg',
-	'sound/ambience/signal.ogg',
-	'modular_nova/modules/encounters/sounds/morse.ogg')
-	ambient_buzz_vol = 3
+	ambience_index = AMBIENCE_DANGER
+
+/area/ruin/interdyne_planetary_base/cargo/obs/Initialize(mapload)
+	if(!ambientsounds)
+		ambientsounds = GLOB.ambience_assoc[ambience_index]
+		ambientsounds += list('modular_nova/modules/encounters/sounds/morse.ogg',
+							  'sound/ambience/ambitech.ogg',
+							  'sound/ambience/signal.ogg',
+							  'modular_nova/modules/encounters/sounds/morse.ogg')
+	return ..()
 
 /area/ruin/interdyne_planetary_base/main
 	name = "Interdyne Main Hall"
@@ -117,15 +128,16 @@
 /area/ruin/interdyne_planetary_base/eng
 	name = "Interdyne Engineering"
 	icon = 'icons/area/areas_station.dmi'
-	icon_state = "maint_electrical" // given interdyne's powerplant is 7 rtg's, thought this looked good on the frontend for mappers
-	ambient_buzz = list('modular_nova/modules/encounters/sounds/gear_loop.ogg', // also fits the rtgs, tbh
-						'sound/items/geiger/low1.ogg',
-						'sound/items/geiger/low2.ogg')
-	ambient_buzz_vol = 10
+	icon_state = "maint_electrical" // given interdyne's powerplant is rtg's, thought this looked good on the frontend for mappers
+	ambient_buzz = 'modular_nova/modules/encounters/sounds/gear_loop.ogg'
+/area/ruin/interdyne_planetary_base/eng/Initialize(mapload)
+	if(!ambientsounds)
+		ambientsounds = GLOB.ambience_assoc[ambience_index]
+		ambientsounds += list('sound/items/geiger/low1.ogg',
+							  'sound/items/geiger/low2.ogg')
+	return ..()
 
 /area/ruin/interdyne_planetary_base/eng/disp
 	name = "Interdyne Disposals"
 	icon_state = "disposal"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	ambient_buzz = 'modular_nova/modules/encounters/sounds/gear_loop.ogg'
-	ambient_buzz_vol = 5 // next room over, it's quieter!

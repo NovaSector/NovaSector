@@ -89,7 +89,10 @@
 /// Interdyne
 
 /datum/id_trim/syndicom/nova/interdyne
-	assignment = "Interdyne Operative"
+	assignment = "Interdyne Bioweapon Scientist"
+
+/datum/id_trim/syndicom/nova/interdyne/shaftminer
+	assignment = "Interdyne Shaft Miner"
 
 /datum/id_trim/syndicom/nova/interdyne/deckofficer
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'

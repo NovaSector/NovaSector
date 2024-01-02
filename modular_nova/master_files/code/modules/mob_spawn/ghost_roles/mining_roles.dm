@@ -52,7 +52,7 @@
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Bioweapon Scientist"
 	id = /obj/item/card/id/advanced/chameleon
-	id_trim = /datum/id_trim/chameleon/operative
+	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate
 	suit = /obj/item/clothing/suit/toggle/labcoat/interdyne
 	back = /obj/item/storage/backpack
@@ -65,7 +65,6 @@
 	l_pocket = /obj/item/gun/ballistic/automatic/pistol
 	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil // NOVA EDIT - Original: /obj/item/gun/ballistic/rifle/sniper_rifle
 	implants = list(/obj/item/implant/weapons_auth)
-	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	var/jobtype = /datum/job/interdyne_planetary_base
 
 /datum/outfit/interdyne_planetary_base/post_equip(mob/living/carbon/human/syndicate, visualsOnly = FALSE)
@@ -76,7 +75,7 @@
 		id_card.registered_name = syndicate.real_name
 		id_card.update_label()
 		id_card.update_icon()
-		//assignment
+		//id_card.assignment = id_trim
 
 	handlebank(syndicate)
 	return ..()
@@ -95,7 +94,7 @@
 	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/utility/syndicate
 	suit = null //Subtype moment
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/flashlight/seclite=1,
