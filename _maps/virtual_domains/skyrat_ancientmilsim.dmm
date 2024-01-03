@@ -116,7 +116,9 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "ed" = (
 /obj/effect/baseturf_helper/virtual_domain/ancient_milsim,
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/snpc_ground)
 "eh" = (
@@ -154,7 +156,9 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "eQ" = (
 /obj/structure/flora/bush/flowers_br/style_random,
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/snpc_ground)
 "eR" = (
@@ -214,7 +218,9 @@
 	},
 /area/virtual_domain/ancient_milsim/atrium)
 "hy" = (
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/snpc_ground)
 "hH" = (
@@ -254,6 +260,12 @@
 /obj/structure/barricade/sandbags,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/hallway)
+"it" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/water/jungle,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "iw" = (
 /obj/item/paper,
 /turf/open/floor/iron/smooth,
@@ -836,6 +848,12 @@
 "yh" = (
 /turf/closed/wall/r_wall,
 /area/virtual_domain/ancient_milsim/maintenance)
+"yj" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/dirt/planet,
+/area/virtual_domain/ancient_milsim/entrance)
 "yl" = (
 /obj/structure/decorative/shelf/alcohol_assortment{
 	density = 1
@@ -1285,6 +1303,12 @@
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/atrium)
+"Kj" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/entrance)
 "Kl" = (
 /obj/structure/sign/departments/medbay/directional/west,
 /turf/open/floor/iron/smooth,
@@ -1322,6 +1346,15 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"Md" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "Mi" = (
 /obj/item/storage/toolbox/ammobox/full/mosin,
 /turf/open/floor/plating,
@@ -1648,6 +1681,15 @@
 /obj/item/knife/combat,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"UI" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "UQ" = (
 /obj/effect/spawner/random/vending/colavend,
 /obj/structure/sign/poster/random/directional/west,
@@ -1664,6 +1706,13 @@
 "Vl" = (
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
+"Vn" = (
+/obj/structure/flora/tree/jungle/small/style_random,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "Vp" = (
 /obj/effect/baseturf_helper/virtual_domain/ancient_milsim,
 /turf/open/floor/iron,
@@ -3250,34 +3299,34 @@ Uz
 "}
 (26,1,1) = {"
 Uz
-cb
-Hq
-Cd
-Hq
-Cd
-Cd
-Hq
-Cd
-Cd
-Cd
-Cd
-Cd
-Cd
-Hq
-Cd
-Cd
-Cd
-Cd
-JG
-Cd
-Cd
-Cd
-Cd
-Hq
-Cd
-Sv
-Cd
-Cd
+Md
+Vn
+hy
+Vn
+hy
+hy
+Vn
+hy
+hy
+hy
+hy
+hy
+hy
+Vn
+hy
+hy
+hy
+hy
+it
+hy
+hy
+hy
+hy
+Vn
+hy
+eQ
+hy
+hy
 er
 er
 er
@@ -3319,7 +3368,7 @@ hy
 hy
 hy
 hy
-hy
+UI
 hy
 hy
 hy
@@ -3814,18 +3863,18 @@ Uz
 Uz
 er
 er
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
 Uz
 "}
 (36,1,1) = {"
@@ -3871,19 +3920,19 @@ Uz
 Uz
 er
 er
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-hZ
-VZ
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+yj
 Uz
 "}
 (37,1,1) = {"
