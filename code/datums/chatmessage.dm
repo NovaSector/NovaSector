@@ -76,6 +76,12 @@
 		return
 	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
 
+/datum/chatmessage/dump_harddel_info()
+	if(harddel_deets_dumped)
+		return
+	harddel_deets_dumped = TRUE
+	return "owner: [owner] lang: [language] target: [target]"
+
 /datum/chatmessage/Destroy()
 	if (!QDELING(owned_by))
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
