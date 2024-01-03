@@ -345,6 +345,7 @@ GLOBAL_VAR(restart_counter)
 		call_ext(debug_server, "auxtools_shutdown")()
 
 /world/Del()
+	stack_trace("/world is being deleted! Uh oh.")
 	auxcleanup()
 	. = ..()
 
