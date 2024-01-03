@@ -15,7 +15,6 @@
 	can_change_cable_layer = FALSE
 	circuit = null
 	layer = ABOVE_MOB_LAYER
-	plane = GAME_PLANE_UPPER
 	/// Are we currently working?
 	var/thumping = FALSE
 	/// Our looping fan sound that we play when turned on
