@@ -54,6 +54,11 @@
 	var/animate_start = 0
 	/// Our animation lifespan, how long this message will last
 	var/animate_lifespan = 0
+	// NOVA EDIT ADDITION START - DEBUGGING
+	var/owner_string
+	var/owner_mob_string
+	var/target_atom_string
+	// NOVA EDIT ADDITION END
 
 /**
  * Constructs a chat message overlay
@@ -74,13 +79,20 @@
 		stack_trace("/datum/chatmessage created with [isnull(owner) ? "null" : "invalid"] mob owner")
 		qdel(src)
 		return
+	// NOVA EDIT ADDITION START
+	owner_string = "[owner?.client]"
+	owner_mob_string = "[owner]"
+	target_atom_string = "[isturf(target) ? target : get_atom_on_turf(target)]"
+	// NOVA EDIT ADDITION END
 	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
 
+// NOVA EDIT ADDITION START
 /datum/chatmessage/dump_harddel_info()
 	if(harddel_deets_dumped)
 		return
 	harddel_deets_dumped = TRUE
-	return "owner: [owned_by] loc: [message_loc]"
+	return "owner: [owner_string]([owner_mob_string]) loc: [target_atom_string]"
+// NOVA EDIT ADDITION END
 
 /datum/chatmessage/Destroy()
 	if (!QDELING(owned_by))
