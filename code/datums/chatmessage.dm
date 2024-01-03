@@ -80,7 +80,7 @@
 	if(harddel_deets_dumped)
 		return
 	harddel_deets_dumped = TRUE
-	return "owner: [owner] lang: [language] target: [target]"
+	return "owner: [owned_by] loc: [message_loc]"
 
 /datum/chatmessage/Destroy()
 	if (!QDELING(owned_by))
