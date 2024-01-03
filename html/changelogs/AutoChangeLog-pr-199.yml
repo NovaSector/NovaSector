@@ -1,0 +1,7 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - balance: "Light Drinker and Drunken Resilience quirks can no longer be chosen together."
+  - balance: "Oversized and Freerunning quirks can no longer be chosen together."
+  - balance: "The Oversized Rights Enclave (ORE) has successfully petitioned Nanotrasen to install a galactic minimum standard upper-joist crumple zone in their station airlocks, meaning that oversized individuals will no longer take brain damage from hitting their head. All other safety warnings still apply."
+  - bugfix: "Oversized and Settler can now no longer be chosen together to negate the Oversized hunger mod penalty."
