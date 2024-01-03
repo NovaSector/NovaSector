@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "Ruins - Space Hotel should now run without runtimes for atmos"
+  - bugfix: "Ruins - Space Hotel disposals actually works"
