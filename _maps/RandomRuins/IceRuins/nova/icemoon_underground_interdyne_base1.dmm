@@ -6414,7 +6414,7 @@
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "pP" = (
 /obj/machinery/camera/autoname/directional/west{
 	pixel_x = 32;
@@ -6756,7 +6756,7 @@
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "qL" = (
 /obj/structure/railing{
 	dir = 8
@@ -6766,7 +6766,7 @@
 	layer = 3
 	},
 /turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "qM" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6793,7 +6793,7 @@
 	},
 /obj/machinery/light/small/dim/directional/north,
 /turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "qO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6808,7 +6808,7 @@
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "qP" = (
 /obj/machinery/camera/autoname/directional/north{
 	pixel_y = -32;
@@ -6847,7 +6847,7 @@
 	layer = 3
 	},
 /turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/interdyne_planetary_base/eng)
+/area/ruin/interdyne_planetary_base/main)
 "qV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bodycontainer/crematorium{
