@@ -27,7 +27,7 @@
 	if (!host && hostedby)
 		features += "hosted by <b>[hostedby]</b>"
 
-	if (features)
+	if(length(features))
 		new_status += "\[[jointext(features, ", ")]"
 
 	status = new_status
