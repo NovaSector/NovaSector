@@ -73,17 +73,17 @@
  */
 /datum/chatmessage/New(text, atom/target, mob/owner, datum/language/language, list/extra_classes = list(), lifespan = CHAT_MESSAGE_LIFESPAN)
 	. = ..()
+	// NOVA EDIT ADDITION START
+	owner_string = "[owner?.client]"
+	owner_mob_string = "[owner]"
+	target_atom_string = "[isturf(target) ? target : get_atom_on_turf(target)]"
+	// NOVA EDIT ADDITION END
 	if (!istype(target))
 		CRASH("Invalid target given for chatmessage")
 	if(QDELETED(owner) || !istype(owner) || !owner.client)
 		stack_trace("/datum/chatmessage created with [isnull(owner) ? "null" : "invalid"] mob owner")
 		qdel(src)
 		return
-	// NOVA EDIT ADDITION START
-	owner_string = "[owner?.client]"
-	owner_mob_string = "[owner]"
-	target_atom_string = "[isturf(target) ? target : get_atom_on_turf(target)]"
-	// NOVA EDIT ADDITION END
 	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
 
 // NOVA EDIT ADDITION START
@@ -91,7 +91,7 @@
 	if(harddel_deets_dumped)
 		return
 	harddel_deets_dumped = TRUE
-	return "owner: [owner_string]([owner_mob_string]) loc: [target_atom_string]"
+	return "owner: [owner_mob_string]([owner_string]) loc: [target_atom_string]"
 // NOVA EDIT ADDITION END
 
 /datum/chatmessage/Destroy()
