@@ -79,18 +79,15 @@
 /obj/structure/table{
 	layer = 2.79
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "ao" = (
-/obj/machinery/shower/directional/west{
-	desc = "A borrowed Nanotrasen Hygiene Division HS-452. It's one of the older 2550's series. A small sticker on the side insists it \"observes 2560 lead compliance!\"; passively replenishes itself with water when not in use.";
-	layer = 5;
-	pixel_x = 0;
-	pixel_w = 8;
-	pixel_shift = 0
-	},
 /obj/structure/drain,
 /obj/structure/curtain,
+/obj/machinery/shower/directional/west{
+	desc = "A borrowed Nanotrasen Hygiene Division HS-452. It's one of the older 2550's series. A small sticker on the side insists it \"observes 2560 lead compliance!\"; passively replenishes itself with water when not in use."
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "as" = (
@@ -173,9 +170,6 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "az" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
 /obj/machinery/door/airlock{
 	name = "Bathroom"
 	},
@@ -194,7 +188,6 @@
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "aB" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/duct,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -249,6 +242,7 @@
 	dir = 4;
 	pixel_z = 8
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "aN" = (
@@ -3795,15 +3789,11 @@
 	},
 /obj/structure/drain,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/shower/directional/west{
-	desc = "A borrowed Nanotrasen Hygiene Division HS-452. It's one of the older 2550's series. A small sticker on the side insists it \"observes 2560 lead compliance!\"; passively replenishes itself with water when not in use.";
-	layer = 5;
-	pixel_x = 0;
-	pixel_w = 8;
-	pixel_shift = 0
-	},
 /obj/effect/turf_decal/siding/dark/end{
 	dir = 1
+	},
+/obj/machinery/shower/directional/west{
+	desc = "A borrowed Nanotrasen Hygiene Division HS-452. It's one of the older 2550's series. A small sticker on the side insists it \"observes 2560 lead compliance!\"; passively replenishes itself with water when not in use."
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
@@ -4513,7 +4503,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/machinery/duct,
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4;
 	layer = 2.52
@@ -5620,6 +5609,7 @@
 /obj/machinery/vending/dinnerware{
 	extended_inventory = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "oa" = (
@@ -5751,7 +5741,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
 	},
-/obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/terracotta,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
@@ -5773,6 +5762,8 @@
 /obj/item/book/manual/wiki/cooking_to_serve_man{
 	pixel_y = 2
 	},
+/obj/machinery/duct,
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "ow" = (
@@ -5965,7 +5956,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
 	},
-/obj/machinery/duct,
 /turf/open/floor/iron/terracotta,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "oQ" = (
@@ -6334,13 +6324,17 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pH" = (
-/obj/machinery/hydroponics/constructable,
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pI" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/hydroponics/constructable,
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pK" = (
@@ -6539,6 +6533,12 @@
 /obj/structure/sign/warning/radiation/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
+"sa" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "sK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -6673,6 +6673,12 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
+"Ls" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "LH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8903,7 +8909,7 @@ nz
 ox
 oV
 pC
-pC
+sa
 pH
 mD
 ac
@@ -9020,9 +9026,9 @@ nE
 or
 oz
 oX
-pC
-pC
-pC
+Ls
+Ls
+Ls
 mD
 ac
 ac
@@ -9079,9 +9085,9 @@ nX
 ot
 oz
 oX
-pC
-pC
-pC
+sa
+sa
+sa
 mD
 ac
 ac
@@ -9197,8 +9203,8 @@ nY
 ou
 oZ
 pl
-pC
-pC
+Ls
+Ls
 pI
 mD
 ac
