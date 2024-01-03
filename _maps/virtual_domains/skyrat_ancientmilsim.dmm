@@ -260,12 +260,6 @@
 /obj/structure/barricade/sandbags,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/hallway)
-"it" = (
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/turf/open/water/jungle,
-/area/virtual_domain/ancient_milsim/snpc_ground)
 "iw" = (
 /obj/item/paper,
 /turf/open/floor/iron/smooth,
@@ -380,6 +374,12 @@
 /obj/structure/sign/poster/random/directional/south,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"lu" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/dirt/planet,
+/area/virtual_domain/ancient_milsim/entrance)
 "ly" = (
 /obj/machinery/light/directional/south,
 /obj/structure/barricade/sandbags,
@@ -434,6 +434,12 @@
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_garage)
+"nA" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/entrance)
 "nH" = (
 /obj/item/storage/barricade,
 /obj/structure/closet/crate/cardboard,
@@ -848,12 +854,6 @@
 "yh" = (
 /turf/closed/wall/r_wall,
 /area/virtual_domain/ancient_milsim/maintenance)
-"yj" = (
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/turf/open/misc/dirt/planet,
-/area/virtual_domain/ancient_milsim/entrance)
 "yl" = (
 /obj/structure/decorative/shelf/alcohol_assortment{
 	density = 1
@@ -905,6 +905,12 @@
 /obj/item/binoculars,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
+"Aw" = (
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/water/jungle,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "AB" = (
 /obj/structure/chair{
 	dir = 8
@@ -1303,12 +1309,6 @@
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/atrium)
-"Kj" = (
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/turf/open/misc/grass/planet/ancient_milsim,
-/area/virtual_domain/ancient_milsim/entrance)
 "Kl" = (
 /obj/structure/sign/departments/medbay/directional/west,
 /turf/open/floor/iron/smooth,
@@ -1338,6 +1338,13 @@
 "Lr" = (
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
+"LD" = (
+/obj/structure/flora/tree/jungle/small/style_random,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "LI" = (
 /obj/item/paper/crumpled,
 /turf/open/floor/iron/smooth_large,
@@ -1346,15 +1353,6 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
-"Md" = (
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/turf/open/misc/grass/planet/ancient_milsim,
-/area/virtual_domain/ancient_milsim/snpc_ground)
 "Mi" = (
 /obj/item/storage/toolbox/ammobox/full/mosin,
 /turf/open/floor/plating,
@@ -1503,6 +1501,15 @@
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/misc/dirt/planet,
 /area/virtual_domain/ancient_milsim/entrance)
+"Qb" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
+/turf/open/misc/grass/planet/ancient_milsim,
+/area/virtual_domain/ancient_milsim/snpc_ground)
 "Qn" = (
 /obj/structure/table,
 /obj/item/storage/medkit/civil_defense/stocked{
@@ -1681,15 +1688,6 @@
 /obj/item/knife/combat,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
-"UI" = (
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/turf/open/misc/grass/planet/ancient_milsim,
-/area/virtual_domain/ancient_milsim/snpc_ground)
 "UQ" = (
 /obj/effect/spawner/random/vending/colavend,
 /obj/structure/sign/poster/random/directional/west,
@@ -1706,13 +1704,6 @@
 "Vl" = (
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
-"Vn" = (
-/obj/structure/flora/tree/jungle/small/style_random,
-/obj/machinery/door/poddoor/ancient_milsim{
-	id = "engagement_control"
-	},
-/turf/open/misc/grass/planet/ancient_milsim,
-/area/virtual_domain/ancient_milsim/snpc_ground)
 "Vp" = (
 /obj/effect/baseturf_helper/virtual_domain/ancient_milsim,
 /turf/open/floor/iron,
@@ -3299,30 +3290,30 @@ Uz
 "}
 (26,1,1) = {"
 Uz
-Md
-Vn
+Qb
+LD
 hy
-Vn
-hy
-hy
-Vn
+LD
 hy
 hy
+LD
 hy
 hy
 hy
 hy
-Vn
+hy
+hy
+LD
 hy
 hy
 hy
 hy
-it
+Aw
 hy
 hy
 hy
 hy
-Vn
+LD
 hy
 eQ
 hy
@@ -3368,7 +3359,7 @@ hy
 hy
 hy
 hy
-UI
+hy
 hy
 hy
 hy
@@ -3863,18 +3854,18 @@ Uz
 Uz
 er
 er
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
 Uz
 "}
 (36,1,1) = {"
@@ -3920,19 +3911,19 @@ Uz
 Uz
 er
 er
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-Kj
-yj
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+lu
 Uz
 "}
 (37,1,1) = {"
