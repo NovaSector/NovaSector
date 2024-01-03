@@ -321,6 +321,8 @@
 
 /// Ensures our victim's stamina is at or above the minimum stamina they're supposed to have.
 /datum/brain_trauma/severe/death_consequences/proc/damage_stamina(seconds_per_tick)
+	if (!stamina_damage_max_degradation)
+		return
 	if (victim_properly_resting())
 		return
 

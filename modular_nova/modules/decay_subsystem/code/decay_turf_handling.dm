@@ -1,14 +1,15 @@
-/turf/open/floor
-	turf_flags = IS_SOLID | CAN_DECAY_BREAK_1 // We do it this way because we can then easily pick what we don't want to be broken.
-
 /turf/closed/wall
-	flags_1 = CAN_BE_DIRTY_1
+	flags_1 = CAN_BE_DIRTY_1 // Allow walls to be dirty at round start
+
+/turf/open/floor
+	// Add CAN_DECAY_BREAK_1 flag to all floors by default - below we individually remove it from tiles that shouldn't break
+	turf_flags = IS_SOLID | CAN_DECAY_BREAK_1
 
 /turf/open/floor/plating
-	turf_flags = IS_SOLID /// No breaking the plating
+	turf_flags = IS_SOLID // No breaking plating (Duh)
 
 /turf/open/floor/glass
-	turf_flags = IS_SOLID /// No breaking the glass (doesn't leave plating behind)
+	turf_flags = IS_SOLID // No breaking glass (doesn't leave plating behind)
 
-/turf/open/misc/asteroid
-	turf_flags = NONE /// They shouldn't break and they shouldn't be dirty, it's literally already a dirty turf.
+/turf/open/floor/tram
+	turf_flags = IS_SOLID // No breaking the irreplacable Tram Line
