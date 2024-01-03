@@ -1,10 +1,4 @@
 /obj/item/gun/ballistic
-	/// Does this gun have mag and nomag on mob variance?
-	var/alt_icons = FALSE
-	/// What the icon state is for the on-back guns
-	var/alt_icon_state
-	/// How long it takes to reload a magazine.
-	var/reload_time = 2 SECONDS
 	/// if this gun has a penalty for reloading with an ammo_box type
 	var/box_reload_penalty = TRUE
 	/// reload penalty inflicted by using an ammo box instead of an individual cartridge, if not outright exchanging the magazine
@@ -23,30 +17,6 @@
 
 /obj/item/gun/ballistic/rifle/boltaction // slightly less negligible than a revolver, since this is mostly for fairly powerful but crew-accessible stuff like mosins
 	box_reload_delay = CLICK_CD_RANGE
-
-/obj/item/gun/ballistic/Initialize(mapload)
-	. = ..()
-
-	if(alt_icons)
-		AddElement(/datum/element/update_icon_updates_onmob)
-
-/obj/item/gun/ballistic/update_overlays()
-	. = ..()
-	if(alt_icons)
-		if(!magazine)
-			if(alt_icon_state)
-				inhand_icon_state = "[alt_icon_state]_nomag"
-				worn_icon_state = "[alt_icon_state]_nomag"
-			else
-				inhand_icon_state = "[initial(icon_state)]_nomag"
-				worn_icon_state = "[initial(icon_state)]_nomag"
-		else
-			if(alt_icon_state)
-				inhand_icon_state = "[alt_icon_state]"
-				worn_icon_state = "[alt_icon_state]"
-			else
-				inhand_icon_state = "[initial(icon_state)]"
-				worn_icon_state = "[initial(icon_state)]"
 
 /// Reloading with ammo box can incur penalty with some guns
 /obj/item/gun/ballistic/proc/handle_box_reload(mob/user, obj/item/ammo_box/ammobox, num_loaded)
