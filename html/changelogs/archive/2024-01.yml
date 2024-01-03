@@ -17,3 +17,77 @@
   - qol: PAI's now have a larger limit for their OOC notes and description, they can
       now put up to 500 characters for both
   - bugfix: NIFsoft settings panel now works once again
+2024-01-02:
+  FearfulFurnishing:
+  - rscadd: Add bone dice, a d6 that can be crafted using a bone.
+  Lutowski:
+  - rscadd: Sunflower crown, poppy crown, lily crown and floral garland added to loadout.
+  - rscadd: Black Gas Mask added to loadout.
+  Melbert:
+  - refactor: Refactored the area transformation colossus crystal effect to use the
+      same system dimensional anomalies use. That means the colossus crystal now has
+      access to some dimensional themes (bamboo, plasma, glass) and the dimensional
+      anomaly now has access to some colossus themes (jungle, alien).
+  NovaBot13:
+  - rscadd: 69(roughly?) new vox phrases
+  - bugfix: Fixed footstep sounds.
+  - qol: The "Explosive Planted" alert for C4 actually shows the C4
+  - qol: Gas analyzer can scan adjacent turfs. No more roasting yourself just to scan
+      your burn mix.
+  - bugfix: Protolathe input should feel more responsive.
+  - rscadd: Added new lizard variants of existing foods for equality of edibility.
+  - qol: made pickle jars reusable and vinegar craftable.
+  - bugfix: Having an inorganic chest/legs no longer makes you drop your ID, belt
+      or pocketed stuff upon losing your jumpsuit
+  - bugfix: you can set the chemical reaction chamber temps to 0k again
+  - bugfix: used higher rounding value for reactions thus you get full volumes especially
+      for endothermic reactions(no more 99.99 but 100 units).
+  - bugfix: chem heater now applies heat per reaction step and sends updates to UI
+      more frequently
+  - qol: Toggling an armour booster module on a MODsuit now gives a balloon alert
+      making the tradeoffs more clear.
+  - bugfix: slamming through a glass table while previously on a table no longer gives
+      you a negative offset.
+  - rscadd: A new heretic path opens up! Gaze up at the great sky for the path of
+      the moon opens and the lie shall be slain in pursuit of ultimate truth!
+  - bugfix: Fixes the syndicate delusion not working
+  Paxilmaniac:
+  - sound: The headset radio sound no longer reaches 17 entire tiles away from you
+  - code_imp: Some of the code around headset sounds has been improved a bit
+  - bugfix: Wind turbines will now correctly connect to a wire that was placed before
+      they were
+2024-01-03:
+  NovaBot13:
+  - bugfix: turbine now shuts itself off when the room apc loses power or if it gets
+      damaged. Also uses a small amount of power for operation of internal electronics,
+      the green light & other stuff
+  - bugfix: No more runtime in turbine computer when parts are not fully connected
+  - qol: adds screentips & examines for turbine
+  - code_imp: removed unused vars, auto doc procs and cleans up some code in turbine
+  - refactor: attack_slime is completely gone
+  - refactor: slime lifestate changes now have less boilerplate code
+  - balance: baby slimes do a bit of a less damage on the low end, but all slime damage
+      is much more consistent
+  - balance: instead of taking half brute damage, cyborgs are now immune to slime's
+      melee attacks. Charged slimes attacking cyborgs now lose a bit of charge. They
+      still get massive damage from charged slimes, and every slime attack flashes
+      them.
+  - bugfix: slimes can now properly drain basic mobs and simple animals that they
+      can damage
+  - bugfix: slimes can drift in zero gravity
+  - image: Throwing things has now a sprite animation forward your target.
+  - sound: Throwing things also has a sound accompagnying it.
+  - spellcheck: Dwarves don't throw things hard like hulks. Instead their throws are
+      described as "flimsily".
+  - image: resprited the Pirate/Sailor costumes, the pirate jacket, and the pirate
+      spacesuit
+  - bugfix: Fixed integrated circuit speech logging
+  Vishenka0704:
+  - admin: The ability to export a part(or z-level) of the map has been added.
+  vinylspiders:
+  - bugfix: fixes a rare bug that could result in spawning without any equipment
+  - spellcheck: updates discord url in panic bunker message
+  - admin: opfor panel 'approve objective' button is no longer annoyingly in the way
+      of the objective title text
+  - qol: when you send a message as an admin via the opfor panel and no one is handling
+      the opfor, it will automatically mark you as handling it
