@@ -9,7 +9,8 @@
 	/// The VOX word(s) that were previously inputed.
 	var/vox_word_string
 
-/mob/living/silicon/ai/proc/get_path(vox_type)
+/// Returns a list of vox sounds based on the sound_type passed in
+/mob/living/silicon/ai/proc/get_vox_sounds(vox_type)
 	switch(vox_type)
 		if(VOX_NORMAL)
 			return GLOB.vox_sounds
