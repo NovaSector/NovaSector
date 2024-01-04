@@ -2884,7 +2884,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "ho" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
@@ -4902,7 +4902,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "mh" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -6599,6 +6598,18 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"zz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/stripes/white/line{
+	layer = 2.52
+	},
+/obj/machinery/duct,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/eng)
 "BS" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/stripes/corner{
@@ -9373,7 +9384,7 @@ kQ
 lp
 lp
 mh
-mF
+zz
 nh
 nG
 oh
@@ -9432,7 +9443,7 @@ kP
 lq
 lJ
 mi
-mF
+zz
 ni
 nI
 oi
