@@ -14,8 +14,6 @@
 	the hostile creatures, and the ash drakes swooping down from the cloudless skies, all you can wish for is the feel of soft grass between your toes and \
 	the fresh air of Earth. These thoughts are dispelled by yet another recollection of how you got here... "
 	spawner_job_path = /datum/job/hermit
-	quirks_enabled = TRUE // NOVA EDIT ADDITION - ghost role loadouts
-	random_appearance = FALSE // NOVA EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/hermit/Initialize(mapload)
 	. = ..()
@@ -81,8 +79,6 @@
 	flavour_text = "Ch'yea. You came here, like, on spring break, hopin' to pick up some bangin' hot chicks, y'knaw?"
 	spawner_job_path = /datum/job/beach_bum
 	outfit = /datum/outfit/beachbum
-	quirks_enabled = TRUE // NOVA EDIT ADDITION - ghost role loadouts
-	random_appearance = FALSE // NOVA EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/beach/lifeguard
 	you_are_text = "You're a spunky lifeguard!"
@@ -123,7 +119,6 @@
 	flavour_text = "Time to mix drinks and change lives. Smoking space drugs makes it easier to understand your patrons' odd dialect."
 	spawner_job_path = /datum/job/space_bartender
 	outfit = /datum/outfit/spacebartender
-	random_appearance = FALSE // NOVA EDIT ADDITION
 
 /datum/outfit/spacebartender
 	name = "Space Bartender"
@@ -159,8 +154,6 @@
 	and eventually bring life to this desolate planet while waiting for contact from your creators. \
 	Estimated time of last contact: Deployment, 5000 millennia ago."
 	spawner_job_path = /datum/job/lifebringer
-	restricted_species = list(/datum/species/pod) //NOVA EDIT ADDITION
-	random_appearance = FALSE // NOVA EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/seed_vault/Initialize(mapload)
 	. = ..()
@@ -228,8 +221,6 @@
 	spawner_job_path = /datum/job/ash_walker
 	var/datum/team/ashwalkers/team
 	var/obj/structure/ash_walker_eggshell/eggshell
-	restricted_species = list(/datum/species/lizard/ashwalker) //NOVA EDIT ADDITION
-	random_appearance = FALSE // NOVA EDIT ADDITION
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/Destroy()
 	eggshell = null
@@ -243,10 +234,15 @@
 	return FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
-	// NOVA EDIT MOVE
-	// Moved lizard name randomizer before parent call (so character names are preserved)
-	spawned_human.fully_replace_character_name(null,random_unique_lizard_name(gender))
-	quirks_enabled = TRUE //NOVA EDIT ADDITION
+	/*
+	 * 2024/01/03 TODO:
+	 * MOVE THE MODULAR STUFF IN THIS PROC TO
+	 * /modular_nova/master_files/code/modules/mob_spawn/ghost_roles/mining_roles.dm
+	 * There's an ashwalker camp section ready for you to slot it into
+	 */
+	// NOVA EDIT BEGIN
+	spawned_human.fully_replace_character_name(null,random_unique_lizard_name(gender)) // NOVA EDIT MOVE - Moving before parent call prevents char name randomization
+	quirks_enabled = TRUE // NOVA EDIT ADDITION - ghost role quirks
 	. = ..()
 	// NOVA EDIT END
 	to_chat(spawned_human, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Invade the strange structure of the outsiders if you must. Do not cause unnecessary destruction, as littering the wastes with ugly wreckage is certain to not gain you favor. Glory to the Necropolis!</b>")
@@ -329,24 +325,9 @@
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Lavaland Syndicate Comms Agent"
-// NOVA EDIT BEGIN - Comms Agent outfit edit
-	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
-	ears = /obj/item/radio/headset/interdyne/comms
-// NOVA EDIT END
 	suit = /obj/item/clothing/suit/armor/vest
 	mask = /obj/item/clothing/mask/chameleon/gps
 	r_hand = /obj/item/melee/energy/sword/saber
-
-// NOVA ADD - Comms Agent Space
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
-	outfit = /datum/outfit/lavaland_syndicate/comms/space
-	loadout_enabled = TRUE
-	quirks_enabled = TRUE
-	random_appearance = FALSE
-
-/datum/outfit/lavaland_syndicate/comms/space
-	ears = /obj/item/radio/headset/syndicate/alt
-// NOVA ADD END
 
 /obj/item/clothing/mask/chameleon/gps/Initialize(mapload)
 	. = ..()

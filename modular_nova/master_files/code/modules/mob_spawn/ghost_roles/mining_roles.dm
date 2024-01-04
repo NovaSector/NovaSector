@@ -1,4 +1,52 @@
-/// Interdyne Planetary Base
+/// Lavaland Hermit
+
+/obj/effect/mob_spawn/ghost_role/human/hermit
+	quirks_enabled = TRUE // ghost role quirks
+	random_appearance = FALSE // ghost role prefs
+
+/// Beach Dome
+
+/obj/effect/mob_spawn/ghost_role/human/beach
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+
+/// Space Bar
+
+/obj/effect/mob_spawn/ghost_role/human/bartender
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+
+/// Preserved Terrarium
+
+/obj/effect/mob_spawn/ghost_role/human/seed_vault
+	restricted_species = list(/datum/species/pod)
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+
+/// Ashwalker Camp
+
+/obj/effect/mob_spawn/ghost_role/human/ash_walker
+	restricted_species = list(/datum/species/lizard/ashwalker)
+	random_appearance = FALSE
+
+/// Listening Outpost
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
+	outfit = /datum/outfit/lavaland_syndicate/comms/space
+	loadout_enabled = TRUE
+	quirks_enabled = TRUE
+	random_appearance = FALSE
+
+// OUTFITS
+
+/datum/outfit/lavaland_syndicate/comms
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
+	ears = /obj/item/radio/headset/interdyne/comms
+
+/datum/outfit/lavaland_syndicate/comms/space
+	ears = /obj/item/radio/headset/syndicate/alt
+
+/// Interdyne Planetary Base(s)
 
 // SPAWNERS
 
@@ -47,7 +95,7 @@
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
-//OUTFITS//
+// OUTFITS
 
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Bioweapon Scientist"
@@ -64,7 +112,7 @@
 	ears = /obj/item/radio/headset/interdyne
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/gun/ballistic/automatic/pistol
-	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil // NOVA EDIT - Original: /obj/item/gun/ballistic/rifle/sniper_rifle
+	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
 	implants = list(/obj/item/implant/weapons_auth)
 	var/jobtype = /datum/job/interdyne_planetary_base
 

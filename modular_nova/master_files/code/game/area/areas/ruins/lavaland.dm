@@ -8,10 +8,7 @@
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "syndie-control"
 	ambience_index = AMBIENCE_DANGER
-	ambient_buzz = list(
-		'sound/ambience/magma.ogg',
-		'modular_nova/modules/encounters/sounds/gear_loop.ogg',
-	)
+	ambient_buzz = 'sound/ambience/magma.ogg'
 	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
 
 /area/ruin/interdyne_planetary_base/Initialize(mapload)
