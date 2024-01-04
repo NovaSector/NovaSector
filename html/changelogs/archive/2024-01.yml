@@ -91,3 +91,38 @@
       of the objective title text
   - qol: when you send a message as an admin via the opfor panel and no one is handling
       the opfor, it will automatically mark you as handling it
+2024-01-04:
+  FearfulFurnishing:
+  - rscadd: Added bone greaves foot clothing which are made from one sinew and two
+      bones.
+  LemonInTheDark, Donglesplonge:
+  - image: Redoes fov "mask" sprites. They're clean, have a very pleasant dithering
+      effect, and look real fuckin good!
+  - rscdel: Changed FOV, it no longer hides mobs, instead it blurs the hidden area,
+      and makes it a bit darker/oversaturated
+  NovaBot13:
+  - bugfix: fixes some runtimes in pathfinding code, as well as one in the give direct
+      control admin verb
+  - rscadd: Reworked Binoculars to function like a scope from long-range rifles. They
+      also can be used while moving, albeit that'll slow you down significantly.
+  - rscadd: Authentic mothic softcaps can be found in the "Mothic Pioneer" curator
+      kit, which googles can also used to look into the distance. The date on the
+      boxed kit has been updated to match "muh lore".
+  - qol: Using a scope (and now binocs or moth cap) won't hide your mouse pointer
+      away now, so that you won't slip out of the game screen and close the game tab
+      by accident.
+  - image: Improved sprites for sailor school uniform
+  Zergspower:
+  - bugfix: Ruins - Space Hotel should now run without runtimes for atmos
+  - bugfix: Ruins - Space Hotel disposals actually works
+  goobliner:
+  - rscdel: Everybody can now use headshots
+  yooriss:
+  - balance: Light Drinker and Drunken Resilience quirks can no longer be chosen together.
+  - balance: Oversized and Freerunning quirks can no longer be chosen together.
+  - balance: The Oversized Rights Enclave (ORE) has successfully petitioned Nanotrasen
+      to install a galactic minimum standard upper-joist crumple zone in their station
+      airlocks, meaning that oversized individuals will no longer take brain damage
+      from hitting their head. All other safety warnings still apply.
+  - bugfix: Oversized and Settler can now no longer be chosen together to negate the
+      Oversized hunger mod penalty.
