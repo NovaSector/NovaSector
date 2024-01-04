@@ -157,6 +157,7 @@
 	// NOVA EDIT CHANGE START
 	/* ORIGINAL:
 	if(GLOB.vox_sounds[word])
+
 		var/sound_file = GLOB.vox_sounds[word]
 		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
 	*/
