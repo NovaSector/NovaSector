@@ -4,8 +4,8 @@
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/shrink
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/glass=SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
 	)
 	construction_time = 120
 	category = list(
@@ -37,8 +37,8 @@
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/affectionmodule
 	materials = list(
-		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 40
 	category = list(
@@ -112,7 +112,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/robot_suit
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	construction_time = 8 SECONDS
 	category = list(
@@ -125,7 +125,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/chest/robot
 	materials = list(
-		/datum/material/iron= SHEET_MATERIAL_AMOUNT * 8,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 8,
 	)
 	construction_time = 12 SECONDS
 	category = list(
@@ -138,7 +138,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/head/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 4 SECONDS
 	category = list(
@@ -151,7 +151,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/arm/left/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
@@ -164,7 +164,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/arm/right/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
@@ -177,7 +177,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/leg/left/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
@@ -190,7 +190,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/leg/right/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
