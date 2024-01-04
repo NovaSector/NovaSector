@@ -2619,6 +2619,7 @@
 	pixel_x = 8;
 	pixel_y = 5
 	},
+/obj/item/mmi/posibrain/syndie/interdyne,
 /obj/item/storage/box/beakers/bluespace,
 /obj/structure/table/glass/plasmaglass,
 /turf/open/floor/iron/dark/textured_large,
@@ -2695,7 +2696,7 @@
 	},
 /obj/machinery/vending/medical/syndicate_access{
 	onstation = 0;
-	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/mmi/syndie=3);
+	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/mmi/syndie/interdyne=3);
 	extended_inventory = 1
 	},
 /turf/open/floor/iron/dark/textured_large,

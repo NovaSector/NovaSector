@@ -2703,11 +2703,11 @@
 "lF" = (
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
 /obj/structure/table,
-/obj/item/mmi/posibrain{
+/obj/item/mmi/posibrain/syndie/ds2{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/mmi/posibrain{
+/obj/item/mmi/posibrain/syndie/ds2{
 	pixel_x = -4
 	},
 /turf/open/floor/iron/dark,
