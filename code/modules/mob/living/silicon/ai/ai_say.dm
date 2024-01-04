@@ -154,9 +154,14 @@
 		if(istype(found_AI))
 			the_AI = found_AI
 	// NOVA ADDITION END
-	if(the_AI.get_path(the_AI.vox_type)[word]) // NOVA EDIT - VOX types
-		var/sound_file = the_AI.get_path(the_AI.vox_type)[word] // NOVA EDIT CHANGE - VOX types ORIGINAL: var/sound_file = GLOB.vox_sounds[word]
-		// NOVA ADDITION START - Volume for the voices
+	// NOVA EDIT CHANGE START
+	/* ORIGINAL:
+	if(GLOB.vox_sounds[word])
+		var/sound_file = GLOB.vox_sounds[word]
+		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
+	*/
+	if(the_AI.get_path(the_AI.vox_type)[word])
+		var/sound_file = the_AI.get_path(the_AI.vox_type)[word]
 		var/volume = 100
 		switch(the_AI.vox_type)
 			if(VOX_HL)
@@ -166,8 +171,8 @@
 		// If the vox stuff are disabled, or we failed getting the word from the list, just early return.
 		if(!sound_file)
 			return FALSE
-		// NOVA ADDITION END
-		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = volume) // NOVA EDIT CHANGE - Volume ORIGINAL: var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
+		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = volume)
+	// NOVA EDIT CHANGE END
 		voice.status = SOUND_STREAM
 
 	// If there is no single listener, broadcast to everyone in the same z level
