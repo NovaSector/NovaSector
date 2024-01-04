@@ -12,7 +12,7 @@
 	build_path = /obj/item/ammo_casing/strilka310/rubber
 	category = list(
 		RND_CATEGORY_HACKED,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 // 4.6x30mm - SMG round, used in the WT550 and in numerous modular guns as a weaker alternative to 9mm.
@@ -27,7 +27,7 @@
 	build_path = /obj/item/ammo_casing/c46x30mm
 	category = list(
 		RND_CATEGORY_HACKED,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 /datum/design/c46x30mm_rubber
@@ -40,7 +40,7 @@
 	build_path = /obj/item/ammo_casing/c46x30mm/rubber
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 // .45
@@ -55,7 +55,7 @@
 	build_path = /obj/item/ammo_casing/c45
 	category = list(
 		RND_CATEGORY_HACKED,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 /datum/design/c45_rubber
@@ -68,7 +68,7 @@
 	build_path = /obj/item/ammo_casing/c45/rubber
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 // 10mm
@@ -82,7 +82,7 @@
 	build_path = /obj/item/ammo_casing/c10mm
 	category = list(
 		RND_CATEGORY_HACKED,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 /datum/design/c10mm_rubber
@@ -95,5 +95,5 @@
 	build_path = /obj/item/ammo_casing/c10mm/rubber
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)

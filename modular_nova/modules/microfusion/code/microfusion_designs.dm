@@ -83,7 +83,7 @@
 	build_path = /obj/item/stock_parts/cell/microfusion
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_CELLS // i kinda hate this but what can you do
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_CELLS,
 	)
 
 /datum/design/microfusion/cell/enhanced

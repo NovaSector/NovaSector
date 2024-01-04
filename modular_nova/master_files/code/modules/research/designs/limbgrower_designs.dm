@@ -20,7 +20,7 @@
 	build_path = /obj/item/organ/internal/tongue/snail
 	category = list(
 		SPECIES_SNAIL,
-		RND_CATEGORY_INITIAL
+		RND_CATEGORY_INITIAL,
 	)
 
 /datum/design/liver/snail
@@ -29,7 +29,7 @@
 	build_path = /obj/item/organ/internal/liver/snail
 	category = list(
 		SPECIES_SNAIL,
-		RND_CATEGORY_INITIAL
+		RND_CATEGORY_INITIAL,
 	)
 
 /datum/design/heart/snail
@@ -38,5 +38,5 @@
 	build_path = /obj/item/organ/internal/heart/snail
 	category = list(
 		SPECIES_SNAIL,
-		RND_CATEGORY_INITIAL
+		RND_CATEGORY_INITIAL,
 	)

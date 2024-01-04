@@ -29,7 +29,7 @@
 	)
 	category = list(
 		RND_CATEGORY_HACKED,
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
 /obj/item/electropack/shockcollar/attack_hand(mob/user)

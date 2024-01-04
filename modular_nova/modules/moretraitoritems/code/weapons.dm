@@ -35,7 +35,7 @@
 	build_path = /obj/item/ammo_box/a357/peacemaker
 	category = list(
 		RND_CATEGORY_HACKED,
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 
 /obj/item/ammo_box/a357/peacemaker
