@@ -190,7 +190,7 @@
 			if(message1 == "" && message2 == "")
 				return
 
-	. += emissive_appearance('modular_skyrat/modules/aesthetics/status_display/icons/status_display.dmi', "outline", src, alpha = src.alpha) // NOVA EDIT CHANGE - AESTHETICS
+	. += emissive_appearance('modular_nova/modules/aesthetics/status_display/icons/status_display.dmi', "outline", src, alpha = src.alpha) // NOVA EDIT CHANGE - AESTHETICS
 
 // Timed process - performs nothing in the base class
 /obj/machinery/status_display/process()

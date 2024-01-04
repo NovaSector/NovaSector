@@ -601,7 +601,7 @@
 2021-08-21:
   GoldenAlpharex:
   - code_imp: Skyrat coders will now be able to have the building tool detect their
-      modifications in the modular_skyrat directory, helping them re-compile with
+      modifications in the modular_nova directory, helping them re-compile with
       less pain involved.
   MMMiracles:
   - bugfix: Solar assemblies can no longer be built on top of existing solar panels.

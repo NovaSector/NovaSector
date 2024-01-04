@@ -184,7 +184,7 @@
 		for(var/option in GLOB.cyborg_model_list)
 			var/obj/item/robot_model/model = GLOB.cyborg_model_list[option]
 			var/model_icon = initial(model.cyborg_base_icon)
-			GLOB.cyborg_base_models_icon_list[option] = image(icon = 'modular_skyrat/master_files/icons/mob/robots.dmi', icon_state = model_icon) // NOVA EDIT - CARGO BORGS - ORIGINAL: model_icons[option] = image(icon = 'icons/mob/robots.dmi', icon_state = model_icon)
+			GLOB.cyborg_base_models_icon_list[option] = image(icon = 'modular_nova/master_files/icons/mob/robots.dmi', icon_state = model_icon) // NOVA EDIT - CARGO BORGS - ORIGINAL: model_icons[option] = image(icon = 'icons/mob/robots.dmi', icon_state = model_icon)
 	// NOVA EDIT END
 
 	var/input_model = show_radial_menu(src, src, GLOB.cyborg_base_models_icon_list, radius = 42)

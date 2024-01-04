@@ -19,9 +19,9 @@
 			RESKIN_WORN_ICON_STATE = "black"
 		),
 		"Peacekeeper Gloves" = list(
-			RESKIN_ICON = 'modular_skyrat/master_files/icons/obj/clothing/gloves.dmi',
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
 			RESKIN_ICON_STATE = "peacekeeper_gloves",
-			RESKIN_WORN_ICON = 'modular_skyrat/master_files/icons/mob/clothing/hands.dmi',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
 			RESKIN_WORN_ICON_STATE = "peacekeeper"
 		)
 	)

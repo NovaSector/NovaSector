@@ -1,4 +1,4 @@
-/* NOVA EDIT REMOVAL BEGIN - JUKEBOX - MOVED TO 'modular_skyrat/modules/jukebox/code/dance_machine.dm'
+/* NOVA EDIT REMOVAL BEGIN - JUKEBOX - MOVED TO 'modular_nova/modules/jukebox/code/dance_machine.dm'
 /// Helper macro to check if the passed mob has jukebox sound preference enabled
 #define HAS_JUKEBOX_PREF(mob) (!QDELETED(mob) && !isnull(mob.client) && mob.client.prefs.read_preference(/datum/preference/toggle/sound_jukebox))
 

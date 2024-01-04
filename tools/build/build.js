@@ -192,7 +192,7 @@ export const DmTarget = new Juke.Target({
     'html/**',
     'icons/**',
     'interface/**',
-    'modular_skyrat/**', ///NOVA EDIT ADDITION - Making the CBT work
+    'modular_nova/**', ///NOVA EDIT ADDITION - Making the CBT work
     `${DME_NAME}.dme`,
     NamedVersionFile,
   ],
@@ -328,7 +328,7 @@ export const TguiTarget = new Juke.Target({
     'tgui/.yarn/install-target',
     'tgui/webpack.config.js',
     'tgui/**/package.json',
-    'tgui/packages/**/*.+(js|cjs|ts|tsx|scss)',
+    'tgui/packages/**/*.+(js|cjs|ts|tsx|jsx|scss)',
   ],
   outputs: [
     'tgui/public/tgui.bundle.css',

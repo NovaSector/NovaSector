@@ -44,7 +44,7 @@
 			playsound(user, 'sound/weapons/genhit2.ogg', 50, TRUE)
 		return BRUTELOSS
 
-//NOVA EDIT REMOVAL BEGIN -DIGI_BLOODSOLE - (Moved to modular_skyrat/modules/digi_shoeblood/code/modules/clothing/shoes/_shoes.dm)
+//NOVA EDIT REMOVAL BEGIN -DIGI_BLOODSOLE - (Moved to modular_nova/modules/digi_shoeblood/code/modules/clothing/shoes/_shoes.dm)
 /*
 /obj/item/clothing/shoes/worn_overlays(mutable_appearance/standing, isinhands = FALSE)
 	. = ..()

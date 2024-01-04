@@ -112,10 +112,10 @@
 		if(BRUTE)
 			if(damage_amount)
 				//NOVA EDIT ADDITION - CREDITS TO WHITEDREAM(valtos)
-				playsound(src, pick('modular_skyrat/master_files/sound/effects/metalblock1.wav', 'modular_skyrat/master_files/sound/effects/metalblock2.wav', \
-									'modular_skyrat/master_files/sound/effects/metalblock3.wav', 'modular_skyrat/master_files/sound/effects/metalblock4.wav', \
-									'modular_skyrat/master_files/sound/effects/metalblock5.wav', 'modular_skyrat/master_files/sound/effects/metalblock6.wav', \
-									'modular_skyrat/master_files/sound/effects/metalblock7.wav', 'modular_skyrat/master_files/sound/effects/metalblock8.wav'), 50, TRUE)
+				playsound(src, pick('modular_nova/master_files/sound/effects/metalblock1.wav', 'modular_nova/master_files/sound/effects/metalblock2.wav', \
+									'modular_nova/master_files/sound/effects/metalblock3.wav', 'modular_nova/master_files/sound/effects/metalblock4.wav', \
+									'modular_nova/master_files/sound/effects/metalblock5.wav', 'modular_nova/master_files/sound/effects/metalblock6.wav', \
+									'modular_nova/master_files/sound/effects/metalblock7.wav', 'modular_nova/master_files/sound/effects/metalblock8.wav'), 50, TRUE)
 				//NOVA EDIT END
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
@@ -126,7 +126,7 @@
 /atom/proc/hulk_damage()
 	return 150 //the damage hulks do on punches to this atom, is affected by melee armor
 
-/atom/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, armor_penetration = 0) //used by attack_alien, attack_animal, and attack_slime
+/atom/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, armor_penetration = 0) //used by attack_alien, attack_animal
 	if(!uses_integrity)
 		CRASH("unimplemented /atom/proc/attack_generic()!")
 	user.do_attack_animation(src)

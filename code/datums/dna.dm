@@ -1,4 +1,4 @@
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/code/datums/dna.dm)
 /*
 /**
  * Some identity blocks (basically pieces of the unique_identity string variable of the dna datum, commonly abbreviated with ui)
@@ -233,7 +233,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	for(var/blocknum in 1 to DNA_UNI_IDENTITY_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
 
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/code/datums/dna.dm)
 /*
 /datum/dna/proc/generate_unique_features()
 	. = ""
@@ -373,7 +373,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(DNA_HAIRSTYLE_BLOCK)
 			set_uni_identity_block(blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
 
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/code/datums/dna.dm)
 /*
 /datum/dna/proc/update_uf_block(blocknumber)
 	if(!blocknumber)
@@ -687,7 +687,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		else
 			gender = PLURAL
 
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_skyrat/modules/customization/code/datums/dna.dm)
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular_nova/modules/customization/code/datums/dna.dm)
 /*
 /mob/living/carbon/human/updateappearance(icon_update = TRUE, mutcolor_update = FALSE, mutations_overlay_update = FALSE)
 	..()

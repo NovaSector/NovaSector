@@ -215,28 +215,6 @@
 			ForceContractDisease(D)
 		return TRUE
 
-
-/mob/living/carbon/attack_slime(mob/living/simple_animal/slime/M, list/modifiers)
-	if(..()) //successful slime attack
-		if(M.powerlevel > 0)
-			var/stunprob = M.powerlevel * 7 + 10  // 17 at level 1, 80 at level 10
-			if(prob(stunprob))
-				M.powerlevel -= 3
-				if(M.powerlevel < 0)
-					M.powerlevel = 0
-
-				visible_message(span_danger("The [M.name] shocks [src]!"), \
-				span_userdanger("The [M.name] shocks you!"))
-
-				do_sparks(5, TRUE, src)
-				var/power = M.powerlevel + rand(0,3)
-				Paralyze(power * 2 SECONDS)
-				set_stutter_if_lower(power * 2 SECONDS)
-				if (prob(stunprob) && M.powerlevel >= 8)
-					adjustFireLoss(M.powerlevel * rand(6,10))
-					updatehealth()
-		return 1
-
 /**
  * Really weird proc that attempts to dismebmer the passed zone if it is at max damage
  * Unless the attacker is an NPC, in which case it disregards the zone and picks a random one
@@ -490,7 +468,7 @@
 			visible_message(span_warning("[helper] tries to boop [src] on the nose, but [p_they()] move[p_s()] out of the way."))
 			return
 		else
-			playsound(src, 'modular_skyrat/modules/emotes/sound/emotes/Nose_boop.ogg', 50, 0)
+			playsound(src, 'modular_nova/modules/emotes/sound/emotes/Nose_boop.ogg', 50, 0)
 			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && get_location_accessible(src, BODY_ZONE_PRECISE_MOUTH))
 				to_chat(src, span_warning("[helper] boops you on your sensitive nose, sending you to the ground!"))
 				src.Knockdown(20)

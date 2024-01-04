@@ -10,7 +10,7 @@
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
 | Git / GitHub cheatsheet   | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization   | [./modular_skyrat/readme.md](./modular_skyrat/readme.md)            |
+| Guide to Modularization   | [./modular_nova/readme.md](./modular_nova/readme.md)            |
 | Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
 | Code                      | [https://github.com/GalacticStation/GalaxiaStation](https://github.com/GalacticStation/GalaxiaStation)    |
 | Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
@@ -31,7 +31,7 @@ You are responsible for the testing of your content and providing proof of such 
 ## DEVELOPMENT FLOWCHART
 ![image](https://i.imgur.com/aJnE4WT.png)
 
-[Modularisation Guide](./modular_skyrat/readme.md)
+[Modularisation Guide](./modular_nova/readme.md)
 
 ## DOWNLOADING
 [Downloading](.github/guides/DOWNLOADING.md)

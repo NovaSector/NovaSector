@@ -28,7 +28,7 @@
 /area/ruin/unpowered/ash_walkers)
 "bH" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/gun/ballistic/bow/longbow,
@@ -125,7 +125,7 @@
 /area/ruin/unpowered/ash_walkers)
 "hA" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/structure/stone_tile/slab,
@@ -172,7 +172,7 @@
 /area/ruin/unpowered/ash_walkers)
 "ij" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/reagent_containers/cup/glass/bottle/lizardwine,
@@ -397,7 +397,7 @@
 	dir = 1
 	},
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/screwdriver/ashwalker,
@@ -446,7 +446,7 @@
 /area/ruin/unpowered/ash_walkers)
 "qr" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl{
@@ -513,7 +513,7 @@
 /area/ruin/unpowered/ash_walkers)
 "sl" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/knife/combat/bone{
@@ -544,7 +544,7 @@
 /area/ruin/unpowered/ash_walkers)
 "tg" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/reagent_containers/cup/bottle/nutrient/rh{
@@ -572,7 +572,7 @@
 /area/ruin/unpowered/ash_walkers)
 "tl" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/spear/bonespear,
@@ -1065,7 +1065,7 @@
 /area/ruin/unpowered/ash_walkers)
 "Nf" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/claymore/bone,
@@ -1089,7 +1089,7 @@
 /area/ruin/unpowered/ash_walkers)
 "NB" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/forging/billow/primitive,
@@ -1179,7 +1179,7 @@
 /area/ruin/unpowered/ash_walkers)
 "Pr" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/bedsheet/black{
@@ -1198,7 +1198,7 @@
 /area/ruin/unpowered/ash_walkers)
 "PB" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/stack/sheet/iron/twenty,
@@ -1219,7 +1219,7 @@
 /area/ruin/unpowered/ash_walkers)
 "PG" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/forging/billow/primitive,
@@ -1287,7 +1287,7 @@
 /area/ruin/unpowered/ash_walkers)
 "SE" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/secateurs,
@@ -1436,7 +1436,7 @@
 /area/ruin/unpowered/ash_walkers)
 "Xe" = (
 /obj/structure/rack/shelf{
-	icon = 'modular_skyrat/modules/mapping/icons/unique/furniture.dmi';
+	icon = 'modular_nova/modules/mapping/icons/unique/furniture.dmi';
 	icon_state = "empty_shelf_1"
 	},
 /obj/item/reagent_containers/cup/glass/bottle/small{

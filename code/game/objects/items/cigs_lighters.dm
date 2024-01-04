@@ -847,7 +847,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				span_notice("You hear a quiet click, as [user] shuts off [src] without even looking at what [user.p_theyre()] doing. Wow."),
 				span_notice("You quietly shut off [src] without even looking at what you're doing. Wow.")
 			)
-			playsound(src, 'modular_skyrat/master_files/sound/items/zippo_close.ogg', 50, TRUE) // NOVA EDIT ADDITION
+			playsound(src, 'modular_nova/master_files/sound/items/zippo_close.ogg', 50, TRUE) // NOVA EDIT ADDITION
 		else
 			user.visible_message(
 				span_notice("[user] quietly shuts off [src]."),
@@ -861,7 +861,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			span_notice("Without even breaking stride, [user] flips open and lights [src] in one smooth movement."),
 			span_notice("Without even breaking stride, you flip open and light [src] in one smooth movement.")
 		)
-		playsound(src, 'modular_skyrat/master_files/sound/items/zippo_open.ogg', 50, TRUE) // NOVA EDIT ADDITION
+		playsound(src, 'modular_nova/master_files/sound/items/zippo_open.ogg', 50, TRUE) // NOVA EDIT ADDITION
 		return
 
 	var/hand_protected = FALSE
@@ -1053,7 +1053,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper E-Cigarette"
 	desc = "A classy and highly sophisticated electronic cigarette, for classy and dignified gentlemen. A warning label reads \"Warning: Do not fill with flammable materials.\""//<<< i'd vape to that.
 	icon = 'icons/obj/clothing/masks.dmi'
-	worn_icon_muzzled = 'modular_skyrat/master_files/icons/mob/clothing/mask.dmi' //NOVA EDIT: ADDITION
+	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask.dmi' //NOVA EDIT: ADDITION
 	icon_state = "vape"
 	worn_icon_state = "vape_worn"
 	greyscale_config = /datum/greyscale_config/vape

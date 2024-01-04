@@ -3,15 +3,15 @@ name: PR Labeler
 on:
   - pull_request_target
 
-
 jobs:
   Label:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Apply labels based on changed files
-        if: github.event_name != 'push'
+        if: ${{ github.event_name != 'push'}}
         uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"

@@ -569,7 +569,7 @@
 		if (money_added)
 			to_chat(user, span_notice("You stuff the contents into the card! They disappear in a puff of bluespace smoke, adding [money_added] worth of credits to the linked account."))
 		return
-	/// NOVA EDIT BEGINS - Trim Tokens - Proc defined in modular_skyrat/modules/trim_tokens/code/cards_id.dm
+	/// NOVA EDIT BEGINS - Trim Tokens - Proc defined in modular_nova/modules/trim_tokens/code/cards_id.dm
 	else if(istype(W, /obj/item/trim_token))
 		apply_token(W, user)
 		return
@@ -1005,7 +1005,7 @@
 	if(istype(old_loc, /obj/item/storage/wallet))
 		UnregisterSignal(old_loc, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
 
-	if(istype(old_loc, /obj/item/modular_computer/pda))
+	if(istype(old_loc, /obj/item/modular_computer))
 		UnregisterSignal(old_loc, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
 
 	//New loc
@@ -1013,7 +1013,7 @@
 		RegisterSignal(loc, COMSIG_ITEM_EQUIPPED, PROC_REF(update_intern_status))
 		RegisterSignal(loc, COMSIG_ITEM_DROPPED, PROC_REF(remove_intern_status))
 
-	if(istype(loc, /obj/item/modular_computer/pda))
+	if(istype(loc, /obj/item/modular_computer))
 		RegisterSignal(loc, COMSIG_ITEM_EQUIPPED, PROC_REF(update_intern_status))
 		RegisterSignal(loc, COMSIG_ITEM_DROPPED, PROC_REF(remove_intern_status))
 

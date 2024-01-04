@@ -20,13 +20,13 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 //NOVA EDIT - ADDITION - ERP ICONS FIX
 
 GLOBAL_LIST_INIT(available_erp_ui_styles, list(
-	"Midnight" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/midnight.dmi',
-	"Retro" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/retro.dmi',
-	"Plasmafire" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/plasmafire.dmi',
-	"Slimecore" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/slimecore.dmi',
-	"Operative" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/operative.dmi',
-	"Clockwork" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/clockwork.dmi',
-	"Glass" = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/glass.dmi'
+	"Midnight" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/midnight.dmi',
+	"Retro" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/retro.dmi',
+	"Plasmafire" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/plasmafire.dmi',
+	"Slimecore" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/slimecore.dmi',
+	"Operative" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/operative.dmi',
+	"Clockwork" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/clockwork.dmi',
+	"Glass" = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/inventory_icons/glass.dmi'
 ))
 
 //NOVA EDIT - ADDITION - ERP ICONS FIX - END

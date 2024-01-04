@@ -1,5 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend, useLocalState } from '../backend';
+import { useBackend } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -16,6 +16,7 @@ import {
 } from '../components';
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
+import { useState } from 'react';
 
 export const NifPanel = (props) => {
   const { act, data } = useBackend();
@@ -26,7 +27,7 @@ export const NifPanel = (props) => {
     max_power,
     current_theme,
   } = data;
-  const [settingsOpen, setSettingsOpen] = useLocalState('settingsOpen', false);
+  const [settingsOpen, setSettingsOpen] = useState(0);
 
   return (
     <Window
@@ -258,7 +259,7 @@ const NifSettings = (props) => {
 };
 
 const NifProductNotes = (props) => {
-  const { act, data } = useBackend(t);
+  const { act, data } = useBackend();
   const { product_notes } = data;
   return <BlockQuote>{product_notes}</BlockQuote>;
 };

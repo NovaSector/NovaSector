@@ -21,7 +21,6 @@
 		if(SOUTH)
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
-			SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
 		if(EAST)
 			target_pixel_x = 16
 		if(WEST)
@@ -36,12 +35,10 @@
 			target_pixel_x = 16
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
-			SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
 		if(SOUTHWEST)
 			target_pixel_x = -16
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
-			SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
 	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration)
 
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter
@@ -271,7 +268,7 @@
 	name = "telekinetic force"
 	//icon_state = "empdisable" //Non-Skyrat version
 	icon_state = "telekinesis_throw" //NOVA EDIT, was "empdisable"
-	icon = 'modular_skyrat/master_files/icons/effects/tele_effects.dmi' //Skyrat Addition
+	icon = 'modular_nova/master_files/icons/effects/tele_effects.dmi' //Skyrat Addition
 	duration = 5
 
 /obj/effect/temp_visual/emp

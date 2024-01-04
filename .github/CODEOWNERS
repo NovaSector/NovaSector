@@ -8,11 +8,11 @@
 /.github/workflows/ @GoldenAlpharex
 /SQL/ @GoldenAlpharex
 /tools/ @GoldenAlpharex
-/modular_skyrat/ @GoldenAlpharex
+/modular_nova/ @GoldenAlpharex
 /icons/ @GoldenAlpharex
 
 # Jolly-66
-/modular_skyrat/modules/mapping @Jolly-66
+/modular_nova/modules/mapping @Jolly-66
 /tools/UpdatePaths @Jolly-66
 
 # Multiple Owners

@@ -362,8 +362,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		// SKYRAT ADDITION - More mask variations
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.dna.species.mutant_bodyparts["snout"])
-			icon = 'modular_skyrat/master_files/icons/obj/clothing/masks.dmi'
-			worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/mask_muzzled.dmi'
+			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
 			if(human_user.dna.species.mutant_bodyparts["snout"][MUTANT_INDEX_NAME] in avian_snouts)
 				icon_state = "[options[choice]]_b"
