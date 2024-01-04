@@ -1,6 +1,8 @@
 /obj/item/circuitboard/machine/skill_station
-	var/static/list/skillsofts_name_paths = list(/obj/machinery/skill_station = "glass",
-		/obj/machinery/skill_station/plasmaglass = "plasmaglass")
+	var/static/list/skillsofts_name_paths = list(
+		/obj/machinery/skill_station = "glass",
+		/obj/machinery/skill_station/plasmaglass = "plasmaglass",
+	)
 	needs_anchored = FALSE
 	var/is_special_type = FALSE
 

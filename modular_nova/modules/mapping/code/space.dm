@@ -179,12 +179,3 @@
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
-//Disabled due to the existence of DS-2.
-/*
-/datum/map_template/ruin/space/nova/forgottenship
-	name = "CSBC-12"
-	id = "forgottenship"
-	description = "Cybersun would like to remind it's employees that any battle cruiser will be apropriately maintained, as will its crew."
-	suffix = "forgottenship_nova.dmm"
-	always_place = TRUE
-*/

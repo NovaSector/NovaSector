@@ -58,7 +58,8 @@
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
-		/obj/item/healthanalyzer/simple/disease=1)
+		/obj/item/healthanalyzer/simple/disease=1,
+	)
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/interdyne
 	shoes = /obj/item/clothing/shoes/combat
@@ -75,7 +76,6 @@
 		id_card.registered_name = syndicate.real_name
 		id_card.update_label()
 		id_card.update_icon()
-		//id_card.assignment = id_trim
 
 	handlebank(syndicate)
 	return ..()
@@ -87,7 +87,8 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/healthanalyzer/simple/disease=1,
-		/obj/item/clothing/suit/toggle/labcoat/interdyne=1)
+		/obj/item/clothing/suit/toggle/labcoat/interdyne=1,
+	)
 
 /datum/outfit/interdyne_planetary_base/shaftminer
 	name = "Interdyne Shaft Miner"
@@ -102,7 +103,8 @@
 		/obj/item/mining_voucher=1,
 		/obj/item/t_scanner/adv_mining_scanner/lesser=1,
 		/obj/item/gun/energy/recharge/kinetic_accelerator=1,
-		/obj/item/stack/marker_beacon/ten=1)
+		/obj/item/stack/marker_beacon/ten=1,
+	)
 
 /datum/outfit/interdyne_planetary_base/shaftminer/deckofficer
 	name = "Interdyne Deck Officer"

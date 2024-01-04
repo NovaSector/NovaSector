@@ -17,7 +17,6 @@
 	greyscale_config = /datum/greyscale_config/bench_middle
 	greyscale_colors = "#FFFFFF"
 
-
 // Icemoon Blue sofa (Used on \_maps\RandomRuins\IceRuins\nova\icemoon_underground_interdyne_base1.dmm)
 /obj/structure/chair/sofa/bench/color/Interdyne/IceMoonBlue
 	greyscale_colors = "#263188"

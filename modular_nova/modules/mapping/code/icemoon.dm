@@ -12,7 +12,7 @@
 	always_place = TRUE
 
 /datum/map_template/ruin/icemoon/underground/nova/interdyne_base
-	name = "Interdyne Pharmaceutics Nova Sector Base 8817238"
+	name = "Interdyne Pharmaceuticals Nova Sector Base 8817238"
 	id = "ice-base"
 	description = "A planetside Interdyne research facility developing biological weapons; it is closely guarded by an elite team of agents."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"

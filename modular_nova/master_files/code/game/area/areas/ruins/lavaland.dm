@@ -4,12 +4,14 @@
 // Interdyne planetary base
 
 /area/ruin/interdyne_planetary_base // used as parent type and for turret control
-	name = "Interdyne Pharmaceutics Spinward Sector Base"
+	name = "Interdyne Pharmaceuticals Spinward Sector Base"
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "syndie-control"
 	ambience_index = AMBIENCE_DANGER
-	ambient_buzz = list('sound/ambience/magma.ogg',
-						'modular_nova/modules/encounters/sounds/gear_loop.ogg')
+	ambient_buzz = list(
+		'sound/ambience/magma.ogg',
+		'modular_nova/modules/encounters/sounds/gear_loop.ogg',
+	)
 	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
 
 /area/ruin/interdyne_planetary_base/Initialize(mapload)
@@ -41,10 +43,12 @@
 /area/ruin/interdyne_planetary_base/cargo/obs/Initialize(mapload)
 	if(!ambientsounds)
 		ambientsounds = GLOB.ambience_assoc[ambience_index]
-		ambientsounds += list('modular_nova/modules/encounters/sounds/morse.ogg',
-							  'sound/ambience/ambitech.ogg',
-							  'sound/ambience/signal.ogg',
-							  'modular_nova/modules/encounters/sounds/morse.ogg')
+		ambientsounds += list(
+			'modular_nova/modules/encounters/sounds/morse.ogg',
+			'sound/ambience/ambitech.ogg',
+			'sound/ambience/signal.ogg',
+			'modular_nova/modules/encounters/sounds/morse.ogg',
+		)
 	return ..()
 
 /area/ruin/interdyne_planetary_base/main
@@ -88,7 +92,7 @@
 	name = "Interdyne Morgue"
 	icon_state = "morgue"
 	ambience_index = AMBIENCE_SPOOKY
-	ambientsounds = list('sound/ambience/ambiicemelody4.ogg')// creepy, but a bit wistful
+	ambientsounds = list('sound/ambience/ambiicemelody4.ogg') // creepy, but a bit wistful
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ruin/interdyne_planetary_base/science
@@ -116,7 +120,6 @@
 	mood_message = "I love being in the base's bar!"
 	mood_trait = TRAIT_EXTROVERT
 
-
 /area/ruin/interdyne_planetary_base/serv/kitchen
 	name = "Interdyne Kitchen"
 	icon_state = "kitchen"
@@ -130,11 +133,14 @@
 	icon = 'icons/area/areas_station.dmi'
 	icon_state = "maint_electrical" // given interdyne's powerplant is rtg's, thought this looked good on the frontend for mappers
 	ambient_buzz = 'modular_nova/modules/encounters/sounds/gear_loop.ogg'
+
 /area/ruin/interdyne_planetary_base/eng/Initialize(mapload)
 	if(!ambientsounds)
 		ambientsounds = GLOB.ambience_assoc[ambience_index]
-		ambientsounds += list('sound/items/geiger/low1.ogg',
-							  'sound/items/geiger/low2.ogg')
+		ambientsounds += list(
+			'sound/items/geiger/low1.ogg',
+			'sound/items/geiger/low2.ogg',
+		)
 	return ..()
 
 /area/ruin/interdyne_planetary_base/eng/disp
