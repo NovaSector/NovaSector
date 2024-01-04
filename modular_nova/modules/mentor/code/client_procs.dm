@@ -7,7 +7,7 @@
 		GLOB.mentors -= src
 
 	LAZYCLEARLIST(seen_messages) // NOVA EDIT ADDITION
-	LAZYCLEARLIST(images)
+	LAZYCLEARLIST(images) // NOVA EDIT ADDITION
 	return ..()
 
 /client/proc/mentor_client_procs(href_list)
