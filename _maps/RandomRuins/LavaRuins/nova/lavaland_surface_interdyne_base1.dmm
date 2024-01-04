@@ -5763,7 +5763,6 @@
 	pixel_y = 2
 	},
 /obj/machinery/duct,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "ow" = (
