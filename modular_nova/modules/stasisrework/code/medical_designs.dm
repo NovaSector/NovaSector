@@ -7,7 +7,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL

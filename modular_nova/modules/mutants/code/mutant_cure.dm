@@ -7,7 +7,7 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	/// Our loaded vial.
 	var/obj/item/rna_vial/loaded_vial
@@ -92,7 +92,7 @@
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	var/contains_rna = FALSE
 

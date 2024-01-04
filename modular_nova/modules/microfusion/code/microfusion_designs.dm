@@ -35,7 +35,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_phase_emitter/enhanced
 
@@ -46,7 +46,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_phase_emitter/advanced
 
@@ -58,7 +58,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_phase_emitter/bluespace
 
@@ -78,7 +78,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/stock_parts/cell/microfusion
 	category = list(
@@ -93,7 +93,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 2
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/stock_parts/cell/microfusion/enhanced
 
@@ -106,7 +106,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/stock_parts/cell/microfusion/advanced
 
@@ -121,7 +121,7 @@
 		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/stock_parts/cell/microfusion/bluespace
 
@@ -142,7 +142,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_cell_attachment/stabiliser
 
@@ -154,7 +154,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/microfusion_cell_attachment/overcapacity
 
@@ -168,7 +168,7 @@
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_cell_attachment/selfcharging
 
@@ -195,7 +195,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/rail
 
@@ -206,7 +206,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/scope
 
@@ -225,7 +225,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/grip
 
@@ -237,7 +237,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/heatsink
 
@@ -256,7 +256,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/suppressor
 
@@ -267,7 +267,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bananium = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bananium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/honk
 
@@ -280,7 +280,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/lance
 
@@ -294,7 +294,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/scatter
 
@@ -306,7 +306,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/scatter/max
 
@@ -318,7 +318,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/superheat
 
@@ -330,7 +330,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/hellfire
 
@@ -342,7 +342,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/repeater
 
@@ -354,7 +354,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/repeater/penetrator
 
@@ -367,7 +367,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/barrel/xray
 
@@ -387,7 +387,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/rgb
 
@@ -398,7 +398,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/camo
 
@@ -409,7 +409,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/camo/nanotrasen
 
@@ -420,7 +420,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/camo/syndicate
 
@@ -431,6 +431,6 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bananium = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bananium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/microfusion_gun_attachment/camo/honk

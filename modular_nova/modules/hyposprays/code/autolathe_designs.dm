@@ -18,7 +18,7 @@
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/pen
 	category = list(

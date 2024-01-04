@@ -7,7 +7,7 @@
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/satchel_of_holding_inert
 	category = list(
@@ -24,7 +24,7 @@
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/duffel_of_holding_inert
 	category = list(

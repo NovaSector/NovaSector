@@ -10,7 +10,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/health
 	category = list(
@@ -27,7 +27,7 @@
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/security
 	category = list(
@@ -43,7 +43,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
 	category = list(
@@ -59,7 +59,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/meson
 	category = list(
@@ -75,7 +75,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 	category = list(
@@ -91,7 +91,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/health
 	category = list(
@@ -108,7 +108,7 @@
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/security
 	category = list(
@@ -124,7 +124,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 	category = list(
@@ -140,7 +140,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/meson
 	category = list(
@@ -156,7 +156,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/science
 	category = list(

@@ -12,7 +12,7 @@
 	// equip_delay_other = 60
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
 	var/random = TRUE
 	var/freq_in_name = TRUE
@@ -25,7 +25,7 @@
 	build_path = /obj/item/electropack/shockcollar
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_HACKED,

@@ -8,7 +8,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /datum/design/xenoarch/tool
@@ -76,7 +76,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH_ADVANCED
@@ -94,7 +94,7 @@
 	id = "xenoarch_handrecoverer"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	// rebalance material req after first repath/categorization?
 	build_path = /obj/item/xenoarch/handheld_recoverer
@@ -137,7 +137,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	// i kinda hate how this requires diamond, but this is supposed to be a fix pr, burn the gbp on it later
 	build_path = /obj/item/storage/bag/xenoarch/adv

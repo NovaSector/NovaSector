@@ -7,7 +7,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY
@@ -23,7 +23,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_CARGO
@@ -39,7 +39,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
@@ -54,7 +54,7 @@
 	build_path = /obj/item/attachable_soulcatcher
 	materials = list(
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_AI + RND_SUBCATEGORY_AI_MISC
@@ -66,7 +66,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_EQUIPMENT
@@ -123,7 +123,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_EQUIPMENT

@@ -316,7 +316,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	volume = 50
 	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 25, 50)

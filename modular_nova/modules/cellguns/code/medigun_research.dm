@@ -12,7 +12,7 @@
 		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
@@ -39,7 +39,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/brute/tier_2
 
@@ -52,7 +52,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/burn/tier_2
 
@@ -65,7 +65,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/toxin/tier_2
 
@@ -78,7 +78,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/oxygen/tier_2
 
@@ -95,7 +95,7 @@
 		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/brute/tier_3
 
@@ -110,7 +110,7 @@
 		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/burn/tier_3
 
@@ -125,7 +125,7 @@
 		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/toxin/tier_3
 
@@ -140,7 +140,7 @@
 		/datum/material/diamond = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/oxygen/tier_3
 
@@ -162,7 +162,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/weaponcell/medical/utility/clotting
 
@@ -176,7 +176,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/weaponcell/medical/utility/temperature
 
@@ -187,7 +187,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/weaponcell/medical/utility/hardlight_gown
 
@@ -200,7 +200,7 @@
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/titanium = SMALL_MATERIAL_AMOUNT * 3,
-		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/weaponcell/medical/utility/bed
 
@@ -211,7 +211,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/device/custom_kit/empty_cell
 
@@ -225,7 +225,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/device/custom_kit/empty_cell/body_teleporter
 
@@ -239,6 +239,6 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/device/custom_kit/empty_cell/relocator

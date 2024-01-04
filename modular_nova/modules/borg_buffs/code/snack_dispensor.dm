@@ -5,7 +5,7 @@
 	build_path = /obj/item/borg/upgrade/snack_dispenser
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 1 SECONDS
 	category = list(

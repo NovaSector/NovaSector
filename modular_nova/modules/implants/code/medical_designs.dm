@@ -3,7 +3,11 @@
 	desc = "A long, sharp, mantis-like blade installed within the forearm, acting as a deadly self defense weapon."
 	id = "ci-mantis"
 	build_type = MECHFAB
-	materials = list (/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list (
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/armblade
 	category = list(
@@ -19,7 +23,7 @@
 	materials = list (
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/razor_claws
@@ -33,7 +37,11 @@
 	desc = "An advanced hacking and machine modification toolkit fitted into an arm implant, designed to be installed on a subject's arm."
 	id = "ci-hacker"
 	build_type = MECHFAB
-	materials = list (/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list (
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/hacker
 	category = list(
@@ -46,7 +54,11 @@
 	desc = "An integrated projector mounted onto a user's arm that is able to be used as a powerful flash."
 	id = "ci-flash"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	materials = list (/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list (
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/flash
 	category = list(
@@ -63,7 +75,7 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/botany
@@ -83,7 +95,7 @@
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 6,
-		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/organ/internal/eyes/night_vision/cyber
 	category = list(
@@ -101,7 +113,7 @@
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 		)
 	build_path = /obj/item/organ/internal/cyberimp/brain/anti_sleep
 	category = list(
@@ -119,7 +131,7 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/organ/internal/cyberimp/chest/scanner
 	category = list(

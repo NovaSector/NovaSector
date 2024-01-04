@@ -246,7 +246,7 @@
 	materials = list(
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 12 SECONDS
 	category = list(

@@ -24,7 +24,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/rna_vial
 	category = list(
@@ -41,7 +41,7 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/rna_extractor
 	category = list(

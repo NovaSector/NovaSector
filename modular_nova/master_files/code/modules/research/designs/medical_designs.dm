@@ -7,7 +7,7 @@
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/organ/internal/tongue/cybernetic
 	category = list(

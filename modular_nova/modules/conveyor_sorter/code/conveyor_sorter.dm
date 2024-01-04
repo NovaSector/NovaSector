@@ -146,7 +146,7 @@
 	build_path = /obj/item/conveyor_sorter
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_CARGO

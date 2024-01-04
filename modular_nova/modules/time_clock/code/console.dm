@@ -204,7 +204,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/time_clock, 28)
 	pixel_shift = 28
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 	)
 
 #undef CLOCK_IN_COOLDOWN

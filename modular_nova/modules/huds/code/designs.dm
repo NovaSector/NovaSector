@@ -6,7 +6,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/health/prescription
 	category = list(
@@ -22,7 +22,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/security/prescription
 	category = list(
@@ -38,7 +38,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/diagnostic/prescription
 	category = list(
@@ -54,7 +54,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/hud/science/prescription
 	category = list(
@@ -70,7 +70,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/meson/prescription
 	category = list(
@@ -87,7 +87,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = SMALL_MATERIAL_AMOUNT,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 4,
 	)
 	build_path = /obj/item/clothing/glasses/meson/engine/prescription
 	category = list(
@@ -103,7 +103,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/clothing/glasses/meson/engine/tray/prescription
 	category = list(

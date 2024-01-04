@@ -65,7 +65,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/scythe/tier1
 	category = list(
@@ -78,7 +78,7 @@
 	id = "scythet2"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/scythe/tier2
 

@@ -6,7 +6,7 @@
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/clothing/head/helmet/monkey_sentience
 	category = list(
@@ -22,7 +22,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 40,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/construction/plumbing/engineering
 	category = list(
@@ -38,7 +38,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/gun/syringe/smartdart
 	category = list(
@@ -54,7 +54,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/anesthetic_machine_kit
 	category = list(
@@ -69,7 +69,7 @@
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/wallframe/time_clock
 	category = list(

@@ -53,7 +53,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/assembly/control/polarizer
 	category = list(

@@ -33,7 +33,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 60,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 40
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 40,
 	)
 	ammoamt = 440
 

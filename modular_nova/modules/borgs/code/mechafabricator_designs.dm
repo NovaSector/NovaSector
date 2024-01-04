@@ -5,7 +5,7 @@
 	build_path = /obj/item/borg/upgrade/shrink
 	materials = list(
 		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/glass=SHEET_MATERIAL_AMOUNT * 4
+		/datum/material/glass=SHEET_MATERIAL_AMOUNT * 4,
 	)
 	construction_time = 120
 	category = list(
@@ -24,7 +24,7 @@
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4,
-		/datum/material/plasma = SHEET_MATERIAL_AMOUNT
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 80
 	category = list(
@@ -38,7 +38,7 @@
 	build_path = /obj/item/borg/upgrade/affectionmodule
 	materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 40
 	category = list(
@@ -84,7 +84,7 @@
 	materials = list(
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 120
 	category = list(
