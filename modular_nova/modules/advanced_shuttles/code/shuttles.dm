@@ -79,7 +79,7 @@
 */
 /obj/docking_port/mobile/arrivals_skyrat/proc/check_occupied()
 	for(var/alive_player in GLOB.alive_player_list)
-		if (get_area(alive_player) in shuttle_areas)
+		if(get_area(alive_player) in shuttle_areas)
 			return TRUE
 
 	return FALSE
