@@ -51,10 +51,22 @@
 	else
 		to_chat(src, span_alert("No holopad connected."))
 
-/* NOVA EDIT REMOVAL - MOVED TO: modular_nova/MODULES/ALT_VOX/CODE/VOX_PROCS.DM
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
-#define VOX_DELAY 600
+#define VOX_DELAY 300 // NOVA EDIT - ORIGINAL: 600
+
+// NOVA ADDITION START
+/mob/living/silicon/ai
+	/// The currently selected VOX Announcer voice.
+	var/vox_type = VOX_BMS
+	/// The list of available VOX Announcer voices to choose from.
+	var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS)
+	/// The paths for the VOX words.
+	var/list/vox_paths = list(VOX_HL = "vox_sounds_hl", VOX_NORMAL = "vox_sounds", VOX_BMS = "vox_sounds_bms", VOX_MIL = "vox_sounds_mil")
+	/// The VOX word(s) that were previously inputed.
+	var/vox_word_string
+// NOVA ADDITION END
+
 /mob/living/silicon/ai/verb/announcement_help()
 
 	set name = "Announcement Help"
@@ -76,10 +88,10 @@
 	"}
 
 	var/index = 0
-	for(var/word in GLOB.vox_sounds)
+	for(var/word in GLOB[vox_paths[vox_type]]) // NOVA EDIT - VOX types
 		index++
 		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != GLOB.vox_sounds.len)
+		if(index != GLOB[vox_paths[vox_type]].len) // NOVA EDIT - VOX types
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
@@ -118,7 +130,7 @@
 		if(!word)
 			words -= word
 			continue
-		if(!GLOB.vox_sounds[word])
+		if(!GLOB[vox_paths[vox_type]][word])
 			incorrect_words += word
 
 	if(incorrect_words.len)
@@ -146,10 +158,21 @@
 
 	word = lowertext(word)
 
-	if(GLOB.vox_sounds[word])
+	if(GLOB[vox_paths[vox_type]][word]) // NOVA EDIT - VOX types
 
-		var/sound_file = GLOB.vox_sounds[word]
-		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
+		var/sound_file = GLOB[vox_paths[vox_type]][word] // NOVA EDIT - VOX types
+		// NOVA ADDITION START
+		var/volume = 100
+		switch(vox_type)
+			if(VOX_HL)
+				volume = 75
+			if(VOX_MIL)
+				volume = 50 // My poor ears...
+		// If the vox stuff are disabled, or we failed getting the word from the list, just early return.
+		if(!sound_file)
+			return FALSE
+		// NOVA ADDITION END
+		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = volume) // NOVA EDIT - Volume
 		voice.status = SOUND_STREAM
 
 	// If there is no single listener, broadcast to everyone in the same z level
@@ -171,4 +194,3 @@
 
 #undef VOX_DELAY
 #endif
-*/ //NOVA EDIT REMOVAL END
