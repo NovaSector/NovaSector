@@ -90,6 +90,7 @@
 
 /datum/id_trim/syndicom/nova/interdyne
 	assignment = "Interdyne Bioweapon Scientist"
+	threat_modifier = 2 // Interdyne is allowed on station, so this'll get beepskys off them.
 
 /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	assignment = "Interdyne Shaft Miner"
