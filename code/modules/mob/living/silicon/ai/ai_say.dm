@@ -75,10 +75,10 @@
 	"}
 
 	var/index = 0
-	for(var/word in get_path(vox_type)) // NOVA EDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
+	for(var/word in get_vox_sounds(vox_type)) // NOVA EDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
 		index++
 		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != length(get_path(vox_type))) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
+		if(index != length(get_vox_sounds(vox_type))) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
@@ -117,7 +117,7 @@
 		if(!word)
 			words -= word
 			continue
-		if(!get_path(vox_type)[word]) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(!GLOB.vox_sounds[word])
+		if(!get_vox_sounds(vox_type)[word]) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(!GLOB.vox_sounds[word])
 			incorrect_words += word
 
 	if(incorrect_words.len)
@@ -161,8 +161,8 @@
 		var/sound_file = GLOB.vox_sounds[word]
 		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
 	*/
-	if(the_AI.get_path(the_AI.vox_type)[word])
-		var/sound_file = the_AI.get_path(the_AI.vox_type)[word]
+	if(the_AI.get_vox_sounds(the_AI.vox_type)[word])
+		var/sound_file = the_AI.get_vox_sounds(the_AI.vox_type)[word]
 		var/volume = 100
 		switch(the_AI.vox_type)
 			if(VOX_HL)
