@@ -96,6 +96,10 @@
 	baseturfs = /turf/open/lava/plasma/forest
 	planetary_atmos = TRUE
 
+/turf/open/floor/plating/forest
+	icon_state = "plating"
+	initial_gas_mix = FOREST_DEFAULT_ATMOS
+
 ///here for reference
 
 /*
