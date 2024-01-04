@@ -55,17 +55,6 @@
 #ifdef AI_VOX
 #define VOX_DELAY 300 // NOVA EDIT - ORIGINAL: 600
 
-// NOVA ADDITION START
-/mob/living/silicon/ai
-	/// The currently selected VOX Announcer voice.
-	var/vox_type = VOX_BMS
-	/// The list of available VOX Announcer voices to choose from.
-	var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS)
-	/// The paths for the VOX words.
-	var/list/vox_paths = list(VOX_HL = "vox_sounds_hl", VOX_NORMAL = "vox_sounds", VOX_BMS = "vox_sounds_bms", VOX_MIL = "vox_sounds_mil")
-	/// The VOX word(s) that were previously inputed.
-	var/vox_word_string
-// NOVA ADDITION END
 
 /mob/living/silicon/ai/verb/announcement_help()
 
@@ -88,10 +77,10 @@
 	"}
 
 	var/index = 0
-	for(var/word in GLOB[vox_paths[vox_type]]) // NOVA EDIT - VOX types
+	for(var/word in get_path(vox_type)) // NOVA EDIT - VOX types
 		index++
 		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != GLOB[vox_paths[vox_type]].len) // NOVA EDIT - VOX types
+		if(index != get_path(vox_type).len) // NOVA EDIT - VOX types
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
@@ -130,7 +119,7 @@
 		if(!word)
 			words -= word
 			continue
-		if(!GLOB[vox_paths[vox_type]][word])
+		if(!get_path(vox_type)[word]) // NOVA EDIT - VOX types
 			incorrect_words += word
 
 	if(incorrect_words.len)
@@ -158,12 +147,22 @@
 
 	word = lowertext(word)
 
-	if(GLOB[vox_paths[vox_type]][word]) // NOVA EDIT - VOX types
+	// NOVA ADDITION BEGIN - Get AI for the vox Type
+	var/turf/ai_turf_as_turf = ai_turf
+	if(!istype(ai_turf_as_turf))
+		return //and prolly throw an error because wtf
+	var/mob/living/silicon/ai/the_AI = null
+	for(var/mob/living/silicon/ai/found_AI in ai_turf_as_turf.contents)
+		if(istype(found_AI))
+			the_AI = found_AI
+	// NOVA ADDITION END
 
-		var/sound_file = GLOB[vox_paths[vox_type]][word] // NOVA EDIT - VOX types
-		// NOVA ADDITION START
+	if(the_AI.get_path(the_AI.vox_type)[word]) // NOVA EDIT - VOX types
+
+		var/sound_file = the_AI.get_path(the_AI.vox_type)[word] // NOVA EDIT - VOX types
+		// NOVA ADDITION START - Volume for the voices
 		var/volume = 100
-		switch(vox_type)
+		switch(the_AI.vox_type)
 			if(VOX_HL)
 				volume = 75
 			if(VOX_MIL)
