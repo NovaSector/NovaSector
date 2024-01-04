@@ -78,7 +78,7 @@
 	for(var/word in get_path(vox_type)) // NOVA EDIT - VOX types
 		index++
 		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != get_path(vox_type).len) // NOVA EDIT - VOX types
+		if(index != length(get_path(vox_type))) // NOVA EDIT - VOX types
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
