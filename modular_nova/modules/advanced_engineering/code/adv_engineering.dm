@@ -44,7 +44,7 @@
 	icon_state = "engibox"
 	illustration = "rcd"
 	custom_materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /obj/item/storage/box/rcd_ammo/PopulateContents()

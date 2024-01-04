@@ -61,7 +61,7 @@
 	id = "pepperballs"
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/item/ammo_box/advanced/pepperballs
 	category = list(
@@ -76,7 +76,7 @@
 	icon_state = "box10x24"
 	ammo_type = /obj/item/ammo_casing/pepperball
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	max_ammo = 15
 

@@ -15,7 +15,7 @@
 		/datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	build_path = /obj/item/device/custom_kit/medigun_fastcharge
 
@@ -25,7 +25,7 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 	category = list(
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_MEDICALAMMO
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_MEDICALAMMO,
 	)
 
 //Tier 2 Medicells//
@@ -149,7 +149,7 @@
 /datum/design/medicell/utility
 	name = "Utility Medicell"
 	category = list(
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_MEDICALAMMO + RND_MEDICALAMMO_UTILITY
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_MEDICALAMMO + RND_MEDICALAMMO_UTILITY,
 	)
 
 /datum/design/medicell/utility/clot

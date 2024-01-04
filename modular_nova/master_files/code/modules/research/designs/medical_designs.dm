@@ -11,6 +11,6 @@
 	)
 	build_path = /obj/item/organ/internal/tongue/cybernetic
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL

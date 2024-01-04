@@ -30,7 +30,7 @@
 	id = "a357PM"
 	build_type = AUTOLATHE
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	build_path = /obj/item/ammo_box/a357/peacemaker
 	category = list(

@@ -14,7 +14,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/health
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -31,7 +31,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/security
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
@@ -47,7 +47,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -63,7 +63,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/meson
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_ENGINEERING
 
@@ -79,7 +79,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -95,7 +95,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/health
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -112,7 +112,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/security
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
@@ -128,7 +128,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -144,7 +144,7 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/meson
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_ENGINEERING
 
@@ -160,6 +160,6 @@
 	)
 	build_path = /obj/item/clothing/glasses/hud/ar/projector/science
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL

@@ -359,7 +359,7 @@
 	icon_state = "tvirus_infector"
 	list_reagents = list(/datum/reagent/hnz = 30)
 	custom_materials = list(
-		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /obj/item/reagent_containers/cup/bottle/hnz/one

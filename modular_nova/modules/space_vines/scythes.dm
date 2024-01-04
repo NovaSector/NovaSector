@@ -69,7 +69,7 @@
 	)
 	build_path = /obj/item/scythe/tier1
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_BOTANY
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_BOTANY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 

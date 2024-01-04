@@ -9,7 +9,7 @@
 	)
 	construction_time = 120
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL,
 	)
 
 /datum/design/borg_upgrade_surgicaltools
@@ -58,7 +58,7 @@
 		/datum/material/plasma=SHEET_MATERIAL_AMOUNT * 3,
 	)
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING,
 	)
 
 /datum/design/inducer_upgrade
@@ -73,7 +73,7 @@
 		/datum/material/plasma=SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING,
 	)
 
 /datum/design/borg_shapeshifter_module
@@ -88,7 +88,7 @@
 	)
 	construction_time = 120
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL,
 	)
 
 /datum/design/borg_upgrade_welding
@@ -102,7 +102,7 @@
 		/datum/material/plasma=SHEET_MATERIAL_AMOUNT * 1,
 	)
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING,
 	)
 
 //Cyborg Skyrat overrides
@@ -112,11 +112,11 @@
 	build_type = MECHFAB
 	build_path = /obj/item/robot_suit
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 3
+		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 3,
 	)
 	construction_time = 8 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)
 
 /datum/design/borg_chest
@@ -125,11 +125,11 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/chest/robot
 	materials = list(
-		/datum/material/iron= SHEET_MATERIAL_AMOUNT * 8
+		/datum/material/iron= SHEET_MATERIAL_AMOUNT * 8,
 	)
 	construction_time = 12 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)
 
 /datum/design/borg_head
@@ -138,11 +138,11 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/head/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT
+		/datum/material/iron=SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 4 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)
 
 /datum/design/borg_l_arm
@@ -151,7 +151,7 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/arm/left/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
@@ -164,11 +164,11 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/arm/right/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)
 
 /datum/design/borg_l_leg
@@ -177,11 +177,11 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/leg/left/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)
 
 /datum/design/borg_r_leg
@@ -190,9 +190,9 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/leg/right/robot
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/iron=SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 8 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_CHASSIS,
 	)

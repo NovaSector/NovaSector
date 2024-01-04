@@ -10,7 +10,7 @@
 		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
@@ -26,7 +26,7 @@
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_CARGO
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_CARGO,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
@@ -42,7 +42,7 @@
 		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 
@@ -57,7 +57,7 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_AI + RND_SUBCATEGORY_AI_MISC
+		RND_CATEGORY_AI + RND_SUBCATEGORY_AI_MISC,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_MEDICAL
 
@@ -69,7 +69,7 @@
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_EQUIPMENT
+		RND_CATEGORY_EQUIPMENT,
 	)
 
 /datum/design/nifsoft_hud/medical
@@ -126,7 +126,7 @@
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	category = list(
-		RND_CATEGORY_EQUIPMENT
+		RND_CATEGORY_EQUIPMENT,
 	)
 	build_path = /obj/item/nif_hud_adapter
 

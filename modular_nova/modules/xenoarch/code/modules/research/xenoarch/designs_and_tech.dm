@@ -13,7 +13,7 @@
 
 /datum/design/xenoarch/tool
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH,
 	)
 
 /datum/design/xenoarch/tool/hammer
@@ -115,7 +115,7 @@
 	// everything under this except the adv bag feels redundant because cloth/leather are there too
 	// but i guess we'll burn that bridge another time
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_XENOARCH
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_XENOARCH,
 	)
 
 /datum/design/xenoarch/equipment/bag

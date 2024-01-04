@@ -3,7 +3,7 @@
 	id = "large_hypovial"
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/reagent_containers/cup/vial/large
 	category = list(

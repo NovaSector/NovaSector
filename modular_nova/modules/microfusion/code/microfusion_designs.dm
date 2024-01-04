@@ -16,7 +16,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 	construction_time = 10 SECONDS //dunno if this is for mechfabs or what but I'll keep this anyway
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS
+		RND_CATEGORY_MICROFUSION_WEAPONS,
 	)
 
 // EMITTERS
@@ -25,7 +25,7 @@
 	name = "Placeholder Microfusion Phase Emitter"
 	desc = "You shouldn't see this. Still, odd how there's no basic phase emitter design, despite how redundant it'd be."
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_EMITTERS
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_EMITTERS,
 	)
 
 /datum/design/microfusion/phase_emitter/enhanced
@@ -68,7 +68,7 @@
 	name = "Microfusion Cell"
 	desc = "A microfusion cell. There's a basic type defined next to this, right?"
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_CELLS
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_CELLS,
 	)
 
 /datum/design/microfusion/cell/basic
@@ -131,7 +131,7 @@
 	name = "Placeholder Cell Attachment"
 	desc = "You shouldn't be seeing this."
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_CELL_ATTACHMENTS
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_CELL_ATTACHMENTS,
 	)
 
 /datum/design/microfusion/cell_attachment/stabilising
@@ -176,7 +176,7 @@
 	name = "Placeholder MCR Attachment"
 	desc = "You *really* shouldn't be seeing this. Now in different attachment flavors! The Req line will hate you."
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT,
 	)
 
 // RAIL MODS
@@ -184,7 +184,7 @@
 /datum/design/microfusion/attachment/rail_slot
 	name = "Placeholder Microfusion Rail Slot Attachment"
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_RAIL
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_RAIL,
 	)
 
 /datum/design/microfusion/attachment/rail_slot/rail
@@ -215,7 +215,7 @@
 /datum/design/microfusion/attachment/underbarrel
 	name = "Placeholder Microfusion Underbarrel Slot Attachment"
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_UNDERBARREL
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_UNDERBARREL,
 	)
 
 /datum/design/microfusion/attachment/underbarrel/grip
@@ -246,7 +246,7 @@
 /datum/design/microfusion/attachment/barrel
 	name = "Placeholder Microfusion Barrel Slot Attachment"
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_BARREL
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_BARREL,
 	)
 
 /datum/design/microfusion/attachment/barrel/suppressor
@@ -376,7 +376,7 @@
 /datum/design/microfusion/attachment/unique
 	name = "Placeholder Microfusion Unique/Cosmetic Attachment"
 	category = list(
-		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_UNIQUE
+		RND_CATEGORY_MICROFUSION_WEAPONS + RND_MICROFUSION_ATTACHMENT + RND_MICROFUSION_ATTACHMENT_UNIQUE,
 	)
 
 /datum/design/microfusion/attachment/unique/rgb

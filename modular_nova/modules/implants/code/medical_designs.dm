@@ -11,7 +11,7 @@
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/armblade
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
@@ -28,7 +28,7 @@
 	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/razor_claws
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SECURITY
 
@@ -45,7 +45,7 @@
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/hacker
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
@@ -62,7 +62,7 @@
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/flash
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -80,7 +80,7 @@
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/botany
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SERVICE
 
@@ -99,7 +99,7 @@
 	)
 	build_path = /obj/item/organ/internal/eyes/night_vision/cyber
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -117,7 +117,7 @@
 		)
 	build_path = /obj/item/organ/internal/cyberimp/brain/anti_sleep
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -135,7 +135,7 @@
 	)
 	build_path = /obj/item/organ/internal/cyberimp/chest/scanner
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -144,11 +144,15 @@
 	desc = "A set of janitor tools fitted into an arm implant, designed to be installed on subject's arm."
 	id = "ci-janitor"
 	build_type = PROTOLATHE | MECHFAB
-	materials = list (/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list (
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/janitor
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SERVICE
 
@@ -157,11 +161,15 @@
 	desc = "A lighter, installed into the subject's arm. Incredibly useless."
 	id = "ci-lighter"
 	build_type = PROTOLATHE | MECHFAB
-	materials = list (/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list (
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	construction_time = 100
 	build_path = /obj/item/organ/internal/cyberimp/arm/lighter
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SERVICE
 
@@ -175,6 +183,6 @@
 	name = "Reviver Implant"
 	id = "ci-reviver"
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL

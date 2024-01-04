@@ -10,7 +10,7 @@
 	)
 	build_path = /obj/item/clothing/head/helmet/monkey_sentience
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_SCIENCE,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -26,7 +26,7 @@
 	)
 	build_path = /obj/item/construction/plumbing/engineering
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
@@ -42,7 +42,7 @@
 	)
 	build_path = /obj/item/gun/syringe/smartdart
 	category = list(
-		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -58,7 +58,7 @@
 	)
 	build_path = /obj/item/anesthetic_machine_kit
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
@@ -73,7 +73,7 @@
 	)
 	build_path = /obj/item/wallframe/time_clock
 	category = list(
-		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_MOUNTS
+		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_MOUNTS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SERVICE
 
@@ -86,6 +86,6 @@
 	)
 	build_path = /obj/item/gas_filter/vox
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS_EQUIPMENT
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS_EQUIPMENT,
 	)
 	departmental_flags = ALL
