@@ -279,7 +279,7 @@ SUBSYSTEM_DEF(area_spawn)
 
 	for(var/area_type in target_areas)
 		var/area/found_area = GLOB.areas_by_type[area_type]
-		if(!found_area)
+		if(!isnull(found_area))
 			continue
 		available_turfs = SSarea_spawn.get_turf_candidates(found_area, mode)
 		if(LAZYLEN(available_turfs))
@@ -361,8 +361,9 @@ SUBSYSTEM_DEF(area_spawn)
 	set name = "Test Area Spawner"
 	set desc = "Show area spawner placement candidates as an overlay."
 
-	for(var/obj/effect/turf_test/old_test in area)
-		qdel(old_test)
+	for(var/turf/area_turf as anything in area.get_contained_turfs())
+		for(var/obj/effect/turf_test/old_test in area_turf)
+			qdel(old_test)
 
 	SSarea_spawn.clear_cache()
 	for(var/mode in 0 to AREA_SPAWN_MODE_COUNT - 1)
