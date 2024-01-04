@@ -54,8 +54,6 @@
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
 #define VOX_DELAY 300 // NOVA EDIT - ORIGINAL: 600
-
-
 /mob/living/silicon/ai/verb/announcement_help()
 
 	set name = "Announcement Help"
