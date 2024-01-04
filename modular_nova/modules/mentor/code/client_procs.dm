@@ -6,6 +6,7 @@
 	if(GLOB.mentors[src])
 		GLOB.mentors -= src
 
+	LAZYCLEARLIST(seen_messages) // NOVA EDIT ADDITION
 	return ..()
 
 /client/proc/mentor_client_procs(href_list)
