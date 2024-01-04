@@ -59,7 +59,12 @@
 	desc = "Everything a botanist needs in an arm implant, designed to be installed on a subject's arm."
 	id = "ci-botany"
 	build_type = MECHFAB | PROTOLATHE
-	materials = list (/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT)
+	materials = list (
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT
+	)
 	construction_time = 200
 	build_path = /obj/item/organ/internal/cyberimp/arm/botany
 	category = list(
@@ -73,7 +78,13 @@
 	id = "ci-nv"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
-	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 6, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 6, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 6, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,)
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 6,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 6,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 6,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT
+	)
 	build_path = /obj/item/organ/internal/eyes/night_vision/cyber
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY
@@ -86,7 +97,12 @@
 	id = "ci-antisleep"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
-	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 6, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 5)
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 6,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+		)
 	build_path = /obj/item/organ/internal/cyberimp/brain/anti_sleep
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
@@ -99,7 +115,12 @@
 	id = "ci-scanner"
 	build_type = MECHFAB | PROTOLATHE
 	construction_time = 40
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT
+	)
 	build_path = /obj/item/organ/internal/cyberimp/chest/scanner
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
@@ -124,7 +145,7 @@
 	desc = "A lighter, installed into the subject's arm. Incredibly useless."
 	id = "ci-lighter"
 	build_type = PROTOLATHE | MECHFAB
-	materials = list (/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 5, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 5)
+	materials = list (/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 	construction_time = 100
 	build_path = /obj/item/organ/internal/cyberimp/arm/lighter
 	category = list(
