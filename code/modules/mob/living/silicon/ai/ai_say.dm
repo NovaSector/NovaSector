@@ -53,7 +53,7 @@
 
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
-#define VOX_DELAY 300 // NOVA EDIT - ORIGINAL: 600
+#define VOX_DELAY 300 // NOVA EDIT CHANGE - ORIGINAL: 600
 /mob/living/silicon/ai/verb/announcement_help()
 
 	set name = "Announcement Help"
@@ -75,10 +75,10 @@
 	"}
 
 	var/index = 0
-	for(var/word in get_path(vox_type)) // NOVA EDIT - VOX types
+	for(var/word in get_path(vox_type)) // NOVA EDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
 		index++
 		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != length(get_path(vox_type))) // NOVA EDIT - VOX types
+		if(index != length(get_path(vox_type))) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
@@ -117,7 +117,7 @@
 		if(!word)
 			words -= word
 			continue
-		if(!get_path(vox_type)[word]) // NOVA EDIT - VOX types
+		if(!get_path(vox_type)[word]) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(!GLOB.vox_sounds[word])
 			incorrect_words += word
 
 	if(incorrect_words.len)
