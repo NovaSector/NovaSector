@@ -11,7 +11,7 @@
 	max_integrity = 200
 	pass_flags = PASSTABLE
 	custom_materials = list(
-		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 6
+		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 6,
 	)
 	drag_slowdown = 2
 	/// The maximum number of items this structure can store

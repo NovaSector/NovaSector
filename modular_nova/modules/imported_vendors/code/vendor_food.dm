@@ -8,7 +8,7 @@
 	icon = 'modular_nova/modules/imported_vendors/icons/imported_quick_foods.dmi'
 	icon_state = "foodtray_empty"
 	custom_materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /obj/item/trash/empty_side_pack
@@ -17,7 +17,7 @@
 	icon = 'modular_nova/modules/imported_vendors/icons/imported_quick_foods.dmi'
 	icon_state = "foodpack_generic_trash"
 	custom_materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /obj/item/trash/empty_side_pack/nt

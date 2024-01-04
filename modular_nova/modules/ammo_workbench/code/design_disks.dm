@@ -25,6 +25,6 @@
 	)
 	build_path = /obj/item/disk/ammo_workbench/advanced
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

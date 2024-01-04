@@ -14,7 +14,7 @@
 	icon_state = "glass_globe"
 	material_flags = MATERIAL_COLOR
 	custom_materials = list(
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /datum/export/glassblowing

@@ -63,7 +63,7 @@
 	id = "c45_rubber"
 	build_type = AUTOLATHE
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7.5
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7.5,
 	)
 	build_path = /obj/item/ammo_casing/c45/rubber
 	category = list(

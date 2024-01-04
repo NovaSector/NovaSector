@@ -12,7 +12,7 @@
 	pass_flags = PASSTABLE
 	resistance_flags = FLAMMABLE
 	custom_materials = list(
-		/datum/material/wood = SHEET_MATERIAL_AMOUNT  * 10
+		/datum/material/wood = SHEET_MATERIAL_AMOUNT  * 10,
 	)
 	/// The maximum number of items this structure can store
 	var/maximum_contained_items = 10

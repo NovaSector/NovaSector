@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 	smoothing_groups = SMOOTH_GROUP_STONE_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_STONE_WALLS
 	custom_materials = list(
-		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 2
+		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 2,
 	)
 
 /turf/closed/wall/mineral/stone/try_decon(obj/item/item_used, mob/user) // Lets you break down stone walls with stone breaking tools
@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 	smoothing_groups = SMOOTH_GROUP_STONE_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_STONE_WALLS
 	custom_materials = list(
-		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 2
+		/datum/material/stone = SHEET_MATERIAL_AMOUNT  * 2,
 	)
 
 /obj/structure/falsewall/stone

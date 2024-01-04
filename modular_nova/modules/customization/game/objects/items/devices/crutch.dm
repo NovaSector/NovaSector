@@ -7,7 +7,7 @@
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/melee_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/melee_righthand.dmi'
 	custom_materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6,
 	)
 	attack_verb_continuous = list("bludgeons", "whacks", "thrashes")
 	attack_verb_simple = list("bludgeon", "whack", "thrash")
