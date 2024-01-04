@@ -279,7 +279,7 @@ SUBSYSTEM_DEF(area_spawn)
 
 	for(var/area_type in target_areas)
 		var/area/found_area = GLOB.areas_by_type[area_type]
-		if(!isnull(found_area))
+		if(!found_area)
 			continue
 		available_turfs = SSarea_spawn.get_turf_candidates(found_area, mode)
 		if(LAZYLEN(available_turfs))
