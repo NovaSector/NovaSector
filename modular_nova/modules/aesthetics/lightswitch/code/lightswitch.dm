@@ -16,7 +16,7 @@
 	if(!area.lightswitch)
 		return
 	area.lightswitch = FALSE
-	light_switch.update_appearance()
+	area.update_appearance()
 
 	for(var/obj/machinery/light_switch/light_switch as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/light_switch))
 		if(light_switch.area != area)
