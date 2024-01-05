@@ -180,7 +180,6 @@
 	inhand_icon_state = null
 	radiosound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
 	keyslot = new /obj/item/encryptionkey/headset_syndicate/interdyne
-	keyslot2 = new /obj/item/encryptionkey/syndicate
 
 /obj/item/radio/headset/interdyne/Initialize(mapload)
 	. = ..()
@@ -193,7 +192,6 @@
 
 /obj/item/radio/headset/interdyne/comms
 	keyslot = /obj/item/encryptionkey/headset_syndicate/interdyne
-	keyslot2 = /obj/item/encryptionkey/syndicate
 
 // STRUCTURES
 
