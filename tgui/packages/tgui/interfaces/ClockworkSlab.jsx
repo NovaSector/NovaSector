@@ -34,7 +34,7 @@ const convertPower = (power_in) => {
 
 export const ClockworkSlab = (props) => {
   const [selectedTab, setSelectedTab] = useState('Servitude');
-  const UpdateSelectedTab = (tab) => {
+  const updateSelectedTab = (tab) => {
     setSelectedTab(tab);
   };
   return (
@@ -49,7 +49,7 @@ export const ClockworkSlab = (props) => {
             </Box>
           }
         >
-          <ClockworkButtonSelection updateSelectedTab={UpdateSelectedTab} />
+          <ClockworkButtonSelection updateSelectedTab={updateSelectedTab} />
         </Section>
         <div className="ClockSlab__left">
           <Section height="100%" overflowY="auto">
