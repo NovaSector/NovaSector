@@ -238,7 +238,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
-                  maxWidth="400px"
+                  maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px
                   backgroundColor="black"
                   px="5px"
                   py="3px"
