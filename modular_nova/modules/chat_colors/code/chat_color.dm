@@ -46,7 +46,7 @@
 #define CM_COLOR_SATURATION 2
 #define CM_COLOR_LUMINANCE 3
 
-#define CM_COLOR_SAT_MAX 85 // 90% saturation is the default ceiling
+#define CM_COLOR_SAT_MAX 90 // 90% saturation is the default ceiling
 #define CM_COLOR_LUM_MIN 40 // 40% luminosity is the default floor
 #define CM_COLOR_LUM_MIN_GREY 35 // 35% luminosity for greys
 #define CM_COLOR_LUM_MAX_DARK_RANGE 45 // 45% luminosity for dark blues/reds/violets
