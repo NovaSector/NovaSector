@@ -38,16 +38,14 @@
 	var/atom/message_loc
 	/// The client who heard this message
 	var/client/owned_by
+	/// The callback to finish_image_generation // NOVA EDIT ADDITION
+	var/datum/callback/our_callback  // NOVA EDIT ADDITION
 	/// Contains the scheduled destruction time, used for scheduling EOL
 	var/scheduled_destruction
 	/// Contains the time that the EOL for the message will be complete, used for qdel scheduling
 	var/eol_complete
 	/// Contains the approximate amount of lines for height decay
 	var/approx_lines
-	/// Contains the reference to the next chatmessage in the bucket, used by runechat subsystem
-	var/datum/chatmessage/next
-	/// Contains the reference to the previous chatmessage in the bucket, used by runechat subsystem
-	var/datum/chatmessage/prev
 	/// The current index used for adjusting the layer of each sequential chat message such that recent messages will overlay older ones
 	var/static/current_z_idx = 0
 	/// When we started animating the message
@@ -81,14 +79,25 @@
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
 			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
 
-		if (owned_by.seen_messages)
+	if(owned_by) // NOVA EDIT ADDITION
+		if(owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
 		owned_by.images.Remove(message)
 
+	our_callback = null
 	owned_by = null
 	message_loc = null
 	message = null
 	return ..()
+
+/**
+ * Calls qdel on the chatmessage when its parent is deleted, used to register qdel signal
+ */
+/datum/chatmessage/proc/on_parent_qdel()
+	SIGNAL_HANDLER
+	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
+	qdel(src)
+
 
 /**
  * Generates a chat message image representation
