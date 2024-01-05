@@ -1,4 +1,4 @@
-/**************SKYRAT REWARDS**************/
+/**************NOVA SECTOR REWARDS**************/
 //SUITS
 /obj/item/clothing/suit/hooded/wintercoat/colourable
 	name = "custom winter coat"
@@ -1188,7 +1188,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	base_icon_state = "rosepatch"
 
 // Donation reward for Cimika
-/obj/item/clothing/suit/toggle/labcoat/skyrat/tenrai
+/obj/item/clothing/suit/toggle/labcoat/nova/tenrai
 	name = "Tenrai labcoat"
 	desc = "A labcoat crafted from a variety of pristine materials, sewn together with a frightening amount of skill. The fabric is aery, smooth as silk, and exceptionally pleasant to the touch. The golden stripes are visible in the dark, working as a beacon to the injured. A small label on the inside of it reads \"Tenrai Kitsunes Supremacy\"."
 	base_icon_state = "tenraicoat"
@@ -1197,7 +1197,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/tenrai/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/clothing/suit/toggle/labcoat/nova/tenrai/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
@@ -1423,7 +1423,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "flower_collar"
 
 // Donation reward for Sigmar Alkahest
-/obj/item/clothing/under/costume/skyrat/kimono/sigmar
+/obj/item/clothing/under/costume/nova/kimono/sigmar
 	name = "short-sleeved kimono"
 	desc = "A traditional ancient Earth Japanese Kimono. It's white with a gold trim and burnished gold ivy pattern."
 	icon_state = "kimono-gold"

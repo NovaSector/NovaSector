@@ -116,13 +116,13 @@
 	icon_state = "bulletproof"
 	body_parts_covered = CHEST //TG's version has no groin/arm padding
 
-/obj/item/clothing/under/syndicate/skyrat/overalls
+/obj/item/clothing/under/syndicate/nova/overalls
 	name = "utility overalls turtleneck"
 	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work."
 	icon_state = "syndicate_overalls"
 	can_adjust = TRUE
 
-/obj/item/clothing/under/syndicate/skyrat/overalls/skirt
+/obj/item/clothing/under/syndicate/nova/overalls/skirt
 	name = "utility overalls skirtleneck"
 	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
 	icon_state = "syndicate_overallskirt"
@@ -151,7 +151,7 @@
 	desc = "These 'tactical' gloves and sleeves are fireproof and electrically insulated. Warm to boot."
 	icon_state = "syndimaid_arms"
 
-/obj/item/clothing/under/syndicate/skyrat/maid
+/obj/item/clothing/under/syndicate/nova/maid
 	name = "tactical maid outfit"
 	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit. Why the Syndicate has these, you'll never know."
 	icon_state = "syndimaid"
@@ -160,7 +160,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/under/syndicate/skyrat/maid/Initialize(mapload)
+/obj/item/clothing/under/syndicate/nova/maid/Initialize(mapload)
 	. = ..()
 	var/obj/item/clothing/accessory/maidcorset/syndicate/A = new (src)
 	attach_accessory(A)
@@ -175,13 +175,13 @@
 	attachment_slot = null
 
 //Wintercoat & Hood
-/obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate
+/obj/item/clothing/suit/hooded/wintercoat/nova/syndicate
 	name = "syndicate winter coat"
 	desc = "A sinister black coat with red accents and a fancy mantle, it feels like it can take a hit. The zipper tab looks like a triple headed snake in the shape of an S, spooky."
 	icon_state = "coatsyndie"
 	inhand_icon_state = "coatwinter"
 	armor_type = /datum/armor/wintercoat_syndicate
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/skyrat/syndicate
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/nova/syndicate
 
 /datum/armor/wintercoat_syndicate
 	melee = 25
@@ -191,11 +191,11 @@
 	bomb = 25
 	acid = 45
 
-/obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate/Initialize(mapload)
+/obj/item/clothing/suit/hooded/wintercoat/nova/syndicate/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.security_wintercoat_allowed
 
-/obj/item/clothing/head/hooded/winterhood/skyrat/syndicate
+/obj/item/clothing/head/hooded/winterhood/nova/syndicate
 	desc = "A sinister black hood with armor padding."
 	icon_state = "hood_syndie"
 	armor_type = /datum/armor/winterhood_syndicate

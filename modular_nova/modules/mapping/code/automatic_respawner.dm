@@ -117,7 +117,7 @@
 	var/datum/mind/parent_mind = parent
 	RegisterSignal(parent_mind.current, COMSIG_LIVING_DEATH, PROC_REF(start_timer))
 
-/datum/component/respawner/Destroy(force, silent)
+/datum/component/respawner/Destroy(force)
 	var/datum/mind/parent_mind = parent
 	UnregisterSignal(parent_mind.current, COMSIG_LIVING_DEATH)
 	return ..()
