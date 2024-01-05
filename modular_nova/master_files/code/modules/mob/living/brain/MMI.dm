@@ -3,13 +3,11 @@
 /obj/item/mmi/syndie // Simple addition to upstream Syndie MMI
 	overrides_aicore_laws = TRUE
 	req_access = list(ACCESS_SYNDICATE)
-	radio = /obj/item/radio/borg/syndicate/ghost_role
 	faction = list(ROLE_SYNDICATE)
 
 /obj/item/mmi/posibrain/syndie
 	overrides_aicore_laws = TRUE
 	req_access = list(ACCESS_SYNDICATE)
-	radio = /obj/item/radio/borg/syndicate/ghost_role
 	faction = list(ROLE_SYNDICATE)
 	ask_role = "Syndicate Cyborg"
 	posibrain_job_path = /datum/job/ds2
