@@ -30,11 +30,21 @@
 	var/blacklist_file
 
 	var/allow_custom_shuttles = TRUE
+// NOVA EDIT REMOVAL BEGIN - CUSTOM SHUTTLE LIST OVERRIDE
+	/*
+	// TG original
 	var/shuttles = list(
-		"cargo" = "cargo_skyrat",
+		"cargo" = "cargo_box",
 		"ferry" = "ferry_fancy",
 		"whiteship" = "whiteship_meta",
-		"emergency" = "emergency_skyrat") //NOVA EDIT CHANGE
+		"emergency" = "emergency_meta")
+	*/
+	var/shuttles = list(
+		"cargo" = "cargo_nova",
+		"ferry" = "ferry_fancy",
+		"whiteship" = "whiteship_meta",
+		"emergency" = "emergency_nova")
+// NOVA EDIT END
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
@@ -150,7 +160,9 @@
 		log_world("map_config shuttles is not a list!")
 		return
 
-	shuttles["emergency"] = "emergency_skyrat"
+// NOVA ADD BEGIN - EMERGENCY SHUTTLE OVERRIDE
+	shuttles["emergency"] = "emergency_nova"
+// NOVA ADD END
 
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]

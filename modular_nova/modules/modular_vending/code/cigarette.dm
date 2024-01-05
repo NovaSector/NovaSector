@@ -1,10 +1,10 @@
 /obj/machinery/vending/cigarette/
 	contraband = list()
-	skyrat_products = list(
+	products_nova = list(
 		/obj/item/clothing/mask/vape = 5,
 		/obj/item/reagent_containers/vapecart = 10,
 	)
-	skyrat_contraband = list(
+	contraband_nova = list(
 		/obj/item/reagent_containers/vapecart/empty = 5,
 		/obj/item/reagent_containers/vapecart/bluekush = 4,
 		/obj/item/reagent_containers/vapecart/reddiesel = 4,

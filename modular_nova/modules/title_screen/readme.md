@@ -9,11 +9,11 @@ Adds a brand new look to the lobby screen, adds a splash screen too, since that 
 ## Guide:
 
 To make sure your server doesn't/does have this feature, see config.txt
-##Enable server swapping, uncomment to enable reading of swap_ips.txt (file directory: config/skyrat/swap_ips.txt)
+##Enable server swapping, uncomment to enable reading of swap_ips.txt (file directory: config/~config_nova/swap_ips.txt)
 SERVER_SWAP_ENABLED
-if you use this, make sure swap_ips.txt is present in skyrat config.
+if you use this, make sure swap_ips.txt is present in ~config_nova config.
 
-We offer the option to customise the lobby HTML by giving you access to a file named lobby_html.txt in the config. The server will runtime if this file does not exist. Ensure it exists in directory config/skyrat/lobby_html.txt.
+We offer the option to customise the lobby HTML by giving you access to a file named lobby_html.txt in the config. The server will runtime if this file does not exist. Ensure it exists in directory config/~config_nova/lobby_html.txt.
 
 DO NOT UNDER ANY CIRCUMSTANCES RENAME THE ELEMENTS WITHIN THE HTML FILE, KEEP THEM AS THEY ARE.
 

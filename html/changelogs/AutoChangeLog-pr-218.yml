@@ -1,4 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - bugfix: "Masquerade masks can now properly hide your identity."
