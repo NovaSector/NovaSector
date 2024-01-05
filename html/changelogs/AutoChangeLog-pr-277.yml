@@ -1,0 +1,7 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscadd: "Ancient Military Simulator got some of the previously implemented items back, i.e. CIN weaponry and DeForest medkits"
+  - balance: "Ancient Military Simulator, generally speaking, became more 'rigid' and straightforward"
+  - balance: "Ancient Military Simulator prize room has been moved deeper into SNPC compound to prevent drakes from flying in early."
+  - bugfix: "Ancient Military Simulator should no longer break down into space tiles on wall explosions"

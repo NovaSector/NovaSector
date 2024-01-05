@@ -1,4 +1,4 @@
-// Skyrat area ruins
+// Nova Sector area ruins
 
 /area/ruin/powered/miningfacility
 	name = "Abandoned Nanotrasen Mining Facility"
