@@ -67,26 +67,31 @@
  */
 /proc/process_chat_color(color, sat_shift = 1, lum_shift = 1)
 	if(isnull(color))
-		return
+		return "#FFFFFF"
 
+	// Convert color to HSL
 	var/hsl_color = rgb2num(color, COLORSPACE_HSL)
 
+	// Hue / saturation / luminance
 	var/hue = hsl_color[CM_COLOR_HUE]
 	var/saturation = hsl_color[CM_COLOR_SATURATION]
 	var/luminance = hsl_color[CM_COLOR_LUMINANCE]
 
-	var/processed_saturation
+	// Desaturate everything slightly
+	saturation = min(saturation, CM_COLOR_SAT_MAX)
+
+	// Now clamp the luminance according to the hue
 	var/processed_luminance
 
-	if(hue == CM_COLOR_HUE_GREY) // greys have a higher floor on the allowed luminance value
-		processed_luminance = max(luminance, CM_COLOR_LUM_MIN_GREY)
+	// There are special cases for greyscale and the red/blue/violet range
+	if(hue == CM_COLOR_HUE_GREY)
+		processed_luminance = max(luminance, CM_COLOR_LUM_MIN_GREY) // greys have a higher floor on the allowed luminance value
 	else if(CM_COLOR_HUE_RANGE_UPPER > hue > CM_COLOR_HUE_RANGE_LOWER)
 		processed_luminance = min(luminance, CM_COLOR_LUM_MAX_DARK_RANGE) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
 	else
-		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // for everything else
-	processed_saturation = min(saturation, CM_COLOR_SAT_MAX) // desaturate everything slightly
+		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // everything else gets the default
 
-	return rgb(hue, processed_saturation*sat_shift, processed_luminance*lum_shift, space = COLORSPACE_HSL)
+	return rgb(hue, saturation*sat_shift, processed_luminance*lum_shift, space = COLORSPACE_HSL)
 
 #undef CM_COLOR_HUE
 #undef CM_COLOR_SATURATION
