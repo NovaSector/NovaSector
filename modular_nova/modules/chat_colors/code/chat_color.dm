@@ -52,6 +52,10 @@
 #define CM_COLOR_LUM_MAX_GREY 35 // 35% luminosity for greys
 #define CM_COLOR_LUM_MAX_DARK_RANGE 45 // 45% luminosity for dark blues/reds/violets
 
+#define CM_COLOR_HUE_RANGE_LOWER 180
+#define CM_COLOR_HUE_RANGE_UPPER 350
+#define CM_COLOR_HUE_GREY 0
+
 /**
  * Converts a given color to comply within a smaller subset of colors to be used in runechat.
  * If a color is outside the min/max saturation or lum, it will be set at the nearest
@@ -75,9 +79,9 @@
 	var/processed_saturation
 	var/processed_luminance
 
-	if(hue == 0) // greys have a higher floor on the allowed luminance value
+	if(hue == CM_COLOR_HUE_GREY) // greys have a higher floor on the allowed luminance value
 		processed_luminance = clamp(luminance, CM_COLOR_LUM_MAX_GREY, CM_COLOR_LUM_MAX)
-	else if(350 > hue > 180)
+	else if(CM_COLOR_HUE_RANGE_UPPER> hue > CM_COLOR_HUE_RANGE_LOWER)
 		processed_luminance = clamp(luminance, CM_COLOR_LUM_MAX_DARK_RANGE, CM_COLOR_LUM_MAX) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
 	else
 		processed_luminance = clamp(luminance, CM_COLOR_LUM_MIN, CM_COLOR_LUM_MAX) // for everything else
@@ -94,3 +98,7 @@
 #undef CM_COLOR_LUM_MAX
 #undef CM_COLOR_LUM_MAX_GREY
 #undef CM_COLOR_LUM_MAX_DARK_RANGE
+
+#undef CM_COLOR_HUE_RANGE_LOWER
+#undef CM_COLOR_HUE_RANGE_UPPER
+#undef CM_COLOR_HUE_GREY
