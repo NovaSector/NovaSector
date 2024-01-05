@@ -22,9 +22,9 @@
 
 /obj/item/mmi/syndie/interdyne/Initialize(mapload)
 	. = ..()
-	radio = new(src)
+	qdel(radio)
+	radio = /obj/item/radio/borg/syndicate/ghost_role(src)
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
-	radio.set_on(FALSE)
 
 /obj/item/mmi/posibrain/syndie/interdyne
 	name = "positronic brain"
@@ -34,7 +34,8 @@
 
 /obj/item/mmi/posibrain/syndie/interdyne/Initialize(mapload)
 	. = ..()
-	radio = new(src)
+	qdel(radio)
+	radio = /obj/item/radio/borg/syndicate/ghost_role
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
 	radio.set_on(FALSE)
 
@@ -46,9 +47,9 @@
 
 /obj/item/mmi/syndie/ds2/Initialize(mapload)
 	. = ..()
-	radio = new(src)
+	qdel(radio)
+	radio = new /obj/item/radio/borg/syndicate/ghost_role(src)
 	laws = new /datum/ai_laws/syndicate_override_ds2()
-	radio.set_on(FALSE)
 
 /obj/item/mmi/posibrain/syndie/ds2
 	name = "positronic brain"
@@ -57,6 +58,6 @@
 
 /obj/item/mmi/posibrain/syndie/ds2/Initialize(mapload)
 	. = ..()
-	radio = new(src)
+	qdel(radio)
+	radio = new /obj/item/radio/borg/syndicate/ghost_role(src)
 	laws = new /datum/ai_laws/syndicate_override_ds2()
-	radio.set_on(FALSE)
