@@ -95,6 +95,56 @@
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
+//////////todo - fix all of these
+
+/datum/outfit/lavaland_syndicate
+	name = "Interdyne Bioweapon Scientist"
+	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne
+	suit = /obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/white
+	head = /obj/item/clothing/head/beret/medical/skyrat/interdyne
+	ears = /obj/item/radio/headset/interdyne/green
+/datum/outfit/lavaland_syndicate/ice
+	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne
+	suit = /obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne
+	ears = /obj/item/radio/headset/interdyne/green
+	head = /obj/item/clothing/head/beret/medical/skyrat/interdyne
+/datum/outfit/lavaland_syndicate/shaftminer
+	name = "Interdyne Shaft Miner"
+	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne/miner
+	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
+	head = null //funny subtypes
+	r_pocket = /obj/item/storage/bag/ore
+	id_trim = /datum/id_trim/syndicom/skyrat/interdyne
+	backpack_contents = list(
+		/obj/item/flashlight/seclite=1,\
+		/obj/item/knife/combat/survival=1,
+		/obj/item/mining_voucher=1,
+		/obj/item/t_scanner/adv_mining_scanner/lesser=1,
+		/obj/item/gun/energy/recharge/kinetic_accelerator=1,\
+		/obj/item/stack/marker_beacon/ten=1,\
+		/obj/item/card/mining_point_card=1)
+/datum/outfit/lavaland_syndicate/shaftminer/deckofficer
+	name = "Interdyne Deck Officer"
+	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne/deckofficer
+	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
+	suit = /obj/item/clothing/suit/armor/hos/deckofficer
+	ears = /obj/item/radio/headset/interdyne/command
+	id = /obj/item/card/id/advanced/silver/generic
+	id_trim = /datum/id_trim/syndicom/skyrat/interdyne/deckofficer
+/datum/outfit/lavaland_syndicate/shaftminer/ice
+	name = "Icemoon Interdyne Shaft Miner"
+	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne/miner
+	head = /obj/item/clothing/ears/headphones
+	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
+/obj/item/radio/headset/interdyne/green
+	name = "interdyne branded headset"
+	desc = "A bowman headset in interdyne green, has a small 'IP' written on the earpiece. Protects the ears from flashbangs."
+	icon_state = "headset_ip"
+	worn_icon_state = "headset_ip"
+	icon = 'modular_skyrat/modules/mapping/icons/obj/headset.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/ears.dmi'
+
+
 // OUTFITS
 
 /datum/outfit/interdyne_planetary_base
