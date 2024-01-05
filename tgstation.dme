@@ -385,7 +385,7 @@
 #include "code\__DEFINES\~nova_defines\admin.dm"
 #include "code\__DEFINES\~nova_defines\airlock.dm"
 #include "code\__DEFINES\~nova_defines\ammo_defines.dm"
-#include "code\__DEFINES\~skyrat_defines\antag_optin_defines.dm"
+#include "code\__DEFINES\~nova_defines\antag_optin_defines.dm"
 #include "code\__DEFINES\~nova_defines\antagonists.dm"
 #include "code\__DEFINES\~nova_defines\apc_defines.dm"
 #include "code\__DEFINES\~nova_defines\armaments.dm"
