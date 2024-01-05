@@ -1,7 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - rscadd: "Xeno-hybrids have a weak plasmavessel to spin resin and hive communicate with"
-  - rscadd: "Xeno-hybrids have acid blood"
-  - balance: "Xeno-hybrids are the weakest species against heat/fire, at a whopping 2.5x multiplier"
-  - balance: "Xeno-hybrid livers can process plasma without gaining toxin damage"

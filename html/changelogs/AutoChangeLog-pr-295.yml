@@ -1,5 +1,0 @@
-author: "SomeRandomOwl"
-delete-after: True
-changes:
-  - bugfix: "Fixed a old mirror, AI vox announcements now send the announcement through minor_announce instead of going through the radio"
-  - refactor: "Refactored AI vox code to do our custom AI vox voices in a more cleaner way"

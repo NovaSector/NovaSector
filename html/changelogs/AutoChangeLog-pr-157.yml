@@ -1,5 +1,0 @@
-author: "Motho & Vinylspiders"
-delete-after: True
-changes:
-  - rscadd: "You can now customize the color of your overhead chat bubble. Ported from effigyse, original by LT3."
-  - bugfix: "cyborgs should now get their brain prefs applied correctly"

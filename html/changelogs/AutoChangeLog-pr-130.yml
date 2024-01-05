@@ -1,9 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - rscadd: "The CO2 Cracker makes a return, a device that takes power and turns ambient CO2 into ambient oxygen, handy!"
-  - rscadd: "The portable recycler has been added, a machine that lets you recycle stuff autolathe-style, clang!"
-  - rscadd: "The hydroponics chemical synthesizer has been added, the sister to the water synthesizer, makes all of the basic botany chemicals to work with reagent pipes."
-  - rscadd: "The sustenance dispenser makes a return, dispense yourself some powdered coffee or nutraslop today!"
-  - rscadd: "The organic rations printer has been added, a little biogenerator-type machine specializing in food specifically. An excellent kitchen buddy for the supply-deprived cook."
-  - image: "Sprites for all the listed new machines were made by me, Paxilmaniac."
