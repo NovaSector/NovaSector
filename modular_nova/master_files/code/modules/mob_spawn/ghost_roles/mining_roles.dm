@@ -192,7 +192,6 @@
 
 /obj/item/radio/headset/interdyne/comms
 	keyslot = /obj/item/encryptionkey/headset_syndicate/interdyne
-	keyslot2 = /obj/item/encryptionkey/syndicate
 
 // STRUCTURES
 
