@@ -1,4 +1,4 @@
-//Rather than assigning a security officer to each department, Skyrat departments get their own allied Guards!
+//Rather than assigning a security officer to each department, Nova departments get their own allied Guards!
 //Most related code is in this file; uniform icons are in the relevant department's .dmi
 
 //SORT ORDER: Sci, Generic, Med, Engi, Cargo, Serv
@@ -6,12 +6,12 @@
 /*
 	UNIFORMS
 */
-/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat
-	//Effectively the same as TG's blueshirt, including icon. The /skyrat path makes it easier for sorting.
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova
+	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	name = "science guard's uniform"
 	unique_reskin = null
 
-/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/orderly
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	name = "orderly uniform"
 	desc = "White scrubs with gray pants underneath. Be warned, wearers of this uniform may only take the Hippocratic Oath as a suggestion."
 	icon_state = "orderly_uniform"
@@ -20,7 +20,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 
-/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/engineering_guard
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard
 	name = "engineering guard uniform"
 	desc = "Effectively just padded hi-vis coveralls, they do the trick both inside of, and while keeping people out of, a hardhat zone."
 	icon_state = "engineering_guard_uniform"
@@ -29,7 +29,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/engineering.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/engineering_digi.dmi'
 
-/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/customs_agent
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent
 	name = "customs agent uniform"
 	desc = "A cargo-brown short-sleeve shirt, and cargo shorts in an authoritative charcoal color. Only for the FTU's finest strong-hands."
 	icon_state = "customs_uniform"
@@ -38,7 +38,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
 
-/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/bouncer
+/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer
 	name = "bouncer uniform"
 	desc = "Short-sleeves and jeans, for that aura of cool that makes the drunk people listen."
 	icon_state = "bouncer"
@@ -50,32 +50,32 @@
 /*
 	SUITS
 */
-/obj/item/clothing/suit/armor/vest/blueshirt/skyrat
-	//Effectively the same as TG's blueshirt, including icon. The /skyrat path makes it easier for sorting.
+/obj/item/clothing/suit/armor/vest/blueshirt/nova
+	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	unique_reskin = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/guard //Badge-less version of the blueshirt vest
+/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard //Badge-less version of the blueshirt vest
 	icon_state = "guard_armor"
 	worn_icon_state = "guard_armor"
 
-/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/orderly
+/obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly
 	name = "armored orderly coat"
 	desc = "An armored coat, in a deep paramedic blue. It'll keep you padded while dealing with troublesome patients."
 	icon_state = "medical_coat"
 	worn_icon_state = "medical_coat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/engineering_guard
+/obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard
 	name = "armored engineering guard coat"
 	desc = "An armored coat whose hazard strips are worn to the point of uselessness. It'll keep you protected while clearing hazard zones at least."
 	icon_state = "engineering_coat"
 	worn_icon_state = "engineering_coat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/customs_agent
+/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent
 	name = "armored customs agent coat"
 	desc = "An armored coat, with intricately woven patterns and details. This should help keep you safe from unruly customers."
 	icon_state = "customs_coat"
@@ -84,12 +84,12 @@
 /*
 	HEAD
 */
-/obj/item/clothing/head/helmet/blueshirt/skyrat
-	//Effectively the same as TG's blueshirt, including icon. The /skyrat path makes it easier for sorting.
+/obj/item/clothing/head/helmet/blueshirt/nova
+	//Effectively the same as TG's blueshirt, including icon. The /nova path makes it easier for sorting.
 	//The base one is used for science guards, and the sprite is unchanged
 	unique_reskin = null
 
-/obj/item/clothing/head/helmet/blueshirt/skyrat/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
+/obj/item/clothing/head/helmet/blueshirt/nova/guard //Version of the blueshirt helmet without a blue line. Used by all dept guards right now.
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
 	icon_state = "mallcop_helm"
@@ -192,15 +192,15 @@
 
 	belt = /obj/item/modular_computer/pda/science
 	ears = /obj/item/radio/headset/headset_sci
-	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat
+	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova
 	shoes = /obj/item/clothing/shoes/jackboots
-	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat
-	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat
+	head =  /obj/item/clothing/head/helmet/blueshirt/nova
+	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs/cable/pink
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/science = 1,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball = 1,
+		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
 	)
 
 	backpack = /obj/item/storage/backpack/science
@@ -296,15 +296,15 @@
 
 	belt = /obj/item/modular_computer/pda/medical
 	ears = /obj/item/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/orderly
+	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	shoes = /obj/item/clothing/shoes/sneakers/white
-	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
-	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/orderly
+	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
+	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs/cable/blue
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/medical = 1,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball = 1,
+		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
 	)
 
 	backpack = /obj/item/storage/backpack/medic
@@ -395,14 +395,14 @@
 	belt = /obj/item/modular_computer/pda/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	shoes = /obj/item/clothing/shoes/workboots
-	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/engineering_guard
-	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
-	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/engineering_guard
+	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard
+	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
+	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs/cable/yellow
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/engineering = 1,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball = 1,
+		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
 	)
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -499,15 +499,15 @@
 	belt = /obj/item/modular_computer/pda/cargo
 	ears = /obj/item/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/customs_agent
-	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
-	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/customs_agent
+	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent
+	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
+	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent
 	glasses = /obj/item/clothing/glasses/hud/gun_permit
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs/cable/orange
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/cargo = 1,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball = 1,
+		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
 	)
 
 	backpack = /obj/item/storage/backpack
@@ -596,15 +596,15 @@
 
 	belt = /obj/item/modular_computer/pda/bar
 	ears = /obj/item/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/bouncer
+	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	head =  /obj/item/clothing/head/helmet/blueshirt/skyrat/guard
-	suit = /obj/item/clothing/suit/armor/vest/blueshirt/skyrat/guard
+	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
+	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard
 	l_pocket = /obj/item/restraints/handcuffs/cable/green
 	r_pocket = /obj/item/assembly/flash/handheld
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/service = 1,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball = 1,
+		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
 		)
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -800,10 +800,10 @@
 	generate_items_inside(list(
 		/obj/item/radio/headset/headset_sci = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat = 2,
-		/obj/item/clothing/head/helmet/blueshirt/skyrat = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova = 2,
 		/obj/item/clothing/head/beret/sec/science = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/skyrat = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 	), src)
 
@@ -815,10 +815,10 @@
 	generate_items_inside(list(
 		/obj/item/radio/headset/headset_med = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/orderly = 2,
-		/obj/item/clothing/head/helmet/blueshirt/skyrat/guard = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
 		/obj/item/clothing/head/beret/sec/medical = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/orderly = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 	), src)
 
@@ -830,10 +830,10 @@
 	generate_items_inside(list(
 		/obj/item/radio/headset/headset_eng = 2,
 		/obj/item/clothing/shoes/workboots = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/engineering_guard = 2,
-		/obj/item/clothing/head/helmet/blueshirt/skyrat/guard = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
 		/obj/item/clothing/head/beret/sec/engineering = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/engineering_guard = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 	), src)
 
@@ -845,10 +845,10 @@
 	generate_items_inside(list(
 		/obj/item/radio/headset/headset_cargo = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
-		/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/customs_agent = 2,
-		/obj/item/clothing/head/helmet/blueshirt/skyrat/guard = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
 		/obj/item/clothing/head/beret/sec/cargo = 2,
-		/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/customs_agent = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 		/obj/item/clothing/glasses/hud/gun_permit = 2,
 	), src)

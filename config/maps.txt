@@ -58,7 +58,7 @@ endmap
 map runtimestation
 endmap
 
-##SKYRAT MAPS##
+##NOVA SECTOR MAPS##
 
 map voidraptor
 	maxplayers 100
