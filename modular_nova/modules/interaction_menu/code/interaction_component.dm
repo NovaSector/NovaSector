@@ -36,7 +36,7 @@
 /datum/component/interactable/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_CLICK_CTRL_SHIFT)
 
-/datum/component/interactable/Destroy(force, silent)
+/datum/component/interactable/Destroy(force)
 	self = null
 	interactions = null
 	return ..()

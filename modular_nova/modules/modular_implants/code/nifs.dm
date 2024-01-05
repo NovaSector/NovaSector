@@ -456,7 +456,7 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(add_examine))
 
-/datum/component/nif_examine/Destroy(force, silent)
+/datum/component/nif_examine/Destroy(force)
 	UnregisterSignal(parent, COMSIG_MOB_EXAMINATE)
 	return ..()
 

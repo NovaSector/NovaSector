@@ -8,5 +8,5 @@
 	leader_role = /datum/antagonist/ert/asset_protection/leader
 	rename_team = "Asset Protection Team"
 	code = "Red"
-	mission = "Protect Nanotrasen's assets, crew are assets."
+	mission = "Protect Nanotrasen's assets; crew are assets."
 	polldesc = "a Nanotrasen asset protection team"
