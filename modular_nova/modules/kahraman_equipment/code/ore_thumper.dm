@@ -194,7 +194,7 @@
 	if(callback_tracker)
 		deltimer(callback_tracker)
 
-	callback_tracker = addtimer(CALLBACK(src, PROC_REF(slam_it_down)), SLAM_JAM_DELAY)
+	callback_tracker = addtimer(CALLBACK(src, PROC_REF(slam_it_down)), SLAM_JAM_DELAY, TIMER_DELETE_ME | TIMER_STOPPABLE,)
 
 	// If the number of slams is less than that of what we need, then we can stop here
 	if(!(slam_jams >= slam_jams_needed))
