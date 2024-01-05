@@ -108,12 +108,11 @@
 			return
 
 
-
 //Interdyne Wardrobe
 /obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne
 	name = "\improper InterDrobe"
 	desc = "A vending machine for Interdyne Pharmaceutics employees."
-	icon = 'modular_skyrat/modules/mapping/icons/obj/vending.dmi'
+	icon = 'modular_nova/modules/mapping/icons/obj/vending.dmi'
 	icon_state = "ipdrobe"
 	product_ads = "Producing bioweapons with style!;What's the point in violating the hippocractic oath if you don't look good doing it?"
 	vend_reply = "Thank you for using the InterDrobe!"
@@ -125,8 +124,8 @@
 		/obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/white = 5,
 		/obj/item/clothing/suit/syndicate/interdyne_jacket = 5,
 		/obj/item/clothing/head/beret/medical/skyrat/interdyne = 5,
-		/obj/item/clothing/under/syndicate/skyrat/interdyne/miner = 5,
-		/obj/item/clothing/under/syndicate/skyrat/interdyne = 5,
+		/obj/item/clothing/under/syndicate/nova/interdyne/miner = 5,
+		/obj/item/clothing/under/syndicate/nova/interdyne = 5,
 		/obj/item/clothing/shoes/combat = 5,
 		/obj/item/clothing/mask/gas = 5,
 		/obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne = 5,

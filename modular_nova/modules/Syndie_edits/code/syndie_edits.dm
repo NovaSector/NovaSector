@@ -209,7 +209,7 @@
 	acid = 45
 
 //Interdyne Clothing
-/obj/item/clothing/under/syndicate/skyrat/interdyne
+/obj/item/clothing/under/syndicate/nova/interdyne
 	name = "interdyne turtleneck"
 	desc = "A sleek white turtleneck with a hint of interdyne-green, appropriately paired with some charcoal-black cargo pants."
 	armor_type = /datum/armor/clothing_under/syndicate
@@ -218,7 +218,7 @@
 	alt_covers_chest = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/syndicate/skyrat/interdyne/miner
+/obj/item/clothing/under/syndicate/nova/interdyne/miner
 	name = "interdyne jumpsuit"
 	desc = "A black and green Interdyne Pharmaceutics jumpsuit with reinforced fibers."
 	armor_type = /datum/armor/clothing_under/cargo_miner
@@ -226,7 +226,7 @@
 	can_adjust = TRUE
 	alt_covers_chest = FALSE
 
-/obj/item/clothing/under/syndicate/skyrat/interdyne/deckofficer
+/obj/item/clothing/under/syndicate/nova/interdyne/deckofficer
 	name = "deck officer's jumpsuit"
 	desc = "A black and green Interdyne Pharmaceutics uniform complete with a golden belt buckle."
 	armor_type = /datum/armor/clothing_under/syndicate
@@ -244,30 +244,30 @@
 	desc = "A black officer's cap that demands discipline from the one who wears it."
 	icon_state = "ip_officercap_black"
 	armor_type = /datum/armor/sec_navywarden
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_white
 	name = "white deck officer's cap"
 	desc = "A white officer's cap that demands discipline from the one who wears it."
 	icon_state = "ip_officercap_white"
 	armor_type = /datum/armor/sec_navywarden
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/head/bio_hood/skyrat/interdyne
 	name = "interdyne biosuit helmet"
 	desc = "An Interdyne Pharmaceutics biosuit helmet designed to keep the wearer safe from biohazardous materials."
 	icon_state = "ip_biosuit_head"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
 /obj/item/clothing/suit/bio_suit/interdyne
 	name = "interdyne biosuit"
 	desc = "An Interdyne Pharmaceutics biosuit designed to keep the wearer safe from biohazardous materials. It's lighter than a typical biosuit."
 	icon_state = "ip_biosuit"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	slowdown = 0.3
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -275,23 +275,23 @@
 	name = "deck officer's cloak"
 	desc = "An armored trench-cloak with green accents worn by high-ranking interdyne staff."
 	icon_state = "ip_officercloak"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	current_skin = "ip_officercloak" //prevents reskinning
 
 /obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/black
 	name = "interdyne black labcoat"
 	desc = "A black labcoat accented with interdyne-green colors."
 	icon_state = "ip_labcoatblack"
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/white
 	name = "interdyne white labcoat"
 	desc = "A white labcoat accented with interdyne-green colors."
 	icon_state = "ip_labcoatwhite"
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 
@@ -299,8 +299,8 @@
 	name = "interdyne jacket"
 	desc = "A green high-visibility jacket bearing interdyne colors."
 	icon_state = "ip_armorlabcoat"
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/labcoat.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/labcoat.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/labcoat.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/labcoat.dmi'
 	armor_type = /datum/armor/wintercoat_syndicate
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -308,7 +308,7 @@
 	name = "deck officer's labcoat"
 	desc = "A white labcoat with interdyne-green accents and a particularly fancy collar."
 	icon_state = "ip_officerlabcoat"
-	worn_icon_teshari = 'modular_skyrat/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne

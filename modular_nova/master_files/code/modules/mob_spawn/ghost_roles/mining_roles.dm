@@ -99,22 +99,22 @@
 
 /datum/outfit/lavaland_syndicate
 	name = "Interdyne Bioweapon Scientist"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne
-	suit = /obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/white
-	head = /obj/item/clothing/head/beret/medical/skyrat/interdyne
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
+	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
+	head = /obj/item/clothing/head/beret/medical/nova/interdyne
 	ears = /obj/item/radio/headset/interdyne/green
 /datum/outfit/lavaland_syndicate/ice
-	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne
 	ears = /obj/item/radio/headset/interdyne/green
-	head = /obj/item/clothing/head/beret/medical/skyrat/interdyne
+	head = /obj/item/clothing/head/beret/medical/nova/interdyne
 /datum/outfit/lavaland_syndicate/shaftminer
 	name = "Interdyne Shaft Miner"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne/miner
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	head = null //funny subtypes
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/skyrat/interdyne
+	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	backpack_contents = list(
 		/obj/item/flashlight/seclite=1,\
 		/obj/item/knife/combat/survival=1,
@@ -125,24 +125,25 @@
 		/obj/item/card/mining_point_card=1)
 /datum/outfit/lavaland_syndicate/shaftminer/deckofficer
 	name = "Interdyne Deck Officer"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne/deckofficer
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/deckofficer
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
 	id = /obj/item/card/id/advanced/silver/generic
-	id_trim = /datum/id_trim/syndicom/skyrat/interdyne/deckofficer
+	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 /datum/outfit/lavaland_syndicate/shaftminer/ice
 	name = "Icemoon Interdyne Shaft Miner"
-	uniform = /obj/item/clothing/under/syndicate/skyrat/interdyne/miner
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	head = /obj/item/clothing/ears/headphones
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
+
 /obj/item/radio/headset/interdyne/green
 	name = "interdyne branded headset"
 	desc = "A bowman headset in interdyne green, has a small 'IP' written on the earpiece. Protects the ears from flashbangs."
 	icon_state = "headset_ip"
 	worn_icon_state = "headset_ip"
-	icon = 'modular_skyrat/modules/mapping/icons/obj/headset.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/ears.dmi'
+	icon = 'modular_nova/modules/mapping/icons/obj/headset.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/ears.dmi'
 
 
 // OUTFITS
