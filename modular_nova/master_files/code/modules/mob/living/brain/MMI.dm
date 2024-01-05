@@ -23,8 +23,9 @@
 /obj/item/mmi/syndie/interdyne/Initialize(mapload)
 	. = ..()
 	qdel(radio)
-	qdel(laws)
 	radio = /obj/item/radio/borg/syndicate/ghost_role(src)
+	laws.owner = null
+	qdel(laws)
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
 	radio.set_broadcasting(FALSE)
 	radio.set_on(FALSE)
@@ -38,6 +39,7 @@
 /obj/item/mmi/posibrain/syndie/interdyne/Initialize(mapload)
 	. = ..()
 	qdel(radio)
+	laws.owner = null
 	qdel(laws)
 	radio = /obj/item/radio/borg/syndicate/ghost_role
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
@@ -53,6 +55,7 @@
 /obj/item/mmi/syndie/ds2/Initialize(mapload)
 	. = ..()
 	qdel(radio)
+	laws.owner = null
 	qdel(laws)
 	radio = new /obj/item/radio/borg/syndicate/ghost_role(src)
 	radio.set_broadcasting(FALSE)
@@ -67,6 +70,7 @@
 /obj/item/mmi/posibrain/syndie/ds2/Initialize(mapload)
 	. = ..()
 	qdel(radio)
+	laws.owner = null
 	qdel(laws)
 	radio = new /obj/item/radio/borg/syndicate/ghost_role(src)
 	radio.set_broadcasting(FALSE)
