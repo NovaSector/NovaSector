@@ -48,6 +48,7 @@
 
 #define CM_COLOR_SAT_MAX 90 // 90% saturation is the default ceiling
 #define CM_COLOR_LUM_MIN 40 // 40% luminosity is the default floor
+#define CM_COLOR_LUM_MAX 50
 #define CM_COLOR_LUM_MAX_GREY 35 // 35% luminosity for greys
 #define CM_COLOR_LUM_MAX_DARK_RANGE 45 // 45% luminosity for dark blues/reds/violets
 
@@ -75,11 +76,11 @@
 	var/processed_luminance
 
 	if(hue == 0) // greys have a higher floor on the allowed luminance value
-		processed_luminance = max(luminance, CM_COLOR_LUM_MAX_GREY)
+		processed_luminance = clamp(luminance, CM_COLOR_LUM_MAX_GREY, CM_COLOR_LUM_MAX)
 	else if(350 > hue > 180)
-		processed_luminance = min(luminance, CM_COLOR_LUM_MAX_DARK_RANGE) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
+		processed_luminance = clamp(luminance, CM_COLOR_LUM_MAX_DARK_RANGE, CM_COLOR_LUM_MAX) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
 	else
-		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // for everything else
+		processed_luminance = clamp(luminance, CM_COLOR_LUM_MIN, CM_COLOR_LUM_MAX) // for everything else
 	processed_saturation = min(saturation, CM_COLOR_SAT_MAX) // desaturate everything slightly
 
 	return rgb(hue, processed_saturation*sat_shift, processed_luminance*lum_shift, space = COLORSPACE_HSL)
@@ -90,5 +91,6 @@
 
 #undef CM_COLOR_SAT_MAX
 #undef CM_COLOR_LUM_MIN
+#undef CM_COLOR_LUM_MAX
 #undef CM_COLOR_LUM_MAX_GREY
 #undef CM_COLOR_LUM_MAX_DARK_RANGE
