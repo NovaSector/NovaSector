@@ -69,7 +69,7 @@
 	if(isnull(color))
 		return "#FFFFFF"
 
-	// Convert color to HSL
+	// Convert color hex to HSL
 	var/hsl_color = rgb2num(color, COLORSPACE_HSL)
 
 	// Hue / saturation / luminance
@@ -77,7 +77,7 @@
 	var/saturation = hsl_color[CM_COLOR_SATURATION]
 	var/luminance = hsl_color[CM_COLOR_LUMINANCE]
 
-	// Desaturate everything slightly
+	// Cap the saturation at 90%
 	saturation = min(saturation, CM_COLOR_SAT_MAX)
 
 	// Now clamp the luminance according to the hue
@@ -91,6 +91,7 @@
 	else
 		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // everything else gets the default
 
+	// Convert it back to a hex
 	return rgb(hue, saturation*sat_shift, processed_luminance*lum_shift, space = COLORSPACE_HSL)
 
 #undef CM_COLOR_HUE
