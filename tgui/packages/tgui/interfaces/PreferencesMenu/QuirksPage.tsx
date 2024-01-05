@@ -238,7 +238,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
-                  maxWidth="300px"
+                  maxWidth="400px"
                   backgroundColor="black"
                   px="5px"
                   py="3px"
