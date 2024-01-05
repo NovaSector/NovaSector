@@ -153,7 +153,7 @@
 
 	// Append language icon if the language uses one
 	var/datum/language/language_instance = GLOB.language_datum_instances[language]
-	if (language_instance?.display_icon(owner))`
+	if (language_instance?.display_icon(owner))
 		var/icon/language_icon = LAZYACCESS(language_icons, language)
 		if (isnull(language_icon))
 			language_icon = icon(language_instance.icon, icon_state = language_instance.icon_state)
