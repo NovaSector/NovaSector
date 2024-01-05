@@ -41,14 +41,20 @@
 
 #undef CHAT_COLOR_NORMAL
 #undef CHAT_COLOR_DARKENED
+
+#define CM_COLOR_HUE 1
+#define CM_COLOR_SATURATION 2
+#define CM_COLOR_LUMINANCE 3
+
 #define CM_COLOR_SAT_MIN 0
-#define CM_COLOR_SAT_MAX 1
-#define CM_COLOR_LUM_MIN 0.35
-#define CM_COLOR_LUM_MAX 1
+#define CM_COLOR_SAT_MAX 90
+#define CM_COLOR_LUM_MIN 40
+#define CM_COLOR_LUM_MAX_GREY 35
+#define CM_COLOR_LUM_MAX_DARK_RANGE 45
 
 /**
  * Converts a given color to comply within a smaller subset of colors to be used in runechat.
- * If a color is outside the min/max saturation or value/lum, it will be set at the nearest
+ * If a color is outside the min/max saturation or lum, it will be set at the nearest
  * value that passes validation.
  *
  * Arguments:
@@ -60,20 +66,24 @@
 	if(isnull(color))
 		return
 
-	var/input_hsv = RGBtoHSV(color)
-	var/list/split_hsv = ReadHSV(input_hsv)
-	var/split_h = split_hsv[1]
-	var/split_s = split_hsv[2]
-	var/split_v = split_hsv[3]
-	var/processed_s = clamp(split_s, CM_COLOR_SAT_MIN * 255, CM_COLOR_SAT_MAX * 255)
-	var/processed_v = clamp(split_v, CM_COLOR_LUM_MIN * 255, CM_COLOR_LUM_MAX * 255)
-	// adjust for shifts
-	processed_s *= clamp(sat_shift, 0, 1)
-	processed_v *= clamp(lum_shift, 0, 1)
-	var/processed_hsv = hsv(split_h, processed_s, processed_v)
-	var/processed_rgb = HSVtoRGB(processed_hsv)
+	var/hsl_color = rgb2num(color, COLORSPACE_HSL)
 
-	return processed_rgb
+	var/hue = hsl_color[CM_COLOR_HUE]
+	var/saturation = hsl_color[CM_COLOR_SATURATION]
+	var/luminance = hsl_color[CM_COLOR_LUMINANCE]
+
+	var/processed_saturation
+	var/processed_luminance
+
+	if(hue == 0) // greys have a higher floor on the allowed luminance value
+		processed_luminance = max(luminance, CM_COLOR_LUM_MAX_GREY)
+	else if(350 > hue > 180)
+		processed_luminance = min(luminance, CM_COLOR_LUM_MAX_DARK_RANGE) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
+	else
+		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // for everything else
+	processed_saturation = min(saturation, CM_COLOR_SAT_MAX) // desaturate everything slightly
+
+	return rgb(hue, processed_saturation*sat_shift, processed_luminance*lum_shift, space = COLORSPACE_HSL)
 
 #undef CM_COLOR_LUM_MAX
 #undef CM_COLOR_LUM_MIN
