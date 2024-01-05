@@ -235,7 +235,6 @@ function QuirkPopper(props: QuirkPopperProps) {
                 }}
               >
                 <Stack
-                  maxWidth="400px" // NOVA EDIT - maxWidth to 600px from 300px
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
