@@ -165,7 +165,7 @@
 
 	balloon_alert(user, "thumper started")
 
-	callback_tracker = addtimer(CALLBACK(src, PROC_REF(slam_it_down)), SLAM_JAM_DELAY)
+	callback_tracker = addtimer(CALLBACK(src, PROC_REF(slam_it_down)), SLAM_JAM_DELAY, TIMER_DELETE_ME | TIMER_STOPPABLE)
 
 
 /// Attempts to shut the thumper down
