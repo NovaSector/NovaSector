@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - code_imp: "progressbars no longer qdel their /image"
