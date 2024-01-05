@@ -24,6 +24,7 @@
 		"frontier_sustenance_dispenser",
 		"co2_cracker",
 		"portable_recycler",
+		"foodricator",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000000000000000) // God save you
 	hidden = TRUE
