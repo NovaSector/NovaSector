@@ -81,7 +81,7 @@
 
 	if(hue == CM_COLOR_HUE_GREY) // greys have a higher floor on the allowed luminance value
 		processed_luminance = clamp(luminance, CM_COLOR_LUM_MAX_GREY, CM_COLOR_LUM_MAX)
-	else if(CM_COLOR_HUE_RANGE_UPPER> hue > CM_COLOR_HUE_RANGE_LOWER)
+	else if(CM_COLOR_HUE_RANGE_UPPER > hue > CM_COLOR_HUE_RANGE_LOWER)
 		processed_luminance = clamp(luminance, CM_COLOR_LUM_MAX_DARK_RANGE, CM_COLOR_LUM_MAX) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
 	else
 		processed_luminance = clamp(luminance, CM_COLOR_LUM_MIN, CM_COLOR_LUM_MAX) // for everything else
