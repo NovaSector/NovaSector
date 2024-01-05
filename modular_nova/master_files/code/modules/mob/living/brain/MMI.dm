@@ -22,9 +22,7 @@
 
 /obj/item/mmi/syndie/interdyne/Initialize(mapload)
 	. = ..()
-	radio = new(src)
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
-	radio.set_on(FALSE)
 
 /obj/item/mmi/posibrain/syndie/interdyne
 	name = "positronic brain"
@@ -34,9 +32,7 @@
 
 /obj/item/mmi/posibrain/syndie/interdyne/Initialize(mapload)
 	. = ..()
-	radio = new(src)
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
-	radio.set_on(FALSE)
 
 // DS-2
 
@@ -46,9 +42,7 @@
 
 /obj/item/mmi/syndie/ds2/Initialize(mapload)
 	. = ..()
-	radio = new(src)
 	laws = new /datum/ai_laws/syndicate_override_ds2()
-	radio.set_on(FALSE)
 
 /obj/item/mmi/posibrain/syndie/ds2
 	name = "positronic brain"
@@ -57,6 +51,4 @@
 
 /obj/item/mmi/posibrain/syndie/ds2/Initialize(mapload)
 	. = ..()
-	radio = new(src)
 	laws = new /datum/ai_laws/syndicate_override_ds2()
-	radio.set_on(FALSE)
