@@ -221,7 +221,7 @@
 		balloon_alert_to_viewers("too close to another thumper")
 		return
 
-	addtimer(CALLBACK(src, PROC_REF(make_some_ore)), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(make_some_ore)), 3 SECONDS, TIMER_DELETE_ME)
 
 
 /// Spawns an ore box on top of the thumper
