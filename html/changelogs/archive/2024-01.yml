@@ -126,3 +126,72 @@
       from hitting their head. All other safety warnings still apply.
   - bugfix: Oversized and Settler can now no longer be chosen together to negate the
       Oversized hunger mod penalty.
+2024-01-05:
+  GoldenAlpharex:
+  - bugfix: Masquerade masks can now properly hide your identity.
+  LT3:
+  - bugfix: OOC announcements will now be in shown in OOC colors
+  - bugfix: Alternate carpet colors will no longer reskin to normal carpet
+  Melbert:
+  - bugfix: Fixed runtime from blobbernauts attacking non-living things
+  - bugfix: Some things which affect everything in an area are less laggy, the "all
+      lights are broken" station trait especially
+  - bugfix: Fixed Fugu Gland applying to mobs incorrectly
+  Motho & Vinylspiders:
+  - rscadd: You can now customize the color of your overhead chat bubble. Ported from
+      effigyse, original by LT3.
+  - bugfix: cyborgs should now get their brain prefs applied correctly
+  NovaBot13:
+  - bugfix: Gibtonite ore on ice planet gulags no longer spawns as lavaland rock.
+  - qol: Path of moon and lock now actually fit in the heretic tree
+  - balance: Certain path of moon rituals that needed brains now use easier to obtain
+      organs
+  - bugfix: Fixed redundant "Integrity:" in air alarms
+  - code_imp: progressbars no longer qdel their /image
+  - spellcheck: Fixed punctuation in Luini Amaretto's description.
+  - bugfix: fixed a runtime in datum/thrownthing
+  - bugfix: 'TGUI: Sections should be scrollable on mouse hover'
+  - bugfix: closets now have a working welder deconstruct screentip
+  - bugfix: fixed an /image hard del in ghost code
+  - bugfix: 'Icebox: Added a fire alarm to the upstairs fore primary hallway.'
+  - admin: Amputation Shear amputation is now logged
+  - bugfix: 'Birdshot: Released gulag prisoners can now get off the gulag shuttle.'
+  - bugfix: 'Birdshot: The gulag shuttle airlocks will now cycle like other airlocks.'
+  - bugfix: Guardian host's ability buttons now works while the host is sleeping/unconscious.
+  - bugfix: stationary medbots will no longer ignore u for a while if u move out of
+      their way while healing
+  - bugfix: the moon heretic ascension now produces lunatics again
+  - bugfix: you no longer fall down cliffs if you dont have gravity
+  - bugfix: Universal scanners are no longer invisible when set to the export or sales
+      tagger modes.
+  - bugfix: food made with drying racks now counts as "chef-made" (ergo, can provide
+      a mild buff).
+  Paxilmaniac:
+  - rscadd: The CO2 Cracker makes a return, a device that takes power and turns ambient
+      CO2 into ambient oxygen, handy!
+  - rscadd: The portable recycler has been added, a machine that lets you recycle
+      stuff autolathe-style, clang!
+  - rscadd: The hydroponics chemical synthesizer has been added, the sister to the
+      water synthesizer, makes all of the basic botany chemicals to work with reagent
+      pipes.
+  - rscadd: The sustenance dispenser makes a return, dispense yourself some powdered
+      coffee or nutraslop today!
+  - rscadd: The organic rations printer has been added, a little biogenerator-type
+      machine specializing in food specifically. An excellent kitchen buddy for the
+      supply-deprived cook.
+  - image: Sprites for all the listed new machines were made by me, Paxilmaniac.
+  SomeRandomOwl:
+  - bugfix: Fixed a old mirror, AI vox announcements now send the announcement through
+      minor_announce instead of going through the radio
+  - refactor: Refactored AI vox code to do our custom AI vox voices in a more cleaner
+      way
+  honkpocket:
+  - rscadd: Xeno-hybrids have a weak plasmavessel to spin resin and hive communicate
+      with
+  - rscadd: Xeno-hybrids have acid blood
+  - balance: Xeno-hybrids are the weakest species against heat/fire, at a whopping
+      2.5x multiplier
+  - balance: Xeno-hybrid livers can process plasma without gaining toxin damage
+  yooriss:
+  - rscadd: Talking now automatically capitalizes any lowercase 'i' in the middle
+      of sentences, and ends sentences in a period if no other punctuation is present.
