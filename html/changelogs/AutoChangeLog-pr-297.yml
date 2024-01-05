@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - refactor: "refactors all(?) modular items to a standard list format"

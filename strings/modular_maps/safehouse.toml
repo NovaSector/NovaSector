@@ -35,6 +35,6 @@ modules = ["wood.dmm"]
 
 # NOVA EDIT ADDITION START - custom domains / Disabled until solution found
 [rooms.ancient_milsim]
-modules = ["skyrat_ancientmilsim.dmm"]
+modules = ["ancientmilsim_nova.dmm"]
 # NOVA EDIT ADDITION END
 
