@@ -8,7 +8,7 @@
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/storage/belt/military
 
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicate/alt

@@ -1,8 +1,8 @@
-// Skyrat CC area defines
+// Nova Sector CC area defines
 
 /*
-* Ghost Cafe
-*/
+ * Ghost Cafe
+ */
 
 /area/centcom/holding
 	name = "Holding Facility"

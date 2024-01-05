@@ -9,9 +9,9 @@
 	name = "black bishop's cloak"
 	icon_state = "blackbishopcloak"
 
-/obj/item/clothing/neck/cloak/qm/syndie
+/obj/item/clothing/neck/cloak/qm/nova/interdyne
 	name = "deck officer's cloak"
-	desc = "A cloak that represents the eternal Cargoslavia. There's little Mosin Nagant emblems woven into the fabric."
+	desc = "A cloak that represents the eternal Cargonia. There's little Mosin Nagant emblems woven into the fabric."
 
 /obj/item/clothing/neck/cowboylea
 	name = "green cowboy poncho"
