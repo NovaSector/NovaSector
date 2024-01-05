@@ -12,7 +12,7 @@
 	return process_chat_color(sanitize_hexcolor(input))
 
 /datum/preference/color/chat_color/create_default_value()
-	return process_chat_color(random_color())
+	return process_chat_color("#[random_color()]")
 
 /datum/preference/color/chat_color/serialize(input)
 	return process_chat_color(sanitize_hexcolor(input))
