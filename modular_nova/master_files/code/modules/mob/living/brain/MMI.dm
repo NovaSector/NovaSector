@@ -24,7 +24,7 @@
 	. = ..()
 	qdel(radio)
 	qdel(laws)
-	radio = /obj/item/radio/borg/syndicate/ghost_role(src)
+	radio = new /obj/item/radio/borg/syndicate/ghost_role(src)
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
 	radio.set_broadcasting(FALSE)
 	radio.set_on(FALSE)
@@ -39,7 +39,7 @@
 	. = ..()
 	qdel(radio)
 	qdel(laws)
-	radio = /obj/item/radio/borg/syndicate/ghost_role
+	radio = new /obj/item/radio/borg/syndicate/ghost_role
 	laws = new /datum/ai_laws/syndicate_override_interdyne()
 	radio.set_broadcasting(FALSE)
 	radio.set_on(FALSE)
