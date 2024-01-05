@@ -92,12 +92,6 @@
 		return
 	harddel_deets_dumped = TRUE
 	return "owner: [owner_mob_string]([owner_string]) loc: [target_atom_string]"
-
-/image/dump_harddel_info()
-	if(harddel_deets_dumped)
-		return
-	harddel_deets_dumped = TRUE
-	return "Image icon: [icon] - icon_state: [icon_state] loc: [loc] ([loc?.x],[loc?.y],[loc?.z])"
 // NOVA EDIT ADDITION END
 
 /datum/chatmessage/Destroy()
