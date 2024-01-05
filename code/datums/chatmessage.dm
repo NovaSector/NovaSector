@@ -54,11 +54,6 @@
 	var/animate_start = 0
 	/// Our animation lifespan, how long this message will last
 	var/animate_lifespan = 0
-	// NOVA EDIT ADDITION START - DEBUGGING
-	var/owner_string
-	var/owner_mob_string
-	var/target_atom_string
-	// NOVA EDIT ADDITION END
 
 /**
  * Constructs a chat message overlay
@@ -73,11 +68,6 @@
  */
 /datum/chatmessage/New(text, atom/target, mob/owner, datum/language/language, list/extra_classes = list(), lifespan = CHAT_MESSAGE_LIFESPAN)
 	. = ..()
-	// NOVA EDIT ADDITION START
-	owner_string = "[owner?.client]"
-	owner_mob_string = "[owner]"
-	target_atom_string = "[isturf(target) ? target : get_atom_on_turf(target)]"
-	// NOVA EDIT ADDITION END
 	if (!istype(target))
 		CRASH("Invalid target given for chatmessage")
 	if(QDELETED(owner) || !istype(owner) || !owner.client)
@@ -85,14 +75,6 @@
 		qdel(src)
 		return
 	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
-
-// NOVA EDIT ADDITION START
-/datum/chatmessage/dump_harddel_info()
-	if(harddel_deets_dumped)
-		return
-	harddel_deets_dumped = TRUE
-	return "owner: [owner_mob_string]([owner_string]) loc: [target_atom_string]"
-// NOVA EDIT ADDITION END
 
 /datum/chatmessage/Destroy()
 	if (!QDELING(owned_by))
@@ -107,13 +89,6 @@
 	message_loc = null
 	message = null
 	return ..()
-
-/**
- * Calls qdel on the chatmessage when its parent is deleted, used to register qdel signal
- */
-/datum/chatmessage/proc/on_parent_qdel()
-	SIGNAL_HANDLER
-	qdel(src)
 
 /**
  * Generates a chat message image representation
@@ -132,7 +107,6 @@
 
 	// Register client who owns this message
 	owned_by = owner.client
-	RegisterSignal(owned_by, COMSIG_QDELETING, PROC_REF(on_parent_qdel))
 
 	// Remove spans in the message from things like the recorder
 	var/static/regex/span_check = new(@"<\/?span[^>]*>", "gi")
@@ -179,7 +153,7 @@
 
 	// Append language icon if the language uses one
 	var/datum/language/language_instance = GLOB.language_datum_instances[language]
-	if (language_instance?.display_icon(owner))
+	if (language_instance?.display_icon(owner))`
 		var/icon/language_icon = LAZYACCESS(language_icons, language)
 		if (isnull(language_icon))
 			language_icon = icon(language_instance.icon, icon_state = language_instance.icon_state)

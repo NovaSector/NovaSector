@@ -604,7 +604,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	QDEL_NULL(void)
 	QDEL_NULL(tooltips)
 	QDEL_NULL(open_loadout_ui) //NOVA EDIT ADDITION
-	seen_messages = null
+	LAZYNULL(images) //NOVA EDIT ADDITION
+	QDEL_LIST_ASSOC_VAL(seen_messages) //NOVA EDIT ADDITION
 	Master.UpdateTickRate()
 	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
 	return QDEL_HINT_HARDDEL_NOW
