@@ -98,6 +98,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/usa, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 
+/obj/structure/sign/flag/interdyne
+	name = "flag of Interdyne"
+	desc = "The corporate flag of Interdyne Pharmaceuticals. It is, essentially, a clean white bedsheet. It's either the best or worst flag you've ever seen."
+	icon_state = "flag_coder"
+	item_flag = /obj/item/sign/flag/interdyne
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
+
 /obj/item/sign/flag
 	name = "folded blank flag"
 	desc = "The folded flag of nothing. It has nothing on it. Beautiful."
@@ -177,3 +185,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 	desc = "The folded flag of the Sothran Syndicate."
 	icon_state = "folded_syndi"
 	sign_path = /obj/structure/sign/flag/syndicate
+
+/obj/item/sign/flag/interdyne
+	name = "folded flag of the Syndicate"
+	desc = "The folded flag of Interdyne Pharmaceutics."
+	icon_state = "folded_coder"
+	sign_path = /obj/structure/sign/flag/interdyne
+	special_desc_requirement = EXAMINE_CHECK_JOB
+	special_desc_jobs = list(JOB_MIME) // this will probably never happen. but it will amuse someone when it does.
+	special_desc = "The folded flag of Interdyne Pharmaceuticals. For some reason, it reminds you of the home of the mimes."

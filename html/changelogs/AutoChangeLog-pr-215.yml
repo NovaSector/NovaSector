@@ -1,5 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - sound: "The headset radio sound no longer reaches 17 entire tiles away from you"
-  - code_imp: "Some of the code around headset sounds has been improved a bit"
