@@ -7,7 +7,7 @@
 
 /datum/player_rank_controller/mentor/New()
 	. = ..()
-	legacy_file_path = "[global.config.directory]/skyrat/mentors.txt"
+	legacy_file_path = "[global.config.directory]/nova/mentors.txt"
 
 
 /datum/player_rank_controller/mentor/add_player(ckey)
