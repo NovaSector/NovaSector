@@ -56,8 +56,7 @@
 	icon_state = "sleeper_s"
 	prompt_name = "an Interdyne bioweapon scientist"
 	you_are_text = "You are a science technician employed in an Interdyne research facility developing biological weapons."
-	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, powering the quantum pad to their rumored starship in the system. Continue your research as best you can, and try to keep out of trouble."
-	important_text = "The base is rigged with explosives, DO NOT abandon it or let it fall into enemy hands!"
+	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains. A cargo ferry is docked at the rear of your ship and can be used for trade with both factions. Continue your research as best you can, and try to keep out of trouble."
 	outfit = /datum/outfit/interdyne_planetary_base
 	spawner_job_path = /datum/job/interdyne_planetary_base
 	loadout_enabled = TRUE

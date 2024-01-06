@@ -42,7 +42,7 @@
 
 /*Interdyne Cargo Shuttle*/
 /datum/map_template/shuttle/ruin/interdyne_cargo
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "interdyne_cargo"
 	name = "Interdyne Cargo Shuttle"
 
