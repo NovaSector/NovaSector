@@ -98,8 +98,8 @@
 	SIGNAL_HANDLER
 	if(QDELETED(src)) // NOVA EDIT ADDITION
 		return // NOVA EDIT ADDITION
-	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
 	deltimer(timerid) // NOVA EDIT ADDITION
+	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
 	qdel(src)
 
 /**
@@ -120,7 +120,7 @@
 	// Register client who owns this message
 	owned_by = owner.client
 	RegisterSignal(owned_by, COMSIG_QDELETING, PROC_REF(on_parent_qdel))
-	RegisterSignal(owned_by.client, COMSIG_QDELETING, PROC_REF(on_parent_qdel))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_parent_qdel))
 
 	// Remove spans in the message from things like the recorder
 	var/static/regex/span_check = new(@"<\/?span[^>]*>", "gi")
@@ -197,6 +197,8 @@
 ///finishes the image generation after the MeasureText() call in generate_image().
 ///necessary because after that call the proc can resume at the end of the tick and cause overtime.
 /datum/chatmessage/proc/finish_image_generation(mheight, atom/target, mob/owner, complete_text, lifespan)
+	if(QDELETED(owned_by))
+		return
 	var/rough_time = REALTIMEOFDAY
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 	var/starting_height = target.maptext_height
