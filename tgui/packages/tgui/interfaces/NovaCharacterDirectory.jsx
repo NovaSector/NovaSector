@@ -30,61 +30,73 @@ export const NovaCharacterDirectory = (props) => {
   } = data;
 
   const [overlay, setOverlay] = useState(null);
+  const updateOverlay = (character) => {
+    setOverlay(character);
+  };
 
   const [overwritePrefs, setOverwritePrefs] = useState(prefsOnly);
 
   return (
     <Window width={640} height={480} resizeable>
       <Window.Content scrollable>
-        {(overlay && <ViewCharacter />) || (
+        {(overlay && (
+          <ViewCharacter overlay={overlay} updateOverlay={updateOverlay} />
+        )) || (
           <>
             <Section title="Controls">
               <LabeledList>
                 <LabeledList.Item label="Visibility">
                   <Button
                     fluid
-                    content={personalVisibility ? 'Shown' : 'Not Shown'}
                     onClick={() =>
                       act('setVisible', { overwrite_prefs: overwritePrefs })
                     }
-                  />
+                  >
+                    {personalVisibility ? 'Shown' : 'Not Shown'}
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Attraction">
-                  <Button fluid content={personalAttraction} />
+                  <Button fluid>{personalAttraction}</Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Gender">
-                  <Button fluid content={personalGender} />
+                  <Button fluid>{personalGender}</Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="ERP">
                   <Button
                     fluid
-                    content={personalErpTag}
                     onClick={() =>
                       act('setErpTag', { overwrite_prefs: overwritePrefs })
                     }
-                  />
+                  >
+                    {personalErpTag}
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Vore">
                   <Button
                     fluid
-                    content={personalVoreTag}
                     onClick={() =>
                       act('setTag', { overwrite_prefs: overwritePrefs })
                     }
-                  />
+                  >
+                    {personalVoreTag}
+                  </Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Noncon">
                   <Button
                     fluid
-                    content={personalNonconTag}
                     onClick={() =>
                       act('setNonconTag', { overwrite_prefs: overwritePrefs })
                     }
-                  />
+                  >
+                    {personalNonconTag}
+                  </Button>
                 </LabeledList.Item>
               </LabeledList>
             </Section>
-            <CharacterDirectoryList />
+            <CharacterDirectoryList
+              overlay={overlay}
+              updateOverlay={updateOverlay}
+            />
           </>
         )}
       </Window.Content>
@@ -93,17 +105,15 @@ export const NovaCharacterDirectory = (props) => {
 };
 
 const ViewCharacter = (props) => {
-  const [overlay, setOverlay] = useState(null);
+  const { overlay, updateOverlay } = props;
 
   return (
     <Section
       title={overlay.name}
       buttons={
-        <Button
-          icon="arrow-left"
-          content="Back"
-          onClick={() => setOverlay(null)}
-        />
+        <Button icon="arrow-left" onClick={() => updateOverlay(null)}>
+          Back
+        </Button>
       }
     >
       <Section level={2} title="Species">
@@ -152,18 +162,20 @@ const ViewCharacter = (props) => {
 
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
+  const { overlay, updateOverlay } = props;
 
   const { directory, canOrbit } = data;
 
   const [sortId, _setSortId] = useState('name');
   const [sortOrder, _setSortOrder] = useState('name');
-  const [overlay, setOverlay] = useState(null);
 
   return (
     <Section
       title="Directory"
       buttons={
-        <Button icon="sync" content="Refresh" onClick={() => act('refresh')} />
+        <Button icon="sync" onClick={() => act('refresh')}>
+          Refresh
+        </Button>
       }
     >
       <Table>
@@ -192,9 +204,10 @@ const CharacterDirectoryList = (props) => {
                     color={erpTagColor[character.erp]}
                     icon="ghost"
                     tooltip="Orbit"
-                    content={character.name}
                     onClick={() => act('orbit', { ref: character.ref })}
-                  />
+                  >
+                    {character.name}
+                  </Button>
                 ) : (
                   character.name
                 )}
@@ -207,12 +220,13 @@ const CharacterDirectoryList = (props) => {
               <Table.Cell>{character.noncon}</Table.Cell>
               <Table.Cell collapsing textAlign="right">
                 <Button
-                  onClick={() => setOverlay(character)}
+                  onClick={() => updateOverlay(character)}
                   color="transparent"
                   icon="sticky-note"
                   mr={1}
-                  content="View"
-                />
+                >
+                  View
+                </Button>
               </Table.Cell>
             </Table.Row>
           ))}
@@ -246,7 +260,7 @@ const SortButton = (props) => {
       >
         {children}
         {sortId === id && (
-          <Icon name={sortOrder ? 'sort-up' : 'sort-down'} ml="0.25rem;" />
+          <Icon name={sortOrder ? 'sort-up' : 'sort-down'} ml={0.25} />
         )}
       </Button>
     </Table.Cell>
