@@ -279,7 +279,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	current_skin = "ip_officercloak" //prevents reskinning
-/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
+
 /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black
 	name = "interdyne black labcoat"
 	desc = "A black labcoat accented with interdyne-green colors."
