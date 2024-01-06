@@ -34,7 +34,7 @@
 /datum/element/gun_launches_little_guys/proc/throw_it_back(mob/living/carbon/user, obj/item/gun/gun_fired, target, params, zone_override, list/bonus_spread_values)
 	SIGNAL_HANDLER
 
-	if(!isteshari(user) || !isdwarf(user) || !HAS_TRAIT(user, TRAIT_DWARF))
+	if(!isteshari(user) && !isdwarf(user) && !HAS_TRAIT(user, TRAIT_DWARF))
 		return
 
 	var/fling_direction = REVERSE_DIR(get_dir(user, target))
