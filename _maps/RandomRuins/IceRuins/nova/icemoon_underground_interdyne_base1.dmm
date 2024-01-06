@@ -10,19 +10,14 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "ad" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
+/obj/machinery/quantumpad{
+	name = "quantum pad to DS-2";
+	layer = 2.8;
+	map_pad_id = "interdyne";
+	map_pad_link_id = "ds2"
 	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
-	},
-/obj/machinery/button/door/directional/south{
-	id = "interdynecabin2";
-	name = "door bolt control"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
 "ae" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 9;
@@ -2444,7 +2439,8 @@
 	dir = 1;
 	fax_name = "Interdyne Pharmaceuticals";
 	name = "Interdyne Fax Machine";
-	req_access = list("syndicate")
+	req_access = list("syndicate");
+	syndicate_network = 1
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -4907,7 +4903,7 @@
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = 0;
-	id = "interdynecabin8";
+	id = "interdynecabin6";
 	name = "door bolt control"
 	},
 /turf/open/floor/iron/smooth_large,
@@ -5855,20 +5851,19 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "oz" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
+/obj/structure/disposaloutlet{
+	dir = 4
 	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
+/obj/effect/turf_decal/stripes/end{
+	dir = 1
 	},
-/obj/machinery/button/door/directional/north{
-	pixel_x = 0;
-	id = "interdynecabin5";
-	name = "door bolt control"
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
 	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/ruin/interdyne_planetary_base/med/viro)
 "oA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -7049,20 +7044,6 @@
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"tU" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
-	},
-/obj/machinery/button/door/directional/south{
-	id = "interdynecabin4";
-	name = "door bolt control"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "tZ" = (
 /obj/structure/pod,
 /obj/effect/supplypod_rubble,
@@ -7087,15 +7068,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"wA" = (
-/obj/machinery/quantumpad{
-	name = "quantum pad to DS-2";
-	layer = 2.8;
-	map_pad_id = "interdyne";
-	map_pad_link_id = "ds2"
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
 "xc" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/weather/snow{
@@ -7115,20 +7087,6 @@
 	},
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"xq" = (
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/end{
-	dir = 1
-	},
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/ruin/interdyne_planetary_base/med/viro)
 "xS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -7155,6 +7113,20 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"zy" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/south{
+	id = "interdynecabin4";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Ak" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 9;
@@ -7236,20 +7208,27 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"EA" = (
-/obj/machinery/door/airlock/grunge{
-	name = "Bar"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/bar)
 "EM" = (
 /obj/machinery/hydroponics/constructable{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
+"ER" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_x = 0;
+	id = "interdynecabin5";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "ET" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -7262,20 +7241,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"FK" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
-	},
-/obj/machinery/button/door/directional/south{
-	id = "interdynecabin3";
-	name = "door bolt control"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "FU" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -7292,6 +7257,14 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"Ht" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Bar"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/bar)
 "HC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -7328,21 +7301,6 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
-"Ia" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
-	},
-/obj/machinery/button/door/directional/north{
-	pixel_x = 0;
-	id = "interdynecabin7";
-	name = "door bolt control"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "Iu" = (
 /obj/structure/shipping_container/kahraman{
 	pixel_y = -14
@@ -7363,20 +7321,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"Jg" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
-	},
-/obj/machinery/button/door/directional/south{
-	id = "interdynecabin1";
-	name = "door bolt control"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "JE" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Wing";
@@ -7441,21 +7385,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"Mb" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/structure/closet/secure_closet/personal/wall{
-	icon_door = "locker_wall";
-	pixel_x = 30
-	},
-/obj/machinery/button/door/directional/north{
-	pixel_x = 0;
-	id = "interdynecabin6";
-	name = "door bolt control"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "Mc" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -7492,6 +7421,34 @@
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"Oj" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/south{
+	id = "interdynecabin1";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
+"Oy" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/south{
+	id = "interdynecabin3";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "OK" = (
 /obj/machinery/camera/autoname/directional/west{
 	pixel_y = -10;
@@ -7543,6 +7500,35 @@
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"VH" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/south{
+	id = "interdynecabin2";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
+"VY" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_x = 0;
+	id = "interdynecabin8";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "Wm" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 9;
@@ -7562,6 +7548,21 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"WZ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	icon_door = "locker_wall";
+	pixel_x = 30
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_x = 0;
+	id = "interdynecabin7";
+	name = "door bolt control"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "XB" = (
 /obj/structure/sign/poster/contraband/moffuchis_pizza,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -8110,11 +8111,11 @@ kP
 lv
 lx
 lS
-tU
+zy
 lv
 nJ
 lv
-oz
+ER
 lS
 lx
 lv
@@ -8287,11 +8288,11 @@ kQ
 lv
 lx
 lS
-FK
+Oy
 lv
 nJ
 lv
-Mb
+mi
 lS
 lx
 lv
@@ -8464,11 +8465,11 @@ jm
 lv
 lx
 lS
-ad
+VH
 lv
 nJ
 lv
-Ia
+WZ
 lS
 lx
 lv
@@ -8641,11 +8642,11 @@ kV
 lv
 lx
 lS
-Jg
+Oj
 lv
 nJ
 lv
-mi
+VY
 lS
 lx
 lv
@@ -8670,7 +8671,7 @@ aP
 aG
 bc
 bd
-wA
+ad
 da
 bm
 bm
@@ -8942,7 +8943,7 @@ lV
 lV
 nV
 pa
-EA
+Ht
 pa
 pa
 ab
@@ -9915,7 +9916,7 @@ LM
 LM
 Iv
 rm
-xq
+oz
 aD
 cA
 dM
