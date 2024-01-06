@@ -1,0 +1,6 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "Synth/IPC's  internal PDA - Food/Battery level for the beeper"
+  - qol: "Synths/IPC's will now charge/feed slightly faster"
+  - balance: "Synth/IPC's  internal PDA - raises memory to 64 from 32 to match a standard spawned PDA"
