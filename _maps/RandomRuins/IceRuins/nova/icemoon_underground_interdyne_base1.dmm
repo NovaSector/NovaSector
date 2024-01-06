@@ -4904,7 +4904,9 @@
 /obj/machinery/button/door/directional/north{
 	pixel_x = 0;
 	id = "interdynecabin6";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -5029,7 +5031,7 @@
 "mw" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 3";
-	id = "interdynecabin3"
+	id_tag = "interdynecabin3"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5039,7 +5041,7 @@
 "mx" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 2";
-	id = "interdynecabin2"
+	id_tag = "interdynecabin2"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5099,7 +5101,7 @@
 "mC" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 1";
-	id = "interdynecabin1"
+	id_tag = "interdynecabin1"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5362,7 +5364,7 @@
 "no" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 5";
-	id = "interdynecabin5"
+	id_tag = "interdynecabin5"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5372,7 +5374,7 @@
 "np" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 6";
-	id = "interdynecabin6"
+	id_tag = "interdynecabin6"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5382,7 +5384,7 @@
 "nq" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 7";
-	id = "interdynecabin7"
+	id_tag = "interdynecabin7"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5392,7 +5394,7 @@
 "nr" = (
 /obj/machinery/door/airlock{
 	name = "Cabin 8";
-	id = "interdynecabin8"
+	id_tag = "interdynecabin8"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5775,6 +5777,7 @@
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "op" = (
 /obj/machinery/vending/dinnerware{
+	onstation = 0;
 	extended_inventory = 1
 	},
 /obj/machinery/duct,
@@ -7123,7 +7126,9 @@
 	},
 /obj/machinery/button/door/directional/south{
 	id = "interdynecabin4";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7225,7 +7230,9 @@
 /obj/machinery/button/door/directional/north{
 	pixel_x = 0;
 	id = "interdynecabin5";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7431,7 +7438,9 @@
 	},
 /obj/machinery/button/door/directional/south{
 	id = "interdynecabin1";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7445,7 +7454,9 @@
 	},
 /obj/machinery/button/door/directional/south{
 	id = "interdynecabin3";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7510,7 +7521,9 @@
 	},
 /obj/machinery/button/door/directional/south{
 	id = "interdynecabin2";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7525,7 +7538,9 @@
 /obj/machinery/button/door/directional/north{
 	pixel_x = 0;
 	id = "interdynecabin8";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7559,7 +7574,9 @@
 /obj/machinery/button/door/directional/north{
 	pixel_x = 0;
 	id = "interdynecabin7";
-	name = "door bolt control"
+	name = "door bolt control";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
