@@ -7,7 +7,7 @@
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
 	/// This is used to decide what lewd slot a toy should be able to be inserted into.
 	/// The currently accepted defines are all prefixes with LEWD_SLOT_, and there is one for each lewd organ.
-	/// See code/__DEFINES/~skyrat_defines/inventory.dm for the full list.
+	/// See code/__DEFINES/~nova_defines/inventory.dm for the full list.
 	var/lewd_slot_flags = NONE
 	/// This is to keep track of where we are stored, because sometimes we might want to know that
 	var/current_equipped_slot

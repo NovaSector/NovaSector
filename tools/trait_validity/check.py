@@ -14,7 +14,7 @@ def red(text):
 on_github = os.getenv("GITHUB_ACTIONS") == "true"
 
 defines_file = "code/__DEFINES/traits/declarations.dm"
-skyrat_defines_file = "code/__DEFINES/~skyrat_defines/traits/declarations.dm" # NOVA EDIT ADDITION
+nova_defines_file = "code/__DEFINES/~nova_defines/traits/declarations.dm" # NOVA EDIT ADDITION
 globalvars_file = "code/_globalvars/traits/_traits.dm"
 
 how_to_fix_message = f"Please ensure that all traits in the {defines_file} file are added in the {globalvars_file} file."
@@ -32,8 +32,8 @@ if not os.path.isfile(defines_file):
 	sys.exit(1)
 
 # NOVA EDIT ADDITION START
-if not os.path.isfile(skyrat_defines_file):
-	print(red(f"Could not find the skyrat defines file '{skyrat_defines_file}'!"))
+if not os.path.isfile(nova_defines_file):
+	print(red(f"Could not find the nova defines file '{nova_defines_file}'!"))
 	sys.exit(1)
 # NOVA EDIT ADDITION END
 
@@ -71,7 +71,7 @@ for potential_define in scannable_lines:
 
 # NOVA EDIT ADDITION START
 scannable_lines = []
-with open(skyrat_defines_file, 'r') as file:
+with open(nova_defines_file, 'r') as file:
 	reading = False
 
 	for line in file:

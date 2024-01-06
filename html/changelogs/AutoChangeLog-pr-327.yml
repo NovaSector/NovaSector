@@ -1,0 +1,4 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - bugfix: "fixed the max width of the quirk UI so some quirks aren't cut off"
