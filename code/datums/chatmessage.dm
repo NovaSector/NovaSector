@@ -80,7 +80,8 @@
 	if (!QDELING(owned_by))
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
 			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
-	else // NOVA EDIT ADDITION
+	else // Deleted clients // NOVA EDIT ADDITION
+		SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
 		deltimer(timerid) // Manually delete the timer, which may or may not be finished by this point // NOVA EDIT ADDITION
 	if(owned_by) // NOVA EDIT ADDITION
 		if(owned_by.seen_messages)
@@ -98,7 +99,10 @@
  */
 /datum/chatmessage/proc/on_parent_qdel()
 	SIGNAL_HANDLER
+	if(QDELETED(src)) // NOVA EDIT ADDITION
+		return // NOVA EDIT ADDITION
 	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
+	deltimer(timerid) // NOVA EDIT ADDITION
 	qdel(src)
 
 
