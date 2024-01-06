@@ -80,9 +80,6 @@
 	if (!QDELING(owned_by))
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
 			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
-	else // Deleted clients // NOVA EDIT ADDITION
-		SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
-		deltimer(timerid) // Manually delete the timer, which may or may not be finished by this point // NOVA EDIT ADDITION
 	if(owned_by) // NOVA EDIT ADDITION
 		if(owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
@@ -123,6 +120,7 @@
 	// Register client who owns this message
 	owned_by = owner.client
 	RegisterSignal(owned_by, COMSIG_QDELETING, PROC_REF(on_parent_qdel))
+	RegisterSignal(owned_by.client, COMSIG_QDELETING, PROC_REF(on_parent_qdel))
 
 	// Remove spans in the message from things like the recorder
 	var/static/regex/span_check = new(@"<\/?span[^>]*>", "gi")
