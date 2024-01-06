@@ -1727,7 +1727,7 @@
 	dir = 6
 	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/light{
-	pixel_x = 7;
+	pixel_x = 6;
 	pixel_y = 9
 	},
 /turf/open/floor/iron/textured_large,

@@ -1,0 +1,5 @@
+author: "sergeirocks100"
+delete-after: True
+changes:
+  - rscadd: "Some new shirts have been added to the undershirt selection, including some recolorable t-shirts and a rainbow tank top. Check them out in the character preferences!"
+  - spellcheck: "The name of the sun tank top has had a minor capitalization mistake fixed."

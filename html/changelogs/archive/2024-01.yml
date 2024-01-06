@@ -195,3 +195,125 @@
   yooriss:
   - rscadd: Talking now automatically capitalizes any lowercase 'i' in the middle
       of sentences, and ends sentences in a period if no other punctuation is present.
+2024-01-06:
+  Lutowski:
+  - rscadd: Mothic language returns with its own lore blurb.
+  - image: Added icon for Chitinclick.
+  NovaBot13:
+  - bugfix: fixes an image hard del
+  - code_imp: adds context to image hard dels to make them easier to track
+  - image: resprited onmob cone icon.
+  - bugfix: Having a netpod destroyed will no longer grant you permanent healing.
+  - bugfix: Randomization button in prefs should look normal again.
+  - bugfix: Quirk customization shouldn't close immediately.
+  Paxilmaniac:
+  - bugfix: construction fabricators can once again make ration printers
+  SomeRandomOwl:
+  - bugfix: Build Mode Export's options menu now knows when you want to cancel and
+      not change the options
+  - bugfix: fixed the max width of the quirk UI so some quirks aren't cut off
+  Stalkeros:
+  - rscadd: Ancient Military Simulator got some of the previously implemented items
+      back, i.e. CIN weaponry and DeForest medkits
+  - balance: Ancient Military Simulator, generally speaking, became more 'rigid' and
+      straightforward
+  - balance: Ancient Military Simulator prize room has been moved deeper into SNPC
+      compound to prevent drakes from flying in early.
+  - bugfix: Ancient Military Simulator should no longer break down into space tiles
+      on wall explosions
+  - rscdel: Black Mesa, the map
+  Zergspower:
+  - refactor: refactors all(?) modular items to a standard list format
+  vinylspiders:
+  - qol: Ghosts can now view Wanted Status and Sec Records by examining people
+  - bugfix: fixes an instance of the quick reflexes trait not being honored
+  - bugfix: fixes ashwalker sacrifice immediately gibbing revived lizards
+  - rscdel: vending machines will no longer squash mobs
+  - bugfix: Queen bee's made with cytology now work
+  whataboutism-alos:
+  - bugfix: Updated readme and other git config docs to check NovaSector/NovaSector
+      rather than GalacticStation/GalaxiaStation for updates
+  - bugfix: Updated Ice-Cats policy wiki link
+  - bugfix: Piping & wiring no longer runs beneath Interdynes closed turfs
+  - bugfix: Redone Interdyne ghost role spawner information
+  - bugfix: Fixed two basketball arena maps with deprecated obj paths
+  - bugfix: Removed mention of Skyrat server name in loadout clothing options
+  - bugfix: Corrected some loadout items mistakenly containing the name string of
+      another loadout item
+  - bugfix: Fixed reebe.dmm still using a762 instead of strilka310 pathing
+  - bugfix: Fixes mislabelled Interlink Kitchen/Bar doors (access_helpers were already
+      correct)
+  - bugfix: Adds sounds to Interdyne fitting both Lavaland AND Icemoon
+  - bugfix: Fixes bug of clothing items mapped on top of closed turfs on Interdyne
+      Vault (Icebox)
+  - code_imp: Created template file for modular RGB benches
+  - refactor: Refactored modular chemical and obj flags
+  - refactor: Repathed git checker .sh's
+  - refactor: Added /nova/ to many many missed paths and some comments
+  - refactor: Repathed Interdyne and DS-2
+  - refactor: Repathed (Skyrat) Nova Xenomorphs
+  - refactor: Moved spacehotel and box whiteship dmms to /spaceruins/nova
+  - refactor: Dropped lavaland-specific Interdyne area pathing
+  - refactor: Refactored shuttlecode
+  - refactor: Refactored modular TGUI
+  - refactor: Refactored modular vendor variables
+  - rscadd: UpdatePaths for all mappable changes, includes tips to refactor code
+  - rscadd: Second UpdatePaths for fellow Interdyne enthusiasts
+  - rscadd: Added Interdyne Lavaland & Icemoon commission plaques
+  - rscadd: Blue benches for Interdyne (Icebox)
+  - rscadd: Deck Officer's ID is now a special Interdyne ID rather than a generic
+      silver
+  - rscadd: Survival boxes for all Interdyne crew
+  - rscadd: Disease scanners for Interdyne Bioscientists
+  - rscadd: Added plasmaglass skillsoft implanter using adv. interrogation chamber
+      sprites
+  - rscadd: More specific Interdyne areas
+  - rscadd: Expanded Interdyne Virology
+  - rscadd: New workout equipment for Interdyne miners to get buff and convene around
+  - rscadd: "Added red pi\xF1ata (only candy drops) to Interdyne bar"
+  - rscadd: Included unused red lanterns to Interdyne Syndrobe (Icebox)
+  - rscadd: Added shuttle pad with commercial clutter
+  - rscadd: Added shower in public Interdyne restroom, now not only the Deck Officer
+      has one
+  - rscadd: Added useless big red button to Interdyne's vault safe, scary!
+  - rscadd: Added snowy floor decals to exterior catwalks of Interdyne (Icebox)
+  - rscadd: Added ashy floor decals to exterior catwalks of Interdyne (Lavaland)
+  - rscadd: Added Interdyne dorms laundry basket for ditched default-outfit clothes
+  - rscadd: Added Interdyne Kitchen shutters synced to existing Bar shutters
+  - rscadd: Added plumbing for all sinks, showers, and hydro trays to high-capacity
+      stationary water tank in Interdyne
+  - rscadd: Added a little table clock and calendar to Deck Officer's office
+  - rscadd: Added wall clocks to Xenobio and Virology at Interdyne
+  - rscadd: Added semirandomized posters throughout Interdyne
+  - rscadd: Changed Interdyne default turf from plating to reinforced to match reinforced
+      hull walls
+  - rscadd: Changed Interdyne ceiling to reinforced plating (Icebox)
+  - rscadd: Added Interdyne flag to Medical and Library - blank white flag with altered
+      desc
+  - rscdel: Removed Interdyne hair salon
+  - rscdel: Removed extraneous & visually disjointed departmental directions from
+      Interdyne
+  - qol: Added light switches to every area in Interdyne placed as centrally accessible
+      as possible
+  - qol: Moved Interdyne's 'TOP SECRET' folder to the safe (It's the most important
+      thing. Why was it just in a file cabinet?)
+  - qol: Anchored internals crate in Interdyne Cargo
+  - qol: Redone Interdyne catwalks
+  - qol: Added dim lights to Interdyne catwalks (Icebox)
+  - qol: Condensed, improved Interdyne Library
+  - qol: Enabled, increased count of insulated clothing in the Contraband category
+      of Syndrobe (Icebox)
+  - qol: Quantum pad to DS-2 now more centrally located
+  - qol: Expanded Interdyne kitchen counter
+  - qol: Relocated Disposals room to past Engineering
+  - qol: Morgue is now connected to Medical & reorganized
+  - qol: Morgue now contains an autopsy scanner
+  - qol: Improved window blast door grouping
+  - qol: Enabled extended_inventory on some Interdyne vendors where reasonable (these
+      guys don't follow Nanotrasen's corporate restrictions!)
+  - qol: Added gun case to Vault
+  - qol: Moved the stethoscope to Medical (Should at least act like that item isn't
+      included in the game only for safe-cracking!)
+  - qol: Removed grass turf terrariums, added plastic potted plant to public bathroom.
+      It's a sterile medical company!
+  - bugfix: Fixes Interdyne's radio headset
