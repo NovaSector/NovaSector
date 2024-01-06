@@ -80,7 +80,6 @@
 	if (!QDELING(owned_by))
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
 			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
-	if(owned_by) // NOVA EDIT ADDITION
 		if(owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
 		owned_by.images.Remove(message)
@@ -98,8 +97,13 @@
 	SIGNAL_HANDLER
 	if(QDELETED(src)) // NOVA EDIT ADDITION
 		return // NOVA EDIT ADDITION
-	deltimer(timerid) // NOVA EDIT ADDITION
+	if(timerid) // NOVA EDIT ADDITION
+		deltimer(timerid) // NOVA EDIT ADDITION
 	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
+	if(owned_by) // NOVA EDIT ADDITION
+		if(owned_by.seen_messages) // NOVA EDIT ADDITION
+			LAZYCLEARLIST(owned_by.seen_messages) // NOVA EDIT ADDITION
+		owned_by.images.Remove(message) // NOVA EDIT ADDITION
 	qdel(src)
 
 /**
