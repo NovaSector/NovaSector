@@ -1,5 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Randomization button in prefs should look normal again."
-  - bugfix: "Quirk customization shouldn't close immediately."
