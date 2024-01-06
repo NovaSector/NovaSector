@@ -1733,15 +1733,8 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "oW" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white/smooth_edge{
-	dir = 4
-	},
-/area/ruin/interdyne_planetary_base/main)
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base/cargo/ware)
 "oZ" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
 /turf/open/floor/iron/dark/smooth_large,
@@ -2716,6 +2709,13 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
+"xM" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/ruin/interdyne_planetary_base/cargo/obs)
 "xN" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 8
@@ -3210,6 +3210,7 @@
 	amount = 3
 	},
 /obj/item/stack/sheet/iron/fifty,
+/obj/item/storage/part_replacer/bluespace,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
@@ -3286,6 +3287,16 @@
 	dir = 1
 	},
 /area/ruin/interdyne_planetary_base/med/morgue)
+"BO" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "BQ" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -3943,8 +3954,10 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base)
 "GN" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo/ware)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/ruin/interdyne_planetary_base/main)
 "GP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3982,10 +3995,9 @@
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "Ha" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white,
-/area/ruin/interdyne_planetary_base/main)
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/cargo/ware)
 "He" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4856,13 +4868,6 @@
 /obj/item/storage/backpack/duffelbag/synth_treatment_kit/trauma/advanced,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
-"NX" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/ruin/interdyne_planetary_base/cargo/obs)
 "NZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -4957,6 +4962,9 @@
 /obj/machinery/vending/wallmed/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
+"OF" = (
+/turf/closed/wall/mineral/titanium,
+/area/ruin/interdyne_planetary_base/main)
 "OH" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
@@ -5782,9 +5790,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
-"Vg" = (
-/turf/closed/wall/mineral/titanium,
-/area/ruin/interdyne_planetary_base/main)
 "Vh" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -5852,10 +5857,6 @@
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /turf/open/floor/engine/bz,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"VB" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/cargo/ware)
 "VD" = (
 /obj/structure/table/glass,
 /obj/effect/turf_decal/siding/wood{
@@ -6623,7 +6624,7 @@ fm
 CR
 TI
 hy
-NX
+xM
 FR
 Vp
 rV
@@ -6748,7 +6749,7 @@ TG
 gR
 FA
 NN
-oW
+BO
 Jr
 sM
 Ab
@@ -6758,7 +6759,7 @@ IN
 nW
 Eu
 Eu
-Vg
+OF
 fm
 ja
 ja
@@ -6792,8 +6793,8 @@ Lm
 gF
 lL
 Sg
-Ha
-Ha
+GN
+GN
 pd
 lT
 gQ
@@ -8099,11 +8100,11 @@ pq
 Xv
 Ih
 Py
-VB
-GN
+Ha
+oW
 RH
 cR
-GN
+oW
 TA
 TQ
 XF
@@ -8137,15 +8138,15 @@ LE
 At
 Hy
 pq
-GN
-GN
+oW
+oW
 QR
 mQ
-GN
+oW
 fa
 Ca
-GN
-GN
+oW
+oW
 fX
 gk
 Rz
@@ -8179,13 +8180,13 @@ Mb
 bN
 pq
 jv
-GN
+oW
 jR
-VB
-GN
+Ha
+oW
 hl
 Xd
-GN
+oW
 jv
 fX
 SR
