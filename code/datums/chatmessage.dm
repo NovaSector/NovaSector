@@ -105,7 +105,6 @@
 	deltimer(timerid) // NOVA EDIT ADDITION
 	qdel(src)
 
-
 /**
  * Generates a chat message image representation
  *
