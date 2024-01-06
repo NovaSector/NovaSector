@@ -255,9 +255,6 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "cs" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
 	},
@@ -267,6 +264,9 @@
 	},
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 4
+	},
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
+	dir = 8
 	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -1356,9 +1356,6 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "lw" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
 	},
@@ -1367,6 +1364,9 @@
 	},
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 4
+	},
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
+	dir = 8
 	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -1773,7 +1773,6 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
 	},
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
@@ -1878,8 +1877,9 @@
 	pixel_y = 2;
 	pixel_x = 1
 	},
-/obj/structure/closet/crate/engineering,
 /obj/item/flatpacked_machine/rtg,
+/obj/structure/closet/crate/engineering,
+/obj/item/stack/cable_coil,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base)
 "pP" = (
@@ -3190,12 +3190,18 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot_white,
-/obj/structure/closet/crate,
+/obj/structure/closet/crate{
+	name = "materials crate"
+	},
 /obj/item/stack/sheet/mineral/titanium{
 	amount = 15
 	},
 /obj/item/stack/sheet/plasteel/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/diamond{
+	amount = 3
+	},
 /obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -3829,9 +3835,6 @@
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
 "Ga" = (
-/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 9
 	},
@@ -3844,6 +3847,9 @@
 	},
 /obj/machinery/camera/autoname/directional/east{
 	network = list("intd13")
+	},
+/obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base{
+	dir = 8
 	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -4422,7 +4428,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "KN" = (
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
@@ -4829,6 +4834,7 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east{
 	pixel_x = 4
 	},
+/obj/item/storage/backpack/duffelbag/synth_treatment_kit/trauma/advanced,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "NZ" = (
@@ -5040,11 +5046,12 @@
 /obj/machinery/door/airlock/external/glass{
 	name = "Hangar Access"
 	},
-/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
 "PC" = (
-/obj/machinery/door/airlock/virology,
+/obj/machinery/door/airlock/virology{
+	name = "Surgery"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/disposalpipe/segment{
@@ -5146,9 +5153,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "QR" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/cargo)
 "QU" = (
@@ -6114,7 +6118,7 @@
 /obj/machinery/portable_atmospherics/scrubber/huge,
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/textured_large,
-/area/ruin/syndicate_lava_base/cargo)
+/area/ruin/interdyne_planetary_base/cargo)
 "Xw" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
