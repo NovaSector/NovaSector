@@ -17,12 +17,12 @@
 	src.throwing_range = throwing_range
 
 	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(examine))
-	RegisterSignal(target, COMSIG_MOB_FIRED_GUN, PROC_REF(throw_it_back))
+	RegisterSignal(target, COMSIG_GUN_FIRED, PROC_REF(throw_it_back))
 
 /datum/element/gun_launches_little_guys/Detach(datum/target)
 	. = ..()
 	UnregisterSignal(target, COMSIG_ATOM_EXAMINE)
-	UnregisterSignal(target, COMSIG_MOB_FIRED_GUN)
+	UnregisterSignal(target, COMSIG_GUN_FIRED)
 
 /// Warns that this gun might throw you away really hard
 /datum/element/gun_launches_little_guys/proc/examine(datum/source, mob/user, list/examine_list)
@@ -31,13 +31,13 @@
 	examine_list += span_notice("It has some serious kick to it, smaller users should take caution while firing.")
 
 /// Checks if the shooter is just a little guy. If so? Throw it back.
-/datum/element/gun_launches_little_guys/proc/throw_it_back(mob/living/carbon/user, obj/item/gun/gun_fired, target, params, zone_override, list/bonus_spread_values)
+/datum/element/gun_launches_little_guys/proc/throw_it_back(obj/item/gun/weapon, mob/living/user, atom/target, params, zone_override)
 	SIGNAL_HANDLER
 
 	if(!isteshari(user) && !isdwarf(user) && !HAS_TRAIT(user, TRAIT_DWARF))
 		return
 
-	var/fling_direction = REVERSE_DIR(get_dir(user, target))
+	var/fling_direction = REVERSE_DIR(user.dir)
 	var/atom/throw_target = get_edge_target_turf(user, fling_direction)
 	user.Knockdown(1 SECONDS)
 	user.throw_at(throw_target, throwing_range, throwing_force)
