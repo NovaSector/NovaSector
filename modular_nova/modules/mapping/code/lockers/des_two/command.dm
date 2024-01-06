@@ -114,7 +114,7 @@
 
 	new /obj/item/megaphone/command(src)
 	new /obj/item/circuitboard/computer/advanced_camera(src)
-	new /obj/item/storage/toolbox/guncase/skyrat/pistol/opfor/rapid_syringe(src)
+	new /obj/item/storage/toolbox/guncase/nova/pistol/opfor/rapid_syringe(src)
 	new /obj/item/binoculars(src)
 	new /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_white(src)
-	new /obj/item/clothing/suit/toggle/labcoat/skyrat/rd/deckofficer(src)
+	new /obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer(src)

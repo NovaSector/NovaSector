@@ -234,7 +234,7 @@
 	can_adjust = TRUE
 	alt_covers_chest = FALSE
 
-/obj/item/clothing/head/beret/medical/skyrat/interdyne
+/obj/item/clothing/head/beret/medical/nova/interdyne
 	name = "interdyne beret"
 	desc = "A white and green beret denoting one's allegiance to Interdyne Pharmaceutics."
 	greyscale_colors = "#FFFFFF#198019"
@@ -255,7 +255,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
-/obj/item/clothing/head/bio_hood/skyrat/interdyne
+/obj/item/clothing/head/bio_hood/nova/interdyne
 	name = "interdyne biosuit helmet"
 	desc = "An Interdyne Pharmaceutics biosuit helmet designed to keep the wearer safe from biohazardous materials."
 	icon_state = "ip_biosuit_head"
@@ -279,15 +279,15 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	current_skin = "ip_officercloak" //prevents reskinning
-
-/obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/black
+/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
+/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black
 	name = "interdyne black labcoat"
 	desc = "A black labcoat accented with interdyne-green colors."
 	icon_state = "ip_labcoatblack"
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/white
+/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	name = "interdyne white labcoat"
 	desc = "A white labcoat accented with interdyne-green colors."
 	icon_state = "ip_labcoatwhite"
@@ -304,7 +304,7 @@
 	armor_type = /datum/armor/wintercoat_syndicate
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/labcoat/skyrat/rd/deckofficer
+/obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer
 	name = "deck officer's labcoat"
 	desc = "A white labcoat with interdyne-green accents and a particularly fancy collar."
 	icon_state = "ip_officerlabcoat"

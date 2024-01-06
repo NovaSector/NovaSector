@@ -118,12 +118,12 @@
 	vend_reply = "Thank you for using the InterDrobe!"
 	light_mask = ""
 	products = list(
-		/obj/item/clothing/head/bio_hood/skyrat/interdyne = 3,
+		/obj/item/clothing/head/bio_hood/nova/interdyne = 3,
 		/obj/item/clothing/suit/bio_suit/interdyne = 3,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/black = 5,
-		/obj/item/clothing/suit/toggle/labcoat/skyrat/interdyne_labcoat/white = 5,
+		/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black = 5,
+		/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white = 5,
 		/obj/item/clothing/suit/syndicate/interdyne_jacket = 5,
-		/obj/item/clothing/head/beret/medical/skyrat/interdyne = 5,
+		/obj/item/clothing/head/beret/medical/nova/interdyne = 5,
 		/obj/item/clothing/under/syndicate/nova/interdyne/miner = 5,
 		/obj/item/clothing/under/syndicate/nova/interdyne = 5,
 		/obj/item/clothing/shoes/combat = 5,
