@@ -100,7 +100,7 @@
 	if(timerid) // NOVA EDIT ADDITION
 		deltimer(timerid) // NOVA EDIT ADDITION
 	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
-	if(owned_by) // NOVA EDIT ADDITION
+	if(QDELING(owned_by)) // NOVA EDIT ADDITION
 		if(owned_by.seen_messages) // NOVA EDIT ADDITION
 			LAZYCLEARLIST(owned_by.seen_messages) // NOVA EDIT ADDITION
 		owned_by.images.Remove(message) // NOVA EDIT ADDITION
