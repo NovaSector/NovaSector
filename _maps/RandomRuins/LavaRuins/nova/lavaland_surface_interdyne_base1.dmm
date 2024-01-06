@@ -495,7 +495,7 @@
 	},
 /obj/structure/marker_beacon/lime,
 /turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
+/area/ruin/interdyne_planetary_base)
 "es" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1010,13 +1010,6 @@
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"iX" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "ja" = (
 /turf/closed/mineral/random/volcanic,
 /area/lavaland/surface/outdoors)
@@ -1620,7 +1613,7 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "nZ" = (
 /turf/open/floor/plating/airless,
-/area/lavaland/surface/outdoors)
+/area/ruin/interdyne_planetary_base)
 "oa" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/textured_large,
@@ -1783,7 +1776,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/lavaland/surface/outdoors)
+/area/ruin/interdyne_planetary_base)
 "pg" = (
 /obj/machinery/duct,
 /obj/structure/cable,
@@ -2111,12 +2104,6 @@
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/med/morgue)
-"sa" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
-/area/lavaland/surface/outdoors)
 "sg" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/interdyne_planetary_base)
@@ -2134,7 +2121,7 @@
 	faction = list("Syndicate","neutral")
 	},
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/ruin/syndicate_lava_base/medbay)
+/area/ruin/interdyne_planetary_base)
 "sx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/light/small/directional/east,
@@ -3162,8 +3149,8 @@
 /turf/open/floor/iron/dark/textured,
 /area/ruin/interdyne_planetary_base/cargo)
 "Bf" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/lavaland/surface/outdoors)
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/interdyne_planetary_base)
 "Bj" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -3529,7 +3516,7 @@
 "DT" = (
 /obj/structure/lattice/catwalk,
 /turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
+/area/ruin/interdyne_planetary_base)
 "DU" = (
 /obj/machinery/libraryscanner,
 /turf/open/floor/wood/parquet,
@@ -4201,7 +4188,7 @@
 /obj/effect/turf_decal/stripes/full,
 /obj/structure/marker_beacon/lime,
 /turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
+/area/ruin/interdyne_planetary_base)
 "IU" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -5007,7 +4994,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
+/area/ruin/interdyne_planetary_base)
 "Pu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6128,9 +6115,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"XC" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/space/has_grav/nova/des_two/service/lounge)
 "XF" = (
 /obj/machinery/oven/range,
 /obj/effect/turf_decal/siding/thinplating{
@@ -6687,7 +6671,7 @@ fm
 fm
 qm
 By
-XC
+By
 LH
 Fv
 iS
@@ -8452,21 +8436,21 @@ Sh
 sg
 nZ
 pf
-sa
-sa
+iL
+iL
 Pq
-iX
+Tz
 el
-iX
-iX
+Tz
+Tz
 el
-iX
-iX
+Tz
+Tz
 el
-iX
+Tz
 Pq
-sa
-sa
+iL
+iL
 nZ
 pf
 sg
@@ -8491,25 +8475,25 @@ fm
 fm
 EZ
 sg
-fm
-fm
-fm
-fm
-fm
-fm
 Bf
-fm
-fm
-Bf
-fm
-fm
 Bf
 fm
 fm
 fm
 fm
+sg
 fm
 fm
+sg
+fm
+fm
+sg
+fm
+fm
+fm
+fm
+Bf
+Bf
 sg
 EZ
 fm
