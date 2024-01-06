@@ -39,7 +39,9 @@
 	/// The client who heard this message
 	var/client/owned_by
 	/// The callback to finish_image_generation // NOVA EDIT ADDITION
-	var/datum/callback/our_callback  // NOVA EDIT ADDITION
+	var/datum/callback/our_callback // NOVA EDIT ADDITION
+	/// The id of the timer to delete the message // NOVA EDIT ADDITION
+	var/timerid // NOVA EDIT ADDITION
 	/// Contains the scheduled destruction time, used for scheduling EOL
 	var/scheduled_destruction
 	/// Contains the time that the EOL for the message will be complete, used for qdel scheduling
@@ -78,7 +80,8 @@
 	if (!QDELING(owned_by))
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
 			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
-
+	else // NOVA EDIT ADDITION
+		deltimer(timerid) // Manually delete the timer, which may or may not be finished by this point // NOVA EDIT ADDITION
 	if(owned_by) // NOVA EDIT ADDITION
 		if(owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
@@ -271,7 +274,7 @@
 	RegisterSignal(message_loc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(loc_z_changed))
 
 	// Register with the runechat SS to handle destruction
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_DELETE_ME, SSrunechat)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_STOPPABLE | TIMER_DELETE_ME, SSrunechat)
 
 /datum/chatmessage/proc/get_current_alpha(time_spent)
 	if(time_spent < CHAT_MESSAGE_SPAWN_TIME)
