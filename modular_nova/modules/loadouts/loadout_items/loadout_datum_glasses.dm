@@ -1,6 +1,6 @@
 /*
-*	LOADOUT ITEM DATUMS FOR THE EYE SLOT
-*/
+ *	LOADOUT ITEM DATUMS FOR THE EYE SLOT
+ */
 
 /// Glasses Slot Items (Moves overrided items to backpack)
 GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/glasses))
@@ -34,9 +34,10 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 		|| equipped_glasses.invis_view \
 		|| !isnull(equipped_glasses.color_cutoffs))
 		equipper.update_sight()
+
 /*
-*	PRESCRIPTION GLASSES
-*/
+ *	PRESCRIPTION GLASSES
+ */
 
 /datum/loadout_item/glasses/prescription_glasses
 	name = "Glasses"
@@ -140,36 +141,36 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	item_path = /obj/item/clothing/glasses/hud/ar/projector
 
 /*
-*	JOB-LOCKED
-*/
-
-/datum/loadout_item/glasses/medicpatch
-	name = "Medical Eyepatch (Skyrat)"
-	item_path = /obj/item/clothing/glasses/hud/eyepatch/med
-	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
-
-/datum/loadout_item/glasses/robopatch
-	name = "Diagnostic Eyepatch"
-	item_path = /obj/item/clothing/glasses/hud/eyepatch/diagnostic
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_SCIENCE_GUARD)
-
-/datum/loadout_item/glasses/scipatch
-	name = "Science Eyepatch"
-	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci
-	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
-
-/datum/loadout_item/glasses/mesonpatch
-	name = "Meson Eyepatch"
-	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
-	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+ *	JOB-LOCKED
+ */
 
 /datum/loadout_item/glasses/sechud
 	name = "Security HUD"
 	item_path = /obj/item/clothing/glasses/hud/security
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD)
 
+/datum/loadout_item/glasses/medicpatch
+	name = "Medical HUD Eyepatch"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/med
+	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_GENETICIST, JOB_CHEMIST, JOB_VIROLOGIST, JOB_PARAMEDIC, JOB_ORDERLY, JOB_CORONER)
+
+/datum/loadout_item/glasses/robopatch
+	name = "Diagnostic HUD Eyepatch"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/diagnostic
+	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_SCIENCE_GUARD)
+
+/datum/loadout_item/glasses/scipatch
+	name = "Science HUD Eyepatch"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci
+	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
+
+/datum/loadout_item/glasses/mesonpatch
+	name = "Meson HUD Eyepatch"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
+	restricted_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_CUSTOMS_AGENT, JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_ENGINEERING_GUARD)
+
 /datum/loadout_item/glasses/secpatch
-	name = "Security Eyepatch HUD"
+	name = "Security HUD Eyepatch"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/sec
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER, JOB_BOUNCER, JOB_ORDERLY, JOB_SCIENCE_GUARD, JOB_CUSTOMS_AGENT, JOB_ENGINEERING_GUARD, JOB_BLUESHIELD)
 
@@ -217,7 +218,6 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	name = "Science Aviators"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
-
 
 /datum/loadout_item/glasses/prescription_aviator_security
 	name = "Prescription Security HUD Aviators"
@@ -270,8 +270,8 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST)
 
 /*
-*	FAMILIES
-*/
+ *	FAMILIES
+ */
 
 /datum/loadout_item/glasses/osi
 	name = "OSI Glasses"
@@ -282,8 +282,8 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	item_path = /obj/item/clothing/glasses/phantom
 
 /*
-*	DONATOR
-*/
+ *	DONATOR
+ */
 
 /datum/loadout_item/glasses/donator
 	donator_only = TRUE

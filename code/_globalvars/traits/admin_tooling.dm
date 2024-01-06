@@ -275,8 +275,8 @@ GLOBAL_LIST_INIT(admin_visible_traits, list(
 	/obj/item/organ/internal/lungs = list(
 		"TRAIT_SPACEBREATHING" = TRAIT_SPACEBREATHING,
 	),
-	// NOVA EDIT ADDITION START - SKYRAT TRAITS
-	/obj/item/toy/plush/skyrat = list(
+	// NOVA EDIT ADDITION START - NOVA TRAITS
+	/obj/item/toy/plush/nova = list(
 		"TRAIT_AFFECTION_AVERSION" = TRAIT_AFFECTION_AVERSION,
 		"TRAIT_APHRO" = TRAIT_APHRO,
 		"TRAIT_AVIAN" = TRAIT_AVIAN,
