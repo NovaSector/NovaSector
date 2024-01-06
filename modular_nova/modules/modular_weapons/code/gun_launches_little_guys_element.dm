@@ -41,3 +41,6 @@
 	var/atom/throw_target = get_edge_target_turf(user, fling_direction)
 	user.Knockdown(1 SECONDS)
 	user.throw_at(throw_target, throwing_range, throwing_force)
+
+	user.visible_message(span_warning("[weapon] sends [user] flying back as it fires!"), \
+		span_warning("[weapon] sends you flying back as it fires!"))
