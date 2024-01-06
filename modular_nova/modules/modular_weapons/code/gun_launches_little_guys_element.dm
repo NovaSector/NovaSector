@@ -38,6 +38,6 @@
 		return
 
 	var/fling_direction = REVERSE_DIR(get_dir(user, target))
-	var/atom/throw_target = get_edge_target_turf(PBT, fling_direction)
+	var/atom/throw_target = get_edge_target_turf(user, fling_direction)
 	user.Knockdown(1 SECONDS)
 	user.throw_at(throw_target, throwing_range, throwing_force)
