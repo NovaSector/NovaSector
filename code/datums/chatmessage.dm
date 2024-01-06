@@ -278,7 +278,7 @@
 	RegisterSignal(message_loc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(loc_z_changed))
 
 	// Register with the runechat SS to handle destruction
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_STOPPABLE | TIMER_DELETE_ME, SSrunechat)
+	timerid = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_STOPPABLE | TIMER_DELETE_ME, SSrunechat)
 
 /datum/chatmessage/proc/get_current_alpha(time_spent)
 	if(time_spent < CHAT_MESSAGE_SPAWN_TIME)
