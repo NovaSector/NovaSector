@@ -1,4 +1,4 @@
-// Skyrat mining-related areas
+// Nova Sector mining-related areas
 
 // Xeno arch
 /area/mine/xenoarch

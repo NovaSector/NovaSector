@@ -10,10 +10,10 @@
 	vend_reply = "Thank you for using the SynDrobe!"
 	light_mask = ""
 	products = list(
-		/obj/item/clothing/under/syndicate/skyrat/tactical = 3,
-		/obj/item/clothing/under/syndicate/skyrat/tactical/skirt = 3,
-		/obj/item/clothing/under/syndicate/skyrat/overalls = 3,
-		/obj/item/clothing/under/syndicate/skyrat/overalls/skirt = 3,
+		/obj/item/clothing/under/syndicate/nova/tactical = 3,
+		/obj/item/clothing/under/syndicate/nova/tactical/skirt = 3,
+		/obj/item/clothing/under/syndicate/nova/overalls = 3,
+		/obj/item/clothing/under/syndicate/nova/overalls/skirt = 3,
 		/obj/item/clothing/under/syndicate/bloodred/sleepytime = 3,
 		/obj/item/clothing/under/syndicate/sniper = 3,
 		/obj/item/clothing/under/syndicate/camo = 3,
@@ -21,7 +21,7 @@
 		/obj/item/clothing/shoes/combat = 3,
 		/obj/item/clothing/mask/gas/syndicate = 3,
 		/obj/item/clothing/mask/gas/sechailer/syndicate = 3,
-		/obj/item/clothing/suit/hooded/wintercoat/skyrat/syndicate = 5,
+		/obj/item/clothing/suit/hooded/wintercoat/nova/syndicate = 5,
 		/obj/item/clothing/head/soft/sec/syndicate = 3,
 		/obj/item/clothing/head/beret/sec/syndicate = 3,
 	)
@@ -34,7 +34,7 @@
 		/obj/item/knife/combat/survival = 1,
 		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 5,
 		/obj/item/clothing/gloves/combat = 3,
-		/obj/item/clothing/under/syndicate/skyrat/maid = 5,
+		/obj/item/clothing/under/syndicate/nova/maid = 5,
 		/obj/item/clothing/gloves/combat/maid = 5,
 		/obj/item/clothing/head/costume/maidheadband/syndicate = 5,
 		/obj/item/storage/box/nif_ghost_box/ghost_role = 10,

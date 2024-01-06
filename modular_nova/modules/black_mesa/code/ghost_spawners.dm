@@ -16,7 +16,7 @@
 
 /datum/outfit/science_team
 	name = "Scientist"
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/hlscience
+	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/hlscience
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack
@@ -100,9 +100,9 @@
 
 /obj/item/storage/backpack/ert/odst/hecu
 	name = "hecu backpack"
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_digi.dmi'
 	icon_state = "hecu_pack"
 	worn_icon_state = "hecu_pack"
 	uses_advanced_reskins = TRUE
@@ -119,9 +119,9 @@
 
 /obj/item/storage/belt/military/assault/hecu
 	name = "hecu warbelt"
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_digi.dmi'
 	icon_state = "hecu_belt"
 	worn_icon_state = "hecu_belt"
 	uses_advanced_reskins = TRUE
