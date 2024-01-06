@@ -101,7 +101,6 @@
 	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
 	qdel(src)
 
-
 /**
  * Generates a chat message image representation
  *
