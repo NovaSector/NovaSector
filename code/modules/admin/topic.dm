@@ -56,7 +56,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		if (!SSticker.mode)
+		if(!SSticker.HasRoundStarted())
 			to_chat(usr, "<span class='danger'>Not until the round starts!</span>", confidential = TRUE)
 			return
 
@@ -78,6 +78,8 @@
 				opt = input("How Many", ROLE_OPERATIVE, 3) as num|null
 			if(ROLE_BROTHER)
 				opt = input("How Many", ROLE_BROTHER, 2) as num|null
+			if(ROLE_DRIFTING_CONTRACTOR)
+				opt = input("How Many", ROLE_DRIFTING_CONTRACTOR, 2) as num|null
 		if(src.make_antag(href_list["makeAntag"], opt))
 			message_admins("[key_name_admin(usr)] created '[href_list["makeAntag"]]' with a parameter of '[opt]'.")
 		else message_admins("[key_name_admin(usr)] FAILED to create '[href_list["makeAntag"]]' with a parameter of '[opt]'.")
@@ -104,7 +106,7 @@
 	else if(href_list["gamemode_panel"])
 		if(!check_rights(R_ADMIN))
 			return
-		SSticker.mode.admin_panel()
+		SSdynamic.admin_panel()
 
 	else if(href_list["call_shuttle"])
 		if(!check_rights(R_ADMIN))
@@ -435,7 +437,7 @@
 	else if(href_list["f_dynamic_roundstart"])
 		if(!check_rights(R_ADMIN))
 			return
-		if(SSticker?.mode)
+		if(SSticker.HasRoundStarted())
 			return tgui_alert(usr, "The game has already started.")
 		var/roundstart_rules = list()
 		for (var/rule in subtypesof(/datum/dynamic_ruleset/roundstart))
@@ -502,7 +504,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		if(SSticker?.mode)
+		if(SSticker.HasRoundStarted())
 			return tgui_alert(usr, "The game has already started.")
 
 		dynamic_mode_options(usr)
@@ -536,7 +538,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		if(SSticker?.mode)
+		if(SSticker.HasRoundStarted())
 			return tgui_alert(usr, "The game has already started.")
 
 		var/new_value = input(usr, "Enter the forced threat level for dynamic mode.", "Forced threat level") as num
@@ -1841,8 +1843,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		var/datum/game_mode/dynamic/dynamic = SSticker.mode
-		if(!dynamic.picking_specific_rule(/datum/dynamic_ruleset/midround/from_living/opfor_candidate, forced = TRUE, ignore_cost = TRUE))
+		if(!SSdynamic.picking_specific_rule(/datum/dynamic_ruleset/midround/from_living/opfor_candidate, forced = TRUE, ignore_cost = TRUE))
 			message_admins("An OPFOR candidate could not be selected.")
 
 	// SKYRAT ADDITION END

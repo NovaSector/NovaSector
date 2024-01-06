@@ -50,7 +50,7 @@
 
 	update_damage_values()
 
-/datum/component/damage_tracker/Destroy(force, silent)
+/datum/component/damage_tracker/Destroy(force)
 	if(reapply_damage_on_removal)
 		reapply_damage()
 

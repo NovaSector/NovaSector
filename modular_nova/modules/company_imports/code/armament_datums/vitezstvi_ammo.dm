@@ -29,11 +29,11 @@
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/vitezstvi/accessory/small_case
-	item_type = /obj/item/storage/toolbox/guncase/skyrat/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/empty
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/vitezstvi/accessory/large_case
-	item_type = /obj/item/storage/toolbox/guncase/skyrat/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/empty
 	cost = PAYCHECK_COMMAND * 2
 
 // Boxes of non-shotgun ammo
@@ -157,7 +157,7 @@
 	item_type = /obj/item/ammo_box/advanced/s12gauge/antitide
 
 /datum/armament_entry/company_import/vitezstvi/shot_shells/confetti
-	item_type = /obj/item/ammo_box/advanced/s12gauge/honk
+	item_type = /obj/item/ammo_box/advanced/s12gauge/honkshot
 
 // Boxes of kiboko launcher ammo
 

@@ -6,6 +6,7 @@
 
 import { KEY } from 'common/keys';
 import { classes } from 'common/react';
+import { debounce } from 'common/timer';
 import { KeyboardEvent, SyntheticEvent, useEffect, useRef } from 'react';
 
 import { Box, BoxProps } from './Box';
@@ -34,6 +35,8 @@ type Props = Partial<{
 
 export const toInputValue = (value: string | number | undefined) =>
   typeof value !== 'number' && typeof value !== 'string' ? '' : String(value);
+
+const inputDebounce = debounce((onInput: () => void) => onInput(), 200);
 
 export const Input = (props: Props) => {
   const {
@@ -77,21 +80,32 @@ export const Input = (props: Props) => {
     }
   };
 
+  /** Focuses the input on mount */
+  useEffect(() => {
+    if (!autoFocus && !autoSelect) return;
+
+    const input = inputRef.current;
+    if (!input) return;
+
+    setTimeout(() => {
+      input.focus();
+
+      if (autoSelect) {
+        input.select();
+      }
+    }, 1);
+  }, []);
+
+  /** Updates the initial value on props change */
   useEffect(() => {
     const input = inputRef.current;
     if (!input) return;
 
-    input.value = toInputValue(value);
-    if (autoFocus || autoSelect) {
-      setTimeout(() => {
-        input.focus();
+    const newValue = toInputValue(value);
+    if (input.value === newValue) return;
 
-        if (autoSelect) {
-          input.select();
-        }
-      }, 1);
-    }
-  }, []);
+    input.value = newValue;
+  }, [value]);
 
   return (
     <Box
@@ -109,7 +123,9 @@ export const Input = (props: Props) => {
         disabled={disabled}
         maxLength={maxLength}
         onBlur={(event) => onChange?.(event, event.target.value)}
-        onChange={(event) => onInput?.(event, event.target.value)}
+        onChange={(event) =>
+          onInput && inputDebounce(() => onInput(event, event.target.value))
+        }
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
         ref={inputRef}

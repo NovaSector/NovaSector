@@ -32,7 +32,7 @@
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 
-/datum/component/armament/Destroy(force, silent)
+/datum/component/armament/Destroy(force)
 	if(inserted_card)
 		inserted_card.forceMove(parent_atom.drop_location())
 		inserted_card = null

@@ -111,7 +111,7 @@ SUBSYSTEM_DEF(player_ranks)
 
 	if(CONFIG_GET(flag/donator_legacy_system))
 		donator_controller.load_legacy()
-		update_all_prefs_unlock_contents()
+		update_all_prefs_donator_status()
 		return
 
 	if(!SSdbcore.Connect())
@@ -124,30 +124,31 @@ SUBSYSTEM_DEF(player_ranks)
 		return
 
 	load_player_rank_sql(donator_controller)
-	update_all_prefs_unlock_contents()
+	update_all_prefs_donator_status()
 
 
 /**
  * Handles updating all of the preferences datums to have the appropriate
- * `unlock_content` and `max_save_slots` once donators are loaded.
+ * `donator_status` and `max_save_slots` once donators are loaded.
  */
-/datum/controller/subsystem/player_ranks/proc/update_all_prefs_unlock_contents()
+/datum/controller/subsystem/player_ranks/proc/update_all_prefs_donator_status()
 	for(var/ckey as anything in GLOB.preferences_datums)
-		update_prefs_unlock_content(GLOB.preferences_datums[ckey])
+		update_prefs_donator_status(GLOB.preferences_datums[ckey])
 
 
 /**
- * Updates the `unlock_contents` and the `max_save_slots`
+ * Updates the `donator_status` and the `max_save_slots`
  *
  * Arguments:
- * * prefs - The preferences datum to check the unlock_content eligibility.
+ * * prefs - The preferences datum to check the donator_status eligibility.
  */
-/datum/controller/subsystem/player_ranks/proc/update_prefs_unlock_content(datum/preferences/prefs)
+/datum/controller/subsystem/player_ranks/proc/update_prefs_donator_status(datum/preferences/prefs)
 	if(!prefs)
 		return
 
-	prefs.unlock_content = !!prefs.parent.IsByondMember() || is_donator(prefs.parent)
-	if(prefs.unlock_content)
+	prefs.unlock_content = !!prefs.parent.IsByondMember()
+	prefs.donator_status = is_donator(prefs.parent)
+	if(prefs.unlock_content || prefs.donator_status)
 		prefs.max_save_slots = 50
 
 
@@ -221,9 +222,11 @@ SUBSYSTEM_DEF(player_ranks)
 	)
 
 	if(!query_load_player_rank.warn_execute())
+		qdel(query_load_player_rank)
 		return
 
 	rank_controller.load_from_query(query_load_player_rank)
+	qdel(query_load_player_rank)
 
 
 /// Allows fetching the appropriate player_rank_controller based on its
@@ -332,9 +335,11 @@ SUBSYSTEM_DEF(player_ranks)
 	)
 
 	if(!query_add_player_rank.warn_execute())
+		qdel(query_add_player_rank)
 		return FALSE
 
 	controller.add_player(ckey)
+	qdel(query_add_player_rank)
 	return TRUE
 
 
@@ -411,9 +416,11 @@ SUBSYSTEM_DEF(player_ranks)
 	)
 
 	if(!query_remove_player_rank.warn_execute())
+		qdel(query_remove_player_rank)
 		return FALSE
 
 	controller.remove_player(ckey)
+	qdel(query_remove_player_rank)
 	return TRUE
 
 
@@ -467,11 +474,14 @@ SUBSYSTEM_DEF(player_ranks)
 	)
 
 	if(!query_get_existing_entries.warn_execute())
+		qdel(query_get_existing_entries)
 		return
 
 	while(query_get_existing_entries.NextRow())
 		var/ckey = ckey(query_get_existing_entries.item[INDEX_CKEY])
 		ckeys_to_migrate -= ckey
+
+	qdel(query_get_existing_entries)
 
 	var/list/rows_to_insert = list()
 

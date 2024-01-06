@@ -91,7 +91,6 @@
 	item_icon = "user-friends"
 	limited = 1
 	cost = 2
-	var/datum/mind/partner_mind = null
 
 /datum/contractor_item/contractor_partner/handle_purchase(datum/contractor_hub/hub, mob/living/user)
 	. = ..()
@@ -100,11 +99,19 @@
 		return
 	to_chat(user, span_notice("The uplink vibrates quietly, connecting to nearby agents..."))
 
-	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as the Contractor Support Unit for [user.real_name]?", ROLE_PAI, FALSE, 100, POLL_IGNORE_CONTRACTOR_SUPPORT)
+	var/list/mob/dead/observer/candidates =  SSpolling.poll_ghost_candidates(
+		"Do you want to play as the Contractor Support Unit for [user.real_name]?",
+		role = ROLE_PAI,
+		check_jobban = FALSE,
+		poll_time = 10 SECONDS,
+		ignore_category = POLL_IGNORE_CONTRACTOR_SUPPORT,
+		pic_source = user,
+		role_name_text = "[user.real_name]'s support",
+	)
 
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/picked_obs = pick(candidates)
-		spawn_contractor_partner(user, picked_obs.key)
+		hub.contractor_teammate = spawn_contractor_partner(user, picked_obs.key)
 	else
 		to_chat(user, span_notice("No available agents at this time, please try again later."))
 
@@ -112,34 +119,6 @@
 		limited += 1
 		hub.contract_rep += cost
 		hub.purchased_items -= src
-
-/datum/contractor_item/contractor_partner/proc/spawn_contractor_partner(mob/living/user, key)
-	var/mob/living/carbon/human/partner = new()
-	var/datum/outfit/contractor_partner/partner_outfit = new()
-
-	partner_outfit.equip(partner)
-
-	var/obj/structure/closet/supplypod/arrival_pod = new(null, STYLE_SYNDICATE)
-	arrival_pod.explosionSize = list(0,0,0,1)
-	arrival_pod.bluespace = TRUE
-
-	var/turf/free_location = find_obstruction_free_location(2, user)
-
-	// We really want to send them - if we can't find a nice location just land it on top of them.
-	if (!free_location)
-		free_location = get_turf(user)
-
-	partner.forceMove(arrival_pod)
-	partner.ckey = key
-
-	/// We give a reference to the mind that'll be the support unit
-	partner_mind = partner.mind
-	partner_mind.make_contractor_support()
-
-	to_chat(partner_mind.current, "\n[span_alertwarning("[user.real_name] is your superior. Follow any, and all orders given by them. You're here to support their mission only.")]")
-	to_chat(partner_mind.current, "[span_alertwarning("Should they perish, or be otherwise unavailable, you're to assist other active agents in this mission area to the best of your ability.")]\n\n")
-
-	new /obj/effect/pod_landingzone(free_location, arrival_pod)
 
 /datum/contractor_item/blackout
 	name = "Blackout"
