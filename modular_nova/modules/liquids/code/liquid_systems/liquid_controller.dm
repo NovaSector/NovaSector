@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(liquids)
 		while(currentrun_active_turfs.len)
 			var/turf/turf = currentrun_active_turfs[currentrun_active_turfs.len]
 			turf.process_liquid_cell()
-			currentrun_active_turfs.Remove(turf) //work off of index later
+			currentrun_active_turfs.Remove(turf)
 			if(MC_TICK_CHECK)
 				break
 		resumed = FALSE
