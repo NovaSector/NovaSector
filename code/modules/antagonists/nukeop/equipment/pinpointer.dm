@@ -53,10 +53,6 @@
 					target = apc
 		if(TRACK_INFILTRATOR)
 			target = SSshuttle.getShuttle("syndicate")
-		// NOVA EDIT ADDITION
-		if(TRACK_GOLDENEYE)
-			target = SSgoldeneye.goldeneye_keys[1] // Track the first goldeneye key in existence.
-		// NOVA EDIT END
 	..()
 
 /obj/item/pinpointer/nuke/proc/switch_mode_to(new_mode)
