@@ -61,11 +61,9 @@ endmap
 ##NOVA SECTOR MAPS##
 
 map voidraptor
-	maxplayers 100
 	votable
 endmap
 
 map blueshift
-	minplayers 70
 	votable
 endmap
