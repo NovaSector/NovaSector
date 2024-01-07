@@ -1553,6 +1553,12 @@
 	dir = 4;
 	network = list("ds2")
 	},
+/obj/item/radio/intercom/directional/west{
+	frequency = 1487;
+	name = "Prisoner Communication";
+	freqlock = 1;
+	canhear_range = 9
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "hx" = (
@@ -7166,6 +7172,12 @@
 "GD" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/structure/table,
+/obj/item/radio/intercom/directional/east{
+	frequency = 1487;
+	name = "Prisoner Communication";
+	freqlock = 1;
+	canhear_range = 9
+	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "GE" = (
@@ -10719,6 +10731,10 @@
 	dir = 4
 	},
 /obj/machinery/vending/tool,
+/obj/item/radio/intercom/directional/west{
+	frequency = 1487;
+	name = "Prisoner Communication"
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
