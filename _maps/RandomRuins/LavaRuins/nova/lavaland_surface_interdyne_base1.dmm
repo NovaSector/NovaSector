@@ -149,6 +149,10 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
+"bs" = (
+/obj/machinery/porta_turret/syndicate,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base)
 "bu" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -1023,6 +1027,13 @@
 "ja" = (
 /turf/closed/mineral/random/volcanic,
 /area/lavaland/surface/outdoors)
+"jb" = (
+/obj/machinery/porta_turret/syndicate{
+	faction = list("Syndicate","neutral");
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base)
 "je" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -3675,7 +3686,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "Ex" = (
 /obj/machinery/porta_turret/syndicate{
-	dir = 4;
+	dir = 8;
 	faction = list("Syndicate","neutral")
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -6641,7 +6652,7 @@ fm
 fm
 fm
 EZ
-Ex
+jb
 By
 By
 By
@@ -7603,7 +7614,7 @@ Ih
 Ih
 Ih
 Ih
-Ys
+bs
 fm
 fm
 fm
@@ -7726,7 +7737,7 @@ OH
 OH
 OH
 OH
-Ys
+bs
 fm
 fm
 fm
