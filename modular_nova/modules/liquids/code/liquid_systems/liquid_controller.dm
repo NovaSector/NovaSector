@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(liquids)
 
 /datum/controller/subsystem/liquids/fire(resumed = FALSE)
 	if(run_type == SSLIQUIDS_RUN_TYPE_TURFS)
-		if(!resumed && (!src.currentrun_active_turfs.len && active_turfs.len))
+		if(!resumed)
 			src.currentrun_active_turfs = active_turfs.Copy()
 		// cache for speed
 		var/list/currentrun_active_turfs = src.currentrun_active_turfs
