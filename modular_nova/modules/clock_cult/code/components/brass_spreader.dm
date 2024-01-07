@@ -18,7 +18,7 @@
 	src.cooldown = cooldown
 
 
-/datum/component/brass_spreader/Destroy(force, silent)
+/datum/component/brass_spreader/Destroy(force)
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
