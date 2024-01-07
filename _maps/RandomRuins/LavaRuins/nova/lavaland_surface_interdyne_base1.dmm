@@ -2380,7 +2380,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "uE" = (
-/obj/structure/bed/medical,
+/obj/machinery/vending/wardrobe/coroner_wardrobe/ghost_cafe,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/med/morgue)
 "uF" = (
@@ -3447,8 +3447,18 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "De" = (
-/obj/structure/table/survival_pod,
 /obj/machinery/light/small/directional/north,
+/obj/machinery/turretid{
+	name = "Base turret controls";
+	desc = "Used to control the base's automated defenses.";
+	icon_state = "control_kill";
+	dir = 1;
+	pixel_y = 30;
+	req_access = list("syndicate");
+	lethal = 1;
+	control_area = "/area/ruin/interdyne_planetary_base";
+	ailock = 1
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Df" = (
@@ -3464,13 +3474,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
-"Dg" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 4;
-	faction = list("Syndicate","neutral")
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "Dl" = (
 /obj/machinery/light/small/directional/west,
 /obj/machinery/button/door/directional/west{
@@ -3676,7 +3679,7 @@
 	faction = list("Syndicate","neutral")
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/main)
+/area/ruin/interdyne_planetary_base)
 "Ey" = (
 /obj/machinery/vending/drugs{
 	onstation = 0
@@ -6011,19 +6014,6 @@
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/med)
-"WF" = (
-/obj/machinery/turretid{
-	ailock = 1;
-	control_area = "/area/ruin/syndicate_lava_base/medbay";
-	dir = 1;
-	icon_state = "control_kill";
-	lethal = 1;
-	name = "Base turret controls";
-	pixel_y = 34;
-	req_access = list("syndicate")
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main/vault)
 "WG" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -6288,7 +6278,7 @@
 	dir = 1
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/cargo)
+/area/ruin/interdyne_planetary_base)
 "YF" = (
 /obj/machinery/monkey_recycler,
 /turf/open/floor/wood/large,
@@ -6345,12 +6335,6 @@
 /obj/effect/turf_decal/siding/thinplating,
 /turf/open/floor/iron,
 /area/ruin/interdyne_planetary_base/serv/bar)
-"Zv" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 1
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/serv/rstrm)
 "Zy" = (
 /obj/effect/turf_decal/tile/dark_green,
 /obj/structure/disposalpipe/segment{
@@ -6657,7 +6641,7 @@ fm
 fm
 fm
 EZ
-Dg
+Ex
 By
 By
 By
@@ -7742,7 +7726,7 @@ OH
 OH
 OH
 OH
-Zv
+Ys
 fm
 fm
 fm
@@ -7806,7 +7790,7 @@ fm
 fm
 Ih
 De
-WF
+dn
 rj
 sN
 Fk

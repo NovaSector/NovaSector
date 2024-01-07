@@ -5,9 +5,6 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/shuttle/interdyne_cargo)
-"d" = (
-/turf/closed/wall/r_wall/syndicate/cruiser,
-/area/shuttle/interdyne_cargo)
 "e" = (
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/iron/dark/textured_large,
@@ -62,10 +59,7 @@
 /turf/open/floor/plating,
 /area/shuttle/interdyne_cargo)
 "v" = (
-/obj/machinery/porta_turret/syndicate/energy{
-	dir = 4
-	},
-/turf/closed/wall/r_wall/syndicate/cruiser,
+/turf/closed/wall/r_wall/syndicate,
 /area/shuttle/interdyne_cargo)
 "w" = (
 /obj/machinery/power/shuttle_engine/heater{
@@ -119,7 +113,7 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/turf/closed/wall/r_wall/syndicate/cruiser,
+/turf/closed/wall/r_wall/syndicate,
 /area/shuttle/interdyne_cargo)
 "H" = (
 /obj/structure/closet/crate/eva,
@@ -243,7 +237,7 @@ i
 y
 "}
 (5,1,1) = {"
-d
+v
 Z
 Y
 Y
@@ -251,7 +245,7 @@ Y
 z
 z
 a
-d
+v
 "}
 (6,1,1) = {"
 N
