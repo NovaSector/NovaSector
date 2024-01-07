@@ -428,7 +428,7 @@
 			//NOVA EDIT END
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
-			if(!user.stat && user != src)
+			if((user.stat == CONSCIOUS || isobserver(user)) && user != src)
 			//|| !user.canmove || user.restrained()) Fluff: Sechuds have eye-tracking technology and sets 'arrest' to people that the wearer looks and blinks at.
 				var/wanted_status = WANTED_NONE
 				var/security_note = "None."
@@ -438,18 +438,21 @@
 					wanted_status = target_record.wanted_status
 					if(target_record.security_note)
 						security_note = target_record.security_note
-
-				. += "<span class='deptradio'>Criminal status:</span> <a href='?src=[REF(src)];hud=s;status=1;examine_time=[world.time]'>\[[wanted_status]\]</a>"
+				if(ishuman(user))
+					. += "<span class='deptradio'>Criminal status:</span> <a href='?src=[REF(src)];hud=s;status=1;examine_time=[world.time]'>\[[wanted_status]\]</a>"
+				else
+					. += "<span class='deptradio'>Criminal status:</span> [wanted_status]"
 				. += "<span class='deptradio'>Important Notes: [security_note]"
-				. += jointext(list("<span class='deptradio'>Security record:</span> <a href='?src=[REF(src)];hud=s;view=1;examine_time=[world.time]'>\[View\]</a>",
-					"<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>",
-					"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>",
-					"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"), "")
+				. += "<span class='deptradio'>Security record:</span> <a href='?src=[REF(src)];hud=s;view=1;examine_time=[world.time]'>\[View\]</a>"
+				if(ishuman(user))
+					. += jointext(list("<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>",
+						"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>",
+						"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"), "")
 				// NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 				if(target_record && length(target_record.past_security_records) > RECORDS_INVISIBLE_THRESHOLD)
 					. += "<span class='deptradio'>Past security records:</span> <a href='?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
 
-		if (target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
+		if(target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
 		//NOVA EDIT ADDITION END
 	else if(isobserver(user))
