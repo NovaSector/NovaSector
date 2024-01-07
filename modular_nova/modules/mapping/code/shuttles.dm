@@ -4,7 +4,7 @@
 
 /datum/map_template/shuttle/emergency/outpost
 	suffix = "outpost"
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	name = "Outpoststation Emergency Shuttle"
 	description = "The perfect shuttle for rectangle enthuasiasts, this long and slender shuttle has been known for it's incredible(Citation Needed) safety rating."
 	admin_notes = "Has airlocks on both sides of the shuttle and will probably ram deltastation's maint wing below medical. Oh well?"
@@ -13,7 +13,7 @@
 
 /*----- Black Market Shuttle Datum + related code -----*/
 /datum/map_template/shuttle/ruin/blackmarket_chevvy
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "blackmarket_chevvy"
 	name = "Black Market Chevvy"
 
@@ -41,9 +41,9 @@
 /*----- End of Black Market Shuttle Code -----*/
 
 /datum/map_template/shuttle/prison_transport
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	port_id = "prison_transport"
-	suffix = "skyrat"
+	suffix = "nova"
 	name = "Prison Transporter NSS-74"
 
 
@@ -73,7 +73,7 @@
 
 /datum/map_template/shuttle/slaver_ship
 	port_id = "slaver ship"
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	port_id = "slaver"
 	suffix = "syndie"
 	name = "Slaver Ship"
@@ -128,7 +128,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer/radio,
 		/obj/item/melee/baton/telescopic,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/wespe,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/wespe,
 		/obj/item/grenade/c4,
 		/obj/item/grenade/smokebomb
 	)
@@ -153,13 +153,13 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer/radio,
 		/obj/item/melee/baton/telescopic,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 		/obj/item/megaphone/command
 	)
 
 /*----- Tarkon Shuttle Datum + related code -----*/
 /datum/map_template/shuttle/ruin/tarkon_driver
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "tarkon_driverdc54"
 	name = "Tarkon Drill Driver"
 

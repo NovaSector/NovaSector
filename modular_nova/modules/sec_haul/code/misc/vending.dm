@@ -53,7 +53,7 @@
 					/obj/item/clothing/under/rank/security/officer = 10,
 					/obj/item/clothing/under/rank/security/officer/skirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper = 10,
-					/obj/item/clothing/under/rank/security/skyrat/utility = 3,
+					/obj/item/clothing/under/rank/security/nova/utility = 3,
 					/obj/item/clothing/shoes/jackboots/sec = 10,
 					/obj/item/clothing/head/security_garrison = 10,
 					/obj/item/clothing/head/security_cap = 10,
@@ -91,7 +91,7 @@
 					/obj/item/clothing/mask/bandana/red = 3,
 					/obj/item/clothing/gloves/color/black = 3,
 					/obj/item/clothing/under/rank/security/officer/skirt = 3,
-					/obj/item/clothing/under/rank/security/skyrat/utility/redsec = 3,
+					/obj/item/clothing/under/rank/security/nova/utility/redsec = 3,
 					/obj/item/clothing/suit/toggle/jacket/sec/old = 3,
 					)
 	premium = list( /obj/item/clothing/under/rank/security/officer/formal = 5,
