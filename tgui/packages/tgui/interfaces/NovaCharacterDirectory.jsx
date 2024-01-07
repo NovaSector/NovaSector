@@ -9,10 +9,10 @@ const erpTagColor = {
   Unset: 'label',
   'Yes - Dom': '#570000',
   'Yes - Sub': '#002B57',
-  'Yes - Switch': '#022E00',
+  'Yes - Switch': '#572b57',
   Yes: '#022E00',
-  'Check OOC': '#222222',
-  Ask: '#222222',
+  'Check OOC': '#333333',
+  Ask: '#333333',
   No: '#000000',
 };
 
@@ -129,11 +129,11 @@ const ViewCharacter = (props) => {
           {overlay.flavor_text || 'Unset.'}
         </Box>
       </Section>
-      <Section level={2} title="Attraction">
-        <Box>{overlay.attraction}</Box>
-      </Section>
       <Section level={2} title="Gender">
         <Box>{overlay.gender}</Box>
+      </Section>
+      <Section level={2} title="Attraction">
+        <Box>{overlay.attraction}</Box>
       </Section>
       <Section level={2} title="ERP">
         <Box p={1} backgroundColor={erpTagColor[overlay.erp]}>
