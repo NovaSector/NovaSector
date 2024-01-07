@@ -43,7 +43,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 	savefile_identifier = PREFERENCE_CHARACTER
 
 /datum/preference/choiced/display_gender/init_possible_values()
-	return list("Male", "Female", "Nonbinary", "Intersex", "Plural", "Andromorph", "Gynomorph", "Genderfluid", "Unset", "Check OOC")
+	return list("Masculine", "Feminine", "Nonbinary", "Intersex", "Plural", "Genderfluid", "Unset", "Check OOC")
 
 /datum/preference/choiced/display_gender/create_default_value()
 	return "Unset"
@@ -198,7 +198,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 		if("refresh")
 			// This is primarily to stop malicious users from trying to lag the server by spamming this verb
 			if(!COOLDOWN_FINISHED(user.client, char_directory_cooldown))
-				to_chat(user, "<span class='warning'>Don't spam character directory refresh.</span>")
+				to_chat(user, "<span class='warning'>Please wait before refreshing the directory again.</span>")
 				return
 			COOLDOWN_START(user.client, char_directory_cooldown, 10)
 			update_static_data(user, ui)

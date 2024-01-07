@@ -119,6 +119,16 @@ const ViewCharacter = (props) => {
       <Section level={2} title="Species">
         <Box>{overlay.species}</Box>
       </Section>
+      <Section level={2} title="Character Ad">
+        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
+          {overlay.character_ad || 'Unset.'}
+        </Box>
+      </Section>
+      <Section level={2} title="Flavor Text">
+        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
+          {overlay.flavor_text || 'Unset.'}
+        </Box>
+      </Section>
       <Section level={2} title="Attraction">
         <Box>{overlay.attraction}</Box>
       </Section>
@@ -136,11 +146,6 @@ const ViewCharacter = (props) => {
       <Section level={2} title="Noncon">
         <Box>{overlay.noncon}</Box>
       </Section>
-      <Section level={2} title="Character Ad">
-        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
-          {overlay.character_ad || 'Unset.'}
-        </Box>
-      </Section>
       <Section level={2} title="Exploitable">
         <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
           {overlay.exploitable || 'Unset.'}
@@ -149,11 +154,6 @@ const ViewCharacter = (props) => {
       <Section level={2} title="OOC Notes">
         <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
           {overlay.ooc_notes || 'Unset.'}
-        </Box>
-      </Section>
-      <Section level={2} title="Flavor Text">
-        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
-          {overlay.flavor_text || 'Unset.'}
         </Box>
       </Section>
     </Section>
