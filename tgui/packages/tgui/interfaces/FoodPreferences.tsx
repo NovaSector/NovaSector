@@ -121,6 +121,7 @@ export const FoodPreferences = (props) => {
                 return (
                   <Box>
                     <Section
+                      key={foodName}
                       title={
                         <>
                           {foodName}

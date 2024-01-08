@@ -14,7 +14,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/fail_reason = GLOB.food_prefs_menu.is_food_invalid(preferences)
 	if(fail_reason)
-		tgui_alert(preferences.parent, span_announce("Your food preferences can't be set because of [fail_reason] choices! Please check your preferences!")) // Sorry, but I don't want folk sleeping on this.
+		to_chat(preferences.parent, span_announce("Your food preferences can't be set because of [fail_reason] choices! Please check your preferences!")) // Sorry, but I don't want folk sleeping on this.
 		return
 
 	target.organs_slot["tongue"].liked_foodtypes  = NONE
