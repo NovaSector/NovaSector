@@ -49,7 +49,7 @@ export const FoodPreferences = (props) => {
                 <Tooltip
                   position="bottom"
                   content={
-                    'You HAVE to pick at lease One TOXIC food and THREE Disliked foods. You Can have a maximum of 3 LIKED foods.'
+                    'You HAVE to pick at lease ONE TOXIC food and THREE Disliked foods. You Can have a maximum of THREE LIKED foods.'
                   }
                 >
                   <Box inline>
