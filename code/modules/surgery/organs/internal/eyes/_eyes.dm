@@ -86,8 +86,17 @@
 		affected_human.eye_color_right = eye_color_right
 	else
 		eye_color_right = affected_human.eye_color_right
-	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION) && !lighting_cutoff)
-		lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
+	// NOVA EDIT - NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on eye color
+	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION))
+		var/list/new_rgb_cutoffs = new /list(3)
+		var/infravision_multiplier = max(0, (-(flash_protect) * NOVA_NIGHT_VISION_SENSITIVITY_MULT)) + 1 // if we have more sensitive eyes, increase the power
+		for(var/i in 1 to 3)
+			var/base_color = hex2num(copytext(affected_human.eye_color_left, (i*2), (i*2)+2)) //convert their eye_color_left hex to RGB
+			var/adjusted_color = max(((base_color / 255) * (NOVA_NIGHT_VISION_POWER_MAX * infravision_multiplier)), (NOVA_NIGHT_VISION_POWER_MIN * infravision_multiplier)) //linear convert their eye color into a color_cutoff range, ensuring it is clamped
+			new_rgb_cutoffs[i] = adjusted_color
+
+		color_cutoffs = new_rgb_cutoffs
+	// NOVA EDIT END
 	if(CONFIG_GET(flag/native_fov) && native_fov)
 		affected_human.add_fov_trait(type, native_fov)
 
