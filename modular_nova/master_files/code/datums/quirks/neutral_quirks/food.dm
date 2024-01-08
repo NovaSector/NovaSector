@@ -9,3 +9,7 @@
 // Food preferences replaces this.
 /datum/quirk/pineapple_liker
 	hidden_quirk = TRUE
+
+// You can become a vegan with food prefrences
+/datum/quirk/vegetarian
+	hidden_quirk = TRUE
