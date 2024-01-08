@@ -610,7 +610,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			continue
 
 		preference.apply_to_human(character, read_preference(preference.type), src)
-
 	// NOVA EDIT ADDITION START - middleware apply human prefs
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		preference_middleware.apply_to_human(character, src, visuals_only = visuals_only)
