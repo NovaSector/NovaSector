@@ -256,7 +256,7 @@ const FoodButton = (props) => {
 
 const ErrorOverlay = (props) => {
   return (
-    <Dimmer style={{ 'align-items': 'stretch' }}>
+    <Dimmer style={{ 'align-items': 'stretch' }}> 
       <Stack vertical mt="5.2em">
         <Stack.Item color="#bd2020" textAlign="center">
           <h1>{props.children}</h1>
