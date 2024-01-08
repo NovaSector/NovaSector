@@ -1,4 +1,3 @@
-import { BooleanLike } from 'react';
 import { useBackend } from '../backend';
 import {
   AnimatedNumber,
@@ -18,9 +17,9 @@ type Data = {
   food_types: Record<string, Record<string, number>>;
   selection: Record<string, number>;
   points: number;
-  enabled: BooleanLike;
+  enabled: boolean;
   invalid: string;
-  race_disabled: BooleanLike;
+  race_disabled: boolean;
 };
 
 const FOOD_TOXIC = 1;
@@ -67,11 +66,12 @@ export const FoodPreferences = (props) => {
                     {data.invalid && (
                       <Button icon="circle-question" mr="0.5em" />
                     )}
-                    <span
+                    <Box
+                      as="span"
                       style={{ color: data.invalid ? '#bd2020' : 'inherit' }}
                     >
                       Points left: <AnimatedNumber value={data.points} />
-                    </span>
+                    </Box>
                   </Box>
                 </Tooltip>
 
@@ -126,15 +126,13 @@ export const FoodPreferences = (props) => {
                           {foodName}
                           {foodPointValues[OBSCURE_FOOD] && (
                             <Tooltip content="This food doesn't count towards your maximum likes, and is free!">
-                              <span
-                                style={{
-                                  'margin-left': '0.3em',
-                                  'vertical-align': 'top',
-                                  'font-size': '0.75em',
-                                }}
+                              <Box
+                                as="span"
+                                fontSize={0.75}
+                                verticalAlign={'top'}
                               >
                                 <Icon name="star" style={{ color: 'orange' }} />
-                              </span>
+                              </Box>
                             </Tooltip>
                           )}
                         </>
@@ -256,10 +254,10 @@ const FoodButton = (props) => {
 
 const ErrorOverlay = (props) => {
   return (
-    <Dimmer style={{ 'align-items': 'stretch' }}> 
+    <Dimmer>
       <Stack vertical mt="5.2em">
         <Stack.Item color="#bd2020" textAlign="center">
-          <h1>{props.children}</h1>
+          {props.children}
         </Stack.Item>
       </Stack>
     </Dimmer>
