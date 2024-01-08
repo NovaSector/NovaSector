@@ -195,7 +195,7 @@ export const FoodPreferences = (props) => {
                               ' (' + foodPointValues[FOOD_NEUTRAL - 1] + ')'}
                           </>
                         }
-                        color="white"
+                        color="yellow"
                         tooltip="Your character has very little to say about something that's neutral."
                       />
                       <FoodButton
