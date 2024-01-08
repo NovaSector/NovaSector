@@ -119,9 +119,8 @@ export const FoodPreferences = (props) => {
               {Object.entries(data.food_types).map((element) => {
                 const { 0: foodName, 1: foodPointValues } = element;
                 return (
-                  <Box>
+                  <Box key={foodName}>
                     <Section
-                      key={foodName}
                       title={
                         <>
                           {foodName}
@@ -196,7 +195,7 @@ export const FoodPreferences = (props) => {
                               ' (' + foodPointValues[FOOD_NEUTRAL - 1] + ')'}
                           </>
                         }
-                        color="grey"
+                        color="white"
                         tooltip="Your character has very little to say about something that's neutral."
                       />
                       <FoodButton
