@@ -818,7 +818,6 @@
 		/obj/item/assembly/flash/cyborg,
 		//obj/item/reagent_containers/borghypo/borgshaker, // NOVA EDIT REMOVAL - SPECIFIC SHAKERS
 		//NOVA EDIT ADDITION START
-		// /obj/item/reagent_containers/borghypo/borgshaker,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/alcohol,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/juice,
@@ -827,12 +826,12 @@
 		/obj/item/borg/apparatus/beaker/service,
 		/obj/item/borg/apparatus/beaker, // NOVA EDIT ADDITION - Allows the pickup of different beakers for easier drink mixing
 		/obj/item/reagent_containers/cup/beaker/large, //I know a shaker is more appropiate but this is for ease of identification
-		//obj/item/reagent_containers/condiment/enzyme, // NOVA EDIT - Borg shaker has it
+		//obj/item/reagent_containers/condiment/enzyme, // NOVA EDIT REMOVAL - Borg shaker has it
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/syringe, //NOVA EDIT ADDITION
 		/obj/item/rsf,
 		/obj/item/storage/bag/tray,
-		/obj/item/storage/bag/tray, // NOVA EDIT: Moves the second tray up to be near the default one
+		/obj/item/storage/bag/tray, // NOVA EDIT ADDITION: Adds second tray
 		/obj/item/cooking/cyborg/power, //NOVA EDIT ADDITION
 		/obj/item/pen,
 		/obj/item/toy/crayon/spraycan/borg,
