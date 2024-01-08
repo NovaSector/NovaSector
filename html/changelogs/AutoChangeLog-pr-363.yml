@@ -1,6 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - qol: "For all the mappers out there, stationary batteries come with pre-charged variants now for mapping use"
-  - bugfix: "SMES can now be deconstructed normally again"
-  - code_imp: "The flatpacked stationary batteries have much more readable power amounts now"

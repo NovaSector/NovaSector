@@ -1,4 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - config: "Config migration to /nova instead of /skyrat has been properly completed."
