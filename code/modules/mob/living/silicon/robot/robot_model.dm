@@ -386,8 +386,10 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,
-		/obj/item/screwdriver/cyborg/power, // NOVA Removal/Edit - Combines Screwdriver and Wrench into one
-		/obj/item/crowbar/cyborg/power, // NOVA Removal/Edit - Combines Crowbar and Wirecutters into one
+		/obj/item/screwdriver/cyborg/power, // NOVA EDIT CHANGE - ORIGINAL: /obj/item/screwdriver/cyborg,
+		//obj/item/wrench/cyborg, // NOVA EDIT REMOVAL - Combines Screwdriver and Wrench into one
+		/obj/item/crowbar/cyborg/power, // NOVA EDIT CHANGE - ORIGINAL: /obj/item/crowbar/cyborg,
+		//obj/item/wirecutters/cyborg, // NOVA EDIT REMOVAL - Combines Crowbar and Wirecutters into one
 		/obj/item/multitool/cyborg,
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
@@ -814,23 +816,24 @@
 	name = "Service"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		//NOVA EDIT START
+		//obj/item/reagent_containers/borghypo/borgshaker, // NOVA EDIT REMOVAL - SPECIFIC SHAKERS
+		//NOVA EDIT ADDITION START
 		// /obj/item/reagent_containers/borghypo/borgshaker,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/alcohol,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/soda,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/juice,
 		/obj/item/reagent_containers/borghypo/borgshaker/specific/misc,
+		//NOVA EDIT ADDITION END
 		/obj/item/borg/apparatus/beaker/service,
-		/obj/item/borg/apparatus/beaker, // Allows the pickup of different beakers for easier drink mixing
-		//NOVA EDIT END
+		/obj/item/borg/apparatus/beaker, // NOVA EDIT ADDITION - Allows the pickup of different beakers for easier drink mixing
 		/obj/item/reagent_containers/cup/beaker/large, //I know a shaker is more appropiate but this is for ease of identification
 		//obj/item/reagent_containers/condiment/enzyme, // NOVA EDIT - Borg shaker has it
 		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/syringe, //NOVA EDIT
+		/obj/item/reagent_containers/syringe, //NOVA EDIT ADDITION
 		/obj/item/rsf,
 		/obj/item/storage/bag/tray,
 		/obj/item/storage/bag/tray, // NOVA EDIT: Moves the second tray up to be near the default one
-		/obj/item/cooking/cyborg/power, //NOVA EDIT
+		/obj/item/cooking/cyborg/power, //NOVA EDIT ADDITION
 		/obj/item/pen,
 		/obj/item/toy/crayon/spraycan/borg,
 		/obj/item/extinguisher/mini,
