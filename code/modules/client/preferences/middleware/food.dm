@@ -14,7 +14,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/fail_reason = GLOB.food_prefs_menu.is_food_invalid(preferences)
 	if(fail_reason)
-		to_chat(preferences.parent, span_doyourjobidiot("Your food preferences can't be set because of [fail_reason] choices! Please check your preferences!")) // Sorry, but I don't want folk sleeping on this.
+		to_chat(preferences.parent, span_announce("Your food preferences can't be set because of [fail_reason] choices! Please check your preferences!")) // Sorry, but I don't want folk sleeping on this.
 		return
 
 	target.organs_slot["tongue"].liked_foodtypes  = NONE
@@ -142,9 +142,9 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	var/points = 0
 
 	for(var/food_entry in preferences.food_preferences)
-		var/list/food_preference = preferences.food_preferences[food_entry]
+		var/food_preference = preferences.food_preferences[food_entry]
 		var/list/food_points_entry = GLOB.food_ic_flag_to_point_values[food_entry]
-		if(!food_points_entry)
+		if(!food_points_entry || food_points_entry.Find(FOOD_PREFERENCE_OBSCURE))
 			continue
 
 		points += food_points_entry[food_preference]

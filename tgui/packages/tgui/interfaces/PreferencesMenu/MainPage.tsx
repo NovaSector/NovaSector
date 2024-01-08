@@ -563,6 +563,11 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                       handleLoadout={() => {
                         act('open_loadout');
                       }}
+                      // NOVA EDIT ADDITION - BEGIN
+                      handleFood={() => {
+                        act('open_food');
+                      }}
+                      // NOVA EDIT ADDITION - END
                       setGender={createSetPreference(act, 'gender')}
                       showGender={
                         currentSpeciesData ? !!currentSpeciesData.sexes : true
