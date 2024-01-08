@@ -119,7 +119,7 @@ export const FoodPreferences = (props) => {
               {Object.entries(data.food_types).map((element) => {
                 const { 0: foodName, 1: foodPointValues } = element;
                 return (
-                  <Box key={foodName} wrap="wrap">
+                  <Box>
                     <Section
                       title={
                         <>
@@ -139,7 +139,6 @@ export const FoodPreferences = (props) => {
                       }
                       style={{
                         'break-inside': 'avoid-column',
-                        'margin-bottom': '1em',
                       }}
                     >
                       <FoodButton
