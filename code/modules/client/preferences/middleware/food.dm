@@ -17,9 +17,11 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		to_chat(preferences.parent, span_announce("Your food preferences can't be set because of [fail_reason] choices! Please check your preferences!")) // Sorry, but I don't want folk sleeping on this.
 		return
 
-	target.organs_slot["tongue"].liked_foodtypes  = NONE
-	target.organs_slot["tongue"].disliked_foodtypes  = NONE
-	target.organs_slot["tongue"].toxic_foodtypes = NONE
+	var/obj/item/organ/internal/tongue/target_tongue = target.get_organ_slot(ORGAN_SLOT_TONGUE)
+
+	target_tongue.liked_foodtypes  = NONE
+	target_tongue.disliked_foodtypes  = NONE
+	target_tongue.toxic_foodtypes = NONE
 
 	for(var/food_entry in GLOB.food_ic_flag_to_point_values)
 		var/list/food_points_entry = GLOB.food_ic_flag_to_point_values[food_entry]
@@ -27,11 +29,11 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 		switch(food_preference)
 			if(FOOD_PREFERENCE_LIKED)
-				target.organs_slot["tongue"].liked_foodtypes|= GLOB.food_ic_flag_to_bitflag[food_entry]
+				target_tongue.liked_foodtypes|= GLOB.food_ic_flag_to_bitflag[food_entry]
 			if(FOOD_PREFERENCE_DISLIKED)
-				target.organs_slot["tongue"].disliked_foodtypes |= GLOB.food_ic_flag_to_bitflag[food_entry]
+				target_tongue.disliked_foodtypes |= GLOB.food_ic_flag_to_bitflag[food_entry]
 			if(FOOD_PREFERENCE_TOXIC)
-				target.organs_slot["tongue"].toxic_foodtypes |= GLOB.food_ic_flag_to_bitflag[food_entry]
+				target_tongue.toxic_foodtypes |= GLOB.food_ic_flag_to_bitflag[food_entry]
 
 /// Food prefs menu datum. Global datum for performance and memory reasons.
 /datum/food_prefs_menu/ui_interact(mob/dead/new_player/user, datum/tgui/ui)
