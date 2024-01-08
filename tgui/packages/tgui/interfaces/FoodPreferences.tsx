@@ -49,22 +49,22 @@ export const FoodPreferences = (props) => {
                 <Tooltip
                   position="bottom"
                   content={
-                    data.invalid ? (
-                      <>
-                        Your selected food preferences are invalid!
-                        <Divider />
-                        {data.invalid.charAt(0).toUpperCase() +
-                          data.invalid.slice(1)}
-                        !
-                      </>
-                    ) : (
-                      'Your selected food preferences are valid!'
-                    )
+                    'You HAVE to pick at lease One TOXIC food and THREE Disliked foods. You Can have a maximum of 3 LIKED foods.'
                   }
                 >
                   <Box inline>
-                    {data.invalid && (
-                      <Button icon="circle-question" mr="0.5em" />
+                    <Button icon="circle-question" mr="0.5em" />
+                    {data.invalid ? (
+                      <Box as="span" color="#bd2020">
+                        Prefrences are Invalid!{' '}
+                        {data.invalid.charAt(0).toUpperCase() +
+                          data.invalid.slice(1)}{' '}
+                        |&nbsp;
+                      </Box>
+                    ) : (
+                      <Box as="span" color="green">
+                        Prefrences are Valid! |&nbsp;
+                      </Box>
                     )}
                     <Box
                       as="span"
