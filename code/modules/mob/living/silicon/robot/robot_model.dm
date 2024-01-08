@@ -393,7 +393,7 @@
 		/obj/item/multitool/cyborg,
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
-		/obj/item/holosign_creator/atmos, // NOVA EDIT - Adds Holofans to engineering borgos
+		/obj/item/holosign_creator/atmos, // NOVA EDIT ADDITION - Adds Holofans to engineering borgos
 		/obj/item/assembly/signaler/cyborg,
 		/obj/item/areaeditor/blueprints/cyborg,
 		/obj/item/electroadaptive_pseudocircuit,
@@ -401,7 +401,7 @@
 		/obj/item/stack/sheet/glass,
 		/obj/item/borg/apparatus/sheet_manipulator,
 		/obj/item/stack/rods/cyborg,
-		/obj/item/lightreplacer/cyborg, // NOVA EDIT - Surprised Engie borgs don't get these
+		/obj/item/lightreplacer/cyborg, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/stack/tile/iron/base/cyborg,
 		/obj/item/stack/cable_coil,
 	)
