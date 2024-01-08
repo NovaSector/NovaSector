@@ -33,7 +33,7 @@ export const FoodPreferences = (props) => {
   const { act, data } = useBackend<Data>();
 
   return (
-    <Window width={850} height={500}>
+    <Window width={1300} height={600}>
       <Window.Content scrollable>
         {
           <StyleableSection
@@ -137,9 +137,6 @@ export const FoodPreferences = (props) => {
                           )}
                         </>
                       }
-                      style={{
-                        'break-inside': 'avoid-column',
-                      }}
                     >
                       <FoodButton
                         foodName={foodName}
