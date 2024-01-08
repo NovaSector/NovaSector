@@ -405,9 +405,6 @@
 /turf/open/floor/plating,
 /area/shuttle/pirate/nri)
 "qp" = (
-/obj/machinery/base_alarm/nri_raider{
-	pixel_x = 32
-	},
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
 "qz" = (
@@ -606,9 +603,6 @@
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
 "wh" = (
-/obj/machinery/base_alarm/nri_raider{
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -724,9 +718,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/base_alarm/nri_raider{
-	pixel_y = 32
-	},
 /obj/item/storage/medkit/surgery,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
@@ -814,9 +805,6 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate/nri)
 "CP" = (
-/obj/machinery/base_alarm/nri_raider{
-	pixel_x = -32
-	},
 /obj/machinery/newscaster/directional/north,
 /obj/structure/frame/computer,
 /obj/item/circuitboard/computer/advanced_camera,
@@ -1274,9 +1262,6 @@
 "Ui" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
-	},
-/obj/machinery/base_alarm/nri_raider{
-	pixel_y = 32
 	},
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)

@@ -179,33 +179,6 @@
 	intensity_restriction = TRUE
 
 /**
- * CME (Coronal Mass Ejection)
- *
- * Combined weight: 40
- */
-/datum/round_event_control/cme/minimal
-	max_occurrences = 0
-	weight = MED_EVENT_FREQ
-
-/datum/round_event_control/cme/moderate
-	max_occurrences = 1
-	min_players = 45
-	weight = MED_EVENT_FREQ
-	intensity_restriction = TRUE
-
-/datum/round_event_control/cme/extreme
-	max_occurrences = 1
-	min_players = 45
-	weight = LOW_EVENT_FREQ
-	earliest_start = 105 MINUTES
-	intensity_restriction = TRUE
-
-/datum/round_event_control/cme/unknown
-	max_occurrences = 1
-	weight = MED_EVENT_FREQ
-	intensity_restriction = TRUE
-
-/**
  * Communications
  *
  * Combined weight: 16
