@@ -1,6 +1,3 @@
-/datum/config_entry/flag/disable_antag_opt_in_preferences
-	default = FALSE
-
 /datum/preference/choiced/antag_opt_in_status
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
