@@ -74,51 +74,51 @@ GLOBAL_LIST_INIT(loadout_toys, generate_loadout_items(/datum/loadout_item/toys))
 
 /datum/loadout_item/toys/sechound
 	name = "Sechound Plushie"
-	item_path = /obj/item/toy/plush/skyrat/sechound
+	item_path = /obj/item/toy/plush/nova/sechound
 
 /datum/loadout_item/toys/medihound
 	name = "Medihound Plushie"
-	item_path = /obj/item/toy/plush/skyrat/medihound
+	item_path = /obj/item/toy/plush/nova/medihound
 
 /datum/loadout_item/toys/engihound
 	name = "Engihound Plushie"
-	item_path = /obj/item/toy/plush/skyrat/engihound
+	item_path = /obj/item/toy/plush/nova/engihound
 
 /datum/loadout_item/toys/scrubpuppy
 	name = "Scrubpuppy Plushie"
-	item_path = /obj/item/toy/plush/skyrat/scrubpuppy
+	item_path = /obj/item/toy/plush/nova/scrubpuppy
 
 /datum/loadout_item/toys/meddrake
 	name = "MediDrake Plushie"
-	item_path = /obj/item/toy/plush/skyrat/meddrake
+	item_path = /obj/item/toy/plush/nova/meddrake
 
 /datum/loadout_item/toys/secdrake
 	name = "SecDrake Plushie"
-	item_path = /obj/item/toy/plush/skyrat/secdrake
+	item_path = /obj/item/toy/plush/nova/secdrake
 
 /datum/loadout_item/toys/borbplushie
 	name = "Borb Plushie"
-	item_path = /obj/item/toy/plush/skyrat/borbplushie
+	item_path = /obj/item/toy/plush/nova/borbplushie
 
 /datum/loadout_item/toys/deer
 	name = "Deer Plushie"
-	item_path = /obj/item/toy/plush/skyrat/deer
+	item_path = /obj/item/toy/plush/nova/deer
 
 /datum/loadout_item/toys/fermis
 	name = "Medcat Plushie"
-	item_path = /obj/item/toy/plush/skyrat/fermis
+	item_path = /obj/item/toy/plush/nova/fermis
 
 /datum/loadout_item/toys/chen
 	name = "Securicat Plushie"
-	item_path = /obj/item/toy/plush/skyrat/fermis/chen
+	item_path = /obj/item/toy/plush/nova/fermis/chen
 
 /datum/loadout_item/toys/fox
 	name = "Fox Plushie"
-	item_path = /obj/item/toy/plush/skyrat/fox
+	item_path = /obj/item/toy/plush/nova/fox
 
 /datum/loadout_item/toys/duffmoff
 	name = "Suspicious Moth Plushie"
-	item_path = /obj/item/toy/plush/skyrat/duffmoth
+	item_path = /obj/item/toy/plush/nova/duffmoth
 
 /datum/loadout_item/toys/musicalduffy
 	name = "Suspicious Musical moth"
@@ -126,147 +126,147 @@ GLOBAL_LIST_INIT(loadout_toys, generate_loadout_items(/datum/loadout_item/toys))
 
 /datum/loadout_item/toys/leaplush
 	name = "Suspicious Deer Plushie"
-	item_path = /obj/item/toy/plush/skyrat/leaplush
+	item_path = /obj/item/toy/plush/nova/leaplush
 
 /datum/loadout_item/toys/sarmie
 	name = "Cosplayer Plushie"
-	item_path = /obj/item/toy/plush/skyrat/sarmieplush
+	item_path = /obj/item/toy/plush/nova/sarmieplush
 
 /datum/loadout_item/toys/sharknet
 	name = "Gluttonous Shark Plushie"
-	item_path = /obj/item/toy/plush/skyrat/sharknet
+	item_path = /obj/item/toy/plush/nova/sharknet
 
 /datum/loadout_item/toys/pintaplush
 	name = "Smaller Deer Plushie"
-	item_path = /obj/item/toy/plush/skyrat/pintaplush
+	item_path = /obj/item/toy/plush/nova/pintaplush
 
 /datum/loadout_item/toys/szaplush
 	name = "Suspicious Spider Plushie"
-	item_path = /obj/item/toy/plush/skyrat/szaplush
+	item_path = /obj/item/toy/plush/nova/szaplush
 
 /datum/loadout_item/toys/riffplush
 	name = "Valid Plushie"
-	item_path = /obj/item/toy/plush/skyrat/riffplush
+	item_path = /obj/item/toy/plush/nova/riffplush
 
 /datum/loadout_item/toys/ianbastardman
 	name = "Ian Plushie"
-	item_path = /obj/item/toy/plush/skyrat/ian
+	item_path = /obj/item/toy/plush/nova/ian
 
 /datum/loadout_item/toys/corgiman
 	name = "Corgi Plushie"
-	item_path = /obj/item/toy/plush/skyrat/ian/small
+	item_path = /obj/item/toy/plush/nova/ian/small
 
 /datum/loadout_item/toys/corgiwoman
 	name = "Girly Corgi Plushie"
-	item_path = /obj/item/toy/plush/skyrat/ian/lisa
+	item_path = /obj/item/toy/plush/nova/ian/lisa
 
 /datum/loadout_item/toys/cat
 	name = "Cat Plushie"
-	item_path = /obj/item/toy/plush/skyrat/cat
+	item_path = /obj/item/toy/plush/nova/cat
 
 /datum/loadout_item/toys/tuxcat
 	name = "Tux Cat Plushie"
-	item_path = /obj/item/toy/plush/skyrat/cat/tux
+	item_path = /obj/item/toy/plush/nova/cat/tux
 
 /datum/loadout_item/toys/whitecat
 	name = "White Cat Plushie"
-	item_path = /obj/item/toy/plush/skyrat/cat/white
+	item_path = /obj/item/toy/plush/nova/cat/white
 
 /datum/loadout_item/toys/seaduplush
 	name = "Sneed Plushie"
-	item_path = /obj/item/toy/plush/skyrat/seaduplush
+	item_path = /obj/item/toy/plush/nova/seaduplush
 
 /datum/loadout_item/toys/lizzyplush
 	name = "Odd Yoga lizzy Plushie"
-	item_path = /obj/item/toy/plush/skyrat/lizzyplush
+	item_path = /obj/item/toy/plush/nova/lizzyplush
 
 /datum/loadout_item/toys/mechanic_fox
 	name = "Mechanist Fox Plushie"
-	item_path = /obj/item/toy/plush/skyrat/mechanic_fox
+	item_path = /obj/item/toy/plush/nova/mechanic_fox
 
 /datum/loadout_item/toys/tribal_salamander
 	name = "Tribal Salamander Plushie"
-	item_path = /obj/item/toy/plush/skyrat/tribal_salamander
+	item_path = /obj/item/toy/plush/nova/tribal_salamander
 
 /datum/loadout_item/toys/commanding_teshari
 	name = "Commanding Teshari Plushy"
-	item_path = /obj/item/toy/plush/skyrat/commanding_teshari
+	item_path = /obj/item/toy/plush/nova/commanding_teshari
 
 /datum/loadout_item/toys/snow_owl
 	name = "Snowy Owl Plush"
-	item_path = /obj/item/toy/plush/skyrat/snow_owl
+	item_path = /obj/item/toy/plush/nova/snow_owl
 
 /datum/loadout_item/toys/breakdancing_bird
 	name = "Breakdancing Bird Plushie"
-	item_path = /obj/item/toy/plush/skyrat/breakdancing_bird
+	item_path = /obj/item/toy/plush/nova/breakdancing_bird
 
 /datum/loadout_item/toys/skreking_vox
 	name = "Skreking Vox Plushie"
-	item_path = /obj/item/toy/plush/skyrat/skreking_vox
+	item_path = /obj/item/toy/plush/nova/skreking_vox
 
 /datum/loadout_item/toys/blue_dog
 	name = "Blue Dog Plushie"
-	item_path = /obj/item/toy/plush/skyrat/blue_dog
+	item_path = /obj/item/toy/plush/nova/blue_dog
 
 /datum/loadout_item/toys/engi_snek
 	name = "Engineering Snek Plushie"
-	item_path = /obj/item/toy/plush/skyrat/engi_snek
+	item_path = /obj/item/toy/plush/nova/engi_snek
 
 /datum/loadout_item/toys/glitch_synth
 	name = "Glitching Synthetic Plushie"
-	item_path = /obj/item/toy/plush/skyrat/glitch_synth
+	item_path = /obj/item/toy/plush/nova/glitch_synth
 
 /datum/loadout_item/toys/boom_bird
 	name = "Boom Bird Plushie"
-	item_path = /obj/item/toy/plush/skyrat/boom_bird
+	item_path = /obj/item/toy/plush/nova/boom_bird
 
 /datum/loadout_item/toys/blue_cat
 	name = "Blue Cat Plushie"
-	item_path = /obj/item/toy/plush/skyrat/blue_cat
+	item_path = /obj/item/toy/plush/nova/blue_cat
 
 /datum/loadout_item/toys/igneous_synth
 	name = "Igneous Synth Plushie"
-	item_path = /obj/item/toy/plush/skyrat/igneous_synth
+	item_path = /obj/item/toy/plush/nova/igneous_synth
 
 /datum/loadout_item/toys/edgy_bird
 	name = "Edgy Bird Plushie"
-	item_path = /obj/item/toy/plush/skyrat/edgy_bird
+	item_path = /obj/item/toy/plush/nova/edgy_bird
 
 /datum/loadout_item/toys/tree_ferret
 	name = "Tree Ferret Plushie"
-	item_path = /obj/item/toy/plush/skyrat/tree_ferret
+	item_path = /obj/item/toy/plush/nova/tree_ferret
 
 /datum/loadout_item/toys/xixi
 	name = "Familiar Harpy Plushie"
-	item_path = /obj/item/toy/plush/skyrat/xixi
+	item_path = /obj/item/toy/plush/nova/xixi
 
 /datum/loadout_item/toys/rubi_plush
 	name = "Huggable Bee Plushie"
-	item_path = /obj/item/toy/plush/skyrat/rubi
+	item_path = /obj/item/toy/plush/nova/rubi
 
 /datum/loadout_item/toys/derg_plushie
 	name = "Wingless Dragon Plushie"
-	item_path = /obj/item/toy/plush/skyrat/derg_plushie
+	item_path = /obj/item/toy/plush/nova/derg_plushie
 
 /datum/loadout_item/toys/tracy
 	name = "Creature Plushie"
-	item_path = /obj/item/toy/plush/skyrat/tracy
+	item_path = /obj/item/toy/plush/nova/tracy
 
 /datum/loadout_item/toys/adventurous_synth
 	name = "Adventurous Synth Plushie"
-	item_path = /obj/item/toy/plush/skyrat/plushie_synthia
+	item_path = /obj/item/toy/plush/nova/plushie_synthia
 
 /datum/loadout_item/toys/jecca
 	name = "Sexy Snoodle Plushie"
-	item_path = /obj/item/toy/plush/skyrat/jecca
+	item_path = /obj/item/toy/plush/nova/jecca
 
 /datum/loadout_item/toys/courier_synth
 	name = "Courier Synth Plushie"
-	item_path = /obj/item/toy/plush/skyrat/courier_synth
+	item_path = /obj/item/toy/plush/nova/courier_synth
 
 /datum/loadout_item/toys/plush_janiborg
 	name = "Friendly Janiborg Plush"
-	item_path = /obj/item/toy/plush/skyrat/plush_janiborg
+	item_path = /obj/item/toy/plush/nova/plush_janiborg
 
 /*
 *	CARDS
