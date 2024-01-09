@@ -1,6 +1,0 @@
-author: "thegrb93"
-delete-after: True
-changes:
-  - rscadd: "Blood filter module to medic borg"
-  - rscadd: "Cherry juice and vineger to service borg shakers"
-  - rscdel: "Remove redundant service borgshaker"

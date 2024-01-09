@@ -1,4 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - bugfix: "Deployable thermomachines now correctly put their pipe's visual direction the right way"
