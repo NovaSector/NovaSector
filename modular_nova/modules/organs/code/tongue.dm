@@ -64,6 +64,8 @@
 	attack_verb_simple = list("beep", "boop")
 	modifies_speech = TRUE
 	taste_sensitivity = 25 // not as good as an organic tongue
+	liked_foodtypes = NONE
+	disliked_foodtypes = NONE
 	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 
 /obj/item/organ/internal/tongue/lizard/robot/can_speak_language(language)
@@ -81,6 +83,8 @@
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 	// Not as good as organic tongues, not as bad as the robotic voicebox.
 	taste_sensitivity = 20
+	liked_foodtypes = NONE
+	disliked_foodtypes = NONE
 	modifies_speech = TRUE
 
 /obj/item/organ/internal/tongue/cybernetic
@@ -92,6 +96,8 @@
 	say_mod = "says"
 	// Not as good as organic tongues, not as bad as the robotic voicebox.
 	taste_sensitivity = 20
+	liked_foodtypes = NONE
+	disliked_foodtypes = NONE
 
 /obj/item/organ/internal/tongue/vox
 	name = "vox tongue"
