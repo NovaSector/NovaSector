@@ -28,14 +28,20 @@ GLOBAL_LIST_INIT(optin_forcing_on_spawn_antag_categories, list(
 /datum/mind
 	/// The optin level set by preferences.
 	var/ideal_opt_in_level = OPT_IN_DEFAULT_LEVEL
-	/// Set on mind transfer. Set by on-spawn antags (e.g. if you have traitor on and spawn, this will be set to OPT_IN_ANTAG_ENABLED_LEVEL and cannot change)
+	/// Set on the FIRST mob login. Set by on-spawn antags (e.g. if you have traitor on and spawn, this will be set to OPT_IN_ANTAG_ENABLED_LEVEL and cannot change)
 	var/on_spawn_antag_opt_in_level = OPT_IN_NOT_TARGET
+	/// Set to TRUE on a successful transfer_mind() call. If TRUE, transfer_mind() will not refresh opt in.
+	var/opt_in_initialized
 
-/datum/mind/transfer_to(mob/new_character, force_key_move)
+/mob/living/Login()
 	. = ..()
 
-	update_opt_in()
-	send_antag_optin_reminder()
+	if (isnull(mind))
+		return
+	if (!mind.opt_in_initialized)
+		mind.update_opt_in()
+		mind.send_antag_optin_reminder()
+		mind.opt_in_initialized = TRUE
 
 /// Refreshes our ideal/on spawn antag opt in level by accessing preferences.
 /datum/mind/proc/update_opt_in()
