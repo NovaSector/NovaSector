@@ -56,8 +56,7 @@
 	icon_state = "sleeper_s"
 	prompt_name = "an Interdyne bioweapon scientist"
 	you_are_text = "You are a science technician employed in an Interdyne research facility developing biological weapons."
-	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, powering the quantum pad to their rumored starship in the system. Continue your research as best you can, and try to keep out of trouble."
-	important_text = "The base is rigged with explosives, DO NOT abandon it or let it fall into enemy hands!"
+	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains. A cargo ferry is docked at the rear of your ship and can be used for trade with both factions. Continue your research as best you can, and try to keep out of trouble."
 	outfit = /datum/outfit/interdyne_planetary_base
 	spawner_job_path = /datum/job/interdyne_planetary_base
 	loadout_enabled = TRUE
@@ -95,21 +94,44 @@
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
+
+
+
+
+/datum/outfit/lavaland_syndicate/shaftminer/deckofficer
+	name = "Interdyne Deck Officer"
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/deckofficer
+	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
+	suit = /obj/item/clothing/suit/armor/hos/deckofficer
+	ears = /obj/item/radio/headset/interdyne/command
+	id = /obj/item/card/id/advanced/silver/generic
+	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
+
+/obj/item/radio/headset/interdyne/green
+	name = "interdyne branded headset"
+	desc = "A bowman headset in interdyne green, has a small 'IP' written on the earpiece. Protects the ears from flashbangs."
+	icon_state = "headset_ip"
+	worn_icon_state = "headset_ip"
+	icon = 'modular_nova/modules/mapping/icons/obj/headset.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/ears.dmi'
+
+
 // OUTFITS
 
 /datum/outfit/interdyne_planetary_base
 	name = "Interdyne Bioweapon Scientist"
 	id = /obj/item/card/id/advanced/chameleon
 	id_trim = /datum/id_trim/syndicom/nova/interdyne
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/utility/syndicate
-	suit = /obj/item/clothing/suit/toggle/labcoat/interdyne
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
+	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
+	head = /obj/item/clothing/head/beret/medical/nova/interdyne
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/healthanalyzer/simple/disease=1,
 	)
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	ears = /obj/item/radio/headset/interdyne
+	ears = /obj/item/radio/headset/interdyne/green
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/gun/ballistic/automatic/pistol
 	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
@@ -129,21 +151,22 @@
 	return ..()
 
 /datum/outfit/interdyne_planetary_base/ice
-	uniform = /obj/item/clothing/under/syndicate/nova/tactical
-	suit = /obj/item/clothing/suit/hooded/wintercoat/nova/syndicate
-	ears = /obj/item/radio/headset/interdyne
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
+	suit = /obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne
+	ears = /obj/item/radio/headset/interdyne/green
+	head = /obj/item/clothing/head/beret/medical/nova/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/healthanalyzer/simple/disease=1,
-		/obj/item/clothing/suit/toggle/labcoat/interdyne=1,
+		/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white=1,
 	)
 
 /datum/outfit/interdyne_planetary_base/shaftminer
 	name = "Interdyne Shaft Miner"
-	uniform = /obj/item/clothing/under/rank/cargo/tech/nova/utility/syndicate
-	suit = null //Subtype moment
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
+	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
+	id_trim = /datum/id_trim/syndicom/nova/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/flashlight/seclite=1,
@@ -151,13 +174,15 @@
 		/obj/item/mining_voucher=1,
 		/obj/item/t_scanner/adv_mining_scanner/lesser=1,
 		/obj/item/gun/energy/recharge/kinetic_accelerator=1,
-		/obj/item/stack/marker_beacon/ten=1,
+		/obj/item/stack/marker_beacon/ten=1,\
+		/obj/item/card/mining_point_card=1,
 	)
 
 /datum/outfit/interdyne_planetary_base/shaftminer/deckofficer
 	name = "Interdyne Deck Officer"
-	uniform = /obj/item/clothing/under/rank/cargo/qm/nova/interdyne
-	neck = /obj/item/clothing/neck/cloak/qm/nova/interdyne
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/deckofficer
+	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
+	suit = /obj/item/clothing/suit/armor/hos/deckofficer
 	ears = /obj/item/radio/headset/interdyne/command
 	id = /obj/item/card/id/advanced/chameleon/black/silver
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
@@ -168,8 +193,8 @@
 
 /datum/outfit/interdyne_planetary_base/shaftminer/ice
 	name = "Icemoon Interdyne Shaft Miner"
-	uniform = /obj/item/clothing/under/syndicate/nova/tactical
-	suit = /obj/item/clothing/suit/hooded/wintercoat/nova/syndicate
+	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
+	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 
 // ITEMS
 

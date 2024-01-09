@@ -106,6 +106,9 @@
 /area/ruin/space/has_grav/nova/des_two/research
 	name = "DS-2 Research"
 
+/area/ruin/space/has_grav/nova/des_two/research/robotics
+	name = "DS-2 Robotics Bay"
+
 //Medbay
 /area/ruin/space/has_grav/nova/des_two/medbay
 	name = "DS-2 Medical Bay"
