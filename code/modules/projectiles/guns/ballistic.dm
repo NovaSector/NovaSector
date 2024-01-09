@@ -370,10 +370,6 @@
 	if (.)
 		return
 	if (!internal_magazine && istype(A, /obj/item/ammo_box/magazine))
-		// NOVA EDIT ADDITION START - this return is intentional; we do not want to run TG's version of this case handling
-		if(handle_magazine(user, A))
-			return
-		// NOVA EDIT ADDITION END
 		var/obj/item/ammo_box/magazine/AM = A
 		if (!magazine)
 			insert_magazine(user, AM)
