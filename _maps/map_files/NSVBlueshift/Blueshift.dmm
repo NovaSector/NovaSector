@@ -50447,7 +50447,6 @@
 	pixel_x = -4;
 	pixel_y = 10
 	},
-/obj/item/storage/medkit/tactical/blueshield,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/blueshield)
 "jGa" = (
