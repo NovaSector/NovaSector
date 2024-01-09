@@ -1,0 +1,381 @@
+2024-01-01:
+  NovaBot13:
+  - qol: added screentips to the janicart (pimpin' ride)
+  - bugfix: The sustenance vendor in perma actually serves food now
+  - bugfix: Dropdowns and pop-up menus have been rewritten. This should fix an issue
+      where dropdown text was accidentally scrolling if hovered. Please report any
+      issues on the repo
+  - rscadd: Atmos Holofan projectors can be right-clicked inhand to make their holograms
+      more transparent
+  - bugfix: Cyborgs do not deathgasp twice when dying anymore
+  - bugfix: fixed fire extinguisher cabinets not appearing opened after removing the
+      fire extinguisher from them
+  - refactor: hygeinebots are now basic bots. please report all the bugs
+  - bugfix: fixes hygenebots not being able to patrol
+  - rscadd: hygeinebots can now be controlled by Players
+  SomeRandomOwl:
+  - qol: PAI's now have a larger limit for their OOC notes and description, they can
+      now put up to 500 characters for both
+  - bugfix: NIFsoft settings panel now works once again
+2024-01-02:
+  FearfulFurnishing:
+  - rscadd: Add bone dice, a d6 that can be crafted using a bone.
+  Lutowski:
+  - rscadd: Sunflower crown, poppy crown, lily crown and floral garland added to loadout.
+  - rscadd: Black Gas Mask added to loadout.
+  Melbert:
+  - refactor: Refactored the area transformation colossus crystal effect to use the
+      same system dimensional anomalies use. That means the colossus crystal now has
+      access to some dimensional themes (bamboo, plasma, glass) and the dimensional
+      anomaly now has access to some colossus themes (jungle, alien).
+  NovaBot13:
+  - rscadd: 69(roughly?) new vox phrases
+  - bugfix: Fixed footstep sounds.
+  - qol: The "Explosive Planted" alert for C4 actually shows the C4
+  - qol: Gas analyzer can scan adjacent turfs. No more roasting yourself just to scan
+      your burn mix.
+  - bugfix: Protolathe input should feel more responsive.
+  - rscadd: Added new lizard variants of existing foods for equality of edibility.
+  - qol: made pickle jars reusable and vinegar craftable.
+  - bugfix: Having an inorganic chest/legs no longer makes you drop your ID, belt
+      or pocketed stuff upon losing your jumpsuit
+  - bugfix: you can set the chemical reaction chamber temps to 0k again
+  - bugfix: used higher rounding value for reactions thus you get full volumes especially
+      for endothermic reactions(no more 99.99 but 100 units).
+  - bugfix: chem heater now applies heat per reaction step and sends updates to UI
+      more frequently
+  - qol: Toggling an armour booster module on a MODsuit now gives a balloon alert
+      making the tradeoffs more clear.
+  - bugfix: slamming through a glass table while previously on a table no longer gives
+      you a negative offset.
+  - rscadd: A new heretic path opens up! Gaze up at the great sky for the path of
+      the moon opens and the lie shall be slain in pursuit of ultimate truth!
+  - bugfix: Fixes the syndicate delusion not working
+  Paxilmaniac:
+  - sound: The headset radio sound no longer reaches 17 entire tiles away from you
+  - code_imp: Some of the code around headset sounds has been improved a bit
+  - bugfix: Wind turbines will now correctly connect to a wire that was placed before
+      they were
+2024-01-03:
+  NovaBot13:
+  - bugfix: turbine now shuts itself off when the room apc loses power or if it gets
+      damaged. Also uses a small amount of power for operation of internal electronics,
+      the green light & other stuff
+  - bugfix: No more runtime in turbine computer when parts are not fully connected
+  - qol: adds screentips & examines for turbine
+  - code_imp: removed unused vars, auto doc procs and cleans up some code in turbine
+  - refactor: attack_slime is completely gone
+  - refactor: slime lifestate changes now have less boilerplate code
+  - balance: baby slimes do a bit of a less damage on the low end, but all slime damage
+      is much more consistent
+  - balance: instead of taking half brute damage, cyborgs are now immune to slime's
+      melee attacks. Charged slimes attacking cyborgs now lose a bit of charge. They
+      still get massive damage from charged slimes, and every slime attack flashes
+      them.
+  - bugfix: slimes can now properly drain basic mobs and simple animals that they
+      can damage
+  - bugfix: slimes can drift in zero gravity
+  - image: Throwing things has now a sprite animation forward your target.
+  - sound: Throwing things also has a sound accompagnying it.
+  - spellcheck: Dwarves don't throw things hard like hulks. Instead their throws are
+      described as "flimsily".
+  - image: resprited the Pirate/Sailor costumes, the pirate jacket, and the pirate
+      spacesuit
+  - bugfix: Fixed integrated circuit speech logging
+  Vishenka0704:
+  - admin: The ability to export a part(or z-level) of the map has been added.
+  vinylspiders:
+  - bugfix: fixes a rare bug that could result in spawning without any equipment
+  - spellcheck: updates discord url in panic bunker message
+  - admin: opfor panel 'approve objective' button is no longer annoyingly in the way
+      of the objective title text
+  - qol: when you send a message as an admin via the opfor panel and no one is handling
+      the opfor, it will automatically mark you as handling it
+2024-01-04:
+  FearfulFurnishing:
+  - rscadd: Added bone greaves foot clothing which are made from one sinew and two
+      bones.
+  LemonInTheDark, Donglesplonge:
+  - image: Redoes fov "mask" sprites. They're clean, have a very pleasant dithering
+      effect, and look real fuckin good!
+  - rscdel: Changed FOV, it no longer hides mobs, instead it blurs the hidden area,
+      and makes it a bit darker/oversaturated
+  NovaBot13:
+  - bugfix: fixes some runtimes in pathfinding code, as well as one in the give direct
+      control admin verb
+  - rscadd: Reworked Binoculars to function like a scope from long-range rifles. They
+      also can be used while moving, albeit that'll slow you down significantly.
+  - rscadd: Authentic mothic softcaps can be found in the "Mothic Pioneer" curator
+      kit, which googles can also used to look into the distance. The date on the
+      boxed kit has been updated to match "muh lore".
+  - qol: Using a scope (and now binocs or moth cap) won't hide your mouse pointer
+      away now, so that you won't slip out of the game screen and close the game tab
+      by accident.
+  - image: Improved sprites for sailor school uniform
+  Zergspower:
+  - bugfix: Ruins - Space Hotel should now run without runtimes for atmos
+  - bugfix: Ruins - Space Hotel disposals actually works
+  goobliner:
+  - rscdel: Everybody can now use headshots
+  yooriss:
+  - balance: Light Drinker and Drunken Resilience quirks can no longer be chosen together.
+  - balance: Oversized and Freerunning quirks can no longer be chosen together.
+  - balance: The Oversized Rights Enclave (ORE) has successfully petitioned Nanotrasen
+      to install a galactic minimum standard upper-joist crumple zone in their station
+      airlocks, meaning that oversized individuals will no longer take brain damage
+      from hitting their head. All other safety warnings still apply.
+  - bugfix: Oversized and Settler can now no longer be chosen together to negate the
+      Oversized hunger mod penalty.
+2024-01-05:
+  GoldenAlpharex:
+  - bugfix: Masquerade masks can now properly hide your identity.
+  LT3:
+  - bugfix: OOC announcements will now be in shown in OOC colors
+  - bugfix: Alternate carpet colors will no longer reskin to normal carpet
+  Melbert:
+  - bugfix: Fixed runtime from blobbernauts attacking non-living things
+  - bugfix: Some things which affect everything in an area are less laggy, the "all
+      lights are broken" station trait especially
+  - bugfix: Fixed Fugu Gland applying to mobs incorrectly
+  Motho & Vinylspiders:
+  - rscadd: You can now customize the color of your overhead chat bubble. Ported from
+      effigyse, original by LT3.
+  - bugfix: cyborgs should now get their brain prefs applied correctly
+  NovaBot13:
+  - bugfix: Gibtonite ore on ice planet gulags no longer spawns as lavaland rock.
+  - qol: Path of moon and lock now actually fit in the heretic tree
+  - balance: Certain path of moon rituals that needed brains now use easier to obtain
+      organs
+  - bugfix: Fixed redundant "Integrity:" in air alarms
+  - code_imp: progressbars no longer qdel their /image
+  - spellcheck: Fixed punctuation in Luini Amaretto's description.
+  - bugfix: fixed a runtime in datum/thrownthing
+  - bugfix: 'TGUI: Sections should be scrollable on mouse hover'
+  - bugfix: closets now have a working welder deconstruct screentip
+  - bugfix: fixed an /image hard del in ghost code
+  - bugfix: 'Icebox: Added a fire alarm to the upstairs fore primary hallway.'
+  - admin: Amputation Shear amputation is now logged
+  - bugfix: 'Birdshot: Released gulag prisoners can now get off the gulag shuttle.'
+  - bugfix: 'Birdshot: The gulag shuttle airlocks will now cycle like other airlocks.'
+  - bugfix: Guardian host's ability buttons now works while the host is sleeping/unconscious.
+  - bugfix: stationary medbots will no longer ignore u for a while if u move out of
+      their way while healing
+  - bugfix: the moon heretic ascension now produces lunatics again
+  - bugfix: you no longer fall down cliffs if you dont have gravity
+  - bugfix: Universal scanners are no longer invisible when set to the export or sales
+      tagger modes.
+  - bugfix: food made with drying racks now counts as "chef-made" (ergo, can provide
+      a mild buff).
+  Paxilmaniac:
+  - rscadd: The CO2 Cracker makes a return, a device that takes power and turns ambient
+      CO2 into ambient oxygen, handy!
+  - rscadd: The portable recycler has been added, a machine that lets you recycle
+      stuff autolathe-style, clang!
+  - rscadd: The hydroponics chemical synthesizer has been added, the sister to the
+      water synthesizer, makes all of the basic botany chemicals to work with reagent
+      pipes.
+  - rscadd: The sustenance dispenser makes a return, dispense yourself some powdered
+      coffee or nutraslop today!
+  - rscadd: The organic rations printer has been added, a little biogenerator-type
+      machine specializing in food specifically. An excellent kitchen buddy for the
+      supply-deprived cook.
+  - image: Sprites for all the listed new machines were made by me, Paxilmaniac.
+  SomeRandomOwl:
+  - bugfix: Fixed a old mirror, AI vox announcements now send the announcement through
+      minor_announce instead of going through the radio
+  - refactor: Refactored AI vox code to do our custom AI vox voices in a more cleaner
+      way
+  honkpocket:
+  - rscadd: Xeno-hybrids have a weak plasmavessel to spin resin and hive communicate
+      with
+  - rscadd: Xeno-hybrids have acid blood
+  - balance: Xeno-hybrids are the weakest species against heat/fire, at a whopping
+      2.5x multiplier
+  - balance: Xeno-hybrid livers can process plasma without gaining toxin damage
+  yooriss:
+  - rscadd: Talking now automatically capitalizes any lowercase 'i' in the middle
+      of sentences, and ends sentences in a period if no other punctuation is present.
+2024-01-06:
+  Lutowski:
+  - rscadd: Mothic language returns with its own lore blurb.
+  - image: Added icon for Chitinclick.
+  NovaBot13:
+  - bugfix: fixes an image hard del
+  - code_imp: adds context to image hard dels to make them easier to track
+  - image: resprited onmob cone icon.
+  - bugfix: Having a netpod destroyed will no longer grant you permanent healing.
+  - bugfix: Randomization button in prefs should look normal again.
+  - bugfix: Quirk customization shouldn't close immediately.
+  Paxilmaniac:
+  - bugfix: construction fabricators can once again make ration printers
+  SomeRandomOwl:
+  - bugfix: Build Mode Export's options menu now knows when you want to cancel and
+      not change the options
+  - bugfix: fixed the max width of the quirk UI so some quirks aren't cut off
+  Stalkeros:
+  - rscadd: Ancient Military Simulator got some of the previously implemented items
+      back, i.e. CIN weaponry and DeForest medkits
+  - balance: Ancient Military Simulator, generally speaking, became more 'rigid' and
+      straightforward
+  - balance: Ancient Military Simulator prize room has been moved deeper into SNPC
+      compound to prevent drakes from flying in early.
+  - bugfix: Ancient Military Simulator should no longer break down into space tiles
+      on wall explosions
+  - rscdel: Black Mesa, the map
+  Zergspower:
+  - refactor: refactors all(?) modular items to a standard list format
+  vinylspiders:
+  - qol: Ghosts can now view Wanted Status and Sec Records by examining people
+  - bugfix: fixes an instance of the quick reflexes trait not being honored
+  - bugfix: fixes ashwalker sacrifice immediately gibbing revived lizards
+  - rscdel: vending machines will no longer squash mobs
+  - bugfix: Queen bee's made with cytology now work
+  whataboutism-alos:
+  - bugfix: Updated readme and other git config docs to check NovaSector/NovaSector
+      rather than GalacticStation/GalaxiaStation for updates
+  - bugfix: Updated Ice-Cats policy wiki link
+  - bugfix: Piping & wiring no longer runs beneath Interdynes closed turfs
+  - bugfix: Redone Interdyne ghost role spawner information
+  - bugfix: Fixed two basketball arena maps with deprecated obj paths
+  - bugfix: Removed mention of Skyrat server name in loadout clothing options
+  - bugfix: Corrected some loadout items mistakenly containing the name string of
+      another loadout item
+  - bugfix: Fixed reebe.dmm still using a762 instead of strilka310 pathing
+  - bugfix: Fixes mislabelled Interlink Kitchen/Bar doors (access_helpers were already
+      correct)
+  - bugfix: Adds sounds to Interdyne fitting both Lavaland AND Icemoon
+  - bugfix: Fixes bug of clothing items mapped on top of closed turfs on Interdyne
+      Vault (Icebox)
+  - code_imp: Created template file for modular RGB benches
+  - refactor: Refactored modular chemical and obj flags
+  - refactor: Repathed git checker .sh's
+  - refactor: Added /nova/ to many many missed paths and some comments
+  - refactor: Repathed Interdyne and DS-2
+  - refactor: Repathed (Skyrat) Nova Xenomorphs
+  - refactor: Moved spacehotel and box whiteship dmms to /spaceruins/nova
+  - refactor: Dropped lavaland-specific Interdyne area pathing
+  - refactor: Refactored shuttlecode
+  - refactor: Refactored modular TGUI
+  - refactor: Refactored modular vendor variables
+  - rscadd: UpdatePaths for all mappable changes, includes tips to refactor code
+  - rscadd: Second UpdatePaths for fellow Interdyne enthusiasts
+  - rscadd: Added Interdyne Lavaland & Icemoon commission plaques
+  - rscadd: Blue benches for Interdyne (Icebox)
+  - rscadd: Deck Officer's ID is now a special Interdyne ID rather than a generic
+      silver
+  - rscadd: Survival boxes for all Interdyne crew
+  - rscadd: Disease scanners for Interdyne Bioscientists
+  - rscadd: Added plasmaglass skillsoft implanter using adv. interrogation chamber
+      sprites
+  - rscadd: More specific Interdyne areas
+  - rscadd: Expanded Interdyne Virology
+  - rscadd: New workout equipment for Interdyne miners to get buff and convene around
+  - rscadd: "Added red pi\xF1ata (only candy drops) to Interdyne bar"
+  - rscadd: Included unused red lanterns to Interdyne Syndrobe (Icebox)
+  - rscadd: Added shuttle pad with commercial clutter
+  - rscadd: Added shower in public Interdyne restroom, now not only the Deck Officer
+      has one
+  - rscadd: Added useless big red button to Interdyne's vault safe, scary!
+  - rscadd: Added snowy floor decals to exterior catwalks of Interdyne (Icebox)
+  - rscadd: Added ashy floor decals to exterior catwalks of Interdyne (Lavaland)
+  - rscadd: Added Interdyne dorms laundry basket for ditched default-outfit clothes
+  - rscadd: Added Interdyne Kitchen shutters synced to existing Bar shutters
+  - rscadd: Added plumbing for all sinks, showers, and hydro trays to high-capacity
+      stationary water tank in Interdyne
+  - rscadd: Added a little table clock and calendar to Deck Officer's office
+  - rscadd: Added wall clocks to Xenobio and Virology at Interdyne
+  - rscadd: Added semirandomized posters throughout Interdyne
+  - rscadd: Changed Interdyne default turf from plating to reinforced to match reinforced
+      hull walls
+  - rscadd: Changed Interdyne ceiling to reinforced plating (Icebox)
+  - rscadd: Added Interdyne flag to Medical and Library - blank white flag with altered
+      desc
+  - rscdel: Removed Interdyne hair salon
+  - rscdel: Removed extraneous & visually disjointed departmental directions from
+      Interdyne
+  - qol: Added light switches to every area in Interdyne placed as centrally accessible
+      as possible
+  - qol: Moved Interdyne's 'TOP SECRET' folder to the safe (It's the most important
+      thing. Why was it just in a file cabinet?)
+  - qol: Anchored internals crate in Interdyne Cargo
+  - qol: Redone Interdyne catwalks
+  - qol: Added dim lights to Interdyne catwalks (Icebox)
+  - qol: Condensed, improved Interdyne Library
+  - qol: Enabled, increased count of insulated clothing in the Contraband category
+      of Syndrobe (Icebox)
+  - qol: Quantum pad to DS-2 now more centrally located
+  - qol: Expanded Interdyne kitchen counter
+  - qol: Relocated Disposals room to past Engineering
+  - qol: Morgue is now connected to Medical & reorganized
+  - qol: Morgue now contains an autopsy scanner
+  - qol: Improved window blast door grouping
+  - qol: Enabled extended_inventory on some Interdyne vendors where reasonable (these
+      guys don't follow Nanotrasen's corporate restrictions!)
+  - qol: Added gun case to Vault
+  - qol: Moved the stethoscope to Medical (Should at least act like that item isn't
+      included in the game only for safe-cracking!)
+  - qol: Removed grass turf terrariums, added plastic potted plant to public bathroom.
+      It's a sterile medical company!
+  - bugfix: Fixes Interdyne's radio headset
+2024-01-07:
+  LT3:
+  - bugfix: 'Morgue trays and freezing temperatures will no longer husk bodies fix:
+      Organs outside bodies will properly receive cold damage /:cl:'
+  Melbert:
+  - bugfix: 'Strong arm implant users can shove more correctly.  /:cl:'
+  NovaBot13:
+  - bugfix: Fixed an issue with polling ghost roles to control multiple mobs that
+      prevented Sentience Fun Balloons from working as intended.
+  OrionTheFox:
+  - rscdel: Removed the CME event
+  - image: some of TG's newer modsuits that were missing muzzled/digitigrade sprites,
+      now have said sprites!
+  Paxilmaniac:
+  - rscdel: All of assault ops has been deleted
+  Zergspower:
+  - rscadd: Synth/IPC's  internal PDA - Food/Battery level for the beeper
+  - qol: Synths/IPC's will now charge/feed slightly faster
+  - balance: Synth/IPC's  internal PDA - raises memory to 64 from 32 to match a standard
+      spawned PDA
+  sergeirocks100:
+  - rscadd: Some new shirts have been added to the undershirt selection, including
+      some recolorable t-shirts and a rainbow tank top. Check them out in the character
+      preferences!
+  - spellcheck: The name of the sun tank top has had a minor capitalization mistake
+      fixed.
+  vinylspiders:
+  - bugfix: 'the eZ-13 MK2 heavy pulse rifle does damage again /:cl:'
+  - bugfix: 'After a raid on the local drug mafia in the sector by TerraGov, the Russian
+      Mobsters no longer have access to easy drugs and as a result are no longer 24/7
+      running faster than the average spaceman. /:cl:'
+  - bugfix: conveyor belts no longer maintain movement if whatever is on them suddenly
+      leaves their z level
+  - bugfix: Hub shuttle time works correctly
+  - bugfix: 'you can use your hand to make minebots go into combat mode again /:cl:'
+  - bugfix: abductors can get points again
+  - spellcheck: 'Corrects every misspelled ''kenetic'' in the codebase. /:cl:'
+  - bugfix: Search bars for smaller lists should return to their former responsiveness.
+  - qol: The hub entry shows the next map and shuttle time, and no longer shows the
+      alert
+  - balance: Doing experiments AFTER their tech is researched now gives full 100%
+      points instead of 66%.
+  - bugfix: Cyborgs no longer think they're hitting themselves when stunned with a
+      stun baton
+  whataboutism-alos:
+  - bugfix: Removed Syndrobe hidden beneath Internals dispenser on Interdyne (Lavaland)
+  - bugfix: Removed linen bin hidden beneath vendor on Interdyne
+  - bugfix: Reimplemented Interdyne fax machine after unintentional removal
+  - bugfix: Reimplemented Interdyne bar west entrance
+  - bugfix: Restored roundstart count of Sansufentanyl medication bottles in Interdyne
+      to the number generated by the deprecated Sansufentanyl crate
+  - bugfix: Moved turret in Interdyne kitchen to prevent targetting inside the building
+      (poor medibots LOL)
+  - bugfix: Removed chef skillchip in Interdyne Science Wing (why was that there?)
+  - bugfix: Fixed bug of Interdyne (Icemoon) Syndrobe charging money for items
+  - qol: Implemented cabin/dorm door bolt buttons
+  - qol: Moved Interdyne virology disposals system one tile left for accessibility
+  - qol: Created a second cryopod for immersion on player request
+  - qol: Moved DS-2 quantum pad into a hallway west of Interdyne cargo foyer for immersion
+  - qol: Changed color of one cargo container from red to olive drab on player request
+  - qol: Gun case is now a gun rack because some guns would not go into it for reasons
+      unknown

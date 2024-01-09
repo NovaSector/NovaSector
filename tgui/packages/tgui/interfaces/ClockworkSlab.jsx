@@ -1,6 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { Fragment } from 'react';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { useBackend } from '../backend';
 import {
@@ -35,6 +34,9 @@ const convertPower = (power_in) => {
 
 export const ClockworkSlab = (props) => {
   const [selectedTab, setSelectedTab] = useState('Servitude');
+  const updateSelectedTab = (tab) => {
+    setSelectedTab(tab);
+  };
   return (
     <Window theme="clockwork" width={860} height={700}>
       <Window.Content>
@@ -47,7 +49,7 @@ export const ClockworkSlab = (props) => {
             </Box>
           }
         >
-          <ClockworkButtonSelection />
+          <ClockworkButtonSelection updateSelectedTab={updateSelectedTab} />
         </Section>
         <div className="ClockSlab__left">
           <Section height="100%" overflowY="auto">
@@ -334,19 +336,19 @@ const ClockworkOverviewStat = (props) => {
 };
 
 const ClockworkButtonSelection = (props) => {
-  const [selectedTab, setSelectedTab] = useState({});
+  const { updateSelectedTab } = props;
   const tabs = ['Servitude', 'Preservation', 'Structures'];
+  const setSelectedTab = (tab) => {
+    updateSelectedTab(tab);
+  };
   return (
     <Table>
       <Table.Row>
         {tabs.map((tab) => (
           <Table.Cell key={tab} collapsing>
-            <Button
-              key={tab}
-              fluid
-              content={tab}
-              onClick={() => setSelectedTab(tab)}
-            />
+            <Button fluid onClick={() => setSelectedTab(tab)}>
+              {tab}
+            </Button>
           </Table.Cell>
         ))}
       </Table.Row>

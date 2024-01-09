@@ -294,10 +294,6 @@ GLOBAL_VAR(first_officer)
 	name = "police shuttle navigation computer"
 	desc = "Used to designate a precise transit location for the police shuttle."
 
-/obj/machinery/base_alarm/nri_raider
-	alarm_sound_file = 'modular_nova/modules/encounters/sounds/env_horn.ogg'
-	alarm_cooldown = 32
-
 /obj/machinery/porta_turret/syndicate/nri_raider
 	name = "anti-projectile turret"
 	desc = "An automatic defense turret designed for point-defense, it's probably not that wise to try approaching it."

@@ -73,7 +73,7 @@ jobs:
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
           bash tools/ci/check_grep.sh
-          bash skyrat/tools/skyrat_check_grep.sh # NOVA EDIT ADDITION - checking modular_nova code
+          bash modular_nova/tools/nova_check_grep.sh # NOVA EDIT ADDITION - checking modular_nova code
       - name: Ticked File Enforcement
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
