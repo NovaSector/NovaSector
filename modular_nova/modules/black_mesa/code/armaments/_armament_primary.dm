@@ -22,12 +22,6 @@
 	subcategory = ARMAMENT_SUBCATEGORY_ASSAULTRIFLE
 	mags_to_spawn = 3
 
-/datum/armament_entry/hecu/primary/assaultrifle/automaties
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	max_purchase = 1
-	cost = 14
-	magazine = /obj/item/ammo_box/magazine/c40sol_rifle/drum
-
 /datum/armament_entry/hecu/primary/assaultrifle/infanteria
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
 	max_purchase = 2

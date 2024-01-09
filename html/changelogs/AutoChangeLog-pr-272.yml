@@ -1,0 +1,5 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - balance: "\"Tactically\" reloading a gun no longer has a delay to swapping the magazine"
+  - code_imp: "Some old code regarding gun stuff that isn't in the codebase anymore has been removed"

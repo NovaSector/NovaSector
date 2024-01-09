@@ -1,0 +1,5 @@
+author: "Plum-but-gayer"
+delete-after: True
+changes:
+  - rscadd: "The 'Space Russians' located on Void Raptor station have been replaced with something a bit more lore friendly. Why not go meet them yourself?"
+  - rscdel: "Removed space russians from Void Raptor."

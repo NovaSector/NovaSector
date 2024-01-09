@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - qol: "Much like their non-powertool counterpart, powered drivers on wirecutter mode can now snip cablecuffs."
