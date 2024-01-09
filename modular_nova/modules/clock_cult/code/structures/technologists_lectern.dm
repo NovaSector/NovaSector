@@ -428,7 +428,7 @@
 			apc_loop:
 				for(var/obj/machinery/power/apc/controller as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc))
 					var/area/apc_area = get_area(controller) // make sure that no "critical" APCs lose their power (SM, namely)
-					for(var/turf/turf as anything in apc_area.contained_turfs)
+					for(var/turf/turf as anything in apc_area.get_contained_turfs())
 						for(var/obj/machinery/depowered_machinery in turf)
 							if(depowered_machinery.critical_machine)
 								continue apc_loop

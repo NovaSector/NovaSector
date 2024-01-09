@@ -1,7 +1,7 @@
 /*
 /area/shuttle
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-*/
+ */
 
 /obj/docking_port/mobile/arrivals
 
@@ -42,8 +42,8 @@
 	opacity = FALSE
 
 /*
-*	POD
-*/
+ *	POD
+ */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/pod
 	icon = 'modular_nova/modules/advanced_shuttles/icons/pod.dmi'
@@ -53,8 +53,8 @@
 	icon_state = "3,1"
 
 /*
-*	FERRY
-*/
+ *	FERRY
+ */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/ferry
 	icon = 'modular_nova/modules/advanced_shuttles/icons/erokez.dmi'
@@ -73,8 +73,8 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	EVAC
-*/
+ *	EVAC
+ */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/evac
 	icon = 'modular_nova/modules/advanced_shuttles/icons/evac_shuttle.dmi'
@@ -93,8 +93,8 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	ARRIVALS
-*/
+ *	ARRIVALS
+ */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals
 	icon = 'modular_nova/modules/advanced_shuttles/icons/wagon.dmi'
@@ -113,8 +113,8 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	CARGO
-*/
+ *	CARGO
+ */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/cargo
 	icon = 'modular_nova/modules/advanced_shuttles/icons/cargo.dmi'
@@ -133,8 +133,8 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /*
-*	MINING
-*/
+ *	MINING
+ */
 
 /turf/closed/wall/mineral/titanium/shuttle_wall/mining
 	icon = 'modular_nova/modules/advanced_shuttles/icons/mining.dmi'
@@ -163,8 +163,8 @@
 	dir = NORTH
 
 /*
-*	MINING/RND/EXPLORATION FLOORS
-*/
+ *	MINING/RND/EXPLORATION FLOORS
+ */
 
 /turf/open/floor/iron/shuttle/exploration
 	name = "shuttle floor"

@@ -11,6 +11,14 @@
 	icon_state = "card_goldgen"
 	assigned_icon_state = null
 
+// Interdyne (Deck Officer's)
+/obj/item/card/id/advanced/chameleon/black/silver
+	name = "silver identification card"
+	desc = "A silver card which shows honour and dedication."
+	icon_state = "card_silver"
+	inhand_icon_state = "silver_id"
+	assigned_icon_state = "assigned_silver"
+
 // DS2
 /obj/item/card/id/advanced/prisoner/ds2
 	name = "syndicate prisoner card"

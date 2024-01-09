@@ -8,3 +8,9 @@
 	matter = 220
 	delay_mod = 1.3
 	upgrade = RCD_UPGRADE_FRAMES | RCD_UPGRADE_SIMPLE_CIRCUITS
+
+// Unimproved repainted RCD that Interdyne's cargo/atrium gets
+/obj/item/construction/rcd/loaded/interdyne
+	desc = "A device used to rapidly build and deconstruct. Reload with iron, plasteel, glass or compressed matter cartridges. This one looks like it has been repainted in black and red, though it retains standard functionality.";
+	icon_state = "ircd"
+	inhand_icon_state = "ircd"
