@@ -379,3 +379,50 @@
   - qol: Changed color of one cargo container from red to olive drab on player request
   - qol: Gun case is now a gun rack because some guns would not go into it for reasons
       unknown
+2024-01-08:
+  13spacemen:
+  - bugfix: Jumping to C4 via ghost notification works again
+  DrDiasyl:
+  - qol: It is now possible to craft more Security bio suits
+  - qol: Bio-emergency crate from Cargo now contains a box of latex gloves and sterile
+      masks
+  Ghommie:
+  - bugfix: fixed coupon codes with expiration times.
+  GoldenAlpharex:
+  - config: Config migration to /nova instead of /skyrat has been properly completed.
+  Majkl-J:
+  - bugfix: spasm_animation now correctly resets the transform, as it should
+  - bugfix: Spamming the weld on a robotic part no longer drains the fuel
+  NovaBot13:
+  - bugfix: vents that are turned off dont replay their animation if you go out of
+      sight and back in
+  Paxilmaniac:
+  - qol: For all the mappers out there, stationary batteries come with pre-charged
+      variants now for mapping use
+  - bugfix: SMES can now be deconstructed normally again
+  - code_imp: The flatpacked stationary batteries have much more readable power amounts
+      now
+  - rscadd: Adds a new element that makes guns throw small users backwards when shot,
+      which has been added to the wylom
+  Thunder12345:
+  - bugfix: The clown planet biodome and virtual domain can now be completed without
+      slipping directly into the exit.
+  fIoppie:
+  - qol: Cargo techs can now access the windoor in the delivery office on Delta.
+  jlsnow301:
+  - bugfix: Comms console should now update as you type.
+  mc-oofert:
+  - bugfix: adds missing navigation landmarks to tramstation
+  thegrb93:
+  - rscadd: Borg dominatrix module to lustwish that gives them some dominatrix toys
+2024-01-09:
+  Melbert:
+  - bugfix: '"The sister and He Who Wept" Heretic painting will no longer cause big
+      lag'
+  Paxilmaniac:
+  - bugfix: Deployable thermomachines now correctly put their pipe's visual direction
+      the right way
+  thegrb93:
+  - rscadd: Blood filter module to medic borg
+  - rscadd: Cherry juice and vineger to service borg shakers
+  - rscdel: Remove redundant service borgshaker
