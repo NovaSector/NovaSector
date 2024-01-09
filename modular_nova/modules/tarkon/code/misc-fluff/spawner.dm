@@ -107,7 +107,6 @@
 	id_trim = /datum/id_trim/away/tarkon/sec
 	l_pocket = /obj/item/melee/baton/telescopic
 	r_pocket = /obj/item/grenade/barrier
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon/ensign
 	name = "Port Tarkon Ensign"
@@ -127,7 +126,6 @@
 	id = /obj/item/card/id/advanced/tarkon/ensign
 	id_trim = /datum/id_trim/away/tarkon/ensign
 	neck = /obj/item/clothing/neck/security_cape/tarkon
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon/director
 	name = "Port Tarkon Site Director"
@@ -152,7 +150,6 @@
 	id_trim = /datum/id_trim/away/tarkon/ensign
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	r_pocket = /obj/item/card/id/away/tarkonrobo
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /obj/machinery/computer/cryopod/tarkon
 	radio = /obj/item/radio/headset/tarkon
