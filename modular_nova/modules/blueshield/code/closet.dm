@@ -32,3 +32,4 @@
 	new /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/bogseo(src)
 	new /obj/item/storage/bag/garment/blueshield(src)
 	new /obj/item/mod/control/pre_equipped/blueshield(src)
+	new /obj/item/sensor_device/blueshield(src)
