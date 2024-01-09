@@ -47,7 +47,7 @@
 	jobtype = /datum/job/blueshield
 	uniform = /obj/item/clothing/under/rank/blueshield
 	suit = /obj/item/clothing/suit/armor/vest/blueshield/jacket
-	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	gloves = /obj/item/clothing/gloves/tackler/security
 	id = /obj/item/card/id/advanced/centcom
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_bs/alt
@@ -60,6 +60,7 @@
 	head = /obj/item/clothing/head/beret/blueshield
 	box = /obj/item/storage/box/survival/security
 	belt = /obj/item/modular_computer/pda/security
+	l_pocket = /obj/item/sensor_device/blueshield
 
 	id_trim = /datum/id_trim/job/blueshield
 
