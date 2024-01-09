@@ -17,8 +17,3 @@
 	description = "My last blood meal was artificial and tasted... wrong."
 	mood_change = -2
 	timeout = 5 MINUTES
-
-// Killing someone via hemophage exsanguination gives you a mood buff for the rest of the round.
-/datum/mood_event/hemophage_exsanguinate
-	description = "I drained someone of all their blood... why do I feel so giddy?"
-	mood_change = 4

@@ -164,17 +164,7 @@
 
 	// for this to ever occur, the hemophage actually has to be decently hungry, otherwise they'll cap their own blood reserves and be unable to pull it off.
 	if(!victim.blood_volume || victim.blood_volume <= BLOOD_VOLUME_SURVIVE)
-		to_chat(hemophage, span_boldwarning("Sensing an opportunity, your tumour produces an UNCONTROLLABLE URGE to draw extra deeply from [victim], forcing you to violently drain the last drops of blood from their veins."))
-		to_chat(victim, span_bolddanger("The faint warmth of life flees your cooling body as [hemophage]'s ravenous hunger violently drains the last of your precious blood in one fell swoop, sending you hurtling headlong into the cold embrace of death."))
-		victim.visible_message(span_warning("[victim] turns a terrible shade of ashen grey."))
-		victim.death()
-		victim.blood_volume = 0 // the rest of the blood goes towards the tumour making happy juice for you.
-		if (is_target_human_with_client)
-			to_chat(hemophage, span_boldnotice("A rush of unbidden exhilaration surges through you as the predatory urges of your terrible coexistence are momentarily sated."))
-			hemophage.add_mood_event("hemophage_killed", /datum/mood_event/hemophage_exsanguinate) // this is the tumour-equivalent of a nice little headpat. you murderer, you!
-			hemophage.disgust = 0 // all is forgiven.
-			if (prob(33))
-				to_chat(hemophage, span_warning("...what have you done?"))
+		to_chat(hemophage, span_boldwarning("A final sputter of blood trickles from [victim]'s collapsing veins as your terrible hunger drains them almost completely dry."))
 	else if ((victim.blood_volume + HEMOPHAGE_DRAIN_AMOUNT) <= BLOOD_VOLUME_SURVIVE)
 		to_chat(hemophage, span_warning("A sense of hesitation gnaws: you know for certain that taking much more blood from [victim] WILL kill them. <b>...but another part of you sees only opportunity.</b>"))
 
