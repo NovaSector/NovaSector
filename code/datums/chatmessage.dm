@@ -38,16 +38,16 @@
 	var/atom/message_loc
 	/// The client who heard this message
 	var/client/owned_by
+	/// The callback to finish_image_generation // NOVA EDIT ADDITION
+	var/datum/callback/our_callback // NOVA EDIT ADDITION
+	/// The id of the timer to delete the message // NOVA EDIT ADDITION
+	var/timerid // NOVA EDIT ADDITION
 	/// Contains the scheduled destruction time, used for scheduling EOL
 	var/scheduled_destruction
 	/// Contains the time that the EOL for the message will be complete, used for qdel scheduling
 	var/eol_complete
 	/// Contains the approximate amount of lines for height decay
 	var/approx_lines
-	/// Contains the reference to the next chatmessage in the bucket, used by runechat subsystem
-	var/datum/chatmessage/next
-	/// Contains the reference to the previous chatmessage in the bucket, used by runechat subsystem
-	var/datum/chatmessage/prev
 	/// The current index used for adjusting the layer of each sequential chat message such that recent messages will overlay older ones
 	var/static/current_z_idx = 0
 	/// When we started animating the message
@@ -80,11 +80,11 @@
 	if (!QDELING(owned_by))
 		if(REALTIMEOFDAY < animate_start + animate_lifespan)
 			stack_trace("Del'd before we finished fading, with [(animate_start + animate_lifespan) - REALTIMEOFDAY] time left")
-
-		if (owned_by.seen_messages)
+		if(owned_by.seen_messages)
 			LAZYREMOVEASSOC(owned_by.seen_messages, message_loc, src)
 		owned_by.images.Remove(message)
 
+	our_callback = null
 	owned_by = null
 	message_loc = null
 	message = null
@@ -95,6 +95,15 @@
  */
 /datum/chatmessage/proc/on_parent_qdel()
 	SIGNAL_HANDLER
+	if(QDELETED(src)) // NOVA EDIT ADDITION
+		return // NOVA EDIT ADDITION
+	if(timerid) // NOVA EDIT ADDITION
+		deltimer(timerid) // NOVA EDIT ADDITION
+	SSrunechat.message_queue -= our_callback // NOVA EDIT ADDITION
+	if(owned_by) // NOVA EDIT ADDITION
+		if(owned_by.seen_messages) // NOVA EDIT ADDITION
+			LAZYCLEARLIST(owned_by.seen_messages) // NOVA EDIT ADDITION
+		owned_by.images.Remove(message) // NOVA EDIT ADDITION
 	qdel(src)
 
 /**
@@ -191,6 +200,8 @@
 ///finishes the image generation after the MeasureText() call in generate_image().
 ///necessary because after that call the proc can resume at the end of the tick and cause overtime.
 /datum/chatmessage/proc/finish_image_generation(mheight, atom/target, mob/owner, complete_text, lifespan)
+	if(QDELETED(owned_by))
+		return
 	var/rough_time = REALTIMEOFDAY
 	approx_lines = max(1, mheight / CHAT_MESSAGE_APPROX_LHEIGHT)
 	var/starting_height = target.maptext_height
@@ -270,7 +281,7 @@
 	RegisterSignal(message_loc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(loc_z_changed))
 
 	// Register with the runechat SS to handle destruction
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_DELETE_ME, SSrunechat)
+	timerid = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), lifespan + CHAT_MESSAGE_GRACE_PERIOD, TIMER_STOPPABLE | TIMER_DELETE_ME, SSrunechat)
 
 /datum/chatmessage/proc/get_current_alpha(time_spent)
 	if(time_spent < CHAT_MESSAGE_SPAWN_TIME)
