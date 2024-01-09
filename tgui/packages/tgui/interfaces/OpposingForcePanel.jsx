@@ -74,6 +74,13 @@ export const OpposingForcePanel = (props) => {
                   >
                     Admin Chat
                   </Tabs.Tab>
+                  <Tabs.Tab
+                    width="100%"
+                    selected={tab === 4}
+                    onClick={() => setTab(4)}
+                  >
+                    Target List
+                  </Tabs.Tab>
                 </>
               )}
             </Tabs>
@@ -89,6 +96,7 @@ export const OpposingForcePanel = (props) => {
             {tab === 1 && <OpposingForceTab />}
             {tab === 2 && <EquipmentTab />}
             {tab === 3 && <AdminChatTab />}
+            {tab === 4 && <TargetTab />}
           </>
         )}
       </Window.Content>
@@ -905,6 +913,26 @@ export const AdminTab = (props) => {
               </Section>
             ))
           )}
+        </Section>
+      </Stack.Item>
+    </Stack>
+  );
+};
+
+export const TargetTab = (props) => {
+  const { act, data } = useBackend();
+  const { current_crew = [] } = data;
+  return (
+    <Stack vertical fill>
+      <Stack.Item grow={10}>
+        <Section title="Currently active crew" scrollable>
+          {current_crew.map((crew) => (
+            <Box key={crew.name}>
+              {crew.name}: {crew.rank}, Current Opt-In status:{' '}
+              {crew.opt_in_status}, Ideal Opt-in status:{' '}
+              {crew.ideal_opt_in_status}
+            </Box>
+          ))}
         </Section>
       </Stack.Item>
     </Stack>
