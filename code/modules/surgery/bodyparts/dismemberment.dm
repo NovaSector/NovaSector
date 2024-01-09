@@ -189,42 +189,39 @@
 		var/datum/wound/loss/dismembering = new
 		return dismembering.apply_dismember(src, wounding_type)
 
-///Transfers the organ to the limb, and to the limb's owner, if it has one. This is done on drop_limb().
-/obj/item/organ/proc/transfer_to_limb(obj/item/bodypart/bodypart, mob/living/carbon/bodypart_owner)
-	Remove(bodypart_owner)
-	add_to_limb(bodypart)
-
-///Adds the organ to a bodypart, used in transfer_to_limb()
-/obj/item/organ/proc/add_to_limb(obj/item/bodypart/bodypart)
-	forceMove(bodypart)
-
-///Removes the organ from the limb, placing it into nullspace.
-/obj/item/organ/proc/remove_from_limb()
-	moveToNullspace()
-
-/obj/item/organ/internal/brain/transfer_to_limb(obj/item/bodypart/head/head, mob/living/carbon/human/head_owner)
-	Remove(head_owner) //Changeling brain concerns are now handled in Remove
-	forceMove(head)
-	head.brain = src
-	if(brainmob)
-		head.brainmob = brainmob
-		brainmob = null
-		head.brainmob.forceMove(head)
-		head.brainmob.set_stat(DEAD)
-
-/obj/item/organ/internal/eyes/transfer_to_limb(obj/item/bodypart/head/head, mob/living/carbon/human/head_owner)
+/obj/item/organ/internal/eyes/on_bodypart_insert(obj/item/bodypart/head/head)
 	head.eyes = src
 	..()
 
-/obj/item/organ/internal/ears/transfer_to_limb(obj/item/bodypart/head/head, mob/living/carbon/human/head_owner)
+/obj/item/organ/internal/ears/on_bodypart_insert(obj/item/bodypart/head/head)
 	head.ears = src
 	..()
 
-/obj/item/organ/internal/tongue/transfer_to_limb(obj/item/bodypart/head/head, mob/living/carbon/human/head_owner)
+/obj/item/organ/internal/tongue/on_bodypart_insert(obj/item/bodypart/head/head)
 	head.tongue = src
 	..()
 
-/obj/item/bodypart/chest/drop_limb(special)
+/obj/item/organ/internal/brain/on_bodypart_insert(obj/item/bodypart/head/head)
+	head.brain = src
+	..()
+
+/obj/item/organ/internal/eyes/on_bodypart_remove(obj/item/bodypart/head/head)
+	head.eyes = null
+	..()
+
+/obj/item/organ/internal/ears/on_bodypart_remove(obj/item/bodypart/head/head)
+	head.ears = null
+	..()
+
+/obj/item/organ/internal/tongue/on_bodypart_remove(obj/item/bodypart/head/head)
+	head.tongue = null
+	..()
+
+/obj/item/organ/internal/brain/on_bodypart_remove(obj/item/bodypart/head/head)
+	head.brain = null
+	..()
+
+/obj/item/bodypart/chest/drop_limb(special, dismembered, move_to_floor = TRUE)
 	if(special)
 		return ..()
 	//if this is not a special drop, this is a mistake
