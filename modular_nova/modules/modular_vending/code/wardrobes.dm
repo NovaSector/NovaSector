@@ -73,7 +73,7 @@
 		/obj/item/storage/backpack/messenger/science/robo = 2,
 	)
 
-	skyrat_contraband = list(
+	contraband_nova = list(
 		/obj/item/organ/internal/tongue/lizard/robot = 2,
 	)
 
