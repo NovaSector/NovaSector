@@ -1150,6 +1150,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
+"iz" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/forehall)
 "iB" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue/half{
@@ -1233,6 +1239,12 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/ruin/space/has_grav/port_tarkon/garden)
+"jg" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/forehall)
 "jh" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
@@ -1776,6 +1788,12 @@
 "mt" = (
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
+"mB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/port_tarkon/mining)
 "mC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -2489,10 +2507,8 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "qR" = (
-/obj/structure/cable,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 4
 	},
@@ -2904,7 +2920,7 @@
 "tN" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
-/obj/item/pen,
+/obj/item/pen/blue,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "tR" = (
@@ -4959,7 +4975,7 @@
 "IJ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin/construction,
-/obj/item/pen/edagger,
+/obj/item/pen/red,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "IL" = (
@@ -6805,6 +6821,7 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "UI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "UN" = (
@@ -10056,11 +10073,11 @@ Uj
 xB
 BL
 xr
+jg
 xr
 xr
 xr
-xr
-xr
+iz
 xr
 BL
 wV
@@ -11617,10 +11634,10 @@ mD
 eM
 Jf
 Zw
-Zw
+Gz
 eP
-Zw
-Zw
+Gz
+Gz
 Gz
 fy
 BZ
@@ -11690,7 +11707,7 @@ mD
 Ol
 aG
 UI
-UI
+mB
 HM
 UI
 ae
