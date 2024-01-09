@@ -14,7 +14,7 @@
 	if(opfor_equipment)
 		opposing_force_equipment = opfor_equipment
 
-/datum/opposing_force_selected_equipment/Destroy(force, ...)
+/datum/opposing_force_selected_equipment/Destroy(force)
 	opposing_force_equipment = null
 	return ..()
 
@@ -243,6 +243,8 @@
 			submit_to_subsystem(usr)
 		if("send_message")
 			send_message(usr, params["message"])
+			if(!handling_admin && check_rights_for(usr.client, R_ADMIN) && usr != mind_reference)
+				handle(usr) // if an admin sends a message and it's not being handled, assign them as handling it
 		// Objective control
 		if("add_objective")
 			add_objective(usr)

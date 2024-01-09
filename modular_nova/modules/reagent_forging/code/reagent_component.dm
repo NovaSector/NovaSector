@@ -34,7 +34,7 @@
 	RegisterSignal(parent_clothing, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	START_PROCESSING(SSdcs, src)
 
-/datum/component/reagent_clothing/Destroy(force, silent)
+/datum/component/reagent_clothing/Destroy(force)
 	parent_clothing = null
 	cloth_wearer = null
 	QDEL_NULL(applying_container)
@@ -88,7 +88,7 @@
 	RegisterSignal(parent_weapon, COMSIG_ITEM_ATTACK, PROC_REF(inject_attacked))
 	RegisterSignal(parent_weapon, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
-/datum/component/reagent_weapon/Destroy(force, silent)
+/datum/component/reagent_weapon/Destroy(force)
 	parent_weapon = null
 	return ..()
 

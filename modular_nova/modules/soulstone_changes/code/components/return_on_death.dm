@@ -25,7 +25,7 @@
 		deleting = TRUE
 
 
-/datum/component/return_on_death/Destroy(force, silent)
+/datum/component/return_on_death/Destroy(force)
 	if(!deleting)
 		deleting = TRUE
 		return_to_old_body()

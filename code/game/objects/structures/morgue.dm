@@ -425,10 +425,6 @@ GLOBAL_LIST_EMPTY(crematoriums)
 				qdel(M)
 
 		for(var/obj/O in conts) //conts defined above, ignores crematorium and tray
-			// NOVA EDIT ADDITION
-			if(istype(O, /obj/item/goldeneye_key))
-				continue
-			// NOVA EDIT END
 			if(istype(O, /obj/effect/dummy/phased_mob)) //they're not physical, don't burn em.
 				continue
 			qdel(O)

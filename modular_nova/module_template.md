@@ -1,6 +1,6 @@
 <!-- This should be copy-pasted into the root of your module folder as readme.md -->
 
-https://github.com/GalacticStation/Galaxia/pull/<!--PR Number-->
+https://github.com/NovaSector/NovaSector/pull/<!--PR Number-->
 
 ## \<Title Here> <!--Title of your addition.-->
 

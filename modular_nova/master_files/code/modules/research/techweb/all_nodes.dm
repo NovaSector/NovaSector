@@ -30,6 +30,7 @@
 	design_ids += list(
 		"polarizer",
 		"vox_gas_filter",
+		"gbp_machine",
 	)
 	return ..()
 

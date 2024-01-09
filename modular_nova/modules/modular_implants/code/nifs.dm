@@ -126,7 +126,7 @@
 	QDEL_LIST(loaded_nifsofts)
 	return ..()
 
-/obj/item/organ/internal/cyberimp/brain/nif/Insert(mob/living/carbon/human/insertee, special = FALSE, drop_if_replaced = TRUE)
+/obj/item/organ/internal/cyberimp/brain/nif/Insert(mob/living/carbon/human/insertee, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 	. = ..()
 
 	if(linked_mob && stored_ckey != insertee.ckey && theft_protection)
@@ -456,7 +456,7 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(add_examine))
 
-/datum/component/nif_examine/Destroy(force, silent)
+/datum/component/nif_examine/Destroy(force)
 	UnregisterSignal(parent, COMSIG_MOB_EXAMINATE)
 	return ..()
 
