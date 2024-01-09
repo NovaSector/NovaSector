@@ -308,7 +308,6 @@
 	if(!any_share)
 		SSliquids.active_immutables -= src
 
-
 /*
 *	OPEN TURFS
 */
