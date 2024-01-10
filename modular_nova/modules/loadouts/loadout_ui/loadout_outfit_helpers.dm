@@ -21,7 +21,10 @@
  * visuals_only - whether we call special equipped procs, or if we just look like we equipped it
  * preference_source - the preferences of the thing we're equipping
  */
-/mob/living/carbon/human/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+/mob/living/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+	return
+
+/mob/living/carbon/human/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
 		return FALSE
@@ -43,21 +46,8 @@
 		var/obj/item/storage/briefcase/empty/briefcase = new(loc)
 
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job restrictions!"))
+			if (!item.can_be_applied_to(src, preference_source, equipping_job))
 				continue
-
-			if(item.blacklisted_roles && equipping_job && (equipping_job.title in item.blacklisted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job blacklists!"))
-				continue
-
-			if(item.restricted_species && !(dna.species.id in item.restricted_species))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item ([initial(item.item_path.name)]) due to species restrictions!"))
-				continue
-
 			new item.item_path(briefcase)
 
 		briefcase.name = "[preference_source.read_preference(/datum/preference/name/real_name)]'s travel suitcase"
@@ -65,26 +55,13 @@
 		put_in_hands(briefcase)
 	else
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job restrictions!"))
-				continue
-
-			if(item.blacklisted_roles && equipping_job && (equipping_job.title in item.blacklisted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job blacklists!"))
-				continue
-
-			if(item.restricted_species && !(dna.species.id in item.restricted_species))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item ([initial(item.item_path.name)]) due to species restrictions!"))
+			if (!item.can_be_applied_to(src, preference_source, equipping_job))
 				continue
 
 			// Make sure the item is not overriding an important for life outfit item
 			var/datum/outfit/outfit_important_for_life = dna.species.outfit_important_for_life
 			if(!outfit_important_for_life || !item.pre_equip_item(equipped_outfit, outfit_important_for_life, src, visuals_only))
 				item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
-
 
 		equipOutfit(equipped_outfit, visuals_only)
 
@@ -99,6 +76,14 @@
 
 	regenerate_icons()
 	return TRUE
+
+/mob/living/silicon/robot/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+	var/list/loadout_datums = loadout_list_to_datums(preference_source?.loadout_list)
+	for (var/datum/loadout_item/head/item in loadout_datums)
+		if (!item.can_be_applied_to(src, preference_source, equipping_job))
+			continue
+		place_on_head(new item.item_path)
+		break
 
 /*
  * Takes a list of paths (such as a loadout list)
@@ -170,3 +155,12 @@
 
 /obj/item/storage/briefcase/empty/PopulateContents()
 	return
+
+/mob/living/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client)
+	. = ..()
+	dress_up_as_job(equipping, FALSE, used_pref)
+
+/mob/living/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref)
+	. = ..()
+	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping)
+
