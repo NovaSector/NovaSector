@@ -220,6 +220,13 @@
 
 	return data
 
+/datum/opposing_force/ui_static_data(mob/user)
+	var/list/data = list()
+
+	data["opt_in_colors"] = GLOB.antag_opt_in_colors
+
+	return data
+
 /datum/opposing_force/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)

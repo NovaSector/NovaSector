@@ -921,17 +921,34 @@ export const AdminTab = (props) => {
 
 export const TargetTab = (props) => {
   const { act, data } = useBackend();
-  const { current_crew = [] } = data;
+  const { current_crew = [], opt_in_colors = { optin, color } } = data;
   return (
     <Stack vertical fill>
       <Stack.Item grow={10}>
         <Section title="Currently active crew" scrollable>
           {current_crew.map((crew) => (
-            <Box key={crew.name}>
-              {crew.name}: {crew.rank}, Current Opt-In status:{' '}
-              {crew.opt_in_status}, Ideal Opt-in status:{' '}
-              {crew.ideal_opt_in_status}
-            </Box>
+            <Stack vertical={false} key={crew.name} pb="5px">
+              <Stack.Item key={crew.name}>
+                <span style={{ textDecoration: 'underline' }}>{crew.name}</span>
+                {': '}
+                {crew.rank}, Current Opt-In status:{' '}
+                <span
+                  style={{
+                    fontWeight: 'bold',
+                    color: opt_in_colors[crew.opt_in_status],
+                  }}
+                >
+                  {crew.opt_in_status}
+                </span>
+                , Ideal Opt-in status:{' '}
+                <span
+                  style={{ color: opt_in_colors[crew.ideal_opt_in_status] }}
+                >
+                  {crew.ideal_opt_in_status}
+                </span>
+              </Stack.Item>
+              <Stack.Divider />
+            </Stack>
           ))}
         </Section>
       </Stack.Item>
