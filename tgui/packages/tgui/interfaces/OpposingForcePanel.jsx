@@ -925,10 +925,10 @@ export const TargetTab = (props) => {
   return (
     <Stack vertical fill>
       <Stack.Item grow={10}>
-        <Section title="Currently active crew" scrollable>
+        <Section title="Currently active crew">
           {current_crew.map((crew) => (
-            <Stack vertical={false} key={crew.name} pb="5px">
-              <Stack.Item key={crew.name}>
+            <Stack vertical={false} key={crew.name} pb="10px">
+              <Stack.Item>
                 <span style={{ textDecoration: 'underline' }}>{crew.name}</span>
                 {': '}
                 {crew.rank}, Current Opt-In status:{' '}
@@ -947,7 +947,6 @@ export const TargetTab = (props) => {
                   {crew.ideal_opt_in_status}
                 </span>
               </Stack.Item>
-              <Stack.Divider />
             </Stack>
           ))}
         </Section>
