@@ -491,6 +491,15 @@
 /// Is the mob standing on an elevated surface? This prevents them from dropping down if not elevated first.
 #define TRAIT_ON_ELEVATED_SURFACE "on_elevated_surface"
 
+/// Prevents you from twohanding weapons.
+#define TRAIT_NO_TWOHANDING "no_twohanding"
+
+/// Halves the time of tying a tie.
+#define TRAIT_FAST_TYING "fast_tying"
+
+/// Sells for more money on the pirate bounty pad.
+#define TRAIT_HIGH_VALUE_RANSOM "high_value_ransom"
+
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
 // to various drinks and foodstuffs. Security liking donuts is a classic
