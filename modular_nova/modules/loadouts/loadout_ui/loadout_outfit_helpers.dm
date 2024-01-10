@@ -21,10 +21,10 @@
  * visuals_only - whether we call special equipped procs, or if we just look like we equipped it
  * preference_source - the preferences of the thing we're equipping
  */
-/mob/living/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+/mob/living/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	return
 
-/mob/living/carbon/human/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+/mob/living/carbon/human/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
 		return FALSE
@@ -77,7 +77,7 @@
 	regenerate_icons()
 	return TRUE
 
-/mob/living/silicon/robot/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+/mob/living/silicon/robot/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	var/list/loadout_datums = loadout_list_to_datums(preference_source?.loadout_list)
 	for (var/datum/loadout_item/head/item in loadout_datums)
 		if (!item.can_be_applied_to(src, preference_source, equipping_job))
@@ -164,3 +164,36 @@
 	. = ..()
 	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping)
 
+/obj/item/clothing/head/attack_robot_secondary(mob/living/silicon/robot/user, list/modifiers)
+	. = ..()
+	if (. != SECONDARY_ATTACK_CALL_NORMAL)
+		return
+
+	if (!Adjacent(user))
+		return
+
+	balloon_alert(user, "picking up hat...")
+	if (!do_after(user, 3 SECONDS, src))
+		return
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated())
+		return
+	user.place_on_head(src)
+	balloon_alert(user, "picked up hat")
+
+/mob/living/silicon/robot/attack_robot_secondary(mob/user, list/modifiers)
+	. = ..()
+	if (. != SECONDARY_ATTACK_CALL_NORMAL)
+		return
+
+	if (user != src || isnull(hat))
+		return
+
+	balloon_alert(user, "dropping hat...")
+	if (!do_after(user, 3 SECONDS, src))
+		return
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated() || isnull(hat))
+		return
+	hat.forceMove(get_turf(src))
+	hat = null
+	update_icons()
+	balloon_alert(user, "dropped hat")
