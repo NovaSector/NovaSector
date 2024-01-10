@@ -426,3 +426,30 @@
   - rscadd: Blood filter module to medic borg
   - rscadd: Cherry juice and vineger to service borg shakers
   - rscdel: Remove redundant service borgshaker
+2024-01-10:
+  Hatterhat:
+  - qol: Much like their non-powertool counterpart, powered drivers on wirecutter
+      mode can now snip cablecuffs.
+  Paxilmaniac:
+  - balance: '"Tactically" reloading a gun no longer has a delay to swapping the magazine'
+  - code_imp: Some old code regarding gun stuff that isn't in the codebase anymore
+      has been removed
+  - image: The sprite override for the detective's revolver has been removed
+  - rscdel: 60 round drums for the sol rifles no longer exist
+  - image: The looks of all three carwo rifles have been changed to better reflect
+      how they are different from the other rifles.
+  Plum-but-gayer:
+  - rscadd: The 'Space Russians' located on Void Raptor station have been replaced
+      with something a bit more lore friendly. Why not go meet them yourself?
+  - rscdel: Removed space russians from Void Raptor.
+  SomeRandomOwl:
+  - bugfix: 'popup screen locs will work on clients >1614. Security cameras and
+
+      Spyglass will work'
+  nikothedude:
+  - balance: High-intensity shocks no longer have a chance of stopping your heart
+  vinylspiders:
+  - image: resprited CTF ID Cards
+  - balance: 'Last Resort can now be used while unconscious or dead. balance: Last
+      Resort stuns bystanders for slightly longer. /:cl:'
+  - bugfix: Fixes AIize and borgize gibbing you
