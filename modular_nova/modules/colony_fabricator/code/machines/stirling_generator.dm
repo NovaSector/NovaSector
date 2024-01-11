@@ -25,10 +25,13 @@
 	var/max_power_output = 100 * 1000
 	/// How much power the generator is currently making
 	var/current_power_generation
+	/// Our looping fan sound that we play when turned on
+	var/datum/looping_sound/ore_thumper_fan/soundloop
 
 
 /obj/machinery/power/stirling_generator/Initialize(mapload)
 	. = ..()
+	soundloop = new(src, FALSE)
 	connected_chamber = new(loc, src, dir, CELL_VOLUME * 0.5)
 	connect_to_network()
 	AddElement(/datum/element/repackable, deconstruction_type, 10 SECONDS)
@@ -85,6 +88,10 @@
 	add_avail(power_output)
 	var/new_icon_state = (power_output ? "stirling_on" : "stirling")
 	icon_state = new_icon_state
+	if(soundloop.is_active() && !power_output)
+		soundloop.stop()
+	else if(!soundloop.is_active() && power_output)
+		soundloop.start()
 
 
 /obj/machinery/power/stirling_generator/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
