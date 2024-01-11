@@ -7078,6 +7078,8 @@
 #include "modular_nova\modules\customization\modules\mob\dead\new_player\sprite_accessories\xeno.dm"
 #include "modular_nova\modules\customization\modules\mob\dead\new_player\sprite_accessories\underwear\bras.dm"
 #include "modular_nova\modules\customization\modules\mob\dead\new_player\sprite_accessories\underwear\socks.dm"
+#include "modular_nova\modules\customization\modules\mob\dead\new_player\sprite_accessories\underwear\undershirts.dm"
+#include "modular_nova\modules\customization\modules\mob\dead\new_player\sprite_accessories\underwear\underwear.dm"
 #include "modular_nova\modules\customization\modules\mob\living\living.dm"
 #include "modular_nova\modules\customization\modules\mob\living\living_defines.dm"
 #include "modular_nova\modules\customization\modules\mob\living\living_verbs.dm"
