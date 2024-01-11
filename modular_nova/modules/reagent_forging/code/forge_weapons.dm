@@ -5,7 +5,7 @@
 	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME
-	skyrat_obj_flags = ANVIL_REPAIR
+	obj_flags_nova = ANVIL_REPAIR
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -182,7 +182,7 @@
 	max_integrity = 150 //over double that of a wooden one
 	w_class = WEIGHT_CLASS_NORMAL
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS
-	skyrat_obj_flags = ANVIL_REPAIR
+	obj_flags_nova = ANVIL_REPAIR
 	shield_break_sound = 'sound/effects/bang.ogg'
 	shield_break_leftover = /obj/item/forging/complete/plate
 

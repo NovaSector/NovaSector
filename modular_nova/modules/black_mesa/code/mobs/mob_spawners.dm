@@ -117,7 +117,7 @@
 
 /datum/outfit/sciteamcorpse
 	name = "BMRF Science Team Corpse"
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/skyrat/hlscience
+	uniform = /obj/item/clothing/under/rank/rnd/scientist/nova/hlscience
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/latex

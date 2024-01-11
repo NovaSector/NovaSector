@@ -10,9 +10,6 @@
 	item_type = /obj/item/skillchip/job/roboticist
 	description = "A skillchip that, when installed, allows the user to recognise cyborg wire layouts and understand their functionality at a glance."
 
-/datum/opposing_force_equipment/implants/tacticool
-	item_type = /obj/item/skillchip/chameleon/reload
-
 //Implants
 /datum/opposing_force_equipment/implants/nodrop
 	item_type = /obj/item/autosurgeon/syndicate/nodrop

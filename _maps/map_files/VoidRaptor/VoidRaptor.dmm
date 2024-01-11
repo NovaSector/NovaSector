@@ -3995,6 +3995,11 @@
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
 /area/station/security/lockers)
+"bfi" = (
+/obj/structure/table/wood,
+/obj/item/documents/syndicate,
+/turf/open/floor/wood,
+/area/station/maintenance/rus_gambling)
 "bfB" = (
 /obj/effect/turf_decal/tile/red/anticorner{
 	dir = 1
@@ -5153,7 +5158,7 @@
 /area/station/security/prison/garden)
 "bzn" = (
 /obj/structure/closet,
-/obj/item/clothing/under/costume/skyrat/bathrobe,
+/obj/item/clothing/under/costume/nova/bathrobe,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/white/small,
 /area/station/common/pool)
@@ -10682,7 +10687,7 @@
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "diL" = (
-/obj/effect/turf_decal/skyrat_decals/enclave/top/middle{
+/obj/effect/turf_decal/nova_decals/enclave/top/middle{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line,
@@ -13306,7 +13311,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/skyrat_decals/enclave/middle/right{
+/obj/effect/turf_decal/nova_decals/enclave/middle/right{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line{
@@ -17994,7 +17999,7 @@
 /turf/closed/wall/r_wall,
 /area/station/medical/chemistry)
 "fiT" = (
-/obj/effect/turf_decal/skyrat_decals/enclave/middle/left{
+/obj/effect/turf_decal/nova_decals/enclave/middle/left{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line{
@@ -19465,7 +19470,7 @@
 /area/station/command/cc_dock)
 "fFf" = (
 /obj/effect/mapping_helpers/broken_floor,
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fFg" = (
@@ -22945,7 +22950,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/skyrat_decals/enclave/top/left{
+/obj/effect/turf_decal/nova_decals/enclave/top/left{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner,
@@ -27094,7 +27099,7 @@
 	},
 /area/station/hallway/primary/central)
 "hPC" = (
-/obj/effect/turf_decal/skyrat_decals/enclave/bottom/left{
+/obj/effect/turf_decal/nova_decals/enclave/bottom/left{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner{
@@ -27867,7 +27872,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/skyrat_decals/enclave/middle/left{
+/obj/effect/turf_decal/nova_decals/enclave/middle/left{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line{
@@ -28492,7 +28497,6 @@
 /obj/structure/chair/sofa/left/brown{
 	dir = 8
 	},
-/mob/living/basic/trooper/russian,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "ila" = (
@@ -30912,7 +30916,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/skyrat_decals/enclave/top/right{
+/obj/effect/turf_decal/nova_decals/enclave/top/right{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner{
@@ -32633,7 +32637,7 @@
 /area/station/medical/office)
 "jqL" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/skyrat_decals/enclave/middle/right{
+/obj/effect/turf_decal/nova_decals/enclave/middle/right{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line{
@@ -33996,7 +34000,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/event_spawn,
-/obj/effect/turf_decal/skyrat_decals/enclave/bottom/left{
+/obj/effect/turf_decal/nova_decals/enclave/bottom/left{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner{
@@ -44088,6 +44092,7 @@
 	pixel_y = 24
 	},
 /obj/effect/mapping_helpers/broken_floor,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "muZ" = (
@@ -47346,7 +47351,7 @@
 	codes_txt = "patrol;next_patrol=hall17";
 	location = "hall16"
 	},
-/obj/effect/turf_decal/skyrat_decals/enclave/bottom/middle{
+/obj/effect/turf_decal/nova_decals/enclave/bottom/middle{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line{
@@ -50868,6 +50873,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/rus_gambling)
 "omT" = (
@@ -51227,7 +51233,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
 "orN" = (
-/obj/effect/turf_decal/skyrat_decals/enclave/top/left{
+/obj/effect/turf_decal/nova_decals/enclave/top/left{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner,
@@ -52463,7 +52469,7 @@
 /area/station/hallway/secondary/construction)
 "oJI" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/skyrat_decals/enclave/top/right{
+/obj/effect/turf_decal/nova_decals/enclave/top/right{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner{
@@ -60224,7 +60230,7 @@
 /area/station/medical/virology)
 "qLu" = (
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee/sword,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "qLy" = (
@@ -64693,7 +64699,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "sbH" = (
-/obj/effect/turf_decal/skyrat_decals/enclave/bottom/middle{
+/obj/effect/turf_decal/nova_decals/enclave/bottom/middle{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line{
@@ -65569,7 +65575,7 @@
 /turf/open/floor/plating,
 /area/station/medical/virology)
 "soZ" = (
-/obj/effect/turf_decal/skyrat_decals/enclave/top/middle{
+/obj/effect/turf_decal/nova_decals/enclave/top/middle{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/line,
@@ -65985,7 +65991,7 @@
 /obj/structure/chair/stool/directional/north{
 	pixel_y = 6
 	},
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "svC" = (
@@ -75327,6 +75333,11 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
+"uQI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/pod,
+/turf/open/floor/wood,
+/area/station/maintenance/rus_gambling)
 "uQV" = (
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/service)
@@ -79913,7 +79924,7 @@
 "wfp" = (
 /obj/structure/closet,
 /obj/structure/window/spawner/directional/south,
-/obj/item/clothing/under/costume/skyrat/bathrobe,
+/obj/item/clothing/under/costume/nova/bathrobe,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
@@ -81871,7 +81882,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/skyrat_decals/enclave/bottom/right{
+/obj/effect/turf_decal/nova_decals/enclave/bottom/right{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner{
@@ -85852,7 +85863,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
-/obj/effect/turf_decal/skyrat_decals/enclave/bottom/right{
+/obj/effect/turf_decal/nova_decals/enclave/bottom/right{
 	color = "#52B4E9"
 	},
 /obj/effect/turf_decal/trimline/blue/corner{
@@ -128065,7 +128076,7 @@ tDO
 wkm
 gDf
 djz
-iAj
+uQI
 ykh
 wtQ
 yep
@@ -128320,7 +128331,7 @@ pzh
 ykh
 fop
 qLu
-gDf
+bfi
 pBo
 aWR
 ykh

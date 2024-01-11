@@ -1,8 +1,8 @@
-// Skyrat specific station areas
+// Nova Sector specific station areas
 
 /*
-* Station bound areas
-*/
+ * Station bound areas
+ */
 
 // Command areas
 /area/station/command/captain_kitchen
@@ -38,8 +38,8 @@
 	icon_state = "blueshield"
 
 /*
-* Department areas
-*/
+ * Department areas
+ */
 
 // Engineering Areas
 /area/station/engineering/power_room
@@ -121,8 +121,8 @@
 	icon_state = "serv_power"
 
 /*
-* General areas
-*/
+ * General areas
+ */
 
 // Generic/Civ areas, typical a non-restricted room
 /area/station/common/pool
@@ -239,8 +239,8 @@
 	icon_state = "barber"
 
 /*
-* Department/Generic maintenance areas
-*/
+ * Department/Generic maintenance areas
+ */
 
 // Generic
 /area/station/maintenance/evac_maintenance
