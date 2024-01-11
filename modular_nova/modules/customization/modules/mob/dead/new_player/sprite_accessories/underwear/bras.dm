@@ -202,3 +202,8 @@
 /datum/sprite_accessory/bra/binder/strapless
 	name = "Binder - Strapless"
 	icon_state = "binder_strapless"
+
+/datum/sprite_accessory/bra/lizared
+	name = "LIZARED Top"
+	icon_state = "lizared_top"
+	use_static = TRUE
