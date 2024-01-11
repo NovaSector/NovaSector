@@ -28,7 +28,3 @@ GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_
 	if (temporary_flavor_text)
 		. += GLOB.temporary_flavor_text_indicator
 
-/mob/living/silicon/robot/update_icons()
-	. = ..()
-	if (temporary_flavor_text)
-		add_overlay(GLOB.temporary_flavor_text_indicator)
