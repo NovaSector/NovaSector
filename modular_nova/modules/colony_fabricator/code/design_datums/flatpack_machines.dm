@@ -243,6 +243,30 @@
 	)
 	construction_time = 30 SECONDS
 
+// Stirling generator, kinda like a TEG but on a smaller scale and producing less insane amounts of power
+
+/datum/design/flatpack_bootleg_teg
+	name = "Flat-packed Stirling Generator"
+	desc = "An industrial scale stirling generator. Stirling generators operate by intaking \
+		hot gasses through their inlet pipes, and being cooled by the ambient air around them. \
+		The cycling compression and expansion that this creates creates power, and this one is made \
+		to make power on the scale of small stations and outposts."
+	id = "flatpack_bootleg_teg"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 10,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 5,
+	)
+	build_path = /obj/item/flatpacked_machine/stirling_generator
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
+	)
+	construction_time = 2 MINUTES
+
 #undef FABRICATOR_CATEGORY_FLATPACK_MACHINES
 #undef FABRICATOR_SUBCATEGORY_MANUFACTURING
 #undef FABRICATOR_SUBCATEGORY_POWER

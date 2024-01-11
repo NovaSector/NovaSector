@@ -8,12 +8,18 @@
 	icon = 'modular_nova/modules/colony_fabricator/icons/chemistry_machines.dmi'
 	icon_state = "water_synth"
 	anchored = FALSE
+	possible_amounts = list(
+		0,
+		1,
+		5,
+		10,
+	)
 	/// Reagents that this can dispense, overrides the default list on init
 	var/static/list/synthesizable_reagents = list(
 		/datum/reagent/water,
 	)
 
-/obj/machinery/plumbing/synthesizer/water_synth/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/synthesizer/water_synth/Initialize(mapload, bolt = FALSE, layer)
 	. = ..()
 	dispensable_reagents = synthesizable_reagents
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
@@ -49,7 +55,7 @@
 		/datum/reagent/toxin/pestkiller,
 	)
 
-/obj/machinery/plumbing/synthesizer/colony_hydroponics/Initialize(mapload, bolt, layer)
+/obj/machinery/plumbing/synthesizer/colony_hydroponics/Initialize(mapload, bolt = FALSE, layer)
 	. = ..()
 	dispensable_reagents = synthesizable_reagents
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
