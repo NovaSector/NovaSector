@@ -453,3 +453,91 @@
   - balance: 'Last Resort can now be used while unconscious or dead. balance: Last
       Resort stuns bystanders for slightly longer. /:cl:'
   - bugfix: Fixes AIize and borgize gibbing you
+2024-01-11:
+  13spacemen:
+  - qol: If you can't heal a body part, you won't get a healing time delay. No more
+      spending 5 seconds healing a body part only to get a "can't heal that" message.
+  Absolucy:
+  - bugfix: Fixed the Codex Cicatrix always requiring a dead body, despite the description
+      saying leather or a hide would work too.
+  FlufflesTheDog:
+  - bugfix: Certain areas are now properly protected against grid check. Namely the
+      supermatter should consistently be protected.
+  Ghommie:
+  - bugfix: Fixed misfiring for firearms like tinkered detective revolvers.
+  IndieanaJones:
+  - bugfix: Dynamic midround rolls will properly consider roundstart players as part
+      of the living population again, allowing antagonists with a minimum population
+      value to spawn when they should be able to.
+  - bugfix: Players who observe before roundstart can be considered for midround ghost
+      roles again.
+  - bugfix: Some antagonists which had elements that scale with living station population
+      now function properly again.
+  JohnFulpWillard:
+  - bugfix: Refried beans and Spanish rice now lets you take the bowl back after eating
+      it.
+  - bugfix: Eldritch reagent (the one that heals heretics) now heal heretic monsters
+      rather than kill them.
+  - bugfix: The HoP's cartridge vending machine now sells regular PDAs instead of
+      base command ones.
+  LT3:
+  - bugfix: Unencoded server admin announcements will now actually broadcast
+  Melbert:
+  - admin: Several types are now more accessible via the "spawn" verb (and friends),
+      meaning you can type 'Spawn" Modsuit' or 'Spawn "Jumpsuit' in the command bar
+      and it'll just give you a list of modsuits or jumpsuits to pick from.
+  - bugfix: Lionhunter Rifle is now available at the same point as Mawed Crucible,
+      making it available to all paths again.
+  - bugfix: Lock knowledge now goes the correct order. Mark -> Ritual -> Unique item,
+      rather than backwards.
+  - balance: Blood cultists can now convert a Null Rod into a cult weapon on an offer
+      rune. The strength of the weapon it is converted into depends on how many cultists
+      the Chaplain crit / killed with it. At five or more, it will turn into a Bastard
+      Sword. Note, sacrificing someone holding a Null Rod will automatically convert
+      it after they are gibbed.
+  - balance: Heretics no longer produce a Bastard Sword upon cult conversion. They
+      are still immune to cult stun and cannot be converted by blood cultists.
+  - bugfix: Carps now migrate slightly better, probably.
+  - bugfix: And Poly now talks better, probably.
+  NovaBot13:
+  - bugfix: Pipeguns no longer have floating bayonets
+  OrionTheFox:
+  - image: Resprited a majority of undershirts
+  Paxilmaniac:
+  - balance: Kahraman Heavy Industries no longer sells base mining equipment that
+      the station can just get. Instead their selection has been updated with a new
+      selection of exploration and mining equipment fit for the frontier.
+  - rscadd: Step aside colony core, there's a new sheriff in town. The organic materials
+      printer, a green machine you make from a pile of flatpack parts from cargo.
+      With a little input of plant matter, you can print yourself some grade A frontier
+      equipment, or some organic materials, its up to you.
+  - rscadd: There's a new piece of kit for marking your locations, the GPS beacon.
+      Coming in a small size deployable item, it can be turned into an anchored, stationary
+      GPS marker that you can use and rename to your liking. Don't like where it is?
+      No worry, just pack it back up and move it elsewhere.
+  - rscadd: 'Bluespace miners are so last codebase. Check out the hip new mining device
+      from Kahraman: the Ore Thumper. Set one up outdoors with some wired power, and
+      watch it slam away at the ground. After it works for long enough, the pressure
+      built up by all that slamming will make deeply buried ore come to the surface.'
+  - rscadd: Looking for some frontier fashion? Some top notch kit? Kahraman has you
+      covered with the new frontier clothing lineup. Now you too can buy equipment
+      completely overrated for your cushy station adventures.
+  - sound: New sounds added for the new ore thumper, as well as a neat new radio sound
+      effect for the new frontier headset.
+  - image: New sprites for the new machines, clothing, and whatever else in Kahraman
+      are made by me, paxilmaniac, how dreamy.
+  SyncIt21:
+  - bugfix: ejecting cells from microwaves via ctrl click now requires player proximity.
+  - code_imp: smart fridge content overlay now uses `base_icon_state` instead of a
+      separate var
+  jlsnow301:
+  - bugfix: Medical records console should be useable again
+  - admin: Fixed the bluescreen in the centcom pod launcher.
+  vinylspiders:
+  - bugfix: bridge assistant no longer passes some head of staff checks
+  - qol: 'if you steal a command member''s liver, you can now sabre better! /:cl:'
+  zxaber:
+  - bugfix: Ripley MK-Is and Paddys now correctly make incoming projectiles hit the
+      pilot again.
+  - bugfix: The various borg apparatuses can no longer pick up other internal borg
+      tools.
