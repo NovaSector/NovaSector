@@ -16895,7 +16895,7 @@
 	color = "#DE3A3A";
 	dir = 8
 	},
-/obj/machinery/firealarm/directional/south,
+/obj/structure/sign/departments/evac/directional/south,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -38885,6 +38885,7 @@
 /area/station/ai_monitored/command/nuke_storage)
 "huQ" = (
 /obj/structure/cable,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -80894,14 +80895,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva/upper)
-"pvN" = (
-/obj/structure/window/green_glass_pane,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "ChapelHall";
-	name = "Chapel Garden Shutters"
-	},
-/turf/open/space/basic,
-/area/station/service/chapel)
 "pvU" = (
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -117720,6 +117713,7 @@
 "wrd" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/directional/east,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/port)
 "wrj" = (
@@ -124073,7 +124067,6 @@
 	color = "#DE3A3A";
 	dir = 8
 	},
-/obj/structure/sign/departments/evac/directional/north,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -151299,9 +151292,9 @@ tvB
 taR
 tvB
 hyA
-pvN
-pvN
-pvN
+iEz
+iEz
+iEz
 hyA
 jIX
 nSj
