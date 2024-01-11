@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "tweaks the chat color clamping algorithm to be a bit more restrictive while still allowing for edge cases like greys and whites"
