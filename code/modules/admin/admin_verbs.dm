@@ -258,10 +258,14 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/validate_puzzgrids,
 	/client/proc/GeneratePipeSpritesheet,
 	/client/proc/view_runtimes,
+<<<<<<< HEAD
 
 	/client/proc/reload_interactions,	/*NOVA EDIT ADDITION*/
 	/client/proc/test_area_spawner,		/*AUTOMAPPER - NOVA EDIT ADDITION*/
 	/client/proc/toggle_liquid_debug,	/*NOVA EDIT ADDITION*/
+=======
+	/client/proc/stop_weather,
+>>>>>>> 006b61f08bd (Adds a Debug command to stop all weather. (#80848))
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(release)))
 GLOBAL_PROTECT(admin_verbs_possess)
