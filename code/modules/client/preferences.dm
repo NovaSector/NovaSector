@@ -109,8 +109,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		load_path(parent.ckey)
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
-		unlock_content = !!parent.IsByondMember() || GLOB.donator_list[parent.ckey] //NOVA EDIT - ADDED DONATOR CHECK
-		if(unlock_content)
+		unlock_content = !!parent.IsByondMember()
+		donator_status = !!GLOB.donator_list[parent.ckey] //NOVA EDIT ADD - DONATOR CHECK
+		if(unlock_content || donator_status) //NOVA EDIT CHANGE - ADD DONATOR CHECK
 			max_save_slots = 50 //NOVA EDIT - ORIGINAL 8
 	else
 		CRASH("attempted to create a preferences datum without a client or mock!")
@@ -623,7 +624,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/should_be_random_hardcore(datum/job/job, datum/mind/mind)
 	if(!read_preference(/datum/preference/toggle/random_hardcore))
 		return FALSE
-	if(job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND) //No command staff
+	if(job.job_flags & JOB_HEAD_OF_STAFF) //No heads of staff
 		return FALSE
 	for(var/datum/antagonist/antag as anything in mind.antag_datums)
 		if(antag.get_team()) //No team antags
