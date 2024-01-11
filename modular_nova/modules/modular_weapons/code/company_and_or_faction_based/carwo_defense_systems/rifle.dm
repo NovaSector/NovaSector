@@ -121,13 +121,13 @@
 	name = "\improper Qarad Light Machinegun"
 	desc = "A hefty machinegun commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
-	icon_state = "outomaties"
+	icon_state = "qarad"
 	worn_icon_state = "outomaties"
 	inhand_icon_state = "outomaties"
 
 	bolt_type = BOLT_TYPE_OPEN
 
-	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle/drum
+	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
 	fire_delay = 0.1 SECONDS
 

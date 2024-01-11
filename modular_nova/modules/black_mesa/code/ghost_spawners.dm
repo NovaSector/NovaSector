@@ -154,7 +154,6 @@
 	)
 	id = /obj/item/card/id
 	id_trim = /datum/id_trim/hecu
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /datum/outfit/hecu/post_equip(mob/living/carbon/human/equipped_human, visualsOnly)
 	. = ..()
@@ -206,7 +205,6 @@
 	)
 	id = /obj/item/card/id
 	id_trim = /datum/id_trim/hecu_leader
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /datum/outfit/hecu/leader/post_equip(mob/living/carbon/human/equipped_human, visualsOnly)
 	. = ..()

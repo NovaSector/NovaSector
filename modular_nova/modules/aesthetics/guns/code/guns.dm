@@ -111,8 +111,6 @@
 
 /obj/item/gun/ballistic/automatic/m90
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
-/obj/item/gun/ballistic/revolver/c38/detective
-	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/aps
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'

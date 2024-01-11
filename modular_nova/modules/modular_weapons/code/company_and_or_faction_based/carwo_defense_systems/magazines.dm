@@ -65,20 +65,6 @@
 /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
 	start_empty = TRUE
 
-
-/obj/item/ammo_box/magazine/c40sol_rifle/drum
-	name = "\improper Sol rifle drum magazine"
-	desc = "A massive drum magazine for SolFed rifles, holds sixty rounds."
-
-	icon_state = "rifle_drum"
-
-	w_class = WEIGHT_CLASS_BULKY
-
-	max_ammo = 60
-
-/obj/item/ammo_box/magazine/c40sol_rifle/drum/starts_empty
-	start_empty = TRUE
-
 // .980 grenade magazines
 
 /obj/item/ammo_box/magazine/c980_grenade
