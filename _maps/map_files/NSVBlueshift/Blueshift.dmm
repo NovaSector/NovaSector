@@ -1399,6 +1399,7 @@
 "anW" = (
 /obj/structure/reagent_anvil,
 /obj/machinery/light/directional/north,
+/obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/stone,
 /area/station/service/forge)
 "anZ" = (
@@ -20449,6 +20450,8 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "dSh" = (
@@ -38886,6 +38889,8 @@
 "huQ" = (
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -54715,6 +54720,8 @@
 	name = "Forge"
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/service/forge)
 "ksM" = (
@@ -76665,6 +76672,9 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/stone,
 /area/station/service/forge)
 "oDV" = (
@@ -84760,7 +84770,8 @@
 /area/station/maintenance/department/security/greater)
 "qhK" = (
 /obj/item/forging/billow,
-/obj/structure/sign/poster/random/directional/north,
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/stone,
 /area/station/service/forge)
 "qhN" = (
@@ -117164,6 +117175,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology/hallway)
+"wlw" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/stone,
+/area/station/service/forge)
 "wlF" = (
 /obj/effect/turf_decal/stripes,
 /obj/machinery/light/directional/south,
@@ -124080,6 +124097,7 @@
 /area/station/hallway/primary/starboard)
 "xCp" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/stone,
 /area/station/service/forge)
 "xCs" = (
@@ -149496,7 +149514,7 @@ pww
 fwh
 qCy
 qhK
-xCp
+wlw
 ksK
 huQ
 dSg
