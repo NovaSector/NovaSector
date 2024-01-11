@@ -868,6 +868,11 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	gender = FEMALE
 	use_static = TRUE
 	hides_groin = TRUE
+	
+/datum/sprite_accessory/undershirt/bee_shirt
+	name = "Shirt - Bee"
+	icon_state = "bee_shirt"
+	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/bulletclub //4 life
 	name = "Shirt - Black Skull"
