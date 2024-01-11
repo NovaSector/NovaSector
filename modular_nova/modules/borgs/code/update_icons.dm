@@ -14,7 +14,7 @@
 	if(combat_indicator)
 		add_overlay(GLOB.combat_indicator_overlay)
 
-	if (temporary_flavor_text)
+	if(temporary_flavor_text)
 		add_overlay(GLOB.temporary_flavor_text_indicator)
 
 /mob/living/silicon/robot/proc/update_altborg_icons()
