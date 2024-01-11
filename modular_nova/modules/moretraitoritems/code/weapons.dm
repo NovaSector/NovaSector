@@ -29,9 +29,14 @@
 	name = "Speed Loader (.357 Peacemaker)"
 	id = "a357PM"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+	)
 	build_path = /obj/item/ammo_box/a357/peacemaker
-	category = list(RND_CATEGORY_HACKED, RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO)
+	category = list(
+		RND_CATEGORY_HACKED,
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
+	)
 
 /obj/item/ammo_box/a357/peacemaker
 	name = "speed loader (.357 Peacemaker)"
@@ -94,7 +99,6 @@
 	rack_sound = 'modular_nova/modules/moretraitoritems/sound/slide.ogg'
 	fire_sound_volume = 100
 	bolt_wording = "fuckin' slide"
-	reload_time = 0 //FAST AS FUCK BOIS!
 	var/unrestricted = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/robohand/unrestricted

@@ -1,5 +1,5 @@
 /obj/item/clothing/glasses/hud/eyepatch
-	name = "eyepatch HUD"
+	name = "HUD eyepatch"
 	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
 	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
@@ -18,7 +18,7 @@
 
 
 /obj/item/clothing/glasses/hud/eyepatch/sec
-	name = "security eyepatch HUD"
+	name = "security HUD eyepatch"
 	desc = "Lost your eye beating an innocent clown? Thankfully your corporate overlords have made something to make up for this. May not do well against flashes."
 	hud_type = DATA_HUD_SECURITY_ADVANCED
 	clothing_traits = list(TRAIT_SECURITY_HUD)
@@ -35,7 +35,7 @@
 		)
 	)
 /obj/item/clothing/glasses/hud/eyepatch/med
-	name = "medical eyepatch HUD"
+	name = "medical HUD eyepatch"
 	desc = "Do no harm, maybe harm has befell to you, or your poor eyeball, thankfully there's a way to continue your oath, thankfully it didn't mention sleepdarts or monkey men."
 	icon_state = "medpatch"
 	base_icon_state = "medpatch"
@@ -55,7 +55,7 @@
 	)
 
 /obj/item/clothing/glasses/hud/eyepatch/meson
-	name = "mesons eyepatch HUD"
+	name = "mesons HUD eyepatch"
 	desc = "For those that only want to go half insane when staring at the supermatter."
 	icon_state = "mesonpatch"
 	base_icon_state = "mesonpatch"
@@ -77,7 +77,7 @@
 	)
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
-	name = "diagnostic eyepatch HUD"
+	name = "diagnostic HUD eyepatch"
 	desc = "Lost your eyeball to a rogue borg? Dare to tell a Dogborg to do it's job? Got bored? Whatever the reason, this bit of tech will help you still repair borgs, they'll never need it since they usually do it themselves, but its the thought that counts."
 	icon_state = "robopatch"
 	base_icon_state = "robopatch"
@@ -97,7 +97,7 @@
 	)
 
 /obj/item/clothing/glasses/hud/eyepatch/sci
-	name = "science eyepatch HUD"
+	name = "science HUD eyepatch"
 	desc = "Every few years, the aspiring mad scientist says to themselves 'I've got the castle, the evil laugh and equipment, but what I need is a look', thankfully, Dr. Galox has already covered that for you dear friend - while it doesn't do much beyond scan chemicals, what it lacks in use it makes up for in style."
 	icon_state = "scipatch"
 	base_icon_state = "scipatch"

@@ -10,15 +10,15 @@
 	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
 	var/last_message_time = 0
 
-/obj/item/organ/internal/brain/synth/Insert(mob/living/carbon/user, special = FALSE, drop_if_replaced = TRUE, no_id_transfer = FALSE)
+/obj/item/organ/internal/brain/synth/mob_insert(mob/living/carbon/brain_owner, special = FALSE, movement_flags)
 	. = ..()
 
-	if(user.stat != DEAD || !ishuman(user))
+	if(brain_owner.stat != DEAD || !ishuman(brain_owner))
 		return
 
-	var/mob/living/carbon/human/user_human = user
-	if(HAS_TRAIT(user_human, TRAIT_REVIVES_BY_HEALING) && user_human.health > SYNTH_BRAIN_WAKE_THRESHOLD)
-		user_human.revive(FALSE)
+	var/mob/living/carbon/human/human_brain_owner = brain_owner
+	if(HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
+		human_brain_owner.revive(FALSE)
 
 /obj/item/organ/internal/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health
 	. = ..()

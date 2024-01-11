@@ -159,19 +159,19 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 
-/obj/item/clothing/suit/hooded/wintercoat/skyrat/blueshield
+/obj/item/clothing/suit/hooded/wintercoat/nova/blueshield
 	name = "blueshield's winter coat"
 	icon_state = "coatblueshield"
 	desc = "A comfy kevlar-lined coat with blue highlights, fit to keep the blueshield armored and warm."
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/skyrat/blueshield
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/nova/blueshield
 	allowed = list(/obj/item/melee/baton/security/loaded)
 	armor_type = /datum/armor/suit_armor/blueshield
 
-/obj/item/clothing/suit/hooded/wintercoat/skyrat/blueshield/Initialize(mapload)
+/obj/item/clothing/suit/hooded/wintercoat/nova/blueshield/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.security_vest_allowed
 
-/obj/item/clothing/head/hooded/winterhood/skyrat/blueshield
+/obj/item/clothing/head/hooded/winterhood/nova/blueshield
 	icon_state = "hood_blueshield"
 	desc = "A comfy kevlar-lined hood to go with the comfy kevlar-lined coat."
 	armor_type = /datum/armor/suit_armor/blueshield

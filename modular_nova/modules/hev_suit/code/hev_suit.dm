@@ -702,9 +702,9 @@
 /obj/item/clothing/head/helmet/space/hev_suit/pcv
 	name = "powered combat helmet"
 	desc = "A deprecated combat helmet developed during the early 21th century in Sol-3, with protections rated level III-A. Contains attachment points for AN/PVS night vision goggles."
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_muzzled.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_muzzled.dmi'
 	icon_state = "hecu_helm"
 	armor_type = /datum/armor/hev_suit_pcv
 	flags_inv = HIDEHAIR
@@ -765,9 +765,9 @@
 /obj/item/clothing/suit/space/hev_suit/pcv
 	name = "powered combat vest"
 	desc = "An electrically charged piece of body armor, the power stiffens the suit's fibers to provide a layer of resilient armor in response to trauma received from kinetic force.  It's fitted with a geiger counter, tactical radio, a heads up display and a combat cocktail injector that allows the user to function normally even after serious injury. The concentration of mass in the lower rear side from the onboard computer makes your ass feel heavy."
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecucloth.dmi'
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob.dmi'
-	worn_icon_digi = 'modular_nova/modules/awaymissions_skyrat/icons/hecumob_digi.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
+	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_digi.dmi'
 	icon_state = "hecu_vest"
 	armor_type = /datum/armor/hev_suit_pcv
 	flags_inv = null

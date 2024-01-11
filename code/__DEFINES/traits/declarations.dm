@@ -4,8 +4,8 @@
 // BEGIN TRAIT DEFINES
 
 /*
-Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
-*/
+ *Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
+ */
 
 //mob traits
 /// Forces the user to stay unconscious.
@@ -415,6 +415,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // Being close enough to the supermatter makes it heal at higher temperatures
 // and emit less heat. Present on /mob or /datum/mind
 #define TRAIT_SUPERMATTER_SOOTHER "supermatter_soother"
+/// Mob has fov applied to it
+#define TRAIT_FOV_APPLIED "fov_applied"
+/// Mob is using the scope component
+#define TRAIT_USER_SCOPED "user_scoped"
 
 /// Trait added when a revenant is visible.
 #define TRAIT_REVENANT_REVEALED "revenant_revealed"
@@ -486,6 +490,15 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Is the mob standing on an elevated surface? This prevents them from dropping down if not elevated first.
 #define TRAIT_ON_ELEVATED_SURFACE "on_elevated_surface"
+
+/// Prevents you from twohanding weapons.
+#define TRAIT_NO_TWOHANDING "no_twohanding"
+
+/// Halves the time of tying a tie.
+#define TRAIT_FAST_TYING "fast_tying"
+
+/// Sells for more money on the pirate bounty pad.
+#define TRAIT_HIGH_VALUE_RANSOM "high_value_ransom"
 
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
@@ -1007,6 +1020,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Trait given to foam darts that have an insert in them
 #define TRAIT_DART_HAS_INSERT "dart_has_insert"
+
+/// Trait determines if this mob has examined an eldritch painting
+#define TRAIT_ELDRITCH_PAINTING_EXAMINE "eldritch_painting_examine"
+
+/// Trait used by the /datum/brain_trauma/severe/flesh_desire trauma to change their preferences of what they eat
+#define TRAIT_FLESH_DESIRE "flesh_desire"
 
 ///Trait granted by janitor skillchip, allows communication with cleanbots
 #define TRAIT_CLEANBOT_WHISPERER "cleanbot_whisperer"
