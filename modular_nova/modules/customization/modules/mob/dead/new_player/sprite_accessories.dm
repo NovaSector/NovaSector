@@ -135,12 +135,6 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 /datum/sprite_accessory/moth_markings/is_hidden(mob/living/carbon/human/owner)
 	return FALSE
 
-
-/datum/sprite_accessory/moth_antennae/none
-	name = "None"
-	icon_state = "none"
-
-
 /datum/sprite_accessory/pod_hair
 	name = "None"
 	icon = 'modular_nova/master_files/icons/mob/species/podperson_hair.dmi'
