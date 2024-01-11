@@ -6398,6 +6398,7 @@
 #include "modular_nova\master_files\code\modules\jobs\job_types\station_engineer.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\virologist.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\warden.dm"
+#include "modular_nova\master_files\code\modules\jobs\job_types\assistant\assistant.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\blackmarket.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\ds2.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\freighter_crew.dm"
