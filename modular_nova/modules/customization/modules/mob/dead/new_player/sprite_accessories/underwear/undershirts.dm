@@ -12,12 +12,17 @@
 
 /datum/sprite_accessory/undershirt/shortsleeve
 	name = "Short-Sleeved Shirt"
-	icon_state = "whiteshortsleeve"
+	icon_state = "whiteshortsleeve" //Reuses TG sprite until they set up GAGS for underwear
 	use_static = null
 
 /datum/sprite_accessory/undershirt/tanktop
 	name = "Tank Top"
-	icon_state = "tank_white"
+	icon_state = "tank_white" //Reuses TG sprite until they set up GAGS for underwear
+	use_static = null
+
+/datum/sprite_accessory/undershirt/longsleeve
+	name = "Long-Sleeved Shirt"
+	icon_state = "longsleeve_white"
 	use_static = null
 
 /datum/sprite_accessory/undershirt/polo
