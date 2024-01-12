@@ -1,7 +1,7 @@
 //teshvali robolimb research node
 
-/datum/techweb_node/teshvalicyber
-	id = "teshvalicyber"
+/datum/techweb_node/teshari_cyber
+	id = "teshari_cyber"
 	display_name = "Raptoral Cybernetics"
 	description = "Specialized cybernetic limb designs, courtesy of Ceremi Cybernetics."
 	prereq_ids = list("base")
