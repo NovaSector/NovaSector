@@ -19,7 +19,7 @@
 /obj/item/forging/reagent_weapon/sword
 	name = "forged sword"
 	desc = "A sharp, one-handed sword most adept at blocking opposing melee strikes."
-	force = 15
+	force = 20
 	armour_penetration = 10
 	icon_state = "sword"
 	inhand_icon_state = "sword"
@@ -46,7 +46,7 @@
 /obj/item/forging/reagent_weapon/katana
 	name = "forged katana"
 	desc = "A katana sharp enough to penetrate body armor, but not quite million-times-folded sharp."
-	force = 15
+	force = 20
 	armour_penetration = 30
 	icon_state = "katana"
 	inhand_icon_state = "katana"
@@ -72,7 +72,7 @@
 /obj/item/forging/reagent_weapon/dagger
 	name = "forged dagger"
 	desc = "A lightweight dagger with an extremely quick swing!"
-	force = 10
+	force = 13
 	icon_state = "dagger"
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger_back"
@@ -112,7 +112,7 @@
 /obj/item/forging/reagent_weapon/spear
 	name = "forged spear"
 	desc = "A long spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
-	force = 8
+	force = 13
 	armour_penetration = 15
 	icon_state = "spear"
 	inhand_icon_state = "spear"
@@ -121,7 +121,7 @@
 	throw_speed = 4
 	embedding = list("pain_mult" = 6, "embed_chance" = 75, "fall_chance" = 0)
 	slot_flags = ITEM_SLOT_BACK
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
@@ -134,14 +134,14 @@
 //this is 1:1 with the bonespear, lets use this as a 'balance anchor'. weapons that blatantly outclass this are powercrept.
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded = 8, force_wielded = 16)
+	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
 
 //throwing weapons, what a fun gimmick. lets make them actually worth using
 /obj/item/forging/reagent_weapon/axe
 	name = "forged axe"
 	desc = "An axe especially balanced for throwing and embedding into fleshy targets. Nonetheless useful as a traditional melee tool."
-	force = 10
-	armour_penetration = 15
+	force = 13
+	armour_penetration = 10
 	icon_state = "axe"
 	inhand_icon_state = "axe"
 	worn_icon_state = "axe_back"
@@ -159,7 +159,7 @@
 /obj/item/forging/reagent_weapon/hammer
 	name = "forged hammer"
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
-	force = 18 //-1
+	force = 25
 	armour_penetration = 10
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
@@ -238,7 +238,7 @@
 	icon_state = "pavise"
 	inhand_icon_state = "pavise"
 	worn_icon_state = "pavise_back"
-	block_chance = 70
+	block_chance = 75
 	item_flags = SLOWS_WHILE_IN_HAND
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
@@ -291,7 +291,7 @@
 /obj/item/forging/reagent_weapon/bokken
 	name = "bokken"
 	desc = "A bokken that is capable of blocking attacks when wielding in two hands, possibly including bullets should the user be brave enough."
-	force = 15
+	force = 20
 	icon_state = "bokken"
 	inhand_icon_state = "bokken"
 	worn_icon_state = "bokken_back"
@@ -326,7 +326,7 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded=15, force_wielded=7)
+	AddComponent(/datum/component/two_handed, force_unwielded=20, force_wielded=10)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	SIGNAL_HANDLER
