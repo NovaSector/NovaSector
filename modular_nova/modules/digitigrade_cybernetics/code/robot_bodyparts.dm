@@ -4,35 +4,35 @@
 /obj/item/bodypart/leg/right/robot/digi
 	name = "cyborg digitigrade right leg"
 	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
-	icon = 'modular_nova/modules/digitigrade-cybernetics/icons/bodyparts/digitigrade_parts.dmi'
+	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/leg/left/robot/digi
 	name = "cyborg digitigrade left leg"
 	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
-	icon = 'modular_nova/modules/digitigrade-cybernetics/icons/bodyparts/digitigrade_parts.dmi'
+	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/leg/right/robot/surplus/digi
 	name = "prostjhetic digitigrade right leg"
 	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
-	icon = 'modular_nova/modules/digitigrade-cybernetics/icons/bodyparts/digitigrade_parts.dmi'
+	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/leg/left/robot/surplus/digi
 	name = "prosthetic digitigrade right leg"
 	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
-	icon = 'modular_nova/modules/digitigrade-cybernetics/icons/bodyparts/digitigrade_parts.dmi'
+	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/leg/right/robot/advanced/digi
 	name = "advanced digitigrade right leg"
 	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
-	icon = 'modular_nova/modules/digitigrade-cybernetics/icons/bodyparts/digitigrade_parts.dmi'
+	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/leg/left/robot/advanced/digi
 	name = "advanced digitigrade right leg"
 	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
-	icon = 'modular_nova/modules/digitigrade-cybernetics/icons/bodyparts/digitigrade_parts.dmi'
+	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/bodyparts/digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
