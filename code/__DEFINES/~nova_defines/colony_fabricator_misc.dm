@@ -1,3 +1,6 @@
+/// Buildtype for baseline colony fabricators
+#define COLONY_FABRICATOR (2<<1)
+
 /// Category for clothing in the organics printer
 #define RND_CATEGORY_AKHTER_CLOTHING "Clothing"
 /// Category for equipment like belts and bags in the organics printer
