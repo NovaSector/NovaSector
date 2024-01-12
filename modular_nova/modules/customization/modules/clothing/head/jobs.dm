@@ -86,7 +86,7 @@
 	greyscale_colors = "#59D7FF#ffe12f"
 	flags_1 = NONE
 
-// From this point forth will be berets that are made especially for Skyrat. Those are loosely based off of the ones that were ported initially, but they might not be 1:1
+// From this point forth will be berets that are made especially for Nova Sector. Those are loosely based off of the ones that were ported initially, but they might not be 1:1
 
 /obj/item/clothing/head/beret/engi/ce
 	name = "chief engineer's beret"
