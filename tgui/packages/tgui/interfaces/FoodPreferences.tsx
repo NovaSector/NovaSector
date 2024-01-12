@@ -90,6 +90,7 @@ export const FoodPreferences = (props) => {
                   icon={data.enabled ? 'check-square-o' : 'square-o'}
                   color={data.enabled ? 'green' : 'red'}
                   onClick={() => act('toggle')}
+                  //disabled={data.race_disabled}
                   tooltip={
                     <>
                       Toggles if these food preferences will be applied to your

@@ -1,6 +1,5 @@
-/datum/species
-	/// Whether to allow food preferences to overwrite
-	var/allow_food_preferences = TRUE
+/datum/species/proc/allows_food_preferences()
+	return TRUE
 
 /**
  * Returns a list of strings representing features this species has.

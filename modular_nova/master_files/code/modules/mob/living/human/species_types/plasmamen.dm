@@ -1,2 +1,2 @@
-/datum/species/plasmaman
-	allow_food_preferences = FALSE // Special diet requirements.
+/datum/species/plasmaman/allows_food_preferences()
+	return FALSE

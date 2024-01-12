@@ -10,6 +10,6 @@
 /datum/quirk/pineapple_liker
 	hidden_quirk = TRUE
 
-// You can become a vegan with food prefrences
+// You can become a vegan with food preferences
 /datum/quirk/vegetarian
 	hidden_quirk = TRUE

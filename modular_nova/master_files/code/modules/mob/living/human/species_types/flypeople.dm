@@ -1,2 +1,2 @@
-/datum/species/fly
-	allow_food_preferences = FALSE // Special diet requirements.
+/datum/species/flyproc/allows_food_preferences()
+	return FALSE

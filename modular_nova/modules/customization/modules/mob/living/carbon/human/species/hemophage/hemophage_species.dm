@@ -27,7 +27,9 @@
 	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	veteran_only = TRUE
-	allow_food_preferences = FALSE // Special diet requirements.
+
+/datum/species/hemophage/allows_food_preferences()
+	return FALSE
 
 /datum/species/hemophage/get_default_mutant_bodyparts()
 	return list(
