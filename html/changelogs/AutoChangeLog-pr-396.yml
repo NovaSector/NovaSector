@@ -1,0 +1,5 @@
+author: "nikothedude"
+delete-after: True
+changes:
+  - bugfix: "Silicon temp ftext overlay now works"
+  - bugfix: "Silicon temp ftext popout window now works"

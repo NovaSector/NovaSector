@@ -1,0 +1,5 @@
+author: "OrionTheFox, sergeirocks100"
+delete-after: True
+changes:
+  - image: "The undershirt resprite has been ported over. Rejoice!"
+  - rscadd: "A bee shirt that was originally sitting unused in the icon files has been properly added to the game."
