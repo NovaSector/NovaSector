@@ -229,26 +229,11 @@ function QuirkPopper(props: QuirkPopperProps) {
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
-                maxWidth="300px"
+                maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
                 backgroundColor="black"
                 px="5px"
                 py="3px"
               >
-<<<<<<< HEAD
-                <Stack
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
-                  maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
-                  backgroundColor="black"
-                  px="5px"
-                  py="3px"
-                >
-                  <Stack.Item>
-                    <PreferenceList
-                      act={act}
-                      preferences={getCorrespondingPreferences(
-=======
                 <Stack.Item>
                   <PreferenceList
                     act={act}
@@ -258,7 +243,6 @@ function QuirkPopper(props: QuirkPopperProps) {
                     )}
                     randomizations={getRandomization(
                       getCorrespondingPreferences(
->>>>>>> 657829aa5e3 (Improves popper/dropdown performance (#80883))
                         customization_options,
                         character_preferences.manually_rendered_features,
                       ),
