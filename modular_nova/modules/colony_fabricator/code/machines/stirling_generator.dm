@@ -4,7 +4,7 @@
 	name = "stirling generator"
 	desc = "An industrial scale stirling generator. Stirling generators operate by intaking \
 		hot gasses through their inlet pipes, and being cooled by the ambient air around them. \
-		The cycling compression and expansion that this creates creates power, and this one is made \
+		The cycling compression and expansion caused by this creates power, and this one is made \
 		to make power on the scale of small stations and outposts."
 	icon = 'modular_nova/modules/colony_fabricator/icons/stirling_generator/big_generator.dmi'
 	icon_state = "stirling"
