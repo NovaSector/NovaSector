@@ -6828,6 +6828,7 @@
 #include "modular_nova\modules\colony_fabricator\code\appliances\co2_cracker.dm"
 #include "modular_nova\modules\colony_fabricator\code\appliances\foodricator.dm"
 #include "modular_nova\modules\colony_fabricator\code\appliances\recycler.dm"
+#include "modular_nova\modules\colony_fabricator\code\appliances\space_heater.dm"
 #include "modular_nova\modules\colony_fabricator\code\appliances\wall_cell_charger.dm"
 #include "modular_nova\modules\colony_fabricator\code\appliances\wind_turbine.dm"
 #include "modular_nova\modules\colony_fabricator\code\construction\doors.dm"

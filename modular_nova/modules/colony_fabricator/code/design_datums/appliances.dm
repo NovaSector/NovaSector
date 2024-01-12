@@ -25,6 +25,7 @@
 		"co2_cracker",
 		"portable_recycler",
 		"foodricator",
+		"wall_heater"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000000000000000) // God save you
 	hidden = TRUE
@@ -74,6 +75,22 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/machinery/portable_atmospherics/scrubber
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,
+	)
+	construction_time = 30 SECONDS
+
+/datum/design/wall_mounted_space_heater
+	name = "Mounted Heater"
+	id = "wall_heater"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/wallframe/wall_heater
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,

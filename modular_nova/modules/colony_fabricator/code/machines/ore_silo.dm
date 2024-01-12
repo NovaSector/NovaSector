@@ -12,6 +12,9 @@
 	playsound(src, 'sound/machines/beep.ogg', 30, TRUE)
 	AddElement(/datum/element/repackable, packed_type, 5 SECONDS)
 
+/obj/machinery/ore_silo/colony_lathe/default_deconstruction_crowbar()
+	return
+
 // Item for deploying ore silos
 /obj/item/flatpacked_machine/ore_silo
 	name = "flat-packed ore silo"
