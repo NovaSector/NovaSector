@@ -126,10 +126,12 @@
 /datum/sprite_accessory/bra/fishnet_sleeves/alt
 	name = "Fishnet - Sleeved (Greyscale)"
 	icon_state = "fishnet_sleeves_alt"
+	use_static = FALSE
 
 /datum/sprite_accessory/bra/fishnet_base/alt
 	name = "Fishnet - Sleeveless (Greyscale)"
 	icon_state = "fishnet_body_alt"
+	use_static = FALSE
 
 //ERP Accessories
 /datum/sprite_accessory/bra/bra_latex

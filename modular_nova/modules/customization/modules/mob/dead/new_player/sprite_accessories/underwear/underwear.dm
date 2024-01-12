@@ -169,13 +169,6 @@
 	use_static = TRUE
 	hides_breasts = TRUE
 
-/datum/sprite_accessory/underwear/swimsuit_blue
-	name = "One-Piece Swimsuit - Blue Stripes"
-	icon_state = "swimming_blue"
-	gender = FEMALE
-	use_static = TRUE
-	hides_breasts = TRUE
-
 //Fishnets
 /datum/sprite_accessory/underwear/fishnet_lower
 	name = "Panties - Fishnet"
