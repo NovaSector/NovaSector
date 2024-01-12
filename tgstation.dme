@@ -6856,6 +6856,7 @@
 #include "modular_nova\modules\colony_fabricator\code\machines\rtg.dm"
 #include "modular_nova\modules\colony_fabricator\code\machines\solar_panels.dm"
 #include "modular_nova\modules\colony_fabricator\code\machines\solid_fuel_generator.dm"
+#include "modular_nova\modules\colony_fabricator\code\machines\stirling_generator.dm"
 #include "modular_nova\modules\colony_fabricator\code\machines\thermomachine.dm"
 #include "modular_nova\modules\colony_fabricator\code\tools\tools.dm"
 #include "modular_nova\modules\command_vendor\code\vending.dm"
