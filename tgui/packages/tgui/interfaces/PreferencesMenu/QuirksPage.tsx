@@ -1,9 +1,16 @@
 import { filterMap } from 'common/collections';
 import { useState } from 'react';
-import { Popover } from 'react-tiny-popover';
 
 import { useBackend } from '../../backend';
-import { Box, Button, Icon, Stack, Tooltip } from '../../components';
+import {
+  Box,
+  Button,
+  Icon,
+  Popper,
+  Stack,
+  Tooltip,
+  TrackOutsideClicks,
+} from '../../components';
 import { PreferencesMenuData, Quirk, RandomSetting, ServerData } from './data';
 import { getRandomization, PreferenceList } from './MainPage';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
@@ -212,69 +219,70 @@ function QuirkPopper(props: QuirkPopperProps) {
     Object.entries(customization_options).length > 0;
 
   return (
-    <Popover
-      positions="bottom"
-      onClickOutside={() => setCustomizationExpanded(false)}
+    <Popper
+      placement="bottom-end"
       isOpen={customizationExpanded}
-      content={
-        <div>
-          {!!customization_options && hasExpandableCustomization && (
-            <Box
-              mt="1px"
-              style={{
-                boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
-              }}
-            >
-              <Stack
-                onClick={(e) => {
-                  e.stopPropagation();
+      popperContent={
+        <TrackOutsideClicks
+          onOutsideClick={() => setCustomizationExpanded(false)}
+        >
+          <Box>
+            {!!customization_options && hasExpandableCustomization && (
+              <Box
+                mt="1px"
+                style={{
+                  boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
                 }}
-                maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
-                backgroundColor="black"
-                px="5px"
-                py="3px"
               >
-                <Stack.Item>
-                  <PreferenceList
-                    act={act}
-                    preferences={getCorrespondingPreferences(
-                      customization_options,
-                      character_preferences.manually_rendered_features,
-                    )}
-                    randomizations={getRandomization(
-                      getCorrespondingPreferences(
+                <Stack
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
+                  backgroundColor="black"
+                  px="5px"
+                  py="3px"
+                >
+                  <Stack.Item>
+                    <PreferenceList
+                      act={act}
+                      preferences={getCorrespondingPreferences(
                         customization_options,
                         character_preferences.manually_rendered_features,
-                      ),
-                      serverData,
-                      randomBodyEnabled,
-                    )}
-                    maxHeight="100px"
-                  />
-                </Stack.Item>
-              </Stack>
-            </Box>
-          )}
-        </div>
+                      )}
+                      randomizations={getRandomization(
+                        getCorrespondingPreferences(
+                          customization_options,
+                          character_preferences.manually_rendered_features,
+                        ),
+                        serverData,
+                        randomBodyEnabled,
+                      )}
+                      maxHeight="100px"
+                    />
+                  </Stack.Item>
+                </Stack>
+              </Box>
+            )}
+          </Box>
+        </TrackOutsideClicks>
       }
     >
-      <div>
-        {selected && (
-          <Button
-            selected={customizationExpanded}
-            icon="cog"
-            tooltip="Customize"
-            onClick={(e) => {
-              e.stopPropagation();
-              setCustomizationExpanded(!customizationExpanded);
-            }}
-            style={{
-              float: 'right',
-            }}
-          />
-        )}
-      </div>
-    </Popover>
+      {selected && (
+        <Button
+          selected={customizationExpanded}
+          icon="cog"
+          tooltip="Customize"
+          onClick={(e) => {
+            e.stopPropagation();
+            setCustomizationExpanded(!customizationExpanded);
+          }}
+          style={{
+            float: 'right',
+          }}
+        />
+      )}
+    </Popper>
   );
 }
 
