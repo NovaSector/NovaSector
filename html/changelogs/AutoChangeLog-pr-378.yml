@@ -1,0 +1,5 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - bugfix: "Autopunctuation no longer checks for underscores at the end of messages."
+  - bugfix: "Autopunctuation now correctly inserts EOL periods for any bolded/italicised/underline messages without them, if they don't already have punctuation of their own (like exclamation marks, tildes, question marks, or hyphens)."
