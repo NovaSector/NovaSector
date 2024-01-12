@@ -98,14 +98,19 @@
 	icon_state = "shirt_bc"
 	gender = NEUTER
 
+/datum/sprite_accessory/undershirt/bee_shirt
+	name = "Shirt - Bee"
+	icon_state = "bee_shirt"
+	use_static = TRUE
+
 /datum/sprite_accessory/undershirt/striped
-	name = "Shirt - Black Stripes"
+	name = "Long-Sleeved Shirt - Black Stripes"
 	icon_state = "longstripe"
 	gender = NEUTER
 	use_static = TRUE
 
 /datum/sprite_accessory/undershirt/striped/blue
-	name = "Shirt - Blue Stripes"
+	name = "Long-Sleeved Shirt - Blue Stripes"
 	icon_state = "longstripe_blue"
 
 /datum/sprite_accessory/undershirt/tankstripe
@@ -123,13 +128,13 @@
 	icon_state = "tank_sun"
 	use_static = TRUE
 
-//Not really qualifying as shirts, these get shoved to the bottom of the list
+//Not really qualifying as shirts but having nowhere better to go, these get shoved to the bottom of the list
 /datum/sprite_accessory/undershirt/corset
 	name = "Corset"
 	icon_state = "corset"
 	gender = FEMALE
 	use_static = TRUE
-	hides_groin = TRUE
+	hides_groin = TRUE //an undershirt-specific bit of code, so the corset has to be an undershirt... unless you want to refactor it
 
 /datum/sprite_accessory/undershirt/babydoll
 	name = "Babydoll"
