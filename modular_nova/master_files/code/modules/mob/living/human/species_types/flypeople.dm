@@ -1,2 +1,2 @@
-/datum/species/fly/proc/allows_food_preferences()
+/datum/species/fly/allows_food_preferences()
 	return FALSE
