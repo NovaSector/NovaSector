@@ -25,7 +25,7 @@
 
 /datum/sprite_accessory/undershirt/longsleeve
 	name = "Long-Sleeved Shirt"
-	icon_state = "longsleeve_white"
+	icon_state = "shirt_white_long"
 	use_static = FALSE
 
 /datum/sprite_accessory/undershirt/polo
