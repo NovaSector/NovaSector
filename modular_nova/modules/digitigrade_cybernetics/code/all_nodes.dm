@@ -16,7 +16,7 @@
 	id = "adv_digitigrade_cyber"
 	display_name = "Advanced Digitigrade Cybernetics"
 	description = "A step above consumer-grade digitigrade models, These have self-sharping claws for destroying your footwear much faster."
-	prereq_ids = list("adv_robotics", "digitigradecyber")
+	prereq_ids = list("adv_robotics", "digitigrade_cyber")
 	design_ids = list(
 		"digitigrade_advanced_l_leg",
 		"digitigrade_advanced_r_leg",
