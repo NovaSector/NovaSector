@@ -6,62 +6,61 @@
 /datum/sprite_accessory/socks/socks_norm
 	name = "Normal (Greyscale)"
 	icon_state = "white_norm"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/stirrups_norm
 	name = "Normal Stirrups (Greyscale)"
 	icon_state = "socks_norm-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/socks_short
 	name = "Short (Greyscale)"
 	icon_state = "white_short"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/socks_knee
 	name = "Knee-high (Greyscale)"
 	icon_state = "white_knee"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/stirrups_knee
 	name = "Knee-high Stirrups"
 	icon_state = "socks_knee-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/striped_knee
 	name = "Knee-high - Striped"
 	icon_state = "striped_knee"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/thin_knee
 	name = "Knee-high - Thin"
 	icon_state = "thin_knee"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/socks_thigh
 	name = "Thigh-high (Greyscale)"
 	icon_state = "white_thigh"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/stirrups_thigh
 	name = "Thigh-high Stirrups (Greyscale)"
 	icon_state = "socks_thigh-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/striped_thigh
 	name = "Thigh-high (Striped)"
 	icon_state = "striped_thigh"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/striped_thigh/stirrups
 	name = "Thigh-high (Striped Stirrups)"
 	icon_state = "striped_thigh-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/leggings/stirrups/gym
 	name = "Thigh-high Stirrups (black with stripe)"
 	icon_state = "leggings-stir-black"
-	use_static = TRUE
 
 /datum/sprite_accessory/socks/bee_thigh
 	name = "Thigh-high - Bee (Old)"
@@ -130,22 +129,22 @@
 /datum/sprite_accessory/socks/fishnet_thigh/alt
 	name = "Thigh-high - Fishnet (Greyscale)"
 	icon_state = "fishnet_alt"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/pantyhose/stirrups
 	name = "Pantyhose Stirrups"
 	icon_state = "pantyhose-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/pantyhose_ripped
 	name = "Pantyhose - Ripped"
 	icon_state = "pantyhose_ripped"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/pantyhose_ripped/stirrups
 	name = "Pantyhose - Ripped Stirrups"
 	icon_state = "pantyhose_ripped-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/stockings_ripped
 	name = "Stockings - Ripped"
@@ -154,15 +153,14 @@
 /datum/sprite_accessory/socks/leggings
 	name = "Leggings"
 	icon_state = "leggings"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/leggings/stirrups
 	name = "Leggings - Stirrups"
 	icon_state = "leggings-stir"
-	use_static = null
+	use_static = FALSE
 
 /datum/sprite_accessory/socks/leggings/latex
 	name = "Socks - Latex"
 	icon_state = "socks_latex"
-	use_static = TRUE
 	erp_accessory = TRUE
