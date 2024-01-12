@@ -108,7 +108,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
 
-	return list(
+	var/list/data = list(
 		"selection" = preferences.food_preferences,
 		"points" = calculate_points(preferences),
 		"enabled" = preferences.food_preferences["enabled"],
@@ -116,6 +116,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		"race_disabled" = !species.allows_food_preferences(),
 	)
 	qdel(species)
+	return data
 
 /// Checks the provided preferences datum to make sure the food pref values are valid. Does not check if the food preferences value is null.
 /datum/food_prefs_menu/proc/is_food_invalid(datum/preferences/preferences)
