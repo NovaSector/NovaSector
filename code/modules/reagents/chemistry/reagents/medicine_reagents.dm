@@ -1694,6 +1694,7 @@
 	/// For tracking when we tell the person we're no longer bleeding
 	var/was_working
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // NOVA EDIT ADDITION - Lets coagulants process in synths
 
 /datum/reagent/medicine/coagulant/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -1739,23 +1740,30 @@
 	if(!affected_mob.blood_volume)
 		return
 
-	if(SPT_PROB(7.5, seconds_per_tick))
-		affected_mob.losebreath += rand(2, 4)
-		affected_mob.adjustOxyLoss(rand(1, 3), updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-		if(prob(30))
-			to_chat(affected_mob, span_danger("You can feel your blood clotting up in your veins!"))
-		else if(prob(10))
-			to_chat(affected_mob, span_userdanger("You feel like your blood has stopped moving!"))
-			affected_mob.adjustOxyLoss(rand(3, 4) * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+	// NOVA EDIT CHANGE BEGIN -- Adds check for owner_flags, indented the overdose process so only organics g et it
+	var/owner_flags
+	if (iscarbon(affected_mob))
+		var/mob/living/carbon/carbon_mob = affected_mob
+		owner_flags = carbon_mob.dna.species.reagent_flags
+	if (isnull(owner_flags) || owner_flags & PROCESS_ORGANIC)
+		if(SPT_PROB(7.5, seconds_per_tick))
+			affected_mob.losebreath += rand(2, 4)
+			affected_mob.adjustOxyLoss(rand(1, 3), updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
+			if(prob(30))
+				to_chat(affected_mob, span_danger("You can feel your blood clotting up in your veins!"))
+			else if(prob(10))
+				to_chat(affected_mob, span_userdanger("You feel like your blood has stopped moving!"))
+				affected_mob.adjustOxyLoss(rand(3, 4) * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 
-		if(prob(50))
-			var/obj/item/organ/internal/lungs/our_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)
-			our_lungs.apply_organ_damage(1 * REM * seconds_per_tick)
-		else
-			var/obj/item/organ/internal/heart/our_heart = affected_mob.get_organ_slot(ORGAN_SLOT_HEART)
-			our_heart.apply_organ_damage(1 * REM * seconds_per_tick)
+			if(prob(50))
+				var/obj/item/organ/internal/lungs/our_lungs = affected_mob.get_organ_slot(ORGAN_SLOT_LUNGS)
+				our_lungs.apply_organ_damage(1 * REM * seconds_per_tick)
+			else
+				var/obj/item/organ/internal/heart/our_heart = affected_mob.get_organ_slot(ORGAN_SLOT_HEART)
+				our_heart.apply_organ_damage(1 * REM * seconds_per_tick)
 
-		return UPDATE_MOB_HEALTH
+			return UPDATE_MOB_HEALTH
+	// NOVA EDIT CHANGE END
 
 // i googled "natural coagulant" and a couple of results came up for banana peels, so after precisely 30 more seconds of research, i now dub grinding banana peels good for your blood
 /datum/reagent/medicine/coagulant/banana_peel
