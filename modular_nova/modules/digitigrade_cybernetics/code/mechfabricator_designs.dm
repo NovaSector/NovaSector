@@ -1,3 +1,5 @@
+#define RND_SUBCATEGORY_MECHFAB_CYBORG_DIGI "/Digitigrade"
+
 /datum/design/digitigrade_cyber_r_leg
 	name = "Digitigrade Cybernetic Right Leg"
 	id = "digitigrade_cyber_r_leg"
