@@ -22,7 +22,7 @@ import { Window } from '../layouts';
 export const OpposingForcePanel = (props) => {
   const [tab, setTab] = useState(1);
   const { act, data } = useBackend();
-  const { admin_mode, creator_ckey, owner_antag } = data;
+  const { admin_mode, creator_ckey, owner_antag, opt_in_enabled } = data;
   return (
     <Window
       title={'Opposing Force: ' + creator_ckey}
@@ -74,13 +74,15 @@ export const OpposingForcePanel = (props) => {
                   >
                     Admin Chat
                   </Tabs.Tab>
-                  <Tabs.Tab
-                    width="100%"
-                    selected={tab === 4}
-                    onClick={() => setTab(4)}
-                  >
-                    Target List
-                  </Tabs.Tab>
+                  {!!opt_in_enabled && (
+                    <Tabs.Tab
+                      width="100%"
+                      selected={tab === 4}
+                      onClick={() => setTab(4)}
+                    >
+                      Target List
+                    </Tabs.Tab>
+                  )}
                 </>
               )}
             </Tabs>

@@ -224,6 +224,7 @@
 	var/list/data = list()
 
 	data["opt_in_colors"] = GLOB.antag_opt_in_colors
+	data["opt_in_enabled"] = (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 
 	return data
 
