@@ -26,9 +26,9 @@
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/leg/right/robot/advanced/digi
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/titanium=SHEET_MATERIAL_AMOUNT*3,
-		/datum/material/gold=SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	construction_time = 20 SECONDS
 	category = list(
