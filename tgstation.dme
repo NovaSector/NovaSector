@@ -8010,7 +8010,6 @@
 #include "modular_nova\modules\tesh_augments\code\all_nodes.dm"
 #include "modular_nova\modules\tesh_augments\code\limbs.dm"
 #include "modular_nova\modules\tesh_augments\code\mechfabricator_designs.dm"
-#include "modular_nova\modules\tesh_augments\code\research_categories.dm"
 #include "modular_nova\modules\tesh_augments\code\robot_bodyparts.dm"
 #include "modular_nova\modules\teshari\code\_clothing_defines.dm"
 #include "modular_nova\modules\teshari\code\_teshari.dm"

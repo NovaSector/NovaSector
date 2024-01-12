@@ -1,5 +1,7 @@
 //adding teshari silicon stuff to the mechfabricator
 
+#define RND_SUBCATEGORY_MECHFAB_CYBORG_RAPTORAL "/Raptoral"
+
 /datum/design/teshari_cyber_chest
 	name = "Raptoral Cybernetic Torso"
 	id = "teshari_cyber_chest"
