@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "welding self as synth no longer makes you suffer through 3 progressbars"
