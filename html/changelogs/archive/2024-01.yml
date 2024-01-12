@@ -541,3 +541,27 @@
       pilot again.
   - bugfix: The various borg apparatuses can no longer pick up other internal borg
       tools.
+2024-01-12:
+  Melbert:
+  - bugfix: Fixes some cult spells being unable to heal constructs (blood rites particularly)
+  - bugfix: Ghost alert for buying a badass balloon should have a proper icon
+  - bugfix: Blood Drunk Miner (Hunter version) should dash a bit more.
+  - bugfix: Fix Ringleader's Rise not causing as many hallucinations as expected
+  - bugfix: Chameleon Suits will now automatically set your helmet into a hood if
+      using a hooded suit again
+  NovaBot13:
+  - bugfix: Fixes borg polymorph
+  - admin: Added a new admin verb that ends all active weather within the weather
+      subsystem.
+  - bugfix: if your voice changes (e.g. through a voice changer or changeling mimicry)
+      your runechat will now appear as the mob you are speaking in the voice of
+  - bugfix: when doing emotes with your face obscured, your runechat color will now
+      appear as either that of Unknown or the mob you are wearing the id of (if you
+      are wearing a mask with someone else's id)
+  - bugfix: Fixed being able to download the contractor program on the syndie store.
+  aKromatopzia:
+  - rscadd: Arm band sprites for teshari
+  - rscadd: Dog tag sprites for teshari
+  vinylspiders:
+  - qol: tweaks the chat color clamping algorithm to be a bit more restrictive while
+      still allowing for edge cases like greys and whites
