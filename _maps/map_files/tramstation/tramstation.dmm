@@ -15721,21 +15721,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/library)
-"ewO" = (
-/obj/effect/turf_decal/trimline/neutral/filled/line,
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 1
-	},
-/obj/machinery/door/airlock/public/glass{
-	name = "Primary Tool Storage"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/navigate_destination/tools,
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "exl" = (
 /obj/machinery/computer/atmos_control/nitrogen_tank{
 	dir = 1
@@ -32725,11 +32710,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/research)
-"kGm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/navigate_destination/disposals,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "kGo" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
@@ -39182,28 +39162,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
-"mPY" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 8
-	},
-/obj/machinery/door/airlock/security/glass{
-	id_tag = "outerbrigright";
-	name = "Brig"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "brig_right"
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/security/entrance,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/navigate_destination/sec,
-/turf/open/floor/iron,
-/area/station/security/brig)
 "mQa" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -42938,18 +42896,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/checker,
 /area/station/commons/lounge)
-"ohX" = (
-/obj/machinery/door/airlock/vault{
-	name = "High Security Vault"
-	},
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/effect/mapping_helpers/airlock/access/all/supply/vault,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/landmark/navigate_destination/vault,
-/turf/open/floor/iron/dark,
-/area/station/ai_monitored/command/nuke_storage)
 "ohY" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/turf_decal/trimline/red/filled/line,
@@ -46724,22 +46670,6 @@
 	},
 /turf/open/space/openspace,
 /area/space)
-"pEC" = (
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/command{
-	name = "MiniSat Access"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/command/minisat,
-/obj/effect/landmark/navigate_destination/minisat_access_ai,
-/turf/open/floor/iron/dark,
-/area/station/science/lower)
 "pEM" = (
 /obj/structure/railing{
 	dir = 6
@@ -49059,13 +48989,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
-"quz" = (
-/obj/machinery/holopad,
-/obj/effect/turf_decal/bot,
-/obj/structure/cable,
-/obj/effect/landmark/navigate_destination/dorms,
-/turf/open/floor/iron,
-/area/station/commons/dorms)
 "quB" = (
 /obj/machinery/telecomms/server/presets/medical,
 /turf/open/floor/iron/dark/telecomms,
@@ -51130,14 +51053,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
-<<<<<<< HEAD
-=======
 "reK" = (
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/catwalk_floor,
 /area/station/hallway/primary/tram/right)
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 "reU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/directional/south{
@@ -52462,29 +52382,6 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
-<<<<<<< HEAD
-"rFj" = (
-/obj/machinery/door/airlock{
-	name = "Custodial Closet"
-	},
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/neutral/filled/line,
-/obj/effect/turf_decal/trimline/purple/filled/warning,
-/obj/effect/turf_decal/trimline/purple/filled/warning{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/landmark/navigate_destination/janitor,
-/turf/open/floor/iron,
-/area/station/service/janitor)
-=======
 "rFw" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -52492,7 +52389,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/mid)
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 "rGj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/cafeteria,
@@ -61585,17 +61481,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"uGM" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "AI Upload Access"
-	},
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/airlock/access/all/command/ai_upload,
-/obj/effect/landmark/navigate_destination/aiupload,
-/turf/open/floor/iron/dark,
-/area/station/ai_monitored/turret_protected/ai_upload)
 "uGU" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
 	dir = 8;
@@ -63419,14 +63304,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/security/prison)
-<<<<<<< HEAD
-"vmz" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/landmark/navigate_destination/dockaux,
-/obj/machinery/light/directional/west,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
-=======
 "vms" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/turf_decal/stripes/end{
@@ -63438,7 +63315,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit)
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 "vmB" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -89691,11 +89567,7 @@ afn
 lKe
 gOh
 rbD
-<<<<<<< HEAD
-ohX
-=======
 fgs
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 qaM
 sfM
 kwe
@@ -89736,11 +89608,7 @@ elr
 elr
 elr
 xPP
-<<<<<<< HEAD
-quz
-=======
 kfR
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 xFx
 vAF
 swX
@@ -101011,16 +100879,6 @@ aaa
 aaa
 aaa
 ekB
-<<<<<<< HEAD
-ekB
-ekB
-rFj
-ekB
-nkd
-ceb
-qtV
-ceb
-=======
 bxX
 hIg
 bvL
@@ -101029,7 +100887,6 @@ qjU
 qPp
 bJY
 wCZ
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 qjU
 qjU
 nag
@@ -105375,11 +105232,7 @@ acF
 vWI
 sNs
 vWI
-<<<<<<< HEAD
-ewO
-=======
 jXA
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 vWI
 sNs
 alg
@@ -119015,11 +118868,7 @@ kDF
 vso
 nbo
 wqs
-<<<<<<< HEAD
-kGm
-=======
 kbZ
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 lHU
 qGM
 emT
@@ -120364,11 +120213,7 @@ pKC
 cPE
 qah
 erv
-<<<<<<< HEAD
-pEC
-=======
 vaF
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 egK
 aGY
 pRm
@@ -120878,11 +120723,7 @@ mBW
 hJl
 nrf
 hJl
-<<<<<<< HEAD
-uGM
-=======
 iKp
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 xnS
 hJl
 dNT
@@ -144757,11 +144598,7 @@ pMW
 avE
 nmY
 hng
-<<<<<<< HEAD
-vmz
-=======
 dJq
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 nmY
 nmY
 nmY
@@ -157314,11 +157151,7 @@ aBN
 sDO
 jFh
 msW
-<<<<<<< HEAD
-mPY
-=======
 apW
->>>>>>> 130006e9f32 (Tramstation utilities routing adjustments (#80713))
 nSV
 aPk
 sGG
