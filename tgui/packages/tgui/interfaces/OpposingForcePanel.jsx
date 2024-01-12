@@ -196,7 +196,7 @@ export const OpposingForceTab = (props) => {
             <Stack.Item>
               <a href="https://docs.google.com/document/u/0/d/e/2PACX-1vRVI8-SmicLDV7ny_8BwJ3s8nIYBPU-nhrFDNA95VQxfpmGeUWEuqsnHr1_YDBoEUYRSITEoUbnWlru/pub?pli=1">
                 <Button
-                  icon="check"
+                  icon="info"
                   color="orange"
                   tooltip="Open a guide on how to improve your opfors."
                   content="Opfor Guide"
