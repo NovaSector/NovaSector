@@ -35,7 +35,7 @@
 		return FALSE
 
 	ownerlimb = limb
-	add_to_limb(ownerlimb)
+	on_bodypart_insert(ownerlimb)
 
 	ADD_TRAIT(receiver, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
 
@@ -43,7 +43,7 @@
 	. = ..()
 
 	if(ownerlimb)
-		remove_from_limb()
+		on_bodypart_remove(ownerlimb)
 
 	if(organ_owner)
 		organ_owner.update_body_parts()
@@ -52,7 +52,7 @@
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	bodypart_overlay = new()
-	ownerlimb = bodypart
+	ownerlimb = limb
 	ownerlimb.add_bodypart_overlay(bodypart_overlay)
 	owner.update_body_parts()
 	return ..()
@@ -66,7 +66,7 @@
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/Destroy()
 	if(ownerlimb)
-		remove_from_limb()
+		on_bodypart_remove(ownerlimb)
 	return ..()
 
 /datum/bodypart_overlay/simple/sensory_enhancer
