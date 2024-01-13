@@ -26,7 +26,7 @@
 /obj/item/flatpacked_machine/frontier_griddle
 	name = "flat-packed tabletop griddle"
 	icon = 'modular_nova/modules/colony_fabricator/icons/kitchen_stuff/griddle.dmi'
-	icon_state = "griddle_packed"
+	icon_state = "griddle_parts"
 	w_class = WEIGHT_CLASS_NORMAL
 	type_to_deploy = /obj/machinery/griddle/frontier_tabletop
 	deploy_time = 2 SECONDS
