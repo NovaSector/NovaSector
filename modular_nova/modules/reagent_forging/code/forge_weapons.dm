@@ -103,7 +103,7 @@
 	worn_icon_state = "staff_back"
 	throwforce = 0
 	slot_flags = ITEM_SLOT_BACK
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FIRE_PROOF
 	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
 	attack_verb_simple = list("bonk", "bash", "whack", "poke", "prod")
@@ -159,14 +159,14 @@
 /obj/item/forging/reagent_weapon/hammer
 	name = "forged hammer"
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
-	force = 24
+	force = 12
 	armour_penetration = 10
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
 	worn_icon_state = "hammer_back"
 	throwforce = 10
 	slot_flags = ITEM_SLOT_BACK
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
 	attack_verb_continuous = list("bashes", "whacks")
 	attack_verb_simple = list("bash", "whack")
@@ -179,6 +179,7 @@
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded = 24, force_wielded = 12, require_twohands = TRUE)
 	AddElement(/datum/element/kneejerk)
 
 /obj/item/forging/reagent_weapon/hammer/attack_atom(atom/attacked_atom, mob/living/user, params)
@@ -326,7 +327,7 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded=20, force_wielded=10)
+	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 10)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	SIGNAL_HANDLER
