@@ -40,7 +40,7 @@
 		/obj/item/flatpacked_machine/arc_furnace,
 		/obj/item/stack/sheet/plastic_wall_panel/fifty,
 		/obj/item/stack/rods/twentyfive,
-		/obj/item/stack/sheet/iron/twenty
+		/obj/item/stack/sheet/iron/twenty,
 		/obj/item/flatpacked_machine/airlock_kit_manual,
 		/obj/item/flatpacked_machine/airlock_kit_manual,
 		/obj/item/wallframe/apc,
