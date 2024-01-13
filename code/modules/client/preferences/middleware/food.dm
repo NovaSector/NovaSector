@@ -141,7 +141,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	if(liked_food_length > MAXIMUM_LIKES)
 		return "too many like choices"
-	if(disliked_food_length < MINIMUM_REQUIRED_DISLIKES)
+	if(disliked_food_length + toxic_food_length < MINIMUM_REQUIRED_DISLIKES)
 		return "too few dislike choices"
 	if(toxic_food_length < MINIMUM_REQUIRED_TOXICS)
 		return "too few toxic choices"
