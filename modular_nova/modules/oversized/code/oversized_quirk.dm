@@ -21,24 +21,14 @@
 	human_holder.maptext_height = 32 * human_holder.dna.features["body_size"] //Adjust runechat height
 	human_holder.dna.update_body_size()
 	human_holder.mob_size = MOB_SIZE_LARGE
-	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)
-	if(left_arm)
-		left_arm.unarmed_damage_high += OVERSIZED_HARM_DAMAGE_BONUS
 
-	var/obj/item/bodypart/arm/right/right_arm = human_holder.get_bodypart(BODY_ZONE_R_ARM)
-	if(right_arm)
-		right_arm.unarmed_damage_high += OVERSIZED_HARM_DAMAGE_BONUS
+	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb)) // make sure we handle this when new ones are applied
 
-	// Before this, we never actually did anything with Oversized legs.
-	// This brings their unarmed_effectiveness up to 20 from 15, which is on par with mushroom legs.
-	// Functionally, this makes their prone kicks more accurate and increases the chance of extending prone knockdown... but only while the victim is already prone.
-	var/obj/item/bodypart/leg/left/left_leg = human_holder.get_bodypart(BODY_ZONE_L_LEG)
-	if(left_leg)
-		left_leg.unarmed_effectiveness += OVERSIZED_KICK_EFFECTIVENESS_BONUS
-
-	var/obj/item/bodypart/leg/right/right_leg = human_holder.get_bodypart(BODY_ZONE_R_LEG)
-	if(right_leg)
-		right_leg.unarmed_effectiveness += OVERSIZED_KICK_EFFECTIVENESS_BONUS
+	// just dummy call our current limbs to have less duplication (by having more duplication ahueheu)
+	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_L_ARM), null)
+	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_R_ARM), null)
+	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_L_LEG), null)
+	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_R_LEG), null)
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
@@ -66,18 +56,48 @@
 
 	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)
 	if(left_arm)
-		left_arm.unarmed_damage_low -= OVERSIZED_HARM_DAMAGE_BONUS
-		left_arm.unarmed_damage_high -= OVERSIZED_HARM_DAMAGE_BONUS
+		left_arm.unarmed_damage_high = initial(left_arm.unarmed_damage_high)
+		left_arm.name = initial(left_arm.name)
 
 	var/obj/item/bodypart/arm/right/right_arm = human_holder.get_bodypart(BODY_ZONE_R_ARM)
 	if(right_arm)
-		right_arm.unarmed_damage_low -= OVERSIZED_HARM_DAMAGE_BONUS
-		right_arm.unarmed_damage_high -= OVERSIZED_HARM_DAMAGE_BONUS
+		right_arm.unarmed_damage_high = initial(right_arm.unarmed_damage_high)
+		right_arm.name = initial(right_arm.name)
+
+	var/obj/item/bodypart/leg/left_leg = human_holder.get_bodypart(BODY_ZONE_L_LEG)
+	if (left_leg)
+		left_leg.unarmed_effectiveness = initial(left_leg.unarmed_effectiveness)
+		left_leg.name = initial(left_leg.name)
+
+	var/obj/item/bodypart/leg/right_leg = human_holder.get_bodypart(BODY_ZONE_R_LEG)
+	if (right_leg)
+		right_leg.unarmed_effectiveness = initial(right_leg.unarmed_effectiveness)
+		right_leg.name = initial(right_leg.name)
+
+	UnregisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB)
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_NORMAL
 	human_holder.physiology.hunger_mod /= OVERSIZED_HUNGER_MOD
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
+/datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
+	// Oversized arms have a higher damage maximum. Pretty simple.
+	var/changed = FALSE
+	if(istype(gained, /obj/item/bodypart/arm))
+		var/obj/item/bodypart/arm/new_arm = gained
+		new_arm.unarmed_damage_high = initial(new_arm.unarmed_damage_high) + OVERSIZED_HARM_DAMAGE_BONUS
+		changed = TRUE
+
+	// Before this, we never actually did anything with Oversized legs.
+	// This brings their unarmed_effectiveness up to 20 from 15, which is on par with mushroom legs.
+	// Functionally, this makes their prone kicks more accurate and increases the chance of extending prone knockdown... but only while the victim is already prone.
+	if(istype(gained, /obj/item/bodypart/leg))
+		var/obj/item/bodypart/leg/new_leg = gained
+		new_leg.unarmed_effectiveness = initial(new_leg.unarmed_effectiveness) + OVERSIZED_KICK_EFFECTIVENESS_BONUS
+		changed = TRUE
+
+	if(changed && !findtext(gained.name, "oversized"))
+		gained.name = "oversized " + gained.name
 
 /datum/movespeed_modifier/oversized
 	multiplicative_slowdown = OVERSIZED_SPEED_SLOWDOWN
