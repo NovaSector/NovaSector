@@ -27,7 +27,7 @@
 	belt_icon_state = "sword_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
-	block_chance = 30
+	block_chance = 35
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
