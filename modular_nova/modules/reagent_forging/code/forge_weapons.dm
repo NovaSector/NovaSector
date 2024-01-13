@@ -179,7 +179,7 @@
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded = 24, force_wielded = 12, require_twohands = TRUE)
+	AddComponent(/datum/component/two_handed, force_unwielded = 12, force_wielded = 24, require_twohands = TRUE)
 	AddElement(/datum/element/kneejerk)
 
 /obj/item/forging/reagent_weapon/hammer/attack_atom(atom/attacked_atom, mob/living/user, params)
