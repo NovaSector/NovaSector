@@ -276,6 +276,7 @@
 	save_data["languages"] = languages
 	save_data["headshot"] = headshot
 	save_data["modular_version"] = MODULAR_SAVEFILE_VERSION_MAX
+	save_data["food_preferences"] = food_preferences
 
 
 /datum/preferences/proc/update_mutant_bodyparts(datum/preference/preference)
