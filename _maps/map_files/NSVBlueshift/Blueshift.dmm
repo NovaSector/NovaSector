@@ -18326,12 +18326,6 @@
 	dir = 8
 	},
 /area/station/common/locker_room_shower)
-"dwr" = (
-/obj/machinery/firealarm/directional/west,
-/turf/open/floor/iron/dark/side{
-	dir = 8
-	},
-/area/station/hallway/primary/port)
 "dwx" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Fitness Courtyard"
@@ -150026,7 +150020,7 @@ rvy
 xil
 xil
 xil
-dwr
+xil
 xil
 mWt
 xil
