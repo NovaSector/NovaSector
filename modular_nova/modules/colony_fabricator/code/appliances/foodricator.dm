@@ -18,10 +18,13 @@
 		RND_CATEGORY_AKHTER_FOODRICATOR_UTENSILS,
 		RND_CATEGORY_AKHTER_SEEDS,
 	)
+	/// What this repacks into
+	var/repacked_type = /obj/item/flatpacked_machine/organics_ration_printer
 
 /obj/machinery/biogenerator/foodricator/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	AddElement(/datum/element/repackable, repacked_type, 5 SECONDS)
 
 /obj/machinery/biogenerator/foodricator/RefreshParts()
 	. = ..()
@@ -38,6 +41,7 @@
 	icon = 'modular_nova/modules/colony_fabricator/icons/foodricator.dmi'
 	icon_state = "biogenerator_parts"
 	type_to_deploy = /obj/machinery/biogenerator/foodricator
+	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,

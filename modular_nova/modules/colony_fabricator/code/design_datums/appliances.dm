@@ -25,7 +25,9 @@
 		"co2_cracker",
 		"portable_recycler",
 		"foodricator",
-		"wall_heater"
+		"wall_heater",
+		"macrowave",
+		"frontier_range",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000000000000000) // God save you
 	hidden = TRUE
@@ -80,6 +82,8 @@
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,
 	)
 	construction_time = 30 SECONDS
+
+/// Space heater, but it mounts on walls
 
 /datum/design/wall_mounted_space_heater
 	name = "Mounted Heater"
@@ -203,6 +207,60 @@
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
 	)
 	construction_time = 30 SECONDS
+
+// Really, its just a microwave
+
+/datum/design/macrowave
+	name = "Microwave Oven"
+	id = "macrowave"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/machinery/microwave/frontier_printed/unanchored
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
+	)
+	construction_time = 30 SECONDS
+
+// A range, but it looks cool af
+
+/datum/design/frontier_range
+	name = "Frontier Range"
+	id = "frontier_range"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/machinery/oven/range_frontier/unanchored
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
+	)
+	construction_time = 1 MINUTES
+
+// Griddles that fit on top of any regular table
+
+/datum/design/tabletop_griddle
+	name = "Tabletop Griddle"
+	id = "tabletop_griddle"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/machinery/griddle/frontier_tabletop/unanchored
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
+	)
+	construction_time = 1 MINUTES
 
 #undef FABRICATOR_CATEGORY_APPLIANCES
 #undef FABRICATOR_SUBCATEGORY_POWER
