@@ -270,7 +270,7 @@
 	force = 10
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/shell_cannon
 	obj_flags = UNIQUE_RENAME
-	rack_sound = 'modular_skyrat/modules/modular_weapons/sounds/shotgun_rack.ogg'
+	rack_sound = 'modular_nova/modules/modular_weapons/sounds/shotgun_rack.ogg'
 	semi_auto = TRUE
 	bolt_type = BOLT_TYPE_NO_BOLT
 	can_be_sawn_off = FALSE
