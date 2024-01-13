@@ -150,7 +150,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 /// Calculates the deviance points for food.
 /datum/food_prefs_menu/proc/calculate_points(datum/preferences/preferences)
-	var/points = 0
+	var/points = 4
 
 	for(var/food_entry in preferences.food_preferences)
 		var/food_preference = preferences.food_preferences[food_entry]
