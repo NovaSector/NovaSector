@@ -4,6 +4,7 @@
 		was made to be broken down into many parts and shipped across the glaxy. This makes it a favourite in \
 		pop-up food stalls and colony kitchens all around."
 	icon = 'modular_nova/modules/colony_fabricator/icons/kitchen_stuff/griddle.dmi'
+	icon_state = "griddletable_off"
 	variant = "table"
 	pass_flags_self = LETPASSTHROW
 	pass_flags = PASSTABLE
