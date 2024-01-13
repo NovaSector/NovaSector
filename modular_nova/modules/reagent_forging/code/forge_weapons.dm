@@ -27,7 +27,7 @@
 	belt_icon_state = "sword_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
-	block_chance = 50 //just shoot them
+	block_chance = 30
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -35,12 +35,6 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 	max_integrity = 150
-
-//this is where i overwrite the hit reaction so it doesnt block projectiles and tackles
-/obj/item/forging/reagent_weapon/sword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	if(attack_type == PROJECTILE_ATTACK || attack_type == LEAP_ATTACK)
-		final_block_chance = 0
-	return ..()
 
 //katana, one which shall cut through your puny armour
 /obj/item/forging/reagent_weapon/katana
@@ -61,12 +55,6 @@
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
-
-//but please dont use ranged projectiles
-/obj/item/forging/reagent_weapon/katana/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	if(attack_type == PROJECTILE_ATTACK || attack_type == LEAP_ATTACK)
-		final_block_chance = 0
-	return ..()
 
 //quirky knife that lets you click fast
 /obj/item/forging/reagent_weapon/dagger
@@ -159,7 +147,7 @@
 /obj/item/forging/reagent_weapon/hammer
 	name = "forged hammer"
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
-	force = 12
+	force = 24 //Requires wielding
 	armour_penetration = 10
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
@@ -179,7 +167,7 @@
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded = 12, force_wielded = 24, require_twohands = TRUE)
+	AddComponent(/datum/component/two_handed, force_unwielded = 24, force_wielded = 24, require_twohands = TRUE)
 	AddElement(/datum/element/kneejerk)
 
 /obj/item/forging/reagent_weapon/hammer/attack_atom(atom/attacked_atom, mob/living/user, params)
