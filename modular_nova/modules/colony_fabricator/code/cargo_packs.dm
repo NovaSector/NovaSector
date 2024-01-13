@@ -37,7 +37,6 @@
 		/obj/item/flatpacked_machine,
 		/obj/item/flatpacked_machine/organics_printer,
 		/obj/item/flatpacked_machine/gps_beacon,
-		/obj/item/flatpacked_machine/arc_furnace,
 		/obj/item/stack/sheet/plastic_wall_panel/fifty,
 		/obj/item/stack/rods/twentyfive,
 		/obj/item/stack/sheet/iron/twenty,
