@@ -565,3 +565,59 @@
   vinylspiders:
   - qol: tweaks the chat color clamping algorithm to be a bit more restrictive while
       still allowing for edge cases like greys and whites
+2024-01-13:
+  LT3:
+  - bugfix: Icebox kitchen has its light switch again
+  - bugfix: Icebox medbay hallway now has a fire alarm
+  - bugfix: Tramstation east APC will no longer be destroyed when the tram crashes
+  - qol: Tramstation central power and disposals moved out of the wall
+  LovliestPlant:
+  - qol: In the Opfor panel, adds buttons to open Opfor Policy, the Non-Antag Criminal
+      Addendum, and the Opfor Guide.
+  Melbert:
+  - bugfix: Lunar Parade has the potential to break less.
+  NovaBot13:
+  - image: New liquid plasma sprites from SS14!
+  - bugfix: Dropdowns should be more performant
+  - admin: Made logging for BSA targeting and firing easier to find for admins.
+  - bugfix: The "required_container_accepts_subtypes" variable on chemical reactions
+      now actually works again
+  - code_imp: removed a dupe trait entry in the traits_by_type list
+  - bugfix: Healing simplemobs with sutures and other stacks works again
+  - spellcheck: Healing mobs with medical stacks like suture and mesh give better
+      user feedback messages
+  - balance: Nightmare's Light Eater can now stun targets under certain conditions.
+  - qol: The heat-proof catwalk made by heat-proof rods will go away when a tile is
+      placed on it, rather than sticking around and needing to be removed manually
+  - bugfix: The lighting will not irreparably break on tiles where plating was placed
+      on lava-proof catwalks
+  - code_imp: Some single letter variables and the structure of the code around placing
+      tiles on lava-proof catwalks has been improved
+  - code_imp: The check that prevents your stuff from dropping when you have robotic
+      parts is now more robust
+  - qol: ID cards now set their accounts with Alt-Right click.
+  - bugfix: ID cards now once again have contextual screen tips showing what buttons
+      do what actions.
+  - bugfix: The deployable component will now actually stop rotating things when the
+      variable to not do that is set
+  OrionTheFox, sergeirocks100:
+  - image: The undershirt resprite has been ported over. Rejoice!
+  - rscadd: A bee shirt that was originally sitting unused in the icon files has been
+      properly added to the game.
+  Paxilmaniac:
+  - image: Forged armor has had its sprites significantly improved over what they
+      were before
+  - rscdel: Forged horseshoes have been removed, no more invisible leg armor!
+  Rhials:
+  - bugfix: Specialty drinks crafted in the crafting menu will now create the intended
+      reagents, instead of containing the reagents used to craft it.
+  nikothedude:
+  - bugfix: Silicon temp ftext overlay now works
+  - bugfix: Silicon temp ftext popout window now works
+  vinylspiders:
+  - bugfix: welding self as synth no longer makes you suffer through 3 progressbars
+  yooriss:
+  - bugfix: Autopunctuation no longer checks for underscores at the end of messages.
+  - bugfix: Autopunctuation now correctly inserts EOL periods for any bolded/italicised/underline
+      messages without them, if they don't already have punctuation of their own (like
+      exclamation marks, tildes, question marks, or hyphens).
