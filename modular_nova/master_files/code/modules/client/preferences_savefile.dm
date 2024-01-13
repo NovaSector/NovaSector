@@ -97,10 +97,7 @@
 	headshot = save_data["headshot"]
 
 
-	food_preferences = save_data["food_preferences"]
-
-	if(!islist(food_preferences))
-		food_preferences = list()
+	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
 
 	if(needs_update >= 0)
 		update_character_skyrat(needs_update, save_data) // needs_update == savefile_version if we need an update (positive integer)
