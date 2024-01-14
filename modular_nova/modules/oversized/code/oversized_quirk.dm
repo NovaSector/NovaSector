@@ -25,10 +25,8 @@
 	RegisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB, PROC_REF(on_gain_limb)) // make sure we handle this when new ones are applied
 
 	// just dummy call our current limbs to have less duplication (by having more duplication ahueheu)
-	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_L_ARM), null)
-	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_R_ARM), null)
-	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_L_LEG), null)
-	on_gain_limb(null, human_holder.get_bodypart(BODY_ZONE_R_LEG), null)
+	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
+		on_gain_limb(src, bodypart, special = FALSE)
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
@@ -81,12 +79,16 @@
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 /datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
+	SIGNAL_HANDLER
+
+	if(findtext(gained.name, "oversized"))
+		return
+
 	// Oversized arms have a higher damage maximum. Pretty simple.
-	var/changed = FALSE
 	if(istype(gained, /obj/item/bodypart/arm))
 		var/obj/item/bodypart/arm/new_arm = gained
 		new_arm.unarmed_damage_high = initial(new_arm.unarmed_damage_high) + OVERSIZED_HARM_DAMAGE_BONUS
-		changed = TRUE
+		return
 
 	// Before this, we never actually did anything with Oversized legs.
 	// This brings their unarmed_effectiveness up to 20 from 15, which is on par with mushroom legs.
@@ -94,10 +96,9 @@
 	if(istype(gained, /obj/item/bodypart/leg))
 		var/obj/item/bodypart/leg/new_leg = gained
 		new_leg.unarmed_effectiveness = initial(new_leg.unarmed_effectiveness) + OVERSIZED_KICK_EFFECTIVENESS_BONUS
-		changed = TRUE
-
-	if(changed && !findtext(gained.name, "oversized"))
-		gained.name = "oversized " + gained.name
+		return
+	
+	gained.name = "oversized " + gained.name
 
 /datum/movespeed_modifier/oversized
 	multiplicative_slowdown = OVERSIZED_SPEED_SLOWDOWN
