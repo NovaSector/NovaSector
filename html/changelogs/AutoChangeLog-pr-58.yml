@@ -1,0 +1,6 @@
+author: "Motho"
+delete-after: True
+changes:
+  - rscadd: "Added a civilian version of the Type-34P headset that actually has no armor."
+  - rscadd: "Added the aerostatic set to the loadout."
+  - qol: "Removed job restrictions from a majority of loadout items."
