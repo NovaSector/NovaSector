@@ -81,39 +81,79 @@
 
 /obj/item/paper/fluff/ruins/tarkon
 	name = "paper - 'Engineering Report'"
-	default_raw_text = "<B>Void Damn the last crew</B><BR><BR>Everything was a fucking mess- There was a FUCKING <b>HOLE</b> through the haul to science!<br><br><b>THANKFULLY,</b> The new RCD design came in handy... I swear- They might have taken that artifact and gave me something thats arguably worse... But, Science reassured that they can replace it if i break it... And they gave me that circuitboard they've been stashing, Set it with the blueprints in the solar SMES safe... Felt like a good spot."
+	default_raw_text = "<b>Void Damn the last crew</b><br><br>Everything was a fucking mess- There was a FUCKING <b>HOLE</b> through the hall to science!<br>,\
+	<br><b>THANKFULLY,</b> The new RCD design came in handy... I swear- They might have taken that artifact and gave me something thats arguably worse... ,\
+	But, Science reassured that they can replace it if i break it... And they gave me that circuitboard they've been stashing, Set it with the blueprints in the solar SMES safe... ,\
+	Felt like a good spot."
 
 /obj/item/paper/fluff/ruins/tarkon/goals
 	name = "paper - 'Tarkon Industries'"
-	default_raw_text = "<h1>Tarkon Industries Informative Guide</h1><br><br><b>We at Tarkon Industries</b> hope to create a long guided future for the average homesteader, creating a living space for the average spacer to settle down in, create future investments for traders, or even up to get people to make large communities among asteroid belts. <br><br><b>Our greatest engineers</b> have been working day, night, morning and evenings to create a stable, structurally sound system to start implanting stations, living areas and ports upon asteroids and planetoids too small to sustain life on the same level that of a goldie-lock planet. <br><br><b>Having great pride in our heritage</b> we have taken our industrious, communicative past to create a future for our kin, Inspiring better feats, further research and larger projects upon future generations. <br><br><b>Looking to help?</b> Then you can visit us at the Tarkon Industries Headquarters, The active co-ordinants can be detected starting around the Orion Belt, and we are actively accepting bright minds and great workers to help us.<br><br><br>Tarkon Industries: Building the future, nail by nail, asteroid by asteroid. 2456-2500(c)"
+	default_raw_text = "<h1>Tarkon Industries Informative Guide</h1><br><br><b>We at Tarkon Industries</b> hope to create a long guided future for the average homesteader, ,\
+	creating a living space for the average spacer to settle down in, create future investments for traders, or even up to get people to make large communities among asteroid belts. ,\
+	<br><br><b>Our greatest engineers</b> have been working day, night, morning and evenings to create a stable, structurally sound system to start implanting stations, ,\
+	living areas and ports upon asteroids and planetoids too small to sustain life on the same level that of a goldie-lock planet. ,\
+	<br><br><b>Having great pride in our heritage</b> we have taken our industrious, communicative past to create a future for our kin, ,\
+	Inspiring better feats, further research and larger projects upon future generations. <br><br><b>Looking to help?</b> Then you can visit us at the Tarkon Industries Headquarters, ,\
+	The active co-ordinant trail can be detected starting around the Orion Belt, and we are actively accepting bright minds and great workers to help us.<br><br>,\
+	<br>Tarkon Industries: Building the future, nail by nail, asteroid by asteroid. 2456-2500(c)"
 
 /obj/item/paper/fluff/ruins/tarkon/vaulter
 	name = "paper - 'Tarkon Vaulter'"
-	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Tarkon Vaulter Prototype</h2><br><br><b>Designed HEAVILY after the Driver</b>, The vaulter is of a similar concept, but at a much larger scale. Designed to work on larger planetoids and even moon and similar planetary satellites, The Tarkon Vaulter is another step towards Space Homesteading. Where the Driver and Vaulter split, however, is where the construction system lies. With the Vaulter, The construction is much more vertical in construction, starting by usually creating a cavern underneath its landing where a main room is constructed, and shortly after an elevator is deployed.<br><br><b>Where the Driver</b> relies on early construction of an additional power system, The vaulter is planned to have a much higher RTG count so that it may power the initial base construction, But the cost of which being making it much larger and with a much higher material storage needed so it can construct a decent area of operation on its first trip. With the Driver in its early testing phase, We are hoping to better tune its designs before shifting attention towards the driver, which have high hopes to enter testing in the early twenty-sixth century"
+	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Tarkon Vaulter Prototype</h2><br><br><b>Designed HEAVILY after the Driver</b>, The vaulter is of a similar concept, but at a much larger scale. ,\
+	Designed to work on larger planetoids and even moon and similar planetary satellites, The Tarkon Vaulter is another step towards Space Homesteading. Where the Driver and Vaulter split, however, is where the construction system lies. ,\
+	With the Vaulter, The construction is much more vertical in construction, starting by usually creating a cavern underneath its landing where a main room is constructed, and shortly after an elevator is deployed.<br>,\
+	<br><b>Where the Driver</b> relies on early construction of an additional power system, The vaulter is planned to have a much higher RTG count so that it may power the initial base construction, ,\
+	But the cost of which being making it much larger and with a much higher material storage needed so it can construct a decent area of operation on its first trip. With the Driver in its early testing phase, ,\
+	We are hoping to better tune its designs before shifting attention towards the driver, which have high hopes to enter testing in the early twenty-sixth century"
 
 /obj/item/paper/fluff/ruins/tarkon/driverpitch
 	name = "paper - 'Tarkon Driver'"
-	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Tarkon Driver Prototype</h2><br><br><b>Seeing the success of space-based mining,</b> We at Tarkon Industries wish to expand on the thought of a drill to a much larger goal, By mounting a drill and several cams to secur it in place, The Driver is designed to implant itself within the side of a large asteroid or small planetoid, Drilling out an area before the drill can be expanded out and slowly recycled to start construction of an operation base. <br><br><b>With the first area dug</b> the first priority should be an additional energy-producing area, or a portable generator to help fuel energy for future mining, Which should be done to slowly hollow out the planetoid and constructing walls, floors and ceilings. After the driver is properly cammed in place, the back part of it can be unhitched, allowing it to act as a ferry shuttle for materials, workforce or tools. <br><br><b>With our first Tarkon Driver being ready to test in 2479,</b> We have found a suitable asteroid, and hope to make connection to it by the start of 2480."
+	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Tarkon Driver Prototype</h2><br><br><b>Seeing the success of space-based mining, ,\
+	</b> We at Tarkon Industries wish to expand on the thought of a drill to a much larger goal, By mounting a drill and several cams to secur it in place, ,\
+	The Driver is designed to implant itself within the side of a large asteroid or small planetoid, Drilling out an area before the drill can be expanded out and slowly recycled to start construction of an operation base. ,\
+	<br><br><b>With the first area dug</b> the first priority should be an additional energy-producing area, or a portable generator to help fuel energy for future mining, ,\
+	Which should be done to slowly hollow out the planetoid and constructing walls, floors and ceilings. After the driver is properly cammed in place, the back part of it can be unhitched, ,\
+	allowing it to act as a ferry shuttle for materials, workforce or tools. <br><br><b>With our first Tarkon Driver being ready to test in 2479,</b> We have found a suitable asteroid, and hope to make connection to it by the start of 2480."
 
 /obj/item/paper/fluff/ruins/tarkon/detain
 	name = "paper - 'Tarkon Detainment Record'"
-	default_raw_text = "<h1>Tarkon Industries Detainment Record:</h1><br><br><b>Detainee:</b>Arcus Vilkov<br><b>Rank/Occupation:</b>Junior Scientist<br><b>Reason:</b> Attemptive sabotage of a working generator<br><br><b>Detainee:</b>Tilber Sinns<br><b>Rank/Occupation:</b>Apprentice Miner<br><b>Reason:</b>Detonated a volatile rock cluster close to a wall, Causing 3 hours of reconstruction.<br><br><b>Detainee:</b>Gearalt Antonov<br><b>Rank/Occupation:</b>Engineer Specialist<br><b>Reason:</b>Public Intoxication<br><br><b>Detainee:</b>Minke Arntz<br><b>Rank/Occupation:</b>Field Researcher<br><b>Reason:</b>Deconstructed an M6 to study the effects of space dust on ballistic firearms.<br><br><b>Detainee:</b>Renanta McCrory<br><b>Rank/Occupation:</b>Medical Surgeon<br><b>Reason:</b>Medical Malpractice, Swapped the thumbs of a patient with their big toes. Removed from Premises."
+	default_raw_text = "<h1>Tarkon Industries Detainment Record:</h1><br>,\
+	<br><b>Detainee:</b>Arcus Vilkov<br><b>Rank/Occupation:</b>Junior Scientist<br><b>Reason:</b> Attemptive sabotage of a working generator<br>,\
+	<br><b>Detainee:</b>Tilber Sinns<br><b>Rank/Occupation:</b>Apprentice Miner<br><b>Reason:</b>Detonated a volatile rock cluster close to a wall, Causing 3 hours of reconstruction.<br>,\
+	<br><b>Detainee:</b>Gearalt Antonov<br><b>Rank/Occupation:</b>Engineer Specialist<br><b>Reason:</b>Public Intoxication<br>,\
+	<br><b>Detainee:</b>Minke Arntz<br><b>Rank/Occupation:</b>Field Researcher<br><b>Reason:</b>Deconstructed an M6 to study the effects of space dust on ballistic firearms.<br>,\
+	<br><b>Detainee:</b>Renanta McCrory<br><b>Rank/Occupation:</b>Medical Surgeon<br><b>Reason:</b>Medical Malpractice, Swapped the thumbs of a patient with their big toes. Removed from Premises."
 
 /obj/item/paper/fluff/ruins/tarkon/scisafe
 	name = "paper - 'Science safe notice'"
-	default_raw_text = "<b>Until further notice,</b> we are not handing out the code to the safe.<br><br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br><br>Yes, Its still in the surgery room.<br>Yes, its code has been reset."
+	default_raw_text = "<b>Until further notice,</b> we are not handing out the code to the safe.<br>,\
+	<br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br>,\
+	<br>Yes, Its still in the surgery room.<br>Yes, its code has been reset."
 
 /obj/item/paper/fluff/ruins/tarkon/cargosafe
 	name = "paper - 'Cargo safe note'"
-	default_raw_text = "Hey... Director wasn't happy about bumping their head on the table trying to check funding, so we moved it into the warehouse.  <br> Check in the owlcove by the air alarm, make sure to paint the tiling when you're finished. <br> P.S: 50 credits if you can write the code down"
+	default_raw_text = "Hey... Director wasn't happy about bumping their head on the table trying to check funding, so we moved it into the warehouse. ,\
+	 <br> Check in the owlcove by the air alarm, make sure to paint the tiling when you're finished. ,\
+	 <br> P.S: 50 credits if you can write the code down"
 
 /obj/item/paper/fluff/ruins/tarkon/sop
 	name = "paper - 'Tarkon Security S.O.P'"
-	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... Atleast not without some governments throwing a shit-fit. So, Here's what we do. <br><br> If someone is tresspassing, We ask where they come from. Apparently there's a nearby station, So... Chances are they're from there. Aslong as you dont have to shoot them, You only hold them for questioning. <br><br> If its one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
+	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... ,\
+		Atleast not without some governments throwing a shit-fit. So, Here's what we do. <br><br> If someone is tresspassing, We ask where they come from. ,\
+		 Apparently there's a nearby station, So... Chances are they're from there. Aslong as you dont have to shoot them, You only hold them for questioning. <br> ,\
+		 <br> If its one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
+		  void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. ,\
+		  You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
 
 /obj/item/paper/fluff/ruins/tarkon/arcs
 	name = "paper - 'Tarkon Industries' Advanced Resonance Control System'"
-	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Advanced Resonance Control System</h2><br><br><b>Having used and seen fault with standard 'Resonators'</b> We at Tarkon Industries took a look at it and bog-standard mining equipment of the modern day. Having come acrossed a so called \"Proto-kinetic Accelerator\", Our engineers got to work deconstructing, reconstructing, modifying and ultimately creating a system we are proud of. <br><br><b>Capable of switching between self-activating and twin-cycle activation,</b> we've made a system that compresses the silicate dusts with-in space to a thin shard capable of transfering vast amounts of energy through \"Piezoelectric Resonance\", imbuing the crystal with enough energy that it vibrates at such a briefly stable magnitude, being capable of switching between a self-tearing frequency, or a more destructive frequency that requires a second trigger. <br><br> <b>As a safety note:</b> We request that any miners turn the safety on while coming in the station, As the brief stability of the shards are capable of transfering their resonant energy to organics."
+	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Advanced Resonance Control System</h2><br><br><b>Having used and seen fault with standard 'Resonators'</b> ,\
+	We at Tarkon Industries took a look at it and bog-standard mining equipment of the modern day. Having come acrossed a so called \"Proto-kinetic Accelerator\", Our engineers ,\
+	got to work deconstructing, reconstructing, modifying and ultimately creating a system we are proud of. <br><br><b>Capable of switching between self-activating and twin-cycle activation,</b> ,\
+	we've made a system that compresses the silicate dusts with-in space to a thin shard capable of transfering vast amounts of energy through \"Piezoelectric Resonance\", ,\
+	imbuing the crystal with enough energy that it vibrates at such a briefly stable magnitude, being capable of switching between a self-tearing frequency, ,\
+	or a more destructive frequency that requires a second trigger. <br><br> <b>As a safety note:</b> We request that any miners turn the safety on while coming in the station, ,\
+	As the brief stability of the shards are capable of transfering their resonant energy to organics."
 
 /obj/item/paper/fluff/ruins/tarkon/trcd
 	name = "paper - 'Tarkon Industries' Engineered RCD'"
@@ -121,7 +161,10 @@
 
 /obj/item/paper/fluff/ruins/tarkon/comsafe
 	name = "paper - 'Command Safe Note'"
-	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. The \"Safety of the future\" spiels... Now? Any dingbat can buy their own little constructor in a box... Fancy that we got one ourself, Thing has some handy designs..<br><br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, So we set the spare set in the special safe within the comms room."
+	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. ,\
+	The \"Safety of the future\" spiels... Now? Any dingbat can buy their own little constructor in a box... Fancy that we got one ourself, Thing has some handy designs..<br>,\
+	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
+	So we set the spare set in the special safe within the comms room."
 
 /obj/item/areaeditor/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."
