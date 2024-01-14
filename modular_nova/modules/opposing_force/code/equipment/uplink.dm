@@ -11,7 +11,7 @@
 /datum/opposing_force_equipment/uplink/uplink_implant
 	item_type = /obj/item/implanter/uplink
 	name = "Syndicate Uplink Implanter"
-	admin_note = "Traitor uplink implanter without telecrystals."
+	admin_note = "Implanter for a Traitor uplink with no TC."
 
 /datum/opposing_force_equipment/uplink/tc1
 	item_type = /obj/item/stack/telecrystal
