@@ -209,8 +209,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	var/loot_drop
 
 /obj/effect/nest_break/proc/rustle()
-	for(var/mob/M in range(7,src))
-		shake_camera(M, 15, 1)
+	for(var/mob/shooken in range(7,src))
+		shake_camera(shooken, 15, 1)
 	playsound(get_turf(src),'sound/effects/explosionfar.ogg', 200, TRUE)
 	visible_message(span_boldannounce("The nest's entrance starts to crumble before something charges forth!"))
 	new boss_mob(loc)

@@ -33,7 +33,7 @@
 		to_chat(user, span_info("You set the resonator's fields to automatically detonate after 2 seconds."))
 		mode = RESONATOR_MODE_AUTO
 
-/obj/item/gun/energy/recharge/resonant_system/proc/modify_projectile(obj/projectile/resonant_bolt/bolt)
+/obj/item/gun/energy/recharge/resonant_system/proc/modify_projectile(obj/projectile/resonant_bolt/bolt) //Allows for the resonator mode to activate with the resonator blast. Also copied from PKA code. This is butchered code.
 	bolt.firing_gun = src //do something special on-hit, easy!
 
 /obj/item/ammo_casing/energy/resonance
@@ -56,7 +56,7 @@
 	armor_flag = BOMB //Shockwave as opposed to physical mass
 	range = 6
 	log_override = TRUE
-	var/obj/item/gun/energy/recharge/resonant_system/firing_gun = null
+	var/obj/item/gun/energy/recharge/resonant_system/firing_gun = null //Link to fired gun. Effect purposes.
 
 /obj/projectile/resonant_bolt/on_hit(atom/target, blocked = 0, pierce_hit)
 	var/hit_target = FALSE
@@ -95,15 +95,15 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = null //Visual cue + general context is enough
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
-	var/mutable_appearance/marked_underlay
-	var/obj/item/gun/energy/recharge/resonant_system/firing_gun = null
+	var/mutable_appearance/marked_underlay //to show that there's an effect
+	var/obj/item/gun/energy/recharge/resonant_system/firing_gun = null //link to the gun for detonation and linkage purposes
 	var/damage_name = "resonant_force"
-	var/mode = null
-	var/quick_burst_mod = null
-	var/resonance_damage = 15
-	var/damage_multiplier = 1
-	var/mob/creator
-	var/autodet = FALSE
+	var/mode = null //resonator mode of the gun fired.
+	var/quick_burst_mod = null //damage modifier based if manual or auto
+	var/resonance_damage = 15 //damage done.
+	var/damage_multiplier = 1 //multiplies damage done.
+	var/mob/creator //links back to firer of gun
+	var/autodet = FALSE //Will it auto-detonate?
 
 /datum/status_effect/resonant_link/on_creation(mob/living/new_owner, obj/item/gun/energy/recharge/resonant_system/new_firing_gun)
 	. = ..()
@@ -127,7 +127,7 @@
 	if(autodet)
 		detonate()
 
-/datum/status_effect/resonant_link/proc/check_pressure(turf/proj_turf)
+/datum/status_effect/resonant_link/proc/check_pressure(turf/proj_turf) //is the person in low pressure?
 	if(!proj_turf)
 		proj_turf = get_turf(owner.loc)
 	resonance_damage = initial(resonance_damage)
@@ -138,7 +138,7 @@
 		damage_name = initial(damage_name)
 	resonance_damage *= damage_multiplier
 
-/datum/status_effect/resonant_link/proc/detonate()
+/datum/status_effect/resonant_link/proc/detonate() //applies the damage
 	SIGNAL_HANDLER
 	var/turf/src_turf = get_turf(src)
 	playsound(src_turf, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
