@@ -55,7 +55,7 @@
 
 /obj/item/card/id/advanced/tarkon/engi
 	name = "P-T maintenance engineer's access card"
-	desc = "An access card designated for \"engineering staff\". You're going to be the one everyone points at to fix stuff, lets be honest."
+	desc = "An access card designated for \"engineering staff\". You're going to be the one everyone points at to fix stuff, let's be honest."
 	trim = /datum/id_trim/away/tarkon/eng
 
 /datum/id_trim/away/tarkon/sci
@@ -96,5 +96,5 @@
 
 /obj/item/card/id/advanced/tarkon/ensign
 	name = "Tarkon ensign's access card"
-	desc = "An access card designated for \"Tarkon ensign\". No one has to listen to you... But you're the closest there is for command around here."
+	desc = "An access card designated for \"Tarkon ensign\". No one has to listen to you... But you're the closest thing there is to command around here."
 	trim = /datum/id_trim/away/tarkon/ensign

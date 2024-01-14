@@ -33,10 +33,10 @@
 	id = "mod_plating_tarkon"
 	build_path = /obj/item/mod/construction/plating/security
 	materials = list(
-		/datum/material/iron =SHEET_MATERIAL_AMOUNT*3,
-		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 	research_icon_state = "security-plating"
@@ -48,11 +48,11 @@
 	id = "arcs"
 	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
-		/datum/material/glass =SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/silver =SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/uranium =SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/diamond =SHEET_MATERIAL_AMOUNT
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/gun/energy/recharge/resonant_system
 	category = list(
@@ -66,11 +66,11 @@
 	id = "rcd_tarkon"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
-		/datum/material/iron =SHEET_MATERIAL_AMOUNT*30,
-		/datum/material/glass =SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/uranium =SHEET_MATERIAL_AMOUNT * 4,
-		/datum/material/diamond =SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 3
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 30,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 10,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 3,
 		)
 	build_path = /obj/item/construction/rcd/loaded
 	category = list(

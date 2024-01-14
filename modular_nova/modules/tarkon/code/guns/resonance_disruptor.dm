@@ -2,7 +2,7 @@
 
 /obj/item/gun/energy/recharge/resonant_system
 	name = "A.R.C.S Resonator"
-	desc = "The \"Advanced Resonance Control System\" or \"A.R.C.S\" is an advanced, ranged version of a mining resonator. While its main case looks nothing more fancy than a modified proto-kinetic accelerator... One could guess thats not far off the truth. The lugs for a bayonette are missing, but atleast you can play with the new adjustment dial on the side."
+	desc = "The \"Advanced Resonance Control System\" or \"A.R.C.S\" is an advanced, ranged version of a mining resonator. While its main case looks nothing more fancy than a modified proto-kinetic accelerator... One could guess that's not far off the truth. The lugs for a bayonet are missing, but at least you can play with the new adjustment dial on the side."
 	icon = 'modular_nova/modules/tarkon/icons/misc/ARCS.dmi'
 	righthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/ARCS/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/ARCS/lefthand.dmi'
@@ -83,11 +83,11 @@
 			resonance_field.damage_multiplier = firing_gun.quick_burst_mod
 			resonance_field.burst()
 			hit_target = TRUE
-			return
+			return BULLET_ACT_HIT
 	if(LAZYLEN(firing_gun.fields) < firing_gun.fieldlimit)
 		if(!hit_target)
 			new /obj/effect/temp_visual/resonance(target_turf, firer, firing_gun, firing_gun.mode, firing_gun.adding_failure)
-	..()
+	return ..()
 
 /datum/status_effect/resonant_link
 	id = "resonant_link"
@@ -149,7 +149,7 @@
 	to_chat(owner, span_userdanger("[src] detonated with you in it!"))
 	owner.apply_damage(resonance_damage, BRUTE)
 	owner.add_movespeed_modifier(/datum/movespeed_modifier/resonance)
-	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, remove_movespeed_modifier), /datum/movespeed_modifier/resonance), 10 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, remove_movespeed_modifier), /datum/movespeed_modifier/resonance), 10 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_DELETE_ME)
 
 /datum/status_effect/resonant_link/Destroy()
 	firing_gun = null

@@ -114,7 +114,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper-o"
 	you_are_text = "You were tasked by Tarkon Industries to Port Tarkon as a low-level command member. Your superior is the site director."
-	flavour_text = "Second in command, you are usually tasked with outward missions with other tarkon members while the site director stays at the port. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
+	flavour_text = "Second in command, you are usually tasked with outward missions with other Tarkon members while the site director stays at the port. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
 	important_text = "You are not to abandon Port Tarkon without reason. You are allowed to travel within available Z-levels and to the station, and are allowed to hold exploration parties."
 	outfit = /datum/outfit/tarkon/ensign
 	spawner_job_path = /datum/job/tarkon
@@ -194,9 +194,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	var/loot_drop = /obj/effect/mob_spawn/corpse/human/tarkon
 
 /obj/structure/spawner/tarkon_xenos/deconstruct(disassembled)
-	var/obj/effect/nest_break/nest = new /obj/effect/nest_break(loc)
-	nest.loot_drop = loot_drop
-	nest.boss_mob = boss_mob
+	var/obj/effect/nest_break/nest = new /obj/effect/nest_break(loc, loot_drop, boss_mob)
 	return ..()
 
 /obj/effect/nest_break
@@ -207,8 +205,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	anchored = TRUE
 	density = TRUE
-	var/boss_mob = null
-	var/loot_drop = null
+	var/boss_mob
+	var/loot_drop
 
 /obj/effect/nest_break/proc/rustle()
 	for(var/mob/M in range(7,src))
@@ -219,11 +217,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	new loot_drop(loc)
 	qdel(src)
 
-/obj/effect/nest_break/Initialize(mapload)
+/obj/effect/nest_break/Initialize(mapload, loot_drop, boss_mob)
 	. = ..()
+	src.loot_drop = loot_drop
+	src.boss_mob = boss_mob
 	visible_message(span_boldannounce("The nest rumbles violently as the entrance begins to crack and break apart!"))
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
-	addtimer(CALLBACK(src, PROC_REF(rustle)), 50)
+	addtimer(CALLBACK(src, PROC_REF(rustle)), 5 SECONDS, TIMER_DELETE_ME)
 	do_jiggle()
 
 /obj/structure/spawner/tarkon_xenos/common
@@ -254,18 +254,19 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 
 /obj/effect/spawner/random/astrum/sci_loot/tarkon
 	name = "abductor scientist loot"
-	loot = list(/obj/item/circular_saw/alien = 10,
-				/obj/item/retractor/alien = 10,
-				/obj/item/scalpel/alien = 10,
-				/obj/item/hemostat/alien = 10,
-				/obj/item/crowbar/abductor = 10,
-				/obj/item/screwdriver/abductor = 10,
-				/obj/item/wrench/abductor = 10,
-				/obj/item/weldingtool/abductor = 10,
-				/obj/item/crowbar/abductor = 10,
-				/obj/item/wirecutters/abductor = 10,
-				/obj/item/multitool/abductor = 10,
-				)
+	loot = list(
+		/obj/item/circular_saw/alien = 10,
+		/obj/item/retractor/alien = 10,
+		/obj/item/scalpel/alien = 10,
+		/obj/item/hemostat/alien = 10,
+		/obj/item/crowbar/abductor = 10,
+		/obj/item/screwdriver/abductor = 10,
+		/obj/item/wrench/abductor = 10,
+		/obj/item/weldingtool/abductor = 10,
+		/obj/item/crowbar/abductor = 10,
+		/obj/item/wirecutters/abductor = 10,
+		/obj/item/multitool/abductor = 10,
+	)
 
 /obj/effect/spawner/random/exotic/technology/tarkon
 	spawn_loot_count = 1 //we just need one.
