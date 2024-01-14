@@ -8,7 +8,7 @@
 	materials = list(/datum/material/iron= SHEET_MATERIAL_AMOUNT * 2)
 	construction_time = 8 SECONDS
 	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_DIGI
+		RND_CATEGORY_MECHFAB_CYBORG + RND_SUBCATEGORY_MECHFAB_CYBORG_DIGI,
 	)
 
 /datum/design/digitigrade_cyber_l_leg
