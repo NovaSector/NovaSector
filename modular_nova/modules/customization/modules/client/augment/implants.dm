@@ -19,17 +19,49 @@
 /datum/augment_item/implant/l_arm
 	slot = AUGMENT_SLOT_LEFT_ARM_IMPLANT
 
+/datum/augment
+
+/datum/augment_item/implant/l_arm/civilian_lighter
+	name = "Thumbtip Lighter"
+	cost = 2
+	path = /obj/item/organ/internal/cyberimp/arm/civilian_lighter
+
 /datum/augment_item/implant/l_arm/razor_claws
-    name = "Left Razor Claws"
+    name = "Left Razor Claws (Knife + Wirecutters)"
     cost = 4
     path = /obj/item/organ/internal/cyberimp/arm/razor_claws/left_arm
+
+/datum/augment_item/implant/l_arm/adjuster
+	name = "Adjuster Implant (Screwdriver + Wrench)"
+	cost = 4
+	path = /obj/item/organ/internal/cyberimp/arm/adjuster/left_arm
+
+/datum/augment_item/implant/l_arm/civilian_barstaff
+	name = "Waitstaff's Toolset Implant (Serving Tray + Rag)"
+	cost = 4
+	path = /obj/item/organ/internal/cyberimp/arm/civilian_barstaff/left_arm
+
+/datum/augment_item/implant/l_arm/emt_triage
+	name = "Triage Actuator Implant (Drapes + Scalpel + Hemostat)"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/arm/emt_triage/left_arm
+
+/datum/augment_item/implant/l_arm/arc_welder
+	name = "Shipbreaker's Toolset Implant (Arc Welder + Crowbar + Wrench)"
+	cost = 8
+	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/left_arm
+
+/datum/augment_item/implant/l_arm/electrical_toolset
+	name = "Electrical Toolset Implant (Screwdriver + Multitool)"
+	cost = 8
+	path = /obj/item/organ/internal/cyberimp/arm/electrical_toolset/left_arm
 
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
 
 /datum/augment_item/implant/r_arm/razor_claws
-    name = "Right Razor Claws"
+    name = "Right Razor Claws (Knife + Wirecutters)"
     cost = 4
     path = /obj/item/organ/internal/cyberimp/arm/razor_claws/right_arm
 
