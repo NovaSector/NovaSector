@@ -56,23 +56,7 @@
 	AddComponent(/datum/component/surgery_initiator)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 
-/obj/item/scalpel/integrated
-	name = "fingertip scalpel"
-	desc = "The mainstay of less-than-legal cyberneticists galaxy wide. Much more finnicky to use than the real deal, but has the added advantage of inverting neatly into your finger when not in use. Comes with spring-detachable blades for easy sanitation."
-	toolspeed = 2
-	wound_bonus = 0 // nope you're not starting with a 10 wound bonus weapon unless you pick razor claws
-	bare_wound_bonus = 0 // see above
 
-/obj/item/scalpel/integrated/Initialize(mapload)
-	. = ..()
-	// hard override this one since it's worse in some ways
-	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS * toolspeed, \
-	effectiveness = 50, \
-	bonus_modifier = 0, \
-	)
-	AddElement(/datum/element/eyestab)
-	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 
 /obj/item/hemostat/integrated
 	name = "integrated hemostatic clamp"

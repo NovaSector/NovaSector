@@ -30,7 +30,7 @@
 
 /obj/item/organ/internal/cyberimp/arm/emt_triage
 	name = "triage actuator implant"
-	desc = "Pioneered by Interdyne Pharmaceuticals for use in their frontier postings, this set of in-arm augments allows medical staff to perform basic life-saving surgeries out on the field."
+	desc = "Pioneered by Interdyne Pharmaceuticals for use in their frontier postings, this set of in-arm augments allows medical staff to perform basic life-saving surgeries out on the field with the assistance of a bladed instrument."
 	items_to_create = list(/obj/item/surgical_drapes/integrated, /obj/item/retractor/integrated, /obj/item/hemostat/integrated)
 
 /obj/item/organ/internal/cyberimp/arm/emt_triage/Initialize(mapload)
