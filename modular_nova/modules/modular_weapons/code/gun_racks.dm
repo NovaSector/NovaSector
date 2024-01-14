@@ -34,7 +34,7 @@
 
 /// Rotates the weapon or resets its transform based on the being_removed variable, adjusts for base pixel shifts because that can look real bad sometimes
 /obj/structure/rack/gunrack/proc/rotate_weapon(obj/item/incoming_weapon, being_removed = FALSE)
-	var/matrix/new_matrix = incoming_weapon.matrix()
+	var/matrix/new_matrix = matrix()
 	if(!being_removed)
 		new_matrix.Turn(-90)
 	incoming_weapon.transform = new_matrix
