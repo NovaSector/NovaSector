@@ -84,9 +84,9 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 					liked_food_length++
 					if(liked_food_length > MAXIMUM_LIKES)
 						preferences.food_preferences.Remove(food_entry)
-
-			if(liked_food_length > MAXIMUM_LIKES || (food_preference == FOOD_PREFERENCE_LIKED && liked_food_length == MAXIMUM_LIKES)) // Equals as well, if we're setting a liked food!
-				return TRUE // Fuck you, look your mistakes in the eye.
+				if(liked_food_length > MAXIMUM_LIKES || (food_preference == FOOD_PREFERENCE_LIKED && liked_food_length == MAXIMUM_LIKES)) // Equals as well, if we're setting a liked food!
+					if(!GLOB.food_ic_flag_to_point_values[food_name][FOOD_PREFERENCE_OBSCURE] == TRUE)
+						return TRUE // Fuck you, look your mistakes in the eye.
 
 			preferences.food_preferences[food_name] = food_preference
 			return TRUE
