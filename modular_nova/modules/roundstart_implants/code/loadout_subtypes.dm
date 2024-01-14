@@ -57,3 +57,11 @@
 /obj/item/organ/internal/cyberimp/arm/civilian_lighter/right_arm
 	zone = BODY_ZONE_R_ARM
 	slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/organ/internal/cyberimp/arm/blacksteel_forging/left_arm
+	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_AUG
+
+/obj/item/organ/internal/cyberimp/arm/blacksteel_forging/right_arm
+	zone = BODY_ZONE_R_ARM
+	slot = ORGAN_SLOT_RIGHT_ARM_AUG

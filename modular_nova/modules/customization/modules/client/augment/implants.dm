@@ -46,6 +46,11 @@
 	cost = 6
 	path = /obj/item/organ/internal/cyberimp/arm/emt_triage/left_arm
 
+/datum/augment_item/implant/l_arm/blacksteel_forging
+	name = "Blacksteel 'Starforge' Toolset Implant (Forging Hammer + Tongs + Bellows)"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/arm/blacksteel_forging/left_arm
+
 /datum/augment_item/implant/l_arm/arc_welder
 	name = "Shipbreaker's Toolset Implant (Arc Welder + Crowbar + Wrench)"
 	cost = 8

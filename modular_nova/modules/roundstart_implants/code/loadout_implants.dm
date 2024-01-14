@@ -73,3 +73,12 @@
 	name = "thumbtip lighter implant"
 	desc = "This extraordinarily useless implant was a product of market demand, and it exists because the galactic diaspora apparently craves the ability to light things with their thumbtips."
 	items_to_create = list(/obj/item/lighter/integrated)
+
+/obj/item/organ/internal/cyberimp/arm/blacksteel_forging
+	name = "Blacksteel 'Starforge' metalworking toolset implant"
+	desc = "A galactic favorite amongst burgeoning starfarer races with a fascination for basic metallurgy or mundane weaponry, this unlikely toolset augmentation is one of the Foundation's most popular products."
+	items_to_create = list(/obj/item/forging/hammer/integrated, /obj/item/forging/tongs/integrated, /obj/item/forging/billow/integrated)
+
+/obj/item/organ/internal/cyberimp/arm/blacksteel_forging/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_BLACKSTEEL)
