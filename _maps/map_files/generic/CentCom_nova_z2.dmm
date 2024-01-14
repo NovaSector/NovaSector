@@ -6472,9 +6472,6 @@
 /area/centcom/interlink)
 "foq" = (
 /obj/structure/sign/poster/official/cleanliness/directional/east,
-/obj/machinery/camera/directional/north{
-	c_tag = "Jim Norton's Quebecois Coffee"
-	},
 /obj/structure/noticeboard/directional/north,
 /obj/item/reagent_containers/condiment/sugar{
 	pixel_y = 4
@@ -6587,6 +6584,10 @@
 /obj/item/pushbroom,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"fAw" = (
+/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
+/turf/open/floor/iron/white,
+/area/centcom/holding/cafe)
 "fAL" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/grass/jungle/b/style_random,
@@ -7396,6 +7397,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "hea" = (
@@ -9384,6 +9386,13 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"kOr" = (
+/obj/structure/flora/bush/large{
+	icon_state = "bush3"
+	},
+/obj/structure/cafejammer,
+/turf/open/misc/grass/planet,
+/area/centcom/holding/cafepark)
 "kOZ" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 8
@@ -11677,6 +11686,13 @@
 	},
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
+"oRG" = (
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
+/turf/open/floor/iron/white,
+/area/centcom/holding/cafe)
 "oRX" = (
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock/research{
@@ -65651,7 +65667,7 @@ uXF
 uXF
 afN
 pUQ
-aNk
+kOr
 vTT
 saT
 aVg
@@ -67196,7 +67212,7 @@ ayI
 kMw
 aZq
 lNi
-dOM
+fAw
 rpX
 vTT
 rzT
@@ -67453,7 +67469,7 @@ aOz
 lWZ
 aZq
 aCY
-dOM
+fAw
 sPA
 aAv
 bVn
@@ -67710,7 +67726,7 @@ ayI
 qAg
 vTT
 gmE
-azj
+oRG
 rnK
 vTT
 iWH
