@@ -69,7 +69,7 @@
 		right_leg.unarmed_effectiveness = initial(right_leg.unarmed_effectiveness)
 
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
-		bodypart.name = replacetext(bodypart.name, "special ", "")
+		bodypart.name = replacetext(bodypart.name, "oversized ", "")
 
 	UnregisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB)
 
