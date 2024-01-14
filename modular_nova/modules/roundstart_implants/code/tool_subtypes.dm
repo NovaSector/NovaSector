@@ -56,8 +56,6 @@
 	AddComponent(/datum/component/surgery_initiator)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 
-
-
 /obj/item/hemostat/integrated
 	name = "integrated hemostatic clamp"
 	desc = "More or less a glorified set of forceps with slightly serrated teeth and a dedicated interlocking mechanism, all miniaturized to fit inside a finger."

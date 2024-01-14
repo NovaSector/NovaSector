@@ -24,7 +24,7 @@
 /datum/augment_item/implant/l_arm/civilian_lighter
 	name = "Thumbtip Lighter"
 	cost = 2
-	path = /obj/item/organ/internal/cyberimp/arm/civilian_lighter
+	path = /obj/item/organ/internal/cyberimp/arm/civilian_lighter/left_arm
 
 /datum/augment_item/implant/l_arm/razor_claws
     name = "Left Razor Claws (Knife + Wirecutters)"
@@ -42,7 +42,7 @@
 	path = /obj/item/organ/internal/cyberimp/arm/civilian_barstaff/left_arm
 
 /datum/augment_item/implant/l_arm/emt_triage
-	name = "Triage Actuator Implant (Drapes + Scalpel + Hemostat)"
+	name = "Triage Actuator Implant (Drapes + Retractor + Hemostat)"
 	cost = 6
 	path = /obj/item/organ/internal/cyberimp/arm/emt_triage/left_arm
 

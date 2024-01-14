@@ -1,5 +1,32 @@
 // Core balance principles with these roundstart augments is that they are SLOW. 2 toolspeed minimum where possible - finding actual things in round should always be better, this is for flavor and accessibility. The accessibility alone already provides these with a lot of value.
 
+// EYE IMPLANTS
+
+/obj/item/organ/internal/eyes/robotic/binoculars
+	name = "digital magnification optics"
+	desc = "Commonly used on frontier worlds with comparatively vast overland distances to aid in visual acquisition of coworkers and targets."
+	actions_types = list(/datum/action/item_action/organ_action/toggle)
+	var/zoomed = FALSE
+	var/range_power = 2 // what kind of range modifier do we feed to the scope component?
+
+/obj/item/organ/internal/eyes/robotic/binoculars/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/scope, range_modifier = range_power)
+
+/obj/item/organ/internal/eyes/robotic/binoculars/ui_action_click(mob/user, actiontype)
+	if (istype(actiontype, /datum/action/item_action/organ_action/toggle))
+		toggle_active(user)
+
+/obj/item/organ/internal/eyes/robotic/binoculars/proc/toggle_active(mob/user)
+	//this is so unbelievably, hysterically jank. i actually cannot believe this works. what the fuck
+	var/datum/component/scope/zoom = src.GetComponent(/datum/component/scope)
+	if (zoomed)
+		zoom.stop_zooming(user)
+		zoomed = FALSE
+	else
+		zoom.zoom(user)
+		zoomed = TRUE
+
 // ARM IMPLANTS
 /obj/item/organ/internal/cyberimp/arm/adjuster
 	name = "adjuster arm implant"
