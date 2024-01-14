@@ -64,6 +64,7 @@
 	bare_wound_bonus = 0 // see above
 
 /obj/item/scalpel/integrated/Initialize(mapload)
+	. = ..()
 	// hard override this one since it's worse in some ways
 	AddComponent(/datum/component/butchering, \
 	speed = 8 SECONDS * toolspeed, \
@@ -79,6 +80,15 @@
 	toolspeed = 2 // this will directly affect how fast someone can tend wounds with this setup, balancejak accordingly
 
 /obj/item/hemostat/integrated/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
+
+/obj/item/retractor/integrated
+	name = "fingertip retractor clamp"
+	desc = "A special suite of high-grip flesh torsioning clips designed for use in field surgery situations."
+	toolspeed = 2
+
+/obj/item/retractor/integrated/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_INTERDYNE)
 
