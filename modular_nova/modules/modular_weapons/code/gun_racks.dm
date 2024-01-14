@@ -38,6 +38,7 @@
 	if(!being_removed)
 		new_matrix.Turn(-90)
 	incoming_weapon.transform = new_matrix
+	RegisterSignal(incoming_weapon, COMSIG_ITEM_EQUIPPED, PROC_REF(item_picked_up))
 
 /// Checks when something is leaving our turf, if its a gun then make sure to reset its transform so its not permanently rotated
 /obj/structure/rack/gunrack/proc/on_exit(datum/source, atom/movable/leaving, direction)
@@ -47,3 +48,11 @@
 		return
 	var/obj/item/leaving_item = leaving
 	rotate_weapon(leaving_item, TRUE)
+
+/// Handles the guns being picked up to unrotate them
+/obj/structure/rack/gunrack/proc/item_picked_up(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+
+	var/obj/item/leaving_item = source
+	rotate_weapon(leaving_item, TRUE)
+	UnregisterSignal(leaving_item, COMSIG_ITEM_EQUIPPED)
