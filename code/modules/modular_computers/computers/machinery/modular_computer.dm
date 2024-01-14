@@ -106,9 +106,14 @@
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/machinery/modular_computer/interact(mob/user)
-	if(cpu)
-		return cpu.interact(user)
-	return ..()
+    // NOVA SECTOR ADDITION - START - KILLING THE COMPUTER
+    var/area/target_area = get_area(src)
+    if(istype(target_area, /area/centcom/holding) || istype(target_area, /area/misc/hilbertshotel))
+        return ..()
+    // NOVA SECTOR ADDITION - END - KILLING THE COMPUTER
+    if(cpu)
+        return cpu.interact(user)
+    return ..()
 
 // Modular computers can have battery in them, we handle power in previous proc, so prevent this from messing it up for us.
 /obj/machinery/modular_computer/power_change()
