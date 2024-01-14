@@ -415,12 +415,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/vending/cola/black{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
-	},
+/obj/machinery/vending/autodrobe,
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -1237,12 +1232,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
-/obj/machinery/vending/coffee{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
-	},
+/obj/machinery/vending/barbervend,
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -3946,7 +3936,12 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
-/obj/machinery/vending/barbervend,
+/obj/machinery/vending/coffee{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -6585,9 +6580,12 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "fAw" = (
-/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
-/turf/open/floor/iron/white,
-/area/centcom/holding/cafe)
+/obj/structure/flora/bush/large{
+	icon_state = "bush3"
+	},
+/obj/structure/cafejammer,
+/turf/open/misc/grass/planet,
+/area/centcom/holding/cafepark)
 "fAL" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/grass/jungle/b/style_random,
@@ -7397,7 +7395,6 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
-/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "hea" = (
@@ -8434,7 +8431,12 @@
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/light,
-/obj/machinery/vending/autodrobe,
+/obj/machinery/vending/cola/black{
+	default_price = 0;
+	extended_inventory = 1;
+	extra_price = 0;
+	fair_market_price = 0
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -9386,13 +9388,6 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"kOr" = (
-/obj/structure/flora/bush/large{
-	icon_state = "bush3"
-	},
-/obj/structure/cafejammer,
-/turf/open/misc/grass/planet,
-/area/centcom/holding/cafepark)
 "kOZ" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 8
@@ -11687,11 +11682,24 @@
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
 "oRG" = (
-/obj/effect/turf_decal/tile/blue/half/contrasted{
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/machinery/vending/wardrobe/medi_wardrobe/ghost_cafe,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/obj/structure/dresser,
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
 /area/centcom/holding/cafe)
 "oRX" = (
 /obj/structure/fans/tiny/invisible,
@@ -62312,7 +62320,7 @@ wDG
 aUo
 aUz
 aTb
-aBH
+oRG
 axL
 azT
 azT
@@ -65667,7 +65675,7 @@ uXF
 uXF
 afN
 pUQ
-kOr
+fAw
 vTT
 saT
 aVg
@@ -67212,7 +67220,7 @@ ayI
 kMw
 aZq
 lNi
-fAw
+dOM
 rpX
 vTT
 rzT
@@ -67469,7 +67477,7 @@ aOz
 lWZ
 aZq
 aCY
-fAw
+dOM
 sPA
 aAv
 bVn
@@ -67726,7 +67734,7 @@ ayI
 qAg
 vTT
 gmE
-oRG
+azj
 rnK
 vTT
 iWH
