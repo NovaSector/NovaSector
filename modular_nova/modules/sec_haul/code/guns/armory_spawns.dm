@@ -31,7 +31,7 @@
 
 		if(vertical_guns && rack_on_tile)
 			rack_on_tile.rotate_weapon(spawned_gun)
-			spawned_gun.pixel_x = -10 + (offset_percent * gun_count) - spawned_gun.base_pixel_x
+			spawned_gun.pixel_x = -10 + (offset_percent * gun_count) + spawned_gun.base_pixel_x
 		else if (fan_out_items)
 			spawned_gun.pixel_x = spawned_gun.pixel_y = ((!(gun_count%2)*gun_count/2)*-1)+((gun_count%2)*(gun_count+1)/2*1)
 

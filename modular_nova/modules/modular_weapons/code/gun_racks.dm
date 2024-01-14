@@ -29,7 +29,7 @@
 		if(istype(attacking_item, /obj/item/gun))
 			var/obj/item/gun/our_gun = attacking_item
 			rotate_weapon(our_gun)
-			our_gun.pixel_x = rand(-10, 10) - our_gun.base_pixel_x
+			our_gun.pixel_x = rand(-10, 10) + our_gun.base_pixel_x
 		return TRUE
 
 /// Rotates the weapon or resets its transform based on the being_removed variable
