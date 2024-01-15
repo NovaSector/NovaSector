@@ -17,7 +17,7 @@
 	prereq_ids = list("engineering")
 	required_items_to_unlock = list(
 		/obj/item/mod/construction/plating/tarkon,
-		/obj/item/construction/rcd/arcd/tarkon,
+		/obj/item/construction/rcd/tarkon,
 		/obj/item/gun/energy/recharge/resonant_system,
 	)
 	design_ids = list(

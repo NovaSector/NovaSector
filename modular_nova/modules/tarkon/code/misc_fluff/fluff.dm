@@ -157,7 +157,11 @@
 
 /obj/item/paper/fluff/ruins/tarkon/trcd
 	name = "paper - 'Tarkon Industries' Engineered RCD'"
-	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Advanced R.C.D Design Upgrade</h2><br><br><b>Being an Industry that deals with Architectural Engineering, Station construction, and Port maintenance</b> We at Tarkon Industries took a look at the tooks we provide, and found them wanting. A standard RCD is capable of not much, And while we couldn't manage to expand their designs to make stronger walls (Yet. We strive to improve), We have made a breakthrough with the recent discovery of \"Bluespace Quantum Entanglement.\" <br><br><b>Using bluespace as a vessel for quantum-entangling the RCD's constructing-mechanism,</b> we've designed a tool that allows our engineers to construct port additions, fix breaches, or even construct airlocks beyond arms length. <br><br><b>While we're not able to re-create the efficiency or material space of the \"artifact\" we were given<b>, We have returned it to the cargo hold of the port that has let us analyze it, along with an updated RCD model so that they may put the artifact on display rahter than to use."
+	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Advanced R.C.D Design Upgrade</h2><br><br><b>Being an Industry that deals with Architectural Engineering, Station construction, and Port maintenance;</b> ,\
+	We at Tarkon Industries took a look at the tooks we provide, and found them wanting. A standard RCD is capable of not much, And while we couldn't manage to expand their designs to make stronger walls ,\
+	(Yet. We strive to improve), We have made a breakthrough with the recent discovery of \"Bluespace Quantum Entanglement.\" <br><br><b>Using bluespace as a vessel for quantum-entangling the RCD's constructing-mechanism,</b> ,\
+	we've designed a tool that allows our engineers to construct port additions, fix breaches, or even construct airlocks beyond arms length. <br><br><b>While we're not able to re-create the efficiency or material space of the \"artifact\" we were given<b>, ,\
+	We have returned it to the cargo hold of the port that has let us analyze it, along with an updated RCD model so that they may put the artifact on display rahter than to use."
 
 /obj/item/paper/fluff/ruins/tarkon/comsafe
 	name = "paper - 'Command Safe Note'"

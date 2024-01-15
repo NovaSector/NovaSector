@@ -205,8 +205,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	anchored = TRUE
 	density = TRUE
-	var/boss_mob
-	var/loot_drop
+	var/boss_mob //Boss mob that spawns after nest breaking
+	var/loot_drop //Reward for breaking nest
 
 /obj/effect/nest_break/proc/rustle()
 	for(var/mob/shooken in range(7,src))

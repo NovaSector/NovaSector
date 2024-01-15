@@ -4,8 +4,8 @@
 	name = "A.R.C.S Resonator"
 	desc = "The \"Advanced Resonance Control System\" or \"A.R.C.S\" is an advanced, ranged version of a mining resonator. While its main case looks nothing more fancy than a modified proto-kinetic accelerator... One could guess that's not far off the truth. The lugs for a bayonet are missing, but at least you can play with the new adjustment dial on the side."
 	icon = 'modular_nova/modules/tarkon/icons/misc/ARCS.dmi'
-	righthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/ARCS/righthand.dmi'
-	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/ARCS/lefthand.dmi'
+	righthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/lefthand.dmi'
 	icon_state = "arcs"
 	base_icon_state = "arcs"
 	inhand_icon_state = "arcs"
