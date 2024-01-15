@@ -621,3 +621,58 @@
   - bugfix: Autopunctuation now correctly inserts EOL periods for any bolded/italicised/underline
       messages without them, if they don't already have punctuation of their own (like
       exclamation marks, tildes, question marks, or hyphens).
+2024-01-15:
+  LT3:
+  - bugfix: Fixed missing power cable outside Tramstation medbay
+  Melbert:
+  - bugfix: Anomalies spawned by grand ritual runes sound act more like anomalies
+  Motho:
+  - rscadd: Added a civilian version of the Type-34P headset that actually has no
+      armor.
+  - rscadd: Added the aerostatic set to the loadout.
+  - qol: Removed job restrictions from a majority of loadout items.
+  NovaBot13:
+  - bugfix: Rat King's abilities no longer require the user to click twice in order
+      to activate them.
+  - bugfix: Changeling eggs laid by headslugs work again
+  - bugfix: Changeling egg incubation times should feel much more consistent, hatching
+      after 4 minutes
+  - admin: Confirming that you have read an admin message now uh, works. it's been
+      2 years bros
+  - bugfix: Fixed round event controller pirate spawns.
+  - qol: The combat mode toggle button is now present on the HUD for simple and basic
+      mobs.
+  - bugfix: Borg tools that hold and use specific items now work correctly again.
+  - bugfix: Animals enlargened by the fugu gland are now visually aligned with the
+      turf they're standing on.
+  - bugfix: chem heater with empty buffers can be refilled again
+  OrionTheFox:
+  - rscadd: Added a long-sleeve greyscale undershirt, and moved the Lizared Top to
+      be a Bra, along with a few other small tweaks - double-check your worn underwear!
+  - image: Updated some out of date underwear sprites to match TG's new resprite
+  - bugfix: fixed the OpFor Syndicate Uplink Implanter giving a broken item - it will
+      now give the Implanter as intended.
+  Thlumyn, Arta/Maxi for the sprites:
+  - rscadd: Added peacock tails
+  honkpocket:
+  - balance: Blueshift's vault, armoury, AI upload and prison are a little more antag
+      friendly!
+  - rscadd: Adds a forge room to Blueshift
+  vinylspiders:
+  - balance: 'Instead of too much damage to the head beheading someone, it
+
+      will now split their skull in half. While their skull is open, you can
+
+      rip out their eyes with your hands. and they will spill their brain out
+
+      of their head if they slip.'
+  - balance: 'The Path of Blades ascension will accept either a beheaded
+
+      person, or someone with their skull split open.'
+  - rscdel: Removed the beheading objectives from traitor.
+  yooriss:
+  - balance: Oversized characters no longer receive a flat +5 damage to all unarmed
+      attacks, and instead gain a +5 bonus to the  maximum possible damage. In addition,
+      the unarmed effectiveness value of their legs has increased by +5, making them
+      better at keeping people on the ground once they get them there, without doing
+      any extra damage with their kicks.
