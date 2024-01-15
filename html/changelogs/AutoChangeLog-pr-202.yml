@@ -1,4 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - balance: "Oversized characters no longer receive a flat +5 damage to all unarmed attacks, and instead gain a +5 bonus to the  maximum possible damage. In addition, the unarmed effectiveness value of their legs has increased by +5, making them better at keeping people on the ground once they get them there, without doing any extra damage with their kicks."
