@@ -50,6 +50,19 @@
 	)
 	generate_items_inside(items_inside,src)
 
+// Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
+/obj/item/storage/medkit/civil_defense/comfort
+	name = "civil defense symptom support kit"
+	desc = "A small, pocket-sized kit that can typically only fit autoinjectors in it. This variant on the classic 'cheese' civil defense kit contains supplies to address hindering symptomatic burden associated with common chronic diseases or adaptation syndromes, such as gravity sickness."
+
+/obj/item/storage/medkit/civil_defense/comfort/stocked
+
+/obj/item/storage/medkit/civil_defense/comfort/stocked/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 4,
+	)
+	generate_items_inside(items_inside,src)
+
 // Pre-packed frontier medkit, with supplies to repair most common frontier health issues
 /obj/item/storage/medkit/frontier
 	name = "frontier medical kit"
