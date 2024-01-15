@@ -177,6 +177,7 @@
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		)
 	id = /obj/item/card/id/advanced/black
@@ -190,6 +191,7 @@
 	back = /obj/item/storage/backpack/satchel/explorer
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		/obj/item/knife/combat/survival = 1,
 		/obj/item/t_scanner/adv_mining_scanner/lesser = 1,
@@ -214,6 +216,7 @@
 	head = /obj/item/clothing/head/soft/sec/syndicate
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		)
 	id_trim = /datum/id_trim/syndicom/nova/ds2/enginetechnician
 	glasses = /obj/item/clothing/glasses/welding/up
@@ -239,6 +242,7 @@
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/medkit/surgery = 1,
 		)
@@ -269,6 +273,7 @@
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		)
 	id = /obj/item/card/id/advanced/black

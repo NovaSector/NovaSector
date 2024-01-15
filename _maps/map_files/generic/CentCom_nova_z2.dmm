@@ -6579,13 +6579,6 @@
 /obj/item/pushbroom,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"fAw" = (
-/obj/structure/flora/bush/large{
-	icon_state = "bush3"
-	},
-/obj/structure/cafejammer,
-/turf/open/misc/grass/planet,
-/area/centcom/holding/cafepark)
 "fAL" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/grass/jungle/b/style_random,
@@ -12179,10 +12172,6 @@
 	},
 /turf/open/floor/grass,
 /area/centcom/interlink)
-"pGf" = (
-/obj/machinery/vending/wardrobe/syndie_wardrobe/ghost_cafe,
-/turf/open/misc/dirt/planet,
-/area/centcom/holding/cafepark)
 "pGK" = (
 /turf/open/floor/iron/dark/side,
 /area/centcom/holding/cafe)
@@ -65679,7 +65668,7 @@ uXF
 uXF
 afN
 pUQ
-fAw
+aNk
 vTT
 saT
 aVg
@@ -69762,7 +69751,7 @@ ayI
 ayI
 ayI
 ayI
-pGf
+ayI
 aPf
 aPf
 aPf
