@@ -17,7 +17,7 @@
 //Teshari normal
 
 /obj/item/bodypart/arm/left/robot/teshari
-	name = "cybernetic left raptorial forelimb"
+	name = "cybernetic left raptoral forelimb"
 	desc = "A skeletal limb wrapped in pseudomuscles and membranous feathers, with a low-conductivity case."
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
@@ -30,7 +30,7 @@
 	burn_modifier = 0.9
 
 /obj/item/bodypart/arm/right/robot/teshari
-	name = "cybernetic right raptorial forelimb"
+	name = "cybernetic right raptoral forelimb"
 	desc = "A skeletal limb wrapped in pseudomuscles and membranous feathers, with a low-conductivity case."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
@@ -43,7 +43,7 @@
 	burn_modifier = 0.9
 
 /obj/item/bodypart/leg/left/robot/teshari
-	name = "cybernetic left raptorial hindlimb"
+	name = "cybernetic left raptoral hindlimb"
 	desc = "A skeletal limb wrapped in pseudomuscles and membranous feathers, with a low-conductivity case."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
@@ -56,7 +56,7 @@
 	burn_modifier = 0.9
 
 /obj/item/bodypart/leg/right/robot/teshari
-	name = "cybernetic right raptorial hindlimb"
+	name = "cybernetic right raptoral hindlimb"
 	desc = "A skeletal limb wrapped in pseudomuscles and membranous feathers, with a low-conductivity case."
 	icon_static =  'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
@@ -69,7 +69,7 @@
 	burn_modifier = 0.9
 
 /obj/item/bodypart/chest/robot/teshari
-	name = "cybernetic raptorial torso"
+	name = "cybernetic raptoral torso"
 	desc = "A heavily reinforced case containing cyborg logic boards, with space for a standard power cell, covered in a layer of membranous feathers."
 	icon_static =  'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
@@ -81,7 +81,7 @@
 	robotic_emp_paralyze_damage_percent_threshold = 0.5
 
 /obj/item/bodypart/head/robot/teshari
-	name = "cybernetic raptorial head"
+	name = "cybernetic raptoral head"
 	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals. A layer of membranous feathers covers the stark metal."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/augments_teshari.dmi'
@@ -98,7 +98,7 @@
 // teshari_ surplus
 
 /obj/item/bodypart/arm/left/robot/teshari_surplus
-	name = "prosthetic left raptorial forelimb"
+	name = "prosthetic left raptoral forelimb"
 	desc = "A skeletal, robotic wing. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -117,7 +117,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/arm/right/robot/teshari_surplus
-	name = "prosthetic right raptorial forelimb"
+	name = "prosthetic right raptoral forelimb"
 	desc = "A skeletal, robotic wing. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -135,7 +135,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/left/robot/teshari_surplus
-	name = "prosthetic left raptorial hindlimb"
+	name = "prosthetic left raptoral hindlimb"
 	desc = "A skeletal, robotic hindlimb. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -153,7 +153,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/right/robot/teshari_surplus
-	name = "prosthetic right raptorial hindlimb"
+	name = "prosthetic right raptoral hindlimb"
 	desc = "A skeletal, robotic hindlimb. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -171,7 +171,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/arm/left/robot/teshari_surplus
-	name = "prosthetic left raptorial forelimb"
+	name = "prosthetic left raptoral forelimb"
 	desc = "A skeletal, robotic wing. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -189,7 +189,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/arm/right/robot/teshari_surplus
-	name = "prosthetic right raptorial forelimb"
+	name = "prosthetic right raptoral forelimb"
 	desc = "A skeletal, robotic wing. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -209,7 +209,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/left/robot/teshari_surplus
-	name = "prosthetic left raptorial hindlimb"
+	name = "prosthetic left raptoral hindlimb"
 	desc = "A skeletal, robotic hindlimb. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -228,7 +228,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/right/robot/teshari_surplus
-	name = "prosthetic right raptorial hindlimb"
+	name = "prosthetic right raptoral hindlimb"
 	desc = "A skeletal, robotic hindlimb. Outdated and fragile, but it's still better than nothing. A layer of membranous feathers hides the cheap assembly."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/surplus_augments_teshari.dmi'
@@ -248,7 +248,7 @@
 // teshari_ advanced
 
 /obj/item/bodypart/arm/left/robot/teshari_advanced
-	name = "advanced left raptorial forelimb"
+	name = "advanced left raptoral forelimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -266,7 +266,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/arm/right/robot/teshari_advanced
-	name = "advanced right raptorial forelimb"
+	name = "advanced right raptoral forelimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -284,7 +284,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/left/robot/teshari_advanced
-	name = "advanced left raptorial hindlimb"
+	name = "advanced left raptoral hindlimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -302,7 +302,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/right/robot/teshari_advanced
-	name = "advanced right raptorial hindlimb"
+	name = "advanced right raptoral hindlimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -320,7 +320,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/arm/left/robot/teshari_advanced
-	name = "advanced left raptorial forelimb"
+	name = "advanced left raptoral forelimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -338,7 +338,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/arm/right/robot/teshari_advanced
-	name = "advanced right raptorial forelimb"
+	name = "advanced right raptoral forelimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -356,7 +356,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/left/robot/teshari_advanced
-	name = "advanced left raptorial hindlimb"
+	name = "advanced left raptoral hindlimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
@@ -374,7 +374,7 @@
 	biological_state = (BIO_METAL|BIO_JOINTED)
 
 /obj/item/bodypart/leg/right/robot/teshari_advanced
-	name = "advanced right raptorial hindlimb"
+	name = "advanced right raptoral hindlimb"
 	desc = "An advanced robotic hindlimb. These designs are usually reserved for those still on the search for Avalon."
 	icon_static = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
 	icon = 'modular_nova/modules/tesh_augments/icons/advanced_augments_teshari.dmi'
