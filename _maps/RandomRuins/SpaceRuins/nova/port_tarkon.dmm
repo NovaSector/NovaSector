@@ -4671,7 +4671,7 @@
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
-/obj/item/construction/rcd/arcd/tarkon,
+/obj/item/construction/rcd/tarkon,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "GN" = (
