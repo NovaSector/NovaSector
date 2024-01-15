@@ -27,12 +27,12 @@
 
 /obj/item/bodypart/leg/right/robot/advanced/digi
 	name = "advanced digitigrade right leg"
-	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/digitigrade_parts.dmi'
+	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/advanced_digitigrade_parts.dmi'
 	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/advanced_digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/leg/left/robot/advanced/digi
 	name = "advanced digitigrade right leg"
-	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/digitigrade_parts.dmi'
+	icon_static = 'modular_nova/modules/digitigrade_cybernetics/icons/advanced_digitigrade_parts.dmi'
 	icon = 'modular_nova/modules/digitigrade_cybernetics/icons/advanced_digitigrade_parts.dmi'
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ROBOTIC | BODYTYPE_DIGITIGRADE
