@@ -143,10 +143,10 @@
 	if (human.nutrition > 0 && human.stat != DEAD)
 		// THEY HUNGER
 		var/hunger_rate = HUNGER_FACTOR
-		/* NOVA EDIT BEGIN - Remove some sanity effects
+		/* NOVA EDIT REMOVAL BEGIN - Remove some sanity effects
 		if(human.mob_mood && human.mob_mood.sanity > SANITY_DISTURBED)
 			hunger_rate *= max(1 - 0.002 * human.mob_mood.sanity, 0.5) //0.85 to 0.75
-		*/// NOVA EDIT END
+		*/// NOVA EDIT REMOVAL END
 		// Whether we cap off our satiety or move it towards 0
 		if(human.satiety > MAX_SATIETY)
 			human.satiety = MAX_SATIETY

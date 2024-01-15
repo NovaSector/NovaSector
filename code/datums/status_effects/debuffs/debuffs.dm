@@ -167,7 +167,7 @@
 		var/health_ratio = owner.health / owner.maxHealth
 		var/sleep_quality = HEALING_SLEEP_DEFAULT
 
-		/* NOVA EDIT BEGIN - Remove some sanity effects
+		/* NOVA EDIT REMOVAL BEGIN - Remove some sanity effects
 		// having high spirits helps us recover
 		if(owner.mob_mood)
 			switch(owner.mob_mood.sanity_level)
@@ -183,7 +183,7 @@
 					sleep_quality = -0.1
 				if(SANITY_LEVEL_INSANE)
 					sleep_quality = -0.2
-		*/// NOVA EDIT END
+		*/// NOVA EDIT REMOVAL END
 
 		var/turf/rest_turf = get_turf(owner)
 		var/is_sleeping_in_darkness = rest_turf.get_lumcount() <= LIGHTING_TILE_IS_DARK

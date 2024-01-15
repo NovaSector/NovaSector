@@ -1207,10 +1207,10 @@
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_DUMB))
 		return TRUE
-	/* NOVA EDIT BEGIN - Remove some sanity effects
+	/* NOVA EDIT REMOVAL BEGIN - Remove some sanity effects
 	if(mob_mood.sanity < SANITY_UNSTABLE)
 		return TRUE
-	*/// NOVA EDIT END
+	*/// NOVA EDIT REMOVAL END
 
 /mob/living/carbon/wash(clean_types)
 	. = ..()

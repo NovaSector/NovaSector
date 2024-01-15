@@ -137,7 +137,7 @@
 				if(affected_mob.satiety >= 0)
 					recovery_prob += round((DISEASE_SATIETY_RECOVERY_MULTIPLIER * (affected_mob.satiety/MAX_SATIETY)), 0.1)
 
-		/* NOVA EDIT BEGIN - Remove some sanity effects
+		/* NOVA EDIT REMOVAL BEGIN - Remove some sanity effects
 		if(affected_mob.mob_mood) // this and most other modifiers below a shameless rip from sleeping healing buffs, but feeling good helps make it go away quicker
 			switch(affected_mob.mob_mood.sanity_level)
 				if(SANITY_LEVEL_GREAT)
@@ -152,7 +152,7 @@
 					recovery_prob += -0.1
 				if(SANITY_LEVEL_INSANE)
 					recovery_prob += -0.2
-		*/// NOVA EDIT END
+		*/// NOVA EDIT REMOVAL END
 
 		if((HAS_TRAIT(affected_mob, TRAIT_NOHUNGER) || !(affected_mob.satiety < 0 || affected_mob.nutrition < NUTRITION_LEVEL_STARVING)) && HAS_TRAIT(affected_mob, TRAIT_KNOCKEDOUT)) //resting starved won't help, but resting helps
 			var/turf/rest_turf = get_turf(affected_mob)
