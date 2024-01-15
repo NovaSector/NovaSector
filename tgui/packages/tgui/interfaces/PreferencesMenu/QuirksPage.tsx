@@ -331,13 +331,15 @@ export function QuirksPage(props) {
         });
 
         // NOVA EDIT START - Better Quirk Count Code
+        /* NOVA EDIT REMOVAL BEGIN - Disable quirk points
         let balance = -data.quirks_balance;
+        */// NOVA EDIT REMOVAL END
         let positiveQuirks = data.positive_quirk_count;
         // NOVA EDIT END
 
         const getReasonToNotAdd = (quirkName: string) => {
           const quirk = quirkInfo[quirkName];
-
+          /* NOVA EDIT REMOVAL BEGIN - Disable quirk points
           if (quirk.value > 0) {
             if (positiveQuirks >= maxPositiveQuirks) {
               return "You can't have any more positive quirks!";
@@ -345,7 +347,7 @@ export function QuirksPage(props) {
               return 'You need a negative quirk to balance this out!';
             }
           }
-
+          */// NOVA EDIT REMOVAL END
           // NOVA EDIT START - Veteran quirks
           if (quirk.veteran_only && !data.is_veteran) {
             return 'You need to be a veteran to select this quirk, apply today!';
@@ -376,10 +378,11 @@ export function QuirksPage(props) {
 
         const getReasonToNotRemove = (quirkName: string) => {
           const quirk = quirkInfo[quirkName];
-
+          /* NOVA EDIT REMOVAL BEGIN - Disable quirk points
           if (balance - quirk.value > 0) {
             return 'You need to remove a positive quirk first!';
           }
+          */// NOVA EDIT REMOVAL END
 
           return undefined;
         };
@@ -442,6 +445,7 @@ export function QuirksPage(props) {
 
             <Stack.Item basis="50%">
               <Stack vertical fill align="center">
+                {/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
                 <Stack.Item>
                   <Box fontSize="1.3em">Quirk Balance</Box>
                 </Stack.Item>
@@ -449,6 +453,7 @@ export function QuirksPage(props) {
                 <Stack.Item>
                   <StatDisplay>{balance}</StatDisplay>
                 </Stack.Item>
+                NOVA EDIT REMOVAL END */}
 
                 <Stack.Item>
                   <Box as="b" fontSize="1.6em">

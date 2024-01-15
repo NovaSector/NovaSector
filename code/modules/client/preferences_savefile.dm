@@ -320,7 +320,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			job_preferences -= j
 
 	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), augments)// NOVA EDIT - AUGMENTS+
+	/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
 	validate_quirks()
+	*/// NOVA EDIT REMOVAL END
 
 	return TRUE
 

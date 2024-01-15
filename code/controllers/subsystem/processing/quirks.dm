@@ -187,15 +187,18 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 /datum/controller/subsystem/processing/quirks/proc/filter_invalid_quirks(list/quirks, list/augments) // NOVA EDIT - AUGMENTS+
 	var/list/new_quirks = list()
 	var/list/positive_quirks = list()
+	/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
 	var/balance = 0
+	*/// NOVA EDIT REMOVAL END
 
 	var/list/all_quirks = get_quirks()
-
+	/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
 	// NOVA EDIT BEGIN - AUGMENTS+
 	for(var/key in augments)
 		var/datum/augment_item/aug = GLOB.augment_items[augments[key]]
 		balance += aug.cost
 	// NOVA EDIT END
+	*/// NOVA EDIT REMOVAL END
 	for (var/quirk_name in quirks)
 		var/datum/quirk/quirk = all_quirks[quirk_name]
 		if (isnull(quirk))
@@ -226,11 +229,16 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 			if (positive_quirks.len == MAX_QUIRKS)
 				continue
 
+			/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
 			positive_quirks[quirk_name] = value
+			*/// NOVA EDIT REMOVAL END
 
+		/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
 		balance += value
+		*/// NOVA EDIT REMOVAL END
 		new_quirks += quirk_name
 
+	/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
 	if (balance > 0)
 		var/balance_left_to_remove = balance
 
@@ -241,6 +249,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 
 			if (balance_left_to_remove <= 0)
 				break
+	*/// NOVA EDIT REMOVAL END
 
 	// It is guaranteed that if no quirks are invalid, you can simply check through `==`
 	if (new_quirks.len == quirks.len)

@@ -145,9 +145,11 @@ export const AugmentationPage = (props) => {
                     onSelected={(value) => {
                       // Since the costs are positive,
                       // it's added and not substracted
+                      /* NOVA EDIT REMOVAL BEGIN - Disable quirk points
                       if (balance + props.limb.costs[value] > 0) {
                         return;
                       }
+                      */// NOVA EDIT REMOVAL END
                       act('set_limb_aug', {
                         limb_slot: props.limb.slot,
                         augment_name: value,
@@ -198,9 +200,11 @@ export const OrganPage = (props) => {
             displayText={props.organ.chosen_organ}
             onSelected={(value) => {
               // Since the costs are positive, it's added and not substracted
+              /* NOVA EDIT REMOVAL BEGIN - Disable quirk points
               if (balance + props.organ.costs[value] > 0) {
                 return;
               }
+              */// NOVA EDIT REMOVAL END
               act('set_organ_aug', {
                 organ_slot: props.organ.slot,
                 augment_name: value,
@@ -245,6 +249,7 @@ export const LimbsPage = (props) => {
             width="100%"
           />
           <RotateCharacterButtons />
+          {/* NOVA EDIT REMOVAL BEGIN - Disable quirk points
           <Box
             style={{
               marginTop: '3em',
@@ -266,6 +271,7 @@ export const LimbsPage = (props) => {
           >
             {balance}
           </Box>
+          NOVA EDIT REMOVAL END */}
         </Section>
       </Stack.Item>
       <Stack.Item minWidth="33%">
