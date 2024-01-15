@@ -49,7 +49,7 @@
 		else
 			show_eyeless = FALSE
 	else
-		if(!hair_hidden && !(locate(/obj/item/organ/internal/brain) in src)) && !istype(src, /obj/item/bodypart/head/robot/synth)) // NOVA EDIT CHANGE - ORIGINAL: if(!hair_hidden && !(locate(/obj/item/organ/internal/brain) in src))
+		if(!hair_hidden && !(locate(/obj/item/organ/internal/brain) in src) && !istype(src, /obj/item/bodypart/head/robot/synth)) // NOVA EDIT CHANGE - ORIGINAL: if(!hair_hidden && !(locate(/obj/item/organ/internal/brain) in src))
 			show_debrained = TRUE
 		else
 			show_debrained = FALSE
