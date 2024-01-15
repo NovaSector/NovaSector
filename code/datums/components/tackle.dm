@@ -447,9 +447,11 @@
 		if(human_sacker.get_mob_height() <= HUMAN_HEIGHT_SHORTEST) //JUST YOU WAIT TILL I FIND A CHAIR, BUDDY, THEN YOU'LL BE SORRY
 			attack_mod -= 2
 
+		/* NOVA EDIT BEGIN - Remove some sanity effects
 		if(human_sacker.mob_mood.sanity_level == SANITY_INSANE) //I've gone COMPLETELY INSANE
 			attack_mod += 15
 			human_sacker.adjustStaminaLoss(100) //AHAHAHAHAHAHAHAHA
+		*/// NOVA EDIT END
 
 		if(human_sacker.is_shove_knockdown_blocked()) // tackling with riot specialized armor, like riot armor, is effective but tiring
 			attack_mod += 2

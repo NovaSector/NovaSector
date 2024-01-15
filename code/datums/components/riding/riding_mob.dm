@@ -115,6 +115,10 @@
 	var/modified_move_cooldown = vehicle_move_cooldown
 	var/modified_move_delay = vehicle_move_delay
 	if(ishuman(user) && HAS_TRAIT(user, TRAIT_SETTLER))
+		// NOVA EDIT - Remove some sanity effects
+		modified_move_cooldown *= 0.5
+		modified_move_delay *= 0.5
+		/* NOVA EDIT BEGIN - Remove some sanity effects
 		var/mob/living/carbon/human/settler_rider = user
 		switch(settler_rider.mob_mood.sanity_level)
 			if(SANITY_LEVEL_GREAT)
@@ -132,6 +136,7 @@
 			if(SANITY_LEVEL_INSANE)
 				modified_move_cooldown *= 1.5
 				modified_move_delay *= 1.5
+		*/// NOVA EDIT END
 	COOLDOWN_START(src, vehicle_move_cooldown = modified_move_cooldown, (last_move_diagonal ? 2 : 1) * modified_move_delay)
 	return ..()
 

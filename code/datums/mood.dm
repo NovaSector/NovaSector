@@ -477,32 +477,44 @@
 	switch(sanity)
 		if(SANITY_INSANE to SANITY_CRAZY)
 			set_insanity_effect(MAJOR_INSANITY_PEN)
+			/* NOVA EDIT BEGIN - Remove some sanity effects
 			mob_parent.add_movespeed_modifier(/datum/movespeed_modifier/sanity/insane)
+			*/// NOVA EDIT END
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
 			sanity_level = SANITY_LEVEL_INSANE
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
 			set_insanity_effect(MINOR_INSANITY_PEN)
+			/* NOVA EDIT BEGIN - Remove some sanity effects
 			mob_parent.add_movespeed_modifier(/datum/movespeed_modifier/sanity/crazy)
+			*/// NOVA EDIT END
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
 			sanity_level = SANITY_LEVEL_CRAZY
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
 			set_insanity_effect(0)
+			/* NOVA EDIT BEGIN - Remove some sanity effects
 			mob_parent.add_movespeed_modifier(/datum/movespeed_modifier/sanity/disturbed)
+			*/// NOVA EDIT END
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/low_sanity)
 			sanity_level = SANITY_LEVEL_UNSTABLE
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
 			set_insanity_effect(0)
+			/* NOVA EDIT BEGIN - Remove some sanity effects
 			mob_parent.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
+			*/// NOVA EDIT END
 			mob_parent.remove_actionspeed_modifier(ACTIONSPEED_ID_SANITY)
 			sanity_level = SANITY_LEVEL_DISTURBED
 		if(SANITY_NEUTRAL+1 to SANITY_GREAT+1) //shitty hack but +1 to prevent it from responding to super small differences
 			set_insanity_effect(0)
+			/* NOVA EDIT BEGIN - Remove some sanity effects
 			mob_parent.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
+			*/// NOVA EDIT END
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/high_sanity)
 			sanity_level = SANITY_LEVEL_NEUTRAL
 		if(SANITY_GREAT+1 to INFINITY)
 			set_insanity_effect(0)
+			/* NOVA EDIT BEGIN - Remove some sanity effects
 			mob_parent.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
+			*/// NOVA EDIT END
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/high_sanity)
 			sanity_level = SANITY_LEVEL_GREAT
 
@@ -518,7 +530,9 @@
 /datum/mood/proc/set_insanity_effect(newval)
 	if (newval == insanity_effect)
 		return
+	/* NOVA EDIT BEGIN - Remove some sanity effects
 	mob_parent.crit_threshold = (mob_parent.crit_threshold - insanity_effect) + newval
+	*/// NOVA EDIT END
 	insanity_effect = newval
 
 /// Removes all temporary moods
