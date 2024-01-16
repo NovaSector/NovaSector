@@ -454,6 +454,16 @@ export function QuirksPage(props) {
                 </Stack.Item>
                 NOVA EDIT REMOVAL END */}
 
+                {/* NOVA EDIT ADDITION BEGIN - Disable quirk points */}
+                <Stack.Item>
+                  <Box fontSize="1.3em">Quirks Selected</Box>
+                </Stack.Item>
+
+                <Stack.Item>
+                  <StatDisplay>{selectedQuirks.length}</StatDisplay>
+                </Stack.Item>
+                {/* NOVA EDIT ADDITION END */}
+
                 <Stack.Item>
                   <Box as="b" fontSize="1.6em">
                     Current Quirks
