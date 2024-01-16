@@ -6684,6 +6684,10 @@
 /obj/machinery/hydroponics/constructable{
 	dir = 8
 	},
+/obj/machinery/door/window/survival_pod{
+	dir = 4;
+	req_access = list("syndicate_leader")
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "qA" = (
@@ -7630,6 +7634,19 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"ZP" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/obj/machinery/door/window/survival_pod{
+	req_access = list("syndicate")
+	},
+/obj/machinery/door/window/survival_pod{
+	dir = 4;
+	req_access = list("syndicate_leader")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 
 (1,1,1) = {"
 aa
@@ -9864,9 +9881,9 @@ of
 oL
 ou
 oO
-ui
-ui
-ui
+ZP
+ZP
+ZP
 qz
 mP
 ab
