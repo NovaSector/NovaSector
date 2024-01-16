@@ -25,7 +25,7 @@
 				/obj/item/stack/medical/wound_recovery = 6,
 				/obj/item/stack/medical/wound_recovery/rapid_coagulant = 6,
 				/obj/item/storage/pill_bottle/painkiller = 6,
-				/obj/item/storage/medkit/civil_defense = 6,
+				/obj/item/storage/medkit/civil_defense/stocked = 6,
 			),
 		),
 		list(
