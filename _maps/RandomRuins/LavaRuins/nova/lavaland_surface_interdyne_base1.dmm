@@ -6639,16 +6639,6 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
-"zx" = (
-/obj/machinery/hydroponics/constructable{
-	dir = 8
-	},
-/obj/machinery/door/window/survival_pod{
-	dir = 4;
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "zz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/white/line{
@@ -6661,13 +6651,6 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
-"zW" = (
-/obj/machinery/hydroponics/constructable{
-	dir = 4
-	},
-/obj/machinery/door/window/survival_pod,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "BS" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/stripes/corner{
@@ -6718,6 +6701,21 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base)
+"FY" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
+/obj/machinery/door/window/survival_pod,
+/obj/machinery/door/window/survival_pod,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
+"Gw" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
+/obj/machinery/door/window/survival_pod,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "HV" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Bar"
@@ -6749,23 +6747,9 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"Kz" = (
-/obj/machinery/hydroponics/constructable{
-	dir = 8
-	},
-/obj/machinery/door/window/survival_pod,
-/obj/machinery/door/window/survival_pod{
-	dir = 4;
-	req_access = list("syndicate")
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "Ls" = (
 /obj/machinery/hydroponics/constructable{
 	dir = 8
-	},
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
@@ -6814,6 +6798,13 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"QA" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/obj/machinery/door/window/survival_pod,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "QT" = (
 /obj/effect/turf_decal/sand/plating/volcanic,
 /turf/open/floor/plating/reinforced{
@@ -6834,14 +6825,6 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
-"Sv" = (
-/obj/machinery/hydroponics/constructable{
-	dir = 4
-	},
-/obj/machinery/door/window/survival_pod,
-/obj/machinery/door/window/survival_pod,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "Vf" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -9016,7 +8999,7 @@ nz
 ox
 oV
 pC
-zW
+Gw
 pH
 mD
 ac
@@ -9133,9 +9116,9 @@ nE
 or
 oz
 oX
-Kz
-Kz
-zx
+QA
+QA
+Ls
 mD
 ac
 ac
@@ -9192,8 +9175,8 @@ nX
 ot
 oz
 oX
-zW
-Sv
+Gw
+FY
 sa
 mD
 ac
@@ -9310,8 +9293,8 @@ nY
 ou
 oZ
 pl
-Ls
-Ls
+QA
+QA
 pI
 mD
 ac

@@ -7064,6 +7064,15 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base)
+"ui" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/obj/machinery/door/window/survival_pod{
+	req_access = list("syndicate")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "uJ" = (
 /obj/structure/pod,
 /obj/effect/supplypod_rubble,
@@ -7580,6 +7589,15 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"Xz" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
+/obj/machinery/door/window/survival_pod{
+	req_access = list("syndicate")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "XB" = (
 /obj/structure/sign/poster/contraband/moffuchis_pizza,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -9728,9 +9746,9 @@ nI
 nI
 os
 oM
-EM
-EM
-EM
+Xz
+Xz
+Xz
 qB
 rd
 ab
@@ -9846,9 +9864,9 @@ of
 oL
 ou
 oO
-qz
-qz
-qz
+ui
+ui
+ui
 qz
 mP
 ab
@@ -9905,9 +9923,9 @@ om
 oQ
 ou
 oO
-EM
-EM
-EM
+Xz
+Xz
+Xz
 EM
 mP
 ab
@@ -10023,9 +10041,9 @@ oo
 oV
 pb
 pf
-qz
-qz
-qz
+ui
+ui
+ui
 qC
 re
 ab
