@@ -6,8 +6,8 @@
 	icon = 'modular_nova/modules/tarkon/icons/obj/guns/m6pdw.dmi'
 	icon_state = "m6_pdw"
 	inhand_icon_state = "m6_pdw"
-	righthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/righthand.dmi'
-	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/guns/lefthand.dmi'
+	righthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	spawnwithmagazine = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_pistol

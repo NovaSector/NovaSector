@@ -159,13 +159,14 @@
 	name = "paper - 'Tarkon Industries' Engineered RCD'"
 	default_raw_text = "<h1>Tarkon Industries Designs:</h1><br><h2>Advanced R.C.D Design Upgrade</h2><br><br><b>Being an Industry that deals with Architectural Engineering, Station construction, and Port maintenance;</b> ,\
 	We at Tarkon Industries took a look at the tooks we provide, and found them wanting. A standard RCD is capable of not much, And while we couldn't manage to expand their designs to make stronger walls ,\
-	(Yet. We strive to improve), We have made a breakthrough with the recent discovery of \"Bluespace Quantum Entanglement.\" <br><br><b>Using bluespace as a vessel for quantum-entangling the RCD's constructing-mechanism,</b> ,\
-	we've designed a tool that allows our engineers to construct port additions, fix breaches, or even construct airlocks beyond arms length. <br><br><b>While we're not able to re-create the efficiency or material space of the \"artifact\" we were given<b>, ,\
-	We have returned it to the cargo hold of the port that has let us analyze it, along with an updated RCD model so that they may put the artifact on display rahter than to use."
+	(Yet. We strive to improve), We have made a breakthrough with the recent discovery of \"Expansive Quantum Entanglement.\" <br><br><b>Using bluespace as a vessel for quantum-entangling the RCD's constructing-mechanism,</b> ,\
+	we've made a device that's unbound by convenient functioning speeds by creating a quantum-entangled space within the RCD and the desired spot. However, the industrial engineering standard still holds capacity over it.,\
+	<br><br><b>While we're not able to re-create the ranged capabilities or material space of the \"artifact\" we were given<b> ,\
+	We have returned it to the cargo hold of the port that has let us analyze it, along with an updated RCD model so that they may put the artifact on display rather than to use."
 
 /obj/item/paper/fluff/ruins/tarkon/comsafe
 	name = "paper - 'Command Safe Note'"
-	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. ,\
+	default_raw_text = "Heh... I couldn't handle letting those older papers go, something about them reminded me about why I jumped on this job. Even added some of the newer papers up.,\
 	The \"Safety of the future\" spiels... Now? Any dingbat can buy their own little constructor in a box... Fancy that we got one ourself, Thing has some handy designs..<br>,\
 	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
 	So we set the spare set in the special safe within the comms room."
