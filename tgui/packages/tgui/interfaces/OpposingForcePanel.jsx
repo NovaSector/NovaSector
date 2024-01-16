@@ -192,6 +192,38 @@ export const OpposingForceTab = (props) => {
               />
             </Stack.Item>
           </Stack>
+          <Stack>
+            <Stack.Item>
+              <a href="https://docs.google.com/document/u/0/d/e/2PACX-1vRVI8-SmicLDV7ny_8BwJ3s8nIYBPU-nhrFDNA95VQxfpmGeUWEuqsnHr1_YDBoEUYRSITEoUbnWlru/pub?pli=1">
+                <Button
+                  icon="info"
+                  color="orange"
+                  tooltip="Open a guide on how to improve your opfors."
+                  content="Opfor Guide"
+                />
+              </a>
+            </Stack.Item>
+            <Stack.Item>
+              <a href="https://wiki.novasector13.com/index.php/Antagonist_Policy#Opfor_Related_Stuff:">
+                <Button
+                  icon="wrench"
+                  color="red"
+                  tooltip="Open current Opfor standards."
+                  content="Opfor Policy"
+                />
+              </a>
+            </Stack.Item>
+            <Stack.Item>
+              <a href="https://wiki.novasector13.com/index.php/Server_Rules#Rule_10:_No_Self-Antagging">
+                <Button
+                  icon="question"
+                  color="yellow"
+                  tooltip="Open policy for Non-Antagonist criminal activity."
+                  content="Does this need an Opfor"
+                />
+              </a>
+            </Stack.Item>
+          </Stack>
           <NoticeBox
             color={approved ? 'good' : denied ? 'bad' : 'orange'}
             mt={2}
