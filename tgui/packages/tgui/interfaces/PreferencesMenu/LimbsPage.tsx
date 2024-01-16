@@ -149,7 +149,7 @@ export const AugmentationPage = (props) => {
                       if (balance + props.limb.costs[value] > 0) {
                         return;
                       }
-                      */// NOVA EDIT REMOVAL END
+                      NOVA EDIT REMOVAL END */
                       act('set_limb_aug', {
                         limb_slot: props.limb.slot,
                         augment_name: value,
@@ -204,7 +204,7 @@ export const OrganPage = (props) => {
               if (balance + props.organ.costs[value] > 0) {
                 return;
               }
-              */// NOVA EDIT REMOVAL END
+              NOVA EDIT REMOVAL END */
               act('set_organ_aug', {
                 organ_slot: props.organ.slot,
                 augment_name: value,

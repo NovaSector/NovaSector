@@ -332,7 +332,7 @@ export function QuirksPage(props) {
         // NOVA EDIT START - Better Quirk Count Code
         /* NOVA EDIT REMOVAL BEGIN - Disable quirk points
         let balance = -data.quirks_balance;
-        */// NOVA EDIT REMOVAL END
+        NOVA EDIT REMOVAL END */
         let positiveQuirks = data.positive_quirk_count;
         // NOVA EDIT END
 
@@ -346,7 +346,7 @@ export function QuirksPage(props) {
               return 'You need a negative quirk to balance this out!';
             }
           }
-          */// NOVA EDIT REMOVAL END
+          NOVA EDIT REMOVAL END */
           // NOVA EDIT START - Veteran quirks
           if (quirk.veteran_only && !data.is_veteran) {
             return 'You need to be a veteran to select this quirk, apply today!';
@@ -381,7 +381,7 @@ export function QuirksPage(props) {
           if (balance - quirk.value > 0) {
             return 'You need to remove a positive quirk first!';
           }
-          */// NOVA EDIT REMOVAL END
+          NOVA EDIT REMOVAL END */
 
           return undefined;
         };
