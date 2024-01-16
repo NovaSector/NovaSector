@@ -1,7 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
 import {
-  AnimatedNumber,
   Box,
   Dimmer,
   Divider,
@@ -142,14 +141,7 @@ export const FoodPreferences = (props) => {
                             foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
                               FOOD_TOXIC)
                         }
-                        content={
-                          <>
-                            Toxic
-                            {foodPointValues &&
-                              !foodPointValues[OBSCURE_FOOD] &&
-                              ' (' + foodPointValues[FOOD_TOXIC - 1] + ')'}
-                          </>
-                        }
+                        content={<>Toxic</>}
                         color="olive"
                         tooltip="Your character will almost immediately throw up on eating anything toxic."
                       />
@@ -162,14 +154,7 @@ export const FoodPreferences = (props) => {
                             foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
                               FOOD_DISLIKED)
                         }
-                        content={
-                          <>
-                            Disliked
-                            {foodPointValues &&
-                              !foodPointValues[OBSCURE_FOOD] &&
-                              ' (' + foodPointValues[FOOD_DISLIKED - 1] + ')'}
-                          </>
-                        }
+                        content={<>Disliked</>}
                         color="red"
                         tooltip="Your character will become grossed out, before eventually throwing up after a decent intake of disliked food."
                       />
@@ -182,14 +167,7 @@ export const FoodPreferences = (props) => {
                             foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
                               FOOD_NEUTRAL)
                         }
-                        content={
-                          <>
-                            Neutral
-                            {foodPointValues &&
-                              !foodPointValues[OBSCURE_FOOD] &&
-                              ' (' + foodPointValues[FOOD_NEUTRAL - 1] + ')'}
-                          </>
-                        }
+                        content={<>Neutral</>}
                         color="yellow"
                         tooltip="Your character has very little to say about something that's neutral."
                       />
@@ -202,14 +180,7 @@ export const FoodPreferences = (props) => {
                             foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
                               FOOD_LIKED)
                         }
-                        content={
-                          <>
-                            Liked
-                            {foodPointValues &&
-                              !foodPointValues[OBSCURE_FOOD] &&
-                              ' (' + foodPointValues[FOOD_LIKED - 1] + ')'}
-                          </>
-                        }
+                        content={<>Liked</>}
                         color="green"
                         tooltip="Your character will enjoy anything that's liked."
                       />
