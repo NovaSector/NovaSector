@@ -541,3 +541,163 @@
       pilot again.
   - bugfix: The various borg apparatuses can no longer pick up other internal borg
       tools.
+2024-01-12:
+  Melbert:
+  - bugfix: Fixes some cult spells being unable to heal constructs (blood rites particularly)
+  - bugfix: Ghost alert for buying a badass balloon should have a proper icon
+  - bugfix: Blood Drunk Miner (Hunter version) should dash a bit more.
+  - bugfix: Fix Ringleader's Rise not causing as many hallucinations as expected
+  - bugfix: Chameleon Suits will now automatically set your helmet into a hood if
+      using a hooded suit again
+  NovaBot13:
+  - bugfix: Fixes borg polymorph
+  - admin: Added a new admin verb that ends all active weather within the weather
+      subsystem.
+  - bugfix: if your voice changes (e.g. through a voice changer or changeling mimicry)
+      your runechat will now appear as the mob you are speaking in the voice of
+  - bugfix: when doing emotes with your face obscured, your runechat color will now
+      appear as either that of Unknown or the mob you are wearing the id of (if you
+      are wearing a mask with someone else's id)
+  - bugfix: Fixed being able to download the contractor program on the syndie store.
+  aKromatopzia:
+  - rscadd: Arm band sprites for teshari
+  - rscadd: Dog tag sprites for teshari
+  vinylspiders:
+  - qol: tweaks the chat color clamping algorithm to be a bit more restrictive while
+      still allowing for edge cases like greys and whites
+2024-01-13:
+  LT3:
+  - bugfix: Icebox kitchen has its light switch again
+  - bugfix: Icebox medbay hallway now has a fire alarm
+  - bugfix: Tramstation east APC will no longer be destroyed when the tram crashes
+  - qol: Tramstation central power and disposals moved out of the wall
+  LovliestPlant:
+  - qol: In the Opfor panel, adds buttons to open Opfor Policy, the Non-Antag Criminal
+      Addendum, and the Opfor Guide.
+  Melbert:
+  - bugfix: Lunar Parade has the potential to break less.
+  NovaBot13:
+  - image: New liquid plasma sprites from SS14!
+  - bugfix: Dropdowns should be more performant
+  - admin: Made logging for BSA targeting and firing easier to find for admins.
+  - bugfix: The "required_container_accepts_subtypes" variable on chemical reactions
+      now actually works again
+  - code_imp: removed a dupe trait entry in the traits_by_type list
+  - bugfix: Healing simplemobs with sutures and other stacks works again
+  - spellcheck: Healing mobs with medical stacks like suture and mesh give better
+      user feedback messages
+  - balance: Nightmare's Light Eater can now stun targets under certain conditions.
+  - qol: The heat-proof catwalk made by heat-proof rods will go away when a tile is
+      placed on it, rather than sticking around and needing to be removed manually
+  - bugfix: The lighting will not irreparably break on tiles where plating was placed
+      on lava-proof catwalks
+  - code_imp: Some single letter variables and the structure of the code around placing
+      tiles on lava-proof catwalks has been improved
+  - code_imp: The check that prevents your stuff from dropping when you have robotic
+      parts is now more robust
+  - qol: ID cards now set their accounts with Alt-Right click.
+  - bugfix: ID cards now once again have contextual screen tips showing what buttons
+      do what actions.
+  - bugfix: The deployable component will now actually stop rotating things when the
+      variable to not do that is set
+  OrionTheFox, sergeirocks100:
+  - image: The undershirt resprite has been ported over. Rejoice!
+  - rscadd: A bee shirt that was originally sitting unused in the icon files has been
+      properly added to the game.
+  Paxilmaniac:
+  - image: Forged armor has had its sprites significantly improved over what they
+      were before
+  - rscdel: Forged horseshoes have been removed, no more invisible leg armor!
+  Rhials:
+  - bugfix: Specialty drinks crafted in the crafting menu will now create the intended
+      reagents, instead of containing the reagents used to craft it.
+  nikothedude:
+  - bugfix: Silicon temp ftext overlay now works
+  - bugfix: Silicon temp ftext popout window now works
+  vinylspiders:
+  - bugfix: welding self as synth no longer makes you suffer through 3 progressbars
+  yooriss:
+  - bugfix: Autopunctuation no longer checks for underscores at the end of messages.
+  - bugfix: Autopunctuation now correctly inserts EOL periods for any bolded/italicised/underline
+      messages without them, if they don't already have punctuation of their own (like
+      exclamation marks, tildes, question marks, or hyphens).
+2024-01-15:
+  LT3:
+  - bugfix: Fixed missing power cable outside Tramstation medbay
+  Melbert:
+  - bugfix: Anomalies spawned by grand ritual runes sound act more like anomalies
+  Motho:
+  - rscadd: Added a civilian version of the Type-34P headset that actually has no
+      armor.
+  - rscadd: Added the aerostatic set to the loadout.
+  - qol: Removed job restrictions from a majority of loadout items.
+  NovaBot13:
+  - bugfix: Rat King's abilities no longer require the user to click twice in order
+      to activate them.
+  - bugfix: Changeling eggs laid by headslugs work again
+  - bugfix: Changeling egg incubation times should feel much more consistent, hatching
+      after 4 minutes
+  - admin: Confirming that you have read an admin message now uh, works. it's been
+      2 years bros
+  - bugfix: Fixed round event controller pirate spawns.
+  - qol: The combat mode toggle button is now present on the HUD for simple and basic
+      mobs.
+  - bugfix: Borg tools that hold and use specific items now work correctly again.
+  - bugfix: Animals enlargened by the fugu gland are now visually aligned with the
+      turf they're standing on.
+  - bugfix: chem heater with empty buffers can be refilled again
+  OrionTheFox:
+  - rscadd: Added a long-sleeve greyscale undershirt, and moved the Lizared Top to
+      be a Bra, along with a few other small tweaks - double-check your worn underwear!
+  - image: Updated some out of date underwear sprites to match TG's new resprite
+  - bugfix: fixed the OpFor Syndicate Uplink Implanter giving a broken item - it will
+      now give the Implanter as intended.
+  Thlumyn, Arta/Maxi for the sprites:
+  - rscadd: Added peacock tails
+  honkpocket:
+  - balance: Blueshift's vault, armoury, AI upload and prison are a little more antag
+      friendly!
+  - rscadd: Adds a forge room to Blueshift
+  vinylspiders:
+  - balance: 'Instead of too much damage to the head beheading someone, it
+
+      will now split their skull in half. While their skull is open, you can
+
+      rip out their eyes with your hands. and they will spill their brain out
+
+      of their head if they slip.'
+  - balance: 'The Path of Blades ascension will accept either a beheaded
+
+      person, or someone with their skull split open.'
+  - rscdel: Removed the beheading objectives from traitor.
+  yooriss:
+  - balance: Oversized characters no longer receive a flat +5 damage to all unarmed
+      attacks, and instead gain a +5 bonus to the  maximum possible damage. In addition,
+      the unarmed effectiveness value of their legs has increased by +5, making them
+      better at keeping people on the ground once they get them there, without doing
+      any extra damage with their kicks.
+2024-01-16:
+  Melbert:
+  - bugfix: Fixes some eldritch painting messages having no chat span
+  - bugfix: Fixes eldritch painting messages triggering before the examine, making
+      it hard to see
+  - bugfix: Fix beauty eldritch painting doing nothing to heretics who examine it
+  NovaBot13:
+  - bugfix: Sections will be more polite by not stealing focus from Input boxes in
+      TGUI
+  - bugfix: Poppers (like the prefs menu options) shouldn't be hidden beneath the
+      character preview anymore.
+  - bugfix: fix bileworm ai going insane after eating someone
+  - bugfix: Radiation shelters (wherever they are) will protect against nebula storms
+  - code_imp: Hub status shows if server is restarting, starting, time to start. The
+      "Time" is more accurate and based on roundstart now
+  - qol: Using a Lawyer badge in your hand now shows a thought bubble with the badge,
+      rather than giving a lousy message in your chat.
+  - qol: Players are now able to see in chat when they are being hit by obj/machinery,
+      got crushed into dense turf or get hit by thrown non carbon mob.
+  - admin: Scenarios like mob hits dense turf, obj/machinery hits mob, item without
+      "living thrower" hitting mob, mob gets hit by thrown non carbon mob now appear
+      in logs.
+  aKromatopzia:
+  - rscadd: digitigrade cybernetics
+  - image: sprites for digitigrade cybernetics
