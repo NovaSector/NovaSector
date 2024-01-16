@@ -17,7 +17,6 @@ import { Window } from '../layouts';
 type Data = {
   food_types: Record<string, Record<string, number>>;
   selection: Record<string, number>;
-  points: number;
   enabled: boolean;
   invalid: string;
   race_disabled: boolean;
@@ -64,15 +63,9 @@ export const FoodPreferences = (props) => {
                       </Box>
                     ) : (
                       <Box as="span" color="green">
-                        Prefrences are Valid! |&nbsp;
+                        Prefrences are Valid!
                       </Box>
                     )}
-                    <Box
-                      as="span"
-                      style={{ color: data.invalid ? '#bd2020' : 'inherit' }}
-                    >
-                      Points left: <AnimatedNumber value={data.points} />
-                    </Box>
                   </Box>
                 </Tooltip>
 

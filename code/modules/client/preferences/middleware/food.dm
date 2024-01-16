@@ -110,7 +110,6 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/list/data = list(
 		"selection" = preferences.food_preferences,
-		"points" = calculate_points(preferences),
 		"enabled" = preferences.food_preferences["enabled"],
 		"invalid" = is_food_invalid(preferences),
 		"race_disabled" = !species.allows_food_preferences(),
@@ -145,22 +144,6 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		return "too few dislike choices"
 	if(toxic_food_length < MINIMUM_REQUIRED_TOXICS)
 		return "too few toxic choices"
-	if(calculate_points(preferences) < 0)
-		return "not enough points"
-
-/// Calculates the deviance points for food.
-/datum/food_prefs_menu/proc/calculate_points(datum/preferences/preferences)
-	var/points = 4
-
-	for(var/food_entry in preferences.food_preferences)
-		var/food_preference = preferences.food_preferences[food_entry]
-		var/list/food_points_entry = GLOB.food_ic_flag_to_point_values[food_entry]
-		if(!food_points_entry || food_points_entry.Find(FOOD_PREFERENCE_OBSCURE))
-			continue
-
-		points += food_points_entry[food_preference]
-
-	return points
 
 #undef MINIMUM_REQUIRED_TOXICS
 #undef MINIMUM_REQUIRED_DISLIKES
