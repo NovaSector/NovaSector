@@ -547,7 +547,6 @@
 	id = /obj/item/card/id/away/tarkon/sec
 	l_pocket = /obj/item/melee/baton/telescopic
 	r_pocket = /obj/item/grenade/barrier
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon/ensign
 	name = "P-T Abandoned Ensign"
@@ -569,7 +568,6 @@
 	gloves = /obj/item/clothing/gloves/combat
 	l_pocket = null
 	r_pocket = null
-	skillchips = list(/obj/item/skillchip/chameleon/reload)
 
 /datum/outfit/proc/handlebank(mob/living/carbon/human/owner)
 	var/datum/bank_account/offstation_bank_account = new(owner.real_name)

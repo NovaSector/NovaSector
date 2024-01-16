@@ -3995,6 +3995,11 @@
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
 /area/station/security/lockers)
+"bfi" = (
+/obj/structure/table/wood,
+/obj/item/documents/syndicate,
+/turf/open/floor/wood,
+/area/station/maintenance/rus_gambling)
 "bfB" = (
 /obj/effect/turf_decal/tile/red/anticorner{
 	dir = 1
@@ -19465,7 +19470,7 @@
 /area/station/command/cc_dock)
 "fFf" = (
 /obj/effect/mapping_helpers/broken_floor,
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fFg" = (
@@ -28492,7 +28497,6 @@
 /obj/structure/chair/sofa/left/brown{
 	dir = 8
 	},
-/mob/living/basic/trooper/russian,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "ila" = (
@@ -44088,6 +44092,7 @@
 	pixel_y = 24
 	},
 /obj/effect/mapping_helpers/broken_floor,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "muZ" = (
@@ -50868,6 +50873,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/rus_gambling)
 "omT" = (
@@ -60224,7 +60230,7 @@
 /area/station/medical/virology)
 "qLu" = (
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee/sword,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "qLy" = (
@@ -65985,7 +65991,7 @@
 /obj/structure/chair/stool/directional/north{
 	pixel_y = 6
 	},
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "svC" = (
@@ -75327,6 +75333,11 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
+"uQI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/pod,
+/turf/open/floor/wood,
+/area/station/maintenance/rus_gambling)
 "uQV" = (
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/service)
@@ -128065,7 +128076,7 @@ tDO
 wkm
 gDf
 djz
-iAj
+uQI
 ykh
 wtQ
 yep
@@ -128320,7 +128331,7 @@ pzh
 ykh
 fop
 qLu
-gDf
+bfi
 pBo
 aWR
 ykh
