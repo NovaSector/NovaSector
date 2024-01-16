@@ -1,9 +1,8 @@
 /obj/machinery/biogenerator/medstation
 	name = "wall med-station"
 	desc = "An advanced machine seen in frontier outposts and colonies capable of turning organic plant matter into \
-		various emergency medical supplies and injectors. Doctors love and hate these things, as they provide a reliable \
-		source of medical supplies in places where shipments may not be so reliable, but the selection of supplies is quite \
-		bare-bones."
+		various emergency medical supplies and injectors. You can find one of these in the medical sections of just about \
+		any frontier installation."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/medstation.dmi'
 	circuit = null
 	anchored = TRUE
@@ -44,7 +43,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/biogenerator/medstation, 29)
 
 /obj/item/wallframe/frontier_medstation
 	name = "unmounted wall med-station"
-	desc = "The innovative technology of a biogenerator to print medical supplies, but able to be mounted neatly on a wall out of the way!"
+	desc = "The innovative technology of a biogenerator to print medical supplies, but able to be mounted neatly on a wall out of the way."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/medstation.dmi'
 	icon_state = "biogenerator_parts"
 	w_class = WEIGHT_CLASS_NORMAL

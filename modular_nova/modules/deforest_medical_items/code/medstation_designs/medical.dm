@@ -53,6 +53,17 @@
 		RND_CATEGORY_DEFOREST_MEDICAL,
 	)
 
+/datum/design/organic_printer_amollin_pill
+	name = "Amollin Painkiller"
+	id = "organic_printer_amollin_pill"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 25)
+	build_path = /obj/item/reagent_containers/pill/amollin
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_MEDICAL,
+	)
+
 /datum/design/organic_printer_bandaid
 	name = "First Aid Bandage"
 	id = "oganic_bandaid"
