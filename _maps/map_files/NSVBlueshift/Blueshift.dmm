@@ -49839,10 +49839,6 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/wood,
 /area/station/security/courtroom)
-"jAo" = (
-/obj/structure/reagent_anvil,
-/turf/open/space/basic,
-/area/space)
 "jAp" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt{
@@ -63162,10 +63158,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
 /area/station/maintenance/rus_surgery)
-"lZP" = (
-/obj/structure/reagent_crafting_bench,
-/turf/open/space/basic,
-/area/space)
 "lZU" = (
 /obj/structure/table_frame,
 /obj/effect/spawner/random/trash/mess,
@@ -80118,10 +80110,6 @@
 	dir = 1
 	},
 /area/station/science/research)
-"pnq" = (
-/obj/structure/reagent_water_basin,
-/turf/open/space/basic,
-/area/space)
 "pnv" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
@@ -87883,10 +87871,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
-"qJR" = (
-/obj/structure/reagent_forge,
-/turf/open/space/basic,
-/area/space)
 "qJV" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -140515,7 +140499,7 @@ fZI
 fZI
 fZI
 fZI
-lZP
+fZI
 fZI
 fZI
 fZI
@@ -141029,7 +141013,7 @@ fZI
 fZI
 fZI
 fZI
-qJR
+fZI
 fZI
 fZI
 fZI
@@ -141543,7 +141527,7 @@ fZI
 fZI
 fZI
 fZI
-pnq
+fZI
 fZI
 fZI
 fZI
@@ -142057,7 +142041,7 @@ fZI
 fZI
 fZI
 fZI
-jAo
+fZI
 fZI
 fZI
 fZI
