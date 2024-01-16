@@ -134,12 +134,6 @@
 	if (length_char(text) > maxlen)
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
-	// Calculate target color if not already present
-	if (!target.chat_color || target.chat_color_name != target.name)
-		target.chat_color = get_chat_color_string(target.name) // NOVA EDIT CHANGE - ORIGINAL: target.chat_color = colorize_string(target.name)
-		target.chat_color_darkened = get_chat_color_string(target.name, darkened = TRUE) // NOVA EDIT CHANGE - ORIGINAL: target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-		target.chat_color_name = target.name
-
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
 	text = replacetext(text, url_scheme, "")
@@ -159,6 +153,7 @@
 		extra_classes |= SPAN_YELL
 
 	var/list/prefixes
+	var/chat_color_name_to_use
 
 	// Append radio icon if from a virtual speaker
 	if (extra_classes.Find("virtual-speaker"))
@@ -167,6 +162,19 @@
 	else if (extra_classes.Find("emote"))
 		var/image/r_icon = image('icons/ui_icons/chat/chat_icons.dmi', icon_state = "emote")
 		LAZYADD(prefixes, "\icon[r_icon]")
+		chat_color_name_to_use = target.get_visible_name(add_id_name = FALSE) // use face name for nonverbal messages
+
+	if(isnull(chat_color_name_to_use))
+		if(HAS_TRAIT(target, TRAIT_SIGN_LANG))
+			chat_color_name_to_use = target.get_visible_name(add_id_name = FALSE) // use face name for signers too
+		else
+			chat_color_name_to_use = target.GetVoice() // for everything else, use the target's voice name
+
+	// Calculate target color if not already present
+	if (!target.chat_color || target.chat_color_name != chat_color_name_to_use)
+		target.chat_color = get_chat_color_string(chat_color_name_to_use) // NOVA EDIT CHANGE - ORIGINAL: target.chat_color = colorize_string(chat_color_name_to_use)
+		target.chat_color_darkened = get_chat_color_string(chat_color_name_to_use, darkened = TRUE) // NOVA EDIT CHANGE - ORIGINAL: target.chat_color_darkened = colorize_string(chat_color_name_to_use, 0.85, 0.85)
+		target.chat_color_name = chat_color_name_to_use
 
 	// Append language icon if the language uses one
 	var/datum/language/language_instance = GLOB.language_datum_instances[language]
