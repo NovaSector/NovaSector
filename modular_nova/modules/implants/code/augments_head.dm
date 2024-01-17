@@ -140,6 +140,54 @@
 	implant_color = null
 	actions_types = list(/datum/action/cooldown/spell/pointed/hackerman_deck)
 	w_class = WEIGHT_CLASS_SMALL
+	/// The bodypart overlay datum we should apply to whatever mob we are put into
+	var/datum/bodypart_overlay/simple/hackerman/bodypart_overlay
+
+/obj/item/organ/internal/cyberimp/hackerman_deck/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+	var/obj/item/bodypart/limb = receiver.get_bodypart(deprecise_zone(zone))
+
+	. = ..()
+
+	if(!.)
+		return
+	if(!limb)
+		return FALSE
+
+	ownerlimb = limb
+	on_bodypart_insert(ownerlimb)
+
+/obj/item/organ/internal/cyberimp/hackerman_deck/Remove(mob/living/carbon/organ_owner, special, moving)
+	. = ..()
+
+	if(ownerlimb)
+		on_bodypart_remove(ownerlimb)
+
+	if(organ_owner)
+		organ_owner.update_body_parts()
+
+/obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	bodypart_overlay = new()
+	ownerlimb = limb
+	ownerlimb.add_bodypart_overlay(bodypart_overlay)
+	owner.update_body_parts()
+	return ..()
+
+/obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	ownerlimb.remove_bodypart_overlay(bodypart_overlay)
+	QDEL_NULL(bodypart_overlay)
+	ownerlimb = null
+	owner.update_body_parts()
+	return ..()
+
+/obj/item/organ/internal/cyberimp/hackerman_deck/Destroy()
+	if(ownerlimb)
+		on_bodypart_remove(ownerlimb)
+	return ..()
+
+/datum/bodypart_overlay/simple/hackerman
+	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
+	icon_state = "hackerman"
+	layers = EXTERNAL_ADJACENT
 
 /datum/action/cooldown/spell/pointed/hackerman_deck
 	name = "Activate Ranged Hacking"
