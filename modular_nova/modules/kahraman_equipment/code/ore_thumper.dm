@@ -55,7 +55,7 @@
 		/obj/item/stack/ore/bluespace_crystal = 1,
 	)
 	/// What's the limit for ore near us? Counts by stacks, not individual amounts of ore
-	var/nearby_ore_limit = 5
+	var/nearby_ore_limit = 10
 	/// How far away does ore spawn?
 	var/ore_spawn_range = 2
 	/// What do we undeploy into
