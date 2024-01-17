@@ -23,24 +23,26 @@ SUBSYSTEM_DEF(jukeboxes)
 
 	//Due to changes in later versions of 512, SOUND_UPDATE no longer properly plays audio when a file is defined in the sound datum. As such, we are now required to init the audio before we can actually do anything with it.
 	//Downsides to this? This means that you can *only* hear the jukebox audio if you were present on the server when it started playing, and it means that it's now impossible to add loops to the jukebox track list.
-	var/sound/song_to_init = sound(T.song_path)
+	var/sound/song_to_init = sound(track.song_path)
 	song_to_init.status = SOUND_MUTE
-	for(var/mob/player_mob in GLOB.player_list)
-		if(!player_mob.client)
-			continue
-		if(!(player_mob.client.prefs.read_preference(/datum/preference/toggle/sound_instruments)))
-			continue
 
-		player_mob.playsound_local(player_mob, null, jukebox.volume, channel = youvegotafreejukebox[2], sound_to_use = song_to_init)
+	// Collect mobs to play the song to, stores weakrefs of them in rangers
+	for(var/mob/to_play_to in range(world.view, jukebox))
+		if(!HAS_JUKEBOX_PREF(to_play_to))
+			continue
+		var/datum/weakref/weak_playing_to = WEAKREF(to_play_to)
+		if(jukebox.rangers[weak_playing_to])
+			continue
+		jukebox.rangers[weak_playing_to] = TRUE
+		// This plays the sound directly underneath the mob because otherwise it'd get stuck in their left ear or whatever
+		// Would be neat if it sourced from the box itself though
+		to_play_to.playsound_local(get_turf(to_play_to), null, jukebox.volume, channel = youvegotafreejukebox[2], sound_to_use = song_to_init, use_reverb = FALSE)
+
 	return activejukeboxes.len
 
 /datum/controller/subsystem/jukeboxes/proc/removejukebox(IDtoremove)
 	if(islist(activejukeboxes[IDtoremove]))
 		var/jukechannel = activejukeboxes[IDtoremove][2]
-		for(var/mob/player_mob in GLOB.player_list)
-			if(!player_mob.client)
-				continue
-			player_mob.stop_sound_channel(jukechannel)
 		freejukeboxchannels |= jukechannel
 		activejukeboxes.Cut(IDtoremove, IDtoremove+1)
 		return TRUE
@@ -52,6 +54,13 @@ SUBSYSTEM_DEF(jukeboxes)
 		for(var/list/jukeinfo in activejukeboxes)
 			if(jukebox in jukeinfo)
 				return activejukeboxes.Find(jukeinfo)
+	return FALSE
+
+/datum/controller/subsystem/jukeboxes/proc/findjukeboxchannel(obj/machinery/jukebox)
+	if(length(activejukeboxes))
+		for(var/list/jukeinfo in activejukeboxes)
+			if(jukebox in jukeinfo)
+				return jukeinfo[2]
 	return FALSE
 
 /datum/controller/subsystem/jukeboxes/Initialize()
@@ -87,21 +96,28 @@ SUBSYSTEM_DEF(jukeboxes)
 			stack_trace("Nonexistant or invalid object associated with jukebox.")
 			continue
 		var/sound/song_played = sound(juketrack.song_path)
-		var/turf/currentturf = get_turf(jukebox)
 
 		song_played.falloff = jukeinfo[4]
 
-		for(var/mob/M in GLOB.player_list)
-			if(!HAS_JUKEBOX_PREF(M))
-				M.stop_sound_channel(jukeinfo[2])
+		// Goes through existing mobs in rangers to determine if they should not be played to
+		for(var/datum/weakref/weak_to_hide_from as anything in jukebox.rangers)
+			var/mob/to_hide_from = weak_to_hide_from?.resolve()
+			if(!HAS_JUKEBOX_PREF(to_hide_from) || get_dist(jukebox, get_turf(to_hide_from)) > 10)
+				jukebox.rangers -= weak_to_hide_from
+				to_hide_from?.stop_sound_channel(jukeinfo[2])
+
+		// Collect mobs to play the song to, stores weakrefs of them in rangers
+		for(var/mob/to_play_to in range(world.view, jukebox))
+			if(!HAS_JUKEBOX_PREF(to_play_to))
 				continue
+			var/datum/weakref/weak_playing_to = WEAKREF(to_play_to)
+			if(jukebox.rangers[weak_playing_to])
+				continue
+			jukebox.rangers[weak_playing_to] = TRUE
+			// This plays the sound directly underneath the mob because otherwise it'd get stuck in their left ear or whatever
+			// Would be neat if it sourced from the box itself though
+			to_play_to.playsound_local(get_turf(to_play_to), null, jukebox.volume, channel = jukeinfo[2], sound_to_use = song_played, use_reverb = FALSE)
 
-			if(jukebox.z == M.z)	//todo - expand this to work with mining planet z-levels when robust jukebox audio gets merged to master
-				song_played.status = SOUND_UPDATE
-			else
-				song_played.status = SOUND_MUTE | SOUND_UPDATE	//Setting volume = 0 doesn't let the sound properties update at all, which is lame.
-
-			M.playsound_local(currentturf, null, jukebox.volume, channel = jukeinfo[2], sound_to_use = song_played)
 			CHECK_TICK
 	return
 

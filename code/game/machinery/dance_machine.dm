@@ -197,6 +197,11 @@
 				return TRUE
 
 /obj/machinery/jukebox/proc/activate_music()
+	// NOVA EDIT ADDITION START
+	var/jukeboxslottotake = SSjukeboxes.addjukebox(src, selection, 2)
+	if(isnull(jukeboxslottotake))
+		return
+	// NOVA EDIT ADDITION END
 	active = TRUE
 	update_use_power(ACTIVE_POWER_USE)
 	update_appearance(UPDATE_ICON_STATE)
@@ -405,9 +410,16 @@
 	REMOVE_TRAIT(dancer, TRAIT_DISCO_DANCER, REF(src))
 
 /obj/machinery/jukebox/proc/dance_over()
+	// NOVA EDIT ADDITION START
+	var/position = SSjukeboxes.findjukeboxindex(src)
+	var/channel_playing
+	if(position)
+		SSjukeboxes.removejukebox(position)
+		channel_playing = SSjukeboxes.findjukeboxchannel(src)
+	// NOVA EDIT ADDITION END
 	for(var/datum/weakref/weak_to_hide_from as anything in rangers)
 		var/mob/to_hide_from = weak_to_hide_from?.resolve()
-		to_hide_from?.stop_sound_channel(CHANNEL_JUKEBOX)
+		to_hide_from?.stop_sound_channel(channel_playing ? channel_playing : CHANNEL_JUKEBOX) // NOVA EDIT CHANGE - ORIGINAL: to_hide_from?.stop_sound_channel(CHANNEL_JUKEBOX)
 
 	rangers.Cut()
 
