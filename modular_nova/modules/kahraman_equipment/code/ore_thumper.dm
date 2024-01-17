@@ -91,7 +91,8 @@
 	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it with <b>[active_power_usage / BASE_MACHINE_ACTIVE_CONSUMPTION] kW</b> of excess power to function.")
 	. += span_notice("It will produce a box of materials after it has slammed [slam_jams_needed] times.")
 	. += span_notice("Currently, it has slammed [slam_jams] / [slam_jams_needed] times needed.")
-	. += span_notice("It will stop producing resources if there are too many piles of ore near it.")
+	. += span_notice("It will stop producing resources if there are <b>too many piles of ore</b> near it.")
+	. += span_notice("The thumper cannot work if it is <b>too close to another thumper</b>, needing <b>at least [ore_spawn_range] spaces</b> in all directions between it another thumper.")
 
 
 /obj/machinery/power/colony_ore_thumper/process()
@@ -213,10 +214,14 @@
 
 	if(nearby_ore > nearby_ore_limit)
 		balloon_alert_to_viewers("nearby ore too saturated")
+		// Makes the thumper rumble around when something's wrong
+		Shake(2, 2, 2 SECONDS)
 		return
 
 	if(is_there_a_thumper_too)
 		balloon_alert_to_viewers("too close to another thumper")
+		// Makes the thumper rumble around when something's wrong
+		Shake(2, 2, 2 SECONDS)
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(make_some_ore)), 3 SECONDS, TIMER_DELETE_ME)
