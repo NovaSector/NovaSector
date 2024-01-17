@@ -146,6 +146,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/hackerman/bodypart_overlay
+	/// What limb we are inside of, used for tracking when and how to remove our overlays and all that
+	var/obj/item/bodypart/ownerlimb
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
 	var/obj/item/bodypart/limb = receiver.get_bodypart(deprecise_zone(zone))
