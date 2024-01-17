@@ -428,6 +428,7 @@
 	QDEL_LIST(spotlights)
 	QDEL_LIST(sparkles)
 
+// NOVA EDIT COMMENT - Overridden in modular
 /obj/machinery/jukebox/process()
 	if(world.time < stop && active)
 		var/sound/song_played = sound(selection.song_path)
