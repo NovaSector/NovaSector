@@ -161,12 +161,8 @@
 			clear_mood_event(category)
 		else
 			if (the_event.timeout)
-<<<<<<< HEAD
-				the_event.timeout = initial(the_event.timeout) * timeout_mod
-=======
 				if (!isnull(mood_to_copy_from))
 					the_event.timeout = mood_to_copy_from.timeout
->>>>>>> fc0a1f4068e (Removes timeout_mod arg from add_mood_effect (#80964))
 				addtimer(CALLBACK(src, PROC_REF(clear_mood_event), category), the_event.timeout, (TIMER_UNIQUE|TIMER_OVERRIDE))
 			qdel(mood_to_copy_from)
 			return // Don't need to update the event.
@@ -177,10 +173,6 @@
 	if (QDELETED(the_event)) // the mood event has been deleted for whatever reason (requires a job, etc)
 		return
 
-<<<<<<< HEAD
-	the_event.timeout *= timeout_mod
-=======
->>>>>>> fc0a1f4068e (Removes timeout_mod arg from add_mood_effect (#80964))
 	the_event.category = category
 	if (!isnull(mood_to_copy_from))
 		the_event.timeout = mood_to_copy_from.timeout
