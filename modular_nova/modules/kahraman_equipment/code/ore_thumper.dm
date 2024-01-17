@@ -10,7 +10,7 @@
 	density = TRUE
 	max_integrity = 250
 	idle_power_usage = 0
-	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 25 // Should be 25 kw or half of a SOFIE generator
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 50 // Should be 50 kw or an entire SOFIE generator's power production
 	anchored = TRUE
 	can_change_cable_layer = FALSE
 	circuit = null
@@ -22,7 +22,7 @@
 	/// How many times we've slammed, counts up until the number is high enough to make a box of materials
 	var/slam_jams = 0
 	/// How many times we need to slam in order to produce a box of materials
-	var/slam_jams_needed = 15
+	var/slam_jams_needed = 30
 	/// List of the thumping sounds we can choose from
 	var/static/list/list_of_thumper_sounds = list(
 		'modular_nova/modules/kahraman_equipment/sound/thumper_thump/punch_press_1.wav',
@@ -55,7 +55,7 @@
 		/obj/item/stack/ore/bluespace_crystal = 1,
 	)
 	/// What's the limit for ore near us? Counts by stacks, not individual amounts of ore
-	var/nearby_ore_limit = 10
+	var/nearby_ore_limit = 5
 	/// How far away does ore spawn?
 	var/ore_spawn_range = 2
 	/// What do we undeploy into
@@ -88,7 +88,7 @@
 		. += span_notice("Its must be constructed <b>outdoors</b> to function.")
 	if(!istype(get_turf(src), /turf/open/misc))
 		. += span_notice("It must be constructed on <b>suitable terrain</b>, like ash, snow, or sand.")
-	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it with <b>25 kW</b> of excess power to function.")
+	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it with <b>[active_power_usage / BASE_MACHINE_ACTIVE_CONSUMPTION] kW</b> of excess power to function.")
 	. += span_notice("It will produce a box of materials after it has slammed [slam_jams_needed] times.")
 	. += span_notice("Currently, it has slammed [slam_jams] / [slam_jams_needed] times needed.")
 	. += span_notice("It will stop producing resources if there are too many piles of ore near it.")
@@ -111,8 +111,6 @@
 		else
 			balloon_alert_to_viewers("not enough power!")
 			cut_that_out()
-	else if(avail(idle_power_usage))
-		add_load(idle_power_usage)
 
 
 /// Checks the turf we are on to make sure we are outdoors and on a misc turf
