@@ -676,3 +676,40 @@
       the unarmed effectiveness value of their legs has increased by +5, making them
       better at keeping people on the ground once they get them there, without doing
       any extra damage with their kicks.
+2024-01-16:
+  Melbert:
+  - bugfix: Fixes some eldritch painting messages having no chat span
+  - bugfix: Fixes eldritch painting messages triggering before the examine, making
+      it hard to see
+  - bugfix: Fix beauty eldritch painting doing nothing to heretics who examine it
+  NovaBot13:
+  - bugfix: Sections will be more polite by not stealing focus from Input boxes in
+      TGUI
+  - bugfix: Poppers (like the prefs menu options) shouldn't be hidden beneath the
+      character preview anymore.
+  - bugfix: fix bileworm ai going insane after eating someone
+  - bugfix: Radiation shelters (wherever they are) will protect against nebula storms
+  - code_imp: Hub status shows if server is restarting, starting, time to start. The
+      "Time" is more accurate and based on roundstart now
+  - qol: Using a Lawyer badge in your hand now shows a thought bubble with the badge,
+      rather than giving a lousy message in your chat.
+  - qol: Players are now able to see in chat when they are being hit by obj/machinery,
+      got crushed into dense turf or get hit by thrown non carbon mob.
+  - admin: Scenarios like mob hits dense turf, obj/machinery hits mob, item without
+      "living thrower" hitting mob, mob gets hit by thrown non carbon mob now appear
+      in logs.
+  aKromatopzia:
+  - rscadd: digitigrade cybernetics
+  - image: sprites for digitigrade cybernetics
+2024-01-17:
+  NovaBot13:
+  - image: the plumbing chemical splitter no longer has a wrongly rotated direction
+  - bugfix: Lock heretics may once again access 'the relentless heartbeat' after purchasing
+      'burglars fineness'.
+  aKromatopzia:
+  - rscadd: Teshari cybernetics
+  - image: sprites for teshari cybernetics
+  honkpocket:
+  - bugfix: Removes unintended structures cluttering in Blueshift's space
+  tf4, orion:
+  - rscadd: Added cow print underwear.

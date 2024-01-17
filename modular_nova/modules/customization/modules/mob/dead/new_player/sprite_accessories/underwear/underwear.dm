@@ -135,6 +135,12 @@
 	gender = FEMALE
 	use_static = TRUE
 
+/datum/sprite_accessory/underwear/cow
+	name = "Panties - Cow"
+	icon_state = "panties_cow"
+	gender = FEMALE
+	use_static = TRUE
+
 //Full-Body Underwear, i.e. swimsuits (Including re-enabling 3 from TG)
 //These likely require hides_breasts = TRUE
 /datum/sprite_accessory/underwear/swimsuit_onepiece //TG
