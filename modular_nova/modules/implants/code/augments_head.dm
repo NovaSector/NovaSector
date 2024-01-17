@@ -51,6 +51,8 @@
 	REMOVE_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	if(isteshari(owner))
+		return ..()
 	bodypart_overlay = new()
 	ownerlimb = limb
 	ownerlimb.add_bodypart_overlay(bodypart_overlay)
@@ -58,6 +60,8 @@
 	return ..()
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	if(isteshari(owner))
+		return ..()
 	ownerlimb.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
 	ownerlimb = null
@@ -166,6 +170,8 @@
 		organ_owner.update_body_parts()
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	if(isteshari(owner))
+		return ..()
 	bodypart_overlay = new()
 	ownerlimb = limb
 	ownerlimb.add_bodypart_overlay(bodypart_overlay)
@@ -173,6 +179,8 @@
 	return ..()
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	if(isteshari(owner))
+		return ..()
 	ownerlimb.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
 	ownerlimb = null
@@ -180,6 +188,8 @@
 	return ..()
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/Destroy()
+	if(isteshari(owner))
+		return ..()
 	if(ownerlimb)
 		on_bodypart_remove(ownerlimb)
 	return ..()
