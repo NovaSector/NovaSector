@@ -27,7 +27,7 @@
 	icon_state = "painkiller_bottle"
 	w_class = WEIGHT_CLASS_TINY // this is fine because we hard limit what can go in this thing
 
-/obj/item/reagent_containers/pill/prescription_stimulant/Initialize(mapload)
+/obj/item/storage/pill_bottle/prescription_stimulant/Initialize(mapload)
 	. = ..()
 	// Make sure we can only hold alifil pills since this is nested inside a symptom support kit
 	atom_storage.max_slots = 5
@@ -85,6 +85,7 @@
 /obj/item/storage/medkit/civil_defense/comfort
 	name = "civil defense symptom support kit"
 	desc = "A small, pocket-sized kit that can typically only fit autoinjectors in it. This variant on the classic 'cheese' civil defense kit contains supplies to address hindering symptomatic burden associated with common chronic diseases or adaptation syndromes, such as gravity sickness."
+	icon_state = "symptom_kit"
 
 /obj/item/storage/medkit/civil_defense/comfort/stocked
 
