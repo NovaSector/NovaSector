@@ -44,13 +44,15 @@
 	icon_state = "colony_lathe_working"
 	update_appearance()
 
-/obj/machinery/rnd/production/colony_lathe/do_print(path, amount)
+/*
+/obj/machinery/rnd/production/colony_lathe/finalize_build()
 	. = ..()
 	soundloop.stop()
 	set_light(l_range = 0)
 	icon_state = base_icon_state
 	update_appearance()
 	flick("colony_lathe_finish_print", src)
+*/
 
 /obj/machinery/rnd/production/colony_lathe/calculate_efficiency()
 	efficiency_coeff = 1
