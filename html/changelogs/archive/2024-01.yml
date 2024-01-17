@@ -701,3 +701,15 @@
   aKromatopzia:
   - rscadd: digitigrade cybernetics
   - image: sprites for digitigrade cybernetics
+2024-01-17:
+  NovaBot13:
+  - image: the plumbing chemical splitter no longer has a wrongly rotated direction
+  - bugfix: Lock heretics may once again access 'the relentless heartbeat' after purchasing
+      'burglars fineness'.
+  aKromatopzia:
+  - rscadd: Teshari cybernetics
+  - image: sprites for teshari cybernetics
+  honkpocket:
+  - bugfix: Removes unintended structures cluttering in Blueshift's space
+  tf4, orion:
+  - rscadd: Added cow print underwear.
