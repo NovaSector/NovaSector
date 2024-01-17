@@ -1,4 +1,3 @@
-/* NOVA EDIT REMOVAL BEGIN - JUKEBOX - MOVED TO 'modular_nova/modules/jukebox/code/dance_machine.dm'
 /// Helper macro to check if the passed mob has jukebox sound preference enabled
 #define HAS_JUKEBOX_PREF(mob) (!QDELETED(mob) && !isnull(mob.client) && mob.client.prefs.read_preference(/datum/preference/toggle/sound_jukebox))
 
@@ -57,7 +56,7 @@
 
 /obj/machinery/jukebox/Initialize(mapload)
 	. = ..()
-	songs = load_songs_from_config()
+	songs = SSjukeboxes.songs // NOVA EDIT CHANGE - ORIGINAL: songs = load_songs_from_config()
 	if(length(songs))
 		selection = pick(songs)
 
@@ -116,7 +115,7 @@
 		to_chat(user,span_warning("Error: Access Denied."))
 		user.playsound_local(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
-	if(!songs.len && !isobserver(user))
+	if(!SSjukeboxes.songs.len && !isobserver(user)) // NOVA EDIT CHANGE - ORIGINAL: if(!songs.len && !isobserver(user))
 		to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
 		user.playsound_local(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
@@ -132,7 +131,7 @@
 	var/list/data = list()
 	data["active"] = active
 	data["songs"] = list()
-	for(var/datum/track/S in songs)
+	for(var/datum/track/S in SSjukeboxes.songs) // NOVA EDIT CHANGE - ORIGINAL: for(var/datum/track/S in songs)
 		var/list/track_data = list(
 			name = S.song_name
 		)
@@ -175,7 +174,7 @@
 				to_chat(usr, span_warning("Error: You cannot change the song until the current one is over."))
 				return
 			var/list/available = list()
-			for(var/datum/track/S in songs)
+			for(var/datum/track/S in SSjukeboxes.songs) // NOVA EDIT CHANGE - ORIGINAL: for(var/datum/track/S in songs)
 				available[S.song_name] = S
 			var/selected = params["track"]
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
@@ -463,4 +462,3 @@
 			dance(to_dance, dance_num)
 
 #undef HAS_JUKEBOX_PREF
-*/ //NOVA EDIT REMOVAL END

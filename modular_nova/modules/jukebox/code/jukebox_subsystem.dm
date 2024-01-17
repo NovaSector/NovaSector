@@ -8,27 +8,16 @@ SUBSYSTEM_DEF(jukeboxes)
 	var/list/freejukeboxchannels = list()
 
 /datum/track
-	var/song_name = "generic"
-	var/song_path = null
-	var/song_length = 0
-	var/song_beat = 0
 	var/song_associated_id = null
 
-/datum/track/New(name, path, length, beat, assocID)
-	song_name = name
-	song_path = path
-	song_length = length
-	song_beat = beat
-	song_associated_id = assocID
-
-/datum/controller/subsystem/jukeboxes/proc/addjukebox(obj/machinery/jukebox/jukebox, datum/track/T, jukefalloff = 1)
-	if(!istype(T))
+/datum/controller/subsystem/jukeboxes/proc/addjukebox(obj/machinery/jukebox/jukebox, datum/track/track, jukefalloff = 1)
+	if(!istype(track))
 		CRASH("[src] tried to play a song with a nonexistant track")
 	var/channeltoreserve = pick(freejukeboxchannels)
 	if(!channeltoreserve)
 		return FALSE
 	freejukeboxchannels -= channeltoreserve
-	var/list/youvegotafreejukebox = list(T, channeltoreserve, jukebox, jukefalloff)
+	var/list/youvegotafreejukebox = list(track, channeltoreserve, jukebox, jukefalloff)
 	activejukeboxes.len++
 	activejukeboxes[activejukeboxes.len] = youvegotafreejukebox
 
@@ -36,22 +25,22 @@ SUBSYSTEM_DEF(jukeboxes)
 	//Downsides to this? This means that you can *only* hear the jukebox audio if you were present on the server when it started playing, and it means that it's now impossible to add loops to the jukebox track list.
 	var/sound/song_to_init = sound(T.song_path)
 	song_to_init.status = SOUND_MUTE
-	for(var/mob/M in GLOB.player_list)
-		if(!M.client)
+	for(var/mob/player_mob in GLOB.player_list)
+		if(!player_mob.client)
 			continue
-		if(!(M.client.prefs.read_preference(/datum/preference/toggle/sound_instruments)))
+		if(!(player_mob.client.prefs.read_preference(/datum/preference/toggle/sound_instruments)))
 			continue
 
-		M.playsound_local(M, null, jukebox.volume, channel = youvegotafreejukebox[2], sound_to_use = song_to_init)
+		player_mob.playsound_local(player_mob, null, jukebox.volume, channel = youvegotafreejukebox[2], sound_to_use = song_to_init)
 	return activejukeboxes.len
 
 /datum/controller/subsystem/jukeboxes/proc/removejukebox(IDtoremove)
 	if(islist(activejukeboxes[IDtoremove]))
 		var/jukechannel = activejukeboxes[IDtoremove][2]
-		for(var/mob/M in GLOB.player_list)
-			if(!M.client)
+		for(var/mob/player_mob in GLOB.player_list)
+			if(!player_mob.client)
 				continue
-			M.stop_sound_channel(jukechannel)
+			player_mob.stop_sound_channel(jukechannel)
 		freejukeboxchannels |= jukechannel
 		activejukeboxes.Cut(IDtoremove, IDtoremove+1)
 		return TRUE
@@ -67,17 +56,17 @@ SUBSYSTEM_DEF(jukeboxes)
 
 /datum/controller/subsystem/jukeboxes/Initialize()
 	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
-	for(var/S in tracks)
-		var/datum/track/T = new()
-		T.song_path = file("[global.config.directory]/jukebox_music/sounds/[S]")
-		var/list/L = splittext(S,"+")
-		if(L.len != 4)
+	for(var/song in tracks)
+		var/datum/track/track = new()
+		track.song_path = file("[global.config.directory]/jukebox_music/sounds/[song]")
+		var/list/song_data = splittext(song,"+")
+		if(song_data.len != 4)
 			continue
-		T.song_name = L[1]
-		T.song_length = text2num(L[2])
-		T.song_beat = text2num(L[3])
-		T.song_associated_id = L[4]
-		songs |= T
+		track.song_name = song_data[1]
+		track.song_length = text2num(song_data[2])
+		track.song_beat = text2num(song_data[3])
+		track.song_associated_id = song_data[4]
+		songs |= track
 	for(var/i in CHANNEL_JUKEBOX_START to CHANNEL_JUKEBOX)
 		freejukeboxchannels |= i
 	return SS_INIT_SUCCESS
