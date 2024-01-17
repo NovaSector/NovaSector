@@ -1,6 +1,6 @@
 /datum/quirk/robot_limb_detach
 	name = "Cybernetic Limb Mounts"
-	desc = "You are able to detach and reattach any installed robotic limbs with very little effort."
+	desc = "You are able to detach and reattach any installed robotic limbs with very little effort, as long as they're in good condition."
 	gain_text = span_notice("Internal sensors report limb disengagement protocols are ready and waiting.")
 	lose_text = span_notice("ERROR: LIMB DISENGAGEMENT PROTOCOLS OFFLINE.")
 	medical_record_text = "Patient bears quick-attach and release limb joint cybernetics."
@@ -8,25 +8,25 @@
 	mob_trait = TRAIT_ROBOTIC_LIMBATTACHMENT
 	icon = FA_ICON_HANDSHAKE_SIMPLE_SLASH
 	quirk_flags = QUIRK_HUMAN_ONLY
+	/// The action we add with this quirk in add(), used for easy deletion later
+	var/datum/action/cooldown/spell/added_action
 
 /datum/quirk/robot_limb_detach/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/action/cooldown/spell/robot_self_amputation/limb_action = new /datum/action/cooldown/spell/robot_self_amputation()
 	limb_action.Grant(human_holder)
+	added_action = limb_action
 
 /datum/quirk/robot_limb_detach/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	for (var/datum/action in quirk_holder.actions)
-		if (istype(action, /datum/action/cooldown/spell/robot_self_amputation))
-			var/datum/action/cooldown/spell/robot_self_amputation/unwanted_action = action
-			unwanted_action.Remove(human_holder)
+	added_action.Remove(human_holder)
 
 /datum/action/cooldown/spell/robot_self_amputation
 	name = "Detach a robotic limb"
-	desc = "Disengage one of your robotic limbs from your cybernetic mounts. Requires you to not be restrained or otherwise under duress."
+	desc = "Disengage one of your robotic limbs from your cybernetic mounts. Requires you to not be restrained or otherwise under duress. Will not function on wounded limbs - tend to them first."
 	button_icon_state = "autotomy"
 
-	cooldown_time = 10 SECONDS
+	cooldown_time = 30 SECONDS
 	spell_requirements = NONE
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_HANDS_BLOCKED | AB_CHECK_INCAPACITATED
 
@@ -51,6 +51,10 @@
 
 	var/obj/item/bodypart/limb_to_detach = tgui_input_list(cast_on, "Limb to detach", "Cybernetic Limb Detachment", sort_names(robot_parts))
 	if (QDELETED(src) || QDELETED(cast_on) || QDELETED(limb_to_detach))
+		return
+
+	if (length(limb_to_detach.wounds) >= 1)
+		cast_on.balloon_alert(cast_on, "can't detach wounded limbs!")
 		return
 
 	cast_on.balloon_alert(cast_on, "detaching limb...")
