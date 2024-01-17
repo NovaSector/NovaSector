@@ -88,6 +88,25 @@
 	name = "integrated cleaning chamois"
 	desc = "Guaranteed to eliminate (most) messes. This civilian-issue cybernetic enhancement comes with a lengthy waiver about foregoing any claims to fluid damage made by the device to your internal arm comparment."
 
+/obj/item/pen/fourcolor/integrated
+	//no new desc for this one since it sets its own desc
+	name = "integrated four-color pen"
+
+/obj/item/paper_bin/integrated
+	name = "integrated paper sheaf"
+	desc = "Only a jacent could've been capable of the raw bureaucracy required to allow even a small paper bin to be fitted into someone's arm. Also comes with an internal routing clip to hold an extra pen, just in case you somehow go through the first one."
+	total_paper = 10
+
+/obj/item/universal_scanner/integrated
+	name = "fingertip universal scanner"
+	desc = "Some deckhands working the FTU distribution centers popularized this cybernetic addon after the speed improvements it yielded let them claw back the ten minute lunch breaks they'd been deprived for thirty years. Replaces the pad of the user's fourth finger with a digitized universal scanner, capable of switching between export, price, and sales tagger modes."
+	paper_count = 5
+	max_paper_count = 5
+
+/obj/item/boxcutter/extended/integrated
+	name = "integrated boxcutter"
+	desc = "Stolen from old Terran databanks, the design for this integration was originally some kind of wrist-sheathed assassin tool released into the public domain by an unnamed bitrunner. The FTU found that it worked great as a box cutter, and so authorized it for inclusion in their Deckhand toolset."
+
 // FORGING (why are we doing this)
 
 /obj/item/forging/hammer/integrated

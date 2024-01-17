@@ -82,3 +82,13 @@
 /obj/item/organ/internal/cyberimp/arm/blacksteel_forging/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_BLACKSTEEL)
+
+/obj/item/organ/internal/cyberimp/arm/bureaucracy
+	name = "bureaucrat's 'Jacent' toolset implant"
+	desc = "Popular amongst coreworld corporates, this integrated toolset includes a wrist-sheathed four-colour pen and a special motorized sheaf hollow for holding up to ten pieces of galactic-standard A4 paper. Does not replenish."
+	items_to_create = list(/obj/item/pen/fourcolor/integrated, /obj/item/paper_bin/integrated)
+
+/obj/item/organ/internal/cyberimp/arm/cargo
+	name = "FTU 'Deckhand' toolset implant"
+	desc = "Containing a fingertip-mounted universal scanner and a boxcutter, deck workers across the sector favor this cheap and effective implant as both a means of self-defense from irate consumers and for keeping a set of handy scanners quite literally, close at hand."
+	items_to_create = list(/obj/item/universal_scanner/integrated, /obj/item/boxcutter/extended/integrated)
