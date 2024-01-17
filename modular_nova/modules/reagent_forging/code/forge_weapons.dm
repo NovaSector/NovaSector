@@ -27,7 +27,7 @@
 	belt_icon_state = "sword_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
-	block_chance = 35
+	block_chance = 25
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -41,14 +41,14 @@
 	name = "forged katana"
 	desc = "A katana sharp enough to penetrate body armor, but not quite million-times-folded sharp."
 	force = 20
-	armour_penetration = 30
+	armour_penetration = 25
 	icon_state = "katana"
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana_back"
 	belt_icon_state = "katana_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
-	block_chance = 25
+	block_chance = 20
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -285,7 +285,7 @@
 	inhand_icon_state = "bokken"
 	worn_icon_state = "bokken_back"
 	throwforce = 10
-	block_chance = 25
+	block_chance = 20
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
