@@ -153,7 +153,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/spawn_liquid,					/*NOVA EDIT ADDITION*/
 	/client/proc/spawn_mob_spawner,				/*NOVA EDIT ADDITION*/
 	/client/proc/spawn_pollution,				/*NOVA EDIT ADDITION*/
-	/client/proc/spawn_sunbeam,					/*NOVA EDIT ADDITION*/
 	/client/proc/intensity_credits_panel,		/*NOVA EDIT ADDITION*/
 	/client/proc/toggle_bsa,					/*NOVA EDIT ADDITION*/
 	/client/proc/try_stop_delam, /*NOVA EDIT ADDITION*/

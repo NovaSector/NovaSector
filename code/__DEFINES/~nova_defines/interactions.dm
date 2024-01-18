@@ -1,4 +1,4 @@
-#define INTERACTION_JSON_FOLDER "config/~config_nova/interactions/"
+#define INTERACTION_JSON_FOLDER "config/nova/interactions/"
 
 // Special values
 #define INTERACTION_MAX_CHAR 255

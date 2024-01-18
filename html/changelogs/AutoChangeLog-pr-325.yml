@@ -1,6 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes an instance of the quick reflexes trait not being honored"
-  - bugfix: "fixes ashwalker sacrifice immediately gibbing revived lizards"
-  - rscdel: "vending machines will no longer squash mobs"
