@@ -37,9 +37,10 @@
 		// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
 		// GOOD NEWS! we can re-use the runechat colour stuff for this (probably)
 		var/col = process_chat_color(client_source?.prefs.read_preference(/datum/preference/color/echolocation_outline))
-		human_holder.client_colours[1].priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
-		human_holder.client_colours[1].update_colour(col)
-		esp_color = human_holder.client_colours[1]
+		var/datum/client_colour/monochrome/blind/blind_col = human_holder.client_colours[1]
+		blind_col.priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
+		blind_col.update_colour(col)
+		esp_color = blind_col
 
 	// double the ear/hearing damage multiplier from any source.
 	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
