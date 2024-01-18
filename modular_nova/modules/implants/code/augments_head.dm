@@ -94,8 +94,13 @@
 
 	injection_amount = 10
 
+	var/right_clicked = FALSE
+
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
+		right_clicked = TRUE
 		injection_amount = 20
+
+	owner.log_message("clicked their qani-laaca action button with [right_clicked ? "Right" : "Left"]-Click")
 
 /datum/action/cooldown/sensory_enhancer/Activate(atom/target)
 	. = ..()
@@ -113,6 +118,9 @@
 	var/obj/item/telegraph_vial = new /obj/item/qani_laaca_telegraph(get_turf(owner))
 	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
 	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
+
+	// Safety net in case the injection amount doesn't get reset. Apparently it happened to someone in a round.
+	injection_amount = initial(injection_amount)
 
 /obj/item/qani_laaca_telegraph
 	name = "spent qani-laaca cartridge"
