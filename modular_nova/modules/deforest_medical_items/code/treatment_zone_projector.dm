@@ -18,3 +18,25 @@
 	holosign_type = /obj/structure/holosign/treatment_zone_warning
 	creation_time = 1 SECONDS
 	max_signs = 1
+
+// Tech design for printing the projectors
+
+/datum/design/treatment_zone_projector
+	name = "Emergency Treatment Zone Projector"
+	desc = "A holographic projector that creates a large, clearly marked treatment zone hologram, which warns outsiders that they ought to stay out of it."
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/holosign_creator/medical
+	materials = list(
+		/datum/material/iron =SMALL_MATERIAL_AMOUNT * 5,
+		/datum/material/glass =SMALL_MATERIAL_AMOUNT * 5,
+		/datum/material/silver =SMALL_MATERIAL_AMOUNT
+	)
+	id = "treatment_zone_projector"
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/techweb_node/adv_biotech/New()
+	. = ..()
+	design_ids.Add(list("treatment_zone_projector"))
