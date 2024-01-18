@@ -25,7 +25,7 @@
 	name = "Emergency Treatment Zone Projector"
 	desc = "A holographic projector that creates a large, clearly marked treatment zone hologram, which warns outsiders that they ought to stay out of it."
 	build_type = PROTOLATHE | AWAY_LATHE
-	build_path = /obj/item/holosign_creator/medical
+	build_path = /obj/item/holosign_creator/medical/treatment_zone
 	materials = list(
 		/datum/material/iron =SMALL_MATERIAL_AMOUNT * 5,
 		/datum/material/glass =SMALL_MATERIAL_AMOUNT * 5,
@@ -40,3 +40,9 @@
 /datum/techweb_node/biotech/New()
 	. = ..()
 	design_ids.Add(list("treatment_zone_projector"))
+
+// Adds the funny projector to medical borgs
+
+/obj/item/robot_model/medical/New(loc, ...)
+	. = ..()
+	basic_modules.Add(list(/obj/item/holosign_creator/medical/treatment_zone))
