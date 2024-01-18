@@ -3360,6 +3360,8 @@
 	},
 /obj/machinery/firealarm/directional/north,
 /obj/structure/table/reinforced,
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "xe" = (
@@ -3633,6 +3635,7 @@
 /area/ruin/space/has_grav/port_tarkon/kitchen)
 "yZ" = (
 /obj/structure/table/reinforced,
+/obj/item/storage/backpack/duffelbag/synth_treatment_kit/trauma,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "za" = (
