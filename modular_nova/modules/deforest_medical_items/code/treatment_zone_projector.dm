@@ -37,6 +37,6 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/adv_biotech/New()
+/datum/techweb_node/biotech/New()
 	. = ..()
 	design_ids.Add(list("treatment_zone_projector"))
