@@ -132,6 +132,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Aerostatic Suit"
 	item_path = /obj/item/clothing/under/rank/security/detective/kim
 
+/datum/loadout_item/under/jumpsuit/sol_peacekeeper
+	name = "Sol Peacekeeper Uniform"
+	item_path = /obj/item/clothing/under/sol_peacekeeper
+
+/datum/loadout_item/under/jumpsuit/sol_emt
+	name = "Sol Emergency Medical Uniform"
+	item_path = /obj/item/clothing/under/sol_emt
+
 /datum/loadout_item/under/jumpsuit/paramed_light
 	name = "Light Paramedic Uniform"
 	item_path = /obj/item/clothing/under/rank/medical/paramedic/nova/light
