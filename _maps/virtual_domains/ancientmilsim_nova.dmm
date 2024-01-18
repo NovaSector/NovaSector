@@ -195,7 +195,7 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "gL" = (
 /obj/structure/table,
-/obj/item/grenade/chem_grenade/clf3,
+/obj/item/grenade/stingbang,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/janitor)
 "gP" = (
