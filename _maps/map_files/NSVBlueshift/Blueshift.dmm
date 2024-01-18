@@ -17882,7 +17882,6 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "dro" = (
@@ -32587,7 +32586,6 @@
 /obj/machinery/light_switch/directional/east{
 	pixel_y = 6
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mineral/plastitanium,
 /area/station/science/robotics/mechbay)
 "git" = (
@@ -35397,8 +35395,8 @@
 	},
 /area/station/maintenance/solars/port/fore)
 "gKc" = (
-/obj/item/kirbyplants/random,
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/recharge_station,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "gKk" = (
@@ -64576,6 +64574,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mineral/plastitanium/red,
 /area/station/science/robotics/lab)
 "mpg" = (
@@ -71183,7 +71182,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/recharge_station,
+/obj/item/banner/engineering/mundane,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "nEW" = (
