@@ -100,7 +100,7 @@
 		right_clicked = TRUE
 		injection_amount = 20
 
-	owner.log_message("clicked their qani-laaca action button with [right_clicked ? "Right" : "Left"]-Click")
+	owner.log_message("clicked their qani-laaca action button with [right_clicked ? "Right" : "Left"]-Click", LOG_ATTACK)
 
 /datum/action/cooldown/sensory_enhancer/Activate(atom/target)
 	. = ..()
