@@ -86,12 +86,18 @@
 		affected_human.eye_color_right = eye_color_right
 	else
 		eye_color_right = affected_human.eye_color_right
-	// NOVA EDIT - NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on eye color
+	// NOVA EDIT - NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on chosen quirk color, or left eye colour if not available
 	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION))
 		var/list/new_rgb_cutoffs = new /list(3)
 		var/infravision_multiplier = max(0, (-(flash_protect) * NOVA_NIGHT_VISION_SENSITIVITY_MULT)) + 1 // if we have more sensitive eyes, increase the power
+		var/datum/quirk/night_vision/nv_quirk = affected_human.get_quirk(/datum/quirk/night_vision)
+		var/nightvision_color = affected_human.eye_color_left
+
+		if (!isnull(nv_quirk))
+			nightvision_color = nv_quirk.nv_color
+
 		for(var/i in 1 to 3)
-			var/base_color = hex2num(copytext(affected_human.eye_color_left, (i*2), (i*2)+2)) //convert their eye_color_left hex to RGB
+			var/base_color = hex2num(copytext(nightvision_color, (i*2), (i*2)+2)) //convert their nv_color hex to RGB
 			var/adjusted_color = max(((base_color / 255) * (NOVA_NIGHT_VISION_POWER_MAX * infravision_multiplier)), (NOVA_NIGHT_VISION_POWER_MIN * infravision_multiplier)) //linear convert their eye color into a color_cutoff range, ensuring it is clamped
 			new_rgb_cutoffs[i] = adjusted_color
 
