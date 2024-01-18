@@ -26,8 +26,7 @@
 	if (isnull(client_use_echo))
 		client_use_echo = TRUE
 
-	///datum/client_colour/monochrome/blind
-	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE) //echolocation has now blinded us and added this on, so remove it
+	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE)
 	esp = human_holder.GetComponent(/datum/component/echolocation)
 
 	// the way this works is: client colours need a type path, a datum we make is not a type path.
