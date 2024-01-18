@@ -262,7 +262,7 @@
 		return
 
 	owner.log_message("hacked [key_name(cast_on)] from [get_dist(owner, cast_on)] tiles away using a wireless hacking implant", LOG_ATTACK)
-	cast_on.forensics.add_hacking_implant_trace()
+	cast_on.forensics?.add_hacking_implant_trace()
 	cast_on.add_hiddenprint(owner)
 
 	playsound(cast_on, 'sound/machines/terminal_processing.ogg', 15, TRUE)
