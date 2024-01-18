@@ -39,10 +39,11 @@
 
 /datum/techweb_node/biotech/New()
 	. = ..()
-	design_ids.Add(list("treatment_zone_projector"))
+	design_ids.Add("treatment_zone_projector")
 
 // Adds the funny projector to medical borgs
 
 /obj/item/robot_model/medical/New(loc, ...)
 	. = ..()
-	basic_modules.Add(list(/obj/item/holosign_creator/medical/treatment_zone))
+	var/obj/item/holosign_creator/medical/treatment_zone/new_holosign = new(src)
+	basic_modules.Add(new_holosign)
