@@ -12118,6 +12118,7 @@
 	name = "engineering camera"
 	},
 /obj/machinery/light_switch/directional/south,
+/obj/item/airlock_painter,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "cpl" = (
@@ -17881,6 +17882,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
+/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "dro" = (
@@ -32585,6 +32587,7 @@
 /obj/machinery/light_switch/directional/east{
 	pixel_y = 6
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mineral/plastitanium,
 /area/station/science/robotics/mechbay)
 "git" = (
@@ -57982,6 +57985,11 @@
 	dir = 5
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "lbm" = (
@@ -70823,10 +70831,10 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "nBm" = (
-/obj/structure/closet/radiation,
-/obj/effect/turf_decal/delivery,
-/obj/machinery/light/small/directional/east,
 /obj/structure/sign/warning/vacuum/external/directional/east,
+/obj/machinery/light/small/directional/east,
+/obj/effect/turf_decal/delivery,
+/obj/structure/closet/radiation,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "nBp" = (
@@ -71171,11 +71179,11 @@
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office/private_investigators_office)
 "nEN" = (
-/obj/item/banner/engineering/mundane,
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/recharge_station,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "nEW" = (
@@ -73291,10 +73299,9 @@
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
 "nZg" = (
-/obj/structure/table/reinforced,
 /obj/effect/turf_decal/bot,
-/obj/item/airlock_painter,
 /obj/machinery/status_display/evac/directional/north,
+/obj/machinery/recharge_station,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "nZh" = (
@@ -95009,10 +95016,8 @@
 /turf/open/misc/beach/sand,
 /area/station/hallway/primary/aft)
 "sdV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/closet/radiation,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "sdZ" = (
@@ -105835,6 +105840,11 @@
 /obj/structure/table/reinforced,
 /obj/item/circuit_component/soundemitter,
 /obj/item/circuit_component/clock,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 5
+	},
+/obj/item/integrated_circuit/loaded/hello_world,
+/obj/item/integrated_circuit/loaded/hello_world,
 /turf/open/floor/iron/dark/side,
 /area/station/science/circuits)
 "ufO" = (
@@ -120116,6 +120126,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/high,
 /turf/open/floor/iron/dark,
 /area/station/science/circuits)
 "wOl" = (
@@ -164690,8 +164704,8 @@ cLk
 bLI
 swy
 eGd
-nuU
-sdV
+sBt
+sBt
 akL
 vLv
 fZH
@@ -164947,8 +164961,8 @@ pWL
 qug
 sBt
 jvL
-sBt
-sBt
+urM
+dLw
 wSf
 oCM
 gzG
@@ -165204,8 +165218,8 @@ sBt
 sBt
 sBt
 wYy
-urM
-dLw
+maA
+iox
 wSf
 gkT
 puX
@@ -165462,7 +165476,7 @@ nuU
 xJH
 wYy
 maA
-iox
+sdV
 uFl
 jzt
 sLj
