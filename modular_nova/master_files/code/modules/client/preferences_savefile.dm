@@ -169,7 +169,6 @@
 
 	if(current_version < VERSION_UNDERSHIRT_BRA_SPLIT)
 		var/static/list/underwear_to_underwear_bra = list(
-			"Panties" = list("Panties - Basic", null), // Just a rename
 			"Bikini" = list("Panties - Slim", "Bra"),
 			"Lace Bikini" = list("Panties - Thin", "Bra - Thin"),
 			"Bralette w/ Boyshorts" = list("Boyshorts (Alt)", "Bra, Sports"),
