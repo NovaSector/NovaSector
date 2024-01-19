@@ -153,7 +153,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/spawn_liquid,					/*NOVA EDIT ADDITION*/
 	/client/proc/spawn_mob_spawner,				/*NOVA EDIT ADDITION*/
 	/client/proc/spawn_pollution,				/*NOVA EDIT ADDITION*/
-	/client/proc/spawn_sunbeam,					/*NOVA EDIT ADDITION*/
 	/client/proc/intensity_credits_panel,		/*NOVA EDIT ADDITION*/
 	/client/proc/toggle_bsa,					/*NOVA EDIT ADDITION*/
 	/client/proc/try_stop_delam, /*NOVA EDIT ADDITION*/
@@ -231,6 +230,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/get_dynex_range, /*debug verbs for dynex explosions.*/
 	/client/proc/jump_to_ruin,
 	/client/proc/load_circuit,
+	/client/proc/map_export,
 	/client/proc/map_template_load,
 	/client/proc/map_template_upload,
 	/client/proc/modify_goals,
@@ -258,7 +258,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/validate_puzzgrids,
 	/client/proc/GeneratePipeSpritesheet,
 	/client/proc/view_runtimes,
-
+	/client/proc/stop_weather,
 	/client/proc/reload_interactions,	/*NOVA EDIT ADDITION*/
 	/client/proc/test_area_spawner,		/*AUTOMAPPER - NOVA EDIT ADDITION*/
 	/client/proc/toggle_liquid_debug,	/*NOVA EDIT ADDITION*/

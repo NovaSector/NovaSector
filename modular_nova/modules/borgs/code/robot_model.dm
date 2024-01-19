@@ -2,8 +2,9 @@
 	var/icon/cyborg_icon_override
 	var/sleeper_overlay
 	var/cyborg_pixel_offset
+	/// Alternate icon file used for this module's collapsed UI icon
 	var/model_select_alternate_icon
-	/// Traits unique to this model, i.e. having a unique dead sprite, being wide or being small enough to reject shrinker modules. Leverages defines in code\__DEFINES\~skyrat_defines\robot_defines.dm
+	/// Traits unique to this model, i.e. having a unique dead sprite, being wide or being small enough to reject shrinker modules. Leverages defines in code\__DEFINES\~nova_defines\robot_defines.dm
 	/// If a sprite overlaps above the standard height, ensure it is not overlapping icons in the selector wheel.
 	var/list/model_features = list()
 
@@ -194,6 +195,7 @@
 		"NiKO" = list(SKIN_ICON_STATE = "mmekaeng", SKIN_ICON = CYBORG_ICON_ENG_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = 15)
 	)
 
+//JANITOR
 /obj/item/robot_model/janitor
 	borg_skins = list(
 		/// 32x32 Skins
@@ -292,6 +294,7 @@
 		"NiKO" = list(SKIN_ICON_STATE = "mmekapeace", SKIN_ICON = CYBORG_ICON_PEACEKEEPER_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = 15)
 	)
 
+//SECURITY
 /obj/item/robot_model/security
 	borg_skins = list(
 		/// 32x32 Skins
@@ -353,6 +356,7 @@
 	hat_offset = 0
 	cyborg_base_icon = "cargo"
 	model_select_icon = "cargo"
+	model_select_alternate_icon = 'modular_nova/modules/borgs/icons/screen_cyborg.dmi'
 	canDispose = TRUE
 	borg_skins = list(
 		/// 32x32 Skins
@@ -373,7 +377,6 @@
 		"NiKA" = list(SKIN_ICON_STATE = "fmekacargo", SKIN_ICON = CYBORG_ICON_CARGO_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = 15),
 		"NiKO" = list(SKIN_ICON_STATE = "mmekacargo", SKIN_ICON = CYBORG_ICON_CARGO_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = 15)
 	)
-
 
 //SYNDICATE
 /obj/item/robot_model/syndicatejack

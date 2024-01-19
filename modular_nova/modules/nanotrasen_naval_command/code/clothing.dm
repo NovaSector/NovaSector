@@ -1,22 +1,22 @@
 
 // UNDER
-/obj/item/clothing/under/rank/centcom/skyrat/naval
+/obj/item/clothing/under/rank/centcom/nova/naval
 	name = "ensign uniform"
 	desc = "A uniform worn by those with the rank Ensign in the Nanotrasen Navy."
 	icon_state = "naval_ensign"
 	can_adjust = TRUE
 
-/obj/item/clothing/under/rank/centcom/skyrat/naval/commander
+/obj/item/clothing/under/rank/centcom/nova/naval/commander
 	name = "command uniform"
 	desc = "A uniform worn by those with a command rank in the Nanotrasen Navy."
 	icon_state = "naval_command"
 
-/obj/item/clothing/under/rank/centcom/skyrat/naval/admiral
+/obj/item/clothing/under/rank/centcom/nova/naval/admiral
 	name = "admiral's uniform"
 	desc = "A uniform worn by those with the rank Admiral in the Nanotrasen Navy."
 	icon_state = "naval_admiral"
 
-/obj/item/clothing/under/rank/centcom/skyrat/naval/fleet_admiral
+/obj/item/clothing/under/rank/centcom/nova/naval/fleet_admiral
 	name = "fleet admiral's uniform"
 	desc = "A uniform worn by those with the rank Fleet Admiral in the Nanotrasen Navy."
 	icon_state = "naval_fleet_admiral"

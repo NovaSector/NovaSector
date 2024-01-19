@@ -4,8 +4,8 @@
 // BEGIN TRAIT DEFINES
 
 /*
-Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
-*/
+ *Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
+ */
 
 //mob traits
 /// Forces the user to stay unconscious.
@@ -415,6 +415,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // Being close enough to the supermatter makes it heal at higher temperatures
 // and emit less heat. Present on /mob or /datum/mind
 #define TRAIT_SUPERMATTER_SOOTHER "supermatter_soother"
+/// Mob has fov applied to it
+#define TRAIT_FOV_APPLIED "fov_applied"
+/// Mob is using the scope component
+#define TRAIT_USER_SCOPED "user_scoped"
 
 /// Trait added when a revenant is visible.
 #define TRAIT_REVENANT_REVEALED "revenant_revealed"
@@ -486,6 +490,15 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Is the mob standing on an elevated surface? This prevents them from dropping down if not elevated first.
 #define TRAIT_ON_ELEVATED_SURFACE "on_elevated_surface"
+
+/// Prevents you from twohanding weapons.
+#define TRAIT_NO_TWOHANDING "no_twohanding"
+
+/// Halves the time of tying a tie.
+#define TRAIT_FAST_TYING "fast_tying"
+
+/// Sells for more money on the pirate bounty pad.
+#define TRAIT_HIGH_VALUE_RANSOM "high_value_ransom"
 
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
@@ -873,6 +886,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_BLOB_ALLY "blob_ally"
 
 ///Traits given by station traits
+#define STATION_TRAIT_ASSISTANT_GIMMICKS "station_trait_assistant_gimmicks"
 #define STATION_TRAIT_BANANIUM_SHIPMENTS "station_trait_bananium_shipments"
 #define STATION_TRAIT_BIGGER_PODS "station_trait_bigger_pods"
 #define STATION_TRAIT_BIRTHDAY "station_trait_birthday"
@@ -900,6 +914,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// This atom is currently spinning.
 #define TRAIT_SPINNING "spinning"
+
+/// This limb can't be torn open anymore
+#define TRAIT_IMMUNE_TO_CRANIAL_FISSURE "immune_to_cranial_fissure"
+/// Trait given if the mob has a cranial fissure.
+#define TRAIT_HAS_CRANIAL_FISSURE "has_cranial_fissure"
 
 /// Denotes that this id card was given via the job outfit, aka the first ID this player got.
 #define TRAIT_JOB_FIRST_ID_CARD "job_first_id_card"
@@ -1007,6 +1026,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait given to foam darts that have an insert in them
 #define TRAIT_DART_HAS_INSERT "dart_has_insert"
 
+/// Trait determines if this mob has examined an eldritch painting
+#define TRAIT_ELDRITCH_PAINTING_EXAMINE "eldritch_painting_examine"
+
+/// Trait used by the /datum/brain_trauma/severe/flesh_desire trauma to change their preferences of what they eat
+#define TRAIT_FLESH_DESIRE "flesh_desire"
+
 ///Trait granted by janitor skillchip, allows communication with cleanbots
 #define TRAIT_CLEANBOT_WHISPERER "cleanbot_whisperer"
 
@@ -1018,5 +1043,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Trait which self-identifies as an enemy of the law
 #define TRAIT_ALWAYS_WANTED "always_wanted"
+
+/// Trait which means whatever has this is dancing by a dance machine
+#define TRAIT_DISCO_DANCER "disco_dancer"
 
 // END TRAIT DEFINES

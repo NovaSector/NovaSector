@@ -4,8 +4,6 @@ These procs are incredibly expensive and should only really be run once. That's 
 */
 
 
-#define WALL_RUST_PERCENT_CHANCE 15
-
 #define FLOOR_DIRT_PERCENT_CHANCE 15
 #define FLOOR_BLOOD_PERCENT_CHANCE 1
 #define FLOOR_VOMIT_PERCENT_CHANCE 1
@@ -58,10 +56,11 @@ SUBSYSTEM_DEF(decay)
 		possible_areas += iterating_area
 
 		// Now add the turfs
-		for(var/turf/iterating_turf as anything in iterating_area.get_contained_turfs())
-			if(!(iterating_turf.flags_1 & CAN_BE_DIRTY_1))
-				continue
-			possible_turfs += iterating_turf
+		for(var/list/zlevel_turfs as anything in iterating_area.get_zlevel_turf_lists())
+			for(var/turf/iterating_turf as anything in zlevel_turfs)
+				if(!(iterating_turf.flags_1 & CAN_BE_DIRTY_1))
+					continue
+				possible_turfs += iterating_turf
 
 	if(!possible_turfs)
 		CRASH("SSDecay had no possible turfs to use!")
@@ -92,12 +91,6 @@ SUBSYSTEM_DEF(decay)
 
 		if(prob(FLOOR_DIRT_PERCENT_CHANCE * severity_modifier))
 			new /obj/effect/decal/cleanable/dirt(iterating_floor)
-
-	for(var/turf/closed/iterating_wall in possible_turfs)
-		if(HAS_TRAIT(iterating_wall, TRAIT_RUSTY))
-			continue
-		if(prob(WALL_RUST_PERCENT_CHANCE * severity_modifier))
-			iterating_wall.AddElement(/datum/element/rust)
 
 /datum/controller/subsystem/decay/proc/do_maintenance()
 	for(var/area/station/maintenance/iterating_maintenance in possible_areas)

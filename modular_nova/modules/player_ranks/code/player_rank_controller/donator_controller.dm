@@ -10,7 +10,7 @@ GLOBAL_PROTECT(donator_list)
 
 /datum/player_rank_controller/donator/New()
 	. = ..()
-	legacy_file_path = "[global.config.directory]/skyrat/donators.txt"
+	legacy_file_path = "[global.config.directory]/nova/donators.txt"
 
 
 

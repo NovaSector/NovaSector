@@ -746,7 +746,6 @@
 			tilted = TRUE
 			tilted_rotation = picked_rotation
 			layer = ABOVE_MOB_LAYER
-			SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
 
 	if(get_turf(fatty) != get_turf(src))
 		throw_at(get_turf(fatty), 1, 1, spin = FALSE, quickstart = FALSE)
@@ -808,7 +807,7 @@
 						var/burn = (damage_type == BURN ? damage : 0) * 0.5
 						carbon_target.take_bodypart_damage(brute, burn, check_armor = TRUE, wound_bonus = 5) // otherwise, deal it to 2 random limbs (or the same one) which will likely shatter something
 						carbon_target.take_bodypart_damage(brute, burn, check_armor = TRUE, wound_bonus = 5)
-					carbon_target.AddElement(/datum/element/squish, 80 SECONDS)
+					//carbon_target.AddElement(/datum/element/squish, 80 SECONDS) // NOVA EDIT REMOVAL
 				else
 					living_target.apply_damage(adjusted_damage, damage_type, blocked = blocked, forced = TRUE, attack_direction = crush_dir)
 
@@ -1016,7 +1015,6 @@
 
 	tilted = FALSE
 	layer = initial(layer)
-	SET_PLANE_IMPLICIT(src, initial(plane))
 
 	var/matrix/to_turn = turn(transform, -tilted_rotation)
 	animate(src, transform = to_turn, 0.2 SECONDS)
@@ -1208,11 +1206,12 @@
 	for (var/datum/data/vending_product/product_record as anything in product_records + coin_records + hidden_records)
 		var/list/product_data = list(
 			name = product_record.name,
+			path = replacetext(replacetext("[product_record.product_path]", "/obj/item/", ""), "/", "-"),
 			amount = product_record.amount,
 			colorable = product_record.colorable,
 		)
 
-		.["stock"] += list(product_data)
+		.["stock"][product_data["path"]] = product_data
 
 	.["extended_inventory"] = extended_inventory
 
@@ -1591,7 +1590,7 @@
 	if(loaded_item.custom_price)
 		return TRUE
 
-/obj/machinery/vending/custom/ui_interact(mob/user)
+/obj/machinery/vending/custom/ui_interact(mob/user, datum/tgui/ui)
 	if(!linked_account)
 		balloon_alert(user, "no registered owner!")
 		return FALSE

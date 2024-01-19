@@ -2,7 +2,7 @@
 /datum/element/manufacturer_examine
 	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
-	/// String to use for the examine text, use the defines in code/__DEFINES/~skyrat_defines/manufacturer_strings.dm
+	/// String to use for the examine text, use the defines in code/__DEFINES/~nova_defines/manufacturer_strings.dm
 	var/company_string
 
 /datum/element/manufacturer_examine/Attach(atom/target, given_company_string)
