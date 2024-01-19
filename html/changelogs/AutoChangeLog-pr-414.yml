@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - admin: "Made logging for BSA targeting and firing easier to find for admins."
