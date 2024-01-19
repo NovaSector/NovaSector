@@ -764,3 +764,6 @@
       diet
   nikothedude:
   - rscadd: Interdyne botany now has separating windoors
+2024-01-19:
+  sqnztb:
+  - bugfix: void raptor's chemistry now is properly wired
