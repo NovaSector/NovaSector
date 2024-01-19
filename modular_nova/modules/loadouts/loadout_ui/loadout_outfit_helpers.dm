@@ -77,6 +77,7 @@
 	regenerate_icons()
 	return TRUE
 
+// cyborgs can wear hats from loadout
 /mob/living/silicon/robot/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	var/list/loadout_datums = loadout_list_to_datums(preference_source?.loadout_list)
 	for (var/datum/loadout_item/head/item in loadout_datums)
@@ -156,11 +157,13 @@
 /obj/item/storage/briefcase/empty/PopulateContents()
 	return
 
-/mob/living/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client)
+// Cyborg loadouts (currently used for hats)
+/mob/living/silicon/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client)
 	. = ..()
 	dress_up_as_job(equipping, FALSE, used_pref)
 
-/mob/living/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref)
+// Cyborg loadouts (currently used for hats)
+/mob/living/silicon/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref)
 	. = ..()
 	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping)
 
