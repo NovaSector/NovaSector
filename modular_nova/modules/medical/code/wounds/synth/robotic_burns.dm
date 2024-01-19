@@ -106,20 +106,21 @@
 			set_highest_scar(overheat_wound.highest_scar)
 			overheat_wound.clear_highest_scar()
 
-	if(!highest_scar && can_scar)
+	if (!highest_scar && can_scar)
 		var/datum/scar/new_scar = new
 		set_highest_scar(new_scar)
 		new_scar.generate(limb, src, add_to_scars = FALSE)
 
 /datum/wound/burn/robotic/overheat/proc/set_highest_scar(datum/scar/new_scar)
-	if(highest_scar)
+	if (highest_scar)
 		UnregisterSignal(highest_scar, COMSIG_QDELETING)
-	if(new_scar)
+	if (new_scar)
 		RegisterSignal(new_scar, COMSIG_QDELETING, PROC_REF(clear_highest_scar))
 	highest_scar = new_scar
 
 /datum/wound/burn/robotic/overheat/proc/clear_highest_scar(datum/source)
 	SIGNAL_HANDLER
+
 	set_highest_scar(null)
 
 /datum/wound/burn/robotic/overheat/remove_wound(ignore_limb, replaced)
