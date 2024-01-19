@@ -21,56 +21,29 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/sensory_enhancer/bodypart_overlay
-	/// What limb we are inside of, used for tracking when and how to remove our overlays and all that
-	var/obj/item/bodypart/ownerlimb
 
-/obj/item/organ/internal/cyberimp/sensory_enhancer/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
-	var/obj/item/bodypart/limb = receiver.get_bodypart(deprecise_zone(zone))
-
+/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
+	ADD_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
 
-	if(!.)
-		return
-	if(!limb)
-		return FALSE
-
-	ownerlimb = limb
-	on_bodypart_insert(ownerlimb)
-
-	ADD_TRAIT(receiver, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
-
-/obj/item/organ/internal/cyberimp/sensory_enhancer/Remove(mob/living/carbon/organ_owner, special, moving)
+/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
 	. = ..()
-
-	if(ownerlimb)
-		on_bodypart_remove(ownerlimb)
-
-	if(organ_owner)
-		organ_owner.update_body_parts()
-
 	REMOVE_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
 	bodypart_overlay = new()
-	ownerlimb = limb
-	ownerlimb.add_bodypart_overlay(bodypart_overlay)
+	limb.add_bodypart_overlay(bodypart_overlay)
 	owner.update_body_parts()
 	return ..()
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
-	ownerlimb.remove_bodypart_overlay(bodypart_overlay)
+	limb.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
-	ownerlimb = null
 	owner.update_body_parts()
-	return ..()
-
-/obj/item/organ/internal/cyberimp/sensory_enhancer/Destroy()
-	if(ownerlimb)
-		on_bodypart_remove(ownerlimb)
 	return ..()
 
 /datum/bodypart_overlay/simple/sensory_enhancer
@@ -154,54 +127,21 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/hackerman/bodypart_overlay
-	/// What limb we are inside of, used for tracking when and how to remove our overlays and all that
-	var/obj/item/bodypart/ownerlimb
-
-/obj/item/organ/internal/cyberimp/hackerman_deck/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
-	var/obj/item/bodypart/limb = receiver.get_bodypart(deprecise_zone(zone))
-
-	. = ..()
-
-	if(!.)
-		return
-	if(!limb)
-		return FALSE
-
-	ownerlimb = limb
-	on_bodypart_insert(ownerlimb)
-
-/obj/item/organ/internal/cyberimp/hackerman_deck/Remove(mob/living/carbon/organ_owner, special, moving)
-	. = ..()
-
-	if(ownerlimb)
-		on_bodypart_remove(ownerlimb)
-
-	if(organ_owner)
-		organ_owner.update_body_parts()
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
 	bodypart_overlay = new()
-	ownerlimb = limb
-	ownerlimb.add_bodypart_overlay(bodypart_overlay)
+	limb.add_bodypart_overlay(bodypart_overlay)
 	owner.update_body_parts()
 	return ..()
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
-	ownerlimb.remove_bodypart_overlay(bodypart_overlay)
+	limb.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
-	ownerlimb = null
 	owner.update_body_parts()
-	return ..()
-
-/obj/item/organ/internal/cyberimp/hackerman_deck/Destroy()
-	if(isteshari(owner))
-		return ..()
-	if(ownerlimb)
-		on_bodypart_remove(ownerlimb)
 	return ..()
 
 /datum/bodypart_overlay/simple/hackerman
