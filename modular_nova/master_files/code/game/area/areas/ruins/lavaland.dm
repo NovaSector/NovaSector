@@ -33,8 +33,8 @@
 
 /area/ruin/interdyne_planetary_base/cargo/obs/Initialize(mapload)
 	if(!ambientsounds)
-		var/list/global_list = GLOB.ambience_assoc[ambience_index]
-		ambientsounds = global_list.Copy()
+		var/list/temp_ambientsounds = GLOB.ambience_assoc[ambience_index]
+		ambientsounds = temp_ambientsounds.Copy()
 		ambientsounds += list(
 			'modular_nova/modules/encounters/sounds/morse.ogg',
 			'sound/ambience/ambitech.ogg',
@@ -128,8 +128,8 @@
 
 /area/ruin/interdyne_planetary_base/eng/Initialize(mapload)
 	if(!ambientsounds)
-		var/list/global_list = GLOB.ambience_assoc[ambience_index]
-		ambientsounds = global_list.Copy()
+		var/list/temp_ambientsounds = GLOB.ambience_assoc[ambience_index]
+		ambientsounds = temp_ambientsounds.Copy()
 		ambientsounds += list(
 			'sound/items/geiger/low1.ogg',
 			'sound/items/geiger/low2.ogg',
