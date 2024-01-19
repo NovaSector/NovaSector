@@ -102,7 +102,7 @@
 
 	if (old_wound && old_wound.severity > severity && istype(old_wound, /datum/wound/burn/robotic/overheat))
 		var/datum/wound/burn/robotic/overheat/overheat_wound = old_wound
-		if(overheat_wound.highest_scar)
+		if (overheat_wound.highest_scar)
 			set_highest_scar(overheat_wound.highest_scar)
 			overheat_wound.clear_highest_scar()
 
@@ -124,7 +124,7 @@
 	set_highest_scar(null)
 
 /datum/wound/burn/robotic/overheat/remove_wound(ignore_limb, replaced)
-	if(!replaced && highest_scar)
+	if (!replaced && highest_scar)
 		already_scarred = TRUE
 		highest_scar.lazy_attach(limb)
 	return ..()
@@ -256,7 +256,7 @@
 	var/clamped_new_temperature
 	var/heat_adjustment_used
 
-	if(temp_delta > 0)
+	if (temp_delta > 0)
 		clamped_new_temperature = min(min(chassis_temperature + max(temp_delta, 1), temperature), heating_threshold)
 		heat_adjustment_used = (clamped_new_temperature / unclamped_new_temperature)
 	else
