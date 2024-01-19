@@ -167,6 +167,10 @@
 	. = ..()
 	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping)
 
+// originally made as a workaround the fact borgs lose their hats on module change, this
+// is how borgs can pick up and drop hats
+
+// if a borg clicks a hat, they try to put it on
 /obj/item/clothing/head/attack_robot_secondary(mob/living/silicon/robot/user, list/modifiers)
 	. = ..()
 	if (. != SECONDARY_ATTACK_CALL_NORMAL)
@@ -183,6 +187,7 @@
 	user.place_on_head(src)
 	balloon_alert(user, "picked up hat")
 
+// if a borg right clicks themself, they try to drop their hat
 /mob/living/silicon/robot/attack_robot_secondary(mob/user, list/modifiers)
 	. = ..()
 	if (. != SECONDARY_ATTACK_CALL_NORMAL)
