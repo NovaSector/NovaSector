@@ -275,6 +275,7 @@
 	bolt_type = BOLT_TYPE_NO_BOLT
 	can_be_sawn_off = FALSE
 	pb_knockback = 2
+	can_modify_ammo = TRUE
 	initial_caliber = CALIBER_SHOTGUN
 	alternative_caliber = CALIBER_980TYDHOUER
 	recoil = 4
