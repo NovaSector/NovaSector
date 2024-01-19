@@ -3,6 +3,7 @@
 /datum/reagent/medicine/coagulant
 	/// was_working, but for electrical damage
 	var/was_working_synth
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
 /datum/reagent/medicine/coagulant/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
