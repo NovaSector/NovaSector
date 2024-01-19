@@ -1,0 +1,5 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - balance: "Ore thumpers require twice as much power (50 kW), take twice as long to make ore, and can have half as many ores around them before they stop producing."
+  - qol: "Ore thumpers now relay more information to the player about themselves, making them easier to set up and maintain."
