@@ -13,7 +13,7 @@
 	quirk_flags = QUIRK_CHANGES_APPEARANCE //NOVA EDIT CHANGE - ORIGINAL: quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
 	medical_record_text = "Patient is well-adapted to non-terrestrial environments."
 	mail_goodies = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil, // NOVA EDIT: change the terrible patches to DeForest pens
+		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil, // NOVA EDIT, ORIGINAL: /obj/item/storage/pill_bottle/ondansetron,
 		/obj/item/reagent_containers/pill/gravitum,
 	)
 	/// How high spacers get bumped up to
