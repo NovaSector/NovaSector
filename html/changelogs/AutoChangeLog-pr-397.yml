@@ -1,0 +1,5 @@
+author: "nikothedude"
+delete-after: True
+changes:
+  - rscadd: "Borgs can now right click hats and themselves to put on hats or take them off, respectively"
+  - rscadd: "Borgs can now spawn with hats from the loadout"
