@@ -140,6 +140,11 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "salon"
 
+/area/station/service/forge
+	name = "Forge"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon_state = "forge"
+
 // Wrestling areas for BlueShift
 /area/station/common/wrestling
 	name = "Wrestling"
