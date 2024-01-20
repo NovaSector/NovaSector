@@ -98,3 +98,15 @@
 	name = "Tarkon ensign's access card"
 	desc = "An access card designated for \"Tarkon ensign\". No one has to listen to you... But you're the closest thing there is to command around here."
 	trim = /datum/id_trim/away/tarkon/ensign
+
+/datum/id_trim/away/tarkon/director
+	assignment = "Tarkon Port Director"
+	access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_AWAY_GENERAL, ACCESS_TARKON, ACCESS_WEAPONS)
+	department_color = COLOR_COMMAND_BLUE
+	sechud_icon_state = SECHUD_BLUESHIELD
+	trim_state = "trim_captain"
+
+/obj/item/card/id/advanced/tarkon/director
+	name = "Tarkon port director's access card"
+	desc = "An access card designated for \"Tarkon Port Director\". Its no longer hesitation, only consideration."
+	trim = /datum/id_trim/away/tarkon/director

@@ -25,6 +25,9 @@
 	id = /obj/item/card/id/advanced/tarkon
 	id_trim = /datum/id_trim/away/tarkon
 	ears = /obj/item/radio/headset/tarkon
+	backpack_contents = list(
+		/obj/item/crowbar = 1
+		)
 
 /datum/outfit/tarkon/post_equip(mob/living/carbon/human/tarkon, visualsOnly = FALSE)
 	var/obj/item/card/id/id_card = tarkon.wear_id
@@ -146,8 +149,8 @@
 	name = "Port Tarkon Ensigns Outfit"
 	uniform = /obj/item/clothing/under/tarkon/com
 	ears = /obj/item/radio/headset/tarkon/command
-	id = /obj/item/card/id/advanced/tarkon/ensign
-	id_trim = /datum/id_trim/away/tarkon/ensign
+	id = /obj/item/card/id/advanced/tarkon/director
+	id_trim = /datum/id_trim/away/tarkon/director
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	r_pocket = /obj/item/card/id/away/tarkonrobo
 

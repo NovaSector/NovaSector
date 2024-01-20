@@ -3961,11 +3961,12 @@
 /turf/open/misc/asteroid/airless,
 /area/solars/tarkon)
 "Bu" = (
-/obj/item/crowbar,
-/obj/item/crowbar,
-/obj/item/crowbar,
 /obj/structure/table,
 /obj/machinery/light/warm/directional/south,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Bv" = (
@@ -5718,11 +5719,11 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/afthall)
 "Ns" = (
-/obj/item/crowbar,
-/obj/item/crowbar,
-/obj/item/crowbar,
-/obj/item/crowbar,
 /obj/structure/table,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon)
 "Nv" = (

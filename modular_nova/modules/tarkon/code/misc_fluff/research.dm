@@ -14,7 +14,6 @@
 	id = "tarkontech"
 	display_name = "Tarkon Industries Technology"
 	description = "Tools used by Tarkon Industries."
-	prereq_ids = list("engineering")
 	required_items_to_unlock = list(
 		/obj/item/mod/construction/plating/tarkon,
 		/obj/item/construction/rcd/tarkon,
@@ -31,17 +30,15 @@
 /datum/design/mod_plating/tarkon
 	name = "MOD Tarkon Plating"
 	id = "mod_plating_tarkon"
-	build_path = /obj/item/mod/construction/plating/security
+	build_path = /obj/item/mod/construction/plating/tarkon
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
-	research_icon_state = "security-plating"
-	research_icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
-	research_icon_state = "standard-plating"
+	research_icon_state = "tarkon-plating"
+	research_icon = 'modular_nova/modules/tarkon/icons/obj/mod_construct.dmi'
 
 /datum/design/arcs
 	name = "A.R.C.S Resonator"
@@ -58,7 +55,6 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/tarkonrcd
 	name = "Tarkon R.C.D"
@@ -72,11 +68,10 @@
 		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/bluespace = SHEET_MATERIAL_AMOUNT * 3,
 		)
-	build_path = /obj/item/construction/rcd/loaded
+	build_path = /obj/item/construction/rcd/tarkon
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 ///// Now we make the physical server /////
 
