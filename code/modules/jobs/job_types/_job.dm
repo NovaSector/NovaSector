@@ -194,7 +194,7 @@
 	return TRUE
 
 
-/mob/living/proc/on_job_equipping(datum/job/equipping)
+/mob/living/proc/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
@@ -206,7 +206,7 @@
 	bank_account.replaceable = FALSE
 	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-	dress_up_as_job(equipping, FALSE, used_pref) //NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
+	dress_up_as_job(equipping, FALSE, used_pref) // NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // NOVA EDIT REMOVAL - See below
@@ -219,7 +219,7 @@
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
-/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE
