@@ -54,15 +54,22 @@
 
 	if (length(limb_to_detach.wounds) >= 1)
 		cast_on.balloon_alert(cast_on, "can't detach wounded limbs!")
+		playsound(cast_on, 'sound/machines/buzz-sigh.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		return
 
 	cast_on.balloon_alert(cast_on, "detaching limb...")
+	playsound(cast_on, 'sound/items/rped.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	cast_on.visible_message(span_notice("[cast_on] shuffles [cast_on.p_their()] [limb_to_detach.name] forward, actuators hissing and whirring as [cast_on.p_they()] disengage[cast_on.p_s()] the limb from its mount..."))
 
 	if(do_after(cast_on, 5 SECONDS))
 		cast_on.visible_message(span_notice("With a gentle twist, [cast_on] finally prises [cast_on.p_their()] [limb_to_detach.name] free from its socket."))
 		limb_to_detach.drop_limb()
+		cast_on.put_in_hands(limb_to_detach)
 		cast_on.balloon_alert(cast_on, "limb detached!")
-		//add some foley sfx here
+		if(prob(5))
+			playsound(cast_on, 'sound/items/champagne_pop.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		else
+			playsound(cast_on, 'sound/items/deconstruct.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	else
 		cast_on.balloon_alert(cast_on, "interrupted!")
+		playsound(cast_on, 'sound/machines/buzz-sigh.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
