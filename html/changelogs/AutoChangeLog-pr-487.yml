@@ -1,5 +1,0 @@
-author: "nikothedude"
-delete-after: True
-changes:
-  - bugfix: "Interdyne's ambience is now isolated to interdyne"
-  - rscdel: "Interdyne's main musical track is gone"
