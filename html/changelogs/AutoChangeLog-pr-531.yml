@@ -1,0 +1,5 @@
+author: "Momo8289, Pepsilawn, Sinsinins, JohnFulpWillard, Diamond-74"
+delete-after: True
+changes:
+  - bugfix: "Clown ops now get a code set for their nuke."
+  - bugfix: "Monkeys don't get stuck on obstacles as often."
