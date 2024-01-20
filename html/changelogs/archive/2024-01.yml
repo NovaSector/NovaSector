@@ -621,3 +621,200 @@
   - bugfix: Autopunctuation now correctly inserts EOL periods for any bolded/italicised/underline
       messages without them, if they don't already have punctuation of their own (like
       exclamation marks, tildes, question marks, or hyphens).
+2024-01-15:
+  LT3:
+  - bugfix: Fixed missing power cable outside Tramstation medbay
+  Melbert:
+  - bugfix: Anomalies spawned by grand ritual runes sound act more like anomalies
+  Motho:
+  - rscadd: Added a civilian version of the Type-34P headset that actually has no
+      armor.
+  - rscadd: Added the aerostatic set to the loadout.
+  - qol: Removed job restrictions from a majority of loadout items.
+  NovaBot13:
+  - bugfix: Rat King's abilities no longer require the user to click twice in order
+      to activate them.
+  - bugfix: Changeling eggs laid by headslugs work again
+  - bugfix: Changeling egg incubation times should feel much more consistent, hatching
+      after 4 minutes
+  - admin: Confirming that you have read an admin message now uh, works. it's been
+      2 years bros
+  - bugfix: Fixed round event controller pirate spawns.
+  - qol: The combat mode toggle button is now present on the HUD for simple and basic
+      mobs.
+  - bugfix: Borg tools that hold and use specific items now work correctly again.
+  - bugfix: Animals enlargened by the fugu gland are now visually aligned with the
+      turf they're standing on.
+  - bugfix: chem heater with empty buffers can be refilled again
+  OrionTheFox:
+  - rscadd: Added a long-sleeve greyscale undershirt, and moved the Lizared Top to
+      be a Bra, along with a few other small tweaks - double-check your worn underwear!
+  - image: Updated some out of date underwear sprites to match TG's new resprite
+  - bugfix: fixed the OpFor Syndicate Uplink Implanter giving a broken item - it will
+      now give the Implanter as intended.
+  Thlumyn, Arta/Maxi for the sprites:
+  - rscadd: Added peacock tails
+  honkpocket:
+  - balance: Blueshift's vault, armoury, AI upload and prison are a little more antag
+      friendly!
+  - rscadd: Adds a forge room to Blueshift
+  vinylspiders:
+  - balance: 'Instead of too much damage to the head beheading someone, it
+
+      will now split their skull in half. While their skull is open, you can
+
+      rip out their eyes with your hands. and they will spill their brain out
+
+      of their head if they slip.'
+  - balance: 'The Path of Blades ascension will accept either a beheaded
+
+      person, or someone with their skull split open.'
+  - rscdel: Removed the beheading objectives from traitor.
+  yooriss:
+  - balance: Oversized characters no longer receive a flat +5 damage to all unarmed
+      attacks, and instead gain a +5 bonus to the  maximum possible damage. In addition,
+      the unarmed effectiveness value of their legs has increased by +5, making them
+      better at keeping people on the ground once they get them there, without doing
+      any extra damage with their kicks.
+2024-01-16:
+  Melbert:
+  - bugfix: Fixes some eldritch painting messages having no chat span
+  - bugfix: Fixes eldritch painting messages triggering before the examine, making
+      it hard to see
+  - bugfix: Fix beauty eldritch painting doing nothing to heretics who examine it
+  NovaBot13:
+  - bugfix: Sections will be more polite by not stealing focus from Input boxes in
+      TGUI
+  - bugfix: Poppers (like the prefs menu options) shouldn't be hidden beneath the
+      character preview anymore.
+  - bugfix: fix bileworm ai going insane after eating someone
+  - bugfix: Radiation shelters (wherever they are) will protect against nebula storms
+  - code_imp: Hub status shows if server is restarting, starting, time to start. The
+      "Time" is more accurate and based on roundstart now
+  - qol: Using a Lawyer badge in your hand now shows a thought bubble with the badge,
+      rather than giving a lousy message in your chat.
+  - qol: Players are now able to see in chat when they are being hit by obj/machinery,
+      got crushed into dense turf or get hit by thrown non carbon mob.
+  - admin: Scenarios like mob hits dense turf, obj/machinery hits mob, item without
+      "living thrower" hitting mob, mob gets hit by thrown non carbon mob now appear
+      in logs.
+  aKromatopzia:
+  - rscadd: digitigrade cybernetics
+  - image: sprites for digitigrade cybernetics
+2024-01-17:
+  NovaBot13:
+  - image: the plumbing chemical splitter no longer has a wrongly rotated direction
+  - bugfix: Lock heretics may once again access 'the relentless heartbeat' after purchasing
+      'burglars fineness'.
+  aKromatopzia:
+  - rscadd: Teshari cybernetics
+  - image: sprites for teshari cybernetics
+  honkpocket:
+  - bugfix: Removes unintended structures cluttering in Blueshift's space
+  tf4, orion:
+  - rscadd: Added cow print underwear.
+2024-01-18:
+  NovaBot13:
+  - bugfix: Immobile shells no longer work regardless of anchor state if you put the
+      circuit in while it's unanchored.
+  - bugfix: Immobile shells properly propagate their on/off state after wrenching
+      to inner modules.
+  - image: Resprited several fishes, and the aquarium.
+  - bugfix: Bystanders will no longer think they've pulled out a victim's eyes after
+      seeing someone else do it.
+  - qol: They will also be able to tell when someone starts pulling out a victim's
+      eyes.
+  - refactor: Refactored Ore Silo Ui.
+  - bugfix: Autolathes no longer allow you to duplicate materials at higher levels
+      of stock parts
+  - qol: Autolathes now show name instead of typepath when selecting a custom material
+  - qol: Autolathe now print out items one by one instead of waiting for all of them
+      to print at once
+  - bugfix: Signers no longer use the wrong verb when speaking directly into a radio
+      for the first message after toggling sign language.
+  - refactor: Moved the updating of verb variables into a new method which is called
+      earlier in living's say, which should avoid this happening for other things
+      which updated their verbs the same way.
+  - refactor: Ice cream vats now use a radial menu instead of an HTML one.
+  - refactor: Implant pads now use TGUI
+  - rscadd: Most fishing rods come with a hook and line preinstalled. Fishing toolboxes
+      come with separate reel and lines as usual.
+  - balance: Fishing hooks are now required to fish.
+  - balance: Without a reel line, the range of fishing rods is reduced by two tiles.
+      Conversely, having one installed gives a mild buff to the minigame completion
+      speed.
+  - balance: The craftable sinewy reel line can now be used to fish on lava or liquid
+      plasma, but it's a bit harder to use.
+  - balance: The rare-to-find-in-maintenance master fishing rod now comes with a flexible
+      line and weighted hook preinstalled, and has better range than other rods.
+  - balance: Fishing reel lines are now small enough to fit pockets.
+  - rscadd: The rescue and jawed hook can now snag and reel in mobs, not only items.
+      The jawed hook also slows down when applied, a la beartrap.
+  - qol: Fish bounties now accept filled (stasis) fish cases.
+  - qol: Several balloon alerts for fishing rod interactions.
+  - bugfix: Reeling in items (and mobs) now respects movement resistance and anchorage.
+  - bugfix: Fixed the fishing rod equipment UI being too small to fit its components.
+  - sound: Reeling in something now plays a sound.
+  - code_imp: removed the timeout_mod arg from add_mood_event, which was only used
+      for one thing and causes more issues than it's worth
+  honkpocket:
+  - rscadd: Markus the cargo dog no longer takes disposal-chute damage thanks to his
+      diet
+  nikothedude:
+  - rscadd: Interdyne botany now has separating windoors
+2024-01-19:
+  13spacemen:
+  - bugfix: Hub time should be correct again
+  Ben10Omintrix:
+  - bugfix: fix a runtime when loading ghosts to a mulebot
+  JohnFulpWillard:
+  - refactor: Implant pads now use TGUI
+  - refactor: Ice cream vats now use a radial menu instead of an HTML one.
+  intercepti0n:
+  - refactor: Refactored Ore Silo Ui.
+  mc-oofert:
+  - code_imp: slightly cleans up dance machine code
+  - bugfix: disco dances are less comparable to having a seizure
+  sqnztb:
+  - bugfix: void raptor's chemistry now is properly wired
+  - image: Resprited several fishes, and the aquarium.
+  - rscadd: Shields (and pillows) can be used to shove people around the same way
+      barehanded right-clicking does. Xenos and borgs can actually be moved this way.
+  - rscadd: Added a new MODsuit module, the bulwark module, which prevents knockdown
+      and staggering from shoving, and getting pushed away by thrown objects. Inbuilt
+      for the safeguard MODsuit, but one might also it in the black market.
+  - refactor: Disarming has been refactored. You can now shove simple critters onto
+      tables and into bins and closets
+  - balance: Shields now take their own armor values and the armor penetration of
+      the attack they blocked when damaged. This means shields are a bit sturdier
+      now.
+  - balance: Riot shields can tank a lot more damage against melee weapons, but less
+      against bullets.
+  - qol: strobe shields can now be used to bash people while combat mode is on.
+2024-01-20:
+  Ghommie:
+  - image: The "One Lean, Mean, Cleaning Machine" achievement now has its own icon.
+  Momo8289, Pepsilawn, Sinsinins, JohnFulpWillard, Diamond-74:
+  - bugfix: Clown ops now get a code set for their nuke.
+  - bugfix: Monkeys don't get stuck on obstacles as often.
+  NovaBot13:
+  - rscadd: Adds a geared assistant station trait! Spawn with a skateboard, toolbelt
+      or in your favorite bee suit!
+  - code_imp: Moves assistant code around
+  Paxilmaniac:
+  - rscadd: sol emt and peacekeeper outfits have been added to the loadout under jumpsuits
+  - balance: Ore thumpers require twice as much power (50 kW), take twice as long
+      to make ore, and can have half as many ores around them before they stop producing.
+  - qol: Ore thumpers now relay more information to the player about themselves, making
+      them easier to set up and maintain.
+  YehnBeep:
+  - bugfix: Blueshift Science and Engineering now have some missing tools and equipment
+      for better parity with other maps.
+  nikothedude:
+  - bugfix: Interdyne's ambience is now isolated to interdyne
+  - rscdel: Interdyne's main musical track is gone
+  - bugfix: Synth burn wounds now apply scars
+  - spellcheck: Certain synth wounds have been rewritten
+  sergeirocks100:
+  - bugfix: The "Panties" option in the underwear menu no longer changes itself to
+      something else.

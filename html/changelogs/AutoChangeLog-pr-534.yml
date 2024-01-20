@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "Fixed Gladiator arena, NRI Starship and Babylon Station not spawning."
