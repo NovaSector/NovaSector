@@ -45,14 +45,14 @@
 	if(!istype(target_eyes))
 		return
 	target_eyes.flash_protect = max(target_eyes.flash_protect - severity, FLASH_PROTECTION_HYPER_SENSITIVE) // NOVA EDIT (severity previously 1)
-	target_eyes.refresh()
+	target_eyes.refresh() // NOVA ADDITION
 
 /datum/quirk/photophobia/proc/restore_eyes(obj/item/organ/internal/eyes/normal_eyes)
 	SIGNAL_HANDLER
 	if(!istype(normal_eyes))
 		return
 	normal_eyes.flash_protect = initial(normal_eyes.flash_protect)
-	target_eyes.refresh()
+	normal_eyes.refresh() // NOVA ADDITION
 
 /datum/quirk/photophobia/proc/on_holder_moved(mob/living/source, atom/old_loc, dir, forced)
 	SIGNAL_HANDLER
