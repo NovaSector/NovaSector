@@ -10,7 +10,7 @@
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
 	mail_goodies = list(/obj/item/clothing/glasses/sunglasses, /obj/item/cane/white)
 	var/datum/component/echolocation/esp // where we store easy access to the character's echolocation component (for stuff like drugs)
-	var/datum/client_colour/esp_color // where we store access to the client colour we make
+	var/datum/client_colour/echolocation_custom/esp_color // where we store access to the client colour we make
 
 /datum/quirk/echolocation/add(client/client_source)
 	// echolocation component handles blinding us already so we don't need to worry about that
@@ -29,17 +29,13 @@
 	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE)
 	esp = human_holder.GetComponent(/datum/component/echolocation)
 
-	// the way this works is: client colours need a type path, a datum we make is not a type path.
-	// so we just take the colour we get from players and update the /datum/client_colour/monochrome/blind that the
-	// echolocation blinding gives us, thus applying the effect. it's jank but whatever
-	if (length(human_holder.client_colours))
-		// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
-		// GOOD NEWS! we can re-use the runechat colour stuff for this (probably)
-		var/col = process_chat_color(client_source?.prefs.read_preference(/datum/preference/color/echolocation_outline))
-		var/datum/client_colour/monochrome/blind/blind_col = human_holder.client_colours[1]
-		blind_col.priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
-		blind_col.update_colour(col)
-		esp_color = blind_col
+	// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
+	// GOOD NEWS! we can re-use the runechat colour stuff for this (probably)
+	human_holder.remove_client_colour(/datum/client_colour/monochrome/blind) // get rid of the existing blind one
+	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom)
+	var/col = process_chat_color(client_source?.prefs.read_preference(/datum/preference/color/echolocation_outline))
+	esp_color.priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
+	esp_color.update_colour(col)
 
 	// double the ear/hearing damage multiplier from any source.
 	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
@@ -55,6 +51,8 @@
 	if (!istype(echo_ears))
 		return
 	echo_ears.damage_multiplier = initial(echo_ears.damage_multiplier)
+
+/datum/client_colour/echolocation_custom
 
 /datum/quirk_constant_data/echolocation
 	associated_typepath = /datum/quirk/echolocation

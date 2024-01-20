@@ -15,10 +15,6 @@
 	var/echo_group = null
 	/// This trait blocks us from receiving echolocation.
 	var/blocking_trait
-	// NOVA ADDITION START: echolocation
-	/// Should the mob see itself outlined?
-	var/show_own_outline = FALSE
-	// NOVA ADDITION END
 	/// Ref of the client color we give to the echolocator.
 	var/client_color
 	/// Associative list of receivers to lists of atoms they are rendering (those atoms are associated to data of the image and time they were rendered at).
