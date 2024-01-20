@@ -57,4 +57,4 @@
 	return
 
 /datum/preference/color/nv_color/create_default_value()
-	return process_chat_color(random_color())
+	return process_chat_color("#[random_color()]")
