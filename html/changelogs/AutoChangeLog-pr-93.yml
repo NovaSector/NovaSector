@@ -1,0 +1,7 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - balance: "Hemophages are now properly disgusted and suffer a 5 minute mood debuff by consuming blood from monkey-adjacent sources, and also find synthetic blood slightly gross while digesting it."
+  - balance: "When hemophages drink blood from another player character with an active mind, they receive a small mood boost for 5 minutes."
+  - balance: "The bonus blood hemophages receive from draining from sentient mobs has been reduced to 15% from 50%."
+  - rscadd: "The messaging for both the hemophage and the victim during blood draining is now much more informative."
