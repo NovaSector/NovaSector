@@ -51,6 +51,7 @@
 	if (!istype(echo_ears))
 		return
 	echo_ears.damage_multiplier = initial(echo_ears.damage_multiplier)
+	human_holder.remove_client_colour(/datum/client_colour/echolocation_custom) // clean up the custom colour override we added
 
 /datum/client_colour/echolocation_custom
 
