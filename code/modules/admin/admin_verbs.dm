@@ -258,7 +258,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/validate_puzzgrids,
 	/client/proc/GeneratePipeSpritesheet,
 	/client/proc/view_runtimes,
-
+	/client/proc/stop_weather,
 	/client/proc/reload_interactions,	/*NOVA EDIT ADDITION*/
 	/client/proc/test_area_spawner,		/*AUTOMAPPER - NOVA EDIT ADDITION*/
 	/client/proc/toggle_liquid_debug,	/*NOVA EDIT ADDITION*/

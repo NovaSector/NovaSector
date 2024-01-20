@@ -714,13 +714,14 @@ SUBSYSTEM_DEF(job)
 	var/area/shuttle/arrival/arrivals_area = GLOB.areas_by_type[/area/shuttle/arrival]
 	if(!isnull(arrivals_area))
 		var/list/turf/available_turfs = list()
-		for(var/turf/arrivals_turf as anything in arrivals_area.get_contained_turfs())
-			var/obj/structure/chair/shuttle_chair = locate() in arrivals_turf
-			if(!isnull(shuttle_chair))
-				return shuttle_chair
-			if(arrivals_turf.is_blocked_turf(TRUE))
-				continue
-			available_turfs += arrivals_turf
+		for (var/list/zlevel_turfs as anything in arrivals_area.get_zlevel_turf_lists())
+			for (var/turf/arrivals_turf as anything in zlevel_turfs)
+				var/obj/structure/chair/shuttle_chair = locate() in arrivals_turf
+				if(!isnull(shuttle_chair))
+					return shuttle_chair
+				if(arrivals_turf.is_blocked_turf(TRUE))
+					continue
+				available_turfs += arrivals_turf
 
 		if(length(available_turfs))
 			return pick(available_turfs)
@@ -743,7 +744,7 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/get_living_heads()
 	. = list()
 	for(var/datum/mind/head as anything in get_crewmember_minds())
-		if(!(head.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND))
+		if(!(head.assigned_role.job_flags & JOB_HEAD_OF_STAFF))
 			continue
 		if(isnull(head.current) || head.current.stat == DEAD)
 			continue
@@ -753,7 +754,7 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/get_all_heads()
 	. = list()
 	for(var/datum/mind/head as anything in get_crewmember_minds())
-		if(head.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
+		if(head.assigned_role.job_flags & JOB_HEAD_OF_STAFF)
 			. += head
 
 /// Returns a list of minds of all security members who are alive
