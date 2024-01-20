@@ -18,8 +18,7 @@
 	added_action = limb_action
 
 /datum/quirk/robot_limb_detach/remove()
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	added_action.Remove(human_holder)
+	QDEL_NULL(added_action)
 
 /datum/action/cooldown/spell/robot_self_amputation
 	name = "Detach a robotic limb"
