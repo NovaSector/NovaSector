@@ -19,8 +19,10 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
+				RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
 				turn_on()
 		else
+			UnregisterSignal(user, COMSIG_QDELETING)
 			turn_off()
 
 /datum/component/ammo_hud/proc/turn_on()
