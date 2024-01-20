@@ -36,7 +36,7 @@
 	/// Cooldown for the echolocation.
 	COOLDOWN_DECLARE(cooldown_last)
 
-/datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, use_echo = TRUE, show_own_outline = FALSE) // NOVA EDIT: echolocation (add use_echo and show_own_outline)
+/datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path, use_echo = TRUE, show_own_outline = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/component/echolocation/Initialize(echo_range, cooldown_time, image_expiry_time, fade_in_time, fade_out_time, images_are_static, blocking_trait, echo_group, echo_icon, color_path)
 	. = ..()
 	var/mob/living/echolocator = parent
 	if(!istype(echolocator))
@@ -62,14 +62,16 @@
 	// NOVA ADDITION START: echolocation
 	if(!isnull(show_own_outline))
 		src.show_own_outline = show_own_outline
+	// NOVA EDIT ADDITION END
 	if(ispath(color_path))
 		client_color = echolocator.add_client_colour(color_path)
 	src.echo_group = echo_group || REF(src)
 	echolocator.add_traits(list(TRAIT_ECHOLOCATION_RECEIVER, TRAIT_TRUE_NIGHT_VISION), echo_group) //so they see all the tiles they echolocated, even if they are in the dark
 	echolocator.become_blind(ECHOLOCATION_TRAIT)
+	// NOVA EDIT ADDITION START
 	if (use_echo) // add constructor toggle to not use the eye overlay
 		echolocator.overlay_fullscreen("echo", /atom/movable/screen/fullscreen/echo, echo_icon)
-	// NOVA ADDITION END
+	// NOVA EDIT ADDITION END
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/component/echolocation/Destroy(force)
@@ -133,12 +135,12 @@
 	// NOVA ADDITION START: echolocation (show outlines on self)
 	var/mob/living/echolocator = parent
 	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && input != echolocator) //mark other echolocation with full white, except ourselves
+	// NOVA EDIT ADDITION END
 		final_image.color = white_matrix
 	var/list/fade_ins = list(final_image)
 	for(var/mob/living/echolocate_receiver as anything in receivers)
-		if(!show_own_outline && echolocate_receiver == input)
+		if(!show_own_outline && echolocate_receiver == input) // NOVA EDIT CHANGE - ORIGINAL: if(echolocate_receiver == input)
 			continue
-		// NOVA ADDITION END
 		if(receivers[echolocate_receiver][input])
 			var/previous_image = receivers[echolocate_receiver][input]["image"]
 			fade_ins |= previous_image

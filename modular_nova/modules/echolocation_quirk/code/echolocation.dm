@@ -1,6 +1,6 @@
 /datum/quirk/echolocation
 	name = "Echolocation"
-	desc = "Though your eyes no longer function, you accomodate for it by some means of extrasensory echolocation and sensitive hearing. Beware: if you're ever deafened, you'll also lose your echolocation until you recover!"
+	desc = "Though your eyes no longer function, you accommodate for it by some means of extrasensory echolocation and sensitive hearing. Beware: if you're ever deafened, you'll also lose your echolocation until you recover!"
 	gain_text = span_notice("The slightest sounds map your surroundings.")
 	lose_text = span_notice("The world resolves into colour and clarity.")
 	value = 0
@@ -49,7 +49,7 @@
 	echo_ears.damage_multiplier *= 2
 
 /datum/quirk/echolocation/remove()
-	esp.Destroy() // echolocation component removal handles graceful disposal of everything above except the ears
+	QDEL_NULL(esp) // echolocation component removal handles graceful disposal of everything above except the ears
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
 	if (!istype(echo_ears))
