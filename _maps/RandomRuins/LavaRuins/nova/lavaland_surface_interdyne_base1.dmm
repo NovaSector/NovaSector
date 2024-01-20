@@ -6317,6 +6317,7 @@
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pC" = (
 /obj/machinery/hydroponics/constructable,
+/obj/machinery/door/window/survival_pod,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "pD" = (
@@ -6574,6 +6575,13 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"tA" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 4
+	},
+/obj/machinery/door/window/survival_pod,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "tG" = (
 /obj/structure/shipping_container/kosmologistika{
 	pixel_y = -14
@@ -6735,6 +6743,11 @@
 /obj/machinery/hydroponics/constructable{
 	dir = 8
 	},
+/obj/machinery/door/window/survival_pod,
+/obj/machinery/door/window/survival_pod{
+	dir = 4;
+	req_access = list("syndicate_leader")
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "LH" = (
@@ -6773,6 +6786,13 @@
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base)
+"PN" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/obj/machinery/door/window/survival_pod,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "Qm" = (
 /obj/structure/shipping_container/donk_co{
 	pixel_x = -1;
@@ -6802,6 +6822,16 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/lavaland/surface/outdoors)
+"UZ" = (
+/obj/machinery/hydroponics/constructable{
+	dir = 8
+	},
+/obj/machinery/door/window/survival_pod{
+	dir = 4;
+	req_access = list("syndicate_leader")
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/hydr)
 "Vf" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -8976,7 +9006,7 @@ nz
 ox
 oV
 pC
-sa
+tA
 pH
 mD
 ac
@@ -9095,7 +9125,7 @@ oz
 oX
 Ls
 Ls
-Ls
+UZ
 mD
 ac
 ac
@@ -9152,8 +9182,8 @@ nX
 ot
 oz
 oX
-sa
-sa
+tA
+tA
 sa
 mD
 ac
@@ -9270,8 +9300,8 @@ nY
 ou
 oZ
 pl
-Ls
-Ls
+PN
+PN
 pI
 mD
 ac
