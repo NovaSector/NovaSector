@@ -62,7 +62,7 @@
 	var/datum/component/automatic_fire/autofire_component
 
 /datum/laser_weapon_mode/disabler_machinegun/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay, TRUE, 0.1, shot_delay)
+	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay)
 
 /datum/laser_weapon_mode/disabler_machinegun/remove_from_weapon(obj/item/gun/energy/applied_gun)
 	QDEL_NULL(autofire_component)
