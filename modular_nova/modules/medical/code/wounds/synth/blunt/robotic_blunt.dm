@@ -53,6 +53,10 @@
 	var/base_movement_stagger_score = 30
 	/// The base chance of moving to trigger stagger().
 	var/chest_movement_stagger_chance = 1
+	/// The minimum amount of time between movement staggers, to prevent really annoying scenarios.
+	var/time_between_movement_staggers = 3 SECONDS
+	/// The last world.time that we triggered a movement stagger.
+	var/last_movement_stagger_time = 0
 
 	/// The base duration of a stagger()'s sprite shaking.
 	var/base_stagger_shake_duration = 1.5 SECONDS
@@ -249,7 +253,7 @@
 	message += "!"
 	self_message += "! You might be able to avoid an aftershock by stopping and waiting..."
 
-	if (isnull(attack_direction))
+	if (isnull(attack_direction) && !isnull(attacking_item))
 		attack_direction = get_dir(victim, attacking_item)
 
 	if (!isnull(attack_direction) && prob(stagger_score * stagger_movement_chance_ratio))
@@ -359,9 +363,10 @@
 
 	overall_mult *= get_buckled_movement_consequence_mult(victim.buckled)
 
-	if (limb.body_zone == BODY_ZONE_CHEST)
+	if (limb.body_zone == BODY_ZONE_CHEST && (world.time >= (last_movement_stagger_time + time_between_movement_staggers)))
 		var/stagger_chance = chest_movement_stagger_chance * overall_mult
 		if (prob(stagger_chance))
+			last_movement_stagger_time = world.time
 			stagger(base_movement_stagger_score, shake_duration = base_stagger_movement_shake_duration, from_movement = TRUE, shift = movement_stagger_shift, knockdown_ratio = stagger_aftershock_knockdown_movement_ratio)
 
 	last_time_victim_moved = world.time
