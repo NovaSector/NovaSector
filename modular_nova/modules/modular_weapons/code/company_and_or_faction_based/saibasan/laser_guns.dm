@@ -77,7 +77,7 @@
 	var/picked_choice = show_radial_menu(
 		user,
 		src,
-		radial_choices,
+		radial_menu_data,
 		require_near = TRUE,
 		tooltips = TRUE,
 		)

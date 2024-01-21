@@ -180,7 +180,7 @@
 
 /obj/projectile/beam/cybersun_laser/flare/on_range()
 	. = ..()
-	new illumination_flare(get_turf(target))
+	new illumination_flare(get_turf(src))
 
 /obj/item/flashlight/flare/plasma_projectile
 	name = "plasma flare"
