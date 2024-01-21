@@ -10,7 +10,7 @@
 	base_icon_state = "hyeseong"
 	cell_type = /obj/item/stock_parts/cell/hyeseong_internal_cell
 	modifystate = TRUE
-	ammo_type = list()
+	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_big_kill)
 	can_select = FALSE
 	ammo_x_offset = 0
 	selfcharge = 1
@@ -95,7 +95,7 @@
 /obj/item/gun/energy/modular_laser_rifle/proc/transform_gun(datum/laser_weapon_mode/new_weapon_mode, replacing = TRUE)
 	if(replacing)
 		currently_selected_mode.remove_from_weapon(src)
-	currently_selected_mode = new_weapon_mode
+	currently_selected_mode = weapon_mode_name_to_path[new_weapon_mode]
 	flick("[base_icon_state]_switch_off", src)
 	currently_selected_mode.apply_stats(src)
 	currently_selected_mode.apply_to_weapon(src)
@@ -103,6 +103,6 @@
 
 // Power cell for the big rifle
 /obj/item/stock_parts/cell/hyeseong_internal_cell
-	name = "\improper Hyseong modular laser rifle internal cell"
+	name = "\improper Hyeseong modular laser rifle internal cell"
 	desc = "These are usually supposed to be inside of the gun, you know."
 	maxcharge = STANDARD_CELL_CHARGE * 2

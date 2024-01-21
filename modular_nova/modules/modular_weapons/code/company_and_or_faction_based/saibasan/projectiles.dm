@@ -10,7 +10,7 @@
 /obj/projectile/beam/cybersun_laser
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/projectiles.dmi'
 	icon_state = "kill_large"
-	damage = 25
+	damage = 20
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
 	light_color = COLOR_SOFT_RED
 

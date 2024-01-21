@@ -11,7 +11,7 @@
 	/// How many charge sections does this variant of weapon have?
 	var/charge_sections = 5
 	/// What is the shot cooldown this variant applies to the weapon?
-	var/shot_delay = 1 SECONDS
+	var/shot_delay = 0.3 SECONDS
 
 /// Applies some of the universal stats from the variables above
 /datum/laser_weapon_mode/proc/apply_stats(obj/item/gun/energy/applied_gun)
@@ -21,6 +21,7 @@
 			applied_gun.ammo_type.Remove(found_casing)
 			qdel(found_casing)
 	applied_gun.ammo_type.Add(new_casing)
+	applied_gun.update_ammo_types()
 	applied_gun.charge_sections = charge_sections
 	applied_gun.fire_delay = shot_delay
 	applied_gun.icon_state = "[applied_gun.base_icon_state]_[weapon_icon_state]"
