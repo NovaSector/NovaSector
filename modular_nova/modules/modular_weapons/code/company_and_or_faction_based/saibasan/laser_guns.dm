@@ -112,7 +112,6 @@
 	if(!new_weapon_mode)
 		stack_trace("transform_gun was called but didn't get a new weapon mode, meaning it couldn't work.")
 		return
-	message_admins("[new_weapon_mode]")
 	if(replacing)
 		currently_selected_mode.remove_from_weapon(src)
 	currently_selected_mode = new_weapon_mode
