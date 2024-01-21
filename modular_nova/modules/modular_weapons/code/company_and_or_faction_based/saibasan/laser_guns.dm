@@ -7,6 +7,9 @@
 		This large rifle version is made for the many modders on the planet who can easily handle larger weapons."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns48x.dmi'
 	icon_state = "hyeseong_switch"
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_righthand.dmi'
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_worn.dmi'
 	base_icon_state = "hyeseong"
 	cell_type = /obj/item/stock_parts/cell/hyeseong_internal_cell
 	modifystate = TRUE
@@ -46,10 +49,9 @@
 	if(length(weapon_mode_name_to_path) || length(radial_menu_data))
 		return // We don't need to worry about it if there's already stuff here
 	for(var/datum/laser_weapon_mode/laser_mode as anything in weapon_mode_options)
-		laser_mode = new()
-		weapon_mode_name_to_path[laser_mode.name] = laser_mode
-		var/obj/projectile/mode_projectile = laser_mode.casing.projectile_type
-		radial_menu_data[laser_mode.name] = image(icon = mode_projectile.icon, icon_state = mode_projectile.icon_state)
+		weapon_mode_name_to_path[initial(laser_mode.name)] = new laser_mode()
+		var/obj/projectile/mode_projectile = initial(laser_mode.casing.projectile_type)
+		radial_menu_data[initial(laser_mode.name)] = image(icon = mode_projectile.icon, icon_state = mode_projectile.icon_state)
 	currently_selected_mode = weapon_mode_name_to_path[default_selected_mode]
 	transform_gun(currently_selected_mode, FALSE)
 
@@ -93,6 +95,9 @@
 
 /// Transforms the gun into a different type, if replacing is set to true then it'll make sure to remove any effects the prior gun type had
 /obj/item/gun/energy/modular_laser_rifle/proc/transform_gun(datum/laser_weapon_mode/new_weapon_mode, replacing = TRUE)
+	if(!new_weapon_mode)
+		stack_trace("transform_gun was called but didn't get a new weapon mode, meaning it couldn't work.")
+		return
 	if(replacing)
 		currently_selected_mode.remove_from_weapon(src)
 	currently_selected_mode = weapon_mode_name_to_path[new_weapon_mode]

@@ -24,7 +24,10 @@
 	applied_gun.update_ammo_types()
 	applied_gun.charge_sections = charge_sections
 	applied_gun.fire_delay = shot_delay
-	applied_gun.icon_state = "[applied_gun.base_icon_state]_[weapon_icon_state]"
+	var/new_icon_state = "[applied_gun.base_icon_state]_[weapon_icon_state]"
+	applied_gun.icon_state = new_icon_state
+	applied_gun.inhand_icon_state = new_icon_state
+	applied_gun.worn_icon = new_icon_state
 	applied_gun.update_appearance()
 
 /// Stuff applied to the passed gun when the weapon mode is given to the gun
