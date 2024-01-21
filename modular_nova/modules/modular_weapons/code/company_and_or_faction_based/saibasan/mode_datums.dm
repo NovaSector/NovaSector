@@ -119,7 +119,7 @@
 	weapon_icon_state = "blade"
 	charge_sections = 2
 
-/datum/laser_weapon_mode/hellfire/apply_to_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+/datum/laser_weapon_mode/sword/apply_to_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
 	applied_gun.force = 18
 	applied_gun.sharpness = SHARP_EDGED
@@ -130,7 +130,7 @@
 	applied_gun.attack_verb_simple = list("slash", "cut")
 	applied_gun.hitsound = 'sound/weapons/rapierhit.ogg'
 
-/datum/laser_weapon_mode/hellfire/remove_from_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+/datum/laser_weapon_mode/sword/remove_from_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
 	playsound(src, 'sound/items/sheath.ogg', 25, TRUE)
 	applied_gun.force = initial(applied_gun.force)
 	applied_gun.sharpness = initial(applied_gun.sharpness)
@@ -163,10 +163,10 @@
 	charge_sections = 3
 	shot_delay = 0.6 SECONDS
 
-/datum/laser_weapon_mode/shotgun/apply_to_weapon(obj/item/gun/energy/applied_gun)
+/datum/laser_weapon_mode/shotgun_small/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 1
 
-/datum/laser_weapon_mode/shotgun/remove_from_weapon(obj/item/gun/energy/applied_gun)
+/datum/laser_weapon_mode/shotgun_small/remove_from_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = initial(applied_gun.recoil)
 
 // Trickshot bounce disabler mode for the small laser

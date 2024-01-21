@@ -151,6 +151,11 @@
 	ricochet_chance = 130
 	ricochet_decay_damage = 0.8
 
+/obj/projectile/beam/cybersun_laser/disable_bounce/check_ricochet_flag(atom/reflecting_atom)
+	if((reflecting_atom.flags_ricochet & RICOCHET_HARD) || (reflecting_atom.flags_ricochet & RICOCHET_SHINY))
+		return TRUE
+	return FALSE
+
 // Flare launcher
 
 /obj/item/ammo_casing/energy/cybersun_small_launcher
@@ -181,8 +186,8 @@
 		new illumination_flare(get_turf(target))
 
 /obj/projectile/beam/cybersun_laser/flare/on_range()
-	. = ..()
 	new illumination_flare(get_turf(src))
+	return ..()
 
 /obj/item/flashlight/flare/plasma_projectile
 	name = "plasma flare"
