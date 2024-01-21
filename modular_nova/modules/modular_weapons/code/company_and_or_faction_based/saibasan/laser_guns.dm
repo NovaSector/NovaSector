@@ -19,6 +19,9 @@
 	selfcharge = 1
 	charge_delay = 15
 	shaded_charge = TRUE
+	SET_BASE_PIXEL(-8, 0)
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	/// What datums of weapon modes can we use?
 	var/list/weapon_mode_options = list(
 		/datum/laser_weapon_mode,

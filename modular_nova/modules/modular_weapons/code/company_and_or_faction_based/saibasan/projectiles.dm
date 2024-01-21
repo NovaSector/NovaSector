@@ -111,6 +111,7 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
 	speed = 0.8
 	light_color = COLOR_SCIENCE_PINK
+	range = 9
 
 // Hellfire lasers for the little guy
 
