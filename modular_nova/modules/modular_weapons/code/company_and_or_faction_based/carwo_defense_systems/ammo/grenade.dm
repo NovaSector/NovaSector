@@ -157,7 +157,7 @@
 
 /obj/item/grenade/c980payload
 	shrapnel_type = /obj/projectile/bullet/shrapnel/short_range
-	shrapnel_radius = 4
+	shrapnel_radius = 3
 	ex_dev = 0
 	ex_heavy = 0
 	ex_light = 0

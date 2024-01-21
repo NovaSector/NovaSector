@@ -38,7 +38,7 @@
 	/// Is the gun currently changing types? Prevents the gun from firing if yes
 	var/currently_switching_types = FALSE
 	/// How long transitioning takes before you're allowed to pick a weapon type
-	var/transition_duration = 2 SECONDS
+	var/transition_duration = 1 SECONDS
 	/// What the currently selected weapon mode is, for quickly referencing for use in procs and whatnot
 	var/datum/laser_weapon_mode/currently_selected_mode
 	/// Name of the firing mode that is selected by default

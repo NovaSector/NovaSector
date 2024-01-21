@@ -63,12 +63,12 @@
 	/// What type of casing should we put inside the bullet to act as shrapnel later
 	var/casing_to_spawn = /obj/item/grenade/c980payload/plasma_grenade
 
-/obj/projectile/bullet/c980grenade/on_hit(atom/target, blocked = 0, pierce_hit)
+/obj/projectile/beam/cybersun_laser/granata/on_hit(atom/target, blocked = 0, pierce_hit)
 	..()
 	fuse_activation(target)
 	return BULLET_ACT_HIT
 
-/obj/projectile/bullet/c980grenade/on_range()
+/obj/projectile/beam/cybersun_laser/granata/on_range()
 	fuse_activation(get_turf(src))
 	return ..()
 
@@ -113,7 +113,7 @@
 
 /obj/item/grenade/c980payload/plasma_grenade
 	shrapnel_type = /obj/projectile/bullet/shrapnel/plasma_shrapnel
-	shrapnel_radius = 4
+	shrapnel_radius = 3
 
 // Shotgun casing for the big gun
 
