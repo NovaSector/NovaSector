@@ -64,10 +64,10 @@
 	/// What biotype we look for
 	var/biotype_we_look_for = MOB_ROBOTIC
 
-/obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
-	if(!ismob(target) || (damage > initial(damage)))
+/obj/projectile/bullet/p60strela/on_hit(atom/target, blocked, pierce_hit)
+	if(!isliving(target) || (damage > initial(damage)))
 		return ..()
-	var/mob/target_mob = target
+	var/mob/living/target_mob = target
 	if(target_mob.mob_biotypes & biotype_we_look_for)
 		damage += anti_materiel_damage_addition
 	return ..()

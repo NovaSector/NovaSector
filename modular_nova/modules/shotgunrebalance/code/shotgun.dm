@@ -260,9 +260,9 @@
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
-	if(!ismob(target) || (damage > initial(damage)))
+	if(!isliving(target) || (damage > initial(damage)))
 		return ..()
-	var/mob/target_mob = target
+	var/mob/living/target_mob = target
 	if(target_mob.mob_biotypes & biotype_we_look_for)
 		damage *= biotype_damage_multiplier
 	return ..()
