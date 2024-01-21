@@ -58,11 +58,12 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_big_disabler
 	weapon_icon_state = "disabler"
 	charge_sections = 2
+	shot_delay = 1.2
 	/// Keeps track of the autofire component for deleting later
 	var/datum/component/automatic_fire/autofire_component
 
 /datum/laser_weapon_mode/disabler_machinegun/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay)
+	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay, TRUE, 0.3, 0.1, 5 SECONDS)
 
 /datum/laser_weapon_mode/disabler_machinegun/remove_from_weapon(obj/item/gun/energy/applied_gun)
 	QDEL_NULL(autofire_component)
