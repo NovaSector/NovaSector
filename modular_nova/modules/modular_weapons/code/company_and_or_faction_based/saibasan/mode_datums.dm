@@ -58,12 +58,12 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_big_disabler
 	weapon_icon_state = "disabler"
 	charge_sections = 2
-	shot_delay = 1.2
+	shot_delay = 1 SECONDS
 	/// Keeps track of the autofire component for deleting later
 	var/datum/component/automatic_fire/autofire_component
 
 /datum/laser_weapon_mode/disabler_machinegun/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay, TRUE, 0.3, 0.1, 5 SECONDS)
+	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay, TRUE, 0.2, 0.2, 5 SECONDS)
 
 /datum/laser_weapon_mode/disabler_machinegun/remove_from_weapon(obj/item/gun/energy/applied_gun)
 	QDEL_NULL(autofire_component)
@@ -77,10 +77,10 @@
 	shot_delay = 2 SECONDS
 
 /datum/laser_weapon_mode/launcher/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	return
+	applied_gun.recoil = 2
 
 /datum/laser_weapon_mode/launcher/remove_from_weapon(obj/item/gun/energy/applied_gun)
-	return
+	applied_gun.recoil = initial(applied_gun.recoil)
 
 // Shotgun mode for the large laser
 /datum/laser_weapon_mode/shotgun
@@ -91,7 +91,92 @@
 	shot_delay = 0.75 SECONDS
 
 /datum/laser_weapon_mode/shotgun/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	return
+	applied_gun.recoil = 1
 
 /datum/laser_weapon_mode/shotgun/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	applied_gun.recoil = initial(applied_gun.recoil)
+
+// Hellfire mode for the small laser
+/datum/laser_weapon_mode/hellfire
+	name = "Incinerate"
+	casing = /obj/item/ammo_casing/energy/cybersun_small_hellfire
+	weapon_icon_state = "kill"
+	charge_sections = 3
+	shot_delay = 0.4 SECONDS
+
+/datum/laser_weapon_mode/hellfire/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	return
+
+/datum/laser_weapon_mode/hellfire/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	return
+
+// Melee mode for the small laser, yeah this one will be weird
+/datum/laser_weapon_mode/sword
+	name = "Blade"
+	// This mode doesn't actually shoot but we gotta have a casing regardless so it doesn't runtime times a million
+	// And also so the visuals work :3
+	casing = /obj/item/ammo_casing/energy/cybersun_small_blade
+	weapon_icon_state = "blade"
+	charge_sections = 2
+
+/datum/laser_weapon_mode/hellfire/apply_to_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+	applied_gun.force = 18
+	applied_gun.sharpness = SHARP_EDGED
+	applied_gun.wound_bonus = 10
+	applied_gun.bare_wound_bonus = 20
+	applied_gun.disabled_for_other_reasons = TRUE
+	applied_gun.attack_verb_continuous = list("slashes", "cuts")
+	applied_gun.attack_verb_simple = list("slash", "cut")
+	applied_gun.hitsound = 'sound/weapons/rapierhit.ogg'
+
+/datum/laser_weapon_mode/hellfire/remove_from_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+	applied_gun.force = initial(applied_gun.force)
+	applied_gun.sharpness = initial(applied_gun.sharpness)
+	applied_gun.wound_bonus = initial(applied_gun.wound_bonus)
+	applied_gun.bare_wound_bonus = initial(applied_gun.bare_wound_bonus)
+	applied_gun.disabled_for_other_reasons = FALSE
+	applied_gun.attack_verb_continuous = initial(applied_gun.attack_verb_continuous)
+	applied_gun.attack_verb_simple = initial(applied_gun.attack_verb_simple)
+	applied_gun.hitsound = initial(applied_gun.hitsound)
+
+// Flare mode for the small laser
+/datum/laser_weapon_mode/flare
+	name = "Flare"
+	casing = /obj/item/ammo_casing/energy/cybersun_small_launcher
+	weapon_icon_state = "flare"
+	charge_sections = 3
+	shot_delay = 2 SECONDS
+
+/datum/laser_weapon_mode/flare/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	applied_gun.recoil = 2
+
+/datum/laser_weapon_mode/flare/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	applied_gun.recoil = initial(applied_gun.recoil)
+
+// Shotgun mode for the small laser
+/datum/laser_weapon_mode/shotgun_small
+	name = "Shotgun"
+	casing = /obj/item/ammo_casing/energy/cybersun_small_shotgun
+	weapon_icon_state = "shot"
+	charge_sections = 3
+	shot_delay = 0.6 SECONDS
+
+/datum/laser_weapon_mode/shotgun/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	applied_gun.recoil = 1
+
+/datum/laser_weapon_mode/shotgun/remove_from_weapon(obj/item/gun/energy/applied_gun)
+	applied_gun.recoil = initial(applied_gun.recoil)
+
+// Trickshot bounce disabler mode for the small laser
+/datum/laser_weapon_mode/trickshot_disabler
+	name = "Disable"
+	casing = /obj/item/ammo_casing/energy/cybersun_small_disabler
+	weapon_icon_state = "disable"
+	charge_sections = 3
+	shot_delay = 0.4 SECONDS
+
+/datum/laser_weapon_mode/trickshot_disabler/apply_to_weapon(obj/item/gun/energy/applied_gun)
+	return
+
+/datum/laser_weapon_mode/trickshot_disabler/remove_from_weapon(obj/item/gun/energy/applied_gun)
 	return

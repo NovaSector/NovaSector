@@ -43,6 +43,8 @@
 	var/datum/laser_weapon_mode/currently_selected_mode
 	/// Name of the firing mode that is selected by default
 	var/default_selected_mode = "Kill"
+	/// Allows firing of the gun to be disabled for any reason, for example, if a gun has a melee mode
+	var/disabled_for_other_reasons = FALSE
 
 /obj/item/gun/energy/modular_laser_rifle/Initialize(mapload)
 	. = ..()
@@ -115,8 +117,34 @@
 	playsound(src, 'sound/items/modsuit/ballout.ogg', 75, TRUE)
 	currently_switching_types = FALSE
 
+/obj/item/gun/energy/modular_laser_rifle/can_trigger_gun(mob/living/user, akimbo_usage)
+	. = ..()
+	if(currently_switching_types || disabled_for_other_reasons)
+		return FALSE
+
 // Power cell for the big rifle
 /obj/item/stock_parts/cell/hyeseong_internal_cell
 	name = "\improper Hyeseong modular laser rifle internal cell"
 	desc = "These are usually supposed to be inside of the gun, you know."
 	maxcharge = STANDARD_CELL_CHARGE * 2
+
+//Short version of the above modular rifle, has less charge and different modes
+/obj/item/gun/energy/modular_laser_rifle/carbine
+	name = "\improper Hoshi modular laser carbine"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
+	icon_state = "hoshi_switch"
+	base_icon_state = "hoshi"
+	cell_type = /obj/item/stock_parts/cell
+	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
+	SET_BASE_PIXEL(0, 0)
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
+	weapon_mode_options = list(
+		/datum/laser_weapon_mode/hellfire,
+		/datum/laser_weapon_mode/sword,
+		/datum/laser_weapon_mode/flare,
+		/datum/laser_weapon_mode/shotgun_small,
+		/datum/laser_weapon_mode/trickshot_disabler,
+	)
+	default_selected_mode = "Incinerate"

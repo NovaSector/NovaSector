@@ -206,12 +206,6 @@
 	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
 
 
-/obj/item/ammo_casing/shrapnel_exploder/phosphor
-	pellets = 8
-
-	projectile_type = /obj/projectile/bullet/incendiary/fire/backblast/short_range
-
-
 /obj/item/grenade/c980payload/phosphor
 	shrapnel_type = /obj/projectile/bullet/incendiary/fire/backblast/short_range
 

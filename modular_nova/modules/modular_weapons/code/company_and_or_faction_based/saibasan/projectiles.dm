@@ -92,28 +92,8 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
 	light_color = COLOR_PALE_GREEN
 
-/obj/projectile/bullet/shrapnel/plasma_shrapnel
-	name = "miniature plasma globule"
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/projectiles.dmi'
-	icon_state = "flare"
-	damage = 10
-	damage_type = BURN
-	speed = 1.5
-	bare_wound_bonus = 55 // Lasers have a wound bonus of 40, this is a bit higher
-	wound_bonus = -50 // However we do not very much against armor
-	range = 2
-	ricochet_chance = 0
-	dismemberment = 0
-	pass_flags = PASSTABLE | PASSGRILLE // His ass does NOT pass through glass!
-	weak_against_armour = TRUE
-	sharpness = NONE
-	shrapnel_type = null
-	embedding = null
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
-	light_color = COLOR_PALE_GREEN
-
 /obj/item/grenade/c980payload/plasma_grenade
-	shrapnel_type = /obj/projectile/bullet/shrapnel/plasma_shrapnel
+	shrapnel_type = /obj/projectile/beam/cybersun_laser/granata_shrapnel
 	shrapnel_radius = 3
 
 // Shotgun casing for the big gun
@@ -187,7 +167,7 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
 	light_color = COLOR_PALE_GREEN
 	/// How many firestacks the bullet should impart upon a target when impacting
-	var/firestacks_to_give = 1
+	var/firestacks_to_give = 2
 	/// What we spawn when we range out
 	var/obj/illumination_flare = /obj/item/flashlight/flare/plasma_projectile
 
@@ -208,6 +188,7 @@
 	name = "plasma flare"
 	desc = "A burning glob of green plasma, makes an effective temporary lighting source."
 	light_range = 4
+	anchored = TRUE
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/projectiles.dmi'
 	icon_state = "flare_burn"
 	light_color = COLOR_PALE_GREEN
@@ -232,3 +213,12 @@
 	variance = 15
 	select_name = "Shotgun"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/melt.ogg'
+
+// Dummy casing that does nothing but have a projectile that looks like a sword
+
+/obj/item/ammo_casing/energy/cybersun_small_blade
+	projectile_type = /obj/projectile/beam/cybersun_laser/blade
+	select_name = "Blade"
+
+/obj/projectile/beam/cybersun_laser/blade
+	icon_state = "blade"
