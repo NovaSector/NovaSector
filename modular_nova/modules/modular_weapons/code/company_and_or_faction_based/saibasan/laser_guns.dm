@@ -4,7 +4,7 @@
 	name = "\improper Hyeseong modular laser rifle"
 	desc = "A popular energy weapon system that can be reconfigured into many different variants on the fly. \
 		Seen commonly amongst the Marsians who produce the weapon, with many different shapes and sizes to fit \
-		the wide variety of modders the planet is home to.
+		the wide variety of modders the planet is home to."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns48x.dmi'
 	icon_state = "hyeseong_switch"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_lefthand.dmi'
