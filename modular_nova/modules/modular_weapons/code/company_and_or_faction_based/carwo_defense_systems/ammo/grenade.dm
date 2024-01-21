@@ -141,11 +141,8 @@
 
 
 /obj/projectile/bullet/c980grenade/shrapnel/fuse_activation(atom/target)
-	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(src))
-
+	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(target.drop_location())
 	shrapnel_maker.detonate()
-	qdel(shrapnel_maker)
-
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 
 

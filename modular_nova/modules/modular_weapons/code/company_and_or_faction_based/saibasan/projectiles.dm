@@ -34,7 +34,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_disabler
 	projectile_type = /obj/projectile/beam/cybersun_laser/disable
-	e_cost = LASER_SHOTS(30, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE * 2)
 	select_name = "Disable"
 	harmful = FALSE
 
@@ -74,7 +74,7 @@
 
 /// Called when the projectile reaches its max range, or hits something
 /obj/projectile/beam/cybersun_laser/granata/proc/fuse_activation(atom/target)
-	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(src))
+	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(target.drop_location())
 	shrapnel_maker.detonate()
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 
@@ -99,7 +99,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_shotgun
 	projectile_type = /obj/projectile/beam/cybersun_laser/granata_shrapnel/shotgun_pellet
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(6, STANDARD_CELL_CHARGE * 2)
 	pellets = 5
 	variance = 30
 	select_name = "Shotgun"

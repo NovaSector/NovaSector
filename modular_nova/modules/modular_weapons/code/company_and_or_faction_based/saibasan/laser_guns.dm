@@ -80,10 +80,7 @@
 /obj/item/gun/energy/modular_laser_rifle/proc/show_radial_choice_menu(mob/living/user)
 	if(!user?.is_holding(src))
 		flick("[base_icon_state]_switch_off", src)
-		var/new_icon_state = "[base_icon_state]_[currently_selected_mode.weapon_icon_state]"
-		icon_state = new_icon_state
-		inhand_icon_state = new_icon_state
-		worn_icon_state = new_icon_state
+		transform_gun(currently_selected_mode, FALSE)
 		playsound(src, 'sound/items/modsuit/ballout.ogg', 75, TRUE)
 		return
 
@@ -97,10 +94,7 @@
 
 	if(isnull(picked_choice) || isnull(weapon_mode_name_to_path["[picked_choice]"]))
 		flick("[base_icon_state]_switch_off", src)
-		var/new_icon_state = "[base_icon_state]_[currently_selected_mode.weapon_icon_state]"
-		icon_state = new_icon_state
-		inhand_icon_state = new_icon_state
-		worn_icon_state = new_icon_state
+		transform_gun(currently_selected_mode, FALSE)
 		playsound(src, 'sound/items/modsuit/ballout.ogg', 75, TRUE)
 		return
 
