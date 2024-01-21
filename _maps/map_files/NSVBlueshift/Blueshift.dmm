@@ -6198,11 +6198,14 @@
 /turf/open/floor/iron/dark,
 /area/station/common/laser_tag)
 "bld" = (
-/obj/structure/decorative/shelf/crates1,
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/smooth_edge{
-	dir = 1
+/obj/effect/turf_decal/stripes,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining"
 	},
+/obj/machinery/bouldertech/refinery,
+/turf/open/floor/plating,
 /area/station/cargo/miningdock)
 "blr" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -16789,8 +16792,7 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/beer{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
@@ -33055,10 +33057,12 @@
 /turf/open/floor/engine,
 /area/station/science/ordnance/freezerchamber)
 "gmM" = (
-/obj/structure/decorative/shelf,
-/turf/open/floor/iron/smooth_edge{
-	dir = 1
+/obj/effect/turf_decal/stripes,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining"
 	},
+/turf/open/floor/plating,
 /area/station/cargo/miningdock)
 "gmN" = (
 /obj/structure/chair/sofa/bench/left,
@@ -42238,11 +42242,13 @@
 /turf/open/floor/iron/smooth_edge,
 /area/station/cargo/miningdock)
 "icj" = (
-/obj/structure/decorative/shelf,
-/obj/effect/spawner/random/maintenance/two,
-/turf/open/floor/iron/smooth_edge{
-	dir = 1
+/obj/effect/turf_decal/stripes,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining"
 	},
+/obj/machinery/bouldertech/refinery/smelter,
+/turf/open/floor/plating,
 /area/station/cargo/miningdock)
 "icm" = (
 /turf/open/floor/iron,
@@ -68329,11 +68335,15 @@
 /turf/open/floor/engine,
 /area/station/command/secure_bunker)
 "naT" = (
-/obj/structure/decorative/shelf,
-/obj/effect/spawner/random/maintenance/three,
-/turf/open/floor/iron/smooth_edge{
-	dir = 1
+/obj/effect/turf_decal/stripes{
+	dir = 6
 	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining"
+	},
+/obj/machinery/bouldertech/brm,
+/turf/open/floor/plating,
 /area/station/cargo/miningdock)
 "nba" = (
 /turf/closed/wall,
@@ -70936,9 +70946,7 @@
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "nCn" = (
-/obj/structure/musician/piano{
-	icon_state = "piano"
-	},
+/obj/structure/musician/piano,
 /turf/open/floor/wood,
 /area/station/service/bar/atrium)
 "nCq" = (
@@ -71783,9 +71791,7 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "nKr" = (
-/obj/structure/musician/piano{
-	icon_state = "piano"
-	},
+/obj/structure/musician/piano,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "nKs" = (
@@ -121389,10 +121395,12 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "xaN" = (
-/obj/structure/decorative/shelf/crates,
-/turf/open/floor/iron/smooth_edge{
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining";
 	dir = 1
 	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/smooth,
 /area/station/cargo/miningdock)
 "xaU" = (
 /obj/effect/landmark/event_spawn,
@@ -168263,7 +168271,7 @@ wwD
 fkA
 asX
 ilS
-xaN
+wvZ
 mgL
 gXZ
 auv
@@ -168520,7 +168528,7 @@ fVT
 oTl
 uSr
 kGC
-naT
+gmM
 mgL
 ktY
 ktY
@@ -168779,7 +168787,7 @@ tpI
 kGC
 icj
 lVQ
-ktY
+xaN
 sHB
 cve
 ktY
@@ -169548,7 +169556,7 @@ jbh
 jbh
 aFx
 eiY
-sdF
+naT
 lVQ
 ktY
 djJ
