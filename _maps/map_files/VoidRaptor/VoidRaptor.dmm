@@ -43218,7 +43218,6 @@
 "mgS" = (
 /obj/machinery/airalarm/directional/south,
 /obj/structure/closet/secure_closet/quartermaster,
-/obj/item/circuitboard/machine/bluespace_miner,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
