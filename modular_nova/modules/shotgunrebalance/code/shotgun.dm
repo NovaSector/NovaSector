@@ -247,6 +247,7 @@
 /obj/projectile/bullet/shotgun_slug/hunter
 	name = "12g hunter slug"
 	damage = 20
+	range = 12
 	/// How much the damage is multiplied by when we hit a mob with the correct biotype
 	var/biotype_damage_multiplier = 5
 	/// What biotype we look for
