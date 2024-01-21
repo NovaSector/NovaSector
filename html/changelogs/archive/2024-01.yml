@@ -818,3 +818,26 @@
   sergeirocks100:
   - bugfix: The "Panties" option in the underwear menu no longer changes itself to
       something else.
+2024-01-21:
+  Iajret:
+  - bugfix: Fixed Gladiator arena, NRI Starship and Babylon Station not spawning.
+  nikothedude:
+  - balance: Coagulants now work on electrical damage
+  - rscadd: Borgs can now right click hats and themselves to put on hats or take them
+      off, respectively
+  - rscadd: Borgs can now spawn with hats from the loadout
+  - spellcheck: The akula plural form is now akulae
+  vinylspiders:
+  - bugfix: fixes ammo counter hud being in the wrong position on the screen, fixes
+      an ammo counter related hard del
+  - code_imp: cleans up a bunch of unused ui related defines
+  yooriss:
+  - balance: Hemophages are now properly disgusted and suffer a 5 minute mood debuff
+      by consuming blood from monkey-adjacent sources, and also find synthetic blood
+      slightly gross while digesting it.
+  - balance: When hemophages drink blood from another player character with an active
+      mind, they receive a small mood boost for 5 minutes.
+  - balance: The bonus blood hemophages receive from draining from sentient mobs has
+      been reduced to 15% from 50%.
+  - rscadd: The messaging for both the hemophage and the victim during blood draining
+      is now much more informative.

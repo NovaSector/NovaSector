@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes ammo counter hud being in the wrong position on the screen, fixes an ammo counter related hard del"
-  - code_imp: "cleans up a bunch of unused ui related defines"
