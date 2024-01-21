@@ -49,10 +49,10 @@
 	if(length(weapon_mode_name_to_path) || length(radial_menu_data))
 		return // We don't need to worry about it if there's already stuff here
 	for(var/datum/laser_weapon_mode/laser_mode as anything in weapon_mode_options)
-		weapon_mode_name_to_path[initial(laser_mode.name)] = new laser_mode()
+		weapon_mode_name_to_path["[initial(laser_mode.name)]"] = new laser_mode()
 		var/obj/projectile/mode_projectile = initial(laser_mode.casing.projectile_type)
-		radial_menu_data[initial(laser_mode.name)] = image(icon = mode_projectile.icon, icon_state = mode_projectile.icon_state)
-	currently_selected_mode = weapon_mode_name_to_path[default_selected_mode]
+		radial_menu_data["[initial(laser_mode.name)]"] = image(icon = mode_projectile.icon, icon_state = mode_projectile.icon_state)
+	currently_selected_mode = weapon_mode_name_to_path["[default_selected_mode]"]
 	transform_gun(currently_selected_mode, FALSE)
 
 /obj/item/gun/energy/modular_laser_rifle/attack_self(mob/living/user)
@@ -66,14 +66,20 @@
 	flick("[base_icon_state]_switch_on", src)
 	cut_overlays()
 	playsound(src, 'sound/items/modsuit/ballin.ogg', 75, TRUE)
-	icon_state = "[base_icon_state]_switch"
+	var/new_icon_state = "[base_icon_state]_switch"
+	icon_state = new_icon_state
+	inhand_icon_state = new_icon_state
+	worn_icon_state = new_icon_state
 	addtimer(CALLBACK(src, PROC_REF(show_radial_choice_menu), user), transition_duration)
 
 /// Shows the radial choice menu to the user, if the user doesnt exist or isnt holding the gun anymore, it reverts back to its last form
 /obj/item/gun/energy/modular_laser_rifle/proc/show_radial_choice_menu(mob/living/user)
 	if(!user?.is_holding(src))
 		flick("[base_icon_state]_switch_off", src)
-		icon_state = "[base_icon_state]_[currently_selected_mode.weapon_icon_state]"
+		var/new_icon_state = "[base_icon_state]_[currently_selected_mode.weapon_icon_state]"
+		icon_state = new_icon_state
+		inhand_icon_state = new_icon_state
+		worn_icon_state = new_icon_state
 		playsound(src, 'sound/items/modsuit/ballout.ogg', 75, TRUE)
 		return
 
@@ -85,22 +91,27 @@
 		tooltips = TRUE,
 		)
 
-	if(isnull(picked_choice))
+	if(isnull(picked_choice) || isnull(weapon_mode_name_to_path["[picked_choice]"]))
 		flick("[base_icon_state]_switch_off", src)
-		icon_state = "[base_icon_state]_[currently_selected_mode.weapon_icon_state]"
+		var/new_icon_state = "[base_icon_state]_[currently_selected_mode.weapon_icon_state]"
+		icon_state = new_icon_state
+		inhand_icon_state = new_icon_state
+		worn_icon_state = new_icon_state
 		playsound(src, 'sound/items/modsuit/ballout.ogg', 75, TRUE)
 		return
 
-	transform_gun(picked_choice, TRUE)
+	var/new_weapon_mode = weapon_mode_name_to_path["[picked_choice]"]
+	transform_gun(new_weapon_mode, TRUE)
 
 /// Transforms the gun into a different type, if replacing is set to true then it'll make sure to remove any effects the prior gun type had
 /obj/item/gun/energy/modular_laser_rifle/proc/transform_gun(datum/laser_weapon_mode/new_weapon_mode, replacing = TRUE)
 	if(!new_weapon_mode)
 		stack_trace("transform_gun was called but didn't get a new weapon mode, meaning it couldn't work.")
 		return
+	message_admins("[new_weapon_mode]")
 	if(replacing)
 		currently_selected_mode.remove_from_weapon(src)
-	currently_selected_mode = weapon_mode_name_to_path[new_weapon_mode]
+	currently_selected_mode = new_weapon_mode
 	flick("[base_icon_state]_switch_off", src)
 	currently_selected_mode.apply_stats(src)
 	currently_selected_mode.apply_to_weapon(src)
