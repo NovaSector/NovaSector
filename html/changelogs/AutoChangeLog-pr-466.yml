@@ -1,0 +1,6 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "Gun racks no longer shift wide guns too far to the right"
+  - image: "Gun racks have been resprited to not be so old"
+  - refactor: "Code around weapon racks and armory gun spawners have been refactored. The biggest note is that gun rotation on gunracks isn't handled by guns themselves anymore, instead being on the rack."
