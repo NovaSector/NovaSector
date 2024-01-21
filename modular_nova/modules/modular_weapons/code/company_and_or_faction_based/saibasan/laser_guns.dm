@@ -3,8 +3,8 @@
 /obj/item/gun/energy/modular_laser_rifle
 	name = "\improper Hyeseong modular laser rifle"
 	desc = "A popular energy weapon system that can be reconfigured into many different variants on the fly. \
-		Seen commonly amongst Marsians, as the red planet is the birthplace of this piece of tech. \
-		This large rifle version is made for the many modders on the planet who can easily handle larger weapons."
+		Seen commonly amongst the Marsians who produce the weapon, with many different shapes and sizes to fit \
+		the wide variety of modders the planet is home to.
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns48x.dmi'
 	icon_state = "hyeseong_switch"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_lefthand.dmi'
@@ -17,7 +17,7 @@
 	can_select = FALSE
 	ammo_x_offset = 0
 	selfcharge = 1
-	charge_delay = 30
+	charge_delay = 15
 	shaded_charge = TRUE
 	/// What datums of weapon modes can we use?
 	var/list/weapon_mode_options = list(
