@@ -247,6 +247,18 @@
 /obj/projectile/bullet/shotgun_slug/hunter
 	name = "12g hunter slug"
 	damage = 20
+	/// How much the damage is multiplied by when we hit a mob with the correct biotype
+	var/biotype_damage_multiplier = 5
+	/// What biotype we look for
+	var/biotype_we_look_for = MOB_BEAST
+
+/obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
+	if(!ismob(target) || (damage > initial(damage)))
+		return ..()
+	var/mob/target_mob = target
+	if(target_mob.mob_biotypes & biotype_we_look_for)
+		damage *= biotype_damage_multiplier
+	return ..()
 
 /obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
 	. = ..()
