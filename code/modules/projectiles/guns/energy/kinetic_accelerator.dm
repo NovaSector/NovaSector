@@ -150,14 +150,10 @@
 		M.modify_projectile(K)
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/cyborg
-	icon_state = "kineticgun" // NOVA EDIT CHANGE
+	icon_state = "kineticgun_b"
 	holds_charge = TRUE
 	unique_frequency = TRUE
-<<<<<<< HEAD
-	max_mod_capacity = 100 // NOVA EDIT CHANGE FROM 80 - Balance due to fauna changes and no level perks applying
-=======
 	max_mod_capacity = 90
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/minebot
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL

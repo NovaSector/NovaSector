@@ -39,14 +39,10 @@
 		/obj/item/flashlight/seclite = 1,
 		/obj/item/knife/combat/survival = 1,
 		/obj/item/mining_voucher = 1,
-		/obj/item/suit_voucher = 1,
+		/obj/item/suit_voucher = 1, //NOVA EDIT ADDITION
 		/obj/item/stack/marker_beacon/ten = 1,
-<<<<<<< HEAD
-		) //NOVA EDIT: Suit_Voucher is an addition, one line up
-=======
 		/obj/item/t_scanner/adv_mining_scanner/lesser = 1,
 	)
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 	belt = /obj/item/modular_computer/pda/shaftminer
 	ears = /obj/item/radio/headset/headset_cargo/mining
 	gloves = /obj/item/clothing/gloves/color/black
