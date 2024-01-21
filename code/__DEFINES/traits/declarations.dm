@@ -886,6 +886,7 @@
 #define TRAIT_BLOB_ALLY "blob_ally"
 
 ///Traits given by station traits
+#define STATION_TRAIT_ASSISTANT_GIMMICKS "station_trait_assistant_gimmicks"
 #define STATION_TRAIT_BANANIUM_SHIPMENTS "station_trait_bananium_shipments"
 #define STATION_TRAIT_BIGGER_PODS "station_trait_bigger_pods"
 #define STATION_TRAIT_BIRTHDAY "station_trait_birthday"
@@ -1042,5 +1043,8 @@
 
 /// Trait which self-identifies as an enemy of the law
 #define TRAIT_ALWAYS_WANTED "always_wanted"
+
+/// Trait which means whatever has this is dancing by a dance machine
+#define TRAIT_DISCO_DANCER "disco_dancer"
 
 // END TRAIT DEFINES
