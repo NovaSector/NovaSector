@@ -10,4 +10,5 @@
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/projectile_dampener,
 		/obj/item/mod/module/quick_carry,
+		/obj/item/mod/module/holster,
 	)
