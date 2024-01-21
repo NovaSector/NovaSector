@@ -62,9 +62,10 @@
 /obj/item/gun/energy/modular_laser_rifle/proc/change_to_switch_mode(mob/living/user)
 	currently_switching_types = TRUE
 	flick("[base_icon_state]_switch_on", src)
+	cut_overlays()
 	playsound(src, 'sound/items/modsuit/ballin.ogg', 75, TRUE)
 	icon_state = "[base_icon_state]_switch"
-	addtimer(CALLBACK(src, PROC_REF(show_radial_choice_menu)), user)
+	addtimer(CALLBACK(src, PROC_REF(show_radial_choice_menu), user), transition_duration)
 
 /// Shows the radial choice menu to the user, if the user doesnt exist or isnt holding the gun anymore, it reverts back to its last form
 /obj/item/gun/energy/modular_laser_rifle/proc/show_radial_choice_menu(mob/living/user)

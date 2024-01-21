@@ -15,10 +15,12 @@
 
 /// Applies some of the universal stats from the variables above
 /datum/laser_weapon_mode/proc/apply_stats(obj/item/gun/energy/applied_gun)
-	if(!length(applied_gun.ammo_type))
-		applied_gun.ammo_type += casing
-	else
-		applied_gun.ammo_type[1] = casing
+	var/obj/item/ammo_casing/new_casing = new casing()
+	if(length(applied_gun.ammo_type))
+		for(var/found_casing as anything in applied_gun.ammo_type)
+			applied_gun.ammo_type.Remove(found_casing)
+			qdel(found_casing)
+	applied_gun.ammo_type.Add(new_casing)
 	applied_gun.charge_sections = charge_sections
 	applied_gun.fire_delay = shot_delay
 	applied_gun.icon_state = "[applied_gun.base_icon_state]_[weapon_icon_state]"
