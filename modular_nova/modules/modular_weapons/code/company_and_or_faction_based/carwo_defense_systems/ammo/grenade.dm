@@ -141,7 +141,7 @@
 
 
 /obj/projectile/bullet/c980grenade/shrapnel/fuse_activation(atom/target)
-	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(target.drop_location())
+	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 
@@ -157,7 +157,7 @@
 
 /obj/item/grenade/c980payload
 	shrapnel_type = /obj/projectile/bullet/shrapnel/short_range
-	shrapnel_radius = 2
+	shrapnel_radius = 4
 	ex_dev = 0
 	ex_heavy = 0
 	ex_light = 0

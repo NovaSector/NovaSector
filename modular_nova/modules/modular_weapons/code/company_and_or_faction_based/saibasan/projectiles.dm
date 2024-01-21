@@ -74,7 +74,7 @@
 
 /// Called when the projectile reaches its max range, or hits something
 /obj/projectile/beam/cybersun_laser/granata/proc/fuse_activation(atom/target)
-	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(target.drop_location())
+	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 
@@ -91,9 +91,29 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
 	light_color = COLOR_PALE_GREEN
 
+/obj/projectile/bullet/shrapnel/plasma_shrapnel
+	name = "miniature plasma globule"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/projectiles.dmi'
+	icon_state = "flare"
+	damage = 10
+	damage_type = BURN
+	speed = 1.5
+	bare_wound_bonus = 55 // Lasers have a wound bonus of 40, this is a bit higher
+	wound_bonus = -50 // However we do not very much against armor
+	range = 2
+	ricochet_chance = 0
+	dismemberment = 0
+	pass_flags = PASSTABLE | PASSGRILLE // His ass does NOT pass through glass!
+	weak_against_armour = TRUE
+	sharpness = NONE
+	shrapnel_type = null
+	embedding = null
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
+	light_color = COLOR_PALE_GREEN
+
 /obj/item/grenade/c980payload/plasma_grenade
-	shrapnel_type = /obj/projectile/beam/cybersun_laser/granata_shrapnel
-	shrapnel_radius = 3
+	shrapnel_type = /obj/projectile/bullet/shrapnel/plasma_shrapnel
+	shrapnel_radius = 4
 
 // Shotgun casing for the big gun
 
