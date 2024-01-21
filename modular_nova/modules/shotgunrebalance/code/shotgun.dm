@@ -260,7 +260,7 @@
 		if(range > 0)
 			return BULLET_ACT_FORCE_PIERCE
 		return ..()
-	if(!isliving(target) || (damage > initial(damage)))
+	if(!isliving(target) || (damage > initial(damage)) || !(istype(target, /mob/living/simple_animal/hostile/megafauna)))
 		return ..()
 	var/mob/living/target_mob = target
 	if(target_mob.mob_biotypes & biotype_we_look_for)
