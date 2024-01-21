@@ -19,6 +19,7 @@
 	selfcharge = 1
 	charge_delay = 15
 	shaded_charge = TRUE
+	slot_flags = ITEM_SLOT_BACK
 	SET_BASE_PIXEL(-8, 0)
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY

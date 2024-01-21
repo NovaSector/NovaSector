@@ -43,12 +43,14 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_big_sniper
 	weapon_icon_state = "sniper"
 	shot_delay = 2 SECONDS
+	/// Keeps track of the scope component for deleting later
+	var/datum/component/scope/scope_component
 
 /datum/laser_weapon_mode/marksman/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	applied_gun.AddComponentFrom(REF(src), /datum/component/scope, 3)
+	scope_component = applied_gun.AddComponent(/datum/component/scope, 3)
 
 /datum/laser_weapon_mode/marksman/remove_from_weapon(obj/item/gun/energy/applied_gun)
-	applied_gun.RemoveComponentSource(REF(src), /datum/component/scope)
+	QDEL_NULL(scope_component)
 
 // Windup autofire disabler mode for the large laser
 /datum/laser_weapon_mode/disabler_machinegun
@@ -56,12 +58,14 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_big_disabler
 	weapon_icon_state = "disabler"
 	charge_sections = 2
+	/// Keeps track of the autofire component for deleting later
+	var/datum/component/automatic_fire/autofire_component
 
 /datum/laser_weapon_mode/disabler_machinegun/apply_to_weapon(obj/item/gun/energy/applied_gun)
-	applied_gun.AddComponentFrom(REF(src), /datum/component/automatic_fire, shot_delay, TRUE, 0.1, 0.6)
+	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay, TRUE, 0.1, 0.6)
 
 /datum/laser_weapon_mode/disabler_machinegun/remove_from_weapon(obj/item/gun/energy/applied_gun)
-	applied_gun.RemoveComponentSource(REF(src), /datum/component/automatic_fire)
+	QDEL_NULL(autofire_component)
 
 // Grenade launching mode for the large laser
 /datum/laser_weapon_mode/launcher

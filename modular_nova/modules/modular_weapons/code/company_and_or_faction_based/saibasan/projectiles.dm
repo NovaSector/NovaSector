@@ -61,7 +61,7 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/green_laser
 	light_color = COLOR_PALE_GREEN
 	/// What type of casing should we put inside the bullet to act as shrapnel later
-	var/casing_to_spawn = /obj/projectile/beam/cybersun_laser/granata_shrapnel
+	var/casing_to_spawn = /obj/item/grenade/c980payload/plasma_grenade
 
 /obj/projectile/bullet/c980grenade/on_hit(atom/target, blocked = 0, pierce_hit)
 	..()
