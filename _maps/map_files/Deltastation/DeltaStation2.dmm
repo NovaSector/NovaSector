@@ -44497,26 +44497,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"lab" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/item/folder/yellow{
-	pixel_x = -6
-	},
-/obj/item/pen{
-	pixel_x = -6
-	},
-/obj/machinery/door/window/left/directional/south{
-	dir = 1;
-	req_access = list("cargo");
-	name = "Office Desk"
-	},
-/obj/effect/turf_decal/delivery,
-/obj/structure/desk_bell{
-	pixel_x = 7
-	},
-/turf/open/floor/iron,
-/area/station/cargo/office)
 "lac" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/bot/left,
@@ -79758,19 +79738,6 @@
 /mob/living/carbon/human/species/monkey,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
-"tRV" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/left/directional/west{
-	dir = 4;
-	name = "Delivery Desk";
-	req_access = list("cargo")
-	},
-/obj/effect/turf_decal/delivery,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/open/floor/iron,
-/area/station/cargo/lobby)
 "tSa" = (
 /obj/structure/sign/poster/random/directional/south,
 /obj/effect/turf_decal/tile/red/opposingcorners{
@@ -138649,11 +138616,7 @@ hqK
 hLa
 rve
 iJr
-<<<<<<< HEAD
-lab
-=======
 jmH
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 qQE
 xjx
 euK
@@ -139169,11 +139132,7 @@ vKl
 wfK
 hoC
 yfI
-<<<<<<< HEAD
-tRV
-=======
 wAl
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 kGo
 vSm
 xhW

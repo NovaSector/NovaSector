@@ -32645,13 +32645,6 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/starboard/fore)
-"iDz" = (
-/obj/machinery/atmospherics/components/trinary/filter/critical{
-	dir = 4
-	},
-/obj/machinery/status_display/evac/directional/north,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "iDP" = (
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plating,
@@ -140318,11 +140311,7 @@ uyD
 uyD
 uyD
 uyD
-<<<<<<< HEAD
-iDz
-=======
 upc
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 kfo
 mvg
 dEc

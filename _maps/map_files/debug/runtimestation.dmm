@@ -1764,13 +1764,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
-<<<<<<< HEAD
-"ib" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/cargo/bitrunning/den)
-=======
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "ii" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1829,13 +1822,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
-"lE" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/obj/machinery/airalarm/directional/east,
-/obj/machinery/computer/quantum_console,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
 "lH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
@@ -1859,11 +1845,6 @@
 /obj/machinery/chem_mass_spec,
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
-"mV" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
 "nn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
@@ -1915,9 +1896,6 @@
 /obj/machinery/door/airlock/external/glass/ruin,
 /turf/open/floor/plating,
 /area/station/medical/medbay)
-"pK" = (
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
 "qb" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/plating,
@@ -1948,15 +1926,7 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-<<<<<<< HEAD
-"rM" = (
-/obj/machinery/quantum_server,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
-"rS" = (
-=======
 "rT" = (
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 /turf/open/floor/circuit/green,
 /area/station/cargo/bitrunning/den)
 "sr" = (
@@ -2108,10 +2078,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/science)
-"Ba" = (
-/obj/machinery/netpod,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
 "BD" = (
 /obj/structure/closet/secure_closet/chief_medical{
 	locked = 0
@@ -2132,13 +2098,6 @@
 /obj/structure/closet/syndicate/resources/everything,
 /turf/open/floor/iron,
 /area/station/science)
-<<<<<<< HEAD
-"Cz" = (
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
-=======
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "CQ" = (
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/stripes/line{
@@ -2256,8 +2215,6 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron,
 /area/station/command/bridge)
-<<<<<<< HEAD
-=======
 "IF" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
@@ -2265,7 +2222,6 @@
 /obj/machinery/computer/quantum_console,
 /turf/open/floor/iron,
 /area/station/cargo/bitrunning/den)
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "IH" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	locked = 0
@@ -2299,13 +2255,6 @@
 /obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"Kf" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/item/storage/part_replacer/bluespace/tier4,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
 "Kx" = (
 /obj/structure/table,
 /obj/item/analyzer,
@@ -2313,15 +2262,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
-"Lb" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light/directional/south,
-/obj/item/bitrunning_debug,
-/turf/open/floor/iron,
-/area/station/cargo/bitrunning/den)
-"Le" = (
-/turf/closed/wall/r_wall,
-/area/station/cargo/bitrunning/den)
 "Ly" = (
 /obj/machinery/chem_dispenser/chem_synthesizer,
 /turf/open/floor/iron/dark,
@@ -2369,10 +2309,6 @@
 /obj/machinery/chem_recipe_debug,
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
-"Nj" = (
-/obj/machinery/byteforge,
-/turf/open/floor/circuit/green,
-/area/station/cargo/bitrunning/den)
 "Ns" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/structure/cable,
@@ -2444,17 +2380,9 @@
 	},
 /turf/open/floor/engine,
 /area/station/cargo/miningoffice)
-<<<<<<< HEAD
-"QU" = (
-/obj/machinery/door/airlock,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/iron,
-=======
 "QY" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 /area/station/cargo/bitrunning/den)
 "Rb" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -2492,15 +2420,12 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/station/medical/medbay)
-<<<<<<< HEAD
-=======
 "SC" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/directional/south,
 /obj/item/bitrunning_debug,
 /turf/open/floor/iron,
 /area/station/cargo/bitrunning/den)
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "Td" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/stripes/line{
@@ -3277,21 +3202,12 @@ aa
 aa
 aa
 aa
-<<<<<<< HEAD
-Le
-Le
-Le
-Le
-Le
-Le
-=======
 Ue
 Ue
 Ue
 Ue
 Ue
 Ue
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3378,21 +3294,12 @@ aa
 aa
 aa
 aa
-<<<<<<< HEAD
-Le
-rS
-Nj
-pK
-Ba
-Le
-=======
 Ue
 rT
 Rp
 Yd
 TR
 Ue
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3479,21 +3386,12 @@ aa
 aa
 aa
 aa
-<<<<<<< HEAD
-Le
-rM
-pK
-Kf
-Ba
-Le
-=======
 Ue
 LS
 Yd
 hv
 TR
 Ue
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3580,21 +3478,12 @@ aa
 aa
 aa
 aa
-<<<<<<< HEAD
-Le
-lE
-Cz
-mV
-Lb
-Le
-=======
 Ue
 IF
 Aj
 vb
 SC
 Ue
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3681,21 +3570,12 @@ em
 em
 em
 em
-<<<<<<< HEAD
-Le
-Le
-Le
-QU
-ib
-Le
-=======
 Ue
 Ue
 Ue
 nI
 QY
 Ue
->>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 Tj
 Tj
 Tj
