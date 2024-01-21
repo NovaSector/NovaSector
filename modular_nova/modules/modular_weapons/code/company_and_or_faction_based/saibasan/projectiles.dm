@@ -77,12 +77,13 @@
 	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	qdel(shrapnel_maker)
 
 /obj/projectile/beam/cybersun_laser/granata_shrapnel
 	name = "plasma globule"
 	icon_state = "flare"
 	damage = 10
-	speed = 1.5
+	speed = 2.5
 	bare_wound_bonus = 55 // Lasers have a wound bonus of 40, this is a bit higher
 	wound_bonus = -50 // However we do not very much against armor
 	range = 2
@@ -119,7 +120,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_shotgun
 	projectile_type = /obj/projectile/beam/cybersun_laser/granata_shrapnel/shotgun_pellet
-	e_cost = LASER_SHOTS(6, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE * 2)
 	pellets = 5
 	variance = 30
 	select_name = "Shotgun"

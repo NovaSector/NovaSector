@@ -144,6 +144,7 @@
 	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	qdel(shrapnel_maker)
 
 
 /obj/item/ammo_box/c980grenade/shrapnel
