@@ -253,6 +253,12 @@
 	var/biotype_we_look_for = MOB_BEAST
 
 /obj/projectile/bullet/shotgun_slug/hunter/on_hit(atom/target, blocked, pierce_hit)
+	if(ismineralturf(target))
+		var/turf/closed/mineral/mineral_turf = target
+		mineral_turf.gets_drilled(firer, FALSE)
+		if(range > 0)
+			return BULLET_ACT_FORCE_PIERCE
+		return ..()
 	if(!ismob(target) || (damage > initial(damage)))
 		return ..()
 	var/mob/target_mob = target
