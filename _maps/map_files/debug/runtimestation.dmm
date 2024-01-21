@@ -1751,16 +1751,26 @@
 /obj/effect/mapping_helpers/airalarm/unlocked,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
+"hv" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/item/storage/part_replacer/bluespace/tier4,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "hD" = (
 /obj/structure/closet/secure_closet/chemical/heisenberg{
 	locked = 0
 	},
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
+<<<<<<< HEAD
 "ib" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/cargo/bitrunning/den)
+=======
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "ii" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1871,6 +1881,12 @@
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
+"nI" = (
+/obj/machinery/door/airlock,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "od" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -1932,22 +1948,21 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+<<<<<<< HEAD
 "rM" = (
 /obj/machinery/quantum_server,
 /turf/open/floor/iron,
 /area/station/cargo/bitrunning/den)
 "rS" = (
+=======
+"rT" = (
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 /turf/open/floor/circuit/green,
 /area/station/cargo/bitrunning/den)
 "sr" = (
 /obj/machinery/door/airlock/shell,
 /turf/open/floor/iron/dark,
 /area/station/construction)
-"sH" = (
-/obj/structure/table,
-/obj/item/storage/box/shipping,
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "tE" = (
 /obj/machinery/door/airlock/research,
 /turf/open/floor/iron/dark,
@@ -2005,6 +2020,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
+"vb" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "vm" = (
 /mob/living/circuit_drone,
 /turf/open/floor/iron/dark,
@@ -2078,6 +2098,10 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/station/science)
+"Aj" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "AP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -2108,10 +2132,13 @@
 /obj/structure/closet/syndicate/resources/everything,
 /turf/open/floor/iron,
 /area/station/science)
+<<<<<<< HEAD
 "Cz" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/cargo/bitrunning/den)
+=======
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "CQ" = (
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/stripes/line{
@@ -2229,6 +2256,16 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron,
 /area/station/command/bridge)
+<<<<<<< HEAD
+=======
+"IF" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/east,
+/obj/machinery/computer/quantum_console,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "IH" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	locked = 0
@@ -2297,6 +2334,10 @@
 /obj/machinery/door/airlock/research,
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
+"LS" = (
+/obj/machinery/quantum_server,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "LW" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
@@ -2403,11 +2444,17 @@
 	},
 /turf/open/floor/engine,
 /area/station/cargo/miningoffice)
+<<<<<<< HEAD
 "QU" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/iron,
+=======
+"QY" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 /area/station/cargo/bitrunning/den)
 "Rb" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -2419,6 +2466,10 @@
 	},
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
+"Rp" = (
+/obj/machinery/byteforge,
+/turf/open/floor/circuit/green,
+/area/station/cargo/bitrunning/den)
 "RM" = (
 /obj/structure/closet/secure_closet/hop{
 	locked = 0
@@ -2441,6 +2492,15 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/station/medical/medbay)
+<<<<<<< HEAD
+=======
+"SC" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/directional/south,
+/obj/item/bitrunning_debug,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 "Td" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/stripes/line{
@@ -2455,11 +2515,18 @@
 "Tt" = (
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
+"TR" = (
+/obj/machinery/netpod,
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "TV" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/construction)
+"Ue" = (
+/turf/closed/wall/r_wall,
+/area/station/cargo/bitrunning/den)
 "Ut" = (
 /obj/structure/closet/secure_closet/medical3{
 	locked = 0
@@ -2582,6 +2649,9 @@
 /obj/effect/landmark/blobstart,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
+"Yd" = (
+/turf/open/floor/iron,
+/area/station/cargo/bitrunning/den)
 "Ym" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical,
@@ -2624,6 +2694,12 @@
 /obj/machinery/suit_storage_unit/ce,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"ZK" = (
+/obj/structure/table,
+/obj/item/storage/box/shipping,
+/obj/item/boulder_beacon,
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "ZP" = (
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
@@ -3201,12 +3277,21 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 Le
 Le
 Le
 Le
 Le
 Le
+=======
+Ue
+Ue
+Ue
+Ue
+Ue
+Ue
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3293,12 +3378,21 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 Le
 rS
 Nj
 pK
 Ba
 Le
+=======
+Ue
+rT
+Rp
+Yd
+TR
+Ue
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3385,12 +3479,21 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 Le
 rM
 pK
 Kf
 Ba
 Le
+=======
+Ue
+LS
+Yd
+hv
+TR
+Ue
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3477,12 +3580,21 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 Le
 lE
 Cz
 mV
 Lb
 Le
+=======
+Ue
+IF
+Aj
+vb
+SC
+Ue
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 aa
 aa
 aa
@@ -3569,12 +3681,21 @@ em
 em
 em
 em
+<<<<<<< HEAD
 Le
 Le
 Le
 QU
 ib
 Le
+=======
+Ue
+Ue
+Ue
+nI
+QY
+Ue
+>>>>>>> 002051a3d5e (ArcMining Pr Beta: Version 1.2 (#78524))
 Tj
 Tj
 Tj
@@ -7821,7 +7942,7 @@ dJ
 dJ
 dJ
 dJ
-sH
+ZK
 cS
 fP
 fO
