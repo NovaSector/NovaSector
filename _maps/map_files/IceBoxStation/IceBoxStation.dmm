@@ -8062,6 +8062,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"csZ" = (
+/obj/effect/turf_decal/siding/wideplating_new/light{
+	dir = 6
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/prisoner,
+/obj/machinery/duct,
+/turf/open/floor/iron/showroomfloor,
+/area/station/security/prison/work)
 "ctk" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -8240,17 +8251,6 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"cvG" = (
-/obj/effect/turf_decal/siding/wideplating_new/light,
-/obj/item/trash/bee,
-/obj/machinery/light/directional/west,
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
-/obj/structure/sign/poster/official/moth_piping/directional/west,
-/turf/open/floor/iron/showroomfloor,
-/area/station/security/prison/work)
 "cvN" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 4
@@ -25847,6 +25847,13 @@
 /obj/machinery/teleport/hub,
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/aisat_interior)
+"hWI" = (
+/obj/effect/turf_decal/box,
+/obj/effect/spawner/random/structure/closet_empty/crate/with_loot,
+/obj/effect/spawner/random/maintenance/six,
+/obj/structure/sign/poster/official/wtf_is_co2/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/starboard/aft)
 "hWP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -45659,6 +45666,18 @@
 	},
 /turf/open/floor/iron/dark/textured_edge,
 /area/station/security/prison)
+"nUV" = (
+/obj/effect/turf_decal/siding/wideplating_new/light,
+/obj/item/trash/bee,
+/obj/machinery/light/directional/west,
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/structure/sign/poster/official/moth_piping/directional/west,
+/obj/machinery/duct,
+/turf/open/floor/iron/showroomfloor,
+/area/station/security/prison/work)
 "nVc" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
@@ -60398,13 +60417,6 @@
 /obj/structure/sign/warning/secure_area,
 /turf/closed/wall/r_wall,
 /area/station/engineering/storage/tech)
-"sst" = (
-/obj/effect/turf_decal/box,
-/obj/effect/spawner/random/structure/closet_empty/crate/with_loot,
-/obj/effect/spawner/random/maintenance/six,
-/obj/structure/sign/poster/official/wtf_is_co2/directional/north,
-/turf/open/floor/iron/dark,
-/area/station/maintenance/starboard/aft)
 "ssv" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/turf_decal/siding/thinplating_new/corner,
@@ -62487,16 +62499,6 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/atmos/hfr_room)
-"sZp" = (
-/obj/effect/turf_decal/siding/wideplating_new/light{
-	dir = 6
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/start/prisoner,
-/turf/open/floor/iron/showroomfloor,
-/area/station/security/prison/work)
 "sZD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -167636,7 +167638,7 @@ iDt
 iDt
 oqL
 unm
-cvG
+nUV
 ldz
 fvK
 cIc
@@ -167893,7 +167895,7 @@ iDt
 iDt
 oqL
 bFU
-sZp
+csZ
 axX
 auJ
 oVy
@@ -256919,7 +256921,7 @@ fOl
 cyL
 jAI
 bgx
-sst
+hWI
 xxv
 dOK
 vzD
