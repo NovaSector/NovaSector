@@ -120,6 +120,7 @@
 	charge_sections = 2
 
 /datum/laser_weapon_mode/hellfire/apply_to_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
 	applied_gun.force = 18
 	applied_gun.sharpness = SHARP_EDGED
 	applied_gun.wound_bonus = 10
@@ -130,6 +131,7 @@
 	applied_gun.hitsound = 'sound/weapons/rapierhit.ogg'
 
 /datum/laser_weapon_mode/hellfire/remove_from_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
+	playsound(src, 'sound/items/sheath.ogg', 25, TRUE)
 	applied_gun.force = initial(applied_gun.force)
 	applied_gun.sharpness = initial(applied_gun.sharpness)
 	applied_gun.wound_bonus = initial(applied_gun.wound_bonus)
