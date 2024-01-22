@@ -186,7 +186,7 @@
 /obj/item/gun/energy/modular_laser_rifle/ui_action_click(mob/user, actiontype)
 	if(!istype(actiontype, /datum/action/item_action/zoom_lock_action))
 		return
-	personality_mode != personality_mode
+	personality_mode = !personality_mode
 	speak_up("[personality_mode ? "pickup" : "putdown"]", ignores_personality_toggle = TRUE)
 	return ..()
 
