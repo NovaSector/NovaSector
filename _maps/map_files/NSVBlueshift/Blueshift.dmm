@@ -16789,8 +16789,7 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/table,
 /obj/machinery/chem_dispenser/drinks/beer{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
@@ -25994,7 +25993,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/structure/rack/gunrack,
 /obj/machinery/airalarm/directional/south,
-/obj/effect/spawner/armory_spawn/shotguns,
+/obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "eTk" = (
@@ -70936,9 +70935,7 @@
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "nCn" = (
-/obj/structure/musician/piano{
-	icon_state = "piano"
-	},
+/obj/structure/musician/piano,
 /turf/open/floor/wood,
 /area/station/service/bar/atrium)
 "nCq" = (
@@ -71783,9 +71780,7 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "nKr" = (
-/obj/structure/musician/piano{
-	icon_state = "piano"
-	},
+/obj/structure/musician/piano,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "nKs" = (
@@ -76873,6 +76868,8 @@
 /obj/item/melee/baton/security/loaded,
 /obj/structure/cable,
 /obj/effect/spawner/random/armory/riot_shield,
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "oGG" = (
@@ -109042,13 +109039,13 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/rus_gambling)
 "uKW" = (
-/obj/structure/table/reinforced,
-/obj/item/gun/energy/e_gun/dragnet,
-/obj/item/gun/energy/e_gun/dragnet,
 /obj/machinery/camera/directional/south{
 	c_tag = "Armory - Interior"
 	},
 /obj/machinery/light/directional/south,
+/obj/structure/rack/gunrack,
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "uLb" = (
@@ -117367,7 +117364,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/structure/rack/gunrack,
 /obj/machinery/firealarm/directional/south,
-/obj/effect/spawner/armory_spawn/microfusion,
+/obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},

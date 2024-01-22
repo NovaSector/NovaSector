@@ -21869,11 +21869,11 @@
 /area/station/medical/medbay/central)
 "gra" = (
 /obj/structure/rack/gunrack,
-/obj/effect/spawner/armory_spawn/microfusion,
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 1
 	},
 /obj/effect/turf_decal/delivery,
+/obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "grg" = (
@@ -22916,9 +22916,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/basic/goat/pete{
-	name = "Pete"
-	},
+/mob/living/basic/goat/pete,
 /obj/effect/turf_decal/weather/snow,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
@@ -35850,7 +35848,6 @@
 /area/station/commons/lounge)
 "kjG" = (
 /obj/structure/rack/gunrack,
-/obj/effect/spawner/armory_spawn/shotguns,
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 1
 	},
@@ -35859,6 +35856,7 @@
 /obj/machinery/digital_clock/directional/north{
 	pixel_y = 37
 	},
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "kjL" = (
@@ -60163,18 +60161,6 @@
 	},
 /area/station/science/ordnance/testlab)
 "qKP" = (
-/obj/structure/table/reinforced,
-/obj/item/clothing/suit/armor/vest/alt/sec{
-	pixel_y = 2
-	},
-/obj/item/clothing/suit/armor/vest/alt/sec{
-	pixel_x = -4;
-	pixel_y = -6
-	},
-/obj/item/clothing/suit/armor/vest/alt/sec{
-	pixel_x = 4;
-	pixel_y = -6
-	},
 /obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 1
 	},
@@ -60188,6 +60174,8 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/delivery,
+/obj/structure/rack,
+/obj/effect/spawner/random/armory/disablers,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "qLf" = (
@@ -77479,13 +77467,13 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/sorting)
 "vwn" = (
-/obj/structure/rack,
 /obj/effect/turf_decal/tile/dark_red/anticorner{
 	dir = 1
 	},
 /obj/machinery/requests_console/auto_name/directional/north,
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/random/armory/disablers,
+/obj/structure/rack/gunrack,
+/obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "vwo" = (
