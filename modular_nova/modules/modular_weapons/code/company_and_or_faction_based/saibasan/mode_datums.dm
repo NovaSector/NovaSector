@@ -12,6 +12,10 @@
 	var/charge_sections = 5
 	/// What is the shot cooldown this variant applies to the weapon?
 	var/shot_delay = 0.3 SECONDS
+	/// What json string do we check for when making chat messages with this mode?
+	var/json_speech_string = "kill"
+	/// What do we change the gun's runetext color to when applied
+	var/gun_runetext_color = "#cd4456"
 
 /// Applies some of the universal stats from the variables above
 /datum/laser_weapon_mode/proc/apply_stats(obj/item/gun/energy/applied_gun)
@@ -28,6 +32,8 @@
 	applied_gun.inhand_icon_state = new_icon_state
 	applied_gun.worn_icon = new_icon_state
 	applied_gun.update_appearance()
+	applied_gun.chat_color = gun_runetext_color
+	applied_gun.chat_color_darkened = process_chat_color(gun_runetext_color, sat_shift = 0.85, lum_shift = 0.85)
 
 /// Stuff applied to the passed gun when the weapon mode is given to the gun
 /datum/laser_weapon_mode/proc/apply_to_weapon(obj/item/gun/energy/applied_gun)
@@ -43,6 +49,8 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_big_sniper
 	weapon_icon_state = "sniper"
 	shot_delay = 2 SECONDS
+	json_speech_string = "sniper"
+	gun_runetext_color = "#f8d860"
 	/// Keeps track of the scope component for deleting later
 	var/datum/component/scope/scope_component
 
@@ -59,6 +67,8 @@
 	weapon_icon_state = "disabler"
 	charge_sections = 2
 	shot_delay = 1 SECONDS
+	json_speech_string = "disable"
+	gun_runetext_color = "#47a1b3"
 	/// Keeps track of the autofire component for deleting later
 	var/datum/component/automatic_fire/autofire_component
 
@@ -75,6 +85,8 @@
 	weapon_icon_state = "launcher"
 	charge_sections = 3
 	shot_delay = 2 SECONDS
+	json_speech_string = "launcher"
+	gun_runetext_color = "#77bd5d"
 
 /datum/laser_weapon_mode/launcher/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 2
@@ -89,6 +101,8 @@
 	weapon_icon_state = "shot"
 	charge_sections = 3
 	shot_delay = 0.75 SECONDS
+	json_speech_string = "shotgun"
+	gun_runetext_color = "#7a0bb7"
 
 /datum/laser_weapon_mode/shotgun/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 1
@@ -103,6 +117,7 @@
 	weapon_icon_state = "kill"
 	charge_sections = 3
 	shot_delay = 0.4 SECONDS
+	json_speech_string = "incinerate"
 
 /datum/laser_weapon_mode/hellfire/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	return
@@ -118,6 +133,8 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_small_blade
 	weapon_icon_state = "blade"
 	charge_sections = 2
+	json_speech_string = "blade"
+	gun_runetext_color = "#f8d860"
 
 /datum/laser_weapon_mode/sword/apply_to_weapon(obj/item/gun/energy/modular_laser_rifle/applied_gun)
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
@@ -148,6 +165,8 @@
 	weapon_icon_state = "flare"
 	charge_sections = 3
 	shot_delay = 2 SECONDS
+	json_speech_string = "flare"
+	gun_runetext_color = "#77bd5d"
 
 /datum/laser_weapon_mode/flare/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 2
@@ -162,6 +181,8 @@
 	weapon_icon_state = "shot"
 	charge_sections = 3
 	shot_delay = 0.6 SECONDS
+	json_speech_string = "shotgun"
+	gun_runetext_color = "#7a0bb7"
 
 /datum/laser_weapon_mode/shotgun_small/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 1
@@ -176,6 +197,8 @@
 	weapon_icon_state = "disable"
 	charge_sections = 3
 	shot_delay = 0.4 SECONDS
+	json_speech_string = "disable"
+	gun_runetext_color = "#47a1b3"
 
 /datum/laser_weapon_mode/trickshot_disabler/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	return

@@ -1,3 +1,10 @@
+/// File location for the long gun's speech
+#define LONG_MOD_LASER_SPEECH "nova/long_modular_laser.json"
+/// File location for the short gun's speech
+#define SHORT_MOD_LASER_SPEECH "nova/short_modular_laser.json"
+/// How long the gun should wait between speaking to lessen spam
+#define MOD_LASER_SPEECH_COOLDOWN 2 SECONDS
+
 // Modular energy weapons, laser guns that can transform into different variants after a few seconds of waiting and animation
 // Long version, takes both hands to use and doesn't fit in any bags out there
 /obj/item/gun/energy/modular_laser_rifle
@@ -23,6 +30,7 @@
 	SET_BASE_PIXEL(-8, 0)
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	actions_types = list(/datum/action/item_action/toggle_personality)
 	/// What datums of weapon modes can we use?
 	var/list/weapon_mode_options = list(
 		/datum/laser_weapon_mode,
@@ -45,9 +53,18 @@
 	var/default_selected_mode = "Kill"
 	/// Allows firing of the gun to be disabled for any reason, for example, if a gun has a melee mode
 	var/disabled_for_other_reasons = FALSE
+	/// The json file this gun pulls from when speaking
+	var/speech_json_file = LONG_MOD_LASER_SPEECH
+	/// Keeps track of the last processed charge, prevents message spam
+	var/last_charge = 0
+	/// If the gun's personality speech thing is on, defaults to on because just listen to her
+	var/personality_mode = TRUE
+	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
+	COOLDOWN_DECLARE(last_speech)
 
 /obj/item/gun/energy/modular_laser_rifle/Initialize(mapload)
 	. = ..()
+	last_charge = cell.charge
 	create_weapon_mode_stuff()
 
 /// Handles filling out all of the lists regarding weapon modes and radials around that
@@ -59,7 +76,7 @@
 		var/obj/projectile/mode_projectile = initial(laser_mode.casing.projectile_type)
 		radial_menu_data["[initial(laser_mode.name)]"] = image(icon = mode_projectile.icon, icon_state = mode_projectile.icon_state)
 	currently_selected_mode = weapon_mode_name_to_path["[default_selected_mode]"]
-	transform_gun(currently_selected_mode, FALSE)
+	transform_gun(currently_selected_mode, FALSE, TRUE)
 
 /obj/item/gun/energy/modular_laser_rifle/attack_self(mob/living/user)
 	if(!currently_switching_types)
@@ -104,7 +121,7 @@
 	transform_gun(new_weapon_mode, TRUE)
 
 /// Transforms the gun into a different type, if replacing is set to true then it'll make sure to remove any effects the prior gun type had
-/obj/item/gun/energy/modular_laser_rifle/proc/transform_gun(datum/laser_weapon_mode/new_weapon_mode, replacing = TRUE)
+/obj/item/gun/energy/modular_laser_rifle/proc/transform_gun(datum/laser_weapon_mode/new_weapon_mode, replacing = TRUE, dont_speak = FALSE)
 	if(!new_weapon_mode)
 		stack_trace("transform_gun was called but didn't get a new weapon mode, meaning it couldn't work.")
 		return
@@ -115,6 +132,8 @@
 	currently_selected_mode.apply_stats(src)
 	currently_selected_mode.apply_to_weapon(src)
 	playsound(src, 'sound/items/modsuit/ballout.ogg', 75, TRUE)
+	if(!dont_speak)
+		speak_up(currently_selected_mode.json_speech_string, TRUE)
 	currently_switching_types = FALSE
 
 /obj/item/gun/energy/modular_laser_rifle/can_trigger_gun(mob/living/user, akimbo_usage)
@@ -122,11 +141,65 @@
 	if(currently_switching_types || disabled_for_other_reasons)
 		return FALSE
 
+/// Makes the gun speak with a sound effect and colored runetext based on the mode the gun is in, reads the gun's speech json as defined through variables
+/obj/item/gun/energy/modular_laser_rifle/proc/speak_up(json_string, ignores_cooldown = FALSE, ignores_personality_toggle = FALSE)
+	if(!personality_mode && ignores_personality_toggle)
+		return
+	if(!json_string)
+		return
+	if(!ignores_cooldown && !COOLDOWN_FINISHED(src, last_speech))
+		return
+	say(pick_list_replacements(speech_json_file, json_string))
+	playsound(src, 'sound/creatures/tourist/tourist_talk.ogg', 30, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, frequency = 2)
+	Shake(2, 2, 1 SECONDS)
+	COOLDOWN_START(src, last_speech, MOD_LASER_SPEECH_COOLDOWN)
+
+/obj/item/gun/energy/modular_laser_rifle/equipped(mob/user, slot, initial)
+	. = ..()
+	if(slot & (ITEM_SLOT_BELT|ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE))
+		speak_up("worn")
+	else if(slot & ITEM_SLOT_HANDS)
+		RegisterSignal(user, COMSIG_MOB_CI_TOGGLED, PROC_REF(user_ci_toggled))
+		speak_up("pickup")
+		return
+	UnregisterSignal(user, COMSIG_MOB_CI_TOGGLED)
+
+/obj/item/gun/energy/modular_laser_rifle/dropped(mob/user, silent)
+	. = ..()
+	UnregisterSignal(user, COMSIG_MOB_CI_TOGGLED)
+	speak_up("putdown")
+
+/obj/item/gun/energy/modular_laser_rifle/process(seconds_per_tick)
+	. = ..()
+	var/cell_charge_quarter = cell.maxcharge / 4
+	if((cell_charge_quarter > cell.charge) && !(last_charge < cell_charge_quarter))
+		speak_up("lowcharge")
+	else if((cell.maxcharge == cell.charge) && !(last_charge == cell.maxcharge))
+		speak_up("fullcharge")
+	last_charge = cell.charge
+
+/// Triggers when a mob user toggles CI
+/obj/item/gun/energy/modular_laser_rifle/proc/user_ci_toggled(mob/living/source)
+	if(source.combat_indicator)
+		speak_up("combatmode")
+
+/obj/item/gun/energy/modular_laser_rifle/ui_action_click(mob/user, actiontype)
+	if(!istype(actiontype, /datum/action/item_action/zoom_lock_action))
+		return
+	personality_mode != personality_mode
+	speak_up("[personality_mode ? "pickup" : "putdown"]", ignores_personality_toggle = TRUE)
+	return ..()
+
 // Power cell for the big rifle
 /obj/item/stock_parts/cell/hyeseong_internal_cell
 	name = "\improper Hyeseong modular laser rifle internal cell"
 	desc = "These are usually supposed to be inside of the gun, you know."
 	maxcharge = STANDARD_CELL_CHARGE * 2
+
+/datum/action/item_action/toggle_personality
+	name = "Toggle Weapon Personality"
+	desc = "Toggles the weapon's personality core. Studies find that turning them off makes them quite sad, however."
+	background_icon_state = "bg_mod"
 
 //Short version of the above modular rifle, has less charge and different modes
 /obj/item/gun/energy/modular_laser_rifle/carbine
@@ -148,3 +221,12 @@
 		/datum/laser_weapon_mode/trickshot_disabler,
 	)
 	default_selected_mode = "Incinerate"
+	speech_json_file = SHORT_MOD_LASER_SPEECH
+
+/obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)
+	. = ..()
+	speak_up("emp", TRUE) // She gets very upset if you emp her
+
+#undef LONG_MOD_LASER_SPEECH
+#undef SHORT_MOD_LASER_SPEECH
+#undef MOD_LASER_SPEECH_COOLDOWN
