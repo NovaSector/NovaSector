@@ -21,7 +21,10 @@
  * visuals_only - whether we call special equipped procs, or if we just look like we equipped it
  * preference_source - the preferences of the thing we're equipping
  */
-/mob/living/carbon/human/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source, visuals_only = FALSE, datum/job/equipping_job)
+/mob/living/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
+	return
+
+/mob/living/carbon/human/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
 		return FALSE
@@ -43,21 +46,8 @@
 		var/obj/item/storage/briefcase/empty/briefcase = new(loc)
 
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job restrictions!"))
+			if (!item.can_be_applied_to(src, preference_source, equipping_job))
 				continue
-
-			if(item.blacklisted_roles && equipping_job && (equipping_job.title in item.blacklisted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job blacklists!"))
-				continue
-
-			if(item.restricted_species && !(dna.species.id in item.restricted_species))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item ([initial(item.item_path.name)]) due to species restrictions!"))
-				continue
-
 			new item.item_path(briefcase)
 
 		briefcase.name = "[preference_source.read_preference(/datum/preference/name/real_name)]'s travel suitcase"
@@ -65,26 +55,13 @@
 		put_in_hands(briefcase)
 	else
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job restrictions!"))
-				continue
-
-			if(item.blacklisted_roles && equipping_job && (equipping_job.title in item.blacklisted_roles))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item([initial(item.item_path.name)]) due to job blacklists!"))
-				continue
-
-			if(item.restricted_species && !(dna.species.id in item.restricted_species))
-				if(client)
-					to_chat(src, span_warning("You were unable to get a loadout item ([initial(item.item_path.name)]) due to species restrictions!"))
+			if (!item.can_be_applied_to(src, preference_source, equipping_job))
 				continue
 
 			// Make sure the item is not overriding an important for life outfit item
 			var/datum/outfit/outfit_important_for_life = dna.species.outfit_important_for_life
 			if(!outfit_important_for_life || !item.pre_equip_item(equipped_outfit, outfit_important_for_life, src, visuals_only))
 				item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
-
 
 		equipOutfit(equipped_outfit, visuals_only)
 
@@ -99,6 +76,15 @@
 
 	regenerate_icons()
 	return TRUE
+
+// cyborgs can wear hats from loadout
+/mob/living/silicon/robot/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
+	var/list/loadout_datums = loadout_list_to_datums(preference_source?.loadout_list)
+	for (var/datum/loadout_item/head/item in loadout_datums)
+		if (!item.can_be_applied_to(src, preference_source, equipping_job))
+			continue
+		place_on_head(new item.item_path)
+		break
 
 /*
  * Takes a list of paths (such as a loadout list)
@@ -170,3 +156,52 @@
 
 /obj/item/storage/briefcase/empty/PopulateContents()
 	return
+
+// Cyborg loadouts (currently used for hats)
+/mob/living/silicon/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client)
+	. = ..()
+	dress_up_as_job(equipping, FALSE, used_pref)
+
+// Cyborg loadouts (currently used for hats)
+/mob/living/silicon/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref)
+	. = ..()
+	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping)
+
+// originally made as a workaround the fact borgs lose their hats on module change, this
+// is how borgs can pick up and drop hats
+
+// if a borg clicks a hat, they try to put it on
+/obj/item/clothing/head/attack_robot_secondary(mob/living/silicon/robot/user, list/modifiers)
+	. = ..()
+	if (. != SECONDARY_ATTACK_CALL_NORMAL)
+		return
+
+	if (!Adjacent(user))
+		return
+
+	balloon_alert(user, "picking up hat...")
+	if (!do_after(user, 3 SECONDS, src))
+		return
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated())
+		return
+	user.place_on_head(src)
+	balloon_alert(user, "picked up hat")
+
+// if a borg right clicks themself, they try to drop their hat
+/mob/living/silicon/robot/attack_robot_secondary(mob/user, list/modifiers)
+	. = ..()
+	if (. != SECONDARY_ATTACK_CALL_NORMAL)
+		return
+
+	if (user != src || isnull(hat))
+		return
+
+	balloon_alert(user, "dropping hat...")
+	if (!do_after(user, 3 SECONDS, src))
+		return
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated() || isnull(hat))
+		return
+	hat.forceMove(get_turf(src))
+	hat = null
+	update_icons()
+	balloon_alert(user, "dropped hat")
