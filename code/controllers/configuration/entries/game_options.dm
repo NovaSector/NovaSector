@@ -430,8 +430,6 @@
 /datum/config_entry/flag/give_tutorials_without_db
 
 /datum/config_entry/string/new_player_alert_role_id
-<<<<<<< HEAD
-=======
 
 /datum/config_entry/keyed_list/positive_station_traits
 	default = list("0" = 8, "1" = 4, "2" = 2, "3" = 1)
@@ -456,4 +454,3 @@
 /datum/config_entry/number/max_positive_quirks
 	default = 6
 	min_val = -1
->>>>>>> 495fde6a2c1 (Add: 2 Quirks Configs (#81033))

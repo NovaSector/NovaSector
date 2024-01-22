@@ -563,8 +563,6 @@ DISALLOW_TITLE_MUSIC
 ## This is primarily useful for developing tutorials. If you have a proper DB setup, you
 ## don't need (or want) this.
 #GIVE_TUTORIALS_WITHOUT_DB
-<<<<<<< HEAD
-=======
 
 ## Configuration for station traits of each type.
 ## The first value (key) is the budget, or the space available to use for station traits of that type. Some take more space than others.
@@ -594,4 +592,3 @@ NEGATIVE_STATION_TRAITS 3 1
 # If set to 0, then players won't be able to select any positive quirks.
 # If commented-out or undefined, the maximum default is 6.
 MAX_POSITIVE_QUIRKS 6
->>>>>>> 495fde6a2c1 (Add: 2 Quirks Configs (#81033))

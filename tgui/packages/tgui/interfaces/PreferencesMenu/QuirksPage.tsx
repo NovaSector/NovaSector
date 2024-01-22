@@ -318,12 +318,8 @@ export function QuirksPage(props) {
           max_positive_quirks: maxPositiveQuirks,
           quirk_blacklist: quirkBlacklist,
           quirk_info: quirkInfo,
-<<<<<<< HEAD
-        } = quirks_data.quirks; // NOVA EDIT - Quirks balance refactor
-=======
           points_enabled: pointsEnabled,
-        } = server_data.quirks;
->>>>>>> 495fde6a2c1 (Add: 2 Quirks Configs (#81033))
+        } = quirks_data.quirks; // NOVA EDIT - Quirks balance refactor
 
         const quirks = Object.entries(quirkInfo);
         quirks.sort(([_, quirkA], [__, quirkB]) => {
