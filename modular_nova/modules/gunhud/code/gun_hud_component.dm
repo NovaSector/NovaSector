@@ -22,7 +22,7 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
-				hud_owner = WEAKREF(user)
+				current_hud_owner = WEAKREF(user)
 				turn_on()
 		else
 			turn_off()
@@ -30,7 +30,7 @@
 /datum/component/ammo_hud/proc/turn_on()
 	SIGNAL_HANDLER
 
-	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
+	RegisterSignal(current_hud_owner, COMSIG_QDELETING, PROC_REF(turn_off))
 	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED), PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED), PROC_REF(update_hud))
