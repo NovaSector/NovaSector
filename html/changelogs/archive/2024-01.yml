@@ -719,8 +719,6 @@
       circuit in while it's unanchored.
   - bugfix: Immobile shells properly propagate their on/off state after wrenching
       to inner modules.
-  - code_imp: slightly cleans up dance machine code
-  - bugfix: disco dances are less comparable to having a seizure
   - image: Resprited several fishes, and the aquarium.
   - bugfix: Bystanders will no longer think they've pulled out a victim's eyes after
       seeing someone else do it.
@@ -765,6 +763,18 @@
   nikothedude:
   - rscadd: Interdyne botany now has separating windoors
 2024-01-19:
+  13spacemen:
+  - bugfix: Hub time should be correct again
+  Ben10Omintrix:
+  - bugfix: fix a runtime when loading ghosts to a mulebot
+  JohnFulpWillard:
+  - refactor: Implant pads now use TGUI
+  - refactor: Ice cream vats now use a radial menu instead of an HTML one.
+  intercepti0n:
+  - refactor: Refactored Ore Silo Ui.
+  mc-oofert:
+  - code_imp: slightly cleans up dance machine code
+  - bugfix: disco dances are less comparable to having a seizure
   sqnztb:
   - bugfix: void raptor's chemistry now is properly wired
   - image: Resprited several fishes, and the aquarium.
@@ -781,16 +791,125 @@
   - balance: Riot shields can tank a lot more damage against melee weapons, but less
       against bullets.
   - qol: strobe shields can now be used to bash people while combat mode is on.
-  JohnFulpWillard:
-  - refactor: Implant pads now use TGUI
-  - refactor: Ice cream vats now use a radial menu instead of an HTML one.
-  intercepti0n:
-  - refactor: Refactored Ore Silo Ui.
-  mc-oofert:
-  - code_imp: slightly cleans up dance machine code
-  - bugfix: disco dances are less comparable to having a seizure
-2024-01-19:
-  13spacemen:
-  - bugfix: Hub time should be correct again
+2024-01-20:
+  Ghommie:
+  - image: The "One Lean, Mean, Cleaning Machine" achievement now has its own icon.
+  Momo8289, Pepsilawn, Sinsinins, JohnFulpWillard, Diamond-74:
+  - bugfix: Clown ops now get a code set for their nuke.
+  - bugfix: Monkeys don't get stuck on obstacles as often.
+  NovaBot13:
+  - rscadd: Adds a geared assistant station trait! Spawn with a skateboard, toolbelt
+      or in your favorite bee suit!
+  - code_imp: Moves assistant code around
+  Paxilmaniac:
+  - rscadd: sol emt and peacekeeper outfits have been added to the loadout under jumpsuits
+  - balance: Ore thumpers require twice as much power (50 kW), take twice as long
+      to make ore, and can have half as many ores around them before they stop producing.
+  - qol: Ore thumpers now relay more information to the player about themselves, making
+      them easier to set up and maintain.
+  YehnBeep:
+  - bugfix: Blueshift Science and Engineering now have some missing tools and equipment
+      for better parity with other maps.
+  nikothedude:
+  - bugfix: Interdyne's ambience is now isolated to interdyne
+  - rscdel: Interdyne's main musical track is gone
+  - bugfix: Synth burn wounds now apply scars
+  - spellcheck: Certain synth wounds have been rewritten
+  sergeirocks100:
+  - bugfix: The "Panties" option in the underwear menu no longer changes itself to
+      something else.
+2024-01-21:
+  Iajret:
+  - bugfix: Fixed Gladiator arena, NRI Starship and Babylon Station not spawning.
+  nikothedude:
+  - balance: Coagulants now work on electrical damage
+  - rscadd: Borgs can now right click hats and themselves to put on hats or take them
+      off, respectively
+  - rscadd: Borgs can now spawn with hats from the loadout
+  - spellcheck: The akula plural form is now akulae
+  vinylspiders:
+  - bugfix: fixes ammo counter hud being in the wrong position on the screen, fixes
+      an ammo counter related hard del
+  - code_imp: cleans up a bunch of unused ui related defines
+  yooriss:
+  - balance: Hemophages are now properly disgusted and suffer a 5 minute mood debuff
+      by consuming blood from monkey-adjacent sources, and also find synthetic blood
+      slightly gross while digesting it.
+  - balance: When hemophages drink blood from another player character with an active
+      mind, they receive a small mood boost for 5 minutes.
+  - balance: The bonus blood hemophages receive from draining from sentient mobs has
+      been reduced to 15% from 50%.
+  - rscadd: The messaging for both the hemophage and the victim during blood draining
+      is now much more informative.
+2024-01-22:
   Ben10Omintrix:
-  - bugfix: fix a runtime when loading ghosts to a mulebot
+  - bugfix: fixes megafauna AI getting stuck attacking some corpses
+  Ghommie:
+  - rscadd: Modular Computers now support integrated circuits. What can be done with
+      them depends on the programs installed and whether they're running (open or
+      background).
+  - rscadd: Modular Consoles (the machinery) now have a small backup cell they draw
+      power from if the power goes out.
+  - image: The honkbot now looks up to date.
+  - rscadd: The Spectre-Meter modular computer app. A little, amatuerishly coded app
+      that, as the name implies, scan an area for spectral presence. It can be found
+      amongst other apps in maintenance computer disks.
+  - rscadd: An easier, lazier version of the Arcade app, also found in maintenance.
+  - rscadd: Black market computer disks, which contains programs not readily available
+      to the average assistant.
+  JohnFulpWillard:
+  - bugfix: Prototype emitters now work.
+  - bugfix: Prototype emitters don't go invisible if screwdriver'd open.
+  - bugfix: Emitters no longer show up as their panel being closed when it is open.
+  LemonInTheDark:
+  - bugfix: The map saving tool will no longer lock up and prevent all further action
+      at random
+  - bugfix: Map saving now takes on the order of seconds, not minutes
+  - bugfix: Fixes an issue with lists that caused strongdmm to report saved maps as
+      broken
+  Majkl-J:
+  - bugfix: Borgs now use the hug module to substitute for hands, allowing them to
+      finish previously unfinishable surgeries
+  Melbert:
+  - bugfix: Items and mobs no longer hide behind big runes (heretic, cult, wizard)
+  NovaBot13:
+  - bugfix: Nanotrasen is now stocking proper french Cognac instead of discount Irish
+      Cognac. It will now taste Smooth and French
+  - bugfix: Wagging tail spines now sync up properly with the tails they're attached
+      to.
+  - bugfix: fixed some visual artifacts from achievement icons.
+  - bugfix: Tool arm implant hotkeys will properly work even after you change your
+      arm/species now.
+  Paxilmaniac:
+  - bugfix: Gun racks no longer shift wide guns too far to the right
+  - image: Gun racks have been resprited to not be so old
+  - refactor: Code around weapon racks and armory gun spawners have been refactored.
+      The biggest note is that gun rotation on gunracks isn't handled by guns themselves
+      anymore, instead being on the rack.
+  Rex9001:
+  - bugfix: Lunatics spawned from moon ascension now actually have an objective to
+      assist their ringleader
+  - bugfix: Lunatics now get a moonlight amulette on the ground if they have full
+      hands
+  Rhials:
+  - spellcheck: Modifies some existing Emergency Shuttle prerequisite messages, and
+      adds some missing ones.
+  YehnBeep:
+  - bugfix: Icebox perma's cytology lab is now useable without outside repairs.
+  Zergspower:
+  - bugfix: fixes whispering formatting
+  jjpark-kb, xXPawnStarrXx:
+  - balance: xenoarch machines will now default take 10 seconds instead of 20 to do
+      their process
+  - rscadd: the xenoarch researcher can now create lavaland loot, anomalous crystals,
+      or bepis tech
+  - rscadd: the xenoarch machines will now be affected by both their stock parts
+  - bugfix: you can now wrench, screwdriver, and crowbar the xenoarch machines
+  - image: new GAGs variant for croptop sweater.
+  lizardqueenlexi:
+  - bugfix: Filled trash bags show up properly when worn.
+  mc-oofert:
+  - bugfix: cyborg inducer respects cell changes
+  nikothedude:
+  - rscadd: Dinitrogen Plasmide, a chem used to cool synthetic burns. Does not have
+      the side effects of hercuri, making it safer to use.

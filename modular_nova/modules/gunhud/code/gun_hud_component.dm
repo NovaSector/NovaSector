@@ -1,5 +1,7 @@
 /datum/component/ammo_hud
+	/// The ammo counter screen object itself
 	var/atom/movable/screen/ammo_counter/hud
+	/// A weakref to the mob who currently owns the hud
 	var/datum/weakref/current_hud_owner
 
 /datum/component/ammo_hud/Initialize()
@@ -20,9 +22,11 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
+				RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
 				hud_owner = WEAKREF(user)
 				turn_on()
 		else
+			UnregisterSignal(user, COMSIG_QDELETING)
 			turn_off()
 
 /datum/component/ammo_hud/proc/turn_on()
@@ -47,6 +51,8 @@
 	if(hud)
 		hud.turn_off()
 		hud = null
+
+	current_hud_owner = null
 
 /// Returns get_ammo() with the appropriate args passed to it - some guns like the revolver and bow are special cases
 /datum/component/ammo_hud/proc/get_accurate_ammo_count(obj/item/gun/ballistic/the_gun)
