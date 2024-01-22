@@ -9,7 +9,7 @@
 	)
 
 /datum/supply_pack/medical/civil_defense/comfort
-	name = "Civil Defense Symptom Support Kit Crate"
+	name = "\improper Civil Defense Symptom Support Kit Crate"
 	crate_name = "civil defense symptom support kit crate"
 	desc = "Contains five civil defense symptom support kits stocked with three pens of psifinil and a tube containing 5 pills of alifil, two proprietary DeForest mixes designed to provide long-lasting relief from chronic disease and syndromes like gravity sickness."
 	access = ACCESS_MEDICAL
