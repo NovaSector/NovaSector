@@ -1,8 +1,6 @@
 /datum/component/ammo_hud
 	/// The ammo counter screen object itself
 	var/atom/movable/screen/ammo_counter/hud
-	/// A weakref to the mob who currently owns the hud
-	var/datum/weakref/current_hud_owner
 
 /datum/component/ammo_hud/Initialize()
 	. = ..()
@@ -22,8 +20,6 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
-				RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
-				hud_owner = WEAKREF(user)
 				turn_on()
 		else
 			UnregisterSignal(user, COMSIG_QDELETING)
@@ -42,11 +38,6 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED, COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED))
-	var/mob/current_owner = current_hud_owner.resolve()
-	if(isnull(current_owner))
-		current_hud_owner = null
-	else
-		UnregisterSignal(current_hud_owner, COMSIG_QDELETING)
 
 	if(hud)
 		hud.turn_off()
