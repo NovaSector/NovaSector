@@ -22,7 +22,7 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
-				if(!invisibility) // make sure we're not already turned on
+				if(!hud.invisibility) // make sure we're not already turned on
 					current_hud_owner = WEAKREF(user)
 					turn_on()
 		else
@@ -30,9 +30,6 @@
 
 /datum/component/ammo_hud/proc/turn_on()
 	SIGNAL_HANDLER
-
-	if(invisibility) // already turned on
-		return
 
 	RegisterSignal(current_hud_owner, COMSIG_QDELETING, PROC_REF(turn_off))
 	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(turn_off))
