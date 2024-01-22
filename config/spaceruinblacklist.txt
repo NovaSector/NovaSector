@@ -24,7 +24,6 @@
 #_maps/RandomRuins/SpaceRuins/crashedclownship.dmm
 #_maps/RandomRuins/SpaceRuins/crashedship.dmm
 #_maps/RandomRuins/SpaceRuins/dangerous_research.dmm
-#_maps/RandomRuins/SpaceRuins/dangerous_research.dmm
 #_maps/RandomRuins/SpaceRuins/deepstorage.dmm
 #_maps/RandomRuins/SpaceRuins/derelict_construction.dmm
 #_maps/RandomRuins/SpaceRuins/derelict_sulaco.dmm
@@ -89,7 +88,5 @@
 #_maps/RandomRuins/SpaceRuins/waystation.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipdock.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipruin_box.dmm
-#_maps/RandomRuins/SpaceRuins/skyrat/drones_derelict.dmm
-#modular_nova/modules/mapping/_maps/RandomRuins/SpaceRuins/forgottenship_skyrat.dmm
-#modular_nova/modules/mapping/_maps/RandomRuins/SpaceRuins/shuttle8532.dmm
-#modular_nova/modules/ruins/maps/space/dangerous_research.dmm
+#_maps/RandomRuins/SpaceRuins/nova/drones_derelict.dmm
+#_maps/RandomRuins/SpaceRuins/shuttle8532.dmm

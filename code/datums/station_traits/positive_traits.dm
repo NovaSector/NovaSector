@@ -101,7 +101,7 @@
 	name = "deathrattled department"
 	trait_type = STATION_TRAIT_POSITIVE
 	show_in_report = TRUE
-	trait_flags = STATION_TRAIT_ABSTRACT
+	abstract_type = /datum/station_trait/deathrattle_department
 	blacklist = list(/datum/station_trait/deathrattle_all)
 
 	var/department_to_apply_to
@@ -129,49 +129,42 @@
 
 /datum/station_trait/deathrattle_department/service
 	name = "Deathrattled Service"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_SERVICE
 	department_name = "Service"
 
 /datum/station_trait/deathrattle_department/cargo
 	name = "Deathrattled Cargo"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_CARGO
 	department_name = "Cargo"
 
 /datum/station_trait/deathrattle_department/engineering
 	name = "Deathrattled Engineering"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_ENGINEERING
 	department_name = "Engineering"
 
 /datum/station_trait/deathrattle_department/command
 	name = "Deathrattled Command"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_COMMAND
 	department_name = "Command"
 
 /datum/station_trait/deathrattle_department/science
 	name = "Deathrattled Science"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_SCIENCE
 	department_name = "Science"
 
 /datum/station_trait/deathrattle_department/security
 	name = "Deathrattled Security"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_SECURITY
 	department_name = "Security"
 
 /datum/station_trait/deathrattle_department/medical
 	name = "Deathrattled Medical"
-	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 1
 	department_to_apply_to = DEPARTMENT_BITFLAG_MEDICAL
 	department_name = "Medical"
@@ -271,7 +264,7 @@
 			ai.eyeobj.relay_speech = TRUE //surveillance upgrade. the ai gets cybernetics too.
 		return
 	var/obj/item/organ/internal/cybernetic = new cybernetic_type()
-	cybernetic.Insert(spawned, special = TRUE, drop_if_replaced = FALSE)
+	cybernetic.Insert(spawned, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/station_trait/luxury_escape_pods
 	name = "Luxury Escape Pods"
@@ -357,6 +350,16 @@
 	assignment = "Repair Technician"
 	trim_state = "trim_stationengineer"
 	department_color = COLOR_ASSISTANT_GRAY
+
+/// Spawns assistants with some gear, either gimmicky or functional. Maybe, one day, it will inspire an assistant to do something productive or fun
+/datum/station_trait/assistant_gimmicks
+	name = "Geared Assistants Pilot"
+	report_message = "The Nanotrassen Assistant Affairs division is performing a pilot to see if different assistant equipments help improve productivity!"
+	trait_type = STATION_TRAIT_POSITIVE
+	weight = 3
+	trait_to_give = STATION_TRAIT_ASSISTANT_GIMMICKS
+	show_in_report = TRUE
+	blacklist = list(/datum/station_trait/colored_assistants)
 
 #undef PARTY_COOLDOWN_LENGTH_MIN
 #undef PARTY_COOLDOWN_LENGTH_MAX

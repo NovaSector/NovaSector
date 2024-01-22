@@ -1,4 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - rscadd: "Talking now automatically capitalizes any lowercase 'i' in the middle of sentences, and ends sentences in a period if no other punctuation is present."

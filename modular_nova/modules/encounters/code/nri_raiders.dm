@@ -268,7 +268,7 @@ GLOBAL_VAR(first_officer)
 	card.update_label()
 
 /datum/map_template/shuttle/pirate/nri_raider
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "nri_raider"
 	name = "pirate ship (NRI Enforcer-Class Starship)"
 	port_x_offset = -5
@@ -293,10 +293,6 @@ GLOBAL_VAR(first_officer)
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/nri
 	name = "police shuttle navigation computer"
 	desc = "Used to designate a precise transit location for the police shuttle."
-
-/obj/machinery/base_alarm/nri_raider
-	alarm_sound_file = 'modular_nova/modules/encounters/sounds/env_horn.ogg'
-	alarm_cooldown = 32
 
 /obj/machinery/porta_turret/syndicate/nri_raider
 	name = "anti-projectile turret"

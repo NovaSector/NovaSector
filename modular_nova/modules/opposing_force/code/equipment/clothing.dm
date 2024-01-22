@@ -7,8 +7,8 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/operative
 
 /obj/item/storage/backpack/duffelbag/syndie/operative/PopulateContents() //basically old insurgent bundle -nukie mod
-	new /obj/item/clothing/under/syndicate/skyrat/tactical(src)
-	new /obj/item/clothing/under/syndicate/skyrat/tactical/skirt(src)
+	new /obj/item/clothing/under/syndicate/nova/tactical(src)
+	new /obj/item/clothing/under/syndicate/nova/tactical/skirt(src)
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/tackler/combat(src)
@@ -25,8 +25,8 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/engineer
 
 /obj/item/storage/backpack/duffelbag/syndie/engineer/PopulateContents()
-	new /obj/item/clothing/under/syndicate/skyrat/overalls(src)
-	new /obj/item/clothing/under/syndicate/skyrat/overalls/skirt(src)
+	new /obj/item/clothing/under/syndicate/nova/overalls(src)
+	new /obj/item/clothing/under/syndicate/nova/overalls/skirt(src)
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/combat(src)
@@ -63,7 +63,7 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/maid
 
 /obj/item/storage/backpack/duffelbag/syndie/maid/PopulateContents() //by far the weakest bundle
-	new /obj/item/clothing/under/syndicate/skyrat/maid(src)
+	new /obj/item/clothing/under/syndicate/nova/maid(src)
 	new /obj/item/clothing/gloves/combat/maid(src)
 	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)
 	new /obj/item/clothing/shoes/laceup(src)
