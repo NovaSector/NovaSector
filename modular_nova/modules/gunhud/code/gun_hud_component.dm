@@ -47,7 +47,7 @@
 	if(isnull(current_owner))
 		current_hud_owner = null
 	else
-		UnregisterSignal(current_hud_owner, COMSIG_QDELETING)
+		UnregisterSignal(current_owner, COMSIG_QDELETING)
 
 	if(hud)
 		hud.turn_off()
