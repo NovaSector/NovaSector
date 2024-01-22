@@ -1,0 +1,5 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "Hunter shotgun slugs can now mine mineral walls, shotgun mining time baby."
+  - bugfix: "Hunter slugs and .60 AMR ammo will now properly do extra damage to the biotypes they are strong against."
