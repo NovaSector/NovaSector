@@ -35,4 +35,6 @@ GLOBAL_LIST_INIT(colonist_suit_allowed, list(
 	/obj/item/resonator,
 	/obj/item/t_scanner,
 	/obj/item/analyzer,
+	/obj/item/storage/medkit,
+	/obj/item/fireaxe/metal_h2_axe,
 ))
