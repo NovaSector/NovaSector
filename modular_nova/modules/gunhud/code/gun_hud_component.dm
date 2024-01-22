@@ -1,5 +1,6 @@
 /datum/component/ammo_hud
 	var/atom/movable/screen/ammo_counter/hud
+	var/datum/weakref/current_hud_owner
 
 /datum/component/ammo_hud/Initialize()
 	. = ..()
@@ -19,6 +20,7 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
+				hud_owner = WEAKREF(user)
 				turn_on()
 		else
 			turn_off()
@@ -36,6 +38,11 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED, COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED))
+	var/mob/current_owner = current_hud_owner.resolve()
+	if(isnull(current_owner))
+		current_hud_owner = null
+	else
+		UnregisterSignal(current_hud_owner, COMSIG_QDELETING)
 
 	if(hud)
 		hud.turn_off()

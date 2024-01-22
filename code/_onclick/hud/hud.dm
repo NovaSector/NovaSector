@@ -270,6 +270,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	combo_display = null
 
 	//NOVA EDIT START - SKYRAT HUD
+	ammo_counter = null
 	wanted_lvl = null
 	// NOVA EDIT END - SKYRAT HUD
 
