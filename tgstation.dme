@@ -6484,6 +6484,7 @@
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\bows\bow_quivers.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\bows\bow_types.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\energy\kinetic_accelerator.dm"
+#include "modular_nova\master_files\code\modules\projectiles\guns\energy\recharge.dm"
 #include "modular_nova\master_files\code\modules\reagents\bottle.dm"
 #include "modular_nova\master_files\code\modules\reagents\reagent_containers.dm"
 #include "modular_nova\master_files\code\modules\reagents\reagent_dispenser.dm"
