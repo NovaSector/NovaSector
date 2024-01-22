@@ -22,16 +22,16 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
+				RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
 				hud_owner = WEAKREF(user)
 				turn_on()
 		else
+			UnregisterSignal(user, COMSIG_QDELETING)
 			turn_off()
 
 /datum/component/ammo_hud/proc/turn_on()
 	SIGNAL_HANDLER
 
-	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
-	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED), PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED), PROC_REF(update_hud))
 
@@ -42,7 +42,7 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED, COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED))
-	var/mob/living/carbon/human/current_owner = current_hud_owner.resolve()
+	var/mob/current_owner = current_hud_owner.resolve()
 	if(isnull(current_owner))
 		current_hud_owner = null
 	else
@@ -50,7 +50,6 @@
 
 	if(hud)
 		hud.turn_off()
-		UnregisterSignal(hud, COMSIG_QDELETING)
 		hud = null
 
 	current_hud_owner = null
