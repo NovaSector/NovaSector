@@ -42,7 +42,7 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED, COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED))
-	var/mob/living/carbon/human/current_owner = current_hud_owner.resolve()
+	var/mob/living/carbon/human/current_owner = current_hud_owner?.resolve()
 	if(isnull(current_owner))
 		current_hud_owner = null
 	else
