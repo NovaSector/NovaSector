@@ -5,7 +5,6 @@
 	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE * 2)
 	select_name = "Kill"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/laser.ogg'
-	fire_sound_volume = 50
 
 /obj/projectile/beam/cybersun_laser
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/projectiles.dmi'

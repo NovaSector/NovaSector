@@ -31,6 +31,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	actions_types = list(/datum/action/item_action/toggle_personality)
+	fire_sound_volume = 50
 	/// What datums of weapon modes can we use?
 	var/list/weapon_mode_options = list(
 		/datum/laser_weapon_mode,
@@ -70,9 +71,29 @@
 	tracked_soulcatcher = AddComponent(/datum/component/soulcatcher/modular_laser)
 	create_weapon_mode_stuff()
 
+/obj/item/gun/energy/modular_laser_rifle/examine(mob/user)
+	. = ..()
+	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
+	. += span_notice("You can <b>Alt-Click</b> this gun to access the internal soulcatcher.")
+
+/obj/item/gun/energy/modular_laser_rifle/examine_more(mob/user)
+	. = ..()
+	. += "The Renoster was designed at its core as a police shotgun. \
+		As consequence, it holds all the qualities a police force would want \
+		in one. Large shell capacity, sturdy frame, while holding enough \
+		capacity for modification to satiate even the most overfunded of \
+		peacekeeper forces. Inevitably, the weapon made its way into civilian \
+		markets alongside its sale to several military branches that also \
+		saw value in having a heavy shotgun."
+	return .
+
 /obj/item/gun/energy/modular_laser_rifle/Destroy()
 	QDEL_NULL(tracked_soulcatcher)
 	return ..()
+
+/obj/item/gun/energy/modular_laser_rifle/AltClick(mob/user)
+	. = ..()
+	tracked_soulcatcher?.ui_interact(user)
 
 /// Handles filling out all of the lists regarding weapon modes and radials around that
 /obj/item/gun/energy/modular_laser_rifle/proc/create_weapon_mode_stuff()
@@ -150,7 +171,7 @@
 
 /// Makes the gun speak with a sound effect and colored runetext based on the mode the gun is in, reads the gun's speech json as defined through variables
 /obj/item/gun/energy/modular_laser_rifle/proc/speak_up(json_string, ignores_cooldown = FALSE, ignores_personality_toggle = FALSE)
-	if(!personality_mode && ignores_personality_toggle)
+	if(!personality_mode && !ignores_personality_toggle)
 		return
 	if(!json_string)
 		return

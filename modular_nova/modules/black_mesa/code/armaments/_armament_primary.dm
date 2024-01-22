@@ -31,7 +31,7 @@
 /datum/armament_entry/hecu/primary/shotgun
 	subcategory = ARMAMENT_SUBCATEGORY_SHOTGUN
 	mags_to_spawn = 1
-	magazine = /obj/item/storage/box/ammo_box/shotgun_12g
+	magazine = /obj/item/ammo_box/advanced/s12gauge/buckshot
 	magazine_cost = 4
 
 /datum/armament_entry/hecu/primary/shotgun/shotgun_highcap
@@ -60,17 +60,3 @@
 	magazine = /obj/item/ammo_box/magazine/mmg_box
 	mags_to_spawn = 1
 	magazine_cost = 2
-
-/obj/item/storage/box/ammo_box/shotgun_12g
-
-/obj/item/storage/box/ammo_box/shotgun_12g/PopulateContents()
-	var/funshell = pick(
-		/obj/item/ammo_box/advanced/s12gauge/incendiary,
-		/obj/item/ammo_box/advanced/s12gauge/flechette,
-		/obj/item/ammo_box/advanced/s12gauge/beehive,
-		/obj/item/ammo_box/advanced/s12gauge/antitide,
-		/obj/item/ammo_box/advanced/s12gauge/express,
-	)
-	new /obj/item/ammo_box/advanced/s12gauge/magnum(src)
-	new /obj/item/ammo_box/advanced/s12gauge(src)
-	new funshell(src)

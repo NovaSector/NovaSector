@@ -890,7 +890,6 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "fh" = (
 /obj/structure/closet/crate/secure/gear,
-/obj/item/microfusion_gun_attachment/rail,
 /obj/item/flashlight/seclite,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/has_grav)
@@ -1931,7 +1930,7 @@
 /area/ruin/space/has_grav)
 "kG" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/gun/microfusion/mcr01,
+/obj/item/gun/energy/modular_laser_rifle/carbine,
 /turf/open/floor/mineral/titanium,
 /area/ruin/space/has_grav)
 "kI" = (
