@@ -42,7 +42,7 @@
 
 		var/obj/item/gun/ballistic/spawned_ballistic_gun = spawned_gun
 		if(spawned_ballistic_gun.magazine && !istype(spawned_ballistic_gun.magazine, /obj/item/ammo_box/magazine/internal))
-			var/obj/item/storage/box/ammo_box/spawned_box = new(loc)
+			var/obj/item/storage/box/spawned_box = new(loc)
 			spawned_box.name = "ammo box - [spawned_ballistic_gun.name]"
 			for(var/i in 1 to mags_to_spawn)
 				new spawned_ballistic_gun.spawn_magazine_type(spawned_box)
