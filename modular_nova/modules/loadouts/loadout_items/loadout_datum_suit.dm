@@ -346,7 +346,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	item_path = /obj/item/clothing/suit/toggle/trackjacket
 
 /datum/loadout_item/suit/croptop
-	name = "Black Crop Top Turtleneck"
+	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/croptop
 
 /*
@@ -606,6 +606,15 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Peacekeeper Officer Coat"
 	item_path = /obj/item/clothing/suit/british_officer
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/peacekeeper_jacket
+	name = "Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/peacekeeper_jacket/badge
+	name = "Badged Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Off-Department Jacket"
