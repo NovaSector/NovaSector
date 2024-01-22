@@ -1,0 +1,6 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - rscdel: "The milsim domain's one clf3 grenade is gone"
+  - balance: "The equipment that the bitrunners get in the milsim domain has been changed, mostly to use the new-ish solfed gear rather than HECU stuff"
+  - bugfix: "The wylom in the milsim domain on the bitrunner side has been given its actual magazines around it, rather than lanca magazines"
