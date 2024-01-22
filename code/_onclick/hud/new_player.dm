@@ -39,7 +39,7 @@
 	var/y_offset = 397
 	var/y_button_offset = 27
 	for (var/datum/station_trait/trait as anything in GLOB.lobby_station_traits)
-		if (!trait.can_display_lobby_button())
+		if (!trait.can_display_lobby_button(mymob.client))
 			continue
 		var/atom/movable/screen/lobby/button/sign_up/sign_up_button = new(our_hud = src)
 		sign_up_button.SlowInit()
@@ -111,7 +111,7 @@
 		return
 	flick("[base_icon_state]_pressed", src)
 	update_appearance(UPDATE_ICON)
-	SEND_SOUND(hud.mymob, sound('modular_nova/master_files/sound/effects/save.ogg')) //NOVA EDIT ADDITION
+	SEND_SOUND(hud.mymob, sound('modular_nova/master_files/sound/effects/save.ogg')) // NOVA EDIT ADDITION
 	return TRUE
 
 /atom/movable/screen/lobby/button/MouseEntered(location,control,params)
@@ -210,7 +210,6 @@
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
-
 	ready = !ready
 	if(ready)
 		new_player.ready = PLAYER_READY_TO_PLAY
@@ -279,6 +278,7 @@
 	else
 		to_chat(new_player, span_warning("Opening emergency fallback late join menu! If THIS doesn't show, ahelp immediately!"))
 		GLOB.latejoin_menu.fallback_ui(new_player)
+
 
 /atom/movable/screen/lobby/button/join/proc/show_join_button()
 	SIGNAL_HANDLER
