@@ -133,9 +133,11 @@
 			RESKIN_ICON_STATE = "belt_white",
 			RESKIN_WORN_ICON_STATE = "belt_white"
 		),
-		"Slim Variant" = list(
-			RESKIN_ICON_STATE = "belt_slim",
-			RESKIN_WORN_ICON_STATE = "belt_slim"
+		"Basic Variant" = list(
+			RESKIN_ICON = 'icons/obj/clothing/belts.dmi',
+			RESKIN_ICON_STATE = "security",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/belt.dmi',
+			RESKIN_WORN_ICON_STATE = "security"
 		),
 	)
 
