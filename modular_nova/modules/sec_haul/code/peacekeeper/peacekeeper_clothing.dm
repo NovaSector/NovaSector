@@ -132,7 +132,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "peacekeeper_jacket"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	uses_advanced_reskins = TRUE
 	body_parts_covered = CHEST|GROIN|ARMS
 	armor_type = /datum/armor/suit_armor
 	cold_protection = CHEST|GROIN|ARMS
