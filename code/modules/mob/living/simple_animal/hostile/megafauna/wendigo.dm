@@ -54,7 +54,6 @@ Difficulty: Hard
 	attack_action_types = list(/datum/action/innate/megafauna_attack/heavy_stomp,
 							   /datum/action/innate/megafauna_attack/teleport,
 							   /datum/action/innate/megafauna_attack/shockwave_scream)
-	summon_line = "GwaHOOOOOOOOOOOOOOOOOOOOO"
 	/// Saves the turf the megafauna was created at (spawns exit portal here)
 	var/turf/starting
 	/// Range for wendigo stomping when it moves
