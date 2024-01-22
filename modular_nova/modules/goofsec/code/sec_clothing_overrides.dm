@@ -149,7 +149,7 @@
 /obj/item/storage/belt/security/webbing/peacekeeper //did I mention this codebase is fucking awful
 	current_skin = "peacekeeper_webbing"
 
-/obj/item/storage/belt/security/webbing/peacekeeper/armadyne
+/obj/item/storage/belt/security/webbing/armadyne
 	current_skin = "armadyne_webbing"
 
 ///Enables you to quickdraw weapons from security holsters
