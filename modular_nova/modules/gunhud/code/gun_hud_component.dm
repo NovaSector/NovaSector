@@ -22,7 +22,7 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
-				if(!hud.on) // make sure we're not already turned on
+				if(!hud.invisibility) // make sure we're not already turned on
 					current_hud_owner = WEAKREF(user)
 					turn_on()
 		else
