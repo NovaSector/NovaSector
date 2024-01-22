@@ -34,13 +34,6 @@
 			spawned_gun.pixel_x = -10 + (offset_percent * gun_count) + spawned_gun.base_pixel_x
 		else if (fan_out_items)
 			spawned_gun.pixel_x = spawned_gun.pixel_y = ((!(gun_count%2)*gun_count/2)*-1)+((gun_count%2)*(gun_count+1)/2*1)
-			if(istype(spawned_gun, /obj/item/gun/ballistic))
-				var/obj/item/gun/ballistic/spawned_ballistic_gun = spawned_gun
-				if(spawned_ballistic_gun.magazine && !istype(spawned_ballistic_gun.magazine, /obj/item/ammo_box/magazine/internal))
-					var/obj/item/storage/box/spawned_box = new(loc)
-					spawned_box.name = "ammo box - [spawned_ballistic_gun.name]"
-					for(var/i in 1 to mags_to_spawn)
-						new spawned_ballistic_gun.spawn_magazine_type (spawned_box)
 
 		gun_count++
 
