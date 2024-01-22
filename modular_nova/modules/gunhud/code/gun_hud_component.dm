@@ -24,18 +24,13 @@
 				hud = H.hud_used.ammo_counter
 				if(!hud.on) // make sure we're not already turned on
 					current_hud_owner = WEAKREF(user)
+					RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
 					turn_on()
 		else
 			turn_off()
 
 /datum/component/ammo_hud/proc/turn_on()
 	SIGNAL_HANDLER
-
-	var/mob/living/carbon/human/current_owner = current_hud_owner?.resolve()
-	if(isnull(current_owner))
-		current_hud_owner = null
-	else
-		RegisterSignal(current_owner, COMSIG_QDELETING, PROC_REF(turn_off))
 
 	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED), PROC_REF(turn_off))
