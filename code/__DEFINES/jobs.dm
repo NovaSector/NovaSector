@@ -77,7 +77,7 @@
 #define JOB_SCIENTIST "Scientist"
 #define JOB_ROBOTICIST "Roboticist"
 #define JOB_GENETICIST "Geneticist"
-#define JOB_SCIENCE_GUARD "Science Guard"
+#define JOB_SCIENCE_GUARD "Science Guard" // NOVA EDIT ADDITION
 //Supply
 #define JOB_QUARTERMASTER "Quartermaster"
 #define JOB_CARGO_TECHNICIAN "Cargo Technician"
