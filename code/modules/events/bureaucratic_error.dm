@@ -13,8 +13,8 @@
 	priority_announce("A recent bureaucratic error in the Organic Resources Department may result in personnel shortages in some departments and redundant staffing in others.", "Paperwork Mishap Alert")
 
 /datum/round_event/bureaucratic_error/start()
-	/*
 	var/list/jobs = SSjob.get_valid_overflow_jobs()
+	/* NOVA EDIT REMOVAL START - No more locking off jobs
 	if(prob(33)) // Only allows latejoining as a single role.
 		var/datum/job/overflow = pick_n_take(jobs)
 		overflow.spawn_positions = -1
@@ -23,7 +23,7 @@
 			var/datum/job/current = job
 			current.total_positions = 0
 		return
-	*/ // NOVA EDIT REMOVAL - no more locking off jobs
+	*/ // NOVA EDIT REMOVAL END
 	// Adds/removes a random amount of job slots from all jobs.
 	for(var/datum/job/current as anything in jobs)
 		current.total_positions = max(current.total_positions + rand(1,4), 0) // NOVA EDIT - no more locking off jobs - ORIGINAL: current.total_positions = max(current.total_positions + rand(-2,4), 0)
