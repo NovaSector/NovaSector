@@ -59,13 +59,20 @@
 	var/last_charge = 0
 	/// If the gun's personality speech thing is on, defaults to on because just listen to her
 	var/personality_mode = TRUE
+	/// Keeps track of our soulcatcher component
+	var/datum/component/soulcatcher/tracked_soulcatcher
 	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
 	COOLDOWN_DECLARE(last_speech)
 
 /obj/item/gun/energy/modular_laser_rifle/Initialize(mapload)
 	. = ..()
 	last_charge = cell.charge
+	tracked_soulcatcher = AddComponent(/datum/component/soulcatcher/modular_laser)
 	create_weapon_mode_stuff()
+
+/obj/item/gun/energy/modular_laser_rifle/Destroy()
+	QDEL_NULL(tracked_soulcatcher)
+	return ..()
 
 /// Handles filling out all of the lists regarding weapon modes and radials around that
 /obj/item/gun/energy/modular_laser_rifle/proc/create_weapon_mode_stuff()
@@ -186,8 +193,9 @@
 		speak_up("combatmode")
 
 /obj/item/gun/energy/modular_laser_rifle/ui_action_click(mob/user, actiontype)
-	if(!istype(actiontype, /datum/action/item_action/zoom_lock_action))
+	if(!istype(actiontype, /datum/action/item_action/toggle_personality))
 		return
+	playsound(src, 'sound/machines/beep.ogg', 30, TRUE)
 	personality_mode = !personality_mode
 	speak_up("[personality_mode ? "pickup" : "putdown"]", ignores_personality_toggle = TRUE)
 	return ..()
@@ -202,6 +210,10 @@
 	name = "Toggle Weapon Personality"
 	desc = "Toggles the weapon's personality core. Studies find that turning them off makes them quite sad, however."
 	background_icon_state = "bg_mod"
+
+/datum/component/soulcatcher/modular_laser
+	max_souls = 1
+	communicate_as_parent = TRUE
 
 //Short version of the above modular rifle, has less charge and different modes
 /obj/item/gun/energy/modular_laser_rifle/carbine
