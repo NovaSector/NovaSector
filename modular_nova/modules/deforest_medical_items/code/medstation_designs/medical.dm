@@ -88,7 +88,7 @@
 
 /datum/design/organic_printer_surgical_tape
 	name = "Surgical Tape"
-	id = "oganic_surgical_tape"
+	id = "organic_surgical_tape"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/stack/sticky_tape/surgical
