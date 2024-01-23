@@ -160,11 +160,6 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/croptop/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/gags_recolorable)
-	update_icon(UPDATE_OVERLAYS)
-
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"
 	desc = "A simple varsity jacket with no obvious sources."
