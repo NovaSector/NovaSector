@@ -147,7 +147,7 @@ export const AugmentationPage = (props) => {
                       // it's added and not substracted
                       if (
                         data.quirk_points_enabled &&
-                        balance + props.limb.costs[value] > 0
+                        balance + props.limb.costs[value] > 0 
                       ) {
                         return;
                       }
