@@ -43,7 +43,7 @@
 
 /obj/item/weldingtool/electric/arc_welder/integrated/switched_on(mob/user)
 	. = ..()
-	force = 8 // no you're not starting with a force 15 weapon even if it does use more charge than god. this -HAS- to be a lot lower because so many species archetypes have pronounced weaknesses to fire. if we didn't do this you'd have a 37.5 force burn weapon vs xenohybrids and a 22.5 vs podpeople. no way man
+	force = 12 // paxil tells me it's not a HUGE issue to do this but i still think force 15 is too much so force 12 we do
 
 // MEDICAL
 
