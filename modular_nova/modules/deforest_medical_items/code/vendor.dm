@@ -1,5 +1,5 @@
 /obj/machinery/vending/deforest_medvend
-	name = "DeForest Med-Vend"
+	name = "\improper DeForest Med-Vend"
 	desc = "A vending machine providing a selection of medical supplies."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/vendor.dmi'
 	icon_state = "medvend"
