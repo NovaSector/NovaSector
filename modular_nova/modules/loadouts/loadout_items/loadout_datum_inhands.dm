@@ -44,11 +44,15 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 	item_path = /obj/item/storage/briefcase/secure
 
 /datum/loadout_item/inhand/guncase_large
-	name = "Empty Gun Case (Large)"
+	name = "Black Empty Gun Case (Large)"
 	item_path = /obj/item/storage/toolbox/guncase/nova/empty
 
+/datum/loadout_item/inhand/guncase_large/yellow
+	name = "Yellow Empty Gun Case (Large)"
+	item_path = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
+
 /datum/loadout_item/inhand/guncase_small
-	name = "Empty Gun Case (Small)"
+	name = "Black Empty Gun Case (Small)"
 	item_path = /obj/item/storage/toolbox/guncase/nova/pistol/empty
 
 /datum/loadout_item/inhand/skub
