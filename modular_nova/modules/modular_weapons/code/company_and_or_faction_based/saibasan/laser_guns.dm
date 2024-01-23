@@ -4,6 +4,8 @@
 #define SHORT_MOD_LASER_SPEECH "nova/short_modular_laser.json"
 /// How long the gun should wait between speaking to lessen spam
 #define MOD_LASER_SPEECH_COOLDOWN 2 SECONDS
+/// What color is the default kill mode for these guns, used to make sure the chat colors are right at roundstart
+#define DEFAULT_RUNECHAT_GUN_COLOR "#cd4456"
 
 // Modular energy weapons, laser guns that can transform into different variants after a few seconds of waiting and animation
 // Long version, takes both hands to use and doesn't fit in any bags out there
@@ -27,6 +29,7 @@
 	charge_delay = 15
 	shaded_charge = TRUE
 	slot_flags = ITEM_SLOT_BACK
+	obj_flags = UNIQUE_RENAME
 	SET_BASE_PIXEL(-8, 0)
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
@@ -67,6 +70,8 @@
 
 /obj/item/gun/energy/modular_laser_rifle/Initialize(mapload)
 	. = ..()
+	chat_color = DEFAULT_RUNECHAT_GUN_COLOR
+	chat_color_darkened = process_chat_color(DEFAULT_RUNECHAT_GUN_COLOR, sat_shift = 0.85, lum_shift = 0.85)
 	last_charge = cell.charge
 	tracked_soulcatcher = AddComponent(/datum/component/soulcatcher/modular_laser)
 	create_weapon_mode_stuff()
@@ -74,7 +79,7 @@
 /obj/item/gun/energy/modular_laser_rifle/examine(mob/user)
 	. = ..()
 	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-	. += span_notice("You can <b>Alt-Click</b> this gun to access the internal soulcatcher.")
+	. += span_notice("You can <b>Alt-Click</b> this gun to access the <b>internal soulcatcher</b>.")
 
 /obj/item/gun/energy/modular_laser_rifle/examine_more(mob/user)
 	. = ..()
@@ -178,7 +183,7 @@
 	if(!ignores_cooldown && !COOLDOWN_FINISHED(src, last_speech))
 		return
 	say(pick_list_replacements(speech_json_file, json_string))
-	playsound(src, 'sound/creatures/tourist/tourist_talk.ogg', 15, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, frequency = rand(1.8, 2.2))
+	playsound(src, 'sound/creatures/tourist/tourist_talk.ogg', 15, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, frequency = rand(2, 2.2))
 	Shake(2, 2, 1 SECONDS)
 	COOLDOWN_START(src, last_speech, MOD_LASER_SPEECH_COOLDOWN)
 
@@ -265,3 +270,4 @@
 #undef LONG_MOD_LASER_SPEECH
 #undef SHORT_MOD_LASER_SPEECH
 #undef MOD_LASER_SPEECH_COOLDOWN
+#undef DEFAULT_RUNECHAT_GUN_COLOR
