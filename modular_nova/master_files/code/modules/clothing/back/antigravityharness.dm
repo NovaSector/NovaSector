@@ -177,6 +177,7 @@
 
 /obj/item/gravity_harness/attack_self(mob/user)
 	toggle_mode(user, TRUE)
+
 /// This outputs the harness's current mode and cell charge to your status tab, so you don't need to examine it every time.
 /obj/item/gravity_harness/proc/get_status_tab_item(mob/living/source, list/items)
 	SIGNAL_HANDLER
