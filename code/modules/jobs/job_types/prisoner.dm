@@ -66,6 +66,17 @@
 /datum/outfit/job/prisoner/post_equip(mob/living/carbon/human/new_prisoner, visualsOnly)
 	. = ..()
 
+	//NOVA ADDITION BEGIN - remove prisoner implants on join
+	var/implants_removed = 0
+	for(var/organ in new_prisoner.organs)
+		if (istype(organ, /obj/item/organ/internal/cyberimp))
+			QDEL_NULL(organ)
+			implants_removed += 1
+
+	if (implants_removed >= 1)
+		to_chat(new_prisoner, span_warning("Your implants have been removed as part of your sentence."))
+	//NOVA ADDITION END
+
 	var/crime_name = new_prisoner.client?.prefs?.read_preference(/datum/preference/choiced/prisoner_crime)
 	if(!crime_name)
 		return
