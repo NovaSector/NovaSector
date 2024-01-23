@@ -33,7 +33,7 @@
 
 /datum/design/organic_printer_ointment
 	name = "Ointment"
-	id = "oganic_ointment"
+	id = "organic_ointment"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 25)
 	build_path = /obj/item/stack/medical/ointment
