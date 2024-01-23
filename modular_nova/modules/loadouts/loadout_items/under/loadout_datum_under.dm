@@ -51,6 +51,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
 	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
+/datum/loadout_item/under/jumpsuit/frontier
+	name = "Frontier Jumpsuit"
+	item_path = /obj/item/clothing/under/frontier_colonist
+
 /datum/loadout_item/under/jumpsuit/rainbow
 	name = "Rainbow Jumpsuit"
 	item_path = /obj/item/clothing/under/color/rainbow
@@ -131,6 +135,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/kim
 	name = "Aerostatic Suit"
 	item_path = /obj/item/clothing/under/rank/security/detective/kim
+
+/datum/loadout_item/under/jumpsuit/sol_peacekeeper
+	name = "Sol Peacekeeper Uniform"
+	item_path = /obj/item/clothing/under/sol_peacekeeper
+
+/datum/loadout_item/under/jumpsuit/sol_emt
+	name = "Sol Emergency Medical Uniform"
+	item_path = /obj/item/clothing/under/sol_emt
 
 /datum/loadout_item/under/jumpsuit/paramed_light
 	name = "Light Paramedic Uniform"

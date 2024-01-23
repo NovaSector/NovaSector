@@ -22,6 +22,7 @@
 
 /mob/living/basic/pet/dog/markus/Initialize(mapload)
 	. = ..()
+	ADD_TRAIT(src, TRAIT_TRASHMAN, TRAIT_GENERIC) //The burgers in his belly protect him
 	if(!can_breed)
 		return
 	AddComponent(\
