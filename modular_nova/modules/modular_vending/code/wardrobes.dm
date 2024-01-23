@@ -74,6 +74,10 @@
 		/obj/item/storage/backpack/messenger/science/robo = 2,
 	)
 
+	contraband_nova = list(
+		/obj/item/organ/internal/tongue/lizard/robot = 2,
+	)
+
 /obj/machinery/vending/wardrobe/science_wardrobe
 	products_nova = list(
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,

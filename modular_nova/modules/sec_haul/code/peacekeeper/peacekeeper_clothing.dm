@@ -125,6 +125,26 @@
 	worn_icon_state = "peacekeeper_spacecoat"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+	name = "peacekeeper jacket"
+	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers included. Armored and stylish? Implausible."
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon_state = "peacekeeper_jacket"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	heat_protection = CHEST|GROIN|ARMS
+
+/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
+
+/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+	name = "badged peacekeeper jacket"
+	desc = "A slightly vintage canvas and aramid jacket; hi-vis checkers and chevron badge included. Armored and stylish? Implausible."
+	icon_state = "peacekeeper_jacket_badge"
+
 //PEACEKEEPER GLOVES
 /obj/item/clothing/gloves/combat/peacekeeper
 	name = "peacekeeper gloves"

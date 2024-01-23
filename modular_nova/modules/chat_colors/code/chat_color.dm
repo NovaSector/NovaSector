@@ -85,11 +85,11 @@
 
 	// There are special cases for greyscale and the red/blue/violet range
 	if(hue == CM_COLOR_HUE_GREY)
-		processed_luminance = max(luminance, CM_COLOR_LUM_MIN_GREY) // greys have a higher floor on the allowed luminance value
+		processed_luminance = max(luminance, CM_COLOR_LUM_MIN_GREY) // greys have a lower floor on the allowed luminance value than the default
 	else if(CM_COLOR_HUE_RANGE_UPPER > hue > CM_COLOR_HUE_RANGE_LOWER)
-		processed_luminance = min(luminance, CM_COLOR_LUM_MAX_DARK_RANGE) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the rest
+		processed_luminance = min(luminance, CM_COLOR_LUM_MAX_DARK_RANGE) // colors in the deep reds/blues/violets range will have a slightly higher luminance floor than the default
 	else
-		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // everything else gets the default
+		processed_luminance = max(luminance, CM_COLOR_LUM_MIN) // everything else gets the default floor
 
 	// Convert it back to a hex
 	return rgb(hue, saturation*sat_shift, processed_luminance*lum_shift, space = COLORSPACE_HSL)
