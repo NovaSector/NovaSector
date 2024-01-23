@@ -22,7 +22,7 @@
 
 /datum/design/organic_printer_coagulant_f
 	name = "Coagulant-F Packet"
-	id = "oganic_coagulant_pack"
+	id = "organic_coagulant_pack"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 50)
 	build_path = /obj/item/stack/medical/suture/coagulant
