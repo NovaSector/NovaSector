@@ -258,8 +258,9 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
 	icon_state = "hoshi_kill"
 	inhand_icon_state = "hoshi_kill"
-	worn_icon = "hoshi_kill"
+	worn_icon_state = "hoshi_kill"
 	base_icon_state = "hoshi"
+	charge_sections = 3
 	cell_type = /obj/item/stock_parts/cell
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
