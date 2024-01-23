@@ -66,18 +66,18 @@
 
 /obj/item/storage/part_replacer/bluespace/tier4_bst/Initialize(mapload)
 	. = ..()
-	atom_storage.max_slots = 800
-	atom_storage.max_total_storage = 16000
+	atom_storage.max_slots = 1000
+	atom_storage.max_total_storage = 20000
 
 /obj/item/storage/part_replacer/bluespace/tier4_bst/PopulateContents()
-	for(var/i in 1 to 50)
+	for(var/i in 1 to 30)
 		new /obj/item/stock_parts/capacitor/quadratic(src)
 		new /obj/item/stock_parts/scanning_module/triphasic(src)
 		new /obj/item/stock_parts/servo/femto(src)
 		new /obj/item/stock_parts/micro_laser/quadultra(src)
 		new /obj/item/stock_parts/matter_bin/bluespace(src)
 		new /obj/item/stock_parts/cell/bluespace(src)
-	for(var/i in 1 to 100)
+	for(var/i in 1 to 70)
 		new /obj/item/stock_parts/capacitor/quadratic(src)
 		new /obj/item/stock_parts/servo/femto(src)
 		new /obj/item/stock_parts/micro_laser/quadultra(src)

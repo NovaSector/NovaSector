@@ -36,10 +36,10 @@
 			if(!give_return)
 				return
 		
-		var/addquirks = FALSE
+		var/addquirks
 		if(character_option == "Selected Character")
-			addquirks = tgui_input_list(src, "Include quirks?", "Quirky", list("Quirks & Loadout", "Quirks Only", "Loadout Only", "Neither", "Cancel"))
-			if (addquirks == "Cancel")
+			addquirks = tgui_input_list(src, "Include quirks?", "Quirky", list("Quirks & Loadout", "Quirks Only", "Loadout Only", "Neither"))
+			if(!addquirks)
 				return
 
 
