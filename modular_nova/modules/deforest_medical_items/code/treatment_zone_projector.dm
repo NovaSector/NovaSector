@@ -27,9 +27,9 @@
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/holosign_creator/medical/treatment_zone
 	materials = list(
-		/datum/material/iron =SMALL_MATERIAL_AMOUNT * 5,
-		/datum/material/glass =SMALL_MATERIAL_AMOUNT * 5,
-		/datum/material/silver =SMALL_MATERIAL_AMOUNT
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 5,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
 	)
 	id = "treatment_zone_projector"
 	category = list(
