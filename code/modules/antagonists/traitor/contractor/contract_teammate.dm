@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ///Spawns a contractor partner to a spawning user, with a given key to assign to the new player.
 /proc/spawn_contractor_partner(mob/living/user, key)
 	var/mob/living/carbon/human/partner = new()
@@ -27,9 +28,13 @@
 	new /obj/effect/pod_landingzone(free_location, arrival_pod)
 	return new_datum
 
+=======
+>>>>>>> d1486910804 (Fixes contractor support unit (#81054))
 /// Support unit gets it's own very basic antag datum for admin logging.
 /datum/antagonist/traitor/contractor_support
 	name = "Contractor Support Unit"
+	job_rank = ROLE_CONTRACTOR_SUPPORT
+	employer = "Contractor Support Unit"
 	show_in_roundend = FALSE
 	give_objectives = TRUE
 	give_uplink = FALSE
