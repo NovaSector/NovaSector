@@ -1,6 +1,6 @@
 /datum/design/organic_printer_balm
 	name = "Red Sun Balm"
-	id = "oganic_sun_balm"
+	id = "organic_sun_balm"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 50)
 	build_path = /obj/item/stack/medical/ointment/red_sun
