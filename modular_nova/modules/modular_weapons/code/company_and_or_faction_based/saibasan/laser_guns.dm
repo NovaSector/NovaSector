@@ -14,14 +14,16 @@
 	desc = "A popular energy weapon system that can be reconfigured into many different variants on the fly. \
 		Seen commonly amongst the Marsians who produce the weapon, with many different shapes and sizes to fit \
 		the wide variety of modders the planet is home to."
+	base_icon_state = "hyeseong"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns48x.dmi'
 	icon_state = "hyeseong_switch"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_righthand.dmi'
+	inhand_icon_state = "hyeseong_switch"
 	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_worn.dmi'
-	base_icon_state = "hyeseong"
+	worn_icon_state = "hyeseong_switch"
 	cell_type = /obj/item/stock_parts/cell/hyeseong_internal_cell
-	modifystate = TRUE
+	modifystate = FALSE
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_big_kill)
 	can_select = FALSE
 	ammo_x_offset = 0
@@ -250,6 +252,8 @@
 	name = "\improper Hoshi modular laser carbine"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
 	icon_state = "hoshi_switch"
+	inhand_icon_state = "hoshi_switch"
+	worn_icon = "hoshi_switch"
 	base_icon_state = "hoshi"
 	cell_type = /obj/item/stock_parts/cell
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
