@@ -66,7 +66,7 @@
 
 /datum/design/organic_printer_bandaid
 	name = "First Aid Bandage"
-	id = "oganic_bandaid"
+	id = "organic_bandaid"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/stack/medical/bandage
