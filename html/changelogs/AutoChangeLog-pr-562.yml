@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "Plastic wall panels, as well as prefab floor tiles have been fixed to not eat way more materials than they should be"
