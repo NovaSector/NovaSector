@@ -130,7 +130,11 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/vox_spines.dmi'
 	default_color = DEFAULT_TERTIARY
 	recommended_species = list(SPECIES_VOX)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+
+/datum/sprite_accessory/tail_spines/vox
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/vox_spines.dmi'
+	default_color = DEFAULT_TERTIARY
+	recommended_species = list(SPECIES_VOX)
 
 /datum/sprite_accessory/spines/vox/vox_bands
 	name = "Vox Bands"
