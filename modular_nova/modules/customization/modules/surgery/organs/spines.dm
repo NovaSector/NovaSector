@@ -12,9 +12,6 @@
 /datum/bodypart_overlay/mutant/spines/can_draw_on_bodypart(mob/living/carbon/human/human)
 	return !sprite_datum.is_hidden(human)
 
-/datum/bodypart_overlay/mutant/spines/get_feature_key_for_overlay()
-	return (wagging ? "wagging" : "") + feature_key
-
 /datum/bodypart_overlay/mutant/spines/get_base_icon_state()
 	return sprite_datum.icon_state
 

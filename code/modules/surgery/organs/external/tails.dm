@@ -177,7 +177,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/lizard
 
 	wag_flags = WAG_ABLE
-	dna_block = DNA_LIZARD_TAIL_BLOCK
+	//dna_block = DNA_LIZARD_TAIL_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 
 ///Lizard tail bodypart overlay datum
 /datum/bodypart_overlay/mutant/tail/lizard
@@ -200,7 +200,7 @@
 	var/tail_spine_key = NONE
 
 /datum/bodypart_overlay/mutant/tail_spines/get_global_feature_list()
-	return GLOB.tail_spines_list
+	return GLOB.sprite_accessories["tailspines"] // NOVA EDIT CHANGE - ORIGINAL: return GLOB.tail_spines_list
 
 /datum/bodypart_overlay/mutant/tail_spines/get_base_icon_state()
 	return (!isnull(tail_spine_key) ? "[tail_spine_key]_" : "") + (wagging ? "wagging_" : "") + sprite_datum.icon_state // Select the wagging state if appropriate
