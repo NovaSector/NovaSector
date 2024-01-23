@@ -77,7 +77,7 @@
 
 /datum/design/organic_printer_bone_gel
 	name = "Bone Gel"
-	id = "oganic_bone_gel"
+	id = "organic_bone_gel"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/stack/medical/bone_gel
