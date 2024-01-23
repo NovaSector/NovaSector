@@ -35,6 +35,12 @@
 			give_return = tgui_alert(usr, "Do you want to give them the power to return? Not recommended for non-admins.", "Give power?", list("Yes", "No"))
 			if(!give_return)
 				return
+		
+		var/addquirks = FALSE
+		if(character_option == "Selected Character")
+			addquirks = tgui_input_list(src, "Include quirks?", "Quirky", list("Quirks & Loadout", "Quirks Only", "Loadout Only", "Neither", "Cancel"))
+			if (addquirks == "Cancel")
+				return
 
 
 		var/turf/current_turf = get_turf(user)
@@ -46,8 +52,18 @@
 
 			var/mob/living/carbon/human/H = spawned_player
 			user.client?.prefs.safe_transfer_prefs_to(H)
+			if(addquirks == "Quirks & Loadout" || addquirks == "Quirks Only")
+				SSquirks.AssignQuirks(H, user.client)
+			if(addquirks == "Quirks & Loadout" || addquirks == "Loadout Only")
+				if(dresscode == "Naked")
+					H.equip_outfit_and_loadout(new /datum/outfit(), user.client?.prefs)
+				else
+					H.equip_outfit_and_loadout(dresscode, user.client?.prefs)
+			else if(dresscode != "Naked")
+				spawned_player.equipOutfit(dresscode)
 			H.dna.update_dna_identity()
-
+		else if(dresscode != "Naked")
+			spawned_player.equipOutfit(dresscode)
 		QDEL_IN(user, 1)
 
 		if (teleport_option == "Bluespace")
@@ -61,9 +77,6 @@
 		if(give_return != "No")
 			var/datum/action/cooldown/spell/return_back/return_spell = new(spawned_player)
 			return_spell.Grant(spawned_player)
-
-		if(dresscode != "Naked")
-			spawned_player.equipOutfit(dresscode)
 
 		switch(teleport_option)
 			if("Bluespace")
