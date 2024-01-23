@@ -66,7 +66,7 @@
 
 /datum/augment_item/implant/l_arm/arc_welder
 	name = "Left Shipbreaker's Toolset Implant (Arc Welder + Crowbar + Wrench)"
-	cost = 8
+	cost = 6
 	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/left_arm
 
 /datum/augment_item/implant/l_arm/electrical_toolset
@@ -120,7 +120,7 @@
 
 /datum/augment_item/implant/r_arm/arc_welder
 	name = "Right Shipbreaker's Toolset Implant (Arc Welder + Crowbar + Wrench)"
-	cost = 8
+	cost = 6
 	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/right_arm
 
 /datum/augment_item/implant/r_arm/electrical_toolset
