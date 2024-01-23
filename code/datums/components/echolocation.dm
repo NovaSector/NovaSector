@@ -92,7 +92,7 @@
 	echolocate()
 
 /datum/component/echolocation/proc/echolocate()
-	if(!COOLDOWN_FINISHED(src, cooldown_last))
+	if(!COOLDOWN_FINISHED(src, cooldown_last) || stall) // NOVA EDIT CHANGE - ORIGINAL: if(!COOLDOWN_FINISHED(src, cooldown_last))
 		return
 	COOLDOWN_START(src, cooldown_last, cooldown_time)
 	var/mob/living/echolocator = parent
