@@ -148,7 +148,7 @@
 
 /obj/item/clothing/suit/croptop
 	name = "crop top turtleneck"
-	desc = "A comfy looking turtleneck that exposes your midriff, fashionable but makes the point of a sweater moot. Now with Pycroft polychromatic tech!"
+	desc = "A comfy looking turtleneck that exposes your midriff, fashionable but makes the point of a sweater moot."
 	icon_state = "croptop"
 	greyscale_config = /datum/greyscale_config/croptop
 	greyscale_config_worn = /datum/greyscale_config/croptop/worn
