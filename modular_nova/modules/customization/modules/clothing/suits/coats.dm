@@ -156,6 +156,7 @@
 	cold_protection = CHEST|ARMS
 	greyscale_config = /datum/greyscale_config/croptop
 	greyscale_config_worn = /datum/greyscale_config/croptop/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/croptop/worn/teshari
 	greyscale_colors = "#1d1b1b"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

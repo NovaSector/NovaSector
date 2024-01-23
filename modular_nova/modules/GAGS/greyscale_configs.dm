@@ -807,6 +807,10 @@
 	name = "Croptop Sweater (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
 
+/datum/greyscale_config/croptop/worn/teshari
+	name = "Croptop Sweater (Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+
 // TAILORED JACKET
 
 /datum/greyscale_config/tailored_jacket
