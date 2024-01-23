@@ -71,6 +71,7 @@
 
 /obj/item/gun/energy/modular_laser_rifle/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_CYBERSUN)
 	chat_color = DEFAULT_RUNECHAT_GUN_COLOR
 	chat_color_darkened = process_chat_color(DEFAULT_RUNECHAT_GUN_COLOR, sat_shift = 0.85, lum_shift = 0.85)
 	last_charge = cell.charge
