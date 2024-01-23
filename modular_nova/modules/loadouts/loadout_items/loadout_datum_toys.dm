@@ -3,12 +3,60 @@ GLOBAL_LIST_INIT(loadout_toys, generate_loadout_items(/datum/loadout_item/toys))
 /datum/loadout_item/toys
 	category = LOADOUT_ITEM_TOYS
 
+/datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
+	return FALSE
+
+/*
+*	STICKERS
+*/
+
+/datum/loadout_item/toys/sticker_box
+	name = "Sticker Box"
+	item_path = /obj/item/storage/box/stickers
+
+/datum/loadout_item/toys/sticker_smile
+	name = "Smiley Sticker"
+	item_path = /obj/item/sticker/smile
+
+/datum/loadout_item/toys/sticker_frown
+	name = "Frowny Sticker"
+	item_path = /obj/item/sticker/frown
+
+/datum/loadout_item/toys/sticker_left
+	name = "Left Arrow Sticker"
+	item_path = /obj/item/sticker/left_arrow
+
+/datum/loadout_item/toys/sticker_right
+	name = "Right Arrow Sticker"
+	item_path = /obj/item/sticker/right_arrow
+
+/datum/loadout_item/toys/sticker_star
+	name = "Star Sticker"
+	item_path = /obj/item/sticker/star
+
+/datum/loadout_item/toys/sticker_heart
+	name = "Heart Sticker"
+	item_path = /obj/item/sticker/heart
+
+/datum/loadout_item/toys/sticker_slime
+	name = "Slime Sticker"
+	item_path = /obj/item/sticker/pslime
+
+/datum/loadout_item/toys/sticker_lizard
+	name = "Lizard Sticker"
+	item_path = /obj/item/sticker/pliz
+
+/datum/loadout_item/toys/sticker_bee
+	name = "Bee Sticker"
+	item_path = /obj/item/sticker/pbee
+
+/datum/loadout_item/toys/sticker_snake
+	name = "Snake Sticker"
+	item_path = /obj/item/sticker/psnake
+
 /*
 *	PLUSHIES
 */
-
-/datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
-	return FALSE
 
 /datum/loadout_item/toys/bee
 	name = "Bee Plushie"
