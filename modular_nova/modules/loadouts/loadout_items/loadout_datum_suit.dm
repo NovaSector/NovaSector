@@ -390,6 +390,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Blue Trenchcoat"
 	item_path = /obj/item/clothing/suit/frenchtrench
 
+/datum/loadout_item/suit/frontiertrench
+	name = "Frontier Trenchcoat"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist
+
 /datum/loadout_item/suit/cossak
 	name = "Ukrainian Coat"
 	item_path = /obj/item/clothing/suit/cossack
@@ -429,6 +433,14 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/colourable_leather_jacket
 	name = "Colourable Leather Jacket"
 	item_path = /obj/item/clothing/suit/jacket/leather/colourable
+
+/datum/loadout_item/suit/frontierjacket/short
+	name = "Frontier Jacket (Short)"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
+
+/datum/loadout_item/suit/frontierjacket/short/medical
+	name = "Frontier Medical Jacket (Short)"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
 
 /datum/loadout_item/suit/woolcoat
 	name = "Leather Overcoat"
