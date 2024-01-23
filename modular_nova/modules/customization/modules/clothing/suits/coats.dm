@@ -146,7 +146,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	blood_overlay_type = "coat"
 
-/obj/item/clothing/suit/croptop
+/obj/item/clothing/suit/jacket/croptop
 	name = "crop top turtleneck"
 	desc = "A comfy looking turtleneck that exposes your midriff, fashionable but makes the point of a sweater moot."
 	icon_state = "croptop"
