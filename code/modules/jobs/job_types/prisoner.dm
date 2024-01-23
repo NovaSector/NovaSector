@@ -69,7 +69,7 @@
 	//NOVA ADDITION BEGIN - remove prisoner implants on join
 	var/implants_removed = 0
 	for(var/organ in new_prisoner.organs)
-		if (istype(organ, /obj/item/organ/internal/cyberimp))
+		if (istype(organ, /obj/item/organ/internal/cyberimp) && !istype(organ, /obj/item/organ/internal/cyberimp/brain/nif))
 			QDEL_NULL(organ)
 			implants_removed += 1
 
