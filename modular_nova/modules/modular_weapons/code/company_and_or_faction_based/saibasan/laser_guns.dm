@@ -83,13 +83,12 @@
 
 /obj/item/gun/energy/modular_laser_rifle/examine_more(mob/user)
 	. = ..()
-	. += "The Renoster was designed at its core as a police shotgun. \
-		As consequence, it holds all the qualities a police force would want \
-		in one. Large shell capacity, sturdy frame, while holding enough \
-		capacity for modification to satiate even the most overfunded of \
-		peacekeeper forces. Inevitably, the weapon made its way into civilian \
-		markets alongside its sale to several military branches that also \
-		saw value in having a heavy shotgun."
+	. += "Persona-enabled energy weapons, a surprisingly common sight with the Marsians. \
+		These weapons are made with an in-built personality and ability to communicate with the \
+		user in order to both increase effectiveness of the weapon and make the weapons \
+		more attractive to the more intelligence-accepting people of the red planet. \
+		Many users are known to form bonds with their weapons, and some weapons have been \
+		reported as catching stray resonances within them."
 	return .
 
 /obj/item/gun/energy/modular_laser_rifle/Destroy()
