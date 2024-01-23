@@ -44,7 +44,7 @@
 
 /datum/design/organic_printer_bruise_pack
 	name = "Bruise Packs"
-	id = "oganic_bruise_packs"
+	id = "organic_bruise_packs"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 25)
 	build_path = /obj/item/stack/medical/bruise_pack
