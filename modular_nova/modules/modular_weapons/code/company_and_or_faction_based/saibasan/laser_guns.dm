@@ -16,12 +16,12 @@
 		the wide variety of modders the planet is home to."
 	base_icon_state = "hyeseong"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns48x.dmi'
-	icon_state = "hyeseong_switch"
+	icon_state = "hyeseong_kill"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_righthand.dmi'
-	inhand_icon_state = "hyeseong_switch"
+	inhand_icon_state = "hyeseong_kill"
 	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_worn.dmi'
-	worn_icon_state = "hyeseong_switch"
+	worn_icon_state = "hyeseong_kill"
 	cell_type = /obj/item/stock_parts/cell/hyeseong_internal_cell
 	modifystate = FALSE
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_big_kill)
@@ -175,6 +175,11 @@
 		speak_up(currently_selected_mode.json_speech_string, TRUE)
 	currently_switching_types = FALSE
 
+/obj/item/gun/energy/modular_laser_rifle/can_shoot()
+	if(!length(ammo_type))
+		return FALSE
+	return ..()
+
 /obj/item/gun/energy/modular_laser_rifle/can_trigger_gun(mob/living/user, akimbo_usage)
 	. = ..()
 	if(currently_switching_types || disabled_for_other_reasons)
@@ -251,9 +256,9 @@
 /obj/item/gun/energy/modular_laser_rifle/carbine
 	name = "\improper Hoshi modular laser carbine"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/saibasan/guns32x.dmi'
-	icon_state = "hoshi_switch"
-	inhand_icon_state = "hoshi_switch"
-	worn_icon = "hoshi_switch"
+	icon_state = "hoshi_kill"
+	inhand_icon_state = "hoshi_kill"
+	worn_icon = "hoshi_kill"
 	base_icon_state = "hoshi"
 	cell_type = /obj/item/stock_parts/cell
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
