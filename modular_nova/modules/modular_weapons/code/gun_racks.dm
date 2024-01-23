@@ -10,6 +10,12 @@
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	if(!mapload)
+		return
+	for(var/obj/item/found_item in loc.contents)
+		if(!isgun(found_item))
+			continue
+		rotate_weapon(found_item)
 
 /obj/structure/rack/gunrack/attackby(obj/item/attacking_item, mob/living/user, params)
 	var/list/modifiers = params2list(params)
@@ -32,7 +38,7 @@
 	if(!being_removed)
 		new_matrix.Turn(-90)
 	incoming_weapon.transform = new_matrix
-	RegisterSignal(incoming_weapon, COMSIG_ITEM_EQUIPPED, PROC_REF(item_picked_up))
+	RegisterSignal(incoming_weapon, COMSIG_ITEM_EQUIPPED, PROC_REF(item_picked_up), override = TRUE)
 
 /// Checks when something is leaving our turf, if its a gun then make sure to reset its transform so its not permanently rotated
 /obj/structure/rack/gunrack/proc/on_exit(datum/source, atom/movable/leaving, direction)
