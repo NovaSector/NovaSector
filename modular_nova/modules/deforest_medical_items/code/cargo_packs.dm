@@ -15,7 +15,7 @@
 	access = ACCESS_MEDICAL
 	cost = CARGO_CRATE_VALUE * 5 // 2000
 	contains = list(
-		/obj/item/storage/medkit/civil_defense/comfort/stocked = 5,
+		/obj/item/storage/medkit/civil_defense/comfort/stocked = 10,
 	)
 
 /datum/supply_pack/medical/frontier_first_aid
