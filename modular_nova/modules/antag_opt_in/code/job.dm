@@ -3,7 +3,7 @@
 	var/minimum_opt_in_level
 	/// Can this job be targetted as a heretic sacrifice target?
 	var/heretic_sac_target
-	/// Is this job targettable by contractors?
+	/// Is this job targetable by contractors?
 	var/contractable
 
 /// Updates [minimum_opt_in_level] [heretic_sac_target] and [contractable].
@@ -48,9 +48,9 @@
 	if (minimum_opt_in_level)
 		suffixes += " Forces a minimum of [GLOB.antag_opt_in_strings["[minimum_opt_in_level]"]] antag opt-in."
 	if (contractable)
-		suffixes += " Targettable by contractors."
+		suffixes += " Targetable by contractors."
 	if (heretic_sac_target)
-		suffixes += " Targettable by heretics."
+		suffixes += " Targetable by heretics."
 	if (length(suffixes))
 		var/suffix = jointext(suffixes, "")
 		set_opt_in_desc_suffix(suffix)
