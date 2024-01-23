@@ -166,7 +166,6 @@
 
 	return TRUE
 
-
 /obj/item/gravity_harness/dropped(mob/user)
 	. = ..()
 	change_mode(MODE_GRAVOFF)
