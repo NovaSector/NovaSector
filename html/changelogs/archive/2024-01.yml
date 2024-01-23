@@ -913,3 +913,50 @@
   nikothedude:
   - rscadd: Dinitrogen Plasmide, a chem used to cool synthetic burns. Does not have
       the side effects of hercuri, making it safer to use.
+2024-01-23:
+  A.C.M.O.:
+  - rscadd: Added the forked cybernetic tongue to Augments+.
+  - rscadd: Added the robotic lizard voicebox to Augments+ and the RoboDrobe vendor.
+  Lutowski:
+  - rscadd: Fluffier than ever before, moths can now have hair & facial hair.
+  Nerev4r, Vol:
+  - rscadd: A new jacket option for Security has appeared in the loadout and their
+      vendors.
+  NovaBot13:
+  - spellcheck: iron sheets's what?
+  - bugfix: Goldgrubs should no longer spit out things that aren't ore (e.g. stasised
+      mobs from the polymorph belt).
+  - refactor: Introduced a simple budget system to station traits, so that smaller
+      things only count as half a trait, for example.
+  - balance: Increased the odds and maximum number of station traits that can be rolled
+      each shift.
+  - sound: APCs actually play the tool sound when exposing their wires.
+  Paxilmaniac:
+  - rscadd: Hunter shotgun slugs can now mine mineral walls, shotgun mining time baby.
+  - bugfix: Hunter slugs and .60 AMR ammo will now properly do extra damage to the
+      biotypes they are strong against.
+  - rscdel: The milsim domain's one clf3 grenade is gone
+  - balance: The equipment that the bitrunners get in the milsim domain has been changed,
+      mostly to use the new-ish solfed gear rather than HECU stuff
+  - bugfix: The wylom in the milsim domain on the bitrunner side has been given its
+      actual magazines around it, rather than lanca magazines
+  - rscadd: Cargo, and the rapid construction fabricator, are now hosts to a new source
+      of power. The stirling generator, operating something like the old TEG, creates
+      power from large differences in temperature. Handy!
+  - rscadd: A variety of special kitchen machines have been created for the rapid
+      construction fabricator. While they might not perform *too* much different from
+      their standard counterparts, they are easier to move around and can be printed
+      whole.
+  - rscadd: Three new crates have been added to cargo, each one featuring a bundle
+      of frontier equipment. In the service tab, kits for frontier kitchens and botany
+      chemical synthesizers can be found. In the engineering tab, the colony starter
+      kit can be found.
+  - qol: Many flatpack machines that were needlessly large have been made normal sized,
+      meaning they fit inside of backpacks now!
+  - bugfix: A large number of flatpack machines that were missing custom materials
+      now have them, meaning they can now be recycled as well.
+  - image: New sprites for all the new machines and whatnot made by me
+  - spellcheck: Every instance of Flat-packed has been changed to Flat-Packed where
+      appropriate
+  vinylspiders:
+  - bugfix: fixed ammo counter hud not updating for self-recharging energy weapons
