@@ -66,6 +66,14 @@
 	var/personality_mode = TRUE
 	/// Keeps track of our soulcatcher component
 	var/datum/component/soulcatcher/tracked_soulcatcher
+	/// What is this gun's extended examine, we only have to do this because the carbine is a subtype
+	var/expanded_examine_text = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
+		from Cybersun Industries. Like her younger sister weapon, the Hoshi carbine, CI used funding aid provided \
+		by SolFed to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
+		A rugged and hefty weapon, the Hyeseong stars in applications anywhere from medium to long ranges, though struggling \
+		in CQB. Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
+		is shipped with a more professional and understated personality-- since influenced by 'negligence' from users in \
+		wiping the intelligence's memory before resale or transport."
 	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
 	COOLDOWN_DECLARE(last_speech)
 
@@ -85,12 +93,7 @@
 
 /obj/item/gun/energy/modular_laser_rifle/examine_more(mob/user)
 	. = ..()
-	. += "Persona-enabled energy weapons, a surprisingly common sight with the Marsians. \
-		These weapons are made with an in-built personality and ability to communicate with the \
-		user in order to both increase effectiveness of the weapon and make the weapons \
-		more attractive to the more intelligence-accepting people of the red planet. \
-		Many users are known to form bonds with their weapons, and some weapons have been \
-		reported as catching stray resonances within them."
+	. += expanded_examine_text
 	return .
 
 /obj/item/gun/energy/modular_laser_rifle/Destroy()
@@ -263,6 +266,13 @@
 	)
 	default_selected_mode = "Incinerate"
 	speech_json_file = SHORT_MOD_LASER_SPEECH
+	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
+		Cybersun Industries. Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
+		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. A \
+		lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts; though \
+		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
+		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
+		from users in wiping the intelligence's memory before resale or transport."
 
 /obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)
 	. = ..()
