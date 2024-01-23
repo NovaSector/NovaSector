@@ -11,7 +11,7 @@
 
 /datum/design/organic_printer_gauze
 	name = "Sealed Aseptic Guaze"
-	id = "oganic_gauze"
+	id = "organic_gauze"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 50)
 	build_path = /obj/item/stack/medical/gauze/sterilized
