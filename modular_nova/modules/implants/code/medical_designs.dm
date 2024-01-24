@@ -60,7 +60,7 @@
 		Which many users percieve as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
 		system that heavily influence the user's nervous system, like the central nervous system rebooter. \
 		As a bonus effect, you are immune to the burst of heart damage that comes at the end of twitch usage, as the computer is able to regulate \
-		your heart's rythm back to normal after its use."
+		your heart's rhythm back to normal after its use."
 	id = "combat_implant_sandy"
 	build_type = MECHFAB
 	materials = list(
