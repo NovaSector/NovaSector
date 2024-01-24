@@ -443,8 +443,8 @@
 	if(body_position != STANDING_UP && !resting && !buckled && !HAS_TRAIT(src, TRAIT_FLOORED))
 		get_up(TRUE)
 
-	if(!nosound) //NOVA EDIT ADDITION - EMOTES
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	if(!nosound) // NOVA EDIT ADDITION - EMOTES
+		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1) // NOVA EDIT CHANGE - EMOTES - Original was unindented but otherwise the same
 
 	// Shake animation
 	if (incapacitated())
