@@ -16,9 +16,9 @@
 	var/mob/living/carbon/human/user = quirk_holder
 	user.gain_trauma(/datum/brain_trauma/severe/narcolepsy/permanent, TRAUMA_RESILIENCE_ABSOLUTE)
 
-	var/obj/item/storage/pill_bottle/prescription_stimulant/stimmies = new()
+	var/obj/item/storage/medkit/civil_defense/comfort/stocked/stimmies = new()
 	if(quirk_holder.equip_to_slot_if_possible(stimmies, ITEM_SLOT_BACKPACK, qdel_on_fail = TRUE, initial = TRUE, indirect_action = TRUE))
-		to_chat(quirk_holder, span_info("You have been given a bottle of mild stimulants to assist in staying awake this shift..."))
+		to_chat(quirk_holder, span_info("You have been given a company-issued symptom support kit containing mild stimulants to assist in staying awake this shift. Dose responsibly. Consult your allocated care provider if you experience any side-effects."))
 
 /datum/quirk/narcolepsy/remove()
 	. = ..()
@@ -52,17 +52,3 @@
 	else if(drowsy && SPT_PROB(sleep_chance, seconds_per_tick))
 		to_chat(owner, span_warning("You fall asleep."))
 		owner.Sleeping(rand(20 SECONDS, 30 SECONDS))
-
-/obj/item/storage/pill_bottle/prescription_stimulant
-	name = "bottle of prescribed stimulant pills"
-	desc = "A bottle of mild and medicinally approved stimulants to help prevent drowsiness."
-
-/obj/item/storage/pill_bottle/prescription_stimulant/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/pill/prescription_stimulant(src)
-
-/obj/item/reagent_containers/pill/prescription_stimulant
-	name = "prescription stimulant pill"
-	desc = "Used to treat symptoms of drowsiness and sudden loss of consciousness. A warning label reads: <b>Take in moderation</b>."
-	list_reagents = list(/datum/reagent/consumable/sugar = 5, /datum/reagent/medicine/synaptizine = 5, /datum/reagent/medicine/modafinil = 3)
-	icon_state = "pill15"

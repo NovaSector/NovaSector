@@ -20,6 +20,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slot = ORGAN_SLOT_BRAIN_NIF
 	actions_types = list(/datum/action/item_action/nif/open_menu)
+	cannot_confiscate = TRUE
 
 	//User Variables
 	///What user is currently linked with the NIF?
