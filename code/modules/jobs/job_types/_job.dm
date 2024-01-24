@@ -178,6 +178,10 @@
 		for(var/i in roundstart_experience)
 			spawned_human.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
+/// Return the outfit to use
+/datum/job/proc/get_outfit()
+	return outfit
+
 /// Announce that this job as joined the round to all crew members.
 /// Note the joining mob has no client at this point.
 /datum/job/proc/announce_job(mob/living/joining_mob, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_job(mob/living/joining_mob)
@@ -190,7 +194,7 @@
 	return TRUE
 
 
-/mob/living/proc/on_job_equipping(datum/job/equipping)
+/mob/living/proc/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
@@ -202,7 +206,7 @@
 	bank_account.replaceable = FALSE
 	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-	dress_up_as_job(equipping, FALSE, used_pref) //NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
+	dress_up_as_job(equipping, FALSE, used_pref) // NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // NOVA EDIT REMOVAL - See below
@@ -215,12 +219,12 @@
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
-/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping) //NOVA EDIT CHANGE
+	equip_outfit_and_loadout(equipping.get_outfit(), used_pref, visual_only, equipping) //NOVA EDIT CHANGE : ORIGINAL equipOutfit(equipping.get_outfit(), visual_only)
 
 /// tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 /datum/job/proc/announce_head(mob/living/carbon/human/H, channels, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_head(mob/living/carbon/human/H, channels)

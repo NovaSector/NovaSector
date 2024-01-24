@@ -1,4 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - bugfix: "Removes unintended structures cluttering in Blueshift's space"
