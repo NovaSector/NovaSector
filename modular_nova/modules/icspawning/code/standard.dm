@@ -75,12 +75,10 @@
 
 /obj/item/storage/part_replacer/bluespace/tier4_bst/alt_click_secondary(mob/user)
 	var/spawn_selection
-	to_chat(world, "Alt-RMB'd a RPED")
 	spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Cables", "Glass", "Servos", "Lasers", "Matter Bins", "Cells", "Capacitors", "Scanning Modules", "Beakers"))
 	if(spawn_selection)
-		to_chat(world, "User selected [spawn_selection]")
 		if(spawn_selection == "Clear All Items")
-			to_chat(world, "Not implemented yet!")
+			return
 		else if(spawn_selection == "Cables")
 			new /obj/item/stack/cable_coil(src)
 		else if(spawn_selection == "Glass")
@@ -88,7 +86,6 @@
 				new /obj/item/stack/sheet/glass(src)
 		else
 			var/subtype
-			to_chat(world, "User asked for a part subtype")
 			if(spawn_selection == "Servos")
 				subtype = /obj/item/stock_parts/servo
 			else if(spawn_selection == "Lasers")
@@ -105,7 +102,6 @@
 				subtype = /obj/item/reagent_containers/cup/beaker
 			//picked a type now
 			if(subtype)
-				to_chat(world, "User picked subtype [subtype]")
 				var/list/items_temp = list()
 				var/list/paths = subtypesof(subtype) + subtype
 				for(var/path in paths)
@@ -113,9 +109,7 @@
 					items_temp[initial(O.name)] = path
 				var/target_item = tgui_input_list(user, "Select specific subtype", "RPED Manufacture", sort_list(items_temp))
 				if(target_item)
-					to_chat(world, "Picked item [target_item]")
 					if(items_temp[target_item])
-						to_chat(world, "Found the correct item type")
 						var/the_item = items_temp[target_item]
 						for(var/i in 1 to 10)
 							new the_item(src) //this is so scrungly
