@@ -146,14 +146,19 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	blood_overlay_type = "coat"
 
-/obj/item/clothing/suit/croptop
-	name = "black crop top turtleneck"
+/obj/item/clothing/suit/jacket/croptop
+	name = "crop top turtleneck"
 	desc = "A comfy looking turtleneck that exposes your midriff, fashionable but makes the point of a sweater moot."
-	icon_state = "croptop_black"
+	icon_state = "croptop"
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	greyscale_config = /datum/greyscale_config/croptop
+	greyscale_config_worn = /datum/greyscale_config/croptop/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/croptop/worn/teshari
+	greyscale_colors = "#1d1b1b"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/varsity

@@ -4,8 +4,8 @@
 // BEGIN TRAIT DEFINES
 
 /*
- *Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
- */
+Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
+*/
 
 //mob traits
 /// Forces the user to stay unconscious.
@@ -491,6 +491,15 @@
 /// Is the mob standing on an elevated surface? This prevents them from dropping down if not elevated first.
 #define TRAIT_ON_ELEVATED_SURFACE "on_elevated_surface"
 
+/// Prevents you from twohanding weapons.
+#define TRAIT_NO_TWOHANDING "no_twohanding"
+
+/// Halves the time of tying a tie.
+#define TRAIT_FAST_TYING "fast_tying"
+
+/// Sells for more money on the pirate bounty pad.
+#define TRAIT_HIGH_VALUE_RANSOM "high_value_ransom"
+
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
 // to various drinks and foodstuffs. Security liking donuts is a classic
@@ -781,6 +790,8 @@
 #define TRAIT_PDA_CAN_EXPLODE "pda_can_explode"
 ///The download speeds of programs from the dowloader is halved.
 #define TRAIT_MODPC_HALVED_DOWNLOAD_SPEED "modpc_halved_download_speed"
+///Dictates whether a user (source) is interacting with the frame of a stationary modular computer or the pc inside it. Needed for circuits I guess.
+#define TRAIT_MODPC_INTERACTING_WITH_FRAME "modpc_interacting_with_frame"
 
 /// If present on a [/mob/living/carbon], will make them appear to have a medium level disease on health HUDs.
 #define TRAIT_DISEASELIKE_SEVERITY_MEDIUM "diseaselike_severity_medium"
@@ -817,6 +828,9 @@
 
 /// Similar trait given to temporary bodies inhabited by players
 #define TRAIT_TEMPORARY_BODY "temporary_body"
+
+/// Trait given to objects with the wallmounted component
+#define TRAIT_WALLMOUNTED "wallmounted"
 
 /// Trait given to mechs that can have orebox functionality on movement
 #define TRAIT_OREBOX_FUNCTIONAL "orebox_functional"
@@ -877,6 +891,7 @@
 #define TRAIT_BLOB_ALLY "blob_ally"
 
 ///Traits given by station traits
+#define STATION_TRAIT_ASSISTANT_GIMMICKS "station_trait_assistant_gimmicks"
 #define STATION_TRAIT_BANANIUM_SHIPMENTS "station_trait_bananium_shipments"
 #define STATION_TRAIT_BIGGER_PODS "station_trait_bigger_pods"
 #define STATION_TRAIT_BIRTHDAY "station_trait_birthday"
@@ -904,6 +919,11 @@
 
 /// This atom is currently spinning.
 #define TRAIT_SPINNING "spinning"
+
+/// This limb can't be torn open anymore
+#define TRAIT_IMMUNE_TO_CRANIAL_FISSURE "immune_to_cranial_fissure"
+/// Trait given if the mob has a cranial fissure.
+#define TRAIT_HAS_CRANIAL_FISSURE "has_cranial_fissure"
 
 /// Denotes that this id card was given via the job outfit, aka the first ID this player got.
 #define TRAIT_JOB_FIRST_ID_CARD "job_first_id_card"
@@ -1028,5 +1048,14 @@
 
 /// Trait which self-identifies as an enemy of the law
 #define TRAIT_ALWAYS_WANTED "always_wanted"
+
+/// Trait which means whatever has this is dancing by a dance machine
+#define TRAIT_DISCO_DANCER "disco_dancer"
+
+/// That which allows mobs to instantly break down boulders.
+#define TRAIT_INSTANTLY_PROCESSES_BOULDERS "instantly_processes_boulders"
+
+/// Trait applied to objects and mobs that can attack a boulder and break it down. (See /obj/item/boulder/manual_process())
+#define TRAIT_BOULDER_BREAKER "boulder_breaker"
 
 // END TRAIT DEFINES

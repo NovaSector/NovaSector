@@ -1,0 +1,4 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - bugfix: "Custom say emotes now properly apply lowercase at the start where appropriate and also trim excess whitespace. Cleaner and easier for everyone!"

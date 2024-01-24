@@ -62,6 +62,7 @@
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
 		/obj/item/reagent_containers/syringe = 2,
 		/obj/item/reagent_containers/spray/hercuri/chilled = 2,
+		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 2,
 		/obj/item/clothing/gloves/color/black = 2, // fire resistant, allows the robo to painlessly mold metal. also its down here because its a treatment item
 		/obj/item/bonesetter = 2, // for dislocations
 		/obj/item/stack/medical/gauze = 4, // for ALL wounds
@@ -71,6 +72,10 @@
 		/obj/item/storage/backpack/satchel/science/robo = 2,
 		/obj/item/storage/backpack/duffelbag/science/robo = 2,
 		/obj/item/storage/backpack/messenger/science/robo = 2,
+	)
+
+	contraband_nova = list(
+		/obj/item/organ/internal/tongue/lizard/robot = 2,
 	)
 
 /obj/machinery/vending/wardrobe/science_wardrobe
