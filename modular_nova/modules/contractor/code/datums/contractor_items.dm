@@ -92,34 +92,6 @@
 	limited = 1
 	cost = 2
 
-/datum/contractor_item/contractor_partner/handle_purchase(datum/contractor_hub/hub, mob/living/user)
-	. = ..()
-
-	if(!.)
-		return
-	to_chat(user, span_notice("The uplink vibrates quietly, connecting to nearby agents..."))
-
-	var/list/mob/dead/observer/candidates =  SSpolling.poll_ghost_candidates(
-		"Do you want to play as the Contractor Support Unit for [user.real_name]?",
-		role = ROLE_PAI,
-		check_jobban = FALSE,
-		poll_time = 10 SECONDS,
-		ignore_category = POLL_IGNORE_CONTRACTOR_SUPPORT,
-		pic_source = user,
-		role_name_text = "[user.real_name]'s support",
-	)
-
-	if(LAZYLEN(candidates))
-		var/mob/dead/observer/picked_obs = pick(candidates)
-		hub.contractor_teammate = spawn_contractor_partner(user, picked_obs.key)
-	else
-		to_chat(user, span_notice("No available agents at this time, please try again later."))
-
-		// refund and add the limit back.
-		limited += 1
-		hub.contract_rep += cost
-		hub.purchased_items -= src
-
 /datum/contractor_item/blackout
 	name = "Blackout"
 	desc = "Request Syndicate Command to distrupt the station's powernet. Disables power across the station for a short duration."

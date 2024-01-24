@@ -24,6 +24,7 @@
 		"flatpack_thermo",
 		"flatpack_ore_silo",
 		"flatpack_turbine_team_fortress_two",
+		"flatpack_bootleg_teg",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000000000000000) // God save you
 	hidden = TRUE

@@ -913,3 +913,100 @@
   nikothedude:
   - rscadd: Dinitrogen Plasmide, a chem used to cool synthetic burns. Does not have
       the side effects of hercuri, making it safer to use.
+2024-01-23:
+  A.C.M.O.:
+  - rscadd: Added the forked cybernetic tongue to Augments+.
+  - rscadd: Added the robotic lizard voicebox to Augments+ and the RoboDrobe vendor.
+  Lutowski:
+  - rscadd: Fluffier than ever before, moths can now have hair & facial hair.
+  Nerev4r, Vol:
+  - rscadd: A new jacket option for Security has appeared in the loadout and their
+      vendors.
+  NovaBot13:
+  - spellcheck: iron sheets's what?
+  - bugfix: Goldgrubs should no longer spit out things that aren't ore (e.g. stasised
+      mobs from the polymorph belt).
+  - refactor: Introduced a simple budget system to station traits, so that smaller
+      things only count as half a trait, for example.
+  - balance: Increased the odds and maximum number of station traits that can be rolled
+      each shift.
+  - sound: APCs actually play the tool sound when exposing their wires.
+  Paxilmaniac:
+  - rscadd: Hunter shotgun slugs can now mine mineral walls, shotgun mining time baby.
+  - bugfix: Hunter slugs and .60 AMR ammo will now properly do extra damage to the
+      biotypes they are strong against.
+  - rscdel: The milsim domain's one clf3 grenade is gone
+  - balance: The equipment that the bitrunners get in the milsim domain has been changed,
+      mostly to use the new-ish solfed gear rather than HECU stuff
+  - bugfix: The wylom in the milsim domain on the bitrunner side has been given its
+      actual magazines around it, rather than lanca magazines
+  - rscadd: Cargo, and the rapid construction fabricator, are now hosts to a new source
+      of power. The stirling generator, operating something like the old TEG, creates
+      power from large differences in temperature. Handy!
+  - rscadd: A variety of special kitchen machines have been created for the rapid
+      construction fabricator. While they might not perform *too* much different from
+      their standard counterparts, they are easier to move around and can be printed
+      whole.
+  - rscadd: Three new crates have been added to cargo, each one featuring a bundle
+      of frontier equipment. In the service tab, kits for frontier kitchens and botany
+      chemical synthesizers can be found. In the engineering tab, the colony starter
+      kit can be found.
+  - qol: Many flatpack machines that were needlessly large have been made normal sized,
+      meaning they fit inside of backpacks now!
+  - bugfix: A large number of flatpack machines that were missing custom materials
+      now have them, meaning they can now be recycled as well.
+  - image: New sprites for all the new machines and whatnot made by me
+  - spellcheck: Every instance of Flat-packed has been changed to Flat-Packed where
+      appropriate
+  vinylspiders:
+  - bugfix: fixed ammo counter hud not updating for self-recharging energy weapons
+2024-01-24:
+  LT3:
+  - bugfix: Server announcements again no longer escape HTML by default
+  Melbert:
+  - bugfix: Replacing a limb fully claimed by an infested burn wound now properly
+      grants you control of the limb back
+  - bugfix: Losing control of a limb now sounds less weird in chat
+  NovaBot13:
+  - bugfix: fixes a spurious CI failure from do_charge() signal overrides
+  - bugfix: fixes features not updating when changing character slots
+  - bugfix: pAIs downloaded while in a PDA now gets the action button to control said
+      PDA.
+  - bugfix: pAI cards can now be ejected from a PDA when there is no pAI inhabiting
+      it.
+  - bugfix: reactions that create multiple reagents now terminate without looping
+      endlessly.
+  - bugfix: oatmeal reactions now terminate & produce the right quantity of results
+      but without milk.
+  - bugfix: Moved the curator's treasure hunter fedora up by a single pixel.
+  Paxilmaniac:
+  - bugfix: Plastic wall panels, as well as prefab floor tiles have been fixed to
+      not eat way more materials than they should be
+  - image: A single missing frame from the prefab shutter closing animation has been
+      re-placed, meaning they wont vanish for 1/10 of a second whenever closing
+  nikothedude:
+  - bugfix: Synth wound oscillations will no longer cause you to reel from impacts
+      if there were no impacts
+  - balance: Synth blunt wounds are now faster to treat
+  - balance: Wirecutters on electrical damage have been streamlined and are always
+      fix 4x more than suturing
+  - balance: Synth wound oscillations now have a minimum of 3 seconds between each
+      oscillation
+  yooriss:
+  - bugfix: Prisoners joining a round now properly have their implants removed as
+      intended.
+  - rscadd: 'A new variant of the DeForest civil defense medical kit is now available:
+      the civil defense symptom support kit. Loaded with three pens of psifinil and
+      a bottle of alifil, this little thing''ll fit in your pocket and give your characters
+      guaranteed relief from sleepiness, stuttering and sickliness. Some side effects
+      may occur. Consult your doctor before use. This new kit is available cheaply
+      from cargo and from medical''s departmental orders, too.'
+  - balance: People with the Spacer or Narcolepsy quirks now start with a civil defense
+      symptom support kit. Spacers no longer start with a bottle of atrociously, unbelievably
+      useless ondansetron patches.
+  - rscadd: A bunch of new stuff has been added to the loadout tab, such as civil
+      defense & frontier medkits, a ton of Kahraman frontier clothing, wheely-heels
+      and in-hand empty gun cases! MODlink scryers are also now available as a pocket
+      slot option too, so you can video-call your friends with a scarf.
+  - bugfix: Holobadges are now accessible from both the neck and accessory loadout
+      slots (since they fit in both).
