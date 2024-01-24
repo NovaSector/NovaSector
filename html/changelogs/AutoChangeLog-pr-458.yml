@@ -1,4 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - bugfix: "fixed the OpFor Syndicate Uplink Implanter giving a broken item - it will now give the Implanter as intended."
