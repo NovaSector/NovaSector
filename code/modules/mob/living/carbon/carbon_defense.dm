@@ -1,7 +1,3 @@
-#define SHAKE_ANIMATION_OFFSET 4
-#define PERSONAL_SPACE_DAMAGE 2
-#define ASS_SLAP_EXTRA_RANGE -1
-
 /mob/living/carbon/get_eye_protection()
 	. = ..()
 	if(is_blind() && !is_blind_from(list(UNCONSCIOUS_TRAIT, HYPNOCHAIR_TRAIT)))
@@ -757,7 +753,3 @@
 	. |= SHOVE_CAN_STAGGER
 	if(IsKnockdown() && !IsParalyzed())
 		. |= SHOVE_CAN_KICK_SIDE
-
-#undef SHAKE_ANIMATION_OFFSET
-#undef PERSONAL_SPACE_DAMAGE
-#undef ASS_SLAP_EXTRA_RANGE
