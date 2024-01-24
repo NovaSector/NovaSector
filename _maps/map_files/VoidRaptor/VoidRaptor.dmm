@@ -3995,6 +3995,11 @@
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
 /area/station/security/lockers)
+"bfi" = (
+/obj/structure/table/wood,
+/obj/item/documents/syndicate,
+/turf/open/floor/wood,
+/area/station/maintenance/rus_gambling)
 "bfB" = (
 /obj/effect/turf_decal/tile/red/anticorner{
 	dir = 1
@@ -8067,9 +8072,8 @@
 /turf/open/floor/iron/white/diagonal,
 /area/station/science/research)
 "cvp" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/closet/crate,
-/turf/open/floor/iron/smooth_large,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "cvG" = (
 /obj/structure/sign/warning/biohazard/directional/east,
@@ -19465,7 +19469,7 @@
 /area/station/command/cc_dock)
 "fFf" = (
 /obj/effect/mapping_helpers/broken_floor,
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "fFg" = (
@@ -19785,6 +19789,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/iron/freezer,
 /area/station/medical/pharmacy)
 "fLX" = (
@@ -19908,9 +19913,12 @@
 /turf/open/floor/wood/large,
 /area/station/security/courtroom)
 "fNX" = (
-/obj/structure/ore_box,
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron/smooth_corner,
+/obj/machinery/conveyor/inverted{
+	dir = 5;
+	id = "mining"
+	},
+/obj/machinery/bouldertech/refinery/smelter,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "fNY" = (
 /obj/structure/closet/l3closet/virology,
@@ -22910,9 +22918,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/basic/goat/pete{
-	name = "Pete"
-	},
+/mob/living/basic/goat/pete,
 /obj/effect/turf_decal/weather/snow,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
@@ -28289,10 +28295,13 @@
 	},
 /area/station/medical/virology)
 "ihS" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/ore_box,
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/smooth_edge,
+/obj/machinery/conveyor{
+	id = "mining";
+	dir = 8
+	},
+/obj/machinery/bouldertech/refinery,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "ihT" = (
 /obj/structure/cable,
@@ -28492,7 +28501,6 @@
 /obj/structure/chair/sofa/left/brown{
 	dir = 8
 	},
-/mob/living/basic/trooper/russian,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "ila" = (
@@ -30097,15 +30105,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/primary/fore)
 "iFV" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/computer/security/mining,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 9
+/obj/machinery/conveyor{
+	id = "mining";
+	dir = 8
 	},
-/obj/structure/window/spawner/directional/west{
-	pixel_x = -4
-	},
-/turf/open/floor/iron/smooth_edge,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "iFY" = (
 /obj/structure/cable,
@@ -30606,10 +30610,8 @@
 	c_tag = "Cargo - Mining"
 	},
 /obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/turf/open/floor/iron/smooth_edge{
-	dir = 4
-	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "iNk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -33394,7 +33396,13 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/port/aft)
 "jAS" = (
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/conveyor{
+	id = "mining";
+	dir = 1
+	},
+/obj/machinery/bouldertech/brm,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "jBm" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -36363,11 +36371,11 @@
 /area/station/hallway/secondary/construction)
 "krz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/trimline/brown/filled/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/brown/filled/warning{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/miningdock)
 "krA" = (
@@ -39873,13 +39881,12 @@
 	},
 /area/station/hallway/secondary/entry)
 "lmY" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining";
+	dir = 1
 	},
-/obj/structure/window/spawner/directional/west{
-	pixel_x = -4
-	},
-/turf/open/floor/iron/smooth_large,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "lnc" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner{
@@ -44087,6 +44094,7 @@
 	pixel_y = 24
 	},
 /obj/effect/mapping_helpers/broken_floor,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "muZ" = (
@@ -50867,6 +50875,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/rus_gambling)
 "omT" = (
@@ -51932,13 +51941,12 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/supermatter/room)
 "oCm" = (
-/obj/effect/turf_decal/bot,
 /obj/structure/sign/warning/vacuum/directional/north,
-/obj/machinery/computer/shuttle/mining,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
+/obj/machinery/conveyor/inverted{
+	dir = 6;
+	id = "mining"
 	},
-/turf/open/floor/iron/smooth_edge,
+/turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "oCo" = (
 /obj/structure/railing/corner{
@@ -53358,6 +53366,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/office)
+"oWg" = (
+/obj/machinery/computer/security/mining{
+	dir = 4
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/window/spawner/directional/west,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/miningdock)
 "oWn" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -58765,6 +58784,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/brown/filled/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/miningdock)
 "qqa" = (
@@ -58940,8 +58962,13 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/execution/education)
 "qtr" = (
+/obj/machinery/computer/shuttle/mining{
+	dir = 4
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/window/spawner/directional/west,
 /obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
+	dir = 9
 	},
 /turf/open/floor/iron/smooth_edge,
 /area/station/cargo/miningdock)
@@ -60223,7 +60250,7 @@
 /area/station/medical/virology)
 "qLu" = (
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee/sword,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "qLy" = (
@@ -65984,7 +66011,7 @@
 /obj/structure/chair/stool/directional/north{
 	pixel_y = 6
 	},
-/mob/living/basic/trooper/russian,
+/mob/living/basic/trooper/syndicate/melee,
 /turf/open/floor/wood,
 /area/station/maintenance/rus_gambling)
 "svC" = (
@@ -75326,6 +75353,11 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
+"uQI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/pod,
+/turf/open/floor/wood,
+/area/station/maintenance/rus_gambling)
 "uQV" = (
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/service)
@@ -128064,7 +128096,7 @@ tDO
 wkm
 gDf
 djz
-iAj
+uQI
 ykh
 wtQ
 yep
@@ -128319,7 +128351,7 @@ pzh
 ykh
 fop
 qLu
-gDf
+bfi
 pBo
 aWR
 ykh
@@ -130146,7 +130178,7 @@ xMq
 oXI
 oCm
 jAS
-qpX
+krz
 pmM
 oXI
 pjT
@@ -130402,7 +130434,7 @@ cbP
 cbP
 cbP
 qtr
-jAS
+oWg
 qpX
 lFU
 oXI

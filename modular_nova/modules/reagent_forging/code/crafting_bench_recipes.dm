@@ -52,14 +52,6 @@
 	resulting_item = /obj/item/clothing/shoes/forging_plate_boots
 	required_good_hits = 8
 
-/datum/crafting_bench_recipe/horse_shoes
-	recipe_name = "horse shoes"
-	recipe_requirements = list(
-		/obj/item/forging/complete/chain = 4,
-	)
-	resulting_item = /obj/item/clothing/shoes/horseshoe
-	required_good_hits = 8
-
 /datum/crafting_bench_recipe/ring
 	recipe_name = "ring"
 	recipe_requirements = list(

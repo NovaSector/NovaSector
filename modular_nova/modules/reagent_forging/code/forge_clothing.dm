@@ -108,28 +108,6 @@
 	AddComponent(/datum/component/armor_plate, 2)
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_FEET)
 
-/obj/item/clothing/shoes/horseshoe
-	name = "reagent horseshoe"
-	desc = "A pair of horseshoes made out of chains."
-	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_clothing.dmi'
-	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/clothing/forge_clothing.dmi'
-	icon_state = "horseshoe"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	armor_type = /datum/armor/shoes_horseshoe
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
-	resistance_flags = FIRE_PROOF
-	obj_flags_nova = ANVIL_REPAIR
-	can_be_tied = FALSE
-
-/datum/armor/shoes_horseshoe
-	melee = 20
-	bullet = 20
-
-/obj/item/clothing/shoes/horseshoe/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/armor_plate, 2)
-	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_FEET)
-
 // Misc
 /obj/item/clothing/gloves/ring/reagent_clothing
 	name = "reagent ring"

@@ -14,10 +14,6 @@
 	icon_state = "map-shuttle_nd"
 	smoothing_flags = SMOOTH_BITMASK
 
-/turf/closed/wall/mineral/titanium/spaceship/nosmooth
-	icon_state = "ship_walls-0"
-	smoothing_flags = NONE
-
 /turf/closed/wall/mineral/titanium/spaceship/overspace
 	icon_state = "map-overspace"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
