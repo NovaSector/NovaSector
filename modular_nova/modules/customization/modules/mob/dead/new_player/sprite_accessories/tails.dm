@@ -4,7 +4,6 @@
 	organ_type = /obj/item/organ/external/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	special_render_case = TRUE
-	special_colorize = TRUE
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
 	/// Can we use this tail for the fluffy tail turf emote?
