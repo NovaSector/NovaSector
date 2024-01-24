@@ -196,7 +196,7 @@
 	playsound(owner, 'sound/effects/light_flicker.ogg', 50, TRUE)
 	var/beam = owner.Beam(cast_on, icon_state = "light_beam", time = 5 SECONDS)
 
-	owner.visible_message(span_bolddanger("[owner.name] makes an unusual buzzing sound as the air between them and [cast_on] crackles."), \
+	owner.visible_message(span_bolddanger("[owner.name] makes an unusual buzzing sound as the air between [owner.p_them()] and [cast_on] crackles."), \
 			span_bolddanger("The air between you and [cast_on] begins to crackle audibly as the Binyat gets to work."))
 
 	if(!do_after(owner, 5 SECONDS, cast_on, IGNORE_SLOWDOWNS))
