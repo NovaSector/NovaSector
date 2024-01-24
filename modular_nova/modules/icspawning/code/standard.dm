@@ -70,15 +70,14 @@
 	atom_storage.max_slots = 1000
 	atom_storage.max_total_storage = 20000
 
-/obj/item/storage/part_replacer/bluespace/tier4_bst/PopulateContents()
-	new /obj/item/stack/cable_coil(src)
-
+/// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
 /obj/item/storage/part_replacer/bluespace/tier4_bst/alt_click_secondary(mob/user)
-	var/spawn_selection
-	spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Cables", "Glass", "Servos", "Lasers", "Matter Bins", "Cells", "Capacitors", "Scanning Modules", "Beakers"))
+	// Ask the user what they want to make, or if they want to clear the storage.
+	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Cables", "Glass", "Machine Board", "Stock Part"))
+	// If they didn't cancel out of the list selection, we do things.  Clear-all QDELs the entire contents, cable coils add new cable coil stacks, and glass adds new glass sheets.  Machine boards and stock parts use a recursive subtype selector.
 	if(spawn_selection)
 		if(spawn_selection == "Clear All Items")
-			return
+			QDEL_LIST(src.contents)
 		else if(spawn_selection == "Cables")
 			new /obj/item/stack/cable_coil(src)
 		else if(spawn_selection == "Glass")
@@ -86,44 +85,52 @@
 				new /obj/item/stack/sheet/glass(src)
 		else
 			var/subtype
-			if(spawn_selection == "Servos")
-				subtype = /obj/item/stock_parts/servo
-			else if(spawn_selection == "Lasers")
-				subtype = /obj/item/stock_parts/micro_laser
-			else if(spawn_selection == "Matter Bins")
-				subtype = /obj/item/stock_parts/matter_bin
-			else if(spawn_selection == "Cells")
-				subtype = /obj/item/stock_parts/cell
-			else if(spawn_selection == "Capacitors")
-				subtype = /obj/item/stock_parts/capacitor
-			else if(spawn_selection == "Scanning Modules")
-				subtype = /obj/item/stock_parts/scanning_module
+			if(spawn_selection == "Machine Board")
+				subtype = /obj/item/circuitboard/machine
+			else if(spawn_selection == "Stock Part")
+				subtype = /obj/item/stock_parts
 			else if(spawn_selection == "Beakers")
 				subtype = /obj/item/reagent_containers/cup/beaker
-			//picked a type now
 			if(subtype)
-				var/list/items_temp = list()
-				var/list/paths = subtypesof(subtype) + subtype
-				for(var/path in paths)
-					var/obj/item/O = path
-					items_temp[initial(O.name)] = path
-				var/target_item = tgui_input_list(user, "Select specific subtype", "RPED Manufacture", sort_list(items_temp))
-				if(target_item)
-					if(items_temp[target_item])
-						var/the_item = items_temp[target_item]
-						for(var/i in 1 to 10)
-							new the_item(src) //this is so scrungly
-				
-	/*for(var/i in 1 to 5)
-		new /obj/item/stock_parts/capacitor/quadratic(src)
-		new /obj/item/stock_parts/scanning_module/triphasic(src)
-		new /obj/item/stock_parts/servo/femto(src)
-		new /obj/item/stock_parts/micro_laser/quadultra(src)
-		new /obj/item/stock_parts/matter_bin/bluespace(src)
-		new /obj/item/stock_parts/cell/bluespace(src)
-	for(var/i in 1 to 20)
-		new /obj/item/stock_parts/capacitor/quadratic(src)
-		new /obj/item/stock_parts/servo/femto(src)
-		new /obj/item/stock_parts/micro_laser/quadultra(src)
-		new /obj/item/stock_parts/matter_bin/bluespace(src)
-		new /obj/item/stock_parts/cell/bluespace(src)*/
+				pick_stock_part(user, FALSE, subtype)
+
+/// A bespoke proc for picking a subtype to spawn in a relatively user-friendly way.
+/obj/item/storage/part_replacer/bluespace/tier4_bst/proc/pick_stock_part(mob/user, recurse, subtype)
+	// Sanity check - this should never be called with a null subtype.
+	if(subtype)
+		// Stores a list of pretty type names : actual paths.
+		var/list/items_temp = list()
+		// Grab the initial list of paths, NOT INCLUDING this specific path.
+		var/list/paths = subtypesof(subtype)
+		// Used to remove subtypes-of-subtypes to prevent list bloat.
+		var/list/paths_to_clear = list()
+		// Simplistic anti-recursion check.  Check every path, then remove every subtype it has from the main list.
+		for(var/path in paths)
+			var/list/path_subtypes = subtypesof(path)
+			for(var/path2 in path_subtypes)
+				if(!(path2 in paths_to_clear))
+					paths_to_clear += path2
+		for(var/path in paths_to_clear)
+			paths -= path
+		// With all sub-subtypes removed, initialize the list of valid, spawnable items & their pretty names - and if this is a recursion, include the original subtype.
+		if(recurse)
+			paths += subtype
+		for(var/path in paths)
+			var/obj/O = path
+			if(length(subtypesof(path)) > 0)
+				items_temp["[initial(O.name)] (+[length(subtypesof(path))] more): [path]"] = path
+			else
+				items_temp["[initial(O.name)]: [path]"] = path
+		// Finally, ask the user what they want to spawn.
+		var/target_item = tgui_input_list(user, "Select Subtype", "RPED Manufacture", sort_list(items_temp))
+		if(target_item)
+			// If they select something, and the name:path binding is valid, then either spawn it, OR, if it has subtypes, recurse to let them pick a subtype.
+			if(items_temp[target_item])
+				var/the_item = items_temp[target_item]
+				if(length(subtypesof(the_item)) > 0 && the_item != subtype)
+					pick_stock_part(user, TRUE, the_item)
+				else
+					for(var/i in 1 to 10)
+						new the_item(src) //this is so scrungly
+	else
+		return
