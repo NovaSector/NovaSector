@@ -7447,7 +7447,6 @@
 #include "modular_nova\modules\medical\code\anesthetic_machine.dm"
 #include "modular_nova\modules\medical\code\carbon_examine.dm"
 #include "modular_nova\modules\medical\code\carbon_update_icons.dm"
-#include "modular_nova\modules\medical\code\grasp.dm"
 #include "modular_nova\modules\medical\code\health_analyzer.dm"
 #include "modular_nova\modules\medical\code\medkit.dm"
 #include "modular_nova\modules\medical\code\smartdarts.dm"
