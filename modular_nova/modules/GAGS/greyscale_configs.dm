@@ -796,6 +796,21 @@
 	name = "Varsity Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/varsity/varsity_worn.json'
 
+//CROPTOP SWEATER
+
+/datum/greyscale_config/croptop
+	name = "Croptop Sweater"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/croptop/croptop.json'
+
+/datum/greyscale_config/croptop/worn
+	name = "Croptop Sweater (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/croptop/worn/teshari
+	name = "Croptop Sweater (Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+
 // TAILORED JACKET
 
 /datum/greyscale_config/tailored_jacket

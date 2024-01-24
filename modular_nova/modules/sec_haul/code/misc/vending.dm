@@ -44,6 +44,8 @@
 	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 5,
 					/obj/item/clothing/suit/toggle/jacket/sec = 5,
 					/obj/item/clothing/suit/armor/vest/peacekeeper/brit = 5,
+					/obj/item/clothing/suit/armor/vest/peacekeeper/jacket = 5,
+					/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge = 5,
 					/obj/item/clothing/neck/security_cape = 5,
 					/obj/item/clothing/neck/security_cape/armplate = 5,
 					/obj/item/storage/backpack/security = 5,

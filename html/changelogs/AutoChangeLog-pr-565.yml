@@ -1,0 +1,4 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - bugfix: "Prisoners joining a round now properly have their implants removed as intended."
