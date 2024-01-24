@@ -112,7 +112,7 @@
 // Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself
 
 /obj/item/organ/internal/cyberimp/hackerman_deck
-	name = "Binyat wireless hacking system"
+	name = "\improper Binyat wireless hacking system"
 	desc = "A rare-to-find neural chip that allows its user to interface with nearby machinery \
 		and effect it in (usually) beneficial ways. Due to the rudimentary connection, fine manipulation \
 		isn't possible, however the deck will drop a payload into the target's systems that will attempt \
