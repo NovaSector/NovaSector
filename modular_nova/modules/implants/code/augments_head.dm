@@ -5,7 +5,7 @@
 // An implant that injects you with twitch on demand, acting like a bootleg sandevistan
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer
-	name = "Qani-Laaca sensory computer"
+	name = "\improper Qani-Laaca sensory computer"
 	desc = "An experimental implant replacing the spine of organics. When activated, it can give a temporary boost to mental processing speed, \
 		Which many users percieve as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
 		system that heavily influence the user's nervous system, like the central nervous system rebooter. \
