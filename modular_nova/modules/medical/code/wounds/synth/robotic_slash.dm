@@ -581,7 +581,7 @@
 	name = "Systemic Fault"
 	desc = "A significant portion of the power distribution network has been cut open, resulting in massive power loss and runaway electrocution."
 	occur_text = "lets out a violent \"zhwarp\" sound as angry electric arcs attack the surrounding air"
-	examine_desc = "has lots of wires mauled wires sticking out"
+	examine_desc = "has lots of mauled wires sticking out"
 	treat_text = "Immediate securing via gauze, followed by emergency cable replacement and securing via wirecutters or retractor. \
 		If the fault has become uncontrollable, extreme heat therapy is recommended."
 
