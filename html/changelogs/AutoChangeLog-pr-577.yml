@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "fixes a spurious CI failure from do_charge() signal overrides"
