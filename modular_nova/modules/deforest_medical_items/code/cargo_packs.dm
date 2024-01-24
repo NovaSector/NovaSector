@@ -8,6 +8,16 @@
 		/obj/item/storage/medkit/civil_defense/stocked = 5,
 	)
 
+/datum/supply_pack/medical/civil_defense/comfort
+	name = "\improper Civil Defense Symptom Support Kit Crate"
+	crate_name = "civil defense symptom support kit crate"
+	desc = "Contains five civil defense symptom support kits stocked with three pens of psifinil and a tube containing 5 pills of alifil, two proprietary DeForest mixes designed to provide long-lasting relief from chronic disease and syndromes like gravity sickness."
+	access = ACCESS_MEDICAL
+	cost = CARGO_CRATE_VALUE * 5 // 2000
+	contains = list(
+		/obj/item/storage/medkit/civil_defense/comfort/stocked = 5,
+	)
+
 /datum/supply_pack/medical/frontier_first_aid
 	name = "Frontier First Aid Crate"
 	crate_name = "frontier first aid crate"
