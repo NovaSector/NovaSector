@@ -7338,6 +7338,7 @@
 #include "modular_nova\modules\implants\code\augments_arms.dm"
 #include "modular_nova\modules\implants\code\augments_chest.dm"
 #include "modular_nova\modules\implants\code\augments_eyes.dm"
+#include "modular_nova\modules\implants\code\augments_head.dm"
 #include "modular_nova\modules\implants\code\augments_internal.dm"
 #include "modular_nova\modules\implants\code\medical_designs.dm"
 #include "modular_nova\modules\implants\code\medical_nodes.dm"
