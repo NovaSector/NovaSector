@@ -28,6 +28,7 @@
 		"wall_heater",
 		"macrowave",
 		"frontier_range",
+		"tabletop_griddle",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000000000000000) // God save you
 	hidden = TRUE
