@@ -16,27 +16,36 @@
 /obj/effect/spawner/armory_spawn/Initialize(mapload)
 	. = ..()
 
-	if(guns)
-		var/gun_count = 0
-		var/offset_percent = 20 / guns.len
-		for(var/gun in guns) // 11/20/21: Gun spawners now spawn 1 of each gun in it's list no matter what, so as to reduce the RNG of the armory stock.
-			var/obj/item/gun/spawned_gun = new gun(loc)
+	if(!guns)
+		return
 
-			if(vertical_guns)
-				spawned_gun.place_on_rack()
-				spawned_gun.pixel_x = -10 + (offset_percent * gun_count)
-			else if (fan_out_items)
-				spawned_gun.pixel_x = spawned_gun.pixel_y = ((!(gun_count%2)*gun_count/2)*-1)+((gun_count%2)*(gun_count+1)/2*1)
+	var/obj/structure/rack/gunrack/rack_on_tile
+	for(var/obj/structure/rack/gunrack/found_rack in loc.contents)
+		rack_on_tile = found_rack
+		break
 
-			gun_count++
+	var/gun_count = 0
+	var/offset_percent = 20 / guns.len
+	for(var/gun in guns) // 11/20/21: Gun spawners now spawn 1 of each gun in it's list no matter what, so as to reduce the RNG of the armory stock.
+		var/obj/item/gun/spawned_gun = new gun(loc)
 
-			if(istype(spawned_gun, /obj/item/gun/ballistic))
-				var/obj/item/gun/ballistic/spawned_ballistic_gun = spawned_gun
-				if(spawned_ballistic_gun.magazine && !istype(spawned_ballistic_gun.magazine, /obj/item/ammo_box/magazine/internal))
-					var/obj/item/storage/box/ammo_box/spawned_box = new(loc)
-					spawned_box.name = "ammo box - [spawned_ballistic_gun.name]"
-					for(var/i in 1 to mags_to_spawn)
-						new spawned_ballistic_gun.spawn_magazine_type (spawned_box)
+		if(vertical_guns && rack_on_tile)
+			rack_on_tile.rotate_weapon(spawned_gun)
+			spawned_gun.pixel_x = -10 + (offset_percent * gun_count) + spawned_gun.base_pixel_x
+		else if (fan_out_items)
+			spawned_gun.pixel_x = spawned_gun.pixel_y = ((!(gun_count%2)*gun_count/2)*-1)+((gun_count%2)*(gun_count+1)/2*1)
+
+		gun_count++
+
+		if(!istype(spawned_gun, /obj/item/gun/ballistic))
+			continue
+
+		var/obj/item/gun/ballistic/spawned_ballistic_gun = spawned_gun
+		if(spawned_ballistic_gun.magazine && !istype(spawned_ballistic_gun.magazine, /obj/item/ammo_box/magazine/internal))
+			var/obj/item/storage/box/ammo_box/spawned_box = new(loc)
+			spawned_box.name = "ammo box - [spawned_ballistic_gun.name]"
+			for(var/i in 1 to mags_to_spawn)
+				new spawned_ballistic_gun.spawn_magazine_type(spawned_box)
 
 /obj/effect/spawner/armory_spawn/shotguns
 	guns = list(
