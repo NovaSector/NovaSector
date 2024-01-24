@@ -6,7 +6,7 @@
 	if(href_list["wound_topic"])
 		if(usr != victim)
 			return
-		victim.grabbedby(usr, limb)
+		victim.grabbedby(usr, grabbed_part = limb)
 
 /datum/wound/pierce/bleed/show_wound_topic(mob/user)
 	return (user == victim && blood_flow)
@@ -16,4 +16,4 @@
 	if(href_list["wound_topic"])
 		if(usr != victim)
 			return
-		victim.grabbedby(usr, limb)
+		victim.grabbedby(usr, grabbed_part = limb)
