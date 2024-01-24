@@ -10,5 +10,7 @@
 
 /// Ensures text does not start with capital letters.
 /proc/lowercase_title(input_text)
+	if (!input_text)
+		return input_text
 	var/start = lowertext(input_text[1])
 	return start + copytext(input_text, 2, length(input_text)+1)
