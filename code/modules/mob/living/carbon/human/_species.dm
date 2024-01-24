@@ -608,8 +608,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * Arguments:
  * * species_human - Human, whoever we're handling the body for
  */
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
-/*
 /datum/species/proc/handle_body(mob/living/carbon/human/species_human)
 	species_human.remove_overlay(BODY_LAYER)
 	var/height_offset = species_human.get_top_offset() // From high changed by varying limb height
@@ -700,8 +698,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	species_human.apply_overlay(BODY_LAYER)
 	handle_mutant_bodyparts(species_human)
-*/
-//NOVA EDIT REMOVAL END
 
 /**
  * Handles the mutant bodyparts of a human
@@ -712,8 +708,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * * H - Human, whoever we're handling the body for
  * * forced_colour - The forced color of an accessory. Leave null to use mutant color.
  */
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
-/*
+/* NOVA EDIT REMOVAL - Customization - Moved to modular
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	var/list/bodyparts_to_add = mutant_bodyparts.Copy()
 	var/list/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
@@ -748,21 +743,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = GLOB.ears_list[source.dna.features["ears"]]
 				if("body_markings")
 					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
-				if("wings")
-					accessory = GLOB.wings_list[source.dna.features["wings"]]
-				if("wingsopen")
-					accessory = GLOB.wings_open_list[source.dna.features["wings"]]
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
-<<<<<<< HEAD
-				if("moth_wings")
-					accessory = GLOB.moth_wings_list[source.dna.features["moth_wings"]]
-				if("moth_antennae")
-					accessory = GLOB.moth_antennae_list[source.dna.features["moth_antennae"]]
-				if("caps")
-					accessory = GLOB.caps_list[source.dna.features["caps"]]
-=======
->>>>>>> ca61d0f8681 (Turns mush cap into an extorgan (#80952))
 
 			if(!accessory || accessory.icon_state == "none")
 				continue
