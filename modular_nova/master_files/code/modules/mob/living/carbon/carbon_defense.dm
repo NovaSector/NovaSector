@@ -1,4 +1,3 @@
-#define SHAKE_ANIMATION_OFFSET 4
 #define PERSONAL_SPACE_DAMAGE 2
 #define ASS_SLAP_EXTRA_RANGE -1
 
@@ -43,6 +42,5 @@
 			return
 	return ..()
 
-#undef SHAKE_ANIMATION_OFFSET
 #undef PERSONAL_SPACE_DAMAGE
 #undef ASS_SLAP_EXTRA_RANGE
