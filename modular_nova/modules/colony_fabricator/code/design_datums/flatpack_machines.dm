@@ -51,7 +51,7 @@
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_MANUFACTURING,
 	)
-	construction_time = 30 SECONDS
+	construction_time = 2 MINUTES
 
 // Solar panels and trackers
 
