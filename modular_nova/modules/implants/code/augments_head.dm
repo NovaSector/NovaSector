@@ -96,7 +96,7 @@
 	injection_amount = initial(injection_amount)
 
 /obj/item/qani_laaca_telegraph
-	name = "spent qani-laaca cartridge"
+	name = "spent Qani-Laaca cartridge"
 	desc = "A small glass vial, usually kept in a large stack inside a qani-laaca implant, that is broken open and ejected \
 		each time the implant is used. If you're looking at one long enough to think about it this long, you either have fast eyes \
 		or were lucky enough to catch one before it broke."
