@@ -38,21 +38,24 @@ GLOBAL_LIST_INIT(optin_forcing_on_spawn_antag_categories, list(
 
 	if (isnull(mind))
 		return
+	if (isnull(client?.prefs))
+		return
 	if (!mind.opt_in_initialized)
-		mind.update_opt_in()
+		mind.update_opt_in(client.prefs)
 		mind.send_antag_optin_reminder()
 		mind.opt_in_initialized = TRUE
 
 /// Refreshes our ideal/on spawn antag opt in level by accessing preferences.
-/datum/mind/proc/update_opt_in()
-	var/datum/preferences/preference_instance = GLOB.preferences_datums[lowertext(key)]
-	if (!isnull(preference_instance))
-		ideal_opt_in_level = preference_instance.read_preference(/datum/preference/choiced/antag_opt_in_status)
+/datum/mind/proc/update_opt_in(datum/preferences/preference_instance = GLOB.preferences_datums[lowertext(key)])
+	if (isnull(preference_instance))
+		return
 
-		for (var/antag_category in GLOB.optin_forcing_on_spawn_antag_categories)
-			if (antag_category in preference_instance.be_special)
-				on_spawn_antag_opt_in_level = OPT_IN_ANTAG_ENABLED_LEVEL
-				break
+	ideal_opt_in_level = preference_instance.read_preference(/datum/preference/choiced/antag_opt_in_status)
+
+	for (var/antag_category in GLOB.optin_forcing_on_spawn_antag_categories)
+		if (antag_category in preference_instance.be_special)
+			on_spawn_antag_opt_in_level = OPT_IN_ANTAG_ENABLED_LEVEL
+			break
 
 /// Sends a bold message to our holder, telling them if their optin setting has been set to a minimum due to their antag preferences.
 /datum/mind/proc/send_antag_optin_reminder()
