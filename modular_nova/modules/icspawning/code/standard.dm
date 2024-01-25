@@ -73,7 +73,7 @@
 /// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
 /obj/item/storage/part_replacer/bluespace/tier4_bst/alt_click_secondary(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.
-	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Cables", "Glass", "Machine Board", "Stock Part"))
+	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Cables", "Glass", "Machine Board", "Stock Part", "Beaker"))
 	// If they didn't cancel out of the list selection, we do things.  Clear-all QDELs the entire contents, cable coils add new cable coil stacks, and glass adds new glass sheets.  Machine boards and stock parts use a recursive subtype selector.
 	if(spawn_selection)
 		if(spawn_selection == "Clear All Items")
@@ -89,7 +89,7 @@
 				subtype = /obj/item/circuitboard/machine
 			else if(spawn_selection == "Stock Part")
 				subtype = /obj/item/stock_parts
-			else if(spawn_selection == "Beakers")
+			else if(spawn_selection == "Beaker")
 				subtype = /obj/item/reagent_containers/cup/beaker
 			if(subtype)
 				pick_stock_part(user, FALSE, subtype)
