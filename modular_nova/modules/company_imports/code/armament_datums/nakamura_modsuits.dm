@@ -86,7 +86,7 @@
 	contraband = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/accretion
-	item_type = /obj/item/mod/module/ash_accretion
+	item_type = /obj/item/mod/module/ash_accretion/auxiliary
 	cost = PAYCHECK_COMMAND * 3
 	restricted = TRUE
 

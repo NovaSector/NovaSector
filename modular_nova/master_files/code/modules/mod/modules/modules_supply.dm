@@ -7,8 +7,21 @@
 	REMOVE_TRAIT(mod.wearer, TRAIT_TRASHMAN, MOD_TRAIT)
 
 /obj/item/mod/module/ash_accretion
+	incompatible_modules = list(/obj/item/mod/module/ash_accretion, /obj/item/mod/module/armor_booster)
 	/// Is this ash accretion module providing its perks? Separate from active, because I don't know how it would interact with everything else as it's a passive module.
 	var/protection_enabled = FALSE
+	armor_mod = /datum/armor/mod_ash_accretion_suit
+
+/datum/armor/mod_ash_accretion_suit
+	melee = 4.5
+	bullet = 1
+	laser = 2
+	energy = 2
+	bomb = 4
+
+/obj/item/mod/module/ash_accretion/on_install()
+	. = ..()
+	speed_added = mod.slowdown_active // so when you hit full ash accretion, slowdown cancels out
 
 /obj/item/mod/module/ash_accretion/on_suit_activation()
 	. = ..()
@@ -21,7 +34,6 @@
 	UnregisterSignal(mod, list(COMSIG_MOD_DEPLOYED, COMSIG_MOD_RETRACTED))
 
 /obj/item/mod/module/ash_accretion/proc/on_mod_toggle()
-
 	if((mod.wearer.head == mod.helmet) && (mod.wearer.wear_suit == mod.chestplate) && (mod.wearer.gloves == mod.gauntlets) && (mod.wearer.shoes == mod.boots) && mod.active)
 		// suit is on and fully deployed, give them their proofing
 		mod.wearer.add_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
@@ -31,7 +43,7 @@
 		return
 	// if their suit is not fully deployed, take their proofing away
 	if(!protection_enabled)
-		return
+		return // unless it was already gone
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
 	mod.wearer.remove_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
 	balloon_alert(mod.wearer, "ash accretion disabled!")
@@ -46,3 +58,11 @@
 		mod.slowdown += speed_added
 		mod.wearer.update_equipment_speed_mods()
 	traveled_tiles = 0
+
+/obj/item/mod/module/ash_accretion/auxiliary
+	name = "MOD auxiliary ash accretion module"
+	desc = "A module adapted from Nanotrasen mining suits that collects ash from suitable terrain, covering the suit in a protective layer. This layer is \
+		lost when moving across standard terrain."
+	removable = TRUE
+	speed_added = 0.5
+	armor_mod = /datum/armor/mod_ash_accretion
