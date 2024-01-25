@@ -2,7 +2,7 @@
 	power_path = /datum/action/cooldown/spell/pointed/telepathy
 
 /datum/action/cooldown/spell/pointed/telepathy
-	name = "Telepathy"
+	name = "Telepathic Communication"
 	desc = "<b>Left click</b>: point target to project a thought to them. <b>Right click</b>: project to your last thought target, if in range."
 	button_icon = 'icons/mob/actions/actions_revenant.dmi'
 	button_icon_state = "r_transmit"
@@ -56,7 +56,7 @@
 		reset_spell_cooldown()
 		return . | SPELL_CANCEL_CAST
 
-/datum/action/cooldown/spell/pointed/telepathy/Trigger(trigger_flags)
+/datum/action/cooldown/spell/pointed/telepathy/Trigger(trigger_flags, atom/target)
 	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
 		if (!isnull(last_target) && get_dist(last_target, owner) <= cast_range)
 			blocked = TRUE
