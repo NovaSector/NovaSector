@@ -39,9 +39,14 @@
 		to_chat(cast_on, span_warning("ERROR: LIMB DISENGAGEMENT PROTOCOLS OFFLINE. Seek out a maintenance technician."))
 		return
 
+	var/list/exclusions = list()
+	exclusions += BODY_ZONE_CHEST
+	if (!issynthetic(cast_on))
+		exclusions += BODY_ZONE_HEAD // no decapitating yourself unless you're a synthetic, who keep their brains in their chest
+
 	var/list/robot_parts = list()
 	for (var/obj/item/bodypart/possible_part as anything in cast_on.bodyparts)
-		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && possible_part.body_zone != BODY_ZONE_HEAD && possible_part.body_zone != BODY_ZONE_CHEST) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
+		if ((possible_part.bodytype & BODYTYPE_ROBOTIC) && !(possible_part.body_zone in exclusions)) //only robot limbs and only if they're not crucial to our like, ongoing life, you know?
 			robot_parts += possible_part
 
 	if (!length(robot_parts))
