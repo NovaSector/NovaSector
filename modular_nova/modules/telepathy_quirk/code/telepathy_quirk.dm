@@ -6,13 +6,25 @@
 	medical_record_text = "Patient has an unusually enlarged Broca's area visible in cerebral biology, and appears to be able to communicate via extrasensory means."
 	value = 0
 	icon = FA_ICON_HEAD_SIDE_COUGH
+	/// Ref used to easily retrieve the action used when removing the quirk from silicons
+	var/silicon_action_ref
 
 /datum/quirk/telepathic/add(client/client_source)
-	var/mob/living/carbon/human/human_holder = quirk_holder
+	if (iscarbon(quirk_holder))
+		var/mob/living/carbon/human/human_holder = quirk_holder
 
-	if (!human_holder.dna.activate_mutation(/datum/mutation/human/telepathy))
-		human_holder.dna.add_mutation(/datum/mutation/human/telepathy, MUT_OTHER)
+		if (!human_holder.dna.activate_mutation(/datum/mutation/human/telepathy))
+			human_holder.dna.add_mutation(/datum/mutation/human/telepathy, MUT_OTHER)
+	else if (issilicon(quirk_holder))
+		var/mob/living/silicon/robot_holder = quirk_holder
+		var/datum/action/cooldown/spell/pointed/telepathy/tele_action = new()
+
+		tele_action.Grant(robot_holder)
+		silicon_action_ref = tele_action
 
 /datum/quirk/telepathic/remove()
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	human_holder.dna.remove_mutation(/datum/mutation/human/telepathy)
+	if (iscarbon(quirk_holder))
+		var/mob/living/carbon/human/human_holder = quirk_holder
+		human_holder.dna.remove_mutation(/datum/mutation/human/telepathy)
+	else if (issilicon(quirk_holder) && !isnull(silicon_action_ref))
+		QDEL_NULL(silicon_action_ref)
