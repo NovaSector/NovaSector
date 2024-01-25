@@ -6,7 +6,6 @@
 	medical_record_text = "Patient has an unusually enlarged Broca's area visible in cerebral biology, and appears to be able to communicate via extrasensory means."
 	value = 0
 	icon = FA_ICON_HEAD_SIDE_COUGH
-	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk/telepathic/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
