@@ -421,16 +421,6 @@
 /obj/structure/table,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
-"tL" = (
-/obj/machinery/door/airlock/shuttle{
-	name = "Emergency Shuttle Airlock"
-	},
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/pod/dark,
-/area/shuttle/escape)
 "tR" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -699,11 +689,6 @@
 	desc = "An injector with a cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead, making them become friendly to the user. Unfortunately, the process is useless on higher forms of life and incredibly costly, so these were hidden in storage until an executive thought they'd be great motivation for some of their employees. soley exists to ressurect ian."
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/bot/medbot{
-	name = "\improper emergency medibot";
-	pixel_x = -3;
-	pixel_y = 2
-	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "Ep" = (
@@ -1087,13 +1072,6 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
-"UV" = (
-/obj/machinery/door/airlock/medical/glass{
-	name = "Escape Shuttle Infirmary"
-	},
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/pod/dark,
-/area/shuttle/escape)
 "UY" = (
 /obj/machinery/door/airlock/command{
 	name = "Emergency Recovery Airlock"
@@ -1363,7 +1341,7 @@ XW
 XW
 XW
 XW
-UV
+xX
 Mk
 rF
 JD
@@ -1394,7 +1372,7 @@ XW
 XW
 XW
 XW
-UV
+xX
 UQ
 Zt
 aS
@@ -1798,7 +1776,7 @@ Qo
 Uy
 Gl
 rF
-tL
+Gl
 Lc
 Cj
 Cj
@@ -1806,7 +1784,7 @@ Lc
 Lc
 Hc
 Lc
-tL
+Gl
 ef
 tS
 tS
