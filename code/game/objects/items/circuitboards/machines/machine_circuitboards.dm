@@ -632,34 +632,14 @@
 		/obj/machinery/vending/games = "\improper Good Clean Fun",
 		/obj/machinery/vending/hydronutrients = "NutriMax",
 		/obj/machinery/vending/hydroseeds = "MegaSeed Servitor",
-<<<<<<< HEAD
-		/obj/machinery/vending/sustenance = "Sustenance Vendor",
-		/obj/machinery/vending/dinnerware = "Plasteel Chef's Dinnerware Vendor",
-		/obj/machinery/vending/cart = "PTech",
-		/obj/machinery/vending/robotics = "Robotech Deluxe",
-		/obj/machinery/vending/engineering = "Robco Tool Maker",
-		/obj/machinery/vending/sovietsoda = "BODA",
-		/obj/machinery/vending/security = "Armadyne Peacekeeper Equipment Vendor", //NOVA EDIT CHANGE - SEC_HUAL - ORIGINAL: /obj/machinery/vending/security = "SecTech",
-=======
 		/obj/machinery/vending/medical = "NanoMed Plus",
->>>>>>> ac80ffc750c (Fixes formatting of vending_names_paths (#81071))
 		/obj/machinery/vending/modularpc = "Deluxe Silicate Selections",
 		/obj/machinery/vending/robotics = "Robotech Deluxe",
-		/obj/machinery/vending/security = "SecTech",
+		/obj/machinery/vending/security = "Armadyne Peacekeeper Equipment Vendor", //NOVA EDIT CHANGE - SEC_HUAL - ORIGINAL: /obj/machinery/vending/security = "SecTech",
 		/obj/machinery/vending/snack = "Getmore Chocolate Corp",
 		/obj/machinery/vending/sovietsoda = "BODA",
 		/obj/machinery/vending/sustenance = "Sustenance Vendor",
 		/obj/machinery/vending/tool = "YouTool",
-<<<<<<< HEAD
-		/obj/machinery/vending/custom = "Custom Vendor",
-		/obj/machinery/vending/dorms = "LustWish",	//NOVA EDIT CHANGE - ERP UPDATE - ORIGINAL: /obj/machinery/vending/dorms = "KinkVend"
-		/obj/machinery/vending/access/command = "Command Outfitting Station", //NOVA EDIT ADDITION
-		/obj/machinery/vending/barbervend = "Fab-O-Vend", //NOVA EDIT ADDITION
-		/obj/machinery/vending/imported = "NT Sustenance Supplier", //NOVA EDIT ADDITION
-		/obj/machinery/vending/imported/yangyu = "Fudobenda", //NOVA EDIT ADDITION
-		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //NOVA EDIT ADDITION
-		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies",) //NOVA EDIT ADDITION
-=======
 		/obj/machinery/vending/wallmed = "NanoMed",
 		/obj/machinery/vending/wardrobe/atmos_wardrobe = "AtmosDrobe",
 		/obj/machinery/vending/wardrobe/bar_wardrobe = "BarDrobe",
@@ -680,8 +660,14 @@
 		/obj/machinery/vending/wardrobe/science_wardrobe = "SciDrobe",
 		/obj/machinery/vending/wardrobe/sec_wardrobe = "SecDrobe",
 		/obj/machinery/vending/wardrobe/viro_wardrobe = "ViroDrobe",
+		/obj/machinery/vending/access/command = "Command Outfitting Station", //NOVA EDIT ADDITION
+		/obj/machinery/vending/barbervend = "Fab-O-Vend", //NOVA EDIT ADDITION
+		/obj/machinery/vending/dorms = "LustWish",	//NOVA EDIT CHANGE - ERP UPDATE - ORIGINAL: /obj/machinery/vending/dorms = "KinkVend"
+		/obj/machinery/vending/imported = "NT Sustenance Supplier", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/yangyu = "Fudobenda", //NOVA EDIT ADDITION
 	)
->>>>>>> ac80ffc750c (Fixes formatting of vending_names_paths (#81071))
 
 /obj/item/circuitboard/machine/vendor/screwdriver_act(mob/living/user, obj/item/tool)
 	var/static/list/display_vending_names_paths
