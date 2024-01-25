@@ -40,6 +40,10 @@
 			return TRUE
 
 		if("expunge_record")
+			//NOVA EDIT BEGIN: disable record purging/expunging to stop people messing around with the AI effortlessly
+			balloon_alert(usr, "access denied!")
+			return TRUE
+			/*
 			if(!target)
 				return FALSE
 			// Don't let people off station futz with the station network.
@@ -53,6 +57,7 @@
 			investigate_log("[key_name(usr)] expunged the record of [target.name].", INVESTIGATE_RECORDS)
 
 			return TRUE
+			*/
 
 		if("login")
 			authenticated = secure_login(usr)
@@ -67,6 +72,10 @@
 
 		if("purge_records")
 			// Don't let people off station futz with the station network.
+			//NOVA EDIT BEGIN: disable record purging/expunging to stop people messing around with the AI effortlessly
+			balloon_alert(usr, "access denied!")
+			return TRUE
+			/*
 			if(!is_station_level(z))
 				balloon_alert(usr, "out of range!")
 				return TRUE
@@ -86,6 +95,8 @@
 				balloon_alert(usr, "interrupted!")
 
 			return TRUE
+			*/
+			//NOVA EDIT END
 
 		if("view_record")
 			if(!target)
