@@ -66,3 +66,6 @@
 	removable = TRUE
 	speed_added = 0.5
 	armor_mod = /datum/armor/mod_ash_accretion
+
+/obj/item/mod/module/ash_accretion/auxiliary/on_install()
+	return // you get 0.5 speed and that's it
