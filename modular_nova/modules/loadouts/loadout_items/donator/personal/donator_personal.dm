@@ -139,7 +139,7 @@
 /datum/loadout_item/mask/caligram_visage_mask
 	name = "Caligram Visage Mask"
 	item_path = /obj/item/clothing/mask/gas/caligram_visage_mask
-	ckeywhitelist = list("farsightednightlight", "raxraus", "1ceres", "marcoalbaredaa", "itzshift_yt", "drifter7371", "AvianAviator", "Katty Kat", "Investigator77", "Dalao Azure", "Socialistion", "ChillyLobster", "Sylvara", "AmZee", "Tf4", "rb303", "Kay_Nite", "whataboutism", "taac", "Halkyon", "Lupo_di_rosa", "Merek2", "lowpowermia", "RyeanBread", "Jesterz7", "Saund_Minah", "Ruediger4")
+	ckeywhitelist = list("farsightednightlight")
 
 /datum/loadout_item/head/caligram_cap_tan
 	name = "Caligram Tan Softcap"
