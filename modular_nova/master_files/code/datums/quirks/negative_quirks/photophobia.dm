@@ -1,5 +1,7 @@
 /datum/quirk/photophobia
 	desc = "Bright lights are uncomfortable and upsetting to you for whatever reason. Your eyes are also more sensitive to light in general. This shares a unique interaction with Night Vision."
+	/// how much of a flash_protect deficit the quirk inflicts
+	var/severity = 1
 
 /datum/quirk/photophobia/add_unique(client/client_source)
 	var/sensitivity = client_source?.prefs.read_preference(/datum/preference/choiced/photophobia_severity)

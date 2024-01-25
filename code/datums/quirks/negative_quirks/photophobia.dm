@@ -9,10 +9,6 @@
 	lose_text = span_notice("Enlightening.")
 	medical_record_text = "Patient has acute phobia of light, and insists it is physically harmful."
 	hardcore_value = 4
-	// NOVA ADDITION BEGIN - variable photophobia quirk strength
-	/// how much of a flash_protect deficit the quirk inflicts
-	var/severity = 1
-	// NOVA ADDITION END
 	mail_goodies = list(
 		/obj/item/flashlight/flashdark,
 		/obj/item/food/grown/mushroom/glowshroom/shadowshroom,
@@ -44,15 +40,15 @@
 /datum/quirk/photophobia/proc/update_eyes(obj/item/organ/internal/eyes/target_eyes)
 	if(!istype(target_eyes))
 		return
-	target_eyes.flash_protect = max(target_eyes.flash_protect - severity, FLASH_PROTECTION_HYPER_SENSITIVE) // NOVA EDIT (severity previously 1)
-	target_eyes.refresh() // NOVA ADDITION
+	target_eyes.flash_protect = max(target_eyes.flash_protect - severity, FLASH_PROTECTION_HYPER_SENSITIVE) // NOVA EDIT CHANGE - ORIGINAL: target_eyes.flash_protect = max(target_eyes.flash_protect - 1, FLASH_PROTECTION_HYPER_SENSITIVE)
+	target_eyes.refresh() // NOVA EDIT ADDITION
 
 /datum/quirk/photophobia/proc/restore_eyes(obj/item/organ/internal/eyes/normal_eyes)
 	SIGNAL_HANDLER
 	if(!istype(normal_eyes))
 		return
 	normal_eyes.flash_protect = initial(normal_eyes.flash_protect)
-	normal_eyes.refresh() // NOVA ADDITION
+	normal_eyes.refresh() // NOVA EDIT ADDITION
 
 /datum/quirk/photophobia/proc/on_holder_moved(mob/living/source, atom/old_loc, dir, forced)
 	SIGNAL_HANDLER
