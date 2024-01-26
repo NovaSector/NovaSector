@@ -20,7 +20,7 @@
 		/obj/item/gun/energy/modular_laser_rifle/carbine,
 		/obj/item/gun/energy/modular_laser_rifle/carbine,
 	)
-	crate_name = "Modular Laser Carbine Crate"
+	crate_name = "\improper Modular Laser Carbine Crate"
 
 /datum/supply_pack/security/armory/big_mod_laser
 	name = "Modular Laser Rifle Crate"
