@@ -1,5 +1,0 @@
-author: "Orion_the_Fox, Halcyon"
-delete-after: True
-changes:
-  - image: "updated the Crop Top Turtleneck sprite, including adding a Teshari-compatible version!"
-  - balance: "removed on-the-fly recoloring, BUT now the turtleneck can carry some basic items and warms you up a bit! ... as much as a croptop really can, I guess."

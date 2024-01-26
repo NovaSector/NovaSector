@@ -1,5 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - bugfix: "Anti-gravity harnesses now properly apply various interactions with the Spacer quirk."
-  - bugfix: "Players now receive a visible status effect alert when benefitting from the gravity wellness buff given by the Spacer quirk."

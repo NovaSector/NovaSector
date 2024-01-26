@@ -75,6 +75,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait that determines if someone has the robotic limb reattachment quirk.
+#define TRAIT_ROBOTIC_LIMBATTACHMENT "trait_robotic_limbattachment"
+
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
 
@@ -115,6 +118,9 @@
 // Defines for some extra inherent traits
 #define TRAIT_REVIVES_BY_HEALING "trait_revives_by_healing"
 #define TRAIT_ROBOTIC_DNA_ORGANS "trait_robotic_dna_organs"
+
+/// Trait that changes the ending effects of twitch leaving your system
+#define TRAIT_TWITCH_ADAPTED "twitch_adapted"
 
 //Defines for model features, set in the model_features list of a robot model datum. Are they a dogborg? Is the model small? etc.
 /// Cyborgs with unique sprites for when they get totally broken down.
