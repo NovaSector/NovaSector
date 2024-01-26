@@ -301,6 +301,20 @@
 	desc = "A full-face respirator designed by Forestfel Intersystem Industries and originally meant for Ixian Tajarans, the FIR-22 Rebreather is a snout-covering variant often seen used by Tajaran Military Personnel. It reeks of militarism."
 	icon_state = "fir22"
 
+/obj/item/clothing/mask/gas/caligram_visage_mask
+	name = "\improper Caligram visage mask"
+	desc = "An Ixian Tajaran mask commonly worn by Talicana monks that features a braided internals line and food consumption port. It bears the blue and red rank-stripes of a Caligram First Ensign."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "caligram_visage"
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS //same flags as actual sec hailer gas mask
+	flags_inv = HIDEFACE | HIDESNOUT
+	flags_cover = NONE
+	visor_flags = MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_inv = HIDEFACE | HIDESNOUT
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+
 // Donation reward for Raxraus
 /obj/item/clothing/head/caligram_cap_tan
 	name = "\improper Caligram tan softcap"
