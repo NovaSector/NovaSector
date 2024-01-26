@@ -253,6 +253,7 @@
 		/obj/item/storage/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/storage/box/bandages,
 	))
 
 // Big surgical kit that can be worn like a bag, holds 14 normal items (more than what a backpack can do!) but works like a duffelbag
@@ -359,4 +360,5 @@
 		/obj/item/handheld_soulcatcher,
 		/obj/item/wrench/medical,
 		/obj/item/emergency_bed,
+		/obj/item/storage/box/bandages,
 	))
