@@ -102,7 +102,6 @@
 	if(incoming_controller && parent_machinery.circuit && prob(CHANCE_TO_CREATE_MECHIVER))
 		parent_machinery.circuit.forceMove(get_turf(parent_machinery))
 		parent_machinery.circuit = null
-		notify_ghosts("A new corrupt Mechiver has been created by [incoming_controller.controller_fullname]!", source = new_mechiver)
 		qdel(parent_machinery)
 		return
 
