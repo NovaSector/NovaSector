@@ -43,6 +43,7 @@
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/debug/omnitool = 1,
+		/obj/item/storage/box/stabilized = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
@@ -59,11 +60,13 @@
 		/obj/item/gun/magic/wand/death/debug = 1,
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/debug/omnitool = 1,
+		/obj/item/storage/box/stabilized = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst
 	name = "BST's RPED"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly.  Alt-Right-Click to manufacture parts or clear its internal storage."
+	var/destroy_worse = TRUE
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst/Initialize(mapload)
 	. = ..()
@@ -73,6 +76,9 @@
 /// An extension to the default RPED part replacement action - if you don't have the requisite parts in the RPED already, it will spawn T4 versions to use.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/part_replace_action(obj/attacked_object, mob/living/user)
 	// If it's a machine frame, check if we need to spawn new parts for it.
+	var/list/old_contents = null
+	if(destroy_worse)
+		old_contents = contents.Copy()
 	var/obj/structure/frame/attacked_frame = attacked_object
 	if(istype(attacked_frame, /obj/structure/frame/machine))
 		var/obj/structure/frame/machine/machine_frame = attacked_frame
@@ -90,6 +96,10 @@
 			if(istype(circuit))
 				spawn_parts_for_components(user, circuit.req_components)
 	. = ..()
+	if(destroy_worse)
+		for(var/obj/some_item in contents)
+			if(!(some_item in old_contents))
+				qdel(some_item)
 
 /// A bespoke proc for spawning in parts
 /obj/item/storage/part_replacer/bluespace/tier4/bst/proc/spawn_parts_for_components(mob/living/user, list/components_go_brr)
@@ -184,15 +194,30 @@
 /// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/alt_click_secondary(mob/user)
 	// Ask the user what they want to make, or if they want to clear the storage.
-	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Cables", "Glass", "Machine Board", "Stock Part", "Beaker"))
-	// If they didn't cancel out of the list selection, we do things.  Clear-all QDELs the entire contents, cable coils add new cable coil stacks, and glass adds new glass sheets.  Machine boards and stock parts use a recursive subtype selector.
+	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Cables", "Glass", "Spare T4s", "Machine Board", "Stock Part", "Beaker"))
+	// If they didn't cancel out of the list selection, we do things.  Clear-all QDELs the entire contents, auto-clear destroys left-overs after upgrades, cable coils add new cable coil stacks, glass adds new glass sheets, and spare T4s resets.
+	// Machine boards and stock parts use a recursive subtype selector.
 	if(spawn_selection)
 		if(spawn_selection == "Clear All Items")
 			QDEL_LIST(src.contents)
+		else if(spawn_selection == "Toggle Auto-Clear")
+			if(!destroy_worse)
+				destroy_worse = TRUE
+			else
+				destroy_worse = FALSE
+			to_chat(user, span_notice("The RPED will now [(destroy_worse ? "destroy" : "keep")] items left-over after upgrades."))
 		else if(spawn_selection == "Cables")
 			new /obj/item/stack/cable_coil(src)
 		else if(spawn_selection == "Glass")
 			new /obj/item/stack/sheet/glass/fifty(src)
+		else if(spawn_selection == "Spare T4s")
+			for(var/i in 1 to 10)
+				new /obj/item/stock_parts/capacitor/quadratic(src)
+				new /obj/item/stock_parts/scanning_module/triphasic(src)
+				new /obj/item/stock_parts/servo/femto(src)
+				new /obj/item/stock_parts/micro_laser/quadultra(src)
+				new /obj/item/stock_parts/matter_bin/bluespace(src)
+				new /obj/item/stock_parts/cell/bluespace(src)
 		else
 			var/subtype
 			if(spawn_selection == "Machine Board")

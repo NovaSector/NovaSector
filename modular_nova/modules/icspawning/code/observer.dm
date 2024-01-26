@@ -35,7 +35,7 @@
 			give_return = tgui_alert(usr, "Do you want to give them the power to return? Not recommended for non-admins.", "Give power?", list("Yes", "No"))
 			if(!give_return)
 				return
-		
+
 		var/addquirks
 		if(character_option == "Selected Character")
 			addquirks = tgui_input_list(src, "Include quirks?", "Quirky", list("Quirks & Loadout", "Quirks Only", "Loadout Only", "Neither"))
@@ -52,8 +52,6 @@
 
 			var/mob/living/carbon/human/H = spawned_player
 			user.client?.prefs.safe_transfer_prefs_to(H)
-			if(addquirks == "Quirks & Loadout" || addquirks == "Quirks Only")
-				SSquirks.AssignQuirks(H, user.client)
 			if(addquirks == "Quirks & Loadout" || addquirks == "Loadout Only")
 				if(dresscode == "Naked")
 					H.equip_outfit_and_loadout(new /datum/outfit(), user.client?.prefs)
@@ -61,6 +59,8 @@
 					H.equip_outfit_and_loadout(dresscode, user.client?.prefs)
 			else if(dresscode != "Naked")
 				spawned_player.equipOutfit(dresscode)
+			if(addquirks == "Quirks & Loadout" || addquirks == "Quirks Only")
+				SSquirks.AssignQuirks(H, user.client)
 			H.dna.update_dna_identity()
 		else if(dresscode != "Naked")
 			spawned_player.equipOutfit(dresscode)
