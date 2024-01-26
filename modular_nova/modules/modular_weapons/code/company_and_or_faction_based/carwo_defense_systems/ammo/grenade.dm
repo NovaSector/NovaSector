@@ -36,6 +36,8 @@
 	var/obj/item/gun/ballistic/automatic/sol_grenade_launcher/firing_launcher = fired_from
 	if(istype(firing_launcher))
 		loaded_projectile.range = firing_launcher.target_range
+	else if(istype(fired_from, /obj/item/gun/ballistic/shotgun/shell_launcher))
+		loaded_projectile.range = 5
 
 	. = ..()
 

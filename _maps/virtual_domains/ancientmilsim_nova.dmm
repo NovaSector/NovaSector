@@ -195,7 +195,7 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "gL" = (
 /obj/structure/table,
-/obj/item/grenade/chem_grenade/clf3,
+/obj/item/grenade/stingbang,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/janitor)
 "gP" = (
@@ -1709,7 +1709,7 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "Vr" = (
-/obj/item/ammo_box/magazine/lanca,
+/obj/item/ammo_box/magazine/wylom,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "VA" = (
@@ -4625,7 +4625,7 @@ Uz
 (49,1,1) = {"
 Uz
 Vl
-Vr
+Vl
 Vl
 Vl
 Vl
@@ -4682,7 +4682,7 @@ Uz
 "}
 (50,1,1) = {"
 Uz
-Vl
+Vr
 wz
 Vl
 Vl
