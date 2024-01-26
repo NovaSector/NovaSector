@@ -112,7 +112,7 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/machinery/plumbing/synthesizer/water_synth
+	build_path = /obj/item/flatpacked_machine/water_synth
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_FLUIDS,
@@ -129,7 +129,7 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/machinery/plumbing/synthesizer/colony_hydroponics
+	build_path = /obj/item/flatpacked_machine/hydro_synth
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_FLUIDS,
@@ -147,7 +147,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/machinery/chem_dispenser/frontier_appliance
+	build_path = /obj/item/flatpacked_machine/sustenance_machine
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
@@ -165,7 +165,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, // We're gonna pretend plasma is the catalyst for co2 cracking
 	)
-	build_path = /obj/machinery/electrolyzer/co2_cracker
+	build_path = /obj/item/flatpacked_machine/co2_cracker
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,
@@ -183,7 +183,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT, // Titan for the crushing element
 	)
-	build_path = /obj/machinery/colony_recycler
+	build_path = /obj/item/flatpacked_machine/recycler
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_MATERIALS,
@@ -220,7 +220,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/machinery/microwave/frontier_printed/unanchored
+	build_path = /obj/item/flatpacked_machine/macrowave
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
@@ -238,7 +238,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/machinery/oven/range_frontier/unanchored
+	build_path = /obj/item/flatpacked_machine/frontier_range
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
@@ -256,7 +256,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/machinery/griddle/frontier_tabletop/unanchored
+	build_path = /obj/item/flatpacked_machine/frontier_griddle
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_SUSTENANCE,
