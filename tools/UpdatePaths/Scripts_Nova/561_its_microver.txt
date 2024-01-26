@@ -1,2 +1,2 @@
-/obj/item/gun/energy/modular_laser_rifle/carbine : /obj/item/gun/microfusion/mcr01{@OLD}
-/obj/effect/spawner/armory_spawn/mod_lasers_small : /obj/effect/spawner/armory_spawn/microfusion{@OLD}
+/obj/item/gun/microfusion/@SUBTYPES : /obj/item/gun/energy/modular_laser_rifle/carbine{@OLD}
+/obj/effect/spawner/armory_spawn/microfusion : /obj/effect/spawner/armory_spawn/mod_lasers_small{@OLD}
