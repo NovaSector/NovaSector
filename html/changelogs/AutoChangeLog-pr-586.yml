@@ -1,5 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - balance: "The times that many colony lathe designs take to print have been changed to better reflect what the resulting items are"
-  - bugfix: "Ration printers are no longer pixel shifted way too high up"
