@@ -6320,6 +6320,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\brain.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\clothing.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\delete_sparks.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\dontator_status.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\emote_overlay.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\emote_panel.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\erp_preferences.dm"
