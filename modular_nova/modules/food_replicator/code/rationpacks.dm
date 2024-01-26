@@ -10,6 +10,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	preserved_food = TRUE
 
+/obj/item/food/colonial_course/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
+
 /obj/item/food/colonial_course/attack_self(mob/user, modifiers)
 	if(preserved_food)
 		preserved_food = FALSE
@@ -111,6 +115,10 @@
 	icon = 'modular_nova/modules/food_replicator/icons/rationpack.dmi'
 	icon_state = "bubblegum"
 
+/obj/item/storage/box/gum/colonial/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
+
 /obj/item/storage/box/gum/colonial/PopulateContents()
 	new /obj/item/food/bubblegum(src)
 	new /obj/item/food/bubblegum(src)
@@ -129,6 +137,7 @@
 
 /obj/item/storage/box/utensils/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
 	atom_storage.set_holdable(list(
 		/obj/item/kitchen/spoon/plastic,
 		/obj/item/kitchen/fork/plastic,
@@ -166,6 +175,7 @@
 
 /obj/item/storage/box/colonial_rations/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
 	atom_storage.max_slots = 6
 	atom_storage.locked = TRUE
 

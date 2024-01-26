@@ -11,3 +11,7 @@
 	/datum/reagent/medicine/sal_acid = 10,
 	/datum/reagent/medicine/leporazine = 5,
 	)
+
+/obj/item/reagent_containers/hypospray/medipen/health_station/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)

@@ -3,28 +3,25 @@
 	desc = "The N-URSEI, better known as simply the 'Nurse,' is a well-known product of Medical technology in the CIN. The name is of disputed origin, \
 	but believed to be based off older, less portable models affectionately referred to as 'mother bears' which required specialized light trucks to carry to the field. \
 	These less unwieldy models are capable of diagnosis, treatment, arguably prevention, and prognosis; \
-	employing a limited reserve of medicines and slots to fill the proprietary models of medipens."
+	employing limited medicine synthesis to fill the proprietary and generic models of medipens."
 	icon = 'modular_nova/modules/health_station/icons/health_station.dmi'
 	icon_state = "health_station"
-	base_icon_state = "health_station"
 	light_color = "#79F8E6"
 	interaction_flags_machine = INTERACT_MACHINE_REQUIRES_LITERACY|INTERACT_MACHINE_SET_MACHINE
 	anchored = TRUE
-	///Name of lighting mask for the health station
-	var/light_mask = "health_station_light"
 	///Options, obviously
 	var/static/list/radial_options = list("Health Scan" = radial_scan, "Heal Wounds" = radial_wound, "Treat Damage" = radial_damage)
 	///Maximum amount of biomass
 	var/max_charge_amount = 100
 	///Current amount of biomass available
 	var/charge_amount
-	///Items that can refill it; intended to be high-end medicine, or otherwise 'miraculous' in nature.
+	///Items that can refill it; intended to be high-end medicine items, or otherwise 'miraculous' in nature.
 	var/list/refillers = list(/obj/item/slimecross/regenerative = 100,
 		/obj/item/organ/internal/monster_core/regenerative_core = 25,
 		/obj/item/food/grown/ambrosia/gaia = 10,
 	)
 	/// Medipens that it can refill and their attached biomass costs
-	var/list/refillable_pens = list(/obj/item/reagent_containers/hypospray/medipen/glucose = 5,
+	var/list/refillable_pens = list(/obj/item/reagent_containers/hypospray/medipen/glucose = 5, //it's a useless flavor item
 		/obj/item/reagent_containers/hypospray/medipen = 10,
 		/obj/item/reagent_containers/hypospray/medipen/ekit = 10,
 		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 10,
@@ -43,10 +40,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		charge_amount = max_charge_amount
 	else
 		charge_amount = 0
-	update_overlays()
-	find_and_hang_on_wall()
+	update_appearance(UPDATE_OVERLAYS)
+	find_and_hang_on_wall(TRUE)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
 
-/obj/machinery/health_station/update_appearance(updates=ALL)
+/obj/machinery/health_station/update_appearance(updates = ALL)
 	. = ..()
 	if(machine_stat & BROKEN)
 		set_light(0)
@@ -55,14 +53,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 
 /obj/machinery/health_station/update_overlays()
 	. = ..()
-	if(light_mask && !(machine_stat & BROKEN) && powered() && charge_amount > 0)
-		. += emissive_appearance(icon, "[light_mask]_[ceil(charge_amount/25)]", src, alpha = src.alpha)
-		set_light(l_color = "#79F8E6")
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+
+	if(charge_amount > 0)
+		var/charge_amount_sin = sin(min(charge_amount/max_charge_amount, 1) * 90)
+		var/charge_level = ROUND_UP(charge_amount_sin * 4)
+		. += mutable_appearance(icon, "[icon_state]_light[charge_level]", ABOVE_MOB_LAYER, src, alpha = src.alpha)
+		. += emissive_appearance(icon, "[icon_state]_light[charge_level]", src, ABOVE_MOB_LAYER, src.alpha)
 
 /obj/machinery/health_station/examine(mob/living/carbon/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: ბიომასის პროცენტული მაჩვენებელია [charge_amount]%.")
+
+/obj/machinery/health_station/attack_ghost(mob/user)
+	examine(user)
 
 /obj/machinery/health_station/ui_interact(mob/living/carbon/user)
 	. = ..()
@@ -93,11 +99,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 			balloon_alert(user, "analyzing vitals")
 			playsound(user.loc, 'sound/items/healthanalyzer.ogg', 40, TRUE)
 		if("Heal Wounds")
+			playsound(user.loc, 'sound/machines/ping.ogg', 40, TRUE)
 			heal_wound(user)
-			playsound(user.loc, 'sound/machines/ping.ogg', 40, TRUE)
 		if("Treat Damage")
-			heal_damage(user)
 			playsound(user.loc, 'sound/machines/ping.ogg', 40, TRUE)
+			heal_damage(user)
 
 /obj/machinery/health_station/proc/charge_station(obj/item/organ/internal/monster_core/regenerative_core, mob/living/carbon/user)
 	var/charge_given = is_type_in_list(regenerative_core, refillers, zebra = TRUE)
@@ -163,8 +169,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	if(user.getBruteLoss() || user.getFireLoss())
 		if(do_after(user, 2.5 SECONDS, src))
 			balloon_alert(user, "damage treated")
-			user.adjustBruteLoss(-20)
-			user.adjustFireLoss(-20)
+			var/brute_to_heal = user.getBruteLoss()
+			var/burn_to_heal = user.getFireLoss()
+			user.adjustBruteLoss(-brute_to_heal/2)
+			user.adjustFireLoss(-burn_to_heal/2)
 			charge_amount -= 20
 			playsound(src, 'sound/surgery/retractor1.ogg', 40, TRUE)
 			use_power(active_power_usage)
@@ -177,4 +185,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	icon_state = "health_station_item"
 	w_class = WEIGHT_CLASS_HUGE
 	result_path = /obj/machinery/health_station
+	wall_external = TRUE
 	pixel_shift = 32
+
+/obj/item/wallframe/health_station/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)

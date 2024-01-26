@@ -18,6 +18,7 @@
 #define COMPANY_TKACH "It has <b>[span_robot("Tkach Design Bureau")]</b> stamped onto it."
 #define COMPANY_SAKHNO "It has <b>[span_green("Sakhno Concern")]</b> stamped onto it."
 #define COMPANY_XHIHAO "It has <b>[span_purple("Xhihao Light Arms")]</b> etched into it."
+#define COMPANY_COLONIAL "It's imprinted with a lot of now-nonexistent company and organisation names, <b>[span_drone("Colonial Mothership 'Providence'")]</b> being the most recurrent."
 
 #define COMPANY_ABDUCTOR "It has <b>[span_abductor("✌︎︎♌︎︎♎︎︎◆︎︎♍︎︎⧫︎︎❄︎♏︎♍︎♒︎")]</b> engraved into it."
 

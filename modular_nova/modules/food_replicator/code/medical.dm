@@ -49,6 +49,10 @@
 	amount_per_transfer_from_this = 15
 	list_reagents = list(/datum/reagent/consumable/nutriment/glucose = 15)
 
+/obj/item/reagent_containers/hypospray/medipen/glucose/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
+
 /obj/item/reagent_containers/hypospray/medipen/glucose/inject(mob/living/affected_mob, mob/user)
 	if(lavaland_equipment_pressure_check(get_turf(user)))
 		amount_per_transfer_from_this = initial(amount_per_transfer_from_this)

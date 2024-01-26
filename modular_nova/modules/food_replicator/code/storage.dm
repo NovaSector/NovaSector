@@ -12,9 +12,7 @@
 /obj/item/storage/pouch/cin_medipens/Initialize(mapload)
 	. = ..()
 	update_appearance()
-
-/obj/item/storage/pouch/cin_medipens/Initialize(mapload)
-	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
 	atom_storage.max_specific_storage = WEIGHT_CLASS_TINY
 	atom_storage.max_total_storage = 4
 	atom_storage.max_slots = 4
@@ -29,7 +27,8 @@
 
 /obj/item/storage/pouch/cin_medkit/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
 	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
-	atom_storage.max_total_storage = 4
+	atom_storage.max_total_storage = 8
 	atom_storage.max_slots = 4
 	atom_storage.cant_hold = typecacheof(list(/obj/item/gun, /obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/stack/sheet))
