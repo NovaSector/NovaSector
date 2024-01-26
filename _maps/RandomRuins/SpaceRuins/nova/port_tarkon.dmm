@@ -1756,7 +1756,7 @@
 	},
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/circulator,
-/obj/item/circuitboard/machine/generator,
+/obj/item/circuitboard/machine/thermoelectric_generator,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "mn" = (
