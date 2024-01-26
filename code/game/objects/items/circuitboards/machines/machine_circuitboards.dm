@@ -667,7 +667,8 @@
 		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/yangyu = "Fudobenda", //NOVA EDIT ADDITION
-		/obj/machinery/vending/deforest_medvend = "DeForest Med-Vend",) //NOVA EDIT ADDITION
+		/obj/machinery/vending/deforest_medvend = "DeForest Med-Vend", //NOVA EDIT ADDITION
+	)
 
 /obj/item/circuitboard/machine/vendor/screwdriver_act(mob/living/user, obj/item/tool)
 	var/static/list/display_vending_names_paths
