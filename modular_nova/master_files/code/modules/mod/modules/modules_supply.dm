@@ -22,6 +22,7 @@
 /obj/item/mod/module/ash_accretion/on_install()
 	. = ..()
 	speed_added = mod.slowdown_active // so when you hit full ash accretion, slowdown cancels out
+	RegisterSignal(mod, COMSIG_SPEED_POTION_APPLIED, PROC_REF(update_added_speed))
 
 /obj/item/mod/module/ash_accretion/on_suit_activation()
 	. = ..()
@@ -33,7 +34,13 @@
 	protection_enabled = FALSE
 	UnregisterSignal(mod, list(COMSIG_MOD_DEPLOYED, COMSIG_MOD_RETRACTED))
 
+/obj/item/mod/module/ash_accretion/proc/update_added_speed()
+	SIGNAL_HANDLER
+	speed_added = mod.slowdown_active // no, you don't get to have a free speedup, actually
+
 /obj/item/mod/module/ash_accretion/proc/on_mod_toggle()
+	SIGNAL_HANDLER
+
 	if((mod.wearer.head == mod.helmet) && (mod.wearer.wear_suit == mod.chestplate) && (mod.wearer.gloves == mod.gauntlets) && (mod.wearer.shoes == mod.boots) && mod.active)
 		// suit is on and fully deployed, give them their proofing
 		mod.wearer.add_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
