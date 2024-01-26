@@ -31,4 +31,4 @@
 		/obj/item/gun/energy/modular_laser_rifle,
 		/obj/item/gun/energy/modular_laser_rifle,
 	)
-	crate_name = "Modular Laser Rifle Crate"
+	crate_name = "\improper Modular Laser Rifle Crate"
