@@ -18,12 +18,15 @@
 	you_are_text = "You are a Cafe Robot!"
 	flavour_text = "Who could have thought? This awesome local cafe accepts cyborgs too!"
 	mob_type = /mob/living/silicon/robot/model/roleplay
+	loadout_enabled = TRUE
+	random_appearance = FALSE
 
 /obj/effect/mob_spawn/ghost_role/robot/ghostcafe/special(mob/living/silicon/robot/new_spawn)
 	. = ..()
 	if(new_spawn.client)
 		new_spawn.custom_name = null
 		new_spawn.updatename(new_spawn.client)
+		new_spawn.transfer_brain_pref(new_spawn.client)
 		new_spawn.gender = NEUTER
 		var/area/A = get_area(src)
 		//new_spawn.AddElement(/datum/element/ghost_role_eligibility, free_ghosting = TRUE) SKYRAT PORT -- Needs to be completely rewritten

@@ -13,7 +13,7 @@
 	quirk_flags = QUIRK_CHANGES_APPEARANCE //NOVA EDIT CHANGE - ORIGINAL: quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
 	medical_record_text = "Patient is well-adapted to non-terrestrial environments."
 	mail_goodies = list(
-		/obj/item/storage/pill_bottle/ondansetron,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil, // NOVA EDIT CHANGE - ORIGINAL: /obj/item/storage/pill_bottle/ondansetron,
 		/obj/item/reagent_containers/pill/gravitum,
 	)
 	/// How high spacers get bumped up to
@@ -63,10 +63,10 @@
 			you are awarded with a 25% hazard pay bonus due to your [on_a_planet ?  "station" : "occupational"] assignment."))
 
 	// Supply them with some patches to help out on their new assignment
-	var/obj/item/storage/pill_bottle/ondansetron/disgust_killers = new()
-	disgust_killers.desc += " Best to take one when travelling to a planet's surface."
+	var/obj/item/storage/medkit/civil_defense/comfort/stocked/disgust_killers = new() // NOVA EDIT CHANGE - a custom deforest cheesekit filled with much better meds - ORIGINAL: var/obj/item/storage/pill_bottle/ondansetron/disgust_killers = new()
+	//disgust_killers.desc += " Best to take one when travelling to a planet's surface." NOVA EDIT REMOVAL - remove extra blurb, unneeded
 	if(quirk_holder.equip_to_slot_if_possible(disgust_killers, ITEM_SLOT_BACKPACK, qdel_on_fail = TRUE, initial = TRUE, indirect_action = TRUE))
-		to_chat(quirk_holder, span_info("You have[isnull(spacer_account) ? " " : " also "]been given some anti-emetic patches to assist in adjusting to planetary gravity."))
+		to_chat(quirk_holder, span_info("You have[isnull(spacer_account) ? " " : " also "]been given a kit of symptom-alleviating autoinjectors to aid in adjusting to planetary gravity.")) // NOVA EDIT CHANGE - rewords to make sense - ORIGINAL: to_chat(quirk_holder, span_info("You have[isnull(spacer_account) ? " " : " also "]been given some anti-emetic patches to assist in adjusting to planetary gravity."))
 
 /datum/quirk/spacer_born/remove()
 	UnregisterSignal(quirk_holder, COMSIG_MOVABLE_Z_CHANGED)

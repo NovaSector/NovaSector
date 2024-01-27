@@ -1,7 +1,7 @@
 /obj/item/crowbar/freeman
 	name = "blood soaked crowbar"
 	desc = "A heavy handed crowbar, it drips with blood."
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/freeman.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/freeman.dmi'
 	icon_state = "crowbar"
 	force = 35
 	throwforce = 45
@@ -24,12 +24,12 @@
 	name = "ballistic shield"
 	desc = "A shield fit for those that want to sprint headfirst into the unknown! Cumbersome as hell. Repair with iron."
 	icon_state = "ballistic"
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/ballistic.dmi'
 	worn_icon_state = "ballistic_worn"
-	worn_icon = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic.dmi'
+	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/ballistic.dmi'
 	inhand_icon_state = "ballistic"
-	lefthand_file = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic_l.dmi'
-	righthand_file = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic_r.dmi'
+	lefthand_file = 'modular_nova/modules/awaymissions_nova/icons/ballistic_l.dmi'
+	righthand_file = 'modular_nova/modules/awaymissions_nova/icons/ballistic_r.dmi'
 	force = 14
 	throwforce = 5
 	throw_speed = 1
@@ -42,15 +42,11 @@
 	transparent = TRUE
 	max_integrity = 150
 	repairable_by = /obj/item/stack/sheet/iron //what to repair the shield with
-
-
-/obj/item/shield/riot/pointman/hecu/shatter(mob/living/carbon/human/owner)
-	playsound(owner, 'sound/effects/glassbr3.ogg', 100)
-	new /obj/item/ballistic_broken((get_turf(src)))
+	shield_break_leftover = /obj/item/ballistic_broken
 
 /obj/item/ballistic_broken
 	name = "broken ballistic shield"
 	desc = "An unsalvageable, unrecoverable mess of armor steel and kevlar. Should've maintained it, huh?"
 	icon_state = "ballistic_broken"
-	icon = 'modular_nova/modules/awaymissions_skyrat/icons/ballistic.dmi'
+	icon = 'modular_nova/modules/awaymissions_nova/icons/ballistic.dmi'
 	w_class = WEIGHT_CLASS_BULKY

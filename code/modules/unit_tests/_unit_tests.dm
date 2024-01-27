@@ -195,6 +195,7 @@
 #include "objectives.dm"
 #include "operating_table.dm"
 #include "orderable_items.dm"
+#include "organ_bodypart_shuffle.dm"
 #include "organ_set_bonus.dm"
 #include "organs.dm"
 #include "outfit_sanity.dm"
@@ -274,9 +275,9 @@
 #include "wizard_loadout.dm"
 #include "worn_icons.dm"
 // NOVA EDIT START
-#include "~skyrat\automapper.dm"
-#include "~skyrat\loadout_dupes.dm"
-#include "~skyrat\opposing_force.dm"
+#include "~nova\automapper.dm"
+#include "~nova\loadout_dupes.dm"
+#include "~nova\opposing_force.dm"
 // NOVA EDIT END
 // END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter

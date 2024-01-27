@@ -1,5 +1,5 @@
 /obj/machinery/vending/medical
-	skyrat_products = list(
+	products_nova = list(
 		/obj/item/ttsdevice = 3,
 		/obj/item/cane/crutch = 4,
 	)

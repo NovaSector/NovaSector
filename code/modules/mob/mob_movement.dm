@@ -348,6 +348,8 @@
 /mob/proc/slip(knockdown_amount, obj/slipped_on, lube_flags, paralyze, force_drop = FALSE)
 	add_mob_memory(/datum/memory/was_slipped, antagonist = slipped_on)
 
+	SEND_SIGNAL(src, COMSIG_MOB_SLIPPED, knockdown_amount, slipped_on, lube_flags, paralyze, force_drop)
+
 //bodypart selection verbs - Cyberboss
 //8: repeated presses toggles through head - eyes - mouth
 //9: eyes 8: head 7: mouth
@@ -496,7 +498,6 @@
 			return FALSE
 		//NOVA EDIT ADDITION END
 		move_intent = MOVE_INTENT_RUN
-	SET_PLANE_IMPLICIT(src, (move_intent == MOVE_INTENT_WALK && !HAS_TRAIT(src, TRAIT_OVERSIZED)) ? GAME_PLANE_FOV_HIDDEN : GAME_PLANE) //NOVA EDIT ADDITION - Oversized Overhaul
 	if(hud_used?.static_inventory)
 		for(var/atom/movable/screen/mov_intent/selector in hud_used.static_inventory)
 			selector.update_appearance()

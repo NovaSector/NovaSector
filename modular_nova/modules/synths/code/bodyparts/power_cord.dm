@@ -10,6 +10,7 @@
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
 	contents = newlist(/obj/item/apc_powercord)
 	zone = "l_arm"
+	cannot_confiscate = TRUE
 
 /obj/item/apc_powercord
 	name = "power cord"
@@ -38,7 +39,7 @@
 		to_chat(user, span_warning("There is no charge to draw from that APC."))
 		return
 
-	if(ipc.nutrition >= NUTRITION_LEVEL_WELL_FED)
+	if(ipc.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)
 		to_chat(user, span_warning("You are already fully charged!"))
 		return
 
@@ -62,7 +63,7 @@
 	user.visible_message(span_notice("[user] inserts a power connector into the [target_apc]."), span_notice("You begin to draw power from the [target_apc]."))
 
 	while(TRUE)
-		var/power_needed = NUTRITION_LEVEL_WELL_FED - user.nutrition // How much charge do we need in total?
+		var/power_needed = NUTRITION_LEVEL_ALMOST_FULL - user.nutrition // How much charge do we need in total?
 		// Do we even need anything?
 		if(power_needed <= SYNTH_CHARGE_MIN * 2) // Times two to make sure minimum draw is always lower than this margin to prevent potential needless loops.
 			to_chat(user, span_notice("You are fully charged."))
