@@ -85,8 +85,8 @@
 
 /obj/item/organ/internal/cyberimp/arm/bureaucracy
 	name = "bureaucrat's 'Jacent' toolset implant"
-	desc = "Popular amongst coreworld corporates, this integrated toolset includes a wrist-sheathed four-colour pen and a special motorized sheaf hollow for holding up to ten pieces of galactic-standard A4 paper. Does not replenish."
-	items_to_create = list(/obj/item/pen/fourcolor/integrated, /obj/item/paper_bin/integrated)
+	desc = "Popular amongst coreworld corporates, this integrated toolset includes a wrist-sheathed four-colour pen, a special motorized sheaf hollow for holding up to ten pieces of galactic-standard A4 paper and a set of two fingertip stamps for approving and denying things. Does not replenish."
+	items_to_create = list(/obj/item/pen/fourcolor/integrated, /obj/item/paper_bin/integrated, /obj/item/stamp/integrated, /obj/item/stamp/denied/integrated)
 
 /obj/item/organ/internal/cyberimp/arm/cargo
 	name = "FTU 'Deckhand' toolset implant"
