@@ -396,7 +396,6 @@
 	icon_state = "head"
 	base_icon_state = "head"
 	max_integrity = 120
-	required_controller_level = CONTROLLER_LEVEL_2
 	activation_range = DEFAULT_VIEW_RANGE
 	ability_cooldown_time = 45 SECONDS
 
@@ -428,7 +427,6 @@
 	icon_state = "orb"
 	base_icon_state = "orb"
 	max_integrity = 100
-	required_controller_level = CONTROLLER_LEVEL_1
 	/// Upper timer limit for our ability
 	automatic_trigger_time_upper = 1.5 MINUTES
 	/// Lower time limit for our ability.
@@ -483,7 +481,6 @@
 	icon_state = "psy"
 	max_integrity = 100
 	base_icon_state = "psy"
-	required_controller_level = CONTROLLER_LEVEL_1
 	activation_range = DEFAULT_VIEW_RANGE
 	ability_cooldown_time = 10 SECONDS
 
