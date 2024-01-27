@@ -3,7 +3,7 @@
 /obj/item/wrench/integrated
 	name = "motorized fingertip wrench-bit"
 	desc = "A cheap inverted fingertip replacement complete with a small-factor motor and torque wrenching bit. Works on most station standard applications, but is often slower than using a hand wrench."
-	toolspeed = 1.5
+	toolspeed = 1.25
 
 /obj/item/wrench/integrated/Initialize(mapload)
 	. = ..()
@@ -12,7 +12,7 @@
 /obj/item/screwdriver/integrated
 	name = "motorized fingertip screw-bit"
 	desc = "A cheap inverted fingertip replacement that extends into a sturdy universal screwdriver head, complete with a small-factor motor. A bit slow, but gets the job done."
-	toolspeed = 1.5
+	toolspeed = 1.25
 
 /obj/item/screwdriver/integrated/Initialize(mapload)
 	. = ..()
@@ -21,7 +21,7 @@
 /obj/item/crowbar/integrated
 	name = "integrated crowbar"
 	desc = "Rumour has it that people over a thousand people died in the resulting espionage centered around the exact angular dimensions that make this feat of physics and leverage possible. Retreats back into the bearer's arm when not in use."
-	toolspeed = 1.5 // really slow because a lot of firelock/airlock mobility gameplay relies on crowbar scarcity
+	toolspeed = 1.25
 
 /obj/item/crowbar/integrated/Initialize(mapload)
 	. = ..()
@@ -30,7 +30,7 @@
 /obj/item/multitool/integrated
 	name = "integrated 'multitool' diagnostics device"
 	desc = "Combining a set of fingertip probes fed back into an internal coprocessor, this useful little device has made its way into the arms of engineers and maintenance technicians galaxy-wide."
-	toolspeed = 1.5
+	toolspeed = 1.25
 
 /obj/item/multitool/integrated/Initialize(mapload)
 	. = ..()
@@ -39,7 +39,7 @@
 /obj/item/weldingtool/electric/arc_welder/integrated
 	name = "integrated arc welder"
 	desc = "Stripped down enough to fit inside a standard humanoid arm, this specialized tool guzzles power like nobody's business and produces a slightly weaker arc. It gets the job done, but you're putting a power cell inside your arm and signing all the OHS waivers that comes with."
-	toolspeed = 1.5 //100% slower. really fucking slow, since synths can repair themselves with this
+	toolspeed = 1.25 //25% slower. really fucking slow, since synths can repair themselves with this
 
 /obj/item/weldingtool/electric/arc_welder/integrated/switched_on(mob/user)
 	. = ..()
@@ -59,7 +59,7 @@
 /obj/item/hemostat/integrated
 	name = "integrated hemostatic clamp"
 	desc = "More or less a glorified set of forceps with slightly serrated teeth and a dedicated interlocking mechanism, all miniaturized to fit inside a finger."
-	toolspeed = 1.5 // this will directly affect how fast someone can tend wounds with this setup, balancejak accordingly
+	toolspeed = 1.25 // this will directly affect how fast someone can tend wounds with this setup, balancejak accordingly
 
 /obj/item/hemostat/integrated/Initialize(mapload)
 	. = ..()
@@ -68,7 +68,7 @@
 /obj/item/retractor/integrated
 	name = "fingertip retractor clamp"
 	desc = "A special suite of high-grip flesh torsioning clips designed for use in field surgery situations."
-	toolspeed = 1.5
+	toolspeed = 1.25
 
 /obj/item/retractor/integrated/Initialize(mapload)
 	. = ..()
@@ -110,6 +110,14 @@
 /obj/item/boxcutter/extended/integrated
 	name = "integrated boxcutter"
 	desc = "Stolen from old Terran databanks, the design for this integration was originally some kind of wrist-sheathed assassin tool released into the public domain by an unnamed bitrunner. The FTU found that it worked great as a box cutter, and so authorized it for inclusion in their Deckhand toolset."
+
+/obj/item/stamp/integrated
+	name = "fingertip 'GRANTED' stamp"
+	desc = "Designed to swivel out of a specialized finger-pad mount, this stamp is the bane of budget-crunchers everywhere - for wherever it dares to touch, a loss of credits is sure to follow."
+
+/obj/item/stamp/denied/integrated
+	name = "fingertip 'DENIED' stamp"
+	desc = "When the computer really, really says no."
 
 // FORGING (why are we doing this)
 
