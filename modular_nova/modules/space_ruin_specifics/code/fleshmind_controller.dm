@@ -54,7 +54,7 @@
 		/obj/structure/fleshmind/structure/screamer,
 	)
 	var/list/blacklisted_conversion_structures = list(
-		/obj/machinery/light/,
+		/obj/machinery/light,
 	)
 	/// Our wireweed type, defines what is spawned when we grow.
 	var/wireweed_type = /obj/structure/fleshmind/wireweed

@@ -65,6 +65,13 @@
 		"wires-2",
 		"wires-3",
 	)
+	var/list/blacklisted_corruption_structures = list(
+		/obj/machinery/vending,
+		/obj/machinery/atmospherics/components/tank,
+		/obj/machinery/power,
+		/obj/machinery/portable_atmospherics/canister,
+		/obj/machinery/airalarm,
+	)
 	/// Are we in the startup phase?
 	var/starting_up = TRUE
 	/// After init, this will be set so we preserve the originally set overlay even if our overlays are updated.
@@ -98,6 +105,9 @@
 
 /datum/component/machine_corruption/proc/finish_setup(datum/fleshmind_controller/incoming_controller)
 	var/obj/machinery/parent_machinery = parent
+
+//	if(parent(blacklisted_corruption_structures))
+//		return
 
 	if(incoming_controller && parent_machinery.circuit && prob(CHANCE_TO_CREATE_MECHIVER))
 		parent_machinery.circuit.forceMove(get_turf(parent_machinery))
