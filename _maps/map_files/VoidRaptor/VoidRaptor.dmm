@@ -83094,6 +83094,17 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/gateway)
+"wYr" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green/diagonal_centre,
+/obj/machinery/status_display/ai/directional/north,
+/turf/open/floor/iron/diagonal,
+/area/station/hallway/secondary/service)
 "wYw" = (
 /obj/structure/toilet{
 	color = "#d4af37";
@@ -123963,7 +123974,7 @@ pow
 tgy
 jSC
 iUy
-ctf
+wYr
 vrL
 fLp
 fLp
