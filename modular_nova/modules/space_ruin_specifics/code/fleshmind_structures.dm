@@ -320,12 +320,6 @@
 	else
 		. += "core-smirk"
 
-	if(end_game)
-		for(var/i in 1 to SUNBEAM_OVERLAYS)
-			var/mutable_appearance/beam_overlay = mutable_appearance('icons/obj/weapons/guns/projectiles_tracer.dmi', "tracer_beam")
-			beam_overlay.pixel_y = 32 * i
-			. += beam_overlay
-
 /obj/structure/fleshmind/structure/core/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	our_controller?.core_damaged(src)
 	COOLDOWN_START(src, attack_move, attack_cooldown)
