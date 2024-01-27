@@ -505,9 +505,9 @@
 	icon_state = "spawner"
 	base_icon_state = "spawner"
 	density = FALSE
-	max_integrity = 260
+	max_integrity = 160
 	activation_range = DEFAULT_VIEW_RANGE
-	ability_cooldown_time = 20 SECONDS
+	ability_cooldown_time = 1 MINUTES
 	/// The max amount of mobs we can have at any one time.
 	var/max_mobs = 2
 	/// The current amount of spawned mobs
@@ -522,7 +522,6 @@
 		/mob/living/simple_animal/hostile/fleshmind/treader = 3,
 		/mob/living/simple_animal/hostile/fleshmind/himan = 3,
 		/mob/living/simple_animal/hostile/fleshmind/phaser = 2,
-		/mob/living/simple_animal/hostile/fleshmind/mechiver = 4,
 	)
 	/// Our override type, if manually set.
 	var/override_monser_type

@@ -34,7 +34,7 @@
 	/// Can the wireweed attack?
 	var/can_attack = TRUE
 	/// Can we attack doors?
-	var/wireweed_attacks_doors = TRUE
+	var/wireweed_attacks_doors = FALSE
 	/// Can we attack windows?
 	var/wireweed_attacks_windows = FALSE
 
@@ -54,7 +54,7 @@
 		/obj/structure/fleshmind/structure/screamer,
 	)
 	var/list/blacklisted_conversion_structures = list(
-		/obj/machinery/light,
+		/obj/machinery/light/,
 	)
 	/// Our wireweed type, defines what is spawned when we grow.
 	var/wireweed_type = /obj/structure/fleshmind/wireweed
@@ -100,6 +100,23 @@
 	var/tyrant_spawned = FALSE
 	/// Have we reached the end game?
 	var/end_game = FALSE
+
+/datum/fleshmind_controller/New(obj/structure/fleshmind/structure/core/new_core)
+	. = ..()
+	controller_firstname = pick(AI_FORENAME_LIST)
+	controller_secondname = pick(AI_SURNAME_LIST)
+	controller_fullname = "[controller_firstname] [controller_secondname]"
+	if(new_core)
+		cores += new_core
+		new_core.our_controller = src
+		RegisterSignal(new_core, COMSIG_QDELETING)
+		new_core.name = "[controller_fullname] Processor Unit"
+		register_new_asset(new_core)
+	SScorruption.can_fire = TRUE
+	START_PROCESSING(SScorruption, src)
+	if(do_initial_expansion)
+		initial_expansion()
+	SSshuttle.registerHostileEnvironment(src)
 
 /datum/fleshmind_controller/proc/register_new_asset(obj/structure/fleshmind/new_asset)
 	new_asset.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/obj/structure/fleshmind, controller_destroyed))
