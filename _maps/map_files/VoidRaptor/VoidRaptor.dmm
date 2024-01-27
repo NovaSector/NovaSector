@@ -919,21 +919,11 @@
 /turf/open/floor/wood,
 /area/station/commons/vacant_room/office)
 "anI" = (
-/obj/structure/table,
-/obj/item/serviette_pack{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/structure/chair/sofa/corp/right{
+	color = "#DE3A3A";
+	dir = 4
 	},
-/obj/item/reagent_containers/condiment/saltshaker{
-	desc = "Salt. From space oceans, presumably. A staple of modern medicine.";
-	pixel_x = -8;
-	pixel_y = 12
-	},
-/obj/item/reagent_containers/condiment/peppermill{
-	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
-	pixel_x = -8;
-	pixel_y = 2
-	},
+/obj/effect/landmark/start/assistant,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "anM" = (
@@ -2328,14 +2318,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/carpet,
 /area/station/medical/psychology)
-"aJs" = (
-/obj/structure/chair/sofa/corp/right{
-	color = "#DE3A3A";
-	dir = 4
-	},
-/obj/effect/landmark/start/assistant,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/cafeteria)
 "aJH" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /obj/structure/disposalpipe/segment{
@@ -4225,13 +4207,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/security/warden)
-"bkq" = (
-/obj/structure/chair/sofa/corp/left{
-	color = "#DE3A3A";
-	dir = 8
-	},
-/turf/open/floor/iron/cafeteria,
-/area/station/service/cafeteria)
 "bkr" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/landmark/start/bartender,
@@ -64176,6 +64151,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
+"rSO" = (
+/obj/structure/chair/sofa/corp/right{
+	color = "#DE3A3A";
+	dir = 8
+	},
+/obj/effect/landmark/start/assistant,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/cafeteria)
 "rSZ" = (
 /obj/item/kirbyplants/random,
 /obj/item/radio/intercom/directional/west,
@@ -77635,8 +77618,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron/cafeteria,
+/obj/effect/turf_decal/delivery/red,
+/obj/machinery/restaurant_portal/restaurant,
+/turf/open/floor/iron/smooth_large,
 /area/station/service/cafeteria)
 "vyc" = (
 /obj/machinery/door/firedoor,
@@ -80535,11 +80519,21 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/structure/chair/sofa/corp/right{
-	color = "#DE3A3A";
-	dir = 8
+/obj/structure/table,
+/obj/item/serviette_pack{
+	pixel_x = 4;
+	pixel_y = 4
 	},
-/obj/effect/landmark/start/assistant,
+/obj/item/reagent_containers/condiment/saltshaker{
+	desc = "Salt. From space oceans, presumably. A staple of modern medicine.";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/condiment/peppermill{
+	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
+	pixel_x = -8;
+	pixel_y = 2
+	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "woG" = (
@@ -83445,9 +83439,11 @@
 	c_tag = "Service - Cafeteria Aft";
 	name = "service camera"
 	},
-/obj/machinery/restaurant_portal/restaurant,
-/obj/effect/turf_decal/delivery/red,
-/turf/open/floor/iron/smooth_large,
+/obj/structure/chair/sofa/corp/left{
+	color = "#DE3A3A";
+	dir = 8
+	},
+/turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "xgv" = (
 /obj/machinery/smartfridge/chemistry/virology/preloaded,
@@ -121655,8 +121651,8 @@ ekG
 kLz
 cnA
 rUb
-lkz
-aJs
+kLz
+kLz
 bNy
 bhD
 jYr
@@ -121912,8 +121908,8 @@ qwy
 qwy
 hUv
 eYX
+lkz
 anI
-gOt
 rUb
 qQh
 fVT
@@ -122170,7 +122166,7 @@ fxo
 olm
 gyK
 woE
-bkq
+gOt
 vyb
 kPh
 ooa
@@ -122426,7 +122422,7 @@ xFd
 tTC
 bOI
 bMB
-kLz
+rSO
 xgl
 fLp
 oie
