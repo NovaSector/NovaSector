@@ -22129,7 +22129,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/window/spawner/directional/west,
 /obj/structure/window/spawner/directional/south,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/service)
@@ -28810,10 +28809,6 @@
 	pixel_x = 4;
 	pixel_y = 18
 	},
-/obj/item/reagent_containers/condiment/enzyme{
-	pixel_x = -10;
-	pixel_y = 18
-	},
 /obj/item/reagent_containers/cup/beaker{
 	pixel_x = -8;
 	pixel_y = 7
@@ -29279,9 +29274,6 @@
 /obj/structure/noticeboard/directional/north,
 /obj/machinery/light_switch/directional/east,
 /obj/effect/turf_decal/bot,
-/obj/structure/window/spawner/directional/west{
-	dir = 4
-	},
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/service)
 "iti" = (
@@ -44845,10 +44837,14 @@
 /obj/item/plate/small{
 	pixel_y = 1
 	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_x = 10;
+	pixel_y = 18
+	},
 /obj/item/knife/butcher{
 	pixel_x = 5
 	},
-/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "mGv" = (
@@ -50191,10 +50187,6 @@
 "ocK" = (
 /obj/machinery/reagentgrinder{
 	pixel_x = -4;
-	pixel_y = 18
-	},
-/obj/item/reagent_containers/condiment/enzyme{
-	pixel_x = 10;
 	pixel_y = 18
 	},
 /obj/item/reagent_containers/cup/beaker{
@@ -68719,9 +68711,6 @@
 /obj/item/pen{
 	pixel_y = 4
 	},
-/obj/structure/window/spawner/directional/east{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/window/left/directional/south{
 	name = "Hydroponics Desk";
@@ -69291,7 +69280,6 @@
 	codes_txt = "delivery;dir=8";
 	location = "Kitchen"
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/large,
 /area/station/maintenance/starboard/greater)
 "tlq" = (
