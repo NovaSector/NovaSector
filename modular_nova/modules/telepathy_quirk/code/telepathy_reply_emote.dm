@@ -8,7 +8,7 @@
 		var/mob/living/carbon/human/human_user = user
 		var/datum/mutation/human/telepathy/mutation = human_user.dna.get_mutation(/datum/mutation/human/telepathy)
 		if (mutation)
-			var/datum/action/cooldown/spell/pointed/telepathy/tele_action = locate() in user?.actions
+			var/datum/action/cooldown/spell/pointed/telepathy/tele_action = locate() in user.actions
 			// just straight up call the right-click action as is
 			if (tele_action)
 				tele_action.Trigger(TRIGGER_SECONDARY_ACTION)
