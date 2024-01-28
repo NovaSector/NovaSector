@@ -208,6 +208,7 @@
 	. = ..()
 	if(randomize_fuel)
 		fuel = rand(3 MINUTES, 5 MINUTES)
+	ignition()
 
 /obj/item/flashlight/flare/plasma_projectile/turn_off()
 	. = ..()
