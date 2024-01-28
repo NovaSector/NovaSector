@@ -12,5 +12,6 @@
 			// just straight up call the right-click action as is
 			if (tele_action)
 				tele_action.Trigger(TRIGGER_SECONDARY_ACTION)
+				tele_action.blocked = FALSE
 
 	return ..()

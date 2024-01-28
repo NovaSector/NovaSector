@@ -11,7 +11,7 @@
 	cooldown_time = 1 SECONDS
 	cast_range = 7
 	/// What's the last mob we point-targeted with this ability?
-	var/mob/living/last_target
+	var/datum/weakref/last_target_ref
 	/// The message we send
 	var/message
 	/// Are we blocking casts?
@@ -57,20 +57,25 @@
 		return . | SPELL_CANCEL_CAST
 
 /datum/action/cooldown/spell/pointed/telepathy/Trigger(trigger_flags, atom/target)
+	var/mob/living/last_target = last_target_ref?.resolve()
+	if(isnull(last_target))
+		last_target_ref = null
+		owner.balloon_alert(owner, "last target is not available!")
+		return
+	else if(get_dist(last_target, owner) > cast_range)
+		owner.balloon_alert(owner, "[last_target] is too far away!")
+		return
+
 	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
-		if (!isnull(last_target) && get_dist(last_target, owner) <= cast_range)
-			blocked = TRUE
-			message = autopunct_bare(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]"))
-			if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
-				blocked = FALSE
-				return blocked
-			send_thought(owner, last_target, message)
-			src.StartCooldown()
+		blocked = TRUE
+		message = autopunct_bare(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]"))
+		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
 			blocked = FALSE
-			return
-		else
-			owner.balloon_alert(owner, "last target not available!")
-			return
+			return blocked
+		send_thought(owner, last_target, message)
+		src.StartCooldown()
+		blocked = FALSE
+		return
 
 	. = ..()
 
@@ -81,7 +86,7 @@
 /datum/action/cooldown/spell/pointed/telepathy/proc/send_thought(mob/living/caster, mob/living/target, message)
 	log_directed_talk(caster, target, message, LOG_SAY, name)
 
-	last_target = target
+	last_target_ref = WEAKREF(target)
 
 	to_chat(owner, span_boldnotice("You reach out and convey to [target]: \"[span_purple(message)]\""))
 	// flub a runechat chat message, do something with the language later
