@@ -71,7 +71,7 @@
 		message = autopunct_bare(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]"))
 		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
 			blocked = FALSE
-			return blocked
+			return
 		send_thought(owner, last_target, message)
 		src.StartCooldown()
 		blocked = FALSE
