@@ -66,7 +66,7 @@
 	casing = /obj/item/ammo_casing/energy/cybersun_big_disabler
 	weapon_icon_state = "disabler"
 	charge_sections = 2
-	shot_delay = 0.4 SECONDS
+	shot_delay = 0.25 SECONDS
 	json_speech_string = "disable"
 	gun_runetext_color = "#47a1b3"
 	/// Keeps track of the autofire component for deleting later
