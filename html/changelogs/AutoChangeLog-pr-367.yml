@@ -1,0 +1,5 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - balance: "The Night Vision quirk is now slightly stronger by default, allows you to choose a colour determine the hue of the darkness overlay, and becomes 75% more potent for each level of eye sensitivity you have. Individuals with hypersensitive eyes can see almost as well in the dark as Ashwalkers and Icecats can!"
+  - rscadd: "The Photophobia quirk can now have its severity chosen as a character preference option, allowing any character to gain hypersensitive eyes if they're willing to deal with the consequences."

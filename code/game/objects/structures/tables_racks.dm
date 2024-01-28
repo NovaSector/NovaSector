@@ -723,7 +723,7 @@
  * Surgery Tables
  */
 
-/obj/structure/table/optable//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/structure/table/optable
 	name = "operating table"
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/medical/surgery_table.dmi'

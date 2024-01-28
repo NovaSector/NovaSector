@@ -101223,8 +101223,8 @@
 /obj/item/stack/rods/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/stack/rods/fifty,
-/obj/item/storage/belt,
-/obj/item/storage/belt,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/item/hand_labeler{
 	pixel_x = -4;
 	pixel_y = -4
@@ -108892,8 +108892,8 @@
 "uJv" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/reinforced,
-/obj/item/storage/belt,
-/obj/item/storage/belt,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/item/weldingtool,
 /obj/item/weldingtool,
 /obj/item/clothing/head/utility/welding,
