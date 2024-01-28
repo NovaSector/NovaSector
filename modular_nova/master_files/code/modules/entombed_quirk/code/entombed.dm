@@ -121,7 +121,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 
-/datum/preference/choiced/entombed_mod_desc/is_accessible(datum/preferences/preferences)
+/datum/preference/text/entombed_mod_desc/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
 
