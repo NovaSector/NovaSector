@@ -18996,6 +18996,7 @@
 	id = "kitchen_counter";
 	name = "Kitchen Counter Shutters"
 	},
+/obj/item/plate,
 /turf/open/floor/iron/large,
 /area/station/service/kitchen)
 "fxD" = (
@@ -20645,6 +20646,7 @@
 	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/machinery/computer/department_orders/service,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
 "fZo" = (
@@ -26635,6 +26637,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/machinery/modular_computer/preset/cargochat/service,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
 "hFA" = (
@@ -28805,14 +28808,8 @@
 /area/station/maintenance/starboard/fore)
 "iog" = (
 /obj/structure/table,
-/obj/machinery/reagentgrinder{
-	pixel_x = 4;
-	pixel_y = 18
-	},
-/obj/item/reagent_containers/cup/beaker{
-	pixel_x = -8;
-	pixel_y = 7
-	},
+/obj/item/storage/bag/tray,
+/obj/item/food/dough,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "iom" = (
@@ -49965,6 +49962,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
 "nYI" = (
@@ -50185,15 +50183,19 @@
 	},
 /area/station/medical/surgery)
 "ocK" = (
-/obj/machinery/reagentgrinder{
-	pixel_x = -4;
-	pixel_y = 18
+/obj/structure/table,
+/obj/item/reagent_containers/cup/beaker{
+	pixel_x = -8;
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/cup/beaker{
-	pixel_x = 8;
-	pixel_y = 7
+	pixel_x = -8;
+	pixel_y = 4
 	},
-/obj/structure/table,
+/obj/machinery/reagentgrinder{
+	pixel_x = 4;
+	pixel_y = 18
+	},
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "ocV" = (
