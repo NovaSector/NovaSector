@@ -18,6 +18,7 @@
 	)
 	mob_react = FALSE
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG | REACTION_TAG_ORGAN | REACTION_TAG_DAMAGING
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
 // Twitch drug, makes the takers of it faster and able to dodge bullets while in their system, to potentially bad side effects
 /datum/reagent/drug/twitch
@@ -37,6 +38,8 @@
 	var/constant_dose_time = 0
 	/// What type of span class do we change heard speech to?
 	var/speech_effect_span
+	/// How much the mob heating is multiplied by, if the target is a robot or has muscled veins
+	var/mob_heating_muliplier = 5
 
 
 /datum/reagent/drug/twitch/on_mob_metabolize(mob/living/our_guy)
@@ -136,7 +139,17 @@
 
 	constant_dose_time += seconds_per_tick
 
-	our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 0.1 * REM * seconds_per_tick)
+	// If the target is a robot, or has muscle veins, then they get an effect similar to herignis, heating them up quite a bit
+	if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
+		var/heating = mob_heating_muliplier * creation_purity * REM * seconds_per_tick
+		our_guy.reagents?.chem_temp += heating
+		our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
+		if(!ishuman(our_guy))
+			return
+		var/mob/living/carbon/human/human = our_guy
+		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
+	else
+		our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 0.1 * REM * seconds_per_tick)
 
 	if(locate(/datum/reagent/drug/kronkaine) in our_guy.reagents.reagent_list) // Kronkaine, another heart-straining drug, could cause problems if mixed with this
 		our_guy.ForceContractDisease(new /datum/disease/adrenal_crisis(), FALSE, TRUE)
@@ -164,7 +177,17 @@
 	. = ..()
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
 
-	our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
+	// If the target is a robot, or has muscle veins, then they get an effect similar to herignis, heating them up quite a bit
+	if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
+		var/heating = (mob_heating_muliplier * 2) * creation_purity * REM * seconds_per_tick
+		our_guy.reagents?.chem_temp += heating
+		our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
+		if(!ishuman(our_guy))
+			return
+		var/mob/living/carbon/human/human = our_guy
+		human.adjust_coretemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
+	else
+		our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	our_guy.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
 
 	if(SPT_PROB(5, seconds_per_tick))
