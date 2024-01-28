@@ -87,6 +87,7 @@
 	last_charge = cell.charge
 	tracked_soulcatcher = AddComponent(/datum/component/soulcatcher/modular_laser)
 	create_weapon_mode_stuff()
+	voice = null
 
 /obj/item/gun/energy/modular_laser_rifle/examine(mob/user)
 	. = ..()
