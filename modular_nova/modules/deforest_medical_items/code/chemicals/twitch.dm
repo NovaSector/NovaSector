@@ -18,7 +18,6 @@
 	)
 	mob_react = FALSE
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG | REACTION_TAG_ORGAN | REACTION_TAG_DAMAGING
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
 // Twitch drug, makes the takers of it faster and able to dodge bullets while in their system, to potentially bad side effects
 /datum/reagent/drug/twitch
@@ -34,6 +33,7 @@
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 20)
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	/// How much time has the drug been in them?
 	var/constant_dose_time = 0
 	/// What type of span class do we change heard speech to?
