@@ -90,10 +90,12 @@
 
 	to_chat(owner, span_boldnotice("You reach out and convey to [target]: \"[span_purple(message)]\""))
 	// flub a runechat chat message, do something with the language later
-	owner.create_chat_message(owner, owner.get_selected_language(), message, list("italics"))
+	if(owner.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
+		owner.create_chat_message(owner, owner.get_selected_language(), message, list("italics"))
 	if(!target.can_block_magic(antimagic_flags, charge_cost = 0) && target.client) //make sure we've got a client before we bother sending anything
 		to_chat(target, span_boldnotice("A voice echoes in your head: \"[span_purple(message)]\""))
-		target.create_chat_message(target, target.get_selected_language(), message, list("italics")) // it appears over them since they hear it in their head
+		if(target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
+			target.create_chat_message(target, target.get_selected_language(), message, list("italics")) // it appears over them since they hear it in their head
 	else
 		owner.balloon_alert(owner, "something blocks your thoughts!")
 		to_chat(owner, span_warning("Your mind encounters impassable resistance: the thought was blocked!"))
