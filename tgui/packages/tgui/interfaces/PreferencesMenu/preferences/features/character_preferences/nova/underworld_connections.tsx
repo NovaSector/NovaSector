@@ -19,5 +19,5 @@ export const underworld_uplink_name: Feature<string> = {
 
 export const underworld_uplink_desc: Feature<string> = {
   name: 'Uplink Description',
-  component: FeatureTextInput,
+  component: FeatureShortTextInput,
 };
