@@ -4240,6 +4240,9 @@
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 9
 	},
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},
@@ -8073,6 +8076,9 @@
 /area/station/science/research)
 "cvp" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "cvG" = (
@@ -28300,7 +28306,6 @@
 	id = "mining";
 	dir = 8
 	},
-/obj/machinery/bouldertech/refinery,
 /turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "ihT" = (
@@ -30109,6 +30114,7 @@
 	id = "mining";
 	dir = 8
 	},
+/obj/machinery/bouldertech/refinery,
 /turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "iFY" = (
@@ -30611,6 +30617,9 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/conveyor{
+	id = "mining"
+	},
 /turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "iNk" = (
@@ -39887,6 +39896,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	dir = 5
+	},
 /turf/open/floor/plating/airless,
 /area/station/cargo/miningdock)
 "lnc" = (
