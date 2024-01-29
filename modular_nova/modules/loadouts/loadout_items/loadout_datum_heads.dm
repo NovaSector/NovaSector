@@ -433,10 +433,6 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Jewish Kippah"
 	item_path = /obj/item/clothing/head/chaplain/kippah
 
-/datum/loadout_item/head/chap_rasta
-	name = "Rastafarian Hat"
-	item_path = /obj/item/clothing/head/rasta
-
 /datum/loadout_item/head/chap_nunv
 	name = "Nun's Veil"
 	item_path = /obj/item/clothing/head/chaplain/habit_veil
