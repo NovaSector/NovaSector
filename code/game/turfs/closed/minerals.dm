@@ -411,7 +411,7 @@
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	defer_change = TRUE
 	proximity_based = FALSE // Nova Edit: Original TRUE
-	mineralChance = 8 // Nova Edit: Original 5 (13)
+	mineralChance = 7 // Nova Edit: Original 5 (13)
 
 /turf/closed/mineral/random/volcanic/mineral_chances()
 	return list(
@@ -439,6 +439,7 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	weak_turf = TRUE
 	proximity_based = FALSE // Nova Edit: Originally TRUE
+	mineralChance = 8
 
 /turf/closed/mineral/random/snow/Change_Ore(ore_type, random = 0)
 	. = ..()
@@ -470,7 +471,7 @@
 /turf/closed/mineral/random/snow/underground
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	// abundant ore
-	mineralChance = 20
+	mineralChance = 12 // Nova Edit: Originally 20
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
 	return list(
