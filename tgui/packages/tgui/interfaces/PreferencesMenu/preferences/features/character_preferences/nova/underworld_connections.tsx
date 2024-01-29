@@ -4,7 +4,6 @@ import {
   FeatureChoiced,
   FeatureDropdownInput,
   FeatureShortTextInput,
-  FeatureTextInput,
 } from '../../base';
 
 export const underworld_uplink_skin: FeatureChoiced = {
