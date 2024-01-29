@@ -57,16 +57,17 @@
 		return . | SPELL_CANCEL_CAST
 
 /datum/action/cooldown/spell/pointed/telepathy/Trigger(trigger_flags, atom/target)
-	var/mob/living/last_target = last_target_ref?.resolve()
-	if(isnull(last_target))
-		last_target_ref = null
-		owner.balloon_alert(owner, "last target is not available!")
-		return
-	else if(get_dist(last_target, owner) > cast_range)
-		owner.balloon_alert(owner, "[last_target] is too far away!")
-		return
-
 	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
+		var/mob/living/last_target = last_target_ref?.resolve()
+
+		if(isnull(last_target))
+			last_target_ref = null
+			owner.balloon_alert(owner, "last target is not available!")
+			return
+		else if(get_dist(last_target, owner) > cast_range)
+			owner.balloon_alert(owner, "[last_target] is too far away!")
+			return
+
 		blocked = TRUE
 		message = autopunct_bare(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]"))
 		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
