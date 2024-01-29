@@ -104,7 +104,7 @@
 "aJ" = (
 /obj/structure/fence/corner,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "aM" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/mapping_helpers/apc/full_charge,
@@ -215,7 +215,7 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "bt" = (
 /turf/closed/mineral/random/high_chance,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "bA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plating,
@@ -969,7 +969,7 @@
 /area/ruin/space/has_grav/port_tarkon/storage)
 "he" = (
 /turf/closed/wall/r_wall/rust,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "hf" = (
 /obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -1188,7 +1188,7 @@
 "iL" = (
 /mob/living/basic/carp,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "iR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -1396,7 +1396,7 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "ku" = (
 /obj/effect/turf_decal/tile/purple/half,
 /obj/machinery/airalarm/directional/south,
@@ -1507,7 +1507,7 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "kV" = (
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "kX" = (
 /obj/effect/turf_decal/stripes/asteroid/corner,
 /turf/open/misc/asteroid/airless,
@@ -1604,7 +1604,7 @@
 "lD" = (
 /obj/structure/fence,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "lE" = (
 /obj/machinery/power/smes/engineering{
 	charge = 0
@@ -1762,7 +1762,7 @@
 "mn" = (
 /obj/structure/spawner/tarkon_xenos/minor,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "mo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2088,7 +2088,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "oH" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -2359,7 +2359,7 @@
 "pT" = (
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "pY" = (
 /obj/effect/spawner/structure/window/reinforced/no_firelock,
 /obj/machinery/atmospherics/pipe/layer_manifold/yellow/hidden{
@@ -2919,7 +2919,7 @@
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/grille,
 /turf/open/floor/plating/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "tN" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
@@ -2955,7 +2955,7 @@
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/alien/resin/membrane,
 /turf/open/floor/plating/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "uh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3378,7 +3378,7 @@
 	width = 14
 	},
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "xm" = (
 /obj/machinery/firealarm/directional/east,
 /obj/effect/turf_decal/tile/blue/half{
@@ -3438,7 +3438,7 @@
 "xC" = (
 /obj/structure/alien/resin/wall,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "xD" = (
 /obj/structure/reagent_dispensers/fueltank/large,
 /obj/effect/turf_decal/tile/yellow/half,
@@ -3623,7 +3623,7 @@
 	dir = 1
 	},
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "yV" = (
 /obj/machinery/door/firedoor/solid,
 /obj/machinery/light_switch/directional/east,
@@ -3695,7 +3695,7 @@
 "zz" = (
 /mob/living/basic/carp/mega,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "zA" = (
 /obj/machinery/door/firedoor/solid,
 /obj/machinery/door/airlock/public/glass{
@@ -3787,7 +3787,7 @@
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "zY" = (
 /turf/closed/mineral/random,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "zZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4454,7 +4454,7 @@
 "EN" = (
 /obj/structure/alien/weeds/node,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "EQ" = (
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/port_tarkon/cargo)
@@ -4587,7 +4587,7 @@
 "FZ" = (
 /obj/structure/fluff/metalpole,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "Gj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -5091,7 +5091,7 @@
 "Js" = (
 /obj/item/shovel,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "Ju" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -5265,7 +5265,7 @@
 "Kn" = (
 /obj/structure/spawner/tarkon_xenos/common,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "Ko" = (
 /obj/structure/falsewall,
 /turf/open/floor/plating,
@@ -5765,7 +5765,7 @@
 	},
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "NE" = (
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/tile/yellow/half{
@@ -6256,7 +6256,7 @@
 	dir = 5
 	},
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "QL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6360,7 +6360,7 @@
 "RE" = (
 /obj/structure/alien/resin/membrane,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "RF" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
@@ -6431,7 +6431,7 @@
 "Sl" = (
 /obj/structure/spawner/tarkon_xenos,
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "Sm" = (
 /obj/structure/fluff/metalpole,
 /turf/template_noop,
@@ -7255,7 +7255,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "Yc" = (
 /obj/effect/spawner/structure/window/reinforced/no_firelock,
 /obj/machinery/atmospherics/pipe/layer_manifold/brown/hidden{
@@ -7375,7 +7375,7 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid/airless,
-/area/ruin/space/has_grav)
+/area/ruin/space/has_grav/outdoors)
 "YX" = (
 /obj/machinery/firealarm/directional/east,
 /obj/effect/turf_decal/tile/brown/half{
