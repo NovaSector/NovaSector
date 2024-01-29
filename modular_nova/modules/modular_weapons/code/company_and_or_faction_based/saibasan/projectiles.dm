@@ -204,7 +204,6 @@
 	icon_state = "flare_burn"
 	light_color = COLOR_PALE_GREEN
 	light_power = 2
-	light_on = TRUE
 
 /obj/item/flashlight/flare/plasma_projectile/Initialize(mapload)
 	. = ..()
