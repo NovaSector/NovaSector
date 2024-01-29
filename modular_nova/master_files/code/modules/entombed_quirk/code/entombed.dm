@@ -1,14 +1,62 @@
+/// How much damage should we be taking when the suit's been disabled a while?
+#define ENTOMBED_TICK_DAMAGE 1.5
+
 /datum/quirk/equipping/entombed
 	name = "Entombed"
-	desc = "You are permanently fused to (or otherwise reliant on) a single MOD unit that can never be removed from your person. If it runs out of charge, you'll start to die!"
+	desc = "You are permanently fused to (or otherwise reliant on) a single MOD unit that can never be removed from your person. If it runs out of charge or is turned off, you'll start to die!"
 	gain_text = span_warning("Your exosuit is both prison and home.")
 	lose_text = span_notice("At last, you're finally free from that horrible exosuit.")
 	medical_record_text = "Patient is physiologically reliant on a MOD unit for homeostasis. Do not attempt removal."
 	value = 0
-	icon = FA_ICON_SUITCASE
+	icon = FA_ICON_ARROW_CIRCLE_DOWN
 	forced_items = list(/obj/item/mod/control/pre_equipped/entombed = list(ITEM_SLOT_BACK))
+	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_PROCESSES
 	/// The modsuit we're stuck in
 	var/obj/item/mod/control/pre_equipped/entombed/modsuit
+	/// Has the player chosen to deploy-lock?
+	var/deploy_locked = FALSE
+	/// How long before they start taking damage when the suit's not active?
+	var/life_support_failure_threshold = 1.5 MINUTES
+	/// TimerID for our timeframe tracker
+	var/life_support_timer
+	/// Are we taking damage?
+	var/life_support_failed = FALSE
+
+/datum/quirk/equipping/entombed/process(seconds_per_tick)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if (!modsuit || life_support_failed)
+		// we've got no modsuit or life support. take damage ow
+		if (isslimeperson(human_holder))
+			human_holder.adjustToxLoss(-ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE)
+		else
+			human_holder.adjustToxLoss(ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE)
+
+	if (!modsuit.active)
+		if (!life_support_timer)
+			//start the timer and let the player know
+			life_support_timer = addtimer(CALLBACK(src, PROC_REF(life_support_failure), human_holder), life_support_failure_threshold, TIMER_STOPPABLE)
+
+			to_chat(human_holder, span_danger("Your physiology begins to erratically seize and twitch, bereft of your MODsuit's vital support. <b>Turn it back on as soon as you can!</b>"))
+			human_holder.balloon_alert(human_holder, "suit life support warning!")
+			return
+	else
+		if (life_support_timer)
+			// clear our timer and let the player know everything's back to normal
+			deltimer(life_support_timer)
+			life_support_timer = null
+			life_support_failed = FALSE
+
+			to_chat(human_holder, span_notice("Relief floods your frame as your suit begins sustaining your life once more."))
+			human_holder.balloon_alert(human_holder, "suit life support restored!")
+
+/datum/quirk/equipping/entombed/proc/life_support_failure()
+	// Warn the player and begin the gradual dying process.
+	var/mob/living/carbon/human/human_holder = quirk_holder
+
+	human_holder.visible_message(span_danger("[human_holder] suddenly staggers, a dire pallor overtaking [human_holder.p_their()] features as a feeble 'breep' emanates from their suit..."), span_userdanger("Terror descends as your suit's life support system breeps feebly, and then goes horrifyingly silent."))
+	human_holder.balloon_alert(human_holder, "SUIT LIFE SUPPORT FAILING!")
+	playsound(human_holder, 'sound/effects/alert.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE) // OH GOD THE STRESS NOISE
+	life_support_failed = TRUE
 
 /datum/quirk/equipping/entombed/add_unique(client/client_source)
 	. = ..()
@@ -18,6 +66,10 @@
 
 	if (isnull(modsuit))
 		return
+
+	var/lock_deploy = client_source?.prefs.read_preference(/datum/preference/toggle/entombed_deploy_lock)
+	if (!isnull(lock_deploy))
+		deploy_locked = lock_deploy
 
 	// set all of our customization stuff from prefs, if we have it
 	var/modsuit_skin = client_source?.prefs.read_preference(/datum/preference/choiced/entombed_skin)
@@ -58,7 +110,7 @@
 
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed
-	customization_options = list(/datum/preference/choiced/entombed_skin, /datum/preference/text/entombed_mod_name, /datum/preference/text/entombed_mod_desc, /datum/preference/text/entombed_mod_prefix)
+	customization_options = list(/datum/preference/choiced/entombed_skin, /datum/preference/text/entombed_mod_name, /datum/preference/text/entombed_mod_desc, /datum/preference/text/entombed_mod_prefix, /datum/preference/toggle/entombed_deploy_lock)
 
 /datum/preference/choiced/entombed_skin
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
@@ -154,3 +206,19 @@
 
 /datum/preference/text/entombed_mod_prefix/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+/datum/preference/toggle/entombed_deploy_lock
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "entombed_deploy_lock"
+	savefile_identifier = PREFERENCE_CHARACTER
+
+/datum/preference/toggle/entombed_deploy_lock/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return "Entombed" in preferences.all_quirks
+
+/datum/preference/toggle/entombed_deploy_lock/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+#undef ENTOMBED_TICK_DAMAGE
