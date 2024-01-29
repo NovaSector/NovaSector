@@ -17,12 +17,6 @@
 			"icon_state": "crop_jacket_sleeve",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "crop_jacket_strap",
-			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
 		}
 	],
 	"crop_jacket_t": [
@@ -43,12 +37,6 @@
 			"icon_state": "crop_jacket_sleeve_short",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "crop_jacket_strap",
-			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
 		}
 	]
 }

@@ -253,7 +253,7 @@
 	icon_state = "crop_jacket"
 	greyscale_config = /datum/greyscale_config/crop_jacket
 	greyscale_config_worn = /datum/greyscale_config/crop_jacket/worn
-	greyscale_colors = "#ebebeb#a52f29#545461#a52f29"
+	greyscale_colors = "#ebebeb#a52f29#545461"
 	body_parts_covered = CHEST|ARMS
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	flags_1 = IS_PLAYER_COLORABLE_1
