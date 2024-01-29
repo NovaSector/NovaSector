@@ -269,11 +269,6 @@
 		spans = list(talking_movable.speech_span)
 	if(!language)
 		language = talking_movable.get_selected_language()
-	// NOVA SECTOR ADDITION - START - KILLING THE RADIO
-	var/area/target_area = get_area(talking_movable)
-	if(istype(target_area, /area/centcom/holding))
-		return ITALICS | REDUCE_RANGE
-	// NOVA SECTOR ADDITION - END - KILLING THE RADIO
 	INVOKE_ASYNC(src, PROC_REF(talk_into_impl), talking_movable, message, channel, spans.Copy(), language, message_mods)
 	return ITALICS | REDUCE_RANGE
 
