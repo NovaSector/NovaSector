@@ -124,10 +124,9 @@
 	new /obj/item/clothing/mask/chameleon(src)
 	new /obj/item/clothing/neck/chameleon(src)
 	new /obj/item/storage/belt/chameleon(src)
-	new /obj/item/card/id/advanced/chameleon(src)
 	new /obj/item/hhmirror/syndie(src)
 
-/obj/item/card/id/advanced/ghost_cafe
+/obj/item/card/id/advanced/chameleon/ghost_cafe
 	name = "\improper Cafe ID"
 	desc = "An ID straight from God."
 	icon_state = "card_centcom"
