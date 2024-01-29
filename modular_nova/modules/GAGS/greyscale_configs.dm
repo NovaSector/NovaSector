@@ -840,7 +840,7 @@
 
 /datum/greyscale_config/crop_jacket/worn
 	name = "Tailored Jacket (Worn)"
-	json_config = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
 
 
 /*
