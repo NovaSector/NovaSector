@@ -66,7 +66,7 @@
 
 /datum/preference/choiced/uplink_skin
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_key = "uplink_skin"
+	savefile_key = "underworld_uplink_skin"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 
@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 
 /datum/preference/text/uplink_name
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_key = "uplink_name"
+	savefile_key = "underworld_uplink_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 	maximum_value_length = 32
@@ -121,7 +121,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 
 /datum/preference/text/uplink_desc
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-	savefile_key = "uplink_desc"
+	savefile_key = "underworld_uplink_desc"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 

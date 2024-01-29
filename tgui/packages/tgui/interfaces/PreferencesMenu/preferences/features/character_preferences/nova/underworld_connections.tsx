@@ -7,17 +7,17 @@ import {
   FeatureTextInput,
 } from '../../base';
 
-export const uplink_skin: FeatureChoiced = {
+export const underworld_uplink_skin: FeatureChoiced = {
   name: 'Uplink Skin',
   component: FeatureDropdownInput,
 };
 
-export const uplink_name: Feature<string> = {
+export const underworld_uplink_name: Feature<string> = {
   name: 'Uplink Name',
   component: FeatureShortTextInput,
 };
 
-export const uplink_desc: Feature<string> = {
+export const underworld_uplink_desc: Feature<string> = {
   name: 'Uplink Description',
   component: FeatureTextInput,
 };
