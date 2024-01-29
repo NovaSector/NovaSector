@@ -70,8 +70,6 @@
 		mod.wearer.update_equipment_speed_mods()
 
 	traveled_tiles = 0
-		mod.wearer.update_equipment_speed_mods()
-	traveled_tiles = 0
 
 /obj/item/mod/module/ash_accretion/auxiliary
 	name = "MOD auxiliary ash accretion module"
