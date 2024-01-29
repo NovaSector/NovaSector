@@ -133,21 +133,29 @@
 			RESKIN_ICON_STATE = "belt_white",
 			RESKIN_WORN_ICON_STATE = "belt_white"
 		),
-		"Slim Variant" = list(
-			RESKIN_ICON_STATE = "belt_slim",
-			RESKIN_WORN_ICON_STATE = "belt_slim"
+		"Basic Variant" = list(
+			RESKIN_ICON = 'icons/obj/clothing/belts.dmi',
+			RESKIN_ICON_STATE = "security",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/belt.dmi',
+			RESKIN_WORN_ICON_STATE = "security"
 		),
 	)
 
 /obj/item/storage/belt/security/webbing
+	icon = 'icons/obj/clothing/belts.dmi'
+	worn_icon = 'icons/mob/clothing/belt.dmi'
 	uses_advanced_reskins = FALSE
 	unique_reskin = NONE
 	current_skin = "securitywebbing" //Prevents reskinning
 
-/obj/item/storage/belt/security/webbing/peacekeeper //did I mention this codebase is fucking awful
+/obj/item/storage/belt/security/webbing/peacekeeper
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	current_skin = "peacekeeper_webbing"
 
-/obj/item/storage/belt/security/webbing/peacekeeper/armadyne
+/obj/item/storage/belt/security/webbing/armadyne
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	current_skin = "armadyne_webbing"
 
 ///Enables you to quickdraw weapons from security holsters

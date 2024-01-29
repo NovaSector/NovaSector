@@ -18,11 +18,13 @@
 		canhold = list(
 			/obj/item/storage/belt/storage_pouch,
 			/obj/item/forging/reagent_weapon/sword,
+			/obj/item/forging/reagent_weapon/katana,
+			/obj/item/forging/reagent_weapon/bokken,
+			/obj/item/forging/reagent_weapon/dagger,
 			/obj/item/melee/sabre,
 			/obj/item/claymore,
 			/obj/item/melee/cleric_mace,
 			/obj/item/knife,
-			/obj/item/melee/baton,
 			/obj/item/melee/baton,
 			/obj/item/nullrod,	//holds any subset of nullrod in the sheath-storage - - -
 		),
@@ -108,7 +110,7 @@
 	name = "storage pouch"
 	desc = span_notice("Click on this to open your belt's inventory!")
 	icon_state = "storage_pouch_icon"
-	worn_icon_state = "no_name"	//Intentionally sets the worn icon to an error
+	worn_icon_state = "storage_pouch_icon"
 	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, its technically a belt
 	anchored = 1	//Dont want people taking it out with their hands
 

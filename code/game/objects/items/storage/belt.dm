@@ -190,6 +190,26 @@
 	to_preload += /obj/item/extinguisher/mini
 	return to_preload
 
+/obj/item/storage/belt/utility/full/inducer/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/screwdriver, src)
+	SSwardrobe.provide_type(/obj/item/wrench, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/red, src)
+	SSwardrobe.provide_type(/obj/item/wirecutters, src)
+	SSwardrobe.provide_type(/obj/item/multitool, src)
+	SSwardrobe.provide_type(/obj/item/inducer, src)
+
+/obj/item/storage/belt/utility/full/inducer/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver
+	to_preload += /obj/item/wrench
+	to_preload += /obj/item/weldingtool
+	to_preload += /obj/item/crowbar
+	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/multitool
+	to_preload += /obj/item/inducer
+	return to_preload
+
 /obj/item/storage/belt/utility/syndicate
 	preload = FALSE
 
@@ -334,23 +354,6 @@
 	inhand_icon_state = "security"//Could likely use a better one.
 	worn_icon_state = "security"
 	content_overlays = TRUE
-	// NOVA EDIT ADDITION START
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic Security" = list(
-			RESKIN_ICON = 'icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "security",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/belt.dmi',
-			RESKIN_WORN_ICON_STATE = "security"
-		),
-		"Peacekeeper" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "peacekeeperbelt",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi',
-			RESKIN_WORN_ICON_STATE = "peacekeeperbelt"
-		)
-	)
-	// NOVA EDIT ADDITION END
 
 /obj/item/storage/belt/security/Initialize(mapload)
 	. = ..()
