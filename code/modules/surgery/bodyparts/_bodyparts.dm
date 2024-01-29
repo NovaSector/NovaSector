@@ -1051,30 +1051,16 @@
 	if(should_draw_greyscale) //Should the limb be colored outside of a forced color?
 		draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone))
 
-<<<<<<< HEAD
-		draw_color = variable_color
-		if(should_draw_greyscale) //Should the limb be colored outside of a forced color?
-			draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone))
-
-		if(draw_color)
-			//NOVA EDIT BEGIN - Alpha values on limbs //We check if the limb is attached and if the owner has an alpha value to append
-			var/limb_color = alpha != 255 ? "[draw_color][num2hex(alpha, 2)]" : "[draw_color]"
-
-			limb.color = limb_color
-			if(aux_zone)
-				aux.color = limb_color
-			//NOVA EDIT END
-=======
 	if(is_husked)
 		huskify_image(thing_to_husk = limb)
 		if(aux)
 			huskify_image(thing_to_husk = aux)
 		draw_color = husk_color
 	if(draw_color)
-		limb.color = "[draw_color]"
+		var/limb_color = alpha != 255 ? "[draw_color][num2hex(alpha, 2)]" : "[draw_color]" // NOVA EDIT ADDITION - Alpha values on limbs. We check if the limb is attached and if the owner has an alpha value to append
+		limb.color = limb_color // NOVA EDIT CHANGE - ORIGINAL: limb.color = "[draw_color]"
 		if(aux_zone)
-			aux.color = "[draw_color]"
->>>>>>> 832149261d9 (Dynamic Husk Icons (#81080))
+			aux.color = limb_color // NOVA EDIT CHANGE - ORIGINAL: aux.color = "[draw_color]"
 
 		//EMISSIVE CODE START
 		// For some reason this was applied as an overlay on the aux image and limb image before.
