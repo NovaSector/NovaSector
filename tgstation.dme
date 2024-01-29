@@ -6233,7 +6233,6 @@
 #include "modular_nova\master_files\code\game\atoms.dm"
 #include "modular_nova\master_files\code\game\sound.dm"
 #include "modular_nova\master_files\code\game\area\areas\ruins\lavaland.dm"
-#include "modular_nova\master_files\code\game\area\areas\ruins\space.dm"
 #include "modular_nova\master_files\code\game\effects\spawners\random\structure.dm"
 #include "modular_nova\master_files\code\game\gamemodes\dynamic.dm"
 #include "modular_nova\master_files\code\game\gamemodes\objective.dm"
