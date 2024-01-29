@@ -231,6 +231,7 @@
 	name = "\improper P-T Solar Array"
 	icon_state = "space_near"
 	has_gravity = STANDARD_GRAVITY
+	outdoors = TRUE
 
 // Cargodise Lost Freighter
 
