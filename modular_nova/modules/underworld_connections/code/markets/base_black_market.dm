@@ -110,7 +110,7 @@
 
 /datum/market_item/misc/roulette
 	price_min = PAYCHECK_CREW * 0.5
-	price_min = PAYCHECK_CREW * 6 // it's how the chips fall babyyy
+	price_max = PAYCHECK_CREW * 6 // it's how the chips fall babyyy
 
 /datum/market_item/misc/jawed_hook
 	desc = "If you're struggling with the fishes, give 'em the jaws, see?"
