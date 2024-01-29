@@ -736,3 +736,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/heart_sweater
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
+
+/datum/loadout_item/suit/crop_jacket
+	name = "Colourable Crop-Top Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket

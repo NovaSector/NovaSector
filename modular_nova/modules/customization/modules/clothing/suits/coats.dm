@@ -250,7 +250,7 @@
 	name = "crop-top jacket"
 	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
 		some barbarian has cut the entire bottom half out."
-	icon_state = "tailored_jacket"
+	icon_state = "crop_jacket"
 	greyscale_config = /datum/greyscale_config/crop_jacket
 	greyscale_config_worn = /datum/greyscale_config/crop_jacket/worn
 	greyscale_colors = "#ebebeb#a52f29#545461#a52f29"
