@@ -103,7 +103,7 @@
 	can_randomize = FALSE
 	maximum_value_length = 32
 
-/datum/preference/choiced/entombed_mod_name/is_accessible(datum/preferences/preferences)
+/datum/preference/text/entombed_mod_name/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
 
