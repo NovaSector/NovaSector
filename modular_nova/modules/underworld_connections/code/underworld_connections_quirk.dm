@@ -3,6 +3,8 @@
 	desc = "You're in with the seedier elements of the galactic underworld, and can start with a black market uplink (customizable) and access to information brokers (exploitables). Security has suspicions about you, though..."
 	icon = FA_ICON_SUITCASE
 	value = 0
+	gain_text = span_notice("Your contacts to the underworld are close at hand.")
+	lose_text = span_notice("You always knew they'd ditch you when things got rough.")
 	medical_record_text = "Patient appears to have received numerous unnoted surgeries at unlicensed clinics in the past."
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	mail_goodies = list(/obj/item/storage/briefcase/secure)
@@ -107,7 +109,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	can_randomize = FALSE
 	maximum_value_length = 32
 
-/datum/preference/choiced/uplink_name/is_accessible(datum/preferences/preferences)
+/datum/preference/text/uplink_name/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
 
@@ -125,7 +127,7 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 
-/datum/preference/choiced/uplink_desc/is_accessible(datum/preferences/preferences)
+/datum/preference/text/uplink_desc/is_accessible(datum/preferences/preferences)
 	if (!..())
 		return FALSE
 
