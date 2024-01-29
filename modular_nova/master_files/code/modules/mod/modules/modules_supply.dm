@@ -34,13 +34,13 @@
 	protection_enabled = FALSE
 	UnregisterSignal(mod, list(COMSIG_MOD_DEPLOYED, COMSIG_MOD_RETRACTED))
 
+/// Updates the ash accretion module's `speed_added`, so it entirely cancels out the suit's slowdown at full accretion. Not meant to be called for the external variant!
 /obj/item/mod/module/ash_accretion/proc/update_added_speed()
 	SIGNAL_HANDLER
 	speed_added = mod.slowdown_active // no, you don't get to have a free speedup, actually
 
+/// Checks if the suit's current state is valid for buff-granting purposes. Should only be called when the MOD is deployed or retracted.
 /obj/item/mod/module/ash_accretion/proc/on_mod_toggle()
-	SIGNAL_HANDLER
-
 	if((mod.wearer.head == mod.helmet) && (mod.wearer.wear_suit == mod.chestplate) && (mod.wearer.gloves == mod.gauntlets) && (mod.wearer.shoes == mod.boots) && mod.active)
 		// suit is on and fully deployed, give them their proofing
 		mod.wearer.add_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
@@ -48,21 +48,28 @@
 		balloon_alert(mod.wearer, "ash accretion enabled")
 		protection_enabled = TRUE
 		return
+
 	// if their suit is not fully deployed, take their proofing away
 	if(!protection_enabled)
 		return // unless it was already gone
+
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
 	mod.wearer.remove_traits(list(TRAIT_ASHSTORM_IMMUNE, TRAIT_SNOWSTORM_IMMUNE), MOD_TRAIT)
 	balloon_alert(mod.wearer, "ash accretion disabled!")
 	protection_enabled = FALSE
 	if(!traveled_tiles)
 		return
+
 	var/list/parts = mod.mod_parts + mod
 	var/datum/armor/to_remove = get_armor_by_type(armor_mod)
 	for(var/obj/item/part as anything in parts)
 		part.set_armor(part.get_armor().subtract_other_armor(to_remove.generate_new_with_multipliers(list(ARMOR_ALL = traveled_tiles))))
+
 	if(traveled_tiles == max_traveled_tiles)
 		mod.slowdown += speed_added
+		mod.wearer.update_equipment_speed_mods()
+
+	traveled_tiles = 0
 		mod.wearer.update_equipment_speed_mods()
 	traveled_tiles = 0
 
