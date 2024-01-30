@@ -273,7 +273,7 @@
 	if(parent_machienry.circuit)
 		parent_machienry.circuit.forceMove(our_turf)
 		parent_machienry.circuit = null
-	qdel(parent_machienry)
+	qdel(parent_machinery)
 
 /datum/component/machine_corruption/proc/emp_act(datum/source, severity)
 	SIGNAL_HANDLER
