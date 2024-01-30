@@ -206,7 +206,7 @@
 	playsound(target, 'modular_nova/modules/space_ruin_specifics/sound/sparks_2.ogg', 70, TRUE)
 	if(prob(DAMAGE_RESPONSE_PROB))
 		target.say("ARRRRRRRGHHHHHHH!")
-	new /obj/effect/gibspawner/robot(get_turf(target))
+	new /obj/effect/gibspawner/robot(target.drop_location())
 
 
 /datum/component/machine_corruption/proc/handle_overlays(atom/parent_atom, list/overlays)
