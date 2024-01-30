@@ -101,7 +101,6 @@
 		if(EMP_HEAVY)
 			take_damage(40)
 
-
 /obj/structure/fleshmind/wireweed/update_overlays()
 	. = ..()
 	if(active)
