@@ -117,6 +117,7 @@
 	if(do_initial_expansion)
 		initial_expansion()
 	SSshuttle.registerHostileEnvironment(src)
+	return
 
 /datum/fleshmind_controller/proc/register_new_asset(obj/structure/fleshmind/new_asset)
 	new_asset.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/obj/structure/fleshmind, controller_destroyed))
@@ -399,6 +400,12 @@
 
 // Death procs
 
+/// When a core is destroyed.
+/datum/fleshmind_controller/proc/core_death(obj/structure/fleshmind/structure/core/dead_core, force)
+	cores -= dead_core
+	activate_wireweed_nearby(get_turf(dead_core), CORE_DAMAGE_WIREWEED_ACTIVATION_RANGE)
+	if(!LAZYLEN(cores))
+		controller_death()
 /datum/fleshmind_controller/proc/wireweed_death(obj/structure/fleshmind/dying_wireweed, force)
 	SIGNAL_HANDLER
 
