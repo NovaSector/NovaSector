@@ -18,7 +18,7 @@
 	our_controller = null
 	if(possible_rewards)
 		var/thing_to_spawn = pick(possible_rewards)
-		new thing_to_spawn(get_turf(src))
+		new thing_to_spawn(drop_location())
 	return ..()
 
 /**
