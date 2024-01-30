@@ -44,7 +44,7 @@
 	if(. & SPELL_CANCEL_CAST || blocked)
 		return
 
-	message = autopunct_bare(tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]"))
+	message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]")))
 	if(QDELETED(src) || QDELETED(owner) || QDELETED(cast_on) || !can_cast_spell())
 		return . | SPELL_CANCEL_CAST
 
@@ -69,7 +69,8 @@
 			return
 
 		blocked = TRUE
-		message = autopunct_bare(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]"))
+
+		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]")))
 		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
 			blocked = FALSE
 			return
@@ -108,9 +109,9 @@
 			continue
 
 		var/from_link = FOLLOW_LINK(ghost, owner)
-		var/from_mob_name = span_boldnotice("[owner] [src]")
+		var/from_mob_name = span_boldnotice("[owner]")
 		from_mob_name += span_boldnotice(":")
 		var/to_link = FOLLOW_LINK(ghost, target)
 		var/to_mob_name = span_name("[target]")
 
-		to_chat(ghost, "[from_link] [from_mob_name] [message] [to_link] [to_mob_name]")
+		to_chat(ghost, "[from_link]" + span_purple("<b>\[Telepathy\]</b> [from_mob_name] transmits, \"[message]\"") + " to [to_mob_name] [to_link]")
