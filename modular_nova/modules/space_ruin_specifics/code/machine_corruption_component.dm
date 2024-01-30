@@ -270,9 +270,9 @@
 	var/turf/our_turf = get_turf(parent)
 	incoming_controller.spawn_structure(our_turf, /obj/structure/fleshmind/structure/assembler)
 	var/obj/machinery/parent_machinery = parent
-	if(parent_machienry.circuit)
-		parent_machienry.circuit.forceMove(our_turf)
-		parent_machienry.circuit = null
+	if(parent_machinery.circuit)
+		parent_machinery.circuit.forceMove(our_turf)
+		parent_machinery.circuit = null
 	qdel(parent_machinery)
 
 /datum/component/machine_corruption/proc/emp_act(datum/source, severity)
