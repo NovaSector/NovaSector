@@ -1,7 +1,7 @@
 //////
 //
 // NOVA Override - prevents people from using modular computers while they're in the ghost cafe
-// Relies on the
+// Relies checking for the trait that's given by the spawner. If this ever changes, we'll need to update this.
 //
 //////
 /obj/item/modular_computer/ui_interact(mob/user, datum/tgui/ui)
