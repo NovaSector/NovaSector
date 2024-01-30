@@ -5,7 +5,7 @@
 
 	default_skin = "civilian"
 	armor_type = /datum/armor/mod_entombed
-	resistance_flags = FIRE_PROOF | ACID_PROOF | INDESTRUCTIBLE // It is better to die for the Emperor than live for yourself.
+	resistance_flags = FIRE_PROOF | ACID_PROOF // It is better to die for the Emperor than live for yourself.
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5

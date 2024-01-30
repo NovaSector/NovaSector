@@ -26,10 +26,7 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if (!modsuit || life_support_failed)
 		// we've got no modsuit or life support. take damage ow
-		if (isslimeperson(human_holder))
-			human_holder.adjustToxLoss(-ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE)
-		else
-			human_holder.adjustToxLoss(ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE)
+		human_holder.adjustToxLoss(ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE, forced = TRUE)
 
 	if (!modsuit.active)
 		if (!life_support_timer)
