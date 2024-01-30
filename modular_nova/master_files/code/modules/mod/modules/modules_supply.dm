@@ -10,9 +10,8 @@
 	incompatible_modules = list(/obj/item/mod/module/ash_accretion, /obj/item/mod/module/armor_booster)
 	/// Is this ash accretion module providing its perks? Separate from active, because I don't know how it would interact with everything else as it's a passive module.
 	var/protection_enabled = FALSE
-	armor_mod = /datum/armor/mod_ash_accretion_suit
 
-/datum/armor/mod_ash_accretion_suit
+/datum/armor/mod_ash_accretion
 	melee = 4.5
 	bullet = 1
 	laser = 2
@@ -70,14 +69,3 @@
 		mod.wearer.update_equipment_speed_mods()
 
 	traveled_tiles = 0
-
-/obj/item/mod/module/ash_accretion/auxiliary
-	name = "MOD auxiliary ash accretion module"
-	desc = "A module adapted from Nanotrasen mining suits that collects ash from suitable terrain, covering the suit in a protective layer. This layer is \
-		lost when moving across standard terrain."
-	removable = TRUE
-	speed_added = 0.5
-	armor_mod = /datum/armor/mod_ash_accretion
-
-/obj/item/mod/module/ash_accretion/auxiliary/on_install()
-	return // you get 0.5 speed and that's it
