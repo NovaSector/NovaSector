@@ -446,13 +446,9 @@
 /turf/open/floor/plating,
 /area/station/service/bar)
 "aia" = (
-/obj/structure/sign/map/left{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-left-fland";
-	pixel_y = 32
-	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/port)
+/obj/structure/sign/map/left,
+/turf/closed/wall,
+/area/station/commons/vacant_room/commissary)
 "aib" = (
 /obj/machinery/chem_master/condimaster{
 	name = "HoochMaster 2000"
@@ -3868,14 +3864,9 @@
 /turf/closed/wall,
 /area/station/medical/surgery)
 "bkl" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/structure/table,
-/obj/item/reagent_containers/condiment/flour{
-	pixel_x = 4
-	},
-/obj/item/reagent_containers/condiment/sugar,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/kitchen)
+/mob/living/basic/rabbit,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/exit/departure_lounge)
 "bkB" = (
 /obj/structure/bodycontainer/morgue,
 /obj/effect/turf_decal/stripes/end{
@@ -8004,6 +7995,11 @@
 	dir = 8
 	},
 /area/station/medical/treatment_center)
+"cKR" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/iron/dark,
+/area/station/service/hydroponics)
 "cLf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8347,11 +8343,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/explab)
-"cQM" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/vending/hydronutrients,
-/turf/open/floor/iron/dark,
-/area/station/service/hydroponics)
 "cRc" = (
 /obj/machinery/door/airlock/command{
 	name = "E.V.A. Storage"
@@ -9805,9 +9796,11 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "drj" = (
-/obj/structure/table,
-/turf/open/floor/iron,
-/area/station/maintenance/port)
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/cook,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "drn" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
@@ -9870,17 +9863,13 @@
 /area/station/command/heads_quarters/nt_rep)
 "drR" = (
 /obj/structure/table,
-/obj/item/food/spaghetti/raw,
-/obj/item/reagent_containers/condiment/saltshaker{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/condiment/peppermill,
-/obj/item/reagent_containers/condiment/enzyme{
+/obj/effect/turf_decal/bot,
+/obj/item/kitchen/rollingpin,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/reagentgrinder{
+	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "drW" = (
@@ -11965,6 +11954,17 @@
 /obj/structure/cable,
 /turf/open/floor/iron/checker,
 /area/station/maintenance/abandon_arcade)
+"egx" = (
+/obj/structure/table,
+/obj/effect/turf_decal/bot,
+/obj/item/storage/box/ingredients/wildcard,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/reagent_containers/condiment/flour{
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/condiment/sugar,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "egG" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -15237,9 +15237,21 @@
 /area/station/security/brig)
 "fhD" = (
 /obj/structure/table,
+/obj/item/food/spaghetti/raw,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/condiment/peppermill,
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_y = 6
+	},
 /obj/effect/turf_decal/bot,
-/obj/item/kitchen/rollingpin,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/reagent_containers/cup/beaker{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/cup/bowl,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "fhF" = (
@@ -21645,10 +21657,17 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "hhj" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/machinery/vending/wardrobe/chef_wardrobe,
+/obj/structure/rack,
+/obj/item/stack/package_wrap,
+/obj/item/hand_labeler,
 /obj/effect/turf_decal/bot,
+/obj/item/clothing/head/utility/chefhat,
+/obj/item/book/manual/wiki/cooking_to_serve_man,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/clothing/head/utility/chefhat,
+/obj/item/clothing/suit/apron/chef,
 /obj/machinery/requests_console/directional/north,
+/obj/effect/mapping_helpers/requests_console/supplies,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "hhk" = (
@@ -28991,6 +29010,10 @@
 	},
 /turf/open/floor/iron/checker,
 /area/station/maintenance/port/central)
+"jJh" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/turf/closed/wall,
+/area/station/service/kitchen)
 "jJj" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/loading_area{
@@ -29080,17 +29103,9 @@
 /turf/open/floor/iron,
 /area/station/science/lab)
 "jKy" = (
-/obj/structure/sign/map/right{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-right-fland";
-	pixel_y = 32
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/primary/aft)
+/obj/structure/sign/map/right,
+/turf/closed/wall,
+/area/station/commons/vacant_room/commissary)
 "jKM" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/closet/emcloset,
@@ -29998,14 +30013,14 @@
 /turf/open/floor/iron/checker,
 /area/station/maintenance/abandon_cafeteria)
 "kaK" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "hydroshutter";
-	name = "Hydroponic Shutters"
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters{
+	id = "kitchenside";
+	name = "Kitchen Hall Shutters"
 	},
-/obj/machinery/smartfridge,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/station/service/hydroponics)
+/obj/structure/displaycase/forsale/kitchen,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "kaN" = (
 /obj/effect/spawner/random/food_or_drink/seed,
 /turf/open/floor/plating,
@@ -30675,9 +30690,9 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "kob" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/vending/dinnerware,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/vending/wardrobe/chef_wardrobe,
+/obj/effect/turf_decal/bot,
 /obj/machinery/status_display/evac{
 	pixel_y = 32
 	},
@@ -31245,6 +31260,7 @@
 "kwZ" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/box,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "kxf" = (
@@ -32124,6 +32140,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/department/science)
+"kMg" = (
+/obj/structure/cable,
+/mob/living/basic/pet/bumbles,
+/turf/open/floor/iron,
+/area/station/service/hydroponics)
 "kMq" = (
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 8
@@ -36052,9 +36073,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/light/small/directional/west,
-/obj/item/clothing/under/rank/security/detective{
-	icon_state = "curator"
-	},
+/obj/item/clothing/under/rank/security/detective,
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
 "lYB" = (
@@ -38205,12 +38224,9 @@
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "mLj" = (
-/obj/structure/table,
-/obj/effect/turf_decal/bot,
-/obj/item/storage/box/ingredients/wildcard,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/kitchen)
+/obj/structure/sign/map/left,
+/turf/closed/wall,
+/area/station/service/library)
 "mLs" = (
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/checker,
@@ -38839,6 +38855,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
+/mob/living/basic/goat/pete,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "mWz" = (
@@ -39626,12 +39643,10 @@
 /turf/open/floor/iron/white,
 /area/station/maintenance/port/fore)
 "njG" = (
-/obj/structure/table,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light/directional/south,
-/obj/machinery/reagentgrinder,
-/obj/item/reagent_containers/cup/beaker/large,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/oven/range,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "njM" = (
@@ -43123,11 +43138,9 @@
 	pixel_x = 24;
 	pixel_y = 6
 	},
-/obj/structure/table,
-/obj/machinery/microwave{
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/microwave,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "osI" = (
@@ -46415,13 +46428,14 @@
 	},
 /area/station/engineering/atmos/storage/gas)
 "pBe" = (
-/obj/structure/rack,
-/obj/item/stack/package_wrap,
-/obj/item/hand_labeler,
-/obj/effect/turf_decal/bot,
-/obj/item/clothing/head/utility/chefhat,
-/obj/item/book/manual/wiki/cooking_to_serve_man,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/processor,
+/obj/effect/turf_decal/bot,
+/obj/item/food/dough{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "pBl" = (
@@ -47741,11 +47755,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "pYP" = (
-/obj/machinery/processor,
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/kitchen)
+/obj/structure/sign/map/right,
+/turf/closed/wall,
+/area/station/service/library)
 "pYS" = (
 /obj/structure/bed,
 /obj/item/bedsheet/cmo,
@@ -49101,7 +49113,8 @@
 	name = "service camera"
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/machinery/griddle,
+/obj/effect/turf_decal/bot,
+/obj/machinery/chem_master/condimaster,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "qrm" = (
@@ -52093,9 +52106,9 @@
 /turf/open/floor/carpet/red,
 /area/station/service/library)
 "roM" = (
-/obj/machinery/chem_master/condimaster,
-/obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/vending/dinnerware,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "roS" = (
@@ -54690,14 +54703,9 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/disposal/incinerator)
 "sfg" = (
-/obj/structure/sign/map/right{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-right-fland";
-	pixel_y = 32
-	},
 /obj/machinery/camera{
 	c_tag = "Port Primary Hallway - Starboard";
-	dir = 6;
+	dir = 9;
 	name = "hallway camera"
 	},
 /turf/open/floor/iron,
@@ -61524,8 +61532,15 @@
 /area/station/maintenance/disposal)
 "urv" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/turf_decal/bot,
 /obj/structure/table,
 /obj/item/reagent_containers/cup/bowl,
+/obj/item/knife/kitchen,
+/obj/item/reagent_containers/cup/rag,
+/obj/item/book/manual/chef_recipes{
+	pixel_x = 2;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "urx" = (
@@ -62824,7 +62839,7 @@
 "uLG" = (
 /obj/machinery/camera{
 	c_tag = "Port Primary Hallway - Fore";
-	dir = 5;
+	dir = 10;
 	name = "hallway camera"
 	},
 /obj/structure/cable,
@@ -66899,17 +66914,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/port/central)
 "vYE" = (
-/obj/structure/sign/map/left{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-left-fland";
-	pixel_y = 32
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "hydroshutter";
+	name = "Hydroponic Shutters"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/primary/aft)
+/obj/machinery/smartfridge,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/station/service/hydroponics)
 "vYN" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/railing{
@@ -70852,10 +70864,13 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "xju" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters{
+	id = "kitchencounter";
+	name = "Kitchen Bar Counter Shutters"
 	},
-/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/storage/bag/tray,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "xjx" = (
@@ -90295,7 +90310,7 @@ eFZ
 dsV
 est
 iJu
-iJu
+bkl
 qTQ
 iJu
 iJu
@@ -92127,7 +92142,7 @@ mJV
 jMJ
 uXD
 wxd
-drj
+nfp
 ozD
 nfp
 hds
@@ -95701,8 +95716,8 @@ fVa
 aST
 eRA
 aST
-aST
-vYE
+mLj
+ctx
 itD
 xnM
 gKW
@@ -95958,8 +95973,8 @@ eAl
 aST
 eAl
 eAl
-aST
-jKy
+pYP
+ctx
 sNa
 ssQ
 gKW
@@ -96482,7 +96497,7 @@ khu
 kOg
 rXG
 wul
-wul
+kMg
 wul
 ngN
 gKW
@@ -97007,12 +97022,12 @@ agp
 hmB
 rdA
 jzE
-pBe
+mib
 nmg
 nmg
 jzE
 jzE
-sRp
+xju
 tvw
 sRp
 sxz
@@ -97269,7 +97284,7 @@ vnZ
 jZa
 qmf
 nSC
-nSC
+drj
 nSC
 kyo
 azR
@@ -97509,7 +97524,7 @@ eNQ
 iEK
 kPv
 weP
-cQM
+cKR
 gKW
 mEH
 uIQ
@@ -97524,13 +97539,13 @@ nGE
 nGE
 jzE
 ttS
-roM
+mib
 fhD
 urv
+egx
 dam
-kMK
 mib
-eTa
+kMK
 nQx
 kun
 vmw
@@ -97782,7 +97797,7 @@ qse
 yaA
 cRo
 mib
-oeo
+mib
 kwZ
 mib
 mib
@@ -98038,11 +98053,11 @@ qAU
 mWm
 jzE
 iLg
-pYP
+mib
 drR
-bkl
-mLj
-kMK
+eTa
+eTa
+pBe
 mib
 qrj
 jzE
@@ -98295,12 +98310,12 @@ nHy
 cHl
 jzE
 hVn
-xju
+mib
 mib
 azR
 mib
 mib
-mib
+oeo
 osl
 nQx
 ven
@@ -98552,9 +98567,9 @@ cqg
 nRh
 jzE
 pGO
-jzE
-qjZ
-qjZ
+roM
+jJh
+kaK
 qjZ
 qjZ
 qjZ
@@ -98796,7 +98811,7 @@ gKW
 tdp
 gKW
 gKW
-kaK
+vYE
 aQp
 xFQ
 gKW
@@ -98810,7 +98825,7 @@ nGE
 jzE
 jzE
 jzE
-afj
+xTG
 qIi
 afj
 afj
@@ -102948,8 +102963,8 @@ uAK
 vlr
 rrf
 sQD
-oEY
 aia
+xUL
 ecS
 usG
 wFZ
@@ -103205,7 +103220,7 @@ eXR
 bkE
 chB
 bUb
-oEY
+jKy
 sfg
 ecS
 vdt
