@@ -82,7 +82,7 @@
 	name = "ID, jumpsuit and shoes"
 	uniform = /obj/item/clothing/under/color/random
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	id = /obj/item/card/id/advanced/ghost_cafe
+	id = /obj/item/card/id/advanced/chameleon/ghost_cafe
 	back = /obj/item/storage/backpack/chameleon
 	backpack_contents = list(/obj/item/storage/box/syndie_kit/chameleon/ghostcafe = 1)
 
