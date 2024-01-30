@@ -58,7 +58,6 @@
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		var/datum/record/crew/our_record = find_record(human_holder.name)
-		our_record.security_note = initial(our_record.security_note)
 		if (our_record.wanted_status == WANTED_SUSPECT)
 			our_record.wanted_status = WANTED_NONE
 
