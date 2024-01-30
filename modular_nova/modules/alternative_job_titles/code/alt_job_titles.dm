@@ -29,6 +29,7 @@
 		"Trader",
 		"Off-Duty Crew",
 		"Off-Duty Staff",
+		"Colonist",
 	)
 
 /datum/job/atmospheric_technician
@@ -63,6 +64,7 @@
 		"Bitdomain Technician",
 		"Data Retrieval Specialist",
 		"Netdiver",
+		"Netrunner",
 		"Pod Jockey",
 		"Union Bitrunner",
 		"Junior Runner",
@@ -91,6 +93,7 @@
 	alt_titles = list(
 		"Bouncer",
 		"Service Guard",
+		"Doorman",
 	)
 
 /datum/job/corrections_officer
@@ -299,6 +302,7 @@
 		"Paramedic",
 		"Emergency Medical Technician",
 		"Search and Rescue Technician",
+		"Trauma Team",
 	)
 
 /datum/job/prisoner
@@ -343,6 +347,7 @@
 	alt_titles = list(
 		"Roboticist",
 		"Biomechanical Engineer",
+		"Cyberneticist",
 		"Machinist",
 		"Mechatronic Engineer",
 		"Apprentice Roboticist",
@@ -360,6 +365,7 @@
 		"Lab Technician",
 		"Ordnance Technician",
 		"Plasma Researcher",
+		"Resonance Researcher",
 		"Theoretical Physicist",
 		"Xenoarchaeologist",
 		"Xenobiologist",
