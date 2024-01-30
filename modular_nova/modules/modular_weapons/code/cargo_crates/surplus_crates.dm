@@ -69,13 +69,14 @@
 
 /datum/supply_pack/imports/cin_surplus/fill(obj/structure/closet/crate/we_are_filling_this_crate)
 	var/item_budget = rand(CRATE_BUDGET_MINIMUM, CRATE_BUDGET_MAXIMUM)
-	while(item_budget > 0)
+	for(var/iterator in 1 to 20) // 20 items max, but we have a budget too
 		var/new_thing = pick_weight(contains)
-		// We don't want to go over-budget
-		if((item_budget - contains[new_thing]) < 0)
-			continue
+		// We don't want to go too far over budget
+		if(item_budget <= 0)
+			return
 		new new_thing(src)
-		item_budget -= contains[new_thing]
+		// Basically inverts the weight before subtracting it from the budget
+		item_budget -= (4 - contains[new_thing])
 
 #undef ITEM_WEIGHT_CLOTHING
 #undef ITEM_WEIGHT_ARMOR

@@ -96,13 +96,6 @@
 		//PLEASE REFACTOR THESE AS YOU CAN
 		/mob/living/simple_animal/hostile/bigcrab,
 		/mob/living/simple_animal/hostile/blackmesa,
-		/mob/living/simple_animal/hostile/blackmesa/blackops,
-		/mob/living/simple_animal/hostile/blackmesa/blackops/ranged,
-		/mob/living/simple_animal/hostile/blackmesa/hecu,
-		/mob/living/simple_animal/hostile/blackmesa/hecu/ranged,
-		/mob/living/simple_animal/hostile/blackmesa/hecu/ranged/smg,
-		/mob/living/simple_animal/hostile/blackmesa/sec,
-		/mob/living/simple_animal/hostile/blackmesa/sec/ranged,
 		/mob/living/simple_animal/hostile/blackmesa/xen,
 		/mob/living/simple_animal/hostile/blackmesa/xen/bullsquid,
 		/mob/living/simple_animal/hostile/blackmesa/xen/headcrab,
