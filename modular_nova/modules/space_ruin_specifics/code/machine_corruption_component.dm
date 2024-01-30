@@ -269,7 +269,7 @@
 /datum/component/machine_corruption/proc/convert_to_factory(datum/fleshmind_controller/incoming_controller)
 	var/turf/our_turf = get_turf(parent)
 	incoming_controller.spawn_structure(our_turf, /obj/structure/fleshmind/structure/assembler)
-	var/obj/machinery/parent_machienry = parent
+	var/obj/machinery/parent_machinery = parent
 	if(parent_machienry.circuit)
 		parent_machienry.circuit.forceMove(our_turf)
 		parent_machienry.circuit = null
