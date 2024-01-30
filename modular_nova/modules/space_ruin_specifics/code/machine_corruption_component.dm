@@ -110,7 +110,7 @@
 //		return
 
 	if(incoming_controller && parent_machinery.circuit && prob(CHANCE_TO_CREATE_MECHIVER))
-		parent_machinery.circuit.forceMove(get_turf(parent_machinery))
+		parent_machinery.circuit.forceMove(parent_machinery.drop_location())
 		parent_machinery.circuit = null
 		qdel(parent_machinery)
 		return
