@@ -74,7 +74,7 @@
 		// We don't want to go too far over budget
 		if(item_budget <= 0)
 			return
-		new new_thing(src)
+		new new_thing(we_are_filling_this_crate)
 		// Basically inverts the weight before subtracting it from the budget
 		item_budget -= (4 - contains[new_thing])
 
