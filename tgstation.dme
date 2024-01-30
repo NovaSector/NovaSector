@@ -6929,7 +6929,6 @@
 #include "modular_nova\modules\company_imports\code\objects\deforest\filled_organ_boxes.dm"
 #include "modular_nova\modules\company_imports\code\objects\donk\donkfish_box.dm"
 #include "modular_nova\modules\company_imports\code\objects\jarnsmiour\special_metals.dm"
-#include "modular_nova\modules\company_imports\code\objects\nakamura_modsuits\plate_compression_tech.dm"
 #include "modular_nova\modules\company_imports\code\objects\vitezstvi\ammo_boxes.dm"
 #include "modular_nova\modules\connecting_computer\code\_computer.dm"
 #include "modular_nova\modules\connecting_computer\code\connectable_component.dm"
