@@ -98,6 +98,12 @@
 
 	install_racial_features()
 
+	//transfer as many items across from our dropped backslot as we can. do this last incase something breaks
+	if (force_dropped_items)
+		var/obj/item/old_bag = locate() in force_dropped_items
+		if (old_bag.atom_storage)
+			old_bag.atom_storage.dump_content_at(modsuit, human_holder)
+
 /datum/quirk/equipping/entombed/remove()
 	QDEL_NULL(modsuit)
 

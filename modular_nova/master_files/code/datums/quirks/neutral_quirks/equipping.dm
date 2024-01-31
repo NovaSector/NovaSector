@@ -6,6 +6,8 @@
 	var/list/items = list()
 	/// the items that will be forcefully equipped, formatted in the way of [item_path = list of slots it can be equipped to], will equip over nodrop items
 	var/list/forced_items = list()
+	/// did we force drop any items? if so, they're in this list. useful for transferring any applicable contents into new items on roundstart
+	var/list/force_dropped_items = list()
 
 /datum/quirk/equipping/add_unique(client/client_source)
 	var/mob/living/carbon/carbon_holder = quirk_holder
@@ -45,6 +47,7 @@
 		if (check_nodrop && HAS_TRAIT(item_in_slot, TRAIT_NODROP))
 			return FALSE
 		target.dropItemToGround(item_in_slot, force = TRUE)
+		force_dropped_items += item_in_slot
 	return target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE) // this should never not work tbh
 
 /datum/quirk/equipping/proc/on_equip_item(obj/item/equipped, success)
