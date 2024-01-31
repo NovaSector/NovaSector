@@ -55,8 +55,11 @@
 		var/obj/structure/table/unflipped_table = new table_type(src.loc)
 		unflipped_table.update_integrity(src.get_integrity())
 		if(flags_1 & HOLOGRAM_1) // no unflipping holographic tables into reality
-			unflipped_table.flags_1 |= HOLOGRAM_1
-			unflipped_table.obj_flags |= NO_DECONSTRUCTION
+			var/area/station/holodeck/holo_area = get_area(unflipped_table)
+			if(!istype(holo_area))
+				qdel(unflipped_table)
+				return
+			holo_area.linked.add_to_spawned(unflipped_table)
 		if(custom_materials)
 			unflipped_table.set_custom_materials(custom_materials)
 		user.balloon_alert_to_viewers("table flipped upright")
@@ -89,8 +92,11 @@
 	if(istype(src, /obj/structure/table/greyscale)) //Greyscale tables need greyscale flags!
 		flipped_table.material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
 	if(flags_1 & HOLOGRAM_1) // no flipping holographic tables into reality
-		flipped_table.flags_1 |= HOLOGRAM_1
-		flipped_table.obj_flags |= NO_DECONSTRUCTION
+		var/area/station/holodeck/holo_area = get_area(flipped_table)
+		if(!istype(holo_area))
+			qdel(flipped_table)
+			return
+		holo_area.linked.add_to_spawned(flipped_table)
 	//Finally, add the custom materials, so the flags still apply to it
 	flipped_table.set_custom_materials(custom_materials)
 
