@@ -50,18 +50,18 @@
 			spawned_player.name = user.name
 			spawned_player.real_name = user.real_name
 
-			var/mob/living/carbon/human/H = spawned_player
-			user.client?.prefs.safe_transfer_prefs_to(H)
+			var/mob/living/carbon/human/player_as_human = spawned_player
+			user.client?.prefs.safe_transfer_prefs_to(player_as_human)
 			if(addquirks == "Quirks & Loadout" || addquirks == "Loadout Only")
 				if(dresscode == "Naked")
-					H.equip_outfit_and_loadout(new /datum/outfit(), user.client?.prefs)
+					player_as_human.equip_outfit_and_loadout(new /datum/outfit(), user.client?.prefs)
 				else
-					H.equip_outfit_and_loadout(dresscode, user.client?.prefs)
+					player_as_human.equip_outfit_and_loadout(dresscode, user.client?.prefs)
 			else if(dresscode != "Naked")
 				spawned_player.equipOutfit(dresscode)
 			if(addquirks == "Quirks & Loadout" || addquirks == "Quirks Only")
-				SSquirks.AssignQuirks(H, user.client)
-			H.dna.update_dna_identity()
+				SSquirks.AssignQuirks(player_as_human, user.client)
+			player_as_human.dna.update_dna_identity()
 		else if(dresscode != "Naked")
 			spawned_player.equipOutfit(dresscode)
 		QDEL_IN(user, 1)
@@ -104,8 +104,9 @@
 	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job) - typesof(/datum/outfit/plasmaman)
 
 	for(var/path in paths)
-		var/datum/outfit/O = path //not much to initalize here but whatever
-		outfits[initial(O.name)] = path
+		// Get the datum from the path so we can grab its name.
+		var/datum/outfit/path_as_outfit = path
+		outfits[initial(path_as_outfit.name)] = path
 
 	var/dresscode = tgui_input_list(src, "Select outfit", "Robust quick dress shop", baseoutfits + sort_list(outfits))
 
@@ -141,8 +142,8 @@
 
 	if (dresscode == "Custom")
 		var/list/custom_names = list()
-		for(var/datum/outfit/D in GLOB.custom_outfits)
-			custom_names[D.name] = D
+		for(var/datum/outfit/req_outfit in GLOB.custom_outfits)
+			custom_names[req_outfit.name] = req_outfit
 		var/selected_name = input("Select outfit", "Robust quick dress shop") as null|anything in sort_list(custom_names)
 		dresscode = custom_names[selected_name]
 		if(isnull(dresscode))
