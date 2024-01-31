@@ -37,3 +37,8 @@
 	name = "camo pants"
 	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
 	icon_state = "camopants"
+	greyscale_config = /datum/greyscale_config/shorts/camo //NOVA EDIT ADDITION: GAGS support for the camo shorts
+	greyscale_config_worn = /datum/greyscale_config/shorts/camo/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/shorts/camo/worn/digi
+	greyscale_colors = "#69704C#6E5B4C#343741"
+	flags_1 = IS_PLAYER_COLORABLE_1 //NOVA EDIT ADDITION END
