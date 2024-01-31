@@ -14,7 +14,6 @@
 	icon_state = "slacks"
 	greyscale_config = /datum/greyscale_config/slacks
 	greyscale_config_worn = /datum/greyscale_config/slacks/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/slacks/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
 	greyscale_colors = "#575757#3E3E3E#75634F"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -24,7 +23,6 @@
 	icon_state = "jeans"
 	greyscale_config = /datum/greyscale_config/jeans
 	greyscale_config_worn = /datum/greyscale_config/jeans/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/jeans/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
 	greyscale_colors = "#787878#723E0E#4D7EAC"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -37,8 +35,3 @@
 	name = "camo pants"
 	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
 	icon_state = "camopants"
-	greyscale_config = /datum/greyscale_config/shorts/camo //NOVA EDIT ADDITION: GAGS support for the camo shorts
-	greyscale_config_worn = /datum/greyscale_config/shorts/camo/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/shorts/camo/worn/digi
-	greyscale_colors = "#69704C#6E5B4C#343741"
-	flags_1 = IS_PLAYER_COLORABLE_1 //NOVA EDIT ADDITION END
