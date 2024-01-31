@@ -128,8 +128,8 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/jeans/worn/digi
 
 /obj/item/clothing/under/pants/camo
-	greyscale_config = /datum/greyscale_config/pants/camo
-	greyscale_config_worn = /datum/greyscale_config/pants/camo/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/pants/camo/worn/digi
+	greyscale_config = /datum/greyscale_config/camo_pants
+	greyscale_config_worn = /datum/greyscale_config/camo_pants/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/camo_pants/worn/digi
 	greyscale_colors = "#69704C#6E5B4C#343741"
 	flags_1 = IS_PLAYER_COLORABLE_1
