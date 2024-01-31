@@ -97,7 +97,6 @@
 	cost = CARGO_CRATE_VALUE * 5
 
 /datum/armament_entry/company_import/nri_surplus/misc/health_pen
-	description = "Late stage colonization-grade survival medipen."
 	item_type = /obj/item/reagent_containers/hypospray/medipen/health_station
 	cost = PAYCHECK_COMMAND
 
