@@ -31,7 +31,7 @@
 	if (!modsuit.active)
 		if (!life_support_timer)
 			//start the timer and let the player know
-			life_support_timer = addtimer(CALLBACK(src, PROC_REF(life_support_failure), human_holder), life_support_failure_threshold, TIMER_STOPPABLE)
+			life_support_timer = addtimer(CALLBACK(src, PROC_REF(life_support_failure), human_holder), life_support_failure_threshold, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 			to_chat(human_holder, span_danger("Your physiology begins to erratically seize and twitch, bereft of your MODsuit's vital support. <b>Turn it back on as soon as you can!</b>"))
 			human_holder.balloon_alert(human_holder, "suit life support warning!")
@@ -107,7 +107,13 @@
 
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed
-	customization_options = list(/datum/preference/choiced/entombed_skin, /datum/preference/text/entombed_mod_name, /datum/preference/text/entombed_mod_desc, /datum/preference/text/entombed_mod_prefix, /datum/preference/toggle/entombed_deploy_lock)
+	customization_options = list(
+		/datum/preference/choiced/entombed_skin, 
+		/datum/preference/text/entombed_mod_desc, 
+		/datum/preference/text/entombed_mod_name, 
+		/datum/preference/text/entombed_mod_prefix, 
+		/datum/preference/toggle/entombed_deploy_lock,
+	)
 
 /datum/preference/choiced/entombed_skin
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
@@ -120,18 +126,18 @@
 		"Standard",
 		"Civilian",
 		"Colonist",
-		"Engineering",
-		"Atmospheric",
 		"Advanced",
-		"Mining",
+		"Atmospheric",
+		"Corpsman",
+		"Cosmohonk",
+		"Engineering",
+		"Infiltrator",
+		"Interdyne",
 		"Loader",
 		"Medical",
-		"Corpsman",
-		"Security",
-		"Cosmohonk",
-		"Interdyne",
+		"Mining",
 		"Prototype",
-		"Infiltrator",
+		"Security",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()
@@ -162,6 +168,9 @@
 /datum/preference/text/entombed_mod_name/serialize(input)
 	return htmlrendertext(input)
 
+/datum/preference/text/entombed_mod_name/deserialize(input, datum/preferences/preferences)
+	return htmlrendertext(input)
+
 /datum/preference/text/entombed_mod_name/apply_to_human(mob/living/carbon/human/target, value)
 	return
 
@@ -178,6 +187,9 @@
 	return "Entombed" in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_desc/serialize(input)
+	return htmlrendertext(input)
+
+/datum/preference/text/entombed_mod_desc/deserialize(input, datum/preferences/preferences)
 	return htmlrendertext(input)
 
 /datum/preference/text/entombed_mod_desc/apply_to_human(mob/living/carbon/human/target, value)
@@ -197,6 +209,9 @@
 	return "Entombed" in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_prefix/serialize(input)
+	return htmlrendertext(input)
+
+/datum/preference/text/entombed_mod_prefix/deserialize(input, datum/preferences/preferences)
 	return htmlrendertext(input)
 
 /datum/preference/text/entombed_mod_prefix/create_default_value()

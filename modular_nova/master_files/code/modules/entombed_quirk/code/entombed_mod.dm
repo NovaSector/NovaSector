@@ -14,7 +14,7 @@
 	slowdown_active = 0.95
 	inbuilt_modules = list(
 		/obj/item/mod/module/joint_torsion/entombed,
-		/obj/item/mod/module/storage
+		/obj/item/mod/module/storage,
 	)
 	allowed_suit_storage = list(
 		/obj/item/tank/internals,
@@ -77,7 +77,7 @@
 					human_user.balloon_alert(human_user, "part is fused to you - can't retract!")
 					playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 					return
-	. = ..()
+	return ..()
 
 /obj/item/mod/control/pre_equipped/entombed/quick_deploy(mob/user)
 	if (ishuman(user))
@@ -88,7 +88,7 @@
 			human_user.balloon_alert(human_user, "you can only retract your helmet, and only manually!")
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return
-	. = ..()
+	return ..()
 
 /obj/item/mod/control/pre_equipped/entombed/Initialize(mapload, new_theme, new_skin, new_core)
 	. = ..()
