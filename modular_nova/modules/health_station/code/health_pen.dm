@@ -5,11 +5,12 @@
 	icon_state = "pen"
 	inhand_icon_state = "stimpen"
 	base_icon_state = "pen"
-	volume = 25
-	amount_per_transfer_from_this = 25
+	volume = 30
+	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/medicine/oxandrolone = 10,
 	/datum/reagent/medicine/sal_acid = 10,
-	/datum/reagent/medicine/leporazine = 5,
+	/datum/reagent/medicine/salbutamol = 5,
+	/datum/reagent/medicine/morphine = 5,
 	)
 
 /obj/item/reagent_containers/hypospray/medipen/health_station/Initialize(mapload)
