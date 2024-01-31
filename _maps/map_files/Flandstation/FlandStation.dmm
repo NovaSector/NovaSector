@@ -3806,7 +3806,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 26
 	},
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -6630,7 +6630,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "ckd" = (
 /obj/machinery/light/small/directional/east,
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -17202,7 +17202,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -28361,7 +28361,7 @@
 "jta" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "jtf" = (
@@ -31012,7 +31012,7 @@
 /area/station/service/barber)
 "krW" = (
 /obj/machinery/light/small/directional/west,
-/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "krX" = (
@@ -32118,7 +32118,7 @@
 /obj/structure/chair/wood{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "kKs" = (
@@ -40337,7 +40337,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
 "ntQ" = (
-/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "ntR" = (
@@ -40640,6 +40640,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/requests_console/assistance,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -45571,12 +45572,12 @@
 /obj/structure/mirror{
 	pixel_x = 28
 	},
-/obj/structure/sink/directional/east,
 /obj/item/reagent_containers/cup/bucket,
 /obj/item/mop,
 /obj/effect/turf_decal/bot,
 /obj/item/mop,
 /obj/item/reagent_containers/cup/bucket,
+/obj/structure/sink/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/janitor)
 "plQ" = (
@@ -54172,7 +54173,7 @@
 /obj/item/radio/intercom{
 	pixel_x = 28
 	},
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -68682,7 +68683,7 @@
 /area/station/hallway/secondary/entry)
 "wBg" = (
 /obj/item/kirbyplants/random,
-/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/obj/effect/turf_decal/tile/yellow/anticorner,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "wBn" = (
@@ -72978,7 +72979,7 @@
 /area/station/medical/chemistry)
 "xHX" = (
 /obj/item/kirbyplants/random,
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -74513,7 +74514,7 @@
 /turf/open/floor/iron,
 /area/station/science/research)
 "yeX" = (
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
