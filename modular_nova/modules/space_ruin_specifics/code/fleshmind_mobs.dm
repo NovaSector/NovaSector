@@ -53,6 +53,12 @@
 	var/suffering_malfunction = FALSE
 	COOLDOWN_DECLARE(special_ability_cooldown)
 
+/mob/living/simple_animal/hostile/fleshmind/Initialize(mapload, datum/fleshmind_controller/incoming_controller)
+	. = ..()
+	// We set a unique name when we are created, to give some feeling of randomness.
+	name = "[pick(FLESHMIND_NAME_MODIFIER_LIST)] [name]"
+	our_controller = incoming_controller
+
 /mob/living/simple_animal/hostile/fleshmind/death(gibbed)
 	if(contained_mob)
 		contained_mob.forceMove(get_turf(src))
