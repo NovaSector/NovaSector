@@ -19,37 +19,7 @@
 
 /obj/machinery/jukebox/Initialize(mapload)
 	. = ..()
-<<<<<<< HEAD
-	songs = SSjukeboxes.songs // NOVA EDIT CHANGE - ORIGINAL: songs = load_songs_from_config()
-	if(length(songs))
-		selection = pick(songs)
-
-/// Loads the config sounds once, and returns a copy of them.
-/obj/machinery/jukebox/proc/load_songs_from_config()
-	var/static/list/config_songs
-	if(isnull(config_songs))
-		config_songs = list()
-		var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
-		for(var/track_file in tracks)
-			var/datum/track/new_track = new()
-			new_track.song_path = file("[global.config.directory]/jukebox_music/sounds/[track_file]")
-			var/list/track_data = splittext(track_file, "+")
-			if(length(track_data) != 3)
-				continue
-			new_track.song_name = track_data[1]
-			new_track.song_length = text2num(track_data[2])
-			new_track.song_beat = text2num(track_data[3])
-			config_songs += new_track
-
-		if(!length(config_songs))
-			// Includes title3 as a default for testing / "no config" support, also because it's a banger
-			config_songs += new /datum/track/default()
-
-	// returns a copy so it can mutate if desired.
-	return config_songs.Copy()
-=======
 	music_player = new(src)
->>>>>>> 7ffc073b33a (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
 
 /obj/machinery/jukebox/Destroy()
 	stop_music()
@@ -84,11 +54,7 @@
 		to_chat(user,span_warning("Error: Access Denied."))
 		user.playsound_local(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
-<<<<<<< HEAD
-	if(!SSjukeboxes.songs.len && !isobserver(user)) // NOVA EDIT CHANGE - ORIGINAL: if(!songs.len && !isobserver(user))
-=======
 	if(!length(music_player.songs))
->>>>>>> 7ffc073b33a (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
 		to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
 		user.playsound_local(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
@@ -101,27 +67,7 @@
 		ui.open()
 
 /obj/machinery/jukebox/ui_data(mob/user)
-<<<<<<< HEAD
-	var/list/data = list()
-	data["active"] = active
-	data["songs"] = list()
-	for(var/datum/track/S in SSjukeboxes.songs) // NOVA EDIT CHANGE - ORIGINAL: for(var/datum/track/S in songs)
-		var/list/track_data = list(
-			name = S.song_name
-		)
-		data["songs"] += list(track_data)
-	data["track_selected"] = null
-	data["track_length"] = null
-	data["track_beat"] = null
-	if(selection)
-		data["track_selected"] = selection.song_name
-		data["track_length"] = DisplayTimeText(selection.song_length)
-		data["track_beat"] = selection.song_beat
-	data["volume"] = volume
-	return data
-=======
 	return music_player.get_ui_data()
->>>>>>> 7ffc073b33a (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
 
 /obj/machinery/jukebox/ui_act(action, list/params)
 	. = ..()
@@ -141,24 +87,8 @@
 
 				activate_music()
 			else
-<<<<<<< HEAD
-				stop = 0
-				return TRUE
-		if("select_track")
-			if(active)
-				to_chat(usr, span_warning("Error: You cannot change the song until the current one is over."))
-				return
-			var/list/available = list()
-			for(var/datum/track/S in SSjukeboxes.songs) // NOVA EDIT CHANGE - ORIGINAL: for(var/datum/track/S in songs)
-				available[S.song_name] = S
-			var/selected = params["track"]
-			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
-				return
-			selection = available[selected]
-=======
 				stop_music()
 
->>>>>>> 7ffc073b33a (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
 			return TRUE
 
 		if("select_track")
@@ -188,19 +118,15 @@
 			return TRUE
 
 /obj/machinery/jukebox/proc/activate_music()
-<<<<<<< HEAD
+	if(!isnull(music_player.active_song_sound))
+		return FALSE
 	// NOVA EDIT ADDITION START
 	var/jukeboxslottotake = SSjukeboxes.addjukebox(src, selection, 2)
 	if(isnull(jukeboxslottotake))
 		return
 	// NOVA EDIT ADDITION END
-	active = TRUE
-=======
-	if(!isnull(music_player.active_song_sound))
-		return FALSE
 
 	music_player.start_music()
->>>>>>> 7ffc073b33a (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
 	update_use_power(ACTIVE_POWER_USE)
 	update_appearance(UPDATE_ICON_STATE)
 	if(!music_player.sound_loops)
@@ -208,10 +134,17 @@
 	return TRUE
 
 /obj/machinery/jukebox/proc/stop_music()
+	// NOVA EDIT ADDITION START
+	var/position = SSjukeboxes.findjukeboxindex(src)
+	var/channel_playing
+	if(position)
+		SSjukeboxes.removejukebox(position)
+		channel_playing = SSjukeboxes.findjukeboxchannel(src)
+	// NOVA EDIT ADDITION END
 	if(!isnull(song_timerid))
 		deltimer(song_timerid)
 
-	music_player.unlisten_all()
+	music_player.unlisten_all(channel_playing) // NOVA EDIT CHANGE - ORIGINAL: music_player.unlisten_all()
 
 	if(!QDELING(src))
 		COOLDOWN_START(src, jukebox_song_cd, 10 SECONDS)
@@ -465,73 +398,3 @@
 /obj/machinery/jukebox/disco/proc/dance4_revert(mob/living/dancer, matrix/starting_matrix)
 	animate(dancer, transform = starting_matrix, time = 5, loop = 0)
 	REMOVE_TRAIT(dancer, TRAIT_DISCO_DANCER, REF(src))
-<<<<<<< HEAD
-
-/obj/machinery/jukebox/proc/dance_over()
-	// NOVA EDIT ADDITION START
-	var/position = SSjukeboxes.findjukeboxindex(src)
-	var/channel_playing
-	if(position)
-		SSjukeboxes.removejukebox(position)
-		channel_playing = SSjukeboxes.findjukeboxchannel(src)
-	// NOVA EDIT ADDITION END
-	for(var/datum/weakref/weak_to_hide_from as anything in rangers)
-		var/mob/to_hide_from = weak_to_hide_from?.resolve()
-		to_hide_from?.stop_sound_channel(channel_playing ? channel_playing : CHANNEL_JUKEBOX) // NOVA EDIT CHANGE - ORIGINAL: to_hide_from?.stop_sound_channel(CHANNEL_JUKEBOX)
-
-	rangers.Cut()
-
-/obj/machinery/jukebox/disco/dance_over()
-	..()
-	QDEL_LIST(spotlights)
-	QDEL_LIST(sparkles)
-
-// NOVA EDIT COMMENT - Overridden in modular
-/obj/machinery/jukebox/process()
-	if(world.time < stop && active)
-		var/sound/song_played = sound(selection.song_path)
-
-		// Goes through existing mobs in rangers to determine if they should not be played to
-		for(var/datum/weakref/weak_to_hide_from as anything in rangers)
-			var/mob/to_hide_from = weak_to_hide_from?.resolve()
-			if(!HAS_JUKEBOX_PREF(to_hide_from) || get_dist(src, get_turf(to_hide_from)) > 10)
-				rangers -= weak_to_hide_from
-				to_hide_from?.stop_sound_channel(CHANNEL_JUKEBOX)
-
-		// Collect mobs to play the song to, stores weakrefs of them in rangers
-		for(var/mob/to_play_to in range(world.view, src))
-			if(!HAS_JUKEBOX_PREF(to_play_to))
-				continue
-			var/datum/weakref/weak_playing_to = WEAKREF(to_play_to)
-			if(rangers[weak_playing_to])
-				continue
-			rangers[weak_playing_to] = TRUE
-			// This plays the sound directly underneath the mob because otherwise it'd get stuck in their left ear or whatever
-			// Would be neat if it sourced from the box itself though
-			to_play_to.playsound_local(get_turf(to_play_to), null, volume, channel = CHANNEL_JUKEBOX, sound_to_use = song_played, use_reverb = FALSE)
-
-	else if(active)
-		active = FALSE
-		update_use_power(IDLE_POWER_USE)
-		STOP_PROCESSING(SSobj, src)
-		dance_over()
-		playsound(src,'sound/machines/terminal_off.ogg',50,TRUE)
-		update_appearance(UPDATE_ICON_STATE)
-		stop = world.time + 100
-
-/obj/machinery/jukebox/disco/process()
-	. = ..()
-	if(!active)
-		return
-
-	var/dance_num = rand(1,4) //all will do the same dance
-	for(var/datum/weakref/weak_dancer as anything in rangers)
-		var/mob/living/to_dance = weak_dancer.resolve()
-		if(!istype(to_dance) || !(to_dance.mobility_flags & MOBILITY_MOVE))
-			continue
-		if(!HAS_TRAIT(to_dance, TRAIT_DISCO_DANCER))
-			dance(to_dance, dance_num)
-
-#undef HAS_JUKEBOX_PREF
-=======
->>>>>>> 7ffc073b33a (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
