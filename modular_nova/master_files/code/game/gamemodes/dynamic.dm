@@ -13,7 +13,7 @@
 		. = "<hr><b>No assigned goals.</b><BR>"
 	else
 		var/list/texts = list("<hr><b>Special Orders for [station_name()]:</b><BR>")
-		for(var/datum/station_goal/station_goal as anything in get_station_goals())
+		for(var/datum/station_goal/station_goal as anything in SSstation.get_station_goals())
 			station_goal.on_report()
 			texts += station_goal.get_report()
 
