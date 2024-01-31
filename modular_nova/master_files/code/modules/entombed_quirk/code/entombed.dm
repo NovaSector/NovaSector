@@ -62,6 +62,8 @@
 		modsuit = human_holder.back // link this up to the quirk for easy access
 
 	if (isnull(modsuit))
+		stack_trace("Entombed quirk couldn't create a fused MODsuit on [quirk_holder] and was force-removed.")
+		qdel(src)
 		return
 
 	var/lock_deploy = client_source?.prefs.read_preference(/datum/preference/toggle/entombed_deploy_lock)
@@ -94,7 +96,16 @@
 	var/obj/item/clothing/head/mod/helmet = locate() in modsuit.mod_parts
 	modsuit.retract(human_holder, helmet)
 
+	install_racial_features()
+
+/datum/quirk/equipping/entombed/remove()
+	QDEL_NULL(modsuit)
+
+/datum/quirk/equipping/entombed/proc/install_racial_features()
 	// deploy specific racial features - ethereals get ethereal cores, plasmamen get free plasma stabilizer module
+	if (!modsuit) // really don't know how this could ever happen but it's better than runtimes
+		return
+	var/mob/living/carbon/human/human_holder = quirk_holder
 	if (isethereal(human_holder))
 		var/obj/item/mod/core/ethereal/eth_core = new
 		eth_core.install(modsuit)
@@ -102,16 +113,13 @@
 		var/obj/item/mod/module/plasma_stabilizer/entombed/plasma_stab = new
 		modsuit.install(plasma_stab, human_holder)
 
-/datum/quirk/equipping/entombed/remove()
-	QDEL_NULL(modsuit)
-
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed
 	customization_options = list(
-		/datum/preference/choiced/entombed_skin, 
-		/datum/preference/text/entombed_mod_desc, 
-		/datum/preference/text/entombed_mod_name, 
-		/datum/preference/text/entombed_mod_prefix, 
+		/datum/preference/choiced/entombed_skin,
+		/datum/preference/text/entombed_mod_desc,
+		/datum/preference/text/entombed_mod_name,
+		/datum/preference/text/entombed_mod_prefix,
 		/datum/preference/toggle/entombed_deploy_lock,
 	)
 
