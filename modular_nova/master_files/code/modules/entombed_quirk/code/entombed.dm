@@ -126,11 +126,12 @@
 		"Mining",
 		"Loader",
 		"Medical",
-		"Rescue",
+		"Corpsman",
 		"Security",
 		"Cosmohonk",
 		"Interdyne",
 		"Prototype",
+		"Infiltrator",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()
