@@ -27,6 +27,7 @@
 	if (!modsuit || life_support_failed)
 		// we've got no modsuit or life support. take damage ow
 		human_holder.adjustToxLoss(ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE, forced = TRUE)
+		human_holder.set_jitter_if_lower(10 SECONDS)
 
 	if (!modsuit.active)
 		if (!life_support_timer)
@@ -35,6 +36,7 @@
 
 			to_chat(human_holder, span_danger("Your physiology begins to erratically seize and twitch, bereft of your MODsuit's vital support. <b>Turn it back on as soon as you can!</b>"))
 			human_holder.balloon_alert(human_holder, "suit life support warning!")
+			human_holder.set_jitter_if_lower(life_support_failure_threshold) //give us some foley jitter
 			return
 	else
 		if (life_support_timer)
@@ -45,6 +47,7 @@
 
 			to_chat(human_holder, span_notice("Relief floods your frame as your suit begins sustaining your life once more."))
 			human_holder.balloon_alert(human_holder, "suit life support restored!")
+			human_holder.adjust_jitter(-(life_support_failure_threshold / 2)) // clear half of it, wow, that was unpleasant
 
 /datum/quirk/equipping/entombed/proc/life_support_failure()
 	// Warn the player and begin the gradual dying process.
