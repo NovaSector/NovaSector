@@ -183,6 +183,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	desc = "A deep tunnel that goes deeper than any light can reach. A distant roaring could be heard within..."
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
+	pressure_resistance = 150 //Less resistant than xenos now.
 	max_integrity = 500
 	max_mobs = 7
 	spawn_time = 20 SECONDS
