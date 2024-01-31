@@ -188,13 +188,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	max_mobs = 7
 	spawn_time = 20 SECONDS
 	mob_types = list(
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone,
-		/mob/living/simple_animal/hostile/alien/sentinel
+		/mob/living/simple_animal/hostile/alien/adjusted,
+		/mob/living/simple_animal/hostile/alien/drone/adjusted,
+		/mob/living/simple_animal/hostile/alien/sentinel/adjusted
 	)
 	spawn_text = "crawls out of"
 	faction = list(ROLE_ALIEN)
-	var/boss_mob = /mob/living/simple_animal/hostile/alien/queen/large
+	var/boss_mob = /mob/living/simple_animal/hostile/alien/queen/large/adjusted
 	var/loot_drop = /obj/effect/mob_spawn/corpse/human/tarkon
 
 /obj/structure/spawner/tarkon_xenos/deconstruct(disassembled)
@@ -238,7 +238,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	max_integrity = 300
 	max_mobs = 4
 	spawn_time = 30 SECONDS
-	boss_mob = /mob/living/simple_animal/hostile/alien/queen
+	boss_mob = /mob/living/simple_animal/hostile/alien/queen/adjusted
 	loot_drop = /obj/effect/spawner/random/astrum/sci_loot/tarkon
 
 /obj/structure/spawner/tarkon_xenos/minor
@@ -250,10 +250,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	max_mobs = 2
 	spawn_time = 30 SECONDS
 	mob_types = list(
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone
+		/mob/living/simple_animal/hostile/alien/adjusted,
+		/mob/living/simple_animal/hostile/alien/drone/adjusted
 	)
-	boss_mob = /mob/living/simple_animal/hostile/alien/sentinel
+	boss_mob = /mob/living/simple_animal/hostile/alien/sentinel/adjusted
 	loot_drop = /obj/effect/spawner/random/exotic/technology/tarkon
 
 /obj/effect/spawner/random/astrum/sci_loot/tarkon
