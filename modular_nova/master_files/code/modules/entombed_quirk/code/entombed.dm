@@ -183,7 +183,11 @@
 	return htmlrendertext(input)
 
 /datum/preference/text/entombed_mod_name/deserialize(input, datum/preferences/preferences)
-	return htmlrendertext(input)
+	var/sanitized_input = htmlrendertext(input)
+	if(!isnull(sanitized_input))
+		return sanitized_input
+	else
+		return ""
 
 /datum/preference/text/entombed_mod_name/apply_to_human(mob/living/carbon/human/target, value)
 	return
@@ -204,7 +208,11 @@
 	return htmlrendertext(input)
 
 /datum/preference/text/entombed_mod_desc/deserialize(input, datum/preferences/preferences)
-	return htmlrendertext(input)
+	var/sanitized_input = htmlrendertext(input)
+	if(!isnull(sanitized_input))
+		return sanitized_input
+	else
+		return ""
 
 /datum/preference/text/entombed_mod_desc/apply_to_human(mob/living/carbon/human/target, value)
 	return
