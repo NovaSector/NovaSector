@@ -64,8 +64,8 @@
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst
-	name = "BST's RPED"
-	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly.  Alt-Right-Click to manufacture parts or clear its internal storage."
+	name = "\improper Bluespace Tech RPED"
+	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts or clear its internal storage."
 	var/destroy_worse = TRUE
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst/Initialize(mapload)
