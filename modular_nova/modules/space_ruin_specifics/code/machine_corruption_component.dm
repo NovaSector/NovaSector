@@ -91,7 +91,7 @@
 
 	if(incoming_controller)
 		RegisterSignal(incoming_controller, COMSIG_QDELETING, PROC_REF(controller_death))
-		incoming_controller.RegisterSignal(src, COMSIG_QDELETING, /datum/fleshmind_controller/proc/component_death)
+		incoming_controller.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/datum/fleshmind_controller, component_death))
 
 	set_overlay = pick(possible_overlays)
 
