@@ -50,6 +50,17 @@
 	theme = /datum/mod_theme/entombed
 	applied_cell = /obj/item/stock_parts/cell/high
 
+/obj/item/mod/control/pre_equipped/entombed/canStrip(mob/who)
+	return TRUE //you can always try, and it'll hit doStrip below
+
+/obj/item/mod/control/pre_equipped/entombed/doStrip(mob/who)
+	// attempt to handle custom stripping behavior - if we have a storage module of some kind
+	var/obj/item/mod/module/storage/inventory = locate() in src.modules
+	if (!isnull(inventory))
+		src.atom_storage.remove_all()
+		return TRUE
+	return ..()
+
 /obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part)
 	if (ishuman(user))
 		var/mob/living/carbon/human/human_user = user
@@ -72,9 +83,7 @@
 			human_user.balloon_alert(human_user, "you can only retract your helmet, and only manually!")
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return
-
 	. = ..()
-
 
 /obj/item/mod/control/pre_equipped/entombed/Initialize(mapload, new_theme, new_skin, new_core)
 	. = ..()
