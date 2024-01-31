@@ -91,7 +91,7 @@
  * * An assoc list of track names to /datum/track. Track names must be unique.
  */
 /datum/jukebox/proc/init_songs()
-	return SSjukeboxes.songs // NOVA EDIT CHANGE - ORIGINAL: return load_songs_from_config()
+	return load_songs_from_config()
 
 /// Loads the config sounds once, and returns a copy of them.
 /datum/jukebox/proc/load_songs_from_config()
@@ -126,7 +126,7 @@
 /datum/jukebox/proc/get_ui_data()
 	var/list/data = list()
 	var/list/songs_data = list()
-	for(var/song_name in SSjukeboxes.songs) // NOVA EDIT CHANGE - ORIGINAL: for(var/song_name in songs)
+	for(var/song_name in songs)
 		var/datum/track/one_song = songs[song_name]
 		UNTYPED_LIST_ADD(songs_data, list( \
 			"name" = song_name, \
@@ -183,9 +183,9 @@
 	update_all()
 
 /// Helper to stop the music for all mobs listening to the music.
-/datum/jukebox/proc/unlisten_all(channel_playing) // NOVA EDIT CHANGE - ORIGINAL: /datum/jukebox/proc/unlisten_all()
+/datum/jukebox/proc/unlisten_all()
 	for(var/mob/listening as anything in listeners)
-		deregister_listener(listening, channel_playing) // NOVA EDIT CHANGE - ORIGINAL: deregister_listener(listening)
+		deregister_listener(listening)
 	active_song_sound = null
 
 /// Helper to update all mobs currently listening to the music.
@@ -227,8 +227,7 @@
 	if(isnull(active_song_sound))
 		var/area/juke_area = get_area(parent)
 		active_song_sound = sound(selection.song_path)
-		var/channel_playing = SSjukeboxes.findjukeboxchannel(src) // NOVA EDIT ADDITION
-		active_song_sound.channel = channel_playing ? channel_playing : CHANNEL_JUKEBOX // NOVA EDIT CHANGE - ORIGINAL: active_song_sound.channel = CHANNEL_JUKEBOX
+		active_song_sound.channel = CHANNEL_JUKEBOX
 		active_song_sound.priority = 255
 		active_song_sound.falloff = 2
 		active_song_sound.volume = volume
@@ -304,11 +303,11 @@
 	return TRUE
 
 /// Deregisters the passed mob as a listener to the jukebox, stopping the music.
-/datum/jukebox/proc/deregister_listener(mob/no_longer_listening, channel_playing) // NOVA EDIT CHANGE - ORIGINAL: /datum/jukebox/proc/deregister_listener(mob/no_longer_listening)
+/datum/jukebox/proc/deregister_listener(mob/no_longer_listening)
 	PROTECTED_PROC(TRUE)
 
 	listeners -= no_longer_listening
-	no_longer_listening.stop_sound_channel(channel_playing ? channel_playing : CHANNEL_JUKEBOX) // NOVA EDIT CHANGE - ORIGINAL: no_longer_listening.stop_sound_channel(CHANNEL_JUKEBOX)
+	no_longer_listening.stop_sound_channel(CHANNEL_JUKEBOX)
 	UnregisterSignal(no_longer_listening, list(
 		COMSIG_MOB_LOGIN,
 		COMSIG_QDELETING,
