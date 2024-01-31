@@ -3875,13 +3875,11 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "bjN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/burnt_floor,
-/obj/machinery/computer/holodeck{
-	dir = 4
+/obj/structure/cable,
+/turf/open/floor/iron/dark{
+	initial_gas_mix = "n2=23;o2=14"
 	},
-/turf/open/floor/plating,
-/area/station/holodeck)
+/area/station/security/prison)
 "bkd" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall,
@@ -42426,11 +42424,13 @@
 /turf/open/floor/iron,
 /area/station/medical/pharmacy)
 "ocq" = (
-/obj/structure/cable,
-/turf/open/floor/iron/dark{
-	initial_gas_mix = "n2=23;o2=14"
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/computer/holodeck{
+	dir = 4
 	},
-/area/station/security/prison)
+/turf/open/floor/plating,
+/area/station/holodeck)
 "ocr" = (
 /obj/machinery/vending/coffee{
 	scan_id = 0
@@ -58145,6 +58145,7 @@
 /obj/item/radio/intercom{
 	pixel_y = 24
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
 /area/station/service/library/private)
 "tjT" = (
@@ -110579,7 +110580,7 @@ uBI
 klg
 wYw
 nNH
-ocq
+bjN
 qBZ
 wYw
 rtu
@@ -127044,7 +127045,7 @@ otY
 qZP
 cbC
 cbC
-bjN
+ocq
 cbC
 cbC
 wFo
