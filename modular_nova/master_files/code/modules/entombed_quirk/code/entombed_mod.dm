@@ -58,7 +58,12 @@
 	var/obj/item/mod/module/storage/inventory = locate() in src.modules
 	if (!isnull(inventory))
 		src.atom_storage.remove_all()
+		to_chat(who, span_notice("You empty out all the items from the MODsuit's storage module!"))
+		who.balloon_alert(who, "emptied out MOD storage items!")
 		return TRUE
+
+	to_chat(who, span_warning("The suit seems permanently fused to their frame - you can't remove it!"))
+	who.balloon_alert(who, "can't strip a fused MODsuit!")
 	return ..()
 
 /obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part)
