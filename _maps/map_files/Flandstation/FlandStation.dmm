@@ -6234,7 +6234,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "ccL" = (
 /obj/effect/turf_decal/siding/wood{
@@ -6960,7 +6960,10 @@
 "crb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
+/obj/machinery/light/small/directional/north{
+	dir = 8
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "crd" = (
 /obj/structure/closet,
@@ -7941,7 +7944,7 @@
 "cJp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "cJr" = (
 /obj/effect/turf_decal/siding/yellow{
@@ -11836,6 +11839,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"ecr" = (
+/obj/structure/sign/warning/pods,
+/turf/closed/wall,
+/area/station/maintenance/aft)
 "ecs" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/structure/table/wood,
@@ -25765,6 +25772,13 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/ai_upload,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
+"iyQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/directional/north{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "iyS" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -33637,6 +33651,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"liI" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/maintenance/port/central)
 "liM" = (
 /obj/machinery/door/window/left/directional/west{
 	base_state = "right";
@@ -41405,6 +41425,7 @@
 "nJH" = (
 /obj/structure/table,
 /obj/effect/spawner/random/maintenance/two,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
 "nJJ" = (
@@ -48286,7 +48307,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "qdt" = (
 /obj/effect/turf_decal/bot{
@@ -49420,6 +49441,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "qta" = (
@@ -55457,10 +55479,10 @@
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "snb" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	name = "Escape Pod 3"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "snc" = (
 /obj/structure/table/wood,
@@ -61473,7 +61495,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "ulY" = (
 /obj/effect/turf_decal/bot,
@@ -66857,6 +66879,10 @@
 /obj/item/electronics/airalarm,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
+"vSM" = (
+/obj/structure/sign/warning/electric_shock,
+/turf/closed/wall,
+/area/station/maintenance/aft)
 "vST" = (
 /obj/machinery/door/airlock/command{
 	name = "Corporate Showroom"
@@ -112910,7 +112936,7 @@ aJp
 aUT
 aJZ
 gFi
-vLy
+liI
 jID
 toV
 fYI
@@ -125624,9 +125650,9 @@ iQD
 jtj
 eZm
 vXB
-vXB
+vSM
 ulX
-vXB
+ecr
 vXB
 vXB
 dtC
@@ -126140,9 +126166,9 @@ vjf
 vXB
 qsW
 ccD
-crb
-crb
-crb
+cJp
+cJp
+cJp
 crb
 tns
 wZq
@@ -126395,10 +126421,10 @@ fDn
 abN
 abN
 vXB
-ylJ
+vXB
 snb
-ylJ
-ylJ
+ecr
+vXB
 oBV
 uZL
 jJl
@@ -128116,7 +128142,7 @@ joS
 qQg
 kGA
 nZG
-own
+iyQ
 hiz
 pwZ
 joS
