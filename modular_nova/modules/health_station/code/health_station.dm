@@ -24,13 +24,13 @@
 	)
 	///Medipens that it can refill and their attached nondescript healing fluid costs
 	var/list/refillable_pens = list(
-		/obj/item/reagent_containers/hypospray/medipen/glucose = 5, //it's a useless flavor item
-		/obj/item/reagent_containers/hypospray/medipen = 10,
+		/obj/item/reagent_containers/hypospray/medipen/glucose = 2.5, //it's a useless flavor item
+		/obj/item/reagent_containers/hypospray/medipen = 5,
 		/obj/item/reagent_containers/hypospray/medipen/atropine = 10,
-		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 10,
-		/obj/item/reagent_containers/hypospray/medipen/ekit = 10,
+		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 5,
+		/obj/item/reagent_containers/hypospray/medipen/ekit = 5,
 		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 10,
-		/obj/item/reagent_containers/hypospray/medipen/penacid = 10,
+		/obj/item/reagent_containers/hypospray/medipen/penacid = 5,
 		/obj/item/reagent_containers/hypospray/medipen/salacid = 10,
 		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 10,
 		/obj/item/reagent_containers/hypospray/medipen/stimpack = 10, //old mining one that never actually appears anywhere nowadays
@@ -158,7 +158,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	return TRUE
 
 /obj/machinery/health_station/proc/heal_wound(mob/living/carbon/user)
-	if(charge_amount < 25)
+	if(charge_amount < 20)
 		balloon_alert(user, "no biomass!")
 		return FALSE
 
@@ -170,14 +170,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		var/datum/wound/wound2fix = user.all_wounds[1]
 		wound2fix.remove_wound()
 		balloon_alert(user, "wound treated")
-		charge_amount -= 25
+		charge_amount -= 20
 		playsound(src, 'sound/surgery/saw.ogg', 40, TRUE)
 		use_power(active_power_usage)
 		update_appearance()
 	return TRUE
 
 /obj/machinery/health_station/proc/heal_damage(mob/living/carbon/user)
-	if(charge_amount < 20)
+	if(charge_amount < 15)
 		balloon_alert(user, "no biomass!")
 		return FALSE
 
@@ -192,7 +192,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 			var/burn_to_heal = user.getFireLoss()
 			user.adjustBruteLoss(-brute_to_heal/2)
 			user.adjustFireLoss(-burn_to_heal/2)
-			charge_amount -= 20
+			charge_amount -= 15
 			playsound(src, 'sound/surgery/retractor1.ogg', 40, TRUE)
 			use_power(active_power_usage)
 			update_appearance()
