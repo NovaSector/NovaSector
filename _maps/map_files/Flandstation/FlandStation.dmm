@@ -3875,11 +3875,13 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "bjN" = (
-/obj/structure/cable,
-/turf/open/floor/iron/dark{
-	initial_gas_mix = "n2=23;o2=14"
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/computer/holodeck{
+	dir = 4
 	},
-/area/station/security/prison)
+/turf/open/floor/plating,
+/area/station/holodeck)
 "bkd" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall,
@@ -4447,6 +4449,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "buY" = (
@@ -11887,7 +11890,6 @@
 "edg" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
-/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "edm" = (
@@ -16734,15 +16736,15 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "fDj" = (
-/obj/structure/rack{
-	icon = 'icons/obj/stationobjs.dmi';
-	icon_state = "minibar";
-	name = "skeletal minibar"
-	},
 /obj/item/storage/fancy/candle_box,
 /obj/machinery/newscaster{
 	pixel_x = 28;
 	pixel_y = 1
+	},
+/obj/structure/rack{
+	icon = 'icons/obj/fluff/general.dmi';
+	icon_state = "minibar";
+	name = "skeletal minibar"
 	},
 /turf/open/floor/wood,
 /area/station/service/library/private)
@@ -42424,17 +42426,11 @@
 /turf/open/floor/iron,
 /area/station/medical/pharmacy)
 "ocq" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
+/obj/structure/cable,
+/turf/open/floor/iron/dark{
+	initial_gas_mix = "n2=23;o2=14"
 	},
-/obj/effect/turf_decal/stripes/red/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
-/obj/structure/window/reinforced/plasma/spawner/directional/north,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/security/prison)
 "ocr" = (
 /obj/machinery/vending/coffee{
 	scan_id = 0
@@ -47864,6 +47860,7 @@
 /obj/machinery/power/apc/auto_name/directional/west{
 	pixel_x = -25
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/port/central)
 "pXS" = (
@@ -53832,8 +53829,8 @@
 /obj/effect/turf_decal/stripes/red/line,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /obj/structure/cable,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "rOe" = (
@@ -62043,9 +62040,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /obj/structure/cable,
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "uwB" = (
@@ -62140,7 +62137,6 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
-/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "uxT" = (
@@ -64148,6 +64144,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
 /obj/structure/cable,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "vev" = (
@@ -110582,7 +110579,7 @@ uBI
 klg
 wYw
 nNH
-bjN
+ocq
 qBZ
 wYw
 rtu
@@ -124753,7 +124750,7 @@ vqc
 qmU
 wNG
 xvl
-ocq
+rSe
 edg
 bJj
 ekl
@@ -127047,7 +127044,7 @@ otY
 qZP
 cbC
 cbC
-pvh
+bjN
 cbC
 cbC
 wFo
