@@ -110,8 +110,7 @@
 
 		var/from_link = FOLLOW_LINK(ghost, owner)
 		var/from_mob_name = span_boldnotice("[owner]")
-		from_mob_name += span_boldnotice(":")
 		var/to_link = FOLLOW_LINK(ghost, target)
 		var/to_mob_name = span_name("[target]")
 
-		to_chat(ghost, "[from_link]" + span_purple("<b>\[Telepathy\]</b> [from_mob_name] transmits, \"[message]\"") + " to [to_mob_name] [to_link]")
+		to_chat(ghost, "[from_link] " + span_purple("<b>\[Telepathy\]</b> [from_mob_name] transmits, \"[message]\"") + " to [to_mob_name] [to_link]")
