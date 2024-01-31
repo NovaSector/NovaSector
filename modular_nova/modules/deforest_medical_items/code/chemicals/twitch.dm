@@ -64,10 +64,10 @@
 
 	game_plane_master_controller.add_filter(TWITCH_SCREEN_FILTER, 10, color_matrix_filter(col_filter_green, FILTER_COLOR_RGB))
 
-	game_plane_master_controller.add_filter(TWITCH_SCREEN_BLUR, 1, list("type" = "radial_blur", "size" = 0.1))
+	game_plane_master_controller.add_filter(TWITCH_SCREEN_BLUR, 1, list("type" = "radial_blur", "size" = 0.2))
 
 	for(var/filter in game_plane_master_controller.get_filters("twitch_blur"))
-		animate(filter, loop = -1, size = 0.2, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(filter, loop = -1, size = 0.3, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
 		animate(size = 0.1, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 
@@ -87,18 +87,31 @@
 		UnregisterSignal(our_guy, COMSIG_ATOM_PRE_BULLET_ACT)
 
 	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT) // Anything less than this and you'll come out fiiiine, aside from a big hit of stamina damage
-		our_guy.visible_message(
-			span_danger("[our_guy] suddenly slows from their inhuman speeds, coming back with a wicked nosebleed!"),
-			span_danger("You suddenly slow back to normal, a stream of blood gushing from your nose!")
-		)
+		if(!(our_guy.mob_biotypes & MOB_ROBOTIC))
+			our_guy.visible_message(
+				span_danger("[our_guy] suddenly slows from their inhuman speeds, coming back with a wicked nosebleed!"),
+				span_danger("You suddenly slow back to normal, a stream of blood gushing from your nose!")
+			)
+		else
+			our_guy.visible_message(
+				span_danger("[our_guy] suddenly slows from their inhumans speeds!"),
+				span_danger("You suddenly slow back to normal speed!")
+			)
 		our_guy.adjustStaminaLoss(constant_dose_time)
+
 	else // Much longer than that however, and you're not gonna have a good day
-		our_guy.visible_message(
-			span_danger("[our_guy] suddenly snaps back from their inhumans speeds, coughing up a spray of blood!"),
-			span_danger("As you snap back to normal speed you cough up a worrying amount of blood. You feel like you've just been run over by a power loader.")
-		)
-		our_guy.spray_blood(our_guy.dir, 2) // The before mentioned coughing up blood
-		our_guy.emote("cough")
+		if(!(our_guy.mob_biotypes & MOB_ROBOTIC))
+			our_guy.spray_blood(our_guy.dir, 2) // The before mentioned coughing up blood
+			our_guy.emote("cough")
+			our_guy.visible_message(
+				span_danger("[our_guy] suddenly snaps back from their inhumans speeds, coughing up a spray of blood!"),
+				span_danger("As you snap back to normal speed you cough up a worrying amount of blood. You feel like you've just been run over by a power loader.")
+			)
+		else
+			our_guy.visible_message(
+				span_danger("[our_guy] suddenly snaps back from their inhumans speeds!"),
+				span_danger("You suddenly snap back to normal speeds. You feel like you've just been run over by a power loader.")
+			)
 		our_guy.adjustStaminaLoss(constant_dose_time)
 		if(!HAS_TRAIT(our_guy, TRAIT_TWITCH_ADAPTED))
 			our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 0.3 * constant_dose_time) // Basically you might die
@@ -190,7 +203,7 @@
 		our_guy.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	our_guy.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
 
-	if(SPT_PROB(5, seconds_per_tick))
+	if(SPT_PROB(5, seconds_per_tick) && !(our_guy.mob_biotypes & MOB_ROBOTIC))
 		to_chat(our_guy, span_danger("You cough up a splatter of blood!"))
 		our_guy.spray_blood(our_guy.dir, 1)
 		our_guy.emote("cough")
