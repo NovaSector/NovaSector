@@ -6,6 +6,7 @@
 	employing limited medicine synthesis to fill the proprietary and generic models of medipens."
 	icon = 'modular_nova/modules/health_station/icons/health_station.dmi'
 	icon_state = "health_station"
+	base_icon_state = "health_station"
 	light_color = "#79F8E6"
 	interaction_flags_machine = INTERACT_MACHINE_REQUIRES_LITERACY|INTERACT_MACHINE_SET_MACHINE
 	anchored = TRUE
@@ -40,13 +41,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		charge_amount = max_charge_amount
 	else
 		charge_amount = 0
-	update_appearance(UPDATE_OVERLAYS)
 	find_and_hang_on_wall(TRUE)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_COLONIAL)
 
 /obj/machinery/health_station/update_appearance(updates = ALL)
 	. = ..()
-	if(machine_stat & BROKEN)
+	if(machine_stat & (BROKEN))
 		set_light(0)
 		return
 	set_light(powered() ? MINIMUM_USEFUL_LIGHT_RANGE : 0)
@@ -54,13 +54,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 /obj/machinery/health_station/update_overlays()
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
-		return
+		return FALSE
 
-	if(charge_amount > 0)
-		var/charge_amount_sin = sin(min(charge_amount/max_charge_amount, 1) * 90)
-		var/charge_level = ROUND_UP(charge_amount_sin * 4)
-		. += mutable_appearance(icon, "[icon_state]_light[charge_level]", ABOVE_MOB_LAYER, src, alpha = src.alpha)
-		. += emissive_appearance(icon, "[icon_state]_light[charge_level]", src, ABOVE_MOB_LAYER, src.alpha)
+	if(charge_amount >= 0)
+		switch(charge_amount)
+			if(60 to 100)
+				. += "[base_icon_state]_light1"
+			if(30 to 60)
+				. += "[base_icon_state]_light2"
+			if(15 to 30)
+				. += "[base_icon_state]_light3"
+			else
+				. += "[base_icon_state]_light4"
 
 /obj/machinery/health_station/examine(mob/living/carbon/user)
 	. = ..()
@@ -112,6 +117,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	add_charge(charge_given)
 	qdel(regenerative_core)
 	balloon_alert(user, "station refueled")
+	update_appearance()
 	return TRUE
 
 /obj/machinery/health_station/proc/add_charge(charge_given)
@@ -137,6 +143,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		balloon_alert(user, "pen refilled")
 		playsound(src, 'modular_nova/modules/hev_suit/sound/hev/hiss.ogg', 40, TRUE)
 		use_power(active_power_usage)
+		update_appearance()
 	return TRUE
 
 /obj/machinery/health_station/proc/heal_wound(mob/living/carbon/user)
@@ -155,6 +162,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		charge_amount -= 25
 		playsound(src, 'sound/surgery/saw.ogg', 40, TRUE)
 		use_power(active_power_usage)
+		update_appearance()
 	return TRUE
 
 /obj/machinery/health_station/proc/heal_damage(mob/living/carbon/user)
@@ -176,6 +184,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 			charge_amount -= 20
 			playsound(src, 'sound/surgery/retractor1.ogg', 40, TRUE)
 			use_power(active_power_usage)
+			update_appearance()
 	return TRUE
 
 /obj/item/wallframe/health_station

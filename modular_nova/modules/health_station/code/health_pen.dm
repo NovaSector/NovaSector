@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/hypospray/medipen/health_station //mining pen lite
 	name = "colonial survival medipen"
-	desc = "A medipen for surviving in the harsh environments, heals most common damage sources. Cheaper alternative to more common mining pens."
+	desc = "A medipen for surviving in the harsh environments, heals most common damage sources. Cheaper in-atmosphere alternative to more common mining pens."
 	icon = 'modular_nova/modules/health_station/icons/medipen.dmi'
 	icon_state = "pen"
 	inhand_icon_state = "stimpen"
