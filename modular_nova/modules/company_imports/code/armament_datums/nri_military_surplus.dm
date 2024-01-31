@@ -89,9 +89,22 @@
 	item_type = /obj/item/circuitboard/machine/biogenerator/food_replicator
 	cost = CARGO_CRATE_VALUE * 9
 
+/datum/armament_entry/company_import/nri_surplus/misc/health_station
+	description = "The bane of private healthcare sector. This wall-mounted machine provides you with a variety of medical functions, letting one to get their body's \
+	vitality readouts; treat physical damage and surface burns of high severity; and refill generic models of medipens. So long that it doesn't run out of medicinal fluids, \
+	acquired by recycling beneficial fauna organs commonly found around the mining sites, regenerative extracts or rare strands of ambrosia."
+	item_type = /obj/item/wallframe/health_station
+	cost = CARGO_CRATE_VALUE * 5
+
+/datum/armament_entry/company_import/nri_surplus/misc/health_pen
+	description = "Late stage colonization-grade survival medipen."
+	item_type = /obj/item/reagent_containers/hypospray/medipen/health_station
+	cost = PAYCHECK_COMMAND
+
 /datum/armament_entry/company_import/nri_surplus/misc/nri_flag
 	item_type = /obj/item/sign/flag/nri
 	cost = PAYCHECK_LOWER
+
 
 /datum/armament_entry/company_import/nri_surplus/firearm
 	subcategory = "Firearms"

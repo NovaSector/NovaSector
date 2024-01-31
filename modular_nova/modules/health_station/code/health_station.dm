@@ -3,7 +3,7 @@
 	desc = "The N-URSEI, better known as simply the 'Nurse,' is a well-known product of Medical technology in the CIN. The name is of disputed origin, \
 	but believed to be based off older, less portable models affectionately referred to as 'mother bears' which required specialized light trucks to carry to the field. \
 	These less unwieldy models are capable of diagnosis, treatment, arguably prevention, and prognosis; \
-	employing limited medicine synthesis to fill the proprietary and generic models of medipens."
+	employing limited medicine synthesis to fill the proprietary and unbranded models of medipens."
 	icon = 'modular_nova/modules/health_station/icons/health_station.dmi'
 	icon_state = "health_station"
 	base_icon_state = "health_station"
@@ -12,26 +12,33 @@
 	anchored = TRUE
 	///Options, obviously
 	var/static/list/radial_options = list("Health Scan" = radial_scan, "Heal Wounds" = radial_wound, "Treat Damage" = radial_damage)
-	///Maximum amount of biomass
+	///Maximum amount of nondescript healing fluid
 	var/max_charge_amount = 100
-	///Current amount of biomass available
+	///Current amount of nondescript healing fluid available
 	var/charge_amount
 	///Items that can refill it; intended to be high-end medicine items, or otherwise 'miraculous' in nature.
-	var/list/refillers = list(/obj/item/slimecross/regenerative = 100,
-		/obj/item/organ/internal/monster_core/regenerative_core = 25,
+	var/list/refillers = list(
+		/obj/item/slimecross/regenerative = 100,
+		/obj/item/organ/internal/monster_core = 25, //some more use for leftover non-legion core organs as they're less frequently used
 		/obj/item/food/grown/ambrosia/gaia = 10,
 	)
-	/// Medipens that it can refill and their attached biomass costs
-	var/list/refillable_pens = list(/obj/item/reagent_containers/hypospray/medipen/glucose = 5, //it's a useless flavor item
+	///Medipens that it can refill and their attached nondescript healing fluid costs
+	var/list/refillable_pens = list(
+		/obj/item/reagent_containers/hypospray/medipen/glucose = 5, //it's a useless flavor item
 		/obj/item/reagent_containers/hypospray/medipen = 10,
-		/obj/item/reagent_containers/hypospray/medipen/ekit = 10,
-		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 10,
 		/obj/item/reagent_containers/hypospray/medipen/atropine = 10,
+		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 10,
+		/obj/item/reagent_containers/hypospray/medipen/ekit = 10,
+		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 10,
+		/obj/item/reagent_containers/hypospray/medipen/penacid = 10,
+		/obj/item/reagent_containers/hypospray/medipen/salacid = 10,
+		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 10,
+		/obj/item/reagent_containers/hypospray/medipen/stimpack = 10, //old mining one that never actually appears anywhere nowadays
 		/obj/item/reagent_containers/hypospray/medipen/health_station = 20,
 	)
 	var/static/radial_scan = image(icon = 'icons/obj/devices/scanner.dmi', icon_state = "health")
 	var/static/radial_wound = image(icon = 'icons/obj/medical/surgery_tools.dmi', icon_state = "scalpel")
-	var/static/radial_damage = image(icon = 'icons/obj/medical/stack_medical.dmi', icon_state = "suture")
+	var/static/radial_damage = image(icon = 'icons/obj/medical/stack_medical.dmi', icon_state = "suture_3")
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 
@@ -87,7 +94,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		return COMPONENT_NO_AFTERATTACK
 	return NONE
 
-/obj/machinery/health_station/deconstruct(disassembled = FALSE)
+/obj/machinery/health_station/wrench_act(mob/living/user, obj/item/tool)
+	tool.play_tool_sound(src)
+	deconstruct()
+
+/obj/machinery/health_station/on_deconstruction()
 	new /obj/item/wallframe/health_station(loc)
 	qdel(src)
 

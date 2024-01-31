@@ -517,7 +517,7 @@
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/snpc_ground)
 "pN" = (
-/obj/machinery/iv_drip/health_station/directional/south,
+/obj/machinery/health_station/ancient_milsim/directional/south,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "pY" = (
@@ -731,7 +731,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/obj/machinery/iv_drip/health_station/directional/west,
+/obj/machinery/health_station/ancient_milsim/directional/west,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "vr" = (
@@ -1024,7 +1024,7 @@
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "CT" = (
 /obj/structure/table,
-/obj/machinery/iv_drip/health_station/directional/north,
+/obj/machinery/health_station/ancient_milsim/directional/north,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "CV" = (
@@ -1533,6 +1533,7 @@
 "Rk" = (
 /obj/structure/table,
 /obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/machinery/health_station/ancient_milsim/directional/east,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "Rl" = (

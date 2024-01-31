@@ -404,9 +404,6 @@
 /obj/machinery/light/small/red/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/pirate/nri)
-"qp" = (
-/turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
 "qz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -719,6 +716,7 @@
 	dir = 8
 	},
 /obj/item/storage/medkit/surgery,
+/obj/machinery/health_station/ancient_milsim/directional/north,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "AX" = (
@@ -1259,12 +1257,6 @@
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/pirate/nri)
-"Ui" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
 "UO" = (
 /obj/structure/closet/crate/freezer/blood{
 	anchored = 1
@@ -1546,7 +1538,7 @@ iC
 iC
 IY
 Hz
-Ui
+HV
 kQ
 rp
 sK
@@ -1662,7 +1654,7 @@ Hz
 (15,1,1) = {"
 Hz
 rg
-qp
+wb
 ts
 Hz
 pQ
@@ -1672,7 +1664,7 @@ wh
 hl
 Hz
 TF
-qp
+wb
 Kb
 Hz
 "}

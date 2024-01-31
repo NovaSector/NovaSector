@@ -120,7 +120,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/machinery/iv_drip/health_station/directional/east,
+/obj/machinery/health_station/ancient_milsim/directional/east,
 /turf/open/floor/iron,
 /area/virtual_domain/safehouse)
 "D" = (
