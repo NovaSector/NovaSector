@@ -716,7 +716,7 @@
 	dir = 8
 	},
 /obj/item/storage/medkit/surgery,
-/obj/machinery/health_station/ancient_milsim/directional/north,
+/obj/machinery/health_station/directional/north,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "AX" = (
