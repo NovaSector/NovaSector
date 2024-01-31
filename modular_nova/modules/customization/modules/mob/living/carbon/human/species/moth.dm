@@ -5,6 +5,7 @@
 		TRAIT_TACKLING_WINGED_ATTACKER,
 		TRAIT_ANTENNAE,
 		TRAIT_MUTANT_COLORS,
+		TRAIT_HARD_SOLES, //They have weird clawed feet; boots don't really fit on their sprite anyway. Trust me on this one.
 	)
 
 /datum/species/moth/get_default_mutant_bodyparts()
@@ -41,3 +42,43 @@
 	moth.dna.mutant_bodyparts["wings"] = list(MUTANT_INDEX_NAME = "Moth (Plain)", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 	regenerate_organs(moth, src, visual_only = TRUE)
 	moth.update_body(TRUE)
+
+/datum/species/moth/on_species_gain(mob/living/carbon/the_moth_in_question, datum/species/old_species, pref_load)
+	. = ..()
+	var/mob/living/carbon/human/mothman = the_moth_in_question
+	if(!istype(mothman))
+		return
+	mothman.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
+	mothman.dna.activate_mutation(/datum/mutation/human/olfaction)
+
+    // >mfw I take mutadone and my antennae atrophy
+	var/datum/mutation/human/olfaction/mutation = locate() in mothman.dna.mutations
+	mutation.mutadone_proof = TRUE
+	mutation.instability = 0
+
+/datum/species/human/moth/on_species_loss(mob/living/carbon/the_player_formerly_known_as_moth, datum/species/new_species, pref_load)
+	. = ..()
+	var/mob/living/carbon/human/mothman = the_player_formerly_known_as_moth
+	if(!istype(mothman))
+		return
+	mothman.dna.remove_mutation(/datum/mutation/human/olfaction)
+
+/datum/species/moth/create_pref_unique_perks()
+	var/list/to_add = list()
+
+	to_add += list(
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "shoe-prints",
+			SPECIES_PERK_NAME = "Clawed Gait",
+			SPECIES_PERK_DESC = "Moths have clawed feet and strange legs; meaning they don't need shoes to avoid hazards.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "signal",
+			SPECIES_PERK_NAME = "Antenna Reception",
+			SPECIES_PERK_DESC = "Moths, highly sensitive to pheromones, are also highly sensitive to other scents; to the degree of being able to track them.",
+		),
+	)
+
+	return to_add
