@@ -144,6 +144,7 @@
 /area/space/nearstation)
 "acK" = (
 /obj/machinery/power/tracker,
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/aux/port)
 "acQ" = (
@@ -4534,6 +4535,11 @@
 /obj/item/toy/toy_dagger,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/lesser)
+"bwN" = (
+/obj/machinery/shower/directional/south,
+/obj/structure/cable,
+/turf/open/floor/noslip,
+/area/station/engineering/main)
 "bwQ" = (
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/iron/white,
@@ -4690,6 +4696,7 @@
 	id = "forestarboard";
 	name = "Fore-Starboard Solar Array"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/port/fore)
 "bzH" = (
@@ -9670,13 +9677,13 @@
 	name = "Supermatter Engine Room"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "dou" = (
@@ -17273,10 +17280,9 @@
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
 "fLw" = (
-/obj/machinery/shower/directional/south,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/turf/open/floor/noslip,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "fLC" = (
 /obj/machinery/holopad,
@@ -20593,6 +20599,7 @@
 /area/station/hallway/secondary/command)
 "gMy" = (
 /obj/machinery/power/tracker,
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/starboard)
 "gMH" = (
@@ -23109,6 +23116,11 @@
 /obj/structure/sign/poster/official/do_not_question/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs)
+"hGO" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/station/solars/starboard)
 "hGS" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
@@ -28689,12 +28701,12 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "jAp" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "jAt" = (
@@ -28838,6 +28850,7 @@
 /area/station/science/research)
 "jBW" = (
 /obj/machinery/power/tracker,
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/port/aft)
 "jBZ" = (
@@ -30784,6 +30797,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 5
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "kob" = (
@@ -31558,7 +31572,6 @@
 /area/station/command/heads_quarters/rd)
 "kBi" = (
 /obj/effect/landmark/event_spawn,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
@@ -35155,6 +35168,7 @@
 	id = "starboardsolar";
 	name = "Starboard Solar Array"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/aux/port)
 "lGN" = (
@@ -35858,6 +35872,7 @@
 	id = "portsolar";
 	name = "Port Solar Array"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/aux/port)
 "lSU" = (
@@ -42199,6 +42214,7 @@
 	id = "starboardsolar";
 	name = "Starboard Solar Array"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/starboard)
 "nZA" = (
@@ -50471,6 +50487,8 @@
 /obj/structure/closet/radiation,
 /obj/machinery/light/small/directional/west,
 /obj/structure/railing,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "qKz" = (
@@ -61196,6 +61214,7 @@
 	id = "portsolar";
 	name = "Port Solar Array"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/starboard)
 "uiZ" = (
@@ -69745,6 +69764,7 @@
 /area/station/science/robotics/mechbay)
 "wTH" = (
 /obj/machinery/power/tracker,
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/port/fore)
 "wTM" = (
@@ -70084,6 +70104,7 @@
 	id = "aftstarboard";
 	name = "Aft-Starboard Solar Array"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/port/aft)
 "wXE" = (
@@ -82311,7 +82332,7 @@ lSy
 lSy
 lSy
 vlA
-sIm
+eON
 vlA
 lGL
 lGL
@@ -82568,7 +82589,7 @@ nnx
 nnx
 nnx
 nnx
-sIm
+eON
 nnx
 nnx
 nnx
@@ -82825,7 +82846,7 @@ lSy
 lSy
 lSy
 vlA
-sIm
+eON
 vlA
 lSy
 lSy
@@ -83339,7 +83360,7 @@ lSy
 lSy
 lSy
 vlA
-sIm
+eON
 vlA
 lGL
 lGL
@@ -83596,7 +83617,7 @@ nnx
 nnx
 nnx
 nnx
-sIm
+eON
 nnx
 nnx
 nnx
@@ -83853,7 +83874,7 @@ lSy
 lSy
 lSy
 vlA
-sIm
+eON
 vlA
 lSy
 lSy
@@ -84367,7 +84388,7 @@ lGL
 lGL
 lSy
 vlA
-sIm
+eON
 vlA
 lGL
 lGL
@@ -84624,7 +84645,7 @@ nnx
 nnx
 nnx
 nnx
-sIm
+eON
 nnx
 nnx
 nnx
@@ -84881,7 +84902,7 @@ lSy
 lSy
 lSy
 vlA
-sIm
+eON
 vlA
 lSy
 lSy
@@ -113058,16 +113079,16 @@ ana
 ana
 ana
 aHG
+bOf
+bOf
+bOf
 ana
-ana
-ana
-ana
-ana
+bOf
+bOf
 bOf
 ana
 ana
-ana
-ana
+bOf
 bOf
 bOf
 aMJ
@@ -121637,7 +121658,7 @@ sQb
 nYc
 sFR
 eqA
-fLw
+pcI
 gWj
 jAp
 knV
@@ -121895,7 +121916,7 @@ uFv
 iCs
 sTM
 rdJ
-rdJ
+fLw
 kBi
 sYE
 jGF
@@ -122151,7 +122172,7 @@ rqx
 quA
 pbn
 eqA
-pcI
+bwN
 rdJ
 cgQ
 sYE
@@ -126843,13 +126864,13 @@ cgf
 fah
 fah
 tKO
+fah
+fah
+fah
 tKO
-tKO
-tKO
-tKO
-tKO
-tKO
-tKO
+fah
+fah
+fah
 myb
 tKO
 tKO
@@ -131117,7 +131138,7 @@ uiN
 uiN
 uiN
 csJ
-qYB
+hGO
 csJ
 nZw
 nZw
@@ -131374,7 +131395,7 @@ nnx
 nnx
 csJ
 csJ
-qYB
+hGO
 csJ
 csJ
 nnx
@@ -131631,7 +131652,7 @@ uiN
 uiN
 uiN
 csJ
-qYB
+hGO
 csJ
 uiN
 uiN
@@ -132145,7 +132166,7 @@ uiN
 uiN
 uiN
 csJ
-qYB
+hGO
 csJ
 nZw
 nZw
@@ -132402,7 +132423,7 @@ nnx
 nnx
 csJ
 csJ
-qYB
+hGO
 csJ
 csJ
 nnx
@@ -132659,7 +132680,7 @@ uiN
 uiN
 uiN
 csJ
-qYB
+hGO
 csJ
 uiN
 uiN
@@ -133173,7 +133194,7 @@ nZw
 nZw
 uiN
 csJ
-qYB
+hGO
 csJ
 nZw
 nZw
@@ -133430,7 +133451,7 @@ nnx
 nnx
 csJ
 csJ
-qYB
+hGO
 csJ
 csJ
 nnx
@@ -133687,7 +133708,7 @@ uiN
 uiN
 uiN
 csJ
-qYB
+hGO
 csJ
 uiN
 uiN
