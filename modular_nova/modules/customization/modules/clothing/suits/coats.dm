@@ -1,14 +1,14 @@
 #define STUFF_WINTER_COATS_HOLD list( \
-		/obj/item/flashlight, \
-		/obj/item/lighter, \
-		/obj/item/modular_computer/pda, \
-		/obj/item/radio, \
-		/obj/item/storage/bag/books, \
-		/obj/item/storage/fancy/cigarettes, \
-		/obj/item/tank/internals/emergency_oxygen, \
-		/obj/item/tank/internals/plasmaman, \
-		/obj/item/toy, \
-	)
+	/obj/item/flashlight, \
+	/obj/item/lighter, \
+	/obj/item/modular_computer/pda, \
+	/obj/item/radio, \
+	/obj/item/storage/bag/books, \
+	/obj/item/storage/fancy/cigarettes, \
+	/obj/item/tank/internals/emergency_oxygen, \
+	/obj/item/tank/internals/plasmaman, \
+	/obj/item/toy, \
+)
 
 /obj/item/clothing/suit/hooded/wintercoat/medical/paramedic
 	allowed = list(
