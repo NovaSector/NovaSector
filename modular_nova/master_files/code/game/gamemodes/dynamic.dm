@@ -9,7 +9,7 @@
 	var/greenshift = GLOB.dynamic_forced_extended || (threat_level < MIN_MIDROUND_COST && shown_threat < MIN_MIDROUND_COST) // if both shown and real threat are below any ruleset, its greenshift time
 	generate_station_goals(greenshift ? INFINITY : CONFIG_GET(number/station_goal_budget))
 
-	if(GLOB.station_goals.len > 0)
+	if(SSstation.get_station_goals().len > 0)
 		. = "<hr><b>No assigned goals.</b><BR>"
 	else
 		var/list/texts = list("<hr><b>Special Orders for [station_name()]:</b><BR>")
