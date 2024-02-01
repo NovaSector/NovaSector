@@ -19,18 +19,19 @@
 	///Items that can refill it; intended to be high-end medicine items, or otherwise 'miraculous' in nature.
 	var/list/refillers = list(
 		/obj/item/slimecross/regenerative = 100,
-		/obj/item/organ/internal/monster_core = 25, //some more use for leftover non-legion core organs as they're less frequently used
+		/obj/item/organ/internal/monster_core = 20, //some more use for leftover non-legion core organs as they're less frequently used
 		/obj/item/food/grown/ambrosia/gaia = 10,
 	)
 	///Medipens that it can refill and their attached nondescript healing fluid costs
 	var/list/refillable_pens = list(
 		/obj/item/reagent_containers/hypospray/medipen/glucose = 2.5, //it's a useless flavor item
 		/obj/item/reagent_containers/hypospray/medipen = 5,
-		/obj/item/reagent_containers/hypospray/medipen/atropine = 10,
+		/obj/item/reagent_containers/hypospray/medipen/atropine = 5,
 		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 5,
 		/obj/item/reagent_containers/hypospray/medipen/ekit = 5,
+		/obj/item/reagent_containers/hypospray/medipen/morphine = 5,
+		/obj/item/reagent_containers/hypospray/medipen/penacid = 10,
 		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 10,
-		/obj/item/reagent_containers/hypospray/medipen/penacid = 5,
 		/obj/item/reagent_containers/hypospray/medipen/salacid = 10,
 		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 10,
 		/obj/item/reagent_containers/hypospray/medipen/stimpack = 10, //old mining one that never actually appears anywhere nowadays
@@ -169,6 +170,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	if(do_after(user, 5 SECONDS, src))
 		var/datum/wound/wound2fix = user.all_wounds[1]
 		wound2fix.remove_wound()
+		user.apply_status_effect(/datum/status_effect/vulnerable_to_damage/health_station)
+		user.reagents.add_reagent(/datum/reagent/medicine/morphine, 10)
 		balloon_alert(user, "wound treated")
 		charge_amount -= 20
 		playsound(src, 'sound/surgery/saw.ogg', 40, TRUE)
@@ -187,11 +190,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 
 	if(user.getBruteLoss() || user.getFireLoss())
 		if(do_after(user, 2.5 SECONDS, src))
-			balloon_alert(user, "damage treated")
 			var/brute_to_heal = user.getBruteLoss()
 			var/burn_to_heal = user.getFireLoss()
 			user.adjustBruteLoss(-brute_to_heal/2)
 			user.adjustFireLoss(-burn_to_heal/2)
+			user.apply_status_effect(/datum/status_effect/vulnerable_to_damage/health_station)
+			user.reagents.add_reagent(/datum/reagent/medicine/morphine, 5)
+			balloon_alert(user, "damage treated")
 			charge_amount -= 15
 			playsound(src, 'sound/surgery/retractor1.ogg', 40, TRUE)
 			use_power(active_power_usage)

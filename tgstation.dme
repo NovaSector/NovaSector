@@ -7297,6 +7297,7 @@
 #include "modular_nova\modules\hairbrush\code\mood_events.dm"
 #include "modular_nova\modules\health_station\code\health_pen.dm"
 #include "modular_nova\modules\health_station\code\health_station.dm"
+#include "modular_nova\modules\health_station\code\status_effect.dm"
 #include "modular_nova\modules\hev_suit\code\hev_suit.dm"
 #include "modular_nova\modules\holdingfashion_port\code\backpack.dm"
 #include "modular_nova\modules\holdingfashion_port\code\bluespace_design.dm"
