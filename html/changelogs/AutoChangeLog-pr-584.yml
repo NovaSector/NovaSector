@@ -1,4 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - bugfix: "Loadout holobadges are now considered accessory category only, meaning they can be paired up with neck slot loadout items without occupying both slots. Wear a scarf and a holobadge together!"
