@@ -81,6 +81,7 @@
 	qdel(src)
 	return TRUE
 
+
 /obj/structure/fleshmind/wireweed/update_icon(updates)
 	. = ..()
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))

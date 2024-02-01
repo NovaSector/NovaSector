@@ -244,6 +244,15 @@
 					possible_structures += iterating_structure
 				spawn_structure(picked_turf, pick(possible_structures))
 
+/datum/fleshmind_controller/proc/spawn_new_core()
+	var/obj/structure/fleshmind/wireweed/selected_wireweed = pick(controlled_wireweed)
+	var/obj/structure/fleshmind/structure/core/new_core = new(get_turf(selected_wireweed), FALSE)
+	RegisterSignal(new_core, COMSIG_QDELETING, PROC_REF(core_death))
+	register_new_asset(new_core, FALSE)
+	new_core.our_controller = src
+	cores += new_core
+	new_core.name = "[controller_fullname] Processor Unit"
+
 /// Spawns and registers a wireweed at location
 /datum/fleshmind_controller/proc/spawn_wireweed(turf/location, wireweed_type, turf/origin_turf, are_we_a_vent_burrow = FALSE)
 	//Spawn effect
@@ -297,7 +306,7 @@
 	controlled_wireweed += new_wireweed
 
 	register_new_asset(new_wireweed)
-	RegisterSignal(new_wireweed), COMSIG_QDELETING, PROC_REF(wireweed_death))
+	RegisterSignal(new_wireweed, COMSIG_QDELETING, PROC_REF(wireweed_death))
 
 	return new_wireweed
 
