@@ -447,21 +447,21 @@ SUBSYSTEM_DEF(shuttle)
 				return
 		if(SEC_LEVEL_BLUE)
 			//if(emergency.timeLeft(1) < emergency_call_time * 0.5) ORIGINAL
-			if(emergency.timeLeft(1) < emergency_call_time * 0.6) //NOVA EDIT CHANGE - ALERTS
+			if(emergency.timeLeft(1) < emergency_call_time * 1) //NOVA EDIT CHANGE - SHUTTLENING
 				return
 		//NOVA EDIT ADDITION BEGIN - ALERTS
 		if(SEC_LEVEL_ORANGE)
-			if(emergency.timeLeft(1) < emergency_call_time * 0.4)
+			if(emergency.timeLeft(1) < emergency_call_time * 1)
 				return
 		if(SEC_LEVEL_VIOLET)
-			if(emergency.timeLeft(1) < emergency_call_time * 0.4)
+			if(emergency.timeLeft(1) < emergency_call_time * 1)
 				return
 		if(SEC_LEVEL_AMBER)
-			if(emergency.timeLeft(1) < emergency_call_time * 0.4)
+			if(emergency.timeLeft(1) < emergency_call_time * 1)
 				return
 		//NOVA EDIT ADDITION END
 		else
-			if(emergency.timeLeft(1) < emergency_call_time * 0.25)
+			if(emergency.timeLeft(1) < emergency_call_time * 0.5) // NOVA EDIT - SHUTTLENING ORIGINAL .25
 				return
 	return 1
 
