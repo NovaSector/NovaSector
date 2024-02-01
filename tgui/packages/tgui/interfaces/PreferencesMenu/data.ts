@@ -137,6 +137,7 @@ export type QuirkInfo = {
   max_positive_quirks: number;
   quirk_info: Record<string, Quirk>;
   quirk_blacklist: string[][];
+  points_enabled: boolean;
 };
 
 export enum RandomSetting {
@@ -226,6 +227,7 @@ export type PreferencesMenuData = {
   selected_languages: Language[];
   unselected_languages: Language[];
   total_language_points: number;
+  quirk_points_enabled: number;
   quirks_balance: number;
   positive_quirk_count: number;
   species_restricted_jobs?: string[];
