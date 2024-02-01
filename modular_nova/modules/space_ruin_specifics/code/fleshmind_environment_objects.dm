@@ -45,7 +45,7 @@
 	layer = BELOW_OPEN_DOOR_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WIREWEED + SMOOTH_GROUP_WALLS
-	canSmoothWith =  SMOOTH_GROUP_WIREWEED
+	canSmoothWith =  SMOOTH_GROUP_WIREWEED + SMOOTH_GROUP_WALLS
 	max_integrity = 40
 	/// The chance we have to ensnare a mob
 	var/ensnare_chance = 15
@@ -83,7 +83,7 @@
 
 /obj/structure/fleshmind/wireweed/update_icon(updates)
 	. = ..()
-	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_BITMASK)))
+	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
 		if(!vent_burrow)
 			QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)
