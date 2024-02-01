@@ -9,6 +9,7 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	cut_type = /obj/item/clothing/gloves/fingerless
+<<<<<<< HEAD
 	// NOVA EDIT ADDITION START
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -26,6 +27,9 @@
 		)
 	)
 	// NOVA EDIT ADDITION END
+=======
+	clothing_traits = list(TRAIT_FAST_CUFFING)
+>>>>>>> cc571582fff (Gloves changes featuring nerfed shove cuffing (#81187))
 
 /obj/item/clothing/gloves/color/black/Initialize(mapload)
 	. = ..()
