@@ -1450,6 +1450,9 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
+"kJ" = (
+/turf/template_noop,
+/area/ruin/space/has_grav/outdoors)
 "kN" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/left/directional/south,
@@ -2954,7 +2957,7 @@
 "ug" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/alien/resin/membrane,
-/turf/open/floor/plating/airless,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/outdoors)
 "uh" = (
 /obj/structure/cable,
@@ -9705,7 +9708,7 @@ ZY
 zY
 bt
 xC
-kV
+kJ
 EN
 kV
 EN
@@ -10801,7 +10804,7 @@ zY
 bt
 bt
 xC
-kV
+kJ
 kV
 EN
 xC
@@ -11255,7 +11258,7 @@ xC
 kV
 kV
 kV
-kV
+kJ
 xC
 zY
 OV
@@ -11838,7 +11841,7 @@ kV
 kV
 kV
 EN
-kV
+kJ
 xC
 bt
 bt
@@ -11900,7 +11903,7 @@ zY
 zY
 bt
 xC
-kV
+kJ
 EN
 kV
 kV

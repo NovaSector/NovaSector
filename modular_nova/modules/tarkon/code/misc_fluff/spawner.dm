@@ -178,6 +178,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "corpseminer"
 	outfit = /datum/outfit/tarkon/loot
 
+#define ROLE_TARKALIEN "Xenomorph Hive T-35"
+
 /obj/structure/spawner/tarkon_xenos
 	name = "infested warren"
 	desc = "A deep tunnel that goes deeper than any light can reach. A distant roaring could be heard within..."
@@ -192,7 +194,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 		/mob/living/simple_animal/hostile/alien/sentinel
 	)
 	spawn_text = "crawls out of"
-	faction = list(ROLE_ALIEN)
+	faction = list(ROLE_TARKALIEN)
 	var/boss_mob = /mob/living/simple_animal/hostile/alien/queen/large
 	var/loot_drop = /obj/effect/mob_spawn/corpse/human/tarkon
 

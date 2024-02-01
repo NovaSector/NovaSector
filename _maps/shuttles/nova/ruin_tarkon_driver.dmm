@@ -31,6 +31,13 @@
 "ef" = (
 /turf/open/floor/iron/recharge_floor,
 /area/shuttle/tarkon_driver)
+"eP" = (
+/obj/machinery/power/smes/engineering{
+	input_level = 5000
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/tarkon_driver)
 "fg" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -318,8 +325,12 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Pn" = (
-/obj/machinery/power/smes/engineering,
-/obj/structure/cable,
+/obj/machinery/power/smes/engineering{
+	input_level = 5000
+	},
+/obj/machinery/power/smes/engineering{
+	input_level = 5000
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Qe" = (
@@ -632,7 +643,7 @@ fy
 fy
 tV
 LG
-Pn
+eP
 Vt
 Pn
 GN
