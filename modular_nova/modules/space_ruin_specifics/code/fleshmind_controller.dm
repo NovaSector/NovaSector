@@ -297,7 +297,7 @@
 	controlled_wireweed += new_wireweed
 
 	register_new_asset(new_wireweed)
-	RegisterSignal(new_wireweed)//, COMSIG_QDELETING, PROC_REF(wireweed_death))
+	RegisterSignal(new_wireweed), COMSIG_QDELETING, PROC_REF(wireweed_death))
 
 	return new_wireweed
 
