@@ -227,9 +227,6 @@
 	adjust_fire_stacks(3)
 	ignite_mob()
 
-<<<<<<< HEAD
-/mob/living/proc/grabbedby(mob/living/carbon/user, supress_message = FALSE, grabbed_part) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/grabbedby(mob/living/carbon/user, supress_message = FALSE)
-=======
 /**
  * Called when a mob is grabbing another mob.
  */
@@ -246,8 +243,7 @@
 /**
  * Called when this mob is grabbed by another mob.
  */
-/mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE)
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
+/mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE, grabbed_part) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/grabbedby(mob/living/user, supress_message = FALSE)
 	if(user == src || anchored || !isturf(user.loc))
 		return FALSE
 	if(!user.pulling || user.pulling != src)

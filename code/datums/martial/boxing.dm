@@ -41,19 +41,6 @@
 	var/obj/item/bodypart/affecting = defender.get_bodypart(defender.get_random_valid_zone(attacker.zone_selected))
 	var/armor_block = defender.run_armor_check(affecting, MELEE)
 
-<<<<<<< HEAD
-	// NOVA EDIT CHANGE
-	var/sound/attack_sound
-	if(!active_arm.unarmed_attack_sound)
-		attack_sound = get_sfx("punch")
-	else
-		attack_sound = active_arm.unarmed_attack_sound
-	playsound(defender.loc, attack_sound, 25, TRUE, -1)
-	//NOVA EDIT END
-
-	defender.visible_message(span_danger("[attacker] [atk_verb]ed [defender]!"), \
-					span_userdanger("You're [atk_verb]ed by [attacker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, attacker)
-=======
 	playsound(defender, active_arm.unarmed_attack_sound, 25, TRUE, -1)
 	defender.visible_message(
 		span_danger("[attacker] [atk_verb]ed [defender]!"),
@@ -62,7 +49,6 @@
 		COMBAT_MESSAGE_RANGE,
 		attacker,
 	)
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
 	to_chat(attacker, span_danger("You [atk_verb]ed [defender]!"))
 	defender.apply_damage(damage, STAMINA, affecting, armor_block)
 	log_combat(attacker, defender, "punched (boxing) ")

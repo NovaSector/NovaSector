@@ -41,18 +41,13 @@
 /datum/species/mush/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
 	if(ishuman(C))
-<<<<<<< HEAD
 		var/mob/living/carbon/human/H = C
 		if(!H.dna.mutant_bodyparts["caps"] || H.dna.mutant_bodyparts["caps"][MUTANT_INDEX_NAME] != "None") // NOVA EDIT - Customization - ORIGINAL: if(!H.dna.features["caps"])
 			H.dna.mutant_bodyparts["caps"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(H.hair_color)) // NOVA EDIT - Customization - ORIGINAL: H.dna.features["caps"] = "Round"
 			handle_mutant_bodyparts(H)
-		mush = new(null)
-		mush.teach(H)
-=======
 		mush = new()
 		mush.teach(C)
 		mush.allow_temp_override = FALSE
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
 
 /datum/species/mush/on_species_loss(mob/living/carbon/C)
 	. = ..()
@@ -66,39 +61,6 @@
 	if(chem.type == /datum/reagent/toxin/plantbgone/weedkiller)
 		affected.adjustToxLoss(3 * REM * seconds_per_tick)
 
-<<<<<<< HEAD
 /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE) //NOVA EDIT - ORIGINAL: /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour) (one parameter added)
 	forced_colour = FALSE
 	return ..()
-=======
-/// A mushpersons mushroom cap organ
-/obj/item/organ/external/mushroom_cap
-	name = "mushroom cap"
-	desc = "These are yummie, no cap."
-
-	use_mob_sprite_as_obj_sprite = TRUE
-
-	zone = BODY_ZONE_HEAD
-	slot = ORGAN_SLOT_EXTERNAL_POD_HAIR
-
-	preference = "feature_mushperson_cap"
-
-	dna_block = DNA_MUSHROOM_CAPS_BLOCK
-	restyle_flags = EXTERNAL_RESTYLE_PLANT
-
-	bodypart_overlay = /datum/bodypart_overlay/mutant/mushroom_cap
-
-/// Bodypart overlay for the mushroom cap organ
-/datum/bodypart_overlay/mutant/mushroom_cap
-	layers = EXTERNAL_ADJACENT
-	feature_key = "caps"
-
-/datum/bodypart_overlay/mutant/mushroom_cap/get_global_feature_list()
-	return GLOB.caps_list
-
-/datum/bodypart_overlay/mutant/mushroom_cap/can_draw_on_bodypart(mob/living/carbon/human/human)
-	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
-		return FALSE
-
-	return TRUE
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))

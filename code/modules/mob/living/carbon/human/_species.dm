@@ -1164,12 +1164,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	//has our target been shoved recently? If so, they're staggered and we get an easy hit.
 	var/staggered = FALSE
 
-<<<<<<< HEAD
-		playsound(target.loc, attacking_bodypart.unarmed_attack_sound || get_sfx("punch"), 25, TRUE, -1) // NOVA EDIT - ORIGINAL: playsound(target.loc, attacking_bodypart.unarmed_attack_sound, 25, TRUE, -1)
-=======
 	//Someone in a grapple is much more vulnerable to being harmed by punches.
 	var/grappled = FALSE
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
 
 	if(target.get_timed_status_effect_duration(/datum/status_effect/staggered))
 		staggered = TRUE
@@ -1180,35 +1176,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/damage = rand(attacking_bodypart.unarmed_damage_low, attacking_bodypart.unarmed_damage_high)
 	var/limb_accuracy = attacking_bodypart.unarmed_effectiveness
 
-<<<<<<< HEAD
-		var/attack_direction = get_dir(user, target)
-		var/attack_type = attacking_bodypart.attack_type
-		var/unarmed_sharpness = attacking_bodypart.unarmed_sharpness //NOVA EDIT ADDITION - If unarmed damage sharpness needs to be taken into account.
-		if(atk_effect == ATTACK_EFFECT_KICK || grappled) //kicks and punches when grappling bypass armor slightly.
-			if(damage >= 9)
-				target.force_say()
-			log_combat(user, target, grappled ? "grapple punched" : "kicked")
-			target.apply_damage(damage, attack_type, affecting, armor_block - limb_accuracy, attack_direction = attack_direction)
-			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block - limb_accuracy)
-		else // Normal attacks do not gain the benefit of armor penetration.
-			target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //NOVA EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
-			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
-			if(damage >= 9)
-				target.force_say()
-			log_combat(user, target, "punched")
-
-		//If we rolled a punch high enough to hit our stun threshold, or our target is staggered and they have at least 40 damage+stamina loss, we knock them down
-		if((target.stat != DEAD) && prob(limb_accuracy) || (target.stat != DEAD) && staggered && (target.getStaminaLoss() + user.getBruteLoss()) >= 40)
-			target.visible_message(span_danger("[user] knocks [target] down!"), \
-							span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, span_danger("You knock [target] down!"))
-			/* NOVA EDIT REMOVAL - Less combat lethality and hard stungs
-			var/knockdown_duration = 4 SECONDS + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 4 second base stun + 4 second stun modifier = 8 second knockdown duration
-			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
-			*/ // SKYRAT REMOVAL END
-			target.StaminaKnockdown(20) //NOVA EDIT ADDITION
-			log_combat(user, target, "got a stun punch with their previous punch")
-=======
 	var/obj/item/bodypart/affecting = target.get_bodypart(target.get_random_valid_zone(user.zone_selected))
 
 	var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
@@ -1244,6 +1211,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/attack_direction = get_dir(user, target)
 	var/attack_type = attacking_bodypart.attack_type
+	var/unarmed_sharpness = attacking_bodypart.unarmed_sharpness //NOVA EDIT ADDITION - If unarmed damage sharpness needs to be taken into account.
 	if(atk_effect == ATTACK_EFFECT_KICK || grappled) //kicks and punches when grappling bypass armor slightly.
 		if(damage >= 9)
 			target.force_say()
@@ -1251,7 +1219,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		target.apply_damage(damage, attack_type, affecting, armor_block - limb_accuracy, attack_direction = attack_direction)
 		target.apply_damage(damage*1.5, STAMINA, affecting, armor_block - limb_accuracy)
 	else // Normal attacks do not gain the benefit of armor penetration.
-		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
+		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //NOVA EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
 		target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
 		if(damage >= 9)
 			target.force_say()
@@ -1262,10 +1230,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		target.visible_message(span_danger("[user] knocks [target] down!"), \
 						span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_danger("You knock [target] down!"))
+		/* NOVA EDIT REMOVAL - Less combat lethality and hard stuns
 		var/knockdown_duration = 4 SECONDS + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 4 second base stun + 4 second stun modifier = 8 second knockdown duration
 		target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
+		NOVA EDIT REMOVAL END */
+		target.StaminaKnockdown(20) //NOVA EDIT ADDITION
 		log_combat(user, target, "got a stun punch with their previous punch")
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(user.body_position != STANDING_UP)
