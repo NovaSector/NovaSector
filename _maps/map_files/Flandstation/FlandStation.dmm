@@ -1611,11 +1611,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
-"aBB" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/kitchen)
 "aBM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/curtain{
@@ -5514,11 +5509,10 @@
 /turf/open/floor/iron/sepia,
 /area/station/maintenance/disposal/incinerator)
 "bPM" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/turf/open/floor/iron/cafeteria,
-/area/station/service/kitchen)
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
+/turf/open/floor/iron/checker,
+/area/station/maintenance/aft)
 "bPN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -9036,11 +9030,6 @@
 /obj/item/flashlight/lamp/green,
 /turf/open/floor/wood,
 /area/station/service/library/private)
-"dbc" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/basic/mouse/rat,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/maintenance/aft/lesser)
 "dby" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -10185,9 +10174,10 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "dwy" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
-/turf/open/floor/plating,
-/area/station/maintenance/aft)
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "dwC" = (
 /obj/machinery/camera{
 	c_tag = "Central Primary Hallway - Engineering Department Antichamber";
@@ -12678,6 +12668,7 @@
 /turf/open/floor/wood,
 /area/station/commons/dorms)
 "ets" = (
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
 "etB" = (
@@ -26112,9 +26103,8 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningdock)
 "iEA" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general,
-/turf/open/floor/iron/checker,
+/turf/open/floor/plating,
 /area/station/maintenance/aft)
 "iEK" = (
 /obj/effect/turf_decal/delivery,
@@ -37529,6 +37519,12 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
+"mxl" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "mxs" = (
 /obj/machinery/meter,
 /obj/structure/cable,
@@ -52682,9 +52678,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
-"rtk" = (
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/station/maintenance/aft/upper)
 "rtu" = (
 /obj/structure/hoop{
 	pixel_y = 24
@@ -56422,6 +56415,7 @@
 	},
 /area/station/command/teleporter)
 "sDF" = (
+/obj/structure/cable,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -56722,6 +56716,7 @@
 	name = "Teleporter Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/teleporter,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/command/teleporter)
 "sJh" = (
@@ -61664,6 +61659,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -71852,7 +71848,8 @@
 /obj/machinery/power/apc/auto_name/directional/west{
 	pixel_x = -25
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft/upper)
 "xsY" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -97053,7 +97050,7 @@ pzT
 unK
 jzE
 hhj
-aBB
+dwy
 wOF
 jzE
 sAF
@@ -97310,7 +97307,7 @@ hmB
 rdA
 jzE
 roM
-bPM
+mxl
 nmg
 jzE
 jzE
@@ -106104,7 +106101,7 @@ fEs
 kmL
 ugh
 uJL
-dbc
+jUG
 gto
 sub
 jUG
@@ -107881,7 +107878,7 @@ puC
 puC
 puC
 tPn
-rtk
+cYI
 xsO
 jaN
 rio
@@ -114102,7 +114099,7 @@ tlf
 tTz
 sap
 gzu
-iEA
+bPM
 cwk
 waO
 abN
@@ -114359,7 +114356,7 @@ kjo
 tTz
 dLN
 axD
-dwy
+iEA
 sNJ
 kHH
 kHH
