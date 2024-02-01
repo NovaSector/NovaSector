@@ -217,11 +217,8 @@
 //Krav Maga Gloves
 
 /obj/item/clothing/gloves/krav_maga
-<<<<<<< HEAD
-	var/datum/martial_art/krav_maga/style = new
-=======
-	clothing_traits = list(TRAIT_FAST_CUFFING)
 	var/datum/martial_art/krav_maga/style
+	clothing_traits = list(TRAIT_FAST_CUFFING)
 
 /obj/item/clothing/gloves/krav_maga/Initialize(mapload)
 	. = ..()
@@ -231,7 +228,6 @@
 /obj/item/clothing/gloves/krav_maga/Destroy()
 	QDEL_NULL(style)
 	return ..()
->>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
 
 /obj/item/clothing/gloves/krav_maga/equipped(mob/user, slot)
 	. = ..()
