@@ -41,7 +41,7 @@
 	hotkey_keys = list("CtrlK")
 	name = "do_longer"
 	full_name = "Do (Longer)"
-	keybind_signal = COMSIG_KB_CLIENT_DO_DOWN
+	keybind_signal = COMSIG_KB_CLIENT_DO_LONGER_DOWN
 
 /datum/keybinding/client/communication/Do_longer/down(client/user)
 	. = ..()
