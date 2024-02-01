@@ -9,6 +9,7 @@
 /obj/machinery/light/directional/east,
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/food_or_drink/snack,
+/obj/item/crowbar/red,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "cP" = (
@@ -32,9 +33,7 @@
 /turf/open/floor/iron/recharge_floor,
 /area/shuttle/tarkon_driver)
 "eP" = (
-/obj/machinery/power/smes/engineering{
-	input_level = 5000
-	},
+/obj/machinery/power/smes/tarkon_driver,
 /obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
@@ -65,6 +64,13 @@
 "hH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall/mineral/titanium/spaceship,
+/area/shuttle/tarkon_driver)
+"hT" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/machinery/camera/tarkon/directional/south,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "hW" = (
 /obj/structure/chair/comfy/shuttle{
@@ -101,6 +107,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/camera/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "ni" = (
@@ -129,6 +136,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/camera/tarkon/directional/south,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/tarkon_driver)
+"pi" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/camera/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "rr" = (
@@ -201,7 +214,7 @@
 /obj/item/flashlight/flare,
 /obj/item/flashlight/flare,
 /obj/item/flashlight/flare,
-/obj/machinery/door/window/right/directional/west,
+/obj/machinery/door/window/brigdoor/tarkon/right/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Cn" = (
@@ -209,8 +222,9 @@
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/tank/internals/emergency_oxygen,
-/obj/machinery/door/window/right/directional/west,
+/obj/machinery/door/window/brigdoor/tarkon/right/directional/west,
 /obj/machinery/light/directional/south,
+/obj/machinery/camera/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Cv" = (
@@ -234,8 +248,7 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Fp" = (
-/obj/structure/table/reinforced,
-/obj/item/crowbar/red,
+/obj/machinery/computer/camera_advanced/tarkon_cam,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "GN" = (
@@ -265,8 +278,9 @@
 /obj/item/clothing/suit/space/eva,
 /obj/item/clothing/head/helmet/space/eva,
 /obj/item/clothing/mask/breath,
-/obj/machinery/door/window/right/directional/east,
+/obj/machinery/door/window/brigdoor/tarkon/right/directional/east,
 /obj/machinery/light/directional/south,
+/obj/machinery/camera/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Jo" = (
@@ -328,9 +342,7 @@
 /obj/machinery/power/smes/engineering{
 	input_level = 5000
 	},
-/obj/machinery/power/smes/engineering{
-	input_level = 5000
-	},
+/obj/machinery/power/smes/tarkon_driver,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Qe" = (
@@ -363,7 +375,7 @@
 /obj/item/clothing/suit/space/eva,
 /obj/item/clothing/head/helmet/space/eva,
 /obj/item/clothing/mask/breath,
-/obj/machinery/door/window/right/directional/east,
+/obj/machinery/door/window/brigdoor/tarkon/right/directional/east,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Tp" = (
@@ -371,7 +383,7 @@
 /obj/item/oxygen_candle,
 /obj/item/oxygen_candle,
 /obj/item/oxygen_candle,
-/obj/machinery/door/window/right/directional/west,
+/obj/machinery/door/window/brigdoor/tarkon/right/directional/west,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "TS" = (
@@ -384,6 +396,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
 /obj/machinery/light_switch/directional/east,
+/obj/machinery/camera/tarkon/directional/east,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Ut" = (
@@ -501,7 +514,7 @@ IP
 LG
 Vp
 Xb
-XN
+pi
 hH
 zL
 "}
@@ -619,7 +632,7 @@ Em
 uk
 Kv
 gu
-Xb
+hT
 JF
 Tp
 Cf
