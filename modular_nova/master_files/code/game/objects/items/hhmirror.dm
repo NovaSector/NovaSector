@@ -71,7 +71,7 @@
 			if(HAS_TRAIT(human_user, TRAIT_MUTANT_COLORS) && !HAS_TRAIT(human_user, TRAIT_FIXED_MUTANT_COLORS))
 				var/new_mutantcolor = input(user, "Choose your skin color:", "Race change", human_user.dna.features["mcolor"]) as color|null
 				if(new_mutantcolor)
-					var/temp_hsv = RGBtoHSV(new_mutantcolor)
+					var/temp_hsv = rgb2hsv(new_mutantcolor)
 
 					if(ReadHSV(temp_hsv)[3] >= ReadHSV("#7F7F7F")[3]) // mutantcolors must be bright
 						human_user.dna.features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
