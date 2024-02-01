@@ -938,6 +938,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/mining)
+"nX" = (
+/obj/effect/turf_decal/tile/yellow/half,
+/obj/machinery/door/firedoor/closed,
+/turf/open/floor/iron/dark/smooth_half,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "oa" = (
 /obj/effect/turf_decal/tile/yellow/anticorner{
 	dir = 1
@@ -1725,13 +1730,6 @@
 /obj/effect/spawner/random/exotic/tool,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
-"AJ" = (
-/obj/effect/turf_decal/tile/yellow/half{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/closed,
-/turf/open/floor/iron/dark/smooth_half,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "AN" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/cargodise_freighter/exterior)
@@ -1944,7 +1942,6 @@
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "Er" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/structure/fleshmind/wireweed,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/cargodise_freighter/hydroponics)
 "Et" = (
@@ -3261,11 +3258,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "XF" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 1
+	},
 /obj/machinery/door/firedoor/closed,
-/turf/open/floor/catwalk_floor/iron_dark,
+/turf/open/floor/iron/dark/smooth_half,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "XI" = (
 /obj/effect/turf_decal/trimline/blue/line{
@@ -3353,9 +3350,11 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
 "YO" = (
-/obj/effect/turf_decal/tile/yellow/half,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor/closed,
-/turf/open/floor/iron/dark/smooth_half,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "YT" = (
 /obj/effect/turf_decal/tile/yellow/anticorner,
@@ -3717,7 +3716,7 @@ KY
 hS
 mb
 mb
-is
+mb
 Fy
 uu
 nL
@@ -3757,7 +3756,7 @@ Yr
 Yr
 Er
 mb
-is
+mb
 dJ
 oY
 aN
@@ -4826,9 +4825,9 @@ hD
 VD
 Gg
 Gg
-AJ
 XF
 YO
+nX
 Hv
 Hv
 eC
