@@ -1611,6 +1611,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+"aBB" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/storage)
 "aBM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/curtain{
@@ -5512,13 +5520,10 @@
 /turf/open/floor/iron/sepia,
 /area/station/maintenance/disposal/incinerator)
 "bPM" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/storage)
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/maintenance/port/fore)
 "bPN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -9041,7 +9046,6 @@
 /area/station/service/library/private)
 "dbc" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
@@ -10192,13 +10196,6 @@
 /obj/machinery/atmospherics/pipe/bridge_pipe/purple/visible,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"dwy" = (
-/obj/structure/chair/office{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/carpet/red,
-/area/station/service/library/lounge)
 "dwC" = (
 /obj/machinery/camera{
 	c_tag = "Central Primary Hallway - Engineering Department Antichamber";
@@ -26122,11 +26119,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningdock)
-"iEA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
-/turf/open/floor/iron/checker,
-/area/station/maintenance/aft)
 "iEK" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/hydroponics/constructable,
@@ -26369,6 +26361,7 @@
 /area/station/medical/treatment_center)
 "iIM" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
@@ -27657,9 +27650,6 @@
 /area/station/engineering/atmos)
 "jem" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/public/glass{
-	name = "Library"
-	},
 /obj/machinery/door/airlock/public/glass{
 	name = "Library"
 	},
@@ -37553,10 +37543,12 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "mxl" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/chair/office{
+	dir = 4
+	},
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/station/maintenance/port/fore)
+/turf/open/floor/carpet/red,
+/area/station/service/library/lounge)
 "mxs" = (
 /obj/machinery/meter,
 /obj/structure/cable,
@@ -52717,8 +52709,9 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
 "rtk" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general,
-/turf/open/floor/plating,
+/turf/open/floor/iron/checker,
 /area/station/maintenance/aft)
 "rtu" = (
 /obj/structure/hoop{
@@ -70208,6 +70201,10 @@
 	dir = 10
 	},
 /area/station/engineering/atmos)
+"wWK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
+/turf/open/floor/plating,
+/area/station/maintenance/aft)
 "wWN" = (
 /obj/structure/sign/painting/library{
 	pixel_x = -32
@@ -92693,7 +92690,7 @@ eFZ
 eFZ
 eFZ
 eFZ
-mxl
+bPM
 bBy
 cFH
 bBy
@@ -92702,7 +92699,7 @@ bBy
 dxi
 mMI
 wGB
-dwy
+mxl
 xfw
 xms
 xms
@@ -92950,7 +92947,7 @@ nHl
 bmi
 asZ
 bEq
-mxl
+bPM
 dWC
 saf
 saf
@@ -94488,7 +94485,7 @@ btv
 lZB
 pnz
 vqo
-bPM
+aBB
 xRw
 dwi
 aRD
@@ -97102,7 +97099,7 @@ pzT
 unK
 jzE
 hhj
-iIM
+dbc
 wOF
 jzE
 sAF
@@ -97359,7 +97356,7 @@ hmB
 rdA
 jzE
 roM
-dbc
+iIM
 nmg
 jzE
 jzE
@@ -114151,7 +114148,7 @@ tlf
 tTz
 sap
 gzu
-iEA
+rtk
 cwk
 waO
 abN
@@ -114408,7 +114405,7 @@ kjo
 tTz
 dLN
 axD
-rtk
+wWK
 sNJ
 kHH
 kHH
