@@ -1611,6 +1611,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+"aBB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
+/turf/open/floor/iron/checker,
+/area/station/maintenance/aft)
 "aBM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/curtain{
@@ -19715,6 +19720,7 @@
 "gzu" = (
 /obj/structure/table,
 /obj/effect/spawner/random/medical/supplies,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
 /turf/open/floor/iron/checker,
 /area/station/maintenance/aft)
 "gzy" = (
@@ -21750,17 +21756,10 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "hhj" = (
-/obj/structure/rack,
-/obj/item/stack/package_wrap,
-/obj/item/hand_labeler,
-/obj/effect/turf_decal/bot,
-/obj/item/clothing/head/utility/chefhat,
-/obj/item/book/manual/wiki/cooking_to_serve_man,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/item/clothing/head/utility/chefhat,
-/obj/item/clothing/suit/apron/chef,
 /obj/machinery/requests_console/directional/north,
 /obj/effect/mapping_helpers/requests_console/supplies,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "hhk" = (
@@ -26106,6 +26105,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningdock)
+"iEA" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "iEK" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/hydroponics/constructable,
@@ -26346,6 +26351,10 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
+"iIM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
+/turf/open/floor/plating,
+/area/station/maintenance/aft)
 "iIR" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/table,
@@ -34395,6 +34404,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "lts" = (
@@ -37517,9 +37527,10 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
 "mxl" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
-/turf/open/floor/plating,
-/area/station/maintenance/aft)
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/turf/open/floor/iron/cafeteria,
+/area/station/service/kitchen)
 "mxs" = (
 /obj/machinery/meter,
 /obj/structure/cable,
@@ -47229,6 +47240,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "pLC" = (
@@ -51669,7 +51681,6 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen/kitchen_backroom)
 "rdC" = (
@@ -61559,7 +61570,14 @@
 /turf/closed/wall/r_wall,
 /area/station/security/processing)
 "unK" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom,
+/obj/structure/rack,
+/obj/item/stack/package_wrap,
+/obj/item/hand_labeler,
+/obj/effect/turf_decal/bot,
+/obj/item/clothing/head/utility/chefhat,
+/obj/item/book/manual/wiki/cooking_to_serve_man,
+/obj/item/clothing/head/utility/chefhat,
+/obj/item/clothing/suit/apron/chef,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen/kitchen_backroom)
 "unN" = (
@@ -64759,6 +64777,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "vod" = (
@@ -97040,7 +97059,7 @@ pzT
 unK
 jzE
 hhj
-mib
+mxl
 wOF
 jzE
 sAF
@@ -97297,7 +97316,7 @@ hmB
 rdA
 jzE
 roM
-nmg
+iEA
 nmg
 jzE
 jzE
@@ -114087,9 +114106,9 @@ ylJ
 chS
 tlf
 tTz
-ojv
-gzu
 sap
+gzu
+aBB
 cwk
 waO
 abN
@@ -114346,7 +114365,7 @@ kjo
 tTz
 dLN
 axD
-mxl
+iIM
 sNJ
 kHH
 kHH
