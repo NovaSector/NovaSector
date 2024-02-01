@@ -612,7 +612,11 @@
 		if (!IS_ORGANIC_LIMB(limb))
 			. += (limb.brute_dam * limb.body_damage_coeff) + (limb.burn_dam * limb.body_damage_coeff)
 
+<<<<<<< HEAD
 /mob/living/carbon/grabbedby(mob/living/carbon/user, supress_message = FALSE, grabbed_part) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/grabbedby(mob/living/carbon/user, supress_message = FALSE)
+=======
+/mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE)
+>>>>>>> e21dc5fec78 (Kicks Martial Arts out of the attack chain (yippee), makes it use signals, plus a large clean up of existing martial arts (#81097))
 	if(user != src)
 		return ..()
 
