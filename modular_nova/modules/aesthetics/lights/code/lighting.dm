@@ -44,9 +44,10 @@
 			new_color = color
 		else // Adjust light values to be warmer. I doubt caching would speed this up by any worthwhile amount, as it's all very fast number and string operations.
 			// Convert to numbers for easier manipulation.
-			var/red = GETREDPART(bulb_colour)
-			var/green = GETGREENPART(bulb_colour)
-			var/blue = GETBLUEPART(bulb_colour)
+			var/list/color_parts = rgb2num(bulb_color)
+			var/red = color_parts[1]
+			var/green = color_parts[2]
+			var/blue = color_parts[3]
 
 			red += round(red * NIGHTSHIFT_COLOR_MODIFIER)
 			green -= round(green * NIGHTSHIFT_COLOR_MODIFIER * 0.3)
