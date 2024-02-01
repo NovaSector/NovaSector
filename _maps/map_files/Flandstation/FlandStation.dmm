@@ -1611,11 +1611,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
-"aBB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/basic/mouse/rat,
-/turf/open/floor/plating,
-/area/station/maintenance/aft)
 "aBM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/curtain{
@@ -15728,7 +15723,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/decal/cleanable/glass,
-/mob/living/basic/mouse/rat,
 /turf/open/floor/iron/checker,
 /area/station/maintenance/abandon_cafeteria)
 "fot" = (
@@ -22341,6 +22335,10 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/firealarm/directional/north,
+/obj/machinery/light_switch{
+	pixel_y = 24;
+	pixel_x = -8
+	},
 /turf/open/floor/wood,
 /area/station/service/library/lounge)
 "hsL" = (
@@ -26108,8 +26106,8 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningdock)
 "iEA" = (
-/mob/living/basic/mouse/rat,
-/turf/open/floor/iron/checker,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
+/turf/open/floor/plating,
 /area/station/maintenance/aft)
 "iEK" = (
 /obj/effect/turf_decal/delivery,
@@ -26351,10 +26349,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
-"iIM" = (
-/mob/living/basic/mouse/rat,
-/turf/open/floor/iron/dark/textured_large,
-/area/station/maintenance/port/central)
 "iIR" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/table,
@@ -37528,11 +37522,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
-"mxl" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/basic/mouse/rat,
-/turf/open/floor/iron/dark/textured_large,
-/area/station/maintenance/port/central)
 "mxs" = (
 /obj/machinery/meter,
 /obj/structure/cable,
@@ -39813,11 +39802,12 @@
 /area/station/security/execution/transfer)
 "njm" = (
 /obj/machinery/light/small/directional/north,
-/obj/machinery/light_switch{
-	pixel_y = 24
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/sign/painting/large{
+	pixel_x = -1;
+	pixel_y = 25
+	},
 /turf/open/floor/wood,
 /area/station/service/library/lounge)
 "njr" = (
@@ -46162,12 +46152,12 @@
 /area/station/science/robotics/lab)
 "ptR" = (
 /obj/effect/turf_decal/stripes/corner{
-	dir = 1
+	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/plasma,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage)
 "pue" = (
@@ -51503,6 +51493,7 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/bot,
+/obj/item/crowbar/power,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage_shared)
 "raq" = (
@@ -51680,9 +51671,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen/kitchen_backroom)
 "rdC" = (
@@ -66780,6 +66771,9 @@
 /obj/item/rcl/pre_loaded,
 /obj/machinery/light/directional/east,
 /obj/machinery/firealarm/directional/east,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 30
+	},
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "vRN" = (
@@ -68356,7 +68350,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage)
 "wtJ" = (
@@ -72327,7 +72321,7 @@
 /area/station/commons/dorms)
 "xzr" = (
 /obj/effect/turf_decal/stripes/corner{
-	dir = 8
+	dir = 1
 	},
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/iron/dark,
@@ -100345,7 +100339,7 @@ soQ
 jID
 aPe
 jyO
-mxl
+qPk
 oXE
 dfc
 ubt
@@ -101621,7 +101615,7 @@ qFK
 qFK
 lLM
 qFK
-iIM
+qFK
 qFK
 lLM
 lLM
@@ -114358,7 +114352,7 @@ kjo
 tTz
 dLN
 axD
-iaj
+iEA
 sNJ
 kHH
 kHH
@@ -115129,7 +115123,7 @@ mYC
 xIl
 eoP
 xbI
-kGn
+mYC
 vXB
 kHH
 abN
@@ -119494,7 +119488,7 @@ eGR
 mze
 cMa
 qRg
-aBB
+isZ
 sGU
 mYC
 vXB
@@ -121036,7 +121030,7 @@ pZu
 gUE
 ouI
 vXB
-iEA
+mYC
 alm
 xIl
 vXB
