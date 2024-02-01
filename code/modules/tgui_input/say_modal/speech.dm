@@ -54,6 +54,8 @@
 		if(WHIS_CHANNEL)
 			client.mob.whisper_verb(entry)
 			return TRUE
+		if(DO_CHANNEL)
+			client.mob.do_verb(entry)
 		// NOVA EDIT ADDITION END
 	return FALSE
 
