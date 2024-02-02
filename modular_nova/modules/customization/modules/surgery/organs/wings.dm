@@ -67,7 +67,7 @@
 	var/recharging_time = 0 //time until next dash
 	var/datum/weakref/dash_action_ref
 
-/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action, target)
+/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action)
 	if (!isliving(owner))
 		return
 
@@ -92,7 +92,6 @@
 
 /datum/emote/living/mothic_dash/run_emote(mob/living/user, params, type_override, intentional)
 	if (ishuman(user) && intentional)
-		var/mob/living/carbon/human/human_user = user
 		var/datum/action/cooldown/spell/moth_and_dash/dash_action = locate() in user.actions
 		if(dash_action)
 			dash_action.Trigger
