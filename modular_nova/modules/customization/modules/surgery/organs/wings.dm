@@ -32,6 +32,25 @@
 	desc = "A pair of fuzzy moth wings."
 	flight_for_species = list(SPECIES_MOTH)
 	actions_types = list(/datum/action/cooldown/spell/touch/moth_climb, /datum/action/cooldown/spell/moth_and_dash)
+	///Our associated shadow jaunt spell, for all nightmares
+	var/datum/action/cooldown/spell/touch/moth_climb/our_climb
+	///Our associated terrorize spell, for antagonist nightmares
+	var/datum/action/cooldown/spell/moth_and_dash/our_dash
+
+/obj/item/organ/external/wings/moth/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+
+	if(ismoth(organ_owner))
+		our_climb = new(organ_owner)
+		our_climb.Grant(organ_owner)
+
+		our_dash = new(organ_owner)
+		our_dash.Grant(organ_owner)
+
+/obj/item/organ/external/wings/moth/on_mob_remove(mob/living/carbon/organ_owner)
+	. = ..()
+	QDEL_NULL(our_climb)
+	QDEL_NULL(our_dash)
 
 /datum/action/cooldown/spell/moth_and_dash
 	name = "Flap Wings"
@@ -48,7 +67,7 @@
 	var/recharging_time = 0 //time until next dash
 	var/datum/weakref/dash_action_ref
 
-/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action)
+/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action, target)
 	if (!isliving(owner))
 		return
 
@@ -73,10 +92,11 @@
 
 /datum/emote/living/mothic_dash/run_emote(mob/living/user, params, type_override, intentional)
 	if (ishuman(user) && intentional)
+		var/mob/living/carbon/human/human_user = user
 		var/datum/action/cooldown/spell/moth_and_dash/dash_action = locate() in user.actions
-			if(dash_action)
-				dash_action.Trigger
-				dash_action.blocked = FALSE
+		if(dash_action)
+			dash_action.Trigger
+			dash_action.blocked = FALSE
 
 	return ..()
 
