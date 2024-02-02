@@ -31,14 +31,14 @@
 	name = "moth wings"
 	desc = "A pair of fuzzy moth wings."
 	flight_for_species = list(SPECIES_MOTH)
-	actions_types = list(/datum/action/cooldown/spell/touch/moth_wings)
+	actions_types = list(/datum/action/cooldown/spell/touch/moth_climb, /datum/action/cooldown/spell/moth_and_dash)
 
-/datum/action/cooldown/spell/touch/moth_wings
+/datum/action/cooldown/spell/moth_and_dash
 	name = "Flap Wings"
-	desc = "Forces your wings against the air, even if there's gravity. LMB: Stretches wings to propel you up a Z-Level, requires you to look upwards first.  RMB: Dash forwards, possibly hazardous."
+	desc = "Forces your wings against the air, even if there's gravity."
 	button_icon = 'icons/mob/human/species/moth/moth_wings.dmi'
-	button_icon_state = "m_moth_wings_monarch_BEHIND"
-	check_flags = AB_CHECK_CONSCIOUS
+	button_icon_state = "m_moth_wings_gothic_BEHIND"
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
 	invocation_type = INVOCATION_NONE
 	spell_requirements = NONE
 	antimagic_flags = NONE
@@ -46,29 +46,53 @@
 	var/jumpspeed = 3
 	var/recharging_rate = 60 //default 6 seconds between each dash
 	var/recharging_time = 0 //time until next dash
+	var/datum/weakref/dash_action_ref
+
+/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action)
+	if (!isliving(owner))
+		return
+
+	if(recharging_time > world.time)
+		to_chat(owner, span_warning("Your wings are extraordinarily tired, give it some rest!"))
+		return
+
+	var/atom/dash_target = get_edge_target_turf(owner, owner.dir) //gets the user's direction
+
+	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)  //Throwing itself doesn't protect mobs against lava (because gulag).
+	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
+		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
+		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
+		recharging_time = world.time + recharging_rate
+	else
+		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
+
+/datum/emote/living/mothic_dash
+	key = "mdash"
+	key_third_person = "mdash"
+	cooldown = 6 SECONDS
+
+/datum/emote/living/mothic_dash/run_emote(mob/living/user, params, type_override, intentional)
+	if (ishuman(user) && intentional)
+		var/datum/action/cooldown/spell/moth_and_dash/dash_action = locate() in user.actions
+			if(dash_action)
+				dash_action.Trigger
+				dash_action.blocked = FALSE
+
+	return ..()
+
+/datum/action/cooldown/spell/touch/moth_climb
+	name = "Lift Wings"
+	desc = "Spreads your wings out to facilitate climbing."
+	button_icon = 'icons/mob/human/species/moth/moth_wings.dmi'
+	button_icon_state = "m_moth_wings_monarch_BEHIND"
+	check_flags = AB_CHECK_CONSCIOUS
+	invocation_type = INVOCATION_NONE
+	spell_requirements = NONE
+	antimagic_flags = NONE
 
 	hand_path = /obj/item/climbing_moth_wings
 	draw_message = span_notice("You outstretch your wings, ready to climb upwards.")
 	drop_message = span_notice("Your wings tuck back behind you.")
-
-/datum/action/cooldown/spell/touch/moth_wings/Trigger(trigger_flags, mob/user, action)
-	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
-		if (!isliving(user))
-			return
-
-	if(recharging_time > world.time)
-		to_chat(user, span_warning("Your wings are extraordinarily tired, give it some rest!"))
-		return
-
-	var/atom/dash_target = get_edge_target_turf(user, user.dir) //gets the user's direction
-
-	ADD_TRAIT(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)  //Throwing itself doesn't protect mobs against lava (because gulag).
-	if (user.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
-		playsound(user, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
-		user.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
-		recharging_time = world.time + recharging_rate
-	else
-		to_chat(user, span_warning("Something prevents you from dashing forward!"))
 
 /obj/item/climbing_moth_wings
 	name = "outstretched wings"
