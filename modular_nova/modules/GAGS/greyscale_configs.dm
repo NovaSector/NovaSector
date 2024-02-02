@@ -626,6 +626,72 @@
 	name = "Formal Suitskirt (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+// PENCILSKIRTS
+/datum/greyscale_config/pencilskirt
+	name = "Pencilskirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/pencilskirt/pencilskirt.json'
+
+/datum/greyscale_config/pencilskirt/worn
+	name = "Pencilskirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/pencilskirt/worn/digi
+	name = "Pencilskirt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
+/datum/greyscale_config/pencilskirt_withshirt
+	name = "Pencilskirt + Shirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/pencilskirt/pencilskirt_bicol.json'
+
+/datum/greyscale_config/pencilskirt_withshirt/worn
+	name = "Pencilskirt + Shirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/pencilskirt_withshirt/worn/digi
+	name = "Pencilskirt + Shirt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
+/datum/greyscale_config/pencilskirt_checkers
+	name = "Checkered Pencilskirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/pencilskirt/pencilskirt_bicol.json'
+
+/datum/greyscale_config/pencilskirt_checkers/worn
+	name = "Checkered Pencilskirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/pencilskirt_checkers/worn/digi
+	name = "Checkered Pencilskirt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
+/datum/greyscale_config/pencilskirt_checkers_withshirt
+	name = "Checkered Pencilskirt + Shirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/pencilskirt/pencilskirt_tricol.json'
+
+/datum/greyscale_config/pencilskirt_checkers_withshirt/worn
+	name = "Checkered Pencilskirt + Shirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/pencilskirt_checkers_withshirt/worn/digi
+	name = "Checkered Pencilskirt + Shirt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
+/datum/greyscale_config/pencilskirt_withsuit
+	name = "Pencilskirt + Suit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/pencilskirt/pencilskirt_quadcol.json'
+
+/datum/greyscale_config/pencilskirt_withsuit/worn
+	name = "Pencilskirt + Suit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/pencilskirt_withsuit/worn/digi
+	name = "Pencilskirt + Suit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
 // HOODIES
 /datum/greyscale_config/hoodie
 	name = "Hoodie"

@@ -864,8 +864,12 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/suit/nova/inferno/beeze
 
 /datum/loadout_item/under/formal/pencil
-	name = "Black Pencilskirt"
+	name = "Pencilskirt with Shirt"
 	item_path = /obj/item/clothing/under/suit/nova/pencil
+
+/datum/loadout_item/under/formal/pencil/noshirt
+	name = "Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/noshirt
 
 /datum/loadout_item/under/formal/pencil/black_really
 	name = "Executive Pencilskirt"
@@ -884,8 +888,12 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/suit/nova/pencil/burgandy
 
 /datum/loadout_item/under/formal/pencil/checkered
-	name = "Checkered Pencilskirt"
+	name = "Checkered Pencilskirt with Shirt"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/checkered
+
+/datum/loadout_item/under/formal/pencil/checkered/noshirt
+	name = "Checkered Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/checkered/noshirt
 
 /datum/loadout_item/under/formal/pencil/tan
 	name = "Tan Pencilskirt"
