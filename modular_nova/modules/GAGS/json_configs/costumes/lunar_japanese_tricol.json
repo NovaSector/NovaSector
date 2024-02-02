@@ -8,7 +8,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "cheongsam_trim",
+			"icon_state": "cheongsam_trim_recolorable",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},

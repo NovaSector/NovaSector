@@ -74,15 +74,6 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt/worn/digi
 	body_parts_covered = GROIN|LEGS
 
-/obj/item/clothing/under/suit/nova/pencil/black_really
-	name = "executive pencilskirt"
-	desc = "A sleek suit with a tight-fitting pencilskirt."
-	icon_state = "pencilskirt_suit"
-	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
-	greyscale_config = /datum/greyscale_config/pencilskirt_withsuit
-	greyscale_config_worn = /datum/greyscale_config/pencilskirt_withsuit/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_withsuit/worn/digi
-
 /obj/item/clothing/under/suit/nova/pencil/charcoal
 	name = "charcoal pencilskirt"
 	desc = "A clean white shirt with a tight-fitting charcoal pencilskirt."
@@ -97,6 +88,25 @@
 	name = "burgandy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting burgandy-red pencilskirt."
 	greyscale_colors = "#3e1111#ffffff"
+
+/obj/item/clothing/under/suit/nova/pencil/tan
+	name = "tan pencilskirt"
+	desc = "A clean white shirt with a tight-fitting tan pencilskirt."
+	greyscale_colors = "#8b7458#ffffff"
+
+/obj/item/clothing/under/suit/nova/pencil/green
+	name = "green pencilskirt"
+	desc = "A clean white shirt with a tight-fitting green pencilskirt."
+	greyscale_colors = "#113e20#ffffff"
+
+/obj/item/clothing/under/suit/nova/pencil/black_really
+	name = "executive pencilskirt"
+	desc = "A sleek suit with a tight-fitting pencilskirt."
+	icon_state = "pencilskirt_suit"
+	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
+	greyscale_config = /datum/greyscale_config/pencilskirt_withsuit
+	greyscale_config_worn = /datum/greyscale_config/pencilskirt_withsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_withsuit/worn/digi
 
 /obj/item/clothing/under/suit/nova/pencil/checkered
 	name = "checkered pencilskirt and shirt"
@@ -117,18 +127,8 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_checkers/worn/digi
 	body_parts_covered = GROIN|LEGS
 
-/obj/item/clothing/under/suit/nova/pencil/tan
-	name = "tan pencilskirt"
-	desc = "A clean white shirt with a tight-fitting tan pencilskirt."
-	greyscale_colors = "#8b7458#ffffff"
-
-/obj/item/clothing/under/suit/nova/pencil/green
-	name = "green pencilskirt"
-	desc = "A clean white shirt with a tight-fitting green pencilskirt."
-	greyscale_colors = "#113e20#ffffff"
-
 /*
-*	SUITS
+*	STATIC SUITS (NO GAGS)
 */
 /obj/item/clothing/under/suit/nova/scarface
 	name = "cuban suit"

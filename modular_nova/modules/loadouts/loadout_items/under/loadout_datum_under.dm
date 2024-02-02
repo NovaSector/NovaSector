@@ -474,16 +474,24 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/maid_costume
 
 /datum/loadout_item/under/miscellaneous/yukata
-	name = "Recolorable Yukata"
+	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
 
 /datum/loadout_item/under/miscellaneous/qipao_black
-	name = "Recolorable Qipao"
+	name = "Qipao"
 	item_path = /obj/item/clothing/under/costume/nova/qipao
 
+/datum/loadout_item/under/miscellaneous/qipao_recolorable
+	name = "Qipao, Custom Trim"
+	item_path = /obj/item/clothing/under/costume/nova/qipao/customtrim
+
 /datum/loadout_item/under/miscellaneous/cheongsam
-	name = "Recolorable Cheongsam"
+	name = "Cheongsam"
 	item_path = /obj/item/clothing/under/costume/nova/cheongsam
+
+/datum/loadout_item/under/miscellaneous/cheongsam_recolorable
+	name = "Cheongsam, Custom Trim"
+	item_path = /obj/item/clothing/under/costume/nova/cheongsam/customtrim
 
 /datum/loadout_item/under/miscellaneous/kimono
 	name = "Fancy Kimono"

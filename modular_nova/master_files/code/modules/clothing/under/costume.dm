@@ -56,12 +56,18 @@
 	icon_state = "qipao"
 	body_parts_covered = CHEST|GROIN|LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b#ffce5b"
+	greyscale_colors = "#2b2b2b"
 	greyscale_config = /datum/greyscale_config/qipao
 	greyscale_config_worn = /datum/greyscale_config/qipao/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/qipao/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/costume/nova/qipao/customtrim
+	greyscale_colors = "#2b2b2b#ffce5b"
+	greyscale_config = /datum/greyscale_config/qipao_customtrim
+	greyscale_config_worn = /datum/greyscale_config/qipao_customtrim/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/qipao_customtrim/worn/digi
 
 /obj/item/clothing/under/costume/nova/cheongsam
 	name = "cheongsam"
@@ -69,12 +75,18 @@
 	icon_state = "cheongsam"
 	body_parts_covered = CHEST|GROIN|LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b#ffce5b#353535"
+	greyscale_colors = "#2b2b2b#353535"
 	greyscale_config = /datum/greyscale_config/cheongsam
 	greyscale_config_worn = /datum/greyscale_config/cheongsam/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/cheongsam/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/under/costume/nova/cheongsam/customtrim
+	greyscale_colors = "#2b2b2b#ffce5b#353535"
+	greyscale_config = /datum/greyscale_config/cheongsam_customtrim
+	greyscale_config_worn = /datum/greyscale_config/cheongsam_customtrim/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/cheongsam_customtrim/worn/digi
 
 /obj/item/clothing/under/costume/nova/yukata
 	name = "yukata"

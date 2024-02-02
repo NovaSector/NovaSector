@@ -28,16 +28,12 @@
 /obj/item/clothing/suit/chaplainsuit/habit
 	greyscale_config = /datum/greyscale_config/chappy_habit
 	greyscale_config_worn = /datum/greyscale_config/chappy_habit/worn
-	// probably doesn't need a digitigrade variant, but this is pending further testing
-	greyscale_config_worn_digi = /datum/greyscale_config/chappy_habit/worn
 	greyscale_colors = "#373548#FFFFFF#D29722"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
 	greyscale_config = /datum/greyscale_config/monk_habit
 	greyscale_config_worn = /datum/greyscale_config/monk_habit/worn
-	// probably doesn't need a digitigrade variant, but this is pending further testing
-	greyscale_config_worn_digi = /datum/greyscale_config/monk_habit/worn
 	greyscale_colors = "#8C531A#9C7132"
 	flags_1 = IS_PLAYER_COLORABLE_1
 

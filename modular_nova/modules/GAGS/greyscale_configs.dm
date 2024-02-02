@@ -1186,7 +1186,7 @@
 /datum/greyscale_config/cheongsam
 	name = "Cheongsam"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese_tricol.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese_bicol.json'
 
 /datum/greyscale_config/cheongsam/worn
 	name = "Cheongsam (Worn)"
@@ -1196,10 +1196,36 @@
 	name = "Cheongsam (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
 
+/datum/greyscale_config/qipao_customtrim
+	name = "Qipao"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese_bicol.json'
+
+/datum/greyscale_config/qipao_customtrim/worn
+	name = "Qipao (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume.dmi'
+
+/datum/greyscale_config/qipao_customtrim/worn/digi
+	name = "Qipao (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
+
+/datum/greyscale_config/cheongsam_customtrim
+	name = "Cheongsam"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese_tricol.json'
+
+/datum/greyscale_config/cheongsam_customtrim/worn
+	name = "Cheongsam (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume.dmi'
+
+/datum/greyscale_config/cheongsam_customtrim/worn/digi
+	name = "Cheongsam (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
+
 /datum/greyscale_config/yukata
 	name = "Yukata"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese_bicol.json'
 
 /datum/greyscale_config/yukata/worn
 	name = "Yukata (Worn)"
