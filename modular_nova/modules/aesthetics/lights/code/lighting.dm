@@ -54,7 +54,7 @@
 			red = clamp(red, 0, 255) // clamp to be safe, or you can end up with an invalid hex value
 			green = clamp(green, 0, 255)
 			blue = clamp(blue, 0, 255)
-			new_color = "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"  // Splice the numbers together and turn them back to hex.
+			new_color = rgb(red, green, blue) // Splice the numbers together and turn them back to hex.
 
 	var/matching = light && new_brightness == light.light_range && new_power == light.light_power && new_color == light.light_color
 	if(!matching)
