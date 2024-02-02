@@ -1184,6 +1184,8 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Br" = (
 /obj/structure/closet/xenoarch/ashwalker_version,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "BO" = (
