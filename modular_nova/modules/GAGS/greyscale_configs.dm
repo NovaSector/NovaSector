@@ -796,6 +796,21 @@
 	name = "Varsity Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/varsity/varsity_worn.json'
 
+//CROPTOP SWEATER
+
+/datum/greyscale_config/croptop
+	name = "Croptop Sweater"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/croptop/croptop.json'
+
+/datum/greyscale_config/croptop/worn
+	name = "Croptop Sweater (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/croptop/worn/teshari
+	name = "Croptop Sweater (Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+
 // TAILORED JACKET
 
 /datum/greyscale_config/tailored_jacket
@@ -949,6 +964,15 @@
 /datum/greyscale_config/yoga_pants/worn/digi
 	name = "Yoga Pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
+
+/datum/greyscale_config/camo_pants
+	name = "Camo Pants"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/camo_pants.json'
+/datum/greyscale_config/camo_pants/worn
+	name = "Camo Pants (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+/datum/greyscale_config/camo_pants/worn/digi
 
 // DRESSES / SKIRTS
 

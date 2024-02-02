@@ -10,6 +10,7 @@
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
 	contents = newlist(/obj/item/apc_powercord)
 	zone = "l_arm"
+	cannot_confiscate = TRUE
 
 /obj/item/apc_powercord
 	name = "power cord"

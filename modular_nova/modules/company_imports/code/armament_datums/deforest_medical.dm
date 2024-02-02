@@ -7,6 +7,10 @@
 /datum/armament_entry/company_import/deforest/first_aid_kit
 	subcategory = "First-Aid Kits"
 
+/datum/armament_entry/deforest/first_aid_kit/civil_defense/comfort
+	item_type = /obj/item/storage/medkit/civil_defense/comfort/stocked
+	cost = PAYCHECK_COMMAND * 2
+
 /datum/armament_entry/company_import/deforest/first_aid_kit/civil_defense
 	item_type = /obj/item/storage/medkit/civil_defense/stocked
 	cost = PAYCHECK_COMMAND * 4
@@ -170,6 +174,30 @@
 /datum/armament_entry/company_import/deforest/equipment/afad
 	item_type = /obj/item/gun/medbeam/afad
 	cost = PAYCHECK_COMMAND * 5
+
+// Advanced implants, some of these can be printed but this is a way to get them before tech if you REALLY wanted
+
+/datum/armament_entry/company_import/deforest/cyber_implants
+	subcategory = "Cybernetic Implants"
+	cost = PAYCHECK_COMMAND * 3
+
+/datum/armament_entry/company_import/deforest/cyber_implants/razorwire
+	name = "Razorwire Spool Implant"
+	item_type = /obj/item/organ/internal/cyberimp/arm/razorwire
+
+/datum/armament_entry/company_import/deforest/cyber_implants/shell_launcher
+	name = "Shell Launch System Implant"
+	item_type = /obj/item/organ/internal/cyberimp/arm/shell_launcher
+
+/datum/armament_entry/company_import/deforest/cyber_implants/sandy
+	name = "Qani-Laaca Sensory Computer Implant"
+	item_type = /obj/item/organ/internal/cyberimp/sensory_enhancer
+	cost = PAYCHECK_COMMAND * 5
+
+/datum/armament_entry/company_import/deforest/cyber_implants/hackerman
+	name = "Binyat Wireless Hacking System Implant"
+	item_type = /obj/item/organ/internal/cyberimp/hackerman_deck
+	cost = PAYCHECK_COMMAND * 10
 
 // Modsuit Modules from the medical category, here instead of in Nakamura because nobody buys from this company
 

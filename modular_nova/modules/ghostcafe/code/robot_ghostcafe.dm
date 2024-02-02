@@ -7,10 +7,13 @@
 /mob/living/silicon/robot/model/roleplay/Initialize(mapload)
 	. = ..()
 	cell = new /obj/item/stock_parts/cell/infinite(src, 30000)
-	laws = new /datum/ai_laws/roleplay()
 	//This part is because the camera stays in the list, so we'll just do a check
 	if(!QDELETED(builtInCamera))
 		QDEL_NULL(builtInCamera)
+
+/mob/living/silicon/robot/model/roleplay/make_laws()
+	laws = new /datum/ai_laws/roleplay()
+	laws.associate(src)
 
 /mob/living/silicon/robot/model/roleplay/binarycheck()
 	return FALSE //Roleplay borgs aren't truly borgs
