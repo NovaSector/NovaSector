@@ -75354,11 +75354,6 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
-"uQI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/pod,
-/turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
 "uQV" = (
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/service)
@@ -128097,7 +128092,7 @@ tDO
 wkm
 gDf
 djz
-uQI
+iAj
 ykh
 wtQ
 yep
