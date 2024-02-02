@@ -33,7 +33,10 @@ GLOBAL_LIST_INIT(optin_forcing_on_spawn_antag_categories, list(
 	/// Set to TRUE on a successful transfer_mind() call. If TRUE, transfer_mind() will not refresh opt in.
 	var/opt_in_initialized
 
+	var/checked_for_desync = FALSE
+
 GLOBAL_VAR_INIT(sent_client_prefs_null_failure, FALSE)
+GLOBAL_VAR_INIT(sent_prefs_desynced, FALSE)
 
 /mob/living/Login()
 	. = ..()
@@ -43,7 +46,7 @@ GLOBAL_VAR_INIT(sent_client_prefs_null_failure, FALSE)
 	if (isnull(client?.prefs))
 		if (!mind.opt_in_initialized)
 			if (!GLOB.sent_client_prefs_null_failure)
-				message_admins("During mob login, a mob was found to have null client or prefs. Please find the stack runtime log prefixed with OPTIN_CLIENT_PREFS_NULL \
+				message_admins("During mob login, a mob was found to have null client or prefs. Please find the runtime log prefixed with OPTIN_CLIENT_PREFS_NULL \
 				and submit it to niko!")
 				GLOB.sent_client_prefs_null_failure = TRUE
 			stack_trace("OPTIN_CLIENT_PREFS_NULL : [client], [client?.prefs]") // just want to know this is possible
@@ -64,6 +67,23 @@ GLOBAL_VAR_INIT(sent_client_prefs_null_failure, FALSE)
 		if (antag_category in preference_instance.be_special)
 			on_spawn_antag_opt_in_level = OPT_IN_ANTAG_ENABLED_LEVEL
 			break
+
+	if (!checked_for_desync)
+		spawn(0) // wait til end of the tick - yes sleeps are bad, this is a temporary piece of code
+		var/curr = preference_instance.read_preference(/datum/preference/choiced/antag_opt_in_status)
+		if (ideal_opt_in_level != curr) // it changed in one tick
+			if (!GLOB.sent_prefs_desynced)
+				message_admins("During update_opt_in(), preference desync was found! Please find the runtime log prefixed with OPTIN_PREFS_DESYNC \
+				and submit it to niko!")
+				GLOB.sent_prefs_desynced = TRUE
+			var/client/our_client
+			var/ckey = lowertext(key)
+			for (var/client/client in GLOB.clients)
+				if (client.ckey == ckey)
+					our_client = client
+					break
+
+			stack_trace("OPTIN_PREFS_DESYNC : INIT: [ideal_opt_in_level] CURR: [curr] - [our_client], [preference_instance], [current]")
 
 /// Sends a bold message to our holder, telling them if their optin setting has been set to a minimum due to their antag preferences.
 /datum/mind/proc/send_antag_optin_reminder()
