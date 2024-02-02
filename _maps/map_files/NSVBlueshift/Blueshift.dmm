@@ -6726,7 +6726,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/structure/glowshroom,
+/obj/item/food/grown/mushroom/glowshroom,
 /turf/open/misc/asteroid/airless,
 /area/space/nearstation)
 "bpA" = (
@@ -37993,7 +37993,6 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/item/reagent_containers/cup/bowl/soup/hotchili,
 /turf/open/misc/asteroid/airless,
 /area/space/nearstation)
 "hls" = (
@@ -60819,6 +60818,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
+/obj/item/seeds/liberty,
 /turf/open/misc/asteroid/airless,
 /area/space/nearstation)
 "lDB" = (
@@ -79119,6 +79119,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/power_station)
+"pdF" = (
+/obj/effect/decal/cleanable/dirt{
+	icon_state = "dirt-flat-1"
+	},
+/obj/item/reagent_containers/cup/bowl/soup/hotchili,
+/turf/open/misc/asteroid/airless,
+/area/space/nearstation)
 "pdH" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/layer_manifold/brown/visible,
@@ -126374,13 +126381,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
-"yar" = (
-/obj/effect/decal/cleanable/dirt{
-	icon_state = "dirt-flat-1"
-	},
-/obj/item/seeds/liberty,
-/turf/open/misc/asteroid/airless,
-/area/space/nearstation)
 "yat" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/hidden{
 	dir = 9
@@ -147527,7 +147527,7 @@ fZI
 fZI
 mSV
 mSV
-hlr
+pdF
 bpw
 mSV
 mSV
@@ -147783,10 +147783,10 @@ fZI
 fZI
 mSV
 mSV
-hlr
-hlr
+pdF
+pdF
 lmu
-lDy
+hlr
 mSV
 dAd
 brq
@@ -148040,9 +148040,9 @@ fZI
 fZI
 mSV
 bpw
-lDy
+hlr
 xfF
-yar
+lDy
 bpw
 mSV
 fVE
@@ -148296,9 +148296,9 @@ fZI
 fZI
 fZI
 mSV
-lDy
+hlr
 rpC
-lDy
+hlr
 sXO
 dOT
 mSV
@@ -148553,8 +148553,8 @@ fZI
 fZI
 fZI
 mSV
-lDy
-lDy
+hlr
+hlr
 bpw
 mSV
 mSV
