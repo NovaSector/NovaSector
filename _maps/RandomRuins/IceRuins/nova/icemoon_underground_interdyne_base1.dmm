@@ -7056,7 +7056,6 @@
 /obj/effect/turf_decal/weather/snow{
 	layer = 3
 	},
-/obj/structure/closet/supplypod,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -7079,7 +7078,6 @@
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "uJ" = (
 /obj/effect/supplypod_rubble,
-/obj/structure/closet/supplypod,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
