@@ -802,6 +802,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Recolorable Formal Suitskirt"
 	item_path = /obj/item/clothing/under/suit/nova/recolorable/skirt
 
+/datum/loadout_item/under/formal/recolorable_suit/casual
+	name = "Office Casual Suit"
+	item_path = /obj/item/clothing/under/suit/nova/recolorable/casual
+
+/datum/loadout_item/under/formal/recolorable_suit/executive
+	name = "Executive Casual Suit"
+	item_path = /obj/item/clothing/under/suit/nova/recolorable/executive
+
 /datum/loadout_item/under/formal/trek_command
 	name = "Trekkie Command Uniform"
 	item_path = /obj/item/clothing/under/trek/command
@@ -837,6 +845,18 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/formal/trek_ent_medsci
 	name = "Trekkie ENT Medsci Uniform"
 	item_path = /obj/item/clothing/under/trek/medsci/ent
+
+/datum/loadout_item/under/formal/trek_voy_command
+	name = "Trekkie VOY Command Uniform"
+	item_path = /obj/item/clothing/under/trek/command/voy
+
+/datum/loadout_item/under/formal/trek_voy_engsec
+	name = "Trekkie VOY Engsec Uniform"
+	item_path = /obj/item/clothing/under/trek/engsec/voy
+
+/datum/loadout_item/under/formal/trek_voy_medsci
+	name = "Trekkie VOY Medsci Uniform"
+	item_path = /obj/item/clothing/under/trek/medsci/voy
 
 /datum/loadout_item/under/formal/the_q
 	name = "French Marshall's Uniform"

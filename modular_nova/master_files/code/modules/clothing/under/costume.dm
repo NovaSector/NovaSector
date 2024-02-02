@@ -136,3 +136,18 @@
 	name = "sexy green christmas costume"
 	desc = "Stupid. Ugly. Out of date. If I can't find something nice to wear I'm not going."
 	greyscale_colors = "#1a991a#c4c2c2"
+
+/*
+*	TREK CLOTHES
+*/
+/obj/item/clothing/under/trek/command
+	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/trek/engsec
+	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/trek/medsci
+	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1

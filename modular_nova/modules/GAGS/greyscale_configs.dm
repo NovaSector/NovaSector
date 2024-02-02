@@ -626,6 +626,32 @@
 	name = "Formal Suitskirt (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+/datum/greyscale_config/fancysuit_casual
+	name = "Casual Fancysuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/fancysuit/fancysuit_bicol.json'
+
+/datum/greyscale_config/fancysuit_casual/worn
+	name = "Casual Fancysuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/fancysuit_casual/worn/digi
+	name = "Casual Fancysuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
+/datum/greyscale_config/fancysuit_executive
+	name = "Executive Fancysuit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/fancysuit/fancysuit_quadcol.json'
+
+/datum/greyscale_config/fancysuit_executive/worn
+	name = "Executive Fancysuit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits.dmi'
+
+/datum/greyscale_config/fancysuit_executive/worn/digi
+	name = "Executive Fancysuit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
 // PENCILSKIRTS
 /datum/greyscale_config/pencilskirt
 	name = "Pencilskirt"

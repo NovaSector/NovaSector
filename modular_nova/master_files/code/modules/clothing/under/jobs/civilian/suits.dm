@@ -34,6 +34,24 @@
 	greyscale_config_worn = /datum/greyscale_config/recolorable_suitskirt/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/recolorable_suitskirt/worn/digi
 
+/obj/item/clothing/under/suit/nova/recolorable/casual
+	name = "office casual suit"
+	desc = "A semi-formal suit, clean-cut with a matching vest and slacks."
+	icon_state = "fancysuit_casual"
+	greyscale_config = /datum/greyscale_config/fancysuit_casual
+	greyscale_config_worn = /datum/greyscale_config/fancysuit_casual/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancysuit_casual/worn/digi
+	greyscale_colors = "#37373e#ffffff"
+
+/obj/item/clothing/under/suit/nova/recolorable/executive
+	name = "executive casual suit"
+	desc = "A formal suit, clean-cut with a matching vest, undershirt, tie and slacks."
+	icon_state = "fancysuit_executive"
+	greyscale_config = /datum/greyscale_config/fancysuit_executive
+	greyscale_config_worn = /datum/greyscale_config/fancysuit_executive/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancysuit_executive/worn/digi
+	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
+
 /obj/item/clothing/under/suit/nova/pencil
 	name = "pencilskirt and shirt"
 	desc = "A clean shirt with a tight-fitting pencilskirt."
