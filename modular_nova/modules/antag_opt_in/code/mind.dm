@@ -33,12 +33,20 @@ GLOBAL_LIST_INIT(optin_forcing_on_spawn_antag_categories, list(
 	/// Set to TRUE on a successful transfer_mind() call. If TRUE, transfer_mind() will not refresh opt in.
 	var/opt_in_initialized
 
+GLOBAL_VAR_INIT(sent_client_prefs_null_failure, FALSE)
+
 /mob/living/Login()
 	. = ..()
 
 	if (isnull(mind))
 		return
 	if (isnull(client?.prefs))
+		if (!mind.opt_in_initialized)
+			if (!GLOB.sent_client_prefs_null_failure)
+				message_admins("During mob login, a mob was found to have null client or prefs. Please find the stack runtime log prefixed with OPTIN_CLIENT_PREFS_NULL \
+				and submit it to niko!")
+				GLOB.sent_client_prefs_null_failure = TRUE
+			stack_trace("OPTIN_CLIENT_PREFS_NULL : [client], [client?.prefs]") // just want to know this is possible
 		return
 	if (!mind.opt_in_initialized)
 		mind.update_opt_in(client.prefs)
