@@ -31,7 +31,6 @@
 	name = "moth wings"
 	desc = "A pair of fuzzy moth wings."
 	flight_for_species = list(SPECIES_MOTH)
-	actions_types = list(/datum/action/cooldown/spell/touch/moth_climb, /datum/action/cooldown/spell/moth_and_dash)
 	///Our associated shadow jaunt spell, for all nightmares
 	var/datum/action/cooldown/spell/touch/moth_climb/our_climb
 	///Our associated terrorize spell, for antagonist nightmares
@@ -94,8 +93,7 @@
 	if (ishuman(user) && intentional)
 		var/datum/action/cooldown/spell/moth_and_dash/dash_action = locate() in user.actions
 		if(dash_action)
-			dash_action.Trigger
-			dash_action.blocked = FALSE
+			dash_action.Trigger()
 
 	return ..()
 
