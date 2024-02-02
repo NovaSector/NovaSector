@@ -965,6 +965,15 @@
 	name = "Yoga Pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
+/datum/greyscale_config/camo_pants
+	name = "Camo Pants"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/camo_pants.json'
+/datum/greyscale_config/camo_pants/worn
+	name = "Camo Pants (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+/datum/greyscale_config/camo_pants/worn/digi
+
 // DRESSES / SKIRTS
 
 /datum/greyscale_config/plaidskirt/worn/digi

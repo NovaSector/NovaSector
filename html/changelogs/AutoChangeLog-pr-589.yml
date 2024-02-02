@@ -1,5 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - code_imp: "added an override file for pirate event spawns"
-  - rscdel: "Interdyne Pirates no longer can roll as a pirate antag"
