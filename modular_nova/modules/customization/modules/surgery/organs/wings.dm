@@ -80,7 +80,8 @@
 	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
 		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
 		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
-		owner.adjustStaminaLoss(35)
+		var/mob/living/carbon/human/dash_owner
+		dash_owner.adjustStaminaLoss(35)
 		recharging_time = world.time + recharging_rate
 	else
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
@@ -148,7 +149,8 @@
 
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
-		user.adjustStaminaLoss(70)
+		var/mob/living/carbon/human/climb_user
+		climb_user.adjustStaminaLoss(70)
 		playsound(user_turf, 'sound/voice/moth/moth_flutter.ogg', 50) //a third time for seasoning
 	QDEL_LIST(effects)
 
