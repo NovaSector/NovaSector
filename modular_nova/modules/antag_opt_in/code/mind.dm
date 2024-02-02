@@ -70,20 +70,20 @@ GLOBAL_VAR_INIT(sent_prefs_desynced, FALSE)
 
 	if (!checked_for_desync)
 		spawn(0) // wait til end of the tick - yes sleeps are bad, this is a temporary piece of code
-		var/curr = preference_instance.read_preference(/datum/preference/choiced/antag_opt_in_status)
-		if (ideal_opt_in_level != curr) // it changed in one tick
-			if (!GLOB.sent_prefs_desynced)
-				message_admins("During update_opt_in(), preference desync was found! Please find the runtime log prefixed with OPTIN_PREFS_DESYNC \
-				and submit it to niko!")
-				GLOB.sent_prefs_desynced = TRUE
-			var/client/our_client
-			var/ckey = lowertext(key)
-			for (var/client/client in GLOB.clients)
-				if (client.ckey == ckey)
-					our_client = client
-					break
+			var/curr = preference_instance.read_preference(/datum/preference/choiced/antag_opt_in_status)
+			if (ideal_opt_in_level != curr) // it changed in one tick
+				if (!GLOB.sent_prefs_desynced)
+					message_admins("During update_opt_in(), preference desync was found! Please find the runtime log prefixed with OPTIN_PREFS_DESYNC \
+					and submit it to niko!")
+					GLOB.sent_prefs_desynced = TRUE
+				var/client/our_client
+				var/ckey = lowertext(key)
+				for (var/client/client in GLOB.clients)
+					if (client.ckey == ckey)
+						our_client = client
+						break
 
-			stack_trace("OPTIN_PREFS_DESYNC : INIT: [ideal_opt_in_level] CURR: [curr] - [our_client], [preference_instance], [current]")
+				stack_trace("OPTIN_PREFS_DESYNC : INIT: [ideal_opt_in_level] CURR: [curr] - [our_client], [preference_instance], [current]")
 
 /// Sends a bold message to our holder, telling them if their optin setting has been set to a minimum due to their antag preferences.
 /datum/mind/proc/send_antag_optin_reminder()
