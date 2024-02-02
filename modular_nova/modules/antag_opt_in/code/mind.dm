@@ -63,10 +63,11 @@ GLOBAL_VAR_INIT(sent_prefs_desynced, FALSE)
 
 	ideal_opt_in_level = preference_instance.read_preference(/datum/preference/choiced/antag_opt_in_status)
 
-	for (var/antag_category in GLOB.optin_forcing_on_spawn_antag_categories)
-		if (antag_category in preference_instance.be_special)
-			on_spawn_antag_opt_in_level = OPT_IN_ANTAG_ENABLED_LEVEL
-			break
+	if (preference_instance.read_preference(/datum/preference/toggle/be_antag))
+		for (var/antag_category in GLOB.optin_forcing_on_spawn_antag_categories)
+			if (antag_category in preference_instance.be_special)
+				on_spawn_antag_opt_in_level = OPT_IN_ANTAG_ENABLED_LEVEL
+				break
 
 	if (!checked_for_desync)
 		spawn(0) // wait til end of the tick - yes sleeps are bad, this is a temporary piece of code
@@ -112,7 +113,7 @@ GLOBAL_VAR_INIT(sent_prefs_desynced, FALSE)
 		return on_spawn_antag_opt_in_level
 
 	var/datum/preferences/preference_instance = GLOB.preferences_datums[lowertext(key)]
-	if (!isnull(preference_instance))
+	if (!isnull(preference_instance) && preference_instance.read_preference(/datum/preference/toggle/be_antag))
 		for (var/antag_category in GLOB.optin_forcing_midround_antag_categories)
 			if (antag_category in preference_instance.be_special)
 				return OPT_IN_ANTAG_ENABLED_LEVEL
