@@ -44,7 +44,7 @@
 			new_color = color
 		else // Adjust light values to be warmer. I doubt caching would speed this up by any worthwhile amount, as it's all very fast number and string operations.
 			// Convert to numbers for easier manipulation.
-			var/list/color_parts = rgb2num(bulb_color)
+			var/list/color_parts = rgb2num(bulb_colour)
 			var/red = color_parts[1]
 			var/green = color_parts[2]
 			var/blue = color_parts[3]
