@@ -636,7 +636,7 @@ There are several things that need to be remembered:
 		// NOVA EDIT ADDITION
 		var/mutant_override = FALSE
 		if(bodytype & BODYTYPE_CUSTOM)
-			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_MISC, back, src)
+			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_BACK, back, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
