@@ -22,6 +22,25 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 		outfit.back = item_path
 
 /*
+*	Backpacks
+*/
+
+/datum/loadout_item/back/frontierbackpack
+	name = "Frontier Backpack"
+	item_path = /obj/item/storage/backpack/industrial/frontier_colonist
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+/datum/loadout_item/back/frontiersatchel
+	name = "Frontier Satchel"
+	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+/datum/loadout_item/back/frontiermessenger
+	name = "Frontier Messenger Bag"
+	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+/*
 *	MODSuits
 */
 
