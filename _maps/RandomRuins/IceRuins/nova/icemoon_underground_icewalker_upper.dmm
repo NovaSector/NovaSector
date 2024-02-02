@@ -809,6 +809,10 @@
 	pixel_x = 3
 	},
 /obj/item/pen/charcoal,
+/obj/item/reagent_containers/cup/primitive_centrifuge{
+	pixel_x = -14;
+	pixel_y = -1
+	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "CS" = (
@@ -1018,18 +1022,6 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Op" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/bedsheet/black{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/bedsheet/black{
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/obj/item/bedsheet/black{
-	pixel_x = 5;
-	pixel_y = 8
-	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Ou" = (
