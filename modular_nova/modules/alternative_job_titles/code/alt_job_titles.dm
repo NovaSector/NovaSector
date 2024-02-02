@@ -117,6 +117,7 @@
 		"Deck Worker",
 		"Inventory Associate",
 		"Mailman",
+		"Mail Carrier",
 		"Receiving Clerk",
 		"Union Associate",
 	)
@@ -125,15 +126,20 @@
 	alt_titles = list(
 		"Chaplain",
 		"High Priest",
+		"High Priestess",
 		"Imam",
 		"Magister",
 		"Monk",
+		"Nun",
 		"Oracle",
 		"Preacher",
 		"Priest",
+		"Priestess",
 		"Pontifex",
 		"Rabbi",
 		"Reverend",
+		"Shrine Maiden",
+		"Shrine Guardian",
 	)
 
 /datum/job/chemist
@@ -301,7 +307,7 @@
 		"Paramedic",
 		"Emergency Medical Technician",
 		"Search and Rescue Technician",
-		"Trauma Team",
+		"Trauma Team Responder",
 	)
 
 /datum/job/prisoner
