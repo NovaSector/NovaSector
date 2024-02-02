@@ -31,21 +31,59 @@
 	name = "moth wings"
 	desc = "A pair of fuzzy moth wings."
 	flight_for_species = list(SPECIES_MOTH)
-	actions_types = list(/datum/action/moth_wings)
+	actions_types = list(/datum/action/cooldown/spell/touch/moth_wings)
 
-/datum/action/moth_wings
+/datum/action/cooldown/spell/touch/moth_wings
 	name = "Flap Wings"
-	desc = "Forces your wings against the air, even if there's gravity. LMB: Propel you up a Z-level. RMB: Dash forwards, possibly hazardous."
+	desc = "Forces your wings against the air, even if there's gravity. LMB: Stretches wings to propel you up a Z-Level, requires you to look upwards first.  RMB: Dash forwards, possibly hazardous."
 	button_icon = 'icons/mob/human/species/moth/moth_wings.dmi'
 	button_icon_state = "m_moth_wings_monarch_BEHIND"
 	check_flags = AB_CHECK_CONSCIOUS
-	var/climb_time = 2.5 SECONDS
+	invocation_type = INVOCATION_NONE
+	spell_requirements = NONE
+	antimagic_flags = NONE
 	var/jumpdistance = 5 //-1 from to see the actual distance, e.g 4 goes over 3 tiles
 	var/jumpspeed = 3
 	var/recharging_rate = 60 //default 6 seconds between each dash
 	var/recharging_time = 0 //time until next dash
 
-/datum/action/moth_wings/Trigger(trigger_flags, turf/open/target, mob/user, proximity_flag, click_parameters)
+	hand_path = /obj/item/climbing_moth_wings
+	draw_message = span_notice("You outstretch your wings, ready to climb upwards.")
+	drop_message = span_notice("Your wings tuck back behind you.")
+
+/datum/action/cooldown/spell/touch/moth_wings/Trigger(trigger_flags, mob/user, action)
+	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
+		if (!isliving(user))
+			return
+
+	if(recharging_time > world.time)
+		to_chat(user, span_warning("Your wings are extraordinarily tired, give it some rest!"))
+		return
+
+	var/atom/dash_target = get_edge_target_turf(user, user.dir) //gets the user's direction
+
+	ADD_TRAIT(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)  //Throwing itself doesn't protect mobs against lava (because gulag).
+	if (user.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
+		playsound(user, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
+		user.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
+		recharging_time = world.time + recharging_rate
+	else
+		to_chat(user, span_warning("Something prevents you from dashing forward!"))
+
+/obj/item/climbing_moth_wings
+	name = "outstretched wings"
+	desc = "Useful for climbing up onto high places, though tiresome."
+	icon = 'icons/mob/human/species/moth/moth_wings.dmi'
+	icon_state = "m_moth_wings_monarch_BEHIND"
+	var/climb_time = 2.5 SECONDS
+
+/obj/item/climbing_moth_wings/examine(mob/user)
+	. = ..()
+	var/list/look_binds = user.client.prefs.key_bindings["look up"]
+	. += span_notice("Firstly, look upwards by holding <b>[english_list(look_binds, nothing_text = "(nothing bound)", and_text = " or ", comma_text = ", or ")]!</b>")
+	. += span_notice("Then, click solid ground adjacent to the hole above you.")
+
+/obj/item/climbing_moth_wings/afterattack(turf/open/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
 	if(target.z == user.z)
 		return
@@ -69,25 +107,9 @@
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
 
-
 	QDEL_LIST(effects)
 
-	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
-		if(recharging_time > world.time)
-			to_chat(user, span_warning("Your wings are extraordinarily tired, give it some rest!"))
-			return
-
-	var/atom/dash_target = get_edge_target_turf(user, user.dir) //gets the user's direction
-
-	ADD_TRAIT(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)  //Throwing itself doesn't protect mobs against lava (because gulag).
-	if (user.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(user, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
-		playsound(src, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
-		user.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
-		recharging_time = world.time + recharging_rate
-	else
-		to_chat(user, span_warning("Something prevents you from dashing forward!"))
-
-/datum/action/moth_wings/proc/target_blocked(turf/target, turf/above)
+/obj/item/climbing_moth_wings/proc/target_blocked(turf/target, turf/above)
 	if(target.density || above.density)
 		return TRUE
 
@@ -101,6 +123,7 @@
 		if(atom_content.density)
 			return TRUE
 	return FALSE
+
 /obj/item/organ/external/wings/flight
 	unconditional_flight = TRUE
 	can_open = TRUE
