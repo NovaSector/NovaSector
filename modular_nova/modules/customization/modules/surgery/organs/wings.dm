@@ -53,7 +53,7 @@
 		return
 
 	if(recharging_time > world.time)
-		to_chat(owner, span_warning("Your wings are extraordinarily tired, give it some rest!"))
+		to_chat(owner, span_warning("Your wings are extraordinarily tired, give them some rest!"))
 		return
 
 	var/atom/dash_target = get_edge_target_turf(owner, owner.dir) //gets the user's direction
