@@ -70,6 +70,13 @@
 	if (!isliving(owner))
 		return
 
+	var/turf/our_turf = get_turf(owner)
+	var/datum/gas_mixture/environment = our_turf.return_air()
+
+	if(environment.return_pressure() < (HAZARD_LOW_PRESSURE))
+		to_chat(owner, span_warning("There's far too little air for your wings to work against!"))
+		return
+
 	if(owner.incapacitated())
 		return
 
@@ -138,8 +145,12 @@
 		return
 
 	var/turf/user_turf = get_turf(user)
+	var/datum/gas_mixture/environment = user_turf.return_air()
 	var/turf/above = GET_TURF_ABOVE(user_turf)
 	if(target_blocked(target, above))
+		return
+	if(environment.return_pressure() < (HAZARD_LOW_PRESSURE))
+		to_chat(user, span_warning("There's far too little air for your wings to work against!"))
 		return
 	if(!isopenspaceturf(above) || !above.Adjacent(target)) //are we below a hole, is the target blocked, is the target adjacent to our hole
 		user.balloon_alert(user, "blocked!")
