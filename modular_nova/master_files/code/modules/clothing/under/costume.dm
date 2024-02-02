@@ -56,7 +56,7 @@
 	icon_state = "qipao"
 	body_parts_covered = CHEST|GROIN|LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b"
+	greyscale_colors = "#2b2b2b#ffce5b"
 	greyscale_config = /datum/greyscale_config/qipao
 	greyscale_config_worn = /datum/greyscale_config/qipao/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/qipao/worn/digi
@@ -69,7 +69,7 @@
 	icon_state = "cheongsam"
 	body_parts_covered = CHEST|GROIN|LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b"
+	greyscale_colors = "#2b2b2b#ffce5b#353535"
 	greyscale_config = /datum/greyscale_config/cheongsam
 	greyscale_config_worn = /datum/greyscale_config/cheongsam/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/cheongsam/worn/digi
@@ -81,7 +81,7 @@
 	desc = "A traditional ancient Earth Japanese yukata, typically worn in casual settings."
 	icon_state = "yukata"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b"
+	greyscale_colors = "#2b2b2b#666666"
 	greyscale_config = /datum/greyscale_config/yukata
 	greyscale_config_worn = /datum/greyscale_config/yukata/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/yukata/worn/digi

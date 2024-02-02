@@ -1094,7 +1094,7 @@
 /datum/greyscale_config/cheongsam
 	name = "Cheongsam"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/lunar_japanese_tricol.json'
 
 /datum/greyscale_config/cheongsam/worn
 	name = "Cheongsam (Worn)"
@@ -1155,6 +1155,52 @@
 /datum/greyscale_config/chrimbo/worn/digi
 	name = "christmas_male (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
+
+//RELIGIOUS COSTUMES (MONK HABIT, ETC)
+/datum/greyscale_config/monk_habit
+	name = "Monk Habit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/chaplain.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/monk_habit.json'
+
+/datum/greyscale_config/monk_habit/worn
+	name = "Monk Habit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain.dmi'
+
+/datum/greyscale_config/monk_habit_hood
+	name = "Monk Habit Hood"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/chaplain.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/monk_habit_hood.json'
+
+/datum/greyscale_config/monk_habit_hood/worn
+	name = "Monk Habit Hood (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/chaplain.dmi'
+
+/datum/greyscale_config/chappy_habit
+	name = "Habit"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/chaplain.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/chappy_habit.json'
+
+/datum/greyscale_config/chappy_habit/worn
+	name = "Habit (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain.dmi'
+
+/datum/greyscale_config/nun_hood
+	name = "Nun Hood"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/chaplain.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/monk_habit_hood.json'
+
+/datum/greyscale_config/nun_hood/worn
+	name = "Nun Hood (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/chaplain.dmi'
+
+/datum/greyscale_config/nun_veil
+	name = "Nun Veil"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/head/chaplain.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/costumes/monk_habit_hood.json'
+
+/datum/greyscale_config/nun_veil/worn
+	name = "Nun Veil (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/head/chaplain.dmi'
 
 //GRAYSCALE MAID COSTUME
 

@@ -1,28 +1,28 @@
 {
-	"qipao": [
+	"monkfrock": [
 		{
 			"type": "icon_state",
-			"icon_state": "qipao_base",
+			"icon_state": "monkfrock_base",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "qipao_trim",
+			"icon_state": "monkfrock_belt",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		}
 	],
-	"yukata": [
+	"monkfrock_t": [
 		{
 			"type": "icon_state",
-			"icon_state": "yukata_base",
+			"icon_state": "monkfrock_base",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "yukata_sash",
+			"icon_state": "monkfrock_belt",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		}
