@@ -84,6 +84,10 @@
 
 /obj/structure/fleshmind/wireweed/update_icon(updates)
 	. = ..()
+
+	if(QDELETED(src))
+		return
+
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
 		if(!vent_burrow)
 			QUEUE_SMOOTH(src)
