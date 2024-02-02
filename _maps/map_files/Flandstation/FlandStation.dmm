@@ -4991,7 +4991,6 @@
 /area/station/engineering/atmos/storage/gas)
 "bFp" = (
 /obj/structure/table,
-/obj/effect/turf_decal/tile/blue/half,
 /obj/machinery/light/directional/north{
 	dir = 4
 	},
@@ -5000,6 +4999,10 @@
 	},
 /obj/item/reagent_containers/cup/bottle/epinephrine,
 /obj/item/reagent_containers/syringe,
+/obj/effect/turf_decal/trimline/blue/line,
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
 /turf/open/floor/iron/white/side,
 /area/station/medical/treatment_center)
 "bFI" = (
@@ -5671,8 +5674,11 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "bTe" = (
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 8
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
 	},
 /turf/open/floor/iron/white/side{
 	dir = 10
@@ -7351,6 +7357,7 @@
 	pixel_y = 4
 	},
 /obj/item/book/manual/wiki/surgery,
+/obj/item/surgery_tray/full,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "cxI" = (
@@ -7499,6 +7506,12 @@
 /obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/iron/white,
 /area/station/maintenance/aft/lesser)
+"cAe" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/medical/treatment_center)
 "cAg" = (
 /obj/effect/landmark/start/chaplain,
 /turf/open/floor/carpet,
@@ -8070,8 +8083,11 @@
 /turf/open/floor/iron/freezer,
 /area/station/medical/patients_rooms)
 "cKB" = (
-/obj/effect/turf_decal/tile/blue/half{
+/obj/effect/turf_decal/trimline/blue/line{
 	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 4
 	},
 /turf/open/floor/iron/white/side{
 	dir = 8
@@ -8255,9 +8271,6 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/trimline/purple/corner{
-	dir = 8
-	},
 /obj/item/radio/intercom{
 	pixel_x = -28
 	},
@@ -13976,6 +13989,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/item/surgery_tray/full,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "eLj" = (
@@ -29631,9 +29645,10 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/aft)
 "jQE" = (
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 1
+/obj/effect/turf_decal/trimline/blue/line{
+	dir = 9
 	},
+/obj/effect/turf_decal/trimline/blue/filled/corner,
 /turf/open/floor/iron/white/side{
 	dir = 9
 	},
@@ -34949,9 +34964,6 @@
 	pixel_x = -30
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/trimline/purple/line{
-	dir = 8
-	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "lBh" = (
@@ -45292,6 +45304,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/command)
+"pdm" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/medical/treatment_center)
 "pdo" = (
 /obj/effect/turf_decal/stripes/asteroid/corner{
 	dir = 8
@@ -66635,10 +66656,11 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "vNl" = (
-/obj/effect/turf_decal/tile/blue/half{
+/obj/structure/bed/medical,
+/obj/effect/turf_decal/trimline/blue/line{
 	dir = 1
 	},
-/obj/structure/bed/medical,
+/obj/effect/turf_decal/trimline/blue/filled/warning,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -69533,8 +69555,11 @@
 /area/station/construction)
 "wLJ" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/blue/half{
+/obj/effect/turf_decal/trimline/blue/line{
 	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 4
 	},
 /turf/open/floor/iron/white/side{
 	dir = 8
@@ -102093,7 +102118,7 @@ fEu
 aZG
 aZG
 kcP
-hyf
+pdm
 hyf
 hyf
 cMC
@@ -102350,7 +102375,7 @@ ruU
 iIH
 jiS
 qvO
-oCG
+cAe
 oCG
 ugP
 oCG
@@ -102607,7 +102632,7 @@ ruU
 ruU
 aBM
 ruU
-oCG
+cAe
 oCG
 dJs
 rzh
@@ -102864,7 +102889,7 @@ ruU
 muk
 jiS
 oIx
-oCG
+cAe
 oCG
 bMR
 adk
@@ -103121,7 +103146,7 @@ ruU
 nyq
 jiS
 oIx
-oCG
+cAe
 oCG
 xtj
 xwh
@@ -103378,7 +103403,7 @@ ruU
 ruU
 aBM
 nDa
-oCG
+cAe
 oCG
 ugP
 oCG
@@ -103635,7 +103660,7 @@ ruU
 bns
 ssZ
 oIx
-oCG
+cAe
 jQE
 wLJ
 cKB
@@ -103892,7 +103917,7 @@ ruU
 uau
 onC
 oIx
-oCG
+cAe
 vNl
 gPH
 xmu
