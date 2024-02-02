@@ -93,6 +93,11 @@
 	if (modsuit_skin_prefix)
 		modsuit.theme.name = lowertext(modsuit_skin_prefix)
 
+	// ensure we're applying our config theme changes, just in case
+	for(var/obj/item/part as anything in modsuit.mod_parts)
+		part.name = "[modsuit.theme.name] [initial(part.name)]"
+		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
+
 	// quickly deploy it on roundstart
 	modsuit.quick_activation()
 	// lower the helmet for style points and also to make chargen less annoying
