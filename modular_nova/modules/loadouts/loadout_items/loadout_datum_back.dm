@@ -43,6 +43,12 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 	additional_tooltip_contents = list("NON-STANDARD. This item is not the same as its standard configuration.")
 	blacklisted_roles = list(JOB_PRISONER)
 
+/datum/loadout_item/back/colomod
+	name = "Colonist MOD Control Unit"
+	item_path = /obj/item/mod/control/pre_equipped/frontier_colonist/load
+	additional_tooltip_contents = list("NON-STANDARD. This item is not the same as its standard configuration.")
+	blacklisted_roles = list(JOB_PRISONER)
+
 /datum/loadout_item/back/engimod
 	name = "Engineer MOD Control Unit"
 	item_path = /obj/item/mod/control/pre_equipped/engineering

@@ -39,3 +39,14 @@
 	default_pins = list(
 		/obj/item/mod/module/tether,
 	)
+
+/obj/item/mod/control/pre_equipped/frontier_colonist/load
+	theme = /datum/mod_theme/frontier_colonist/nerf
+	applied_modules = list(
+		/obj/item/mod/module/storage,
+		/obj/item/mod/module/tether,
+		/obj/item/mod/module/status_readout,
+	)
+	default_pins = list(
+		/obj/item/mod/module/tether,
+	)
