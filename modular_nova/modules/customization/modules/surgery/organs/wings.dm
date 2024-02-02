@@ -53,7 +53,7 @@
 
 /datum/action/cooldown/spell/moth_and_dash
 	name = "Flap Wings"
-	desc = "Forces your wings against the air, even if there's gravity."
+	desc = "Forces your wings to propel you forwards, though exhausting."
 	button_icon = 'icons/mob/human/species/moth/moth_wings.dmi'
 	button_icon_state = "m_moth_wings_gothic_BEHIND"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
@@ -66,8 +66,11 @@
 	var/recharging_time = 0 //time until next dash
 	var/datum/weakref/dash_action_ref
 
-/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action)
+/datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action, atom/target)
 	if (!isliving(owner))
+		return
+
+	if(owner.incapacitated())
 		return
 
 	if(recharging_time > world.time)
@@ -76,13 +79,14 @@
 
 	var/atom/dash_target = get_edge_target_turf(owner, owner.dir) //gets the user's direction
 
-	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)  //Throwing itself doesn't protect mobs against lava (because gulag).
+	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
 		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
 		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
-		var/mob/living/carbon/human/dash_owner
-		dash_owner.adjustStaminaLoss(35)
 		recharging_time = world.time + recharging_rate
+		var/mob/living/dash_user = owner
+		if(istype(dash_user))
+			dash_user.adjustStaminaLoss(30) //Given the risk of flying into things and crashing quite violently, you get five of these. Every one slows you down anyway.
 	else
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
 
@@ -101,10 +105,10 @@
 
 /datum/action/cooldown/spell/touch/moth_climb
 	name = "Lift Wings"
-	desc = "Spreads your wings out to facilitate climbing."
+	desc = "Spreads your wings out to facilitate climbing, though this will be extremely tiring."
 	button_icon = 'icons/mob/human/species/moth/moth_wings.dmi'
 	button_icon_state = "m_moth_wings_monarch_BEHIND"
-	check_flags = AB_CHECK_CONSCIOUS
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_INCAPACITATED
 	invocation_type = INVOCATION_NONE
 	spell_requirements = NONE
 	antimagic_flags = NONE
@@ -126,7 +130,7 @@
 	. += span_notice("Firstly, look upwards by holding <b>[english_list(look_binds, nothing_text = "(nothing bound)", and_text = " or ", comma_text = ", or ")]!</b>")
 	. += span_notice("Then, click solid ground adjacent to the hole above you.")
 
-/obj/item/climbing_moth_wings/afterattack(turf/open/target, mob/user, proximity_flag, click_parameters)
+/obj/item/climbing_moth_wings/afterattack(turf/open/target, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
 	if(target.z == user.z)
 		return
@@ -149,8 +153,7 @@
 
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
-		var/mob/living/carbon/human/climb_user
-		climb_user.adjustStaminaLoss(70)
+		user.adjustStaminaLoss(100)
 		playsound(user_turf, 'sound/voice/moth/moth_flutter.ogg', 50) //a third time for seasoning
 	QDEL_LIST(effects)
 
