@@ -56,7 +56,6 @@
 /obj/machinery/vending/wardrobe/robo_wardrobe
 	products_nova = list(
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
-		/obj/item/clothing/under/rank/rnd/roboticist/nova/sleek = 2,
 		/obj/item/tank/internals/anesthetic = 2,
 		/obj/item/clothing/mask/breath = 2,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,

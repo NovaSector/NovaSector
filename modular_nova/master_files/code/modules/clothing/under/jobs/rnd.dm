@@ -54,15 +54,6 @@
 	can_adjust = FALSE
 
 /*
- *	ROBOTICIST
- */
-/obj/item/clothing/under/rank/rnd/roboticist/nova/sleek
-	name = "sleek roboticst jumpsuit"
-	desc = "A sleek version of the roboticist uniform, complete with amber sci-fi stripes."
-	icon_state = "robosleek"
-	can_adjust = FALSE
-
-/*
  *	RESEARCH DIRECTOR
  */
 /obj/item/clothing/under/rank/rnd/research_director/nova/imperial //Rank pins of the Major General
