@@ -362,11 +362,13 @@
 			if(CONSCIOUS)
 				if(HAS_TRAIT(src, TRAIT_DUMB))
 					msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
-		if(get_organ_by_type(/obj/item/organ/internal/brain))
-			if(!key)
-				msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
-			else if(!client)
-				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and [t_has] been completely unresponsive to anything for [round(((world.time - lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon.")]\n" // NOVA EDIT CHANGE - SSD_INDICATOR - ORIGINAL: msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon.")]\n"
+	//NOVA EDIT BEGIN - Undead quirk and SSD time indicator
+	if(get_organ_by_type(/obj/item/organ/internal/brain))
+		if(!key)
+			msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
+		else if(!client)
+			msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and [t_has] been completely unresponsive to anything for [round(((world.time - lastclienttime) / (1 MINUTES)),1)] minutes. [t_He] may snap out of it soon.")]\n"
+	//NOVA EDIT END
 
 	var/scar_severity = 0
 	for(var/i in all_scars)
