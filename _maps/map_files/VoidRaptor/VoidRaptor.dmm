@@ -4317,6 +4317,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/secondary/service)
 "bmt" = (
@@ -6135,6 +6138,9 @@
 "bPG" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/secondary/service)
 "bPI" = (
@@ -16018,6 +16024,9 @@
 "eEd" = (
 /obj/structure/sign/poster/random/directional/north,
 /obj/effect/turf_decal/bot,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/service)
 "eEi" = (
@@ -20648,6 +20657,9 @@
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/machinery/computer/department_orders/service,
 /obj/effect/turf_decal/bot,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
 "fZo" = (
@@ -22129,10 +22141,10 @@
 	dir = 4;
 	name = "Cargo Deliveries"
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
 /obj/structure/window/spawner/directional/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/service)
 "gtM" = (
@@ -23565,12 +23577,6 @@
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/engine/atmos)
-"gOj" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/turf/closed/wall,
-/area/station/service/kitchen)
 "gOn" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -26631,13 +26637,13 @@
 	dir = 9;
 	name = "service camera"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/machinery/modular_computer/preset/cargochat/service,
 /obj/effect/turf_decal/bot,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
 "hFA" = (
@@ -29281,6 +29287,9 @@
 /obj/structure/noticeboard/directional/north,
 /obj/machinery/light_switch/directional/east,
 /obj/effect/turf_decal/bot,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/service)
 "iti" = (
@@ -31087,12 +31096,6 @@
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/iron/grimy,
 /area/station/commons/lounge)
-"iUy" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/closed/wall,
-/area/station/service/kitchen)
 "iUz" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -42579,14 +42582,16 @@
 /turf/open/floor/grass,
 /area/station/hallway/secondary/exit/departure_lounge)
 "lWH" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/secondary/service)
 "lWL" = (
@@ -45959,13 +45964,7 @@
 /area/station/engineering/atmos)
 "mVt" = (
 /obj/effect/turf_decal/weather/snow,
-/obj/machinery/camera/directional/west{
-	c_tag = "Service - Kitchen Coldroom";
-	dir = 10;
-	name = "service camera"
-	},
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/structure/sink/kitchen/directional/east,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "mVv" = (
@@ -49961,9 +49960,6 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "nYG" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/computer/order_console/cook,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
@@ -49973,6 +49969,9 @@
 	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/effect/turf_decal/bot,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
 "nYI" = (
@@ -62692,6 +62691,9 @@
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/secondary/service)
 "rvY" = (
@@ -65094,12 +65096,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/science/research)
-"sha" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/closed/wall,
-/area/station/service/kitchen)
 "shd" = (
 /obj/structure/chair/office/light{
 	dir = 1
@@ -71728,9 +71724,6 @@
 	},
 /area/station/hallway/secondary/command)
 "tSE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
 /obj/structure/flora/bush/jungle/a/style_3,
 /obj/structure/window/fulltile,
 /turf/open/floor/grass,
@@ -71859,6 +71852,11 @@
 /area/station/hallway/primary/fore)
 "tUw" = (
 /obj/effect/turf_decal/weather/snow,
+/obj/machinery/camera/directional/west{
+	c_tag = "Service - Kitchen Coldroom";
+	dir = 5;
+	name = "service camera"
+	},
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "tUB" = (
@@ -83089,14 +83087,20 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/gateway)
 "wYr" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/green/diagonal_centre,
 /obj/machinery/status_display/ai/directional/north,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/secondary/service)
 "wYw" = (
@@ -122682,7 +122686,7 @@ xRG
 xRG
 liO
 fMm
-sha
+jSC
 esZ
 bPZ
 bPZ
@@ -123967,7 +123971,7 @@ pow
 pow
 tgy
 jSC
-iUy
+jSC
 wYr
 vrL
 fLp
@@ -124480,7 +124484,7 @@ hfU
 nUo
 hfU
 hfU
-gOj
+jSC
 hFu
 ctf
 uNs
