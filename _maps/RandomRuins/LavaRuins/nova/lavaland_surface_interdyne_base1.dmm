@@ -1697,7 +1697,6 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/med/viro)
 "oy" = (
-/obj/structure/table/glass,
 /obj/item/storage/box/monkeycubes/syndicate{
 	pixel_y = 5
 	},
@@ -1706,6 +1705,7 @@
 	pixel_y = 3
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "oz" = (
@@ -1854,7 +1854,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "py" = (
-/obj/structure/table/glass,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
@@ -1871,6 +1870,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "pA" = (
@@ -1879,26 +1879,19 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "pJ" = (
 /obj/structure/lattice/catwalk,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg{
-	pixel_x = 2;
-	pixel_y = -3
-	},
-/obj/item/flatpacked_machine/rtg{
-	pixel_y = 2;
-	pixel_x = 1
-	},
-/obj/item/flatpacked_machine/rtg{
-	pixel_y = 2;
-	pixel_x = 1
-	},
-/obj/item/flatpacked_machine/rtg{
-	pixel_y = 2;
-	pixel_x = 1
-	},
-/obj/item/flatpacked_machine/rtg,
 /obj/structure/closet/crate/engineering,
 /obj/item/stack/cable_coil,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/clothing/gloves/color/yellow,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base)
 "pP" = (
@@ -2785,7 +2778,6 @@
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "yj" = (
-/obj/structure/table/glass,
 /obj/item/storage/bag/xeno{
 	pixel_y = 10;
 	pixel_x = -3
@@ -2803,6 +2795,7 @@
 	pixel_x = 2;
 	pixel_y = -2
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ym" = (
@@ -3005,11 +2998,10 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/paper_bin{
-	pixel_y = 4
-	},
-/obj/item/pen{
-	pixel_y = 4
+/obj/machinery/fax{
+	fax_name = "Interdyne S&R Ship Fax";
+	name = "Interdyne Fax Machine";
+	syndicate_network = 1
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
@@ -3222,6 +3214,8 @@
 	},
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/storage/part_replacer/bluespace,
+/obj/item/storage/box/stockparts/deluxe,
+/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
@@ -3523,10 +3517,11 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/machinery/fax{
-	fax_name = "Interdyne S&R Ship Fax";
-	name = "Interdyne Fax Machine";
-	syndicate_network = 1
+/obj/item/paper_bin{
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_y = 4
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo/deck)
@@ -3565,7 +3560,6 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "DV" = (
-/obj/structure/table/glass,
 /obj/item/reagent_containers/cup/beaker/large{
 	pixel_y = 8;
 	pixel_x = -2
@@ -3583,6 +3577,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/viro)
 "DW" = (
@@ -4540,7 +4535,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "LD" = (
-/obj/structure/table/glass,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
@@ -4548,6 +4542,7 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 5
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "LE" = (
@@ -4773,7 +4768,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "Nt" = (
-/obj/structure/table/glass,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
@@ -4792,6 +4786,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "NA" = (
@@ -5872,7 +5867,6 @@
 /turf/open/floor/engine/bz,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "VD" = (
-/obj/structure/table/glass,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -5884,6 +5878,7 @@
 	pixel_x = -10;
 	pixel_y = 3
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "VF" = (

@@ -6020,6 +6020,8 @@
 /obj/item/clothing/glasses/welding{
 	pixel_y = -3
 	},
+/obj/item/inducer/syndicate,
+/obj/item/inducer/syndicate,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -10736,10 +10738,6 @@
 	dir = 4
 	},
 /obj/machinery/vending/tool,
-/obj/item/radio/intercom/directional/west{
-	frequency = 1487;
-	name = "Prisoner Communication"
-	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
