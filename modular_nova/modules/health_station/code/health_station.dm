@@ -19,6 +19,18 @@
 	///Items that can refill it; intended to be high-end medicine items, or otherwise 'miraculous' in nature.
 	var/list/refillers = list(
 		/obj/item/slimecross/regenerative = 100,
+		/obj/item/weaponcell/medical/brute/tier_3 = 40,
+		/obj/item/weaponcell/medical/burn/tier_3 = 40,
+		/obj/item/weaponcell/medical/toxin/tier_3 = 40,
+		/obj/item/weaponcell/medical/oxygen/tier_3 = 40,
+		/obj/item/weaponcell/medical/brute/tier_2 = 30,
+		/obj/item/weaponcell/medical/burn/tier_2 = 30,
+		/obj/item/weaponcell/medical/toxin/tier_2 = 30,
+		/obj/item/weaponcell/medical/oxygen/tier_2 = 30,
+		/obj/item/weaponcell/medical/brute = 20,
+		/obj/item/weaponcell/medical/burn = 20,
+		/obj/item/weaponcell/medical/toxin = 20,
+		/obj/item/weaponcell/medical/oxygen = 20,
 		/obj/item/organ/internal/monster_core = 20, //some more use for leftover non-legion core organs as they're less frequently used
 		/obj/item/food/grown/ambrosia/gaia = 10,
 	)
