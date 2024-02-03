@@ -38723,7 +38723,8 @@
 	pixel_y = 8
 	},
 /obj/item/clothing/suit/modern_winter{
-	pixel_y = 7
+	pixel_y = -3;
+	pixel_x = 7
 	},
 /obj/item/clothing/suit/jacket/delta{
 	pixel_x = -6;
@@ -38732,10 +38733,6 @@
 /obj/item/clothing/suit/jacket/puffer{
 	pixel_x = -3;
 	pixel_y = -6
-	},
-/obj/item/clothing/suit/jacket/cherno{
-	pixel_x = 6;
-	pixel_y = -7
 	},
 /turf/open/floor/wood/parquet,
 /area/station/common/tailoring)
@@ -62835,14 +62832,22 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai)
 "lXc" = (
-/obj/structure/closet/crate/engineering{
-	name = "Turbine Board Crate"
-	},
-/obj/item/circuitboard/computer/turbine_computer,
-/obj/item/circuitboard/machine/turbine_rotor,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 8
 	},
+/obj/structure/closet/crate/secure/engineering{
+	name = "surplus equipment crate"
+	},
+/obj/item/flatpacked_machine/co2_cracker,
+/obj/item/flatpacked_machine/fuel_generator,
+/obj/item/flatpacked_machine/large_station_battery,
+/obj/item/flatpacked_machine/recycler,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/stirling_generator,
+/obj/item/flatpacked_machine/thermomachine,
+/obj/item/circuitboard/machine/circulator,
+/obj/item/circuitboard/machine/circulator,
+/obj/item/circuitboard/machine/thermoelectric_generator,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
