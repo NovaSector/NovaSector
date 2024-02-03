@@ -639,6 +639,9 @@
 /obj/item/clothing/glasses/meson/night,
 /obj/item/clothing/glasses/meson/night,
 /obj/effect/turf_decal/bot_white,
+/obj/item/card/id/advanced/chameleon/black,
+/obj/item/card/id/advanced/chameleon/black,
+/obj/item/card/id/advanced/chameleon/black,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "fW" = (
@@ -1482,6 +1485,8 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
 "mD" = (
@@ -2468,6 +2473,9 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
@@ -3911,6 +3919,14 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
+"Go" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/dark/herringbone,
+/area/ruin/interdyne_planetary_base/med/viro)
 "Gq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -6946,7 +6962,7 @@ lp
 xN
 zi
 kn
-vB
+Go
 mz
 vB
 BA
