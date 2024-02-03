@@ -106,3 +106,30 @@
 	greyscale_colors = "#8b2c2c#222227#222227#fbc056"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/*
+*	Shorts that were previously using nonmodular edits to add their greyscale data, pulled from code/modules/clothing/under/shorts.dm
+*/
+
+/obj/item/clothing/under/shorts
+	greyscale_config_worn_digi = /datum/greyscale_config/shorts/worn/digi
+
+/obj/item/clothing/under/shorts/jeanshorts
+	greyscale_config_worn_digi = /datum/greyscale_config/jeanshorts/worn/digi
+
+/*
+*	Pants that were previously using nonmodular edits to add their greyscale data, pulled from code/modules/clothing/under/pants.dm
+*/
+
+/obj/item/clothing/under/pants/slacks
+	greyscale_config_worn_digi = /datum/greyscale_config/slacks/worn/digi
+
+/obj/item/clothing/under/pants/jeans
+	greyscale_config_worn_digi = /datum/greyscale_config/jeans/worn/digi
+
+/obj/item/clothing/under/pants/camo
+	greyscale_config = /datum/greyscale_config/camo_pants
+	greyscale_config_worn = /datum/greyscale_config/camo_pants/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/camo_pants/worn/digi
+	greyscale_colors = "#69704C#6E5B4C#343741"
+	flags_1 = IS_PLAYER_COLORABLE_1
