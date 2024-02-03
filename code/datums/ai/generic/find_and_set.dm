@@ -11,12 +11,17 @@
 	if (controller.blackboard_key_exists(set_key))
 		finish_action(controller, TRUE)
 		return
-	var/find_this_thing = search_tactic(controller, locate_path, search_range)
-	if(find_this_thing)
-		controller.set_blackboard_key(set_key, find_this_thing)
-		finish_action(controller, TRUE)
-	else
+	// NOVA EDIT ADDITION START - TODO: REVERT TO TG ONCE FIX COMES IN
+	if(QDELETED(controller.pawn))
 		finish_action(controller, FALSE)
+		return
+	// NOVA ADDITION END
+	var/find_this_thing = search_tactic(controller, locate_path, search_range)
+	if(isnull(find_this_thing)) // NOVA EDIT CHANGE - TODO: REVERT TO TG ONCE FIX COMES IN
+		finish_action(controller, FALSE)
+		return
+	controller.set_blackboard_key(set_key, find_this_thing)
+	finish_action(controller, TRUE)
 
 /datum/ai_behavior/find_and_set/proc/search_tactic(datum/ai_controller/controller, locate_path, search_range)
 	return locate(locate_path) in oview(search_range, controller.pawn)

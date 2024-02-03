@@ -85,11 +85,6 @@
 	restricted = TRUE
 	contraband = TRUE
 
-/datum/armament_entry/company_import/nakamura_modsuits/protection_modules/accretion
-	item_type = /obj/item/mod/module/ash_accretion
-	cost = PAYCHECK_COMMAND * 3
-	restricted = TRUE
-
 // Utility modules, general purpose stuff that really anyone might want
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules
