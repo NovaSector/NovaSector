@@ -75,6 +75,10 @@
 	var/list/found = typecache_filter_list(oview(search_range, controller.pawn), locate_paths)
 	var/list/ignore_list = controller.blackboard[BB_TEMPORARY_IGNORE_LIST]
 	for(var/atom/found_item in found)
+		// NOVA EDIT ADDITION START - TODO: REVERT TO TG ONCE FIX COMES IN
+		if(QDELETED(controller.pawn))
+			break
+		// NOVA EDIT ADDITION END
 		if(LAZYACCESS(ignore_list, REF(found_item)))
 			continue
 		var/list/path = get_path_to(controller.pawn, found_item, max_distance = BOT_CLEAN_PATH_LIMIT, access = controller.get_access())
