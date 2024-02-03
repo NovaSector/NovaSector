@@ -2455,9 +2455,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
 /obj/item/clothing/under/misc/syndicate_souvenir{
 	has_sensor = 0;
 	pixel_y = -4
@@ -2467,6 +2464,7 @@
 	pixel_x = 4;
 	pixel_y = -7
 	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "lS" = (
@@ -2585,14 +2583,12 @@
 	has_sensor = 0;
 	random_sensor = 0
 	},
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
 /obj/machinery/button/door/directional/north{
 	id = "TESBattlespire";
 	name = "Dorm Bolt Control";
 	specialfunctions = 4
 	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "my" = (
@@ -2804,9 +2800,7 @@
 	dir = 4
 	},
 /obj/item/clothing/under/syndicate/nova/baseball,
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "nG" = (

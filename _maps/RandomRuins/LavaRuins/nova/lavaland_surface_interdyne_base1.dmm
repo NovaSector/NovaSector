@@ -454,9 +454,7 @@
 	normaldoorcontrol = 1;
 	specialfunctions = 4
 	},
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "dU" = (
@@ -497,6 +495,16 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
+"ec" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/ruin/interdyne_planetary_base/med/viro)
 "el" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -2011,9 +2019,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "qA" = (
@@ -2474,9 +2480,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
 "vG" = (
@@ -3253,9 +3257,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "BJ" = (
@@ -3919,14 +3921,6 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"Go" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/dark/herringbone,
-/area/ruin/interdyne_planetary_base/med/viro)
 "Gq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -4579,11 +4573,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/personal{
-	icon_state = "cabinet"
-	},
 /obj/item/clothing/neck/stethoscope,
 /obj/item/crowbar,
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "LJ" = (
@@ -6962,9 +6954,9 @@ lp
 xN
 zi
 kn
-Go
-mz
 vB
+mz
+ec
 BA
 ul
 Gy
