@@ -30,18 +30,15 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
 
-
 /datum/loadout_item/back/frontiersatchel
 	name = "Frontier Satchel"
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
 
-
 /datum/loadout_item/back/frontiermessenger
 	name = "Frontier Messenger Bag"
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
-
 
 /datum/loadout_item/back/smuggler
 	name = "Smuggler's Satchel"
@@ -78,17 +75,10 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
 	blacklisted_roles = list(JOB_PRISONER)
 
-/datum/loadout_item/back/imppack
-	name = "Imperial Assault Pack"
-	item_path = /obj/item/storage/backpack/nri
-	additional_tooltip_contents = list("Can only be used with Place All in Case.")
-	blacklisted_roles = list(JOB_PRISONER)
-
 /datum/loadout_item/back/saddlepack
 	name = "Saddlepack"
 	item_path = /obj/item/storage/backpack/saddlepack
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
-
 
 /datum/loadout_item/back/ertpack
 	name = "Responsory Backpack"
@@ -106,7 +96,6 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 	name = "Easter Bunny Satchel"
 	item_path = /obj/item/storage/backpack/satchel/bunnysatchel
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
-
 
 /datum/loadout_item/back/crusader
 	name = "Crusader Bandolier"
