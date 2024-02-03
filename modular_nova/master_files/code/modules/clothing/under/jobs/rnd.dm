@@ -1,8 +1,5 @@
-/*
- *	RESEARCH DIRECTOR
- */
 /obj/item/clothing/under/rank/rnd
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/rnd_digi.dmi'	// Anything that was in the rnd.dmi, should be in the rnd_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/rnd_digi.dmi'
 
 /obj/item/clothing/under/rank/rnd/scientist/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
