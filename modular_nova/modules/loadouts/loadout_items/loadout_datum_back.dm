@@ -355,6 +355,16 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 	blacklisted_roles = list(JOB_PRISONER)
 
 /*
+*	Functional
+*/
+
+/datum/loadout_item/back/gravharness
+	name = "Gravity Suspension Harness"
+	item_path = /obj/item/gravity_harness
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/*
 *	Non-Storage
 */
 
