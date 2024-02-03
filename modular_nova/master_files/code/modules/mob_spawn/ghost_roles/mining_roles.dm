@@ -103,7 +103,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/deckofficer
 	head = /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
 	suit = /obj/item/clothing/suit/armor/hos/deckofficer
-	ears = /obj/item/radio/headset/interdyne/command
+	ears = /obj/item/radio/headset/interdyne/command/green
 	id = /obj/item/card/id/advanced/silver/generic
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/deckofficer
 
@@ -115,6 +115,12 @@
 	icon = 'modular_nova/modules/mapping/icons/obj/headset.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/ears.dmi'
 
+/obj/item/radio/headset/interdyne/command/green
+	name = "\improper Interdyne command headset"
+	icon_state = "headset_ip"
+	worn_icon_state = "headset_ip"
+	desc = "A commanding headset to gather your underlings. Protects the ears from flashbangs. It has a large red cross on the earpiece, and a small 'IP' written on the top strap. Protects the ears from flashbangs."
+	command = TRUE
 
 // OUTFITS
 
