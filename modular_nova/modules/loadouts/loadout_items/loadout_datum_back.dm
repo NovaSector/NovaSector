@@ -30,15 +30,351 @@ GLOBAL_LIST_INIT(loadout_back, generate_loadout_items(/datum/loadout_item/back))
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
 
+
 /datum/loadout_item/back/frontiersatchel
 	name = "Frontier Satchel"
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
 
+
 /datum/loadout_item/back/frontiermessenger
 	name = "Frontier Messenger Bag"
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+
+/datum/loadout_item/back/smuggler
+	name = "Smuggler's Satchel"
+	item_path = /obj/item/storage/backpack/satchel/flat/empty
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+/datum/loadout_item/back/cinpack
+	name = "CIN Military Backpack"
+	item_path = /obj/item/storage/backpack/industrial/cin_surplus
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/cinpackdes
+	name = "CIN Desert Backpack"
+	item_path = /obj/item/storage/backpack/industrial/cin_surplus/desert
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/cinpackfor
+	name = "CIN Forest Backpack"
+	item_path = /obj/item/storage/backpack/industrial/cin_surplus/forest
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/cinpackmar
+	name = "CIN Marine Backpack"
+	item_path = /obj/item/storage/backpack/industrial/cin_surplus/marine
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/exped
+	name = "Expeditionary Corps Backpack"
+	item_path = /obj/item/storage/backpack/duffelbag/expeditionary_corps
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/imppack
+	name = "Imperial Assault Pack"
+	item_path = /obj/item/storage/backpack/nri
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/saddlepack
+	name = "Saddlepack"
+	item_path = /obj/item/storage/backpack/saddlepack
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+
+/datum/loadout_item/back/ertpack
+	name = "Responsory Backpack"
+	item_path = /obj/item/storage/backpack/ert/odst
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/hecu
+	name = "HECU Pack"
+	item_path = /obj/item/storage/backpack/ert/odst/hecu
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/bunnybag
+	name = "Easter Bunny Satchel"
+	item_path = /obj/item/storage/backpack/satchel/bunnysatchel
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+
+
+/datum/loadout_item/back/crusader
+	name = "Crusader Bandolier"
+	item_path = /obj/item/storage/backpack/satchel/crusader
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/surgery
+	name = "First Responder Surgical Kit"
+	item_path = /obj/item/storage/backpack/duffelbag/deforest_surgical
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/formed
+	name = "Satchel Medical Kit"
+	item_path = /obj/item/storage/backpack/duffelbag/deforest_medkit
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/*
+*	Job Backpack
+*/
+
+/datum/loadout_item/back/botback
+	name = "Botany Backpack"
+	item_path = /obj/item/storage/backpack/botany
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/chemback
+	name = "Chemistry Backpack"
+	item_path = /obj/item/storage/backpack/chemistry
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/corback
+	name = "Coroner Backpack"
+	item_path = /obj/item/storage/backpack/coroner
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/expback
+	name = "Explorer Backpack"
+	item_path = /obj/item/storage/backpack/explorer
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/genback
+	name = "Genetics Backpack"
+	item_path = /obj/item/storage/backpack/genetics
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/engback
+	name = "Industrial Backpack"
+	item_path = /obj/item/storage/backpack/industrial
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/medback
+	name = "Medical Backpack"
+	item_path = /obj/item/storage/backpack/medic
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/robback
+	name = "Robotics Backpack"
+	item_path = /obj/item/storage/backpack/science/robo
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/sciback
+	name = "Science Backpack"
+	item_path = /obj/item/storage/backpack/science
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/secback
+	name = "Security Backpack"
+	item_path = /obj/item/storage/backpack/security
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/redsecback
+	name = "Red Security Backpack"
+	item_path = /obj/item/storage/backpack/security/redsec
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/virback
+	name = "Virologist Backpack"
+	item_path = /obj/item/storage/backpack/virology
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/*
+*	Job Satchel
+*/
+
+/datum/loadout_item/back/botsat
+	name = "Botany Satchel"
+	item_path = /obj/item/storage/backpack/satchel/hyd
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/chemsat
+	name = "Chemistry Satchel"
+	item_path = /obj/item/storage/backpack/satchel/chem
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/corsat
+	name = "Coroner Satchel"
+	item_path = /obj/item/storage/backpack/satchel/coroner
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/expsat
+	name = "Explorer Satchel"
+	item_path = /obj/item/storage/backpack/satchel/explorer
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/gensat
+	name = "Genetics Satchel"
+	item_path = /obj/item/storage/backpack/satchel/gen
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/engsat
+	name = "Industrial Satchel"
+	item_path = /obj/item/storage/backpack/satchel/eng
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/medsat
+	name = "Medical Satchel"
+	item_path = /obj/item/storage/backpack/satchel/med
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/robsat
+	name = "Robotics Satchel"
+	item_path = /obj/item/storage/backpack/satchel/science/robo
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/scisat
+	name = "Science Satchel"
+	item_path = /obj/item/storage/backpack/satchel/science
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/secsat
+	name = "Security Satchel"
+	item_path = /obj/item/storage/backpack/satchel/sec
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/redsecsat
+	name = "Red Security Satchel"
+	item_path = /obj/item/storage/backpack/satchel/sec/redsec
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/virsat
+	name = "Virologist Satchel"
+	item_path = /obj/item/storage/backpack/satchel/vir
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/*
+*	Job Duffelbag
+*/
+
+/datum/loadout_item/back/botduff
+	name = "Botany Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/hydroponics
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/chemduff
+	name = "Chemistry Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/chemistry
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/corduff
+	name = "Coroner Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/coroner
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/expduff
+	name = "Explorer Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/explorer
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/genduff
+	name = "Genetics Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/genetics
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/engduff
+	name = "Industrial Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/engineering
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/medduff
+	name = "Medical Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/med
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/robduff
+	name = "Robotics Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/science/robo
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/sciduff
+	name = "Science Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/science
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/secduff
+	name = "Security Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/sec
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/redsecduff
+	name = "Red Security Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/sec/redsec
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/virduff
+	name = "Virologist Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/virology
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/*
+*	Non-Storage
+*/
+
+/datum/loadout_item/back/oxy
+	name = "Oxygen Tank"
+	item_path = /obj/item/tank/internals/oxygen
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/oxyyellow
+	name = "Yellow Oxygen Tank"
+	item_path = /obj/item/tank/internals/oxygen/yellow
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
+
+/datum/loadout_item/back/oxyred
+	name = "Red Oxygen Tank"
+	item_path = /obj/item/tank/internals/oxygen/red
+	additional_tooltip_contents = list("Can only be used with Place All in Case.")
+	blacklisted_roles = list(JOB_PRISONER)
 
 /*
 *	MODSuits
