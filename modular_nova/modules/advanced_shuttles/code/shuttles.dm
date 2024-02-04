@@ -136,6 +136,16 @@
 	port_id = "whiteship"
 	suffix = "blueshift"
 
+/datum/map_template/shuttle/cargo/nova/ringworm
+	suffix = "ringworm"
+
+/datum/map_template/shuttle/whiteship/ringworm
+	name = "JN Chasse-Galerie"
+	description = "A small Jim Nortons shuttle meant to be a mobile cafe. No hostiles onboard, but multiple corpses of Jim Nortons employees."
+	prefix = "_maps/shuttles/nova/"
+	port_id = "whiteship"
+	suffix = "ringworm"
+
 /datum/map_template/shuttle/arrivals_nova
 	name = "NTV Relay (Arrivals)"
 	prefix = "_maps/shuttles/nova/"
