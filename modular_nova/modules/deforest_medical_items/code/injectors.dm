@@ -113,8 +113,8 @@
 	base_icon_state = "meridine"
 	icon_state = "meridine"
 	list_reagents = list(
-		/datum/reagent/medicine/ammoniated_mercury = 5,
-		/datum/reagent/medicine/potass_iodide = 15,
+		/datum/reagent/medicine/ammoniated_mercury = 10,
+		/datum/reagent/medicine/potass_iodide = 10,
 		/datum/reagent/nitrous_oxide = 5,
 	)
 

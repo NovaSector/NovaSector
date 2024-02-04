@@ -39,3 +39,13 @@
 		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked,
 		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked,
 	)
+
+/datum/supply_pack/medical/deforest_vendor_refill
+	name = "DeForest Med-Vend Resupply Crate"
+	crate_name = "\improper DeForest Med-Vend resupply crate"
+	desc = "Contains a restocking canister for DeForest Med-Vendors."
+	access = ACCESS_MEDICAL
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(
+		/obj/item/vending_refill/medical_deforest,
+	)
