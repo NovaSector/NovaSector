@@ -5870,14 +5870,12 @@
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/mechbay)
 "bVy" = (
-/obj/machinery/power/apc/auto_name/directional/south,
 /obj/item/kirbyplants/random,
 /obj/machinery/requests_console{
 	department = "Tech storage";
 	name = "Tech Storage RC";
 	pixel_x = 30
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
 "bVB" = (
@@ -74205,11 +74203,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/sepia,
 /area/station/maintenance/disposal/incinerator)
-"xUh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/engineering/storage/tech)
 "xUj" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
 	dir = 1
@@ -74483,7 +74476,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/door/window/right/directional/south,
 /turf/open/space/basic,
-/area/station/maintenance/disposal/incinerator)
+/area/space/nearstation)
 "xYv" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -115838,7 +115831,7 @@ qfF
 qfF
 qfF
 qfF
-xUh
+qfF
 uwg
 qiB
 uhM
