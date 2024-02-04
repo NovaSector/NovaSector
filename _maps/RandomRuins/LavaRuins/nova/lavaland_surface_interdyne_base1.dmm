@@ -424,9 +424,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "dK" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
@@ -526,6 +523,13 @@
 	dir = 8
 	},
 /obj/structure/tank_holder/extinguisher,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "eN" = (
@@ -929,7 +933,9 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "iq" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /obj/machinery/light_switch/directional/west,
 /obj/machinery/vending/barbervend{
 	onstation = 0
@@ -1027,6 +1033,10 @@
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "iT" = (
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/door/window/survival_pod{
+	req_access = list("syndicate");
+	dir = 1
+	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -1270,9 +1280,6 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "kv" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
-	pixel_x = -4
-	},
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 1
 	},
@@ -1693,13 +1700,15 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "of" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/portable_atmospherics/canister/bz,
 /obj/machinery/atmospherics/components/unary/portables_connector{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	polarizer_id_on_spawn = "interdynexenobio"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -1744,8 +1753,12 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/table/reinforced/rglass,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "oz" = (
@@ -1865,9 +1878,6 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "po" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
@@ -2837,6 +2847,10 @@
 	pixel_y = -2
 	},
 /obj/structure/table/reinforced/rglass,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ym" = (
@@ -3687,10 +3701,6 @@
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "Eq" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
 	name = "euthanization chamber freezer";
 	dir = 8;
@@ -3698,6 +3708,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	polarizer_id_on_spawn = "interdynexenobio"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -4070,6 +4083,13 @@
 	dir = 4
 	},
 /obj/machinery/smartfridge/extract/preloaded,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north{
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Hj" = (
@@ -4583,7 +4603,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "LD" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
 	},
@@ -4591,6 +4610,11 @@
 	amount = 5
 	},
 /obj/structure/table/reinforced/rglass,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "LE" = (
@@ -5176,9 +5200,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "PH" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
-	pixel_x = -4
-	},
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
@@ -5551,6 +5572,10 @@
 /area/ruin/interdyne_planetary_base)
 "Te" = (
 /obj/machinery/processor/slime,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
+	pixel_x = -4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Ti" = (
@@ -5889,9 +5914,6 @@
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Vj" = (
 /obj/machinery/disposal/bin,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
-	pixel_x = -4
-	},
 /obj/effect/turf_decal/siding/thinplating/end{
 	dir = 4
 	},
@@ -5952,7 +5974,7 @@
 	dir = 4
 	},
 /obj/structure/microscope{
-	pixel_x = -1;
+	pixel_x = -3;
 	pixel_y = 4
 	},
 /obj/item/biopsy_tool{
@@ -5960,6 +5982,16 @@
 	pixel_y = 3
 	},
 /obj/structure/table/reinforced/rglass,
+/obj/machinery/button/polarizer{
+	pixel_x = 8;
+	pixel_y = 8;
+	name = "Xenobio Window Polarizer";
+	id = "interdynexenobio"
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "VF" = (
@@ -6181,9 +6213,6 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo/ware)
 "Xe" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
-	pixel_x = 4
-	},
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
 	},
@@ -6206,14 +6235,13 @@
 /area/ruin/interdyne_planetary_base/med/pharm)
 "Xh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west{
-	pixel_x = -4
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
 /obj/machinery/dna_infuser,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south{
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Xi" = (
@@ -6369,6 +6397,10 @@
 /area/ruin/interdyne_planetary_base)
 "YF" = (
 /obj/machinery/monkey_recycler,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east{
+	pixel_x = 4;
+	polarizer_id_on_spawn = "interdynexenobio"
+	},
 /turf/open/floor/wood/large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "YG" = (
