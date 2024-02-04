@@ -1,17 +1,23 @@
 /obj/item/clothing/under/rank/rnd
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/rnd_digi.dmi'
 
+/obj/item/clothing/under/rank/rnd/research_director/alt
+	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi
+
 /obj/item/clothing/under/rank/rnd/scientist/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon_state = null //debug item
 
 /obj/item/clothing/under/rank/rnd/roboticist/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon_state = null //debug item
 
 /obj/item/clothing/under/rank/rnd/research_director/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/rnd.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/rnd.dmi'
+	icon_state = null //debug item
 
 /*
  *	GENETICIST (TO-DO)
