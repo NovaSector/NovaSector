@@ -73,6 +73,11 @@
 	if (!isnull(lock_deploy))
 		deploy_locked = lock_deploy
 
+	// set no dismember trait for deploy-locked dudes, i'm sorry, there's basically no better way to do this.
+	// it's a pretty ample buff but i dunno what else to do...
+	if (deploy_locked)
+		ADD_TRAIT(human_holder, TRAIT_NODISMEMBER, QUIRK_TRAIT)
+
 	// set all of our customization stuff from prefs, if we have it
 	var/modsuit_skin = client_source?.prefs.read_preference(/datum/preference/choiced/entombed_skin)
 
@@ -113,6 +118,9 @@
 			old_bag.atom_storage.dump_content_at(modsuit, human_holder)
 
 /datum/quirk/equipping/entombed/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if (deploy_locked && HAS_TRAIT_FROM(human_holder, TRAIT_NODISMEMBER, QUIRK_TRAIT))
+		REMOVE_TRAIT(human_holder, TRAIT_NODISMEMBER, QUIRK_TRAIT)
 	QDEL_NULL(modsuit)
 
 /datum/quirk/equipping/entombed/proc/install_racial_features()
@@ -147,7 +155,6 @@
 	return list(
 		"Standard",
 		"Civilian",
-		"Colonist",
 		"Advanced",
 		"Atmospheric",
 		"Corpsman",
@@ -179,7 +186,7 @@
 	savefile_key = "entombed_mod_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
-	maximum_value_length = 32
+	maximum_value_length = 48
 
 /datum/preference/text/entombed_mod_name/is_accessible(datum/preferences/preferences)
 	if (!..())
