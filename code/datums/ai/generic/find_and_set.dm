@@ -11,6 +11,7 @@
 	if (controller.blackboard_key_exists(set_key))
 		finish_action(controller, TRUE)
 		return
+<<<<<<< HEAD
 	// NOVA EDIT ADDITION START - TODO: REVERT TO TG ONCE FIX COMES IN
 	if(QDELETED(controller.pawn))
 		finish_action(controller, FALSE)
@@ -18,6 +19,13 @@
 	// NOVA ADDITION END
 	var/find_this_thing = search_tactic(controller, locate_path, search_range)
 	if(isnull(find_this_thing)) // NOVA EDIT CHANGE - TODO: REVERT TO TG ONCE FIX COMES IN
+=======
+	if(QDELETED(controller.pawn))
+		finish_action(controller, FALSE)
+		return
+	var/find_this_thing = search_tactic(controller, locate_path, search_range)
+	if(isnull(find_this_thing))
+>>>>>>> 6a64a1a6455 (Fixes a spurious runtime in AI code (#81253))
 		finish_action(controller, FALSE)
 		return
 	controller.set_blackboard_key(set_key, find_this_thing)
