@@ -6855,7 +6855,6 @@
 /turf/open/floor/stone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "XP" = (
-/obj/structure/pod,
 /obj/effect/supplypod_rubble,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "LAVALAND_ATMOS"
