@@ -212,80 +212,82 @@
 	var/spawn_selection = tgui_input_list(user, "Pick a part, or clear storage", "RPED Manufacture", list("Clear All Items", "Toggle Auto-Clear", "Cables", "Glass", "Spare T4s", "Machine Board", "Stock Part", "Beaker"))
 	// If they didn't cancel out of the list selection, we do things.  Clear-all removes all items, auto-clear destroys left-overs after upgrades, and everything else is pretty self-explanatory.
 	// Machine boards and stock parts use a recursive subtype selector.
-	if(spawn_selection)
-		if(spawn_selection == "Clear All Items")
-			var/list/inv_grab = list()
-			atom_storage.return_inv(inv_grab, FALSE)
-			for(var/obj/item/stored_item in inv_grab)
-				atom_storage.attempt_remove(stored_item, null, TRUE)
-		else if(spawn_selection == "Toggle Auto-Clear")
-			auto_clear = !auto_clear
-			to_chat(user, span_notice("The RPED will now [(destroy_worse ? "destroy" : "keep")] items left-over after upgrades."))
-		else if(spawn_selection == "Cables")
-			atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
-		else if(spawn_selection == "Glass")
-			atom_storage.attempt_insert(new /obj/item/stack/sheet/glass/fifty(src), user, TRUE)
-		else if(spawn_selection == "Spare T4s")
-			for(var/i in 1 to 10)
-				atom_storage.attempt_insert(new /obj/item/stock_parts/capacitor/quadratic(src), user, TRUE)
-				atom_storage.attempt_insert(new /obj/item/stock_parts/scanning_module/triphasic(src), user, TRUE)
-				atom_storage.attempt_insert(new /obj/item/stock_parts/servo/femto(src), user, TRUE)
-				atom_storage.attempt_insert(new /obj/item/stock_parts/micro_laser/quadultra(src), user, TRUE)
-				atom_storage.attempt_insert(new /obj/item/stock_parts/matter_bin/bluespace(src), user, TRUE)
-				atom_storage.attempt_insert(new /obj/item/stock_parts/cell/bluespace(src), user, TRUE)
-		else
-			var/subtype
-			if(spawn_selection == "Machine Board")
-				subtype = /obj/item/circuitboard/machine
-			else if(spawn_selection == "Stock Part")
-				subtype = /obj/item/stock_parts
-			else if(spawn_selection == "Beaker")
-				subtype = /obj/item/reagent_containers/cup/beaker
-			if(subtype)
-				pick_stock_part(user, FALSE, subtype)
+	if(isnull(spawn_selection))
+		return
+	else if(spawn_selection == "Clear All Items")
+		var/list/inv_grab = list()
+		atom_storage.return_inv(inv_grab, FALSE)
+		for(var/obj/item/stored_item in inv_grab)
+			atom_storage.attempt_remove(stored_item, null, TRUE)
+	else if(spawn_selection == "Toggle Auto-Clear")
+		auto_clear = !auto_clear
+		to_chat(user, span_notice("The RPED will now [(auto_clear ? "destroy" : "keep")] items left-over after upgrades."))
+	else if(spawn_selection == "Cables")
+		atom_storage.attempt_insert(new /obj/item/stack/cable_coil(src), user, TRUE)
+	else if(spawn_selection == "Glass")
+		atom_storage.attempt_insert(new /obj/item/stack/sheet/glass/fifty(src), user, TRUE)
+	else if(spawn_selection == "Spare T4s")
+		for(var/i in 1 to 10)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/capacitor/quadratic(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/scanning_module/triphasic(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/servo/femto(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/micro_laser/quadultra(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/matter_bin/bluespace(src), user, TRUE)
+			atom_storage.attempt_insert(new /obj/item/stock_parts/cell/bluespace(src), user, TRUE)
+	else
+		var/subtype
+		if(spawn_selection == "Machine Board")
+			subtype = /obj/item/circuitboard/machine
+		else if(spawn_selection == "Stock Part")
+			subtype = /obj/item/stock_parts
+		else if(spawn_selection == "Beaker")
+			subtype = /obj/item/reagent_containers/cup/beaker
+		if(subtype)
+			pick_stock_part(user, FALSE, subtype)
 
 /// A bespoke proc for picking a subtype to spawn in a relatively user-friendly way.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/proc/pick_stock_part(mob/user, recurse, subtype)
 	// Sanity check - this should never be called with a null subtype.
-	if(subtype)
-		// Stores a list of pretty type names : actual paths.
-		var/list/items_temp = list()
-		// Grab the initial list of paths, NOT INCLUDING this specific path.
-		var/list/paths = subtypesof(subtype)
-		// Used to remove subtypes-of-subtypes to prevent list bloat.
-		var/list/paths_to_clear = list()
+	if(isnull(subtype))
+		return
+	// Stores a list of pretty type names : actual paths.
+	var/list/items_temp = list()
+	// Grab the initial list of paths, NOT INCLUDING this specific path.
+	var/list/paths = subtypesof(subtype)
+	// Used to remove subtypes-of-subtypes to prevent list bloat.
+	var/list/paths_to_clear = list()
 
-		// Simplistic anti-recursion check. Check every path, then remove every subtype it has from the main list.
-		for(var/path in paths)
-			var/list/path_subtypes = subtypesof(path)
-			for(var/subpath in path_subtypes)
-				if(!(subpath in paths_to_clear))
-					paths_to_clear += subpath
-		for(var/path in paths_to_clear)
-			paths -= path
+	// Simplistic anti-recursion check. Check every path, then remove every subtype it has from the main list.
+	for(var/path in paths)
+		var/list/path_subtypes = subtypesof(path)
+		for(var/subpath in path_subtypes)
+			if(!(subpath in paths_to_clear))
+				paths_to_clear += subpath
+	for(var/path in paths_to_clear)
+		paths -= path
 
-		// With all sub-subtypes removed, initialize the list of valid, spawnable items & their pretty names - and if this is a recursion, include the original subtype.
-		if(recurse)
-			paths += subtype
-		for(var/path in paths)
-			var/obj/path_as_obj = path
-			// Generates a pretty list of item names & paths, including notes for those with subtypes.  When browsing subtypes, the parent won't have the (# more) note added.
-			if(length(subtypesof(path)) > 0)
-				if(path == subtype)
-					items_temp["[initial(path_as_obj.name)]: [path]"] = path
-				else
-					items_temp["[initial(path_as_obj.name)] (+[length(subtypesof(path))] more): [path]"] = path
-			else
+	// With all sub-subtypes removed, initialize the list of valid, spawnable items & their pretty names - and if this is a recursion, include the original subtype.
+	if(recurse)
+		paths += subtype
+	for(var/path in paths)
+		var/obj/path_as_obj = path
+		// Generates a pretty list of item names & paths, including notes for those with subtypes.  When browsing subtypes, the parent won't have the (# more) note added.
+		if(length(subtypesof(path)) > 0)
+			if(path == subtype)
 				items_temp["[initial(path_as_obj.name)]: [path]"] = path
+			else
+				items_temp["[initial(path_as_obj.name)] (+[length(subtypesof(path))] more): [path]"] = path
+		else
+			items_temp["[initial(path_as_obj.name)]: [path]"] = path
 
-		// Finally, once the listed is generated, ask the user what they want to spawn.
-		var/target_item = tgui_input_list(user, "Select Subtype", "RPED Manufacture", sort_list(items_temp))
-		if(target_item)
-			// If they select something, and the name:path binding is valid, then either spawn it, OR, if it has subtypes, and isn't the parent type, recurse to let them pick a subtype.
-			if(items_temp[target_item])
-				var/the_item = items_temp[target_item]
-				if(length(subtypesof(the_item)) > 0 && the_item != subtype)
-					pick_stock_part(user, TRUE, the_item)
-				else
-					for(var/i in 1 to 25)
-						atom_storage.attempt_insert(new the_item(src), user, TRUE)
+	// Finally, once the listed is generated, ask the user what they want to spawn.
+	var/target_item = tgui_input_list(user, "Select Subtype", "RPED Manufacture", sort_list(items_temp))
+	if(target_item)
+		// If they select something, and the name:path binding is valid, then either spawn it, OR, if it has subtypes, and isn't the parent type, recurse to let them pick a subtype.
+		if(items_temp[target_item])
+			var/the_item = items_temp[target_item]
+			if(length(subtypesof(the_item)) > 0 && the_item != subtype)
+				pick_stock_part(user, TRUE, the_item)
+			else
+				for(var/i in 1 to 25)
+					atom_storage.attempt_insert(new the_item(src), user, TRUE)
