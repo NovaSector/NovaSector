@@ -6433,6 +6433,7 @@
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\blackmarket.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\ds2.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\freighter_crew.dm"
+#include "modular_nova\master_files\code\modules\jobs\job_types\spawner\ghost_role.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\ghostcafe.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\interdyne_planetary_base.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\spawner\tarkon.dm"
