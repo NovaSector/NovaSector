@@ -802,11 +802,7 @@
 
 	if(potential_patient.body_position == LYING_DOWN && potential_patient.loc == loc)
 		patient = potential_patient
-		chill_out(patient) // NOVA EDIT - Operation Table Numbing
 		return
-
-	if(!isnull(patient)) // NOVA EDIT - Operation Table Numbing
-		thaw_them(patient) // NOVA EDIT - Operation Table Numbing
 
 	// Find another lying mob as a replacement.
 	for (var/mob/living/carbon/replacement_patient in loc.contents)
