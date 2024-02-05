@@ -118,7 +118,7 @@
 	icon_state = "sleeper-o"
 	you_are_text = "You were tasked by Tarkon Industries to Port Tarkon as a low-level command member. Your superior is the site director."
 	flavour_text = "Second in command, you are usually tasked with outward missions with other Tarkon members while the site director stays at the port. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
-	important_text = "You are not to abandon Port Tarkon without reason. You are allowed to travel within available Z-levels and to the station, and are allowed to hold exploration parties."
+	important_text = "This is Not a job ment for NT-Hired Characters. You are not to abandon Port Tarkon without reason. You are allowed to travel within available Z-levels and to the station, and are allowed to hold exploration parties."
 	outfit = /datum/outfit/tarkon/ensign
 	spawner_job_path = /datum/job/tarkon
 
@@ -137,7 +137,7 @@
 	icon_state = "sleeper"
 	you_are_text = "You are a newly assigned Site Director for Port Tarkon. Your superiors are none except the will of yourself and Tarkon Industries."
 	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked with overlooking your crew and keeping the port up and running. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
-	important_text = "You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
+	important_text = "This is Not a job ment for NT-Hired Characters. You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
 	outfit = /datum/outfit/tarkon/director
 	spawner_job_path = /datum/job/tarkon
 	loadout_enabled = TRUE
