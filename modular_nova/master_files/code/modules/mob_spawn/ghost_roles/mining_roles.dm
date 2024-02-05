@@ -106,6 +106,7 @@
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/healthanalyzer/simple/disease=1,
 	)
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
@@ -134,6 +135,7 @@
 	ears = /obj/item/radio/headset/interdyne
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/healthanalyzer/simple/disease=1,
 		/obj/item/clothing/suit/toggle/labcoat/interdyne=1,
 	)
@@ -146,6 +148,7 @@
 	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
+		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/flashlight/seclite=1,
 		/obj/item/knife/combat/survival=1,
 		/obj/item/mining_voucher=1,
