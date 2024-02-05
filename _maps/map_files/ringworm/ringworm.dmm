@@ -52963,7 +52963,6 @@
 "pSK" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
-	on = 0;
 	pixel_x = -5;
 	pixel_y = 13
 	},
