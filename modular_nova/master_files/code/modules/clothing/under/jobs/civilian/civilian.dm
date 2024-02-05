@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/civilian
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi' //Anything that was in TG's civilian.dmi, should be in our civilian_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
 
 /obj/item/clothing/under/rank/civilian/lawyer // Lawyers' suits are in TG's suits.dmi
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
