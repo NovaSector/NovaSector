@@ -175,8 +175,6 @@
 		return FALSE
 	if(isspaceturf(get_turf(user)))
 		return FALSE
-	if(user.buckled)
-		return FALSE
 	else
 		return TRUE
 
