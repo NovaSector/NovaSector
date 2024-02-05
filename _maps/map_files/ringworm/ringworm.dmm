@@ -22888,20 +22888,6 @@
 "gWR" = (
 /turf/open/openspace,
 /area/station/engineering/atmos/office)
-"gWV" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 8;
-	id = "hop";
-	name = "Privacy Shutters"
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "hopqueue";
-	name = "HoP Queue Shutters"
-	},
-/turf/open/floor/plating,
-/area/station/command/heads_quarters/hop)
 "gWY" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -27736,6 +27722,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/ticket_machine/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
 "isp" = (
@@ -47003,11 +46990,18 @@
 /turf/open/openspace,
 /area/station/science/xenobiology)
 "oaD" = (
-/obj/structure/hedge,
-/obj/structure/window/reinforced/fulltile,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "hopqueue";
 	name = "HoP Queue Shutters"
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/pen{
+	pixel_x = -2;
+	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/hop)
@@ -62859,7 +62853,6 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/obj/machinery/ticket_machine/directional/west,
 /obj/effect/turf_decal/tile/blue/half,
 /turf/open/floor/iron/half,
 /area/station/command/heads_quarters/hop)
@@ -73606,15 +73599,15 @@
 	pixel_x = -6;
 	pixel_y = 7
 	},
-/obj/item/pen{
-	pixel_x = -6;
-	pixel_y = 7
-	},
 /obj/machinery/recharger{
 	pixel_x = 7;
 	pixel_y = 2
 	},
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/item/pen/fourcolor{
+	pixel_x = -6;
+	pixel_y = 7
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
 "weT" = (
@@ -176803,7 +176796,7 @@ esW
 eqy
 mKS
 weR
-gWV
+eqy
 iuq
 sBE
 jED
