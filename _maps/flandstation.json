@@ -4,7 +4,7 @@
 	"map_path": "map_files/Flandstation",
 	"map_file": "FlandStation.dmm",
 	"shuttles": {
-		"cargo": "cargo_skyrat",
+		"cargo": "cargo_nova",
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_fland",
 		"emergency": "emergency_fland"
