@@ -385,7 +385,6 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/wood/tile,
 /area/shuttle/abandoned)
 "yM" = (
