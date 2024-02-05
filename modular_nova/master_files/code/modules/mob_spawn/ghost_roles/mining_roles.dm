@@ -55,6 +55,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
 	prompt_name = "an Interdyne bioweapon scientist"
+	computer_area = /area/ruin/interdyne_planetary_base/cargo
 	you_are_text = "You are a science technician employed in an Interdyne research facility developing biological weapons."
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains. A cargo ferry is docked at the rear of your ship and can be used for trade with both factions. Continue your research as best you can, and try to keep out of trouble."
 	outfit = /datum/outfit/interdyne_planetary_base
@@ -69,7 +70,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/ice
 	outfit = /datum/outfit/interdyne_planetary_base/ice
-	interdyne_planetary_base_icebox
+	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
@@ -81,6 +82,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/ice
+	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 
@@ -91,6 +93,7 @@
 	outfit = /datum/outfit/interdyne_planetary_base/shaftminer/deckofficer
 
 /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice
+	computer_area = /area/ruin/interdyne_planetary_base/main/dorms
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains, but their starship has left the system, leaving our quantum pad without a purpose. Continue your research as best you can, and try to keep out of trouble."
 	spawner_job_path = /datum/job/interdyne_planetary_base_icebox
 

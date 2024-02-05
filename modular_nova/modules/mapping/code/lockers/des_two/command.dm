@@ -118,3 +118,4 @@
 	new /obj/item/binoculars(src)
 	new /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_white(src)
 	new /obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer(src)
+	new /obj/item/modular_computer/pda/chameleon(src)
