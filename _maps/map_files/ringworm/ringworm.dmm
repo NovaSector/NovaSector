@@ -13425,9 +13425,6 @@
 /obj/structure/table/glass,
 /obj/effect/spawner/random/medical/minor_healing,
 /obj/effect/spawner/random/medical/minor_healing,
-/obj/item/clothing/mask/breath/anesthetic{
-	pixel_y = -12
-	},
 /turf/open/floor/iron/dark/small,
 /area/station/medical/surgery/theatre)
 "eeA" = (
@@ -28982,9 +28979,6 @@
 	dir = 4
 	},
 /obj/item/tank/internals/anesthetic,
-/obj/item/clothing/mask/breath/anesthetic{
-	pixel_y = 6
-	},
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -52029,9 +52023,6 @@
 /obj/item/stack/sticky_tape/surgical,
 /obj/item/stack/medical/bone_gel,
 /obj/item/tank/internals/anesthetic,
-/obj/item/clothing/mask/breath/anesthetic{
-	pixel_y = 6
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/surgery/fore)
 "pCG" = (
@@ -64487,9 +64478,6 @@
 "tqs" = (
 /obj/structure/table/glass,
 /obj/effect/spawner/random/medical/medkit,
-/obj/item/clothing/mask/breath/anesthetic{
-	pixel_y = -12
-	},
 /obj/item/clothing/neck/stethoscope{
 	pixel_y = 4
 	},
