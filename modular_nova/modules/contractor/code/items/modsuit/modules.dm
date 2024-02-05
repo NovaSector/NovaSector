@@ -22,12 +22,6 @@
 		return
 	balloon_alert(user, "[attacking_item] inserted")
 	eaten_baton = TRUE
-	for(var/obj/item/melee/baton/telescopic/contractor_baton/device_baton as anything in src)
-		for(var/obj/item/baton_upgrade/original_upgrade in attacking_item)
-			var/obj/item/baton_upgrade/new_upgrade = new original_upgrade.type(device_baton)
-			device_baton.add_upgrade(new_upgrade)
-		for(var/obj/item/restraints/handcuffs/cable/baton_cuffs in attacking_item)
-			baton_cuffs.forceMove(device_baton)
 	qdel(attacking_item)
 
 /obj/item/mod/module/baton_holster/on_activation()
@@ -38,9 +32,6 @@
 
 /obj/item/mod/module/baton_holster/preloaded
 	eaten_baton = TRUE
-
-/obj/item/mod/module/baton_holster/preloaded/upgraded
-	device = /obj/item/melee/baton/telescopic/contractor_baton/upgraded
 
 /obj/item/mod/module/chameleon/contractor // zero complexity module to match pre-TGification
 	removable = FALSE
