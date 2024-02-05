@@ -255,7 +255,6 @@
 	greyscale_config_worn = /datum/greyscale_config/crop_jacket/worn
 	greyscale_colors = "#ebebeb#a52f29#292929"
 	body_parts_covered = CHEST|ARMS
-	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
