@@ -802,11 +802,7 @@
 
 	if(potential_patient.body_position == LYING_DOWN && potential_patient.loc == loc)
 		patient = potential_patient
-		chill_out(patient) // NOVA EDIT - Operation Table Numbing
 		return
-
-	if(!isnull(patient)) // NOVA EDIT - Operation Table Numbing
-		thaw_them(patient) // NOVA EDIT - Operation Table Numbing
 
 	// Find another lying mob as a replacement.
 	for (var/mob/living/carbon/replacement_patient in loc.contents)
@@ -828,6 +824,11 @@
 	anchored = TRUE
 	pass_flags_self = LETPASSTHROW //You can throw objects over this, despite it's density.
 	max_integrity = 20
+
+/obj/structure/rack/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
+	AddElement(/datum/element/elevation, pixel_shift = 12)
 
 /obj/structure/rack/examine(mob/user)
 	. = ..()

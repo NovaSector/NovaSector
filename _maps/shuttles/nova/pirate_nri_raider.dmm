@@ -599,9 +599,6 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/pirate/nri)
-"wb" = (
-/turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
 "wh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -890,10 +887,13 @@
 /area/shuttle/pirate/nri)
 "Gh" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/item/storage/box/ammo_box/shotgun_12g,
-/obj/item/storage/box/ammo_box/shotgun_12g,
-/obj/item/storage/box/ammo_box/shotgun_12g,
 /obj/structure/rack/shelf,
+/obj/item/ammo_box/advanced/s12gauge/bean,
+/obj/item/ammo_box/advanced/s12gauge/bean,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/rubber,
+/obj/item/ammo_box/advanced/s12gauge/rubber,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
 "GO" = (
@@ -1259,12 +1259,6 @@
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/pirate/nri)
-"Ui" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/pod/dark,
-/area/shuttle/pirate/nri)
 "UO" = (
 /obj/structure/closet/crate/freezer/blood{
 	anchored = 1
@@ -1546,7 +1540,7 @@ iC
 iC
 IY
 Hz
-Ui
+HV
 kQ
 rp
 sK
@@ -1611,8 +1605,8 @@ Hz
 (12,1,1) = {"
 Hz
 Gh
-wb
-wb
+qp
+qp
 wM
 kb
 wQ
@@ -1621,14 +1615,14 @@ Nu
 IT
 HO
 IT
-wb
-wb
+qp
+qp
 Hz
 "}
 (13,1,1) = {"
 Hz
 fB
-wb
+qp
 JB
 Hz
 rd
@@ -1638,14 +1632,14 @@ wT
 be
 Hz
 Bw
-wb
+qp
 DL
 Hz
 "}
 (14,1,1) = {"
 Hz
 Hh
-wb
+qp
 Ci
 Hz
 tk
@@ -1655,7 +1649,7 @@ od
 tk
 Hz
 bE
-wb
+qp
 pg
 Hz
 "}
@@ -1735,7 +1729,7 @@ xp
 Hz
 zJ
 xX
-wb
+qp
 qz
 Qg
 Hz
@@ -1752,7 +1746,7 @@ IT
 Hz
 LA
 ui
-wb
+qp
 VN
 mJ
 Hz

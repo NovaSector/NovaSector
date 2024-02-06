@@ -496,19 +496,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
-"bA" = (
-/obj/structure/cable,
-/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne{
-	onstation = 0
-	},
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main/dorms)
-"bB" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
 "bC" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "interdynecargoout"
@@ -639,12 +626,6 @@
 /obj/effect/turf_decal/box/white,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
-"bP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/duct,
-/turf/open/floor/iron/diagonal,
-/area/ruin/interdyne_planetary_base/cargo)
 "bQ" = (
 /obj/structure/railing{
 	dir = 4
@@ -730,12 +711,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/cargo)
-"bZ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/duct,
-/turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "ca" = (
 /obj/structure/railing{
@@ -854,13 +829,6 @@
 /obj/effect/turf_decal/box/white,
 /obj/structure/rack/shelf,
 /obj/item/construction/rcd/loaded/interdyne,
-/turf/open/floor/iron/diagonal,
-/area/ruin/interdyne_planetary_base/cargo)
-"cn" = (
-/obj/structure/railing,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/duct,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "co" = (
@@ -986,16 +954,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
-"cF" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/machinery/duct,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/cargo)
 "cG" = (
 /obj/machinery/firealarm/directional/south{
 	dir = 1
@@ -1012,41 +970,6 @@
 	},
 /obj/structure/closet/crate/engineering,
 /obj/item/storage/inflatable,
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/cargo)
-"cH" = (
-/obj/effect/turf_decal/box/red/corners,
-/obj/effect/turf_decal/box/red/corners{
-	dir = 8
-	},
-/obj/structure/closet/crate/secure/gear{
-	desc = "A secure gear crate, with the Syndicate logo on it.";
-	icon_state = "syndicrate";
-	base_icon_state = "syndicrate";
-	req_access = list("syndicate")
-	},
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
-/obj/item/clothing/mask/gas/syndicate,
-/obj/item/clothing/mask/gas/syndicate,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/gloves/combat,
-/obj/effect/turf_decal/siding/brown{
-	dir = 1
-	},
-/obj/item/card/id/advanced/chameleon/black,
-/obj/item/card/id/advanced/chameleon/black,
-/obj/item/card/id/advanced/chameleon/black,
-/obj/item/radio/headset/interdyne/green,
-/obj/item/radio/headset/interdyne/green,
-/obj/item/radio/headset/interdyne/green,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "cI" = (
@@ -4553,16 +4476,6 @@
 "lv" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"lw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/bed/double{
-	dir = 1
-	},
-/obj/item/bedsheet/random/double{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "lx" = (
 /obj/structure/dresser,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -7003,11 +6916,27 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"rG" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
 "rN" = (
 /turf/closed/wall/r_wall/syndicate{
 	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
 	},
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"sL" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/duct,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
 "sZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/white/line{
@@ -7038,16 +6967,6 @@
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/science/xeno)
-"tZ" = (
-/obj/structure/pod,
-/obj/effect/supplypod_rubble,
-/obj/effect/turf_decal/weather/snow{
-	layer = 3
-	},
-/turf/open/floor/plating/reinforced{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
-/area/icemoon/underground/explored)
 "ua" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 5;
@@ -7064,9 +6983,21 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"uJ" = (
-/obj/structure/pod,
+"vo" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/duct,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
+"vH" = (
 /obj/effect/supplypod_rubble,
+/obj/effect/turf_decal/weather/snow{
+	layer = 3
+	},
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
@@ -7150,6 +7081,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"AE" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/duct,
+/turf/open/floor/iron/diagonal,
+/area/ruin/interdyne_planetary_base/cargo)
 "AG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7175,6 +7112,16 @@
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
+"Bx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/bed/double{
+	dir = 1
+	},
+/obj/item/bedsheet/random/double{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "BG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -7328,6 +7275,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"IN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
+/turf/open/floor/iron/diagonal,
+/area/ruin/interdyne_planetary_base/cargo)
 "JE" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Wing";
@@ -7476,6 +7429,19 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"PD" = (
+/obj/structure/railing,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/duct,
+/turf/open/floor/iron/diagonal,
+/area/ruin/interdyne_planetary_base/cargo)
+"PJ" = (
+/obj/effect/supplypod_rubble,
+/turf/open/floor/plating/reinforced{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/icemoon/underground/explored)
 "QK" = (
 /obj/structure/railing{
 	dir = 10
@@ -7494,15 +7460,47 @@
 /obj/structure/sign/warning/radiation/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
-"TD" = (
-/obj/effect/turf_decal/siding/thinplating{
+"Sp" = (
+/obj/structure/cable,
+/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne{
+	onstation = 0
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/dorms)
+"Sq" = (
+/obj/effect/turf_decal/box/red/corners,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/obj/structure/closet/crate/secure/gear{
+	desc = "A secure gear crate, with the Syndicate logo on it.";
+	icon_state = "syndicrate";
+	base_icon_state = "syndicrate";
+	req_access = list("syndicate")
+	},
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/gloves/combat,
+/obj/effect/turf_decal/siding/brown{
 	dir = 1
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/duct,
-/turf/open/floor/iron/dark/textured_large,
+/obj/item/card/id/advanced/chameleon/black,
+/obj/item/card/id/advanced/chameleon/black,
+/obj/item/card/id/advanced/chameleon/black,
+/obj/item/radio/headset/interdyne/green,
+/obj/item/radio/headset/interdyne/green,
+/obj/item/radio/headset/interdyne/green,
+/turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "Ur" = (
 /obj/effect/turf_decal/stripes/line{
@@ -8099,7 +8097,7 @@ jV
 kw
 kO
 qs
-lw
+Bx
 lR
 mh
 mv
@@ -8107,7 +8105,7 @@ AG
 no
 mh
 og
-lw
+Bx
 rc
 ab
 ab
@@ -8276,7 +8274,7 @@ kb
 kx
 kP
 lv
-lw
+Bx
 lR
 mh
 mw
@@ -8284,7 +8282,7 @@ nJ
 np
 mh
 og
-lw
+Bx
 lv
 ab
 ab
@@ -8453,7 +8451,7 @@ kd
 kd
 kS
 lv
-lw
+Bx
 lR
 mh
 mx
@@ -8461,7 +8459,7 @@ nJ
 nq
 mh
 og
-lw
+Bx
 lv
 ab
 ab
@@ -8630,7 +8628,7 @@ kf
 kp
 kU
 lv
-lw
+Bx
 lR
 mh
 mC
@@ -8638,7 +8636,7 @@ nJ
 nr
 mh
 og
-lw
+Bx
 lv
 ab
 ab
@@ -8930,7 +8928,7 @@ lU
 lU
 lU
 lU
-bA
+Sp
 nP
 oi
 oT
@@ -9074,10 +9072,10 @@ qS
 aG
 bl
 bz
-bP
-bZ
-cn
-TD
+AE
+IN
+PD
+sL
 db
 cT
 dn
@@ -9136,7 +9134,7 @@ bN
 bQ
 ca
 co
-cF
+vo
 dg
 bU
 du
@@ -9191,10 +9189,10 @@ Ak
 aG
 aG
 bV
-bB
-bB
-bB
-bB
+rG
+rG
+rG
+rG
 cI
 dh
 cV
@@ -9314,7 +9312,7 @@ bR
 cc
 bm
 cP
-cH
+Sq
 mK
 dC
 dV
@@ -9841,7 +9839,7 @@ CW
 rF
 rF
 rF
-uJ
+PJ
 rF
 GW
 rF
@@ -10014,12 +10012,12 @@ ab
 ab
 xc
 LM
-uJ
+PJ
 rF
 rF
 rF
 LM
-tZ
+vH
 LM
 LM
 BG
