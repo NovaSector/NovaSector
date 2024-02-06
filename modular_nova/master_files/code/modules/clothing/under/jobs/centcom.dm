@@ -2,7 +2,7 @@
 //Try to keep them all a subtype of centcom/nova, for file sorting and balance - all faction representatives should have the same/similarly armored uniforms
 
 /obj/item/clothing/under/rank/centcom
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/centcom_digi.dmi'	// Anything that was in the rnd.dmi, should be in the rnd_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/centcom_digi.dmi'
 
 /obj/item/clothing/under/rank/centcom/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/centcom.dmi'

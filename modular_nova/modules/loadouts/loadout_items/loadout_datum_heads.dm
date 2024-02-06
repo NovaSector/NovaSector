@@ -425,6 +425,18 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Blastwave Peaked Cap"
 	item_path = /obj/item/clothing/head/blastwave/officer
 
+/datum/loadout_item/head/chap_nunh
+	name = "Nun's Hood"
+	item_path = /obj/item/clothing/head/chaplain/nun_hood
+
+/datum/loadout_item/head/chap_kippah
+	name = "Jewish Kippah"
+	item_path = /obj/item/clothing/head/chaplain/kippah
+
+/datum/loadout_item/head/chap_nunv
+	name = "Nun's Veil"
+	item_path = /obj/item/clothing/head/chaplain/habit_veil
+
 /*
 *	COWBOY
 */
