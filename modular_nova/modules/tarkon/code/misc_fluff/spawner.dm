@@ -186,7 +186,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
 	max_integrity = 500
-	max_mobs = 8
+	max_mobs = 4
 	spawn_time = 30 SECONDS
 	mob_types = list(
 		/mob/living/simple_animal/hostile/alien,
@@ -237,8 +237,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
 	max_integrity = 300
-	max_mobs = 3
-	spawn_time = 20 SECONDS
+	max_mobs = 2
+	spawn_time = 40 SECONDS
 	boss_mob = /mob/living/simple_animal/hostile/alien/queen
 	loot_drop = /obj/effect/spawner/random/astrum/sci_loot/tarkon
 
@@ -248,8 +248,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
 	max_integrity = 150
-	max_mobs = 2
-	spawn_time = 20 SECONDS
+	max_mobs = 1
+	spawn_time = 40 SECONDS
 	mob_types = list(
 		/mob/living/simple_animal/hostile/alien,
 		/mob/living/simple_animal/hostile/alien/drone
