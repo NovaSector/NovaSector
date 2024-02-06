@@ -14596,6 +14596,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron,
 /area/station/command/corporate_showroom)
 "eTK" = (
@@ -19138,11 +19139,6 @@
 /turf/open/floor/iron/checker,
 /area/station/maintenance/abandon_cafeteria)
 "glq" = (
-/obj/structure/sign/map/left{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-left-fland";
-	pixel_y = 32
-	},
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -24264,15 +24260,9 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "hVC" = (
-/obj/structure/sign/map/left{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-left-fland";
-	pixel_y = 32
-	},
-/turf/open/floor/iron/dark/side{
-	dir = 1
-	},
-/area/station/hallway/primary/central)
+/obj/structure/sign/map/right,
+/turf/closed/wall,
+/area/station/maintenance/port)
 "hVO" = (
 /obj/machinery/airalarm/directional/west{
 	pixel_x = -22
@@ -24463,13 +24453,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "hZG" = (
-/obj/structure/sign/map/left{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-left-fland";
-	pixel_y = 32
-	},
-/turf/open/floor/iron/dark,
-/area/station/hallway/primary/starboard)
+/obj/structure/sign/map/left,
+/turf/closed/wall/r_wall,
+/area/station/ai_monitored/turret_protected/aisat_interior)
 "hZI" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -34274,13 +34260,9 @@
 	},
 /area/station/hallway/secondary/service)
 "llb" = (
-/obj/structure/sign/map/right{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-right-fland";
-	pixel_y = 32
-	},
-/turf/open/floor/iron/dark,
-/area/station/hallway/primary/starboard)
+/obj/structure/sign/map/left,
+/turf/closed/wall/r_wall,
+/area/station/security/medical)
 "lle" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/delivery,
@@ -36779,6 +36761,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron,
 /area/station/command/corporate_showroom)
 "mbH" = (
@@ -50078,17 +50061,9 @@
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/tcommsat/server)
 "que" = (
-/obj/structure/sign/map/right{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-right-fland";
-	pixel_y = 32
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
+/obj/structure/sign/map/right,
+/turf/closed/wall/r_wall,
+/area/station/security/medical)
 "quf" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
@@ -56301,11 +56276,6 @@
 /area/station/hallway/primary/central)
 "srg" = (
 /obj/machinery/light/directional/north,
-/obj/structure/sign/map/right{
-	desc = "A framed detailed picture of the station. there's even the permanent prison wing in the bottom left!";
-	icon_state = "map-right-fland";
-	pixel_y = 32
-	},
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -58686,6 +58656,7 @@
 	name = "Corporate Showroom"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron,
 /area/station/command/corporate_showroom)
 "tfM" = (
@@ -67639,6 +67610,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron,
 /area/station/command/corporate_showroom)
 "vTc" = (
@@ -68780,6 +68752,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/station/maintenance/port)
+"wou" = (
+/obj/structure/sign/map/right,
+/turf/closed/wall/r_wall,
+/area/station/ai_monitored/turret_protected/aisat_interior)
 "wov" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -74668,6 +74644,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/escape)
 "xTE" = (
+/obj/structure/sign/map/left,
 /turf/closed/wall/r_wall,
 /area/station/maintenance/port)
 "xTG" = (
@@ -95024,8 +95001,8 @@ wxd
 tov
 bic
 xdR
-wxd
-que
+hVC
+tXu
 jZS
 bfn
 jBr
@@ -111982,8 +111959,8 @@ nVS
 fGZ
 nWQ
 eyt
-nOg
-hVC
+llb
+tpC
 vHQ
 ryP
 bCR
@@ -112239,7 +112216,7 @@ nVS
 pTk
 oLv
 cMy
-nOg
+que
 srg
 vHQ
 xZk
@@ -126333,8 +126310,8 @@ kMN
 gVx
 wDK
 hyZ
-sEU
 hZG
+taC
 dLx
 lSU
 xTa
@@ -126590,8 +126567,8 @@ iyP
 gBs
 hfN
 nfz
-sEU
-llb
+wou
+taC
 dLx
 ioe
 joS
