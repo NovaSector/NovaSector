@@ -139,6 +139,9 @@
 		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 5,
 		/obj/item/clothing/gloves/combat = 3,
 		/obj/item/clothing/gloves/latex/nitrile = 3,
+		/obj/item/clothing/under/syndicate/nova/maid = 5,
+		/obj/item/clothing/gloves/combat/maid = 5,
+		/obj/item/clothing/head/costume/maidheadband/syndicate = 5,
 		/obj/item/storage/box/nif_ghost_box/ghost_role = 8,
 	)
 

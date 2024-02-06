@@ -108,9 +108,6 @@
 	req_access = list("syndicate_leader");
 	icon_door = "qm"
 	},
-/obj/item/clothing/neck/cloak/qm/nova/interdyne,
-/obj/item/clothing/under/rank/cargo/qm/nova/interdyne,
-/obj/item/circuitboard/computer/advanced_camera,
 /obj/item/megaphone/cargo,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/ammo_box/magazine/m9mm{
@@ -118,7 +115,6 @@
 	pixel_y = -1
 	},
 /obj/item/gun/ballistic/automatic/pistol,
-/obj/item/stamp/syndicate,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
@@ -2615,6 +2611,9 @@
 /obj/item/mmi/posibrain/syndie/interdyne,
 /obj/item/storage/box/beakers/bluespace,
 /obj/structure/table/glass/plasmaglass,
+/obj/item/storage/part_replacer/bluespace{
+	pixel_y = -12
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "gJ" = (
@@ -2707,17 +2706,8 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gU" = (
-/obj/structure/filingcabinet{
-	dir = 4;
-	layer = 3.01;
-	pixel_x = 11;
-	pixel_y = 16
-	},
 /obj/machinery/computer/crew/syndie{
-	dir = 8;
-	pixel_x = -6;
-	pixel_y = 16;
-	layer = 3.01
+	dir = 8
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)

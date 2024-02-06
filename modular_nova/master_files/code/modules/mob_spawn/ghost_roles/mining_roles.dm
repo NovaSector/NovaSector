@@ -55,7 +55,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
 	prompt_name = "an Interdyne bioweapon scientist"
-	computer_area = /area/ruin/interdyne_planetary_base/cargo
+	computer_area = /area/ruin/interdyne_planetary_base/main
 	you_are_text = "You are a science technician employed in an Interdyne research facility developing biological weapons."
 	flavour_text = "Interdyne middle management has relayed that Nanotrasen is actively mining in this sector. A deal with the Syndicate remains. A cargo ferry is docked at the rear of your ship and can be used for trade with both factions. Continue your research as best you can, and try to keep out of trouble."
 	outfit = /datum/outfit/interdyne_planetary_base
