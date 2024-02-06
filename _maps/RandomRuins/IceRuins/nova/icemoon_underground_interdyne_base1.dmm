@@ -7052,7 +7052,6 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "tZ" = (
-/obj/structure/pod,
 /obj/effect/supplypod_rubble,
 /obj/effect/turf_decal/weather/snow{
 	layer = 3
@@ -7078,7 +7077,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "uJ" = (
-/obj/structure/pod,
 /obj/effect/supplypod_rubble,
 /turf/open/floor/plating/reinforced{
 	initial_gas_mix = "ICEMOON_ATMOS"
