@@ -2375,11 +2375,6 @@
 /obj/item/circular_saw/alien,
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
-"JQ" = (
-/obj/structure/alien/weeds,
-/obj/item/crowbar/freeman,
-/turf/open/floor/mineral/abductor,
-/area/awaymission/mothership_astrum/halls)
 "JR" = (
 /obj/structure/table,
 /obj/item/reagent_containers/condiment/peppermill{
@@ -38786,7 +38781,7 @@ On
 ad
 AZ
 TY
-JQ
+ud
 bV
 bV
 bV
