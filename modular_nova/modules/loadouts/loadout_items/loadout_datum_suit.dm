@@ -736,3 +736,31 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/heart_sweater
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
+
+/*
+*	CHAPLAIN
+*/
+
+/datum/loadout_item/suit/chap_nun
+	name = "Nun's Habit"
+	item_path = /obj/item/clothing/suit/chaplainsuit/nun
+
+/datum/loadout_item/suit/chap_holiday
+	name = "Chaplain's Holiday Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest
+
+/datum/loadout_item/suit/chap_brownmonk
+	name = "Monk's Brown Habit"
+	item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
+
+/datum/loadout_item/suit/chap_eastmonk
+	name = "Eastern Monk's Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast
+
+/datum/loadout_item/suit/chap_shrinehand
+	name = "Shrinehand Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand
+
+/datum/loadout_item/suit/chap_blackmonk
+	name = "Monk's Black Habit"
+	item_path = /obj/item/clothing/suit/chaplainsuit/habit
