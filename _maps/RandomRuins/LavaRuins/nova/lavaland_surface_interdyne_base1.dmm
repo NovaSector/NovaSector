@@ -1247,6 +1247,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
+"kt" = (
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "kv" = (
 /obj/structure/table,
 /obj/item/flashlight,
@@ -3008,10 +3012,6 @@
 /obj/structure/railing/corner/end/flip,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
-"Ay" = (
-/obj/machinery/light_switch/directional/north,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "Az" = (
 /obj/machinery/door/window/survival_pod{
 	req_access = list("syndicate")
@@ -3401,10 +3401,6 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
-"Dm" = (
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "Dn" = (
 /obj/effect/turf_decal/tile/dark_green,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -6184,8 +6180,9 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "ZZ" = (
-/turf/open/floor/iron/freezer,
-/area/ruin/interdyne_planetary_base/serv/rstrm)
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 
 (1,1,1) = {"
 lU
@@ -6485,9 +6482,9 @@ fm
 By
 By
 IH
-Dm
+ZZ
 By
-Ay
+kt
 iS
 xq
 SH
@@ -7571,7 +7568,7 @@ Zc
 Ek
 GU
 Pi
-ZZ
+OF
 OH
 DZ
 fm
