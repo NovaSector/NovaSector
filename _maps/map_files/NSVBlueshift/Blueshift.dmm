@@ -54713,7 +54713,6 @@
 /area/station/medical/medbay/central)
 "ksK" = (
 /obj/machinery/door/airlock{
-	id_tag = "commissarydoor";
 	name = "Forge"
 	},
 /obj/structure/cable,
