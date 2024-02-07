@@ -38,6 +38,7 @@
 	mind.active = TRUE
 	mind.transfer_to(operative)
 	mind.add_antag_datum(/datum/antagonist/contractor)
+	mind.handle_exploitables()
 
 	message_admins("[ADMIN_LOOKUPFLW(operative)] has been made into [src] by an event.")
 	log_game("[key_name(operative)] was spawned as a [src] by an event.")
