@@ -807,7 +807,7 @@
 // Donation reward for CandleJax
 /obj/item/clothing/mask/gas/CMCP_mask
 	name = "\improper CMCP 'Oni' Faceplate"
-	desc = "A modular faceplate mount. Meant to be attached to field platforms."
+	desc = "A modular faceplate mount. Typically meant to be attached to field platforms."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	icon_state = "yoni"
