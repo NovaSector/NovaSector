@@ -3,7 +3,6 @@
 /turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "bI" = (
-/obj/item/kirbyplants/random,
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
@@ -230,6 +229,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "Dg" = (
