@@ -1236,6 +1236,10 @@
 	dir = 4
 	},
 /area/ruin/interdyne_planetary_base/main)
+"kn" = (
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "ko" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -2288,6 +2292,9 @@
 /area/ruin/interdyne_planetary_base/med/pharm)
 "tX" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("intd13")
+	},
 /turf/open/floor/engine/bz,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ud" = (
@@ -2933,10 +2940,6 @@
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "zW" = (
 /obj/structure/displaycase/trophy,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
-"zY" = (
-/obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "Ab" = (
@@ -3862,6 +3865,12 @@
 /area/ruin/interdyne_planetary_base)
 "GN" = (
 /obj/structure/table/reinforced/rglass,
+/obj/machinery/reagentgrinder{
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 5
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "GP" = (
@@ -6474,7 +6483,7 @@ By
 IH
 ZZ
 By
-zY
+kn
 iS
 xq
 SH
