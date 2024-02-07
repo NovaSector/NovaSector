@@ -1236,21 +1236,11 @@
 	dir = 4
 	},
 /area/ruin/interdyne_planetary_base/main)
-"kn" = (
-/obj/effect/turf_decal/stripes/full,
-/obj/structure/marker_beacon/lime,
-/obj/structure/lattice/catwalk/mining,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
 "ko" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
-"kt" = (
-/obj/machinery/light_switch/directional/north,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
 "kv" = (
 /obj/structure/table,
 /obj/item/flashlight,
@@ -2946,9 +2936,9 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "zY" = (
-/obj/structure/lattice/catwalk,
-/turf/open/floor/plating/lavaland_atmos,
-/area/lavaland/surface/outdoors)
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "Ab" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan,
 /turf/open/floor/iron/dark/smooth_large,
@@ -4993,7 +4983,7 @@
 	faction = list("Syndicate","neutral")
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ruin/interdyne_planetary_base/science/xeno)
+/area/ruin/interdyne_planetary_base)
 "QR" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/syndicate_access,
@@ -6421,7 +6411,7 @@ je
 je
 je
 QD
-zY
+DT
 fm
 ja
 ja
@@ -6462,7 +6452,7 @@ KS
 tX
 Om
 je
-kn
+Qf
 fm
 ja
 ja
@@ -6484,7 +6474,7 @@ By
 IH
 ZZ
 By
-kt
+zY
 iS
 xq
 SH
@@ -6954,7 +6944,7 @@ Dx
 Dx
 Dx
 BA
-kn
+Qf
 fm
 fm
 ja
