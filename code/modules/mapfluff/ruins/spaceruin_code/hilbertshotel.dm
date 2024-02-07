@@ -9,7 +9,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	var/list/static/hotel_maps = list("Generic", "Apartment")
+	var/list/static/hotel_maps = list("Generic", "Apartment", "Beach Condo")
 	//standart - hilber's hotel room
 	//apartment - see /datum/map_template/ghost_cafe_rooms
 	var/datum/map_template/ghost_cafe_rooms/ghost_cafe_rooms_apartment
@@ -177,6 +177,8 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		load_from = hotelRoomTempLore
 	//NOVA EDIT ADDITION START - GHOST HOTEL UPDATE
 	else if(chosen_room == "Apartment")
+		load_from = ghost_cafe_rooms_apartment
+	else if(chosen_room == "Beach Condo")
 		load_from = ghost_cafe_rooms_apartment
 	//NOVA EDIT ADDITION END
 

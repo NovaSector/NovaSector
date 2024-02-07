@@ -130,6 +130,7 @@
 "gQ" = (
 /obj/structure/chair/sofa/corp/corner,
 /obj/machinery/light/warm/directional/east,
+/obj/item/toy/plush/nova/breakdancing_bird,
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "ho" = (
@@ -350,7 +351,7 @@
 	},
 /area/misc/hilbertshotel)
 "Ib" = (
-/obj/item/toy/plush/skyrat/breakdancing_bird,
+/obj/effect/spawner/xmastree,
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "Ix" = (
@@ -753,7 +754,7 @@ LC
 wu
 wu
 RP
-RP
+Ib
 WN
 aS
 aS
@@ -769,7 +770,7 @@ oZ
 Gv
 RP
 bz
-Ib
+RP
 RP
 xT
 aS
