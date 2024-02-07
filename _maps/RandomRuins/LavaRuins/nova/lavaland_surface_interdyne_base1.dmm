@@ -400,6 +400,7 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "dz" = (
@@ -3007,6 +3008,10 @@
 /obj/structure/railing/corner/end/flip,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
+"Ay" = (
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "Az" = (
 /obj/machinery/door/window/survival_pod{
 	req_access = list("syndicate")
@@ -3287,6 +3292,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "Cv" = (
@@ -3395,6 +3401,10 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
+"Dm" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "Dn" = (
 /obj/effect/turf_decal/tile/dark_green,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -3636,6 +3646,7 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "EK" = (
@@ -4100,6 +4111,7 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "IS" = (
@@ -4867,6 +4879,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "Px" = (
@@ -6096,6 +6109,7 @@
 "ZB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "ZE" = (
@@ -6471,9 +6485,9 @@ fm
 By
 By
 IH
-Wa
+Dm
 By
-Wa
+Ay
 iS
 xq
 SH
