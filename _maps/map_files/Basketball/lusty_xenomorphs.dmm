@@ -287,11 +287,6 @@
 /turf/closed/indestructible/fakeglass,
 /area/centcom/basketball)
 "zZ" = (
-<<<<<<< HEAD
-/obj/effect/mapping_helpers/damaged_window,
-/obj/structure/window/reinforced/fulltile,
-=======
->>>>>>> 084f56938c0 ([MDB IGNORE] Adds a map lint against using dir-var and icon-var edited windoors (#81272))
 /obj/effect/particle_effect/water/extinguisher/stomach_acid,
 /obj/machinery/door/poddoor/preopen{
 	id = null;
@@ -481,17 +476,7 @@
 /obj/effect/landmark/basketball/team_spawn/home,
 /turf/open/floor/engine,
 /area/centcom/basketball)
-<<<<<<< HEAD
-"PU" = (
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/engine,
-/area/centcom/basketball)
-"PW" = (
-/obj/effect/mapping_helpers/damaged_window,
-/obj/structure/window/reinforced/fulltile,
-=======
 "PN" = (
->>>>>>> 084f56938c0 ([MDB IGNORE] Adds a map lint against using dir-var and icon-var edited windoors (#81272))
 /obj/machinery/door/poddoor/preopen{
 	id = null;
 	name = "Xenobiology Blast Door"
