@@ -45,6 +45,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/pod/dark,
 /area/shuttle/escape)
 "dc" = (
@@ -473,6 +474,7 @@
 	name = "Cockpit"
 	},
 /obj/effect/turf_decal/delivery,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/pod/dark,
 /area/shuttle/escape)
 "vP" = (
@@ -508,6 +510,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape)
 "wD" = (
@@ -647,6 +650,10 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/recharger,
 /obj/structure/table/reinforced,
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/escape)
 "Cf" = (
@@ -753,9 +760,7 @@
 	},
 /obj/docking_port/mobile/emergency{
 	dir = 8;
-	name = "Fland emergency shuttle";
-	port_direction = 4;
-	preferred_direction = 2
+	name = "Meta emergency shuttle"
 	},
 /turf/open/floor/pod/dark,
 /area/shuttle/escape)
@@ -989,6 +994,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Holding Area"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/pod/dark,
 /area/shuttle/escape)
 "NK" = (
