@@ -416,10 +416,6 @@
 */
 //NOVA EDIT REMOVAL END
 
-<<<<<<< HEAD
-//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
-/*
-=======
 /mob/living/carbon/update_worn_legcuffs()
 	remove_overlay(LEGCUFF_LAYER)
 	clear_alert("legcuffed")
@@ -428,7 +424,8 @@
 		apply_overlay(LEGCUFF_LAYER)
 		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
 
->>>>>>> bb7666467bb (Legcuffs on Aliens Work as Intended (#81321))
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
+/*
 /mob/living/carbon/update_worn_head()
 	remove_overlay(HEAD_LAYER)
 
