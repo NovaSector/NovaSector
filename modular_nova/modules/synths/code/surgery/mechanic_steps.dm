@@ -125,7 +125,11 @@
 
 // overridden 3rd arg
 /datum/surgery_step/manipulate_organs/internal/mechanic/display_pain(mob/living/target, pain_message, mechanical_surgery = TRUE)
+	if (target.mob_biotypes & MOB_ROBOTIC)
+		mechanical_surgery = TRUE
 	return ..()
 
 /datum/surgery_step/manipulate_organs/external/mechanic/display_pain(mob/living/target, pain_message, mechanical_surgery = TRUE)
+	if (target.mob_biotypes & MOB_ROBOTIC)
+		mechanical_surgery = TRUE
 	return ..()
