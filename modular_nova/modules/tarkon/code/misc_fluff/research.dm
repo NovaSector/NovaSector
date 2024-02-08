@@ -85,7 +85,6 @@
 	req_access = list(ACCESS_AWAY_SCIENCE)
 
 /obj/machinery/rnd/server/tarkon/Initialize(mapload)
-	register_context()
 	var/datum/techweb/tarkon_techweb = locate(/datum/techweb/tarkon) in SSresearch.techwebs
 	stored_research = tarkon_techweb
 	return ..()
