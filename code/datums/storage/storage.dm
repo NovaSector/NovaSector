@@ -633,32 +633,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * @param list/interface the list we're adding objects to
  * @param recursive whether or not we're checking inside of inner items
  */
-/datum/storage/proc/return_inv(list/interface, recursive = TRUE)
-	if(!islist(interface))
-		return FALSE
-
-	var/obj/item/resolve_location = real_location?.resolve()
-	if(!resolve_location)
-		return
-
+/datum/storage/proc/return_inv(recursive = TRUE)
 	var/list/ret = list()
-<<<<<<< HEAD
-	ret |= resolve_location.contents
-	if(recursive)
-		for(var/i in ret.Copy())
-			var/atom/atom = i
-			atom.atom_storage?.return_inv(ret, TRUE)
-
-	interface |= ret
-=======
 
 	for(var/atom/found_thing as anything in real_location)
 		ret |= found_thing
 		if(recursive && found_thing.atom_storage)
 			ret |= found_thing.atom_storage.return_inv(recursive = TRUE)
->>>>>>> 1f2bf04e75d (fix return_inv() returning a null sometimes, causing get_all_gear() to runtime (#81344))
 
-	return TRUE
+	return ret
 
 /**
  * Resets an object, removes it from our screen, and refreshes the view.
