@@ -33,7 +33,10 @@
 	return ..()
 
 /// Proc for starting extra printing visuals, because upstream removed any nice way to do this
-/obj/machinery/rnd/production/colony_lathe/proc/start_printing_visuals()
+/obj/machinery/rnd/production/proc/start_printing_visuals()
+	return
+
+/obj/machinery/rnd/production/colony_lathe/start_printing_visuals()
 	soundloop.start()
 	set_light(l_range = 1.5)
 	icon_state = "colony_lathe_working"
