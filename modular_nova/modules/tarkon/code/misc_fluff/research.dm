@@ -90,10 +90,9 @@
 	stored_research = tarkon_techweb
 	return ..()
 
-/obj/machinery/rnd/server/tarkon/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	if(held_item && istype(held_item, /obj/item/research_notes))
-		context[SCREENTIP_CONTEXT_LMB] = "Generate research points"
-	return CONTEXTUAL_SCREENTIP_SET
+/obj/machinery/rnd/server/tarkon/examine(mob/user)
+	. = ..()
+	. += span_notice("You can use <b>research notes</b> on this to generate research points.")
 
 /obj/machinery/rnd/server/tarkon/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/research_notes) && stored_research)
