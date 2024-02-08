@@ -1237,9 +1237,13 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "kn" = (
-/obj/machinery/light_switch/directional/north,
-/turf/open/floor/wood,
-/area/ruin/interdyne_planetary_base/cargo/deck)
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/ruin/interdyne_planetary_base/main)
 "ko" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -2940,6 +2944,10 @@
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "zW" = (
 /obj/structure/displaycase/trophy,
+/turf/open/floor/wood,
+/area/ruin/interdyne_planetary_base/cargo/deck)
+"zY" = (
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "Ab" = (
@@ -5806,10 +5814,10 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/main)
 "WP" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
 /obj/structure/sign/clock/directional/west,
+/obj/machinery/vending/barbervend{
+	onstation = 0
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -6179,7 +6187,7 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "ZZ" = (
-/obj/machinery/light/small/directional/south,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 
@@ -6481,9 +6489,9 @@ fm
 By
 By
 IH
-ZZ
+zY
 By
-kn
+ZZ
 iS
 xq
 SH
@@ -7277,7 +7285,7 @@ WG
 WG
 WG
 km
-cZ
+kn
 cZ
 cZ
 cZ
