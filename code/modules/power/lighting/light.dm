@@ -273,8 +273,7 @@
 					l_color = color_set
 					)
 		// NOVA EDIT ADDITION START
-				if(maploaded)
-					maploaded = FALSE
+				maploaded = FALSE
 				if(play_sound)
 					playsound(src.loc, 'modular_nova/modules/aesthetics/lights/sound/light_on.ogg', 65, 1)
 		else if(!matching && !turning_on)
