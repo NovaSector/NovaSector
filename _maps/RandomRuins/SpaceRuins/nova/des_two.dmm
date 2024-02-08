@@ -1980,8 +1980,7 @@
 /turf/template_noop,
 /area/template_noop)
 "iJ" = (
-/obj/machinery/door/window/survival_pod{
-	dir = 1;
+/obj/machinery/door/window/survival_pod/left/directional/north{
 	req_access = list("syndicate_leader")
 	},
 /obj/effect/turf_decal/trimline/blue/filled/warning{
@@ -2972,8 +2971,7 @@
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "mB" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/survival_pod{
-	dir = 8;
+/obj/machinery/door/window/survival_pod/left/directional/west{
 	req_access = list("syndicate")
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -3144,8 +3142,7 @@
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
 "nB" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/door/window/survival_pod{
-	dir = 4;
+/obj/machinery/door/window/survival_pod/left/directional/east{
 	req_access = list("syndicate_leader")
 	},
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -4701,8 +4698,7 @@
 "uK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/door/window/survival_pod{
-	dir = 4;
+/obj/machinery/door/window/survival_pod/left/directional/east{
 	req_access = list("syndicate_leader")
 	},
 /obj/effect/turf_decal/delivery/red,
@@ -7377,8 +7373,7 @@
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Ha" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/survival_pod{
-	dir = 4;
+/obj/machinery/door/window/survival_pod/left/directional/east{
 	req_access = list("syndicate_leader")
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -8598,7 +8593,7 @@
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "Mu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate_leader")
 	},
 /obj/effect/turf_decal/siding/dark,
@@ -10471,8 +10466,7 @@
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "UX" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/survival_pod{
-	dir = 1;
+/obj/machinery/door/window/survival_pod/left/directional/north{
 	req_access = list("syndicate_leader")
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -11223,9 +11217,8 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "Ys" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 1
+/obj/machinery/door/window/survival_pod/left/directional/north{
+	req_access = list("syndicate")
 	},
 /obj/item/paper_bin{
 	pixel_y = 4

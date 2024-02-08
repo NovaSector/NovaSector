@@ -327,9 +327,8 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/machinery/light/warm/directional/east,
 /obj/structure/cable,
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/west{
 	req_access = list("syndicate");
-	dir = 8;
 	pixel_x = -4
 	},
 /obj/machinery/power/rtg/advanced,
@@ -341,9 +340,7 @@
 /area/ruin/interdyne_planetary_base/eng)
 "cO" = (
 /obj/machinery/hydroponics/constructable,
-/obj/machinery/door/window/survival_pod{
-	dir = 4
-	},
+/obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/effect/turf_decal/siding/thinplating/end{
 	dir = 8
 	},
@@ -435,9 +432,8 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base)
 "dB" = (
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("syndicate")
 	},
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/engine,
@@ -507,7 +503,7 @@
 /obj/item/defibrillator/loaded{
 	pixel_y = 6
 	},
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/small,
@@ -935,9 +931,8 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
 	},
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("syndicate")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1058,7 +1053,7 @@
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "jh" = (
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
 /obj/item/folder/white,
@@ -1382,7 +1377,7 @@
 /area/ruin/interdyne_planetary_base/serv/bar)
 "lw" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/pink,
@@ -1413,9 +1408,8 @@
 /turf/open/floor/iron/dark/corner,
 /area/ruin/interdyne_planetary_base/cargo)
 "lS" = (
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 8
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate")
 	},
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/engine,
@@ -2318,7 +2312,7 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "tS" = (
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
 /obj/item/clothing/glasses/science{
@@ -2534,7 +2528,7 @@
 	},
 /area/ruin/interdyne_planetary_base/cargo)
 "vN" = (
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
 /obj/effect/turf_decal/delivery/white,
@@ -2670,9 +2664,8 @@
 /area/ruin/interdyne_planetary_base/serv/bar)
 "xe" = (
 /obj/structure/cable,
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/west{
 	req_access = list("syndicate");
-	dir = 8;
 	pixel_x = -4
 	},
 /obj/machinery/power/rtg/advanced,
@@ -2704,9 +2697,8 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "xA" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -2842,9 +2834,8 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "yI" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 1
+/obj/machinery/door/window/survival_pod/left/directional/north{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -3058,7 +3049,7 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "Az" = (
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/south{
 	req_access = list("syndicate")
 	},
 /obj/effect/turf_decal/tile/dark_green/half,
@@ -3102,9 +3093,7 @@
 	dir = 1
 	},
 /obj/machinery/light/cold/directional/south,
-/obj/machinery/door/window/survival_pod{
-	dir = 4
-	},
+/obj/machinery/door/window/survival_pod/left/directional/east,
 /turf/open/floor/grass,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "AL" = (
@@ -3427,9 +3416,8 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Df" = (
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 8
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -3892,9 +3880,8 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "Gq" = (
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -4086,9 +4073,8 @@
 "HS" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/west{
 	req_access = list("syndicate");
-	dir = 8;
 	pixel_x = -4
 	},
 /obj/machinery/power/rtg/advanced,
@@ -4256,8 +4242,7 @@
 /area/ruin/interdyne_planetary_base/med/morgue)
 "JP" = (
 /obj/structure/table/reinforced/rglass,
-/obj/machinery/door/window/survival_pod{
-	dir = 4;
+/obj/machinery/door/window/survival_pod/left/directional/east{
 	req_access = list("syndicate")
 	},
 /obj/machinery/door/firedoor/border_only{
@@ -4327,9 +4312,8 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "Kv" = (
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("syndicate")
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /turf/open/floor/engine,
@@ -4381,9 +4365,8 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "KG" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 1
+/obj/machinery/door/window/survival_pod/left/directional/north{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -5005,9 +4988,7 @@
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 9
 	},
-/obj/machinery/door/window/survival_pod{
-	dir = 4
-	},
+/obj/machinery/door/window/survival_pod/left/directional/east,
 /turf/open/floor/grass,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Qa" = (
@@ -5143,9 +5124,8 @@
 "RB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/machinery/door/window/survival_pod{
+/obj/machinery/door/window/survival_pod/left/directional/west{
 	req_access = list("syndicate");
-	dir = 8;
 	pixel_x = -4
 	},
 /obj/machinery/power/rtg/advanced,
@@ -5949,9 +5929,8 @@
 /area/ruin/interdyne_planetary_base/med/morgue)
 "WX" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 8
+/obj/machinery/door/window/survival_pod/left/directional/west{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -6258,9 +6237,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ZN" = (
-/obj/machinery/door/window/survival_pod{
-	req_access = list("syndicate");
-	dir = 4
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("syndicate")
 	},
 /turf/open/floor/iron/dark/textured_half{
 	dir = 1
