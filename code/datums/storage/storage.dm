@@ -642,6 +642,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 
 	var/list/ret = list()
+<<<<<<< HEAD
 	ret |= resolve_location.contents
 	if(recursive)
 		for(var/i in ret.Copy())
@@ -649,6 +650,13 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			atom.atom_storage?.return_inv(ret, TRUE)
 
 	interface |= ret
+=======
+
+	for(var/atom/found_thing as anything in real_location)
+		ret |= found_thing
+		if(recursive && found_thing.atom_storage)
+			ret |= found_thing.atom_storage.return_inv(recursive = TRUE)
+>>>>>>> 1f2bf04e75d (fix return_inv() returning a null sometimes, causing get_all_gear() to runtime (#81344))
 
 	return TRUE
 
