@@ -12,21 +12,15 @@
 /obj/structure/toiletbong/Initialize(mapload)
 	. = ..()
 	create_storage()
-<<<<<<< HEAD
-	atom_storage.attack_hand_interact = FALSE
-	atom_storage.set_holdable(list(/obj/item/food/))
-	atom_storage.max_total_storage = 100
-	atom_storage.max_slots = 12
-=======
 	AddComponent(/datum/component/simple_rotation, AfterRotation = CALLBACK(src, PROC_REF(AfterRotation)))
 	create_storage(max_total_storage = 100, max_slots = 12, canhold = /obj/item/food)
 	atom_storage.attack_hand_interact = FALSE
 	atom_storage.rustle_sound = FALSE
 	atom_storage.animated = FALSE
 
->>>>>>> 528eaf3c840 (toilet bong altclick sanity (#81263))
 	weed_overlay = mutable_appearance('icons/obj/watercloset.dmi', "toiletbong_overlay")
 	START_PROCESSING(SSobj, src)
+
 
 /obj/structure/toiletbong/update_icon()
 	. = ..()
