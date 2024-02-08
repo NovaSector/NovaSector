@@ -350,10 +350,6 @@
 	dir = 8
 	},
 /area/misc/hilbertshotel)
-"Ib" = (
-/obj/effect/spawner/xmastree,
-/turf/open/floor/carpet,
-/area/misc/hilbertshotel)
 "Ix" = (
 /obj/structure/bed/double,
 /obj/item/bedsheet/random/double,
@@ -754,7 +750,7 @@ LC
 wu
 wu
 RP
-Ib
+RP
 WN
 aS
 aS
