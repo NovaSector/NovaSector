@@ -18,12 +18,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/shuttle/escape)
-"bm" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/power/shuttle_engine/propulsion,
-/obj/structure/chair/comfy/shuttle,
-/turf/open/floor/plating/airless,
-/area/shuttle/escape)
 "bS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -429,10 +423,6 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
-"tS" = (
-/obj/structure/chair/comfy/shuttle,
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/escape)
 "ut" = (
 /obj/machinery/door/airlock/shuttle{
 	name = "Emergency Shuttle Airlock"
@@ -566,10 +556,6 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/titanium/blue,
-/area/shuttle/escape)
-"zw" = (
-/obj/effect/turf_decal/bot,
-/turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "zA" = (
 /obj/machinery/light{
@@ -1327,7 +1313,7 @@ Ep
 Yp
 Jx
 UQ
-EN
+iV
 VT
 bS
 "}
@@ -1358,7 +1344,7 @@ vT
 rF
 Go
 UQ
-zw
+iV
 VT
 bS
 "}
@@ -1389,7 +1375,7 @@ aS
 Zt
 Jx
 UQ
-zw
+iV
 VT
 bS
 "}
@@ -1420,7 +1406,7 @@ tm
 tm
 Cy
 UQ
-zw
+iV
 VT
 bS
 "}
@@ -1606,7 +1592,7 @@ Km
 Km
 vq
 UQ
-EN
+iV
 VT
 bS
 "}
@@ -1637,7 +1623,7 @@ Ep
 Yp
 Jx
 UQ
-zw
+iV
 VT
 bS
 "}
@@ -1668,7 +1654,7 @@ PZ
 rF
 Go
 UQ
-zw
+iV
 VT
 bS
 "}
@@ -1699,7 +1685,7 @@ aS
 Zt
 Jx
 UQ
-EN
+iV
 qD
 bS
 "}
@@ -1730,7 +1716,7 @@ PH
 lt
 JJ
 dc
-tS
+vt
 VL
 vt
 "}
@@ -1761,8 +1747,8 @@ ZA
 fC
 ee
 QL
-qD
-bm
+VT
+Vh
 Qo
 "}
 (19,1,1) = {"
@@ -1792,7 +1778,7 @@ Hc
 Lc
 Gl
 ef
-tS
-tS
+vt
+vt
 Qo
 "}
