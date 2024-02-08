@@ -338,6 +338,7 @@
 			SStgui.update_uis(src)
 			if(production_animation)
 				icon_state = production_animation
+			start_printing_visuals() // NOVA EDIT ADDITION - COLONY FABRICATOR STUFF
 			var/turf/target_location
 			if(drop_direction)
 				target_location = get_step(src, drop_direction)
