@@ -50,8 +50,8 @@
 	update_appearance()
 	flick("colony_lathe_finish_print", src)
 
-/obj/machinery/rnd/production/colony_lathe/calculate_efficiency()
-	efficiency_coeff = 1
+/obj/machinery/rnd/production/colony_lathe/build_efficiency()
+	return 1
 
 // We take from all nodes even unresearched ones
 /obj/machinery/rnd/production/colony_lathe/update_designs()

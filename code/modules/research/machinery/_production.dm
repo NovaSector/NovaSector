@@ -205,7 +205,7 @@
  * * path - the design path to check for
  */
 /obj/machinery/rnd/production/proc/build_efficiency(path)
-	PRIVATE_PROC(TRUE)
+	PROTECTED_PROC(TRUE) // NOVA EDIT CHANGE - ORIGINAL: PRIVATE_PROC(TRUE)
 
 	if(ispath(path, /obj/item/stack/sheet) || ispath(path, /obj/item/stack/ore/bluespace_crystal))
 		return 1
