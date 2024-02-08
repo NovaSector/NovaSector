@@ -254,7 +254,7 @@
 					red = clamp(red, 0, 255) // clamp to be safe, or you can end up with an invalid hex value
 					green = clamp(green, 0, 255)
 					blue = clamp(blue, 0, 255)
-					color_set = trimtext(rgb(red, green, blue)) // Splice the numbers together and turn them back to hex. (trim is there because this is sometimes adding whitespace to the end for some reason)
+					color_set = rgb(red, green, blue) // Splice the numbers together and turn them back to hex.
 				// NOVA EDIT ADDITION END
 		else if (major_emergency)
 			color_set = bulb_low_power_colour
