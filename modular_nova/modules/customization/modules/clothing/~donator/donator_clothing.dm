@@ -833,6 +833,7 @@
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
 	use_radio_beeps_tts = TRUE
+	flags_inv = NONE
 
 /obj/item/clothing/mask/gas/CMCP_mask/Initialize(mapload)
 	. = ..()
