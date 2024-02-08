@@ -9878,14 +9878,13 @@
 /turf/open/floor/iron,
 /area/station/maintenance/aft/upper)
 "bTX" = (
-/obj/machinery/door/window/brigdoor/right{
-	dir = 8;
-	name = "Command Chair";
-	req_access = list("command")
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/window/brigdoor/right/directional/west{
+	name = "Command Chair";
+	req_access = list("command")
+	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "bUc" = (
@@ -9973,7 +9972,7 @@
 "bUG" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/item/radio/intercom/directional/north,
-/obj/machinery/door/window/brigdoor/right{
+/obj/machinery/door/window/brigdoor/right/directional/south{
 	name = "Cargo Deliveries";
 	req_access = list("security")
 	},
@@ -21549,8 +21548,7 @@
 	},
 /area/station/hallway/primary/port)
 "eeB" = (
-/obj/machinery/door/window/brigdoor/right{
-	dir = 4;
+/obj/machinery/door/window/brigdoor/right/directional/east{
 	name = "Cargo Deliveries";
 	req_access = list("security")
 	},
@@ -36507,14 +36505,13 @@
 "gVW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/right{
-	dir = 1;
-	name = "Security Desk";
-	req_access = list("security")
-	},
 /obj/item/folder/red,
 /obj/item/pen,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/window/brigdoor/right/directional/north{
+	name = "Security Desk";
+	req_access = list("security")
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/escape)
 "gWc" = (
@@ -46302,8 +46299,7 @@
 	},
 /obj/item/hand_tele,
 /obj/item/melee/chainofcommand,
-/obj/machinery/door/window/brigdoor/left{
-	dir = 8;
+/obj/machinery/door/window/brigdoor/left/directional/west{
 	name = "Captain's Desk";
 	req_access = list("captain")
 	},
@@ -72391,12 +72387,12 @@
 /turf/open/floor/carpet,
 /area/station/service/chapel)
 "nSl" = (
-/obj/machinery/door/window/brigdoor/right{
-	name = "Security Customs";
-	req_access = list("security")
-	},
 /obj/structure/chair/stool{
 	pixel_y = 3
+	},
+/obj/machinery/door/window/brigdoor/right/directional/south{
+	name = "Security Customs";
+	req_access = list("security")
 	},
 /turf/open/floor/iron/dark/side,
 /area/station/security/checkpoint)
@@ -82765,11 +82761,6 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms/vacantroom)
 "pQX" = (
-/obj/machinery/door/window/brigdoor/right{
-	dir = 4;
-	name = "Command Chair";
-	req_access = list("command")
-	},
 /obj/item/radio/intercom/directional/south,
 /obj/structure/secure_safe/caps_spare{
 	pixel_x = 5;
@@ -82778,6 +82769,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/window/brigdoor/right/directional/east{
+	name = "Command Chair";
+	req_access = list("command")
+	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "pQZ" = (
@@ -87875,12 +87870,11 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/obj/machinery/door/window/brigdoor/right{
-	dir = 1;
+/obj/machinery/light/directional/east,
+/obj/machinery/door/window/brigdoor/right/directional/north{
 	name = "Command Chair";
 	req_access = list("command")
 	},
-/obj/machinery/light/directional/east,
 /turf/open/floor/iron/stairs,
 /area/station/command/secure_bunker)
 "qMW" = (
@@ -87976,11 +87970,11 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/obj/machinery/door/window/brigdoor/right{
+/obj/machinery/light/directional/east,
+/obj/machinery/door/window/brigdoor/right/directional/south{
 	name = "Command Chair";
 	req_access = list("command")
 	},
-/obj/machinery/light/directional/east,
 /turf/open/floor/iron/stairs{
 	dir = 1
 	},
@@ -96697,8 +96691,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/department/medical/central)
 "sxj" = (
-/obj/machinery/door/window/brigdoor/right{
-	dir = 1;
+/obj/machinery/door/window/brigdoor/right/directional/north{
 	name = "Shooting Range";
 	req_access = list("security")
 	},
@@ -106514,13 +106507,13 @@
 /area/station/hallway/primary/port)
 "unM" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/brigdoor/right{
-	name = "Customs Desk";
-	req_access = list("command")
-	},
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/loading_area,
 /obj/structure/cable,
+/obj/machinery/door/window/brigdoor/right/directional/south{
+	name = "Customs Desk";
+	req_access = list("command")
+	},
 /turf/open/floor/iron/dark/side,
 /area/station/security/checkpoint/customs/auxiliary)
 "unT" = (
@@ -111365,13 +111358,12 @@
 /obj/item/stamp{
 	pixel_x = -6
 	},
-/obj/machinery/door/window/brigdoor/right{
-	dir = 8;
-	name = "Captain's Desk";
-	req_access = list("captain")
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/right/directional/west{
+	name = "Captain's Desk";
+	req_access = list("captain")
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/captain/private)
@@ -127310,8 +127302,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
 "yjZ" = (
-/obj/machinery/door/window/brigdoor/right{
-	dir = 4;
+/obj/machinery/door/window/brigdoor/right/directional/east{
 	name = "Crematorium";
 	req_access = list("security")
 	},
