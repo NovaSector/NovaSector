@@ -14925,6 +14925,7 @@
 /obj/structure/sign/painting/library{
 	pixel_y = 32
 	},
+/obj/machinery/light/warm/directional/north,
 /turf/open/floor/carpet/green,
 /area/station/service/library)
 "eAj" = (
@@ -25831,8 +25832,6 @@
 	pixel_y = 32
 	},
 /obj/structure/displaycase/trophy,
-/obj/machinery/firealarm/directional/west,
-/obj/machinery/light/warm/directional/north,
 /turf/open/floor/wood,
 /area/station/service/library)
 "hRj" = (
@@ -26083,10 +26082,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/light/warm/directional/east,
-/obj/item/storage/bag/books{
-	pixel_x = 6;
-	pixel_y = -10
-	},
 /obj/machinery/camera/directional/north{
 	c_tag = "Library - Front Desk"
 	},
@@ -29869,7 +29864,8 @@
 /obj/structure/fluff/meteor/sharp{
 	pixel_y = 11
 	},
-/obj/structure/table/glass,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/station/service/library/lounge)
 "iYS" = (
@@ -63899,7 +63895,8 @@
 	pixel_x = 14;
 	pixel_y = 2
 	},
-/obj/structure/table/glass,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/station/service/library/lounge)
 "thK" = (
@@ -66685,6 +66682,7 @@
 /obj/structure/chair/sofa/middle/brown{
 	dir = 4
 	},
+/obj/machinery/light/warm/directional/west,
 /turf/open/floor/carpet/green,
 /area/station/service/library)
 "uee" = (
@@ -67395,7 +67393,9 @@
 	name = "Curator's Study";
 	req_access = list("library")
 	},
-/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -75714,6 +75714,7 @@
 	},
 /obj/machinery/vending/games,
 /obj/effect/turf_decal/bot,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/wood/large,
 /area/station/service/library)
 "wKY" = (
@@ -177020,7 +177021,7 @@ bUy
 bUy
 bUy
 bUy
-iyE
+bUy
 rGK
 gUJ
 juT
