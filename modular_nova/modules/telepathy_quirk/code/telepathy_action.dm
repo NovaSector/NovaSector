@@ -86,7 +86,7 @@
 	send_thought(owner, cast_on, message)
 
 /datum/action/cooldown/spell/pointed/telepathy/proc/send_thought(mob/living/caster, mob/living/target, message)
-	log_directed_talk(caster, target, message, LOG_SAY, name)
+	log_directed_talk(caster, target, message, LOG_SAY, tag = "telepathy")
 
 	last_target_ref = WEAKREF(target)
 
