@@ -316,43 +316,59 @@
 	tint = 0
 
 // Donation reward for Raxraus
-/obj/item/clothing/head/caligram_cap_tan
-	name = "\improper Caligram tan softcap"
-	desc = "A Caligram's Fleet-branded hat in a '/surprisingly/' tasteful shade of brown."
+/obj/item/clothing/head/caligram_cap
+	name = "\improper Caligram softcap"
+	desc = "A Caligram's Fleet-branded hat."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "caligram_cap_tan"
+	unique_reskin = list(
+		"Tan" = "caligram_cap_tan",
+		"Navy" = "caligram_cap_navy",
+	)
 
 // Donation reward for Raxraus
-/obj/item/clothing/under/jumpsuit/caligram_fatigues_tan
-	name = "\improper Caligram tan fatigues"
-	desc = "A set of tan and brown work fatigues bearing a Caligram's Fleet insigna on an armband. Lacks the typical Tajaran extravagance."
+/obj/item/clothing/under/jumpsuit/caligram_fatigues
+	name = "\improper Caligram fatigues"
+	desc = "A set of work fatigues bearing a Caligram's Fleet insigna on an armband. Lacks the typical Tajaran extravagance."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
 	icon_state = "caligram_fatigues_tan"
 	worn_icon_state = "caligram_fatigues_tan"
+	unique_reskin = list(
+		"Tan" = "caligram_fatigues_tan",
+		"Navy" = "caligram_fatigues_navy",
+	)
 
 // Donation reward for Raxraus
-/obj/item/clothing/suit/jacket/caligram_parka_tan
-	name = "\improper Caligram tan parka"
-	desc = "A tan parka with a fancy black belt and '/Caligram's Fleet/' stitched onto its armband."
+/obj/item/clothing/suit/jacket/caligram_parka
+	name = "\improper Caligram parka"
+	desc = "A parka with a fancy belt and '/Caligram's Fleet/' stitched onto its armband."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon_state = "caligram_parka_tan"
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS|HANDS
+	unique_reskin = list(
+		"Tan" = "caligram_parka_tan",
+		"Navy" = "caligram_parka_navy",
+	)
 
 // Donation reward for Raxraus
-/obj/item/clothing/suit/armor/vest/caligram_parka_vest_tan
-	name = "\improper Caligram armored tan parka"
-	desc = "A tan parka with a fancy black belt, a lightly armored vest and '/Caligram's Fleet/' stitched onto its armband."
+/obj/item/clothing/suit/armor/vest/caligram_parka_vest
+	name = "\improper Caligram armored parka"
+	desc = "A parka with a fancy belt, a lightly armored vest and '/Caligram's Fleet/' stitched onto its armband."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon_state = "caligram_parka_vest_tan"
 	inhand_icon_state = "armor"
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS|HANDS
+	unique_reskin = list(
+		"Tan" = "caligram_parka_vest_tan",
+		"Navy" = "caligram_parka_vest_navy",
+	)
 
 
 // Donation reward for ChillyLobster
@@ -805,13 +821,24 @@
 	worn_icon_state = "mikuleggings"
 
 // Donation reward for CandleJax
-/obj/item/clothing/head/helmet/space/plasmaman/candlejax
-	name = "emission's helmet"
-	desc = "A special containment helmet designed for heavy usage. Multiple dings and notches are on this one."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
-	icon_state = "emissionhelm"
+/obj/item/clothing/mask/gas/CMCP_mask
+	name = "\improper CMCP 'Oni' Faceplate"
+	desc = "A modular faceplate mount. Typically meant to be attached to field platforms."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "yoni"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	use_radio_beeps_tts = TRUE
+	flags_inv = NONE
 
+/obj/item/clothing/mask/gas/CMCP_mask/Initialize(mapload)
+	. = ..()
+	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
+	voice_filter = initial(sechailer_type.voice_filter)
 
 // Donation reward for CandleJax
 /obj/item/clothing/head/helmet/space/plasmaman/candlejax2

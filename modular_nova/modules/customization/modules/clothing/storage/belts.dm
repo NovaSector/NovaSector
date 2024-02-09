@@ -18,11 +18,13 @@
 		canhold = list(
 			/obj/item/storage/belt/storage_pouch,
 			/obj/item/forging/reagent_weapon/sword,
+			/obj/item/forging/reagent_weapon/katana,
+			/obj/item/forging/reagent_weapon/bokken,
+			/obj/item/forging/reagent_weapon/dagger,
 			/obj/item/melee/sabre,
 			/obj/item/claymore,
 			/obj/item/melee/cleric_mace,
 			/obj/item/knife,
-			/obj/item/melee/baton,
 			/obj/item/melee/baton,
 			/obj/item/nullrod,	//holds any subset of nullrod in the sheath-storage - - -
 		),
@@ -47,10 +49,10 @@
 
 //Overrides normal dumping code to instead dump from the pouch item inside
 /datum/storage/belt/crusader/dump_content_at(atom/dest_object, mob/dumping_mob)
-	var/atom/used_belt = parent?.resolve()
+	var/atom/used_belt = parent
 	if(!used_belt)
 		return
-	var/obj/item/storage/belt/storage_pouch/pouch = locate() in real_location?.resolve()
+	var/obj/item/storage/belt/storage_pouch/pouch = locate() in real_location
 	if(!pouch)
 		pouch.balloon_alert(dumping_mob, "no pouch!")
 		return //oopsie!! If we don't have a pouch! You're fucked!

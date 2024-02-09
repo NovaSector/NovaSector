@@ -145,6 +145,9 @@
 
 //Port Tarkon
 
+/area/ruin/space/has_grav/outdoors
+	outdoors = TRUE
+
 /area/ruin/space/has_grav/port_tarkon
 	name = "P-T Cryo-Storage"
 	icon = 'icons/area/areas_station.dmi'
@@ -231,6 +234,7 @@
 	name = "\improper P-T Solar Array"
 	icon_state = "space_near"
 	has_gravity = STANDARD_GRAVITY
+	outdoors = TRUE
 
 // Cargodise Lost Freighter
 

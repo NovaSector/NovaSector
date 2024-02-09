@@ -4,7 +4,12 @@
 	max_slots = 14
 	animated = FALSE
 
-/datum/storage/surgery_tray/New()
+/datum/storage/surgery_tray/New(
+	atom/parent,
+	max_slots,
+	max_specific_storage,
+	max_total_storage,
+)
 	. = ..()
 	set_holdable(list(
 		/obj/item/autopsy_scanner,
@@ -13,6 +18,7 @@
 		/obj/item/cautery,
 		/obj/item/circular_saw,
 		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/suit/toggle/labcoat/hospitalgown, // NOVA EDIT ADDITION
 		/obj/item/hemostat,
 		/obj/item/razor,
 		/obj/item/retractor,

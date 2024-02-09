@@ -22,7 +22,7 @@
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 	loadout_enabled = FALSE
-	uses = 9
+	uses = 12
 	deletes_on_zero_uses_left = FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/Initialize(mapload)
