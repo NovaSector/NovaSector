@@ -460,6 +460,10 @@
 	if(istype(attacking_item, /obj/item/glassblowing/metal_cup))
 		handle_metal_cup_melting(attacking_item, user)
 		return TRUE
+	
+	if(istype(attacking_item, /obj/item/stack/rods))
+		smelt_iron_rods(attacking_item, user)
+		return TRUE
 
 	return ..()
 
@@ -739,6 +743,42 @@
 	user.mind.adjust_experience(/datum/skill/production, 10)
 	COOLDOWN_START(spawned_glass, remaining_heat, glassblowing_amount)
 	spawned_glass.total_time = glassblowing_amount
+
+/// Almost a copy from the proc smelt_ore but to smelt iron rods
+/obj/structure/reagent_forge/proc/smelt_iron_rods(obj/attacking_item, mob/living/user)
+	in_use = TRUE
+
+	var/obj/item/stack/rods/rod_item = attacking_item
+
+	if(forge_temperature < MIN_FORGE_TEMP)
+		fail_message(user, "forge too cool")
+		return
+
+	var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER)
+
+	if(rod_item.amount < 2)
+		fail_message(user, "too few iron rods to smelt")
+		return
+
+	balloon_alert_to_viewers("smelting...")
+
+	if(!do_after(user, skill_modifier * 3 SECONDS, target = src))
+		fail_message(user, "stopped smelting the iron rods")
+		return
+
+	var/src_turf = get_turf(src)
+	var/spawning_item = /obj/item/stack/sheet/iron
+	var/rods_to_sheet_amount = round((rod_item.amount / 2))
+
+	for(var/spawn_rods in 1 to rods_to_sheet_amount)
+		new spawning_item(src_turf)
+
+	in_use = FALSE
+	qdel(rod_item)
+	if(ISODD(rod_item.amount))
+		new /obj/item/stack/rods(src_turf)
+
+	return
 
 /obj/structure/reagent_forge/billow_act(mob/living/user, obj/item/tool)
 	if(in_use) // Preventing billow use if the forge is in use to prevent spam
