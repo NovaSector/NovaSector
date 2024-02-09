@@ -62,9 +62,8 @@
 	antimagic_flags = NONE
 	var/jumpdistance = 5 //-1 from to see the actual distance, e.g 4 goes over 3 tiles
 	var/jumpspeed = 3
-	var/recharging_rate = 60 //default 6 seconds between each dash
-	var/recharging_time = 0 //time until next dash
 	var/datum/weakref/dash_action_ref
+	COOLDOWN_DECLARE(dashcooldown)
 
 /datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action, atom/target)
 	if (!isliving(owner))
@@ -80,7 +79,7 @@
 	if(owner.incapacitated())
 		return
 
-	if(recharging_time > world.time)
+	if(!COOLDOWN_FINISHED(src, dash_cooldown)
 		to_chat(owner, span_warning("Your wings are extraordinarily tired, give them some rest!"))
 		return
 
@@ -90,7 +89,7 @@
 	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
 		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
 		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
-		recharging_time = world.time + recharging_rate
+		COOLDOWN_START(src, dash_cooldown, 6 SECONDS)
 		var/mob/living/dash_user = owner
 		if(istype(dash_user))
 			dash_user.adjustStaminaLoss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
