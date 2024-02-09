@@ -742,10 +742,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
-"gX" = (
-/obj/structure/sink/kitchen/directional/west,
-/turf/open/floor/iron/dark/herringbone,
-/area/ruin/interdyne_planetary_base/serv/hydr)
 "gY" = (
 /obj/machinery/vending/wardrobe/coroner_wardrobe,
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -819,6 +815,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/sink/kitchen/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "hL" = (
@@ -2508,9 +2505,6 @@
 /obj/item/bedsheet/brown/double{
 	dir = 1
 	},
-/obj/structure/sign/painting/large/library{
-	pixel_y = -32
-	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "vK" = (
@@ -2807,6 +2801,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "yr" = (
+/obj/structure/sign/painting/large/library{
+	pixel_y = -32
+	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "ys" = (
@@ -8238,7 +8235,7 @@ AQ
 Ou
 hH
 un
-gX
+rR
 BZ
 EH
 EH
