@@ -1,6 +1,6 @@
 
 /obj/item/clothing/under/suit
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi' //Anything that was in TG's suits.dmi, should be in our suits_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
 /obj/item/clothing/under/suit/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/suits.dmi'

@@ -51,6 +51,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
 	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
+/datum/loadout_item/under/jumpsuit/frontier
+	name = "Frontier Jumpsuit"
+	item_path = /obj/item/clothing/under/frontier_colonist
+
 /datum/loadout_item/under/jumpsuit/rainbow
 	name = "Rainbow Jumpsuit"
 	item_path = /obj/item/clothing/under/color/rainbow
@@ -159,16 +163,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/hlscientist
 	name = "Ridiculous Scientist Outfit"
 	item_path = /obj/item/clothing/under/rank/rnd/scientist/nova/hlscience
-
-/datum/loadout_item/under/jumpsuit/rd_jumpsuit
-	name = "Research Director's Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/rnd/research_director/nova/jumpsuit
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
-
-/datum/loadout_item/under/jumpsuit/rd_jumpskirt
-	name = "Research Director's Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/rnd/research_director/nova/jumpsuit/skirt
-	restricted_roles = list(JOB_RESEARCH_DIRECTOR)
 
 /datum/loadout_item/under/jumpsuit/cargo
 	name = "Cargo Technician's Jumpsuit"

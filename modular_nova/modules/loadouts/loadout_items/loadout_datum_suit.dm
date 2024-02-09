@@ -346,8 +346,8 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	item_path = /obj/item/clothing/suit/toggle/trackjacket
 
 /datum/loadout_item/suit/croptop
-	name = "Black Crop Top Turtleneck"
-	item_path = /obj/item/clothing/suit/croptop
+	name = "Crop Top Turtleneck"
+	item_path = /obj/item/clothing/suit/jacket/croptop
 
 /*
 *	FLANNELS
@@ -390,6 +390,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Blue Trenchcoat"
 	item_path = /obj/item/clothing/suit/frenchtrench
 
+/datum/loadout_item/suit/frontiertrench
+	name = "Frontier Trenchcoat"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist
+
 /datum/loadout_item/suit/cossak
 	name = "Ukrainian Coat"
 	item_path = /obj/item/clothing/suit/cossack
@@ -429,6 +433,14 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/colourable_leather_jacket
 	name = "Colourable Leather Jacket"
 	item_path = /obj/item/clothing/suit/jacket/leather/colourable
+
+/datum/loadout_item/suit/frontierjacket/short
+	name = "Frontier Jacket (Short)"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
+
+/datum/loadout_item/suit/frontierjacket/short/medical
+	name = "Frontier Medical Jacket (Short)"
+	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
 
 /datum/loadout_item/suit/woolcoat
 	name = "Leather Overcoat"
@@ -607,6 +619,15 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	item_path = /obj/item/clothing/suit/british_officer
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/suit/peacekeeper_jacket
+	name = "Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/peacekeeper_jacket/badge
+	name = "Badged Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+
 /datum/loadout_item/suit/offdep_jacket
 	name = "Off-Department Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/assistant
@@ -715,3 +736,35 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/heart_sweater
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
+
+/datum/loadout_item/suit/crop_jacket
+	name = "Colourable Crop-Top Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket
+
+/*
+*	CHAPLAIN
+*/
+
+/datum/loadout_item/suit/chap_nun
+	name = "Nun's Habit"
+	item_path = /obj/item/clothing/suit/chaplainsuit/nun
+
+/datum/loadout_item/suit/chap_holiday
+	name = "Chaplain's Holiday Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest
+
+/datum/loadout_item/suit/chap_brownmonk
+	name = "Monk's Brown Habit"
+	item_path = /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
+
+/datum/loadout_item/suit/chap_eastmonk
+	name = "Eastern Monk's Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/monkrobeeast
+
+/datum/loadout_item/suit/chap_shrinehand
+	name = "Shrinehand Robe"
+	item_path = /obj/item/clothing/suit/chaplainsuit/shrinehand
+
+/datum/loadout_item/suit/chap_blackmonk
+	name = "Monk's Black Habit"
+	item_path = /obj/item/clothing/suit/chaplainsuit/habit

@@ -92,34 +92,6 @@
 	limited = 1
 	cost = 2
 
-/datum/contractor_item/contractor_partner/handle_purchase(datum/contractor_hub/hub, mob/living/user)
-	. = ..()
-
-	if(!.)
-		return
-	to_chat(user, span_notice("The uplink vibrates quietly, connecting to nearby agents..."))
-
-	var/list/mob/dead/observer/candidates =  SSpolling.poll_ghost_candidates(
-		"Do you want to play as the Contractor Support Unit for [user.real_name]?",
-		role = ROLE_PAI,
-		check_jobban = FALSE,
-		poll_time = 10 SECONDS,
-		ignore_category = POLL_IGNORE_CONTRACTOR_SUPPORT,
-		pic_source = user,
-		role_name_text = "[user.real_name]'s support",
-	)
-
-	if(LAZYLEN(candidates))
-		var/mob/dead/observer/picked_obs = pick(candidates)
-		hub.contractor_teammate = spawn_contractor_partner(user, picked_obs.key)
-	else
-		to_chat(user, span_notice("No available agents at this time, please try again later."))
-
-		// refund and add the limit back.
-		limited += 1
-		hub.contract_rep += cost
-		hub.purchased_items -= src
-
 /datum/contractor_item/blackout
 	name = "Blackout"
 	desc = "Request Syndicate Command to distrupt the station's powernet. Disables power across the station for a short duration."
@@ -149,38 +121,6 @@
 		return
 	var/datum/round_event_control/event = locate(/datum/round_event_control/communications_blackout) in SSevents.control
 	event.run_event()
-
-/datum/contractor_item/mod_baton_holster
-	name = "Baton Holster Module"
-	desc = "Never worry about dropping your baton again with this holster module! Simply insert your baton into the module, put it in your MODsuit, and the baton will retract whenever dropped."
-	item = /obj/item/mod/module/baton_holster
-	item_icon = "wrench" //I cannot find anything better, replace if you find something more fitting
-	limited = 1
-	cost = 2
-
-/datum/contractor_item/baton_upgrade_cuff
-	name = "Baton Cuff Upgrade"
-	desc = "Using technology reverse-engineered from some alien batons we had lying around, you can now cuff people using your baton with the secondary attack. Due to technical limitations, only cable cuffs and zipties work, and they need to be loaded into the baton manually."
-	item = /obj/item/baton_upgrade/cuff
-	item_icon = "bacon" //ditto
-	limited = 1
-	cost = 1
-
-/datum/contractor_item/baton_upgrade_mute
-	name = "Baton Mute Upgrade"
-	desc = "A relatively new advancement in completely proprietary baton technology, this baton upgrade will mute anyone hit for ten seconds, maximizing at twenty seconds."
-	item = /obj/item/baton_upgrade/mute
-	item_icon = "comment-slash"
-	limited = 1
-	cost = 2
-
-/datum/contractor_item/baton_upgrade_focus
-	name = "Baton Focus Upgrade"
-	desc = "When applied to a baton, it will exhaust the target even more, should they be the target of your current contract."
-	item = /obj/item/baton_upgrade/focus
-	item_icon = "eye"
-	limited = 1
-	cost = 2
 
 /datum/contractor_item/mod_magnetic_suit
 	name = "Magnetic Deployment Module"
