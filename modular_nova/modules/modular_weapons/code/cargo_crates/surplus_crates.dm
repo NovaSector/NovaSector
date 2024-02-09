@@ -80,7 +80,7 @@
 			return
 		new new_thing(we_are_filling_this_crate)
 		// Basically inverts the weight before subtracting it from the budget
-		item_budget -= (4 - contains[new_thing])
+		item_budget -= (CRATE_ITEM_WEIGHT_MAX + 1) - contains[new_thing])
 
 #undef ITEM_WEIGHT_CLOTHING
 #undef ITEM_WEIGHT_ARMOR
