@@ -17,16 +17,24 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed
 	integrity_failure = 0
-	max_integrity = 150
+	max_integrity = 250
+	move_resist = INFINITY
 	shot_delay = 1.5 SECONDS
 	stun_projectile = null
 	lethal_projectile = null
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	ignore_faction = TRUE
-	faction = list(FACTION_TARKON)
+	faction = list()
+	var/casing_ejector = TRUE // WILL THIS FIX IT!?
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box //Container of the turret. Needs expanded ref.
 	var/obj/item/ammo_box/magazine/magazine = null // Magazine inside the turret.
 	var/obj/item/ammo_casing/chambered = null // currently loaded bullet
+	var/mob/living/turret_ai/shutupruntimes // WE PUT A HOPEFULLY INVISIBLE MOB ONTOP TO STOP RUNTIMES. I LOVE BULLET CODE
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
+	. = ..()
+	shutupruntimes = new /mob/living/turret_ai(get_turf(src))
+	shutupruntimes.turretsync = src
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/set_faction(obj/machinery/porta_turret/turret, mob/user)
 	turret.faction = user.faction
@@ -66,10 +74,13 @@
 
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
 	if(istype(casing)) //there's a chambered round
-		if(QDELING(casing))
-			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
+		if(QDELING(casing)) //I WONT LOSE TO YOU, CODE. MY HUBRIS KNOWS NO BOUNDS.
+			var/obj/item/ammo_casing/spent_round = new casing.type(get_turf(src))
+			spent_round.loaded_projectile = null
+			spent_round.bounce_away(TRUE)
+			SEND_SIGNAL(spent_round, COMSIG_CASING_EJECTED)
 			chambered = null
-		else if(!from_firing)
+		else if(casing_ejector || !from_firing) //If, It somehow, Didn't delete the casing.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			chambered = null
 			if(!QDELETED(casing))
@@ -103,8 +114,7 @@
 	return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
-	var/mag_len = length(mag_box.contents)
-	if(!mag_len)
+	if(!mag_box.get_mag())
 		balloon_alert_to_viewers("Magazine Wells Empty!")
 		return
 	magazine = mag_box.get_mag(FALSE)
@@ -145,7 +155,7 @@
 					break
 
 	update_appearance()
-	if(!chambered.fire_casing(target, null, null, 0, 0, null, 0, src))
+	if(!chambered.fire_casing(target, shutupruntimes, null, 0, 0, null, 0, shutupruntimes.turretsync))
 		handle_chamber(FALSE, FALSE, TRUE)
 	else
 		handle_chamber(FALSE, TRUE, TRUE)
@@ -164,9 +174,9 @@
 		if(!attacking_item.use_tool(src, user, 5 SECONDS, volume = 20))
 			return
 
-		deconstruct(TRUE)
 		attacking_item.play_tool_sound(src, 50)
-		balloon_alert(user, "deconstructed!")
+		deconstruct(TRUE)
+		return
 
 	else
 		if(atom_integrity == max_integrity)
@@ -182,7 +192,7 @@
 
 		balloon_alert(user, "repaired!")
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/deconstruct(disassembled)
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/deconstruct(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	if(chambered)
 		if(!magazine)
 			chambered.forceMove(drop_location())
@@ -193,12 +203,26 @@
 		mag_box.contents.Insert(1,magazine)
 		magazine = null
 
+	if(shutupruntimes)
+		shutupruntimes.turretsync = null
+		qdel(shutupruntimes)
+		shutupruntimes = null
+
 	if(disassembled)
 		var/atom/movable/shell = mag_box
 		mag_box = null
 		shell.forceMove(drop_location())
 
-	else
-		new /obj/effect/gibspawner/robot(drop_location())
+	qdel(src)
+	return
 
-	return ..()
+/mob/living/turret_ai // SHOULD NOT BE SEEN. SHOULD NOT BE TOUCHED. SHOULD NOT BE VISIBLE OUTSIDE OF- IDK. I'M NOT A GOOD CODER.
+	name = "mag_fed turret AI"
+	desc = "Part of the Itty Bitty Anti-Runtime Committee. You probably shouldn't be seeing this."
+	density = FALSE
+	see_invisible = 0
+	invisibility = INVISIBILITY_OBSERVER
+	plane = POINT_PLANE
+	combat_mode = TRUE
+	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turretsync
+
