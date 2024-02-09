@@ -37,7 +37,7 @@ export const NovaCharacterDirectory = (props) => {
   const [overwritePrefs, setOverwritePrefs] = useState(prefsOnly);
 
   return (
-    <Window width={640} height={480} resizeable>
+    <Window width={900} height={640} resizeable>
       <Window.Content scrollable>
         {(overlay && (
           <ViewCharacter overlay={overlay} updateOverlay={updateOverlay} />
