@@ -203,7 +203,7 @@
 
 		// If it's not a /datum/stock_part subtype either, something has gone wrong and devs should probably be alerted.
 		if(found_matching < parts_amount_required)
-			to_chat(user, span_notice("Something went wrong manufacturing [req_component].  Alert the devs, and let them know what machine it was!"))
+			to_chat(user, span_notice("Something went wrong manufacturing [req_component]. Alert the devs, and let them know what machine it was!"))
 
 /// BSTs' special Bluespace RPED can manufacture parts on Alt-RMB, either cables, glass, machine boards, or stock parts.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/alt_click_secondary(mob/user)
@@ -246,7 +246,7 @@
 /// A bespoke proc for picking a subtype to spawn in a relatively user-friendly way.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/proc/pick_stock_part(mob/user, recurse, subtype)
 	// Sanity check - this should never be called with a null subtype.
-	if(isnull(subtype))
+	if(!ispath(subtype))
 		return
 	// Stores a list of pretty type names : actual paths.
 	var/list/items_temp = list()
@@ -267,7 +267,7 @@
 	for(var/path in paths)
 		var/obj/path_as_obj = path
 		// Generates a pretty list of item names & paths, including notes for those with subtypes.  When browsing subtypes, the parent won't have the (# more) note added.
-		if(length(subtypesof(path)) > 0)
+		if(length(subtypesof(path)))
 			if(path == subtype)
 				items_temp["[initial(path_as_obj.name)]: [path]"] = path
 			else
@@ -281,7 +281,7 @@
 		// If they select something, and the name:path binding is valid, then either spawn it, OR, if it has subtypes, and isn't the parent type, recurse to let them pick a subtype.
 		if(items_temp[target_item])
 			var/the_item = items_temp[target_item]
-			if(length(subtypesof(the_item)) > 0 && the_item != subtype)
+			if(length(subtypesof(the_item)) && the_item != subtype)
 				pick_stock_part(user, TRUE, the_item)
 			else
 				for(var/i in 1 to 25)
