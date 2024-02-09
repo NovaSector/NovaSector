@@ -1733,3 +1733,30 @@ digi
 /datum/greyscale_config/primitive_catgirl_gauntlets/worn
 	name = "Gauntlets (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/gauntlets_worn.json'
+
+/datum/greyscale_config/primitive_catgirl_tailored_dress
+	name = "Tailored Dress"
+	icon_file = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/tailored_dress.json'
+
+/datum/greyscale_config/primitive_catgirl_tailored_dress/worn
+	name = "Tailored Dress (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/tailored_dress_worn.json'
+
+/datum/greyscale_config/primitive_catgirl_ferroniere
+	name = "Ferroniere"
+	icon_file = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/ferroniere.json'
+
+/datum/greyscale_config/primitive_catgirl_ferroniere/worn
+	name = "Ferroniere (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/ferroniere_worn.json'
+
+/datum/greyscale_config/primitive_catgirl_tunic
+	name = "Handmade Tunic"
+	icon_file = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/tunic.json'
+
+/datum/greyscale_config/primitive_catgirl_tunic/worn
+	name = "Handmade Tunic (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/tunic_worn.json'
