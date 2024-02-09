@@ -248,6 +248,9 @@
 	// Sanity check - this should never be called with a null subtype.
 	if(!ispath(subtype))
 		return
+	// Secondary sanity check: make sure it's actually an item, and not an atom, machine, or whatever else someone might try to feed it down the line.
+	if(!ispath(subtype, /obj/item/))
+		return
 	// Stores a list of pretty type names : actual paths.
 	var/list/items_temp = list()
 	// Grab the initial list of paths, NOT INCLUDING this specific path.
