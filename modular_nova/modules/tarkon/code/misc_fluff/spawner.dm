@@ -93,7 +93,11 @@
 	id_trim = /datum/id_trim/away/tarkon/eng
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	l_pocket = /obj/item/tank/internals/emergency_oxygen/engi
-	r_pocket = /obj/item/inducer
+	r_pocket = /obj/item/stack/cable_coil
+	backpack_contents = list(
+		/obj/item/crowbar = 1,
+		/obj/item/inducer = 1
+		)
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon/sec
 	prompt_name = "a port security member"
