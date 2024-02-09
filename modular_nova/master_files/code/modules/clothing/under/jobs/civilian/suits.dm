@@ -34,51 +34,102 @@
 	greyscale_config_worn = /datum/greyscale_config/recolorable_suitskirt/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/recolorable_suitskirt/worn/digi
 
-/*
-*	SUITS
-*/
+/obj/item/clothing/under/suit/nova/recolorable/casual
+	name = "office casual suit"
+	desc = "A semi-formal suit, clean-cut with a matching vest and slacks."
+	icon_state = "fancysuit_casual"
+	greyscale_config = /datum/greyscale_config/fancysuit_casual
+	greyscale_config_worn = /datum/greyscale_config/fancysuit_casual/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancysuit_casual/worn/digi
+	greyscale_colors = "#37373e#ffffff"
+
+/obj/item/clothing/under/suit/nova/recolorable/executive
+	name = "executive casual suit"
+	desc = "A formal suit, clean-cut with a matching vest, undershirt, tie and slacks."
+	icon_state = "fancysuit_executive"
+	greyscale_config = /datum/greyscale_config/fancysuit_executive
+	greyscale_config_worn = /datum/greyscale_config/fancysuit_executive/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancysuit_executive/worn/digi
+	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
+
 /obj/item/clothing/under/suit/nova/pencil
-	name = "black pencilskirt"
-	desc = "A clean white shirt with a tight-fitting black pencilskirt."
-	icon_state = "black_pencil"
+	name = "pencilskirt and shirt"
+	desc = "A clean shirt with a tight-fitting pencilskirt."
+	icon_state = "pencilskirt_shirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
+	greyscale_colors = "#37373e#ffffff"
+	greyscale_config = /datum/greyscale_config/pencilskirt_withshirt
+	greyscale_config_worn = /datum/greyscale_config/pencilskirt_withshirt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_withshirt/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/suit/nova/pencil/black_really
-	name = "executive pencilskirt"
-	desc = "A sleek suit with a tight-fitting black pencilskirt."
-	icon_state = "really_black_pencil"
+/obj/item/clothing/under/suit/nova/pencil/noshirt
+	name = "pencilskirt"
+	desc = "A tight-fitting pencilskirt, perfect to augment an undershirt."
+	icon_state = "pencilskirt"
+	greyscale_colors = "#37373e"
+	greyscale_config = /datum/greyscale_config/pencilskirt
+	greyscale_config_worn = /datum/greyscale_config/pencilskirt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt/worn/digi
+	body_parts_covered = GROIN|LEGS
 
 /obj/item/clothing/under/suit/nova/pencil/charcoal
 	name = "charcoal pencilskirt"
 	desc = "A clean white shirt with a tight-fitting charcoal pencilskirt."
-	icon_state = "charcoal_pencil"
+	greyscale_colors = "#303030#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/navy
 	name = "navy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting navy-blue pencilskirt."
-	icon_state = "navy_pencil"
+	greyscale_colors = "#112334#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/burgandy
 	name = "burgandy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting burgandy-red pencilskirt."
-	icon_state = "burgandy_pencil"
-
-/obj/item/clothing/under/suit/nova/pencil/checkered
-	name = "checkered pencilskirt"
-	desc = "A clean white shirt with a tight-fitting grey checkered pencilskirt."
-	icon_state = "checkered_pencil"
+	greyscale_colors = "#3e1111#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/tan
 	name = "tan pencilskirt"
 	desc = "A clean white shirt with a tight-fitting tan pencilskirt."
-	icon_state = "tan_pencil"
+	greyscale_colors = "#8b7458#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/green
 	name = "green pencilskirt"
 	desc = "A clean white shirt with a tight-fitting green pencilskirt."
-	icon_state = "green_pencil"
+	greyscale_colors = "#113e20#ffffff"
 
+/obj/item/clothing/under/suit/nova/pencil/black_really
+	name = "executive pencilskirt"
+	desc = "A sleek suit with a tight-fitting pencilskirt."
+	icon_state = "pencilskirt_suit"
+	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
+	greyscale_config = /datum/greyscale_config/pencilskirt_withsuit
+	greyscale_config_worn = /datum/greyscale_config/pencilskirt_withsuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_withsuit/worn/digi
+
+/obj/item/clothing/under/suit/nova/pencil/checkered
+	name = "checkered pencilskirt and shirt"
+	desc = "A clean shirt with a tight-fitting checkered pencilskirt."
+	icon_state = "pencilskirt_checkers_shirt"
+	greyscale_colors = "#37373e#232323#ffffff"
+	greyscale_config = /datum/greyscale_config/pencilskirt_checkers_withshirt
+	greyscale_config_worn = /datum/greyscale_config/pencilskirt_checkers_withshirt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_checkers_withshirt/worn/digi
+
+/obj/item/clothing/under/suit/nova/pencil/checkered/noshirt
+	name = "checkered pencilskirt"
+	desc = "A tight-fitting checkered pencilskirt."
+	icon_state = "pencilskirt_checkers"
+	greyscale_colors = "#37373e#232323"
+	greyscale_config = /datum/greyscale_config/pencilskirt_checkers
+	greyscale_config_worn = /datum/greyscale_config/pencilskirt_checkers/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/pencilskirt_checkers/worn/digi
+	body_parts_covered = GROIN|LEGS
+
+/*
+*	STATIC SUITS (NO GAGS)
+*/
 /obj/item/clothing/under/suit/nova/scarface
 	name = "cuban suit"
 	desc = "A yayo coloured silk suit with a crimson shirt. You just know how to hide, how to lie. Me, I don't have that problem. Me, I always tell the truth. Even when I lie."
