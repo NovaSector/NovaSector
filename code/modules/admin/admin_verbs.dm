@@ -258,7 +258,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/validate_puzzgrids,
 	/client/proc/GeneratePipeSpritesheet,
 	/client/proc/view_runtimes,
-
+	/client/proc/stop_weather,
 	/client/proc/reload_interactions,	/*NOVA EDIT ADDITION*/
 	/client/proc/test_area_spawner,		/*AUTOMAPPER - NOVA EDIT ADDITION*/
 	/client/proc/toggle_liquid_debug,	/*NOVA EDIT ADDITION*/
@@ -1207,8 +1207,7 @@ GLOBAL_PROTECT(admin_verbs_poll)
 
 	var/desired_mob = text2path(attempted_target_path)
 	if(!ispath(desired_mob))
-		var/static/list/mob_paths = make_types_fancy(subtypesof(/mob/living))
-		desired_mob = pick_closest_path(attempted_target_path, mob_paths)
+		desired_mob = pick_closest_path(attempted_target_path, make_types_fancy(subtypesof(/mob/living)))
 	if(isnull(desired_mob) || !ispath(desired_mob) || QDELETED(head))
 		return //The user pressed "Cancel"
 

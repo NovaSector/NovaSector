@@ -12,6 +12,10 @@
 		"ci-janitor",
 		"ci-lighter",
 		"ci-razor",
+		"combat_implant_sandy",
+		"combat_implant_hackerman",
+		"combat_implant_razorwire",
+		"combat_implant_shell_launcher",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 
