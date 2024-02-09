@@ -107,6 +107,7 @@
 		atom_storage.return_inv(inv_grab, FALSE)
 		for(var/obj/item/stored_item in inv_grab)
 			if(!(stored_item in old_contents))
+				atom_storage.attempt_remove(stored_item, null, TRUE)
 				qdel(stored_item)
 
 /// A bespoke proc for spawning in parts
@@ -219,6 +220,7 @@
 		atom_storage.return_inv(inv_grab, FALSE)
 		for(var/obj/item/stored_item in inv_grab)
 			atom_storage.attempt_remove(stored_item, null, TRUE)
+			qdel(stored_item)
 	else if(spawn_selection == "Toggle Auto-Clear")
 		auto_clear = !auto_clear
 		to_chat(user, span_notice("The RPED will now [(auto_clear ? "destroy" : "keep")] items left-over after upgrades."))
@@ -254,17 +256,14 @@
 	var/list/items_temp = list()
 	// Grab the initial list of paths, NOT INCLUDING this specific path.
 	var/list/paths = subtypesof(subtype)
-	// Used to remove subtypes-of-subtypes to prevent list bloat.
-	var/list/paths_to_clear = list()
 
-	// Simplistic anti-recursion check. Check every path, then remove every subtype it has from the main list.
-	for(var/path in paths)
-		var/list/path_subtypes = subtypesof(path)
-		for(var/subpath in path_subtypes)
-			if(!(subpath in paths_to_clear))
-				paths_to_clear += subpath
-	for(var/path in paths_to_clear)
-		paths -= path
+	// Simplistic check to only list top-level subtypes.
+	var/list/top_level_subtypes_only = list()
+	for(var/datum/subtype_path as anything in paths)
+		if(initial(subtype_path.parent_type) != subtype)
+			continue
+		top_level_subtypes_only += subtype_path
+	paths = top_level_subtypes_only
 
 	// With all sub-subtypes removed, initialize the list of valid, spawnable items & their pretty names - and if this is a recursion, include the original subtype.
 	if(recurse)
