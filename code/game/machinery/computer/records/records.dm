@@ -57,7 +57,7 @@
 			investigate_log("[key_name(usr)] expunged the record of [target.name].", INVESTIGATE_RECORDS)
 
 			return TRUE
-			*/
+			NOVA EDIT END */
 
 		if("login")
 			authenticated = secure_login(usr)
