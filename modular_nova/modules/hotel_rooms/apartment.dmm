@@ -130,6 +130,7 @@
 "gQ" = (
 /obj/structure/chair/sofa/corp/corner,
 /obj/machinery/light/warm/directional/east,
+/obj/item/toy/plush/nova/breakdancing_bird,
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "ho" = (
@@ -348,10 +349,6 @@
 /turf/open/floor/iron/pool/cobble/corner{
 	dir = 8
 	},
-/area/misc/hilbertshotel)
-"Ib" = (
-/obj/item/toy/plush/skyrat/breakdancing_bird,
-/turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "Ix" = (
 /obj/structure/bed/double,
@@ -769,7 +766,7 @@ oZ
 Gv
 RP
 bz
-Ib
+RP
 RP
 xT
 aS

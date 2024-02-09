@@ -33,9 +33,6 @@
 /// Trait to spawn with a pet in a pet carrier (veteran only)
 #define TRAIT_PET_OWNER "pet_owner"
 
-/// adds -6 quirk to negative quirks for free points.
-#define TRAIT_GIFTED "gifted"
-
 //AdditionalEmotes *turf traits
 #define TRAIT_WATER_ASPECT "water_aspect"
 #define TRAIT_WEBBING_ASPECT "webbing_aspect"
@@ -44,7 +41,7 @@
 #define TRAIT_SPARKLE_ASPECT "sparkle_aspect"
 
 // Trait sources
-#define TRAIT_GHOSTROLE "ghostrole" // NOVA EDIT ADDITION -- Ghost Cafe Traits
+#define TRAIT_GHOSTROLE "ghostrole"
 
 /// One can breath under water, you get me?
 #define TRAIT_WATER_BREATHING "water_breathing"
@@ -74,6 +71,9 @@
 
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
+
+/// The trait that determines if someone has the robotic limb reattachment quirk.
+#define TRAIT_ROBOTIC_LIMBATTACHMENT "trait_robotic_limbattachment"
 
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
@@ -115,6 +115,9 @@
 // Defines for some extra inherent traits
 #define TRAIT_REVIVES_BY_HEALING "trait_revives_by_healing"
 #define TRAIT_ROBOTIC_DNA_ORGANS "trait_robotic_dna_organs"
+
+/// Trait that changes the ending effects of twitch leaving your system
+#define TRAIT_TWITCH_ADAPTED "twitch_adapted"
 
 //Defines for model features, set in the model_features list of a robot model datum. Are they a dogborg? Is the model small? etc.
 /// Cyborgs with unique sprites for when they get totally broken down.

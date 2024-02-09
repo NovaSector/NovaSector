@@ -36,7 +36,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 30 SECONDS
+	construction_time = 10 SECONDS
 
 // Manul Airlock kit
 
@@ -53,7 +53,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 30 SECONDS
+	construction_time = 5 SECONDS
 
 // Shutters kit
 
@@ -70,7 +70,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 30 SECONDS
+	construction_time = 10 SECONDS
 
 // Fancy floor tiles
 
@@ -86,7 +86,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 15 SECONDS
+	construction_time = 0.5 SECONDS
 
 // Fancy catwalk floor tiles
 
@@ -102,7 +102,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 15 SECONDS
+	construction_time = 0.5 SECONDS
 
 // Plastic wall panels, twice the wall for the same price in plastic, efficient!
 
@@ -119,6 +119,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 15 SECONDS
+	construction_time = 1 SECONDS
 
 #undef FABRICATOR_SUBCATEGORY_STRUCTURES

@@ -211,6 +211,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_BLOOD_DEFICIENCY "blood_deficiency"
 #define TRAIT_JOLLY "jolly"
 #define TRAIT_NOCRITDAMAGE "no_crit"
+/// Prevents shovies against a dense object from knocking them down.
+#define TRAIT_SHOVE_KNOCKDOWN_BLOCKED "shove_knockdown_blocked"
+/// Prevents staggering.
+#define TRAIT_NO_STAGGER "no_stagger"
+/// Getting hit by thrown movables won't push you away
+#define TRAIT_NO_THROW_HITPUSH "no_throw_hitpush"
 ///Added to mob or mind, changes the icons of the fish shown in the minigame UI depending on the possible reward.
 #define TRAIT_REVEAL_FISH "reveal_fish"
 
@@ -499,6 +505,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Sells for more money on the pirate bounty pad.
 #define TRAIT_HIGH_VALUE_RANSOM "high_value_ransom"
+
+/// Makes the user handcuff others faster
+#define TRAIT_FAST_CUFFING "fast_cuffing"
 
 // METABOLISMS
 // Various jobs on the station have historically had better reactions

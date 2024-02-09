@@ -26,6 +26,7 @@
 		)
 	)
 	// NOVA EDIT ADDITION END
+	clothing_traits = list(TRAIT_FAST_CUFFING)
 
 /obj/item/clothing/gloves/color/black/Initialize(mapload)
 	. = ..()

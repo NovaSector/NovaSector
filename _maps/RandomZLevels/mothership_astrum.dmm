@@ -1496,9 +1496,7 @@
 	},
 /area/awaymission/mothership_astrum/deck5)
 "yE" = (
-/obj/machinery/door/window{
-	dir = 4
-	},
+/obj/machinery/door/window/left/directional/east,
 /turf/open/floor/grass,
 /area/awaymission/mothership_astrum/halls)
 "zc" = (
@@ -2374,11 +2372,6 @@
 /obj/structure/table/abductor,
 /obj/item/circular_saw/alien,
 /turf/open/floor/plating/abductor,
-/area/awaymission/mothership_astrum/halls)
-"JQ" = (
-/obj/structure/alien/weeds,
-/obj/item/crowbar/freeman,
-/turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "JR" = (
 /obj/structure/table,
@@ -38786,7 +38779,7 @@ On
 ad
 AZ
 TY
-JQ
+ud
 bV
 bV
 bV

@@ -1,5 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - rscadd: "A bunch of new stuff has been added to the loadout tab, such as civil defense & frontier medkits, a ton of Kahraman frontier clothing, wheely-heels and in-hand empty gun cases! MODlink scryers are also now available as a pocket slot option too, so you can video-call your friends with a scarf."
-  - bugfix: "Holobadges are now accessible from both the neck and accessory loadout slots (since they fit in both)."
