@@ -12,13 +12,6 @@
 /obj/structure/toiletbong/Initialize(mapload)
 	. = ..()
 	create_storage()
-<<<<<<< HEAD
-	atom_storage.attack_hand_interact = FALSE
-	atom_storage.set_holdable(list(/obj/item/food/))
-	atom_storage.max_total_storage = 100
-	atom_storage.max_slots = 12
-	weed_overlay = mutable_appearance('icons/obj/watercloset.dmi', "toiletbong_overlay")
-=======
 	AddComponent(/datum/component/simple_rotation, post_rotation = CALLBACK(src, PROC_REF(post_rotation)))
 	create_storage(max_total_storage = 100, max_slots = 12, canhold = /obj/item/food)
 	atom_storage.attack_hand_interact = FALSE
@@ -26,7 +19,6 @@
 	atom_storage.animated = FALSE
 
 	weed_overlay = mutable_appearance('icons/obj/watercloset.dmi', "[base_icon_state]_overlay")
->>>>>>> 1389351ef9e (You can now move and talk through statues and mannequins (#81188))
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/toiletbong/update_overlays()
@@ -79,13 +71,10 @@
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-<<<<<<< HEAD
-=======
 ///Called in the simple rotation's post_rotation callback, playing a sound cue to players.
 /obj/structure/toiletbong/proc/post_rotation(mob/user, degrees)
 	playsound(src, 'sound/items/deconstruct.ogg', 50)
 
->>>>>>> 1389351ef9e (You can now move and talk through statues and mannequins (#81188))
 /obj/structure/toiletbong/crowbar_act(mob/living/user, obj/item/tool)
 	if(anchored)
 		return FALSE
@@ -99,13 +88,6 @@
 	ptank.air_contents.gases[/datum/gas/plasma][MOLES] = (0)
 	qdel(src)
 	return TRUE
-
-/obj/structure/toiletbong/AltClick(mob/living/user)
-	if(anchored)
-		return ..()
-	setDir(turn(dir,90))
-	playsound(src, 'sound/items/deconstruct.ogg', 50)
-	return
 
 /obj/structure/toiletbong/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)

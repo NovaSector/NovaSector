@@ -831,6 +831,17 @@
 	name = "Tailored Short Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/tailored_short_jacket/tailored_short_jacket_worn.json'
 
+// CROPPED JACKET
+
+/datum/greyscale_config/crop_jacket
+	name = "Tailored Jacket"
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/crop_jacket/crop_jacket.json'
+
+/datum/greyscale_config/crop_jacket/worn
+	name = "Tailored Jacket (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
+
 
 /*
 *	UNDER
