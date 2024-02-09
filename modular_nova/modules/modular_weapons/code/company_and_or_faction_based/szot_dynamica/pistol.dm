@@ -9,7 +9,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "slonce"
 
-	fire_sound = 'modular_nova/modules/microfusion/sound/incinerate.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/incinerate.ogg'
 	fire_sound_volume = 40 // This thing is comically loud otherwise
 
 	w_class = WEIGHT_CLASS_NORMAL
@@ -61,7 +61,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "gwiazda"
 
-	fire_sound = 'modular_nova/modules/microfusion/sound/burn.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/burn.ogg'
 	fire_sound_volume = 40 // This thing is comically loud otherwise
 
 	w_class = WEIGHT_CLASS_NORMAL
