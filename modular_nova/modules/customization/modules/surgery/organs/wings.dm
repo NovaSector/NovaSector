@@ -79,7 +79,7 @@
 	if(owner.incapacitated())
 		return
 
-	if(!COOLDOWN_FINISHED(src, dash_cooldown)
+	if(!COOLDOWN_FINISHED(src, dash_cooldown))
 		to_chat(owner, span_warning("Your wings are extraordinarily tired, give them some rest!"))
 		return
 
