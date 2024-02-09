@@ -63,7 +63,7 @@
 	var/jumpdistance = 5 //-1 from to see the actual distance, e.g 4 goes over 3 tiles
 	var/jumpspeed = 3
 	var/datum/weakref/dash_action_ref
-	COOLDOWN_DECLARE(dashcooldown)
+	COOLDOWN_DECLARE(dash_cooldown)
 
 /datum/action/cooldown/spell/moth_and_dash/Trigger(trigger_flags, action, atom/target)
 	if (!isliving(owner))
