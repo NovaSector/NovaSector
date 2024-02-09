@@ -78,10 +78,9 @@
 /obj/item/storage/part_replacer/bluespace/tier4/bst/part_replace_action(obj/attacked_object, mob/living/user)
 	// We start with setting up a list of the current contents of the RPED when using auto-clear.  This is used to detect new items after upgrades are applied & remove them.
 	var/list/old_contents = list()
-	var/list/inv_grab = list()
-	atom_storage.return_inv(inv_grab, FALSE)
+	var/list/inv_grab = atom_storage.return_inv(FALSE)
 	if(auto_clear)
-		atom_storage.return_inv(old_contents, FALSE)
+		old_contents = atom_storage.return_inv(FALSE)
 	// Once old_contents has been initialized, if needed, we check if the target object is a machine frame.
 	var/obj/structure/frame/attacked_frame = attacked_object
 	if(istype(attacked_frame, /obj/structure/frame/machine))
@@ -104,10 +103,9 @@
 	// If auto-clear is in use,
 	if(auto_clear)
 		inv_grab.Cut()
-		atom_storage.return_inv(inv_grab, FALSE)
+		inv_grab = atom_storage.return_inv(FALSE)
 		for(var/obj/item/stored_item in inv_grab)
 			if(!(stored_item in old_contents))
-				atom_storage.attempt_remove(stored_item, null, TRUE)
 				qdel(stored_item)
 
 /// A bespoke proc for spawning in parts
@@ -216,10 +214,8 @@
 	if(isnull(spawn_selection))
 		return
 	else if(spawn_selection == "Clear All Items")
-		var/list/inv_grab = list()
-		atom_storage.return_inv(inv_grab, FALSE)
+		var/list/inv_grab = atom_storage.return_inv(FALSE)
 		for(var/obj/item/stored_item in inv_grab)
-			atom_storage.attempt_remove(stored_item, null, TRUE)
 			qdel(stored_item)
 	else if(spawn_selection == "Toggle Auto-Clear")
 		auto_clear = !auto_clear
