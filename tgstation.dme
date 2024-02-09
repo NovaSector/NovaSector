@@ -8031,6 +8031,7 @@
 #include "modular_nova\modules\tarkon\code\misc_fluff\research.dm"
 #include "modular_nova\modules\tarkon\code\misc_fluff\spawner.dm"
 #include "modular_nova\modules\tarkon\code\misc_fluff\tools.dm"
+#include "modular_nova\modules\tarkon\code\misc_fluff\turret.dm"
 #include "modular_nova\modules\tesh_augments\code\all_nodes.dm"
 #include "modular_nova\modules\tesh_augments\code\limbs.dm"
 #include "modular_nova\modules\tesh_augments\code\mechfabricator_designs.dm"
