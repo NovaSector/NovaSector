@@ -18,7 +18,7 @@
 /obj/item/mod/module/magnetic_harness/Initialize(mapload)
 	. = ..()
 	if(!guns_typecache)
-		guns_typecache = typecacheof(list(/obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher, /obj/item/gun/chem, /obj/item/gun/syringe, /obj/item/gun/microfusion)) //NOVA EDIT - MICROFUSION
+		guns_typecache = typecacheof(list(/obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher, /obj/item/gun/chem, /obj/item/gun/syringe))
 
 /obj/item/mod/module/magnetic_harness/on_install()
 	already_allowed_guns = guns_typecache & mod.chestplate.allowed
@@ -597,3 +597,17 @@
 	desc = "Layers upon layers of shock dampening plates, just to stop you from getting shoved into a wall by an angry mob. Good luck removing this one."
 	removable = FALSE
 	complexity = 0
+
+/obj/item/mod/module/quick_cuff
+	name = "MOD restraint assist module"
+	desc = "Enhanced gauntlent grip pads that help with placing individuals in restraints more quickly. Doesn't look like they'll come off."
+	removable = FALSE
+	complexity = 0
+
+/obj/item/mod/module/quick_cuff/on_suit_activation()
+	. = ..()
+	ADD_TRAIT(mod.wearer, TRAIT_FAST_CUFFING, MOD_TRAIT)
+
+/obj/item/mod/module/quick_cuff/on_suit_deactivation(deleting = FALSE)
+	. = ..()
+	REMOVE_TRAIT(mod.wearer, TRAIT_FAST_CUFFING, MOD_TRAIT)

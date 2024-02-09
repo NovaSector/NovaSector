@@ -63,25 +63,37 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/under/costume/nova/qipao/customtrim
+	greyscale_colors = "#2b2b2b#ffce5b"
+	greyscale_config = /datum/greyscale_config/qipao_customtrim
+	greyscale_config_worn = /datum/greyscale_config/qipao_customtrim/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/qipao_customtrim/worn/digi
+
 /obj/item/clothing/under/costume/nova/cheongsam
 	name = "cheongsam"
 	desc = "A cheongsam, traditionally worn in ancient Earth China by men during social events and lunar new years."
 	icon_state = "cheongsam"
 	body_parts_covered = CHEST|GROIN|LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b"
+	greyscale_colors = "#2b2b2b#353535"
 	greyscale_config = /datum/greyscale_config/cheongsam
 	greyscale_config_worn = /datum/greyscale_config/cheongsam/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/cheongsam/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/under/costume/nova/cheongsam/customtrim
+	greyscale_colors = "#2b2b2b#ffce5b#353535"
+	greyscale_config = /datum/greyscale_config/cheongsam_customtrim
+	greyscale_config_worn = /datum/greyscale_config/cheongsam_customtrim/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/cheongsam_customtrim/worn/digi
+
 /obj/item/clothing/under/costume/nova/yukata
 	name = "yukata"
 	desc = "A traditional ancient Earth Japanese yukata, typically worn in casual settings."
 	icon_state = "yukata"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	greyscale_colors = "#2b2b2b"
+	greyscale_colors = "#2b2b2b#666666"
 	greyscale_config = /datum/greyscale_config/yukata
 	greyscale_config_worn = /datum/greyscale_config/yukata/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/yukata/worn/digi
@@ -136,3 +148,18 @@
 	name = "sexy green christmas costume"
 	desc = "Stupid. Ugly. Out of date. If I can't find something nice to wear I'm not going."
 	greyscale_colors = "#1a991a#c4c2c2"
+
+/*
+*	TREK CLOTHES
+*/
+/obj/item/clothing/under/trek/command
+	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/trek/engsec
+	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/trek/medsci
+	greyscale_config_worn_digi = /datum/greyscale_config/trek/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
