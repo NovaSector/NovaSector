@@ -251,10 +251,7 @@
 
 /// A bespoke proc for picking a subtype to spawn in a relatively user-friendly way.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/proc/pick_stock_part(mob/user, recurse, subtype)
-	// Sanity check - this should never be called with a null subtype.
-	if(!ispath(subtype))
-		return
-	// Secondary sanity check: make sure it's actually an item, and not an atom, machine, or whatever else someone might try to feed it down the line.
+	// Sanity check: make sure it's actually an item, and not an atom, machine, or whatever else someone might try to feed it down the line.
 	if(!is_path_in_list(subtype, valid_stock_part_types))
 		return
 	// Stores a list of pretty type names : actual paths.
