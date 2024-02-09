@@ -216,6 +216,16 @@
 			)
 		data["selected_equipment"] += list(equipment_data)
 
+	data["current_crew"] = generate_optin_crew_list()
+
+	return data
+
+/datum/opposing_force/ui_static_data(mob/user)
+	var/list/data = list()
+
+	data["opt_in_colors"] = GLOB.antag_opt_in_colors
+	data["opt_in_enabled"] = (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+
 	return data
 
 /datum/opposing_force/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -1021,3 +1031,25 @@
 		return
 
 	opfor.ui_interact(usr)
+
+/proc/generate_optin_crew_list()
+	var/list/output = list()
+
+	for (var/datum/record/locked/iterated_record as anything in GLOB.manifest.locked)
+		var/datum/mind/mind_datum = iterated_record.mind_ref.resolve()
+		if (!istype(mind_datum))
+			continue
+		var/name = iterated_record.name
+		var/rank = iterated_record.rank
+
+		var/opt_in_status = mind_datum.get_effective_opt_in_level()
+		var/ideal_opt_in_status = mind_datum.ideal_opt_in_level
+
+		output += list(list(
+			"name" = name,
+			"rank" = rank,
+			"opt_in_status" = GLOB.antag_opt_in_strings["[opt_in_status]"],
+			"ideal_opt_in_status" = GLOB.antag_opt_in_strings["[ideal_opt_in_status]"]
+		))
+
+	return output

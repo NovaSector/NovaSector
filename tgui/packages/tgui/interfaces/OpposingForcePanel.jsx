@@ -22,7 +22,7 @@ import { Window } from '../layouts';
 export const OpposingForcePanel = (props) => {
   const [tab, setTab] = useState(1);
   const { act, data } = useBackend();
-  const { admin_mode, creator_ckey, owner_antag } = data;
+  const { admin_mode, creator_ckey, owner_antag, opt_in_enabled } = data;
   return (
     <Window
       title={'Opposing Force: ' + creator_ckey}
@@ -74,6 +74,15 @@ export const OpposingForcePanel = (props) => {
                   >
                     Admin Chat
                   </Tabs.Tab>
+                  {!!opt_in_enabled && (
+                    <Tabs.Tab
+                      width="100%"
+                      selected={tab === 4}
+                      onClick={() => setTab(4)}
+                    >
+                      Target List
+                    </Tabs.Tab>
+                  )}
                 </>
               )}
             </Tabs>
@@ -89,6 +98,7 @@ export const OpposingForcePanel = (props) => {
             {tab === 1 && <OpposingForceTab />}
             {tab === 2 && <EquipmentTab />}
             {tab === 3 && <AdminChatTab />}
+            {tab === 4 && <TargetTab />}
           </>
         )}
       </Window.Content>
@@ -937,6 +947,42 @@ export const AdminTab = (props) => {
               </Section>
             ))
           )}
+        </Section>
+      </Stack.Item>
+    </Stack>
+  );
+};
+
+export const TargetTab = (props) => {
+  const { act, data } = useBackend();
+  const { current_crew = [], opt_in_colors = { optin, color } } = data;
+  return (
+    <Stack vertical fill>
+      <Stack.Item grow={10}>
+        <Section title="Currently active crew">
+          {current_crew.map((crew) => (
+            <Stack vertical={false} key={crew.name} pb="10px">
+              <Stack.Item>
+                <span style={{ textDecoration: 'underline' }}>{crew.name}</span>
+                {': '}
+                {crew.rank}, Current Opt-In status:{' '}
+                <span
+                  style={{
+                    fontWeight: 'bold',
+                    color: opt_in_colors[crew.opt_in_status],
+                  }}
+                >
+                  {crew.opt_in_status}
+                </span>
+                , Ideal Opt-in status:{' '}
+                <span
+                  style={{ color: opt_in_colors[crew.ideal_opt_in_status] }}
+                >
+                  {crew.ideal_opt_in_status}
+                </span>
+              </Stack.Item>
+            </Stack>
+          ))}
         </Section>
       </Stack.Item>
     </Stack>
