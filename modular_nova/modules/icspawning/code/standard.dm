@@ -68,6 +68,12 @@
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
+	/// List of valid types for pick_stock_part().
+	var/static/list/valid_stock_part_types = list(
+		/obj/item/circuitboard/machine,
+		/obj/item/stock_parts,
+		/obj/item/reagent_containers/cup/beaker,
+	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst/Initialize(mapload)
 	. = ..()
@@ -249,7 +255,7 @@
 	if(!ispath(subtype))
 		return
 	// Secondary sanity check: make sure it's actually an item, and not an atom, machine, or whatever else someone might try to feed it down the line.
-	if(!ispath(subtype, /obj/item/))
+	if(!is_path_in_list(subtype, valid_stock_part_types))
 		return
 	// Stores a list of pretty type names : actual paths.
 	var/list/items_temp = list()
