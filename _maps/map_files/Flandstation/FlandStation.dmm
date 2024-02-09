@@ -2715,17 +2715,16 @@
 "aQp" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/left/directional/east{
-	dir = 8;
-	name = "Hydroponics Desk";
-	req_access = list("hydroponics")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "hydroshutter";
 	name = "Hydroponic Shutters"
 	},
 /obj/structure/desk_bell{
 	pixel_x = 8
+	},
+/obj/machinery/door/window/left/directional/west{
+	name = "Hydroponics Desk";
+	req_access = list("hydroponics")
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -4111,14 +4110,13 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "bmB" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
-	name = "Creature Pen";
-	req_access = list("xenobiology")
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "xeno5";
 	name = "Creature Cell #5"
+	},
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #5";
+	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
@@ -5406,9 +5404,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/port/fore)
-"bLE" = (
-/turf/open/floor/plating/airless,
-/area/station/cargo/storage)
 "bLJ" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -9808,6 +9803,9 @@
 /obj/item/mmi,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai_upload)
+"dlm" = (
+/turf/open/floor/plating/airless,
+/area/station/cargo/storage)
 "dlA" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/oven,
@@ -12599,6 +12597,13 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/tcommsat/server)
+"elC" = (
+/obj/machinery/door/window/right/directional/east{
+	name = "Containment Pen #3";
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
 "elF" = (
 /obj/structure/sign/warning/secure_area,
 /turf/closed/wall/r_wall,
@@ -24820,6 +24825,13 @@
 	},
 /turf/open/floor/vault,
 /area/station/command/heads_quarters/rd)
+"iaN" = (
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #2";
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
 "iaR" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L2"
@@ -25023,9 +25035,8 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "idG" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 4;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/east{
+	name = "Containment Pen #1";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -38802,9 +38813,8 @@
 	id = "xeno1";
 	name = "Creature Cell #1"
 	},
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #1";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -42381,18 +42391,16 @@
 /area/station/service/hydroponics)
 "nMm" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/east{
-	dir = 1;
-	name = "Hydroponics Desk";
-	req_access = list("hydroponics")
-	},
 /obj/item/storage/bag/plants/portaseeder,
-/obj/machinery/door/window/right/directional/east{
-	dir = 2
-	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
+/obj/machinery/door/window/left/directional/north{
+	req_access = list("hydroponics")
+	},
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("hydroponics")
+	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "nMn" = (
@@ -43303,13 +43311,12 @@
 "ocb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/right/directional/east{
-	dir = 1;
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/window/right/directional/north{
 	name = "Artifact Containment";
 	req_access = list("science")
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/science/explab)
 "ocd" = (
@@ -45597,6 +45604,13 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/security/courtroom)
+"oTY" = (
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #6";
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
 "oUe" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
@@ -47562,12 +47576,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
-"pBa" = (
-/obj/effect/turf_decal/stripes/corner,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 "pBe" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/effect/turf_decal/bot,
@@ -47656,9 +47664,8 @@
 /turf/open/space/basic,
 /area/space)
 "pCz" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #4";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -57381,9 +57388,8 @@
 	id = "xeno6";
 	name = "Creature Cell #6"
 	},
-/obj/machinery/door/window/brigdoor{
-	dir = 4;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/east{
+	name = "Containment Pen #6";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -58417,9 +58423,8 @@
 	id = "xeno2";
 	name = "Creature Cell #2"
 	},
-/obj/machinery/door/window/brigdoor{
-	dir = 4;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/east{
+	name = "Containment Pen #2";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -64096,6 +64101,14 @@
 "uIe" = (
 /turf/open/floor/vault,
 /area/station/command/heads_quarters/rd)
+"uIh" = (
+/obj/structure/cable,
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #1";
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
 "uIq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/structure/crate_loot,
@@ -64913,11 +64926,6 @@
 /area/station/commons)
 "uUP" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/east{
-	dir = 2;
-	name = "Research and Development Desk";
-	req_access = list("science")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "rndlabext";
 	name = "External Research Shutters"
@@ -64925,6 +64933,10 @@
 /obj/machinery/door/firedoor,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("science");
+	name = "Research and Development Desk"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
 "uUU" = (
@@ -67162,9 +67174,8 @@
 	id = "xeno3";
 	name = "Creature Cell #3"
 	},
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #3";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -74285,17 +74296,16 @@
 	pixel_y = -3
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/right/directional/east{
-	dir = 8;
-	name = "Hydroponics Desk";
-	req_access = list("hydroponics")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "hydroshutter";
 	name = "Hydroponic Shutters"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/window/left/directional/west{
+	name = "Hydroponics Desk";
+	req_access = list("hydroponics")
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -74734,9 +74744,8 @@
 	id = "xeno4";
 	name = "Creature Cell #4"
 	},
-/obj/machinery/door/window/brigdoor{
-	dir = 4;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/east{
+	name = "Containment Pen #4";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/dark,
@@ -75468,6 +75477,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/checker,
 /area/station/commons/dorms/laundry)
+"xXq" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
 "xXs" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
@@ -75870,9 +75885,8 @@
 /area/station/maintenance/aft/lesser)
 "ydT" = (
 /obj/structure/cable,
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
-	name = "Creature Pen";
+/obj/machinery/door/window/right/directional/west{
+	name = "Containment Pen #2";
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/plating,
@@ -75994,6 +76008,13 @@
 /obj/structure/closet/wardrobe/black,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
+"yfK" = (
+/obj/machinery/door/window/right/directional/east{
+	name = "Containment Pen #5";
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
 "yfV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -95610,7 +95631,7 @@ fyG
 jBr
 pAe
 qYG
-pBa
+xXq
 dXj
 xuO
 xuO
@@ -99984,15 +100005,15 @@ jFd
 oDB
 pro
 nqZ
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
 sIl
 ntQ
 vLM
@@ -100240,17 +100261,17 @@ ccb
 gXH
 oDB
 pro
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
 ntQ
 csJ
 nnx
@@ -100497,17 +100518,17 @@ gWd
 gWd
 gWd
 pro
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
 ntQ
 csJ
 nnx
@@ -100754,17 +100775,17 @@ qHa
 wkj
 bkK
 pro
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
 ntQ
 csJ
 nnx
@@ -101012,15 +101033,15 @@ mFT
 bkK
 pro
 fCF
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
-bLE
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
+dlm
 nlT
 ntQ
 vLM
@@ -110287,7 +110308,7 @@ hPx
 siW
 siW
 jpR
-ydT
+uIh
 sgZ
 jpR
 ydT
@@ -110555,11 +110576,11 @@ idG
 oPf
 xDt
 cTH
-idG
+elC
 oPf
 xDt
 aRg
-idG
+yfK
 oPf
 siW
 siW
@@ -111579,7 +111600,7 @@ sWc
 nBl
 siW
 qBI
-pCz
+iaN
 nhp
 xDt
 uUz
@@ -111587,7 +111608,7 @@ pCz
 nhp
 xDt
 agM
-pCz
+oTY
 nhp
 siW
 vTo
