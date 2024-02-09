@@ -439,7 +439,7 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	weak_turf = TRUE
 	proximity_based = FALSE // Nova Edit: Originally TRUE
-	mineralChance = 8
+	mineralChance = 8 // Nova Edit: Originally Not defined - lowers from 13
 
 /turf/closed/mineral/random/snow/Change_Ore(ore_type, random = 0)
 	. = ..()
@@ -471,7 +471,7 @@
 /turf/closed/mineral/random/snow/underground
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 	// abundant ore
-	mineralChance = 12 // Nova Edit: Originally 20
+	mineralChance = 20
 
 /turf/closed/mineral/random/snow/underground/mineral_chances()
 	return list(
