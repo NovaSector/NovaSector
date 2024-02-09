@@ -7,6 +7,10 @@
 #define ITEM_WEIGHT_GUN_COMMON 2
 #define ITEM_WEIGHT_GUN_RARE 1
 
+
+// used in budget calculation
+#define CRATE_ITEM_WEIGHT_MAX 3
+
 #define CRATE_BUDGET_MINIMUM 20
 #define CRATE_BUDGET_MAXIMUM 35
 
