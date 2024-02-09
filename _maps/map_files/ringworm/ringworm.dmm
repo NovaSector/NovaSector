@@ -32859,9 +32859,6 @@
 /obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/directional/west{
-	c_tag = "Dormitories - Restrooms"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -48126,9 +48123,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/directional/east{
-	c_tag = "Auxiliary Restroom"
-	},
 /turf/open/floor/iron/white/diagonal,
 /area/station/commons/toilet/auxiliary)
 "osq" = (
