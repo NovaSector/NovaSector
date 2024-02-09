@@ -76,9 +76,9 @@
 	ckeywhitelist = list("candlejax")
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_SCIENCE_GUARD, JOB_VIROLOGIST, JOB_GENETICIST)
 
-/datum/loadout_item/head/emissionhelm
-	name = "Emission's Helmet"
-	item_path = /obj/item/clothing/head/helmet/space/plasmaman/candlejax
+/datum/loadout_item/mask/cmcp_mask
+	name = "CMCP Mask"
+	item_path = /obj/item/clothing/mask/gas/CMCP_mask
 	ckeywhitelist = list("candlejax")
 
 /datum/loadout_item/head/anahelm
