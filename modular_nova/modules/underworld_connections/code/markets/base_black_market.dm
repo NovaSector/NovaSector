@@ -155,7 +155,7 @@
 
 /datum/market_item/tool/binoculars
 	//we can roundstart with these so let's tone them way down
-	desc = "CIN military surplus. They'll never see you coming."
+	desc = "Offworld military surplus. They'll never see you coming."
 	price_min = PAYCHECK_CREW * 0.2
 	price_max = PAYCHECK_CREW * 0.5
 
