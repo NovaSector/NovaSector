@@ -1216,6 +1216,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/landmark/start/detective,
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
 "atA" = (
@@ -3192,11 +3193,6 @@
 /area/station/maintenance/abandon_office)
 "aVS" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/south{
-	dir = 8;
-	name = "First-Aid Supplies";
-	req_access = list("medical")
-	},
 /obj/item/storage/medkit/brute{
 	pixel_x = -3;
 	pixel_y = -3
@@ -3205,6 +3201,10 @@
 /obj/item/storage/medkit/brute{
 	pixel_x = 6;
 	pixel_y = 6
+	},
+/obj/machinery/door/window/left/directional/west{
+	name = "First-Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -4319,11 +4319,6 @@
 /area/station/command/heads_quarters/rd)
 "bqE" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "First-Aid Supplies";
-	req_access = list("medical")
-	},
 /obj/machinery/light/directional/east,
 /obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
@@ -4336,6 +4331,10 @@
 /obj/item/storage/medkit/toxin{
 	pixel_x = 3;
 	pixel_y = 3
+	},
+/obj/machinery/door/window/right/directional/west{
+	name = "First-Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -11641,15 +11640,14 @@
 "dTU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/door/window/left/directional/west{
-	dir = 2;
-	name = "Medical Delivery";
-	req_access = list("medical")
-	},
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=8";
 	location = "Medbay";
 	name = "navigation beacon (Medbay)"
+	},
+/obj/machinery/door/window/left/directional/south{
+	req_access = list("medical");
+	name = "Medical Delivery"
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -18025,11 +18023,12 @@
 /area/station/ai_monitored/command/storage/eva)
 "fPc" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor{
-	name = "Core Modules"
-	},
 /obj/machinery/light/directional/north,
 /obj/effect/spawner/random/aimodule/harmless,
+/obj/machinery/door/window/left/directional/south{
+	req_access = list("ai_upload");
+	name = "AI Modules"
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "fPz" = (
@@ -23951,9 +23950,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
 /turf/open/floor/iron/white,
 /area/station/science/circuits)
-"hKY" = (
-/turf/open/floor/carpet/green,
-/area/station/security/detectives_office)
 "hLc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/end,
@@ -24988,12 +24984,12 @@
 /area/station/ai_monitored/turret_protected/ai_upload_foyer)
 "icJ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor{
-	dir = 1;
-	name = "Core Modules"
-	},
 /obj/machinery/light/directional/south,
 /obj/effect/spawner/random/aimodule/harmful,
+/obj/machinery/door/window/left/directional/north{
+	req_access = list("ai_upload");
+	name = "Dangerous Modules"
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "icX" = (
@@ -25147,7 +25143,11 @@
 /turf/open/floor/plating,
 /area/station/security/detectives_office)
 "ifn" = (
-/obj/machinery/photocopier,
+/obj/structure/closet/secure_closet/detective,
+/obj/item/clothing/under/rank/security/detective,
+/obj/item/clothing/head/fedora/det_hat{
+	icon_state = "curator"
+	},
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
 "ifo" = (
@@ -29776,7 +29776,6 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
-/obj/item/clothing/glasses/hud/security/sunglasses,
 /obj/item/reagent_containers/cup/glass/flask/det,
 /obj/machinery/newscaster{
 	pixel_y = 31
@@ -31955,11 +31954,11 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "kvW" = (
-/obj/machinery/door/window{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/window/left/directional/north{
+	name = "interior door"
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/cafeteria)
 "kwf" = (
@@ -33025,6 +33024,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/medical/orderly,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "kNh" = (
@@ -33463,15 +33463,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/port/central)
 "kUm" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
-	id = "arrdoor";
-	name = "Arrival Cell";
-	req_access = list("security")
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/window/brigdoor/right/directional/west{
+	name = "Arrival Cell";
+	req_access = list("security")
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint)
 "kUo" = (
@@ -34455,11 +34453,6 @@
 /area/station/commons/lounge)
 "ljz" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/left/directional/south{
-	dir = 4;
-	name = "First-Aid Supplies";
-	req_access = list("medical")
-	},
 /obj/machinery/light/directional/west,
 /obj/structure/window/reinforced/spawner/directional/north{
 	layer = 2.9
@@ -34472,6 +34465,10 @@
 /obj/item/storage/medkit/o2{
 	pixel_x = 3;
 	pixel_y = 3
+	},
+/obj/machinery/door/window/left/directional/east{
+	name = "First-Aid Supplies";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -35432,14 +35429,13 @@
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
 /obj/item/pen,
-/obj/machinery/door/window/left/directional/south{
-	dir = 4;
-	name = "Cargo Desk";
-	req_access = list("shipping")
-	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/spawner/random/maintenance,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("shipping");
+	name = "Cargo Desk"
+	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "lyn" = (
@@ -37072,9 +37068,7 @@
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
-/obj/structure/table/wood,
-/obj/item/restraints/handcuffs,
-/obj/item/assembly/flash/handheld,
+/obj/machinery/photocopier,
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
 "mbp" = (
@@ -39462,8 +39456,7 @@
 "mPm" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/right/directional/south{
-	name = "Customs Desk";
-	req_access = list("command")
+	name = "Customs Desk"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/preopen{
@@ -39471,7 +39464,8 @@
 	name = "Customs Lockdown"
 	},
 /obj/machinery/door/window/brigdoor/right/directional/north{
-	req_access = list("command")
+	req_access = list("command");
+	name = "Customs Desk"
 	},
 /turf/open/floor/iron,
 /area/station/security/checkpoint/customs)
@@ -52336,13 +52330,13 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "qXb" = (
-/obj/machinery/door/window/right/directional/west{
-	dir = 4;
-	req_access = list("morgue_secure")
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("morgue_secure");
+	name = "Morgue Operating Room"
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
 "qXx" = (
@@ -59793,8 +59787,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "tqu" = (
-/obj/machinery/door/window/right/directional/east{
-	dir = 1;
+/obj/machinery/door/window/right/directional/north{
 	name = "Detective's Morgue";
 	req_access = list("detective")
 	},
@@ -62396,6 +62389,7 @@
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
+/obj/effect/landmark/start/detective,
 /turf/open/floor/iron/dark,
 /area/station/security/detectives_office)
 "uhM" = (
@@ -65056,7 +65050,6 @@
 /obj/item/pen,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/right/directional/south{
-	dir = 1;
 	name = "Security Desk";
 	req_access = list("security")
 	},
@@ -66607,11 +66600,6 @@
 /area/station/maintenance/department/engine)
 "vuI" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/south{
-	dir = 4;
-	name = "First-Aid Supplies";
-	req_access = list("medical")
-	},
 /obj/item/crowbar,
 /obj/item/wrench/medical,
 /obj/item/reagent_containers/spray/cleaner{
@@ -66626,6 +66614,10 @@
 /obj/item/storage/medkit/fire{
 	pixel_x = 3;
 	pixel_y = 3
+	},
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("medical");
+	name = "First-Aid Supplies"
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
@@ -94536,7 +94528,7 @@ lDa
 aoI
 aOg
 atz
-iuQ
+eok
 eok
 ifn
 lYx
@@ -95305,10 +95297,10 @@ xEt
 itD
 wZn
 ifl
-hKY
 xjG
-hKY
-hKY
+xjG
+xjG
+xjG
 bGV
 iuQ
 veT
