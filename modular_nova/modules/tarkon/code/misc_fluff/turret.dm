@@ -39,7 +39,7 @@
 	name = "T.I.B.S \"Cerberus\" Guardian Turret"
 	desc = "A heavy-protection turret used in the Tarkon Industries Blackwall Salvage group to protect its workers in hazardous conditions."
 	integrity_failure = 0
-	max_integrity = 350
+	max_integrity = 200
 	move_resist = INFINITY
 	shot_delay = 2 SECONDS
 	stun_projectile = null
@@ -53,15 +53,26 @@
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box //Container of the turret. Needs expanded ref.
 	var/obj/item/ammo_box/magazine/magazine = null // Magazine inside the turret.
 	var/obj/item/ammo_casing/chambered = null // currently loaded bullet
-	var/mob/living/turret_ai/shutupruntimes // WE PUT A HOPEFULLY INVISIBLE MOB ONTOP TO STOP RUNTIMES. I LOVE BULLET CODE
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
-	shutupruntimes = new /mob/living/turret_ai(get_turf(src))
-	shutupruntimes.turretsync = src
-
 	if(!mag_box) //If we want to make map-spawned turrets in turret form.
 		mag_box = new mag_box_type
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/examine(mob/user)
+	. = ..()
+	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
+	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
+	if((user.faction in faction) || (REF(user) in faction))
+		. += span_notice("You can repair it by <b>left-clicking</b> with a wrench.")
+		. += span_notice("You can fold it by <b>right-clicking</b> with a wrench.")
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
+	for(var/faction1 in faction)
+		if((faction1 in target.faction) || (REF(target) in faction)) // For an Ally System
+			return TRUE
+	return FALSE
+
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/set_faction(obj/machinery/porta_turret/turret, mob/user)
 	if(!(user.faction in turret.faction))
@@ -133,9 +144,6 @@
 		chambered.forceMove(src)
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("Loading Cartridge")
-		if(ignore_faction) //If we want projectiles to phase through allies. Thank that its possible.
-			if(chambered.loaded_projectile)
-				chambered.loaded_projectile.ignored_factions = faction
 		if(replace_new_round) //For edge-case additions later in the road.
 			magazine.give_round(new chambered.type)
 
@@ -181,32 +189,36 @@
 			return
 		last_fired = world.time
 
-	var/turf/Turf = get_turf(src)
+	var/turf/MyTurf = get_turf(src)
 	var/turf/targetturf = get_turf(target)
-	if(!istype(Turf) || !istype(targetturf))
+	if(!istype(MyTurf) || !istype(targetturf))
 		return
 
 	//Wall turrets will try to find adjacent empty turf to shoot from to cover full arc
-	if(Turf.density)
+	if(MyTurf.density)
 		if(wall_turret_direction)
-			var/turf/closer = get_step(Turf,wall_turret_direction)
-			if(istype(closer) && !closer.is_blocked_turf() && Turf.Adjacent(closer))
-				Turf = closer
+			var/turf/closer = get_step(MyTurf,wall_turret_direction)
+			if(istype(closer) && !closer.is_blocked_turf() && MyTurf.Adjacent(closer))
+				MyTurf = closer
 		else
-			var/target_dir = get_dir(Turf,target)
+			var/target_dir = get_dir(MyTurf,target)
 			for(var/d in list(0,-45,45))
-				var/turf/closer = get_step(Turf,turn(target_dir,d))
-				if(istype(closer) && !closer.is_blocked_turf() && Turf.Adjacent(closer))
-					Turf = closer
+				var/turf/closer = get_step(MyTurf,turn(target_dir,d))
+				if(istype(closer) && !closer.is_blocked_turf() && MyTurf.Adjacent(closer))
+					MyTurf = closer
 					break
 
 	update_appearance()
-	if(!chambered.fire_casing(target, shutupruntimes, null, 0, 0, null, 0, src)) //Something here about having the AI mob breaks the turret ejecting spent shells. But without it, we runtime like hell.
-		handle_chamber(FALSE, FALSE, TRUE)
-	else
-		handle_chamber(FALSE, TRUE, TRUE)
-
-	return
+	var/obj/projectile/MyLoad = chambered.loaded_projectile
+	MyLoad.preparePixelProjectile(target, MyTurf)
+	MyLoad.firer = src
+	MyLoad.fired_from = src
+	if(ignore_faction)
+		MyLoad.ignored_factions = faction
+	MyLoad.fire()
+	chambered.loaded_projectile = null //OK. THIS SHOULD HELP?
+	handle_chamber(TRUE,TRUE,TRUE)
+	return MyLoad
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
@@ -290,18 +302,12 @@
 			chambered.forceMove(drop_location())
 		if(!magazine)
 			chambered.forceMove(drop_location())
-		chambered.loaded_projectile.ignored_factions = initial(chambered.loaded_projectile.ignored_factions) //Cover our asses hopefully?
 		magazine.stored_ammo.Insert(1,chambered) //put bullet back in magazine
 		chambered = null
 
 	if(magazine)
 		mag_box.contents.Insert(1,magazine) //if the magazine is being kept this long, it might aswell be shoved back in.
 		magazine = null
-
-	if(shutupruntimes) //to avoid leftover mobs.
-		shutupruntimes.turretsync = null
-		qdel(shutupruntimes)
-		shutupruntimes = null
 
 	if(!disassembled) //We make it oilsplode, but still retrievable.
 		new /obj/effect/gibspawner/robot(drop_location())
@@ -313,13 +319,5 @@
 	qdel(src)
 	return
 
-/mob/living/turret_ai // SHOULD NOT BE SEEN. SHOULD NOT BE TOUCHED. SHOULD NOT BE VISIBLE OUTSIDE OF- IDK. I'M NOT A GOOD CODER.
-	name = "mag_fed turret AI"
-	desc = "Part of the Itty Bitty Anti-Runtime Committee. You probably shouldn't be seeing this."
-	density = FALSE
-	see_invisible = 0
-	invisibility = INVISIBILITY_OBSERVER
-	plane = POINT_PLANE //Should not be seen. Should not be touched. WE CANT PUT IT IN THE TURRET OR TURRET SHOOTS ITSELF.
-	combat_mode = TRUE //Because bullet has combat_mode queries and we want them to trigger.
-	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turretsync
+
 
