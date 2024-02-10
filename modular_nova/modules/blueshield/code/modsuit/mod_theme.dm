@@ -12,7 +12,6 @@
 	default_skin = "praetorian"
 	armor_type = /datum/armor/mod_theme_security
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
-	complexity_max = DEFAULT_MAX_COMPLEXITY - 3
 	slowdown_inactive = 1
 	slowdown_active = 0.5
 	allowed_suit_storage = list(
