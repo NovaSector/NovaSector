@@ -19,7 +19,7 @@
 	integrity_failure = 0
 	max_integrity = 250
 	move_resist = INFINITY
-	shot_delay = 1.5 SECONDS
+	shot_delay = 1 SECONDS
 	stun_projectile = null
 	lethal_projectile = null
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
@@ -65,12 +65,10 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!magazine)
-		handle_mag()
-		return
+		load_mag()
 
-	if(!magazine.ammo_count())
+	else if(!magazine.ammo_count())
 		handle_mag()
-		return
 
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
 	if(istype(casing)) //there's a chambered round
@@ -106,7 +104,6 @@
 	if(magazine)
 		var/obj/item/ammo_box/magazine/mag = magazine
 		if(istype(mag)) //there's a chambered round
-			balloon_alert_to_viewers("Magazine Dropped")
 			magazine.forceMove(drop_location())
 			UnregisterSignal(magazine, COMSIG_MOVABLE_MOVED)
 			magazine = null
@@ -116,6 +113,8 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
 	if(!mag_box.get_mag())
 		balloon_alert_to_viewers("Magazine Wells Empty!")
+		toggle_on(FALSE) // If its in this state, it needs to STFU
+		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 6 SECONDS)
 		return
 	magazine = mag_box.get_mag(FALSE)
 	magazine.forceMove(src)
