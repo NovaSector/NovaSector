@@ -3188,11 +3188,13 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/item/storage/box/stockparts/deluxe,
+/obj/item/storage/box/stockparts/deluxe,
 /obj/machinery/camera/autoname/directional/north{
-	c_tag = "Tech Storage"
+	network = list("intd13")
 	},
-/obj/item/storage/box/stockparts/deluxe,
-/obj/item/storage/box/stockparts/deluxe,
+/obj/item/stock_parts/cell/bluespace,
+/obj/item/stock_parts/cell/bluespace,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
@@ -4651,6 +4653,10 @@
 /obj/effect/turf_decal/tile/dark_green/half/contrasted{
 	dir = 4
 	},
+/obj/item/paper{
+	default_raw_text = "<h1>Note from Interdyne Engineering:</h1><p>As the shuttle is significantly more power hungry than the previous installation, auxiliary power setup is required for whenever it's planetside. A stock of radiation emitting RTGs has been provided for your convenience, as well as the PPE needed to set them up. These are located on the balcony in engineering.<p></p>Lay wires on the catwalks, then stand in front of where you'd like the RTGs to be unpacked to and press the button on the flatpacked equipment to deploy it. It will immediately begin producing power and radiation. If you take too many rads, administer toxin-healing medication.</p>";
+	name = "paper- 'Note from Interdyne Engineering'"
+	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "Nt" = (
@@ -5503,8 +5509,7 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/machinery/camera/autoname/directional/south{
-	c_tag = "Research Director's Office";
-	network = list("ss13","rd")
+	network = list("intd13")
 	},
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
