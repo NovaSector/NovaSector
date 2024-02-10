@@ -128,7 +128,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne
 	suit = /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white
 	head = /obj/item/clothing/head/beret/medical/nova/interdyne
-	back = /obj/item/storage/backpack
+	back = /obj/item/storage/backpack/virology
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
@@ -172,6 +172,7 @@
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	r_pocket = /obj/item/storage/bag/ore
 	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	back = /obj/item/storage/backpack/explorer
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
