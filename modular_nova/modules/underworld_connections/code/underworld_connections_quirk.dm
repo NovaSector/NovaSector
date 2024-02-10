@@ -1,11 +1,11 @@
 /datum/quirk/item_quirk/underworld_connections
 	name = "Underworld Connections"
-	desc = "You're in with the seedier elements of the galactic underworld, and can start with a black market uplink (customizable) and access to information brokers (exploitables). Security has suspicions about you, though..."
+	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink, and access to information brokers with exploitable information about the crew. Security has suspicions about you, though..."
 	icon = FA_ICON_SUITCASE
 	value = 0
 	gain_text = span_notice("Your contacts to the underworld are close at hand.")
-	lose_text = span_notice("You always knew they'd ditch you when things got rough.")
-	medical_record_text = "Patient appears to have received numerous unnoted surgeries at unlicensed clinics in the past."
+	lose_text = span_notice("Your contacts to the underworld have gone quiet.")
+	medical_record_text = "Patient records may have been tampered with in the past."
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	mail_goodies = list(/obj/item/storage/briefcase/secure)
 
@@ -39,6 +39,8 @@
 		)
 
 /datum/quirk/item_quirk/underworld_connections/post_add()
+	. = ..()
+
 	// Make sure we've got a client/mind first (hence, post_add), then give us exploitables access
 	quirk_holder.mind.has_exploitables_override = TRUE
 	quirk_holder.mind.handle_exploitables()
