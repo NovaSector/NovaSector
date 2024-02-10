@@ -120,6 +120,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/mining)
+"ca" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "cd" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
@@ -256,11 +260,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
-"dW" = (
-/obj/structure/lattice,
-/mob,
-/turf/template_noop,
-/area/template_noop)
 "dZ" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 4
@@ -317,6 +316,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
+"ev" = (
+/obj/structure/lattice,
+/mob,
+/turf/template_noop,
+/area/template_noop)
 "ex" = (
 /obj/machinery/door/airlock/survival_pod/glass,
 /obj/structure/fans/tiny,
@@ -984,6 +988,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/mining)
+"pu" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/kitchen,
+/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "pv" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 1
@@ -1096,6 +1106,15 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
+"rI" = (
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "rR" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -1779,10 +1798,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/cargodise_freighter/hydroponics)
-"CN" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "Da" = (
 /turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
@@ -1820,6 +1835,14 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
+"Du" = (
+/obj/effect/turf_decal/tile/yellow/half,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/smooth_half,
+/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "DE" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 4
@@ -2028,6 +2051,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/cargodise_freighter/utility)
+"Ha" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/kitchen,
+/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "Hi" = (
 /obj/effect/turf_decal/trimline/blue/corner{
 	dir = 4
@@ -2683,15 +2710,6 @@
 /mob/living/simple_animal/hostile/looter/ranged/space/laser,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
-"Qp" = (
-/obj/effect/turf_decal/tile/yellow/half{
-	dir = 4
-	},
-/obj/machinery/light/directional/east,
-/turf/open/floor/iron/dark/smooth_half{
-	dir = 1
-	},
-/area/ruin/space/has_grav/cargodise_freighter/primaryhall)
 "Qv" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2742,10 +2760,6 @@
 /obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
-"Rg" = (
-/obj/machinery/light/directional/west,
-/turf/open/floor/iron/kitchen,
-/area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "Sc" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/fifty,
@@ -2895,12 +2909,6 @@
 /obj/structure/sink/directional/east,
 /obj/structure/mirror/directional/west,
 /turf/open/floor/iron/white,
-/area/ruin/space/has_grav/cargodise_freighter/kitchen)
-"Uu" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron/kitchen,
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "UB" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -3839,7 +3847,7 @@ Gh
 Gh
 Gh
 JQ
-dW
+ev
 Ef
 Ef
 Yr
@@ -4582,7 +4590,7 @@ vH
 Gg
 By
 ty
-Uu
+pu
 Da
 Df
 Da
@@ -4591,7 +4599,7 @@ iX
 Gg
 EC
 tV
-qS
+Du
 Hv
 ci
 TC
@@ -4667,8 +4675,8 @@ FT
 FT
 FT
 JC
-Uu
-Rg
+pu
+Ha
 IP
 Gg
 UL
@@ -4720,7 +4728,7 @@ Hv
 eC
 HJ
 Hv
-CN
+ca
 Wk
 ex
 Gh
@@ -4884,7 +4892,7 @@ DE
 gY
 BF
 WY
-Qp
+rI
 Lp
 YT
 kF
