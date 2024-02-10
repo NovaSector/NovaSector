@@ -36105,7 +36105,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/left/directional/east{
 	base_state = "right";
-	icon_state = "right";
 	name = "Aft Brig Desk";
 	req_access = list("security")
 	},
@@ -46162,8 +46161,8 @@
 	pixel_x = -32
 	},
 /obj/machinery/door/window/brigdoor/right/directional/north{
-	id = "Cell 3";
-	name = "Cell 3";
+	id = "Cell 1";
+	name = "Cell 1";
 	req_access = list("brig")
 	},
 /turf/open/floor/iron/dark,
@@ -76214,8 +76213,8 @@
 	pixel_x = -32
 	},
 /obj/machinery/door/window/brigdoor/right/directional/north{
-	id = "Cell 3";
-	name = "Cell 3";
+	id = "Cell 2";
+	name = "Cell 2";
 	req_access = list("brig")
 	},
 /turf/open/floor/iron/dark,
