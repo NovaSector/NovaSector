@@ -3192,8 +3192,6 @@
 /obj/machinery/camera/autoname/directional/north{
 	network = list("intd13")
 	},
-/obj/item/stock_parts/cell/bluespace,
-/obj/item/stock_parts/cell/bluespace,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
