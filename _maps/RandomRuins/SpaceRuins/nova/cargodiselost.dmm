@@ -416,6 +416,7 @@
 "fS" = (
 /obj/item/disk/ammo_workbench,
 /obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "fV" = (
@@ -1168,7 +1169,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
 "sW" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/medkit,
+/obj/item/storage/medkit/regular,
 /obj/item/storage/medkit/surgery{
 	pixel_x = 6;
 	pixel_y = 8
@@ -1230,6 +1231,11 @@
 "tL" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/structure/table/reinforced,
+/obj/item/gun/ballistic/automatic/pistol/sol,
+/obj/item/gun/energy/e_gun/mini{
+	pixel_y = 5
+	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
 "tN" = (
@@ -1944,9 +1950,6 @@
 "ES" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/lanca,
-/obj/item/gun/ballistic/automatic/lanca{
-	pixel_x = 3
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "Fb" = (
@@ -2550,7 +2553,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/kitchen)
 "NQ" = (
 /obj/structure/safe,
-/obj/item/mod/module/jetpack/advanced,
+/obj/item/mod/module/jetpack,
 /obj/item/mod/control/pre_equipped/standard,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
@@ -2640,9 +2643,6 @@
 "OY" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/rifle/boltaction,
-/obj/item/gun/ballistic/rifle/boltaction{
-	pixel_x = 3
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "Pa" = (
