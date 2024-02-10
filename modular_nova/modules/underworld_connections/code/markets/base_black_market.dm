@@ -200,7 +200,7 @@
 	price_max = PAYCHECK_CREW * 2
 
 /datum/market_item/weapon/chainsaw
-	desc = "Once used to fell trees on gaia worlds, the humble chainsaw has come into its own as the premiere anti-mold device of the sector. And you can have one right now for one easy payment!"
+	desc = "Once used to fell trees on Gaia worlds, the humble chainsaw has come into its own as the premiere anti-mold device of the sector. And you can have one right now for one easy payment!"
 	price_min = PAYCHECK_CREW * 2
 	price_max = PAYCHECK_CREW * 4
 	availability_prob = 75 // USE CHAINSAWS FOR MOLDS MORE OH MY GOD
