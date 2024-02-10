@@ -206,12 +206,8 @@
  * * path - the design path to check for
  */
 /obj/machinery/rnd/production/proc/build_efficiency(path)
-<<<<<<< HEAD
 	PROTECTED_PROC(TRUE) // NOVA EDIT CHANGE - ORIGINAL: PRIVATE_PROC(TRUE)
-=======
-	PRIVATE_PROC(TRUE)
 	SHOULD_BE_PURE(TRUE)
->>>>>>> 2f93bbdd4c1 (Fixes high power consumption for lathes (#81375))
 
 	if(ispath(path, /obj/item/stack/sheet) || ispath(path, /obj/item/stack/ore/bluespace_crystal))
 		return 1
