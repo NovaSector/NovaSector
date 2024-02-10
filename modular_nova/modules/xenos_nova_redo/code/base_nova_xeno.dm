@@ -191,7 +191,7 @@
 		mind.transfer_to(xeno_to_transfer_to)
 	qdel(src)
 
-/mob/living/silicon/robot/get_fire_overlay(stacks, on_fire)
+/mob/living/carbon/alien/adult/nova/get_fire_overlay(stacks, on_fire)
 	var/fire_icon = "generic_fire"
 
 	if(!GLOB.fire_appearances[fire_icon])
