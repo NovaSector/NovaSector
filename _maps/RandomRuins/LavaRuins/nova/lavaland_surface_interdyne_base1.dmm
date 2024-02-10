@@ -1315,7 +1315,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/thinplating/corner,
-/obj/machinery/light/cold/directional/south,
 /obj/machinery/door/airlock/public/glass{
 	name = "Dormitory"
 	},
@@ -5066,6 +5065,7 @@
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 1
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Rk" = (
@@ -5298,6 +5298,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/light/small/directional/north,
 /obj/item/kitchen/rollingpin,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/kitchen{
 	dir = 4
 	},
