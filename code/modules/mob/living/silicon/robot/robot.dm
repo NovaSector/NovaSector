@@ -1034,14 +1034,8 @@
 /mob/living/silicon/robot/proc/untip_roleplay()
 	to_chat(src, span_notice("Your frustration has empowered you! You can now right yourself faster!"))
 
-<<<<<<< HEAD
-
-/mob/living/silicon/robot/update_fire_overlay(stacks, on_fire, last_icon_state, suffix = "")
-	var/fire_icon = "generic_fire[suffix]"
-=======
 /mob/living/silicon/robot/get_fire_overlay(stacks, on_fire)
 	var/fire_icon = "generic_fire"
->>>>>>> d9243d1016e (Refactors fire overlays once again to make it not get stuck so often (#81367))
 
 	if(!GLOB.fire_appearances[fire_icon])
 		var/mutable_appearance/new_fire_overlay = mutable_appearance(
