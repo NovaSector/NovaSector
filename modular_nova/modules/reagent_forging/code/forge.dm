@@ -763,7 +763,7 @@
 	balloon_alert_to_viewers("smelting...")
 
 	if(!do_after(user, skill_modifier * 3 SECONDS, target = src))
-		fail_message(user, "stopped smelting the iron rods")
+		fail_message(user, "stopped smelting [rod_item]")
 		return
 
 	var/src_turf = get_turf(src)
