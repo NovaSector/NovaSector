@@ -167,7 +167,7 @@
 	dir = 4
 	},
 /obj/machinery/button/polarizer{
-	id = "tarkondisects";
+	id = "tarkondisect";
 	pixel_x = 31
 	},
 /turf/open/floor/iron/dark,
@@ -3502,7 +3502,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/structure/window{
-	polarizer_id = "tarkondisect"
+	polarizer_id = "tarkon_med1"
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/trauma)
@@ -4201,7 +4201,7 @@
 "Cn" = (
 /obj/effect/turf_decal/tile/blue/half,
 /obj/effect/spawner/structure/window{
-	polarizer_id = "tarkondisect"
+	polarizer_id = "tarkon_med1"
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/trauma)
@@ -4247,7 +4247,7 @@
 /area/ruin/space/has_grav/port_tarkon/developement)
 "CF" = (
 /obj/effect/spawner/structure/window{
-	polarizer_id = "tarkondisect"
+	polarizer_id = "tarkon_med1"
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/trauma)
