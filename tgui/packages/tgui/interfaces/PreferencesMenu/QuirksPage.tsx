@@ -14,12 +14,12 @@ function getValueClass(quirk: Quirk) {
     return 'positive';
   } else if (quirk.value < 0) {
     return 'negative';
-  } else if (quirk.erp_quirk) { 
+  } else if (quirk.erp_quirk) {
     return 'erp_quirk';
   } else {
     return 'neutral';
   }
- // NOVA EDIT END
+  // NOVA EDIT END
 }
 
 function getCorrespondingPreferences(
