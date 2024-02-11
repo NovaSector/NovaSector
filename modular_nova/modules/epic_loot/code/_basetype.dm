@@ -8,25 +8,19 @@
 	pass_flags = LETPASSTHROW
 	max_integrity = 100
 
-	/// What sound this makes when people open it's storage
-	var/opening_sound = 'modular_nova/modules/epic_loot/sound/containers/plastic.mp3'
 	/// What storage datum we use
 	var/storage_datum_to_use = /datum/storage/maintenance_loot_structure
 	/// Weighted list of the loot that can spawn in this
 	var/list/loot_weighted_list = list(
 		/obj/effect/spawner/random/maintenance = 1,
 	)
+	/// This one is going to be weird, a string of dice to use when rolling number of contents
+	var/loot_spawn_dice_string = "2d4+1"
 
 /obj/structure/maintenance_loot_structure/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = storage_datum_to_use)
 	make_contents()
-
-/obj/structure/maintenance_loot_structure/attack_hand(mob/living/user, list/modifiers)
-	. = ..()
-	if(!.)
-		return
-	playsound(src, opening_sound, 40, TRUE)
 
 /// Fills random contents into this structure's inventory, starting a loop to respawn loot if the container is empty later
 /obj/structure/maintenance_loot_structure/proc/make_contents()
@@ -38,7 +32,7 @@
 
 /// Spawns a random amount of loot into the structure, random numbers based on the amount of storage slots inside it
 /obj/structure/maintenance_loot_structure/proc/spawn_loot()
-	var/random_loot_amount = rand(1, atom_storage.max_slots)
+	var/random_loot_amount = roll(loot_spawn_dice_string)
 	for(var/loot_spawn in 1 to random_loot_amount)
 		var/obj/new_loot = pick_weight(loot_weighted_list)
 		new new_loot(src)
@@ -49,7 +43,16 @@
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	max_total_storage = WEIGHT_CLASS_BULKY * 6
 	numerical_stacking = FALSE
+	rustle_sound = FALSE
 	screen_max_columns = 3
+	/// What sound this makes when people open it's storage
+	var/opening_sound = 'modular_nova/modules/epic_loot/sound/containers/plastic.mp3'
+
+/datum/storage/maintenance_loot_structure/open_storage(mob/to_show)
+	. = ..()
+	if(!.)
+		return
+	playsound(parent, opening_sound, 50, TRUE)
 
 // Loot items basetype, for convenience
 /obj/item/epic_loot

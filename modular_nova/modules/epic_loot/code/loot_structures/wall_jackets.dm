@@ -2,22 +2,22 @@
 	max_slots = 4
 	max_specific_storage = WEIGHT_CLASS_NORMAL
 	max_total_storage = WEIGHT_CLASS_NORMAL * 4
-	numerical_stacking = FALSE
 	screen_max_columns = 2
+	opening_sound = 'sound/items/handling/cloth_pickup.ogg'
 
 /obj/structure/maintenance_loot_structure/wall_jacket
 	name = "hanging jacket"
 	desc = "Someone's old, now abandoned jacket. Maybe there's still stuff in the pockets?"
 	icon_state = "jacket_green"
 	density = FALSE
-	opening_sound = 'sound/items/handling/cloth_pickup.ogg'
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/jacket
+	loot_spawn_dice_string = "1d4-1"
 	loot_weighted_list = list(
-		/obj/effect/spawner/random/entertainment/coin = 2,
-		/obj/effect/spawner/random/entertainment/money_small = 2,
+		/obj/effect/spawner/random/entertainment/coin = 1,
+		/obj/effect/spawner/random/entertainment/money_small = 1,
 		/obj/effect/spawner/random/entertainment/money = 1,
 		/obj/effect/spawner/random/entertainment/cigarette_pack = 1,
-		/obj/effect/spawner/random/entertainment/cigarette = 2,
+		/obj/effect/spawner/random/entertainment/cigarette = 1,
 		/obj/effect/spawner/random/entertainment/wallet_lighter = 1,
 		/obj/effect/spawner/random/epic_loot/pocket_sized_valuables = 1,
 	)
