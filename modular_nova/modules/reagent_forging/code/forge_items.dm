@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/hammer
 	name = "forging mallet"
-	desc = "A mallet specifically crafted for use in forging. Used to slowly shape metal; careful, you could break something with it!"
+	desc = "A mallet specifically crafted for use in forging. Used to slowly shape metal; careful, you could break something with it if you're too fast!"
 	icon_state = "hammer"
 	inhand_icon_state = "hammer"
 	worn_icon_state = "hammer_back"
@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/billow
 	name = "forging billow"
-	desc = "A billow specifically crafted for use in forging. Used to stoke the flames and keep the forge lit."
+	desc = "A billow specifically crafted for use in forging. Used to stoke the flames and keep the forge lit and heated."
 	icon_state = "billow"
 	tool_behaviour = TOOL_BILLOW
 
@@ -83,7 +83,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 //incomplete pre-complete items
 /obj/item/forging/incomplete
 	name = "parent dev item"
-	desc = "An incomplete forge item, continue to work hard to be rewarded for your efforts."
+	desc = "An incomplete forge item, continue to work hard to be rewarded for your efforts. Quench it in a water basin when it sounds ready!"
 	//the time remaining that you can hammer before too cool
 	COOLDOWN_DECLARE(heating_remainder)
 	//the time between each strike

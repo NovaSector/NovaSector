@@ -36,6 +36,10 @@
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 
+/obj/item/forging/reagent_weapon/sword/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 28)
+
 //katana, one which shall cut through your puny armour
 /obj/item/forging/reagent_weapon/katana
 	name = "forged katana"
@@ -56,10 +60,14 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 
+/obj/item/forging/reagent_weapon/katana/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 28)
+
 //quirky knife that lets you click fast
 /obj/item/forging/reagent_weapon/dagger
 	name = "forged dagger"
-	desc = "A lightweight dagger with an extremely quick swing!"
+	desc = "A lightweight dagger with an extremely quick swing! In a pinch, you can use it as a knife."
 	force = 13
 	icon_state = "dagger"
 	inhand_icon_state = "dagger"
@@ -75,21 +83,30 @@
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
+	tool_behaviour = TOOL_KNIFE
 
 //what a cute gimmick
 /obj/item/forging/reagent_weapon/dagger/attack(mob/living/M, mob/living/user, params)
 	. = ..()
 	user.changeNext_move(CLICK_CD_RANGE)
 
+// As per knife
+/obj/item/forging/reagent_weapon/dagger/proc/set_butchering()
+	AddComponent(/datum/component/butchering, \
+	speed = 8 SECONDS - force, \
+	effectiveness = 100, \
+	bonus_modifier = force - 10, \
+	)
+
 //this isnt a weapon...
 /obj/item/forging/reagent_weapon/staff
 	name = "forged staff"
-	desc = "A staff most notably capable of being imbued with reagents, especially useful alongside its otherwise harmless nature."
-	force = 0
+	desc = "A staff most notably capable of being imbued with reagents, especially useful alongside its otherwise nonthreatening nature."
+	force = 5
 	icon_state = "staff"
 	inhand_icon_state = "staff"
 	worn_icon_state = "staff_back"
-	throwforce = 0
+	throwforce = 7
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FIRE_PROOF
@@ -99,8 +116,8 @@
 //omg, two tile range! surely i wont lose a fight now...
 /obj/item/forging/reagent_weapon/spear
 	name = "forged spear"
-	desc = "A long spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
-	force = 13
+	desc = "A long, reaching spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
+	force = 16
 	armour_penetration = 15
 	icon_state = "spear"
 	inhand_icon_state = "spear"
@@ -122,12 +139,13 @@
 //this is 1:1 with the bonespear, lets use this as a 'balance anchor'. weapons that blatantly outclass this are powercrept.
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
+	AddComponent(/datum/component/jousting)
+	AddComponent(/datum/component/two_handed, force_unwielded = 16, force_wielded = 23)
 
 //throwing weapons, what a fun gimmick. lets make them actually worth using
 /obj/item/forging/reagent_weapon/axe
 	name = "forged axe"
-	desc = "An axe especially balanced for throwing and embedding into fleshy targets. Nonetheless useful as a traditional melee tool."
+	desc = "An axe especially balanced for throwing and embedding into fleshy targets. Nonetheless useful as a traditional melee tool, as well as an actual one."
 	force = 13
 	armour_penetration = 10
 	icon_state = "axe"
@@ -142,12 +160,20 @@
 	attack_verb_continuous = list("slashes", "bashes")
 	attack_verb_simple = list("slash", "bash")
 	sharpness = SHARP_EDGED
+	tool_behaviour = TOOL_KNIFE
+
+/obj/item/forging/reagent_weapon/axe/proc/set_butchering() //Also as a knife. It's a hand hatchet, boo.
+	AddComponent(/datum/component/butchering, \
+	speed = 8 SECONDS - force, \
+	effectiveness = 100, \
+	bonus_modifier = force - 10, \
+	)
 
 //Boring option for doing the most raw damage
 /obj/item/forging/reagent_weapon/hammer
 	name = "forged hammer"
-	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
-	force = 24 //Requires wielding
+	desc = "A heavy, weighted hammer that packs an incredible punch when using it with two hands. Useful for forging!"
+	force = 8 //Requires wielding
 	armour_penetration = 10
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
@@ -167,7 +193,7 @@
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded = 24, force_wielded = 24, require_twohands = TRUE)
+	AddComponent(/datum/component/two_handed, force_unwielded = 8, force_wielded = 36)
 	AddElement(/datum/element/kneejerk)
 
 /obj/item/forging/reagent_weapon/hammer/attack_atom(atom/attacked_atom, mob/living/user, params)
@@ -280,7 +306,7 @@
 /obj/item/forging/reagent_weapon/bokken
 	name = "bokken"
 	desc = "A bokken that is capable of blocking attacks when wielding in two hands, possibly including bullets should the user be brave enough."
-	force = 20
+	force = 10
 	icon_state = "bokken"
 	inhand_icon_state = "bokken"
 	worn_icon_state = "bokken_back"
@@ -315,7 +341,7 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 10)
+	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 20)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	SIGNAL_HANDLER
