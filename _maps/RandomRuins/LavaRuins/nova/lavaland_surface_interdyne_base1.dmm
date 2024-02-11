@@ -1299,6 +1299,16 @@
 /obj/machinery/light/cold/directional/west,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
+"kM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main)
 "kV" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "interdynesurgery";
@@ -3186,7 +3196,9 @@
 	},
 /obj/item/stack/sheet/plasteel/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/silver{
+	amount = 5
+	},
 /obj/item/stack/sheet/mineral/diamond{
 	amount = 3
 	},
@@ -3747,6 +3759,17 @@
 /obj/item/construction/plumbing,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/pharm)
+"EW" = (
+/obj/effect/turf_decal/tile/dark_green,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/main)
 "EZ" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/stripes/full,
@@ -4108,16 +4131,6 @@
 "Ih" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
-"Ik" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/main)
 "Io" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 1
@@ -5335,17 +5348,6 @@
 	dir = 4
 	},
 /area/ruin/interdyne_planetary_base/serv/kitchen)
-"SY" = (
-/obj/effect/turf_decal/tile/dark_green,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/duct,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 1
-	},
-/area/ruin/interdyne_planetary_base/main)
 "Tc" = (
 /obj/structure/lattice/catwalk,
 /turf/open/lava/smooth/lava_land_surface,
@@ -7258,7 +7260,7 @@ pg
 Ui
 Ui
 CU
-SY
+EW
 lq
 XI
 dK
@@ -7300,7 +7302,7 @@ HN
 Us
 LW
 Mk
-Ik
+kM
 TK
 ox
 ox
@@ -7341,7 +7343,7 @@ kG
 Hj
 UA
 xI
-Ik
+kM
 XI
 sM
 kv
@@ -7382,7 +7384,7 @@ NL
 TX
 jh
 xI
-Ik
+kM
 bJ
 yJ
 ys
