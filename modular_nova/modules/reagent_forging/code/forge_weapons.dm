@@ -6,6 +6,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME
 	obj_flags_nova = ANVIL_REPAIR
+	toolspeed = 1
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -27,7 +28,7 @@
 	belt_icon_state = "sword_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
-	block_chance = 25
+	block_chance = 30
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -39,6 +40,10 @@
 /obj/item/forging/reagent_weapon/sword/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 28)
+	AddComponent(/datum/component/butchering, \
+		speed = 12 SECONDS, \
+		effectiveness = 70, \
+	)
 
 //katana, one which shall cut through your puny armour
 /obj/item/forging/reagent_weapon/katana
@@ -63,6 +68,10 @@
 /obj/item/forging/reagent_weapon/katana/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 28)
+	AddComponent(/datum/component/butchering, \
+		speed = 12 SECONDS, \
+		effectiveness = 70, \
+	)
 
 //quirky knife that lets you click fast
 /obj/item/forging/reagent_weapon/dagger
@@ -90,13 +99,10 @@
 	. = ..()
 	user.changeNext_move(CLICK_CD_RANGE)
 
-// As per knife
-/obj/item/forging/reagent_weapon/dagger/proc/set_butchering()
-	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS - force, \
-	effectiveness = 100, \
-	bonus_modifier = force - 10, \
-	)
+/obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/butchering)
+	AddElement(/datum/element/eyestab)
 
 //this isnt a weapon...
 /obj/item/forging/reagent_weapon/staff
@@ -141,6 +147,11 @@
 	. = ..()
 	AddComponent(/datum/component/jousting)
 	AddComponent(/datum/component/two_handed, force_unwielded = 16, force_wielded = 23)
+	AddComponent(/datum/component/butchering, \
+		speed = 12 SECONDS, \
+		effectiveness = 70, \
+	)
+
 
 //throwing weapons, what a fun gimmick. lets make them actually worth using
 /obj/item/forging/reagent_weapon/axe
@@ -162,12 +173,9 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 
-/obj/item/forging/reagent_weapon/axe/proc/set_butchering() //Also as a knife. It's a hand hatchet, boo.
-	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS - force, \
-	effectiveness = 100, \
-	bonus_modifier = force - 10, \
-	)
+/obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/butchering)
 
 //Boring option for doing the most raw damage
 /obj/item/forging/reagent_weapon/hammer
