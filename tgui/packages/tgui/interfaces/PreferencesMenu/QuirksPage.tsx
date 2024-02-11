@@ -8,7 +8,7 @@ import { getRandomization, PreferenceList } from './MainPage';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 import { useRandomToggleState } from './useRandomToggleState';
 
-// NOVA EDIT BEGIN - Purple ERP quirks
+// NOVA EDIT BEGIN - Purple ERP quirks ORIGINAL: getValueClass(value: Number)
 function getValueClass(quirk: Quirk) {
   if (quirk.value > 0) {
     return 'positive';
