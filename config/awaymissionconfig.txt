@@ -14,8 +14,4 @@
 #_maps/RandomZLevels/snowdin.dmm
 #_maps/RandomZLevels/research.dmm
 #_maps/RandomZLevels/SnowCabin.dmm
-<<<<<<< HEAD
-#_maps/RandomZLevels/blackmesa.dmm
-=======
 #_maps/RandomZLevels/museum.dmm
->>>>>>> fbe6e2ebbae (museum away mission (#81208))
