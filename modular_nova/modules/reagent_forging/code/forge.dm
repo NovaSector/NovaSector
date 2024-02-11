@@ -769,16 +769,14 @@
 	var/src_turf = get_turf(src)
 	var/spawning_item = /obj/item/stack/sheet/iron
 	var/rods_to_sheet_amount = round((rod_item.amount / 2))
-
-	for(var/spawn_rods in 1 to rods_to_sheet_amount)
-		new spawning_item(src_turf)
+	rod_item.use(rods_to_sheet_amount)
+	var/obj/item/stack/sheet/iron/result = new spawning_item(src_turf)
+	
+	if(rods_to_sheet_amount > 1)
+		result.add(rods_to_sheet_amount - 1)
 
 	in_use = FALSE
-	qdel(rod_item)
-	if(ISODD(rod_item.amount))
-		new /obj/item/stack/rods(src_turf)
-
-	return
+	balloon_alert_to_viewers("finished smelting!")
 
 /obj/structure/reagent_forge/billow_act(mob/living/user, obj/item/tool)
 	if(in_use) // Preventing billow use if the forge is in use to prevent spam
