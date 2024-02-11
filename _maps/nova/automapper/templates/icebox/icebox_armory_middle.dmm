@@ -32,28 +32,11 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/ai_monitored/security/armory)
 "i" = (
-/obj/structure/rack,
-/obj/item/clothing/head/helmet/sec{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/head/helmet/sec,
-/obj/item/clothing/head/helmet/sec{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/clothing/suit/armor/vest/alt/sec{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/clothing/suit/armor/vest/alt/sec,
-/obj/item/clothing/suit/armor/vest/alt/sec{
-	pixel_x = -3;
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/tile/red/half{
 	dir = 8
 	},
+/obj/effect/spawner/armory_spawn/shotguns,
+/obj/structure/rack/gunrack,
 /turf/open/floor/iron/dark/textured,
 /area/station/ai_monitored/security/armory)
 "q" = (
@@ -64,7 +47,7 @@
 	dir = 4
 	},
 /obj/structure/rack/gunrack,
-/obj/effect/spawner/armory_spawn/shotguns,
+/obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/iron/dark/textured,
 /area/station/ai_monitored/security/armory)
 "x" = (
@@ -72,7 +55,7 @@
 	dir = 4
 	},
 /obj/structure/rack/gunrack,
-/obj/effect/spawner/armory_spawn/microfusion,
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
 /turf/open/floor/iron/dark/textured,
 /area/station/ai_monitored/security/armory)
 "B" = (
