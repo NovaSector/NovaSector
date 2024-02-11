@@ -13,7 +13,6 @@
 		return
 	if(!ishuman(target))
 		return
-	var/mob/living/carbon/human/human_target = target
 	user.visible_message(
 		"[user] determines that [target] does, in fact, have veins.",
 		"You determine that [target] does, in fact, have veins."
