@@ -2205,10 +2205,7 @@
 	},
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/door/window/right/directional/south{
-	base_state = "left";
-	dir = 1;
-	icon_state = "left";
+/obj/machinery/door/window/right/directional/north{
 	name = "Armour Storage"
 	},
 /turf/open/floor/iron/dark,
@@ -5490,10 +5487,7 @@
 	},
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/door/window/right/directional/south{
-	base_state = "left";
-	dir = 1;
-	icon_state = "left";
+/obj/machinery/door/window/right/directional/north{
 	name = "Armour Storage"
 	},
 /turf/open/floor/iron/dark,
@@ -7250,14 +7244,13 @@
 /turf/open/floor/iron,
 /area/station/security/prison)
 "csV" = (
-/obj/machinery/door/window/left/directional/west{
-	dir = 2;
-	name = "Monkey Pen";
-	req_access = list("genetics")
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/door/window/left/directional/south{
+	req_access = list("genetics");
+	name = "Monkey Pen"
+	},
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "ctx" = (
@@ -15986,12 +15979,6 @@
 /obj/structure/rack,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/window/right/directional/south{
-	base_state = "left";
-	dir = 1;
-	icon_state = "left";
-	name = "HUD Storage"
-	},
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
 	},
@@ -16013,6 +16000,9 @@
 /obj/item/clothing/glasses/hud/security/sunglasses{
 	pixel_x = -3;
 	pixel_y = -2
+	},
+/obj/machinery/door/window/right/directional/north{
+	name = "Armour Storage"
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
@@ -21716,12 +21706,11 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "gWX" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 8;
-	name = "Quarantine Pen 3";
-	req_access = list("virology")
-	},
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("virology");
+	name = "Quarantine Pen 3"
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "gXc" = (
@@ -35748,14 +35737,13 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "Firing Pins Storage"
-	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/machinery/door/window/right/directional/west{
+	name = "Firing Pins Storage"
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "lFr" = (
@@ -46826,10 +46814,6 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/bot,
-/obj/machinery/door/window/right/directional/south{
-	dir = 1;
-	name = "Armour Storage"
-	},
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
 	},
@@ -46837,6 +46821,9 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/right/directional/north{
+	name = "Armour Storage"
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "pqh" = (
@@ -51649,13 +51636,12 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/port)
 "qNB" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 8;
-	name = "Quarantine Pen 1";
-	req_access = list("virology")
-	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /mob/living/carbon/human/species/monkey,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("virology");
+	name = "Quarantine Pen 1"
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "qNG" = (
@@ -51804,13 +51790,12 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "qQh" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 8;
-	name = "Quarantine Pen 2";
-	req_access = list("virology")
-	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/light/small/directional/east,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("virology");
+	name = "Quarantine Pen 2"
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "qQj" = (
@@ -52786,14 +52771,9 @@
 /obj/item/storage/lockbox/loyalty,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/door/window/right/directional/south{
-	base_state = "left";
-	dir = 4;
-	icon_state = "left";
-	name = "Implants Storage"
-	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/machinery/door/window/right/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "rhb" = (
@@ -75191,10 +75171,9 @@
 /turf/open/floor/iron/dark/side,
 /area/station/engineering/atmos)
 "xUl" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 8;
-	name = "Quarantine Pen 4";
-	req_access = list("virology")
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("virology");
+	name = "Quarantine Pen 4"
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
