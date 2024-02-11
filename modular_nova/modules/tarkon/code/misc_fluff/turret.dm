@@ -42,9 +42,11 @@
 	max_integrity = 200
 	move_resist = INFINITY
 	shot_delay = 2 SECONDS
+	uses_stored = FALSE
+	stored_gun = null
 	stun_projectile = null
 	lethal_projectile = null
-	subsystem_type = /datum/controller/subsystem/processing/projectiles
+	subsystem_type = /datum/controller/subsystem/machines
 	ignore_faction = TRUE
 	faction = list()
 	var/claptrap_moment = FALSE //Do we want this to shut up?
@@ -113,15 +115,11 @@
 	else if(!magazine.ammo_count())
 		handle_mag()
 
+
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
 	if(istype(casing)) //there's a chambered round
-		if(QDELING(casing)) //I WONT LOSE TO YOU, CODE. MY HUBRIS KNOWS NO BOUNDS.
-			if(!casing_ejector) //if the case ejector is turned off, we just dont make it.
-				return
-			var/obj/item/ammo_casing/spent_round = new casing.type(get_turf(src))
-			spent_round.loaded_projectile = null
-			spent_round.bounce_away(TRUE)
-			SEND_SIGNAL(spent_round, COMSIG_CASING_EJECTED)
+		if(QDELING(casing))
+			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
 			chambered = null
 		else if(casing_ejector || !from_firing) //If, It somehow, Didn't delete the casing.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
@@ -142,8 +140,6 @@
 	if (magazine.ammo_count())
 		chambered = magazine.get_round(keep = FALSE)
 		chambered.forceMove(src)
-		if(!claptrap_moment)
-			balloon_alert_to_viewers("Loading Cartridge")
 		if(replace_new_round) //For edge-case additions later in the road.
 			magazine.give_round(new chambered.type)
 
@@ -157,11 +153,6 @@
 	load_mag()
 	return
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/target(atom/movable/target)
-	if(!target)
-		if(!claptrap_moment)
-			balloon_alert_to_viewers("Assessing Targets")
-	..()
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
 	if(!mag_box.get_mag())
@@ -177,7 +168,7 @@
 	return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
-	if(!chambered) //Ok, We need to START the cycle
+	if(!chambered || !chambered.loaded_projectile) //Ok, We need to START the cycle
 		handle_chamber(TRUE, FALSE, TRUE)
 		return
 
@@ -216,7 +207,7 @@
 	if(ignore_faction)
 		MyLoad.ignored_factions = faction
 	MyLoad.fire()
-	chambered.loaded_projectile = null //OK. THIS SHOULD HELP?
+	chambered.loaded_projectile = null //for fringe cases
 	handle_chamber(TRUE,TRUE,TRUE)
 	return MyLoad
 
