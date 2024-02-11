@@ -52,12 +52,8 @@
 
 /turf/open/lava/Destroy()
 	for(var/mob/living/leaving_mob in contents)
-<<<<<<< HEAD
-		REMOVE_TRAIT(leaving_mob, TRAIT_PERMANENTLY_ONFIRE, TURF_TRAIT)
-=======
 		leaving_mob.RemoveElement(/datum/element/perma_fire_overlay)
 		REMOVE_TRAIT(leaving_mob, TRAIT_NO_EXTINGUISH, TURF_TRAIT)
->>>>>>> afb29836a7e (Fix Flaky Failure From Fire  (#81399))
 	return ..()
 
 /turf/open/lava/update_overlays()
@@ -149,12 +145,8 @@
 /turf/open/lava/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(isliving(gone) && !islava(gone.loc))
-<<<<<<< HEAD
-		REMOVE_TRAIT(gone, TRAIT_PERMANENTLY_ONFIRE, TURF_TRAIT)
-=======
 		gone.RemoveElement(/datum/element/perma_fire_overlay)
 		REMOVE_TRAIT(gone, TRAIT_NO_EXTINGUISH, TURF_TRAIT)
->>>>>>> afb29836a7e (Fix Flaky Failure From Fire  (#81399))
 
 /turf/open/lava/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(burn_stuff(AM))
@@ -318,14 +310,6 @@
 				burn_stuff(burn_content)
 		return TRUE
 
-<<<<<<< HEAD
-	var/mob/living/burn_living = burn_target
-	ADD_TRAIT(burn_living, TRAIT_PERMANENTLY_ONFIRE, TURF_TRAIT)
-	burn_living.ignite_mob()
-	burn_living.adjust_fire_stacks(lava_firestacks * seconds_per_tick)
-	burn_living.update_fire()
-	burn_living.adjustFireLoss(lava_damage * seconds_per_tick)
-=======
 	if(isliving(burn_target))
 		var/mob/living/burn_living = burn_target
 		if(!HAS_TRAIT_FROM(burn_living, TRAIT_NO_EXTINGUISH, TURF_TRAIT))
@@ -337,7 +321,6 @@
 		return TRUE
 
 	return FALSE
->>>>>>> afb29836a7e (Fix Flaky Failure From Fire  (#81399))
 
 /turf/open/lava/can_cross_safely(atom/movable/crossing)
 	return HAS_TRAIT(src, TRAIT_LAVA_STOPPED) || HAS_TRAIT(crossing, immunity_trait ) || HAS_TRAIT(crossing, TRAIT_MOVE_FLYING)
