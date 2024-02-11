@@ -38842,13 +38842,13 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/armory_spawn/shotguns,
 /obj/machinery/requests_console/auto_name/directional/south,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/machinery/camera/motion/directional/south{
 	c_tag = "Security - Armory"
 	},
+/obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "lEB" = (
@@ -52959,10 +52959,10 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/armory_spawn/microfusion,
 /obj/machinery/light/cold/directional/south,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "pQx" = (
