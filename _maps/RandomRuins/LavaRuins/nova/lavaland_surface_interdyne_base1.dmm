@@ -9,6 +9,7 @@
 	pixel_x = 0;
 	pixel_y = 24
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "aq" = (
@@ -44,6 +45,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "aG" = (
@@ -535,8 +537,19 @@
 	},
 /obj/effect/turf_decal/siding/white/corner,
 /obj/machinery/firealarm/directional/south,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
+"eM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main)
 "eN" = (
 /obj/machinery/light/small/directional/west,
 /obj/machinery/modular_computer/preset/curator{
@@ -728,6 +741,7 @@
 /obj/structure/railing,
 /obj/machinery/light_switch/directional/east,
 /obj/structure/closet/crate/freezer/sansufentanyl,
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gQ" = (
@@ -955,6 +969,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "iK" = (
@@ -1180,6 +1195,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "jW" = (
@@ -1354,6 +1370,7 @@
 /obj/structure/disposalpipe/junction/flip{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "ls" = (
@@ -1402,6 +1419,7 @@
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/corner,
 /area/ruin/interdyne_planetary_base/cargo)
 "lS" = (
@@ -1594,6 +1612,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "nC" = (
@@ -1607,6 +1626,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"nD" = (
+/obj/effect/turf_decal/tile/dark_green,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 1
+	},
+/area/ruin/interdyne_planetary_base/main)
 "nM" = (
 /obj/structure/curtain/cloth{
 	color = "#3A3A3A"
@@ -1796,6 +1826,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 2
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "pn" = (
@@ -1929,6 +1960,7 @@
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/side,
 /area/ruin/interdyne_planetary_base/cargo)
 "qm" = (
@@ -2775,6 +2807,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "yj" = (
@@ -2864,6 +2897,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "yY" = (
@@ -3378,6 +3412,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -3392,6 +3427,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "De" = (
@@ -3420,6 +3456,7 @@
 	dir = 4;
 	pixel_z = 8
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "Dn" = (
@@ -3480,6 +3517,7 @@
 /obj/structure/disposalpipe/junction/flip{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "DT" = (
@@ -3701,6 +3739,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -3952,6 +3991,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "GZ" = (
@@ -4352,6 +4392,7 @@
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -4482,6 +4523,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "LW" = (
@@ -4577,6 +4619,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "MM" = (
@@ -4948,6 +4991,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "PH" = (
@@ -5111,6 +5155,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "RA" = (
@@ -5199,6 +5244,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "Sr" = (
@@ -5224,6 +5270,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/machinery/duct,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "St" = (
@@ -5277,6 +5324,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "SQ" = (
@@ -5384,6 +5432,7 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/duct,
 /turf/open/floor/iron,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "Tx" = (
@@ -5429,6 +5478,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "TG" = (
@@ -5545,6 +5595,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/duct,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -5571,6 +5622,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
 "Un" = (
@@ -5883,6 +5935,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/white,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "WO" = (
@@ -6033,6 +6086,7 @@
 "XG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/checker,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "XH" = (
@@ -6172,6 +6226,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "Zd" = (
@@ -6188,6 +6243,7 @@
 /obj/item/towel,
 /obj/structure/table,
 /obj/item/soap/syndie,
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/ruin/interdyne_planetary_base/serv/rstrm)
 "Zk" = (
@@ -6197,6 +6253,7 @@
 "Zy" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/turf_decal/delivery/white,
+/obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "ZB" = (
@@ -7201,7 +7258,7 @@ pg
 Ui
 Ui
 CU
-aY
+nD
 lq
 XI
 dK
@@ -7243,7 +7300,7 @@ HN
 Us
 LW
 Mk
-SK
+eM
 TK
 ox
 ox
@@ -7284,7 +7341,7 @@ kG
 Hj
 UA
 xI
-SK
+eM
 XI
 sM
 kv
@@ -7325,7 +7382,7 @@ NL
 TX
 jh
 xI
-SK
+eM
 bJ
 yJ
 ys
