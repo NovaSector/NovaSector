@@ -9,7 +9,7 @@ import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 import { useRandomToggleState } from './useRandomToggleState';
 
 // NOVA EDIT BEGIN - Purple ERP quirks
-function getNovaValueClass(quirk: Quirk) {
+function getValueClass(quirk: Quirk) {
   if (quirk.value > 0) {
     return 'positive';
   } else if (quirk.value < 0) {
@@ -20,17 +20,6 @@ function getNovaValueClass(quirk: Quirk) {
     return 'neutral';
   }
 }
-/*
-function getValueClass(value: number) {
-  if (value > 0) {
-    return 'positive';
-  } else if (value < 0) {
-    return 'negative';
-  } else {
-    return 'neutral';
-  }
-}
-NOVA EDIT END */
 
 function getCorrespondingPreferences(
   customization_options: string[],
@@ -145,11 +134,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
         >
           <Stack vertical fill>
             <Stack.Item
-              // NOVA EDIT BEGIN - Purple ERP quirks
-              className={`${className}--${getNovaValueClass(quirk)}`}
-              /*
-              className={`${className}--${getValueClass(value)}`}
-              NOVA EDIT END */
+              className={`${className}--${getValueClass(quirk)}`} // NOVA EDIT BEGIN - Purple ERP quirks
               style={{
                 borderBottom: '1px solid black',
                 padding: '2px',
