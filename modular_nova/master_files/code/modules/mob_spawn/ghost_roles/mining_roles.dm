@@ -235,3 +235,14 @@
 	. = ..()
 	for(var/grabbin_pills in 1 to 10)
 		new /obj/item/storage/pill_bottle/sansufentanyl(src)
+
+/obj/structure/closet/l3closet/interdyne
+	name = "Interdyne level 3 biohazard gear closet"
+
+/obj/structure/closet/l3closet/virology/PopulateContents()
+	new /obj/item/storage/bag/bio(src)
+	new /obj/item/clothing/suit/bio_suit/interdyne(src)
+	new /obj/item/clothing/head/bio_hood/interdyne(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/tank/internals/oxygen(src)
+	new /obj/item/reagent_containers/syringe/antiviral(src)

@@ -255,7 +255,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 
-/obj/item/clothing/head/bio_hood/nova/interdyne
+/obj/item/clothing/head/bio_hood/interdyne
 	name = "interdyne biosuit helmet"
 	desc = "An Interdyne Pharmaceutics biosuit helmet designed to keep the wearer safe from biohazardous materials."
 	icon_state = "ip_biosuit_head"

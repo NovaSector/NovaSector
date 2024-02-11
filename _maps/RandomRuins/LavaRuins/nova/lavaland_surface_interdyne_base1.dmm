@@ -877,6 +877,7 @@
 	id = "interdynevirowindows";
 	name = "Virology Window Privacy"
 	},
+/obj/structure/closet/l3closet/interdyne,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/viro)
 "hZ" = (
@@ -4146,7 +4147,6 @@
 /obj/item/clothing/neck/stethoscope,
 /obj/item/crowbar,
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/item/modular_computer/pda/chameleon,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "IJ" = (
@@ -4515,6 +4515,10 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/computer/monitor,
+/obj/item/paper{
+	default_raw_text = "<h1>Note from Interdyne Engineering:</h1><p>As the shuttle is significantly more power hungry than the previous installation, auxiliary power setup is required for whenever it's planetside. A stock of radiation emitting RTGs has been provided for your convenience, as well as the PPE needed to set them up. These are located on the balcony in engineering.<p></p>Lay wires on the catwalks, then stand in front of where you'd like the RTGs to be unpacked to and press the button on the flatpacked equipment to deploy it. It will immediately begin producing power and radiation. If you take too many rads, administer toxin-healing medication.</p>";
+	name = "paper- 'Note from Interdyne Engineering'"
+	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "Mc" = (
@@ -4646,10 +4650,6 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/half/contrasted{
 	dir = 4
-	},
-/obj/item/paper{
-	default_raw_text = "<h1>Note from Interdyne Engineering:</h1><p>As the shuttle is significantly more power hungry than the previous installation, auxiliary power setup is required for whenever it's planetside. A stock of radiation emitting RTGs has been provided for your convenience, as well as the PPE needed to set them up. These are located on the balcony in engineering.<p></p>Lay wires on the catwalks, then stand in front of where you'd like the RTGs to be unpacked to and press the button on the flatpacked equipment to deploy it. It will immediately begin producing power and radiation. If you take too many rads, administer toxin-healing medication.</p>";
-	name = "paper- 'Note from Interdyne Engineering'"
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)

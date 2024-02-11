@@ -102,22 +102,10 @@
 /area/icemoon/underground/explored)
 "av" = (
 /obj/machinery/light/directional/west,
-/obj/structure/closet/secure_closet{
-	name = "deck offficer's locker";
-	icon_state = "qm";
-	req_access = list("syndicate_leader");
-	icon_door = "qm"
-	},
-/obj/item/megaphone/cargo,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/ammo_box/magazine/m9mm{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/gun/ballistic/automatic/pistol,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/interdynefob/deckofficer_locker,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
 "aw" = (
@@ -1266,19 +1254,19 @@
 "ds" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/obj/structure/closet/l3closet/virology,
 /obj/effect/turf_decal/siding/dark{
 	dir = 5
 	},
+/obj/structure/closet/l3closet/interdyne,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dt" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/obj/structure/closet/l3closet/virology,
 /obj/effect/turf_decal/siding/dark/end{
 	dir = 1
 	},
+/obj/structure/closet/l3closet/interdyne,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "du" = (
