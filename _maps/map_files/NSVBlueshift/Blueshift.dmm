@@ -25949,7 +25949,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/structure/rack/gunrack,
 /obj/machinery/airalarm/directional/south,
-/obj/effect/spawner/armory_spawn/shotguns,
+/obj/effect/spawner/armory_spawn/mod_lasers_small,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "eTk" = (
@@ -50272,7 +50272,6 @@
 	pixel_x = -4;
 	pixel_y = 10
 	},
-/obj/item/storage/medkit/tactical/blueshield,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/blueshield)
 "jGa" = (
@@ -76513,6 +76512,8 @@
 /obj/item/melee/baton/security/loaded,
 /obj/structure/cable,
 /obj/effect/spawner/random/armory/riot_shield,
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "oGG" = (
@@ -108841,13 +108842,13 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/rus_gambling)
 "uKW" = (
-/obj/structure/table/reinforced,
-/obj/item/gun/energy/e_gun/dragnet,
-/obj/item/gun/energy/e_gun/dragnet,
 /obj/machinery/camera/directional/south{
 	c_tag = "Armory - Interior"
 	},
 /obj/machinery/light/directional/south,
+/obj/structure/rack/gunrack,
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "uLe" = (
@@ -117174,7 +117175,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/structure/rack/gunrack,
 /obj/machinery/firealarm/directional/south,
-/obj/effect/spawner/armory_spawn/microfusion,
+/obj/effect/spawner/armory_spawn/shotguns,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -126743,7 +126744,6 @@
 /obj/item/storage/backpack/blueshield,
 /obj/item/storage/backpack/duffelbag/blueshield,
 /obj/item/storage/backpack/satchel/blueshield,
-/obj/item/clothing/gloves/tackler/combat/insulated/blueshield,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
