@@ -750,6 +750,9 @@
 
 	var/obj/item/stack/rods/rod_item = attacking_item
 
+	if(!istype(rod_item))
+		return
+
 	if(forge_temperature < MIN_FORGE_TEMP)
 		fail_message(user, "forge too cool")
 		return
