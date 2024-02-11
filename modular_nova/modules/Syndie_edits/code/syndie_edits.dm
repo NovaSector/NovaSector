@@ -212,6 +212,7 @@
 /obj/item/clothing/under/syndicate/nova/interdyne
 	name = "interdyne turtleneck"
 	desc = "A sleek white turtleneck with a hint of interdyne-green, appropriately paired with some charcoal-black cargo pants."
+	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under/syndicate
 	icon_state = "ip_turtleneck"
 	can_adjust = TRUE
