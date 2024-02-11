@@ -10,10 +10,6 @@
 
 	/// What sound this makes when people open it's storage
 	var/opening_sound = 'modular_nova/modules/epic_loot/sound/containers/plastic.mp3'
-	/// How long it takes the open if the items in storage haven't been generated yet
-	var/new_loot_open_time = 3 SECONDS
-	/// If the loot for this item has already been generated
-	var/loot_already_generated = FALSE
 	/// What storage datum we use
 	var/storage_datum_to_use = /datum/storage/maintenance_loot_structure
 	/// Weighted list of the loot that can spawn in this
@@ -49,7 +45,7 @@
 	Shake(2, 2, 1 SECONDS)
 
 /datum/storage/maintenance_loot_structure
-	max_slots = 6
+	max_slots = 9
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	max_total_storage = WEIGHT_CLASS_BULKY * 6
 	numerical_stacking = FALSE
