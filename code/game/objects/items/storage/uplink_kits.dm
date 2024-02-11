@@ -773,36 +773,6 @@
 	new /obj/item/modular_computer/pda/contractor(src) // NOVA EDIT CHANGE - ORIGINAL : /obj/item/modular_computer/pda/syndicate_contract_uplink(src)
 	new /obj/item/storage/box/syndicate/contractor_loadout(src)
 	new /obj/item/melee/baton/telescopic/contractor_baton(src)
-<<<<<<< HEAD
-
-	// All about 4 TC or less - some nukeops only items, but fit nicely to the theme.
-	var/static/list/item_list = list(
-		/obj/item/storage/backpack/duffelbag/syndie/x4,
-		/obj/item/storage/box/syndie_kit/throwing_weapons,
-		/obj/item/gun/syringe/syndicate,
-		/obj/item/pen/edagger,
-		/obj/item/pen/sleepy,
-		/obj/item/flashlight/emp,
-		/obj/item/reagent_containers/syringe/mulligan,
-		/obj/item/clothing/shoes/chameleon/noslip,
-		/obj/item/storage/medkit/tactical,
-		/obj/item/encryptionkey/syndicate,
-		/obj/item/clothing/glasses/thermal/syndi,
-		/obj/item/slimepotion/slime/sentience/nuclear,
-		/obj/item/storage/box/syndie_kit/imp_radio,
-		///obj/item/storage/box/syndie_kit/imp_uplink, // NOVA EDIT REMOVAL
-		///obj/item/clothing/gloves/krav_maga/combatglovesplus, // NOVA EDIT REMOVAL
-		/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted/riot,
-		/obj/item/reagent_containers/hypospray/medipen/stimulants,
-		/obj/item/storage/box/syndie_kit/imp_freedom,
-		/obj/item/toy/eightball/haunted,
-	)
-	for(var/i in 1 to 3)
-		var/selected_item = pick_n_take(item_list + modular_item_list) // NOVA EDIT CHANGE - ORIGINAL : var/selected_item = pick_n_take(item_list)
-		new selected_item(src)
-
-=======
->>>>>>> 19b2ffd2d32 (Contractor loadout adjustment + Price tweak (#81293))
 	// Paper guide is always last.
 	new /obj/item/paper/contractor_guide(src)
 
@@ -813,11 +783,8 @@
 	illustration = "writing_syndie"
 
 /obj/item/storage/box/syndicate/contractor_loadout/PopulateContents()
-<<<<<<< HEAD
 	/* NOVA EDIT REMOVAL BEGIN - Contractors get MODSuits instead, see contractor modular for overrides
-=======
 	new /obj/item/mod/control/pre_equipped/infiltrator(src)
->>>>>>> 19b2ffd2d32 (Contractor loadout adjustment + Price tweak (#81293))
 	new /obj/item/clothing/head/helmet/space/syndicate/contract(src)
 	new /obj/item/clothing/suit/space/syndicate/contract(src)
 	NOVA EDIT REMOVAL END */
