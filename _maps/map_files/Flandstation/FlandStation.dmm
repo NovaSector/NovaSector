@@ -7205,17 +7205,6 @@
 /obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/dark,
 /area/station/science/breakroom)
-"csC" = (
-/obj/effect/turf_decal/trimline/red/filled/line,
-/obj/effect/turf_decal/trimline/red/line{
-	dir = 1
-	},
-/obj/machinery/light/directional/south,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/security/processing)
 "csJ" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -45187,7 +45176,7 @@
 /area/station/engineering/atmos)
 "oOj" = (
 /obj/machinery/door/window/left/directional/south{
-	name = "cloning chamber"
+	name = "Cloning Chamber"
 	},
 /obj/effect/decal/remains/human,
 /turf/open/floor/iron/dark/textured_large,
@@ -48374,6 +48363,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage/gas)
+"pPv" = (
+/obj/effect/turf_decal/trimline/red/filled/line,
+/obj/effect/turf_decal/trimline/red/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/station/security/processing)
 "pPz" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/effect/turf_decal/trimline/red/line{
@@ -112352,7 +112352,7 @@ fpN
 unH
 oXD
 xey
-csC
+pPv
 nVS
 nVS
 nVS
@@ -113637,7 +113637,7 @@ wYw
 unH
 xrp
 xey
-csC
+pPv
 unH
 nzY
 bgU
