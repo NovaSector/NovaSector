@@ -13,5 +13,3 @@
 
 #define FACTION_RAIDER "raider"
 
-// Tarkon Faction + Turrets
-#define FACTION_TARKON "tarkon"

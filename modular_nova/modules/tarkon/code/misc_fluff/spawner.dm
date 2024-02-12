@@ -10,7 +10,6 @@
 	important_text = "You are not to abandon Port Tarkon. Check other sleepers for alternative jobs. Listen to the Site Director and Ensign."
 	outfit = /datum/outfit/tarkon
 	spawner_job_path = /datum/job/tarkon
-	faction = list(FACTION_TARKON)
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
 	random_appearance = FALSE
