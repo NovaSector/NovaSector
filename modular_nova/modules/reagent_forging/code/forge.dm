@@ -462,7 +462,9 @@
 		return TRUE
 	
 	if(istype(attacking_item, /obj/item/stack/rods))
+		in_use = TRUE
 		smelt_iron_rods(attacking_item, user)
+		in_use = FALSE
 		return TRUE
 
 	return ..()
