@@ -7237,6 +7237,7 @@
 #include "modular_nova\modules\epic_loot\code\loot_items\electronics.dm"
 #include "modular_nova\modules\epic_loot\code\loot_items\medical.dm"
 #include "modular_nova\modules\epic_loot\code\loot_items\valuables.dm"
+#include "modular_nova\modules\epic_loot\code\loot_structures\medbox.dm"
 #include "modular_nova\modules\epic_loot\code\loot_structures\wall_jackets.dm"
 #include "modular_nova\modules\escape_menu\code\escape_menu_skyrat.dm"
 #include "modular_nova\modules\events\code\_event_globalvars.dm"

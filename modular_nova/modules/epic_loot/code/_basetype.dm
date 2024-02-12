@@ -22,6 +22,13 @@
 	create_storage(storage_type = storage_datum_to_use)
 	make_contents()
 
+// Since it doesn't want to play nice for whatever reason
+/obj/structure/maintenance_loot_structure/attack_hand(mob/living/user)
+	if(!user.can_perform_action(src, NEED_HANDS))
+		return ..()
+	atom_storage.open_storage(user)
+	return TRUE
+
 /// Fills random contents into this structure's inventory, starting a loop to respawn loot if the container is empty later
 /obj/structure/maintenance_loot_structure/proc/make_contents()
 	var/refill_check_time = 10 MINUTES
