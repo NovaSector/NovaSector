@@ -247,6 +247,7 @@
 			var/mob/living/carbon/carbon_victim = victim
 			if(carbon_victim.can_heartattack())
 				carbon_victim.set_heartattack(TRUE)
+				investigate_log("was returned without a valid drop location by the contractor [contract.owner?.current].", INVESTIGATE_DEATHS) // NOVA EDIT ADDITION
 
 	var/pod_rand_loc = rand(1, possible_drop_loc.len)
 	var/obj/structure/closet/supplypod/return_pod = new()
