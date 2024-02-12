@@ -25,6 +25,10 @@
 	uses = 12
 	deletes_on_zero_uses_left = FALSE
 
+	/// The minimum time someone needs to be SSD before they can be put back in
+	var/ssd_time = 30 MINUTES
+
+
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/Initialize(mapload)
 	. = ..()
 	team = new /datum/team/primitive_catgirls()
@@ -74,7 +78,7 @@
 			if(target.lastclienttime + ssd_time >= world.time)
 				to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))
 				log_admin("[key_name(user)] has attempted to put [key_name(target)] back into [src], but they were only disconnected for [round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes.")
-				message_admins("[key_name(user)] has attempted to put [key_name(target)] into [src]. [ADMIN_JMP(src)]")
+				message_admins("[key_name(user)] has attempted to put [key_name(target)] back into [src]. [ADMIN_JMP(src)]")
 				return
 
 			else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Put back to sleep?", list("Yes", "No")) == "Yes")
@@ -86,8 +90,8 @@
 					return
 
 				to_chat(user, span_danger("You put [target] into [src]."))
-				log_admin("[key_name(user)] has put [key_name(target)] into [src].")
-				message_admins("[key_name(user)] has put [key_name(target)] into [src]. [ADMIN_JMP(src)]")
+				log_admin("[key_name(user)] has put [key_name(target)] back into [src].")
+				message_admins("[key_name(user)] has put [key_name(target)] back into [src]. [ADMIN_JMP(src)]")
 
 	if(target == user)
 		if(tgui_alert(target, "Would you like to go back to sleep?", "Go back to sleep?", list("Yes", "No")) != "Yes")
@@ -116,8 +120,8 @@
 	else
 		visible_message(span_infoplain("[user] puts [target] into [src]."))
 
-	log_admin("[key_name(target)] entered a stasis pod.")
-	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
+	log_admin("[key_name(target)] returned to [src].")
+	message_admins("[key_name_admin(target)] returned to [src]. [ADMIN_JMP(src)]")
 	add_fingerprint(target)
 	put_back_in(target)
 
@@ -137,6 +141,8 @@
 	// We make sure people can come back in again, if they needed to fix prefs
 	// or whatever.
 	team.players_spawned -= (target.key)
+
+	target.forceMove(src)
 
 	qdel(target)
 
