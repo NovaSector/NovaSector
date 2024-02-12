@@ -238,6 +238,7 @@ $department_map: (
           'negative': colors.$red,
           // NOVA EDIT ADDITION START - Purple ERP quirks
           'erp_quirk': colors.$purple,
+          // NOVA EDIT ADDITION END
         );
 
         @each $quality, $color-value in $quality_map {
