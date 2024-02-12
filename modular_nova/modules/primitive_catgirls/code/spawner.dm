@@ -52,7 +52,7 @@
 		to_chat(user, span_warning("It'd be weird if there were multiple of you in that cave, wouldn't it?"))
 	return FALSE
 
-// This stuff is put on equip because it turns out /special sometimes just don't get called because skyrat
+// This stuff is put on equip because it turns out /special sometimes just don't get called because Nova
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/equip(mob/living/carbon/human/spawned_human)
 	. = ..()
 
@@ -69,7 +69,7 @@
 		to_chat(user, span_notice("Dead kin cannot be put back to sleep."))
 		return
 
-	if(target.key && user != target)
+	if(target.key && target != user)
 		if(target.get_organ_by_type(/obj/item/organ/internal/brain) && (!target.mind || target.ssd_indicator)) //Target the Brain
 			if(target.lastclienttime + ssd_time >= world.time)
 				to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))
@@ -79,25 +79,68 @@
 
 			else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Put back to sleep?", list("Yes", "No")) == "Yes")
 
+				visible_message(span_infoplain("[user] starts putting [target] into [src]."))
+
 				if(!do_after(user, 3 SECONDS, target))
 					balloon_alert("cancelled transfer!")
 					return
 
-				to_chat(user, span_danger("You put [target] into [src]. [target.p_Theyre()] in [src]."))
+				to_chat(user, span_danger("You put [target] into [src]."))
 				log_admin("[key_name(user)] has put [key_name(target)] into [src].")
 				message_admins("[key_name(user)] has put [key_name(target)] into [src]. [ADMIN_JMP(src)]")
 
-				add_fingerprint(target)
-				put_back_in(target)
+	if(target == user)
+		if(tgui_alert(target, "Would you like to go back to sleep?", "Go back to sleep?", list("Yes", "No")) != "Yes")
+			return
 
-	if(target == user && (tgui_alert(target, "Would you like to go back to sleep?", "Go back to sleep?", list("Yes", "No")) != "Yes"))
+		visible_message(span_infoplain("[user] starts climbing down into [src]."))
+
+		if(!do_after(user, 3 SECONDS, target))
+			balloon_alert("cancelled transfer!")
+			return
+
+	if(LAZYLEN(target.buckled_mobs) > 0)
+		if(target == user)
+			to_chat(user, span_danger("You can't fit into [src] while someone is buckled to you."))
+		else
+			to_chat(user, span_danger("You can't fit [target] into [src] while someone is buckled to them."))
+
 		return
 
+	// Just in case something happened in-between, to make sure it doesn't do unexpected behaviors.
+	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !isprimitivedemihuman(target) || !istype(user.loc, /turf) || target.buckled || target.stat == DEAD)
+		return
 
+	if(target == user)
+		visible_message(span_infoplain("[user] climbs down into [src]."))
+	else
+		visible_message(span_infoplain("[user] puts [target] into [src]."))
+
+	log_admin("[key_name(target)] entered a stasis pod.")
+	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
+	add_fingerprint(target)
+	put_back_in(target)
+
+
+/**
+ * Puts the target back into the spawner, effectively qdel'ing them after
+ * stripping them of all their items, and finishes by adding back a use to the
+ * spawner.
+ */
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/proc/put_back_in(mob/living/carbon/human/target)
 	if(!istype(target))
 		return
 
+	for(var/obj/item/item in target)
+		target.dropItemToGround(item, FALSE)
+
+	// We make sure people can come back in again, if they needed to fix prefs
+	// or whatever.
+	team.players_spawned -= (target.key)
+
+	qdel(target)
+
+	uses += 1
 
 
 /datum/job/primitive_catgirl
