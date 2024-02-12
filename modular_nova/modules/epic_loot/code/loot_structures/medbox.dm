@@ -7,7 +7,7 @@
 
 /obj/structure/maintenance_loot_structure/medbox
 	name = "emergency medical box"
-	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies. This one is yellow."
+	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies."
 	icon_state = "medbox"
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/medical_box
 	loot_spawn_dice_string = "1d6-1"
@@ -24,21 +24,18 @@
 		/obj/effect/spawner/random/epic_loot/medpens = 2,
 		/obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled = 1,
 	)
+	loot_spawn_dice_string = "1d6"
 
 /obj/structure/maintenance_loot_structure/medbox/bleu
-	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies. This one is blue."
 	icon_state = "medbox_blue"
 
 /obj/structure/maintenance_loot_structure/medbox/advanced_loot/bleu
-	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies. This one is blue."
 	icon_state = "medbox_blue"
 
 /obj/structure/maintenance_loot_structure/medbox/red
-	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies. This one is red."
 	icon_state = "medbox_red"
 
 /obj/structure/maintenance_loot_structure/medbox/advanced_loot/red
-	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies. This one is red."
 	icon_state = "medbox_red"
 
 /obj/structure/maintenance_loot_structure/medbox/random
@@ -62,3 +59,4 @@
 		/obj/effect/spawner/random/epic_loot/medpens = 2,
 		/obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled = 1,
 	)
+	loot_spawn_dice_string = "1d6"

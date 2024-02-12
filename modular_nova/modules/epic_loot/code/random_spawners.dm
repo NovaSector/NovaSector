@@ -186,3 +186,96 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol = 2,
 	)
+
+/obj/effect/spawner/random/epic_loot/random_components
+	name = "random components spawner"
+	desc = "Automagically transforms into components."
+	icon_state = "random_component"
+	loot = list(
+		/obj/item/epic_loot/water_filter = 2,
+		/obj/item/epic_loot/thermometer = 2,
+		/obj/item/epic_loot/nail_box = 2,
+		/obj/item/epic_loot/cold_weld = 2,
+		/obj/item/epic_loot/electric_motor = 1,
+		/obj/item/epic_loot/current_converter = 1,
+		/obj/item/epic_loot/signal_amp = 1,
+		/obj/item/epic_loot/thermal_camera = 1,
+		/obj/item/epic_loot/shuttle_gyro = 1,
+		/obj/item/epic_loot/phased_array = 1,
+		/obj/item/epic_loot/shuttle_battery = 1,
+		/obj/item/epic_loot/fuel_conditioner = 2,
+		/obj/item/epic_loot/aramid = 2,
+		/obj/item/epic_loot/cordura = 2,
+		/obj/item/epic_loot/ripstop = 2,
+		/obj/item/epic_loot/display = 1,
+		/obj/item/epic_loot/display_broken = 2,
+		/obj/item/epic_loot/civilian_circuit = 2,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_tools
+	name = "random tools spawner"
+	desc = "Automagically transforms into a tool of some sort."
+	icon_state = "random_tool"
+	loot = list(
+		// Wrench
+		/obj/item/wrench = 3,
+		/obj/item/wrench/bolter = 2,
+		/obj/item/wrench/caravan = 1,
+		/obj/item/wrench/combat = 1,
+		// Screwdriver
+		/obj/item/screwdriver = 3,
+		/obj/item/screwdriver/omni_drill = 2,
+		/obj/item/screwdriver/caravan = 1,
+		// Crowbar
+		/obj/item/crowbar = 3,
+		/obj/item/crowbar/large/doorforcer = 2,
+		/obj/item/crowbar/red/caravan = 1,
+		// Wirecutters
+		/obj/item/wirecutters = 3,
+		/obj/item/wirecutters/caravan = 1,
+		// Welder
+		/obj/item/weldingtool = 3,
+		/obj/item/weldingtool/largetank = 3,
+		/obj/item/weldingtool/electric/arc_welder = 2,
+		/obj/item/weldingtool/experimental = 1,
+		// Multitool
+		/obj/item/multitool = 2,
+		/obj/item/multitool/ai_detect = 1,
+		// Rapid whatever tools
+		/obj/item/pipe_dispenser = 1,
+		/obj/item/construction/rcd = 1,
+		/obj/item/construction/rtd = 1,
+		// Misc tools and related items
+		/obj/item/stack/cable_coil = 3,
+		/obj/item/flashlight = 2,
+		/obj/item/flashlight/flare = 3,
+		/obj/item/grenade/chem_grenade/metalfoam = 2,
+		/obj/item/geiger_counter = 2,
+		/obj/item/analyzer = 2,
+		// Various methods of insulation
+		/obj/item/clothing/gloves/color/yellow = 2,
+		/obj/item/clothing/gloves/chief_engineer = 1,
+		/obj/item/clothing/gloves/atmos = 1,
+		// Misc utility clothing
+		/obj/item/clothing/gloves/tinkerer = 1,
+		/obj/item/clothing/head/utility/welding = 2,
+		/obj/item/clothing/head/utility/hardhat/welding = 1,
+		/obj/item/clothing/glasses/meson = 3,
+		/obj/item/clothing/glasses/meson/engine = 2,
+		/obj/item/storage/belt/utility = 2,
+		/obj/item/clothing/shoes/magboots = 2,
+		// Tapes
+		/obj/item/stack/sticky_tape = 2,
+		/obj/item/stack/sticky_tape/super = 1,
+		// Cells
+		/obj/item/stock_parts/cell/upgraded = 2,
+		/obj/item/stock_parts/cell/crap = 3,
+		// Masks
+		/obj/item/clothing/mask/gas/sechailer = 2,
+		/obj/item/clothing/mask/gas = 3,
+		/obj/item/clothing/mask/gas/atmos/frontier_colonist = 2,
+		// Air tanks
+		/obj/item/tank/internals/nitrogen/belt = 1,
+		/obj/item/tank/internals/emergency_oxygen/engi = 2,
+		/obj/item/tank/internals/emergency_oxygen/double = 1,
+	)

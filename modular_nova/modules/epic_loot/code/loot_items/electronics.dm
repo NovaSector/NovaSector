@@ -16,7 +16,7 @@
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
 // A display of some sort, this one for sure does not work
-/obj/item/epic_loot/display
+/obj/item/epic_loot/display_broken
 	name = "broken display"
 	desc = "An electronic display, used in any number of machines to display information to users. This one is broken."
 	icon_state = "display_broken"

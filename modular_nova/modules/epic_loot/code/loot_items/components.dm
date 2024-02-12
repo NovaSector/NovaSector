@@ -144,12 +144,3 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
-
-// A box of various common weapon parts, can maybe be used to make special weapons with
-/obj/item/epic_loot/weapon_parts
-	name = "case of weapons parts"
-	desc = "A sealed case filled with many common weapon parts, for repair or other nefarious deeds."
-	icon_state = "weapon_parts"
-	w_class = WEIGHT_CLASS_NORMAL
-	drop_sound = 'sound/items/handling/toolbox_drop.ogg'
-	pickup_sound = 'sound/items/handling/toolbox_pickup.ogg'
