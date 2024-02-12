@@ -6,7 +6,6 @@
 	illustration = "extendedtank"
 	mask_type = /obj/item/clothing/mask/gas/sechailer/syndicate // neck gaiter
 	internal_type = /obj/item/tank/internals/emergency_oxygen/engi
-	medipen_type =  /obj/item/reagent_containers/hypospray/medipen/atropine
 
 /obj/item/storage/box/survival/interdyne/PopulateContents()
 	..()
