@@ -53,6 +53,8 @@
 
 /datum/round_event/valentines/announce(fake)
 	priority_announce("It's Valentine's Day! Give a valentine to that special someone!")
+	send_ooc_announcement("Its valentines time again, remember its 100% optional to participate or not, but please don't send in ahelps to have the antag datum to be removed, theres far too many people it gets applied too to handle everyone. Also note you can 100% ignore the warning if you need to cryo and you where affected by the valentines day event, do note normal cryo rules still apply to heads of staff and normal antags.", "Server Announcment", sound_override = "modular_nova/modules/alerts/sound/alerts/attention.ogg")
+	toggle_aooc(0)
 
 /obj/item/valentine
 	name = "valentine"
