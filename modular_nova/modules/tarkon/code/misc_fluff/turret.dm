@@ -40,16 +40,15 @@
 	desc = "A heavy-protection turret used in the Tarkon Industries Blackwall Salvage group to protect its workers in hazardous conditions."
 	integrity_failure = 0
 	max_integrity = 200
-	move_resist = INFINITY
 	shot_delay = 2 SECONDS
 	uses_stored = FALSE
 	stored_gun = null
 	stun_projectile = null
 	lethal_projectile = null
-	subsystem_type = /datum/controller/subsystem/machines
+	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	ignore_faction = TRUE
 	faction = list()
-	var/claptrap_moment = FALSE //Do we want this to shut up?
+	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
 	var/casing_ejector = TRUE // Do we want it to eject casings?
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed //what box should this spawn with if its map_spawned?
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box //Container of the turret. Needs expanded ref.
@@ -108,36 +107,26 @@
 	turret.mag_box = src
 	forceMove(turret)
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(chamber_next_round = TRUE)
 	if(!magazine)
 		load_mag()
 
 	else if(!magazine.ammo_count())
 		handle_mag()
 
+	if(chambered)
+		eject_cartridge()
 
-	var/obj/item/ammo_casing/casing = chambered //Find chambered round
-	if(istype(casing)) //there's a chambered round
-		if(QDELING(casing))
-			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
-			chambered = null
-		else if(casing_ejector || !from_firing) //If, It somehow, Didn't delete the casing.
-			casing.forceMove(drop_location()) //Eject casing onto ground.
-			chambered = null
-			if(!QDELETED(casing))
-				casing.bounce_away(TRUE)
-				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
-		else if(empty_chamber)
-			UnregisterSignal(chambered, COMSIG_MOVABLE_MOVED)
-			chambered = null
 	if (chamber_next_round && (magazine?.max_ammo > 1))
-		chamber_round()
+		chamber_round(FALSE)
 		return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/chamber_round(replace_new_round)
 	if (chambered || !magazine)
 		return
 	if (magazine.ammo_count())
+		if(!claptrap_moment)
+			balloon_alert_to_viewers("Loading Cartridge")
 		chambered = magazine.get_round(keep = FALSE)
 		chambered.forceMove(src)
 		if(replace_new_round) //For edge-case additions later in the road.
@@ -167,9 +156,38 @@
 		balloon_alert_to_viewers("Loading Magazine")
 	return
 
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/eject_cartridge()
+	var/obj/item/ammo_casing/casing = chambered //Find chambered round
+	if(istype(casing)) //there's a chambered round
+		if(casing.loaded_projectile)
+			if(QDELETED(casing.loaded_projectile))
+				stack_trace("Trying to move a casing with a deleted projectile!")
+				chambered.loaded_projectile = null
+		if(QDELING(casing))
+			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
+			chambered = null
+		else if(casing_ejector) //If, It somehow, Didn't delete the casing.
+			if(!claptrap_moment)
+				balloon_alert_to_viewers("Ejecting Cartridge")
+			casing.forceMove(drop_location()) //Eject casing onto ground.
+			chambered = null
+			if(!QDELETED(casing))
+				casing.bounce_away(TRUE)
+				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/check_cartridge() //There's some edge cases where shite happens.
+	var/obj/item/ammo_casing/casing = chambered //Find chambered round
+	if(istype(casing)) //there's a chambered round
+		if(casing.loaded_projectile)
+			if(QDELETED(casing.loaded_projectile))
+				stack_trace("Trying to shoot bullet with a deleted projectile!")
+				return FALSE
+	return TRUE
+
+
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
-	if(!chambered || !chambered.loaded_projectile) //Ok, We need to START the cycle
-		handle_chamber(TRUE, FALSE, TRUE)
+	if(!chambered) //Ok, We need to START the cycle
+		handle_chamber(TRUE)
 		return
 
 	if(!raised) //the turret has to be raised in order to fire - makes sense, right?
@@ -185,43 +203,38 @@
 	if(!istype(MyTurf) || !istype(targetturf))
 		return
 
-	//Wall turrets will try to find adjacent empty turf to shoot from to cover full arc
-	if(MyTurf.density)
-		if(wall_turret_direction)
-			var/turf/closer = get_step(MyTurf,wall_turret_direction)
-			if(istype(closer) && !closer.is_blocked_turf() && MyTurf.Adjacent(closer))
-				MyTurf = closer
-		else
-			var/target_dir = get_dir(MyTurf,target)
-			for(var/d in list(0,-45,45))
-				var/turf/closer = get_step(MyTurf,turn(target_dir,d))
-				if(istype(closer) && !closer.is_blocked_turf() && MyTurf.Adjacent(closer))
-					MyTurf = closer
-					break
-
 	update_appearance()
-	var/obj/projectile/MyLoad = chambered.loaded_projectile
-	MyLoad.preparePixelProjectile(target, MyTurf)
-	MyLoad.firer = src
-	MyLoad.fired_from = src
-	if(ignore_faction)
-		MyLoad.ignored_factions = faction
-	MyLoad.fire()
-	chambered.loaded_projectile = null //for fringe cases
-	handle_chamber(TRUE,TRUE,TRUE)
-	return MyLoad
+	if(!check_cartridge())
+		balloon_alert_to_viewers("Gun jammed!")
+		return
+
+	if(chambered.loaded_projectile && !QDELETED(chambered.loaded_projectile))
+		var/obj/projectile/MyLoad = chambered.loaded_projectile
+		MyLoad.preparePixelProjectile(target, MyTurf)
+		MyLoad.firer = src
+		MyLoad.fired_from = src
+		if(ignore_faction)
+			MyLoad.ignored_factions = faction
+		MyLoad.fire()
+		MyLoad.fired = TRUE
+		MyLoad = null
+		chambered.loaded_projectile = null //DOUBLE DIPPING
+		handle_chamber(TRUE)
+		return
+
+	handle_chamber(TRUE)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
 		if(magazine)
 			if(length(mag_box.contents) < 2)
-				mag_box.contents.Insert(1,attacking_item)
+				attacking_item.forceMove(mag_box.contents)
 				if(!claptrap_moment)
 					balloon_alert(user, "Magazine added!")
 				return
 		else if(!magazine)
 			if(length(mag_box.contents) < 3)
-				mag_box.contents.Insert(1,attacking_item)
+				attacking_item.forceMove(mag_box.contents)
 				if(!claptrap_moment)
 					balloon_alert(user, "Magazine added!")
 				return
@@ -258,7 +271,8 @@
 			if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
 				return
 
-			repair_damage(10)
+			repair_damage(25)
+
 		if(!claptrap_moment)
 			balloon_alert(user, "repaired!")
 
@@ -276,24 +290,25 @@
 			if(!weapon.use_tool(src, user, 2 SECONDS, volume = 20))
 				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-			repair_damage(10)
+			repair_damage(25)
 			if(!claptrap_moment)
 				balloon_alert(user, "repaired!")
-			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(!chambered)
-		handle_chamber(FALSE,FALSE,TRUE)
+		handle_chamber(TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/deconstruct(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	if(chambered)
-		if(!chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
+		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
 			chambered.forceMove(drop_location())
+			chambered.loaded_projectile = null
 		if(!magazine)
 			chambered.forceMove(drop_location())
-		magazine.stored_ammo.Insert(1,chambered) //put bullet back in magazine
+		magazine.give_round(chambered) //put bullet back in magazine
 		chambered = null
 
 	if(magazine)
