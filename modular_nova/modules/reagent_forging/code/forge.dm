@@ -748,7 +748,6 @@
 
 /// Almost a copy from the proc smelt_ore but to smelt iron rods
 /obj/structure/reagent_forge/proc/smelt_iron_rods(obj/attacking_item, mob/living/user)
-	in_use = TRUE
 
 	var/obj/item/stack/rods/rod_item = attacking_item
 
