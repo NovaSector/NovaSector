@@ -181,6 +181,7 @@
 
 	return blacklist
 
+
 /datum/job/primitive_catgirl
 	title = "Icemoon Dweller"
 
