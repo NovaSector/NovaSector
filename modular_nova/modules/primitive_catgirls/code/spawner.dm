@@ -70,28 +70,31 @@
 		return
 
 	if(target.stat == DEAD)
-		to_chat(user, span_notice("Dead kin cannot be put back to sleep."))
+		to_chat(user, span_danger("Dead kins cannot be put back to sleep."))
 		return
 
 	if(target.key && target != user)
-		if(target.get_organ_by_type(/obj/item/organ/internal/brain) && (!target.mind || target.ssd_indicator)) //Target the Brain
-			if(target.lastclienttime + ssd_time >= world.time)
-				to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))
-				log_admin("[key_name(user)] has attempted to put [key_name(target)] back into [src], but they were only disconnected for [round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes.")
-				message_admins("[key_name(user)] has attempted to put [key_name(target)] back into [src]. [ADMIN_JMP(src)]")
+		if(!target.get_organ_by_type(/obj/item/organ/internal/brain) || (target.mind && !target.ssd_indicator))
+			to_chat(user, span_danger("Awake kins cannot be put back to sleep against their will."))
+			return
+
+		if(target.lastclienttime + ssd_time >= world.time)
+			to_chat(user, span_userdanger("You can't put [target] into [src] for another <b>[round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)]</b> minutes."))
+			log_admin("[key_name(user)] has attempted to put [key_name(target)] back into [src], but they were only disconnected for [round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes.")
+			message_admins("[key_name(user)] has attempted to put [key_name(target)] back into [src]. [ADMIN_JMP(src)]")
+			return
+
+		else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Put back to sleep?", list("Yes", "No")) == "Yes")
+
+			visible_message(span_infoplain("[user] starts putting [target] into [src]."))
+
+			if(!do_after(user, 3 SECONDS, target))
+				balloon_alert("cancelled transfer!")
 				return
 
-			else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Put back to sleep?", list("Yes", "No")) == "Yes")
-
-				visible_message(span_infoplain("[user] starts putting [target] into [src]."))
-
-				if(!do_after(user, 3 SECONDS, target))
-					balloon_alert("cancelled transfer!")
-					return
-
-				to_chat(user, span_danger("You put [target] into [src]."))
-				log_admin("[key_name(user)] has put [key_name(target)] back into [src].")
-				message_admins("[key_name(user)] has put [key_name(target)] back into [src]. [ADMIN_JMP(src)]")
+			to_chat(user, span_danger("You put [target] into [src]."))
+			log_admin("[key_name(user)] has put [key_name(target)] back into [src].")
+			message_admins("[key_name(user)] has put [key_name(target)] back into [src]. [ADMIN_JMP(src)]")
 
 	if(target == user)
 		if(tgui_alert(target, "Would you like to go back to sleep?", "Go back to sleep?", list("Yes", "No")) != "Yes")
@@ -135,19 +138,48 @@
 	if(!istype(target))
 		return
 
+	// We don't want to constantly drop stuff that they spawn with.
+	var/static/list/item_drop_blacklist
+	if(!item_drop_blacklist)
+		item_drop_blacklist = generate_item_drop_blacklist()
+
 	for(var/obj/item/item in target)
+		if(item_drop_blacklist[item.type])
+			qdel(item)
+			continue
+
 		target.dropItemToGround(item, FALSE)
 
 	// We make sure people can come back in again, if they needed to fix prefs
 	// or whatever.
 	team.players_spawned -= (target.key)
 
+	// Just so the target's ghost ends up above the hole.
 	target.forceMove(src)
+	target.ghostize(FALSE)
 
 	qdel(target)
 
 	uses += 1
 
+
+/**
+ * Simple helper to generate the item drop blacklist based on the spawner's
+ * outfit, only taking the used slots into account.
+ */
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/proc/generate_item_drop_blacklist()
+	PROTECTED_PROC(TRUE)
+
+	var/list/blacklist = list()
+
+	blacklist[initial(outfit.uniform)] = TRUE
+	blacklist[initial(outfit.shoes)] = TRUE
+	blacklist[initial(outfit.gloves)] = TRUE
+	blacklist[initial(outfit.suit)] = TRUE
+	blacklist[initial(outfit.neck)] = TRUE
+	blacklist[initial(outfit.back)] = TRUE
+
+	return blacklist
 
 /datum/job/primitive_catgirl
 	title = "Icemoon Dweller"
