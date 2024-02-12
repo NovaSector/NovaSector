@@ -779,7 +779,6 @@
 	if(rods_to_sheet_amount > 1)
 		result.add(rods_to_sheet_amount - 1)
 
-	in_use = FALSE
 	balloon_alert_to_viewers("finished smelting!")
 
 /obj/structure/reagent_forge/billow_act(mob/living/user, obj/item/tool)
