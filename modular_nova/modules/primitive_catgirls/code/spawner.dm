@@ -60,6 +60,37 @@
 
 	team.players_spawned += (spawned_human.key)
 
+
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/MouseDrop_T(mob/living/carbon/human/target, mob/living/user)
+	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !isprimitivedemihuman(target) || !istype(user.loc, /turf) || target.buckled)
+		return
+
+	if(target.stat == DEAD)
+		to_chat(user, span_notice("Dead kin cannot be put back to sleep."))
+		return
+
+	if(target.key && user != target)
+		if (target.get_organ_by_type(/obj/item/organ/internal/brain) ) //Target the Brain
+			if(!target.mind || target.ssd_indicator) // Is the character empty / AI Controlled
+				if(target.lastclienttime + ssd_time >= world.time)
+					to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))
+					log_admin("[key_name(user)] has attempted to put [key_name(target)] into a stasis pod, but they were only disconnected for [round(((world.time - target.lastclienttime) / (1 MINUTES)), 1)] minutes.")
+					message_admins("[key_name(user)] has attempted to put [key_name(target)] into a stasis pod. [ADMIN_JMP(src)]")
+					return
+
+				else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Place into Cryopod?", list("Yes", "No")) == "Yes")
+					if(target.mind.assigned_role.req_admin_notify)
+						tgui_alert(user, "They are an important role! [AHELP_FIRST_MESSAGE]")
+
+					to_chat(user, span_danger("You put [target] into [src]. [target.p_Theyre()] in the cryopod."))
+					log_admin("[key_name(user)] has put [key_name(target)] into a stasis pod.")
+					message_admins("[key_name(user)] has put [key_name(target)] into a stasis pod. [ADMIN_JMP(src)]")
+
+					add_fingerprint(target)
+
+					close_machine(target)
+					name = "[name] ([target.name])"
+
 /datum/job/primitive_catgirl
 	title = "Icemoon Dweller"
 
