@@ -460,7 +460,7 @@
 	if(istype(attacking_item, /obj/item/glassblowing/metal_cup))
 		handle_metal_cup_melting(attacking_item, user)
 		return TRUE
-	
+
 	if(istype(attacking_item, /obj/item/stack/rods))
 		in_use = TRUE
 		smelt_iron_rods(attacking_item, user)
@@ -773,9 +773,14 @@
 	var/src_turf = get_turf(src)
 	var/spawning_item = /obj/item/stack/sheet/iron
 	var/rods_to_sheet_amount = round((rod_item.amount / 2))
-	rod_item.use(rods_to_sheet_amount)
+	var/used_rods = rod_item.amount
+
+	if(ISODD(used_rods))
+		used_rods = used_rods - 1
+
+	rod_item.use(used_rods)
 	var/obj/item/stack/sheet/iron/result = new spawning_item(src_turf)
-	
+
 	if(rods_to_sheet_amount > 1)
 		result.add(rods_to_sheet_amount - 1)
 
