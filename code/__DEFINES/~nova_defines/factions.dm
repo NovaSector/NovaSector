@@ -12,4 +12,3 @@
 #define FACTION_CLOCK "clock"
 
 #define FACTION_RAIDER "raider"
-
