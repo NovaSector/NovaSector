@@ -3,9 +3,9 @@
 	icon = 'modular_nova/modules/epic_loot/icons/loot_structures.dmi'
 	density = TRUE
 	anchored = TRUE
-	layer = TABLE_LAYER
+	layer = BELOW_OBJ_LAYER
 	obj_flags = CAN_BE_HIT
-	pass_flags = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW|LETPASSCLICKS
 	max_integrity = 100
 
 	/// What storage datum we use
