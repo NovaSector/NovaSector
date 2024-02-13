@@ -1,6 +1,6 @@
 /obj/item/storage/toolbox/emergency/turret/mag_fed
 	name = "T.I.B.S Cerberus Kit"
-	desc = "A \"Tarkon Industries Blackwall Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
+	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
 	This model comes with 3 adjustable magazine slots, supporting most commonly available magazines."
 	has_latches = FALSE
 	slot_flags = ITEM_SLOT_BELT
@@ -37,7 +37,7 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed
 	name = "T.I.B.S \"Cerberus\" Guardian Turret"
-	desc = "A heavy-protection turret used in the Tarkon Industries Blackwall Salvage group to protect its workers in hazardous conditions."
+	desc = "A heavy-protection turret used in the Tarkon Industries Blackrust Salvage group to protect its workers in hazardous conditions."
 	integrity_failure = 0
 	max_integrity = 200
 	shot_delay = 2 SECONDS
@@ -47,7 +47,7 @@
 	lethal_projectile = null
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	ignore_faction = TRUE
-	faction = list()
+	faction = list(FACTION_SILICON) //We're gonna do some funky stuff. also turret flags are undef'd at end of porta turret file so >:(
 	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
 	var/casing_ejector = TRUE // Do we want it to eject casings?
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed //what box should this spawn with if its map_spawned?
@@ -184,6 +184,21 @@
 				return FALSE
 	return TRUE
 
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
+	if(!(magaroni.type in mag_box.atom_storage.can_hold))
+		balloon_alert_to_viewers("Item Can't Fit, How did you get here?")
+		return
+
+	mag_box?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
+	return
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/tryToShootAt(list/atom/movable/things_in_my_lawn) //better target prioritization, shoots at closest simple mob
+	var/turf/MyLawn = get_turf(src)
+	while(things_in_my_lawn.len > 0)
+		var/atom/movable/whipper_snapper = get_closest_atom(/mob/living, things_in_my_lawn, MyLawn)
+		if(target(whipper_snapper))
+			return 1
+
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
 	if(!chambered) //Ok, We need to START the cycle
@@ -198,11 +213,12 @@
 			return
 		last_fired = world.time
 
-	var/turf/MyTurf = get_turf(src)
+	var/turf/MyLawn = get_turf(src)
 	var/turf/targetturf = get_turf(target)
-	if(!istype(MyTurf) || !istype(targetturf))
+	if(!istype(MyLawn) || !istype(targetturf))
 		return
 
+	setDir(get_dir(base, target))
 	update_appearance()
 	if(!check_cartridge())
 		balloon_alert_to_viewers("Gun jammed!")
@@ -210,7 +226,7 @@
 
 	if(chambered.loaded_projectile && !QDELETED(chambered.loaded_projectile))
 		var/obj/projectile/MyLoad = chambered.loaded_projectile
-		MyLoad.preparePixelProjectile(target, MyTurf)
+		MyLoad.preparePixelProjectile(target, MyLawn)
 		MyLoad.firer = src
 		MyLoad.fired_from = src
 		if(ignore_faction)
@@ -226,22 +242,9 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
-		if(magazine)
-			if(length(mag_box.contents) < 2)
-				attacking_item.forceMove(mag_box.contents)
-				if(!claptrap_moment)
-					balloon_alert(user, "Magazine added!")
-				return
-		else if(!magazine)
-			if(length(mag_box.contents) < 3)
-				attacking_item.forceMove(mag_box.contents)
-				if(!claptrap_moment)
-					balloon_alert(user, "Magazine added!")
-				return
-		else
-			if(!claptrap_moment)
-				balloon_alert(user, "Magazine slots full!")
-			return
+		balloon_alert_to_viewers("Attempting to load mag")
+		insert_mag(attacking_item, user)
+		return
 
 	if(!istype(attacking_item, /obj/item/wrench))
 		return ..()
