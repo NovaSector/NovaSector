@@ -13,8 +13,8 @@
 	loot_spawn_dice_string = "1d3-1"
 	loot_weighted_list = list(
 		/obj/effect/spawner/random/entertainment/coin = 1,
-		/obj/effect/spawner/random/entertainment/money_small = 2,
-		/obj/effect/spawner/random/entertainment/money = 1,
+		/obj/effect/spawner/random/entertainment/money_small/one = 2,
+		/obj/effect/spawner/random/entertainment/money/one = 1,
 	)
 
 /obj/structure/maintenance_loot_structure/register/white

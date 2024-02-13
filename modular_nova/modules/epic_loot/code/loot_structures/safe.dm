@@ -13,7 +13,7 @@
 	loot_spawn_dice_string = "1d3-1"
 	loot_weighted_list = list(
 		/obj/effect/spawner/random/epic_loot/random_strongbox_loot = 1,
-		/obj/effect/spawner/random/entertainment/money_small = 1,
+		/obj/effect/spawner/random/entertainment/money_small/one = 1,
 	)
 
 /obj/structure/maintenance_loot_structure/desk_safe/bleu

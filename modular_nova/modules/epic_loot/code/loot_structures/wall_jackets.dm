@@ -14,8 +14,8 @@
 	loot_spawn_dice_string = "1d4-2"
 	loot_weighted_list = list(
 		/obj/effect/spawner/random/entertainment/coin = 1,
-		/obj/effect/spawner/random/entertainment/money_small = 1,
-		/obj/effect/spawner/random/entertainment/money = 1,
+		/obj/effect/spawner/random/entertainment/money_small/one = 1,
+		/obj/effect/spawner/random/entertainment/money/one = 1,
 		/obj/effect/spawner/random/entertainment/cigarette_pack = 1,
 		/obj/effect/spawner/random/entertainment/cigarette = 1,
 		/obj/effect/spawner/random/entertainment/wallet_lighter = 1,

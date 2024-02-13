@@ -605,3 +605,9 @@
 		/obj/item/storage/box/papersack/ration_bread_slice = 1,
 		/obj/item/storage/box/colonial_rations = 1,
 	)
+
+/obj/effect/spawner/random/entertainment/money/one
+	spawn_loot_count = 1
+
+/obj/effect/spawner/random/entertainment/money_small/one
+	spawn_loot_count = 1
