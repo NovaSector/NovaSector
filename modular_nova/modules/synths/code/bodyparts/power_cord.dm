@@ -39,8 +39,8 @@
 /obj/item/synth_powercord/proc/can_power_draw(obj/target, mob/user)
 	return ishuman(user) && is_type_in_typecache(target, synth_charge_whitelist)
 
-///Attempts to start using an object as a power source.
-///Checks the user's internal powercell to see if it exists.
+/// Attempts to start using an object as a power source.
+/// Checks the user's internal powercell to see if it exists.
 /obj/item/synth_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 
