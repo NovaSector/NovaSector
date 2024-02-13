@@ -8,18 +8,18 @@ import { getRandomization, PreferenceList } from './MainPage';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 import { useRandomToggleState } from './useRandomToggleState';
 
-// NOVA EDIT BEGIN - Purple ERP quirks ORIGINAL: getValueClass(value: Number)
-function getValueClass(quirk: Quirk) {
+function getColorValueClass(quirk: Quirk) {
   if (quirk.value > 0) {
     return 'positive';
   } else if (quirk.value < 0) {
     return 'negative';
+  // NOVA EDIT ADDITION BEGIN - Purple ERP quirks 
   } else if (quirk.erp_quirk) {
     return 'erp_quirk';
+  // NOVA EDIT ADDITION END
   } else {
     return 'neutral';
   }
-  // NOVA EDIT END
 }
 
 function getCorrespondingPreferences(
@@ -135,7 +135,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
         >
           <Stack vertical fill>
             <Stack.Item
-              className={`${className}--${getValueClass(quirk)}`} // NOVA EDIT BEGIN - Purple ERP quirks
+              className={`${className}--${getColorValueClass(quirk)}`}
               style={{
                 borderBottom: '1px solid black',
                 padding: '2px',
