@@ -137,6 +137,8 @@
 		/obj/item/storage/pill_bottle/neurine = 1,
 		/obj/item/storage/pill_bottle/ondansetron = 1,
 		/obj/item/storage/pill_bottle/psicodine = 1,
+		// Medkits
+		/obj/effect/spawner/random/epic_loot/medkit = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medical_tools
@@ -182,6 +184,20 @@
 		/obj/item/defibrillator = 2,
 		/obj/item/defibrillator/loaded = 1,
 		/obj/item/emergency_bed = 2,
+		/obj/effect/spawner/random/epic_loot/medkit = 2,
+	)
+
+/obj/effect/spawner/random/epic_loot/medkit
+	name = "random medkit spawner"
+	desc = "Automagically transforms into a random medkit of some sort."
+	icon_state = "random_medkit"
+	loot = list(
+		/obj/item/storage/medkit/civil_defense/stocked = 3,
+		/obj/item/storage/medkit/civil_defense/comfort/stocked = 3,
+		/obj/item/storage/medkit/frontier/stocked = 2,
+		/obj/item/storage/medkit/combat_surgeon/stocked = 2,
+		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked = 1,
+		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medpens
@@ -534,6 +550,7 @@
 		/obj/item/epic_loot/cordura = 1,
 		/obj/item/epic_loot/ripstop = 1,
 		/obj/item/epic_loot/military_circuit = 2,
+		/obj/effect/spawner/random/epic_loot/medkit = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_provisions
