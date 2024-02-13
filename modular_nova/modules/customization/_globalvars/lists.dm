@@ -95,7 +95,6 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Xion Manufacturing Group 2.0" = 'modular_nova/master_files/icons/mob/augmentation/xm2ipc.dmi',
 	"Zeng-Hu Pharmaceuticals" = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi' ,
 	"Mariinsky Ballet Company" = 'modular_nova/master_files/icons/mob/augmentation/mariinskyipc.dmi' ,
-
 	))
 
 //ghoul colors
