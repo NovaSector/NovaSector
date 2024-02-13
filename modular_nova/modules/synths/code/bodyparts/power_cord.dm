@@ -95,7 +95,6 @@
  */
 /obj/item/apc_powercord/proc/powerdraw_loop(obj/item/stock_parts/cell/target_cell, mob/living/carbon/human/user)
 	var/power_needed
-	var/power_delay
 	var/power_use
 	while(TRUE)
 		if(QDELETED(target_cell))
@@ -122,12 +121,10 @@
 			break
 
 		// Drain charge from the cell, increase user nutrition, and emit sparks.
-		do_after(user, power_delay, target_cell)
+		do_after(user, (power_use / 100) * SYNTH_CHARGE_DELAY_PER_100, target_cell)
 		target_cell.use(power_use)
 		user.nutrition += power_use / SYNTH_CHARGE_PER_NUTRITION
 		do_sparks(1, FALSE, target_cell.loc)
-
-		power_delay = (power_use / 100) * SYNTH_CHARGE_DELAY_PER_100
 
 #undef SYNTH_CHARGE_MAX
 #undef SYNTH_CHARGE_MIN
