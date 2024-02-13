@@ -23,7 +23,7 @@
 		/obj/machinery/power/apc,
 	))
 
-///Attempt to charge from an object by using them on the powercord.
+// Attempt to charge from an object by using them on the power cord.
 /obj/item/synth_powercord/attackby(obj/item/attacking_item, mob/user, params)
 	if(!can_power_draw(attacking_item, user))
 		return ..()
