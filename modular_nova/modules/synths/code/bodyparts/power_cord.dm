@@ -18,7 +18,7 @@
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "wire1"
 	///Object basetypes which the powercord is allowed to connect to.
-	var/static/list/charge_whitelist = typecacheof(list(
+	var/static/list/synth_charge_whitelist = typecacheof(list(
 		/obj/item/stock_parts/cell,
 		/obj/machinery/power/apc,
 	))
@@ -37,7 +37,7 @@
 
 ///Returns TRUE or FALSE depending on if the target object can be used as a power source.
 /obj/item/apc_powercord/proc/can_power_draw(obj/target, mob/user)
-	return ishuman(user) && is_type_in_typecache(target, charge_whitelist)
+	return ishuman(user) && is_type_in_typecache(target, synth_charge_whitelist)
 
 ///Attempts to start using an object as a power source.
 ///Checks the user's internal powercell to see if it exists.
