@@ -8,10 +8,10 @@
 		return
 
 	if(message)
-		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_VERB_REF(/mob, do_actual_verb), message), SSspeech_controller)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_VERB_REF(/mob/living, do_actual_verb), message), SSspeech_controller)
 
-/mob/verb/do_actual_verb(message as message)
-	if (!message || !do_checks(message))
+/mob/living/verb/do_actual_verb(message as message)
+	if (!message || !doverb_checks(message))
 		return
 
 	if (!try_speak(message)) // ensure we pass the vibe check (filters, etc)
@@ -24,7 +24,11 @@
 
 	usr.log_message(message, LOG_EMOTE)
 
-	var/list/viewers = view(usr.loc)
+	var/list/viewers = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, usr)
+
+	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[usr]
+	if(hologram)
+		viewers |= get_hearers_in_view(1, hologram)
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))

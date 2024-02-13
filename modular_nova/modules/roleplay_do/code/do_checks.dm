@@ -1,4 +1,4 @@
-/mob/proc/do_checks(message)
+/mob/living/proc/doverb_checks(message)
 	if(!length(message))
 		return FALSE
 
