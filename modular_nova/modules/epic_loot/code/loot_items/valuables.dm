@@ -1,0 +1,94 @@
+// An old press pass, perhaps of an unlucky soul who was reporting on the incident that made this place abandoned in the first place
+/obj/item/epic_loot/press_pass
+	name = "expired press pass"
+	desc = "An old lanyard with an expired press pass stuck to it. Most of the text has worn off, you can't tell who it was for or who it was issued by."
+	icon_state = "press_pass"
+	drop_sound = 'sound/items/handling/disk_drop.ogg'
+	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+// A computer SSD
+/obj/item/epic_loot/ssd
+	name = "solid-state drive"
+	desc = "A solid-state drive for computers, may even contain some still-valuable information on it!"
+	icon_state = "ssd"
+	inhand_icon_state = "razor"
+	drop_sound = 'sound/items/handling/disk_drop.ogg'
+	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+// A computer hard drive
+/obj/item/epic_loot/hdd
+	name = "hard drive"
+	desc = "A hard drive for computers, may even contain some still-valuable information on it!"
+	icon_state = "hard_disk"
+	inhand_icon_state = "razor"
+	drop_sound = 'sound/items/handling/disk_drop.ogg'
+	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+// Military-grade flash drives, made for use specifically with military computers
+/obj/item/epic_loot/military_flash
+	name = "military flash drive"
+	desc = "A military-grade flash drive for use in matching military-grade computer systems. Might even contain some still-valuable information on it!"
+	icon_state = "military_flash"
+	inhand_icon_state = "razor"
+	drop_sound = 'sound/items/handling/disk_drop.ogg'
+	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+// Someone's personal diary, or bootleg captain's log, whatever
+/obj/item/epic_loot/diary
+	name = "sealed diary"
+	desc = "An old, apparently well-kept diary with unknown information inside. May hold important data on the location it was found in."
+	icon_state = "diary"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+// A slimmer version of the regular diary
+/obj/item/epic_loot/slim_diary
+	name = "sealed slim diary"
+	desc = "An old, apparently well-kept diary with unknown information inside. May hold important data on the location it was found in."
+	icon_state = "slim_diary"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+// Straight up, a brick of plasma-cringe explosive, keep away from fire
+/obj/item/epic_loot/plasma_explosive
+	name = "brick of plasma-based explosive"
+	desc = "A really quite dangerous brick of a plasma-based explosive. Usually, a demolition charge or something of the sort, but, it's still a <b>bomb</b>."
+	icon_state = "plasma_explosive"
+	drop_sound = 'sound/items/handling/cardboardbox_drop.ogg'
+	pickup_sound = 'sound/items/handling/cardboardbox_pickup.ogg'
+
+/obj/item/epic_loot/plasma_explosive/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/explodable, 0, 1, 3, 5, 5)
+
+// A folder from some corporation with likely valuable data inside
+/obj/item/epic_loot/corpo_folder
+	name = "corporate data folder"
+	desc = "A blue folder with no label of who it's from. What is labeled, however, is the series of marks of confidential or trade secret information inside."
+	icon_state = "nt_folders"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+// Brown unlabeled folder of doom, may contain government secrets
+/obj/item/epic_loot/intel_folder
+	name = "intelligence folder"
+	desc = "A an unmarked, unassuming folder for documents. What is labeled, however, is the series of marks of confidential or trade secret information inside."
+	icon_state = "documents"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+// A small chainlet made of silver
+/obj/item/epic_loot/silver_chainlet
+	name = "silver chainlet"
+	desc = "A small chainlet for decorating clothing or other items, made from silver."
+	icon_state = "silver_chain"
+	drop_sound = 'sound/items/handling/disk_drop.ogg'
+	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+// A small chainlet made of gold
+/obj/item/epic_loot/gold_chainlet
+	name = "gold chainlet"
+	desc = "A small chainlet for decorating clothing or other items, made from gold."
+	icon_state = "gold_chain"
+	drop_sound = 'sound/items/handling/disk_drop.ogg'
+	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
