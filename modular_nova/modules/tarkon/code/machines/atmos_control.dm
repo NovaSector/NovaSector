@@ -1,4 +1,4 @@
-// Port Tarkon Atmos Control
+/////////////////// Port Tarkon Atmost Control ///////////////////
 
 /obj/machinery/computer/atmos_control/tarkon
 	circuit = /obj/item/circuitboard/computer/atmos_control/tarkon
