@@ -50,7 +50,7 @@
 		return
 
 	if(user.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)
-		to_chat(user, span_warning("You are already fully charged!"))
+		user.balloon_alert(user, "already fully charged!")
 		return
 
 	user.visible_message(span_notice("[user] inserts a power connector into [target]."), span_notice("You begin to draw power from [target]."))
@@ -84,7 +84,7 @@
 	var/minimum_cell_charge = target_apc ? SYNTH_APC_MINIMUM_PERCENT : 0
 
 	if(!target_cell || target_cell.percent() < minimum_cell_charge)
-		to_chat(user, span_warning("[target] has no charge to draw from."))
+		user.balloon_alert(user, "no charge left!")
 		return
 
 	var/power_needed
@@ -100,14 +100,14 @@
 		// Check if the charge level of the cell is below the minimum.
 		// Prevents synths from overloading the cell.
 		if(target_cell.percent() < minimum_cell_charge)
-			to_chat(user, span_warning("[target] lacks the power to charge you."))
+			user.balloon_alert(user, "not enough charge!")
 			break
 
 		// Calculate how much to draw from the cell this cycle.
 		power_use = clamp(power_needed, SYNTH_CHARGE_MIN, SYNTH_CHARGE_MAX)
 		power_use = clamp(power_use, 0, target_cell.charge)
 		if(power_use <= 0)
-			to_chat(user, span_warning("[target] lacks the power to charge you."))
+			user.balloon_alert(user, "not enough charge!")
 			break
 
 		// Attempt to drain charge from the cell.
@@ -118,7 +118,7 @@
 			// The cell could be sabotaged, which causes it to explode and qdelete.
 			if(QDELETED(target_cell))
 				return
-			to_chat(user, span_warning("[target] lacks the power to charge you."))
+			user.balloon_alert(user, "not enough charge!")
 			break
 
 		// If charging was successful, then increase user nutrition and emit sparks.
