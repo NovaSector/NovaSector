@@ -44,7 +44,7 @@
 /obj/item/apc_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 
-	var/obj/item/organ/internal/stomach/synth/synth_cell = user.organs_slot[ORGAN_SLOT_STOMACH]
+	var/obj/item/organ/internal/stomach/synth/synth_cell = user.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(QDELETED(synth_cell) || !istype(synth_cell))
 		to_chat(user, span_warning("You plug into [target], but nothing happens! It seems you don't have an internal cell to charge."))
 		return
