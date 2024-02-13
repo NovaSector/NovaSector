@@ -502,13 +502,9 @@
 			to_chat(src, span_warning("Remove [p_their()] mask first!"))
 			return FALSE
 
-		if (!get_organ_slot(ORGAN_SLOT_LUNGS))
-			to_chat(src, span_warning("You have no lungs to breathe with, so you cannot perform CPR!"))
-			return FALSE
-
 		// NOVA EDIT ADDITION - CPR for synths
 		var/obj/item/organ/internal/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		if(istype(human_lungs, /obj/item/organ/internal/lungs/synth))
+		if(!human_lungs || istype(human_lungs, /obj/item/organ/internal/lungs/synth))
 			to_chat(src, span_warning("You have no lungs to breathe with, so you cannot perform CPR!"))
 			return FALSE
 		if(human_lungs.failed)
@@ -517,6 +513,10 @@
 		// NOVA EDIT ADDITION END
 
 		/* NOVA EDIT REMOVAL - CPR for synths
+		if (!get_organ_slot(ORGAN_SLOT_LUNGS))
+			to_chat(src, span_warning("You have no lungs to breathe with, so you cannot perform CPR!"))
+			return FALSE
+
 		if (HAS_TRAIT(src, TRAIT_NOBREATH))
 			to_chat(src, span_warning("You do not breathe, so you cannot perform CPR!"))
 			return FALSE
