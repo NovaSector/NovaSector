@@ -29,7 +29,7 @@
 		return ..()
 	try_power_draw(attacking_item, user)
 
-///Attempt to charge from an object by using the powercord on them.
+// Attempt to charge from an object by using the power cord on them.
 /obj/item/synth_powercord/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag || !can_power_draw(target, user))
 		return ..()
