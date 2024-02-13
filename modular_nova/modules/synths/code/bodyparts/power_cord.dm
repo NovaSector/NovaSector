@@ -23,20 +23,22 @@
 		/obj/machinery/power/apc,
 	))
 
-///Connects to a power cell.
-/obj/item/apc_powercord/attackby(obj/item/item, mob/living/user, params)
-	if(istype(item, /obj/item/stock_parts/cell))
-		power_draw(item, user)
-	else
+/obj/item/apc_powercord/attackby(obj/item/attacking_item, mob/user, params)
+	if(!can_power_draw(attacking_item, user))
 		return ..()
+	power_draw(attacking_item, user)
 
 /obj/item/apc_powercord/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(!ishuman(user) || !proximity_flag || !is_type_in_typecache(target, charge_whitelist))
+	if(!proximity_flag || !can_power_draw(target, user))
 		return ..()
-	user.changeNext_move(CLICK_CD_MELEE)
 	power_draw(target, user)
 
+/obj/item/apc_powercord/proc/can_power_draw(obj/target, mob/living/carbon/human/user)
+	return ishuman(user) && is_type_in_typecache(target, charge_whitelist)
+
 /obj/item/apc_powercord/proc/power_draw(obj/target, mob/living/carbon/human/user)
+	user.changeNext_move(CLICK_CD_MELEE)
+
 	var/obj/item/stock_parts/cell/target_cell
 	var/obj/machinery/power/apc/target_apc
 
