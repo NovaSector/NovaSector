@@ -89,6 +89,10 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
+/obj/item/epic_loot/shuttle_gyro/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
+
 // Phased array elements, combine a bunch together to get god's strongest radar, or whatever else you can think of
 /obj/item/epic_loot/phased_array
 	name = "phased array element"
@@ -108,6 +112,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/handling/cardboardbox_drop.ogg'
 	pickup_sound = 'sound/items/handling/cardboardbox_pickup.ogg'
+
+/obj/item/epic_loot/shuttle_battery/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
 
 // Industrial fuel conditioner, used to keep most fuel-burning machines within regulations for waste emissions
 /obj/item/epic_loot/fuel_conditioner

@@ -12,7 +12,7 @@
 		to prevent theft."
 	icon_state = "toolbox"
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/toolbox
-	loot_spawn_dice_string = "1d6-1"
+	loot_spawn_dice_string = "1d8-2"
 	loot_weighted_list = list(
 		/obj/effect/spawner/random/epic_loot/random_tools = 2,
 		/obj/effect/spawner/random/epic_loot/random_components = 1,

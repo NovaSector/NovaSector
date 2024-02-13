@@ -1,5 +1,5 @@
 /datum/storage/maintenance_loot_structure/jacket
-	max_slots = 4
+	max_slots = 2
 	max_specific_storage = WEIGHT_CLASS_NORMAL
 	max_total_storage = WEIGHT_CLASS_NORMAL * 4
 	screen_max_columns = 2
@@ -11,7 +11,7 @@
 	icon_state = "jacket_green"
 	density = FALSE
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/jacket
-	loot_spawn_dice_string = "1d4-1"
+	loot_spawn_dice_string = "1d4-2"
 	loot_weighted_list = list(
 		/obj/effect/spawner/random/entertainment/coin = 1,
 		/obj/effect/spawner/random/entertainment/money_small = 1,

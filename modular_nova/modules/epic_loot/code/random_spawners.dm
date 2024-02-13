@@ -59,6 +59,24 @@
 		/obj/item/reagent_containers/cup/bottle/salglu_solution = 2,
 		/obj/item/reagent_containers/cup/bottle/atropine = 1,
 		/obj/item/reagent_containers/syringe = 2,
+		// Medigels
+		/obj/item/reagent_containers/medigel/libital = 2,
+		/obj/item/reagent_containers/medigel/aiuri = 2,
+		/obj/item/reagent_containers/medigel/sterilizine = 2,
+		/obj/item/reagent_containers/medigel/synthflesh = 1,
+		// Pill bottles
+		/obj/item/storage/pill_bottle/iron = 2,
+		/obj/item/storage/pill_bottle/potassiodide = 2,
+		/obj/item/storage/pill_bottle/painkiller = 2,
+		/obj/item/storage/pill_bottle/probital = 2,
+		/obj/item/storage/pill_bottle/happinesspsych = 1,
+		/obj/item/storage/pill_bottle/lsdpsych = 1,
+		/obj/item/storage/pill_bottle/mannitol = 2,
+		/obj/item/storage/pill_bottle/multiver = 2,
+		/obj/item/storage/pill_bottle/mutadone = 1,
+		/obj/item/storage/pill_bottle/neurine = 1,
+		/obj/item/storage/pill_bottle/ondansetron = 1,
+		/obj/item/storage/pill_bottle/psicodine = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medical_stack_item_advanced
@@ -101,6 +119,24 @@
 		/obj/item/reagent_containers/cup/bottle/salglu_solution = 3,
 		/obj/item/reagent_containers/cup/bottle/atropine = 2,
 		/obj/item/reagent_containers/syringe = 3,
+		// Medigels
+		/obj/item/reagent_containers/medigel/libital = 2,
+		/obj/item/reagent_containers/medigel/aiuri = 2,
+		/obj/item/reagent_containers/medigel/sterilizine = 2,
+		/obj/item/reagent_containers/medigel/synthflesh = 1,
+		// Pill bottles
+		/obj/item/storage/pill_bottle/iron = 2,
+		/obj/item/storage/pill_bottle/potassiodide = 2,
+		/obj/item/storage/pill_bottle/painkiller = 2,
+		/obj/item/storage/pill_bottle/probital = 2,
+		/obj/item/storage/pill_bottle/happinesspsych = 1,
+		/obj/item/storage/pill_bottle/lsdpsych = 1,
+		/obj/item/storage/pill_bottle/mannitol = 2,
+		/obj/item/storage/pill_bottle/multiver = 2,
+		/obj/item/storage/pill_bottle/mutadone = 1,
+		/obj/item/storage/pill_bottle/neurine = 1,
+		/obj/item/storage/pill_bottle/ondansetron = 1,
+		/obj/item/storage/pill_bottle/psicodine = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medical_tools
@@ -278,4 +314,294 @@
 		/obj/item/tank/internals/nitrogen/belt = 1,
 		/obj/item/tank/internals/emergency_oxygen/engi = 2,
 		/obj/item/tank/internals/emergency_oxygen/double = 1,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_computer_parts
+	name = "random computer parts spawner"
+	desc = "Automagically transforms into a part from a computer of some sort."
+	icon_state = "random_electronic_part"
+	loot = list(
+		/obj/item/epic_loot/signal_amp = 2,
+		/obj/item/epic_loot/device_fan = 2,
+		/obj/item/epic_loot/graphics = 1,
+		/obj/item/epic_loot/military_circuit = 1,
+		/obj/item/epic_loot/civilian_circuit = 2,
+		/obj/item/epic_loot/processor = 2,
+		/obj/item/epic_loot/power_supply = 2,
+		/obj/item/epic_loot/disk_drive = 2,
+		/obj/item/epic_loot/ssd = 1,
+		/obj/item/epic_loot/hdd = 1,
+		/obj/item/epic_loot/military_flash = 1,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_documents
+	name = "random documents spawner"
+	desc = "Automagically transforms into some form of documents, valuable or not."
+	icon_state = "random_documents"
+	loot = list(
+		/obj/item/folder/white = 2,
+		/obj/item/folder/blue = 2,
+		/obj/item/folder/ancient_paperwork = 2,
+		/obj/item/paper_bin = 2,
+		/obj/item/paper_bin/bundlenatural = 2,
+		/obj/item/paper_bin/carbon = 2,
+		/obj/item/epic_loot/intel_folder = 1,
+		/obj/item/epic_loot/corpo_folder = 1,
+		/obj/item/epic_loot/slim_diary = 1,
+		/obj/item/epic_loot/diary = 1,
+		/obj/item/computer_disk/maintenance = 2,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_strongbox_loot
+	name = "random strongbox loot spawner"
+	desc = "Automagically transforms into some kind of item that would be kept in a safe."
+	icon_state = "random_strongbox_loot"
+	loot = list(
+		/obj/item/folder/ancient_paperwork = 3,
+		/obj/item/epic_loot/intel_folder = 2,
+		/obj/item/epic_loot/corpo_folder = 2,
+		/obj/item/epic_loot/slim_diary = 3,
+		/obj/item/epic_loot/diary = 2,
+		/obj/item/epic_loot/ssd = 1,
+		/obj/item/epic_loot/hdd = 1,
+		/obj/item/epic_loot/military_flash = 1,
+		/obj/effect/spawner/random/epic_loot/chainlet = 2,
+		/obj/item/computer_disk/maintenance = 2,
+	)
+
+
+/obj/effect/spawner/random/epic_loot/random_grenade_or_explosive
+	name = "random grenade or explosive spawner"
+	desc = "Automagically transforms into some kind of explosive or grenade."
+	icon_state = "random_bomb"
+	loot = list(
+		/obj/item/grenade/antigravity = 1,
+		/obj/item/grenade/barrier = 3,
+		/obj/item/grenade/c4 = 1,
+		/obj/item/grenade/firecracker = 2,
+		/obj/item/grenade/flashbang = 3,
+		/obj/item/grenade/frag = 2,
+		/obj/item/grenade/mirage = 3,
+		/obj/item/grenade/smokebomb = 3,
+		/obj/item/grenade/stingbang = 2,
+		/obj/item/grenade/iedcasing/spawned = 2,
+		/obj/item/grenade/syndieminibomb/concussion = 1,
+		/obj/item/grenade/clusterbuster/smoke = 1,
+		/obj/item/grenade/chem_grenade/teargas = 2,
+		/obj/item/epic_loot/plasma_explosive = 2,
+		/obj/item/epic_loot/grenade_fuze = 3,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_ammunition
+	name = "random ammunition spawner"
+	desc = "Automagically transforms into some kind of ammo for a weapon."
+	icon_state = "random_ammo"
+	loot = list(
+		// Ammo boxes
+		// .38
+		/obj/item/ammo_box/c38 = 2,
+		/obj/item/ammo_box/c38/dumdum = 2,
+		/obj/item/ammo_box/c38/match = 1,
+		// .35
+		/obj/item/ammo_box/c35sol = 2,
+		/obj/item/ammo_box/c35sol/ripper = 2,
+		/obj/item/ammo_box/c35sol/incapacitator = 2,
+		// .40
+		/obj/item/ammo_box/c40sol = 1,
+		/obj/item/ammo_box/c40sol/pierce = 1,
+		/obj/item/ammo_box/c40sol/incendiary = 2,
+		/obj/item/ammo_box/c40sol/fragmentation = 2,
+		// .585
+		/obj/item/ammo_box/c585trappiste = 1,
+		/obj/item/ammo_box/c585trappiste/hollowpoint = 1,
+		/obj/item/ammo_box/c585trappiste/incapacitator = 2,
+		// .980
+		/obj/item/ammo_box/c980grenade = 2,
+		/obj/item/ammo_box/c980grenade/riot = 2,
+		/obj/item/ammo_box/c980grenade/smoke = 2,
+		/obj/item/ammo_box/c980grenade/shrapnel = 1,
+		/obj/item/ammo_box/c980grenade/shrapnel/phosphor = 1,
+		// .310
+		/obj/item/ammo_box/strilka310 = 2,
+		/obj/item/ammo_box/strilka310/surplus = 2,
+		/obj/item/ammo_box/c310_cargo_box = 1,
+		/obj/item/ammo_box/c310_cargo_box/rubber = 2,
+		/obj/item/ammo_box/c310_cargo_box/piercing = 1,
+		// .27-54
+		/obj/item/ammo_box/c27_54cesarzowa = 2,
+		/obj/item/ammo_box/c27_54cesarzowa/rubber = 2,
+		// .60
+		/obj/item/ammo_casing/p60strela = 2,
+		// Magazines
+		/obj/item/ammo_box/magazine/c35sol_pistol = 2,
+		/obj/item/ammo_box/magazine/c35sol_pistol/stendo = 1,
+		/obj/item/ammo_box/magazine/c40sol_rifle = 2,
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 1,
+		/obj/item/ammo_box/magazine/c585trappiste_pistol = 2,
+		/obj/item/ammo_box/magazine/c980_grenade = 1,
+		/obj/item/ammo_box/magazine/c980_grenade/drum = 1,
+		/obj/item/ammo_box/magazine/lanca = 2,
+		/obj/item/ammo_box/magazine/miecz = 2,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery = 2,
+		/obj/item/ammo_box/magazine/wylom = 1,
+		// Shotgun shells
+		/obj/item/ammo_box/advanced/s12gauge/antitide = 2,
+		/obj/item/ammo_box/advanced/s12gauge/bean = 2,
+		/obj/item/ammo_box/advanced/s12gauge/beehive = 2,
+		/obj/item/ammo_box/advanced/s12gauge/buckshot = 1,
+		/obj/item/ammo_box/advanced/s12gauge/express = 1,
+		/obj/item/ammo_box/advanced/s12gauge/flechette = 1,
+		/obj/item/ammo_box/advanced/s12gauge/incendiary = 1,
+		/obj/item/ammo_box/advanced/s12gauge/magnum = 1,
+		/obj/item/ammo_box/advanced/s12gauge/rubber = 2,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_silly_arms
+	name = "random silly arms spawner"
+	desc = "Automagically transforms into a not-so-serious firearm."
+	icon_state = "random_common_gun"
+	loot = list(
+		/obj/item/gun/ballistic/automatic/pistol/sol = 2,
+		/obj/item/gun/ballistic/automatic/pistol/sol/evil = 1,
+		/obj/item/gun/ballistic/automatic/pistol/trappiste = 1,
+		/obj/item/gun/ballistic/revolver/c38 = 2,
+		/obj/item/gun/ballistic/revolver/sol = 2,
+		/obj/item/gun/ballistic/revolver/takbok = 1,
+		/obj/item/gun/ballistic/automatic/sol_smg = 1,
+		/obj/item/gun/ballistic/automatic/sol_smg/evil = 1,
+		/obj/item/gun/ballistic/automatic/m6pdw = 1,
+		/obj/item/gun/energy/e_gun/mini = 2,
+		/obj/item/gun/energy/modular_laser_rifle/carbine = 1,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower = 2,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 2,
+		/obj/item/gun/ballistic/revolver/shotgun_revolver = 2,
+		/obj/item/gun/ballistic/automatic/miecz = 1,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_serious_arms
+	name = "random serious arms spawner"
+	desc = "Automagically transforms into a super serious firearm."
+	icon_state = "random_rare_gun"
+	loot = list(
+		/obj/item/gun/ballistic/automatic/sol_rifle/marksman = 2,
+		/obj/item/gun/ballistic/automatic/sol_rifle = 1,
+		/obj/item/gun/ballistic/automatic/sol_rifle/evil = 1,
+		/obj/item/gun/ballistic/automatic/sol_rifle/machinegun = 1,
+		/obj/item/gun/ballistic/automatic/sol_grenade_launcher = 1,
+		/obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil = 1,
+		/obj/item/gun/ballistic/automatic/xhihao_smg = 2,
+		/obj/effect/spawner/random/sakhno = 2,
+		/obj/item/gun/ballistic/shotgun/riot/sol = 2,
+		/obj/item/gun/ballistic/shotgun/riot/sol/evil = 1,
+		/obj/item/gun/ballistic/rifle/boltaction/prime = 1,
+		/obj/item/gun/energy/laser = 2,
+		/obj/item/gun/energy/laser/hellgun = 1,
+		/obj/item/gun/energy/tesla_cannon = 1,
+		/obj/item/gun/energy/e_gun = 1,
+		/obj/item/gun/energy/modular_laser_rifle = 1,
+		/obj/item/gun/ballistic/automatic/lanca = 1,
+		/obj/item/gun/ballistic/automatic/wylom = 1,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_other_military_loot
+	name = "random military loot spawner"
+	desc = "Automagically transforms into some kind of misc. military loot item."
+	icon_state = "random_loot_military"
+	loot = list(
+		/obj/item/clothing/mask/gas/sechailer = 1,
+		/obj/item/clothing/mask/gas = 2,
+		/obj/item/clothing/mask/gas/atmos/frontier_colonist = 1,
+		/obj/item/clothing/head/helmet/sf_peacekeeper = 2,
+		/obj/item/clothing/head/helmet/sf_peacekeeper/debranded = 1,
+		/obj/item/clothing/suit/armor/sf_peacekeeper = 2,
+		/obj/item/clothing/suit/armor/sf_peacekeeper/debranded = 1,
+		/obj/item/folder/ancient_paperwork = 3,
+		/obj/item/epic_loot/intel_folder = 2,
+		/obj/item/epic_loot/slim_diary = 3,
+		/obj/item/epic_loot/ssd = 1,
+		/obj/item/epic_loot/hdd = 1,
+		/obj/item/epic_loot/military_flash = 1,
+		/obj/item/computer_disk/maintenance = 2,
+		/obj/item/computer_disk/black_market = 1,
+		/obj/item/epic_loot/plasma_explosive = 1,
+		/obj/item/epic_loot/grenade_fuze = 2,
+		/obj/item/epic_loot/signal_amp = 2,
+		/obj/item/epic_loot/thermal_camera = 1,
+		/obj/item/epic_loot/shuttle_gyro = 1,
+		/obj/item/epic_loot/phased_array = 1,
+		/obj/item/epic_loot/shuttle_battery = 1,
+		/obj/item/epic_loot/aramid = 1,
+		/obj/item/epic_loot/cordura = 1,
+		/obj/item/epic_loot/ripstop = 1,
+		/obj/item/epic_loot/military_circuit = 2,
+	)
+
+/obj/effect/spawner/random/epic_loot/random_provisions
+	name = "random provisions spawner"
+	desc = "Automagically transforms into some kind of potentially edible meal."
+	icon_state = "random_food"
+	loot = list(
+		/obj/item/food/sustenance_bar = 3,
+		/obj/item/food/sustenance_bar/cheese = 2,
+		/obj/item/food/sustenance_bar/mint = 2,
+		/obj/item/food/sustenance_bar/neapolitan = 2,
+		/obj/item/food/vendor_snacks/mothmallow = 1,
+		/obj/item/food/vendor_snacks/moth_bag = 3,
+		/obj/item/food/vendor_snacks/moth_bag/cheesecake = 2,
+		/obj/item/food/vendor_snacks/moth_bag/cheesecake/honey = 2,
+		/obj/item/food/vendor_snacks/moth_bag/fuel_jack = 3,
+		/obj/item/food/vendor_tray_meal/side/cornbread = 2,
+		/obj/item/food/vendor_tray_meal/side/moffin = 2,
+		/obj/item/food/vendor_tray_meal/side/roasted_seeds = 2,
+		/obj/item/food/bluefeather_crisp = 3,
+		/obj/item/food/brain_pate = 2,
+		/obj/item/food/branrequests = 3,
+		/obj/item/food/breadslice/corn = 2,
+		/obj/item/food/breadslice/reispan = 2,
+		/obj/item/food/breadslice/plain = 2,
+		/obj/item/food/breadslice/root = 2,
+		/obj/item/food/butter = 3,
+		/obj/item/food/candy = 3,
+		/obj/item/food/canned/beans = 3,
+		/obj/item/food/canned/peaches = 3,
+		/obj/item/food/canned/tomatoes = 3,
+		/obj/item/food/canned/tuna = 3,
+		/obj/item/food/cheese/firm_cheese_slice = 2,
+		/obj/item/food/cheese/firm_cheese = 1,
+		/obj/item/food/chocolatebar = 2,
+		/obj/item/food/cnds/random = 3,
+		/obj/item/food/colonial_course/pljeskavica = 1,
+		/obj/item/food/colonial_course/nachos = 1,
+		/obj/item/food/colonial_course/blins = 1,
+		/obj/item/food/cornchips/random = 2,
+		/obj/item/food/peanuts/random = 2,
+		/obj/item/food/ready_donk = 1,
+		/obj/item/food/ready_donk/donkhiladas = 1,
+		/obj/item/food/ready_donk/donkrange_chicken = 1,
+		/obj/item/food/ready_donk/mac_n_cheese = 1,
+		/obj/item/food/ready_donk/nachos_grandes = 1,
+		/obj/item/food/semki = 3,
+		/obj/item/food/spacers_sidekick = 2,
+		/obj/item/food/sticko/random = 3,
+		// Ingredients
+		/obj/item/reagent_containers/cup/glass/bottle/juice/limejuice = 2,
+		/obj/item/reagent_containers/cup/glass/bottle/juice/orangejuice = 2,
+		/obj/item/reagent_containers/cup/glass/bottle/juice/pineapplejuice = 2,
+		/obj/item/reagent_containers/condiment/milk = 1,
+		/obj/item/reagent_containers/condiment/sugar/small_ration = 2,
+		/obj/item/reagent_containers/condiment/flour/small_ration = 2,
+		/obj/item/reagent_containers/condiment/small_ration_korta_flour = 2,
+		/obj/item/reagent_containers/condiment/cherryjelly = 1,
+		/obj/item/reagent_containers/condiment/rice/small_ration = 2,
+		/obj/item/reagent_containers/condiment/soymilk/small_ration = 2,
+		/obj/item/reagent_containers/condiment/cornmeal = 1,
+		/obj/item/storage/box/spaceman_ration/meats = 1,
+		/obj/item/storage/box/spaceman_ration/meats/lizard = 1,
+		/obj/item/storage/box/spaceman_ration/meats/fish = 1,
+		/obj/item/storage/box/spaceman_ration/plants = 2,
+		/obj/item/storage/box/spaceman_ration/plants/alternate = 2,
+		/obj/item/storage/box/spaceman_ration/plants/lizard = 2,
+		/obj/item/storage/box/spaceman_ration/plants/mothic = 2,
+		/obj/item/storage/box/papersack/ration_bread_slice = 1,
+		/obj/item/storage/box/colonial_rations = 1,
 	)
