@@ -1,6 +1,6 @@
 /datum/quirk/item_quirk/underworld_connections
 	name = "Underworld Connections"
-	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink, and access to information brokers with exploitable information about the crew. Security has suspicions about you, though..."
+	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink, and access to information brokers with exploitable information about the crew. Security has suspicions about you, and you may struggle to obtain a weapons permit."
 	icon = FA_ICON_SUITCASE
 	value = 0
 	gain_text = span_notice("Your contacts to the underworld are close at hand.")
@@ -61,7 +61,7 @@
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (our_record.security_note)
-			replacetext(our_record.security_note, "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements.", "")
+			our_record.security_note = replacetext(our_record.security_note, "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements.", "")
 		if (!length(our_record.security_note)) // that was the only thing in the notes
 			our_record.security_note = null
 		if (isnull(our_record.security_note) && our_record.wanted_status == WANTED_SUSPECT) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
