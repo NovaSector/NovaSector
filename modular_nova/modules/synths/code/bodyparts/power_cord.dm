@@ -56,11 +56,11 @@
 	var/obj/item/organ/internal/stomach/synth/synth_cell = ipc.organs_slot[ORGAN_SLOT_STOMACH]
 
 	if(!synth_cell)
-		to_chat(ipc, span_warning("You try to siphon energy from the [target], but you have no stomach! How are you still standing?"))
+		to_chat(ipc, span_warning("You try to siphon energy from [target], but you have no stomach! How are you still standing?"))
 		return
 
 	if(!istype(synth_cell))
-		to_chat(ipc, span_warning("You plug into the [target], but nothing happens! It seems you don't have a cell to charge!"))
+		to_chat(ipc, span_warning("You plug into [target], but nothing happens! It seems you don't have a cell to charge!"))
 		return
 
 	if(target_cell.percent() < SYNTH_APC_MINIMUM_PERCENT)
@@ -71,9 +71,9 @@
 		to_chat(user, span_warning("You are already fully charged!"))
 		return
 
-	user.visible_message(span_notice("[user] inserts a power connector into the [target]."), span_notice("You begin to draw power from the [target]."))
+	user.visible_message(span_notice("[user] inserts a power connector into [target]."), span_notice("You begin to draw power from [target]."))
 	powerdraw_loop(target_cell, ipc)
-	user.visible_message(span_notice("[user] unplugs from the [target]."), span_notice("You unplug from the [target]."))
+	user.visible_message(span_notice("[user] unplugs from [target]."), span_notice("You unplug from [target]."))
 
 	if(target_apc && target_apc.main_status <= APC_HAS_POWER)
 		target_apc.charging = APC_CHARGING
