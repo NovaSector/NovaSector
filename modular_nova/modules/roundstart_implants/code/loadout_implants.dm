@@ -24,6 +24,11 @@
 		zoom.stop_zooming(user)
 		zoomed = FALSE
 	else
+		//check if they're blind
+		if (user.is_blind())
+			user.balloon_alert(user, "can't activate magnification while blind!")
+			return
+
 		zoom.zoom(user)
 		zoomed = TRUE
 
