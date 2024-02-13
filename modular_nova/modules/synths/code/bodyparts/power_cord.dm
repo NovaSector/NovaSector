@@ -6,13 +6,13 @@
 #define SYNTH_APC_MINIMUM_PERCENT 20
 
 /obj/item/organ/internal/cyberimp/arm/power_cord
-	name = "power cord implant"
+	name = "charging implant"
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
-	contents = newlist(/obj/item/apc_powercord)
+	contents = newlist(/obj/item/synth_powercord)
 	zone = "l_arm"
 	cannot_confiscate = TRUE
 
-/obj/item/apc_powercord
+/obj/item/synth_powercord
 	name = "power cord"
 	desc = "An internal power cord. Useful if you run on electricity. Not so much otherwise."
 	icon = 'icons/obj/stack_objects.dmi'
@@ -24,24 +24,24 @@
 	))
 
 ///Attempt to charge from an object by using them on the powercord.
-/obj/item/apc_powercord/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/synth_powercord/attackby(obj/item/attacking_item, mob/user, params)
 	if(!can_power_draw(attacking_item, user))
 		return ..()
 	try_power_draw(attacking_item, user)
 
 ///Attempt to charge from an object by using the powercord on them.
-/obj/item/apc_powercord/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/synth_powercord/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag || !can_power_draw(target, user))
 		return ..()
 	try_power_draw(target, user)
 
 ///Returns TRUE or FALSE depending on if the target object can be used as a power source.
-/obj/item/apc_powercord/proc/can_power_draw(obj/target, mob/user)
+/obj/item/synth_powercord/proc/can_power_draw(obj/target, mob/user)
 	return ishuman(user) && is_type_in_typecache(target, synth_charge_whitelist)
 
 ///Attempts to start using an object as a power source.
 ///Checks the user's internal powercell to see if it exists.
-/obj/item/apc_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
+/obj/item/synth_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	var/obj/item/organ/internal/stomach/synth/synth_cell = user.get_organ_slot(ORGAN_SLOT_STOMACH)
@@ -74,7 +74,7 @@
  * * target - The power cell or APC to drain.
  * * user - The human mob draining the power cell.
  */
-/obj/item/apc_powercord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
+/obj/item/synth_powercord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
 	// Draw power from an APC if one was given.
 	var/obj/machinery/power/apc/target_apc
 	if(istype(target, /obj/machinery/power/apc))
