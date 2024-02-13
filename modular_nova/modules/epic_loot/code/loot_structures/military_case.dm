@@ -6,7 +6,7 @@
 	opening_sound = 'modular_nova/modules/epic_loot/sound/containers/wood_crate_3.mp3'
 
 /obj/structure/maintenance_loot_structure/military_case
-	name = "grenade box"
+	name = "military storage box"
 	desc = "A military-grade storage chest for general use."
 	icon_state = "guncrate"
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/military_case
