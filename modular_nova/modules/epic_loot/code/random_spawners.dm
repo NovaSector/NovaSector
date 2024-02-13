@@ -18,10 +18,11 @@
 	desc = "Automagically transforms into a random valuable that would reasonably be in someone's coat pocket."
 	icon_state = "random_pocket_valuable"
 	loot = list(
-		/obj/effect/spawner/random/epic_loot/chainlet = 1,
-		/obj/item/epic_loot/press_pass = 1,
-		/obj/item/epic_loot/military_flash = 1,
-		/obj/item/epic_loot/slim_diary = 1,
+		/obj/effect/spawner/random/epic_loot/chainlet = 2,
+		/obj/item/epic_loot/press_pass = 2,
+		/obj/item/epic_loot/military_flash = 2,
+		/obj/item/epic_loot/slim_diary = 2,
+		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medical_stack_item
@@ -383,6 +384,7 @@
 		/obj/item/epic_loot/military_flash = 1,
 		/obj/effect/spawner/random/epic_loot/chainlet = 2,
 		/obj/item/computer_disk/maintenance = 2,
+		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
 	)
 
 
@@ -551,6 +553,7 @@
 		/obj/item/epic_loot/ripstop = 1,
 		/obj/item/epic_loot/military_circuit = 2,
 		/obj/effect/spawner/random/epic_loot/medkit = 1,
+		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_provisions
@@ -628,3 +631,18 @@
 
 /obj/effect/spawner/random/entertainment/money_small/one
 	spawn_loot_count = 1
+
+/obj/effect/spawner/random/epic_loot/random_keycard
+	name = "random keycard spawner"
+	desc = "Automagically transforms into a random colored keycard."
+	icon_state = "keycard_random"
+	loot = list(
+		/obj/item/keycard/epic_loot/green = 1,
+		/obj/item/keycard/epic_loot/teal = 1,
+		/obj/item/keycard/epic_loot/blue = 1,
+		/obj/item/keycard/epic_loot/ourple = 1,
+		/obj/item/keycard/epic_loot/red = 1,
+		/obj/item/keycard/epic_loot/orange = 1,
+		/obj/item/keycard/epic_loot/yellow = 1,
+		/obj/item/keycard/epic_loot/black = 1,
+	)

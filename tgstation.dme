@@ -7236,6 +7236,7 @@
 #include "modular_nova\modules\epic_loot\code\random_spawners.dm"
 #include "modular_nova\modules\epic_loot\code\loot_items\components.dm"
 #include "modular_nova\modules\epic_loot\code\loot_items\electronics.dm"
+#include "modular_nova\modules\epic_loot\code\loot_items\keycards.dm"
 #include "modular_nova\modules\epic_loot\code\loot_items\medical.dm"
 #include "modular_nova\modules\epic_loot\code\loot_items\valuables.dm"
 #include "modular_nova\modules\epic_loot\code\loot_structures\ammo_box.dm"
