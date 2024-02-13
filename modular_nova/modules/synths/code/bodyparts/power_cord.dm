@@ -35,7 +35,7 @@
 		return ..()
 	try_power_draw(target, user)
 
-///Returns TRUE or FALSE depending on if the target object can be used as a power source.
+/// Returns TRUE or FALSE depending on if the target object can be used as a power source.
 /obj/item/synth_powercord/proc/can_power_draw(obj/target, mob/user)
 	return ishuman(user) && is_type_in_typecache(target, synth_charge_whitelist)
 
