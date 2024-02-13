@@ -103,12 +103,6 @@
 		part.name = "[modsuit.theme.name] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
 
-	// quickly deploy it on roundstart
-	modsuit.quick_activation()
-	// lower the helmet for style points and also to make chargen less annoying
-	var/obj/item/clothing/head/mod/helmet = locate() in modsuit.mod_parts
-	modsuit.retract(human_holder, helmet)
-
 	install_racial_features()
 
 	//transfer as many items across from our dropped backslot as we can. do this last incase something breaks
@@ -116,6 +110,11 @@
 		var/obj/item/old_bag = locate() in force_dropped_items
 		if (old_bag.atom_storage)
 			old_bag.atom_storage.dump_content_at(modsuit, human_holder)
+
+/datum/quirk/equipping/entombed/post_add()
+	. = ..()
+	// quickly deploy it on roundstart. we can't do this in add_unique because that gets called in the preview screen, which overwrites people's loadout stuff in suit/shoes/gloves slot. very unfun for them
+	modsuit.quick_activation()
 
 /datum/quirk/equipping/entombed/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
