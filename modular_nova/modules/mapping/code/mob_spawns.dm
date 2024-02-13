@@ -126,6 +126,8 @@
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
 	random_appearance = FALSE
+	quirks_enabled = TRUE
+	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/manager
 	name = "staff manager sleeper"
