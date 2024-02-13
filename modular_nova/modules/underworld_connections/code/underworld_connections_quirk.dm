@@ -90,7 +90,6 @@ GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	"Mining Radio" = list('icons/obj/miningradio.dmi', "miningradio"),
 	"Red Analogue Phone" = list('icons/obj/devices/voice.dmi', "red_phone"),
 	"Red Walkie Talkie" = list('icons/obj/devices/voice.dmi', "nukietalkie"),
-	"Syndicate Antennae Device" = list('icons/obj/antags/syndicate_tools.dmi', "weakpoint_loc"),
 	"Syndicate Suspicious Phone" = list('icons/obj/antags/syndicate_tools.dmi', "suspiciousphone"),
 	"Syndicate Tablet (Silicon)" = list('icons/obj/modular_pda.dmi', "tablet-silicon-syndicate"),
 ))
