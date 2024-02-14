@@ -2,6 +2,8 @@
 	name = "T.I.B.S Cerberus Kit"
 	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
 	This model comes with 3 adjustable magazine slots, supporting most commonly available magazines."
+	worn_icon_state = "turret_harness"
+	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	has_latches = FALSE
 	slot_flags = ITEM_SLOT_BELT
 	var/turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed //To make it more available for subtyping. LET. THEM. COOK.
@@ -40,6 +42,7 @@
 	desc = "A heavy-protection turret used in the Tarkon Industries Blackrust Salvage group to protect its workers in hazardous conditions."
 	integrity_failure = 0
 	max_integrity = 200
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	shot_delay = 2 SECONDS
 	uses_stored = FALSE
 	stored_gun = null
