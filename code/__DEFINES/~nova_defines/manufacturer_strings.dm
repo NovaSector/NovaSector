@@ -15,6 +15,9 @@
 #define COMPANY_ALLSTAR "It has <b>[span_red("Allstar Lasers Inc.")]</b> stamped onto it."
 #define COMPANY_MICRON "It has <b>[span_cyan("Micron Control Sys.")]</b> cut into it."
 
+#define COMPANY_NAKAMURA "It has <b>[span_orange("Nakamura Engineering")]</b> embossed onto it."
+#define COMPANY_BLACKSTEEL "It bears the <b>[span_grey("crossed sword and hammer")]</b> crafter's mark of the <b>[span_grey("Jarnsmiour Blacksteel Foundation")]</b> upon its fore."
+
 #define COMPANY_SZOT "It has a small <b>[span_engradio("three point crown")]</b> alongside <b>[span_engradio("Szot Dynamica")]</b> cut into it."
 #define COMPANY_SAKHNO "It has <b>[span_green("Sakhno Concern")]</b> stamped onto it."
 #define COMPANY_XHIHAO "It has <b>[span_purple("Xhihao Light Arms")]</b> etched into it."

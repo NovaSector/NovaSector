@@ -5175,19 +5175,6 @@
 	dir = 8
 	},
 /area/station/hallway/secondary/construction)
-"bzd" = (
-/obj/structure/chair/sofa/corp/right{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/machinery/light/small/directional/west,
-/obj/effect/landmark/start/bitrunner,
-/turf/open/floor/iron/smooth_edge{
-	dir = 4
-	},
-/area/space)
 "bzg" = (
 /obj/structure/flora/tree/jungle/small,
 /obj/structure/window/spawner/directional/south,
@@ -5636,16 +5623,6 @@
 	},
 /turf/open/floor/engine,
 /area/station/science/ordnance/storage)
-"bIo" = (
-/obj/structure/table,
-/obj/machinery/microwave,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 5
-	},
-/obj/machinery/light/small/directional/east,
-/obj/structure/sign/poster/contraband/random/directional/east,
-/turf/open/floor/iron/smooth,
-/area/space)
 "bIs" = (
 /obj/machinery/atmospherics/components/binary/valve/digital{
 	dir = 4
@@ -16758,25 +16735,6 @@
 	dir = 1
 	},
 /area/station/commons/storage/primary)
-"eOA" = (
-/obj/structure/table,
-/obj/item/food/ready_donk/mac_n_cheese{
-	pixel_y = 3;
-	pixel_x = 2
-	},
-/obj/item/food/ready_donk/nachos_grandes{
-	pixel_y = 7
-	},
-/obj/item/food/ready_donk/donkhiladas{
-	pixel_y = 11;
-	pixel_x = 1
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 6
-	},
-/obj/machinery/airalarm/directional/east,
-/turf/open/floor/iron/smooth,
-/area/space)
 "eOF" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -25572,15 +25530,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/circuit,
 /area/station/command/teleporter)
-"hsX" = (
-/obj/structure/chair/plastic,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/effect/landmark/start/bitrunner,
-/obj/structure/cable,
-/turf/open/floor/iron/smooth_large,
-/area/space)
 "htb" = (
 /obj/machinery/status_display/evac/directional/south,
 /obj/structure/rack,
@@ -29022,17 +28971,6 @@
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/lab)
-"iqv" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron/smooth_edge{
-	dir = 4
-	},
-/area/space)
 "iqx" = (
 /obj/machinery/digital_clock,
 /turf/closed/wall/r_wall,
@@ -30005,15 +29943,6 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
-"iCU" = (
-/obj/structure/table,
-/obj/item/modular_computer/laptop/preset/civilian{
-	pixel_y = 5;
-	pixel_x = 2
-	},
-/obj/structure/cable,
-/turf/open/floor/iron/smooth_large,
-/area/space)
 "iCZ" = (
 /obj/machinery/computer/communications,
 /obj/machinery/keycard_auth{
@@ -41159,19 +41088,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine/atmos)
-"lDU" = (
-/obj/structure/chair/sofa/corp/left{
-	desc = "Looks like someone threw it out. Covered in donut crumbs.";
-	dir = 4;
-	name = "couch"
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 9
-	},
-/obj/structure/sign/poster/contraband/random/directional/west,
-/obj/effect/landmark/start/bitrunner,
-/turf/open/floor/iron/smooth,
-/area/space)
 "lDY" = (
 /turf/closed/wall/r_wall,
 /area/station/hallway/primary/aft)
@@ -59043,15 +58959,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark/end,
 /turf/open/floor/iron/checker,
 /area/station/science/xenobiology)
-"qtJ" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/table,
-/obj/item/plate,
-/obj/effect/spawner/random/trash/food_packaging,
-/obj/structure/cable,
-/obj/machinery/camera/autoname/directional/north,
-/turf/open/floor/iron/smooth_edge,
-/area/space)
 "qtL" = (
 /turf/closed/mineral,
 /area/space/nearstation)
@@ -67396,11 +67303,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/noslip,
 /area/station/service/janitor)
-"sLi" = (
-/obj/machinery/holopad,
-/obj/effect/turf_decal/trimline/brown/filled/corner,
-/turf/open/floor/iron/smooth_corner,
-/area/space)
 "sLk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
@@ -70100,15 +70002,6 @@
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/engineering/transit_tube)
-"tuN" = (
-/obj/effect/spawner/random/trash/grime,
-/obj/effect/turf_decal/trimline/brown/filled/corner{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth_corner{
-	dir = 4
-	},
-/area/space)
 "tuU" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -70928,10 +70821,7 @@
 	location = "QM #4"
 	},
 /obj/effect/turf_decal/box,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #1";
-	suffix = "#1"
-	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron/smooth_edge,
 /area/station/cargo/storage)
 "tEK" = (
@@ -71018,9 +70908,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/service/chapel/office)
-"tFN" = (
-/turf/closed/wall,
-/area/space)
 "tFW" = (
 /obj/effect/turf_decal/trimline/dark_red/arrow_cw{
 	dir = 1
@@ -83091,10 +82978,7 @@
 	location = "QM #1"
 	},
 /obj/effect/turf_decal/box,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #3";
-	suffix = "#3"
-	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron/smooth_edge,
 /area/station/cargo/storage)
 "wWw" = (
@@ -85888,18 +85772,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/tcommsat/computer)
-"xPd" = (
-/obj/structure/chair/plastic{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 5
-	},
-/obj/machinery/computer/security/telescreen/entertainment/directional/east,
-/obj/structure/sign/poster/contraband/random/directional/north,
-/obj/effect/landmark/start/bitrunner,
-/turf/open/floor/iron/smooth,
-/area/space)
 "xPf" = (
 /obj/structure/chair/wood,
 /obj/item/radio/intercom/chapel{
@@ -135426,10 +135298,10 @@ ttw
 ttw
 ttw
 ttw
-tFN
-lDU
-bzd
-iqv
+ttw
+ttw
+ttw
+ttw
 ttw
 ttw
 ttw
@@ -135683,10 +135555,10 @@ ttw
 ttw
 ttw
 ttw
-tFN
-qtJ
-iCU
-hsX
+ttw
+ttw
+ttw
+ttw
 ttw
 ttw
 ttw
@@ -135940,10 +135812,10 @@ ttw
 ttw
 ttw
 ttw
-tFN
-xPd
-tuN
-sLi
+ttw
+ttw
+ttw
+ttw
 ttw
 ttw
 ttw
@@ -136197,10 +136069,10 @@ ttw
 ttw
 ttw
 ttw
-tFN
-tFN
-bIo
-eOA
+ttw
+ttw
+ttw
+ttw
 ttw
 ttw
 ttw
@@ -136454,10 +136326,10 @@ ttw
 ttw
 ttw
 ttw
-kXK
-tFN
-tFN
-tFN
+ttw
+ttw
+ttw
+ttw
 ttw
 ttw
 ttw

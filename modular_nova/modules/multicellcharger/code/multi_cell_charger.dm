@@ -133,7 +133,7 @@
 	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 		charging.emp_act(severity)
 
-/obj/machinery/cell_charger_multi/deconstruct()
+/obj/machinery/cell_charger_multi/on_deconstruction(disassembled)
 	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 		charging.forceMove(drop_location())
 	charging_batteries = null
