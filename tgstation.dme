@@ -8047,6 +8047,7 @@
 #include "modular_nova\modules\tarkon\code\misc_fluff\research.dm"
 #include "modular_nova\modules\tarkon\code\misc_fluff\spawner.dm"
 #include "modular_nova\modules\tarkon\code\misc_fluff\tools.dm"
+#include "modular_nova\modules\tarkon\code\misc_fluff\turret.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_action.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_quirk.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_reply_emote.dm"
