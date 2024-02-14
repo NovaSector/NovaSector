@@ -82,15 +82,12 @@
 	only_forced_audio = TRUE
 	vary = TRUE
 
-<<<<<<< HEAD
-/* - NOVA EDIT REMOVAL: EMOTES
-=======
 /datum/emote/carbon/human/scream/run_emote(mob/user, params, type_override, intentional = FALSE)
 	if(!intentional && HAS_TRAIT(user, TRAIT_ANALGESIA))
 		return
 	return ..()
 
->>>>>>> 081b84c6318 (Painkillers now actually induce analgesic effects (#81335))
+/* - NOVA EDIT REMOVAL: EMOTES
 /datum/emote/living/carbon/human/scream/get_sound(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
