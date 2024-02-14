@@ -12865,14 +12865,11 @@
 /turf/open/floor/iron/sepia,
 /area/station/engineering/main)
 "epj" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
-	},
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/commons/dorms)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/turf/open/floor/iron/dark,
+/area/station/tcommsat/computer)
 "epQ" = (
 /obj/item/stack/marker_beacon{
 	anchored = 1;
@@ -15034,14 +15031,14 @@
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "eWg" = (
-/obj/effect/turf_decal/tile/neutral/half{
-	dir = 1
-	},
-/obj/structure/railing{
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
-/turf/open/floor/iron/large,
-/area/station/hallway/primary/central)
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
 "eWi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass,
@@ -17477,11 +17474,14 @@
 /turf/open/floor/wood,
 /area/station/maintenance/port/central)
 "fGN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral/opposingcorners,
-/turf/open/floor/iron/dark,
-/area/station/tcommsat/computer)
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/central)
 "fGP" = (
 /obj/structure/rack,
 /obj/item/clothing/gloves/color/fyellow,
@@ -66967,6 +66967,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/railing,
 /turf/open/floor/iron/stairs/medium{
 	dir = 4
 	},
@@ -68761,9 +68762,11 @@
 "wad" = (
 /obj/machinery/door/firedoor,
 /obj/structure/railing,
-/turf/open/floor/iron/stairs/right{
-	dir = 4
+/obj/structure/railing,
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 8
 	},
+/turf/open/floor/iron/large,
 /area/station/commons)
 "wak" = (
 /obj/structure/cable,
@@ -115402,7 +115405,7 @@ mPM
 mPM
 xGJ
 xRo
-eWg
+fGN
 vHQ
 vHQ
 jYY
@@ -124389,7 +124392,7 @@ thX
 tPH
 npK
 uVi
-epj
+eWg
 igc
 kqK
 bBO
@@ -125397,7 +125400,7 @@ gmE
 taC
 xTa
 vXO
-fGN
+epj
 elz
 nVA
 jQb
@@ -125911,7 +125914,7 @@ gmE
 iph
 xTa
 aPP
-fGN
+epj
 aTX
 nWt
 ewX
