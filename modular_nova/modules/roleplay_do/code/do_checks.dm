@@ -10,10 +10,10 @@
 	var/name_stub = " (<b>[usr]</b>)"
 	if(length(message) > (MAX_MESSAGE_LEN - length(name_stub)))
 		to_chat(usr, message)
-		to_chat(usr, span_warning("^^^----- The preceeding message has been DISCARDED for being over the maximum length of [MAX_MESSAGE_LEN]. It has NOT been sent! -----^^^"))
+		to_chat(usr, span_warning("^^^----- The preceding message has been DISCARDED for being over the maximum length of [MAX_MESSAGE_LEN]. It has NOT been sent! -----^^^"))
 		return FALSE
 
-	if(usr.stat == SOFT_CRIT || usr.stat == UNCONSCIOUS || usr.stat == DEAD)
+	if(usr.stat != CONSCIOUS))
 		to_chat(usr, span_notice("You cannot send a Do in your current condition."))
 		return FALSE
 
