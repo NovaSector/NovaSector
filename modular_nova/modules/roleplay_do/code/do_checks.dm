@@ -13,7 +13,7 @@
 		to_chat(usr, span_warning("^^^----- The preceding message has been DISCARDED for being over the maximum length of [MAX_MESSAGE_LEN]. It has NOT been sent! -----^^^"))
 		return FALSE
 
-	if(usr.stat != CONSCIOUS))
+	if(usr.stat != CONSCIOUS)
 		to_chat(usr, span_notice("You cannot send a Do in your current condition."))
 		return FALSE
 
