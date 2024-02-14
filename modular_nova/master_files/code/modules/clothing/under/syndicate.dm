@@ -3,7 +3,7 @@
 #define RESKIN_SYNDIE "Syndicate Red"
 
 /obj/item/clothing/under/syndicate
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/syndicate_digi.dmi' // Anything that was in the syndicate.dmi, should be in the syndicate_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/syndicate_digi.dmi'
 
 /obj/item/clothing/under/syndicate/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/syndicate.dmi'
