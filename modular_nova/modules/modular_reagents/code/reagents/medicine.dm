@@ -9,16 +9,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	inverse_chem_val = 0.55
 	inverse_chem = /datum/reagent/inverse/lidocaine
-
-/datum/reagent/medicine/lidocaine/on_mob_metabolize(mob/living/metabolizer)
-	. = ..()
-	ADD_TRAIT(metabolizer, TRAIT_NUMBED, REF(src))
-	metabolizer.throw_alert("numbed", /atom/movable/screen/alert/numbed)
-
-/datum/reagent/medicine/lidocaine/on_mob_end_metabolize(mob/living/metabolizer)
-	. = ..()
-	REMOVE_TRAIT(metabolizer, TRAIT_NUMBED, REF(src))
-	metabolizer.clear_alert("numbed")
+	metabolized_traits = list(TRAIT_ANALGESIA)
 
 /datum/reagent/medicine/lidocaine/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()

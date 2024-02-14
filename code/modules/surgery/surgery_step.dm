@@ -115,7 +115,7 @@
 	var/was_sleeping = (target.stat != DEAD && target.IsSleeping())
 
 	// NOVA EDIT Addition - reward for doing surgery on calm patients, and for using surgery rooms(ie. surgerying alone)
-	if(was_sleeping || HAS_TRAIT(target, TRAIT_NUMBED) || target.stat == DEAD)
+	if(was_sleeping || HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat == DEAD)
 		modded_time *= SURGERY_SPEEDUP_AREA
 		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!"))
 	var/quiet_enviromnent = TRUE
@@ -283,7 +283,7 @@
  */
 /datum/surgery_step/proc/display_pain(mob/living/target, pain_message, mechanical_surgery = FALSE)
 	if(target.stat < UNCONSCIOUS)
-		if(HAS_TRAIT(target, TRAIT_ANALGESIA) || HAS_TRAIT(target, TRAIT_NUMBED)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_TRAIT(target, TRAIT_ANALGESIA))
+		if(HAS_TRAIT(target, TRAIT_ANALGESIA))
 			target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds mood effects to surgeries
 			to_chat(target, span_notice("You feel a dull, numb sensation as your body is surgically operated on."))
 		// NOVA EDIT ADDITION START
