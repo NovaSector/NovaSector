@@ -22,6 +22,10 @@
 	atom_storage.can_hold = typecacheof(mag_types_allowed)
 	update_appearance()
 
+/obj/item/storage/toolbox/emergency/turret/mag_fed/examine(mob/user)
+	. = ..()
+	. += span_notice("You can deploy this by clicking in <b>combat mode</b>")
+
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
@@ -70,6 +74,8 @@
 	if((user.faction in faction) || (REF(user) in faction))
 		. += span_notice("You can repair it by <b>left-clicking</b> with a wrench.")
 		. += span_notice("You can fold it by <b>right-clicking</b> with a wrench.")
+		. += span_notice("You can feed it by <b>left-clicking</b> with a magazine.")
+		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
 	for(var/faction1 in faction)
@@ -307,14 +313,15 @@
 		handle_chamber(TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/deconstruct(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	if(chambered)
 		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
 			chambered.forceMove(drop_location())
 			chambered.loaded_projectile = null
 		if(!magazine)
 			chambered.forceMove(drop_location())
-		magazine.give_round(chambered) //put bullet back in magazine
+		else
+			magazine.give_round(chambered) //put bullet back in magazine
 		chambered = null
 
 	if(magazine)
