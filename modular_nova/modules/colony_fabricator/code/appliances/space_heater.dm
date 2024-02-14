@@ -35,7 +35,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 		deconstruct(TRUE)
 		return
 
-/obj/machinery/space_heater/wall_mounted/deconstruct(disassembled)
+/obj/machinery/space_heater/wall_mounted/on_deconstruction(disassembled)
 	if(disassembled)
 		new repacked_type(drop_location())
 	return ..()

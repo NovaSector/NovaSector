@@ -102,3 +102,20 @@
 	new /obj/item/language_manual/codespeak_manual/unlimited(src)
 	new /obj/item/storage/bag/garment/corprate_liaison(src)
 	new /obj/item/radio/headset/interdyne/command(src)
+
+/obj/structure/closet/secure_closet/interdynefob/deckofficer_locker
+	icon_door = "qm"
+	icon_state = "qm"
+	name = "\proper Deck Officer's Locker"
+	req_access = list("syndicate_leader")
+
+/obj/structure/closet/secure_closet/interdynefob/deckofficer_locker/PopulateContents()
+	..()
+
+	new /obj/item/megaphone/command(src)
+	new /obj/item/circuitboard/computer/advanced_camera(src)
+	new /obj/item/storage/toolbox/guncase/nova/pistol/opfor/rapid_syringe(src)
+	new /obj/item/binoculars(src)
+	new /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_white(src)
+	new /obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer(src)
+	new /obj/item/modular_computer/pda/chameleon(src)
