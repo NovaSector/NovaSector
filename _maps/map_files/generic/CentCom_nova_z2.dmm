@@ -4204,8 +4204,8 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "baA" = (
-/obj/structure/chair/sofa/bamboo/right{
-	dir = 4
+/obj/structure/chair/sofa/bamboo/left{
+	dir = 1
 	},
 /turf/open/water/hot_spring/cafe,
 /area/centcom/holding/cafepark)
@@ -10335,8 +10335,8 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "mvU" = (
-/obj/structure/chair/sofa/bamboo/left{
-	dir = 4
+/obj/structure/chair/sofa/bamboo/right{
+	dir = 1
 	},
 /turf/open/water/hot_spring/cafe,
 /area/centcom/holding/cafepark)
@@ -14927,6 +14927,9 @@
 /area/centcom/interlink)
 "uaY" = (
 /obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/structure/chair/sofa/bamboo{
+	dir = 1
+	},
 /turf/open/water/hot_spring/cafe,
 /area/centcom/holding/cafepark)
 "ubn" = (
@@ -65614,7 +65617,7 @@ iet
 wyd
 tnL
 fVc
-mvU
+fVc
 baA
 ajj
 aaa
@@ -66129,7 +66132,7 @@ ayI
 rvt
 hsW
 fVc
-fVc
+mvU
 ajj
 aaa
 aaa
