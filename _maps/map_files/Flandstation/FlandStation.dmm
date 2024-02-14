@@ -28641,7 +28641,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/airalarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/light/directional/west{
 	dir = 4
@@ -31442,6 +31441,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "knt" = (
@@ -49092,13 +49092,6 @@
 	},
 /turf/closed/wall,
 /area/station/command/heads_quarters/captain)
-"qaR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron/dark,
-/area/station/engineering/atmospherics_engine)
 "qba" = (
 /obj/structure/railing{
 	dir = 1
@@ -61278,13 +61271,13 @@
 	dir = 8;
 	name = "Gas to Filter"
 	},
-/obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 4
 	},
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "tMx" = (
@@ -70025,6 +70018,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
+"wzk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmospherics_engine)
 "wzw" = (
 /obj/structure/sign/directions/science{
 	dir = 1;
@@ -129385,7 +129385,7 @@ fJG
 qxM
 qxM
 qxM
-qaR
+wzk
 gIH
 whT
 gIH
