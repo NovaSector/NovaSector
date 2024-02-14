@@ -1,5 +1,6 @@
 #define SYNTH_CHARGE_MAX 150
 #define SYNTH_CHARGE_MIN 50
+#define SYNTH_CHARGE_ALMOST_FULL 100
 #define SYNTH_CHARGE_PER_NUTRITION 10
 #define SYNTH_CHARGE_DELAY_PER_100 10
 #define SYNTH_DRAW_NUTRITION_BUFFER 30
@@ -49,8 +50,8 @@
 		to_chat(user, span_warning("You plug into [target], but nothing happens! It seems you don't have an internal cell to charge."))
 		return
 
-	if(user.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)
-		user.balloon_alert(user, "already fully charged!")
+	if(NUTRITION_LEVEL_ALMOST_FULL - user.nutrition <= SYNTH_CHARGE_ALMOST_FULL)
+		user.balloon_alert(user, "can't charge any more!")
 		return
 
 	user.visible_message(span_notice("[user] inserts a power connector into [target]."), span_notice("You begin to draw power from [target]."))
@@ -90,11 +91,11 @@
 	var/power_needed
 	var/power_use
 	while(TRUE)
-		// Check if the user is "fully charged" yet.
-		// Ensures minimum draw is always lower than this margin to prevent wasteful loops.
+		// Check if the user is nearly fully charged.
+		// Ensures minimum draw is always lower than this margin.
 		power_needed = NUTRITION_LEVEL_ALMOST_FULL - user.nutrition
-		if(power_needed <= SYNTH_CHARGE_MIN * 2)
-			to_chat(user, span_notice("You are fully charged."))
+		if(power_needed <= SYNTH_CHARGE_ALMOST_FULL)
+			user.balloon_alert(user, "can't charge any more!")
 			break
 
 		// Check if the charge level of the cell is below the minimum.
@@ -132,5 +133,8 @@
 
 #undef SYNTH_CHARGE_MAX
 #undef SYNTH_CHARGE_MIN
+#undef SYNTH_CHARGE_ALMOST_FULL
 #undef SYNTH_CHARGE_PER_NUTRITION
 #undef SYNTH_CHARGE_DELAY_PER_100
+#undef SYNTH_DRAW_NUTRITION_BUFFER
+#undef SYNTH_APC_MINIMUM_PERCENT
