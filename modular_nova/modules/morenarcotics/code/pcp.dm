@@ -79,9 +79,9 @@
 
 /datum/reagent/drug/pcp/overdose_process(mob/living/M, seconds_per_tick, times_fired)
 	var/need_mob_update = M.adjustToxLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-	need_mob_update = += M.adjustOrganLoss(ORGAN_SLOT_HEART, (2 * REM * seconds_per_tick))
-	need_mob_update = += M.adjustOrganLoss(ORGAN_SLOT_BRAIN, (2 * REM * seconds_per_tick))
-	need_mob_update = += M.adjustStaminaLoss(15 * REM * seconds_per_tick, updating_stamina = FALSE) //reverses stamina loss
+	need_mob_update += M.adjustOrganLoss(ORGAN_SLOT_HEART, (2 * REM * seconds_per_tick))
+	need_mob_update += M.adjustOrganLoss(ORGAN_SLOT_BRAIN, (2 * REM * seconds_per_tick))
+	need_mob_update += M.adjustStaminaLoss(15 * REM * seconds_per_tick, updating_stamina = FALSE) //reverses stamina loss
 	M.set_jitter_if_lower(5 SECONDS)
 	if(SPT_PROB(2.5, seconds_per_tick))
 		M.emote(pick("twitch","drool"))
