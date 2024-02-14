@@ -19,10 +19,6 @@
 	item_type = /obj/item/storage/backpack/industrial/cin_surplus/random_color
 	cost = PAYCHECK_CREW
 
-/datum/armament_entry/company_import/nri_surplus/clothing/gas_mask
-	item_type = /obj/item/clothing/mask/gas/hecu2
-	cost = PAYCHECK_CREW
-
 /datum/armament_entry/company_import/nri_surplus/clothing/helmet
 	item_type = /obj/item/clothing/head/helmet/cin_surplus_helmet/random_color
 	cost = PAYCHECK_COMMAND

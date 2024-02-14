@@ -87,6 +87,11 @@
 	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	cost = 1
 
+/datum/augment_item/organ/eyes/binoculars
+	name = "Digital Magnification Optics (x3)"
+	cost = 4
+	path = /obj/item/organ/internal/eyes/robotic/binoculars
+
 //TONGUES
 /datum/augment_item/organ/tongue
 	slot = AUGMENT_SLOT_TONGUE

@@ -675,6 +675,17 @@
 	},
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
 /area/shuttle/pirate/nri)
+"yP" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/magnum,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/item/ammo_box/advanced/s12gauge/beehive,
+/obj/structure/rack/shelf,
+/turf/open/floor/pod/light,
+/area/shuttle/pirate/nri)
 "zb" = (
 /obj/structure/deployable_barricade/guardrail,
 /obj/structure/lattice/catwalk,
@@ -885,17 +896,6 @@
 	},
 /turf/open/floor/engine/hull/reinforced,
 /area/shuttle/pirate/nri)
-"Gh" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/rack/shelf,
-/obj/item/ammo_box/advanced/s12gauge/bean,
-/obj/item/ammo_box/advanced/s12gauge/bean,
-/obj/item/ammo_box/advanced/s12gauge/magnum,
-/obj/item/ammo_box/advanced/s12gauge/magnum,
-/obj/item/ammo_box/advanced/s12gauge/rubber,
-/obj/item/ammo_box/advanced/s12gauge/rubber,
-/turf/open/floor/pod/light,
-/area/shuttle/pirate/nri)
 "GO" = (
 /turf/open/floor/engine/hull,
 /area/shuttle/pirate/nri)
@@ -1052,9 +1052,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate/nri)
 "Lp" = (
-/obj/machinery/door/window/survival_pod{
-	dir = 4
-	},
+/obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/pirate/nri)
@@ -1604,7 +1602,7 @@ Hz
 "}
 (12,1,1) = {"
 Hz
-Gh
+yP
 qp
 qp
 wM
