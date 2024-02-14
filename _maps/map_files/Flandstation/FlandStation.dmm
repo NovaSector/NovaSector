@@ -797,6 +797,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "anJ" = (
@@ -7587,6 +7590,10 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/port)
 "czp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "czs" = (
@@ -13317,13 +13324,13 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "exP" = (
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "ceprivate";
-	name = "Chief Engineer's Privacy Shutters"
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
 	},
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/station/command/heads_quarters/ce)
+/obj/effect/turf_decal/trimline/yellow/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "exT" = (
 /obj/item/reagent_containers/cup/glass/bottle/wine,
 /obj/structure/table/wood/fancy,
@@ -19031,6 +19038,10 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/iron,
 /area/station/maintenance/port/central)
+"geT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "gfk" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/box/corners,
@@ -25849,6 +25860,23 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
+"iqr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "Grav"
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Gravity Generator Room";
+	security_level = 6
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/gravity_generator)
 "iqw" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 8
@@ -38301,6 +38329,13 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
+"mwM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/gravity_generator)
 "mwN" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -50571,6 +50606,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "qtS" = (
@@ -60210,6 +60248,9 @@
 "tvf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "tvi" = (
@@ -64934,7 +64975,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "uSc" = (
 /obj/structure/cable,
@@ -65249,13 +65290,13 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/port)
 "uXX" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "ceprivate";
+	name = "Chief Engineer's Privacy Shutters"
 	},
-/obj/effect/turf_decal/trimline/yellow/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/ce)
 "uXZ" = (
 /obj/item/kirbyplants/random,
 /obj/structure/disposalpipe/segment,
@@ -71480,9 +71521,11 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "wVj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/gravity_generator)
 "wVq" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -72248,6 +72291,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "xfd" = (
@@ -73138,6 +73184,9 @@
 	pixel_x = -22
 	},
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "xqJ" = (
@@ -74753,6 +74802,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "Grav"
+	},
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "xJO" = (
@@ -76467,6 +76522,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "yju" = (
@@ -117905,7 +117963,7 @@ xmJ
 aEF
 sIe
 fqv
-uXX
+exP
 vHQ
 elm
 gNb
@@ -118163,7 +118221,7 @@ aEF
 sIe
 udM
 iGe
-wVj
+geT
 pGC
 aYo
 dwC
@@ -123819,8 +123877,8 @@ jGF
 vLO
 tmY
 tmY
-exP
-exP
+uXX
+uXX
 tmY
 tmY
 tmY
@@ -129998,7 +130056,7 @@ fJG
 jKb
 utQ
 giC
-xJL
+iqr
 giC
 giC
 giC
@@ -130513,9 +130571,9 @@ xCJ
 bGF
 giC
 oqm
-czp
+wVj
 tvf
-czp
+wVj
 acr
 giC
 dPn
@@ -130770,9 +130828,9 @@ anC
 bGF
 giC
 xqh
-czp
+wVj
 tvf
-czp
+wVj
 rRy
 giC
 dPn
@@ -131029,7 +131087,7 @@ giC
 uRN
 czp
 qtE
-czp
+mwM
 mEw
 giC
 dPn
