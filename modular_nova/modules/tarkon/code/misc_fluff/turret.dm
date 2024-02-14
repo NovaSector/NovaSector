@@ -242,8 +242,8 @@
 			MyLoad.ignored_factions = faction
 		MyLoad.fire()
 		MyLoad.fired = TRUE
-		MyLoad = null
-		chambered.loaded_projectile = null //DOUBLE DIPPING
+		MyLoad = null //We clear the ref from here. Pretty sure not needed but just in case.
+		chambered.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
 		handle_chamber(TRUE)
 		return
 
@@ -251,7 +251,9 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
-		balloon_alert_to_viewers("Attempting to load mag")
+		balloon_alert(user, "Attempting to load mag")
+		if(!do_after(user, 1 SECONDS, src))
+			balloon_alert(user, "Failure to load maga")
 		insert_mag(attacking_item, user)
 		return
 
@@ -259,16 +261,6 @@
 		return ..()
 
 	if(!attacking_item.toolspeed)
-		return
-
-	if(user.combat_mode)
-		if(!claptrap_moment)
-			balloon_alert(user, "deconstructing...")
-		if(!attacking_item.use_tool(src, user, 5 SECONDS, volume = 20))
-			return
-
-		attacking_item.play_tool_sound(src, 50)
-		deconstruct(TRUE)
 		return
 
 	else
@@ -290,22 +282,21 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby_secondary(obj/item/weapon, mob/living/user, params)
 	. = ..()
-	if(istype(weapon, /obj/item/wrench) && user.combat_mode)
-		if(atom_integrity == max_integrity)
-			if(!claptrap_moment)
-				balloon_alert(user, "already repaired!")
+	if(!istype(weapon, /obj/item/wrench))
+		return SECONDARY_ATTACK_CALL_NORMAL
+
+	if(!weapon.toolspeed)
+		return SECONDARY_ATTACK_CALL_NORMAL
+
+	if(user.combat_mode)
+		if(!claptrap_moment)
+			balloon_alert(user, "deconstructing...")
+		if(!weapon.use_tool(src, user, 5 SECONDS, volume = 20))
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-		if(!claptrap_moment)
-			balloon_alert(user, "repairing...")
-		while(atom_integrity != max_integrity)
-			if(!weapon.use_tool(src, user, 2 SECONDS, volume = 20))
-				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-			repair_damage(25)
-			if(!claptrap_moment)
-				balloon_alert(user, "repaired!")
-			return SECONDARY_ATTACK_CONTINUE_CHAIN
+		weapon.play_tool_sound(src, 50)
+		deconstruct(TRUE)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
