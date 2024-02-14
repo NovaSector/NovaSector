@@ -16,13 +16,13 @@
 	metabolizer.throw_alert("numbed", /atom/movable/screen/alert/numbed)
 
 /datum/reagent/medicine/lidocaine/on_mob_end_metabolize(mob/living/metabolizer)
+	. = ..()
 	REMOVE_TRAIT(metabolizer, TRAIT_NUMBED, REF(src))
 	metabolizer.clear_alert("numbed")
-	return ..()
 
 /datum/reagent/medicine/lidocaine/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
 	affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 80)
-	return ..()
 
 //Inverse Medicines//
 

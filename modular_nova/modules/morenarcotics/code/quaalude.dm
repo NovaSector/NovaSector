@@ -43,6 +43,7 @@
 
 
 /datum/reagent/drug/quaalude/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
+	. = ..()
 	if(affected_carbon.hud_used != null)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.remove_filter("quaalude_wave")
