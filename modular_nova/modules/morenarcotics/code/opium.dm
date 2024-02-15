@@ -143,12 +143,14 @@
 	inverse_chem = /datum/reagent/drug/opium/blacktar/liquid
 
 /datum/reagent/drug/opium/heroin/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	. = ..()
 	var/high_message = pick("You feel like nothing can stop you.", "You feel like God.")
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(M, span_notice("[high_message]"))
-	M.adjustBruteLoss(-0.4 * REM * seconds_per_tick, 0) //more powerful as a painkiller, possibly actually useful to medical now
-	M.adjustFireLoss(-0.4 * REM * seconds_per_tick, 0)
-	..()
+	var/need_mob_update = M.adjustBruteLoss(-0.4 * REM * seconds_per_tick, , updating_health = FALSE) //more powerful as a painkiller, possibly actually useful to medical now
+	need_mob_update += M.adjustFireLoss(-0.4 * REM * seconds_per_tick, , updating_health = FALSE)
+	if(need_mob_update)
+		return UPDATE_MOB_HEALTH
 
 /datum/reagent/drug/opium/blacktar
 	name = "black tar heroin"
@@ -161,13 +163,14 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/drug/opium/blacktar/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	. = ..()
 	var/high_message = pick("You feel like tar.", "The blood in your veins feel like syrup.")
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(M, span_notice("[high_message]"))
 
 	M.set_drugginess(20 SECONDS * REM * seconds_per_tick)
-	M.adjustToxLoss(0.5 * REM * seconds_per_tick, 0) //toxin damage
-	return ..()
+	if(M.adjustToxLoss(0.5 * REM * seconds_per_tick, updating_health = FALSE))
+		return UPDATE_MOB_HEALTH
 
 /datum/reagent/drug/opium/blacktar/liquid //prevents self-duplication by going one step down when mixed
 	name = "liquid black tar heroin"

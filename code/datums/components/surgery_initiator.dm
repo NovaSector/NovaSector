@@ -308,12 +308,11 @@
 		if(surgery.targetable_wound && !affecting_limb.get_wound_type(surgery.targetable_wound))
 			target.balloon_alert(user, "no wound to operate on!")
 			return
-
-	// NOVA EDIT START - Limbs that can't be surgically removed
+	// NOVA EDIT ADDITION START - Limbs that can't be surgically removed
 	if (surgery.removes_target_bodypart && !isnull(affecting_limb) && !affecting_limb.can_be_surgically_removed)
 		target.balloon_alert(user, "limb can't be surgically removed!")
 		return
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	if (IS_IN_INVALID_SURGICAL_POSITION(target, surgery))
 		target.balloon_alert(user, "patient is not lying down!")
@@ -338,9 +337,10 @@
 		span_notice("[user] drapes [parent] over [target]'s [parse_zone(selected_zone)] to prepare for surgery."),
 		span_notice("You drape [parent] over [target]'s [parse_zone(selected_zone)] to prepare for \an [procedure.name]."),
 	)
-
-	if(!(HAS_TRAIT(target, TRAIT_NUMBED) || target.stat >= UNCONSCIOUS)) ///skyrat add start - warning for unanesthetized surgery
-		target.balloon_alert(user, "not numbed!") ///skyrat add end
+	// NOVA EDIT ADDITION START - warning for unanesthetized surgery
+	if(!(HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat >= UNCONSCIOUS))
+		target.balloon_alert(user, "not numbed!")
+	// NOVA EDIT ADDITION END
 
 	log_combat(user, target, "operated on", null, "(OPERATION TYPE: [procedure.name]) (TARGET AREA: [selected_zone])")
 
