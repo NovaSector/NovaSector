@@ -504,7 +504,7 @@
 
 		// NOVA EDIT ADDITION - CPR for synths
 		var/obj/item/organ/internal/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		if(!human_lungs || istype(human_lungs, /obj/item/organ/internal/lungs/synth))
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/internal/lungs/synth))
 			to_chat(src, span_warning("You have no lungs to breathe with, so you cannot perform CPR!"))
 			return FALSE
 		if(human_lungs.failed)
