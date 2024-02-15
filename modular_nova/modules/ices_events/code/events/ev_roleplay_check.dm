@@ -7,9 +7,10 @@
 	var/area/player_area = get_area(player_turf)
 
 	if(station)
-		if(player_turf && !is_station_level(player_turf.z))
-			return FALSE
-		else if(!is_station_level(player.z))
+		if(isnull(player_turf))
+			if(!is_station_level(player.z))
+				return FALSE
+		else if(!is_station_level(player_turf.z))
 			return FALSE
 	if(dorms && istype(player_area, /area/station/commons/dorms))
 		return FALSE
