@@ -9,7 +9,7 @@
 /obj/item/organ/internal/cyberimp/arm/power_cord
 	name = "charging implant"
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
-	contents = newlist(/obj/item/synth_powercord)
+	items_to_create = list(/obj/item/synth_powercord)
 	zone = "l_arm"
 	cannot_confiscate = TRUE
 
