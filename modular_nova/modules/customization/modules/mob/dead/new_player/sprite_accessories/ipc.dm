@@ -383,3 +383,4 @@
 /datum/sprite_accessory/synth_head/mariinsky
 	name = "Mariinsky Ballet Company"
 	icon_state = "mariinsky"
+	color_src = MUTANT_COLOR
