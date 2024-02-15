@@ -56,3 +56,17 @@
       will if the limb in question isn't wounded. Humanoid synthetics can take the
       quirk to allow themselves to remove their own limbs without the need for exterior
       coaxing.
+2024-02-15:
+  Melbert:
+  - bugfix: Valentines no longer see themselves covered in hearts. They only see their
+      Valentine covered in hearts.
+  - balance: Scientists have discovered Nuka Cola is not good for short term health.
+  NovaBot13:
+  - balance: Nightmare's Light Eater takes less time in jaunt to gain a critical strike,
+      being reduced to 7 seconds from 15 seconds.
+  - rscadd: AI's acceleration now smoothly decays, instead of just falling back down
+      to 0 after 0.5 seconds
+  - bugfix: AI's standard movement (non accelerated) is smooth now, instead of constantly
+      jumping around
+  - bugfix: AIs will now follow their targets more closely, shouldn't have any issues
+      with them lagging behind anymore
