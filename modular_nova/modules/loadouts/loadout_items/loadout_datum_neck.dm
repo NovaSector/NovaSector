@@ -271,6 +271,16 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 	item_path = /obj/item/clothing/neck/mantle/capmantle
 	restricted_roles = list(JOB_CAPTAIN)
 
+/datum/loadout_item/neck/mantle_chap
+	name = "Bishop's Cloak"
+	item_path = /obj/item/clothing/neck/chaplain
+	restricted_roles = list(JOB_CHAPLAIN)
+
+/datum/loadout_item/neck/mantle_bchap
+	name = "Bishop's Cloak (Black)"
+	item_path = /obj/item/clothing/neck/chaplain/black
+	restricted_roles = list(JOB_CHAPLAIN)
+
 /*
 *	MISC
 */

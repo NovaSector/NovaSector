@@ -46,6 +46,24 @@
 /obj/item/clothing/head/helmet/chaplain
 	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head/chaplain_muzzled.dmi'
 
+/obj/item/clothing/head/hooded/monkhabit
+	greyscale_config = /datum/greyscale_config/monk_habit_hood
+	greyscale_config_worn = /datum/greyscale_config/monk_habit_hood/worn
+	greyscale_colors = "#8C531A#9C7132"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/chaplain/nun_hood
+	greyscale_config = /datum/greyscale_config/nun_hood
+	greyscale_config_worn = /datum/greyscale_config/nun_hood/worn
+	greyscale_colors = "#373548#FFFFFF"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/chaplain/habit_veil
+	greyscale_config = /datum/greyscale_config/nun_veil
+	greyscale_config_worn = /datum/greyscale_config/nun_veil/worn
+	greyscale_colors = "#373548#FFFFFF"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/head/collectable/welding
 	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head_muzzled.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION

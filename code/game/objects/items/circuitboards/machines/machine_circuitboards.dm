@@ -309,9 +309,6 @@
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/rnd/production/protolathe/department/engineering
 
-/obj/item/circuitboard/machine/protolathe/department/engineering/no_tax
-	build_path = /obj/machinery/rnd/production/protolathe/department/engineering/no_tax
-
 /obj/item/circuitboard/machine/rtg
 	name = "RTG"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
@@ -667,6 +664,7 @@
 		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/yangyu = "Fudobenda", //NOVA EDIT ADDITION
+		/obj/machinery/vending/deforest_medvend = "DeForest Med-Vend", //NOVA EDIT ADDITION
 	)
 
 /obj/item/circuitboard/machine/vendor/screwdriver_act(mob/living/user, obj/item/tool)

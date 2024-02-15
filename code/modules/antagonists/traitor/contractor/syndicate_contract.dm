@@ -1,4 +1,4 @@
-// NOVA EDIT ADDITION - DEFINES
+// NOVA EDIT ADDITION START
 #define RANSOM_LOWER 75 // TG: 18
 #define RANSOM_UPPER 150 // TG: 45
 #define CONTRACTOR_RANSOM_CUT 0.35
@@ -240,12 +240,14 @@
 
 	if(!possible_drop_loc.len)
 		to_chat(victim, span_hypnophrase("A million voices echo in your head... \"Seems where you got sent here from won't \
-			be able to handle our pod... You will die here instead.\""))
+			be able to handle our pod... if we wanted the occupant to survive. Brace yourself, corporate dog.\""))
+		for(var/turf/possible_drop in contract.dropoff.contents)
+			possible_drop_loc.Add(possible_drop)
 		if(iscarbon(victim))
 			var/mob/living/carbon/carbon_victim = victim
 			if(carbon_victim.can_heartattack())
 				carbon_victim.set_heartattack(TRUE)
-		return
+				carbon_victim.investigate_log("was returned without a valid drop location by the contractor [contract.owner?.current].", INVESTIGATE_DEATHS) // NOVA EDIT ADDITION
 
 	var/pod_rand_loc = rand(1, possible_drop_loc.len)
 	var/obj/structure/closet/supplypod/return_pod = new()
@@ -281,8 +283,8 @@
 
 	new /obj/effect/pod_landingzone(possible_drop_loc[pod_rand_loc], return_pod)
 
-// SKYRAT EDIT - DEFINES
+// NOVA EDIT ADDITION START
 #undef RANSOM_LOWER
 #undef RANSOM_UPPER
 #undef CONTRACTOR_RANSOM_CUT
-// SKYRAT EDIT END
+// NOVA EDIT ADDITION END

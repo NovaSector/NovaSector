@@ -145,7 +145,10 @@ export const AugmentationPage = (props) => {
                     onSelected={(value) => {
                       // Since the costs are positive,
                       // it's added and not substracted
-                      if (balance + props.limb.costs[value] > 0) {
+                      if (
+                        data.quirk_points_enabled &&
+                        balance + props.limb.costs[value] > 0
+                      ) {
                         return;
                       }
                       act('set_limb_aug', {
@@ -198,7 +201,10 @@ export const OrganPage = (props) => {
             displayText={props.organ.chosen_organ}
             onSelected={(value) => {
               // Since the costs are positive, it's added and not substracted
-              if (balance + props.organ.costs[value] > 0) {
+              if (
+                data.quirk_points_enabled &&
+                balance + props.organ.costs[value] > 0
+              ) {
                 return;
               }
               act('set_organ_aug', {
@@ -245,27 +251,32 @@ export const LimbsPage = (props) => {
             width="100%"
           />
           <RotateCharacterButtons />
-          <Box
-            style={{
-              marginTop: '3em',
-            }}
-          >
-            <Section title="Quirk Points Balance" />
-          </Box>
-
-          <Box
-            backgroundColor="#eee"
-            bold
-            color="black"
-            fontSize="1.2em"
-            py={0.5}
-            style={{
-              width: '20%',
-              alignItems: 'center',
-            }}
-          >
-            {balance}
-          </Box>
+          {data.quirk_points_enabled ? (
+            <Section
+              fill
+              align="center"
+              title="Quirk Points Balance"
+              style={{ marginTop: '3em' }}
+            >
+              <Stack justify="center">
+                <Box
+                  backgroundColor="#eee"
+                  bold
+                  color="black"
+                  fontSize="1.2em"
+                  py={0.5}
+                  style={{
+                    width: '20%',
+                    alignItems: 'center',
+                  }}
+                >
+                  {balance}
+                </Box>
+              </Stack>
+            </Section>
+          ) : (
+            ''
+          )}
         </Section>
       </Stack.Item>
       <Stack.Item minWidth="33%">
