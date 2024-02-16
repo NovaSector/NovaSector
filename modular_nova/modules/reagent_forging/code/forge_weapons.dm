@@ -107,17 +107,17 @@
 //this isnt a weapon...
 /obj/item/forging/reagent_weapon/staff
 	name = "forged staff"
-	desc = "A staff most notably capable of being imbued with reagents, especially useful alongside its otherwise nonthreatening nature."
-	force = 5
+	desc = "A staff most notably capable of being imbued with reagents, especially useful alongside its otherwise completely harmless nature."
+	force = 0
 	icon_state = "staff"
 	inhand_icon_state = "staff"
 	worn_icon_state = "staff_back"
-	throwforce = 7
+	throwforce = 0
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FIRE_PROOF
-	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
-	attack_verb_simple = list("bonk", "bash", "whack", "poke", "prod")
+	attack_verb_continuous = list("bonks", "bashes", "bops", "pokes", "prods")
+	attack_verb_simple = list("bonk", "bash", "bop", "poke", "prod")
 
 //omg, two tile range! surely i wont lose a fight now...
 /obj/item/forging/reagent_weapon/spear
