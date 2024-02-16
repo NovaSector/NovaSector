@@ -20,6 +20,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	var/usage = INTERACTION_OTHER
 	/// Does this interaction play a sound?
 	var/sound_use = FALSE
+	/// Does the interaction sound vary in pitch each time?
+	var/sound_vary = TRUE
 	/// If it plays a sound, how far does it travel?
 	var/sound_range = 1
 	/// Stores the sound for later.
@@ -55,6 +57,9 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	if(target == user && usage == INTERACTION_OTHER)
 		return FALSE
 
+	if(target != user && usage == INTERACTION_SELF)
+		return FALSE
+
 	if(user_required_parts.len)
 		for(var/thing in user_required_parts)
 			var/obj/item/organ/external/genital/required_part = user.get_organ_slot(thing)
@@ -79,6 +84,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			if(INTERACTION_REQUIRE_TARGET_HAND)
 				if(!target.get_active_hand())
 					return FALSE
+			
 			else
 				CRASH("Unimplemented interaction requirement '[requirement]'")
 	return TRUE
@@ -95,18 +101,34 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	var/msg = pick(message)
 	// We replace %USER% with nothing because manual_emote already prepends it.
 	msg = trim(replacetext(replacetext(msg, "%TARGET%", "[target]"), "%USER%", ""), INTERACTION_MAX_CHAR)
+	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEIR%", target.p_their()), "%TARGET_PRONOUN_THEIRS%", target.p_theirs())
+	msg = replacetext(replacetext(msg, "%USER_PRONOUN_THEIR%", user.p_their()), "%USER_PRONOUN_THEIRS%", user.p_theirs())
+	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEM%", target.p_them()), "%USER_PRONOUN_THEM%", user.p_them())
+	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
+
 	if(lewd)
 		user.emote("subtler", null, msg, TRUE)
 	else
 		user.manual_emote(msg)
+
 	if(user_messages.len)
 		var/user_msg = pick(user_messages)
 		user_msg = replacetext(replacetext(user_msg, "%TARGET%", "[target]"), "%USER%", "[user]")
+		user_msg = replacetext(replacetext(user_msg, "%TARGET_PRONOUN_THEIR%", target.p_their()), "%TARGET_PRONOUN_THEIRS%", target.p_theirs())
+		user_msg = replacetext(replacetext(user_msg, "%USER_PRONOUN_THEIR%", user.p_their()), "%USER_PRONOUN_THEIRS%", user.p_theirs())
+		user_msg = replacetext(replacetext(user_msg, "%TARGET_PRONOUN_THEM%", target.p_them()), "%USER_PRONOUN_THEM%", user.p_them())
+		user_msg = replacetext(replacetext(user_msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
 		to_chat(user, user_msg)
+
 	if(target_messages.len)
 		var/target_msg = pick(target_messages)
 		target_msg = replacetext(replacetext(target_msg, "%TARGET%", "[target]"), "%USER%", "[user]")
+		target_msg = replacetext(replacetext(target_msg, "%TARGET_PRONOUN_THEIR%", target.p_their()), "%TARGET_PRONOUN_THEIRS%", target.p_theirs())
+		target_msg = replacetext(replacetext(target_msg, "%USER_PRONOUN_THEIR%", user.p_their()), "%USER_PRONOUN_THEIRS%", user.p_theirs())
+		target_msg = replacetext(replacetext(target_msg, "%TARGET_PRONOUN_THEM%", target.p_them()), "%USER_PRONOUN_THEM%", user.p_them())
+		target_msg = replacetext(replacetext(target_msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
 		to_chat(target, target_msg)
+
 	if(sound_use)
 		if(!sound_possible)
 			message_admins("Interaction has sound_use set to TRUE but does not set sound! '[name]'")
@@ -115,16 +137,26 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			message_admins("Deprecated sound handling for '[name]'. Correct format is a list with one entry. This message will only show once.")
 			sound_possible = list(sound_possible)
 		sound_cache = pick(sound_possible)
-		for(var/mob/mob in view(sound_range, user))
-			SEND_SOUND(sound_cache, mob)
+		playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
 
-	if(lewd)
-		user.adjust_pleasure(user_pleasure)
-		user.adjust_arousal(user_arousal)
+	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
+
+/// Applies side effects to the user and/or target of the interaction.
+/datum/interaction/proc/apply_effects(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(user_pain)
 		user.adjust_pain(user_pain)
-		target.adjust_pleasure(target_pleasure)
-		target.adjust_arousal(target_arousal)
+	if(target_pain)
 		target.adjust_pain(target_pain)
+	if(!lewd)
+		return
+	if(user_pleasure)
+		user.adjust_pleasure(user_pleasure)
+	if(user_arousal)
+		user.adjust_arousal(user_arousal)
+	if(target_pleasure)
+		target.adjust_pleasure(target_pleasure)
+	if(target_arousal)
+		target.adjust_arousal(target_arousal)
 
 /datum/interaction/proc/load_from_json(path)
 	var/fpath = path
@@ -142,6 +174,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	usage = sanitize_text(json["usage"])
 	sound_use = sanitize_integer(json["sound_use"], 0, 1, 0)
 	sound_range = sanitize_integer(json["sound_range"], 1, 7, 1)
+	sound_vary = sanitize_integer(json["sound_vary"], 0, 1, 1)
 	sound_possible = sanitize_islist(json["sound_possible"], list("json error"))
 	interaction_requires = sanitize_islist(json["interaction_requires"], list())
 	color = sanitize_text(json["color"])
@@ -173,6 +206,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		"usage" = usage,
 		"sound_use" = sound_use,
 		"sound_range" = sound_range,
+		"sound_vary" = sound_vary,
 		"sound_possible" = sound_possible,
 		"interaction_requires" = interaction_requires,
 		"color" = color,
@@ -242,6 +276,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		interaction.usage = sanitize_text(ijson["usage"])
 		interaction.sound_use = sanitize_integer(ijson["sound_use"], 0, 1, 0)
 		interaction.sound_range = sanitize_integer(ijson["sound_range"], 1, 7, 1)
+		interaction.sound_vary = sanitize_integer(ijson["sound_vary"], 0, 1, 1)
 		interaction.sound_possible = sanitize_islist(ijson["sound_possible"], list("json error"))
 		interaction.interaction_requires = sanitize_islist(ijson["interaction_requires"], list())
 		interaction.color = sanitize_text(ijson["color"])

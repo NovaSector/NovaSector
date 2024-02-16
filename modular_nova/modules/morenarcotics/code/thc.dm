@@ -51,6 +51,7 @@
 	description = "TCH in pure concentrated form"
 
 /datum/reagent/drug/thc/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	. = ..()
 	var/high_message = pick("You feel relaxed.", "You feel fucked up.", "You feel totally wrecked...")
 	if(M.hud_used!=null)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
@@ -64,9 +65,9 @@
 	M.adjust_nutrition(-1 * REM * seconds_per_tick) //munchies
 	if(SPT_PROB(3.5, seconds_per_tick))
 		M.emote(pick("laugh","giggle"))
-	..()
 
 /datum/reagent/drug/thc/on_mob_end_metabolize(mob/living/carbon/M)
+	. = ..()
 	if(M.hud_used!=null)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.remove_filter("weed_blur")
@@ -74,6 +75,7 @@
 	M.sound_environment_override = SOUND_ENVIRONMENT_NONE
 
 /datum/reagent/drug/thc/overdose_process(mob/living/M, seconds_per_tick, times_fired)
+	. = ..()
 	var/cg420_message = pick("It's major...", "Oh my goodness...",)
 	if(SPT_PROB(1.5, seconds_per_tick))
 		M.say("[cg420_message]")
@@ -81,8 +83,6 @@
 	if(SPT_PROB(3.5, seconds_per_tick))
 		playsound(M, pick('modular_nova/master_files/sound/effects/lungbust_cough1.ogg','modular_nova/master_files/sound/effects/lungbust_cough2.ogg'), 50, TRUE)
 		M.emote("cough")
-	..()
-	. = TRUE
 
 /datum/reagent/drug/thc/hash //only exists to generate hash object
 	name = "hashish"
