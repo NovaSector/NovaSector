@@ -4666,7 +4666,9 @@
 /obj/item/radio/intercom{
 	pixel_x = 28
 	},
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "bxd" = (
@@ -8489,9 +8491,7 @@
 	pixel_x = 7;
 	pixel_y = -1
 	},
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "cOk" = (
@@ -8832,6 +8832,7 @@
 /area/station/service/chapel/office)
 "cTB" = (
 /obj/structure/table,
+/obj/item/experi_scanner,
 /turf/open/floor/iron,
 /area/station/science/explab)
 "cTH" = (
@@ -18711,6 +18712,7 @@
 /obj/machinery/airalarm/directional/east{
 	pixel_x = 22
 	},
+/obj/item/experi_scanner,
 /turf/open/floor/iron,
 /area/station/science/lab)
 "gae" = (
@@ -20154,6 +20156,18 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"gyp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "gyt" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/left/directional/south{
@@ -20798,9 +20812,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/surgery)
 "gHF" = (
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
@@ -23139,6 +23151,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
+"hxM" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron/dark/side,
+/area/station/hallway/primary/fore)
 "hxO" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/spawner/random/trash/mess,
@@ -27868,7 +27891,6 @@
 /area/station/hallway/primary/fore)
 "iVZ" = (
 /obj/structure/table/wood,
-/obj/machinery/light/directional/west,
 /obj/item/flashlight/lamp/green,
 /obj/item/toy/figure/captain{
 	pixel_x = 8
@@ -37927,9 +37949,7 @@
 /obj/item/tape,
 /obj/item/taperecorder,
 /obj/structure/table/wood/fancy/red,
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "mpa" = (
@@ -41200,7 +41220,7 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/library)
@@ -44133,8 +44153,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "opp" = (
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 1
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
@@ -49221,7 +49241,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -55383,6 +55403,9 @@
 /area/station/command/heads_quarters/captain)
 "rRp" = (
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/light_switch{
+	pixel_x = 24
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "rRy" = (
@@ -62548,7 +62571,7 @@
 	pixel_y = 26
 	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/library)
@@ -68687,6 +68710,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/primary/fore)
 "vZi" = (
@@ -68788,9 +68812,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/port/central)
 "waz" = (
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
@@ -71848,6 +71870,7 @@
 	pixel_x = 28;
 	pixel_y = 1
 	},
+/obj/item/experi_scanner,
 /turf/open/floor/iron,
 /area/station/science/lab)
 "wZi" = (
@@ -76465,7 +76488,7 @@
 	name = "library camera"
 	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 1
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -102266,14 +102289,14 @@ nOV
 uBI
 mAW
 cST
-qbo
-dhY
-opp
-opp
-opp
-opp
-dhY
+gyp
 uag
+uag
+uag
+uag
+uag
+uag
+opp
 jTV
 mAW
 nAD
@@ -105091,7 +105114,7 @@ iLD
 yag
 nOV
 uBI
-vYX
+hxM
 piJ
 vee
 lAH
