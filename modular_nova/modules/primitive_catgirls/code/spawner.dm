@@ -159,8 +159,6 @@
 			GLOB.ghost_records.Remove(list(record))
 			break
 
-
-
 	// Just so the target's ghost ends up above the hole.
 	target.forceMove(loc)
 	target.ghostize(FALSE)
