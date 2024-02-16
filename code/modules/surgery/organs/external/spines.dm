@@ -8,12 +8,8 @@
 	slot = ORGAN_SLOT_EXTERNAL_SPINES
 
 	preference = "feature_lizard_spines"
-<<<<<<< HEAD
-	//dna_block = DNA_SPINES_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
-=======
 
-	dna_block = DNA_SPINES_BLOCK
->>>>>>> f64e5de1f62 (Fix lizardperson spine preference dropdown not showing up (#81475))
+	//dna_block = DNA_SPINES_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/spines
