@@ -16,6 +16,8 @@
 			return TRUE
 	return FALSE
 
+// Uncomment this override to disable the auto-close feature of firedoors.
+/*
 /obj/machinery/door/firedoor/try_to_crowbar(obj/item/used_object, mob/user)
 	if(welded || operating)
 		balloon_alert(user, "opening failed!")
@@ -25,6 +27,7 @@
 		open()
 	else
 		close()
+*/
 
 /obj/machinery/door/firedoor/heavy/closed
 	icon_state = "door_closed"
