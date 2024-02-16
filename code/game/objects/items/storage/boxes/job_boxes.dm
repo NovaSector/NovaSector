@@ -29,15 +29,9 @@
 		return
 	if(!isnull(mask_type))
 		new mask_type(src)
-	//NOVA EDIT ADDITION START - VOX INTERNALS - Honestly I dont know if this has a function any more with wardrobe_removal(), but TG still uses the plasmaman one so better safe than sorry
-	if(!isplasmaman(loc))
-		if(isvox(loc))
-			new /obj/item/tank/internals/nitrogen/belt/emergency(src)
-		else
-			new internal_type(src)
-	else
-		new /obj/item/tank/internals/plasmaman/belt(src)
-	//NOVA EDIT ADDITION END - VOX INTERNALS
+
+	if(!isnull(internal_type))
+		new internal_type(src)
 
 	if(!isnull(medipen_type))
 		new medipen_type(src)
