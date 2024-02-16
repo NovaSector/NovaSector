@@ -66,16 +66,16 @@
 
 
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/MouseDrop_T(mob/living/carbon/human/target, mob/living/user)
-	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !isprimitivedemihuman(target) || !istype(user.loc, /turf) || target.buckled)
+	if(!isprimitivedemihuman(target) || !can_interact(user) || !target.Adjacent(user)  || target.buckled)
 		return
 
 	if(target.stat == DEAD)
-		to_chat(user, span_danger("Dead kins cannot be put back to sleep."))
+		to_chat(user, span_danger("Dead kin cannot be put back to sleep."))
 		return
 
 	if(target.key && target != user)
 		if(!target.get_organ_by_type(/obj/item/organ/internal/brain) || (target.mind && !target.ssd_indicator))
-			to_chat(user, span_danger("Awake kins cannot be put back to sleep against their will."))
+			to_chat(user, span_danger("Awake kin cannot be put back to sleep against their will."))
 			return
 
 		if(target.lastclienttime + ssd_time >= world.time)
@@ -86,7 +86,7 @@
 
 		else if(tgui_alert(user, "Would you like to place [target] into [src]?", "Put back to sleep?", list("Yes", "No")) == "Yes")
 
-			visible_message(span_infoplain("[user] starts putting [target] into [src]."))
+			visible_message(span_infoplain("[user] starts putting [target] into [src]..."))
 
 			if(!do_after(user, 3 SECONDS, target))
 				balloon_alert("cancelled transfer!")
@@ -100,7 +100,7 @@
 		if(tgui_alert(target, "Would you like to go back to sleep?", "Go back to sleep?", list("Yes", "No")) != "Yes")
 			return
 
-		visible_message(span_infoplain("[user] starts climbing down into [src]."))
+		visible_message(span_infoplain("[user] starts climbing down into [src]..."))
 
 		if(!do_after(user, 3 SECONDS, target))
 			balloon_alert("cancelled transfer!")
@@ -115,7 +115,7 @@
 		return
 
 	// Just in case something happened in-between, to make sure it doesn't do unexpected behaviors.
-	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !isprimitivedemihuman(target) || !istype(user.loc, /turf) || target.buckled || target.stat == DEAD)
+	if(!isprimitivedemihuman(target) || !can_interact(user) || !target.Adjacent(user)  || target.buckled || target.stat == DEAD)
 		return
 
 	if(target == user)
@@ -144,8 +144,7 @@
 		item_drop_blacklist = generate_item_drop_blacklist()
 
 	for(var/obj/item/item in target)
-		if(item_drop_blacklist[item.type])
-			qdel(item)
+		if(item_drop_blacklist[item.type] || (item.item_flags & ABSTRACT) || HAS_TRAIT(item, TRAIT_NODROP))
 			continue
 
 		target.dropItemToGround(item, FALSE)
@@ -153,9 +152,17 @@
 	// We make sure people can come back in again, if they needed to fix prefs
 	// or whatever.
 	team.players_spawned -= (target.key)
+	team.remove_member(target.mind)
+
+	for(var/list/record in GLOB.ghost_records)
+		if(record["name"] == target.real_name)
+			GLOB.ghost_records.Remove(list(record))
+			break
+
+
 
 	// Just so the target's ghost ends up above the hole.
-	target.forceMove(src)
+	target.forceMove(loc)
 	target.ghostize(FALSE)
 
 	qdel(target)
