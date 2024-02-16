@@ -1,7 +1,0 @@
-author: "A.C.M.O."
-delete-after: True
-changes:
-  - bugfix: "Fixed a bug which was causing signal handling to briefly freeze upon opening and using the interaction menu."
-  - bugfix: "Fixed a bug which was preventing playing sounds from interactions."
-  - bugfix: "Fixed a bug which was causing self-interactions to be usable on people other than yourself."
-  - refactor: "Added a template system to interactions to enable expected gender pronoun usage."

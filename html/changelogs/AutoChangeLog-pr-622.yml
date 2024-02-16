@@ -1,4 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - rscdel: "Security and medical records can no longer be expunged or mass-purged from their respective consoles."

@@ -1,5 +1,0 @@
-author: "Thlumyn"
-delete-after: True
-changes:
-  - rscadd: "Added hotspring to hearthkin ghost cafe spot."
-  - bugfix: "Moved moved in hearth in cafe to not layer on top of fence."
