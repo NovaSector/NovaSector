@@ -289,12 +289,13 @@
 
 /datum/status_effect/grouped/stasis/tick(seconds_between_ticks)
 	update_time_of_death()
-	if(owner.stat >= UNCONSCIOUS) //NOVA EDIT START - STASIS KEEPS SLEEP GOING
-		owner.Sleeping(15 SECONDS) //NOVA EDIT END
+	// NOVA EDIT ADDITION START - STASIS KEEPS SLEEP GOING
+	if(owner.stat >= UNCONSCIOUS)
+		owner.Sleeping(15 SECONDS)
+	//NOVA EDIT ADDITION END
 
 /datum/status_effect/grouped/stasis/on_remove()
 	owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS, TRAIT_ANALGESIA), TRAIT_STATUS_EFFECT(id)) // NOVA EDIT CHANGE - ORIGINAL: owner.remove_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED, TRAIT_STASIS), TRAIT_STATUS_EFFECT(id))
-	owner.clear_alert("stasis numbed") //NOVA EDIT ADDITION - STASIS APPLIED NUMBED
 	owner.remove_filter("stasis_status_ripple")
 	update_time_of_death()
 	if(iscarbon(owner))
