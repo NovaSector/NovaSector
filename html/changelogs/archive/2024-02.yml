@@ -70,3 +70,32 @@
       jumping around
   - bugfix: AIs will now follow their targets more closely, shouldn't have any issues
       with them lagging behind anymore
+2024-02-16:
+  A.C.M.O.:
+  - bugfix: Fixed a bug which was causing signal handling to briefly freeze upon opening
+      and using the interaction menu.
+  - bugfix: Fixed a bug which was preventing playing sounds from interactions.
+  - bugfix: Fixed a bug which was causing self-interactions to be usable on people
+      other than yourself.
+  - refactor: Added a template system to interactions to enable expected gender pronoun
+      usage.
+  CandleJaxx and Iamgoofball:
+  - bugfix: Fixes Krav Maga allowing pacifism bypasses.
+  NovaBot13:
+  - rscadd: In an attempt to stop the greytide, NanoTrasen has increased security's
+      baton energy output. This has, through testing, done nothing but make the device
+      spark more than it used to.
+  - balance: Maintenance drones now can use RPED, RCD, Holosign, and Spray bottles
+  - rscadd: Painkillers (i.e morphine, miner's salve) now actually induce analgesic
+      effects, preventing various pain-related effects, such as screaming due to pain,
+      and also provides a speed bonus during surgery.
+  - rscadd: The tenacity trauma (traumatic neuropathy) also applies analgesic effects.
+  - refactor: Simplified code related to reagents adding traits.
+  Thlumyn:
+  - rscadd: Added hotspring to hearthkin ghost cafe spot.
+  - bugfix: Moved moved in hearth in cafe to not layer on top of fence.
+  vinylspiders:
+  - bugfix: mold should now spawn enemies again
+  yooriss:
+  - rscdel: Security and medical records can no longer be expunged or mass-purged
+      from their respective consoles.
