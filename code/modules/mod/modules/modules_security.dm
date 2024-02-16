@@ -18,7 +18,7 @@
 /obj/item/mod/module/magnetic_harness/Initialize(mapload)
 	. = ..()
 	if(!guns_typecache)
-		guns_typecache = typecacheof(list(/obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher, /obj/item/gun/chem, /obj/item/gun/syringe, /obj/item/gun/microfusion)) //NOVA EDIT - MICROFUSION
+		guns_typecache = typecacheof(list(/obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher, /obj/item/gun/chem, /obj/item/gun/syringe))
 
 /obj/item/mod/module/magnetic_harness/on_install()
 	already_allowed_guns = guns_typecache & mod.chestplate.allowed
@@ -579,7 +579,7 @@
 #undef STORMTROOPER_MODE
 #undef SHARPSHOOTER_MODE
 
-/obj/item/mod/module/anti_stagger
+/obj/item/mod/module/shove_blocker
 	name = "MOD bulwark module"
 	desc = "Layers upon layers of shock dampening plates, just to stop you from getting shoved into a wall by an angry mob."
 	icon_state = "bulwark"

@@ -1,4 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - qol: "All of the colony lathe appliances that printed as full machines that then got randomly pixel shifted now print as just the items that deploy them."

@@ -45,6 +45,14 @@
 /obj/item/vending_refill/wardrobe/syndie_wardrobe
 	machine_name = "SynDrobe"
 
+/obj/item/circuitboard/machine/vending/syndie_wardrobe
+	name = "SynDrobe Vendor"
+	build_path = /obj/machinery/vending/wardrobe/syndie_wardrobe
+	req_components = list(
+		/obj/item/stack/sheet/glass = 1,
+		/obj/item/vending_refill/wardrobe/syndie_wardrobe = 1)
+
+
 /// This is essentially just a copy paste of the holy beacon, but with all options unlocked regardless of the global religion
 /obj/item/choice_beacon/unholy
 	name = "armaments beacon"
@@ -92,3 +100,58 @@
 			)
 
 			return
+
+
+//Interdyne Wardrobe
+/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne
+	name = "\improper InterDrobe"
+	desc = "A vending machine for Interdyne Pharmaceutics employees."
+	icon = 'modular_nova/modules/mapping/icons/obj/vending.dmi'
+	icon_state = "ipdrobe"
+	product_ads = "Producing bioweapons with style!;What's the point in violating the hippocractic oath if you don't look good doing it?"
+	vend_reply = "Thank you for using the InterDrobe!"
+	light_mask = ""
+	products = list(
+		/obj/item/clothing/head/bio_hood/interdyne = 3,
+		/obj/item/clothing/suit/bio_suit/interdyne = 3,
+		/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black = 5,
+		/obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/white = 5,
+		/obj/item/clothing/suit/syndicate/interdyne_jacket = 5,
+		/obj/item/clothing/head/beret/medical/nova/interdyne = 5,
+		/obj/item/clothing/under/syndicate/nova/interdyne/miner = 5,
+		/obj/item/clothing/under/syndicate/nova/interdyne = 5,
+		/obj/item/clothing/shoes/combat = 5,
+		/obj/item/clothing/mask/gas = 5,
+		/obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne = 5,
+		/obj/item/storage/backpack/messenger/vir = 5,
+		/obj/item/storage/backpack/satchel/vir = 5,
+		/obj/item/storage/backpack/duffelbag/virology = 5,
+		/obj/item/storage/backpack/virology = 5,
+
+	)
+	contraband = list(
+		/obj/item/knife/combat = 1,
+		/obj/item/gun/syringe = 1,
+
+	)
+	premium = list(
+		/obj/item/knife/combat/survival = 3,
+		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 5,
+		/obj/item/clothing/gloves/combat = 3,
+		/obj/item/clothing/gloves/latex/nitrile = 3,
+		/obj/item/clothing/under/syndicate/nova/maid = 5,
+		/obj/item/clothing/gloves/combat/maid = 5,
+		/obj/item/clothing/head/costume/maidheadband/syndicate = 5,
+		/obj/item/storage/box/nif_ghost_box/ghost_role = 8,
+	)
+
+	refill_canister = /obj/item/vending_refill/wardrobe/syndie_wardrobe
+	light_color = COLOR_GREEN
+
+/obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne/ghost_cafe
+	excluded_products = list(
+		/obj/item/storage/box/nif_ghost_box/ghost_role,
+	)
+
+/obj/item/vending_refill/wardrobe/syndie_wardrobe/interdyne
+	machine_name = "InterDrobe"
