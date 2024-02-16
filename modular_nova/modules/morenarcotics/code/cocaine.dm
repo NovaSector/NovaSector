@@ -33,16 +33,17 @@
 	addiction_types = list(/datum/addiction/stimulants = 14) //5.6 per 2 seconds
 
 /datum/reagent/drug/cocaine/on_mob_metabolize(mob/living/containing_mob)
-	..()
+	. = ..()
 	containing_mob.add_movespeed_modifier(/datum/movespeed_modifier/reagent/stimulants)
 	ADD_TRAIT(containing_mob, TRAIT_BATON_RESISTANCE, type)
 
 /datum/reagent/drug/cocaine/on_mob_end_metabolize(mob/living/containing_mob)
+	. = ..()
 	containing_mob.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/stimulants)
 	REMOVE_TRAIT(containing_mob, TRAIT_BATON_RESISTANCE, type)
-	..()
 
 /datum/reagent/drug/cocaine/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	. = ..()
 	if(SPT_PROB(2.5, seconds_per_tick))
 		var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
 		to_chat(M, span_notice("[high_message]"))
@@ -52,18 +53,18 @@
 	M.AdjustUnconscious(-15 * REM * seconds_per_tick)
 	M.AdjustImmobilized(-15 * REM * seconds_per_tick)
 	M.AdjustParalyzed(-15 * REM * seconds_per_tick)
-	M.adjustStaminaLoss(-2 * REM * seconds_per_tick, 0)
+	if(M.adjustStaminaLoss(-2 * REM * seconds_per_tick, updating_stamina = FALSE))
+		. = UPDATE_MOB_HEALTH
 	if(SPT_PROB(2.5, seconds_per_tick))
 		M.emote("shiver")
-	..()
-	. = TRUE
 
 /datum/reagent/drug/cocaine/overdose_start(mob/living/M)
 	to_chat(M, span_userdanger("Your heart beats is beating so fast, it hurts..."))
 
 /datum/reagent/drug/cocaine/overdose_process(mob/living/M, seconds_per_tick, times_fired)
-	M.adjustToxLoss(1 * REM * seconds_per_tick, 0)
-	M.adjustOrganLoss(ORGAN_SLOT_HEART, (rand(10, 20) / 10) * REM * seconds_per_tick)
+	. = ..()
+	var/need_mob_update = M.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
+	need_mob_update += M.adjustOrganLoss(ORGAN_SLOT_HEART, (rand(10, 20) / 10) * REM * seconds_per_tick)
 	M.set_jitter_if_lower(5 SECONDS)
 	if(SPT_PROB(2.5, seconds_per_tick))
 		M.emote(pick("twitch","drool"))
@@ -72,8 +73,8 @@
 			M.visible_message(span_danger("[M] collapses onto the floor!"))
 			M.Paralyze(135,TRUE)
 			M.drop_all_held_items()
-	..()
-	. = TRUE
+	if(need_mob_update)
+		return UPDATE_MOB_HEALTH
 
 /datum/reagent/drug/cocaine/freebase_cocaine
 	name = "freebase cocaine"

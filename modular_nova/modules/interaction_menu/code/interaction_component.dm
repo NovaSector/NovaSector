@@ -42,10 +42,12 @@
 	return ..()
 
 /datum/component/interactable/proc/open_interaction_menu(datum/source, mob/user)
+	SIGNAL_HANDLER
+
 	if(!ishuman(user))
 		return
 	build_interactions_list()
-	ui_interact(user)
+	INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 
 /datum/component/interactable/proc/can_interact(datum/interaction/interaction, mob/living/carbon/human/target)
 	if(!interaction.allow_act(target, self))
