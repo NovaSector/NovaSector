@@ -12,9 +12,11 @@ import {
 } from '../components';
 import { Button } from '../components/Button';
 import { Window } from '../layouts';
+import { logger } from '../logging';
 
 type Data = {
-  food_types: Record<string, Record<string, number>>;
+  food_types: Record<string, number>;
+  obscure_food_types: string;
   selection: Record<string, number>;
   enabled: boolean;
   invalid: string;
@@ -30,6 +32,7 @@ const OBSCURE_FOOD = 5;
 
 export const FoodPreferences = (props) => {
   const { act, data } = useBackend<Data>();
+  logger.log(data);
 
   return (
     <Window width={1300} height={600}>
@@ -118,7 +121,7 @@ export const FoodPreferences = (props) => {
                       title={
                         <>
                           {foodName}
-                          {foodPointValues[OBSCURE_FOOD] && (
+                          {data.obscure_food_types[foodName] && (
                             <Tooltip content="This food doesn't count towards your maximum likes, and is free!">
                               <Box
                                 as="span"
@@ -138,8 +141,7 @@ export const FoodPreferences = (props) => {
                         selected={
                           data.selection[foodName] === FOOD_TOXIC ||
                           (!data.selection[foodName] &&
-                            foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
-                              FOOD_TOXIC)
+                            foodPointValues === FOOD_TOXIC)
                         }
                         content={<>Toxic</>}
                         color="olive"
@@ -151,8 +153,7 @@ export const FoodPreferences = (props) => {
                         selected={
                           data.selection[foodName] === FOOD_DISLIKED ||
                           (!data.selection[foodName] &&
-                            foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
-                              FOOD_DISLIKED)
+                            foodPointValues === FOOD_DISLIKED)
                         }
                         content={<>Disliked</>}
                         color="red"
@@ -164,8 +165,7 @@ export const FoodPreferences = (props) => {
                         selected={
                           data.selection[foodName] === FOOD_NEUTRAL ||
                           (!data.selection[foodName] &&
-                            foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
-                              FOOD_NEUTRAL)
+                            foodPointValues === FOOD_NEUTRAL)
                         }
                         content={<>Neutral</>}
                         color="yellow"
@@ -177,8 +177,7 @@ export const FoodPreferences = (props) => {
                         selected={
                           data.selection[foodName] === FOOD_LIKED ||
                           (!data.selection[foodName] &&
-                            foodPointValues[DEFAULT_FOOD_VALUE.toString()] ===
-                              FOOD_LIKED)
+                            foodPointValues === FOOD_LIKED)
                         }
                         content={<>Liked</>}
                         color="green"

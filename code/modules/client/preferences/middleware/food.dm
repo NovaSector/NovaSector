@@ -29,13 +29,13 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	target_tongue.disliked_foodtypes  = NONE
 	target_tongue.toxic_foodtypes = NONE
 
-	for(var/food_entry in GLOB.food_ic_flag_to_point_values)
-		var/list/food_points_entry = GLOB.food_ic_flag_to_point_values[food_entry]
-		var/food_preference = preferences.food_preferences[food_entry] || food_points_entry[FOOD_PREFERENCE_DEFAULT]
+	for(var/food_entry in GLOB.food_defaults)
+		var/list/food_default = GLOB.food_defaults[food_entry]
+		var/food_preference = preferences.food_preferences[food_entry] || food_default
 
 		switch(food_preference)
 			if(FOOD_PREFERENCE_LIKED)
-				target_tongue.liked_foodtypes|= GLOB.food_ic_flag_to_bitflag[food_entry]
+				target_tongue.liked_foodtypes |= GLOB.food_ic_flag_to_bitflag[food_entry]
 			if(FOOD_PREFERENCE_DISLIKED)
 				target_tongue.disliked_foodtypes |= GLOB.food_ic_flag_to_bitflag[food_entry]
 			if(FOOD_PREFERENCE_TOXIC)
@@ -65,7 +65,6 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 			return TRUE
 
 		if("change_food")
-
 			var/food_name = params["food_name"]
 			var/food_preference = params["food_preference"]
 
@@ -76,8 +75,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 			var/liked_food_length = 0
 
 			for(var/food_entry in preferences.food_preferences)
-				var/list/food_points_entry = GLOB.food_ic_flag_to_point_values[food_entry]
-				if(length(food_points_entry) >= FOOD_PREFERENCE_OBSCURE && food_points_entry[FOOD_PREFERENCE_OBSCURE])
+				if(food_entry in GLOB.obscure_food_types)
 					continue
 
 				if(preferences.food_preferences[food_entry] == FOOD_PREFERENCE_LIKED)
@@ -85,8 +83,8 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 					if(liked_food_length > MAXIMUM_LIKES)
 						preferences.food_preferences.Remove(food_entry)
 				if(liked_food_length > MAXIMUM_LIKES || (food_preference == FOOD_PREFERENCE_LIKED && liked_food_length == MAXIMUM_LIKES)) // Equals as well, if we're setting a liked food!
-					if(!GLOB.food_ic_flag_to_point_values[food_name][FOOD_PREFERENCE_OBSCURE] == TRUE)
-						return TRUE // Fuck you, look your mistakes in the eye.
+					if(food_name in GLOB.obscure_food_types)
+						return TRUE
 
 			preferences.food_preferences[food_name] = food_preference
 			return TRUE
@@ -99,7 +97,8 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 /datum/food_prefs_menu/ui_static_data(mob/user)
 	return list(
-		"food_types" = GLOB.food_ic_flag_to_point_values,
+		"food_types" = GLOB.food_defaults,
+		"obscure_food_types" = GLOB.obscure_food_types,
 	)
 
 /datum/food_prefs_menu/ui_data(mob/user)
@@ -123,11 +122,11 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	var/disliked_food_length = 0
 	var/toxic_food_length = 0
 
-	for(var/food_entry in GLOB.food_ic_flag_to_point_values)
-		var/list/food_points_entry = GLOB.food_ic_flag_to_point_values[food_entry]
-		var/food_preference = preferences.food_preferences[food_entry] || food_points_entry[FOOD_PREFERENCE_DEFAULT]
+	for(var/food_entry in GLOB.food_defaults)
+		var/list/food_default = GLOB.food_defaults[food_entry]
+		var/food_preference = preferences.food_preferences[food_entry] || food_default
 
-		if(length(food_points_entry) >= FOOD_PREFERENCE_OBSCURE && food_points_entry[FOOD_PREFERENCE_OBSCURE])
+		if(food_entry in GLOB.obscure_food_types)
 			continue
 
 		switch(food_preference)
