@@ -2694,11 +2694,8 @@
 /obj/machinery/status_display/ai{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
-/turf/open/space/basic,
+/turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "aPS" = (
 /obj/effect/spawner/random/maintenance,
