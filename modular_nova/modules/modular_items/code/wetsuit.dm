@@ -19,5 +19,3 @@
 		These suits are known to come with luminescent panels that take on a bright glow when underwater, meant for signalling as well as higher visibility in deep waters. \
 		The system is meant to only be able to process water, fresh or otherwise; but unofficially, \
 		a great many chemicals or even drinks have been loaded in by adventurous or careless explorers of the New Principalities-- at fantastic personal risk to their gills."
-
-	return .
