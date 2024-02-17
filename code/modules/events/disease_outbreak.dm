@@ -64,7 +64,7 @@
 		if(!is_station_level(candidate.z) && !is_mining_level(candidate.z)) //Diseases can't really spread if the vector is in deep space.
 			continue
 		// NOVA EDIT ADDITION START - Station/area event candidate filtering.
-		if(engaged_role_play_check(candidate, station = TRUE, dorms = TRUE))
+		if(!engaged_role_play_check(candidate, station = TRUE, dorms = TRUE))
 			continue
 		// NOVA EDIT ADDITION END
 		disease_candidates += candidate
