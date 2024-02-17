@@ -8,7 +8,7 @@
 	gain_text = span_notice("The ground doesn't feel so rough on your feet anymore.")
 	lose_text = span_danger("You start feeling the ridges and imperfections on the ground.")
 	medical_record_text = "Patient's feet are more resilient against traction."
-	icon = FA_ICON_SHAPES
+	icon = FA_ICON_PERSON_RUNNING
 
 /datum/quirk/linguist
 	name = "Linguist"
