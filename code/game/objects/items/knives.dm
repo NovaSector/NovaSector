@@ -131,6 +131,29 @@
 	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "cuts")
 	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "cut")
 	bayonet = TRUE
+<<<<<<< HEAD
+=======
+	slot_flags = ITEM_SLOT_MASK
+
+/obj/item/knife/combat/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH), slot_flags) //90% to knock off when wearing a mask
+
+/obj/item/knife/combat/dropped(mob/living/user, slot)
+	. = ..()
+	if(user.get_item_by_slot(ITEM_SLOT_MASK) == src && !user.has_status_effect(/datum/status_effect/choke) && prob(20))
+		user.apply_damage(5, BRUTE, BODY_ZONE_HEAD)
+		playsound(user, 'sound/weapons/slice.ogg', 50, TRUE)
+		user.visible_message(span_danger("[user] accidentally cuts [user.p_them()]self while pulling [src] out of [user.p_them()] teeth! What a doofus!"), span_userdanger("You accidentally cut your mouth with [src]!"))
+
+/obj/item/knife/combat/equipped(mob/living/user, slot, initial = FALSE)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(20))
+		if(user.get_item_by_slot(ITEM_SLOT_MASK) == src)
+			user.apply_status_effect(/datum/status_effect/choke, src)
+			user.visible_message(span_danger("[user] accidentally swallows [src]!"))
+			playsound(user, 'sound/items/eatfood.ogg', 100, TRUE)
+>>>>>>> 0370acbd388 ([NO GBP]removes double parent call from my last pr (#81515))
 
 /obj/item/knife/combat/survival
 	name = "survival knife"
