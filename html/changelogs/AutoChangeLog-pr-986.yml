@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Blob Zombies now render their blob heads correctly again."

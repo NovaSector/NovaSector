@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - code_imp: "Removed unused global lists and sprite accessories related to tail spines"
