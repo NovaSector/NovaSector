@@ -1,5 +1,5 @@
 /mob/verb/do_verb(message as message)
-	set name = "do"
+	set name = "Do"
 	set category = "IC"
 	set instant = TRUE
 
