@@ -128,3 +128,42 @@
   nikothedude:
   - bugfix: Characters with multiple bodytypes are no longer forced to bear broken
       clothing sprites
+2024-02-18:
+  A.C.M.O.:
+  - rscadd: Enabled the synth power cord implant to charge from any power cell. Renamed
+      it to charging implant.
+  GoldenAlpharex:
+  - bugfix: Humanoid ghost roles now receive their job title on their mob, when that
+      was previously not the case.
+  - admin: Humanoid ghost roles can now be searched by job title in the Player Panel
+      directory (and will show up everywhere else that displays the job title).
+  - bugfix: The Spawners menu now accurately displays the amount of uses left in each
+      spawner option, taking into account individual spawners that either allow more
+      than one use, or an infinite amount of uses.
+  - qol: Icewalkers can now go back to sleep in their hole in the ground, allowing
+      another kin to come back out later.
+  - qol: Icewalkers can now send their sleeping kins down the hole too, if they've
+      been sleeping for long enough (30 minutes).
+  Lutowski:
+  - rscadd: Parts from a discontinued synth chassis line from the Mariinsky Ballet
+      Company is making rounds on the black market - now available to install for
+      synths and chromed up organics!
+  - rscadd: Slightly alters Research Director's labcoat sprite.
+  Motho:
+  - rscadd: Retrofitted shoredresses have been made available in the loadout. These
+      new variations can fit standard body shapes.
+  NovaBot13:
+  - bugfix: Crafting Bulgogi no longer makes Bibimbap. It instead makes Bulgogi.
+  - rscadd: Added three new 'special' bedsheets. One of them is quite rare and made
+      from gondola hide.
+  - refactor: Fucks with how movement keys are handled. Please report any bugs
+  - qol: you may altclick action buttons to bind them to a key
+  - rscadd: Players holding cardboard cutouts will now assume their appearance, just
+      like for potted plants.
+  - bugfix: Restorative Nanites now heal Slimepeople just as well as they do other
+      people.
+  - balance: Oxandrolone now scales with purity. Its default purity is 100%
+  - balance: Salicylic acid now scales with purity. Its default purity is 100%
+  - balance: assemblybombs are bulky
+  vinylspiders:
+  - bugfix: fixes Numbed alert being added twice while in stasis

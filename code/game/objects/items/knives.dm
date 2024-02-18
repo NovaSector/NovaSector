@@ -124,6 +124,7 @@
 	name = "combat knife"
 	icon = 'icons/obj/weapons/stabby.dmi'
 	icon_state = "buckknife"
+	worn_icon_state = "buckknife"
 	desc = "A military combat utility survival knife."
 	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
 	force = 20
@@ -131,8 +132,6 @@
 	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "cuts")
 	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "cut")
 	bayonet = TRUE
-<<<<<<< HEAD
-=======
 	slot_flags = ITEM_SLOT_MASK
 
 /obj/item/knife/combat/Initialize(mapload)
@@ -153,12 +152,12 @@
 			user.apply_status_effect(/datum/status_effect/choke, src)
 			user.visible_message(span_danger("[user] accidentally swallows [src]!"))
 			playsound(user, 'sound/items/eatfood.ogg', 100, TRUE)
->>>>>>> 0370acbd388 ([NO GBP]removes double parent call from my last pr (#81515))
 
 /obj/item/knife/combat/survival
 	name = "survival knife"
 	icon = 'icons/obj/weapons/stabby.dmi'
 	icon_state = "survivalknife"
+	worn_icon_state = "survivalknife"
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	desc = "A hunting grade survival knife."
 	force = 15
@@ -176,6 +175,7 @@
 	desc = "A sharpened bone. The bare minimum in survival."
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	obj_flags = parent_type::obj_flags & ~CONDUCTS_ELECTRICITY
+	slot_flags = NONE
 	force = 15
 	throwforce = 15
 	custom_materials = null
