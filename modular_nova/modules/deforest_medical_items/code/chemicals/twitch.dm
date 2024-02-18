@@ -104,7 +104,7 @@
 			our_guy.spray_blood(our_guy.dir, 2) // The before mentioned coughing up blood
 			our_guy.emote("cough")
 			our_guy.visible_message(
-				span_danger("[our_guy] suddenly snaps back from their inhumans speeds, coughing up a spray of blood!"),
+				span_danger("[our_guy] suddenly snaps back from [our_guy.p_their()] inhuman speeds, coughing up a spray of blood!"),
 				span_danger("As you snap back to normal speed you cough up a worrying amount of blood. You feel like you've just been run over by a power loader.")
 			)
 		else
