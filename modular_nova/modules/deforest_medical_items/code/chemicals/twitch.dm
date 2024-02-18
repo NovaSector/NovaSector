@@ -109,7 +109,7 @@
 			)
 		else
 			our_guy.visible_message(
-				span_danger("[our_guy] suddenly snaps back from their inhumans speeds!"),
+				span_danger("[our_guy] suddenly snaps back from [our_guy.p_their()] inhuman speeds!"),
 				span_danger("You suddenly snap back to normal speeds. You feel like you've just been run over by a power loader.")
 			)
 		our_guy.adjustStaminaLoss(constant_dose_time)
