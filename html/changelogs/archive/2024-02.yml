@@ -99,3 +99,71 @@
   yooriss:
   - rscdel: Security and medical records can no longer be expunged or mass-purged
       from their respective consoles.
+2024-02-17:
+  Melbert:
+  - rscadd: Wizards have a new mobility option available, the Telegram Scepter. The
+      ability to travel anywhere you can see at the point of a wand... but at a price?
+  NovaBot13:
+  - bugfix: Indestructible items like the pai card don't teleport to the ore silo
+      when you insert them into silo linked machine & also displays a message saying
+      it was rejected.
+  - qol: adds examines & screentips for ore box
+  - code_imp: cleans up some procs for ore box
+  - spellcheck: corrected description & ui notice of ore box to specify it can hold
+      boulders too
+  - bugfix: Space cats CAN into space. (They're back to surviving being in unsuitable
+      atmos.)
+  - bugfix: Blob Zombies now render their blob heads correctly again.
+  - bugfix: cargo lockboxes update iconstates correctly now
+  - code_imp: Removed unused global lists and sprite accessories related to tail spines
+  - bugfix: Tank spider corpses should no longer be conditionally invisible
+  - qol: The bitrunning quantum console UI now lists domains in tabs by difficulty.
+  - admin: admins/maintainers can now make the profiler focus on specific subsystems
+      by setting the subsystem var profile_focused to TRUE
+  - code_imp: removed redundant check for plasmamen in survival box code
+  mogeoko:
+  - bugfix: Thermomachines now reconnect to pipes on multitool's act.
+  - bugfix: Multi-deck connectors won't connect pipes not located in front/top/bottom
+      of it.
+  nikothedude:
+  - bugfix: Characters with multiple bodytypes are no longer forced to bear broken
+      clothing sprites
+2024-02-18:
+  A.C.M.O.:
+  - rscadd: Enabled the synth power cord implant to charge from any power cell. Renamed
+      it to charging implant.
+  GoldenAlpharex:
+  - bugfix: Humanoid ghost roles now receive their job title on their mob, when that
+      was previously not the case.
+  - admin: Humanoid ghost roles can now be searched by job title in the Player Panel
+      directory (and will show up everywhere else that displays the job title).
+  - bugfix: The Spawners menu now accurately displays the amount of uses left in each
+      spawner option, taking into account individual spawners that either allow more
+      than one use, or an infinite amount of uses.
+  - qol: Icewalkers can now go back to sleep in their hole in the ground, allowing
+      another kin to come back out later.
+  - qol: Icewalkers can now send their sleeping kins down the hole too, if they've
+      been sleeping for long enough (30 minutes).
+  Lutowski:
+  - rscadd: Parts from a discontinued synth chassis line from the Mariinsky Ballet
+      Company is making rounds on the black market - now available to install for
+      synths and chromed up organics!
+  - rscadd: Slightly alters Research Director's labcoat sprite.
+  Motho:
+  - rscadd: Retrofitted shoredresses have been made available in the loadout. These
+      new variations can fit standard body shapes.
+  NovaBot13:
+  - bugfix: Crafting Bulgogi no longer makes Bibimbap. It instead makes Bulgogi.
+  - rscadd: Added three new 'special' bedsheets. One of them is quite rare and made
+      from gondola hide.
+  - refactor: Fucks with how movement keys are handled. Please report any bugs
+  - qol: you may altclick action buttons to bind them to a key
+  - rscadd: Players holding cardboard cutouts will now assume their appearance, just
+      like for potted plants.
+  - bugfix: Restorative Nanites now heal Slimepeople just as well as they do other
+      people.
+  - balance: Oxandrolone now scales with purity. Its default purity is 100%
+  - balance: Salicylic acid now scales with purity. Its default purity is 100%
+  - balance: assemblybombs are bulky
+  vinylspiders:
+  - bugfix: fixes Numbed alert being added twice while in stasis

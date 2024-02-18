@@ -570,7 +570,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "alk" = (
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/structure/bed/double,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
@@ -1084,7 +1084,7 @@
 	specialfunctions = 4
 	},
 /obj/structure/bed/double/pod,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aqy" = (
@@ -2499,13 +2499,13 @@
 /area/centcom/holding/cafe)
 "aGY" = (
 /obj/structure/rack,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aHb" = (
@@ -4815,7 +4815,7 @@
 /area/centcom/holding/cafepark)
 "bUO" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/random/double,
+/obj/effect/spawner/random/bedsheet/any/double,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
 "bUS" = (
@@ -5252,7 +5252,7 @@
 /area/centcom/interlink)
 "cGX" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/structure/sign/painting/library_secure{
 	pixel_x = 32
 	},
@@ -10033,7 +10033,7 @@
 /obj/structure/bed/double{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	dir = 8
 	},
 /turf/open/floor/carpet/red,
@@ -11050,7 +11050,7 @@
 /area/centcom/interlink)
 "nCY" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/random/double,
+/obj/effect/spawner/random/bedsheet/any/double,
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
@@ -13225,7 +13225,7 @@
 /obj/structure/bed/double{
 	pixel_y = -9
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	pixel_y = -9
 	},
 /turf/open/floor/bamboo,
@@ -13972,7 +13972,7 @@
 	specialfunctions = 4
 	},
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "ssn" = (
@@ -14242,7 +14242,7 @@
 /area/centcom/holding/cafe)
 "sNs" = (
 /obj/structure/bed/double/pod,
-/obj/item/bedsheet/random/double,
+/obj/effect/spawner/random/bedsheet/any/double,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "sOj" = (
@@ -15320,7 +15320,7 @@
 /obj/structure/bed/double{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	dir = 8
 	},
 /turf/open/floor/carpet/blue,
@@ -16899,7 +16899,7 @@
 /area/centcom/interlink)
 "xQK" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/structure/sign/painting/library_secure{
 	pixel_y = -32
 	},
@@ -17059,7 +17059,7 @@
 	dir = 4
 	},
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
 "ycD" = (
