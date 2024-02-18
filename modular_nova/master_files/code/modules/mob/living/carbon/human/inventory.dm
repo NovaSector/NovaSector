@@ -3,4 +3,4 @@
 	if(!. || !I)
 		return
 
-	SEND_SIGNAL(src, COMSIG_HUMAN_UNEQUIPPED_ITEM, I, force, newloc, no_move, invdrop, silent)
+	SEND_SIGNAL(src, COMSIG_MOB_UNEQUIPPED_ITEM, I, force, newloc, no_move, invdrop, silent)

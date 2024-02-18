@@ -13,12 +13,12 @@
 /obj/item/organ/internal/brain/synth/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 	RegisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
-	RegisterSignal(brain_owner, COMSIG_HUMAN_UNEQUIPPED_ITEM, PROC_REF(on_unequip_signal))
+	RegisterSignal(brain_owner, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(on_unequip_signal))
 
 /obj/item/organ/internal/brain/synth/on_mob_remove(mob/living/carbon/brain_owner, special)
 	. = ..()
 	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
-	UnregisterSignal(brain_owner, COMSIG_HUMAN_UNEQUIPPED_ITEM)
+	UnregisterSignal(brain_owner, COMSIG_MOB_UNEQUIPPED_ITEM)
 
 /obj/item/organ/internal/brain/synth/proc/on_equip_signal(datum/source, obj/item/item, slot)
 	SIGNAL_HANDLER

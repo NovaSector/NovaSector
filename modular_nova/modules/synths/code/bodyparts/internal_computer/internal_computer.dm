@@ -50,11 +50,11 @@
 	if(isnull(id_item))
 		computer_id_slot = null
 		return
-	if(istype(item, /obj/item/card/id))
-		computer_id_slot = item
-		to_chat(synth, span_notice("Persocom establishing new RFID link with [item]."))
-	else if(istype(item, /obj/item/modular_computer))
-		var/obj/item/modular_computer/pda = item
+	if(istype(id_item, /obj/item/card/id))
+		computer_id_slot = id_item
+		to_chat(synth, span_notice("Persocom establishing new RFID link with [id_item]."))
+	else if(istype(id_item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/pda = id_item
 		computer_id_slot = pda.computer_id_slot
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [pda]."))
 	else
