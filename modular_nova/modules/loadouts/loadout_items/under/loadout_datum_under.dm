@@ -66,6 +66,11 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/akula_wetsuit
 	name = "Shoredress Wetsuit"
 	item_path = /obj/item/clothing/under/akula_wetsuit
+	restricted_species = list(SPECIES_AKULA)
+
+/datum/loadout_item/under/jumpsuit/refit_wetsuit
+	name = "Refitted Shoredress Wetsuit"
+	item_path = /obj/item/clothing/under/akula_wetsuit/refit
 
 /datum/loadout_item/under/jumpsuit/impcap
 	name = "Captain's Naval Jumpsuit"

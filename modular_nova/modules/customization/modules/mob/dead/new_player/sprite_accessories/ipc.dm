@@ -286,6 +286,10 @@
 	name = "E3N AI"
 	icon_state = "e3n"
 
+/datum/sprite_accessory/synth_chassis/mariinsky
+	name = "Mariinsky Ballet Company"
+	icon_state = "mariinsky"
+
 //Heads - snowflake phantom accessory for choosing IPC heads (hell yeah!)
 /datum/sprite_accessory/synth_head
 	/// Boolean for if this is actually dimorphic.
@@ -375,3 +379,8 @@
 /datum/sprite_accessory/synth_head/e3n
 	name = "E3N AI"
 	icon_state = "e3n"
+
+/datum/sprite_accessory/synth_head/mariinsky
+	name = "Mariinsky Ballet Company"
+	icon_state = "mariinsky"
+	color_src = MUTANT_COLOR
