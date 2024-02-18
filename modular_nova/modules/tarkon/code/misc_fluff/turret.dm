@@ -4,6 +4,8 @@
 	name = "T.I.B.S Cerberus Kit"
 	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
 	This model comes with 3 adjustable magazine slots, supporting most commonly available magazines."
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	icon_state = "toolbox"
 	worn_icon_state = "turret_harness"
 	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	has_latches = FALSE
