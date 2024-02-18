@@ -89,7 +89,7 @@
 	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT) // Anything less than this and you'll come out fiiiine, aside from a big hit of stamina damage
 		if(!(our_guy.mob_biotypes & MOB_ROBOTIC))
 			our_guy.visible_message(
-				span_danger("[our_guy] suddenly slows from their inhuman speeds, coming back with a wicked nosebleed!"),
+				span_danger("[our_guy] suddenly slows from [our_guy.p_their()] inhuman speeds, coming back with a wicked nosebleed!"),
 				span_danger("You suddenly slow back to normal, a stream of blood gushing from your nose!")
 			)
 		else
