@@ -842,8 +842,8 @@
 
 // Donation reward for Koruu
 /obj/item/clothing/mask/gas/signalisgaiter
-	name = "\improper placeholder"
-	desc = "still a placeholder. do not perceive me."
+	name = "\improper Synthetic Nanofiber Gaiter"
+	desc = "A slim black synthetic cloth that covers the mouth. Often in used by the S.O.K.O Models. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	icon_state = "siggaiter"
@@ -875,8 +875,8 @@
 
 // Donation reward for Koruu
 /obj/item/clothing/under/bodysuitkoruu
-	name = "placeholder"
-	desc = "stop fucking looking at me"
+	name = "\improper Synthetic Nanofiber Automaton Bodysuit"
+	desc = "A slim and body fitting suit often equipped by most Automaton Units. Durable, with an emphasis on flexibility, but it can be seen as rather risqué."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "bodysuitkoruu"
