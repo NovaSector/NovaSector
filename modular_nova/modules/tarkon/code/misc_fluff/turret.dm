@@ -1,3 +1,5 @@
+//////// Mag-fed Turret Framework.
+////// Toolbox Handling //////
 /obj/item/storage/toolbox/emergency/turret/mag_fed
 	name = "T.I.B.S Cerberus Kit"
 	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
@@ -41,49 +43,6 @@
 		contents.Insert(1,yoink)
 	return yoink
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed
-	name = "T.I.B.S \"Cerberus\" Guardian Turret"
-	desc = "A heavy-protection turret used in the Tarkon Industries Blackrust Salvage group to protect its workers in hazardous conditions."
-	integrity_failure = 0
-	max_integrity = 200
-	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
-	shot_delay = 2 SECONDS
-	uses_stored = FALSE
-	stored_gun = null
-	stun_projectile = null
-	lethal_projectile = null
-	subsystem_type = /datum/controller/subsystem/processing/projectiles
-	ignore_faction = TRUE
-	faction = list(FACTION_SILICON) //We're gonna do some funky stuff. also turret flags are undef'd at end of porta turret file so >:(
-	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
-	var/casing_ejector = TRUE // Do we want it to eject casings?
-	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed //what box should this spawn with if its map_spawned?
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box //Container of the turret. Needs expanded ref.
-	var/obj/item/ammo_box/magazine/magazine = null // Magazine inside the turret.
-	var/obj/item/ammo_casing/chambered = null // currently loaded bullet
-
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
-	. = ..()
-	if(!mag_box) //If we want to make map-spawned turrets in turret form.
-		mag_box = new mag_box_type
-
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/examine(mob/user)
-	. = ..()
-	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
-	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
-	if((user.faction in faction) || (REF(user) in faction))
-		. += span_notice("You can repair it by <b>left-clicking</b> with a wrench.")
-		. += span_notice("You can fold it by <b>right-clicking</b> with a wrench.")
-		. += span_notice("You can feed it by <b>left-clicking</b> with a magazine.")
-		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
-
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
-	for(var/faction1 in faction)
-		if((faction1 in target.faction) || (REF(target) in faction)) // For an Ally System
-			return TRUE
-	return FALSE
-
-
 /obj/item/storage/toolbox/emergency/turret/mag_fed/set_faction(obj/machinery/porta_turret/turret, mob/user)
 	if(!(user.faction in turret.faction))
 		turret.faction += user.faction
@@ -115,6 +74,71 @@
 	set_faction(turret, user)
 	turret.mag_box = src
 	forceMove(turret)
+
+////// Turret handling
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed
+	name = "T.I.B.S \"Cerberus\" Guardian Turret"
+	desc = "A heavy-protection turret used in the Tarkon Industries Blackrust Salvage group to protect its workers in hazardous conditions."
+	integrity_failure = 0
+	max_integrity = 200
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	shot_delay = 2 SECONDS
+	uses_stored = FALSE
+	stored_gun = null
+	stun_projectile = null
+	lethal_projectile = null
+	subsystem_type = /datum/controller/subsystem/processing/projectiles
+	ignore_faction = TRUE
+	faction = list(FACTION_SILICON) //We're gonna do some funky stuff. also turret flags are undef'd at end of porta turret file so >:(
+	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
+	var/casing_ejector = TRUE // Do we want it to eject casings?
+	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed //what box should this spawn with if its map_spawned?
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box //Container of the turret. Needs expanded ref.
+	var/obj/item/ammo_box/magazine/magazine = null // Magazine inside the turret.
+	var/obj/item/ammo_casing/chambered = null // currently loaded bullet
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
+	. = ..()
+	if(!mag_box) //If we want to make map-spawned turrets in turret form.
+		mag_box = new mag_box_type
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/examine(mob/user) //If this breaks i'm gonna have to go to further seperate its examination text to allow better editing.
+	. = ..()
+	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
+	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
+	if((user.faction in faction) || (REF(user) in faction))
+		. += span_notice("You can repair it by <b>left-clicking</b> with a wrench.")
+		. += span_notice("You can fold it by <b>right-clicking</b> with a wrench.")
+		. += span_notice("You can feed it by <b>left-clicking</b> with a magazine.")
+		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
+	if(chambered)
+		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
+			chambered.forceMove(drop_location())
+			chambered.loaded_projectile = null
+		if(!magazine)
+			chambered.forceMove(drop_location())
+		else
+			magazine.give_round(chambered) //put bullet back in magazine
+		chambered = null
+
+	if(magazine)
+		mag_box.contents.Insert(1,magazine) //if the magazine is being kept this long, it might aswell be shoved back in.
+		magazine = null
+
+	if(!disassembled) //We make it oilsplode, but still retrievable.
+		new /obj/effect/gibspawner/robot(drop_location())
+
+	var/atom/movable/shell = mag_box
+	mag_box = null
+	shell.forceMove(drop_location())
+
+	qdel(src)
+	return
+
+////// Ammo and magazine handling
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(chamber_next_round = TRUE)
 	if(!magazine)
@@ -150,7 +174,6 @@
 			magazine = null
 	load_mag()
 	return
-
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
 	if(!mag_box.get_mag())
@@ -201,6 +224,14 @@
 	mag_box?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
 	return
 
+////// Firing and target acquisition
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
+	for(var/faction1 in faction)
+		if((faction1 in target.faction) || (REF(target) in faction)) // For an Ally System
+			return TRUE
+	return FALSE
+
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/tryToShootAt(list/atom/movable/things_in_my_lawn) //better target prioritization, shoots at closest simple mob
 	var/turf/MyLawn = get_turf(src)
 	while(things_in_my_lawn.len > 0)
@@ -248,6 +279,9 @@
 		return
 
 	handle_chamber(TRUE)
+
+
+////// Operation Handling
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
@@ -303,31 +337,4 @@
 	if(!chambered)
 		handle_chamber(TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
-	if(chambered)
-		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
-			chambered.forceMove(drop_location())
-			chambered.loaded_projectile = null
-		if(!magazine)
-			chambered.forceMove(drop_location())
-		else
-			magazine.give_round(chambered) //put bullet back in magazine
-		chambered = null
-
-	if(magazine)
-		mag_box.contents.Insert(1,magazine) //if the magazine is being kept this long, it might aswell be shoved back in.
-		magazine = null
-
-	if(!disassembled) //We make it oilsplode, but still retrievable.
-		new /obj/effect/gibspawner/robot(drop_location())
-
-	var/atom/movable/shell = mag_box
-	mag_box = null
-	shell.forceMove(drop_location())
-
-	qdel(src)
-	return
-
-
 
