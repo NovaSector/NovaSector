@@ -44,20 +44,19 @@
 		)
 	return ..()
 
-/obj/item/modular_computer/pda/synth/proc/handle_id_slot(mob/living/carbon/human/synth)
+/obj/item/modular_computer/pda/synth/proc/handle_id_slot(mob/living/carbon/human/synth, obj/item/id_item)
 	if(!istype(synth))
 		return
-	var/obj/item = synth.wear_id
-	if(item)
-		if(istype(item, /obj/item/card/id))
-			computer_id_slot = item
-			to_chat(synth, span_notice("Persocom establishing new RFID link with [item]."))
-		else if(istype(item, /obj/item/modular_computer))
-			var/obj/item/modular_computer/pda = item
-			computer_id_slot = pda.computer_id_slot
-			to_chat(synth, span_notice("Persocom establishing new RFID link with [pda]."))
-		else
-			computer_id_slot = null
+	if(isnull(id_item))
+		computer_id_slot = null
+		return
+	if(istype(item, /obj/item/card/id))
+		computer_id_slot = item
+		to_chat(synth, span_notice("Persocom establishing new RFID link with [item]."))
+	else if(istype(item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/pda = item
+		computer_id_slot = pda.computer_id_slot
+		to_chat(synth, span_notice("Persocom establishing new RFID link with [pda]."))
 	else
 		computer_id_slot = null
 
@@ -67,8 +66,7 @@
 /obj/item/modular_computer/pda/synth/get_ntnet_status()
 	. = ..()
 	if(is_centcom_level(loc.z)) // Centcom is excluded because cafe
-		. = NTNET_NO_SIGNAL
-	return .
+		return NTNET_NO_SIGNAL
 
 /obj/item/modular_computer/pda/attack(mob/living/target_mob, mob/living/user, params)
 	var/mob/living/carbon/human/targetmachine = target_mob
