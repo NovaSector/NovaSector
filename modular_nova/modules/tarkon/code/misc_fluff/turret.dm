@@ -1,4 +1,23 @@
 //////// Mag-fed Turret Framework.
+////// Defines //////
+#define TURRET_FLAG_SHOOT_MANUAL (1<<8) // Is the turret running off manual target acquisition?
+#define TURRET_FLAG_SHOOT_FACTIONS (1<<9) // Is the target running on faction or only user-ref ally system?
+#define TURRET_FLAG_SHOOT_HUMANS (1<<10) // Checks if it can shoot player people. Dont care if prisoner or not, but wont make them bullet immune outside of ally system.
+#define TURRET_FLAG_FIRING_SEMI (1<<11)  // Is the turret running at semi-auto firing?
+#define TURRET_FLAG_FIRING_BURST (1<<12)  // Is the turret firing in burst mode?
+#define TURRET_FLAG_FIRING_AUTO (1<<13) // Is the turret firing full auto? (Emagged only)
+#define TURRET_FLAG_SHOOT_ALL_REACT (1<<0) // The turret gets pissed off and shoots at people nearby. Stealing so i dont need to rewrite more stuff.
+#define TURRET_FLAG_SHOOT_ANOMALOUS (1<<4)  // Checks if it can shoot at unidentified lifeforms (ie xenos) We're stealing for neccessity
+#define TURRET_FLAG_SHOOT_BORGS (1<<6) // checks if it can shoot cyborgs. We just want this in.
+
+DEFINE_BITFIELD(turret_flags, list(
+	"TURRET_FLAG_SHOOT_MANUAL" = TURRET_FLAG_SHOOT_MANUAL,
+	"TURRET_FLAG_SHOOT_FACTIONS" = TURRET_FLAG_SHOOT_FACTIONS,
+	"TURRET_FLAG_SHOOT_BORGS" = TURRET_FLAG_SHOOT_BORGS,
+	"TURRET_FLAG_SHOOT_HUMANS" = TURRET_FLAG_SHOOT_HUMANS,
+	"TURRET_FLAG_SHOOT_ANOMALOUS" = TURRET_FLAG_SHOOT_ANOMALOUS,
+))
+
 ////// Toolbox Handling //////
 /obj/item/storage/toolbox/emergency/turret/mag_fed
 	name = "T.I.B.S Cerberus Kit"
@@ -45,10 +64,10 @@
 		contents.Insert(1,yoink)
 	return yoink
 
-/obj/item/storage/toolbox/emergency/turret/mag_fed/set_faction(obj/machinery/porta_turret/turret, mob/user)
+/obj/item/storage/toolbox/emergency/turret/mag_fed/set_faction(obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret, mob/user)
 	if(!(user.faction in turret.faction))
 		turret.faction += user.faction
-		turret.faction += REF(user)
+		turret.allies += REF(user)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(!istype(attacking_item, /obj/item/wrench))
@@ -91,8 +110,13 @@
 	stun_projectile = null
 	lethal_projectile = null
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
+	turret_flags = TURRET_FLAG_SHOOT_HUMANS
 	ignore_faction = TRUE
-	faction = list(FACTION_SILICON) //We're gonna do some funky stuff. also turret flags are undef'd at end of porta turret file so >:(
+	req_access = list()
+	faction = list(FACTION_TURRET) //We're gonna do some funky stuff. also turret flags are undef'd at end of porta turret file so >:(
+	var/target_acquisition = null //This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
+	var/allies = list() //Ally system.
+	var/firing_mode = TURRET_FLAG_FIRING_SEMI
 	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
 	var/casing_ejector = TRUE // Do we want it to eject casings?
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed //what box should this spawn with if its map_spawned?
@@ -109,7 +133,7 @@
 	. = ..()
 	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
 	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
-	if((user.faction in faction) || (REF(user) in faction))
+	if((user.faction in faction) || (REF(user) in allies))
 		. += span_notice("You can repair it by <b>left-clicking</b> with a wrench.")
 		. += span_notice("You can fold it by <b>right-clicking</b> with a wrench.")
 		. += span_notice("You can feed it by <b>left-clicking</b> with a magazine.")
@@ -139,6 +163,78 @@
 
 	qdel(src)
 	return
+
+////// UI. I have no idea what i'm doing so :D
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DeployableTurret", name)
+		ui.open()
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/ui_data(mob/user)
+	var/list/data = list(
+		"locked" = locked,
+		"on" = on,
+		"manual_target_acquisition_toggle" = turret_flags & TURRET_FLAG_SHOOT_MANUAL,
+		"fire_at_humans" = turret_flags & TURRET_FLAG_SHOOT_HUMANS,
+		"fire_at_cyborgs" = turret_flags & TURRET_FLAG_SHOOT_BORGS,
+		"target_factions" = turret_flags & TURRET_FLAG_SHOOT_FACTIONS,
+		"manual_control" = manual_control,
+		"silicon_user" = FALSE,
+		"allow_manual_control" = FALSE,
+		"lasertag_turret" = istype(src, /obj/machinery/porta_turret/lasertag),
+	)
+	if(issilicon(user))
+		data["silicon_user"] = TRUE
+		if(!manual_control)
+			var/mob/living/silicon/S = user
+			if(S.hack_software)
+				data["allow_manual_control"] = TRUE
+	return data
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/ui_act(action, list/params)
+	add_fingerprint(usr)
+	update_last_used(usr)
+	if(isAI(usr) && !GLOB.cameranet.checkTurfVis(get_turf(src))) //We check if they're an AI specifically here, so borgs can still access off-camera stuff.
+		to_chat(usr, span_warning("You can no longer connect to this device!"))
+		return FALSE
+
+	if(.)
+		return
+
+	switch(action)
+		if("power")
+			if(anchored)
+				toggle_on()
+				return TRUE
+			else
+				to_chat(usr, span_warning("It has to be secured first!"))
+		if("togglemanual")
+			turret_flags ^= TURRET_FLAG_SHOOT_MANUAL
+			return TRUE
+		if("checkfactions")
+			turret_flags ^= TURRET_FLAG_SHOOT_FACTIONS
+			return TRUE
+		if("checkhumans")
+			turret_flags ^= TURRET_FLAG_SHOOT_HUMANS
+			return TRUE
+		if("shootborgs")
+			turret_flags ^= TURRET_FLAG_SHOOT_BORGS
+			return TRUE
+		if("manual")
+			if(!issilicon(usr))
+				return
+			give_control(usr)
+			return TRUE
+	return ..()
+
+/obj/machinery/porta_turret/ui_host(mob/user)
+	if(has_cover && cover)
+		return cover
+	if(base)
+		return base
+	return src
 
 ////// Ammo and magazine handling
 
@@ -220,19 +316,54 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
 	if(!(magaroni.type in mag_box.atom_storage.can_hold))
-		balloon_alert_to_viewers("Item Can't Fit, How did you get here?")
+		balloon_alert(guy_with_mag, "Item Can't Fit, How did you get here?")
 		return
-
+	balloon_alert(guy_with_mag, "Magazine Inserted")
 	mag_box?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
 	return
 
 ////// Firing and target acquisition
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
+	if(turret_flags & TURRET_FLAG_SHOOT_FACTIONS)
+		if(REF(target) in allies)
+			return TRUE
 	for(var/faction1 in faction)
-		if((faction1 in target.faction) || (REF(target) in faction)) // For an Ally System
+		if((faction1 in target.faction) || (REF(target) in allies)) // For an Ally System
 			return TRUE
 	return FALSE
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/assess_perp(mob/living/carbon/human/intruder) //Because we're re-doing targeting.
+	var/threatcount = 0 //the integer returned
+
+	if(obj_flags & EMAGGED)
+		return 10 //if emagged, always return 10.
+
+	if((turret_flags & (TURRET_FLAG_SHOOT_HUMANS | TURRET_FLAG_SHOOT_ALL_REACT)) && !(REF(intruder) in allies))
+		//if the turret has been attacked or is angry, target all non-factioned people
+		if(!(REF(intruder) in allies))
+			return 10
+
+	if(!(turret_flags & TURRET_FLAG_SHOOT_FACTIONS))
+		if(!in_faction(intruder))
+			for(var/faction1 in faction)
+				if(!(faction1 in intruder.faction))
+					threatcount += 10
+
+	return threatcount
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/target(atom/movable/target)
+	if(target)
+		popUp() //pop the turret up if it's not already up.
+		setDir(get_dir(base, target))//even if you can't shoot, follow the target
+		if(firing_mode & TURRET_FLAG_FIRING_BURST)
+			shootAt(target)
+			addtimer(CALLBACK(src, PROC_REF(shootAt), target), 5)
+			addtimer(CALLBACK(src, PROC_REF(shootAt), target), 10)
+		else
+			shootAt(target)
+		return 1
+	return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/tryToShootAt(list/atom/movable/things_in_my_lawn) //better target prioritization, shoots at closest simple mob
 	var/turf/MyLawn = get_turf(src)
@@ -340,3 +471,14 @@
 		handle_chamber(TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+////// because we're already parroting turret code: undef's.
+
+#undef TURRET_FLAG_SHOOT_HUMANS
+#undef TURRET_FLAG_SHOOT_FACTIONS
+#undef TURRET_FLAG_SHOOT_MANUAL
+#undef TURRET_FLAG_SHOOT_BORGS
+#undef TURRET_FLAG_FIRING_SEMI
+#undef TURRET_FLAG_FIRING_BURST
+#undef TURRET_FLAG_FIRING_AUTO
+#undef TURRET_FLAG_SHOOT_ANOMALOUS
+#undef TURRET_FLAG_SHOOT_ALL_REACT
