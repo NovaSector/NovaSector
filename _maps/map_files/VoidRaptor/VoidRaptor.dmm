@@ -51589,7 +51589,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 4;
+	dir = 1;
 	initialize_directions = 8
 	},
 /turf/open/floor/iron/smooth_edge{
