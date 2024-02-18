@@ -1,5 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - bugfix: "Humanoid ghost roles now receive their job title on their mob, when that was previously not the case."
-  - admin: "Humanoid ghost roles can now be searched by job title in the Player Panel directory (and will show up everywhere else that displays the job title)."

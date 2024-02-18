@@ -1,5 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - qol: "Icewalkers can now go back to sleep in their hole in the ground, allowing another kin to come back out later."
-  - qol: "Icewalkers can now send their sleeping kins down the hole too, if they've been sleeping for long enough (30 minutes)."
