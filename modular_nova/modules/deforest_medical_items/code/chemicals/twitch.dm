@@ -94,7 +94,7 @@
 			)
 		else
 			our_guy.visible_message(
-				span_danger("[our_guy] suddenly slows from their inhumans speeds!"),
+				span_danger("[our_guy] suddenly slows from [our_guy.p_their()] inhuman speeds!"),
 				span_danger("You suddenly slow back to normal speed!")
 			)
 		our_guy.adjustStaminaLoss(constant_dose_time)
