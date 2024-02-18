@@ -94,12 +94,12 @@
 /datum/loadout_item/mask/divemask_koru
 	name = "S.O.K.O. Gaiter"
 	item_path = /obj/item/clothing/mask/gas/signalisgaiter
-	ckeywhitelist = list("koruu", "shyelf")
+	ckeywhitelist = list("koruu", "foxyandiknowit", "shyelf")
 
 /datum/loadout_item/under/jumpsuit/divesuit_koru
 	name = "S.O.K.O. Bodysuit"
 	item_path = /obj/item/clothing/under/bodysuitkoruu
-	ckeywhitelist = list("koruu", "shyelf")
+	ckeywhitelist = list("koruu", "foxyandiknowit", "shyelf")
 
 /datum/loadout_item/under/jumpsuit/anasuit
 	name = "Azulean's Enviro-Suit"
