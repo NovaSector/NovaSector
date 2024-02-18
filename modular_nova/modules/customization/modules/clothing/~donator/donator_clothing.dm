@@ -873,6 +873,13 @@
 	. = ..()
 	. += span_notice("Alt-click [src] to adjust it.")
 
+// Donation reward for Koruu
+/obj/item/clothing/under/bodysuitkoruu
+	name = "placeholder"
+	desc = "stop fucking looking at me"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "bodysuitkoruu"
 
 // Donation reward for CandleJax
 /obj/item/clothing/head/helmet/space/plasmaman/candlejax2
