@@ -26,9 +26,17 @@
 
 	var/list/viewers = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, usr)
 
+	if(istype(usr, /mob/living/silicon/ai))
+		var/mob/living/silicon/ai/ai = usr
+		viewers = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, ai.eyeobj)
+
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[usr]
 	if(hologram)
 		viewers |= get_hearers_in_view(1, hologram)
+
+	for(var/mob/living/silicon/ai/ai as anything in GLOB.ai_list)
+		if(ai.client && !(ai in viewers) && (ai.eyeobj in viewers))
+			viewers += ai
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
