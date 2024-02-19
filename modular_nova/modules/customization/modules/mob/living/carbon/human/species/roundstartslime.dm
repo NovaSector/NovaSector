@@ -121,13 +121,34 @@
 		return
 	switch(selected_alteration)
 		if("Body Colours")
-			alter_colours(alterer)
+			if(HAS_TRAIT(alterer, TRAIT_USES_SKINTONES))
+				alter_skin_colours(alterer)
+			else
+				alter_colours(alterer)
 		if("DNA")
 			alter_dna(alterer)
 		if("Hair")
 			alter_hair(alterer)
 		if("Markings")
 			alter_markings(alterer)
+
+/**
+ * Alter skin colours handles the changing of skintone colours
+ * This affects skin tone only.
+ */
+/datum/action/innate/alter_form/proc/alter_skin_colours(mob/living/carbon/human/alterer)
+	var/selected_skin_tone = tgui_input_list(
+		alterer,
+		"Choose your character's new skin color:",
+		"Form Alteration",
+		GLOB.skin_tones
+	)
+	if(!selected_skin_tone)
+		return
+	alterer.skin_tone = selected_skin_tone
+	alterer.dna.features["skin_color"] = skintone2hex(selected_skin_tone)
+	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
+	alterer.update_body(is_creating = TRUE)
 
 /**
  * Alter colours handles the changing of mutant colours
