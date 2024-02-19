@@ -1,4 +1,4 @@
 author: "NovaBot13"
 delete-after: True
 changes:
-  - balance: "assemblybombs are bulky"
+  - rscadd: "deathmatch minigame"
