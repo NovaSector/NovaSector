@@ -24,7 +24,7 @@
 		return
 	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
 	if(brain_owner.wear_id)
-		UnregisterSignal(brain_owner.wear_id, COMSIG_ITEM_POST_UNEQUIP)
+		UnregisterSignal(brain_owner.wear_id, list(COMSIG_MOVABLE_MOVED, COMSIG_ITEM_UNSTORED))
 	if(internal_computer)
 		internal_computer.handle_id_slot(brain_owner)
 
