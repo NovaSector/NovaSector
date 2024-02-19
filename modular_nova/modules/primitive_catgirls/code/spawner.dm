@@ -45,7 +45,7 @@
 	team = null
 	return ..()
 
-/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/examine()
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/examine(mob/user)
 	. = ..()
 
 	if(uses)
