@@ -7731,6 +7731,7 @@
 #include "modular_nova\modules\modular_weapons\code\overrides\autolathe_designs.dm"
 #include "modular_nova\modules\modular_weapons\code\overrides\ballistic_master.dm"
 #include "modular_nova\modules\modular_weapons\code\overrides\energy.dm"
+#include "modular_nova\modules\modular_weapons\code\overrides\mystery_box_additions.dm"
 #include "modular_nova\modules\modular_weapons\code\overrides\suppressor_size_change_override.dm"
 #include "modular_nova\modules\mold\code\_mold_defines.dm"
 #include "modular_nova\modules\mold\code\mold.dm"
