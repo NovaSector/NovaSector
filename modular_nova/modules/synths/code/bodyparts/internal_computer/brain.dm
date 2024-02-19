@@ -17,7 +17,8 @@
 /obj/item/organ/internal/brain/synth/on_mob_remove(mob/living/carbon/brain_owner, special)
 	. = ..()
 	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
-	UnregisterSignal(internal_computer.computer_id_slot, COMSIG_ITEM_POST_UNEQUIP)
+	if(brain_owner.wear_id)
+		UnregisterSignal(wear_id, COMSIG_ITEM_POST_UNEQUIP)
 	internal_computer.handle_id_slot(brain_owner)
 
 /obj/item/organ/internal/brain/synth/proc/on_equip_signal(datum/source, obj/item/item, slot)
