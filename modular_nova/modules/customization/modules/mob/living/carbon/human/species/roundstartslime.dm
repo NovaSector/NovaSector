@@ -137,16 +137,25 @@
  * This affects skin tone only.
  */
 /datum/action/innate/alter_form/proc/alter_skin_colours(mob/living/carbon/human/alterer)
-	var/selected_skin_tone = tgui_input_list(
+	var/skintone_string = tgui_input_list(
 		alterer,
 		"Choose your character's new skin color:",
 		"Form Alteration",
-		GLOB.skin_tones
+		GLOB.skin_tone_names
 	)
-	if(!selected_skin_tone)
+
+	if(!skintone_string)
 		return
-	alterer.skin_tone = selected_skin_tone
-	alterer.dna.features["skin_color"] = skintone2hex(selected_skin_tone)
+
+	var/skintone_index = GLOB.skin_tone_names.Find(skintone_string)
+
+	if(!skintone_index)
+		return
+
+	var/selected_skintone = GLOB.skin_tones[skintone_index]
+
+	alterer.skin_tone = selected_skintone
+	alterer.dna.features["skin_color"] = skintone2hex(selected_skintone)
 	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
 	alterer.update_body(is_creating = TRUE)
 
