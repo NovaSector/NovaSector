@@ -46,6 +46,10 @@
 	owner.update_body_parts()
 	return ..()
 
+/obj/item/autosurgeon/syndicate/sandy
+	name = "Qani-Laaca sensory computer autosurgeon"
+	starting_organ = /obj/item/organ/internal/cyberimp/sensory_enhancer
+
 /datum/bodypart_overlay/simple/sensory_enhancer
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	icon_state = "sandy"

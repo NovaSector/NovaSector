@@ -26,8 +26,30 @@ GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/gun/ballistic/automatic/xhihao_smg,
 ))
 
+GLOBAL_LIST_INIT(nova_funny_mystery_box_items, list(
+	/obj/item/storage/medkit/civil_defense/thunderdome,
+	/obj/item/storage/medkit/frontier/stocked,
+	/obj/item/storage/medkit/combat_surgeon/stocked,
+	/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked,
+	/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked,
+	/obj/item/clothing/suit/armor/sf_sacrificial,
+	/obj/item/clothing/head/helmet/sf_sacrificial,
+	/obj/item/sacrificial_face_shield,
+	/obj/item/clothing/suit/armor/sf_peacekeeper,
+	/obj/item/clothing/suit/armor/sf_peacekeeper/debranded,
+	/obj/item/clothing/head/helmet/sf_peacekeeper,
+	/obj/item/clothing/head/helmet/sf_peacekeeper/debranded,
+	/obj/item/clothing/suit/armor/sf_hardened,
+	/obj/item/clothing/suit/armor/sf_hardened/emt,
+	/obj/item/clothing/head/helmet/toggleable/sf_hardened,
+	/obj/item/clothing/head/helmet/toggleable/sf_hardened/emt,
+	/obj/item/autosurgeon/syndicate/sandy,
+	/obj/item/autosurgeon/syndicate/shell_launcher,
+	/obj/item/autosurgeon/syndicate/razorwire,
+))
+
 /obj/structure/mystery_box/guns/generate_valid_types()
-	valid_types = GLOB.summoned_guns
+	valid_types = GLOB.summoned_guns + GLOB.nova_special_firearms
 
 /obj/structure/mystery_box/tdome/generate_valid_types()
-	valid_types = GLOB.mystery_box_guns + GLOB.mystery_box_extended
+	valid_types = GLOB.mystery_box_guns + GLOB.mystery_box_extended + GLOB.nova_special_firearms + GLOB.nova_funny_mystery_box_items
