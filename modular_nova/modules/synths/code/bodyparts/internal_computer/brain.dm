@@ -14,10 +14,13 @@
 	. = ..()
 	RegisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))
 
-/obj/item/organ/internal/brain/synth/on_mob_remove(mob/living/carbon/brain_owner, special)
+/obj/item/organ/internal/brain/synth/on_mob_remove(mob/living/carbon/human/brain_owner, special)
 	. = ..()
+	if(!istype(brain_owner))
+		return
 	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
-	UnregisterSignal(computer_id_slot, COMSIG_ITEM_POST_UNEQUIP)
+	if(brain_owner.wear_id)
+		UnregisterSignal(brain_owner.wear_id, COMSIG_ITEM_POST_UNEQUIP)
 	internal_computer.handle_id_slot(brain_owner)
 
 /obj/item/organ/internal/brain/synth/proc/on_equip_signal(datum/source, obj/item/item, slot)
@@ -26,10 +29,3 @@
 		return
 	if(slot == ITEM_SLOT_ID)
 		internal_computer.handle_id_slot(owner, item)
-
-/obj/item/organ/internal/brain/synth/proc/on_unequip_signal(datum/source, force, newloc, no_move, invdrop, silent, new_location)
-	SIGNAL_HANDLER
-	UnregisterSignal(source, COMSIG_ITEM_POST_UNEQUIP)
-	if(isnull(internal_computer))
-		return
-	internal_computer.handle_id_slot(owner)
