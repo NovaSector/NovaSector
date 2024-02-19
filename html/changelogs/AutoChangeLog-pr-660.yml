@@ -1,5 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - balance: "Synths can now use twitch (and by extension, the qani-laaca computer), both synths and those with vein muscles will be heated up massively by twitch, rather than taking heart damage."
-  - bugfix: "The radial blur overlay for twitch now once again works properly, meaning you won't be basically entirely blinded by it anymore."

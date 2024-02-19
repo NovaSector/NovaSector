@@ -1,5 +1,0 @@
-author: "A.C.M.O."
-delete-after: True
-changes:
-  - qol: "Enabled firedoors to automatically close when forced open."
-  - qol: "Shortened manual override of firedoors from 10 seconds to 5 seconds."
