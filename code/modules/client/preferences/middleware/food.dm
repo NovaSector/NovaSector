@@ -25,15 +25,12 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/obj/item/organ/internal/tongue/target_tongue = target.get_organ_slot(ORGAN_SLOT_TONGUE)
 
-	if(!target_tongue)
+	if(isnull(target_tongue) || !preferences.food_preferences["enabled"])
 		return
 
-	if (!preferences.food_preferences["enabled"])
-		return
-	else
-		target_tongue.liked_foodtypes  = NONE
-		target_tongue.disliked_foodtypes  = NONE
-		target_tongue.toxic_foodtypes = NONE
+	target_tongue.liked_foodtypes  = NONE
+	target_tongue.disliked_foodtypes  = NONE
+	target_tongue.toxic_foodtypes = NONE
 
 	for(var/food_entry in GLOB.food_defaults)
 		var/list/food_default = GLOB.food_defaults[food_entry]
