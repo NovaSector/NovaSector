@@ -27,9 +27,9 @@
 	if(slot == ITEM_SLOT_ID)
 		internal_computer.handle_id_slot(owner, item)
 
-/obj/item/organ/internal/brain/synth/proc/on_unequip_signal(datum/source, obj/item/dropped_item, force, new_location)
+/obj/item/organ/internal/brain/synth/proc/on_unequip_signal(datum/source, force, newloc, no_move, invdrop, silent, new_location)
 	SIGNAL_HANDLER
-	UnregisterSignal(dropped_item, COMSIG_ITEM_POST_UNEQUIP)
+	UnregisterSignal(source, COMSIG_ITEM_POST_UNEQUIP)
 	if(isnull(internal_computer))
 		return
 	internal_computer.handle_id_slot(owner)
