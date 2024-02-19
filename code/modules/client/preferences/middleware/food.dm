@@ -58,7 +58,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		return
 
 	var/datum/preferences/preferences = ui?.user?.client?.prefs
-	if(!prefs)
+	if(!preferences)
 		return
 
 	switch(action)
