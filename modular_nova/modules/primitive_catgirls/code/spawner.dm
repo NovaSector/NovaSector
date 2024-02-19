@@ -25,6 +25,12 @@
 	uses = 12
 	deletes_on_zero_uses_left = FALSE
 
+	/// The list of real names of those that have gone back into the hole.
+	/// Should get modified automatically by `create()` and `put_back_in()`.
+	var/list/went_back_to_sleep = list()
+	/// The cached string to display for additional info on who joined and who left.
+	/// Nulled every time someone joins or leaves to ensure it gets re-generated.
+	var/join_and_leave_log_cache = null
 	/// The minimum time someone needs to be SSD before they can be put back in
 	var/ssd_time = 30 MINUTES
 
@@ -47,7 +53,49 @@
 	else
 		. += span_notice("It looks pretty empty.")
 
+	if(isprimitivedemihuman(user) || isobserver(user))
+		. += span_notice("<i>You could take closer attention at the scents coming from the hole...</i>")
+
 	return .
+
+
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/examine_more(mob/user)
+	. = ..()
+
+	if(!isprimitivedemihuman(user) && !isobserver(user))
+		return
+
+	. += get_joined_and_left_log()
+
+
+/**
+ * Returns the `join_and_leave_log_cache` string if it already exists, otherwise
+ * generates and returns it.
+ */
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/proc/get_joined_and_left_log()
+	if(join_and_leave_log_cache)
+		return join_and_leave_log_cache
+
+	var/list/joined_player_names = list()
+
+	for(var/datum/mind/joined_mind in team.members)
+		joined_player_names += joined_mind.name
+
+	if(!length(joined_player_names) && !length(went_back_to_sleep))
+		join_and_leave_log_cache = span_notice("Everyone still seems to be sleeping peacefully in the hole.")
+		return join_and_leave_log_cache
+
+	var/nobody_joined = length(joined_player_names) <= 0
+
+	join_and_leave_log_cache = span_notice( \
+		"[nobody_joined ? "" : "You smell that the following kin are missing from the hole:\n\
+		<b>[joined_player_names.Join("</b>, <b>")]</b>"]\
+		[length(went_back_to_sleep) <= 0 ? "" : "[nobody_joined ? "" : "\n\n"]You catch the smell of the following kin having recently went back to sleep:\n\
+		<b>[went_back_to_sleep.Join("</b>, <b>")]</b>"]" \
+	)
+
+	return join_and_leave_log_cache
+
 
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/allow_spawn(mob/user, silent = FALSE)
 	if(!(user.key in team.players_spawned)) // One spawn per person
@@ -55,6 +103,15 @@
 	if(!silent)
 		to_chat(user, span_warning("It'd be weird if there were multiple of you in that cave, wouldn't it?"))
 	return FALSE
+
+
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname)
+	. = ..()
+
+	// We remove their name from there if they come back.
+	went_back_to_sleep -= newname
+	join_and_leave_log_cache = null
+
 
 // This stuff is put on equip because it turns out /special sometimes just don't get called because Nova
 /obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/equip(mob/living/carbon/human/spawned_human)
@@ -153,6 +210,8 @@
 	// or whatever.
 	team.players_spawned -= (target.key)
 	team.remove_member(target.mind)
+	went_back_to_sleep += target.real_name
+	join_and_leave_log_cache = null
 
 	for(var/list/record in GLOB.ghost_records)
 		if(record["name"] == target.real_name)
