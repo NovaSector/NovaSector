@@ -55,17 +55,17 @@
 	if(istype(id_item, /obj/item/card/id))
 		computer_id_slot = id_item
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [id_item]."))
-		RegisterSignal(id_item, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_unequip_signal))
+		RegisterSignal(id_item, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/obj/item/organ/internal/brain/synth, on_unequip_signal))
 	else if(istype(id_item, /obj/item/modular_computer))
 		var/obj/item/modular_computer/pda = id_item
 		computer_id_slot = pda.computer_id_slot
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [pda]."))
-		RegisterSignal(pda, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_unequip_signal))
+		RegisterSignal(pda, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/obj/item/organ/internal/brain/synth, on_unequip_signal))
 	else if(istype(id_item, /obj/item/storage/wallet))
 		var/obj/item/storage/wallet/your_wallet = id_item
 		computer_id_slot = your_wallet.GetID()
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [your_wallet]."))
-		RegisterSignal(your_wallet, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_unequip_signal))
+		RegisterSignal(your_wallet, COMSIG_ITEM_POST_UNEQUIP, TYPE_PROC_REF(/obj/item/organ/internal/brain/synth, on_unequip_signal))
 	else
 		computer_id_slot = null
 
