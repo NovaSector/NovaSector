@@ -157,4 +157,5 @@
 
 	if(!istype(holder, /obj/machinery/plumbing)) //excludes standard plumbing equipment from spamming admins with this shit
 		message_admins("\A [flood] flood started at [ADMIN_VERBOSEJMP(location)] [source_msg][blame_msg].")
-	log_game("\A [flood] flood started at [location || "nonexistant location"] [holder ? "from [holder] last touched by [holder || "N/A"]" : "with no known source"].")
+	if (!istype(location, /area/deathmatch))
+		log_game("\A [flood] flood started at [location || "nonexistant location"] [holder ? "from [holder] last touched by [holder || "N/A"]" : "with no known source"].")
