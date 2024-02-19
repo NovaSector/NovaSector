@@ -471,7 +471,6 @@
 #include "code\__DEFINES\~nova_defines\_HELPERS\atmos_mapping_helpers.dm"
 #include "code\__DEFINES\~nova_defines\_HELPERS\lighting.dm"
 #include "code\__DEFINES\~nova_defines\_HELPERS\offset_index.dm"
-#include "code\__DEFINES\~nova_defines\signals\signals_human.dm"
 #include "code\__DEFINES\~nova_defines\traits\declarations.dm"
 #include "code\__HELPERS\_auxtools_api.dm"
 #include "code\__HELPERS\_lists.dm"
