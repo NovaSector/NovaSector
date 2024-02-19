@@ -79,7 +79,6 @@ const CharacterControls = (props: {
       )}
       {/* NOVA EDIT ADDITION START */}
       {props.handleLoadout && (
-        // NOVA EDIT ADDITION
         <Stack.Item>
           <Button
             onClick={props.handleLoadout}

@@ -54,8 +54,12 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 /datum/food_prefs_menu/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	if(.)
+		return
 
 	var/datum/preferences/preferences = ui?.user?.client?.prefs
+	if(!prefs)
+		return
 
 	switch(action)
 		if("reset")
@@ -141,9 +145,9 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 				toxic_food_length++
 
 	if(liked_food_length > MAXIMUM_LIKES)
-		return "too many like choices"
+		return "too many liked choices"
 	if(disliked_food_length + toxic_food_length < MINIMUM_REQUIRED_DISLIKES)
-		return "too few dislike choices"
+		return "too few disliked choices"
 	if(toxic_food_length < MINIMUM_REQUIRED_TOXICS)
 		return "too few toxic choices"
 
