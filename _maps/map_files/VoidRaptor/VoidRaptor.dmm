@@ -14888,7 +14888,7 @@
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "enw" = (
-/obj/machinery/bouldertech/brm,
+/obj/machinery/brm,
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "mining"
