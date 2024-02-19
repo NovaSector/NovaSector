@@ -23,10 +23,9 @@
 	if(!istype(brain_owner))
 		return
 	UnregisterSignal(brain_owner, COMSIG_MOB_EQUIPPED_ITEM)
-	if(brain_owner.wear_id)
-		UnregisterSignal(brain_owner.wear_id, list(COMSIG_MOVABLE_MOVED, COMSIG_ITEM_UNSTORED))
 	if(internal_computer)
 		internal_computer.handle_id_slot(brain_owner)
+		internal_computer.clear_id_slot_signals(brain_owner.wear_id)
 
 /obj/item/organ/internal/brain/synth/proc/on_equip_signal(datum/source, obj/item/item, slot)
 	SIGNAL_HANDLER
