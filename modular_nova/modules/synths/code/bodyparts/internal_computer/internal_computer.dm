@@ -44,26 +44,26 @@
 		)
 	return ..()
 
-/obj/item/modular_computer/pda/synth/proc/update_id_slot()
+/obj/item/modular_computer/pda/synth/proc/update_id_slot(obj/item/id/id)
 	var/obj/item/organ/internal/brain/synth/brain_loc = loc
 	if(!istype(brain_loc))
 		return
 	if(isnull(brain_loc.internal_computer))
 		return
-	brain_loc.internal_computer.handle_id_slot(brain_loc.owner)
+	brain_loc.internal_computer.handle_id_slot(brain_loc.owner, id)
 
 /obj/item/modular_computer/pda/synth/proc/on_id_item_moved(datum/source)
 	SIGNAL_HANDLER
 	clear_id_slot_signals(source)
 	update_id_slot()
 
-/obj/item/modular_computer/pda/synth/proc/on_id_item_stored(datum/source, obj/item/to_insert)
+/obj/item/modular_computer/pda/synth/proc/on_id_item_stored(datum/source, obj/item/card/id/to_insert)
 	SIGNAL_HANDLER
-	if(!istype(to_insert, /obj/item/card/id))
+	if(!istype(to_insert))
 		return
 
 	clear_id_slot_signals(source)
-	update_id_slot()
+	update_id_slot(to_insert)
 
 /obj/item/modular_computer/pda/synth/proc/clear_id_slot_signals(obj/item/id_slot_item)
 	if(!istype(id_slot_item))
@@ -111,8 +111,8 @@
 		var/obj/item/storage/wallet/your_wallet = id_item
 		computer_id_slot = your_wallet.GetID()
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [your_wallet]."))
-		RegisterSignal(your_wallet, list(COMSIG_ITEM_POST_UNEQUIP), PROC_REF(on_id_item_moved))
-		RegisterSignal(your_wallet, list(COMSIG_STORAGE_STORED_ITEM), PROC_REF(on_id_item_stored))
+		RegisterSignal(your_wallet, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_id_item_moved))
+		RegisterSignal(your_wallet, COMSIG_STORAGE_STORED_ITEM, PROC_REF(on_id_item_stored))
 		RegisterSignal(your_wallet.GetID(), COMSIG_MOVABLE_MOVED, PROC_REF(on_id_item_moved))
 
 	else
