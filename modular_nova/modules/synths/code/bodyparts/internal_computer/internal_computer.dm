@@ -48,6 +48,8 @@
 	if(!istype(synth))
 		return
 	if(isnull(id_item))
+		if(computer_id_slot)
+			to_chat(synth, span_notice("Persocom RFID link disconnected."))
 		computer_id_slot = null
 		return
 	if(istype(id_item, /obj/item/card/id))
@@ -57,6 +59,10 @@
 		var/obj/item/modular_computer/pda = id_item
 		computer_id_slot = pda.computer_id_slot
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [pda]."))
+	else if(istype(id_item, /obj/item/storage/wallet))
+		var/obj/item/storage/wallet/your_wallet = id_item
+		computer_id_slot = your_wallet.GetID()
+		to_chat(synth, span_notice("Persocom establishing new RFID link with [your_wallet]."))
 	else
 		computer_id_slot = null
 
