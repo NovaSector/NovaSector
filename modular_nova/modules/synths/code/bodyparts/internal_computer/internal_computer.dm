@@ -65,6 +65,7 @@
 		var/obj/item/storage/wallet/your_wallet = id_item
 		computer_id_slot = your_wallet.GetID()
 		to_chat(synth, span_notice("Persocom establishing new RFID link with [your_wallet]."))
+		RegisterSignal(your_wallet, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_unequip_signal))
 	else
 		computer_id_slot = null
 
