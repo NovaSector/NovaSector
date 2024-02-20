@@ -98,7 +98,7 @@
 
 /datum/loadout_item/under/jumpsuit/divesuit_koru
 	name = "S.O.K.O. Bodysuit"
-	item_path = /obj/item/clothing/under/bodysuitkoruu
+	item_path = /obj/item/clothing/under/bodysuit_koruu
 	ckeywhitelist = list("koruu", "foxyandiknowit", "shyelf")
 
 /datum/loadout_item/under/jumpsuit/anasuit
