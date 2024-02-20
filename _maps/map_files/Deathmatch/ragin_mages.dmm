@@ -1,0 +1,2155 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/turf/cordon,
+/area/deathmatch)
+"ay" = (
+/obj/structure/railing/corner/end{
+	dir = 4
+	},
+/obj/machinery/door/airlock/uranium/safe,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"aT" = (
+/obj/item/cardboard_cutout/adaptive{
+	pixel_y = 14;
+	pixel_x = 8
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"bb" = (
+/obj/structure/chair/wood/wings{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"bg" = (
+/obj/effect/spawner/random/entertainment/arcade,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"bv" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/open/floor/plating/airless,
+/area/deathmatch)
+"co" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin/carbon{
+	pixel_y = 12;
+	pixel_x = 7
+	},
+/obj/item/stamp/granted{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 10;
+	pixel_y = -3
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"cq" = (
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"ct" = (
+/obj/structure/destructible/cult/item_dispenser/forge/engine,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"cU" = (
+/obj/structure/chair/wood/wings{
+	dir = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"dj" = (
+/obj/machinery/door/airlock/uranium/safe,
+/obj/effect/mapping_helpers/airlock_note_placer{
+	note_info = "Don't forget the book above your desk. Also, your other clothes are in your dresser. -Mom"
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"ds" = (
+/turf/open/floor/carpet/purple,
+/area/deathmatch)
+"dY" = (
+/obj/structure/railing{
+	layer = 3.1
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"eo" = (
+/obj/machinery/light/directional/south,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"ez" = (
+/obj/structure/closet/crate,
+/obj/item/banhammer,
+/obj/item/toy/eldritch_book,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"fH" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/griddle,
+/turf/open/floor/iron,
+/area/deathmatch)
+"fI" = (
+/turf/open/lava,
+/area/deathmatch)
+"gn" = (
+/turf/open/space/transit,
+/area/deathmatch)
+"gr" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/chair/wood,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron,
+/area/deathmatch)
+"gR" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/item/food/burger/spell{
+	pixel_y = 11;
+	pixel_x = -3
+	},
+/obj/item/stack/medical/ointment{
+	pixel_y = -2;
+	pixel_x = 9
+	},
+/turf/open/floor/iron,
+/area/deathmatch)
+"hg" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 8
+	},
+/obj/machinery/door/airlock/uranium/safe,
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"hk" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 21;
+	pixel_x = -7
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"hK" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"ig" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 6;
+	pixel_y = 14
+	},
+/obj/item/book/manual/wiki/ordnance{
+	pixel_y = 4;
+	pixel_x = 3;
+	page_link = "Wizard";
+	name = "Wizarding Tome - How to Wizard";
+	desc = "Everything you need to know to be a wizard."
+	},
+/obj/item/stack/medical/bruise_pack{
+	pixel_x = -12
+	},
+/obj/item/reagent_containers/cup/glass/mug/coco{
+	pixel_x = -11;
+	pixel_y = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"iz" = (
+/obj/structure/chair/comfy/brown{
+	dir = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"iL" = (
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"iQ" = (
+/obj/structure/table,
+/obj/structure/bedsheetbin{
+	pixel_y = 4;
+	pixel_x = 3
+	},
+/turf/open/floor/plastic,
+/area/deathmatch)
+"iZ" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron,
+/area/deathmatch)
+"jb" = (
+/obj/machinery/door/airlock/uranium/safe,
+/obj/structure/railing/corner/end/flip,
+/obj/structure/railing/corner/end,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"jg" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/landmark/deathmatch_player_spawn,
+/turf/open/floor/iron,
+/area/deathmatch)
+"jm" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/suit/wizrobe/tape,
+/obj/item/gun/magic/wand{
+	desc = "Used in emergencies to reignite magma engines.";
+	max_charges = 0;
+	name = "wand of emergency engine ignition"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"js" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/turf/open/floor/iron,
+/area/deathmatch)
+"jM" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/bureaucracy/paper{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/pen{
+	pixel_x = -5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/coin/antagtoken{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"jV" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/door/airlock/uranium/safe,
+/turf/open/floor/iron,
+/area/deathmatch)
+"kl" = (
+/obj/structure/flora/bush/grassy/style_random,
+/obj/machinery/light/floor,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/grass,
+/area/deathmatch)
+"kC" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"li" = (
+/obj/structure/table,
+/obj/item/extinguisher{
+	pixel_x = 7;
+	pixel_y = -6
+	},
+/obj/item/clothing/suit/wizrobe/red{
+	pixel_y = 3;
+	pixel_x = -6
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"lM" = (
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/item/bedsheet/wiz{
+	dir = 1
+	},
+/obj/machinery/light/directional/west,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"lO" = (
+/obj/structure/closet/crate,
+/obj/item/staff/tape,
+/obj/effect/spawner/random/exotic/languagebook,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/storage/crayons,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"mb" = (
+/obj/machinery/computer/camera_advanced,
+/obj/machinery/light/directional/north,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"mu" = (
+/obj/effect/turf_decal/stripes,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/deathmatch)
+"mV" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"nk" = (
+/obj/machinery/light/directional/west,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/carpet/purple,
+/area/deathmatch)
+"nx" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"nQ" = (
+/obj/machinery/door/airlock/uranium/safe,
+/turf/open/floor/plastic,
+/area/deathmatch)
+"nV" = (
+/obj/structure/table/wood,
+/obj/item/clothing/mask/cigarette/cigar{
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/obj/item/camera/spooky{
+	pixel_y = 7;
+	pixel_x = 2
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"ok" = (
+/obj/machinery/light/small/directional/north,
+/turf/open/lava,
+/area/deathmatch)
+"on" = (
+/obj/structure/table/wood,
+/obj/item/radio/intercom,
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"oP" = (
+/obj/structure/destructible/cult/item_dispenser/archives/library,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"pe" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 21;
+	pixel_x = -7
+	},
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"ph" = (
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"pv" = (
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/iron,
+/area/deathmatch)
+"pL" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/mob/living/basic/bot/medbot/mysterious{
+	desc = "If you don't accidentally blow yourself up from time to time you're not really a wizard anyway.";
+	faction = list("neutral","silicon","creature");
+	name = "Nobody's Perfect"
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"pV" = (
+/obj/structure/flora/bush/flowers_br/style_random,
+/turf/open/floor/grass,
+/area/deathmatch)
+"qx" = (
+/obj/machinery/light/directional/east,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/carpet/purple,
+/area/deathmatch)
+"qY" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/boritos/purple,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"rj" = (
+/obj/machinery/door/window/right/directional/east,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"rD" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"sf" = (
+/obj/structure/mirror/magic{
+	pixel_x = 32
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"tL" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/mob/living/simple_animal/hostile/ooze/gelatinous{
+	name = "Jimmy";
+	faction = list("slime", "Wizard")
+	},
+/turf/open/floor/grass,
+/area/deathmatch)
+"ue" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/food/burger/yellow{
+	pixel_x = -11;
+	pixel_y = 8
+	},
+/obj/item/food/burger/red{
+	pixel_y = 13;
+	pixel_x = 6
+	},
+/obj/item/food/burger/purple{
+	pixel_y = 3
+	},
+/obj/structure/table/reinforced,
+/turf/open/floor/iron,
+/area/deathmatch)
+"ui" = (
+/obj/effect/turf_decal/stripes,
+/turf/open/floor/iron,
+/area/deathmatch)
+"uz" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron,
+/area/deathmatch)
+"uM" = (
+/obj/structure/table/wood,
+/obj/item/toy/figure/wizard{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/toy/cards/deck/tarot{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/toy/cards/deck/wizoff{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"uR" = (
+/obj/item/clothing/shoes/sandal/magic{
+	pixel_y = 16
+	},
+/obj/machinery/light/small/directional/south,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/plastic,
+/area/deathmatch)
+"vh" = (
+/obj/structure/showcase/machinery/rng,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"vv" = (
+/obj/vehicle/ridden/scooter/skateboard{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"vR" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"wd" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/bookcase/random/reference/wizard,
+/turf/open/floor/iron,
+/area/deathmatch)
+"wl" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 1;
+	pixel_x = -6
+	},
+/turf/open/floor/carpet/purple,
+/area/deathmatch)
+"wt" = (
+/mob/living/simple_animal/pet/gondola{
+	name = "Jommy";
+	faction = list("gondola", "Wizard")
+	},
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/floor/grass,
+/area/deathmatch)
+"wL" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/closet/crate/bin,
+/obj/item/trash/shok_roks/berry,
+/turf/open/floor/iron,
+/area/deathmatch)
+"wS" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 1;
+	pixel_x = -6
+	},
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"xk" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror/magic{
+	pixel_y = 36
+	},
+/turf/open/floor/plastic,
+/area/deathmatch)
+"xs" = (
+/obj/structure/flora/bush/grassy/style_random,
+/turf/open/floor/grass,
+/area/deathmatch)
+"yA" = (
+/obj/structure/chair/wood/wings,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"zz" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/bottle/beer{
+	pixel_x = -8;
+	pixel_y = 17
+	},
+/obj/item/pai_card{
+	pixel_y = 8;
+	pixel_x = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"zN" = (
+/obj/structure/destructible/cult/item_dispenser/altar{
+	desc = "An altar dedicated to the Wizard Federation."
+	},
+/obj/structure/sign/poster/contraband/the_big_gas_giant_truth/directional/north,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"zO" = (
+/obj/item/clothing/suit/wizrobe/magusblue,
+/obj/item/clothing/suit/wizrobe/magusred,
+/obj/item/clothing/head/wizard/magus,
+/obj/structure/closet,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Au" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"AD" = (
+/obj/structure/sign/departments/restroom/directional/west,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Bh" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"Bm" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/turf/open/floor/plastic,
+/area/deathmatch)
+"BJ" = (
+/obj/structure/window/green_glass_pane,
+/area/deathmatch)
+"Cb" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table/wood,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = 12;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/condiment/peppermill{
+	pixel_x = 12;
+	pixel_y = 4
+	},
+/obj/item/plate{
+	pixel_y = 4;
+	pixel_x = -2
+	},
+/obj/item/trash/candle{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/turf/open/floor/iron,
+/area/deathmatch)
+"Cj" = (
+/obj/structure/table,
+/obj/item/clothing/ears/earmuffs{
+	pixel_y = 14;
+	pixel_x = 4
+	},
+/obj/item/toy/gun{
+	pixel_y = 2;
+	pixel_x = -3
+	},
+/obj/item/clothing/head/wizard/red{
+	pixel_x = 6;
+	pixel_y = -10
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Cq" = (
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"CM" = (
+/obj/structure/railing/corner,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"DK" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"DW" = (
+/obj/machinery/computer/shuttle,
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"Eh" = (
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Er" = (
+/obj/structure/table/wood,
+/obj/item/storage/dice{
+	icon_state = "magicdicebag";
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/obj/item/dice/d20{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Es" = (
+/obj/structure/table/wood,
+/obj/item/radio/headset{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/item/radio/headset{
+	pixel_y = 2
+	},
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"Fb" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Fm" = (
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Fv" = (
+/obj/structure/chair/wood/wings{
+	dir = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Fx" = (
+/obj/item/target,
+/obj/structure/sign/flag/nanotrasen/directional/north,
+/turf/open/floor/iron,
+/area/deathmatch)
+"FL" = (
+/turf/open/floor/plastic,
+/area/deathmatch)
+"Ge" = (
+/obj/item/flashlight/flare{
+	pixel_x = -5;
+	pixel_y = -12
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Gv" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"GC" = (
+/obj/structure/bookcase/random,
+/turf/open/floor/plastic,
+/area/deathmatch)
+"GZ" = (
+/obj/structure/curtain,
+/obj/machinery/shower/directional/north,
+/obj/item/soap/syndie,
+/turf/open/floor/noslip,
+/area/deathmatch)
+"Hf" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 1;
+	pixel_x = -6
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Hs" = (
+/turf/open/space/basic,
+/area/deathmatch)
+"HM" = (
+/obj/structure/rack,
+/obj/item/knife/ritual{
+	pixel_y = 5
+	},
+/obj/item/staff{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/staff/broom,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"HP" = (
+/obj/structure/chair/comfy/black{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"HS" = (
+/obj/structure/table/wood/fancy,
+/obj/item/skub{
+	pixel_y = 16
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/plastic,
+/area/deathmatch)
+"IE" = (
+/obj/structure/table/wood,
+/obj/item/clothing/suit/wizrobe/black{
+	pixel_y = 3;
+	pixel_x = -1
+	},
+/obj/item/clothing/head/wizard/black{
+	pixel_y = 13;
+	pixel_x = 6
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"IM" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/turf/open/floor/carpet/purple,
+/area/deathmatch)
+"Jm" = (
+/turf/closed/indestructible/riveted/uranium,
+/area/deathmatch)
+"Jo" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/plastic,
+/area/deathmatch)
+"Kr" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"KW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Le" = (
+/obj/structure/filingcabinet,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Mg" = (
+/obj/machinery/computer/camera_advanced,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Nl" = (
+/obj/machinery/power/shuttle_engine/heater{
+	resistance_flags = 3
+	},
+/obj/structure/window/reinforced/spawner/directional/north{
+	resistance_flags = 3
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Nm" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 21;
+	pixel_x = 6
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Nt" = (
+/obj/item/target{
+	pixel_y = 11
+	},
+/obj/effect/turf_decal/stripes,
+/turf/open/floor/iron,
+/area/deathmatch)
+"NK" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 9;
+	pixel_x = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"NN" = (
+/obj/machinery/door/airlock/uranium/safe,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"NW" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Ok" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"OD" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"OK" = (
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 21;
+	pixel_x = 6
+	},
+/turf/open/floor/carpet/red,
+/area/deathmatch)
+"PD" = (
+/obj/structure/table/wood,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Qj" = (
+/obj/structure/dresser,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"QH" = (
+/obj/structure/table,
+/obj/item/bikehorn/rubberducky{
+	pixel_y = 5;
+	pixel_x = -11
+	},
+/obj/item/clothing/head/wizard{
+	pixel_y = 14;
+	pixel_x = 4
+	},
+/turf/open/floor/plastic,
+/area/deathmatch)
+"QN" = (
+/obj/structure/table/wood,
+/obj/item/toy/figure/wizard{
+	pixel_y = 2;
+	pixel_x = -5
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"QT" = (
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"RB" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"RE" = (
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"RI" = (
+/obj/item/cautery/alien,
+/obj/structure/closet/crate,
+/obj/item/stack/sticky_tape/super,
+/obj/item/clothing/head/wizard/tape,
+/obj/item/bikehorn/golden{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"RT" = (
+/obj/machinery/power/shuttle_engine/heater{
+	resistance_flags = 3
+	},
+/obj/structure/window/reinforced/spawner/directional/north{
+	resistance_flags = 3
+	},
+/turf/open/lava,
+/area/deathmatch)
+"Sa" = (
+/turf/open/floor/grass,
+/area/deathmatch)
+"SK" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/floor/grass,
+/area/deathmatch)
+"Th" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table/reinforced,
+/obj/item/food/burger/rat{
+	pixel_y = 9;
+	pixel_x = -2
+	},
+/obj/item/food/bun{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/machinery/light/small/directional/south,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/iron,
+/area/deathmatch)
+"TS" = (
+/obj/item/reagent_containers/cup/glass/bottle/beer{
+	pixel_x = 11;
+	pixel_y = 17
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Vb" = (
+/obj/structure/table/wood,
+/obj/item/storage/photo_album,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Vk" = (
+/obj/machinery/door/window/left/directional/east,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"VM" = (
+/obj/structure/table/wood/poker,
+/obj/item/toy/cards/deck{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Wl" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"WX" = (
+/obj/machinery/vending/magivend,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Xv" = (
+/obj/structure/railing{
+	layer = 3.1
+	},
+/obj/structure/railing{
+	layer = 3.1;
+	dir = 1
+	},
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"YP" = (
+/obj/structure/closet/crate/coffin,
+/obj/item/clothing/under/rank/civilian/curator,
+/obj/item/food/meat/slab/human/mutant/skeleton,
+/obj/item/bodypart/arm/left/skeleton,
+/obj/item/bodypart/chest/skeleton,
+/obj/item/bodypart/head/skeleton,
+/obj/item/food/meat/slab/human/mutant/skeleton,
+/obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"YS" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/cult,
+/area/deathmatch)
+"Zo" = (
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/deathmatch)
+"ZS" = (
+/obj/structure/railing/corner/end/flip,
+/turf/open/floor/iron,
+/area/deathmatch)
+
+(1,1,1) = {"
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+"}
+(2,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(3,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(4,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(5,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+gn
+gn
+Jm
+Jm
+Jm
+Jm
+Jm
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+Hs
+am
+"}
+(6,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+gn
+Jm
+Jm
+vR
+lM
+Qj
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+gn
+gn
+Hs
+am
+"}
+(7,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+Jm
+Jm
+vR
+ph
+ph
+ph
+Jm
+GC
+Jo
+HS
+iQ
+GZ
+Jm
+Fx
+uz
+ui
+Fb
+ph
+ph
+QT
+ph
+RT
+bv
+gn
+Hs
+am
+"}
+(8,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+BJ
+NK
+iz
+ph
+ph
+Gv
+Jm
+GC
+FL
+Bm
+QH
+uR
+Jm
+Fx
+pv
+Nt
+Fb
+Kr
+ph
+Eh
+ph
+RT
+bv
+gn
+Hs
+am
+"}
+(9,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+BJ
+ig
+ph
+Kr
+qY
+Jm
+Jm
+Jm
+Jm
+xk
+FL
+FL
+Jm
+Fx
+ZS
+mu
+NW
+Wl
+Au
+Vk
+rj
+RT
+bv
+gn
+Hs
+am
+"}
+(10,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+Jm
+HM
+ph
+cq
+Jm
+Jm
+nk
+wl
+Jm
+Jm
+nQ
+Jm
+Jm
+Jm
+Jm
+Jm
+pL
+ph
+ph
+ph
+Gv
+Jm
+gn
+gn
+Hs
+am
+"}
+(11,1,1) = {"
+am
+Hs
+gn
+BJ
+BJ
+BJ
+Jm
+zN
+ph
+ph
+Jm
+WX
+ds
+ds
+Hf
+Jm
+ph
+AD
+Eh
+Hf
+vR
+Jm
+Jm
+Cj
+li
+ph
+Jm
+Jm
+gn
+gn
+Hs
+am
+"}
+(12,1,1) = {"
+am
+Hs
+BJ
+BJ
+IE
+QN
+Jm
+oP
+ph
+ph
+dj
+ph
+ds
+ds
+ph
+NN
+ph
+ph
+RE
+ph
+ph
+vR
+Jm
+Jm
+Jm
+ay
+Jm
+gn
+gn
+gn
+Hs
+am
+"}
+(13,1,1) = {"
+am
+Hs
+BJ
+Mg
+Fm
+wS
+Jm
+Jm
+sf
+Gv
+Jm
+vR
+ds
+ds
+ph
+Jm
+Jm
+Jm
+Jm
+Nm
+ph
+ph
+vR
+Jm
+ct
+dY
+Jm
+Jm
+gn
+gn
+Hs
+am
+"}
+(14,1,1) = {"
+am
+Hs
+BJ
+mb
+ph
+ph
+vh
+Jm
+Jm
+Jm
+Jm
+vR
+ds
+ds
+ph
+Jm
+xs
+tL
+Jm
+Jm
+ph
+ph
+vR
+Jm
+fI
+Xv
+fI
+Jm
+Jm
+gn
+Hs
+am
+"}
+(15,1,1) = {"
+am
+Hs
+BJ
+on
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+kC
+Cq
+ds
+ds
+Cq
+BJ
+Zo
+Sa
+xs
+Jm
+OK
+Cq
+Bh
+Jm
+ok
+Xv
+fI
+fI
+RT
+bv
+Hs
+am
+"}
+(16,1,1) = {"
+am
+Hs
+BJ
+DW
+HP
+iL
+nx
+Cq
+Cq
+Cq
+iL
+Cq
+ds
+ds
+Cq
+BJ
+Sa
+kl
+Sa
+Jm
+nx
+iL
+Cq
+jb
+DK
+CM
+rD
+rD
+Nl
+bv
+Hs
+am
+"}
+(17,1,1) = {"
+am
+Hs
+BJ
+Es
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+mV
+Cq
+ds
+ds
+Cq
+BJ
+Sa
+pV
+SK
+Jm
+pe
+Cq
+Bh
+Jm
+fI
+Xv
+fI
+fI
+RT
+bv
+Hs
+am
+"}
+(18,1,1) = {"
+am
+Hs
+BJ
+mb
+ph
+ph
+Ok
+Jm
+Jm
+Jm
+Jm
+vR
+ds
+ds
+ph
+Jm
+wt
+xs
+Jm
+Jm
+ph
+ph
+vR
+Jm
+fI
+Xv
+fI
+Jm
+Jm
+gn
+Hs
+am
+"}
+(19,1,1) = {"
+am
+Hs
+BJ
+Mg
+Fm
+Gv
+Jm
+Jm
+Er
+vh
+Jm
+vR
+ds
+ds
+ph
+Jm
+Jm
+Jm
+Jm
+hk
+ph
+ph
+vR
+Jm
+fI
+Xv
+Jm
+Jm
+gn
+gn
+Hs
+am
+"}
+(20,1,1) = {"
+am
+Hs
+BJ
+BJ
+nV
+Vb
+Jm
+zz
+ph
+ph
+NN
+ph
+ds
+ds
+ph
+NN
+ph
+ph
+QT
+ph
+ph
+vR
+Jm
+Jm
+Jm
+hg
+Jm
+gn
+gn
+gn
+Hs
+am
+"}
+(21,1,1) = {"
+am
+Hs
+gn
+BJ
+BJ
+BJ
+Jm
+PD
+ph
+ph
+Jm
+RB
+ds
+ds
+Gv
+Jm
+ph
+ph
+Eh
+Gv
+vR
+Jm
+Jm
+YS
+KW
+Ge
+Jm
+Jm
+gn
+gn
+Hs
+am
+"}
+(22,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+Jm
+uM
+ph
+eo
+Jm
+Jm
+qx
+IM
+Jm
+Jm
+jV
+Jm
+Jm
+Jm
+Jm
+Jm
+RI
+ph
+vR
+ph
+lO
+Jm
+gn
+gn
+Hs
+am
+"}
+(23,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+BJ
+zO
+ph
+Kr
+ph
+Jm
+Jm
+Jm
+Jm
+wL
+js
+fH
+Jm
+aT
+ph
+KW
+ph
+hK
+vR
+KW
+ez
+RT
+bv
+gn
+Hs
+am
+"}
+(24,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+BJ
+bg
+ph
+ph
+Fv
+Hf
+Jm
+gR
+js
+jg
+js
+Th
+Jm
+jm
+Eh
+vR
+KW
+Kr
+KW
+Eh
+vv
+RT
+bv
+gn
+Hs
+am
+"}
+(25,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+Jm
+Jm
+TS
+yA
+VM
+cU
+Jm
+wd
+gr
+Cb
+iZ
+ue
+Jm
+YP
+KW
+KW
+ph
+Le
+OD
+co
+jM
+RT
+bv
+gn
+Hs
+am
+"}
+(26,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+gn
+Jm
+Jm
+ph
+bb
+Gv
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+Jm
+gn
+gn
+Hs
+am
+"}
+(27,1,1) = {"
+am
+Hs
+gn
+gn
+gn
+gn
+gn
+gn
+Jm
+Jm
+Jm
+Jm
+Jm
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+Hs
+am
+"}
+(28,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(29,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(30,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(31,1,1) = {"
+am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+am
+"}
+(32,1,1) = {"
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+am
+"}
