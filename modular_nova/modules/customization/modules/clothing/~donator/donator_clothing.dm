@@ -875,7 +875,7 @@
 
 // Donation reward for Koruu
 /obj/item/clothing/under/bodysuit_koruu
-	name = "\improper Synthetic Nanofiber Automaton Bodysuit"
+	name = "synthetic nanofiber Automaton bodysuit"
 	desc = "A slim and body fitting suit often equipped by most Automaton Units. Durable, with an emphasis on flexibility, but it can be seen as rather risqué."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
