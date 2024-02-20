@@ -19,6 +19,19 @@ GLOBAL_LIST_INIT(mystery_wands, list(
 	/obj/item/gun/magic/wand/door,
 	/obj/item/gun/magic/wand/nothing,
 	/obj/item/storage/belt/wands/full,
+	/obj/item/gun/magic/staff/healing,
+	/obj/item/gun/magic/staff/change,
+	/obj/item/gun/magic/staff/animate,
+	/obj/item/gun/magic/staff/chaos,
+	/obj/item/gun/magic/staff/door,
+	/obj/item/gun/magic/staff/honk,
+	/obj/item/gun/magic/staff/spellblade,
+	/obj/item/gun/magic/staff/locker,
+	/obj/item/gun/magic/staff/flying,
+	/obj/item/gun/magic/staff/babel,
+	/obj/item/singularityhammer,
+	/obj/item/mod/control/pre_equipped/enchanted,
+	/obj/item/runic_vendor_scepter,
 ))
 
 /obj/structure/mystery_box/wands
@@ -26,3 +39,9 @@ GLOBAL_LIST_INIT(mystery_wands, list(
 
 /obj/structure/mystery_box/wands/generate_valid_types()
 	valid_types = GLOB.mystery_wands
+
+/datum/action/cooldown/spell/chuuni_invocations/deathmatch
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_MIND
+
+/datum/action/cooldown/spell/rod_form/deathmatch
+	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC
