@@ -7,6 +7,10 @@
 	anchored = TRUE
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
+	/// Torch contained by the wall torch, if it was mounted manually.
+	var/obj/item/flashlight/flare/torch/torch
+	/// Does it have a torch?
+	var/contains_torch = TRUE
 	/// is the bonfire lit?
 	var/burning = FALSE
 	/// Does this torch spawn pre-lit?
@@ -20,30 +24,87 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 		light_it_up()
 	find_and_hang_on_wall()
 
+
+/obj/structure/wall_torch/update_icon_state()
+	icon_state = "[base_icon_state][contains_torch ? (burning ? "_on" : "") : "_mount"]"
+	return ..()
+
+
 /obj/structure/wall_torch/attackby(obj/item/used_item, mob/living/user, params)
-	if(used_item.get_temperature())
+	if(!contains_torch)
+		if(!istype(used_item, /obj/item/flashlight/flare/torch))
+			return ..()
+
+		torch = used_item
+		contains_torch = TRUE
+
+		if(torch.light_on)
+			light_it_up()
+		else
+			extinguish()
+
+		return
+
+	if(!burning && used_item.get_temperature())
 		light_it_up()
 	else
 		return ..()
 
+
 /obj/structure/wall_torch/fire_act(exposed_temperature, exposed_volume)
 	light_it_up()
 
+
 /// Sets the torch's icon to burning and sets the light up
 /obj/structure/wall_torch/proc/light_it_up()
-	icon_state = "[base_icon_state]_on"
 	burning = TRUE
 	set_light(4)
+	update_icon_state()
 	update_appearance(UPDATE_ICON)
+
 
 /obj/structure/wall_torch/extinguish()
 	. = ..()
 	if(!burning)
 		return
-	icon_state = base_icon_state
 	burning = FALSE
 	set_light(0)
+	update_icon_state()
 	update_appearance(UPDATE_ICON)
+
+
+/obj/structure/wall_torch/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(.)
+		return
+
+	remove_torch(user)
+
+
+/**
+ * Helper proc that handles removing the torch and trying to put it in the user's hand.
+ */
+/obj/structure/wall_torch/proc/remove_torch(mob/living/user)
+	if(!contains_torch)
+		return
+
+	if(!torch)
+		torch = new(src)
+
+	if(burning)
+		torch.toggle_light()
+	else
+		torch.extinguish()
+
+	torch.attempt_pickup(user)
+
+	torch = null
+	burning = FALSE
+	contains_torch = FALSE
+	set_light(0)
+	update_icon_state()
+	update_appearance(UPDATE_ICON)
+
 
 /obj/structure/wall_torch/spawns_lit
 	spawns_lit = TRUE
