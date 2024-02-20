@@ -107,10 +107,9 @@
 	atom_storage.max_slots = 6
 
 /obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
-	var/list/random_medpens = list()
-	for(var/pen_iterator in 1 to 6)
-		random_medpens.Add(pick(random_medpen_options))
-	generate_items_inside(random_medpens, src)
+	for(var/pens in 1 to 6)
+		var/new_pen = pick(random_medpen_options)
+		new new_pen(src)
 
 // Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
 /obj/item/storage/medkit/civil_defense/comfort
