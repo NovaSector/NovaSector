@@ -160,18 +160,3 @@
 	granted_spells = list(
 		null,
 	)
-
-/*
-uniform = /datum/outfit/job/security::uniform
-suit = /datum/outfit/job/security::suit
-suit_store = /datum/outfit/job/security::suit_store
-belt = /datum/outfit/job/security::belt
-ears = /datum/outfit/job/security::ears //cant communicate with station i think?
-gloves = /datum/outfit/job/security::gloves
-head = /datum/outfit/job/security::head
-shoes = /datum/outfit/job/security::shoes
-l_pocket = /obj/item/flashlight/seclite
-l_hand = /obj/item/gun/energy/disabler
-r_pocket = /obj/item/knife/combat/survival
-back = /datum/outfit/job/security::backpack
-*/
