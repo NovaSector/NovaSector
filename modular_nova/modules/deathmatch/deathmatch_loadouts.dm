@@ -125,6 +125,7 @@
 
 	l_hand = /obj/item/food/grown/banana
 	uniform = /obj/item/clothing/under/color/lightpurple
+	suit = null
 	head = /obj/item/clothing/head/wizard
 	granted_spells = list(
 		/datum/action/cooldown/spell/conjure/simian,
