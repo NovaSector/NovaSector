@@ -842,7 +842,7 @@
 
 // Donation reward for Koruu
 /obj/item/clothing/mask/gas/signalisgaiter
-	name = "\improper Synthetic Nanofiber Gaiter"
+	name = "synthetic nanofiber gaiter"
 	desc = "A slim black synthetic cloth that covers the mouth. Often in used by the S.O.K.O Models. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
