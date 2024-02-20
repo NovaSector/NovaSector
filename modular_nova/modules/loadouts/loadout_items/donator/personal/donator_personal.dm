@@ -93,7 +93,7 @@
 
 /datum/loadout_item/mask/divemask_koru
 	name = "S.O.K.O. Gaiter"
-	item_path = /obj/item/clothing/mask/gas/signalisgaiter
+	item_path = /obj/item/clothing/mask/gas/signalis_gaiter
 	ckeywhitelist = list("koruu", "foxyandiknowit", "shyelf")
 
 /datum/loadout_item/under/jumpsuit/divesuit_koru
