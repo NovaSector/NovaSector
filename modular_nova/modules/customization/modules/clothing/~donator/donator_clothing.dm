@@ -874,7 +874,7 @@
 	. += span_notice("Alt-click [src] to adjust it.")
 
 // Donation reward for Koruu
-/obj/item/clothing/under/bodysuitkoruu
+/obj/item/clothing/under/bodysuit_koruu
 	name = "\improper Synthetic Nanofiber Automaton Bodysuit"
 	desc = "A slim and body fitting suit often equipped by most Automaton Units. Durable, with an emphasis on flexibility, but it can be seen as rather risqué."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
