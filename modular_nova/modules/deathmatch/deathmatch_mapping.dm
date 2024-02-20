@@ -41,7 +41,9 @@ GLOBAL_LIST_INIT(mystery_wands, list(
 	valid_types = GLOB.mystery_wands
 
 /datum/action/cooldown/spell/chuuni_invocations/deathmatch
+	name = "Unrestricted Chuuni Invocations"
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_MIND
 
 /datum/action/cooldown/spell/rod_form/deathmatch
+	name = "Unrestricted Rod Form"
 	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC
