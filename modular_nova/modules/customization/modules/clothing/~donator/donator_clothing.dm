@@ -841,7 +841,7 @@
 	voice_filter = initial(sechailer_type.voice_filter)
 
 // Donation reward for Koruu
-/obj/item/clothing/mask/gas/signalisgaiter
+/obj/item/clothing/mask/gas/signalis_gaiter
 	name = "synthetic nanofiber gaiter"
 	desc = "A slim black synthetic cloth that covers the mouth. Often in used by the S.O.K.O Models. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
