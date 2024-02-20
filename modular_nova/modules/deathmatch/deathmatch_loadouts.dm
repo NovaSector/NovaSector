@@ -127,6 +127,7 @@
 	uniform = /obj/item/clothing/under/color/lightpurple
 	suit = null
 	head = /obj/item/clothing/head/wizard
+	shoes = null
 	granted_spells = list(
 		/datum/action/cooldown/spell/conjure/simian,
 	)
