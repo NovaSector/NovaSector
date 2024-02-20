@@ -7983,6 +7983,8 @@
 #include "modular_nova\modules\server_overflow\code\server_connect_panel.dm"
 #include "modular_nova\modules\SEVA_suit\code\seva_obj.dm"
 #include "modular_nova\modules\SEVA_suit\code\suit_voucher.dm"
+#include "modular_nova\modules\shapeshifter_quirk\code\shapeshifter_action.dm"
+#include "modular_nova\modules\shapeshifter_quirk\code\shapeshifter_quirk.dm"
 #include "modular_nova\modules\shotgunrebalance\code\ammobox.dm"
 #include "modular_nova\modules\shotgunrebalance\code\autolathe_design.dm"
 #include "modular_nova\modules\shotgunrebalance\code\shotgun.dm"
