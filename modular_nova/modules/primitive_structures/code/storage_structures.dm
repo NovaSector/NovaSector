@@ -68,14 +68,14 @@
 	can_atmos_pass = ATMOS_PASS_YES
 	visible_contents = TRUE
 
-/obj/machinery/smartfridge/produce_bin/accept_check(obj/item/weapon)
+/obj/machinery/smartfridge/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
 		/obj/item/food/grown,
 		/obj/item/grown,
 		/obj/item/graft,
 	)
 
-	return is_type_in_list(weapon, accepted_items)
+	return is_type_in_list(item_to_check, accepted_items)
 
 /obj/machinery/smartfridge/produce_bin/structure_examine()
 	. = span_info("The whole rack can be [EXAMINE_HINT("pried")] apart.")
@@ -107,8 +107,8 @@
 	can_atmos_pass = ATMOS_PASS_YES
 	visible_contents = TRUE
 
-/obj/machinery/smartfridge/seed_shelf/accept_check(obj/item/weapon)
-	return istype(weapon, /obj/item/seeds)
+/obj/machinery/smartfridge/seed_shelf/accept_check(obj/item/item_to_check)
+	return istype(item_to_check, /obj/item/seeds)
 
 /obj/machinery/smartfridge/seed_shelf/structure_examine()
 	. = span_info("The whole rack can be [EXAMINE_HINT("pried")] apart.")
@@ -139,8 +139,8 @@
 	can_atmos_pass = ATMOS_PASS_YES
 	visible_contents = TRUE
 
-/obj/machinery/smartfridge/ration_shelf/accept_check(obj/item/weapon)
-	return (IS_EDIBLE(weapon) || (istype(weapon,/obj/item/reagent_containers/cup/bowl) && length(weapon.reagents?.reagent_list)))
+/obj/machinery/smartfridge/ration_shelf/accept_check(obj/item/item_to_check)
+	return (IS_EDIBLE(item_to_check) || (istype(item_to_check,/obj/item/reagent_containers/cup/bowl) && length(item_to_check.reagents?.reagent_list)))
 
 /obj/machinery/smartfridge/ration_shelf/structure_examine()
 	. = span_info("The whole rack can be [EXAMINE_HINT("pried")] apart.")
@@ -171,14 +171,14 @@
 	can_atmos_pass = ATMOS_PASS_YES
 	visible_contents = TRUE
 
-/obj/machinery/smartfridge/produce_display/accept_check(obj/item/weapon)
+/obj/machinery/smartfridge/produce_display/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
 		/obj/item/grown,
 		/obj/item/bouquet,
 		/obj/item/clothing/head/costume/garland,
 	)
 
-	return is_type_in_list(weapon, accepted_items)
+	return is_type_in_list(item_to_check, accepted_items)
 
 /obj/machinery/smartfridge/produce_display/structure_examine()
 	. = span_info("The whole rack can be [EXAMINE_HINT("pried")] apart.")
