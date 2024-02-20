@@ -1,12 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"am" = (
-/turf/cordon,
-/area/deathmatch)
 "ay" = (
 /obj/structure/railing/corner/end{
 	dir = 4
 	},
 /obj/machinery/door/airlock/uranium/safe,
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "aT" = (
@@ -22,7 +22,6 @@
 /obj/structure/chair/wood/wings{
 	dir = 8
 	},
-/obj/machinery/light/directional/east,
 /obj/effect/light_emitter{
 	set_cap = 2;
 	light_color = "#DEEFFF";
@@ -54,21 +53,9 @@
 	},
 /turf/open/floor/engine/cult,
 /area/deathmatch)
-"cq" = (
-/obj/effect/light_emitter{
-	set_cap = 2;
-	light_color = "#DEEFFF";
-	set_luminosity = 4
-	},
-/obj/machinery/light/directional/south,
-/turf/open/floor/engine/cult,
-/area/deathmatch)
 "ct" = (
-/obj/structure/destructible/cult/item_dispenser/forge/engine,
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/floor/engine/cult,
+/obj/structure/mystery_box/wands,
+/turf/open/floor/plastic,
 /area/deathmatch)
 "cU" = (
 /obj/structure/chair/wood/wings{
@@ -86,24 +73,6 @@
 "ds" = (
 /turf/open/floor/carpet/purple,
 /area/deathmatch)
-"dY" = (
-/obj/structure/railing{
-	layer = 3.1
-	},
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/turf/open/floor/engine/cult,
-/area/deathmatch)
-"eo" = (
-/obj/machinery/light/directional/south,
-/obj/effect/light_emitter{
-	set_cap = 2;
-	light_color = "#DEEFFF";
-	set_luminosity = 4
-	},
-/turf/open/floor/engine/cult,
-/area/deathmatch)
 "ez" = (
 /obj/structure/closet/crate,
 /obj/item/banhammer,
@@ -119,12 +88,17 @@
 /turf/open/lava,
 /area/deathmatch)
 "gn" = (
-/turf/open/space/transit,
+/obj/structure/window/green_glass_pane,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/engine/cult,
 /area/deathmatch)
 "gr" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/structure/chair/wood,
-/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/deathmatch)
 "gR" = (
@@ -227,14 +201,8 @@
 /turf/open/floor/iron,
 /area/deathmatch)
 "jm" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/suit/wizrobe/tape,
-/obj/item/gun/magic/wand{
-	desc = "Used in emergencies to reignite magma engines.";
-	max_charges = 0;
-	name = "wand of emergency engine ignition"
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/mystery_box/wands,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "js" = (
@@ -251,10 +219,6 @@
 	pixel_x = -5
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/coin/antagtoken{
-	pixel_x = -9;
-	pixel_y = 5
-	},
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "jV" = (
@@ -273,8 +237,17 @@
 /turf/open/floor/grass,
 /area/deathmatch)
 "kC" = (
-/obj/machinery/light/directional/west,
-/turf/open/floor/carpet/red,
+/obj/item/gun/magic/wand/death,
+/obj/structure/window/reinforced/plasma{
+	dir = 8
+	},
+/obj/structure/window/reinforced/plasma{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma{
+	dir = 1
+	},
+/turf/open/floor/grass,
 /area/deathmatch)
 "li" = (
 /obj/structure/table,
@@ -295,7 +268,6 @@
 /obj/item/bedsheet/wiz{
 	dir = 1
 	},
-/obj/machinery/light/directional/west,
 /obj/effect/light_emitter{
 	set_cap = 2;
 	light_color = "#DEEFFF";
@@ -305,15 +277,9 @@
 /area/deathmatch)
 "lO" = (
 /obj/structure/closet/crate,
-/obj/item/staff/tape,
 /obj/effect/spawner/random/exotic/languagebook,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/crayons,
-/turf/open/floor/engine/cult,
-/area/deathmatch)
-"mb" = (
-/obj/machinery/computer/camera_advanced,
-/obj/machinery/light/directional/north,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "mu" = (
@@ -323,12 +289,7 @@
 	},
 /turf/open/floor/iron,
 /area/deathmatch)
-"mV" = (
-/obj/machinery/light/directional/east,
-/turf/open/floor/carpet/red,
-/area/deathmatch)
 "nk" = (
-/obj/machinery/light/directional/west,
 /obj/effect/light_emitter{
 	set_cap = 2;
 	light_color = "#DEEFFF";
@@ -355,10 +316,6 @@
 	pixel_x = 2
 	},
 /turf/open/floor/engine/cult,
-/area/deathmatch)
-"ok" = (
-/obj/machinery/light/small/directional/north,
-/turf/open/lava,
 /area/deathmatch)
 "on" = (
 /obj/structure/table/wood,
@@ -391,25 +348,12 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/mob/living/basic/bot/medbot/mysterious{
-	desc = "If you don't accidentally blow yourself up from time to time you're not really a wizard anyway.";
-	faction = list("neutral","silicon","creature");
-	name = "Nobody's Perfect"
-	},
+/obj/structure/mystery_box/wands,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "pV" = (
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
-/area/deathmatch)
-"qx" = (
-/obj/machinery/light/directional/east,
-/obj/effect/light_emitter{
-	set_cap = 2;
-	light_color = "#DEEFFF";
-	set_luminosity = 4
-	},
-/turf/open/floor/carpet/purple,
 /area/deathmatch)
 "qY" = (
 /obj/structure/closet/crate/bin,
@@ -430,9 +374,7 @@
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "sf" = (
-/obj/structure/mirror/magic{
-	pixel_x = 32
-	},
+/obj/structure/mirror/directional/east,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "tL" = (
@@ -464,7 +406,6 @@
 /turf/open/floor/iron,
 /area/deathmatch)
 "uz" = (
-/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron,
 /area/deathmatch)
 "uM" = (
@@ -487,7 +428,6 @@
 /obj/item/clothing/shoes/sandal/magic{
 	pixel_y = 16
 	},
-/obj/machinery/light/small/directional/south,
 /obj/effect/light_emitter{
 	set_cap = 2;
 	light_color = "#DEEFFF";
@@ -496,7 +436,7 @@
 /turf/open/floor/plastic,
 /area/deathmatch)
 "vh" = (
-/obj/structure/showcase/machinery/rng,
+/obj/structure/mystery_box/wands,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "vv" = (
@@ -512,7 +452,7 @@
 /area/deathmatch)
 "wd" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/structure/bookcase/random/reference/wizard,
+/obj/structure/mystery_box/wands,
 /turf/open/floor/iron,
 /area/deathmatch)
 "wl" = (
@@ -522,31 +462,19 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/deathmatch)
-"wt" = (
-/mob/living/simple_animal/pet/gondola{
-	name = "Jommy";
-	faction = list("gondola", "Wizard")
-	},
-/obj/structure/flora/bush/fullgrass/style_random,
-/turf/open/floor/grass,
-/area/deathmatch)
 "wL" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
-/obj/structure/closet/crate/bin,
-/obj/item/trash/shok_roks/berry,
+/obj/machinery/gibber/autogibber,
 /turf/open/floor/iron,
 /area/deathmatch)
 "wS" = (
-/obj/item/kirbyplants/organic/plant10{
-	pixel_y = 1;
-	pixel_x = -6
-	},
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/engine/cult,
+/obj/structure/flora/bush/grassy/style_random,
+/mob/living/basic/creature,
+/turf/open/floor/grass,
 /area/deathmatch)
 "xk" = (
 /obj/structure/sink/directional/south,
-/obj/structure/mirror/magic{
+/obj/structure/mirror/directional/north{
 	pixel_y = 36
 	},
 /turf/open/floor/plastic,
@@ -565,23 +493,14 @@
 	pixel_x = -8;
 	pixel_y = 17
 	},
-/obj/item/pai_card{
-	pixel_y = 8;
-	pixel_x = 4
-	},
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "zN" = (
-/obj/structure/destructible/cult/item_dispenser/altar{
-	desc = "An altar dedicated to the Wizard Federation."
-	},
+/obj/structure/mystery_box/wands,
 /obj/structure/sign/poster/contraband/the_big_gas_giant_truth/directional/north,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "zO" = (
-/obj/item/clothing/suit/wizrobe/magusblue,
-/obj/item/clothing/suit/wizrobe/magusred,
-/obj/item/clothing/head/wizard/magus,
 /obj/structure/closet,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
@@ -596,8 +515,11 @@
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "Bh" = (
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/carpet/red,
+/mob/living/simple_animal/pet/gondola{
+	name = "Jommy";
+	faction = list("gondola", "Wizard")
+	},
+/turf/open/floor/grass,
 /area/deathmatch)
 "Bm" = (
 /obj/effect/landmark/deathmatch_player_spawn,
@@ -605,6 +527,7 @@
 /area/deathmatch)
 "BJ" = (
 /obj/structure/window/green_glass_pane,
+/turf/open/floor/engine/cult,
 /area/deathmatch)
 "Cb" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -641,7 +564,6 @@
 	pixel_x = 6;
 	pixel_y = -10
 	},
-/obj/machinery/light/small/directional/east,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "Cq" = (
@@ -678,7 +600,7 @@
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "DW" = (
-/obj/machinery/computer/shuttle,
+/obj/machinery/computer,
 /turf/open/floor/carpet/red,
 /area/deathmatch)
 "Eh" = (
@@ -771,8 +693,8 @@
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "Hs" = (
-/turf/open/space/basic,
-/area/deathmatch)
+/turf/template_noop,
+/area/template_noop)
 "HM" = (
 /obj/structure/rack,
 /obj/item/knife/ritual{
@@ -796,7 +718,6 @@
 /obj/item/skub{
 	pixel_y = 16
 	},
-/obj/machinery/light/directional/west,
 /turf/open/floor/plastic,
 /area/deathmatch)
 "IE" = (
@@ -819,7 +740,7 @@
 /turf/open/floor/carpet/purple,
 /area/deathmatch)
 "Jm" = (
-/turf/closed/indestructible/riveted/uranium,
+/turf/closed/wall/wizarddeathmatch,
 /area/deathmatch)
 "Jo" = (
 /obj/structure/toilet{
@@ -841,7 +762,7 @@
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "Mg" = (
-/obj/machinery/computer/camera_advanced,
+/obj/machinery/computer,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "Nl" = (
@@ -932,26 +853,20 @@
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "QT" = (
-/obj/machinery/light/small/directional/west,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/mystery_box/tdome,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
 "RB" = (
 /obj/machinery/vending/snack,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
-"RE" = (
-/obj/machinery/light/small/directional/east,
-/turf/open/floor/engine/cult,
-/area/deathmatch)
 "RI" = (
-/obj/item/cautery/alien,
-/obj/structure/closet/crate,
-/obj/item/stack/sticky_tape/super,
-/obj/item/clothing/head/wizard/tape,
-/obj/item/bikehorn/golden{
-	pixel_x = -8;
-	pixel_y = 8
-	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/engine/cult,
 /area/deathmatch)
@@ -982,7 +897,6 @@
 	pixel_x = 8;
 	pixel_y = 2
 	},
-/obj/machinery/light/small/directional/south,
 /obj/effect/light_emitter{
 	set_cap = 2;
 	light_color = "#DEEFFF";
@@ -1066,41 +980,40 @@
 /area/deathmatch)
 
 (1,1,1) = {"
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
 "}
 (2,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -1131,10 +1044,10 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (3,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -1165,10 +1078,10 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (4,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -1199,50 +1112,51 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (5,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
-gn
-gn
-Jm
-Jm
-Jm
-Jm
-Jm
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Jm
+Jm
+Jm
+Jm
+Jm
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
 "}
 (6,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
 Jm
 Jm
 vR
@@ -1264,18 +1178,18 @@ Jm
 Jm
 Jm
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (7,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 Jm
 Jm
 vR
@@ -1295,21 +1209,21 @@ ui
 Fb
 ph
 ph
-QT
+ph
 ph
 RT
 bv
-gn
 Hs
-am
+Hs
+Hs
 "}
 (8,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 BJ
 NK
 iz
@@ -1317,7 +1231,7 @@ ph
 ph
 Gv
 Jm
-GC
+ct
 FL
 Bm
 QH
@@ -1333,17 +1247,17 @@ Eh
 ph
 RT
 bv
-gn
 Hs
-am
+Hs
+Hs
 "}
 (9,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 BJ
 ig
 ph
@@ -1367,21 +1281,21 @@ Vk
 rj
 RT
 bv
-gn
 Hs
-am
+Hs
+Hs
 "}
 (10,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 Jm
 HM
 ph
-cq
+Eh
 Jm
 Jm
 nk
@@ -1400,15 +1314,15 @@ ph
 ph
 Gv
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (11,1,1) = {"
-am
 Hs
-gn
+Hs
+Hs
 BJ
 BJ
 BJ
@@ -1434,13 +1348,13 @@ li
 ph
 Jm
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (12,1,1) = {"
-am
+Hs
 Hs
 BJ
 BJ
@@ -1458,7 +1372,7 @@ ph
 NN
 ph
 ph
-RE
+ph
 ph
 ph
 vR
@@ -1467,19 +1381,19 @@ Jm
 Jm
 ay
 Jm
-gn
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
+Hs
 "}
 (13,1,1) = {"
-am
+Hs
 Hs
 BJ
 Mg
 Fm
-wS
+Hf
 Jm
 Jm
 sf
@@ -1498,20 +1412,20 @@ ph
 ph
 vR
 Jm
-ct
-dY
+fI
+Xv
 Jm
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (14,1,1) = {"
-am
+Hs
 Hs
 BJ
-mb
+Mg
 ph
 ph
 vh
@@ -1537,12 +1451,12 @@ Xv
 fI
 Jm
 Jm
-gn
 Hs
-am
+Hs
+Hs
 "}
 (15,1,1) = {"
-am
+Hs
 Hs
 BJ
 on
@@ -1552,31 +1466,31 @@ Cq
 Cq
 Cq
 Cq
-kC
+Cq
 Cq
 ds
 ds
 Cq
-BJ
+gn
 Zo
 Sa
 xs
 Jm
 OK
 Cq
-Bh
+Cq
 Jm
-ok
+fI
 Xv
 fI
 fI
 RT
 bv
 Hs
-am
+Hs
 "}
 (16,1,1) = {"
-am
+Hs
 Hs
 BJ
 DW
@@ -1591,10 +1505,10 @@ Cq
 ds
 ds
 Cq
-BJ
-Sa
+gn
+Bh
 kl
-Sa
+kC
 Jm
 nx
 iL
@@ -1603,14 +1517,14 @@ jb
 DK
 CM
 rD
-rD
+QT
 Nl
 bv
 Hs
-am
+Hs
 "}
 (17,1,1) = {"
-am
+Hs
 Hs
 BJ
 Es
@@ -1620,19 +1534,19 @@ Cq
 Cq
 Cq
 Cq
-mV
+Cq
 Cq
 ds
 ds
 Cq
-BJ
+gn
 Sa
 pV
 SK
 Jm
 pe
 Cq
-Bh
+Cq
 Jm
 fI
 Xv
@@ -1641,13 +1555,13 @@ fI
 RT
 bv
 Hs
-am
+Hs
 "}
 (18,1,1) = {"
-am
+Hs
 Hs
 BJ
-mb
+Mg
 ph
 ph
 Ok
@@ -1660,8 +1574,8 @@ ds
 ds
 ph
 Jm
-wt
-xs
+SK
+wS
 Jm
 Jm
 ph
@@ -1673,12 +1587,12 @@ Xv
 fI
 Jm
 Jm
-gn
 Hs
-am
+Hs
+Hs
 "}
 (19,1,1) = {"
-am
+Hs
 Hs
 BJ
 Mg
@@ -1706,13 +1620,13 @@ fI
 Xv
 Jm
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (20,1,1) = {"
-am
+Hs
 Hs
 BJ
 BJ
@@ -1730,7 +1644,7 @@ ph
 NN
 ph
 ph
-QT
+ph
 ph
 ph
 vR
@@ -1739,16 +1653,16 @@ Jm
 Jm
 hg
 Jm
-gn
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
+Hs
 "}
 (21,1,1) = {"
-am
 Hs
-gn
+Hs
+Hs
 BJ
 BJ
 BJ
@@ -1766,7 +1680,7 @@ ph
 ph
 Eh
 Gv
-vR
+vh
 Jm
 Jm
 YS
@@ -1774,25 +1688,25 @@ KW
 Ge
 Jm
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (22,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 Jm
 uM
 ph
-eo
+Eh
 Jm
 Jm
-qx
+nk
 IM
 Jm
 Jm
@@ -1808,18 +1722,18 @@ vR
 ph
 lO
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (23,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 BJ
 zO
 ph
@@ -1843,17 +1757,17 @@ KW
 ez
 RT
 bv
-gn
 Hs
-am
+Hs
+Hs
 "}
 (24,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 BJ
 bg
 ph
@@ -1877,17 +1791,17 @@ Eh
 vv
 RT
 bv
-gn
 Hs
-am
+Hs
+Hs
 "}
 (25,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
 Jm
 Jm
 TS
@@ -1911,18 +1825,18 @@ co
 jM
 RT
 bv
-gn
 Hs
-am
+Hs
+Hs
 "}
 (26,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
-gn
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
 Jm
 Jm
 ph
@@ -1944,47 +1858,46 @@ Jm
 Jm
 Jm
 Jm
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
 "}
 (27,1,1) = {"
-am
 Hs
-gn
-gn
-gn
-gn
-gn
-gn
-Jm
-Jm
-Jm
-Jm
-Jm
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
-gn
 Hs
-am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Jm
+Jm
+Jm
+Jm
+Jm
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
 "}
 (28,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -2015,10 +1928,10 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (29,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -2049,10 +1962,10 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (30,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -2083,10 +1996,10 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (31,1,1) = {"
-am
 Hs
 Hs
 Hs
@@ -2117,39 +2030,40 @@ Hs
 Hs
 Hs
 Hs
-am
+Hs
+Hs
 "}
 (32,1,1) = {"
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
+Hs
 "}
