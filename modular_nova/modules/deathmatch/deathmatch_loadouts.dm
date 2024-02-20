@@ -139,6 +139,7 @@
 
 	l_hand = /obj/item/gun/magic/staff/chaos
 	uniform = /obj/item/clothing/under/color/rainbow
+	suit = /obj/item/clothing/suit/wizrobe
 	head = /obj/item/clothing/head/wizard/red
 	shoes = /obj/item/clothing/shoes/sneakers/marisa
 	granted_spells = list(
