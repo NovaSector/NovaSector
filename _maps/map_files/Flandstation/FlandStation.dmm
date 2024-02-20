@@ -32659,9 +32659,10 @@
 "kDJ" = (
 /obj/structure/rack,
 /obj/item/stack/medical/gauze,
-/obj/item/stack/medical/bruise_pack,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/spawner/random/medical/minor_healing,
+/obj/effect/spawner/random/medical/minor_healing,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "kDP" = (
@@ -33671,6 +33672,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/atmospherics_engine)
 "kTO" = (
@@ -33839,6 +33841,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
+"kWj" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/turf_decal/bot,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/station/engineering/storage_shared)
 "kWo" = (
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engineering Locker Room"
@@ -36350,12 +36359,8 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "lKm" = (
-/obj/structure/closet/radiation,
-/obj/item/clothing/glasses/meson{
-	pixel_y = 1
-	},
-/obj/machinery/light/directional/east,
-/turf/open/floor/engine,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/dark,
 /area/station/engineering/atmospherics_engine)
 "lKq" = (
 /obj/structure/disposalpipe/segment{
@@ -44424,6 +44429,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/effect/spawner/random/medical/minor_healing,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "oqM" = (
@@ -50043,10 +50049,11 @@
 /turf/open/floor/plating,
 /area/station/construction)
 "qiV" = (
-/obj/structure/closet/toolcloset,
-/obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/rack,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/iron/dark,
-/area/station/engineering/storage_shared)
+/area/station/maintenance/department/science)
 "qjd" = (
 /obj/machinery/door/airlock{
 	name = "Auxiliary Restroom"
@@ -54888,7 +54895,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/item/pipe_dispenser,
-/obj/machinery/light/directional/west,
 /turf/open/floor/engine,
 /area/station/engineering/atmospherics_engine)
 "rGT" = (
@@ -63143,6 +63149,8 @@
 "ulY" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet,
+/obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/starboard/aft)
 "umv" = (
@@ -72917,6 +72925,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/broken_floor,
+/obj/structure/rack,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "xjB" = (
@@ -76474,6 +76483,9 @@
 "yfi" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
+	},
+/obj/machinery/light/small/directional/south{
+	dir = 8
 	},
 /turf/open/floor/engine,
 /area/station/engineering/atmospherics_engine)
@@ -115433,7 +115445,7 @@ kMf
 lXI
 ioQ
 ioQ
-wtc
+qiV
 uLD
 kHH
 kHH
@@ -121055,8 +121067,8 @@ xtp
 wbm
 npk
 lTe
-qiV
 xcA
+kWj
 kjK
 uaD
 xOt
@@ -130049,7 +130061,7 @@ rDo
 rDo
 rDo
 wkz
-rDo
+lKm
 fJG
 nBz
 bGF
@@ -131591,7 +131603,7 @@ fJG
 fJG
 fJG
 nQV
-lKm
+nQV
 fJG
 hKD
 sbj
