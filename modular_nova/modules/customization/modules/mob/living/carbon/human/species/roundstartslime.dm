@@ -1,4 +1,5 @@
 #define SLIME_ACTIONS_ICON_FILE 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
+
 /datum/species/jelly
 	mutant_bodyparts = list()
 	hair_color = "mutcolor"
