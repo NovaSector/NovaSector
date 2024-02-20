@@ -3,8 +3,8 @@
 	desc = "You are able to shapeshift your body at-will."
 	icon = FA_ICON_SHAPES
 	gain_text = span_purple("Your body feels alterable, malleable.")
-	lose_text = span_notice("Your body loses its pliable, alterable feeling.")
-	medical_record_text = "Patient has an unusual physiology that allows them to physically transform any part of their body."
+	lose_text = span_notice("Your body loses its alterable feeling.")
+	medical_record_text = "Patient has an unusual physiology that allows them to physically transform their body."
 	value = 8
 	veteran_only = TRUE
 	quirk_flags = QUIRK_HUMAN_ONLY
