@@ -856,20 +856,20 @@
 	use_radio_beeps_tts = TRUE
 	flags_inv = NONE
 
-/obj/item/clothing/mask/gas/signalisgaiter/Initialize(mapload)
+/obj/item/clothing/mask/gas/signalis_gaiter/Initialize(mapload)
 	. = ..()
 	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
 	voice_filter = initial(sechailer_type.voice_filter)
 
-/obj/item/clothing/mask/gas/signalisgaiter/attack_self(mob/user)
+/obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
 	adjustmask(user)
 
-/obj/item/clothing/mask/gas/signalisgaiter/AltClick(mob/user)
+/obj/item/clothing/mask/gas/signalis_gaiter/AltClick(mob/user)
 	..()
 	if(user.can_perform_action(src, NEED_DEXTERITY))
 		adjustmask(user)
 
-/obj/item/clothing/mask/gas/signalisgaiter/examine(mob/user)
+/obj/item/clothing/mask/gas/signalis_gaiter/examine(mob/user)
 	. = ..()
 	. += span_notice("Alt-click [src] to adjust it.")
 
@@ -877,9 +877,14 @@
 /obj/item/clothing/under/bodysuit_koruu
 	name = "synthetic nanofiber Automaton bodysuit"
 	desc = "A slim and body fitting suit often equipped by most Automaton Units. Durable, with an emphasis on flexibility, but it can be seen as rather risqué."
+	body_parts_covered = CHEST|GROIN
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "bodysuitkoruu"
+	unique_reskin = list(
+		"Navy" = "bodysuitkoruu",
+		"White" = "bodysuitkoruu_alt",
+	)
 
 // Donation reward for CandleJax
 /obj/item/clothing/head/helmet/space/plasmaman/candlejax2
