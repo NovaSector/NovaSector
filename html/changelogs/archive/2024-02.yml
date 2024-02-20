@@ -167,3 +167,101 @@
   - balance: assemblybombs are bulky
   vinylspiders:
   - bugfix: fixes Numbed alert being added twice while in stasis
+2024-02-19:
+  A.C.M.O.:
+  - qol: Enabled firedoors to automatically close when forced open.
+  - qol: Shortened manual override of firedoors from 10 seconds to 5 seconds.
+  Cursor:
+  - rscadd: Security Officers are now Haram.
+  LT3:
+  - rscadd: The tram has been equipped with enhanced safety glass to reduce the severity
+      of crew injuries
+  Melbert:
+  - admin: You can now set someone's TC to 0
+  - admin: Removing Traitor from automatically removes the uplink from them
+  - admin: Removing Uplink from someone no longer wipes ALL of their memories
+  - bugfix: Lifeline can no longer track mobs with suit sensors off
+  - bugfix: Fixes AI double-click tracking
+  NovaBot13:
+  - bugfix: Maps loaded in after roundstart will no longer have broken smoothing
+  - bugfix: The door above tool storage on birdshot now has maintenance access on
+      it and officials can now enter the CC dock room.
+  - bugfix: Grill checks if the item got deleted to avoid runtimes. Also cook time
+      is set based on the individual items type & not a constant of 20 seconds
+  - bugfix: BBQ ribs can be grilled on a grill but now takes anywhere between 30 to
+      40 seconds to get proper smoked ribs and not lightly smoked ribs or turn into
+      a mouldy mess on a girddle. Delicious.
+  - bugfix: The crystallizer screentip for rotating it has been updated with the correct
+      button
+  - bugfix: mecha drill won't use power & do other checks if the target cannot be
+      drilled.
+  - bugfix: mecha drill will stop drilling if the mech moves even without changing
+      direction. Also will use power & check other conditions every drill cycle.
+  - rscadd: Your mouth now fits combat or survival knives(it's totally safe)
+  - qol: hides the delete button on the main tab allows to reorder all other chat
+      tabs
+  - qol: Circuit multitools can now mark (visible) items worn/held by a mob.
+  - bugfix: forcefully pushing disposal outlets and chutes deconstructs them instead
+      of making them behave like budget eigenstatium lockers
+  - qol: makes the tgui_input_number user friendly for negative and decimal inputs
+  - code_imp: the  onBlur={(_, value) => onBlur(value)} event should now be used on
+      all uses of RestrictedInput to ensure that the number is fully sanitized whenever
+      the user leaves the field or submits it through a button
+  - bugfix: you may not put disposal outlets on cargo shuttle
+  Paxilmaniac:
+  - balance: Synths can now use twitch (and by extension, the qani-laaca computer),
+      both synths and those with vein muscles will be heated up massively by twitch,
+      rather than taking heart damage.
+  - bugfix: The radial blur overlay for twitch now once again works properly, meaning
+      you won't be basically entirely blinded by it anymore.
+  Rhials:
+  - bugfix: Removes the double-newscaster from the arrivals sec post.
+2024-02-20:
+  Melbert:
+  - rscadd: Valentines Day now polls all players for candidates when it triggers rather
+      than forcing all players to be a Valentine. Consent is important.
+  - rscadd: Valentine silicons now gain special laws pertaining to their date.
+  - qol: Valentines Cards are now paper, so you can write on them, stamp them, or
+      burn them.
+  - qol: Valentine's roundend report no longer takes up a massive amount of space
+      and also no longer sound so, so weird.
+  NovaBot13:
+  - code_imp: deathmatch lobbies take 8 seconds to start as to give lighting a breather
+  - bugfix: multiple reactions occuring in the same holder like mixing drinks will
+      yield correct reagent result volumes
+  - code_imp: ' Removes `update_total()` from instant reactions improving performance
+      slightly'
+  - code_imp: merges `remove_all_direct()` with `remove_all()` to reduce code size
+  - qol: adds examines & screentips for crowbar, screwdriver acts to BRM & refinery
+      machines
+  - qol: adds examines about the number of boulders stored & processed to BRM & refinery
+      machines
+  - qol: BRM now has its lights turn on/off depending on wether automatic boulder
+      retrieval is on/off for visual clarity along with examines
+  - qol: refinery machines now display ballon alerts & plays sounds more frequently
+      when processing boulders for better feedback
+  - bugfix: vents now spawn boulders of all sizes & not just small ones
+  - bugfix: expanded gulag boulders now have correct materials in them.
+  - bugfix: manual tapping of vents now has a cooldown applied as intended.
+  - bugfix: BRM has its light turned off when area power goes off
+  - bugfix: boulders ejected from refineries by hand no longer teleport all over the
+      place occasionally.
+  - bugfix: refineries no longer eject boulders with 0 durability
+  - bugfix: Boulders & refineries no longer pile up on top of BRM's & refineries in
+      long rounds. Their locs have to be clear of boulders before they spit out more
+      boulders to prevent a large pile of boulders from causing lag
+  - bugfix: sheets ejected from lathes no longer get rejected when inserted back which
+      could happen at random, no more boulders with empty materials
+  - code_imp: splits boulder types into its own file along with other items
+  - code_imp: merges & autodocs procs, vars related to boulders
+  - refactor: repaths BRM to a simpler subtype
+  - refactor: BRM now spawns boulders in batches(batch size can be increased with
+      upgraded parts) with a boulder appearing every second. After a batch is processed
+      a 3 second cooldown is applied to stop the conveyer belt from clogging up, With
+      this BRM wires are removed as there is no need for timers to be attached to
+      wires which intefers without our batch processing timings.
+  - bugfix: Regenerative cores (and other monster organs) now work when using it in-hand
+      while resting.
+  - rscadd: deathmatch minigame
+  - bugfix: boulders are no longer lost when teleported by the BRM
+  - bugfix: batch processing cooldown works when teleporting multiple boulders
