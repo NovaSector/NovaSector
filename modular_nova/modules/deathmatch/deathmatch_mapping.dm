@@ -46,4 +46,8 @@ GLOBAL_LIST_INIT(mystery_wands, list(
 
 /datum/action/cooldown/spell/rod_form/deathmatch
 	name = "Unrestricted Rod Form"
-	spell_requirements = SPELL_REQUIRES_WIZARD_GARB|SPELL_REQUIRES_NO_ANTIMAGIC
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
+
+/datum/action/cooldown/spell/conjure/the_traps/deathmatch
+	name = "Unrestricted The Traps"
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC

@@ -139,11 +139,12 @@
 
 	l_hand = /obj/item/gun/magic/staff/chaos
 	uniform = /obj/item/clothing/under/color/rainbow
+	suit = /obj/item/clothing/suit/costume/hawaiian
 	head = /obj/item/clothing/head/wizard/red
 	shoes = /obj/item/clothing/shoes/sneakers/marisa
 	granted_spells = list(
 		/datum/action/cooldown/spell/rod_form/deathmatch,
-		/datum/action/cooldown/spell/conjure/the_traps,
+		/datum/action/cooldown/spell/conjure/the_traps/deathmatch,
 	)
 
 /datum/outfit/deathmatch_loadout/wizard/clown
