@@ -4,10 +4,10 @@
 	desc = "It's wizard time, motherfucker! FIREBALL!!"
 
 	l_hand = /obj/item/staff
-	uniform = /obj/item/clothing/under/color/lightpurple
-	suit = /obj/item/clothing/suit/wizrobe
-	head = /obj/item/clothing/head/wizard
-	shoes = /obj/item/clothing/shoes/sandal/magic
+	uniform = /datum/outfit/wizard::uniform
+	suit = /datum/outfit/wizard::suit
+	head = /datum/outfit/wizard::head
+	shoes = /datum/outfit/wizard::shoes
 	granted_spells = list(
 		/datum/action/cooldown/spell/aoe/magic_missile,
 		/datum/action/cooldown/spell/forcewall,
@@ -139,7 +139,6 @@
 
 	l_hand = /obj/item/gun/magic/staff/chaos
 	uniform = /obj/item/clothing/under/color/rainbow
-	suit = /obj/item/clothing/suit/wizrobe
 	head = /obj/item/clothing/head/wizard/red
 	shoes = /obj/item/clothing/shoes/sneakers/marisa
 	granted_spells = list(
