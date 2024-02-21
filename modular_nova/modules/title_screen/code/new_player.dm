@@ -65,6 +65,17 @@
 		play_lobby_button_sound()
 		GLOB.latejoin_menu.ui_interact(usr)
 
+	if(href_list["display_polls"])
+		handle_player_polling()
+
+	if (href_list["viewpoll"])
+		var/datum/poll_question/poll = locate(href_list["viewpoll"]) in GLOB.polls
+		poll_player(poll)
+
+	if (href_list["votepollref"])
+		var/datum/poll_question/poll = locate(href_list["votepollref"]) in GLOB.polls
+		vote_on_poll_handler(poll, href_list)
+
 	if(href_list["title_is_ready"])
 		title_screen_is_ready = TRUE
 		return
@@ -170,9 +181,9 @@
 		qdel(query_get_new_polls)
 		return
 	if(query_get_new_polls.NextRow())
-		output +={"<a class="menu_button menu_newpoll" href='?src=[text_ref(src)];viewpoll=1'>POLLS (NEW)</a>"}
+		output +={"<a class="menu_button menu_newpoll" href='?src=[text_ref(src)];display_polls=1'>POLLS (NEW)</a>"}
 	else
-		output +={"<a class="menu_button" href='?src=[text_ref(src)];viewpoll=1'>POLLS</a>"}
+		output +={"<a class="menu_button" href='?src=[text_ref(src)];display_polls=1'>POLLS</a>"}
 	qdel(query_get_new_polls)
 	if(QDELETED(src))
 		return
