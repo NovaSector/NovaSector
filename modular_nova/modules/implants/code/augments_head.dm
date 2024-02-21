@@ -47,7 +47,7 @@
 	return ..()
 
 /obj/item/autosurgeon/syndicate/sandy
-	name = "Qani-Laaca sensory computer autosurgeon"
+	name = "\improper Qani-Laaca sensory computer autosurgeon"
 	starting_organ = /obj/item/organ/internal/cyberimp/sensory_enhancer
 
 /datum/bodypart_overlay/simple/sensory_enhancer
