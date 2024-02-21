@@ -7545,7 +7545,7 @@
 /area/station/commons/dorms)
 "crT" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/floor/wood,
 /area/station/commons/dorms)
 "crV" = (
@@ -22423,13 +22423,13 @@
 /obj/machinery/conveyor{
 	id = "mining"
 	},
-/obj/machinery/bouldertech/brm,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
 	},
+/obj/machinery/brm,
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "gOP" = (
@@ -75580,8 +75580,8 @@
 /obj/structure/bed/double{
 	dir = 4
 	},
-/obj/item/bedsheet/dorms_double{
-	dir = 4
+/obj/effect/spawner/random/bedsheet/double{
+	dir = 1
 	},
 /turf/open/floor/wood,
 /area/station/commons/dorms)
