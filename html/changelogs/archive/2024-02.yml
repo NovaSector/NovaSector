@@ -216,3 +216,80 @@
       you won't be basically entirely blinded by it anymore.
   Rhials:
   - bugfix: Removes the double-newscaster from the arrivals sec post.
+2024-02-20:
+  Melbert:
+  - rscadd: Valentines Day now polls all players for candidates when it triggers rather
+      than forcing all players to be a Valentine. Consent is important.
+  - rscadd: Valentine silicons now gain special laws pertaining to their date.
+  - qol: Valentines Cards are now paper, so you can write on them, stamp them, or
+      burn them.
+  - qol: Valentine's roundend report no longer takes up a massive amount of space
+      and also no longer sound so, so weird.
+  NovaBot13:
+  - code_imp: deathmatch lobbies take 8 seconds to start as to give lighting a breather
+  - bugfix: multiple reactions occuring in the same holder like mixing drinks will
+      yield correct reagent result volumes
+  - code_imp: ' Removes `update_total()` from instant reactions improving performance
+      slightly'
+  - code_imp: merges `remove_all_direct()` with `remove_all()` to reduce code size
+  - qol: adds examines & screentips for crowbar, screwdriver acts to BRM & refinery
+      machines
+  - qol: adds examines about the number of boulders stored & processed to BRM & refinery
+      machines
+  - qol: BRM now has its lights turn on/off depending on wether automatic boulder
+      retrieval is on/off for visual clarity along with examines
+  - qol: refinery machines now display ballon alerts & plays sounds more frequently
+      when processing boulders for better feedback
+  - bugfix: vents now spawn boulders of all sizes & not just small ones
+  - bugfix: expanded gulag boulders now have correct materials in them.
+  - bugfix: manual tapping of vents now has a cooldown applied as intended.
+  - bugfix: BRM has its light turned off when area power goes off
+  - bugfix: boulders ejected from refineries by hand no longer teleport all over the
+      place occasionally.
+  - bugfix: refineries no longer eject boulders with 0 durability
+  - bugfix: Boulders & refineries no longer pile up on top of BRM's & refineries in
+      long rounds. Their locs have to be clear of boulders before they spit out more
+      boulders to prevent a large pile of boulders from causing lag
+  - bugfix: sheets ejected from lathes no longer get rejected when inserted back which
+      could happen at random, no more boulders with empty materials
+  - code_imp: splits boulder types into its own file along with other items
+  - code_imp: merges & autodocs procs, vars related to boulders
+  - refactor: repaths BRM to a simpler subtype
+  - refactor: BRM now spawns boulders in batches(batch size can be increased with
+      upgraded parts) with a boulder appearing every second. After a batch is processed
+      a 3 second cooldown is applied to stop the conveyer belt from clogging up, With
+      this BRM wires are removed as there is no need for timers to be attached to
+      wires which intefers without our batch processing timings.
+  - bugfix: Regenerative cores (and other monster organs) now work when using it in-hand
+      while resting.
+  - rscadd: deathmatch minigame
+  - bugfix: boulders are no longer lost when teleported by the BRM
+  - bugfix: batch processing cooldown works when teleporting multiple boulders
+2024-02-21:
+  LT3:
+  - qol: Air alarms now display the source of triggered fire alarms/firedoors
+  LemonInTheDark, Kryson:
+  - image: Modified railing sprites to be a bit more three-d
+  NovaBot13:
+  - bugfix: The North Star's disposals are now functional!
+  - qol: The North Star has had a staggering amount of quality of life changes.
+  - rscadd: Nanotrasen has now supplied North Star security outposts with a disposals
+      line leading directly to the drunk tank.
+  - rscadd: Curators now get a 22.5% cut on credits spent on painting patronages (divided
+      by the number of curators). The service department also gets another, 12.5%
+      cut.
+  - qol: Added a zoom in and out buttons to the painting UI.
+  - bugfix: fixed an issue with tactical appearance (potted plants / cardboard cutouts)
+      not going away after giving the item to someone else.
+  - bugfix: Fixed slaughter demon cutouts being invisible. Also fixed another issue
+      with the tactical appearance not going away when the cardboard cutout is pushed
+      down.
+  - bugfix: Ethereal heart revive doesn't delete organs alien to your species, like
+      prosthetics, cybernetics, and possibly itself.
+  - bugfix: Nightmare heart revive doesn't delete organs alien to your species, like
+      itself, upon which it would stop the conversion to shadowperson.
+  - bugfix: you may not teleport in or out of deathmatch arenas
+  - bugfix: The DNA scanner's joker button no longer instantly activates itself when
+      the cooldown between uses is done.
+  - bugfix: if you died as a changeling/anyone that has cool mind spells you do not
+      get them in deathmatch

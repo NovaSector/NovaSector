@@ -170,7 +170,7 @@
 			if(AROUSAL_NONE)
 				returned_string += " It seems flaccid."
 			if(AROUSAL_PARTIAL)
-				returned_string += " It's partically erect."
+				returned_string += " It's partially erect."
 			if(AROUSAL_FULL)
 				returned_string += " It's fully erect."
 	return returned_string

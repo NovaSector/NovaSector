@@ -840,6 +840,52 @@
 	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
 	voice_filter = initial(sechailer_type.voice_filter)
 
+// Donation reward for Koruu
+/obj/item/clothing/mask/gas/signalis_gaiter
+	name = "synthetic nanofiber gaiter"
+	desc = "A slim black synthetic cloth that covers the mouth. Often in used by the S.O.K.O Models. "
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "siggaiter"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	actions_types = list(/datum/action/item_action/adjust)
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	use_radio_beeps_tts = TRUE
+	flags_inv = NONE
+
+/obj/item/clothing/mask/gas/signalis_gaiter/Initialize(mapload)
+	. = ..()
+	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
+	voice_filter = initial(sechailer_type.voice_filter)
+
+/obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
+	adjustmask(user)
+
+/obj/item/clothing/mask/gas/signalis_gaiter/AltClick(mob/user)
+	..()
+	if(user.can_perform_action(src, NEED_DEXTERITY))
+		adjustmask(user)
+
+/obj/item/clothing/mask/gas/signalis_gaiter/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click [src] to adjust it.")
+
+// Donation reward for Koruu
+/obj/item/clothing/under/bodysuit_koruu
+	name = "synthetic nanofiber Automaton bodysuit"
+	desc = "A slim and body fitting suit often equipped by most Automaton Units. Durable, with an emphasis on flexibility, but it can be seen as rather risqué."
+	body_parts_covered = CHEST|GROIN
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "bodysuitkoruu"
+	unique_reskin = list(
+		"Navy" = "bodysuitkoruu",
+		"White" = "bodysuitkoruu_alt",
+	)
+
 // Donation reward for CandleJax
 /obj/item/clothing/head/helmet/space/plasmaman/candlejax2
 	name = "azulean's environment helmet"
