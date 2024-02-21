@@ -282,7 +282,7 @@ GLOBAL_LIST_EMPTY(tcgcard_machine_radial_choices)
 #undef DEFAULT_MODIFIED_COLOR
 
 /obj/effect/overlay/card_summon
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	mouse_opacity = 0
 
 ///A button that generates a player manipulable bar of icons, in this case a mana bar.
 /obj/machinery/trading_card_button
