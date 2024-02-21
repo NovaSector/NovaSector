@@ -44,7 +44,7 @@
 
 /obj/structure/antfarm/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	new /obj/item/stack/ore/glass/twenty(get_turf(src))
+	new /obj/item/stack/ore/glass(get_turf(src), 20)
 	return ..()
 
 /obj/structure/antfarm/process(seconds_per_tick)
@@ -67,12 +67,12 @@
 	. = ..()
 	. += span_notice("<br>There are currently [has_ants ? "" : "no "]ants in the farm.")
 	if(!has_ants)
-		. += span_notice("To add ants, feed the farm some food.")
+		. += span_notice("To add ants, feed the farm some <b>food</b>.")
 
 /obj/structure/antfarm/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/food))
 		if(has_ants)
-			balloon_alert(user, "ants are blocking the way!")
+			balloon_alert(user, "ants block the way!")
 			return
 
 		qdel(attacking_item)
@@ -82,7 +82,7 @@
 
 	if(istype(attacking_item, /obj/item/storage/bag/plants))
 		if(has_ants)
-			balloon_alert(user, "ants are blocking the way!")
+			balloon_alert(user, "ants block the way!")
 			return
 
 		balloon_alert(user, "feeding the ants")
@@ -96,6 +96,3 @@
 		return
 
 	return ..()
-
-/obj/item/stack/ore/glass/twenty
-	amount = 20
