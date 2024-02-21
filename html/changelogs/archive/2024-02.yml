@@ -265,3 +265,31 @@
   - rscadd: deathmatch minigame
   - bugfix: boulders are no longer lost when teleported by the BRM
   - bugfix: batch processing cooldown works when teleporting multiple boulders
+2024-02-21:
+  LT3:
+  - qol: Air alarms now display the source of triggered fire alarms/firedoors
+  LemonInTheDark, Kryson:
+  - image: Modified railing sprites to be a bit more three-d
+  NovaBot13:
+  - bugfix: The North Star's disposals are now functional!
+  - qol: The North Star has had a staggering amount of quality of life changes.
+  - rscadd: Nanotrasen has now supplied North Star security outposts with a disposals
+      line leading directly to the drunk tank.
+  - rscadd: Curators now get a 22.5% cut on credits spent on painting patronages (divided
+      by the number of curators). The service department also gets another, 12.5%
+      cut.
+  - qol: Added a zoom in and out buttons to the painting UI.
+  - bugfix: fixed an issue with tactical appearance (potted plants / cardboard cutouts)
+      not going away after giving the item to someone else.
+  - bugfix: Fixed slaughter demon cutouts being invisible. Also fixed another issue
+      with the tactical appearance not going away when the cardboard cutout is pushed
+      down.
+  - bugfix: Ethereal heart revive doesn't delete organs alien to your species, like
+      prosthetics, cybernetics, and possibly itself.
+  - bugfix: Nightmare heart revive doesn't delete organs alien to your species, like
+      itself, upon which it would stop the conversion to shadowperson.
+  - bugfix: you may not teleport in or out of deathmatch arenas
+  - bugfix: The DNA scanner's joker button no longer instantly activates itself when
+      the cooldown between uses is done.
+  - bugfix: if you died as a changeling/anyone that has cool mind spells you do not
+      get them in deathmatch
