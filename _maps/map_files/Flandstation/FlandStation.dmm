@@ -4140,10 +4140,11 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "bmJ" = (
-/obj/effect/turf_decal/stripes/full,
-/obj/machinery/door/firedoor,
-/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "bmK" = (
@@ -5839,14 +5840,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/main)
-"bSH" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 "bSV" = (
 /obj/structure/chair,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
@@ -33841,13 +33834,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
-"kWj" = (
-/obj/structure/closet/toolcloset,
-/obj/effect/turf_decal/bot,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/engineering/storage_shared)
 "kWo" = (
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Engineering Locker Room"
@@ -68734,6 +68720,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/starboard/aft)
+"vVc" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/turf_decal/bot,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/station/engineering/storage_shared)
 "vVe" = (
 /obj/effect/landmark/generic_maintenance_landmark,
 /turf/open/floor/plating,
@@ -93811,7 +93804,7 @@ oBk
 iCD
 nvW
 taP
-tXu
+bmJ
 gVp
 qHI
 gzo
@@ -95621,7 +95614,7 @@ uMd
 uMd
 uMd
 uMd
-bmJ
+wRk
 uMd
 uMd
 uMd
@@ -95878,7 +95871,7 @@ wyy
 wyy
 wyy
 wyy
-bSH
+cSe
 wyy
 wyy
 wyy
@@ -121068,7 +121061,7 @@ wbm
 npk
 lTe
 xcA
-kWj
+vVc
 kjK
 uaD
 xOt
