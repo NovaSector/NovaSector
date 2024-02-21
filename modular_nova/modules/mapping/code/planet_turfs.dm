@@ -60,7 +60,7 @@
 	icon = 'modular_nova/modules/mapping/icons/dungeon.dmi'
 	icon_state = "deep_snow"
 	density = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 	vis_flags = NONE
