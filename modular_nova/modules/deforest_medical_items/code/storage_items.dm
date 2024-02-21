@@ -99,7 +99,6 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi,
-
 	)
 
 /obj/item/storage/medkit/civil_defense/thunderdome/Initialize(mapload)
