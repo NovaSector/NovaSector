@@ -20950,7 +20950,7 @@
 "geA" = (
 /obj/machinery/door/window/left/directional/east{
 	name = "Animal Pen A";
-	req_access = list("maintenance")
+	req_access = list("maint_tunnels")
 	},
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
@@ -62413,7 +62413,7 @@
 "rrI" = (
 /obj/machinery/door/window/left/directional/west{
 	name = "Animal Pen B";
-	req_access = list("maintenance")
+	req_access = list("maint_tunnels")
 	},
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
