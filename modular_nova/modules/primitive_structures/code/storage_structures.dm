@@ -57,7 +57,7 @@
 	icon_state = "producebin"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/produce_bin
 	base_icon_state = "produce"
 	use_power = NO_POWER_USE
@@ -96,7 +96,7 @@
 	icon_state = "seedshelf"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/seed_shelf
 	base_icon_state = "seed"
 	use_power = NO_POWER_USE
@@ -128,7 +128,7 @@
 	icon_state = "rationshelf"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/ration_shelf
 	base_icon_state = "ration"
 	use_power = NO_POWER_USE
@@ -160,7 +160,7 @@
 	icon_state = "producedisplay"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/produce_display
 	base_icon_state = "nonfood"
 	use_power = NO_POWER_USE
