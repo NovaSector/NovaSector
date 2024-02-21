@@ -64,6 +64,7 @@
 	if(href_list["late_join"])
 		play_lobby_button_sound()
 		GLOB.latejoin_menu.ui_interact(usr)
+		return
 
 	if(href_list["display_polls"])
 		handle_player_polling()
