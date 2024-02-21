@@ -92,9 +92,12 @@
 	id = /obj/item/card/id/advanced/tarkon/engi
 	id_trim = /datum/id_trim/away/tarkon/eng
 	neck = /obj/item/clothing/neck/security_cape/tarkon
-	l_hand = /obj/item/inducer
 	l_pocket = /obj/item/tank/internals/emergency_oxygen/engi
 	r_pocket = /obj/item/stack/cable_coil
+	backpack_contents = list(
+		/obj/item/crowbar = 1,
+		/obj/item/inducer = 1
+		)
 
 /obj/effect/mob_spawn/ghost_role/human/tarkon/sec
 	prompt_name = "a port security member"
@@ -118,7 +121,7 @@
 	icon_state = "sleeper-o"
 	you_are_text = "You were tasked by Tarkon Industries to Port Tarkon as a low-level command member. Your superior is the site director."
 	flavour_text = "Second in command, you are usually tasked with outward missions with other Tarkon members while the site director stays at the port. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
-	important_text = "You are not to abandon Port Tarkon without reason. You are allowed to travel within available Z-levels and to the station, and are allowed to hold exploration parties."
+	important_text = "This is Not a job ment for Non-Tarkon specific Characters. You are not to abandon Port Tarkon without reason. You are allowed to travel within available Z-levels and to the station, and are allowed to hold exploration parties."
 	outfit = /datum/outfit/tarkon/ensign
 	spawner_job_path = /datum/job/tarkon
 
@@ -137,7 +140,7 @@
 	icon_state = "sleeper"
 	you_are_text = "You are a newly assigned Site Director for Port Tarkon. Your superiors are none except the will of yourself and Tarkon Industries."
 	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked with overlooking your crew and keeping the port up and running. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
-	important_text = "You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
+	important_text = "This is Not a job ment for Non-Tarkon specific Characters. You are not to abandon Port Tarkon. Check other sleepers for alternative jobs."
 	outfit = /datum/outfit/tarkon/director
 	spawner_job_path = /datum/job/tarkon
 	loadout_enabled = TRUE
@@ -178,21 +181,23 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "corpseminer"
 	outfit = /datum/outfit/tarkon/loot
 
+#define ROLE_TARKALIEN "Xenomorph Hive T-35"
+
 /obj/structure/spawner/tarkon_xenos
 	name = "infested warren"
 	desc = "A deep tunnel that goes deeper than any light can reach. A distant roaring could be heard within..."
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
 	max_integrity = 500
-	max_mobs = 7
-	spawn_time = 20 SECONDS
+	max_mobs = 4
+	spawn_time = 30 SECONDS
 	mob_types = list(
 		/mob/living/simple_animal/hostile/alien,
 		/mob/living/simple_animal/hostile/alien/drone,
 		/mob/living/simple_animal/hostile/alien/sentinel
 	)
 	spawn_text = "crawls out of"
-	faction = list(ROLE_ALIEN)
+	faction = list(ROLE_TARKALIEN)
 	var/boss_mob = /mob/living/simple_animal/hostile/alien/queen/large
 	var/loot_drop = /obj/effect/mob_spawn/corpse/human/tarkon
 
@@ -235,8 +240,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
 	max_integrity = 300
-	max_mobs = 4
-	spawn_time = 30 SECONDS
+	max_mobs = 2
+	spawn_time = 40 SECONDS
 	boss_mob = /mob/living/simple_animal/hostile/alien/queen
 	loot_drop = /obj/effect/spawner/random/astrum/sci_loot/tarkon
 
@@ -246,8 +251,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	icon_state = "hole"
 	icon = 'icons/mob/simple/lavaland/nest.dmi'
 	max_integrity = 150
-	max_mobs = 2
-	spawn_time = 30 SECONDS
+	max_mobs = 1
+	spawn_time = 40 SECONDS
 	mob_types = list(
 		/mob/living/simple_animal/hostile/alien,
 		/mob/living/simple_animal/hostile/alien/drone

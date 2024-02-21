@@ -91,6 +91,16 @@
 	item_path = /obj/item/clothing/under/plasmaman/candlejax
 	ckeywhitelist = list("candlejax")
 
+/datum/loadout_item/mask/divemask_koru
+	name = "S.O.K.O. Gaiter"
+	item_path = /obj/item/clothing/mask/gas/signalis_gaiter
+	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf")
+
+/datum/loadout_item/under/jumpsuit/divesuit_koru
+	name = "S.O.K.O. Bodysuit"
+	item_path = /obj/item/clothing/under/bodysuit_koruu
+	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf")
+
 /datum/loadout_item/under/jumpsuit/anasuit
 	name = "Azulean's Enviro-Suit"
 	item_path = /obj/item/clothing/under/plasmaman/candlejax2

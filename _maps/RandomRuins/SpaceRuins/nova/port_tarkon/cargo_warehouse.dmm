@@ -150,17 +150,17 @@
 /turf/template_noop,
 /area/template_noop)
 "T" = (
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/structure/rack/shelf,
 /turf/template_noop,
 /area/template_noop)
@@ -255,7 +255,7 @@ S
 E
 N
 E
-E
+w
 E
 "}
 (9,1,1) = {"
@@ -273,7 +273,7 @@ B
 E
 R
 E
-w
+E
 E
 "}
 (11,1,1) = {"
@@ -283,7 +283,7 @@ E
 E
 w
 i
-E
+w
 "}
 (12,1,1) = {"
 T

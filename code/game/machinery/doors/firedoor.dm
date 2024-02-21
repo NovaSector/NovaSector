@@ -74,9 +74,12 @@
 
 /obj/machinery/door/firedoor/Initialize(mapload)
 	. = ..()
+	id_tag = assign_random_name()
 	soundloop = new(src, FALSE)
 	CalculateAffectingAreas()
 	my_area = get_area(src)
+	if(name == initial(name))
+		update_name()
 	if(!merger_typecache)
 		merger_typecache = typecacheof(/obj/machinery/door/firedoor)
 
@@ -180,6 +183,10 @@
 
 	return .
 
+/obj/machinery/door/firedoor/update_name(updates)
+	. = ..()
+	name = "[get_area_name(my_area)] [initial(name)] [id_tag]"
+
 /**
  * Calculates what areas we should worry about.
  *
@@ -272,11 +279,14 @@
 
 /obj/machinery/door/firedoor/proc/check_atmos(turf/checked_turf)
 	var/datum/gas_mixture/environment = checked_turf.return_air()
+	if(!environment)
+		stack_trace("We tried to check a gas_mixture that doesn't exist for its firetype, what are you DOING")
+		return
 
 	var/pressure = environment?.return_pressure() //NOVA EDIT ADDITION - Micro optimisation
-	if(environment?.temperature >= BODYTEMP_HEAT_DAMAGE_LIMIT || pressure > WARNING_HIGH_PRESSURE) //NOVA EDIT CHANGE - BETTER LOCKS
+	if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST || pressure > WARNING_HIGH_PRESSURE) //NOVA EDIT CHANGE ADDITION - ORIGINAL: if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return FIRELOCK_ALARM_TYPE_HOT
-	if(environment?.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT || pressure < WARNING_LOW_PRESSURE) //NOVA EDIT CHANGE - BETTER LOCKS
+	if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT || pressure < WARNING_LOW_PRESSURE) //NOVA EDIT CHANGE ADDITION - ORIGINAL: if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
 	return
 
@@ -321,6 +331,8 @@
 		return //We're already active
 	soundloop.start()
 	is_playing_alarm = TRUE
+	my_area.fault_status = AREA_FAULT_AUTOMATIC
+	my_area.fault_location = name
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
 	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
 		buddylock.activate(code)
@@ -333,6 +345,8 @@
 /obj/machinery/door/firedoor/proc/start_deactivation_process()
 	soundloop.stop()
 	is_playing_alarm = FALSE
+	my_area.fault_status = AREA_FAULT_NONE
+	my_area.fault_location = null
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
 	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
 		buddylock.reset()
@@ -369,7 +383,7 @@
 		if(LAZYLEN(place.active_firelocks) != 1)
 			continue
 		//if we're the first to activate in this particular area
-		place.set_fire_effect(TRUE) //bathe in red
+		place.set_fire_effect(TRUE, AREA_FAULT_AUTOMATIC, name) //bathe in red
 		if(place == my_area)
 			// We'll limit our reporting to just the area we're on. If the issue affects bordering areas, they can report it themselves
 			place.alarm_manager.send_alarm(ALARM_FIRE, place)
@@ -429,7 +443,7 @@
 		LAZYREMOVE(place.active_firelocks, src)
 		if(LAZYLEN(place.active_firelocks)) // If we were the last firelock still active, clear the area effects
 			continue
-		place.set_fire_effect(FALSE)
+		place.set_fire_effect(FALSE, AREA_FAULT_NONE, name)
 		if(place == my_area)
 			place.alarm_manager.clear_alarm(ALARM_FIRE, place)
 
@@ -656,20 +670,18 @@
 	if(old_activity != active) //Something changed while we were sleeping
 		correct_state() //So we should re-evaluate our state
 
-/obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
-	if(!(obj_flags & NO_DECONSTRUCTION))
-		var/turf/targetloc = get_turf(src)
-		if(disassembled || prob(40))
-			var/obj/structure/firelock_frame/unbuilt_lock = new assemblytype(targetloc)
-			if(disassembled)
-				unbuilt_lock.constructionStep = CONSTRUCTION_PANEL_OPEN
-			else
-				unbuilt_lock.constructionStep = CONSTRUCTION_NO_CIRCUIT
-				unbuilt_lock.update_integrity(unbuilt_lock.max_integrity * 0.5)
-			unbuilt_lock.update_appearance()
+/obj/machinery/door/firedoor/on_deconstruction(disassembled)
+	var/turf/targetloc = get_turf(src)
+	if(disassembled || prob(40))
+		var/obj/structure/firelock_frame/unbuilt_lock = new assemblytype(targetloc)
+		if(disassembled)
+			unbuilt_lock.constructionStep = CONSTRUCTION_PANEL_OPEN
 		else
-			new /obj/item/electronics/firelock (targetloc)
-	qdel(src)
+			unbuilt_lock.constructionStep = CONSTRUCTION_NO_CIRCUIT
+			unbuilt_lock.update_integrity(unbuilt_lock.max_integrity * 0.5)
+		unbuilt_lock.update_appearance()
+	else
+		new /obj/item/electronics/firelock (targetloc)
 
 /obj/machinery/door/firedoor/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()

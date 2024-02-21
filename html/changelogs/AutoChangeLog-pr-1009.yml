@@ -1,0 +1,5 @@
+author: "Lutowski"
+delete-after: True
+changes:
+  - image: "Slightly alters variants of the Research Director's labcoat sprite to appear less bloated."
+  - rscadd: "Adds regular labcoat, a normal variant of the RD labcoat without armor buffs to the loadout."
