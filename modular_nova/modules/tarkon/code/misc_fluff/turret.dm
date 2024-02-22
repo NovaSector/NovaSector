@@ -96,14 +96,20 @@
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	var/scan_range = 7
+	////// the range it can scan at.
+	var/scan_range = 10
+	////// how many turrets it can have. changable incase of better ones wanted.
 	var/turret_limit = 3
+	////// the currently linked turrets.
 	var/linked_turrets = list()
+	////// the target currently being targeted.
 	var/acquired_target = null
+	////// how long the target can be focused. changable incase of better ones wanted.
+	var/acquisition_duration = 5 SECONDS
 
 /obj/item/target_designator/examine(mob/user)
 	. = ..()
-	. += span_notice("[length(linked_turrets)]/[turret_limit] turrets linked.")
+	. += span_notice("<b>[length(linked_turrets)]/[turret_limit]</b> turrets linked.")
 
 
 /obj/item/target_designator/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
@@ -118,7 +124,7 @@
 		return
 
 	designate_enemy(target, user)
-	addtimer(CALLBACK(src, PROC_REF(clear_target), user), 5 SECONDS) //clears after 5 seconds. to avoid issues.
+	addtimer(CALLBACK(src, PROC_REF(clear_target), user), acquisition_duration) //clears after 5 seconds. to avoid issues.
 	return
 
 /obj/item/target_designator/afterattack_secondary(atom/movable/target, mob/user, proximity_flag, click_parameters)
@@ -167,15 +173,24 @@
 	ignore_faction = TRUE
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed.
 	faction = list()
-	var/target_acquisition = null //This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
-	var/allies = list() //Ally system.
-	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
-	var/casing_ejector = TRUE // Do we want it to eject casings?
-	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed //what box should this spawn with if its map_spawned?
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box //Container of the turret. Needs expanded ref.
-	var/obj/item/ammo_box/magazine/magazine = null // Magazine inside the turret.
-	var/obj/item/ammo_casing/chambered = null // currently loaded bullet
-	var/obj/item/target_designator/linkage = null // linked targeter.
+	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
+	var/target_acquisition = null
+	//////Ally system.
+	var/allies = list()
+	//////Do we want this to shut up? Mostly for testing and debugging purposes purposes.
+	var/claptrap_moment = FALSE
+	////// Do we want it to eject casings?
+	var/casing_ejector = TRUE
+	//////what box should this spawn with if its map_spawned?
+	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed
+	//////Container of the turret. Needs expanded ref.
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box
+	////// Magazine inside the turret.
+	var/obj/item/ammo_box/magazine/magazine = null
+	////// currently loaded bullet
+	var/obj/item/ammo_casing/chambered = null
+	////// linked target designator
+	var/obj/item/target_designator/linkage = null
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
@@ -194,7 +209,7 @@
 		. += span_notice("You can unlink it by <b>right-clicking</b> with a target designator.")
 		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
 		if(linkage)
-			. += span_notice("This turret is currently linked!")
+			. += span_notice("<b><i>This turret is currently linked!</i></b>")
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	if(chambered)
