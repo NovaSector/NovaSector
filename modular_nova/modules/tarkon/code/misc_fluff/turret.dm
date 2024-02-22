@@ -55,7 +55,7 @@
 		turret.allies += REF(user)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(!istype(attacking_item, /obj/item/wrench))
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 
 	if(in_contents_of(user))
@@ -268,6 +268,7 @@
 			balloon_alert_to_viewers("Loading Cartridge")
 		chambered = magazine.get_round(keep = FALSE)
 		chambered.forceMove(src)
+		playsound(src, 'sound/weapons/gun/general/bolt_rack.ogg', 10, TRUE)
 		if(replace_new_round) //For edge-case additions later in the road.
 			magazine.give_round(new chambered.type)
 
@@ -280,6 +281,7 @@
 			UnregisterSignal(magazine, COMSIG_MOVABLE_MOVED)
 			magazine = null
 	load_mag()
+	playsound(src, 'sound/weapons/gun/general/chunkyrack.ogg', 30, TRUE)
 	return
 
 ////// handles magazine loading
@@ -431,6 +433,7 @@
 			MyLoad.ignored_factions = (faction + allies)
 		MyLoad.fire()
 		MyLoad.fired = TRUE
+		play_fire_sound(chambered)
 		MyLoad = null //We clear the ref from here. Pretty sure not needed but just in case.
 		chambered.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
 		handle_chamber(TRUE)
@@ -438,6 +441,20 @@
 
 	handle_chamber(TRUE)
 
+////// Handles which sound should play when the gun fires, as it does adjust between different ammo types.
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/play_fire_sound(obj/item/ammo_casing/soundmaker) //Hella Iffy.
+	if(istype(soundmaker, /obj/item/ammo_casing/c35sol))
+		playsound(src, 'modular_nova/modules/modular_weapons/sounds/pistol_light.ogg', 60, TRUE)
+	if(istype(soundmaker, /obj/item/ammo_casing/c585trappiste))
+		playsound(src, 'modular_nova/modules/modular_weapons/sounds/pistol_heavy.ogg', 60, TRUE)
+	if(istype(soundmaker, /obj/item/ammo_casing/c40sol))
+		playsound(src, 'modular_nova/modules/modular_weapons/sounds/rifle_heavy.ogg', 60, TRUE)
+	if(istype(soundmaker, /obj/item/ammo_casing/strilka310))
+		playsound(src, 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg', 60, TRUE)
+	if(istype(soundmaker, /obj/item/ammo_casing/c27_54cesarzowa))
+		playsound(src, 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg', 60, TRUE)
+	else
+		playsound(src, 'sound/weapons/gun/pistol/shot.ogg', 60, TRUE)
 
 ////// Operation Handling //////
 
@@ -463,7 +480,7 @@
 			balloon_alert(user, "Turret linked!")
 			return
 
-	if(!istype(attacking_item, /obj/item/wrench))
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 
 	if(!attacking_item.toolspeed)
@@ -496,7 +513,7 @@
 			balloon_alert(user, "Turret unlinked!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-	if(!istype(attacking_item, /obj/item/wrench))
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return SECONDARY_ATTACK_CALL_NORMAL
 
 	if(!attacking_item.toolspeed)
