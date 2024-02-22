@@ -36,6 +36,7 @@
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 
+//////Grabs a mag to load into the turret
 /obj/item/storage/toolbox/emergency/turret/mag_fed/proc/get_mag(keep = FALSE)
 	var/mag_len = length(contents)
 	if (!mag_len)
@@ -110,7 +111,7 @@
 	if(!can_see(user,target,scan_range)) //if outside range, dont bother.
 		return
 
-	if(target in linked_turrets) //We'll touch this later.
+	if(target in linked_turrets) //to stop issues with linking turrets.
 		return
 
 	if(acquired_target) //if there's a target already, cant designate one.
@@ -127,8 +128,7 @@
 
 	if(istype(target, /mob/living))
 		for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
-			for(var/turret_to_control in 1 to length(linked_turrets))
-				turret.toggle_ally(target)
+			turret.toggle_ally(target)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 
@@ -165,8 +165,8 @@
 	lethal_projectile = null
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	ignore_faction = TRUE
-	req_access = list()
-	faction = list(FACTION_TURRET) //We're gonna do some funky stuff. also turret flags are undef'd at end of porta turret file so >:(
+	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed.
+	faction = list()
 	var/target_acquisition = null //This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/allies = list() //Ally system.
 	var/claptrap_moment = FALSE //Do we want this to shut up? Mostly for testing purposes.
@@ -226,8 +226,8 @@
 	return
 
 
-////// Ammo and magazine handling
-
+////// Ammo and magazine handling //////
+//////main proc to handle loading magazines and bullets. might need improved?
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(chamber_next_round = TRUE)
 	if(!magazine)
 		load_mag()
@@ -242,6 +242,7 @@
 		chamber_round(FALSE)
 		return
 
+////// proc to insert the round.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/chamber_round(replace_new_round)
 	if (chambered || !magazine)
 		return
@@ -253,20 +254,21 @@
 		if(replace_new_round) //For edge-case additions later in the road.
 			magazine.give_round(new chambered.type)
 
+////// handles magazine ejecting and automatic load proccing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_mag()
 	if(magazine)
 		var/obj/item/ammo_box/magazine/mag = magazine
-		if(istype(mag)) //there's a chambered round
+		if(istype(mag))
 			magazine.forceMove(drop_location())
 			UnregisterSignal(magazine, COMSIG_MOVABLE_MOVED)
 			magazine = null
 	load_mag()
 	return
 
+////// handles magazine loading
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
 	if(!mag_box.get_mag())
-		if(!claptrap_moment)
-			balloon_alert_to_viewers("Magazine Wells Empty!")
+		balloon_alert_to_viewers("Magazine Wells Empty!") //hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
 		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
 		return
@@ -276,6 +278,7 @@
 		balloon_alert_to_viewers("Loading Magazine")
 	return
 
+////// ejects cartridge and calls if issues arrive.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/eject_cartridge()
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
 	if(istype(casing)) //there's a chambered round
@@ -295,6 +298,7 @@
 				casing.bounce_away(TRUE)
 				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 
+////// redundant proc thats mostly for making sure stuff isn't qdel'ing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/check_cartridge() //There's some edge cases where shite happens.
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
 	if(istype(casing)) //there's a chambered round
@@ -304,27 +308,28 @@
 				return FALSE
 	return TRUE
 
+////// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
 	if(!(magaroni.type in mag_box.atom_storage.can_hold))
 		balloon_alert(guy_with_mag, "Item Can't Fit, How did you get here?")
 		return
-	balloon_alert(guy_with_mag, "Magazine Inserted")
+	balloon_alert(guy_with_mag, "Magazine Inserted!")
 	mag_box?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
 	return
 
-////// I rewrite/add to the entire proccess.
+////// I rewrite/add to the entire proccess. //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/process()
 	if(linkage)
 		if(target_acquisition) //Forces turret to shoot
 			var/ineedtoshootthis = list(target_acquisition)
 			tryToShootAt(ineedtoshootthis)
-		return
+			return
 
-	..()
+	. = ..()
 
 
-////// Firing and target acquisition
+////// Firing and target acquisition //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
 	for(var/faction1 in faction)
@@ -332,7 +337,8 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/toggle_ally(mob/living/target)
+////// toggles between whether things are inside the ally system
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/toggle_ally(mob/living/target) //leave these since its kinda important to know which is being done.
 	if(REF(target) in allies)
 		allies -= REF(target)
 		balloon_alert_to_viewers("Ally Removed!")
@@ -350,13 +356,15 @@
 		return 1
 	return
 
+////// manual target acquisition from target designator, improves fire rate.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/override_target(atom/movable/target)
 	if(!target)
 		return
 	target_acquisition = target
-	balloon_alert_to_viewers("Target Acquired!")
+	balloon_alert_to_viewers("Target Acquired!") //So you know whats causing it to fire
 	shot_delay = (initial(shot_delay) / 2) //No need to scan for targets so faster work
 
+////// clears the target and resets fire rate
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/clear_override()
 	target_acquisition = null
 	shot_delay = initial(shot_delay)
@@ -402,7 +410,7 @@
 		MyLoad.firer = src
 		MyLoad.fired_from = src
 		if(ignore_faction)
-			MyLoad.ignored_factions = faction
+			MyLoad.ignored_factions = (faction + allies)
 		MyLoad.fire()
 		MyLoad.fired = TRUE
 		MyLoad = null //We clear the ref from here. Pretty sure not needed but just in case.
@@ -413,13 +421,13 @@
 	handle_chamber(TRUE)
 
 
-////// Operation Handling
+////// Operation Handling //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
-		balloon_alert(user, "Attempting to load mag")
+		balloon_alert(user, "Attempting to load mag!")
 		if(!do_after(user, 1 SECONDS, src))
-			balloon_alert(user, "Failure to load maga")
+			balloon_alert(user, "Failure to load mag!")
 		insert_mag(attacking_item, user)
 		return
 
@@ -428,6 +436,9 @@
 			var/obj/item/target_designator/boss = attacking_item
 			if(length(boss.linked_turrets) >= boss.turret_limit)
 				balloon_alert(user, "Turret limit maxed!")
+				return
+			if(linkage) //should help both preventing dual-controlling AND double-linking causing odd issues with ally system
+				balloon_alert(user, "Turret already linked!")
 				return
 			linkage = boss
 			boss.linked_turrets += src
