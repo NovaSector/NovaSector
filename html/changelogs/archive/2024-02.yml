@@ -293,3 +293,22 @@
       the cooldown between uses is done.
   - bugfix: if you died as a changeling/anyone that has cool mind spells you do not
       get them in deathmatch
+2024-02-22:
+  1393F:
+  - qol: The crystallizer in Void Raptor atmos has been moved very slightly so the
+      recipes no longer spawn in the wall.
+  - bugfix: The cargo foundry on Void Raptor no longer has a fire alarm in space.
+  Lutowski:
+  - image: Slightly alters variants of the Research Director's labcoat sprite to appear
+      less bloated.
+  - rscadd: Adds regular labcoat, a normal variant of the RD labcoat without armor
+      buffs to the loadout.
+  Melbert:
+  - bugfix: Organs have the blood DNA of their owns on them again
+  - bugfix: Chasms no longer break your verbs
+  NovaBot13:
+  - bugfix: sec-hailers no longer apply filters on TTS when pushed out of the way.
+  Thlumyn:
+  - spellcheck: fixed typo describing male organ
+  - bugfix: animal pen doors on void raptor now open with maints access
+  - bugfix: fixed polls
