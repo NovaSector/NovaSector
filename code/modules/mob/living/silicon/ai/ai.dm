@@ -1076,6 +1076,8 @@
 
 	else if(mind)
 		RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(disconnect_shell))
+		for (var/mob/dead/observer/viewer in src.observers)
+			viewer.ManualFollow(target)
 		deployed_shell = target
 		target.deploy_init(src)
 		mind.transfer_to(target)
