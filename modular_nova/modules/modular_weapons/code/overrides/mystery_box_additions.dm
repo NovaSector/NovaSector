@@ -44,7 +44,6 @@ GLOBAL_LIST_INIT(nova_funny_mystery_box_items, list(
 	/obj/item/clothing/head/helmet/toggleable/sf_hardened,
 	/obj/item/clothing/head/helmet/toggleable/sf_hardened/emt,
 	/obj/item/autosurgeon/syndicate/sandy,
-	/obj/item/autosurgeon/syndicate/shell_launcher,
 	/obj/item/autosurgeon/syndicate/razorwire,
 ))
 
