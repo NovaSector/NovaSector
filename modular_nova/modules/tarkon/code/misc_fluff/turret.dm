@@ -32,6 +32,8 @@
 	. += span_notice("You can deploy this by clicking in <b>combat mode</b>")
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled/PopulateContents()
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
@@ -306,10 +308,11 @@
 			chambered = null
 		else if(casing_ejector) //If, It somehow, Didn't delete the casing.
 			if(!claptrap_moment)
-				balloon_alert_to_viewers("Ejecting Cartridge")
+				balloon_alert_to_viewers("Ejecting Cartridge") //will proc even on caseless cartridges, but its a debug message.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			chambered = null
 			if(!QDELETED(casing))
+				SEND_SIGNAL(casing, COMSIG_FIRE_CASING) //to account for caseless cartridges.
 				casing.bounce_away(TRUE)
 				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 
@@ -457,6 +460,7 @@
 				return
 			linkage = boss
 			boss.linked_turrets += src
+			balloon_alert(user, "Turret linked!")
 			return
 
 	if(!istype(attacking_item, /obj/item/wrench))
@@ -489,6 +493,7 @@
 			var/obj/item/target_designator/boss = attacking_item
 			linkage = null
 			boss.linked_turrets -= src
+			balloon_alert(user, "Turret unlinked!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	if(!istype(attacking_item, /obj/item/wrench))
