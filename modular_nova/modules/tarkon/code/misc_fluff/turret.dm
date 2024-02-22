@@ -170,11 +170,15 @@
 	uses_stored = FALSE
 	stored_gun = null
 	stun_projectile = null
+	stun_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	lethal_projectile = null
+	lethal_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	ignore_faction = TRUE
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed.
 	faction = list()
+	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
+	var/adjustable_magwell = TRUE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/target_acquisition = null
 	//////Ally system.
@@ -443,6 +447,8 @@
 
 ////// Handles which sound should play when the gun fires, as it does adjust between different ammo types.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/play_fire_sound(obj/item/ammo_casing/soundmaker) //Hella Iffy.
+	if(!adjustable_magwell) //if it has 1 magazine type
+		playsound(src, lethal_projectile_sound, 60, TRUE)
 	if(istype(soundmaker, /obj/item/ammo_casing/c35sol))
 		playsound(src, 'modular_nova/modules/modular_weapons/sounds/pistol_light.ogg', 60, TRUE)
 	if(istype(soundmaker, /obj/item/ammo_casing/c585trappiste))
@@ -454,7 +460,7 @@
 	if(istype(soundmaker, /obj/item/ammo_casing/c27_54cesarzowa))
 		playsound(src, 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg', 60, TRUE)
 	else
-		playsound(src, 'sound/weapons/gun/pistol/shot.ogg', 60, TRUE)
+		playsound(src, lethal_projectile_sound, 60, TRUE)
 
 ////// Operation Handling //////
 
