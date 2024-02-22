@@ -933,7 +933,7 @@
 	mainframe.redeploy_action.Grant(mainframe)
 	mainframe.redeploy_action.last_used_shell = src
 	for (var/mob/dead/observer/viewer in src.observers)
-			viewer.ManualFollow(mainframe)
+		viewer.ManualFollow(mainframe)
 	mind.transfer_to(mainframe)
 	deployed = FALSE
 	mainframe.deployed_shell = null
