@@ -38,6 +38,20 @@
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite
+	name = "Tarkon Industries Hoplite Kit"
+	desc = "A \"Tarkon Industries\" \"Hoplite\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
+	This model comes with 2 adjustable magazine slots, supporting most commonly available small-cal magazines."
+	icon_state = "hoplite_toolbox"
+	worn_icon_state = "hoplite_harness"
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite //To make it more available for subtyping. LET. THEM. COOK.
+	mag_slots = 2 //how many magazines can be held.
+	mag_types_allowed = list( //This is a whitelist for what is allowed. Nothing else may enter.
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/ammo_box/magazine/c585trappiste_pistol,
+		/obj/item/ammo_box/magazine/miecz,
+		)
+
 //////Grabs a mag to load into the turret
 /obj/item/storage/toolbox/emergency/turret/mag_fed/proc/get_mag(keep = FALSE)
 	var/mag_len = length(contents)
@@ -247,6 +261,14 @@
 
 	qdel(src)
 	return
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
+	name = "Tarkon Industries \"Hoplite\" Point-Defense Turret"
+	desc = "A protection turret used by Tarkon Industries for civilian installation protection."
+	max_integrity = 120
+	icon_state = "hoplite_off"
+	base_icon_state = "hoplite"
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite
 
 
 ////// Ammo and magazine handling //////
