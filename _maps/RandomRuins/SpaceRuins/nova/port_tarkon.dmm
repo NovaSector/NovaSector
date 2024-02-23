@@ -3678,13 +3678,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/airalarm/directional/east,
 /obj/structure/safe/floor,
-/obj/item/mod/module/armor_booster/retractplates{
-	desc = "A complex set of actuators, micro-seals and a simple guide on how to install it, This... \"Modification\" allows the plating around the joints to retract, giving minor protection and a bit better mobility. There also seems to be a small, wireless microphone... how odd."
-	},
-/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 4
 	},
+/obj/item/target_designator,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "yG" = (
@@ -5659,10 +5657,11 @@
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Mg" = (
 /obj/structure/table/reinforced,
-/obj/item/crowbar,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 8
 	},
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "Mp" = (
