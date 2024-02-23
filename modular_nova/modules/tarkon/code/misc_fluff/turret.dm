@@ -134,7 +134,8 @@
 /obj/item/target_designator/examine(mob/user)
 	. = ..()
 	. += span_notice("<b>[length(linked_turrets)]/[turret_limit]</b> turrets linked.")
-
+	. += span_notice("<b>Right click</b> an entity to designate it as an ally.")
+	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
 
 /obj/item/target_designator/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
