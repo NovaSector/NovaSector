@@ -113,8 +113,8 @@
 	inhand_icon_state = "designator"
 	righthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
-	worn_icon_state = null
-	worn_icon = null
+	worn_icon_state = "designator"
+	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = NOBLUDGEON
