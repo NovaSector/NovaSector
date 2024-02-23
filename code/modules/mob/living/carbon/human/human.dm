@@ -516,7 +516,7 @@
 
 		// NOVA EDIT ADDITION - CPR for synths
 		if(istype(human_lungs, /obj/item/organ/internal/lungs/synth))
-			to_chat(src, span_warning("You have no lungs to breathe with, so you cannot perform CPR!"))
+			balloon_alert(src, "you don't have lungs!")
 			return FALSE
 		// NOVA EDIT ADDITION END
 
