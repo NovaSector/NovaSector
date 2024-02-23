@@ -2,8 +2,8 @@
 
 ////// Toolbox Handling //////
 /obj/item/storage/toolbox/emergency/turret/mag_fed
-	name = "T.I.B.S Cerberus Kit"
-	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
+	name = "\improper T.I.B.S Cerberus Kit"
+	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, it deploys a turret feeding from provided magazines. \
 	This model comes with 3 adjustable magazine slots, supporting most commonly available magazines."
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "cerberus_toolbox"
@@ -21,7 +21,8 @@
 		/obj/item/ammo_box/magazine/c40sol_rifle,
 		/obj/item/ammo_box/magazine/c585trappiste_pistol,
 		/obj/item/ammo_box/magazine/miecz,
-		/obj/item/ammo_box/magazine/lanca,)
+		/obj/item/ammo_box/magazine/lanca,
+	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/Initialize(mapload)
 	. = ..()
@@ -42,8 +43,8 @@
 	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite
-	name = "Tarkon Industries Hoplite Kit"
-	desc = "A \"Tarkon Industries\" \"Hoplite\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
+	name = "\improper Tarkon Industries Hoplite Kit"
+	desc = "A \"Tarkon Industries\" \"Hoplite\" Turret Deployment Kit, it deploys a turret feeding from provided magazines. \
 	This model comes with 2 adjustable magazine slots, supporting most commonly available pistol-cal magazines."
 	icon_state = "hoplite_toolbox"
 	worn_icon_state = "hoplite_harness"
@@ -54,7 +55,7 @@
 		/obj/item/ammo_box/magazine/c35sol_pistol,
 		/obj/item/ammo_box/magazine/c585trappiste_pistol,
 		/obj/item/ammo_box/magazine/miecz,
-		)
+	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled/PopulateContents()
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
@@ -274,7 +275,7 @@
 	return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
-	name = "Tarkon Industries \"Hoplite\" Point-Defense Turret"
+	name = "\improper Tarkon Industries \"Hoplite\" Point-Defense Turret"
 	desc = "A protection turret used by Tarkon Industries for civilian installation protection."
 	max_integrity = 120
 	icon_state = "hoplite_off"
@@ -326,14 +327,14 @@
 ////// handles magazine loading
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
 	if(!mag_box.get_mag())
-		balloon_alert_to_viewers("Magazine Wells Empty!") //hey, this is actually important info to convey.
+		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
 		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
 		return
 	magazine = mag_box.get_mag(FALSE)
 	magazine.forceMove(src)
 	if(!claptrap_moment)
-		balloon_alert_to_viewers("Loading Magazine")
+		balloon_alert_to_viewers("loading magazine...")
 	return
 
 ////// ejects cartridge and calls if issues arrive.
@@ -349,7 +350,7 @@
 			chambered = null
 		else if(casing_ejector) //If, It somehow, Didn't delete the casing.
 			if(!claptrap_moment)
-				balloon_alert_to_viewers("Ejecting Cartridge") //will proc even on caseless cartridges, but its a debug message.
+				balloon_alert_to_viewers("ejecting cartridge") // will proc even on caseless cartridges, but its a debug message.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			chambered = null
 			if(!QDELETED(casing))
@@ -370,9 +371,9 @@
 ////// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
 	if(!(magaroni.type in mag_box.atom_storage.can_hold))
-		balloon_alert(guy_with_mag, "Item Can't Fit, How did you get here?")
+		balloon_alert(guy_with_mag, "can't fit!")
 		return
-	balloon_alert(guy_with_mag, "Magazine Inserted!")
+	balloon_alert(guy_with_mag, "magazine inserted!")
 	mag_box?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
 	return
 
@@ -385,7 +386,7 @@
 			tryToShootAt(ineedtoshootthis)
 			return
 
-	. = ..()
+	return ..()
 
 
 ////// Firing and target acquisition //////
@@ -400,11 +401,11 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/toggle_ally(mob/living/target) //leave these since its kinda important to know which is being done.
 	if(REF(target) in allies)
 		allies -= REF(target)
-		balloon_alert_to_viewers("Ally Removed!")
+		balloon_alert_to_viewers("ally removed!")
 		return
 	else
 		allies += REF(target)
-		balloon_alert_to_viewers("Ally Designated!")
+		balloon_alert_to_viewers("ally designated!")
 		return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/target(atom/movable/target)
@@ -420,7 +421,7 @@
 	if(!target)
 		return
 	target_acquisition = target
-	balloon_alert_to_viewers("Target Acquired!") //So you know whats causing it to fire
+	balloon_alert_to_viewers("target acquired!") // So you know whats causing it to fire
 	shot_delay = (initial(shot_delay) / 2) //No need to scan for targets so faster work
 
 ////// clears the target and resets fire rate
@@ -432,12 +433,11 @@
 	while(target_acquisition)
 		if(target(target_acquisition))
 			return 1
-	var/turf/MyLawn = get_turf(src)
+	var/turf/my_lawn = get_turf(src)
 	while(things_in_my_lawn.len > 0)
-		var/atom/movable/whipper_snapper = get_closest_atom(/mob/living, things_in_my_lawn, MyLawn)
+		var/atom/movable/whipper_snapper = get_closest_atom(/mob/living, things_in_my_lawn, my_lawn)
 		if(target(whipper_snapper))
 			return 1
-
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
 	if(!chambered) //Ok, We need to START the cycle
@@ -452,28 +452,28 @@
 			return
 		last_fired = world.time
 
-	var/turf/MyLawn = get_turf(src)
+	var/turf/my_lawn = get_turf(src)
 	var/turf/targetturf = get_turf(target)
-	if(!istype(MyLawn) || !istype(targetturf))
+	if(!istype(my_lawn) || !istype(targetturf))
 		return
 
 	setDir(get_dir(base, target))
 	update_appearance()
 	if(!check_cartridge())
-		balloon_alert_to_viewers("Gun jammed!")
+		balloon_alert_to_viewers("gun jammed!")
 		return
 
 	if(chambered.loaded_projectile && !QDELETED(chambered.loaded_projectile))
-		var/obj/projectile/MyLoad = chambered.loaded_projectile
-		MyLoad.preparePixelProjectile(target, MyLawn)
-		MyLoad.firer = src
-		MyLoad.fired_from = src
+		var/obj/projectile/our_projectile = chambered.loaded_projectile
+		our_projectile.preparePixelProjectile(target, my_lawn)
+		our_projectile.firer = src
+		our_projectile.fired_from = src
 		if(ignore_faction)
-			MyLoad.ignored_factions = (faction + allies)
-		MyLoad.fire()
-		MyLoad.fired = TRUE
+			our_projectile.ignored_factions = (faction + allies)
+		our_projectile.fire()
+		our_projectile.fired = TRUE
 		play_fire_sound(chambered)
-		MyLoad = null //We clear the ref from here. Pretty sure not needed but just in case.
+		our_projectile = null // We clear the ref from here. Pretty sure not needed but just in case.
 		chambered.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
 		handle_chamber(TRUE)
 		return
@@ -503,27 +503,27 @@
 	if(attacking_item.type in mag_box.atom_storage.can_hold)
 		balloon_alert(user, "Attempting to load mag!")
 		if(!do_after(user, 1 SECONDS, src))
-			balloon_alert(user, "Failure to load mag!")
+			balloon_alert(user, "failed to load mag!")
 		insert_mag(attacking_item, user)
 		return
 
 	if(istype(attacking_item, /obj/item/card/id))
 		if(!in_faction(user))
-			balloon_alert(user, "Access Denied.")
+			balloon_alert(user, "access denied!")
 			return
 
 	if(in_faction(user))
 		if(istype(attacking_item, /obj/item/target_designator))
 			var/obj/item/target_designator/boss = attacking_item
 			if(length(boss.linked_turrets) >= boss.turret_limit)
-				balloon_alert(user, "Turret limit maxed!")
+				balloon_alert(user, "turret limit reached!")
 				return
 			if(linkage) //should help both preventing dual-controlling AND double-linking causing odd issues with ally system
-				balloon_alert(user, "Turret already linked!")
+				balloon_alert(user, "turret already linked!")
 				return
 			linkage = boss
 			boss.linked_turrets += src
-			balloon_alert(user, "Turret linked!")
+			balloon_alert(user, "turret linked!")
 			return
 
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
@@ -551,6 +551,8 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby_secondary(obj/item/attacking_item, mob/living/user, params) //IM TIRED OF MISMATCHED VAR NAMES. ITS ATTACK_ITEM ON MAIN, WHY WEAPON HERE?
 	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
 	if(in_faction(user))
 		if(istype(attacking_item, /obj/item/target_designator))
 			var/obj/item/target_designator/boss = attacking_item
