@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - qol: "The Wylom no longer lies to you about having a functional scope"

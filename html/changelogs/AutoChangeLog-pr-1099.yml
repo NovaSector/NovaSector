@@ -1,0 +1,5 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "The Qani-Laaca sensory computer will now correctly give you the overdose or not, because the buttons to do so are now separate actions."
+  - bugfix: "If you are overdosing twitch immediately upon starting to process it, your screen will be the correct color again."

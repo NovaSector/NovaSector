@@ -312,3 +312,17 @@
   - spellcheck: fixed typo describing male organ
   - bugfix: animal pen doors on void raptor now open with maints access
   - bugfix: fixed polls
+2024-02-23:
+  Melbert:
+  - rscdel: Deletes Mythril Coins from random coin spawners
+  - rscdel: Replaces Mythril sheets in icebox vent fishing with Runite sheets
+  NovaBot13:
+  - bugfix: ForceEvent tgui panel search is more reliable.
+  - spellcheck: Removed a double space in health analyzer's message telling you someone
+      is deaf.
+  - bugfix: Adds a missing servo component into the MK1 Ripley Crate ordered from
+      cargo.
+  - refactor: Holographic mobs now gives better feedback to players and should more
+      consistently not give any drops.
+  - bugfix: Chefs (not to be confused with cooks) actually display as being a part
+      of service on the crew monitor.
