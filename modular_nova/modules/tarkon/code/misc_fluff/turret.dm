@@ -7,6 +7,9 @@
 	This model comes with 3 adjustable magazine slots, supporting most commonly available magazines."
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "cerberus_toolbox"
+	righthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
+	inhand_icon_state = "cerberus_turretkit"
 	worn_icon_state = "cerberus_harness"
 	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	has_latches = FALSE
@@ -29,7 +32,7 @@
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/examine(mob/user)
 	. = ..()
-	. += span_notice("You can deploy this by clicking in <b>combat mode</b>")
+	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <b>wrenching tool</b>")
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 
@@ -44,6 +47,7 @@
 	This model comes with 2 adjustable magazine slots, supporting most commonly available pistol-cal magazines."
 	icon_state = "hoplite_toolbox"
 	worn_icon_state = "hoplite_harness"
+	inhand_icon_state = "hoplite_turretkit"
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
 	mag_slots = 2
 	mag_types_allowed = list(
@@ -106,9 +110,9 @@
 	desc = "A simple target designation system used to let someone over-ride a turrets targeting software and focus on one entity, or designate someone as a \"Friend\"."
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "designator"
-	inhand_icon_state = ""
-	lefthand_file = null
-	righthand_file = null
+	inhand_icon_state = "designator"
+	righthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = NOBLUDGEON
