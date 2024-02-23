@@ -83,11 +83,14 @@
 	remove_face_shield(user)
 
 /// Attached the passed face shield to the helmet.
-/obj/item/clothing/head/helmet/sf_sacrificial/proc/add_face_shield(mob/living/carbon/human/user, obj/shield_in_question)
+/obj/item/clothing/head/helmet/sf_sacrificial/proc/add_face_shield(mob/living/carbon/human/user, obj/shield_in_question, on_spawn)
 	if(face_shield)
 		return
-	if(!user.transferItemToLoc(shield_in_question, src))
+	if(!user?.transferItemToLoc(shield_in_question, src) && !on_spawn)
 		return
+
+	if(on_spawn)
+		shield_in_question = new /obj/item/sacrificial_face_shield(src)
 
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -146,6 +149,12 @@
 		Passing up self-repair for nigh-immunity to bullets, the right tool for a certain job, if you can find whatever that job may be."
 
 	return .
+
+/obj/item/clothing/head/helmet/sf_sacrificial/spawns_with_shield
+
+/obj/item/clothing/head/helmet/sf_sacrificial/spawns_with_shield/Initialize(mapload)
+	. = ..()
+	add_face_shield(on_spawn = TRUE)
 
 /obj/item/sacrificial_face_shield
 	name = "'Val' ballistic add-on face plate"
