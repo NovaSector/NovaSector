@@ -570,7 +570,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "alk" = (
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/structure/bed/double,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
@@ -1084,7 +1084,7 @@
 	specialfunctions = 4
 	},
 /obj/structure/bed/double/pod,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aqy" = (
@@ -2499,13 +2499,13 @@
 /area/centcom/holding/cafe)
 "aGY" = (
 /obj/structure/rack,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aHb" = (
@@ -4203,6 +4203,12 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"baA" = (
+/obj/structure/chair/sofa/bamboo/left{
+	dir = 1
+	},
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "baM" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -4776,9 +4782,40 @@
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/iron/cafeteria,
 /area/centcom/interlink)
+"bUH" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/rack/wooden,
+/obj/item/towel{
+	pixel_y = -2;
+	pixel_x = -4
+	},
+/obj/item/towel{
+	pixel_y = 1;
+	pixel_x = 1
+	},
+/obj/item/towel{
+	pixel_y = 6;
+	pixel_x = 7
+	},
+/obj/item/towel{
+	pixel_y = -2;
+	pixel_x = -4
+	},
+/obj/item/towel{
+	pixel_y = 1;
+	pixel_x = 1
+	},
+/obj/item/towel{
+	pixel_y = 6;
+	pixel_x = 7
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "bUO" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/random/double,
+/obj/effect/spawner/random/bedsheet/any/double,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
 "bUS" = (
@@ -4850,6 +4887,10 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
+"bWP" = (
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "bXF" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -5211,7 +5252,7 @@
 /area/centcom/interlink)
 "cGX" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/structure/sign/painting/library_secure{
 	pixel_x = 32
 	},
@@ -6436,6 +6477,15 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"ffD" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "fiC" = (
 /obj/structure/closet/crate/bin,
 /obj/item/paper/crumpled{
@@ -6831,6 +6881,9 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"fVc" = (
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "fVr" = (
 /obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt,
@@ -6862,6 +6915,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"gbM" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/structure/rack/wooden,
+/obj/item/food/grown/poppy/geranium,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "gdL" = (
 /obj/structure/towel_bin,
 /obj/structure/table/wood,
@@ -7581,6 +7645,10 @@
 /obj/effect/turf_decal/trimline/green/filled/arrow_ccw,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"hsW" = (
+/obj/structure/chair/sofa/bamboo/right,
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "huq" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 4
@@ -7592,6 +7660,10 @@
 /obj/machinery/door/poddoor/shuttledock/interlink,
 /turf/open/floor/plating,
 /area/centcom/interlink)
+"hvL" = (
+/obj/structure/chair/sofa/bamboo,
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "hvQ" = (
 /turf/open/floor/iron,
 /area/centcom/interlink)
@@ -7933,6 +8005,15 @@
 	},
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"iet" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "ifp" = (
 /obj/structure/spacevine{
 	name = "thick vines";
@@ -8489,6 +8570,13 @@
 	smoothing_flags = 0
 	},
 /area/centcom/holding/cafepark)
+"jdW" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/obj/structure/water_source/puddle,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "jeI" = (
 /obj/machinery/cryopod/quiet{
 	dir = 1
@@ -8771,6 +8859,18 @@
 /obj/item/pen,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
+"jGP" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "jHv" = (
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/wood,
@@ -9933,7 +10033,7 @@
 /obj/structure/bed/double{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	dir = 8
 	},
 /turf/open/floor/carpet/red,
@@ -10234,6 +10334,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"mvU" = (
+/obj/structure/chair/sofa/bamboo/right{
+	dir = 1
+	},
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "mwo" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/mug{
@@ -10944,7 +11050,7 @@
 /area/centcom/interlink)
 "nCY" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/random/double,
+/obj/effect/spawner/random/bedsheet/any/double,
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
@@ -11130,6 +11236,13 @@
 /area/centcom/interlink)
 "nUS" = (
 /obj/structure/flora/grass/jungle/a/style_2,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
+"nVZ" = (
+/obj/structure/fake_stairs/wood/directional/east,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "nWn" = (
@@ -12869,6 +12982,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"qIH" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "qIY" = (
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /turf/open/floor/iron,
@@ -13105,7 +13225,7 @@
 /obj/structure/bed/double{
 	pixel_y = -9
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	pixel_y = -9
 	},
 /turf/open/floor/bamboo,
@@ -13218,10 +13338,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
-"rnM" = (
-/obj/structure/wall_torch/spawns_lit/directional/south,
-/turf/open/misc/asteroid/snow/indestructible/planet,
-/area/centcom/holding/cafepark)
 "roh" = (
 /obj/structure/flora/grass/jungle/a/style_3,
 /obj/structure/flora/tree/jungle/small/style_random,
@@ -13245,6 +13361,12 @@
 /turf/open/misc/grass/planet{
 	smoothing_flags = 0
 	},
+/area/centcom/holding/cafepark)
+"rvt" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "rxB" = (
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -13339,7 +13461,6 @@
 /area/centcom/holding/cafepark)
 "rHH" = (
 /obj/structure/railing/wooden_fencing,
-/obj/structure/water_source/puddle,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "rHY" = (
@@ -13851,7 +13972,7 @@
 	specialfunctions = 4
 	},
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafepark)
 "ssn" = (
@@ -14121,7 +14242,7 @@
 /area/centcom/holding/cafe)
 "sNs" = (
 /obj/structure/bed/double/pod,
-/obj/item/bedsheet/random/double,
+/obj/effect/spawner/random/bedsheet/any/double,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "sOj" = (
@@ -14423,6 +14544,15 @@
 	},
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
+"tnL" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "tpU" = (
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
@@ -14795,6 +14925,13 @@
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"uaY" = (
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/structure/chair/sofa/bamboo{
+	dir = 1
+	},
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "ubn" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/effect/turf_decal/siding/wood,
@@ -15183,7 +15320,7 @@
 /obj/structure/bed/double{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	dir = 8
 	},
 /turf/open/floor/carpet/blue,
@@ -15593,6 +15730,22 @@
 "vLx" = (
 /turf/closed/indestructible/rock,
 /area/centcom/interlink)
+"vLz" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin/bundlenatural,
+/obj/item/pen/charcoal,
+/obj/item/pen/charcoal{
+	pixel_y = 5;
+	pixel_x = 2
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "vLY" = (
 /obj/effect/turf_decal/trimline/green/corner{
 	dir = 8
@@ -15637,6 +15790,10 @@
 /area/centcom/interlink)
 "vQH" = (
 /obj/structure/table/wood,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
+"vQP" = (
+/obj/effect/turf_decal/siding/wood,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "vRf" = (
@@ -15856,7 +16013,6 @@
 /obj/structure/chair/wood{
 	dir = 1
 	},
-/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "wlA" = (
@@ -15962,6 +16118,12 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"wyd" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/misc/asteroid/snow/indestructible/planet,
+/area/centcom/holding/cafepark)
 "wyn" = (
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
@@ -16324,6 +16486,14 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafepark)
+"xei" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "xfD" = (
 /obj/structure/punching_bag,
 /turf/open/indestructible/hotelwood,
@@ -16461,6 +16631,13 @@
 /obj/effect/turf_decal/trimline/green/filled/arrow_cw,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"xso" = (
+/obj/structure/rack/wooden,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
 "xsM" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -16589,6 +16766,19 @@
 /obj/machinery/door/window/left/directional/south,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"xFa" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/centcom/holding/cafepark)
+"xFg" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "xFE" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -16655,6 +16845,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
+"xNO" = (
+/obj/structure/chair/sofa/bamboo/left,
+/turf/open/water/hot_spring/cafe,
+/area/centcom/holding/cafepark)
 "xOm" = (
 /obj/structure/chair/sofa/bench/corner{
 	dir = 1
@@ -16705,7 +16899,7 @@
 /area/centcom/interlink)
 "xQK" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/structure/sign/painting/library_secure{
 	pixel_y = -32
 	},
@@ -16865,7 +17059,7 @@
 	dir = 4
 	},
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
 "ycD" = (
@@ -64646,13 +64840,13 @@ pib
 pib
 aDB
 aAd
+izJ
 aAd
-izJ
-izJ
+gbM
+xso
 amx
 ajj
 ajj
-aaa
 aaa
 aaa
 aaa
@@ -64905,12 +65099,12 @@ aSZ
 aDB
 aAd
 aAd
-aEX
+jGP
+bWP
 amx
 amx
 ajj
-aaa
-aaa
+ajj
 aaa
 aaa
 aaa
@@ -65155,20 +65349,20 @@ rjk
 dIM
 vTT
 amx
-aiD
+jdW
 eFC
 aAd
 aAd
 aCX
 aDB
 aAd
-aAd
-izJ
-aAd
+vLz
+xFa
+qIH
+xFa
+bUH
 ajj
-aaa
-aaa
-aaa
+ajj
 aaa
 aaa
 aaa
@@ -65418,14 +65612,14 @@ izJ
 aAd
 aSZ
 ayI
-aDB
-aAd
-aAd
-izJ
+aiD
+iet
+wyd
+tnL
+fVc
+fVc
+baA
 ajj
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -65676,13 +65870,13 @@ amU
 aAd
 aCX
 hRJ
+ayI
 aDB
-aAd
-aAd
+nVZ
+fVc
+fVc
+uaY
 ajj
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -65934,12 +66128,12 @@ aAd
 cnz
 hfJ
 wkQ
-aAd
-aAd
+ayI
+rvt
+hsW
+fVc
+mvU
 ajj
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -66190,13 +66384,13 @@ aAd
 rOQ
 ayI
 kLW
-eNw
-aAd
-aAd
+pib
+pib
+vQP
+hvL
+fVc
 ajj
-aaa
-aaa
-aaa
+ajj
 aaa
 aaa
 aaa
@@ -66449,10 +66643,10 @@ ayI
 eNw
 aAd
 aAd
-izJ
+xFg
+xNO
+fVc
 ajj
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -66704,12 +66898,12 @@ jxl
 aAd
 aoE
 aAd
+izJ
 aAd
-izJ
-izJ
+ffD
+xei
 ajj
-aaa
-aaa
+ajj
 aaa
 aaa
 aaa
@@ -66961,12 +67155,12 @@ izJ
 aAd
 aoE
 aAd
-rnM
+aAd
+aEX
 amx
 amx
 ajj
-aaa
-aaa
+ajj
 aaa
 aaa
 aaa
@@ -67219,11 +67413,11 @@ aAd
 aoE
 aAd
 izJ
+aAd
 amx
 ajj
 ajj
 ajj
-aaa
 aaa
 aaa
 aaa

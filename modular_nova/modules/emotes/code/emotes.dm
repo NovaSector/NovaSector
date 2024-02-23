@@ -532,3 +532,11 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'sound/effects/glassbash.ogg'
+
+/datum/emote/living/flutter
+	key = "flutter"
+	key_third_person = "rapidly flutters their wings!"
+	message = "rapidly flutters their wings!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/voice/moth/moth_flutter.ogg'
