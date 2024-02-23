@@ -101,7 +101,7 @@
 	playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
 	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(get_turf(loc))
 	set_faction(turret, user)
-	turret.mag_box = src
+	turret.mag_box = WEAKREF(src)
 	forceMove(turret)
 
 ////// Targeting Device handling
@@ -218,7 +218,7 @@
 	//////what box should this spawn with if its map_spawned?
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled
 	//////Container of the turret. Needs expanded ref.
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box
+	var/datum/weakref/mag_box
 	////// Magazine inside the turret.
 	var/datum/weakref/magazine_ref = null
 	////// currently loaded bullet
@@ -229,7 +229,8 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
 	if(!mag_box) //If we want to make map-spawned turrets in turret form.
-		mag_box = new mag_box_type
+		var/feed_the_machine = new mag_box_type
+		mag_box = WEAKREF(feed_the_machine)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/examine(mob/user) //If this breaks i'm gonna have to go to further seperate its examination text to allow better editing.
 	. = ..()
@@ -247,6 +248,7 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	var/obj/item/ammo_box/magazine/grabmag = magazine_ref?.resolve()
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/brassholder = mag_box?.resolve()
 	if(chambered)
 		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
 			chambered.forceMove(drop_location())
@@ -258,7 +260,7 @@
 		chambered = null
 
 	if(magazine_ref)
-		mag_box.contents.Insert(1,grabmag) //if the magazine is being kept this long, it might aswell be shoved back in.
+		brassholder.contents.Insert(1,grabmag) //if the magazine is being kept this long, it might aswell be shoved back in.
 		magazine_ref = null
 
 	if(!disassembled) //We make it oilsplode, but still retrievable.
@@ -269,9 +271,8 @@
 		controller.linked_turrets -= src
 		linkage = null
 
-	var/atom/movable/shell = mag_box
 	mag_box = null
-	shell.forceMove(drop_location())
+	brassholder.forceMove(drop_location())
 
 	qdel(src)
 	return
@@ -330,12 +331,13 @@
 
 ////// handles magazine loading
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
-	if(!mag_box.get_mag())
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/clip_holder = mag_box?.resolve()
+	if(!clip_holder.get_mag())
 		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
 		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
 		return
-	magazine_ref = WEAKREF(mag_box.get_mag(FALSE))
+	magazine_ref = WEAKREF(clip_holder.get_mag(FALSE))
 	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
 	get_that_mag.forceMove(src)
 	if(!claptrap_moment)
@@ -375,11 +377,12 @@
 
 ////// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
-	if(!(magaroni.type in mag_box.atom_storage.can_hold))
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/brownings_pride = mag_box?.resolve()
+	if(!(magaroni.type in brownings_pride.atom_storage.can_hold))
 		balloon_alert(guy_with_mag, "can't fit!")
 		return
 	balloon_alert(guy_with_mag, "magazine inserted!")
-	mag_box?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
+	brownings_pride?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
 	return
 
 ////// I rewrite/add to the entire proccess. //////
@@ -506,7 +509,8 @@
 ////// Operation Handling //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(attacking_item.type in mag_box.atom_storage.can_hold)
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/glock_pocket = mag_box?.resolve()
+	if(attacking_item.type in glock_pocket.atom_storage.can_hold)
 		balloon_alert(user, "Attempting to load mag!")
 		if(!do_after(user, 1 SECONDS, src))
 			balloon_alert(user, "failed to load mag!")
