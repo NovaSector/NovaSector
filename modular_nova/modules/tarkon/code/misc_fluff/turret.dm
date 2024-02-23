@@ -34,23 +34,27 @@
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
+	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
+	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite
 	name = "Tarkon Industries Hoplite Kit"
 	desc = "A \"Tarkon Industries\" \"Hoplite\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
-	This model comes with 2 adjustable magazine slots, supporting most commonly available small-cal magazines."
+	This model comes with 2 adjustable magazine slots, supporting most commonly available pistol-cal magazines."
 	icon_state = "hoplite_toolbox"
 	worn_icon_state = "hoplite_harness"
-	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite //To make it more available for subtyping. LET. THEM. COOK.
-	mag_slots = 2 //how many magazines can be held.
-	mag_types_allowed = list( //This is a whitelist for what is allowed. Nothing else may enter.
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
+	mag_slots = 2
+	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/c35sol_pistol,
 		/obj/item/ammo_box/magazine/c585trappiste_pistol,
 		/obj/item/ammo_box/magazine/miecz,
 		)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled/PopulateContents()
+	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 
 //////Grabs a mag to load into the turret
 /obj/item/storage/toolbox/emergency/turret/mag_fed/proc/get_mag(keep = FALSE)
@@ -90,7 +94,7 @@
 		span_danger("You bash [src] with [attacking_item]!"), null, COMBAT_MESSAGE_RANGE)
 
 	playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
-	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new(get_turf(loc))
+	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(get_turf(loc))
 	set_faction(turret, user)
 	turret.mag_box = src
 	forceMove(turret)
@@ -191,7 +195,7 @@
 	lethal_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	ignore_faction = TRUE
-	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed.
+	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list()
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
@@ -200,7 +204,7 @@
 	//////Ally system.
 	var/allies = list()
 	//////Do we want this to shut up? Mostly for testing and debugging purposes purposes.
-	var/claptrap_moment = FALSE
+	var/claptrap_moment = TRUE
 	////// Do we want it to eject casings?
 	var/casing_ejector = TRUE
 	//////what box should this spawn with if its map_spawned?
@@ -495,6 +499,11 @@
 			balloon_alert(user, "Failure to load mag!")
 		insert_mag(attacking_item, user)
 		return
+
+	if(istype(attacking_item, /obj/item/card/id))
+		if(!in_faction(user))
+			balloon_alert(user, "Access Denied.")
+			return
 
 	if(in_faction(user))
 		if(istype(attacking_item, /obj/item/target_designator))
