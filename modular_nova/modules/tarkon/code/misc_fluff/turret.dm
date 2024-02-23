@@ -6,8 +6,8 @@
 	desc = "A \"Tarkon Industries Blackrust Salvage\" \"Cerberus\" Turret Deployment Kit, It deploys a turret feeding from provided magazines. \
 	This model comes with 3 adjustable magazine slots, supporting most commonly available magazines."
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
-	icon_state = "toolbox"
-	worn_icon_state = "turret_harness"
+	icon_state = "cerberus_toolbox"
+	worn_icon_state = "cerberus_harness"
 	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	has_latches = FALSE
 	slot_flags = ITEM_SLOT_BELT
@@ -166,6 +166,8 @@
 	integrity_failure = 0
 	max_integrity = 200
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	icon_state = "cerberus_off"
+	base_icon_state = "cerberus"
 	shot_delay = 2 SECONDS
 	uses_stored = FALSE
 	stored_gun = null
@@ -188,7 +190,7 @@
 	////// Do we want it to eject casings?
 	var/casing_ejector = TRUE
 	//////what box should this spawn with if its map_spawned?
-	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed
+	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled
 	//////Container of the turret. Needs expanded ref.
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box
 	////// Magazine inside the turret.
