@@ -224,7 +224,7 @@
 	////// currently loaded bullet
 	var/obj/item/ammo_casing/chambered = null
 	////// linked target designator
-	var/obj/item/target_designator/linkage = null
+	var/datum/weakref/linkage = null //I've never used weakrefs. Be gentle on me.
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
@@ -263,8 +263,9 @@
 	if(!disassembled) //We make it oilsplode, but still retrievable.
 		new /obj/effect/gibspawner/robot(drop_location())
 
-	if(linkage)
-		linkage.linked_turrets -= src
+	var/obj/item/target_designator/controller = linkage?.resolve()
+	if(controller)
+		controller.linked_turrets -= src
 		linkage = null
 
 	var/atom/movable/shell = mag_box
@@ -522,7 +523,7 @@
 			if(linkage) //should help both preventing dual-controlling AND double-linking causing odd issues with ally system
 				balloon_alert(user, "turret already linked!")
 				return
-			linkage = boss
+			linkage = WEAKREF(boss)
 			boss.linked_turrets += src
 			balloon_alert(user, "turret linked!")
 			return
@@ -556,10 +557,14 @@
 		return
 	if(in_faction(user))
 		if(istype(attacking_item, /obj/item/target_designator))
+			var/obj/item/target_designator/owner_check = linkage?.resolve()
+			if(attacking_item != owner_check) //cant unlink if not the same one
+				balloon_alert(user, "turret not linked!")
+				return
 			var/obj/item/target_designator/boss = attacking_item
 			linkage = null
 			boss.linked_turrets -= src
-			balloon_alert(user, "Turret unlinked!")
+			balloon_alert(user, "turret unlinked!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
