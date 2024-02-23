@@ -222,7 +222,7 @@
 	////// Magazine inside the turret.
 	var/datum/weakref/magazine_ref = null
 	////// currently loaded bullet
-	var/obj/item/ammo_casing/chambered = null
+	var/datum/weakref/chambered = null
 	////// linked target designator
 	var/datum/weakref/linkage = null //I've never used weakrefs. Be gentle on me.
 
@@ -249,14 +249,15 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	var/obj/item/ammo_box/magazine/grabmag = magazine_ref?.resolve()
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/brassholder = mag_box?.resolve()
+	var/obj/item/ammo_casing/closed_casing = chambered?.resolve()
 	if(chambered)
-		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
-			chambered.forceMove(drop_location())
-			chambered.loaded_projectile = null
+		if(!closed_casing.loaded_projectile || QDELETED(closed_casing.loaded_projectile) || !closed_casing.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
+			closed_casing.forceMove(drop_location())
+			closed_casing.loaded_projectile = null
 		if(!magazine_ref)
-			chambered.forceMove(drop_location())
+			closed_casing.forceMove(drop_location())
 		else
-			grabmag.give_round(chambered) //put bullet back in magazine
+			grabmag.give_round(closed_casing) //put bullet back in magazine
 		chambered = null
 
 	if(magazine_ref)
@@ -311,11 +312,12 @@
 	if (glocko_bell.ammo_count())
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("Loading Cartridge")
-		chambered = glocko_bell.get_round(keep = FALSE)
-		chambered.forceMove(src)
+		chambered = WEAKREF(glocko_bell.get_round(keep = FALSE))
+		var/obj/item/ammo_casing/glockamole = chambered?.resolve()
+		glockamole.forceMove(src)
 		playsound(src, 'sound/weapons/gun/general/bolt_rack.ogg', 10, TRUE)
 		if(replace_new_round) //For edge-case additions later in the road.
-			glocko_bell.give_round(new chambered.type)
+			glocko_bell.give_round(new glockamole.type)
 
 ////// handles magazine ejecting and automatic load proccing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_mag()
@@ -346,7 +348,7 @@
 
 ////// ejects cartridge and calls if issues arrive.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/eject_cartridge()
-	var/obj/item/ammo_casing/casing = chambered //Find chambered round
+	var/obj/item/ammo_casing/casing = chambered?.resolve() //Find chambered round. i'd give this a funny var name but casing was already here.
 	if(istype(casing)) //there's a chambered round
 		if(casing.loaded_projectile)
 			if(QDELETED(casing.loaded_projectile))
@@ -367,7 +369,7 @@
 
 ////// redundant proc thats mostly for making sure stuff isn't qdel'ing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/check_cartridge() //There's some edge cases where shite happens.
-	var/obj/item/ammo_casing/casing = chambered //Find chambered round
+	var/obj/item/ammo_casing/casing = chambered?.resolve() //Find chambered round
 	if(istype(casing)) //there's a chambered round
 		if(casing.loaded_projectile)
 			if(QDELETED(casing.loaded_projectile))
@@ -471,8 +473,9 @@
 		balloon_alert_to_viewers("gun jammed!")
 		return
 
-	if(chambered.loaded_projectile && !QDELETED(chambered.loaded_projectile))
-		var/obj/projectile/our_projectile = chambered.loaded_projectile
+	var/obj/item/ammo_casing/bullet_egg = chambered?.resolve()
+	if(bullet_egg.loaded_projectile && !QDELETED(bullet_egg.loaded_projectile))
+		var/obj/projectile/our_projectile = bullet_egg.loaded_projectile
 		our_projectile.preparePixelProjectile(target, my_lawn)
 		our_projectile.firer = src
 		our_projectile.fired_from = src
@@ -480,9 +483,9 @@
 			our_projectile.ignored_factions = (faction + allies)
 		our_projectile.fire()
 		our_projectile.fired = TRUE
-		play_fire_sound(chambered)
+		play_fire_sound(bullet_egg)
 		our_projectile = null // We clear the ref from here. Pretty sure not needed but just in case.
-		chambered.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
+		bullet_egg.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
 		handle_chamber(TRUE)
 		return
 
