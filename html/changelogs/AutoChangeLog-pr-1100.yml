@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "Guns can no longer be worn in the overclothing slot, because it turns out that ITEM_SLOT_OCLOTHING is not, in fact, the suit storage slot."
