@@ -220,7 +220,7 @@
 	//////Container of the turret. Needs expanded ref.
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/mag_box
 	////// Magazine inside the turret.
-	var/obj/item/ammo_box/magazine/magazine = null
+	var/datum/weakref/magazine_ref = null
 	////// currently loaded bullet
 	var/obj/item/ammo_casing/chambered = null
 	////// linked target designator
@@ -246,19 +246,20 @@
 			. += span_notice("<b><i>This turret is currently linked!</i></b>")
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
+	var/obj/item/ammo_box/magazine/grabmag = magazine_ref?.resolve()
 	if(chambered)
 		if(!chambered.loaded_projectile || QDELETED(chambered.loaded_projectile) || !chambered.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
 			chambered.forceMove(drop_location())
 			chambered.loaded_projectile = null
-		if(!magazine)
+		if(!magazine_ref)
 			chambered.forceMove(drop_location())
 		else
-			magazine.give_round(chambered) //put bullet back in magazine
+			grabmag.give_round(chambered) //put bullet back in magazine
 		chambered = null
 
-	if(magazine)
-		mag_box.contents.Insert(1,magazine) //if the magazine is being kept this long, it might aswell be shoved back in.
-		magazine = null
+	if(magazine_ref)
+		mag_box.contents.Insert(1,grabmag) //if the magazine is being kept this long, it might aswell be shoved back in.
+		magazine_ref = null
 
 	if(!disassembled) //We make it oilsplode, but still retrievable.
 		new /obj/effect/gibspawner/robot(drop_location())
@@ -287,40 +288,42 @@
 ////// Ammo and magazine handling //////
 //////main proc to handle loading magazines and bullets. might need improved?
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(chamber_next_round = TRUE)
-	if(!magazine)
+	var/obj/item/ammo_box/magazine/regret_maker = magazine_ref?.resolve()
+	if(!magazine_ref)
 		load_mag()
 
-	else if(!magazine.ammo_count())
+	else if(!regret_maker.ammo_count())
 		handle_mag()
 
 	if(chambered)
 		eject_cartridge()
 
-	if (chamber_next_round && (magazine?.max_ammo > 1))
+	if (chamber_next_round && (regret_maker?.max_ammo > 1))
 		chamber_round(FALSE)
 		return
 
 ////// proc to insert the round.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/chamber_round(replace_new_round)
-	if (chambered || !magazine)
+	var/obj/item/ammo_box/magazine/glocko_bell = magazine_ref?.resolve()
+	if (chambered || !magazine_ref)
 		return
-	if (magazine.ammo_count())
+	if (glocko_bell.ammo_count())
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("Loading Cartridge")
-		chambered = magazine.get_round(keep = FALSE)
+		chambered = glocko_bell.get_round(keep = FALSE)
 		chambered.forceMove(src)
 		playsound(src, 'sound/weapons/gun/general/bolt_rack.ogg', 10, TRUE)
 		if(replace_new_round) //For edge-case additions later in the road.
-			magazine.give_round(new chambered.type)
+			glocko_bell.give_round(new chambered.type)
 
 ////// handles magazine ejecting and automatic load proccing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_mag()
-	if(magazine)
-		var/obj/item/ammo_box/magazine/mag = magazine
+	if(magazine_ref)
+		var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 		if(istype(mag))
-			magazine.forceMove(drop_location())
-			UnregisterSignal(magazine, COMSIG_MOVABLE_MOVED)
-			magazine = null
+			mag.forceMove(drop_location())
+			UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
+			magazine_ref = null
 	load_mag()
 	playsound(src, 'sound/weapons/gun/general/chunkyrack.ogg', 30, TRUE)
 	return
@@ -332,8 +335,9 @@
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
 		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
 		return
-	magazine = mag_box.get_mag(FALSE)
-	magazine.forceMove(src)
+	magazine_ref = WEAKREF(mag_box.get_mag(FALSE))
+	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
+	get_that_mag.forceMove(src)
 	if(!claptrap_moment)
 		balloon_alert_to_viewers("loading magazine...")
 	return
@@ -345,7 +349,7 @@
 		if(casing.loaded_projectile)
 			if(QDELETED(casing.loaded_projectile))
 				stack_trace("Trying to move a casing with a deleted projectile!")
-				chambered.loaded_projectile = null
+				casing.loaded_projectile = null
 		if(QDELING(casing))
 			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
 			chambered = null
