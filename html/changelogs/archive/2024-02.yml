@@ -326,3 +326,47 @@
       consistently not give any drops.
   - bugfix: Chefs (not to be confused with cooks) actually display as being a part
       of service on the crew monitor.
+2024-02-24:
+  13spacemen, Kapu1178:
+  - refactor: Footprint sprites are now based on your shoes and legs, shoes have priority
+  - image: Monkey legs now produce pawprints instead of footprints
+  A.C.M.O.:
+  - qol: CPR can be administered by species which do not need to breathe, so long
+      as they have functional lungs.
+  Melbert:
+  - bugfix: You can now take our your anger upon arcade cabinets upon losing (they
+      can be hit again)
+  - refactor: Frames have been refactored, you know the things you use to build computers
+      and machines, report any oddities
+  - bugfix: You can now smack (de)constructed computer and machine frames to break
+      them, rather than doing nothing.
+  - rscadd: Machine frames can now be deconstructed with screwdrivers, and computer
+      frames can now be deconstructed with welding torches. Welders are faster.
+  Nerev4r:
+  - rscadd: Members of the Grand Nomad Fleet have began doing flight drills and exercises,
+      now feeling more comfortable with doing wing-based movements while under station
+      gravity.
+  - rscadd: Moths now sense chemicals using their antennae. I couldn't think of a
+      quirky caption for this.
+  NovaBot13:
+  - bugfix: fixes spurious CI failure in museum
+  - code_imp: adds a blacklist feature to spawners
+  - bugfix: Mining cyborgs now keep the state of their mining scanner when stored,
+      without shutting off.
+  - bugfix: Alien larvas' examine text no longer tells you they are missing arms and
+      legs.
+  - refactor: Bloody item overlays no longer use icon procs to generate the overlay
+  - bugfix: you can no longer feed people with covered mouths using spoons or ladles
+  - bugfix: Chef and department security have the assignment on their ID imprinted
+      onto their PDA by default, instead of defaulting to Cook/Security Officer and
+      requiring you to do so manually.
+  - bugfix: The Summon Simians spell will now properly check for monkey faction, allowing
+      people who are monkeys to not be mauled.
+  Paxilmaniac:
+  - bugfix: The Qani-Laaca sensory computer will now correctly give you the overdose
+      or not, because the buttons to do so are now separate actions.
+  - bugfix: If you are overdosing twitch immediately upon starting to process it,
+      your screen will be the correct color again.
+  - qol: The Wylom no longer lies to you about having a functional scope
+  - bugfix: Guns can no longer be worn in the overclothing slot, because it turns
+      out that ITEM_SLOT_OCLOTHING is not, in fact, the suit storage slot.
