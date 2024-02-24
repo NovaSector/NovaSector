@@ -228,8 +228,8 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
 	if(!mag_box) //If we want to make map-spawned turrets in turret form.
-		var/feed_the_machine = new mag_box_type
-		mag_box = WEAKREF(feed_the_machine)
+		var/auto_loader = new mag_box_type
+		mag_box = WEAKREF(auto_loader)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/examine(mob/user) //If this breaks i'm gonna have to go to further seperate its examination text to allow better editing.
 	. = ..()
@@ -246,28 +246,28 @@
 			. += span_notice("<b><i>This turret is currently linked!</i></b>")
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
-	var/obj/item/ammo_box/magazine/grabmag = magazine_ref?.resolve()
-	if(isnull(grabmag))
+	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
+	if(isnull(mag))
 		magazine_ref = null
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/brassholder = mag_box?.resolve()
-	if(isnull(brassholder))
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
+	if(isnull(auto_loader))
 		mag_box = null
-	var/obj/item/ammo_casing/closed_casing = chambered?.resolve()
-	if(isnull(closed_casing))
+	var/obj/item/ammo_casing/casing = chambered?.resolve()
+	if(isnull(casing))
 		chambered = null
 	if(chambered)
-		if(!closed_casing.loaded_projectile || QDELETED(closed_casing.loaded_projectile) || !closed_casing.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
-			closed_casing.forceMove(drop_location())
-			closed_casing.loaded_projectile = null
+		if(!casing.loaded_projectile || QDELETED(casing.loaded_projectile) || !casing.loaded_projectile) //to catch very edge-case stuff thats likely to happen if the turret breaks mid-firing.
+			casing.forceMove(drop_location())
+			casing.loaded_projectile = null
 		if(!magazine_ref)
-			closed_casing.forceMove(drop_location())
-		else if(grabmag)
-			grabmag.give_round(closed_casing) //put bullet back in magazine
+			casing.forceMove(drop_location())
+		else if(mag)
+			mag.give_round(casing) //put bullet back in magazine
 		chambered = null
 
 	if(magazine_ref)
-		if(brassholder) //if the magazine is being kept this long, it might aswell be shoved back in.
-			brassholder.atom_storage?.attempt_insert(grabmag, override = TRUE)
+		if(auto_loader) //if the magazine is being kept this long, it might aswell be shoved back in.
+			auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
 		magazine_ref = null
 
 	if(!disassembled) //We make it oilsplode, but still retrievable.
@@ -280,7 +280,7 @@
 	linkage = null
 
 	mag_box = null
-	brassholder?.forceMove(drop_location())
+	auto_loader?.forceMove(drop_location())
 
 	qdel(src)
 	return
@@ -297,40 +297,40 @@
 ////// Ammo and magazine handling //////
 //////main proc to handle loading magazines and bullets. might need improved?
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(chamber_next_round = TRUE)
-	var/obj/item/ammo_box/magazine/regret_maker = magazine_ref?.resolve()
-	if(isnull(regret_maker))
+	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
+	if(isnull(mag))
 		magazine_ref = null
 	if(isnull(magazine_ref))
 		load_mag()
 
-	else if(regret_maker && !regret_maker.ammo_count())
+	else if(mag && !mag.ammo_count())
 		handle_mag()
 
 	if(chambered)
 		eject_cartridge()
 
-	if (chamber_next_round && (regret_maker?.max_ammo > 1))
+	if (chamber_next_round && (mag?.max_ammo > 1))
 		chamber_round(FALSE)
 		return
 
 ////// proc to insert the round.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/chamber_round(replace_new_round)
-	var/obj/item/ammo_box/magazine/glocko_bell = magazine_ref?.resolve()
-	if(isnull(glocko_bell))
+	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
+	if(isnull(mag))
 		magazine_ref = null
 	if (chambered || isnull(magazine_ref))
 		return
-	if (glocko_bell.ammo_count())
+	if (mag.ammo_count())
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("loading cartridge...")
-		chambered = WEAKREF(glocko_bell.get_round(keep = FALSE))
-		var/obj/item/ammo_casing/glockamole = chambered?.resolve()
-		if(isnull(glockamole))
+		chambered = WEAKREF(mag.get_round(keep = FALSE))
+		var/obj/item/ammo_casing/casing = chambered?.resolve()
+		if(isnull(casing))
 			chambered = null
-		glockamole.forceMove(src)
+		casing.forceMove(src)
 		playsound(src, 'sound/weapons/gun/general/bolt_rack.ogg', 10, TRUE)
 		if(replace_new_round) //For edge-case additions later in the road.
-			glocko_bell.give_round(new glockamole.type)
+			mag.give_round(new casing.type)
 
 ////// handles magazine ejecting and automatic load proccing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_mag()
@@ -346,13 +346,13 @@
 
 ////// handles magazine loading
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/clip_holder = mag_box?.resolve()
-	if(!clip_holder.get_mag())
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
+	if(!auto_loader.get_mag())
 		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
 		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
 		return
-	magazine_ref = WEAKREF(clip_holder.get_mag(FALSE))
+	magazine_ref = WEAKREF(auto_loader.get_mag(FALSE))
 	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
 	if(isnull(get_that_mag))
 		magazine_ref = null
@@ -395,14 +395,14 @@
 
 ////// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/brownings_pride = mag_box?.resolve()
-	if(isnull(brownings_pride))
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
+	if(isnull(auto_loader))
 		mag_box = null
-	if(!(magaroni.type in brownings_pride.atom_storage.can_hold))
+	if(!(magaroni.type in auto_loader.atom_storage.can_hold))
 		balloon_alert(guy_with_mag, "can't fit!")
 		return
 	balloon_alert(guy_with_mag, "magazine inserted!")
-	brownings_pride?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
+	auto_loader?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
 	return
 
 ////// I rewrite/add to the entire proccess. //////
@@ -491,9 +491,9 @@
 		balloon_alert_to_viewers("gun jammed!")
 		return
 
-	var/obj/item/ammo_casing/bullet_egg = chambered?.resolve()
-	if(bullet_egg.loaded_projectile && !QDELETED(bullet_egg.loaded_projectile))
-		var/obj/projectile/our_projectile = bullet_egg.loaded_projectile
+	var/obj/item/ammo_casing/casing = chambered?.resolve()
+	if(casing.loaded_projectile && !QDELETED(casing.loaded_projectile))
+		var/obj/projectile/our_projectile = casing.loaded_projectile
 		our_projectile.preparePixelProjectile(target, my_lawn)
 		our_projectile.firer = src
 		our_projectile.fired_from = src
@@ -501,9 +501,9 @@
 			our_projectile.ignored_factions = (faction + allies)
 		our_projectile.fire()
 		our_projectile.fired = TRUE
-		play_fire_sound(bullet_egg)
+		play_fire_sound(casing)
 		our_projectile = null // We clear the ref from here. Pretty sure not needed but just in case.
-		bullet_egg.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
+		casing.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
 		handle_chamber(TRUE)
 		return
 
@@ -530,10 +530,10 @@
 ////// Operation Handling //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/glock_pocket = mag_box?.resolve()
-	if(isnull(glock_pocket))
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
+	if(isnull(auto_loader))
 		mag_box = null
-	if(attacking_item.type in glock_pocket.atom_storage.can_hold)
+	if(attacking_item.type in auto_loader.atom_storage.can_hold)
 		balloon_alert(user, "attempting to load...")
 		if(!do_after(user, 1 SECONDS, src))
 			balloon_alert(user, "failed to load!")
@@ -547,16 +547,16 @@
 
 	if(in_faction(user))
 		if(istype(attacking_item, /obj/item/target_designator))
-			var/obj/item/target_designator/boss = attacking_item
-			if(length(boss.linked_turrets) >= boss.turret_limit)
+			var/obj/item/target_designator/controller = attacking_item
+			if(length(controller.linked_turrets) >= controller.turret_limit)
 				balloon_alert(user, "turret limit reached!")
 				return
 			if(linkage) //should help both preventing dual-controlling AND double-linking causing odd issues with ally system
 				balloon_alert(user, "turret already linked!")
 				return
-			linkage = WEAKREF(boss)
-			boss.linked_turrets += src
-			RegisterSignal(boss, COMSIG_QDELETING, PROC_REF(on_qdeleted), TRUE) //True otherwise it causes a runtime for overwriting parent qdeling. Dont know where to go elsewise.
+			linkage = WEAKREF(controller)
+			controller.linked_turrets += src
+			RegisterSignal(controller, COMSIG_QDELETING, PROC_REF(on_qdeleted), TRUE) //True otherwise it causes a runtime for overwriting parent qdeling. Dont know where to go elsewise.
 			balloon_alert(user, "turret linked!")
 			return
 
@@ -593,9 +593,9 @@
 			if(attacking_item != owner_check) //cant unlink if not the same one
 				balloon_alert(user, "turret not linked!")
 				return
-			var/obj/item/target_designator/boss = attacking_item
+			var/obj/item/target_designator/controller = attacking_item
 			linkage = null
-			boss.linked_turrets -= src
+			controller.linked_turrets -= src
 			balloon_alert(user, "turret unlinked!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
