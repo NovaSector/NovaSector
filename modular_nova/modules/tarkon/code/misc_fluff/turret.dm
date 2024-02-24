@@ -68,8 +68,7 @@
 		return
 	var/yoink = contents[mag_len]
 	if (keep)
-		contents -= yoink
-		contents.Insert(1,yoink)
+		atom_storage?.attempt_insert(yoink, override = TRUE)
 	return yoink
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/set_faction(obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret, mob/user)
@@ -267,7 +266,8 @@
 		chambered = null
 
 	if(magazine_ref)
-		brassholder.contents.Insert(1,grabmag) //if the magazine is being kept this long, it might aswell be shoved back in.
+		if(brassholder) //if the magazine is being kept this long, it might aswell be shoved back in.
+			brassholder.atom_storage?.attempt_insert(grabmag, override = TRUE)
 		magazine_ref = null
 
 	if(!disassembled) //We make it oilsplode, but still retrievable.
@@ -276,7 +276,7 @@
 	var/obj/item/target_designator/controller = linkage?.resolve()
 	if(!isnull(controller))
 		controller.linked_turrets -= src
-		UnregisterSignal(boss, COMIG_QDELETING)
+		UnregisterSignal(controller, COMSIG_QDELETING)
 	linkage = null
 
 	mag_box = null
@@ -365,7 +365,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/eject_cartridge()
 	var/obj/item/ammo_casing/casing = chambered?.resolve() //Find chambered round. i'd give this a funny var name but casing was already here.
 	if(isnull(casing))
-		 chambered = null
+		chambered = null
 	if(istype(casing)) //there's a chambered round
 		if(casing.loaded_projectile)
 			if(QDELETED(casing.loaded_projectile))
@@ -379,10 +379,9 @@
 				balloon_alert_to_viewers("ejecting cartridge") // will proc even on caseless cartridges, but its a debug message.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			chambered = null
-			if(!QDELETED(casing))
-				SEND_SIGNAL(casing, COMSIG_FIRE_CASING) //to account for caseless cartridges.
-				casing.bounce_away(TRUE)
-				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+			SEND_SIGNAL(casing, COMSIG_FIRE_CASING) //to account for caseless cartridges.
+			casing.bounce_away(TRUE)
+			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 
 ////// redundant proc thats mostly for making sure stuff isn't qdel'ing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/check_cartridge() //There's some edge cases where shite happens.
@@ -557,7 +556,7 @@
 				return
 			linkage = WEAKREF(boss)
 			boss.linked_turrets += src
-			RegisterSignal(boss, COMIG_QDELETING, PROC_REF(on_qdeleted))
+			RegisterSignal(boss, COMSIG_QDELETING, PROC_REF(on_qdeleted), TRUE) //True otherwise it causes a runtime for overwriting parent qdeling. Dont know where to go elsewise.
 			balloon_alert(user, "turret linked!")
 			return
 
@@ -621,3 +620,8 @@
 		handle_chamber(TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/on_qdeleted(datum/source) //I hope this is what you ment.
+	SIGNAL_HANDLER
+
+	var/obj/item/target_designator/controller = linkage?.resolve()
+	controller.linked_turrets -= source
