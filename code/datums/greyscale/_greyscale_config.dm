@@ -242,7 +242,7 @@
 
 	var/icon/icon_bundle = GenerateBundle(color_string, last_external_icon=last_external_icon)
 	// NOVA EDIT ADDITION - TESTING CI FAILURES
-	if(!get_icon_dmi_path(icon_bundle))
+	if(!isicon(icon_bundle))
 		return
 	// NOVA EDIT ADDITION
 	icon_bundle = fcopy_rsc(icon_bundle)
