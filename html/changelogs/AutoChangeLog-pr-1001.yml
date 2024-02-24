@@ -1,5 +1,0 @@
-author: "1393F"
-delete-after: True
-changes:
-  - qol: "The crystallizer in Void Raptor atmos has been moved very slightly so the recipes no longer spawn in the wall."
-  - bugfix: "The cargo foundry on Void Raptor no longer has a fire alarm in space."
