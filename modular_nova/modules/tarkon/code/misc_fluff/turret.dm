@@ -129,7 +129,7 @@
 	////// the currently linked turrets.
 	var/linked_turrets = list()
 	////// the target currently being targeted.
-	var/acquired_target = null
+	var/datum/weakref/acquired_target
 	////// how long the target can be focused. changable incase of better ones wanted.
 	var/acquisition_duration = 5 SECONDS
 
@@ -168,10 +168,10 @@
 /obj/item/target_designator/proc/designate_enemy(atom/movable/target, mob/user)
 	if(!target)
 		return
-	acquired_target = target
+	acquired_target = WEAKREF(target)
 	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
 		for(var/turret_to_control in 1 to length(linked_turrets))
-			turret.override_target(acquired_target)
+			turret.override_target(acquired_target?.resolve())
 		balloon_alert(user, "target designated!")
 
 
