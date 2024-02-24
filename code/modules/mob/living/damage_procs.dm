@@ -61,12 +61,8 @@
 					update_damage_overlays()
 				damage_dealt = actual_hit.get_damage() - delta // Unfortunately bodypart receive_damage doesn't return damage dealt so we do it manually
 			else
-<<<<<<< HEAD
-				damage_dealt = adjustBruteLoss(damage_amount, forced = forced)
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living, adjust_pain), damage_amount) // NOVA EDIT ADDITION - ERP Pain
-=======
 				damage_dealt = -1 * adjustBruteLoss(damage_amount, forced = forced)
->>>>>>> 20637030020 (Fix some attack effects not playing / Fix `apply_damage` returning innacurate values (#81635))
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living, adjust_pain), damage_amount) // NOVA EDIT ADDITION - ERP Pain
 		if(BURN)
 			if(isbodypart(def_zone))
 				var/obj/item/bodypart/actual_hit = def_zone
@@ -84,12 +80,8 @@
 					update_damage_overlays()
 				damage_dealt = actual_hit.get_damage() - delta // See above
 			else
-<<<<<<< HEAD
-				damage_dealt = adjustFireLoss(damage_amount, forced = forced)
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living, adjust_pain), damage_amount) // NOVA EDIT ADDITION - ERP Pain
-=======
 				damage_dealt = -1 * adjustFireLoss(damage_amount, forced = forced)
->>>>>>> 20637030020 (Fix some attack effects not playing / Fix `apply_damage` returning innacurate values (#81635))
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living, adjust_pain), damage_amount) // NOVA EDIT ADDITION - ERP Pain
 		if(TOX)
 			damage_dealt = -1 * adjustToxLoss(damage_amount, forced = forced)
 		if(OXY)
