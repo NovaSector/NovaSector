@@ -370,3 +370,23 @@
   - qol: The Wylom no longer lies to you about having a functional scope
   - bugfix: Guns can no longer be worn in the overclothing slot, because it turns
       out that ITEM_SLOT_OCLOTHING is not, in fact, the suit storage slot.
+2024-02-25:
+  GoldenAlpharex:
+  - bugfix: Millstones no longer take damage when produce that can do damage (like
+      tower-cap logs) get inserted in them.
+  - qol: Millstones now give better feedback when items are inserted and when grinding
+      is done.
+  - bugfix: Ant farms now drop all of the 20 pieces of sand that are required to make
+      them, when built in an invalid location.
+  - qol: Ant farms no longer accept food when ants have appeared, as it already does
+      nothing once ants have arrived.
+  - qol: Inserting food in an ant farm from a plant bag is now twice as fast!
+  - qol: Seed meshes now only take 2 seconds to process 5 sand/ash, and have a 50%
+      chance to produce a seed, up from 30%.
+  - qol: Grass can now be dried into thatch, rendering thatch floors accessible to
+      the crew, and not just a tool only for mappers.
+  - bugfix: Storage barrels and wooden shelves no longer drop clay upon being deconstructed.
+  - spellcheck: Decapitalized the various primitive storage structures that were wrongfully
+      capitalized.
+  Melbert:
+  - bugfix: Cyborgs spark and spit out oil when smacked again. Among other things.
