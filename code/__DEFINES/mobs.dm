@@ -88,21 +88,17 @@
 ///The limb is from a xenomorph.
 #define BODYTYPE_ALIEN (1<<3)
 ///The limb is from a golem
-<<<<<<< HEAD
-#define BODYTYPE_GOLEM (1<<8)
+#define BODYTYPE_GOLEM (1<<4)
 // NOVA EDIT ADDITION
 ///The limb fits a modular custom shape
-#define BODYTYPE_CUSTOM (1<<9)
+#define BODYSHAPE_CUSTOM (1<<9)
 ///The limb fits a taur body
-#define BODYTYPE_TAUR (1<<10)
+#define BODYSHAPE_TAUR (1<<10)
 ///The limb causes shoes to no longer be displayed, useful for taurs.
-#define BODYTYPE_HIDE_SHOES (1<<11)
+#define BODYSHAPE_HIDE_SHOES (1<<11)
 ///The limb causes glasses and hats to be drawn on layers 5 and 4 respectively. Currently used for snouts with the (Top) suffix, which are drawn on layer 6 and would normally cover facewear
-#define BODYTYPE_ALT_FACEWEAR_LAYER (1<<12)
+#define BODYSHAPE_ALT_FACEWEAR_LAYER (1<<12)
 // NOVA EDIT END
-=======
-#define BODYTYPE_GOLEM (1<<4)
->>>>>>> f9b7588bc4a (bodytypes to do with body shape and sprite handling have their own var (#81590))
 
 // Bodyshape defines for how things can be worn, i.e., what "shape" the mob sprite is
 ///The limb fits the human mold. This is not meant to be literal, if the sprite "fits" on a human, it is "humanoid", regardless of origin.
