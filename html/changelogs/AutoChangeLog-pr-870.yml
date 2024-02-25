@@ -1,0 +1,4 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - qol: "Disabled CPR for synthetic species with a heatsink. Choosing cybernetic lungs will allow CPR."

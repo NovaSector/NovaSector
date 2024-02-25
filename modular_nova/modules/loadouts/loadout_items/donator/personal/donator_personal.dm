@@ -764,6 +764,21 @@
 	item_path = /obj/item/implanter/toaster
 	ckeywhitelist = list("jasohavents")
 
+/datum/loadout_item/under/miscellaneous/rem
+	name = "M.I.A. Limiter"
+	item_path = /obj/item/clothing/under/rem
+	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/shoes/rem
+	name = "M.I.A. Heels"
+	item_path = /obj/item/clothing/shoes/rem_shoes
+	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/under/miscellaneous/bwake
+	name = "Compression Bodysuit"
+	item_path = /obj/item/clothing/under/bwake
+	ckeywhitelist = list("ignari")
+
 /datum/loadout_item/inhand/mrfluff_mothroach
 	name = "Mr. Fluff"
 	item_path = /obj/item/clothing/head/mob_holder/pet/donopet_centralsmith
