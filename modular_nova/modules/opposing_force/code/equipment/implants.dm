@@ -91,7 +91,7 @@
 	admin_note = "Allows the user to break handcuffs or e-snares four times, after it will run out and become useless."
 	description = "An implanter that grants you the ability to break out of handcuffs a certain number of times."
 
-/* Removal pending replacment
+/* TODO Removal pending replacement
 /datum/opposing_force_equipment/implants_illegal/micro
 	name = "Microbomb Implant"
 	admin_note = "RRs the user."
