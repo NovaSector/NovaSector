@@ -414,7 +414,7 @@
 			if(isnull(overridden_target))
 				target_override = null
 				return
-			tryToShootAt(list(overridden_target))
+			trytoshootfucker(overridden_target) //This is 1 thing. It does not need a list. This kills it because it'll never read a list as null.
 			return
 
 	return ..()
@@ -461,17 +461,20 @@
 	shot_delay = initial(shot_delay)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/tryToShootAt(list/atom/movable/things_in_my_lawn) //better target prioritization, shoots at closest simple mob
-	var/atom/movable/overridden_target = target_override.resolve()
-	if(isnull(overridden_target))
-		target_override = null
-		return
-	while(overridden_target)
-		if(target(target_override))
-			return TRUE
 	var/turf/my_lawn = get_turf(src)
 	while(things_in_my_lawn.len > 0)
 		var/atom/movable/whipper_snapper = get_closest_atom(/mob/living, things_in_my_lawn, my_lawn)
 		if(target(whipper_snapper))
+			return TRUE
+
+////// Shoots at one specific target. Only happens if target is overridden
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/trytoshootfucker()
+	var/atom/movable/overridden_target = target_override?.resolve()
+	if(isnull(overridden_target))
+		target_override = null
+		return
+	while(overridden_target)
+		if(target(overridden_target)) //ok. Its trying to shoot a weakref. Thats the issue.
 			return TRUE
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
