@@ -91,7 +91,7 @@
 	join_and_leave_log_cache = span_notice( \
 		"[nobody_joined ? "" : "You smell that the following kin are missing from the hole:\n\
 		<b>[joined_player_names.Join("</b>, <b>")]</b>"]\
-		[should_add_newline ? "\n\n" : ""]You catch the smell of the following kin having recently went back to sleep:\n\
+		[should_add_newline ? "\n\n" : ""]You catch the scent of the following kin having recently went back to sleep:\n\
 		<b>[went_back_to_sleep.Join("</b>, <b>")]</b>"]" \
 	)
 
