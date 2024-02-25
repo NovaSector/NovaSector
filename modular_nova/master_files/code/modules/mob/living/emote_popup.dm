@@ -4,7 +4,7 @@
 	layer = FLY_LAYER
 	plane = GAME_PLANE
 	appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /**
  * A proc type that, when called, causes a image/sprite to appear above whatever entity it is called on.
