@@ -54,7 +54,7 @@
 		. += span_notice("It looks pretty empty.")
 
 	if(isprimitivedemihuman(user) || isobserver(user))
-		. += span_notice("<i>You could take closer attention at the scents coming from the hole...</i>")
+		. += span_notice("<i>You could examine it more thoroughly...</i>")
 
 	return .
 
@@ -85,12 +85,13 @@
 		join_and_leave_log_cache = span_notice("Everyone still seems to be sleeping peacefully in the hole.")
 		return join_and_leave_log_cache
 
-	var/nobody_joined = length(joined_player_names) <= 0
+	var/nobody_joined = !length(joined_player_names)
+	var/should_add_newline = !nobody_joined && length(went_back_to_sleep) // if we have both missing kin and kin who went back to sleep, add a newline
 
 	join_and_leave_log_cache = span_notice( \
 		"[nobody_joined ? "" : "You smell that the following kin are missing from the hole:\n\
 		<b>[joined_player_names.Join("</b>, <b>")]</b>"]\
-		[length(went_back_to_sleep) <= 0 ? "" : "[nobody_joined ? "" : "\n\n"]You catch the smell of the following kin having recently went back to sleep:\n\
+		[should_add_newline ? "\n\n" : ""]You catch the smell of the following kin having recently went back to sleep:\n\
 		<b>[went_back_to_sleep.Join("</b>, <b>")]</b>"]" \
 	)
 
