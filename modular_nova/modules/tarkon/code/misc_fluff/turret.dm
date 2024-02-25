@@ -106,7 +106,7 @@
 ////// Targeting Device handling
 
 /obj/item/target_designator
-	name = "Turret Target Designator"
+	name = "\improper Turret Target Designator"
 	desc = "A simple target designation system used to let someone over-ride a turrets targeting software and focus on one entity, or designate someone as a \"Friend\"."
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "designator"
@@ -207,7 +207,7 @@
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
-	var/target_acquisition = null
+	var/datum/weakref/target_override
 	//////Ally system.
 	var/allies = list()
 	//////Do we want this to shut up? Mostly for testing and debugging purposes purposes.
@@ -409,9 +409,12 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/process()
 	if(linkage)
-		if(target_acquisition) //Forces turret to shoot
-			var/ineedtoshootthis = list(target_acquisition)
-			tryToShootAt(ineedtoshootthis)
+		if(target_override) //Forces turret to shoot
+			var/atom/movable/overridden_target = target_override.resolve()
+			if(isnull(overridden_target))
+				target_override = null
+				return
+			tryToShootAt(list(overridden_target))
 			return
 
 	return ..()
@@ -441,31 +444,35 @@
 		popUp() //pop the turret up if it's not already up.
 		setDir(get_dir(base, target))//even if you can't shoot, follow the target
 		shootAt(target)
-		return 1
+		return TRUE
 	return
 
 ////// manual target acquisition from target designator, improves fire rate.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/override_target(atom/movable/target)
 	if(!target)
 		return
-	target_acquisition = target
+	target_override = WEAKREF(target)
 	balloon_alert_to_viewers("target acquired!") // So you know whats causing it to fire
 	shot_delay = (initial(shot_delay) / 2) //No need to scan for targets so faster work
 
 ////// clears the target and resets fire rate
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/clear_override()
-	target_acquisition = null
+	target_override = null
 	shot_delay = initial(shot_delay)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/tryToShootAt(list/atom/movable/things_in_my_lawn) //better target prioritization, shoots at closest simple mob
-	while(target_acquisition)
-		if(target(target_acquisition))
-			return 1
+	var/atom/movable/overridden_target = target_override.resolve()
+	if(isnull(overridden_target))
+		target_override = null
+		return
+	while(overridden_target)
+		if(target(target_override))
+			return TRUE
 	var/turf/my_lawn = get_turf(src)
 	while(things_in_my_lawn.len > 0)
 		var/atom/movable/whipper_snapper = get_closest_atom(/mob/living, things_in_my_lawn, my_lawn)
 		if(target(whipper_snapper))
-			return 1
+			return TRUE
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
 	if(!chambered) //Ok, We need to START the cycle
