@@ -1,9 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - bugfix: "Millstones no longer take damage when produce that can do damage (like tower-cap logs) get inserted in them."
-  - qol: "Millstones now give better feedback when items are inserted and when grinding is done."
-  - bugfix: "Ant farms now drop all of the 20 pieces of sand that are required to make them, when built in an invalid location."
-  - qol: "Ant farms no longer accept food when ants have appeared, as it already does nothing once ants have arrived."
-  - qol: "Inserting food in an ant farm from a plant bag is now twice as fast!"
-  - qol: "Seed meshes now only take 2 seconds to process 5 sand/ash, and have a 50% chance to produce a seed, up from 30%."

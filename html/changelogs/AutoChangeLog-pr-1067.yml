@@ -1,6 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - qol: "Grass can now be dried into thatch, rendering thatch floors accessible to the crew, and not just a tool only for mappers."
-  - bugfix: "Storage barrels and wooden shelves no longer drop clay upon being deconstructed."
-  - spellcheck: "Decapitalized the various primitive storage structures that were wrongfully capitalized."
