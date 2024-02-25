@@ -265,3 +265,128 @@
   - rscadd: deathmatch minigame
   - bugfix: boulders are no longer lost when teleported by the BRM
   - bugfix: batch processing cooldown works when teleporting multiple boulders
+2024-02-21:
+  LT3:
+  - qol: Air alarms now display the source of triggered fire alarms/firedoors
+  LemonInTheDark, Kryson:
+  - image: Modified railing sprites to be a bit more three-d
+  NovaBot13:
+  - bugfix: The North Star's disposals are now functional!
+  - qol: The North Star has had a staggering amount of quality of life changes.
+  - rscadd: Nanotrasen has now supplied North Star security outposts with a disposals
+      line leading directly to the drunk tank.
+  - rscadd: Curators now get a 22.5% cut on credits spent on painting patronages (divided
+      by the number of curators). The service department also gets another, 12.5%
+      cut.
+  - qol: Added a zoom in and out buttons to the painting UI.
+  - bugfix: fixed an issue with tactical appearance (potted plants / cardboard cutouts)
+      not going away after giving the item to someone else.
+  - bugfix: Fixed slaughter demon cutouts being invisible. Also fixed another issue
+      with the tactical appearance not going away when the cardboard cutout is pushed
+      down.
+  - bugfix: Ethereal heart revive doesn't delete organs alien to your species, like
+      prosthetics, cybernetics, and possibly itself.
+  - bugfix: Nightmare heart revive doesn't delete organs alien to your species, like
+      itself, upon which it would stop the conversion to shadowperson.
+  - bugfix: you may not teleport in or out of deathmatch arenas
+  - bugfix: The DNA scanner's joker button no longer instantly activates itself when
+      the cooldown between uses is done.
+  - bugfix: if you died as a changeling/anyone that has cool mind spells you do not
+      get them in deathmatch
+2024-02-22:
+  1393F:
+  - qol: The crystallizer in Void Raptor atmos has been moved very slightly so the
+      recipes no longer spawn in the wall.
+  - bugfix: The cargo foundry on Void Raptor no longer has a fire alarm in space.
+  Lutowski:
+  - image: Slightly alters variants of the Research Director's labcoat sprite to appear
+      less bloated.
+  - rscadd: Adds regular labcoat, a normal variant of the RD labcoat without armor
+      buffs to the loadout.
+  Melbert:
+  - bugfix: Organs have the blood DNA of their owns on them again
+  - bugfix: Chasms no longer break your verbs
+  NovaBot13:
+  - bugfix: sec-hailers no longer apply filters on TTS when pushed out of the way.
+  Thlumyn:
+  - spellcheck: fixed typo describing male organ
+  - bugfix: animal pen doors on void raptor now open with maints access
+  - bugfix: fixed polls
+2024-02-23:
+  Melbert:
+  - rscdel: Deletes Mythril Coins from random coin spawners
+  - rscdel: Replaces Mythril sheets in icebox vent fishing with Runite sheets
+  NovaBot13:
+  - bugfix: ForceEvent tgui panel search is more reliable.
+  - spellcheck: Removed a double space in health analyzer's message telling you someone
+      is deaf.
+  - bugfix: Adds a missing servo component into the MK1 Ripley Crate ordered from
+      cargo.
+  - refactor: Holographic mobs now gives better feedback to players and should more
+      consistently not give any drops.
+  - bugfix: Chefs (not to be confused with cooks) actually display as being a part
+      of service on the crew monitor.
+2024-02-24:
+  13spacemen, Kapu1178:
+  - refactor: Footprint sprites are now based on your shoes and legs, shoes have priority
+  - image: Monkey legs now produce pawprints instead of footprints
+  A.C.M.O.:
+  - qol: CPR can be administered by species which do not need to breathe, so long
+      as they have functional lungs.
+  Melbert:
+  - bugfix: You can now take our your anger upon arcade cabinets upon losing (they
+      can be hit again)
+  - refactor: Frames have been refactored, you know the things you use to build computers
+      and machines, report any oddities
+  - bugfix: You can now smack (de)constructed computer and machine frames to break
+      them, rather than doing nothing.
+  - rscadd: Machine frames can now be deconstructed with screwdrivers, and computer
+      frames can now be deconstructed with welding torches. Welders are faster.
+  Nerev4r:
+  - rscadd: Members of the Grand Nomad Fleet have began doing flight drills and exercises,
+      now feeling more comfortable with doing wing-based movements while under station
+      gravity.
+  - rscadd: Moths now sense chemicals using their antennae. I couldn't think of a
+      quirky caption for this.
+  NovaBot13:
+  - bugfix: fixes spurious CI failure in museum
+  - code_imp: adds a blacklist feature to spawners
+  - bugfix: Mining cyborgs now keep the state of their mining scanner when stored,
+      without shutting off.
+  - bugfix: Alien larvas' examine text no longer tells you they are missing arms and
+      legs.
+  - refactor: Bloody item overlays no longer use icon procs to generate the overlay
+  - bugfix: you can no longer feed people with covered mouths using spoons or ladles
+  - bugfix: Chef and department security have the assignment on their ID imprinted
+      onto their PDA by default, instead of defaulting to Cook/Security Officer and
+      requiring you to do so manually.
+  - bugfix: The Summon Simians spell will now properly check for monkey faction, allowing
+      people who are monkeys to not be mauled.
+  Paxilmaniac:
+  - bugfix: The Qani-Laaca sensory computer will now correctly give you the overdose
+      or not, because the buttons to do so are now separate actions.
+  - bugfix: If you are overdosing twitch immediately upon starting to process it,
+      your screen will be the correct color again.
+  - qol: The Wylom no longer lies to you about having a functional scope
+  - bugfix: Guns can no longer be worn in the overclothing slot, because it turns
+      out that ITEM_SLOT_OCLOTHING is not, in fact, the suit storage slot.
+2024-02-25:
+  GoldenAlpharex:
+  - bugfix: Millstones no longer take damage when produce that can do damage (like
+      tower-cap logs) get inserted in them.
+  - qol: Millstones now give better feedback when items are inserted and when grinding
+      is done.
+  - bugfix: Ant farms now drop all of the 20 pieces of sand that are required to make
+      them, when built in an invalid location.
+  - qol: Ant farms no longer accept food when ants have appeared, as it already does
+      nothing once ants have arrived.
+  - qol: Inserting food in an ant farm from a plant bag is now twice as fast!
+  - qol: Seed meshes now only take 2 seconds to process 5 sand/ash, and have a 50%
+      chance to produce a seed, up from 30%.
+  - qol: Grass can now be dried into thatch, rendering thatch floors accessible to
+      the crew, and not just a tool only for mappers.
+  - bugfix: Storage barrels and wooden shelves no longer drop clay upon being deconstructed.
+  - spellcheck: Decapitalized the various primitive storage structures that were wrongfully
+      capitalized.
+  Melbert:
+  - bugfix: Cyborgs spark and spit out oil when smacked again. Among other things.
