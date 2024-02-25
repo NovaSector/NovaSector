@@ -763,3 +763,8 @@
 	name = "Toaster Implant"
 	item_path = /obj/item/implanter/toaster
 	ckeywhitelist = list("jasohavents")
+
+/datum/loadout_item/inhand/mrfluff_mothroach
+	name = "Mr. Fluff"
+	item_path = /obj/item/clothing/head/mob_holder/pet/donopet_centralsmith
+	ckeywhitelist = list("centralsmith")
