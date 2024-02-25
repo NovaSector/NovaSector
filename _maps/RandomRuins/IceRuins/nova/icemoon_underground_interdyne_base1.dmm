@@ -1491,7 +1491,7 @@
 	},
 /obj/item/serviette_used,
 /obj/item/shard/plastitanium,
-/obj/item/valentine,
+/obj/item/paper/valentine,
 /obj/machinery/light/small/directional/west,
 /obj/item/trash/ready_donk,
 /turf/open/floor/plating/reinforced,
