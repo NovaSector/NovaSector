@@ -6340,6 +6340,7 @@
 #include "modular_nova\master_files\code\modules\client\preferences\be_antag.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\body_size.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\brain.dm"
+#include "modular_nova\master_files\code\modules\client\preferences\chronological_age.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\clothing.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\delete_sparks.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\dontator_status.dm"
