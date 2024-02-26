@@ -18,6 +18,11 @@
 	. = ..()
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 
+/mob/living/basic/mothroach/pet/gib()
+	// People's bespoke pets probably shouldn't be gibbable.
+	// This is both for RP reasons (don't force people to RP permanent pet death) and to prevent griefing.
+	return
+
 /// needs to be able to speak per normal, plan commands, and flee if they feel threatened
 /datum/ai_controller/basic_controller/mothroach/pet
 	blackboard = list(
