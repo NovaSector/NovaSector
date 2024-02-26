@@ -918,6 +918,19 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "plasmaman_jax"
 
+// Donation reward for snakebitenn
+/obj/item/clothing/mask/gas/psycho_malice
+	name = "placeholder"
+	desc = "do not perceive me"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "psychomalice"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+
 // Donation reward for Raxraus
 /obj/item/clothing/shoes/combat/rax
 	name = "tactical boots"
