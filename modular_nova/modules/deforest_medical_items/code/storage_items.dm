@@ -70,6 +70,8 @@
 	atom_storage.set_holdable(list(
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/storage/pill_bottle/prescription_stimulant,
+		/obj/item/food/cheese/firm_cheese_slice,
+		/obj/item/food/cheese/wedge,
 	))
 
 /obj/item/storage/medkit/civil_defense/stocked
@@ -95,8 +97,6 @@
 	var/static/items_inside = list(
 		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 3,
 		/obj/item/storage/pill_bottle/prescription_stimulant = 1,
-		/obj/item/food/cheese/firm_cheese_slice,
-		/obj/item/food/cheese/wedge,
 	)
 	generate_items_inside(items_inside, src)
 
