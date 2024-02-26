@@ -1800,6 +1800,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Sf" = (
 /obj/structure/rack/wooden,
+/obj/item/clothing/neck/necklace/hearthkin,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "SF" = (
@@ -1961,7 +1962,6 @@
 /obj/item/ammo_casing/arrow/bone,
 /obj/item/ammo_casing/arrow/bone,
 /obj/item/ammo_casing/arrow/bone,
-/obj/item/ammo_casing/arrow/bronze,
 /obj/item/ammo_casing/arrow/ash,
 /obj/item/ammo_casing/arrow/ash,
 /obj/item/ammo_casing/arrow,

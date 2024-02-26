@@ -177,3 +177,34 @@
 
 /obj/item/forging/reagent_weapon/axe/fake_copper
 	custom_materials = list(/datum/material/copporcitite = SHEET_MATERIAL_AMOUNT)
+
+//DEFAULT NECK ITEMS OVERRIDE//
+/obj/item/clothing/neck
+	w_class = WEIGHT_CLASS_SMALL
+
+//HEARTHKIN TRANSLATOR NECKLACE
+/obj/item/clothing/neck/necklace/hearthkin
+	name = "gemmed necklace"
+	desc = "A necklace crafted from a gem found in the frozen wastes. This imbues overdwellers with an unnatural understanding of the Hearthkin while worn."
+	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	icon_state = "ashnecklace"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	icon_state = "ashnecklace"
+	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
+
+/obj/item/clothing/neck/necklace/hearthkin/equipped(mob/user, slot)
+	. = ..()
+	if(!ishuman(user))
+		return
+	if(slot & ITEM_SLOT_NECK)
+		user.grant_language(/datum/language/primitive_catgirl/, source = LANGUAGE_TRANSLATOR)
+		to_chat(user, span_boldnotice("Slipping the necklace on, you feel the insidious creep of a dark nature enter your bones, your very shadow and soul. You find yourself with an unnatural knowledge of the Hearthkin; but the amulet's eye stares back at you. Causing you to shiver with unease, you dont want to keep this on forever."))
+
+/obj/item/clothing/neck/necklace/hearthkin/dropped(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(H.get_item_by_slot(ITEM_SLOT_NECK) == src && !QDELETED(src)) //This can be called as a part of destroy
+		user.remove_language(/datum/language/primitive_catgirl/, source = LANGUAGE_TRANSLATOR)
+		to_chat(user, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of Ashtongue."))

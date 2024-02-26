@@ -1406,6 +1406,10 @@
 	pixel_y = 16;
 	pixel_x = -2
 	},
+/obj/item/clothing/neck/necklace/hearthkin,
+/obj/item/clothing/neck/necklace/hearthkin,
+/obj/item/clothing/neck/necklace/hearthkin,
+/obj/item/clothing/neck/necklace/hearthkin,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafepark)
 "avn" = (
@@ -5517,7 +5521,8 @@
 /area/centcom/interlink)
 "dgl" = (
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/stairs,
+/obj/structure/fake_stairs/directional/north,
+/turf/open/space/basic,
 /area/centcom/holding/cafepark)
 "dgV" = (
 /turf/open/floor/iron/white,
@@ -7365,6 +7370,10 @@
 /area/centcom/interlink)
 "gZK" = (
 /obj/structure/table/wood,
+/obj/item/clothing/neck/necklace/ashwalker,
+/obj/item/clothing/neck/necklace/ashwalker,
+/obj/item/clothing/neck/necklace/ashwalker,
+/obj/item/clothing/neck/necklace/ashwalker,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "gZM" = (
