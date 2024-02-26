@@ -52,7 +52,7 @@ const RecordInfo = (props) => {
   const { act, data } = useBackend<SecurityRecordsData>();
   const { available_statuses } = data;
   const [open, setOpen] = useLocalState<boolean>('printOpen', false);
-
+  // const { min_age, max_age } = data; // ORIGINAL
   const { min_age, max_age, max_chrono_age } = data; // NOVA EDIT CHANGE - Chronological age
 
   const {
@@ -151,7 +151,10 @@ const RecordInfo = (props) => {
             <LabeledList.Item label="Job">
               <EditableText field="rank" target_ref={crew_ref} text={rank} />
             </LabeledList.Item>
-            <LabeledList.Item label="Age">
+            {/* <LabeledList.Item label="Age"> // ORIGINAL */}
+            {/* NOVA EDIT CHANGE BEGIN - Chronological age */}
+            <LabeledList.Item label="Physical Age">
+              {/* NOVA EDIT CHANGE END */}
               <RestrictedInput
                 minValue={min_age}
                 maxValue={max_age}
@@ -165,7 +168,7 @@ const RecordInfo = (props) => {
                 value={age}
               />
             </LabeledList.Item>
-            {/* NOVA EDIT ADDITION BEGIN - CHRONOLOGICAL AGE */}
+            {/* NOVA EDIT ADDITION BEGIN - Chronological age */}
             <LabeledList.Item label="Chronological Age">
               <RestrictedInput
                 minValue={min_age}
@@ -180,7 +183,7 @@ const RecordInfo = (props) => {
                 value={chrono_age}
               />
             </LabeledList.Item>
-            {/* NOVA EDIT ADDITION END - CHRONOLOGICAL AGE */}
+            {/* NOVA EDIT ADDITION END */}
             <LabeledList.Item label="Species">
               <EditableText
                 field="species"
