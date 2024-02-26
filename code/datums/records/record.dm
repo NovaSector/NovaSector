@@ -27,9 +27,6 @@
 	/// The character's voice, if they have one.
 	var/voice
 
-	/// NOVA EDIT ADDITION - Chronological age of the character
-	var/chrono_age
-
 /datum/record/New(
 	age = 18,
 	chrono_age = 18, // NOVA EDIT ADDITION - Chronological age
