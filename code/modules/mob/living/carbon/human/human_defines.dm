@@ -43,7 +43,6 @@
 	var/lip_color = COLOR_WHITE
 
 	var/age = 30 //Player's age
-
 	var/chrono_age = 30 // NOVA EDIT ADDITION - Chronological age
 
 	/// Which body type to use
