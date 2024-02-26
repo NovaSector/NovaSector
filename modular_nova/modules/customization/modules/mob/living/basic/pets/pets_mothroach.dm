@@ -27,14 +27,10 @@
 	blackboard = list(
 		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
-		//BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/holding_object,
-		//BB_TARGET_HELD_ITEM = /obj/item/clothing/under/color/grey, //they're coming for your clothing
 	)
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/random_speech/mothroach,
 		/datum/ai_planning_subtree/pet_planning,
-		///datum/ai_planning_subtree/simple_find_target,
-		///datum/ai_planning_subtree/flee_target,
 	)
 
 
@@ -44,15 +40,15 @@
 	name = "Mr. Fluff"
 	desc = "Central's beloved pet mothroach, Mr. Fluff.  He looks so happy to be here!"
 	gender = MALE
-	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/donator_pets.dmi'
 	icon_state = "mr_fluff"
 	icon_living = "mr_fluff"
 	icon_dead = "mr_fluff_dead"
 
-/obj/item/clothing/head/mob_holder/pet/donopet_centralsmith
+/obj/item/clothing/head/mob_holder/pet/donator/centralsmith
 	name = "Mr. Fluff"
 	desc = "Central's beloved pet mothroach, Mr. Fluff.  He looks so happy to be here!"
-	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
+	icon = 'modular_nova/master_files/icons/mob/donator_pets.dmi'
 	icon_state = "mr_fluff"
 
 	starting_pet = /mob/living/basic/mothroach/pet/mr_fluff

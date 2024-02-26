@@ -36,7 +36,7 @@
 		pet.desc = new_desc
 	var/new_gender = client_source?.prefs.read_preference(/datum/preference/choiced/pet_gender)
 	if (new_gender == "Random")
-		pet.gender = pick(list(MALE, FEMALE, PLURAL, NEUTER))
+		pet.gender = pick(list(MALE, FEMALE))
 	else if (new_gender)
 		pet.gender = new_gender
 	pet.befriend(quirk_holder) // Make sure the player is a friend.

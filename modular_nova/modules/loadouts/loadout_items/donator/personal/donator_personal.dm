@@ -781,5 +781,5 @@
 
 /datum/loadout_item/inhand/mrfluff_mothroach
 	name = "Mr. Fluff"
-	item_path = /obj/item/clothing/head/mob_holder/pet/donopet_centralsmith
+	item_path = /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
 	ckeywhitelist = list("centralsmith")
