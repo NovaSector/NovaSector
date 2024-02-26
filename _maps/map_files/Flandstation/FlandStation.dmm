@@ -3523,6 +3523,7 @@
 	name = "Maintenance Hatch"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/construction/mining/aux_base)
 "bbF" = (
@@ -4169,6 +4170,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "bnb" = (
@@ -7410,7 +7412,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Maintenance Hatch"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "cvq" = (
@@ -16294,6 +16296,7 @@
 	name = "Storage Room"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/abandon_diner)
 "foY" = (
@@ -31560,13 +31563,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
-"klf" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Maintenance Hatch"
-	},
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/station/maintenance/port/aft)
 "klg" = (
 /turf/closed/mineral,
 /area/station/hallway/primary/fore)
@@ -37327,6 +37323,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Auxiliary Base Airlock"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /turf/open/floor/plating,
 /area/station/construction/mining/aux_base)
 "mbf" = (
@@ -45763,7 +45760,8 @@
 	pixel_x = 4
 	},
 /obj/machinery/door/window/right/directional/south{
-	name = "Atmospherics Desk"
+	name = "Atmospherics Desk";
+	req_access = list("engineering")
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage/gas)
@@ -52251,6 +52249,7 @@
 /area/station/security/processing)
 "qQA" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/service/hydroponics/garden)
 "qQF" = (
@@ -61072,7 +61071,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /obj/machinery/door/window/left/directional/south{
-	name = "Engineering Delivery"
+	name = "Engineering Delivery";
+	req_access = list("engineering")
 	},
 /turf/open/floor/iron/sepia,
 /area/station/engineering/main)
@@ -65756,6 +65756,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Auxiliary Tool Storage Maintenance"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/iron,
 /area/station/commons/storage/tools)
 "vby" = (
@@ -71622,6 +71623,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Auxiliary Construction Zone"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "wUr" = (
@@ -96378,7 +96380,7 @@ iBx
 mJb
 asL
 uId
-klf
+wcz
 abm
 abm
 gCo
