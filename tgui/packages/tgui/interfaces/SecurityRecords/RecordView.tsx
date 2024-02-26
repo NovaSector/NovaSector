@@ -53,10 +53,11 @@ const RecordInfo = (props) => {
   const { available_statuses } = data;
   const [open, setOpen] = useLocalState<boolean>('printOpen', false);
 
-  const { min_age, max_age } = data;
+  const { min_age, max_age, max_chrono_age } = data; // NOVA EDIT CHANGE - Chronological age
 
   const {
     age,
+    chrono_age, // NOVA EDIT ADDITION - Chronological age
     crew_ref,
     crimes,
     fingerprint,
@@ -164,6 +165,22 @@ const RecordInfo = (props) => {
                 value={age}
               />
             </LabeledList.Item>
+            {/* NOVA EDIT ADDITION BEGIN - CHRONOLOGICAL AGE */}
+            <LabeledList.Item label="Chronological Age">
+              <RestrictedInput
+                minValue={min_age}
+                maxValue={max_chrono_age}
+                onEnter={(event, value) =>
+                  act('edit_field', {
+                    crew_ref: crew_ref,
+                    field: 'chrono_age',
+                    value: value,
+                  })
+                }
+                value={chrono_age}
+              />
+            </LabeledList.Item>
+            {/* NOVA EDIT ADDITION END - CHRONOLOGICAL AGE */}
             <LabeledList.Item label="Species">
               <EditableText
                 field="species"

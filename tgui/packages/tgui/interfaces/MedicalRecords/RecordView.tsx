@@ -31,10 +31,11 @@ export const MedicalRecordView = (props) => {
   const { act, data } = useBackend<MedicalRecordData>();
   const { assigned_view, physical_statuses, mental_statuses, station_z } = data;
 
-  const { min_age, max_age } = data;
+  const { min_age, max_age, max_chrono_age } = data; // NOVA EDIT CHANGE - Chronological age
 
   const {
     age,
+    chrono_age, // NOVA EDIT ADDITION - Chronological age
     blood_type,
     crew_ref,
     dna,
@@ -105,6 +106,22 @@ export const MedicalRecordView = (props) => {
                 value={age}
               />
             </LabeledList.Item>
+            {/* NOVA EDIT ADDITION BEGIN - CHRONOLOGICAL AGE */}
+            <LabeledList.Item label="Chronological Age">
+              <RestrictedInput
+                minValue={min_age}
+                maxValue={max_chrono_age}
+                onEnter={(event, value) =>
+                  act('edit_field', {
+                    field: 'chrono_age',
+                    ref: crew_ref,
+                    value: value,
+                  })
+                }
+                value={chrono_age}
+              />
+            </LabeledList.Item>
+            {/* NOVA EDIT ADDITION END - CHRONOLOGICAL AGE */}
             <LabeledList.Item label="Species">
               <EditableText
                 field="species"

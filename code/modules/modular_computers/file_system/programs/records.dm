@@ -39,6 +39,7 @@
 				var/list/current_record = list()
 
 				current_record["age"] = person.age
+				current_record["chrono_age"] = person.chrono_age // NOVA EDIT ADDITION - Chronological age
 				current_record["fingerprint"] = person.fingerprint
 				current_record["gender"] = person.gender
 				current_record["name"] = person.name

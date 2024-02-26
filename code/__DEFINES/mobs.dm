@@ -461,7 +461,9 @@
 //MINOR TWEAKS/MISC
 //#define AGE_MIN 17	//youngest a character can be //ORIGINAL
 #define AGE_MIN	18	//youngest a character can be //NOVA EDIT CHANGE - age
-#define AGE_MAX 85 //oldest a character can be
+// #define AGE_MAX //oldest a character can be // ORIGINAL
+#define AGE_MAX 100 //oldest a character can be //NOVA EDIT CHANGE - Increase max character age to 100
+#define AGE_CHRONO_MAX 400 //NOVA EDIT ADDITION - Chronological age
 #define AGE_MINOR 20 //legal age of space drinking and smoking
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
