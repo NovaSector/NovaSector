@@ -14306,9 +14306,6 @@
 /obj/effect/turf_decal/bot,
 /obj/item/reagent_containers/cup/glass/bottle/juice/cream,
 /obj/structure/sign/clock/directional/west,
-/obj/machinery/camera/directional/north{
-	c_tag = "Dormitories - Jim Norton's"
-	},
 /obj/machinery/light/warm/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms)
@@ -17038,6 +17035,10 @@
 /area/station/command/heads_quarters/blueshield)
 "ffK" = (
 /obj/item/kirbyplants/synthetic/plant28,
+/obj/machinery/camera/directional/north{
+	c_tag = "Science - Research & Development";
+	network = list("ss13","rd")
+	},
 /turf/open/floor/glass/reinforced,
 /area/station/science/research)
 "ffS" = (
@@ -17786,7 +17787,7 @@
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/machinery/camera/directional/south{
-	c_tag = "Science - Research and Development";
+	c_tag = "Science - Research Desk";
 	network = list("ss13","rd")
 	},
 /obj/machinery/rnd/production/circuit_imprinter/department/science,
@@ -26379,6 +26380,15 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/engine,
 /area/station/engineering/atmos)
+"hXi" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rndlab1";
+	name = "Research and Development Shutter";
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/science/research)
 "hXj" = (
 /obj/item/stack/sheet/glass/fifty{
 	pixel_x = -5;
@@ -50320,9 +50330,12 @@
 /obj/effect/turf_decal/arrows/white{
 	dir = 4
 	},
-/obj/machinery/light/warm/directional/north,
 /obj/structure/railing/corner/end{
 	dir = 4
+	},
+/obj/machinery/light/warm/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Dormitories - Jim Norton's"
 	},
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
@@ -65434,10 +65447,10 @@
 	req_one_access = list("service","maint_tunnels")
 	},
 /obj/structure/sign/poster/official/jim_nortons/directional/west,
-/obj/machinery/light/warm/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/light/warm/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms)
 "tGh" = (
@@ -69864,6 +69877,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"uZk" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/station/science/ordnance/office)
 "uZr" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners{
 	dir = 1
@@ -169897,7 +169916,7 @@ qyQ
 xty
 jVJ
 ipG
-gNt
+uZk
 bCu
 bCu
 gNt
@@ -174269,7 +174288,7 @@ lAU
 rBU
 rhM
 rhM
-cNL
+hXi
 xTA
 cmF
 ocz
