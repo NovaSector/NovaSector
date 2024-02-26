@@ -1,7 +1,8 @@
 import { Feature, FeatureNumberInput } from '../base';
 
 export const age: Feature<number> = {
-  name: 'Age (Physical)', // NOVA EDIT CHANGE - Chronological age, ORIGINAL: name: 'Age',
+  // name: 'Age', // ORIGINAL
+  name: 'Age (Physical)', // NOVA EDIT CHANGE - Chronological age
   // NOVA EDIT ADDITION BEGIN - Chronological age
   description:
     "Physical age represents how far your character has grown physically and mentally.\
