@@ -19,13 +19,13 @@
 	var/list/ingredients = list()
 	/// When this is the nth ingredient, whats its pixel_x?
 	var/list/ingredient_shifts_x = list(
-		-2,
+		-1,
 		1,
-		-4,
+		-2,
 		2,
-		-5,
-		0,
 		-3,
+		0,
+		-1,
 	)
 	/// When this is the nth ingredient, whats its pixel_y?
 	var/list/ingredient_shifts_y = list(
