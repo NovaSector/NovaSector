@@ -53,7 +53,6 @@
 	var/custom_species
 	var/custom_species_lore
 	var/obscured
-	var/obscurity_examine_pref = preferences.read_preference(/datum/preference/toggle/obscurity_examine) //NOVASECTOR EDIT
 	var/ooc_notes = ""
 	var/ideal_antag_optin_status
 	var/current_antag_optin_status
@@ -91,7 +90,7 @@
 
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
-		obscured = (holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) && obscurity_examine_pref || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE) && obscurity_examine_pref) // NOVASECTOR EDIT - EXAMINE PREFS
+		obscured = !preferences.read_preference(/datum/preference/toggle/obscurity_examine) && ((holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE))) // NOVA EDIT CHANGE - ORIGINAL: obscured = (holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE))
 		custom_species = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.name : holder_human.dna.features["custom_species"]
 		flavor_text = obscured ? "Obscured" :  holder_human.dna.features["flavor_text"]
 		custom_species_lore = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.get_species_lore().Join("\n") : holder_human.dna.features["custom_species_lore"]
