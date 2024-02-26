@@ -21,11 +21,11 @@
 	var/list/ingredient_shifts_x = list(
 		-2,
 		1,
-		-5,
-		2,
-		-6,
-		0,
 		-4,
+		2,
+		-5,
+		0,
+		-3,
 	)
 	/// When this is the nth ingredient, whats its pixel_y?
 	var/list/ingredient_shifts_y = list(
@@ -39,7 +39,6 @@
 
 	/// Radial list options
 	var/static/list/radial_options = list("eject" = radial_eject, "cook" = radial_cook)
-	var/static/list/ai_radial_options = list("examine" = radial_examine)
 
 /obj/machinery/cauldron/Initialize(mapload)
 	. = ..()
@@ -92,6 +91,10 @@
 	. = ..()
 	if(held_item?.tool_behaviour == TOOL_WRENCH)
 		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Unsecure" : "Secure"]"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(held_item?.tool_behaviour == TOOL_CROWBAR)
+		context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	context[SCREENTIP_CONTEXT_LMB] = "Show menu"
@@ -245,7 +248,7 @@
 			balloon_alert(user, "it's empty!")
 		return
 
-	var/choice = show_radial_menu(user, src, isAI(user) ? ai_radial_options : radial_options, require_near = TRUE)
+	var/choice = show_radial_menu(user, src, radial_options, require_near = TRUE)
 
 	// post choice verification
 	if(!anchored)
