@@ -25,7 +25,6 @@
 		2,
 		-3,
 		0,
-		-1,
 	)
 	/// When this is the nth ingredient, whats its pixel_y?
 	var/list/ingredient_shifts_y = list(
