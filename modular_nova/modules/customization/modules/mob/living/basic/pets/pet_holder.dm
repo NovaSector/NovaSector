@@ -12,7 +12,8 @@
 			held_mob.name = name
 		if(redescribed)
 			held_mob.desc = desc
-		. = ..(get_turf(src), held_mob, held_mob.held_state, held_mob.head_icon, held_mob.held_lh, held_mob.held_rh, held_mob.worn_slot_flags)
+
+		return ..(get_turf(src), held_mob, held_mob.held_state, held_mob.head_icon, held_mob.held_lh, held_mob.held_rh, held_mob.worn_slot_flags)
 
 /obj/item/clothing/head/mob_holder/pet/on_loadout_custom_named()
 	. = ..()
