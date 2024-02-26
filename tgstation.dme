@@ -6414,6 +6414,8 @@
 #include "modular_nova\master_files\code\modules\clothing\under\jobs\security.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\jobs\civilian\civilian.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\jobs\civilian\suits.dm"
+#include "modular_nova\master_files\code\modules\entombed_quirk\code\entombed.dm"
+#include "modular_nova\master_files\code\modules\entombed_quirk\code\entombed_mod.dm"
 #include "modular_nova\master_files\code\modules\events\_event.dm"
 #include "modular_nova\master_files\code\modules\experisci\experiment.dm"
 #include "modular_nova\master_files\code\modules\food_and_drinks\recipes\food_mixtures.dm"
