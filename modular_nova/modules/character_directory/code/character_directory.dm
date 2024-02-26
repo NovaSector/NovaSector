@@ -1,4 +1,5 @@
 GLOBAL_DATUM(character_directory, /datum/character_directory)
+GLOBAL_LIST_EMPTY(name_to_appearance)
 #define READ_PREFS(target, pref) (target.client.prefs.read_preference(/datum/preference/pref) || "Unset")
 
 //We want players to be able to decide whether they show up in the directory or not
@@ -75,6 +76,34 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 
 // This is a global singleton. Keep in mind that all operations should occur on user, not src.
 /datum/character_directory
+	/// The character preview views for the UI.
+	var/list/atom/movable/screen/map_view/char_preview/character_preview_views = list()
+
+/datum/character_directory/Destroy(force)
+	QDEL_LIST(character_preview_views)
+	return ..()
+
+/datum/character_directory/proc/create_character_preview_view(mob/user)
+	var/assigned_view = "preview_[user.ckey]_[REF(src)]_directory"
+	if(user.client?.screen_maps[assigned_view])
+		return
+
+	var/atom/movable/screen/map_view/char_preview/new_view = new(null, src)
+	new_view.generate_view(assigned_view)
+	new_view.display_to(user)
+
+/// Takes a record and updates the character preview view to match it.
+/datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
+	var/mutable_appearance/preview = new(appearance)
+
+	preview.underlays += mutable_appearance('icons/effects/effects.dmi', "static_base", alpha = 20)
+	preview.add_overlay(mutable_appearance(generate_icon_alpha_mask('icons/effects/effects.dmi', "scanline"), alpha = 20))
+
+	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]
+	if(!old_view)
+		return
+
+	old_view.appearance = preview.appearance
 
 /datum/character_directory/ui_state(mob/user)
 	return GLOB.always_state
@@ -82,8 +111,13 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 /datum/character_directory/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		character_preview_views[ref(user)] = create_character_preview_view(user)
 		ui = new(user, src, "NovaCharacterDirectory", "Character Directory")
+		ui.set_autoupdate(FALSE)
 		ui.open()
+
+/datum/character_directory/ui_close(mob/user)
+	character_preview_views -= ref(user)
 
 //We want this information to update any time the player updates their preferences, not just when the panel is refreshed
 /datum/character_directory/ui_data(mob/user)
@@ -100,6 +134,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 		data["personalNonconTag"] = READ_PREFS(user, choiced/erp_status_nc)
 		data["prefsOnly"] = TRUE
 
+	data["assigned_view"] = "preview_[user.ckey]_[REF(src)]_directory"
 	data["canOrbit"] = isobserver(user)
 
 	return data
@@ -109,10 +144,14 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 	var/list/data = .
 
 	var/list/directory_mobs = list()
+	for(var/datum/record/crew/record in GLOB.manifest.locked)
+		GLOB.name_to_appearance[record.name] = record.character_appearance
+
 	//We want the directory to display only alive players, not observers or people in the lobby
 	for(var/mob/mob in GLOB.alive_player_list)
 		// These are the variables we're trying to display in the directory
 		var/name = ""
+		var/mutable_appearance/appearance
 		var/species = "Ask"
 		var/ooc_notes = ""
 		var/flavor_text = ""
@@ -156,6 +195,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 		noncon = READ_PREFS(mob, choiced/erp_status_nc)
 		character_ad = READ_PREFS(mob, text/character_ad)
 		ooc_notes = READ_PREFS(mob, text/ooc_notes)
+		appearance = GLOB.name_to_appearance[mob.real_name]
 		//If the user is an antagonist or Observer, we want them to be able to see exploitables in the Directory.
 		if(user.mind?.has_antag_datum(/datum/antagonist) || isobserver(user))
 			if(exploitable == EXPLOITABLE_DEFAULT_TEXT)
@@ -167,6 +207,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 
 		directory_mobs.Add(list(list(
 			"name" = name,
+			"appearance" = appearance,
 			"species" = species,
 			"ooc_notes" = ooc_notes,
 			"attraction" = attraction,
@@ -211,4 +252,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 				return TRUE
 			ghost.ManualFollow(poi)
 			ghost.reset_perspective(null)
+			return TRUE
+		if("view_character")
+			update_preview(usr, params["assigned_view"], params["appearance"])
 			return TRUE

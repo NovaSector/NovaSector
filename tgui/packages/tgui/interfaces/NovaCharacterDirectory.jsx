@@ -2,8 +2,17 @@
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table } from '../components';
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  Section,
+  Stack,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
+import { CharacterPreview } from './common/CharacterPreview';
 
 const erpTagColor = {
   Unset: 'label',
@@ -17,7 +26,7 @@ const erpTagColor = {
 };
 
 export const NovaCharacterDirectory = (props) => {
-  const { act, data } = useBackend();
+  const { data } = useBackend();
 
   const {
     personalVisibility,
@@ -26,15 +35,12 @@ export const NovaCharacterDirectory = (props) => {
     personalErpTag,
     personalVoreTag,
     personalNonconTag,
-    prefsOnly,
   } = data;
 
   const [overlay, setOverlay] = useState(null);
   const updateOverlay = (character) => {
     setOverlay(character);
   };
-
-  const [overwritePrefs, setOverwritePrefs] = useState(prefsOnly);
 
   return (
     <Window width={900} height={640} resizeable>
@@ -46,12 +52,7 @@ export const NovaCharacterDirectory = (props) => {
             <Section title="Controls">
               <LabeledList>
                 <LabeledList.Item label="Visibility">
-                  <Button
-                    fluid
-                    onClick={() =>
-                      act('setVisible', { overwrite_prefs: overwritePrefs })
-                    }
-                  >
+                  <Button fluid>
                     {personalVisibility ? 'Shown' : 'Not Shown'}
                   </Button>
                 </LabeledList.Item>
@@ -62,34 +63,13 @@ export const NovaCharacterDirectory = (props) => {
                   <Button fluid>{personalGender}</Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="ERP">
-                  <Button
-                    fluid
-                    onClick={() =>
-                      act('setErpTag', { overwrite_prefs: overwritePrefs })
-                    }
-                  >
-                    {personalErpTag}
-                  </Button>
+                  <Button fluid>{personalErpTag}</Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Vore">
-                  <Button
-                    fluid
-                    onClick={() =>
-                      act('setTag', { overwrite_prefs: overwritePrefs })
-                    }
-                  >
-                    {personalVoreTag}
-                  </Button>
+                  <Button fluid>{personalVoreTag}</Button>
                 </LabeledList.Item>
                 <LabeledList.Item label="Noncon">
-                  <Button
-                    fluid
-                    onClick={() =>
-                      act('setNonconTag', { overwrite_prefs: overwritePrefs })
-                    }
-                  >
-                    {personalNonconTag}
-                  </Button>
+                  <Button fluid>{personalNonconTag}</Button>
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -116,6 +96,11 @@ const ViewCharacter = (props) => {
         </Button>
       }
     >
+      <Stack fill>
+        <Stack.Item>
+          <CharacterPreview height="100%" id={overlay.assigned_view} />
+        </Stack.Item>
+      </Stack>
       <Section level={2} title="Species">
         <Box>{overlay.species}</Box>
       </Section>
@@ -164,7 +149,7 @@ const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
   const { overlay, updateOverlay } = props;
 
-  const { directory, canOrbit } = data;
+  const { directory, canOrbit, assigned_view } = data;
 
   const [sortId, _setSortId] = useState('name');
   const [sortOrder, _setSortOrder] = useState('name');
@@ -220,7 +205,14 @@ const CharacterDirectoryList = (props) => {
               <Table.Cell>{character.noncon}</Table.Cell>
               <Table.Cell collapsing textAlign="right">
                 <Button
-                  onClick={() => updateOverlay(character)}
+                  onClick={
+                    (() =>
+                      act('view_character', {
+                        assigned_view: assigned_view,
+                        appearance: character.appearance,
+                      }),
+                    () => updateOverlay(character))
+                  }
                   color="transparent"
                   icon="sticky-note"
                   mr={1}
