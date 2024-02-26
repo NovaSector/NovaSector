@@ -3,10 +3,10 @@ import { useState } from 'react';
 
 import { useBackend } from '../backend';
 import {
-  Box,
   Button,
   Icon,
   LabeledList,
+  NoticeBox,
   Section,
   Stack,
   Table,
@@ -35,6 +35,7 @@ export const NovaCharacterDirectory = (props) => {
     personalErpTag,
     personalVoreTag,
     personalNonconTag,
+    assigned_view,
   } = data;
 
   const [overlay, setOverlay] = useState(null);
@@ -46,7 +47,11 @@ export const NovaCharacterDirectory = (props) => {
     <Window width={900} height={640} resizeable>
       <Window.Content scrollable>
         {(overlay && (
-          <ViewCharacter overlay={overlay} updateOverlay={updateOverlay} />
+          <ViewCharacter
+            overlay={overlay}
+            updateOverlay={updateOverlay}
+            assigned_view={assigned_view}
+          />
         )) || (
           <>
             <Section title="Controls">
@@ -85,63 +90,73 @@ export const NovaCharacterDirectory = (props) => {
 };
 
 const ViewCharacter = (props) => {
-  const { overlay, updateOverlay } = props;
+  const { overlay, updateOverlay, assigned_view } = props;
 
   return (
-    <Section
-      title={overlay.name}
-      buttons={
-        <Button icon="arrow-left" onClick={() => updateOverlay(null)}>
-          Back
-        </Button>
-      }
-    >
-      <Stack fill>
-        <Stack.Item>
-          <CharacterPreview height="100%" id={overlay.assigned_view} />
-        </Stack.Item>
-      </Stack>
-      <Section level={2} title="Species">
-        <Box>{overlay.species}</Box>
-      </Section>
-      <Section level={2} title="Character Ad">
-        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
-          {overlay.character_ad || 'Unset.'}
-        </Box>
-      </Section>
-      <Section level={2} title="Flavor Text">
-        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
-          {overlay.flavor_text || 'Unset.'}
-        </Box>
-      </Section>
-      <Section level={2} title="Gender">
-        <Box>{overlay.gender}</Box>
-      </Section>
-      <Section level={2} title="Attraction">
-        <Box>{overlay.attraction}</Box>
-      </Section>
-      <Section level={2} title="ERP">
-        <Box p={1} backgroundColor={erpTagColor[overlay.erp]}>
-          {overlay.erp}
-        </Box>
-        <Section level={2} title="Vore">
-          <Box>{overlay.vore}</Box>
-        </Section>
-      </Section>
-      <Section level={2} title="Noncon">
-        <Box>{overlay.noncon}</Box>
-      </Section>
-      <Section level={2} title="Exploitable">
-        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
-          {overlay.exploitable || 'Unset.'}
-        </Box>
-      </Section>
-      <Section level={2} title="OOC Notes">
-        <Box style={{ 'word-break': 'break-all' }} preserveWhitespace>
-          {overlay.ooc_notes || 'Unset.'}
-        </Box>
-      </Section>
-    </Section>
+    <Stack fill vertical>
+      <Stack.Item grow={2}>
+        <Stack>
+          <Stack.Item grow>
+            <Stack fill>
+              <Stack.Item>
+                <CharacterPreview height="100%" id={assigned_view} />
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+
+          <Stack.Item grow>
+            <Section>
+              <LabeledList>
+                <LabeledList.Item label="Gender">
+                  {overlay.gender}
+                </LabeledList.Item>
+                <LabeledList.Item label="Species">
+                  {overlay.species}
+                </LabeledList.Item>
+                <LabeledList.Item label="Character Ad">
+                  {overlay.character_ad || 'Unset.'}
+                </LabeledList.Item>
+                <LabeledList.Item label="Flavor Text">
+                  {overlay.flavor_text || 'Unset.'}
+                </LabeledList.Item>
+                <LabeledList.Item label="ERP">{overlay.erp}</LabeledList.Item>
+                <LabeledList.Item label="Vore">{overlay.vore}</LabeledList.Item>
+                <LabeledList.Item label="Noncon">
+                  {overlay.noncon}
+                </LabeledList.Item>
+                <LabeledList.Item label="Exploitables">
+                  {overlay.exploitable || 'Unset.'}
+                </LabeledList.Item>
+                <LabeledList.Item label="OOC Notes">
+                  {overlay.ooc_notes || 'Unset.'}
+                </LabeledList.Item>
+              </LabeledList>
+            </Section>
+          </Stack.Item>
+
+          <Stack.Item grow={2}>
+            <Section fill scrollable>
+              <LabeledList>
+                <LabeledList.Item label="Exploitables">
+                  {overlay.exploitable || 'Unset.'}
+                </LabeledList.Item>
+                <LabeledList.Item label="OOC Notes">
+                  {overlay.ooc_notes || 'Unset.'}
+                </LabeledList.Item>
+              </LabeledList>
+            </Section>
+          </Stack.Item>
+        </Stack>
+      </Stack.Item>
+
+      <Stack.Item>
+        <NoticeBox color="pink" align="right">
+          <Button icon="arrow-left" onClick={() => updateOverlay(null)}>
+            Back
+          </Button>
+        </NoticeBox>
+      </Stack.Item>
+    </Stack>
   );
 };
 
@@ -205,14 +220,13 @@ const CharacterDirectoryList = (props) => {
               <Table.Cell>{character.noncon}</Table.Cell>
               <Table.Cell collapsing textAlign="right">
                 <Button
-                  onClick={
-                    (() =>
-                      act('view_character', {
-                        assigned_view: assigned_view,
-                        appearance: character.appearance,
-                      }),
-                    () => updateOverlay(character))
-                  }
+                  onClick={() => {
+                    updateOverlay(character);
+                    act('view_character', {
+                      assigned_view: assigned_view,
+                      name: character.appearance_name,
+                    });
+                  }}
                   color="transparent"
                   icon="sticky-note"
                   mr={1}

@@ -51,7 +51,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 /datum/preference/choiced/display_gender/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
-//Can't believe Bubberstation invented attraction and gender in the year December 2023
 
 //Add a cooldown for the character directory to the client, primarily to stop server lag from refresh spam
 /client
@@ -95,9 +94,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
 	var/mutable_appearance/preview = new(appearance)
-
-	preview.underlays += mutable_appearance('icons/effects/effects.dmi', "static_base", alpha = 20)
-	preview.add_overlay(mutable_appearance(generate_icon_alpha_mask('icons/effects/effects.dmi', "scanline"), alpha = 20))
 
 	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
@@ -144,14 +140,12 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/list/data = .
 
 	var/list/directory_mobs = list()
-	for(var/datum/record/crew/record in GLOB.manifest.locked)
+	for(var/datum/record/locked/record in GLOB.manifest.locked)
 		GLOB.name_to_appearance[record.name] = record.character_appearance
-
 	//We want the directory to display only alive players, not observers or people in the lobby
 	for(var/mob/mob in GLOB.alive_player_list)
 		// These are the variables we're trying to display in the directory
 		var/name = ""
-		var/mutable_appearance/appearance
 		var/species = "Ask"
 		var/ooc_notes = ""
 		var/flavor_text = ""
@@ -190,12 +184,13 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		//List of all the shown ERP preferences in the Directory. If there is none, return "Unset"
 		attraction = READ_PREFS(mob, choiced/attraction)
 		gender = READ_PREFS(mob, choiced/display_gender)
+		if(gender == "Unset")
+			gender = mob.gender
 		erp = READ_PREFS(mob, choiced/erp_status)
 		vore = READ_PREFS(mob, choiced/erp_status_v)
 		noncon = READ_PREFS(mob, choiced/erp_status_nc)
 		character_ad = READ_PREFS(mob, text/character_ad)
 		ooc_notes = READ_PREFS(mob, text/ooc_notes)
-		appearance = GLOB.name_to_appearance[mob.real_name]
 		//If the user is an antagonist or Observer, we want them to be able to see exploitables in the Directory.
 		if(user.mind?.has_antag_datum(/datum/antagonist) || isobserver(user))
 			if(exploitable == EXPLOITABLE_DEFAULT_TEXT)
@@ -207,7 +202,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 		directory_mobs.Add(list(list(
 			"name" = name,
-			"appearance" = appearance,
+			"appearance_name" = mob.real_name,
 			"species" = species,
 			"ooc_notes" = ooc_notes,
 			"attraction" = attraction,
@@ -254,5 +249,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			ghost.reset_perspective(null)
 			return TRUE
 		if("view_character")
-			update_preview(usr, params["assigned_view"], params["appearance"])
+			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]])
+			log_world(params["name"])
 			return TRUE
