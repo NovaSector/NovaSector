@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "The screen filter effects for twitch and demoneye no longer get slowly worse every time you use them, so you can still see after using the drugs more than once."
