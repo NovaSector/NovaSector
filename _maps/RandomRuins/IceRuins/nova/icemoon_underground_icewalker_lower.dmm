@@ -420,6 +420,12 @@
 /obj/structure/flora/ash/leaf_shroom,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"ki" = (
+/obj/structure/railing{
+	invisibility = 100
+	},
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "kp" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/food/cheese/mozzarella{
@@ -1097,6 +1103,13 @@
 	},
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"yN" = (
+/obj/item/clothing/neck/necklace/hearthkin,
+/obj/structure/wall_torch/spawns_lit/directional/east,
+/obj/structure/wall_torch/spawns_lit/directional/west,
+/obj/structure/table/bronze,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yR" = (
 /obj/structure/rack/wooden,
@@ -1800,7 +1813,6 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Sf" = (
 /obj/structure/rack/wooden,
-/obj/item/clothing/neck/necklace/hearthkin,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "SF" = (
@@ -3309,11 +3321,11 @@ yM
 oJ
 oJ
 Te
-ZJ
-GN
-GN
-GN
-GN
+RC
+yF
+pa
+pa
+yF
 yF
 GN
 GN
@@ -3352,11 +3364,11 @@ oJ
 Vb
 no
 pb
-GN
-GN
-GN
-GN
-GN
+iJ
+Zq
+ki
+yN
+yF
 GN
 yF
 yF
@@ -3395,9 +3407,9 @@ oJ
 oJ
 Rq
 yF
-GN
-GN
-GN
+pa
+pa
+yF
 GN
 GN
 GN

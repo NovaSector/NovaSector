@@ -197,7 +197,7 @@
 	if(!ishuman(user))
 		return
 	if(slot & ITEM_SLOT_NECK)
-		user.grant_language(/datum/language/primitive_catgirl/, source = LANGUAGE_TRANSLATOR)
+		user.grant_language(/datum/language/siiktajr/, source = LANGUAGE_TRANSLATOR)
 		to_chat(user, span_boldnotice("Slipping the necklace on, you feel the insidious creep of a dark nature enter your bones, your very shadow and soul. You find yourself with an unnatural knowledge of the Hearthkin; but the amulet's eye stares back at you with a gleeful intent. Causing you to shiver with unease, you dont want to keep this on forever."))
 
 /obj/item/clothing/neck/necklace/hearthkin/dropped(mob/user)
@@ -206,5 +206,5 @@
 		return
 	var/mob/living/carbon/human/H = user
 	if(H.get_item_by_slot(ITEM_SLOT_NECK) == src && !QDELETED(src)) //This can be called as a part of destroy
-		user.remove_language(/datum/language/primitive_catgirl/, source = LANGUAGE_TRANSLATOR)
+		user.remove_language(/datum/language/siiktajr/, source = LANGUAGE_TRANSLATOR)
 		to_chat(user, span_boldnotice("You feel the alien unease lessen as the gem loses its interest in you after removing it. The eye closes, and your mind does as well, losing its grasp of Hearthkin."))
