@@ -15,7 +15,7 @@
 
 /datum/quirk_constant_data/pet_owner
 	associated_typepath = /datum/quirk/item_quirk/pet_owner
-	customization_options = list(/datum/preference/choiced/pet_owner, /datum/preference/text/pet_name, /datum/preference/text/pet_desc)
+	customization_options = list(/datum/preference/choiced/pet_owner, /datum/preference/choiced/pet_gender, /datum/preference/text/pet_name, /datum/preference/text/pet_desc)
 
 /datum/quirk/item_quirk/pet_owner/add_unique(client/client_source)
 	var/desired_pet = client_source?.prefs.read_preference(/datum/preference/choiced/pet_owner) || "Random"
@@ -34,6 +34,12 @@
 	var/new_desc = client_source?.prefs.read_preference(/datum/preference/text/pet_desc)
 	if (new_desc)
 		pet.desc = new_desc
+	var/new_gender = client_source?.prefs.read_preference(/datum/preference/choiced/pet_gender)
+	if (new_gender == "Random")
+		pet.gender = pick(list(MALE, FEMALE, PLURAL, NEUTER))
+	else if (new_gender)
+		pet.gender = new_gender
+	pet.befriend(quirk_holder) // Make sure the player is a friend.
 	carrier.add_occupant(pet)
 	give_item_to_holder(
 		carrier,
@@ -53,31 +59,31 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Axolotl" = /mob/living/basic/axolotl,
 	"Baby Penguin" = /mob/living/basic/pet/penguin/baby/permanent,
 	"Bat" = /mob/living/basic/bat,
-	"Bull terrier" = /mob/living/basic/pet/dog/bullterrier,
+	"Bull terrier" = /mob/living/basic/pet/dog/bullterrier/gibless,
 	"Butterfly" = /mob/living/basic/butterfly,
-	"Cat" = /mob/living/basic/pet/cat,
+	"Cat" = /mob/living/basic/pet/cat/pet,
 	"Chick" = /mob/living/basic/chick/permanent,
 	"Chicken" = /mob/living/basic/chicken,
 	"Chinchilla (dark)" = /mob/living/basic/pet/chinchilla/black,
 	"Chinchilla (white)" = /mob/living/basic/pet/chinchilla/white,
-	"Corgi" = /mob/living/basic/pet/dog/corgi,
-	"Corgi puppy" = /mob/living/basic/pet/dog/corgi/puppy,
+	"Corgi" = /mob/living/basic/pet/dog/corgi/gibless,
+	"Corgi puppy" = /mob/living/basic/pet/dog/corgi/puppy/gibless,
 	"Cockroach" = /mob/living/basic/cockroach,
 	"Crab" = /mob/living/basic/crab,
 	"Deer" = /mob/living/basic/deer,
-	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
-	"Fox" = /mob/living/basic/pet/fox/docile,
+	"Dobermann" = /mob/living/basic/pet/dog/dobermann/gibless,
+	"Fox" = /mob/living/basic/pet/fox/pet, //bespoke pet subtype
 	"Frog" = /mob/living/basic/frog,
 	"Giant ant" = /mob/living/basic/ant,
-	"Kitten" = /mob/living/basic/pet/cat/kitten,
+	"Kitten" = /mob/living/basic/pet/cat/kitten/pet,
 	"Kiwi" = /mob/living/basic/kiwi,
-	"Mothroach" = /mob/living/basic/mothroach,
+	"Mothroach" = /mob/living/basic/mothroach/pet,
 	"Mouse (white)" = /mob/living/basic/mouse/white,
 	"Mouse (gray)" = /mob/living/basic/mouse/gray,
 	"Mouse (brown)" = /mob/living/basic/mouse/brown,
 	"Penguin" = /mob/living/basic/pet/penguin/emperor/neuter,
 	"Pig" = /mob/living/basic/pig,
-	"Pug" = /mob/living/basic/pet/dog/pug,
+	"Pug" = /mob/living/basic/pet/dog/pug/gibless,
 	"Rabbit" = /mob/living/basic/rabbit,
 	"Sloth" = /mob/living/basic/sloth,
 	"Snake" = /mob/living/basic/snake,
@@ -135,4 +141,25 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	return htmlrendertext(input)
 
 /datum/preference/text/pet_desc/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/choiced/pet_gender
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "pet_gender"
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+
+/datum/preference/choiced/pet_gender/init_possible_values()
+	return list("Random", MALE, FEMALE, PLURAL, NEUTER)
+
+/datum/preference/choiced/pet_gender/create_default_value()
+	return PLURAL
+
+/datum/preference/choiced/pet_gender/is_accessible(datum/preferences/preferences)
+	if (!..())
+		return FALSE
+
+	return "Pet Owner" in preferences.all_quirks
+
+/datum/preference/choiced/pet_gender/apply_to_human(mob/living/carbon/human/target, value)
 	return

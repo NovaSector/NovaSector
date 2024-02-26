@@ -23,19 +23,18 @@
 	// This is both for RP reasons (don't force people to RP permanent pet death) and to prevent griefing.
 	return
 
-/// needs to be able to speak per normal, plan commands, and flee if they feel threatened
 /datum/ai_controller/basic_controller/mothroach/pet
 	blackboard = list(
 		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
-		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/holding_object,
-		BB_TARGET_HELD_ITEM = /obj/item/clothing/under/color/grey, //they're coming for your clothing
+		//BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/holding_object,
+		//BB_TARGET_HELD_ITEM = /obj/item/clothing/under/color/grey, //they're coming for your clothing
 	)
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/random_speech/mothroach,
 		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/flee_target,
+		///datum/ai_planning_subtree/simple_find_target,
+		///datum/ai_planning_subtree/flee_target,
 	)
 
 
