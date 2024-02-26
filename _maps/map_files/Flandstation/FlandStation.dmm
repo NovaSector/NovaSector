@@ -5181,10 +5181,6 @@
 /obj/item/paper/guides/jobs/atmos/hypertorus,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmospherics_engine)
-"bGo" = (
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/white,
-/area/station/science/robotics/lab)
 "bGF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9451,7 +9447,8 @@
 /obj/machinery/button/door{
 	id = "Skynet_launch";
 	name = "Mech Bay Door Control";
-	pixel_x = 24
+	pixel_x = 24;
+	req_access = list("robotics")
 	},
 /turf/open/floor/iron/dark/corner,
 /area/station/hallway/primary/port)
@@ -10503,6 +10500,11 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/theater)
+"dwi" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/roboticist,
+/turf/open/floor/iron/dark,
+/area/station/science/robotics/mechbay)
 "dwk" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Security - Head of Security's Quarters"
@@ -14649,7 +14651,8 @@
 	id = "robotics_shutters";
 	name = "Robotics Privacy Control";
 	pixel_x = 24;
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list("robotics")
 	},
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
@@ -29353,6 +29356,7 @@
 /turf/open/floor/plating,
 /area/station/security/processing)
 "jxi" = (
+/obj/effect/landmark/start/roboticist,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "jxz" = (
@@ -31563,6 +31567,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
+"klf" = (
+/obj/effect/landmark/start/roboticist,
+/turf/open/floor/iron/dark,
+/area/station/science/robotics/mechbay)
 "klg" = (
 /turf/closed/mineral,
 /area/station/hallway/primary/fore)
@@ -70866,7 +70874,8 @@
 	name = "navigation beacon (Atmospherics)"
 	},
 /obj/machinery/door/window/left/directional/east{
-	name = "Atmospherics Delivery Access"
+	name = "Atmospherics Delivery Access";
+	req_access = list("engineering")
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage/gas)
@@ -71574,7 +71583,8 @@
 /obj/machinery/button/door{
 	id = "Skynet_launch";
 	name = "Mech Bay Door Control";
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list("robotics")
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/mechbay)
@@ -74049,7 +74059,8 @@
 /obj/machinery/button/door{
 	id = "Skynet_launch";
 	name = "Mech Bay Door Control";
-	pixel_x = 24
+	pixel_x = 24;
+	req_access = list("robotics")
 	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
@@ -108721,7 +108732,7 @@ dJC
 lbf
 dod
 fqJ
-fqJ
+dwi
 bVs
 yct
 cyP
@@ -109233,7 +109244,7 @@ mKU
 qqF
 eUC
 sJa
-uNj
+klf
 uNj
 xye
 qsA
@@ -110520,7 +110531,7 @@ pLX
 yfq
 wUX
 xph
-bGo
+cpO
 buo
 rnf
 pQf
@@ -111034,7 +111045,7 @@ uyF
 yfq
 trH
 xph
-bGo
+cpO
 buo
 mKW
 uwE
@@ -111291,7 +111302,7 @@ vBG
 wUH
 ptM
 xph
-bGo
+cpO
 buo
 xph
 wza
