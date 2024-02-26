@@ -291,7 +291,7 @@
 	max_integrity = 120
 	icon_state = "hoplite_off"
 	base_icon_state = "hoplite"
-	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/prefilled
 
 
 ////// Ammo and magazine handling //////
