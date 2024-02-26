@@ -10501,9 +10501,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/theater)
-"dwi" = (
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/storage)
 "dwk" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Security - Head of Security's Quarters"
@@ -35447,10 +35444,10 @@
 /obj/structure/mirror{
 	pixel_x = 28
 	},
-/obj/structure/sink/directional/east,
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
+/obj/structure/sink/directional/west,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
 "lvb" = (
@@ -35994,7 +35991,10 @@
 /obj/machinery/door/airlock/glass{
 	name = "Public Garden"
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood,
 /area/station/service/hydroponics/garden)
 "lEB" = (
 /obj/structure/table/wood,
@@ -50576,7 +50576,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Storage Room"
 	},
-/obj/effect/mapping_helpers/airlock/abandoned,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
@@ -55481,7 +55480,6 @@
 /area/space/nearstation)
 "rQs" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
@@ -55917,7 +55915,6 @@
 /area/station/hallway/primary/port)
 "rWG" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
@@ -59826,7 +59823,6 @@
 /area/station/command/heads_quarters/nt_rep)
 "tkw" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
@@ -61470,7 +61466,6 @@
 /area/station/engineering/atmos)
 "tKx" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
@@ -62906,7 +62901,7 @@
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/airlock/public/glass{
-	name = "Departures Lounge"
+	name = "Funeral Center"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -63525,7 +63520,6 @@
 /area/station/security/checkpoint/engineering)
 "usW" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
 /obj/machinery/airalarm/directional/south{
 	pixel_y = -22
 	},
@@ -64494,7 +64488,6 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Storage Room"
 	},
-/obj/effect/mapping_helpers/airlock/abandoned,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
@@ -70226,7 +70219,6 @@
 /obj/structure/bed/double{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms_double,
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/wood,
 /area/station/maintenance/port/central)
@@ -95789,7 +95781,7 @@ bkB
 bvy
 ciU
 cHK
-dwi
+tZE
 eEV
 djz
 saf
@@ -115344,7 +115336,7 @@ jID
 aIJ
 bsZ
 bsZ
-ntZ
+bsZ
 bsZ
 bsZ
 bsZ
