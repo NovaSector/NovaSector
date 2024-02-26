@@ -285,11 +285,6 @@
 
 	start(cooker)
 
-/obj/machinery/cauldron/proc/ignite()
-	visible_message(span_notice("\The [src] turns on."), null, span_hear("You hear bubbling as the cauldron ignites."))
-	operating = TRUE
-	update_appearance()
-
 /**
  * The start of the cook loop
  *
