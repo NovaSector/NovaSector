@@ -26,14 +26,11 @@ export type MedicalRecord = {
   quirk_notes: string;
   rank: string;
   species: string;
-<<<<<<< HEAD
+  trim: string;
   // NOVA EDIT START - RP Records
   past_general_records: string;
   past_medical_records: string;
   // NOVA EDIT END
-=======
-  trim: string;
->>>>>>> 13128fcfbba (Fix custom job titles displaying with question mark icons in medical/security records. (#81637))
 };
 
 export type MedicalNote = {
