@@ -5521,8 +5521,7 @@
 /area/centcom/interlink)
 "dgl" = (
 /obj/effect/spawner/liquids_spawner,
-/obj/structure/fake_stairs/directional/north,
-/turf/open/space/basic,
+/turf/open/floor/iron/stairs,
 /area/centcom/holding/cafepark)
 "dgV" = (
 /turf/open/floor/iron/white,
