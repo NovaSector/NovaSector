@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "mold should now spawn enemies again"

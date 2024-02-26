@@ -825,6 +825,12 @@
 	pass_flags_self = LETPASSTHROW //You can throw objects over this, despite it's density.
 	max_integrity = 20
 
+/obj/structure/rack/skeletal
+	name = "skeletal minibar"
+	desc = "Rattle me boozes!"
+	icon = 'icons/obj/fluff/general.dmi'
+	icon_state = "minibar"
+
 /obj/structure/rack/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/climbable)
@@ -849,6 +855,8 @@
 		return
 	if(O.loc != src.loc)
 		step(O, get_dir(O, src))
+
+	return TRUE // NOVA EDIT - Ensuring that this proc works properly when used to check things
 
 /obj/structure/rack/attackby(obj/item/W, mob/living/user, params)
 	var/list/modifiers = params2list(params)

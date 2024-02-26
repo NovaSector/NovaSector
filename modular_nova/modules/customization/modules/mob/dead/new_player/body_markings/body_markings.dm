@@ -141,6 +141,11 @@
 	icon_state = "anklet"
 	affected_bodyparts = LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/other/legband
+	name = "Leg Band"
+	icon_state = "legband"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
