@@ -1,6 +1,6 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { Feature, FeatureNumberInput } from '../../base';
 
-// Chronological age
 export const chrono_age: Feature<number> = {
   name: 'Age (Chronological)',
   description:
