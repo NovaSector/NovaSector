@@ -71,10 +71,6 @@
 
 	game_plane_master_controller.add_filter(TWITCH_SCREEN_BLUR, 1, list("type" = "radial_blur", "size" = 0.02))
 
-	for(var/filter in game_plane_master_controller.get_filters(TWITCH_SCREEN_BLUR))
-		animate(filter, loop = -1, size = 0.04, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-		animate(size = 0.02, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
-
 
 /datum/reagent/drug/twitch/on_mob_end_metabolize(mob/living/carbon/our_guy)
 	. = ..()

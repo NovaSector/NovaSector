@@ -390,3 +390,33 @@
       capitalized.
   Melbert:
   - bugfix: Cyborgs spark and spit out oil when smacked again. Among other things.
+2024-02-26:
+  A.C.M.O.:
+  - qol: Disabled CPR for synthetic species with a heatsink. Choosing cybernetic lungs
+      will allow CPR.
+  CandleJaxx:
+  - rscadd: Zhenkov & Co. Foundries reports they launched a faulty shipment of legs
+      out to some mid-level zip code in the frontier.
+  - rscadd: People all across the frontier have figured out how to paint a line around
+      their legs. New marking, yippee.
+  MrDas:
+  - spellcheck: The tier of servo in mech construction is no longer explicitly stated.
+  NovaBot13:
+  - balance: buffs corporate modsuit(centcom only)
+  - qol: Blood Brother convert objective now explains who you can convert and what
+      to do if you mess up with your flash.
+  - rscadd: floortile camouflage suit, boots, gloves and crate containing the former
+      items
+  - bugfix: Disabled the popsicle stick maximizer. (Producing popsicle sticks actually
+      deletes the input logs.)
+  - bugfix: meatwheat is now firmly made out of meat, instead of sometimes being wheat
+      and sometimes being meat and sometimes being both.
+  - bugfix: Three stationary water tanks on Birdshot which supplied a sink in the
+      bar, a sink in the medical storage and a sink in the perma-brig's kitchen are
+      now properly rotated and connected with the plumbing.
+  - bugfix: The unisex showers on Birdshot have been given a water tank for its plumbing.
+  SomeRandomOwl:
+  - rscdel: The syndicate recently lost their supplier of microbomb implants and no
+      longer are capable of providing the explosive devices to agents in the field.
+  aKromatopzia:
+  - image: corrects the offset for cybernetic digi legs
