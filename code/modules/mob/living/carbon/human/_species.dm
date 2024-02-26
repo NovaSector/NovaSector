@@ -1247,8 +1247,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.visible_message(span_danger("[user] knocks [target] down!"), \
 							span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, span_danger("You knock [target] down!"))
+			/* NOVA EDIT REMOVAL START - Less combat lethality and hard stuns
 			var/knockdown_duration = 4 SECONDS + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 4 second base stun + 4 second stun modifier = 8 second knockdown duration
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
+			NOVA EDIT REMOVAL END */
+			target.StaminaKnockdown(20) // NOVA EDIT ADDITION
 			log_combat(user, target, "got a stun punch with their previous punch")
 >>>>>>> a074f8e7ce4 (Riot armor and helmets (and similar gear) protect against more melee-based attacks (like RNG punches), bottles aren't near guaranteed knockdowns (#81365))
 
