@@ -420,12 +420,6 @@
 /obj/structure/flora/ash/leaf_shroom,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"ki" = (
-/obj/structure/railing{
-	invisibility = 100
-	},
-/turf/open/floor/stone/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "kp" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/food/cheese/mozzarella{
@@ -1046,6 +1040,13 @@
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"xu" = (
+/obj/item/clothing/neck/necklace/hearthkin,
+/obj/structure/wall_torch/spawns_lit/directional/east,
+/obj/structure/wall_torch/spawns_lit/directional/west,
+/obj/structure/table/bronze,
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "xI" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -1103,13 +1104,6 @@
 	},
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
-"yN" = (
-/obj/item/clothing/neck/necklace/hearthkin,
-/obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/structure/wall_torch/spawns_lit/directional/west,
-/obj/structure/table/bronze,
-/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yR" = (
 /obj/structure/rack/wooden,
@@ -1292,6 +1286,10 @@
 /obj/item/gun/ballistic/bow/longbow,
 /obj/item/storage/bag/quiver,
 /turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"EL" = (
+/obj/structure/railing/stone,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "FB" = (
 /obj/structure/mannequin/wood,
@@ -3366,8 +3364,8 @@ no
 pb
 iJ
 Zq
-ki
-yN
+EL
+xu
 yF
 GN
 yF
@@ -3410,7 +3408,7 @@ yF
 pa
 pa
 yF
-GN
+yF
 GN
 GN
 pa

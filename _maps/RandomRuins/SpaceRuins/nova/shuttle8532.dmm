@@ -102,9 +102,6 @@
 /obj/machinery/porta_turret_cover,
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"bx" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/space/has_grav/shuttle8532engineering)
 "by" = (
 /obj/item/shard,
 /obj/structure/lattice,
@@ -514,7 +511,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "jQ" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "kp" = (
 /obj/structure/lattice/catwalk,
@@ -531,7 +528,7 @@
 	nightshift_light_color = "#FF0000";
 	pixel_y = 32
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "ky" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -1015,7 +1012,7 @@
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "vE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "vG" = (
 /obj/item/stack/cable_coil/cut,
@@ -1126,12 +1123,9 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
-"xN" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/space/has_grav/shuttle8532researchbay)
 "xO" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/space/has_grav/shuttle8532crewquarters)
+/turf/closed/indestructible/syndicate,
+/area/ruin/space/has_grav/shuttle8532bridge)
 "xR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
@@ -1203,7 +1197,7 @@
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "zz" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "zA" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -1359,7 +1353,7 @@
 	dir = 9;
 	system_id = "ship_outer_turrets"
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "BR" = (
 /obj/item/chair{
@@ -1542,7 +1536,7 @@
 	nightshift_light_color = "#00FF00";
 	pixel_y = 32
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "EQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1669,8 +1663,7 @@
 /obj/machinery/door/poddoor{
 	id = "abandonedshipbridgeblast"
 	},
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/turf/open/floor/plating,
+/turf/closed/indestructible/opsglass,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "HW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2068,7 +2061,7 @@
 /turf/template_noop,
 /area/template_noop)
 "QR" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "Ra" = (
 /obj/structure/table/reinforced,
@@ -2111,7 +2104,7 @@
 	dir = 5;
 	system_id = "ship_outer_turrets"
 	},
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "RY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2156,7 +2149,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "SJ" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Tq" = (
 /turf/open/floor/engine/airless,
@@ -2313,7 +2306,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Wz" = (
-/turf/closed/wall/r_wall/syndicate,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532cargohall)
 "WH" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
@@ -2531,7 +2524,7 @@
 qb
 qb
 kx
-pu
+xO
 qb
 qb
 qb
@@ -2594,7 +2587,7 @@ qb
 qb
 by
 ZK
-pu
+xO
 jQ
 jQ
 qb
@@ -2657,7 +2650,7 @@ qb
 qb
 OQ
 vK
-pu
+xO
 Vf
 jQ
 qb
@@ -2783,7 +2776,7 @@ qb
 qb
 ZN
 bs
-pu
+xO
 Fu
 jQ
 jQ
@@ -2844,9 +2837,9 @@ qb
 "}
 (6,1,1) = {"
 qb
-pu
+xO
 EE
-pu
+xO
 Lt
 NJ
 La
@@ -2907,11 +2900,11 @@ qb
 "}
 (7,1,1) = {"
 qb
-pu
-pu
-pu
-pu
-pu
+xO
+xO
+xO
+xO
+xO
 xK
 jQ
 jQ
@@ -2974,7 +2967,7 @@ Uy
 XQ
 fp
 HK
-pu
+xO
 cg
 Hs
 oR
@@ -2989,7 +2982,7 @@ qb
 qb
 CO
 BL
-xN
+SJ
 fd
 Bp
 jM
@@ -3037,7 +3030,7 @@ zA
 ZU
 Vi
 ks
-pu
+xO
 jQ
 jQ
 iy
@@ -3100,14 +3093,14 @@ eV
 Wq
 Pn
 ff
-pu
+xO
 VB
 BK
 DY
 id
 tw
 mq
-xO
+jQ
 jQ
 Gz
 xp
@@ -3163,7 +3156,7 @@ eV
 Gv
 Vi
 BS
-pu
+xO
 sH
 Ds
 uq
@@ -3226,7 +3219,7 @@ ji
 Vi
 NK
 ps
-pu
+xO
 ha
 Ds
 wU
@@ -3272,7 +3265,7 @@ qb
 qb
 qb
 QR
-bx
+QR
 pq
 Eq
 Yq
@@ -3289,7 +3282,7 @@ Ji
 fn
 zG
 Ep
-pu
+xO
 RE
 uK
 wU
@@ -3352,7 +3345,7 @@ eV
 Vi
 eC
 ER
-pu
+xO
 UN
 Ds
 re
@@ -3478,7 +3471,7 @@ eV
 nd
 Vj
 xR
-pu
+xO
 uG
 yz
 Nx
@@ -3541,7 +3534,7 @@ Ra
 jJ
 OZ
 ff
-pu
+xO
 RE
 Ds
 yv
@@ -3604,7 +3597,7 @@ zX
 Vi
 Qv
 Se
-pu
+xO
 Ue
 TM
 Ip
@@ -3667,7 +3660,7 @@ eV
 Vi
 Vi
 Ux
-pu
+xO
 ac
 TM
 yv
@@ -3730,14 +3723,14 @@ eV
 Wq
 FW
 Hg
-pu
+xO
 jh
 iP
 ef
 zi
 ce
 pG
-xO
+jQ
 jQ
 Yf
 xp
@@ -3788,12 +3781,12 @@ YO
 qb
 "}
 (21,1,1) = {"
-pu
+xO
 eV
 vS
 Vi
 qP
-pu
+xO
 jQ
 jQ
 aw
@@ -3851,12 +3844,12 @@ YO
 qb
 "}
 (22,1,1) = {"
-pu
-Uy
+xO
+xO
 Yk
 Ci
 HK
-pu
+xO
 lt
 VF
 NJ
@@ -3915,11 +3908,11 @@ ve
 "}
 (23,1,1) = {"
 qb
-pu
-pu
-pu
-pu
-pu
+xO
+xO
+xO
+xO
+xO
 NJ
 jQ
 jQ
@@ -3980,7 +3973,7 @@ hP
 ts
 OQ
 nx
-pu
+xO
 CG
 Fu
 Ff
@@ -4043,7 +4036,7 @@ qb
 qb
 OQ
 Xu
-pu
+xO
 NJ
 jQ
 jQ
@@ -4169,7 +4162,7 @@ qb
 qb
 tP
 bs
-pu
+xO
 Qn
 jQ
 qb
@@ -4230,9 +4223,9 @@ ve
 "}
 (28,1,1) = {"
 qb
-pu
+xO
 ds
-pu
+xO
 jQ
 jQ
 qb
@@ -4280,7 +4273,7 @@ qb
 qb
 qb
 QR
-bx
+QR
 oJ
 kL
 gE
@@ -4295,7 +4288,7 @@ hP
 qb
 qb
 EM
-pu
+xO
 qb
 qb
 qb
