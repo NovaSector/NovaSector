@@ -32,7 +32,6 @@
 		6,
 		5,
 	)
-	var/static/radial_examine = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_examine")
 	var/static/radial_eject = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_eject")
 	var/static/radial_cook = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_cook")
 
