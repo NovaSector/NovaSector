@@ -65,11 +65,11 @@
 			quirk_notes = target.quirk_notes,
 			rank = target.rank,
 			species = target.species,
+			trim = target.trim,
 			// NOVA EDIT ADDITION START - Expanded records!
 			past_medical_records = target.past_medical_records,
 			past_general_records = target.past_general_records,
 			// NOVA EDIT END
-			trim = target.trim,
 		))
 
 	data["records"] = records
