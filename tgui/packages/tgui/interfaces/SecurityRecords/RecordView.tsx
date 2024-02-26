@@ -52,6 +52,7 @@ const RecordInfo = (props) => {
   const { act, data } = useBackend<SecurityRecordsData>();
   const { available_statuses } = data;
   const [open, setOpen] = useLocalState<boolean>('printOpen', false);
+
   // const { min_age, max_age } = data; // ORIGINAL
   const { min_age, max_age, max_chrono_age } = data; // NOVA EDIT CHANGE - Chronological age
 

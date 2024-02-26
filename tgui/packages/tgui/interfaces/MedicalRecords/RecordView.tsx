@@ -30,6 +30,7 @@ export const MedicalRecordView = (props) => {
 
   const { act, data } = useBackend<MedicalRecordData>();
   const { assigned_view, physical_statuses, mental_statuses, station_z } = data;
+
   // const { min_age, max_age } = data; // ORIGINAL
   const { min_age, max_age, max_chrono_age } = data; // NOVA EDIT CHANGE - Chronological age
 
