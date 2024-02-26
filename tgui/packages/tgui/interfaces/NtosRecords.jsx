@@ -45,6 +45,10 @@ export const NtosRecords = (props) => {
                       ' ' +
                       record.age +
                       ' ' +
+                      /* NOVA EDIT ADDITION BEGIN - Chronological age */
+                      record.chrono_age +
+                      ' ' +
+                      /* NOVA EDIT ADDITION END */
                       record.fingerprint,
                   )
                 )
@@ -61,8 +65,14 @@ export const NtosRecords = (props) => {
               <br />
               Gender: {record.gender}
               <br />
-              Age: {record.age}
+              {/* NOVA EDIT CHANGE - Chronological age, ORIGINAL: Age: {record.age} */}
+              Physical Age: {record.age}
+              {/* NOVA EDIT CHANGE END */}
               <br />
+              {/* NOVA EDIT ADDITION BEGIN - Chronological age */}
+              Chronological Age: {record.chrono_age}
+              <br />
+              {/* NOVA EDIT ADDITION END */}
               Fingerprint Hash: {record.fingerprint}
               <br />
               <br />
