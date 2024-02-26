@@ -65,14 +65,11 @@
 			quirk_notes = target.quirk_notes,
 			rank = target.rank,
 			species = target.species,
-<<<<<<< HEAD
 			// NOVA EDIT ADDITION START - Expanded records!
 			past_medical_records = target.past_medical_records,
 			past_general_records = target.past_general_records,
 			// NOVA EDIT END
-=======
 			trim = target.trim,
->>>>>>> 13128fcfbba (Fix custom job titles displaying with question mark icons in medical/security records. (#81637))
 		))
 
 	data["records"] = records
