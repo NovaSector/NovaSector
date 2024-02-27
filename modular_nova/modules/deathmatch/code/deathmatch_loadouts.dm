@@ -17,6 +17,8 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 	user.undershirt = "Nude"
 	user.socks = "Nude"
 	user.bra = "Nude"
+	var/datum/physiology/user_physiology = user.physiology
+	user_physiology.stamina_mod *= 0.5
 
 /datum/outfit/deathmatch_loadout/boomer_arena/doomed_dave
 	name = "Deathmatch: Doomed Dave"
@@ -70,4 +72,5 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 			var/obj/item/bodypart/arm/bigger_fist = puncher
 			bigger_fist.unarmed_damage_low = initial(bigger_fist.unarmed_damage_low) + 10
 			bigger_fist.unarmed_damage_high = initial(bigger_fist.unarmed_damage_high) + 10
+			bigger_fist.unarmed_effectiveness = initial(bigger_fist.unarmed_effectiveness) + 10
 	user.add_traits(list(TRAIT_NOGUNS), INNATE_TRAIT)
