@@ -29,7 +29,7 @@
 	icon_state = "ammo"
 	respawn_time = 2 MINUTES
 
-/obj/effect/powerup/ammo/trigger(mob/living/target)
+/obj/effect/powerup/ammo/arena/trigger(mob/living/target)
 	. = ..()
 	if(!.)
 		return
