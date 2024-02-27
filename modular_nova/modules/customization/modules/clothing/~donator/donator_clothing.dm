@@ -930,8 +930,8 @@
 		psycho_malice.reskin_obj(usr)
 
 /obj/item/clothing/mask/gas/psycho_malice
-	name = "placeholder"
-	desc = "do not perceive me"
+	name = "composite filtration mask"
+	desc = "Less of a mask and more of a second face, this device was primarily useful for climate-adjustment and keeping unwanted gasses and particulates out of whoever it's on. However, it's since been adapted into a faceplate for use by humanoid machines."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	icon_state = "psychomalice"
@@ -942,6 +942,19 @@
 	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
 	/// Whether or not the mask is currently being layered over (or under!) hair. FALSE/null means the mask is layered over the hair (this is how it starts off).
 	var/wear_hair_over
+
+/obj/item/clothing/mask/gas/psycho_malice/examine(mob/user)
+    . = ..()
+    . += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
+
+/obj/item/clothing/mask/gas/psycho_malice/CtrlClick(mob/living/user)
+    if(!isliving(user))
+        return
+    if(user.get_active_held_item() != src)
+        to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
+        return
+    voice_filter = voice_filter ? null : initial(voice_filter)
+    to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
 
 /obj/item/clothing/mask/gas/psycho_malice/Initialize(mapload)
 	. = ..()
