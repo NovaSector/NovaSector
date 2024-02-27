@@ -82,6 +82,11 @@
 	icon_state = "combat"
 	worn_icon_teshari = TESHARI_HANDS_ICON
 
+// Remove the override for these subtypes
+/obj/item/clothing/gloves/combat/floortile
+	icon = 'icons/obj/clothing/gloves.dmi'
+	worn_icon = null
+
 /obj/item/clothing/gloves/combat/wizard
 	icon = 'icons/obj/clothing/gloves.dmi'
 	worn_icon = null

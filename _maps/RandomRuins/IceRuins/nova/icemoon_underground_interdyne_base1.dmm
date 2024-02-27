@@ -295,7 +295,7 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "ba" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "bb" = (
@@ -1491,7 +1491,7 @@
 	},
 /obj/item/serviette_used,
 /obj/item/shard/plastitanium,
-/obj/item/valentine,
+/obj/item/paper/valentine,
 /obj/machinery/light/small/directional/west,
 /obj/item/trash/ready_donk,
 /turf/open/floor/plating/reinforced,
@@ -7097,7 +7097,7 @@
 /obj/structure/bed/double{
 	dir = 1
 	},
-/obj/item/bedsheet/random/double{
+/obj/effect/spawner/random/bedsheet/any/double{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_large,
