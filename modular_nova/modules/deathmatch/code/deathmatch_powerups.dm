@@ -24,10 +24,19 @@
 
 /obj/effect/powerup/ammo/arena
 	name = "ammo box"
-	desc = "Replenishes held weaponry."
+	desc = "Replenishes held weaponry as well as Atomic Abe's special ability."
 	icon = 'modular_nova/modules/deathmatch/icons/powerup.dmi'
 	icon_state = "ammo"
 	respawn_time = 2 MINUTES
+
+/obj/effect/powerup/ammo/trigger(mob/living/target)
+	. = ..()
+	if(!.)
+		return
+	for(var/obj/item/clothing/glasses/sunglasses/big/boomer_shooter/nuke_glasses in target.get_all_contents())
+		if(nuke_glasses.atomic_charge <= 76)
+			nuke_glasses.atomic_charge += 25
+			continue
 
 /obj/effect/powerup/armor
 	name = "armor"
