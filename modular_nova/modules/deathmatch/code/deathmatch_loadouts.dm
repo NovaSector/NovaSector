@@ -36,7 +36,7 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 	display_name = "Solemn Steve"
 	desc = "High speed, no armor, ability to hop around. Armed with a tommy gun."
 
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/orange
 	uniform = /obj/item/clothing/under/pants/jeans
 	gloves = /obj/item/clothing/gloves/tackler/offbrand
 	shoes = /obj/item/clothing/shoes/bhop/boomer_shooter
