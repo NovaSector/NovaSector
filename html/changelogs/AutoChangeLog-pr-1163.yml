@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "the north star's main intersections are brighter, the elevator is properly lit, and a single floating poster was moved."
