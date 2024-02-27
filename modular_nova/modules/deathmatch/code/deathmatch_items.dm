@@ -1,3 +1,7 @@
+/datum/movespeed_modifier/atomic
+	multiplicative_slowdown = -0.3
+
+
 //Special variation of the suit that applies slight slowdown
 /obj/item/clothing/suit/hooded/hostile_environment/boomer_shooter
 	slowdown = 0.2
@@ -131,5 +135,6 @@
 /obj/item/clothing/under/pants/jeans/boomer_shooter
 	armor_type = /datum/armor/hooded_hostile_environment
 
-/datum/movespeed_modifier/atomic
-	multiplicative_slowdown = -0.3
+/obj/item/minigunpack/boomer_shooter
+	overheat_max = 80
+	heat_diffusion = 1.5

@@ -51,7 +51,7 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 /datum/outfit/deathmatch_loadout/boomer_arena/atomic_abe
 	name = "Deathmatch: Atomic Abe"
 	display_name = "Atomic Abe"
-	desc = "Average speed, low armor, ability to go atomic. Armed with massive fists."
+	desc = "Average speed, low armor, ability to go atomic. Armed with massive fists; can't use guns."
 
 	glasses = /obj/item/clothing/glasses/sunglasses/big/boomer_shooter
 	uniform = /obj/item/clothing/under/pants/jeans
@@ -70,4 +70,4 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 			var/obj/item/bodypart/arm/bigger_fist = puncher
 			bigger_fist.unarmed_damage_low = initial(bigger_fist.unarmed_damage_low) + 10
 			bigger_fist.unarmed_damage_high = initial(bigger_fist.unarmed_damage_high) + 10
-	user.add_traits(TRAIT_CHUNKYFINGERS, INNATE_TRAIT)
+	user.add_traits(TRAIT_NOGUNS, INNATE_TRAIT)

@@ -74,7 +74,7 @@
 /turf/open/indestructible/stone,
 /area/deathmatch/fullbright)
 "or" = (
-/obj/item/minigunpack,
+/obj/item/minigunpack/boomer_shooter,
 /turf/open/indestructible/large,
 /area/deathmatch/fullbright)
 "oT" = (
