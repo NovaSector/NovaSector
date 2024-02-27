@@ -272,7 +272,7 @@
 		chambered = null
 
 	if(magazine_ref)
-		if(!disassembled)
+		if(!disassembled) //This is to stop one specific runtime, and if its being broken its probably gonna malf eject
 			mag.forceMove(drop_location())
 		else if(auto_loader) //if the magazine is being kept this long, it might aswell be shoved back in.
 			auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
