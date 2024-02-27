@@ -6,7 +6,6 @@
 
 	for (var/antag_icon_key in antagonists.antag_icons)
 		var/icon/reference_icon = antagonists.antag_icons[antag_icon_key]
-		reference_icon = icon(reference_icon) // NOVA EDIT ADDITION - try recaching it to fix mismatched icon bug
 
 		var/icon/icon = new()
 		icon.Insert(reference_icon, null, SOUTH, 1)
