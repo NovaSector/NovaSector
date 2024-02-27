@@ -41,7 +41,12 @@
 	var/datum/team/cortical_borers/borers
 
 /datum/antagonist/cortical_borer/get_preview_icon()
-	return finish_preview_icon(icon('modular_nova/modules/cortical_borer/icons/animal.dmi', "brainslug"))
+	var/icon/icon = icon('modular_nova/modules/cortical_borer/icons/animal.dmi', "brainslug", EAST)
+
+	icon.Crop(4, 2, 27, 10)
+	icon.Scale(ANTAGONIST_PREVIEW_ICON_SIZE, ANTAGONIST_PREVIEW_ICON_SIZE)
+
+	return icon
 
 /datum/antagonist/cortical_borer/get_team()
 	return borers
