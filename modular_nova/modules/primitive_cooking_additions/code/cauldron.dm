@@ -10,9 +10,9 @@
 	circuit = null
 	resistance_flags = FIRE_PROOF
 	/// Whether it's currently cooking
-	var/operating = FALSE
+	var/operating
 	/// Lid position
-	var/open = FALSE
+	var/open
 	/// Cauldron max capacity
 	var/max_n_of_items = 10
 	/// Ingredients - may only contain /atom/movables
@@ -32,7 +32,6 @@
 		6,
 		5,
 	)
-	var/static/radial_examine = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_examine")
 	var/static/radial_eject = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_eject")
 	var/static/radial_cook = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_cook")
 
@@ -144,8 +143,6 @@
 	)
 
 	. += base_icon_state
-
-	return .
 
 #undef CAULDRON_INGREDIENT_OVERLAY_SIZE
 
@@ -323,7 +320,6 @@
 
 /obj/machinery/cauldron/proc/after_finish_loop()
 	eject()
-	open()
 
 /obj/machinery/cauldron/proc/open(autoclose = 0.6 SECONDS)
 	open = TRUE
