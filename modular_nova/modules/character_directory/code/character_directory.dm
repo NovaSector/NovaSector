@@ -185,7 +185,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		attraction = READ_PREFS(mob, choiced/attraction)
 		gender = READ_PREFS(mob, choiced/display_gender)
 		if(gender == "Unset")
-			gender = mob.gender
+			gender = capitalize(mob.gender)
 		erp = READ_PREFS(mob, choiced/erp_status)
 		vore = READ_PREFS(mob, choiced/erp_status_v)
 		noncon = READ_PREFS(mob, choiced/erp_status_nc)
