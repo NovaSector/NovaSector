@@ -1040,13 +1040,6 @@
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"xu" = (
-/obj/item/clothing/neck/necklace/hearthkin,
-/obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/structure/wall_torch/spawns_lit/directional/west,
-/obj/structure/table/bronze,
-/turf/open/floor/stone/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "xI" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -1286,10 +1279,6 @@
 /obj/item/gun/ballistic/bow/longbow,
 /obj/item/storage/bag/quiver,
 /turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
-"EL" = (
-/obj/structure/railing/stone,
-/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "FB" = (
 /obj/structure/mannequin/wood,
@@ -3321,9 +3310,9 @@ oJ
 Te
 RC
 yF
-pa
-pa
-yF
+GN
+GN
+GN
 yF
 GN
 GN
@@ -3362,11 +3351,11 @@ oJ
 Vb
 no
 pb
-iJ
-Zq
-EL
-xu
-yF
+ZJ
+GN
+GN
+GN
+GN
 GN
 yF
 yF
@@ -3405,10 +3394,10 @@ oJ
 oJ
 Rq
 yF
-pa
-pa
-yF
-yF
+GN
+GN
+GN
+GN
 GN
 GN
 pa
