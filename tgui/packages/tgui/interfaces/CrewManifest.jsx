@@ -10,7 +10,7 @@ const commandJobs = [
   'Chief Engineer',
   'Research Director',
   'Chief Medical Officer',
-  'Quartermaster', // NOVA EDIT ADDITION
+  'Quartermaster',
   'Nanotrasen Consultant', // NOVA EDIT ADDITION
 ];
 
