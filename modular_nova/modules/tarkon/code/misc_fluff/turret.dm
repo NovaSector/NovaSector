@@ -216,6 +216,12 @@
 	var/casing_ejector = TRUE
 	//////what box should this spawn with if its map_spawned?
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled
+	//////To stop runtimes x1
+	var/staminaloss = 0
+	//////To stop runtimes x2 + resting firing
+	var/combat_mode = TRUE
+	//////to stop runtimes x3
+	var/timer_id
 	//////Container of the turret. Needs expanded ref.
 	var/datum/weakref/mag_box
 	////// Magazine inside the turret.
@@ -266,12 +272,11 @@
 		chambered = null
 
 	if(magazine_ref)
-		if(auto_loader) //if the magazine is being kept this long, it might aswell be shoved back in.
+		if(!disassembled)
+			mag.forceMove(drop_location())
+		else if(auto_loader) //if the magazine is being kept this long, it might aswell be shoved back in.
 			auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
 		magazine_ref = null
-
-	if(!disassembled) //We make it oilsplode, but still retrievable.
-		new /obj/effect/gibspawner/robot(drop_location())
 
 	var/obj/item/target_designator/controller = linkage?.resolve()
 	if(!isnull(controller))
@@ -281,6 +286,8 @@
 
 	mag_box = null
 	auto_loader?.forceMove(drop_location())
+	if(timer_id)
+		deltimer(timer_id)
 
 	qdel(src)
 	return
@@ -350,7 +357,7 @@
 	if(!auto_loader.get_mag())
 		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
-		addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
+		timer_id = addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
 		return
 	magazine_ref = WEAKREF(auto_loader.get_mag(FALSE))
 	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
@@ -367,31 +374,15 @@
 	if(isnull(casing))
 		chambered = null
 	if(istype(casing)) //there's a chambered round
-		if(casing.loaded_projectile)
-			if(QDELETED(casing.loaded_projectile))
-				stack_trace("Trying to move a casing with a deleted projectile!")
-				casing.loaded_projectile = null
-		if(QDELETED(casing))
-			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
-			chambered = null
-		else if(casing_ejector) //If, It somehow, Didn't delete the casing.
+		if(casing_ejector) //To handle casing ejection (Previous version didn't account for caseless ammo and threw runtimes with new system)
 			if(!claptrap_moment)
 				balloon_alert_to_viewers("ejecting cartridge") // will proc even on caseless cartridges, but its a debug message.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			chambered = null
-			SEND_SIGNAL(casing, COMSIG_FIRE_CASING) //to account for caseless cartridges.
 			casing.bounce_away(TRUE)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 
-////// redundant proc thats mostly for making sure stuff isn't qdel'ing
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/check_cartridge() //There's some edge cases where shite happens.
-	var/obj/item/ammo_casing/casing = chambered?.resolve() //Find chambered round
-	if(istype(casing)) //there's a chambered round
-		if(casing.loaded_projectile)
-			if(QDELETED(casing.loaded_projectile))
-				stack_trace("Trying to shoot bullet with a deleted projectile!")
-				return FALSE
-	return TRUE
+
 
 ////// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
@@ -497,26 +488,27 @@
 
 	setDir(get_dir(base, target))
 	update_appearance()
-	if(!check_cartridge())
-		balloon_alert_to_viewers("gun jammed!")
-		return
 
 	var/obj/item/ammo_casing/casing = chambered?.resolve()
 	if(casing.loaded_projectile && !QDELETED(casing.loaded_projectile))
-		var/obj/projectile/our_projectile = casing.loaded_projectile
-		our_projectile.preparePixelProjectile(target, my_lawn)
-		our_projectile.firer = src
-		our_projectile.fired_from = src
-		if(ignore_faction)
-			our_projectile.ignored_factions = (faction + allies)
-		our_projectile.fire()
-		our_projectile.fired = TRUE
-		play_fire_sound(casing)
-		our_projectile = null // We clear the ref from here. Pretty sure not needed but just in case.
-		casing.loaded_projectile = null //clear the reference from here, as we didn't go through a casing_firing proc
-		handle_chamber(TRUE)
+		handle_firing(casing, target)
 		return
 
+	handle_chamber(TRUE)
+
+////// Handles the firing process. Will need edited for special ammo types like 980.
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_firing(obj/item/ammo_casing/casing, atom/movable/target)
+	var/obj/projectile/our_projectile = casing.loaded_projectile
+	if(ignore_faction)
+		our_projectile.ignored_factions = (faction + allies)
+	casing.fire_casing(target, src, null, null, null, BODY_ZONE_CHEST, 0, src)
+	play_fire_sound(casing)
+
+
+////// So because the casing firing process calls it, Lets use this to handle the auto-reload.
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/changeNext_move()
 	handle_chamber(TRUE)
 
 ////// Handles which sound should play when the gun fires, as it does adjust between different ammo types.
@@ -635,3 +627,4 @@
 
 	var/obj/item/target_designator/controller = linkage?.resolve()
 	controller.linked_turrets -= source
+
