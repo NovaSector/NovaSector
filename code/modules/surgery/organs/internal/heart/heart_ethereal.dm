@@ -217,7 +217,7 @@
 	ethereal_heart.owner.forceMove(get_turf(src))
 	REMOVE_TRAIT(ethereal_heart.owner, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 	deltimer(crystal_heal_timer)
-	visible_message(span_notice("The crystals shatters, causing [ethereal_heart.owner] to fall out."))
+	visible_message(span_notice("The crystalline mass shatters, retreating into [ethereal_heart.owner]'s newly formed body.")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This reads cooler, okay?
 	return ..()
 
 /obj/structure/ethereal_crystal/update_overlays()
@@ -228,18 +228,20 @@
 		. += shine
 
 /obj/structure/ethereal_crystal/proc/heal_ethereal()
-	var/datum/brain_trauma/picked_trauma
+	//NOVA EDIT REMOVAL BEGIN - Ethereal Rework 2024 - We decided to make them not experience the traumas.
+	/* var/datum/brain_trauma/picked_trauma
 	if(prob(10)) //10% chance for a severe trauma
 		picked_trauma = pick(subtypesof(/datum/brain_trauma/severe))
 	else
-		picked_trauma = pick(subtypesof(/datum/brain_trauma/mild))
+		picked_trauma = pick(subtypesof(/datum/brain_trauma/mild)) */
+		//NOVA EDIT REMOVAL END - Ethereal Rework 2024
 
 	// revive will regenerate organs, so our heart refence is going to be null'd. Unreliable
 	var/mob/living/carbon/regenerating = ethereal_heart.owner
 
 	playsound(get_turf(regenerating), 'sound/effects/ethereal_revive.ogg', 100)
-	to_chat(regenerating, span_notice("You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost."))
-	regenerating.gain_trauma(picked_trauma, TRAUMA_RESILIENCE_ABSOLUTE)
+	to_chat(regenerating, span_purple("You burst out of the crystal with vigour... but you feel as if you should keep safe for a little while.")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - Hollow Purple
+	//regenerating.gain_trauma(picked_trauma, TRAUMA_RESILIENCE_ABSOLUTE) //NOVA EDIT REMOVAL - Ethereal Rework 2024 - We decided to make them not experience the traumas.
 	regenerating.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS)
 	// revive calls fully heal -> deletes the crystal.
 	// this qdeleted check is just for sanity.
