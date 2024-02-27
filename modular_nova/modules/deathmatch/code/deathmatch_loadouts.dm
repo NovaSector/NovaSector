@@ -55,7 +55,7 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 
 	glasses = /obj/item/clothing/glasses/sunglasses/big/boomer_shooter
 	uniform = /obj/item/clothing/under/pants/jeans
-	suit = /obj/item/clothing/suit/armor/vest/marine/pmc
+	suit = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
 	gloves = /obj/item/clothing/gloves/fingerless
 	shoes = /obj/item/clothing/shoes/swagshoes
 	r_pocket = /obj/item/knife/combat
@@ -70,4 +70,4 @@ TRAIT_IGNOREDAMAGESLOWDOWN, \
 			var/obj/item/bodypart/arm/bigger_fist = puncher
 			bigger_fist.unarmed_damage_low = initial(bigger_fist.unarmed_damage_low) + 10
 			bigger_fist.unarmed_damage_high = initial(bigger_fist.unarmed_damage_high) + 10
-	user.add_traits(TRAIT_NOGUNS, INNATE_TRAIT)
+	user.add_traits(list(TRAIT_NOGUNS), INNATE_TRAIT)
