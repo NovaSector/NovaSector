@@ -210,17 +210,9 @@ const ChoicesPanel = (props) => {
                         name="vote-yea"
                       />
                     )}
-<<<<<<< HEAD
-                  {
-                    user.isLowerAdmin
-                      ? `${choice.votes} Votes`
-                      : '' /* NOVA EDIT*/
-                  }
-=======
-                  {currentVote.displayStatistics
+                  {currentVote.displayStatistics || user.isLowerAdmin /* NOVA EDIT CHANGE - ORIGINAL: {currentVote.displayStatistics */
                     ? choice.votes + ' Votes'
                     : null}
->>>>>>> b0fd97dafef (Allow voting statistics to be hidden (#81686))
                 </LabeledList.Item>
                 <LabeledList.Divider />
               </Box>
