@@ -1961,6 +1961,7 @@
 /obj/item/ammo_casing/arrow/bone,
 /obj/item/ammo_casing/arrow/bone,
 /obj/item/ammo_casing/arrow/bone,
+/obj/item/ammo_casing/arrow/bronze,
 /obj/item/ammo_casing/arrow/ash,
 /obj/item/ammo_casing/arrow/ash,
 /obj/item/ammo_casing/arrow,
@@ -3308,8 +3309,8 @@ yM
 oJ
 oJ
 Te
-RC
-yF
+ZJ
+GN
 GN
 GN
 GN
@@ -3351,7 +3352,7 @@ oJ
 Vb
 no
 pb
-ZJ
+GN
 GN
 GN
 GN
