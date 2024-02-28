@@ -205,10 +205,6 @@
 	if(isliving(thing))
 		var/mob/living/lad = thing
 		RegisterSignal(thing, COMSIG_LIVING_DEATH, PROC_REF(content_died))
-		RegisterSignal(lad, COMSIG_LIVING_DEATH, PROC_REF(content_died))
-		if(lad.stat == DEAD)
-			qdel(lad)
-			return
 	stomach_contents += thing
 	thing.forceMove(owner || src) // We assert that if we have no owner, we will not be nullspaced
 
