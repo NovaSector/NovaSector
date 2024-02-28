@@ -313,3 +313,12 @@
 	suffix = "lavaland_surface_mookvillage.dmm"
 	allow_duplicates = FALSE
 	cost = 5
+
+//NOVA EDIT: dependent on modular_nova/modules/colony_fabricator. Make sure to change the datum filepath if using on a different server!
+/datum/map_template/ruin/lavaland/nova/colonist_homestead
+	name = "Colonist homestead"
+	id = "colonist_homestead"
+	description = "It's airtight and well stocked - but there's no accounting for morale. Probably should've sent someone else, in retrospect."
+	suffix = "lavaland_surface_RCF_homestead.dmm"
+	allow_duplicates = FALSE
+	cost = 5
