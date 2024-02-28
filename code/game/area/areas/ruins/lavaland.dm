@@ -102,10 +102,8 @@
 	outdoors = TRUE
 	ambient_buzz = 'sound/ambience/magma.ogg'
 
-//The RCF colonist homestead
+//NOVA EDIT ADDITION
+//The prefab colonist homestead. Dependent on the colony_fabricator module.
 /area/ruin/colonist_homestead
-name = "\improper Colonist homestead"
-	icon_state = "dk_yellow"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	mood_bonus = 1
-	mood_message = "<span class='nicegreen'>I could see myself living out of this place.</span>\n"
+	name = "Colonist Homestead"
+//NOVA EDIT ADDITION END
