@@ -592,15 +592,13 @@
 				return
 			//NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024 - Original: to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
 			user.visible_message(span_notice("[user] clamps their hand around the [fitting], electricity jumping around inside!"))
+			to_chat(user, span_purple("You receive some charge from the [fitting]."))
 			//NOVA EDIT ADDITION END - Ethereal Rework 2024
 			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(istype(stomach))
-					//NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024
-					to_chat(user, span_purple("You receive some charge from the [fitting]."))
-					do_sparks(2, FALSE, src)
-					//NOVA EDIT ADDITION END - Ethereal Rework 2024
+					do_sparks(2, FALSE, src) //NOVA EDIT ADDITION - Ethereal Rework 2024
 					stomach.adjust_charge(LIGHT_POWER_GAIN)
 				else
 					to_chat(user, span_warning("You can't receive charge from the [fitting]!"))

@@ -223,15 +223,15 @@
 			return
 		stomach.drain_time = world.time + APC_DRAIN_TIME
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "draining power"), alert_timer_duration)
-		ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, static jumping up their arm as they drain it!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - OriginaL: if(do_after(user, APC_DRAIN_TIME, target = src))
-		while(do_after(user, APC_DRAIN_TIME, target = src)) //NOVA EDIT ADDITION - Ethereal Rework 2024
+		//NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
+		ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, static jumping up their arm as they drain it!"))
+		to_chat(ethereal, span_purple("You drain some of [src]'s energy into yourself!"))
+		while(do_after(user, APC_DRAIN_TIME, target = src)) //NOVA EDIT CHANGE - Ethereal Rework 2024 - OriginaL: if(do_after(user, APC_DRAIN_TIME, target = src))
+		//NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
 			if(cell.charge <= (cell.maxcharge / 2) || (stomach.crystal_charge > charge_limit))
 				return
 			balloon_alert(ethereal, "received charge")
-			//NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024
-			do_sparks(2, FALSE, src)
-			to_chat(ethereal, span_purple("You drain some of [src]'s energy into yourself!"))
-			//NOVA EDIT ADDITION END
+			do_sparks(2, FALSE, src) //NOVA EDIT ADDITION - Ethereal Rework 2024
 			stomach.adjust_charge(APC_POWER_GAIN)
 			cell.use(APC_POWER_GAIN)
 		return
@@ -244,8 +244,11 @@
 		return
 	stomach.drain_time = world.time + APC_DRAIN_TIME
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "transfering power"), alert_timer_duration)
-	ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, their arm alight with static as they charge it!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - OriginaL: if(do_after(user, APC_DRAIN_TIME, target = src))
-	while(!do_after(user, APC_DRAIN_TIME, target = src))  //NOVA EDIT ADDITION - Ethereal Rework 2024
+	 //NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
+	ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, their arm alight with static as they charge it!"))
+	to_chat(ethereal, span_purple("You shunt some of your energy into [src]]."))
+	while(!do_after(user, APC_DRAIN_TIME, target = src))  //NOVA EDIT CHANGE - Ethereal Rework 2024 - OriginaL: if(do_after(user, APC_DRAIN_TIME, target = src))
+	//NOVA EDIT CHANGE END - Ethereal Rework 2024
 		return
 	if((cell.charge >= (cell.maxcharge - APC_POWER_GAIN)) || (stomach.crystal_charge < APC_POWER_GAIN))
 		balloon_alert(ethereal, "can't transfer power!")
@@ -255,7 +258,6 @@
 		//NOVA EDIT ADDITION/INDENTATION BEGIN - Ethereal Rework 2024
 		while(do_after(user, APC_DRAIN_TIME, target = src))
 			balloon_alert(ethereal, "transferred power")
-			to_chat(ethereal, span_purple("You shunt some of your energy into [src]]."))
 			stomach.adjust_charge(-APC_POWER_GAIN)
 			cell.give(APC_POWER_GAIN)
 			do_sparks(2, FALSE, src)
