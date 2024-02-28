@@ -181,39 +181,3 @@
 //DEFAULT NECK ITEMS OVERRIDE//
 /obj/item/clothing/neck
 	w_class = WEIGHT_CLASS_SMALL
-
-//HEARTHKIN TRANSLATOR NECKLACE
-/obj/item/clothing/neck/necklace/hearthkin
-	name = "gemmed necklace"
-	desc = "A necklace crafted from a gem found in the frozen wastes. This imbues overdwellers with an unnatural understanding of the Hearthkin while worn."
-	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
-	icon_state = "ashnecklace"
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
-	icon_state = "ashnecklace"
-	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
-
-/obj/item/clothing/neck/necklace/hearthkin/Initialize(mapload)
-	. = ..()
-	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(on_necklace_equip))
-	RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_necklace_unequip))
-
-/obj/item/clothing/neck/necklace/hearthkin/proc/on_necklace_equip(datum/source, mob/living/carbon/human/equipper, slot)
-	SIGNAL_HANDLER
-
-	if(!(slot & ITEM_SLOT_NECK))
-		return
-
-	if(!istype(equipper))
-		return
-
-	equipper.grant_language(/datum/language/siiktajr/, source = LANGUAGE_TRANSLATOR)
-	to_chat(equipper, span_boldnotice("Slipping the necklace on, you feel the insidious creep of a dark nature enter your bones, your very shadow and soul. You find yourself with an unnatural knowledge of the Hearthkin; but the amulet's eye stares back at you with a gleeful intent. Causing you to shiver with unease, you don't want to keep this on forever."))
-
-/obj/item/clothing/neck/necklace/hearthkin/proc/on_necklace_unequip(mob/living/carbon/human/source, force, atom/newloc, no_move, invdrop, silent)
-	SIGNAL_HANDLER
-
-	if(!istype(source))
-		return
-
-	source.remove_language(/datum/language/siiktajr/, source = LANGUAGE_TRANSLATOR)
-	to_chat(source, span_boldnotice("You feel the alien unease lessen as the gem loses its interest in you after removing it. The eye closes, and your mind does as well, losing its grasp of Hearthkin."))

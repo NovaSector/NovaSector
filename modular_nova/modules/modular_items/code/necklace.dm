@@ -2,9 +2,9 @@
 /obj/item/clothing/neck
 	w_class = WEIGHT_CLASS_SMALL
 
-//ASHWALKER TRANSLATOR NECKLACE//
+//TRANSLATOR NECKLACE//
 #define LANGUAGE_TRANSLATOR "translator"
-/obj/item/clothing/neck/necklace/ashwalker
+/obj/item/clothing/neck/necklace/translator/
 	name = "ashen necklace"
 	desc = "A necklace crafted from ash, connected to the Necropolis through the core of a Legion. This imbues overdwellers with an unnatural understanding of Ashtongue, the native language of Lavaland, while worn."
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
@@ -12,31 +12,16 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "ashnecklace"
 	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
+	/// The language granted by this necklace
+	var/datum/language/language_granted = /datum/language/ashtongue
+	/// Whether or not to display the message upon equipping/unequipping
+	var/silent
 
-/obj/item/clothing/neck/necklace/ashwalker/Initialize(mapload)
+/obj/item/clothing/neck/necklace/translator/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(on_necklace_equip))
-	RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_necklace_unequip))
 
-//uses code from the pirate hat.
-/obj/item/clothing/neck/necklace/ashwalker/equipped(mob/user, slot)
-	. = ..()
-	if(!ishuman(user))
-		return
-	if(slot & ITEM_SLOT_NECK)
-		user.grant_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
-		to_chat(user, span_boldnotice("Slipping the necklace on, you feel the insidious creep of the Necropolis enter your bones, and your very shadow. You find yourself with an unnatural knowledge of Ashtongue; but the amulet's eye stares at you."))
-
-/obj/item/clothing/neck/necklace/ashwalker/dropped(mob/user)
-	. = ..()
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(H.get_item_by_slot(ITEM_SLOT_NECK) == src && !QDELETED(src)) //This can be called as a part of destroy
-		user.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
-		to_chat(user, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of Ashtongue."))
-
-/obj/item/clothing/neck/necklace/ashwalker/proc/on_necklace_equip(datum/source, mob/living/carbon/human/equipper, slot)
+/obj/item/clothing/neck/necklace/translator/proc/on_necklace_equip(datum/source, mob/living/carbon/human/equipper, slot)
 	SIGNAL_HANDLER
 
 	if(!(slot & ITEM_SLOT_NECK))
@@ -45,13 +30,27 @@
 	if(!istype(equipper))
 		return
 
-	equipper.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
+	equipper.grant_language(language_granted, source = LANGUAGE_TRANSLATOR)
+	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(on_necklace_unequip))
 
-/obj/item/clothing/neck/necklace/ashwalker/proc/on_necklace_unequip(mob/living/carbon/human/source, force, atom/newloc, no_move, invdrop, silent)
+	if(!silent)
+		to_chat(equipper, span_boldnotice("Slipping the necklace on, you feel the insidious creep of a dark nature enter your bones, your very shadow and soul. You find yourself with an unnatural knowledge of the [initial(language_granted.name)]; but the amulet's eye stares back at you with a gleeful intent. Causing you to shiver with unease, you don't want to keep this on forever."))
+
+/obj/item/clothing/neck/necklace/translator/proc/on_necklace_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
 
-	if(!istype(source))
+	var/mob/living/carbon/human/unequipper = source.loc
+	if(!istype(unequipper))
 		return
 
-	source.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
-//ASHWALKER TRANSLATOR NECKLACE END//
+	unequipper.remove_language(language_granted, source = LANGUAGE_TRANSLATOR)
+	UnregisterSignal(source, COMSIG_ITEM_PRE_UNEQUIP)
+
+	if(!silent)
+		to_chat(unequipper, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of [initial(language_granted.name)]"))
+
+/obj/item/clothing/neck/necklace/translator/hearthkin
+	name = "gemmed necklace"
+	desc = "A necklace crafted from a gem found in the frozen wastes. This imbues overdwellers with an unnatural understanding of the Hearthkin while worn."
+	language_granted = /datum/language/siiktajr
+

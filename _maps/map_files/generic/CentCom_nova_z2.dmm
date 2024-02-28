@@ -1433,10 +1433,10 @@
 	pixel_y = 16;
 	pixel_x = -2
 	},
-/obj/item/clothing/neck/necklace/hearthkin,
-/obj/item/clothing/neck/necklace/hearthkin,
-/obj/item/clothing/neck/necklace/hearthkin,
-/obj/item/clothing/neck/necklace/hearthkin,
+/obj/item/clothing/neck/necklace/translator/hearthkin,
+/obj/item/clothing/neck/necklace/translator/hearthkin,
+/obj/item/clothing/neck/necklace/translator/hearthkin,
+/obj/item/clothing/neck/necklace/translator/hearthkin,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafepark)
 "avn" = (
@@ -7565,10 +7565,10 @@
 /area/centcom/interlink)
 "gZK" = (
 /obj/structure/table/wood,
-/obj/item/clothing/neck/necklace/ashwalker,
-/obj/item/clothing/neck/necklace/ashwalker,
-/obj/item/clothing/neck/necklace/ashwalker,
-/obj/item/clothing/neck/necklace/ashwalker,
+/obj/item/clothing/neck/necklace/translator,
+/obj/item/clothing/neck/necklace/translator,
+/obj/item/clothing/neck/necklace/translator,
+/obj/item/clothing/neck/necklace/translator,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "gZM" = (
