@@ -13,6 +13,11 @@
 	icon_state = "ashnecklace"
 	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
 
+/obj/item/clothing/neck/necklace/ashwalker/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(on_necklace_equip))
+	RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_necklace_unequip))
+
 //uses code from the pirate hat.
 /obj/item/clothing/neck/necklace/ashwalker/equipped(mob/user, slot)
 	. = ..()
@@ -20,6 +25,17 @@
 		return
 	if(slot & ITEM_SLOT_NECK)
 		user.grant_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
+
+/obj/item/clothing/neck/necklace/ashwalker/proc/on_necklace_equip(datum/source, mob/living/carbon/human/equipper, slot)
+	SIGNAL_HANDLER
+
+	if(!(slot & ITEM_SLOT_NECK))
+		return
+
+	if(!istype(equipper))
+		return
+
+	equipper.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
 		to_chat(user, span_boldnotice("Slipping the necklace on, you feel the insidious creep of the Necropolis enter your bones, and your very shadow. You find yourself with an unnatural knowledge of Ashtongue; but the amulet's eye stares at you."))
 
 /obj/item/clothing/neck/necklace/ashwalker/dropped(mob/user)
@@ -29,6 +45,13 @@
 	var/mob/living/carbon/human/H = user
 	if(H.get_item_by_slot(ITEM_SLOT_NECK) == src && !QDELETED(src)) //This can be called as a part of destroy
 		user.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
-		to_chat(user, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of Ashtongue."))
 
+/obj/item/clothing/neck/necklace/hearthkin/proc/on_necklace_unequip(mob/living/carbon/human/source, force, atom/newloc, no_move, invdrop, silent)
+	SIGNAL_HANDLER
+
+	if(!istype(source))
+		return
+
+	source.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
+	to_chat(user, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of Ashtongue."))
 //ASHWALKER TRANSLATOR NECKLACE END//
