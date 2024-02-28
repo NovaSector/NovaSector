@@ -319,6 +319,6 @@
 	name = "Colonist Homestead"
 	id = "colonist_homestead"
 	description = "Being named after a great colonist from history doesn't mean you'll be as successful as they were. Too bad they had to leave the RCF at home."
-	suffix = "lavaland_surface_RCF_homestead.dmm"
+	suffix = "lavaland_surface_prefab_homestead.dmm"
 	allow_duplicates = FALSE
 	cost = 5
