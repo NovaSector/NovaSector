@@ -53,6 +53,8 @@
 			for(var/datum/record/crew/person in GLOB.manifest.general)
 				var/list/current_record = list()
 
+				current_record["age"] = person.age // NOVA EDIT ADDITION - Chronological age
+				current_record["chrono_age"] = person.chrono_age // NOVA EDIT ADDITION - Chronological age
 				current_record["bloodtype"] = person.blood_type
 				current_record["ma_dis"] = person.major_disabilities_desc
 				current_record["mi_dis"] = person.minor_disabilities_desc

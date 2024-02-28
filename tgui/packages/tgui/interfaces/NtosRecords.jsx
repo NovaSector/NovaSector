@@ -103,6 +103,12 @@ export const NtosRecords = (props) => {
                 {record.name}
               </Box>
               <br />
+              {/* NOVA EDIT ADDITION BEGIN - Chronological age */}
+              Physical Age: {record.age}
+              <br />
+              Chronological Age: {record.chrono_age}
+              <br />
+              {/* NOVA EDIT ADDITION END */}
               Bloodtype: {record.bloodtype}
               <br />
               Minor Disabilities: {record.mi_dis}
