@@ -19,7 +19,6 @@
 	/// Whether or not to display the message upon equipping/unequipping
 	var/silent
 
-
 /obj/item/clothing/neck/necklace/translator/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(on_necklace_equip))
@@ -59,4 +58,3 @@
 	desc = "A necklace crafted from a gem found in the frozen wastes. This imbues overdwellers with an unnatural understanding of the Hearthkin while worn."
 	language_granted = /datum/language/siiktajr
 	power_source = "a dark nature"
-
