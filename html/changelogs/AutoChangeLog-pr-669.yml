@@ -1,0 +1,5 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - rscadd: "The Underworld Connections quirk has been added, allowing dodgy characters (including silicons!) to gain access to exploitable information at roundstart. Non-silicons also receive a fully customizable black market uplink, too."
+  - qol: "Prices at the galactic Black Market have now fallen drastically to be more in line with general cargo costs, give or take, and should now be vastly more affordable for most people. Pick up one and order some spuriously legal things for you and your friends today!"
