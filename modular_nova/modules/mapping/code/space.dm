@@ -5,7 +5,6 @@
 
 /datum/map_template/ruin/space/whiteshipruin_box_nova/
 	id = "whiteshipruin_box_nova"
-	prefix = "_maps/RandomRuins/SpaceRuins/nova/"
 	suffix = "whiteshipruin_box.dmm"
 	name = "Space-Ruin NT Medical Ship"
 	description = "An ancient ship, said to be among the first discovered derelicts near Space Station 13 that was still in working order. \
@@ -19,10 +18,10 @@
 	description = "An interstellar hotel, where the weary spaceman can rest their head and relax, assured that the residental staff will not murder them in their sleep. Probably."
 
 /datum/map_template/ruin/space/nova/des_two
-	name = "DS-2"
 	id = "des_two"
+	suffix = "des_two.dmm"
+	name = "Space-Ruin DS-2"
 	description = "If DS-1 was so good..."
-	suffix = "Space-Ruin DS2"
 	always_place = TRUE
 
 /datum/map_template/ruin/space/nova/derelictferry
@@ -134,34 +133,39 @@
 	description = "A small crew of freight-haulers are marooned in space after pirates knock out their engines. They must survive off of the cargo on board their ship and fend off the pirate boarders on their ship."
 
 /datum/map_template/ruin/space/nova/infestedntship
+	id = "scrapheap"
 	suffix = "scrapheap.dmm"
 	name = "Space-Ruin NT Research Vessel"
 	description = "A zombie-infested NT ship, seemingly dedicated to medical research."
 
 /datum/map_template/ruin/space/nova/piratefort
+	id = "piratefort"
 	suffix = "piratefort.dmm"
 	name = "Space-Ruin Pirate Fort"
 	description = "A pirate hideout in deep space."
 
 /datum/map_template/ruin/space/nova/syndibase
+	id = "syndibase"
 	suffix = "syndibase.dmm"
 	name = "Space-Ruin Syndicate Outpost"
 	description = "A Syndicate research outpost in deep space."
 
 /datum/map_template/ruin/space/nova/crash
+	id = "crash"
 	suffix = "crash.dmm"
 	name = "Space-Ruin Crashed Boat"
 	description = "A small ferry crashed into an asteroid."
 
 /datum/map_template/ruin/space/nova/shuttlescrap
+	id = "shuttlescrap"
 	suffix = "shuttlescrap.dmm"
 	name = "Space-Ruin Broken Shuttle"
 	description = "A small shuttle that clearly got clipped by something."
 
 /datum/map_template/ruin/space/nova/escapefromtarkon
+	id = "escapefromtarkon"
 	suffix = "port_tarkon.dmm"
 	name = "Space-Ruin Port Tarkon"
-	id = "escapefromtarkon"
 	description = "An ambitious goal, A step forward, A trial run for the Tarkon drill, ment to implant mining stations within meteors. Decades of disaster have, however, left this one... Unattended for far too long."
 	always_place = TRUE
 
