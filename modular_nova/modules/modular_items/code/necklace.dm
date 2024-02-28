@@ -1,7 +1,3 @@
-//DEFAULT NECK ITEMS OVERRIDE//
-/obj/item/clothing/neck
-	w_class = WEIGHT_CLASS_SMALL
-
 //TRANSLATOR NECKLACE//
 #define LANGUAGE_TRANSLATOR "translator"
 /obj/item/clothing/neck/necklace/translator/
