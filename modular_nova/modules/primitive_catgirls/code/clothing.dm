@@ -177,7 +177,3 @@
 
 /obj/item/forging/reagent_weapon/axe/fake_copper
 	custom_materials = list(/datum/material/copporcitite = SHEET_MATERIAL_AMOUNT)
-
-//DEFAULT NECK ITEMS OVERRIDE//
-/obj/item/clothing/neck
-	w_class = WEIGHT_CLASS_SMALL
