@@ -61,14 +61,15 @@
 	var/atom/movable/plane_master_controller/game_plane_master_controller = our_guy.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 
 	var/static/list/col_filter_green = list(0.5,0,0,0, 0,1,0,0, 0,0,0.5,0, 0,0,0,1)
+	var/static/list/col_filter_purple = list(1,0,0,0, 0,0.5,0,0, 0,0,1,0, 0,0,0,1)
 
-	game_plane_master_controller.add_filter(TWITCH_SCREEN_FILTER, 10, color_matrix_filter(col_filter_green, FILTER_COLOR_RGB))
+	var/color_filter_to_use = col_filter_green
+	if(overdosed)
+		color_filter_to_use = col_filter_purple
+
+	game_plane_master_controller.add_filter(TWITCH_SCREEN_FILTER, 10, color_matrix_filter(color_filter_to_use, FILTER_COLOR_RGB))
 
 	game_plane_master_controller.add_filter(TWITCH_SCREEN_BLUR, 1, list("type" = "radial_blur", "size" = 0.02))
-
-	for(var/filter in game_plane_master_controller.get_filters(TWITCH_SCREEN_BLUR))
-		animate(filter, loop = -1, size = 0.04, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-		animate(size = 0.02, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 
 /datum/reagent/drug/twitch/on_mob_end_metabolize(mob/living/carbon/our_guy)
