@@ -46,7 +46,7 @@
 	if(H.get_item_by_slot(ITEM_SLOT_NECK) == src && !QDELETED(src)) //This can be called as a part of destroy
 		user.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
 
-/obj/item/clothing/neck/necklace/hearthkin/proc/on_necklace_unequip(mob/living/carbon/human/source, force, atom/newloc, no_move, invdrop, silent)
+/obj/item/clothing/neck/necklace/ashwalker/proc/on_necklace_unequip(mob/living/carbon/human/source, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
 
 	if(!istype(source))
