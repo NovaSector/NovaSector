@@ -25,6 +25,7 @@
 		return
 	if(slot & ITEM_SLOT_NECK)
 		user.grant_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
+		to_chat(user, span_boldnotice("Slipping the necklace on, you feel the insidious creep of the Necropolis enter your bones, and your very shadow. You find yourself with an unnatural knowledge of Ashtongue; but the amulet's eye stares at you."))
 
 /obj/item/clothing/neck/necklace/ashwalker/dropped(mob/user)
 	. = ..()
@@ -33,6 +34,7 @@
 	var/mob/living/carbon/human/H = user
 	if(H.get_item_by_slot(ITEM_SLOT_NECK) == src && !QDELETED(src)) //This can be called as a part of destroy
 		user.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
+		to_chat(user, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of Ashtongue."))
 
 /obj/item/clothing/neck/necklace/ashwalker/proc/on_necklace_equip(datum/source, mob/living/carbon/human/equipper, slot)
 	SIGNAL_HANDLER
@@ -44,7 +46,6 @@
 		return
 
 	equipper.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
-	to_chat(source, span_boldnotice("Slipping the necklace on, you feel the insidious creep of the Necropolis enter your bones, and your very shadow. You find yourself with an unnatural knowledge of Ashtongue; but the amulet's eye stares at you."))
 
 /obj/item/clothing/neck/necklace/ashwalker/proc/on_necklace_unequip(mob/living/carbon/human/source, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
@@ -53,5 +54,4 @@
 		return
 
 	source.remove_language(/datum/language/ashtongue/, source = LANGUAGE_TRANSLATOR)
-	to_chat(source, span_boldnotice("You feel the alien mind of the Necropolis lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of Ashtongue."))
 //ASHWALKER TRANSLATOR NECKLACE END//
