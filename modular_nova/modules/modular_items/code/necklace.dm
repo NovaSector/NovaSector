@@ -33,25 +33,25 @@
 		return
 
 	equipper.grant_language(language_granted, source = LANGUAGE_TRANSLATOR)
-	RegisterSignal(equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(on_necklace_unequip))
+	RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(on_necklace_unequip))
 
 	if(!silent)
 		to_chat(equipper, span_boldnotice("Slipping the necklace on, you feel the insidious creep of [power_source] enter your bones, your very shadow and soul. You find yourself with an unnatural knowledge of the [initial(language_granted.name)]; but the amulet's eye stares back at you with a gleeful intent. Causing you to shiver with unease, you don't want to keep this on forever."))
 
-/obj/item/clothing/neck/necklace/translator/proc/on_necklace_unequip(mob/living/carbon/human/source, obj/item/unequipped, force, atom/newloc, no_move, invdrop, silent)
+/obj/item/clothing/neck/necklace/translator/proc/on_necklace_unequip(obj/item/source, mob/living/carbon/human/unequipper)
 	SIGNAL_HANDLER
 
-	if(!istype(source))
+	if(!istype(unequipper))
 		return
 
-	if(unequipped != source.wear_neck)
+	if(unequipper.wear_neck != source)
 		return
 
-	source.remove_language(language_granted, source = LANGUAGE_TRANSLATOR)
+	unequipper.remove_language(language_granted, source = LANGUAGE_TRANSLATOR)
 	UnregisterSignal(source, COMSIG_MOB_UNEQUIPPED_ITEM)
 
 	if(!silent)
-		to_chat(source, span_boldnotice("You feel the alien mind of the [power_source] lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of [initial(language_granted.name)]"))
+		to_chat(unequipper, span_boldnotice("You feel the alien mind of the [power_source] lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of [initial(language_granted.name)]"))
 
 /obj/item/clothing/neck/necklace/translator/hearthkin
 	name = "gemmed necklace"
