@@ -496,3 +496,48 @@
       a permanently unremovable low-end MODsuit stuck to their back slot. Letting
       the suit's charge run low will eventually kill you, and the quirk has special
       interactions with both Ethereals and Plasmamen!
+2024-02-28:
+  Knouli:
+  - balance: DeForest brand Civil Defense Medical Kits may now be repurposed to carry
+      a limited selection of field-portable cheese rations.
+  LT3:
+  - code_imp: Tram throwing now breaks grilles consistently
+  - code_imp: Tram malfunction lethality/throw chance are now a multiplier instead
+      of flat value
+  - code_imp: Tram throw chance can be adjusted
+  - code_imp: Unlucky trait is now used in tram throw calculation
+  Nerev4r:
+  - rscadd: New persocom wireless standards have allowed for machines to wirelessly
+      link to ID cards, rather than using dedicated slots.
+  - rscadd: Adds some Security shorts to the loadout and vendors.
+  NovaBot13:
+  - bugfix: Fixed Bluespace RPEDs failing to apply circuits from a distance if you
+      had to select between multiple.
+  - bugfix: the north star's main intersections are brighter, the elevator is properly
+      lit, and a single floating poster was moved.
+  - code_imp: TRAIT_DEAF now works on non-carbon mobs
+  - image: New sprites for plant grafts!
+  - balance: xenomorph stomachs will no longer destroy items directly, refactored
+      it to use acid_act()
+  - bugfix: fixes xenomorph vore accidentally destroying mobs it wasn't supposed to
+      destroy, im thinking this was modified list in place shenanigans
+  - bugfix: Medical/security records now show an icon based on the registered trim,
+      rather than showing a question mark for records with customized titles.
+  - balance: Adds a 1 second delay to moving up and down with the verb/keybinds to
+      disable z-level combat cheese
+  - qol: The chapel has been slightly overhauled on Birdshot, with the chaplain now
+      having a place to preach sermons.
+  - bugfix: Sparring chaplains are now able to operate on Birdshot!
+  - balance: '"Freshness Jars full of Natural Bait" is now a goodie and costs 200
+      credits instead of 2000'
+  - rscadd: Displaying the voting statistics is now optional on a per-poll basis,
+      and is disabled for map voting.
+  - qol: Intelligent monkeys now punch people instead of biting them.
+  - rscadd: a list of items called vendor_nocrush that vendors dont deal integrity
+      damage to upon hitting them.
+  - bugfix: Makes vending machines no longer crush chairs and conveyors.
+  PapaMichael:
+  - balance: Fugitive hunters will spawn early if the emergency shuttle is called.
+  vinylspiders:
+  - bugfix: muzzled variations of clothing will now show again on your mob if you
+      have a snout

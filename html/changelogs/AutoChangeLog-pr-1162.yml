@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "muzzled variations of clothing will now show again on your mob if you have a snout"
