@@ -101,3 +101,11 @@
 /area/ruin/unpowered/ratvar
 	outdoors = TRUE
 	ambient_buzz = 'sound/ambience/magma.ogg'
+
+//The RCF colonist homestead
+/area/ruin/colonist_homestead
+name = "\improper Colonist homestead"
+	icon_state = "dk_yellow"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	mood_bonus = 1
+	mood_message = "<span class='nicegreen'>I could see myself living out of this place.</span>\n"
