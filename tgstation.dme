@@ -8112,6 +8112,7 @@
 #include "modular_nova\modules\trim_tokens\code\cards_ids.dm"
 #include "modular_nova\modules\trim_tokens\code\trim_tokens.dm"
 #include "modular_nova\modules\turretid\code\turret_id_system.dm"
+#include "modular_nova\modules\underworld_connections\code\black_market_uplink.dm"
 #include "modular_nova\modules\underworld_connections\code\underworld_connections_quirk.dm"
 #include "modular_nova\modules\underworld_connections\code\markets\base_black_market.dm"
 #include "modular_nova\modules\verbs\code\looc.dm"
