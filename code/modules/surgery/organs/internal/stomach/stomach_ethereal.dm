@@ -63,16 +63,18 @@
 		if(ETHEREAL_CHARGE_FULL to ETHEREAL_CHARGE_OVERLOAD)
 			carbon.add_mood_event("charge", /datum/mood_event/overcharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 1)
-			//carbon.apply_damage(0.2, TOX, null, null, carbon) //NOVA EDIT CHANGE - Ethereal Rework 2024 - You should only really be getting that damage when you're actually overcharged.
+			//carbon.apply_damage(0.2, TOX, null, null, carbon) //NOVA EDIT REMOVAL- Ethereal Rework 2024 - You should only really be getting that damage when you're actually overcharged.
 		if(ETHEREAL_CHARGE_OVERLOAD to ETHEREAL_CHARGE_DANGEROUS)
 			carbon.add_mood_event("charge", /datum/mood_event/supercharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 2)
 			carbon.apply_damage(0.325 * seconds_per_tick, TOX, null, null, carbon)
 			if(SPT_PROB(5, seconds_per_tick)) // 5% each seacond for ethereals to explosively release excess energy if it reaches dangerous levels
 				discharge_process(carbon)
+			// NOVA EDIT ADDITION BEGIN
 			if (SPT_PROB(15, seconds_per_tick))
 				do_sparks(5, TRUE, carbon)
 				carbon.visible_message(span_danger("[carbon] sparks, their body aglow with excess energy!"), span_warning("Your body ejects voltage as sparks, you should discharge some electricity!"))
+				// NOVA EDIT ADDITION END
 		else
 			owner.clear_mood_event("charge")
 			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)

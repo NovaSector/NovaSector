@@ -384,12 +384,12 @@
 			siemens_coeff *= gloves.siemens_coefficient
 	siemens_coeff *= physiology.siemens_coeff
 	siemens_coeff *= dna.species.siemens_coeff
-	//NOVA EDIT BEGIN - Ethereal Rework 2024
+	//NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024
 	var/obj/item/organ/internal/stomach/maybe_stomach = get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(maybe_stomach, /obj/item/organ/internal/stomach/ethereal))
 		ethereal_electrocute_act(shock_damage, source, siemens_coeff, flags, jitter_time, stutter_time, stun_duration)
 		return
-	//NOVA EDIT END - Ethereal Rework 2024
+	//NOVA EDIT ADDITION END - Ethereal Rework 2024
 	. = ..()
 	//Don't go further if the shock was blocked/too weak.
 	if(!.)

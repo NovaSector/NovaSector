@@ -957,11 +957,11 @@
 	heat_level_1_threshold = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD // 150C or 433k, in line with ethereal max safe body temperature
 	heat_level_2_threshold = 473
 	heat_level_3_threshold = 1073
-	//NOVA EDIT BEGIN - Ethereal Rework 2024 - They'll still choke to death on icebox.
+	//NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024 - They'll still choke to death on icebox.
 	cold_level_1_threshold = 208
 	cold_level_2_threshold = 200
 	cold_level_3_threshold = 170
-	//NOVA EDIT END - Ethereal Rework 2024
+	//NOVA EDIT ADDITION END - Ethereal Rework 2024
 
 /obj/item/organ/internal/lungs/ethereal/ethereal_smoker
 	name = "smoker aeration reticulum"

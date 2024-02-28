@@ -215,11 +215,11 @@
 	if(ethereal.combat_mode)
 		if(cell.charge <= (cell.maxcharge / 2)) // ethereals can't drain APCs under half charge, this is so that they are forced to look to alternative power sources if the station is running low
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "safeties prevent draining!"), alert_timer_duration)
-			ethereal.visible_message(span_notice("[src] displays a red X, sealing ports as 'safeties enabled' flashes across the screen!"))
+			ethereal.visible_message(span_notice("[src] displays a red X, sealing ports as 'safeties enabled' flashes across the screen!")) // NOVA EDIT ADDITION
 			return
 		if(stomach.crystal_charge > charge_limit)
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "charge is full!"), alert_timer_duration)
-			ethereal.visible_message(span_notice("[src]'s battery meter seems too high for [ethereal] to charge it any further!"))
+			ethereal.visible_message(span_notice("[src]'s battery meter seems too high for [ethereal] to charge it any further!")) // NOVA EDIT ADDITION
 			return
 		stomach.drain_time = world.time + APC_DRAIN_TIME
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "draining power"), alert_timer_duration)

@@ -246,11 +246,11 @@
 				return
 			H.visible_message(span_notice("[user] hovers their fingers above [src], arcs forming from its surface!")) //NOVA EDIT CHANGE - Ethereal Rework 2024
 			stomach.drain_time = world.time + CELL_DRAIN_TIME
-			while(do_after(user, CELL_DRAIN_TIME, target = src)) //NOVA EDIT CHANGE - Ethereal Rework 2024
+			while(do_after(user, CELL_DRAIN_TIME, target = src)) //NOVA EDIT CHANGE - Original: if(do_after(user, CELL_DRAIN_TIME, target = src))
 				if((charge < CELL_POWER_DRAIN) || (stomach.crystal_charge > charge_limit))
 					return
 				if(istype(stomach))
-					to_chat(H, span_purple("You receive some charge from [src], wasting some in the process.")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - Hollow Purple
+					to_chat(H, span_purple("You receive some charge from [src], wasting some in the process.")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - Original: span_notice()
 					stomach.adjust_charge(CELL_POWER_GAIN)
 					charge -= CELL_POWER_DRAIN //you waste way more than you receive, so that ethereals cant just steal one cell and forget about hunger
 				else
