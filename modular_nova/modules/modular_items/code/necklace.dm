@@ -41,6 +41,8 @@
 /obj/item/clothing/neck/necklace/translator/proc/on_necklace_unequip(obj/item/source, mob/living/carbon/human/unequipper)
 	SIGNAL_HANDLER
 
+	UnregisterSignal(source, COMSIG_MOB_UNEQUIPPED_ITEM)
+
 	if(!istype(unequipper))
 		return
 
@@ -48,7 +50,6 @@
 		return
 
 	unequipper.remove_language(language_granted, source = LANGUAGE_TRANSLATOR)
-	UnregisterSignal(source, COMSIG_MOB_UNEQUIPPED_ITEM)
 
 	if(!silent)
 		to_chat(unequipper, span_boldnotice("You feel the alien mind of the [power_source] lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of [initial(language_granted.name)]"))
