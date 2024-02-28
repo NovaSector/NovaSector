@@ -15,7 +15,7 @@
 	/// The language granted by this necklace
 	var/datum/language/language_granted = /datum/language/ashtongue
 	/// Where the power comes from
-	var/power_source = "Necropolis"
+	var/power_source = "the Necropolis"
 	/// Whether or not to display the message upon equipping/unequipping
 	var/silent
 
@@ -51,7 +51,7 @@
 	UnregisterSignal(source, COMSIG_ITEM_DROPPED)
 
 	if(!silent)
-		to_chat(unequipper, span_boldnotice("You feel the alien mind of the [power_source] lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of [initial(language_granted.name)]"))
+		to_chat(unequipper, span_boldnotice("You feel the alien mind of [power_source] lose its interest in you as you remove the necklace. The eye closes, and your mind does as well, losing its grasp of [initial(language_granted.name)]"))
 
 /obj/item/clothing/neck/necklace/translator/hearthkin
 	name = "gemmed necklace"
