@@ -11,7 +11,7 @@
 "p" = (/turf/open/misc/asteroid/basalt/lava_land_surface,/area/ruin/colonist_homestead)
 "q" = (/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/carpet/lone,/area/ruin/colonist_homestead)
 "s" = (/obj/item/storage/box/tiziran_cans,/obj/item/spess_knife,/turf/open/floor/iron/colony/bolts,/area/ruin/colonist_homestead)
-"t" = (/obj/machinery/smartfridge/producebin,/turf/open/floor/iron/colony/bolts,/area/ruin/colonist_homestead)
+"t" = (/obj/machinery/smartfridge/ration_shelf,/turf/open/floor/iron/colony/bolts,/area/ruin/colonist_homestead)
 "u" = (/obj/structure/sink/directional/east,/turf/open/floor/iron/colony/bolts,/area/ruin/colonist_homestead)
 "v" = (/obj/structure/rack/wooden,/obj/item/seeds/tower,/obj/item/seeds/tower,/obj/item/seeds/tower,/obj/item/seeds/lavaland/cactus,/obj/item/seeds/lavaland/cactus,/obj/item/seeds/lavaland/cactus,/turf/open/misc/asteroid/basalt/lava_land_surface,/area/lavaland/surface/outdoors)
 "w" = (/obj/structure/cable,/obj/machinery/power/terminal{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/power/apc/auto_name/directional/east,/obj/effect/mapping_helpers/apc/no_charge,/obj/effect/mapping_helpers/apc/unlocked,/obj/structure/closet/crate/wooden,/obj/item/flatpacked_machine/solar_tracker,/obj/item/flatpacked_machine/solar,/obj/item/flatpacked_machine/solar,/obj/item/flatpacked_machine/solar,/obj/item/flatpacked_machine/solar,/obj/item/flatpacked_machine/solar,/obj/item/flatpacked_machine/solar,/turf/open/floor/iron/colony/bolts,/area/ruin/colonist_homestead)
