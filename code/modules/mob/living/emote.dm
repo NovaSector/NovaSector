@@ -737,9 +737,14 @@
 	message = "beeps."
 	message_param = "beeps at %t."
 	sound = 'sound/machines/twobeep.ogg'
+<<<<<<< HEAD
 	mob_type_allowed_typecache = list(/mob/living/brain, /mob/living/silicon)
 	emote_type = EMOTE_AUDIBLE */
 //NOVA EDIT REMOVAL END
+=======
+	mob_type_allowed_typecache = list(/mob/living/brain, /mob/living/silicon, /mob/living/basic/orbie)
+	emote_type = EMOTE_AUDIBLE
+>>>>>>> fcc87b4801e (virtual pets (#81342))
 
 /datum/emote/living/inhale
 	key = "inhale"
