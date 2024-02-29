@@ -541,3 +541,41 @@
   vinylspiders:
   - bugfix: muzzled variations of clothing will now show again on your mob if you
       have a snout
+2024-02-29:
+  A.C.M.O.:
+  - bugfix: Fixed the AI hologram's ability to copy the appearance of crew members.
+  LT3:
+  - qol: Airlocks don't flash constantly on engineering override, override/overlay
+      added for fire alarm
+  - bugfix: Airlock lighting should no longer render on top of player characters
+  - bugfix: Airlock emissives no longer overlap firedoors
+  - bugfix: Fixed missing overlays on various airlock types
+  Melbert:
+  - bugfix: Rat hearts apply their damage modifier malus correctly
+  NovaBot13:
+  - bugfix: Grilles dont break by just walking into them under any circumstances
+  - bugfix: Fixes the slot machine's jackpot. It should now give all of the available
+      prize money + 10,000 credits as payout for a jackpot.
+  - refactor: Converts the slot machine's UI over to TGUI
+  - rscadd: The slot machine now has a whole new type of jackpot! This one's a banger!
+  - bugfix: Cryostylane reaction now has a moderate & not extreme cooling effect.
+      Helps you achieve more pure amounts of  Cryostylane
+  - bugfix: You can build material airlocks again
+  - bugfix: Being in a Swat Suit appropriately protects you from collisions with a
+      body, rather than the body thrown at you having these protections protecting
+      YOU, the victim of the collision.
+  vinylspiders:
+  - bugfix: synths should now always drop their brains when gibbed
+  yooriss:
+  - rscadd: The Underworld Connections quirk has been added, allowing dodgy characters
+      (including silicons!) to gain access to exploitable information at roundstart.
+      Non-silicons also receive a fully customizable black market uplink, too.
+  - qol: Prices at the galactic Black Market have now fallen drastically to be more
+      in line with general cargo costs, give or take, and should now be vastly more
+      affordable for most people. Pick up one and order some spuriously legal things
+      for you and your friends today!
+  - rscadd: A new form of emoting is available called 'Do', accessible via the K and
+      Ctrl-K keybinds by default (as well as the 'Do' verb). Do doesn't put your character
+      name first and instead includes it in brackets at the end, so you can use it
+      to write better prose and even narrate things in the environment around you
+      with less clunkiness! Try it out today.
