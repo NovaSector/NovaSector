@@ -1,4 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - rscadd: "A new form of emoting is available called 'Do', accessible via the K and Ctrl-K keybinds by default (as well as the 'Do' verb). Do doesn't put your character name first and instead includes it in brackets at the end, so you can use it to write better prose and even narrate things in the environment around you with less clunkiness! Try it out today."
