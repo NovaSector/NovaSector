@@ -149,13 +149,13 @@
 "I" = (
 /obj/machinery/light/small/directional/east,
 /obj/effect/mob_spawn/corpse/human/generic_assistant{
-	hairstyle = "Bald";
-	name = "Prefab homestead gag";
-	mob_name = Ate-Without-Table;
+	mob_name = "Ate-Without-Table";
 	mob_type = /mob/living/carbon/human/species/lizard;
+	name = "Prefab homestead gag";
 	skin_tone = null;
+	hairstyle = "bald";
 	corpse_description = "Named after one of Tizira's first extraplanetary colonists, but clearly not as successful.";
-	naive_corpse_description = "I'd be napping too if I thought all the rocks around here were full of angry bugs."
+	naive_corpse_description = "I'd be napping too if I thought mining would wake up a bunch of angry bugs."
 	},
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
@@ -172,6 +172,14 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"M" = (
+/obj/machinery/button/door{
+	pixel_y = -6;
+	pixel_x = 5;
+	id = "prefabcolonywindows"
+	},
+/turf/closed/wall/prefab_plastic,
 /area/ruin/colonist_homestead)
 "N" = (
 /obj/item/stack/cable_coil/five,
@@ -225,7 +233,9 @@
 /area/lavaland/surface/outdoors)
 "Z" = (
 /obj/structure/window/fulltile/colony_fabricator,
-/obj/structure/curtain/cloth,
+/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
+	id = "prefabcolonywindows"
+	},
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
 
@@ -291,7 +301,7 @@ x
 W
 W
 W
-W
+M
 e
 c
 q
