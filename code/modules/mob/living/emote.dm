@@ -731,7 +731,8 @@
 	return message
 
 //NOVA EDIT REMOVAL BEGIN - SYNTH EMOTES, NOW HANDLED IN SYNTH_EMOTES.DM
-/* /datum/emote/living/beep
+/*
+/datum/emote/living/beep
 	key = "beep"
 	key_third_person = "beeps"
 	message = "beeps."
@@ -739,7 +740,8 @@
 	sound = 'sound/machines/twobeep.ogg'
 	mob_type_allowed_typecache = list(/mob/living/brain, /mob/living/silicon, /mob/living/basic/orbie)
 	emote_type = EMOTE_AUDIBLE
- NOVA EDIT REMOVAL END */
+*/
+// NOVA EDIT REMOVAL END
 
 /datum/emote/living/inhale
 	key = "inhale"
