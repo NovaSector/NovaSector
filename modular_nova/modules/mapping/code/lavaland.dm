@@ -26,7 +26,7 @@
 /datum/map_template/ruin/lavaland/arena
 	name = "Lava-Ruin Grand Arena"
 	id = "arena"
-	description = "An ancient gladitorial arena containing a deadly warrior within."
+	description = "An ancient gladiatorial arena containing a deadly warrior within."
 	prefix = "_maps/RandomRuins/LavaRuins/nova/"
 	suffix = "lavaland_surface_arena.dmm"
 	cost = 0
