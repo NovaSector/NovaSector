@@ -18,7 +18,7 @@
 /obj/machinery/button/door/directional/north{
 	pixel_x = 5;
 	pixel_y = 26;
-	id = RCF_Homestead_windows;
+	id = colonisthomesteadwindows;
 	name = "window shutters"
 	},
 /turf/open/floor/iron/colony/bolts,
@@ -232,7 +232,7 @@
 "Z" = (
 /obj/structure/window/fulltile/colony_fabricator,
 /obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
-	id = RCF_Homestead_windows
+	id = colonisthomesteadwindows
 	},
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
