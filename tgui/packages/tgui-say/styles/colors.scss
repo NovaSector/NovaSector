@@ -29,6 +29,7 @@ $_channel_map: (
   'Synd': #8f4a4b,
   // NOVA EDIT ADDITION
   'Whis': #7c7fd9,
+  'Do': #59da7e,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

@@ -90,8 +90,8 @@
 	chemical_cost = 1000
 	dna_cost = CHANGELING_POWER_UNOBTAINABLE
 
-	var/helmet_type = /obj/item
-	var/suit_type = /obj/item
+	var/helmet_type = null
+	var/suit_type = null
 	var/suit_name_simple = "    "
 	var/helmet_name_simple = "     "
 	var/recharge_slowdown = 0
@@ -125,10 +125,14 @@
 	if(!ishuman(user) || !changeling)
 		return 1
 	var/mob/living/carbon/human/H = user
+
 	if(istype(H.wear_suit, suit_type) || istype(H.head, helmet_type))
-		H.visible_message(span_warning("[H] casts off [H.p_their()] [suit_name_simple]!"), span_warning("We cast off our [suit_name_simple]."), span_hear("You hear the organic matter ripping and tearing!"))
-		H.temporarilyRemoveItemFromInventory(H.head, TRUE) //The qdel on dropped() takes care of it
-		H.temporarilyRemoveItemFromInventory(H.wear_suit, TRUE)
+		var/name_to_use = (isnull(suit_type) ? helmet_name_simple : suit_name_simple)
+		H.visible_message(span_warning("[H] casts off [H.p_their()] [name_to_use]!"), span_warning("We cast off our [name_to_use]."), span_hear("You hear the organic matter ripping and tearing!"))
+		if(!isnull(helmet_type))
+			H.temporarilyRemoveItemFromInventory(H.head, TRUE) //The qdel on dropped() takes care of it
+		if(!isnull(suit_type))
+			H.temporarilyRemoveItemFromInventory(H.wear_suit, TRUE)
 		H.update_worn_oversuit()
 		H.update_worn_head()
 		H.update_body_parts()
@@ -141,18 +145,19 @@
 		return 1
 
 /datum/action/changeling/suit/sting_action(mob/living/carbon/human/user)
-	if(!user.canUnEquip(user.wear_suit))
+	if(!user.canUnEquip(user.wear_suit) && !isnull(suit_type))
 		user.balloon_alert(user, "body occupied!")
 		return
-	if(!user.canUnEquip(user.head))
+	if(!user.canUnEquip(user.head) && !isnull(helmet_type))
 		user.balloon_alert(user, "head occupied!")
 		return
 	..()
-	user.dropItemToGround(user.head)
-	user.dropItemToGround(user.wear_suit)
-
-	user.equip_to_slot_if_possible(new suit_type(user), ITEM_SLOT_OCLOTHING, 1, 1, 1)
-	user.equip_to_slot_if_possible(new helmet_type(user), ITEM_SLOT_HEAD, 1, 1, 1)
+	if(!isnull(suit_type))
+		user.dropItemToGround(user.wear_suit)
+		user.equip_to_slot_if_possible(new suit_type(user), ITEM_SLOT_OCLOTHING, 1, 1, 1)
+	if(!isnull(helmet_type))
+		user.dropItemToGround(user.head)
+		user.equip_to_slot_if_possible(new helmet_type(user), ITEM_SLOT_HEAD, 1, 1, 1)
 
 	var/datum/antagonist/changeling/changeling = IS_CHANGELING(user)
 	changeling.chem_recharge_slowdown += recharge_slowdown
