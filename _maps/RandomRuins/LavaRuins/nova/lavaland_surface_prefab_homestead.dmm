@@ -15,12 +15,6 @@
 /obj/machinery/light_switch/directional/north{
 	pixel_x = -5
 	},
-/obj/machinery/button/door/directional/north{
-	pixel_x = 5;
-	pixel_y = 26;
-	id = colonisthomesteadwindows;
-	name = "window shutters"
-	},
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
 "i" = (
@@ -231,9 +225,7 @@
 /area/lavaland/surface/outdoors)
 "Z" = (
 /obj/structure/window/fulltile/colony_fabricator,
-/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
-	id = colonisthomesteadwindows
-	},
+/obj/structure/curtain/cloth,
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
 
