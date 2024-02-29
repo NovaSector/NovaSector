@@ -969,6 +969,7 @@
 	if(user.can_perform_action(src, NEED_DEXTERITY))
 		adjust_mask(user)
 
+//this moves the mask above or below the hair layer
 /obj/item/clothing/mask/gas/psycho_malice/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
