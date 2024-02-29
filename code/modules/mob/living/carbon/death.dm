@@ -42,7 +42,11 @@
 
 	for(var/obj/item/organ/organ as anything in organs)
 		if((drop_bitflags & DROP_BRAIN) && istype(organ, /obj/item/organ/internal/brain))
+<<<<<<< HEAD
 			if(drop_bitflags & DROP_BODYPARTS && (check_zone(organ.zone) != BODY_ZONE_CHEST)) // NOVA EDIT CHANGE - sYNTH BRAINS - ORIGINAL: if(drop_bitflags & DROP_BODYPARTS)
+=======
+			if((drop_bitflags & DROP_BODYPARTS) && (check_zone(organ.zone) != BODY_ZONE_CHEST)) // chests can't drop
+>>>>>>> b0321e620c0 (Fixes oversight with DROP_BRAIN (#81735))
 				continue // the head will drop, so the brain should stay inside
 
 			organ.Remove(src)
