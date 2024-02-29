@@ -582,8 +582,6 @@
 /obj/item/clothing/head/helmet/changeling/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
-<<<<<<< HEAD
-=======
 
 /datum/action/changeling/suit/hive_head
 	name = "Hive Head"
@@ -705,4 +703,3 @@
 	var/mob/living/basic/legion_brood/brood = minion
 	if (istype(brood))
 		brood.assign_creator(owner, FALSE)
->>>>>>> f2ceb77a41b (Temporary bees animate on death and no longer produce corpses (#81714))
