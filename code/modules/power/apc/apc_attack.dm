@@ -254,13 +254,19 @@
 		ethereal.visible_message(span_notice("[src] displays a red X across the screen, sealing ports and rejecting [ethereal]'s charge!"))  //NOVA EDIT ADDITION - Ethereal Rework 2024
 		return
 	if(istype(stomach))
-		//NOVA EDIT ADDITION/INDENTATION BEGIN - Ethereal Rework 2024
+		// NOVA EDIT CHANGE START - Ethereal Rework 2024
+		/* ORIGINAL:
+		balloon_alert(ethereal, "transferred power")
+		stomach.adjust_charge(-APC_POWER_GAIN)
+		cell.give(APC_POWER_GAIN)
+		do_sparks(2, FALSE, src)
+		*/
 		while(do_after(user, APC_DRAIN_TIME, target = src))
 			balloon_alert(ethereal, "transferred power")
 			stomach.adjust_charge(-APC_POWER_GAIN)
 			cell.give(APC_POWER_GAIN)
 			do_sparks(2, FALSE, src)
-			//NOVA EDIT ADDITION/INDENTATION END - Ethereal Rework 2024
+		// NOVA EDIT CHANGE END
 	else
 		balloon_alert(ethereal, "can't transfer power!")
 
