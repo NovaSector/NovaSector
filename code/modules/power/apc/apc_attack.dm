@@ -244,7 +244,7 @@
 		return
 	stomach.drain_time = world.time + APC_DRAIN_TIME
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "transfering power"), alert_timer_duration)
-	 //NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
+	//NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
 	ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, their arm alight with static as they charge it!"))
 	to_chat(ethereal, span_purple("You shunt some of your energy into [src]]."))
 	while(!do_after(user, APC_DRAIN_TIME, target = src))  //NOVA EDIT CHANGE - Ethereal Rework 2024 - OriginaL: if(do_after(user, APC_DRAIN_TIME, target = src))
