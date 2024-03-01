@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "fixes Blueshift's toxin launch room - and also making it SUPER obvious not to stand there"
