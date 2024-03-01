@@ -1,0 +1,30 @@
+2024-03-01:
+  Melbert:
+  - bugfix: Fixes grabbing yourself when you tackle someone.
+  NovaBot13:
+  - qol: Allows dragging from boxes into All-In-One Grinders
+  - rscadd: Added a new law to the Artist lawset in order to encourage Artist AIs
+      to build an audience.
+  - bugfix: Fixed (cross)bows' strings not loosening once fired.
+  - rscadd: box with a set of floortile camo, which can be ordered in black market
+      uplink
+  - rscadd: also adds a backpack to camouflage
+  - bugfix: i had the crate under emagged console, should be fixed now.
+  - balance: the shadow eyes of nightmares and shadowpeople more broadly are now sensitive
+      to light, requiring additional protection.
+  - rscadd: Added a multi-dimensional bomb payload to the black market. It's very
+      expensive.
+  - image: adds a visual effect for hive head bees despawning
+  - bugfix: the multi-dimensional bomb payload now works as intended and doesn't break
+      once you select a theme.
+  - bugfix: fixes an issue where being gibbed while under the HARS mutation can sometimes
+      lead to the brain being deleted when it's not supposed to be
+  - rscadd: new virtual pet app on the pda
+  - qol: added an HUD button to go up and down floors
+  - spellcheck: changed the fitness skill title to powerlifter
+  - bugfix: Meat and other bloody things will not spread blood forever.
+  - qol: HUD implants will now notify you when toggled on or off
+  - admin: Logs holosign swatting.
+  - rscadd: 'New Changeling Ability: Hive Head'
+  - bugfix: Fixed bees having an improper sprite offset
+  - bugfix: The M-90GL now correctly states that it accepts .223 toploader magazines.

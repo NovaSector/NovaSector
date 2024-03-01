@@ -1,5 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - rscadd: "New Changeling Ability: Hive Head"
-  - bugfix: "Fixed bees having an improper sprite offset"
