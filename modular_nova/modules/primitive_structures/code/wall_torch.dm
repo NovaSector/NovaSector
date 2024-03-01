@@ -8,9 +8,9 @@
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
 	/// Torch contained by the wall torch, if it was mounted manually.
-	var/obj/item/flashlight/flare/torch/torch
-	/// Does it have a torch?
-	var/contains_torch = TRUE
+	/// Will be `TRUE` if it was intended to spawn in with a torch,
+	/// without actually initializing a torch in it to save on memory.
+	var/obj/item/flashlight/flare/torch/mounted_torch = TRUE
 	/// is the bonfire lit?
 	var/burning = FALSE
 	/// Does this torch spawn pre-lit?
@@ -22,47 +22,49 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 
 /obj/structure/wall_torch/Initialize(mapload)
 	. = ..()
-	if(contains_torch && spawns_lit)
+	if(mounted_torch && spawns_lit)
 		light_it_up()
 
-	update_name()
-	update_desc()
-	update_icon_state()
+	update_appearance(UPDATE_NAME | UPDATE_DESC | UPDATE_ICON_STATE)
 	find_and_hang_on_wall()
 
 
+/obj/structure/wall_torch/Destroy()
+	drop_torch() // So it drops on the floor when destroyed.
+	return ..()
+
+
 /obj/structure/wall_torch/update_icon_state()
-	icon_state = "[base_icon_state][contains_torch ? (burning ? "_on" : "") : "_mount"]"
+	icon_state = "[base_icon_state][mounted_torch ? (burning ? "_on" : "") : "_mount"]"
 	return ..()
 
 
 /obj/structure/wall_torch/update_name(updates)
 	. = ..()
-	name = contains_torch ? "mounted torch" : "torch mount"
+	name = mounted_torch ? "mounted torch" : "torch mount"
 
 
 /obj/structure/wall_torch/update_desc(updates)
 	. = ..()
-	desc = contains_torch ? "A simple torch mounted to the wall, for lighting and such." : "A simple torch mount, torches go here."
+	desc = mounted_torch ? "A simple torch mounted to the wall, for lighting and such." : "A simple torch mount, torches go here."
 
 
 /obj/structure/wall_torch/attackby(obj/item/used_item, mob/living/user, params)
-	if(!contains_torch)
+	if(!mounted_torch)
 		if(!istype(used_item, /obj/item/flashlight/flare/torch))
 			return ..()
 
-		torch = used_item
+		mounted_torch = used_item
+		RegisterSignal(used_item, COMSIG_QDELETING, PROC_REF(remove_torch))
 		used_item.forceMove(src)
-		contains_torch = TRUE
-		update_name()
-		update_desc()
+		update_appearance(UPDATE_NAME | UPDATE_DESC)
 
-		if(torch.light_on)
+		if(mounted_torch.light_on)
 			light_it_up()
 		else
 			extinguish()
 
-		torch.turn_off()
+		mounted_torch.turn_off()
 
 		return
 
@@ -91,7 +93,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 
 	burning = FALSE
 	set_light(0)
-	update_icon_state()
 	update_appearance(UPDATE_ICON)
 
 
@@ -106,26 +107,28 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 /**
  * Helper proc that handles removing the torch and trying to put it in the user's hand.
  */
-/obj/structure/wall_torch/proc/remove_torch(mob/living/user)
-	if(!contains_torch)
+/obj/structure/wall_torch/proc/remove_torch(mob/living/user, update_visuals = TRUE)
+	if(!mounted_torch)
 		return
 
-	if(!torch)
-		torch = new(src)
+	if(!istype(mounted_torch))
+		mounted_torch = new(src)
 
 	if(burning)
-		torch.toggle_light()
+		mounted_torch.toggle_light()
 
-	torch.attempt_pickup(user)
+	if(user)
+		mounted_torch.attempt_pickup(user)
 
-	torch = null
+	else
+		mounted_torch.forceMove(drop_location())
+
+	UnregisterSignal(mounted_torch, COMSIG_QDELETING)
+
+	mounted_torch = null
 	burning = FALSE
-	contains_torch = FALSE
 	set_light(0)
-	update_name()
-	update_desc()
-	update_icon_state()
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_ICON | UPDATE_NAME | UPDATE_DESC)
 
 
 /obj/structure/wall_torch/wrench_act(mob/living/user, obj/item/tool)
@@ -134,15 +137,34 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 
 	remove_torch(user)
 
-	new /obj/item/wallframe/torch_mount(drop_location())
+	var/obj/item/wallframe/torch_mount/mount_item = new /obj/item/wallframe/torch_mount(drop_location())
+	transfer_fingerprints_to(mount_item)
 
 	qdel(src)
 	return TRUE
 
 
+/// Simple helper to drop the torch upon the mount being qdel'd.
+/obj/structure/wall_torch/proc/drop_torch()
+	if(!mounted_torch)
+		return
+
+	if(!istype(mounted_torch))
+		mounted_torch = new(src)
+
+	if(burning)
+		mounted_torch.toggle_light()
+
+	mounted_torch.forceMove(drop_location())
+
+	UnregisterSignal(mounted_torch, COMSIG_QDELETING)
+
+	mounted_torch = null
+
+
 /obj/structure/wall_torch/mount_only
 	name = "torch mount"
-	contains_torch = FALSE
+	mounted_torch = null
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch/mount_only, 28)
 
