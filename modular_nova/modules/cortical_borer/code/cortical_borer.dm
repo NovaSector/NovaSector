@@ -251,8 +251,8 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 /mob/living/basic/cortical_borer/Destroy()
 	if(human_host)
 		if(human_host.organs)
-			var/obj/item/organ/internal/borer_body/borer_organ = locate() in cortical_owner.human_host.organs
-			borer_organ.Remove(cortical_owner.human_host)
+			var/obj/item/organ/internal/borer_body/borer_organ = locate() in human_host.organs
+			borer_organ.Remove(human_host)
 		if(HAS_TRAIT_FROM(human_host, TRAIT_WEATHER_IMMUNE, "borer_in_host"))
 			REMOVE_TRAIT(human_host, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 		human_host = null
