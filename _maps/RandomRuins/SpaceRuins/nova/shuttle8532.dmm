@@ -34,6 +34,7 @@
 /obj/machinery/door/poddoor{
 	id = "abandonedshiphatch"
 	},
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "ay" = (
@@ -73,6 +74,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating/airless,
+/area/ruin/space/has_grav/shuttle8532engineering)
+"ba" = (
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/rglass/fifty{
+	pixel_y = 6
+	},
+/turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "bo" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -323,6 +332,14 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532cargohall)
+"gE" = (
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/plastic/fifty{
+	pixel_y = 5
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532engineering)
 "gI" = (
 /obj/effect/mine/explosive,
 /obj/effect/decal/cleanable/blood,
@@ -353,6 +370,7 @@
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "hf" = (
 /obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "hh" = (
@@ -411,6 +429,7 @@
 /obj/machinery/door/poddoor{
 	id = "abandonedshiphatch"
 	},
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "iG" = (
@@ -492,7 +511,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "jQ" = (
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "kp" = (
 /obj/structure/lattice/catwalk,
@@ -509,7 +528,7 @@
 	nightshift_light_color = "#FF0000";
 	pixel_y = 32
 	},
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "ky" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -712,7 +731,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "pu" = (
-/turf/closed/wall/r_wall,
+/turf/closed/wall/r_wall/syndicate,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "py" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -993,7 +1012,7 @@
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "vE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "vG" = (
 /obj/item/stack/cable_coil/cut,
@@ -1104,6 +1123,9 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
+"xO" = (
+/turf/closed/indestructible/syndicate,
+/area/ruin/space/has_grav/shuttle8532bridge)
 "xR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
@@ -1175,7 +1197,7 @@
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "zz" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "zA" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -1331,7 +1353,7 @@
 	dir = 9;
 	system_id = "ship_outer_turrets"
 	},
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "BR" = (
 /obj/item/chair{
@@ -1514,7 +1536,7 @@
 	nightshift_light_color = "#00FF00";
 	pixel_y = 32
 	},
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "EQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1567,6 +1589,12 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532cargohall)
+"FW" = (
+/mob/living/basic/trooper/syndicate/melee/space/anthro/lizard{
+	faction = null
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532bridge)
 "Gv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mob_spawn/corpse/human/syndicatecommando,
@@ -1632,11 +1660,10 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "HP" = (
-/obj/structure/window/reinforced/fulltile,
 /obj/machinery/door/poddoor{
 	id = "abandonedshipbridgeblast"
 	},
-/turf/open/floor/plating,
+/turf/closed/indestructible/opsglass,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "HW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1836,7 +1863,9 @@
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "MM" = (
-/mob/living/basic/trooper/syndicate/melee/space,
+/mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper{
+	faction = null
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "MO" = (
@@ -1966,6 +1995,12 @@
 /obj/structure/sign/poster/official/random/directional/north,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
+"Pn" = (
+/mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox{
+	faction = null
+	},
+/turf/open/floor/iron/airless,
+/area/ruin/space/has_grav/shuttle8532bridge)
 "Ps" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mapping_helpers/broken_floor,
@@ -2026,7 +2061,7 @@
 /turf/template_noop,
 /area/template_noop)
 "QR" = (
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "Ra" = (
 /obj/structure/table/reinforced,
@@ -2069,7 +2104,7 @@
 	dir = 5;
 	system_id = "ship_outer_turrets"
 	},
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "RY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2114,7 +2149,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "SJ" = (
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Tq" = (
 /turf/open/floor/engine/airless,
@@ -2183,8 +2218,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "Uy" = (
-/mob/living/basic/trooper/syndicate/melee/space,
-/turf/open/floor/iron/airless,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "UN" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -2272,7 +2306,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Wz" = (
-/turf/closed/wall/r_wall,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532cargohall)
 "WH" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
@@ -2490,7 +2524,7 @@
 qb
 qb
 kx
-pu
+xO
 qb
 qb
 qb
@@ -2553,7 +2587,7 @@ qb
 qb
 by
 ZK
-pu
+xO
 jQ
 jQ
 qb
@@ -2616,7 +2650,7 @@ qb
 qb
 OQ
 vK
-pu
+xO
 Vf
 jQ
 qb
@@ -2742,7 +2776,7 @@ qb
 qb
 ZN
 bs
-pu
+xO
 Fu
 jQ
 jQ
@@ -2803,9 +2837,9 @@ qb
 "}
 (6,1,1) = {"
 qb
-pu
+xO
 EE
-pu
+xO
 Lt
 NJ
 La
@@ -2866,11 +2900,11 @@ qb
 "}
 (7,1,1) = {"
 qb
-pu
-pu
-pu
-pu
-pu
+xO
+xO
+xO
+xO
+xO
 xK
 jQ
 jQ
@@ -2929,11 +2963,11 @@ qb
 "}
 (8,1,1) = {"
 pu
-pu
+Uy
 XQ
 fp
 HK
-pu
+xO
 cg
 Hs
 oR
@@ -2994,9 +3028,9 @@ qb
 pu
 zA
 ZU
-Uy
+Vi
 ks
-pu
+xO
 jQ
 jQ
 iy
@@ -3057,9 +3091,9 @@ qb
 HP
 eV
 Wq
-Vi
+Pn
 ff
-pu
+xO
 VB
 BK
 DY
@@ -3122,7 +3156,7 @@ eV
 Gv
 Vi
 BS
-pu
+xO
 sH
 Ds
 uq
@@ -3185,7 +3219,7 @@ ji
 Vi
 NK
 ps
-pu
+xO
 ha
 Ds
 wU
@@ -3248,7 +3282,7 @@ Ji
 fn
 zG
 Ep
-pu
+xO
 RE
 uK
 wU
@@ -3311,7 +3345,7 @@ eV
 Vi
 eC
 ER
-pu
+xO
 UN
 Ds
 re
@@ -3437,7 +3471,7 @@ eV
 nd
 Vj
 xR
-pu
+xO
 uG
 yz
 Nx
@@ -3500,7 +3534,7 @@ Ra
 jJ
 OZ
 ff
-pu
+xO
 RE
 Ds
 yv
@@ -3563,7 +3597,7 @@ zX
 Vi
 Qv
 Se
-pu
+xO
 Ue
 TM
 Ip
@@ -3623,10 +3657,10 @@ hP
 (19,1,1) = {"
 HP
 eV
-Uy
+Vi
 Vi
 Ux
-pu
+xO
 ac
 TM
 yv
@@ -3687,9 +3721,9 @@ qb
 HP
 eV
 Wq
-Vi
+FW
 Hg
-pu
+xO
 jh
 iP
 ef
@@ -3747,12 +3781,12 @@ YO
 qb
 "}
 (21,1,1) = {"
-pu
+xO
 eV
 vS
 Vi
 qP
-pu
+xO
 jQ
 jQ
 aw
@@ -3810,12 +3844,12 @@ YO
 qb
 "}
 (22,1,1) = {"
-pu
-pu
+xO
+xO
 Yk
 Ci
 HK
-pu
+xO
 lt
 VF
 NJ
@@ -3874,11 +3908,11 @@ ve
 "}
 (23,1,1) = {"
 qb
-pu
-pu
-pu
-pu
-pu
+xO
+xO
+xO
+xO
+xO
 NJ
 jQ
 jQ
@@ -3939,7 +3973,7 @@ hP
 ts
 OQ
 nx
-pu
+xO
 CG
 Fu
 Ff
@@ -4002,7 +4036,7 @@ qb
 qb
 OQ
 Xu
-pu
+xO
 NJ
 jQ
 jQ
@@ -4128,7 +4162,7 @@ qb
 qb
 tP
 bs
-pu
+xO
 Qn
 jQ
 qb
@@ -4189,9 +4223,9 @@ ve
 "}
 (28,1,1) = {"
 qb
-pu
+xO
 ds
-pu
+xO
 jQ
 jQ
 qb
@@ -4242,8 +4276,8 @@ QR
 QR
 oJ
 kL
-Yq
-JB
+gE
+ba
 QR
 HW
 Tt
@@ -4254,7 +4288,7 @@ hP
 qb
 qb
 EM
-pu
+xO
 qb
 qb
 qb

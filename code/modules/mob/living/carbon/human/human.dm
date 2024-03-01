@@ -514,6 +514,11 @@
 		if(isnull(human_lungs))
 			balloon_alert(src, "you don't have lungs!")
 			return FALSE
+		// NOVA EDIT ADDITION - Disable CPR for synth heatsink
+		if(istype(human_lungs, /obj/item/organ/internal/lungs/synth))
+			balloon_alert(src, "you don't have lungs!")
+			return FALSE
+		// NOVA EDIT ADDITION END
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
 			return FALSE

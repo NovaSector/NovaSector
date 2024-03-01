@@ -6,3 +6,8 @@
 	price_max = CARGO_CRATE_VALUE * 4
 	stock_max = 3
 	availability_prob = 80
+
+// Makes this even more expensive
+/datum/market_item/weapon/dimensional_bomb
+	price_min = CARGO_CRATE_VALUE * 180
+	price_max = CARGO_CRATE_VALUE * 200
