@@ -19,7 +19,7 @@
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 /mob/living/basic/mothroach/pet/gib()
-	// People's bespoke pets probably shouldn't be gibbable.
+	// Peoples' bespoke pets probably shouldn't be gibbable.
 	// This is both for RP reasons (don't force people to RP permanent pet death) and to prevent griefing.
 	return
 
@@ -35,10 +35,10 @@
 
 
 
-/// == DOINATOR PET: Mr. Fluff, Central's Mothroach, ckey centralsmith ==
+/// == DONATOR PET: Mr. Fluff, Central's Mothroach, ckey centralsmith ==
 /mob/living/basic/mothroach/pet/mr_fluff
 	name = "Mr. Fluff"
-	desc = "Central's beloved pet mothroach, Mr. Fluff.  He looks so happy to be here!"
+	desc = "Central's beloved pet mothroach, Mr. Fluff. He looks so happy to be here!"
 	gender = MALE
 	icon = 'modular_nova/master_files/icons/mob/donator_pets.dmi'
 	icon_state = "mr_fluff"
@@ -47,7 +47,7 @@
 
 /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
 	name = "Mr. Fluff"
-	desc = "Central's beloved pet mothroach, Mr. Fluff.  He looks so happy to be here!"
+	desc = "Central's beloved pet mothroach, Mr. Fluff. He looks so happy to be here!"
 	icon = 'modular_nova/master_files/icons/mob/donator_pets.dmi'
 	icon_state = "mr_fluff"
 
