@@ -509,7 +509,7 @@
 			borer_organ.Remove(cortical_owner.human_host)
 		cortical_owner.forceMove(human_turfone)
 		cortical_owner.human_host = null
-		if( HAS_TRAIT_FROM(cortical_owner, TRAIT_WEATHER_IMMUNE, "borer_in_host"))
+		if(HAS_TRAIT_FROM(cortical_owner, TRAIT_WEATHER_IMMUNE, "borer_in_host"))
 			REMOVE_TRAIT(cortical_owner, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 		StartCooldown()
 		return
