@@ -151,7 +151,6 @@
 		return
 	. = combat_mode
 	combat_mode = new_mode
-	SEND_SIGNAL(src, COMSIG_LIVING_COMBAT_MODE_TOGGLE, new_mode) //NOVA EDIT ADDITION
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
 	//NOVA EDIT ADDITION BEGIN
