@@ -50,7 +50,7 @@
 					break
 			if(prob(max(5,(nearby_people*12.5*moodmod)))) //Minimum 1/20 chance of stutter
 				// Add a short stutter, THEN treat our word
-				//quirker.adjust_stutter(0.5 SECONDS) //NOVA EDIT - REMOVAL - NO STUTTERING!
+				//quirker.adjust_stutter(0.5 SECONDS) //NOVA EDIT REMOVAL - NO STUTTERING!
 				var/list/message_data = quirker.treat_message(word, capitalize_message = FALSE)
 				new_message += message_data["message"]
 			else
