@@ -109,7 +109,7 @@
 /datum/loadout_item/mask/composite_filtration
 	name = "Composite Filtration Mask"
 	item_path = /obj/item/clothing/mask/gas/psycho_malice
-	ckeywhitelist = list("snakebitenn")
+	ckeywhitelist = list("snakebittenn")
 
 /datum/loadout_item/suit/jacket/cherno
 	name = "Blue-Silvered Coat"
