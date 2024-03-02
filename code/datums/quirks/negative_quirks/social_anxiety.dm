@@ -99,7 +99,7 @@
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
 			msg += "causing you to start fidgeting!"
 		if(2)
-			//NOVA EDIT CHANGE START
+			//NOVA EDIT CHANGE
 			/*ORIGINAL:
 			quirk_holder.set_stutter_if_lower(6 SECONDS)
 			msg += "causing you to start stuttering!"
