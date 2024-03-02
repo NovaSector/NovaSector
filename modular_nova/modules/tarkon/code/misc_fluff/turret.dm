@@ -5,9 +5,6 @@
 #define TURRET_STUN 0
 #define TURRET_LETHAL 1
 
-#define POPUP_ANIM_TIME 5
-#define POPDOWN_ANIM_TIME 5 //Be sure to change the icon animation at the same time or it'll look bad
-
 #define TURRET_FLAG_SHOOT_ALL_REACT (1<<0) // The turret gets pissed off and shoots at people nearby (unless they have sec access!)
 #define TURRET_FLAG_AUTH_WEAPONS (1<<1) // Checks if it can shoot people that have a weapon they aren't authorized to have
 #define TURRET_FLAG_SHOOT_CRIMINALS (1<<2) // Checks if it can shoot people that are wanted
@@ -16,6 +13,10 @@
 #define TURRET_FLAG_SHOOT_UNSHIELDED (1<<5) // Checks if it can shoot people that aren't mindshielded and who arent heads
 #define TURRET_FLAG_SHOOT_BORGS (1<<6) // checks if it can shoot cyborgs
 #define TURRET_FLAG_SHOOT_HEADS (1<<7) // checks if it can shoot at heads of staff
+
+#define TURRET_FLAG_OBEY_FLAGS 2 // Turrets will behave with turret flags.
+#define TURRET_FLAG_SHOOT_NOONE 3 // Turrets will not fire at any player-type mob.
+#define TURRET_FLAG_SHOOT_EVERYONE 4 // Turrets will shoot at all player-type mobs.
 
 DEFINE_BITFIELD(turret_flags, list(
 	"TURRET_FLAG_SHOOT_ALL_REACT" = TURRET_FLAG_SHOOT_ALL_REACT,
@@ -160,19 +161,29 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/datum/weakref/acquired_target
 	////// how long the target can be focused. changable incase of better ones wanted.
 	var/acquisition_duration = 5 SECONDS
-	////// whether or not turrets should have the target all flag.
+	////// whether or not turrets should shoot player-mobs.
 	var/target_all = TRUE
+	////// whether or not turrets should obey turret flags. over-writes other modes if active.
+	var/follow_flags = FALSE
 
 /obj/item/target_designator/examine(mob/user)
 	. = ..()
 	. += span_notice("<b>[length(linked_turrets)]/[turret_limit]</b> turrets linked.")
 	. += span_notice("<b>Right click</b> an entity to designate it as an ally.")
 	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
+	. += span_notice("<b>Use</b> this item to toggle human targeting")
+	. += span_notice("<b>Shift-click</b> this item to toggle flag following")
 
 /obj/item/target_designator/attack_self(mob/user, modifiers)
 	. = ..()
 	target_all = !target_all
 	sync_turrets()
+
+/obj/item/target_designator/ShiftClick(mob/user)
+	. = ..()
+	follow_flags = !follow_flags
+	sync_turrets()
+	return
 
 /obj/item/target_designator/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -217,18 +228,21 @@ DEFINE_BITFIELD(turret_flags, list(
 			turret.clear_override()
 		balloon_alert(user, "designation cleared!")
 
-/obj/item/target_designator/proc/sync_turrets()
+/obj/item/target_designator/proc/sync_turrets() //Sets all turrets to the same state as the controller.
 	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
-		if(target_all == TRUE)
-			if(!(turret.turret_flags & TURRET_FLAG_SHOOT_ALL))
-				turret.turret_flags |= TURRET_FLAG_SHOOT_ALL
-		else
-			if(turret.turret_flags & TURRET_FLAG_SHOOT_ALL)
-				turret.turret_flags &= ~TURRET_FLAG_SHOOT_ALL
-		if(turret.turret_flags & TURRET_FLAG_SHOOT_ALL)
-			turret.balloon_alert_to_viewers("disobeying laws!")
-		else
-			turret.balloon_alert_to_viewers("obeying laws!")
+		if(target_all == TRUE && follow_flags == FALSE)
+			if(!(turret.target_assessment == TURRET_FLAG_SHOOT_EVERYONE))
+				turret.target_assessment = TURRET_FLAG_SHOOT_EVERYONE
+				turret.balloon_alert_to_viewers("unrestricting targeting!")
+		if(follow_flags == TRUE)
+			if(!(turret.target_assessment == TURRET_FLAG_OBEY_FLAGS))
+				turret.target_assessment = TURRET_FLAG_OBEY_FLAGS
+				turret.balloon_alert_to_viewers("obeying laws!")
+		if(follow_flags == FALSE && target_all == FALSE)
+			if(!(turret.target_assessment == TURRET_FLAG_SHOOT_NOONE))
+				turret.target_assessment = TURRET_FLAG_SHOOT_NOONE
+				turret.balloon_alert_to_viewers("restricting targeting!")
+		turret.setState(TRUE) //So they'll update properly
 
 ////// Turret handling
 
@@ -256,6 +270,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/adjustable_magwell = TRUE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/datum/weakref/target_override
+	//////Target Assessment System. Whether or not its targeting according to flags or even ignoring everyone.
+	var/target_assessment = TURRET_FLAG_SHOOT_EVERYONE
 	//////Ally system.
 	var/allies = list()
 	//////Do we want this to shut up? Mostly for testing and debugging purposes purposes.
@@ -466,6 +482,12 @@ DEFINE_BITFIELD(turret_flags, list(
 
 	if(obj_flags & EMAGGED)
 		return 10 //if emagged, always return 10.
+
+	if(target_assessment == TURRET_FLAG_SHOOT_EVERYONE)
+		return 10 //will not assess anyone within the faction/ally system.
+
+	if(target_assessment == TURRET_FLAG_SHOOT_NOONE)
+		return 0 //this wont stop you from getting shot if you're inbetween it and its target, but it wont specifically aim at you.
 
 	if((turret_flags & (TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ALL_REACT)) && !allowed(perp))
 		//if the turret has been attacked or is angry, target all non-sec people
@@ -719,8 +741,6 @@ DEFINE_BITFIELD(turret_flags, list(
 
 #undef TURRET_STUN
 #undef TURRET_LETHAL
-#undef POPUP_ANIM_TIME
-#undef POPDOWN_ANIM_TIME
 #undef TURRET_FLAG_SHOOT_ALL_REACT
 #undef TURRET_FLAG_AUTH_WEAPONS
 #undef TURRET_FLAG_SHOOT_CRIMINALS
