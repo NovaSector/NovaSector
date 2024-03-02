@@ -226,9 +226,9 @@ DEFINE_BITFIELD(turret_flags, list(
 			if(turret.turret_flags & TURRET_FLAG_SHOOT_ALL)
 				turret.turret_flags &= ~TURRET_FLAG_SHOOT_ALL
 		if(turret.turret_flags & TURRET_FLAG_SHOOT_ALL)
-			turret.balloon_alert_to_viewers("obeying laws!")
-		else
 			turret.balloon_alert_to_viewers("disobeying laws!")
+		else
+			turret.balloon_alert_to_viewers("obeying laws!")
 
 ////// Turret handling
 
