@@ -1,6 +1,6 @@
 /datum/quirk/social_anxiety
 	name = "Social Anxiety"
-	desc = "Talking to people is very difficult for you, and you often stutter or even lock up."
+	desc = "Talking to people is very difficult for you, and you often lock up, especially if blown kisses or if you happen upon eye contact." //NOVA EDIT - CHANGE- ORIGINAL: desc = "Talking to people is very difficult for you, and you often stutter or even lock up."
 	icon = FA_ICON_COMMENT_SLASH
 	value = -3
 	gain_text = span_danger("You start worrying about what you're saying.")
@@ -50,7 +50,7 @@
 					break
 			if(prob(max(5,(nearby_people*12.5*moodmod)))) //Minimum 1/20 chance of stutter
 				// Add a short stutter, THEN treat our word
-				quirker.adjust_stutter(0.5 SECONDS)
+				//quirker.adjust_stutter(0.5 SECONDS) //NOVA EDIT - REMOVAL - NO STUTTERING!
 				var/list/message_data = quirker.treat_message(word, capitalize_message = FALSE)
 				new_message += message_data["message"]
 			else
@@ -94,7 +94,8 @@
 		msg = "You make eye contact with [other_mob], "
 	else
 		msg = "[other_mob] makes eye contact with you, "
-
+	// NOVA EDIT CHANGE START
+	/* ORIGINAL:
 	switch(rand(1,3))
 		if(1)
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
@@ -105,7 +106,18 @@
 		if(3)
 			quirk_holder.Stun(2 SECONDS)
 			msg += "causing you to freeze up!"
-
+	*/
+	// NOVA EDIT CHANGE END
+	switch(rand(1,3))
+		if(1)
+			quirk_holder.set_jitter_if_lower(20 SECONDS)
+			msg += "causing you to start fidgeting!"
+		if(2)
+			quirk_holder.set_confusion(2 SECONDS)
+			msg += "causing you to trip over your own feet!"
+		if(3)
+			quirk_holder.Stun(2 SECONDS)
+			msg += "causing you to freeze up!"
 	quirk_holder.add_mood_event("anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
