@@ -94,21 +94,18 @@
 		msg = "You make eye contact with [other_mob], "
 	else
 		msg = "[other_mob] makes eye contact with you, "
+
 	switch(rand(1,3))
 		if(1)
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
 			msg += "causing you to start fidgeting!"
 		if(2)
-			//NOVA EDIT CHANGE
-			/*ORIGINAL:
-			quirk_holder.set_stutter_if_lower(6 SECONDS)
-			msg += "causing you to start stuttering!"
-			*/
-			quirk_holder.set_confusion(2 SECONDS)
-			msg += "causing you to trip over your own feet!"
+			quirk_holder.set_confusion(2 SECONDS) // NOVA EDIT CHANGE - ORIGINAL: quirk_holder.set_stutter_if_lower(6 SECONDS
+			msg += "causing you to trip over your own feet!" // NOVA EDIT CHANGE - ORIGINAL: msg += "causing you to start stuttering!"
 		if(3)
 			quirk_holder.Stun(2 SECONDS)
 			msg += "causing you to freeze up!"
+
 	quirk_holder.add_mood_event("anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
