@@ -94,25 +94,16 @@
 		msg = "You make eye contact with [other_mob], "
 	else
 		msg = "[other_mob] makes eye contact with you, "
-	// NOVA EDIT CHANGE START
-	/* ORIGINAL:
 	switch(rand(1,3))
 		if(1)
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
 			msg += "causing you to start fidgeting!"
 		if(2)
+			//NOVA EDIT CHANGE START
+			/*ORIGINAL:
 			quirk_holder.set_stutter_if_lower(6 SECONDS)
 			msg += "causing you to start stuttering!"
-		if(3)
-			quirk_holder.Stun(2 SECONDS)
-			msg += "causing you to freeze up!"
-	*/
-	// NOVA EDIT CHANGE END
-	switch(rand(1,3))
-		if(1)
-			quirk_holder.set_jitter_if_lower(20 SECONDS)
-			msg += "causing you to start fidgeting!"
-		if(2)
+			*/
 			quirk_holder.set_confusion(2 SECONDS)
 			msg += "causing you to trip over your own feet!"
 		if(3)
