@@ -28,3 +28,38 @@
   - rscadd: 'New Changeling Ability: Hive Head'
   - bugfix: Fixed bees having an improper sprite offset
   - bugfix: The M-90GL now correctly states that it accepts .223 toploader magazines.
+2024-03-02:
+  Nerev4r:
+  - rscadd: Adds seven new horn options.
+  NovaBot13:
+  - refactor: Butt sprites are based on the chest bodypart for humans, instead of
+      the species
+  - image: Moths have their own special butt sprites
+  - rscadd: Fishes love kronkaine.
+  - qol: Examining a fishing spot twice with sufficiently high fishing skill (or the
+      skillchip) will get you a list of fishes that can be caught.
+  - rscadd: Adds 2 new shields to the game! Ballistic Shield - researched by Science,
+      and Improvised Shield - made out of iron and sticky tape
+  - image: Riot, Strobe, Telescopic, Energy shields got new less flat sprites!
+  - bugfix: Buying the advanced plastic surgery disk from the uplink now gives you
+      advanced plastic surgery instead of brainwashing.
+  - rscadd: Pipebombs
+  - rscdel: Improvised Firebombs
+  - image: Bubblegum Hallucination Surround Charge, Wendigo Shockwave Scream, and
+      Ice Demon Floor Freeze all have more appropriate action icons.
+  - qol: Adds a tooltip to Ice Demon Afterimages ability.
+  - image: Cyborg view items now use the same sprites as their corresponding goggles
+      instead of old versions of those sprites.
+  - bugfix: Pete can no longer eat vines while dead.
+  Paxilmaniac:
+  - balance: The ammoniated mercury in the deforest meridine antidote pen has been
+      replaced with multiver
+  Thlumyn:
+  - bugfix: ghouls can once again replace their limbs with meat slabs
+  Zergspower:
+  - bugfix: fixes Blueshift's toxin launch room - and also making it SUPER obvious
+      not to stand there
+  vinylspiders:
+  - qol: Borers being inside someone no longer makes them die to storms
+  - bugfix: Dead borers don't permanently lose reagent containers
+  - bugfix: prosperity prism healing now ignores mob biotypes
