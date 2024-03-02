@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 		else
 			stack_trace("[type] on_equip_item(): Could not locate item (path: [item_path]) in [equipper]'s contents to set name/desc!")
 
-	if(ispath(item_path, /obj/item/clothing/head/mob_holder/pet && !visuals_only)
+	if(ispath(item_path, /obj/item/clothing/head/mob_holder/pet && !visuals_only))
 		var/obj/item/clothing/head/mob_holder/pet/equipped_item = locate(item_path) in equipper.get_all_gear()
 		equipped_item.held_mob.befriend(equipper)
 		if(INFO_NAMED in our_loadout[item_path])
