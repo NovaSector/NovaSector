@@ -1,5 +1,33 @@
 //////// Mag-fed Turret Framework.
 
+////// Define copying //////
+
+#define TURRET_STUN 0
+#define TURRET_LETHAL 1
+
+#define POPUP_ANIM_TIME 5
+#define POPDOWN_ANIM_TIME 5 //Be sure to change the icon animation at the same time or it'll look bad
+
+#define TURRET_FLAG_SHOOT_ALL_REACT (1<<0) // The turret gets pissed off and shoots at people nearby (unless they have sec access!)
+#define TURRET_FLAG_AUTH_WEAPONS (1<<1) // Checks if it can shoot people that have a weapon they aren't authorized to have
+#define TURRET_FLAG_SHOOT_CRIMINALS (1<<2) // Checks if it can shoot people that are wanted
+#define TURRET_FLAG_SHOOT_ALL (1<<3)  // The turret gets pissed off and shoots at people nearby (unless they have sec access!)
+#define TURRET_FLAG_SHOOT_ANOMALOUS (1<<4)  // Checks if it can shoot at unidentified lifeforms (ie xenos)
+#define TURRET_FLAG_SHOOT_UNSHIELDED (1<<5) // Checks if it can shoot people that aren't mindshielded and who arent heads
+#define TURRET_FLAG_SHOOT_BORGS (1<<6) // checks if it can shoot cyborgs
+#define TURRET_FLAG_SHOOT_HEADS (1<<7) // checks if it can shoot at heads of staff
+
+DEFINE_BITFIELD(turret_flags, list(
+	"TURRET_FLAG_SHOOT_ALL_REACT" = TURRET_FLAG_SHOOT_ALL_REACT,
+	"TURRET_FLAG_AUTH_WEAPONS" = TURRET_FLAG_AUTH_WEAPONS,
+	"TURRET_FLAG_SHOOT_CRIMINALS" = TURRET_FLAG_SHOOT_CRIMINALS,
+	"TURRET_FLAG_SHOOT_ALL" = TURRET_FLAG_SHOOT_ALL,
+	"TURRET_FLAG_SHOOT_ANOMALOUS" = TURRET_FLAG_SHOOT_ANOMALOUS,
+	"TURRET_FLAG_SHOOT_UNSHIELDED" = TURRET_FLAG_SHOOT_UNSHIELDED,
+	"TURRET_FLAG_SHOOT_BORGS" = TURRET_FLAG_SHOOT_BORGS,
+	"TURRET_FLAG_SHOOT_HEADS" = TURRET_FLAG_SHOOT_HEADS,
+))
+
 ////// Toolbox Handling //////
 /obj/item/storage/toolbox/emergency/turret/mag_fed
 	name = "\improper T.I.B.S Cerberus Kit"
@@ -132,12 +160,19 @@
 	var/datum/weakref/acquired_target
 	////// how long the target can be focused. changable incase of better ones wanted.
 	var/acquisition_duration = 5 SECONDS
+	////// whether or not turrets should have the target all flag.
+	var/target_all = TRUE
 
 /obj/item/target_designator/examine(mob/user)
 	. = ..()
 	. += span_notice("<b>[length(linked_turrets)]/[turret_limit]</b> turrets linked.")
 	. += span_notice("<b>Right click</b> an entity to designate it as an ally.")
 	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
+
+/obj/item/target_designator/attack_self(mob/user, modifiers)
+	. = ..()
+	target_all = !target_all
+	sync_turrets()
 
 /obj/item/target_designator/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -182,6 +217,18 @@
 			turret.clear_override()
 		balloon_alert(user, "designation cleared!")
 
+/obj/item/target_designator/proc/sync_turrets()
+	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
+		if(target_all == TRUE)
+			if(!(turret.turret_flags & TURRET_FLAG_SHOOT_ALL))
+				turret.turret_flags |= TURRET_FLAG_SHOOT_ALL
+		else
+			if(turret.turret_flags & TURRET_FLAG_SHOOT_ALL)
+				turret.turret_flags &= ~TURRET_FLAG_SHOOT_ALL
+		if(turret.turret_flags & TURRET_FLAG_SHOOT_ALL)
+			turret.balloon_alert_to_viewers("obeying laws!")
+		else
+			turret.balloon_alert_to_viewers("disobeying laws!")
 
 ////// Turret handling
 
@@ -201,6 +248,7 @@
 	lethal_projectile = null
 	lethal_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
+	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	ignore_faction = TRUE
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list()
@@ -412,6 +460,45 @@
 
 
 ////// Firing and target acquisition //////
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/assess_perp(mob/living/carbon/human/perp) //We copy the original so we can use target limiting above factions.
+	var/threatcount = 0 //the integer returned
+
+	if(obj_flags & EMAGGED)
+		return 10 //if emagged, always return 10.
+
+	if((turret_flags & (TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ALL_REACT)) && !allowed(perp))
+		//if the turret has been attacked or is angry, target all non-sec people
+		if(!allowed(perp))
+			return 10
+
+	// If we aren't shooting heads then return a threatcount of 0
+	if (!(turret_flags & TURRET_FLAG_SHOOT_HEADS))
+		var/datum/job/apparent_job = SSjob.GetJob(perp.get_assignment())
+		if(apparent_job?.job_flags & JOB_HEAD_OF_STAFF)
+			return 0
+
+	if(turret_flags & TURRET_FLAG_AUTH_WEAPONS) //check for weapon authorization
+		if(!istype(perp.wear_id?.GetID(), /obj/item/card/id/advanced/chameleon))
+
+			if(allowed(perp)) //if the perp has security access, return 0
+				return 0
+			if(perp.is_holding_item_of_type(/obj/item/gun) || perp.is_holding_item_of_type(/obj/item/melee/baton))
+				threatcount += 4
+
+			if(istype(perp.belt, /obj/item/gun) || istype(perp.belt, /obj/item/melee/baton))
+				threatcount += 2
+
+	if(turret_flags & TURRET_FLAG_SHOOT_CRIMINALS) //if the turret can check the records, check if they are set to *Arrest* on records
+		var/perpname = perp.get_face_name(perp.get_id_name())
+		var/datum/record/crew/target = find_record(perpname)
+		if(!target || (target.wanted_status == WANTED_ARREST))
+			threatcount += 4
+
+	if((turret_flags & TURRET_FLAG_SHOOT_UNSHIELDED) && (!HAS_TRAIT(perp, TRAIT_MINDSHIELD)))
+		threatcount += 4
+
+	return threatcount
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
 	for(var/faction1 in faction)
@@ -628,3 +715,17 @@
 	var/obj/item/target_designator/controller = linkage?.resolve()
 	controller.linked_turrets -= source
 
+////// Define Killing. For testing.
+
+#undef TURRET_STUN
+#undef TURRET_LETHAL
+#undef POPUP_ANIM_TIME
+#undef POPDOWN_ANIM_TIME
+#undef TURRET_FLAG_SHOOT_ALL_REACT
+#undef TURRET_FLAG_AUTH_WEAPONS
+#undef TURRET_FLAG_SHOOT_CRIMINALS
+#undef TURRET_FLAG_SHOOT_ALL
+#undef TURRET_FLAG_SHOOT_ANOMALOUS
+#undef TURRET_FLAG_SHOOT_UNSHIELDED
+#undef TURRET_FLAG_SHOOT_BORGS
+#undef TURRET_FLAG_SHOOT_HEADS
