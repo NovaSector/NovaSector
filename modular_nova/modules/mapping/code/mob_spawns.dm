@@ -552,6 +552,7 @@
 
 /datum/id_trim/away/hotel/security
 	assignment = "Hotel Security"
+	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
 
 
 //CRYO CONSOLES
