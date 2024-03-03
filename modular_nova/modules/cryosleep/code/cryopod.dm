@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/list/frozen_item = list()
 
 	/// This is what the announcement system uses to make announcements. Make sure to set a radio that has the channel you want to broadcast on.
-	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/pai
+	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/ai
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
 
@@ -123,11 +123,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			CRASH("Illegal action for ui_act: '[action]'")
 
-/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank)
+/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, stored_departments_bitflags, stored_job_radio)
 	switch(message_type)
 		if("CRYO_JOIN")
 			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
 		if("CRYO_LEAVE")
+			if (stored_job_radio)
+				if (stored_departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
+					if (stored_job_radio != RADIO_CHANNEL_COMMAND)
+						radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", RADIO_CHANNEL_COMMAND)
+					radio.use_command = TRUE
+				radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", stored_job_radio)
+				radio.use_command = FALSE
 			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
 
 // Cryopods themselves.
@@ -168,6 +175,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/stored_name = null
 	/// The rank (job title) of the mob that entered the cryopod, if it was a human. "N/A" by default.
 	var/stored_rank = "N/A"
+	/// The bitflags for the occupents department
+	var/stored_departments_bitflags = 0
+	/// Default radio chanel for the job
+	var/stored_job_radio = null
 
 
 /obj/machinery/cryopod/quiet
@@ -218,6 +229,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 			if(mob_occupant.mind)
 				stored_rank = mob_occupant.mind.assigned_role.title
+				stored_departments_bitflags = mob_occupant.mind.assigned_role.departments_bitflags
+				if (mob_occupant.mind.assigned_role.default_radio_channel)
+					stored_job_radio = mob_occupant.mind.assigned_role.default_radio_channel
 				if(isnull(stored_ckey))
 					stored_ckey = mob_occupant.mind.key // if mob does not have a ckey and was placed in cryo by someone else, we can get the key this way
 
@@ -365,7 +379,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 	if(!quiet)
-		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank)
+		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, stored_departments_bitflags, stored_job_radio)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
