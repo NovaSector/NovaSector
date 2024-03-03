@@ -56,6 +56,8 @@
 					/obj/item/clothing/under/rank/security/officer/skirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper = 10,
 					/obj/item/clothing/under/rank/security/nova/utility = 3,
+					/obj/item/clothing/under/rank/security/peacekeeper/trousers = 10,
+					/obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts = 10,
 					/obj/item/clothing/shoes/jackboots/sec = 10,
 					/obj/item/clothing/head/security_garrison = 10,
 					/obj/item/clothing/head/security_cap = 10,
