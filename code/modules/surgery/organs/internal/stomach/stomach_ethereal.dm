@@ -38,9 +38,8 @@
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(25) //NOVA EDIT CHANGE - Ethereal Rework 2024 - adjust_charge(shock_damage * siemens_coeff * 2)   This is because they don't really take shock damage anymore!
-	ethereal_shock_absorb(source, shock_damage, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
+	ethereal_shock_absorb(source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
 	to_chat(owner, span_notice("You absorb some of the shock into your body!"))
-	return
 
 /obj/item/organ/internal/stomach/ethereal/proc/adjust_charge(amount)
 	crystal_charge = clamp(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_DANGEROUS)
@@ -75,8 +74,8 @@
 			// NOVA EDIT ADDITION BEGIN
 			if (SPT_PROB(15, seconds_per_tick))
 				do_sparks(5, TRUE, carbon)
-				carbon.visible_message(span_danger("[carbon] sparks, their body aglow with excess energy!"), span_warning("Your body ejects voltage as sparks, you should discharge some electricity!"))
-				// NOVA EDIT ADDITION END
+				carbon.visible_message(span_danger("[carbon] sparks, [carbon.p_their()] body aglow with excess energy!"), span_warning("Your body ejects voltage as sparks, you should discharge some electricity!"))
+			// NOVA EDIT ADDITION END
 		else
 			owner.clear_mood_event("charge")
 			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)

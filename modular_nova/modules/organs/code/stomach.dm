@@ -14,26 +14,17 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_efficiency = 0.07
 
-/obj/item/organ/internal/stomach/ethereal/on_mob_insert(mob/living/carbon/stomach_owner)
-	. = ..()
-	RegisterSignal(stomach_owner, COMPONENT_LIVING_BLOCK_SHOCK, PROC_REF(on_electrocute))
-
-/obj/item/organ/internal/stomach/ethereal/on_mob_remove(mob/living/carbon/stomach_owner)
-	. = ..()
-	UnregisterSignal(stomach_owner, COMPONENT_LIVING_BLOCK_SHOCK)
-
-/obj/item/organ/internal/stomach/ethereal/proc/ethereal_shock_absorb(datum/source, shock_damage, siemens_coeff = 1, flags = NONE, mob/living/user)
-	SIGNAL_HANDLER
-	do_sparks(5, TRUE, source)
+/obj/item/organ/internal/stomach/ethereal/proc/ethereal_shock_absorb(mob/living/stomach_owner = owner, shock_damage, shock_source, siemens_coeff = 1, flags = NONE)
+	do_sparks(number = 5, cardinal_only = TRUE, source = source)
 	playsound(src, SFX_SPARKS, 75, TRUE, -1)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
-		visible_message(
-			span_danger("[src] was shocked by \the [source], absorbing it into their body!"), \
+		stomach_owner.visible_message(
+			span_danger("[stomach_owner] was shocked by \the [source], absorbing it into stomach_owner.p_their() body!"), \
 			span_userdanger("You feel a powerful shock coursing through your body, easily handling it!"), \
 			span_hear("You hear a heavy electrical crack.") \
 		)
 	if (!(flags & SHOCK_NO_HUMAN_ANIM))
-		if(ishuman(user))
-			var/mob/living/carbon/human/human_target = user
+		if(ishuman(stomach_owner))
+			var/mob/living/carbon/human/human_target = stomach_owner
 			human_target.electrocution_animation(1 SECONDS)
 	return COMPONENT_LIVING_BLOCK_SHOCK

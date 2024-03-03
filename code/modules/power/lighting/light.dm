@@ -596,7 +596,7 @@
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(istype(stomach))
-					do_sparks(2, FALSE, src) // NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You receive some charge from the [fitting]."))
+					do_sparks(number = 2, cardinal_only = FALSE, source = src) // NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You receive some charge from the [fitting]."))
 					stomach.adjust_charge(LIGHT_POWER_GAIN)
 				else
 					to_chat(user, span_warning("You can't receive charge from the [fitting]!"))
