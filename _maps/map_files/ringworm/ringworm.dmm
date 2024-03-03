@@ -4984,6 +4984,22 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/security/eva)
+"bAk" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=8";
+	location = "Chemistry"
+	},
+/obj/machinery/door/window/left/directional/south{
+	name = "Chemistry Deliveries";
+	req_access = list("pharmacy")
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron/large,
+/area/station/medical/pharmacy)
 "bAl" = (
 /obj/machinery/telecomms/server/presets/science,
 /turf/open/floor/circuit/telecomms/mainframe,
@@ -12221,8 +12237,6 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/lockers)
 "dOg" = (
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/command/maintenance,
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance Hatch"
 	},
@@ -12230,6 +12244,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "dOj" = (
@@ -17928,6 +17943,9 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/corner/end{
 	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
 	},
 /turf/open/openspace,
 /area/station/science/robotics/lab)
@@ -23843,21 +23861,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/virology)
 "hmd" = (
-/obj/effect/turf_decal/loading_area{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=8";
-	location = "Chemistry"
-	},
-/obj/machinery/door/window/left/directional/west{
-	name = "Chemistry Deliveries";
-	req_access = list("pharmacy")
-	},
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/iron/large,
-/area/station/medical/pharmacy)
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/greater)
 "hmf" = (
 /obj/effect/turf_decal/tile/neutral/full,
 /obj/structure/closet/crate,
@@ -50627,7 +50633,7 @@
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 4
 	},
-/obj/item/stack/rods/ten,
+/obj/item/stack/rods/twentyfive,
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "piC" = (
@@ -73404,6 +73410,10 @@
 	id = "pharmacy_shutters_2";
 	name = "Chemlab Shutters";
 	dir = 8
+	},
+/obj/structure/desk_bell{
+	pixel_x = -4;
+	pixel_y = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
@@ -125000,7 +125010,7 @@ cOl
 rhX
 vTC
 wHH
-wHH
+tzq
 tzq
 xuB
 aCd
@@ -187183,7 +187193,7 @@ wVH
 wVH
 wVH
 wVH
-qsn
+gIs
 brH
 jzB
 jFp
@@ -187955,7 +187965,7 @@ wVH
 wVH
 wVH
 gIs
-jzB
+bAk
 jzB
 wsY
 kQx
@@ -188212,8 +188222,8 @@ wVH
 wVH
 wVH
 qsn
-jzB
-hmd
+pzV
+qsn
 qsn
 gIs
 gIs
@@ -188468,10 +188478,10 @@ gIs
 gIs
 xpQ
 xpQ
-qsn
-qsn
-pzV
-qsn
+xpQ
+hmd
+rxf
+uov
 hWt
 cdH
 hPx
