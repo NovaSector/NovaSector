@@ -63,3 +63,11 @@
   - qol: Borers being inside someone no longer makes them die to storms
   - bugfix: Dead borers don't permanently lose reagent containers
   - bugfix: prosperity prism healing now ignores mob biotypes
+2024-03-03:
+  NovaBot13:
+  - bugfix: makes custom pizzas dairy and vegetable free, unless you choose to add
+      them.
+  Paxilmaniac:
+  - bugfix: Wooden fencing is no longer on the wrong layer
+  Rhials:
+  - code_imp: Splits up the nuclear operative antagonist datum folder.
