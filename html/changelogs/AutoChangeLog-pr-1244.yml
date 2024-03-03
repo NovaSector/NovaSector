@@ -1,0 +1,6 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - bugfix: "If you die or fall unconscious with Combat Indicator turned on, you will properly lose CI and the surrender button"
+  - refactor: "Refactored how Combat Indicator is handled in the backend"
+  - admin: "Added additional logging for when someone dies / falls unconscious with CI on, as well as changed the color of the logs for readability."
