@@ -38,7 +38,9 @@
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(25) //NOVA EDIT CHANGE - Ethereal Rework 2024 - adjust_charge(shock_damage * siemens_coeff * 2)   This is because they don't really take shock damage anymore!
+	ethereal_shock_absorb(source, shock_damage, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
 	to_chat(owner, span_notice("You absorb some of the shock into your body!"))
+	return
 
 /obj/item/organ/internal/stomach/ethereal/proc/adjust_charge(amount)
 	crystal_charge = clamp(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_DANGEROUS)

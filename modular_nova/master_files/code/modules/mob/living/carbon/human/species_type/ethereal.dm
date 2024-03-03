@@ -29,27 +29,3 @@
 	)
 
 	return to_add
-
-/mob/living/carbon/human/proc/ethereal_electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE, jitter_time = 0 SECONDS, stutter_time = 0 SECONDS, stun_duration = 0 SECONDS)
-	SEND_SIGNAL(src, COMSIG_LIVING_ELECTROCUTE_ACT, shock_damage, source, siemens_coeff, flags)
-	if((flags & SHOCK_TESLA) && HAS_TRAIT(src, TRAIT_TESLA_SHOCKIMMUNE))
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
-		return FALSE
-	if(!(flags & SHOCK_ILLUSION))
-		adjustFireLoss(shock_damage)
-		Knockdown(0)
-		adjust_jitter(0)
-		adjust_stutter(0)
-		do_sparks(5, TRUE, source)
-		playsound(src, SFX_SPARKS, 75, TRUE, -1)
-	else
-		adjustStaminaLoss(shock_damage)
-	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
-		visible_message(
-			span_danger("[src] was shocked by \the [source], absorbing it into their body!"), \
-			span_userdanger("You feel a powerful shock coursing through your body, easily handling it!"), \
-			span_hear("You hear a heavy electrical crack.") \
-		)
-	if (!(flags & SHOCK_NO_HUMAN_ANIM))
-		electrocution_animation(1 SECONDS)
