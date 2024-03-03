@@ -33,12 +33,12 @@
 	SIGNAL_HANDLER
 	adjust_charge(amount / 3.5)
 
-/obj/item/organ/internal/stomach/ethereal/proc/on_electrocute(datum/source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE)
+/obj/item/organ/internal/stomach/ethereal/proc/on_electrocute(datum/source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Original: /obj/item/organ/internal/stomach/ethereal/proc/on_electrocute(datum/source, shock_damage, siemens_coeff = 1, flags = NONE)
 	SIGNAL_HANDLER
 	if(flags & SHOCK_ILLUSION)
 		return
-	adjust_charge(25) //NOVA EDIT CHANGE - Ethereal Rework 2024 - adjust_charge(shock_damage * siemens_coeff * 2)   This is because they don't really take shock damage anymore!
-	ethereal_shock_absorb(source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
+	adjust_charge(shock_damage * siemens_coeff * 2)
+	. = ethereal_shock_absorb(source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
 	to_chat(owner, span_notice("You absorb some of the shock into your body!"))
 
 /obj/item/organ/internal/stomach/ethereal/proc/adjust_charge(amount)
@@ -61,6 +61,7 @@
 			carbon.throw_alert(ALERT_ETHEREAL_CHARGE, /atom/movable/screen/alert/lowcell/ethereal, 2)
 		if(ETHEREAL_CHARGE_ALMOSTFULL to ETHEREAL_CHARGE_FULL)
 			carbon.add_mood_event("charge", /datum/mood_event/charged)
+			carbon.adjustToxLoss(-0.325 * seconds_per_tick, carbon) //NOVA EDIT ADDITION - Ethereal Rework 2024 - Your natural reward for no longer being over or under charged, but having it just right.
 		if(ETHEREAL_CHARGE_FULL to ETHEREAL_CHARGE_OVERLOAD)
 			carbon.add_mood_event("charge", /datum/mood_event/overcharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 1)
@@ -72,7 +73,7 @@
 			if(SPT_PROB(5, seconds_per_tick)) // 5% each seacond for ethereals to explosively release excess energy if it reaches dangerous levels
 				discharge_process(carbon)
 			// NOVA EDIT ADDITION BEGIN
-			if (SPT_PROB(15, seconds_per_tick))
+			if (SPT_PROB(10, seconds_per_tick))
 				do_sparks(5, TRUE, carbon)
 				carbon.visible_message(span_danger("[carbon] sparks, [carbon.p_their()] body aglow with excess energy!"), span_warning("Your body ejects voltage as sparks, you should discharge some electricity!"))
 			// NOVA EDIT ADDITION END

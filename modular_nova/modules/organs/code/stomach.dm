@@ -17,6 +17,7 @@
 /obj/item/organ/internal/stomach/ethereal/proc/ethereal_shock_absorb(mob/living/stomach_owner = owner, shock_damage, shock_source, siemens_coeff = 1, flags = NONE)
 	do_sparks(number = 5, cardinal_only = TRUE, source = shock_source)
 	playsound(src, SFX_SPARKS, 75, TRUE, -1)
+	adjust_charge(25)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
 		stomach_owner.visible_message(
 			span_danger("[stomach_owner] was shocked by \the [shock_source], absorbing it into [stomach_owner.p_their()] body!"), \
