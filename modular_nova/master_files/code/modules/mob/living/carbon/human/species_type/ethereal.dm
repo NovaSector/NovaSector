@@ -6,7 +6,7 @@
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "bolt",
 			SPECIES_PERK_NAME = "Shockingly Tasty",
-			SPECIES_PERK_DESC = "Ethereals can feed on electricity from APCs, and do not otherwise need to eat; they're also immune to damage from shocks, gathering power from them instead!.",
+			SPECIES_PERK_DESC = "Ethereals can feed on electricity from APCs, and do not otherwise need to eat; they're also immune to damage from shocks, gathering power from them instead!",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
@@ -32,7 +32,6 @@
 
 /mob/living/carbon/human/proc/ethereal_electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE, jitter_time = 0 SECONDS, stutter_time = 0 SECONDS, stun_duration = 0 SECONDS)
 	SEND_SIGNAL(src, COMSIG_LIVING_ELECTROCUTE_ACT, shock_damage, source, siemens_coeff, flags)
-	shock_damage = 0
 	if((flags & SHOCK_TESLA) && HAS_TRAIT(src, TRAIT_TESLA_SHOCKIMMUNE))
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
@@ -54,4 +53,3 @@
 		)
 	if (!(flags & SHOCK_NO_HUMAN_ANIM))
 		electrocution_animation(1 SECONDS)
-	return shock_damage
