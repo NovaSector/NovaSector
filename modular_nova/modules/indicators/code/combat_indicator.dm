@@ -60,7 +60,7 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 	SIGNAL_HANDLER
 	if(new_stat <= SOFT_CRIT)
 		return
-	disable_combat_indicator(TRUE)
+	set_combat_indicator(FALSE, involuntary = TRUE)
 
 /**
  * Called whenever a mob's CI status changes for any reason.
@@ -69,9 +69,10 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
  *
  * Arguments:
  * * state -- Boolean. Inherited from the procs that call this, basically it's what that proc wants CI to change to - true or false, on or off.
+ * * involuntary -- Boolean. If true, the mob is dead or unconscious, and the log will reflect that.
  */
 
-/mob/living/proc/set_combat_indicator(state)
+/mob/living/proc/set_combat_indicator(state, involuntary = FALSE)
 	if(!CONFIG_GET(flag/combat_indicator))
 		return
 
@@ -79,7 +80,7 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 		return
 
 	if(stat == DEAD)
-		disable_combat_indicator(TRUE)
+		disable_combat_indicator(involuntary)
 
 	combat_indicator = state
 
