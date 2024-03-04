@@ -401,6 +401,10 @@
 	name = "Moth (Moffra)"
 	icon_state = "moffra"
 
+/datum/sprite_accessory/wings/moth/lightbearer
+	name = "Lightbearer"
+	icon_state = "lightbearer"
+
 /datum/sprite_accessory/wings/mammal/top/arfel_harpy
 	name = "Arfel Harpy"
 	icon_state = "arfelharpy_top"
