@@ -41,20 +41,19 @@
 	shuttlekeys = list("tradership")
 
 /obj/structure/closet/crate/tradership_cargo
-	/// Determines which items will be spawned, overriding itemspawn_seed
+	/// Determines the list of items that get spawned. 1-5 are valid presets.
 	var/used_preset
-	/// Determines which items will be spawned
-	var/itemspawn_seed
 
 /obj/structure/closet/crate/tradership_cargo/Initialize(mapload)
-	itemspawn_seed = used_preset || rand(1,5)
+	if(isnull(used_preset))
+		used_preset = rand(1,5)
 	return ..()
 
 //Generic inventory
 /obj/structure/closet/crate/tradership_cargo/PopulateContents()
 	..()
 
-	switch(itemspawn_seed)
+	switch(used_preset)
 		if(1)
 			for(var/i in 1 to 10)
 				new /obj/item/food/canned/beans(src)
@@ -151,12 +150,13 @@
 
 /obj/structure/closet/crate/secure/tradership_cargo_valuable
 	req_access = ACCESS_FACTION_CREW
-	/// determines the list of items that get spawned. 1-5 are valid presets.
+	/// Determines the list of items that get spawned. 1-5 are valid presets.
 	var/used_preset
 
 /obj/structure/closet/crate/secure/tradership_cargo_valuable/Initialize(mapload)
 	if(isnull(used_preset))
 		used_preset = rand(1,5)
+	return ..()
 
 /obj/structure/closet/crate/secure/tradership_cargo_valuable/PopulateContents()
 	. = ..()
