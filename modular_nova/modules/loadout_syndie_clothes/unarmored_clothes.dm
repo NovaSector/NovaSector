@@ -7,7 +7,7 @@
 	can_adjust = TRUE
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured
-	name = "Tacticool Utility Overalls"
+	name = "Tacticool Utility Overalls Turtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured
 
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
@@ -19,7 +19,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
-	name = "Tacticool Utility Skirt and Suspenders"
+	name = "Tacticool Overalls Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
 
 /obj/item/clothing/mask/gas/sechailer/half_mask
@@ -35,5 +35,5 @@
 	use_radio_beeps_tts = FALSE
 
 /datum/loadout_item/mask/sechailer_half_mask
-	name = "Tacticool Half-Mask"
+	name = "Tacticool Neck Gaiter"
 	item_path = /obj/item/clothing/mask/gas/sechailer/half_mask
