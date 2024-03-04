@@ -100,7 +100,7 @@
 /obj/structure/closet/crate/tradership_cargo/populate_contents_immediate()
 	. = ..()
 
-	switch(itemspawn_seed)
+	switch(used_preset)
 		if(5)
 			new /obj/item/clothing/gloves/color/yellow(src)
 			new /obj/item/clothing/gloves/color/yellow(src)
