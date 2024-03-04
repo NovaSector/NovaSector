@@ -16,14 +16,11 @@
 #define ROLE_OPERATIVE "Operative"
 #define ROLE_TRAITOR "Traitor"
 #define ROLE_WIZARD "Wizard"
-<<<<<<< HEAD
-// NOVA EDIT START
+#define ROLE_SPY "Spy"
+// NOVA EDIT ADDITION START
 #define ROLE_ASSAULT_OPERATIVE "Assault Operative"
 #define ROLE_OPFOR_CANDIDATE "OPFOR Candidate"
-// NOVA EDIT END
-=======
-#define ROLE_SPY "Spy"
->>>>>>> 977799a2e75 (A red spy has entered the base: Adds Spies, a roundstart antagonist inspired by Goonstation's Spy-Thief (#81231))
+// NOVA EDIT ADDITION END
 
 // Midround roles
 #define ROLE_ABDUCTOR "Abductor"
@@ -45,13 +42,13 @@
 #define ROLE_SPACE_DRAGON "Space Dragon"
 #define ROLE_SPIDER "Spider"
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
-//NOVA EDIT START
+//NOVA EDIT ADDITION START
 #define ROLE_BORER "Borer"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
 #define ROLE_LONE_INFILTRATOR "Lone Infiltrator"
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
