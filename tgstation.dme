@@ -6488,6 +6488,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\carbon\death.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human_helpers.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\death.dm"
+#include "modular_nova\master_files\code\modules\mob\living\carbon\human\human.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\lizardpeople.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\podpeople.dm"
