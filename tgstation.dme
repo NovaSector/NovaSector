@@ -7820,7 +7820,7 @@
 #include "modular_nova\modules\nanotrasen_rep\code\clothing.dm"
 #include "modular_nova\modules\nanotrasen_rep\code\nanotrasen_consultant.dm"
 #include "modular_nova\modules\new_cells\code\power_cell.dm"
-#include "modular_nova\modules\normalized_syndie_clothing_4_tesh\unsorted_clothes.dm"
+#include "modular_nova\modules\loadout_syndie_clothes\unarmored_clothes.dm"
 #include "modular_nova\modules\novaya_ert\code\advanced_choice_beacon.dm"
 #include "modular_nova\modules\novaya_ert\code\back.dm"
 #include "modular_nova\modules\novaya_ert\code\belt.dm"
