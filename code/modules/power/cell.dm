@@ -246,7 +246,7 @@
 				return
 			H.visible_message(span_notice("[user] hovers their fingers above [src], arcs forming from its surface!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(H, span_notice("You begin clumsily channeling power from [src] into your body."))
 			stomach.drain_time = world.time + CELL_DRAIN_TIME
-			while(do_after(user, CELL_DRAIN_TIME, target = src)) //NOVA EDIT CHANGE - Original: if(do_after(user, CELL_DRAIN_TIME, target = src))
+			while(do_after(user, CELL_DRAIN_TIME, target = src))
 				if((charge < CELL_POWER_DRAIN) || (stomach.crystal_charge > charge_limit))
 					return
 				if(istype(stomach))
