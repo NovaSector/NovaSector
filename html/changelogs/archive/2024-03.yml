@@ -71,3 +71,21 @@
   - bugfix: Wooden fencing is no longer on the wrong layer
   Rhials:
   - code_imp: Splits up the nuclear operative antagonist datum folder.
+2024-03-04:
+  NovaBot13:
+  - bugfix: Makes Metastation surgery access more consistent with other maps
+  - rscadd: Adds a new changeling ability, "Darkness Adaptation". Making you more
+      translucent, especially in darkness and allowing you to see slightly better
+      in the dark
+  - balance: The changeling power "Chameleon Skin" has been buffed, Reduces the cost
+      to 1 and sped up the time it takes to turn invisible
+  Rhials:
+  - bugfix: Fixes some tiles outside the Icebox AI satellite not getting hit by storms.
+  SomeRandomOwl:
+  - bugfix: If you die or fall unconscious with Combat Indicator turned on, you will
+      properly lose CI and the surrender button
+  - refactor: Refactored how Combat Indicator is handled in the backend
+  - admin: Added additional logging for when someone dies / falls unconscious with
+      CI on, as well as changed the color of the logs for readability.
+  Zenitheevee:
+  - bugfix: 10 less roundstart active turfs
