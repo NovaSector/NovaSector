@@ -24,8 +24,8 @@
 
 /datum/uplink_item/suits/armorkit_traitor
 	name = "Syndicate Armor Kit"
-	desc = "A syndicate armoring kit with flexible armored sheets and some nanoglue, for reinforcing clothing. Provide more protection, than security variant"
-	item = /obj/item/armorkit/traitor
+	desc = "A security armoring kit with flexible armored sheets and some nanoglue, for reinforcing outerwear. That one was stolen by our brave sleeping agents"
+	item = /obj/item/armorkit
 	cost = 2
 	illegal_tech = TRUE
 	progression_minimum = 10 MINUTES

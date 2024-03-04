@@ -19,23 +19,3 @@
 			target.set_armor(/datum/armor/suit_armor)
 			span_notice("You've upgraded [target] with armor kit")
 			qdel(src)
-
-/obj/item/armorkit/traitor
-	name = "syndicate armor kit"
-	desc = "A syndicate armoring kit with flexible armored sheets and some nanoglue, for reinforcing clothing. Provide more protection, than security variant"
-	icon_state = "syndicate"
-
-/obj/item/armorkit/traitor/interact_with_atom(atom/target, mob/user, params)
-	if(istype(target,/obj/item/clothing/suit))
-		if(!istype(target,/obj/item/clothing/suit/armor) && !istype(target,/obj/item/clothing/suit/mod))
-			var/obj/item/clothing/suit/typecast = target
-			typecast.set_armor(/datum/armor/space_syndicate)
-			typecast.allowed = GLOB.security_vest_allowed
-			span_notice("You've upgraded [target] with syndicate armor kit")
-			qdel(src)
-
-	if(istype(target,/obj/item/clothing/head))
-		if(!istype(target,/obj/item/clothing/head/helmet) && !istype(target,/obj/item/clothing/suit/mod))
-			target.set_armor(/datum/armor/space_syndicate)
-			span_notice("You've upgraded [target] with syndicate armor kit")
-			qdel(src)
