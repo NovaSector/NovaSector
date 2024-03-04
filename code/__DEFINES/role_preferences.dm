@@ -149,13 +149,8 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_REV_HEAD = 14,
 	ROLE_TRAITOR = 0,
 	ROLE_WIZARD = 14,
-<<<<<<< HEAD
-	// NOVA EDIT ADDITION
-	ROLE_ASSAULT_OPERATIVE = 14,
-	// NOVA EDIT END
-=======
 	ROLE_SPY = 0,
->>>>>>> 977799a2e75 (A red spy has entered the base: Adds Spies, a roundstart antagonist inspired by Goonstation's Spy-Thief (#81231))
+	ROLE_ASSAULT_OPERATIVE = 14, // NOVA EDIT ADDITION
 
 	// Midround
 	ROLE_ABDUCTOR = 0,
@@ -177,12 +172,12 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPACE_DRAGON = 0,
 	ROLE_SPIDER = 0,
 	ROLE_WIZARD_MIDROUND = 14,
-	//NOVA EDIT START
+	// NOVA EDIT ADDITION START
 	ROLE_LONE_INFILTRATOR = 0,
 	ROLE_BORER = 0,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
-	//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,
