@@ -201,6 +201,7 @@
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/science = 1,
 		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
+		/obj/item/armorkit/security = 2
 	)
 
 	backpack = /obj/item/storage/backpack/science
@@ -305,6 +306,7 @@
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/medical = 1,
 		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
+		/obj/item/armorkit/security = 2
 	)
 
 	backpack = /obj/item/storage/backpack/medic
@@ -403,6 +405,7 @@
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/engineering = 1,
 		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
+		/obj/item/armorkit/security = 2
 	)
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -508,6 +511,7 @@
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/cargo = 1,
 		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
+		/obj/item/armorkit/security = 2
 	)
 
 	backpack = /obj/item/storage/backpack
@@ -605,7 +609,8 @@
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded/departmental/service = 1,
 		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
-		)
+		/obj/item/armorkit/security = 2
+	)
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	backpack = /obj/item/storage/backpack

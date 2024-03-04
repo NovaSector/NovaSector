@@ -6658,6 +6658,7 @@
 #include "modular_nova\modules\armaments\code\armament_component.dm"
 #include "modular_nova\modules\armaments\code\armament_entries.dm"
 #include "modular_nova\modules\armaments\code\armament_station.dm"
+#include "modular_nova\modules\armor_kits\armor_kits.dm"
 #include "modular_nova\modules\ashwalkers\code\buildings\antfarm.dm"
 #include "modular_nova\modules\ashwalkers\code\buildings\ash_clothing_vendor.dm"
 #include "modular_nova\modules\ashwalkers\code\buildings\ash_farming.dm"
