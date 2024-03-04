@@ -496,3 +496,86 @@
       a permanently unremovable low-end MODsuit stuck to their back slot. Letting
       the suit's charge run low will eventually kill you, and the quirk has special
       interactions with both Ethereals and Plasmamen!
+2024-02-28:
+  Knouli:
+  - balance: DeForest brand Civil Defense Medical Kits may now be repurposed to carry
+      a limited selection of field-portable cheese rations.
+  LT3:
+  - code_imp: Tram throwing now breaks grilles consistently
+  - code_imp: Tram malfunction lethality/throw chance are now a multiplier instead
+      of flat value
+  - code_imp: Tram throw chance can be adjusted
+  - code_imp: Unlucky trait is now used in tram throw calculation
+  Nerev4r:
+  - rscadd: New persocom wireless standards have allowed for machines to wirelessly
+      link to ID cards, rather than using dedicated slots.
+  - rscadd: Adds some Security shorts to the loadout and vendors.
+  NovaBot13:
+  - bugfix: Fixed Bluespace RPEDs failing to apply circuits from a distance if you
+      had to select between multiple.
+  - bugfix: the north star's main intersections are brighter, the elevator is properly
+      lit, and a single floating poster was moved.
+  - code_imp: TRAIT_DEAF now works on non-carbon mobs
+  - image: New sprites for plant grafts!
+  - balance: xenomorph stomachs will no longer destroy items directly, refactored
+      it to use acid_act()
+  - bugfix: fixes xenomorph vore accidentally destroying mobs it wasn't supposed to
+      destroy, im thinking this was modified list in place shenanigans
+  - bugfix: Medical/security records now show an icon based on the registered trim,
+      rather than showing a question mark for records with customized titles.
+  - balance: Adds a 1 second delay to moving up and down with the verb/keybinds to
+      disable z-level combat cheese
+  - qol: The chapel has been slightly overhauled on Birdshot, with the chaplain now
+      having a place to preach sermons.
+  - bugfix: Sparring chaplains are now able to operate on Birdshot!
+  - balance: '"Freshness Jars full of Natural Bait" is now a goodie and costs 200
+      credits instead of 2000'
+  - rscadd: Displaying the voting statistics is now optional on a per-poll basis,
+      and is disabled for map voting.
+  - qol: Intelligent monkeys now punch people instead of biting them.
+  - rscadd: a list of items called vendor_nocrush that vendors dont deal integrity
+      damage to upon hitting them.
+  - bugfix: Makes vending machines no longer crush chairs and conveyors.
+  PapaMichael:
+  - balance: Fugitive hunters will spawn early if the emergency shuttle is called.
+  vinylspiders:
+  - bugfix: muzzled variations of clothing will now show again on your mob if you
+      have a snout
+2024-02-29:
+  A.C.M.O.:
+  - bugfix: Fixed the AI hologram's ability to copy the appearance of crew members.
+  LT3:
+  - qol: Airlocks don't flash constantly on engineering override, override/overlay
+      added for fire alarm
+  - bugfix: Airlock lighting should no longer render on top of player characters
+  - bugfix: Airlock emissives no longer overlap firedoors
+  - bugfix: Fixed missing overlays on various airlock types
+  Melbert:
+  - bugfix: Rat hearts apply their damage modifier malus correctly
+  NovaBot13:
+  - bugfix: Grilles dont break by just walking into them under any circumstances
+  - bugfix: Fixes the slot machine's jackpot. It should now give all of the available
+      prize money + 10,000 credits as payout for a jackpot.
+  - refactor: Converts the slot machine's UI over to TGUI
+  - rscadd: The slot machine now has a whole new type of jackpot! This one's a banger!
+  - bugfix: Cryostylane reaction now has a moderate & not extreme cooling effect.
+      Helps you achieve more pure amounts of  Cryostylane
+  - bugfix: You can build material airlocks again
+  - bugfix: Being in a Swat Suit appropriately protects you from collisions with a
+      body, rather than the body thrown at you having these protections protecting
+      YOU, the victim of the collision.
+  vinylspiders:
+  - bugfix: synths should now always drop their brains when gibbed
+  yooriss:
+  - rscadd: The Underworld Connections quirk has been added, allowing dodgy characters
+      (including silicons!) to gain access to exploitable information at roundstart.
+      Non-silicons also receive a fully customizable black market uplink, too.
+  - qol: Prices at the galactic Black Market have now fallen drastically to be more
+      in line with general cargo costs, give or take, and should now be vastly more
+      affordable for most people. Pick up one and order some spuriously legal things
+      for you and your friends today!
+  - rscadd: A new form of emoting is available called 'Do', accessible via the K and
+      Ctrl-K keybinds by default (as well as the 'Do' verb). Do doesn't put your character
+      name first and instead includes it in brackets at the end, so you can use it
+      to write better prose and even narrate things in the environment around you
+      with less clunkiness! Try it out today.
