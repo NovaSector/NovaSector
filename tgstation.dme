@@ -6419,7 +6419,6 @@
 #include "modular_nova\master_files\code\modules\clothing\under\jobs\security.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\jobs\civilian\civilian.dm"
 #include "modular_nova\master_files\code\modules\clothing\under\jobs\civilian\suits.dm"
-#include "modular_nova\master_files\code\modules\deathmatch\deathmatch_lobby.dm"
 #include "modular_nova\master_files\code\modules\entombed_quirk\code\entombed.dm"
 #include "modular_nova\master_files\code\modules\entombed_quirk\code\entombed_mod.dm"
 #include "modular_nova\master_files\code\modules\events\_event.dm"
