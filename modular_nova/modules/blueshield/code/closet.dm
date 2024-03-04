@@ -14,7 +14,7 @@
 	new /obj/item/clothing/suit/armor/vest/blueshield/jacket(src)
 	new /obj/item/clothing/neck/mantle/bsmantle(src)
 	for (var/i in 1 to 2)
-		new /obj/item/armorkit/security(src)
+		new /obj/item/armorkit(src)
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
