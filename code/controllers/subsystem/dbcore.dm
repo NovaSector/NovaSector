@@ -1,3 +1,4 @@
+#define SHUTDOWN_QUERY_TIMELIMIT (1 MINUTES)
 SUBSYSTEM_DEF(dbcore)
 	name = "Database"
 	flags = SS_TICKER
@@ -174,13 +175,22 @@ SUBSYSTEM_DEF(dbcore)
 
 /datum/controller/subsystem/dbcore/Shutdown()
 	shutting_down = TRUE
-	to_chat(world, span_boldannounce("Clearing DB queries standby:[length(queries_standby)] active: [length(queries_active)] all: [length(all_queries)]"))
+	var/msg = "Clearing DB queries standby:[length(queries_standby)] active: [length(queries_active)] all: [length(all_queries)]"
+	to_chat(world, span_boldannounce(msg))
+	log_world(msg)
 	//This is as close as we can get to the true round end before Disconnect() without changing where it's called, defeating the reason this is a subsystem
+	var/endtime = REALTIMEOFDAY + SHUTDOWN_QUERY_TIMELIMIT
 	if(SSdbcore.Connect())
-		//Execute all waiting queries
+		//Take over control of all active queries
+		var/queries_to_check = queries_active.Copy()
+		queries_active.Cut()
+		
+		//Start all waiting queries
 		for(var/datum/db_query/query in queries_standby)
-			run_query_sync(query)
+			run_query(query)
+			queries_to_check += query
 			queries_standby -= query
+<<<<<<< HEAD
 		for(var/datum/db_query/query in queries_active)
 			//Finish any remaining active qeries
 			UNTIL(query.process())
@@ -191,6 +201,14 @@ SUBSYSTEM_DEF(dbcore)
 			MassInsert(table, rows = queued_log_entries_by_table[table], duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
 		// NOVA EDIT END
 
+=======
+		
+		//wait for them all to finish
+		for(var/datum/db_query/query in queries_to_check)
+			UNTIL(query.process() || REALTIMEOFDAY > endtime)
+		
+		//log shutdown to the db
+>>>>>>> a88013783a3 (Fix shutdown hanging if the db went away. gives shutdowns a time out. improves db shutdown logging (#81813))
 		var/datum/db_query/query_round_shutdown = SSdbcore.NewQuery(
 			"UPDATE [format_table_name("round")] SET shutdown_datetime = Now(), end_state = :end_state WHERE id = :round_id",
 			list("end_state" = SSticker.end_state, "round_id" = GLOB.round_id),
@@ -199,7 +217,9 @@ SUBSYSTEM_DEF(dbcore)
 		query_round_shutdown.Execute(FALSE)
 		qdel(query_round_shutdown)
 
-	to_chat(world, span_boldannounce("Done clearing DB queries standby:[length(queries_standby)] active: [length(queries_active)] all: [length(all_queries)]"))
+	msg = "Done clearing DB queries standby:[length(queries_standby)] active: [length(queries_active)] all: [length(all_queries)]"
+	to_chat(world, span_boldannounce(msg))
+	log_world(msg)
 	if(IsConnected())
 		Disconnect()
 	stop_db_daemon()
@@ -655,3 +675,4 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 /datum/db_query/proc/Close()
 	rows = null
 	item = null
+#undef SHUTDOWN_QUERY_TIMELIMIT
