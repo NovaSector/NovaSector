@@ -20,18 +20,17 @@
 	name = "hypospray mk.II"
 	icon_state = "hypo2"
 	icon = 'modular_nova/modules/hyposprays/icons/hyposprays.dmi'
-	desc = "A new development from DeForest Medical, this hypospray takes 60-unit vials as the drug supply for easy swapping."
+	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
 	/// Is the hypospray only able to use small vials. Relates to the loaded overlays
 	var/small_only = TRUE
 	/// Inject or spray?
 	var/mode = HYPO_INJECT
+	/// The presently-inserted vial.
 	var/obj/item/reagent_containers/cup/vial/vial
 	/// If the Hypospray starts with a vial, which vial does it start with?
 	var/start_vial
-	/// Does the Hypospray start with a vial?
-	var/spawnwithvial = FALSE
 
 	/// Time taken to inject others
 	var/inject_wait = WAIT_INJECT
@@ -51,10 +50,8 @@
 	name = "hypospray mk.II deluxe"
 	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small, /obj/item/reagent_containers/cup/vial/large)
 	icon_state = "cmo2"
-	desc = "The deluxe hypospray can take larger 120-unit vials. It also acts faster and can deliver more reagents per spray."
+	desc = "The deluxe hypospray, able to take both 100u and 50u vials. It also acts faster and can deliver more reagents per spray."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	start_vial = /obj/item/reagent_containers/cup/vial/large/deluxe
-	spawnwithvial = TRUE
 	small_only = FALSE
 	inject_wait = DELUXE_WAIT_INJECT
 	spray_wait = DELUXE_WAIT_SPRAY
@@ -62,15 +59,20 @@
 	inject_self = DELUXE_SELF_INJECT
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
+/obj/item/hypospray/mkii/cmo/combat
+	name = "combat-grade hypospray mk.II"
+	icon_state = "combat2"
+	desc = "A variant of the deluxe hypospray, able to take both 100u and 50u vials, acting significantly faster & piercing armor."
+	// Made non-indestructible since this is typically an admin spawn.  still robust though!
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	inject_wait = COMBAT_WAIT_INJECT
+	spray_wait = COMBAT_WAIT_SPRAY
+	spray_self = COMBAT_SELF_INJECT
+	inject_self = COMBAT_SELF_SPRAY
+	penetrates = INJECT_CHECK_PENETRATE_THICK
+
 /obj/item/hypospray/mkii/Initialize(mapload)
 	. = ..()
-	if(!spawnwithvial)
-		update_appearance()
-		return
-	if(start_vial)
-		vial = new start_vial
-		update_appearance()
-
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/hypospray/mkii/update_overlays()
@@ -84,16 +86,15 @@
 		vial_spritetype += "[vial.type_suffix]"
 	else
 		vial_spritetype += "-s"
-	var/mutable_appearance/chem_loaded = mutable_appearance('modular_nova/modules/hyposprays/icons/hyposprays.dmi', vial_spritetype)
+	var/mutable_appearance/chem_loaded = mutable_appearance(icon, vial_spritetype)
 	chem_loaded.color = vial.chem_color
 	. += chem_loaded
+	var/mutable_appearance/vial_overlay = mutable_appearance(icon, vial.icon_state)
+	. += vial_overlay
 
-/obj/item/hypospray/mkii/update_icon_state()
-	. = ..()
-	var/icon_suffix = "-s"
-	if(!small_only && vial)
-		icon_suffix = vial.type_suffix //Sets the suffix used to the correspoding vial.
-	icon_state = "[initial(icon_state)][vial ? "[icon_suffix]" : ""]"
+// Probably no longer needed now we've moved to overlays.
+/*/obj/item/hypospray/mkii/update_icon_state()
+	. = ..()*/
 
 /obj/item/hypospray/mkii/examine(mob/user)
 	. = ..()
@@ -218,13 +219,13 @@
 	if(injectee != user)
 		injectee.visible_message(span_danger("[user] is trying to [fp_verb] [injectee] with [src]!"), \
 						span_userdanger("[user] is trying to [fp_verb] you with [src]!"))
-	
+
 	var/selected_wait_time
 	if(target == user)
 		selected_wait_time = (mode == HYPO_INJECT) ? inject_self : spray_self
 	else
 		selected_wait_time = (mode == HYPO_INJECT) ? inject_wait : spray_wait
-			
+
 	if(!do_after(user, selected_wait_time, injectee, extra_checks = CALLBACK(injectee, /mob/living/proc/can_inject, user, user.zone_selected, penetrates)))
 		return
 	if(!vial.reagents.total_volume)
