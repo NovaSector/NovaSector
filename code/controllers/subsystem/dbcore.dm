@@ -184,31 +184,22 @@ SUBSYSTEM_DEF(dbcore)
 		//Take over control of all active queries
 		var/queries_to_check = queries_active.Copy()
 		queries_active.Cut()
-		
+
 		//Start all waiting queries
 		for(var/datum/db_query/query in queries_standby)
 			run_query(query)
 			queries_to_check += query
 			queries_standby -= query
-<<<<<<< HEAD
-		for(var/datum/db_query/query in queries_active)
-			//Finish any remaining active qeries
-			UNTIL(query.process())
-			queries_active -= query
 
-		// NOVA EDIT START - SQL-based logging
-		for(var/table in queued_log_entries_by_table)
-			MassInsert(table, rows = queued_log_entries_by_table[table], duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
-		// NOVA EDIT END
-
-=======
-		
 		//wait for them all to finish
 		for(var/datum/db_query/query in queries_to_check)
 			UNTIL(query.process() || REALTIMEOFDAY > endtime)
-		
+		// NOVA EDIT ADDITION START - SQL-based logging
+		for(var/table in queued_log_entries_by_table)
+			MassInsert(table, rows = queued_log_entries_by_table[table], duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
+		// NOVA EDIT ADDITION END
+
 		//log shutdown to the db
->>>>>>> a88013783a3 (Fix shutdown hanging if the db went away. gives shutdowns a time out. improves db shutdown logging (#81813))
 		var/datum/db_query/query_round_shutdown = SSdbcore.NewQuery(
 			"UPDATE [format_table_name("round")] SET shutdown_datetime = Now(), end_state = :end_state WHERE id = :round_id",
 			list("end_state" = SSticker.end_state, "round_id" = GLOB.round_id),
