@@ -161,6 +161,8 @@
 
 /obj/item/storage/hypospraykit/cmo/empty
 	desc = "An extended hypospray kit with foam insets for hypovials & a mounting point on the bottom."
+	icon_state = "emt-mini"
+	current_case = "emt"
 	empty = TRUE
 
 /// Preloaded version: this is what goes in the locker.
