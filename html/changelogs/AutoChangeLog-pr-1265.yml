@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "synths gibbed in deathmatch do not drop their brains any longer"
