@@ -55,7 +55,7 @@
 			atom_storage.remove_single(null, item, get_turf(src), TRUE)
 	if(attached_hypo)
 		if(attached_hypo.resistance_flags & INDESTRUCTIBLE)
-			item.forceMove(get_turf(src))
+			attached_hypo.forceMove(get_turf(src))
 			atom_storage.remove_single(null, attached_hypo, get_turf(src), TRUE)
 	. = ..()
 
