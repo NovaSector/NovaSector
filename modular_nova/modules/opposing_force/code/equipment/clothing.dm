@@ -119,12 +119,12 @@
 /datum/opposing_force_equipment/clothing_syndicate/infiltrator
 	name = "MI-16 Infiltrator"
 	description = "Perfect for the most covert operations."
-	admin_note = "Armor kits provide Syndie space suit protection"
+	admin_note = "Armor kits provide security vest protection"
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/infiltrator
 
 /obj/item/storage/backpack/duffelbag/syndie/infiltrator/PopulateContents()
 	for (var/i in 1 to 2)
-		new /obj/item/armorkit/traitor(src)
+		new /obj/item/armorkit(src)
 	new /obj/item/radio/headset/chameleon/advanced(src)
 	new /obj/item/card/id/advanced/chameleon(src)
 	new /obj/item/clothing/shoes/combat(src)
