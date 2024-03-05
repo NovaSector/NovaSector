@@ -529,6 +529,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Tacticool Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm
 
+/datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured
+	name = "Tacticool Utility Overalls Turtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
+	name = "Tacticool Overalls Skirtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
+
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"
 	item_path = /obj/item/clothing/under/pants/tactical
