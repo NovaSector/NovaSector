@@ -89,3 +89,44 @@
       CI on, as well as changed the color of the logs for readability.
   Zenitheevee:
   - bugfix: 10 less roundstart active turfs
+2024-03-05:
+  A.C.M.O.:
+  - qol: Added support for adding Character Headshots via files.byondhome.com, for
+      Byond members only.
+  LT3:
+  - bugfix: Tram floor tiles constructed inhand provides 4 instead of 1
+  - bugfix: Tram floor tiles provide correct stack item when pulled up
+  - image: Tram floor tiles have their own inhand icons
+  - qol: Tram floor tiles available in the engineering protolathe
+  - bugfix: You can reconstruct deconstructed tram benches
+  - image: medical and improvised gauze are visibly different from cloth
+  - image: Tram frame is now tram girder, because it acts like one
+  Melbert:
+  - bugfix: Fixed spy stolen machines not dumping everything that needed to be dumped
+  - rscadd: Spies may now roam the halls of Space Station 13. Watch your belongings
+      closely.
+  NovaBot13:
+  - bugfix: fixed some issues when calculating the duration of moon smile's effects
+  - rscadd: Added new clown shoes "moffers"
+  - rscadd: Added moffers to the contraband list of the autodrobe
+  - bugfix: fixes deathmatch baseturfs (you cant crowbar the floor to breach to space)
+  - bugfix: fixed the chances of living flesh actions
+  - qol: Ethereal charging now loops when they're charging (from) APCs or from power
+      cells!
+  - rscadd: added the lightbearer moth set, available in the character setup.
+  - image: added icons for the lightbearer set; new moth wings, antennae and markings.
+  - rscadd: 'NEW TRAIT JOB: Veteran Security Advisor! Advise HoS and Captain on Security
+      matters, mentor Security Officers. Note that they are paraplegic and are suffering
+      PTSD due to their past experience.'
+  - bugfix: made some heretic descriptions more accurate
+  - spellcheck: improved english of the heretical eldritch patrons
+  Rhials:
+  - bugfix: Some tiny tiny changes to the smoking room ruin to make it a little less
+      ugly.
+  Zergspower:
+  - admin: renames ruin names to have an identifier in front of it
+  - refactor: converts map plate and jump to ruin to tguilist
+  sqnztb:
+  - bugfix: Interdyne and DS-2 are no longer stuck with several unusable machine frames.
+  vinylspiders:
+  - bugfix: synths gibbed in deathmatch do not drop their brains any longer

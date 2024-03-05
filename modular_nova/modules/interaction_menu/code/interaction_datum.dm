@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			if(INTERACTION_REQUIRE_TARGET_HAND)
 				if(!target.get_active_hand())
 					return FALSE
-			
+
 			else
 				CRASH("Unimplemented interaction requirement '[requirement]'")
 	return TRUE
@@ -226,10 +226,6 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	var/file = file(fpath)
 	WRITE_FILE(file, json_encode(json))
 	return TRUE
-
-/mob/living/carbon/human/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/interactable)
 
 /// Global loading procs
 /proc/populate_interaction_instances()
