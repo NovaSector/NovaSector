@@ -123,17 +123,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			CRASH("Illegal action for ui_act: '[action]'")
 
-/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, stored_departments_bitflags, stored_job_radio)
+/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank, occupant_departments_bitflags, occupant_job_radio)
 	switch(message_type)
 		if("CRYO_JOIN")
 			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
 		if("CRYO_LEAVE")
-			if (stored_job_radio)
-				if (stored_departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
-					if (stored_job_radio != RADIO_CHANNEL_COMMAND)
+			if (occupant_job_radio)
+				if (occupant_departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
+					if (occupant_job_radio != RADIO_CHANNEL_COMMAND)
 						radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", RADIO_CHANNEL_COMMAND)
 					radio.use_command = TRUE
-				radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", stored_job_radio)
+				radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", occupant_job_radio)
 				radio.use_command = FALSE
 			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
 
@@ -165,21 +165,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	COOLDOWN_DECLARE(last_no_computer_message)
 	/// if false, plays announcement on cryo
 	var/quiet = FALSE
-
 	/// Has the occupant been tucked in?
 	var/tucked = FALSE
-
-	/// What was the ckey of the client that entered the cryopod?
-	var/stored_ckey = null
-	/// The name of the mob that entered the cryopod.
-	var/stored_name = null
-	/// The rank (job title) of the mob that entered the cryopod, if it was a human. "N/A" by default.
-	var/stored_rank = "N/A"
-	/// The bitflags for the occupents department
-	var/stored_departments_bitflags = 0
-	/// Default radio chanel for the job
-	var/stored_job_radio = null
-
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
@@ -224,20 +211,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		var/mob/living/mob_occupant = occupant
 		if(mob_occupant && mob_occupant.stat != DEAD)
 			to_chat(occupant, span_notice("<b>You feel cool air surround you. You go numb as your senses turn inward.</b>"))
-			stored_ckey = mob_occupant.ckey
-			stored_name = mob_occupant.name
-
-			if(mob_occupant.mind)
-				stored_rank = mob_occupant.mind.assigned_role.title
-				stored_departments_bitflags = mob_occupant.mind.assigned_role.departments_bitflags
-				if (mob_occupant.mind.assigned_role.default_radio_channel)
-					stored_job_radio = mob_occupant.mind.assigned_role.default_radio_channel
-				if(isnull(stored_ckey))
-					stored_ckey = mob_occupant.mind.key // if mob does not have a ckey and was placed in cryo by someone else, we can get the key this way
 
 		var/mob/living/carbon/human/human_occupant = occupant
 		if(istype(human_occupant) && human_occupant.mind)
-			human_occupant.save_individual_persistence(stored_ckey)
+			human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
 		COOLDOWN_START(src, despawn_world_time, time_till_despawn)
 
@@ -246,9 +223,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	set_density(TRUE)
 	name = initial(name)
 	tucked = FALSE
-	stored_ckey = null
-	stored_name = null
-	stored_rank = "N/A"
 
 /obj/machinery/cryopod/container_resist_act(mob/living/user)
 	visible_message(span_notice("[occupant] emerges from [src]!"),
@@ -334,7 +308,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/proc/despawn_occupant()
 	var/mob/living/mob_occupant = occupant
 
-	SSjob.FreeRole(stored_rank)
+	var/occupant_ckey = mob_occupant.ckey || mob_occupant.mind?.key
+	var/occupant_name = mob_occupant.name
+	var/occupant_rank = mob_occupant.mind?.assigned_role.title
+	var/occupant_departments_bitflags = mob_occupant.mind?.assigned_role.departments_bitflags
+	var/occupant_job_radio = mob_occupant.mind?.assigned_role.default_radio_channel
+
+	SSjob.FreeRole(occupant_rank)
 
 	// Handle holy successor removal
 	var/list/holy_successors = list_holy_successors()
@@ -359,14 +339,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/announce_rank = null
 
 	for(var/list/record in GLOB.ghost_records)
-		if(record["name"] == stored_name)
+		if(record["name"] == occupant_name)
 			announce_rank = record["rank"]
 			GLOB.ghost_records.Remove(list(record))
 			break
 
 	if(!announce_rank) // No need to loop over all of those if we already found it beforehand.
 		for(var/datum/record/crew/possible_target_record as anything in GLOB.manifest.general)
-			if(possible_target_record.name == stored_name && (stored_rank == "N/A" || possible_target_record.trim == stored_rank))
+			if(possible_target_record.name == occupant_name && (occupant_rank == "N/A" || possible_target_record.trim == occupant_rank))
 				announce_rank = possible_target_record.rank
 				qdel(possible_target_record)
 				break
@@ -375,11 +355,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(!control_computer)
 		control_computer_weakref = null
 	else
-		control_computer.frozen_crew += list(list("name" = stored_name, "job" = stored_rank))
+		control_computer.frozen_crew += list(list("name" = occupant_name, "job" = occupant_rank))
 
 	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 	if(!quiet)
-		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, stored_departments_bitflags, stored_job_radio)
+		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
@@ -399,7 +379,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
-	GLOB.joined_player_list -= stored_ckey
+	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
 	mob_occupant.ghostize()
