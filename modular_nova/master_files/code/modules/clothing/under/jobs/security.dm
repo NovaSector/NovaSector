@@ -40,7 +40,43 @@
 	icon_state = "workpants_blue"
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "workpants_blue",
+			RESKIN_WORN_ICON_STATE = "workpants_blue"
+		),
+		"White Variant" = list(
+			RESKIN_ICON_STATE = "workpants_white",
+			RESKIN_WORN_ICON_STATE = "workpants_white"
+		),
+	)
+
+/obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts
+	name = "security shorts"
+	desc = "Some Peacekeeper-blue combat shorts. Definitely should pair it with a vest for safety."
+	icon_state = "workshorts_blue"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Blue Variant, Short" = list(
+			RESKIN_ICON_STATE = "workshorts_blue",
+			RESKIN_WORN_ICON_STATE = "workshorts_blue"
+		),
+		"Blue Variant, Short Short" = list(
+			RESKIN_ICON_STATE = "workshorts_blue_short",
+			RESKIN_WORN_ICON_STATE = "workshorts_blue_short"
+		),
+		"White Variant, Short" = list(
+			RESKIN_ICON_STATE = "workshorts_white",
+			RESKIN_WORN_ICON_STATE = "workshorts_white"
+		),
+		"White Variant, Short Short" = list(
+			RESKIN_ICON_STATE = "workshorts_white_short",
+			RESKIN_WORN_ICON_STATE = "workshorts_white_short"
+		),
+	)
 
 /*
 *	HEAD OF SECURITY

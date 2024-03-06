@@ -70,6 +70,8 @@
 	atom_storage.set_holdable(list(
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/storage/pill_bottle/prescription_stimulant,
+		/obj/item/food/cheese/firm_cheese_slice, //It's not called a cheese kit for nothing.
+		/obj/item/food/cheese/wedge,
 	))
 
 /obj/item/storage/medkit/civil_defense/stocked
