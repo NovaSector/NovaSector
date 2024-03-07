@@ -130,3 +130,28 @@
   - bugfix: Interdyne and DS-2 are no longer stuck with several unusable machine frames.
   vinylspiders:
   - bugfix: synths gibbed in deathmatch do not drop their brains any longer
+2024-03-06:
+  Jinshee:
+  - rscadd: Unamored versions of the syndicate utility uniforms & half-mask
+  Melbert:
+  - bugfix: Moving "down" as an observer is no longer janky.
+  - bugfix: All bibles are no longer suspiciously hollow
+  - bugfix: Extremely Minor Delta Morgue Fixes. See if you can spot them.
+  SpaceLove:
+  - bugfix: Central Command Logistics department noticed the missing items on their
+      listings for robotics assembly crate. They have updated it!
+  Wallem:
+  - bugfix: The cursed coupon now only triggers a cursed event once, rather than infinite
+      times.
+2024-03-07:
+  Melbert:
+  - rscadd: The animation that plays when an alert pops up on your screen is different.
+  NovaBot13:
+  - bugfix: Prevents polymorphing deleting items by consuming them when transformed
+      then leaving the polymorph
+  - balance: personal flashes now Knockdown rather than Paralyze direct targets.
+  - bugfix: Basic mobs no longer have the (unintended) ability to shoot out of containers,
+      like bluespace body bags.
+  Seven:
+  - rscadd: Lockers and crates now shake when someone is attempting to resist out
+      of them.
