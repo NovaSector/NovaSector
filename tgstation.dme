@@ -7131,6 +7131,8 @@
 #include "modular_nova\modules\customization\modules\mob\living\living.dm"
 #include "modular_nova\modules\customization\modules\mob\living\living_defines.dm"
 #include "modular_nova\modules\customization\modules\mob\living\living_verbs.dm"
+#include "modular_nova\modules\customization\modules\mob\living\basic\pets\pet_holder.dm"
+#include "modular_nova\modules\customization\modules\mob\living\basic\pets\pets_mothroach.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\damage_procs.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\custom_bodytype.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\human.dm"
