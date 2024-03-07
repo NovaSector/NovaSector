@@ -19,8 +19,6 @@
 	)
 	return ..()
 
-
-
 /// Large hypovials
 /datum/design/hypovial/large
 	name = "Large Hypovial"
@@ -52,8 +50,6 @@
 		"hypokit",
 	)
 	return ..()
-
-
 
 /// Hyposprays
 /datum/design/hypokit/deluxe
@@ -91,7 +87,7 @@
 
 
 
-/// For reasons unknown, pens are included as an autolathe deisgn here, in the hypospray module of all places.
+/// For reasons unknown, pens are included as an autolathe design here, in the hypospray module of all places.
 /// I'm not touching this unless a maint asks me to because it feels weird and haunted, like the picture of a potato that bricks Source if you remove it.
 /datum/design/pen
 	name = "Pen"

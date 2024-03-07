@@ -20,7 +20,7 @@
 
 	// A special object used to hold a hypospray without it going anywhere near our atom_storage.
 	var/obj/effect/abstract/hypoholder
-	// Tracks if a hypospray is attached to the case or not.
+	/// Tracks if a hypospray is attached to the case or not.
 	var/obj/item/hypospray/mkii/attached_hypo
 
 //Code to give hypospray kits selectable paterns.
@@ -28,7 +28,7 @@
 	. = ..()
 	. += span_notice("Ctrl-Shift-Click to reskin this")
 	if(attached_hypo)
-		. += span_notice("[attached_hypo] is mounted on the bottom.  Right-click to take it off.")
+		. += span_notice("[attached_hypo] is mounted on the bottom. Right-click to take it off.")
 	else
 		. += span_notice("Right-click with a hypospray to mount it.")
 
@@ -87,6 +87,7 @@
 		else
 			if(user.transferItemToLoc(weapon, hypoholder))
 				attached_hypo = weapon
+				RegisterSignal(weapon, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel)
 				balloon_alert(user, "Attached [attached_hypo].")
 				update_appearance()
 				// This stops atom_storage from hogging your right-click and opening the inventory.
@@ -97,6 +98,7 @@
 	if(attached_hypo != null)
 		if(user.put_in_hands(attached_hypo))
 			balloon_alert(user, "Removed [attached_hypo].")
+			UnregisterSignal(attached_hypo, COMSIG_QDELETING)
 			attached_hypo = null
 			update_appearance()
 			// Ditto here.
@@ -142,7 +144,6 @@
 /obj/item/storage/hypospraykit/empty
 	empty = TRUE
 
-
 /// Deluxe hypokit: more storage, but you can't pocket it.
 /obj/item/storage/hypospraykit/cmo
 	name = "deluxe hypospray kit"
@@ -181,8 +182,6 @@
 	new /obj/item/reagent_containers/cup/vial/large/salglu(src)
 	new /obj/item/reagent_containers/cup/vial/large/synthflesh(src)
 
-
-
 /// Combat hypokit
 /obj/item/storage/hypospraykit/cmo/combat
 	name = "combat hypospray kit"
@@ -201,8 +200,6 @@
 	new /obj/item/reagent_containers/cup/vial/large/advcrit(src)
 	new /obj/item/reagent_containers/cup/vial/large/advomni(src)
 	new /obj/item/reagent_containers/cup/vial/large/numbing(src)
-
-
 
 /// Boxes of empty hypovials, coming in every style.
 /obj/item/storage/box/vials

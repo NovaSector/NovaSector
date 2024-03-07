@@ -38,15 +38,15 @@
 	possible_transfer_amounts = list(1,2,5,10,15,25,50)
 
 	unique_reskin = list(
-						"Sterile" = "hypovial",
-						"Generic" = "hypovial-generic",
-						"Brute" = "hypovial-brute",
-						"Burn" = "hypovial-burn",
-						"Toxin" = "hypovial-tox",
-						"Oxyloss" = "hypovial-oxy",
-						"Crit" = "hypovial-crit",
-						"Buff" = "hypovial-buff",
-						)
+		"Sterile" = "hypovial",
+		"Generic" = "hypovial-generic",
+		"Brute" = "hypovial-brute",
+		"Burn" = "hypovial-burn",
+		"Toxin" = "hypovial-tox",
+		"Oxyloss" = "hypovial-oxy",
+		"Crit" = "hypovial-crit",
+		"Buff" = "hypovial-buff",
+	)
 
 /obj/item/reagent_containers/cup/vial/small/style
 	icon_state = "hypovial"
