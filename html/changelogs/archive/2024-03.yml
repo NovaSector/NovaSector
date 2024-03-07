@@ -143,3 +143,15 @@
   Wallem:
   - bugfix: The cursed coupon now only triggers a cursed event once, rather than infinite
       times.
+2024-03-07:
+  Melbert:
+  - rscadd: The animation that plays when an alert pops up on your screen is different.
+  NovaBot13:
+  - bugfix: Prevents polymorphing deleting items by consuming them when transformed
+      then leaving the polymorph
+  - balance: personal flashes now Knockdown rather than Paralyze direct targets.
+  - bugfix: Basic mobs no longer have the (unintended) ability to shoot out of containers,
+      like bluespace body bags.
+  Seven:
+  - rscadd: Lockers and crates now shake when someone is attempting to resist out
+      of them.
