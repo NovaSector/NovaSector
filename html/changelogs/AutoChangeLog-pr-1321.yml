@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - rscdel: "Due to a backend update, using discord for hosting headshots no longer works. Please use Gyazo or files.byondhome.com instead."
