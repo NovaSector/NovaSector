@@ -49,6 +49,7 @@
 	if(QDELETED(drop_loc) || drop_loc == null)
 		drop_loc = get_turf(src)
 	if(QDELETED(drop_loc) || drop_loc == null)
+		QDEL_NULL(attached_hypo)
 		return ..()
 	// so long as it found a place to drop, run through and try to drop any indestructible items we contain
 	for(var/obj/item in contents)
@@ -113,8 +114,9 @@
 	return ..()
 
 /obj/item/storage/hypospraykit/proc/on_attached_hypo_qdel()
-	attached_hypo = null
-	update_appearance()
+	if(attached_hypo)
+		attached_hypo = null
+		update_appearance()
 
 /obj/item/storage/hypospraykit/update_icon_state()
 	. = ..()
