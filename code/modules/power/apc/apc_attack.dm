@@ -245,7 +245,7 @@
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "transfering power"), alert_timer_duration)
 	// NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024
 	ethereal.visible_message(span_notice("[ethereal] presses [ethereal.p_their()] fingers into [src]'s screen, [ethereal.p_their()] arm alight with static as [ethereal.p_they()] charge it!"))
-	to_chat(ethereal, span_purple("You shunt some of your energy into [src]]."))
+	to_chat(ethereal, span_purple("You shunt some of your energy into [src]."))
 	// NOVA EDIT ADDITION END - Ethereal Rework 2024
 	if(!do_after(user, APC_DRAIN_TIME, target = src))
 		return
