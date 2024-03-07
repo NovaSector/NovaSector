@@ -474,6 +474,12 @@
 	if(!message)
 		return FALSE
 
+	// Nova addition, if "subtle" it wont be sent to ghostchats.
+	// A message is "subtle" if it begins with "#", the below code also removes it from the sent message.
+	var/subtle = FALSE
+	if(findtext(message,"#") == 1)
+		subtle = TRUE
+		message = copytext(message,2,0)
 
 	// upgrade the image asset to a permanent key
 	var/photo_asset_key = selected_image
@@ -535,15 +541,14 @@
 		target_chats += target_chat
 		target_messengers += target_messenger
 
-	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
+	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone, FALSE, null, null, subtle)) // Nova edit ", null, null, subtle"
 		return FALSE
 
 	// Log it in our logs
-	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
+	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle) // Nova edit, "subtle"
 	for(var/datum/pda_chat/target_chat as anything in target_chats)
 		target_chat.add_message(message_datum, show_in_recents = !everyone)
 		target_chat.unread_messages = 0
-
 	// send new pictures to everyone
 	if(!isnull(photo_asset_key))
 		update_pictures_for_all()
@@ -563,9 +568,9 @@
 
 	var/fake_photo = attach_fake_photo ? ">:3c" : null
 
-	return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job)
+	return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job, FALSE)
 
-/datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
+/datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null, subtle = FALSE) // Nova Edit, "subtle = FALSE"
 	var/mob/sender
 	if(ismob(source))
 		sender = source
@@ -601,6 +606,7 @@
 		"everyone" = everyone,
 		"photo" = photo_path,
 		"automated" = FALSE,
+		"subtle" = subtle, // Nova Addition
 	))
 	if(rigged) //Will skip the message server and go straight to the hub so it can't be cheesed by disabling the message server machine
 		signal.data["fakename"] = fake_name
@@ -637,10 +643,11 @@
 	// Show it to ghosts
 	var/ghost_message = span_game_say("[span_name("[source]")] [rigged ? "(as [span_name(fake_name)]) Rigged " : ""]PDA Message --> [span_name("[signal.format_target()]")]: \"[signal.format_message()]\"")
 	var/list/message_listeners = GLOB.dead_player_list + GLOB.current_observers_list
-	for(var/mob/listener as anything in message_listeners)
-		if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
-			continue
-		to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	if(!subtle) // Nova addition, makes message not appear to ghostchat if it starts with #.
+		for(var/mob/listener as anything in message_listeners)
+			if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
+				continue
+			to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
 
 	if(sender)
 		to_chat(sender, span_info("PDA message sent to [signal.format_target()]: \"[message]\""))
@@ -655,6 +662,7 @@
 	selected_image = null
 	return TRUE
 
+// When a message is recieved
 /datum/computer_file/program/messenger/proc/receive_message(datum/signal/subspace/messaging/tablet_message/signal)
 	var/datum/pda_chat/chat = null
 
@@ -669,7 +677,7 @@
 
 	// don't create a new chat for rigged messages, make it a one off notif
 	if(!is_rigged)
-		var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"])
+		var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"], signal.data["subtle"]) // Nova edit, "signal.data["subtle"]"
 
 		chat = find_chat_by_recipient(is_fake_user ? fake_name : sender_ref, is_fake_user)
 		if(!istype(chat))

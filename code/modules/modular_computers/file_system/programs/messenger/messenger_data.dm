@@ -133,13 +133,16 @@ GLOBAL_LIST_EMPTY_TYPED(pda_messengers, /datum/computer_file/program/messenger)
 	var/everyone
 	/// The station time at which this message was made.
 	var/timestamp
+	/// Whether or not the message is hidden from ghostchat, for when you text about embarressing stuff; Nova addition
+	var/subtle
 
-/datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE)
+/datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE, subtle)
 	src.message = message
 	src.outgoing = outgoing
 	src.timestamp = timestamp
 	src.photo_name = photo_name
 	src.everyone = everyone
+	src.subtle = subtle // Nova addition
 
 /// Returns an associative list of the message's data, used for ui_data calls.
 /datum/pda_message/proc/get_ui_data(mob/user)
@@ -149,4 +152,5 @@ GLOBAL_LIST_EMPTY_TYPED(pda_messengers, /datum/computer_file/program/messenger)
 	data["photo_path"] = photo_name ? SSassets.transport.get_asset_url(photo_name) : null
 	data["everyone"] = everyone
 	data["timestamp"] = timestamp
+	data["subtle"] = subtle // Nova addition
 	return data

@@ -197,6 +197,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
             everyone={message.everyone}
             photoPath={message.photo_path}
             timestamp={message.timestamp}
+            subtle={message.subtle} // Nova addition
             onPreviewImage={
               message.photo_path
                 ? () => this.setState({ previewingImage: message.photo_path! })
@@ -396,10 +397,11 @@ type ChatMessageProps = {
   timestamp: string;
   photoPath?: string;
   onPreviewImage?: () => void;
+  subtle: BooleanLike; // Nova addition
 };
 
 const ChatMessage = (props: ChatMessageProps) => {
-  const { message, everyone, outgoing, photoPath, timestamp, onPreviewImage } =
+  const { message, everyone, outgoing, photoPath, timestamp, onPreviewImage, subtle } =
     props;
 
   const displayMessage = decodeHtmlEntities(message);
@@ -415,6 +417,15 @@ const ChatMessage = (props: ChatMessageProps) => {
             size={0.8}
           />
         </Tooltip>
+        {subtle ? ( // Nova addition. Indicates a message was sent subtly
+          <Tooltip content={"This message is subtle; as the sender wants this message to be private. start your reply with '#' to respond in subtle"} position={outgoing ? 'left' : 'right'}>
+            <Icon //Someone, anyone who knows how icons work PLEASE put a better icon here. Could not figure it out  when I coded subtle messages -LordVoidron
+              className="tg-sound-minus"
+              name="tg-sound-minus"
+              size={0.8}
+            />
+          </Tooltip>
+        ) : null}
       </Box>
       {!!everyone && (
         <Box className="NtosChatMessage__everyone">Sent to everyone</Box>
