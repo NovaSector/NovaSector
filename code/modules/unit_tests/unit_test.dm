@@ -334,6 +334,7 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	// These two are locked to one type only, and shouldn't be widely available, hence why they runtime otherwise.
 	// Can't be bothered adding more to them.
 	returnable_list += list(/obj/item/organ/external/neck_accessory, /obj/item/organ/external/head_accessory)
+	returnable_list += typesof(/obj/effect/mine/explosive)
 	//NOVA EDIT ADDITION END
 
 	return returnable_list
