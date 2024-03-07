@@ -44,20 +44,24 @@
 
 
 /obj/item/storage/hypospraykit/Destroy()
+	// a large block to stop the CI Gods smiting us & taking extra steps to try and force the CMO hypo to drop smartly
+	var/atom/drop_loc = drop_location(src)
+	if(QDELETED(drop_loc) || drop_loc == null)
+		drop_loc = get_turf(src)
+	if(QDELETED(drop_loc) || drop_loc == null)
+		return ..()
+	// so long as it found a place to drop, run through and try to drop any indestructible items we contain
 	for(var/obj/item in contents)
 		if(item.resistance_flags & INDESTRUCTIBLE)
-			atom_storage.remove_single(null, item, drop_location(src), TRUE)
+			atom_storage.remove_single(null, item, drop_loc, TRUE)
+	// this also includes attached hypos - if indestructible, shunt it out, otherwise qdel it, and in all cases make sure we drop the ref & unregister the signal
 	if(attached_hypo)
 		if(attached_hypo.resistance_flags & INDESTRUCTIBLE)
-			var/atom/drop_loc = drop_location()
-			if(!QDELETED(drop_loc))
-				attached_hypo.forceMove(drop_loc)
-			else
-				qdel(attached_hypo)
-			UnregisterSignal(attached_hypo, COMSIG_QDELETING)
-			attached_hypo = null // clear the ref, it's been moved out safely.
-		if(attached_hypo)
-			QDEL_NULL(attached_hypo) // otherwise, for non indestructible hypos--make sure we delete it too, since it's not in contents, and clear its ref
+			attached_hypo.forceMove(drop_loc)
+		else
+			QDEL_NULL(attached_hypo)
+		attached_hypo = null
+		UnregisterSignal(attached_hypo, COMSIG_QDELETING)
 	return ..()
 
 
