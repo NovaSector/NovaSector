@@ -62,7 +62,7 @@
 		poll_time = 5 SECONDS,
 		target_mob = magnification,
 		ignore_category = POLL_IGNORE_MONKEY_HELMET,
-		pic_source = magnification,
+		alert_pic = magnification,
 		role_name_text = "mind magnified [magnification.real_name]",
 	)
 	polling = FALSE
