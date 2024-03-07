@@ -60,7 +60,6 @@
 	liked_foodtypes = MEAT
 	disliked_foodtypes = GROSS | GRAIN
 
-
 /datum/species/teshari/random_name(gender, unique, lastname)
 	if(unique)
 		return random_unique_teshari_name()
