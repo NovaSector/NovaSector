@@ -1,0 +1,5 @@
+author: "Thlumyn for the incredible sprites, GoldenAlpharex for the code"
+delete-after: True
+changes:
+  - image: "Added an alternative, more primitive-looking plant bag reskin, with a linen aesthetic! Credits to Thlumyn for the amazing new sprites!"
+  - qol: "Icewalkers will now automatically get the primitive reskin of the plant bags when they craft plant bags."
