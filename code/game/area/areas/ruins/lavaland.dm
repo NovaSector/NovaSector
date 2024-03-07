@@ -102,8 +102,3 @@
 	outdoors = TRUE
 	ambient_buzz = 'sound/ambience/magma.ogg'
 
-//NOVA EDIT ADDITION
-//The prefab colonist homestead. Dependent on the colony_fabricator module.
-/area/ruin/colonist_homestead
-	name = "Colonist Homestead"
-//NOVA EDIT ADDITION END
