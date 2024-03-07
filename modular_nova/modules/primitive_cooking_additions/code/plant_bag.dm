@@ -53,7 +53,7 @@
 	if(!istype(created, /obj/item/storage/bag/plants))
 		return
 
-	if(!isprimitivedemihuman(builder))
+	if(!isprimitivedemihuman(builder) && !isashwalker(builder))
 		return
 
 	var/obj/item/storage/bag/plants/bag = created
