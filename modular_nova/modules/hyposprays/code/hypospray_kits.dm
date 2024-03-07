@@ -18,8 +18,6 @@
 	var/static/list/case_designs_xl
 	var/is_xl = FALSE
 
-	// A special object used to hold a hypospray without it going anywhere near our atom_storage.
-	var/obj/effect/abstract/hypoholder
 	/// Tracks if a hypospray is attached to the case or not.
 	var/obj/item/hypospray/mkii/attached_hypo
 
@@ -34,7 +32,6 @@
 
 /obj/item/storage/hypospraykit/Initialize(mapload)
 	. = ..()
-	hypoholder = new()
 	if(!length(case_designs))
 		populate_case_designs()
 	atom_storage.max_slots = 7
@@ -47,17 +44,19 @@
 
 
 /obj/item/storage/hypospraykit/Destroy()
-	if(!QDELING(loc))
-		return ..()
 	for(var/obj/item in contents)
 		if(item.resistance_flags & INDESTRUCTIBLE)
-			item.forceMove(get_turf(src)) //just in case
-			atom_storage.remove_single(null, item, get_turf(src), TRUE)
+			atom_storage.remove_single(null, item, drop_location(src), TRUE)
 	if(attached_hypo)
 		if(attached_hypo.resistance_flags & INDESTRUCTIBLE)
-			attached_hypo.forceMove(get_turf(src))
-			atom_storage.remove_single(null, attached_hypo, get_turf(src), TRUE)
-	. = ..()
+			var/atom/drop_loc = drop_location()
+			if(drop_loc)
+				attached_hypo.forceMove(drop_loc)
+			else
+				qdel(attached_hypo)
+			UnregisterSignal(attached_hypo, COMSIG_QDELETING)
+			attached_hypo = null
+	return ..()
 
 
 /obj/item/storage/hypospraykit/proc/populate_case_designs()
@@ -85,13 +84,13 @@
 		if(attached_hypo != null)
 			balloon_alert(user, "Mount point full!  Remove [attached_hypo] first!")
 		else
-			if(user.transferItemToLoc(weapon, hypoholder))
-				attached_hypo = weapon
-				RegisterSignal(weapon, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel)
-				balloon_alert(user, "Attached [attached_hypo].")
-				update_appearance()
-				// This stops atom_storage from hogging your right-click and opening the inventory.
-				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			weapon.moveToNullspace()
+			attached_hypo = weapon
+			RegisterSignal(weapon, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel))
+			balloon_alert(user, "Attached [attached_hypo].")
+			update_appearance()
+			// This stops atom_storage from hogging your right-click and opening the inventory.
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
 /obj/item/storage/hypospraykit/attack_hand_secondary(mob/user, list/modifiers)
@@ -106,6 +105,10 @@
 		else
 			balloon_alert(user, "Couldn't pull the hypo!")
 	return ..()
+
+/obj/item/storage/hypospraykit/proc/on_attached_hypo_qdel()
+	attached_hypo = null
+	update_appearance()
 
 /obj/item/storage/hypospraykit/update_icon_state()
 	. = ..()

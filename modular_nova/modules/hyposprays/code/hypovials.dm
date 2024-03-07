@@ -78,15 +78,15 @@
 	type_suffix = "-l"
 
 	unique_reskin = list(
-						"Sterile" = "hypoviallarge",
-						"Generic" = "hypoviallarge-generic",
-						"Brute" = "hypoviallarge-brute",
-						"Burn" = "hypoviallarge-burn",
-						"Toxin" = "hypoviallarge-tox",
-						"Oxyloss" = "hypoviallarge-oxy",
-						"Crit" = "hypoviallarge-crit",
-						"Buff" = "hypoviallarge-buff",
-						)
+		"Sterile" = "hypoviallarge",
+		"Generic" = "hypoviallarge-generic",
+		"Brute" = "hypoviallarge-brute",
+		"Burn" = "hypoviallarge-burn",
+		"Toxin" = "hypoviallarge-tox",
+		"Oxyloss" = "hypoviallarge-oxy",
+		"Crit" = "hypoviallarge-crit",
+		"Buff" = "hypoviallarge-buff",
+	)
 
 /obj/item/reagent_containers/cup/vial/large/style/
 	icon_state = "hypoviallarge"
