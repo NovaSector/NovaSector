@@ -1,0 +1,7 @@
+author: "CliffracerX"
+delete-after: True
+changes:
+  - rscadd: "added central's donator item"
+  - qol: "you can pick your pet's gender now"
+  - code_imp: "support for donator pets as inhand loadout items"
+  - code_imp: "Pet Owner pets actually consider you a friend now"
