@@ -225,7 +225,7 @@
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "draining power"), alert_timer_duration)
 		//NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
 		ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, static jumping up [ethereal.p_their()] arm as they drain it!"))
-		to_chat(ethereal, span_purple("You drain some of [src]'s energy into yourself!"))
+		to_chat(ethereal, span_purple("You try to drain some of [src]'s energy into yourself..."))
 		//NOVA EDIT CHANGE END - Ethereal Rework 2024
 		while(do_after(user, APC_DRAIN_TIME, target = src))
 			if(cell.charge <= (cell.maxcharge / 2) || (stomach.crystal_charge > charge_limit))
