@@ -92,10 +92,6 @@
 	var/mutable_appearance/vial_overlay = mutable_appearance(icon, vial.icon_state)
 	. += vial_overlay
 
-// Probably no longer needed now we've moved to overlays.
-/*/obj/item/hypospray/mkii/update_icon_state()
-	. = ..()*/
-
 /obj/item/hypospray/mkii/examine(mob/user)
 	. = ..()
 	if(vial)

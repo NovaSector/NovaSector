@@ -91,30 +91,6 @@
 
 
 
-/// CMO-tier hyposprays: these are added in alien surgery so they're not COMPLETELY irreplacable.  Open to removing it.
-/datum/design/hypomkii/deluxe
-	name = "Deluxe MkII Hypospray"
-	id = "hypomkii_deluxe"
-	materials = list(
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 7,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/diamond = SHEET_MATERIAL_AMOUNT * 1,
-	)
-	build_path = /obj/item/hypospray/mkii/cmo
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ADVANCED,
-	)
-
-/datum/techweb_node/alien_surgery/New()
-	design_ids += list(
-		"hypomkii_deluxe",
-	)
-	return ..()
-
-
-
 /// For reasons unknown, pens are included as an autolathe deisgn here, in the hypospray module of all places.
 /// I'm not touching this unless a maint asks me to because it feels weird and haunted, like the picture of a potato that bricks Source if you remove it.
 /datum/design/pen
