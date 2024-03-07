@@ -543,6 +543,7 @@
 		target_chats += target_chat
 		target_messengers += target_messenger
 
+	
 	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone, FALSE, null, null, subtle)) // NOVA EDIT CHANGE - ORIGINAL: if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
 		return FALSE
 
