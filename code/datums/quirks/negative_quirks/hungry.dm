@@ -3,12 +3,12 @@
 /datum/quirk/hungry
 	name = "Hungry"
 	desc = "You have an accelerated metabolism. In other words, your stomach is bottomless. In any way, you need to eat much more than others."
-	value = 0
+	value = -2
 	icon = FA_ICON_BOWL_FOOD
-	gain_text = span_notice("You feel like your stomach is bottomless")
-	lose_text = span_notice("You no longer feel like your stomach is bottomless")
-	medical_record_text = "Patient exhibits a significantly faster metabolism"
-	quirk_flags = QUIRK_HUMAN_ONLY
+	mob_trait = TRAIT_HUNGRY
+	gain_text = span_notice("You feel like your stomach is bottomless.")
+	lose_text = span_notice("You no longer feel like your stomach is bottomless.")
+	medical_record_text = "Patient exhibits a significantly faster metabolism."
 	mail_goodies = list(/obj/item/food/chips)
 
 /datum/quirk/hungry/add(client/client_source)
