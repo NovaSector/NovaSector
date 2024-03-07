@@ -34,6 +34,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/proc/get_default_mutant_bodyparts()
 	return list()
 
+/// Whether or not a species allows gender shaped clothing (jumpsuits for example)
+/datum/species/proc/allows_gender_shaping()
+	return TRUE
+
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/owner, forced_colour, force_update = FALSE)
 	return
 
