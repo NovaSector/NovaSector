@@ -419,7 +419,7 @@ const ChatMessage = (props: ChatMessageProps) => {
         </Tooltip>
         {subtle ? ( // Nova addition. Indicates a message was sent subtly
           <Tooltip content={"This message is subtle; as the sender wants this message to be private. start your reply with '#' to respond in subtle"} position={outgoing ? 'left' : 'right'}>
-            <Icon //Someone, anyone who knows how icons work PLEASE put a better icon here. Could not figure it out  when I coded subtle messages -LordVoidron
+            <Icon // Someone, anyone who knows how icons work PLEASE put a better icon here. Could not figure it out  when I coded subtle messages -LordVoidron
               className="tg-sound-minus"
               name="tg-sound-minus"
               size={0.8}
