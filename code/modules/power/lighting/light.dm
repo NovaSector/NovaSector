@@ -591,7 +591,7 @@
 			if(stomach.drain_time > world.time)
 				return
 			user.visible_message(span_notice("[user] clamps their hand around the [fitting], electricity jumping around inside!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINALl: to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
-			to_chat(user, span_purple("You receive some charge from the [fitting].")) // NOVA EDIT ADDITION - Ethereal Rework 2024
+			to_chat(user, span_purple("You try to receive some charge from the [fitting]...")) // NOVA EDIT ADDITION - Ethereal Rework 2024
 			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
