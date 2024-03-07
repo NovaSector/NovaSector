@@ -50,7 +50,7 @@
 	if(attached_hypo)
 		if(attached_hypo.resistance_flags & INDESTRUCTIBLE)
 			var/atom/drop_loc = drop_location()
-			if(drop_loc)
+			if(!QDELETED(drop_loc))
 				attached_hypo.forceMove(drop_loc)
 			else
 				qdel(attached_hypo)

@@ -107,8 +107,6 @@
 /obj/item/reagent_containers/cup/vial/large/style/buff
 	icon_state = "hypoviallarge-buff"
 
-
-
 //Hypos that are in the CMO's kit round start
 /obj/item/reagent_containers/cup/vial/large/deluxe
 	name = "deluxe hypovial"
@@ -129,8 +127,6 @@
 	name = "large black hypovial (multiver)"
 	icon_state = "hypoviallarge-tox"
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 50)
-
-
 
 //Some bespoke helper types for preloaded combat medkits.
 /obj/item/reagent_containers/cup/vial/large/advbrute
