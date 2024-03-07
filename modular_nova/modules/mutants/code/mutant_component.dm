@@ -156,9 +156,9 @@
 
 /datum/component/mutant_infection/proc/regenerate()
 	if(!host.mind)
-		var/list/candidates = SSpolling.poll_ghost_candidates_for_mob("Do you want to play as a mutant([host.name])?",
-		target_mob = host,
-		pic_source = host,
+		var/list/candidates = SSpolling.poll_ghosts_for_target("Do you want to play as a mutant([host.name])?",
+		checked_target = host,
+		alert_pic = host,
 		role_name_text = "mutant [host.name]",
 		)
 		if(!candidates.len)

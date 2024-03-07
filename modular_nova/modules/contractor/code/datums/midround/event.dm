@@ -15,7 +15,7 @@
 	var/list/candidates = SSpolling.poll_ghost_candidates(
 		check_jobban = ROLE_DRIFTING_CONTRACTOR,
 		role = ROLE_DRIFTING_CONTRACTOR,
-		pic_source = /obj/item/melee/baton/telescopic/contractor_baton,
+		alert_pic = /obj/item/melee/baton/telescopic/contractor_baton,
 		role_name_text = "drifting contractor",
 	)
 	if(!length(candidates))
