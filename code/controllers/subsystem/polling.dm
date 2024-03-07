@@ -253,30 +253,6 @@ SUBSYSTEM_DEF(polling)
 			checked_targets -= potential_target
 	if(!length(checked_targets))
 		return list()
-<<<<<<< HEAD
-
-	currently_polling_mobs += target_mob
-
-	var/list/possible_candidates = poll_ghost_candidates(question, role, check_jobban, poll_time, ignore_category, flashwindow, pic_source, role_name_text)
-
-	currently_polling_mobs -= target_mob
-	if(!target_mob || QDELETED(target_mob) || !target_mob.loc)
-		return list()
-
-	return possible_candidates
-
-/datum/controller/subsystem/polling/proc/poll_ghost_candidates_for_mobs(question, role, check_jobban, poll_time = 30 SECONDS, list/mobs, ignore_category = null, pic_source, role_name_text)
-	var/list/candidate_list = poll_ghost_candidates(question, role, check_jobban, poll_time, ignore_category, pic_source, role_name_text)
-
-	for(var/mob/potential_mob as anything in mobs)
-		if(QDELETED(potential_mob) || !potential_mob.loc)
-			mobs -= potential_mob
-
-	if(!length(mobs))
-		return list()
-
-=======
->>>>>>> 357799c8a5e (Removes Orbit Polling Component, SSpolling improvement (#81748))
 	return candidate_list
 
 /datum/controller/subsystem/polling/proc/is_eligible(mob/potential_candidate, role, check_jobban, the_ignore_category)
