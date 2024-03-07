@@ -120,10 +120,10 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 	name = "Folded Azulea Flag"
 	item_path = /obj/item/sign/flag/azulea
 
-/datum/loadout_item/inhand/flag_taroon
-	name = "Folded Taroonian Flag"
-	item_path = /obj/item/sign/flag/taroon
-
 /datum/loadout_item/inhand/pet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
 	var/obj/item/clothing/head/mob_holder/pet/equipped_pet = locate(item_path) in equipper.get_all_gear()
 	equipped_pet.held_mob.befriend(equipper)
+
+/datum/loadout_item/inhand/flag_taroon
+	name = "Folded Taroonian Flag"
+	item_path = /obj/item/sign/flag/taroon
