@@ -77,6 +77,18 @@
 	name = "Impala (big)"
 	icon_state = "bigimpala"
 
+/datum/sprite_accessory/horns/big/paintedpoints
+	name = "Painted Points"
+	icon_state = "paintedpoints"
+
+/datum/sprite_accessory/horns/big/whoshorns
+	name = "Who's Horns"
+	icon_state = "whoshorns"
+
+/datum/sprite_accessory/horns/big/highrisehorns
+	name = "High-rise Horns"
+	icon_state = "highrisehorns"
+
 /datum/sprite_accessory/horns/broken
 	name = "Broken"
 	icon_state = "broken"
@@ -108,3 +120,19 @@
 /datum/sprite_accessory/horns/sideswept
 	name = "Side swept back"
 	icon_state = "sideswept"
+
+/datum/sprite_accessory/horns/crippledbull
+	name = "Crippled Bull"
+	icon_state = "crippledbull"
+
+/datum/sprite_accessory/horns/ticketrack
+	name = "Ticket Rack"
+	icon_state = "ticketrack"
+
+/datum/sprite_accessory/horns/hopefulhorns
+	name = "Hopeful Horns"
+	icon_state = "hopefulhorns"
+
+/datum/sprite_accessory/horns/broadcurls
+	name = "Broad Curls"
+	icon_state = "broadcurls"

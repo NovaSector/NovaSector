@@ -134,7 +134,6 @@
 	stop_pulling()
 
 	cut_overlay(GLOB.combat_indicator_overlay) //NOVA EDIT ADDITION - COMBAT_INDICATOR
-	set_combat_indicator(FALSE) //NOVA EDIT ADDITION - COMBAT_INDICATOR
 	set_ssd_indicator(FALSE) //NOVA EDIT ADDITION - SSD_INDICATOR
 
 	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)

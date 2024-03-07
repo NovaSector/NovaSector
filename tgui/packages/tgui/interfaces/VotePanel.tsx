@@ -35,6 +35,7 @@ type ActiveVote = {
   vote: Vote;
   question: string | null;
   timeRemaining: number;
+  displayStatistics: boolean;
   choices: Option[];
   countMethod: number;
 };
@@ -209,11 +210,10 @@ const ChoicesPanel = (props) => {
                         name="vote-yea"
                       />
                     )}
-                  {
-                    user.isLowerAdmin
-                      ? `${choice.votes} Votes`
-                      : '' /* NOVA EDIT*/
-                  }
+                  {currentVote.displayStatistics ||
+                  user.isLowerAdmin /* NOVA EDIT CHANGE - isLowerAdmin - ORIGINAL: {currentVote.displayStatistics */
+                    ? choice.votes + ' Votes'
+                    : null}
                 </LabeledList.Item>
                 <LabeledList.Divider />
               </Box>
