@@ -55,7 +55,9 @@
 			else
 				qdel(attached_hypo)
 			UnregisterSignal(attached_hypo, COMSIG_QDELETING)
-			attached_hypo = null
+			attached_hypo = null // clear the ref, it's been moved out safely.
+		if(attached_hypo)
+			QDEL_NULL(attached_hypo) // otherwise, for non indestructible hypos--make sure we delete it too, since it's not in contents, and clear its ref
 	return ..()
 
 
