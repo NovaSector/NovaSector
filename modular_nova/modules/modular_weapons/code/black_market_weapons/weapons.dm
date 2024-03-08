@@ -1,3 +1,15 @@
+// Evil Sol Shotgun
+
+/datum/market_item/weapon/evil_renoster
+	name = "Renoster Shotgun (Used)"
+	desc = "A twelve gauge shotgun with a six shell capacity underneath. Made for and used by SolFed's various military branches."
+	item = /obj/item/gun/ballistic/shotgun/riot/sol/evil
+
+	price_min = PAYCHECK_COMMAND * 5
+	price_max = PAYCHECK_COMMAND * 7
+	stock_max = 4
+	availability_prob = 65
+
 // Evil Sol Pistol Guns
 
 /datum/market_item/weapon/wespe_evil
