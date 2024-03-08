@@ -421,7 +421,7 @@ const ChatMessage = (props: ChatMessageProps) => {
         {subtle ? ( 
           <Tooltip content={"This message is subtle; as the sender wants this message to be private. Start your reply with '#' to respond in subtle"} position={outgoing ? 'left' : 'right'}>
             <Icon
-              className="tg-sound-minus"
+              className="NtosChatMessage__timestamp"
               name="tg-sound-minus"
               size={0.8}
             />
