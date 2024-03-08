@@ -2,12 +2,12 @@
 
 /datum/quirk/hungry
 	name = "Hungry"
-	desc = "You have an accelerated metabolism. In other words, your stomach is bottomless. In any way, you need to eat much more than others."
-	value = 0
+	desc = "You have an insatiable appetite. In other words, your stomach is bottomless. You will need to eat much more than others to stave off hunger."
+	value = -2
 	icon = FA_ICON_BOWL_FOOD
-	gain_text = span_notice("You feel like your stomach is bottomless")
-	lose_text = span_notice("You no longer feel like your stomach is bottomless")
-	medical_record_text = "Patient exhibits a significantly faster metabolism"
+	gain_text = span_notice("You feel like your stomach is bottomless.")
+	lose_text = span_notice("You no longer feel like your stomach is bottomless.")
+	medical_record_text = "Patient experiences hunger much more quickly than normal."
 	quirk_flags = QUIRK_HUMAN_ONLY
 	mail_goodies = list(/obj/item/food/chips)
 
