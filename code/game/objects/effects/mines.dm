@@ -31,10 +31,6 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/effect/mine/Destroy(force)
-	RemoveElement(/datum/element/connect_loc)
-	return ..()
-
 /obj/effect/mine/examine(mob/user)
 	. = ..()
 	if(!armed)
@@ -66,7 +62,7 @@
 
 /// Can this mine trigger on the passed movable?
 /obj/effect/mine/proc/can_trigger(atom/movable/on_who)
-	if(triggered || QDELETED(on_who) || !isturf(loc) || iseffect(on_who) || !armed)
+	if(triggered || !isturf(loc) || iseffect(on_who) || !armed)
 		return FALSE
 
 	var/mob/living/living_mob
@@ -107,13 +103,10 @@
 
 /obj/effect/mine/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
 	. = ..()
-	if(.)
-		triggermine()
+	triggermine()
 
 /// When something sets off a mine
 /obj/effect/mine/proc/triggermine(atom/movable/triggerer)
-	if(QDELETED(src))
-		return
 	if(triggered) //too busy detonating to detonate again
 		return
 	if(triggerer)
