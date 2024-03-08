@@ -1,11 +1,11 @@
-/client/verb/looc(msg as text)
+/client/verb/looc(msg as text|null)
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
 	set category = "OOC"
 
 	looc_message(msg)
 
-/client/verb/looc_wallpierce(msg as text)
+/client/verb/looc_wallpierce(msg as text|null)
 	set name = "LOOC (Wallpierce)"
 	set desc = "Local OOC, seen by anyone within 7 tiles of you."
 	set category = "OOC"
