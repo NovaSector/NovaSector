@@ -1,6 +1,6 @@
 // To make this system not a massive meta-pick for gamers, while still allowing plenty of room for unique combinations.
 #define MINIMUM_REQUIRED_TOXICS 1
-#define MINIMUM_REQUIRED_DISLIKES 3
+#define MINIMUM_REQUIRED_DISLIKES 2
 #define MAXIMUM_LIKES 3
 
 // Performance and RAM friendly menu. You can thank me later.
@@ -113,28 +113,12 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
-	var/liked_count = 0
+	var/counts = list(
+		"liked" = 0,
+		"disliked" = 0,
+		"toxic" = 0,
 
-	for(var/food_entry in preferences.food_preferences)
-		if(preferences.food_preferences[food_entry] == FOOD_PREFERENCE_LIKED)
-			if(!(food_entry in GLOB.obscure_food_types))
-				liked_count++
-
-	var/list/data = list(
-		"selection" = preferences.food_preferences,
-		"enabled" = preferences.food_preferences["enabled"],
-		"invalid" = is_food_invalid(preferences),
-		"race_disabled" = !species.allows_food_preferences(),
-		"liked_count" = liked_count,
 	)
-	qdel(species)
-	return data
-
-/// Checks the provided preferences datum to make sure the food pref values are valid. Does not check if the food preferences value is null.
-/datum/food_prefs_menu/proc/is_food_invalid(datum/preferences/preferences)
-	var/liked_food_length = 0
-	var/disliked_food_length = 0
-	var/toxic_food_length = 0
 
 	for(var/food_entry in GLOB.food_defaults)
 		var/list/food_default = GLOB.food_defaults[food_entry]
@@ -145,17 +129,35 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 		switch(food_preference)
 			if(FOOD_PREFERENCE_LIKED)
-				liked_food_length++
+				counts["liked"]++
 			if(FOOD_PREFERENCE_DISLIKED)
-				disliked_food_length++
+				counts["disliked"]++
 			if(FOOD_PREFERENCE_TOXIC)
-				toxic_food_length++
+				counts["toxic"]++
 
-	if(liked_food_length > MAXIMUM_LIKES)
+
+	var/list/data = list(
+		"selection" = preferences.food_preferences,
+		"enabled" = preferences.food_preferences["enabled"],
+		"invalid" = is_food_invalid(preferences, counts),
+		"race_disabled" = !species.allows_food_preferences(),
+		"limits" = list(
+			"max_liked" = MAXIMUM_LIKES,
+			"min_disliked" = MINIMUM_REQUIRED_DISLIKES,
+			"min_toxic" = MINIMUM_REQUIRED_TOXICS,
+		),
+		"counts" = counts,
+	)
+	qdel(species)
+	return data
+
+/// Checks the provided preferences datum to make sure the food pref values are valid. Does not check if the food preferences value is null.
+/datum/food_prefs_menu/proc/is_food_invalid(datum/preferences/preferences, counts)
+	if(counts["liked"] > MAXIMUM_LIKES)
 		return "too many liked choices"
-	if(disliked_food_length + toxic_food_length < MINIMUM_REQUIRED_DISLIKES)
+	if(counts["disliked"] < MINIMUM_REQUIRED_DISLIKES)
 		return "too few disliked choices"
-	if(toxic_food_length < MINIMUM_REQUIRED_TOXICS)
+	if(counts["toxic"] < MINIMUM_REQUIRED_TOXICS)
 		return "too few toxic choices"
 
 #undef MINIMUM_REQUIRED_TOXICS
