@@ -47,6 +47,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
     message: '',
     selectingPhoto: false,
     canSend: true,
+    subtleMode: false, // NOVA EDIT ADDITION
   };
 
   constructor(props: ChatScreenProps) {
