@@ -120,13 +120,14 @@ export const FoodPreferences = (props) => {
                       title={
                         <>
                           {foodName}
-                          {data.obscure_food_types[foodName] && (
+                          {data.obscure_food_types.includes(foodName) && (
                             <Tooltip content="This food doesn't count towards your maximum likes, and is free!">
                               <Box
                                 as="span"
                                 fontSize={0.75}
                                 verticalAlign={'top'}
                               >
+                                &nbsp;
                                 <Icon name="star" style={{ color: 'orange' }} />
                               </Box>
                             </Tooltip>
