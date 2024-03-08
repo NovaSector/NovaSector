@@ -46,9 +46,9 @@
 /obj/item/storage/hypospraykit/Destroy()
 	// a large block to stop the CI Gods smiting us & taking extra steps to try and force the CMO hypo to drop smartly
 	var/atom/drop_loc = drop_location(src)
-	if(QDELETED(drop_loc) || drop_loc == null)
+	if(QDELETED(drop_loc))
 		drop_loc = get_turf(src)
-	if(QDELETED(drop_loc) || drop_loc == null)
+	if(QDELETED(drop_loc))
 		QDEL_NULL(attached_hypo)
 		return ..()
 	// so long as it found a place to drop, run through and try to drop any indestructible items we contain
