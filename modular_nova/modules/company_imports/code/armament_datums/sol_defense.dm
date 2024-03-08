@@ -89,7 +89,7 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	cost = PAYCHECK_COMMAND * 4
+	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
 	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
@@ -122,21 +122,6 @@
 	cost = PAYCHECK_COMMAND * 10
 	contraband = TRUE
 
-/datum/armament_entry/company_import/sol_defense/longarm/infanterie
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
-	cost = PAYCHECK_COMMAND * 14
-	contraband = TRUE
-
-/datum/armament_entry/company_import/sol_defense/longarm/outomaties
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23
-	contraband = TRUE
-
-/datum/armament_entry/company_import/sol_defense/longarm/kiboko
-	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
-	cost = PAYCHECK_COMMAND * 46
-	contraband = TRUE
-
 /datum/armament_entry/company_import/sol_defense/magazines
 	subcategory = "Magazines"
 	cost = PAYCHECK_CREW
@@ -144,24 +129,8 @@
 /datum/armament_entry/company_import/sol_defense/magazines/c35_mag
 	item_type = /obj/item/ammo_box/magazine/c35sol_pistol/starts_empty
 
-/datum/armament_entry/company_import/sol_defense/magazines/c35_extended
-	item_type = /obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty
-
 /datum/armament_entry/company_import/sol_defense/magazines/c585_mag
 	item_type = /obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
-
-/datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
-	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_standard
-	item_type = /obj/item/ammo_box/magazine/c980_grenade/starts_empty
-	cost = PAYCHECK_COMMAND * 2
-
-/datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_drum
-	item_type = /obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty
-	cost = PAYCHECK_CREW * 3
-	contraband = TRUE

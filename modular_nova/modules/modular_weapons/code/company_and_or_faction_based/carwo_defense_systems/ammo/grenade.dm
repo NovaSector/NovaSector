@@ -234,14 +234,14 @@
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
 	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
-	smoke.chemholder.add_reagent(/datum/reagent/consumable/condensedcapsaicin, 10)
+	smoke.chemholder.add_reagent(/datum/reagent/consumable/condensedcapsaicin, 20)
 	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
 	smoke.start()
 
 
 /obj/item/ammo_box/c980grenade/riot
 	name = "ammo box (.980 Tydhouer tear gas)"
-	desc = "A box of four .980 Tydhouer tear gas grenades. Instructions on the box indicate these are smoke rounds that will make a small cloud of laser-dampening smoke on detonation."
+	desc = "A box of four .980 Tydhouer tear gas grenades. Instructions on the box indicate these are tear gas grenades that will detonate into a cloud of crowd-dispersing smoke on detonation."
 
 	icon_state = "980box_gas"
 

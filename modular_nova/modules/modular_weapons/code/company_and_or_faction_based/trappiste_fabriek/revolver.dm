@@ -15,6 +15,8 @@
 
 	can_suppress = TRUE
 
+	spread = 7.5
+
 /obj/item/gun/ballistic/revolver/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
 

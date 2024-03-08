@@ -19,6 +19,9 @@
 
 	fire_delay = 0.3 SECONDS
 
+	spread = 5
+	projectile_wound_bonus = -10
+
 /obj/item/gun/ballistic/automatic/pistol/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
 

@@ -64,6 +64,7 @@
 
 /obj/item/ammo_box/magazine/wylom
 	name = "anti-materiel magazine (.60 Strela)"
+	desc = "A massive magazine for .60 Strela caseless ammunition, holds three cartridges."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "wylom_mag"
 	base_icon_state = "wylom_mag"

@@ -11,10 +11,6 @@
 	item_type = /obj/item/circuitboard/machine/ammo_workbench
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk
-	item_type = /obj/item/disk/ammo_workbench/advanced
-	cost = PAYCHECK_COMMAND * 5
-
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/bullet_drive
 	item_type = /obj/item/circuitboard/machine/dish_drive/bullet
 	cost = PAYCHECK_COMMAND * 2
@@ -42,68 +38,32 @@
 	subcategory = "Ammunition Boxes"
 	cost = PAYCHECK_CREW
 
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_lethal
-	item_type = /obj/item/ammo_box/c9mm
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_hp
-	item_type = /obj/item/ammo_box/c9mm/hp
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_rubber
-	item_type = /obj/item/ammo_box/c9mm/rubber
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_lethal
-	item_type = /obj/item/ammo_box/c10mm
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_hp
-	item_type = /obj/item/ammo_box/c10mm/hp
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_rubber
-	item_type = /obj/item/ammo_box/c10mm/rubber
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_lethal
-	item_type = /obj/item/ammo_box/c310_cargo_box
-
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_rubber
 	item_type = /obj/item/ammo_box/c310_cargo_box/rubber
 
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_ap
-	item_type = /obj/item/ammo_box/c310_cargo_box/piercing
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/cesarzowa_lethal
-	item_type = /obj/item/ammo_box/c27_54cesarzowa
-
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/cesarzowa_rubber
 	item_type = /obj/item/ammo_box/c27_54cesarzowa/rubber
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol35
-	item_type = /obj/item/ammo_box/c35sol
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol35_disabler
 	item_type = /obj/item/ammo_box/c35sol/incapacitator
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol35_ripper
 	item_type = /obj/item/ammo_box/c35sol/ripper
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol40
-	item_type = /obj/item/ammo_box/c40sol
+	cost = PAYCHECK_CREW * 2
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol40_disabler
 	item_type = /obj/item/ammo_box/c40sol/fragmentation
 
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol40_flame
-	item_type = /obj/item/ammo_box/c40sol/incendiary
-
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/sol40_pierce
 	item_type = /obj/item/ammo_box/c40sol/pierce
-
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585
-	item_type = /obj/item/ammo_box/c585trappiste
+	cost = PAYCHECK_CREW * 2
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_disabler
 	item_type = /obj/item/ammo_box/c585trappiste/incapacitator
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_hollowpoint
 	item_type = /obj/item/ammo_box/c585trappiste/hollowpoint
+	cost = PAYCHECK_CREW * 2
 
 // Revolver speedloaders
 
@@ -158,26 +118,3 @@
 
 /datum/armament_entry/company_import/vitezstvi/shot_shells/confetti
 	item_type = /obj/item/ammo_box/advanced/s12gauge/honkshot
-
-// Boxes of kiboko launcher ammo
-
-/datum/armament_entry/company_import/vitezstvi/grenade_shells
-	subcategory = "Grenade Shells"
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/practice
-	item_type = /obj/item/ammo_box/c980grenade
-
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/smoke
-	item_type = /obj/item/ammo_box/c980grenade/smoke
-
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/riot
-	item_type = /obj/item/ammo_box/c980grenade/riot
-
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/shrapnel
-	item_type = /obj/item/ammo_box/c980grenade/shrapnel
-	contraband = TRUE
-
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
-	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
-	contraband = TRUE

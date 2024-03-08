@@ -32,7 +32,7 @@
 
 	generate_items_inside(list(
 		/obj/item/ammo_box/c35sol/incapacitator = 1,
-		/obj/item/ammo_box/c35sol = 1,
+		/obj/item/ammo_box/c35sol/ripper = 1,
 		/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty = 1,
 		/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty = 2,
 	), src)

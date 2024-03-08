@@ -137,3 +137,6 @@
 		tend to shatter when the rifle is actually fired."
 
 	return .
+
+/obj/item/gun/ballistic/automatic/wylom/no_mag
+	spawnwithmagazine = FALSE
