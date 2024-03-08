@@ -1,4 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - rscadd: "Wall-mounted torches can now be unmounted, and empty torch mounts can be crafted out of two iron rods, to then be placed on walls."
