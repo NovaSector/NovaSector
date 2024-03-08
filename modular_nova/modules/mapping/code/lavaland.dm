@@ -37,7 +37,7 @@
 	name = "Colonist Homestead"
 	id = "colonist_homestead"
 	description = "Some Tiziran bushcraft club members adopted the name of a historical figure for 'immersion.' They didn't realize how hard that would make things..."
-	prefix = "_maps/RandomRuins/LavaRuins/nova/
+	prefix = "_maps/RandomRuins/LavaRuins/nova/"
 	suffix = "lavaland_surface_prefab_homestead.dmm"
 	allow_duplicates = FALSE
 	cost = 5
