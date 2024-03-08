@@ -6,6 +6,7 @@
 	desc = "You have really much money. So much, that you ever take your credit card with you. Be sure you won't lose it."
 	gain_text = span_danger("You feel yourself rich!")
 	lose_text = span_notice("You suddenly feel yourself poor.")
+	medical_record_text = "Patient has a large amount of money."
 	icon = FA_ICON_COINS
 	value = 4
 
