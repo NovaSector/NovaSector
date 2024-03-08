@@ -2,19 +2,6 @@
 	category = VITEZSTVI_AMMO_NAME
 	company_bitflag = CARGO_COMPANY_VITEZSTVI_AMMO
 
-// Ammo bench and the lethals disk
-
-/datum/armament_entry/company_import/vitezstvi/ammo_bench
-	subcategory = "Ammunition Manufacturing Equipment"
-
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/bench_itself
-	item_type = /obj/item/circuitboard/machine/ammo_workbench
-	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/bullet_drive
-	item_type = /obj/item/circuitboard/machine/dish_drive/bullet
-	cost = PAYCHECK_COMMAND * 2
-
 // Weapon accessories
 
 /datum/armament_entry/company_import/vitezstvi/accessory

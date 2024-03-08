@@ -10,7 +10,7 @@
 	price_min = PAYCHECK_COMMAND * 4
 	price_max = PAYCHECK_COMMAND * 6
 	stock_max = 2
-	availability_prob = 80
+	availability_prob = 50
 
 // .310 Strip Clips
 
