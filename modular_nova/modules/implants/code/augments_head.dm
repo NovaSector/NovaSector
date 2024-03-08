@@ -25,14 +25,6 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/sensory_enhancer/bodypart_overlay
 
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
-	. = ..()
-	ADD_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
-
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
-	. = ..()
-	REMOVE_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
-
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
