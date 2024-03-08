@@ -543,7 +543,7 @@
 		target_chats += target_chat
 		target_messengers += target_messenger
 
-	
+
 	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone, FALSE, null, null, subtle)) // NOVA EDIT CHANGE - ORIGINAL: if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
 		return FALSE
 
@@ -552,6 +552,7 @@
 	for(var/datum/pda_chat/target_chat as anything in target_chats)
 		target_chat.add_message(message_datum, show_in_recents = !everyone)
 		target_chat.unread_messages = 0
+
 	// send new pictures to everyone
 	if(!isnull(photo_asset_key))
 		update_pictures_for_all()
@@ -646,13 +647,13 @@
 	// Show it to ghosts
 	var/ghost_message = span_game_say("[span_name("[source]")] [rigged ? "(as [span_name(fake_name)]) Rigged " : ""]PDA Message --> [span_name("[signal.format_target()]")]: \"[signal.format_message()]\"")
 	var/list/message_listeners = GLOB.dead_player_list + GLOB.current_observers_list
-	/** NOVA EDIT CHANGE BEGIN - ORIGINAL: 
+	/** NOVA EDIT CHANGE BEGIN - ORIGINAL:
 	//	for(var/mob/listener as anything in message_listeners)
 	//	if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
 	//		continue
 	//	to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
 	*/
-	if(!subtle) 
+	if(!subtle)
 		for(var/mob/listener as anything in message_listeners)
 			if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
 				continue
