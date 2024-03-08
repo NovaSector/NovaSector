@@ -100,7 +100,7 @@
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
 			msg += "causing you to start fidgeting!"
 		if(2)
-			quirk_holder.set_confusion(2 SECONDS) // NOVA EDIT CHANGE - ORIGINAL: quirk_holder.set_stutter_if_lower(6 SECONDS
+			quirk_holder.set_confusion(2 SECONDS) // NOVA EDIT CHANGE - ORIGINAL: quirk_holder.set_stutter_if_lower(6 SECONDS)
 			msg += "causing you to trip over your own feet!" // NOVA EDIT CHANGE - ORIGINAL: msg += "causing you to start stuttering!"
 		if(3)
 			quirk_holder.Stun(2 SECONDS)
