@@ -66,7 +66,7 @@
 				amount = credit
 			attacking_id.registered_account.adjust_money(amount, "Transfer from credit card")
 			credit -= amount
-			to_chat(user, span_notice("You transfer [amount] mining points from [src] to [attacking_id]."))
+			to_chat(user, span_notice("You transfer [amount] credits from [src] to [attacking_id]."))
 		if(TO_CREDIT_CARD)
 			if(amount > attacking_id.registered_account.account_balance)
 				amount = attacking_id.registered_account.account_balance
