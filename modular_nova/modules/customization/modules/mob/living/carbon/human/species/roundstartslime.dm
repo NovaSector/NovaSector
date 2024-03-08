@@ -1,3 +1,5 @@
+#define SLIME_ACTIONS_ICON_FILE 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
+
 /datum/species/jelly
 	mutant_bodyparts = list()
 	hair_color = "mutcolor"
@@ -64,7 +66,7 @@
 	name = "Alter Form"
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "alter_form"
-	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
+	button_icon = SLIME_ACTIONS_ICON_FILE
 	background_icon_state = "bg_alien"
 	/// Do you need to be a slime-person to use this ability?
 	var/slime_restricted = TRUE
@@ -74,9 +76,44 @@
 	var/shapeshift_text = "gains a look of concentration while standing perfectly still. Their body seems to shift and starts getting more goo-like."
 	///List containing all of the avalible parts
 	var/static/list/available_choices
+	/// Icon for "Body Colors" alteration button.
+	var/bodycolours_icon
+	/// Icon for "DNA" alteration button.
+	var/dna_icon
+	/// Icon for "Hair" alteration button.
+	var/hair_icon
+	/// Icon for "Markings" alteration button.
+	var/markings_icon
+	/// Icon for "Primary Colour" alteration button.
+	var/primarycolour_icon
+	/// Icon for "Secondary Colour" alteration button.
+	var/secondarycolour_icon
+	/// Icon for "Tertiary Colour" alteration button.
+	var/tertiarycolour_icon
+	/// Icon for "All Colours" alteration button.
+	var/allcolours_icon
+	/// Icon for "Facial Hair" alteration button.
+	var/facialhair_icon
+	/// Icon for "Hair Colour" alteration button.
+	var/haircolour_icon
+
+/datum/action/innate/alter_form/proc/generate_radial_icons()
+	bodycolours_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "slime_rainbow")
+	dna_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "dna")
+	hair_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "scissors")
+	markings_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "rainbow_spraycan")
+	primarycolour_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "slime_red")
+	secondarycolour_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "slime_green")
+	tertiarycolour_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "slime_blue")
+	allcolours_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "slime_rainbow")
+	facialhair_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "straight_razor")
+	haircolour_icon = image(icon = SLIME_ACTIONS_ICON_FILE, icon_state = "rainbow_spraycan")
 
 /datum/action/innate/alter_form/New(Target)
 	. = ..()
+	
+	generate_radial_icons()
+
 	if(length(available_choices))
 		return
 
@@ -110,10 +147,10 @@
 		alterer,
 		alterer,
 		list(
-			"Body Colours" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_rainbow"),
-			"DNA" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "dna"),
-			"Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
-			"Markings" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan"),
+			"Body Colours" = bodycolours_icon,
+			"DNA" = dna_icon,
+			"Hair" = hair_icon,
+			"Markings" = markings_icon,
 		),
 		tooltips = TRUE,
 	)
@@ -121,13 +158,43 @@
 		return
 	switch(selected_alteration)
 		if("Body Colours")
-			alter_colours(alterer)
+			if(HAS_TRAIT(alterer, TRAIT_USES_SKINTONES))
+				alter_skin_colours(alterer)
+			else
+				alter_colours(alterer)
 		if("DNA")
 			alter_dna(alterer)
 		if("Hair")
 			alter_hair(alterer)
 		if("Markings")
 			alter_markings(alterer)
+
+/**
+ * Alter skin colours handles the changing of skintone colours
+ * This affects skin tone only.
+ */
+/datum/action/innate/alter_form/proc/alter_skin_colours(mob/living/carbon/human/alterer)
+	var/skintone_string = tgui_input_list(
+		alterer,
+		"Choose your character's new skin color:",
+		"Form Alteration",
+		GLOB.skin_tone_names
+	)
+
+	if(!skintone_string)
+		return
+
+	var/skintone_index = GLOB.skin_tone_names.Find(skintone_string)
+
+	if(!skintone_index)
+		return
+
+	var/selected_skintone = GLOB.skin_tones[skintone_index]
+
+	alterer.skin_tone = selected_skintone
+	alterer.dna.features["skin_color"] = skintone2hex(selected_skintone)
+	alterer.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
+	alterer.update_body(is_creating = TRUE)
 
 /**
  * Alter colours handles the changing of mutant colours
@@ -138,10 +205,10 @@
 		alterer,
 		alterer,
 		list(
-			"Primary" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_red"),
-			"Secondary" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_green"),
-			"Tertiary" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_blue"),
-			"All" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "slime_rainbow"),
+			"Primary" = primarycolour_icon,
+			"Secondary" = secondarycolour_icon,
+			"Tertiary" = tertiarycolour_icon,
+			"All" = allcolours_icon,
 		),
 		tooltips = TRUE,
 	)
@@ -240,9 +307,9 @@
 		alterer,
 		alterer,
 		list(
-			"Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "scissors"),
-			"Facial Hair" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "straight_razor"),
-			"Hair Color" = image(icon = 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi', icon_state = "rainbow_spraycan")
+			"Hair" = hair_icon,
+			"Facial Hair" = facialhair_icon,
+			"Hair Color" = haircolour_icon,
 		),
 		tooltips = TRUE,
 	)
@@ -520,3 +587,5 @@
 			if(new_size)
 				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
 				avocados.set_size(alterer.dna.features["balls_size"])
+
+#undef SLIME_ACTIONS_ICON_FILE
