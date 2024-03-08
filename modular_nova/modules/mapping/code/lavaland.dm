@@ -34,7 +34,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/nova/colonist_homestead
-	name = "Colonist Homestead"
+	name = "Lava-Ruin Colonist Homestead"
 	id = "colonist_homestead"
 	description = "Some Tiziran bushcraft club members adopted the name of a historical figure for 'immersion.' They didn't realize how hard that would make things..."
 	prefix = "_maps/RandomRuins/LavaRuins/nova/"
