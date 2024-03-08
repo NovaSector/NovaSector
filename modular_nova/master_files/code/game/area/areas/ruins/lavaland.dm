@@ -141,8 +141,6 @@
 	icon_state = "disposal"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-
 //The prefab colonist homestead. Dependent on the colony_fabricator module.
-
 /area/ruin/colonist_homestead
 	name = "Colonist Homestead"
