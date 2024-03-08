@@ -250,7 +250,7 @@
 	var/new_fireloss = mod.wearer.getFireLoss()
 	var/new_toxloss = mod.wearer.getToxLoss()
 	var/new_stamloss = mod.wearer.getStaminaLoss()
-	playsound(mod.wearer, 'modular_nova/modules/hev_suit/sound/hev/hiss.ogg', 100)
+	playsound(mod.wearer, 'sound/machines/steam_hiss.ogg', 40)
 
 	if(new_bruteloss)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 10)

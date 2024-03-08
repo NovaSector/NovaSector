@@ -38,8 +38,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 		id_card.forceMove(wallet)
 
 		if(equipper.back)
-			var/list/backpack_stuff = list()
-			equipper.back.atom_storage?.return_inv(backpack_stuff, FALSE)
+			var/list/backpack_stuff = equipper.back.atom_storage?.return_inv(FALSE)
 			for(var/obj/item/thing in backpack_stuff)
 				if(wallet.contents.len >= 3)
 					break

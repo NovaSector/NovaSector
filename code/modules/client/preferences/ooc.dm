@@ -11,4 +11,4 @@
 	if (!..(preferences))
 		return FALSE
 
-	return is_admin(preferences.parent) || preferences.unlock_content
+	return is_admin(preferences.parent) || preferences.unlock_content || SSplayer_ranks.is_donator(preferences.parent) // NOVA EDIT CHANGE - ORIGINAL: return is_admin(preferences.parent) || preferences.unlock_content

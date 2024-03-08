@@ -43,6 +43,9 @@ export const ExaminePanel = (props) => {
     custom_species,
     custom_species_lore,
     headshot,
+    ideal_antag_optin_status,
+    current_antag_optin_status,
+    opt_in_colors = { optin, color },
   } = data;
   return (
     <Window title="Examine Panel" width={900} height={670} theme="admin">
@@ -105,6 +108,29 @@ export const ExaminePanel = (props) => {
                       title="OOC Notes"
                       preserveWhitespace
                     >
+                      {ideal_antag_optin_status && (
+                        <Stack.Item>
+                          Current Antag Opt-In Status:{' '}
+                          <span
+                            style={{
+                              fontWeight: 'bold',
+                              color: opt_in_colors[current_antag_optin_status],
+                            }}
+                          >
+                            {current_antag_optin_status}
+                          </span>
+                          {'\n'}
+                          Antag Opt-In Status {'(Preferences)'}:{' '}
+                          <span
+                            style={{
+                              color: opt_in_colors[ideal_antag_optin_status],
+                            }}
+                          >
+                            {ideal_antag_optin_status}
+                          </span>
+                          {'\n\n'}
+                        </Stack.Item>
+                      )}
                       {formatURLs(ooc_notes)}
                     </Section>
                   </Stack.Item>

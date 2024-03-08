@@ -15,7 +15,7 @@
 			return
 
 		while(ore_item.amount >= 5)
-			if(!do_after(user, 5 SECONDS, src))
+			if(!do_after(user, 2 SECONDS, src))
 				user.balloon_alert(user, "have to stand still!")
 				return
 
@@ -23,7 +23,7 @@
 				user.balloon_alert(user, "unable to use five of [ore_item]!")
 				return
 
-			if(prob(70))
+			if(prob(50))
 				user.balloon_alert(user, "[ore_item] reveals nothing!")
 				continue
 

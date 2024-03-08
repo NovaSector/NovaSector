@@ -27,6 +27,13 @@
 
 	id_trim = /datum/id_trim/chameleon/contractor
 
+/datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visualsOnly)
+	. = ..()
+	if(visualsOnly)
+		return
+	handlebank(user)
+
+
 /datum/outfit/contractor_preview
 	name = "Syndicate Contractor (Preview only)"
 

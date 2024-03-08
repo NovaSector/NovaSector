@@ -181,7 +181,7 @@
 	pushed_mob.Knockdown(30)
 	pushed_mob.apply_damage(10, BRUTE)
 	pushed_mob.apply_damage(40, STAMINA)
-	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
+	if(user.mind?.martial_art?.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/tableslam.ogg', 90, TRUE)
 	pushed_mob.visible_message(span_danger("[user] slams [pushed_mob] onto \the [src]!"), \
@@ -198,7 +198,7 @@
 	banged_limb?.receive_damage(30, wound_bonus = extra_wound)
 	pushed_mob.apply_damage(60, STAMINA)
 	take_damage(50)
-	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
+	if(user.mind?.martial_art?.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, 'sound/effects/bang.ogg', 90, TRUE)
 	pushed_mob.visible_message(span_danger("[user] smashes [pushed_mob]'s [banged_limb.plaintext_zone] against \the [src]!"),
@@ -802,11 +802,7 @@
 
 	if(potential_patient.body_position == LYING_DOWN && potential_patient.loc == loc)
 		patient = potential_patient
-		chill_out(patient) // NOVA EDIT - Operation Table Numbing
 		return
-
-	if(!isnull(patient)) // NOVA EDIT - Operation Table Numbing
-		thaw_them(patient) // NOVA EDIT - Operation Table Numbing
 
 	// Find another lying mob as a replacement.
 	for (var/mob/living/carbon/replacement_patient in loc.contents)
@@ -829,6 +825,17 @@
 	pass_flags_self = LETPASSTHROW //You can throw objects over this, despite it's density.
 	max_integrity = 20
 
+/obj/structure/rack/skeletal
+	name = "skeletal minibar"
+	desc = "Rattle me boozes!"
+	icon = 'icons/obj/fluff/general.dmi'
+	icon_state = "minibar"
+
+/obj/structure/rack/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
+	AddElement(/datum/element/elevation, pixel_shift = 12)
+
 /obj/structure/rack/examine(mob/user)
 	. = ..()
 	. += span_notice("It's held together by a couple of <b>bolts</b>.")
@@ -848,6 +855,8 @@
 		return
 	if(O.loc != src.loc)
 		step(O, get_dir(O, src))
+
+	return TRUE // NOVA EDIT - Ensuring that this proc works properly when used to check things
 
 /obj/structure/rack/attackby(obj/item/W, mob/living/user, params)
 	var/list/modifiers = params2list(params)

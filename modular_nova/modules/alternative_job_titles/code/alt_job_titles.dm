@@ -29,6 +29,7 @@
 		"Trader",
 		"Off-Duty Crew",
 		"Off-Duty Staff",
+		"Colonist",
 	)
 
 /datum/job/atmospheric_technician
@@ -91,6 +92,7 @@
 	alt_titles = list(
 		"Bouncer",
 		"Service Guard",
+		"Doorman",
 	)
 
 /datum/job/corrections_officer
@@ -115,6 +117,7 @@
 		"Deck Worker",
 		"Inventory Associate",
 		"Mailman",
+		"Mail Carrier",
 		"Receiving Clerk",
 		"Union Associate",
 	)
@@ -123,15 +126,20 @@
 	alt_titles = list(
 		"Chaplain",
 		"High Priest",
+		"High Priestess",
 		"Imam",
 		"Magister",
 		"Monk",
+		"Nun",
 		"Oracle",
 		"Preacher",
 		"Priest",
+		"Priestess",
 		"Pontifex",
 		"Rabbi",
 		"Reverend",
+		"Shrine Maiden",
+		"Shrine Guardian",
 	)
 
 /datum/job/chemist
@@ -299,6 +307,7 @@
 		"Paramedic",
 		"Emergency Medical Technician",
 		"Search and Rescue Technician",
+		"Trauma Team Responder",
 	)
 
 /datum/job/prisoner
@@ -343,6 +352,7 @@
 	alt_titles = list(
 		"Roboticist",
 		"Biomechanical Engineer",
+		"Cyberneticist",
 		"Machinist",
 		"Mechatronic Engineer",
 		"Apprentice Roboticist",
@@ -360,6 +370,7 @@
 		"Lab Technician",
 		"Ordnance Technician",
 		"Plasma Researcher",
+		"Resonance Researcher",
 		"Theoretical Physicist",
 		"Xenoarchaeologist",
 		"Xenobiologist",

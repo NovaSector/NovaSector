@@ -8,7 +8,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	construction_time = 200
+	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/armblade
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
@@ -124,7 +124,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	construction_time = 200
+	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/hacker
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY,
@@ -141,7 +141,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	construction_time = 200
+	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/flash
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
@@ -159,7 +159,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
-	construction_time = 200
+	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/botany
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
@@ -171,7 +171,7 @@
 	desc = "These cybernetic eyes will give you Night Vision. Big, mean, and green."
 	id = "ci-nv"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 60
+	construction_time = 6 SECONDS
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 6,
@@ -190,7 +190,7 @@
 	desc = "This implant will automatically attempt to jolt you awake from unconsciousness, with a short cooldown between jolts. Conflicts with the CNS Rebooter."
 	id = "ci-antisleep"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 60
+	construction_time = 6 SECONDS
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 6,
@@ -208,7 +208,7 @@
 	desc = "This implant interfaces with a host's body, sending detailed readouts of the vessel's condition on command via the mind."
 	id = "ci-scanner"
 	build_type = MECHFAB | PROTOLATHE
-	construction_time = 40
+	construction_time = 4 SECONDS
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
@@ -231,7 +231,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	construction_time = 200
+	construction_time = 20 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/janitor
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
@@ -248,7 +248,7 @@
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	construction_time = 100
+	construction_time = 10 SECONDS
 	build_path = /obj/item/organ/internal/cyberimp/arm/lighter
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC,

@@ -191,30 +191,19 @@
 		mind.transfer_to(xeno_to_transfer_to)
 	qdel(src)
 
-/mob/living/carbon/alien/adult/nova/update_fire_overlay(stacks, on_fire, last_icon_state, suffix = "")
-	var/fire_icon = "generic_fire[suffix]"
+/mob/living/carbon/alien/adult/nova/get_fire_overlay(stacks, on_fire)
+	var/fire_icon = "generic_fire"
 
 	if(!GLOB.fire_appearances[fire_icon])
-		var/mutable_appearance/xeno_fire_overlay = mutable_appearance('icons/mob/effects/onfire.dmi', fire_icon, -FIRE_LAYER, appearance_flags = RESET_COLOR)
-		xeno_fire_overlay.pixel_x = on_fire_pixel_x
-		xeno_fire_overlay.pixel_y = on_fire_pixel_y
-		GLOB.fire_appearances[fire_icon] = xeno_fire_overlay
+		var/mutable_appearance/new_fire_overlay = mutable_appearance(
+			'icons/mob/effects/onfire.dmi',
+			fire_icon,
+			-HIGHEST_LAYER,
+			appearance_flags = RESET_COLOR,
+		)
+		GLOB.fire_appearances[fire_icon] = new_fire_overlay
 
-	if((stacks > 0 && on_fire) || HAS_TRAIT(src, TRAIT_PERMANENTLY_ONFIRE))
-		if(fire_icon == last_icon_state)
-			return last_icon_state
-
-		remove_overlay(FIRE_LAYER)
-		overlays_standing[FIRE_LAYER] = GLOB.fire_appearances[fire_icon]
-		apply_overlay(FIRE_LAYER)
-		return fire_icon
-
-	if(!last_icon_state)
-		return last_icon_state
-
-	remove_overlay(FIRE_LAYER)
-	apply_overlay(FIRE_LAYER)
-	return null
+	return GLOB.fire_appearances[fire_icon]
 
 /mob/living/carbon/alien/adult/nova/findQueen() //Yes we really do need to do this whole thing to let the queen finder work
 	if(hud_used)

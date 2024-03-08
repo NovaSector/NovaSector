@@ -46,7 +46,6 @@
 	. = ..()
 	to_chat(new_hemophage, HEMOPHAGE_SPAWN_TEXT)
 	new_hemophage.update_body()
-	new_hemophage.set_safe_hunger_level()
 
 
 /datum/species/hemophage/get_species_description()
