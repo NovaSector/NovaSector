@@ -548,7 +548,7 @@
 		return FALSE
 
 	// Log it in our logs
-	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle) // NOVA EDIT ADDITION - ORIGINAL: 	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
+	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
 	for(var/datum/pda_chat/target_chat as anything in target_chats)
 		target_chat.add_message(message_datum, show_in_recents = !everyone)
 		target_chat.unread_messages = 0

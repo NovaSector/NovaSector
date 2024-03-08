@@ -419,7 +419,7 @@ const ChatMessage = (props: ChatMessageProps) => {
         </Tooltip>
         { /* NOVA EDIT ADDITION BEGIN */ }
         {subtle ? ( 
-          <Tooltip content={"This message is subtle; as the sender wants this message to be private. start your reply with '#' to respond in subtle"} position={outgoing ? 'left' : 'right'}>
+          <Tooltip content={"This message is subtle; as the sender wants this message to be private. Start your reply with '#' to respond in subtle"} position={outgoing ? 'left' : 'right'}>
             <Icon
               className="tg-sound-minus"
               name="tg-sound-minus"

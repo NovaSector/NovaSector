@@ -133,10 +133,10 @@ GLOBAL_LIST_EMPTY_TYPED(pda_messengers, /datum/computer_file/program/messenger)
 	var/everyone
 	/// The station time at which this message was made.
 	var/timestamp
-	// NOVA ADDITION BEGIN
-	/// Whether or not the message is hidden from ghostchat, for when you text about embarressing stuff
+	// NOVA EDIT ADDITION BEGIN
+	/// Whether or not the message is hidden from ghostchat, for when you text about embarrassing stuff
 	var/subtle
-	// NOVA ADDITION END
+	// NOVA EDIT ADDITION END
 
 /datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE, subtle) // NOVA ADDITION - ORIGINAL: /datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE) 
 	src.message = message
