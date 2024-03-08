@@ -1802,6 +1802,7 @@
 #include "code\datums\quirks\positive_quirks\musician.dm"
 #include "code\datums\quirks\positive_quirks\night_vision.dm"
 #include "code\datums\quirks\positive_quirks\poster_boy.dm"
+#include "code\datums\quirks\positive_quirks\rich.dm"
 #include "code\datums\quirks\positive_quirks\self_aware.dm"
 #include "code\datums\quirks\positive_quirks\settler.dm"
 #include "code\datums\quirks\positive_quirks\signer.dm"
