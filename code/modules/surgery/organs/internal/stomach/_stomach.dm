@@ -160,11 +160,6 @@
 		hunger_rate *= hunger_modifier
 		hunger_rate *= human.physiology.hunger_mod
 		human.adjust_nutrition(-hunger_rate * seconds_per_tick)
-	else if(HAS_TRAIT(human, TRAIT_HUNGRY)) //another NOVA change, only organic stomach can be damaged
-		var/need_mob_update
-		need_mob_update = human.adjustOrganLoss(ORGAN_SLOT_STOMACH, 0.3 * seconds_per_tick, required_organ_flag = ORGAN_ORGANIC)
-		if(need_mob_update)
-			return UPDATE_MOB_HEALTH
 
 	var/nutrition = human.nutrition
 	if(nutrition > NUTRITION_LEVEL_FULL && !HAS_TRAIT(human, TRAIT_NOFAT))
@@ -181,18 +176,10 @@
 		if(human.metabolism_efficiency != 1.25)
 			to_chat(human, span_notice("You feel vigorous."))
 			human.metabolism_efficiency = 1.25
-	else if(NUTRITION_LEVEL_STARVING - 50 < nutrition < NUTRITION_LEVEL_STARVING + 50) //start of NOVA changes
+	else if(nutrition < NUTRITION_LEVEL_STARVING + 50)
 		if(human.metabolism_efficiency != 0.8)
 			to_chat(human, span_notice("You feel sluggish."))
 		human.metabolism_efficiency = 0.8
-	else if(0 < nutrition < NUTRITION_LEVEL_STARVING - 50)
-		if(human.metabolism_efficiency != 0.6)
-			to_chat(human, span_notice("You feel really bad and crave for food."))
-		human.metabolism_efficiency = 0.6
-	else if(nutrition == 0)
-		if(human.metabolism_efficiency != 0.5)
-			to_chat(human, span_notice("You'd kill for a piece of food..."))
-		human.metabolism_efficiency = 0.5 //end of NOVA changes
 	else
 		if(human.metabolism_efficiency == 1.25)
 			to_chat(human, span_notice("You no longer feel vigorous."))
