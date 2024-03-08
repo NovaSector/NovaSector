@@ -1,0 +1,6 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - rscadd: "Added Shapeshifter quirk for veteran-ranked players."
+  - rscadd: "Added skintone alteration to the Alter Form action, primarily for Shapeshifter quirk users."
+  - image: "Added new icons for the Shapeshifter quirk radial menu."
