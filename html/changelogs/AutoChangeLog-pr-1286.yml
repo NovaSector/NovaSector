@@ -1,4 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - balance: "The sol armors aren't able to be burned anymore, which doesn't protect the user from fire, but does stop their vest from burning off during something like clf3 foam."
