@@ -33,6 +33,7 @@ type ChatScreenState = {
   message: string;
   previewingImage?: string;
   selectingPhoto: boolean;
+  subtleMode: boolean; // NOVA EDIT ADDITION
 };
 
 const READ_UNREADS_TIME_MS = 1000;
@@ -60,6 +61,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
     this.trySetReadTimeout = this.trySetReadTimeout.bind(this);
     this.tryClearReadTimeout = this.tryClearReadTimeout.bind(this);
     this.clearUnreads = this.clearUnreads.bind(this);
+    this.handleToggleSubtle = this.handleToggleSubtle.bind(this); // NOVA EDIT ADDITION
   }
 
   componentDidMount() {
@@ -151,7 +153,11 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
 
     act('PDA_sendMessage', {
       ref: ref,
-      message: this.state.message,
+      // NOVA EDIT CHANGE START - ORIGINAL: message: this.state.message
+      message: this.state.subtleMode
+        ? '#' + this.state.message
+        : this.state.message,
+      // NOVA EDIT CHANGE END
     });
 
     this.setState({ message: '', canSend: false });
@@ -161,6 +167,13 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
   handleMessageInput(_: any, val: string) {
     this.setState({ message: val });
   }
+  // NOVA EDIT ADDITION START
+  handleToggleSubtle() {
+    this.setState((state) => ({
+      subtleMode: !state.subtleMode,
+    }));
+  }
+  // NOVA EDIT ADDITION END
 
   render() {
     const { act } = useBackend();
@@ -174,7 +187,9 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
       sendingVirus,
       unreads,
     } = this.props;
-    const { message, canSend, previewingImage, selectingPhoto } = this.state;
+    // NOVA EDIT CHANGE - ORIGINAL: const { message, canSend, previewingImage, selectingPhoto } = this.state;
+    const { message, canSend, previewingImage, selectingPhoto, subtleMode } =
+      this.state;
 
     let filteredMessages: JSX.Element[] = [];
 
@@ -270,6 +285,16 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
       const buttons = canReply ? (
         <>
           <Stack.Item>{attachmentButton}</Stack.Item>
+          {/* NOVA EDIT ADDITION BEGIN */}
+          <Stack.Item>
+            <Button
+              tooltip="Toggle subtle mode; messages sent will be hidden from prying eyes."
+              icon={subtleMode ? 'fa-ear-deaf' : 'fa-ear-listen'}
+              backgroundColor={subtleMode ? `hsl(281, 29%, 43%)` : ''}
+              onClick={this.handleToggleSubtle}
+            />
+          </Stack.Item>
+          {/* NOVA EDIT ADDITION END */}
           <Stack.Item>
             <Button
               tooltip="Send"
@@ -401,13 +426,35 @@ type ChatMessageProps = {
 };
 
 const ChatMessage = (props: ChatMessageProps) => {
-  const { message, everyone, outgoing, photoPath, timestamp, onPreviewImage, subtle } =
-    props;
+  // NOVA EDIT CHANGE START - ORIGINAL: const { message, everyone, outgoing, photoPath, timestamp, onPreviewImage } =
+  // props
+  const {
+    message,
+    everyone,
+    outgoing,
+    photoPath,
+    timestamp,
+    onPreviewImage,
+    subtle,
+  } = props;
+  // NOVA EDIT CHANGE END
 
   const displayMessage = decodeHtmlEntities(message);
 
   return (
-    <Box className={`NtosChatMessage${outgoing ? '_outgoing' : ''}`}>
+    // NOVA EDIT CHANGE START - ORIGINAL: <Box className={`NtosChatMessage${outgoing ? '_outgoing' : ''}`}>
+    <Box
+      className={`NtosChatMessage${
+        subtle
+          ? outgoing
+            ? '_subtle_outgoing'
+            : '_subtle'
+          : outgoing
+            ? '_outgoing'
+            : ''
+      }`}
+    >
+      {/* NOVA EDIT CHANGE END */}
       <Box className="NtosChatMessage__content">
         <Box as="span">{displayMessage}</Box>
         <Tooltip content={timestamp} position={outgoing ? 'left' : 'right'}>
@@ -417,17 +464,6 @@ const ChatMessage = (props: ChatMessageProps) => {
             size={0.8}
           />
         </Tooltip>
-        { /* NOVA EDIT ADDITION BEGIN */ }
-        {subtle ? ( 
-          <Tooltip content={"This message is subtle; as the sender wants this message to be private. Start your reply with '#' to respond in subtle"} position={outgoing ? 'left' : 'right'}>
-            <Icon
-              className="tg-sound-minus"
-              name="tg-sound-minus"
-              size={0.8}
-            />
-          </Tooltip>
-        ) : null}
-        { /* NOVA EDIT ADDITION END */ }
       </Box>
       {!!everyone && (
         <Box className="NtosChatMessage__everyone">Sent to everyone</Box>
