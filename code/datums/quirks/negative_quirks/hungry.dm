@@ -12,13 +12,13 @@
 	mail_goodies = list(/obj/item/food/chips)
 
 /datum/quirk/hungry/add(client/client_source)
-	var/mob/living/carbon/human/H = quirk_holder
-	if(istype(H))
-		H.physiology.hunger_mod *= QUIRK_HUNGRY_MOD
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if(istype(human_holder))
+		human_holder.physiology.hunger_mod *= QUIRK_HUNGRY_MOD
 
 /datum/quirk/hungry/remove()
-	var/mob/living/carbon/human/H = quirk_holder
-	if(istype(H))
-		H.physiology.hunger_mod /= QUIRK_HUNGRY_MOD
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if(istype(human_holder))
+		human_holder.physiology.hunger_mod /= QUIRK_HUNGRY_MOD
 
 #undef QUIRK_HUNGRY_MOD
