@@ -307,11 +307,18 @@
 	var/mutable_appearance/head
 	var/head_color = rgb(0, 0, 0)
 
+	/// NOVA ADDITION BEGIN
+	//Copies regent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
+	var/metabolization_ammount = REAGENTS_METABOLISM / 2
+	// Nova ADDITION END
+
 /obj/item/food/lollipop/Initialize(mapload)
 	. = ..()
 	head = mutable_appearance('icons/obj/food/lollipop.dmi', "lollipop_head")
 	change_head_color(rgb(rand(0, 255), rand(0, 255), rand(0, 255)))
-	AddElement(/datum/element/chewable)
+	// NOVA EDIT BEGIN: Original: AddElement(/datum/element/chewable)
+	AddElement(/datum/element/chewable, metabolization_ammount)
+	// NOVA EDIT END
 
 /obj/item/food/lollipop/proc/change_head_color(C)
 	head_color = C
@@ -351,9 +358,16 @@
 	slot_flags = ITEM_SLOT_MASK
 	crafting_complexity = FOOD_COMPLEXITY_1
 
+	/// NOVA ADDITION BEGIN
+	//Copies regent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
+	var/metabolization_ammount = REAGENTS_METABOLISM / 2
+	// Nova ADDITION END
+
 /obj/item/food/spiderlollipop/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/chewable)
+	// NOVA EDIT BEGIN: Original: AddElement(/datum/element/chewable)
+	AddElement(/datum/element/chewable, metabolization_ammount)
+	// NOVA EDIT END
 
 /obj/item/food/swirl_lollipop
 	name = "swirl lollipop"
@@ -372,6 +386,13 @@
 	slot_flags = ITEM_SLOT_MASK
 	crafting_complexity = FOOD_COMPLEXITY_1
 
+	/// NOVA ADDITION BEGIN
+	//Copies regent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
+	var/metabolization_ammount = REAGENTS_METABOLISM / 2
+	// Nova ADDITION END
+
 /obj/item/food/swirl_lollipop/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/chewable)
+	// NOVA EDIT BEGIN: Original: AddElement(/datum/element/chewable)
+	AddElement(/datum/element/chewable, metabolization_ammount)
+	// NOVA EDIT END
