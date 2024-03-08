@@ -89,9 +89,9 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 					liked_food_length++
 					if(liked_food_length > MAXIMUM_LIKES)
 						preferences.food_preferences.Remove(food_entry)
-				if(liked_food_length > MAXIMUM_LIKES || (food_preference == FOOD_PREFERENCE_LIKED && liked_food_length == MAXIMUM_LIKES)) // Equals as well, if we're setting a liked food!
-					if(food_name in GLOB.obscure_food_types)
-						return TRUE
+				if(liked_food_length > MAXIMUM_LIKES || (food_preference == FOOD_PREFERENCE_LIKED && liked_food_length == MAXIMUM_LIKES) && !(food_name in GLOB.obscure_food_types)) // Equals as well, if we're setting a liked food!
+					tgui_alert(ui, "You can't have more than [MAXIMUM_LIKES] liked foods!")
+					return TRUE
 
 			preferences.food_preferences[food_name] = food_preference
 			return TRUE
@@ -113,12 +113,19 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
+	var/liked_count = 0
+
+	for(var/food_entry in preferences.food_preferences)
+		if(preferences.food_preferences[food_entry] == FOOD_PREFERENCE_LIKED)
+			if(!(food_entry in GLOB.obscure_food_types))
+				liked_count++
 
 	var/list/data = list(
 		"selection" = preferences.food_preferences,
 		"enabled" = preferences.food_preferences["enabled"],
 		"invalid" = is_food_invalid(preferences),
 		"race_disabled" = !species.allows_food_preferences(),
+		"liked_count" = liked_count,
 	)
 	qdel(species)
 	return data

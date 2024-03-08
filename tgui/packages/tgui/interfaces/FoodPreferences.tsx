@@ -20,6 +20,7 @@ type Data = {
   enabled: boolean;
   invalid: string;
   race_disabled: boolean;
+  liked_count: number;
 };
 
 const FOOD_TOXIC = 1;
@@ -172,6 +173,10 @@ export const FoodPreferences = (props) => {
                       <FoodButton
                         foodName={foodName}
                         foodPreference={FOOD_LIKED}
+                        disabled={
+                          !data.obscure_food_types.includes(foodName) &&
+                          data.liked_count >= 3
+                        }
                         selected={
                           data.selection[foodName] === FOOD_LIKED ||
                           (!data.selection[foodName] &&
@@ -179,7 +184,12 @@ export const FoodPreferences = (props) => {
                         }
                         content={<>Liked</>}
                         color="green"
-                        tooltip="Your character will enjoy anything that's liked."
+                        tooltip={
+                          !data.obscure_food_types.includes(foodName) &&
+                          data.liked_count >= 3
+                            ? 'You currently have too many liked foods, you cannot have more than three foods that are not obscure!'
+                            : "Your character will enjoy anything that's liked."
+                        }
                       />
                     </Section>
                   </Box>
@@ -199,7 +209,7 @@ const FoodButton = (props) => {
   return (
     <Button
       icon={selected ? 'check-square-o' : 'square-o'}
-      color={selected ? color : 'grey'}
+      color={selected ? color : 0x3e6189}
       onClick={() =>
         act('change_food', {
           food_name: foodName,
