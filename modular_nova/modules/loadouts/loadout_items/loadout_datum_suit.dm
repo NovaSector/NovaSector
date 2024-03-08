@@ -261,6 +261,14 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Carp Costume"
 	item_path = /obj/item/clothing/suit/hooded/carp_costume
 
+/datum/loadout_item/suit/shark_costume
+	name = "Shark Costume"
+	item_path = /obj/item/clothing/suit/hooded/shark_costume
+
+/datum/loadout_item/suit/shork_costume
+	name = "Shork Costume"
+	item_path = /obj/item/clothing/suit/hooded/shork_costume
+
 /datum/loadout_item/suit/wizard
 	name = "Wizard Robe"
 	item_path = /obj/item/clothing/suit/wizrobe/fake
