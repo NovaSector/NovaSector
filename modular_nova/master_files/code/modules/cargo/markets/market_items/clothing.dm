@@ -14,7 +14,6 @@
 	item = /obj/item/clothing/under/syndicate/nova/tactical
 	price_min = CARGO_CRATE_VALUE
 	price_max = CARGO_CRATE_VALUE * 1.5
-	stock_min = 1
 	stock_max = 3
 	availability_prob = 85
 
@@ -24,7 +23,6 @@
 	item = /obj/item/clothing/under/syndicate/nova/tactical/skirt
 	price_min = CARGO_CRATE_VALUE
 	price_max = CARGO_CRATE_VALUE * 1.5
-	stock_min = 1
 	stock_max = 3
 	availability_prob = 85
 
