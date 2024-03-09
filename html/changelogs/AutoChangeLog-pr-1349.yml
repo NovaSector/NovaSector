@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "Bridge assistant and veteran advisor now both have their own sechud icons."
