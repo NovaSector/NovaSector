@@ -4,8 +4,8 @@
 	desc = "An outfit with so many pockets, you could hardly keep track of what you're keeping and where you're keeping it."
 	item = /obj/item/clothing/under/syndicate/combat
 	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 2
+	price_max = CARGO_CRATE_VALUE * 1.5
+	stock_max = 3
 	availability_prob = 65
 
 /datum/market_item/clothing/syndie_turtleneck
@@ -13,8 +13,8 @@
 	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants. Good luck arguing allegiance with this on."
 	item = /obj/item/clothing/under/syndicate/nova/tactical
 	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 2
+	price_max = CARGO_CRATE_VALUE * 1.5
+	stock_max = 3
 	availability_prob = 85
 
 /datum/market_item/clothing/syndie_turtleneck_skirt
@@ -22,8 +22,8 @@
 	desc = "A snug syndicate-red skirtleneck with a charcoal-black skirt. Good luck arguing allegiance with this on."
 	item = /obj/item/clothing/under/syndicate/nova/tactical/skirt
 	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 2
+	price_max = CARGO_CRATE_VALUE * 1.5
+	stock_max = 3
 	availability_prob = 85
 
 /datum/market_item/clothing/syndie_duffel
@@ -40,16 +40,16 @@
 	desc = "A dusty belt which used to fit a military that's no longer active, reviews state their old MREs are sometimes found within these belts."
 	item = /obj/item/storage/belt/military/nri/plus_mre
 	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 2
+	price_max = CARGO_CRATE_VALUE * 1.5
+	stock_max = 3
 	availability_prob = 75
 
 /datum/market_item/clothing/syndie_mask
 	name = "Syndicate Mask"
 	desc = "A mask seen often on the adversaries of Nanotrasen, and so - they are mass produced and not hard to get your hands on."
 	item = /obj/item/clothing/mask/gas/syndicate
-	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE
 	stock_max = 4
 	availability_prob = 95
 
@@ -67,9 +67,9 @@
 	name = "Bulletproof Armour Vest"
 	desc = "A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry, usually owned by security forces."
 	item = /obj/item/clothing/suit/armor/bulletproof
-	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 3
+	price_min = CARGO_CRATE_VALUE * 1.5
+	price_max = CARGO_CRATE_VALUE * 3
+	stock_max = 4
 	availability_prob = 75
 
 /datum/market_item/clothing/no_slip_shoes
@@ -97,4 +97,4 @@
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE
 	stock_max = 3
-	availability_prob = 80
+	availability_prob = 85

@@ -12,7 +12,7 @@
 	desc = "Sticky charges listed on the black market uplink - surely these won't explode within your own hands..."
 	item = /obj/item/grenade/c4
 	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 1.5
 	stock_max = 4
 	availability_prob = 80
 
@@ -31,5 +31,5 @@
 	item = /obj/item/toy/plush/carpplushie/dehy_carp
 	price_min = CARGO_CRATE_VALUE
 	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 2
+	stock_max = 3
 	availability_prob = 80
