@@ -93,7 +93,7 @@
 	subcategory = "Firearms"
 
 /datum/armament_entry/company_import/nri_surplus/firearm/shotgun_revolver
-	item_type = /obj/item/gun/ballistic/revolver/shotgun_revolver/empty_cylinder
+	item_type = /obj/item/gun/ballistic/revolver/shotgun_revolver
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/nri_surplus/firearm/plasma_thrower

@@ -84,7 +84,7 @@
 	subcategory = "Sidearms"
 
 /datum/armament_entry/company_import/sol_defense/sidearm/eland
-	item_type = /obj/item/gun/ballistic/revolver/sol/spawns_empty
+	item_type = /obj/item/gun/ballistic/revolver/sol/spawns_less_lethal
 	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
@@ -96,7 +96,7 @@
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/sidearm/takbok
-	item_type = /obj/item/gun/ballistic/revolver/takbok/spawns_empty
+	item_type = /obj/item/gun/ballistic/revolver/takbok/less_lethal_ammo
 	cost = PAYCHECK_COMMAND * 6
 
 // Lethal anything that's not a pistol, requires high company interest

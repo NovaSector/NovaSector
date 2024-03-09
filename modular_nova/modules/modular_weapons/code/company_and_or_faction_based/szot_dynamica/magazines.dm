@@ -60,9 +60,6 @@
 	max_ammo = 4
 	multiload = FALSE
 
-/obj/item/ammo_box/magazine/internal/cylinder/rev12ga/spawns_empty
-	start_empty = TRUE
-
 // AMR magazine
 
 /obj/item/ammo_box/magazine/wylom
