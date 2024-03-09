@@ -335,6 +335,7 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	// Can't be bothered adding more to them.
 	returnable_list += list(/obj/item/organ/external/neck_accessory, /obj/item/organ/external/head_accessory)
 	returnable_list += typesof(/obj/effect/mine)
+	returnable_list += typesof(/obj/item/minespawner)
 	//NOVA EDIT ADDITION END
 
 	return returnable_list
