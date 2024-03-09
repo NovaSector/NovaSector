@@ -799,12 +799,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 		state = HUNGER_STATE_FINE
 		return
 
-//NOVA EDIT REMOVAL BEGIN - ??? - (stops the hunger bar from displaying the person as overfull despite them not being overfull)
-	/*
 	if(HAS_TRAIT(hungry, TRAIT_FAT))
 		state = HUNGER_STATE_FAT
 		return
-	*/
 //NOVA EDIT REMOVAL END
 
 	switch(hungry.nutrition)

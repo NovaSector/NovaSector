@@ -283,7 +283,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	icon = FA_ICON_HAMBURGER // I'm very hungry. Give me the burger!
 	medical_record_text = "Patient weighs higher than average."
-	mob_trait = TRAIT_FAT
+	mob_trait = TRAIT_OVERWEIGHT
 
 /datum/quirk/overweight/add(client/client_source)
 	quirk_holder.add_movespeed_modifier(/datum/movespeed_modifier/overweight)
@@ -296,6 +296,6 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 /datum/mood_event/fat/New(mob/parent_mob, ...)
 	. = ..()
-	if(HAS_TRAIT_FROM(parent_mob, TRAIT_FAT, QUIRK_TRAIT))
+	if(HAS_TRAIT_FROM(parent_mob, TRAIT_OVERWEIGHT, QUIRK_TRAIT))
 		mood_change = 0 // They are probably used to it, no reason to be viscerally upset about it.
 		description = "<b>I'm fat.</b>"

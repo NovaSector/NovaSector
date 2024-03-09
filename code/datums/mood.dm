@@ -116,13 +116,9 @@
 		clear_mood_event(MOOD_CATEGORY_NUTRITION)
 		return FALSE
 
-//NOVA EDIT REMOVAL BEGIN - ??? - (stops the fat moodlet from applying when it shouldn't)
-/*
 	if(HAS_TRAIT(mob_parent, TRAIT_FAT) && !HAS_TRAIT(mob_parent, TRAIT_VORACIOUS))
 		add_mood_event(MOOD_CATEGORY_NUTRITION, /datum/mood_event/fat)
 		return TRUE
-*/
-//NOVA EDIT REMOVAL END
 
 	switch(mob_parent.nutrition)
 		if(NUTRITION_LEVEL_FULL to INFINITY)

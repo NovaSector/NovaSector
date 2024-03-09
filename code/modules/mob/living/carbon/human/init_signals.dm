@@ -47,14 +47,10 @@
 	hud_used?.hunger?.update_appearance()
 	mob_mood?.update_nutrition_moodlets()
 
-//NOVA EDIT REMOVAL BEGIN - ??? - (Fixes double-slowdown from taking the overweight trait.)
-/*
 	if(HAS_TRAIT(src, TRAIT_FAT))
 		add_movespeed_modifier(/datum/movespeed_modifier/obesity)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/obesity)
-*/
-//NOVA EDIT REMOVAL END
 
 /mob/living/carbon/human/proc/on_nohunger(datum/source)
 	SIGNAL_HANDLER
