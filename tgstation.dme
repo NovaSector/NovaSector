@@ -6349,6 +6349,8 @@
 #include "modular_nova\master_files\code\modules\cargo\bounties\medical.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\tools.dm"
 #include "modular_nova\master_files\code\modules\cargo\exports\traitor.dm"
+#include "modular_nova\master_files\code\modules\cargo\markets\market_items\clothing.dm"
+#include "modular_nova\master_files\code\modules\cargo\markets\market_items\gadgets.dm"
 #include "modular_nova\master_files\code\modules\cargo\markets\market_items\weapons.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\general.dm"
 #include "modular_nova\master_files\code\modules\cargo\packs\security.dm"
