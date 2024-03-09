@@ -249,3 +249,52 @@
   - rscdel: Due to a backend update, using discord for hosting headshots no longer
       works. Please use Gyazo or files.byondhome.com instead.
   - bugfix: fixes female Teshari having broken worn icons for certain jumpsuits
+2024-03-09:
+  A.C.M.O.:
+  - rscadd: Added Shapeshifter quirk for veteran-ranked players.
+  - rscadd: Added skintone alteration to the Alter Form action, primarily for Shapeshifter
+      quirk users.
+  - image: Added new icons for the Shapeshifter quirk radial menu.
+  Drag:
+  - rscadd: Adds the Shark and Shork costume. Blahaj lovers rejoice!
+  LordVoidron:
+  - bugfix: Worn lolipops now properly consume their reagents
+  Nerev4r:
+  - rscdel: New advents in therapy, social apps for support networks, and speech consultation
+      have resulted in people with social anxiety having less difficulty speaking.
+  - rscdel: Removed stuttering from Feign Impairment. I couldn't think of a funny
+      caption for this.
+  NovaBot13:
+  - qol: EVA can be given now in common access slots for non-command crewmembers.
+  - bugfix: Plexagon Access Management actually updates the shown template list on
+      authentication, avoiding needing to refresh/reopen/somesuch the program manually.
+  - qol: Tramstation botany now has roundstart watering cans and syringes
+  - qol: Extended the metric prefixes.
+  - bugfix: Spies no longer have access to infinite use autosurgeons.
+  - bugfix: Fixed the tgui text input trimming the last character of the input if
+      it hits the maximum length.
+  - bugfix: This also fixes the PIN pad leading to the right wing of the museum away
+      mission.
+  - rscdel: Removed a nanomachine pizza from the deathmatch meat tower map that allowed
+      you to become a borg
+  Paxilmaniac:
+  - balance: The Qani-Laaca implant will no longer make you immune to the after-effects
+      of Twitch.
+  - rscadd: A collection of nova exclusive items have been added to mystery boxes.
+  SomeRandomOwl:
+  - rscadd: Added a food preference system! It has a few checks, but otherwise, gives
+      you a huge amount of freedom to decide your tastes! Give it a peek in your character
+      menu!
+  - rscdel: 'The quirks: Deviant Tastes, Pineapple Hater, Pineapple Liker, and Vegetarian
+      have been hidden as a result meaning they will be removed from all characters
+      who has taken these quirks to compensate for the fact you can set your preferences
+      for food rather than take these quirks'
+  TehSplinterCell:
+  - rscadd: A bushcraft club is paying tribute to one of Tizira's first extra-planetary
+      colonists by solo camping in separate regions of Lavaland.
+  - rscadd: Each one was given an ID with the name of that pioneering forefather for
+      'immersion.' Single-player LARP is a thing, I guess.
+  - rscadd: I know you're thinking about it. Stop it. Stealing a camper's Colonial
+      Supply Core is both burglary and potential lizardman-slaughter. Bad.
+  - rscadd: We're not seeing any EM readings from their camps. Maybe they're having
+      trouble with their power grids?
