@@ -83,7 +83,34 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
 	)
-	generate_items_inside(items_inside,src)
+	generate_items_inside(items_inside, src)
+
+/obj/item/storage/medkit/civil_defense/thunderdome
+	/// List of random medpens we can pick from
+	var/list/random_medpen_options = list(
+		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi,
+	)
+
+/obj/item/storage/medkit/civil_defense/thunderdome/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 6
+
+/obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
+	for(var/pens in 1 to 6)
+		var/new_pen = pick(random_medpen_options)
+		new new_pen(src)
 
 // Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
 /obj/item/storage/medkit/civil_defense/comfort

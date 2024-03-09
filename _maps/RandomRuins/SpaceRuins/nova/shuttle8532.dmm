@@ -1591,7 +1591,7 @@
 /area/ruin/space/has_grav/shuttle8532cargohall)
 "FW" = (
 /mob/living/basic/trooper/syndicate/melee/space/anthro/lizard{
-	faction = null
+	faction = list()
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
@@ -1864,7 +1864,7 @@
 /area/ruin/space/has_grav/shuttle8532engineering)
 "MM" = (
 /mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper{
-	faction = null
+	faction = list()
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
@@ -1997,7 +1997,7 @@
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Pn" = (
 /mob/living/basic/trooper/syndicate/ranged/shotgun/space/stormtrooper/anthro/fox{
-	faction = null
+	faction = list()
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
