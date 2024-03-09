@@ -16,6 +16,15 @@
 	stock_max = 2
 	availability_prob = 50
 
+/datum/market_item/weapon/grav_grenade
+	name = "Anti-Gravity Grenade"
+	desc = "A grenade catering to a very specific niche, so specific the owner has never used it and now sells it here."
+	item = /obj/item/grenade/antigravity
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE * 2
+	stock_max = 2
+	availability_prob = 50
+
 // Makes this even more expensive
 /datum/market_item/weapon/dimensional_bomb
 	price_min = CARGO_CRATE_VALUE * 180

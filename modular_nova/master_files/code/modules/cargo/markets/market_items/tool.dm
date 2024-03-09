@@ -1,0 +1,8 @@
+/datum/market_item/tool/sticker_box
+	name = "Artificial Intelligence Detector"
+	desc = "A functional multitool that turns red when it detects an artificial intelligence watching it, you're not certain if the vendor knows about the existence of this function."
+	item = /obj/item/multitool/ai_detect
+	price_min = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 4
+	stock_max = 2
+	availability_prob = 65

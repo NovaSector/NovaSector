@@ -14,6 +14,7 @@
 	item = /obj/item/clothing/under/syndicate/nova/tactical
 	price_min = CARGO_CRATE_VALUE
 	price_max = CARGO_CRATE_VALUE * 1.5
+	stock_min = 1
 	stock_max = 3
 	availability_prob = 85
 
@@ -23,6 +24,7 @@
 	item = /obj/item/clothing/under/syndicate/nova/tactical/skirt
 	price_min = CARGO_CRATE_VALUE
 	price_max = CARGO_CRATE_VALUE * 1.5
+	stock_min = 1
 	stock_max = 3
 	availability_prob = 85
 
@@ -50,15 +52,17 @@
 	item = /obj/item/clothing/mask/gas/syndicate
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE
+	stock_min = 2
 	stock_max = 4
-	availability_prob = 95
+	availability_prob = 90
 
-/datum/market_item/clothing/emergency_spacesuit
-	name = "Emergency Spacesuit Box"
-	desc = "A handy box that stores a stowable yet sturdy spacesuit."
+/datum/market_item/clothing/full_spacesuit_set_syndie
+	name = "\improper Syndicate Branded Spacesuit Box"
+	desc = "A handy box that stores a stowable yet sturdy spacesuit, probably way better than the Nanotrasen branded suit."
 	item = /obj/item/storage/box/syndie_kit/space_suit
 	price_min = CARGO_CRATE_VALUE
 	price_max = CARGO_CRATE_VALUE * 2
+	stock_max = 2
 	stock_max = 4
 	availability_prob = 85
 

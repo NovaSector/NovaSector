@@ -7,22 +7,13 @@
 	stock_max = 3
 	availability_prob = 80
 
-/datum/market_item/misc/c4
-	name = "C4 Satchel Charge"
-	desc = "Sticky charges listed on the black market uplink - surely these won't explode within your own hands..."
-	item = /obj/item/grenade/c4
+/datum/market_item/misc/sticker_box
+	name = "Syndie Sticker Box"
+	desc = "Contains 8 random stickers precisely engineered to resemble suspicious objects, which may or may not be useful for fooling crew."
+	item = /obj/item/storage/box/syndie_kit/stickers
 	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 1.5
-	stock_max = 4
-	availability_prob = 80
-
-/datum/market_item/misc/tram_remote
-	name = "Tram Remote Control"
-	desc = "A bootlegged remote to control the subsystems of onboard computers found on Nanotrasen trams."
-	item = /obj/item/assembly/control/transport/remote
-	price_min = CARGO_CRATE_VALUE * 3
-	price_max = CARGO_CRATE_VALUE * 4
-	stock_max = 1
+	price_max = CARGO_CRATE_VALUE * 2
+	stock_max = 2
 	availability_prob = 50
 
 /datum/market_item/misc/dehydrated_carp
