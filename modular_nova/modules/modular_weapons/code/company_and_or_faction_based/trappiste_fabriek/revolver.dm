@@ -37,10 +37,16 @@
 
 	return .
 
+/obj/item/gun/ballistic/revolver/sol/spawns_empty
+	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/c35sol/spawns_empty
+
 /obj/item/ammo_box/magazine/internal/cylinder/c35sol
 	ammo_type = /obj/item/ammo_casing/c35sol
 	caliber = CALIBER_SOL35SHORT
 	max_ammo = 8
+
+/obj/item/ammo_box/magazine/internal/cylinder/c35sol/spawns_empty
+	start_empty = TRUE
 
 // .585 super revolver
 
@@ -85,7 +91,13 @@
 
 	return .
 
+/obj/item/gun/ballistic/revolver/takbok/spawns_empty
+	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/c585trappiste/spawns_empty
+
 /obj/item/ammo_box/magazine/internal/cylinder/c585trappiste
 	ammo_type = /obj/item/ammo_casing/c585trappiste
 	caliber = CALIBER_585TRAPPISTE
 	max_ammo = 5
+
+/obj/item/ammo_box/magazine/internal/cylinder/c585trappiste/spawns_empty
+	start_empty = TRUE

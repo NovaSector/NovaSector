@@ -84,19 +84,19 @@
 	subcategory = "Sidearms"
 
 /datum/armament_entry/company_import/sol_defense/sidearm/eland
-	item_type = /obj/item/gun/ballistic/revolver/sol
+	item_type = /obj/item/gun/ballistic/revolver/sol/spawns_empty
 	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
-	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
+	item_type = /obj/item/gun/ballistic/automatic/pistol/sol/no_mag
 	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
-	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
+	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste/no_mag
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/sidearm/takbok
-	item_type = /obj/item/gun/ballistic/revolver/takbok
+	item_type = /obj/item/gun/ballistic/revolver/takbok/spawns_empty
 	cost = PAYCHECK_COMMAND * 6
 
 // Lethal anything that's not a pistol, requires high company interest
@@ -110,15 +110,15 @@
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
-	item_type = /obj/item/gun/ballistic/automatic/sol_smg
+	item_type = /obj/item/gun/ballistic/automatic/sol_smg/no_mag
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/longarm/elite
-	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
+	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman/no_mag
 	cost = PAYCHECK_COMMAND * 12
 
 /datum/armament_entry/company_import/sol_defense/longarm/bogseo
-	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg
+	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg/no_mag
 	cost = PAYCHECK_COMMAND * 10
 	contraband = TRUE
 

@@ -126,3 +126,6 @@
 		cheap, and thus became rather popular among the ranks."
 
 	return .
+
+/obj/item/gun/ballistic/revolver/shotgun_revolver/empty_cylinder
+	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev12ga/spawns_empty

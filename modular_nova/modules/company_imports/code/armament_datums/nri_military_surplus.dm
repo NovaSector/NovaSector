@@ -93,7 +93,7 @@
 	subcategory = "Firearms"
 
 /datum/armament_entry/company_import/nri_surplus/firearm/shotgun_revolver
-	item_type = /obj/item/gun/ballistic/revolver/shotgun_revolver
+	item_type = /obj/item/gun/ballistic/revolver/shotgun_revolver/empty_cylinder
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/nri_surplus/firearm/plasma_thrower
@@ -105,7 +105,7 @@
 	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/nri_surplus/firearm/miecz
-	item_type = /obj/item/gun/ballistic/automatic/miecz
+	item_type = /obj/item/gun/ballistic/automatic/miecz/no_mag
 	cost = PAYCHECK_COMMAND * 10
 	restricted = TRUE
 
