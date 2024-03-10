@@ -3,6 +3,7 @@
 	desc = "You probably shouldn't be seeing this. Shout at a coder."
 	icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 	icon_state = "hypovial"
+	greyscale_config = /datum/greyscale_config/hypovial
 	fill_icon_state = "hypovial_fill"
 	spillable = FALSE
 	volume = 10
@@ -11,6 +12,35 @@
 	var/chem_color = "#FFFFFF" //Used for hypospray overlay
 	var/type_suffix = "-s"
 	fill_icon = 'modular_nova/modules/hyposprays/icons/hypospray_fillings.dmi'
+
+/obj/item/reagent_containers/cup/vial/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_OBJ_RESKIN, PROC_REF(on_reskin))
+
+/obj/item/reagent_containers/cup/vial/Destroy(force)
+	. = ..()
+	UnregisterSignal(src, COMSIG_OBJ_RESKIN)
+
+/obj/item/reagent_containers/cup/vial/examine(mob/user)
+	. = ..()
+	. += span_notice("Ctrl-Shift-Click to set a custom color, or Alt-Click to reset via reskinning.")
+
+/obj/item/reagent_containers/cup/vial/CtrlShiftClick(mob/user, obj/item/I)
+	icon_state = unique_reskin["Sterile"]
+	current_skin = unique_reskin["Sterile"]
+	var/atom/fake_atom = src
+	var/list/allowed_configs = list()
+	var/config = initial(fake_atom.greyscale_config)
+	allowed_configs += "[config]"
+	if(greyscale_colors == null)
+		greyscale_colors = "#FFFFFF"
+	var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
+	menu.ui_interact(usr)
+
+/obj/item/reagent_containers/cup/vial/proc/on_reskin()
+	icon_state = current_skin
+	icon = initial(icon)
+	greyscale_colors = null
 
 /obj/item/reagent_containers/cup/vial/update_overlays()
 	. = ..()

@@ -85,6 +85,28 @@
 	)
 	return ..()
 
+/datum/design/hypomkii/deluxe
+	name = "MkII Hypospray Upgrade Kit"
+	id = "hypomkii_deluxe"
+	build_type = PROTOLATHE
+	materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 8,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/device/custom_kit/deluxe_hypo2
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/techweb_node/alien_bio/New()
+	design_ids += list(
+		"hypomkii_deluxe",
+	)
+	return ..()
+
 
 
 /// For reasons unknown, pens are included as an autolathe design here, in the hypospray module of all places.

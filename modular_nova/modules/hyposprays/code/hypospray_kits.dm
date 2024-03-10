@@ -5,6 +5,7 @@
 	icon_state = "firstaid-mini"
 	worn_icon_state = "healthanalyzer" // Get a better sprite later
 	inhand_icon_state = "medkit"
+	greyscale_config = /datum/greyscale_config/hypokit
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	// Small hypokits can be pocketed, but don't have much storage.
@@ -26,9 +27,9 @@
 	. = ..()
 	. += span_notice("Ctrl-Shift-Click to reskin this")
 	if(attached_hypo)
-		. += span_notice("[attached_hypo] is mounted on the bottom. Right-click to take it off.")
+		. += span_notice("[attached_hypo] is mounted on the bottom. Alt-Right-Click to take it off.")
 	else
-		. += span_notice("Right-click with a hypospray to mount it.")
+		. += span_notice("Right-Click with a hypospray to mount it.")
 
 /obj/item/storage/hypospraykit/Initialize(mapload)
 	. = ..()
@@ -74,17 +75,31 @@
 		"toxin" = image(icon = src.icon, icon_state = "toxin-mini"),
 		"oxy" = image(icon = src.icon, icon_state = "oxy-mini"),
 		"advanced" = image(icon = src.icon, icon_state = "advanced-mini"),
-		"buffs" = image(icon = src.icon, icon_state = "buffs-mini"))
+		"buffs" = image(icon = src.icon, icon_state = "buffs-mini"),
+		"custom" = image(icon = src.icon, icon_state = "standard-gags-mini"))
 	case_designs_xl = list(
 		"cmo" = image(icon = src.icon, icon_state = "cmo-mini"),
 		"emt" = image(icon = src.icon, icon_state = "emt-mini"),
-		"tactical" = image(icon = src.icon, icon_state = "tactical-mini"))
+		"tactical" = image(icon = src.icon, icon_state = "tactical-mini"),
+		"deluxe-custom" = image(icon = src.icon, icon_state = "deluxe-gags-normal-mini"),
+		"tactical-custom" = image(icon = src.icon, icon_state = "deluxe-gags-tactical-mini"))
 
 /obj/item/storage/hypospraykit/update_overlays()
 	. = ..()
 	if(attached_hypo)
-		var/mutable_appearance/hypo_overlay = mutable_appearance(icon, attached_hypo.icon_state)
-		. += hypo_overlay
+		if(attached_hypo.greyscale_colors != null) //it's one of the GAGS variants
+			var/mutable_appearance/hypo_overlay = mutable_appearance(initial(icon), attached_hypo.icon_state)
+			. += hypo_overlay
+			var/list/split_colors = splittext(attached_hypo.greyscale_colors, "#")
+			var/mutable_appearance/hypo_overlay_acc1 = mutable_appearance(initial(icon), "hypo2_accent1")
+			hypo_overlay_acc1.color = "#[split_colors[2]]"
+			. += hypo_overlay_acc1
+			var/mutable_appearance/hypo_overlay_acc2 = mutable_appearance(initial(icon), "hypo2_accent2")
+			hypo_overlay_acc2.color = "#[split_colors[3]]"
+			. += hypo_overlay_acc2
+		else
+			var/mutable_appearance/hypo_overlay = mutable_appearance(initial(icon), attached_hypo.icon_state)
+			. += hypo_overlay
 
 /obj/item/storage/hypospraykit/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(istype(weapon, /obj/item/hypospray/mkii))
@@ -100,7 +115,7 @@
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
-/obj/item/storage/hypospraykit/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/storage/hypospraykit/alt_click_secondary(mob/user)
 	if(attached_hypo != null)
 		if(user.put_in_hands(attached_hypo))
 			balloon_alert(user, "Removed [attached_hypo].")
@@ -133,6 +148,19 @@
 		return FALSE
 	current_case = choice
 	update_icon()
+	if(findtext(current_case, "custom"))
+		var/atom/fake_atom = src
+		var/list/allowed_configs = list()
+		var/config = initial(fake_atom.greyscale_config)
+		allowed_configs += "[config]"
+		if(greyscale_colors == null)
+			greyscale_colors = "#00AAFF"
+
+		var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
+		menu.ui_interact(usr)
+	else //restore normal icon
+		icon = initial(icon)
+		greyscale_colors = null
 
 /obj/item/storage/hypospraykit/proc/check_menu(mob/user)
 	if(!istype(user))
@@ -166,12 +194,12 @@
 
 /obj/item/storage/hypospraykit/cmo/Initialize(mapload)
 	. = ..()
-	atom_storage.max_slots = 14
+	atom_storage.max_slots = 21
 
 /obj/item/storage/hypospraykit/cmo/PopulateContents()
 	if(empty)
 		return
-	new /obj/item/hypospray/mkii/cmo(src)
+	new /obj/item/hypospray/mkii/deluxe/cmo(src)
 
 /obj/item/storage/hypospraykit/cmo/empty
 	desc = "An extended hypospray kit with foam insets for hypovials & a mounting point on the bottom."
@@ -187,7 +215,7 @@
 /obj/item/storage/hypospraykit/cmo/preloaded/PopulateContents()
 	if(empty)
 		return
-	new /obj/item/hypospray/mkii/cmo(src)
+	new /obj/item/hypospray/mkii/deluxe/cmo(src)
 	new /obj/item/reagent_containers/cup/vial/large/deluxe(src)
 	new /obj/item/reagent_containers/cup/vial/large/multiver(src)
 	new /obj/item/reagent_containers/cup/vial/large/salglu(src)
@@ -203,7 +231,7 @@
 /obj/item/storage/hypospraykit/cmo/combat/PopulateContents()
 	if(empty)
 		return
-	new /obj/item/hypospray/mkii/cmo/combat(src)
+	new /obj/item/hypospray/mkii/deluxe/cmo/combat(src)
 	new /obj/item/reagent_containers/cup/vial/large/advbrute(src)
 	new /obj/item/reagent_containers/cup/vial/large/advburn(src)
 	new /obj/item/reagent_containers/cup/vial/large/advtox(src)
