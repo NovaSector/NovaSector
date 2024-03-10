@@ -25,14 +25,6 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/sensory_enhancer/bodypart_overlay
 
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
-	. = ..()
-	ADD_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
-
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
-	. = ..()
-	REMOVE_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
-
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
@@ -48,6 +40,10 @@
 	QDEL_NULL(bodypart_overlay)
 	owner.update_body_parts()
 	return ..()
+
+/obj/item/autosurgeon/syndicate/sandy
+	name = "\improper Qani-Laaca sensory computer autosurgeon"
+	starting_organ = /obj/item/organ/internal/cyberimp/sensory_enhancer
 
 /datum/bodypart_overlay/simple/sensory_enhancer
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
@@ -95,7 +91,7 @@
 
 /obj/item/qani_laaca_telegraph/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/shatters_when_thrown, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
+	AddElement(/datum/element/can_shatter, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
 	transform = transform.Scale(0.75, 0.75)
 
 /datum/action/cooldown/sensory_enhancer/overcharge

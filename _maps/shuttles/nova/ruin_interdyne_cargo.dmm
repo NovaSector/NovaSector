@@ -10,11 +10,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/interdyne_cargo)
 "f" = (
-/obj/structure/frame/machine{
-	anchored = 1;
-	state = 2;
-	icon_state = "box_1"
-	},
 /obj/item/circuitboard/machine/ore_redemption,
 /obj/item/assembly/igniter,
 /obj/effect/turf_decal/delivery,
@@ -23,6 +18,7 @@
 	req_access = list("syndicate");
 	id = "interdyneshuttle"
 	},
+/obj/structure/frame/machine/secured,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/interdyne_cargo)
 "g" = (
@@ -34,13 +30,9 @@
 /area/shuttle/interdyne_cargo)
 "i" = (
 /obj/machinery/light/small/red/directional/south,
-/obj/structure/frame/machine{
-	anchored = 1;
-	state = 2;
-	icon_state = "box_1"
-	},
 /obj/item/circuitboard/machine/ore_silo,
 /obj/effect/turf_decal/delivery,
+/obj/structure/frame/machine/secured,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/interdyne_cargo)
 "k" = (

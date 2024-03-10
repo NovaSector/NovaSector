@@ -32,3 +32,12 @@
 	cost = 0
 	always_place = TRUE //WOULD BE UNFAIR IF SOMETHING THAT IS ALWAYS PLACED HAD A COST...
 	allow_duplicates = FALSE
+
+/datum/map_template/ruin/lavaland/nova/colonist_homestead
+	name = "Lava-Ruin Colonist Homestead"
+	id = "colonist_homestead"
+	description = "Some Tiziran bushcraft club members adopted the name of a historical figure for 'immersion.' They didn't realize how hard that would make things..."
+	prefix = "_maps/RandomRuins/LavaRuins/nova/"
+	suffix = "lavaland_surface_prefab_homestead.dmm"
+	allow_duplicates = FALSE
+	cost = 5
