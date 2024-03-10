@@ -26526,9 +26526,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "iaM" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
 	},
@@ -30420,7 +30418,7 @@
 "jgx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
+	dir = 8
 	},
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/dark/smooth_half,
@@ -47009,13 +47007,12 @@
 /area/station/commons/vacant_room/office)
 "oan" = (
 /obj/structure/safe,
-/obj/item/storage/backpack/duffelbag/syndie/hitman,
 /obj/item/card/id/advanced/silver/reaper,
 /obj/item/lazarus_injector,
 /obj/effect/turf_decal/bot,
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
-/obj/item/gun/energy/disabler,
+/obj/item/gun/energy/disabler/smg,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/command/nuke_storage)
 "oar" = (
@@ -52624,9 +52621,6 @@
 "pLt" = (
 /obj/structure/table,
 /obj/item/plate,
-/obj/item/food/poutine{
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/tile/bar/fourcorners,
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/checker,
@@ -69439,12 +69433,12 @@
 "uRM" = (
 /obj/structure/table,
 /obj/item/plate,
-/obj/item/food/plumphelmetbiscuit{
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/tile/bar/fourcorners,
 /obj/machinery/light/warm/directional/south,
 /obj/machinery/status_display/evac/directional/west,
+/obj/item/food/poutine{
+	pixel_y = 3
+	},
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
 "uRY" = (
