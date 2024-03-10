@@ -9,7 +9,14 @@
 	lose_text = span_notice("You no longer feel like your stomach is bottomless.")
 	medical_record_text = "Patient experiences hunger much more quickly than normal."
 	quirk_flags = QUIRK_HUMAN_ONLY
-	mail_goodies = list(/obj/item/food/chips)
+	mail_goodies = list(
+		/obj/item/food/chips,
+		/obj/item/paper/paperslip/ration_ticket/luxury,
+		/obj/item/paper/paperslip/ration_ticket,
+		/obj/item/food/chocolatebar,
+		/obj/item/storage/box/spaceman_ration/meats,
+		/obj/item/reagent_containers/cup/glass/dry_ramen
+	)
 
 /datum/quirk/hungry/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
