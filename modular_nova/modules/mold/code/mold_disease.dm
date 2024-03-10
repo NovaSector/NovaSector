@@ -28,7 +28,7 @@
 				affected_mob.emote("twitch")
 				to_chat(affected_mob, span_danger("You twitch involuntarily. That's not right."))
 			if(SPT_PROB(2, seconds_per_tick))
-				if(!HAS_TRAIT(living_cast_on, TRAIT_ANOSMIA)) //Anosmia holders can't feel the smell, even if green smells strange
+				if(!HAS_TRAIT(affected_mob, TRAIT_ANOSMIA)) //Anosmia holders can't feel the smell, even if green smells strange
 					to_chat(affected_mob, span_danger("You sniff, smelling green slime. Does green have a smell?"))
 			if(SPT_PROB(2, seconds_per_tick))
 				to_chat(affected_mob, span_danger("Your head hurts. Were the ceiling tiles always moving like that?"))
