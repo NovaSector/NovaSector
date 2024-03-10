@@ -298,3 +298,24 @@
       Supply Core is both burglary and potential lizardman-slaughter. Bad.
   - rscadd: We're not seeing any EM readings from their camps. Maybe they're having
       trouble with their power grids?
+2024-03-10:
+  Iajret:
+  - bugfix: Bridge assistant and veteran advisor now both have their own sechud icons.
+  NovaBot13:
+  - rscadd: Wheat and meatwheat can now be worn in the mask slot. Farmers rejoice!
+  - refactor: Improved shuttle gibbing code, adding a new resistance flag, `SHUTTLE_CRUSH_PROOF`.
+  - bugfix: Immortality revival spectres can no longer be crushed by shuttles.
+  - rscadd: The ghost of Poly can no longer be shuttle-crushed, nor can anything incorporeal.
+  - rscadd: Adds 3 new kits into the syndie-kit spawn pool, 2 for special and another
+      for tactical
+  - bugfix: fixes toolact screentips & balloon alerts for boulder machines & machine
+      frame
+  - code_imp: Use a common list for acceptable silo materials for some stuff. Renamed
+      ore category into silo category.
+  - balance: Adjusts the values and contents of the Contraband Crate's item loot table.
+  - code_imp: Chem stun reductions are now applied more consistently.
+  - bugfix: Chem stun reductions should now more consistently apply to unconsciousness.
+  - qol: Uninverted the inverted corner of the Icebox medbay treatment center.
+  Zergspower:
+  - qol: Curtains and shower curtains are no longer solid objects that defy common
+      sense
