@@ -18579,11 +18579,9 @@
 	},
 /area/station/hallway/primary/central)
 "fGV" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/power/port_gen/pacman,
 /turf/open/floor/plating,
 /area/station/engineering/gravity_generator)
 "fHk" = (
@@ -50064,8 +50062,6 @@
 	shuttledocked = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/mapping_helpers/airlock/access/all/security/general,
-/obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/plating,
 /area/station/security/processing)
 "oYw" = (
@@ -53945,7 +53941,6 @@
 /area/station/commons/dorms)
 "qet" = (
 /obj/structure/cable,
-/obj/machinery/power/port_gen/pacman,
 /obj/effect/turf_decal/bot,
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plating,
@@ -74396,9 +74391,6 @@
 /area/station/security/checkpoint/customs)
 "wmW" = (
 /obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 8
-	},
 /turf/open/floor/plating,
 /area/station/engineering/gravity_generator)
 "wnb" = (
