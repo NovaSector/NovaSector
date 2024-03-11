@@ -3134,6 +3134,10 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/tools)
+"aZY" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/wood/tile,
+/area/station/service/bar)
 "bam" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
@@ -4941,7 +4945,6 @@
 "bzF" = (
 /obj/structure/table,
 /obj/machinery/door/firedoor/border_only,
-/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/item/knife{
 	pixel_y = 6
@@ -4950,6 +4953,9 @@
 	pixel_y = 4
 	},
 /obj/machinery/newscaster/directional/south,
+/obj/machinery/requests_console/auto_name/directional/west,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "bzI" = (
@@ -6150,14 +6156,12 @@
 	id = "psych_bolt";
 	name = "Bolt Control";
 	normaldoorcontrol = 1;
-	req_access = list("psychology");
 	specialfunctions = 4;
 	pixel_x = 6
 	},
 /obj/machinery/button/door/directional/south{
 	id = "psychology";
 	name = "Privacy Shutters Control";
-	req_access = list("psychology");
 	pixel_x = -6
 	},
 /obj/effect/turf_decal/siding/wood{
@@ -10107,7 +10111,6 @@
 /turf/open/floor/engine,
 /area/station/science/ordnance)
 "dgI" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
@@ -11421,9 +11424,8 @@
 /area/station/security/courtroom)
 "dAD" = (
 /obj/machinery/oven/range,
-/obj/machinery/requests_console/auto_name/directional/north,
-/obj/effect/mapping_helpers/requests_console/supplies,
-/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "dAH" = (
@@ -13552,13 +13554,13 @@
 "egf" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/medical/psychology,
-/obj/machinery/door/airlock/medical{
-	name = "Psychology"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/psych{
+	name = "Private Psych Room"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/psychology)
 "egi" = (
@@ -17608,7 +17610,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood/large,
 /area/station/service/bar)
 "fpg" = (
@@ -24991,7 +24992,6 @@
 /obj/machinery/button/door/directional/south{
 	id = "psychology";
 	name = "Privacy Shutters Control";
-	req_access = list("psychology");
 	pixel_x = -6
 	},
 /obj/machinery/camera/directional/south{
@@ -29565,10 +29565,6 @@
 /area/station/hallway/secondary/command)
 "iVj" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/fancy/donut_box{
-	pixel_y = 11;
-	pixel_x = -2
-	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = -12
 	},
@@ -37128,9 +37124,10 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/psychology,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/medical{
-	name = "Psychology"
+/obj/machinery/door/airlock/psych{
+	name = "Private Psych Room"
 	},
+/obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/psychology)
 "lej" = (
@@ -38575,6 +38572,7 @@
 "lBU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "lBY" = (
@@ -55374,7 +55372,11 @@
 	pixel_x = -8;
 	pixel_y = 7
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
 /area/station/medical/storage)
 "qAV" = (
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
@@ -62055,7 +62057,6 @@
 /turf/open/floor/plating,
 /area/station/cargo/storage)
 "sDA" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
@@ -65419,11 +65420,12 @@
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "tFZ" = (
-/obj/item/food/grown/grass,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 8
 	},
 /obj/effect/landmark/event_spawn,
+/obj/item/reagent_containers/cup/soup_pot,
+/obj/item/food/grown/grass,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "tGe" = (
@@ -66719,6 +66721,10 @@
 /obj/structure/table,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
+	},
+/obj/item/storage/fancy/donut_box{
+	pixel_y = 6;
+	pixel_x = 2
 	},
 /turf/open/floor/wood,
 /area/station/command/meeting_room/council)
@@ -76696,8 +76702,11 @@
 	pixel_x = 8;
 	pixel_y = 7
 	},
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/table/glass,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
 /area/station/medical/storage)
 "wWB" = (
 /obj/structure/railing{
@@ -108116,7 +108125,7 @@ smx
 foZ
 hJs
 wPD
-rrw
+aZY
 bXc
 aWe
 wir
