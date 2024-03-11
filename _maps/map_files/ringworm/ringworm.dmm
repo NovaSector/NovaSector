@@ -314,7 +314,7 @@
 	pixel_y = -3
 	},
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "aeX" = (
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /turf/open/floor/iron/dark/corner{
@@ -549,7 +549,7 @@
 /obj/structure/chair/sofa/right/brown,
 /obj/structure/sign/flag/nri/directional/north,
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "aiT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/general/visible,
 /obj/effect/turf_decal/stripes/line{
@@ -6215,7 +6215,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/ammo_casing/c45,
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "bWT" = (
 /obj/effect/landmark/start/scientist,
 /turf/open/floor/glass/reinforced,
@@ -16353,7 +16353,6 @@
 	dir = 9
 	},
 /obj/structure/bed/dogbed/ian,
-/mob/living/basic/pet/dog/corgi/ian,
 /obj/machinery/newscaster/directional/west,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
@@ -16388,7 +16387,7 @@
 	pixel_x = -7
 	},
 /turf/open/floor/iron/herringbone,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "eVX" = (
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 1
@@ -23915,7 +23914,7 @@
 	pixel_y = -6
 	},
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "hnp" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -25992,6 +25991,9 @@
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
 	dir = 1
 	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "hTO" = (
@@ -27557,7 +27559,7 @@
 /obj/effect/spawner/random/structure/closet_private,
 /obj/effect/spawner/random/maintenance/six,
 /turf/open/floor/iron/herringbone,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "ipG" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -31738,7 +31740,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "jCA" = (
 /obj/machinery/computer/pod/old/mass_driver_controller/chapelgun{
 	pixel_y = -24
@@ -37389,13 +37391,13 @@
 /area/station/maintenance/starboard/fore)
 "lhR" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/mob_spawn/corpse/human/russian,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "body"
 	},
+/obj/effect/mob_spawn/corpse/human/bartender,
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "lim" = (
 /obj/machinery/door/firedoor,
 /obj/structure/railing/corner{
@@ -44516,7 +44518,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "nlA" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
@@ -51612,7 +51614,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "pvu" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
@@ -55737,7 +55739,7 @@
 	spawn_random_offset = 3
 	},
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "qHR" = (
 /obj/structure/table,
 /obj/item/radio/intercom/directional/north,
@@ -70672,8 +70674,13 @@
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/equipment)
 "vkG" = (
-/turf/closed/wall,
-/area/station/maintenance/rus_gambling)
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/mob/living/basic/pet/dog/corgi/ian,
+/turf/open/floor/carpet/executive,
+/area/station/command/heads_quarters/hop)
 "vkO" = (
 /obj/structure/railing,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -80087,7 +80094,7 @@
 /obj/machinery/light/small/directional/east,
 /obj/machinery/roulette,
 /turf/open/floor/wood,
-/area/station/maintenance/rus_gambling)
+/area/station/service/abandoned_gambling_den)
 "ycc" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -107305,8 +107312,8 @@ biO
 soH
 eVS
 ipE
-vkG
-vkG
+sRf
+sRf
 cPt
 hiV
 web
@@ -107820,7 +107827,7 @@ soH
 aiS
 qHy
 lhR
-vkG
+sRf
 yli
 web
 web
@@ -108077,7 +108084,7 @@ soH
 aeW
 ybP
 hnh
-vkG
+sRf
 uDp
 web
 kiH
@@ -108331,10 +108338,10 @@ cSk
 gGe
 xAG
 soH
-vkG
-vkG
-vkG
-vkG
+sRf
+sRf
+sRf
+sRf
 kRu
 web
 eku
@@ -177748,7 +177755,7 @@ pyo
 rIk
 gkW
 wvS
-kzh
+vkG
 kzh
 mDL
 kCs
