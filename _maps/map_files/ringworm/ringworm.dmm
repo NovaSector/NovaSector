@@ -5077,6 +5077,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
+"bBz" = (
+/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
+/obj/machinery/door/airlock/engineering{
+	name = "Port Quarter Solar Access"
+	},
+/obj/effect/mapping_helpers/airlock/unres,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/maintenance/solars/port/aft)
 "bBD" = (
 /turf/open/floor/engine,
 /area/station/science/ordnance)
@@ -11662,11 +11672,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal)
-"dFE" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "dFM" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 4
@@ -14724,6 +14729,11 @@
 "ewg" = (
 /turf/open/floor/iron,
 /area/station/commons/storage/mining)
+"ewk" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "ewl" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/ash/large,
@@ -17908,6 +17918,16 @@
 	dir = 4
 	},
 /area/station/security/brig/entrance)
+"ftH" = (
+/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
+/obj/machinery/door/airlock/engineering{
+	name = "Starboard Quarter Solar Access"
+	},
+/obj/effect/mapping_helpers/airlock/unres,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/maintenance/solars/starboard/aft)
 "ftM" = (
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
 	dir = 1
@@ -23764,10 +23784,14 @@
 /turf/open/floor/wood,
 /area/station/service/library/lounge)
 "hlw" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/trinary/filter/atmos/n2o{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/engineering/atmos/upper)
 "hlE" = (
 /obj/item/kirbyplants/organic/plant22,
 /obj/effect/turf_decal/siding/dark/end{
@@ -25928,16 +25952,6 @@
 "hSi" = (
 /turf/open/floor/iron/dark/diagonal,
 /area/station/ai_monitored/security/armory)
-"hSn" = (
-/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
-/obj/machinery/door/airlock/engineering{
-	name = "Starboard Quarter Solar Access"
-	},
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/solars/starboard/aft)
 "hSp" = (
 /obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating,
@@ -38174,15 +38188,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/turret_protected/ai_upload)
-"luK" = (
-/obj/effect/turf_decal/box/corners{
-	dir = 8
-	},
-/obj/machinery/atmospherics/components/trinary/filter/atmos/n2o{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/engineering/atmos/upper)
 "luT" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -42914,15 +42919,10 @@
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/freezerchamber)
 "mON" = (
-/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
-/obj/machinery/door/airlock/engineering{
-	name = "Port Quarter Solar Access"
-	},
-/obj/effect/mapping_helpers/airlock/unres,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
-/area/station/maintenance/solars/port/aft)
+/area/station/maintenance/aft/greater)
 "mOO" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -55303,7 +55303,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/customs)
 "qyr" = (
-/obj/machinery/recycler,
+/obj/machinery/recycler{
+	dir = 8
+	},
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "garbage"
@@ -105617,7 +105619,7 @@ vIQ
 qap
 pOJ
 iYs
-mON
+bBz
 rDQ
 xza
 hNY
@@ -118978,7 +118980,7 @@ ogC
 yiG
 ogC
 ogC
-hlw
+mON
 jxw
 wyD
 dOC
@@ -119235,7 +119237,7 @@ qaq
 tQG
 flY
 ogC
-hlw
+mON
 ePd
 ePd
 ePd
@@ -119492,9 +119494,9 @@ hTd
 wah
 ikm
 ogC
-hlw
+mON
 pPA
-hlw
+mON
 yiW
 ggt
 unW
@@ -119751,7 +119753,7 @@ nDi
 ogC
 ePd
 ePd
-hlw
+mON
 nkv
 nkv
 pAJ
@@ -120008,7 +120010,7 @@ lxd
 ogC
 lzn
 yiW
-hlw
+mON
 yiW
 tNk
 ogV
@@ -120779,7 +120781,7 @@ gAx
 pHl
 kTx
 xcH
-hlw
+mON
 tQY
 tQY
 tQY
@@ -121036,7 +121038,7 @@ tBW
 sHZ
 kTx
 pFw
-hlw
+mON
 tQY
 xjm
 ygB
@@ -121232,7 +121234,7 @@ qSG
 iAZ
 pTD
 alg
-dFE
+ewk
 ark
 ark
 ark
@@ -121550,8 +121552,8 @@ tDV
 kTx
 kTx
 tYL
-hlw
-hSn
+mON
+ftH
 rzk
 rfb
 mNS
@@ -174162,7 +174164,7 @@ wTI
 tLs
 tLs
 pBj
-luK
+hlw
 hpI
 bMJ
 fks
