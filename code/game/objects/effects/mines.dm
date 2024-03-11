@@ -107,8 +107,6 @@
 
 /obj/effect/mine/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
 	. = ..()
-	if(!can_trigger())
-		return
 
 	triggermine()
 
