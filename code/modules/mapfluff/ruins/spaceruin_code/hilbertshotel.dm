@@ -9,10 +9,11 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	var/list/static/hotel_maps = list("Generic", "Apartment")
+	var/list/static/hotel_maps = list("Generic", "Apartment", "Beach Condo")
 	//standart - hilber's hotel room
 	//apartment - see /datum/map_template/ghost_cafe_rooms
-	var/datum/map_template/ghost_cafe_rooms/ghost_cafe_rooms_apartment
+	var/datum/map_template/ghost_cafe_rooms/apartment/ghost_cafe_rooms_apartment
+	var/datum/map_template/ghost_cafe_rooms/beach_condo/ghost_cafe_rooms_beach_condo
 	//NOVA EDIT END
 	var/datum/map_template/hilbertshotel/hotelRoomTemp
 	var/datum/map_template/hilbertshotel/empty/hotelRoomTempEmpty
@@ -34,6 +35,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	hotelRoomTempLore = new()
 	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
 	ghost_cafe_rooms_apartment = new()
+	ghost_cafe_rooms_beach_condo = new()
 	//NOVA EDIT END
 	var/area/currentArea = get_area(src)
 	if(currentArea.type == /area/ruin/space/has_grav/powered/hilbertresearchfacility/secretroom)
@@ -178,6 +180,8 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	//NOVA EDIT ADDITION START - GHOST HOTEL UPDATE
 	else if(chosen_room == "Apartment")
 		load_from = ghost_cafe_rooms_apartment
+	else if(chosen_room == "Beach Condo")
+		load_from = ghost_cafe_rooms_beach_condo
 	//NOVA EDIT ADDITION END
 
 	load_from.load(bottom_left)
@@ -198,10 +202,15 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	currentArea.storageTurf = storageTurf
 	currentArea.roomnumber = currentRoomnumber
 	currentArea.reservation = currentReservation
-	for(var/turf/closed/indestructible/hoteldoor/door in currentArea)
+
+	for(var/turf/closed/indestructible/hoteldoor/door in currentReservation.reserved_turfs)
 		door.parentSphere = src
-		door.desc = "The door to this hotel room. The placard reads 'Room [currentRoomnumber]'. Strangely, this door doesn't even seem openable. The doorknob, however, seems to buzz with unusual energy...<br />[span_info("Alt-Click to look through the peephole.")]"
-	for(var/turf/open/space/bluespace/BSturf in currentArea)
+		door.desc = "The door to this hotel room. \
+			The placard reads 'Room [currentRoomnumber]'. \
+			Strangely, this door doesn't even seem openable. \
+			The doorknob, however, seems to buzz with unusual energy...<br/>\
+			[span_info("Alt-Click to look through the peephole.")]"
+	for(var/turf/open/space/bluespace/BSturf in currentReservation.reserved_turfs)
 		BSturf.parentSphere = src
 
 /obj/item/hilbertshotel/proc/ejectRooms()
@@ -354,9 +363,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /turf/closed/indestructible/hoteldoor/attack_larva(mob/user, list/modifiers)
 	promptExit(user)
 
-/turf/closed/indestructible/hoteldoor/attack_slime(mob/user, list/modifiers)
-	promptExit(user)
-
 /turf/closed/indestructible/hoteldoor/attack_robot(mob/user)
 	if(get_dist(get_turf(src), get_turf(user)) <= 1)
 		promptExit(user)
@@ -436,12 +442,10 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 			targetturf = get_turf(pick(GLOB.blobstart))
 		else
 			CRASH("Unable to find a blobstart landmark")
-	var/turf/T = get_turf(H)
-	var/area/A = T.loc
+
 	log_game("[H] entered itself. Moving it to [loc_name(targetturf)].")
 	message_admins("[H] entered itself. Moving it to [ADMIN_VERBOSEJMP(targetturf)].")
-	for(var/mob/M in A)
-		to_chat(M, span_danger("[H] almost implodes in upon itself, but quickly rebounds, shooting off into a random point in space!"))
+	H.visible_message(span_danger("[H] almost implodes in upon itself, but quickly rebounds, shooting off into a random point in space!"))
 	H.forceMove(targetturf)
 
 /area/misc/hilbertshotel/Exited(atom/movable/gone, direction)

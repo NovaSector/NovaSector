@@ -153,7 +153,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/spawn_liquid,					/*NOVA EDIT ADDITION*/
 	/client/proc/spawn_mob_spawner,				/*NOVA EDIT ADDITION*/
 	/client/proc/spawn_pollution,				/*NOVA EDIT ADDITION*/
-	/client/proc/spawn_sunbeam,					/*NOVA EDIT ADDITION*/
 	/client/proc/intensity_credits_panel,		/*NOVA EDIT ADDITION*/
 	/client/proc/toggle_bsa,					/*NOVA EDIT ADDITION*/
 	/client/proc/try_stop_delam, /*NOVA EDIT ADDITION*/
@@ -231,6 +230,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/get_dynex_range, /*debug verbs for dynex explosions.*/
 	/client/proc/jump_to_ruin,
 	/client/proc/load_circuit,
+	/client/proc/map_export,
 	/client/proc/map_template_load,
 	/client/proc/map_template_upload,
 	/client/proc/modify_goals,
@@ -258,7 +258,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/validate_puzzgrids,
 	/client/proc/GeneratePipeSpritesheet,
 	/client/proc/view_runtimes,
-
+	/client/proc/stop_weather,
 	/client/proc/reload_interactions,	/*NOVA EDIT ADDITION*/
 	/client/proc/test_area_spawner,		/*AUTOMAPPER - NOVA EDIT ADDITION*/
 	/client/proc/toggle_liquid_debug,	/*NOVA EDIT ADDITION*/
@@ -308,6 +308,10 @@ GLOBAL_PROTECT(admin_verbs_poll)
 				add_verb(src, /client/proc/play_web_sound)
 		if(rights & R_SPAWN)
 			add_verb(src, GLOB.admin_verbs_spawn)
+#ifdef MAP_TEST
+		remove_verb(src, /client/proc/enable_mapping_verbs)
+		add_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
+#endif
 
 /client/proc/remove_admin_verbs()
 	remove_verb(src, list(
@@ -1207,8 +1211,7 @@ GLOBAL_PROTECT(admin_verbs_poll)
 
 	var/desired_mob = text2path(attempted_target_path)
 	if(!ispath(desired_mob))
-		var/static/list/mob_paths = make_types_fancy(subtypesof(/mob/living))
-		desired_mob = pick_closest_path(attempted_target_path, mob_paths)
+		desired_mob = pick_closest_path(attempted_target_path, make_types_fancy(subtypesof(/mob/living)))
 	if(isnull(desired_mob) || !ispath(desired_mob) || QDELETED(head))
 		return //The user pressed "Cancel"
 
@@ -1226,4 +1229,3 @@ GLOBAL_PROTECT(admin_verbs_poll)
 		QDEL_NULL(segment.ai_controller)
 		segment.AddComponent(/datum/component/mob_chain, front = previous)
 		previous = segment
-

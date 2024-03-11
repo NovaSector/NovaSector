@@ -61,8 +61,13 @@
 	demolition_mod = 1.8
 	/// How much damage we add to things that are weak to this bullet
 	var/anti_materiel_damage_addition = 30
+	/// What biotype we look for
+	var/biotype_we_look_for = MOB_ROBOTIC
 
-/obj/projectile/bullet/p60strela/Initialize(mapload)
-	. = ..()
-	// We do 80 total damage to anything robotic, namely borgs, and robotic simplemobs
-	AddElement(/datum/element/bane, target_type = /mob/living, mob_biotypes = MOB_ROBOTIC, damage_multiplier = 0, added_damage = anti_materiel_damage_addition)
+/obj/projectile/bullet/p60strela/on_hit(atom/target, blocked, pierce_hit)
+	if(!isliving(target) || (damage > initial(damage)))
+		return ..()
+	var/mob/living/target_mob = target
+	if(target_mob.mob_biotypes & biotype_we_look_for)
+		damage += anti_materiel_damage_addition
+	return ..()

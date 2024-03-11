@@ -1,5 +1,5 @@
 /obj/item/delivery
-	icon = 'icons/obj/storage/wrapping.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/storage/wrapping.dmi'
 	inhand_icon_state = "deliverypackage"
 	var/giftwrapped = 0
 	var/sort_tag = 0
@@ -325,7 +325,7 @@
 /obj/item/sales_tagger
 	name = "sales tagger"
 	desc = "A scanner that lets you tag wrapped items for sale, splitting the profit between you and cargo."
-	icon = 'icons/obj/devices/tool.dmi'
+	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "sales tagger"
 	worn_icon_state = "salestagger"
 	inhand_icon_state = "electronic"

@@ -20,10 +20,10 @@
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
 /datum/reagent/iron
-	chemical_flags_skyrat = REAGENT_BLOOD_REGENERATING
+	chemical_flags_nova = REAGENT_BLOOD_REGENERATING
 
 /datum/reagent/blood
-	chemical_flags_skyrat = REAGENT_BLOOD_REGENERATING // For Hemophages to be able to drink it without any issue.
+	chemical_flags_nova = REAGENT_BLOOD_REGENERATING // For Hemophages to be able to drink it without any issue.
 
 /datum/reagent/blood/on_new(list/data)
 	. = ..()

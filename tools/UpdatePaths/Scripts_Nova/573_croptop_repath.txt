@@ -1,0 +1,1 @@
+/obj/item/clothing/suit/croptop : /obj/item/clothing/suit/jacket/croptop{@OLD}

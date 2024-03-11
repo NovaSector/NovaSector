@@ -1,7 +1,8 @@
 import { filterMap, sortBy } from 'common/collections';
 import { classes } from 'common/react';
+import { useState } from 'react';
 
-import { sendAct, useBackend, useLocalState } from '../../backend';
+import { sendAct, useBackend } from '../../backend';
 import {
   Autofocus,
   Box,
@@ -41,6 +42,7 @@ const CharacterControls = (props: {
   handleRotate: () => void;
   handleOpenSpecies: () => void;
   handleLoadout: () => void; // NOVA EDIT ADDITION
+  handleFood: () => void; // NOVA EDIT ADDITION
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
@@ -75,8 +77,8 @@ const CharacterControls = (props: {
           />
         </Stack.Item>
       )}
+      {/* NOVA EDIT ADDITION START */}
       {props.handleLoadout && (
-        // NOVA EDIT ADDITION
         <Stack.Item>
           <Button
             onClick={props.handleLoadout}
@@ -87,6 +89,16 @@ const CharacterControls = (props: {
           />
         </Stack.Item>
       )}
+      <Stack.Item>
+        <Button
+          onClick={props.handleFood}
+          fontSize="22px"
+          icon="drumstick-bite"
+          tooltip="Edit Food Preferences"
+          tooltipPosition="top"
+        />
+        {/* NOVA EDIT ADDITION END */}
+      </Stack.Item>
     </Stack>
   );
 };
@@ -110,8 +122,8 @@ const ChoicedSelection = (props: {
 
   return (
     <Box
+      className="ChoicedSelection"
       style={{
-        background: 'white',
         padding: '5px',
 
         height: `${
@@ -203,16 +215,14 @@ const GenderButton = (props: {
   handleSetGender: (gender: Gender) => void;
   gender: Gender;
 }) => {
-  const [genderMenuOpen, setGenderMenuOpen] = useLocalState(
-    'genderMenuOpen',
-    false,
-  );
+  const [genderMenuOpen, setGenderMenuOpen] = useState(false);
 
   return (
     <Popper
       isOpen={genderMenuOpen}
+      onClickOutside={() => setGenderMenuOpen(false)}
       placement="right-end"
-      popperContent={
+      content={
         <Stack backgroundColor="white" ml={0.5} p={0.3}>
           {[Gender.Male, Gender.Female, Gender.Other, Gender.Other2].map(
             (gender) => {
@@ -280,9 +290,10 @@ const MainFeature = (props: {
   return (
     <Popper
       placement="bottom-start"
-      onClickOutside={() => handleClose()}
       isOpen={isOpen}
-      popperContent={
+      onClickOutside={handleClose}
+      baseZIndex={1} // Below the default popper at z 2
+      content={
         <ChoicedSelection
           name={catalog.name}
           catalog={catalog}
@@ -466,13 +477,10 @@ export const getRandomization = (
 
 export const MainPage = (props: { openSpecies: () => void }) => {
   const { act, data } = useBackend<PreferencesMenuData>();
-  const [currentClothingMenu, setCurrentClothingMenu] = useLocalState<
-    string | null
-  >('currentClothingMenu', null);
-  const [multiNameInputOpen, setMultiNameInputOpen] = useLocalState(
-    'multiNameInputOpen',
-    false,
+  const [currentClothingMenu, setCurrentClothingMenu] = useState<string | null>(
+    null,
   );
+  const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
   const [randomToggleEnabled] = useRandomToggleState();
 
   return (
@@ -556,6 +564,11 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                       handleLoadout={() => {
                         act('open_loadout');
                       }}
+                      // NOVA EDIT ADDITION - BEGIN
+                      handleFood={() => {
+                        act('open_food');
+                      }}
+                      // NOVA EDIT ADDITION - END
                       setGender={createSetPreference(act, 'gender')}
                       showGender={
                         currentSpeciesData ? !!currentSpeciesData.sexes : true

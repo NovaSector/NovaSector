@@ -5,7 +5,7 @@
 
 
 /datum/reagent/consumable/ethanol/bloody_mary
-	chemical_flags_skyrat = REAGENT_BLOOD_REGENERATING
+	chemical_flags_nova = REAGENT_BLOOD_REGENERATING
 
 
 // ROBOT ALCOHOL PAST THIS POINT
@@ -617,7 +617,7 @@
 	boozepwr = 20 // The only booze in it is Bloody Mary
 	taste_description = "blood filled to the brim with nutrients of all kinds"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	chemical_flags_skyrat = REAGENT_BLOOD_REGENERATING
+	chemical_flags_nova = REAGENT_BLOOD_REGENERATING
 
 
 /datum/glass_style/drinking_glass/bloodshot

@@ -106,6 +106,7 @@
 
 
 /datum/computer_file/program/ntnetdownload/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
 	switch(action)
 		if("PRG_downloadfile")
 			if(!downloaded_file)

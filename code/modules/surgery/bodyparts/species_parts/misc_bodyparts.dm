@@ -60,6 +60,9 @@
 	should_draw_greyscale = FALSE
 	wing_types = NONE
 
+/obj/item/bodypart/chest/abductor/get_butt_sprite()
+	return BUTT_SPRITE_GREY
+
 /obj/item/bodypart/arm/left/abductor
 	limb_id = SPECIES_ABDUCTOR
 	should_draw_greyscale = FALSE
@@ -94,6 +97,9 @@
 	dmg_overlay_type = null
 	burn_modifier = 0.5 // = 1/2x generic burn damage
 	wing_types = list(/obj/item/organ/external/wings/functional/slime)
+
+/obj/item/bodypart/chest/jelly/get_butt_sprite()
+	return BUTT_SPRITE_SLIME
 
 /obj/item/bodypart/arm/left/jelly
 	biological_state = (BIO_FLESH|BIO_BLOODED)
@@ -183,6 +189,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	head_flags = HEAD_EYESPRITES|HEAD_DEBRAIN
+	can_dismember = TRUE
 
 /obj/item/bodypart/chest/zombie
 	limb_id = SPECIES_ZOMBIE
@@ -228,6 +235,9 @@
 	is_dimorphic = TRUE
 	burn_modifier = 1.25
 	wing_types = NONE
+
+/obj/item/bodypart/chest/pod/get_butt_sprite()
+	return BUTT_SPRITE_FLOWERPOT
 
 /obj/item/bodypart/arm/left/pod
 	limb_id = SPECIES_PODPERSON
@@ -518,16 +528,15 @@
 	)
 	return ..()
 
-/obj/item/bodypart/arm/left/golem/set_owner(new_owner)
+/obj/item/bodypart/arm/left/golem/clear_ownership(mob/living/carbon/old_owner)
 	. = ..()
-	if (. == FALSE)
-		return
-	if (owner)
-		owner.AddComponentFrom(REF(src), /datum/component/shovel_hands)
-	if (isnull(.))
-		return
-	var/mob/living/carbon/old_owner = .
+
 	old_owner.RemoveComponentSource(REF(src), /datum/component/shovel_hands)
+
+/obj/item/bodypart/arm/left/golem/apply_ownership(mob/living/carbon/new_owner)
+	. = ..()
+
+	new_owner.AddComponentFrom(REF(src), /datum/component/shovel_hands)
 
 /obj/item/bodypart/arm/right/golem
 	icon = 'icons/mob/human/species/golems.dmi'
@@ -552,16 +561,15 @@
 	)
 	return ..()
 
-/obj/item/bodypart/arm/right/golem/set_owner(new_owner)
+/obj/item/bodypart/arm/right/golem/clear_ownership(mob/living/carbon/old_owner)
 	. = ..()
-	if (. == FALSE)
-		return
-	if (owner)
-		owner.AddComponentFrom(REF(src), /datum/component/shovel_hands)
-	if (isnull(.))
-		return
-	var/mob/living/carbon/old_owner = .
+
 	old_owner.RemoveComponentSource(REF(src), /datum/component/shovel_hands)
+
+/obj/item/bodypart/arm/right/golem/apply_ownership(mob/living/carbon/new_owner)
+	. = ..()
+
+	new_owner.AddComponentFrom(REF(src), /datum/component/shovel_hands)
 
 /obj/item/bodypart/leg/left/golem
 	icon = 'icons/mob/human/species/golems.dmi'

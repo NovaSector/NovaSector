@@ -3,7 +3,6 @@
 	required_reagents = list(/datum/reagent/consumable/lemonjuice = 2, /datum/reagent/hydrogen = 1, /datum/reagent/chlorine = 1)
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG
 
-
 /datum/reagent/drug/quaalude
 	name = "Quaalude"
 	description = "Relaxes the user, putting them in a hypnotic, drugged state. A favorite drug of kids from Brooklyn." //THAT WAS THE BEST FUCKIN DRUG EVER MADE
@@ -14,14 +13,14 @@
 	taste_description = "lemons"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-
 /datum/reagent/drug/quaalude/on_mob_metabolize(mob/living/carbon/affected_carbon)
+	. = ..()
 	if(affected_carbon.hud_used)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.add_filter("quaalude_wave", 10, wave_filter(300, 300, 3, 0, WAVE_SIDEWAYS))
 
-
 /datum/reagent/drug/quaalude/on_mob_life(mob/living/carbon/affected_carbon, seconds_per_tick, times_fired)
+	. = ..()
 	if(SPT_PROB(2.5, seconds_per_tick))
 		var/high_message = pick("You feel relaxed.", "You feel like you're on the moon.", "You feel like you could walk 20 miles for a quaalude.")
 		to_chat(affected_carbon, span_notice(high_message))
@@ -29,7 +28,8 @@
 	affected_carbon.set_drugginess(1 MINUTES * REM * seconds_per_tick)
 	affected_carbon.adjust_slurring_up_to(30 SECONDS, 2 MINUTES)
 	affected_carbon.set_dizzy_if_lower(5 * REM * seconds_per_tick * 2 SECONDS)
-	affected_carbon.adjustStaminaLoss(-5 * REM * seconds_per_tick, 0)
+	if(affected_carbon.adjustStaminaLoss(-5 * REM * seconds_per_tick, updating_stamina = FALSE))
+		. = UPDATE_MOB_HEALTH
 
 	if(SPT_PROB(3.5, seconds_per_tick))
 		affected_carbon.emote(pick("laugh", "drool"))
@@ -39,14 +39,11 @@
 		affected_carbon.Knockdown(90, TRUE)
 		affected_carbon.drop_all_held_items()
 
-	return ..()
-
-
 /datum/reagent/drug/quaalude/on_mob_end_metabolize(mob/living/carbon/affected_carbon)
+	. = ..()
 	if(affected_carbon.hud_used != null)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = affected_carbon.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		game_plane_master_controller.remove_filter("quaalude_wave")
-
 
 /datum/reagent/drug/quaalude/overdose_process(mob/living/affected_carbon, seconds_per_tick, times_fired)
 	var/kidfrombrooklyn_message = pick("BRING BACK THE FUCKING QUAALUDES!", "I'd walk 20 miles for a quaalude, let me tell ya'!", "There's nothing like a fuckin' quaalude!")

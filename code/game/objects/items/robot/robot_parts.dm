@@ -339,6 +339,8 @@
 				O.set_lockcharge(TRUE)
 				to_chat(O, span_warning("Error: Servo motors unresponsive."))
 
+			O.equip_outfit_and_loadout(equipping_job = SSjob.GetJobType(/datum/job/cyborg)) // NOVA EDIT ADDITION - Cyborg loadout hats
+
 		else
 			to_chat(user, span_warning("The MMI must go in after everything else!"))
 
@@ -381,7 +383,7 @@
 	else
 		return ..()
 
-/obj/item/robot_suit/ui_status(mob/user)
+/obj/item/robot_suit/ui_status(mob/user, datum/ui_state/state)
 	if(isobserver(user))
 		return ..()
 	var/obj/item/held_item = user.get_active_held_item()

@@ -54,31 +54,3 @@
 /obj/item/ammo_box/c46x30mm/rubber
 	name = "ammo box (4.6x30mm rubber)"
 	ammo_type = /obj/item/ammo_casing/c46x30mm/rubber
-
-/obj/item/ammo_box/c34
-	name = "ammo box (.34)"
-	icon = 'modular_nova/modules/company_imports/icons/ammo.dmi'
-	icon_state = "ammo_34"
-	ammo_type = /obj/item/ammo_casing/c34
-	max_ammo = 20
-
-/obj/item/ammo_box/c34/ap
-	name = "ammo box (.34 AP)"
-	ammo_type = /obj/item/ammo_casing/c34/ap
-
-/obj/item/ammo_box/c34/rubber
-	name = "ammo box (.34 rubber)"
-	ammo_type = /obj/item/ammo_casing/c34/rubber
-
-/obj/item/ammo_box/c34/fire
-	name = "ammo box (.34 incendiary)"
-	ammo_type = /obj/item/ammo_casing/c34_incendiary
-
-/obj/item/storage/box/ammo_box/microfusion/bluespace
-	name = "bluespace microfusion cell container"
-	desc = "A box filled with microfusion cells."
-
-/obj/item/storage/box/ammo_box/microfusion/bluespace/PopulateContents()
-	new /obj/item/stock_parts/cell/microfusion/bluespace(src)
-	new /obj/item/stock_parts/cell/microfusion/bluespace(src)
-	new /obj/item/stock_parts/cell/microfusion/bluespace(src)

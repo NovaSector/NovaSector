@@ -1,11 +1,11 @@
-// Skyrat shuttle areas
+// Nova Sector shuttle areas
 
 /area/shuttle/prison_transport
 	name = "Prison Transporter NSS-74"
 
 /datum/map_template/shuttle/prison_transport
 	port_id = "prison_transport"
-	suffix = "skyrat"
+	suffix = "nova"
 	name = "Prison Transporter NSS-74"
 
 /area/shuttle/blackmarket_chevvy
@@ -20,6 +20,7 @@
 
 /area/shuttle/tarkon_driver
 	name = "Tarkon Driver"
+	requires_power = TRUE
 
 /area/shuttle/trader/bridge
 	name = "Trader Ship Bridge"

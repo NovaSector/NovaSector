@@ -1,5 +1,8 @@
 /datum/component/ammo_hud
+	/// The ammo counter screen object itself
 	var/atom/movable/screen/ammo_counter/hud
+	/// A weakref to the mob who currently owns the hud
+	var/datum/weakref/current_hud_owner
 
 /datum/component/ammo_hud/Initialize()
 	. = ..()
@@ -19,13 +22,17 @@
 		if(H.is_holding(parent))
 			if(H.hud_used)
 				hud = H.hud_used.ammo_counter
-				turn_on()
+				if(!hud.on) // make sure we're not already turned on
+					current_hud_owner = WEAKREF(user)
+					RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
+					turn_on()
 		else
 			turn_off()
 
 /datum/component/ammo_hud/proc/turn_on()
 	SIGNAL_HANDLER
 
+	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED), PROC_REF(turn_off))
 	RegisterSignals(parent, list(COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED), PROC_REF(update_hud))
 
@@ -36,10 +43,18 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(parent, list(COMSIG_PREQDELETED, COMSIG_ITEM_DROPPED, COMSIG_UPDATE_AMMO_HUD, COMSIG_GUN_CHAMBER_PROCESSED))
+	var/mob/living/carbon/human/current_owner = current_hud_owner?.resolve()
+	if(isnull(current_owner))
+		current_hud_owner = null
+	else
+		UnregisterSignal(current_owner, COMSIG_QDELETING)
 
 	if(hud)
 		hud.turn_off()
+		UnregisterSignal(hud, COMSIG_QDELETING)
 		hud = null
+
+	current_hud_owner = null
 
 /// Returns get_ammo() with the appropriate args passed to it - some guns like the revolver and bow are special cases
 /datum/component/ammo_hud/proc/get_accurate_ammo_count(obj/item/gun/ballistic/the_gun)
@@ -150,44 +165,6 @@
 				oth_t = "t9"
 				oth_h = "h9"
 		hud.set_hud(backing_color, oth_o, oth_t, oth_h, indicator)
-
-	else if(istype(parent, /obj/item/gun/microfusion))
-		var/obj/item/gun/microfusion/parent_gun = parent
-		if(!parent_gun.phase_emitter)
-			hud.icon_state = "microfusion_counter_no_emitter"
-			hud.maptext = null
-			return
-		if(parent_gun.phase_emitter.damaged)
-			hud.icon_state = "microfusion_counter_damaged"
-			hud.maptext = null
-			return
-		if(!parent_gun.cell)
-			hud.icon_state = "microfusion_counter_no_emitter"
-			hud.maptext = null
-			return
-		if(!parent_gun.cell.charge)
-			hud.icon_state = "microfusion_counter_no_emitter"
-			hud.maptext = null
-			return
-		var/phase_emitter_state = parent_gun.phase_emitter.get_heat_icon_state()
-		hud.icon_state = "microfusion_counter_[phase_emitter_state]"
-		hud.cut_overlays()
-		hud.maptext_x = -12
-		var/obj/item/ammo_casing/energy/shot = parent_gun.microfusion_lens
-		var/battery_percent = FLOOR(clamp(parent_gun.cell.charge / parent_gun.cell.maxcharge, 0, 1) * 100, 1)
-		var/shot_cost_percent = FLOOR(clamp(shot.e_cost / parent_gun.cell.maxcharge, 0, 1) * 100, 1)
-		if(battery_percent > 99 || shot_cost_percent > 99)
-			hud.maptext_x = -12
-		else
-			hud.maptext_x = -8
-		if(!parent_gun.can_shoot())
-			hud.icon_state = "microfusion_counter_no_emitter"
-			return
-		if(battery_percent <= 25)
-			hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_YELLOW]'>[battery_percent]%</font><br><font color='[COLOR_CYAN]'>[shot_cost_percent]%</font></div>")
-			return
-		hud.maptext = span_maptext("<div align='center' valign='middle' style='position:relative'><font color='[COLOR_VIBRANT_LIME]'>[battery_percent]%</font><br><font color='[COLOR_CYAN]'>[shot_cost_percent]%</font></div>")
-
 
 /obj/item/gun/ballistic/Initialize(mapload)
 	. = ..()

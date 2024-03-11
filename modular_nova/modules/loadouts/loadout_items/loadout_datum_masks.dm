@@ -49,6 +49,10 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Skull Bandana"
 	item_path = /obj/item/clothing/mask/bandana/skull
 
+/datum/loadout_item/mask/facescarf
+	name = "Facescarf"
+	item_path = /obj/item/clothing/mask/facescarf
+
 /*
 *	BALACLAVAS
 */
@@ -73,6 +77,10 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Gas Mask"
 	item_path = /obj/item/clothing/mask/gas
 
+/datum/loadout_item/mask/gas_alt
+	name = "Black Gas Mask"
+	item_path = /obj/item/clothing/mask/gas/alt
+
 /datum/loadout_item/mask/gas_glass
 	name = "Glass Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/glass
@@ -80,6 +88,10 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 /datum/loadout_item/mask/respirator
 	name = "Half Mask Respirator"
 	item_path = /obj/item/clothing/mask/gas/respirator
+
+/datum/loadout_item/mask/sechailer_half_mask
+	name = "Tacticool Neck Gaiter"
+	item_path = /obj/item/clothing/mask/gas/sechailer/half_mask
 
 /*
 *	JOB-LOCKED
@@ -138,6 +150,10 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Plague Doctor Mask"
 	item_path = /obj/item/clothing/mask/gas/plaguedoctor
 
+/datum/loadout_item/mask/rebellion
+	name = "Rebellion Mask"
+	item_path = /obj/item/clothing/mask/rebellion
+
 /datum/loadout_item/mask/monkey
 	name = "Monkey Mask"
 	item_path = /obj/item/clothing/mask/gas/monkeymask
@@ -145,6 +161,10 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 /datum/loadout_item/mask/owl
 	name = "Owl Mask"
 	item_path = /obj/item/clothing/mask/gas/owl_mask
+
+/datum/loadout_item/mask/kitsune
+	name = "Kitsune Mask"
+	item_path = /obj/item/clothing/mask/kitsune
 
 /datum/loadout_item/mask/joy
 	name = "Joy Mask"
@@ -162,14 +182,12 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Balaclava"
 	item_path = /obj/item/clothing/mask/balaclava
 
-
 /*
 *	DONATOR
 */
 
 /datum/loadout_item/mask/donator
 	donator_only = TRUE
-
 
 /datum/loadout_item/mask/donator/nightlight_mask/alldono
 	name = "Commercial FIR-36 Rebreather"

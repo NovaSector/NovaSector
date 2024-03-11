@@ -10,9 +10,6 @@
 	item_type = /obj/item/skillchip/job/roboticist
 	description = "A skillchip that, when installed, allows the user to recognise cyborg wire layouts and understand their functionality at a glance."
 
-/datum/opposing_force_equipment/implants/tacticool
-	item_type = /obj/item/skillchip/chameleon/reload
-
 //Implants
 /datum/opposing_force_equipment/implants/nodrop
 	item_type = /obj/item/autosurgeon/syndicate/nodrop
@@ -94,11 +91,13 @@
 	admin_note = "Allows the user to break handcuffs or e-snares four times, after it will run out and become useless."
 	description = "An implanter that grants you the ability to break out of handcuffs a certain number of times."
 
+/* TODO Removal pending replacement
 /datum/opposing_force_equipment/implants_illegal/micro
 	name = "Microbomb Implant"
 	admin_note = "RRs the user."
 	item_type = /obj/item/implanter/explosive
 	description = "An implanter that will make you explode on death in a decent-sized explosion."
+*/
 
 /datum/opposing_force_equipment/implants_illegal/emp
 	name = "EMP Implant"

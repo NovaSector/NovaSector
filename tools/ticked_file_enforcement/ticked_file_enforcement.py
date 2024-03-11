@@ -85,8 +85,8 @@ for code_file in scannable_files:
     else:
         dm_path = os.path.basename(code_file)
         # NOVA EDIT START - Modular unit tests - have to append this again after it gets removed; this was not designed upstream with subfolders for unit tests in mind so we must cope.
-        if("~skyrat/" in code_file):
-            dm_path = "~skyrat\\" + dm_path
+        if("~nova/" in code_file):
+            dm_path = "~nova\\" + dm_path
         # NOVA EDIT END
 
     included = f"#include \"{dm_path}\"" in lines

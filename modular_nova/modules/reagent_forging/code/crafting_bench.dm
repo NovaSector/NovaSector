@@ -27,7 +27,6 @@
 		/datum/crafting_bench_recipe/plate_vest,
 		/datum/crafting_bench_recipe/plate_gloves,
 		/datum/crafting_bench_recipe/plate_boots,
-		/datum/crafting_bench_recipe/horse_shoes,
 		/datum/crafting_bench_recipe/ring,
 		/datum/crafting_bench_recipe/collar,
 		/datum/crafting_bench_recipe/handcuffs,

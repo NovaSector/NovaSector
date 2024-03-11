@@ -1,0 +1,184 @@
+# Shuttles (Listed for reference)
+# cargo_delta_skyrat : cargo_nova_delta
+# mining_large_skyrat : mining_nova_large
+# If you are a downstream or a PR, change the other arrivals, cargo, and escape shuttles in your map's .json to _nova rather than _skyrat.
+# This will preserve their operation. Apparently, this can't be scripted. -alos
+# e.g. 
+# "shuttles": {
+# OLD----"cargo": "cargo_skyrat",
+# NEW++++"cargo": "cargo_nova",
+# OLD----"ferry": "ferry_skyrat",
+# NEW++++"ferry": "ferry_nova",
+# "whiteship": "whiteship_blueshift",
+# OLD----"emergency": "emergency_skyrat"
+# NEW++++"emergency": "emergency_nova"
+# }
+
+
+# Flags (Listed here for reference, like shuttles)
+# chemical_flags_skyrat : chemical_flags_nova
+# skyrat_obj_flags : obj_flags_nova
+
+
+# Objects
+
+# Clothing
+# Head
+# Cowboy Hats
+/obj/item/clothing/head/cowboy/skyrat/@SUBTYPES : /obj/item/clothing/head/cowboy/nova/@SUBTYPES{@OLD}
+# Costume Hats
+/obj/item/clothing/head/costume/skyrat/@SUBTYPES : /obj/item/clothing/head/costume/nova/@SUBTYPES{@OLD}
+# Hoods
+/obj/item/clothing/head/hooded/winterhood/skyrat/@SUBTYPES : /obj/item/clothing/head/hooded/winterhood/nova/@SUBTYPES{@OLD}
+# Security
+/obj/item/clothing/head/helmet/blueshirt/skyrat/@SUBTYPES  : /obj/item/clothing/head/helmet/blueshirt/nova/@SUBTYPES{@OLD} 
+# Undersuit
+# Misc
+/obj/item/clothing/under/misc/skyrat/@SUBTYPES : /obj/item/clothing/under/misc/nova/@SUBTYPES{@OLD} 
+# Central Command Undersuits
+/obj/item/clothing/under/rank/centcom/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/centcom/nova/@SUBTYPES{@OLD} 
+# Command Undersuits
+/obj/item/clothing/under/rank/captain/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/captain/nova/@SUBTYPES{@OLD} 
+# Cargo Undersuits
+/obj/item/clothing/under/rank/cargo/tech/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/cargo/tech/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/cargo/qm/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/cargo/qm/nova/@SUBTYPES{@OLD}
+# Civilian Undersuits
+/obj/item/clothing/under/suit/skyrat/@SUBTYPES : /obj/item/clothing/under/suit/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/civilian/head_of_personnel/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/civilian/head_of_personnel/nova/@SUBTYPES{@OLD}
+# Engineering Undersuits
+/obj/item/clothing/under/rank/engineering/engineer/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/engineering/engineer/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/engineering/chief_engineer/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/engineering/chief_engineer/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/engineering/atmospheric_technician/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/@SUBTYPES{@OLD}
+# Medical Undersuits
+/obj/item/clothing/under/rank/medical/doctor/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/medical/doctor/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/medical/scrubs/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/medical/scrubs/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/medical/chemist/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/medical/chemist/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/medical/paramedic/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/medical/paramedic/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/medical/chief_medical_officer/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/medical/chief_medical_officer/nova/@SUBTYPES{@OLD}
+# Security Undersuits 
+/obj/item/clothing/under/rank/security/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/security/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/security/head_of_security/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/security/head_of_security/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/security/officer/blueshirt/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/security/officer/blueshirt/nova/@SUBTYPES{@OLD}
+# Science Undersuits
+/obj/item/clothing/under/rank/rnd/scientist/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/rnd/scientist/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/rnd/roboticist/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/rnd/roboticist/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/rnd/scientist/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/rnd/scientist/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/rank/rnd/research_director/skyrat/@SUBTYPES : /obj/item/clothing/under/rank/rnd/research_director/nova/@SUBTYPES{@OLD}
+# Syndicate Undersuits
+/obj/item/clothing/under/syndicate/skyrat/@SUBTYPES : /obj/item/clothing/under/syndicate/nova/@SUBTYPES{@OLD}
+# Shorts, Pants, Dresses, Skirts
+/obj/item/clothing/under/shorts/skyrat/@SUBTYPES : /obj/item/clothing/under/shorts/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/pants/skyrat/@SUBTYPES : /obj/item/clothing/under/pants/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/dress/skyrat/@SUBTYPES : /obj/item/clothing/under/dress/nova/@SUBTYPES{@OLD}
+/obj/item/clothing/under/dress/skirt/skyrat/@SUBTYPES : /obj/item/clothing/under/dress/skirt/nova/@SUBTYPES{@OLD}
+# Costume Undersuits
+/obj/item/clothing/under/costume/skyrat/@SUBTYPES : /obj/item/clothing/under/costume/nova/@SUBTYPES{@OLD}
+# Suits
+# Winter Coats
+/obj/item/clothing/suit/hooded/wintercoat/skyrat/@SUBTYPES : /obj/item/clothing/suit/hooded/wintercoat/nova/@SUBTYPES{@OLD}
+# Lab Coats
+/obj/item/clothing/suit/toggle/labcoat/skyrat/@SUBTYPES : /obj/item/clothing/suit/toggle/labcoat/nova/@SUBTYPES{@OLD}
+# Security
+/obj/item/clothing/suit/armor/vest/blueshirt/skyrat/@SUBTYPES : /obj/item/clothing/suit/armor/vest/blueshirt/nova/@SUBTYPES{@OLD}
+# Neck
+# Cloaks
+/obj/item/clothing/neck/cloak/qm/syndie/@SUBTYPES : /obj/item/clothing/neck/cloak/qm/nova/interdyne/@SUBTYPES{@OLD}
+
+# Storage
+# Gun Cases
+/obj/item/storage/toolbox/guncase/skyrat/@SUBTYPES : /obj/item/storage/toolbox/guncase/nova/@SUBTYPES{@OLD}
+
+# Trash
+# Lemonade Can
+/obj/item/trash/can/skyrat/@SUBTYPES : /obj/item/trash/can/nova/@SUBTYPES{@OLD}
+
+# Toys
+# Plushes
+/obj/item/toy/plush/skyrat/@SUBTYPES : /obj/item/toy/plush/nova/@SUBTYPES{@OLD}
+
+# Reagents
+/obj/item/reagent_containers/cup/soda_cans/skyrat/@SUBTYPES : /obj/item/reagent_containers/cup/soda_cans/nova/@SUBTYPES{@OLD}
+
+# Effects
+# Decals
+/obj/effect/turf_decal/skyrat_decals/@SUBTYPES : /obj/effect/turf_decal/nova_decals/@SUBTYPES{@OLD}
+
+# Closets
+# DS-2
+/obj/structure/closet/secure_closet/interdynefob/@SUBTYPES : /obj/structure/closet/secure_closet/des_two/@SUBTYPES{@OLD}
+
+
+# Datums
+
+# Map Templates
+# Shuttles
+/datum/map_template/shuttle/labour/skyrat : /datum/map_template/shuttle/labour/nova{@OLD}
+/datum/map_template/shuttle/mining_common/skyrat : /datum/map_template/shuttle/mining_common/nova{@OLD}
+/datum/map_template/shuttle/mining/skyrat/large : /datum/map_template/shuttle/mining/nova/large{@OLD}
+/datum/map_template/shuttle/cargo/skyrat/delta : /datum/map_template/shuttle/cargo/nova/delta{@OLD}
+# Ruins
+/datum/map_template/ruin/icemoon/underground/skyrat/@SUBTYPES : /datum/map_template/ruin/icemoon/underground/nova/@SUBTYPES{@OLD}
+/datum/map_template/ruin/lavaland/skyrat/@SUBTYPES : /datum/map_template/ruin/lavaland/nova/@SUBTYPES{@OLD}
+
+# ID Trims
+/datum/id_trim/syndicom/skyrat/@SUBTYPES : /datum/id_trim/syndicom/nova/@SUBTYPES{@OLD}
+
+# Armors
+/datum/armor/skyrat_rd : /datum/armor/nova_rd{@OLD}
+/datum/armor/clothing_under/skyrat_syndie : /datum/armor/clothing_under/nova_interdyne{@OLD}
+/datum/armor/clothing_under/skyrat_hazard_chem : /datum/armor/clothing_under/nova_hazard_chem{@OLD}
+
+# Areas
+
+# Alien Tool Lab
+/area/ruin/space/has_grav/powered/skyrat/alien_tool_lab : /area/ruin/space/has_grav/powered/nova/alien_tool_lab{@OLD}
+# Black Market Chevvy
+/area/ruin/space/has_grav/powered/skyrat/blackmarket : /area/ruin/space/has_grav/powered/nova/blackmarket{@OLD}
+# Clothing Facility
+/area/ruin/space/has_grav/powered/skyrat/clothing_facility : /area/ruin/space/has_grav/powered/nova/clothing_facility{@OLD}
+# DS-2
+/area/ruin/space/has_grav/skyrat/interdynefob : /area/ruin/space/has_grav/nova/des_two{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/bridge : /area/ruin/space/has_grav/nova/des_two/bridge{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/bridge/cl : /area/ruin/space/has_grav/nova/des_two/bridge/cl{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/bridge/vault : /area/ruin/space/has_grav/nova/des_two/bridge/vault{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/bridge/admiral : /area/ruin/space/has_grav/nova/des_two/bridge/admiral{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/bridge/eva) : /area/ruin/space/has_grav/nova/des_two/bridge/eva{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/halls : /area/ruin/space/has_grav/nova/des_two/halls{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/security : /area/ruin/space/has_grav/nova/des_two/security{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/security/lawyer : /area/ruin/space/has_grav/nova/des_two/security/lawyer{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/security/armory : /area/ruin/space/has_grav/nova/des_two/security/armory{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/security/prison : /area/ruin/space/has_grav/nova/des_two/security/prison{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/cargo : /area/ruin/space/has_grav/nova/des_two/cargo{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/cargo/hangar : /area/ruin/space/has_grav/nova/des_two/cargo/hangar{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/research : /area/ruin/space/has_grav/nova/des_two/research{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/medbay : /area/ruin/space/has_grav/nova/des_two/medbay{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/medbay/chem: /area/ruin/space/has_grav/nova/des_two/medbay/chem{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/service : /area/ruin/space/has_grav/nova/des_two/service{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/service/lounge: /area/ruin/space/has_grav/nova/des_two/service/lounge{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/service/diner: /area/ruin/space/has_grav/nova/des_two/service/diner{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/service/hydroponics : /area/ruin/space/has_grav/nova/des_two/service/hydroponics{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/service/dorms : /area/ruin/space/has_grav/nova/des_two/service/dorms{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/service/dorms/fitness : /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/cargo : /area/ruin/space/has_grav/nova/des_two/cargo{@OLD}
+/area/ruin/space/has_grav/skyrat/interdynefob/engineering : /area/ruin/space/has_grav/nova/des_two/engineering{@OLD}
+# Scrapheap
+/area/ruin/space/has_grav/powered/skyrat/scrapheap : /area/ruin/space/has_grav/powered/nova/scrapheap{@OLD}
+# Smugglies
+/area/ruin/space/has_grav/powered/skyrat/smugglies : /area/ruin/space/has_grav/powered/nova/smugglies{@OLD}
+# I did the above before checking the guide and think that's all of them so I'll leave them in, but also, as insurance:
+/area/ruin/space/has_grav/powered/skyrat/@SUBTYPES : /area/ruin/space/has_grav/powered/nova/@SUBTYPES{@OLD}
+
+# Fixes
+# These are prior refactors that were not properly updated in some rarely/never-used maps
+
+# Items
+# 7.62
+/obj/item/ammo_box/a762/@subtypes : /obj/item/ammo_box/strilka310/@subtypes{@OLD}
+
+# Mobs
+#Robot Customer
+/mob/living/simple_animal/robot_customer : /mob/living/basic/robot_customer{@OLD}
+
+# Structures
+# Damaged Window Helper
+/obj/structure/window/reinforced/fulltile/damaged : /turf/closed/indestructible/fakeglass, /obj/effect/mapping_helpers/damaged_window

@@ -8,7 +8,7 @@
 	var/obj/item/organ/organ_path = path // cast this to an organ so we can get the slot from it using initial()
 	var/obj/item/organ/new_organ = new path()
 	new_organ.copy_traits_from(human_holder.get_organ_slot(initial(organ_path.slot)))
-	new_organ.Insert(human_holder, special = TRUE, drop_if_replaced = FALSE)
+	new_organ.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 //HEARTS
 /datum/augment_item/organ/heart
@@ -87,6 +87,11 @@
 	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	cost = 1
 
+/datum/augment_item/organ/eyes/binoculars
+	name = "Digital Magnification Optics (x3)"
+	cost = 4
+	path = /obj/item/organ/internal/eyes/robotic/binoculars
+
 //TONGUES
 /datum/augment_item/organ/tongue
 	slot = AUGMENT_SLOT_TONGUE
@@ -99,9 +104,17 @@
 	name = "Robotic voicebox"
 	path = /obj/item/organ/internal/tongue/robot
 
+/datum/augment_item/organ/tongue/robo/forked
+	name = "Robotic lizard voicebox"
+	path = /obj/item/organ/internal/tongue/lizard/robot
+
 /datum/augment_item/organ/tongue/cybernetic
 	name = "Cybernetic tongue"
 	path = /obj/item/organ/internal/tongue/cybernetic
+
+/datum/augment_item/organ/tongue/cybernetic/forked
+	name = "Forked cybernetic tongue"
+	path = /obj/item/organ/internal/tongue/lizard/cybernetic
 
 /datum/augment_item/organ/tongue/forked
 	name = "Forked tongue"

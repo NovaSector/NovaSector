@@ -4,7 +4,7 @@
 
 /datum/map_template/shuttle/emergency/outpost
 	suffix = "outpost"
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	name = "Outpoststation Emergency Shuttle"
 	description = "The perfect shuttle for rectangle enthuasiasts, this long and slender shuttle has been known for it's incredible(Citation Needed) safety rating."
 	admin_notes = "Has airlocks on both sides of the shuttle and will probably ram deltastation's maint wing below medical. Oh well?"
@@ -13,7 +13,7 @@
 
 /*----- Black Market Shuttle Datum + related code -----*/
 /datum/map_template/shuttle/ruin/blackmarket_chevvy
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "blackmarket_chevvy"
 	name = "Black Market Chevvy"
 
@@ -40,10 +40,30 @@
 	build_path = /obj/machinery/computer/shuttle/caravan/blackmarket_chevvy
 /*----- End of Black Market Shuttle Code -----*/
 
+/*Interdyne Cargo Shuttle*/
+/datum/map_template/shuttle/ruin/interdyne_cargo
+	prefix = "_maps/shuttles/nova/"
+	suffix = "interdyne_cargo"
+	name = "Interdyne Cargo Shuttle"
+
+/obj/machinery/computer/shuttle/interdyne_cargo
+	name = "Interdyne Cargo Shuttle Console"
+	desc = "Used to control the Interdyne cargo shuttle."
+	circuit = /obj/item/circuitboard/computer/interdyne_cargo
+	shuttleId = "interdyne_cargo"
+	icon_screen = "syndishuttle"
+	icon_keyboard = "syndie_key"
+	possible_destinations = "interdyne_cargo_home;interdyne_cargo_away;interdyne_cargo_custom;whiteship_home"
+
+/obj/item/circuitboard/computer/interdyne_cargo
+	name = "Interdyne Shuttle Control (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/interdyne_cargo
+/*Interdyne Cargo Shuttle End*/
+
 /datum/map_template/shuttle/prison_transport
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	port_id = "prison_transport"
-	suffix = "skyrat"
+	suffix = "nova"
 	name = "Prison Transporter NSS-74"
 
 
@@ -73,7 +93,7 @@
 
 /datum/map_template/shuttle/slaver_ship
 	port_id = "slaver ship"
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	port_id = "slaver"
 	suffix = "syndie"
 	name = "Slaver Ship"
@@ -128,7 +148,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer/radio,
 		/obj/item/melee/baton/telescopic,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/wespe,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/wespe,
 		/obj/item/grenade/c4,
 		/obj/item/grenade/smokebomb
 	)
@@ -153,14 +173,14 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer/radio,
 		/obj/item/melee/baton/telescopic,
-		/obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/skild,
+		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 		/obj/item/megaphone/command
 	)
 
 /*----- Tarkon Shuttle Datum + related code -----*/
 /datum/map_template/shuttle/ruin/tarkon_driver
-	prefix = "_maps/shuttles/skyrat/"
-	suffix = "tarkon_driverdc54"
+	prefix = "_maps/shuttles/nova/"
+	suffix = "tarkon_driver"
 	name = "Tarkon Drill Driver"
 
 /obj/machinery/computer/shuttle/tarkon_driver
@@ -183,9 +203,4 @@
 	name = "Tarkon Driver Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/tarkon_driver
 
-/datum/map_template/shuttle/ruin/tarkon_driver/defcon3
-	suffix = "tarkon_driverdc3"
-
-/datum/map_template/shuttle/ruin/tarkon_driver/defcon2
-	suffix = "tarkon_driverdc2"
 /*----- End of Tarkon Shuttle Code -----*/

@@ -146,8 +146,6 @@
 #define ANNOUNCER_SPOOKY "announcer_spooky"
 #define ANNOUNCER_ERTYES "announcer_ertyes"
 #define ANNOUNCER_MUTANTS "announcer_mutants"
-#define ANNOUNCER_KLAXON "announcer_klaxon"
-#define ANNOUNCER_ICARUS "announcer_icarus"
 #define ANNOUNCER_NRI_RAIDERS "announcer_nri_raiders"
 #define ANNOUNCER_OUTBREAK6 "announcer_outbreak6"
 #define ANNOUNCER_DEPARTMENTAL "announcer_departmental"
@@ -194,8 +192,6 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 	ANNOUNCER_SPOOKY,
 	ANNOUNCER_ERTYES,
 	ANNOUNCER_MUTANTS,
-	ANNOUNCER_KLAXON,
-	ANNOUNCER_ICARUS,
 	ANNOUNCER_NRI_RAIDERS,
 	ANNOUNCER_OUTBREAK6,
 	//NOVA EDIT END
@@ -234,3 +230,5 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 #define SFX_TREE_CHOP "tree_chop"
 #define SFX_ROCK_TAP "rock_tap"
 #define SFX_SEAR "sear"
+#define SFX_REEL "reel"
+#define SFX_RATTLE "rattle"

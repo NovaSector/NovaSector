@@ -113,6 +113,10 @@
 			continue
 		if(possible_target.current.stat == DEAD)
 			continue
+		// NOVA EDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
+		if (!possible_target.assigned_role?.heretic_sac_target)
+			continue
+		// NOVA EDIT ADDITION END
 
 		valid_targets += possible_target
 
@@ -130,7 +134,7 @@
 
 	// First target, any command.
 	for(var/datum/mind/head_mind as anything in shuffle(valid_targets))
-		if(head_mind.assigned_role?.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
+		if(head_mind.assigned_role?.job_flags & JOB_HEAD_OF_STAFF)
 			final_targets += head_mind
 			valid_targets -= head_mind
 			break
@@ -142,12 +146,14 @@
 			valid_targets -= sec_mind
 			break
 
+	/* NOVA EDIT REMOVAL -- Antag Opt In (Only sec and command may be targetted)
 	// Third target, someone in their department.
 	for(var/datum/mind/department_mind as anything in shuffle(valid_targets))
 		if(department_mind.assigned_role?.departments_bitflags & user.mind.assigned_role?.departments_bitflags)
 			final_targets += department_mind
 			valid_targets -= department_mind
 			break
+	*/ // NOVA EDIT REMOVAL END
 
 	// Now grab completely random targets until we'll full
 	var/target_sanity = 0
@@ -187,8 +193,8 @@
 	heretic_datum.remove_sacrifice_target(sacrifice)
 
 	var/feedback = "Your patrons accept your offer"
-	var/sac_department_flag = sacrifice.mind?.assigned_role?.departments_bitflags | sacrifice.last_mind?.assigned_role?.departments_bitflags
-	if(sac_department_flag & DEPARTMENT_BITFLAG_COMMAND)
+	var/sac_job_flag = sacrifice.mind?.assigned_role?.job_flags | sacrifice.last_mind?.assigned_role?.job_flags
+	if(sac_job_flag & JOB_HEAD_OF_STAFF)
 		heretic_datum.knowledge_points++
 		heretic_datum.high_value_sacrifices++
 		feedback += " <i>graciously</i>"

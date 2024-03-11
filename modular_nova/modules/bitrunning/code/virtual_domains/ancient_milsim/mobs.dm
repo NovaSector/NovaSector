@@ -13,7 +13,7 @@
 
 /mob/living/basic/trooper/cin_soldier/melee
 	r_hand = /obj/item/melee/energy/sword/saber/purple
-	l_hand = /obj/item/shield/riot/pointman/hecu
+	l_hand = /obj/item/shield/energy
 	var/projectile_deflect_chance = 20
 
 /mob/living/basic/trooper/cin_soldier/melee/bullet_act(obj/projectile/projectile)

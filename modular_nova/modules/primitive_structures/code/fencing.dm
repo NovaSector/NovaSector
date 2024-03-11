@@ -5,7 +5,6 @@
 	desc = "A basic wooden fence meant to prevent people like you either in or out of somewhere."
 	icon = 'modular_nova/modules/primitive_structures/icons/wooden_fence.dmi'
 	icon_state = "fence"
-	layer = BELOW_OBJ_LAYER // I think this is the default but lets be safe?
 	resistance_flags = FLAMMABLE
 	flags_1 = NO_DECONSTRUCTION | ON_BORDER_1
 	/// If we randomize our icon on spawning

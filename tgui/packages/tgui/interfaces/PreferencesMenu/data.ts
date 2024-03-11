@@ -92,7 +92,8 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
-  veteran_only: boolean; // NOVA EDIT - Veteran quirks
+  veteran_only: boolean; // NOVA EDIT ADDITION - Veteran quirks
+  erp_quirk: boolean; // NOVA EDIT ADDITION - Purple ERP quirks
 };
 
 // NOVA EDIT START
@@ -137,6 +138,7 @@ export type QuirkInfo = {
   max_positive_quirks: number;
   quirk_info: Record<string, Quirk>;
   quirk_blacklist: string[][];
+  points_enabled: boolean;
 };
 
 export enum RandomSetting {
@@ -226,6 +228,7 @@ export type PreferencesMenuData = {
   selected_languages: Language[];
   unselected_languages: Language[];
   total_language_points: number;
+  quirk_points_enabled: number;
   quirks_balance: number;
   positive_quirk_count: number;
   species_restricted_jobs?: string[];

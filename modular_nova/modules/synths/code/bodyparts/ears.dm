@@ -2,8 +2,8 @@
 	name = "auditory sensors"
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "ears-ipc"
-	desc = "A pair of microphones intended to be installed in an IPC or Synthetics head, that grant the ability to hear."
-	zone = BODY_ZONE_HEAD
+	desc = "A pair of microphones intended to be installed inside a machine's chassis, that grant the ability to hear."
+	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_EARS
 	gender = PLURAL
 	maxHealth = 1 * STANDARD_ORGAN_THRESHOLD
@@ -38,8 +38,8 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 5,
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/organ/internal/ears/synth
 	category = list(

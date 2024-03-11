@@ -1,6 +1,6 @@
 /datum/quirk/social_anxiety
 	name = "Social Anxiety"
-	desc = "Talking to people is very difficult for you, and you often stutter or even lock up."
+	desc = "Talking to people is very difficult for you, and you often lock up, especially if blown kisses or if you happen upon eye contact." //NOVA EDIT - CHANGE- ORIGINAL: desc = "Talking to people is very difficult for you, and you often stutter or even lock up."
 	icon = FA_ICON_COMMENT_SLASH
 	value = -3
 	gain_text = span_danger("You start worrying about what you're saying.")
@@ -50,7 +50,7 @@
 					break
 			if(prob(max(5,(nearby_people*12.5*moodmod)))) //Minimum 1/20 chance of stutter
 				// Add a short stutter, THEN treat our word
-				quirker.adjust_stutter(0.5 SECONDS)
+				//quirker.adjust_stutter(0.5 SECONDS) //NOVA EDIT REMOVAL - NO STUTTERING!
 				var/list/message_data = quirker.treat_message(word, capitalize_message = FALSE)
 				new_message += message_data["message"]
 			else
@@ -100,8 +100,8 @@
 			quirk_holder.set_jitter_if_lower(20 SECONDS)
 			msg += "causing you to start fidgeting!"
 		if(2)
-			quirk_holder.set_stutter_if_lower(6 SECONDS)
-			msg += "causing you to start stuttering!"
+			quirk_holder.set_confusion(2 SECONDS) // NOVA EDIT CHANGE - ORIGINAL: quirk_holder.set_stutter_if_lower(6 SECONDS)
+			msg += "causing you to trip over your own feet!" // NOVA EDIT CHANGE - ORIGINAL: msg += "causing you to start stuttering!"
 		if(3)
 			quirk_holder.Stun(2 SECONDS)
 			msg += "causing you to freeze up!"

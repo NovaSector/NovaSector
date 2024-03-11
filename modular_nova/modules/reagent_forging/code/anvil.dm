@@ -114,7 +114,7 @@
 
 	//okay, so we didn't find an incomplete item to hammer, do we have a hammerable item?
 	var/obj/locate_obj = locate() in contents
-	if(locate_obj && (locate_obj.skyrat_obj_flags & ANVIL_REPAIR))
+	if(locate_obj && (locate_obj.obj_flags_nova & ANVIL_REPAIR))
 		if(locate_obj.get_integrity() >= locate_obj.max_integrity)
 			balloon_alert(user, "already repaired")
 			return ITEM_INTERACT_SUCCESS

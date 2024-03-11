@@ -103,7 +103,7 @@
 
 /obj/item/modular_computer/pda/heads/quartermaster
 	name = "quartermaster PDA"
-	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
+	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#c4b787#18191e#8b4c31"
 	inserted_item = /obj/item/pen/survival
 	stored_paper = 20
@@ -114,6 +114,7 @@
 		/datum/computer_file/program/robocontrol,
 		/datum/computer_file/program/budgetorders,
 		/datum/computer_file/program/shipping,
+		/datum/computer_file/program/restock_tracker,
 	)
 
 /**
@@ -264,6 +265,7 @@
 		/datum/computer_file/program/shipping,
 		/datum/computer_file/program/budgetorders,
 		/datum/computer_file/program/robocontrol,
+		/datum/computer_file/program/restock_tracker,
 	)
 
 /obj/item/modular_computer/pda/shaftminer
@@ -414,19 +416,56 @@
 	)
 
 /**
- * No Department
+ * No Department/Station Trait
  */
-
 /obj/item/modular_computer/pda/assistant
 	name = "assistant PDA"
 	starting_programs = list(
 		/datum/computer_file/program/bounty_board,
 	)
 
+/obj/item/modular_computer/pda/bridge_assistant
+	name = "bridge assistant PDA"
+	greyscale_colors = "#374f7e#a92323"
+	starting_programs = list(
+		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/status,
+	)
+
+/obj/item/modular_computer/pda/veteran_advisor
+	name = "security advisor PDA"
+	greyscale_colors = "#EA3232#FFD700"
+	inserted_item = /obj/item/pen/fountain
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/coupon, //veteran discount
+		/datum/computer_file/program/skill_tracker,
+	)
+
+/obj/item/modular_computer/pda/human_ai
+	name = "modular interface"
+	icon_state = "pda-silicon-human"
+	base_icon_state = "pda-silicon-human"
+	greyscale_config = null
+	greyscale_colors = null
+
+	has_light = FALSE //parity with borg PDAs
+	comp_light_luminosity = 0
+	inserted_item = null
+	has_pda_programs = FALSE
+	starting_programs = list(
+		/datum/computer_file/program/messenger,
+		/datum/computer_file/program/secureye/human_ai,
+		/datum/computer_file/program/alarm_monitor,
+		/datum/computer_file/program/status,
+		/datum/computer_file/program/robocontrol,
+		/datum/computer_file/program/borg_monitor,
+	)
+
 /**
  * Non-roles
  */
-
 /obj/item/modular_computer/pda/syndicate
 	name = "military PDA"
 	greyscale_colors = "#891417#80FF80"

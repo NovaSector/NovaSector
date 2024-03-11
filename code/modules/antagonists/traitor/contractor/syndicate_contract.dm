@@ -1,4 +1,4 @@
-// NOVA EDIT ADDITION - DEFINES
+// NOVA EDIT ADDITION START
 #define RANSOM_LOWER 75 // TG: 18
 #define RANSOM_UPPER 150 // TG: 45
 #define CONTRACTOR_RANSOM_CUT 0.35
@@ -107,16 +107,15 @@
 		if(opfor_data.contractor_hub.current_contract == src) // NOVA EDIT CHANGE - ORIGINAL: if(traitor_data.uplink_handler.contractor_hub.current_contract == src)
 			opfor_data.contractor_hub.current_contract = null // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.current_contract = null
 
-	if(iscarbon(person_sent))
-		for(var/obj/item/person_contents in person_sent.gather_belongings())
-			if(ishuman(person_sent))
-				var/mob/living/carbon/human/human_sent = person_sent
-				if(person_contents == human_sent.w_uniform)
-					continue //So all they're left with are shoes and uniform.
-				if(person_contents == human_sent.shoes)
-					continue
-			person_sent.transferItemToLoc(person_contents)
-			victim_belongings.Add(WEAKREF(person_contents))
+	for(var/obj/item/person_contents as anything in person_sent.gather_belongings())
+		if(ishuman(person_sent))
+			var/mob/living/carbon/human/human_sent = person_sent
+			if(person_contents == human_sent.w_uniform)
+				continue //So all they're left with are shoes and uniform.
+			if(person_contents == human_sent.shoes)
+				continue
+		person_sent.transferItemToLoc(person_contents)
+		victim_belongings.Add(WEAKREF(person_contents))
 
 	var/obj/structure/closet/supplypod/extractionpod/pod = source
 	// Handle the pod returning
@@ -241,12 +240,14 @@
 
 	if(!possible_drop_loc.len)
 		to_chat(victim, span_hypnophrase("A million voices echo in your head... \"Seems where you got sent here from won't \
-			be able to handle our pod... You will die here instead.\""))
+			be able to handle our pod... if we wanted the occupant to survive. Brace yourself, corporate dog.\""))
+		for(var/turf/possible_drop in contract.dropoff.contents)
+			possible_drop_loc.Add(possible_drop)
 		if(iscarbon(victim))
 			var/mob/living/carbon/carbon_victim = victim
 			if(carbon_victim.can_heartattack())
 				carbon_victim.set_heartattack(TRUE)
-		return
+				carbon_victim.investigate_log("was returned without a valid drop location by the contractor [contract.owner?.current].", INVESTIGATE_DEATHS) // NOVA EDIT ADDITION
 
 	var/pod_rand_loc = rand(1, possible_drop_loc.len)
 	var/obj/structure/closet/supplypod/return_pod = new()
@@ -282,8 +283,8 @@
 
 	new /obj/effect/pod_landingzone(possible_drop_loc[pod_rand_loc], return_pod)
 
-// SKYRAT EDIT - DEFINES
+// NOVA EDIT ADDITION START
 #undef RANSOM_LOWER
 #undef RANSOM_UPPER
 #undef CONTRACTOR_RANSOM_CUT
-// SKYRAT EDIT END
+// NOVA EDIT ADDITION END

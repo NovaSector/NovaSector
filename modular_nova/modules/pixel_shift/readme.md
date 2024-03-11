@@ -20,8 +20,8 @@ Adds the ability for living mobs to shift their sprite to fit an RP situation be
 
 ### Defines:
 
-- `code/__DEFINES/~skyrat_defines/keybindings.dm`: `COMSIG_KB_MOB_PIXEL_SHIFT_DOWN`, `COMSIG_KB_MOB_PIXEL_SHIFT_UP`
-- `code/__DEFINES/~skyrat_defines/living.dm`: `COMSIG_LIVING_SET_PULL_OFFSET`, `COMSIG_LIVING_RESET_PULL_OFFSETS`, `COMSIG_LIVING_CAN_ALLOW_THROUGH`, `COMPONENT_LIVING_PASSABLE`
+- `code/__DEFINES/~nova_defines/keybindings.dm`: `COMSIG_KB_MOB_PIXEL_SHIFT_DOWN`, `COMSIG_KB_MOB_PIXEL_SHIFT_UP`
+- `code/__DEFINES/~nova_defines/living.dm`: `COMSIG_LIVING_SET_PULL_OFFSET`, `COMSIG_LIVING_RESET_PULL_OFFSETS`, `COMSIG_LIVING_CAN_ALLOW_THROUGH`, `COMPONENT_LIVING_PASSABLE`
 
 ### Included files that are not contained in this module:
 

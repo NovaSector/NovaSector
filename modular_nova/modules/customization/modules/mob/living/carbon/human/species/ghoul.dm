@@ -53,39 +53,39 @@
 /mob/living/carbon/proc/ReassignForeignBodyparts()
 	var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
 	if (head?.type != part_default_head)
-		qdel(head)
 		var/obj/item/bodypart/limb = new part_default_head
 		limb.replace_limb(src, TRUE)
+		qdel(head)
 
 	var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
 	if (chest?.type != part_default_chest)
-		qdel(chest)
 		var/obj/item/bodypart/limb = new part_default_chest
 		limb.replace_limb(src, TRUE)
+		qdel(chest)
 
 	var/obj/item/bodypart/arm/left/left_arm = get_bodypart(BODY_ZONE_L_ARM)
 	if (left_arm?.type != part_default_l_arm)
-		qdel(left_arm)
 		var/obj/item/bodypart/limb = new part_default_l_arm
 		limb.replace_limb(src, TRUE)
+		qdel(left_arm)
 
 	var/obj/item/bodypart/arm/right/right_arm = get_bodypart(BODY_ZONE_R_ARM)
 	if (right_arm?.type != part_default_r_arm)
-		qdel(right_arm)
 		var/obj/item/bodypart/limb = new part_default_r_arm
 		limb.replace_limb(src, TRUE)
+		qdel(right_arm)
 
 	var/obj/item/bodypart/leg/left/left_leg = get_bodypart(BODY_ZONE_L_LEG)
 	if (left_leg?.type != part_default_l_leg)
-		qdel(left_leg)
 		var/obj/item/bodypart/limb = new part_default_l_leg
 		limb.replace_limb(src, TRUE)
+		qdel(left_leg)
 
 	var/obj/item/bodypart/leg/right/right_leg = get_bodypart(BODY_ZONE_R_LEG)
 	if (right_leg?.type != part_default_r_leg)
-		qdel(right_leg)
 		var/obj/item/bodypart/limb = new part_default_r_leg
 		limb.replace_limb(src, TRUE)
+		qdel(right_leg)
 
 /datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load)
 	// Missing Defaults in DNA? Randomize!
@@ -99,7 +99,7 @@
 		set_ghoul_color(human_ghoul)
 
 		// 2) BODYPARTS
-		RegisterSignal(src, COMSIG_ITEM_ATTACK, PROC_REF(attach_meat))
+		RegisterSignal(human_ghoul, COMSIG_ATOM_ATTACKBY, PROC_REF(attach_meat))
 		human_ghoul.part_default_head = /obj/item/bodypart/head/mutant/ghoul
 		human_ghoul.part_default_chest = /obj/item/bodypart/chest/mutant/ghoul
 		human_ghoul.part_default_l_arm = /obj/item/bodypart/arm/left/mutant/ghoul
@@ -112,7 +112,7 @@
 	. = ..()
 
 	// 2) BODYPARTS
-	UnregisterSignal(src, COMSIG_ITEM_ATTACK)
+	UnregisterSignal(former_ghoul, COMSIG_ATOM_ATTACKBY)
 	former_ghoul.part_default_head = /obj/item/bodypart/head
 	former_ghoul.part_default_chest = /obj/item/bodypart/chest
 	former_ghoul.part_default_l_arm = /obj/item/bodypart/arm/left
@@ -162,7 +162,7 @@
 
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
-/datum/species/ghoul/proc/attach_meat(obj/item/attacking_item, mob/living/carbon/human/target, mob/living/user, params)
+/datum/species/ghoul/proc/attach_meat(mob/living/carbon/human/target, obj/item/attacking_item, mob/living/user, params)
 	SIGNAL_HANDLER
 
 	if(!istype(target))

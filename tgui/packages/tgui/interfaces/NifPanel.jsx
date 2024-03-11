@@ -1,4 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { useState } from 'react';
+
 import { useBackend } from '../backend';
 import {
   BlockQuote,
@@ -16,7 +18,6 @@ import {
 } from '../components';
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
-import { useState } from 'react';
 
 export const NifPanel = (props) => {
   const { act, data } = useBackend();

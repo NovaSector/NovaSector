@@ -96,6 +96,9 @@
 
 	headshot = save_data["headshot"]
 
+
+	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
+
 	if(needs_update >= 0)
 		update_character_skyrat(needs_update, save_data) // needs_update == savefile_version if we need an update (positive integer)
 
@@ -169,7 +172,6 @@
 
 	if(current_version < VERSION_UNDERSHIRT_BRA_SPLIT)
 		var/static/list/underwear_to_underwear_bra = list(
-			"Panties" = list("Panties - Basic", null), // Just a rename
 			"Bikini" = list("Panties - Slim", "Bra"),
 			"Lace Bikini" = list("Panties - Thin", "Bra - Thin"),
 			"Bralette w/ Boyshorts" = list("Boyshorts (Alt)", "Bra, Sports"),
@@ -273,6 +275,7 @@
 	save_data["languages"] = languages
 	save_data["headshot"] = headshot
 	save_data["modular_version"] = MODULAR_SAVEFILE_VERSION_MAX
+	save_data["food_preferences"] = food_preferences
 
 
 /datum/preferences/proc/update_mutant_bodyparts(datum/preference/preference)

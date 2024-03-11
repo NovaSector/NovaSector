@@ -2,7 +2,7 @@
 
 https://github.com/Skyrat-SS13/Skyrat-tg/pull/23733
 
-## Skyrat Medical Update <!--Title of your addition.-->
+## Nova Sector Medical Update <!--Title of your addition.-->
 
 Module ID: death_consequences <!-- Uppercase, UNDERSCORE_CONNECTED name of your module, that you use to mark files. This is so people can case-sensitive search for your edits, if any. -->
 
@@ -32,7 +32,7 @@ E.g:
 
 ### Defines:
 
-- ~skyrat_defines/quirks.dm: A lot of prefixed defines
+- ~nova_defines/quirks.dm: A lot of prefixed defines
 <!-- If you needed to add any defines, mention the files you added those defines in, along with the name of the defines. -->
 
 ### Included files that are not contained in this module:

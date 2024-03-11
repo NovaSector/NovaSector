@@ -1,8 +1,8 @@
-// Skyrat specific station areas
+// Nova Sector specific station areas
 
 /*
-* Station bound areas
-*/
+ * Station bound areas
+ */
 
 // Command areas
 /area/station/command/captain_kitchen
@@ -38,8 +38,8 @@
 	icon_state = "blueshield"
 
 /*
-* Department areas
-*/
+ * Department areas
+ */
 
 // Engineering Areas
 /area/station/engineering/power_room
@@ -121,8 +121,8 @@
 	icon_state = "serv_power"
 
 /*
-* General areas
-*/
+ * General areas
+ */
 
 // Generic/Civ areas, typical a non-restricted room
 /area/station/common/pool
@@ -139,6 +139,11 @@
 	name = "\improper Salon"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "salon"
+
+/area/station/service/forge
+	name = "Forge"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon_state = "forge"
 
 // Wrestling areas for BlueShift
 /area/station/common/wrestling
@@ -239,8 +244,8 @@
 	icon_state = "barber"
 
 /*
-* Department/Generic maintenance areas
-*/
+ * Department/Generic maintenance areas
+ */
 
 // Generic
 /area/station/maintenance/evac_maintenance

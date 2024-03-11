@@ -61,12 +61,12 @@
 	qdel(GetComponent(/datum/component/squeak))
 
 /// Registers COMSIG_SPECIES_HANDLE_CHEMICAL from owner
-/obj/item/organ/internal/liver/on_insert(mob/living/carbon/organ_owner, special)
+/obj/item/organ/internal/liver/on_mob_insert(mob/living/carbon/organ_owner, special)
 	. = ..()
 	RegisterSignal(organ_owner, COMSIG_SPECIES_HANDLE_CHEMICAL, PROC_REF(handle_chemical))
 
 /// Unregisters COMSIG_SPECIES_HANDLE_CHEMICAL from owner
-/obj/item/organ/internal/liver/on_remove(mob/living/carbon/organ_owner, special)
+/obj/item/organ/internal/liver/on_mob_remove(mob/living/carbon/organ_owner, special)
 	. = ..()
 	UnregisterSignal(organ_owner, COMSIG_SPECIES_HANDLE_CHEMICAL)
 
@@ -100,6 +100,8 @@
 			. += span_info("A half-digested rat's tail (somehow), disgusting sludge, and the faint smell of Grey Bull imply this is what remains of an <em>assistant</em>'s liver.")
 		if(HAS_TRAIT(src, TRAIT_CORONER_METABOLISM))
 			. += span_info("An aroma of pickles and sea water, along with being remarkably well-preserved, imply this is what remains of a <em>coroner</em>'s liver.")
+		if(HAS_TRAIT(src, TRAIT_HUMAN_AI_METABOLISM))
+			. += span_info("The liver appears barely human and entirely self-sufficient, implying this is what remains of a <em>human AI</em>'s liver.")
 
 		// royal trumps pretender royal
 		if(HAS_TRAIT(src, TRAIT_ROYAL_METABOLISM))
@@ -134,7 +136,7 @@
 		return
 
 	var/obj/belly = owner.get_organ_slot(ORGAN_SLOT_STOMACH)
-	var/list/cached_reagents = owner.reagents.reagent_list
+	var/list/cached_reagents = owner.reagents?.reagent_list
 	var/liver_damage = 0
 	var/provide_pain_message = HAS_NO_TOXIN
 
@@ -152,7 +154,7 @@
 			if(provide_pain_message != HAS_PAINFUL_TOXIN)
 				provide_pain_message = toxin.silent_toxin ? HAS_SILENT_TOXIN : HAS_PAINFUL_TOXIN
 
-	owner.reagents.metabolize(owner, seconds_per_tick, times_fired, can_overdose = TRUE)
+	owner.reagents?.metabolize(owner, seconds_per_tick, times_fired, can_overdose = TRUE)
 
 	if(liver_damage)
 		apply_organ_damage(min(liver_damage * seconds_per_tick , MAX_TOXIN_LIVER_DAMAGE * seconds_per_tick))

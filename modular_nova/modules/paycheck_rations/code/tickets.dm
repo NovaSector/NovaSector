@@ -180,14 +180,14 @@
 
 	switch(alcohol_choice)
 		if("Navy Rum")
-			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/skyrat/navy_rum
-			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/skyrat/navy_rum
+			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/nova/navy_rum
+			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/nova/navy_rum
 		if("Ginger Beer")
-			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/skyrat/ginger_beer
-			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/skyrat/ginger_beer
+			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/nova/ginger_beer
+			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/nova/ginger_beer
 		if("Kortara")
-			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/skyrat/kortara
-			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/skyrat/kortara
+			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/nova/kortara
+			items_we_deliver += /obj/item/reagent_containers/cup/soda_cans/nova/kortara
 
 	// List of produce options we get
 	var/list/radial_consumables_options = list(

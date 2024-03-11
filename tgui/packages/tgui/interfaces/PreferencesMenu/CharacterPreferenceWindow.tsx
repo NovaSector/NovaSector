@@ -1,7 +1,8 @@
 import { exhaustiveCheck } from 'common/exhaustive';
+import { useState } from 'react';
 
-import { useBackend, useLocalState } from '../../backend';
-import { Dropdown, Flex, Stack } from '../../components'; // NOVA EDIT CHANGE - ORIGINAL: import { Button, Stack } from '../../components';
+import { useBackend } from '../../backend';
+import { Dropdown, Flex, Stack } from '../../components'; // NOVA EDIT CHANGE - ORIGINAL: import { Stack } from '../../components';
 import { Window } from '../../layouts';
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
@@ -60,7 +61,7 @@ const CharacterProfiles = (props: {
 export const CharacterPreferenceWindow = (props) => {
   const { act, data } = useBackend<PreferencesMenuData>();
 
-  const [currentPage, setCurrentPage] = useLocalState('currentPage', Page.Main);
+  const [currentPage, setCurrentPage] = useState(Page.Main);
 
   let pageContents;
 

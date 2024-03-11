@@ -13,7 +13,6 @@
 	can_change_cable_layer = FALSE
 	circuit = null
 	layer = ABOVE_MOB_LAYER
-	plane = GAME_PLANE_UPPER
 	can_change_cable_layer = TRUE
 	/// How much power the turbine makes without a storm
 	var/regular_power_production = 2500
@@ -30,6 +29,7 @@
 	. = ..()
 	AddElement(/datum/element/repackable, undeploy_type, 2 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	connect_to_network()
 
 /obj/machinery/power/colony_wind_turbine/examine(mob/user)
 	. = ..()
@@ -80,6 +80,7 @@
 	icon = 'modular_nova/modules/colony_fabricator/icons/wind_turbine.dmi'
 	icon_state = "turbine_packed"
 	type_to_deploy = /obj/machinery/power/colony_wind_turbine
+	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,

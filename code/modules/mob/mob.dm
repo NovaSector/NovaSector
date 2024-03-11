@@ -916,18 +916,6 @@
 	set hidden = TRUE
 	set category = null
 	return
-/**
- * Topic call back for any mob
- *
- * * Unset machines if "mach_close" sent
- * * refresh the inventory of machines in range if "refresh" sent
- * * handles the strip panel equip and unequip as well if "item" sent
- */
-/mob/Topic(href, href_list)
-	if(href_list["mach_close"])
-		var/t1 = "window=[href_list["mach_close"]]"
-		unset_machine()
-		src << browse(null, t1)
 
 /**
  * Controls if a mouse drop succeeds (return null if it doesnt)
@@ -1136,7 +1124,7 @@
 		antimagic_color = LIGHT_COLOR_DARK_BLUE
 		playsound(src, 'sound/magic/magic_block_mind.ogg', 50, TRUE)
 
-	mob_light(range = 2, color = antimagic_color, duration = 5 SECONDS)
+	mob_light(range = 2, power = 2, color = antimagic_color, duration = 5 SECONDS)
 	add_overlay(antimagic_effect)
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), antimagic_effect), 5 SECONDS)
 
@@ -1180,6 +1168,9 @@
 		return TRUE
 	var/datum/dna/mob_dna = has_dna()
 	if(mob_dna?.check_mutation(/datum/mutation/human/telekinesis) && tkMaxRangeCheck(src, A))
+		return TRUE
+	var/obj/item/item_in_hand = get_active_held_item()
+	if(istype(item_in_hand, /obj/item/machine_remote))
 		return TRUE
 
 	//range check
@@ -1285,7 +1276,11 @@
 				// Only update if this player is a target
 				if(obj.target && obj.target.current && obj.target.current.real_name == name)
 					obj.update_explanation_text()
+		if(client) // NOVA EDIT ADDITION - Update the mob chat color list, removing the old name
+			GLOB.chat_colors_by_mob_name -= oldname // NOVA EDIT ADDITION
 
+	if(client) // NOVA EDIT ADDITION - Update the mob chat color list, adding the new name
+		GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened) // NOVA EDIT ADDITION
 	log_mob_tag("TAG: [tag] RENAMED: [key_name(src)]")
 
 	return TRUE
@@ -1571,15 +1566,34 @@
 	get_language_holder().open_language_menu(usr)
 
 ///Adjust the nutrition of a mob
-/mob/proc/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
+/mob/proc/adjust_nutrition(change, forced = FALSE) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER) && !forced)
+		return
+
 	nutrition = max(0, nutrition + change)
+	hud_used?.hunger?.update_appearance()
+
+/mob/living/adjust_nutrition(change, forced)
+	. = ..()
+	mob_mood?.update_nutrition_moodlets()
 
 ///Force set the mob nutrition
-/mob/proc/set_nutrition(change) //Seriously fuck you oldcoders.
-	nutrition = max(0, change)
+/mob/proc/set_nutrition(set_to, forced = FALSE) //Seriously fuck you oldcoders.
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER) && !forced)
+		return
 
+	nutrition = max(0, set_to)
+	hud_used?.hunger?.update_appearance()
+
+/mob/living/set_nutrition(set_to, forced)
+	. = ..()
+	mob_mood?.update_nutrition_moodlets()
+
+///Apply a proper movespeed modifier based on items we have equipped
 /mob/proc/update_equipment_speed_mods()
-	var/speedies = equipped_speed_mods()
+	var/speedies = 0
+	for(var/obj/item/thing in get_equipped_speed_mod_items())
+		speedies += thing.slowdown
 	if(speedies > 0 && HAS_TRAIT(src, TRAIT_SETTLER)) //if our movespeed mod is in the negatives, we don't modify it since that's a benefit
 		speedies *= 0.2
 	if(!speedies)
@@ -1587,12 +1601,12 @@
 	else
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod, multiplicative_slowdown = speedies)
 
-/// Gets the combined speed modification of all worn items
-/// Except base mob type doesnt really wear items
-/mob/proc/equipped_speed_mods()
-	for(var/obj/item/I in held_items)
-		if(I.item_flags & SLOWS_WHILE_IN_HAND)
-			. += I.slowdown
+///Get all items in our possession that should affect our movespeed
+/mob/proc/get_equipped_speed_mod_items()
+	. = list()
+	for(var/obj/item/thing in held_items)
+		if(thing.item_flags & SLOWS_WHILE_IN_HAND)
+			. += thing
 
 /mob/proc/set_stat(new_stat)
 	if(new_stat == stat)
@@ -1713,3 +1727,7 @@
 	set name = "View Skills"
 
 	mind?.print_levels(src)
+
+/mob/key_down(key, client/client, full_key)
+	..()
+	SEND_SIGNAL(src, COMSIG_MOB_KEYDOWN, key, client, full_key)

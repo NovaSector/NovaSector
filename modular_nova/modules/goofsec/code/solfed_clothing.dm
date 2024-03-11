@@ -18,7 +18,7 @@
 
 /obj/item/clothing/under/sol_emt
 	name = "sol emergency medical uniform"
-	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built paramedics in mind."
+	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built with paramedics in mind."
 	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
 	icon_state = "emt"
 	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'

@@ -81,15 +81,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/nri, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/azulea, 32)
 
-/// Please, for the love of God, use this in Black Mesa ONLY. NOWHERE ELSE. It's the only reason it was allowed in the game.
-/obj/structure/sign/flag/usa
-	name = "flag of the United States of America"
-	desc = "'Stars and Stripes', the flag of the United States of America. Its red color represents endurance and valor; blue one shows diligence, vigilance and justice, and the white one signs at pureness. Its thirteen red-and-white stripes show the initial thirteen founding colonies, and fifty stars designate the current fifty states."
-	icon_state = "flag_usa"
-	item_flag = /obj/item/sign/flag/usa
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/usa, 32)
-
 /obj/structure/sign/flag/syndicate
 	name = "flag of the Syndicate"
 	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
@@ -97,6 +88,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/usa, 32)
 	item_flag = /obj/item/sign/flag/syndicate
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
+
+/obj/structure/sign/flag/interdyne
+	name = "flag of Interdyne"
+	desc = "The corporate flag of Interdyne Pharmaceuticals. It is, essentially, a clean white bedsheet. It's either the best or worst flag you've ever seen."
+	icon_state = "flag_coder"
+	item_flag = /obj/item/sign/flag/interdyne
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 
 /obj/item/sign/flag
 	name = "folded blank flag"
@@ -165,15 +164,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/syndicate, 32)
 	icon_state = "folded_azulea"
 	sign_path = /obj/structure/sign/flag/azulea
 
-/// Please, for the love of God, use this in Black Mesa ONLY. NOWHERE ELSE. It's the only reason it was allowed in the game.
-/obj/item/sign/flag/usa
-	name = "folded flag of the United States of America"
-	desc = "The folded flag of the United States of America."
-	icon_state = "folded_usa"
-	sign_path = /obj/structure/sign/flag/usa
-
 /obj/item/sign/flag/syndicate
 	name = "folded flag of the Syndicate"
 	desc = "The folded flag of the Sothran Syndicate."
 	icon_state = "folded_syndi"
 	sign_path = /obj/structure/sign/flag/syndicate
+
+/obj/item/sign/flag/interdyne
+	name = "folded flag of the Syndicate"
+	desc = "The folded flag of Interdyne Pharmaceutics."
+	icon_state = "folded_coder"
+	sign_path = /obj/structure/sign/flag/interdyne
+	special_desc_requirement = EXAMINE_CHECK_JOB
+	special_desc_jobs = list(JOB_MIME) // this will probably never happen. but it will amuse someone when it does.
+	special_desc = "The folded flag of Interdyne Pharmaceuticals. For some reason, it reminds you of the home of the mimes."

@@ -162,16 +162,8 @@
 
 /obj/item/stock_parts/cell/examine(mob/user)
 	. = ..()
-	// NOVA EDIT ADDITION
-	if(ratingdesc && !microfusion_readout)
-		. += "This one has a rating of [display_energy(maxcharge)], and you should not swallow it."
-	// NOVA EDIT END
 	if(rigged)
 		. += span_danger("This power cell seems to be faulty!")
-	// NOVA EDIT ADDITION
-	else if(microfusion_readout)
-		. += "The charge meter reads [charge]/[maxcharge] MF."
-	// NOVA EDIT END
 	else
 		. += "The charge meter reads [CEILING(percent(), 0.1)]%." //so it doesn't say 0% charge when the overlay indicates it still has charge
 
@@ -254,7 +246,7 @@
 				return
 			to_chat(H, span_notice("You begin clumsily channeling power from [src] into your body."))
 			stomach.drain_time = world.time + CELL_DRAIN_TIME
-			if(do_after(user, CELL_DRAIN_TIME, target = src))
+			while(do_after(user, CELL_DRAIN_TIME, target = src))
 				if((charge < CELL_POWER_DRAIN) || (stomach.crystal_charge > charge_limit))
 					return
 				if(istype(stomach))

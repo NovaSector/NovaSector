@@ -1,4 +1,4 @@
-// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose // NOVA EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
+// #define DOOR_CLOSE_WAIT 60 ///Default wait until doors autoclose // NOVA EDIT REMOVAL - moved to code/__DEFINES/~nova_defines/airlock.dm
 /obj/machinery/door
 	name = "door"
 	desc = "It opens and closes."
@@ -116,7 +116,7 @@
 	if(!can_open_with_hands)
 		return .
 
-	if(isaicamera(user) || issilicon(user))
+	if(isaicamera(user) || HAS_SILICON_ACCESS(user))
 		return .
 
 	if(isnull(held_item) && Adjacent(user))
@@ -599,4 +599,4 @@
 		return ..()
 	return ..(0)
 
-// #undef DOOR_CLOSE_WAIT // NOVA EDIT REMOVAL - moved to code/__DEFINES/~skyrat_defines/airlock.dm
+// #undef DOOR_CLOSE_WAIT // NOVA EDIT REMOVAL - moved to code/__DEFINES/~nova_defines/airlock.dm

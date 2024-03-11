@@ -53,6 +53,10 @@
 	/// A photo of the character, visible on close examine
 	var/headshot = ""
 
+	/// An assoc list of food types to liked or dislike values. If null or empty, default species tastes are used instead on application.
+	/// If a food doesn't exist in this list, it uses the default value.
+	var/list/food_preferences = list()
+
 /datum/preferences/proc/species_updated(species_type)
 	all_quirks = list()
 	// Reset cultural stuff
@@ -175,3 +179,7 @@
 	safe_transfer_prefs_to(character, icon_updates, is_antag)
 	qdel(added_tracker)
 
+// Updates the mob's chat color in the global cache
+/datum/preferences/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
+	. = ..()
+	GLOB.chat_colors_by_mob_name[character.name] = list(character.chat_color, character.chat_color_darkened) // by now the mob has had its prefs applied to it

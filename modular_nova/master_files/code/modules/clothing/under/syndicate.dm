@@ -3,9 +3,9 @@
 #define RESKIN_SYNDIE "Syndicate Red"
 
 /obj/item/clothing/under/syndicate
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/syndicate_digi.dmi' // Anything that was in the syndicate.dmi, should be in the syndicate_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/syndicate_digi.dmi'
 
-/obj/item/clothing/under/syndicate/skyrat
+/obj/item/clothing/under/syndicate/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/syndicate.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/syndicate.dmi'
 	//These are pre-set for ease and reference, as syndie under items SHOULDNT have sensors and should have similar stats; also its better to start with adjust = false
@@ -64,17 +64,45 @@
 	armor_type = /datum/armor/clothing_under/none
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
-/obj/item/clothing/under/syndicate/skyrat/baseball
+/obj/item/clothing/under/syndicate/nova/baseball
 	name = "syndicate baseball tee"
 	desc = "Aaand the Syndicate Snakes are up to bat, ready for one of their signature nuclear home-runs! Lets show these corpos a good time." //NT pitches their plasma/bluespace(something)
 	icon_state = "syndicate_baseball"
+
+/obj/item/clothing/under/syndicate/nova/overalls/unarmoured
+	name = "tacticool utility overalls turtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work."
+	icon_state = "syndicate_overalls"
+	armor_type = /datum/armor/clothing_under/none
+	has_sensor = HAS_SENSORS
+	can_adjust = TRUE
+
+/obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
+	name = "tacticool utility overalls skirtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
+	icon_state = "syndicate_overallskirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/mask/gas/sechailer/half_mask
+	name = "tacticool neck gaiter"
+	desc = "A black techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
+	actions_types = list(/datum/action/item_action/adjust)
+	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
+	icon_state = "half_mask"
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
+	voice_filter = null
+	use_radio_beeps_tts = FALSE
 
 /*
 *	TACTICAL (Real)
 */
 //The red alts, for BLATANTLY syndicate stuff (Like DS2)
 // (Multiple non-syndicate things use the base tactical turtleneck, they cant have it red nor reskinnable. OUR version, however, can be.)
-/obj/item/clothing/under/syndicate/skyrat/tactical
+/obj/item/clothing/under/syndicate/nova/tactical
 	name = "tactical turtleneck"
 	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants. Good luck arguing allegiance with this on."
 	icon_state = "syndicate_red"
@@ -88,13 +116,13 @@
 		RESKIN_CHARCOAL = "syndicate"
 	)
 
-/obj/item/clothing/under/syndicate/skyrat/tactical/reskin_obj(mob/M)
+/obj/item/clothing/under/syndicate/nova/tactical/reskin_obj(mob/M)
 	..()
 	if(current_skin && current_skin == RESKIN_CHARCOAL)
 		desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants." //(Digital camo? Brown? What?)
 		inhand_icon_state = "bl_suit"
 
-/obj/item/clothing/under/syndicate/skyrat/tactical/skirt
+/obj/item/clothing/under/syndicate/nova/tactical/skirt
 	name = "tactical skirtleneck"
 	desc = "A snug syndicate-red skirtleneck with a charcoal-black skirt. Good luck arguing allegiance with this on."
 	icon_state = "syndicate_red_skirt"
@@ -107,7 +135,7 @@
 		RESKIN_CHARCOAL = "syndicate_skirt"
 	)
 
-/obj/item/clothing/under/syndicate/skyrat/tactical/skirt/reskin_obj(mob/M)
+/obj/item/clothing/under/syndicate/nova/tactical/skirt/reskin_obj(mob/M)
 	..()
 	if(current_skin && current_skin == RESKIN_CHARCOAL)
 		desc = "A non-descript and slightly suspicious looking skirtleneck."
@@ -116,21 +144,21 @@
 /*
 *	ENCLAVE
 */
-/obj/item/clothing/under/syndicate/skyrat/enclave
+/obj/item/clothing/under/syndicate/nova/enclave
 	name = "neo-American sergeant uniform"
 	desc = "Throughout the stars, rumors of mad scientists and angry drill sergeants run rampant; of creatures in armor black as night, being led by men or women wearing this uniform. They share one thing: a deep, natonalistic zeal of the dream of America."
 	icon_state = "enclave"
 	can_adjust = TRUE
 	armor_type = /datum/armor/clothing_under/none
 
-/obj/item/clothing/under/syndicate/skyrat/enclave/officer
+/obj/item/clothing/under/syndicate/nova/enclave/officer
 	name = "neo-American officer uniform"
 	icon_state = "enclaveo"
 
-/obj/item/clothing/under/syndicate/skyrat/enclave/real
+/obj/item/clothing/under/syndicate/nova/enclave/real
 	armor_type = /datum/armor/clothing_under/syndicate
 
-/obj/item/clothing/under/syndicate/skyrat/enclave/real/officer
+/obj/item/clothing/under/syndicate/nova/enclave/real/officer
 	name = "neo-American officer uniform"
 	icon_state = "enclaveo"
 

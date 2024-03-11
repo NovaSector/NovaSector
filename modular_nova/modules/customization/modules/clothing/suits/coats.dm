@@ -1,3 +1,15 @@
+#define STUFF_WINTER_COATS_HOLD list( \
+	/obj/item/flashlight, \
+	/obj/item/lighter, \
+	/obj/item/modular_computer/pda, \
+	/obj/item/radio, \
+	/obj/item/storage/bag/books, \
+	/obj/item/storage/fancy/cigarettes, \
+	/obj/item/tank/internals/emergency_oxygen, \
+	/obj/item/tank/internals/plasmaman, \
+	/obj/item/toy, \
+)
+
 /obj/item/clothing/suit/hooded/wintercoat/medical/paramedic
 	allowed = list(
 		/obj/item/analyzer,
@@ -146,14 +158,19 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	blood_overlay_type = "coat"
 
-/obj/item/clothing/suit/croptop
-	name = "black crop top turtleneck"
+/obj/item/clothing/suit/jacket/croptop
+	name = "crop top turtleneck"
 	desc = "A comfy looking turtleneck that exposes your midriff, fashionable but makes the point of a sweater moot."
-	icon_state = "croptop_black"
+	icon_state = "croptop"
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
+	greyscale_config = /datum/greyscale_config/croptop
+	greyscale_config_worn = /datum/greyscale_config/croptop/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/croptop/worn/teshari
+	greyscale_colors = "#1d1b1b"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/varsity
@@ -166,6 +183,10 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/varsity/Initialize(mapload)
+	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
 
 /obj/item/clothing/suit/hooded/leather
 	name = "hooded leather coat"
@@ -198,6 +219,7 @@
 
 /obj/item/clothing/suit/tailored_jacket/Initialize(mapload)
 	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
 	AddComponent(/datum/component/toggle_icon, "sleeves")
 
 /obj/item/clothing/suit/tailored_jacket/short
@@ -219,3 +241,26 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/warm_coat/Initialize(mapload)
+	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
+
+/obj/item/clothing/suit/crop_jacket
+	name = "crop-top jacket"
+	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
+		some barbarian has cut the entire bottom half out."
+	icon_state = "crop_jacket"
+	greyscale_config = /datum/greyscale_config/crop_jacket
+	greyscale_config_worn = /datum/greyscale_config/crop_jacket/worn
+	greyscale_colors = "#ebebeb#a52f29#292929"
+	body_parts_covered = CHEST|ARMS
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/crop_jacket/Initialize(mapload)
+	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
+	AddComponent(/datum/component/toggle_icon, "sleeves")
+
+#undef STUFF_WINTER_COATS_HOLD

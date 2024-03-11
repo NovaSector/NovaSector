@@ -1,16 +1,19 @@
+///This station traits gives 5 bananium sheets to the clown (and every dead clown out there in deep space or lavaland).
 /datum/station_trait/bananium_shipment
 	name = "Bananium Shipment"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
-	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system"
+	cost = STATION_TRAIT_COST_LOW
+	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system."
 	trait_to_give = STATION_TRAIT_BANANIUM_SHIPMENTS
 
 /datum/station_trait/unnatural_atmosphere
 	name = "Unnatural atmospherical properties"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
+	cost = STATION_TRAIT_COST_LOW
 	show_in_report = TRUE
-	report_message = "System's local planet has irregular atmospherical properties"
+	report_message = "System's local planet has irregular atmospherical properties."
 	trait_to_give = STATION_TRAIT_UNNATURAL_ATMOSPHERE
 
 	// This station trait modifies the atmosphere, which is too far past the time admins are able to revert it
@@ -26,6 +29,7 @@
 /datum/station_trait/unique_ai
 	name = "Unique AI"
 	trait_type = STATION_TRAIT_NEUTRAL
+	trait_flags = parent_type::trait_flags | STATION_TRAIT_REQUIRES_AI
 	weight = 5
 	show_in_report = TRUE
 	report_message = "For experimental purposes, this station AI might show divergence from default lawset. Do not meddle with this experiment, we've removed \
@@ -42,6 +46,7 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	show_in_report = FALSE
+	cost = STATION_TRAIT_COST_LOW
 	report_message = "Ian has gone exploring somewhere in the station."
 
 /datum/station_trait/ian_adventure/on_round_start()
@@ -99,8 +104,9 @@
 /datum/station_trait/glitched_pdas
 	name = "PDA glitch"
 	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 15
+	weight = 10
 	show_in_report = TRUE
+	cost = STATION_TRAIT_COST_MINIMAL
 	report_message = "Something seems to be wrong with the PDAs issued to you all this shift. Nothing too bad though."
 	trait_to_give = STATION_TRAIT_PDA_GLITCHED
 
@@ -133,67 +139,15 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 10
 	show_in_report = TRUE
+	cost = STATION_TRAIT_COST_MINIMAL
 	report_message = "Due to a shortage in standard issue jumpsuits, we have provided your assistants with one of our backup supplies."
+	blacklist = list(/datum/station_trait/assistant_gimmicks)
 
 /datum/station_trait/colored_assistants/New()
 	. = ..()
 
 	var/new_colored_assistant_type = pick(subtypesof(/datum/colored_assistant) - get_configured_colored_assistant_type())
 	GLOB.colored_assistant = new new_colored_assistant_type
-
-/datum/station_trait/cargorilla
-	name = "Cargo Gorilla"
-	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 1
-	show_in_report = FALSE // Selective attention test. Did you spot the gorilla?
-
-	/// The gorilla we created, we only hold this ref until the round starts.
-	var/mob/living/basic/gorilla/cargorilla/cargorilla
-
-/datum/station_trait/cargorilla/New()
-	. = ..()
-	RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(replace_cargo))
-
-/// Replace some cargo equipment and 'personnel' with a gorilla.
-/datum/station_trait/cargorilla/proc/replace_cargo(datum/source)
-	SIGNAL_HANDLER
-
-	var/mob/living/basic/sloth/cargo_sloth = GLOB.cargo_sloth
-	if(isnull(cargo_sloth))
-		return
-
-	cargorilla = new(cargo_sloth.loc)
-	cargorilla.name = cargo_sloth.name
-	// We do a poll on roundstart, don't let ghosts in early
-	INVOKE_ASYNC(src, PROC_REF(make_id_for_gorilla))
-	// hm our sloth looks funny today
-	qdel(cargo_sloth)
-
-	// monkey carries the crates, the age of robot is over
-	if(GLOB.cargo_ripley)
-		qdel(GLOB.cargo_ripley)
-
-/// Makes an ID card for the gorilla
-/datum/station_trait/cargorilla/proc/make_id_for_gorilla()
-	var/obj/item/card/id/advanced/cargo_gorilla/gorilla_id = new(cargorilla.loc)
-	gorilla_id.registered_name = cargorilla.name
-	gorilla_id.update_label()
-
-	cargorilla.put_in_hands(gorilla_id, del_on_fail = TRUE)
-
-/datum/station_trait/cargorilla/on_round_start()
-	if(!cargorilla)
-		return
-
-	addtimer(CALLBACK(src, PROC_REF(get_ghost_for_gorilla), cargorilla), 12 SECONDS) // give ghosts a bit of time to funnel in
-	cargorilla = null
-
-/// Get us a ghost for the gorilla.
-/datum/station_trait/cargorilla/proc/get_ghost_for_gorilla(mob/living/basic/gorilla/cargorilla/gorilla)
-	if(QDELETED(gorilla))
-		return
-
-	gorilla.poll_for_gorilla()
 
 /datum/station_trait/birthday
 	name = "Employee Birthday"
@@ -251,7 +205,7 @@
 
 
 /datum/station_trait/birthday/proc/announce_birthday()
-	report_message = "We here at Nanotrasen would all like to wish [birthday_person ? birthday_person_name : "Employee Name"] a very happy birthday"
+	report_message = "We here at Nanotrasen would all like to wish [birthday_person ? birthday_person_name : "Employee Name"] a very happy birthday."
 	priority_announce("Happy birthday to [birthday_person ? birthday_person_name : "Employee Name"]! Nanotrasen wishes you a very happy [birthday_person ? thtotext(birthday_person.age + 1) : "255th"] birthday.")
 	if(birthday_person)
 		playsound(birthday_person, 'sound/items/party_horn.ogg', 50)
@@ -330,6 +284,7 @@
 	name = "Scarves"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 10
+	cost = STATION_TRAIT_COST_MINIMAL
 	show_in_report = TRUE
 	var/list/scarves
 
@@ -363,6 +318,7 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	show_in_report = TRUE
 	weight = 10
+	cost = STATION_TRAIT_COST_MINIMAL
 	report_message = "It has become temporarily fashionable to use a wallet, so everyone on the station has been issued one."
 
 /datum/station_trait/wallets/New()
@@ -410,23 +366,31 @@
 /datum/station_trait/triple_ai
 	name = "AI Triumvirate"
 	trait_type = STATION_TRAIT_NEUTRAL
+	trait_flags = parent_type::trait_flags | STATION_TRAIT_REQUIRES_AI
 	show_in_report = TRUE
 	weight = 0 // NOVA EDIT Original = 1
 	report_message = "Your station has been instated with three Nanotrasen Artificial Intelligence models."
 
 /datum/station_trait/triple_ai/New()
 	. = ..()
-	RegisterSignal(SSjob, COMSIG_OCCUPATIONS_DIVIDED, PROC_REF(on_occupations_divided))
+	RegisterSignal(SSjob, COMSIG_OCCUPATIONS_SETUP, PROC_REF(on_occupations_setup))
 
 /datum/station_trait/triple_ai/revert()
-	UnregisterSignal(SSjob, COMSIG_OCCUPATIONS_DIVIDED)
+	UnregisterSignal(SSjob, COMSIG_OCCUPATIONS_SETUP)
 	return ..()
 
-/datum/station_trait/triple_ai/proc/on_occupations_divided(datum/source, pure, allow_all)
+/datum/station_trait/triple_ai/proc/on_occupations_setup(datum/controller/subsystem/job/source)
 	SIGNAL_HANDLER
 
+	//allows for latejoining AIs
+	for(var/obj/effect/landmark/start/ai/secondary/secondary_ai_spawn in GLOB.start_landmarks_list)
+		secondary_ai_spawn.latejoin_active = TRUE
+
+	var/datum/station_trait/job/human_ai/ai_trait = locate() in SSstation.station_traits
+	//human AI quirk will handle adding its own job positions, but for now don't allow more AI slots.
+	if(ai_trait)
+		return
 	for(var/datum/job/ai/ai_datum in SSjob.joinable_occupations)
 		ai_datum.spawn_positions = 3
-	if(!pure)
-		for(var/obj/effect/landmark/start/ai/secondary/secondary_ai_spawn in GLOB.start_landmarks_list)
-			secondary_ai_spawn.latejoin_active = TRUE
+		ai_datum.total_positions = 3
+

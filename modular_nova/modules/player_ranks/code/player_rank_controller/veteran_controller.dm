@@ -9,7 +9,7 @@ GLOBAL_PROTECT(veteran_list)
 
 /datum/player_rank_controller/veteran/New()
 	. = ..()
-	legacy_file_path = "[global.config.directory]/skyrat/veteran_players.txt"
+	legacy_file_path = "[global.config.directory]/nova/veteran_players.txt"
 
 
 /datum/player_rank_controller/veteran/add_player(ckey)

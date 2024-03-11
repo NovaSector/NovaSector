@@ -7,8 +7,8 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/operative
 
 /obj/item/storage/backpack/duffelbag/syndie/operative/PopulateContents() //basically old insurgent bundle -nukie mod
-	new /obj/item/clothing/under/syndicate/skyrat/tactical(src)
-	new /obj/item/clothing/under/syndicate/skyrat/tactical/skirt(src)
+	new /obj/item/clothing/under/syndicate/nova/tactical(src)
+	new /obj/item/clothing/under/syndicate/nova/tactical/skirt(src)
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/tackler/combat(src)
@@ -25,8 +25,8 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/engineer
 
 /obj/item/storage/backpack/duffelbag/syndie/engineer/PopulateContents()
-	new /obj/item/clothing/under/syndicate/skyrat/overalls(src)
-	new /obj/item/clothing/under/syndicate/skyrat/overalls/skirt(src)
+	new /obj/item/clothing/under/syndicate/nova/overalls(src)
+	new /obj/item/clothing/under/syndicate/nova/overalls/skirt(src)
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/combat(src)
@@ -63,7 +63,7 @@
 	item_type = /obj/item/storage/backpack/duffelbag/syndie/maid
 
 /obj/item/storage/backpack/duffelbag/syndie/maid/PopulateContents() //by far the weakest bundle
-	new /obj/item/clothing/under/syndicate/skyrat/maid(src)
+	new /obj/item/clothing/under/syndicate/nova/maid(src)
 	new /obj/item/clothing/gloves/combat/maid(src)
 	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)
 	new /obj/item/clothing/shoes/laceup(src)
@@ -123,14 +123,13 @@
 /datum/opposing_force_equipment/clothing_sol/sol_militant
 	name = "Sol Militant"
 	description = "There is a war being fought, and its taking place right here."
-	admin_note = "Uniquely strong power armour."
 	item_type = /obj/item/storage/backpack/ert/odst/hecu/sol_militant
 
 /obj/item/storage/backpack/ert/odst/hecu/sol_militant/PopulateContents()
-	new /obj/item/clothing/under/rank/security/officer/hecu(src)
-	new /obj/item/clothing/suit/space/hev_suit/pcv(src)
-	new /obj/item/clothing/head/helmet/space/hev_suit/pcv(src)
-	new /obj/item/storage/belt/military/assault/hecu(src)
+	new /obj/item/clothing/under/sol_peacekeeper(src)
+	new /obj/item/clothing/suit/armor/sf_peacekeeper(src)
+	new /obj/item/clothing/head/helmet/sf_peacekeeper(src)
+	new /obj/item/storage/belt/military/assault(src)
 	new /obj/item/clothing/mask/gas/hecu2(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/combat(src)

@@ -28,6 +28,8 @@
 #define PROGRAM_HEADER (1<<4)
 ///The program will run despite the ModPC not having any power in it.
 #define PROGRAM_RUNS_WITHOUT_POWER (1<<5)
+///The circuit ports of this program can be triggered even if the program is not open
+#define PROGRAM_CIRCUITS_RUN_WHEN_CLOSED (1<<6)
 
 //Program categories
 #define PROGRAM_CATEGORY_DEVICE "Device Tools"
@@ -119,6 +121,11 @@ GLOBAL_LIST_INIT(default_pda_themes, list(
 	PDA_THEME_RETRO_NAME = PDA_THEME_RETRO,
 	PDA_THEME_SYNTH_NAME = PDA_THEME_SYNTH,
 	PDA_THEME_TERMINAL_NAME = PDA_THEME_TERMINAL,
+	// NOVA EDIT ADDITION - START
+	CAT_THEME_NAME = PDA_THEME_CAT,
+	LIGHT_THEME_NAME = PDA_THEME_LIGHT_MODE,
+	ELDRITCH_THEME_NAME = PDA_THEME_SPOOKY,
+	// NOVA EDIT ADDITION - END
 ))
 
 ///List of PDA themes that are accessible to everyone by default.

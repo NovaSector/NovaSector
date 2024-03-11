@@ -1,5 +1,17 @@
-/mob/living/silicon/ai/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
-	if(parent && istype(parent) && parent.stat != DEAD) //If there is a defined "parent" AI, it is actually an AI, and it is alive, anything the AI tries to say is said by the parent instead.
+/mob/living/silicon/ai/say(
+	message,
+	bubble_type,
+	list/spans = list(),
+	sanitize = TRUE,
+	datum/language/language,
+	ignore_spam = FALSE,
+	forced,
+	filterproof = FALSE,
+	message_range = 7,
+	datum/saymode/saymode,
+	list/message_mods = list(),
+)
+	if(istype(parent) && parent.stat != DEAD) //If there is a defined "parent" AI, it is actually an AI, and it is alive, anything the AI tries to say is said by the parent instead.
 		return parent.say(arglist(args))
 	return ..()
 
@@ -51,10 +63,9 @@
 	else
 		to_chat(src, span_alert("No holopad connected."))
 
-/* NOVA EDIT REMOVAL - MOVED TO: modular_nova/MODULES/ALT_VOX/CODE/VOX_PROCS.DM
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
-#define VOX_DELAY 600
+#define VOX_DELAY 300 // NOVA EDIT CHANGE - ORIGINAL: 600
 /mob/living/silicon/ai/verb/announcement_help()
 
 	set name = "Announcement Help"
@@ -76,10 +87,10 @@
 	"}
 
 	var/index = 0
-	for(var/word in GLOB.vox_sounds)
+	for(var/word in get_vox_sounds(vox_type)) // NOVA EDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
 		index++
 		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
-		if(index != GLOB.vox_sounds.len)
+		if(index != length(get_vox_sounds(vox_type))) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
 			dat += " / "
 
 	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
@@ -118,7 +129,7 @@
 		if(!word)
 			words -= word
 			continue
-		if(!GLOB.vox_sounds[word])
+		if(!get_vox_sounds(vox_type)[word]) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(!GLOB.vox_sounds[word])
 			incorrect_words += word
 
 	if(incorrect_words.len)
@@ -146,10 +157,35 @@
 
 	word = lowertext(word)
 
+	// NOVA ADDITION BEGIN - Get AI for the vox Type
+	var/turf/ai_turf_as_turf = ai_turf
+	if(!istype(ai_turf_as_turf))
+		return //and prolly throw an error because wtf
+	var/mob/living/silicon/ai/the_AI = null
+	for(var/mob/living/silicon/ai/found_AI in ai_turf_as_turf.contents)
+		if(istype(found_AI))
+			the_AI = found_AI
+	// NOVA ADDITION END
+	// NOVA EDIT CHANGE START
+	/* ORIGINAL:
 	if(GLOB.vox_sounds[word])
 
 		var/sound_file = GLOB.vox_sounds[word]
 		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
+	*/
+	if(the_AI.get_vox_sounds(the_AI.vox_type)[word])
+		var/sound_file = the_AI.get_vox_sounds(the_AI.vox_type)[word]
+		var/volume = 100
+		switch(the_AI.vox_type)
+			if(VOX_HL)
+				volume = 75
+			if(VOX_MIL)
+				volume = 50 // My poor ears...
+		// If the vox stuff are disabled, or we failed getting the word from the list, just early return.
+		if(!sound_file)
+			return FALSE
+		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = volume)
+	// NOVA EDIT CHANGE END
 		voice.status = SOUND_STREAM
 
 	// If there is no single listener, broadcast to everyone in the same z level
@@ -171,4 +207,3 @@
 
 #undef VOX_DELAY
 #endif
-*/ //NOVA EDIT REMOVAL END

@@ -16,9 +16,12 @@
 	if(!area.lightswitch)
 		return
 	area.lightswitch = FALSE
-	area.update_icon()
+	area.update_appearance()
 
-	for(var/obj/machinery/light_switch/light_switch in area)
-		light_switch.update_icon()
+	for(var/obj/machinery/light_switch/light_switch as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/light_switch))
+		if(light_switch.area != area)
+			continue
+		light_switch.update_appearance()
+		SEND_SIGNAL(light_switch, COMSIG_LIGHT_SWITCH_SET, FALSE)
 
 	area.power_change()

@@ -1,8 +1,9 @@
 /obj/item/mod/module/baton_holster
 	name = "MOD baton holster module"
-	desc = "A module installed into the chest of a MODSuit, this allows you \
-		to retrieve an inserted baton from the suit at will. Insert a baton \
-		by hitting the module, while it is removed from the suit, with the baton."
+	desc = "A module installed into the forearm and palm of a MODsuit, this allows you \
+		to retrieve an inserted baton from the suit at will, and provides the benefit of being \
+		magnetically locked, making it near-impossible to force out of a user's hands. \
+		Insert a baton by hitting the module, while it is removed from the suit, with the baton."
 	icon_state = "holster"
 	icon = 'modular_nova/modules/contractor/icons/modsuit_modules.dmi'
 	module_type = MODULE_ACTIVE
@@ -21,12 +22,6 @@
 		return
 	balloon_alert(user, "[attacking_item] inserted")
 	eaten_baton = TRUE
-	for(var/obj/item/melee/baton/telescopic/contractor_baton/device_baton as anything in src)
-		for(var/obj/item/baton_upgrade/original_upgrade in attacking_item)
-			var/obj/item/baton_upgrade/new_upgrade = new original_upgrade.type(device_baton)
-			device_baton.add_upgrade(new_upgrade)
-		for(var/obj/item/restraints/handcuffs/cable/baton_cuffs in attacking_item)
-			baton_cuffs.forceMove(device_baton)
 	qdel(attacking_item)
 
 /obj/item/mod/module/baton_holster/on_activation()
@@ -37,21 +32,19 @@
 
 /obj/item/mod/module/baton_holster/preloaded
 	eaten_baton = TRUE
-	device = /obj/item/melee/baton/telescopic/contractor_baton
-
-/obj/item/mod/module/baton_holster/preloaded/upgraded
-	device = /obj/item/melee/baton/telescopic/contractor_baton/upgraded
 
 /obj/item/mod/module/chameleon/contractor // zero complexity module to match pre-TGification
+	removable = FALSE
 	complexity = 0
 
 /obj/item/mod/module/armor_booster/contractor // Much flatter distribution because contractor suit gets a shitton of armor already
 	armor_mod = /datum/armor/contract_booster
-	speed_added = -0.5 //Bulky as shit
-	desc = "An embedded set of armor plates, allowing the suit's already extremely high protection \
-		to be increased further. However, the plating, while deployed, will slow down the user \
-		and make the suit unable to vacuum seal so this extra armor provides zero ability for extravehicular activity while deployed."
+	desc = "An integrated set of auxiliary armor plates, allowing the suit's modest protection to be increased further. \
+	However, the plating cannot deploy with the suit's vacuum sealing components, and thus provides zero ability for extravehicular activity while deployed."
 
+// 35 melee 40 bullet 35 laser 35 energy when deployed
+// compare/contrast w/ syndicate mod:
+// 40 melee 50 bullet 30 laser 30 energy
 /datum/armor/contract_booster
 	melee = 20
 	bullet = 20
@@ -60,8 +53,8 @@
 
 /obj/item/mod/module/springlock/contractor
 	name = "MOD magnetic deployment module"
-	desc = "A much more modern version of a springlock system. \
-	This is a module that uses magnets to speed up the deployment and retraction time of your MODsuit."
+	desc = "A much more modern version of a springlock system, utilizing magnets to speed up the deployment and retraction time of a MODsuit \
+	with a distinct lack of ability to snap into place when exposed to moisture."
 	icon_state = "magnet"
 	icon = 'modular_nova/modules/contractor/icons/modsuit_modules.dmi'
 

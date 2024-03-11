@@ -1,4 +1,4 @@
-// Skyrat space area defines - Mostly for ruins
+// Nova Sector space area defines - Mostly for ruins
 
 ///Cybersun, Forgotten Ship
 /area/ruin/space/has_grav/cybersun
@@ -9,108 +9,111 @@
 	name = "Abandoned Atmospherics Wing"
 	icon_state = "atmos"
 
-///Generic Skyrat Ruins
+///Generic Nova Sector Ruins
 
-/area/ruin/space/has_grav/powered/skyrat/smugglies
+/area/ruin/space/has_grav/powered/nova/smugglies
 	name = "Suspicious Cargo Installation"
 
-/area/ruin/space/has_grav/powered/skyrat/clothing_facility
+/area/ruin/space/has_grav/powered/nova/clothing_facility
 	name = "Abandoned Research Station"
 
-/area/ruin/space/has_grav/powered/skyrat/luna
+/area/ruin/space/has_grav/powered/nova/luna
 	name = "Unexplored Location"
 
-/area/ruin/space/has_grav/powered/skyrat/blackmarket
+/area/ruin/space/has_grav/powered/nova/blackmarket
 	name = "Shady Market"
 
-/area/ruin/space/has_grav/powered/skyrat/alien_tool_lab
+/area/ruin/space/has_grav/powered/nova/alien_tool_lab
 	name = "Alien Tool Lab"
 
-/area/ruin/space/has_grav/powered/skyrat/scrapheap
+/area/ruin/space/has_grav/powered/nova/scrapheap
 	name = "Scrap Heap"
 
-///Interdyne, Forward Operating Base
-/area/ruin/space/has_grav/skyrat/interdynefob
+///Syndicate Deep Space Two
+/area/ruin/space/has_grav/nova/des_two
 	name = "DS-2" //If DS-1 is so great...
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "syndie-ship"
 
 //Cargo
-/area/ruin/space/has_grav/skyrat/interdynefob/cargo
+/area/ruin/space/has_grav/nova/des_two/cargo
 	name = "DS-2 Warehouse"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/cargo/hangar
+/area/ruin/space/has_grav/nova/des_two/cargo/hangar
 	name = "DS-2 Hangar"
 
 //Bridge
-/area/ruin/space/has_grav/skyrat/interdynefob/bridge
+/area/ruin/space/has_grav/nova/des_two/bridge
 	name = "DS-2 Bridge"
 	icon_state = "syndie-control"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/bridge/cl
+/area/ruin/space/has_grav/nova/des_two/bridge/cl
 	name = "DS-2 Corporate Liaison's Office"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
-/area/ruin/space/has_grav/skyrat/interdynefob/bridge/admiral
+/area/ruin/space/has_grav/nova/des_two/bridge/admiral
 	name = "DS-2 Station Admiral's Office"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
-/area/ruin/space/has_grav/skyrat/interdynefob/bridge/vault
+/area/ruin/space/has_grav/nova/des_two/bridge/vault
 	name = "DS-2 Vault"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/bridge/eva
+/area/ruin/space/has_grav/nova/des_two/bridge/eva
 	name = "DS-2 E.V.A."
 
 //Security
-/area/ruin/space/has_grav/skyrat/interdynefob/security
+/area/ruin/space/has_grav/nova/des_two/security
 	name = "DS-2 Security"
 	ambience_index = AMBIENCE_DANGER
 
-/area/ruin/space/has_grav/skyrat/interdynefob/security/armory
+/area/ruin/space/has_grav/nova/des_two/security/armory
 	name = "DS-2 Armory"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/security/lawyer
+/area/ruin/space/has_grav/nova/des_two/security/lawyer
 	name = "DS-2 Interrogation Office"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/security/prison
+/area/ruin/space/has_grav/nova/des_two/security/prison
 	name = "DS-2 Long-Term Brig"
 
 //Service
-/area/ruin/space/has_grav/skyrat/interdynefob/service
+/area/ruin/space/has_grav/nova/des_two/service
 	name = "DS-2 Service Wing"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/service/diner
+/area/ruin/space/has_grav/nova/des_two/service/diner
 	name = "DS-2 Diner"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/service/dorms
+/area/ruin/space/has_grav/nova/des_two/service/dorms
 	name = "DS-2 Dormitories"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/service/dorms/fitness
+/area/ruin/space/has_grav/nova/des_two/service/dorms/fitness
 	name = "DS-2 Fitness Room"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/service/lounge
+/area/ruin/space/has_grav/nova/des_two/service/lounge
 	name = "DS-2 Lounge"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/service/hydroponics
+/area/ruin/space/has_grav/nova/des_two/service/hydroponics
 	name = "DS-2 Hydroponics"
 
 //Hallways
-/area/ruin/space/has_grav/skyrat/interdynefob/halls
+/area/ruin/space/has_grav/nova/des_two/halls
 	name = "DS-2 Central Halls"
 
 //Engineering
-/area/ruin/space/has_grav/skyrat/interdynefob/engineering
+/area/ruin/space/has_grav/nova/des_two/engineering
 	name = "DS-2 Engineering"
 
 //Research
-/area/ruin/space/has_grav/skyrat/interdynefob/research
+/area/ruin/space/has_grav/nova/des_two/research
 	name = "DS-2 Research"
 
+/area/ruin/space/has_grav/nova/des_two/research/robotics
+	name = "DS-2 Robotics Bay"
+
 //Medbay
-/area/ruin/space/has_grav/skyrat/interdynefob/medbay
+/area/ruin/space/has_grav/nova/des_two/medbay
 	name = "DS-2 Medical Bay"
 
-/area/ruin/space/has_grav/skyrat/interdynefob/medbay/chem
+/area/ruin/space/has_grav/nova/des_two/medbay/chem
 	name = "DS-2 Chemistry"
 
 /area/ruin/space/has_grav/shuttle8532engineering
@@ -145,32 +148,42 @@
 
 //Port Tarkon
 
+/area/ruin/space/has_grav/outdoors
+	outdoors = TRUE
+
 /area/ruin/space/has_grav/port_tarkon
 	name = "P-T Cryo-Storage"
+	icon = 'icons/area/areas_station.dmi'
+	icon_state = "cryo"
 
 /area/ruin/space/has_grav/port_tarkon/afthall
 	name = "P-T Aft Hallway"
+	icon_state = "afthall"
 
 /area/ruin/space/has_grav/port_tarkon/forehall
 	name = "P-T Fore Hallway"
+	icon_state = "forehall"
 
 /area/ruin/space/has_grav/port_tarkon/starboardhall
 	name = "P-T Starboard Hallway"
+	icon_state = "starboardhall"
 
 /area/ruin/space/has_grav/port_tarkon/porthall
 	name = "P-T Port Hallway"
+	icon_state = "porthall"
 
 /area/ruin/space/has_grav/port_tarkon/trauma
 	name = "P-T Trauma Center"
-	icon_state = "medbay1"
+	icon_state = "med_central"
 
 /area/ruin/space/has_grav/port_tarkon/developement
 	name = "P-T Developement Center"
-	icon_state = "research"
+	icon_state = "science"
+	area_flags = XENOBIOLOGY_COMPATIBLE | UNIQUE_AREA
 
 /area/ruin/space/has_grav/port_tarkon/comms
 	name = "P-T Communication Center"
-	icon_state = "captain"
+	icon_state = "command"
 
 /area/ruin/space/has_grav/port_tarkon/power1
 	name = "P-T Solar Control"
@@ -178,7 +191,7 @@
 
 /area/ruin/space/has_grav/port_tarkon/centerhall
 	name = "P-T Central Hallway"
-	icon_state = "hallC"
+	icon_state = "centralhall"
 
 /area/ruin/space/has_grav/port_tarkon/secoff
 	name = "P-T Security Office"
@@ -186,7 +199,7 @@
 
 /area/ruin/space/has_grav/port_tarkon/atmos
 	name = "P-T Atmospheric Center"
-	icon_state = "engine"
+	icon_state = "atmos"
 
 /area/ruin/space/has_grav/port_tarkon/kitchen
 	name = "P-T Kitchen"
@@ -198,15 +211,15 @@
 
 /area/ruin/space/has_grav/port_tarkon/cargo
 	name = "P-T Cargo Center"
-	icon_state = "cargo"
+	icon_state = "cargo_office"
 
 /area/ruin/space/has_grav/port_tarkon/mining
 	name = "P-T Mining Office"
-	icon_state = "cargo"
+	icon_state = "mining_dock"
 
 /area/ruin/space/has_grav/port_tarkon/storage
 	name = "P-T Warehouse"
-	icon_state = "cargo"
+	icon_state = "cargo_warehouse"
 
 /area/ruin/space/has_grav/port_tarkon/toolstorage
 	name = "P-T Tool Storage"
@@ -218,12 +231,13 @@
 
 /area/ruin/space/has_grav/port_tarkon/dorms
 	name = "P-T Dorms"
-	icon_state = "crew_quarters"
+	icon_state = "dorms"
 
 /area/solars/tarkon
-	name = "\improper P-T Solar Array"
-	icon_state = "solarsS"
+	name = "P-T Solar Array"
+	icon_state = "space_near"
 	has_gravity = STANDARD_GRAVITY
+	outdoors = TRUE
 
 // Cargodise Lost Freighter
 
@@ -260,7 +274,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/exterior
 	name = "Freighter Exterior"
 
-// Skyrat's Space Hotel
+// Nova Sector's Space Hotel
 
 /area/ruin/space/has_grav/hotel/sauna
 	name = "Hotel Sauna Room"

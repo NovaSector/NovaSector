@@ -4,7 +4,7 @@
 	var/cyborg_pixel_offset
 	/// Alternate icon file used for this module's collapsed UI icon
 	var/model_select_alternate_icon
-	/// Traits unique to this model, i.e. having a unique dead sprite, being wide or being small enough to reject shrinker modules. Leverages defines in code\__DEFINES\~skyrat_defines\robot_defines.dm
+	/// Traits unique to this model, i.e. having a unique dead sprite, being wide or being small enough to reject shrinker modules. Leverages defines in code\__DEFINES\~nova_defines\robot_defines.dm
 	/// If a sprite overlaps above the standard height, ensure it is not overlapping icons in the selector wheel.
 	var/list/model_features = list()
 

@@ -73,11 +73,11 @@
 	subcategory = "Weapon Cases"
 
 /datum/armament_entry/company_import/sol_defense/case/trappiste
-	item_type = /obj/item/storage/toolbox/guncase/skyrat/pistol/trappiste_small_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/empty
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/carwo
-	item_type = /obj/item/storage/toolbox/guncase/skyrat/carwo_large_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/sidearm
@@ -156,11 +156,6 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
 	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_drum
-	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/drum/starts_empty
-	cost = PAYCHECK_COMMAND * 3
-	contraband = TRUE
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_standard
 	item_type = /obj/item/ammo_box/magazine/c980_grenade/starts_empty

@@ -146,7 +146,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	var/list/candidates = SSpolling.poll_ghost_candidates(
 		poll_question,
 		check_jobban = ROLE_DEATHSQUAD,
-		pic_source = /obj/item/solfed_reporter,
+		alert_pic = /obj/item/solfed_reporter,
 		role_name_text = cops_to_send::name,
 	)
 
@@ -360,7 +360,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/atmos
 	name = "811 Response: Advanced Atmospherics"
 	back = /obj/item/mod/control/pre_equipped/advanced/atmos
-	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/skyrat/utility/advanced
+	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
 	shoes = /obj/item/clothing/shoes/jackboots/peacekeeper
 	ears = /obj/item/radio/headset/headset_solfed/atmos
 	mask = /obj/item/clothing/mask/gas/atmos/glass
@@ -586,7 +586,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 			var/list/candidates = SSpolling.poll_ghost_candidates(
 				ghost_poll_msg,
 				jobban_to_check,
-				pic_source = /obj/item/solfed_reporter,
+				alert_pic = /obj/item/solfed_reporter,
 				role_name_text = summoned_type,
 			)
 

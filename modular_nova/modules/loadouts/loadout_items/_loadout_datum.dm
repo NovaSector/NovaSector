@@ -133,3 +133,25 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
  */
 /datum/loadout_item/proc/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
 	return FALSE
+
+/datum/loadout_item/proc/can_be_applied_to(mob/living/target, datum/preferences/preference_source, datum/job/equipping_job, silent = FALSE)
+	var/client/client = target.client
+	if(restricted_roles && equipping_job && !(equipping_job.title in restricted_roles))
+		if(client && !silent)
+			to_chat(target, span_warning("You were unable to get a loadout item([initial(item_path.name)]) due to job restrictions!"))
+		return FALSE
+
+	if(blacklisted_roles && equipping_job && (equipping_job.title in blacklisted_roles))
+		if(client && !silent)
+			to_chat(target, span_warning("You were unable to get a loadout item([initial(item_path.name)]) due to job blacklists!"))
+		return FALSE
+
+	if (iscarbon(target))
+		var/mob/living/carbon/carbon_target = target
+		var/datum/dna/dna = carbon_target.dna
+		if(!istype(dna) || (restricted_species && !(dna.species.id in restricted_species)))
+			if(client && !silent)
+				to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to species restrictions!"))
+			return FALSE
+
+	return TRUE

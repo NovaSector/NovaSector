@@ -1,25 +1,25 @@
-/obj/item/clothing/head/costume/skyrat
+/obj/item/clothing/head/costume/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	dog_fashion = null
 
-/obj/item/clothing/head/costume/skyrat/maid
+/obj/item/clothing/head/costume/nova/maid
 	name = "maid headband"
 	desc = "Maid in China."
 	icon_state = "maid"
 
-/obj/item/clothing/head/costume/skyrat/papakha
+/obj/item/clothing/head/costume/nova/papakha
 	name = "papakha"
 	desc = "A big wooly clump of fur designed to go on your head."
 	icon_state = "papakha"
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 
-/obj/item/clothing/head/costume/skyrat/papakha/white
+/obj/item/clothing/head/costume/nova/papakha/white
 	icon_state = "papakha_white"
 
-/obj/item/clothing/head/costume/skyrat/flowerpin
+/obj/item/clothing/head/costume/nova/flowerpin
 	name = "flower pin"
 	desc = "A small, colourable flower pin"
 	icon_state = "flowerpin"
@@ -29,15 +29,15 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/clothing/head/costume/skyrat/christmas
+/obj/item/clothing/head/costume/nova/christmas
 	name = "christmas hat"
 	desc = "How festive!"
 	icon_state = "christmas"
 
-/obj/item/clothing/head/costume/skyrat/christmas/green
+/obj/item/clothing/head/costume/nova/christmas/green
 	icon_state = "christmas_g"
 
-/obj/item/clothing/head/costume/skyrat/en //One of the two parts of E-N's butchering
+/obj/item/clothing/head/costume/nova/en //One of the two parts of E-N's butchering
 	name = "E-N suit head"
 	icon_state = "enhead"
 	supports_variations_flags = NONE

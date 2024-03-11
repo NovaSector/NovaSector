@@ -42,6 +42,10 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 	name = "Recolorable Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
+/datum/loadout_item/shoes/jackboots/frontier
+	name = "Heavy Frontier Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
+
 /*
 *	MISC BOOTS
 */
@@ -194,6 +198,10 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 	name = "Green Snakeskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
+/datum/loadout_item/shoes/kim
+	name = "Aerostatic Shoes"
+	item_path = /obj/item/clothing/shoes/kim
+
 /datum/loadout_item/shoes/dominaheels
 	name = "Dominant Heels"
 	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
@@ -215,6 +223,14 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 	name = "Roller Skates"
 	item_path = /obj/item/clothing/shoes/wheelys/rollerskates
 
+/datum/loadout_item/shoes/wheelys
+	name = "Wheely-Heels"
+	item_path = /obj/item/clothing/shoes/wheelys
+
+/datum/loadout_item/shoes/jingleshoes
+	name = "Jester Shoes"
+	item_path = /obj/item/clothing/shoes/jester_shoes
+
 /*
 *	SEASONAL
 */
@@ -233,7 +249,7 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 */
 
 /datum/loadout_item/shoes/jester
-	name = "Jester Shoes"
+	name = "Clown's Jester Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/jester
 	restricted_roles = list(JOB_CLOWN)
 

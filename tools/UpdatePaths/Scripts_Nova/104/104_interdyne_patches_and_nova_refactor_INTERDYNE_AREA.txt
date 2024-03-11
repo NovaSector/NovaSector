@@ -1,0 +1,105 @@
+# DO NOT RUN 
+# - UNLESS YOU ARE WORKING ON AN INTERDYNE PR THAT EXISTED PRIOR TO NOVA PR 104
+# REMEMBER TO DISCARD THE CHANGES THIS WILL MAKE TO ALL TG CONTENT BEFORE PUSHING
+# YOU WILL BREAK THOSE MAPS IF YOU DO NOT DO THIS
+# This contains refactored area and spawner paths for Interdyne (lavaland and icemoon),
+# and some comments for new child areas that didn't exist. Consider adding them!
+#
+# This is designed specifically as a favor for anyone with an Interdyne rework in progress
+# that has thus far let it remain dependent on TG lavaland ruin area, it will spare you a 
+# lot of pain.
+#
+# Wanna modify these?
+# \modular_nova\master_files\code\modules\mob_spawn\ghost_roles\mining_roles.dm
+
+
+# Spawners
+# IF YOU DO NOT USE THESE, THEY *WILL* SPAWN WITH TG EQUIPMENT, NOT OLD SR MODULAR EQUIPMENT,
+# SR MODULAR EDITS WERE REMOVED FROM THE ORIGINAL SPAWN POD WITH 104 TO REDUCE 
+# EDITS ON NONMODULAR CODE
+
+# Convert from old
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate : /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base
+
+# NEW miner spawner
+# /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer
+
+# NEW deck officer spawner
+# /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer
+
+# IF YOUR MAP IS ICEMOON_UNDERGROUND
+# (THESE HAVE A DIFFERENT FLAVOUR TEXT)
+# /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/ice
+# /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/shaftminer/ice
+# /obj/effect/mob_spawn/ghost_role/human/interdyne_planetary_base/deck_officer/ice
+
+
+# Areas
+
+# used as parent type (& for turret control, place this on the same tile as them and set it in the turret controller machine's var/control_area!)
+/area/ruin/syndicate_lava_base : /area/ruin/interdyne_planetary_base{@OLD}
+
+# cargo area
+/area/ruin/syndicate_lava_base/cargo : /area/ruin/interdyne_planetary_base/cargo{@OLD}
+
+# NEW deck officer's room area
+# /area/ruin/interdyne_planetary_base/cargo/deck{@OLD}
+
+# NEW detention cells / brig area
+# /area/ruin/interdyne_planetary_base/cargo/det{@OLD}
+
+# NEW observation room area (usually Icebox only)
+# /area/ruin/interdyne_planetary_base/cargo/obs{@OLD}
+
+# main hall area
+/area/ruin/syndicate_lava_base/main : /area/ruin/interdyne_planetary_base/main{@OLD}
+# merges arrivals into main
+/area/ruin/syndicate_lava_base/arrivals : /area/ruin/interdyne_planetary_base/main{@OLD}
+
+# NEW vault area
+# /area/ruin/interdyne_planetary_base/main/vault{@OLD}
+
+# dorms area
+/area/ruin/syndicate_lava_base/dormitories : /area/ruin/interdyne_planetary_base/main/dorms{@OLD}
+
+# NEW library area
+# /area/ruin/interdyne_planetary_base/main/dorms/lib
+
+# general med bay & hall area
+/area/ruin/syndicate_lava_base/medbay : /area/ruin/interdyne_planetary_base/med{@OLD}
+
+# pharmacy area
+/area/ruin/syndicate_lava_base/chemistry : /area/ruin/interdyne_planetary_base/med/pharm{@OLD}
+
+# virology area
+/area/ruin/syndicate_lava_base/virology : /area/ruin/interdyne_planetary_base/med/viro{@OLD}
+
+# NEW morgue area
+# /area/ruin/interdyne_planetary_base/med/morgue
+
+# science hall & lab area
+/area/ruin/syndicate_lava_base/testlab : /area/ruin/interdyne_planetary_base/science{@OLD}
+
+# NEW xenobio area
+# /area/ruin/interdyne_planetary_base/science/xeno
+
+# NEW service hall area
+# /area/ruin/interdyne_planetary_base/serv
+
+# NEW restroom area
+# /area/ruin/interdyne_planetary_base/serv/rstrm
+
+# bar area
+/area/ruin/syndicate_lava_base/bar : /area/ruin/interdyne_planetary_base/serv/bar{@OLD}
+
+# NEW kitchen area
+# /area/ruin/interdyne_planetary_base/serv/kitchen
+
+# NEW hydroponics area
+# /area/ruin/interdyne_planetary_base/serv/hydr
+
+# engineering area
+/area/ruin/syndicate_lava_base/engineering : /area/ruin/interdyne_planetary_base/eng{@OLD}
+
+# NEW disposals room area
+# /area/ruin/interdyne_planetary_base/eng/disp

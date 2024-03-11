@@ -48,7 +48,7 @@ $game_announce_whitelist = array(
 	"tgstation",
 	"TerraGov-Marine-Corps",
 	// ORIGINAL END - NOVA EDIT: */
-	"GalaxiaStation",
+	"NovaSector",
 );
 
 // Any repository that matches in this blacklist will not appear on Discord.

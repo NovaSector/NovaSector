@@ -36,6 +36,8 @@
 	var/makeBody = TRUE
 	/// The rule needs this many applicants to be properly executed.
 	var/required_applicants = 1
+	///Path of an item to show up in ghost polls for applicants to sign up.
+	var/signup_item_path = /obj/structure/sign/poster/contraband/syndicate_recruitment
 
 /datum/dynamic_ruleset/midround/from_ghosts/check_candidates()
 	var/dead_count = dead_players.len + list_observers.len
@@ -141,7 +143,14 @@
 		return
 
 	SSdynamic.log_dynamic_and_announce("Polling [possible_volunteers.len] players to apply for the [name] ruleset.")
-	candidates = SSpolling.poll_ghost_candidates("Looking for volunteers to become [antag_flag] for [name]", check_jobban = antag_flag_override, role = antag_flag || antag_flag_override, poll_time = 30 SECONDS, pic_source = /obj/structure/sign/poster/contraband/syndicate_recruitment, role_name_text = antag_flag)
+	candidates = SSpolling.poll_ghost_candidates(
+		question = "Looking for volunteers to become [span_notice(antag_flag)] for [span_danger(name)]",
+		check_jobban = antag_flag_override,
+		role = antag_flag || antag_flag_override,
+		poll_time = 30 SECONDS,
+		alert_pic = signup_item_path,
+		role_name_text = antag_flag,
+	)
 
 	if(!candidates || candidates.len <= 0)
 		SSdynamic.log_dynamic_and_announce("The ruleset [name] received no applications.")
@@ -893,6 +902,7 @@
 	weight = 4
 	cost = 3
 	repeatable = TRUE
+	signup_item_path = /obj/effect/bluespace_stream
 	var/list/possible_spawns = list() ///places the antag can spawn
 
 /datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/forget_startup()
@@ -932,12 +942,16 @@
 /datum/dynamic_ruleset/midround/from_ghosts/paradox_clone/proc/find_original()
 	var/list/possible_targets = list()
 
+	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(!player.client || !player.mind || player.stat)
 			continue
 		if(!(player.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
 			continue
-		possible_targets += player
+		// NOVA EDIT ADDITION START - Players in the interlink can't be obsession targets + Antag Optin
+		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ROUND_REMOVE)
+			continue
+		// NOVA EDIT ADDITION END
 
 	if(possible_targets.len)
 		return pick(possible_targets)

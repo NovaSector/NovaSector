@@ -187,3 +187,5 @@
 /datum/job/ds2
 	akula_outfit = /datum/outfit/akula
 
+/datum/job/interdyne
+	akula_outfit = /datum/outfit/akula

@@ -35,6 +35,7 @@
 				return FALSE
 
 			var/value = trim(params["value"], MAX_BROADCAST_LEN)
+			investigate_log("[key_name(usr)] changed the field: \"[field]\" with value: \"[target.vars[field]]\" to new value: \"[value || "Unknown"]\"", INVESTIGATE_RECORDS)
 			target.vars[field] = value || "Unknown"
 
 			return TRUE
@@ -56,6 +57,7 @@
 
 		if("login")
 			authenticated = secure_login(usr)
+			investigate_log("[key_name(usr)] [authenticated ? "successfully logged" : "failed to log"] into the [src].", INVESTIGATE_RECORDS)
 			return TRUE
 
 		if("logout")
@@ -67,6 +69,10 @@
 
 		if("purge_records")
 			// Don't let people off station futz with the station network.
+			//NOVA EDIT BEGIN: disable record purging/expunging to stop people messing around with the AI effortlessly
+			balloon_alert(usr, "access denied!")
+			return TRUE
+			/*
 			if(!is_station_level(z))
 				balloon_alert(usr, "out of range!")
 				return TRUE
@@ -86,6 +92,8 @@
 				balloon_alert(usr, "interrupted!")
 
 			return TRUE
+			*/
+			//NOVA EDIT END
 
 		if("view_record")
 			if(!target)
@@ -123,30 +131,12 @@
 /obj/machinery/computer/records/proc/expunge_record_info(datum/record/crew/target)
 	return
 
-/// Detects whether a user can use buttons on the machine
-/obj/machinery/computer/records/proc/has_auth(mob/user)
-	if(issilicon(user) || isAdminGhostAI(user)) // Silicons don't need to authenticate
-		return TRUE
-
-	if(!isliving(user))
-		return FALSE
-	var/mob/living/player = user
-
-	var/obj/item/card/auth = player.get_idcard(TRUE)
-	if(!auth)
-		return FALSE
-	var/list/access = auth.GetAccess()
-	if(!check_access_list(access))
-		return FALSE
-
-	return TRUE
-
 /// Inserts a new record into GLOB.manifest.general. Requires a photo to be taken.
 /obj/machinery/computer/records/proc/insert_new_record(mob/user, obj/item/photo/mugshot)
 	if(!mugshot || !is_operational || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return FALSE
 
-	if(!authenticated && !has_auth(user))
+	if(!authenticated && !allowed(user))
 		balloon_alert(user, "access denied")
 		playsound(src, 'sound/machines/terminal_error.ogg', 70, TRUE)
 		return FALSE
@@ -175,7 +165,7 @@
 	if(!user.can_perform_action(src, ALLOW_SILICON_REACH) || !is_operational)
 		return FALSE
 
-	if(!has_auth(user))
+	if(!allowed(user))
 		balloon_alert(user, "access denied")
 		playsound(src, 'sound/machines/terminal_error.ogg', 70, TRUE)
 		return FALSE

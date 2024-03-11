@@ -108,6 +108,18 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (href_list["player_ticket_panel"])
 		view_latest_ticket()
 		return
+	// Admin message
+	if(href_list["messageread"])
+		var/message_id = round(text2num(href_list["messageread"]), 1)
+		if(!isnum(message_id))
+			return
+		var/datum/db_query/query_message_read = SSdbcore.NewQuery(
+			"UPDATE [format_table_name("messages")] SET type = 'message sent' WHERE targetckey = :player_key AND id = :id",
+			list("id" = message_id, "player_key" = usr.ckey)
+		)
+		query_message_read.warn_execute()
+		return
+
 	// TGUIless adminhelp
 	if(href_list["tguiless_adminhelp"])
 		no_tgui_adminhelp(input(src, "Enter your ahelp", "Ahelp") as null|message)
@@ -441,9 +453,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if(holder)
 		add_admin_verbs()
-		var/memo_message = get_message_output("memo")
-		if(memo_message)
-			to_chat(src, memo_message)
+		display_admin_memos(src)
 		adminGreet()
 	if (mob && reconnecting)
 		var/stealth_admin = mob.client?.holder?.fakekey
@@ -460,9 +470,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(query_last_connected.warn_execute() && length(query_last_connected.rows))
 		query_last_connected.NextRow()
 		var/time_stamp = query_last_connected.item[1]
-		var/unread_notes = get_message_output("note", ckey, FALSE, time_stamp)
-		if(unread_notes)
-			to_chat(src, unread_notes)
+		display_unread_notes(src, time_stamp)
 	qdel(query_last_connected)
 
 	var/cached_player_age = set_client_age_from_db(tdata) //we have to cache this because other shit may change it and we need it's current value now down below.
@@ -491,7 +499,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				"new_byond_user",
 				"[key_name(src)] (IP: [address], ID: [computer_id]) is a new BYOND account [account_age] day[(account_age == 1?"":"s")] old, created on [account_join_date].[new_player_alert_role ? " <@&[new_player_alert_role]>" : ""]"
 			)
-	get_message_output("watchlist entry", ckey)
+	scream_about_watchlists(src)
 	check_ip_intel()
 	validate_key_in_db()
 	// If we aren't already generating a ban cache, fire off a build request
@@ -517,9 +525,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if(CONFIG_GET(flag/autoconvert_notes))
 		convert_notes_sql(ckey)
-	var/user_messages = get_message_output("message", ckey)
-	if(user_messages)
-		to_chat(src, user_messages)
+	display_admin_messages(src)
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
 		to_chat(src, span_warning("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
@@ -645,7 +651,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!query_client_in_db.Execute())
 		qdel(query_client_in_db)
 		return
-/*
+/* NOVA EDIT REMOVAL - Original
 	var/client_is_in_db = query_client_in_db.NextRow()
 	// If we aren't an admin, and the flag is set (the panic bunker is enabled).
 	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
@@ -684,13 +690,13 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		//NOVA EDIT ADDITION BEGIN - PANICBUNKER
 		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !(ckey in GLOB.bunker_passthrough))
 			log_access("Failed Login: [key] - [address] - New account attempting to connect during panic bunker")
-			message_admins("<span class='adminnotice'>Failed Login: [key] - [address] - New account attempting to connect during panic bunker</span>")
-			to_chat_immediate(src, {"<span class='notice'>Hi! We have temporarily enabled safety measures that prevents new players from joining currently.<br>Please try again later, or contact a staff on Discord if you have any questions. <br> <br> To join our community, check out our Discord! To gain full access to our Discord, read the rules and post a request in the #access-requests channel under the \"Landing Zone\" category in the Discord server linked here: <a href='https://discord.gg/6RpdCgR'>https://discord.gg/6RpdCgR</a></span>"}) //skyrat-edit
+			message_admins(span_adminnotice("Failed Login: [key] - [address] - New account attempting to connect during panic bunker"))
+			to_chat_immediate(src, span_notice("Hi! We have temporarily enabled safety measures that prevents new players from joining currently. <br>Please try again later, or contact a staff on Discord if you have any questions. <br> <br> To join our community, check out our Discord! To gain full access to our Discord, read the rules and post a request in the #access-requests channel under the \"Landing Zone\" category in the Discord server linked here: <a href='https://discord.gg/novasector'>https://discord.gg/novasector</a>"))
 			var/list/connectiontopic_a = params2list(connectiontopic)
 			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
 			if(panic_addr && !connectiontopic_a["redirect"])
 				var/panic_name = CONFIG_GET(string/panic_server_name)
-				to_chat(src, "<span class='notice'>Sending you to [panic_name ? panic_name : panic_addr].</span>")
+				to_chat(src, span_notice("Sending you to [panic_name ? panic_name : panic_addr]."))
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
 			qdel(query_client_in_db)
@@ -1038,6 +1044,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[asay]")
 					else
 						winset(src, "default-[REF(key)]", "parent=default;name=[key];command=")
+	calculate_move_dir()
 
 /client/proc/change_view(new_size)
 	if (isnull(new_size))
@@ -1189,8 +1196,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!CONFIG_GET(flag/use_age_restriction_for_jobs))
 		return 0
 
-	if(!isnum(player_age))
-		return 0 //This is only a number if the db connection is established, otherwise it is text: "Requires database", meaning these restrictions cannot be enforced
+	if(!isnum(player_age) || player_age < 0)
+		return 0 
 
 	if(!isnum(days_needed))
 		return 0

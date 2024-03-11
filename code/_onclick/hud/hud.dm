@@ -118,6 +118,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll
 	var/atom/movable/screen/spacesuit
+	var/atom/movable/screen/hunger
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 	var/erp_ui_style //NOVA EDIT - ADDITION - ERP ICONS FIX
@@ -264,12 +265,14 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	stamina = null
 	healthdoll = null
 	spacesuit = null
+	hunger = null
 	blobpwrdisplay = null
 	alien_plasma_display = null
 	alien_queen_finder = null
 	combo_display = null
 
 	//NOVA EDIT START - SKYRAT HUD
+	ammo_counter = null
 	wanted_lvl = null
 	// NOVA EDIT END - SKYRAT HUD
 

@@ -157,6 +157,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 		var/datum/mind/O = I
 		if(O.late_joiner)
 			try_target_late_joiners = TRUE
+	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
 	for(var/datum/mind/possible_target in get_crewmember_minds())
 		if(possible_target in owners)
 			continue
@@ -166,6 +167,10 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 			continue
 		if(!is_valid_target(possible_target))
 			continue
+		// NOVA EDIT ADDITION START - Antag Opt In
+		if (!opt_in_disabled && !opt_in_valid(possible_target))
+			continue
+		// NOVA EDIT ADDITION END
 		possible_targets += possible_target
 	if(try_target_late_joiners)
 		var/list/all_possible_targets = possible_targets.Copy()
@@ -792,7 +797,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 				n_p ++
 	else if (SSticker.IsRoundInProgress())
 		for(var/mob/living/carbon/human/P in GLOB.player_list)
-			if(!(P.mind.has_antag_datum(/datum/antagonist/changeling)) && !(P.mind in owners))
+			if(!(IS_CHANGELING(P)) && !(P.mind in owners))
 				n_p ++
 	target_amount = min(target_amount, n_p)
 
@@ -871,7 +876,15 @@ GLOBAL_LIST_EMPTY(possible_items)
 /datum/objective/destroy/find_target(dupe_search_range, list/blacklist)
 	var/list/possible_targets = active_ais(TRUE)
 	possible_targets -= blacklist
-	var/mob/living/silicon/ai/target_ai = pick(possible_targets)
+	//var/mob/living/silicon/ai/target_ai = pick(possible_targets) // NOVA EDIT REMOVAL - Uses the below loop
+	// NOVA EDIT ADDITION BEGIN - ANTAG OPTIN
+	var/mob/living/silicon/ai/target_ai
+	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences) // NOVA EDIT ADDITION - ANTAG OPT-IN
+	for (var/mob/living/silicon/ai/possible_target as anything in shuffle(possible_targets))
+		if (!opt_in_disabled && !opt_in_valid(possible_target))
+			continue
+		target_ai = possible_target
+	// NOVA EDIT ADDITION END
 	target = target_ai.mind
 	update_explanation_text()
 	return target

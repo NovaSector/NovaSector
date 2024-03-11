@@ -8,6 +8,16 @@
 	)
 	category = CAT_ENTERTAINMENT
 
+/datum/crafting_recipe/sharkplush
+	name = "Shark Plushie"
+	result = /obj/item/toy/plush/shark
+	reqs = list(
+		/obj/item/clothing/suit/hooded/shark_costume = 1,
+		/obj/item/grown/cotton = 10,
+		/obj/item/stack/sheet/cloth = 5,
+	)
+	category = CAT_ENTERTAINMENT
+
 /datum/crafting_recipe/mixedbouquet
 	name = "Mixed bouquet"
 	result = /obj/item/bouquet
@@ -203,5 +213,14 @@
 	reqs = list(
 		/obj/item/clothing/gloves/latex = 1,
 		/obj/item/stack/cable_coil = 2,
+	)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/bonedice
+	name = "Bone Die"
+	result = /obj/item/dice/d6/bone
+	time = 5 SECONDS
+	reqs = list(
+		/obj/item/stack/sheet/bone = 1,
 	)
 	category = CAT_EQUIPMENT

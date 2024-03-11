@@ -8,7 +8,7 @@
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/storage/belt/military
 
-	uniform = /obj/item/clothing/under/syndicate/skyrat/tactical
+	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset/syndicate/alt
@@ -26,6 +26,13 @@
 	)
 
 	id_trim = /datum/id_trim/chameleon/contractor
+
+/datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visualsOnly)
+	. = ..()
+	if(visualsOnly)
+		return
+	handlebank(user)
+
 
 /datum/outfit/contractor_preview
 	name = "Syndicate Contractor (Preview only)"

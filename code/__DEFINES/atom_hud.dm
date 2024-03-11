@@ -95,6 +95,7 @@
 #define SECHUD_BARTENDER "hudbartender"
 #define SECHUD_BITRUNNER "hudbitrunner"
 #define SECHUD_BOTANIST "hudbotanist"
+#define SECHUD_BRIDGE_ASSISTANT "hudbridgeassistant"
 #define SECHUD_CAPTAIN "hudcaptain"
 #define SECHUD_CARGO_TECHNICIAN "hudcargotechnician"
 #define SECHUD_CHAPLAIN "hudchaplain"
@@ -109,6 +110,7 @@
 #define SECHUD_GENETICIST "hudgeneticist"
 #define SECHUD_HEAD_OF_PERSONNEL "hudheadofpersonnel"
 #define SECHUD_HEAD_OF_SECURITY "hudheadofsecurity"
+#define SECHUD_HUMAN_AI "hudhumanai"
 #define SECHUD_JANITOR "hudjanitor"
 #define SECHUD_LAWYER "hudlawyer"
 #define SECHUD_MEDICAL_DOCTOR "hudmedicaldoctor"
@@ -123,6 +125,7 @@
 #define SECHUD_SCIENTIST "hudscientist"
 #define SECHUD_SHAFT_MINER "hudshaftminer"
 #define SECHUD_STATION_ENGINEER "hudstationengineer"
+#define SECHUD_VETERAN_ADVISOR "hudveteranadvisor"
 #define SECHUD_VIROLOGIST "hudvirologist"
 #define SECHUD_WARDEN "hudwarden"
 

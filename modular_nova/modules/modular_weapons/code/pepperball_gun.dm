@@ -60,9 +60,14 @@
 	name = "Pepperball Ammo Box"
 	id = "pepperballs"
 	build_type = AUTOLATHE | PROTOLATHE
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3)
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+	)
 	build_path = /obj/item/ammo_box/advanced/pepperballs
-	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO)
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
+	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /obj/item/ammo_box/advanced/pepperballs
@@ -70,12 +75,14 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/ammoboxes.dmi'
 	icon_state = "box10x24"
 	ammo_type = /obj/item/ammo_casing/pepperball
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3)
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+	)
 	max_ammo = 15
 
 // Gunset for the pepperball pistol
 
-/obj/item/storage/toolbox/guncase/skyrat/pistol/pepperball
+/obj/item/storage/toolbox/guncase/nova/pistol/pepperball
 	name = "Pepperball AHG gunset"
 
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/pistol/pepperball
