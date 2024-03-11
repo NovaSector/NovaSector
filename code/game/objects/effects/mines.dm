@@ -62,7 +62,11 @@
 
 /// Can this mine trigger on the passed movable?
 /obj/effect/mine/proc/can_trigger(atom/movable/on_who)
-	if(triggered || !isturf(loc) || iseffect(on_who) || !armed)
+	if(triggered || !armed || QDELETED(src))
+		return FALSE
+	if(!isturf(loc))
+		return FALSE
+	if(on_who && (QDELING(on_who) || iseffect(on_who)))
 		return FALSE
 
 	var/mob/living/living_mob
@@ -103,6 +107,9 @@
 
 /obj/effect/mine/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
 	. = ..()
+	if(!can_trigger())
+		return
+
 	triggermine()
 
 /// When something sets off a mine
@@ -117,8 +124,7 @@
 	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
-	if(ismob(triggerer))
-		mineEffect(triggerer)
+	mineEffect(triggerer)
 	triggered = TRUE
 	SEND_SIGNAL(src, COMSIG_MINE_TRIGGERED, triggerer)
 	qdel(src)
