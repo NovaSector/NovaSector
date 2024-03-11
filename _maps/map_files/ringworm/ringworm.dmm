@@ -2074,7 +2074,7 @@
 /obj/item/radio/intercom/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "aIv" = (
 /obj/structure/chair{
 	dir = 1
@@ -2447,7 +2447,7 @@
 /turf/open/floor/iron/stairs{
 	dir = 8
 	},
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "aPb" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
 	dir = 6
@@ -4425,7 +4425,7 @@
 /turf/open/floor/iron/white/side{
 	dir = 4
 	},
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "bsN" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners{
 	dir = 1
@@ -20653,7 +20653,7 @@
 /turf/open/floor/iron/white/side{
 	dir = 8
 	},
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "glR" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/table/glass,
@@ -23751,11 +23751,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
 /area/station/service/library/lounge)
-"hlw" = (
-/obj/structure/hedge,
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/paramedic)
 "hlE" = (
 /obj/item/kirbyplants/organic/plant22,
 /obj/effect/turf_decal/siding/dark/end{
@@ -32252,7 +32247,7 @@
 	dir = 1
 	},
 /turf/closed/wall,
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "jIw" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/effect/turf_decal/siding/thinplating_new/light{
@@ -33710,7 +33705,7 @@
 "kfP" = (
 /obj/effect/turf_decal/tile/blue,
 /turf/closed/wall,
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "kfS" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 1
@@ -37237,7 +37232,7 @@
 /turf/open/floor/iron/white/side{
 	dir = 4
 	},
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "lgq" = (
 /obj/effect/turf_decal/arrows{
 	dir = 4
@@ -64437,7 +64432,7 @@
 "tpd" = (
 /obj/structure/stairs/west,
 /turf/open/floor/plating,
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "tph" = (
 /turf/open/floor/engine,
 /area/station/engineering/gravity_generator)
@@ -67873,7 +67868,7 @@
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "utS" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/lockbox/loyalty{
@@ -74380,7 +74375,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/paramedic)
+/area/station/medical/storage)
 "wmR" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
@@ -116850,8 +116845,8 @@ uZS
 kjn
 mhx
 nAW
-foq
-hlw
+bhd
+jOO
 wmC
 ePd
 fPH
@@ -117107,7 +117102,7 @@ uhO
 qlP
 qlP
 qlP
-foq
+bhd
 utH
 aIl
 ePd
@@ -117365,7 +117360,7 @@ qlP
 dqe
 amw
 jIs
-foq
+bhd
 glB
 bhd
 bhd
@@ -117621,7 +117616,7 @@ xqu
 rdX
 sqw
 irM
-foq
+bhd
 tpd
 aOU
 jOO
