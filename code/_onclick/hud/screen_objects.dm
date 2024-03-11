@@ -802,7 +802,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	if(HAS_TRAIT(hungry, TRAIT_FAT))
 		state = HUNGER_STATE_FAT
 		return
-//NOVA EDIT REMOVAL END
 
 	switch(hungry.nutrition)
 		if(NUTRITION_LEVEL_FULL to INFINITY)
