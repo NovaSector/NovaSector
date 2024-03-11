@@ -5290,6 +5290,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -29642,6 +29643,8 @@
 	c_tag = "Atmospherics - Incinerator";
 	network = list("ss13","engine")
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
 "iVK" = (
@@ -35918,6 +35921,7 @@
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 1
 	},
+/obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/science/robotics/lab)
 "kMZ" = (
@@ -37964,6 +37968,7 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/holopad,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
 "lsc" = (
