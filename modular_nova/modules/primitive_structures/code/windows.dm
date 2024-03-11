@@ -12,7 +12,7 @@
 /datum/crafting_recipe/green_glass_pane
 	name = "green glass window"
 	result = /obj/structure/window/green_glass_pane
-	time = 2
+	time = 0.2 SECONDS
 	reqs = list(
 		/datum/reagent/iron = 5,
 		/obj/item/stack/sheet/glass = 2,
