@@ -291,7 +291,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
             <Button
               tooltip="Toggle subtle mode; messages sent will be hidden from prying eyes."
               icon={subtleMode ? 'fa-ear-deaf' : 'fa-ear-listen'}
-              backgroundColor={subtleMode ? `hsl(281, 29%, 43%)` : ''}
+              backgroundColor={subtleMode ? `hsl(281, 39%, 59%)` : ''}
               onClick={this.handleToggleSubtle}
             />
           </Stack.Item>
