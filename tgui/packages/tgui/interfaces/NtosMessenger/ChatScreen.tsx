@@ -154,11 +154,8 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
 
     act('PDA_sendMessage', {
       ref: ref,
-      // NOVA EDIT CHANGE START - ORIGINAL: message: this.state.message
-      message: this.state.subtleMode
-        ? '#' + this.state.message
-        : this.state.message,
-      // NOVA EDIT CHANGE END
+      message: this.state.message,
+      subtle: this.state.subtleMode, // NOVA EDIT ADDITION
     });
 
     this.setState({ message: '', canSend: false });

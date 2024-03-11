@@ -293,7 +293,7 @@
 
 				return disk.send_virus(computer, target_messenger.computer, usr, params["message"])
 
-			return send_message(usr, params["message"], list(target))
+			return send_message(usr, params["message"], list(target), subtle = params["subtle"]) // NOVA EDIT CHANGE - ORIGINAL: return send_message(usr, params["message"], list(target))
 
 		if("PDA_clearPhoto")
 			selected_image = null
@@ -386,7 +386,7 @@
 //////////////////////
 
 /// Brings up the quick reply prompt to send a message.
-/datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat)
+/datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat, subtle = FALSE) // NOVA EDIT ADDITION - ORIGINAL: /datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat)
 	if(!istype(chat))
 		return
 	var/datum/computer_file/program/messenger/target = chat.recipient?.resolve()
@@ -397,7 +397,7 @@
 		return
 	var/target_name = target.computer.saved_identification
 	var/input_message = tgui_input_text(user, "Enter [mime_mode ? "emojis":"a message"]", "NT Messaging[target_name ? " ([target_name])" : ""]", encode = FALSE)
-	send_message(user, input_message, list(chat))
+	send_message(user, input_message, list(chat), subtle = subtle)
 
 /// Helper proc that sends a message to everyone
 /datum/computer_file/program/messenger/proc/send_message_to_all(mob/living/user, message)
@@ -466,22 +466,13 @@
 	return message
 
 /// Sends a message to targets via PDA. When sending to everyone, set `everyone` to true so the message is formatted accordingly
-/datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE)
+/datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE, subtle = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE)
 	var/mob/living/sender
 	if(isliving(source))
 		sender = source
 	message = sanitize_pda_message(message, sender)
 	if(!message)
 		return FALSE
-
-	// NOVA ADDITION BEGIN
-	// If "subtle" it wont be sent to ghostchats.
-	// A message is "subtle" if it begins with "#", the below code also removes it from the sent message.
-	var/subtle = FALSE
-	if(findtext(message,"#") == 1)
-		subtle = TRUE
-		message = copytext(message,2,0)
-	// NOVA ADDITION END
 
 	// upgrade the image asset to a permanent key
 	var/photo_asset_key = selected_image
@@ -548,7 +539,7 @@
 		return FALSE
 
 	// Log it in our logs
-	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
+	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle = subtle) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
 	for(var/datum/pda_chat/target_chat as anything in target_chats)
 		target_chat.add_message(message_datum, show_in_recents = !everyone)
 		target_chat.unread_messages = 0
@@ -572,7 +563,7 @@
 
 	var/fake_photo = attach_fake_photo ? ">:3c" : null
 
-	return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job, FALSE) // NOVA EDIT ADDITION - ORIGINAL: return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job)
+	return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job)
 
 /datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null, subtle = FALSE) // NOVA EDIT ADDITION - ORIGINAL: /datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
 	var/mob/sender
