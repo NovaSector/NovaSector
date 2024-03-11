@@ -36250,9 +36250,6 @@
 /obj/structure/railing/corner/end{
 	dir = 4
 	},
-/obj/structure/railing/corner/end/flip{
-	dir = 8
-	},
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/science/robotics/lab)
 "kQu" = (
@@ -42969,8 +42966,10 @@
 /area/station/science/ordnance/freezerchamber)
 "mON" = (
 /obj/machinery/door/firedoor/border_only,
-/obj/structure/railing,
 /obj/effect/turf_decal/tile/dark_red/half,
+/obj/structure/railing/corner/end/flip{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/science/robotics/lab)
 "mOO" = (
@@ -44458,25 +44457,14 @@
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "njJ" = (
-/obj/structure/dresser,
-/obj/effect/turf_decal/siding/wood{
+/obj/structure/closet/secure_closet/hop,
+/obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/item/storage/box/tail_pin{
-	pixel_y = -16;
-	pixel_x = 4
-	},
-/obj/machinery/airalarm/directional/east,
+/obj/effect/turf_decal/bot,
 /obj/machinery/light/small/directional/east,
-/obj/item/toy/plush/nova/ian/small{
-	pixel_y = 17;
-	pixel_x = -3
-	},
-/obj/item/toy/plush/nova/ian/lisa{
-	pixel_y = 13;
-	pixel_x = 5
-	},
-/turf/open/floor/wood,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hop)
 "njS" = (
 /obj/structure/rack,
@@ -51915,6 +51903,10 @@
 /area/station/maintenance/port/aft)
 "pyo" = (
 /obj/effect/landmark/start/head_of_personnel,
+/obj/item/storage/box/tail_pin{
+	pixel_y = 16;
+	pixel_x = 4
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/hop)
 "pyq" = (
@@ -58943,12 +58935,19 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos/hfr_room)
 "rKx" = (
-/obj/structure/closet/secure_closet/hop,
-/obj/effect/turf_decal/stripes/line{
+/obj/structure/dresser,
+/obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark,
+/obj/item/toy/plush/nova/ian/small{
+	pixel_y = 17;
+	pixel_x = -3
+	},
+/obj/item/toy/plush/nova/ian/lisa{
+	pixel_y = 13;
+	pixel_x = 5
+	},
+/turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "rKE" = (
 /obj/effect/turf_decal/tile/neutral/full,
@@ -77396,6 +77395,13 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/station/hallway/primary/starboard)
+"xfy" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/openspace,
+/area/station/science/robotics/lab)
 "xfC" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
@@ -175075,7 +175081,7 @@ jum
 iSx
 sIN
 fue
-qOS
+xfy
 qUd
 bNL
 uyw
@@ -175582,7 +175588,7 @@ oos
 oos
 txa
 pBf
-rly
+pxq
 rly
 pxq
 kMW
