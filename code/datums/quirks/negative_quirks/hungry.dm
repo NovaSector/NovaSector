@@ -15,7 +15,7 @@
 		/obj/item/paper/paperslip/ration_ticket,
 		/obj/item/food/chocolatebar,
 		/obj/item/storage/box/spaceman_ration/meats,
-		/obj/item/reagent_containers/cup/glass/dry_ramen
+		/obj/item/reagent_containers/cup/glass/dry_ramen,
 	)
 
 /datum/quirk/hungry/add(client/client_source)
