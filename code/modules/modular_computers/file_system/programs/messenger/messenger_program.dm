@@ -477,7 +477,6 @@
 	// NOVA ADDITION BEGIN
 	// If "subtle" it wont be sent to ghostchats.
 	// A message is "subtle" if it begins with "#", the below code also removes it from the sent message.
-	var/subtle = FALSE
 	if(findtext(message,"#") == 1)
 		subtle = TRUE
 		message = copytext(message,2,0)
