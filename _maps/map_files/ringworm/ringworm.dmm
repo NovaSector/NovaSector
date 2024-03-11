@@ -4968,7 +4968,6 @@
 "bzF" = (
 /obj/structure/table,
 /obj/machinery/door/firedoor/border_only,
-/obj/structure/cable,
 /obj/item/knife{
 	pixel_y = 6
 	},
@@ -53218,7 +53217,6 @@
 	pixel_x = 7
 	},
 /obj/machinery/airalarm/directional/south,
-/obj/structure/cable,
 /obj/item/reagent_containers/condiment/enzyme{
 	pixel_x = -10;
 	pixel_y = 16
