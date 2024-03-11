@@ -7001,6 +7001,7 @@
 #include "modular_nova\modules\cryosleep\code\cryo_console_return.dm"
 #include "modular_nova\modules\cryosleep\code\cryopod.dm"
 #include "modular_nova\modules\cryosleep\code\job.dm"
+#include "modular_nova\modules\cryosleep\code\jobs.dm"
 #include "modular_nova\modules\cryosleep\code\mind.dm"
 #include "modular_nova\modules\cryosleep\code\mood.dm"
 #include "modular_nova\modules\curatorbundle\Mushy.dm"

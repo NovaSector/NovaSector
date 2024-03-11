@@ -1,6 +1,6 @@
 /mob/living/basic/migo
 	name = "mi-go"
-	desc = "A pinkish, fungoid crustacean-like creature with numerous pairs of clawed appendages and a head covered with waving antennae."
+	desc = "A pinkish, fungoid crustacean-like creature with clawed appendages and a head covered with waving antennae."
 	icon_state = "mi-go"
 	icon_living = "mi-go"
 	icon_dead = "mi-go-dead"
@@ -48,11 +48,12 @@
 /mob/living/basic/migo/proc/update_dodge_chance(health_ratio)
 	dodge_prob = LERP(50, 10, health_ratio)
 
-/mob/living/basic/migo/send_speech(message_raw, message_range, obj/source, bubble_type, list/spans, datum/language/message_language, list/message_mods, forced, tts_message, list/tts_filter)
-	. = ..()
-	if(stat != CONSCIOUS)
+/mob/living/basic/migo/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
+	..()
+	if(stat)
 		return
-	playsound(src, pick(migo_sounds), 50, TRUE)
+	var/chosen_sound = pick(migo_sounds)
+	playsound(src, chosen_sound, 50, TRUE)
 
 /mob/living/basic/migo/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	..()

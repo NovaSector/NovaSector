@@ -1,0 +1,5 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - rscadd: "The cryogenics computer now will announce on the relevant department channels when a head of staff cryo's"
+  - bugfix: "AI cryogenic storage now announces when AI cryo's"
