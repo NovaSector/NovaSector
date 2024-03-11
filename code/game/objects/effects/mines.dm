@@ -106,11 +106,12 @@
 	foot_on_mine = null
 
 /obj/effect/mine/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
-	. = ..()
 	if(!can_trigger())
-		return
+		return ..()
 
 	triggermine()
+
+	return ..()
 
 /// When something sets off a mine
 /obj/effect/mine/proc/triggermine(atom/movable/triggerer)
