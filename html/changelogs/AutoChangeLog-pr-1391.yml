@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "Human AI should now get its own hud icon"
