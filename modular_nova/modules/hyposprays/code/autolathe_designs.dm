@@ -6,7 +6,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.5,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.5,
 	)
-	build_path = /obj/item/reagent_containers/cup/vial
+	build_path = /obj/item/reagent_containers/cup/vial/small
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
