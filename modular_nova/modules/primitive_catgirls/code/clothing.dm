@@ -30,7 +30,7 @@
 
 /obj/item/clothing/under/dress/skirt/primitive_catgirl_tailored_dress
 	name = "tailored dress"
-	desc = "A handmade dress, tailored to fit perfectly its dresser body measurements."
+	desc = "A handmade dress, tailored to fit perfectly to its wearer's body measurements."
 	icon_state = "tailored_dress"
 	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
@@ -43,7 +43,7 @@
 
 /obj/item/clothing/under/dress/skirt/primitive_catgirl_tunic
 	name = "handmade tunic"
-	desc = "A simple garment, that reaches from the shoulders to above the knee. This one has a belt to secure it."
+	desc = "A simple garment that reaches from the shoulders to above the knee. This one has a belt to secure it."
 	icon_state = "tunic"
 	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'

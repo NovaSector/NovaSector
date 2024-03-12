@@ -67,7 +67,7 @@
 
 /obj/item/clothing/suit/armor/handcrafted_hearthkin_armor
 	name = "handcrafted hearthkin armor"
-	desc = "An armor obviously crafted by the expertise of a hearthkin. It has leather shoulder pads, and a chain mail underneath."
+	desc = "An armor obviously crafted by the expertise of a hearthkin. It has leather shoulder pads and a chain mail underneath."
 	icon_state = "chained_leather_armor"
 	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
