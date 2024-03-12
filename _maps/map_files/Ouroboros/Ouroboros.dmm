@@ -6605,7 +6605,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "ccQ" = (
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "engsm";
@@ -8047,7 +8047,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "czS" = (
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /obj/structure/disposalpipe/junction/flip{
@@ -22507,7 +22507,7 @@
 /obj/machinery/computer/records/medical,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "gOV" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide,
@@ -29035,7 +29035,7 @@
 /obj/machinery/light/cold/directional/east,
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/iron/white/small,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "iLC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -32528,7 +32528,7 @@
 	},
 /obj/effect/landmark/start/medical_doctor,
 /turf/open/floor/iron/white/small,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "jKy" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -33220,7 +33220,7 @@
 	dir = 6
 	},
 /turf/open/floor/iron/white/small,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "jVo" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -39799,7 +39799,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "lRJ" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Robotics Surgery Maintenance"
@@ -39908,7 +39908,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "lSH" = (
 /obj/machinery/light/small/directional/east,
 /obj/structure/cable,
@@ -43713,9 +43713,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
-"mWP" = (
-/turf/closed/wall,
-/area/station/medical/office)
 "mWV" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 4
@@ -49700,11 +49697,6 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/engine,
 /area/station/engineering/atmos)
-"oPh" = (
-/obj/structure/hedge,
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
 "oPz" = (
 /obj/structure/fluff/paper/stack,
 /obj/effect/mapping_helpers/broken_floor,
@@ -53199,7 +53191,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "pRh" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/stripes/line{
@@ -58709,7 +58701,7 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "rFG" = (
 /obj/structure/marker_beacon/indigo,
 /obj/structure/lattice/catwalk,
@@ -59455,7 +59447,7 @@
 /obj/structure/cable,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/white/small,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "rQk" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/machinery/holopad,
@@ -59654,7 +59646,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
-/area/station/medical/office)
+/area/station/medical/medbay/lobby)
 "rTD" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "holodeck"
@@ -184963,11 +184955,11 @@ oBN
 oBN
 oBN
 atJ
-oPh
-oPh
-oPh
-mWP
-mWP
+gLt
+gLt
+gLt
+wVx
+wVx
 bhH
 bBx
 lZN
@@ -185224,7 +185216,7 @@ gOP
 rTp
 jVm
 pQQ
-oPh
+gLt
 hHB
 oHG
 wZj
@@ -185737,8 +185729,8 @@ bol
 lSE
 czQ
 lRG
-mWP
-mWP
+wVx
+wVx
 nVQ
 qrK
 nPJ
