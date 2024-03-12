@@ -1,0 +1,10 @@
+author: "MortoSasye"
+delete-after: True
+changes:
+  - rscadd: "The hearthkin have recently unearthed a technique of their ancestors to make a new type of armor."
+  - rscadd: "The secret as to how to make some of the ashwalker clothing has been obscured once more, only they know how to precisely make a genuine clothing piece."
+  - rscadd: "You can now construct green glass windows, and large wooden gates, for when colossus decides to pay a visit to the hearth."
+  - bugfix: "The rare materials found in the hearth of the icewalkers can now once more be visible to the eye of all."
+  - bugfix: "The handmade tunic is now an under clothing type, instead of suit type, as intended originally."
+  - spellcheck: "Fixed the tailored dress description."
+  - qol: "Changed the icon-state name of \"dracula-rapping\" to \"precious-metals\" to make it easier to find."

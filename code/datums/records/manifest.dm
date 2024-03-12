@@ -113,7 +113,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		person_gender = "Male"
 	if(person.gender == "female")
 		person_gender = "Female"
-	var/datum/dna/record_dna = new()
+	var/datum/dna/stored/record_dna = new()
 	person.dna.copy_dna(record_dna)
 
 	// NOVA EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
@@ -123,6 +123,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 	var/datum/record/locked/lockfile = new(
 		age = person.age,
+		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
 		blood_type = record_dna.blood_type,
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
@@ -140,6 +141,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 	new /datum/record/crew(
 		age = person.age,
+		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
 		blood_type = record_dna.blood_type,
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,

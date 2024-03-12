@@ -51,6 +51,9 @@
 	result = /obj/item/clothing/head/ash_headdress
 	category = CAT_CLOTHING
 
+	//recipe given to ashwalkers as part of their spawner/team setting
+	always_available = FALSE
+
 /obj/item/clothing/head/ash_headdress/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 2, /obj/item/stack/sheet/animalhide/goliath_hide, list(MELEE = 5, BULLET = 2, LASER = 2))
@@ -62,6 +65,8 @@
 /datum/crafting_recipe/ash_recipe/ash_headdress/winged
 	name = "Winged Ash Headdress"
 	result = /obj/item/clothing/head/ash_headdress/winged
+
+	always_available = FALSE
 
 /obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes
 	name = "ash robes"
@@ -81,6 +86,8 @@
 	name = "Ash Robes"
 	result = /obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes
 	category = CAT_CLOTHING
+
+	always_available = FALSE
 
 /obj/item/clothing/under/costume/gladiator/ash_walker/ash_robes/Initialize(mapload)
 	. = ..()
@@ -106,6 +113,8 @@
 	result = /obj/item/clothing/suit/ash_plates
 	category = CAT_CLOTHING
 
+	always_available = FALSE
+
 /obj/item/clothing/suit/ash_plates/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate, 2, /obj/item/stack/sheet/animalhide/goliath_hide, list(MELEE = 5, BULLET = 2, LASER = 2))
@@ -118,6 +127,8 @@
 	name = "Decorated Ash Combat Plates"
 	result = /obj/item/clothing/suit/ash_plates/decorated
 	category = CAT_CLOTHING
+
+	always_available = FALSE
 
 /obj/item/clothing/shoes/bone_greaves
 	name = "bone greaves"

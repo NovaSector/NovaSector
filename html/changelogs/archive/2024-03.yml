@@ -364,3 +364,42 @@
   - rscadd: The cryogenics computer now will announce on the relevant department channels
       when a head of staff cryo's
   - bugfix: AI cryogenic storage now announces when AI cryo's
+2024-03-12:
+  Iajret:
+  - bugfix: Human AI should now get its own hud icon
+  NeonNik2245:
+  - rscadd: Adds hunger quirk for hunger people
+  NovaBot13:
+  - qol: adds examines & screentips for HPLC
+  - qol: HPLC will now display the status of each reagent if it can be purified or
+      not before starting the refining process.
+  - bugfix: HPLC won't accept hologram items.
+  - bugfix: HPLC uses the correct off icon state & pauses processing when opened,
+      powered off, unanchored or broken
+  - bugfix: HPLC will ignore reagents that are either already at max purity or are
+      inverse thus lowering eta & work done to purify your remaining reagents
+  - code_imp: merged procs to reduce code size. auto Doc procs for HPLC
+  - refactor: converted UI to typescript.
+  - qol: adds examines & screentips for grill (the machine for grilling food), converts
+      some chats to balloon alerts
+  - qol: foods that can be re-grilled any number of times
+  - qol: grill (the machine for grilling food) can now be made in the crafting menu.
+      Cargo pack cost for purchasing grill has now been halved.
+  - qol: monkey fuel & other reagents(see examines) can be added from any container
+      & not just from glass bottles to the grill (the machine for grilling food)
+  - bugfix: grills (the machine for grilling food) now don't burn foods into a mouldy
+      mess unlike the girdle
+  - bugfix: correctly computes grill times of items that were previously grilled
+  - bugfix: grills now have an upper fixed fuel limit
+  - code_imp: autodoc procs & vars for the grill (the machine for grilling food)
+  - refactor: grills (the machine for grilling food) has been refactored. report bugs
+      on github, also they only start processing after putting food/fuel into them.
+  Rhials:
+  - bugfix: Fugitive hunters no longer spawn after 1 minute of the fugitives' arrival.
+  sergeirocks100:
+  - rscadd: You can now use Imgbox for headshot hosting.
+  vinylspiders:
+  - rscadd: 'Shiny joke mi-go variant (not xenobio spawnable) del: Removed unused
+      mi-go static sprites'
+  - image: 'Resprited mi-gos to not use plagarized art from CDDA image: Also allowed
+      mi-gos to have directional facing instead of always facing east'
