@@ -210,7 +210,6 @@ DEFINE_BITFIELD(turret_flags, list(
 			turret.toggle_ally(target)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-
 /obj/item/target_designator/proc/designate_enemy(atom/movable/target, mob/user)
 	if(!target)
 		return
@@ -474,7 +473,6 @@ DEFINE_BITFIELD(turret_flags, list(
 
 	return ..()
 
-
 ////// Firing and target acquisition //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/assess_perp(mob/living/carbon/human/perp) //We copy the original so we can use target limiting above factions.
@@ -564,6 +562,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/turf/my_lawn = get_turf(src)
 	while(things_in_my_lawn.len > 0)
 		var/atom/movable/whipper_snapper = get_closest_atom(/mob/living, things_in_my_lawn, my_lawn)
+		things_in_my_lawn -= whipper_snapper
 		if(target(whipper_snapper))
 			return TRUE
 
