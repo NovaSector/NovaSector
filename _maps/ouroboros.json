@@ -1,14 +1,14 @@
 {
 	"version": 1,
-	"map_name": "ringworm",
-	"map_path": "map_files/ringworm",
-	"map_file": "ringworm.dmm",
+	"map_name": "Ouroboros",
+	"map_path": "map_files/ouroboros",
+	"map_file": "ouroboros.dmm",
 	"shuttles": {
 		"emergency": "emergency_skyrat",
 		"ferry": "ferry_skyrat",
 		"mining": "mining_large_skyrat",
-		"cargo": "cargo_ringworm",
-		"whiteship": "whiteship_ringworm"
+		"cargo": "cargo_ouroboros",
+		"whiteship": "whiteship_ouroboros"
 	},
 	"traits": [
 		{

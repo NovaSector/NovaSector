@@ -70,7 +70,7 @@ map blueshift
 	votable
 endmap
 
-map ringworm
-	maxplayers 100
+map ouroboros
+	maxplayers 80
 	votable
 endmap

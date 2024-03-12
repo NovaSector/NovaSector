@@ -19869,8 +19869,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/junction/yjunction{
-	dir = 1
+/obj/structure/disposalpipe/junction{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
@@ -24367,6 +24367,11 @@
 /obj/structure/marker_beacon/olive,
 /turf/open/openspace,
 /area/station/commons/fitness/recreation)
+"hso" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ladder,
+/turf/open/openspace,
+/area/station/science/robotics/lab)
 "hsA" = (
 /obj/machinery/holopad,
 /obj/structure/cable,
@@ -57004,21 +57009,11 @@
 /turf/closed/wall,
 /area/station/science/ordnance/testlab)
 "rbj" = (
-/obj/structure/table/reinforced,
-/obj/item/folder{
-	pixel_x = -6
-	},
-/obj/item/pen{
-	pixel_x = -5
-	},
-/obj/item/stack/package_wrap,
-/obj/item/hand_labeler{
-	pixel_y = -6
-	},
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1
 	},
 /obj/machinery/light/cold/directional/west,
+/obj/structure/ladder,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -60575,6 +60570,16 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
+/obj/item/folder{
+	pixel_x = -6
+	},
+/obj/item/pen{
+	pixel_x = -5
+	},
+/obj/item/stack/package_wrap,
+/obj/item/hand_labeler{
+	pixel_y = -6
+	},
 /turf/open/floor/iron,
 /area/station/science/robotics/mechbay)
 "sgj" = (
@@ -174918,7 +174923,7 @@ aLL
 rly
 rly
 pxq
-qOS
+hso
 qOS
 tPn
 mtN

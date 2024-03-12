@@ -16,7 +16,7 @@
 		// NOVA EDIT ADDITON START - Compiling our modular maps too!
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
-		#include "map_files\RingWorm\RingWorm.dmm"
+		#include "map_files\Ouroboros\Ouroboros.dmm"
 		// NOVA EDIT END
 
 		#ifdef CIBUILDING
