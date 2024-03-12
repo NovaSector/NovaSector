@@ -1,8 +1,8 @@
 {
 	"version": 1,
 	"map_name": "Ouroboros",
-	"map_path": "map_files/ouroboros",
-	"map_file": "ouroboros.dmm",
+	"map_path": "map_files/Ouroboros",
+	"map_file": "Ouroboros.dmm",
 	"shuttles": {
 		"emergency": "emergency_skyrat",
 		"ferry": "ferry_skyrat",
