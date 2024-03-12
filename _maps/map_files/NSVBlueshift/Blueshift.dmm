@@ -18045,7 +18045,6 @@
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "dts" = (
@@ -19981,7 +19980,6 @@
 	dir = 4;
 	name = "Output Release"
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "dLW" = (
@@ -25826,14 +25824,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/service)
-"eRH" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Engineering Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/department/engineering/atmos_aux_port)
 "eRN" = (
 /obj/structure/chair{
 	dir = 8
@@ -34767,7 +34757,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 10
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "gEe" = (
@@ -37672,7 +37661,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "hiz" = (
@@ -40700,7 +40688,6 @@
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "hOe" = (
@@ -60140,7 +60127,6 @@
 	c_tag = "Engineering - Supermatter Room";
 	name = "engineering camera"
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "lzq" = (
@@ -75217,7 +75203,6 @@
 	dir = 9
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "osN" = (
@@ -108982,13 +108967,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
-"uLS" = (
-/obj/effect/turf_decal/stripes{
-	dir = 6
-	},
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "uMb" = (
 /obj/machinery/ai_slipper{
 	uses = 10
@@ -115352,7 +115330,6 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "vVI" = (
@@ -117431,11 +117408,6 @@
 	dir = 8
 	},
 /area/station/common/wrestling/arena)
-"wpi" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
-/turf/open/floor/plating,
-/area/station/maintenance/department/engineering/atmos_aux_port)
 "wpl" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
@@ -160695,7 +160667,7 @@ hrj
 jJU
 weC
 jJU
-lvh
+eLg
 wFq
 xtd
 hVF
@@ -160705,9 +160677,9 @@ xtd
 xtd
 ryb
 dSf
-aKB
-eRH
-wpi
+psI
+fpY
+eFZ
 ipQ
 eFZ
 eFZ
@@ -160954,15 +160926,15 @@ lIS
 wIk
 dto
 osE
-mmz
+jzs
 hNZ
-mmz
+jzs
 lzn
-mmz
-mmz
+jzs
+jzs
 vVE
 dLQ
-uLS
+dUl
 jrA
 xOi
 yjp
