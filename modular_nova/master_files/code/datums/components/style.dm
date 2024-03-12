@@ -4,5 +4,5 @@
 	ADD_TRAIT(parent, TRAIT_STYLISH, REF(src))
 
 /datum/component/style/UnregisterFromParent()
-	REMOVE_TRAIT(mob_parent, TRAIT_STYLISH, REF(src)) // NOVA EDIT ADDITION - allows style meter chads to do flips
+	REMOVE_TRAIT(parent, TRAIT_STYLISH, REF(src)) // NOVA EDIT ADDITION - allows style meter chads to do flips
 	return ..()
