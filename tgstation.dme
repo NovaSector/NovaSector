@@ -6241,6 +6241,7 @@
 #include "modular_nova\master_files\code\datums\components\grillable.dm"
 #include "modular_nova\master_files\code\datums\components\leash.dm"
 #include "modular_nova\master_files\code\datums\components\shielded_suit.dm"
+#include "modular_nova\master_files\code\datums\components\style.dm"
 #include "modular_nova\master_files\code\datums\components\tippable.dm"
 #include "modular_nova\master_files\code\datums\greyscale\config_types\greyscale_configs.dm"
 #include "modular_nova\master_files\code\datums\id_trim\jobs.dm"
