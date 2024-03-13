@@ -34681,7 +34681,6 @@
 /turf/open/floor/iron/dark/side,
 /area/station/security/prison/workout)
 "gDp" = (
-/obj/machinery/light_switch/directional/south,
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/stairs/old{
@@ -43443,6 +43442,7 @@
 /area/station/command/teleporter)
 "ipQ" = (
 /obj/effect/decal/cleanable/glass,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engineering/atmos_aux_port)
 "ipR" = (
@@ -52393,6 +52393,7 @@
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/glasses/meson,
+/obj/item/airlock_painter/decal,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "jYW" = (
@@ -66143,7 +66144,13 @@
 /area/station/security/prison)
 "mHA" = (
 /obj/structure/table/reinforced,
-/obj/item/airlock_painter/decal,
+/obj/item/pipe_dispenser,
+/obj/item/pipe_dispenser{
+	pixel_y = -8
+	},
+/obj/item/pipe_dispenser{
+	pixel_y = 8
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "mHB" = (
@@ -82071,7 +82078,7 @@
 	icon_state = "dirt-flat-1"
 	},
 /obj/structure/cable,
-/obj/machinery/power/energy_accumulator/grounding_rod,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "pKM" = (
@@ -88597,7 +88604,6 @@
 	id = "engsm";
 	name = "Radiation Chamber Shutters"
 	},
-/obj/item/tank/internals/plasma,
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
@@ -101491,6 +101497,7 @@
 /area/station/hallway/secondary/construction)
 "trE" = (
 /obj/structure/cable,
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/engine_smes)
 "trG" = (
@@ -107968,7 +107975,6 @@
 /obj/effect/turf_decal/siding/purple/end{
 	dir = 1
 	},
-/obj/machinery/door/window/left/directional/west,
 /turf/open/floor/glass/reinforced,
 /area/station/science)
 "uBR" = (
@@ -117402,15 +117408,6 @@
 	dir = 8
 	},
 /area/station/common/wrestling/arena)
-"wpi" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/window/brigdoor/left/directional/north{
-	name = "Creature Pen";
-	req_access = list("research")
-	},
-/turf/open/floor/iron,
-/area/station/science/xenobiology)
 "wpl" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
@@ -121409,13 +121406,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
 "xcO" = (
-/obj/machinery/atmospherics/components/tank/plasma{
-	initialize_directions = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
-	dir = 8
-	},
+/obj/machinery/atmospherics/components/tank/plasma,
 /obj/machinery/light/directional/east,
+/obj/machinery/atmospherics/pipe/bridge_pipe/supply/hidden{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/test_chambers)
 "xcP" = (
@@ -223107,7 +223102,7 @@ euU
 xRi
 tft
 bOU
-wpi
+mya
 eMR
 mlr
 euU
