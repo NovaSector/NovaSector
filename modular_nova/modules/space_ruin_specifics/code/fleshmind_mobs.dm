@@ -132,6 +132,7 @@
  * Naturally these beasts are sensitive to EMP's. We have custom systems for dealing with this.
  */
 /mob/living/simple_animal/hostile/fleshmind/emp_act(severity)
+	. = ..()
 	switch(severity)
 		if(EMP_LIGHT)
 			say("Electronic disturbance detected.")

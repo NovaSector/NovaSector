@@ -58,6 +58,7 @@
 	)
 	/// Our wireweed type, defines what is spawned when we grow.
 	var/wireweed_type = /obj/structure/fleshmind/wireweed
+	var/obj/structure/fleshmind/wireweed
 	/// We have the ability to make walls, this defines what kind of walls we make.
 	var/wall_type = /obj/structure/fleshmind/structure/wireweed_wall
 	/// What's the type of our death behaviour.
@@ -415,6 +416,7 @@
 	activate_wireweed_nearby(get_turf(dead_core), CORE_DAMAGE_WIREWEED_ACTIVATION_RANGE)
 	if(!LAZYLEN(cores))
 		controller_death()
+
 /datum/fleshmind_controller/proc/wireweed_death(obj/structure/fleshmind/dying_wireweed, force)
 	SIGNAL_HANDLER
 
