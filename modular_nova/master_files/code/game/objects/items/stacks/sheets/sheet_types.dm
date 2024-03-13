@@ -61,7 +61,8 @@ GLOBAL_LIST_INIT(skyrat_rod_recipes, list(
 	new/datum/stack_recipe("towel bin", /obj/structure/towel_bin/empty, 2, time = 0.5 SECONDS, one_per_turf = FALSE, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("guard rail", /obj/structure/deployable_barricade/guardrail, 2, time = 1 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("wrestling ropes", /obj/structure/railing/wrestling, 3, time = 1.8 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, check_density = FALSE, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("crutch", /obj/item/cane/crutch, 3, time = 10, one_per_turf = FALSE, category = CAT_TOOLS),
+	new/datum/stack_recipe("crutch", /obj/item/cane/crutch, 3, time = 1 SECONDS, one_per_turf = FALSE, category = CAT_TOOLS),
+	new/datum/stack_recipe("torch mount", /obj/item/wallframe/torch_mount, 2, one_per_turf = FALSE, category = CAT_MISC),
 ))
 
 /obj/item/stack/rods/get_main_recipes()
@@ -85,8 +86,9 @@ GLOBAL_LIST_INIT(skyrat_wood_recipes, list(
 	new/datum/stack_recipe("storage barrel", /obj/structure/closet/crate/wooden/storage_barrel, 4, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("worm barrel", /obj/structure/wormfarm, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 	new/datum/stack_recipe("gutlunch trough", /obj/structure/ore_container/gutlunch_trough, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("sturdy wooden fence", /obj/structure/railing/wooden_fencing, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
-	new/datum/stack_recipe("sturdy wooden fence gate", /obj/structure/railing/wooden_fencing/gate, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
+	new/datum/stack_recipe("sturdy wooden fence", /obj/structure/railing/wooden_fencing, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("sturdy wooden fence gate", /obj/structure/railing/wooden_fencing/gate, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("large wooden gate", /obj/structure/mineral_door/wood/large_gate, 10, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("wooden bowl", /obj/item/reagent_containers/cup/bowl/wood_bowl, 3, time = 2 SECONDS, check_density = FALSE, category = CAT_TOOLS),
 ))
 

@@ -94,17 +94,22 @@
 /datum/loadout_item/mask/divemask_koru
 	name = "S.O.K.O. Gaiter"
 	item_path = /obj/item/clothing/mask/gas/signalis_gaiter
-	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf")
+	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf", "opportunerover22")
 
 /datum/loadout_item/under/jumpsuit/divesuit_koru
 	name = "S.O.K.O. Bodysuit"
 	item_path = /obj/item/clothing/under/bodysuit_koruu
-	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf")
+	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf", "opportunerover22")
 
 /datum/loadout_item/under/jumpsuit/anasuit
 	name = "Azulean's Enviro-Suit"
 	item_path = /obj/item/clothing/under/plasmaman/candlejax2
 	ckeywhitelist = list("candlejax")
+
+/datum/loadout_item/mask/composite_filtration
+	name = "Composite Filtration Mask"
+	item_path = /obj/item/clothing/mask/gas/psycho_malice
+	ckeywhitelist = list("snakebittenn")
 
 /datum/loadout_item/suit/jacket/cherno
 	name = "Blue-Silvered Coat"
@@ -778,3 +783,8 @@
 	name = "Compression Bodysuit"
 	item_path = /obj/item/clothing/under/bwake
 	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/inhand/pet/mrfluff_mothroach
+	name = "Mr. Fluff"
+	item_path = /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
+	ckeywhitelist = list("centralsmith")
