@@ -108,16 +108,15 @@
 	. = ..()
 	if(!vial)
 		return
-	if(!vial.reagents.total_volume)
-		return
-	var/vial_spritetype = "chem-color"
-	if(!small_only)
-		vial_spritetype += "[vial.type_suffix]"
-	else
-		vial_spritetype += "-s"
-	var/mutable_appearance/chem_loaded = mutable_appearance(initial(icon), vial_spritetype)
-	chem_loaded.color = vial.chem_color
-	. += chem_loaded
+	if(vial.reagents.total_volume)
+		var/vial_spritetype = "chem-color"
+		if(!small_only)
+			vial_spritetype += "[vial.type_suffix]"
+		else
+			vial_spritetype += "-s"
+		var/mutable_appearance/chem_loaded = mutable_appearance(initial(icon), vial_spritetype)
+		chem_loaded.color = vial.chem_color
+		. += chem_loaded
 	if(vial.greyscale_colors != null)
 		var/mutable_appearance/vial_overlay = mutable_appearance(initial(icon), "[vial.icon_state]-body")
 		vial_overlay.color = vial.greyscale_colors

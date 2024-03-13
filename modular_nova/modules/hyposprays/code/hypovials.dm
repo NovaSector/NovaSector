@@ -12,6 +12,19 @@
 	var/chem_color = "#FFFFFF" //Used for hypospray overlay
 	var/type_suffix = "-s"
 	fill_icon = 'modular_nova/modules/hyposprays/icons/hypospray_fillings.dmi'
+	current_skin = "hypovial"
+
+	unique_reskin = list(
+		"Sterile" = "hypovial",
+		"Generic" = "hypovial-generic",
+		"Brute" = "hypovial-brute",
+		"Burn" = "hypovial-burn",
+		"Toxin" = "hypovial-tox",
+		"Oxyloss" = "hypovial-oxy",
+		"Crit" = "hypovial-crit",
+		"Buff" = "hypovial-buff",
+		"Custom" = "hypovial-custom",
+	)
 
 /obj/item/reagent_containers/cup/vial/Initialize(mapload)
 	. = ..()
@@ -23,28 +36,34 @@
 
 /obj/item/reagent_containers/cup/vial/examine(mob/user)
 	. = ..()
-	. += span_notice("Ctrl-Shift-Click to set a custom color, or Alt-Click to reset via reskinning.")
+	. += span_notice("Ctrl-Shift-Click to reskin or set a custom color.")
 
 /obj/item/reagent_containers/cup/vial/CtrlShiftClick(mob/user, obj/item/I)
-	icon_state = unique_reskin["Sterile"]
-	current_skin = unique_reskin["Sterile"]
-	var/atom/fake_atom = src
-	var/list/allowed_configs = list()
-	var/config = initial(fake_atom.greyscale_config)
-	allowed_configs += "[config]"
-	if(greyscale_colors == null)
-		greyscale_colors = "#FFFFFF"
-	var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
-	menu.ui_interact(usr)
-
-/obj/item/reagent_containers/cup/vial/proc/on_reskin()
-	icon_state = current_skin
+	current_skin = null
+	icon_state = initial(icon_state)
 	icon = initial(icon)
 	greyscale_colors = null
+	reskin_obj(user)
+
+/obj/item/reagent_containers/cup/vial/proc/on_reskin()
+	if(current_skin == "Custom")
+		icon_state = unique_reskin["Sterile"]
+		current_skin = unique_reskin["Sterile"]
+		var/atom/fake_atom = src
+		var/list/allowed_configs = list()
+		var/config = initial(fake_atom.greyscale_config)
+		allowed_configs += "[config]"
+		if(greyscale_colors == null)
+			greyscale_colors = "#FFFF00"
+		var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
+		menu.ui_interact(usr)
+	else
+		icon_state = unique_reskin[current_skin]
 
 /obj/item/reagent_containers/cup/vial/update_overlays()
 	. = ..()
 	// Search the overlays for the fill overlay from reagent_containers, and nudge its layer down to have it look correct.
+	chem_color = "#FFFFFF"
 	var/list/generated_overlays = .
 	for(var/added_overlay in generated_overlays)
 		if(istype(added_overlay, /mutable_appearance))
@@ -66,17 +85,6 @@
 	desc = "A small, 50u capacity vial compatible with most hyposprays."
 	volume = 50
 	possible_transfer_amounts = list(1,2,5,10,15,25,50)
-
-	unique_reskin = list(
-		"Sterile" = "hypovial",
-		"Generic" = "hypovial-generic",
-		"Brute" = "hypovial-brute",
-		"Burn" = "hypovial-burn",
-		"Toxin" = "hypovial-tox",
-		"Oxyloss" = "hypovial-oxy",
-		"Crit" = "hypovial-crit",
-		"Buff" = "hypovial-buff",
-	)
 
 /obj/item/reagent_containers/cup/vial/small/style
 	icon_state = "hypovial"
@@ -102,6 +110,7 @@
 	name = "large hypovial"
 	icon_state = "hypoviallarge"
 	fill_icon_state = "hypoviallarge_fill"
+	current_skin = "hypoviallarge"
 	desc = "A large, 100u capacity vial that fits only in the most deluxe hyposprays."
 	volume = 100
 	possible_transfer_amounts = list(1,2,5,10,20,30,40,50,100)
@@ -116,6 +125,7 @@
 		"Oxyloss" = "hypoviallarge-oxy",
 		"Crit" = "hypoviallarge-crit",
 		"Buff" = "hypoviallarge-buff",
+		"Custom" = "hypoviallarge-custom",
 	)
 
 /obj/item/reagent_containers/cup/vial/large/style/
