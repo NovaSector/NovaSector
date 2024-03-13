@@ -82078,7 +82078,7 @@
 	icon_state = "dirt-flat-1"
 	},
 /obj/structure/cable,
-/obj/machinery/power/energy_accumulator/grounding_rod,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "pKM" = (
