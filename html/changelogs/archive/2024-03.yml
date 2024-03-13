@@ -364,3 +364,85 @@
   - rscadd: The cryogenics computer now will announce on the relevant department channels
       when a head of staff cryo's
   - bugfix: AI cryogenic storage now announces when AI cryo's
+2024-03-12:
+  Iajret:
+  - bugfix: Human AI should now get its own hud icon
+  NeonNik2245:
+  - rscadd: Adds hunger quirk for hunger people
+  NovaBot13:
+  - qol: adds examines & screentips for HPLC
+  - qol: HPLC will now display the status of each reagent if it can be purified or
+      not before starting the refining process.
+  - bugfix: HPLC won't accept hologram items.
+  - bugfix: HPLC uses the correct off icon state & pauses processing when opened,
+      powered off, unanchored or broken
+  - bugfix: HPLC will ignore reagents that are either already at max purity or are
+      inverse thus lowering eta & work done to purify your remaining reagents
+  - code_imp: merged procs to reduce code size. auto Doc procs for HPLC
+  - refactor: converted UI to typescript.
+  - qol: adds examines & screentips for grill (the machine for grilling food), converts
+      some chats to balloon alerts
+  - qol: foods that can be re-grilled any number of times
+  - qol: grill (the machine for grilling food) can now be made in the crafting menu.
+      Cargo pack cost for purchasing grill has now been halved.
+  - qol: monkey fuel & other reagents(see examines) can be added from any container
+      & not just from glass bottles to the grill (the machine for grilling food)
+  - bugfix: grills (the machine for grilling food) now don't burn foods into a mouldy
+      mess unlike the girdle
+  - bugfix: correctly computes grill times of items that were previously grilled
+  - bugfix: grills now have an upper fixed fuel limit
+  - code_imp: autodoc procs & vars for the grill (the machine for grilling food)
+  - refactor: grills (the machine for grilling food) has been refactored. report bugs
+      on github, also they only start processing after putting food/fuel into them.
+  Rhials:
+  - bugfix: Fugitive hunters no longer spawn after 1 minute of the fugitives' arrival.
+  sergeirocks100:
+  - rscadd: You can now use Imgbox for headshot hosting.
+  vinylspiders:
+  - rscadd: 'Shiny joke mi-go variant (not xenobio spawnable) del: Removed unused
+      mi-go static sprites'
+  - image: 'Resprited mi-gos to not use plagarized art from CDDA image: Also allowed
+      mi-gos to have directional facing instead of always facing east'
+2024-03-13:
+  A.C.M.O.:
+  - qol: Changed maximum age to 100. Renamed Age field to Physical Age.
+  - rscadd: Added a new character preferences field for Chronological Age with a maximum
+      of 400.
+  - rscadd: Added Chronological Age field to medical and security records computers.
+  - rscadd: Added fields for Physical Age and Chronological age to the Medical Records
+      app for modular computers.
+  JohnFulpWillard, Atlasle:
+  - balance: You no longer feel cold if you're drunk. You still take damage, but get
+      no warning or slowdown.
+  Melbert:
+  - bugfix: Silicons can use asterisks in binary without fear of saying something
+      interesting.
+  - bugfix: Some things which should pacify people (but aren't) now will properly,
+      like hypnoflash
+  MortoSasye:
+  - rscadd: The hearthkin have recently unearthed a technique of their ancestors to
+      make a new type of armor.
+  - rscadd: The secret as to how to make some of the ashwalker clothing has been obscured
+      once more, only they know how to precisely make a genuine clothing piece.
+  - rscadd: You can now construct green glass windows, and large wooden gates, for
+      when colossus decides to pay a visit to the hearth.
+  - bugfix: The rare materials found in the hearth of the icewalkers can now once
+      more be visible to the eye of all.
+  - bugfix: The handmade tunic is now an under clothing type, instead of suit type,
+      as intended originally.
+  - spellcheck: Fixed the tailored dress description.
+  - qol: Changed the icon-state name of "dracula-rapping" to "precious-metals" to
+      make it easier to find.
+  NovaBot13:
+  - bugfix: Doors with ID scan disabled will no longer open when an ID is thrown at
+      them
+  - bugfix: fixes a spurious CI runtime caused by explosive mines quite literally
+      blowing up the unit test area
+  - bugfix: As a borg you shouldn't be able to resist from grab while locked down
+  - rscadd: New Lizard's Gas ruin, this time in lavaland
+  - bugfix: The black market illegal fish case now correctly initializes.
+  - bugfix: inserting a material sheet into an lathes should show the correct animation
+      color
+  - bugfix: All basic mobs are able to get wet. This means, among other things, that
+      you can clear the "slimed" status effect off your holoparasite or dog or whatever.
+  - bugfix: The museum piggy bank now spawns with at least 400 creds in it.
