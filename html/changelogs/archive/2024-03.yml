@@ -403,3 +403,46 @@
       mi-go static sprites'
   - image: 'Resprited mi-gos to not use plagarized art from CDDA image: Also allowed
       mi-gos to have directional facing instead of always facing east'
+2024-03-13:
+  A.C.M.O.:
+  - qol: Changed maximum age to 100. Renamed Age field to Physical Age.
+  - rscadd: Added a new character preferences field for Chronological Age with a maximum
+      of 400.
+  - rscadd: Added Chronological Age field to medical and security records computers.
+  - rscadd: Added fields for Physical Age and Chronological age to the Medical Records
+      app for modular computers.
+  JohnFulpWillard, Atlasle:
+  - balance: You no longer feel cold if you're drunk. You still take damage, but get
+      no warning or slowdown.
+  Melbert:
+  - bugfix: Silicons can use asterisks in binary without fear of saying something
+      interesting.
+  - bugfix: Some things which should pacify people (but aren't) now will properly,
+      like hypnoflash
+  MortoSasye:
+  - rscadd: The hearthkin have recently unearthed a technique of their ancestors to
+      make a new type of armor.
+  - rscadd: The secret as to how to make some of the ashwalker clothing has been obscured
+      once more, only they know how to precisely make a genuine clothing piece.
+  - rscadd: You can now construct green glass windows, and large wooden gates, for
+      when colossus decides to pay a visit to the hearth.
+  - bugfix: The rare materials found in the hearth of the icewalkers can now once
+      more be visible to the eye of all.
+  - bugfix: The handmade tunic is now an under clothing type, instead of suit type,
+      as intended originally.
+  - spellcheck: Fixed the tailored dress description.
+  - qol: Changed the icon-state name of "dracula-rapping" to "precious-metals" to
+      make it easier to find.
+  NovaBot13:
+  - bugfix: Doors with ID scan disabled will no longer open when an ID is thrown at
+      them
+  - bugfix: fixes a spurious CI runtime caused by explosive mines quite literally
+      blowing up the unit test area
+  - bugfix: As a borg you shouldn't be able to resist from grab while locked down
+  - rscadd: New Lizard's Gas ruin, this time in lavaland
+  - bugfix: The black market illegal fish case now correctly initializes.
+  - bugfix: inserting a material sheet into an lathes should show the correct animation
+      color
+  - bugfix: All basic mobs are able to get wet. This means, among other things, that
+      you can clear the "slimed" status effect off your holoparasite or dog or whatever.
+  - bugfix: The museum piggy bank now spawns with at least 400 creds in it.
