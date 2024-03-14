@@ -263,7 +263,6 @@
 	victim.adjust_eye_blur(3 SECONDS)
 	victim.adjust_dizzy(3.5 SECONDS)
 	victim.adjust_confusion(2 SECONDS)
-
 // NOVA EDIT ADDITION START
 #undef RANSOM_LOWER
 #undef RANSOM_UPPER
