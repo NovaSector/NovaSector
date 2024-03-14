@@ -76904,10 +76904,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/psychology,
 /turf/open/floor/iron,
 /area/station/medical/psychology)
-"oJY" = (
-/obj/structure/falsewall/reinforced,
-/turf/open/floor/plating,
-/area/station/command/secure_bunker)
 "oKf" = (
 /obj/structure/railing{
 	dir = 5
@@ -232245,7 +232241,7 @@ vur
 rcU
 uhZ
 uhZ
-xbB
+uhZ
 xSc
 yig
 nNn
@@ -232502,7 +232498,7 @@ iyR
 nFF
 jCK
 dTz
-xbB
+uhZ
 jzw
 tmU
 ijy
@@ -232759,7 +232755,7 @@ ske
 bgS
 ciM
 vhb
-xbB
+uhZ
 fCZ
 uLh
 aTj
@@ -233016,7 +233012,7 @@ bug
 uhZ
 uhZ
 nPM
-xbB
+uhZ
 mlN
 skJ
 kMJ
@@ -233273,7 +233269,7 @@ cAj
 gGr
 qit
 vhb
-xbB
+uhZ
 vzh
 tBI
 vzh
@@ -233530,7 +233526,7 @@ pUg
 dhs
 hyt
 vhb
-xbB
+uhZ
 mdx
 gVz
 qow
@@ -233787,7 +233783,7 @@ vzW
 kxk
 aFD
 vhb
-xbB
+uhZ
 rOD
 uJF
 hrN
@@ -234044,7 +234040,7 @@ jNU
 cab
 bpn
 rXy
-xbB
+uhZ
 mTZ
 skJ
 lYY
@@ -234301,7 +234297,7 @@ uhZ
 gdH
 uhZ
 uhZ
-xbB
+uhZ
 vzh
 boK
 vzh
@@ -234556,8 +234552,8 @@ uhZ
 xvI
 ePU
 cab
-oJY
-qZv
+uhZ
+uhZ
 uhZ
 bqb
 vRt
@@ -234815,7 +234811,7 @@ lJn
 req
 uhZ
 uhZ
-uhZ
+sZz
 gOw
 jyr
 uDb
