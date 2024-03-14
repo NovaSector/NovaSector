@@ -6061,10 +6061,10 @@
 /obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
 	dir = 4
 	},
-/obj/structure/railing/corner/end{
-	dir = 8
-	},
 /obj/machinery/light/warm/directional/south,
+/obj/structure/railing/corner{
+	dir = 1
+	},
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
 "bTB" = (
@@ -23471,10 +23471,10 @@
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "hey" = (
-/obj/structure/railing/corner/end/flip{
-	dir = 1
-	},
 /obj/structure/lattice,
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
 "heF" = (
@@ -29764,10 +29764,10 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible/layer4{
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer2{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible/layer2{
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron,
@@ -31717,9 +31717,6 @@
 /turf/open/floor/iron/dark/corner,
 /area/station/commons/dorms)
 "jzq" = (
-/obj/structure/railing{
-	dir = 8
-	},
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
 	dir = 9
@@ -33945,10 +33942,10 @@
 /area/station/hallway/primary/central/aft)
 "khc" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible/layer4{
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer2{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible/layer2{
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4{
 	dir = 4
 	},
 /turf/open/floor/iron,
@@ -34289,13 +34286,12 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/cmo)
 "klC" = (
-/obj/structure/railing/corner/end,
 /obj/structure/lattice,
-/obj/structure/railing/corner/end/flip{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
 	dir = 6
+	},
+/obj/structure/railing{
+	dir = 9
 	},
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
@@ -38271,11 +38267,11 @@
 /turf/open/floor/iron/dark,
 /area/station/common/laser_tag)
 "ltF" = (
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
+/obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/turf_decal/stripes/line{
+/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
 	dir = 4
 	},
 /turf/open/floor/iron,
@@ -44939,10 +44935,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/treatment_center)
 "noW" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/brown/visible{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/brown/visible,
 /turf/open/floor/engine,
 /area/station/engineering/atmos/upper)
 "npd" = (
@@ -56332,11 +56330,11 @@
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "qNv" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/green/visible,
-/obj/machinery/door/firedoor/border_only,
 /turf/open/floor/engine,
 /area/station/engineering/atmos/upper)
 "qNx" = (
@@ -63596,7 +63594,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible/layer2,
 /turf/open/floor/engine,
 /area/station/engineering/atmos)
 "sYc" = (
@@ -72550,11 +72548,11 @@
 /turf/open/misc/asteroid/moon/airless,
 /area/space/nearstation)
 "vID" = (
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer2{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4{
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
