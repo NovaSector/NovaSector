@@ -1,6 +1,0 @@
-author: "1393F"
-delete-after: True
-changes:
-  - bugfix: "the misplaced windoors around science on blueshift are gone"
-  - qol: "blueshift engineers have a more visible RPD placement for the supermatter"
-  - bugfix: "the chambers surrounding the supermatter on blueshift have an accessible airalarm near them now"
