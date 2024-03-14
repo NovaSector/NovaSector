@@ -10694,7 +10694,6 @@
 /area/station/engineering/atmos/upper)
 "dnN" = (
 /obj/machinery/light/warm/directional/south,
-/obj/effect/mapping_helpers/apc/cell_10k,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
@@ -69469,6 +69468,7 @@
 /obj/machinery/light/warm/directional/west,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "uNF" = (
