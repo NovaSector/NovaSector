@@ -18,18 +18,22 @@
 	},
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_green/warning{
+	dir = 1
+	},
+/obj/item/healthanalyzer/advanced{
+	pixel_y = 11;
+	pixel_x = 5
+	},
 /obj/item/stack/medical/bone_gel{
 	pixel_x = -6;
 	pixel_y = 4
 	},
 /obj/item/stack/sticky_tape/surgical{
 	pixel_x = 6
-	},
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_green/warning{
-	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -2891,10 +2895,10 @@
 /area/ruin/interdyne_planetary_base/med)
 "yY" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/processor/slime,
 /obj/effect/turf_decal/tile/dark_green/anticorner{
 	dir = 8
 	},
+/obj/machinery/processor/slime/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ze" = (
@@ -3215,6 +3219,7 @@
 /obj/machinery/camera/autoname/directional/north{
 	network = list("intd13")
 	},
+/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
@@ -3799,6 +3804,7 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
+/obj/item/xenoarch/handheld_recoverer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Fv" = (
@@ -4258,7 +4264,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 1
 	},
-/obj/machinery/monkey_recycler,
+/obj/machinery/monkey_recycler/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Jz" = (
@@ -5532,10 +5538,10 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/machinery/chem_master,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/firedoor,
+/obj/machinery/chem_master/fullupgrade,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "TV" = (
