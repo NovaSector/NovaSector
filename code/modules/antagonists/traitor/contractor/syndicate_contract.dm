@@ -264,8 +264,6 @@
 	victim.adjust_dizzy(3.5 SECONDS)
 	victim.adjust_confusion(2 SECONDS)
 
-	new /obj/effect/pod_landingzone(possible_drop_loc[pod_rand_loc], return_pod)
-
 // NOVA EDIT ADDITION START
 #undef RANSOM_LOWER
 #undef RANSOM_UPPER
