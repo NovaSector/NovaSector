@@ -227,22 +227,9 @@
 			if(!possible_drop.is_blocked_turf())
 				possible_drop_loc.Add(possible_drop)
 
-<<<<<<< HEAD
-	if(!possible_drop_loc.len)
-		to_chat(victim, span_hypnophrase("A million voices echo in your head... \"Seems where you got sent here from won't \
-			be able to handle our pod... if we wanted the occupant to survive. Brace yourself, corporate dog.\""))
-		for(var/turf/possible_drop in contract.dropoff.contents)
-			possible_drop_loc.Add(possible_drop)
-		if(iscarbon(victim))
-			var/mob/living/carbon/carbon_victim = victim
-			if(carbon_victim.can_heartattack())
-				carbon_victim.set_heartattack(TRUE)
-				carbon_victim.investigate_log("was returned without a valid drop location by the contractor [contract.owner?.current].", INVESTIGATE_DEATHS) // NOVA EDIT ADDITION
-=======
 	var/turf/destination
 	if(length(possible_drop_loc))
 		destination = pick(possible_drop_loc)
->>>>>>> 737822398a1 (Blackmarket refactor and balance, fixing spy bounties, plus a new category for people captured by pirates/tots/contractors. (#81818))
 
 	var/obj/structure/closet/supplypod/back_to_station/return_pod = new()
 	return_pod.return_from_capture(victim, destination)
@@ -276,7 +263,6 @@
 	victim.adjust_eye_blur(3 SECONDS)
 	victim.adjust_dizzy(3.5 SECONDS)
 	victim.adjust_confusion(2 SECONDS)
-<<<<<<< HEAD
 
 	new /obj/effect/pod_landingzone(possible_drop_loc[pod_rand_loc], return_pod)
 
@@ -285,5 +271,3 @@
 #undef RANSOM_UPPER
 #undef CONTRACTOR_RANSOM_CUT
 // NOVA EDIT ADDITION END
-=======
->>>>>>> 737822398a1 (Blackmarket refactor and balance, fixing spy bounties, plus a new category for people captured by pirates/tots/contractors. (#81818))
