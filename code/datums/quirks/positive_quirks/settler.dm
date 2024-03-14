@@ -21,7 +21,7 @@
 	var/mob/living/carbon/human/human_quirkholder = quirk_holder
 	//NOVA EDIT BEGIN - This is so Teshari don't get the height decrease.
 	if(!isteshari(human_quirkholder))
-		human_quirkholder.set_mob_height(HUMAN_HEIGHT_SHORTEST)\
+		human_quirkholder.set_mob_height(HUMAN_HEIGHT_SHORTEST)
 	//NOVA EDIT END
 	human_quirkholder.add_movespeed_modifier(/datum/movespeed_modifier/settler)
 	human_quirkholder.physiology.hunger_mod *= 0.5 //good for you, shortass, you don't get hungry nearly as often
