@@ -10338,13 +10338,11 @@
 /turf/open/floor/iron/checker,
 /area/station/hallway/primary/central/fore)
 "djg" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/obj/machinery/atmospherics/pipe/heat_exchanging/junction{
+/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
 	dir = 4
 	},
-/turf/open/space/basic,
-/area/space/nearstation)
+/turf/open/floor/iron,
+/area/station/engineering/atmos/upper)
 "djh" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
@@ -71297,9 +71295,8 @@
 /area/station/service/hydroponics)
 "vpU" = (
 /obj/structure/lattice,
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 8
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -74650,12 +74647,6 @@
 /obj/item/kirbyplants/synthetic/plant27,
 /turf/open/floor/wood,
 /area/station/medical/psychology)
-"wlb" = (
-/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/station/engineering/atmos/upper)
 "wlH" = (
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
@@ -77382,14 +77373,6 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
-"xbP" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/obj/machinery/atmospherics/pipe/heat_exchanging/junction{
-	dir = 8
-	},
-/turf/open/space/basic,
-/area/space/nearstation)
 "xbZ" = (
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock";
@@ -113533,7 +113516,7 @@ laO
 laO
 sly
 iKG
-xbP
+xlH
 twM
 twM
 oAj
@@ -114047,7 +114030,7 @@ laO
 gPF
 sly
 svp
-djg
+xlH
 twM
 twM
 anB
@@ -173424,7 +173407,7 @@ tLs
 pBj
 ott
 gld
-wlb
+djg
 cAo
 scC
 gcW
