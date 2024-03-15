@@ -6302,6 +6302,7 @@
 #include "modular_nova\master_files\code\game\objects\effects\decals\turfdecals\tilecoloring.dm"
 #include "modular_nova\master_files\code\game\objects\items\AI_modules.dm"
 #include "modular_nova\master_files\code\game\objects\items\cards_ids.dm"
+#include "modular_nova\master_files\code\game\objects\items\dualsaber.dm"
 #include "modular_nova\master_files\code\game\objects\items\dyekit.dm"
 #include "modular_nova\master_files\code\game\objects\items\hhmirror.dm"
 #include "modular_nova\master_files\code\game\objects\items\holy_weapons.dm"
