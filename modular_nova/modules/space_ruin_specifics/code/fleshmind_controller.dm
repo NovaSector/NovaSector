@@ -97,10 +97,6 @@
 	COOLDOWN_DECLARE(next_core_damage_wireweed_activation)
 	/// DO we check distance when spreading through vents?
 	var/vent_distance_check = TRUE
-	/// Have we spawned a tyrant at level 3?
-	var/tyrant_spawned = FALSE
-	/// Have we reached the end game?
-	var/end_game = FALSE
 
 /datum/fleshmind_controller/New(obj/structure/fleshmind/structure/core/new_core)
 	. = ..()
