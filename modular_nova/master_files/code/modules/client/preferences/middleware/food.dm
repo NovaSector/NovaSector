@@ -152,8 +152,6 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 /// Checks the provided preferences datum to make sure the food pref values are valid. Does not check if the food preferences value is null.
 /datum/food_prefs_menu/proc/is_food_invalid(counts)
-
-
 	if(counts["liked"] > MAXIMUM_LIKES)
 		return "too many liked choices"
 	if(counts["disliked"] < MINIMUM_REQUIRED_DISLIKES)
