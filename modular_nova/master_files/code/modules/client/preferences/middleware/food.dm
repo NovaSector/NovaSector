@@ -117,7 +117,6 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		"liked" = 0,
 		"disliked" = 0,
 		"toxic" = 0,
-
 	)
 
 	for(var/food_entry in GLOB.food_defaults)
@@ -139,7 +138,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	var/list/data = list(
 		"selection" = preferences.food_preferences,
 		"enabled" = preferences.food_preferences["enabled"],
-		"invalid" = is_food_invalid(preferences, counts),
+		"invalid" = is_food_invalid(counts),
 		"race_disabled" = !species.allows_food_preferences(),
 		"limits" = list(
 			"max_liked" = MAXIMUM_LIKES,
@@ -152,7 +151,9 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	return data
 
 /// Checks the provided preferences datum to make sure the food pref values are valid. Does not check if the food preferences value is null.
-/datum/food_prefs_menu/proc/is_food_invalid(datum/preferences/preferences, counts)
+/datum/food_prefs_menu/proc/is_food_invalid(counts)
+
+
 	if(counts["liked"] > MAXIMUM_LIKES)
 		return "too many liked choices"
 	if(counts["disliked"] < MINIMUM_REQUIRED_DISLIKES)
