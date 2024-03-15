@@ -1,4 +1,4 @@
 author: "NovaBot13"
 delete-after: True
 changes:
-  - image: "Resprited T-ray & Geiger counter."
+  - refactor: "Instruments now use TGUI."
