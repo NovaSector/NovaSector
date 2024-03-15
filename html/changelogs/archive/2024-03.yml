@@ -480,3 +480,29 @@
   - bugfix: Fuck you coupons work regardless of whether you had a free hand or not.
   - balance: Max level Summon Simians now grants the wizard a free gorilla transformation
       spell as opposed to allowing the wizard to summon fully-grown gorillas.
+2024-03-15:
+  NovaBot13:
+  - rscadd: Added a 'Closet Anomaly' station trait, which links and turns a portion
+      of the roundstart closets into impromptu teleporters.
+  - image: Your station's standard issue E-219 laser turrets within the AI upload
+      and AI satellite have been updated to a newer, shinier model.
+  - bugfix: Fixed the larva "hide" ability not properly hiding larvas under tables.
+  - balance: Crusher marks no longer overwrite eachother, fauna can have one from
+      each crusher.
+  - balance: Ash drake's crusher trophy no longer affects people the same faction
+      as you (like hiero trophy), so you won't friendly fire people with it.
+  - rscadd: 'Added a new upgrade: Human Passthrough. You can shoot your PKA without
+      having to worry about friendly fire with this, for 750 mining points at your
+      mining vendor.'
+  - bugfix: Minebot passthrough upgrade now properly makes PKAs pass through minebots.
+  - image: Resprited T-ray & Geiger counter.
+  - bugfix: Prevent runtime from humans with biowares gettingn deleted.
+  - rscadd: Added a Skub-related station trait. You can now choose if you want to
+      be pro-skub or anti-skub, complete of shirt and stickers. Please don't shank
+      each other over it.
+  - balance: Halved the weight of station traits such as scarves, wallets and glitched
+      PDAs.
+  - bugfix: A missing recharger has been added into science's testing range on Birdshot
+      station.
+  Rhials:
+  - balance: Irradiated meteors now hit harder and leave behind radioactive goop.
