@@ -5752,9 +5752,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 4
-	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "bNc" = (
@@ -17410,6 +17407,9 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "fkK" = (
@@ -23472,8 +23472,8 @@
 /area/station/ai_monitored/turret_protected/ai_upload)
 "hey" = (
 /obj/structure/lattice,
-/obj/structure/railing{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 9
 	},
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
@@ -31718,8 +31718,9 @@
 /area/station/commons/dorms)
 "jzq" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 9
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
+/obj/structure/railing{
+	dir = 8
 	},
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
@@ -40340,10 +40341,10 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 9
-	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "lXH" = (
@@ -50553,19 +50554,9 @@
 /turf/open/openspace,
 /area/station/maintenance/starboard/greater)
 "pco" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 6
-	},
-/turf/open/floor/iron,
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/turf/open/openspace,
 /area/station/engineering/atmos/upper)
 "pcv" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
@@ -56331,10 +56322,10 @@
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "qNv" = (
 /obj/machinery/door/firedoor/border_only,
-/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/green/visible,
 /turf/open/floor/engine,
 /area/station/engineering/atmos/upper)
 "qNx" = (
@@ -174174,7 +174165,7 @@ snu
 iyT
 eij
 bXZ
-pco
+hWO
 lXA
 iFK
 kFD
@@ -174687,9 +174678,9 @@ jtd
 eCT
 ddj
 qNv
+pco
 iLD
 mFO
-gOs
 iQK
 bLR
 eMd
