@@ -1,6 +1,6 @@
 /obj/item/organ/internal/ears/teshari
 	name = "teshari ears"
-	desc = "A set of four long rabbit-like ears, a Teshari's main tool while hunting."
+	desc = "A set of four long rabbit-like ears, a Teshari's main tool while hunting. Naturally extremely sensitive to loud sounds."
 	damage_multiplier = 2
 	actions_types = list(/datum/action/cooldown/spell/teshari_hearing)
 
@@ -10,7 +10,7 @@
 
 /datum/action/cooldown/spell/teshari_hearing
 	name = "Toggle Sensitive Hearing"
-	desc = "Perk up your ears to listen for quiet sounds, such as whispering."
+	desc = "Perk up your ears to listen for quiet sounds, useful for picking up whispering."
 	button_icon = 'modular_nova/master_files/icons/hud/actions.dmi'
 	button_icon_state = "echolocation_off"
 	var/active = FALSE
