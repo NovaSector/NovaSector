@@ -49,7 +49,7 @@
 /// Checks if we are in a valid state to suicide (not already suiciding, capable of actually killing ourselves, area checks, etc.) Returns TRUE if we can suicide, FALSE if we can not.
 /mob/living/proc/can_suicide()
 	// NOVA EDIT ADDITION
-	if(CONFIG_GET(flag/disable_suicide))
+	if(CONFIG_GET(flag/disable_suicide) && !HAS_TRAIT(src, TRAIT_BYPASS_SUICIDE_CONFIG))
 		to_chat(src, span_warning("Suicide is disabled on this server."))
 		return FALSE
 	// NOVA EDIT END
