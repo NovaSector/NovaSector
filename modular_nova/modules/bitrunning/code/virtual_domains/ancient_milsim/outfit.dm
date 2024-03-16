@@ -1,13 +1,13 @@
 /datum/outfit/solfed_bitrun
 	name = "Bitrunning SolFed Marine"
 
-	uniform = /obj/item/clothing/under/rank/security/officer/hecu
+	uniform = /obj/item/clothing/under/sol_peacekeeper
 	head = null
-	mask = /obj/item/clothing/mask/gas/hecu2
-	gloves = /obj/item/clothing/gloves/combat
+	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
+	gloves = /obj/item/clothing/gloves/frontier_colonist
 	suit = null
-	shoes = /obj/item/clothing/shoes/combat
-	back = /obj/item/storage/backpack/ert/odst/hecu
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	back = /obj/item/storage/backpack/industrial/frontier_colonist
 	glasses = null
 	ears = /obj/item/radio/headset/headset_faction/bowman
 	id = /obj/item/card/id/advanced/solfed

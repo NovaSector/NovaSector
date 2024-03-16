@@ -94,6 +94,18 @@ SUBSYSTEM_DEF(job)
 	set_overflow_role(CONFIG_GET(string/overflow_job)) // this must always go after load_jobs_from_config() due to how the legacy systems operate, this always takes precedent.
 	return SS_INIT_SUCCESS
 
+/// Returns a list of jobs that we are allowed to fuck with during random events
+/datum/controller/subsystem/job/proc/get_valid_overflow_jobs()
+	var/static/list/overflow_jobs
+	if (!isnull(overflow_jobs))
+		return overflow_jobs
+
+	overflow_jobs = list()
+	for (var/datum/job/check_job in joinable_occupations)
+		if (!check_job.allow_bureaucratic_error)
+			continue
+		overflow_jobs += check_job
+	return overflow_jobs
 
 /datum/controller/subsystem/job/proc/set_overflow_role(new_overflow_role)
 	var/datum/job/new_overflow = ispath(new_overflow_role) ? GetJobType(new_overflow_role) : GetJob(new_overflow_role)
@@ -148,7 +160,10 @@ SUBSYSTEM_DEF(job)
 			continue
 		new_all_occupations += job
 		name_occupations[job.title] = job
+		for(var/alt_title in job.alternate_titles)
+			name_occupations[alt_title] = job
 		type_occupations[job_type] = job
+
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
 			new_joinable_occupations += job
 			if(!LAZYLEN(job.departments_list))
@@ -184,6 +199,8 @@ SUBSYSTEM_DEF(job)
 	joinable_departments = new_joinable_departments
 	joinable_departments_by_type = new_joinable_departments_by_type
 	experience_jobs_map = new_experience_jobs_map
+
+	SEND_SIGNAL(src, COMSIG_OCCUPATIONS_SETUP)
 
 	return TRUE
 
@@ -378,7 +395,6 @@ SUBSYSTEM_DEF(job)
 	//Setup new player list and get the jobs list
 	JobDebug("Running DO, allow_all = [allow_all], pure = [pure]")
 	run_divide_occupation_pure = pure
-	SEND_SIGNAL(src, COMSIG_OCCUPATIONS_DIVIDED, pure, allow_all)
 
 	//Get the players who are ready
 	for(var/i in GLOB.new_player_list)
@@ -714,13 +730,14 @@ SUBSYSTEM_DEF(job)
 	var/area/shuttle/arrival/arrivals_area = GLOB.areas_by_type[/area/shuttle/arrival]
 	if(!isnull(arrivals_area))
 		var/list/turf/available_turfs = list()
-		for(var/turf/arrivals_turf as anything in arrivals_area.get_contained_turfs())
-			var/obj/structure/chair/shuttle_chair = locate() in arrivals_turf
-			if(!isnull(shuttle_chair))
-				return shuttle_chair
-			if(arrivals_turf.is_blocked_turf(TRUE))
-				continue
-			available_turfs += arrivals_turf
+		for (var/list/zlevel_turfs as anything in arrivals_area.get_zlevel_turf_lists())
+			for (var/turf/arrivals_turf as anything in zlevel_turfs)
+				var/obj/structure/chair/shuttle_chair = locate() in arrivals_turf
+				if(!isnull(shuttle_chair))
+					return shuttle_chair
+				if(arrivals_turf.is_blocked_turf(TRUE))
+					continue
+				available_turfs += arrivals_turf
 
 		if(length(available_turfs))
 			return pick(available_turfs)

@@ -20,6 +20,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slot = ORGAN_SLOT_BRAIN_NIF
 	actions_types = list(/datum/action/item_action/nif/open_menu)
+	cannot_confiscate = TRUE
 
 	//User Variables
 	///What user is currently linked with the NIF?
@@ -403,6 +404,7 @@
 	return FALSE
 
 /obj/item/organ/internal/cyberimp/brain/nif/emp_act(severity)
+	. = ..()
 	if(!durability_loss_vulnerable)
 		return FALSE
 

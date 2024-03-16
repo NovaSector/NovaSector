@@ -301,44 +301,74 @@
 	desc = "A full-face respirator designed by Forestfel Intersystem Industries and originally meant for Ixian Tajarans, the FIR-22 Rebreather is a snout-covering variant often seen used by Tajaran Military Personnel. It reeks of militarism."
 	icon_state = "fir22"
 
+/obj/item/clothing/mask/gas/caligram_visage_mask
+	name = "\improper Caligram visage mask"
+	desc = "An Ixian Tajaran mask commonly worn by Talicana monks that features a braided internals line and food consumption port. It bears the blue and red rank-stripes of a Caligram First Ensign."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "caligram_visage"
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS //same flags as actual sec hailer gas mask
+	flags_inv = HIDEFACE | HIDESNOUT
+	flags_cover = NONE
+	visor_flags = MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_inv = HIDEFACE | HIDESNOUT
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+
 // Donation reward for Raxraus
-/obj/item/clothing/head/caligram_cap_tan
-	name = "\improper Caligram tan softcap"
-	desc = "A Caligram's Fleet-branded hat in a '/surprisingly/' tasteful shade of brown."
+/obj/item/clothing/head/caligram_cap
+	name = "\improper Caligram softcap"
+	desc = "A Caligram's Fleet-branded hat."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "caligram_cap_tan"
+	unique_reskin = list(
+		"Tan" = "caligram_cap_tan",
+		"Navy" = "caligram_cap_navy",
+	)
 
 // Donation reward for Raxraus
-/obj/item/clothing/under/jumpsuit/caligram_fatigues_tan
-	name = "\improper Caligram tan fatigues"
-	desc = "A set of tan and brown work fatigues bearing a Caligram's Fleet insigna on an armband. Lacks the typical Tajaran extravagance."
+/obj/item/clothing/under/jumpsuit/caligram_fatigues
+	name = "\improper Caligram fatigues"
+	desc = "A set of work fatigues bearing a Caligram's Fleet insigna on an armband. Lacks the typical Tajaran extravagance."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
 	icon_state = "caligram_fatigues_tan"
 	worn_icon_state = "caligram_fatigues_tan"
+	unique_reskin = list(
+		"Tan" = "caligram_fatigues_tan",
+		"Navy" = "caligram_fatigues_navy",
+	)
 
 // Donation reward for Raxraus
-/obj/item/clothing/suit/jacket/caligram_parka_tan
-	name = "\improper Caligram tan parka"
-	desc = "A tan parka with a fancy black belt and '/Caligram's Fleet/' stitched onto its armband."
+/obj/item/clothing/suit/jacket/caligram_parka
+	name = "\improper Caligram parka"
+	desc = "A parka with a fancy belt and '/Caligram's Fleet/' stitched onto its armband."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon_state = "caligram_parka_tan"
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS|HANDS
+	unique_reskin = list(
+		"Tan" = "caligram_parka_tan",
+		"Navy" = "caligram_parka_navy",
+	)
 
 // Donation reward for Raxraus
-/obj/item/clothing/suit/armor/vest/caligram_parka_vest_tan
-	name = "\improper Caligram armored tan parka"
-	desc = "A tan parka with a fancy black belt, a lightly armored vest and '/Caligram's Fleet/' stitched onto its armband."
+/obj/item/clothing/suit/armor/vest/caligram_parka_vest
+	name = "\improper Caligram armored parka"
+	desc = "A parka with a fancy belt, a lightly armored vest and '/Caligram's Fleet/' stitched onto its armband."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon_state = "caligram_parka_vest_tan"
 	inhand_icon_state = "armor"
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS|HANDS
+	unique_reskin = list(
+		"Tan" = "caligram_parka_vest_tan",
+		"Navy" = "caligram_parka_vest_navy",
+	)
 
 
 // Donation reward for ChillyLobster
@@ -791,13 +821,70 @@
 	worn_icon_state = "mikuleggings"
 
 // Donation reward for CandleJax
-/obj/item/clothing/head/helmet/space/plasmaman/candlejax
-	name = "emission's helmet"
-	desc = "A special containment helmet designed for heavy usage. Multiple dings and notches are on this one."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
-	icon_state = "emissionhelm"
+/obj/item/clothing/mask/gas/CMCP_mask
+	name = "\improper CMCP 'Oni' Faceplate"
+	desc = "A modular faceplate mount. Typically meant to be attached to field platforms."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "yoni"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	use_radio_beeps_tts = TRUE
+	flags_inv = NONE
 
+/obj/item/clothing/mask/gas/CMCP_mask/Initialize(mapload)
+	. = ..()
+	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
+	voice_filter = initial(sechailer_type.voice_filter)
+
+// Donation reward for Koruu
+/obj/item/clothing/mask/gas/signalis_gaiter
+	name = "synthetic nanofiber gaiter"
+	desc = "A slim black synthetic cloth that covers the mouth. Often in used by the S.O.K.O Models. "
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "siggaiter"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	actions_types = list(/datum/action/item_action/adjust)
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	use_radio_beeps_tts = TRUE
+	flags_inv = NONE
+
+/obj/item/clothing/mask/gas/signalis_gaiter/Initialize(mapload)
+	. = ..()
+	var/obj/item/clothing/mask/gas/sechailer/sechailer_type = /obj/item/clothing/mask/gas/sechailer
+	voice_filter = initial(sechailer_type.voice_filter)
+
+/obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
+	adjustmask(user)
+
+/obj/item/clothing/mask/gas/signalis_gaiter/AltClick(mob/user)
+	..()
+	if(user.can_perform_action(src, NEED_DEXTERITY))
+		adjustmask(user)
+
+/obj/item/clothing/mask/gas/signalis_gaiter/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click [src] to adjust it.")
+
+// Donation reward for Koruu
+/obj/item/clothing/under/bodysuit_koruu
+	name = "synthetic nanofiber Automaton bodysuit"
+	desc = "A slim and body fitting suit often equipped by most Automaton Units. Durable, with an emphasis on flexibility, but it can be seen as rather risqué."
+	body_parts_covered = CHEST|GROIN
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "bodysuitkoruu"
+	unique_reskin = list(
+		"Navy" = "bodysuitkoruu",
+		"White" = "bodysuitkoruu_alt",
+	)
 
 // Donation reward for CandleJax
 /obj/item/clothing/head/helmet/space/plasmaman/candlejax2
@@ -818,7 +905,7 @@
 // Donation reward for CandleJax
 /obj/item/clothing/under/plasmaman/candlejax2
 	name = "azulean's environment suit"
-	desc = "An Azulean-made Enviro-Suit. Fitted to the Azulean form, it has surplus containment fabric designed to give the solidified mass of plasma that was once a tail some breathing room."
+	desc = "A form-fitting and modified bodysuit designed to fit the Akulean body. Embossments of the formal crest of the Kingdom of Agurkrral are seen on the shoulderpads."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "ana_envirosuit"
@@ -830,6 +917,79 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "plasmaman_jax"
+
+// Donation reward for snakebitenn
+/datum/action/item_action/adjust/psychomalicek/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/clothing/mask/gas/psycho_malice/psycho_malice = target
+	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
+		psycho_malice.adjust_mask(usr)
+	else
+		psycho_malice.reskin_obj(usr)
+
+/obj/item/clothing/mask/gas/psycho_malice
+	name = "composite filtration mask"
+	desc = "Less of a mask and more of a second face, this device was primarily useful for climate-adjustment and keeping unwanted gasses and particulates out of whoever it's on. However, it's since been adapted into a faceplate for use by humanoid machines."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "psychomalice"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	flags_inv = HIDEEARS|HIDEEYES|HIDESNOUT|HIDEFACIALHAIR
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	/// Whether or not the mask is currently being layered over (or under!) hair. FALSE/null means the mask is layered over the hair (this is how it starts off).
+	var/wear_hair_over
+
+/obj/item/clothing/mask/gas/psycho_malice/examine(mob/user)
+    . = ..()
+    . += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
+
+/obj/item/clothing/mask/gas/psycho_malice/CtrlClick(mob/living/user)
+    if(!isliving(user))
+        return
+    if(user.get_active_held_item() != src)
+        to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
+        return
+    voice_filter = voice_filter ? null : initial(voice_filter)
+    to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+
+/obj/item/clothing/mask/gas/psycho_malice/Initialize(mapload)
+	. = ..()
+	register_context()
+	if(wear_hair_over)
+		alternate_worn_layer = BACK_LAYER
+
+/obj/item/clothing/mask/gas/psycho_malice/alt_click_secondary(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(user.can_perform_action(src, NEED_DEXTERITY))
+		adjust_mask(user)
+
+//this moves the mask above or below the hair layer
+/obj/item/clothing/mask/gas/psycho_malice/proc/adjust_mask(mob/living/carbon/human/user)
+	if(!istype(user))
+		return
+	if(!user.incapacitated())
+		var/is_worn = user.wear_mask == src
+		wear_hair_over = !wear_hair_over
+		if(wear_hair_over)
+			alternate_worn_layer = BACK_LAYER
+			to_chat(user, "You [is_worn ? "" : "will "]sweep your hair over the mask.")
+		else
+			alternate_worn_layer = initial(alternate_worn_layer)
+			to_chat(user, "You [is_worn ? "" : "will "]sweep your hair under the mask.")
+
+		user.update_worn_mask()
+
+/obj/item/clothing/mask/gas/psycho_malice/dropped(mob/living/carbon/human/user)
+	var/prev_alternate_worn_layer = alternate_worn_layer
+	. = ..()
+	alternate_worn_layer = prev_alternate_worn_layer
 
 // Donation reward for Raxraus
 /obj/item/clothing/shoes/combat/rax
@@ -1842,3 +2002,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	name = "implant case - 'Toaster'"
 	desc = "A glass case containing a toaster implant. Sweet."
 	imp_type = /obj/item/implant/toaster
+
+// donator reward for ignari
+/obj/item/clothing/under/rem
+	name = "\improper M.I.A. limiter"
+	desc = "Manufactured from durable synthetic threads, this outfit seems to be very poor at transmitting physical stimuli to the wearer. \
+		The material appears to be extremely compressive, possibly aiding in masking any features underneath."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "ignari_rem"
+	can_adjust = FALSE
+
+/obj/item/clothing/shoes/rem_shoes
+	name = "\improper M.I.A. heels"
+	desc = "A pair of form fitting heels. They appear to bear no distinguishing identifiers."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	icon_state = "rem_shoes"
+
+/obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/modules/modular_items/lewd_items/sounds/highheel1.ogg' = 1, 'modular_nova/modules/modular_items/lewd_items/sounds/highheel2.ogg' = 1), 70)
+
+/obj/item/clothing/under/bwake
+	name = "\improper Compression bodysuit"
+	desc = "A bodysuit made of weaved bluespace threads and latex. The suit appears to be exceptionally insulating, and seals quite neatly around the wearer's body."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "bwake_uniform"
+	can_adjust = FALSE

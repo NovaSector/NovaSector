@@ -114,13 +114,15 @@
 	/// String. If set to a non-empty one, it will be the key for the policy text value to show this role on spawn.
 	var/policy_index = ""
 
-	//SKYRAT ADDITION START
+	// NOVA EDIT ADDITION START
 	/// Job title to use for spawning. Allows a job to spawn without needing map edits.
 	var/job_spawn_title
-	//SKYRAT ADDITION END
-
-	///RPG job names, for the memes
+	// NOVA EDIT ADDITION END
+	/// RPG job names, for the memes
 	var/rpg_title
+
+	/// Alternate titles to register as pointing to this job.
+	var/list/alternate_titles
 
 	/// Does this job ignore human authority?
 	var/ignore_human_authority = FALSE
@@ -178,6 +180,10 @@
 		for(var/i in roundstart_experience)
 			spawned_human.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
+/// Return the outfit to use
+/datum/job/proc/get_outfit()
+	return outfit
+
 /// Announce that this job as joined the round to all crew members.
 /// Note the joining mob has no client at this point.
 /datum/job/proc/announce_job(mob/living/joining_mob, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_job(mob/living/joining_mob)
@@ -190,19 +196,20 @@
 	return TRUE
 
 
-/mob/living/proc/on_job_equipping(datum/job/equipping)
+/mob/living/proc/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/human/on_job_equipping(datum/job/equipping)
-	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
-	bank_account.payday(STARTING_PAYCHECKS, TRUE)
-	account_id = bank_account.account_id
-	bank_account.replaceable = FALSE
-	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
+	if(equipping.paycheck_department)
+		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
+		bank_account.payday(STARTING_PAYCHECKS, TRUE)
+		account_id = bank_account.account_id
+		bank_account.replaceable = FALSE
+		add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-	dress_up_as_job(equipping, FALSE, used_pref) //NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
+	dress_up_as_job(equipping, FALSE, used_pref) // NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // NOVA EDIT REMOVAL - See below
@@ -215,12 +222,12 @@
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
-/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping) //NOVA EDIT CHANGE
+	equip_outfit_and_loadout(equipping.get_outfit(), used_pref, visual_only, equipping) //NOVA EDIT CHANGE : ORIGINAL equipOutfit(equipping.get_outfit(), visual_only)
 
 /// tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 /datum/job/proc/announce_head(mob/living/carbon/human/H, channels, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_head(mob/living/carbon/human/H, channels)
@@ -308,6 +315,15 @@
 		info += span_boldnotice("As this station was initially staffed with a \
 			[CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] \
 			have been added to your ID card.")
+	//NOVA EDIT ADDITION BEGIN - ANTAG OPT IN
+	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+		if (isnum(minimum_opt_in_level) && minimum_opt_in_level > OPT_IN_NOT_TARGET)
+			info += span_bolddanger("This job forces a minimum opt-in setting of [GLOB.antag_opt_in_strings["[minimum_opt_in_level]"]].")
+		if (heretic_sac_target)
+			info += span_bolddanger("This job can be sacrificed by heretics.")
+		if (contractable)
+			info += span_bolddanger("This job can be targeted by contractors.")
+	//NOVA EDIT ADDITION END
 	//NOVA EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
 	if(alt_title != title)
 		info += span_warning("Remember that alternate titles are purely for flavor and roleplay.")

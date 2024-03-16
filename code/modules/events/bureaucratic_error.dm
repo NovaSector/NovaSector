@@ -13,21 +13,17 @@
 	priority_announce("A recent bureaucratic error in the Organic Resources Department may result in personnel shortages in some departments and redundant staffing in others.", "Paperwork Mishap Alert")
 
 /datum/round_event/bureaucratic_error/start()
-	var/list/jobs = SSjob.joinable_occupations.Copy()
-	/*
-	if(prob(33)) // Only allows latejoining as a single role. Add latejoin AI bluespace pods for fun later.
+	var/list/jobs = SSjob.get_valid_overflow_jobs()
+	/* NOVA EDIT REMOVAL START - No more locking off jobs
+	if(prob(33)) // Only allows latejoining as a single role.
 		var/datum/job/overflow = pick_n_take(jobs)
 		overflow.spawn_positions = -1
 		overflow.total_positions = -1 // Ensures infinite slots as this role. Assistant will still be open for those that cant play it.
 		for(var/job in jobs)
 			var/datum/job/current = job
-			if(!current.allow_bureaucratic_error)
-				continue
 			current.total_positions = 0
-	else // Adds/removes a random amount of job slots from all jobs.
-	*/ // NOVA EDIT REMOVAL - no more locking off jobs
+		return
+	*/ // NOVA EDIT REMOVAL END
+	// Adds/removes a random amount of job slots from all jobs.
 	for(var/datum/job/current as anything in jobs)
-		if(!current.allow_bureaucratic_error)
-			continue
-		var/ran = rand(1,4) // NOVA EDIT - no more locking off jobs
-		current.total_positions = max(current.total_positions + ran, 0)
+		current.total_positions = max(current.total_positions + rand(1,4), 0) // NOVA EDIT - no more locking off jobs - ORIGINAL: current.total_positions = max(current.total_positions + rand(-2,4), 0)

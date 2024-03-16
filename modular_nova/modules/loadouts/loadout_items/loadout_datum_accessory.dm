@@ -75,6 +75,16 @@ GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/a
 	item_path = /obj/item/clothing/accessory/armband/deputy/lopland
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/accessory/holobadge
+	name = "Holobadge"
+	item_path = /obj/item/clothing/accessory/badge/holo
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/accessory/holobadge/lanyard
+	name = "Holobadge with Lanyard"
+	item_path = /obj/item/clothing/accessory/badge/holo/cord
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
 /datum/loadout_item/accessory/armband_security_deputy
 	name = "Security Deputy Armband"
 	item_path = /obj/item/clothing/accessory/armband/deputy

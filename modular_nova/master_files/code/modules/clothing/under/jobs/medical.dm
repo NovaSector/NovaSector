@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/medical
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'	// Anything that was in the medical.dmi, should be in the medical_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 
 /obj/item/clothing/under/rank/medical/doctor/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'

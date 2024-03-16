@@ -101,6 +101,7 @@
 	user.RemoveElement(/datum/element/forced_gravity, 0)
 	REMOVE_TRAIT(user, TRAIT_NEGATES_GRAVITY, CLOTHING_TRAIT)
 
+	var/datum/quirk/spacer_born/spacer = user.get_quirk(/datum/quirk/spacer_born)
 	switch(target_mode)
 		if(MODE_ANTIGRAVITY)
 			mode = MODE_ANTIGRAVITY
@@ -115,6 +116,10 @@
 			icon_state = ANTIGRAVITY_STATE
 			worn_icon_state = ANTIGRAVITY_STATE
 
+			//are we a spacer? if so, let the quirk know we're back in low gravity conditions
+			if (!isnull(spacer))
+				spacer.in_space(user)
+
 		if(MODE_EXTRAGRAVITY)
 			mode = MODE_EXTRAGRAVITY
 
@@ -127,6 +132,10 @@
 			gravity_on = TRUE
 			icon_state = EXTRAGRAVITY_STATE
 			worn_icon_state = EXTRAGRAVITY_STATE
+
+			//are we a spacer? if so, let the quirk know we're in extremely uncomfortable extragrav
+			if (!isnull(spacer))
+				spacer.on_planet(user)
 
 		if(MODE_GRAVOFF)
 			if(!user.has_gravity() && mode != MODE_GRAVOFF)
@@ -145,6 +154,10 @@
 			icon_state = OFF_STATE
 			worn_icon_state = OFF_STATE
 
+			//are we a spacer? if so, make the quirk assert the correct condition based on where we are
+			if (!isnull(spacer))
+				spacer.check_z(user)
+
 		else
 			return FALSE
 
@@ -152,7 +165,6 @@
 	update_appearance()
 
 	return TRUE
-
 
 /obj/item/gravity_harness/dropped(mob/user)
 	. = ..()
@@ -164,6 +176,7 @@
 
 /obj/item/gravity_harness/attack_self(mob/user)
 	toggle_mode(user, TRUE)
+
 /// This outputs the harness's current mode and cell charge to your status tab, so you don't need to examine it every time.
 /obj/item/gravity_harness/proc/get_status_tab_item(mob/living/source, list/items)
 	SIGNAL_HANDLER

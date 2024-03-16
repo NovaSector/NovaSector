@@ -268,7 +268,7 @@ GLOBAL_VAR(first_officer)
 	card.update_label()
 
 /datum/map_template/shuttle/pirate/nri_raider
-	prefix = "_maps/shuttles/skyrat/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "nri_raider"
 	name = "pirate ship (NRI Enforcer-Class Starship)"
 	port_x_offset = -5

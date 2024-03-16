@@ -87,6 +87,11 @@
 	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	cost = 1
 
+/datum/augment_item/organ/eyes/binoculars
+	name = "Digital Magnification Optics (x3)"
+	cost = 4
+	path = /obj/item/organ/internal/eyes/robotic/binoculars
+
 //TONGUES
 /datum/augment_item/organ/tongue
 	slot = AUGMENT_SLOT_TONGUE
@@ -99,9 +104,17 @@
 	name = "Robotic voicebox"
 	path = /obj/item/organ/internal/tongue/robot
 
+/datum/augment_item/organ/tongue/robo/forked
+	name = "Robotic lizard voicebox"
+	path = /obj/item/organ/internal/tongue/lizard/robot
+
 /datum/augment_item/organ/tongue/cybernetic
 	name = "Cybernetic tongue"
 	path = /obj/item/organ/internal/tongue/cybernetic
+
+/datum/augment_item/organ/tongue/cybernetic/forked
+	name = "Forked cybernetic tongue"
+	path = /obj/item/organ/internal/tongue/lizard/cybernetic
 
 /datum/augment_item/organ/tongue/forked
 	name = "Forked tongue"

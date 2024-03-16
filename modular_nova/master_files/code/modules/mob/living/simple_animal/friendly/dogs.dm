@@ -22,6 +22,7 @@
 
 /mob/living/basic/pet/dog/markus/Initialize(mapload)
 	. = ..()
+	ADD_TRAIT(src, TRAIT_TRASHMAN, TRAIT_GENERIC) //The burgers in his belly protect him
 	if(!can_breed)
 		return
 	AddComponent(\
@@ -86,7 +87,7 @@
 	can_breed = FALSE
 
 	// These lights enable when E-N is emagged
-	light_system = MOVABLE_LIGHT_DIRECTIONAL
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_color = COLOR_RED
 	light_range = 2
 	light_power = 0.8

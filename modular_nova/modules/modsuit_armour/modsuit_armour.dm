@@ -56,20 +56,6 @@
 	acid = 25
 	wound = 10
 
-/datum/mod_theme/mining // Shaft Miner / Other half comes from the ashland booster
-	armor_type = /datum/armor/mod_theme_mining
-
-/datum/armor/mod_theme_mining
-	melee = 5
-	bullet = 5
-	laser = 5
-	energy = 5
-	bomb = 25
-	bio = 100
-	fire = 100
-	acid = 75
-	wound = 15
-
 /datum/mod_theme/medical // Paramedic / Medical Doctor
 	armor_type = /datum/armor/mod_theme_medical
 

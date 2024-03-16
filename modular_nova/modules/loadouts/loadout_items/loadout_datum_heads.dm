@@ -129,6 +129,14 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Mothic Softcap"
 	item_path = /obj/item/clothing/head/mothcap
 
+/datum/loadout_item/head/frontiercap
+	name = "Frontier Cap"
+	item_path = /obj/item/clothing/head/soft/frontier_colonist
+
+/datum/loadout_item/head/frontiercap/medic
+	name = "Frontier Medical Cap"
+	item_path = /obj/item/clothing/head/soft/frontier_colonist/medic
+
 /*
 *	FEDORAS
 */
@@ -416,6 +424,18 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/blastwave_cap
 	name = "Blastwave Peaked Cap"
 	item_path = /obj/item/clothing/head/blastwave/officer
+
+/datum/loadout_item/head/chap_nunh
+	name = "Nun's Hood"
+	item_path = /obj/item/clothing/head/chaplain/nun_hood
+
+/datum/loadout_item/head/chap_kippah
+	name = "Jewish Kippah"
+	item_path = /obj/item/clothing/head/chaplain/kippah
+
+/datum/loadout_item/head/chap_nunv
+	name = "Nun's Veil"
+	item_path = /obj/item/clothing/head/chaplain/habit_veil
 
 /*
 *	COWBOY

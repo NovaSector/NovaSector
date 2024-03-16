@@ -416,7 +416,7 @@
 	for(var/skillpath in skillchips)
 		preload += skillpath
 
-	preload -= typesof(/obj/item/clothing/under/color/random) // NOVA EDIT - Don't preload random jumpsuit spawners that delete themselves
+	preload -= typesof(/obj/item/clothing/under/color/random, /obj/item/camera) // NOVA EDIT - Don't preload random jumpsuit spawners that delete themselves
 
 	return preload
 

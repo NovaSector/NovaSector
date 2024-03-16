@@ -7,6 +7,7 @@
 
 /datum/species/akula
 	name = "Akula"
+	plural_form = "Akulae"
 	id = SPECIES_AKULA
 	lore_protected = TRUE
 	offset_features = list(
