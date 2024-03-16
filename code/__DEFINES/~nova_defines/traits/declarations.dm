@@ -40,6 +40,9 @@
 #define TRAIT_ASH_ASPECT "ash_aspect"
 #define TRAIT_SPARKLE_ASPECT "sparkle_aspect"
 
+///Allows mobs to bypass suicide config if disabled.
+#define TRAIT_BYPASS_SUICIDE_CONFIG "bypass_suicide_config"
+
 // Trait sources
 #define TRAIT_GHOSTROLE "ghostrole"
 
