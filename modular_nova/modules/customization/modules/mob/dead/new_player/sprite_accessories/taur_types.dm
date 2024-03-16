@@ -158,7 +158,6 @@
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
-	taur_mode = STYLE_TAUR_PAW
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"
@@ -168,6 +167,6 @@
 	name = "Big Legs, Bird"
 	icon_state = "biglegs_bird"
 
-/datum/sprite_accessory/taur/biglegs/bird/stanced
+/datum/sprite_accessory/taur/biglegs/stanced/bird
 	name = "Big Legs, Stanced Bird"
 	icon_state = "biglegs_bird_stanced"
