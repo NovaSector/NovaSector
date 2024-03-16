@@ -44,7 +44,7 @@
 		return
 
 	user.remove_status_effect(/datum/status_effect/teshari_hearing)
-	user.visible_message(span_notice("[user] drops [user.p_their()] ears down a bit, no longer listening so closely."), span_notice("You drop your ears down, no longer paying close attention."))
+	user.visible_message(span_notice("[user] drops [user.p_their()] ears down a bit, no longer listening as closely."), span_notice("You drop your ears down, no longer paying close attention."))
 	update_button_state("echolocation_off")
 	active = FALSE
 
