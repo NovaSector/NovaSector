@@ -216,3 +216,24 @@
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS | GAS_FILTERING
 	visor_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS | GAS_FILTERING
 	starting_filter_type = /obj/item/gas_filter/vox
+
+/// Adds a proc to all masks to toggle the flag that that hides your face and adds a action button for it
+/obj/item/clothing/mask/proc/toggle_hide_face()
+	if(src.flags_inv & HIDEFACE)
+		src.flags_inv &= ~HIDEFACE
+		to_chat(usr, "You've revealed your face!")
+	else
+		src.flags_inv |= HIDEFACE
+		to_chat(usr, "You've hidden your face!")
+
+	return TRUE
+
+/// Adds a mob proc under the object category that checks if theres a worn mask and if so runs the toggle_hide_face proc
+/mob/living/carbon/verb/toggle_mask_hide()
+	set name = "Toggle Mask Face Hiding"
+	set category = "Object"
+
+	if(src.wear_mask)
+		src.wear_mask.toggle_hide_face()
+	else
+		to_chat(usr, "You're not wearing a mask!")
