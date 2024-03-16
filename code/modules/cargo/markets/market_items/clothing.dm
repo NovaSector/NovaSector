@@ -92,7 +92,7 @@
 	price_max = CARGO_CRATE_VALUE
 	stock_max = 3
 	availability_prob = 40
-
+/** Nova Edit Removal
 /datum/market_item/clothing/collar_bomb
 	name = "Collar Bomb Kit"
 	desc = "An unpatented and questionably ethical kit consisting of a low-yield explosive collar and a remote to trigger it."
@@ -101,3 +101,4 @@
 	price_max = CARGO_CRATE_VALUE * 4.5
 	stock_max = 3
 	availability_prob = 60
+**/
