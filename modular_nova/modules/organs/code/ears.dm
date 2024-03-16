@@ -62,4 +62,4 @@
 	return ..()
 
 /datum/status_effect/teshari_hearing/get_examine_text()
-	return span_notice("[owner.p_They()] [owner.p_have()] [owner.p_their()] ears perked up, listening closely to even whisper-quiet sounds.")
+	return span_notice("[owner.p_They()] [owner.p_have()] [owner.p_their()] ears perked up, listening closely to whisper-quiet sounds.")
