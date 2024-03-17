@@ -218,24 +218,32 @@
 	starting_filter_type = /obj/item/gas_filter/vox
 
 /// Adds a proc to all masks to toggle the flag that that hides your face and adds a action button for it
-/obj/item/clothing/mask/proc/toggle_hide_face()
+/obj/item/clothing/mask/proc/toggle_hide_face(mob/living/carbon/user)
 	if(src.flags_inv & HIDEFACE)
 		src.flags_inv &= ~HIDEFACE
-		to_chat(usr, "You've revealed your face!")
+		to_chat(user, "You've revealed your face!")
 	else
 		src.flags_inv |= HIDEFACE
-		to_chat(usr, "You've hidden your face!")
+		to_chat(user, "You've hidden your face!")
 
 	return TRUE
 
 /// Adds a mob proc under the object category that checks if theres a worn mask and if so runs the toggle_hide_face proc
-/mob/living/carbon/verb/toggle_mask_hide()
+/obj/item/clothing/mask/verb/toggle_mask_hide()
 	set name = "Toggle Mask Face Hiding"
 	set category = "Object"
+	set src in usr
 
-	if(src.wear_mask && src.wear_mask.flags_inv && src.wear_mask.flags_inv & HIDEFACE)
-		src.wear_mask.toggle_hide_face()
-	else if(src.wear_mask)
-		to_chat(src, "The mask you're wearing doesn't hide your face!")
+	if(!can_use(usr) || !iscarbon(usr))
+		return
+	
+	try_hide_mask(usr)
+
+/obj/item/clothing/mask/proc/try_hide_mask(mob/living/carbon/user)
+	if(!user.wear_mask)
+		to_chat(user, "You're not wearing a mask!")
+		return
+	if(flags_inv & HIDEFACE)
+		toggle_hide_face(user)
 	else
-		to_chat(src, "You're not wearing a mask!")
+		to_chat(user, "The mask you're wearing doesn't hide your face!")
