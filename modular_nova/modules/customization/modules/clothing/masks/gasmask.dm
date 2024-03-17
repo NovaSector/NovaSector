@@ -224,8 +224,6 @@
 	if (src.flags_inv && src.flags_inv & HIDEFACE)
 		if (!islist(actions_types))
 			actions_types = list(/datum/action/item_action/toggle_hide_face)
-		else
-			return
 
 	. = ..()
 
