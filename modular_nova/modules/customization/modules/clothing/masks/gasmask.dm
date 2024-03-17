@@ -238,7 +238,6 @@
  * Toggles the HIDEFACE flag on the user's mask.
  *
  * @param user The user to toggle the mask for.
- * @param act The action that triggered the proc.
  * @param force Whether to force the mask to be toggled.
  * @return TRUE if the mask was toggled, FALSE otherwise.
  */
