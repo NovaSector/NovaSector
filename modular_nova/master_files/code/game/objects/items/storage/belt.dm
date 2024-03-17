@@ -2,33 +2,13 @@
 	// new storage type designed to stop carrying multiple guns
 	storage_type = /datum/storage/secbelt
 
-/obj/item/storage/belt/security/Initialize(mapload)
-	. = ..()
-	// list copied from tg file, but with the /obj/item/gun type added
-	atom_storage.set_holdable(list(
-		/obj/item/ammo_box,
-		/obj/item/ammo_casing/shotgun,
-		/obj/item/assembly/flash/handheld,
-		/obj/item/clothing/glasses,
-		/obj/item/clothing/gloves,
-		/obj/item/flashlight/seclite,
-		/obj/item/food/donut,
-		/obj/item/grenade,
-		/obj/item/gun,
-		/obj/item/holosign_creator/security,
-		/obj/item/knife/combat,
-		/obj/item/melee/baton,
-		/obj/item/radio,
-		/obj/item/reagent_containers/spray/pepper,
-		/obj/item/restraints/handcuffs,
-		/obj/item/restraints/legcuffs/bola,
-		))
-
 /// type restricted storage datum to stop hoarding 5 guns
 /datum/storage/secbelt
 	/// types we're stopping ourselves from holding multiple of
-	var/list/limited_hold_types = list(/obj/item/gun,
-								/obj/item/melee/baton,)
+	var/list/limited_hold_types = list(
+		/obj/item/gun,
+		/obj/item/melee/baton,
+	)
 	/// how many restricted items do we already have stored in this belt
 	var/limited_held = 0
 	/// how many restricted items do we want to keep, at maximum, in this belt (2, ideally, for a gun and baton, theoretically)
