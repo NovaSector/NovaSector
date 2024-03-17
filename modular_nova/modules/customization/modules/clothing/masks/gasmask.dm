@@ -217,28 +217,59 @@
 	visor_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS | GAS_FILTERING
 	starting_filter_type = /obj/item/gas_filter/vox
 
-/// Adds a proc to all masks to toggle the flag that that hides your face and adds a action button for it
-/obj/item/clothing/mask/proc/toggle_hide_face(mob/living/carbon/user)
+/obj/item/clothing/mask
+	var/item_face_toggled = FALSE
+
+/obj/item/clothing/mask/Initialize(mapload)
+	if (src.flags_inv && src.flags_inv & HIDEFACE)
+		actions_types += /datum/action/item_action/toggle_hide_face
+		RegisterSignal(src, COMSIG_ITEM_UI_ACTION_CLICK, PROC_REF(toggle_hide_face))
+
+	. = ..()
+
+/**
+ * Toggles the HIDEFACE flag on the user's mask.
+ *
+ * @param user The user to toggle the mask for.
+ * @param act The action that triggered the proc.
+ * @param force Whether to force the mask to be toggled.
+ * @return TRUE if the mask was toggled, FALSE otherwise.
+ */
+/obj/item/clothing/mask/proc/toggle_hide_face(mob/living/carbon/user, datum/action/item_action/act, force = FALSE)
+	SIGNAL_HANDLER
+	if(!user.wear_mask && act && !istype(act, /datum/action/item_action/toggle_hide_face) && !force)
+		return FALSE
+
 	if(src.flags_inv & HIDEFACE)
 		src.flags_inv &= ~HIDEFACE
 		to_chat(user, "You've revealed your face!")
+		item_face_toggled = TRUE
 	else
 		src.flags_inv |= HIDEFACE
 		to_chat(user, "You've hidden your face!")
+		item_face_toggled = FALSE
 
 	return TRUE
+
+/obj/item/clothing/mask/dropped(mob/living/user)
+	. = ..()
+	if(item_face_toggled)
+		toggle_hide_face(user, force = TRUE)
 
 /// Adds a mob proc under the object category that checks if theres a worn mask and if so runs the toggle_hide_face proc
 /obj/item/clothing/mask/verb/toggle_mask_hide()
 	set name = "Toggle Mask Face Hiding"
 	set category = "Object"
-	set src in usr
 
 	if(!can_use(usr) || !iscarbon(usr))
 		return
-	
+
 	try_hide_mask(usr)
 
+/**
+ * Tries to check if the user's face is hidden or if they are wearing a mask.
+ * @param user The user to try to hide the mask for.
+ */
 /obj/item/clothing/mask/proc/try_hide_mask(mob/living/carbon/user)
 	if(!user.wear_mask)
 		to_chat(user, "You're not wearing a mask!")
