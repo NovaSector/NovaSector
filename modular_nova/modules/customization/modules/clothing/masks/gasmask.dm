@@ -233,7 +233,9 @@
 	set name = "Toggle Mask Face Hiding"
 	set category = "Object"
 
-	if(src.wear_mask)
+	if(src.wear_mask && src.wear_mask.flags_inv && src.wear_mask.flags_inv & HIDEFACE)
 		src.wear_mask.toggle_hide_face()
+	else if(src.wear_mask)
+		to_chat(src, "The mask you're wearing doesn't hide your face!")
 	else
-		to_chat(usr, "You're not wearing a mask!")
+		to_chat(src, "You're not wearing a mask!")
