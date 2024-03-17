@@ -261,27 +261,3 @@
 	. = ..()
 	if(item_face_toggled)
 		toggle_hide_face(user, force = TRUE)
-
-/// Adds a mob proc under the object category that checks if theres a worn mask and if so runs the toggle_hide_face proc
-/obj/item/clothing/mask/verb/toggle_mask_hide()
-	set name = "Toggle Mask Face Hiding"
-	set category = "Object"
-	set src in usr
-
-	if(!can_use(usr) || !iscarbon(usr))
-		return
-
-	try_hide_mask(usr)
-
-/**
- * Tries to check if the user's face is hidden or if they are wearing a mask.
- * @param user The user to try to hide the mask for.
- */
-/obj/item/clothing/mask/proc/try_hide_mask(mob/living/carbon/user)
-	if(!user.wear_mask)
-		to_chat(user, "You're not wearing a mask!")
-		return
-	if(flags_inv & HIDEFACE)
-		toggle_hide_face(user)
-	else
-		to_chat(user, "The mask you're wearing doesn't hide your face!")
