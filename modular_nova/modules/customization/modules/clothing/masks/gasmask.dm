@@ -222,10 +222,16 @@
 
 /obj/item/clothing/mask/Initialize(mapload)
 	if (src.flags_inv && src.flags_inv & HIDEFACE)
-		actions_types += /datum/action/item_action/toggle_hide_face
-		RegisterSignal(src, COMSIG_ITEM_UI_ACTION_CLICK, PROC_REF(toggle_hide_face))
+		actions_types += list(/datum/action/item_action/toggle_hide_face)
 
 	. = ..()
+
+/datum/action/item_action/toggle_hide_face/Trigger(trigger_flags)
+    . = ..()
+    if(!.)
+        return
+    var/obj/item/clothing/mask/target_mask = target
+    target_mask.toggle_hide_face(usr)
 
 /**
  * Toggles the HIDEFACE flag on the user's mask.
@@ -235,9 +241,8 @@
  * @param force Whether to force the mask to be toggled.
  * @return TRUE if the mask was toggled, FALSE otherwise.
  */
-/obj/item/clothing/mask/proc/toggle_hide_face(mob/living/carbon/user, datum/action/item_action/act, force = FALSE)
-	SIGNAL_HANDLER
-	if(!user.wear_mask && act && !istype(act, /datum/action/item_action/toggle_hide_face) && !force)
+/obj/item/clothing/mask/proc/toggle_hide_face(mob/living/carbon/user, force = FALSE)
+	if(!user.wear_mask && !force)
 		return FALSE
 
 	if(src.flags_inv & HIDEFACE)
@@ -246,7 +251,8 @@
 		item_face_toggled = TRUE
 	else
 		src.flags_inv |= HIDEFACE
-		to_chat(user, "You've hidden your face!")
+		if (!force)
+			to_chat(user, "You've hidden your face!")
 		item_face_toggled = FALSE
 
 	return TRUE
@@ -260,6 +266,7 @@
 /obj/item/clothing/mask/verb/toggle_mask_hide()
 	set name = "Toggle Mask Face Hiding"
 	set category = "Object"
+	set src in usr
 
 	if(!can_use(usr) || !iscarbon(usr))
 		return
