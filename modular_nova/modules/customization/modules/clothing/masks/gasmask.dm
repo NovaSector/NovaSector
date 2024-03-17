@@ -222,7 +222,10 @@
 
 /obj/item/clothing/mask/Initialize(mapload)
 	if (src.flags_inv && src.flags_inv & HIDEFACE)
-		actions_types += list(/datum/action/item_action/toggle_hide_face)
+		if (!islist(actions_types))
+			actions_types = list(/datum/action/item_action/toggle_hide_face)
+		else
+			return
 
 	. = ..()
 
