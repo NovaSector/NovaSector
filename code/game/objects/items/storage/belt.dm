@@ -368,7 +368,6 @@
 		/obj/item/flashlight/seclite,
 		/obj/item/food/donut,
 		/obj/item/grenade,
-		/obj/item/gun, //NOVA EDIT ADDITION
 		/obj/item/holosign_creator/security,
 		/obj/item/knife/combat,
 		/obj/item/melee/baton,
