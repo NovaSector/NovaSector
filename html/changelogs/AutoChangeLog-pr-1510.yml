@@ -1,0 +1,5 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - rscadd: "Added new camera positions to blueshift, there is a bit more coverage now in areas where there was a severe lack of coverage."
+  - bugfix: "Fixed some floating cameras in blueshift."
