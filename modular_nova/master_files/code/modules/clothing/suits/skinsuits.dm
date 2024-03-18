@@ -38,6 +38,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/akula.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/akula.dmi'
 	icon_state = "skinsuithelmet"
+	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/space/skinsuit_helmet/Initialize(mapload)
 	. = ..()
