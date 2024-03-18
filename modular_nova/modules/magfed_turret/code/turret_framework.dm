@@ -110,7 +110,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	inhand_icon_state = "designator"
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
-	worn_icon_state = null
+	worn_icon_state = "designator"
+	worn_icon = 'modular_nova/modules/magfed_turret/icons/inhands/belt.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = NOBLUDGEON
