@@ -195,6 +195,7 @@
 /obj/item/storage/hypospraykit/cmo/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 21
+	atom_storage.max_total_storage = 28 //keeps a wiggle room of 7 just in case size weirdness happens
 
 /obj/item/storage/hypospraykit/cmo/PopulateContents()
 	if(empty)
