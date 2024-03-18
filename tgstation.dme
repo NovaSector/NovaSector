@@ -7246,6 +7246,7 @@
 #include "modular_nova\modules\customization\modules\surgery\organs\xenohead.dm"
 #include "modular_nova\modules\death_consequences_perk\death_consequences.dm"
 #include "modular_nova\modules\death_consequences_perk\death_consequences_trauma.dm"
+#include "modular_nova\modules\deathmatch\deathmatch_loadouts.dm"
 #include "modular_nova\modules\decay_subsystem\code\decay_turf_handling.dm"
 #include "modular_nova\modules\decay_subsystem\code\decaySS.dm"
 #include "modular_nova\modules\decay_subsystem\code\nests.dm"
