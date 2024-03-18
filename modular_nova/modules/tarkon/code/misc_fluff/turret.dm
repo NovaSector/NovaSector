@@ -70,6 +70,7 @@
 	name = "\improper Tarkon Industries \"Hoplite\" Point-Defense Turret"
 	desc = "A protection turret used by Tarkon Industries for civilian installation protection."
 	max_integrity = 120
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "hoplite_off"
 	base_icon_state = "hoplite"
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled
