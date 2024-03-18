@@ -28700,6 +28700,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/camera/directional/south,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "fuo" = (
@@ -36440,6 +36441,7 @@
 	dir = 1
 	},
 /obj/machinery/newscaster/directional/south,
+/obj/machinery/camera/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/starboard)
 "gUG" = (
@@ -38860,7 +38862,8 @@
 /area/station/maintenance/department/engineering/engine_aft_port)
 "hvv" = (
 /obj/machinery/camera/directional/north{
-	c_tag = "Courtroom - Entrance"
+	c_tag = "Courtroom - Entrance";
+	dir = 3
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -43565,6 +43568,7 @@
 "iqB" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/machinery/camera/directional/north,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "iqG" = (
@@ -53250,6 +53254,7 @@
 	name = "Engineering Deliveries";
 	req_access = list("engineering")
 	},
+/obj/machinery/camera/directional/east,
 /turf/open/floor/iron/checker,
 /area/station/engineering/lobby)
 "kgE" = (
@@ -54051,7 +54056,8 @@
 /obj/machinery/light_switch/directional/south,
 /obj/machinery/camera/directional/north{
 	c_tag = "Bridge - Vanguard Quarters";
-	name = "command camera"
+	name = "command camera";
+	dir = 3
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -55422,6 +55428,7 @@
 /obj/structure/railing/corner/end/flip{
 	dir = 8
 	},
+/obj/machinery/camera/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/starboard)
 "kAl" = (
@@ -57263,6 +57270,7 @@
 /obj/machinery/rnd/production/circuit_imprinter,
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm/directional/south,
+/obj/machinery/camera/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage_shared)
 "kVa" = (
@@ -71245,6 +71253,13 @@
 "nHC" = (
 /turf/closed/wall,
 /area/station/medical/power_station)
+"nHN" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/machinery/camera/directional/north,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "nHR" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -71410,7 +71425,8 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Science - Lounge";
 	name = "science camera";
-	network = list("ss13","rd")
+	network = list("ss13","rd");
+	dir = 3
 	},
 /obj/machinery/light/directional/south,
 /obj/item/radio/intercom/directional/south,
@@ -74897,6 +74913,13 @@
 /obj/structure/grille,
 /turf/open/floor/iron/shuttle/arrivals/airless,
 /area/space/nearstation)
+"opW" = (
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/camera/directional/north,
+/turf/open/floor/iron,
+/area/station/hallway/primary/aft)
 "opY" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -105541,6 +105564,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
+"ufi" = (
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/directional/east,
+/turf/open/floor/iron,
+/area/station/hallway/primary/aft)
 "ufk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -107776,6 +107807,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
+"uzG" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/camera/directional/east,
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "uzK" = (
 /turf/closed/wall,
 /area/station/medical/medbay/central)
@@ -111878,6 +111914,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/security/mechbay)
+"vph" = (
+/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/camera/directional/south,
+/turf/open/floor/iron/white,
+/area/station/medical/medbay/central)
 "vpn" = (
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/dark/side{
@@ -115455,6 +115499,14 @@
 "vWO" = (
 /turf/closed/wall,
 /area/station/common/wrestling/concessions)
+"vWS" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Bridge - Vanguard Quarters";
+	name = "command camera";
+	dir = 3
+	},
+/turf/closed/wall,
+/area/station/commons/toilet/auxiliary)
 "vWW" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -122776,6 +122828,7 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/structure/chair/stool/directional/north,
+/obj/machinery/camera/directional/east,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "xrz" = (
@@ -125440,6 +125493,13 @@
 	dir = 4
 	},
 /area/station/command/secure_bunker)
+"xSp" = (
+/obj/structure/chair/wood/wings,
+/obj/effect/landmark/start/assistant,
+/obj/effect/landmark/start/assistant,
+/obj/machinery/camera/directional/north,
+/turf/open/floor/carpet,
+/area/station/service/library/lounge)
 "xSD" = (
 /obj/structure/table,
 /obj/item/paper/pamphlet/gateway,
@@ -127019,6 +127079,7 @@
 /obj/structure/bed/medical/emergency,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/item/radio/intercom/directional/south,
+/obj/machinery/camera/directional/south,
 /turf/open/floor/iron/white,
 /area/station/command/gateway)
 "ygI" = (
@@ -150626,7 +150687,7 @@ tyB
 fWT
 nKx
 uDf
-pLD
+opW
 kTo
 hQi
 dma
@@ -152381,7 +152442,7 @@ onV
 uEi
 uEi
 wYH
-mIe
+xSp
 nvm
 pNh
 lZH
@@ -152414,7 +152475,7 @@ jQA
 ycI
 wif
 yeQ
-jQA
+vWS
 mIR
 mIR
 mIR
@@ -153453,7 +153514,7 @@ mIR
 iAg
 mIR
 vVX
-pLD
+opW
 kfm
 rJm
 ofE
@@ -156531,7 +156592,7 @@ amx
 qVG
 pzo
 kvt
-amx
+ufi
 ail
 wGh
 slp
@@ -158895,7 +158956,7 @@ eiO
 kXw
 dUl
 qBd
-mNE
+nHN
 frp
 frp
 frp
@@ -159409,7 +159470,7 @@ cqa
 qfz
 hoI
 qBd
-mNE
+nHN
 frp
 frp
 frp
@@ -163723,7 +163784,7 @@ fsk
 qKN
 qKN
 kwo
-qKN
+uzG
 fsk
 pEc
 sNz
@@ -231282,7 +231343,7 @@ qhl
 atX
 hTf
 ved
-qdq
+vph
 pVw
 ogu
 nCB
