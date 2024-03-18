@@ -25,9 +25,13 @@
 	name = "\improper Tarkon Industries Hoplite Kit"
 	desc = "A \"Tarkon Industries\" \"Hoplite\" Turret Deployment Kit, it deploys a turret feeding from provided magazines. \
 	This model comes with 2 adjustable magazine slots, supporting most commonly available pistol-cal magazines."
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "hoplite_toolbox"
-	worn_icon_state = "hoplite_harness"
+	righthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
 	inhand_icon_state = "hoplite_turretkit"
+	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
+	worn_icon_state = "hoplite_harness"
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
 	mag_slots = 2
 	slot_flags = ITEM_SLOT_BELT
