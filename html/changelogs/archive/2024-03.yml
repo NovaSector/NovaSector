@@ -593,3 +593,17 @@
   Webcomicartist:
   - bugfix: Fixed RLD,RTD and Rebar crossbow not being storable on the engineering
       winter coat slot.
+2024-03-18:
+  NovaBot13:
+  - bugfix: Plasmamen will become human in the deathmatch so they don't instantly
+      die
+  - bugfix: Fixes the conveyor belts found on north star's boulder processing room
+      to all work when the lever is thrown.
+  - bugfix: FIXED CARGO EXPORTS!
+  - bugfix: ID locking and unlocking work.
+  - bugfix: Tramstation now has a pepperspray dispenser in it's science security outpost,
+      as with other security outposts.
+  - bugfix: Action abilities hidden from players are now not shown to observers either.
+  RatFromTheJungle:
+  - balance: The Hoshi is once more, reduced in size, because it turns out bigger,
+      does not always equal better with heatsinks!
