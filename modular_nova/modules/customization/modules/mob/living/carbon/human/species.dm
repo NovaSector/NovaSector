@@ -5,6 +5,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL // Doing this so that the legs preference actually works for everyone.
 	///Self explanatory
 	var/can_have_genitals = TRUE
+	/// Whether or not the gender shaping is disabled for this species
+	var/no_gender_shaping
 	///A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA
 	var/list/list/body_markings = list()
 	///Override of the eyes icon file, used for Vox and maybe more in the future - The future is now, with Teshari using it too
@@ -23,7 +25,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/veteran_only = FALSE
 	///Flavor text of the species displayed on character creation screeen
 	var/flavor_text = "No description."
-	///Path to BODYTYPE_CUSTOM species worn icons. An assoc list of ITEM_SLOT_X => /icon
+	///Path to BODYSHAPE_CUSTOM species worn icons. An assoc list of ITEM_SLOT_X => /icon
 	var/list/custom_worn_icons = list()
 	///Is this species restricted from changing their body_size in character creation?
 	var/body_size_restricted = FALSE
@@ -147,7 +149,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
 			if(underwear)
 				var/icon_state = underwear.icon_state
-				if(underwear.has_digitigrade && (species_human.bodytype & BODYTYPE_DIGITIGRADE))
+				if(underwear.has_digitigrade && (species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 					icon_state += "_d"
 					female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
@@ -189,7 +191,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(socks)
 				var/mutable_appearance/socks_overlay
 				var/icon_state = socks.icon_state
-				if((species_human.bodytype & BODYTYPE_DIGITIGRADE))
+				if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 					icon_state += "_d"
 				socks_overlay = mutable_appearance(socks.icon, icon_state, -BODY_LAYER)
 				if(!socks.use_static)

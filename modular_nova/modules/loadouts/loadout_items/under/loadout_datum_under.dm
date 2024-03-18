@@ -123,6 +123,11 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
+/datum/loadout_item/under/jumpsuit/security_shorts
+	name = "Security Shorts"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
 /datum/loadout_item/under/jumpsuit/security_peacekeeper
 	name = "Security Peacekeeper Uniform"
 	item_path = /obj/item/clothing/under/rank/security/peacekeeper
@@ -523,6 +528,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/tactical_skirt
 	name = "Tacticool Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured
+	name = "Tacticool Utility Overalls Turtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
+	name = "Tacticool Overalls Skirtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
 
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"

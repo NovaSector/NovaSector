@@ -856,6 +856,8 @@
 	if(O.loc != src.loc)
 		step(O, get_dir(O, src))
 
+	return TRUE // NOVA EDIT - Ensuring that this proc works properly when used to check things
+
 /obj/structure/rack/attackby(obj/item/W, mob/living/user, params)
 	var/list/modifiers = params2list(params)
 	if (W.tool_behaviour == TOOL_WRENCH && !(obj_flags & NO_DECONSTRUCTION) && LAZYACCESS(modifiers, RIGHT_CLICK))

@@ -1,0 +1,437 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/item/weldingtool/electric/arc_welder,
+/obj/item/clothing/head/utility/hardhat/welding/orange,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"c" = (
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"d" = (
+/obj/structure/cable,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/colonist_homestead)
+"e" = (
+/obj/machinery/light_switch/directional/north{
+	pixel_x = -5
+	},
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"i" = (
+/obj/structure/cable,
+/obj/machinery/power/solar_control,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"j" = (
+/obj/machinery/biogenerator/food_replicator,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"k" = (
+/obj/structure/cable,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"l" = (
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/obj/item/plate,
+/obj/item/kitchen/fork/plastic,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"n" = (
+/obj/effect/spawner/random/bedsheet,
+/obj/structure/bed/pod,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"o" = (
+/obj/item/trash/can/food/desert_snails,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"p" = (
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/colonist_homestead)
+"q" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/lone,
+/area/ruin/colonist_homestead)
+"s" = (
+/obj/item/storage/box/tiziran_cans,
+/obj/item/spess_knife,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"t" = (
+/obj/machinery/smartfridge/ration_shelf,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"u" = (
+/obj/structure/sink/directional/east,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"v" = (
+/obj/structure/rack/wooden,
+/obj/item/seeds/tower,
+/obj/item/seeds/tower,
+/obj/item/seeds/tower,
+/obj/item/seeds/lavaland/cactus,
+/obj/item/seeds/lavaland/cactus,
+/obj/item/seeds/lavaland/cactus,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"w" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/unlocked,
+/obj/structure/closet/crate/wooden,
+/obj/item/flatpacked_machine/solar_tracker,
+/obj/item/flatpacked_machine/solar,
+/obj/item/flatpacked_machine/solar,
+/obj/item/flatpacked_machine/solar,
+/obj/item/flatpacked_machine/solar,
+/obj/item/flatpacked_machine/solar,
+/obj/item/flatpacked_machine/solar,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"x" = (
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"z" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/lone,
+/area/ruin/colonist_homestead)
+"A" = (
+/obj/effect/decal/cleanable/oil,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/colonist_homestead)
+"B" = (
+/obj/structure/cable,
+/obj/structure/holosign/barrier/atmos,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/colonist_homestead)
+"C" = (
+/turf/template_noop,
+/area/template_noop)
+"D" = (
+/obj/machinery/door/airlock/colony_prefab,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"E" = (
+/obj/structure/rack/wooden,
+/obj/item/shovel,
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/cultivator/rake,
+/obj/item/reagent_containers/cup/bucket,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"F" = (
+/obj/structure/cable,
+/obj/machinery/power/port_gen/pacman/solid_fuel,
+/turf/open/floor/plating,
+/area/ruin/colonist_homestead)
+"G" = (
+/obj/item/screwdriver/omni_drill,
+/obj/item/storage/belt/utility/frontier_colonist,
+/obj/item/crowbar/hammer,
+/obj/item/circuitboard/machine/cell_charger,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"H" = (
+/obj/structure/holosign/barrier/atmos,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"I" = (
+/obj/machinery/light/small/directional/east,
+/obj/effect/mob_spawn/corpse/human/generic_assistant{
+	mob_name = "Ate-Without-Table";
+	mob_type = /mob/living/carbon/human/species/lizard;
+	name = "Prefab homestead gag";
+	skin_tone = null;
+	hairstyle = "bald";
+	corpse_description = "Named after one of Tizira's first extraplanetary colonists, but clearly not as successful.";
+	naive_corpse_description = "I'd be napping too if I thought mining would wake up a bunch of angry bugs."
+	},
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"J" = (
+/obj/structure/cable,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"K" = (
+/turf/open/floor/plating,
+/area/ruin/colonist_homestead)
+"L" = (
+/obj/machinery/door/airlock/colony_prefab,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"M" = (
+/obj/machinery/button/door{
+	pixel_y = -6;
+	pixel_x = 5;
+	id = "prefabcolonywindows"
+	},
+/turf/closed/wall/prefab_plastic,
+/area/ruin/colonist_homestead)
+"N" = (
+/obj/item/stack/cable_coil/five,
+/obj/item/stack/cable_coil/five,
+/turf/open/floor/plating,
+/area/ruin/colonist_homestead)
+"O" = (
+/obj/structure/rack/wooden,
+/obj/item/kinetic_crusher,
+/obj/item/storage/medkit/frontier/stocked,
+/obj/item/pickaxe/drill/compact,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"Q" = (
+/obj/structure/cable,
+/obj/structure/mineral_door/wood,
+/turf/open/floor/plating,
+/area/ruin/colonist_homestead)
+"R" = (
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ruin/colonist_homestead)
+"S" = (
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/autolathe,
+/obj/machinery/light/directional/east,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/servo/nano,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"V" = (
+/obj/machinery/door/airlock/colony_prefab,
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+"W" = (
+/turf/closed/wall/prefab_plastic,
+/area/ruin/colonist_homestead)
+"X" = (
+/obj/structure/rack/wooden,
+/obj/item/seeds/potato,
+/obj/item/seeds/potato,
+/obj/item/seeds/potato,
+/obj/item/seeds/lavaland/seraka,
+/obj/item/seeds/lavaland/seraka,
+/obj/item/seeds/lavaland/seraka,
+/obj/item/seeds/bamboo,
+/obj/item/seeds/bamboo,
+/obj/item/seeds/bamboo,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"Z" = (
+/obj/structure/window/fulltile/colony_fabricator,
+/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
+	id = "prefabcolonywindows"
+	},
+/turf/open/floor/iron/colony/bolts,
+/area/ruin/colonist_homestead)
+
+(1,1,1) = {"
+C
+C
+C
+C
+C
+C
+x
+x
+x
+x
+x
+C
+"}
+(2,1,1) = {"
+x
+x
+W
+W
+W
+W
+Z
+Z
+W
+W
+x
+x
+"}
+(3,1,1) = {"
+x
+x
+W
+O
+u
+W
+l
+s
+j
+W
+x
+x
+"}
+(4,1,1) = {"
+x
+x
+W
+n
+I
+V
+c
+o
+t
+W
+x
+x
+"}
+(5,1,1) = {"
+x
+x
+W
+W
+W
+M
+e
+c
+q
+D
+H
+x
+"}
+(6,1,1) = {"
+x
+x
+Z
+i
+a
+c
+c
+c
+c
+Z
+x
+x
+"}
+(7,1,1) = {"
+x
+x
+W
+J
+w
+z
+c
+G
+S
+W
+x
+x
+"}
+(8,1,1) = {"
+x
+k
+W
+W
+W
+L
+Z
+Z
+W
+W
+x
+x
+"}
+(9,1,1) = {"
+C
+k
+k
+d
+d
+B
+p
+x
+x
+x
+x
+x
+"}
+(10,1,1) = {"
+C
+x
+x
+p
+p
+d
+p
+x
+x
+x
+x
+C
+"}
+(11,1,1) = {"
+C
+x
+x
+R
+R
+Q
+R
+X
+x
+x
+x
+C
+"}
+(12,1,1) = {"
+C
+x
+x
+R
+F
+A
+R
+v
+x
+x
+x
+C
+"}
+(13,1,1) = {"
+C
+x
+x
+R
+K
+N
+R
+E
+x
+x
+x
+C
+"}
+(14,1,1) = {"
+C
+C
+x
+R
+R
+R
+R
+x
+x
+x
+x
+C
+"}

@@ -3636,11 +3636,11 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
-/obj/machinery/disposal/bin,
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "awi" = (
@@ -8051,7 +8051,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom/holding)
 "bLr" = (
-/obj/machinery/disposal/bin,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
 	},
@@ -8062,6 +8061,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron,
 /area/station/security/office)
 "bLA" = (
@@ -10478,6 +10478,7 @@
 	c_tag = "Service - Hydroponics"
 	},
 /obj/effect/turf_decal/tile/green/fourcorners,
+/obj/item/storage/box/syringes,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "cAd" = (
@@ -19127,10 +19128,10 @@
 	dir = 9
 	},
 /obj/machinery/newscaster/directional/north,
-/obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "fKg" = (
@@ -21221,11 +21222,11 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
-/obj/machinery/disposal/bin,
 /obj/machinery/newscaster/directional/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "gxV" = (
@@ -33756,6 +33757,7 @@
 	},
 /obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/newscaster/directional/south,
+/obj/item/reagent_containers/cup/watering_can,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "kUm" = (
@@ -44633,7 +44635,7 @@
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "oQO" = (
-/obj/structure/safe,
+/obj/structure/safe/vault,
 /obj/item/clothing/head/costume/bearpelt,
 /obj/item/gun/ballistic/revolver/russian,
 /obj/item/ammo_box/a357,
@@ -46996,7 +46998,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "pGS" = (
@@ -49928,6 +49930,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "qIc" = (
@@ -54281,13 +54284,13 @@
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "skb" = (
-/obj/machinery/disposal/bin,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "ski" = (
@@ -62927,6 +62930,7 @@
 	preset_destination_names = list("2" = "Hydroponics", "3" = "Kitchen")
 	},
 /obj/effect/turf_decal/tile/green/fourcorners,
+/obj/item/reagent_containers/cup/watering_can,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "vcv" = (
@@ -70445,13 +70449,13 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "xSz" = (
-/obj/machinery/disposal/bin,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "xSD" = (

@@ -82,6 +82,18 @@
 	caliber = CALIBER_980TYDHOUER
 	max_ammo = 4
 
+/obj/item/ammo_box/magazine/c980_grenade/thunderdome_fire
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
+
+/obj/item/ammo_box/magazine/c980_grenade/thunderdome_shrapnel
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel
+
+/obj/item/ammo_box/magazine/c980_grenade/thunderdome_smoke
+	ammo_type = /obj/item/ammo_casing/c980grenade/smoke
+
+/obj/item/ammo_box/magazine/c980_grenade/thunderdome_gas
+	ammo_type = /obj/item/ammo_casing/c980grenade/riot
+
 /obj/item/ammo_box/magazine/c980_grenade/starts_empty
 	start_empty = TRUE
 
@@ -97,3 +109,15 @@
 
 /obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty
 	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_fire
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
+
+/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel
+
+/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_smoke
+	ammo_type = /obj/item/ammo_casing/c980grenade/smoke
+
+/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_gas
+	ammo_type = /obj/item/ammo_casing/c980grenade/riot

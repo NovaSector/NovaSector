@@ -97,7 +97,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 	var/list/jobs = list(
 		// Note that jobs divisible by 10 are considered heads of staff, and bolded
 		// 00: Captain
-		JOB_CAPTAIN = 00,
+		JOB_CAPTAIN = 0,
+		JOB_HUMAN_AI = 1,
 		// 10-19: Security
 		JOB_HEAD_OF_SECURITY = 10,
 		JOB_WARDEN = 11,
@@ -139,16 +140,17 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// 60+: Service
 		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,
-		JOB_COOK = 62,
-		JOB_BOTANIST = 63,
-		JOB_CURATOR = 64,
-		JOB_CHAPLAIN = 65,
-		JOB_CLOWN = 66,
-		JOB_MIME = 67,
-		JOB_JANITOR = 68,
-		JOB_LAWYER = 69,
-		JOB_BARBER = 71, // NOVA EDIT ADDITION
-		JOB_BOUNCER = 72, // NOVA EDIT ADDITION
+		JOB_CHEF = 62,
+		JOB_COOK = 63,
+		JOB_BOTANIST = 64,
+		JOB_CURATOR = 65,
+		JOB_CHAPLAIN = 66,
+		JOB_CLOWN = 67,
+		JOB_MIME = 68,
+		JOB_JANITOR = 69,
+		JOB_LAWYER = 70,
+		JOB_BARBER = 72, // NOVA EDIT ADDITION
+		JOB_BOUNCER = 73, // NOVA EDIT ADDITION
 		// 200-239: Centcom
 		JOB_CENTCOM_ADMIRAL = 200,
 		JOB_CENTCOM = 201,
@@ -194,7 +196,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		z = T.z
 	. = list(
 		"sensors" = update_data(z),
-		"link_allowed" = isAI(user)
+		"link_allowed" = HAS_AI_ACCESS(user)
 	)
 
 /datum/crewmonitor/proc/update_data(z)

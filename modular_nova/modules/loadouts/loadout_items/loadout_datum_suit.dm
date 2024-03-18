@@ -120,6 +120,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Medical Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
 
+/datum/loadout_item/suit/labcoat_regular
+	name = "Researcher's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
+
 /*
 *	PONCHOS
 */
@@ -256,6 +260,14 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/carp_costume
 	name = "Carp Costume"
 	item_path = /obj/item/clothing/suit/hooded/carp_costume
+
+/datum/loadout_item/suit/shark_costume
+	name = "Shark Costume"
+	item_path = /obj/item/clothing/suit/hooded/shark_costume
+
+/datum/loadout_item/suit/shork_costume
+	name = "Shork Costume"
+	item_path = /obj/item/clothing/suit/hooded/shork_costume
 
 /datum/loadout_item/suit/wizard
 	name = "Wizard Robe"
