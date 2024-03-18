@@ -7449,6 +7449,7 @@
 #include "modular_nova\modules\lorecaster\code\config.dm"
 #include "modular_nova\modules\lorecaster\code\story_manager.dm"
 #include "modular_nova\modules\lorecaster\code\subsystem.dm"
+#include "modular_nova\modules\magfed_turret\code\turret_framework.dm"
 #include "modular_nova\modules\manufacturer_examine\code\gun_company_additions.dm"
 #include "modular_nova\modules\manufacturer_examine\code\manufacturer_element.dm"
 #include "modular_nova\modules\mapping\code\airless.dm"
