@@ -214,8 +214,6 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_SPIDER_WEB_WALL_MIRROR S_OBJ(74) // /obj/structure/spider/stickyweb/sealed/reflector
 //NOVA EDIT ADDITION
 
-#define SMOOTH_GROUP_WATER S_OBJ(74) ///obj/effect/abstract/liquid_turf
-
 #define SMOOTH_GROUP_SHUTTERS S_OBJ(75)
 
 #define SMOOTH_GROUP_WATER S_OBJ(76) ///obj/effect/abstract/liquid_turf
