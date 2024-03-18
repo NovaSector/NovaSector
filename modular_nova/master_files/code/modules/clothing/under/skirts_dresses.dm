@@ -37,6 +37,8 @@
 	icon_state = "skirt_swept"
 	body_parts_covered = GROIN
 	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 	name = "red bra and striped skirt"
@@ -46,6 +48,8 @@
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/red_skirt
 	name = "red bra and skirt"
@@ -55,6 +59,8 @@
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/black_skirt
 	name = "black bra and skirt"
@@ -64,6 +70,8 @@
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit //Essentially the same as the Turtleneck Skirt but with a different texture
 	name = "cableknit skirt"
