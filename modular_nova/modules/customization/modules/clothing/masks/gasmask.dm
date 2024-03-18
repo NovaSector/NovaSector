@@ -218,14 +218,13 @@
 	starting_filter_type = /obj/item/gas_filter/vox
 
 /obj/item/clothing/mask
-	var/item_face_toggled = FALSE
+	var/item_face_toggled
 
 /obj/item/clothing/mask/Initialize(mapload)
-	if (src.flags_inv && src.flags_inv & HIDEFACE)
-		if (!islist(actions_types))
-			actions_types = list(/datum/action/item_action/toggle_hide_face)
+	if (src.flags_inv && (src.flags_inv & HIDEFACE))
+		actions_types += list(/datum/action/item_action/toggle_hide_face)
 
-	. = ..()
+	return ..()
 
 /datum/action/item_action/toggle_hide_face/Trigger(trigger_flags)
     . = ..()
