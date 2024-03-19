@@ -22078,7 +22078,7 @@
 	c_tag = "Bridge Core - Starboard"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/newscaster/directional/east,
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "gHA" = (
@@ -25384,12 +25384,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/openspace,
 /area/station/engineering/atmos/upper)
-"hHp" = (
-/obj/structure/fireaxecabinet{
-	pixel_y = -6
-	},
-/turf/closed/wall,
-/area/station/command/bridge)
 "hHz" = (
 /obj/structure/grille,
 /turf/closed/wall/r_wall,
@@ -31030,7 +31024,10 @@
 /turf/open/floor/iron/checker,
 /area/station/maintenance/abandon_diner)
 "jnr" = (
-/obj/machinery/light/cold/directional/east,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "jnz" = (
@@ -31704,6 +31701,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood/poker,
+/obj/item/melee/chainofcommand,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/captain)
 "jzm" = (
@@ -38665,7 +38663,7 @@
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 4
 	},
-/obj/structure/secure_safe/caps_spare/directional/north,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "lAz" = (
@@ -39105,12 +39103,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark_blue,
-/obj/structure/table/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/item/melee/chainofcommand,
 /obj/structure/cable,
+/obj/structure/secure_safe/caps_spare,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "lGl" = (
@@ -45156,11 +45153,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/robotics/lab)
-"nry" = (
-/obj/machinery/light/cold/directional/east,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/command/bridge)
 "nrB" = (
 /obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "Science Cell";
@@ -45729,7 +45721,10 @@
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "nzR" = (
-/turf/closed/wall,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "nzS" = (
 /obj/structure/railing/corner/end,
@@ -52280,7 +52275,6 @@
 /area/station/science/ordnance)
 "pBK" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/cold/directional/west,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
@@ -58395,9 +58389,14 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Bridge Core -Port"
 	},
-/obj/structure/extinguisher_cabinet/directional/west,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/announcement,
+/obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/requests_console/auto_name/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "rxF" = (
@@ -72341,6 +72340,7 @@
 	name = "Bridge Fax Machine";
 	pixel_y = 6
 	},
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "vFJ" = (
@@ -72372,7 +72372,6 @@
 /turf/open/floor/engine,
 /area/station/science/ordnance/testlab)
 "vFO" = (
-/obj/machinery/light/cold/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
@@ -76511,6 +76510,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "wPd" = (
@@ -78394,17 +78394,12 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark_blue/corner,
-/obj/machinery/requests_console/auto_name/directional/north,
-/obj/effect/mapping_helpers/requests_console/information,
-/obj/effect/mapping_helpers/requests_console/announcement,
-/obj/effect/mapping_helpers/requests_console/assistance,
-/obj/effect/mapping_helpers/requests_console/supplies,
-/obj/effect/mapping_helpers/requests_console/ore_update,
 /obj/item/kirbyplants/organic/plant22,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/fireaxecabinet/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/station/command/bridge)
 "xvn" = (
@@ -79991,6 +79986,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "xVq" = (
@@ -178319,7 +178315,7 @@ eHr
 eqy
 jjA
 aVt
-jnr
+ags
 xnc
 ags
 bwD
@@ -179861,7 +179857,7 @@ ygq
 rnr
 nJx
 cMN
-nry
+vFO
 kcG
 wsv
 jcB
@@ -180118,8 +180114,8 @@ ygq
 lyw
 jnK
 wPb
-hHp
 lmy
+jnr
 wKA
 veQ
 wmo
