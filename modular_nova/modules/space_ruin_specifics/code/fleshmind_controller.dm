@@ -106,7 +106,7 @@
 	if(new_core)
 		cores += new_core
 		new_core.our_controller = src
-		RegisterSignal(new_core, COMSIG_QDELETING)
+		RegisterSignal(new_core, COMSIG_QDELETING, PROC_REF(core_death))
 		new_core.name = "[controller_fullname] Processor Unit"
 		register_new_asset(new_core)
 	SScorruption.can_fire = TRUE
