@@ -134,7 +134,7 @@
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
-	return "Check OOC"
+	return "Check OOC Notes"
 
 /datum/preference/choiced/erp_status/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
@@ -164,7 +164,7 @@
 	return list ("Yes", "Check OOC Notes", "No")
 
 /datum/preference/choiced/erp_status_nc/create_default_value()
-	return "Check OOC"
+	return "No"
 
 /datum/preference/choiced/erp_status_nc/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
