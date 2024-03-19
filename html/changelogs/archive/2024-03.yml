@@ -607,3 +607,36 @@
   RatFromTheJungle:
   - balance: The Hoshi is once more, reduced in size, because it turns out bigger,
       does not always equal better with heatsinks!
+2024-03-19:
+  JungleRat:
+  - balance: Security Belts now hold a max weight of 11, which is roughly 3 normal
+      sized items, 5 small sized items, and 11 tiny sized items.
+  LT3:
+  - bugfix: Export barcodes are visible on wrapped packages
+  NovaBot13:
+  - rscadd: Disposal bins can now hold destination taggers using right click, and
+      can be removed the same way. Some disposal bins should have some pre-loaded
+      as well.
+  - bugfix: You can no longer determine the result of a dice roll from off-screen.
+  - qol: Sentience potion reason is set via alt-click
+  - bugfix: Deathmatch players should no longer be able to roll any midround antagonist.
+  - bugfix: The deathmatch modifiers modal menu can actually be opened now. Also fixed
+      a bunch of issues it had.
+  - bugfix: If you place a headset on a non-Poly Parrot, you should be able to remove
+      it from the parrot as-expected now rather than having the parrot send it to
+      the shadow realm.
+  - image: modified gi sprites, making them more customisable.
+  - bugfix: Prisoners who are teleported to the Nanotrasen Work Camp should now always
+      be stripped of their gear to prevent escapes.
+  - bugfix: fixed consecutive tgui text input inheriting user input from previous
+      input form within the same proc
+  - bugfix: Selling stuff in cargo gives us money again.
+  Rhials:
+  - bugfix: Plasmamen nukie reinforcements are now properly given a plasmaman-safe
+      outfit.
+  SomeRandomOwl:
+  - rscadd: Added new camera positions to blueshift, there is a bit more coverage
+      now in areas where there was a severe lack of coverage.
+  - bugfix: Fixed some floating cameras in blueshift.
+  sqnztb:
+  - balance: blueshift's command bunker is more secure
