@@ -332,11 +332,11 @@
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "wF" = (
 /obj/docking_port/stationary{
-	dwidth = 5;
-	height = 7;
+	dwidth = 4;
+	height = 9;
 	name = "Market";
 	roundstart_template = /datum/map_template/shuttle/ruin/blackmarket_chevvy;
-	shuttle_id = "blackmarket_chevvy_home";
+	shuttle_id = "blackmarket_bust_home";
 	width = 11
 	},
 /turf/open/floor/plating,
@@ -453,10 +453,6 @@
 	pixel_y = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"FJ" = (
-/obj/structure/trash_pile,
-/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Hq" = (
 /obj/structure/trash_pile,
@@ -1215,7 +1211,7 @@ hO
 hO
 hO
 Fq
-FJ
+oV
 oV
 oV
 oV
@@ -1279,7 +1275,7 @@ oV
 oV
 oV
 oV
-FJ
+oV
 de
 hO
 hO

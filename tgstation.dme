@@ -6579,6 +6579,7 @@
 #include "modular_nova\modules\advanced_shuttles\code\closet.dm"
 #include "modular_nova\modules\advanced_shuttles\code\computer.dm"
 #include "modular_nova\modules\advanced_shuttles\code\decals.dm"
+#include "modular_nova\modules\advanced_shuttles\code\doors.dm"
 #include "modular_nova\modules\advanced_shuttles\code\shuttles.dm"
 #include "modular_nova\modules\advanced_shuttles\code\turfs.dm"
 #include "modular_nova\modules\aesthetics\abductor\abductor.dm"

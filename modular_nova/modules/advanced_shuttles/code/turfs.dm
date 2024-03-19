@@ -242,3 +242,36 @@
 
 /turf/open/floor/iron/shuttle/exploration/hazard/airless
 	initial_gas_mix = AIRLESS_ATMOS
+
+/*
+ *	RUIN/SHIPTEST
+ */
+
+/turf/closed/wall/mineral/titanium/shuttle_ruin
+	icon = 'modular_nova/modules/advanced_shuttles/icons/shiptest/walls/shuttle_wall.dmi'
+	icon_state = "shuttle_wall-0"
+	base_icon_state = "shuttle_wall"
+
+/turf/closed/wall/mineral/titanium/shuttle_ruin/nodiagonal
+	smoothing_flags = SMOOTH_BITMASK
+
+/turf/closed/wall/mineral/titanium/shuttle_ruin/overspace
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
+	fixed_underlay = list("space" = TRUE)
+
+/turf/closed/wall/mineral/plastitanium/shuttle_ruin
+	icon = 'modular_nova/modules/advanced_shuttles/icons/shiptest/walls/plastitanium_wall.dmi'
+	icon_state = "plastitanium_wall-0"
+	base_icon_state = "plastitanium_wall"
+
+/turf/closed/wall/mineral/plastitanium/shuttle_ruin/nodiagonal
+	base_icon_state = "plastitanium_wall"
+	smoothing_flags = SMOOTH_BITMASK
+
+/turf/closed/wall/mineral/plastitanium/shuttle_ruin/overspace
+	icon_state = "map-shuttle_nd"
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
+	fixed_underlay = list("space" = TRUE)
+
+/obj/structure/window/reinforced/shuttle/ruin
+	icon = 'modular_nova/modules/advanced_shuttles/icons/shiptest/walls/shuttle_window.dmi'
