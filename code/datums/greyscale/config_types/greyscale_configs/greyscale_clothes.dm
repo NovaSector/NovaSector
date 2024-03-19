@@ -705,6 +705,15 @@ NOVA EDIT END */
 	name = "Well-Worn Shirt (Worn)"
 	icon_file = 'icons/mob/clothing/suits/costume.dmi'
 
+/datum/greyscale_config/wellworn_shirt_skub
+	name = "Well-Worn Shirt (Skub)"
+	icon_file = 'icons/obj/clothing/suits/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/wellworn_shirt_skub.json'
+
+/datum/greyscale_config/wellworn_shirt_skub/worn
+	name = "Well-Worn Shirt (Skub)(Worn)"
+	icon_file = 'icons/mob/clothing/suits/costume.dmi'
+
 /datum/greyscale_config/wellworn_shirt_graphic
 	name = "Well-Worn Shirt (Graphic)"
 	icon_file = 'icons/obj/clothing/suits/costume.dmi'
@@ -743,3 +752,12 @@ NOVA EDIT END */
 /datum/greyscale_config/messyworn_shirt_graphic/worn
 	name = "Messy Shirt (Graphic (Worn)"
 	icon_file = 'icons/mob/clothing/suits/costume.dmi'
+
+/datum/greyscale_config/gi
+	name = "Gi"
+	icon_file = 'icons/obj/clothing/under/costume.dmi'
+	json_config = 'code/datums/greyscale/json_configs/gi.json'
+
+/datum/greyscale_config/gi/worn
+	name = "Gi (Worn)"
+	icon_file = 'icons/mob/clothing/under/costume.dmi'
