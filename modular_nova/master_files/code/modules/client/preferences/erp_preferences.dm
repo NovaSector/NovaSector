@@ -130,7 +130,7 @@
 /datum/preference/choiced/erp_status/init_possible_values()
 	return list (
 	"Top - Dom", "Top - Switch", "Top - Sub", "Verse-Top - Dom", "Verse-Top - Switch", "Verse-Top - Sub", "Verse - Dom", "Verse - Switch", "Verse - Sub",
-	"Verse-Bottom - Dom", "Verse-Bottom - Switch", "Verse-Bottom - Sub", "Bottom - Dom", "Bottom- Switch", "Bottom - Sub", "Check OOC", "Ask (L)OOC", "No", "Yes"
+	"Verse-Bottom - Dom", "Verse-Bottom - Switch", "Verse-Bottom - Sub", "Bottom - Dom", "Bottom - Switch", "Bottom - Sub", "Check OOC Notes", "Ask (L)OOC", "No", "Yes"
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
@@ -161,7 +161,7 @@
 	savefile_key = "erp_status_pref_nc"
 
 /datum/preference/choiced/erp_status_nc/init_possible_values()
-	return list ("Yes", "Check OOC", "No")
+	return list ("Yes", "Check OOC Notes", "No")
 
 /datum/preference/choiced/erp_status_nc/create_default_value()
 	return "Check OOC"
@@ -191,7 +191,7 @@
 	savefile_key = "erp_status_pref_v"
 
 /datum/preference/choiced/erp_status_v/init_possible_values()
-	return list("Yes - Switch", "Yes - Prey", "Yes - Pred", "Check OOC", "Ask", "No", "Yes")
+	return list("Yes - Switch", "Yes - Prey", "Yes - Pred", "Check OOC Notes", "Ask", "No", "Yes")
 
 /datum/preference/choiced/erp_status_v/create_default_value()
 	return "No"
@@ -281,7 +281,7 @@
 	savefile_key = "erp_status_pref_hypnosis"
 
 /datum/preference/choiced/erp_status_hypno/init_possible_values()
-	return list("Always/Whenever", "Gameplay Only", "Ask (L)OOC", "Check OOC", "No")
+	return list("Always/Whenever", "Gameplay Only", "Ask (L)OOC", "Check OOC Notes", "No")
 
 /datum/preference/choiced/erp_status_hypno/create_default_value()
 	return "No"
