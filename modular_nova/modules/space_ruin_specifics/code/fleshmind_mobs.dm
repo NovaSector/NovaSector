@@ -755,7 +755,7 @@
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/fleshmind/himan/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = FALSE, message_range = 7, datum/saymode/saymode = null)
+/mob/living/simple_animal/hostile/fleshmind/himan/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = FALSE, message_range = 7, datum/saymode/saymode = null, list/message_mods = ())
 	if(faking_death)
 		return
 	return ..()
