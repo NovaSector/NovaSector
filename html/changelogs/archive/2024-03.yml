@@ -506,3 +506,137 @@
       station.
   Rhials:
   - balance: Irradiated meteors now hit harder and leave behind radioactive goop.
+2024-03-16:
+  Chelxox:
+  - balance: Increases the double-edged energy sword's block chance from 45 to 65.
+  Hatterhat:
+  - balance: Cybersun Industries is now rolling out larger Hoshi chassis in order
+      to mitigate a heatsink issue, at the cost of making them unable to be stored
+      quite so easily.
+  Nerev4r:
+  - image: The bat harpy wings are now three-way recolorable, with a fluffless version.
+  NovaBot13:
+  - image: Updated button icon for Summon Simians and Gorilla Transformation.
+  - bugfix: Time on servers hosted outside of the UK should now properly have their
+      timezone offset.
+  - qol: added tooltip to newscaster to tell people that they need to insert paper
+      if they want to print a newspaper
+  - refactor: Instruments now use TGUI.
+  - code_imp: We now log how many ores spawned on lavaland each round, as well as
+      the sizes of all of the ore vents.
+  - sound: Placing paper in a paperbin is no longer silent.
+  - bugfix: Fixed the "Fenced Goods" black market category.
+  - balance: Removed the LTSRBT from cargo and added it to the blackmarket, reduced
+      the price from 4000 to 625 on average.
+  - balance: The time it takes for captured mobs to be automatically sent back to
+      the station from the holding facility has been increased from 3-4 minutes to
+      6.
+  - rscadd: You can buy mobs captured by contractors, traitors and pirates from the
+      black market and have them sent back to the station in advance. For safety,
+      they'll also be handcuffed (not always) upon delivery.
+  - rscadd: Human mobs sold by pirates are not deleted anymore. Instead, they're now
+      captured and sent to the holding facility.
+  - bugfix: Fixed some poll alerts runtiming
+  - rscadd: The Bartender's double barrel shotgun can be purchased for 1,800 credits
+      on goodie tab
+2024-03-17:
+  Melbert:
+  - rscadd: MODsuits now use the "suit charge" HUD element to show how much charge
+      they have left, rather than a screen alert
+  - bugfix: Fixes polling for things causing said things to have their planes and
+      layers screwed up (causing random objects or mobs to appear above runechat and
+      blindness, for example)
+  NovaBot13:
+  - bugfix: Cleanbots once again require an emag to spray acid on people. They can
+      still acid trash objects normally.
+  - rscadd: Added a persistent piggy bank to the vault, which can carry up to a modest
+      2000 credits worth of dosh between rounds.
+  - rscadd: Added a possible kit to the special syndie bundle B, which also has uses
+      these collars.
+  - bugfix: Security camera consoles no longer have infinite range.
+  - bugfix: Modsuit Pathfinder module is significantly better at finding it's destination.
+  - bugfix: Lathes don't hang if materials run out mid printing. Also displays message
+      if materials are put on hold while printing
+  - rscadd: Ice cream and frozen treats now have a chilling effect.
+  - rscadd: You can add a scoop of ice cream on waffles.
+  - balance: added an action speed modifier to the generic food haste effect (you
+      do things, and not just run, an itsy bitsy faster)
+  - qol: The LawDrobe now stocks two (2) boxes of evidence bags.
+  - balance: The pro skateboard and hoverboard are now faster.
+  - balance: The improvised skateboard is a nick more unstable than the standard,
+      so the two aren't exactly the same.
+  - rscadd: Riding a skateboard on walk intent will prevent you from crashing into
+      things, at the cost of speed.
+  - rscadd: 'hoverboards now actually hovers and can be used even in zero g. There
+      are a caveat to it: It cannot be ridden on open space gaps deeper than one level
+      or actual space, unless there''re objects that prevent falls, like lattice or
+      catwalks.'
+  - bugfix: Psyker vision no longer causes infinitely worsening lag
+  - bugfix: now spiders get extra damage by fly swatter
+  - qol: Vending machines now have contextual tooltips for interactions with tools/objects/restocking/returns.
+  - qol: Vending machines can now be examined to see what type of restock module they
+      need to be refilled.
+  - bugfix: Human AI now closes regular AI job positions.
+  - balance: If you work out under heavier-than-earth gravity, you will get gains
+      faster.
+  - rscadd: Added 20+ modifiers to the deathmatch minigame, which can be enabled by
+      the host.
+  - bugfix: Fixed cap overlay being added even when pipe is not hidden.
+  - bugfix: Fixed cap overlay being visible on turfs that are masked with darkness
+      plane, but still visible via mesons, cameras etc.
+  Rhials:
+  - qol: Posters now return to your hand when the hanging process is cancelled, or
+      they are snipped down.
+  - qol: Abductor posters can now only be cut down with abductor-tier wirecutters.
+  Tattle:
+  - rscadd: Getting shrunk makes you talk small
+  Webcomicartist:
+  - bugfix: Fixed RLD,RTD and Rebar crossbow not being storable on the engineering
+      winter coat slot.
+2024-03-18:
+  NovaBot13:
+  - bugfix: Plasmamen will become human in the deathmatch so they don't instantly
+      die
+  - bugfix: Fixes the conveyor belts found on north star's boulder processing room
+      to all work when the lever is thrown.
+  - bugfix: FIXED CARGO EXPORTS!
+  - bugfix: ID locking and unlocking work.
+  - bugfix: Tramstation now has a pepperspray dispenser in it's science security outpost,
+      as with other security outposts.
+  - bugfix: Action abilities hidden from players are now not shown to observers either.
+  RatFromTheJungle:
+  - balance: The Hoshi is once more, reduced in size, because it turns out bigger,
+      does not always equal better with heatsinks!
+2024-03-19:
+  JungleRat:
+  - balance: Security Belts now hold a max weight of 11, which is roughly 3 normal
+      sized items, 5 small sized items, and 11 tiny sized items.
+  LT3:
+  - bugfix: Export barcodes are visible on wrapped packages
+  NovaBot13:
+  - rscadd: Disposal bins can now hold destination taggers using right click, and
+      can be removed the same way. Some disposal bins should have some pre-loaded
+      as well.
+  - bugfix: You can no longer determine the result of a dice roll from off-screen.
+  - qol: Sentience potion reason is set via alt-click
+  - bugfix: Deathmatch players should no longer be able to roll any midround antagonist.
+  - bugfix: The deathmatch modifiers modal menu can actually be opened now. Also fixed
+      a bunch of issues it had.
+  - bugfix: If you place a headset on a non-Poly Parrot, you should be able to remove
+      it from the parrot as-expected now rather than having the parrot send it to
+      the shadow realm.
+  - image: modified gi sprites, making them more customisable.
+  - bugfix: Prisoners who are teleported to the Nanotrasen Work Camp should now always
+      be stripped of their gear to prevent escapes.
+  - bugfix: fixed consecutive tgui text input inheriting user input from previous
+      input form within the same proc
+  - bugfix: Selling stuff in cargo gives us money again.
+  Rhials:
+  - bugfix: Plasmamen nukie reinforcements are now properly given a plasmaman-safe
+      outfit.
+  SomeRandomOwl:
+  - rscadd: Added new camera positions to blueshift, there is a bit more coverage
+      now in areas where there was a severe lack of coverage.
+  - bugfix: Fixed some floating cameras in blueshift.
+  sqnztb:
+  - balance: blueshift's command bunker is more secure
