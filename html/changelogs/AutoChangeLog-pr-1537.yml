@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - admin: "cluster bombs stop spamming admin logs"
