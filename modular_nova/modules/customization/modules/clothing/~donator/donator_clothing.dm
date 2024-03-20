@@ -905,7 +905,7 @@
 // Donation reward for CandleJax
 /obj/item/clothing/under/plasmaman/candlejax2
 	name = "azulean's environment suit"
-	desc = "An Azulean-made Enviro-Suit. Fitted to the Azulean form, it has surplus containment fabric designed to give the solidified mass of plasma that was once a tail some breathing room."
+	desc = "A form-fitting and modified bodysuit designed to fit the Akulean body. Embossments of the formal crest of the Kingdom of Agurkrral are seen on the shoulderpads."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "ana_envirosuit"

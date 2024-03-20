@@ -8,3 +8,13 @@
 	can_be_unanchored = FALSE
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
+
+/datum/crafting_recipe/green_glass_pane
+	name = "green glass window"
+	result = /obj/structure/window/green_glass_pane
+	time = 0.2 SECONDS
+	reqs = list(
+		/datum/reagent/iron = 5,
+		/obj/item/stack/sheet/glass = 2,
+	)
+	category = CAT_STRUCTURE
