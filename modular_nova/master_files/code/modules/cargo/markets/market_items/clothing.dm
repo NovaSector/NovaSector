@@ -74,21 +74,12 @@
 	stock_max = 4
 	availability_prob = 75
 
-/datum/market_item/clothing/no_slip_shoes
-	name = "Anti-Slip Chameleon Shoes"
-	desc = "A pair of shoes with chameleon tech and anti-slip technology to boot!"
-	item = /obj/item/clothing/shoes/chameleon/noslip
-	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 2
-	availability_prob = 60
-
 /datum/market_item/clothing/eye_contacts
 	name = "Anti-Flash Eye-Lenses"
 	desc = "A pair of lenses, hardly visible to the naked eye - yet they block out flashes perfectly."
 	item = /obj/item/syndicate_contacts
-	price_min = CARGO_CRATE_VALUE
-	price_max = CARGO_CRATE_VALUE * 2
+	price_min = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 4
 	stock_max = 3
 	availability_prob = 65
 
