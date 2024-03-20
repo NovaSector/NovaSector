@@ -74,7 +74,7 @@ export const FoodPreferences = (props) => {
                       </Box>
                     ) : (
                       <Box as="span" color="green">
-                        Prefrences are Valid! | {counts.liked}/3 Liked
+                        Preferences are Valid! | <b>{counts.liked}</b>/3 Liked
                       </Box>
                     )}
                   </Box>
