@@ -2,11 +2,138 @@
 "a" = (
 /turf/open/space/basic,
 /area/deathmatch)
+"c" = (
+/turf/open/floor/iron,
+/area/deathmatch)
 "g" = (
 /turf/cordon,
 /area/template_noop)
+"h" = (
+/obj/structure/sign/nanotrasen{
+	pixel_y = 32
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"i" = (
+/obj/structure/rack,
+/obj/item/gun/energy/laser/retro,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/deathmatch)
+"j" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/deathmatch)
+"k" = (
+/turf/open/floor/plating,
+/area/deathmatch)
+"l" = (
+/obj/machinery/light/floor/broken,
+/turf/open/floor/plating,
+/area/deathmatch)
+"n" = (
+/turf/open/floor/iron/half{
+	dir = 8
+	},
+/area/deathmatch)
 "s" = (
-/obj/effect/landmark/deathmatch_player_spawn,
+/obj/machinery/nuclearbomb,
+/turf/open/floor/iron/recharge_floor,
+/area/deathmatch)
+"t" = (
+/obj/structure/lattice,
+/obj/machinery/light/broken/directional/north,
+/turf/open/space/basic,
+/area/deathmatch)
+"u" = (
+/turf/open/floor/iron/corner{
+	dir = 8
+	},
+/area/deathmatch)
+"w" = (
+/obj/structure/rack,
+/obj/item/gun/energy/laser/retro,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron,
+/area/deathmatch)
+"y" = (
+/turf/closed/wall/mineral/titanium,
+/area/deathmatch)
+"z" = (
+/obj/structure/fans/tiny/shield,
+/turf/open/floor/vault,
+/area/deathmatch)
+"B" = (
+/turf/open/floor/iron/half,
+/area/deathmatch)
+"D" = (
+/turf/open/floor/vault,
+/area/deathmatch)
+"E" = (
+/turf/open/floor/iron/corner,
+/area/deathmatch)
+"G" = (
+/obj/structure/sign/nanotrasen{
+	pixel_y = -32
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"H" = (
+/turf/open/floor/iron/corner{
+	dir = 1
+	},
+/area/deathmatch)
+"I" = (
+/obj/machinery/camera{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"J" = (
+/obj/structure/table_frame,
+/turf/open/floor/plating,
+/area/deathmatch)
+"K" = (
+/obj/structure/girder,
+/turf/open/floor/plating,
+/area/deathmatch)
+"O" = (
+/obj/machinery/light/broken/directional/north,
+/turf/open/floor/iron,
+/area/deathmatch)
+"S" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/deathmatch)
+"T" = (
+/obj/machinery/light/broken/directional/south,
+/turf/open/floor/iron,
+/area/deathmatch)
+"U" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron,
+/area/deathmatch)
+"V" = (
+/turf/open/floor/iron/corner{
+	dir = 4
+	},
+/area/deathmatch)
+"W" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/titanium/glass,
+/turf/open/floor/iron/small,
+/area/deathmatch)
+"X" = (
+/obj/machinery/camera,
+/turf/open/space/basic,
+/area/deathmatch)
+"Z" = (
+/obj/structure/lattice,
+/obj/structure/marker_beacon/cerulean,
 /turf/open/space/basic,
 /area/deathmatch)
 
@@ -406,8 +533,8 @@ a
 a
 a
 a
-a
-a
+K
+k
 a
 a
 a
@@ -448,8 +575,8 @@ a
 a
 a
 a
-a
-a
+j
+j
 a
 a
 a
@@ -490,7 +617,7 @@ a
 a
 a
 a
-a
+j
 a
 a
 a
@@ -536,7 +663,7 @@ a
 a
 a
 a
-a
+j
 a
 a
 a
@@ -576,9 +703,9 @@ a
 a
 a
 a
-a
-a
-a
+j
+k
+k
 a
 a
 a
@@ -618,9 +745,9 @@ a
 a
 a
 a
-a
-a
-a
+k
+T
+y
 a
 a
 a
@@ -659,10 +786,10 @@ a
 a
 a
 a
-a
-a
-a
-a
+K
+W
+y
+K
 a
 a
 a
@@ -701,9 +828,9 @@ a
 a
 a
 a
-a
-a
-a
+Z
+k
+Z
 a
 a
 a
@@ -742,12 +869,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+y
+y
+W
+y
+y
+h
 a
 a
 a
@@ -783,12 +910,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+X
+y
+U
+c
+i
+y
 a
 a
 a
@@ -826,11 +953,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+z
+E
+n
+V
+z
 a
 a
 a
@@ -868,11 +995,11 @@ a
 a
 a
 a
-a
-a
+z
+B
 s
-a
-a
+B
+z
 a
 a
 a
@@ -910,11 +1037,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+z
+u
+n
+H
+z
 a
 a
 a
@@ -952,12 +1079,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+y
+w
+c
+S
+y
+I
 a
 a
 a
@@ -993,12 +1120,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+G
+y
+y
+W
+y
+y
 a
 a
 a
@@ -1037,9 +1164,9 @@ a
 a
 a
 a
-a
-a
-a
+Z
+k
+Z
 a
 a
 a
@@ -1078,11 +1205,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+y
+y
+W
+y
+K
 a
 a
 a
@@ -1119,12 +1246,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+X
+y
+O
+k
+c
+K
 a
 a
 a
@@ -1162,11 +1289,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+D
+J
+k
+k
+D
 a
 a
 a
@@ -1204,11 +1331,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+k
+k
+l
+j
+k
 a
 a
 a
@@ -1246,9 +1373,9 @@ a
 a
 a
 a
-a
-a
-a
+k
+j
+k
 a
 a
 a
@@ -1288,8 +1415,8 @@ a
 a
 a
 a
-a
-a
+K
+t
 a
 a
 a
@@ -1330,8 +1457,8 @@ a
 a
 a
 a
-a
-a
+j
+K
 a
 a
 a
