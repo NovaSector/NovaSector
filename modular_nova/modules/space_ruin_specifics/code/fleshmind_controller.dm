@@ -113,7 +113,6 @@
 	START_PROCESSING(SScorruption, src)
 	if(do_initial_expansion)
 		initial_expansion()
-	SSshuttle.registerHostileEnvironment(src)
 	return
 
 /datum/fleshmind_controller/proc/register_new_asset(obj/structure/fleshmind/new_asset)
