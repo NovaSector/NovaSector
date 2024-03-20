@@ -12,11 +12,10 @@
 /icons/ @GoldenAlpharex
 
 # Jolly-66
-/modular_nova/modules/mapping @Jolly-66
+/modular_nova/modules/mapping @Jolly-66 @Zergspower
 /tools/UpdatePaths @Jolly-66
 
 # Zergspower
-/modular_nova/modules/mapping @Zergspower
 /modular_nova/modules/borgs @Zergspower
 /modular_nova/modules/borg_buffs @Zergspower
 /modular_nova/modules/ghostcafe @Zergspower
