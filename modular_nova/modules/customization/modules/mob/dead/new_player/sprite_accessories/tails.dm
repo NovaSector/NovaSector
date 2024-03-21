@@ -421,6 +421,17 @@
 	color_src = USE_ONE_COLOR
 	fluffy = TRUE
 
+/*
+*	SLUGCAT
+*/
+/datum/sprite_accessory/tails/mammal/wagging/slugcat
+	name = "Slugcat"
+	icon_state = "slugcat"
+
+/datum/sprite_accessory/tails/mammal/wagging/slugcat/thick
+	name = "Slugcat (Thick)"
+	icon_state = "slugcat_thick"
+
 /datum/sprite_accessory/tails/mammal/wagging/zorgoia
 	name = "Zorgoia tail"
 	icon_state = "zorgoia"
@@ -437,3 +448,4 @@
 /datum/sprite_accessory/tails/mammal/wagging/peacock
 	name = "Peacock"
 	icon_state = "peacock"
+

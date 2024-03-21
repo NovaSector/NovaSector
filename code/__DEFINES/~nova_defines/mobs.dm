@@ -33,3 +33,4 @@
 #define BODYPART_ICON_IPC 'modular_nova/modules/bodyparts/icons/ipc_parts.dmi'
 #define BODYPART_ICON_SYNTHLIZARD 'modular_nova/modules/bodyparts/icons/synthliz_parts_greyscale.dmi'
 #define BODYPART_ICON_SNAIL 'modular_nova/modules/bodyparts/icons/snail_parts_greyscale.dmi'
+#define BODYPART_ICON_SLUGCAT 'modular_nova/modules/bodyparts/icons/slugcat_parts_greyscale.dmi'

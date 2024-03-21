@@ -428,6 +428,18 @@
 	color_src = USE_MATRIXED_COLORS
 	flags_for_organ = NONE
 
+/datum/sprite_accessory/snouts/mammal/slugcat
+	name = "Slugcat"
+	icon_state = "slugcat"
+
+/datum/sprite_accessory/snouts/mammal/slugcat/sharp
+	name = "Slugcat (Sharp)"
+	icon_state = "slugcat_sharp"
+
+/datum/sprite_accessory/snouts/mammal/slugcat/round
+	name = "Slugcat (Round)"
+	icon_state = "slugcat_round"
+
 /datum/sprite_accessory/snouts/acrador
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi'
 	color_src = USE_MATRIXED_COLORS
