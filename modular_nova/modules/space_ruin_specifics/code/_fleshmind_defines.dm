@@ -18,7 +18,7 @@
 #define MOB_EMP_LIGHT_DAMAGE 5
 #define MOB_EMP_HEAVY_DAMAGE 10
 
-#define FLESHMIND_NAME_MODIFIER_LIST list ("Warped", "Altered", "Modified", "Upgraded", "Abnormal")
+#define FLESHMIND_NAME_MODIFIER_LIST list ("Warped", "Altered", "Modified", "Upgraded", "Abnormal", "Twisted")
 
 /// The range at which most of our objects, mobs and structures activate at. 7 seems to be the perfect number.
 #define DEFAULT_VIEW_RANGE 7
@@ -31,7 +31,7 @@
 
 #define MECHIVER_CONSUME_HEALTH_THRESHOLD 0.7
 
-#define FLESHMIND_LIGHT_BLUE "#50edd9"
+#define FLESHMIND_LIGHT_BLUE "#00FFCC"
 
 /// Core is in danger, engage turboboosters
 #define MOB_RALLY_SPEED 1
@@ -48,23 +48,13 @@
 
 // CONTROLLER RELATED DEFINES
 
-#define AI_FORENAME_LIST list("Von Neumann", "Lazarus", "Abattoir", "Tra-Sentience", \
-	"Vivisector", "Ex Costa", "Apostasy", "Gnosis", "Balaam", "Ophite", \
-	"Sarif", "VersaLife", "Obsidian", "SHODAN", "Pandora", "Master Controller", "Xerxes")
-
-#define AI_SURNAME_LIST list("Mk I", "Mk II", "Mk III", "Mk IV", "Mk V", "Mk X", \
-	"v0.9", "v1.0", "v1.1", "v2.0", "2418-B", "Open Beta", \
+#define AI_SURNAME_LIST list("Mk I", "Mk II", "Mk III", "Mk IV", "Mk V", "Mk VI", \
+	"Mk VII", "Mk VIII", "Mk IX", "Mk X", "Mk XI", "Mk XII", "Mk XIII", "Mk XIV", \
+	"v0.9", "v1.0", "v1.1", "v2.0", "2418-B", "Activated Shard", \
 	"Pre-Release", "Commercial Release", "Closed Alpha", "Hivebuilt")
 
 /// The controller must reach this before it can level up to the next level.
-#define CONTROLLER_LEVEL_UP_THRESHOLD 300
-
 #define CONTROLLER_LEVEL_1 1
-#define CONTROLLER_LEVEL_2 2
-#define CONTROLLER_LEVEL_3 3
-#define CONTROLLER_LEVEL_4 4
-#define CONTROLLER_LEVEL_5 5
-#define CONTROLLER_LEVEL_MAX 6
 
 // Balance specific defines
 #define FLESHCORE_SPREAD_PROGRESS_REQUIRED 200 // How much progress is required to spread?
@@ -81,8 +71,6 @@
 #define CONTROLLER_DEATH_SLOW_DECAY 2
 #define CONTROLLER_DEATH_DELETE_ALL 3
 
-#define CONTROLLER_LEVEL_UP_CORE_INTEGRITY_AMOUNT 300 // How much integrity the cores get when leveling up
-
 // WIREWEED RELATED DEFINES
 
 #define CORE_DAMAGE_WIREWEED_ACTIVATION_RANGE 6
@@ -94,7 +82,7 @@
 
 #define WIREWEED_REPLACE_BODYPART_CHANCE 5
 
-#define WIREWEED_HEAL_AMOUNT 3
+#define WIREWEED_HEAL_AMOUNT 6
 
 // MECHIVER RELATED DEFINES
 #define MECHIVER_INTERNAL_MOB_DAMAGE_UPPER 60 // Upder damage done to internal mob

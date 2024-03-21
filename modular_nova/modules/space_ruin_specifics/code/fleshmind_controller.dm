@@ -1,9 +1,4 @@
 /**
- * Balance Defines
- */
-
-
-/**
  * The fleshmind controller
  *
  * This is the heart of the corruption, here is where we handle spreading and other stuff.
@@ -30,14 +25,12 @@
 	var/list/controlled_walls = list()
 	/// A list of all of our current cores
 	var/list/cores = list()
-
 	/// Can the wireweed attack?
 	var/can_attack = TRUE
 	/// Can we attack doors?
 	var/wireweed_attacks_doors = FALSE
 	/// Can we attack windows?
 	var/wireweed_attacks_windows = FALSE
-
 	/// Whether the wireweed can spawn walls.
 	var/spawns_walls = TRUE
 	/// Whether the wireweed can spawn walls to seal off vaccuum.
@@ -63,14 +56,6 @@
 	var/wall_type = /obj/structure/fleshmind/structure/wireweed_wall
 	/// What's the type of our death behaviour.
 	var/death_behaviour = CONTROLLER_DEATH_SLOW_DECAY
-	/// Our core level, what is spawned will depend on the level of this core.
-	var/level = CONTROLLER_LEVEL_1
-	/// To level up, we must reach this threshold.
-	var/level_up_progress_required = CONTROLLER_LEVEL_UP_THRESHOLD
-	/// Used to track our last points since levelup.
-	var/last_level_up_points = 0
-	/// How many points we currently have. Use calculate_current_points for an exact realtime value.
-	var/current_points = 0
 	/// Progress to the next wireweed spread.
 	var/spread_progress = 0
 	/// Progress to spawning the next structure.
@@ -100,7 +85,7 @@
 
 /datum/fleshmind_controller/New(obj/structure/fleshmind/structure/core/new_core)
 	. = ..()
-	controller_firstname = pick(AI_FORENAME_LIST)
+	controller_firstname = "Obsidian"
 	controller_secondname = pick(AI_SURNAME_LIST)
 	controller_fullname = "[controller_firstname] [controller_secondname]"
 	if(new_core)
@@ -113,7 +98,6 @@
 	START_PROCESSING(SScorruption, src)
 	if(do_initial_expansion)
 		initial_expansion()
-	SSshuttle.registerHostileEnvironment(src)
 	return
 
 /datum/fleshmind_controller/proc/register_new_asset(obj/structure/fleshmind/new_asset)
@@ -236,8 +220,6 @@
 				structure_progression -= spreads_for_structure
 				var/list/possible_structures = list()
 				for(var/obj/structure/fleshmind/iterating_structure as anything in structure_types)
-					if(initial(iterating_structure.required_controller_level) > level)
-						continue
 					possible_structures += iterating_structure
 				spawn_structure(picked_turf, pick(possible_structures))
 
@@ -352,8 +334,6 @@
 		return
 	var/list/possible_structures = list()
 	for(var/obj/structure/fleshmind/iterating_structure as anything in structure_types)
-		if(initial(iterating_structure.required_controller_level) > level)
-			continue
 		possible_structures += iterating_structure
 	var/list/locations = list()
 	for(var/obj/structure/fleshmind/wireweed/iterating_wireweed as anything in controlled_wireweed)
