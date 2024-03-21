@@ -7999,6 +7999,8 @@
 #include "modular_nova\modules\rod-stopper\code\rodstopper.dm"
 #include "modular_nova\modules\roleplay_do\code\do_checks.dm"
 #include "modular_nova\modules\roleplay_do\code\do_verbs.dm"
+#include "modular_nova\modules\roll_emote\code\roll_emote.dm"
+#include "modular_nova\modules\roll_emote\code\roll_verb.dm"
 #include "modular_nova\modules\roundstart_implants\code\loadout_implants.dm"
 #include "modular_nova\modules\roundstart_implants\code\loadout_subtypes.dm"
 #include "modular_nova\modules\roundstart_implants\code\tool_subtypes.dm"
