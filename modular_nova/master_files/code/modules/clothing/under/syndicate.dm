@@ -77,7 +77,6 @@
 	name = "cheap Syndicate tactical skirtleneck"
 	desc = "A non-descript and slightly suspicious looking skirtleneck... The armor has been removed from the fabric."
 	icon_state = "syndicate_skirt"
-	inhand_icon_state = "bl_suit"
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
