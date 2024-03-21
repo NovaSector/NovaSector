@@ -661,3 +661,28 @@
   - bugfix: removed some varedited turfs from the slaver syndie shuttle
   - bugfix: removed some roundstart active turfs from syndie outpost and pirate fort
       space ruin
+2024-03-21:
+  Melbert:
+  - refactor: Infrared emitters now function better (or at least more how you would
+      expect them) (hopefully). Report any oddities
+  NovaBot13:
+  - bugfix: You can't complete a genetic makeup scan when the targets moves out of
+      target anymore using a genetic sequencer
+  - bugfix: Fix hack comms console/locate weakpoint objective showing up multiple
+      times
+  - bugfix: Vending machines now show the correct vending refill name when examine
+      and not full.
+  - bugfix: Clients joining a round twice as a crewmember (via admins or otherwise)
+      no longer break security/medical record consoles permanently.
+  - rscadd: Hemiplegic now lets you pick which side is disabled.
+  - rscadd: The medical records text for hemiplegics now shows which side is disabled.
+  - bugfix: basic mob pirates no longer drop fake energy weapon lenses when shooting
+      you to death with lasers.
+  - admin: cluster bombs stop spamming admin logs
+  - code_imp: Mineral logging now collects ore names more cleanly.
+  SomeRandomOwl:
+  - admin: Deathmatch Bombs, Smoke, and Liquid floods are now suppressed in the logs
+      and will not actively spam admin logs.
+  - code_imp: adds a area flag to suppress logging for floods and bombs
+  Zergspower:
+  - rscadd: ah shit
