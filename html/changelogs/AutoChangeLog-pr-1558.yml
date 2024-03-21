@@ -1,0 +1,4 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - bugfix: "MSAY, MENTORHELP, LOOC, and WALLPIERCE LOOC verbs all now work again"
