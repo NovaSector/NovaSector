@@ -550,7 +550,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
-	name = "Cheap Syndicate Overalls Skirtleneck"
+	name = "Cheap Syndicate Utility Overalls Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
 
 /datum/loadout_item/under/miscellaneous/tactical_pants
