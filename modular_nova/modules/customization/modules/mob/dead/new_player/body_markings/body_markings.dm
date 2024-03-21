@@ -80,7 +80,7 @@
 	affected_bodyparts = HEAD
 
 /datum/body_marking/other/blank_face2
-	name = "Blank round face, Alt"
+	name = "Blank Round Face, Alt"
 	icon_state = "blankface2"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
