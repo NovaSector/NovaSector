@@ -47,6 +47,9 @@
 		if (quirk_id in incompatable_quirk_ids)
 			return FALSE
 
+	if (isteshari(target))
+		value = (max(value, HUMAN_HEIGHT_MEDIUM)) // to respect junis tesh rework i am preventing them from getting shorter
+
 	target.set_mob_height(value)
 
 /datum/preference/choiced/height_scaling/compile_constant_data()
