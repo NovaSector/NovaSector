@@ -1,7 +1,7 @@
 /datum/design/hypovial
 	name = "Hypovial"
 	id = "hypovial"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.5,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.5,
@@ -32,7 +32,7 @@
 /datum/design/hypokit
 	name = "Hypospray Kit"
 	id = "hypokit"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
@@ -65,7 +65,7 @@
 /datum/design/hypomkii
 	name = "MkII Hypospray"
 	id = "hypomkii"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
@@ -88,7 +88,7 @@
 /datum/design/hypomkii/deluxe
 	name = "MkII Hypospray Upgrade Kit"
 	id = "hypomkii_deluxe"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 8,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
@@ -107,6 +107,14 @@
 	)
 	return ..()
 
+// Tarkon and similar get enough to work with, but if they want deluxe kits/hypos they still need to trade with the station for 'em.
+/datum/techweb_node/oldstation_surgery/New()
+	design_ids += list(
+		"hypokit",
+		"hypomkii",
+	)
+	return ..()
+
 
 
 /// For reasons unknown, pens are included as an autolathe design here, in the hypospray module of all places.
@@ -114,7 +122,7 @@
 /datum/design/pen
 	name = "Pen"
 	id = "pen"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
