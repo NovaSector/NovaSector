@@ -2,6 +2,88 @@ serenitystation to do list
 
 -underground caves map gen
 -birds 
--bird shrine
--actually making a station
--move monkey cube in genetics
+-ruins:
+	-abandoned friendly deer monster
+	-broken shuttle
+	-... working shuttle? 
+	-cabin 
+	-bird ruin
+-station improvements
+	-cameras
+	-disposals
+	-wall mounts 
+	-finish science (add xenobio pen blast doors)
+-missing rooms 
+	**Main
+	-arrivals ship docks 
+	-replace grav gen with cafe??
+	-library (& library backrooms)
+	-janitor area 
+	-chapel
+	-AI sat
+	-AI upload 
+	-solars
+	-aux base 
+	-construction zone
+	-aux tool storage
+	-barbershop
+	-more escape pods
+	-robot storage rooms 
+	
+	**Security 
+	-sec office
+	-holding cell
+	-modsuit room 
+	-mech bay
+	-front holding cells
+	-detective office
+	-court room 
+	-lawyer office
+	-brig medbay
+	-warden office 
+	-interrogation
+	-sec locker room 
+	-armory
+	-HoS office
+	-shuttle to lavaland prison
+	-firing range 
+	-entrance room
+	
+	**Prison
+	-transfer room 
+	-corrections officers
+	-dorms 
+	-botany 
+	-kitchen 
+	-license plates
+	-laundry 
+	-execution room 
+	-bathrooms
+	-chapel
+	-court and exercise room 
+	-visitation
+	-cryo
+		
+	**Rec areas 
+	-pool 
+	-holodeck 
+	-dorms toilets
+	-dorms 
+	-cryopods
+	-boxing ring 
+	-arcade
+	-locker room
+	-park
+	
+	**Maints rooms 
+	-maints kitchen
+	-maints bar
+	-maints robotics
+	-maints botany
+	-date spots
+	-maints medbay 
+	-abandoned office 
+	-maints cafe
+	-cabins
+	-maints eva
+	-gambling den 
