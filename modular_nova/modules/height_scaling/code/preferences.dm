@@ -3,6 +3,7 @@
 	savefile_key = "height_scaling"
 	savefile_identifier = PREFERENCE_CHARACTER
 
+	/// Assoc list of stringified HUMAN_HEIGHT_### defines to string. Passed into CHOICED_PREFERENCE_DISPLAY_NAMES.
 	var/static/list/height_scaling_strings = list(
 		"[HUMAN_HEIGHT_SHORTEST]" = "Shortest",
 		"[HUMAN_HEIGHT_SHORT]" = "Short",
@@ -11,6 +12,7 @@
 		"[HUMAN_HEIGHT_TALLER]" = "Taller",
 	)
 
+	/// List of strings, representing quirk ids that prevent this from applying and being accessed.
 	var/static/list/incompatable_quirk_ids = list(
 		"Spacer",
 		"Settler"
