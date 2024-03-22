@@ -22,16 +22,17 @@
 		to_chat(src, usage)
 		return
 
-	var/t1 = findtext(param, "+", 1, null)
-	if (!t1)
-		t1 = findtext(param, "-", 1, null)
-	var/t2 = findtext(param, "/", 1, null)
-	var/die = lowertext(copytext(param, 1, t1))
-	var/bonus_number = copytext(param, t1, t2)
-	if (!t1)
+	var/bonus_designator = findtext(param, "+", 1, null)
+	if (!bonus_designator)
+		bonus_designator = findtext(param, "-", 1, null)
+	var/dc_designator = findtext(param, "/", 1, null)
+	var/die_check_end = (bonus_designator || dc_designator || length(param))
+	var/die = lowertext(copytext(param, 1, die_check_end))
+	var/bonus_number = copytext(param, bonus_designator, dc_designator)
+	if (!bonus_designator)
 		bonus_number = null
-	var/dc = copytext(param, t2 + 1, length(param) + 1 )
-	if (!t2)
+	var/dc = copytext(param, dc_designator + 1, length(param) + 1 )
+	if (!dc_designator)
 		dc = null
 	var/dc_number = text2num(copytext(dc, 3, length(dc) + 1))
 
@@ -44,10 +45,10 @@
 	var/balloon_message = "rolls [die_result]"
 	if (isnum(dc_number))
 		if (die_result >= dc_number)
-			dc_status = span_boldnotice("succeeding")
+			dc_status = span_green("<b><i>succeeding</i></b>")
 			spanless_dc_status = "succeeding"
 		if (die_result < dc_number)
-			dc_status = span_bolddanger("failing")
+			dc_status = span_danger("<b><i>failing</i></b>")
 			spanless_dc_status = "failing"
 		message += " to beat a DC of <b>[dc_number]</b>, [dc_status]"
 		balloon_message += ", [spanless_dc_status]"
