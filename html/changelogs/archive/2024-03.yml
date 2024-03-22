@@ -686,3 +686,37 @@
   - code_imp: adds a area flag to suppress logging for floods and bombs
   Zergspower:
   - rscadd: ah shit
+2024-03-22:
+  Melbert:
+  - qol: Hand labels now have a visual effect associated, and are also affected by
+      heat / can be cleaned off like stickers.
+  - refactor: Refactored hand labels. They're objects now!
+  NovaBot13:
+  - rscadd: Added corner filled warning decals
+  - rscdel: Removed the (non-working) "Perma-Flipping" and "Echolocation" deathmatch
+      modifiers.
+  - rscadd: Added "No Slowdown", "Random Teleports", "Snail Crawl", "Forcefield Trail"
+      and "Manual Blinking/Breathing" modifiers.
+  - bugfix: Fixed deathmatch cruise missiles looking like standard pods.
+  - bugfix: failing to equip a dual handed item should properly clear out all status
+      effects related to equipping it, for e.g. remove the action button from chainsaw
+  - bugfix: Painting patronage works again when there's no curator present during
+      the round.
+  - bugfix: Vending machines will update its UI if ID is lost at any point
+  - bugfix: Vending machines won't brick if the payment fails (like due to lose of
+      ID) for any reason
+  - bugfix: Fixed the lua editor being outright broken.
+  - bugfix: lua scripting should work on BYOND 515.1633
+  - bugfix: reagent containers like cup & syringe only update target appearance if
+      action was successful.
+  - bugfix: envelops don't stack overlays when interacting with cup & syringes.
+  Regivald:
+  - qol: Seeing dedication of her children, Ash Mother has blessed them. Ash Walker
+      Camp's farming area is now clear of debris, bedchambers have a new room, grubs
+      are herded inside their own pen, and front gate is protected from the storm
+      to not allow Outsiders without invitations inside.
+  - rscadd: As a reward for great hunters, and to give new Kins more chances to serve,
+      Ash Mother summoned new items for her children to use. Added 2 goliath shields,
+      2 sinew restraints and 5 gold bars.
+  SomeRandomOwl:
+  - bugfix: MSAY, MENTORHELP, LOOC, and WALLPIERCE LOOC verbs all now work again
