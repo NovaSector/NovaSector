@@ -9,7 +9,6 @@
 		"[HUMAN_HEIGHT_MEDIUM]" = "Medium",
 		"[HUMAN_HEIGHT_TALL]" = "Tall",
 		"[HUMAN_HEIGHT_TALLER]" = "Taller",
-		"[HUMAN_HEIGHT_TALLEST]" = "Tallest"
 	)
 
 	var/static/list/incompatable_quirk_ids = list(
