@@ -19,7 +19,7 @@
 	)
 
 /datum/preference/choiced/height_scaling/init_possible_values()
-	return list(HUMAN_HEIGHT_SHORTEST, HUMAN_HEIGHT_SHORT, HUMAN_HEIGHT_MEDIUM, HUMAN_HEIGHT_TALL, HUMAN_HEIGHT_TALLER, HUMAN_HEIGHT_TALLEST)
+	return list(HUMAN_HEIGHT_SHORTEST, HUMAN_HEIGHT_SHORT, HUMAN_HEIGHT_MEDIUM, HUMAN_HEIGHT_TALL, HUMAN_HEIGHT_TALLER)
 
 /datum/preference/choiced/height_scaling/create_default_value()
 	return HUMAN_HEIGHT_MEDIUM
