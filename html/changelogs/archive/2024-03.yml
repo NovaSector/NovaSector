@@ -640,3 +640,101 @@
   - bugfix: Fixed some floating cameras in blueshift.
   sqnztb:
   - balance: blueshift's command bunker is more secure
+2024-03-20:
+  NovaBot13:
+  - balance: Smoke Machines, Showers, Vapes, etc will no longer arbitrarily delete
+      a random amount of the chems they are processing
+  - bugfix: The captain's safe is no longer on the wall, therefore cannot be cheesed
+      by breaking the wall it sits on.
+  - bugfix: Tearing down a wall that a safe is on now drops the safe with its contents,
+      rather than dropping the contents onto the floor. The safe's contents cannot
+      be interacted with while it's not on a wall.
+  - image: added gags sprites for; Sailor dress, Evening gown, Cardigan skirts and
+      striped dresses.
+  - bugfix: Vending machine no longer shocks you twice when you pulse high voltage
+      wire.
+  - bugfix: Airlock wires window closes when you get shocked
+  - qol: Can now use wirecutters when performing Tend Wounds.
+  Rhials:
+  - code_imp: Deathmatch files, map names, and keys should all be consistent now.
+  Thlumyn:
+  - bugfix: removed some varedited turfs from the slaver syndie shuttle
+  - bugfix: removed some roundstart active turfs from syndie outpost and pirate fort
+      space ruin
+2024-03-21:
+  Melbert:
+  - refactor: Infrared emitters now function better (or at least more how you would
+      expect them) (hopefully). Report any oddities
+  NovaBot13:
+  - bugfix: You can't complete a genetic makeup scan when the targets moves out of
+      target anymore using a genetic sequencer
+  - bugfix: Fix hack comms console/locate weakpoint objective showing up multiple
+      times
+  - bugfix: Vending machines now show the correct vending refill name when examine
+      and not full.
+  - bugfix: Clients joining a round twice as a crewmember (via admins or otherwise)
+      no longer break security/medical record consoles permanently.
+  - rscadd: Hemiplegic now lets you pick which side is disabled.
+  - rscadd: The medical records text for hemiplegics now shows which side is disabled.
+  - bugfix: basic mob pirates no longer drop fake energy weapon lenses when shooting
+      you to death with lasers.
+  - admin: cluster bombs stop spamming admin logs
+  - code_imp: Mineral logging now collects ore names more cleanly.
+  SomeRandomOwl:
+  - admin: Deathmatch Bombs, Smoke, and Liquid floods are now suppressed in the logs
+      and will not actively spam admin logs.
+  - code_imp: adds a area flag to suppress logging for floods and bombs
+  Zergspower:
+  - rscadd: ah shit
+2024-03-22:
+  Melbert:
+  - qol: Hand labels now have a visual effect associated, and are also affected by
+      heat / can be cleaned off like stickers.
+  - refactor: Refactored hand labels. They're objects now!
+  NovaBot13:
+  - rscadd: Added corner filled warning decals
+  - rscdel: Removed the (non-working) "Perma-Flipping" and "Echolocation" deathmatch
+      modifiers.
+  - rscadd: Added "No Slowdown", "Random Teleports", "Snail Crawl", "Forcefield Trail"
+      and "Manual Blinking/Breathing" modifiers.
+  - bugfix: Fixed deathmatch cruise missiles looking like standard pods.
+  - bugfix: failing to equip a dual handed item should properly clear out all status
+      effects related to equipping it, for e.g. remove the action button from chainsaw
+  - bugfix: Painting patronage works again when there's no curator present during
+      the round.
+  - bugfix: Vending machines will update its UI if ID is lost at any point
+  - bugfix: Vending machines won't brick if the payment fails (like due to lose of
+      ID) for any reason
+  - bugfix: Fixed the lua editor being outright broken.
+  - bugfix: lua scripting should work on BYOND 515.1633
+  - bugfix: reagent containers like cup & syringe only update target appearance if
+      action was successful.
+  - bugfix: envelops don't stack overlays when interacting with cup & syringes.
+  Regivald:
+  - qol: Seeing dedication of her children, Ash Mother has blessed them. Ash Walker
+      Camp's farming area is now clear of debris, bedchambers have a new room, grubs
+      are herded inside their own pen, and front gate is protected from the storm
+      to not allow Outsiders without invitations inside.
+  - rscadd: As a reward for great hunters, and to give new Kins more chances to serve,
+      Ash Mother summoned new items for her children to use. Added 2 goliath shields,
+      2 sinew restraints and 5 gold bars.
+  SomeRandomOwl:
+  - bugfix: MSAY, MENTORHELP, LOOC, and WALLPIERCE LOOC verbs all now work again
+2024-03-23:
+  NovaBot13:
+  - image: Everything that used the old gangtool sprites (door remotes, landing field
+      designators, some choice beacons, windicate borg reinforcements) has been resprited.
+  - image: Door remotes now visibly show their current mode.
+  - bugfix: A broken item was removed from the mimesvsclowns ruin. In its place is
+      a spent revolver round.
+  - qol: Fishfood is now more easily acquired through cargo
+  - bugfix: Driving a vehicle into the supermatter will kill everyone riding the vehicle
+  - qol: Adds contextual screentips to air alarms
+  - bugfix: RCD logs are more human readable & stores the player name behind the action.
+  Rhials:
+  - bugfix: Removes some dirt tiles on the Sunrise deathmatch map, which would fill
+      the map with lavaland atmos.
+  Zergspower:
+  - qol: Blueshift - Gravity will now not go out in 10 minutes every shift-start
+  - bugfix: Blueshift - Numerous non-template cameras in blueshift have been moved
+      to autoname and replaces the VV'd ones
