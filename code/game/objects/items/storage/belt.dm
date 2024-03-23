@@ -359,7 +359,6 @@
 	. = ..()
 	atom_storage.max_slots = 5
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = 11 // NOVA EDIT - ADDITION
 	atom_storage.set_holdable(list(
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing/shotgun,
@@ -369,7 +368,7 @@
 		/obj/item/flashlight/seclite,
 		/obj/item/food/donut,
 		/obj/item/grenade,
-		/obj/item/gun, //NOVA EDIT - ADDITION
+		/obj/item/gun, // NOVA EDIT - ADDITION
 		/obj/item/holosign_creator/security,
 		/obj/item/knife/combat,
 		/obj/item/melee/baton,
