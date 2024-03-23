@@ -555,6 +555,10 @@
 	name = "Low ponytail"
 	icon_state = "hair_low_ponytail"
 
+/datum/sprite_accessory/hair/skyrat/lila
+	name = "Lila"
+	icon_state = "hair_lila"
+
 /datum/sprite_accessory/hair/skyrat/morning
 	name = "Morning"
 	icon_state = "hair_morning"
