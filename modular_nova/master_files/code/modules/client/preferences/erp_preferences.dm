@@ -161,7 +161,7 @@
 		return FALSE
 
 	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
-	return list("Yes", "Check OOC Notes", "No")
+
 /datum/preference/choiced/erp_status/deserialize(input, datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return "No"
