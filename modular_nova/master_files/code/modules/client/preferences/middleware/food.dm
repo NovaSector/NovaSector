@@ -18,7 +18,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		return
 	qdel(species)
 
-	var/counts = GLOB.food_prefs_menu.count_valid_perfs(preferences)
+	var/counts = GLOB.food_prefs_menu.count_valid_prefs(preferences)
 
 	var/fail_reason = GLOB.food_prefs_menu.is_food_invalid(counts)
 
