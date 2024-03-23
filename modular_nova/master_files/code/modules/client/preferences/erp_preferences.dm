@@ -128,26 +128,26 @@
 	savefile_key = "erp_status_pref"
 
 /datum/preference/choiced/erp_status/init_possible_values()
-return list(
-	"Top - Dom",
-	"Top - Switch",
-	"Top - Sub",
-	"Verse-Top - Dom",
-	"Verse-Top - Switch",
-	"Verse-Top - Sub",
-	"Verse - Dom",
-	"Verse - Switch",
-	"Verse - Sub",
-	"Verse-Bottom - Dom",
-	"Verse-Bottom - Switch",
-	"Verse-Bottom - Sub",
-	"Bottom - Dom",
-	"Bottom - Switch",
-	"Bottom - Sub",
-	"Check OOC Notes",
-	"Ask (L)OOC",
-	"No",
-	"Yes",
+	return list(
+		"Top - Dom",
+		"Top - Switch",
+		"Top - Sub",
+		"Verse-Top - Dom",
+		"Verse-Top - Switch",
+		"Verse-Top - Sub",
+		"Verse - Dom",
+		"Verse - Switch",
+		"Verse - Sub",
+		"Verse-Bottom - Dom",
+		"Verse-Bottom - Switch",
+		"Verse-Bottom - Sub",
+		"Bottom - Dom",
+		"Bottom - Switch",
+		"Bottom - Sub",
+		"Check OOC Notes",
+		"Ask (L)OOC",
+		"No",
+		"Yes"
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
