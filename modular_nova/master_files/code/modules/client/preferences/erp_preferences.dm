@@ -128,9 +128,26 @@
 	savefile_key = "erp_status_pref"
 
 /datum/preference/choiced/erp_status/init_possible_values()
-	return list (
-	"Top - Dom", "Top - Switch", "Top - Sub", "Verse-Top - Dom", "Verse-Top - Switch", "Verse-Top - Sub", "Verse - Dom", "Verse - Switch", "Verse - Sub",
-	"Verse-Bottom - Dom", "Verse-Bottom - Switch", "Verse-Bottom - Sub", "Bottom - Dom", "Bottom - Switch", "Bottom - Sub", "Check OOC Notes", "Ask (L)OOC", "No", "Yes"
+return list(
+	"Top - Dom",
+	"Top - Switch",
+	"Top - Sub",
+	"Verse-Top - Dom",
+	"Verse-Top - Switch",
+	"Verse-Top - Sub",
+	"Verse - Dom",
+	"Verse - Switch",
+	"Verse - Sub",
+	"Verse-Bottom - Dom",
+	"Verse-Bottom - Switch",
+	"Verse-Bottom - Sub",
+	"Bottom - Dom",
+	"Bottom - Switch",
+	"Bottom - Sub",
+	"Check OOC Notes",
+	"Ask (L)OOC",
+	"No",
+	"Yes",
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
@@ -144,7 +161,7 @@
 		return FALSE
 
 	return preferences.read_preference(/datum/preference/toggle/master_erp_preferences)
-
+	return list("Yes", "Check OOC Notes", "No")
 /datum/preference/choiced/erp_status/deserialize(input, datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_erp_preferences))
 		return "No"
@@ -161,7 +178,7 @@
 	savefile_key = "erp_status_pref_nc"
 
 /datum/preference/choiced/erp_status_nc/init_possible_values()
-	return list ("Yes", "Check OOC Notes", "No")
+	return list("Yes", "Check OOC Notes", "No")
 
 /datum/preference/choiced/erp_status_nc/create_default_value()
 	return "No"
@@ -301,7 +318,7 @@
 
 	if(!preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
 		return "No"
-	. = ..()
+	return ..()
 
 /datum/preference/choiced/erp_status_hypno/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
