@@ -1,5 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - qol: "Blueshift - Gravity will now not go out in 10 minutes every shift-start"
-  - bugfix: "Blueshift - Numerous non-template cameras in blueshift have been moved to autoname and replaces the VV'd ones"

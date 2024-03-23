@@ -720,3 +720,21 @@
       2 sinew restraints and 5 gold bars.
   SomeRandomOwl:
   - bugfix: MSAY, MENTORHELP, LOOC, and WALLPIERCE LOOC verbs all now work again
+2024-03-23:
+  NovaBot13:
+  - image: Everything that used the old gangtool sprites (door remotes, landing field
+      designators, some choice beacons, windicate borg reinforcements) has been resprited.
+  - image: Door remotes now visibly show their current mode.
+  - bugfix: A broken item was removed from the mimesvsclowns ruin. In its place is
+      a spent revolver round.
+  - qol: Fishfood is now more easily acquired through cargo
+  - bugfix: Driving a vehicle into the supermatter will kill everyone riding the vehicle
+  - qol: Adds contextual screentips to air alarms
+  - bugfix: RCD logs are more human readable & stores the player name behind the action.
+  Rhials:
+  - bugfix: Removes some dirt tiles on the Sunrise deathmatch map, which would fill
+      the map with lavaland atmos.
+  Zergspower:
+  - qol: Blueshift - Gravity will now not go out in 10 minutes every shift-start
+  - bugfix: Blueshift - Numerous non-template cameras in blueshift have been moved
+      to autoname and replaces the VV'd ones
