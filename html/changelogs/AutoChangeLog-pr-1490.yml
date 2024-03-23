@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Security belts no longer hold more than 2 normal-size items. Storage capabilities largely remain the same, other than that."
