@@ -117,7 +117,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
 
-	var/counts = count_valid_perfs(preferences)
+	var/counts = count_valid_prefs(preferences)
 
 	var/list/data = list(
 		"selection" = preferences.food_preferences,
@@ -140,7 +140,7 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
  * @param preferences The preferences datum to count the valid food preferences of.
  * @return A list of counts for the valid food preferences.
  */
-/datum/food_prefs_menu/proc/count_valid_perfs(datum/preferences/preferences)
+/datum/food_prefs_menu/proc/count_valid_prefs(datum/preferences/preferences)
 	var/counts = list(
 		"liked" = 0,
 		"disliked" = 0,
