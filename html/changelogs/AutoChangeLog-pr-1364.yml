@@ -1,0 +1,4 @@
+author: "Varoxus"
+delete-after: True
+changes:
+  - bugfix: "Overweight trait no longer interferes with the nutrition system"
