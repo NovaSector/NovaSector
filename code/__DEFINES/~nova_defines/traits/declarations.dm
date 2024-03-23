@@ -27,7 +27,6 @@
 #define TRAIT_LINGUIST "Linguist" // Extra language point.
 #define TRAIT_GLUED_ITEM "glued-item" // This is for glued items, undroppable. Syndie glue applies this.
 #define TRAIT_STICKY_FINGERS "sticky_fingers" //This is so a mob can strip items faster and picks them up after
-#define TRAIT_OVERWEIGHT "overweight" //replacement trait for TRAIT_FAT that the "overweight" quirk gives so that it stops conflicting with the hunger hud changes
 /// This makes trait makes it so that the person cannot be infected by the zombie virus.
 #define TRAIT_MUTANT_IMMUNE "mutant_immune"
 #define TRAIT_HYDRA_HEADS "hydrahead"
