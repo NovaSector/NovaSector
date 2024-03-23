@@ -41122,13 +41122,6 @@
 /obj/machinery/meter,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"miv" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/piggy_bank/vault,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "miy" = (
 /obj/structure/railing,
 /turf/open/floor/glass/reinforced,
@@ -110946,7 +110939,7 @@ vcr
 vcr
 gIp
 dyr
-miv
+dyr
 rcL
 sUb
 fXL
