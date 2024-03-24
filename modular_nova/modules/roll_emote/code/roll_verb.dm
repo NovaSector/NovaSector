@@ -26,7 +26,7 @@
 	if (!bonus_designator)
 		bonus_designator = findtext(param, "-", 1, null)
 	var/dc_designator = findtext(param, "/", 1, null)
-	var/die_check_end = (bonus_designator || dc_designator || length(param))
+	var/die_check_end = (bonus_designator || dc_designator || length(param) + 1)
 	var/die = lowertext(copytext(param, 1, die_check_end))
 	var/bonus_number = copytext(param, bonus_designator, dc_designator)
 	if (!bonus_designator)
