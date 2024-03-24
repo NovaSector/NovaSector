@@ -18,7 +18,10 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 		return
 	qdel(species)
 
-	var/fail_reason = GLOB.food_prefs_menu.is_food_invalid(preferences)
+	var/counts = GLOB.food_prefs_menu.count_valid_prefs(preferences)
+
+	var/fail_reason = GLOB.food_prefs_menu.is_food_invalid(counts)
+
 	if(fail_reason)
 		to_chat(preferences.parent, span_announce("Your food preferences can't be set because of [fail_reason] choices! Please check your preferences!")) // Sorry, but I don't want folk sleeping on this.
 		return
@@ -113,11 +116,35 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 
 	var/datum/species/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
+
+	var/counts = count_valid_prefs(preferences)
+
+	var/list/data = list(
+		"selection" = preferences.food_preferences,
+		"enabled" = preferences.food_preferences["enabled"],
+		"invalid" = is_food_invalid(counts),
+		"race_disabled" = !species.allows_food_preferences(),
+		"limits" = list(
+			"max_liked" = MAXIMUM_LIKES,
+			"min_disliked" = MINIMUM_REQUIRED_DISLIKES,
+			"min_toxic" = MINIMUM_REQUIRED_TOXICS,
+		),
+		"counts" = counts,
+	)
+	qdel(species)
+	return data
+
+/**
+ * Counts the number of valid food preferences in the provided preferences datum.
+ *
+ * @param preferences The preferences datum to count the valid food preferences of.
+ * @return A list of counts for the valid food preferences.
+ */
+/datum/food_prefs_menu/proc/count_valid_prefs(datum/preferences/preferences)
 	var/counts = list(
 		"liked" = 0,
 		"disliked" = 0,
 		"toxic" = 0,
-
 	)
 
 	for(var/food_entry in GLOB.food_defaults)
@@ -134,25 +161,12 @@ GLOBAL_DATUM_INIT(food_prefs_menu, /datum/food_prefs_menu, new)
 				counts["disliked"]++
 			if(FOOD_PREFERENCE_TOXIC)
 				counts["toxic"]++
-
-
-	var/list/data = list(
-		"selection" = preferences.food_preferences,
-		"enabled" = preferences.food_preferences["enabled"],
-		"invalid" = is_food_invalid(preferences, counts),
-		"race_disabled" = !species.allows_food_preferences(),
-		"limits" = list(
-			"max_liked" = MAXIMUM_LIKES,
-			"min_disliked" = MINIMUM_REQUIRED_DISLIKES,
-			"min_toxic" = MINIMUM_REQUIRED_TOXICS,
-		),
-		"counts" = counts,
-	)
-	qdel(species)
-	return data
+	return counts
 
 /// Checks the provided preferences datum to make sure the food pref values are valid. Does not check if the food preferences value is null.
-/datum/food_prefs_menu/proc/is_food_invalid(datum/preferences/preferences, counts)
+/datum/food_prefs_menu/proc/is_food_invalid(counts)
+	if(!islist(counts) && counts)
+		return
 	if(counts["liked"] > MAXIMUM_LIKES)
 		return "too many liked choices"
 	if(counts["disliked"] < MINIMUM_REQUIRED_DISLIKES)
