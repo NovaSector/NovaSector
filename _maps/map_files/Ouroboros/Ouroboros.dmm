@@ -38090,16 +38090,8 @@
 /area/station/engineering/atmos/office)
 "lnx" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
-/obj/structure/rack/shelf,
-/obj/item/airlock_painter{
-	pixel_y = 3
-	},
-/obj/item/airlock_painter/decal/tile{
-	pixel_y = -3
-	},
-/obj/item/airlock_painter/decal{
-	pixel_y = -9
-	},
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/primary)
 "lnQ" = (
@@ -43712,7 +43704,7 @@
 /obj/machinery/button/door/directional/east{
 	id = "rndlab1";
 	name = "Privacy Control";
-	req_access = list("rd")
+	req_access = list("science")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/research)
