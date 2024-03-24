@@ -66,7 +66,7 @@
 	icon_state = "syndicate_baseball"
 
 /obj/item/clothing/under/syndicate/unarmoured
-	name = "stripped Syndicate tactical turtleneck"
+	name = "suspicious stripped tactical turtleneck"
 	desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants... The armor has been removed from the fabric."
 	icon_state = "syndicate"
 	inhand_icon_state = "bl_suit"
@@ -74,7 +74,7 @@
 	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/under/syndicate/unarmoured/skirt
-	name = "stripped Syndicate tactical skirtleneck"
+	name = "suspicious stripped tactical skirtleneck"
 	desc = "A non-descript and slightly suspicious looking skirtleneck... The armor has been removed from the fabric."
 	icon_state = "syndicate_skirt"
 	gets_cropped_on_taurs = FALSE
@@ -83,7 +83,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured
-	name = "stripped Syndicate tactical turtleneck"
+	name = "suspicious stripped tactical turtleneck"
 	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants... The armor has been removed from the fabric."
 	icon_state = "syndicate_red"
 	inhand_icon_state = "r_suit"
@@ -92,7 +92,7 @@
 	unique_reskin = null
 
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
-	name = "stripped Syndicate tactical skirtleneck"
+	name = "suspicious stripped tactical skirtleneck"
 	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy... The armor has been removed from the fabric."
 	icon_state = "syndicate_red_skirt"
 	gets_cropped_on_taurs = FALSE
@@ -101,7 +101,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured
-	name = "stripped Syndicate utility overalls turtleneck"
+	name = "suspicious stripped utility overalls turtleneck"
 	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work... The armor has been removed from the fabric."
 	icon_state = "syndicate_overalls"
 	armor_type = /datum/armor/clothing_under
@@ -109,7 +109,7 @@
 	can_adjust = TRUE
 
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
-	name = "stripped Syndicate utility overalls skirtleneck"
+	name = "suspicious stripped utility overalls skirtleneck"
 	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy... The armor has been removed from the fabric."
 	icon_state = "syndicate_overallskirt"
 	gets_cropped_on_taurs = FALSE
