@@ -32,6 +32,8 @@
 		6,
 		5,
 	)
+
+	/// Radial list icons
 	var/static/radial_eject = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_eject")
 	var/static/radial_cook = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_cook")
 
@@ -224,7 +226,7 @@
 			balloon_alert(user, "it's empty!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-		start_cycle(user)
+		cook(user)
 
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
@@ -257,18 +259,19 @@
 		if("eject")
 			eject()
 		if("cook")
-			start_cycle(user)
+			cook(user)
 		if("examine")
 			examine(user)
 
+/**
+ * Ejects all the ingredients currently stored in the cauldron.
+ * Called by deconstruction, finishing cooking, or user selecting the eject option.
+ */
 /obj/machinery/cauldron/proc/eject()
 	var/atom/drop_loc = drop_location()
 	for(var/atom/movable/movable_ingredient as anything in ingredients)
 		movable_ingredient.forceMove(drop_loc)
 	open()
-
-/obj/machinery/cauldron/proc/start_cycle(mob/user)
-	cook(user)
 
 /**
  * Begins the process of cooking the included ingredients.
@@ -316,16 +319,21 @@
 	for(var/obj/item/cooked_item in ingredients)
 		cooked_item.microwave_act(src, cooker, randomize_pixel_offset = ingredients.len)
 
-	after_finish_loop()
-
-/obj/machinery/cauldron/proc/after_finish_loop()
 	eject()
 
+/**
+ * Temporary opens the cauldron, called when ingredients are added or ejected
+ *
+ * autoclose - how long it stays open before calling the close() proc
+ */
 /obj/machinery/cauldron/proc/open(autoclose = 0.6 SECONDS)
 	open = TRUE
 	update_appearance()
 	addtimer(CALLBACK(src, PROC_REF(close)), autoclose)
 
+/**
+ * Closes the cauldron, called by the open() proc after some delay
+ */
 /obj/machinery/cauldron/proc/close()
 	open = FALSE
 	update_appearance()
