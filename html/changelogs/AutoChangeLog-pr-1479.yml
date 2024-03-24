@@ -1,0 +1,4 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - bugfix: "Drifting Contractors now respects the dynamic config, by no longer running in the event system on top of the dynamic system."
