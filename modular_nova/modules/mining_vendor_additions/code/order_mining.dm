@@ -46,14 +46,6 @@
 	item_path = /obj/item/borg/upgrade/modkit/aoe/turfs
 	cost_per_order = 750
 
-/datum/orderable_item/accelerator/trigger_guard
-	item_path = /obj/item/borg/upgrade/modkit/trigger_guard
-	cost_per_order = 750
-
-/datum/orderable_item/mining/night_vision_meson
-	item_path = /obj/item/clothing/glasses/meson/night
-	cost_per_order = 1000
-
 /datum/orderable_item/mining/night_vision_health_meson
 	item_path = /obj/item/clothing/glasses/hud/health/night/meson
 	cost_per_order = 2000
@@ -61,7 +53,3 @@
 /datum/orderable_item/mining/prescription_meson
 	item_path = /obj/item/clothing/glasses/meson/prescription
 	cost_per_order = 325
-
-/datum/orderable_item/mining/mining_satchel_of_holding
-	item_path = /obj/item/storage/bag/ore/holding
-	cost_per_order = 750

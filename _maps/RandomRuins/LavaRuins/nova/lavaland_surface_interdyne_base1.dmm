@@ -3219,7 +3219,6 @@
 /obj/machinery/camera/autoname/directional/north{
 	network = list("intd13")
 	},
-/obj/item/storage/box/stockparts/deluxe,
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "BF" = (
@@ -3804,7 +3803,6 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
-/obj/item/xenoarch/handheld_recoverer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Fv" = (
@@ -5108,11 +5106,11 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "Ri" = (
-/obj/machinery/biogenerator,
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
+/obj/machinery/biogenerator/fullupgrade,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Rk" = (

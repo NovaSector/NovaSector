@@ -7464,6 +7464,7 @@
 #include "modular_nova\modules\mapping\code\furniture.dm"
 #include "modular_nova\modules\mapping\code\holocall.dm"
 #include "modular_nova\modules\mapping\code\icemoon.dm"
+#include "modular_nova\modules\mapping\code\interdyne_mining.dm"
 #include "modular_nova\modules\mapping\code\interdyne.dm"
 #include "modular_nova\modules\mapping\code\interlink_helper.dm"
 #include "modular_nova\modules\mapping\code\jobs.dm"
