@@ -319,4 +319,3 @@
 
 	REMOVE_TRAIT(my_thing, TRAIT_NODROP, TRAUMA_TRAIT)
 	UnregisterSignal(my_thing, list(COMSIG_ITEM_DROPPED, COMSIG_MOVABLE_MOVED))
-  
