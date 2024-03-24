@@ -1,0 +1,5 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - qol: "Added additional user feedback to food preferences as to if preferences where valid or invalid"
+  - bugfix: "Fixed a runtime in food preference that occurred whenever a player spawned in"
