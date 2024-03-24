@@ -147,7 +147,7 @@
 		"Check OOC Notes",
 		"Ask (L)OOC",
 		"No",
-		"Yes"
+		"Yes",
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
