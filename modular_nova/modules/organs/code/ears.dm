@@ -13,7 +13,6 @@
 	desc = "Perk up your ears to listen for quiet sounds, useful for picking up whispering."
 	button_icon = 'modular_nova/master_files/icons/hud/actions.dmi'
 	button_icon_state = "echolocation_off"
-	var/active = FALSE
 
 	cooldown_time = 1 SECONDS
 	spell_requirements = NONE
@@ -37,7 +36,6 @@
 	user.apply_status_effect(/datum/status_effect/teshari_hearing)
 	user.visible_message(span_notice("[user], pricks up [user.p_their()] four ears, each twitching intently!"), span_notice("You perk up all four of your ears, hunting for even the quietest sounds."))
 	update_button_state("echolocation_on")
-	active = TRUE
 
 /datum/action/cooldown/spell/teshari_hearing/proc/teshari_hearing_deactivate(mob/living/carbon/human/user)
 	if(!HAS_TRAIT_FROM(user, TRAIT_GOOD_HEARING, ORGAN_TRAIT))
@@ -46,7 +44,6 @@
 	user.remove_status_effect(/datum/status_effect/teshari_hearing)
 	user.visible_message(span_notice("[user] drops [user.p_their()] ears down a bit, no longer listening as closely."), span_notice("You drop your ears down, no longer paying close attention."))
 	update_button_state("echolocation_off")
-	active = FALSE
 
 /datum/status_effect/teshari_hearing
 	id = "teshari_hearing"
