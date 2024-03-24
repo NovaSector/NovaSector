@@ -266,8 +266,6 @@
 			speak_dejavu += speech_args[SPEECH_MESSAGE]
 	else
 		speak_dejavu += speech_args[SPEECH_MESSAGE]
-<<<<<<< HEAD
-=======
 
 /datum/brain_trauma/mild/color_blindness
 	name = "Achromatopsia"
@@ -321,4 +319,4 @@
 
 	REMOVE_TRAIT(my_thing, TRAIT_NODROP, TRAUMA_TRAIT)
 	UnregisterSignal(my_thing, list(COMSIG_ITEM_DROPPED, COMSIG_MOVABLE_MOVED))
->>>>>>> 19ab4708c32 (Adds three brain traumas (feat. returning to monkey)  (#82129))
+  
