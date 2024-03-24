@@ -1,0 +1,4 @@
+author: "iskawhiskers"
+delete-after: True
+changes:
+  - image: "Added body marking sprites (monster2, monster3, weight2 (masc/fem variants), blankface2, bigoleyes)"
