@@ -151,7 +151,7 @@
 	)
 
 /datum/preference/choiced/erp_status/create_default_value()
-	return "Check OOC Notes"
+	return "Ask (L)OOC"
 
 /datum/preference/choiced/erp_status/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
@@ -178,7 +178,7 @@
 	savefile_key = "erp_status_pref_nc"
 
 /datum/preference/choiced/erp_status_nc/init_possible_values()
-	return list("Yes", "Ask (L)OOC", "Check OOC Notes", "No")
+	return list("Yes - Switch", "Yes - Dom", "Yes - Sub", "Yes", "Ask (L)OOC", "Check OOC Notes", "No")
 
 /datum/preference/choiced/erp_status_nc/create_default_value()
 	return "No"
