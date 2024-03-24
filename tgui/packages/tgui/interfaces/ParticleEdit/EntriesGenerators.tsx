@@ -52,8 +52,16 @@ export const FloatGenerator = (props: FloatGeneratorProps) => {
           <Stack.Item>
             <NumberInput
               animated
+<<<<<<< HEAD
               value={float}
               onDrag={(e, value) =>
+=======
+              minValue={-Infinity}
+              maxValue={Infinity}
+              step={1}
+              value={float || 0}
+              onDrag={(value) =>
+>>>>>>> 159fdd3d7e1 ([NO GBP] NumberInput patches (#82000))
                 act('edit', {
                   var: var_name,
                   new_value: value,
@@ -177,8 +185,16 @@ export const EntryGeneratorNumbersList = (
           <Stack.Item>
             <NumberInput
               animated
+<<<<<<< HEAD
               value={input}
               onDrag={(e, value) =>
+=======
+              minValue={-Infinity}
+              maxValue={Infinity}
+              step={1}
+              value={input || 0}
+              onDrag={(value) =>
+>>>>>>> 159fdd3d7e1 ([NO GBP] NumberInput patches (#82000))
                 act('edit', {
                   var: var_name,
                   new_value: value,
@@ -196,8 +212,14 @@ export const EntryGeneratorNumbersList = (
           <Stack.Item>
             <NumberInput
               animated
+<<<<<<< HEAD
+=======
+              minValue={-Infinity}
+              maxValue={Infinity}
+              step={1}
+>>>>>>> 159fdd3d7e1 ([NO GBP] NumberInput patches (#82000))
               value={input[0]}
-              onDrag={(e, value) =>
+              onDrag={(value) =>
                 act('edit', {
                   var: var_name,
                   new_value: [value, input![1], input![2]],
@@ -206,8 +228,14 @@ export const EntryGeneratorNumbersList = (
             />
             <NumberInput
               animated
+<<<<<<< HEAD
+=======
+              minValue={-Infinity}
+              maxValue={Infinity}
+              step={1}
+>>>>>>> 159fdd3d7e1 ([NO GBP] NumberInput patches (#82000))
               value={input[1]}
-              onDrag={(e, value) =>
+              onDrag={(value) =>
                 act('edit', {
                   var: var_name,
                   new_value: [input![0], value, input![2]],
@@ -217,8 +245,14 @@ export const EntryGeneratorNumbersList = (
             {allow_z ? (
               <NumberInput
                 animated
+<<<<<<< HEAD
+=======
+                minValue={-Infinity}
+                maxValue={Infinity}
+                step={1}
+>>>>>>> 159fdd3d7e1 ([NO GBP] NumberInput patches (#82000))
                 value={input[2]}
-                onDrag={(e, value) =>
+                onDrag={(value) =>
                   act('edit', {
                     var: var_name,
                     new_value: [input![0], input![1], value],
