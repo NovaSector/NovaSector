@@ -738,3 +738,41 @@
   - qol: Blueshift - Gravity will now not go out in 10 minutes every shift-start
   - bugfix: Blueshift - Numerous non-template cameras in blueshift have been moved
       to autoname and replaces the VV'd ones
+2024-03-24:
+  00-Steven:
+  - bugfix: Fixed patronizing paintings not giving a cut to the curators.
+  FlufflesTheDog:
+  - qol: Printing a hypospray or smartdart at a ChemMaster now names it appropriately
+      depending on what's inside.
+  Hatterhat:
+  - balance: Security belts no longer hold more than 2 normal-size items. Storage
+      capabilities largely remain the same, other than that.
+  Melbert:
+  - refactor: Refactored bioware slightly (the stuff experimental surgeries gives
+      you). Report any weirdness
+  NovaBot13:
+  - rscadd: Active skillchips are now copied on bitrunning avatars.
+  - rscadd: To celebrate it, a skillchip is now available from the bitrunning order
+      console, which lets you dodge projectiles for the duration of your flips, at
+      the cost of stamina.
+  - refactor: Auxlua no longer uses the timer subsystem to get stuff done, lua scripts
+      shouldn't slow down timers anymore.
+  - bugfix: pet carrier unfriending pets put in it.
+  - bugfix: Fixed the LTSRBT.
+  - bugfix: Fixes ghosts being able to change a lathes output direction.
+  - bugfix: Fixed lua error logging.
+  - bugfix: Fixed the SS13.start_loop function not working properly.
+  - bugfix: Importing songs into instruments no longer cuts the first line of the
+      song.
+  - rscadd: Added 5 new Felinid ear options, ported from Orbstation! (Sprites by Or-Fi-S)
+  - image: fixed Fulton balloon having its smallest sprite copy pasted over itself
+  - rscadd: Crowbars/wirecutters now deconstruct wooden/cardboard crates/boxes
+  SomeRandomOwl:
+  - qol: Masks that hide your characters face (and flavor text) has a new action button
+      to toggle hiding your face (and thus show your flavor text)
+  - qol: Added additional user feedback to food preferences as to if preferences where
+      valid or invalid
+  - bugfix: Fixed a runtime in food preference that occurred whenever a player spawned
+      in
+  Varoxus:
+  - bugfix: Overweight trait no longer interferes with the nutrition system
