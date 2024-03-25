@@ -32,7 +32,7 @@ DEFINE_BITFIELD(turret_flags, list(
 ////// Toolbox Handling //////
 /obj/item/storage/toolbox/emergency/turret/mag_fed
 	name = "mag-fed turret kit"
-	desc = "A descret kit for a magazine fed turret"
+	desc = "A discreet kit for a magazine fed turret."
 	has_latches = FALSE
 	////// Whether the turret will ignore humans when deployed.
 	var/turret_safety = FALSE
@@ -58,9 +58,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	. = ..()
 	. += span_notice("The targeting safety is [turret_safety ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")
 	. += span_notice("The turret is [flags_on ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
-	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <font color='#00ff15'><b>wrenching tool</b></font>")
-	. += span_notice("You can toggle the targeting safety with a <font color='#00ff15'><b>screwdriving bit</b></font>")
-	. += span_notice("You can change if the turret obeys flags with a <font color='#00ff15'><b>multitool</b></font>")
+	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <b>wrenching tool.</b>")
+	. += span_notice("You can toggle the targeting safety with a <b>screwdriving bit.</b>")
+	. += span_notice("You can change if the turret obeys flags with a <b>multitool.</b>")
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 
@@ -167,9 +167,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	. += span_notice("<b>[length(linked_turrets)]/[turret_limit]</b> turrets linked.")
 	. += span_notice("<b>Right click</b> an entity to designate it as an ally.")
 	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
-	. += span_notice("<b>Use</b> this item to toggle human targeting")
+	. += span_notice("<b>Use</b> this item to toggle human targeting.")
 	. += span_notice("People Targeting is [target_all ? "<font color='#ff0000'>ENABLED</font>" : "<font color='#00ff15'>DISABLED</font>"].")
-	. += span_notice("<b>Shift-click</b> this item to toggle flag following")
+	. += span_notice("<b>Shift-click</b> this item to toggle flag following.")
 	. += span_notice("Turrets are [follow_flags ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
 
 /obj/item/target_designator/attack_self(mob/user, modifiers)
@@ -300,15 +300,15 @@ DEFINE_BITFIELD(turret_flags, list(
 	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
 	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
 	if((user.faction in faction) || (REF(user) in allies))
-		. += span_notice("You can unlock it by <b>left-clicking</b> with an <font color='#00ff15'>id card.</font>")
-		. += span_notice("You can repair it by <b>left-clicking</b> with a <font color='#00ff15'>wrench.</font>")
-		. += span_notice("You can fold it by <b>right-clicking</b> with a <font color='#00ff15'>wrench.</font>")
-		. += span_notice("You can feed it by <b>left-clicking</b> with a <font color='#00ff15'>magazine.</font>")
-		. += span_notice("You can link it by <b>left-clicking</b> with a <font color='#00ff15'>target designator.</font>")
-		. += span_notice("You can unlink it by <b>right-clicking</b> with a <font color='#00ff15'>target designator.</font>")
+		. += span_notice("You can unlock it by <b>left-clicking</b> with an <b>id card.</b>")
+		. += span_notice("You can repair it by <b>left-clicking</b> with a <b>wrench.</b>")
+		. += span_notice("You can fold it by <b>right-clicking</b> with a <b>wrench.</b>")
+		. += span_notice("You can feed it by <b>left-clicking</b> with a <b>magazine.</b>")
+		. += span_notice("You can link it by <b>left-clicking</b> with a <b>target designator.</b>")
+		. += span_notice("You can unlink it by <b>right-clicking</b> with a <b>target designator.</b>")
 		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
 		if(linkage)
-			. += span_notice("<b><i>This turret is <font color='#00ff15'>currently linked!</font></i></b>")
+			. += span_notice("<b><i>This turret is currently linked!</i></b>")
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
