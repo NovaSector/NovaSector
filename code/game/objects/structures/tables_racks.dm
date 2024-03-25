@@ -866,27 +866,12 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-<<<<<<< HEAD
-	return TRUE // NOVA EDIT - Ensuring that this proc works properly when used to check things
-
-/obj/structure/rack/attackby(obj/item/W, mob/living/user, params)
-	var/list/modifiers = params2list(params)
-	if (W.tool_behaviour == TOOL_WRENCH && !(obj_flags & NO_DECONSTRUCTION) && LAZYACCESS(modifiers, RIGHT_CLICK))
-		W.play_tool_sound(src)
-		deconstruct(TRUE)
-		return
-	if(user.combat_mode)
-		return ..()
-	if(user.transferItemToLoc(W, drop_location()))
-		return 1
-=======
 /obj/structure/rack/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	. = ..()
 	if(. || tool.item_flags & ABSTRACT)
 		return .
 	if(user.transferItemToLoc(tool, drop_location(), silent = FALSE))
 		return ITEM_INTERACT_SUCCESS
->>>>>>> 43380e06bfa (Rack sounds pr turned rack code refactor (#81973))
 
 /obj/structure/rack/attack_paw(mob/living/user, list/modifiers)
 	attack_hand(user, modifiers)
