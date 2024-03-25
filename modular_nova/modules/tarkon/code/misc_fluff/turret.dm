@@ -59,11 +59,7 @@
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "cerberus_off"
 	base_icon_state = "cerberus"
-	shot_delay = 2 SECONDS
-	subsystem_type = /datum/controller/subsystem/processing/projectiles
-	ignore_faction = TRUE
-	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
-	faction = list(FACTION_TARKON)
+	faction = list(FACTION_TARKON, FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/cerberus/pre_filled
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
@@ -73,4 +69,6 @@
 	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
 	icon_state = "hoplite_off"
 	base_icon_state = "hoplite"
+	shot_delay = 15 //1.5 seconds
+	faction = list(FACTION_TARKON, FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled

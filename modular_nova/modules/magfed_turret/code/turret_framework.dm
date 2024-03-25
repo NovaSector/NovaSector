@@ -34,9 +34,16 @@ DEFINE_BITFIELD(turret_flags, list(
 	name = "mag-fed turret kit"
 	desc = "A descret kit for a magazine fed turret"
 	has_latches = FALSE
-	var/turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed //To make it more available for subtyping. LET. THEM. COOK.
-	var/mag_slots = 2 //how many magazines can be held.
-	var/mag_types_allowed = list( //This is a whitelist for what is allowed. Nothing else may enter.
+	////// Whether the turret will ignore humans when deployed.
+	var/turret_safety = FALSE
+	////// Whether the turret will deploy obeying flags.
+	var/flags_on = FALSE
+	////// The type of turret deployed
+	var/turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed
+	////// Number of mags that can be put in.
+	var/mag_slots = 2
+	////// Types of magazines that can be allowed.
+	var/mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/c35sol_pistol,
 	)
 
@@ -49,7 +56,11 @@ DEFINE_BITFIELD(turret_flags, list(
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/examine(mob/user)
 	. = ..()
-	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <b>wrenching tool</b>")
+	. += span_notice("The targeting safety is [turret_safety ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")
+	. += span_notice("The turret is [turret_safety ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
+	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <font color='#00ff15'><b>wrenching tool</b></font>")
+	. += span_notice("You can toggle the targeting safety with a <font color='#00ff15'><b>screwdriving bit</b></font>")
+	. += span_notice("You can change if the turret obeys flags with a <font color='#00ff15'><b>multitool</b></font>")
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 
@@ -74,6 +85,18 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.allies += REF(user)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
+			return
+		turret_safety = !turret_safety
+		return
+
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
+		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
+			return
+		flags_on = !flags_on
+		return
+
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 
@@ -98,7 +121,12 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(get_turf(loc))
 	set_faction(turret, user)
 	turret.mag_box = WEAKREF(src)
+	if(turret_safety == TRUE)
+		turret.target_assessment = TURRET_FLAG_SHOOT_NOONE
+	if(flags_on == TRUE)
+		turret.target_assessment = TURRET_FLAG_OBEY_FLAGS
 	forceMove(turret)
+	turret.setState(TRUE)
 
 ////// Targeting Device handling
 
@@ -140,7 +168,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	. += span_notice("<b>Right click</b> an entity to designate it as an ally.")
 	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
 	. += span_notice("<b>Use</b> this item to toggle human targeting")
+	. += span_notice("People Targeting is [target_all ? "<font color='#ff0000'>ENABLED</font>" : "<font color='#00ff15'>DISABLED</font>"].")
 	. += span_notice("<b>Shift-click</b> this item to toggle flag following")
+	. += span_notice("Turrets are [follow_flags ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
 
 /obj/item/target_designator/attack_self(mob/user, modifiers)
 	. = ..()
@@ -229,7 +259,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	ignore_faction = TRUE
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
-	faction = list()
+	faction = list(FACTION_TURRET)
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
@@ -270,14 +300,15 @@ DEFINE_BITFIELD(turret_flags, list(
 	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
 	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
 	if((user.faction in faction) || (REF(user) in allies))
-		. += span_notice("You can repair it by <b>left-clicking</b> with a wrench.")
-		. += span_notice("You can fold it by <b>right-clicking</b> with a wrench.")
-		. += span_notice("You can feed it by <b>left-clicking</b> with a magazine.")
-		. += span_notice("You can link it by <b>left-clicking</b> with a target designator.")
-		. += span_notice("You can unlink it by <b>right-clicking</b> with a target designator.")
+		. += span_notice("You can unlock it by <b>left-clicking</b> with an <font color='#00ff15'>id card.</font>")
+		. += span_notice("You can repair it by <b>left-clicking</b> with a <font color='#00ff15'>wrench.</font>")
+		. += span_notice("You can fold it by <b>right-clicking</b> with a <font color='#00ff15'>wrench.</font>")
+		. += span_notice("You can feed it by <b>left-clicking</b> with a <font color='#00ff15'>magazine.</font>")
+		. += span_notice("You can link it by <b>left-clicking</b> with a <font color='#00ff15'>target designator.</font>")
+		. += span_notice("You can unlink it by <b>right-clicking</b> with a <font color='#00ff15'>target designator.</font>")
 		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
 		if(linkage)
-			. += span_notice("<b><i>This turret is currently linked!</i></b>")
+			. += span_notice("<b><i>This turret is <font color='#00ff15'>currently linked!</font></i></b>")
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
 	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
