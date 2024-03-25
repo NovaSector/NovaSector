@@ -776,3 +776,28 @@
       in
   Varoxus:
   - bugfix: Overweight trait no longer interferes with the nutrition system
+2024-03-25:
+  GoldenAlpharex:
+  - bugfix: Drifting Contractors now respects the dynamic config, by no longer running
+      in the event system on top of the dynamic system.
+  Melberet:
+  - bugfix: Jellyperson, Luminescent, and Stargazer hair no longer look bad. All jellyperson
+      types no longer have eyesockets.
+  NovaBot13:
+  - bugfix: NumberInput(used in chem heater, plumbing reaction chamber etc) highlighting
+      & editing requires only single click like before
+  - refactor: Typescript conversion for NumberInput TGUI Component
+  - bugfix: number input dragging will only send payload to backend when its value
+      changes, Same applies when you hit enter or click outside the field, the value
+      must have changed to trigger the back end
+  - bugfix: You can once again drag your mouse anywhere in the window outside the
+      number input field to vary the value by large amounts
+  - code_imp: removed unnecessary variables(suppressFlickering, updateRate & event
+      object param for handlers) from Number Input
+  Thlumyn:
+  - bugfix: fixed blueshift xenobio disposal
+  iskawhiskers:
+  - image: Added body marking sprites (monster2, monster3, weight2 (masc/fem variants),
+      blankface2, bigoleyes)
+  vinylspiders:
+  - rscadd: Added colorblindness as a mild brain trauma.
