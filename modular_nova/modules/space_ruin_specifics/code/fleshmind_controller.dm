@@ -269,20 +269,24 @@
 		if(located_vent && !located_vent.welded && LAZYLEN(located_vent.parents)) // WE FOUND A VENT BOIS, ITS TIME TO GET THE PARTY STARTED
 			var/datum/pipeline/vent_pipeline = pick(located_vent.parents)
 			var/list/possible_transfer_points = list()
+
 			for(var/obj/machinery/atmospherics/components/unary/vent_pump/iterating_vent in vent_pipeline.other_atmos_machines)
 				if(iterating_vent == located_vent)
 					continue
+
 				if(iterating_vent.welded) // Can't go through welded vents.
 					continue
+
 				var/obj/structure/fleshmind/wireweed/existing_wireweed = locate() in get_turf(iterating_vent)
 
-			if(LAZYLEN(possible_transfer_points)) // OH SHIT IM FEELING IT
+				if(existing_wireweed) // OH SHIT IM FEELING IT
 					continue
 
 				if(vent_distance_check &&get_dist(iterating_vent, origin_turf) >= MAX_VENT_SPREAD_DISTANCE)
 					continue
 
 				possible_transfer_points += iterating_vent
+
 			if(LAZYLEN(possible_transfer_points)) // OH SHIT IM FEELING IT
 				var/obj/machinery/atmospherics/components/unary/vent_pump/new_transfer_vent = pick(possible_transfer_points)
 				var/turf/new_transfer_vent_turf = get_turf(new_transfer_vent)
@@ -468,6 +472,11 @@
 /datum/fleshmind_controller/proc/mob_death(mob/living/simple_animal/hostile/fleshmind/dying_mob, force)
 	SIGNAL_HANDLER
 
+	controlled_mobs -= dying_mob
+	activate_wireweed_nearby(get_turf(dying_mob), GENERAL_DAMAGE_WIREWEED_ACTIVATION_RANGE)
+
+/// Deletes everything, unless an argument is passed, then it just deletes structures
+/datum/fleshmind_controller/proc/delete_everything(just_structures = FALSE)
 	for(var/obj/structure/fleshmind/structure/structure_thing as anything in controlled_structures)
 		qdel(structure_thing)
 
