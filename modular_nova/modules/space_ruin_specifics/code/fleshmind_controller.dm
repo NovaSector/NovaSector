@@ -39,7 +39,7 @@
 	var/wall_off_planetary = TRUE
 
 	/// Types of structures we can spawn.
-	var/list/structure_types = list(
+	var/static/list/structure_types = list(
 		/obj/structure/fleshmind/structure/modulator,
 		/obj/structure/fleshmind/structure/whisperer,
 		/obj/structure/fleshmind/structure/assembler,
@@ -83,26 +83,33 @@
 	/// DO we check distance when spreading through vents?
 	var/vent_distance_check = TRUE
 
+/// Core controller creation, assign it a new name and surname and accompanying signal starts
 /datum/fleshmind_controller/New(obj/structure/fleshmind/structure/core/new_core)
 	. = ..()
 	controller_firstname = "Obsidian"
 	controller_secondname = pick(AI_SURNAME_LIST)
 	controller_fullname = "[controller_firstname] [controller_secondname]"
+
 	if(new_core)
 		cores += new_core
 		new_core.our_controller = src
 		RegisterSignal(new_core, COMSIG_QDELETING, PROC_REF(core_death))
 		new_core.name = "[controller_fullname] Processor Unit"
 		register_new_asset(new_core)
+
 	SScorruption.can_fire = TRUE
 	START_PROCESSING(SScorruption, src)
-	if(do_initial_expansion)
-		initial_expansion()
-	return
 
+	if(!do_initial_expansion)
+		return
+
+	initial_expansion()
+
+/// signal register for the core, if one is made or the original and start their own signal timers
 /datum/fleshmind_controller/proc/register_new_asset(obj/structure/fleshmind/new_asset)
 	new_asset.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/obj/structure/fleshmind, controller_destroyed))
 
+/// Defines the processing time for spread, requirements if it can spread
 /datum/fleshmind_controller/process(delta_time)
 	if(!LAZYLEN(cores)) // We have no more processor cores, it's time to die.
 		if(death_behaviour == CONTROLLER_DEATH_SLOW_DECAY)
@@ -128,6 +135,7 @@
 		for(var/i in 1 to spread_times)
 			wireweed_process(TRUE, FALSE)
 
+/// Destroys all structures and stops all specific signals. Wireweed retracts but mobs stay
 /datum/fleshmind_controller/Destroy(force, ...)
 	active_wireweed = null
 	controlled_machine_components = null
@@ -138,6 +146,7 @@
 	STOP_PROCESSING(SScorruption, src)
 	return ..()
 
+/// The action taken once a core is placed, including wireweed and structure expansion
 /datum/fleshmind_controller/proc/initial_expansion()
 	for(var/i in 1 to initial_expansion_spreads)
 		wireweed_process(TRUE, FALSE, FALSE)
@@ -154,6 +163,7 @@
 		active_wireweed = controlled_wireweed.Copy()
 
 	var/list/spread_turf_canidates = list()
+
 	for(var/obj/structure/fleshmind/wireweed/wireweed as anything in active_wireweed)
 		var/could_attack = FALSE
 		var/could_do_wall = FALSE
@@ -164,23 +174,31 @@
 
 		if(do_attack && can_attack)
 			for(var/turf/open/adjacent_open in get_adjacent_open_turfs(wireweed))
+
 				for(var/obj/object in adjacent_open)
+
 					if(object.density && (wireweed_attacks_doors && is_type_in_list(object, DOOR_OBJECT_LIST)) || (wireweed_attacks_windows && istype(object, /obj/structure/window)))
 						could_attack = TRUE
 						tasks++
+
 						if(prob(attack_prob))
 							wireweed.do_attack_animation(object, ATTACK_EFFECT_CLAW)
 							playsound(object, 'sound/effects/attackblob.ogg', 50, TRUE)
 							object.take_damage(wireweed.object_attack_damage, BRUTE, MELEE, 1, get_dir(object, wireweed))
 						break
+
 				if(could_attack)
 					break
+
 		if(do_spread)
+
 			for(var/turf/open/adjacent_open in wireweed_turf.atmos_adjacent_turfs + wireweed_turf)
 				if(spawns_walls && !could_do_wall)
+
 					if((wall_off_vaccuum && isspaceturf(adjacent_open)) || (wall_off_planetary && adjacent_open.planetary_atmos))
 						could_do_wall = TRUE
 						tasks++
+
 						if(prob(wall_prob))
 							spawn_wall(wireweed_turf, wall_type)
 						continue
@@ -190,15 +208,19 @@
 					//If we're trying to place on an openspace turf, make sure there's a non openspace turf adjacent
 					var/forbidden = TRUE
 					for(var/turf/range_turf as anything in RANGE_TURFS(1, adjacent_open))
+
 						if(!isopenspaceturf(range_turf))
 							forbidden = FALSE
 							break
+
 					if(forbidden)
 						continue
 				var/wireweed_count = 0
 				var/place_count = 1
+
 				for(var/obj/structure/fleshmind/wireweed/iterated_wireweed in adjacent_open)
 					wireweed_count++
+
 				if(wireweed_count < place_count)
 					tasks++
 					spread_turf_canidates[adjacent_open] = wireweed_turf
@@ -214,8 +236,10 @@
 
 		if(progress_structure && structure_types)
 			structure_progression++
+
 		if(structure_progression >= spreads_for_structure)
 			var/obj/structure/fleshmind/structure/existing_structure = locate() in picked_turf
+
 			if(!existing_structure)
 				structure_progression -= spreads_for_structure
 				var/list/possible_structures = list()
@@ -223,6 +247,7 @@
 					possible_structures += iterating_structure
 				spawn_structure(picked_turf, pick(possible_structures))
 
+/// If it gets big enough, let's add an additional core
 /datum/fleshmind_controller/proc/spawn_new_core()
 	var/obj/structure/fleshmind/wireweed/selected_wireweed = pick(controlled_wireweed)
 	var/obj/structure/fleshmind/structure/core/new_core = new(get_turf(selected_wireweed), FALSE)
@@ -250,10 +275,13 @@
 				if(iterating_vent.welded) // Can't go through welded vents.
 					continue
 				var/obj/structure/fleshmind/wireweed/existing_wireweed = locate() in get_turf(iterating_vent)
-				if(existing_wireweed)
+
+			if(LAZYLEN(possible_transfer_points)) // OH SHIT IM FEELING IT
 					continue
+
 				if(vent_distance_check &&get_dist(iterating_vent, origin_turf) >= MAX_VENT_SPREAD_DISTANCE)
 					continue
+
 				possible_transfer_points += iterating_vent
 			if(LAZYLEN(possible_transfer_points)) // OH SHIT IM FEELING IT
 				var/obj/machinery/atmospherics/components/unary/vent_pump/new_transfer_vent = pick(possible_transfer_points)
@@ -274,13 +302,16 @@
 		var/obj/effect/temp_visual/wireweed_spread/effect = new(location)
 		effect.setDir(get_dir(origin_turf, location))
 		new_wireweed.RegisterSignal(effect, COMSIG_QDELETING, TYPE_PROC_REF(/obj/structure/fleshmind/wireweed, visual_finished))
+
 	else
 		new_wireweed = new wireweed_type(location, 255, src)
 	new_wireweed.our_controller = src
 	active_wireweed += new_wireweed
+
 	if(are_we_a_vent_burrow)
 		new_wireweed.vent_burrow = TRUE
 		playsound(new_wireweed, 'sound/machines/ventcrawl.ogg', 100)
+
 	new_wireweed.update_appearance()
 	controlled_wireweed += new_wireweed
 
@@ -293,6 +324,7 @@
 /datum/fleshmind_controller/proc/spawn_wall(turf/location, wall_type)
 	if(locate(wall_type) in location) // No stacking walls.
 		return FALSE
+
 	var/obj/structure/fleshmind/structure/wireweed_wall/new_wall = new wall_type(location)
 	new_wall.our_controller = src
 	controlled_walls += new_wall
@@ -332,23 +364,29 @@
 /datum/fleshmind_controller/proc/spawn_structures(amount)
 	if(!structure_types)
 		return
+
 	var/list/possible_structures = list()
 	for(var/obj/structure/fleshmind/iterating_structure as anything in structure_types)
 		possible_structures += iterating_structure
+
 	var/list/locations = list()
 	for(var/obj/structure/fleshmind/wireweed/iterating_wireweed as anything in controlled_wireweed)
 		locations[get_turf(iterating_wireweed)] = TRUE
+
 	var/list/guaranteed_structures = possible_structures.Copy()
 	for(var/i in 1 to amount)
 		if(!length(locations))
 			break
+
 		var/turf/location = pick(locations)
 		locations -= location
 		var/structure_to_spawn
 		if(length(guaranteed_structures))
 			structure_to_spawn = pick_n_take(guaranteed_structures)
+
 		else
 			structure_to_spawn = pick(possible_structures)
+
 		spawn_structure(location, structure_to_spawn)
 
 /// Activates wireweed of this controller in a range around a location, following atmos adjacency.
@@ -377,6 +415,7 @@
 /datum/fleshmind_controller/proc/core_damaged(obj/structure/fleshmind/structure/core/damaged_core)
 	if(!COOLDOWN_FINISHED(src, next_core_damage_wireweed_activation))
 		return
+
 	COOLDOWN_START(src, next_core_damage_wireweed_activation, next_core_damage_wireweed_activation_cooldown)
 	activate_wireweed_nearby(get_turf(damaged_core), CORE_DAMAGE_WIREWEED_ACTIVATION_RANGE)
 
@@ -384,9 +423,11 @@
 /datum/fleshmind_controller/proc/calculate_current_points()
 	return LAZYLEN(controlled_wireweed) + LAZYLEN(controlled_walls) + LAZYLEN(controlled_structures) + LAZYLEN(controlled_machine_components)
 
-// Death procs
+/*
+* Death proces for the structures above, Signal handling and unresgistration
+*/
 
-/// When a core is destroyed.
+/// When A core dies, start the death proc for that specific core group
 /datum/fleshmind_controller/proc/core_death(obj/structure/fleshmind/structure/core/dead_core, force)
 	cores -= dead_core
 	activate_wireweed_nearby(get_turf(dead_core), CORE_DAMAGE_WIREWEED_ACTIVATION_RANGE)
@@ -401,7 +442,7 @@
 	dying_wireweed.our_controller = null
 	activate_wireweed_nearby(get_turf(dying_wireweed), GENERAL_DAMAGE_WIREWEED_ACTIVATION_RANGE)
 
-/// When a wall dies, called by wall
+/// When a wall dies, recheck if it needs to seal atmos or remake on next spread
 /datum/fleshmind_controller/proc/wall_death(obj/structure/fleshmind/structure/wireweed_wall/dying_wall, force)
 	SIGNAL_HANDLER
 
@@ -427,23 +468,24 @@
 /datum/fleshmind_controller/proc/mob_death(mob/living/simple_animal/hostile/fleshmind/dying_mob, force)
 	SIGNAL_HANDLER
 
-	controlled_mobs -= dying_mob
-	activate_wireweed_nearby(get_turf(dying_mob), GENERAL_DAMAGE_WIREWEED_ACTIVATION_RANGE)
-
-/// Deletes everything, unless an argument is passed, then it just deletes structures
-/datum/fleshmind_controller/proc/delete_everything(just_structures = FALSE)
 	for(var/obj/structure/fleshmind/structure/structure_thing as anything in controlled_structures)
 		qdel(structure_thing)
+
 	for(var/obj/structure/fleshmind/structure/wireweed_wall/wall_thing as anything in controlled_walls)
 		qdel(wall_thing)
+
 	for(var/datum/component/machine_corruption/corruption_thing as anything in controlled_machine_components)
 		qdel(corruption_thing)
+
 	if(just_structures)
 		return
+
 	for(var/obj/structure/fleshmind/wireweed/wireweed_thing as anything in controlled_wireweed)
 		qdel(wireweed_thing)
+
 	for(var/obj/structure/fleshmind/structure/core/core_to_destroy as anything in cores)
 		qdel(core_to_destroy)
+
 	qdel(src)
 
 /// Handles the controller(thus AI) dying
@@ -451,8 +493,10 @@
 	switch(death_behaviour)
 		if(CONTROLLER_DEATH_DO_NOTHING)
 			qdel(src)
+
 		if(CONTROLLER_DEATH_DELETE_ALL)
 			delete_everything()
+
 		if(CONTROLLER_DEATH_SLOW_DECAY)
 			delete_everything(TRUE)
 
@@ -461,5 +505,6 @@
 	if(!LAZYLEN(controlled_wireweed))
 		qdel(src)
 		return
+
 	var/obj/structure/fleshmind/wireweed/wireweed_thing = controlled_wireweed[LAZYLEN(controlled_wireweed)]
 	qdel(wireweed_thing)
