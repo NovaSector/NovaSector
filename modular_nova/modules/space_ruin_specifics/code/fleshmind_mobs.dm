@@ -62,16 +62,20 @@
 /mob/living/simple_animal/hostile/fleshmind/death(gibbed)
 	if(contained_mob)
 		contained_mob.forceMove(get_turf(src))
+
 		if(previous_ckey)
 			contained_mob.key = previous_ckey
+
 		contained_mob = null
 	return ..()
 
 /mob/living/simple_animal/hostile/fleshmind/Destroy()
 	if(contained_mob)
 		contained_mob.forceMove(get_turf(src))
+
 		if(previous_ckey)
 			contained_mob.key = previous_ckey
+
 		contained_mob = null
 	return ..()
 
@@ -91,17 +95,22 @@
 	var/turf/target_turf = get_step(target_from, direction)
 	if(QDELETED(target_turf))
 		return
+
 	if(target_turf.Adjacent(target_from))
 		if(CanSmashTurfs(target_turf))
 			target_turf.attack_animal(src)
 			return
+
 	for(var/obj/iterating_object in target_turf.contents)
 		if(!iterating_object.Adjacent(target_from))
 			continue
+
 		if(istype(iterating_object, /obj/structure/fleshmind))
 			var/obj/structure/fleshmind/friendly_object = iterating_object
+
 			if(faction_check(friendly_object.faction_types, faction))
 				continue
+
 		if((ismachinery(iterating_object) || isstructure(iterating_object)) && iterating_object.density && environment_smash >= ENVIRONMENT_SMASH_STRUCTURES && !iterating_object.IsObscured())
 			iterating_object.attack_animal(src)
 			return
@@ -114,13 +123,18 @@
 	. = ..()
 	if(!.) //dead
 		return
+
 	if(key)
 		return
+
 	if(!suffering_malfunction && malfunction_chance && prob(malfunction_chance * delta_time) && stat != DEAD)
 		malfunction()
+
 	if(passive_speak_lines && prob(passive_speak_chance * delta_time))
 		say_passive_speech()
+
 	if(escapes_closets)
+
 		closet_interaction()
 
 	disposal_interaction()
@@ -542,21 +556,6 @@
 	move_to_delay = 4
 	mob_size = MOB_SIZE_HUMAN
 	attack_sound = 'sound/weapons/circsawhit.ogg'
-	alert_sounds = list(
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/aggro_01.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/aggro_02.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/aggro_03.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/aggro_04.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/aggro_05.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/aggro_06.ogg',
-	)
-	passive_sounds = list(
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/passive_01.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/passive_02.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/passive_03.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/passive_04.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/hiborg/passive_05.ogg',
-	)
 	speak = list(
 		"You made my body into metal, why can't I do it to you?",
 		"Can't we put your brain in a machine?",
@@ -701,22 +700,6 @@
 		"This isn't so bad. This isn't so bad.",
 		"I have butterflies in my stomach. I'm finally content with myself..",
 		"The flesh provides. I-it's giving me what the Company never could.",
-	)
-	alert_sounds = list(
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_01.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_02.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_03.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_04.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_05.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_06.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_07.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/aggro_08.ogg',
-	)
-	passive_sounds = list(
-		'modular_nova/modules/space_ruin_specifics/sound/himan/passive_01.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/passive_02.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/passive_03.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/himan/passive_04.ogg',
 	)
 	del_on_death = TRUE
 	loot = list(
@@ -959,12 +942,16 @@
 
 /mob/living/simple_animal/hostile/fleshmind/phaser/ShiftClickOn(atom/clicked_atom)
 	. = ..()
+
 	if(!COOLDOWN_FINISHED(src, manual_phase))
 		return
+
 	if(!clicked_atom)
 		return
+
 	if(!isturf(clicked_atom))
 		return
+
 	phase_move_to(clicked_atom)
 	COOLDOWN_START(src, manual_phase, manual_phase_cooldown)
 
@@ -1066,11 +1053,13 @@
 /mob/living/simple_animal/hostile/fleshmind/phaser/proc/phase_jump(turf/place)
 	if(!place)
 		return
+
 	playsound(place, 'sound/effects/phasein.ogg', 60, 1)
 	animate(filters[1], size = 0, time = 5)
 	icon_state = "[base_icon_state]-[rand(1, 4)]"
 	forceMove(place)
 	for(var/mob/living/living_mob in place)
+
 		if(living_mob != src)
 			visible_message("[src] lands directly on top of [living_mob]!")
 			to_chat(living_mob, span_userdanger("[src] lands directly on top of you!"))
@@ -1101,16 +1090,20 @@
 	var/mob/living/intermediate_target = target
 	if(target_override)
 		intermediate_target = target_override
+
 	if(!intermediate_target)
 		return
+
 	COOLDOWN_START(src, phase_ability_cooldown, phase_ability_cooldown_time)
 	var/list/possible_turfs = list()
+
 	for(var/turf/open/open_turf in circle_view_turfs(src, phase_range))
 		possible_turfs += open_turf
 
 	for(var/i in 1 to copy_amount)
 		if(!LAZYLEN(possible_turfs))
 			break
+
 		var/turf/open/picked_turf = pick_n_take(possible_turfs)
 		var/obj/effect/temp_visual/phaser/phaser_copy = new (pick(picked_turf), intermediate_target)
 		phaser_copy.RegisterSignal(src, COMSIG_PHASER_PHASE_MOVE, /obj/effect/temp_visual/phaser/proc/parent_phase_move)
@@ -1133,8 +1126,10 @@
 	for(var/mob/living/possible_target in view(DEFAULT_VIEW_RANGE, phaser_owner))
 		if(possible_target == src)
 			continue
+
 		if(faction_check(phaser_owner.faction, possible_target.faction))
 			continue
+
 		possible_targets += possible_target
 
 	if(!LAZYLEN(possible_targets))
@@ -1273,24 +1268,7 @@
 		"Whatever form you want to be, just whisper it into my radio. You can become what you were meant to be.",
 		"It.. hurts, seeing you run. Knowing I can't keep up. Why won't you let other people help you..?",
 	)
-	alert_sounds = list(
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/aggro_01.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/aggro_02.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/aggro_03.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/aggro_04.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/aggro_05.ogg',
-	)
-	passive_sounds = list(
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_01.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_02.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_03.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_04.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_05.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_06.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_07.ogg',
-		'modular_nova/modules/space_ruin_specifics/sound/mechiver/passive_08.ogg',
 
-	)
 	del_on_death = TRUE
 	loot = list(/obj/effect/gibspawner/robot)
 	move_force = MOVE_FORCE_OVERPOWERING

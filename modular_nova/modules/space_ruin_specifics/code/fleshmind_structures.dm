@@ -206,8 +206,10 @@
 	. = ..()
 	if(!faction_check(faction_types, user.faction))
 		return
+
 	if(!user.can_interact_with(src))
 		return
+
 	toggle_door()
 	to_chat(user, span_notice("You [door_state ? "close" : "open"] [src]!"))
 
@@ -215,9 +217,11 @@
 	. = ..()
 	if(!isliving(bumped_atom))
 		return
+
 	var/mob/living/bumped_mob = bumped_atom
 	if(!faction_check(faction_types, bumped_mob.faction))
 		return
+
 	toggle_door()
 
 /obj/structure/fleshmind/structure/wireweed_door/update_icon_state()
@@ -228,9 +232,11 @@
 	if(door_state) // opening
 		door_state = FALSE
 		flick("door_opening", src)
+
 	else // Closing
 		door_state = TRUE
 		flick("door_closing", src)
+
 	density = door_state
 	opacity = door_state
 	update_appearance()
@@ -299,17 +305,20 @@
 		else
 			icon_state = "core-see"
 			dir = get_dir(src, target)
+
 	else
 		icon_state = base_icon_state
 
 	if(COOLDOWN_FINISHED(src, attack_move))
 		return
 	var/has_attacked = FALSE
+
 	for(var/turf/range_turf as anything in RANGE_TURFS(1, loc))
 		for(var/thing in range_turf)
 			has_attacked = core_attack_atom(thing)
 			if(has_attacked)
 				break
+
 		if(has_attacked)
 			break
 
@@ -323,6 +332,7 @@
 /obj/structure/fleshmind/structure/core/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	our_controller?.core_damaged(src)
 	COOLDOWN_START(src, attack_move, attack_cooldown)
+
 	if(does_retaliate_effect && COOLDOWN_FINISHED(src, retaliate_effect))
 		COOLDOWN_START(src, retaliate_effect, retaliate_effect_cooldown)
 		retaliate_effect()
@@ -337,18 +347,23 @@
 			switch(attack_damage_type)
 				if(BRUTE)
 					living_thing.take_bodypart_damage(brute = attack_damage, check_armor = TRUE)
+
 				if(BURN)
 					living_thing.take_bodypart_damage(burn = attack_damage, check_armor = TRUE)
+
 			has_attacked = TRUE
+
 	else if(istype(thing, /obj/vehicle/sealed/mecha))
 		var/obj/vehicle/sealed/mecha/mecha_thing = thing
 		mecha_thing.take_damage(attack_damage, attack_damage_type, MELEE, 0, get_dir(mecha_thing, src))
 		has_attacked = TRUE
+
 	if(has_attacked)
 		thing.visible_message(span_warning("\The [src] strikes [thing]!"), span_userdanger("\The [src] strikes you!"))
 		playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
 		do_attack_animation(thing, ATTACK_EFFECT_PUNCH)
 		return TRUE
+
 	return .
 
 /obj/structure/fleshmind/structure/core/proc/retaliate_effect()
@@ -359,8 +374,10 @@
 	for(var/mob/living/iterating_mob in view(whip_range, src))
 		if(iterating_mob == src)
 			continue
+
 		if(faction_check(faction_types, iterating_mob.faction))
 			continue
+
 		playsound(iterating_mob, 'sound/weapons/whip.ogg', 70, TRUE)
 		new /obj/effect/temp_visual/kinetic_blast(get_turf(iterating_mob))
 
@@ -371,6 +388,7 @@
 	for(var/turf/iterating_turf in RANGE_TURFS(1, src))
 		if(locate(/obj/structure/fleshmind/structure/wireweed_wall) in iterating_turf) // No stacking walls.
 			continue
+
 		new /obj/structure/fleshmind/structure/wireweed_wall(iterating_turf)
 
 /**
@@ -398,8 +416,10 @@
 	for(var/mob/living/iterating_mob in get_hearers_in_range(activation_range, src))
 		if(!iterating_mob.can_hear())
 			continue
+
 		if(faction_check(faction_types, iterating_mob.faction))
 			continue
+
 		iterating_mob.Knockdown(100)
 		iterating_mob.apply_status_effect(/datum/status_effect/jitter, 20 SECONDS)
 		to_chat(iterating_mob, span_userdanger("A terrible howl tears through your mind, the voice senseless, soulless."))
@@ -448,10 +468,13 @@
 	for(var/mob/living/carbon/human/iterating_human in GLOB.player_list)
 		if(iterating_human.z != z)
 			continue
+
 		if(iterating_human.stat != CONSCIOUS)
 			continue
+
 		if(faction_check(faction_types, iterating_human.faction))
 			continue
+
 		possible_candidates += iterating_human
 
 	if(LAZYLEN(possible_candidates))
@@ -530,6 +553,7 @@
 	. = ..()
 	if(!faction_check(faction_types, user.faction))
 		return
+
 	if(!user.can_interact_with(src))
 		return
 
@@ -543,6 +567,7 @@
 /obj/structure/fleshmind/structure/assembler/proc/spawn_mob()
 	if(!our_controller)
 		return
+
 	playsound(src, 'sound/items/rped.ogg', 100)
 	flick("[base_icon_state]-anim", src)
 	do_squish(0.8, 1.2)
@@ -586,12 +611,15 @@
 /obj/structure/fleshmind/structure/turret/process(delta_time)
 	if(disabled)
 		return
+
 	if(!COOLDOWN_FINISHED(src, ability_cooldown))
 		return
+
 	var/list/targets = list()
 	for(var/mob/living/target_mob in view(activation_range, src))
 		if(faction_check(target_mob.faction, faction_types))
 			continue
+
 		if(target_mob.stat != CONSCIOUS)
 			continue
 		targets += target_mob
