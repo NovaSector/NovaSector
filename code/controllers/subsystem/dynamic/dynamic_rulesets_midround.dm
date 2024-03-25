@@ -272,7 +272,14 @@
 			candidates -= player // We don't autotator people with roles already
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
-	var/mob/M = pick(candidates)
+	// NOVA EDIT ADDITION START
+	var/list/mob/living/pruned = optin(candidates)
+	if(!pruned || !pruned.len)
+		message_admins("No valid candidates found for the [name] ruleset. Nobody Signed up.")
+		log_dynamic("No valid candidates found for the [name] ruleset. Nobody Signed up.")
+		return FALSE
+	// NOVA EDIT ADDITION END
+	var/mob/M = pick(pruned) // NOVA EDIT CHANGE - ORIGINALLY pick(candidates)
 	assigned += M
 	candidates -= M
 	var/datum/antagonist/traitor/infiltrator/sleeper_agent/newTraitor = new
