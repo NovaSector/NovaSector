@@ -181,7 +181,7 @@
 		"Chef",
 		"Culinary Artist",
 		"Sous-Chef",
-		"Junior Chef"
+		"Junior Chef",
 	)
 
 /datum/job/coroner
