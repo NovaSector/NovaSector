@@ -15,10 +15,11 @@
 	. = ..()
 	. += span_notice("Using a hammer on [src] will repair its damage!")
 
+//vanilla sword with no quirks, at least its good versus other melees :)
 /obj/item/forging/reagent_weapon/sword
-	name = "reagent sword"
+	name = "forged sword"
 	desc = "A sharp, one-handed sword most adept at blocking opposing melee strikes."
-	force = 15
+	force = 20
 	armour_penetration = 10
 	icon_state = "sword"
 	inhand_icon_state = "sword"
@@ -26,7 +27,7 @@
 	belt_icon_state = "sword_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
-	block_chance = 25 //either we make it melee block only or we don't give it too much. It's bulkly so the buckler is superior
+	block_chance = 25
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -35,17 +36,19 @@
 	sharpness = SHARP_EDGED
 	max_integrity = 150
 
+//katana, one which shall cut through your puny armour
 /obj/item/forging/reagent_weapon/katana
-	name = "reagent katana"
+	name = "forged katana"
 	desc = "A katana sharp enough to penetrate body armor, but not quite million-times-folded sharp."
-	force = 15
-	armour_penetration = 25 //Slices through armour like butter, but can't quite bisect a knight like the real thing.
+	force = 20
+	armour_penetration = 25
 	icon_state = "katana"
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana_back"
 	belt_icon_state = "katana_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throwforce = 10
+	block_chance = 20
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -53,16 +56,19 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 
+//quirky knife that lets you click fast
 /obj/item/forging/reagent_weapon/dagger
-	name = "reagent dagger"
+	name = "forged dagger"
 	desc = "A lightweight dagger with an extremely quick swing!"
-	force = 8
+	force = 13
 	icon_state = "dagger"
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger_back"
 	belt_icon_state = "dagger_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	throwforce = 10
+	throw_speed = 4
+	embedding = list("pain_mult" = 2, "embed_chance" = 50, "fall_chance" = 1)
+	throwforce = 15
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FIRE_PROOF
@@ -70,12 +76,14 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 
+//what a cute gimmick
 /obj/item/forging/reagent_weapon/dagger/attack(mob/living/M, mob/living/user, params)
 	. = ..()
 	user.changeNext_move(CLICK_CD_RANGE)
 
-/obj/item/forging/reagent_weapon/staff //doesn't do damage. Useful for healing reagents.
-	name = "reagent staff"
+//this isnt a weapon...
+/obj/item/forging/reagent_weapon/staff
+	name = "forged staff"
 	desc = "A staff most notably capable of being imbued with reagents, especially useful alongside its otherwise harmless nature."
 	force = 0
 	icon_state = "staff"
@@ -88,19 +96,18 @@
 	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
 	attack_verb_simple = list("bonk", "bash", "whack", "poke", "prod")
 
-/obj/item/forging/reagent_weapon/staff/attack(mob/living/M, mob/living/user, params)
-	. = ..()
-	user.changeNext_move(CLICK_CD_RANGE)
-
+//omg, two tile range! surely i wont lose a fight now...
 /obj/item/forging/reagent_weapon/spear
-	name = "reagent spear"
+	name = "forged spear"
 	desc = "A long spear that can be wielded in two hands to boost damage at the cost of single-handed versatility."
-	force = 10
-	armour_penetration = 10
+	force = 13
+	armour_penetration = 15
 	icon_state = "spear"
 	inhand_icon_state = "spear"
 	worn_icon_state = "spear_back"
-	throwforce = 15 //not a javelin, throwing specialty is for the axe.
+	throwforce = 22
+	throw_speed = 4
+	embedding = list("pain_mult" = 6, "embed_chance" = 75, "fall_chance" = 0)
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -110,34 +117,37 @@
 	wound_bonus = -15
 	bare_wound_bonus = 15
 	reach = 2
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_EDGED
 
+//this is 1:1 with the bonespear, lets use this as a 'balance anchor'. weapons that blatantly outclass this are powercrept.
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 17) //better than the bone spear
+	AddComponent(/datum/component/two_handed, force_unwielded = 13, force_wielded = 23)
 
+//throwing weapons, what a fun gimmick. lets make them actually worth using
 /obj/item/forging/reagent_weapon/axe
-	name = "reagent axe"
+	name = "forged axe"
 	desc = "An axe especially balanced for throwing and embedding into fleshy targets. Nonetheless useful as a traditional melee tool."
-	force = 15
+	force = 13
 	armour_penetration = 10
 	icon_state = "axe"
 	inhand_icon_state = "axe"
 	worn_icon_state = "axe_back"
-	throwforce = 22 //ouch
+	throwforce = 18
 	throw_speed = 4
-	embedding = list("impact_pain_mult" = 2, "remove_pain_mult" = 4, "jostle_chance" = 2.5)
+	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10)
 	slot_flags = ITEM_SLOT_BACK
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FIRE_PROOF
 	attack_verb_continuous = list("slashes", "bashes")
 	attack_verb_simple = list("slash", "bash")
 	sharpness = SHARP_EDGED
 
+//Boring option for doing the most raw damage
 /obj/item/forging/reagent_weapon/hammer
-	name = "reagent hammer"
+	name = "forged hammer"
 	desc = "A heavy, weighted hammer that packs an incredible punch but can prove to be unwieldy. Useful for forging!"
-	force = 19 //strong but boring.
+	force = 24 //Requires wielding
 	armour_penetration = 10
 	icon_state = "crush_hammer"
 	inhand_icon_state = "crush_hammer"
@@ -157,6 +167,7 @@
 
 /obj/item/forging/reagent_weapon/hammer/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded = 24, force_wielded = 24, require_twohands = TRUE)
 	AddElement(/datum/element/kneejerk)
 
 /obj/item/forging/reagent_weapon/hammer/attack_atom(atom/attacked_atom, mob/living/user, params)
@@ -165,8 +176,8 @@
 		return
 	user.changeNext_move(CLICK_CD_RAPID)
 
-/obj/item/shield/buckler/reagent_weapon //Same as a buckler, but metal.
-	name = "reagent plated buckler shield"
+/obj/item/shield/buckler/reagent_weapon
+	name = "forged buckler shield"
 	desc = "A small, round shield best used in tandem with a melee weapon in close-quarters combat."
 	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
 	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
@@ -211,7 +222,7 @@
 	return ..()
 
 /obj/item/shield/buckler/reagent_weapon/pavise //similar to the adamantine shield. Huge, slow, lets you soak damage and packs a wallop.
-	name = "reagent plated pavise shield"
+	name = "forged pavise shield"
 	desc = "An oblong shield used by ancient crossbowmen as cover while reloading. Probably just as useful with an actual gun."
 	icon_state = "pavise"
 	inhand_icon_state = "pavise"
@@ -227,14 +238,14 @@
 	AddComponent(/datum/component/two_handed, require_twohands = TRUE, force_wielded = 15)
 
 /obj/item/pickaxe/reagent_weapon
-	name = "reagent pickaxe"
+	name = "forged pickaxe"
 
 /obj/item/pickaxe/reagent_weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
 
 /obj/item/shovel/reagent_weapon
-	name = "reagent shovel"
+	name = "forged shovel"
 
 /obj/item/shovel/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -264,12 +275,12 @@
 	user.put_in_hands(converted_arrow)
 	qdel(src)
 
-#define INCREASE_BLOCK_CHANGE 2
+#define INCREASE_BLOCK_CHANCE 2
 
 /obj/item/forging/reagent_weapon/bokken
-	name = "reagent bokken"
+	name = "bokken"
 	desc = "A bokken that is capable of blocking attacks when wielding in two hands, possibly including bullets should the user be brave enough."
-	force = 15
+	force = 20
 	icon_state = "bokken"
 	inhand_icon_state = "bokken"
 	worn_icon_state = "bokken_back"
@@ -285,7 +296,7 @@
 
 /obj/item/forging/reagent_weapon/bokken/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type)
 	if(wielded)
-		final_block_chance *= INCREASE_BLOCK_CHANGE
+		final_block_chance *= INCREASE_BLOCK_CHANCE
 	if(prob(final_block_chance))
 		if(attack_type == PROJECTILE_ATTACK)
 			owner.visible_message(span_danger("[owner] deflects [attack_text] with [src]!"))
@@ -298,13 +309,13 @@
 		return TRUE
 	return FALSE
 
-#undef INCREASE_BLOCK_CHANGE
+#undef INCREASE_BLOCK_CHANCE
 
 /obj/item/forging/reagent_weapon/bokken/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded=15, force_wielded=7)
+	AddComponent(/datum/component/two_handed, force_unwielded = 20, force_wielded = 10)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
 	SIGNAL_HANDLER

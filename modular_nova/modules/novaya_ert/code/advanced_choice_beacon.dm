@@ -2,7 +2,7 @@
 	name = "advanced choice beacon"
 	desc = "A beacon that will send whatever your heart desires, providing Nanotrasen approves it."
 	icon = 'icons/obj/devices/remote.dmi'
-	icon_state = "gangtool-red"
+	icon_state = "self_delivery"
 	inhand_icon_state = null
 
 	var/list/possible_choices = list()
@@ -206,12 +206,12 @@
 	new /obj/item/ammo_box/magazine/mmg_box(src)
 	new /obj/item/ammo_box/magazine/mmg_box(src)
 	new /obj/item/ammo_box/magazine/mmg_box(src)
-	new /obj/item/minespawner/explosive(src)
-	new /obj/item/minespawner/explosive(src)
-	new /obj/item/minespawner/explosive(src)
-	new /obj/item/minespawner/explosive(src)
-	new /obj/item/minespawner/explosive(src)
-	new /obj/item/minespawner/explosive(src)
+	new /obj/item/minespawner/ancient_milsim(src)
+	new /obj/item/minespawner/ancient_milsim(src)
+	new /obj/item/minespawner/ancient_milsim(src)
+	new /obj/item/minespawner/ancient_milsim(src)
+	new /obj/item/minespawner/ancient_milsim(src)
+	new /obj/item/minespawner/ancient_milsim(src)
 	new /obj/item/grenade/frag(src)
 	new /obj/item/grenade/frag(src)
 	new /obj/item/grenade/frag(src)

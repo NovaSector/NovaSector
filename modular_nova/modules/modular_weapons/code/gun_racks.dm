@@ -12,10 +12,6 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	if(!mapload)
 		return
-	for(var/obj/item/found_item in loc.contents)
-		if(!isgun(found_item))
-			continue
-		rotate_weapon(found_item)
 
 /obj/structure/rack/gunrack/attackby(obj/item/attacking_item, mob/living/user, params)
 	var/list/modifiers = params2list(params)
@@ -37,8 +33,8 @@
 	var/matrix/new_matrix = matrix()
 	if(!being_removed)
 		new_matrix.Turn(-90)
+		RegisterSignal(incoming_weapon, COMSIG_ITEM_EQUIPPED, PROC_REF(item_picked_up))
 	incoming_weapon.transform = new_matrix
-	RegisterSignal(incoming_weapon, COMSIG_ITEM_EQUIPPED, PROC_REF(item_picked_up))
 
 /// Checks when something is leaving our turf, if its a gun then make sure to reset its transform so its not permanently rotated
 /obj/structure/rack/gunrack/proc/on_exit(datum/source, atom/movable/leaving, direction)
@@ -47,12 +43,12 @@
 	if(!isgun(leaving))
 		return
 	var/obj/item/leaving_item = leaving
-	rotate_weapon(leaving_item, TRUE)
+	rotate_weapon(leaving_item, being_removed = TRUE)
 
 /// Handles the guns being picked up to unrotate them
 /obj/structure/rack/gunrack/proc/item_picked_up(datum/source, mob/equipper, slot)
 	SIGNAL_HANDLER
 
 	var/obj/item/leaving_item = source
-	rotate_weapon(leaving_item, TRUE)
+	rotate_weapon(leaving_item, being_removed = TRUE)
 	UnregisterSignal(leaving_item, COMSIG_ITEM_EQUIPPED)

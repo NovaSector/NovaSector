@@ -219,9 +219,9 @@
 /obj/item/hand_item/slapper/attack(mob/living/slapped, mob/living/carbon/human/user)
 	SEND_SIGNAL(user, COMSIG_LIVING_SLAP_MOB, slapped)
 
-	if(ishuman(slapped))
-		var/mob/living/carbon/human/human_slapped = slapped
-		SEND_SIGNAL(human_slapped, COMSIG_ORGAN_WAG_TAIL, FALSE)
+	if(iscarbon(slapped))
+		var/mob/living/carbon/potential_tailed = slapped
+		potential_tailed.unwag_tail()
 	user.do_attack_animation(slapped)
 
 	var/slap_volume = 50
@@ -591,7 +591,7 @@
 			other_msg = "stammers softly for a moment before choking on something!"
 			self_msg = "You feel your tongue disappear down your throat as you fight to remember how to make words!"
 			addtimer(CALLBACK(living_target, TYPE_PROC_REF(/atom/movable, say), pick("Uhhh...", "O-oh, uhm...", "I- uhhhhh??", "You too!!", "What?")), rand(0.5 SECONDS, 1.5 SECONDS))
-			living_target.adjust_stutter(rand(10 SECONDS, 30 SECONDS))
+			living_target.adjust_stutter(rand(2 SECONDS, 5 SECONDS)) //NOVA EDIT - CHANGE - Original: living_target.adjust_stutter(rand(10 SECONDS, 30 SECONDS))
 		if(3)
 			other_msg = "locks up with a stunned look on [living_target.p_their()] face, staring at [firer ? firer : "the ceiling"]!"
 			self_msg = "Your brain completely fails to process what just happened, leaving you rooted in place staring at [firer ? "[firer]" : "the ceiling"] for what feels like an eternity!"

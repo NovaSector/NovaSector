@@ -354,23 +354,6 @@
 	inhand_icon_state = "security"//Could likely use a better one.
 	worn_icon_state = "security"
 	content_overlays = TRUE
-	// NOVA EDIT ADDITION START
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic Security" = list(
-			RESKIN_ICON = 'icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "security",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/belt.dmi',
-			RESKIN_WORN_ICON_STATE = "security"
-		),
-		"Peacekeeper" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
-			RESKIN_ICON_STATE = "peacekeeperbelt",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi',
-			RESKIN_WORN_ICON_STATE = "peacekeeperbelt"
-		)
-	)
-	// NOVA EDIT ADDITION END
 
 /obj/item/storage/belt/security/Initialize(mapload)
 	. = ..()
@@ -385,7 +368,7 @@
 		/obj/item/flashlight/seclite,
 		/obj/item/food/donut,
 		/obj/item/grenade,
-		/obj/item/gun, //NOVA EDIT ADDITION
+		/obj/item/gun, // NOVA EDIT - ADDITION
 		/obj/item/holosign_creator/security,
 		/obj/item/knife/combat,
 		/obj/item/melee/baton,
@@ -393,7 +376,6 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/stock_parts/cell/microfusion, //NOVA EDIT ADDITION
 		))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -511,9 +493,7 @@
 /obj/item/storage/belt/soulstone/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 6
-	atom_storage.set_holdable(list(
-		/obj/item/soulstone,
-	))
+	atom_storage.set_holdable(/obj/item/soulstone)
 
 /obj/item/storage/belt/soulstone/full/PopulateContents()
 	for(var/i in 1 to 6)
@@ -534,9 +514,7 @@
 /obj/item/storage/belt/champion/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 1
-	atom_storage.set_holdable(list(
-		/obj/item/clothing/mask/luchador,
-	))
+	atom_storage.set_holdable(/obj/item/clothing/mask/luchador)
 
 /obj/item/storage/belt/military
 	name = "chest rig"
@@ -687,9 +665,7 @@
 /obj/item/storage/belt/wands/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 6
-	atom_storage.set_holdable(list(
-		/obj/item/gun/magic/wand,
-	))
+	atom_storage.set_holdable(/obj/item/gun/magic/wand)
 
 /obj/item/storage/belt/wands/full/PopulateContents()
 	new /obj/item/gun/magic/wand/death(src)
@@ -851,11 +827,7 @@
 	atom_storage.max_slots = 1
 	atom_storage.rustle_sound = FALSE
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.set_holdable(
-		list(
-			/obj/item/melee/sabre,
-		)
-	)
+	atom_storage.set_holdable(/obj/item/melee/sabre)
 
 /obj/item/storage/belt/sabre/examine(mob/user)
 	. = ..()

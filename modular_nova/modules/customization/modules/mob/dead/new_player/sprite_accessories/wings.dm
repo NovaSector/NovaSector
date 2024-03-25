@@ -200,6 +200,7 @@
 /datum/sprite_accessory/wings/mammal/harpy/bat
 	name = "Harpy (Bat)"
 	icon_state = "harpybat"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/wings/mammal/top/harpy/alt
 	name = "Harpy (Top - Alt)"
@@ -212,6 +213,11 @@
 /datum/sprite_accessory/wings/mammal/top/harpy/bat
 	name = "Harpy (Top - Bat)"
 	icon_state = "harpybat_top"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/top/harpy/bat/fluffless
+	name = "Harpy (Top - Bat - Fluffless)"
+	icon_state = "harpybat_fluffless_top"
 
 /datum/sprite_accessory/wings/mammal/pterodactyl
 	name = "Pterodactyl"
@@ -400,6 +406,10 @@
 /datum/sprite_accessory/wings/moth/moffra
 	name = "Moth (Moffra)"
 	icon_state = "moffra"
+
+/datum/sprite_accessory/wings/moth/lightbearer
+	name = "Lightbearer"
+	icon_state = "lightbearer"
 
 /datum/sprite_accessory/wings/mammal/top/arfel_harpy
 	name = "Arfel Harpy"

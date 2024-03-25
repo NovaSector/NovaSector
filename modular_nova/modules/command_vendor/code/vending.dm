@@ -98,8 +98,6 @@
 		/obj/item/clothing/under/rank/rnd/research_director/alt = 1,
 		/obj/item/clothing/under/rank/rnd/research_director/turtleneck = 1,
 		/obj/item/clothing/under/rank/rnd/research_director/turtleneck/skirt = 1,
-		/obj/item/clothing/under/rank/rnd/research_director/nova/jumpsuit = 1,
-		/obj/item/clothing/under/rank/rnd/research_director/nova/jumpsuit/skirt = 1,
 		/obj/item/clothing/under/rank/rnd/research_director/nova/imperial = 1,
 		/obj/item/clothing/neck/cloak/rd = 1,
 		/obj/item/clothing/neck/mantle/rdmantle = 1,

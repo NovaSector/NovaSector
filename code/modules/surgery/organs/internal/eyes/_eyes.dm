@@ -86,8 +86,13 @@
 		affected_human.eye_color_right = eye_color_right
 	else
 		eye_color_right = affected_human.eye_color_right
-	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION) && !lighting_cutoff)
-		lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
+	if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION) && !lighting_cutoff)
+		//lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION START - NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on chosen quirk color, or left eye colour if not available
+		var/datum/quirk/night_vision/nv_quirk = affected_human.get_quirk(/datum/quirk/night_vision)
+		nv_quirk.nv_color_cutoffs = nv_quirk.calculate_color_cutoffs(nv_quirk.nv_color)
+		color_cutoffs = nv_quirk.nv_color_cutoffs
+		// NOVA EDIT ADDITION END
 	if(CONFIG_GET(flag/native_fov) && native_fov)
 		affected_human.add_fov_trait(type, native_fov)
 
@@ -310,7 +315,7 @@
 
 /datum/action/cooldown/golem_ore_sight/Activate(atom/target)
 	. = ..()
-	mineral_scan_pulse(get_turf(target), scanner = src)
+	mineral_scan_pulse(get_turf(target), scanner = target)
 
 ///Robotic
 
@@ -383,8 +388,9 @@
 	tint = INFINITY
 	var/obj/item/flashlight/eyelight/eye
 
-/obj/item/organ/internal/eyes/robotic/flashlight/emp_act(severity)
-	return
+/obj/item/organ/internal/eyes/robotic/flashlight/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 
 /obj/item/organ/internal/eyes/robotic/flashlight/on_mob_insert(mob/living/carbon/victim)
 	. = ..()
@@ -408,8 +414,9 @@
 	desc = "These reactive micro-shields will protect you from welders and flashes without obscuring your vision."
 	flash_protect = FLASH_PROTECTION_WELDER
 
-/obj/item/organ/internal/eyes/robotic/shield/emp_act(severity)
-	return
+/obj/item/organ/internal/eyes/robotic/shield/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 
 #define MATCH_LIGHT_COLOR 1
 #define USE_CUSTOM_COLOR 0
@@ -445,7 +452,7 @@
 	deactivate(close_ui = TRUE)
 	QDEL_NULL(eye)
 
-/obj/item/organ/internal/eyes/robotic/glow/emp_act()
+/obj/item/organ/internal/eyes/robotic/glow/emp_act(severity)
 	. = ..()
 	if(!eye.light_on || . & EMP_PROTECT_SELF)
 		return
@@ -472,7 +479,7 @@
 /obj/item/organ/internal/eyes/robotic/glow/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/item/organ/internal/eyes/robotic/glow/ui_status(mob/user)
+/obj/item/organ/internal/eyes/robotic/glow/ui_status(mob/user, datum/ui_state/state)
 	if(!QDELETED(owner))
 		if(owner == user)
 			return min(
@@ -749,16 +756,9 @@
 	low_light_cutoff = list(5, 12, 20)
 	medium_light_cutoff = list(15, 20, 30)
 	high_light_cutoff = list(30, 35, 50)
-	var/obj/item/flashlight/eyelight/adapted/adapt_light
 
 /obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_mob_insert(mob/living/carbon/eye_owner)
 	. = ..()
-	//add lighting
-	if(!adapt_light)
-		adapt_light = new /obj/item/flashlight/eyelight/adapted()
-	adapt_light.set_light_on(TRUE)
-	adapt_light.forceMove(eye_owner)
-	adapt_light.update_brightness(eye_owner)
 	ADD_TRAIT(eye_owner, TRAIT_UNNATURAL_RED_GLOWY_EYES, ORGAN_TRAIT)
 
 /obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_life(seconds_per_tick, times_fired)
@@ -771,9 +771,5 @@
 	. = ..()
 
 /obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_mob_remove(mob/living/carbon/unadapted, special = FALSE)
-	//remove lighting
-	adapt_light.set_light_on(FALSE)
-	adapt_light.update_brightness(unadapted)
-	adapt_light.forceMove(src)
 	REMOVE_TRAIT(unadapted, TRAIT_UNNATURAL_RED_GLOWY_EYES, ORGAN_TRAIT)
 	return ..()

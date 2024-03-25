@@ -505,6 +505,12 @@
 		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences))
 			. += span_notice("ERP STATUS: [erp_status_pref]")
 
+	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+		var/opt_in_status = mind?.get_effective_opt_in_level()
+		if (!isnull(opt_in_status))
+			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
+			. += span_notice("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
+
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) < TEMPORARY_FLAVOR_PREVIEW_LIMIT)

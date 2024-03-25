@@ -1,5 +1,5 @@
 /obj/item/clothing/under/rank/engineering
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/engineering_digi.dmi' // Anything that was in the engineering.dmi, should be in the engineering_digi.dmi
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/engineering_digi.dmi'
 
 /obj/item/clothing/under/rank/engineering/engineer/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/engineering.dmi'

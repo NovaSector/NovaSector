@@ -10,7 +10,7 @@
 	pass_flags = PASSTABLE
 	efficiency = 1
 	productivity = 2.5
-	anchored_tabletop_offset = 8
+	anchored_tabletop_offset = 6
 	show_categories = list(
 		RND_CATEGORY_AKHTER_FOODRICATOR_INGREDIENTS,
 		RND_CATEGORY_AKHTER_FOODRICATOR_BAGS,

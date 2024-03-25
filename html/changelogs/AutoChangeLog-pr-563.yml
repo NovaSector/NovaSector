@@ -1,4 +1,0 @@
-author: "Paxilmaniac"
-delete-after: True
-changes:
-  - image: "A single missing frame from the prefab shutter closing animation has been re-placed, meaning they wont vanish for 1/10 of a second whenever closing"

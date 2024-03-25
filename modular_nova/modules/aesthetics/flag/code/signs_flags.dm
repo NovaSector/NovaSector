@@ -81,15 +81,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/nri, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/azulea, 32)
 
-/// Please, for the love of God, use this in Black Mesa ONLY. NOWHERE ELSE. It's the only reason it was allowed in the game.
-/obj/structure/sign/flag/usa
-	name = "flag of the United States of America"
-	desc = "'Stars and Stripes', the flag of the United States of America. Its red color represents endurance and valor; blue one shows diligence, vigilance and justice, and the white one signs at pureness. Its thirteen red-and-white stripes show the initial thirteen founding colonies, and fifty stars designate the current fifty states."
-	icon_state = "flag_usa"
-	item_flag = /obj/item/sign/flag/usa
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/usa, 32)
-
 /obj/structure/sign/flag/syndicate
 	name = "flag of the Syndicate"
 	desc = "The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellion's side for their own gain."
@@ -172,13 +163,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	desc = "The folded flag of the Akulan nation Azulea."
 	icon_state = "folded_azulea"
 	sign_path = /obj/structure/sign/flag/azulea
-
-/// Please, for the love of God, use this in Black Mesa ONLY. NOWHERE ELSE. It's the only reason it was allowed in the game.
-/obj/item/sign/flag/usa
-	name = "folded flag of the United States of America"
-	desc = "The folded flag of the United States of America."
-	icon_state = "folded_usa"
-	sign_path = /obj/structure/sign/flag/usa
 
 /obj/item/sign/flag/syndicate
 	name = "folded flag of the Syndicate"

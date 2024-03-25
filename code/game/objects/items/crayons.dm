@@ -31,6 +31,7 @@
 	attack_verb_continuous = list("attacks", "colours")
 	attack_verb_simple = list("attack", "colour")
 	grind_results = list()
+	interaction_flags_atom = parent_type::interaction_flags_atom | INTERACT_ATOM_IGNORE_MOBILITY
 
 	/// Icon state to use when capped
 	var/icon_capped
@@ -42,7 +43,7 @@
 	/// Crayon overlay to use if placed into a crayon box
 	var/crayon_color = "red"
 	/// Current paint colour
-	var/paint_color = "#FF0000"
+	var/paint_color = COLOR_RED
 
 	/// Contains chosen symbol to draw
 	var/drawtype
@@ -691,12 +692,14 @@
 
 /obj/item/storage/crayons/Initialize(mapload)
 	. = ..()
-	atom_storage.set_holdable(list(/obj/item/toy/crayon),
-		list(
+	atom_storage.set_holdable(
+		can_hold_list = /obj/item/toy/crayon,
+		cant_hold_list = list(
 			/obj/item/toy/crayon/spraycan,
 			/obj/item/toy/crayon/mime,
 			/obj/item/toy/crayon/rainbow,
-		))
+		),
+	)
 
 /obj/item/storage/crayons/PopulateContents()
 	new /obj/item/toy/crayon/red(src)
@@ -806,7 +809,7 @@
 	if(pre_noise || post_noise)
 		playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
 	if(can_change_colour)
-		set_painting_tool_color("#C0C0C0")
+		set_painting_tool_color(COLOR_SILVER)
 	update_appearance()
 	if(actually_paints)
 		H.update_lips("spray_face", paint_color)
@@ -936,13 +939,13 @@
 		var/obj/item/bodypart/limb = target
 		if(!IS_ORGANIC_LIMB(limb))
 			var/list/skins = list()
-			var/static/list/style_list_icons = list("standard" = 'icons/mob/augmentation/augments.dmi', "engineer" = 'icons/mob/augmentation/augments_engineer.dmi', "security" = 'icons/mob/augmentation/augments_security.dmi', "mining" = 'icons/mob/augmentation/augments_mining.dmi')
+			var/static/list/style_list_icons = GLOB.robotic_styles_list //NOVA EDIT CHANGE - Original: var/static/list/style_list_icons = list("standard" = 'icons/mob/augmentation/augments.dmi', "engineer" = 'icons/mob/augmentation/augments_engineer.dmi', "security" = 'icons/mob/augmentation/augments_security.dmi', "mining" = 'icons/mob/augmentation/augments_mining.dmi')
 			for(var/skin_option in style_list_icons)
 				var/image/part_image = image(icon = style_list_icons[skin_option], icon_state = "[limb.limb_id]_[limb.body_zone]")
 				if(limb.aux_zone) //Hands
 					part_image.overlays += image(icon = style_list_icons[skin_option], icon_state = "[limb.limb_id]_[limb.aux_zone]")
 				skins += list("[skin_option]" = part_image)
-			var/choice = show_radial_menu(user, src, skins, require_near = TRUE)
+			var/choice = show_radial_menu(user, src, skins, require_near = TRUE, radius = 48) //NOVA EDIT CHANGE - Increases the radius. Default is 32.
 			if(choice && (use_charges(user, 5, requires_full = FALSE)))
 				playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 				limb.change_appearance(style_list_icons[choice], greyscale = FALSE)
@@ -1010,7 +1013,7 @@
 	expose_turfs = TRUE
 	charges = 100
 	reagent_contents = list(/datum/reagent/clf3 = 1)
-	paint_color = "#000000"
+	paint_color = COLOR_BLACK
 
 /obj/item/toy/crayon/spraycan/hellcan/isValidSurface(surface)
 	return isfloorturf(surface)
@@ -1039,7 +1042,7 @@
 	overlay_paint_colour = FALSE
 
 	can_change_colour = FALSE
-	paint_color = "#FFFFFF" //RGB
+	paint_color = COLOR_WHITE //RGB
 
 	pre_noise = FALSE
 	post_noise = FALSE

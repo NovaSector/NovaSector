@@ -10,12 +10,10 @@ const commandJobs = [
   'Chief Engineer',
   'Research Director',
   'Chief Medical Officer',
-  'Quartermaster', // NOVA EDIT
-  'Nanotrasen Consultant', // NOVA EDIT
+  'Quartermaster',
+  'Nanotrasen Consultant', // NOVA EDIT ADDITION
 ];
 
-// NOVA EDIT CHANGE BEGIN - ALTERNATIVE_JOB_TITLES
-// Any instance of crewMember.trim was originally crewMember.rank
 export const CrewManifest = (props) => {
   const {
     data: { manifest, positions },
@@ -105,4 +103,3 @@ export const CrewManifest = (props) => {
     </Window>
   );
 };
-// NOVA EDIT CHANGE END - ALTERNATIVE_JOB_TITLES

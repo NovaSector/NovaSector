@@ -2,7 +2,8 @@
 	name = "Drifting Contractor"
 	typepath = /datum/round_event/ghost_role/contractor
 	weight = 8
-	max_occurrences = 1
+	max_occurrences = 0
+	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_INVASION
 	description = "A pre-equipped contractor floats towards the station to fulfill contracts."
 
@@ -15,7 +16,7 @@
 	var/list/candidates = SSpolling.poll_ghost_candidates(
 		check_jobban = ROLE_DRIFTING_CONTRACTOR,
 		role = ROLE_DRIFTING_CONTRACTOR,
-		pic_source = /obj/item/melee/baton/telescopic/contractor_baton,
+		alert_pic = /obj/item/melee/baton/telescopic/contractor_baton,
 		role_name_text = "drifting contractor",
 	)
 	if(!length(candidates))
@@ -38,6 +39,7 @@
 	mind.active = TRUE
 	mind.transfer_to(operative)
 	mind.add_antag_datum(/datum/antagonist/contractor)
+	mind.handle_exploitables()
 
 	message_admins("[ADMIN_LOOKUPFLW(operative)] has been made into [src] by an event.")
 	log_game("[key_name(operative)] was spawned as a [src] by an event.")

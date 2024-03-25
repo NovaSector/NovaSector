@@ -10,12 +10,15 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
 
-	if(!mob)
+	var/client_initalized = VALIDATE_CLIENT_INITIALIZATION(src)
+	if(isnull(mob) || !client_initalized)
+		if(!client_initalized)
+			unvalidated_client_error() // we only want to throw this warning message when it's directly related to client failure.
+
+		to_chat(usr, span_warning("Failed to send your OOC message. You attempted to send the following message:\n[span_big(msg)]"))
 		return
 
-	VALIDATE_CLIENT(src)
-
-	if(!holder)
+	if(isnull(holder))
 		if(!GLOB.ooc_allowed)
 			to_chat(src, span_danger("OOC is globally muted."))
 			return
@@ -82,6 +85,11 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	if(prefs.unlock_content)
 		if(prefs.toggles & MEMBER_PUBLIC)
 			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui_icons/chat/member_content.dmi', world, "blag")][keyname]</font>"
+	// NOVA EDIT ADDITION START - Donator icons in OOC
+	if(SSplayer_ranks.is_donator(src))
+		if(prefs.read_preference(/datum/preference/toggle/display_donator_status))
+			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('modular_nova/master_files/icons/donator/donator_chat_icon.dmi', world, "nova_logo")][keyname]</font>"
+	// NOVA EDIT ADDITION END
 	if(prefs.hearted)
 		var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
 		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"

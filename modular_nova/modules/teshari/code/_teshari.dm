@@ -5,6 +5,7 @@
 /datum/species/teshari
 	name = "Teshari"
 	id = SPECIES_TESHARI
+	no_gender_shaping = TRUE // Female uniform shaping breaks Teshari worn sprites, so this is disabled. This will not affect anything else in regards to gender however.
 	eyes_icon = 'modular_nova/modules/organs/icons/teshari_eyes.dmi'
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -55,11 +56,9 @@
 		"legs" = list("Normal Legs", FALSE),
 	)
 
-
 /obj/item/organ/internal/tongue/teshari
 	liked_foodtypes = MEAT
 	disliked_foodtypes = GROSS | GRAIN
-
 
 /datum/species/teshari/random_name(gender, unique, lastname)
 	if(unique)

@@ -404,6 +404,7 @@
 	return FALSE
 
 /obj/item/organ/internal/cyberimp/brain/nif/emp_act(severity)
+	. = ..()
 	if(!durability_loss_vulnerable)
 		return FALSE
 
