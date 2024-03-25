@@ -49,14 +49,10 @@
 	if(ishuman(new_jellyperson))
 		regenerate_limbs = new
 		regenerate_limbs.Grant(new_jellyperson)
-<<<<<<< HEAD
-		update_mail_goodies(new_jellyperson)
 		//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
 		//NOVA EDIT ADDITION END
-=======
->>>>>>> e634d661212 (Cleans up blood deficiency hardcoding (#82185))
 	new_jellyperson.AddElement(/datum/element/soft_landing)
 	RegisterSignal(new_jellyperson, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(slime_blood))
 
