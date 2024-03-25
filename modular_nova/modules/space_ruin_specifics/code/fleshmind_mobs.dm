@@ -1298,28 +1298,6 @@
 	pull_force = MOVE_FORCE_OVERPOWERING
 	/// Is our hatch open? Used in icon processing.
 	var/hatch_open = FALSE
-	/// How much damage our mob will take, upper end, when they are tormented
-	var/internal_mob_damage_upper = MECHIVER_INTERNAL_MOB_DAMAGE_UPPER
-	/// Ditto
-	var/internal_mob_damage_lower = MECHIVER_INTERNAL_MOB_DAMAGE_LOWER
-	/// How long we keep our passenger before converting them.
-	var/conversion_time = MECHIVER_CONVERSION_TIME
-	/// The comsume ability cooldown
-	var/consume_ability_cooldown_time = MECHIVER_CONSUME_COOLDOWN
-	COOLDOWN_DECLARE(consume_ability_cooldown)
-	/// A list of lines we will send to torment the passenger.
-	var/static/list/torment_lines = list(
-		"An arm grabs your neck, hundreds of manipulators trying to work a set of implants under your skin!",
-		"The cockpit radio crackles, \" You came to the right place... \"",
-		"Mechanical signals flood your psyche, \" You'll finally be with people that care... \"",
-		"A metallic sensation is slipped underneath your ribcage, an activation signal trying to reach it!",
-		"Something is pressing hard against your spine!",
-		"Some blood-hot liquid covers you!",
-		"The stench of some chemical overwhelms you, the fumes permeating your skull before washing into an alien perfume!",
-		"A dozen needles slide effortless into your muscles, injecting you with an unknown vigor!",
-		"You feel a cold worm-like thing trying to wriggle into your solar plexus, burrowing underneath your skin!",
-	)
-
 /**
  * Mauler Monkey
  *
