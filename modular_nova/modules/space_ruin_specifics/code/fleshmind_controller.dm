@@ -279,7 +279,7 @@
 
 				var/obj/structure/fleshmind/wireweed/existing_wireweed = locate() in get_turf(iterating_vent)
 
-				if(existing_wireweed) // OH SHIT IM FEELING IT
+				if(existing_wireweed)
 					continue
 
 				if(vent_distance_check &&get_dist(iterating_vent, origin_turf) >= MAX_VENT_SPREAD_DISTANCE)
@@ -364,6 +364,8 @@
 	register_new_asset(new_structure)
 	RegisterSignal(new_structure, COMSIG_QDELETING, PROC_REF(structure_death))
 
+	return new_structure
+
 /// Spawns an amount of structured across all wireweed, guaranteed to spawn atleast 1 of each type
 /datum/fleshmind_controller/proc/spawn_structures(amount)
 	if(!structure_types)
@@ -438,6 +440,7 @@
 	if(!LAZYLEN(cores))
 		controller_death()
 
+/// Starts the wireweed death process, once the core is gone the weed that shares the signal with the core starts to degrade away
 /datum/fleshmind_controller/proc/wireweed_death(obj/structure/fleshmind/dying_wireweed, force)
 	SIGNAL_HANDLER
 
@@ -446,20 +449,21 @@
 	dying_wireweed.our_controller = null
 	activate_wireweed_nearby(get_turf(dying_wireweed), GENERAL_DAMAGE_WIREWEED_ACTIVATION_RANGE)
 
-/// When a wall dies, recheck if it needs to seal atmos or remake on next spread
+/// When a wall dies, remove the signal from the known walls
 /datum/fleshmind_controller/proc/wall_death(obj/structure/fleshmind/structure/wireweed_wall/dying_wall, force)
 	SIGNAL_HANDLER
 
 	controlled_walls -= dying_wall
 	activate_wireweed_nearby(get_turf(dying_wall), GENERAL_DAMAGE_WIREWEED_ACTIVATION_RANGE)
 
-/// When a structure dies, called by structure
+/// When a structure dies but the signal is active, remove it and the signal from the count of structures
 /datum/fleshmind_controller/proc/structure_death(obj/structure/fleshmind/structure/dying_structure, force)
 	SIGNAL_HANDLER
 
 	controlled_structures -= dying_structure
 	activate_wireweed_nearby(get_turf(dying_structure), GENERAL_DAMAGE_WIREWEED_ACTIVATION_RANGE)
 
+/// Now that the core's dead, the machines that were corrupted can be reversed
 /datum/fleshmind_controller/proc/component_death(datum/component/machine_corruption/deleting_component, force)
 	SIGNAL_HANDLER
 

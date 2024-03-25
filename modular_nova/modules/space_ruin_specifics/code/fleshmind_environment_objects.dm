@@ -87,11 +87,13 @@
 			QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
+/// if burrowing through a vent, alter the icon state
 /obj/structure/fleshmind/wireweed/update_icon_state()
 	. = ..()
 	if(vent_burrow)
 		icon_state = "vent_burrow"
 
+/// EMP Damage call for wireweed
 /obj/structure/fleshmind/wireweed/emp_act(severity)
 	. = ..()
 	switch(severity)
@@ -100,6 +102,7 @@
 		if(EMP_HEAVY)
 			take_damage(40)
 
+/// Overlay and icon update for wireweed
 /obj/structure/fleshmind/wireweed/update_overlays()
 	. = ..()
 	if(active)
@@ -119,17 +122,21 @@
 					new_wall_overlay.pixel_x = -32
 			. += new_wall_overlay
 
+/// Sets the alpha after the animation finishes
 /obj/structure/fleshmind/wireweed/proc/visual_finished()
 	SIGNAL_HANDLER
 	alpha = 255
 
+/// Checks who's on top of the wireweed itself, if a faction mod heal them slowly
 /obj/structure/fleshmind/wireweed/proc/on_entered(datum/source, atom/movable/moving_atom)
 	SIGNAL_HANDLER
 	if(!isliving(moving_atom))
 		return
+
 	var/mob/living/entered_mob = moving_atom
 	if(!faction_check(entered_mob.faction, faction_types))
 		return
+
 	if(prob(WIREWEED_HEAL_CHANCE))
 		entered_mob.heal_overall_damage(WIREWEED_HEAL_AMOUNT, WIREWEED_HEAL_AMOUNT)
 		to_chat(entered_mob, span_green("[src] heals you as you cross over it!"))
