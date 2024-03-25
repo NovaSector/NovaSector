@@ -1,5 +1,10 @@
 serenitystation to do list
 
+-fix ordnance launch chute 
+-BZ floor decal (for xenobio) 
+-new areas: 
+	-cyborg dorms 
+	-cargo project room 
 -underground caves map gen
 -birds 
 -ruins:
