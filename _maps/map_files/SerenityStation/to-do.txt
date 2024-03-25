@@ -15,8 +15,8 @@ serenitystation to do list
 	-finish science (add xenobio pen blast doors)
 -missing rooms 
 	**Main
-	-arrivals ship docks 
-	-replace grav gen with cafe??
+	-arrivals ship docks (maybe on sat station) 
+	-replace grav gen with second shuttle
 	-library (& library backrooms)
 	-janitor area 
 	-chapel
