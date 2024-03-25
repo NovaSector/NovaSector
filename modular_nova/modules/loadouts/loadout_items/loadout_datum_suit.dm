@@ -64,22 +64,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Recolorable Formal Suit Jacket"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/greyscale
 
-/datum/loadout_item/suit/black_suit_jacket
-	name = "Black Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/black
-
-/datum/loadout_item/suit/blue_suit_jacket
-	name = "Blue Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer
-
-/datum/loadout_item/suit/purple_suit_jacket
-	name = "Purple Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/purple
-
-/datum/loadout_item/suit/white_suit_jacket
-	name = "White Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/white
-
 /datum/loadout_item/suit/suitblackbetter
 	name = "Light Black Formal Suit Jacket"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/black/better
@@ -506,34 +490,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/hoodie/greyscale_trim_alt
 	name = "Greyscale Trimmed Hoodie (Alt)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/trim/alt
-
-/datum/loadout_item/suit/hoodie/black
-	name = "Black Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/black
-
-/datum/loadout_item/suit/hoodie/red
-	name = "Red Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/red
-
-/datum/loadout_item/suit/hoodie/blue
-	name = "Blue Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/blue
-
-/datum/loadout_item/suit/hoodie/green
-	name = "Green Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/green
-
-/datum/loadout_item/suit/hoodie/orange
-	name = "Orange Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/orange
-
-/datum/loadout_item/suit/hoodie/yellow
-	name = "Yellow Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/yellow
-
-/datum/loadout_item/suit/hoodie/grey
-	name = "Grey Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/grey
 
 /datum/loadout_item/suit/hoodie/nt
 	name = "NT Hoodie"

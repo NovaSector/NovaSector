@@ -29,34 +29,6 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Recolorable Beanie"
 	item_path = /obj/item/clothing/head/beanie
 
-/datum/loadout_item/head/black_beanie
-	name = "Black Beanie"
-	item_path = /obj/item/clothing/head/beanie/black
-
-/datum/loadout_item/head/red_beanie
-	name = "Red Beanie"
-	item_path = /obj/item/clothing/head/beanie/red
-
-/datum/loadout_item/head/dark_blue_beanie
-	name = "Dark Blue Beanie"
-	item_path = /obj/item/clothing/head/beanie/darkblue
-
-/datum/loadout_item/head/yellow_beanie
-	name = "Yellow Beanie"
-	item_path = /obj/item/clothing/head/beanie/yellow
-
-/datum/loadout_item/head/orange_beanie
-	name = "Orange Beanie"
-	item_path = /obj/item/clothing/head/beanie/orange
-
-/datum/loadout_item/head/rastafarian
-	name = "Rastafarian Cap"
-	item_path = /obj/item/clothing/head/rasta
-
-/datum/loadout_item/head/christmas_beanie
-	name = "Christmas Beanie"
-	item_path = /obj/item/clothing/head/beanie/christmas
-
 /*
 *	BERETS
 */
@@ -464,18 +436,6 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/cowboyhat_flat_cowl
 	name = "Flat-Brimmed Hat with Cowl"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl
-
-/datum/loadout_item/head/cowboyhat_sheriff
-	name = "Sheriff Hat"
-	item_path = /obj/item/clothing/head/cowboy/nova/flat/sheriff
-
-/datum/loadout_item/head/cowboyhat_deputy
-	name = "Deputy Hat"
-	item_path = /obj/item/clothing/head/cowboy/nova/flat/deputy
-
-/datum/loadout_item/head/cowboyhat_winter
-	name = "Winter Cowboy Hat"
-	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff
 
 /*
 *	TREK HATS (JOB-LOCKED)

@@ -7449,6 +7449,7 @@
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_neck.dm"
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_pocket.dm"
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_shoes.dm"
+#include "modular_nova\modules\loadouts\loadout_items\loadout_datum_signature.dm"
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_suit.dm"
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_toys.dm"
 #include "modular_nova\modules\loadouts\loadout_items\pizzabox.dm"
