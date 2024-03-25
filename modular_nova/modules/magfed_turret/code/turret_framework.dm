@@ -57,7 +57,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/item/storage/toolbox/emergency/turret/mag_fed/examine(mob/user)
 	. = ..()
 	. += span_notice("The targeting safety is [turret_safety ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")
-	. += span_notice("The turret is [turret_safety ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
+	. += span_notice("The turret is [flags_on ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
 	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <font color='#00ff15'><b>wrenching tool</b></font>")
 	. += span_notice("You can toggle the targeting safety with a <font color='#00ff15'><b>screwdriving bit</b></font>")
 	. += span_notice("You can change if the turret obeys flags with a <font color='#00ff15'><b>multitool</b></font>")
