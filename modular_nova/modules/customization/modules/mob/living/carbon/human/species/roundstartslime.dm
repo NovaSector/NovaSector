@@ -5,6 +5,10 @@
 	hair_color = "mutcolor"
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
+	mutantliver = /obj/item/organ/internal/liver/slime
+	mutantstomach = /obj/item/organ/internal/stomach/slime
+	mutantbrain = /obj/item/organ/internal/brain/slime
+	inherent_traits = (TRAIT_EASYDISMEMBER)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -18,6 +22,55 @@
 		"spines" = list("None", FALSE),
 		"frills" = list("None", FALSE),
 	)
+
+/obj/item/organ/internal/eyes/jelly
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/tongue/jelly
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/lungs/slime
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/liver/slime
+	name = "endoplasmic reticulum"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/stomach/slime
+	name = "golgi apparatus"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/brain/slime
+	name = "nucleus"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/bodypart/head/slime
+	can_dismember = TRUE //Their organs are in their chest now. It's okay.
+
+/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
+	. = ..()
+	if(slime.stat != CONSCIOUS)
+		return
+
+	if(slime.blood_volume > BLOOD_VOLUME_NORMAL)
+		slime.heal_overall_damage(brute = 0.5 * seconds_per_tick, burn = 0.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+		slime.adjustOxyLoss(-0.5 * seconds_per_tick)
+
+/datum/species/jelly/handle_chemical(mob/living/carbon/slime, datum/reagent/chem, seconds_per_tick, times_fired)
+	. = ..()
+	// slimes use plasma to fix wounds, and if they have enough blood, organs
+	if(istype(chem, /datum/reagent/toxin/plasma) || istype(chem, /datum/reagent/toxin/hot_ice))
+		for(var/datum/wound/iter_wound as anything in slime.all_wounds)
+			iter_wound.on_xadone(4 * REM * seconds_per_tick)
+		if(slime.blood_volume < BLOOD_VOLUME_SLIME_SPLIT)
+			slime.fully_heal(HEAL_ORGANS)
+		return // Do normal metabolism
 
 /datum/species/jelly/get_species_description()
 	return placeholder_description
@@ -111,7 +164,7 @@
 
 /datum/action/innate/alter_form/New(Target)
 	. = ..()
-	
+
 	generate_radial_icons()
 
 	if(length(available_choices))
