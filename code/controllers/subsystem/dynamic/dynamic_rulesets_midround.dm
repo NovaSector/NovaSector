@@ -275,10 +275,13 @@
 	// NOVA EDIT ADDITION START
 	message_admins("Polling [candidates.len] people individually to become a Sleeper Agent")
 	var/mob/living/candidate = null
-	for(var/mob/living/player in candidates)
-		var/list/mob/living/picked = optin(list(player))
-		if(picked.len)
-			candidate = picked
+	var/i
+	for(i=0, i<candidates.len, i++)
+		var/list/mob/living/picked = pick(candidates)
+		candidates -= picked
+		var/list/mob/living/result = optin(list(picked))
+		if(result.len)
+			candidate = result
 			break
 	// NOVA EDIT ADDITION END
 	var/mob/M = pick(candidate) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
