@@ -245,7 +245,8 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,	//NOVA EDIT ADDITION - adds surgery gowns to belts
+		/obj/item/clothing/head/utility/surgerycap,
+		/obj/item/clothing/suit/toggle/labcoat/hospitalgown, //NOVA EDIT ADDITION - adds surgery gowns to belts
 		/obj/item/construction/plumbing,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
