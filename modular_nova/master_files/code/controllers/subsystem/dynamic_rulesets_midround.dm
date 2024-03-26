@@ -1,4 +1,5 @@
 /datum/dynamic_ruleset/midround/from_living/autotraitor/proc/optin(candidates)
+	message_admins("Polling [candidates.len] people to become a Sleeper Agent")
 	var/list/mob/living/candidates_pruned = SSpolling.poll_candidates(
 		question = "Do you want to be a syndicate sleeper agent?",
 		group = candidates,
