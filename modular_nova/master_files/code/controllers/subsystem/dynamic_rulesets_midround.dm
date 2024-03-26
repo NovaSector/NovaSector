@@ -2,8 +2,8 @@
 	var/list/mob/living/candidates_pruned = SSpolling.poll_candidates(
 		question = "Do you want to be a syndicate sleeper agent?",
 		group = candidates,
-		poll_time = 30 SECONDS,
-		flash_window = FALSE,
+		poll_time = 20 SECONDS,
+		flash_window = TRUE,
 		start_signed_up = FALSE,
 		alert_pic = /obj/structure/sign/poster/contraband/gorlex_recruitment,
 		custom_response_messages = list(
