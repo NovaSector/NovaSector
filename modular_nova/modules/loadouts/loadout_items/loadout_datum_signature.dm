@@ -3,6 +3,7 @@
 */
 
 ///WEAPONS
+
 GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/signature))
 
 /datum/loadout_item/signature
@@ -23,6 +24,7 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 		outfit.l_hand = item_path
 
 ///MELEE
+
 /datum/loadout_item/signature/bowie_sheath
 	name = "Bowie Sheath"
 	item_path = /obj/item/storage/belt/bowie_sheath
@@ -59,7 +61,12 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 	name = "Weaponized Advanced Mop"
 	item_path = /obj/item/mop/advanced/weaponized
 
+/datum/loadout_item/signature/mech_removal
+	name = "Pilot Extraction Tool"
+	item_path = /obj/item/crowbar/mechremoval
+
 ///RANGED
+
 /datum/loadout_item/signature/wespe
 	name = "Wespe Pistol Case"
 	item_path = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe
@@ -129,6 +136,7 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 	item_path = /obj/item/choice_beacon/mecha
 
 ///MODULES
+
 /datum/loadout_item/signature/medbeammod
 	name = "Medbeam Module"
 	item_path = /obj/item/mod/module/medbeam
@@ -142,6 +150,7 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 	item_path = /obj/item/mod/module/dispenser/ninja
 
 ///UTILITY
+
 /datum/loadout_item/signature/hypospray
 	name = "Deluxe Hypospray Kit"
 	item_path = /obj/item/storage/hypospraykit/cmo
