@@ -275,8 +275,8 @@
 	// NOVA EDIT ADDITION START
 	message_admins("Polling [candidates.len] people to become a Sleeper Agent")
 	var/list/mob/living/pruned = optin(candidates)
+	message_admins("[pruned.len] people out of the [candidates.len] polled have opted in to become a Sleeper Agent")
 	if(!pruned || !pruned.len)
-		message_admins("No valid candidates found for the [name] ruleset. Nobody Signed up.")
 		log_dynamic("No valid candidates found for the [name] ruleset. Nobody Signed up.")
 		return FALSE
 	// NOVA EDIT ADDITION END
