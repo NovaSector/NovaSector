@@ -279,7 +279,7 @@
 		log_dynamic("No valid candidates found for the [name] ruleset. Nobody Signed up.")
 		return FALSE
 	// NOVA EDIT ADDITION END
-	var/mob/M = pick(pruned) // NOVA EDIT CHANGE - ORIGINALLY pick(candidates)
+	var/mob/M = pick(pruned) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
 	candidates -= M
 	var/datum/antagonist/traitor/infiltrator/sleeper_agent/newTraitor = new
