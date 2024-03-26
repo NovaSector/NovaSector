@@ -7525,6 +7525,7 @@
 #include "modular_nova\modules\marines\code\mod.dm"
 #include "modular_nova\modules\marines\code\modsuit_modules.dm"
 #include "modular_nova\modules\marines\code\smartgun.dm"
+#include "modular_nova\modules\mech_beacon\mech_beacon.dm"
 #include "modular_nova\modules\medical\code\anesthetic_machine.dm"
 #include "modular_nova\modules\medical\code\carbon_examine.dm"
 #include "modular_nova\modules\medical\code\carbon_update_icons.dm"

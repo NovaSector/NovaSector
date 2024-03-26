@@ -20,6 +20,24 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	else
 		outfit.suit = item_path
 
+/// ARMOR AND SPACESUITS
+
+/datum/loadout_item/suit/ntrauma
+	name = "Trauma Team Softsuit"
+	item_path = /obj/item/clothing/suit/space/ntrauma
+
+/datum/loadout_item/suit/frontier_flak
+	name = "Frontier Flak Jacket"
+	item_path = /obj/item/clothing/suit/frontier_colonist_flak
+
+/datum/loadout_item/suit/armor_sec
+	name = "Lopland Tactical Armored Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/alt/sec
+
+/datum/loadout_item/suit/expeditionary_corps
+	name = "Expeditionary Corps Armored Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/expeditionary_corps
+
 /*
 *	WINTER COATS
 */
@@ -197,61 +215,13 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 *	COSTUMES
 */
 
-/datum/loadout_item/suit/owl
-	name = "Owl Cloak"
-	item_path = /obj/item/clothing/suit/toggle/owlwings
-
-/datum/loadout_item/suit/griffin
-	name = "Griffon Cloak"
-	item_path = /obj/item/clothing/suit/toggle/owlwings/griffinwings
-
 /datum/loadout_item/suit/syndi
 	name = "Black And Red Space Suit Replica"
 	item_path = /obj/item/clothing/suit/syndicatefake
 
-/datum/loadout_item/suit/bee
-	name = "Bee Outfit"
-	item_path = /obj/item/clothing/suit/hooded/bee_costume
-
 /datum/loadout_item/suit/plague_doctor
 	name = "Plague Doctor Suit"
 	item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit
-
-/datum/loadout_item/suit/snowman
-	name = "Snowman Outfit"
-	item_path = /obj/item/clothing/suit/costume/snowman
-
-/datum/loadout_item/suit/chicken
-	name = "Chicken Suit"
-	item_path = /obj/item/clothing/suit/costume/chickensuit
-
-/datum/loadout_item/suit/monkey
-	name = "Monkey Suit"
-	item_path = /obj/item/clothing/suit/costume/monkeysuit
-
-/datum/loadout_item/suit/cardborg
-	name = "Cardborg Suit"
-	item_path = /obj/item/clothing/suit/costume/cardborg
-
-/datum/loadout_item/suit/xenos
-	name = "Xenos Suit"
-	item_path = /obj/item/clothing/suit/costume/xenos
-
-/datum/loadout_item/suit/ian_costume
-	name = "Corgi Costume"
-	item_path = /obj/item/clothing/suit/hooded/ian_costume
-
-/datum/loadout_item/suit/carp_costume
-	name = "Carp Costume"
-	item_path = /obj/item/clothing/suit/hooded/carp_costume
-
-/datum/loadout_item/suit/shark_costume
-	name = "Shark Costume"
-	item_path = /obj/item/clothing/suit/hooded/shark_costume
-
-/datum/loadout_item/suit/shork_costume
-	name = "Shork Costume"
-	item_path = /obj/item/clothing/suit/hooded/shork_costume
 
 /datum/loadout_item/suit/wizard
 	name = "Wizard Robe"
@@ -260,18 +230,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/witch
 	name = "Witch Robe"
 	item_path = /obj/item/clothing/suit/wizrobe/marisa/fake
-
-/*
-*	SEASONAL
-*/
-
-/datum/loadout_item/suit/winter_coat/christmas
-	name = "Christmas Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas
-
-/datum/loadout_item/suit/winter_coat/christmas/green
-	name = "Green Christmas Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green
 
 /*
 *	MISC

@@ -25,6 +25,10 @@ GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/a
 	name = "Maid Apron"
 	item_path = /obj/item/clothing/accessory/maidapron
 
+/datum/loadout_item/accessory/combat_maid
+	name = "Tactical Maid Apron"
+	item_path = /obj/item/clothing/accessory/maidcorset/syndicate
+
 /datum/loadout_item/accessory/waistcoat
 	name = "Waistcoat"
 	item_path = /obj/item/clothing/accessory/waistcoat
