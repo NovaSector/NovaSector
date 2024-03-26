@@ -7055,6 +7055,7 @@
 #include "modular_nova\modules\customization\modules\client\augment\implants.dm"
 #include "modular_nova\modules\customization\modules\client\augment\limbs.dm"
 #include "modular_nova\modules\customization\modules\client\augment\organs.dm"
+#include "modular_nova\modules\customization\modules\client\augment\species_limbs.dm"
 #include "modular_nova\modules\customization\modules\clothing\accessories.dm"
 #include "modular_nova\modules\customization\modules\clothing\toggle_base.dm"
 #include "modular_nova\modules\customization\modules\clothing\ears\ears.dm"
