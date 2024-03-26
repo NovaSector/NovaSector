@@ -273,6 +273,7 @@
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
 	// NOVA EDIT ADDITION START
+	message_admins("Polling [candidates.len] people to become a Sleeper Agent")
 	var/list/mob/living/pruned = optin(candidates)
 	if(!pruned || !pruned.len)
 		message_admins("No valid candidates found for the [name] ruleset. Nobody Signed up.")
