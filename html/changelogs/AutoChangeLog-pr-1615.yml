@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "fixes a missed section of indestructible walls on the Shuttle8352 Ruin"
+  - rscadd: "adds the ghost_nif box for BMD and Freighter"

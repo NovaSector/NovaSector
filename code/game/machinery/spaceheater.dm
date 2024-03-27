@@ -7,7 +7,7 @@
 	anchored = FALSE
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
-	icon = 'icons/obj/pipes_n_cables/atmos.dmi' // NOVA EDIT CHANGE - ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/pipes_n_cables/atmos.dmi'
 	icon_state = "sheater-off"
 	base_icon_state = "sheater"
 	name = "space heater"
@@ -174,7 +174,10 @@
 
 	settable_temperature_range = cap * 30
 	efficiency = ((cap + 1) * 10) / (1 KILO JOULES)
+
+	target_temperature = clamp(target_temperature,
 		max(settable_temperature_median - settable_temperature_range, TCMB),
+		settable_temperature_median + settable_temperature_range)
 
 /obj/machinery/space_heater/emp_act(severity)
 	. = ..()
@@ -450,7 +453,7 @@
 	heating_power = lasers_rating * 20000
 
 	settable_temperature_range = capacitors_rating * 50 //-20 - 80 at base
-	efficiency = (capacitors_rating + 1) * 10000
+	efficiency = (capacitors_rating + 1) * 10
 
 	target_temperature = clamp(target_temperature,
 		max(settable_temperature_median - settable_temperature_range, TCMB),
