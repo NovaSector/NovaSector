@@ -194,3 +194,29 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	"Genderqueer Pride" = "pride_genderqueer",
 	"Aromantic Pride" = "pride_aromantic",
 ))
+
+/obj/item/clothing/accessory/kneepad
+	name = "\improper kneepad"
+	desc = "The parent to all kneepads"
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	icon_state = "kneepad_cheap"
+	inhand_icon_state = "kneepad_cheap"
+	slot_flags = ITEM_SLOT_ON_BODY
+	attachment_slot = LEGS
+
+/obj/item/clothing/accessory/kneepad/cheap
+	name = "improvised kneepads"
+	desc = "An old backpack and sheet steel sign have found new life as craftmade PPE. These types of kneepads are common both with freelance scavs and as in field replacements for the attrition experienced by factory made gear."
+
+/obj/item/clothing/accessory/kneepad/basic
+	name = "kneepads"
+	desc = "Innumerable indistinguishable kneepads like this pair are issued to contract scavenge techs. The compression sleeves are said to improve leg posture, but they tend to lose their elasticity with extended use."
+	icon_state = "kneepad_basic"
+	inhand_icon_state = "kneepad_basic"
+
+/obj/item/clothing/accessory/kneepad/expensive
+	name = "Lopland Tactical Knee Defenders"
+	desc = "The Lopland Tactical catalogue devotes two paragraphs to explaining the features on these kneepads, but it still isn't clear how different they are from cheaper models. Some operatives and private owners alike swear they last longer, though."
+	icon_state = "kneepad_expensive"
+	inhand_icon_state = "kneepad_expensive"

@@ -23,10 +23,6 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 			LAZYADD(outfit.backpack_contents, outfit.l_hand)
 		outfit.l_hand = item_path
 
-/datum/loadout_item/inhand/frontier_med_kit
-	name = "Frontier Medical Kit"
-	item_path = /obj/item/storage/medkit/frontier/stocked
-
 /datum/loadout_item/inhand/cane
 	name = "Cane"
 	item_path = /obj/item/cane

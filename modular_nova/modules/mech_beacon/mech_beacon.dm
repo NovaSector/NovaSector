@@ -41,7 +41,7 @@
 	update_part_values()
 
 /obj/vehicle/sealed/mecha/savannah_ivanov/exstasi
-	name = "\improper Savannah_Ivanov 'Ecstasy of Saint Teresa'"
+	name = "\improper Savannah Ivanov 'Ecstasy of Saint Teresa'"
 	desc = "A high mobility fire support mech with a lightweight, long range loadout, named for Bernini's masterpiece sculpture of Teresa of Avila."
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,

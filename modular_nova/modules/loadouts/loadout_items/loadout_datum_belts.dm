@@ -28,6 +28,10 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 	name = "Expeditionary Corps Chest Rig"
 	item_path = /obj/item/storage/belt/military/expeditionary_corps
 
+/datum/loadout_item/belts/Crusader
+	name = "Scabbard"
+	item_path = /obj/item/storage/belt/crusader
+
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Black Fannypack"
 	item_path = /obj/item/storage/belt/fannypack/black

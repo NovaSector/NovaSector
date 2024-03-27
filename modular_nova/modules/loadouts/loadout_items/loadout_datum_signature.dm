@@ -45,6 +45,10 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 	name = "Vibrodachi"
 	item_path = /obj/item/highfrequencyblade/vibrodachi
 
+/datum/loadout_item/signature/house_edge
+	name = "House Edge"
+	item_path = /obj/item/house_edge
+
 /datum/loadout_item/signature/crusher
 	name = "Proto-Kinetic Crusher"
 	item_path = /obj/item/kinetic_crusher
