@@ -590,7 +590,7 @@
 			cell.charge = cell.maxcharge
 			charging = APC_FULLY_CHARGED
 
-		// NOVA ADDITION START - CLOCK CULT
+		// NOVA EDIT ADDITION START - CLOCK CULT
 		if(integration_cog)
 			var/power_delta = clamp(cell.charge - 50, 0, 50)
 			GLOB.clock_power = min(round(GLOB.clock_power + (power_delta / 2.5)) , GLOB.max_clock_power) // Will continue to siphon even if full just so the APCs aren't completely silent about having an issue (since power will regularly be full)
@@ -599,7 +599,7 @@
 			charging = APC_NOT_CHARGING
 			if(cell.charge <= 50)
 				cell.charge = 0
-		// NOVA ADDITION END
+		// NOVA EDIT ADDITION END
 	else // no cell, switch everything off
 		charging = APC_NOT_CHARGING
 		equipment = autoset(equipment, AUTOSET_FORCE_OFF)
