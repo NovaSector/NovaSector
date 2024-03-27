@@ -29,8 +29,10 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "tts_voice_pitch"
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
-	minimum = -12
-	maximum = 12
+	//NOVA EDIT CHANGE - START
+	minimum = -8 //ORIGINAL: -12
+	maximum = 4 // ORIGINAL: 12
+	//NOVA EDIT CHANGE - END
 
 /datum/preference/numeric/tts_voice_pitch/is_accessible(datum/preferences/preferences)
 	if(!SStts.tts_enabled || !SStts.pitch_enabled)
