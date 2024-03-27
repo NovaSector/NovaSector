@@ -133,6 +133,7 @@
 		drop_organs(phantom_owner) //Psuedoparts shouldn't have organs, but just in case
 		qdel(src)
 		return
+	//NOVA EDIT BEGIN - These just splatter, they don't fall off.
 	for(var/obj/item/bodypart/limb as anything in phantom_owner.bodyparts)
 		if(limb.limb_id == SPECIES_SLIMEPERSON)
 			phantom_owner.visible_message(span_notice("[phantom_owner]'s [limb] splatters with an unnerving squelch!"))
@@ -140,6 +141,7 @@
 			playsound(phantom_owner, 'sound/effects/blobattack.ogg', 60, TRUE)
 			qdel(src)
 			return
+	//NOVA EDIT END
 	if(move_to_floor)
 		if(!drop_loc) // drop_loc = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced.
 			qdel(src)
