@@ -283,6 +283,8 @@
 		if(result.len)
 			candidate = result
 			break
+	if(!candidate)
+		return FALSE
 	// NOVA EDIT ADDITION END
 	var/mob/M = pick(candidate) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
