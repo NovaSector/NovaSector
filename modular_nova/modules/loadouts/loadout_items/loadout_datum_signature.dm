@@ -167,10 +167,6 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 	name = "Combat Surgeon Medical Kit"
 	item_path = /obj/item/storage/medkit/combat_surgeon/stocked
 
-/datum/loadout_item/signature/bsminer
-	name = "Bluespace Miner Board"
-	item_path = /obj/item/circuitboard/machine/bluespace_miner
-
 /datum/loadout_item/signature/ircd
 	name = "Improved RCD"
 	item_path = /obj/item/construction/rcd/improved

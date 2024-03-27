@@ -201,7 +201,6 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	icon_state = "kneepad_cheap"
-	inhand_icon_state = "kneepad_cheap"
 	slot_flags = ITEM_SLOT_ON_BODY
 	attachment_slot = LEGS
 
