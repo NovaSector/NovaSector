@@ -158,6 +158,7 @@
 /proc/display_power(powerused)
 	return siunit(powerused, "W", 3)
 
+<<<<<<< HEAD
 ///Format an energy value in prefixed joules.
 /proc/display_joules(units)
 	return siunit(units, "J", 3)
@@ -175,6 +176,36 @@
 	// With the current configuration of wait=20 and CELLRATE=0.002, this
 	// means that one unit is 1 kJ.
 	return display_joules(energy_to_joules(units) WATTS)
+=======
+/**
+ * Format an energy value in prefixed joules.
+ * Arguments
+ *
+ * * units - the value t convert
+ */
+/proc/display_energy(units)
+	return siunit(units, "J", 3)
+
+/**
+ * Converts the joule to the watt, assuming SSmachines tick rate.
+ * Arguments
+ *
+ * * joules - the value in joules to convert
+ * * datum/controller/subsystem/scheduler - the subsystem whos wait time is used in the conversion
+ */
+/proc/energy_to_power(joules, datum/controller/subsystem/scheduler = SSmachines)
+	return joules * (1 SECONDS) / scheduler.wait
+
+/**
+ * Converts the watt to the joule, assuming SSmachines tick rate.
+ * * Arguments
+ *
+ * * joules - the value in joules to convert
+ * * datum/controller/subsystem/scheduler - the subsystem whos wait time is used in the conversion
+ */
+/proc/power_to_energy(watts, datum/controller/subsystem/scheduler = SSmachines)
+	return watts * scheduler.wait / (1 SECONDS)
+>>>>>>> 6d9df09a1be (Fixing cell power usage (Part 4) (#82227))
 
 ///chances are 1:value. anyprob(1) will always return true
 /proc/anyprob(value)
