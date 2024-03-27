@@ -477,7 +477,6 @@
 /obj/structure/alien/weeds,
 /mob/living/basic/alien/drone{
 	faction = list("Abductor");
-	plants_off = 1
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/deck4)
@@ -498,7 +497,6 @@
 /obj/structure/alien/weeds/creature,
 /mob/living/basic/alien/drone{
 	faction = list("Abductor");
-	plants_off = 1
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/deck4)
@@ -923,7 +921,6 @@
 "pz" = (
 /mob/living/basic/alien/drone{
 	faction = list("Abductor");
-	plants_off = 1
 	},
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
@@ -2514,7 +2511,6 @@
 /obj/structure/alien/weeds,
 /mob/living/basic/alien/drone{
 	faction = list("Abductor");
-	plants_off = 1
 	},
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
@@ -2894,7 +2890,6 @@
 "PI" = (
 /mob/living/basic/alien/drone{
 	faction = list("Abductor");
-	plants_off = 1
 	},
 /obj/structure/alien/weeds,
 /turf/open/floor/mineral/abductor,
@@ -3107,7 +3102,6 @@
 "Se" = (
 /mob/living/basic/alien/drone{
 	faction = list("Abductor");
-	plants_off = 1
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
