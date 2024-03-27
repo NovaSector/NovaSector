@@ -576,7 +576,7 @@
 	robot.set_anchored(FALSE)
 	REMOVE_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
 	robot.hasExpanded = TRUE
-	robot.update_transform(1.5) // NOVA EDIT CHANGE - ORIGINAL: robot.update_transform(2)
+	robot.update_transform(1) // NOVA EDIT CHANGE - ORIGINAL: robot.update_transform(2)
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
