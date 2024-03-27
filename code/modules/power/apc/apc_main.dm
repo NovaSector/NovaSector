@@ -551,11 +551,7 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-<<<<<<< HEAD
-		else if(cell.percent() < 7 && long_term_power < 0) // NOVA EDIT CHANGE - orig: 15
-=======
 		else if(cell.percent() < 15) // <15%, turn off lighting & equipment
->>>>>>> c1f11f26cef (Converts arbitrary energy units to the joule. Fixes conservation of energy issues relating to charging cells. (#81579))
 			equipment = autoset(equipment, AUTOSET_OFF)
 			lighting = autoset(lighting, AUTOSET_OFF)
 			environ = autoset(environ, AUTOSET_ON)
@@ -563,15 +559,9 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-<<<<<<< HEAD
-		else if(cell.percent() < 17 && long_term_power < 0) // NOVA EDIT CHANGE - orig: 30
+		else if(cell.percent() < 30) // <30%, turn off equipment
 			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - orig: AUTOSET_OFF
 			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - orig: AUTOSET_ON
-=======
-		else if(cell.percent() < 30) // <30%, turn off equipment
-			equipment = autoset(equipment, AUTOSET_OFF)
-			lighting = autoset(lighting, AUTOSET_ON)
->>>>>>> c1f11f26cef (Converts arbitrary energy units to the joule. Fixes conservation of energy issues relating to charging cells. (#81579))
 			environ = autoset(environ, AUTOSET_ON)
 			alarm_manager.send_alarm(ALARM_POWER)
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
@@ -600,37 +590,16 @@
 			cell.charge = cell.maxcharge
 			charging = APC_FULLY_CHARGED
 
-<<<<<<< HEAD
-		if(chargemode)
-			if(!charging)
-				if(excess > cell.maxcharge*GLOB.CHARGELEVEL)
-					chargecount++
-				else
-					chargecount = 0
-
-				if(chargecount == 10)
-
-					chargecount = 0
-					charging = APC_CHARGING
-
-		else // chargemode off
-			charging = APC_NOT_CHARGING
-			chargecount = 0
-
-		// SKYRAT ADDITION START - CLOCK CULT
+		// NOVA ADDITION START - CLOCK CULT
 		if(integration_cog)
 			var/power_delta = clamp(cell.charge - 50, 0, 50)
 			GLOB.clock_power = min(round(GLOB.clock_power + (power_delta / 2.5)) , GLOB.max_clock_power) // Will continue to siphon even if full just so the APCs aren't completely silent about having an issue (since power will regularly be full)
 			cell.charge -= power_delta * (integration_cog.set_up ? 1 : 2)
 			add_load(power_delta * (integration_cog.set_up ? 1 : 2)) // Twice the drained power if not set up yet
 			charging = APC_NOT_CHARGING
-			chargecount = 0
 			if(cell.charge <= 50)
 				cell.charge = 0
-		// SKYRAT ADDITION END
-
-=======
->>>>>>> c1f11f26cef (Converts arbitrary energy units to the joule. Fixes conservation of energy issues relating to charging cells. (#81579))
+		// NOVA ADDITION END
 	else // no cell, switch everything off
 		charging = APC_NOT_CHARGING
 		equipment = autoset(equipment, AUTOSET_FORCE_OFF)
