@@ -1,4 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - qol: "Printing a hypospray or smartdart at a ChemMaster now names it appropriately depending on what's inside."

@@ -61790,10 +61790,8 @@
 "lOn" = (
 /obj/effect/turf_decal/trimline/purple/filled/warning,
 /obj/structure/cable,
+/obj/structure/disposalpipe/junction/yjunction,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/junction/flip{
-	dir = 8
-	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "lOo" = (

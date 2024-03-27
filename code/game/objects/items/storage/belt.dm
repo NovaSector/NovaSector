@@ -245,7 +245,8 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,	//NOVA EDIT ADDITION - adds surgery gowns to belts
+		/obj/item/clothing/head/utility/surgerycap,
+		/obj/item/clothing/suit/toggle/labcoat/hospitalgown, //NOVA EDIT ADDITION - adds surgery gowns to belts
 		/obj/item/construction/plumbing,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
@@ -359,7 +360,6 @@
 	. = ..()
 	atom_storage.max_slots = 5
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = 11 // NOVA EDIT - ADDITION
 	atom_storage.set_holdable(list(
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing/shotgun,
@@ -369,7 +369,7 @@
 		/obj/item/flashlight/seclite,
 		/obj/item/food/donut,
 		/obj/item/grenade,
-		/obj/item/gun, //NOVA EDIT - ADDITION
+		/obj/item/gun, // NOVA EDIT - ADDITION
 		/obj/item/holosign_creator/security,
 		/obj/item/knife/combat,
 		/obj/item/melee/baton,
