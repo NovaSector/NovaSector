@@ -1863,10 +1863,11 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(isliving(dropping))
 		var/mob/living/M = dropping
 		if(M.can_be_held && U.pulling == M)
-			return M.mob_try_pickup(U) //NOVA EDIT CHANGE - Original: /*
+			return M.mob_try_pickup(U) //NOVA EDIT CHANGE - Original:
+			/*
 			M.mob_try_pickup(U)//blame kevinz
 			return//dont open the mobs inventory if you are picking them up
-			**/
+			*/
 	return ..()
 
 /mob/living/proc/mob_pickup(mob/living/user)
