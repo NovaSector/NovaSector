@@ -100,7 +100,7 @@
 		if(!main_draw)
 			return
 		charging.give(main_draw)
-		use_power(charge_rate / 100) //use a small bit for the charger itself, but power usage scales up with the part tier
+		use_energy(charge_rate / 100) //use a small bit for the charger itself, but power usage scales up with the part tier
 
 	update_appearance()
 
