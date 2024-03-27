@@ -133,12 +133,13 @@
 		drop_organs(phantom_owner) //Psuedoparts shouldn't have organs, but just in case
 		qdel(src)
 		return
-	if(limb_id & SPECIES_SLIMEPERSON)
-		phantom_owner.visible_message(span_notice("[phantom_owner]'s [src] splatters with an unnerving squelch!"))
-		to_chat(phantom_owner, span_warning("Your [src] splatters with an unnerving squelch!"))
-		playsound(phantom_owner, 'sound/effects/blobattack.ogg', 60, TRUE)
-		qdel(src)
-		return
+	for(var/obj/item/bodypart/limb as anything in phantom_owner.bodyparts)
+		if(limb.limb_id == SPECIES_SLIMEPERSON)
+			phantom_owner.visible_message(span_notice("[phantom_owner]'s [limb] splatters with an unnerving squelch!"))
+			to_chat(phantom_owner, span_warning("Your [src] splatters with an unnerving squelch!"))
+			playsound(phantom_owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+			qdel(src)
+			return
 	if(move_to_floor)
 		if(!drop_loc) // drop_loc = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced.
 			qdel(src)

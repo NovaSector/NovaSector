@@ -1,4 +1,6 @@
 #define SLIME_ACTIONS_ICON_FILE 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
+#define DAMAGE_WATER_STACKS 5
+#define REGEN_WATER_STACKS 1
 
 /datum/species/jelly
 	mutant_bodyparts = list()
@@ -8,7 +10,13 @@
 	mutantliver = /obj/item/organ/internal/liver/slime
 	mutantstomach = /obj/item/organ/internal/stomach/slime
 	mutantbrain = /obj/item/organ/internal/brain/slime
-	inherent_traits = (TRAIT_EASYDISMEMBER)
+	mutantears = /obj/item/organ/internal/ears/jelly
+	inherent_traits = list(
+		TRAIT_MUTANT_COLORS,
+		TRAIT_TOXINLOVER,
+		TRAIT_NOBLOOD,
+		TRAIT_EASYDISMEMBER,
+	)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -24,6 +32,11 @@
 	)
 
 /obj/item/organ/internal/eyes/jelly
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/ears/jelly
+	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
@@ -58,19 +71,56 @@
 	if(slime.stat != CONSCIOUS)
 		return
 
-	if(slime.blood_volume > BLOOD_VOLUME_NORMAL)
-		slime.heal_overall_damage(brute = 0.5 * seconds_per_tick, burn = 0.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
-		slime.adjustOxyLoss(-0.5 * seconds_per_tick)
+	var/healing = TRUE
 
-/datum/species/jelly/handle_chemical(mob/living/carbon/slime, datum/reagent/chem, seconds_per_tick, times_fired)
+	var/datum/status_effect/fire_handler/wet_stacks/wetness = locate() in slime.status_effects
+	if(istype(wetness) && wetness.stacks > (DAMAGE_WATER_STACKS))
+		slime.adjustToxLoss(1 * seconds_per_tick, forced = TRUE)
+		slime.blood_volume -= 1.5 * seconds_per_tick
+		if (SPT_PROB(25, seconds_per_tick))
+			slime.visible_message(span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"), span_warning("The water starts to dilute your body, dry it off!"))
+
+	if(istype(wetness) && wetness.stacks > (REGEN_WATER_STACKS))
+		healing = FALSE
+		if (SPT_PROB(25, seconds_per_tick))
+			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
+			slime.blood_volume -= 0.5 * seconds_per_tick
+
+	if(slime.blood_volume > BLOOD_VOLUME_NORMAL && healing)
+		slime.heal_overall_damage(brute = 2 * seconds_per_tick, burn = 2 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+		slime.adjustOxyLoss(-1 * seconds_per_tick)
+
+/datum/species/jelly/handle_chemical(datum/reagent/chem, mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
+	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
+		return
 	// slimes use plasma to fix wounds, and if they have enough blood, organs
-	if(istype(chem, /datum/reagent/toxin/plasma) || istype(chem, /datum/reagent/toxin/hot_ice))
+	var/static/list/organs_we_mend = list(
+		ORGAN_SLOT_BRAIN,
+		ORGAN_SLOT_LUNGS,
+		ORGAN_SLOT_LIVER,
+		ORGAN_SLOT_STOMACH,
+		ORGAN_SLOT_EYES,
+		ORGAN_SLOT_EARS,
+	)
+	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
 		for(var/datum/wound/iter_wound as anything in slime.all_wounds)
 			iter_wound.on_xadone(4 * REM * seconds_per_tick)
-		if(slime.blood_volume < BLOOD_VOLUME_SLIME_SPLIT)
-			slime.fully_heal(HEAL_ORGANS)
-		return // Do normal metabolism
+			slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if(slime.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+			slime.adjustOrganLoss(
+			pick(organs_we_mend),
+			- 2 * seconds_per_tick,
+		)
+		if (SPT_PROB(5, seconds_per_tick))
+			to_chat(slime, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
+	if(chem.type == /datum/reagent/water)
+		slime.adjustToxLoss(2 * REM * seconds_per_tick, forced = TRUE)
+		slime.blood_volume -= 2.5 * seconds_per_tick
+		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if (SPT_PROB(25, seconds_per_tick))
+			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))
+		return COMSIG_MOB_STOP_REAGENT_CHECK
 
 /datum/species/jelly/get_species_description()
 	return placeholder_description
