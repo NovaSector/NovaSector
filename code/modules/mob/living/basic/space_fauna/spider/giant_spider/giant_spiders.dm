@@ -109,15 +109,10 @@
 	. = ..()
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/fast_web)
 
-<<<<<<< HEAD
-/mob/living/basic/spider/giant/hunter/mold //NOVA EDIT: exists to make molds not spam the world with simple mobs
-	basic_mob_flags = DEL_ON_DEATH
-=======
 ///Used in the caves away mission.
 /mob/living/basic/spider/giant/hunter/away_caves
 	minimum_survivable_temperature = 0
 	gold_core_spawnable = NO_SPAWN
->>>>>>> 95b7fa1fb76 (Add a unit test to check that maploaded simple/basic mobs are in an environment they can survive in. (#82180))
 
 /**
  * ### Scout Spider

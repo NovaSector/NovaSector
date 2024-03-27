@@ -4655,6 +4655,7 @@
 #include "code\modules\mob\living\basic\festivus_pole.dm"
 #include "code\modules\mob\living\basic\health_adjustment.dm"
 #include "code\modules\mob\living\basic\tree.dm"
+#include "code\modules\mob\living\basic\alien\_alien.dm"
 #include "code\modules\mob\living\basic\blob_minions\blob_ai.dm"
 #include "code\modules\mob\living\basic\blob_minions\blob_mob.dm"
 #include "code\modules\mob\living\basic\blob_minions\blob_spore.dm"
