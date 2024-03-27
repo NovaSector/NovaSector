@@ -843,3 +843,20 @@
       web.
   honkpocket:
   - rscadd: Adds a 'Junior chef' alt-title for chefs
+2024-03-27:
+  Melbert:
+  - bugfix: Blocks mobs from trying to "physically" interact with some of their hud
+      elements, such as using Telekinesis or point a gun at your mood meter.
+  - bugfix: Puzzlegrids now report their answers properly
+  - rscadd: Bitrunners can now broadcast their Bitruns to the station's Entertainment
+      Monitors.
+  NovaBot13:
+  - qol: makes surgery cap small
+  - rscadd: The PML-9's name has been changed to something that's a little less boring
+      random numbers and letters, and something that TTS can likely pronounce much
+      nicer than before. Get blown up by a Dardo rocket launcher today.
+  - image: Sprites for rocket launchers, rockets, and rocket projectiles have been
+      changed to something fresher looking.
+  - balance: Rocket launchers can be worn on your back or armor vest.
+  - bugfix: Removed erroneous light switch in janitor office
+  - bugfix: the follow link upon poll completion should work properly now
