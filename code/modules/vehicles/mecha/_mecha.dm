@@ -620,11 +620,7 @@
 	diag_hud_set_mechstat()
 
 /obj/vehicle/sealed/mecha/proc/process_constant_power_usage(seconds_per_tick)
-<<<<<<< HEAD
 	if(mecha_flags & LIGHTS_ON && !use_power(light_energy_drain * seconds_per_tick))
-=======
-	if(mecha_flags & LIGHTS_ON && !use_energy(light_power_drain * seconds_per_tick))
->>>>>>> 6d9df09a1be (Fixing cell power usage (Part 4) (#82227))
 		mecha_flags &= ~LIGHTS_ON
 		set_light_on(mecha_flags & LIGHTS_ON)
 		playsound(src,'sound/machines/clockcult/brass_skewer.ogg', 40, TRUE)
