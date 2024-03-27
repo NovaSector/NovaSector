@@ -372,7 +372,7 @@
 		new_casing.set_custom_materials(efficient_materials)
 		loaded_magazine.update_appearance()
 		flick("ammobench_process", src)
-		use_energy(3000)
+		use_energy(active_power_usage)
 		playsound(loc, 'sound/machines/piston_raise.ogg', 60, 1)
 	else
 		qdel(new_casing)
