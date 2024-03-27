@@ -155,6 +155,10 @@ GLOBAL_LIST_INIT(loadout_signature, generate_loadout_items(/datum/loadout_item/s
 
 ///UTILITY
 
+/datum/loadout_item/signature/slime_pen
+	name = "Gelatinous Mutation Injector"
+	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/slimetoxin
+
 /datum/loadout_item/signature/hypospray
 	name = "Deluxe Hypospray Kit"
 	item_path = /obj/item/storage/hypospraykit/cmo
