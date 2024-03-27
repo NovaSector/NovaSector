@@ -26937,9 +26937,6 @@
 	},
 /area/station/service/kitchen/diner)
 "icX" = (
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -33389,6 +33386,9 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Medbay - Primary Surgery";
 	network = list("ss13","medbay")
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/medical/surgery/theatre)
@@ -75068,9 +75068,6 @@
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "wqr" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
 /obj/effect/landmark/event_spawn,
 /mob/living/basic/bot/cleanbot/medbay,
 /turf/open/floor/iron/dark/small,
@@ -76990,7 +76987,7 @@
 "wTx" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/cable,
-/obj/machinery/power/smes/battery_pack/large/precharged,
+/obj/machinery/power/port_gen/pacman,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "wTI" = (
@@ -77369,9 +77366,11 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/treatment_center)
 "wZl" = (
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/surgery/theatre)
 "wZq" = (
