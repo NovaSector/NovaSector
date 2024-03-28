@@ -8171,6 +8171,7 @@
 #include "modular_nova\modules\traitor-uplinks\code\categories\stealthy_tools.dm"
 #include "modular_nova\modules\traitor-uplinks\code\categories\stealthy_weapons.dm"
 #include "modular_nova\modules\traitor-uplinks\code\categories\suits.dm"
+#include "modular_nova\modules\trauma_quirks\trauma_quirks.dm"
 #include "modular_nova\modules\tribal_extended\code\crafting.dm"
 #include "modular_nova\modules\tribal_extended\code\recipes.dm"
 #include "modular_nova\modules\tribal_extended\code\ammo\caseless\arrow.dm"
