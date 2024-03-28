@@ -351,6 +351,11 @@
 		item_name_default = "[master_reagent.name] [item_name_default]"
 	if(!(initial(container_style.reagent_flags) & OPENCONTAINER)) // Closed containers get both reagent name and units in the name
 		item_name_default = "[master_reagent.name] [item_name_default] ([volume_in_each]u)"
+	// NOVA EDIT ADDITION START - Autonamed hyposprays/smartdarts
+	if(ispath(container_style, /obj/item/reagent_containers/cup/vial) || ispath(container_style, /obj/item/reagent_containers/syringe/smartdart))
+		item_name_default = "[master_reagent.name] [item_name_default]"
+	// NOVA EDIT ADDITION END
+
 	var/item_name = tgui_input_text(usr,
 		"Container name",
 		"Name",
@@ -368,7 +373,7 @@
 	while(item_count > 0)
 		if(!is_printing)
 			break
-		use_power(active_power_usage)
+		use_energy(active_power_usage)
 		stoplag(printing_speed)
 		for(var/i in 1 to printing_amount_current)
 			if(!item_count)
@@ -397,7 +402,7 @@
 	if (!reagent)
 		return FALSE
 
-	use_power(active_power_usage)
+	use_energy(active_power_usage)
 
 	if (target == TARGET_BUFFER)
 		if(!check_reactions(reagent, beaker.reagents))

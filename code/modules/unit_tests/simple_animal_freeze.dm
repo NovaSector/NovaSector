@@ -24,13 +24,6 @@
 		/mob/living/simple_animal/bot/secbot/pingsky,
 		/mob/living/simple_animal/bot/vibebot,
 		/mob/living/simple_animal/hostile,
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone,
-		/mob/living/simple_animal/hostile/alien/maid,
-		/mob/living/simple_animal/hostile/alien/maid/barmaid,
-		/mob/living/simple_animal/hostile/alien/queen,
-		/mob/living/simple_animal/hostile/alien/queen/large,
-		/mob/living/simple_animal/hostile/alien/sentinel,
 		/mob/living/simple_animal/hostile/asteroid,
 		/mob/living/simple_animal/hostile/asteroid/curseblob,
 		/mob/living/simple_animal/hostile/asteroid/elite,
@@ -85,10 +78,6 @@
 		/mob/living/simple_animal/pet/gondola,
 		/mob/living/simple_animal/pet/gondola/gondolapod,
 		/mob/living/simple_animal/pet/gondola/virtual_domain,
-		/mob/living/simple_animal/slime,
-		/mob/living/simple_animal/slime/pet,
-		/mob/living/simple_animal/slime/random,
-		/mob/living/simple_animal/slime/transformed_slime,
 		/mob/living/simple_animal/soulscythe,
 
 		//MODULAR SKYRAT ENTRIES
@@ -142,17 +131,6 @@
 		/mob/living/simple_animal/hostile/zombie/nocorpse,
 		/mob/living/simple_animal/pet/gondola/funky,
 		/mob/living/simple_animal/pet/poppy,
-		/mob/living/simple_animal/hostile/fleshmind/slicer,
-		/mob/living/simple_animal/hostile/fleshmind/floater,
-		/mob/living/simple_animal/hostile/fleshmind/globber,
-		/mob/living/simple_animal/hostile/fleshmind/stunner,
-		/mob/living/simple_animal/hostile/fleshmind/hiborg,
-		/mob/living/simple_animal/hostile/fleshmind/himan,
-		/mob/living/simple_animal/hostile/fleshmind/treader,
-		/mob/living/simple_animal/hostile/fleshmind/phaser,
-		/mob/living/simple_animal/hostile/fleshmind/mechiver,
-		/mob/living/simple_animal/hostile/fleshmind/mauler_monkey,
-		/mob/living/simple_animal/hostile/fleshmind,
 
 		// DO NOT ADD NEW ENTRIES TO THIS LIST
 		// READ THE COMMENT ABOVE
