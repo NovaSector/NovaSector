@@ -506,7 +506,7 @@
 		alert_control.ui_interact(src)
 #ifdef AI_VOX
 	if(href_list["say_word"])
-		play_vox_word(href_list["say_word"], null, src, vox_type) //NOVA EDIT CHANGE
+		play_vox_word(href_list["say_word"], null, src, vox_type) //NOVA EDIT CHANGE - ORIGINAL: play_vox_word(href_list["say_word"], null, src)
 		vox_word_string += "[href_list["say_word"]] " //NOVA EDIT ADDITION
 		return
 #endif
@@ -655,6 +655,8 @@
 	var/mob/living/silicon/ai/U = usr
 
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+		var/turf/camera_turf = get_turf(C) //get camera's turf in case it's built into something so we don't get z=0
+
 		var/list/tempnetwork = C.network
 		if(!camera_turf || !(is_station_level(camera_turf.z) || is_mining_level(camera_turf.z) || (CAMERANET_NETWORK_SS13 in tempnetwork)))
 			continue
