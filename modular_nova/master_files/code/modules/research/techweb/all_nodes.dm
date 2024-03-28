@@ -232,6 +232,7 @@
 	design_ids += list(
 		"borg_upgrade_clamp",
 		"borg_upgrade_brush",
+		"borg_upgrade_shrink",
 	)
 	return ..()
 

@@ -555,11 +555,12 @@
 	if(robot.model.model_select_icon == "nomod")
 		to_chat(usr, span_warning("Default models cannot take expand or shrink upgrades."))
 		return FALSE
-	if((TRAIT_R_WIDE in robot.model.model_features) || (TRAIT_R_TALL in robot.model.model_features))
-		to_chat(usr, span_warning("This unit's chassis cannot be enlarged any further."))
-		return FALSE
+	var/resize_amount = 1.5
+	if(TRAIT_R_WIDE in robot.model.model_features)
+		resize_amount = 1.25
+	if(TRAIT_R_TALL in robot.model.model_features)
+		resize_amount = 1.05
 	// NOVA EDIT END
-
 	ADD_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
 	var/prev_lockcharge = robot.lockcharge
 	robot.SetLockdown(TRUE)
@@ -576,7 +577,7 @@
 	robot.set_anchored(FALSE)
 	REMOVE_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
 	robot.hasExpanded = TRUE
-	robot.update_transform(1.5) // NOVA EDIT CHANGE - ORIGINAL: robot.update_transform(2)
+	robot.update_transform(resize_amount) // NOVA EDIT CHANGE - ORIGINAL: robot.update_transform(2)
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/R, user = usr)
 	. = ..()
