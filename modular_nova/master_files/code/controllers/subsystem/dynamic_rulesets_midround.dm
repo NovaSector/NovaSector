@@ -6,6 +6,7 @@
 		flash_window = TRUE,
 		start_signed_up = FALSE,
 		announce_chosen = FALSE,
+		role_name_text = "Sleeper Agent",
 		alert_pic = /obj/structure/sign/poster/contraband/gorlex_recruitment,
 		custom_response_messages = list(
 			POLL_RESPONSE_SIGNUP = "You have signed up to be a traitor!",
