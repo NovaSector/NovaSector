@@ -309,7 +309,11 @@
 		baked_item.fire_act(1000) // Overcooked food really does burn, hot hot hot!
 
 		if(SPT_PROB(10, seconds_per_tick))
-			visible_message(span_danger("You smell a burnt smell coming from [src]!")) // Give indication that something is burning in the oven
+			var/list/asomnia_hadders = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, src)
+			for(var/mob/M in asomnia_hadders)
+				if(!HAS_TRAIT(M, TRAIT_ANOSMIA))
+					asomnia_hadders -= M
+			visible_message(span_danger("You smell a burnt smell coming from [src]!"), ignored_mobs = asomnia_hadders) // Give indication that something is burning in the oven
 	set_smoke_state(worst_cooked_food_state)
 
 /// Sets the type of particles that the forge should be generating
