@@ -273,19 +273,18 @@
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
 	// NOVA EDIT ADDITION START
-	message_admins("Polling [candidates.len] people individually to become a Sleeper Agent")
+	message_admins("Attempting to poll [length(candidates)] people individually to become a Sleeper Agent...first one to say yes gets chosen.")
 	var/list/potential_candidates = shuffle(candidates)  
-	var/mob/living/candidate = null
+	var/list/yes_candidates = list()
 	for(var/mob/living/candidate in potential_candidates)
 		potential_candidates -= candidate
-		var/list/mob/living/result = poll_candidate(list(candidate))
-		if(result.len)
-			candidate = result
+		yes_candidates += poll_candidate(list(candidate))
+		if(length(yes_candidates))
 			break
-	if(!candidate)
+	if(!length(yes_candidates))
 		return FALSE
 	// NOVA EDIT ADDITION END
-	var/mob/M = pick(candidate) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
+	var/mob/M = pick(yes_candidates) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
 	candidates -= M
 	var/datum/antagonist/traitor/infiltrator/sleeper_agent/newTraitor = new
