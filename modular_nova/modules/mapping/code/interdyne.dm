@@ -48,7 +48,7 @@
 	circuit = /obj/item/circuitboard/machine/biogenerator/fullupgrade
 
 /obj/item/circuitboard/machine/biogenerator/fullupgrade
-	name = "Biogenerator"
+	name = "\improper Biogenerator"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/biogenerator/fullupgrade
 	req_components = list(
