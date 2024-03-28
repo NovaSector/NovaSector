@@ -214,7 +214,7 @@ const ViewCharacter = (props) => {
                   scrollable
                   title="Character Advert"
                 >
-                  {overlay.character_ad || '(Not set)'}
+                  {overlay.character_ad}
                 </Section>
                 <NoticeBox align="right" info>
                   <Button
