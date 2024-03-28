@@ -274,12 +274,11 @@
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
 	// NOVA EDIT ADDITION START
 	message_admins("Polling [candidates.len] people individually to become a Sleeper Agent")
+	var/list/potential_candidates = shuffle(candidates)  
 	var/mob/living/candidate = null
-	var/i
-	for(i=0, i<candidates.len, i++)
-		var/list/mob/living/picked = pick(candidates)
-		candidates -= picked
-		var/list/mob/living/result = optin(list(picked))
+	for(var/mob/living/candidate in potential_candidates)
+		potential_candidates -= candidate
+		var/list/mob/living/result = poll_candidate(list(candidate))
 		if(result.len)
 			candidate = result
 			break

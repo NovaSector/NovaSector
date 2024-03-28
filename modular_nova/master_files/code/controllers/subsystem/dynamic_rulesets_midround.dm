@@ -1,4 +1,9 @@
-/datum/dynamic_ruleset/midround/from_living/autotraitor/proc/optin(candidates)
+/**
+ * Polls a group of candidate to see if they want to be a sleeper agent.
+ * 
+ * @param candidate a list containing a candidate mob
+ */
+/datum/dynamic_ruleset/midround/from_living/autotraitor/proc/poll_candidate(candidate)
 	var/list/mob/living/candidates_pruned = SSpolling.poll_candidates(
 		question = "Do you want to be a syndicate sleeper agent?",
 		group = candidates,
