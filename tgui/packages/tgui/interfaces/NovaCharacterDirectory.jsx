@@ -1,6 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 
+import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import {
   Button,
@@ -13,6 +14,34 @@ import {
 } from '../components';
 import { Window } from '../layouts';
 import { CharacterPreview } from './common/CharacterPreview';
+
+const formatURLs = (text) => {
+  if (!text) return;
+  const parts = [];
+  let regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
+  let lastIndex = 0;
+
+  text.replace(regex, (url, index) => {
+    parts.push(text.substring(lastIndex, index));
+    parts.push(
+      <a
+        style={{
+          color: '#0591e3',
+          'text-decoration': 'none',
+        }}
+        href={url}
+      >
+        {url}
+      </a>,
+    );
+    lastIndex = index + url.length;
+    return url;
+  });
+
+  parts.push(text.substring(lastIndex));
+
+  return <div>{parts}</div>;
+};
 
 const erpTagColor = {
   Unset: 'label',
@@ -44,7 +73,7 @@ export const NovaCharacterDirectory = (props) => {
   };
 
   return (
-    <Window width={900} height={640} resizeable>
+    <Window width={1000} height={800} resizeable>
       <Window.Content scrollable>
         {(overlay && (
           <ViewCharacter
@@ -93,68 +122,114 @@ const ViewCharacter = (props) => {
   const { overlay, updateOverlay, assigned_view } = props;
 
   return (
-    <Stack fill vertical>
-      <Stack.Item grow={2}>
-        <Stack>
+    <Stack fill>
+      <Stack.Item>
+        <Section height="375px" width="262px" title={overlay.name}>
+          <CharacterPreview height="330px" width="250px" id={assigned_view} />
+        </Section>
+        <Section title="Headshot">
+          <img
+            src={resolveAsset(overlay.headshot)}
+            height="250px"
+            width="250px"
+          />
+        </Section>
+      </Stack.Item>
+      <Stack.Item grow>
+        <Stack fill vertical>
+          <Stack.Item grow>
+            <Section
+              minHeight="375px"
+              scrollable
+              fill
+              title="Flavor Text:"
+              preserveWhitespace
+            >
+              {formatURLs(overlay.flavor_text)}
+            </Section>
+          </Stack.Item>
           <Stack.Item grow>
             <Stack fill>
-              <Stack.Item>
-                <CharacterPreview height="100%" id={assigned_view} />
+              <Stack.Item grow>
+                <Section
+                  maxHeight="299px"
+                  fill
+                  scrollable
+                  title="OOC Notes"
+                  preserveWhitespace
+                >
+                  {overlay.ideal_antag_optin_status && (
+                    <Stack.Item>
+                      Current Antag Opt-In Status:{' '}
+                      <span
+                        style={{
+                          fontWeight: 'bold',
+                          color:
+                            overlay.opt_in_colors[
+                              overlay.current_antag_optin_status
+                            ],
+                        }}
+                      >
+                        {overlay.current_antag_optin_status}
+                      </span>
+                      {'\n'}
+                      Antag Opt-In Status {'(Preferences)'}:{' '}
+                      <span
+                        style={{
+                          color:
+                            overlay.opt_in_colors[
+                              overlay.ideal_antag_optin_status
+                            ],
+                        }}
+                      >
+                        {overlay.ideal_antag_optin_status}
+                      </span>
+                      {'\n\n'}
+                    </Stack.Item>
+                  )}
+                  <LabeledList>
+                    <LabeledList.Item label="Attraction">
+                      {overlay.attraction}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Gender">
+                      {overlay.gender}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="ERP">
+                      {overlay.erp}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Vore">
+                      {overlay.vore}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Noncon">
+                      {overlay.noncon}
+                    </LabeledList.Item>
+                  </LabeledList>
+                  {formatURLs(overlay.ooc_notes)}
+                </Section>
+              </Stack.Item>
+              <Stack.Item grow>
+                <Section
+                  maxHeight="299px"
+                  fill
+                  scrollable
+                  title="Character Advert"
+                >
+                  {overlay.character_ad || 'Unset.'}
+                </Section>
+                <NoticeBox info align="right">
+                  <Button
+                    color="transparent"
+                    icon="arrow-left"
+                    width="100%"
+                    onClick={() => updateOverlay(null)}
+                  >
+                    Back
+                  </Button>
+                </NoticeBox>
               </Stack.Item>
             </Stack>
           </Stack.Item>
-
-          <Stack.Item grow>
-            <Section>
-              <LabeledList>
-                <LabeledList.Item label="Gender">
-                  {overlay.gender}
-                </LabeledList.Item>
-                <LabeledList.Item label="Species">
-                  {overlay.species}
-                </LabeledList.Item>
-                <LabeledList.Item label="Character Ad">
-                  {overlay.character_ad || 'Unset.'}
-                </LabeledList.Item>
-                <LabeledList.Item label="Flavor Text">
-                  {overlay.flavor_text || 'Unset.'}
-                </LabeledList.Item>
-                <LabeledList.Item label="ERP">{overlay.erp}</LabeledList.Item>
-                <LabeledList.Item label="Vore">{overlay.vore}</LabeledList.Item>
-                <LabeledList.Item label="Noncon">
-                  {overlay.noncon}
-                </LabeledList.Item>
-                <LabeledList.Item label="Exploitables">
-                  {overlay.exploitable || 'Unset.'}
-                </LabeledList.Item>
-                <LabeledList.Item label="OOC Notes">
-                  {overlay.ooc_notes || 'Unset.'}
-                </LabeledList.Item>
-              </LabeledList>
-            </Section>
-          </Stack.Item>
-
-          <Stack.Item grow={2}>
-            <Section fill scrollable>
-              <LabeledList>
-                <LabeledList.Item label="Exploitables">
-                  {overlay.exploitable || 'Unset.'}
-                </LabeledList.Item>
-                <LabeledList.Item label="OOC Notes">
-                  {overlay.ooc_notes || 'Unset.'}
-                </LabeledList.Item>
-              </LabeledList>
-            </Section>
-          </Stack.Item>
         </Stack>
-      </Stack.Item>
-
-      <Stack.Item>
-        <NoticeBox color="pink" align="right">
-          <Button icon="arrow-left" onClick={() => updateOverlay(null)}>
-            Back
-          </Button>
-        </NoticeBox>
       </Stack.Item>
     </Stack>
   );
