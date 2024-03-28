@@ -22845,18 +22845,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/service/abandoned_gambling_den)
-<<<<<<< HEAD
-"fEX" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/status_display/evac/directional/north,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/service)
-=======
 "fEV" = (
 /obj/structure/sign/poster/official/moth_epi/directional/west,
 /obj/effect/turf_decal/bot,
@@ -22869,7 +22857,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/medical/storage)
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "fFb" = (
 /obj/structure/table,
 /obj/effect/spawner/random/entertainment/drugs{
@@ -120983,11 +120970,7 @@ fXF
 jgZ
 mrd
 rDL
-<<<<<<< HEAD
-iDS
-=======
 pQo
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 uCa
 wkj
 bqP
@@ -121244,11 +121227,7 @@ fXF
 suH
 ikV
 gIk
-<<<<<<< HEAD
-fVA
-=======
 ekF
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 leE
 bfq
 iFn
@@ -121505,11 +121484,7 @@ nmi
 xvf
 oQJ
 xJJ
-<<<<<<< HEAD
-pbV
-=======
 wGm
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 uCa
 aTz
 ygM
@@ -122022,11 +121997,7 @@ wiZ
 fXF
 xkz
 hwe
-<<<<<<< HEAD
-jwA
-=======
 tFu
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 vpV
 uCa
 gQk
@@ -127212,11 +127183,7 @@ nIa
 hSf
 ffb
 cMn
-<<<<<<< HEAD
-bUz
-=======
 xrS
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 sIX
 sIX
 cLR
@@ -128758,25 +128725,15 @@ txc
 pZM
 ffb
 dqP
-<<<<<<< HEAD
-nlp
-=======
 aFp
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 sIX
 sIX
 xbJ
 sIX
 sIX
-<<<<<<< HEAD
-skv
-dCI
-stp
-=======
 mRl
 scp
 tYN
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 dNN
 qMB
 wtS
@@ -129800,11 +129757,7 @@ dyx
 oRh
 oHq
 wNV
-<<<<<<< HEAD
-tuM
-=======
 eyl
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 dNN
 vZV
 sEF
@@ -130063,11 +130016,7 @@ dNN
 dNN
 dNN
 dNN
-<<<<<<< HEAD
-yhO
-=======
 oLD
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 dCx
 aJT
 fDF
@@ -132598,11 +132547,7 @@ fxs
 lAg
 kPM
 pRS
-<<<<<<< HEAD
-qLa
-=======
 pqo
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 nLS
 xld
 uqZ
@@ -132860,11 +132805,7 @@ rgW
 vze
 pRS
 pRS
-<<<<<<< HEAD
-eIu
-=======
 hWA
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 iaL
 pRS
 iaL
@@ -133120,11 +133061,7 @@ sEm
 dEA
 nxd
 pRS
-<<<<<<< HEAD
-mlM
-=======
 lZC
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 eGs
 ykB
 jpe
@@ -133594,11 +133531,7 @@ sid
 sBG
 sLz
 vRB
-<<<<<<< HEAD
-rIx
-=======
 gch
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 xMe
 kVP
 bSp
@@ -133854,13 +133787,8 @@ cnL
 kfa
 pPI
 kVP
-<<<<<<< HEAD
-fEX
-fTZ
-=======
 xiu
 uMT
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 jVP
 kVP
 pET
@@ -134116,13 +134044,8 @@ vdZ
 qPp
 pXt
 kVP
-<<<<<<< HEAD
-ovQ
-joU
-=======
 fWB
 rky
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 iXO
 kVP
 pgN
@@ -134378,13 +134301,8 @@ vBt
 tyK
 kVP
 kVP
-<<<<<<< HEAD
-dZw
-uVd
-=======
 pWB
 qsv
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 gMB
 kVP
 kVP
@@ -134428,11 +134346,7 @@ wmp
 rgW
 mGw
 pRS
-<<<<<<< HEAD
-paD
-=======
 kNB
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 lAv
 nAz
 jce
@@ -134644,19 +134558,11 @@ kVP
 kVP
 kVP
 dUH
-<<<<<<< HEAD
-sRB
-eWN
-iff
-rpH
-biZ
-=======
 ubJ
 xlf
 giz
 kVr
 kix
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 kVP
 sGS
 qOT
@@ -135680,13 +135586,8 @@ xSf
 mqV
 kVP
 giz
-<<<<<<< HEAD
-nOn
-mKa
-=======
 giz
 qSC
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 lJJ
 maV
 ptC
@@ -135943,11 +135844,7 @@ kVP
 kVP
 vat
 kVP
-<<<<<<< HEAD
-gIE
-=======
 sRs
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 hUh
 kVP
 cAV
@@ -136204,11 +136101,7 @@ pOD
 tWU
 sSH
 kVP
-<<<<<<< HEAD
-kzV
-=======
 aUZ
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 qPX
 kVP
 aVE
@@ -137070,15 +136963,9 @@ umA
 veM
 veM
 ako
-<<<<<<< HEAD
-piu
-evr
-qBn
-=======
 nFf
 hFQ
 fEV
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 uQF
 ibh
 cYk
@@ -137333,13 +137220,8 @@ oCo
 fiU
 jRJ
 ako
-<<<<<<< HEAD
-dqj
-bGM
-=======
 lcl
 dNc
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 dNc
 dNc
 jhs
@@ -137595,11 +137477,7 @@ euF
 oCo
 sJG
 ako
-<<<<<<< HEAD
-kbc
-=======
 mtD
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 rjO
 oOI
 oOI
@@ -145046,11 +144924,7 @@ lsJ
 ffP
 gBi
 tqy
-<<<<<<< HEAD
-hYh
-=======
 msL
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 qMf
 oci
 bqS
@@ -149619,11 +149493,7 @@ nzR
 gKp
 gDP
 rTG
-<<<<<<< HEAD
-nsG
-=======
 xUs
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 ozu
 dql
 pWH
@@ -150137,13 +150007,8 @@ ieg
 eIl
 ieg
 ieg
-<<<<<<< HEAD
-tXW
-anY
-=======
 fes
 vHq
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 dql
 eBE
 gIV
@@ -150388,11 +150253,7 @@ ouc
 qWZ
 iCo
 krO
-<<<<<<< HEAD
-qyK
-=======
 guZ
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 lET
 gBA
 xtf
@@ -150403,13 +150264,8 @@ qlN
 bdx
 lpI
 iIb
-<<<<<<< HEAD
-sYN
-wWH
-=======
 tXW
 kqI
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 vgK
 wdC
 lTt
@@ -150666,11 +150522,7 @@ sKp
 tXJ
 bkN
 gCV
-<<<<<<< HEAD
-uBY
-=======
 oRf
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 vgK
 ljX
 tLx

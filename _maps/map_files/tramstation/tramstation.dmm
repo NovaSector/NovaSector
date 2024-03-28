@@ -7533,8 +7533,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/captain/private)
-<<<<<<< HEAD
-=======
 "bCx" = (
 /obj/structure/railing{
 	dir = 8
@@ -7544,7 +7542,6 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/station/science/research)
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "bDf" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
@@ -17333,22 +17330,6 @@
 	dir = 8
 	},
 /area/station/command/bridge)
-<<<<<<< HEAD
-"faH" = (
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 1
-	},
-/obj/machinery/camera/directional/north{
-	network = list("ss13","rd");
-	c_tag = "Science - Research & Development"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/white,
-/area/station/science/lab)
-=======
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "faN" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
@@ -18769,21 +18750,6 @@
 /obj/machinery/newscaster/directional/east,
 /turf/open/floor/iron,
 /area/station/commons/storage/tools)
-<<<<<<< HEAD
-"fDB" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/computer/department_orders/science{
-	dir = 4
-	},
-/turf/open/floor/glass/reinforced,
-/area/station/science/research)
-=======
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "fDS" = (
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Laser Room"
@@ -31436,8 +31402,6 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/mid)
-<<<<<<< HEAD
-=======
 "kfH" = (
 /obj/structure/railing{
 	dir = 4
@@ -31448,7 +31412,6 @@
 /obj/machinery/photobooth/security,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "kfO" = (
 /turf/open/floor/plating,
 /area/station/cargo/drone_bay)
@@ -44798,8 +44761,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
-<<<<<<< HEAD
-=======
 "oSu" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 9
@@ -44819,7 +44780,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/office)
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "oSB" = (
 /obj/machinery/camera/directional/west{
 	network = list("ss13","Security","cargo");
@@ -49575,22 +49535,6 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/mid)
-<<<<<<< HEAD
-"qAk" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 5
-	},
-/obj/effect/turf_decal/trimline/yellow/filled/warning{
-	dir = 5
-	},
-/obj/machinery/computer/department_orders/engineering{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/engineering/break_room)
-=======
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "qAl" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
@@ -54834,21 +54778,6 @@
 /obj/structure/sign/calendar/directional/north,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hop)
-<<<<<<< HEAD
-"srx" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/modular_computer/preset/civilian{
-	dir = 8
-	},
-/turf/open/floor/glass/reinforced,
-/area/station/science/research)
-=======
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "srz" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 6
@@ -54954,18 +54883,6 @@
 	},
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/starboard/greater)
-<<<<<<< HEAD
-"ssN" = (
-/obj/machinery/computer/department_orders/service,
-/obj/machinery/camera/directional/north{
-	c_tag = "Service - Autolathe Room"
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/light/dim/directional/north,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/service)
-=======
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "ssT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/chapel,
@@ -55991,16 +55908,6 @@
 /obj/machinery/digital_clock/directional/south,
 /turf/open/floor/iron,
 /area/station/engineering/main)
-<<<<<<< HEAD
-"sMi" = (
-/obj/machinery/modular_computer/preset/cargochat/service{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/service)
-=======
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 "sMr" = (
 /obj/structure/cable,
 /turf/open/floor/circuit/telecomms/mainframe,
@@ -86907,11 +86814,7 @@ jWs
 jvE
 eLB
 abU
-<<<<<<< HEAD
-aci
-=======
 kfH
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 acv
 acH
 sXc
@@ -102859,17 +102762,10 @@ apl
 iRL
 snQ
 iRL
-<<<<<<< HEAD
-trw
-tbm
-nNZ
-sMi
-=======
 bNI
 tbm
 nNZ
 nOB
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 cWZ
 klk
 kNo
@@ -103380,11 +103276,7 @@ bje
 iRL
 snQ
 iRL
-<<<<<<< HEAD
-uaK
-=======
 mOq
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 twg
 dWn
 cWZ
@@ -103937,11 +103829,7 @@ ixT
 gYI
 cgR
 ial
-<<<<<<< HEAD
-qAk
-=======
 qwn
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 amV
 mvy
 iXQ
@@ -104159,11 +104047,7 @@ aeF
 iRL
 quF
 iRL
-<<<<<<< HEAD
-ssN
-=======
 iBo
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 sWF
 iog
 cWZ
@@ -152786,11 +152670,7 @@ cSr
 rAS
 xzI
 uYa
-<<<<<<< HEAD
-mHZ
-=======
 aUc
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 ppK
 rAS
 rAS
@@ -156831,11 +156711,7 @@ dEv
 ukw
 pyF
 dEv
-<<<<<<< HEAD
-tJY
-=======
 oSu
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 rWT
 gYd
 isV
@@ -166404,11 +166280,7 @@ kZD
 wAe
 glU
 jSc
-<<<<<<< HEAD
-pza
-=======
 hjz
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 xRx
 aLw
 pVk
@@ -167433,11 +167305,7 @@ jAc
 kkd
 qNI
 mrC
-<<<<<<< HEAD
-rCZ
-=======
 ikM
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 tOw
 kGa
 djz
@@ -182342,22 +182210,14 @@ wxu
 yjY
 eYS
 oxL
-<<<<<<< HEAD
-faH
-=======
 gbZ
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 oGO
 xQN
 mEt
 vNk
 kTU
 xyt
-<<<<<<< HEAD
-srx
-=======
 rpq
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 ovC
 dCq
 uiV
@@ -183378,26 +183238,15 @@ aIv
 aHQ
 tJz
 oxL
-<<<<<<< HEAD
-aJI
-=======
 iYO
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
 lpC
 vTb
 vTb
 rbn
 crj
 wWT
-<<<<<<< HEAD
-fDB
-=======
 bCx
->>>>>>> b20c9824045 (Converts slimes to basic mobs (#82176))
-uvB
-rBb
 tbK
-kye
 tes
 kye
 kye
