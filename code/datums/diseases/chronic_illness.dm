@@ -68,11 +68,12 @@
 				if(need_mob_update)
 					affected_mob.updatehealth()
 		if(5)
-			switch(rand(1,2))
+			switch(rand(1,4))
 				if(1)
 					to_chat(affected_mob, span_notice("You feel your atoms begin to realign. You're safe. For now."))
 					update_stage(1)
 				if(2)
+					/* NOVA EDIT REMOVAL START
 					to_chat(affected_mob, span_boldwarning("There is no place for you in this timeline."))
 					affected_mob.adjustStaminaLoss(100, forced = TRUE)
 					playsound(affected_mob.loc, 'sound/magic/repulse.ogg', 100, FALSE)
@@ -85,3 +86,34 @@
 					affected_mob.investigate_log("has been dusted / deleted by [name].", INVESTIGATE_DEATHS)
 					affected_mob.ghostize(can_reenter_corpse = FALSE)
 					qdel(affected_mob)
+					NOVA EDIT REMOVAL END */
+				// NOVA EDIT ADDITION START
+					to_chat(affected_mob, span_warning("You body wracks with bain as you are shunted to another point in time."))
+					affected_mob.visible_message(span_warning("A tear in reality opens up around [affected_mob] consuming them"))
+					var/list/destinations = list()
+
+					for(var/obj/item/beacon/teleport_beacon in GLOB.teleportbeacons)
+						var/turf/T = get_turf(teleport_beacon)
+						if(is_station_level(T.z))
+						destinations += teleport_beacon
+
+					var/chosen_beacon = pick(destinations)
+					var/obj/effect/portal/jaunt_tunnel/tunnel = new (get_turf(src), 100, null, FALSE, get_turf(chosen_beacon))
+					tunnel.teleport(affected_mob)
+					affected_mob.vomit(VOMIT_CATEGORY_BLOOD, lost_nutrition = 20)
+					affected_mob.adjustBruteLoss(200, updating_health = FALSE)
+					affected_mob.updatehealth()
+					playsound(src,'sound/effects/sparks4.ogg',50,TRUE)
+					qdel(tunnel)
+				if(3)
+					affected_mob.visible_message(span_warning("[affected_mob] is torn apart!"), span_userdanger("Your atoms accelerate into criticality!"))
+					affected_mob.gib()
+				if(4)
+					if(affected_mob.stat == CONSCIOUS)
+						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
+					span_userdanger("You feel a horrible pain as your heart is replaced with one from another dimension!"))
+					var/obj/item/organ/internal/heart/cursed/cheart = new /obj/item/organ/internal/heart/cursed()
+					cheart.replace_into(affected_mob)
+					playsound(affected_mob, 'sound/hallucinations/far_noise.ogg', 50, 1)
+					stage = 1
+				// NOVA EDIT ADDITION END
