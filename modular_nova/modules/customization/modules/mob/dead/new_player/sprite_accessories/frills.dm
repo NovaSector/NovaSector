@@ -53,3 +53,17 @@
 	name = "Neck Frills (Fuller)"
 	icon_state = "neckfull"
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/frills.dmi'
+
+/datum/sprite_accessory/frills/slugcat
+	name = "Slugcat (Aquatic)"
+	icon_state = "slugcat_aquatic"
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/frills.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/frills/slugcat/sharp
+	name = "Slugcat (Sharp Fluff)"
+	icon_state = "slugcat_sharp"
+
+/datum/sprite_accessory/frills/slugcat/fluffy
+	name = "Slugcat (Extra Fluffy)"
+	icon_state = "slugcat_fluffy"

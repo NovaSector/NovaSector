@@ -391,6 +391,34 @@
 	name = "Four Ears 3"
 	icon_state = "four_ears_3"
 
+/datum/sprite_accessory/ears/mutant/slugcat
+	name = "Slugcat"
+	icon_state = "slugcat"
+
+/datum/sprite_accessory/ears/mutant/slugcat/tall
+	name = "Slugcat (Tall)"
+	icon_state = "slugcat_tall"
+
+/datum/sprite_accessory/ears/mutant/slugcat/short
+	name = "Slugcat (Short)"
+	icon_state = "slugcat_short"
+
+/datum/sprite_accessory/ears/mutant/slugcat/sharp
+	name = "Slugcat (Sharp)"
+	icon_state = "slugcat_sharp"
+
+/datum/sprite_accessory/ears/mutant/slugcat/forward
+	name = "Slugcat (Forward)"
+	icon_state = "slugcat_forward"
+
+/datum/sprite_accessory/ears/mutant/slugcat/flopped
+	name = "Slugcat (Flopped)"
+	icon_state = "slugcat_flopped"
+
+/datum/sprite_accessory/ears/mutant/slugcat/fluffy
+	name = "Slugcat (Fluffy)"
+	icon_state = "slugcat_fluffy"
+
 /datum/sprite_accessory/ears/acrador
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears_big.dmi'
 	color_src = USE_MATRIXED_COLORS
