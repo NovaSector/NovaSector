@@ -55703,8 +55703,8 @@
 /area/station/maintenance/starboard/lesser)
 "pBG" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/siding/blue,
+/obj/machinery/photobooth,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/command)
 "pBQ" = (
@@ -56348,8 +56348,7 @@
 "pLl" = (
 /obj/machinery/button/flasher{
 	id = "hopflash";
-	pixel_x = 6;
-	pixel_y = 34
+	pixel_x = -26
 	},
 /obj/machinery/pdapainter,
 /obj/machinery/button/door/directional/north{
@@ -56375,6 +56374,10 @@
 	pixel_y = 36
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/button/photobooth{
+	pixel_x = 6;
+	pixel_y = 36
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "pLH" = (
@@ -79613,6 +79616,7 @@
 /area/station/commons/storage/primary)
 "waK" = (
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/photobooth/security,
 /turf/open/floor/glass/reinforced,
 /area/station/security/execution/transfer)
 "waM" = (
