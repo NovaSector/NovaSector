@@ -38,6 +38,11 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), PROC_REF(on_restrained_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_RESTRAINED), PROC_REF(on_restrained_trait_loss))
 
+	// NOVA EDIT ADDITION START - Numbed alert
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_ANALGESIA), PROC_REF(on_analgesia_trait_gain))
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_ANALGESIA), PROC_REF(on_analgesia_trait_loss))
+	// NOVA EDIT ADDITION END - Numbed alert
+
 	RegisterSignals(src, list(
 		SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION),
 		SIGNAL_REMOVETRAIT(TRAIT_CRITICAL_CONDITION),

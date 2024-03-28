@@ -100,7 +100,7 @@
 		if(!main_draw)
 			return
 		charging.give(main_draw)
-		use_power(charge_rate / 100) //use a small bit for the charger itself, but power usage scales up with the part tier
+		use_energy(charge_rate / 100) //use a small bit for the charger itself, but power usage scales up with the part tier
 
 	update_appearance()
 
@@ -133,7 +133,7 @@
 	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 		charging.emp_act(severity)
 
-/obj/machinery/cell_charger_multi/deconstruct()
+/obj/machinery/cell_charger_multi/on_deconstruction(disassembled)
 	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 		charging.forceMove(drop_location())
 	charging_batteries = null

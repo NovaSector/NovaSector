@@ -7,7 +7,12 @@ import {
 } from '../../base';
 
 export const pet_owner: FeatureChoiced = {
-  name: 'Pet Owner',
+  name: 'Pet Type',
+  component: FeatureDropdownInput,
+};
+
+export const pet_gender: FeatureChoiced = {
+  name: 'Pet Gender',
   component: FeatureDropdownInput,
 };
 

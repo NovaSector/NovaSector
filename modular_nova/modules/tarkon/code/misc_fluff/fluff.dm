@@ -8,10 +8,10 @@
 		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
 		2 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>says, \"<span class=' '>... Yeesh... Its good we got here when we did...</span>\"</span></span>",
 		3 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>sighs, \"<span class=' '>Could have done sooner... Bloke got at me while i went to repaint the stripe on the floor</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>sighs, \"<span class=' '>I still need to talk to the Site Director about getting the safe moved... Its better than the cell, And the shutters are nice...</span>\"</span></span>",
+		4 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>sighs, \"<span class=' '>I still need to talk to the Defense Director about marking the safe code... Its better than in the cell, And the shutters are nice...</span>\"</span></span>",
 		5 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>scoffs, \"<span class=' '>Yeah, Another set of shutter tracks i'll have to clean out so they dont jam up...</span>\"</span></span>",
 		6 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>grumbles, \"<span class=' '>If you dont like bucket work, You could go with the mining crew</span>\"</span></span>",
-		7 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>groans, \"<span class=' '>... Atleast it wouldn't be one of the directors cleansing squads. Those bugs... They've been active recently, can hear them under the halls.</span>\"</span></span>",
+		7 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>groans, \"<span class=' '>... Atleast it wouldn't be one of the directors cleansing squads. One of the ensigns who got slammed to it started some maddened babbling about \"returning\" something.</span>\"</span></span>",
 		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
 	)
 	timestamp = list(
@@ -25,7 +25,7 @@
 		8 = 380
 	)
 
-/obj/item/tape/ruins/tarkon/safe	//A tape recorded by the foreman.
+/obj/item/tape/ruins/tarkon/safe	//Two talk about weird things in the tunnels - shouldn't be in the game yet
 	icon_state = "tape_greyscale"
 	desc = "An old tape with a label, \"Exchange with the Science Leader\"... Should definitely be flipped if not being read when played."
 
@@ -35,9 +35,9 @@
 		2 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>sighs, \"<span class=' '>Right... Research near finish? Need to stash this back between the solar batteries before I sleep..</span>\"</span></span>",
 		3 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>says, \"<span class=' '>We're getting the atmospheric scans done... Its definitely an odd find.</span>\"</span></span>",
 		4 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>grumbles, \"<span class=' '>We've been finding some weird stuff in those tunnels.. Its a shame the machines framing was broken.</span>\"</span></span>",
-		5 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>pauses then sighs out, \"<span class=' '>Yeah... Best we could figure from the wreckage was some sort of focusing device for a crystal..?</span>\"</span></span>",
-		6 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>scoffs, \"<span class=' '>... A crystal?</span>\"</span></span>",
-		7 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>quips, \"<span class=' '>Yes... We have some possible- Ah... The scan finished.. I'm sure you'd rather get to rest than listen to my ramble, so just go.</span>\"</span></span>",
+		5 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>pauses then sighs out, \"<span class=' '>Yeah... Best we could figure from the wreckage was some sort of AI system.. its wiring looked almost organic though-</span>\"</span></span>",
+		6 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>scoffs, \"<span class=' '>... An- AI?</span>\"</span></span>",
+		7 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>quips, \"<span class=' '>Yes... We have some possible leads to what it- Ah... The scan finished.. I'll forward the notes about that AI to the Defense Director, Right now I need to compile these readings...</span>\"</span></span>",
 		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
 	)
 	timestamp = list(

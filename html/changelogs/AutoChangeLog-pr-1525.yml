@@ -1,0 +1,7 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Double-barrel shotguns and the Colt Detective Special .38 revolver are back in Cargo's goodies tab."
+  - balance: "The Bobr 12g shotgun revolver no longer has basically instant reload delay."
+  - balance: "Bolt-action rifles and revolvers no longer delay your next hand use after using an ammo box to reload them."
+  - qol: "Reloading a weapon in a way that encumbers you now says how long your handedness is impaired for in seconds."

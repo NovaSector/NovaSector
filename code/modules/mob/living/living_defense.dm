@@ -151,17 +151,9 @@
 		return
 	. = combat_mode
 	combat_mode = new_mode
-	SEND_SIGNAL(src, COMSIG_LIVING_COMBAT_MODE_TOGGLE, new_mode) //NOVA EDIT ADDITION
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
-	//NOVA EDIT ADDITION BEGIN
-	if(!ishuman(src) && !ckey)
-		if(combat_mode)
-			set_combat_indicator(TRUE)
-		else
-			set_combat_indicator(FALSE)
-	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE
-	//NOVA EDIT ADDITION END
+	face_mouse = (client?.prefs?.read_preference(/datum/preference/toggle/face_cursor_combat_mode) && combat_mode) ? TRUE : FALSE // NOVA EDIT ADDITION
 
 	if(silent || !(client?.prefs.read_preference(/datum/preference/toggle/sound_combatmode)))
 		return
@@ -221,6 +213,26 @@
 	if(body_position == LYING_DOWN) // physics says it's significantly harder to push someone by constantly chucking random furniture at them if they are down on the floor.
 		hitpush = FALSE
 	return ..()
+
+///The core of catching thrown items, which non-carbons cannot without the help of items or abilities yet, as they've no throw mode.
+/mob/living/proc/try_catch_item(obj/item/item, skip_throw_mode_check = FALSE, try_offhand = FALSE)
+	if(!can_catch_item(skip_throw_mode_check, try_offhand) || !isitem(item) || HAS_TRAIT(item, TRAIT_UNCATCHABLE) || !isturf(item.loc))
+		return FALSE
+	if(!can_hold_items(item))
+		return FALSE
+	INVOKE_ASYNC(item, TYPE_PROC_REF(/obj/item, attempt_pickup), src, TRUE)
+	if(get_active_held_item() == item) //if our attack_hand() picks up the item...
+		visible_message(span_warning("[src] catches [item]!"), \
+						span_userdanger("You catch [item] in mid-air!"))
+		return TRUE
+
+///Checks the requites for catching a throw item.
+/mob/living/proc/can_catch_item(skip_throw_mode_check = FALSE, try_offhand = FALSE)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return FALSE
+	if(get_active_held_item() && (!try_offhand || get_inactive_held_item() || !swap_hand()))
+		return FALSE
+	return TRUE
 
 /mob/living/fire_act()
 	. = ..()
@@ -492,7 +504,8 @@
 
 ///As the name suggests, this should be called to apply electric shocks.
 /mob/living/proc/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
-	SEND_SIGNAL(src, COMSIG_LIVING_ELECTROCUTE_ACT, shock_damage, source, siemens_coeff, flags)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_ELECTROCUTE_ACT, shock_damage, source, siemens_coeff, flags) & COMPONENT_LIVING_BLOCK_SHOCK)
+		return FALSE
 	shock_damage *= siemens_coeff
 	if((flags & SHOCK_TESLA) && HAS_TRAIT(src, TRAIT_TESLA_SHOCKIMMUNE))
 		return FALSE
@@ -539,7 +552,7 @@
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(cult_ending_helper), CULT_VICTORY_MASS_CONVERSION), 120)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(ending_helper)), 270)
 	if(client)
-		makeNewConstruct(/mob/living/basic/construct/harvester, src, cultoverride = TRUE)
+		make_new_construct(/mob/living/basic/construct/harvester, src, cultoverride = TRUE)
 	else
 		switch(rand(1, 4))
 			if(1)
@@ -736,7 +749,7 @@
 		. |= SHOVE_CAN_MOVE
 		if(!buckled)
 			. |= SHOVE_CAN_HIT_SOMETHING
-	if(HAS_TRAIT(src, TRAIT_SHOVE_KNOCKDOWN_BLOCKED))
+	if(HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
 		. |= SHOVE_KNOCKDOWN_BLOCKED
 
 ///Send the chat feedback message for shoving

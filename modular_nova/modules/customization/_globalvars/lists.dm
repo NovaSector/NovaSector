@@ -93,7 +93,9 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Ward-Takahashi Manufacturing" = 'modular_nova/master_files/icons/mob/augmentation/wtmipc.dmi',
 	"Xion Manufacturing Group" = 'modular_nova/master_files/icons/mob/augmentation/xmgipc.dmi',
 	"Xion Manufacturing Group 2.0" = 'modular_nova/master_files/icons/mob/augmentation/xm2ipc.dmi',
-	"Zeng-Hu Pharmaceuticals" = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi'
+	"Zeng-Hu Pharmaceuticals" = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi',
+	"Mariinsky Ballet Company" = 'modular_nova/master_files/icons/mob/augmentation/mariinskyipc.dmi',
+	"Zhenkov & Co. Foundries" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc.dmi',
 	))
 
 //ghoul colors

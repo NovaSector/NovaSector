@@ -66,6 +66,11 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/akula_wetsuit
 	name = "Shoredress Wetsuit"
 	item_path = /obj/item/clothing/under/akula_wetsuit
+	restricted_species = list(SPECIES_AKULA)
+
+/datum/loadout_item/under/jumpsuit/refit_wetsuit
+	name = "Refitted Shoredress Wetsuit"
+	item_path = /obj/item/clothing/under/akula_wetsuit/refit
 
 /datum/loadout_item/under/jumpsuit/impcap
 	name = "Captain's Naval Jumpsuit"
@@ -116,6 +121,11 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/security_trousers
 	name = "Security Trousers"
 	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_shorts
+	name = "Security Shorts"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_peacekeeper
@@ -464,16 +474,24 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/maid_costume
 
 /datum/loadout_item/under/miscellaneous/yukata
-	name = "Recolorable Yukata"
+	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
 
 /datum/loadout_item/under/miscellaneous/qipao_black
-	name = "Recolorable Qipao"
+	name = "Qipao"
 	item_path = /obj/item/clothing/under/costume/nova/qipao
 
+/datum/loadout_item/under/miscellaneous/qipao_recolorable
+	name = "Qipao, Custom Trim"
+	item_path = /obj/item/clothing/under/costume/nova/qipao/customtrim
+
 /datum/loadout_item/under/miscellaneous/cheongsam
-	name = "Recolorable Cheongsam"
+	name = "Cheongsam"
 	item_path = /obj/item/clothing/under/costume/nova/cheongsam
+
+/datum/loadout_item/under/miscellaneous/cheongsam_recolorable
+	name = "Cheongsam, Custom Trim"
+	item_path = /obj/item/clothing/under/costume/nova/cheongsam/customtrim
 
 /datum/loadout_item/under/miscellaneous/kimono
 	name = "Fancy Kimono"
@@ -510,6 +528,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/tactical_skirt
 	name = "Tacticool Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured
+	name = "Tacticool Utility Overalls Turtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
+	name = "Tacticool Overalls Skirtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
 
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"
@@ -750,7 +776,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /datum/loadout_item/under/formal/red_gown
 	name = "Red Evening Gown"
-	item_path = /obj/item/clothing/under/dress/redeveninggown
+	item_path = /obj/item/clothing/under/dress/eveninggown
 
 /datum/loadout_item/under/formal/sailor
 	name = "Sailor Suit"
@@ -792,6 +818,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Recolorable Formal Suitskirt"
 	item_path = /obj/item/clothing/under/suit/nova/recolorable/skirt
 
+/datum/loadout_item/under/formal/recolorable_suit/casual
+	name = "Office Casual Suit"
+	item_path = /obj/item/clothing/under/suit/nova/recolorable/casual
+
+/datum/loadout_item/under/formal/recolorable_suit/executive
+	name = "Executive Casual Suit"
+	item_path = /obj/item/clothing/under/suit/nova/recolorable/executive
+
 /datum/loadout_item/under/formal/trek_command
 	name = "Trekkie Command Uniform"
 	item_path = /obj/item/clothing/under/trek/command
@@ -828,6 +862,18 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Trekkie ENT Medsci Uniform"
 	item_path = /obj/item/clothing/under/trek/medsci/ent
 
+/datum/loadout_item/under/formal/trek_voy_command
+	name = "Trekkie VOY Command Uniform"
+	item_path = /obj/item/clothing/under/trek/command/voy
+
+/datum/loadout_item/under/formal/trek_voy_engsec
+	name = "Trekkie VOY Engsec Uniform"
+	item_path = /obj/item/clothing/under/trek/engsec/voy
+
+/datum/loadout_item/under/formal/trek_voy_medsci
+	name = "Trekkie VOY Medsci Uniform"
+	item_path = /obj/item/clothing/under/trek/medsci/voy
+
 /datum/loadout_item/under/formal/the_q
 	name = "French Marshall's Uniform"
 	item_path = /obj/item/clothing/under/trek/q
@@ -854,8 +900,12 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/suit/nova/inferno/beeze
 
 /datum/loadout_item/under/formal/pencil
-	name = "Black Pencilskirt"
+	name = "Pencilskirt with Shirt"
 	item_path = /obj/item/clothing/under/suit/nova/pencil
+
+/datum/loadout_item/under/formal/pencil/noshirt
+	name = "Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/noshirt
 
 /datum/loadout_item/under/formal/pencil/black_really
 	name = "Executive Pencilskirt"
@@ -874,8 +924,12 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/suit/nova/pencil/burgandy
 
 /datum/loadout_item/under/formal/pencil/checkered
-	name = "Checkered Pencilskirt"
+	name = "Checkered Pencilskirt with Shirt"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/checkered
+
+/datum/loadout_item/under/formal/pencil/checkered/noshirt
+	name = "Checkered Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/checkered/noshirt
 
 /datum/loadout_item/under/formal/pencil/tan
 	name = "Tan Pencilskirt"

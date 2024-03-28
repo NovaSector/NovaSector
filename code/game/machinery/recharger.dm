@@ -13,8 +13,6 @@
 	var/finished_recharging = FALSE
 
 	var/static/list/allowed_devices = typecacheof(list(
-		/obj/item/stock_parts/cell/microfusion, //NOVA EDIT ADDITION
-		/obj/item/gun/microfusion, // NOVA EDIT ADDITION
 		/obj/item/gun/energy,
 		/obj/item/melee/baton/security,
 		/obj/item/ammo_box/magazine/recharge,
@@ -42,7 +40,7 @@
 	if(using_power)
 		status_display_message_shown = TRUE
 		. += span_notice("The status display reads:")
-		. += span_notice("- Recharging <b>[recharge_coeff*10]%</b> cell charge per cycle.")
+		. += span_notice("- Recharging efficiency: <b>[recharge_coeff*100]%</b>.")
 
 	if(isnull(charging))
 		return
@@ -99,21 +97,6 @@
 		if(!energy_gun.can_charge)
 			to_chat(user, span_notice("Your gun has no external power connector."))
 			return TRUE
-
-	//NOVA EDIT ADDITION
-	if (istype(attacking_item, /obj/item/gun/microfusion))
-		var/obj/item/gun/microfusion/microfusion_gun = attacking_item
-		if(microfusion_gun.cell?.chargerate <= 0)
-			to_chat(user, span_notice("[microfusion_gun] cannot be recharged!"))
-			return TRUE
-
-	if (istype(attacking_item, /obj/item/stock_parts/cell/microfusion))
-		var/obj/item/stock_parts/cell/microfusion/inserting_cell = attacking_item
-		if(inserting_cell.chargerate <= 0)
-			to_chat(user, span_notice("[inserting_cell] cannot be recharged!"))
-			return TRUE
-	//NOVA EDIT END
-
 	user.transferItemToLoc(attacking_item, src)
 	return TRUE
 
@@ -163,8 +146,7 @@
 	var/obj/item/stock_parts/cell/charging_cell = charging.get_cell()
 	if(charging_cell)
 		if(charging_cell.charge < charging_cell.maxcharge)
-			charging_cell.give(charging_cell.chargerate * recharge_coeff * seconds_per_tick / 2)
-			use_power(active_power_usage * recharge_coeff * seconds_per_tick)
+			charge_cell(charging_cell.chargerate * recharge_coeff * seconds_per_tick, charging_cell)
 			using_power = TRUE
 		update_appearance()
 
@@ -172,7 +154,7 @@
 		var/obj/item/ammo_box/magazine/recharge/power_pack = charging
 		if(power_pack.stored_ammo.len < power_pack.max_ammo)
 			power_pack.stored_ammo += new power_pack.ammo_type(power_pack)
-			use_power(active_power_usage * recharge_coeff * seconds_per_tick)
+			use_energy(active_power_usage * recharge_coeff * seconds_per_tick)
 			using_power = TRUE
 		update_appearance()
 		return

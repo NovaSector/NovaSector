@@ -62,6 +62,11 @@
 	fire = 100
 	acid = 100
 
+/obj/machinery/door/airlock/keyed/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+
+
 /obj/machinery/door/airlock/keyed/check_access(obj/item/key_card/used_keycard)
 	if(!used_keycard || !istype(used_keycard))
 		return FALSE
@@ -83,10 +88,6 @@
 
 
 // Standard Expressions to make keyed airlocks basically un-cheeseable
-
-/obj/machinery/door/airlock/keyed/emp_act(severity)
-	return
-
 
 /obj/machinery/door/airlock/keyed/ex_act(severity, target)
 	return FALSE

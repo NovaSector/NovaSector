@@ -126,6 +126,8 @@
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff
 	random_appearance = FALSE
+	quirks_enabled = TRUE
+	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/hotel_staff/manager
 	name = "staff manager sleeper"
@@ -176,7 +178,7 @@
 	ears = /obj/item/radio/headset/interdyne
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		)
@@ -190,7 +192,7 @@
 	belt = /obj/item/storage/bag/ore
 	back = /obj/item/storage/backpack/satchel/explorer
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		/obj/item/knife/combat/survival = 1,
@@ -207,6 +209,9 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/tactical
 	id_trim = /datum/id_trim/syndicom/nova/ds2/syndicatestaff
 	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/storage/box/survival/interdyne = 1,
+	)
 	suit = /obj/item/clothing/suit/apron/chef
 	head = /obj/item/clothing/head/soft/mime
 
@@ -215,7 +220,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/overalls
 	head = /obj/item/clothing/head/soft/sec/syndicate
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		)
 	id_trim = /datum/id_trim/syndicom/nova/ds2/enginetechnician
@@ -231,6 +236,9 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/chemical
 	gloves = /obj/item/clothing/gloves/color/black
 	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/storage/box/survival/interdyne = 1,
+	)
 
 /datum/outfit/ds2/syndicate/stationmed
 	name = "DS-2 Medical Officer"
@@ -241,7 +249,7 @@
 	gloves = /obj/item/clothing/gloves/latex/nitrile/ntrauma
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/medkit/surgery = 1,
@@ -256,6 +264,11 @@
 	back = /obj/item/storage/backpack/security/redsec
 	head = /obj/item/clothing/head/helmet/swat/ds
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
+	backpack_contents = list(
+		/obj/item/storage/box/survival/interdyne = 1,
+		/obj/item/gun/ballistic/automatic/pistol/sol/evil = 1,
+		/obj/item/ammo_box/magazine/c35sol_pistol = 1,
+		)
 	r_pocket = /obj/item/flashlight/seclite
 	mask = /obj/item/clothing/mask/gas/syndicate
 	ears = /obj/item/radio/headset/interdyne
@@ -272,7 +285,7 @@
 	ears = /obj/item/radio/headset/interdyne/command
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
+		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/storage/box/nif_ghost_box/ghost_role=1,
 		/obj/item/crowbar = 1,
 		)
@@ -288,6 +301,9 @@
 	suit = /obj/item/clothing/suit/armor/vest/warden/syndicate
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
 	back = /obj/item/storage/backpack/satchel/sec/redsec
+	backpack_contents = list(
+		/obj/item/storage/box/survival/interdyne = 1,
+	)
 	head = /obj/item/clothing/head/hats/hos/beret/syndicate
 	r_pocket = /obj/item/flashlight/seclite
 	implants = list(
@@ -301,6 +317,9 @@
 	head = /obj/item/clothing/head/fedora
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/storage/box/survival/interdyne = 1,
+	)
 	id_trim = /datum/id_trim/syndicom/nova/ds2/corporateliasion
 
 /datum/outfit/ds2/syndicate_command/admiral
@@ -308,6 +327,9 @@
 	uniform = /obj/item/clothing/under/rank/captain/nova/utility/syndicate
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/storage/box/survival/interdyne = 1,
+	)
 	belt = /obj/item/gun/ballistic/automatic/pistol/aps
 	head = /obj/item/clothing/head/hats/hos/cap/syndicate
 	id = /obj/item/card/id/advanced/gold/generic
@@ -530,6 +552,7 @@
 
 /datum/id_trim/away/hotel/security
 	assignment = "Hotel Security"
+	access = list(ACCESS_TWIN_NEXUS_STAFF, ACCESS_TWIN_NEXUS_MANAGER)
 
 
 //CRYO CONSOLES

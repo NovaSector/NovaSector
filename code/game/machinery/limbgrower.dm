@@ -116,7 +116,7 @@
 
 	return data
 
-/obj/machinery/limbgrower/on_deconstruction()
+/obj/machinery/limbgrower/on_deconstruction(disassembled)
 	for(var/obj/item/reagent_containers/cup/our_beaker in component_parts)
 		reagents.trans_to(our_beaker, our_beaker.reagents.maximum_volume)
 	return ..()
@@ -184,7 +184,7 @@
 				power = max(active_power_usage, (power + consumed_reagents_list[reagent_id]))
 
 			busy = TRUE
-			use_power(power)
+			use_energy(power)
 			flick("limbgrower_fill", src)
 			icon_state = "limbgrower_idleon"
 			var/temp_category = params["active_tab"]

@@ -27,7 +27,7 @@
 	suppressor_x_offset = 9
 
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_OCLOTHING
+	slot_flags = ITEM_SLOT_BACK
 
 /obj/item/gun/ballistic/shotgun/riot/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
@@ -56,6 +56,12 @@
 
 	. = ..()
 
+/obj/item/gun/ballistic/shotgun/riot/sol/thunderdome
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
+
+/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
+	ammo_type = /obj/item/ammo_casing/shotgun/beehive
+
 // Shotgun but EVIL!
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil
@@ -64,3 +70,9 @@
 	icon_state = "renoster_evil"
 	worn_icon_state = "renoster_evil"
 	inhand_icon_state = "renoster_evil"
+
+/obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
+
+/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette

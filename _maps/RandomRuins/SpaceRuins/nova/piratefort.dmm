@@ -281,7 +281,7 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered)
 "kb" = (
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "kh" = (
 /obj/structure/safe,
@@ -433,7 +433,7 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/powered)
 "oZ" = (
-/turf/open/floor/engine,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "pu" = (
 /mob/living/basic/trooper/syndicate/ranged{
@@ -688,7 +688,7 @@
 /area/ruin/space/has_grav/powered)
 "wR" = (
 /obj/structure/bed,
-/obj/item/bedsheet/random,
+/obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
 "wT" = (
@@ -1192,7 +1192,7 @@
 /area/ruin/space/has_grav/powered)
 "Ph" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/open/floor/engine,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "Qc" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/corner{
@@ -1282,7 +1282,7 @@
 /area/ruin/space/has_grav/powered)
 "TK" = (
 /mob/living/basic/trooper/pirate/ranged/space,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "TO" = (
 /obj/machinery/door/airlock/vault{
@@ -1361,7 +1361,7 @@
 /area/ruin/space/has_grav/powered)
 "VI" = (
 /mob/living/basic/trooper/pirate/melee/space,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "VL" = (
 /mob/living/basic/trooper/pirate/melee,

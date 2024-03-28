@@ -4,6 +4,7 @@
 	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve and Lidocaine."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
+	custom_price = PAYCHECK_CREW * 1.5
 
 /obj/item/storage/pill_bottle/painkiller/PopulateContents()
 	for(var/i in 1 to 7)
@@ -61,6 +62,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
+	custom_price = PAYCHECK_COMMAND * 3
 
 /obj/item/storage/medkit/civil_defense/Initialize(mapload)
 	. = ..()
@@ -68,6 +70,8 @@
 	atom_storage.set_holdable(list(
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/storage/pill_bottle/prescription_stimulant,
+		/obj/item/food/cheese/firm_cheese_slice, //It's not called a cheese kit for nothing.
+		/obj/item/food/cheese/wedge,
 	))
 
 /obj/item/storage/medkit/civil_defense/stocked
@@ -79,7 +83,34 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
 	)
-	generate_items_inside(items_inside,src)
+	generate_items_inside(items_inside, src)
+
+/obj/item/storage/medkit/civil_defense/thunderdome
+	/// List of random medpens we can pick from
+	var/list/random_medpen_options = list(
+		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi,
+	)
+
+/obj/item/storage/medkit/civil_defense/thunderdome/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 6
+
+/obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
+	for(var/pens in 1 to 6)
+		var/new_pen = pick(random_medpen_options)
+		new new_pen(src)
 
 // Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
 /obj/item/storage/medkit/civil_defense/comfort
@@ -251,6 +282,8 @@
 		/obj/item/storage/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/storage/box/bandages,
+		/obj/item/bodybag,
 	))
 
 // Big surgical kit that can be worn like a bag, holds 14 normal items (more than what a backpack can do!) but works like a duffelbag
@@ -357,4 +390,6 @@
 		/obj/item/handheld_soulcatcher,
 		/obj/item/wrench/medical,
 		/obj/item/emergency_bed,
+		/obj/item/storage/box/bandages,
+		/obj/item/bodybag,
 	))

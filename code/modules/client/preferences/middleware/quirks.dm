@@ -48,7 +48,8 @@
 			"value" = initial(quirk.value),
 			"customizable" = constant_data?.is_customizable(),
 			"customization_options" = customization_options,
-			"veteran_only" = initial(quirk.veteran_only), // NOVA EDIT - Veteran quirks
+			"veteran_only" = initial(quirk.veteran_only), // NOVA EDIT ADDITION - Veteran quirks
+			"erp_quirk" = initial(quirk.erp_quirk), // NOVA EDIT ADDITION - Purple ERP quirks
 		)
 
 	return list(

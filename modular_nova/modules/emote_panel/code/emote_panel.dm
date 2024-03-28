@@ -98,7 +98,7 @@
 	all_emotes += human_emotes
 
 	// modular_nova\modules\emotes\code\emote.dm
-	var/static/list/skyrat_living_emotes = list(
+	var/static/list/nova_living_emotes = list(
 		/mob/living/proc/emote_peep,
 		/mob/living/proc/emote_peep2,
 		/mob/living/proc/emote_snap,
@@ -148,7 +148,7 @@
 		/mob/living/proc/emote_moo,
 		/mob/living/proc/emote_honk1
 	)
-	all_emotes += skyrat_living_emotes
+	all_emotes += nova_living_emotes
 
 	// code\modules\mob\living\brain\emote.dm
 	var/static/list/brain_emotes = list(
@@ -191,7 +191,7 @@
 	)
 
 	// modular_nova\modules\emotes\code\additionalemotes\overlay_emote.dm
-	var/static/list/skyrat_living_emotes_overlay = list(
+	var/static/list/nova_living_emotes_overlay = list(
 		/mob/living/proc/emote_sweatdrop,
 		/mob/living/proc/emote_exclaim,
 		/mob/living/proc/emote_question,
@@ -199,7 +199,7 @@
 		/mob/living/proc/emote_annoyed,
 		/mob/living/proc/emote_glasses
 	)
-	all_emotes += skyrat_living_emotes_overlay
+	all_emotes += nova_living_emotes_overlay
 
 	// modular_nova\modules\emotes\code\additionalemotes\turf_emote.dm
 	all_emotes += /mob/living/proc/emote_mark_turf
@@ -222,8 +222,8 @@
 			available_emotes += mob_emotes
 		if(isliving(src))
 			available_emotes += living_emotes
-			available_emotes += skyrat_living_emotes
-			available_emotes += skyrat_living_emotes_overlay
+			available_emotes += nova_living_emotes
+			available_emotes += nova_living_emotes_overlay
 			available_emotes += /mob/living/proc/emote_mark_turf
 		if(iscarbon(src))
 			available_emotes += carbon_emotes
