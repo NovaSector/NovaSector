@@ -479,7 +479,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/aft)
 "agX" = (
-/mob/living/simple_animal/slime,
+/mob/living/basic/slime,
 /turf/open/floor/circuit/green,
 /area/station/science/xenobiology)
 "aha" = (
@@ -107001,10 +107001,10 @@ nQt
 dVY
 kVR
 uiw
-agX
+tAl
 uiw
 uKe
-tAl
+agX
 uiw
 uKe
 tAl
@@ -109057,10 +109057,10 @@ sAL
 ohh
 kVR
 uiw
-tAl
+agX
 uiw
 uKe
-agX
+tAl
 uiw
 uKe
 xXU
