@@ -801,3 +801,62 @@
       blankface2, bigoleyes)
   vinylspiders:
   - rscadd: Added colorblindness as a mild brain trauma.
+2024-03-26:
+  LT3:
+  - spellcheck: Minor improvements to examine panel CSS
+  Melbert:
+  - rscadd: 'Adds 3 Traumas: Primal Instincts (special), Kleptomania (severe), and
+      Possessive (mild)'
+  NovaBot13:
+  - bugfix: Fixes flamethrower runtime preventing them from working.
+  - refactor: Touched most of the code for racks. It should function almost entirely
+      the same save for what's noted here, please report any issues.
+  - code_imp: Wrenching moved to wrenching procs. Side-effect, rack items are only
+      deconstructed on left-click
+  - sound: Items that have sounds make them when placed on racks, much like when placed
+      on tables.
+  - sound: Rack items now make a sound upon deconstructing them.
+  - bugfix: Racks no longer let you attempt to place abstract items like the slap
+      hand or water tank spray nozzles on them.
+  - qol: Clicking on a rack no longer kicks the shit out of it if you don't actually
+      have combat mode on.
+  - qol: Racks and rack items have hover tooltip usage context.
+  - rscdel: Killed ancient rack code for dragging your active item onto a rack. Just
+      click it does the same thing. This allows you to actually dump items onto racks,
+      though currently disorderly.
+  - bugfix: the virgin mary picture no longer makes its initiates harddelete
+  - qol: Smoke machines can actually be rotated with alt-click when unwrenched.
+  - bugfix: Crank weapons now can actually be charged using their crank.
+  - bugfix: Stun batons and their variants now actually meaningfully consume charge
+      when used.
+  - bugfix: Musiver, Godblood, Synaphydramine, Hollow water and unholy water will
+      no longer show up in secret recipes
+  - bugfix: Changelings with a flesh ID now properly show the icon of the disguised
+      ID in examine.
+  - bugfix: text fields which should save their value after hitting enter/closing
+      the UI now actually does that
+  - bugfix: lathe search bar now saves its previous search query after the UI is closed
+      and also reloads search results correctly
+  - qol: Gold and silver crates now accurately reflects NT's greed
+  Rhials:
+  - bugfix: Venus Human Traps can once again entangle victims and drag them into their
+      web.
+  honkpocket:
+  - rscadd: Adds a 'Junior chef' alt-title for chefs
+2024-03-27:
+  Melbert:
+  - bugfix: Blocks mobs from trying to "physically" interact with some of their hud
+      elements, such as using Telekinesis or point a gun at your mood meter.
+  - bugfix: Puzzlegrids now report their answers properly
+  - rscadd: Bitrunners can now broadcast their Bitruns to the station's Entertainment
+      Monitors.
+  NovaBot13:
+  - qol: makes surgery cap small
+  - rscadd: The PML-9's name has been changed to something that's a little less boring
+      random numbers and letters, and something that TTS can likely pronounce much
+      nicer than before. Get blown up by a Dardo rocket launcher today.
+  - image: Sprites for rocket launchers, rockets, and rocket projectiles have been
+      changed to something fresher looking.
+  - balance: Rocket launchers can be worn on your back or armor vest.
+  - bugfix: Removed erroneous light switch in janitor office
+  - bugfix: the follow link upon poll completion should work properly now
