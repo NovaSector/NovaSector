@@ -592,15 +592,17 @@
 			var/obj/item/organ/internal/stomach/ethereal/stomach = maybe_stomach
 			if(stomach.drain_time > world.time)
 				return
-			to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
+			user.visible_message(span_notice("[user] clamps their hand around the [fitting], electricity jumping around inside!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINALl: to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
+			to_chat(user, span_purple("You try to receive some charge from the [fitting]...")) // NOVA EDIT ADDITION - Ethereal Rework 2024
 			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(istype(stomach))
-					to_chat(user, span_notice("You receive some charge from the [fitting]."))
+					do_sparks(number = 2, cardinal_only = FALSE, source = src) // NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You receive some charge from the [fitting]."))
 					stomach.adjust_charge(LIGHT_POWER_GAIN)
 				else
 					to_chat(user, span_warning("You can't receive charge from the [fitting]!"))
+					user.visible_message(span_notice("[user] tries to draw more power from the [fitting], but the cell seems dead!")) //NOVA EDIT ADDITION - Ethereal Rework 2024
 			return
 
 		if(user.gloves)
