@@ -656,20 +656,11 @@
 
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		var/list/tempnetwork = C.network
-<<<<<<< HEAD
-		if(!(is_station_level(C.z) || is_mining_level(C.z) || ("ss13" in tempnetwork)))
-			continue
-		if(!C.can_use())
-			continue
-
-		tempnetwork.Remove("rd", "ordnance", "prison")
-=======
 		if(!camera_turf || !(is_station_level(camera_turf.z) || is_mining_level(camera_turf.z) || (CAMERANET_NETWORK_SS13 in tempnetwork)))
 			continue
 		if(!C.can_use())
 			continue
 		tempnetwork.Remove(CAMERANET_NETWORK_RD, CAMERANET_NETWORK_ORDNANCE, CAMERANET_NETWORK_PRISON)
->>>>>>> 0417e090cc2 (Removes camera assembly structures (#81656))
 		if(length(tempnetwork))
 			for(var/i in C.network)
 				cameralist[i] = i

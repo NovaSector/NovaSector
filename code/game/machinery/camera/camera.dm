@@ -17,14 +17,9 @@
 /obj/machinery/camera
 	name = "security camera"
 	desc = "It's used to monitor rooms."
-<<<<<<< HEAD
-	icon = 'icons/obj/machines/camera.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
-	icon_state = "camera" //mapping icon to represent upgrade states. if you want a different base icon, update default_camera_icon as well as this.
-=======
 	icon = 'icons/obj/machines/camera.dmi'
 	icon_state = "camera"
 	base_icon_state = "camera"
->>>>>>> 0417e090cc2 (Removes camera assembly structures (#81656))
 	use_power = ACTIVE_POWER_USE
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.02
 	layer = WALL_OBJ_LAYER
