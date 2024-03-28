@@ -23,7 +23,7 @@
 	value = 0
 	gain_text = span_danger("You feel a sudden urge to take things. Surely no one will notice.")
 	lose_text = span_notice("You no longer feel the urge to take things.")
-	medical_record_text = "Subject exhibits kleptomania"
+	medical_record_text = "Subject exhibits kleptomania."
 	icon = FA_ICON_HAND_HOLDING
 
 /datum/quirk/kleptomaniac/post_add()
