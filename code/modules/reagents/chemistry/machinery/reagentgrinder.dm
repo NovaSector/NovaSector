@@ -524,3 +524,4 @@
 	//power consumed based on the ratio of total reagents mixed
 	use_energy((active_power_usage * (duration / 1 SECONDS)) * (beaker.reagents.total_volume / beaker.reagents.maximum_volume))
 	operating = FALSE
+  
