@@ -3,7 +3,7 @@
 	desc = "You feel a strong attachment over any item you own; often times you feel like you can't drop them."
 	value = 0
 	gain_text = span_danger("You feel like everything you own is too precious to drop.")
-	lose_text = span_notice("Suddenly you feel like your stuff isnt that important anymore.")
+	lose_text = span_notice("Suddenly you feel like your stuff isn't that important anymore.")
 	medical_record_text = "Subject exhibits a possessive tendency with objects."
 	icon = FA_ICON_HANDS_HOLDING
 
