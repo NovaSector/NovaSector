@@ -1,0 +1,8 @@
+author: "Thlumyn"
+delete-after: True
+changes:
+  - balance: "added some cargo lathe items to the Interdyne mining equipment vendor"
+  - balance: "add night vision health scanner mesons to the Interdyne mining equipment vendor"
+  - balance: "change some Interdyne machines to start at tier 4"
+  - balance: "gives Interdyne an advanced health analyzer"
+  - balance: "change Interdyne Bioweapon Scientist to Interdyne Scientist"

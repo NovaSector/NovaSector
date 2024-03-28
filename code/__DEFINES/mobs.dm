@@ -292,14 +292,14 @@
 //Used as an upper limit for species that continuously gain nutriment
 #define NUTRITION_LEVEL_ALMOST_FULL 535
 
-//Charge levels for Ethereals
+//Charge levels for Ethereals, in joules.
 #define ETHEREAL_CHARGE_NONE 0
-#define ETHEREAL_CHARGE_LOWPOWER 400
-#define ETHEREAL_CHARGE_NORMAL 1000
-#define ETHEREAL_CHARGE_ALMOSTFULL 1500
-#define ETHEREAL_CHARGE_FULL 2000
-#define ETHEREAL_CHARGE_OVERLOAD 2500
-#define ETHEREAL_CHARGE_DANGEROUS 3000
+#define ETHEREAL_CHARGE_LOWPOWER (400 KILO JOULES)
+#define ETHEREAL_CHARGE_NORMAL (1 MEGA JOULES)
+#define ETHEREAL_CHARGE_ALMOSTFULL (1.5 MEGA JOULES)
+#define ETHEREAL_CHARGE_FULL (2 MEGA JOULES)
+#define ETHEREAL_CHARGE_OVERLOAD (2.5 MEGA JOULES)
+#define ETHEREAL_CHARGE_DANGEROUS (3 MEGA JOULES)
 
 
 #define CRYSTALIZE_COOLDOWN_LENGTH (120 SECONDS)
@@ -315,6 +315,9 @@
 
 //Slime evolution threshold. Controls how fast slimes can split/grow
 #define SLIME_EVOLUTION_THRESHOLD 10
+
+//Slime evolution cost in nutrition
+#define SLIME_EVOLUTION_COST 200
 
 //Slime extract crossing. Controls how many extracts is required to feed to a slime to core-cross.
 #define SLIME_EXTRACT_CROSSING_REQUIRED 10
