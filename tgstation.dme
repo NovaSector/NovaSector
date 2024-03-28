@@ -5148,7 +5148,6 @@
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\elites\pandora.dm"
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\goose.dm"
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\retaliate.dm"
-#include "code\modules\mob\living\simple_animal\slime\slime.dm"
 #include "code\modules\mob_spawn\mob_spawn.dm"
 #include "code\modules\mob_spawn\corpses\job_corpses.dm"
 #include "code\modules\mob_spawn\corpses\mining_corpses.dm"
