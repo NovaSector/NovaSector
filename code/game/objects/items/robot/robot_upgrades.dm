@@ -552,10 +552,7 @@
 		to_chat(usr, span_warning("This unit already has an expand module installed!"))
 		return FALSE
 	// NOVA EDIT BEGIN
-	if(robot.model.model_select_icon == "nomod")
-		to_chat(usr, span_warning("Default models cannot take expand or shrink upgrades."))
-		return FALSE
-	var/resize_amount = 1.5
+	var/resize_amount = 1.25
 	if(TRAIT_R_WIDE in robot.model.model_features)
 		resize_amount = 1.25
 	if(TRAIT_R_TALL in robot.model.model_features)
