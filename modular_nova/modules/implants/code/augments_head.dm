@@ -17,18 +17,13 @@
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
-	actions_types = list(/datum/action/cooldown/sensory_enhancer)
+	actions_types = list(
+		/datum/action/cooldown/sensory_enhancer,
+		/datum/action/cooldown/sensory_enhancer/overcharge,
+	)
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/sensory_enhancer/bodypart_overlay
-
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
-	. = ..()
-	ADD_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
-
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
-	. = ..()
-	REMOVE_TRAIT(organ_owner, TRAIT_TWITCH_ADAPTED, TRAIT_NARCOTICS)
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
@@ -46,6 +41,10 @@
 	owner.update_body_parts()
 	return ..()
 
+/obj/item/autosurgeon/syndicate/sandy
+	name = "\improper Qani-Laaca sensory computer autosurgeon"
+	starting_organ = /obj/item/organ/internal/cyberimp/sensory_enhancer
+
 /datum/bodypart_overlay/simple/sensory_enhancer
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	icon_state = "sandy"
@@ -53,27 +52,16 @@
 
 /datum/action/cooldown/sensory_enhancer
 	name = "Activate Qani-Laaca System"
-	desc = "Activates your Qani-Laaca computer and grants you its powers. LMB: Short, safer activation. RMB: Longer, more powerful, more dangerous activation."
+	desc = "Activates your Qani-Laaca computer and grants you its powers. This will give you a 'safe' dose."
 	button_icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	button_icon_state = "sandy"
 	check_flags = AB_CHECK_CONSCIOUS
 	cooldown_time = 5 MINUTES
 	text_cooldown = TRUE
+	// This makes it so both the regular and overcharge versions of the abilities share a cooldown
+	shared_cooldown = MOB_SHARED_COOLDOWN_3
 	/// Keeps track of how much twitch we inject into people on activation
 	var/injection_amount = 10
-
-/datum/action/cooldown/sensory_enhancer/Trigger(trigger_flags, atom/target)
-	. = ..()
-
-	injection_amount = 10
-
-	var/right_clicked = FALSE
-
-	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
-		right_clicked = TRUE
-		injection_amount = 20
-
-	owner.log_message("clicked their qani-laaca action button with [right_clicked ? "Right" : "Left"]-Click", LOG_ATTACK)
 
 /datum/action/cooldown/sensory_enhancer/Activate(atom/target)
 	. = ..()
@@ -92,9 +80,6 @@
 	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
 	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
 
-	// Safety net in case the injection amount doesn't get reset. Apparently it happened to someone in a round.
-	injection_amount = initial(injection_amount)
-
 /obj/item/qani_laaca_telegraph
 	name = "spent Qani-Laaca cartridge"
 	desc = "A small glass vial, usually kept in a large stack inside a Qani-Laaca implant, that is broken open and ejected \
@@ -106,8 +91,15 @@
 
 /obj/item/qani_laaca_telegraph/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/shatters_when_thrown, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
+	AddElement(/datum/element/can_shatter, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
 	transform = transform.Scale(0.75, 0.75)
+
+/datum/action/cooldown/sensory_enhancer/overcharge
+	name = "Overcharge Qani-Laaca System"
+	desc = "Activates your Qani-Laaca computer and grants you its powers. This will overdose you on the computer's effects, giving you \
+		more powerful abilities at cost of your well-being."
+	button_icon_state = "sandy_overcharge"
+	injection_amount = 20
 
 // Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself
 

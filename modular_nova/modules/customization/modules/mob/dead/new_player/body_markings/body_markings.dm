@@ -79,11 +79,30 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/blank_face2
+	name = "Blank Round Face, Alt"
+	icon_state = "blankface2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/monster_mouth
 	name = "Monster Mouth"
 	icon_state = "monster"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
+
+/datum/body_marking/other/monster_mouth2
+	name = "Monster Mouth (White)"
+	icon_state = "monster2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/monster_mouth3
+	name = "Monster Mouth (White, eye-compatible)"
+	icon_state = "monster3"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+//you're welcome -- iska
 
 /datum/body_marking/other/nose_blemish
 	name = "Nose Blemish"
@@ -96,6 +115,11 @@
 	icon_state = "brows"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/ears
+	name = "Ears"
+	icon_state = "ears"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
@@ -104,6 +128,12 @@
 /datum/body_marking/other/weight
 	name = "Body Weight"
 	icon_state = "weight"
+	default_color = DEFAULT_PRIMARY
+	affected_bodyparts = CHEST
+
+/datum/body_marking/other/weight2
+	name = "Body Weight (Greyscale)"
+	icon_state = "weight2"
 	default_color = DEFAULT_PRIMARY
 	affected_bodyparts = CHEST
 
@@ -126,6 +156,13 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/big_ol_eyes
+	name = "Large Eyes"
+	icon_state = "bigoleyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
 /datum/body_marking/other/bands
 	name = "Color Bands"
 	icon_state = "bands"
@@ -139,6 +176,11 @@
 /datum/body_marking/other/anklet
 	name = "Anklet"
 	icon_state = "anklet"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/legband
+	name = "Leg Band"
+	icon_state = "legband"
 	affected_bodyparts = LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/secondary

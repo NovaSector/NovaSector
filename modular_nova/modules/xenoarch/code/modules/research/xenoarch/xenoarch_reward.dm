@@ -67,7 +67,8 @@ GLOBAL_LIST_INIT(clothing_reward, list(
 	/obj/item/clothing/under/costume/gladiator/ash_walker/robe = 1,
 	/obj/item/clothing/under/costume/gladiator/ash_walker/tribal = 1,
 	/obj/item/clothing/under/costume/gladiator/ash_walker/white = 1,
-	/obj/item/clothing/neck/necklace/ashwalker = 1,
+	/obj/item/clothing/neck/necklace/translator = 1,
+	/obj/item/clothing/neck/necklace/translator/hearthkin = 1,
 	/obj/item/clothing/head/helmet/gladiator = 1,
 	/obj/item/clothing/under/costume/gladiator/ash_walker = 1,
 ))

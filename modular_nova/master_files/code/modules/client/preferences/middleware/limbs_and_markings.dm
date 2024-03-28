@@ -32,6 +32,7 @@
 		"eyes" = "Eyes",
 		"tongue" = "Tongue",
 		"Mouth implant" = "Mouth implant",
+		"Chest implant" = "Chest implant",
 		"Left Arm implant" = "Left Arm implant",
 		"Right Arm implant" = "Right Arm implant",
 	)
@@ -67,6 +68,7 @@
 			visited_body_zones += visited_body_zone
 
 	target.synchronize_bodytypes() // We call this here to ensure that by this point, bodytypes are synchronized, after all changes to the limbs.
+	target.synchronize_bodyshapes()
 
 	// We don't need to go any further if this isn't visuals only, as we will have fully replaced each limb
 	// affected by a limb augmentation.

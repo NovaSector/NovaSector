@@ -349,6 +349,11 @@
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	mob_type_blacklist_typecache = list(/mob/living/carbon/human) //Humans get specialized scream.
 
+/datum/emote/living/scream/run_emote(mob/user, params, type_override, intentional = FALSE)
+	if(!intentional && HAS_TRAIT(user, TRAIT_ANALGESIA))
+		return
+	return ..()
+
 /datum/emote/living/scream/select_message_type(mob/user, message, intentional)
 	. = ..()
 	if(!intentional && isanimal_or_basicmob(user))
@@ -560,7 +565,7 @@
 	message = "smiles weakly."
 
 /// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-#define YAWN_PROPAGATE_CHANCE_BASE 16 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
+#define YAWN_PROPAGATE_CHANCE_BASE 0 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
 /// The amount the base chance to propagate yawns falls for each tile of distance
 #define YAWN_PROPAGATE_CHANCE_DECAY 4
 
@@ -569,8 +574,8 @@
 	key_third_person = "yawns"
 	message = "yawns."
 	message_mime = "acts out an exaggerated silent yawn."
-	message_robot = "symphathetically yawns."
-	message_AI = "symphathetically yawns."
+	message_robot = "synthesizes a yawn." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
+	message_AI = "synthesizes a yawns." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	cooldown = 5 SECONDS
 
@@ -725,16 +730,14 @@
 /datum/emote/living/custom/replace_pronoun(mob/user, message)
 	return message
 
-//NOVA EDIT REMOVAL BEGIN - SYNTH EMOTES, NOW HANDLED IN SYNTH_EMOTES.DM
-/* /datum/emote/living/beep
+/datum/emote/living/beep
 	key = "beep"
 	key_third_person = "beeps"
 	message = "beeps."
 	message_param = "beeps at %t."
 	sound = 'sound/machines/twobeep.ogg'
-	mob_type_allowed_typecache = list(/mob/living/brain, /mob/living/silicon)
-	emote_type = EMOTE_AUDIBLE */
-//NOVA EDIT REMOVAL END
+	mob_type_allowed_typecache = list(/mob/living/brain, /mob/living/silicon, /mob/living/basic/orbie)
+	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/inhale
 	key = "inhale"

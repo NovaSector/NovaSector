@@ -123,7 +123,6 @@
 		ammo_type[i] = shot
 	shot = ammo_type[select]
 	fire_sound = shot.fire_sound
-	fire_sound_volume = shot.fire_sound_volume //NOVA EDIT ADDITION
 	fire_delay = shot.delay
 
 /obj/item/gun/energy/Destroy()
@@ -151,7 +150,7 @@
 		if(charge_timer < charge_delay)
 			return
 		charge_timer = 0
-		cell.give(100)
+		cell.give(STANDARD_ENERGY_GUN_SELF_CHARGE_RATE * seconds_per_tick)
 		if(!chambered) //if empty chamber we try to charge a new shot
 			recharge_newshot(TRUE)
 		update_appearance()
@@ -170,10 +169,10 @@
 		return
 	if(use_cyborg_cell && !no_cyborg_drain)
 		if(iscyborg(loc))
-			var/mob/living/silicon/robot/R = loc
-			if(R.cell)
+			var/mob/living/silicon/robot/robot = loc
+			if(robot.cell)
 				var/obj/item/ammo_casing/energy/shot = ammo_type[select] //Necessary to find cost of shot
-				if(R.cell.use(shot.e_cost)) //Take power from the borg...
+				if(robot.cell.use(shot.e_cost)) //Take power from the borg...
 					cell.give(shot.e_cost) //... to recharge the shot
 	if(!chambered)
 		var/obj/item/ammo_casing/energy/AC = ammo_type[select]
@@ -205,7 +204,6 @@
 		select = 1
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 	fire_sound = shot.fire_sound
-	fire_sound_volume = shot.fire_sound_volume //NOVA EDIT ADDITION
 	fire_delay = shot.delay
 	if (shot.select_name && user)
 		balloon_alert(user, "set to [shot.select_name]")

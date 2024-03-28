@@ -37,6 +37,8 @@
  * * DROP_BODYPARTS - Gibs will spawn with bodypart limbs present
 **/
 /mob/living/proc/spawn_gibs(drop_bitflags=NONE)
+	if(flags_1 & HOLOGRAM_1)
+		return
 	new /obj/effect/gibspawner/generic(drop_location(), src, get_static_viruses())
 
 /**
@@ -132,7 +134,6 @@
 	stop_pulling()
 
 	cut_overlay(GLOB.combat_indicator_overlay) //NOVA EDIT ADDITION - COMBAT_INDICATOR
-	set_combat_indicator(FALSE) //NOVA EDIT ADDITION - COMBAT_INDICATOR
 	set_ssd_indicator(FALSE) //NOVA EDIT ADDITION - SSD_INDICATOR
 
 	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)

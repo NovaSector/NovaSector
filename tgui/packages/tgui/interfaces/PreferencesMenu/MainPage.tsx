@@ -42,6 +42,7 @@ const CharacterControls = (props: {
   handleRotate: () => void;
   handleOpenSpecies: () => void;
   handleLoadout: () => void; // NOVA EDIT ADDITION
+  handleFood: () => void; // NOVA EDIT ADDITION
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
@@ -76,8 +77,8 @@ const CharacterControls = (props: {
           />
         </Stack.Item>
       )}
+      {/* NOVA EDIT ADDITION START */}
       {props.handleLoadout && (
-        // NOVA EDIT ADDITION
         <Stack.Item>
           <Button
             onClick={props.handleLoadout}
@@ -88,6 +89,16 @@ const CharacterControls = (props: {
           />
         </Stack.Item>
       )}
+      <Stack.Item>
+        <Button
+          onClick={props.handleFood}
+          fontSize="22px"
+          icon="drumstick-bite"
+          tooltip="Edit Food Preferences"
+          tooltipPosition="top"
+        />
+        {/* NOVA EDIT ADDITION END */}
+      </Stack.Item>
     </Stack>
   );
 };
@@ -111,8 +122,8 @@ const ChoicedSelection = (props: {
 
   return (
     <Box
+      className="ChoicedSelection"
       style={{
-        background: 'white',
         padding: '5px',
 
         height: `${
@@ -281,6 +292,7 @@ const MainFeature = (props: {
       placement="bottom-start"
       isOpen={isOpen}
       onClickOutside={handleClose}
+      baseZIndex={1} // Below the default popper at z 2
       content={
         <ChoicedSelection
           name={catalog.name}
@@ -552,6 +564,11 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                       handleLoadout={() => {
                         act('open_loadout');
                       }}
+                      // NOVA EDIT ADDITION - BEGIN
+                      handleFood={() => {
+                        act('open_food');
+                      }}
+                      // NOVA EDIT ADDITION - END
                       setGender={createSetPreference(act, 'gender')}
                       showGender={
                         currentSpeciesData ? !!currentSpeciesData.sexes : true

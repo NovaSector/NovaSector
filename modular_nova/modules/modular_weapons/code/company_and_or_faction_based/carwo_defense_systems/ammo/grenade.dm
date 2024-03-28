@@ -143,12 +143,10 @@
 
 
 /obj/projectile/bullet/c980grenade/shrapnel/fuse_activation(atom/target)
-	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(src))
-
+	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
-	qdel(shrapnel_maker)
-
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	qdel(shrapnel_maker)
 
 
 /obj/item/ammo_box/c980grenade/shrapnel
@@ -162,7 +160,7 @@
 
 /obj/item/grenade/c980payload
 	shrapnel_type = /obj/projectile/bullet/shrapnel/short_range
-	shrapnel_radius = 2
+	shrapnel_radius = 3
 	ex_dev = 0
 	ex_heavy = 0
 	ex_light = 0
@@ -208,12 +206,6 @@
 	icon_state = "980box_gas_alternate"
 
 	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
-
-
-/obj/item/ammo_casing/shrapnel_exploder/phosphor
-	pellets = 8
-
-	projectile_type = /obj/projectile/bullet/incendiary/fire/backblast/short_range
 
 
 /obj/item/grenade/c980payload/phosphor

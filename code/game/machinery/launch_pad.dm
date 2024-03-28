@@ -152,7 +152,7 @@
 		return "ERROR: Launchpad busy."
 
 	var/area/surrounding = get_area(src)
-	if(is_centcom_level(z) || istype(surrounding, /area/shuttle))
+	if(is_centcom_level(z) || istype(surrounding, /area/shuttle/supply) ||istype(surrounding, /area/shuttle/transport))
 		return "ERROR: Launchpad not operative. Heavy area shielding makes teleporting impossible."
 
 	return null
@@ -203,7 +203,7 @@
 		playsound(target, 'sound/weapons/emitter2.ogg', 25, TRUE)
 
 	// use a lot of power
-	use_power(active_power_usage)
+	use_energy(active_power_usage)
 
 	var/turf/source = target
 	var/list/log_msg = list()

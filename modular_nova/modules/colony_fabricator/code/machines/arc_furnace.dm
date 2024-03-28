@@ -46,9 +46,8 @@
 	if(length(contents))
 		. += span_notice("It has <b>[contents[1]]</b> sitting in it.")
 
-/obj/machinery/arc_furnace/deconstruct(disassembled = TRUE)
+/obj/machinery/arc_furnace/on_deconstruction(disassembled)
 	eject_contents()
-	return ..()
 
 /obj/machinery/arc_furnace/update_appearance()
 	. = ..()
@@ -158,7 +157,7 @@
 		return
 
 	time -= 1 SECONDS
-	use_power(active_power_usage)
+	use_energy(active_power_usage)
 
 	var/turf/where_we_spawn_air = get_turf(src)
 	var/obj/item/stack/ore/ore_stack_to_check = contents[1]

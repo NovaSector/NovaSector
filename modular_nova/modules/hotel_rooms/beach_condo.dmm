@@ -22,7 +22,13 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
+/obj/item/knife/kitchen,
 /turf/open/floor/iron/kitchen,
+/area/misc/hilbertshotel)
+"cj" = (
+/obj/effect/light_emitter/interlink,
+/obj/item/toy/plush/carpplushie,
+/turf/open/water/beach,
 /area/misc/hilbertshotel)
 "ct" = (
 /turf/closed/wall/mineral/wood,
@@ -112,7 +118,14 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/wood/parquet,
+/area/misc/hilbertshotel)
+"mH" = (
+/obj/machinery/jukebox{
+	req_access = null
+	},
+/turf/open/misc/beach/sand,
 /area/misc/hilbertshotel)
 "na" = (
 /obj/effect/turf_decal/siding/wood,
@@ -172,6 +185,9 @@
 /area/misc/hilbertshotel)
 "tR" = (
 /obj/machinery/shower/directional/east,
+/obj/structure/drain/big,
+/obj/item/soap/deluxe,
+/obj/structure/curtain,
 /turf/open/indestructible/bathroom,
 /area/misc/hilbertshotel)
 "wa" = (
@@ -205,6 +221,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/structure/sign/painting/large/library{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
 "yH" = (
@@ -229,13 +248,15 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/item/kirbyplants/random,
+/obj/structure/bed/dogbed,
+/obj/item/toy/plush/shark,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "Dg" = (
 /obj/structure/toilet{
-	dir = 1
+	dir = 4
 	},
+/obj/structure/window/spawner/directional/north,
 /turf/open/indestructible/bathroom,
 /area/misc/hilbertshotel)
 "EI" = (
@@ -249,6 +270,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "FN" = (
@@ -324,6 +346,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/item/pizzabox/margherita{
+	pixel_y = 11
+	},
+/obj/item/storage/cans/sixbeer,
 /turf/open/floor/wood/parquet,
 /area/misc/hilbertshotel)
 "KQ" = (
@@ -344,12 +370,14 @@
 /area/misc/hilbertshotel)
 "Lv" = (
 /obj/structure/sink/directional/north,
+/obj/structure/mirror/directional/south,
 /turf/open/indestructible/bathroom,
 /area/misc/hilbertshotel)
 "LF" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood,
 /area/misc/hilbertshotel)
 "MB" = (
@@ -363,6 +391,7 @@
 	dir = 4
 	},
 /obj/machinery/light/floor,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "MP" = (
@@ -419,6 +448,7 @@
 /obj/structure/chair/comfy/teal{
 	dir = 8
 	},
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "SS" = (
@@ -436,6 +466,7 @@
 	pixel_x = 2;
 	pixel_y = 3
 	},
+/obj/item/serviette_pack,
 /turf/open/floor/wood/large,
 /area/misc/hilbertshotel)
 "ZE" = (
@@ -481,7 +512,7 @@ ra
 (3,1,1) = {"
 ra
 en
-en
+cj
 en
 en
 iQ
@@ -672,7 +703,7 @@ en
 en
 iQ
 SS
-br
+mH
 fA
 fA
 FJ

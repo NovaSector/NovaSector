@@ -16,10 +16,11 @@
 #define ROLE_OPERATIVE "Operative"
 #define ROLE_TRAITOR "Traitor"
 #define ROLE_WIZARD "Wizard"
-// NOVA EDIT START
+#define ROLE_SPY "Spy"
+// NOVA EDIT ADDITION START
 #define ROLE_ASSAULT_OPERATIVE "Assault Operative"
 #define ROLE_OPFOR_CANDIDATE "OPFOR Candidate"
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 // Midround roles
 #define ROLE_ABDUCTOR "Abductor"
@@ -41,13 +42,13 @@
 #define ROLE_SPACE_DRAGON "Space Dragon"
 #define ROLE_SPIDER "Spider"
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
-//NOVA EDIT START
+//NOVA EDIT ADDITION START
 #define ROLE_BORER "Borer"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
 #define ROLE_LONE_INFILTRATOR "Lone Infiltrator"
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -88,6 +89,9 @@
 #define ROLE_WIZARD_APPRENTICE "apprentice"
 #define ROLE_SYNDICATE_MONKEY "Syndicate Monkey Agent"
 #define ROLE_CONTRACTOR_SUPPORT "Contractor Support Unit"
+#define ROLE_SYNDICATE_SABOBORG "Syndicate Sabotage Cyborg"
+#define ROLE_SYNDICATE_MEDBORG "Syndicate Medical Cyborg"
+#define ROLE_SYNDICATE_ASSAULTBORG "Syndicate Assault Cyborg"
 
 //Spawner roles
 #define ROLE_ANCIENT_CREW "Ancient Crew"
@@ -148,9 +152,8 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_REV_HEAD = 14,
 	ROLE_TRAITOR = 0,
 	ROLE_WIZARD = 14,
-	// NOVA EDIT ADDITION
-	ROLE_ASSAULT_OPERATIVE = 14,
-	// NOVA EDIT END
+	ROLE_SPY = 0,
+	ROLE_ASSAULT_OPERATIVE = 14, // NOVA EDIT ADDITION
 
 	// Midround
 	ROLE_ABDUCTOR = 0,
@@ -172,12 +175,12 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPACE_DRAGON = 0,
 	ROLE_SPIDER = 0,
 	ROLE_WIZARD_MIDROUND = 14,
-	//NOVA EDIT START
+	// NOVA EDIT ADDITION START
 	ROLE_LONE_INFILTRATOR = 0,
 	ROLE_BORER = 0,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
-	//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,

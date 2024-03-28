@@ -531,6 +531,10 @@
 	name = "Fluffy long"
 	icon_state = "hair_fluffy_long"
 
+/datum/sprite_accessory/hair/skyrat/kajam
+	name = "Kajam"
+	icon_state = "hair_kajam"
+
 /datum/sprite_accessory/hair/skyrat/khmuro
 	name = "Khmuro"
 	icon_state = "hair_khmuro"
@@ -550,6 +554,10 @@
 /datum/sprite_accessory/hair/skyrat/low_ponytail
 	name = "Low ponytail"
 	icon_state = "hair_low_ponytail"
+
+/datum/sprite_accessory/hair/skyrat/sideways_ponytail
+	name = "Sideways ponytail"
+	icon_state = "hair_sideways_ponytail"
 
 /datum/sprite_accessory/hair/skyrat/morning
 	name = "Morning"
