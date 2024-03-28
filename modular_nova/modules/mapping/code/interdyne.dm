@@ -56,4 +56,4 @@
 		/datum/stock_part/servo/tier4 = 1,
 		/obj/item/stack/cable_coil = 1,
 		/obj/item/stack/sheet/glass = 1,
-		)
+	)
