@@ -860,3 +860,71 @@
   - balance: Rocket launchers can be worn on your back or armor vest.
   - bugfix: Removed erroneous light switch in janitor office
   - bugfix: the follow link upon poll completion should work properly now
+2024-03-28:
+  LT3:
+  - bugfix: Fixed being unable to start self surgery
+  - bugfix: 'Fixed modular computers failing to boot up using cell power (eg: contractor
+      tablet)'
+  Melbert:
+  - bugfix: Fixed space suit thermal regulators cell usage.
+  - bugfix: Robocontrol should work better.
+  - bugfix: Slimepeople and Luminescents are now 50% burn resistant like Stargazers
+  - bugfix: Fixed Suit Storage Unit cell charging rate
+  - bugfix: Non-PKA kinetic blasts should work better
+  - refactor: Blood deficiency and slimepeople now handle blood a tiny bit differently,
+      report any oddities.
+  - refactor: Blood deficiency now handles its mail goods a tiny bit different, report
+      any oddities.
+  - bugfix: Clown PDAs slip people when not worn
+  NovaBot13:
+  - refactor: Xenomorphs (Lavaland & Oldstation ones) are now basic mobs.
+  - bugfix: Fixed more energy usages for cells(Part 3). See PR 82204 for details
+  - bugfix: Fixed more energy usages for cells(Part 4). See PR 82227 for details
+  - admin: Advanced Debug Cards will still provide a whole lot of access, but the
+      way the money on those cards work is now a bit different. Players shouldn't
+      be able to use the money on those cards in any context though, don't fret about
+      that. Just know that the money printer goes wrrrr
+  - bugfix: 'Fixed the "Drop Pod: Syndies" deathmatch modifier.'
+  - bugfix: Fixed cell energy usage for a bunch of stuff(Part 1). See PR 82197 for
+      details
+  - bugfix: abstract(like the dual hand thingy on your hand) & hologram things can't
+      be put inside storage items
+  - bugfix: recharge stations draw the same amount of power as before but directly
+      from grid(without using apc cell power) and won't waste any excess power
+  - bugfix: Fixes static power usage from being able to not draw power.
+  - rscadd: Added a new Neutral Quirk to indicate to Medical you're willing to be
+      borged
+  - bugfix: Fixes conservation of energy issues relating to charging powercells.
+  - qol: APCs will display how much power they are using to charge their cell. This
+      is accounted for in the power monitoring console.
+  - qol: All arbitrary power cell energy units you see are replaced with prefixed
+      joules.
+  - balance: As a consequence of the conservation of energy issues getting fixed,
+      the power consumption for charging cells is now very significant.
+  - balance: APCs only use surplus power from the grid after every machine processes
+      when charging, preventing APCs from causing others to discharge while charging.
+  - balance: Engineering SMES start at max charge to combat the increased energy loss
+      due to conservation of energy fixes.
+  - image: Updated the Advanced Surgical Tool's sprites
+  - code_imp: Updated the Advanced Surgical Tool's light code
+  - admin: Admins can now run lua files bigger than 36 KB by importing them directly.
+  - bugfix: Fixed more energy usages for cells(Part 2). See PR 82198 for details
+  - balance: The polymorph belt will no longer register space dragons as acceptable
+      DNA.
+  - rscadd: cultists can now convert pets to their side
+  - qol: Dynamic midrounds "Obsession Awakening" and "Blob Host" now have ghost orbit
+      popups, so you can see them happening in real time.
+  - qol: There is no longer a ghost orbit popup for players being shocked by an electrified
+      tram rail.
+  - qol: The Stray Cargo orbit popup no longer has a half-second window to orbit before
+      it becomes useless.
+  Zergspower:
+  - bugfix: fixes a missed section of indestructible walls on the Shuttle8352 Ruin
+  - rscadd: adds the ghost_nif box for BMD and Freighter
+  icequibe:
+  - qol: Allowed players to fully use the underground hermits without assistance outside
+      of ruin
+  myraowo:
+  - rscadd: Added the Chief Engineer's turtleneck and turtleneck skirt to the game.
+  - rscadd: Added the Chief Engineer and Chief Medical Officer's turtlenecks to their
+      respectives garment bags.

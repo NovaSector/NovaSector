@@ -257,6 +257,7 @@
 		/obj/item/hemostat,
 		/obj/item/holosign_creator/medical,
 		/obj/item/hypospray/mkii, //NOVA EDIT ADDITION - HYPOSPRAYS
+		/obj/item/storage/hypospraykit/, //NOVA EDIT ADDITION - HYPOSPRAYS
 		/obj/item/implant,
 		/obj/item/implantcase,
 		/obj/item/implanter,
