@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT(nova_funny_mystery_box_items, list(
 	/obj/item/shield/ballistic,
 	/obj/item/melee/baseball_bat/ablative,
 	/obj/item/melee/baseball_bat/homerun,
-	/obj/item/clothing/shoes/gunboots/dm
+	/obj/item/clothing/shoes/gunboots/dm,
 ))
 
 /obj/structure/mystery_box/guns/generate_valid_types()
