@@ -3026,7 +3026,7 @@
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "aFb" = (
-/obj/machinery/modular_computer/preset/cargochat,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "aFf" = (
@@ -4726,9 +4726,6 @@
 	},
 /obj/effect/turf_decal/trimline/purple/filled/warning{
 	dir = 9
-	},
-/obj/machinery/computer/department_orders/science{
-	dir = 1
 	},
 /turf/open/floor/iron,
 /area/station/science/lab)
@@ -13795,6 +13792,9 @@
 	dir = 1
 	},
 /obj/item/radio/intercom/directional/west,
+/obj/machinery/modular_computer/preset/cargochat/security{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -36359,7 +36359,6 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/loading_area,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/computer/department_orders/security,
 /turf/open/floor/iron/dark/corner{
 	dir = 4
 	},
@@ -50123,9 +50122,6 @@
 /area/station/security/brig)
 "jDW" = (
 /obj/structure/window/spawner/directional/south,
-/obj/machinery/computer/department_orders/service{
-	dir = 1
-	},
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/service)
 "jEg" = (
@@ -51519,11 +51515,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
-"jQV" = (
-/obj/machinery/light/small/directional/north,
-/mob/living/simple_animal/slime,
-/turf/open/floor/engine,
-/area/station/science/xenobiology)
 "jQX" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/hedge,
@@ -65886,9 +65877,6 @@
 /turf/open/floor/iron/dark,
 /area/station/science/cytology)
 "mER" = (
-/obj/machinery/computer/department_orders/engineering{
-	dir = 8
-	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/break_room)
@@ -81325,8 +81313,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
 "pCC" = (
-/obj/machinery/light/small/directional/south,
-/mob/living/simple_animal/slime,
+/mob/living/basic/slime,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "pCO" = (
@@ -117903,7 +117890,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 6
 	},
-/obj/machinery/computer/department_orders/medical,
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron,
 /area/station/medical/break_room)
@@ -223050,7 +223036,7 @@ wmV
 omW
 gDN
 hog
-euU
+pCC
 xRi
 tft
 bOU
@@ -223058,7 +223044,7 @@ mya
 eMR
 mlr
 euU
-pCC
+aYz
 fDT
 sOT
 sGP
@@ -223820,7 +223806,7 @@ rRv
 qpL
 xAB
 gDN
-jQV
+hog
 euU
 xRi
 iRa
@@ -223828,7 +223814,7 @@ bOU
 mya
 vHj
 mlr
-euU
+pCC
 aYz
 fDT
 uZC
@@ -225370,8 +225356,8 @@ eUV
 kzI
 uQW
 mlr
-euU
 pCC
+aYz
 fDT
 uZC
 vkF
@@ -226133,8 +226119,8 @@ oJB
 utJ
 bWW
 gDN
-jQV
-euU
+hog
+pCC
 xRi
 mlz
 eUV
