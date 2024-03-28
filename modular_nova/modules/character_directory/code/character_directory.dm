@@ -1,6 +1,6 @@
 GLOBAL_DATUM(character_directory, /datum/character_directory)
 GLOBAL_LIST_EMPTY(name_to_appearance)
-#define READ_PREFS(target, pref) (target.client.prefs.read_preference(/datum/preference/pref) || "Unset")
+#define READ_PREFS(target, pref) (target.client?.prefs?.read_preference(/datum/preference/pref))
 
 //We want players to be able to decide whether they show up in the directory or not
 /datum/preference/toggle/show_in_directory
@@ -144,18 +144,22 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		GLOB.name_to_appearance[record.name] = record.character_appearance
 	//We want the directory to display only alive players, not observers or people in the lobby
 	for(var/mob/mob in GLOB.alive_player_list)
+		// Skip people who are opted out
+		if(!READ_PREFS(user, toggle/show_in_directory))
+			continue
 		// These are the variables we're trying to display in the directory
 		var/name = ""
 		var/species = "Ask"
 		var/ooc_notes = ""
 		var/flavor_text = ""
-		var/attraction = "Unset"
+		var/attraction = "Unspecified"
 		var/gender = "Unset"
 		var/erp = "Ask"
 		var/vore = "Ask"
 		var/noncon = "Ask"
 		var/character_ad = ""
 		var/exploitable = ""
+		var/headshot = ""
 		var/ref = REF(mob)
 		//Just in case something we get is not a mob
 		if(!mob)
@@ -168,22 +172,24 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			if((human.wear_mask && (human.wear_mask.flags_inv & HIDEFACE) && READ_PREFS(human, toggle/obscurity_examine)) || (human.head && (human.head.flags_inv & HIDEFACE) && READ_PREFS(human, toggle/obscurity_examine)) || (HAS_TRAIT(human, TRAIT_UNKNOWN)))
 				continue
 			//Display custom species, otherwise show base species instead
-			species = (READ_PREFS(human, text/custom_species))
+			species = (READ_PREFS(human, text/custom_species)) || "Unset"
 			if(species == "Unset")
 				species = "[human.dna.species.name]"
 			//Load standard flavor text preference
 			flavor_text = READ_PREFS(human, text/flavor_text)
+			headshot = human.dna.features["headshot"]
 		else if(issilicon(mob))
 			var/mob/living/silicon/silicon = mob
 			//If the target is a silicon, we want it to show its brain as its species
 			species = READ_PREFS(silicon, choiced/brain_type)
 			//Load silicon flavor text in place of normal flavor text
 			flavor_text = READ_PREFS(silicon, text/silicon_flavor_text)
+			headshot = READ_PREFS(silicon, text/headshot)
 		//Don't show if they are not a human or a silicon
 		else continue
 		//List of all the shown ERP preferences in the Directory. If there is none, return "Unset"
 		attraction = READ_PREFS(mob, choiced/attraction)
-		gender = READ_PREFS(mob, choiced/display_gender)
+		gender = READ_PREFS(mob, choiced/display_gender) || "Unset"
 		if(gender == "Unset")
 			gender = capitalize(mob.gender)
 		erp = READ_PREFS(mob, choiced/erp_status)
@@ -194,7 +200,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		//If the user is an antagonist or Observer, we want them to be able to see exploitables in the Directory.
 		if(user.mind?.has_antag_datum(/datum/antagonist) || isobserver(user))
 			if(exploitable == EXPLOITABLE_DEFAULT_TEXT)
-				exploitable = "Unset"
+				exploitable = "(Not set)"
 			else exploitable = READ_PREFS(mob, text/exploitable)
 		else exploitable = "Obscured"
 		//And finally, we want to get the mob's name, taking into account disguised names.
@@ -213,6 +219,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"exploitable" = exploitable,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
+			"headshot" = headshot,
 			"ref" = ref
 		)))
 

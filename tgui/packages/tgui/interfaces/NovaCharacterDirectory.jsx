@@ -204,7 +204,7 @@ const ViewCharacter = (props) => {
                       {overlay.noncon}
                     </LabeledList.Item>
                   </LabeledList>
-                  {formatURLs(overlay.ooc_notes)}
+                  &nbsp; {formatURLs(overlay.ooc_notes)}
                 </Section>
               </Stack.Item>
               <Stack.Item grow>
@@ -214,13 +214,13 @@ const ViewCharacter = (props) => {
                   scrollable
                   title="Character Advert"
                 >
-                  {overlay.character_ad || 'Unset.'}
+                  {overlay.character_ad || '(Not set)'}
                 </Section>
-                <NoticeBox info align="right">
+                <NoticeBox align="right" info>
                   <Button
-                    color="transparent"
+                    align="right"
+                    color="good"
                     icon="arrow-left"
-                    width="100%"
                     onClick={() => updateOverlay(null)}
                   >
                     Back
