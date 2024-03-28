@@ -4397,7 +4397,6 @@
 "DG" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
-,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
