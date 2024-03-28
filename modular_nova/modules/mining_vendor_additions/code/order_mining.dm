@@ -37,3 +37,22 @@
 		inhand_x_dimension = 64
 		inhand_y_dimension = 64
 		our_mob.update_held_items()
+
+/datum/orderable_item/interdyne
+	category_index = CATEGORY_INTERDYNE
+
+/datum/orderable_item/interdyne/adv_plasmacutter
+	item_path = /obj/item/gun/energy/plasmacutter/adv
+	cost_per_order = 500
+
+/datum/orderable_item/interdyne/mining_AoE
+	item_path = /obj/item/borg/upgrade/modkit/aoe/turfs
+	cost_per_order = 750
+
+/datum/orderable_item/interdyne/night_vision_health_meson
+	item_path = /obj/item/clothing/glasses/hud/health/night/meson
+	cost_per_order = 2000
+
+/datum/orderable_item/interdyne/prescription_meson
+	item_path = /obj/item/clothing/glasses/meson/prescription
+	cost_per_order = 325
