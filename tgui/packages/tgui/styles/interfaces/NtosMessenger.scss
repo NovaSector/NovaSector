@@ -6,6 +6,8 @@
 
 $msgcolor-outgoing: hsl(213, 50%, 35%);
 $msgcolor-incoming: hsl(213, 0%, 20%);
+$msgcolor-subtle-outgoing: hsl(281, 39%, 59%); // NOVA EDIT ADDITION
+$msgcolor-subtle-incoming: hsl(281, 15%, 59%); // NOVA EDIT ADDITION
 
 $msgpadding: 0.7rem;
 
@@ -49,6 +51,19 @@ $msgpadding: 0.7rem;
     text-align: right;
     float: right;
   }
+  // NOVA EDIT ADDITION START
+  &_subtle_outgoing {
+    @extend .NtosChatMessage;
+    background-color: $msgcolor-subtle-outgoing;
+    text-align: right;
+    float: right;
+  }
+
+  &_subtle {
+    @extend .NtosChatMessage;
+    background-color: $msgcolor-subtle-incoming;
+  }
+  // NOVA EDIT ADDITION END
 
   &__timestamp {
     height: 0.9rem;
