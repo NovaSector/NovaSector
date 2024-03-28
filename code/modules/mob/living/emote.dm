@@ -565,7 +565,7 @@
 	message = "smiles weakly."
 
 /// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-#define YAWN_PROPAGATE_CHANCE_BASE 16 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
+#define YAWN_PROPAGATE_CHANCE_BASE 0 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
 /// The amount the base chance to propagate yawns falls for each tile of distance
 #define YAWN_PROPAGATE_CHANCE_DECAY 4
 
@@ -574,8 +574,8 @@
 	key_third_person = "yawns"
 	message = "yawns."
 	message_mime = "acts out an exaggerated silent yawn."
-	message_robot = "symphathetically yawns."
-	message_AI = "symphathetically yawns."
+	message_robot = "synthesizes a yawn." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
+	message_AI = "synthesizes a yawns." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	cooldown = 5 SECONDS
 
