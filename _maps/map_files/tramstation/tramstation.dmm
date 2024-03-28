@@ -597,16 +597,6 @@
 	dir = 1
 	},
 /area/station/escapepodbay)
-"aci" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/obj/machinery/photobooth/security,
-/turf/open/floor/iron,
-/area/station/security/execution/transfer)
 "acj" = (
 /turf/open/floor/iron/stairs/medium{
 	dir = 1
@@ -31395,6 +31385,16 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/mid)
+"kfH" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/machinery/photobooth/security,
+/turf/open/floor/iron,
+/area/station/security/execution/transfer)
 "kfO" = (
 /turf/open/floor/plating,
 /area/station/cargo/drone_bay)
@@ -60813,6 +60813,12 @@
 "uvv" = (
 /turf/closed/wall/rock/porous,
 /area/station/science/xenobiology)
+"uvB" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/science/research)
 "uvI" = (
 /obj/effect/turf_decal/siding/thinplating,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -86731,7 +86737,7 @@ jWs
 jvE
 eLB
 abU
-aci
+kfH
 acv
 acH
 sXc
@@ -183163,7 +183169,10 @@ rbn
 crj
 wWT
 bCx
+uvB
+rBb
 tbK
+kye
 tes
 kye
 kye
@@ -183232,9 +183241,6 @@ pMW
 rxw
 rxw
 rxw
-pMW
-pMW
-pMW
 pMW
 pMW
 pMW
