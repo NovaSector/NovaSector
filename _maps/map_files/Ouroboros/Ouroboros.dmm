@@ -19234,6 +19234,7 @@
 /area/station/science/robotics/mechbay)
 "fNN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/teleporter)
 "fNV" = (
@@ -24660,6 +24661,7 @@
 	dir = 1
 	},
 /obj/structure/frame/machine/secured,
+/obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/station/science/research)
 "huL" = (
@@ -35287,7 +35289,8 @@
 "kyb" = (
 /obj/structure/cable,
 /obj/machinery/power/smes{
-	charge = 5e+006
+	charge = 5e+006;
+	output_level = 10000
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
@@ -62440,6 +62443,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/station/security/prison)
 "sDQ" = (
@@ -64763,6 +64767,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"tow" = (
+/obj/effect/turf_decal/tile/dark/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/turf/open/floor/iron/dark,
+/area/station/security/prison)
 "toD" = (
 /obj/structure/railing{
 	dir = 1
@@ -124293,7 +124304,7 @@ uDo
 lSo
 vdI
 voS
-xIL
+tow
 pkj
 jru
 vwB
