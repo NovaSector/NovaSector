@@ -10,7 +10,7 @@
 	head_icon = 'modular_nova/master_files/icons/mob/clothing/head/pets_head.dmi'
 	speak_emote = list("screms", "squeaks", "rrrfs")
 	butcher_results = list(
-		/obj/item/food/meat/slab = 1
+		/obj/item/food/meat/slab = 1,
 	)
 	collar_icon_state = null
 	has_collar_resting_icon_state = FALSE
