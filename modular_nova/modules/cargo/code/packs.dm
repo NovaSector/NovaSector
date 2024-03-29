@@ -48,7 +48,7 @@
 		Contains two fennecs. \
 		Warning, does not mean the fennecs will actually listen to you."
 	cost = CARGO_CRATE_VALUE * 7
-	contains = list(/mob/living/basic/pet/fox/fennec = 2)
+	contains = list(/mob/living/basic/pet/cat/fennec = 2)
 	crate_name = "fennec crate"
 
 /*
