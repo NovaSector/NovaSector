@@ -6538,6 +6538,7 @@
 #include "modular_nova\master_files\code\modules\mining\equipment\explorer_gear.dm"
 #include "modular_nova\master_files\code\modules\mob\login.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\latejoin_menu.dm"
+#include "modular_nova\master_files\code\modules\mob\dead\new_player\new_player.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\preferences_setup.dm"
 #include "modular_nova\master_files\code\modules\mob\living\blood.dm"
 #include "modular_nova\master_files\code\modules\mob\living\emote_popup.dm"

@@ -177,6 +177,7 @@
 	species_type = locked_dna.species.type
 
 	GLOB.manifest.locked += src
+	GLOB.name_to_appearance[name] = character_appearance // NOVA EDIT ADDITION - Cache these for Character Directory
 
 /datum/record/locked/Destroy()
 	GLOB.manifest.locked -= src

@@ -106,6 +106,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
 	var/mutable_appearance/preview = new(appearance)
+	preview.transform = matrix() // This is so scaled mobs aren't just getting cut off for being too big
 
 	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
@@ -155,8 +156,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/list/data = .
 
 	var/list/directory_mobs = list()
-	for(var/datum/record/locked/record in GLOB.manifest.locked)
-		GLOB.name_to_appearance[record.name] = record.character_appearance
 	//We want the directory to display only alive players, not observers or people in the lobby
 	for(var/mob/mob in GLOB.alive_player_list)
 		// Skip people who are opted out

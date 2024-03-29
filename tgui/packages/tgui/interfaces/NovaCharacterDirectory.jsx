@@ -44,14 +44,26 @@ const formatURLs = (text) => {
 };
 
 const erpTagColor = {
-  Unset: 'label',
-  'Yes - Dom': '#570000',
-  'Yes - Sub': '#002B57',
-  'Yes - Switch': '#572b57',
-  Yes: '#022E00',
-  'Check OOC': '#333333',
-  Ask: '#333333',
+  Unset: '#000000',
+  'Top - Dom': '#b00900',
+  'Top - Switch': '#9e0800',
+  'Top - Sub': '#940700',
+  'Verse-Top - Dom': '#b000a1',
+  'Verse-Top - Switch': '#a30095',
+  'Verse-Top - Sub': '#940088',
+  'Verse - Dom': '#6500a3',
+  'Verse - Switch': '#5b0094',
+  'Verse - Sub': '#6d00b0',
+  'Verse-Bottom - Dom': '#070094',
+  'Verse-Bottom - Switch': '#0900a3',
+  'Verse-Bottom - Sub': '#0900b0',
+  'Bottom - Dom': '#006794',
+  'Bottom - Switch': '#0072a3',
+  'Bottom - Sub': '#0084bd',
+  'Check OOC Notes': '#333333',
+  'Ask (L)OOC': '#333333',
   No: '#000000',
+  Yes: '#007302',
 };
 
 export const NovaCharacterDirectory = (props) => {
