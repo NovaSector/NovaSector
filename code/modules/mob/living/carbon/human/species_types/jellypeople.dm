@@ -42,7 +42,11 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly,
 	)
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
-	var/datum/action/innate/alter_form/alter_form //NOVA EDIT ADDITION - CUSTOMIZATION
+	var/datum/action/innate/alter_form/alter_form
+	//NOVA EDIT ADDITION - BEGIN
+	var/datum/action/cooldown/spell/slime_washing/slime_washing
+	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
+	//NOVA EDIT ADDITION - END
 
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
 	. = ..()
@@ -53,6 +57,10 @@
 		//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
+		slime_washing = new
+		slime_washing.Grant(new_jellyperson)
+		slime_hydrophobia = new
+		slime_hydrophobia.Grant(new_jellyperson)
 		//NOVA EDIT ADDITION END
 	new_jellyperson.AddElement(/datum/element/soft_landing)
 
@@ -62,6 +70,10 @@
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	if(alter_form)
 		alter_form.Remove(former_jellyperson)
+	if(slime_washing)
+		slime_washing.Remove(former_jellyperson)
+	if(slime_hydrophobia)
+		slime_hydrophobia.Remove(former_jellyperson)
 	//NOVA EDIT ADDITION END
 	former_jellyperson.RemoveElement(/datum/element/soft_landing)
 
