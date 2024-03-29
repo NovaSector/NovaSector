@@ -81,7 +81,9 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/Destroy(force)
 	for(var/ckey in character_preview_views)
 		var/atom/movable/screen/map_view/char_preview/preview = character_preview_views[ckey]
-		get_mob_by_ckey(ckey)?.client?.screen_maps -= preview
+		var/mob/user = get_mob_by_ckey(ckey)
+		if(user)
+			user.client?.screen_maps -= preview
 		qdel(preview)
 	return ..()
 
