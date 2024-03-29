@@ -281,16 +281,22 @@
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
 				//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 				if(href_list["genrecords"])
-					if(!human_user.canUseHUD())
-						return
-					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					if(istype(human_user))
+						if(!human_user.canUseHUD())
+							return
+						if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+							return
+					else if(!isobserver(human_or_ghost_user))
 						return
 					to_chat(human_user, "<b>General Record:</b> [target_record.past_general_records]")
 
 				if(href_list["secrecords"])
-					if(!human_user.canUseHUD())
-						return
-					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					if(istype(human_user))
+						if(!human_user.canUseHUD())
+							return
+						if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+							return
+					else if(!isobserver(human_or_ghost_user))
 						return
 					to_chat(human_user, "<b>Security Record:</b> [target_record.past_security_records]")
 				//NOVA EDIT ADDITION END
