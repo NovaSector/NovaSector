@@ -1,4 +1,4 @@
-/mob/living/basic/pet/cat/fennec
+/mob/living/basic/pet/fox/fennec
 	name = "fennec"
 	desc = "Vulpes Zerda. Also known as a Goob or a Dingler."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
@@ -17,40 +17,3 @@
 	can_be_held = TRUE
 	worn_slot_flags = ITEM_SLOT_HEAD
 	held_state = "fennec"
-	can_breed = FALSE
-	ai_controller = /datum/ai_controller/basic_controller/cat/fennec
-
-/mob/living/basic/pet/cat/fennec/update_overlays()
-	. = ..()
-	if(stat == DEAD || resting || !held_food)
-		return
-	if(istype(held_food, /obj/item/fish))
-		held_item_overlay = mutable_appearance(icon, "fennec_fish_overlay")
-	if(istype(held_food, /obj/item/food/deadmouse))
-		held_item_overlay = mutable_appearance(icon, "fennec_mouse_overlay")
-	. += held_item_overlay
-
-/datum/ai_planning_subtree/random_speech/fennecs
-	speech_chance = 5
-	speak = list(
-		"screm!",
-		"rrrrf!",
-		"screech!",
-		"aaaaaa!",
-		"squeak!",
-		"yip!",
-		"squee!",
-	)
-
-/datum/ai_controller/basic_controller/cat/fennec
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/reside_in_home,
-		/datum/ai_planning_subtree/flee_target/from_flee_key/cat_struggle,
-		/datum/ai_planning_subtree/find_and_hunt_target/hunt_mice,
-		/datum/ai_planning_subtree/find_and_hunt_target/find_cat_food,
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/haul_food_to_young,
-		/datum/ai_planning_subtree/territorial_struggle,
-		/datum/ai_planning_subtree/make_babies,
-		/datum/ai_planning_subtree/random_speech/fennecs,
-	)
