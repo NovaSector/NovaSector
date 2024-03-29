@@ -1,4 +1,0 @@
-author: "SomeRandomOwl"
-delete-after: True
-changes:
-  - rscadd: "Syndicate Sleeper Agent now has a popup poll for all valid players to get sleeper agent asking if they want to be traitor. Now traitors wont be picked when their pants are literally down."
