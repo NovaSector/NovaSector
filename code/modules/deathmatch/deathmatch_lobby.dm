@@ -146,17 +146,11 @@
 
 	// register death handling.
 	RegisterSignals(new_player, list(COMSIG_LIVING_DEATH, COMSIG_MOB_GHOSTIZED, COMSIG_QDELETING), PROC_REF(player_died))
-<<<<<<< HEAD
-	if (global_chat)
-		ADD_TRAIT(new_player, TRAIT_SIXTHSENSE, INNATE_TRAIT)
-		ADD_TRAIT(new_player, TRAIT_XRAY_HEARING, INNATE_TRAIT)
 	// NOVA EDIT ADDITION START - Synth brains don't drop here - let them delete with the mob
 	var/obj/item/organ/internal/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(synth_brain))
 		synth_brain.drop_when_organ_spilling = FALSE
 	// NOVA EDIT ADDITION END
-=======
->>>>>>> cf28cbee110 ([NO GBP] Fixes the "Random" deathmatch modifier and turns "Heightened Hearing" into a modifier as well. (#82223))
 
 /datum/deathmatch_lobby/proc/game_took_too_long()
 	if (!location || QDELING(src))
