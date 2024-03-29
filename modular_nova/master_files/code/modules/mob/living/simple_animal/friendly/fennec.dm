@@ -1,5 +1,5 @@
-/mob/living/basic/pet/fox/fennec
-	name = "fennec"
+/mob/living/basic/pet/cat/fennec
+	name = "fennec fox"
 	desc = "Vulpes Zerda. Also known as a Goob or a Dingler."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "fennec"
@@ -10,7 +10,7 @@
 	head_icon = 'modular_nova/master_files/icons/mob/clothing/head/pets_head.dmi'
 	speak_emote = list("screms", "squeaks", "rrrfs")
 	butcher_results = list(
-		/obj/item/food/meat/slab = 1
+		/obj/item/food/meat/slab = 1,
 	)
 	collar_icon_state = null
 	has_collar_resting_icon_state = FALSE
