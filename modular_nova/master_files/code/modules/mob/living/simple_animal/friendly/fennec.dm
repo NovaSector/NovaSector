@@ -1,5 +1,5 @@
 /mob/living/basic/pet/cat/fennec
-	name = "fennec"
+	name = "fennec fox"
 	desc = "Vulpes Zerda. Also known as a Goob or a Dingler."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "fennec"
