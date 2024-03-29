@@ -1804,7 +1804,7 @@
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "mn" = (
 /obj/structure/spawner/tarkon_xenos/minor,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "mo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3040,7 +3040,7 @@
 "ug" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/alien/resin/membrane,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "uh" = (
 /obj/structure/cable,
@@ -3534,7 +3534,7 @@
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "xC" = (
 /obj/structure/alien/resin/wall,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "xD" = (
 /obj/structure/reagent_dispensers/fueltank/large,
@@ -4564,7 +4564,7 @@
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "EN" = (
 /obj/structure/alien/weeds/node,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "EQ" = (
 /turf/closed/wall/r_wall,
@@ -5374,7 +5374,7 @@
 /area/ruin/space/has_grav/port_tarkon/garden)
 "Kn" = (
 /obj/structure/spawner/tarkon_xenos/common,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "Ko" = (
 /obj/structure/falsewall,
@@ -5531,6 +5531,9 @@
 /obj/machinery/camera/tarkon/directional/east,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/observ)
+"Ls" = (
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/outdoors)
 "Lt" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/yellow/half,
@@ -6476,7 +6479,7 @@
 /area/ruin/space/has_grav/port_tarkon/afthall)
 "RE" = (
 /obj/structure/alien/resin/membrane,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "RF" = (
 /obj/effect/turf_decal/tile/purple{
@@ -6548,7 +6551,7 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "Sl" = (
 /obj/structure/spawner/tarkon_xenos,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "Sm" = (
 /obj/structure/fluff/metalpole,
@@ -9782,8 +9785,8 @@ zY
 zY
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 bt
 zY
@@ -9854,9 +9857,9 @@ ZY
 zY
 bt
 xC
-kV
+Ls
 EN
-kV
+Ls
 EN
 xC
 zY
@@ -9927,10 +9930,10 @@ ZY
 zY
 zY
 xC
-kV
+Ls
 Kn
 EN
-kV
+Ls
 xC
 bt
 eT
@@ -10000,10 +10003,10 @@ ZY
 zY
 bt
 xC
-kV
+Ls
 EN
-kV
-kV
+Ls
+Ls
 xC
 zY
 eT
@@ -10073,10 +10076,10 @@ ZY
 zY
 bt
 xC
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 zY
 eT
@@ -10146,9 +10149,9 @@ ZY
 zY
 zY
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 EN
 xC
 zY
@@ -10220,9 +10223,9 @@ zY
 zY
 xC
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 eT
@@ -10293,8 +10296,8 @@ zY
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 bt
 zY
@@ -10366,7 +10369,7 @@ zY
 zY
 zY
 xC
-kV
+Ls
 xC
 zY
 bt
@@ -10512,7 +10515,7 @@ zY
 bt
 bt
 xC
-kV
+Ls
 xC
 bt
 zY
@@ -10585,7 +10588,7 @@ zY
 bt
 zY
 xC
-kV
+Ls
 xC
 zY
 bt
@@ -10658,7 +10661,7 @@ zY
 zY
 bt
 xC
-kV
+Ls
 xC
 bt
 zY
@@ -10731,7 +10734,7 @@ zY
 zY
 bt
 xC
-kV
+Ls
 xC
 xC
 bt
@@ -10804,9 +10807,9 @@ zY
 bt
 bt
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 zY
 eT
@@ -10879,7 +10882,7 @@ bt
 xC
 EN
 mn
-kV
+Ls
 xC
 zY
 eT
@@ -10950,8 +10953,8 @@ zY
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 EN
 xC
 zY
@@ -11024,8 +11027,8 @@ bt
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 zY
 eT
@@ -11098,7 +11101,7 @@ zY
 bt
 bt
 xC
-kV
+Ls
 xC
 bt
 eT
@@ -11171,7 +11174,7 @@ bt
 bt
 bt
 xC
-kV
+Ls
 xC
 zY
 eT
@@ -11244,7 +11247,7 @@ zY
 bt
 zY
 xC
-kV
+Ls
 xC
 zY
 eT
@@ -11317,7 +11320,7 @@ zY
 bt
 bt
 xC
-kV
+Ls
 xC
 bt
 eT
@@ -11329,7 +11332,7 @@ bt
 bt
 xC
 xC
-kV
+Ls
 EN
 xC
 xC
@@ -11401,10 +11404,10 @@ xC
 bt
 xC
 xC
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 zY
 OV
@@ -11463,21 +11466,21 @@ bt
 zY
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 xC
-kV
+Ls
 EN
 EN
 EN
-kV
+Ls
 xC
 bt
 OV
@@ -11538,19 +11541,19 @@ bt
 xC
 mn
 EN
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
-kV
+Ls
 EN
 Sl
 EN
-kV
+Ls
 xC
 bt
 OV
@@ -11610,20 +11613,20 @@ bt
 bt
 bt
 xC
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 EN
 EN
 EN
-kV
+Ls
 xC
 bt
 OV
@@ -11683,20 +11686,20 @@ zY
 zY
 bt
 xC
-kV
+Ls
 EN
-kV
+Ls
 xC
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 EN
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 bt
 OV
@@ -11756,19 +11759,19 @@ bt
 zY
 bt
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
 mn
-kV
+Ls
 RE
 RE
 RE
-kV
+Ls
 EN
 xC
 zY
@@ -11829,17 +11832,17 @@ zY
 zY
 zY
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 RE
 RE
 xC
@@ -11903,8 +11906,8 @@ zY
 bt
 xC
 EN
-kV
-kV
+Ls
+Ls
 EN
 xC
 xC
@@ -11913,8 +11916,8 @@ RE
 RE
 RE
 EN
-kV
-kV
+Ls
+Ls
 xC
 bt
 bt
@@ -11977,17 +11980,17 @@ zY
 xC
 Kn
 EN
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 RE
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 EN
-kV
+Ls
 xC
 bt
 bt
@@ -12049,15 +12052,15 @@ zY
 zY
 bt
 xC
-kV
+Ls
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 RE
 EN
 RE
-kV
+Ls
 EN
 mn
 xC
@@ -12126,12 +12129,12 @@ xC
 xC
 xC
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 RE
-kV
-kV
+Ls
+Ls
 xC
 bt
 zY
