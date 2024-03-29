@@ -87,8 +87,14 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 /datum/character_directory/proc/create_character_preview_view(mob/user)
 	var/assigned_view = "preview_[user.ckey]_[REF(src)]_directory"
-	if(user.client?.screen_maps[assigned_view])
-		return
+
+	// sometimes--e.g. if you have a ui open and you observe--you can end up with a stuck map_view, which leads to subsequent previews not rendering.
+	// let's clear those out, we always want a new one when calling this proc anyway.
+	var/old_view = user.client?.screen_maps[assigned_view]
+	if(old_view)
+		character_preview_views -= old_view
+		user.client.screen_maps -= old_view
+		qdel(old_view)
 
 	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
 	new_view.generate_view(assigned_view)
