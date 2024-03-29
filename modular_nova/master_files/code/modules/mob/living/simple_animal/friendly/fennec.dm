@@ -1,5 +1,5 @@
 /mob/living/basic/pet/cat/fennec
-	name = "fennec"
+	name = "fennec fox"
 	desc = "Vulpes Zerda. Also known as a Goob or a Dingler."
 	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
 	icon_state = "fennec"
@@ -10,14 +10,13 @@
 	head_icon = 'modular_nova/master_files/icons/mob/clothing/head/pets_head.dmi'
 	speak_emote = list("screms", "squeaks", "rrrfs")
 	butcher_results = list(
-		/obj/item/food/meat/slab = 1
+		/obj/item/food/meat/slab = 1,
 	)
 	collar_icon_state = null
 	has_collar_resting_icon_state = FALSE
 	can_be_held = TRUE
 	worn_slot_flags = ITEM_SLOT_HEAD
 	held_state = "fennec"
-	can_breed = FALSE
 	ai_controller = /datum/ai_controller/basic_controller/cat/fennec
 
 /mob/living/basic/pet/cat/fennec/update_overlays()
@@ -53,4 +52,11 @@
 		/datum/ai_planning_subtree/territorial_struggle,
 		/datum/ai_planning_subtree/make_babies,
 		/datum/ai_planning_subtree/random_speech/fennecs,
+	)
+
+/mob/living/basic/pet/cat/fennec/add_breeding_component()
+	AddComponent(\
+		/datum/component/breed,\
+		can_breed_with = typecacheof(list(/mob/living/basic/pet/cat/fennec)),\
+		baby_path = /mob/living/basic/pet/cat/fennec,\
 	)
