@@ -479,7 +479,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/aft)
 "agX" = (
-/mob/living/simple_animal/slime,
+/mob/living/basic/slime,
 /turf/open/floor/circuit/green,
 /area/station/science/xenobiology)
 "aha" = (
@@ -7185,9 +7185,6 @@
 /turf/closed/wall,
 /area/station/maintenance/port/greater)
 "chg" = (
-/obj/structure/secure_safe/caps_spare{
-	pixel_x = -24
-	},
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/photo_album,
 /obj/item/camera{
@@ -15252,6 +15249,11 @@
 "esP" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
+/obj/structure/secure_safe/caps_spare{
+	base_icon_state = "floorsafe";
+	icon_state = "floorsafe";
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "etd" = (
@@ -26753,12 +26755,20 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/port)
 "hIp" = (
-/obj/structure/safe,
+/obj/structure/safe/vault,
+/obj/item/storage/briefcase/secure/riches,
 /obj/item/storage/backpack/duffelbag/syndie/hitman,
 /obj/item/card/id/advanced/silver/reaper,
 /obj/item/lazarus_injector,
-/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
-/obj/item/stack/spacecash/c5000,
+/obj/item/gun/energy/disabler,
+/obj/item/gun/ballistic/revolver/russian,
+/obj/item/ammo_box/a357,
+/obj/item/clothing/neck/stethoscope,
+/obj/item/book{
+	desc = "An undeniably handy book.";
+	icon_state = "bookknock";
+	name = "\improper A Simpleton's Guide to Safe-cracking with Stethoscopes"
+	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/station/ai_monitored/command/nuke_storage)
@@ -33120,7 +33130,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
-/obj/machinery/computer/department_orders/service,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
@@ -34709,7 +34718,6 @@
 /area/station/science/xenobiology)
 "jSl" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/department_orders/science,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
@@ -36898,9 +36906,6 @@
 /turf/open/floor/iron/smooth,
 /area/station/cargo/lobby)
 "kyH" = (
-/obj/machinery/computer/department_orders/medical{
-	dir = 4
-	},
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
 	},
@@ -48167,9 +48172,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
 	},
-/obj/machinery/computer/department_orders/security{
-	dir = 1
-	},
 /obj/machinery/firealarm/directional/south,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner{
 	dir = 8
@@ -49578,9 +49580,6 @@
 /turf/closed/wall,
 /area/station/medical/medbay/central)
 "nUc" = (
-/obj/machinery/computer/department_orders/engineering{
-	dir = 1
-	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner{
 	dir = 1
 	},
@@ -49758,9 +49757,6 @@
 "nWq" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
-	},
-/obj/machinery/modular_computer/preset/cargochat/cargo{
-	dir = 4
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_edge{
@@ -55693,8 +55689,8 @@
 /area/station/maintenance/starboard/lesser)
 "pBG" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/siding/blue,
+/obj/machinery/photobooth,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/command)
 "pBQ" = (
@@ -56338,8 +56334,7 @@
 "pLl" = (
 /obj/machinery/button/flasher{
 	id = "hopflash";
-	pixel_x = 6;
-	pixel_y = 34
+	pixel_x = -26
 	},
 /obj/machinery/pdapainter,
 /obj/machinery/button/door/directional/north{
@@ -56365,6 +56360,10 @@
 	pixel_y = 36
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/button/photobooth{
+	pixel_x = 6;
+	pixel_y = 36
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "pLH" = (
@@ -79603,6 +79602,7 @@
 /area/station/commons/storage/primary)
 "waK" = (
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/photobooth/security,
 /turf/open/floor/glass/reinforced,
 /area/station/security/execution/transfer)
 "waM" = (
@@ -106987,10 +106987,10 @@ nQt
 dVY
 kVR
 uiw
-agX
+tAl
 uiw
 uKe
-tAl
+agX
 uiw
 uKe
 tAl
@@ -109043,10 +109043,10 @@ sAL
 ohh
 kVR
 uiw
-tAl
+agX
 uiw
 uKe
-agX
+tAl
 uiw
 uKe
 xXU
