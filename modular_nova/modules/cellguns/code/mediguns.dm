@@ -58,7 +58,7 @@
 	chargerate = 0.08 * STANDARD_CELL_CHARGE
 
 /obj/item/stock_parts/cell/medigun/experimental // This cell type is meant to be used in self charging mediguns like CMO and ERT one.
-	name = "experiemental medigun cell"
+	name = "experimental medigun cell"
 	maxcharge = 1.8 * STANDARD_CELL_CHARGE
 	chargerate = 0.1 * STANDARD_CELL_CHARGE
 // End of power cells
