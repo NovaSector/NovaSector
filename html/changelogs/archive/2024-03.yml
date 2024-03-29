@@ -928,3 +928,130 @@
   - rscadd: Added the Chief Engineer's turtleneck and turtleneck skirt to the game.
   - rscadd: Added the Chief Engineer and Chief Medical Officer's turtlenecks to their
       respectives garment bags.
+2024-03-29:
+  BurgerBB:
+  - balance: 'You can no longer visually track something (See: AI tracking) if that
+      object is inside something. You are also considered invisible by tracking if
+      your alpha level is less than 50.'
+  CliffracerX:
+  - rscadd: you can mount Mk. II Hyposprays onto the underside of Hypospray Kits &
+      quickdraw them
+  - rscadd: MK. II hypospray upgrade kit through imports - bigger vials, but it'll
+      hurt your wallet to get 'em!
+  - image: redid every Mk. II Hypospray, hypokit & vial sprite!
+  - qol: hypovials are now color-codable & the type can still be seen when loaded
+      into a hypospray
+  - qol: R&D can research how to make new hypokits & Mk. II Hyposprays
+  - balance: boosted deluxe hypokits' storage, nerfed small hypokits' storage & made
+      them pocketable
+  GoldenAlpharex:
+  - bugfix: Yawns no longer spread, once again.
+  Hatterhat:
+  - balance: Double-barrel shotguns and the Colt Detective Special .38 revolver are
+      back in Cargo's goodies tab.
+  - balance: The Bobr 12g shotgun revolver no longer has basically instant reload
+      delay.
+  - balance: Bolt-action rifles and revolvers no longer delay your next hand use after
+      using an ammo box to reload them.
+  - qol: Reloading a weapon in a way that encumbers you now says how long your handedness
+      is impaired for in seconds.
+  JohnFulpWillard, Twox:
+  - rscadd: Added a new photobooth machine to the HoP's line.
+  - bugfix: Things checking for access now checks your off hand, too.
+  LT3:
+  - bugfix: "Fixes Schr\xF6dinger's space heater, where a space heater both consumes\
+      \ a power cell instantly while also not consuming power when heating adjacent\
+      \ tiles"
+  LordVoidron, vinylspiders:
+  - rscadd: Private (no ghost) pda messaging, done by adding "#" to start of PDA message.
+  - qol: Added button to NTOS messenger TGUI to toggle private messaging.
+  Melbert:
+  - qol: Cargobus chat console and Departmental Order console are now combined into
+      one.
+  - qol: Mod PCs active on the "chat client" apps no longer look like AI uploads (and
+      now have their own sprite)
+  - refactor: Departmental order consoles were refactored a bit, report any oddities.
+  - bugfix: '"Mind Gate" does self brain damage as intended'
+  - bugfix: Stabilized Red extracts no longer bypass Immutably Slow items
+  - bugfix: Settler equipment speed modifier no longer applied to Immutably Slow items
+  - bugfix: Immutably Slow items no longer block construction of certain items
+  - qol: Suit Storage Units charge MODsuits while their cell panel is closed or open,
+      rather than only when screwed open
+  - qol: Inducers can charge MODsuits while their cell panel is closed or open, rather
+      than only when screwed open
+  - qol: Suit Storage Units will charge all items within simultaneously (if possible)
+  Nerev4r:
+  - qol: Interaction preferences have been expanded to make a wider array of characters
+      more comfortable.
+  NovaBot13:
+  - bugfix: air analyzers work again
+  - balance: You can now adjust the suit sensors of another player in the strip menu.
+      No longer must you first take it off.
+  - bugfix: Botanists will be given dank pizza when consuming the infinite pizza
+  - spellcheck: however, he burn`s` his finger in the process.
+  - qol: adds examines & screentips for tool acts & other operations for reagent grinder
+  - qol: adds an off icon for when the grinder panel is open/not powered
+  - code_imp: auto docs vars & procs. Shared common proc for grinding or juicing
+  - code_imp: removed trait for blended dust, changed some item interactions to end
+      the attack chain early & save time
+  - bugfix: no inserting hologram items into the reagent grinder
+  - bugfix: 'you can hit the reagent grinder tools like screwdriver, wrench, crowbar
+      & even beakers/ingredients etc when in combat mode
+
+      fix; adds sanity checks for when & how mobs interact with the reagent grinder'
+  - bugfix: examining a reagent grinder by an AI/Human with AI access now actually
+      works.
+  - bugfix: you can insert Nova flowers & other food items from any bag type
+  - bugfix: reagent grinder now grinds all the contents of an item recursively to
+      produce maximum reagents like a real grinder would
+  - refactor: reagent grinder now measures available capacity to store items as total
+      weight of stored items & not number. Capacity can be increased with upgraded
+      matter bin
+  - refactor: reagent grinder power usage is now a function of duration & total weight
+      of items blended, meaining blending more number of items/larger items will consume
+      more power
+  - refactor: reagent grinder code has been optimized overall. Report bugs on github
+  - bugfix: turret id panel checks the access of the attacking item instead
+  - rscadd: Wise cows produce surprising milk.
+  - spellcheck: You now milk the owner of an udder, not the udder.
+  - bugfix: Made sure that mapped critters (i.e. penguins on the snow cabin away mission)
+      can survive in the environment they're spawned in.
+  - bugfix: Certain weather types that arent supposed to be glowing no longer glow
+  - image: Snow storms no longer glow
+  - refactor: Slimes are now basic mobs. Please report any strange behaviours!
+  - balance: Slimes only stun you for two seconds when they shock you, the rest of
+      the duration is a knockdown.
+  - balance: Slimes are not stunned from the cold, but rather, get frozen in a freon
+      icecube. BZ also puts them in complete stasis, instead of making them unconscious.
+      Their speed is likewise unchanged by temperatures.
+  - balance: Slimes do not passively heal, they instead rely on feeding.
+  - bugfix: Slimes can use the buckling screen alert to unbuckle and stop feeding,
+      along with clicking on the mob they are riding
+  - bugfix: Cameras built in-round can be upgraded again.
+  - bugfix: Deconstructing cameras now more consistently return to you the upgrades
+      inside of the camera.
+  - bugfix: RD's telescreen can now properly see Ordnance cameras again.
+  - bugfix: '[Deltastation] Library art gallery no longer has an invisible camera.'
+  - spellcheck: fixed grammatical error in chemical splashing
+  SomeRandomOwl:
+  - rscadd: Syndicate Sleeper Agent now has a popup poll for all valid players to
+      get sleeper agent asking if they want to be traitor. Now traitors wont be picked
+      when their pants are literally down.
+  - rscadd: Added two new quirks, Kleptomaniac, and Possessive
+  Thlumyn:
+  - balance: added some cargo lathe items to the Interdyne mining equipment vendor
+  - balance: add night vision health scanner mesons to the Interdyne mining equipment
+      vendor
+  - balance: change some Interdyne machines to start at tier 4
+  - balance: gives Interdyne an advanced health analyzer
+  - balance: change Interdyne Bioweapon Scientist to Interdyne Scientist
+  - rscadd: Added stone cauldrons
+  honkpocket:
+  - rscadd: Adds Gun Boots and some Baseball Bats to the DM Mystery Boxes
+  nikothedude:
+  - rscadd: You can now set your characters height
+  - rscadd: Roboticists now spawn with synthetic medkits to make their jobs a bit
+      easier
+  - rscadd: New cargo packs for synthetic medkits
+  - balance: Roboticists now spawn with diag huds, welding helmets, and black gloves
+  - balance: Synthetic burn kits now have extra bottles

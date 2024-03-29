@@ -272,7 +272,7 @@
 			candidates -= player // We don't autotator people with roles already
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
-	var/mob/M = pick(candidates)
+	var/mob/M = pick(poll_candidates_for_one(candidates)) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
 	candidates -= M
 	var/datum/antagonist/traitor/infiltrator/sleeper_agent/newTraitor = new
