@@ -79,7 +79,10 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/list/atom/movable/screen/map_view/char_preview/character_preview_views = list()
 
 /datum/character_directory/Destroy(force)
-	QDEL_LIST(character_preview_views)
+	for(var/ckey in character_preview_views)
+		var/atom/movable/screen/map_view/char_preview/preview = character_preview_views[ckey]
+		get_mob_by_ckey(ckey)?.client?.screen_maps -= preview
+		qdel(preview)
 	return ..()
 
 /datum/character_directory/proc/create_character_preview_view(mob/user)
@@ -87,9 +90,10 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	if(user.client?.screen_maps[assigned_view])
 		return
 
-	var/atom/movable/screen/map_view/char_preview/new_view = new(null, src)
+	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user)
+	return new_view
 
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
@@ -107,13 +111,16 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		character_preview_views[ref(user)] = create_character_preview_view(user)
+		character_preview_views[user.ckey] = create_character_preview_view(user)
 		ui = new(user, src, "NovaCharacterDirectory", "Character Directory")
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
 /datum/character_directory/ui_close(mob/user)
-	character_preview_views -= ref(user)
+	var/atom/movable/screen/map_view/char_preview/old_preview = character_preview_views[user.ckey]
+	user.client?.screen_maps -= old_preview
+	character_preview_views -= user.ckey
+	qdel(old_preview)
 
 //We want this information to update any time the player updates their preferences, not just when the panel is refreshed
 /datum/character_directory/ui_data(mob/user)
@@ -257,5 +264,4 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			return TRUE
 		if("view_character")
 			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]])
-			log_world(params["name"])
 			return TRUE
