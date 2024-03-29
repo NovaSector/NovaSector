@@ -984,12 +984,8 @@
 
 	return SEND_SIGNAL(src, COMSIG_ITEM_MICROWAVE_ACT, microwave_source, microwaver, randomize_pixel_offset)
 
-<<<<<<< HEAD
-/obj/item/proc/grind_requirements(obj/machinery/reagentgrinder/R) //Used to check for extra requirements for grinding an object
-=======
 //Used to check for extra requirements for blending(grinding or juicing) an object
 /obj/item/proc/blend_requirements(obj/machinery/reagentgrinder/R)
->>>>>>> c90c08a6381 ([NO GBP]Grind & juice fixes (#82272))
 	return TRUE
 
 ///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
