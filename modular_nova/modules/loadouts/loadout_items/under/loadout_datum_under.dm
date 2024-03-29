@@ -473,6 +473,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Colourable Maid Uniform"
 	item_path = /obj/item/clothing/under/maid_costume
 
+/datum/loadout_item/under/miscellaneous/combat_maid
+	name = "Tactical Maid Outfit"
+	item_path = /obj/item/clothing/under/syndicate/nova/maid
+
 /datum/loadout_item/under/miscellaneous/yukata
 	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
@@ -553,18 +557,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/gladiator
 	name = "Gladiator Uniform"
 	item_path = /obj/item/clothing/under/costume/gladiator
-
-/datum/loadout_item/under/miscellaneous/griffon
-	name = "Griffon Uniform"
-	item_path = /obj/item/clothing/under/costume/griffin
-
-/datum/loadout_item/under/miscellaneous/owl
-	name = "Owl Uniform"
-	item_path = /obj/item/clothing/under/costume/owl
-
-/datum/loadout_item/under/miscellaneous/villain
-	name = "Villain Suit"
-	item_path = /obj/item/clothing/under/costume/villain
 
 /datum/loadout_item/under/miscellaneous/sweater
 	name = "Cableknit Sweater" //Different than the Suit item ("Sweater")!!

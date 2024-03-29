@@ -524,16 +524,6 @@
 	item_path = /obj/item/toy/plush/nova/chunko/inessa
 	donator_only = TRUE
 
-/datum/loadout_item/toys/plushie_chiara
-	name = "Commanding Fox Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_chiara
-	ckeywhitelist = list("srq", "superlagg")
-
-/datum/loadout_item/toys/plushie_dan
-	name = "Comfy Fox Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_dan
-	ckeywhitelist = list("srq", "superlagg")
-
 /datum/loadout_item/under/jumpsuit/bubbly_clown
 	name = "Bubbly Clown Dress"
 	item_path = /obj/item/clothing/under/bubbly_clown/skirt

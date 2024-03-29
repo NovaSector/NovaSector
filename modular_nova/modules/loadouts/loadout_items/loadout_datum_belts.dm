@@ -20,6 +20,18 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 	else
 		outfit.belt = item_path
 
+/datum/loadout_item/belts/frontier_colonist
+	name = "Frontier Chest Rig"
+	item_path = /obj/item/storage/belt/utility/frontier_colonist
+
+/datum/loadout_item/belts/expeditionary_corps
+	name = "Expeditionary Corps Chest Rig"
+	item_path = /obj/item/storage/belt/military/expeditionary_corps
+
+/datum/loadout_item/belts/Crusader
+	name = "Scabbard"
+	item_path = /obj/item/storage/belt/crusader
+
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Black Fannypack"
 	item_path = /obj/item/storage/belt/fannypack/black
