@@ -338,9 +338,7 @@
 /area/station/science/ordnance/testlab)
 "aft" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai)
 "afy" = (
@@ -16581,9 +16579,9 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "eWz" = (
-/obj/machinery/power/smes,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/station/engineering/gravity_generator)
 "eWT" = (
@@ -17360,11 +17358,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos)
 "fiR" = (
-/obj/machinery/power/smes/engineering{
-	name = "telecomms power storage unit"
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/smes/full,
 /turf/open/floor/iron/dark/small,
 /area/station/tcommsat/server)
 "fiT" = (
@@ -35073,6 +35069,7 @@
 /obj/structure/railing/corner{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -35288,10 +35285,7 @@
 /area/station/common/arcade)
 "kyb" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	charge = 5e+006;
-	output_level = 10000
-	},
+/obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "kyh" = (
@@ -35942,6 +35936,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable,
 /turf/open/openspace,
 /area/station/engineering/transit_tube)
 "kHF" = (
@@ -44332,7 +44327,7 @@
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "ndH" = (
-/obj/machinery/power/smes,
+/obj/machinery/power/smes/battery_pack/large,
 /turf/open/floor/plating,
 /area/station/maintenance/department/electrical)
 "ndJ" = (
@@ -52896,7 +52891,6 @@
 /turf/open/openspace,
 /area/station/service/hydroponics/upper)
 "pJn" = (
-/obj/machinery/power/terminal,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/circuitboard/machine/pacman{
 	pixel_y = -3;
@@ -61807,10 +61801,8 @@
 /turf/open/floor/wood/tile,
 /area/station/commons/lounge)
 "svS" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
 /obj/structure/cable,
+/obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/station/construction/mining/aux_base)
 "swa" = (
