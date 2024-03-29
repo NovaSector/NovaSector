@@ -1490,9 +1490,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
-"kJ" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/outdoors)
 "kN" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/tarkon/right/directional/south,
@@ -9857,7 +9854,7 @@ ZY
 zY
 bt
 xC
-kJ
+kV
 EN
 kV
 EN
@@ -10953,7 +10950,7 @@ zY
 bt
 bt
 xC
-kJ
+kV
 kV
 EN
 xC
@@ -11407,7 +11404,7 @@ xC
 kV
 kV
 kV
-kJ
+kV
 xC
 zY
 OV
@@ -11990,7 +11987,7 @@ kV
 kV
 kV
 EN
-kJ
+kV
 xC
 bt
 bt
@@ -12052,7 +12049,7 @@ zY
 zY
 bt
 xC
-kJ
+kV
 EN
 kV
 kV
