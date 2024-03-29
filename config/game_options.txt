@@ -349,22 +349,18 @@ SILICON_MAX_LAW_AMOUNT 12
 ROUNDSTART_RACES human
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
-ROUNDSTART_RACES felinid
 ROUNDSTART_RACES lizard
 ROUNDSTART_RACES felinid
-#ROUNDSTART_RACES fly
+ROUNDSTART_RACES fly
 ROUNDSTART_RACES moth
 ROUNDSTART_RACES plasmaman
 #ROUNDSTART_RACES shadow
-ROUNDSTART_RACES teshari
-ROUNDSTART_RACES hemophage
-ROUNDSTART_RACES snail
 
 ## Races that are better than humans in some ways, but worse in others
 ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES jelly
 #ROUNDSTART_RACES abductor
-#ROUNDSTART_RACES snail
+ROUNDSTART_RACES snail
 
 ## Races that are straight upgrades. If these are on expect powergamers to always pick them
 #ROUNDSTART_RACES skeleton
@@ -387,12 +383,14 @@ ROUNDSTART_RACES xeno
 ROUNDSTART_RACES slimeperson
 ROUNDSTART_RACES podweak
 ROUNDSTART_RACES dwarf
+ROUNDSTART_RACES synth
 ROUNDSTART_RACES vox
-ROUNDSTART_RACES vox_primalis
 ROUNDSTART_RACES aquatic
 ROUNDSTART_RACES insect
-ROUNDSTART_RACES synth
 ROUNDSTART_RACES ghoul
+ROUNDSTART_RACES teshari
+ROUNDSTART_RACES hemophage
+ROUNDSTART_RACES vox_primalis
 
 ##-------------------------------------------------------------------------------------------
 
