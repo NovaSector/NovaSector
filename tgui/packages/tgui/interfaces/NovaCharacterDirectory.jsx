@@ -87,6 +87,25 @@ export const NovaCharacterDirectory = (props) => {
     setOverlay(character);
   };
 
+  const [searchTerm, setSearchTerm] = useState('');
+  const updateSearchTerm = (character) => {
+    setSearchTermy(character);
+  };
+
+  const [sortId, setSortId] = useState('name');
+  const updateSortId = (character) => {
+    setSortId(character);
+  };
+  const [sortOrder, setSortOrder] = useState('asc');
+  const updateSortOrder = (character) => {
+    setSortOrder(character);
+  };
+
+  const [colorCodeEnabled, setColorCodeEnabled] = useState('');
+  const updateColorCodeEnabled = (character) => {
+    setColorCodeEnabled(character);
+  };
+
   return (
     <Window width={1000} height={800} resizeable>
       <Window.Content scrollable>
@@ -128,6 +147,14 @@ export const NovaCharacterDirectory = (props) => {
             <CharacterDirectoryList
               overlay={overlay}
               updateOverlay={updateOverlay}
+              searchTerm={searchTerm}
+              updateSearchTerm={updateSearchTerm}
+              sortId={sortId}
+              updateSortId={updateSortId}
+              sortOrder={sortOrder}
+              updateSortOrder={updateSortOrder}
+              colorCodeEnabled={colorCodeEnabled}
+              updateColorCodeEnabled={updateColorCodeEnabled}
             />
           </>
         )}
@@ -258,23 +285,26 @@ const ViewCharacter = (props) => {
 
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
-  const { updateOverlay } = props;
+  const {
+    updateOverlay,
+    searchTerm,
+    updateSearchTerm,
+    sortId,
+    updateSortId,
+    sortOrder,
+    updateSortOrder,
+    colorCodeEnabled,
+    updateColorCodeEnabled,
+  } = props;
 
   const { directory, canOrbit, assigned_view } = data;
 
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const [sortId, setSortId] = useState('name');
-  const [sortOrder, setSortOrder] = useState('asc');
-
-  const [colorCodeEnabled, setColorCodeEnabled] = useState('');
-
   const handleSort = (id) => {
     if (sortId === id) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+      updateSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
-      setSortId(id);
-      setSortOrder('asc');
+      updateSortId(id);
+      updateSortOrder('asc');
     }
   };
 
@@ -320,7 +350,7 @@ const CharacterDirectoryList = (props) => {
           <Input
             placeholder="Search name..."
             onInput={(e, value) => {
-              setSearchTerm(value);
+              updateSearchTerm(value);
             }}
             value={searchTerm}
             mb={2}
@@ -331,7 +361,7 @@ const CharacterDirectoryList = (props) => {
           <Button.Checkbox
             checked={colorCodeEnabled}
             onClick={(e) => {
-              setColorCodeEnabled(!colorCodeEnabled);
+              updateColorCodeEnabled(!colorCodeEnabled);
             }}
             tooltip="Toggle the color coding for ERP Status"
           >
