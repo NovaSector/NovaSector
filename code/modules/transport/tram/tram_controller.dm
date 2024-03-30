@@ -339,9 +339,10 @@
 	current_speed = 0
 	current_load = 0
 	speed_limiter = initial(speed_limiter)
-	var/throw_direction = travel_direction
-	for(var/obj/structure/transport/linear/tram/module in transport_modules)
-		module.estop_throw(throw_direction)
+	if(rand(1,100) < 5)
+		var/throw_direction = travel_direction
+		for(var/obj/structure/transport/linear/tram/module in transport_modules)
+			module.estop_throw(throw_direction)
 
 /datum/transport_controller/linear/tram/proc/degraded_stop()
 	log_transport("TC: [specific_transport_id] trip completed with a degraded status. Info: [TC_TS_STATUS] nav_pos ([nav_beacon.x], [nav_beacon.y], [nav_beacon.z]) idle_pos ([destination_platform.x], [destination_platform.y], [destination_platform.z]).")
