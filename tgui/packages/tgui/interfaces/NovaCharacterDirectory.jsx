@@ -5,6 +5,7 @@ import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import {
   Button,
+  Divider,
   Icon,
   Input,
   LabeledList,
@@ -44,28 +45,27 @@ const formatURLs = (text) => {
 
   return <div>{parts}</div>;
 };
-
 const erpTagColor = {
   Unset: '#000000',
-  'Top - Dom': '#b00900',
-  'Top - Switch': '#9e0800',
-  'Top - Sub': '#940700',
-  'Verse-Top - Dom': '#b000a1',
-  'Verse-Top - Switch': '#a30095',
-  'Verse-Top - Sub': '#940088',
-  'Verse - Dom': '#6500a3',
-  'Verse - Switch': '#5b0094',
-  'Verse - Sub': '#6d00b0',
-  'Verse-Bottom - Dom': '#070094',
-  'Verse-Bottom - Switch': '#0900a3',
-  'Verse-Bottom - Sub': '#0900b0',
-  'Bottom - Dom': '#006794',
-  'Bottom - Switch': '#0072a3',
-  'Bottom - Sub': '#0084bd',
+  'Top - Dom': '#852823',
+  'Top - Switch': '#852823',
+  'Top - Sub': '#852823',
+  'Verse-Top - Dom': '#a15a9b',
+  'Verse-Top - Switch': '#a15a9b',
+  'Verse-Top - Sub': '#a15a9b',
+  'Verse - Dom': '#6b2b92',
+  'Verse - Switch': '#6b2b92',
+  'Verse - Sub': '#6b2b92',
+  'Verse-Bottom - Dom': '#2019aa',
+  'Verse-Bottom - Switch': '#2019aa',
+  'Verse-Bottom - Sub': '#2019aa',
+  'Bottom - Dom': '#217fa7',
+  'Bottom - Switch': '#217fa7',
+  'Bottom - Sub': '#217fa7',
   'Check OOC Notes': '#333333',
   'Ask (L)OOC': '#333333',
-  No: '#000000',
-  Yes: '#007302',
+  No: '#131313',
+  Yes: 'green',
 };
 
 export const NovaCharacterDirectory = (props) => {
@@ -258,7 +258,7 @@ const ViewCharacter = (props) => {
 
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
-  const { overlay, updateOverlay } = props;
+  const { updateOverlay } = props;
 
   const { directory, canOrbit, assigned_view } = data;
 
@@ -267,6 +267,8 @@ const CharacterDirectoryList = (props) => {
   const [sortId, setSortId] = useState('name');
   const [sortOrder, setSortOrder] = useState('asc');
 
+  const [colorCodeEnabled, setColorCodeEnabled] = useState('');
+
   const handleSort = (id) => {
     if (sortId === id) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
@@ -274,10 +276,6 @@ const CharacterDirectoryList = (props) => {
       setSortId(id);
       setSortOrder('asc');
     }
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
   };
 
   const handleRandomView = () => {
@@ -317,12 +315,31 @@ const CharacterDirectoryList = (props) => {
         </>
       }
     >
-      <Input
-        placeholder="Search name..."
-        onChange={(e) => setSearchTerm(e.target.value)}
-        value={searchTerm}
-        mb={2}
-      />
+      <Stack mb={-2}>
+        <Stack.Item>
+          <Input
+            placeholder="Search name..."
+            onInput={(e, value) => {
+              setSearchTerm(value);
+            }}
+            value={searchTerm}
+            mb={2}
+          />
+        </Stack.Item>
+        <Stack.Divider hidden grow width="50%" />
+        <Stack.Item>
+          <Button.Checkbox
+            checked={colorCodeEnabled}
+            onClick={(e) => {
+              setColorCodeEnabled(!colorCodeEnabled);
+            }}
+            tooltip="Toggle the color coding for ERP Status"
+          >
+            ERP Status Colors
+          </Button.Checkbox>
+        </Stack.Item>
+      </Stack>
+      <Divider />
       <Table>
         <Table.Row bold>
           <SortButton
@@ -394,7 +411,12 @@ const CharacterDirectoryList = (props) => {
           </Table.Cell>
         </Table.Row>
         {sortedDirectory.map((character, i) => (
-          <Table.Row key={i} backgroundColor={erpTagColor[character.erp]}>
+          <Table.Row
+            key={i}
+            backgroundColor={
+              colorCodeEnabled ? erpTagColor[character.erp] : 'transparent'
+            }
+          >
             <Table.Cell p={1}>
               {canOrbit ? (
                 <Button
