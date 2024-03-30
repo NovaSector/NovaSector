@@ -1055,3 +1055,42 @@
   - rscadd: New cargo packs for synthetic medkits
   - balance: Roboticists now spawn with diag huds, welding helmets, and black gloves
   - balance: Synthetic burn kits now have extra bottles
+2024-03-30:
+  Iajret:
+  - bugfix: fixed capacity of medigun's cells to use new (bigger) numbers
+  Jinshee:
+  - rscadd: Added rattlesnake tail
+  MajManatee:
+  - image: New lizard frills - Split - based off axolotls
+  Melbert:
+  - qol: A few species (such as Jellypeople) now have proper(ish) preference menu
+      setups
+  - config: The in-repo species config has been updated. Well it's still the same
+      by default, but it's now updated for newer species.
+  NovaBot13:
+  - bugfix: Fixed the "Random" deathmatch modifier. Also turned the "Heightened Hearing"
+      option into a modifier as well.
+  - bugfix: Slimes now feed faster, and should only need one monkey to reach their
+      next lifestage.
+  - bugfix: anything that has reagents can be either grinded or juiced
+  - bugfix: stuff that does not have reagents but has grind results can still be grinded
+      but not juiced
+  - code_imp: Borgo rightclick ranged code
+  - qol: You can now open airlocks (That you have access to) while inside a stealth
+      implant box
+  - bugfix: Unfathomable Curios now properly block as expected.
+  - bugfix: The shielded component actually respects the shield_inhand when determining
+      blocking potential.
+  - bugfix: Ensures that the shielded component has a wearer before attempting to
+      block, and that this wearer is the same as the owner of the item.
+  - balance: secbots no longer can be buckled
+  - code_imp: Made the easter rabbits spawn on a more curated list.
+  - bugfix: You can actually hit racks with objects when in combat mode again. Importantly,
+      painting them with spraycans like that works again.
+  - bugfix: Fixes lavaland SMES and other crap from not starting with enough energy.
+  - bugfix: The pirate SMES are now magical instead of secretly infinite.
+  Zenitheevee:
+  - bugfix: Tarkon alien nest bosses spawn with correct faction.
+  - bugfix: Tarkon mines now resealed as aliens learned they needed to breath.
+  vinylspiders:
+  - bugfix: ghosts can now view general and security records once again

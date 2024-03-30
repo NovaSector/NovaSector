@@ -1,5 +1,0 @@
-author: "Zenitheevee"
-delete-after: True
-changes:
-  - bugfix: "Tarkon alien nest bosses spawn with correct faction."
-  - bugfix: "Tarkon mines now resealed as aliens learned they needed to breath."
