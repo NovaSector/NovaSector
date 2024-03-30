@@ -13,6 +13,7 @@
 	desc = "Perk up your ears to listen for quiet sounds, useful for picking up whispering."
 	button_icon = 'modular_nova/master_files/icons/hud/actions.dmi'
 	button_icon_state = "echolocation_off"
+	background_icon_state = "bg_alien"
 
 	cooldown_time = 1 SECONDS
 	spell_requirements = NONE
