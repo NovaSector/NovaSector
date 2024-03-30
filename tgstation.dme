@@ -7315,6 +7315,8 @@
 #include "modular_nova\modules\drones\_drone.dm"
 #include "modular_nova\modules\drones_derelict\code\areas.dm"
 #include "modular_nova\modules\drones_derelict\code\space.dm"
+#include "modular_nova\modules\echolocation_quirk\code\echolocation.dm"
+#include "modular_nova\modules\echolocation_quirk\code\echolocation_component.dm"
 #include "modular_nova\modules\electric_welder\code\electric_welder.dm"
 #include "modular_nova\modules\emergency_spacesuit\code\emergency_spacesuit.dm"
 #include "modular_nova\modules\emote_panel\code\emote_panel.dm"
