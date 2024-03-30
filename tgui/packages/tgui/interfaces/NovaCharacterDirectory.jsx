@@ -89,7 +89,7 @@ export const NovaCharacterDirectory = (props) => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const updateSearchTerm = (character) => {
-    setSearchTermy(character);
+    setSearchTerm(character);
   };
 
   const [sortId, setSortId] = useState('name');
