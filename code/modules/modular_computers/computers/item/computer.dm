@@ -561,7 +561,7 @@
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_PDA_GLITCHED))
 		playsound(src, pick('sound/machines/twobeep_voice1.ogg', 'sound/machines/twobeep_voice2.ogg'), 50, TRUE)
 	else
-		playsound(src, 'sound/machines/twobeep_high.ogg', 50, TRUE)
+		playsound(src, 'sound/machines/notification.ogg', 20, FALSE)
 	audible_message("*[ringtone]*")
 
 /obj/item/modular_computer/proc/send_sound()

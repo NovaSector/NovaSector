@@ -214,10 +214,12 @@
 
 /obj/machinery/door/Bumped(atom/movable/AM)
 	. = ..()
+	AM.visible_message("[src] lightly punches you.")
 	if(rand(1,100) < 25)
 		var/atom/target = get_edge_target_turf(AM, pick(1,2,4,8))
 		AM.throw_at(target, 5, 1, AM)
-		AM.visible_message("[src] punches you away from itself!")
+		to_chat(AM, span_danger("[src] punches you and you are sent flying!")
+		AM.visible_message("[src] punches [AM] so hard [AM.p_they()] are flung away!")
 	if(operating || (obj_flags & EMAGGED) || (!can_open_with_hands && density))
 		return
 	if(ismob(AM))
