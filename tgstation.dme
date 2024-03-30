@@ -6865,7 +6865,6 @@
 #include "modular_nova\modules\chadian\code\chadian.dm"
 #include "modular_nova\modules\chaplain\code\mortis.dm"
 #include "modular_nova\modules\character_directory\code\character_directory.dm"
-#include "modular_nova\modules\character_directory\code\obscurity_examine.dm"
 #include "modular_nova\modules\chat_colors\code\chat_color.dm"
 #include "modular_nova\modules\clock_cult\code\antagonist.dm"
 #include "modular_nova\modules\clock_cult\code\area.dm"

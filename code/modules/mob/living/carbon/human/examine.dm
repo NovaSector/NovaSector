@@ -492,7 +492,7 @@
 	// What examine_tgui.dm uses to determine if flavor text appears as "Obscured".
 	var/face_obscured = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
-	if (!(face_obscured && !client?.prefs?.read_preference(/datum/preference/toggle/obscurity_examine))) // NOVA EDIT CHANGE - ORIGINAL: if (!(face_obscured))
+	if (!(face_obscured))
 		flavor_text_link = span_notice("[preview_text]... <a href='?src=[REF(src)];lookup_info=open_examine_panel'>\[Look closer?\]</a>")
 	else
 		flavor_text_link = span_notice("<a href='?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine closely...\]</a>")

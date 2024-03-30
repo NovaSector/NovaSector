@@ -183,7 +183,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		if(ishuman(mob))
 			var/mob/living/carbon/human/human = mob
 			//If someone is obscured without flavor text visible, we don't want them on the Directory.
-			if((human.wear_mask && (human.wear_mask.flags_inv & HIDEFACE) && READ_PREFS(human, toggle/obscurity_examine)) || (human.head && (human.head.flags_inv & HIDEFACE) && READ_PREFS(human, toggle/obscurity_examine)) || (HAS_TRAIT(human, TRAIT_UNKNOWN)))
+			if((human.wear_mask && (human.wear_mask.flags_inv & HIDEFACE)) || (human.head && (human.head.flags_inv & HIDEFACE)) || (HAS_TRAIT(human, TRAIT_UNKNOWN)))
 				continue
 			//Display custom species, otherwise show base species instead
 			species = (READ_PREFS(human, text/custom_species)) || "Unset"
