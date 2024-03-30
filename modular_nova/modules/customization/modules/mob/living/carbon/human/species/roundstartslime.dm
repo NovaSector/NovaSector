@@ -101,14 +101,12 @@
 
 /obj/item/organ/internal/brain/slime/Remove(mob/living/carbon/organ_owner, special, movement_flags)
 	colorize()
-	core_ejection(organ_owner)
 	return ..()
 
-/obj/item/organ/internal/brain/slime/on_mob_remove(mob/living/victim, special, turf/loc_override)
-	. = ..()
-
+/obj/item/organ/internal/brain/slime/on_surgical_removal(obj/item/organ/source, mob/living/user, mob/living/carbon/old_owner, target_zone, obj/item/tool)
+	var/mob/living/carbon/old_owner = victim
 	core_ejection(victim)
-	return
+	return ..()
 
 /obj/item/organ/internal/brain/slime/proc/on_stat_change(mob/living/victim, new_stat, turf/loc_override)
 	SIGNAL_HANDLER
