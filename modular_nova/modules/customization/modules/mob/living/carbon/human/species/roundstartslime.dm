@@ -104,7 +104,6 @@
 	return ..()
 
 /obj/item/organ/internal/brain/slime/on_surgical_removal(obj/item/organ/source, mob/living/user, mob/living/carbon/old_owner, target_zone, obj/item/tool)
-	var/mob/living/carbon/old_owner = victim
 	core_ejection(old_owner)
 	return ..()
 
