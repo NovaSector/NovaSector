@@ -144,6 +144,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		data["personalErpTag"] = READ_PREFS(user, choiced/erp_status)
 		data["personalVoreTag"] = READ_PREFS(user, choiced/erp_status_v)
 		data["personalNonconTag"] = READ_PREFS(user, choiced/erp_status_nc)
+		data["personalHypnoTag"] = READ_PREFS(user, choiced/erp_status_hypno)
 		data["prefsOnly"] = TRUE
 
 	data["assigned_view"] = "preview_[user.ckey]_[REF(src)]_directory"
@@ -171,6 +172,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		var/erp = "Ask"
 		var/vore = "Ask"
 		var/noncon = "Ask"
+		var/hypno = "Ask"
 		var/character_ad = ""
 		var/exploitable = ""
 		var/headshot = ""
@@ -209,6 +211,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		erp = READ_PREFS(mob, choiced/erp_status)
 		vore = READ_PREFS(mob, choiced/erp_status_v)
 		noncon = READ_PREFS(mob, choiced/erp_status_nc)
+		hypno = READ_PREFS(mob, choiced/erp_status_hypno)
 		character_ad = READ_PREFS(mob, text/character_ad)
 		ooc_notes = READ_PREFS(mob, text/ooc_notes)
 		//If the user is an antagonist or Observer, we want them to be able to see exploitables in the Directory.
@@ -230,6 +233,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"erp" = erp,
 			"vore" = vore,
 			"noncon" = noncon,
+			"hypno" = hypno,
 			"exploitable" = exploitable,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,

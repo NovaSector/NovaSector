@@ -76,6 +76,7 @@ export const NovaCharacterDirectory = (props) => {
     personalErpTag,
     personalVoreTag,
     personalNonconTag,
+    personalHypnoTag,
     assigned_view,
   } = data;
 
@@ -116,6 +117,9 @@ export const NovaCharacterDirectory = (props) => {
                 </LabeledList.Item>
                 <LabeledList.Item label="Noncon">
                   <Button fluid>{personalNonconTag}</Button>
+                </LabeledList.Item>
+                <LabeledList.Item label="Hypnosis">
+                  <Button fluid>{personalHypnoTag}</Button>
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -215,6 +219,9 @@ const ViewCharacter = (props) => {
                     <LabeledList.Item label="Noncon">
                       {overlay.noncon}
                     </LabeledList.Item>
+                    <LabeledList.Item label="Hypnosis">
+                      {overlay.hypno}
+                    </LabeledList.Item>
                   </LabeledList>
                   &nbsp; {formatURLs(overlay.ooc_notes)}
                 </Section>
@@ -274,6 +281,7 @@ const CharacterDirectoryList = (props) => {
           <SortButton id="erp">ERP</SortButton>
           <SortButton id="vore">Vore</SortButton>
           <SortButton id="noncon">Noncon</SortButton>
+          <SortButton id="hypno">Hypnosis</SortButton>
           <Table.Cell collapsing textAlign="right">
             Advert
           </Table.Cell>
@@ -305,6 +313,7 @@ const CharacterDirectoryList = (props) => {
               <Table.Cell>{character.erp}</Table.Cell>
               <Table.Cell>{character.vore}</Table.Cell>
               <Table.Cell>{character.noncon}</Table.Cell>
+              <Table.Cell>{character.hypno}</Table.Cell>
               <Table.Cell collapsing textAlign="right">
                 <Button
                   onClick={() => {
