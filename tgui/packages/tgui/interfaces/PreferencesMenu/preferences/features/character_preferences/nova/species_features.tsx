@@ -61,7 +61,7 @@ export const character_ad: Feature<string> = {
 export const attraction: FeatureChoiced = {
   name: 'Character Attraction',
   description:
-    'What classifies what your character is attracted to. This is displayed in the Directory.',
+    'What your character is attracted to. This is displayed in the Directory.',
   component: FeatureDropdownInput,
 };
 
