@@ -363,7 +363,7 @@ const CharacterDirectoryList = (props) => {
             onClick={(e) => {
               updateColorCodeEnabled(!colorCodeEnabled);
             }}
-            tooltip="Toggle the color coding for ERP Status"
+            tooltip="Toggles the color coding for ERP Status."
           >
             ERP Status Colors
           </Button.Checkbox>
