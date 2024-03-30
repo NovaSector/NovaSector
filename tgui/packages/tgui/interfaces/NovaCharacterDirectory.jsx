@@ -117,11 +117,11 @@ export const NovaCharacterDirectory = (props) => {
                 <LabeledList.Item label="Vore">
                   <Button fluid>{personalVoreTag}</Button>
                 </LabeledList.Item>
-                <LabeledList.Item label="Noncon">
-                  <Button fluid>{personalNonconTag}</Button>
-                </LabeledList.Item>
                 <LabeledList.Item label="Hypnosis">
                   <Button fluid>{personalHypnoTag}</Button>
+                </LabeledList.Item>
+                <LabeledList.Item label="Noncon">
+                  <Button fluid>{personalNonconTag}</Button>
                 </LabeledList.Item>
               </LabeledList>
             </Section>
@@ -218,11 +218,11 @@ const ViewCharacter = (props) => {
                     <LabeledList.Item label="Vore">
                       {overlay.vore}
                     </LabeledList.Item>
-                    <LabeledList.Item label="Noncon">
-                      {overlay.noncon}
-                    </LabeledList.Item>
                     <LabeledList.Item label="Hypnosis">
                       {overlay.hypno}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Noncon">
+                      {overlay.noncon}
                     </LabeledList.Item>
                   </LabeledList>
                   &nbsp; {formatURLs(overlay.ooc_notes)}
