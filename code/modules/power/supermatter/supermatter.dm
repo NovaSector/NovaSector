@@ -892,6 +892,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	return TRUE
 
 /obj/machinery/proc/supermatter_zap(atom/zapstart = src, range = 5, zap_str = 3.2 MEGA JOULES, zap_flags = ZAP_SUPERMATTER_FLAGS, list/targets_hit = list(), zap_cutoff = 1.2 MEGA JOULES, power_level = 0, zap_icon = DEFAULT_ZAP_ICON_STATE, color = null)
+	var/matrix/transformation = new
+	src.transform = transformation.Turn(rand(-20,20))
 	if(QDELETED(zapstart))
 		return
 	. = zapstart.dir

@@ -16,6 +16,7 @@
 	update_fov()
 	gravity_setup()
 	ADD_TRAIT(src, TRAIT_UNIQUE_IMMERSE, INNATE_TRAIT)
+	src.transform = src.transform.Turn(rand(-15, 15))
 
 /mob/living/prepare_huds()
 	..()
@@ -142,6 +143,8 @@
 /mob/living/Bumped(atom/movable/AM)
 	..()
 	last_bumped = world.time
+	var/matrix/trans = new
+	src.transform = trans.Turn(rand(-15, 15))
 
 //Called when we bump onto a mob
 /mob/living/proc/MobBump(mob/M)

@@ -7,7 +7,7 @@
 	color = "#404030" // rgb: 64, 64, 48
 	nutriment_factor = 0
 	taste_description = "alcohol"
-	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	metabolization_rate = 0.001
 	creation_purity = 1 // impure base reagents are a big no-no
 	ph = 7.33
 	burning_temperature = 2193//ethanol burns at 1970C (at it's peak)
@@ -53,7 +53,7 @@
 /datum/reagent/consumable/ethanol/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
 	. = ..()
 	if(drinker.get_drunk_amount() < volume * boozepwr * ALCOHOL_THRESHOLD_MODIFIER || boozepwr < 0)
-		var/booze_power = boozepwr
+		var/booze_power = 100
 		if(HAS_TRAIT(drinker, TRAIT_ALCOHOL_TOLERANCE)) // we're an accomplished drinker
 			booze_power *= 0.7
 		if(HAS_TRAIT(drinker, TRAIT_LIGHT_DRINKER))

@@ -38,9 +38,9 @@
 	///Used to stop interactions with the object (mainly in the wabbajack statue)
 	var/allow_switch_interact = TRUE
 	///What projectile type are we shooting?
-	var/projectile_type = /obj/projectile/beam/emitter/hitscan
+	var/projectile_type = /obj/projectile/beam/laser/rainbow
 	///What's the projectile sound?
-	var/projectile_sound = 'sound/weapons/emitter.ogg'
+	var/projectile_sound = 'modular_nova/modules/emotes/sound/voice/nya.ogg'
 	///Sparks emitted with every shot
 	var/datum/effect_system/spark_spread/sparks
 	///Stores the type of gun we are using inside the emitter
