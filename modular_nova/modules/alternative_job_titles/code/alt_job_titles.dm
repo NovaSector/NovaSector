@@ -170,7 +170,7 @@
 	alt_titles = list(
 		"Clown",
 		"Comedian",
-		"Jester",
+		"Jester", // Funny PR
 		"Joker",
 	)
 
