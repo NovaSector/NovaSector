@@ -9,8 +9,6 @@
 	var/datum/lazy_template/deathmatch/map
 	/// Our turf reservation AKA where the arena is
 	var/datum/turf_reservation/location
-	/// Whether players hear deadchat and people through walls
-	var/global_chat = FALSE
 	/// Whether the lobby is currently playing
 	var/playing = DEATHMATCH_NOT_PLAYING
 	/// Number of total ready players
@@ -148,9 +146,6 @@
 
 	// register death handling.
 	RegisterSignals(new_player, list(COMSIG_LIVING_DEATH, COMSIG_MOB_GHOSTIZED, COMSIG_QDELETING), PROC_REF(player_died))
-	if (global_chat)
-		ADD_TRAIT(new_player, TRAIT_SIXTHSENSE, INNATE_TRAIT)
-		ADD_TRAIT(new_player, TRAIT_XRAY_HEARING, INNATE_TRAIT)
 	// NOVA EDIT ADDITION START - Synth brains don't drop here - let them delete with the mob
 	var/obj/item/organ/internal/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(synth_brain))
@@ -351,7 +346,6 @@
 	.["self"] = user.ckey
 	.["host"] = is_host
 	.["admin"] = is_admin
-	.["global_chat"] = global_chat
 	.["playing"] = playing
 	.["loadouts"] = list("Randomize")
 	for (var/datum/outfit/deathmatch_loadout/loadout as anything in loadouts)
@@ -488,9 +482,6 @@
 						return FALSE
 					change_map(params["map"])
 					return TRUE
-				if ("global_chat")
-					global_chat = !global_chat
-					return TRUE
 		if("open_mod_menu")
 			mod_menu_open = TRUE
 			return TRUE
@@ -501,18 +492,14 @@
 			var/datum/deathmatch_modifier/modpath = text2path(params["modpath"])
 			if(!ispath(modpath))
 				return TRUE
-			var/global_mod = params["global_mod"]
-			if(global_mod)
-				if(usr.ckey != host && !check_rights(R_ADMIN))
-					return TRUE
-			else if(!(usr.ckey in players))
+			if(usr.ckey != host && !check_rights(R_ADMIN))
 				return TRUE
 			var/datum/deathmatch_modifier/chosen_modifier = GLOB.deathmatch_game.modifiers[modpath]
 			if(modpath in modifiers)
 				chosen_modifier.unselect(src)
 				modifiers -= modpath
 				return TRUE
-			else if(chosen_modifier.selectable(src))
+			if(chosen_modifier.selectable(src))
 				chosen_modifier.on_select(src)
 				modifiers += modpath
 				return TRUE
