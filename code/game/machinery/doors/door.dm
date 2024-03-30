@@ -214,6 +214,10 @@
 
 /obj/machinery/door/Bumped(atom/movable/AM)
 	. = ..()
+	if(rand(1,100) < 25)
+		var/atom/target = get_edge_target_turf(AM, pick(1,2,4,8))
+		AM.throw_at(target, 5, 1, AM)
+		AM.visible_message("[src] punches you away from itself!")
 	if(operating || (obj_flags & EMAGGED) || (!can_open_with_hands && density))
 		return
 	if(ismob(AM))

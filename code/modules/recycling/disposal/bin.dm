@@ -129,6 +129,9 @@
 	if(!user.combat_mode)
 		if((I.item_flags & ABSTRACT) || !user.temporarilyRemoveItemFromInventory(I))
 			return
+		if(rand(1,100) < 25)
+			user.visible_message(span_danger("[user] trips falls into the [src] while trying to throw away [I]!"))
+			place_item_in_disposal(user, user)
 		place_item_in_disposal(I, user)
 		update_appearance()
 		return TRUE //no afterattack
