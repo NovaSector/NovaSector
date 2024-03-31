@@ -589,6 +589,14 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "White Naval Officer Cap"
 	item_path = /obj/item/clothing/head/hats/imperial/white
 
+/datum/loadout_item/head/jester
+	name = "Jester hat"
+	item_path = /obj/item/clothing/head/costume/jester
+
+/datum/loadout_item/head/jesteralt
+	name = "Jester hat (Alt)"
+	item_path = /obj/item/clothing/head/costume/jesteralt
+
 /datum/loadout_item/head/azulea_oldblood
 	name = "Oldblood's Royal cap"
 	item_path = /obj/item/clothing/head/hats/caphat/azulean/old_blood
