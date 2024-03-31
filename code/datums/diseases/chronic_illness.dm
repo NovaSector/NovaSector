@@ -95,7 +95,7 @@
 					for(var/obj/item/beacon/teleport_beacon in GLOB.teleportbeacons)
 						var/turf/T = get_turf(teleport_beacon)
 						if(is_station_level(T.z))
-						destinations += teleport_beacon
+							destinations += teleport_beacon
 
 					var/chosen_beacon = pick(destinations)
 					var/obj/effect/portal/jaunt_tunnel/tunnel = new (get_turf(src), 100, null, FALSE, get_turf(chosen_beacon))
@@ -105,9 +105,11 @@
 					affected_mob.updatehealth()
 					playsound(src,'sound/effects/sparks4.ogg',50,TRUE)
 					qdel(tunnel)
+					update_stage(1)
 				if(3)
 					affected_mob.visible_message(span_warning("[affected_mob] is torn apart!"), span_userdanger("Your atoms accelerate into criticality!"))
-					affected_mob.gib()
+					affected_mob.gib(DROP_ALL_REMAINS)
+					update_stage(1)
 				if(4)
 					if(affected_mob.stat == CONSCIOUS)
 						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
@@ -115,5 +117,5 @@
 					var/obj/item/organ/internal/heart/cursed/cheart = new /obj/item/organ/internal/heart/cursed()
 					cheart.replace_into(affected_mob)
 					playsound(affected_mob, 'sound/hallucinations/far_noise.ogg', 50, 1)
-					stage = 1
+					update_stage(1)
 				// NOVA EDIT ADDITION END
