@@ -56,18 +56,7 @@
 					quirk_holder.set_silence_if_lower(6 SECONDS)
 					to_chat(quirk_holder, span_danger("You feel self-conscious and stop talking. You need a moment to recover!"))
 					break
-<<<<<<< HEAD
-			if(prob(max(5,(nearby_people*12.5*moodmod)))) //Minimum 1/20 chance of stutter
-				// Add a short stutter, THEN treat our word
-				//quirker.adjust_stutter(0.5 SECONDS) //NOVA EDIT REMOVAL - NO STUTTERING!
-				var/list/message_data = quirker.treat_message(word, capitalize_message = FALSE)
-				new_message += message_data["message"]
-			else
-				new_message += word
-=======
 			new_message += word
->>>>>>> 7685f0a2b4d (Makes Social Anxiety stuttering a lot less harsh (#82313))
-
 		message = jointext(new_message, " ")
 
 	if(prob(min(50, (0.50 * moodmod)))) //Max 50% chance of not talking
