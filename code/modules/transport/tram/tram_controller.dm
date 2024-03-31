@@ -339,7 +339,7 @@
 	current_speed = 0
 	current_load = 0
 	speed_limiter = initial(speed_limiter)
-	if(rand(1,100) < 5)
+	if(rand(1,100) < 15)
 		var/throw_direction = travel_direction
 		for(var/obj/structure/transport/linear/tram/module in transport_modules)
 			module.estop_throw(throw_direction)

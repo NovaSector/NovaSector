@@ -215,7 +215,7 @@
 /obj/machinery/door/Bumped(atom/movable/AM)
 	. = ..()
 	AM.visible_message(span_warning("[src] lightly punches [AM] before opening."), span_warning("[src] lightly punches you before opening."))
-	if(rand(1,100) < 5)
+	if(rand(1,100) < 15)
 		var/atom/target = get_edge_target_turf(AM, pick(1,2,4,8))
 		AM.throw_at(target, 5, 1, AM)
 		to_chat(AM, span_danger("[src] punches you and you are sent flying!"))
