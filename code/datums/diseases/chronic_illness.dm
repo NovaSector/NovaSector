@@ -68,7 +68,7 @@
 				if(need_mob_update)
 					affected_mob.updatehealth()
 		if(5)
-			switch(rand(1,4))
+			switch(rand(1,4)) // NOVA EDIT CHANGE - ORIGINAL: switch(rand(1,2))
 				if(1)
 					to_chat(affected_mob, span_notice("You feel your atoms begin to realign. You're safe. For now."))
 					update_stage(1)
