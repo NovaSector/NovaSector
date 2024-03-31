@@ -6,7 +6,7 @@
 	disease_flags = CHRONIC
 	infectable_biotypes = MOB_ORGANIC | MOB_MINERAL | MOB_ROBOTIC
 	process_dead = TRUE
-	stage_prob = 0.25
+	stage_prob = 0.10 // NOVA EDIT CHANGE = ORIGINAL: stage_prob = 0.25
 	cure_text = "Sansufentanyl"
 	cures = list(/datum/reagent/medicine/sansufentanyl)
 	infectivity = 0
@@ -68,12 +68,11 @@
 				if(need_mob_update)
 					affected_mob.updatehealth()
 		if(5)
-			switch(rand(1,4)) // NOVA EDIT CHANGE - ORIGINAL: switch(rand(1,2))
+			switch(rand(1,5)) // NOVA EDIT CHANGE - ORIGINAL: switch(rand(1,2))
 				if(1)
 					to_chat(affected_mob, span_notice("You feel your atoms begin to realign. You're safe. For now."))
 					update_stage(1)
 				if(2)
-					/* NOVA EDIT REMOVAL START
 					to_chat(affected_mob, span_boldwarning("There is no place for you in this timeline."))
 					affected_mob.adjustStaminaLoss(100, forced = TRUE)
 					playsound(affected_mob.loc, 'sound/magic/repulse.ogg', 100, FALSE)
@@ -86,8 +85,8 @@
 					affected_mob.investigate_log("has been dusted / deleted by [name].", INVESTIGATE_DEATHS)
 					affected_mob.ghostize(can_reenter_corpse = FALSE)
 					qdel(affected_mob)
-					NOVA EDIT REMOVAL END */
 				// NOVA EDIT ADDITION START
+				if(3)
 					to_chat(affected_mob, span_warning("You body wracks with pain as you are shunted to another point in time."))
 					affected_mob.visible_message(span_warning("A tear in reality opens up around [affected_mob] consuming them"), span_userdanger("You are consumed by a hole in reality!"))
 					var/list/destinations = list()
@@ -106,11 +105,11 @@
 					playsound(src,'sound/effects/sparks4.ogg',50,TRUE)
 					qdel(tunnel)
 					update_stage(1)
-				if(3)
+				if(4)
 					affected_mob.visible_message(span_warning("[affected_mob] is torn apart!"), span_userdanger("Your atoms accelerate into criticality!"))
 					affected_mob.gib(DROP_ALL_REMAINS)
 					update_stage(1)
-				if(4)
+				if(5)
 					if(affected_mob.stat == CONSCIOUS)
 						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
 					span_userdanger("You feel a horrible pain as your heart is replaced with one from another dimension!"))

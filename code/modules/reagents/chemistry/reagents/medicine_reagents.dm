@@ -122,7 +122,6 @@
 	color = "#07e4d1"
 	ph = 6.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	metabolization_rate = 0.5 * REAGENTS_METABOLISM // NOVA EDIT ADDITION - Lowered metabolization rate
 
 /datum/reagent/medicine/sansufentanyl/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
