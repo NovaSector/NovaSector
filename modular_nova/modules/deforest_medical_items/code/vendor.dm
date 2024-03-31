@@ -26,7 +26,6 @@
 				/obj/item/stack/medical/wound_recovery/rapid_coagulant = 2,
 				/obj/item/storage/pill_bottle/painkiller = 4,
 				/obj/item/storage/medkit/civil_defense/stocked = 2,
-				/obj/item/storage/pill_bottle/sansufentanyl = 6,
 			),
 		),
 		list(
