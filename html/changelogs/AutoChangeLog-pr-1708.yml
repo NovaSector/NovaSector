@@ -1,5 +1,0 @@
-author: "FearfulFurnishing"
-delete-after: True
-changes:
-  - rscadd: "Add bone chisel, a primitive tool crafted with bone and sinew."
-  - rscadd: "Made crafted primitive tools have the bone material type when examined."

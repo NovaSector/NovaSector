@@ -1,4 +1,0 @@
-author: "SomeRandomOwl"
-delete-after: True
-changes:
-  - bugfix: "Tarkon roundstart SMES should start with full power"
