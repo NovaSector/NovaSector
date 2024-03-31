@@ -14,3 +14,14 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_efficiency = 0.07
 
+/obj/item/organ/internal/stomach/slime/oversized
+	name = "huge golgi apparatus"
+	desc = "Typically found in huge slimes, this monstrous organelle has been developed to be highly efficient, made to provide an enormous amount of nutrients to an enormous ooze."
+	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
+	metabolism_efficiency = 0.07
+
+//Not a stomach, but suitable for where we keep oversized schtuff.
+/obj/item/organ/internal/brain/slime/oversized
+	name = "oversized core"
+	desc = "The center core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria? This one is enormous."
+	brain_size = 2

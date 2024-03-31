@@ -78,6 +78,7 @@
 	var/core_color = COLOR_WHITE
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "slime_core"
+	var/core_ejected = FALSE
 
 /obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -92,6 +93,7 @@
 	if(!.)
 		return
 	colorize()
+	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
 
 /obj/item/organ/internal/brain/slime/proc/colorize()
@@ -99,41 +101,34 @@
 		core_color = owner.dna.features["mcolor"]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
-/obj/item/organ/internal/brain/slime/Remove(mob/living/carbon/organ_owner, special, movement_flags)
-	colorize()
-	return ..()
-
-/obj/item/organ/internal/brain/slime/on_surgical_removal(obj/item/organ/source, mob/living/user, mob/living/carbon/old_owner, target_zone, obj/item/tool)
-	core_ejection(old_owner)
-	return ..()
-
 /obj/item/organ/internal/brain/slime/proc/on_stat_change(mob/living/victim, new_stat, turf/loc_override)
 	SIGNAL_HANDLER
 
 	if(new_stat != DEAD)
-		if(!.)
-			return
+		return
 
-	core_ejection(victim)
-	return
+	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
 
 ///////
 /// CORE EJECTION PROC
 /// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
 
 /obj/item/organ/internal/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
-	to_chat(victim, span_nicegreen("[victim]'s body completely dissolves as the core is removed, collapsing outwards!"))
-	victim.visible_message(span_notice("Your body completely dissolves, collapsing outwards!"), ignored_mobs = victim)
-	var/obj/item/organ/internal/brain/slime_brain = victim.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(slime_brain)
-		var/turf/death_turf = get_turf(victim)
-		slime_brain.Remove(victim)
-		slime_brain.forceMove(death_turf)
-		slime_brain.wash(CLEAN_WASH)
-		new death_melt_type(death_turf, victim.dir)
-		do_steam_effects(death_turf)
-		playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
-		qdel(victim)
+	if(core_ejected)
+		return
+	core_ejected = TRUE
+	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+	var/turf/death_turf = get_turf(victim)
+	victim.unequip_everything()
+	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
+		Remove(victim)
+	if(death_turf)
+		forceMove(death_turf)
+	src.wash(CLEAN_WASH)
+	new death_melt_type(death_turf, victim.dir)
+	do_steam_effects(death_turf)
+	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
+	qdel(victim)
 
 /obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
 	var/datum/effect_system/steam_spread/steam = new()
@@ -185,15 +180,6 @@
 		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from their core, yet to form the rest."))
 		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 		brainmob.mind.transfer_to(new_body)
-		/// List of organs we can randomly damage
-		var/static/list/organs_we_damage = list(
-		ORGAN_SLOT_BRAIN,
-		ORGAN_SLOT_LUNGS,
-		ORGAN_SLOT_LIVER,
-		ORGAN_SLOT_STOMACH,
-		ORGAN_SLOT_EYES,
-		)
-		new_body.adjustOrganLoss(pick(organs_we_damage)-30)
 		return TRUE
 	return FALSE
 
@@ -371,8 +357,7 @@
 		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
 			return
 
-		slime.adjustToxLoss(2 * REM * seconds_per_tick, forced = TRUE)
-		slime.blood_volume -= 2.5 * seconds_per_tick
+		slime.blood_volume -= 3 * seconds_per_tick
 		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
 		if (SPT_PROB(25, seconds_per_tick))
 			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))

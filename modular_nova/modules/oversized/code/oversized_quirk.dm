@@ -36,7 +36,20 @@
 		return
 	old_stomach.Remove(human_holder, special = TRUE)
 	qdel(old_stomach)
-	if(issynthetic(human_holder))
+	if(isjellyperson(human_holder))
+		var/obj/item/organ/internal/brain/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(!istype(old_brain))
+			return
+		old_brain.Remove(human_holder, special = TRUE)
+		qdel(old_brain)
+		var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
+		new_slime_brain.Insert(human_holder, special = TRUE)
+		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
+		human_holder.mind.transfer_to(human_holder)
+		var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
+		new_slime_stomach.Insert(human_holder, special = TRUE)
+		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
+	else if(issynthetic(human_holder))
 		var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
 		new_synth_stomach.Insert(human_holder, special = TRUE)
 		to_chat(human_holder, span_warning("You feel your massive engine rumble!"))
@@ -94,7 +107,7 @@
 	else if(istype(gained, /obj/item/bodypart/leg))
 		var/obj/item/bodypart/leg/new_leg = gained
 		new_leg.unarmed_effectiveness = initial(new_leg.unarmed_effectiveness) + OVERSIZED_KICK_EFFECTIVENESS_BONUS
-	
+
 	gained.name = "oversized " + gained.name
 
 /datum/movespeed_modifier/oversized

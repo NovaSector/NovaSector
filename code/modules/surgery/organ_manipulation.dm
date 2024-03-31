@@ -266,8 +266,12 @@
 			)
 			display_pain(target, "Your [parse_zone(target_zone)] throbs with pain, you can't feel your [target_organ.name] anymore!")
 			log_combat(user, target, "surgically removed [target_organ.name] from", addition="COMBAT MODE: [uppertext(user.combat_mode)]")
+			///NOVA EDIT BEGIN - Makes slime core ejection properly work.
+			var/turf/drop_turf = get_turf(target)
 			target_organ.Remove(target)
-			target_organ.forceMove(get_turf(target))
+			if(drop_turf)
+				target_organ.forceMove(drop_turf)
+			///NOVA EDIT END
 			target_organ.on_surgical_removal(user, target, target_zone, tool)
 		else
 			display_results(
