@@ -661,6 +661,12 @@
 	if(interaction_flags_machine & INTERACT_MACHINE_SET_MACHINE)
 		user.set_machine(src)
 	update_last_used(user)
+	playsound(user, 'sound/weapons/punch4.ogg', 50, TRUE)
+	user.visible_message(span_warning("[src] lightly punches [user]."), span_warning("[src] lightly punches you."))
+	if(rand(1,100) < 5)
+		var/atom/target = get_edge_target_turf(user, pick(1,2,4,8))
+		user.throw_at(target, 5, 1, user)
+		user.visible_message("[src] punches [user] so hard [user.p_they()] are flung away!", span_danger("[src] punches you so hard you are flung away!"))
 	. = ..()
 
 /obj/machinery/ui_act(action, list/params)
