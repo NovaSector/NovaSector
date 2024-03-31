@@ -1094,3 +1094,40 @@
   - bugfix: Tarkon mines now resealed as aliens learned they needed to breath.
   vinylspiders:
   - bugfix: ghosts can now view general and security records once again
+2024-03-31:
+  Ebin-Halcyon:
+  - bugfix: Teshari no longer wear their turtlenecks backwards
+  FearfulFurnishing:
+  - rscadd: Add bone chisel, a primitive tool crafted with bone and sinew.
+  - rscadd: Made crafted primitive tools have the bone material type when examined.
+  Iajret:
+  - bugfix: fixed new birdshot engineering uses old anti-delam system automapper template
+  - bugfix: fixed stirlings outputting only half the power they show on display
+  - bugfix: fixed thumpers consuming half as much power as they need
+  - code_imp: some or even all colony machinery should be dependent on TG defines
+      for power
+  JlereHda3oHbl1984:
+  - rscadd: Added high heel sounds for some high heel shoes.
+  Ketrai:
+  - rscadd: Added a fennec to cargo and the pet carrier quirk.
+  NovaBot13:
+  - bugfix: chem dispenser UI doesn't brick when beaker is ejected while recording
+      recipes
+  - code_imp: removed deprecated `content` tag from buttons in chem dispenser
+  - balance: Your heart stops beating when you die now.
+  - bugfix: Fixed cell energy usage for a bunch of stuff(Part 5). See PR 82296 for
+      details
+  - bugfix: elevators may no longer pick up things from under the floor during movement
+  - bugfix: Fixed double-encoded messages with AI holocalls.
+  - image: Pinpointers have been resprited
+  - balance: minebots have been buffed and have recieved new upgrades
+  - qol: Wholesale Revamp of Birdshots Engineering Department
+  - bugfix: Some Birdshot Amtospherics Concerns
+  - bugfix: Some Birdshot Engine Concerns
+  SomeRandomOwl:
+  - bugfix: Tarkon roundstart SMES should start with full power
+  yooriss:
+  - rscadd: The Echolocation quirk is now available with several levels of customization,
+      granting 5 tiles of pulsing view distance and significantly enhanced hearing
+      at the downside of being blind when deafened and twice as vulnerable to ear
+      damage.

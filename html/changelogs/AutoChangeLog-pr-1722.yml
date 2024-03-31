@@ -1,6 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "fixed stirlings outputting only half the power they show on display"
-  - bugfix: "fixed thumpers consuming half as much power as they need"
-  - code_imp: "some or even all colony machinery should be dependent on TG defines for power"
