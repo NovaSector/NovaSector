@@ -114,7 +114,7 @@
 		return
 	var/mob/living/carbon/human/human_owner = owner
 
-	to_chat(owner, span_warning("Sensory overload! My body can't handle this much neural input!"))
+	to_chat(owner, span_warning("Sensory overload! Your body can't handle this much neural input!"))
 
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
