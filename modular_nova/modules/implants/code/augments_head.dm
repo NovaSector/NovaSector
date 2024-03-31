@@ -28,7 +28,7 @@
 	owner.spray_blood(owner.dir, 2)
 	owner.emote("cough")
 	owner.visible_message(
-		span_danger("[owner] suddenly coughs up a mouthful of blood, clenching at their chest!"),
+		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
 		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
 	)
 
