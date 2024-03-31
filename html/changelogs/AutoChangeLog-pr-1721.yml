@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "fixed new birdshot engineering uses old anti-delam system automapper template"
