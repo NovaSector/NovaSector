@@ -140,7 +140,7 @@
 /// Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
 
 /obj/item/organ/internal/brain/slime/check_for_repair(obj/item/item, mob/user)
-	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) > 99 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
+	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
 
 		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."), span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."))
 		if(!do_after(user, 60 SECONDS, src))
