@@ -4284,6 +4284,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/full,
 /obj/machinery/door/firedoor,
+/obj/item/storage/box/syndie_kit/sansufentanyl{
+	pixel_x = -3
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "JU" = (

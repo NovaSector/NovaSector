@@ -11,8 +11,8 @@
 
 /datum/reagent/medicine/sansufentanyl_base
 	name = "Experimental Fentanyl Base"
-	description = "The secret base reagent used to create sansufentanyl. Developed by interdyne pharmacuticals, it is a closely heald secret recipe."
-	color = "#07e4d1"
+	description = "The secret base reagent used to create sansufentanyl. Developed by Interdyne Pharmacuticals, it is a closely held secret recipe."
+	color = "#8659a6"
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -46,11 +46,11 @@
 /obj/item/reagent_containers/cup/beaker/bluespace/spaceacillin
 	list_reagents = list(/datum/reagent/medicine/spaceacillin = 300)
 
-/obj/item/storage/box/sansufentanyl
+/obj/item/storage/box/syndie_kit/sansufentanyl
 	name = "sansufentanyl reagent box"
 	desc = "Contains everything you'll need to create new batches of sanusfentanyl. Careful, do not spill contents."
 
-/obj/item/storage/box/sansufentanyl/PopulateContents()
+/obj/item/storage/box/syndie_kit/sansufentanyl/PopulateContents()
 	generate_items_inside(list(
 		/obj/item/reagent_containers/cup/beaker/bluespace/sansufentanyl_base = 2,
 		/obj/item/reagent_containers/cup/beaker/bluespace/spaceacillin = 1,
