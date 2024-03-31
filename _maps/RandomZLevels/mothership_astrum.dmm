@@ -476,8 +476,7 @@
 "iF" = (
 /obj/structure/alien/weeds,
 /mob/living/basic/alien/drone{
-	faction = list("Abductor");
-	
+	faction = list("Abductor")
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/deck4)
@@ -497,8 +496,7 @@
 "iS" = (
 /obj/structure/alien/weeds/creature,
 /mob/living/basic/alien/drone{
-	faction = list("Abductor");
-	
+	faction = list("Abductor")
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/deck4)
@@ -922,8 +920,7 @@
 /area/awaymission/mothership_astrum/halls)
 "pz" = (
 /mob/living/basic/alien/drone{
-	faction = list("Abductor");
-	
+	faction = list("Abductor")
 	},
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
@@ -2513,8 +2510,7 @@
 "LT" = (
 /obj/structure/alien/weeds,
 /mob/living/basic/alien/drone{
-	faction = list("Abductor");
-	
+	faction = list("Abductor")
 	},
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
@@ -2893,8 +2889,7 @@
 /area/awaymission/mothership_astrum/halls)
 "PI" = (
 /mob/living/basic/alien/drone{
-	faction = list("Abductor");
-	
+	faction = list("Abductor")
 	},
 /obj/structure/alien/weeds,
 /turf/open/floor/mineral/abductor,
@@ -3106,8 +3101,7 @@
 /area/awaymission/mothership_astrum/deck2)
 "Se" = (
 /mob/living/basic/alien/drone{
-	faction = list("Abductor");
-	
+	faction = list("Abductor")
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
