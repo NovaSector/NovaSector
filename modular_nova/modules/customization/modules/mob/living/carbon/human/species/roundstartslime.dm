@@ -172,7 +172,7 @@
 		new_body.updateappearance(mutcolor_update=1)
 		new_body.domutcheck()
 		new_body.forceMove(get_turf(src))
-		new_body.blood_volume = BLOOD_VOLUME_OKAY
+		new_body.blood_volume = BLOOD_VOLUME_SAFE+60
 		REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
 		SSquirks.AssignQuirks(new_body, brainmob.client)
 		var/obj/item/organ/internal/brain/new_body_brain = new_body.get_organ_slot(ORGAN_SLOT_BRAIN)
