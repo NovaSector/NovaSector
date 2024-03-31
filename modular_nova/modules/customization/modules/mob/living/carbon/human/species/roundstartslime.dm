@@ -267,8 +267,8 @@
 			if(istype(open_turf))
 				open_turf.wash(CLEAN_WASH)
 				return TRUE
-		if (SPT_PROB(5, seconds_per_tick))
-			slime.adjust_nutrition((rand(5,25)))
+			if (SPT_PROB(5, seconds_per_tick))
+				slime.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of their body and vanishing.")
