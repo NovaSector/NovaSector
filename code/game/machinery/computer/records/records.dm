@@ -127,6 +127,12 @@
 /obj/machinery/computer/records/proc/update_preview(mob/user, assigned_view, datum/record/crew/target)
 	var/mutable_appearance/preview = new(target.character_appearance)
 	preview.underlays += mutable_appearance('icons/effects/effects.dmi', "static_base", alpha = 20)
+	// NOVA EDIT ADDITION START
+	if(prob(75))
+		time_to_photobomb(preview)
+	if(prob(33))
+		preview.underlays += mutable_appearance('modular_nova/master_files/icons/effects/hearts.dmi', "hearts")
+	// NOVA EDIT ADDITION END
 	preview.add_overlay(mutable_appearance(generate_icon_alpha_mask('icons/effects/effects.dmi', "scanline"), alpha = 20))
 
 	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]

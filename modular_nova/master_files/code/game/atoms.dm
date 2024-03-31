@@ -16,3 +16,11 @@
 /// Called after a loadout item gets a custom description
 /atom/proc/on_loadout_custom_described()
 	return
+
+/// The subject of the preview looked lonely
+/proc/time_to_photobomb(mutable_appearance/preview)
+	var/whoisit = pick(list("fox", "corgi", "cool_sloth", "cat_rest", "pug", "cat2_rest", "spacecat", "bullterrier", "ant"))
+	var/mutable_appearance/finnegan_no = mutable_appearance('icons/mob/simple/pets.dmi', whoisit)
+	if(whoisit != "cat_rest" && whoisit != "cat2_rest")
+		finnegan_no.pixel_x = pick(8, -8)
+	preview.underlays += finnegan_no
