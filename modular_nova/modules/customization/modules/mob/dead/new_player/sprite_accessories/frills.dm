@@ -54,6 +54,11 @@
 	icon_state = "neckfull"
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/frills.dmi'
 
+/datum/sprite_accessory/frills/split
+	name = "Split"
+	icon_state = "split"
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/frills.dmi'
+
 /datum/sprite_accessory/frills/slugcat
 	name = "Slugcat (Aquatic)"
 	icon_state = "slugcat_aquatic"
