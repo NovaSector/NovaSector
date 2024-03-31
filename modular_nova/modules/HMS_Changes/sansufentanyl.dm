@@ -40,11 +40,11 @@
 		6. Once the pills have been pressed, place them into a pill bottle and store them in a cool, dark place. <br>
 	"}
 
-/obj/item/reagent_containers/cup/beaker/bluespace/sansufentanyl_base
-	list_reagents = list(/datum/reagent/medicine/sansufentanyl_base = 300)
+/obj/item/reagent_containers/cup/beaker/meta/sansufentanyl_base
+	list_reagents = list(/datum/reagent/medicine/sansufentanyl_base = 180)
 
-/obj/item/reagent_containers/cup/beaker/bluespace/spaceacillin
-	list_reagents = list(/datum/reagent/medicine/spaceacillin = 300)
+/obj/item/reagent_containers/cup/beaker/large/spaceacillin
+	list_reagents = list(/datum/reagent/medicine/spaceacillin = 120)
 
 /obj/item/storage/box/syndie_kit/sansufentanyl
 	name = "sansufentanyl reagent box"
@@ -52,8 +52,8 @@
 
 /obj/item/storage/box/syndie_kit/sansufentanyl/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/reagent_containers/cup/beaker/bluespace/sansufentanyl_base = 2,
-		/obj/item/reagent_containers/cup/beaker/bluespace/spaceacillin = 1,
+		/obj/item/reagent_containers/cup/beaker/meta/sansufentanyl_base = 2,
+		/obj/item/reagent_containers/cup/beaker/large/spaceacillin = 1,
 		/obj/item/stack/ore/bluespace_crystal = 15,
 		/obj/item/paper/fluff/sansufentanyl = 1,
 	), src)
