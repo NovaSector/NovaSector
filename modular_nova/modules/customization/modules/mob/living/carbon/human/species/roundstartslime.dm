@@ -32,6 +32,12 @@
 	)
 
 /obj/item/organ/internal/eyes/jelly
+	name = "photosensitive eyespots"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/eyes/roundstartslime
+	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
@@ -175,7 +181,7 @@
 		Insert(new_body)
 		for(var/obj/item/bodypart as anything in new_body.bodyparts)
 			if(!istype(bodypart, /obj/item/bodypart/chest))
-				qdel(bodypart, force = TRUE)
+				qdel(bodypart)
 				continue
 		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from their core, yet to form the rest."))
 		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
@@ -377,7 +383,7 @@
 	heatmod = 1
 	specific_alpha = 155
 	markings_alpha = 130 //This is set lower than the other so that the alpha values don't stack on top of each other so much
-	mutanteyes = /obj/item/organ/internal/eyes
+	mutanteyes = /obj/item/organ/internal/eyes/roundstartslime
 	mutanttongue = /obj/item/organ/internal/tongue/jelly
 
 	bodypart_overrides = list( //Overriding jelly bodyparts
@@ -933,3 +939,5 @@
 				avocados.set_size(alterer.dna.features["balls_size"])
 
 #undef SLIME_ACTIONS_ICON_FILE
+#undef DAMAGE_WATER_STACKS
+#undef REGEN_WATER_STACKS
