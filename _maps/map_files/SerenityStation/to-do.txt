@@ -6,6 +6,7 @@ serenitystation to do list
 	-cyborg dorms 
 	-cargo project room 
 -underground caves map gen
+-no mountain map gen (for near solars)
 -birds 
 -ruins:
 	-abandoned friendly deer monster
@@ -81,6 +82,7 @@ serenitystation to do list
 	-park
 	
 	**Maints rooms 
+	-disposals
 	-maints kitchen
 	-maints bar
 	-maints robotics
