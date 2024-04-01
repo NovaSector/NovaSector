@@ -2689,6 +2689,7 @@
 	control_area = "/area/ruin/interdyne_planetary_base";
 	ailock = 1
 	},
+/obj/item/folder/syndicate/red/secretformula,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hi" = (
