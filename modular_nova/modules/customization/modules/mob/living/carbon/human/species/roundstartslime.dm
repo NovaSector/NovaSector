@@ -86,6 +86,7 @@
 	icon_state = "slime_core"
 	var/core_ejected = FALSE
 	var/gps_active = FALSE
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //So the brainmob doesn't McFucking disappear.
 
 /obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
