@@ -85,6 +85,7 @@
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "slime_core"
 	var/core_ejected = FALSE
+	var/gps_active = FALSE
 
 /obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -92,7 +93,33 @@
 
 /obj/item/organ/internal/brain/slime/examine()
 	. = ..()
+	if(gps_active)
+		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
+		. += span_red("You could probably snuff that out.")
 	. += span_hypnophrase("You remember that pouring plasma on it, if it's non-embodied, would make it regrow one.")
+
+/obj/item/organ/internal/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
+	if(!(gps_active))
+		return
+	user.visible_message(span_warning("[user] begins jamming their hand into a slime core! Slime goes everywhere!"),
+	span_notice("You jam your hand into the core, feeling for the densest point! Slime covers your arm."),
+	span_notice("You hear an obscene squelching sound.")
+	)
+	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
+
+	if(!do_after(user, 30 SECONDS, src))
+		user.visible_message(span_warning("[user]'s hand slips out of the core before they can cause any harm!'"),
+		span_warning("Your hand slips out of the goopy core before you can find it's densest point."),
+		span_notice("You hear a resounding plop.")
+		)
+		return
+
+	user.visible_message(span_warning("[user] crunches something deep in the slime core! It gradually stops glowing."),
+	span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissapates."),
+	span_notice("You hear a wet crunching sound."))
+	playsound(user, 'sound/effects/wounds/crackandbleed.ogg', 80, TRUE)
+	gps_active = FALSE
+	qdel(GetComponent(/datum/component/gps))
 
 /obj/item/organ/internal/brain/slime/Insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
@@ -132,8 +159,13 @@
 		forceMove(death_turf)
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_turf, victim.dir)
+
 	do_steam_effects(death_turf)
 	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
+
+	if(gps_active) // adding the gps signal if they have activated the ability
+		AddComponent(/datum/component/gps, "[victim]'s Core")
+
 	qdel(victim)
 
 /obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
@@ -156,6 +188,10 @@
 		user.visible_message(span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."), span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."))
 		item.reagents.clear_reagents() //removes the whole shit
 		set_organ_damage(-maxHealth) //heals 2 damage per unit of mannitol, and by using "set_organ_damage", we clear the failing variable if that was up
+
+		if(gps_active) // making sure the gps signal is removed if it's active on revival
+			gps_active = FALSE
+			qdel(GetComponent(/datum/component/gps))
 
 		//we have the plasma. we can rebuild them.
 		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
@@ -937,6 +973,30 @@
 			if(new_size)
 				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
 				avocados.set_size(alterer.dna.features["balls_size"])
+
+/**
+ * Toggle Death Signal simply adds and removes the trait required for slimepeople to transmit a GPS signal upon core ejection.
+ */
+/datum/action/innate/core_signal
+	name = "Toggle Core Signal"
+	check_flags = AB_CHECK_CONSCIOUS
+	button_icon_state = "alter_form"
+	button_icon = SLIME_ACTIONS_ICON_FILE
+	background_icon_state = "bg_alien"
+	/// Do you need to be a slime-person to use this ability?
+	var/slime_restricted = TRUE
+
+/datum/action/innate/core_signal/Activate()
+	var/mob/living/carbon/human/slime = owner
+	var/obj/item/organ/internal/brain/slime/core = slime.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(slime_restricted && !isjellyperson(slime))
+		return
+	if(core.gps_active)
+		to_chat(owner,span_notice("You tune out the electromagnetic signals from your core so they are ignored by GPS receivers upon it's rejection."))
+		core.gps_active = FALSE
+	else
+		to_chat(owner, span_notice("You fine-tune the electromagnetic signals from your core to be picked up by GPS receivers upon it's rejection."))
+		core.gps_active = TRUE
 
 #undef SLIME_ACTIONS_ICON_FILE
 #undef DAMAGE_WATER_STACKS

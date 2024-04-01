@@ -46,6 +46,7 @@
 	//NOVA EDIT ADDITION - BEGIN
 	var/datum/action/cooldown/spell/slime_washing/slime_washing
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
+	var/datum/action/innate/core_signal/core_signal
 	//NOVA EDIT ADDITION - END
 
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
@@ -61,6 +62,8 @@
 		slime_washing.Grant(new_jellyperson)
 		slime_hydrophobia = new
 		slime_hydrophobia.Grant(new_jellyperson)
+		core_signal = new
+		core_signal.Grant(new_jellyperson)
 		//NOVA EDIT ADDITION END
 	new_jellyperson.AddElement(/datum/element/soft_landing)
 
@@ -74,6 +77,8 @@
 		slime_washing.Remove(former_jellyperson)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
+	if(core_signal)
+		core_signal.Remove(former_jellyperson)
 	//NOVA EDIT ADDITION END
 	former_jellyperson.RemoveElement(/datum/element/soft_landing)
 
