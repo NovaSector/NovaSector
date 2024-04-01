@@ -378,6 +378,10 @@
 	name = "Skulldog"
 	icon_state = "skulldog"
 
+/datum/sprite_accessory/snouts/mammal/skulldogalt
+	name = "Skulldog (Greyscale)"
+	icon_state = "skulldogalt"
+
 /datum/sprite_accessory/snouts/mammal/hanubus
 	name = "Anubus"
 	icon_state = "hanubus"
