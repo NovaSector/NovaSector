@@ -73,7 +73,7 @@
 	min_catalysts = 1
 	max_catalysts = 1
 	max_input_reagents = 4
-	results = list(/obj/item/reagent_containers/cup/beaker/sansufentanyl_base=20)
+	results = list(/datum/reagent/medicine/sansufentanyl_base=20)
 
 /datum/chemical_reaction/randomized/sansufentanyl/GetPossibleReagents(kind)
 	switch(kind)
