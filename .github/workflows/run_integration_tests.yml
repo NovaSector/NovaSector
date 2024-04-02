@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/BYOND
-          key: ${{ runner.os }}-byond-${{ secrets.CACHE_PURGE_KEY }}
+          key: ${{ runner.os }}-byond-${{ hashFiles('dependencies.sh') }}
       - name: Setup database
         run: |
           sudo systemctl start mysql
