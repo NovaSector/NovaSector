@@ -1226,6 +1226,7 @@
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
 "tH" = (
 /obj/structure/closet/secure_closet/personal/cabinet/freighterboss,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
 "tL" = (
@@ -2447,6 +2448,7 @@
 /obj/item/clothing/gloves/color/plasmaman/cargo{
 	pixel_y = -6
 	},
+/obj/machinery/recharger,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
 "Mt" = (
@@ -3172,6 +3174,12 @@
 	},
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
 "XT" = (
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/structure/table/reinforced,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/cargodise_freighter/quarters)
 "XV" = (
