@@ -45,3 +45,7 @@
   - rscadd: Junkie of all kinds, including smokers and alcoholics, are also able to
       pick their favorite type.
   - bugfix: anchored circuits no longer blow up after 2 components are used.
+2024-04-02:
+  Iajret:
+  - bugfix: fixed wind turbines power generation and colony coffee machine taking
+      literal ages to recharge
