@@ -20,6 +20,24 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	else
 		outfit.suit = item_path
 
+/// ARMOR AND SPACESUITS
+
+/datum/loadout_item/suit/ntrauma
+	name = "Trauma Team Softsuit"
+	item_path = /obj/item/clothing/suit/space/ntrauma
+
+/datum/loadout_item/suit/frontier_flak
+	name = "Frontier Flak Jacket"
+	item_path = /obj/item/clothing/suit/frontier_colonist_flak
+
+/datum/loadout_item/suit/armor_sec
+	name = "Lopland Tactical Armored Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/alt/sec
+
+/datum/loadout_item/suit/expeditionary_corps
+	name = "Expeditionary Corps Armored Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/expeditionary_corps
+
 /*
 *	WINTER COATS
 */
@@ -63,22 +81,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/recolorable
 	name = "Recolorable Formal Suit Jacket"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/greyscale
-
-/datum/loadout_item/suit/black_suit_jacket
-	name = "Black Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/black
-
-/datum/loadout_item/suit/blue_suit_jacket
-	name = "Blue Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer
-
-/datum/loadout_item/suit/purple_suit_jacket
-	name = "Purple Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/purple
-
-/datum/loadout_item/suit/white_suit_jacket
-	name = "White Formal Suit Jacket"
-	item_path = /obj/item/clothing/suit/toggle/lawyer/white
 
 /datum/loadout_item/suit/suitblackbetter
 	name = "Light Black Formal Suit Jacket"
@@ -213,61 +215,13 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 *	COSTUMES
 */
 
-/datum/loadout_item/suit/owl
-	name = "Owl Cloak"
-	item_path = /obj/item/clothing/suit/toggle/owlwings
-
-/datum/loadout_item/suit/griffin
-	name = "Griffon Cloak"
-	item_path = /obj/item/clothing/suit/toggle/owlwings/griffinwings
-
 /datum/loadout_item/suit/syndi
 	name = "Black And Red Space Suit Replica"
 	item_path = /obj/item/clothing/suit/syndicatefake
 
-/datum/loadout_item/suit/bee
-	name = "Bee Outfit"
-	item_path = /obj/item/clothing/suit/hooded/bee_costume
-
 /datum/loadout_item/suit/plague_doctor
 	name = "Plague Doctor Suit"
 	item_path = /obj/item/clothing/suit/bio_suit/plaguedoctorsuit
-
-/datum/loadout_item/suit/snowman
-	name = "Snowman Outfit"
-	item_path = /obj/item/clothing/suit/costume/snowman
-
-/datum/loadout_item/suit/chicken
-	name = "Chicken Suit"
-	item_path = /obj/item/clothing/suit/costume/chickensuit
-
-/datum/loadout_item/suit/monkey
-	name = "Monkey Suit"
-	item_path = /obj/item/clothing/suit/costume/monkeysuit
-
-/datum/loadout_item/suit/cardborg
-	name = "Cardborg Suit"
-	item_path = /obj/item/clothing/suit/costume/cardborg
-
-/datum/loadout_item/suit/xenos
-	name = "Xenos Suit"
-	item_path = /obj/item/clothing/suit/costume/xenos
-
-/datum/loadout_item/suit/ian_costume
-	name = "Corgi Costume"
-	item_path = /obj/item/clothing/suit/hooded/ian_costume
-
-/datum/loadout_item/suit/carp_costume
-	name = "Carp Costume"
-	item_path = /obj/item/clothing/suit/hooded/carp_costume
-
-/datum/loadout_item/suit/shark_costume
-	name = "Shark Costume"
-	item_path = /obj/item/clothing/suit/hooded/shark_costume
-
-/datum/loadout_item/suit/shork_costume
-	name = "Shork Costume"
-	item_path = /obj/item/clothing/suit/hooded/shork_costume
 
 /datum/loadout_item/suit/wizard
 	name = "Wizard Robe"
@@ -276,18 +230,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/witch
 	name = "Witch Robe"
 	item_path = /obj/item/clothing/suit/wizrobe/marisa/fake
-
-/*
-*	SEASONAL
-*/
-
-/datum/loadout_item/suit/winter_coat/christmas
-	name = "Christmas Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas
-
-/datum/loadout_item/suit/winter_coat/christmas/green
-	name = "Green Christmas Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green
 
 /*
 *	MISC
@@ -506,34 +448,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/hoodie/greyscale_trim_alt
 	name = "Greyscale Trimmed Hoodie (Alt)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/trim/alt
-
-/datum/loadout_item/suit/hoodie/black
-	name = "Black Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/black
-
-/datum/loadout_item/suit/hoodie/red
-	name = "Red Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/red
-
-/datum/loadout_item/suit/hoodie/blue
-	name = "Blue Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/blue
-
-/datum/loadout_item/suit/hoodie/green
-	name = "Green Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/green
-
-/datum/loadout_item/suit/hoodie/orange
-	name = "Orange Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/orange
-
-/datum/loadout_item/suit/hoodie/yellow
-	name = "Yellow Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/yellow
-
-/datum/loadout_item/suit/hoodie/grey
-	name = "Grey Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/grey
 
 /datum/loadout_item/suit/hoodie/nt
 	name = "NT Hoodie"
