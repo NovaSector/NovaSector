@@ -160,7 +160,7 @@
 	name = "Moogle Pom (Large, Front)"
 	icon_state = "mpom3"
 
-/datum/sprite_accessory/moth_antennae/moogle/mpom3alt
+/datum/sprite_accessory/horns/moogle/mpom3alt
 	name = "Moogle Pom (Large, Back)"
 	icon_state = "mpom3alt"
 
