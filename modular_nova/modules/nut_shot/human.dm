@@ -1,4 +1,5 @@
-#define NUTSHOT_VOMIT_CHANCE 10
+/// The chance to make someone throw up when you punch them in the balls
+#define NUTSHOT_VOMIT_CHANCE 20 // Also requires a knockdown punch, so the impact is a bit lower than it might appear.
 
 // For when you want to hurt a motherfucker
 /mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker)

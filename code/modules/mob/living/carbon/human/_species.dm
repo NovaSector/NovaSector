@@ -1197,6 +1197,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	//This does not work against opponents who are knockdown immune, such as from wearing riot armor.
 	if(!HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
 		if((target.stat != DEAD) && prob(limb_accuracy) || (target.stat != DEAD) && staggered && (target.getStaminaLoss() + user.getBruteLoss()) >= 40)
+			// NOVA EDIT ADD START
+			if(target.try_nut_shot(user))
+				return
+			// NOVA EDIT ADD END
 			target.visible_message(span_danger("[user] knocks [target] down!"), \
 							span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, span_danger("You knock [target] down!"))
@@ -1207,7 +1211,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.StaminaKnockdown(20) // NOVA EDIT ADDITION
 			log_combat(user, target, "got a stun punch with their previous punch")
 
-			target.try_nut_shot(user) // NOVA EDIT ADD
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(user.body_position != STANDING_UP)
