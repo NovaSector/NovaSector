@@ -1174,6 +1174,10 @@
 // KILT
 // COSTUMES
 
+/datum/greyscale_config/jester_suit/worn/digi
+	name = "Jester Suit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
+
 /datum/greyscale_config/buttondown_slacks/worn/digi
 	name = "Buttondown with Slacks (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
@@ -1557,6 +1561,10 @@ TREK
 /datum/greyscale_config/fancyheels/worn/digi
 	name = "Fancy Heels (Worn, Digi)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/fancyheels/fancyheels_worn_digi.json'
+
+/datum/greyscale_config/jester_shoes/worn/digi
+	name = "Jester Shoes (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 // TESHARI FALLBACKS.
 
