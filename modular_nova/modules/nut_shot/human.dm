@@ -4,11 +4,11 @@
 // For when you want to hurt a motherfucker
 /mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker)
 	if(stat >= UNCONSCIOUS)
-		return
+		return FALSE
 	if(!(attacker.zone_selected == BODY_ZONE_PRECISE_GROIN))
-		return
+		return FALSE
 	if(!has_balls(REQUIRE_GENITAL_EXPOSED))
-		return
+		return FALSE
 	Knockdown(1 SECONDS)
 
 	var/nauseating = prob(NUTSHOT_VOMIT_CHANCE)
