@@ -374,6 +374,14 @@
 	name = "WahCoon (Top)"
 	icon_state = "fwah"
 
+/datum/sprite_accessory/snouts/mammal/top/fskulldog
+	name = "Skulldog (Top)"
+	icon_state = "fskulldog"
+
+/datum/sprite_accessory/snouts/mammal/top/fskulldogalt
+	name = "Skulldog (Top, Greyscale)"
+	icon_state = "fskulldogalt"
+
 /datum/sprite_accessory/snouts/mammal/skulldog
 	name = "Skulldog"
 	icon_state = "skulldog"
