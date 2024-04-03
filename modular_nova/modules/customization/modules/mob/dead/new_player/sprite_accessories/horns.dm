@@ -143,25 +143,31 @@
 /datum/sprite_accessory/horns/moogle/mpom1
 	name = "Moogle Pom (Small, Front)"
 	icon_state = "mpom1"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/moogle/mpom1alt
 	name = "Moogle Pom (Small, Back)"
 	icon_state = "mpom1alt"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/moogle/mpom2
 	name = "Moogle Pom (Medium, Front)"
 	icon_state = "mpom2"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/moogle/mpom2alt
 	name = "Moogle Pom (Medium, Back)"
 	icon_state = "mpom2alt"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/moogle/mpom3
 	name = "Moogle Pom (Large, Front)"
 	icon_state = "mpom3"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/moogle/mpom3alt
 	name = "Moogle Pom (Large, Back)"
 	icon_state = "mpom3alt"
+	color_src = USE_MATRIXED_COLORS
 
 
