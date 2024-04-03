@@ -1207,6 +1207,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.StaminaKnockdown(20) // NOVA EDIT ADDITION
 			log_combat(user, target, "got a stun punch with their previous punch")
 
+			target.try_nut_shot(user) // NOVA EDIT ADD
+
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(user.body_position != STANDING_UP)
 		return FALSE

@@ -7915,6 +7915,7 @@
 #include "modular_nova\modules\novaya_ert\code\survival_pack.dm"
 #include "modular_nova\modules\novaya_ert\code\toolbox.dm"
 #include "modular_nova\modules\novaya_ert\code\uniform.dm"
+#include "modular_nova\modules\nut_shot\human.dm"
 #include "modular_nova\modules\officestuff\code\officestuff.dm"
 #include "modular_nova\modules\oneclickantag\code\oneclickantag.dm"
 #include "modular_nova\modules\opposing_force\code\admin_procs.dm"
