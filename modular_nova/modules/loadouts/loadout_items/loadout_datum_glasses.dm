@@ -100,10 +100,6 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 *	MISC
 */
 
-/datum/loadout_item/glasses/welding
-	name = "Welding Goggles"
-	item_path = /obj/item/clothing/glasses/welding
-
 /datum/loadout_item/glasses/eyepatch
 	name = "Eyepatch"
 	item_path = /obj/item/clothing/glasses/eyepatch
