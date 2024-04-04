@@ -1,3 +1,5 @@
+/// How long someone is knocked down for when hit in the balls
+#define NUTSHOT_KNOCKDOWN_TIME 1 SECONDS
 /// The chance to make someone throw up when you punch them in the balls
 #define NUTSHOT_VOMIT_CHANCE 20 // Also requires a knockdown punch, so the impact is a bit lower than it might appear.
 /// The amount of damage you take when striking metallic balls
@@ -29,7 +31,7 @@
 		return FALSE
 	
 	// General applied effects
-	Knockdown(1 SECONDS)
+	Knockdown(NUTSHOT_KNOCKDOWN_TIME)
 	var/nauseating = prob(NUTSHOT_VOMIT_CHANCE)
 	if(nauseating)
 		vomit(VOMIT_CATEGORY_DEFAULT)
