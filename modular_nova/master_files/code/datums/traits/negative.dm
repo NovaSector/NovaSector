@@ -22,31 +22,21 @@
 		/datum/preference/numeric/fragile_customization/burn,
 	)
 
-/proc/get_fragile_customization_min()
-	if (CONFIG_GET(flag/disable_quirk_points))
-		return 1.05 // arbitrary
-	return 1.25 // 0.25 is the default value for servers with quirk points as fragile was balanced around that
-
 /datum/preference/numeric/fragile_customization
 	abstract_type = /datum/preference/numeric/fragile_customization
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 	
-	minimum = 1.25 // set on new()
+	minimum = 1.25 
 	maximum = 5 // 5x damage, arbitrary
 
 	step = 0.01	
 
 /datum/preference/numeric/fragile_customization/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-	
+	return FALSE	
 
 /datum/preference/numeric/fragile_customization/create_default_value()
 	return 1.25
-
-/datum/preference/numeric/fragile_customization/New()
-	minimum = get_fragile_customization_min()
-	return ..()
 
 /datum/preference/numeric/fragile_customization/brute
 	savefile_key = "fragile_brute"
