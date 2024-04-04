@@ -35,18 +35,21 @@
 			playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
 			Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
 
-/obj/machinery/power/apc/attackby(obj/item/attacking_object, mob/living/user, params)
+/obj/machinery/power/apc/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	. = ..()
-	if(istype(attacking_object, /obj/item/stack/sheet/bronze) && panel_open)
+	if(.)
+		return .
+	. = ..()
+	var/obj/item/stack/sheet/bronze/bronze = tool
+	if(istype(bronze) && panel_open)
 		if(arc_shielded)
 			balloon_alert(user, "already arc shielded!")
-			return
-		var/obj/item/stack/sheet/bronze/bronze = attacking_object
+			return ITEM_INTERACT_BLOCKING
 		bronze.use(1)
 		balloon_alert(user, "installed arc shielding")
 		arc_shielded = TRUE
 		playsound(src, 'sound/items/rped.ogg', 20)
-		return
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/apc/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
