@@ -1,5 +1,7 @@
 /// The chance to make someone throw up when you punch them in the balls
 #define NUTSHOT_VOMIT_CHANCE 20 // Also requires a knockdown punch, so the impact is a bit lower than it might appear.
+/// The amount of damage you take when striking metallic balls
+#define NUTSHOT_SELF_DAMAGE 10
 
 // For when you want to hurt a motherfucker
 /mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker)
@@ -10,12 +12,12 @@
 	if(!has_balls(REQUIRE_GENITAL_EXPOSED))
 		return FALSE
 
-	var/synthetic = issynthetic(src)
+	var/balls_of_steel = issynthetic(src) // Update when we have cybernetic testes. When.
 	var/is_kick = body_position == LYING_DOWN
 	
-	if(synthetic) // hitting metal hurts
+	if(balls_of_steel) // hitting metal hurts
 		attacker.apply_damage(
-			damage = 10,
+			damage = NUTSHOT_SELF_DAMAGE,
 			def_zone = is_kick ? pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG) : pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 		)
 
@@ -35,12 +37,13 @@
 	visible_message(
 		span_danger("[attacker] [is_kick ? "kicks" : "punches"] [src] right in the nuts, causing them to \
 			[nauseating ? "throw up" : "double over"] in pain! \
-			[synthetic ? "Who the fuck programmed them to do that?!" : "Fuck!"]"\
+			[balls_of_steel ? "Who the fuck programmed them to do that?!" : "Fuck!"]"\
 			),
 		span_danger("You [is_kick ? "kick" : "punch"] [src] right in the nuts, causing them to \
 			[nauseating ? "throw up" : "double over"] in pain\
-			[synthetic ? "... But holy shit it hurts your [is_kick ? "leg" : "hand"]" : "! Fuck"]!"\
+			[balls_of_steel ? "... But holy shit it hurts your [is_kick ? "leg" : "hand"]" : "! Fuck"]!"\
 			),
 		)
 
 #undef NUTSHOT_VOMIT_CHANCE
+#undef NUTSHOT_SELF_DAMAGE
