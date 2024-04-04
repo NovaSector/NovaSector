@@ -39,7 +39,7 @@
 	. = ..()
 	if(.)
 		return .
-	. = ..()
+
 	var/obj/item/stack/sheet/bronze/bronze = tool
 	if(istype(bronze) && panel_open)
 		if(arc_shielded)
