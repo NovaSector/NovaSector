@@ -82,7 +82,7 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/under/syndicate/unarmoured/unarmoured/examine_more(mob/user)
+/obj/item/clothing/under/syndicate/unarmoured/examine_more(mob/user)
 	. = ..()
 	. += span_notice("The armor has been removed from the fabric.")
 
