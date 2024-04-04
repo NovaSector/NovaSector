@@ -448,6 +448,7 @@
 					. += jointext(list("<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>",
 						"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>",
 						"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"), "")
+<<<<<<< HEAD
 				// NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 				if(target_record && length(target_record.past_security_records) > RECORDS_INVISIBLE_THRESHOLD)
 					. += "<a href='?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
@@ -519,6 +520,11 @@
 			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
 			. += span_info("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
 	//NOVA EDIT ADDITION END
+=======
+	if(isobserver(user))
+		. += span_info("\n<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
+	. += "</span>"
+>>>>>>> 6ae15437c91 (Fixes quirk being examined when observing (#82424))
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 
