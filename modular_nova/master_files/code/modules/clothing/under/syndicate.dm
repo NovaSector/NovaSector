@@ -66,25 +66,29 @@
 	icon_state = "syndicate_baseball"
 
 /obj/item/clothing/under/syndicate/unarmoured
-	name = "suspicious stripped tactical turtleneck"
-	desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants... The armor has been removed from the fabric."
+	name = "suspicious tactical turtleneck"
+	desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants."
 	icon_state = "syndicate"
 	inhand_icon_state = "bl_suit"
 	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/under/syndicate/unarmoured/skirt
-	name = "suspicious stripped tactical skirtleneck"
-	desc = "A non-descript and slightly suspicious looking skirtleneck... The armor has been removed from the fabric."
+	name = "suspicious tactical skirtleneck"
+	desc = "A non-descript and slightly suspicious looking skirtleneck."
 	icon_state = "syndicate_skirt"
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/syndicate/unarmoured/unarmoured/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The armor has been removed from the fabric.")
+
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured
-	name = "suspicious stripped tactical turtleneck"
-	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants... The armor has been removed from the fabric."
+	name = "suspicious tactical turtleneck"
+	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants."
 	icon_state = "syndicate_red"
 	inhand_icon_state = "r_suit"
 	has_sensor = HAS_SENSORS
@@ -92,30 +96,38 @@
 	unique_reskin = null
 
 /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
-	name = "suspicious stripped tactical skirtleneck"
-	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy... The armor has been removed from the fabric."
+	name = "suspicious tactical skirtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
 	icon_state = "syndicate_red_skirt"
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/syndicate/nova/tactical/unarmoured/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The armor has been removed from the fabric.")
+
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured
-	name = "suspicious stripped utility overalls turtleneck"
-	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work... The armor has been removed from the fabric."
+	name = "suspicious utility overalls turtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work."
 	icon_state = "syndicate_overalls"
 	armor_type = /datum/armor/clothing_under
 	has_sensor = HAS_SENSORS
 	can_adjust = TRUE
 
 /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
-	name = "suspicious stripped utility overalls skirtleneck"
-	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy... The armor has been removed from the fabric."
+	name = "suspicious utility overalls skirtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
 	icon_state = "syndicate_overallskirt"
 	gets_cropped_on_taurs = FALSE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/syndicate/nova/overalls/unarmoured/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The armor has been removed from the fabric.")
 
 /obj/item/clothing/mask/gas/sechailer/half_mask
 	name = "tacticool neck gaiter"

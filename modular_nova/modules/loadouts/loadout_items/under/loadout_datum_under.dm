@@ -530,27 +530,27 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt
 
 /datum/loadout_item/under/miscellaneous/syndicate_unarmoured
-	name = "Suspicious Stripped Tactical Turtleneck (Grey)"
+	name = "Suspicious Tactical Turtleneck (Grey)"
 	item_path = /obj/item/clothing/under/syndicate/unarmoured
 
 /datum/loadout_item/under/miscellaneous/syndicate_unarmoured_skirt
-	name = "Suspicious Stripped Tactical Skirtleneck (Grey)"
+	name = "Suspicious Tactical Skirtleneck (Grey)"
 	item_path = /obj/item/clothing/under/syndicate/unarmoured/skirt
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_unarmoured
-	name = "Suspicious Stripped Tactical Turtleneck (Red)"
+	name = "Suspicious Tactical Turtleneck (Red)"
 	item_path = /obj/item/clothing/under/syndicate/nova/tactical/unarmoured
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_unarmoured_skirt
-	name = "Suspicious Stripped Tactical Skirtleneck (Red)"
+	name = "Suspicious Tactical Skirtleneck (Red)"
 	item_path = /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured
-	name = "Suspicious Stripped Utility Overalls Turtleneck"
+	name = "Suspicious Utility Overalls Turtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
-	name = "Suspicious Stripped Utility Overalls Skirtleneck"
+	name = "Suspicious Utility Overalls Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
 
 /datum/loadout_item/under/miscellaneous/tactical_pants
