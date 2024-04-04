@@ -1,7 +1,7 @@
 /datum/language/schechi
 	name = "Schechi"
 	desc = "The very structurally loose creole tongue of the Teshari, host to hundreds of dialects almost different enough to resemble their own languages. \
-	Originally developed on Sirisai, Schechi has made it's way across the Teshari diaspora as a commonly agreed upon way for entirely different packs to communicate."
+	Originally developed on Sirisai, Schechi has made its way across the Teshari diaspora as a commonly agreed upon way for entirely different packs to communicate."
 	key = "F"
 	space_chance = 40
 	syllables = list(
