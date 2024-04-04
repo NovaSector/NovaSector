@@ -304,7 +304,7 @@
 	mold_color = "#80ff00"
 	structure_light_color = LIGHT_COLOR_ELECTRIC_GREEN
 	examine_text = "It's glowing a soft green."
-	mob_types = list(/mob/living/basic/mold/centaur)
+	mob_types = list(/mob/living/basic/slime/mold)
 	preferred_atmos_conditions = "tritium=5;TEMP=296"
 	resistance_flags = ACID_PROOF | FIRE_PROOF
 

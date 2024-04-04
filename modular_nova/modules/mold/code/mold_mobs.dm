@@ -229,6 +229,31 @@
  * Weird centipede things that spawn with a rad mold
  * They have a chance to irradiate their target on hit
  */
+/mob/living/basic/slime/mold
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = INFINITY
+
+	basic_mob_flags = DEL_ON_DEATH
+	obj_damage = 40
+	
+	/// The chance to irradiate on hit
+	var/irradiate_chance = 20
+
+/mob/living/basic/slime/mold/Initialize(mapload, new_colour, new_life_stage)
+	. = ..(mapload, /datum/slime_type/green)
+	ai_controller?.set_blackboard_key(BB_SLIME_RABID, TRUE)
+
+/mob/living/basic/slime/mold/melee_attack(atom/target, list/modifiers, ignore_cooldown)
+	. = ..()
+
+	if(!isliving(target))
+		return
+
+	var/mob/living/radiation_target = target
+	if(prob(irradiate_chance))
+		radiation_pulse(radiation_target, CENTAUR_RAD_PULSE_RANGE, CENTAUR_RAD_PULSE_THRESHOLD, FALSE, TRUE)
+
 /mob/living/basic/mold/centaur
 	name = "centaur"
 	desc = "A horrific combination of bone and flesh with multiple sets of legs and feet."
