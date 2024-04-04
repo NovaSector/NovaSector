@@ -88,3 +88,49 @@
   - qol: some experiments now give you more helpful hints at why your failing
   - code_imp: changes around some experiment code to make it more understandable
   - qol: AIs now get a z level indicator
+2024-04-04:
+  Melbert:
+  - bugfix: Psicodine helps Socially Anxious people again (as does signing)
+  - bugfix: Speech effects such as stuttering no longer applies its TTS filter if
+      the resulting message doesn't actually change the message
+  NovaBot13:
+  - balance: Readds some N2O to the Birdshot AI sat. I'll be working on a better solution
+      for this in the coming weeks.
+  - bugfix: Due to a Misprint, the Atmos Gas -> Pure pipes were incorrectly labeled
+      on Birdshot. Your Cargo Techs have since remedied this.
+  - bugfix: Our cable laying intern team didn't lay cable to the Secure Storage APC
+      in Enigneering. Getting coffee instead of working is a big no-no here at Nanotrasen
+      Tech Support, and they have since been reassigned. Your Chief Engineers have
+      been instructed to make the modifications on all Birdshot Class Stations.
+  - bugfix: We've noticed some Heads-Of-Staff getting lost on Birdshot. While Telecommunications
+      does have a GPS waypoint, our staffs stubbornness often means this is ineffective.
+      Additional Signage has been placed to help direct our most senior of staff.
+  - bugfix: The Birdshot Turbine will no longer Pre-Load itself with highly flammable
+      Plasma Gas. Do your own jobs you lazy atmos bums.
+  - bugfix: destructive analyzers can now get screwdrivered instead of put it in.
+  - bugfix: destructive analyzer now accepts alien wire cutters, and emags.
+  - image: The jester costume now supports GAGS
+  - balance: evil seedlings can no longer be mass produced
+  - bugfix: igniter in meta station ordinance burn chamber works again
+  - rscadd: You can now fax painted canvases in order to send memes to each other.
+  - bugfix: Fix using a multitool on a power object with wires not actually opening
+      the wires menu when it should.
+  - bugfix: Fix a runtime from a power object being deleted before selecting what
+      cable layer to put it at.
+  - bugfix: Fix power object cable changing not caring about whether you were still
+      adjacent, still holding your multitool, or whether it even still existed after
+      the selection menu was closed.
+  - bugfix: fixes reagent production selection overwrite updating during selection
+  - code_imp: updates reagent menu for Odysseus
+  - config: mech logging is now on by default. Existing config setups will not mirror
+      this change.
+  - bugfix: aheal no longer turns monkies into humans
+  - qol: Player panel "make monkey" turns humans into monkeys through mutation instead
+      of making a new mob
+  - qol: Makes the clown anomalous crystal actually useful for once rather than an
+      open griefing tool. It now revives the dead...as clowns!
+  - admin: Adds logging for the anomalous crystal activation, including fingerprints.
+  SyncIt21,Pickle-Coding:
+  - bugfix: space heater(including improvised) turns off when cell is drained
+  - bugfix: optimized power usage for both improvised and main space heater. Improvised
+      heater now works & uses beaker heat capacity
