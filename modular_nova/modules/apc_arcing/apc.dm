@@ -40,7 +40,11 @@
 	if(.)
 		return .
 
-	var/obj/item/stack/sheet/bronze/bronze = tool
+	if(istype(tool, /obj/item/stack/sheet/bronze/bronze) && panel_open)
+		. = bronze_act(user, tool)
+
+/// Handles interaction of adding arc shielding to apc with bronze
+/obj/machinery/power/apc/proc/bronze_act(mob/living/user, obj/item/stack/sheet/bronze/bronze)
 	if(istype(bronze) && panel_open)
 		if(arc_shielded)
 			balloon_alert(user, "already arc shielded!")
