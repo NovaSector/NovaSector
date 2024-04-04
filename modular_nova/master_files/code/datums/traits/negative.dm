@@ -10,9 +10,8 @@
 
 /datum/quirk/fragile
 	name = "Fragility"
-	desc = "You feel incredibly fragile. You take more damage than the average person!"
-	value = -6
-	medical_record_text = "Patient is more susceptable to damages than others."
+	desc = "You feel incredibly fragile. Burns and bruises hurt you more than the average person!"	value = -6
+	medical_record_text = "Patient's body has adapted to low gravity. Sadly low-gravity environments are not conducive to strong bone development."
 	icon = FA_ICON_TIRED
 
 /datum/quirk_constant_data/fragile
