@@ -6562,6 +6562,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\death.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\human.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species.dm"
+#include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\ethereal.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\lizardpeople.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\podpeople.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\snail.dm"
