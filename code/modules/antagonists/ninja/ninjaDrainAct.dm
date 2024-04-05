@@ -290,17 +290,13 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /mob/living/silicon/robot/proc/ninjadrain_charge(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
-<<<<<<< HEAD
 	//NOVA EDIT: ADDITION START
 	var/list/modelselected = list()
 	modelselected["Assault"] = "/obj/item/robot_model/ninja"
 	modelselected["Medical"] = "/obj/item/robot_model/ninja/ninja_medical"
 	modelselected["Saboteur"] = "/obj/item/robot_model/ninja_saboteur"
 	//NOVA EDIT: ADDITION END
-	if(!do_after(ninja, 6 SECONDS, target = src))
-=======
 	if(!do_after(ninja, 6 SECONDS, target = src, hidden = TRUE))
->>>>>>> c4487459766 (Creates a "busy" animation for players (#82416))
 		return
 	spark_system.start()
 	playsound(loc, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
