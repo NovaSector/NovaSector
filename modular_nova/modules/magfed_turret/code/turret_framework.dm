@@ -349,6 +349,8 @@ DEFINE_BITFIELD(turret_flags, list(
 		deltimer(timer_id)
 
 	qdel(src)
+	return
+
 
 ////// Ammo and magazine handling //////
 //////main proc to handle loading magazines and bullets. might need improved?
@@ -430,6 +432,8 @@ DEFINE_BITFIELD(turret_flags, list(
 			chambered = null
 			casing.bounce_away(TRUE)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
+
+
 
 ////// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
