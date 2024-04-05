@@ -12,9 +12,9 @@
 	pass_flags = PASSTABLE
 	var/list/charging_batteries = list() //The list of batteries we are gonna charge!
 	var/max_batteries = 4
-	var/charge_rate = 250
-	var/charge_rate_base = 250 // Amount of charge we gain from a level one capacitor
-	var/charge_rate_max = 4000 // The highest we allow the charge rate to go
+	var/charge_rate = 250 KILO WATTS
+	var/charge_rate_base = 250 KILO WATTS // Amount of charge we gain from a level one capacitor
+	var/charge_rate_max = 1.5 MEGA WATTS// The highest we allow the charge rate to go
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
@@ -49,7 +49,7 @@
 		for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 			. += "There's [charging] cell in the charger, current charge: [round(charging.percent(), 1)]%."
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Charging power: <b>[charge_rate]W</b>.")
+		. += span_notice("The status display reads: Charging power: <b>[display_power(charge_rate, convert = FALSE)]</b>.")
 	. += span_notice("Right click it to remove all the cells at once!")
 
 /obj/machinery/cell_charger_multi/attackby(obj/item/tool, mob/user, params)
