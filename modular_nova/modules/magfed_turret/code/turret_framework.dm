@@ -18,6 +18,13 @@
 #define TURRET_FLAG_SHOOT_NOONE 3 // Turrets will not fire at any player-type mob.
 #define TURRET_FLAG_SHOOT_EVERYONE 4 // Turrets will shoot at all player-type mobs.
 
+#define TURRET_THREAT_PASSIVE 0 
+#define TURRET_THREAT_LOW 2
+#define TURRET_THREAT_MEDIUM 4
+#define TURRET_THREAT_HIGH 6
+#define TURRET_THREAT_SEVERE 8
+#define TURRET_THREAT_PRIORITY 10 
+
 DEFINE_BITFIELD(turret_flags, list(
 	"TURRET_FLAG_SHOOT_ALL_REACT" = TURRET_FLAG_SHOOT_ALL_REACT,
 	"TURRET_FLAG_AUTH_WEAPONS" = TURRET_FLAG_AUTH_WEAPONS,
@@ -69,7 +76,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 
 
-//////Grabs a mag to load into the turret
+///Grabs a mag to load into the turret
 /obj/item/storage/toolbox/emergency/turret/mag_fed/proc/get_mag(keep = FALSE)
 	var/mag_len = length(contents)
 	if (!mag_len)
@@ -128,7 +135,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	forceMove(turret)
 	turret.setState(TRUE)
 
-////// Targeting Device handling
+////// Targeting Device handling //////
 
 /obj/item/target_designator
 	name = "\improper Turret Target Designator"
@@ -168,7 +175,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	. += span_notice("<b>Right click</b> an entity to designate it as an ally.")
 	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
 	. += span_notice("<b>Use</b> this item to toggle human targeting.")
-	. += span_notice("People Targeting is [target_all ? "<font color='#ff0000'>ENABLED</font>" : "<font color='#00ff15'>DISABLED</font>"].")
+	. += span_notice("Targeting of non-authorized personnel is [target_all ? "<font color='#ff0000'>ENABLED</font>" : "<font color='#00ff15'>DISABLED</font>"].")
 	. += span_notice("<b>Shift-click</b> this item to toggle flag following.")
 	. += span_notice("Turrets are [follow_flags ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
 
@@ -208,6 +215,7 @@ DEFINE_BITFIELD(turret_flags, list(
 			turret.toggle_ally(target)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+/// designates a manual target to turrets
 /obj/item/target_designator/proc/designate_enemy(atom/movable/target, mob/user)
 	if(!target)
 		return
@@ -217,7 +225,7 @@ DEFINE_BITFIELD(turret_flags, list(
 			turret.override_target(acquired_target?.resolve())
 		balloon_alert(user, "target designated!")
 
-
+/// clears manual target acquisition
 /obj/item/target_designator/proc/clear_target(user)
 	acquired_target = null
 	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
@@ -225,7 +233,8 @@ DEFINE_BITFIELD(turret_flags, list(
 			turret.clear_override()
 		balloon_alert(user, "designation cleared!")
 
-/obj/item/target_designator/proc/sync_turrets() //Sets all turrets to the same state as the controller.
+/// Sets all turrets to the same state as the controller.
+/obj/item/target_designator/proc/sync_turrets() 
 	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
 		if(target_all == TRUE && follow_flags == FALSE)
 			if(!(turret.target_assessment == TURRET_FLAG_SHOOT_EVERYONE))
@@ -241,7 +250,7 @@ DEFINE_BITFIELD(turret_flags, list(
 				turret.balloon_alert_to_viewers("restricting targeting!")
 		turret.setState(TRUE) //So they'll update properly
 
-////// Turret handling
+////// Turret handling //////
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed
 	name = "Mag-fed Turret"
@@ -349,11 +358,8 @@ DEFINE_BITFIELD(turret_flags, list(
 		deltimer(timer_id)
 
 	qdel(src)
-	return
 
-
-////// Ammo and magazine handling //////
-//////main proc to handle loading magazines and bullets. might need improved?
+/// main proc to handle loading magazines and bullets. might need improved?
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_chamber(chamber_next_round = TRUE)
 	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 	if(isnull(mag))
@@ -371,7 +377,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		chamber_round(FALSE)
 		return
 
-////// proc to insert the round.
+/// pulls a cartridge from the magazine and loads it into the chamber
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/chamber_round(replace_new_round)
 	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 	if(isnull(mag))
@@ -390,7 +396,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		if(replace_new_round) //For edge-case additions later in the road.
 			mag.give_round(new casing.type)
 
-////// handles magazine ejecting and automatic load proccing
+/// handles magazine ejecting and automatic load proccing
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_mag()
 	if(magazine_ref)
 		var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
@@ -402,7 +408,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	playsound(src, 'sound/weapons/gun/general/chunkyrack.ogg', 30, TRUE)
 	return
 
-////// handles magazine loading
+/// loads a magazine from the base storage box
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/load_mag()
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
 	if(!auto_loader.get_mag())
@@ -419,7 +425,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		balloon_alert_to_viewers("loading magazine...")
 	return
 
-////// ejects cartridge and calls if issues arrive.
+/// ejects cartridge and calls if issues arrive.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/eject_cartridge()
 	var/obj/item/ammo_casing/casing = chambered?.resolve() //Find chambered round. i'd give this a funny var name but casing was already here.
 	if(isnull(casing))
@@ -433,9 +439,7 @@ DEFINE_BITFIELD(turret_flags, list(
 			casing.bounce_away(TRUE)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 
-
-
-////// Allows you to insert magazines while the turret is deployed
+/// Allows you to insert magazines while the turret is deployed
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/insert_mag(obj/item/ammo_box/magazine/magaroni, mob/living/guy_with_mag)
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
 	if(isnull(auto_loader))
@@ -461,50 +465,49 @@ DEFINE_BITFIELD(turret_flags, list(
 
 	return ..()
 
-////// Firing and target acquisition //////
-
+/// decides a threat level depending on factors.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/assess_perp(mob/living/carbon/human/perp) //We copy the original so we can use target limiting above factions.
 	var/threatcount = 0 //the integer returned
 
 	if(obj_flags & EMAGGED)
-		return 10 //if emagged, always return 10.
+		return TURRET_THREAT_PRIORITY //if emagged, always return 10.
 
 	if(target_assessment == TURRET_FLAG_SHOOT_EVERYONE)
-		return 10 //will not assess anyone within the faction/ally system.
+		return TURRET_THREAT_PRIORITY //will not assess anyone within the faction/ally system.
 
 	if(target_assessment == TURRET_FLAG_SHOOT_NOONE)
-		return 0 //this wont stop you from getting shot if you're inbetween it and its target, but it wont specifically aim at you.
+		return TURRET_THREAT_PASSIVE //this wont stop you from getting shot if you're inbetween it and its target, but it wont specifically aim at you.
 
 	if((turret_flags & (TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ALL_REACT)) && !allowed(perp))
 		//if the turret has been attacked or is angry, target all non-sec people
 		if(!allowed(perp))
-			return 10
+			return TURRET_THREAT_PRIORITY
 
 	// If we aren't shooting heads then return a threatcount of 0
 	if (!(turret_flags & TURRET_FLAG_SHOOT_HEADS))
 		var/datum/job/apparent_job = SSjob.GetJob(perp.get_assignment())
 		if(apparent_job?.job_flags & JOB_HEAD_OF_STAFF)
-			return 0
+			return TURRET_THREAT_PASSIVE
 
 	if(turret_flags & TURRET_FLAG_AUTH_WEAPONS) //check for weapon authorization
 		if(!istype(perp.wear_id?.GetID(), /obj/item/card/id/advanced/chameleon))
 
 			if(allowed(perp)) //if the perp has security access, return 0
-				return 0
+				return TURRET_THREAT_PASSIVE
 			if(perp.is_holding_item_of_type(/obj/item/gun) || perp.is_holding_item_of_type(/obj/item/melee/baton))
-				threatcount += 4
+				threatcount += TURRET_THREAT_MEDIUM
 
 			if(istype(perp.belt, /obj/item/gun) || istype(perp.belt, /obj/item/melee/baton))
-				threatcount += 2
+				threatcount += TURRET_THREAT_LOW
 
 	if(turret_flags & TURRET_FLAG_SHOOT_CRIMINALS) //if the turret can check the records, check if they are set to *Arrest* on records
 		var/perpname = perp.get_face_name(perp.get_id_name())
 		var/datum/record/crew/target = find_record(perpname)
 		if(!target || (target.wanted_status == WANTED_ARREST))
-			threatcount += 4
+			threatcount += TURRET_THREAT_MEDIUM
 
 	if((turret_flags & TURRET_FLAG_SHOOT_UNSHIELDED) && (!HAS_TRAIT(perp, TRAIT_MINDSHIELD)))
-		threatcount += 4
+		threatcount += TURRET_THREAT_MEDIUM
 
 	return threatcount
 
@@ -514,7 +517,7 @@ DEFINE_BITFIELD(turret_flags, list(
 			return TRUE
 	return FALSE
 
-////// toggles between whether things are inside the ally system
+/// toggles between whether things are inside the ally system
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/toggle_ally(mob/living/target) //leave these since its kinda important to know which is being done.
 	if(REF(target) in allies)
 		allies -= REF(target)
@@ -533,7 +536,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		return TRUE
 	return
 
-////// manual target acquisition from target designator, improves fire rate.
+/// manual target acquisition from target designator, improves fire rate.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/override_target(atom/movable/target)
 	if(!target)
 		return
@@ -541,7 +544,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	balloon_alert_to_viewers("target acquired!") // So you know whats causing it to fire
 	shot_delay = (initial(shot_delay) / 2) //No need to scan for targets so faster work
 
-////// clears the target and resets fire rate
+/// clears the target and resets fire rate
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/clear_override()
 	target_override = null
 	shot_delay = initial(shot_delay)
@@ -554,7 +557,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		if(target(whipper_snapper))
 			return TRUE
 
-////// Shoots at one specific target. Only happens if target is overridden
+/// Shoots at one specific target. Only happens if target is overridden
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/trytoshootfucker()
 	var/atom/movable/overridden_target = target_override?.resolve()
 	if(isnull(overridden_target))
@@ -592,8 +595,7 @@ DEFINE_BITFIELD(turret_flags, list(
 
 	handle_chamber(TRUE)
 
-////// Handles the firing process. Will need edited for special ammo types like 980.
-
+/// Handles the firing process. Will need edited for special ammo types like 980.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/handle_firing(obj/item/ammo_casing/casing, atom/movable/target)
 	var/obj/projectile/our_projectile = casing.loaded_projectile
 	if(ignore_faction)
@@ -602,12 +604,12 @@ DEFINE_BITFIELD(turret_flags, list(
 	play_fire_sound(casing)
 
 
-////// So because the casing firing process calls it, Lets use this to handle the auto-reload.
+/// So because the casing firing process calls it, Lets use this to handle the auto-reload.
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/changeNext_move()
 	handle_chamber(TRUE)
 
-////// Handles which sound should play when the gun fires, as it does adjust between different ammo types.
+/// Handles which sound should play when the gun fires, as it does adjust between different ammo types.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/play_fire_sound(obj/item/ammo_casing/soundmaker) //Hella Iffy.
 	var/fire_sound = lethal_projectile_sound
 	if(!adjustable_magwell) //if it has 1 magazine type
