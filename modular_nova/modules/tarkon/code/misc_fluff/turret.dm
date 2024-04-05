@@ -52,7 +52,7 @@
 
 ////// Turrets //////
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/cerberus
-	name = "T.I.B.S \"Cerberus\" Guardian Turret"
+	name = "\improper T.I.B.S \"Cerberus\" Guardian Turret"
 	desc = "A heavy-protection turret used in the Tarkon Industries Blackrust Salvage group to protect its workers in hazardous conditions."
 	integrity_failure = 0
 	max_integrity = 200
