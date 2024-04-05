@@ -431,6 +431,15 @@
 					msg += span_boldnicegreen(event.description + "\n")
 	else
 		msg += "[span_grey("I don't have much of a reaction to anything right now.")]\n"
+	// NOVA EDIT ADDITION BEGIN - PR #1793 Alcohol Tolerance - TM ONLY. REMOVE BEFORE MERGE
+	var/mob/living/target = user
+	var/blood_alcohol_content = target.get_blood_alcohol_content()
+	if(blood_alcohol_content > 0)
+		if(blood_alcohol_content >= 0.24)
+			msg += span_bolddanger("My blood alcohol content: [blood_alcohol_content]% (CRITICAL)\n")
+		else
+			msg += span_boldnotice("My blood alcohol content: [blood_alcohol_content]%\n")
+	// NOVA EDIT ADDITION END - PR #1793 Alcohol Tolerance - TM ONLY. REMOVE BEFORE MERGE
 	to_chat(user, examine_block(msg))
 
 /// Updates the mob's moodies, if the area provides a mood bonus

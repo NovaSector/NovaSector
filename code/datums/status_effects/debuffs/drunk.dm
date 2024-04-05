@@ -23,7 +23,7 @@
 /datum/status_effect/inebriated/on_creation(mob/living/new_owner, drunk_value = 0)
 	. = ..()
 	set_drunk_value(drunk_value)
-
+	
 /datum/status_effect/inebriated/get_examine_text()
 	// Dead people don't look drunk
 	if(owner.stat == DEAD || HAS_TRAIT(owner, TRAIT_FAKEDEATH))
@@ -87,6 +87,13 @@
  */
 /datum/status_effect/inebriated/tipsy
 	alert_type = null
+
+// NOVA EDIT ADDITION BEGIN - PR #1793 Alcohol Tolerance - TM ONLY. REMOVE BEFORE MERGE
+/datum/status_effect/inebriated/tipsy/on_apply()
+	. = ..()
+	to_chat(owner, span_warning("Hey! Listen! A current test merge to our alcohol metabolism system means that intoxication will linger longer within your virtual veins. Gone are the days of swiftly chugging bottles of spirits without consequence."))
+	to_chat(owner, span_warning("Drink slower, in moderation, and observe until you are familiar with how the new system works. During the test, click your mood icon to get a display of your current drunk level. See Nova Sector PR #1793 for details/comment."))
+// NOVA EDIT ADDITION END - PR #1793 Alcohol Tolerance - TM ONLY. REMOVE BEFORE MERGE
 
 /datum/status_effect/inebriated/tipsy/set_drunk_value(set_to)
 	. = ..()
