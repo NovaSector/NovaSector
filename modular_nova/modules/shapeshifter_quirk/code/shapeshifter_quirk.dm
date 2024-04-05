@@ -6,7 +6,6 @@
 	lose_text = span_notice("Your body loses its alterable feeling.")
 	medical_record_text = "Patient has an unusual physiology that allows them to physically transform their body."
 	value = 8
-	veteran_only = TRUE
 	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk/shapeshifter/add(client/client_source)
