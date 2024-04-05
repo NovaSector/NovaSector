@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - refactor: "APCs have had their item interaction chain refactored. This should functionally be the same, but please report any issues."

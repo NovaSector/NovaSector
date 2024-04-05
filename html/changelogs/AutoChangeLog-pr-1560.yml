@@ -1,6 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - rscadd: "Adds all versions of the Syndie clothing as fake, loadout-able gear instead of just the Overalls"
-  - balance: "Fake Syndie clothing now isn't completely armorless, it has the same armor as jumpsuits"
-  - bugfix: "The fake Syndie clothing display properly on Taur characters"

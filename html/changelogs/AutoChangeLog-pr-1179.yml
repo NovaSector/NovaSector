@@ -1,7 +1,0 @@
-author: "Nerev4r"
-delete-after: True
-changes:
-  - qol: "Ethereals now loop all their charging, whether from APCs or lights or cells. As well as charging up APCs from their own supply!"
-  - qol: "More indepth feedback messaging for Ethereals charging, so you know what's going on easier."
-  - balance: "Ethereals are now 'insulated,' and no longer take permanent traumas from reviving."
-  - balance: "Ethereals are also now better against the cold, and no longer take toxin damage from the second highest level of charge."

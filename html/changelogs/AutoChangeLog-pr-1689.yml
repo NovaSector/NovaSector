@@ -1,4 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - rscadd: "The bouncer job can now access the janitor office"
