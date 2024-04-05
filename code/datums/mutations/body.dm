@@ -120,8 +120,8 @@
 	if(..())
 		return
 	// NOVA EDIT BEGIN
-	if(owner.dna.features["body_size"] < 1)
-		to_chat(owner, "You feel your body shrinking even further, but your organs aren't! Uh oh!")
+	if(owner.dna.features["body_size"] < 1 || isteshari(owner))
+		to_chat(owner, "You feel your body try to shrink, but your organs don't! Uh oh!")
 		owner.adjustBruteLoss(25)
 		return
 	// NOVA EDIT END
@@ -132,9 +132,8 @@
 	if(..())
 		return
 	// NOVA EDIT BEGIN
-	if(owner.dna.features["body_size"] < 1)
+	if(owner.dna.features["body_size"] < 1 || isteshari(owner))
 		to_chat(owner, "You feel relief as your organs cease to strain against your insides.")
-		REMOVE_TRAIT(owner, TRAIT_DWARF, GENETIC_MUTATION)
 		return
 	// NOVA EDIT END
 	REMOVE_TRAIT(owner, TRAIT_DWARF, GENETIC_MUTATION)
@@ -206,6 +205,7 @@
 	text_gain_indication = "You feel unusually monkey-like."
 	text_lose_indication = "You feel like your old self."
 	quality = NEGATIVE
+	remove_on_aheal = FALSE
 	locked = TRUE //Species specific, keep out of actual gene pool
 	var/datum/species/original_species = /datum/species/human
 	var/original_name
