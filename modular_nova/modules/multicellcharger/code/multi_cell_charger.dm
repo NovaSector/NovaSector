@@ -10,8 +10,11 @@
 	power_channel = AREA_USAGE_EQUIP
 	circuit = /obj/item/circuitboard/machine/cell_charger_multi
 	pass_flags = PASSTABLE
-	var/list/charging_batteries = list() //The list of batteries we are gonna charge!
+	/// The list of batteries we are gonna charge!
+	var/list/charging_batteries = list()
+	/// Number of concurrent batteries that can be charged
 	var/max_batteries = 4
+	/// The base charge rate when spawned
 	var/charge_rate = 250 KILO WATTS
 
 /obj/machinery/cell_charger_multi/update_overlays()
