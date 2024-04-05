@@ -575,16 +575,11 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(affecting && IS_ROBOTIC_LIMB(affecting))
 		if(user == H)
 			user.visible_message(span_notice("[user] starts to fix some of the wires in [H]'s [affecting.name]."), span_notice("You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name]."))
-<<<<<<< HEAD
-			/* NOVA EDIT START - ORIGINAL:
-			if(!do_after(user, 50, H))
-=======
+			/* NOVA EDIT CHANGE START - ORIGINAL:
 			if(!do_after(user, 5 SECONDS, H))
->>>>>>> 1443ef79d3d (Replaces a number of deciseconds into SECONDS (#82436))
 				return
 			*/
-		// NOVA EDIT CHANGE START
-		if(!do_after(user, (user == H ? self_delay : other_delay)))
+		if(!do_after(user, (user == H ? self_delay : other_delay))) 
 			return
 		// NOVA EDIT CHANGE END
 		if(item_heal_robotic(H, user, 0, 15))
