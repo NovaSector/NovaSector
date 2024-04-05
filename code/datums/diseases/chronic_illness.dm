@@ -88,7 +88,7 @@
 				// NOVA EDIT ADDITION START
 				if(3)
 					to_chat(affected_mob, span_warning("You body wracks with pain as you are shunted to another point in time."))
-					affected_mob.visible_message(span_warning("A tear in reality opens up around [affected_mob] consuming them"), span_userdanger("You are consumed by a hole in reality!"))
+					affected_mob.visible_message(span_warning("A tear in reality opens up around [affected_mob] consuming them!"), span_userdanger("You are consumed by a hole in reality!"))
 					var/list/destinations = list()
 
 					for(var/obj/item/beacon/teleport_beacon in GLOB.teleportbeacons)
@@ -100,8 +100,7 @@
 					var/obj/effect/portal/jaunt_tunnel/tunnel = new (get_turf(src), 100, null, FALSE, get_turf(chosen_beacon))
 					tunnel.teleport(affected_mob)
 					affected_mob.vomit(VOMIT_CATEGORY_BLOOD, lost_nutrition = 20)
-					affected_mob.adjustBruteLoss(200, updating_health = FALSE)
-					affected_mob.updatehealth()
+					affected_mob.adjustBruteLoss(200)
 					playsound(src,'sound/effects/sparks4.ogg',50,TRUE)
 					qdel(tunnel)
 					update_stage(1)

@@ -39,7 +39,7 @@
 		2. Mix 1 part Experimental Fentanyl Base with 3 parts spaceacillin and 6 parts bluespace dust. <br>
 		3. Mix the reagents together in a beaker and keep tempratue to around 350k. <br>
 		4. Once the reagents have been mixed, pour the mixture into a chem master. <br>
-		5. Initiate the chem masters pill press and press the pills into units of 10 per pill. <br>
+		5. Initiate the chem master's pill press and press the pills into units of 10 per pill. <br>
 		6. Once the pills have been pressed, place them into a pill bottle and store them in a cool, dark place. <br>
 
 		If you run out of the base reagent you can make more using the secret formula stored in the vault.
@@ -57,7 +57,7 @@
 
 /obj/item/storage/box/syndie_kit/sansufentanyl
 	name = "sansufentanyl reagent box"
-	desc = "Contains everything you'll need to create new batches of sanusfentanyl. Careful, do not spill contents."
+	desc = "Contains everything you'll need to create new batches of sansufentanyl. Careful, do not spill contents."
 
 /obj/item/storage/box/syndie_kit/sansufentanyl/PopulateContents()
 	generate_items_inside(list(
@@ -86,7 +86,7 @@
 	return ..()
 
 /obj/item/paper/secretrecipe/secretformula
-	name = "Sansufentanyl Secret Formula"
+	name = "\improper Sansufentanyl Secret Formula"
 	recipe_id = /datum/chemical_reaction/randomized/sansufentanyl
 	possible_recipes = list(/datum/chemical_reaction/randomized/sansufentanyl)
 
