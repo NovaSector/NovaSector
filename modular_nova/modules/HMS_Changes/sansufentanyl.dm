@@ -90,13 +90,6 @@
 	recipe_id = /datum/chemical_reaction/randomized/sansufentanyl
 	possible_recipes = list(/datum/chemical_reaction/randomized/sansufentanyl)
 
-/obj/item/paper/secretrecipe/secretformula/Initialize(mapload)
-	. = ..()
-	if(SSpersistence.initialized)
-		UpdateInfo()
-	else
-		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(UpdateInfo)))
-
 /obj/item/folder/syndicate/red/secretformula
 	icon_state = "folder_sred"
 
