@@ -94,6 +94,8 @@
 	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 		if(charging.percent() >= 100)
 			continue
+		// since this loop is running multiple times per tick, we divide so that the total usage in the tick is the expected charge rate.
+		// 4 batteries can no longer magically each pull 4MW per tick (16MW total per tick) like in the old system
 		var/main_draw = (charge_rate / length(charging_batteries)) * seconds_per_tick
 		if(!main_draw)
 			return
