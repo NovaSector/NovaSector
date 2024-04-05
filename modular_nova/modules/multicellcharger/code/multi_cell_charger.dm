@@ -12,9 +12,7 @@
 	pass_flags = PASSTABLE
 	var/list/charging_batteries = list() //The list of batteries we are gonna charge!
 	var/max_batteries = 4
-	var/charge_rate = 250
-	var/charge_rate_base = 250 // Amount of charge we gain from a level one capacitor
-	var/charge_rate_max = 4000 // The highest we allow the charge rate to go
+	var/charge_rate = 250 KILO WATTS
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
@@ -49,7 +47,7 @@
 		for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 			. += "There's [charging] cell in the charger, current charge: [round(charging.percent(), 1)]%."
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Charging power: <b>[charge_rate]W</b>.")
+		. += span_notice("The status display reads: Charging power: <b>[display_power(charge_rate, convert = FALSE)]</b>.")
 	. += span_notice("Right click it to remove all the cells at once!")
 
 /obj/machinery/cell_charger_multi/attackby(obj/item/tool, mob/user, params)
@@ -96,11 +94,12 @@
 	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
 		if(charging.percent() >= 100)
 			continue
-		var/main_draw = use_power_from_net(charge_rate * seconds_per_tick, take_any = TRUE) //Pulls directly from the Powernet to dump into the cell
+		var/main_draw = (charge_rate / length(charging_batteries)) * seconds_per_tick
 		if(!main_draw)
 			return
-		charging.give(main_draw)
-		use_energy(charge_rate / 100) //use a small bit for the charger itself, but power usage scales up with the part tier
+
+		use_energy(main_draw * 0.01) //use a small bit for the charger itself, but power usage scales up with the part tier
+		charge_cell(main_draw, charging, grid_only = TRUE)
 
 	update_appearance()
 
@@ -115,14 +114,9 @@
 /obj/machinery/cell_charger_multi/RefreshParts()
 	. = ..()
 	charge_rate = 0 // No, you cant get free charging speed!
+	var/charge_rate_base = 250 KILO WATTS
 	for(var/datum/stock_part/capacitor/capacitor in component_parts)
-		charge_rate += charge_rate_base * capacitor.tier
-		if(charge_rate >= charge_rate_max) // We've hit the charge speed cap, stop iterating.
-			charge_rate = charge_rate_max
-			break
-
-	if(charge_rate < charge_rate_base) // This should never happen; but we need to pretend it can.
-		charge_rate = charge_rate_base
+		charge_rate += (charge_rate_base * capacitor.tier) / 4
 
 /obj/machinery/cell_charger_multi/emp_act(severity)
 	. = ..()
