@@ -1185,14 +1185,18 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.force_say()
 		log_combat(user, target, grappled ? "grapple punched" : "kicked")
 		target.apply_damage(damage, attack_type, affecting, armor_block - limb_accuracy, attack_direction = attack_direction)
-		target.apply_damage(damage*1.5, STAMINA, affecting, armor_block - limb_accuracy)
 	else // Normal attacks do not gain the benefit of armor penetration.
+<<<<<<< HEAD
 		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //NOVA EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
 		target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
+=======
+		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
+>>>>>>> c33d9ccaf42 (actually just removes stamina damage and knockdown from punches (#82400))
 		if(damage >= 9)
 			target.force_say()
 		log_combat(user, target, "punched")
 
+<<<<<<< HEAD
 	//If we rolled a punch high enough to hit our stun threshold, or our target is staggered and they have at least 40 damage+stamina loss, we knock them down
 	//This does not work against opponents who are knockdown immune, such as from wearing riot armor.
 	if(!HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
@@ -1207,6 +1211,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.StaminaKnockdown(20) // NOVA EDIT ADDITION
 			log_combat(user, target, "got a stun punch with their previous punch")
 
+=======
+>>>>>>> c33d9ccaf42 (actually just removes stamina damage and knockdown from punches (#82400))
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(user.body_position != STANDING_UP)
 		return FALSE
