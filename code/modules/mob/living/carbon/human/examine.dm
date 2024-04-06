@@ -425,7 +425,7 @@
 			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(target_record && length(target_record.past_medical_records) > RECORDS_INVISIBLE_THRESHOLD)
 				. += "<a href='?src=[REF(src)];hud=m;medrecords=1;examine_time=[world.time]'>\[View medical records\]</a>"
-			//NOVA EDIT END
+			//NOVA EDIT ADDITION END - EXAMINE RECORDS
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if((user.stat == CONSCIOUS || isobserver(user)) && user != src)
@@ -450,16 +450,15 @@
 						"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"), "")
 				// NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 				if(target_record && length(target_record.past_security_records) > RECORDS_INVISIBLE_THRESHOLD)
-					. += "<span class='deptradio'>Past security records:</span> <a href='?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
+					. += "<a href='?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
 
 		if(target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
-		//NOVA EDIT ADDITION END
-	else if(isobserver(user))
-		. += span_info("<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
-	. += "</span>"
+		// NOVA EDIT ADDITION END - EXAMINE RECORDS
+	if(isobserver(user))
+		. += span_info("\n<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 
-	//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
+	// NOVA EDIT ADDITION START
 	if(isobserver(user) || user.mind?.can_see_exploitables || user.mind?.has_exploitables_override)
 		var/datum/record/crew/target_records = find_record(perpname)
 		if(target_records)
@@ -469,16 +468,15 @@
 				. += "<a href='?src=[REF(src)];bgrecords=1'>\[View background info\]</a>"
 			if((length(exploitable_text) > RECORDS_INVISIBLE_THRESHOLD) && ((exploitable_text) != EXPLOITABLE_DEFAULT_TEXT))
 				. += "<a href='?src=[REF(src)];exprecords=1'>\[View exploitable info\]</a>"
-	//NOVA EDIT END
-	//NOVA EDIT ADDITION BEGIN - GUNPOINT
+
+	. += EXAMINE_SECTION_BREAK
+
 	if(gunpointing)
 		. += "<span class='warning'><b>[t_He] [t_is] holding [gunpointing.target.name] at gunpoint with [gunpointing.aimed_gun.name]!</b></span>\n"
 	if(length(gunpointed))
 		for(var/datum/gunpoint/GP in gunpointed)
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
-	//NOVA EDIT ADDITION END
 
-	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	for(var/genital in GLOB.possible_genitals)
 		if(dna.species.mutant_bodyparts[genital])
 			var/datum/sprite_accessory/genital/G = GLOB.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
@@ -500,24 +498,26 @@
 	if (flavor_text_link)
 		. += flavor_text_link
 
+	//Temporary flavor text addition:
+	if(temporary_flavor_text)
+		if(length_char(temporary_flavor_text) < TEMPORARY_FLAVOR_PREVIEW_LIMIT)
+			. += span_revennotice("<br>They look different than usual: [temporary_flavor_text]")
+		else
+			. += span_revennotice("<br>They look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='?src=[REF(src)];temporary_flavor=1'>More...</a>")
+
+	. += EXAMINE_SECTION_BREAK
+
 	if(client)
 		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
 		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences))
-			. += span_notice("ERP STATUS: [erp_status_pref]")
+			. += span_info("ERP Status: [span_revenboldnotice(erp_status_pref)]")
 
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 		var/opt_in_status = mind?.get_effective_opt_in_level()
 		if (!isnull(opt_in_status))
 			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
-			. += span_notice("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
-
-	//Temporary flavor text addition:
-	if(temporary_flavor_text)
-		if(length_char(temporary_flavor_text) < TEMPORARY_FLAVOR_PREVIEW_LIMIT)
-			. += span_notice("<b>They look different than usual:</b> [temporary_flavor_text]")
-		else
-			. += span_notice("<b>They look different than usual:</b> [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='?src=[REF(src)];temporary_flavor=1'>More...</a>")
-	. += "</span>"
+			. += span_info("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
+	// NOVA EDIT ADDITION END
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 
 /**

@@ -44,6 +44,7 @@
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
+		/obj/item/storage/hypospraykit/cmo/combat = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
@@ -61,6 +62,7 @@
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
+		/obj/item/storage/hypospraykit/cmo/combat = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst

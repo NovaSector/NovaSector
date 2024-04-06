@@ -272,7 +272,7 @@
 			candidates -= player // We don't autotator people with roles already
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
-	var/mob/M = pick(candidates)
+	var/mob/M = pick(poll_candidates_for_one(candidates)) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
 	candidates -= M
 	var/datum/antagonist/traitor/infiltrator/sleeper_agent/newTraitor = new
@@ -490,6 +490,11 @@
 	var/mob/living/carbon/human/blob_antag = pick_n_take(candidates)
 	assigned += blob_antag.mind
 	blob_antag.mind.special_role = antag_flag
+	notify_ghosts(
+		"[blob_antag] has become a blob host!",
+		source = blob_antag,
+		header = "So Bulbous...",
+	)
 	return ..()
 
 /// Midround Xenomorph Ruleset (From Ghosts)
@@ -859,6 +864,11 @@
 	obsessed.gain_trauma(/datum/brain_trauma/special/obsessed)
 	message_admins("[ADMIN_LOOKUPFLW(obsessed)] has been made Obsessed by the midround ruleset.")
 	log_game("[key_name(obsessed)] was made Obsessed by the midround ruleset.")
+	notify_ghosts(
+		"[obsessed] has developed an obsession with someone!",
+		source = obsessed,
+		header = "Love Can Bloom",
+	)
 	return TRUE
 
 /// Midround Space Changeling Ruleset (From Ghosts)
