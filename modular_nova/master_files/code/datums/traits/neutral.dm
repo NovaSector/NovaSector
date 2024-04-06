@@ -307,6 +307,30 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	mob_trait = TRAIT_SENSITIVESNOUT
 	icon = FA_ICON_FINGERPRINT
+	var/severity = 1
+
+/datum/quirk_constant_data/sensitive_snout
+	associated_typepath = /datum/quirk/sensitivesnout
+	customization_options = list(/datum/preference/choiced/sensitive_snout)
+
+
+/datum/quirk/sensitivesnout/add_unique(client/client_source)
+	var/desired_severity = GLOB.organ_choice[client_source?.prefs?.read_preference(/datum/preference/choiced/sensitive_snout)]
+	severity = isnum(desired_severity) ? desired_severity : 1
+
+/datum/quirk/sensitivesnout/get_booped(attacker)
+	switch(severity)
+		case(1)
+			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
+			quirk_holder.emote("sneeze")
+		case(2)
+			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, freezing you in place!"))
+			quirk_holder.stun(1 SECONDS)
+		case(3)
+			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
+			quirk_holder.Knockdown(20)
+			quirk_holder.apply_damage(30, STAMINA)
+
 
 /datum/quirk/overweight
 	name = "Overweight"

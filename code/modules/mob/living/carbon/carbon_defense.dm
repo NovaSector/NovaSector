@@ -326,9 +326,7 @@
 		else
 			playsound(src, 'modular_nova/modules/emotes/sound/emotes/Nose_boop.ogg', 50, 0)
 			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && get_location_accessible(src, BODY_ZONE_PRECISE_MOUTH))
-				to_chat(src, span_warning("[helper] boops you on your sensitive nose, sending you to the ground!"))
-				src.Knockdown(20)
-				src.apply_damage(30, STAMINA)
+				src.get_quirk(/datum/quirk/sensitivesnout).?get_booped(helper)
 			helper.visible_message(span_notice("[helper] boops [src]'s nose."), span_notice("You boop [src] on the nose."))
 	//NOVA EDIT ADDITION END
 	else if(check_zone(helper.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD)) //Headpats!
