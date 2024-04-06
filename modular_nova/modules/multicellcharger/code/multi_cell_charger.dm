@@ -94,18 +94,24 @@
 	if(!charging_batteries.len || !anchored || (machine_stat & (BROKEN|NOPOWER)))
 		return
 
-	for(var/obj/item/stock_parts/cell/charging in charging_batteries)
-		if(charging.percent() >= 100)
-			continue
-		// since this loop is running multiple times per tick, we divide so that the total usage in the tick is the expected charge rate.
+	// create a charging queue, we only want cells that require charging to use the power budget
+	var/list/charging_queue = list()
+	for(var/obj/item/stock_parts/cell/battery_slot in charging_batteries)
+		if(battery_slot.percent() >= 100)
+			continue	
+		LAZYADD(charging_queue, battery_slot)
+
+	for(var/obj/item/stock_parts/cell/charging in charging_queue)
+		// since this loop is running multiple times per tick, we divide so that the total usage in the tick is the expected charge rate
 		// 4 batteries can no longer magically each pull 4MW per tick (16MW total per tick) out of thin air like in the old system
-		var/main_draw = (charge_rate / length(charging_batteries)) * seconds_per_tick
+		var/main_draw = (charge_rate / length(charging_queue)) * seconds_per_tick
 		if(!main_draw)
 			return
 
 		use_energy(main_draw * 0.01) //use a small bit for the charger itself, but power usage scales up with the part tier
 		charge_cell(main_draw, charging, grid_only = TRUE)
 
+	LAZYNULL(charging_queue)
 	update_appearance()
 
 /obj/machinery/cell_charger_multi/attack_tk(mob/user)
@@ -164,7 +170,7 @@
 	if(charging_batteries.len > 1 && user)
 		var/list/buttons = list()
 		for(var/obj/item/stock_parts/cell/battery in charging_batteries)
-			buttons["[battery] [battery.percent()]%"] = battery
+			buttons["[battery.name] ([round(battery.percent(), 1)]%)"] = battery
 		var/cell_name = tgui_input_list(user, "Please choose what cell you'd like to remove.", "Remove a cell", buttons)
 		charging = buttons[cell_name]
 	else
