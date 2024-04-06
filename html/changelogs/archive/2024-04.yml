@@ -183,3 +183,15 @@
       armor as jumpsuits
   - bugfix: The fake Syndie clothing display properly on Taur characters
   - rscadd: The bouncer job can now access the janitor office
+2024-04-06:
+  NovaBot13:
+  - bugfix: changed value of cell charge from 5000 to 5 megajoules
+  - admin: Refresh button on the View Round Logs menu actually works, instead of just
+      adding a runtime to the logs (and not updating them).
+  - balance: suit and cell chargers should draw from grid preventing instant apc blackouts
+      in most cases.
+  Rhials:
+  - rscadd: Nuclear Operatives now purchase an Intelligence Agent, who can watch cameras
+      and bodycams, move the shuttle, and provide radio support. Only 12 Telecrystals!
+  Zergspower:
+  - bugfix: fixes Borg and Syndicate inducers not working
