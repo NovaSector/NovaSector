@@ -311,22 +311,21 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 /datum/quirk_constant_data/sensitive_snout
 	associated_typepath = /datum/quirk/sensitivesnout
-	customization_options = list(/datum/preference/choiced/sensitive_snout)
+	customization_options = list(/datum/preference/choiced/snout_sensitivity)
 
-
-/datum/quirk/sensitivesnout/add_unique(client/client_source)
-	var/desired_severity = GLOB.organ_choice[client_source?.prefs?.read_preference(/datum/preference/choiced/sensitive_snout)]
+/datum/quirk/sensitivesnout/add(client/client_source)
+	var/desired_severity = GLOB.possible_snout_sensitivities[client_source?.prefs?.read_preference(/datum/preference/choiced/snout_sensitivity)]
 	severity = isnum(desired_severity) ? desired_severity : 1
 
-/datum/quirk/sensitivesnout/get_booped(attacker)
+/datum/quirk/sensitivesnout/proc/get_booped(attacker)
 	switch(severity)
-		case(1)
+		if(1)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
 			quirk_holder.emote("sneeze")
-		case(2)
+		if(2)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, freezing you in place!"))
-			quirk_holder.stun(1 SECONDS)
-		case(3)
+			quirk_holder.Stun(3 SECONDS)
+		if(3)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
 			quirk_holder.Knockdown(20)
 			quirk_holder.apply_damage(30, STAMINA)

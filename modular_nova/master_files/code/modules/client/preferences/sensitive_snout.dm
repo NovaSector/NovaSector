@@ -1,16 +1,24 @@
-/datum/preference/choiced/sensitive_snout
+GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
+	"Sneeze" = 1,
+	"Stun" = 2,
+	"Collapse" = 3,
+))
+
+/datum/preference/choiced/snout_sensitivity
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "snout_sensitivity"
 	savefile_identifier = PREFERENCE_CHARACTER
 
-/datum/preference/choiced/sensitive_snout/init_possible_values()
-    var/static/list/options = list("Sneeze" = 1, "Stun" = 2, "Collapse" = 3)
-	return options
+/datum/preference/choiced/snout_sensitivity/init_possible_values()
+	return assoc_to_keys(GLOB.possible_snout_sensitivities)
 
-/datum/preference/choiced/sensitive_snout/create_default_value()
-    return "Collapse"
+/datum/preference/choiced/snout_sensitivity/create_default_value()
+	return "Collapse"
 
-/datum/preference/choiced/sensitive_snout/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/snout_sensitivity/apply_to_human()
+	return
+
+/datum/preference/choiced/snout_sensitivity/is_accessible(datum/preferences/preferences)
 	. = ..()
 	if (!.)
 		return FALSE
