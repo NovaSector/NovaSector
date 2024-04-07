@@ -124,7 +124,7 @@
 			break
 
 		// If charging was successful, then increase user nutrition and emit sparks.
-		var/nutrition_gained = power_use / (SYNTH_CHARGE_PER_NUTRITION * 5)
+		var/nutrition_gained = power_use / (SYNTH_CHARGE_PER_NUTRITION * 2)
 		user.nutrition += nutrition_gained
 		do_sparks(1, FALSE, target_cell.loc)
 
