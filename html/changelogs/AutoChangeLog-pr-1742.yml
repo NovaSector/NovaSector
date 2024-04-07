@@ -1,0 +1,9 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - rscadd: "Changed stage 5 of Hereditary manifold Syndrome, it no longer dusts you, but it will still kill careless people"
+  - rscadd: "Sansufentanyl now has a recipe to make it requiring a reagent only interdyne has"
+  - rscadd: "Interdyne now comes stocked with the base reagent used to make Sansufentanyl"
+  - rscadd: "Interdyne also has a new document in their vault, Employees instructed to protect it with their life"
+  - qol: "HMS now progresses in stages a lot more slowly, but as a result the symptoms are also more frequent."
+  - qol: "Sansufentanyl pills now start with more reagents per pill"
