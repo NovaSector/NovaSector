@@ -1,7 +1,7 @@
-#define SYNTH_CHARGE_MAX 550 KILO JOULES
+#define SYNTH_CHARGE_MAX 275 KILO JOULES
 #define SYNTH_CHARGE_MIN 50 KILO JOULES
-#define SYNTH_CHARGE_ALMOST_FULL 535 KILO JOULES
-#define SYNTH_CHARGE_PER_NUTRITION 1 KILO JOULES
+#define SYNTH_CHARGE_ALMOST_FULL 267 KILO JOULES
+#define SYNTH_CHARGE_PER_NUTRITION 2 KILO JOULES
 #define SYNTH_CHARGE_DELAY_PER_100 10
 #define SYNTH_DRAW_NUTRITION_BUFFER 30 KILO JOULES
 #define SYNTH_APC_MINIMUM_PERCENT 20
@@ -77,7 +77,7 @@
  * * user - The human mob draining the power cell.
  */
 /obj/item/synth_powercord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
-	var/nutrition_level_joules = (FLOOR(user.nutrition, 1)/10) * SYNTH_CHARGE_PER_NUTRITION
+	var/nutrition_level_joules = (FLOOR(user.nutrition, 1)) * SYNTH_CHARGE_PER_NUTRITION
 	// Draw power from an APC if one was given.
 	var/obj/machinery/power/apc/target_apc
 	if(istype(target, /obj/machinery/power/apc))
@@ -96,7 +96,7 @@
 		// Check if the user is nearly fully charged.
 		// Ensures minimum draw is always lower than this margin.
 		power_needed = SYNTH_CHARGE_ALMOST_FULL - nutrition_level_joules
-		if(power_needed >= SYNTH_CHARGE_ALMOST_FULL)
+		if(user.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)
 			user.balloon_alert(user, "can't charge any more!")
 			break
 
