@@ -101,15 +101,18 @@
 			continue	
 		LAZYADD(charging_queue, battery_slot)
 
-	for(var/obj/item/stock_parts/cell/charging in charging_queue)
-		// since this loop is running multiple times per tick, we divide so that the total usage in the tick is the expected charge rate
-		// 4 batteries can no longer magically each pull 4MW per tick (16MW total per tick) out of thin air like in the old system
-		var/main_draw = (charge_rate / length(charging_queue)) * seconds_per_tick
-		if(!main_draw)
-			return
+	if(!length(charging_queue))
+		return
 
-		use_energy(main_draw * 0.01) //use a small bit for the charger itself, but power usage scales up with the part tier
-		charge_cell(main_draw, charging, grid_only = TRUE)
+	// since this loop is running multiple times per tick, we divide so that the total usage in the tick is the expected charge rate
+	// 4 batteries can no longer magically each pull 4MW per tick (16MW total per tick) out of thin air like in the old system
+	var/charge_current = (charge_rate / length(charging_queue)) * seconds_per_tick
+	if(!charge_current)
+		return
+		
+	for(var/obj/item/stock_parts/cell/charging_cell in charging_queue)
+		use_energy(charge_current * 0.01) //use a small bit for the charger itself, but power usage scales up with the part tier
+		charge_cell(charge_current, charging_cell, grid_only = TRUE)
 
 	LAZYNULL(charging_queue)
 	update_appearance()
