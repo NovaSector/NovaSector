@@ -4,6 +4,7 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 		ROLE_FUGITIVE = /datum/antagonist/fugitive,
 		ROLE_LONE_OPERATIVE = /datum/antagonist/nukeop/lone,
 		ROLE_SENTIENCE = /datum/antagonist/sentient_creature,
+		ROLE_DRIFTING_CONTRACTOR = /datum/antagonist/contractor, // NOVA EDIT ADDITION
 	))
 
 /datum/preference_middleware/antags
@@ -138,15 +139,6 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 	var/list/antag_icons = list()
 
 /datum/asset/spritesheet/antagonists/create_spritesheets()
-	// Antagonists that don't have a dynamic ruleset, but do have a preference
-	var/static/list/non_ruleset_antagonists = list(
-		ROLE_GLITCH = /datum/antagonist/bitrunning_glitch,
-		ROLE_FUGITIVE = /datum/antagonist/fugitive,
-		ROLE_LONE_OPERATIVE = /datum/antagonist/nukeop/lone,
-		ROLE_DRIFTING_CONTRACTOR = /datum/antagonist/contractor, //NOVA EDIT
-		ROLE_SENTIENCE = /datum/antagonist/sentient_creature,
-	)
-
 	var/list/antagonists = GLOB.non_ruleset_antagonists.Copy()
 
 	for (var/datum/dynamic_ruleset/ruleset as anything in subtypesof(/datum/dynamic_ruleset))
