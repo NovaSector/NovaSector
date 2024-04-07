@@ -10011,16 +10011,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/white/diagonal,
 /area/station/commons/toilet/auxiliary)
-"ddj" = (
-/obj/structure/hedge,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchen_counter";
-	name = "Kitchen Counter Shutters";
-	dir = 4
-	},
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/service/bar)
 "ddo" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 4
@@ -15098,16 +15088,6 @@
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/white,
 /area/station/hallway/primary/starboard)
-"eAt" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/binary/pump{
-	name = "Chamber Extract";
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "eAx" = (
 /obj/structure/railing/corner/end,
 /turf/open/space/openspace,
@@ -20291,14 +20271,16 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/janitor)
 "gdV" = (
-/obj/structure/transport/linear,
-/obj/machinery/elevator_control_panel/directional/west{
-	linked_elevator_id = "dumbwaiter_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/obj/machinery/biogenerator,
-/turf/open/floor/plating,
-/area/station/service/hydroponics)
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/components/binary/pump{
+	name = "Chamber Inject";
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "geg" = (
 /obj/effect/turf_decal/tile/green/opposingcorners{
 	dir = 1
@@ -29186,15 +29168,15 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/break_room)
 "iLD" = (
-/obj/structure/hedge,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchen_counter";
-	name = "Kitchen Counter Shutters";
-	dir = 4
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/service/kitchen/diner)
+/obj/machinery/atmospherics/components/binary/pump{
+	name = "Chamber Extract";
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "iLE" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube/crossing/horizontal,
@@ -45999,6 +45981,15 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/teleporter)
+"nBi" = (
+/obj/structure/transport/linear,
+/obj/machinery/elevator_control_panel/directional/west{
+	linked_elevator_id = "dumbwaiter_lift";
+	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+	},
+/obj/machinery/biogenerator,
+/turf/open/floor/plating,
+/area/station/service/hydroponics)
 "nBm" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/folder/blue{
@@ -50686,13 +50677,6 @@
 /obj/effect/spawner/random/engineering/flashlight,
 /turf/open/openspace,
 /area/station/maintenance/starboard/greater)
-"pco" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 "pcv" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
 /obj/structure/cable,
@@ -51482,15 +51466,11 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "por" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/binary/pump{
-	name = "Chamber Inject";
 	dir = 8
 	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
 "poF" = (
 /obj/structure/railing{
 	dir = 4
@@ -56473,6 +56453,16 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat_interior)
+"qNv" = (
+/obj/structure/hedge,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "kitchen_counter";
+	name = "Kitchen Counter Shutters";
+	dir = 4
+	},
+/obj/structure/window/reinforced/fulltile,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/service/bar)
 "qNx" = (
 /obj/effect/spawner/random/decoration/generic,
 /obj/structure/rack,
@@ -58669,6 +58659,16 @@
 	dir = 1
 	},
 /area/station/hallway/primary/central/fore)
+"rzM" = (
+/obj/structure/hedge,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "kitchen_counter";
+	name = "Kitchen Counter Shutters";
+	dir = 4
+	},
+/obj/structure/window/reinforced/fulltile,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/service/kitchen/diner)
 "rzN" = (
 /obj/machinery/light/warm/directional/west,
 /obj/machinery/requests_console/auto_name/directional/west,
@@ -105826,7 +105826,7 @@ ugq
 tHB
 tHB
 xaO
-gdV
+nBi
 cGz
 cGz
 fkW
@@ -107887,8 +107887,8 @@ hRy
 hRy
 hRy
 uoD
-ddj
-iLD
+qNv
+rzM
 lDT
 ukh
 bLK
@@ -113230,7 +113230,7 @@ hKo
 rUa
 qkl
 nCx
-eAt
+iLD
 tXY
 bzI
 vLV
@@ -114772,7 +114772,7 @@ bEj
 hWK
 wMJ
 dNi
-por
+gdV
 vXn
 fRA
 krJ
@@ -167235,10 +167235,10 @@ csv
 rGW
 csv
 csv
-pco
-pco
-pco
-pco
+por
+por
+por
+por
 lVz
 gXO
 aOC
