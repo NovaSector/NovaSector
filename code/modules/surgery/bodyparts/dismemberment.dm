@@ -133,7 +133,14 @@
 		drop_organs(phantom_owner) //Psuedoparts shouldn't have organs, but just in case
 		qdel(src)
 		return
-
+	//NOVA EDIT BEGIN - These just splatter, they don't fall off.
+	if(src.limb_id == SPECIES_SLIMEPERSON)
+		to_chat(phantom_owner, span_warning("Your [src] splatters with an unnerving squelch!"))
+		playsound(phantom_owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+		phantom_owner.blood_volume -= 60 //Makes for 120 when you regenerate it.
+		qdel(src)
+		return
+	//NOVA EDIT END
 	if(move_to_floor)
 		if(!drop_loc) // drop_loc = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced.
 			qdel(src)

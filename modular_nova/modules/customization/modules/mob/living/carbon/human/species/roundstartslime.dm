@@ -1,10 +1,22 @@
 #define SLIME_ACTIONS_ICON_FILE 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
+#define DAMAGE_WATER_STACKS 5
+#define REGEN_WATER_STACKS 1
 
 /datum/species/jelly
 	mutant_bodyparts = list()
 	hair_color = "mutcolor"
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
+	mutantliver = /obj/item/organ/internal/liver/slime
+	mutantstomach = /obj/item/organ/internal/stomach/slime
+	mutantbrain = /obj/item/organ/internal/brain/slime
+	mutantears = /obj/item/organ/internal/ears/jelly
+	inherent_traits = list(
+		TRAIT_MUTANT_COLORS,
+		TRAIT_TOXINLOVER,
+		TRAIT_NOBLOOD,
+		TRAIT_EASYDISMEMBER,
+	)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -18,6 +30,381 @@
 		"spines" = list("None", FALSE),
 		"frills" = list("None", FALSE),
 	)
+
+/obj/item/organ/internal/eyes/jelly
+	name = "photosensitive eyespots"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/eyes/roundstartslime
+	name = "photosensitive eyespots"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/ears/jelly
+	name = "core audiosomes"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/tongue/jelly
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/lungs/slime
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/lungs/slime/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	operated = FALSE
+
+/obj/item/organ/internal/liver/slime
+	name = "endoplasmic reticulum"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/liver/slime/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	operated = FALSE
+
+/obj/item/organ/internal/stomach/slime
+	name = "golgi apparatus"
+	zone = BODY_ZONE_CHEST
+	organ_flags = ORGAN_UNREMOVABLE
+
+/obj/item/organ/internal/stomach/slime/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	operated = FALSE
+
+/obj/item/organ/internal/brain/slime
+	name = "core"
+	desc = "The center core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
+	zone = BODY_ZONE_CHEST
+	var/obj/effect/death_melt_type = /obj/effect/temp_visual/wizard/out
+	var/core_color = COLOR_WHITE
+	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
+	icon_state = "slime_core"
+	var/core_ejected = FALSE
+	var/gps_active = FALSE
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF //So the brainmob doesn't McFucking disappear.
+
+/obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
+	. = ..()
+	colorize()
+
+/obj/item/organ/internal/brain/slime/examine()
+	. = ..()
+	if(gps_active)
+		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
+		. += span_red("You could probably snuff that out.")
+	. += span_hypnophrase("You remember that pouring plasma on it, if it's non-embodied, would make it regrow one.")
+
+/obj/item/organ/internal/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
+	if(!(gps_active))
+		return
+	user.visible_message(span_warning("[user] begins jamming their hand into a slime core! Slime goes everywhere!"),
+	span_notice("You jam your hand into the core, feeling for the densest point! Slime covers your arm."),
+	span_notice("You hear an obscene squelching sound.")
+	)
+	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
+
+	if(!do_after(user, 30 SECONDS, src))
+		user.visible_message(span_warning("[user]'s hand slips out of the core before they can cause any harm!'"),
+		span_warning("Your hand slips out of the goopy core before you can find it's densest point."),
+		span_notice("You hear a resounding plop.")
+		)
+		return
+
+	user.visible_message(span_warning("[user] crunches something deep in the slime core! It gradually stops glowing."),
+	span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissapates."),
+	span_notice("You hear a wet crunching sound."))
+	playsound(user, 'sound/effects/wounds/crackandbleed.ogg', 80, TRUE)
+	gps_active = FALSE
+	qdel(GetComponent(/datum/component/gps))
+
+/obj/item/organ/internal/brain/slime/Insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	. = ..()
+	if(!.)
+		return
+	colorize()
+	core_ejected = FALSE
+	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
+
+/obj/item/organ/internal/brain/slime/proc/colorize()
+	if(owner && isjellyperson(owner))
+		core_color = owner.dna.features["mcolor"]
+		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
+
+/obj/item/organ/internal/brain/slime/proc/on_stat_change(mob/living/victim, new_stat, turf/loc_override)
+	SIGNAL_HANDLER
+
+	if(new_stat != DEAD)
+		return
+
+	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
+
+///////
+/// CORE EJECTION PROC
+/// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
+
+/obj/item/organ/internal/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
+	if(core_ejected)
+		return
+	core_ejected = TRUE
+	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
+	var/turf/death_turf = get_turf(victim)
+	victim.unequip_everything()
+	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
+		Remove(victim)
+	if(death_turf)
+		forceMove(death_turf)
+	src.wash(CLEAN_WASH)
+	new death_melt_type(death_turf, victim.dir)
+
+	do_steam_effects(death_turf)
+	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
+
+	if(gps_active) // adding the gps signal if they have activated the ability
+		AddComponent(/datum/component/gps, "[victim]'s Core")
+
+	qdel(victim)
+
+/obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
+	var/datum/effect_system/steam_spread/steam = new()
+	steam.set_up(10, FALSE, loc)
+	steam.start()
+
+///////
+/// CHECK FOR REPAIR SECTION
+/// Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
+
+/obj/item/organ/internal/brain/slime/check_for_repair(obj/item/item, mob/user)
+	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
+
+		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."), span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."))
+		if(!do_after(user, 60 SECONDS, src))
+			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
+			return TRUE
+
+		user.visible_message(span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."), span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."))
+		item.reagents.clear_reagents() //removes the whole shit
+		set_organ_damage(-maxHealth) //heals 2 damage per unit of mannitol, and by using "set_organ_damage", we clear the failing variable if that was up
+
+		if(gps_active) // making sure the gps signal is removed if it's active on revival
+			gps_active = FALSE
+			qdel(GetComponent(/datum/component/gps))
+
+		//we have the plasma. we can rebuild them.
+		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
+
+		new_body.underwear = "Nude"
+		new_body.bra = "Nude"
+		new_body.undershirt = "Nude" //Which undershirt the player wants
+		new_body.socks = "Nude" //Which socks the player wants
+		brainmob.stored_dna.transfer_identity(new_body, transfer_SE=1)
+		new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
+		new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+		new_body.real_name = new_body.dna.real_name
+		new_body.name = new_body.dna.real_name
+		new_body.updateappearance(mutcolor_update=1)
+		new_body.domutcheck()
+		new_body.forceMove(get_turf(src))
+		new_body.blood_volume = BLOOD_VOLUME_SAFE+60
+		REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
+		SSquirks.AssignQuirks(new_body, brainmob.client)
+		var/obj/item/organ/internal/brain/new_body_brain = new_body.get_organ_slot(ORGAN_SLOT_BRAIN)
+		qdel(new_body_brain)
+		src.forceMove(new_body)
+		Insert(new_body)
+		for(var/obj/item/bodypart as anything in new_body.bodyparts)
+			if(!istype(bodypart, /obj/item/bodypart/chest))
+				qdel(bodypart)
+				continue
+		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from their core, yet to form the rest."))
+		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+		brainmob.mind.transfer_to(new_body)
+		return TRUE
+	return FALSE
+
+/obj/item/bodypart/head/slime
+	can_dismember = TRUE //Their organs are in their chest now. It's okay.
+
+//////
+/// HEALING SECTION
+/// Handles passive healing and water damage.
+
+/datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
+	. = ..()
+	if(slime.stat != CONSCIOUS)
+		return
+
+	var/healing = TRUE
+
+	var/datum/status_effect/fire_handler/wet_stacks/wetness = locate() in slime.status_effects
+	if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
+		return
+	if(istype(wetness) && wetness.stacks > (DAMAGE_WATER_STACKS))
+		slime.blood_volume -= 2 * seconds_per_tick
+		if (SPT_PROB(25, seconds_per_tick))
+			slime.visible_message(span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"), span_warning("The water starts to dilute your body, dry it off!"))
+
+	if(istype(wetness) && wetness.stacks > (REGEN_WATER_STACKS))
+		healing = FALSE
+		if (SPT_PROB(25, seconds_per_tick))
+			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
+			slime.blood_volume -= 1 * seconds_per_tick
+
+	if(slime.blood_volume > BLOOD_VOLUME_NORMAL && healing)
+		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
+			return
+		if(slime.stat != CONSCIOUS)
+			return
+		slime.heal_overall_damage(brute = 2 * seconds_per_tick, burn = 2 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+		slime.adjustOxyLoss(-1 * seconds_per_tick)
+
+///////
+/// SLIME CLEANING ABILITY
+/// Makes it so slimes clean themselves.
+
+/datum/action/cooldown/spell/slime_washing
+	name = "Toggle Slime Cleaning"
+	desc = "Filter grime through your outer membrane, cleaning yourself and your equipment for sustenance. Also cleans the floor, providing your feet are uncovered. For sustenance."
+	button_icon = 'icons/mob/actions/actions_silicon.dmi'
+	button_icon_state = "activate_wash"
+
+	cooldown_time = 1 SECONDS
+	spell_requirements = NONE
+
+/datum/action/cooldown/spell/slime_washing/cast(mob/living/carbon/human/user = usr)
+	. = ..()
+
+	if(user.has_status_effect(/datum/status_effect/slime_washing))
+		slime_washing_deactivate(user)
+		return
+
+	user.apply_status_effect(/datum/status_effect/slime_washing)
+	user.visible_message(span_purple("[user]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into their inner layer!"), span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
+
+/datum/action/cooldown/spell/slime_washing/proc/slime_washing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
+	if(!user.has_status_effect(/datum/status_effect/slime_washing))
+		return
+
+	user.remove_status_effect(/datum/status_effect/slime_washing)
+	user.visible_message(span_notice("[user]'s outer membrane returns to normal, no longer cleaning [user.p_their()] surroundings."), span_notice("Your outer membrane returns to normal, filth no longer being cleansed."))
+
+/datum/status_effect/slime_washing
+	id = "slime_washing"
+	alert_type = null
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
+	if(ishuman(owner))
+		var/mob/living/carbon/human/slime = owner
+		for(var/obj/item/slime_items in slime.get_equipped_items(include_pockets = FALSE, include_accessories = TRUE))
+			slime_items.wash(CLEAN_WASH)
+			slime.wash(CLEAN_WASH)
+		if((slime.wear_suit?.body_parts_covered | slime.w_uniform?.body_parts_covered | slime.shoes?.body_parts_covered) & FEET)
+			return
+		else
+			var/turf/open/open_turf = get_turf(slime)
+			if(istype(open_turf))
+				open_turf.wash(CLEAN_WASH)
+				return TRUE
+			if (SPT_PROB(5, seconds_per_tick))
+				slime.adjust_nutrition((rand(5,25)))
+
+/datum/status_effect/slime_washing/get_examine_text()
+	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of their body and vanishing.")
+
+///////
+/// HYDROPHOBIA SPELL
+/// Makes it so that slimes are waterproof, but slower, and they don't regenerate.
+
+/datum/action/cooldown/spell/slime_hydrophobia
+	name = "Toggle Hydrophobia"
+	desc = "Develop an oily layer on your outer membrane, repelling water at the cost of lower viscosity."
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "bci_shield"
+
+	cooldown_time = 1 MINUTES
+	spell_requirements = NONE
+
+/datum/action/cooldown/spell/slime_hydrophobia/cast(mob/living/carbon/human/user = usr)
+	. = ..()
+
+	if(user.has_status_effect(/datum/status_effect/slime_hydrophobia))
+		slime_hydrophobia_deactivate(user)
+		return
+
+	ADD_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
+	user.apply_status_effect(/datum/status_effect/slime_hydrophobia)
+	user.visible_message(span_purple("[user]'s outer membrane starts to ooze out an oily coating, [owner.p_their()] body becoming more viscous!"), span_purple("Your outer membrane starts to ooze out an oily coating, protecting you from water but making your body more viscous."))
+
+/datum/action/cooldown/spell/slime_hydrophobia/proc/slime_hydrophobia_deactivate(mob/living/carbon/human/user)
+	if(!user.has_status_effect(/datum/status_effect/slime_hydrophobia))
+		return
+
+	REMOVE_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
+	user.remove_status_effect(/datum/status_effect/slime_hydrophobia)
+	user.visible_message(span_purple("[user]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"), span_purple("Your outer membrane returns to normal, water being dangerous to you again."))
+
+/datum/movespeed_modifier/status_effect/slime_hydrophobia
+	multiplicative_slowdown = 1.5
+
+/datum/status_effect/slime_hydrophobia
+	id = "slime_hydrophobia"
+	alert_type = null
+	status_type = STATUS_EFFECT_UNIQUE
+
+/datum/status_effect/slime_hydrophobia/on_apply()
+	. = ..()
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update=TRUE)
+
+/datum/status_effect/slime_hydrophobia/on_remove()
+	. = ..()
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update=TRUE)
+
+/datum/status_effect/slime_hydrophobia/get_examine_text()
+	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
+
+///////
+/// CHEMICAL HANDLING
+/// Here's where slimes heal off plasma and where they hate drinking water.
+
+/datum/species/jelly/handle_chemical(datum/reagent/chem, mob/living/carbon/human/slime, seconds_per_tick, times_fired)
+	. = ..()
+	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
+		return
+	// slimes use plasma to fix wounds, and if they have enough blood, organs
+	var/static/list/organs_we_mend = list(
+		ORGAN_SLOT_BRAIN,
+		ORGAN_SLOT_LUNGS,
+		ORGAN_SLOT_LIVER,
+		ORGAN_SLOT_STOMACH,
+		ORGAN_SLOT_EYES,
+		ORGAN_SLOT_EARS,
+	)
+	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
+		for(var/datum/wound/iter_wound as anything in slime.all_wounds)
+			iter_wound.on_xadone(4 * REM * seconds_per_tick)
+			slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if(slime.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+			slime.adjustOrganLoss(
+			pick(organs_we_mend),
+			- 2 * seconds_per_tick,
+		)
+		if (SPT_PROB(5, seconds_per_tick))
+			to_chat(slime, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
+
+	if(chem.type == /datum/reagent/water)
+		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
+			return
+
+		slime.blood_volume -= 3 * seconds_per_tick
+		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if (SPT_PROB(25, seconds_per_tick))
+			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))
+		return COMSIG_MOB_STOP_REAGENT_CHECK
 
 /datum/species/jelly/get_species_description()
 	return placeholder_description
@@ -33,7 +420,7 @@
 	heatmod = 1
 	specific_alpha = 155
 	markings_alpha = 130 //This is set lower than the other so that the alpha values don't stack on top of each other so much
-	mutanteyes = /obj/item/organ/internal/eyes
+	mutanteyes = /obj/item/organ/internal/eyes/roundstartslime
 	mutanttongue = /obj/item/organ/internal/tongue/jelly
 
 	bodypart_overrides = list( //Overriding jelly bodyparts
@@ -111,7 +498,7 @@
 
 /datum/action/innate/alter_form/New(Target)
 	. = ..()
-	
+
 	generate_radial_icons()
 
 	if(length(available_choices))
@@ -588,4 +975,30 @@
 				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
 				avocados.set_size(alterer.dna.features["balls_size"])
 
+/**
+ * Toggle Death Signal simply adds and removes the trait required for slimepeople to transmit a GPS signal upon core ejection.
+ */
+/datum/action/innate/core_signal
+	name = "Toggle Core Signal"
+	check_flags = AB_CHECK_CONSCIOUS
+	button_icon_state = "alter_form"
+	button_icon = SLIME_ACTIONS_ICON_FILE
+	background_icon_state = "bg_alien"
+	/// Do you need to be a slime-person to use this ability?
+	var/slime_restricted = TRUE
+
+/datum/action/innate/core_signal/Activate()
+	var/mob/living/carbon/human/slime = owner
+	var/obj/item/organ/internal/brain/slime/core = slime.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(slime_restricted && !isjellyperson(slime))
+		return
+	if(core.gps_active)
+		to_chat(owner,span_notice("You tune out the electromagnetic signals from your core so they are ignored by GPS receivers upon it's rejection."))
+		core.gps_active = FALSE
+	else
+		to_chat(owner, span_notice("You fine-tune the electromagnetic signals from your core to be picked up by GPS receivers upon it's rejection."))
+		core.gps_active = TRUE
+
 #undef SLIME_ACTIONS_ICON_FILE
+#undef DAMAGE_WATER_STACKS
+#undef REGEN_WATER_STACKS
