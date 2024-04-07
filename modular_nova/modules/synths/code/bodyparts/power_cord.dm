@@ -42,6 +42,7 @@
 /// Attempts to start using an object as a power source.
 /// Checks the user's internal powercell to see if it exists.
 /obj/item/synth_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
+	/// The current user's nutrition level in joules.
 	var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
 	user.changeNext_move(CLICK_CD_MELEE)
 
@@ -76,6 +77,7 @@
  * * user - The human mob draining the power cell.
  */
 /obj/item/synth_powercord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
+	/// The current user's nutrition level in joules.
 	var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
 	// Draw power from an APC if one was given.
 	var/obj/machinery/power/apc/target_apc
