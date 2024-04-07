@@ -245,7 +245,8 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,	//NOVA EDIT ADDITION - adds surgery gowns to belts
+		/obj/item/clothing/head/utility/surgerycap,
+		/obj/item/clothing/suit/toggle/labcoat/hospitalgown, //NOVA EDIT ADDITION - adds surgery gowns to belts
 		/obj/item/construction/plumbing,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
@@ -256,6 +257,7 @@
 		/obj/item/hemostat,
 		/obj/item/holosign_creator/medical,
 		/obj/item/hypospray/mkii, //NOVA EDIT ADDITION - HYPOSPRAYS
+		/obj/item/storage/hypospraykit/, //NOVA EDIT ADDITION - HYPOSPRAYS
 		/obj/item/implant,
 		/obj/item/implantcase,
 		/obj/item/implanter,

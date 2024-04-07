@@ -18,18 +18,22 @@
 	},
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_green/warning{
+	dir = 1
+	},
+/obj/item/healthanalyzer/advanced{
+	pixel_y = 11;
+	pixel_x = 5
+	},
 /obj/item/stack/medical/bone_gel{
 	pixel_x = -6;
 	pixel_y = 4
 	},
 /obj/item/stack/sticky_tape/surgical{
 	pixel_x = 6
-	},
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_green/warning{
-	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -2891,10 +2895,10 @@
 /area/ruin/interdyne_planetary_base/med)
 "yY" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/processor/slime,
 /obj/effect/turf_decal/tile/dark_green/anticorner{
 	dir = 8
 	},
+/obj/machinery/processor/slime/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ze" = (
@@ -4258,7 +4262,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 1
 	},
-/obj/machinery/monkey_recycler,
+/obj/machinery/monkey_recycler/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Jz" = (
@@ -4284,6 +4288,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/full,
 /obj/machinery/door/firedoor,
+/obj/item/storage/box/syndie_kit/sansufentanyl{
+	pixel_x = -3
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "JU" = (
@@ -5102,11 +5109,11 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "Ri" = (
-/obj/machinery/biogenerator,
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
+/obj/machinery/biogenerator/fullupgrade,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Rk" = (
@@ -5532,10 +5539,10 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/machinery/chem_master,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/firedoor,
+/obj/machinery/chem_master/fullupgrade,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "TV" = (
@@ -5657,6 +5664,7 @@
 /area/ruin/interdyne_planetary_base/med)
 "UE" = (
 /obj/structure/table/reinforced,
+/obj/item/folder/syndicate/red/secretformula,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (

@@ -1,11 +1,11 @@
 /////////////////// Smes for roundstart Tarkon + Ship ///////////////////
 
 /obj/machinery/power/smes/tarkon_backup
-	charge = 2e6
-	output_level = 0
-	input_level = 0
+	charge = 50 * STANDARD_CELL_CHARGE
+	output_level = 100 KILO WATTS
+	input_level = 90 KILO WATTS
 
 /obj/machinery/power/smes/tarkon_driver
-	charge = 3e6 // Wouldn't use much power in dock
-	input_level = 10000
-	output_level = 5000
+	charge = 50 * STANDARD_CELL_CHARGE
+	input_level = 100 KILO WATTS
+	output_level = 50 KILO WATTS

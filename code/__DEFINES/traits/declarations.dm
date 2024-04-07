@@ -208,7 +208,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// This object innately spawns with fantasy variables already applied (the magical component is given to it on initialize), and thus we never want to give it the component again.
 #define TRAIT_INNATELY_FANTASTICAL_ITEM "innately_fantastical_item"
 #define TRAIT_DEPRESSION "depression"
-#define TRAIT_BLOOD_DEFICIENCY "blood_deficiency"
 #define TRAIT_JOLLY "jolly"
 #define TRAIT_NOCRITDAMAGE "no_crit"
 /// Prevents shovies and some strong blows such as unarmed punches and (unreliably) tackles the owner down
@@ -390,6 +389,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_COAGULATING "coagulating"
 /// From anti-convulsant medication against seizures.
 #define TRAIT_ANTICONVULSANT "anticonvulsant"
+/// From stimulant reagents, this affects whether the all-nighter lack of sleep penalty should be countered
+#define TRAIT_STIMULATED "stimulated"
 /// The holder of this trait has antennae or whatever that hurt a ton when noogied
 #define TRAIT_ANTENNAE "antennae"
 /// Blowing kisses actually does damage to the victim
@@ -803,9 +804,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_VENTCRAWLER_ALWAYS "ventcrawler_always"
 #define TRAIT_VENTCRAWLER_NUDE "ventcrawler_nude"
 
-/// Minor trait used for beakers, or beaker-ishes. [/obj/item/reagent_containers], to show that they've been used in a reagent grinder.
-#define TRAIT_MAY_CONTAIN_BLENDED_DUST "may_contain_blended_dust"
-
 /// Trait put on [/mob/living/carbon/human]. If that mob has a crystal core, also known as an ethereal heart, it will not try to revive them if the mob dies.
 #define TRAIT_CANNOT_CRYSTALIZE "cannot_crystalize"
 
@@ -1084,6 +1082,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///Trait granted by janitor skillchip, allows communication with cleanbots
 #define TRAIT_CLEANBOT_WHISPERER "cleanbot_whisperer"
 
+///Trait granted by the miner skillchip, allows communication with minebots
+#define TRAIT_ROCK_STONER "rock_stoner"
+
+///Trait given by the regenerative shield component
+#define TRAIT_REGEN_SHIELD "regen_shield"
+
 /// Trait given when a mob is currently in invisimin mode
 #define TRAIT_INVISIMIN "invisimin"
 
@@ -1093,6 +1097,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait which self-identifies as an enemy of the law
 #define TRAIT_ALWAYS_WANTED "always_wanted"
 
+/// Trait given to mobs that have the basic eating element
+#define TRAIT_MOB_EATER "mob_eater"
 /// Trait which means whatever has this is dancing by a dance machine
 #define TRAIT_DISCO_DANCER "disco_dancer"
 

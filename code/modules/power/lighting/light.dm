@@ -334,11 +334,11 @@
 		if(cell)
 			if(cell.charge == cell.maxcharge && !reagents) //If the cell is done mooching station power, and reagents don't need processing, stop processing
 				return PROCESS_KILL
-			cell.charge = min(cell.maxcharge, cell.charge + LIGHT_EMERGENCY_POWER_USE) //Recharge emergency power automatically while not using it
+			charge_cell(LIGHT_EMERGENCY_POWER_USE * seconds_per_tick, cell = cell) //Recharge emergency power automatically while not using it
 	if(reagents) //with most reagents coming out at 300, and with most meaningful reactions coming at 370+, this rate gives a few seconds of time to place it in and get out of dodge regardless of input.
 		reagents.adjust_thermal_energy(8 * reagents.total_volume * SPECIFIC_HEAT_DEFAULT * seconds_per_tick)
 		reagents.handle_reactions()
-	if(low_power_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
+	if(low_power_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE * seconds_per_tick))
 		update(FALSE) //Disables emergency mode and sets the color to normal
 
 /obj/machinery/light/proc/burn_out()
@@ -522,7 +522,7 @@
 	if(!has_emergency_power(power_usage_amount))
 		return FALSE
 	var/obj/item/stock_parts/cell/real_cell = get_cell()
-	if(real_cell.charge > 300) //it's meant to handle 120 W, ya doofus
+	if(real_cell.charge > 2.5 * /obj/item/stock_parts/cell/emergency_light::maxcharge) //it's meant to handle 120 W, ya doofus
 		visible_message(span_warning("[src] short-circuits from too powerful of a power cell!"))
 		burn_out()
 		return FALSE
@@ -592,15 +592,17 @@
 			var/obj/item/organ/internal/stomach/ethereal/stomach = maybe_stomach
 			if(stomach.drain_time > world.time)
 				return
-			to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
+			user.visible_message(span_notice("[user] clamps their hand around the [fitting], electricity jumping around inside!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINALl: to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
+			to_chat(user, span_purple("You try to receive some charge from the [fitting]...")) // NOVA EDIT ADDITION - Ethereal Rework 2024
 			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
 				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
 				if(istype(stomach))
-					to_chat(user, span_notice("You receive some charge from the [fitting]."))
+					do_sparks(number = 2, cardinal_only = FALSE, source = src) // NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(user, span_notice("You receive some charge from the [fitting]."))
 					stomach.adjust_charge(LIGHT_POWER_GAIN)
 				else
 					to_chat(user, span_warning("You can't receive charge from the [fitting]!"))
+					user.visible_message(span_notice("[user] tries to draw more power from the [fitting], but the cell seems dead!")) //NOVA EDIT ADDITION - Ethereal Rework 2024
 			return
 
 		if(user.gloves)

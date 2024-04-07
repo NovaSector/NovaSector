@@ -277,23 +277,30 @@
 						sec_record_message += "\nAdded by [crime.author] at [crime.time]"
 				to_chat(human_or_ghost_user, examine_block(sec_record_message))
 				return
+			// NOVA EDIT ADDITION START- EXAMINE RECORDS
+			if(href_list["genrecords"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/human_user = usr
+					if(!human_user.canUseHUD())
+						return
+					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+						return
+				else if(!isobserver(usr))
+					return
+				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+			if(href_list["secrecords"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/human_user = usr
+					if(!human_user.canUseHUD())
+						return
+					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+						return
+				else if(!isobserver(usr))
+					return
+				to_chat(usr, "<b>Security Record:</b> [target_record.past_security_records]")
+			// NOVA EDIT ADDITION END - EXAMINE RECORDS
 			if(ishuman(human_or_ghost_user))
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
-				//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
-				if(href_list["genrecords"])
-					if(!human_user.canUseHUD())
-						return
-					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
-						return
-					to_chat(human_user, "<b>General Record:</b> [target_record.past_general_records]")
-
-				if(href_list["secrecords"])
-					if(!human_user.canUseHUD())
-						return
-					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
-						return
-					to_chat(human_user, "<b>Security Record:</b> [target_record.past_security_records]")
-				//NOVA EDIT ADDITION END
 				if(href_list["add_citation"])
 					var/max_fine = CONFIG_GET(number/maxfine)
 					var/citation_name = tgui_input_text(human_user, "Citation crime", "Security HUD")
@@ -748,7 +755,7 @@
 /mob/living/carbon/human/fully_heal(heal_flags = HEAL_ALL)
 	if(heal_flags & HEAL_NEGATIVE_MUTATIONS)
 		for(var/datum/mutation/human/existing_mutation in dna.mutations)
-			if(existing_mutation.quality != POSITIVE)
+			if(existing_mutation.quality != POSITIVE && existing_mutation.remove_on_aheal)
 				dna.remove_mutation(existing_mutation)
 
 	if(heal_flags & HEAL_TEMP)
