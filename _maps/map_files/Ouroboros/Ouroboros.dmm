@@ -4974,8 +4974,7 @@
 "bzf" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/mapping_helpers/burnt_floor,
-/obj/structure/sign/poster/contraband/punch_shit/directional/east,
-/turf/open/floor/iron/small,
+/turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "bzu" = (
 /obj/machinery/computer/prisoner/management,
@@ -7112,13 +7111,12 @@
 	},
 /area/station/security/processing)
 "cjn" = (
-/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
-/obj/machinery/door/airlock/hatch{
-	name = "Maintenance Hatch"
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "cju" = (
@@ -7693,13 +7691,16 @@
 /turf/open/floor/wood/tile,
 /area/station/commons/lounge)
 "cse" = (
-/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
-/obj/machinery/door/airlock/maintenance/external{
-	name = "Fitness Room"
+/obj/docking_port/stationary{
+	dir = 8;
+	height = 12;
+	name = "Auxiliary NT Station Dock";
+	shuttle_id = "whiteship_home";
+	width = 25;
+	dwidth = 16
 	},
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
+/turf/open/space/basic,
+/area/space)
 "csv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -17982,6 +17983,8 @@
 	dir = 5
 	},
 /obj/machinery/airalarm/directional/south,
+/obj/structure/sign/poster/contraband/punch_shit/directional/west,
+/obj/structure/punching_bag,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/maintenance/aft/greater)
 "fsk" = (
@@ -22593,7 +22596,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "gOq" = (
-/obj/structure/punching_bag,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 9
@@ -31714,13 +31716,6 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
-"jyk" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
 "jyq" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -37349,13 +37344,6 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/service)
-"lbR" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
 "lcb" = (
 /obj/effect/mapping_helpers/mail_sorting/service/theater,
 /obj/structure/disposalpipe/sorting/mail/flip,
@@ -46836,7 +46824,7 @@
 "nRK" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/light/small/directional/east,
+/obj/structure/trash_pile,
 /turf/open/floor/iron,
 /area/station/maintenance/aft/greater)
 "nRX" = (
@@ -77427,14 +77415,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/meeting_room/council)
-"wZA" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/light/small/directional/south,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
 "wZE" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
@@ -78915,10 +78895,12 @@
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "xzU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "xAa" = (
@@ -100665,7 +100647,7 @@ laO
 laO
 laO
 laO
-laO
+cse
 laO
 laO
 laO
@@ -115353,7 +115335,7 @@ wkd
 vVO
 bxb
 nRK
-cse
+ePd
 bzf
 pVh
 fsi
@@ -115611,7 +115593,7 @@ pGG
 beg
 ePd
 ePd
-ePd
+yiW
 bCy
 gOq
 uuW
@@ -115865,12 +115847,12 @@ lwX
 cbO
 kqY
 vHx
-lTM
+anE
+kWo
+erw
+erw
 cjn
-xzU
-ePd
-ePd
-ePd
+yiW
 uuW
 pUh
 bjs
@@ -116124,8 +116106,8 @@ gIV
 gIV
 gIV
 gIV
-jyk
-lTM
+yiW
+yiW
 xzU
 crg
 uuW
@@ -116383,7 +116365,7 @@ wpZ
 gIV
 gIV
 jmA
-lbR
+oQK
 uCE
 uuW
 hTc
@@ -116640,7 +116622,7 @@ duZ
 rpb
 gIV
 dsI
-lbR
+oQK
 uuW
 uuW
 uuW
@@ -116897,7 +116879,7 @@ lxN
 vEO
 gIV
 sGY
-wZA
+pFR
 uuW
 ttD
 aED
