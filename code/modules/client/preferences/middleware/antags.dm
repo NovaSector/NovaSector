@@ -138,7 +138,6 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 	var/list/antag_icons = list()
 
 /datum/asset/spritesheet/antagonists/create_spritesheets()
-<<<<<<< HEAD
 	// Antagonists that don't have a dynamic ruleset, but do have a preference
 	var/static/list/non_ruleset_antagonists = list(
 		ROLE_GLITCH = /datum/antagonist/bitrunning_glitch,
@@ -148,10 +147,7 @@ GLOBAL_LIST_INIT(non_ruleset_antagonists, list(
 		ROLE_SENTIENCE = /datum/antagonist/sentient_creature,
 	)
 
-	var/list/antagonists = non_ruleset_antagonists.Copy()
-=======
 	var/list/antagonists = GLOB.non_ruleset_antagonists.Copy()
->>>>>>> 1f1669e3341 (Fixes banned/days remaining preferences display for non-dynamic ruleset antagonists. (#82506))
 
 	for (var/datum/dynamic_ruleset/ruleset as anything in subtypesof(/datum/dynamic_ruleset))
 		var/datum/antagonist/antagonist_type = initial(ruleset.antag_datum)
