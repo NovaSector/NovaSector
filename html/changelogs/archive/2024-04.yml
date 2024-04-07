@@ -195,3 +195,9 @@
       and bodycams, move the shuttle, and provide radio support. Only 12 Telecrystals!
   Zergspower:
   - bugfix: fixes Borg and Syndicate inducers not working
+2024-04-07:
+  NovaBot13:
+  - bugfix: aheal now properly heals ears deafness
+  - admin: Removing components button now lists components to remove
+  - balance: CNS Rebooter Implant will now pull you out of stamcrit and grant you
+      a few seconds of stun immunity
