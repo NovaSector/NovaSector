@@ -15578,7 +15578,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/glass/reinforced,
+/turf/open/floor/plating,
 /area/station/engineering/main)
 "eHT" = (
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
@@ -20283,13 +20283,6 @@
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/janitor)
-"gdV" = (
-/obj/effect/turf_decal/trimline/yellow/filled/corner{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/glass/reinforced,
-/area/station/engineering/main)
 "geg" = (
 /obj/effect/turf_decal/tile/green/opposingcorners{
 	dir = 1
@@ -45974,9 +45967,6 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/teleporter)
-"nBi" = (
-/turf/open/floor/glass/reinforced,
-/area/station/engineering/main)
 "nBm" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/folder/blue{
@@ -47222,7 +47212,7 @@
 /area/station/maintenance/port/greater)
 "nWW" = (
 /obj/machinery/airalarm/directional/south,
-/turf/open/floor/glass/reinforced,
+/turf/open/floor/plating,
 /area/station/engineering/main)
 "nXd" = (
 /obj/effect/turf_decal/tile/dark_blue{
@@ -58655,10 +58645,6 @@
 	dir = 1
 	},
 /area/station/hallway/primary/central/fore)
-"rzM" = (
-/obj/structure/cable,
-/turf/open/floor/glass/reinforced,
-/area/station/engineering/main)
 "rzN" = (
 /obj/machinery/light/warm/directional/west,
 /obj/machinery/requests_console/auto_name/directional/west,
@@ -177721,7 +177707,7 @@ kGw
 afh
 sGH
 eHL
-nBi
+sqv
 qyc
 rMx
 bKl
@@ -178234,8 +178220,8 @@ xfD
 xfD
 xfD
 nWa
-rzM
-nBi
+dMe
+sqv
 cyU
 vlY
 bKl
@@ -178491,7 +178477,7 @@ vQT
 fnh
 dli
 uyk
-rzM
+dMe
 nWW
 iuh
 hiW
@@ -178748,8 +178734,8 @@ ghP
 kvn
 ddY
 qPA
-rzM
-rzM
+dMe
+dMe
 swS
 dMe
 dMe
@@ -180290,8 +180276,8 @@ wiz
 bFq
 dli
 moI
-gdV
-rzM
+dMe
+dMe
 puG
 dMe
 dMe
@@ -180547,8 +180533,8 @@ xFv
 uKT
 ddY
 jBL
-rzM
-nBi
+dMe
+sqv
 iuh
 jKS
 iuh
@@ -180804,8 +180790,8 @@ pSZ
 pSZ
 pSZ
 tue
-rzM
-nBi
+dMe
+sqv
 uNz
 jsB
 cjZ
@@ -181061,8 +181047,8 @@ dli
 dli
 gDu
 uyk
-rzM
-rzM
+dMe
+dMe
 dfU
 gmX
 iVL
@@ -181318,8 +181304,8 @@ rLo
 rLo
 afh
 sGH
-rzM
-nBi
+dMe
+sqv
 dQA
 kGp
 cjZ
