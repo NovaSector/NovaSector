@@ -57,7 +57,7 @@
 /obj/effect/spawner/random/epic_loot/random_supply_crate
 	name = "random supply crate spawner"
 	desc = "Automagically transforms into a random supply crate, hopefully filled with goodies."
-	icon = 'modular_nova/modules/epic_loot/icons/loot_structures.dmi'
+	icon = 'modular_np_lethal/epic_loot/icons/loot_structures.dmi'
 	icon_state = "crate_random"
 	loot = list(
 		/obj/structure/maintenance_loot_structure/large_crate,

@@ -1,3 +1,24 @@
+/datum/export/epic_loot_electronics
+	cost = PAYCHECK_COMMAND
+	unit_name = "electronic components"
+	export_types = list(
+		/obj/item/epic_loot/device_fan,
+		/obj/item/epic_loot/display_broken,
+		/obj/item/epic_loot/civilian_circuit,
+		/obj/item/epic_loot/processor,
+		/obj/item/epic_loot/disk_drive,
+	)
+
+/datum/export/epic_loot_electronics_super
+	cost = PAYCHECK_COMMAND * 2
+	unit_name = "valuable electronic components"
+	export_types = list(
+		/obj/item/epic_loot/display,
+		/obj/item/epic_loot/graphics,
+		/obj/item/epic_loot/military_circuit,
+		/obj/item/epic_loot/power_supply,
+	)
+
 // Computer fans
 /obj/item/epic_loot/device_fan
 	name = "device fan"

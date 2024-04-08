@@ -1,7 +1,7 @@
 /obj/effect/spawner/random/epic_loot
 	name = "extraction loot spawner"
 	desc = "Gods please let there be nobody extract camping."
-	icon = 'modular_nova/modules/epic_loot/icons/epic_loot.dmi'
+	icon = 'modular_np_lethal/epic_loot/icons/epic_loot.dmi'
 	icon_state = null
 
 /obj/effect/spawner/random/epic_loot/chainlet

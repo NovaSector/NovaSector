@@ -1,7 +1,21 @@
+/datum/export/epic_loot_lost_keycards
+	cost = PAYCHECK_COMMAND * 2
+	unit_name = "lost keycards"
+	export_types = list(
+		/obj/item/keycard/epic_loot/green,
+		/obj/item/keycard/epic_loot/teal,
+		/obj/item/keycard/epic_loot/blue,
+		/obj/item/keycard/epic_loot/ourple,
+		/obj/item/keycard/epic_loot/red,
+		/obj/item/keycard/epic_loot/orange,
+		/obj/item/keycard/epic_loot/yellow,
+		/obj/item/keycard/epic_loot/black,
+	)
+
 /obj/item/keycard/epic_loot
 	name = "broken keycard"
 	desc = "You shouldn't have this."
-	icon = 'modular_nova/modules/epic_loot/icons/epic_loot.dmi'
+	icon = 'modular_np_lethal/epic_loot/icons/epic_loot.dmi'
 	icon_state = "keycard_basetype"
 	color = "#ffffff"
 	puzzle_id = "黄昏の"

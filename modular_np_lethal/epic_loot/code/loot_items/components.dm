@@ -1,3 +1,31 @@
+/datum/export/epic_loot_components
+	cost = PAYCHECK_COMMAND
+	unit_name = "components"
+	export_types = list(
+		/obj/item/epic_loot/grenade_fuze,
+		/obj/item/epic_loot/nail_box,
+		/obj/item/epic_loot/cold_weld,
+		/obj/item/epic_loot/signal_amp,
+		/obj/item/epic_loot/fuel_conditioner,
+		/obj/item/epic_loot/aramid,
+		/obj/item/epic_loot/cordura,
+		/obj/item/epic_loot/ripstop,
+	)
+
+/datum/export/epic_loot_components_super
+	cost = PAYCHECK_COMMAND * 2
+	unit_name = "valuable components"
+	export_types = list(
+		/obj/item/epic_loot/water_filter,
+		/obj/item/epic_loot/thermometer,
+		/obj/item/epic_loot/current_converter,
+		/obj/item/epic_loot/electric_motor,
+		/obj/item/epic_loot/thermal_camera,
+		/obj/item/epic_loot/shuttle_gyro,
+		/obj/item/epic_loot/phased_array,
+		/obj/item/epic_loot/shuttle_battery,
+	)
+
 // Grenade fuze, an old design from an old time past. You can still make a pretty good grenade with it though
 /obj/item/epic_loot/grenade_fuze
 	name = "grenade fuze"
@@ -138,7 +166,7 @@
 // You know they make your pouches and such out of this stuff?
 /obj/item/epic_loot/cordura
 	name = "polymer weave fabric"
-	desc = "Common high-strength fabric used in the production of a large number of equipment."
+	desc = "Common high-strength fabric used in the production of a large amount of equipment."
 	icon_state = "cordura"
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'

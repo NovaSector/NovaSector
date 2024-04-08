@@ -1,3 +1,26 @@
+/datum/export/epic_loot_valuables
+	cost = PAYCHECK_COMMAND * 3
+	unit_name = "valuables"
+	export_types = list(
+		/obj/item/epic_loot/press_pass,
+		/obj/item/epic_loot/hdd,
+		/obj/item/epic_loot/slim_diary,
+		/obj/item/epic_loot/plasma_explosive,
+		/obj/item/epic_loot/silver_chainlet,
+	)
+
+/datum/export/epic_loot_valuables_super
+	cost = PAYCHECK_COMMAND * 4
+	unit_name = "high valuables"
+	export_types = list(
+		/obj/item/epic_loot/ssd,
+		/obj/item/epic_loot/military_flash,
+		/obj/item/epic_loot/diary,
+		/obj/item/epic_loot/corpo_folder,
+		/obj/item/epic_loot/intel_folder,
+		/obj/item/epic_loot/gold_chainlet,
+	)
+
 // An old press pass, perhaps of an unlucky soul who was reporting on the incident that made this place abandoned in the first place
 /obj/item/epic_loot/press_pass
 	name = "expired press pass"

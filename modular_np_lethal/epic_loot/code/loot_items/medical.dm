@@ -1,3 +1,11 @@
+/datum/export/epic_loot_super_med_tools
+	cost = PAYCHECK_COMMAND * 3
+	unit_name = "ancient medical tools"
+	export_types = list(
+		/obj/item/epic_loot/vein_finder,
+		/obj/item/epic_loot/eye_scope,
+	)
+
 // Vein finder, uses strong LED lights to reveal veins in someone's body. Perhaps the name "LEDX" rings a bell
 /obj/item/epic_loot/vein_finder
 	name = "medical vein locator"
