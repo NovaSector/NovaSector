@@ -3,7 +3,7 @@
 	max_specific_storage = WEIGHT_CLASS_BULKY
 	max_total_storage = WEIGHT_CLASS_BULKY * 16
 	screen_max_columns = 4
-	opening_sound = 'modular_nova/modules/epic_loot/sound/containers/wood_crate_3.mp3'
+	opening_sound = 'modular_np_lethal/epic_loot/sound/containers/wood_crate_3.mp3'
 
 /obj/structure/maintenance_loot_structure/large_crate
 	name = "ration supply box"

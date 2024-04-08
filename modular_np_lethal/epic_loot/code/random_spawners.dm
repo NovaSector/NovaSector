@@ -158,7 +158,7 @@
 		/obj/item/healthanalyzer/simple/disease = 2,
 		/obj/item/hemostat = 2,
 		/obj/item/hypospray/mkii = 2,
-		/obj/item/hypospray/mkii/cmo = 1,
+		/obj/item/hypospray/mkii/deluxe = 1,
 		/obj/item/storage/box/bandages = 1,
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/stasis = 1,
