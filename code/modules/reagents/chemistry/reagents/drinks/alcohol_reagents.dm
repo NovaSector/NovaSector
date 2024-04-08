@@ -57,7 +57,7 @@
 		if(HAS_TRAIT(drinker, TRAIT_ALCOHOL_TOLERANCE)) // we're an accomplished drinker
 			booze_power *= 0.7
 		if(HAS_TRAIT(drinker, TRAIT_LIGHT_DRINKER))
-			booze_power *= 2
+			booze_power *= 1.33 // NOVA EDIT CHANGE - Alcohol Tolerance - Original: booze_power *= 2
 
 		// water will dilute alcohol effects
 		var/total_water_volume = 0
