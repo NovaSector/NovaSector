@@ -1,0 +1,4 @@
+author: "honkpocket"
+delete-after: True
+changes:
+  - balance: "Security bots now start with the 'check for weapon permit' option enabled"
