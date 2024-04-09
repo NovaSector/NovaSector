@@ -290,19 +290,14 @@ SUBSYSTEM_DEF(ticker)
 
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
-	real_round_start_time = REALTIMEOFDAY //NOVA EDIT ADDITION
-	SSautotransfer.new_shift(real_round_start_time) //NOVA EDIT ADDITION
+	real_round_start_time = REALTIMEOFDAY // NOVA EDIT ADDITION
+	SSautotransfer.new_shift(real_round_start_time) // NOVA EDIT ADDITION
 
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
-<<<<<<< HEAD
-	to_chat(world, span_notice("<B>Welcome to [station_name()], enjoy your stay!</B>"))
-	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) //NOVA EDIT CHANGE
-=======
 	to_chat(world, span_notice(span_bold("Welcome to [station_name()], enjoy your stay!")))
-	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
->>>>>>> 5e9ce5ab990 (New Battle Arcade (#81810))
+	alert_sound_to_playing(sound(SSstation.announcer.get_rand_welcome_sound())) // NOVA EDIT CHANGE - ORIGINAL: SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
