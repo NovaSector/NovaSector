@@ -581,6 +581,9 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 10
 	},
+/obj/item/stack/sheet/mineral/titanium{
+	amount = 10
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "cC" = (
@@ -2129,10 +2132,10 @@
 /obj/structure/cable,
 /obj/structure/table,
 /obj/item/stack/sheet/mineral/plastitanium{
-	amount = 20
+	amount = 10
 	},
 /obj/item/stack/sheet/plastitaniumglass{
-	amount = 20;
+	amount = 10;
 	pixel_x = -4;
 	pixel_y = 4
 	},
