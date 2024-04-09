@@ -13,4 +13,4 @@
 	if (!input_text)
 		return input_text
 	var/start = lowertext(input_text[1])
-	return splicetext(input_text, 1, 2, start)
+	return splicetext_char(input_text, 1, 2, start)
