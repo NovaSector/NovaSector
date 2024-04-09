@@ -74,8 +74,13 @@
 			continue
 		var/client/hearing_client = hearing.client
 
-		if (isobserver(hearing))
-			continue // Ghosts dont hear LOOC, apparantly
+		var/is_holder = hearing_client.holder
+		if (is_holder)
+			admin_seen[hearing_client] = TRUE
+			// dont continue here, still need to show runechat
+
+		if (isobserver(hearing) && !is_holder)
+			continue //ghosts dont hear looc, apparantly
 
 		// do the runetext here so admins can still get the runetext
 		if(mob.runechat_prefs_check(hearing))
@@ -83,9 +88,8 @@
 			// I wish it didn't include the asterisk but it's modular this way.
 			hearing.create_chat_message(mob, raw_message = "(LOOC: [msg])", runechat_flags = EMOTE_MESSAGE)
 
-		if (hearing_client.holder)
-			admin_seen[hearing_client] = TRUE
-			continue //they are handled after that
+		if (is_holder)
+			continue //admins are handled afterwards
 
 		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
 
