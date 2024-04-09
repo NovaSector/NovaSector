@@ -243,3 +243,18 @@
   - qol: Added search bar to character prefs catalogs
   jlsnow301, infraredbaron:
   - rscadd: Added a new UI element over players that are interacting, building, etc.
+2024-04-09:
+  Melbert:
+  - spellcheck: Shoes and Gloves are now referred to as "a pair of" rather than "some".
+  - spellcheck: Reinforced Window's description is less out of place.
+  - spellcheck: Fixed an empty space in examining a human's bloody hands.
+  - code_imp: It's a tad easier to exit an atom's examine text now.
+  NovaBot13:
+  - qol: slaughter/laughter demons have a cooler round end report
+  - qol: you may not bodyslam yourself as a demon
+  - code_imp: slaughter and laughter demons are given their antag datum when their
+      mind initializes
+  honkpocket:
+  - balance: Security bots now start with the 'check for weapon permit' option enabled
+  nikothedude:
+  - qol: Akula features are now documented in their species quirks
