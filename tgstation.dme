@@ -7277,6 +7277,7 @@
 #include "modular_nova\modules\customization\modules\surgery\organs\horns.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\moth_antennae.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\moth_markings.dm"
+#include "modular_nova\modules\customization\modules\surgery\organs\naga.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\neck_accessory.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\nif.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\organ.dm"

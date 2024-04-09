@@ -17,6 +17,16 @@
 /obj/item/organ/external/taur_body/synth
 	organ_flags = ORGAN_ROBOTIC
 
+/obj/item/organ/external/taur_body/serpentine
+
+/obj/item/organ/external/taur_body/horselike
+
+/obj/item/organ/external/taur_body/spider
+
+/obj/item/organ/external/taur_body/octopus
+
+/obj/item/organ/external/taur_body/blob
+
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = "taur"
 	layers = ALL_EXTERNAL_OVERLAYS | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER

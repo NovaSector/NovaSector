@@ -30,6 +30,8 @@
 	var/taur_mode = NONE
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
+	/// placeholder
+	var/obj/item/organ/external/taur_body/body_typepath
 
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
 	var/obj/item/clothing/suit/worn_suit = target.wear_suit
@@ -39,6 +41,9 @@
 		var/list/used_in_turf = list("tail")
 		if(target.owned_turf.name in used_in_turf)
 			return TRUE
+
+	var/mob/living/silicon/robot/robot_var = null
+	target.grab()
 	return FALSE
 
 
