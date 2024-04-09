@@ -27,7 +27,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/docking_port/mobile/arrivals_nova/LateInitialize()
-	. = ..()
 	console = get_control_console()
 
 /obj/docking_port/mobile/arrivals_nova/check()
