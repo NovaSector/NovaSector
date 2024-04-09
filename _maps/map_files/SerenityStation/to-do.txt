@@ -1,7 +1,6 @@
 serenitystation to do list
 
--fix ordnance launch chute 
--BZ floor decal (for xenobio) 
+-BZ floor decal (for xenobio) and icon state for areas (cyborg dorms and cargo project)
 -new areas: 
 	-cyborg dorms 
 	-cargo project room 
@@ -18,7 +17,8 @@ serenitystation to do list
 	-cameras
 	-disposals
 	-wall mounts 
-	-finish science (add xenobio pen blast doors)
+	-navigation points and stuff
+	-requests panels
 -missing rooms 
 	**Main
 	-arrivals ship docks (maybe on sat station) 

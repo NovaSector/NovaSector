@@ -580,3 +580,16 @@
 /area/station/science/xenobiology/control
 	name = "\improper Xenobiology Control Room"
 	icon_state = "xenobio"
+
+// SerenityStation Rooms 
+/area/station/commons/dorms/cyborgA
+	name = "\improper Cyborg Storage A"
+	icon_state = "room1"
+
+/area/station/commons/dorms/cyborgB
+	name = "\improper Cyborg Storage B"
+	icon_state = "room2"
+
+/area/station/cargo/cargo_projects
+	name = "\improper Cargo Project Room"
+	icon_state = "cargo_bay"
