@@ -177,8 +177,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		GLOB.valid_cryopods += src
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
-/obj/machinery/cryopod/post_machine_initialize()
-	. = ..()
+/obj/machinery/cryopod/LateInitialize()
 	update_icon()
 	find_control_computer()
 
