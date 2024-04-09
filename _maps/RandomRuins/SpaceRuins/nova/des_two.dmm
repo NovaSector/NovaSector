@@ -3372,6 +3372,11 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
+"ox" = (
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/door/window/survival_pod/left/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "oA" = (
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/west,
@@ -7057,9 +7062,6 @@
 /obj/item/storage/box/stockparts/deluxe{
 	pixel_x = 8
 	},
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_y = 6
-	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "FX" = (
@@ -7116,6 +7118,7 @@
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/door/window/survival_pod/left/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "Gg" = (
@@ -13427,8 +13430,8 @@ mi
 Xz
 PS
 VB
-VB
-VB
+ox
+ox
 Hz
 tm
 RH
@@ -13537,8 +13540,8 @@ kz
 Fx
 we
 VB
-VB
-VB
+ox
+ox
 Hz
 Nl
 Jv
@@ -13592,8 +13595,8 @@ mT
 WW
 LF
 VB
-VB
-VB
+ox
+ox
 Hz
 LB
 Gz
@@ -13703,7 +13706,7 @@ DH
 dn
 eO
 Gf
-VB
+ox
 Hz
 KT
 Ku
