@@ -74,7 +74,10 @@
 			continue
 		var/client/hearing_client = hearing.client
 
-		// do the runetext here so admins and observers can still get the runetext
+		if (isobserver(hearing))
+			continue // Ghosts dont hear LOOC, apparantly
+
+		// do the runetext here so admins can still get the runetext
 		if(mob.runechat_prefs_check(hearing))
 			// EMOTE is close enough. We don't want it to treat the raw message with languages.
 			// I wish it didn't include the asterisk but it's modular this way.
@@ -83,9 +86,6 @@
 		if (hearing_client.holder)
 			admin_seen[hearing_client] = TRUE
 			continue //they are handled after that
-
-		if (isobserver(hearing))
-			continue //Also handled later.
 
 		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
 
