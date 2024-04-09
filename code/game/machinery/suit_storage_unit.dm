@@ -468,7 +468,7 @@
 	else
 		target.visible_message(span_warning("[user] starts shoving [target] into [src]!"), span_userdanger("[user] starts shoving you into [src]!"))
 
-	if(do_after(user, 30, target))
+	if(do_after(user, 3 SECONDS, target))
 		if(occupant || helmet || suit || storage)
 			return
 		if(target == user)
@@ -501,7 +501,7 @@
 			if(iscarbon(mob_occupant) && mob_occupant.stat < UNCONSCIOUS)
 				//Awake, organic and screaming
 				mob_occupant.emote("scream")
-		addtimer(CALLBACK(src, PROC_REF(cook)), 50)
+		addtimer(CALLBACK(src, PROC_REF(cook)), 5 SECONDS)
 	else
 		uv_cycles = initial(uv_cycles)
 		uv = FALSE
@@ -567,7 +567,7 @@
 
 	var/charge_per_item = (final_charge_rate * seconds_per_tick) / cell_count
 	for(var/obj/item/stock_parts/cell/cell as anything in cells_to_charge)
-		charge_cell(charge_per_item, cell)
+		charge_cell(charge_per_item, cell, grid_only = TRUE)
 
 /obj/machinery/suit_storage_unit/proc/shock(mob/user, prb)
 	if(!prob(prb))
@@ -608,7 +608,7 @@
 	if(locked)
 		visible_message(span_notice("You see [user] kicking against the doors of [src]!"), \
 			span_notice("You start kicking against the doors..."))
-		addtimer(CALLBACK(src, PROC_REF(resist_open), user), 300)
+		addtimer(CALLBACK(src, PROC_REF(resist_open), user), 30 SECONDS)
 	else
 		open_machine()
 		dump_inventory_contents()

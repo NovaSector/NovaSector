@@ -27491,9 +27491,7 @@
 /area/station/command/heads_quarters/ce)
 "fhD" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "fhE" = (
@@ -37996,9 +37994,7 @@
 /turf/open/floor/iron/checker,
 /area/station/service/janitor)
 "hlQ" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -67165,7 +67161,7 @@
 /obj/structure/closet/athletic_mixed,
 /obj/item/clothing/mask/animal/frog,
 /obj/item/clothing/head/helmet/skull,
-/obj/item/clothing/head/costume/jester/alt,
+/obj/item/clothing/head/costume/jesteralt,
 /obj/item/clothing/head/costume/ushanka,
 /obj/item/clothing/mask/gas/soviet,
 /obj/item/clothing/mask/luchador/rudos,
@@ -73130,8 +73126,8 @@
 /area/station/medical/break_room)
 "nZT" = (
 /obj/machinery/power/smes{
-	capacity = 9e+006;
-	charge = 10000
+	capacity = 1.8e+008;
+	charge = 2e+005
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -93982,9 +93978,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "rXc" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /obj/structure/cable,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai)

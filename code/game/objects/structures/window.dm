@@ -696,7 +696,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma/fulltile
-	icon = 'icons/obj/smooth_structures/rplasma_window.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/smooth_structures/rplasma_window.dmi' // NOVA EDIT ICON OVERRIDDEN IN AESTHETICS
 	icon_state = "rplasma_window-0"
 	base_icon_state = "rplasma_window"
 	state = RWINDOW_SECURE
@@ -715,8 +715,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 
 /obj/structure/window/reinforced/fulltile
 	name = "full tile reinforced window"
-	desc = "A full tile reinforced window"
-	icon = 'icons/obj/smooth_structures/reinforced_window.dmi' //ICON OVERRIDDEN IN SKYRAT AESTHETICS - SEE MODULE
+	desc = "A full tile window that is reinforced with metal rods."
+	icon = 'icons/obj/smooth_structures/reinforced_window.dmi' // NOVA EDIT ICON OVERRIDDEN IN AESTHETICS
 	icon_state = "reinforced_window-0"
 	base_icon_state = "reinforced_window"
 	max_integrity = 150
@@ -739,7 +739,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/tinted/fulltile
-	icon = 'icons/obj/smooth_structures/tinted_window.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/smooth_structures/tinted_window.dmi' // NOVA EDIT ICON OVERRIDDEN IN AESTHETICS
 	icon_state = "tinted_window-0"
 	base_icon_state = "tinted_window"
 	fulltile = TRUE
@@ -915,7 +915,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 		return ..()
 	if(istype(W, /obj/item/paper) && atom_integrity < max_integrity)
 		user.visible_message(span_notice("[user] starts to patch the holes in \the [src]."))
-		if(do_after(user, 20, target = src))
+		if(do_after(user, 2 SECONDS, target = src))
 			atom_integrity = min(atom_integrity+4,max_integrity)
 			qdel(W)
 			user.visible_message(span_notice("[user] patches some of the holes in \the [src]."))

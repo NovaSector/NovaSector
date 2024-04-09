@@ -1,4 +1,5 @@
 #define HACKERMAN_DECK_TEMPERATURE_INCREASE 450
+#define HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE 2250
 
 #define HACKING_FORENSICS_SUCCESS_MESSAGE "Damages reported by the internal diagnostics system suggest a digital attack by a wireless hacking implant."
 
@@ -8,9 +9,7 @@
 	name = "\improper Qani-Laaca sensory computer"
 	desc = "An experimental implant replacing the spine of organics. When activated, it can give a temporary boost to mental processing speed, \
 		Which many users percieve as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
-		system that heavily influence the user's nervous system, like the central nervous system rebooter. \
-		As a bonus effect, you are immune to the burst of heart damage that comes at the end of twitch usage, as the computer is able to regulate \
-		your heart's rhythm back to normal after its use."
+		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "sandy"
 	slot = ORGAN_SLOT_BRAIN_ANTISTUN
@@ -24,6 +23,14 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/sensory_enhancer/bodypart_overlay
+
+/obj/item/organ/internal/cyberimp/sensory_enhancer/proc/vomit_blood()
+	owner.spray_blood(owner.dir, 2)
+	owner.emote("cough")
+	owner.visible_message(
+		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
+		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
+	)
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
@@ -100,6 +107,20 @@
 		more powerful abilities at cost of your well-being."
 	button_icon_state = "sandy_overcharge"
 	injection_amount = 20
+
+/obj/item/organ/internal/cyberimp/sensory_enhancer/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	var/mob/living/carbon/human/human_owner = owner
+
+	to_chat(owner, span_warning("Sensory overload! Your body can't handle this much neural input!"))
+
+	human_owner.Knockdown(6 SECONDS)
+	human_owner.Stun(4 SECONDS)
+	human_owner.do_jitter_animation(18 SECONDS)
+	human_owner.blood_volume -= 90
+	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
 
 // Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself
 
@@ -212,8 +233,20 @@
 
 	human_owner.adjust_bodytemperature(HACKERMAN_DECK_TEMPERATURE_INCREASE)
 
+/obj/item/organ/internal/cyberimp/hackerman_deck/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	var/mob/living/carbon/human/human_owner = owner
+
+	human_owner.adjust_bodytemperature(HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE)
+	human_owner.adjust_fire_stacks(2)
+	human_owner.ignite_mob()
+	to_chat(owner, span_warning("You can feel the implant in your head malfunction and begin to severely overheat!"))
+
 /// Adds an item to the list of fibers for this forensics datum that tells on the fact someone used a hacking implant here
 /datum/forensics/proc/add_hacking_implant_trace()
 	LAZYSET(fibers, HACKING_FORENSICS_SUCCESS_MESSAGE, HACKING_FORENSICS_SUCCESS_MESSAGE)
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
+#undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
