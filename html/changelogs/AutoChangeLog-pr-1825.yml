@@ -1,4 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Multi-cell charger will now actually charge cells again, additionally they won't kill your APC while doing it!"
