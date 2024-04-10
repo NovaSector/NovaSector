@@ -1,0 +1,5 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - refactor: "Blueprints now use TGUI."
+  - qol: "Blueprints can now be used while lying down."
