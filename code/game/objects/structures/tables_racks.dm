@@ -298,22 +298,6 @@
 /obj/structure/table/proc/AfterPutItemOnTable(obj/item/thing, mob/living/user)
 	return
 
-<<<<<<< HEAD
-/obj/structure/table/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
-	if(!(obj_flags & NO_DECONSTRUCTION))
-		var/turf/T = get_turf(src)
-		if(buildstack)
-			new buildstack(T, buildstackamount)
-		else
-			for(var/i in custom_materials)
-				var/datum/material/M = i
-				new M.sheet_type(T, FLOOR(custom_materials[M] / SHEET_MATERIAL_AMOUNT, 1))
-		if(!wrench_disassembly)
-			new frame(T)
-		else
-			new framestack(T, framestackamount)
-	qdel(src)
-=======
 /obj/structure/table/atom_deconstruct(disassembled = TRUE)
 	var/turf/target_turf = get_turf(src)
 	if(buildstack)
@@ -326,7 +310,6 @@
 		new frame(target_turf)
 	else
 		new framestack(get_turf(src), framestackamount)
->>>>>>> ccaa9f8f458 (Fix table top deconstruction (#82508))
 
 /obj/structure/table/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(the_rcd.mode == RCD_DECONSTRUCT)
