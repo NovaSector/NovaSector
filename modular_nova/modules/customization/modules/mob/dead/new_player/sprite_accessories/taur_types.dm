@@ -1,3 +1,6 @@
+/mob/living/carbon
+	var/hide_taur_body = FALSE // lazy. please remove later
+
 /**
  * Get a human's taur mode in a standardized way.
  *
@@ -32,6 +35,9 @@
 	var/alt_taur_mode = NONE
 
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
+	if (target.hide_taur_body)
+		return TRUE
+
 	var/obj/item/clothing/suit/worn_suit = target.wear_suit
 	if(istype(worn_suit) && (worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
 		return TRUE
@@ -40,8 +46,6 @@
 		if(target.owned_turf.name in used_in_turf)
 			return TRUE
 
-	var/mob/living/silicon/robot/robot_var = null
-	target.grab()
 	return FALSE
 
 

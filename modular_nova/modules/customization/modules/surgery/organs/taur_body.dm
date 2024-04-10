@@ -71,11 +71,13 @@
 	new_left_leg.replace_limb(reciever, TRUE)
 	if(old_left_leg)
 		old_left_leg.forceMove(src)
+	new_left_leg.bodytype |= BODYTYPE_TAUR
 
 	new_right_leg.bodyshape |= external_bodyshapes
 	new_right_leg.replace_limb(reciever, TRUE)
 	if(old_right_leg)
 		old_right_leg.forceMove(src)
+	new_right_leg.bodytype |= BODYTYPE_TAUR
 
 	return ..()
 
