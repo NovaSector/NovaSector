@@ -1,5 +1,7 @@
 serenitystation to do list
 
+-Bitrunning server broken... 
+-Stress test science
 -BZ floor decal (for xenobio) and icon state for areas (cyborg dorms and cargo project)
 -underground caves map gen
 -no mountain map gen (for near solars)
@@ -23,49 +25,48 @@ serenitystation to do list
 	-library (& library backrooms)
 	-janitor area 
 	-chapel
-	-AI sat
-	-AI upload 
 	-solars
 	-aux base 
 	-construction zone
 	-aux tool storage
 	-barbershop
 	-more escape pods
-	-robot storage rooms 
 	
 	**Security 
-	-sec office
-	-holding cell
-	-modsuit room 
-	-mech bay
-	-front holding cells
-	-detective office
-	-court room 
-	-lawyer office
-	-brig medbay
-	-warden office 
-	-interrogation
-	-sec locker room 
-	-armory
-	-HoS office
-	-shuttle to lavaland prison
-	-firing range 
-	-entrance room
+		-sec office
+		-holding cell
+		-modsuit room 
+		-mech bay
+		-front holding cells
+		-detective office
+		-court room 
+		-lawyer office
+		-warden office 
+		-interrogation
+		-sec locker room 
+		-armory
+		-HoS office
+		-shuttle to lavaland prison
+		-firing range 
+		-entrance room
+		-evidence
+	
 	
 	**Prison
-	-transfer room 
-	-corrections officers
-	-dorms 
-	-botany 
-	-kitchen 
-	-license plates
-	-laundry 
-	-execution room 
-	-bathrooms
-	-chapel
-	-court and exercise room 
-	-visitation
-	-cryo
+		-transfer room (front)
+		-corrections officers (front)
+		-dorms 
+		-botany 
+		-kitchen 
+		-license plates
+		-laundry 
+		-execution room (front)
+		-bathrooms
+		-chapel
+		-court and exercise room 
+		-cryo
+		-visitation (front)
+		-brig medbay (front)
 		
 	**Rec areas 
 	-pool 
