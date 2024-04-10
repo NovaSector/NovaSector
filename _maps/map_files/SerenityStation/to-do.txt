@@ -1,9 +1,6 @@
 serenitystation to do list
 
 -BZ floor decal (for xenobio) and icon state for areas (cyborg dorms and cargo project)
--new areas: 
-	-cyborg dorms 
-	-cargo project room 
 -underground caves map gen
 -no mountain map gen (for near solars)
 -birds 
