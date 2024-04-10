@@ -27,13 +27,8 @@
 	. = ..()
 
 	// Traitor steal objective
-<<<<<<< HEAD
-	new /obj/item/areaeditor/blueprints(src)
-	new /obj/item/pipe_dispenser/bluespace(src) // NOVA EDIT -- BLUESPACE RPD -- ORIGINAL: new /obj/item/pipe_dispenser(src)
-=======
 	new /obj/item/blueprints(src)
-	new /obj/item/pipe_dispenser(src)
->>>>>>> 430896b5cf6 (Blueprints tgui (#82565))
+	new /obj/item/pipe_dispenser/bluespace(src) // NOVA EDIT -- BLUESPACE RPD -- ORIGINAL: new /obj/item/pipe_dispenser(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies locker"
