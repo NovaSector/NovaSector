@@ -109,6 +109,11 @@ GLOBAL_LIST_INIT(purchasable_nifsofts, list(
 
 			var/amount_to_charge = (params["product_cost"])
 			var/rewards_purchase = (params["rewards_purchase"])
+			
+			if(!target_nif)
+				paying_account.bank_card_talk("You need a NIF implant to purchase this.")
+				return FALSE
+			
 			var/obj/item/organ/internal/cyberimp/brain/nif/buyer_nif = target_nif.resolve()
 
 			if(rewards_purchase)
