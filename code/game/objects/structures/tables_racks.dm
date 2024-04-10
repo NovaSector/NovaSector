@@ -215,17 +215,13 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/table/wrench_act_secondary(mob/living/user, obj/item/tool)
-	if(obj_flags & NO_DECONSTRUCTION || !deconstruction_ready)
+	if(!deconstruction_ready)
 		return FALSE
 	to_chat(user, span_notice("You start deconstructing [src]..."))
 	if(tool.use_tool(src, user, 4 SECONDS, volume=50))
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-<<<<<<< HEAD
-		deconstruct(TRUE, 1)
-=======
 		frame = null
 		deconstruct(TRUE)
->>>>>>> ccaa9f8f458 (Fix table top deconstruction (#82508))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/table/attackby(obj/item/I, mob/living/user, params)
