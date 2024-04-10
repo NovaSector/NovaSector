@@ -132,19 +132,11 @@
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			. += filling
 
-<<<<<<< HEAD
-
-/obj/machinery/chem_master/wrench_act(mob/living/user, obj/item/tool)
-	if(default_unfasten_wrench(user, tool) == SUCCESSFUL_UNFASTEN)
-		return ITEM_INTERACT_SUCCESS
-	return ITEM_INTERACT_BLOCKING
-=======
 /obj/machinery/chem_master/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(gone == beaker)
 		beaker = null
 		update_appearance(UPDATE_OVERLAYS)
->>>>>>> c045d79fcab (General maintenance for chem master (#82002))
 
 /obj/machinery/chem_master/on_set_is_operational(old_value)
 	if(!is_operational)
@@ -173,6 +165,8 @@
 			CAT_TUBES = GLOB.reagent_containers[CAT_TUBES],
 			CAT_PILLS = GLOB.reagent_containers[CAT_PILLS],
 			CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
+			CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION
+			CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // NOVA EDIT ADDITION
 		)
 	return containers
 
@@ -258,30 +252,6 @@
 /obj/machinery/chem_master/attack_ai_secondary(mob/user, list/modifiers)
 	return attack_hand_secondary(user, modifiers)
 
-<<<<<<< HEAD
-/// Insert new beaker and/or eject the inserted one
-/obj/machinery/chem_master/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
-	if(new_beaker && user && !user.transferItemToLoc(new_beaker, src))
-		return FALSE
-	if(beaker)
-		try_put_in_hand(beaker, user)
-		beaker = null
-	if(new_beaker)
-		beaker = new_beaker
-	update_appearance(UPDATE_ICON)
-	return TRUE
-
-/obj/machinery/chem_master/proc/load_printable_containers()
-	printable_containers = list(
-		CAT_TUBES = GLOB.reagent_containers[CAT_TUBES],
-		CAT_PILLS = GLOB.reagent_containers[CAT_PILLS],
-		CAT_PATCHES = GLOB.reagent_containers[CAT_PATCHES],
-		CAT_HYPOS = GLOB.reagent_containers[CAT_HYPOS], // NOVA EDIT ADDITION
-		CAT_DARTS = GLOB.reagent_containers[CAT_DARTS], // NOVA EDIT ADDITION
-	)
-
-=======
->>>>>>> c045d79fcab (General maintenance for chem master (#82002))
 /obj/machinery/chem_master/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/spritesheet/chemmaster)
@@ -511,6 +481,10 @@
 				item_name_default = "[master_reagent.name] [item_name_default]"
 			if(!(initial(selected_container.reagent_flags) & OPENCONTAINER)) // Closed containers get both reagent name and units in the name
 				item_name_default = "[master_reagent.name] [item_name_default] ([volume_in_each]u)"
+			// NOVA EDIT ADDITION START - Autonamed hyposprays/smartdarts
+			if(ispath(container_style, /obj/item/reagent_containers/cup/vial) || ispath(container_style, /obj/item/reagent_containers/syringe/smartdart))
+				item_name_default = "[master_reagent.name] [item_name_default]"
+			// NOVA EDIT ADDITION END
 			var/item_name = tgui_input_text(usr,
 				"Container name",
 				"Name",
@@ -562,145 +536,7 @@
 		addtimer(CALLBACK(src, PROC_REF(create_containers), user, item_count, item_name, volume_in_each), 0.75 SECONDS)
 	else
 		is_printing = FALSE
-<<<<<<< HEAD
-		return TRUE
-
-	if(action == "toggleContainerSuggestion")
-		do_suggest_container = !do_suggest_container
-		return TRUE
-
-	if(action == "selectContainer")
-		selected_container = params["ref"]
-		return TRUE
-
-	if(action == "create")
-		if(reagents.total_volume == 0)
-			return FALSE
-		var/item_count = text2num(params["itemCount"])
-		if(item_count <= 0)
-			return FALSE
-		create_containers(item_count)
-		return TRUE
-
-/// Create N selected containers with reagents from buffer split between them
-/obj/machinery/chem_master/proc/create_containers(item_count = 1)
-	var/obj/item/reagent_containers/container_style = locate(selected_container)
-	var/is_pill_subtype = ispath(container_style, /obj/item/reagent_containers/pill)
-	var/volume_in_each = reagents.total_volume / item_count
-	var/printing_amount_current = is_pill_subtype ? printing_amount * 2 : printing_amount
-
-	// Generate item name
-	var/item_name_default = initial(container_style.name)
-	var/datum/reagent/master_reagent = reagents.get_master_reagent()
-	if(selected_container == default_container) // Tubes and bottles gain reagent name
-		item_name_default = "[master_reagent.name] [item_name_default]"
-	if(!(initial(container_style.reagent_flags) & OPENCONTAINER)) // Closed containers get both reagent name and units in the name
-		item_name_default = "[master_reagent.name] [item_name_default] ([volume_in_each]u)"
-	// NOVA EDIT ADDITION START - Autonamed hyposprays/smartdarts
-	if(ispath(container_style, /obj/item/reagent_containers/cup/vial) || ispath(container_style, /obj/item/reagent_containers/syringe/smartdart))
-		item_name_default = "[master_reagent.name] [item_name_default]"
-	// NOVA EDIT ADDITION END
-
-	var/item_name = tgui_input_text(usr,
-		"Container name",
-		"Name",
-		item_name_default,
-		MAX_NAME_LEN)
-
-	if(!item_name || !reagents.total_volume || QDELETED(src) || !usr.can_perform_action(src, ALLOW_SILICON_REACH))
-		return FALSE
-
-	// Print and fill containers
-	is_printing = TRUE
-	update_appearance(UPDATE_ICON)
-	printing_progress = 0
-	printing_total = item_count
-	while(item_count > 0)
-		if(!is_printing)
-			break
-		use_energy(active_power_usage)
-		stoplag(printing_speed)
-		for(var/i in 1 to printing_amount_current)
-			if(!item_count)
-				continue
-			var/obj/item/reagent_containers/item = new container_style(drop_location())
-			adjust_item_drop_location(item)
-			item.name = item_name
-			item.reagents.clear_reagents()
-			reagents.trans_to(item, volume_in_each, transferred_by = src)
-			printing_progress++
-			item_count--
-		update_appearance(UPDATE_ICON)
-	is_printing = FALSE
-	update_appearance(UPDATE_ICON)
-	return TRUE
-
-/// Transfer reagents to specified target from the opposite source
-/obj/machinery/chem_master/proc/transfer_reagent(reagent_ref, amount, target)
-	if (amount == -1)
-		amount = text2num(input("Enter the amount you want to transfer:", name, ""))
-	if (amount == null || amount <= 0)
-		return FALSE
-	if (!beaker && target == TARGET_BEAKER && transfer_mode == TRANSFER_MODE_MOVE)
-		return FALSE
-	var/datum/reagent/reagent = locate(reagent_ref)
-	if (!reagent)
-		return FALSE
-
-	use_energy(active_power_usage)
-
-	if (target == TARGET_BUFFER)
-		if(!check_reactions(reagent, beaker.reagents))
-			return FALSE
-		beaker.reagents.trans_to(src, amount, target_id = reagent.type)
-		update_appearance(UPDATE_ICON)
-		return TRUE
-
-	if (target == TARGET_BEAKER && transfer_mode == TRANSFER_MODE_DESTROY)
-		reagents.remove_reagent(reagent.type, amount)
-		update_appearance(UPDATE_ICON)
-		return TRUE
-	if (target == TARGET_BEAKER && transfer_mode == TRANSFER_MODE_MOVE)
-		if(!check_reactions(reagent, reagents))
-			return FALSE
-		reagents.trans_to(beaker, amount, target_id = reagent.type)
-		update_appearance(UPDATE_ICON)
-		return TRUE
-
-	return FALSE
-
-/// Checks to see if the target reagent is being created (reacting) and if so prevents transfer
-/// Only prevents reactant from being moved so that people can still manlipulate input reagents
-/obj/machinery/chem_master/proc/check_reactions(datum/reagent/reagent, datum/reagents/holder)
-	if(!reagent)
-		return FALSE
-	var/canMove = TRUE
-	for(var/datum/equilibrium/equilibrium as anything in holder.reaction_list)
-		if(equilibrium.reaction.reaction_flags & REACTION_COMPETITIVE)
-			continue
-		for(var/datum/reagent/result as anything in equilibrium.reaction.required_reagents)
-			if(result == reagent.type)
-				canMove = FALSE
-	if(!canMove)
-		say("Cannot move reagent during reaction!")
-	return canMove
-
-/// Retrieve REF to the best container for provided reagent
-/obj/machinery/chem_master/proc/get_suggested_container(datum/reagent/reagent)
-	var/preferred_container = reagent.default_container
-	for(var/category in printable_containers)
-		for(var/container in printable_containers[category])
-			if(container == preferred_container)
-				return REF(container)
-	return default_container
-
-/obj/machinery/chem_master/examine(mob/user)
-	. = ..()
-	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads:<br>Reagent buffer capacity: <b>[reagents.maximum_volume]</b> units.<br>Number of containers printed at once increased by <b>[100 * (printing_amount / initial(printing_amount)) - 100]%</b>.")
-=======
 		update_appearance(UPDATE_OVERLAYS)
->>>>>>> c045d79fcab (General maintenance for chem master (#82002))
 
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
