@@ -10,7 +10,7 @@
 
 /datum/component/connectable_computer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_update_overlays))
-	RegisterSignal(parent, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(update_neighbors))
+	RegisterSignal(parent, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(on_dir_change))
 
 	update_neighbors()
 
