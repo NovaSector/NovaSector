@@ -1,0 +1,4 @@
+author: "RaShCat"
+delete-after: True
+changes:
+  - bugfix: "custom say able to use unicode."

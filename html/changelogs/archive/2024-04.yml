@@ -201,3 +201,111 @@
   - admin: Removing components button now lists components to remove
   - balance: CNS Rebooter Implant will now pull you out of stamcrit and grant you
       a few seconds of stun immunity
+2024-04-08:
+  Fluffles:
+  - bugfix: Hats/glasses/masks should hopefully behave more predictably for the purposes
+      of eye/mouth surgery.
+  Melbert:
+  - bugfix: Skill rewards should properly be dropped out of unworthy player's hands
+  - bugfix: Items will properly pass through slime on occasion
+  - bugfix: Fix fancy anomaly theme being broken
+  - bugfix: Captive Xeno end round report should make a tad more sense
+  NovaBot13:
+  - bugfix: The color matrix editor now works properly again
+  - bugfix: Narcolepsy is no longer activated while neutered.
+  - bugfix: You can no longer take chemicals out of medipens with a syringe.
+  - bugfix: Broken chameleon kits can't be unbroken by an EMP.
+  - rscadd: Adds a new Final Objective where you force your fellow crew to fight to
+      the death on pain of... death.
+  - rscadd: Transhumanist now allows you to select your augmentation
+  - rscadd: Transhumanist can now provide a robotic voice box, or flashlight eyes
+  - spellcheck: Transhumanist's roundstart text has been re-written to not be wrong
+  - balance: Basic mob AIs with no mobs on the Z level now stop.
+  - rscadd: Watcher wreaths. Made from the mangled remains of a watcher, now a handsome
+      accessory for you to wear a few inches behind your head. Comes in Normal and
+      Icewing variants.
+  - rscadd: Some bounties for the two variants of watcher wreaths.
+  Rhials:
+  - bugfix: Sweeps a tile of dust off of the Maint Mania deathmatch map, which was
+      causing errors.
+  SomeRandomOwl:
+  - rscadd: Changed stage 5 of Hereditary manifold Syndrome, it no longer dusts you,
+      but it will still kill careless people
+  - rscadd: Sansufentanyl now has a recipe to make it requiring a reagent only interdyne
+      has
+  - rscadd: Interdyne now comes stocked with the base reagent used to make Sansufentanyl
+  - rscadd: Interdyne also has a new document in their vault, Employees instructed
+      to protect it with their life
+  - qol: HMS now progresses in stages a lot more slowly, but as a result the symptoms
+      are also more frequent.
+  - qol: Sansufentanyl pills now start with more reagents per pill
+  Vishenka0704:
+  - qol: Added search bar to character prefs catalogs
+  jlsnow301, infraredbaron:
+  - rscadd: Added a new UI element over players that are interacting, building, etc.
+2024-04-09:
+  Melbert:
+  - spellcheck: Shoes and Gloves are now referred to as "a pair of" rather than "some".
+  - spellcheck: Reinforced Window's description is less out of place.
+  - spellcheck: Fixed an empty space in examining a human's bloody hands.
+  - code_imp: It's a tad easier to exit an atom's examine text now.
+  NovaBot13:
+  - qol: slaughter/laughter demons have a cooler round end report
+  - qol: you may not bodyslam yourself as a demon
+  - code_imp: slaughter and laughter demons are given their antag datum when their
+      mind initializes
+  honkpocket:
+  - balance: Security bots now start with the 'check for weapon permit' option enabled
+  nikothedude:
+  - qol: Akula features are now documented in their species quirks
+2024-04-10:
+  Bisar:
+  - bugfix: Mechs will no longer delete their living non-occupant contents when destroyed.
+  LT3:
+  - bugfix: Multi-cell charger will now actually charge cells again, additionally
+      they won't kill your APC while doing it!
+  Melbert:
+  - bugfix: You can't fit items which are normally too large for a storage by fitting
+      it in the storage when it is small, then growing it to a larger size.
+  NovaBot13:
+  - bugfix: Reagent grinders display reagents of its beaker on examination
+  - rscadd: A bunch of new medipens you can refill with the medipen refiller (survival/luxury/mutadone/saturnx/meth)
+  - bugfix: deathmatch can no longer occassionally send people to nullspace
+  - image: Updates the colors of various material datum to bring them closer in-line
+      with their actual material stacks
+  - image: Improves the sprites for the material knight armor and helmet.
+  - qol: Basic dexterous mobs now have a health doll and screen damage indication
+      like other basic mobs.
+  - rscadd: Adds anosmia quirk
+  - bugfix: Lead acid batteries have had their power values fixed.
+  - balance: Cells will only consider 0.1% of their charge for calculating shock damage.
+  - bugfix: Fixes many instances of energy sources for ethereals supplying a thousand
+      times less energy than intended.
+  - bugfix: Fixes recharging stations not being able to charge ethereals.
+  - bugfix: Fixes recharge stations charging too fast.
+  - qol: Recharge stations display their recharging speed in formatted power, rather
+      than unformatted energy per cycle.
+  - rscadd: Added support for directional explosions.
+  - rscadd: Rocket launcher backblast is now 271% more explosive, check your six for
+      friendlies!
+  - rscadd: X4 charges now explode in a cone away from the user when placed on a sufficiently
+      solid object.
+  - bugfix: 'X4 charges will now behave correctly when placed on dense atoms (note:
+      don''t try to read a variable from an atom you just blew up)'
+  - bugfix: Vorpal Scythe execute messages now read correctly.
+  - balance: 'Spies can now get five additional types of objective: Protect Human,
+      Protect Nonhuman, Detain, Jailbreak, and Escape (Exile).'
+  - balance: Spy objectives now feature a much wider array of targets and treatments.
+  - refactor: added no_failure var to objectives. Objectives with no_failure = TRUE
+      do not print a success at roundend. Custom objectives use this now instead of
+      a separate string.
+  Rhials:
+  - bugfix: The tide of post-round blob zombies when a blob wins will no longer break
+      the speakers in your headset.
+  SchizophrenicFelinid:
+  - qol: Small changes to make life a little easier on DS-2 - such as a defibrillator,
+      better stock parts, and extra building materials.
+  SomeRandomOwl:
+  - balance: Adjusted amount of power required before APC's arc
+  SomeRandomOwl, Lt3:
+  - bugfix: Synth power cord works again
