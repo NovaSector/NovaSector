@@ -52,13 +52,17 @@
  * And changing dir doesn't trigger appearance updates
  *
  * Arguments:
- * * dir - old dir
- * * newdir - new dir
+ * * source - The parent we're manipulating
+ * * old_dir - old dir
+ * * new_dir - new dir
  */
-/datum/component/connectable_computer/proc/on_dir_change(dir, newdir)
+/datum/component/connectable_computer/proc/on_dir_change(datum/source, old_dir, new_dir)
 	SIGNAL_HANDLER
 
-	// Call uppereance update on us and our neighbors
+	if (old_dir == new_dir)
+		return
+	
+	// Call appereance update on us and our neighbors
 	var/obj/machinery/parent_machine = parent
 	parent_machine.update_appearance()
 	update_neighbors()
