@@ -30,8 +30,6 @@
 	var/taur_mode = NONE
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
-	/// placeholder
-	var/obj/item/organ/external/taur_body/body_typepath
 
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
 	var/obj/item/clothing/suit/worn_suit = target.wear_suit
@@ -61,109 +59,130 @@
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
 	color_src = USE_ONE_COLOR
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/cow/spotted
 	name = "Cow (Spotted)"
 	icon_state = "cow_spotted"
 	color_src = USE_MATRIXED_COLORS
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
 	icon_state = "deer"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/drake
 	name = "Drake"
 	icon_state = "drake"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/drake/old
 	name = "Drake (Old)"
 	icon_state = "drake_old"
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/tarantula
 	name = "Tarantula"
 	icon_state = "tarantula"
+	organ_type = /obj/item/organ/external/taur_body/spider
 
 /datum/sprite_accessory/taur/drider
 	name = "Drider"
 	icon_state = "drider"
+	organ_type = /obj/item/organ/external/taur_body/spider
 
 /datum/sprite_accessory/taur/eevee
 	name = "Eevee"
 	icon_state = "eevee"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/horse
 	name = "Horse"
 	icon_state = "horse"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/naga
 	name = "Naga"
 	icon_state = "naga"
 	taur_mode = STYLE_TAUR_SNAKE
+	organ_type = /obj/item/organ/external/taur_body/serpentine
 
 /datum/sprite_accessory/taur/naga/striped
 	name = "Naga, Striped"
 	icon_state = "nagastriped"
 	taur_mode = STYLE_TAUR_SNAKE
+	organ_type = /obj/item/organ/external/taur_body/serpentine
 
 /datum/sprite_accessory/taur/naga/rattle
 	name = "Naga, Rattle"
 	icon_state = "nagarattle"
 	taur_mode = STYLE_TAUR_SNAKE
+	organ_type = /obj/item/organ/external/taur_body/serpentine
 
 /datum/sprite_accessory/taur/otie
 	name = "Otie"
 	icon_state = "otie"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/pede
 	name = "Scolipede"
 	icon_state = "pede"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
 	icon_state = "tentacle"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
+	organ_type = /obj/item/organ/external/taur_body/tentacle
 
 /datum/sprite_accessory/taur/tentacle/alt
 	name = "Tentacle, Alt"
 	icon_state = "tentaclealt"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
+	organ_type = /obj/item/organ/external/taur_body/tentacle
 
 /datum/sprite_accessory/taur/canine
 	name = "Canine"
 	icon_state = "canine"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/feline
 	name = "Feline"
 	icon_state = "feline"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/goop
 	name = "Goop"
 	icon_state = "goop"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
+	organ_type = /obj/item/organ/external/taur_body/blob
 
 /datum/sprite_accessory/taur/slime
 	name = "Slime"
 	icon_state = "slime"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
+	organ_type = /obj/item/organ/external/taur_body/blob
 
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
 	taur_mode = STYLE_TAUR_PAW
+	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"
