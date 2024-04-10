@@ -1,3 +1,5 @@
+#define CONSTRICT_BASE_PIXEL_SHIFT 12
+
 /datum/action/innate/constrict
     name = "Constrict"
     desc = "Left click to coil/uncoil your powerful tail around something, right click to begin crushing."
@@ -11,7 +13,6 @@
 
     var/obj/structure/serpentine_tail/tail
     var/coil_delay = 4 SECONDS
-    var/do_the_thing = TRUE
 
 /datum/action/innate/constrict/Destroy()
     . = ..()
@@ -108,11 +109,22 @@
     set_owner(new_owner)
     set_action(action)    
 
+/obj/structure/serpentine_tail/Initialize(mapload)
+    . = ..()
+    
+    sync_sprite()
+
+    // TODO: MOVE ICON STATES TO THIS MODULE
+    var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
+    overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
+    src.add_overlay(overlay)
+
+/obj/structure/serpentine_tail/proc/sync_sprite()
+
     //coloring
-    var/key = "taur"
     var/list/finished_list = list()
-    var/list/color_list = owner.dna.species.mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] //identify color
-    var/datum/sprite_accessory/sprite_type = GLOB.sprite_accessories[key][owner.dna.species.mutant_bodyparts[key][MUTANT_INDEX_NAME]] //identify type
+    var/list/color_list = owner.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_COLOR_LIST] //identify color
+    var/datum/sprite_accessory/sprite_type = GLOB.sprite_accessories["taur"][owner.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]] //identify type
 
     switch(sprite_type.color_src)
         if(USE_MATRIXED_COLORS)
@@ -133,19 +145,14 @@
     if(isroundstartslime(owner) || isslimeperson(owner) || isjellyperson(owner))
         alpha = 130
 
-    var/change_multiplier = owner.dna.features["body_size"] / BODY_SIZE_NORMAL
+    var/change_multiplier = get_scale_change_mult()
     var/translate = ((change_multiplier-1) * 32)/2
     transform = transform.Scale(change_multiplier)
     transform = transform.Translate(0, translate)
     appearance_flags = PIXEL_SCALE
 
-/obj/structure/serpentine_tail/Initialize(mapload)
-    . = ..()
-    
-    // TODO: MOVE ICON STATES TO THIS MODULE
-    var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
-    overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
-    src.add_overlay(overlay)
+/obj/structure/serpentine_tail/proc/get_scale_change_mult()
+    return owner.dna.features["body_size"] / BODY_SIZE_NORMAL
 
 /obj/structure/serpentine_tail/process(seconds_per_tick)
     stored_damage += (brute_per_second * seconds_per_tick)
@@ -181,7 +188,7 @@
         owner.grab(constricted)
         if (owner.grab_state < GRAB_AGGRESSIVE)
             owner.setGrabState(GRAB_AGGRESSIVE) // even silicons get aggrograbbed
-        constricted.pixel_x += 12
+        constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
     
     if (currently_crushing)
         stop_crushing()
@@ -253,3 +260,4 @@
     if (grabbing != constricted)
         INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
     
+#undef CONSTRICT_BASE_PIXEL_SHIFT
