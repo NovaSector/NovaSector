@@ -171,6 +171,6 @@
 	<br> Well- That asside, we did get some new updated circuit boards. Industry standard gave us two sets of research constructor boards for redundancy, ,\
 	So we set the spare set in the special safe within the comms room."
 
-/obj/item/areaeditor/blueprints/tarkon
+/obj/item/blueprints/tarkon
 	desc = "Blueprints of the Tarkon surface breaching drill and several Tarkon base designs. Red, stamped text reads \"Confidential\" on the backside of it."
 	name = "Tarkon Design Prints"
