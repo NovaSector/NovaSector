@@ -482,7 +482,7 @@
 			if(!(initial(selected_container.reagent_flags) & OPENCONTAINER)) // Closed containers get both reagent name and units in the name
 				item_name_default = "[master_reagent.name] [item_name_default] ([volume_in_each]u)"
 			// NOVA EDIT ADDITION START - Autonamed hyposprays/smartdarts
-			if(ispath(container_style, /obj/item/reagent_containers/cup/vial) || ispath(container_style, /obj/item/reagent_containers/syringe/smartdart))
+			if(ispath(selected_container, /obj/item/reagent_containers/cup/vial) || ispath(selected_container, /obj/item/reagent_containers/syringe/smartdart))
 				item_name_default = "[master_reagent.name] [item_name_default]"
 			// NOVA EDIT ADDITION END
 			var/item_name = tgui_input_text(usr,
