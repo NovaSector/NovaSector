@@ -3,32 +3,3 @@
 # This list is alphabetized by User -> Filename KEEP IT THAT WAY
 # In the event that multiple org members are to be informed of changes
 # to the same file or dir, add them to the end under Multiple Owners
-
-# GoldenAlpharex
-/.github/workflows/ @GoldenAlpharex
-/SQL/ @GoldenAlpharex
-/tools/ @GoldenAlpharex
-/modular_nova/ @GoldenAlpharex
-/icons/ @GoldenAlpharex
-
-# Jolly-66
-/modular_nova/modules/mapping @Jolly-66 @Zergspower
-/tools/UpdatePaths @Jolly-66
-
-# Zergspower
-/modular_nova/modules/borgs @Zergspower
-/modular_nova/modules/borg_buffs @Zergspower
-/modular_nova/modules/ghostcafe @Zergspower
-/modular_nova/modules/hotel_rooms @Zergspower
-/modular_nova/master_files/code/modules/mapfluff @Zergspower
-/modular_nova/modules/ashwalkers @Zergspower
-/modular_nova/modules/aesthetics/keyed_doors @Zergspower
-
-# Multiple Owners
-
-# Maptainers
-/_maps/ @Jolly-66 @Zergspower
-
-# Expensive files that touching basically always cause performance problems
-## Init times
-**/*_EXPENSIVE.dm @GoldenAlpharex
