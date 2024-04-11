@@ -1454,8 +1454,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning,
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "gm" = (
 /obj/structure/table/reinforced,
@@ -6954,8 +6954,8 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "FC" = (
 /obj/structure/cable,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/machinery/power/micro_reactor,
+/turf/open/floor/iron/submarine,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "FD" = (
 /obj/effect/turf_decal/siding/wood,
@@ -7689,9 +7689,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/structure/cable,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner,
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Ir" = (
 /obj/effect/turf_decal/stripes/red/line{
@@ -8374,10 +8374,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "LA" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "LB" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -9014,12 +9015,14 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "OD" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "OF" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
@@ -9034,12 +9037,13 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "OK" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ON" = (
 /obj/machinery/atmospherics/miner/nitrogen,
@@ -9366,12 +9370,14 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "Qe" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Qi" = (
 /obj/structure/mirror/directional/north,
@@ -10216,13 +10222,16 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "TM" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/machinery/power/rtg/advanced,
 /obj/machinery/light/warm/directional/south,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "TU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -10444,9 +10453,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/structure/cable,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Va" = (
 /obj/effect/turf_decal/siding/dark{

@@ -41,6 +41,7 @@
 /obj/structure/sign/warning/electric_shock/directional/west,
 /obj/item/mod/module/orebag,
 /obj/item/trench_tool,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "fB" = (
@@ -142,7 +143,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "mX" = (
-/obj/structure/deployable_barricade/guardrail,
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 6
 	},
@@ -195,9 +195,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "rs" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 1
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 5
 	},
@@ -376,9 +373,6 @@
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "AX" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
@@ -563,14 +557,19 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "OR" = (
-/obj/effect/spawner/random/engineering/atmospherics_portable,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light/red/dim/directional/west,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"Pb" = (
+/obj/effect/spawner/random/engineering/atmospherics_portable,
+/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Pd" = (
 /obj/effect/spawner/random/structure/closet_private,
 /obj/effect/turf_decal/bot_white,
+/obj/item/gun/ballistic/automatic/pistol,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Py" = (
@@ -581,9 +580,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Qm" = (
-/obj/effect/spawner/random/engineering/tank,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/sign/warning/no_smoking/directional/south,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "QV" = (
@@ -908,7 +907,7 @@ hO
 hO
 Zh
 Zh
-io
+Pb
 Fa
 Zh
 Zh
@@ -1216,7 +1215,7 @@ hO
 hO
 hO
 Fq
-FJ
+oV
 oV
 oV
 oV
@@ -1308,7 +1307,7 @@ oV
 oV
 oV
 oV
-oV
+FJ
 de
 hO
 hO
