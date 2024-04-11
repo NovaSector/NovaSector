@@ -182,7 +182,7 @@
 
 /// Attempts to perform an eyegougening, with the user violating the target's eyes with their fingers. Shouldn't work with helmets or armor.
 /datum/species/proc/try_eyegouge(mob/living/carbon/human/user, mob/living/carbon/human/target, obj/item/bodypart/affecting)
-	target.visible_message(span_danger("[user] aims for [target]'s eyes with their fingers..."), ignored_mobs = user)
+	target.visible_message(span_danger("[user] aims for [target]'s eyes with [user.p_their()] fingers..."), ignored_mobs = user)
 	to_chat(user, span_danger("You loom your fingers above [target]'s eyes with malicious intent..."))
 	user.changeNext_move(EYEGOUGE_TIMER)
 	if(!do_after(user, EYEGOUGE_TIMER, target) || !grab_maneuver_state_check(user, target))
@@ -193,7 +193,7 @@
 	if(armor_block < EYEGOUGE_BLOCK_ARMOR)
 		eye_gouge = TRUE
 
-	target.visible_message(span_danger("[user.name] violently jams their fingers into [target.name]'s eyes! Ouch!"), \
+	target.visible_message(span_danger("[user.name] violently jams [user.p_their()] fingers into [target.name]'s eyes! Ouch!"), \
 		span_userdanger("[user.name] violently jams [user.p_their()] fingers into your eyes! Fuck!"), ignored_mobs = user)
 	to_chat(user, span_danger("You slam your fingers into [target.name]'s eyesockets. Brutal!"))
 
