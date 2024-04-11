@@ -1,0 +1,4 @@
+author: "Archemagus"
+delete-after: True
+changes:
+  - bugfix: "Consoles connecting their spites again on any dir. And modular PC connects with them too!"
