@@ -279,7 +279,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "bS" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -1160,7 +1160,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "ig" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/brown/anticorner{
@@ -5186,7 +5186,7 @@
 /area/ruin/space/has_grav/port_tarkon/mining)
 "Jg" = (
 /obj/structure/safe/floor,
-/obj/item/areaeditor/blueprints/tarkon,
+/obj/item/blueprints/tarkon,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
@@ -5902,7 +5902,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/machinery/modular_computer/console,
+/obj/machinery/modular_computer,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "NS" = (
@@ -6885,7 +6885,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "Uk" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -7461,7 +7461,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/item/areaeditor/blueprints/slime,
+/obj/item/blueprints/slime,
 /obj/item/slime_extract/grey,
 /obj/item/slime_extract/grey,
 /obj/item/slime_extract/grey,

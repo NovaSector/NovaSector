@@ -2689,6 +2689,7 @@
 	control_area = "/area/ruin/interdyne_planetary_base";
 	ailock = 1
 	},
+/obj/item/folder/syndicate/red/secretformula,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hi" = (
@@ -2930,6 +2931,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
+/obj/item/reagent_containers/dropper,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "hR" = (
@@ -3113,9 +3115,8 @@
 /obj/machinery/reagentgrinder{
 	pixel_x = 5
 	},
-/obj/item/storage/box/beakers/bluespace{
-	pixel_x = -5;
-	pixel_y = 3
+/obj/item/storage/box/syndie_kit/sansufentanyl{
+	pixel_x = -9
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
@@ -3480,14 +3481,18 @@
 /area/ruin/interdyne_planetary_base/med/morgue)
 "jj" = (
 /obj/structure/table/glass,
-/obj/item/clothing/glasses/science,
 /obj/machinery/firealarm/directional/west{
 	dir = 4
 	},
+/obj/item/storage/box/beakers/bluespace{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/clothing/glasses/science,
+/obj/item/reagent_containers/dropper,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 15
 	},
-/obj/item/reagent_containers/dropper,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "jk" = (

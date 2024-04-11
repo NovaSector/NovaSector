@@ -84,7 +84,7 @@
 	if (modsuit_skin == NONE)
 		modsuit_skin = "civilian"
 
-	modsuit.skin = lowertext(modsuit_skin)
+	modsuit.skin = LOWER_TEXT(modsuit_skin)
 
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
@@ -96,7 +96,7 @@
 
 	var/modsuit_skin_prefix = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_prefix)
 	if (modsuit_skin_prefix)
-		modsuit.theme.name = lowertext(modsuit_skin_prefix)
+		modsuit.theme.name = LOWER_TEXT(modsuit_skin_prefix)
 
 	// ensure we're applying our config theme changes, just in case
 	for(var/obj/item/part as anything in modsuit.mod_parts)
