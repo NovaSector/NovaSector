@@ -53,7 +53,7 @@
 	var/last_found
 
 	///Flags SecBOTs use on what to check on targets when arresting, and whether they should announce it to security/handcuff their target
-	var/security_mode_flags = SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_RECORDS | SECBOT_HANDCUFF_TARGET
+	var/security_mode_flags = SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_RECORDS | SECBOT_HANDCUFF_TARGET | SECBOT_CHECK_WEAPONS // NOVA EDIT CHANGE - Original: var/security_mode_flags = SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_RECORDS | SECBOT_HANDCUFF_TARGET
 //	Selections: SECBOT_DECLARE_ARRESTS | SECBOT_CHECK_IDS | SECBOT_CHECK_WEAPONS | SECBOT_CHECK_RECORDS | SECBOT_HANDCUFF_TARGET
 
 	///On arrest, charges the violator this much. If they don't have that much in their account, they will get beaten instead
@@ -180,7 +180,7 @@
 /mob/living/simple_animal/bot/secbot/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)//shocks only make him angry
 	if(base_speed < initial(base_speed) + 3)
 		base_speed += 3
-		addtimer(VARSET_CALLBACK(src, base_speed, base_speed - 3), 60)
+		addtimer(VARSET_CALLBACK(src, base_speed, base_speed - 3), 6 SECONDS)
 		playsound(src, 'sound/machines/defib_zap.ogg', 50)
 		visible_message(span_warning("[src] shakes and speeds up!"))
 

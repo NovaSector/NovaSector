@@ -578,6 +578,12 @@
 /obj/item/stack/sheet/mineral/uranium{
 	amount = 10
 	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 10
+	},
+/obj/item/stack/sheet/mineral/titanium{
+	amount = 10
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "cC" = (
@@ -3366,6 +3372,11 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
+"ox" = (
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/door/window/survival_pod/left/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "oA" = (
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/west,
@@ -7044,15 +7055,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/item/storage/box/stockparts/basic{
-	pixel_y = 6
-	},
-/obj/item/storage/box/stockparts/basic{
-	pixel_x = 8
-	},
-/obj/item/storage/box/beakers{
+/obj/item/storage/box/stockparts/deluxe{
 	pixel_x = -4;
 	pixel_y = -2
+	},
+/obj/item/storage/box/stockparts/deluxe{
+	pixel_x = 8
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
@@ -7110,6 +7118,7 @@
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/door/window/survival_pod/left/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "Gg" = (
@@ -9603,6 +9612,7 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/structure/cable,
+/obj/item/storage/part_replacer/bluespace,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "Rl" = (
@@ -10271,6 +10281,7 @@
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/blood/o_minus,
+/obj/item/defibrillator/loaded,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Ud" = (
@@ -13431,8 +13442,8 @@ mi
 Xz
 PS
 VB
-VB
-VB
+ox
+ox
 Hz
 tm
 RH
@@ -13541,8 +13552,8 @@ kz
 Fx
 we
 VB
-VB
-VB
+ox
+ox
 Hz
 Nl
 Jv
@@ -13596,8 +13607,8 @@ mT
 WW
 LF
 VB
-VB
-VB
+ox
+ox
 Hz
 LB
 Gz
@@ -13707,7 +13718,7 @@ DH
 dn
 eO
 Gf
-VB
+ox
 Hz
 KT
 Ku

@@ -10,11 +10,13 @@
 
 /datum/component/connectable_computer/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_update_overlays))
+	RegisterSignal(parent, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(on_dir_change))
 
 	update_neighbors()
 
 /datum/component/connectable_computer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_OVERLAYS)
+	UnregisterSignal(parent, COMSIG_ATOM_POST_DIR_CHANGE)
 
 	update_neighbors()
 
@@ -42,6 +44,28 @@
 			return target
 
 	return null
+
+/**
+ * Handles COMSIG_ATOM_POST_DIR_CHANGE for machines.
+ * 
+ * Because ingame construction sets dir after Initialize and LateInitialize
+ * And changing dir doesn't trigger appearance updates
+ *
+ * Arguments:
+ * * source - The parent we're manipulating
+ * * old_dir - old dir
+ * * new_dir - new dir
+ */
+/datum/component/connectable_computer/proc/on_dir_change(datum/source, old_dir, new_dir)
+	SIGNAL_HANDLER
+
+	if (old_dir == new_dir)
+		return
+	
+	// Call appearance update on us and our neighbors
+	var/obj/machinery/parent_machine = parent
+	parent_machine.update_appearance()
+	update_neighbors()
 
 /**
  * Handles COMSIG_ATOM_UPDATE_OVERLAYS for machines.

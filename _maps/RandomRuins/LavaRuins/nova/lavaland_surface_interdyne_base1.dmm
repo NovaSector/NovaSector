@@ -4288,6 +4288,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/full,
 /obj/machinery/door/firedoor,
+/obj/item/storage/box/syndie_kit/sansufentanyl{
+	pixel_x = -3
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "JU" = (
@@ -5661,6 +5664,7 @@
 /area/ruin/interdyne_planetary_base/med)
 "UE" = (
 /obj/structure/table/reinforced,
+/obj/item/folder/syndicate/red/secretformula,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (
