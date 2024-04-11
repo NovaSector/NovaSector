@@ -309,3 +309,42 @@
   - balance: Adjusted amount of power required before APC's arc
   SomeRandomOwl, Lt3:
   - bugfix: Synth power cord works again
+2024-04-11:
+  00-Steven, SyncIt21:
+  - bugfix: Wrench table deconstruction gives the right materials again.
+  - bugfix: Screwdriver table deconstruction only deconstructs the top again.
+  JohnFulpWillard, Zeek the Rat:
+  - rscadd: Battle Arcade has been completely overhauled in a new progression system,
+      this time using TGUI.
+  - rscadd: The Curator's keys can now reset arcade cabinets.
+  - balance: You now need to be literate to play arcade games, except for Mediborg's
+      Amputation Adventure.
+  - bugfix: You can no longer screwdriver emagged arcade consoles. Accept your fate.
+  - bugfix: Silicons can no longer play Mediborg's Amputation Adventure.
+  NovaBot13:
+  - admin: LUA - Adds a new library called handler_group. Include it in your files
+      by doing require('handler_group')
+  - bugfix: Autolathe correctly computes the print amount of custom material items
+      like toolboxes and doesn't grey out its print button
+  - bugfix: Fixes Radiation Hood not having FOV blockage
+  - qol: Atmospherics Overalls now can store fire extinguishers in the suit storage
+      slot
+  - balance: Increased Advanced Extinguisher capacity to 100u
+  - refactor: refactors how objects are deconstructed in relation to the `NO_DECONSTRUCTION`
+      flag. Certain objects & machinery may display different tool interactions &
+      behaviours when destroyed/deconstructed. Report these changes if you feel like
+      they are bugs
+  - qol: Added balloon alerts whenever you start plunging something (i.e )
+  - bugfix: Mech pads, door buttons, message monitors, tram machines, abductor consoles
+      & holodeck computers now use power.
+  - bugfix: fixes ody sleeper UI not updating to new chems to inject.
+  - bugfix: fixes ody sleeper not telling user why they can't pick up a person.
+  - code_imp: gives a common method for giving reagent list data to .tsx
+  - bugfix: Medbots can no longer be used as especially large golden ID cards
+  - refactor: Blueprints now use TGUI.
+  - qol: Blueprints can now be used while lying down.
+  RaShCat:
+  - bugfix: custom say able to use unicode.
+  tf-4:
+  - bugfix: Trying to buy a NIFsoft without a NIF implant will now tell you why it
+      failed.
