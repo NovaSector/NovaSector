@@ -62,7 +62,7 @@
 	if (old_dir == new_dir)
 		return
 	
-	// Call appereance update on us and our neighbors
+	// Call appearance update on us and our neighbors
 	var/obj/machinery/parent_machine = parent
 	parent_machine.update_appearance()
 	update_neighbors()
