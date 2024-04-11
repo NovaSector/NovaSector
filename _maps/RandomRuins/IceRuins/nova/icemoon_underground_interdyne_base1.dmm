@@ -620,6 +620,21 @@
 	},
 /obj/structure/rack,
 /obj/effect/turf_decal/box/white,
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "bR" = (
@@ -765,6 +780,9 @@
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/box/white,
 /obj/item/pickaxe,
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "ch" = (
@@ -4229,6 +4247,9 @@
 /obj/structure/table/glass/plasmaglass,
 /obj/item/skillchip/wine_taster,
 /obj/item/skillchip/job/roboticist,
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "kX" = (
@@ -4413,6 +4434,7 @@
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "lq" = (
 /obj/machinery/light_switch/directional/west,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
 "lr" = (
@@ -7103,6 +7125,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"CG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/plating/reinforced,
+/area/ruin/interdyne_planetary_base/eng)
 "CW" = (
 /obj/structure/shipping_container/kosmologistika{
 	pixel_x = -6;
@@ -10304,7 +10332,7 @@ lX
 ni
 my
 nw
-pp
+CG
 pu
 py
 pC
