@@ -8,7 +8,7 @@ import {
   Section,
 } from '../../components';
 
-export type BeakerReagent = {
+type BeakerReagent = {
   name: string;
   volume: number;
 };
