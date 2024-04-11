@@ -257,14 +257,14 @@
 	name = "Science Guard"
 	jobtype = /datum/job/science_guard
 
-	belt = /obj/item/modular_computer/pda/science
+	belt = /obj/item/storage/belt/security/department_guard/science
 	ears = /obj/item/radio/headset/headset_sci
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova
 	shoes = /obj/item/clothing/shoes/jackboots
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova
-	r_pocket = 
-	l_pocket = 
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/science
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/science
@@ -357,14 +357,14 @@
 	name = "Orderly"
 	jobtype = /datum/job/orderly
 
-	belt = /obj/item/modular_computer/pda/medical
+	belt = /obj/item/storage/belt/security/department_guard/medical
 	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/blue
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/medical
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -451,14 +451,14 @@
 	name = "Engineering Guard"
 	jobtype = /datum/job/engineering_guard
 
-	belt = /obj/item/modular_computer/pda/engineering
+	belt = /obj/item/storage/belt/security/department_guard/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	shoes = /obj/item/clothing/shoes/workboots
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/yellow
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/engineering
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -551,15 +551,15 @@
 	name = "Customs Agent"
 	jobtype = /datum/job/customs_agent
 
-	belt = /obj/item/modular_computer/pda/cargo
+	belt = /obj/item/storage/belt/security/department_guard/cargo
 	ears = /obj/item/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent
 	glasses = /obj/item/clothing/glasses/hud/gun_permit
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/orange
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/cargo
 
 	backpack = /obj/item/storage/backpack
 	satchel = /obj/item/storage/backpack/satchel
@@ -645,14 +645,14 @@
 	name = "Bouncer"
 	jobtype = /datum/job/bouncer
 
-	belt = /obj/item/modular_computer/pda/bar
+	belt = /obj/item/storage/belt/security/department_guard/service
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard
-	l_pocket = /obj/item/restraints/handcuffs/cable/green
-	r_pocket = /obj/item/assembly/flash/handheld
+	l_pocket = /obj/item/modular_computer/pda/bar
+	r_pocket = /obj/item/flashlight
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	backpack = /obj/item/storage/backpack
