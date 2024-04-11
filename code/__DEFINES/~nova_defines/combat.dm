@@ -80,13 +80,13 @@
 		return FALSE
 	// psst, future coder - if you're adding more precise interactions, e.g. eye gouging/strangling, you're gonna need to make this less precise!
 	// just remove the deprecise_zone() call. account for the specifics after!
-	var/obj/item/bodypart/affecting = target.get_bodypart(deprecise_zone(user.zone_selected))
+	var/obj/item/bodypart/affecting = target.get_bodypart(user.zone_selected)
 	if(!affecting)
 		return FALSE
 	. = FALSE
 	if(HAS_TRAIT(user, TRAIT_PACIFISM)) //They're all violent acts. Even the suplex, which doesn't apply brute. (Yet. Maybe.)
 		return
-	switch(deprecise_zone(user.zone_selected))
+	switch(user.zone_selected)
 		if(BODY_ZONE_HEAD)
 			if(!(target.body_position == LYING_DOWN))
 				target.balloon_alert(user, "not floored!")
@@ -105,6 +105,7 @@
 			if(!(target.body_position == LYING_DOWN))
 				target.balloon_alert(user, "not floored!")
 				return FALSE
+			// Eyegouge!
 			. = TRUE
 			try_eyegouge(user, target, affecting)
 		else // Assuming we're going for a limb...
@@ -202,7 +203,7 @@
 		target.adjustOrganLoss(ORGAN_SLOT_EYES, 10) // Guaranteed to blur vision... I think.
 	target.apply_damage(15, BRUTE, affecting, armor_block, wound_bonus = fun_times_at_the_eyegouge_factory, bare_wound_bonus = fun_times_at_the_eyegouge_factory)
 	playsound(target, 'sound/weapons/cqchit2.ogg', 70)
-	log_combat(user, target, "eyegouges", "[target.name]")
+	log_combat(user, target, "gouges", "[target.name]'s eyes")
 
 /// Attempts to perform a limb dislocation, with the user violently twisting one of target's limbs (as passed in). Only useful for extremities, because only extremities can eat dislocations.
 /datum/species/proc/try_dislocate(mob/living/carbon/human/user, mob/living/carbon/human/target, obj/item/bodypart/affecting)
