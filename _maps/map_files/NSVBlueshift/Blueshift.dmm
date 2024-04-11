@@ -9411,6 +9411,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"bPS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "bPZ" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -15078,10 +15085,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/checkpoint/customs)
-"cPg" = (
-/obj/machinery/duct,
-/turf/open/floor/iron/dark,
-/area/station/engineering/atmos/test_chambers)
 "cPk" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -27793,6 +27796,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs)
+"fkL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "fkN" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/camera/directional/east{
@@ -27928,13 +27936,6 @@
 "fmU" = (
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology/control)
-"fnb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "fnc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -41769,6 +41770,10 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
+"hYG" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/station/engineering/atmos/test_chambers)
 "hYI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -52134,9 +52139,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
 /obj/structure/rack,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/suit/hazardvest,
@@ -53113,10 +53115,6 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
-"kfT" = (
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor,
-/area/station/engineering/atmos/test_chambers)
 "kfW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -58257,7 +58255,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/test_chambers)
 "leA" = (
@@ -70594,6 +70594,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/science/research/abandoned)
+"nBu" = (
+/obj/structure/cable,
+/obj/machinery/duct,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "nBz" = (
 /obj/structure/chair/sofa/left/brown,
 /obj/effect/decal/cleanable/dirt{
@@ -84033,7 +84040,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/duct,
 /obj/machinery/shower/directional/south,
 /obj/effect/turf_decal/stripes/end,
@@ -88065,13 +88071,6 @@
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"qQi" = (
-/obj/structure/cable,
-/obj/machinery/duct,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "qQj" = (
 /obj/structure/closet/crate,
 /obj/machinery/light/small/directional/west,
@@ -121330,6 +121329,10 @@
 /obj/machinery/atmospherics/pipe/bridge_pipe/supply/hidden{
 	dir = 4
 	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/atmos/test_chambers)
+"xcP" = (
+/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/test_chambers)
 "xcT" = (
@@ -163906,8 +163909,8 @@ gpz
 gpz
 gpz
 gpz
-qQi
-fnb
+nBu
+bPS
 puT
 puT
 ldC
@@ -164155,13 +164158,13 @@ nuU
 pfq
 wSf
 vLv
-puX
+fkL
 qmT
-cPg
+xcP
 isg
 jXB
 qeW
-cPg
+xcP
 hZm
 cnV
 sQQ
@@ -165705,7 +165708,7 @@ sQQ
 ovY
 sQQ
 sQQ
-kfT
+hYG
 sQQ
 lmd
 vFr
@@ -165962,7 +165965,7 @@ sQQ
 sQQ
 sQQ
 sQQ
-kfT
+hYG
 sQQ
 lmd
 lmd
@@ -166219,7 +166222,7 @@ eof
 wlM
 sQQ
 sQQ
-kfT
+hYG
 sQQ
 sQQ
 des
