@@ -344,16 +344,16 @@
 	for(var/datum/wound/wound as anything in wounds)
 		switch(wound.severity)
 			if(WOUND_SEVERITY_TRIVIAL)
-				// check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)].")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				// check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [LOWER_TEXT(wound.name)].")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
 				check_list += "\t [span_danger("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)].")]" // NOVA EDIT - Medical overhaul-ish
 			if(WOUND_SEVERITY_MODERATE)
-				// check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				// check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [LOWER_TEXT(wound.name)]!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
 				check_list += "\t [span_warning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!")]" // NOVA EDIT - Medical overhaul-ish
 			if(WOUND_SEVERITY_SEVERE)
-				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [LOWER_TEXT(wound.name)]!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
 				check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!")]" // NOVA EDIT - Medical overhaul-ish
 			if(WOUND_SEVERITY_CRITICAL)
-				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [lowertext(wound.name)]!!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
+				// check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [LOWER_TEXT(wound.name)]!!")]" // NOVA EDIT - Medical overhaul-ish - ORIGINAL
 				check_list += "\t [span_boldwarning("Your [name] is suffering [wound.a_or_from] [wound.get_topic_name(owner)]!!")]" // NOVA EDIT - Medical overhaul-ish
 
 	for(var/obj/item/embedded_thing in embedded_objects)
@@ -1182,10 +1182,11 @@
 	bodypart_overlays -= overlay
 	overlay.removed_from_limb(src)
 
-/obj/item/bodypart/deconstruct(disassembled = TRUE)
+/obj/item/bodypart/atom_deconstruct(disassembled = TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
 	drop_organs()
+
 	return ..()
 
 /// INTERNAL PROC, DO NOT USE

@@ -10,10 +10,9 @@
 	/// How long it takes to open/close the door
 	var/manual_actuation_delay = 1 SECONDS
 
-/obj/structure/mineral_door/manual_colony_door/deconstruct(disassembled = TRUE)
+/obj/structure/mineral_door/manual_colony_door/atom_deconstruct(disassembled = TRUE)
 	if(disassembled)
 		new disassembled_type(get_turf(src))
-	qdel(src)
 
 // Pickaxes won't dig these apart
 /obj/structure/mineral_door/manual_colony_door/pickaxe_door(mob/living/user, obj/item/item_in_question)
