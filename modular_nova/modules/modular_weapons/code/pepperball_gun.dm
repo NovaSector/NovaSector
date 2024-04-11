@@ -79,11 +79,3 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	max_ammo = 15
-
-// Gunset for the pepperball pistol
-
-/obj/item/storage/toolbox/guncase/nova/pistol/pepperball
-	name = "Pepperball AHG gunset"
-
-	weapon_to_spawn = /obj/item/gun/ballistic/automatic/pistol/pepperball
-	extra_to_spawn = /obj/item/ammo_box/magazine/pepperball
