@@ -125,7 +125,8 @@
 	BELT
 */
 /obj/item/storage/belt/security/department_guard
-	icon_state = "security"
+	icon_state = "engine"
+	worn_icon_state = "engine"
 	icon = 'modular_nova/modules/goofsec/icons/belts.dmi'
 	worn_icon = 'modular_nova/modules/goofsec/icons/belt_worn.dmi'
 	unique_reskin = null
