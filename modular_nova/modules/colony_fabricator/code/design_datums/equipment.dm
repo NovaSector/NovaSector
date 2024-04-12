@@ -12,9 +12,9 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
-/datum/design/soup_pot
+/datum/design/colony_soup_pot
 	name = "Soup Pot"
-	id = "soup_pot"
+	id = "colony_soup_pot"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5,
