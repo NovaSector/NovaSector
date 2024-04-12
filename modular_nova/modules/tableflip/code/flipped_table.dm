@@ -70,7 +70,7 @@
 
 /obj/structure/table/CtrlShiftClick(mob/living/user)
 	. = ..()
-	if(!istype(user) || !user.can_interact_with(src) || isobserver(user) || iscorticalborer(user))
+	if(!istype(user) || !user.can_interact_with(src) || iscorticalborer(user))
 		return
 	if(!can_flip)
 		return
