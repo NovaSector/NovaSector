@@ -8297,4 +8297,10 @@
 #include "modular_np_lethal\loadout_items\actual_loadout_changes\loadout_datum_signature.dm"
 #include "modular_np_lethal\loadout_items\actual_loadout_changes\loadout_datum_suit.dm"
 #include "modular_np_lethal\loadout_items\actual_loadout_changes\loadout_datum_under.dm"
+#include "modular_np_lethal\magic_quirk\code\magic_quirk.dm"
+#include "modular_np_lethal\magic_quirk\code\magic_quirk_particles.dm"
+#include "modular_np_lethal\magic_quirk\code\spells\bonded_item.dm"
+#include "modular_np_lethal\magic_quirk\code\spells\lesser_arcane_barrage.dm"
+#include "modular_np_lethal\magic_quirk\code\spells\lesser_fleshmend.dm"
+#include "modular_np_lethal\magic_quirk\code\spells\lesser_shift.dm"
 // END_INCLUDE
