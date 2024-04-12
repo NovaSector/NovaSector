@@ -1,8 +1,10 @@
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
+#define CONSTRICT_ESCAPE_CHANCE 40
 
 /datum/action/innate/constrict
 	name = "Constrict"
 	desc = "Left click to coil/uncoil your powerful tail around something, right click to begin crushing."
+	check_flags = AB_CHECK_LYING|AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED|AB_CHECK_PHASED
 
 	button_icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
 	button_icon_state = "constrict" 
@@ -19,20 +21,14 @@
 
 	QDEL_NULL(tail)
 
-/datum/action/innate/constrict/IsAvailable(feedback)
-	. = ..()
-	
-	if (!.)
-		return FALSE
-
-	if (owner.incapacitated())
-		if (feedback)
-			owner.balloon_alert(owner, "incapacitated!")
-		return FALSE
-
 /datum/action/innate/constrict/Trigger(trigger_flags)	
 	if(!..())
 		return FALSE
+
+	if (!tail?.constricted)
+		if (isliving(owner.pulling) && owner.grab_state >= GRAB_AGGRESSIVE && coil_checks(owner.pulling))
+			do_constriction(owner.pulling)
+			return FALSE // return false so it doesnt do the click action
 
 	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
 		unset_ranged_ability(owner)
@@ -52,16 +48,9 @@
 	var/mob/living/living_target = clicked_on
 	if (living_target == caller)
 		return FALSE
-	if (!owner.Adjacent(living_target))
-		owner.balloon_alert(owner, "too far!")
+	if (!coil_checks(living_target))
 		return FALSE
-	if (living_target.buckled)
-		owner.balloon_alert(owner, "unbuckle [owner.p_them()] first!")
-		return FALSE
-	if (owner.buckled)
-		owner.balloon_alert(owner, "unbuckle yourself first!")
-		return FALSE
-	
+
 	caller.balloon_alert_to_viewers("starts coiling tail")
 	caller.visible_message(span_warning("[caller] starts coiling their tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]."), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[caller] starts coiling their tail around you!"))
@@ -72,23 +61,31 @@
 	REMOVE_TRAIT(owner, TRAIT_HANDS_BLOCKED, ACTION_TRAIT)
 	if (!result)
 		return FALSE
-	
-	caller.visible_message(span_boldwarning("[caller] coils their tail around [living_target]"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
-	to_chat(living_target, span_userdanger("[caller] coils their tail around you!"))
+
+	return do_constriction(living_target)
+
+/datum/action/innate/constrict/proc/do_constriction(mob/living/living_target)
+	owner.visible_message(span_boldwarning("[owner] coils their tail around [living_target]"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
+	to_chat(living_target, span_userdanger("[owner] coils their tail around you! Attack it or resist to escape!"))
 	playsound(get_turf(owner), 'modular_nova/modules/emotes/sound/emotes/hiss.ogg', 25, TRUE)
 	
-	tail = new /obj/structure/serpentine_tail(owner.loc, caller, src)
+	tail = new /obj/structure/serpentine_tail(owner.loc, owner, src)
 	tail.set_constricted(living_target)
 	return TRUE
-	
-/datum/action/innate/constrict/proc/coil_checks(mob/living/target)
+
+/datum/action/innate/constrict/proc/coil_checks(mob/living/target, silent = FALSE)
+	if (!owner.Adjacent(target))
+		if (!silent)
+			owner.balloon_alert(owner, "too far!")
+		return FALSE
 	if (target.buckled)
-		owner.balloon_alert(owner, "unbuckle [owner.p_them()] first!")
+		if (!silent)
+			owner.balloon_alert(owner, "unbuckle [target.p_them()] first!")
 		return FALSE
 	if (owner.buckled)
-		owner.balloon_alert(owner, "unbuckle yourself first!")
+		if (!silent)
+			owner.balloon_alert(owner, "unbuckle yourself first!")
 		return FALSE
-
 	return TRUE
 
 /obj/structure/serpentine_tail
@@ -103,9 +100,8 @@
 	buckle_lying = FALSE
 	layer = ABOVE_OBJ_LAYER
 	anchored = TRUE
-	density = TRUE
+	density = FALSE
 	max_integrity = 60
-	sound
 
 	/// The mob we are originating from. Used for redirecting damage.
 	var/mob/living/carbon/human/owner
@@ -235,11 +231,18 @@
 	return ..()
 
 /obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
-	/*if (user == constricted)
-		to_chat(user, span_warning("You try to squeeze your way out of [owner]'s grasp..."))
-		if (!do_after(user, 1 SECONDS, src, IGNORE_HELD_ITEM))
+	if (user == constricted)
+		user.visible_message("[user] tries to squeeze [user.p_their()] way out of [owner]'s grasp...", span_warning("You try to squeeze your way out of [owner]'s grasp..."), ignored_mobs = owner)
+		to_chat(owner, span_boldwarning("[user] tries to squeeze [user.p_their()] way out of your tail's grasp!"))
+		if (!do_after(user, 4 SECONDS, src, IGNORE_HELD_ITEM))
 			return FALSE
-		if (!prob(CONSTRICT_ESCAPE_CHANCE))*/
+		if (!prob(CONSTRICT_ESCAPE_CHANCE))
+			owner.visible_message(span_warning("[user] fails to squeeze out of [owner]'s grasp!"), span_warning("You fail to squeeze out of [owner]'s grasp!"), ignored_mobs = owner)
+			to_chat(owner, span_warning("[user] fails to squeeze out of your grasp!"))
+			return FALSE
+		owner.visible_message(span_warning("[user] squeezes out of [owner]'s grasp!"), span_warning("You squeeze out of [owner]'s grasp!"), ignored_mobs = owner)
+		to_chat(owner, span_boldwarning("[user] squeezes out of your tail's grasp!"))
+		return ..()
 
 	if (!constricted)
 		return ..()
@@ -270,9 +273,6 @@
 		RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
 		constricted.forceMove(get_turf(src))
 		buckle_mob(constricted)
-		owner.grab(constricted)
-		if (owner.grab_state < GRAB_AGGRESSIVE)
-			owner.setGrabState(GRAB_AGGRESSIVE) // even silicons get aggrograbbed
 		constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
 
 /obj/structure/serpentine_tail/proc/toggle_crushing()
@@ -313,7 +313,7 @@
 
 /obj/structure/serpentine_tail/proc/set_owner(mob/living/carbon/human/new_owner)
 	if (owner)
-		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB))
+		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_SET_BODY_POSITION))
 
 	owner?.hide_taur_body = FALSE
 	owner = new_owner
@@ -321,6 +321,7 @@
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(owner_moved))
 	RegisterSignal(owner, COMSIG_LIVING_GRAB, PROC_REF(owner_did_grab))
+	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
 	owner?.update_mutant_bodyparts()
 
 /obj/structure/serpentine_tail/proc/set_action(datum/action/innate/constrict/action)
@@ -337,6 +338,12 @@
 
 	qdel(src)
 
+/obj/structure/serpentine_tail/proc/owner_body_position_changed(datum/signal_source, old_position, new_position)
+	SIGNAL_HANDLER
+	
+	if (new_position == LYING_DOWN)
+		qdel(src)
+
 /obj/structure/serpentine_tail/proc/constricted_moved(datum/signal_source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 
@@ -352,7 +359,9 @@
 /obj/structure/serpentine_tail/proc/owner_did_grab(datum/signal_source, mob/living/grabbing)
 	SIGNAL_HANDLER
 
-	if (grabbing != constricted)
-		INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
+	if (grabbing == constricted)
+		owner.balloon_alert(owner, "can't grab something you're constricting!") // since we use custom escape logic, using aggrograbs would be actual fucking torture
+		return COMPONENT_CANCEL_ATTACK_CHAIN
 	
 #undef CONSTRICT_BASE_PIXEL_SHIFT
+#undef CONSTRICT_ESCAPE_CHANCE
