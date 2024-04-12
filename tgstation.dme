@@ -8286,6 +8286,7 @@
 #include "modular_np_lethal\epic_loot\code\loot_structures\toolbox.dm"
 #include "modular_np_lethal\epic_loot\code\loot_structures\wall_jackets.dm"
 #include "modular_np_lethal\epic_loot\code\storage_containers\containers.dm"
+#include "modular_np_lethal\implants\code\razorwire.dm"
 #include "modular_np_lethal\knee_pads\code\knee_pads.dm"
 #include "modular_np_lethal\loadout_items\injectors.dm"
 #include "modular_np_lethal\loadout_items\mech_beacon.dm"
