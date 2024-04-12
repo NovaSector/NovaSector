@@ -284,14 +284,8 @@
 
 /// A utility function for `/datum/strippable_item`s to start unequipping an item from a mob.
 <<<<<<< HEAD
-/proc/start_unequip_mob(obj/item/item, mob/source, mob/user, strip_delay)
-	//NOVA EDIT ADDITION - THIEVING GLOVES
-	//if (!do_after(user, strip_delay || item.strip_delay, source, interaction_key = REF(item)))
-	if (!do_after(user, (strip_delay || item.strip_delay) * (HAS_TRAIT(user, TRAIT_STICKY_FINGERS) ? THIEVING_GLOVES_STRIP_SLOWDOWN : NORMAL_STRIP_SLOWDOWN), source, interaction_key = REF(item)))
-=======
 /proc/start_unequip_mob(obj/item/item, mob/source, mob/user, strip_delay, hidden = FALSE)
-	if (!do_after(user, strip_delay || item.strip_delay, source, interaction_key = REF(item), hidden = hidden))
->>>>>>> 1456aecdb46 ([No GBP] Removes cogbar from some stealthy actions (#82593))
+	if (!do_after(user, (strip_delay || item.strip_delay) * (HAS_TRAIT(user, TRAIT_STICKY_FINGERS) ? THIEVING_GLOVES_STRIP_SLOWDOWN : NORMAL_STRIP_SLOWDOWN), source, interaction_key = REF(item), hidden = hidden)) // NOVA EDIT CHANGE - ORIGINAL: if (!do_after(user, strip_delay || item.strip_delay, source, interaction_key = REF(item), hidden = hidden))
 		return FALSE
 
 	return TRUE
