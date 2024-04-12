@@ -13,13 +13,15 @@
 /atom/movable/screen/alert/status_effect/drunk
 	desc = "All that alcohol you've been drinking is impairing your speech, \
 		motor skills, and mental cognition. Make sure to act like it. \
-        Check your current drunkenness level using your mood status."
+		Check your current drunkenness level using your mood status."
 
+/// Adds a moodlet entry based on if the mob currently has alcohol processing in their system.
 /datum/mood/proc/get_alcohol_processing(mob/user)
     if(user.reagents.reagent_list.len)
         for(var/datum/reagent/consumable/ethanol/booze in user.reagents.reagent_list)
             return span_notice("I'm still processing that alcohol I drank...\n")
 
+/// Adds a moodlet entry based on the current blood alcohol content of the mob.
 /datum/mood/proc/get_drunk_mood(mob/user)
     var/mob/living/target = user
     var/blood_alcohol_content = target.get_blood_alcohol_content()
