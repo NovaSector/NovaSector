@@ -6141,7 +6141,8 @@
 /area/ruin/interdyne_planetary_base/eng)
 "pq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall/r_wall/syndicate,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "pr" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
@@ -7125,12 +7126,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"CG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/open/floor/plating/reinforced,
-/area/ruin/interdyne_planetary_base/eng)
 "CW" = (
 /obj/structure/shipping_container/kosmologistika{
 	pixel_x = -6;
@@ -7418,6 +7413,10 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"Pp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/eng)
 "PD" = (
 /obj/structure/railing,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -10331,8 +10330,8 @@ lX
 lX
 ni
 my
-nw
-CG
+mZ
+pp
 pu
 py
 pC
@@ -10390,7 +10389,7 @@ lT
 mR
 nj
 pU
-jY
+nw
 pq
 jY
 jY
@@ -10450,8 +10449,8 @@ kk
 kk
 mA
 kk
-me
-qZ
+Pp
+jY
 as
 ab
 ab
@@ -10509,9 +10508,9 @@ dZ
 mb
 mB
 kk
-ac
+me
+qZ
 as
-ab
 ab
 ab
 ab
@@ -10568,8 +10567,8 @@ le
 mc
 mW
 kk
-ab
-ab
+ac
+as
 ab
 ab
 ab
