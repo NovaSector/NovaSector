@@ -1,5 +1,7 @@
+/// When a mob is constricted, its pixel_x will be modified by this. Reverted on unconstriction. Modified by sprite scaling.
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
-#define CONSTRICT_ESCAPE_CHANCE 40
+/// The base chance a mob has to escape from a constriction.	
+#define CONSTRICT_ESCAPE_CHANCE 70
 
 /datum/action/innate/constrict
 	name = "Constrict"
@@ -13,8 +15,10 @@
 
 	click_action = TRUE
 
+	/// The tail we use to constrict mobs with. Nullable, if inactive.
 	var/obj/structure/serpentine_tail/tail
-	var/coil_delay = 4 SECONDS
+	/// The base time it takes for us to constrict a mob.
+	var/base_coil_delay = 4 SECONDS
 
 /datum/action/innate/constrict/Destroy()
 	. = ..()
@@ -25,18 +29,14 @@
 	if(!..())
 		return FALSE
 
-	if (!tail?.constricted)
-		if (isliving(owner.pulling) && owner.grab_state >= GRAB_AGGRESSIVE && coil_checks(owner.pulling))
-			do_constriction(owner.pulling)
-			return FALSE // return false so it doesnt do the click action
-
 	if (trigger_flags & TRIGGER_SECONDARY_ACTION)
 		unset_ranged_ability(owner)
 		if (isnull(tail))
 			owner.balloon_alert(owner, "coil tail first!")
 			return FALSE
 		tail.toggle_crushing()
-		return TRUE
+		return FALSE
+	return TRUE
 
 /datum/action/innate/constrict/do_ability(mob/living/caller, atom/clicked_on)
 	if (!isliving(clicked_on))
@@ -47,33 +47,36 @@
 		return TRUE
 	var/mob/living/living_target = clicked_on
 	if (living_target == caller)
-		return FALSE
-	if (!coil_checks(living_target))
-		return FALSE
+		return TRUE
+	if (!can_coil_target(living_target))
+		return TRUE
 
 	caller.balloon_alert_to_viewers("starts coiling tail")
 	caller.visible_message(span_warning("[caller] starts coiling their tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]."), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[caller] starts coiling their tail around you!"))
 
-	ADD_TRAIT(owner, TRAIT_HANDS_BLOCKED, ACTION_TRAIT)
+	owner.changeNext_move(10 MINUTES) // prevent interaction during this
 	unset_ranged_ability(owner) // because we sleep
-	var/result = do_after(caller, coil_delay, living_target, IGNORE_HELD_ITEM, extra_checks = CALLBACK(src, PROC_REF(coil_checks), living_target))
-	REMOVE_TRAIT(owner, TRAIT_HANDS_BLOCKED, ACTION_TRAIT)
+	var/result = do_after(caller, base_coil_delay, living_target, IGNORE_HELD_ITEM, extra_checks = CALLBACK(src, PROC_REF(can_coil_target), living_target))
+	owner.changeNext_move(-10 MINUTES)
 	if (!result)
-		return FALSE
+		return TRUE
 
-	return do_constriction(living_target)
+	do_constriction(living_target)
+	return TRUE
 
+/// Actually constricts the mob, by setting constricted to this mob and spawning a tail if needed.
 /datum/action/innate/constrict/proc/do_constriction(mob/living/living_target)
-	owner.visible_message(span_boldwarning("[owner] coils their tail around [living_target]"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
-	to_chat(living_target, span_userdanger("[owner] coils their tail around you! Attack it or resist to escape!"))
-	playsound(get_turf(owner), 'modular_nova/modules/emotes/sound/emotes/hiss.ogg', 25, TRUE)
+	owner.visible_message(span_boldwarning("[owner] coils [owner.p_their()] tail around [living_target]"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
+	to_chat(living_target, span_userdanger("[owner] coils [owner.p_their()] tail around you!"))
 	
-	tail = new /obj/structure/serpentine_tail(owner.loc, owner, src)
+	if (!tail)
+		tail = new /obj/structure/serpentine_tail(owner.loc, owner, src)
 	tail.set_constricted(living_target)
 	return TRUE
 
-/datum/action/innate/constrict/proc/coil_checks(mob/living/target, silent = FALSE)
+/// Returns TRUE if the target can be constricted, FALSE otherwise. If silent is TRUE, sends no feedback messages.
+/datum/action/innate/constrict/proc/can_coil_target(mob/living/target, silent = FALSE)
 	if (!owner.Adjacent(target))
 		if (!silent)
 			owner.balloon_alert(owner, "too far!")
@@ -92,7 +95,7 @@
 	name = "serpentine tail"
 	desc = "A scaley tail, currently coiled."
 
-	icon = 'modular_nova/master_files/icons/effects/turf_effects_64.dmi' // TODO: MOVE TO THIS MODULE
+	icon = 'modular_nova/modules/taur_rework/sprites/tail.dmi'
 	icon_state = "naga"
 	pixel_x = -16
 
@@ -103,21 +106,26 @@
 	density = FALSE
 	max_integrity = 60
 
-	/// The mob we are originating from. Used for redirecting damage.
+	/// The mob we are originating from.
 	var/mob/living/carbon/human/owner
 	/// The action that made us. Nullable.
 	var/datum/action/innate/constrict/creating_action
 	
+	/// The mob we are currently constricting, usually coincides with what we have buckled to us. Nullable.
 	var/mob/living/constricted
 
+	/// Are we currently crushing constricted?
 	var/currently_crushing = FALSE
-
+	/// The amount of brute damage we will do per second to constricted if we are crushing.
 	var/brute_per_second = 2
-	/// Per second.
+	/// How likely are we, per second, to cause a blunt wound on constricted if we are crushing?
 	var/chance_to_cause_wound = 10
 
 	/// If we try to do crush damage and total below 5 (the minimum wounding amount), we store it here for next time.
 	var/stored_damage = 0
+
+	/// Used for escaping the tail, separate from grab cooldowns.
+	COOLDOWN_DECLARE(escape_cooldown)
 
 /obj/structure/serpentine_tail/New(loc, mob/living/carbon/human/new_owner, datum/action/innate/constrict/action)
 	if (isnull(new_owner))
@@ -135,8 +143,7 @@
 	
 	sync_sprite()
 
-	// TODO: MOVE ICON STATES TO THIS MODULE
-	var/mutable_appearance/overlay = mutable_appearance('modular_nova/master_files/icons/effects/turf_effects_64.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
+	var/mutable_appearance/overlay = mutable_appearance('modular_nova/modules/taur_rework/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
 	overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	src.add_overlay(overlay)
 
@@ -150,8 +157,8 @@
 	set_action(null)
 	old_owner?.update_mutant_bodyparts()
 
+/// Syncs our colors, size, sprite, etc. with owner.
 /obj/structure/serpentine_tail/proc/sync_sprite()
-
 	//coloring
 	var/list/finished_list = list()
 	var/list/color_list = owner.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_COLOR_LIST] //identify color
@@ -182,6 +189,7 @@
 	transform = transform.Translate(0, translate)
 	appearance_flags = PIXEL_SCALE
 
+/// Returns the scale, compared to default, our owner has.
 /obj/structure/serpentine_tail/proc/get_scale_change_mult()
 	return owner.dna.features["body_size"] / BODY_SIZE_NORMAL
 
@@ -203,6 +211,7 @@
 	to_chat(constricted, span_warning("[owner] squeezes you with [owner.p_their()] tail!"))
 
 /obj/structure/serpentine_tail/atom_destruction(damage_flag)
+	/// Assoc list of [damage_flag -> damage_type], e.g. ACID = BURN.
 	var/static/list/damage_flags_to_types = list(
 		ACID = BURN,
 		LASER = BURN,
@@ -230,33 +239,7 @@
 
 	return ..()
 
-/obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
-	if (user == constricted)
-		user.visible_message("[user] tries to squeeze [user.p_their()] way out of [owner]'s grasp...", span_warning("You try to squeeze your way out of [owner]'s grasp..."), ignored_mobs = owner)
-		to_chat(owner, span_boldwarning("[user] tries to squeeze [user.p_their()] way out of your tail's grasp!"))
-		if (!do_after(user, 4 SECONDS, src, IGNORE_HELD_ITEM))
-			return FALSE
-		if (!prob(CONSTRICT_ESCAPE_CHANCE))
-			owner.visible_message(span_warning("[user] fails to squeeze out of [owner]'s grasp!"), span_warning("You fail to squeeze out of [owner]'s grasp!"), ignored_mobs = owner)
-			to_chat(owner, span_warning("[user] fails to squeeze out of your grasp!"))
-			return FALSE
-		owner.visible_message(span_warning("[user] squeezes out of [owner]'s grasp!"), span_warning("You squeeze out of [owner]'s grasp!"), ignored_mobs = owner)
-		to_chat(owner, span_boldwarning("[user] squeezes out of your tail's grasp!"))
-		return ..()
-
-	if (!constricted)
-		return ..()
-
-	if (user != owner)
-		if (user != constricted)
-			user.visible_message(span_warning("[user] tries to pry [constricted] from [owner]'s grasp!"), span_danger("You try to pry [constricted] from [owner]'s grasp..."), ignored_mobs = list(owner, constricted))
-			to_chat(owner, span_userdanger("[user] tries to pry [constricted] from your grasp!"))
-			to_chat(constricted, span_userdanger("[user] tries to pry you from [owner]'s grasp!"))
-			if (!do_after(user, 4 SECONDS, src))
-				return FALSE
-
-	return ..()
-
+/// Setter proc for constricted. Handles signals, pixel shifting, status effects, etc.
 /obj/structure/serpentine_tail/proc/set_constricted(mob/living/target)
 	if (constricted == target)
 		return
@@ -265,16 +248,25 @@
 		stop_crushing()
 
 	if (constricted)
-		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE))
+		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL))
+		constricted.pixel_x -= CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
+		constricted.remove_status_effect(/datum/status_effect/constricted)
 	constricted = target
 
 	if (constricted)
 		RegisterSignal(constricted, COMSIG_MOVABLE_MOVED, PROC_REF(constricted_moved))
 		RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
+		RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
+		var/old_grab_state = owner.grab_state
 		constricted.forceMove(get_turf(src))
 		buckle_mob(constricted)
 		constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
+		constricted.apply_status_effect(/datum/status_effect/constricted)
+		if (old_grab_state >= GRAB_AGGRESSIVE)
+			owner.grab(constricted)
+			owner.setGrabState(old_grab_state)
 
+/// Toggle proc for crushing. See stop_crushing and start_crushing.
 /obj/structure/serpentine_tail/proc/toggle_crushing()
 	if (!constricted)
 		owner.balloon_alert(owner, "not constricted anything!")
@@ -286,6 +278,7 @@
 		start_crushing()
 	return TRUE
 
+/// Setter proc for currently_crushing that handles processing and warnings.
 /obj/structure/serpentine_tail/proc/start_crushing()
 	if (currently_crushing)
 		return FALSE
@@ -298,6 +291,7 @@
 	to_chat(constricted, span_userdanger("[owner] starts crushing you with [owner.p_their()] tail!"))
 	return TRUE
 
+/// Setter proc for currently_crushing that handles processing and warnings.
 /obj/structure/serpentine_tail/proc/stop_crushing()
 	if (!currently_crushing)
 		return FALSE
@@ -311,6 +305,7 @@
 	stored_damage = 0
 	return TRUE
 
+/// Setter proc for owner that handles signals, bodyparts, etc.
 /obj/structure/serpentine_tail/proc/set_owner(mob/living/carbon/human/new_owner)
 	if (owner)
 		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_SET_BODY_POSITION))
@@ -324,8 +319,28 @@
 	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
 	owner?.update_mutant_bodyparts()
 
+/// Setter proc for action.
 /obj/structure/serpentine_tail/proc/set_action(datum/action/innate/constrict/action)
 	src.creating_action = action
+
+/obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)	
+	if (!constricted || (user != constricted)) // anyone can easily free them except themselves
+		return ..()
+
+	if (!COOLDOWN_FINISHED(src, escape_cooldown))
+		to_chat(user, span_warning("You're still recovering from your last escape attempt!")) // prevent escape spam
+		return FALSE
+	var/escape_chance = CONSTRICT_ESCAPE_CHANCE
+	if (HAS_TRAIT(user, TRAIT_SLIPPERY))
+		escape_chance += 10 // akula
+	if (!prob(escape_chance))
+		user.visible_message(span_warning("[user] squirms as they fail to escape from [owner]'s tail!"), span_warning("You squirm as you fail to escape from [owner]'s tail!"), ignored_mobs = owner)
+		to_chat(owner, span_warning("[user] squirms as they fail to escape from the grip of your tail!"))
+		COOLDOWN_START(src, escape_cooldown, 0.5 SECONDS) // arbitrary
+		return FALSE
+	user.visible_message(span_warning("[user] breaks free from [owner]'s tail!"), span_warning("You break free from [owner]'s tail!"), ignored_mobs = owner)
+	to_chat(owner, span_boldwarning("[user] breaks free from the grip of your tail!"))
+	return ..()
 
 /obj/structure/serpentine_tail/post_unbuckle_mob(mob/living/unbuckled_mob)
 	. = ..()
@@ -333,35 +348,71 @@
 	if (unbuckled_mob == constricted)
 		set_constricted(null)
 
+/obj/structure/serpentine_tail/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
+	switch(damage_type)
+		if(BRUTE)
+			if(damage_amount)
+				playsound(loc, 'sound/weapons/bladeslice.ogg', 100, TRUE)
+			else
+				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+		if(BURN)
+			if(damage_amount)
+				playsound(loc, 'sound/items/welder.ogg', 100, TRUE)
+
+
+/// Signal proc for when owner moves. Qdels src.
 /obj/structure/serpentine_tail/proc/owner_moved(datum/signal_source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 
 	qdel(src)
 
+/// Signal proc for if our owner changes body positions. Qdels src if they lie down.
 /obj/structure/serpentine_tail/proc/owner_body_position_changed(datum/signal_source, old_position, new_position)
 	SIGNAL_HANDLER
 	
 	if (new_position == LYING_DOWN)
 		qdel(src)
 
+/// Signal proc for if constricted moves. If the new loc isnt our loc, we stop constricting them. Used for teleportation escapes.
 /obj/structure/serpentine_tail/proc/constricted_moved(datum/signal_source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
 
 	if (constricted.loc != loc)
 		INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 
+/// Signal proc for constricted being examined. Appends a string warning the viewer of them being crushed.
 /obj/structure/serpentine_tail/proc/constricted_examined(datum/signal_source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
 	if (currently_crushing)
 		examine_text += span_boldwarning("[owner] is crushing [constricted.p_them()] with [owner.p_their()] tail!")
 
+/// Signal proc for owner grabbing someone. If they grab someone that isnt constricted, they stop constricting.
 /obj/structure/serpentine_tail/proc/owner_did_grab(datum/signal_source, mob/living/grabbing)
 	SIGNAL_HANDLER
 
-	if (grabbing == constricted)
-		owner.balloon_alert(owner, "can't grab something you're constricting!") // since we use custom escape logic, using aggrograbs would be actual fucking torture
+	if (grabbing != constricted)
+		INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
+
+/// Signal proc that prevents constricted from grabbing owner.
+/obj/structure/serpentine_tail/proc/constricted_tried_pull(datum/signal_source, atom/movable/thing, force)
+	SIGNAL_HANDLER
+
+	if (thing == owner)
+		constricted.balloon_alert(constricted, "can't grab constricter!")
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	
+
+/datum/status_effect/constricted
+	id = "constricted_tail"
+
+	alert_type = /atom/movable/screen/alert/status_effect/constricted
+
+/atom/movable/screen/alert/status_effect/constricted
+	name = "Constricted"
+	desc = "You're being constricted by a giant tail! You can resist, attack the tail, or attack the constricter to escape!"
+
+	icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
+	icon_state = "constrict" 
+
 #undef CONSTRICT_BASE_PIXEL_SHIFT
 #undef CONSTRICT_ESCAPE_CHANCE
