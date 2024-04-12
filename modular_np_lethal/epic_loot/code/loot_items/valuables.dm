@@ -28,6 +28,7 @@
 	icon_state = "press_pass"
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 
 // A computer SSD
 /obj/item/epic_loot/ssd
@@ -46,6 +47,7 @@
 	inhand_icon_state = "razor"
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 
 // Military-grade flash drives, made for use specifically with military computers
 /obj/item/epic_loot/military_flash
@@ -63,6 +65,7 @@
 	icon_state = "diary"
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 
 // A slimmer version of the regular diary
 /obj/item/epic_loot/slim_diary
@@ -79,6 +82,7 @@
 	icon_state = "plasma_explosive"
 	drop_sound = 'sound/items/handling/cardboardbox_drop.ogg'
 	pickup_sound = 'sound/items/handling/cardboardbox_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/epic_loot/plasma_explosive/Initialize(mapload)
 	. = ..()
@@ -91,6 +95,7 @@
 	icon_state = "nt_folders"
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 
 // Brown unlabeled folder of doom, may contain government secrets
 /obj/item/epic_loot/intel_folder
@@ -99,6 +104,7 @@
 	icon_state = "documents"
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 
 // A small chainlet made of silver
 /obj/item/epic_loot/silver_chainlet

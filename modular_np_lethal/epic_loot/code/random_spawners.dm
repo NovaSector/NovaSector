@@ -185,6 +185,8 @@
 		/obj/item/defibrillator = 1,
 		/obj/item/defibrillator/loaded = 1,
 		/obj/item/emergency_bed = 2,
+		/obj/item/storage/epic_loot_medpen_case = 1,
+		/obj/item/storage/epic_loot_medical_case = 1,
 		/obj/effect/spawner/random/epic_loot/medkit = 2,
 	)
 
@@ -199,6 +201,8 @@
 		/obj/item/storage/medkit/combat_surgeon/stocked = 2,
 		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked = 1,
 		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked = 1,
+		/obj/item/storage/epic_loot_medpen_case = 2,
+		/obj/item/storage/epic_loot_medical_case = 2,
 	)
 
 /obj/effect/spawner/random/epic_loot/medpens
@@ -218,6 +222,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin = 2,
+		/obj/item/storage/epic_loot_medpen_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled
@@ -238,6 +243,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol = 2,
+		/obj/item/storage/epic_loot_medpen_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_components
@@ -263,6 +269,10 @@
 		/obj/item/epic_loot/display = 1,
 		/obj/item/epic_loot/display_broken = 2,
 		/obj/item/epic_loot/civilian_circuit = 2,
+		/obj/item/storage/epic_loot_cooler = 1,
+		/obj/item/storage/epic_loot_org_pouch = 1,
+		/obj/item/storage/epic_loot_docs_case = 1,
+		/obj/item/storage/epic_loot_money_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_tools
@@ -331,6 +341,11 @@
 		/obj/item/tank/internals/nitrogen/belt = 1,
 		/obj/item/tank/internals/emergency_oxygen/engi = 2,
 		/obj/item/tank/internals/emergency_oxygen/double = 1,
+		// stuff
+		/obj/item/storage/epic_loot_cooler = 1,
+		/obj/item/storage/epic_loot_org_pouch = 1,
+		/obj/item/storage/epic_loot_docs_case = 1,
+		/obj/item/storage/epic_loot_money_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_computer_parts
@@ -367,6 +382,8 @@
 		/obj/item/epic_loot/slim_diary = 1,
 		/obj/item/epic_loot/diary = 1,
 		/obj/item/computer_disk/maintenance = 2,
+		/obj/item/storage/epic_loot_org_pouch = 1,
+		/obj/item/storage/epic_loot_docs_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_strongbox_loot
@@ -385,6 +402,8 @@
 		/obj/effect/spawner/random/epic_loot/chainlet = 2,
 		/obj/item/computer_disk/maintenance = 2,
 		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
+		/obj/item/storage/epic_loot_org_pouch = 1,
+		/obj/item/storage/epic_loot_docs_case = 1,
 	)
 
 
@@ -398,7 +417,7 @@
 		/obj/item/grenade/c4 = 1,
 		/obj/item/grenade/firecracker = 2,
 		/obj/item/grenade/flashbang = 3,
-		/obj/item/grenade/frag = 2,
+		/obj/item/grenade/frag = 1,
 		/obj/item/grenade/mirage = 3,
 		/obj/item/grenade/smokebomb = 3,
 		/obj/item/grenade/stingbang = 2,
@@ -406,8 +425,9 @@
 		/obj/item/grenade/syndieminibomb/concussion = 1,
 		/obj/item/grenade/clusterbuster/smoke = 1,
 		/obj/item/grenade/chem_grenade/teargas = 2,
-		/obj/item/epic_loot/plasma_explosive = 2,
+		/obj/item/epic_loot/plasma_explosive = 1,
 		/obj/item/epic_loot/grenade_fuze = 3,
+		/obj/item/storage/epic_loot_grenade_case = 2,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_ammunition
@@ -472,6 +492,9 @@
 		/obj/item/ammo_box/advanced/s12gauge/incendiary = 1,
 		/obj/item/ammo_box/advanced/s12gauge/magnum = 1,
 		/obj/item/ammo_box/advanced/s12gauge/rubber = 2,
+		// Ammo boxes
+		/obj/item/storage/toolbox/ammobox/epic_loot = 2,
+		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 2,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_silly_arms
@@ -494,6 +517,8 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 2,
 		/obj/item/gun/ballistic/revolver/shotgun_revolver = 2,
 		/obj/item/gun/ballistic/automatic/miecz = 1,
+		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
+		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_serious_arms
@@ -519,6 +544,8 @@
 		/obj/item/gun/energy/modular_laser_rifle = 1,
 		/obj/item/gun/ballistic/automatic/lanca = 1,
 		/obj/item/gun/ballistic/automatic/wylom = 1,
+		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
+		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_other_military_loot
@@ -554,6 +581,12 @@
 		/obj/item/epic_loot/military_circuit = 2,
 		/obj/effect/spawner/random/epic_loot/medkit = 1,
 		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
+		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
+		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 1,
+		/obj/item/storage/epic_loot_grenade_case = 1,
+		/obj/item/storage/epic_loot_org_pouch = 1,
+		/obj/item/storage/epic_loot_docs_case = 1,
+		/obj/item/storage/epic_loot_medpen_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_provisions
@@ -624,6 +657,8 @@
 		/obj/item/storage/box/spaceman_ration/plants/mothic = 2,
 		/obj/item/storage/box/papersack/ration_bread_slice = 1,
 		/obj/item/storage/box/colonial_rations = 1,
+		// Da cooler
+		/obj/item/storage/epic_loot_cooler = 2,
 	)
 
 /obj/effect/spawner/random/entertainment/money/one
@@ -645,6 +680,7 @@
 		/obj/item/keycard/epic_loot/orange = 1,
 		/obj/item/keycard/epic_loot/yellow = 1,
 		/obj/item/keycard/epic_loot/black = 1,
+		/obj/item/storage/epic_loot_card_holder = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_maint_loot_structure
@@ -665,18 +701,19 @@
 		/obj/structure/maintenance_loot_structure/register/random,
 		/obj/structure/maintenance_loot_structure/desk_safe/random,
 		/obj/structure/maintenance_loot_structure/toolbox/random,
+		/obj/structure/maintenance_loot_structure/wall_jacket/random,
 	)
 
 // Overriding the tg and nova crate spawner to add epic loot to them
 /obj/effect/spawner/random/structure/crate
 	loot = list(
-		/obj/effect/spawner/random/structure/crate_loot = 250,
+		/obj/effect/spawner/random/structure/crate_loot = 200,
 		/obj/effect/spawner/random/epic_loot/random_maint_loot_structure = 500,
-		/obj/structure/closet/crate/trashcart/filled = 75,
+		/obj/structure/closet/crate/trashcart/filled = 50,
 		/obj/effect/spawner/random/trash/moisture_trap = 50,
-		/obj/effect/spawner/random/trash/hobo_squat = 30,
-		/obj/structure/closet/mini_fridge = 35,
-		/obj/effect/spawner/random/trash/mess = 30,
+		/obj/effect/spawner/random/trash/hobo_squat = 20,
+		/obj/structure/closet/mini_fridge = 15,
+		/obj/effect/spawner/random/trash/mess = 10,
 		/obj/structure/closet/crate/decorations = 15,
 	)
 

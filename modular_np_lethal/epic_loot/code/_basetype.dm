@@ -22,6 +22,11 @@
 	create_storage(storage_type = storage_datum_to_use)
 	make_contents()
 
+/obj/structure/maintenance_loot_structure/examine(mob/user)
+	. = ..()
+	. += span_engradio("If it's <b>empty</b>, perhaps you should check it again at a <b>later</b> time?")
+	return .
+
 // Since it doesn't want to play nice for whatever reason
 /obj/structure/maintenance_loot_structure/attack_hand(mob/living/user)
 	if(!user.can_perform_action(src, NEED_HANDS))

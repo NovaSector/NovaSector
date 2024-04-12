@@ -1,5 +1,5 @@
 /datum/export/epic_loot_super_med_tools
-	cost = PAYCHECK_COMMAND * 3
+	cost = PAYCHECK_COMMAND * 5
 	unit_name = "ancient medical tools"
 	export_types = list(
 		/obj/item/epic_loot/vein_finder,
