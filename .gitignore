@@ -250,3 +250,6 @@ define_sanity_output.txt
 
 # Running OpenDream locally
 tgstation.json
+config/game_options.txt
+config/game_options.txt
+/config
