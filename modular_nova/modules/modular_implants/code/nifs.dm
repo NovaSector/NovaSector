@@ -405,6 +405,11 @@
 
 /obj/item/organ/internal/cyberimp/brain/nif/emp_act(severity)
 	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	var/stun_amount = 0
+	owner.Stun(stun_amount)
+	to_chat(owner, span_warning("You feel a stinging pain in your head!"))
 	if(!durability_loss_vulnerable)
 		return FALSE
 
