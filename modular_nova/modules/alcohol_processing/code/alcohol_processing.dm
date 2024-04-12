@@ -12,7 +12,7 @@
 
 /atom/movable/screen/alert/status_effect/drunk
 	desc = "All that alcohol you've been drinking is impairing your speech, \
-		motor skills, and mental cognition. Make sure to act like it.\n\n \
+		motor skills, and mental cognition. Make sure to act like it. \
         Check your current drunkenness level using your mood status."
 
 /datum/mood/proc/get_alcohol_processing(mob/user)
@@ -44,8 +44,6 @@
 #undef BAC_STAGE_1_ACTIVE
 #undef BAC_STAGE_2_WARN
 #undef BAC_STAGE_2_ACTIVE
-#undef BAC_STAGE_3_WARN
-#undef BAC_STAGE_3_ACTIVE
 #undef BAC_STAGE_3_WARN
 #undef BAC_STAGE_3_ACTIVE
 #undef BAC_STAGE_4_WARN
