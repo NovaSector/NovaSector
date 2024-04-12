@@ -33,23 +33,11 @@ serenitystation to do list
 	-more escape pods
 	
 	**Security 
-		-sec office
-		-holding cell
-		-modsuit room 
-		-mech bay
-		-front holding cells
-		-detective office
 		-court room 
-		-lawyer office
-		-warden office 
-		-interrogation
-		-sec locker room 
-		-armory
 		-HoS office
-		-shuttle to lavaland prison
 		-firing range 
 		-entrance room
-		-evidence
+		-break room
 	
 	
 	**Prison
