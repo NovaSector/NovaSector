@@ -70,3 +70,8 @@
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	inhand_icon_state = "binoculars"
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/epic_loot/examine(mob/user)
+	. = ..()
+	. += span_engradio("You can probably <b>sell</b> this for some good money if you have no other use for it.")
+	return .
