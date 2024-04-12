@@ -646,3 +646,42 @@
 		/obj/item/keycard/epic_loot/yellow = 1,
 		/obj/item/keycard/epic_loot/black = 1,
 	)
+
+/obj/effect/spawner/random/epic_loot/random_maint_loot_structure
+	name = "random maintenance loot structure spawner"
+	desc = "Automagically transforms into a random loot structure that spawns in maint."
+	icon = 'modular_np_lethal/epic_loot/icons/loot_structures.dmi'
+	icon_state = "random_maint_structure"
+	loot = list(
+		/obj/structure/maintenance_loot_structure/ammo_box/random,
+		/obj/structure/maintenance_loot_structure/computer_tower/random,
+		/obj/structure/maintenance_loot_structure/file_cabinet/random,
+		/obj/structure/maintenance_loot_structure/grenade_box/random,
+		/obj/structure/maintenance_loot_structure/gun_box/random,
+		/obj/effect/spawner/random/epic_loot/random_supply_crate,
+		/obj/structure/maintenance_loot_structure/medbox/random,
+		/obj/structure/maintenance_loot_structure/medbox/random/advanced_loot,
+		/obj/structure/maintenance_loot_structure/military_case/random,
+		/obj/structure/maintenance_loot_structure/register/random,
+		/obj/structure/maintenance_loot_structure/desk_safe/random,
+		/obj/structure/maintenance_loot_structure/toolbox/random,
+	)
+
+// Overriding the tg and nova crate spawner to add epic loot to them
+/obj/effect/spawner/random/structure/crate
+	loot = list(
+		/obj/effect/spawner/random/structure/crate_loot = 250,
+		/obj/effect/spawner/random/epic_loot/random_maint_loot_structure = 500,
+		/obj/structure/closet/crate/trashcart/filled = 75,
+		/obj/effect/spawner/random/trash/moisture_trap = 50,
+		/obj/effect/spawner/random/trash/hobo_squat = 30,
+		/obj/structure/closet/mini_fridge = 35,
+		/obj/effect/spawner/random/trash/mess = 30,
+		/obj/structure/closet/crate/decorations = 15,
+	)
+
+// Trash piles suck a lot
+/obj/structure/trash_pile/Initialize(mapload)
+	. = ..()
+	new /obj/effect/spawner/random/epic_loot/random_maint_loot_structure(get_turf(src))
+	qdel(src)
