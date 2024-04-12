@@ -6,6 +6,7 @@
 #define NUTSHOT_SELF_DAMAGE 10
 
 // For when you want to hurt a motherfucker
+/// Checks to see if it is possible to reach the mob's testicles and influence them through that - i.e. not medicated or unconscious. Knocks down when successful, with a small chance to vomit.
 /mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker)
 	if(stat >= UNCONSCIOUS)
 		return FALSE
