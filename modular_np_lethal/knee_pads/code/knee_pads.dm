@@ -5,7 +5,7 @@
 	icon = 'modular_np_lethal/knee_pads/icons/object.dmi'
 	worn_icon = 'modular_np_lethal/knee_pads/icons/on_mob.dmi'
 	icon_state = "kneepad_cheap"
-	slot_flags = ITEM_SLOT_ON_BODY
+	slot_flags = NONE
 	attachment_slot = LEGS
 
 /obj/item/clothing/accessory/kneepad/cheap
