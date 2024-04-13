@@ -10,12 +10,15 @@
 	use_power = FALSE
 	circuit = null
 	resistance_flags = FIRE_PROOF
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT
 
 /obj/machinery/primitive_stove/Initialize(mapload)
 	. = ..()
+	var/obj/item/reagent_containers/cup/soup_pot/mapload_container
+	if(mapload)
+		mapload_container = new(loc)
 
-	AddComponent(/datum/component/stove/primitive, container_x = -7, container_y = 7, spawn_container = new /obj/item/reagent_containers/cup/soup_pot)
+	AddComponent(/datum/component/stove/primitive, container_x = -7, container_y = 7, spawn_container = mapload_container)
 
 /obj/machinery/primitive_stove/examine(mob/user)
 	. = ..()
