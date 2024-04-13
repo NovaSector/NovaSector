@@ -1,9 +1,7 @@
 /// When a mob is constricted, its pixel_x will be modified by this. Reverted on unconstriction. Modified by sprite scaling.
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
 /// The base chance a mob has to escape from a constriction.	
-#define CONSTRICT_ESCAPE_CHANCE 80
-/// Non-carbons without CANPUSH will have their escape chance multiplied against this
-#define CONSTRICT_ESCAPE_CHANCE_NONCARBON_MULT 0.5
+#define CONSTRICT_ESCAPE_CHANCE 30
 
 /datum/action/innate/constrict
 	name = "Constrict"
@@ -20,7 +18,7 @@
 	/// The tail we use to constrict mobs with. Nullable, if inactive.
 	var/obj/structure/serpentine_tail/tail
 	/// The base time it takes for us to constrict a mob.
-	var/base_coil_delay = 4 SECONDS
+	var/base_coil_delay = 5 SECONDS
 
 /datum/action/innate/constrict/Destroy()
 	. = ..()
@@ -115,6 +113,9 @@
 	
 	/// The mob we are currently constricting, usually coincides with what we have buckled to us. Nullable.
 	var/mob/living/constricted
+
+	/// If we're currently allowing constricted to be grabbed. Only briefly true, during set_constricted.
+	var/allowing_grab_on_constricted = FALSE
 
 	/// Are we currently crushing constricted?
 	var/currently_crushing = FALSE
@@ -259,14 +260,16 @@
 		RegisterSignal(constricted, COMSIG_MOVABLE_MOVED, PROC_REF(constricted_moved))
 		RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
 		RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
-		var/old_grab_state = owner.grab_state
+		var/old_grab_state = owner.grab_state // intentionally placed before the signals so we can allow the grab to carry over
 		constricted.forceMove(get_turf(src))
 		buckle_mob(constricted)
 		constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
 		constricted.apply_status_effect(/datum/status_effect/constricted)
 		if (old_grab_state >= GRAB_AGGRESSIVE)
+			allowing_grab_on_constricted = TRUE
 			owner.grab(constricted)
 			owner.setGrabState(old_grab_state)
+			allowing_grab_on_constricted = FALSE
 
 /// Toggle proc for crushing. See stop_crushing and start_crushing.
 /obj/structure/serpentine_tail/proc/toggle_crushing()
@@ -317,7 +320,7 @@
 	owner?.hide_taur_body = TRUE
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(owner_moved))
-	RegisterSignal(owner, COMSIG_LIVING_GRAB, PROC_REF(owner_did_grab))
+	RegisterSignal(owner, COMSIG_LIVING_TRY_PULL, PROC_REF(owner_tried_pull))
 	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
 	owner?.update_mutant_bodyparts()
 
@@ -335,10 +338,6 @@
 	var/escape_chance = CONSTRICT_ESCAPE_CHANCE
 	if (HAS_TRAIT(user, TRAIT_SLIPPERY))
 		escape_chance += 10 // akula
-	if (isliving(user))
-		var/mob/living/living_user = user
-		if (!iscarbon(living_user) && !(user.status_flags & CAN_SHOVE))
-			escape_chance *= CONSTRICT_ESCAPE_CHANCE_NONCARBON_MULT
 	if (!prob(escape_chance))
 		user.visible_message(span_warning("[user] squirms as they fail to escape from [owner]'s tail!"), span_warning("You squirm as you fail to escape from [owner]'s tail!"), ignored_mobs = owner)
 		to_chat(owner, span_warning("[user] squirms as they fail to escape from the grip of your tail!"))
@@ -394,11 +393,12 @@
 		examine_text += span_boldwarning("[owner] is crushing [constricted.p_them()] with [owner.p_their()] tail!")
 
 /// Signal proc for owner grabbing someone. If they grab someone that isnt constricted, they stop constricting.
-/obj/structure/serpentine_tail/proc/owner_did_grab(datum/signal_source, mob/living/grabbing)
+/obj/structure/serpentine_tail/proc/owner_tried_pull(datum/signal_source, atom/movable/thing, force)
 	SIGNAL_HANDLER
 
-	if (grabbing != constricted)
-		INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
+	if (!allowing_grab_on_constricted && thing == constricted)
+		owner.balloon_alert(owner, "can't grab constricted!")
+		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /// Signal proc that prevents constricted from grabbing owner.
 /obj/structure/serpentine_tail/proc/constricted_tried_pull(datum/signal_source, atom/movable/thing, force)
@@ -422,4 +422,3 @@
 
 #undef CONSTRICT_BASE_PIXEL_SHIFT
 #undef CONSTRICT_ESCAPE_CHANCE
-#undef CONSTRICT_ESCAPE_CHANCE_NONCARBON_MULT
