@@ -2,6 +2,8 @@
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
 /// The base chance a mob has to escape from a constriction.	
 #define CONSTRICT_ESCAPE_CHANCE 80
+/// Non-carbons without CANPUSH will have their escape chance multiplied against this
+#define CONSTRICT_ESCAPE_CHANCE_NONCARBON_MULT 0.5
 
 /datum/action/innate/constrict
 	name = "Constrict"
@@ -119,7 +121,7 @@
 	/// The amount of brute damage we will do per second to constricted if we are crushing.
 	var/brute_per_second = 2
 	/// How likely are we, per second, to cause a blunt wound on constricted if we are crushing?
-	var/chance_to_cause_wound = 10
+	var/chance_to_cause_wound = 5
 
 	/// If we try to do crush damage and total below 5 (the minimum wounding amount), we store it here for next time.
 	var/stored_damage = 0
@@ -333,6 +335,10 @@
 	var/escape_chance = CONSTRICT_ESCAPE_CHANCE
 	if (HAS_TRAIT(user, TRAIT_SLIPPERY))
 		escape_chance += 10 // akula
+	if (isliving(user))
+		var/mob/living/living_user = user
+		if (!iscarbon(living_user) && !(user.status_flags & CAN_SHOVE))
+			escape_chance *= CONSTRICT_ESCAPE_CHANCE_NONCARBON_MULT
 	if (!prob(escape_chance))
 		user.visible_message(span_warning("[user] squirms as they fail to escape from [owner]'s tail!"), span_warning("You squirm as you fail to escape from [owner]'s tail!"), ignored_mobs = owner)
 		to_chat(owner, span_warning("[user] squirms as they fail to escape from the grip of your tail!"))
@@ -416,3 +422,4 @@
 
 #undef CONSTRICT_BASE_PIXEL_SHIFT
 #undef CONSTRICT_ESCAPE_CHANCE
+#undef CONSTRICT_ESCAPE_CHANCE_NONCARBON_MULT
