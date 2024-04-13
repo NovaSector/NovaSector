@@ -8,9 +8,6 @@
 	
 	QDEL_NULL(constrict_ability) // handled in remove, but lets be safe
 
-/obj/item/organ/external/taur_body/serpentine/synth
-	organ_flags = ORGAN_ROBOTIC
-
 /obj/item/organ/external/taur_body/serpentine/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 	
