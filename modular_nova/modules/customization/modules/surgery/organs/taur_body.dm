@@ -21,6 +21,13 @@
 /obj/item/organ/external/taur_body/horselike/synth
 	organ_flags = ORGAN_ROBOTIC
 
+/obj/item/organ/external/taur_body/serpentine
+	left_leg_name = "upper serpentine body"
+	right_leg_name = "lower serpentine body"
+
+/obj/item/organ/external/taur_body/serpentine/synth
+	organ_flags = ORGAN_ROBOTIC
+
 /obj/item/organ/external/taur_body/spider
 
 /obj/item/organ/external/taur_body/tentacle
@@ -30,6 +37,10 @@
 /obj/item/organ/external/taur_body/blob
 	left_leg_name = "outer blob"
 	right_leg_name = "inner blob"
+
+/obj/item/organ/external/taur_body/anthro
+	left_leg_name = null
+	right_leg_name = null
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = "taur"

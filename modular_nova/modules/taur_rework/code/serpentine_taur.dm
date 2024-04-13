@@ -1,7 +1,4 @@
 /obj/item/organ/external/taur_body/serpentine
-	left_leg_name = "upper serpentine body"
-	right_leg_name = "lower serpentine body"
-
 	var/datum/action/innate/constrict/constrict_ability
 
 	var/owner_blocked_feet_before_insert = FALSE
