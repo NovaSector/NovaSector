@@ -392,6 +392,36 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
 
+/obj/item/radio/headset/headset_solfed/sec
+	name = "\improper SolFed adv. Security headset"
+	desc = "A headset used by the Solar Federation response teams."
+	icon_state = "med_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+
+/obj/item/encryptionkey/headset_solfed/sec
+	name = "\improper SolFed adv. Security encryption key"
+	icon_state = "cypherkey_medical"
+	independent = TRUE
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	greyscale_colors = "#ebebeb#2b2793"
+
+/obj/item/radio/headset/headset_solfed/med
+	name = "\improper SolFed adv. Medical headset"
+	desc = "A headset used by the Solar Federation response teams."
+	icon_state = "med_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+
+/obj/item/encryptionkey/headset_solfed/med
+	name = "\improper SolFed adv. Medical encryption key"
+	icon_state = "cypherkey_medical"
+	independent = TRUE
+	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	greyscale_colors = "#ebebeb#2b2793"
+
 /*
 *	EMT
 */
@@ -407,7 +437,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	back = /obj/item/storage/backpack/medic
 	uniform = /obj/item/clothing/under/sol_emt
 	shoes = /obj/item/clothing/shoes/jackboots
-	ears = /obj/item/radio/headset/headset_med
+	ears = /obj/item/radio/headset/headset_solfed/med
 	mask = /obj/item/clothing/mask/gas/alt
 	head = /obj/item/clothing/head/helmet/toggleable/sf_hardened/emt
 	id = /obj/item/card/id/advanced/solfed
@@ -454,7 +484,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	uniform = /obj/item/clothing/under/sol_peacekeeper
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
-	ears = /obj/item/radio/headset/headset_sec/alt
+	ears = /obj/item/radio/headset/headset_solfed/sec
 	head = /obj/item/clothing/head/helmet/sf_peacekeeper
 	belt = /obj/item/gun/energy/disabler
 	suit = /obj/item/clothing/suit/armor/sf_peacekeeper
@@ -505,7 +535,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 	back = /obj/item/storage/backpack
 	glasses = /obj/item/clothing/glasses/sunglasses
-	ears = /obj/item/radio/headset/headset_sec/alt
+	ears = /obj/item/radio/headset/headset_solfed/sec
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/flashlight/seclite
 	id = /obj/item/card/id/advanced/solfed
