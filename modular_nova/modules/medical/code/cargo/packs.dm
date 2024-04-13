@@ -2,7 +2,7 @@
 	name = "Synthetic Burns Kit"
 	desc = "Contains bottles of pre-chilled hercuri and dinitrogen plasmide, perfect for treating synthetic burns!"
 	cost = CARGO_CRATE_VALUE * 2.5
-	contains = list(/obj/item/reagent_containers/spray/hercuri/chilled = 3, /obj/item/reagent_containers/spray/dinitrogen_plasmide = 3)
+	contains = list(/obj/item/reagent_containers/spray/hercuri/chilled = 3,)
 	crate_name = "chilled hercuri crate"
 
 	access_view = FALSE
