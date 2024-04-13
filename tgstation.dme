@@ -7289,7 +7289,6 @@
 #include "modular_nova\modules\customization\modules\surgery\organs\synth_screen.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\tails.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\taur_body.dm"
-#include "modular_nova\modules\customization\modules\surgery\organs\taur_legs.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\vox.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\wings.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\xenodorsal.dm"
