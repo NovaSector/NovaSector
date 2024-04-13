@@ -578,12 +578,6 @@
 /obj/item/stack/sheet/mineral/uranium{
 	amount = 10
 	},
-/obj/item/stack/sheet/mineral/plasma{
-	amount = 10
-	},
-/obj/item/stack/sheet/mineral/titanium{
-	amount = 10
-	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "cC" = (
@@ -1460,8 +1454,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning,
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "gm" = (
 /obj/structure/table/reinforced,
@@ -2521,6 +2515,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "kz" = (
@@ -2807,6 +2802,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "lQ" = (
@@ -3372,11 +3368,6 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
-"ox" = (
-/obj/machinery/hydroponics/constructable,
-/obj/machinery/door/window/survival_pod/left/directional/north,
-/turf/open/floor/iron/dark/small,
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "oA" = (
 /obj/structure/cable,
 /obj/machinery/light/cold/directional/west,
@@ -4441,6 +4432,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "tf" = (
@@ -6965,8 +6957,8 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "FC" = (
 /obj/structure/cable,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/machinery/power/micro_reactor,
+/turf/open/floor/iron/submarine,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "FD" = (
 /obj/effect/turf_decal/siding/wood,
@@ -7055,12 +7047,15 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/item/storage/box/stockparts/deluxe{
+/obj/item/storage/box/stockparts/basic{
+	pixel_y = 6
+	},
+/obj/item/storage/box/stockparts/basic{
+	pixel_x = 8
+	},
+/obj/item/storage/box/beakers{
 	pixel_x = -4;
 	pixel_y = -2
-	},
-/obj/item/storage/box/stockparts/deluxe{
-	pixel_x = 8
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
@@ -7118,7 +7113,6 @@
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/machinery/door/window/survival_pod/left/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "Gg" = (
@@ -7698,9 +7692,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/structure/cable,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner,
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Ir" = (
 /obj/effect/turf_decal/stripes/red/line{
@@ -8383,10 +8377,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "LA" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "LB" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -9023,12 +9018,14 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "OD" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "OF" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
@@ -9043,12 +9040,13 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "OK" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 4
+	},
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ON" = (
 /obj/machinery/atmospherics/miner/nitrogen,
@@ -9375,12 +9373,14 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/bridge/cl)
 "Qe" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/iron/submarine_vents,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Qi" = (
 /obj/structure/mirror/directional/north,
@@ -9606,7 +9606,6 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/structure/cable,
-/obj/item/storage/part_replacer/bluespace,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "Rl" = (
@@ -10226,13 +10225,16 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "TM" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/machinery/power/rtg/advanced,
 /obj/machinery/light/warm/directional/south,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "TU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -10272,7 +10274,6 @@
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/blood/o_minus,
-/obj/item/defibrillator/loaded,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Ud" = (
@@ -10455,9 +10456,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/structure/cable,
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/plating,
+/obj/structure/marker_beacon/burgundy,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Va" = (
 /obj/effect/turf_decal/siding/dark{
@@ -13430,8 +13434,8 @@ mi
 Xz
 PS
 VB
-ox
-ox
+VB
+VB
 Hz
 tm
 RH
@@ -13540,8 +13544,8 @@ kz
 Fx
 we
 VB
-ox
-ox
+VB
+VB
 Hz
 Nl
 Jv
@@ -13595,8 +13599,8 @@ mT
 WW
 LF
 VB
-ox
-ox
+VB
+VB
 Hz
 LB
 Gz
@@ -13706,7 +13710,7 @@ DH
 dn
 eO
 Gf
-ox
+VB
 Hz
 KT
 Ku
