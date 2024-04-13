@@ -39,7 +39,31 @@
 
 	var/obj/structure/mold/resin/test/test_resin = new()
 
-	var/list/possible_spawn_areas = typecacheof(typesof(/area/station/maintenance, /area/station/security/prison, /area/station/construction))
+	var/list/possible_spawn_areas = typecacheof(typesof(
+		/area/station/maintenance/aft/greater,
+		/area/station/maintenance/central/greater,
+		/area/station/maintenance/starboard/greater,
+		/area/station/maintenance/port/greater,
+		/area/station/maintenance/disposal,
+		/area/station/maintenance/wrestle,
+		/area/station/maintenance/library,
+		/area/station/maintenance/night_club,
+		/area/station/security/prison,
+		/area/station/engineering/atmos/hfr_room,
+		/area/station/engineering/gravity_generator,
+		/area/station/science/xenobiology,
+		/area/station/science/ordnance/testlab,
+		/area/station/medical/chemistry,
+		/area/station/medical/abandoned,
+		/area/station/command/heads_quarters,
+		/area/station/command/gateway,
+		/area/station/cargo/drone_bay,
+		/area/shuttle/supply,
+		/area/station/commons/toilet,
+		/area/station/commons/fitness,
+		/area/station/commons/vacant_room/office,
+		/area/station/service/chapel,
+		))
 
 	for(var/area/checked_area as anything in GLOB.areas)
 		if(!is_station_level(checked_area.z))

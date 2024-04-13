@@ -128,7 +128,7 @@
  * Probably the most simple mold type.
  */
 /datum/mold_type/fire
-	name = "fire"
+	name = "heat"
 	mold_color = "#e04000"
 	structure_light_color = LIGHT_COLOR_FIRE
 	examine_text = "It feels hot to the touch."
@@ -157,7 +157,7 @@
  * It has its own custom disease, too. Fancy.
  */
 /datum/mold_type/disease
-	name = "fungal"
+	name = "pollution"
 	tier = MOLD_TIER_HIGH_THREAT
 	mold_color = "#6e5100"
 	structure_light_color = LIGHT_COLOR_BROWN
@@ -196,8 +196,8 @@
  * it lets out EMPs as a defense mechanism, and can tesla-zap people too. Spicy.
  */
 /datum/mold_type/emp
-	name = "EMP"
-	mold_color = "#e8ff1c"
+	name = "electric"
+	mold_color = "#ffe81c"
 	structure_light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	examine_text = "You can notice small sparks travelling in the vines."
 	mob_types = list(/mob/living/basic/slime/mold/electric)
@@ -263,7 +263,7 @@
  * in the poison flask Hearthstone card.
  */
 /datum/mold_type/toxic
-	name = "toxic"
+	name = "toxin"
 	mold_color = "#cb37f5"
 	structure_light_color = LIGHT_COLOR_LAVENDER
 	examine_text = "It feels damp and smells of rat poison."
