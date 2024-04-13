@@ -29,9 +29,12 @@
 	user.balloon_alert_to_viewers("disassembling...")
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
-	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/primitive_stove/atom_deconstruct(disassembled)
+	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
+	return ..()
 
 /// Stove component subtype with changed visuals and not much else
 /datum/component/stove/primitive
