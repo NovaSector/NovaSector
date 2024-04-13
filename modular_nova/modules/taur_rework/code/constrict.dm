@@ -155,7 +155,7 @@
 	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
-	creating_action.tail = null
+	creating_action?.tail = null
 	set_action(null)
 	old_owner?.update_mutant_bodyparts()
 
