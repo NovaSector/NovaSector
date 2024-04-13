@@ -122,6 +122,7 @@
 	icon = 'modular_np_lethal/epic_loot/icons/storage_items.dmi'
 	icon_state = "ammo"
 	inhand_icon_state = "toolbox_syndi"
+	material_flags = NONE
 
 /obj/item/storage/toolbox/ammobox/epic_loot/magazine_box
 	name = "magazine box"
