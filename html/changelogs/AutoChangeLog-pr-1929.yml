@@ -1,0 +1,6 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "Adds a new powersource - A miniature Reactor - for ghost roles to replace bluespace SMES and the need to RTG Spam"
+  - qol: "BMD now has a mining scanner! Gone are the days of accidentally blowing your home apart trying to get silver to make one"
+  - qol: "Freighter, DS2 and Ice Interdyne receive a new reactor to give baseline power"
