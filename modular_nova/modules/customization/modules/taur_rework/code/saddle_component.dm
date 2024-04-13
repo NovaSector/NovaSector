@@ -11,14 +11,14 @@
 
 	if (!isnull(piggyback_flags))
 		src.piggyback_flags = piggyback_flags
-	
+
 /datum/component/carbon_saddle/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(parent_equipped))
 
-/datum/component/carbon_saddle/UnregisterFromParent()    
+/datum/component/carbon_saddle/UnregisterFromParent()
 	var/obj/item/item_parent = parent
 	UnregisterSignal(item_parent, COMSIG_ITEM_EQUIPPED)
-	
+
 /datum/component/carbon_saddle/proc/parent_equipped(datum/signal_source, mob/equipper, slot)
 	SIGNAL_HANDLER
 

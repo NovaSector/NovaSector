@@ -12,7 +12,7 @@
 
 	var/left_leg_name = "front legs"
 	var/right_leg_name = "back legs"
-	
+
 	/// The mob's old right leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_right_leg = null
 	/// The mob's old left leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
@@ -21,13 +21,18 @@
 	/// If true, this taur body allows a saddle to be equipped and used.
 	var/can_use_saddle = FALSE
 
+	/// If true, can piggyback and by piggybacked by other taurs with this set to TRUE.
 	var/can_piggyback_taurs = FALSE
 
-	var/riding_offset_side_x = 12
-	var/riding_offset_side_y = 0
+	/// When being ridden via saddle, how much the rider is offset on the x axis when facing west or east.
+	var/riding_offset_side_x = 7
+	/// When being ridden via saddle, how much the rider is offset on the y axis when facing west or east.
+	var/riding_offset_side_y = 3
 
+	/// When being ridden via saddle, how much the rider is offset on the x axis when facing north or south.
 	var/riding_offset_front_x = 0
-	var/riding_offset_front_y = 1
+	/// When being ridden via saddle, how much the rider is offset on the y axis when facing north or south.
+	var/riding_offset_front_y = 5
 
 /obj/item/organ/external/taur_body/horselike
 	can_use_saddle = TRUE

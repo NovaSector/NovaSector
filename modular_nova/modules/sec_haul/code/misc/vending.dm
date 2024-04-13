@@ -67,9 +67,11 @@
 					/obj/item/clothing/head/costume/ushanka/sec = 10,
 					/obj/item/clothing/gloves/color/black/security = 10,
 					)
-	premium = list( /obj/item/clothing/under/rank/security/officer/formal = 3,
+	premium = list(/obj/item/clothing/under/rank/security/officer/formal = 3,
 					/obj/item/clothing/suit/jacket/officer/blue = 3,
-					/obj/item/clothing/head/beret/sec/navyofficer = 3)
+					/obj/item/clothing/head/beret/sec/navyofficer = 3,
+					/obj/item/riding_saddle/leather/peacekeeper = 3,
+				)
 	payment_department = ACCOUNT_SEC
 	light_color = COLOR_MODERATE_BLUE
 

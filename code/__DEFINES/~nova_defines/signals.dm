@@ -87,3 +87,6 @@
 
 /// Sent whenever an atom's atom_storage variable is set, through create_storage and clone_storage.
 #define COMSIG_ATOM_STORAGE_SET "atom_storage_set"
+
+/// Sent whenever a storage datum removes an item.
+#define COMSIG_STORAGE_REMOVED_ITEM "storage_removed_item"
