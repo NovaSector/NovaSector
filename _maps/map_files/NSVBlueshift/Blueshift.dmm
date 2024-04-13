@@ -6095,7 +6095,6 @@
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/firealarm/directional/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
@@ -7339,6 +7338,10 @@
 	pixel_y = -8
 	},
 /obj/item/radio/intercom/directional/west,
+/obj/machinery/firealarm/directional/west{
+	pixel_x = -34;
+	pixel_y = -7
+	},
 /turf/open/floor/iron/stairs{
 	dir = 1
 	},
@@ -49681,7 +49684,8 @@
 /obj/structure/secure_safe/caps_spare{
 	base_icon_state = "floorsafe";
 	icon_state = "floorsafe";
-	pixel_x = -1
+	pixel_x = -1;
+	density = 0
 	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
@@ -72330,14 +72334,14 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/engineering/atmos_aux_port)
 "nSQ" = (
-/obj/machinery/firealarm/directional/west{
-	pixel_x = -27;
-	pixel_y = 24
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
+	},
+/obj/machinery/firealarm/directional/west{
+	pixel_x = -27;
+	pixel_y = 24
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 1
