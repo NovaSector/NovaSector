@@ -3,7 +3,6 @@
 #define RAD_PULSE_THRESHOLD 1
 
 /mob/living/basic/slime/mold
-	hunger_disabled = TRUE
 	gold_core_spawnable = NO_SPAWN
 	basic_mob_flags = DEL_ON_DEATH
 
