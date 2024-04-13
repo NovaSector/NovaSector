@@ -179,7 +179,7 @@
 	name = "Big Legs"
 	icon_state = "biglegs"
 	taur_mode = STYLE_TAUR_PAW
-	// no organtype since this is basically just anthro two
+	organ_type = /obj/item/organ/external/taur_body/anthro
 
 /datum/sprite_accessory/taur/biglegs/stanced
 	name = "Big Legs, Stanced"

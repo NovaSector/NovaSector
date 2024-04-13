@@ -38,6 +38,10 @@
 	left_leg_name = "outer blob"
 	right_leg_name = "inner blob"
 
+/obj/item/organ/external/taur_body/anthro
+	left_leg_name = null
+	right_leg_name = null
+
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = "taur"
 	layers = ALL_EXTERNAL_OVERLAYS | EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_FRONT_OVER
