@@ -45047,17 +45047,6 @@
 /obj/machinery/photocopier,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
-"iFh" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/secure_safe/caps_spare{
-	base_icon_state = "floorsafe";
-	icon_state = "floorsafe";
-	pixel_x = -1
-	},
-/turf/open/floor/iron,
-/area/station/command/bridge)
 "iFl" = (
 /obj/structure/sign/painting/library,
 /turf/closed/wall/mineral/wood,
@@ -225508,7 +225497,7 @@ nca
 xmO
 dEJ
 idB
-iFh
+wFN
 maG
 mrZ
 jiu
