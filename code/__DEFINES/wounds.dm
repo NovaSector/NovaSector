@@ -126,15 +126,15 @@ GLOBAL_LIST_INIT(bio_state_anatomy, list(
 /// Cranial fissure wound.
 #define WOUND_SERIES_CRANIAL_FISSURE "wound_series_cranial_fissure"
 
-// NOVA EDIT ADDITION BEGIN - MUSCLE AND SYNTH WOUNDS
+// NOVA EDIT ADDITION BEGIN - MUSCLE AND SYNTH WOUNDS - SYNTH WOUNDS DISABLED
 // Have to put it here so I can use it in the global list of wound series
 /// See muscle.dm and robotic_blunt.dm
 #define WOUND_SERIES_MUSCLE_DAMAGE "skyrat_wound_series_muscle_damage"
 
-#define WOUND_SERIES_METAL_BLUNT_BASIC "wound_series_metal_blunt_basic"
-#define WOUND_SERIES_METAL_BURN_OVERHEAT "wound_series_metal_burn_basic"
-#define WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE "wound_series_metal_slash_electrical_damage_basic"
-#define WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE "wound_series_metal_pierce_electrical_damage_basic"
+// #define WOUND_SERIES_METAL_BLUNT_BASIC "wound_series_metal_blunt_basic"
+// #define WOUND_SERIES_METAL_BURN_OVERHEAT "wound_series_metal_burn_basic"
+// #define WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE "wound_series_metal_slash_electrical_damage_basic"
+// #define WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE "wound_series_metal_pierce_electrical_damage_basic"
 // NOVA EDIT ADDITION END
 
 /// A assoc list of (wound typepath -> wound_pregen_data instance). Every wound should have a pregen data.
@@ -210,23 +210,23 @@ GLOBAL_LIST_INIT(wounding_types_to_series, list(
 	WOUND_BLUNT = list(
 		WOUND_SERIES_BONE_BLUNT_BASIC,
 		WOUND_SERIES_MUSCLE_DAMAGE, // NOVA EDIT -- MUSCLE WOUNDS
-		WOUND_SERIES_METAL_BLUNT_BASIC, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		// WOUND_SERIES_METAL_BLUNT_BASIC, // NOVA EDIT ADDITION - SYNTH WOUNDS - DISABLED
 
 	),
 	WOUND_SLASH = list(
 		WOUND_SERIES_FLESH_SLASH_BLEED,
 		WOUND_SERIES_MUSCLE_DAMAGE, // NOVA EDIT ADDITION - MUSCLE WOUNDS
-		WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		// WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE, // NOVA EDIT ADDITION - SYNTH WOUNDS - DISABLED
 
 	),
 	WOUND_BURN = list(
 		WOUND_SERIES_FLESH_BURN_BASIC,
-		WOUND_SERIES_METAL_BURN_OVERHEAT, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		// WOUND_SERIES_METAL_BURN_OVERHEAT, // NOVA EDIT ADDITION - SYNTH WOUNDS - DISABLED
 	),
 	WOUND_PIERCE = list(
 		WOUND_SERIES_FLESH_PUNCTURE_BLEED,
 		WOUND_SERIES_MUSCLE_DAMAGE, // NOVA EDIT ADDITION - MUSCLE WOUNDS
-		WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE, // NOVA EDIT ADDITION - SYNTH WOUNDS
+		// WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE, // NOVA EDIT ADDITION - SYNTH WOUNDS - DISABLED
 	),
 ))
 
@@ -298,7 +298,7 @@ GLOBAL_LIST_INIT(wounding_types_to_series, list(
 GLOBAL_LIST_INIT(biotypes_to_scar_file, list(
 	"[BIO_FLESH]" = FLESH_SCAR_FILE,
 	"[BIO_BONE]" = BONE_SCAR_FILE,
-	"[BIO_METAL]" = METAL_SCAR_FILE // NOVA EDIT ADDITION - METAL SCARS (see robotic_blunt.dm)
+	// "[BIO_METAL]" = METAL_SCAR_FILE // NOVA EDIT ADDITION - METAL SCARS (see robotic_blunt.dm) - DISABLED
 ))
 
 // ~burn wound infection defines

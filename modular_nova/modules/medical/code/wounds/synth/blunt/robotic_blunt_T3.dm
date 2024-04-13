@@ -1,4 +1,4 @@
-/datum/wound/blunt/robotic/secures_internals/critical
+/* /datum/wound/blunt/robotic/secures_internals/critical
 	name = "Collapsed Superstructure"
 	desc = "The superstructure has totally collapsed in one or more locations, causing extreme internal oscillation with every move and massive limb dysfunction"
 	treat_text = "Reforming of superstructure via either RCD or manual molding, followed by typical treatment of loosened internals. \

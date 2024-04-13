@@ -1,4 +1,4 @@
-// Pierce
+/* // Pierce
 // Slow to rise but high damage overall
 // Hard-ish to fix
 /datum/wound/electrical_damage/pierce

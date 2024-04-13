@@ -1,4 +1,4 @@
-/// The multiplier put against our movement effects if our victim has the determined reagent
+/* /// The multiplier put against our movement effects if our victim has the determined reagent
 #define ROBOTIC_WOUND_DETERMINATION_MOVEMENT_EFFECT_MOD 0.7
 /// The multiplier of stagger intensity on hit if our victim has the determined reagent
 #define ROBOTIC_WOUND_DETERMINATION_STAGGER_MOVEMENT_MULT 0.7

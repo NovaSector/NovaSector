@@ -1,4 +1,4 @@
-/// A subtype of blunt wounds that has a "secure internals" step
+/* /// A subtype of blunt wounds that has a "secure internals" step
 /datum/wound/blunt/robotic/secures_internals
 	/// Our current counter for gel + gauze regeneration
 	var/regen_time_elapsed = 0 SECONDS

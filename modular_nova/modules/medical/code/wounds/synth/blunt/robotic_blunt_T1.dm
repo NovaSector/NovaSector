@@ -1,4 +1,4 @@
-/datum/wound/blunt/robotic/moderate
+/* /datum/wound/blunt/robotic/moderate
 	name = "Loosened Screws"
 	desc = "Various semi-external fastening instruments have loosened, causing components to jostle, inhibiting limb control."
 	treat_text = "Recommend topical re-fastening of instruments with a screwdriver, though percussive maintenance via low-force bludgeoning may suffice - \

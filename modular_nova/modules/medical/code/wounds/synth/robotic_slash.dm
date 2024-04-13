@@ -1,4 +1,4 @@
-/// How much damage and progress is reduced when on stasis.
+/* /// How much damage and progress is reduced when on stasis.
 #define ELECTRICAL_DAMAGE_ON_STASIS_MULT 0.15
 /// How much damage and progress is reduced when limb is grasped.
 #define ELECTRICAL_DAMAGE_GRASPED_MULT 0.7

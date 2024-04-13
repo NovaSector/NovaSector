@@ -1,4 +1,4 @@
-/datum/wound/blunt/robotic/secures_internals/severe
+/* /datum/wound/blunt/robotic/secures_internals/severe
 	name = "Detached Fastenings"
 	desc = "Various fastening devices are extremely loose and solder has disconnected at multiple points, causing significant jostling of internal components and \
 	noticable limb dysfunction."

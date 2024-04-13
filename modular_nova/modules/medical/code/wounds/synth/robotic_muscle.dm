@@ -1,4 +1,4 @@
-/datum/wound/muscle/robotic
+/* /datum/wound/muscle/robotic
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 
 /datum/wound_pregen_data/muscle/robotic

@@ -1,4 +1,4 @@
-// a potent coolant that treats synthetic burns at decent efficiency. compared to hercuri its worse, but without
+/* // a potent coolant that treats synthetic burns at decent efficiency. compared to hercuri its worse, but without
 // the lethal side effects, opting for a movement speed decrease instead
 /datum/reagent/dinitrogen_plasmide
 	name = "Dinitrogen Plasmide"

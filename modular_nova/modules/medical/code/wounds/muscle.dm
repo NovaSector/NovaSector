@@ -175,8 +175,8 @@
 /datum/status_effect/wound/muscle/severe
 	id = "ruptured tendon"
 
-/datum/status_effect/wound/muscle/robotic/moderate
-	id = "worn servo"
-
-/datum/status_effect/wound/muscle/robotic/severe
-	id = "severed hydraulic"
+// /datum/status_effect/wound/muscle/robotic/moderate - DISABLED
+//	id = "worn servo"
+//
+// /datum/status_effect/wound/muscle/robotic/severe
+//	id = "severed hydraulic"

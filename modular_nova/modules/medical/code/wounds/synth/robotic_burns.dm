@@ -1,4 +1,4 @@
-#define OVERHEAT_ON_STASIS_HEAT_MULT 0.25
+/* #define OVERHEAT_ON_STASIS_HEAT_MULT 0.25
 
 /datum/wound_pregen_data/burnt_metal
 	abstract = TRUE

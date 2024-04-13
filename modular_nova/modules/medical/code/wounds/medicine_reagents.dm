@@ -1,4 +1,4 @@
-#define CLOT_RATE_INTENSITY_MULT 50
+/* #define CLOT_RATE_INTENSITY_MULT 50
 
 /datum/reagent/medicine/coagulant
 	/// was_working, but for electrical damage
