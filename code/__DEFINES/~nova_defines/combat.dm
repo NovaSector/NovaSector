@@ -59,12 +59,12 @@
 #define HEADSMASH_BLOCK_ARMOR 20
 #define SUPLEX_TIMER 3 SECONDS
 
-/// Skyrat change - alt-clicking a human as another human while grappling them tightly makes you try for grappling-based maneuvers.
+/// Nova change - alt-clicking a human as another human while grappling them tightly makes you try for grappling-based maneuvers.
 /mob/living/carbon/human/AltClick(mob/user)
 	if(!ishuman(user))
 		return ..()
 	var/mob/living/carbon/human/human_user = user
-	if(human_user == src || !human_user.combat_mode || !human_user.dna.species.try_grab_maneuver(user, src))
+	if(human_user != src && human_user.combat_mode && !human_user.dna.species.try_grab_maneuver(user, src))
 		return FALSE
 	. = ..()
 

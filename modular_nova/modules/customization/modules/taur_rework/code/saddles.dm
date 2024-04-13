@@ -6,7 +6,7 @@
 	icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
 	worn_icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
-	supports_variations_flags = STYLE_TAUR_SNAKE
+	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
 /obj/item/riding_saddle/mob_can_equip(mob/living/M, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	if (!iscarbon(M))
@@ -40,3 +40,23 @@
 	. = ..()
 	
 	desc += " This one is painted in peacekeeper livery."
+
+/obj/item/storage/backpack/saddlebags
+	name = "saddlebags"
+	desc = "placeholder"
+
+	slot_flags = ITEM_SLOT_BACK 
+
+	icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
+	worn_icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
+	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
+	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
+
+	icon_state = "saddle_satchel"
+
+/obj/item/storage/backpack/saddlebags/Initialize(mapload)
+	. = ..()
+	
+	AddComponent(/datum/component/carbon_saddle, RIDING_TAUR|RIDER_NEEDS_ARM) // one arm
+	AddComponent(/datum/component/accessable_storage)
+
