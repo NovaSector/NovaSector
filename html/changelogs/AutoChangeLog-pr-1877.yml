@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Vorpal Scythe execute messages now read correctly."

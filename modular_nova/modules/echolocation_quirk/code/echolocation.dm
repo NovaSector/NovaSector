@@ -20,7 +20,7 @@
 	// echolocation component handles blinding us already so we don't need to worry about that
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	// set up the desired echo group from our quirk preferences
-	var/client_echo_group = lowertext(client_source?.prefs.read_preference(/datum/preference/choiced/echolocation_key))
+	var/client_echo_group = LOWER_TEXT(client_source?.prefs.read_preference(/datum/preference/choiced/echolocation_key))
 	if (isnull(client_echo_group))
 		client_echo_group = "echolocation"
 	if (client_echo_group == "psychic")
