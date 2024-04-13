@@ -1,7 +1,7 @@
 /// When a mob is constricted, its pixel_x will be modified by this. Reverted on unconstriction. Modified by sprite scaling.
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
 /// The base chance a mob has to escape from a constriction.	
-#define CONSTRICT_ESCAPE_CHANCE 70
+#define CONSTRICT_ESCAPE_CHANCE 80
 
 /datum/action/innate/constrict
 	name = "Constrict"
