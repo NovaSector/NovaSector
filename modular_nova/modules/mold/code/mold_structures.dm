@@ -312,7 +312,7 @@
 	smoothing_groups = SMOOTH_GROUP_ALIEN_RESIN
 	canSmoothWith = SMOOTH_GROUP_ALIEN_RESIN
 	max_integrity = 200
-	can_atmos_pass = ATMOS_PASS_DENSITY
+	can_atmos_pass = ATMOS_PASS_NO
 
 /obj/structure/mold/wall/Destroy()
 	if(mold_controller)

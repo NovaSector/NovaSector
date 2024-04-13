@@ -46,7 +46,7 @@
 	/// The type of mobs the mold spawns
 	var/list/mob_types = list()
 	/// The cooldown between mob spawns
-	var/spawn_cooldown = 12 SECONDS
+	var/spawn_cooldown = 20 SECONDS
 	/// The maximum number of mobs we can have at once, per spawner
 	var/max_spawns = 1
 	/// The resistance flags for the mold type
@@ -124,8 +124,7 @@
  * Fire mold
  *
  * A mold type that is based around a fire theme. It's the colour of fire, prefers hotter
- * temperatures, spawns a burn mix from its conditioners. The whole shebang. The mobs it
- * spawns are oil shamblers, a humanoid figure that can set fire to people on hit.
+ * temperatures, spawns a burn mix from its conditioners.
  * Probably the most simple mold type.
  */
 /datum/mold_type/fire
@@ -133,7 +132,7 @@
 	mold_color = "#e04000"
 	structure_light_color = LIGHT_COLOR_FIRE
 	examine_text = "It feels hot to the touch."
-	mob_types = list(/mob/living/basic/mold/oil_shambler)
+	mob_types = list(/mob/living/basic/slime/mold/fire)
 	preferred_atmos_conditions = "co2=30;TEMP=1000"
 	resistance_flags = FIRE_PROOF
 
@@ -153,7 +152,7 @@
 /**
  * Disease mold
  *
- * A mold type that centers around disease. It spawns rats that inject with disease, lets
+ * A mold type that centers around disease. It spawns oil slimes that inject with disease, lets
  * out puffs of fungal smoke that spread disease.
  * It has its own custom disease, too. Fancy.
  */
@@ -163,8 +162,7 @@
 	mold_color = "#6e5100"
 	structure_light_color = LIGHT_COLOR_BROWN
 	examine_text = "It looks like it's rotting."
-	mob_types = list(/mob/living/basic/mold/diseased_rat)
-	spawn_cooldown = 5 SECONDS
+	mob_types = list(/mob/living/basic/slime/mold/disease)
 	preferred_atmos_conditions = "TEMP=312"
 
 /datum/mold_type/disease/core_defense(obj/structure/mold/structure/core/core)
@@ -194,16 +192,15 @@
 /**
  * EMP mold
  *
- * A mold type centered around electricity and EMPs. Its mobs, mosquitos, inject teslium on hit,
+ * A mold type centered around electricity and EMPs. Its mobs inject teslium on hit,
  * it lets out EMPs as a defense mechanism, and can tesla-zap people too. Spicy.
  */
 /datum/mold_type/emp
 	name = "EMP"
-	mold_color = "#00caa5"
+	mold_color = "#e8ff1c"
 	structure_light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	examine_text = "You can notice small sparks travelling in the vines."
-	mob_types = list(/mob/living/basic/mold/electric_mosquito)
-	spawn_cooldown = 5 SECONDS
+	mob_types = list(/mob/living/basic/slime/mold/electric)
 	preferred_atmos_conditions = "n2=30;TEMP=100"
 
 /datum/mold_type/emp/core_defense(obj/structure/mold/structure/core/core)
@@ -270,7 +267,7 @@
 	mold_color = "#cb37f5"
 	structure_light_color = LIGHT_COLOR_LAVENDER
 	examine_text = "It feels damp and smells of rat poison."
-	mob_types = list(/mob/living/basic/spider/giant/hunter)
+	mob_types = list(/mob/living/basic/slime/mold/toxic)
 	preferred_atmos_conditions = "miasma=50;TEMP=296"
 	resistance_flags = UNACIDABLE | ACID_PROOF
 
@@ -304,7 +301,7 @@
 	mold_color = "#80ff00"
 	structure_light_color = LIGHT_COLOR_ELECTRIC_GREEN
 	examine_text = "It's glowing a soft green."
-	mob_types = list(/mob/living/basic/slime/mold)
+	mob_types = list(/mob/living/basic/slime/mold/radiation)
 	preferred_atmos_conditions = "tritium=5;TEMP=296"
 	resistance_flags = ACID_PROOF | FIRE_PROOF
 
