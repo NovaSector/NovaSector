@@ -47,9 +47,6 @@
 	required_count = 3
 	wanted_types = list(/obj/item/clothing/accessory/talisman = TRUE)
 
-//NOVA EDIT REMOVAL
-/*
-
 /datum/bounty/item/mining/watcher_wreath
 	name = "Watcher Wreaths"
 	description = "Station 14's Research Director thinks they're onto a break-through on the cultural icons of some pagan beliefs. Ship them a few watcher wreaths for analysis."
@@ -63,15 +60,17 @@
 	reward = CARGO_CRATE_VALUE * 30
 	required_count = 1
 	wanted_types = list(/obj/item/clothing/neck/wreath/icewing = FALSE)
-*/
-//END NOVA EDIT REMOVAL
 
+//NOVA EDIT REMOVAL
+/*
 /datum/bounty/item/mining/bone_dagger
 	name = "Bone Daggers"
 	description = "Central Command's canteen is undergoing budget cuts. Ship over some bone daggers so our chef can keep working."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(/obj/item/knife/combat/bone = TRUE)
+*/
+//END NOVA EDIT REMOVAL
 
 /datum/bounty/item/mining/polypore_mushroom
 	name = "Mushroom Bowl"
