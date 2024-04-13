@@ -21,13 +21,7 @@
 	constrict_ability.Grant(organ_owner)
 
 	owner_blocked_feet_before_insert = (organ_owner.dna.species.no_equip_flags & ITEM_SLOT_FEET)
-	organ_owner.dna.species.no_equip_flags |= ITEM_SLOT_FEET // DANGEROUS! test this
-
-	/*var/obj/item/bodypart/leg/left/left_leg = organ_owner.get_bodypart(BODY_ZONE_L_LEG)
-	var/obj/item/bodypart/leg/right/right_leg = organ_owner.get_bodypart(BODY_ZONE_R_LEG)
-
-	if (left_leg)
-		left_leg.wear*/
+	organ_owner.dna.species.no_equip_flags |= ITEM_SLOT_FEET
 
 /obj/item/organ/external/taur_body/serpentine/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()

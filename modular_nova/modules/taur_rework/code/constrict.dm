@@ -52,7 +52,7 @@
 		return TRUE
 
 	caller.balloon_alert_to_viewers("starts coiling tail")
-	caller.visible_message(span_warning("[caller] starts coiling their tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]."), ignored_mobs = list(living_target))
+	caller.visible_message(span_warning("[caller] starts coiling their tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]..."), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[caller] starts coiling their tail around you!"))
 
 	owner.changeNext_move(10 MINUTES) // prevent interaction during this
@@ -67,7 +67,7 @@
 
 /// Actually constricts the mob, by setting constricted to this mob and spawning a tail if needed.
 /datum/action/innate/constrict/proc/do_constriction(mob/living/living_target)
-	owner.visible_message(span_boldwarning("[owner] coils [owner.p_their()] tail around [living_target]"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
+	owner.visible_message(span_boldwarning("[owner] coils [owner.p_their()] tail around [living_target]!"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[owner] coils [owner.p_their()] tail around you!"))
 	
 	if (!tail)
@@ -292,7 +292,7 @@
 	START_PROCESSING(SSobj, src)
 
 	owner.balloon_alert_to_viewers("starts crushing")
-	owner.visible_message(span_boldwarning("[owner] starts crushing [constricted] with [owner.p_their()] tail!"), span_warning("You start crushing [constricted] with your tail."), ignored_mobs = list(constricted))
+	owner.visible_message(span_boldwarning("[owner] starts crushing [constricted] with [owner.p_their()] tail!"), span_warning("You start crushing [constricted] with your tail!"), ignored_mobs = list(constricted))
 	to_chat(constricted, span_userdanger("[owner] starts crushing you with [owner.p_their()] tail!"))
 	return TRUE
 
@@ -313,13 +313,14 @@
 /// Setter proc for owner that handles signals, bodyparts, etc.
 /obj/structure/serpentine_tail/proc/set_owner(mob/living/carbon/human/new_owner)
 	if (owner)
-		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_SET_BODY_POSITION))
+		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_SET_BODY_POSITION))
 
 	owner?.hide_taur_body = FALSE
 	owner = new_owner
 	owner?.hide_taur_body = TRUE
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(owner_moved))
+	RegisterSignal(owner, COMSIG_LIVING_GRAB, PROC_REF(owner_tried_grab))
 	RegisterSignal(owner, COMSIG_LIVING_TRY_PULL, PROC_REF(owner_tried_pull))
 	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
 	owner?.update_mutant_bodyparts()
@@ -392,11 +393,19 @@
 	if (currently_crushing)
 		examine_text += span_boldwarning("[owner] is crushing [constricted.p_them()] with [owner.p_their()] tail!")
 
-/// Signal proc for owner grabbing someone. If they grab someone that isnt constricted, they stop constricting.
+/// Signal proc for owner pulling someone. Forbids them from pulling constricted.
 /obj/structure/serpentine_tail/proc/owner_tried_pull(datum/signal_source, atom/movable/thing, force)
 	SIGNAL_HANDLER
 
 	if (!allowing_grab_on_constricted && thing == constricted)
+		owner.balloon_alert(owner, "can't grab constricted!")
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
+/// Signal proc for owner grabbing someone, separate from pulling. Forbids them from upgrading grabs on constricted.
+/obj/structure/serpentine_tail/proc/owner_tried_grab(datum/signal_source, mob/living/grabbing)
+	SIGNAL_HANDLER
+
+	if (!allowing_grab_on_constricted && grabbing == constricted)
 		owner.balloon_alert(owner, "can't grab constricted!")
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
