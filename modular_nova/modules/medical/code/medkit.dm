@@ -23,7 +23,6 @@
 	new /obj/item/clothing/glasses/hud/diagnostic(src) // When worn, generally improves wound treatment quality
 	// Reagent containers
 	new /obj/item/reagent_containers/spray/hercuri/chilled(src) // Highly effective (specifically coded to be) against burn wounds
-	// new /obj/item/reagent_containers/spray/dinitrogen_plasmide(src) // same
 	// Generic medical items
 	new /obj/item/stack/medical/gauze/twelve(src)
 	new /obj/item/healthanalyzer(src)
@@ -121,7 +120,6 @@
 	new /obj/item/clothing/glasses/hud/diagnostic(src) // When worn, generally improves wound treatment quality
 	// Reagent containers
 	new /obj/item/reagent_containers/spray/hercuri/chilled(src) // Highly effective (specifically coded to be) against burn wounds
-	// new /obj/item/reagent_containers/spray/dinitrogen_plasmide(src) // same
 	// Generic medical items
 	new /obj/item/stack/medical/gauze/twelve(src)
 	new /obj/item/healthanalyzer(src)
@@ -163,8 +161,6 @@
 	// Reagent containers
 	new /obj/item/reagent_containers/spray/hercuri/chilled(src) // Highly effective (specifically coded to be) against burn wounds
 	new /obj/item/reagent_containers/spray/hercuri/chilled(src) // 2 of them
-	//new /obj/item/reagent_containers/spray/dinitrogen_plasmide(src) // same
-	//new /obj/item/reagent_containers/spray/dinitrogen_plasmide(src)
 	new /obj/item/storage/pill_bottle/nanite_slurry(src) // Heals blunt/burn
 	new /obj/item/storage/pill_bottle/liquid_solder(src) // Heals brain damage
 	new /obj/item/storage/pill_bottle/system_cleaner(src) // Heals toxin damage and purges chems
@@ -250,7 +246,6 @@
 		/obj/item/storage/pill_bottle/nanite_slurry = 1,
 		/obj/item/storage/pill_bottle/system_cleaner = 1,
 		/obj/item/reagent_containers/spray/hercuri/chilled = 1,
-		///obj/item/reagent_containers/spray/dinitrogen_plasmide = 1,
 		/obj/item/reagent_containers/hypospray/medipen = 1, // treats electrical damage
 		/obj/item/healthanalyzer/simple = 1,
 		/obj/item/healthanalyzer/no_medibot = 1, // no welding tool since we assume you already have one
