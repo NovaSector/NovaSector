@@ -632,9 +632,6 @@
 /obj/item/gps{
 	gpstag = "INTRDYN0"
 	},
-/obj/item/gps{
-	gpstag = "INTRDYN0"
-	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "bR" = (
@@ -4247,9 +4244,6 @@
 /obj/structure/table/glass/plasmaglass,
 /obj/item/skillchip/wine_taster,
 /obj/item/skillchip/job/roboticist,
-/obj/item/gps{
-	gpstag = "INTRDYN0"
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "kX" = (
