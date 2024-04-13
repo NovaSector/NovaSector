@@ -355,7 +355,7 @@
 		user?.visible_message(span_danger("[user] begins [replacing_or_suturing] wiring within [their_or_other] [limb.plaintext_zone] with [suturing_item]..."), \
 			span_notice("You begin [replacing_or_suturing] wiring within [your_or_other] [limb.plaintext_zone] with [suturing_item]..."))
 		if (!suturing_item.use_tool(target = victim, user = user, delay = ELECTRICAL_DAMAGE_SUTURE_WIRE_BASE_DELAY * delay_mult, amount = 1, volume = 50, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
-			return TRUE
+			break
 
 		if (user != victim && user.combat_mode)
 			user?.visible_message(span_danger("[user] mangles some of [their_or_other] [limb.plaintext_zone]'s wiring!"), \
@@ -371,7 +371,7 @@
 			victim.balloon_alert(user, "intensity reduced to [get_intensity_mult() * 100]%")
 
 		if (fixed())
-			return TRUE
+			break
 	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	return TRUE
 
@@ -415,7 +415,7 @@
 		user?.visible_message(span_danger("[user] begins resetting misplaced wiring within [their_or_other] [limb.plaintext_zone]..."), \
 			span_notice("You begin resetting misplaced wiring within [your_or_other] [limb.plaintext_zone]..."))
 		if (!wirecutting_tool.use_tool(target = victim, user = user, delay = ELECTRICAL_DAMAGE_WIRECUTTER_BASE_DELAY * delay_mult, volume = 50, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
-			return TRUE
+			break
 
 		if (user != victim && user.combat_mode)
 			user?.visible_message(span_danger("[user] mangles some of [their_or_other] [limb.plaintext_zone]'s wiring!"), \
@@ -429,7 +429,7 @@
 			victim.balloon_alert(user, "intensity reduced to [get_intensity_mult() * 100]%")
 
 		if (fixed())
-			return TRUE
+			break
 	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	return TRUE
 
@@ -523,8 +523,8 @@
 	process_shock_spark_count_max = 1
 	process_shock_spark_count_min = 1
 
-	wirecut_repair_percent = 0.14
-	wire_repair_percent = 0.035
+	wirecut_repair_percent = 0.1
+	wire_repair_percent = 0.023
 
 	initial_sparks_amount = 1
 
@@ -566,8 +566,8 @@
 	process_shock_spark_count_max = 2
 	process_shock_spark_count_min = 1
 
-	wirecut_repair_percent = 0.128
-	wire_repair_percent = 0.032
+	wirecut_repair_percent = 0.09
+	wire_repair_percent = 0.015
 
 	initial_sparks_amount = 3
 
@@ -611,8 +611,8 @@
 	process_shock_spark_count_max = 3
 	process_shock_spark_count_min = 2
 
-	wirecut_repair_percent = 0.12
-	wire_repair_percent = 0.03
+	wirecut_repair_percent = 0.08
+	wire_repair_percent = 0.01
 
 	initial_sparks_amount = 8
 
