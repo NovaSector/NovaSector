@@ -1,0 +1,5 @@
+author: "Chelxox"
+delete-after: True
+changes:
+  - qol: "The Blueshift's warden's office fire alarm was repositioned so it can actually be interacted with."
+  - qol: "The bridge's spare ID safe on Blueshift can be walked on and doesn't block the path anymore."

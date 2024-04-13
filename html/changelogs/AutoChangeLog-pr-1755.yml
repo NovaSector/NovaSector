@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "fixed wind turbines power generation and colony coffee machine taking literal ages to recharge"
