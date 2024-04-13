@@ -6,6 +6,7 @@
 	icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
 	worn_icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
+	supports_variations_flags = STYLE_TAUR_SNAKE
 
 /obj/item/riding_saddle/mob_can_equip(mob/living/M, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	if (!iscarbon(M))
