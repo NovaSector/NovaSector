@@ -2168,7 +2168,7 @@
 
 	return ..()
 
-/obj/machinery/door/airlock/external/LateInitialize()
+/obj/machinery/door/airlock/external/post_machine_initialize()
 	. = ..()
 	if(space_dir)
 		unres_sides |= space_dir
