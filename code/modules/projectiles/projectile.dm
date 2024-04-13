@@ -361,6 +361,7 @@
 			organ_hit_text = " in \the [parse_zone(hit_limb_zone)]"
 		if(suppressed == SUPPRESSED_VERY)
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
+			organ_hit_text = organ_hit_text // NOVA EDIT ADDITION -- this is just so we don't have to nova edit the TG control statements. Otherwise will error in linters for being an empty block
 		else if(suppressed)
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 			to_chat(living_target, span_userdanger("You're shot by \a [src][organ_hit_text]!"))
