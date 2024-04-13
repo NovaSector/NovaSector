@@ -50,3 +50,4 @@
 	wound_path_to_generate = /datum/wound/blunt/robotic/secures_internals/severe
 
 	threshold_minimum = 65
+*/

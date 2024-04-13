@@ -63,3 +63,4 @@
 		span_green("You finish fastening [your_or_other] [limb.plaintext_zone]!"))
 
 	remove_wound()
+*/

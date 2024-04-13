@@ -63,3 +63,4 @@
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "sprayer_med_yellow"
 	list_reagents = list(/datum/reagent/dinitrogen_plasmide = 100)
+*/

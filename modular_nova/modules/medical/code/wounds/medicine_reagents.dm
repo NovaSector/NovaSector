@@ -29,3 +29,4 @@
 		was_working_synth = FALSE
 
 #undef CLOT_RATE_INTENSITY_MULT
+*/

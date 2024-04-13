@@ -396,3 +396,4 @@
 		else
 			. += " The limb has been sufficiently heated, and can be manually molded with a firm grasp/repeated application of a low-force object"
 		. += " - OR an RCD may be used with little risk."
+*/

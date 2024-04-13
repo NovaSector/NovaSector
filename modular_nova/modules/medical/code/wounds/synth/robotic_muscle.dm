@@ -45,3 +45,4 @@
 	wound_path_to_generate = /datum/wound/muscle/robotic/severe
 	threshold_minimum = 80
 
+*/

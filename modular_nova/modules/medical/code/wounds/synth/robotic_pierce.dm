@@ -144,3 +144,4 @@
 	abstract = FALSE
 	wound_path_to_generate = /datum/wound/electrical_damage/pierce/critical
 	threshold_minimum = 110
+*/

@@ -414,3 +414,4 @@
 	var/wound_step = get_wound_step_info()
 	if (wound_step)
 		. += "\n\n<b>Current step</b>: [span_notice(wound_step)]"
+*/

@@ -482,3 +482,4 @@
 	threshold_minimum = 140
 
 #undef OVERHEAT_ON_STASIS_HEAT_MULT
+*/
