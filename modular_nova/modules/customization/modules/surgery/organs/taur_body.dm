@@ -18,6 +18,20 @@
 	/// The mob's old left leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_left_leg = null
 
+	/// If true, this taur body allows a saddle to be equipped and used.
+	var/can_use_saddle = FALSE
+
+	var/can_piggyback_taurs = FALSE
+
+	var/riding_offset_side_x = 12
+	var/riding_offset_side_y = 0
+
+	var/riding_offset_front_x = 0
+	var/riding_offset_front_y = 1
+
+/obj/item/organ/external/taur_body/horselike
+	can_use_saddle = TRUE
+
 /obj/item/organ/external/taur_body/horselike/synth
 	organ_flags = ORGAN_ROBOTIC
 
@@ -41,6 +55,8 @@
 /obj/item/organ/external/taur_body/anthro
 	left_leg_name = null
 	right_leg_name = null
+
+	can_piggyback_taurs = TRUE
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = "taur"
@@ -131,3 +147,11 @@
 
 	if(old_right_leg)
 		QDEL_NULL(old_right_leg)
+
+/obj/item/organ/external/taur_body/proc/get_riding_offset(oversized = FALSE)
+	return list(
+				TEXT_NORTH = list(riding_offset_front_x, riding_offset_front_y),
+				TEXT_SOUTH = list(riding_offset_front_x, riding_offset_front_y),
+				TEXT_EAST = list(-riding_offset_side_x, riding_offset_side_y),
+				TEXT_WEST = list(riding_offset_side_x, riding_offset_side_y)
+			)

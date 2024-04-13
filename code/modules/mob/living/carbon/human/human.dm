@@ -1039,7 +1039,7 @@
 		return
 		//NOVA EDIT END
 
-	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
+	return buckle_mob(target, TRUE, TRUE, piggyback_flags) // NOVA EDIT -- Original: return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
 /mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, buckle_mob_flags= NONE)
 	if(!is_type_in_typecache(target, can_ride_typecache))

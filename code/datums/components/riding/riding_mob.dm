@@ -1,11 +1,5 @@
 // For any mob that can be ridden
 
-//NOVA EDIT START: Human Riding Defines
-#define OVERSIZED_OFFSET 18
-#define OVERSIZED_SIDE_OFFSET 11
-#define REGULAR_OFFSET 6
-#define REGULAR_SIDE_OFFSET 4
-//NOVA EDIT END
 /datum/component/riding/creature
 	/// If TRUE, this creature's movements can be controlled by the rider while mounted (as opposed to riding cyborgs and humans, which is passive)
 	var/can_be_driven = TRUE
@@ -214,7 +208,7 @@
 	var/mob/living/carbon/human/human_parent = parent
 	human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
 
-	if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
+	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // piggyback // NOVA EDIT ADDITION
 		human_parent.buckle_lying = 0
 		// the riding mob is made nondense so they don't bump into any dense atoms the carrier is pulling,
 		// since pulled movables are moved before buckled movables
@@ -230,8 +224,10 @@
 /datum/component/riding/creature/human/log_riding(mob/living/living_parent, mob/living/rider)
 	if(!istype(living_parent) || !istype(rider))
 		return
+	
+	if (ride_check_flags & RIDING_TAUR) // NOVA EDIT ADDITION
 
-	if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
+	else if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback // NOVA EDIT ADDITION
 		living_parent.log_message("started giving [rider] a piggyback ride.", LOG_GAME, color="pink")
 		rider.log_message("started piggyback riding [living_parent].", LOG_GAME, color="pink")
 	else if(ride_check_flags & CARRIER_NEEDS_ARM) // fireman
@@ -302,7 +298,7 @@
 				TEXT_EAST = list(0, REGULAR_OFFSET),
 				TEXT_WEST = list(0, REGULAR_OFFSET),
 			)
-	else
+	else if (!(ride_check_flags & RIDING_TAUR)) // NOVA EDIT ADDITION
 		return HAS_TRAIT(H, TRAIT_OVERSIZED) ? list(
 				TEXT_NORTH = list(0, OVERSIZED_OFFSET),
 				TEXT_SOUTH = list(0, OVERSIZED_OFFSET),
@@ -315,6 +311,14 @@
 				TEXT_WEST = list(REGULAR_OFFSET, REGULAR_SIDE_OFFSET)
 			)
 	//NOVA EDIT END
+
+	// NOVA EDIT BEGIN -- Taur riding
+	if (ride_check_flags & RIDING_TAUR)
+		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in H.organs
+		return taur_body.get_riding_offset(oversized = HAS_TRAIT(H, TRAIT_OVERSIZED))
+		
+	// NOVA EDIT END
+
 /datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider)
 	var/atom/movable/AM = parent
 	AM.unbuckle_mob(dismounted_rider)
