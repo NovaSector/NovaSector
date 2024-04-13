@@ -1,7 +1,7 @@
 /// When a mob is constricted, its pixel_x will be modified by this. Reverted on unconstriction. Modified by sprite scaling.
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
 /// The base chance a mob has to escape from a constriction.	
-#define CONSTRICT_ESCAPE_CHANCE 30
+#define CONSTRICT_ESCAPE_CHANCE 25
 
 /datum/action/innate/constrict
 	name = "Constrict"
@@ -18,7 +18,7 @@
 	/// The tail we use to constrict mobs with. Nullable, if inactive.
 	var/obj/structure/serpentine_tail/tail
 	/// The base time it takes for us to constrict a mob.
-	var/base_coil_delay = 5 SECONDS
+	var/base_coil_delay = 4 SECONDS
 
 /datum/action/innate/constrict/Destroy()
 	. = ..()
