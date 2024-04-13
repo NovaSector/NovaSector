@@ -225,6 +225,9 @@
 	if (seconds_for_intensity > 0 && HAS_TRAIT(victim, TRAIT_COAGULATING))
 		seconds_for_intensity *= ELECTRICAL_DAMAGE_CLOTTING_PROGRESS_MULT
 
+	if (HAS_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING))
+		seconds_for_intensity = min(seconds_for_intensity, 0) // it cant get any worse
+
 	return seconds_for_intensity
 
 /// Returns how many deciseconds progress should be reduced by, based on the current heat of our victim's body.
@@ -347,6 +350,7 @@
 	var/their_or_other = (user == victim ? "[user.p_their()]" : "[victim]'s")
 	var/your_or_other = (user == victim ? "your" : "[victim]'s")
 	var/replacing_or_suturing = (is_suture ? "repairing some" : "replacing")
+	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	while (suturing_item.tool_start_check())
 		user?.visible_message(span_danger("[user] begins [replacing_or_suturing] wiring within [their_or_other] [limb.plaintext_zone] with [suturing_item]..."), \
 			span_notice("You begin [replacing_or_suturing] wiring within [your_or_other] [limb.plaintext_zone] with [suturing_item]..."))
@@ -368,6 +372,7 @@
 
 		if (fixed())
 			return TRUE
+	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	return TRUE
 
 /**
@@ -405,6 +410,7 @@
 
 	var/their_or_other = (user == victim ? "[user.p_their()]" : "[victim]'s")
 	var/your_or_other = (user == victim ? "your" : "[victim]'s")
+	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	while (wirecutting_tool.tool_start_check())
 		user?.visible_message(span_danger("[user] begins resetting misplaced wiring within [their_or_other] [limb.plaintext_zone]..."), \
 			span_notice("You begin resetting misplaced wiring within [your_or_other] [limb.plaintext_zone]..."))
@@ -424,6 +430,7 @@
 
 		if (fixed())
 			return TRUE
+	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	return TRUE
 
 /// If fixed() is true, we remove ourselves and return TRUE. FALSE otherwise.
