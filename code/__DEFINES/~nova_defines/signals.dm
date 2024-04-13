@@ -84,3 +84,6 @@
 
 /// Whenever we need to get the soul of the mob inside of the soulcatcher.
 #define COMSIG_SOULCATCHER_SCAN_BODY "soulcatcher_scan_body"
+
+/// Sent whenever an atom's atom_storage variable is set, through create_storage and clone_storage.
+#define COMSIG_ATOM_STORAGE_SET "atom_storage_set"

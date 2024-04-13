@@ -24,7 +24,7 @@
 
 	RegisterSignal(equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_item))
 
-	if (isliving(equipper))
+	if (isliving(equipper) && !(equipper.get_slot_by_item(parent) & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS))) // ITEM_SLOT_BACK CHECK IS A PLACEHOLDER
 		var/mob/living/living_mob = equipper
 		living_mob.piggyback_flags = piggyback_flags
 

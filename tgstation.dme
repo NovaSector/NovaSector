@@ -7294,6 +7294,7 @@
 #include "modular_nova\modules\customization\modules\surgery\organs\xenodorsal.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\xenohead.dm"
 #include "modular_nova\modules\customization\modules\taur_rework\code\accessable_storage.dm"
+#include "modular_nova\modules\customization\modules\taur_rework\code\atom_storage.dm"
 #include "modular_nova\modules\customization\modules\taur_rework\code\piggybacking.dm"
 #include "modular_nova\modules\customization\modules\taur_rework\code\saddle_component.dm"
 #include "modular_nova\modules\customization\modules\taur_rework\code\saddles.dm"

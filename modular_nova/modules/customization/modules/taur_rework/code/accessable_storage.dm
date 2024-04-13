@@ -1,6 +1,6 @@
 /datum/component/accessable_storage
 
-/datum/component/accessable_storage/Initialize(...)    
+/datum/component/accessable_storage/Initialize()    
 	if (!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -15,7 +15,7 @@
 
 	RegisterSignal(equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_item))
 
-	if (isliving(equipper))
+	if (isliving(equipper) && equipper.get_slot_by_item(parent) &~ (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS))
 		RegisterSignal(equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_item))
 		RegisterSignal(equipper, COMSIG_CLICK_ALT, PROC_REF(mob_alt_clicked_on))
 
@@ -23,7 +23,8 @@
 	SIGNAL_HANDLER
 
 	var/obj/item/item_parent = parent
-	item_parent.atom_storage?.open_storage(clicker)	
+	item_parent.atom_storage?.open_storage(clicker, signal_source)
+	item_parent.atom_storage?.animate_parent(signal_source)
 
 /datum/component/accessable_storage/proc/mob_unequipped_item(mob/signal_source, obj/item/item, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
