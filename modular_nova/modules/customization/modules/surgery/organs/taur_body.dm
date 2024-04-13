@@ -25,9 +25,9 @@
 	var/can_piggyback_taurs = FALSE
 
 	/// When being ridden via saddle, how much the rider is offset on the x axis when facing west or east.
-	var/riding_offset_side_x = 7
+	var/riding_offset_side_x = 12
 	/// When being ridden via saddle, how much the rider is offset on the y axis when facing west or east.
-	var/riding_offset_side_y = 3
+	var/riding_offset_side_y = 2
 
 	/// When being ridden via saddle, how much the rider is offset on the x axis when facing north or south.
 	var/riding_offset_front_x = 0

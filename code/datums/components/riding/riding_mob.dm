@@ -206,7 +206,8 @@
 /datum/component/riding/creature/human/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE, potion_boost = FALSE)
 	. = ..()
 	var/mob/living/carbon/human/human_parent = parent
-	human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
+	if (!(ride_check_flags & RIDING_TAUR)) // NOVA EDIT ADDITION -- Taur saddles
+		human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
 
 	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // piggyback // NOVA EDIT ADDITION
 		human_parent.buckle_lying = 0
@@ -224,7 +225,7 @@
 /datum/component/riding/creature/human/log_riding(mob/living/living_parent, mob/living/rider)
 	if(!istype(living_parent) || !istype(rider))
 		return
-	
+
 	if (ride_check_flags & RIDING_TAUR) // NOVA EDIT ADDITION
 
 	else if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback // NOVA EDIT ADDITION
@@ -316,7 +317,7 @@
 	if (ride_check_flags & RIDING_TAUR)
 		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in H.organs
 		return taur_body.get_riding_offset(oversized = HAS_TRAIT(H, TRAIT_OVERSIZED))
-		
+
 	// NOVA EDIT END
 
 /datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider)
