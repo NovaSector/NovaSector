@@ -132,8 +132,7 @@
 
 /obj/structure/serpentine_tail/New(loc, mob/living/carbon/human/new_owner, datum/action/innate/constrict/action)
 	if (isnull(new_owner))
-		stack_trace("/obj/structure/serpentine_tail requires a owner to be set")
-		qdel(src)
+		qdel(src) // requires a owner, not stack tracing because it fails tests
 		return FALSE
 
 	set_owner(new_owner)
