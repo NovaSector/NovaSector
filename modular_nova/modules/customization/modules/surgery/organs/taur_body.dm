@@ -9,13 +9,27 @@
 	mutantpart_key = "taur"
 	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
+
+	var/left_leg_name = "front legs"
+	var/right_leg_name = "back legs"
+	
 	/// The mob's old right leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_right_leg = null
 	/// The mob's old left leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_left_leg = null
 
-/obj/item/organ/external/taur_body/synth
+/obj/item/organ/external/taur_body/horselike/synth
 	organ_flags = ORGAN_ROBOTIC
+
+/obj/item/organ/external/taur_body/spider
+
+/obj/item/organ/external/taur_body/tentacle
+	left_leg_name = "front tentacles"
+	right_leg_name = "back tentacles"
+
+/obj/item/organ/external/taur_body/blob
+	left_leg_name = "outer blob"
+	right_leg_name = "inner blob"
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = "taur"
@@ -48,16 +62,22 @@
 		new_left_leg = new /obj/item/bodypart/leg/left/robot/synth/taur()
 		new_right_leg = new /obj/item/bodypart/leg/right/robot/synth/taur()
 
+	if (left_leg_name)
+		new_left_leg.name = left_leg_name
+	if (right_leg_name)
+		new_right_leg.name = right_leg_name
 
 	new_left_leg.bodyshape |= external_bodyshapes
 	new_left_leg.replace_limb(reciever, TRUE)
 	if(old_left_leg)
 		old_left_leg.forceMove(src)
+	new_left_leg.bodytype |= BODYTYPE_TAUR
 
 	new_right_leg.bodyshape |= external_bodyshapes
 	new_right_leg.replace_limb(reciever, TRUE)
 	if(old_right_leg)
 		old_right_leg.forceMove(src)
+	new_right_leg.bodytype |= BODYTYPE_TAUR
 
 	return ..()
 

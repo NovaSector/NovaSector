@@ -432,6 +432,7 @@
 #include "code\__DEFINES\~nova_defines\language.dm"
 #include "code\__DEFINES\~nova_defines\lazy_templates.dm"
 #include "code\__DEFINES\~nova_defines\lewd_defines.dm"
+#include "code\__DEFINES\~nova_defines\limbs.dm"
 #include "code\__DEFINES\~nova_defines\liquids.dm"
 #include "code\__DEFINES\~nova_defines\living.dm"
 #include "code\__DEFINES\~nova_defines\loadouts.dm"
