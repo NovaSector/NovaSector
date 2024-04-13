@@ -632,6 +632,9 @@
 /obj/item/gps{
 	gpstag = "INTRDYN0"
 	},
+/obj/item/gps{
+	gpstag = "INTRDYN0"
+	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "bR" = (
@@ -777,9 +780,6 @@
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/box/white,
 /obj/item/pickaxe,
-/obj/item/gps{
-	gpstag = "INTRDYN0"
-	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "ch" = (
