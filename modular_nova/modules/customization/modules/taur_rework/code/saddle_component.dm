@@ -1,8 +1,10 @@
 /mob/living
+	/// Flags passed into piggyback()'s buckle_mob() call in the buckle_mob_flags arg.
 	var/piggyback_flags = RIDER_NEEDS_ARMS
 
 /// Allows the attached item to enable saddle mechanics on the mob wearing it.
 /datum/component/carbon_saddle
+	/// The piggyback flags to apply to any mob that wears parent.
 	var/piggyback_flags = RIDER_NEEDS_ARM|RIDING_TAUR
 
 /datum/component/carbon_saddle/Initialize(piggyback_flags)
