@@ -98,7 +98,7 @@
 	var/list/charging_queue = list()
 	for(var/obj/item/stock_parts/cell/battery_slot in charging_batteries)
 		if(battery_slot.percent() >= 100)
-			continue	
+			continue
 		LAZYADD(charging_queue, battery_slot)
 
 	if(!length(charging_queue))
@@ -109,7 +109,7 @@
 	var/charge_current = (charge_rate / length(charging_queue)) * seconds_per_tick
 	if(!charge_current)
 		return
-		
+
 	for(var/obj/item/stock_parts/cell/charging_cell in charging_queue)
 		use_energy(charge_current * 0.01) //use a small bit for the charger itself, but power usage scales up with the part tier
 		charge_cell(charge_current, charging_cell, grid_only = TRUE)
@@ -196,7 +196,7 @@
 	name = "Multi-Cell Charger (Machine Board)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/cell_charger_multi
-	req_components = list(/datum/stock_part/capacitor = 4)
+	req_components = list(/datum/stock_part/capacitor = 6)
 	needs_anchored = FALSE
 
 
