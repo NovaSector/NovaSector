@@ -157,6 +157,9 @@
 			notify_volume = 75,
 		)
 	else
+		SSpersistence.rounds_since_engine_exploded = round(SSpersistence.rounds_since_engine_exploded * 0.75)
+		for(var/obj/machinery/incident_display/sign as anything in GLOB.map_delamination_counters)
+			sign.update_delam_count(SSpersistence.rounds_since_engine_exploded)
 		var/reason
 		switch(trigger_reason)
 			if(AUTOMATIC_SAFETIES)
