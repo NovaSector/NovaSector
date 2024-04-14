@@ -26,6 +26,7 @@
 #define MACHINE_SOUND_RANGE 15
 #define MACHINE_RUMBLE_SOUND_RANGE 30
 #define MACHINE_SOUND_FALLOFF_DISTANCE 10
+#define MAX_DELAM_SCORE_PENALTY 16
 
 /// An atmos device that uses freezing cold air to attempt an emergency shutdown of the supermatter engine
 /obj/machinery/atmospherics/components/unary/delam_scram
@@ -157,7 +158,8 @@
 			notify_volume = 75,
 		)
 	else
-		SSpersistence.rounds_since_engine_exploded = round(SSpersistence.rounds_since_engine_exploded * 0.75)
+		var/delam_score_penalty = min(round(SSpersistence.rounds_since_engine_exploded * 0.25), MAX_DELAM_SCORE_PENALTY)
+		SSpersistence.rounds_since_engine_exploded -= delam_score_penalty
 		for(var/obj/machinery/incident_display/sign as anything in GLOB.map_delamination_counters)
 			sign.update_delam_count(SSpersistence.rounds_since_engine_exploded)
 		var/reason
@@ -495,3 +497,4 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/delam_procedure, 32)
 #undef MACHINE_SOUND_RANGE
 #undef MACHINE_RUMBLE_SOUND_RANGE
 #undef MACHINE_SOUND_FALLOFF_DISTANCE
+#undef MAX_DELAM_SCORE_PENALTY
