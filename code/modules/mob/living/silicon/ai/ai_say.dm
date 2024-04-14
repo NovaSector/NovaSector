@@ -125,7 +125,7 @@
 		words.len = 30
 
 	for(var/word in words)
-		word = lowertext(trim(word))
+		word = LOWER_TEXT(trim(word))
 		if(!word)
 			words -= word
 			continue
@@ -155,7 +155,7 @@
 
 /proc/play_vox_word(word, ai_turf, mob/only_listener)
 
-	word = lowertext(word)
+	word = LOWER_TEXT(word)
 
 	// NOVA ADDITION BEGIN - Get AI for the vox Type
 	var/turf/ai_turf_as_turf = ai_turf

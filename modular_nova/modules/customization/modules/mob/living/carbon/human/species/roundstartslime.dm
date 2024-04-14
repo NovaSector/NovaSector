@@ -225,7 +225,7 @@
 
 	var/new_mutant_colour = input(
 		alterer,
-		"Choose your character's new [color_choice = "All" ? "" : lowertext(color_choice)] color:",
+		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
 	) as color|null
