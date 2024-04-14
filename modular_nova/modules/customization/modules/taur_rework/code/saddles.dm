@@ -56,11 +56,6 @@
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
 	icon_state = "saddle_satchel"
-	storage_type = /datum/storage/saddlebags
-
-/datum/storage/saddlebags // slight downgrade from a normal backpack
-	max_total_storage = 18
-	max_slots = 18
 
 /obj/item/storage/backpack/saddlebags/Initialize(mapload)
 	. = ..()
