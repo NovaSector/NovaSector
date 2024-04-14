@@ -7443,6 +7443,7 @@
 #include "modular_nova\modules\ices_events\code\ICES_seclevel.dm"
 #include "modular_nova\modules\ices_events\code\ICES_tgui.dm"
 #include "modular_nova\modules\ices_events\code\effects\ef_foam.dm"
+#include "modular_nova\modules\ices_events\code\events\ev_bioscrambler.dm"
 #include "modular_nova\modules\ices_events\code\events\ev_meteors.dm"
 #include "modular_nova\modules\ices_events\code\events\ev_roleplay_check.dm"
 #include "modular_nova\modules\ices_events\code\events\ev_scrubbers.dm"
