@@ -1,4 +1,4 @@
-// Radiation slime
+// Rad slime ability effect
 #define RAD_PULSE_RANGE 300
 #define RAD_PULSE_THRESHOLD 1
 
@@ -9,6 +9,24 @@
 /mob/living/basic/slime/mold/Initialize(mapload, new_colour, new_life_stage)
 	. = ..()
 	ai_controller?.set_blackboard_key(BB_SLIME_RABID, TRUE)
+
+/mob/living/basic/slime/mold/update_name()
+	. = ..()
+	var/slime_id = rand(1, 1000)
+	var/mold_type
+	switch(type)
+		if(/mob/living/basic/slime/mold/toxic)
+			mold_type = "toxic"
+		if(/mob/living/basic/slime/mold/disease)
+			mold_type = "pathogenic"
+		if(/mob/living/basic/slime/mold/fire)
+			mold_type = "pyroclastic"
+		if(/mob/living/basic/slime/mold/radiation)
+			mold_type = "radioactive"
+		if(/mob/living/basic/slime/mold/electric)
+			mold_type = "electric"
+	name = "[mold_type] [life_stage] slime ([slime_id])"
+	real_name = name
 
 /**
  * TOXIC MOLD
@@ -26,7 +44,7 @@
 /mob/living/basic/slime/mold/toxic/Initialize(mapload, new_colour, new_life_stage)
 	. = ..(mapload, /datum/slime_type/purple)
 	AddElement(/datum/element/venomous, inject_reagent, inject_amount)
-
+	update_name()
 
 /**
  * FIRE MOLD
@@ -40,6 +58,7 @@
 /mob/living/basic/slime/mold/fire/Initialize(mapload, new_colour, new_life_stage)
 	var/slime_type = pick(/datum/slime_type/red, /datum/slime_type/orange)
 	. = ..(mapload, slime_type)
+	update_name()
 
 /mob/living/basic/slime/mold/fire/melee_attack(atom/target, list/modifiers, ignore_cooldown)
 	. = ..()
@@ -62,6 +81,7 @@
 
 /mob/living/basic/slime/mold/disease/Initialize(mapload, new_colour, new_life_stage)
 	. = ..(mapload, /datum/slime_type/oil)
+	update_name()
 
 /mob/living/basic/slime/mold/disease/melee_attack(atom/target, list/modifiers, ignore_cooldown)
 	. = ..()
@@ -87,6 +107,7 @@
 /mob/living/basic/slime/mold/electric/Initialize(mapload, new_colour, new_life_stage)
 	. = ..(mapload, /datum/slime_type/yellow)
 	AddElement(/datum/element/venomous, inject_reagent, inject_amount)
+	update_name()
 
 
 /**
@@ -98,6 +119,7 @@
 
 /mob/living/basic/slime/mold/radiation/Initialize(mapload, new_colour, new_life_stage)
 	. = ..(mapload, /datum/slime_type/green)
+	update_name()
 
 /mob/living/basic/slime/mold/radiation/melee_attack(atom/target, list/modifiers, ignore_cooldown)
 	. = ..()

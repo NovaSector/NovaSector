@@ -163,7 +163,7 @@
 	structure_light_color = LIGHT_COLOR_BROWN
 	examine_text = "It looks like it's rotting."
 	mob_types = list(/mob/living/basic/slime/mold/disease)
-	preferred_atmos_conditions = "TEMP=312"
+	preferred_atmos_conditions = "TEMP=303"
 
 /datum/mold_type/disease/core_defense(obj/structure/mold/structure/core/core)
 	core.visible_message(span_warning("[core] emits a cloud!"))
@@ -201,7 +201,7 @@
 	structure_light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	examine_text = "You can notice small sparks travelling in the vines."
 	mob_types = list(/mob/living/basic/slime/mold/electric)
-	preferred_atmos_conditions = "n2=30;TEMP=100"
+	preferred_atmos_conditions = "n2=30;TEMP=294"
 
 /datum/mold_type/emp/core_defense(obj/structure/mold/structure/core/core)
 	core.visible_message(span_warning("[core] sends out electrical discharges!"))
@@ -268,7 +268,7 @@
 	structure_light_color = LIGHT_COLOR_LAVENDER
 	examine_text = "It feels damp and smells of rat poison."
 	mob_types = list(/mob/living/basic/slime/mold/toxic)
-	preferred_atmos_conditions = "miasma=50;TEMP=296"
+	preferred_atmos_conditions = "miasma=50;TEMP=294"
 	resistance_flags = UNACIDABLE | ACID_PROOF
 
 /datum/mold_type/toxic/core_defense(obj/structure/mold/structure/core/core)
@@ -302,7 +302,7 @@
 	structure_light_color = LIGHT_COLOR_ELECTRIC_GREEN
 	examine_text = "It's glowing a soft green."
 	mob_types = list(/mob/living/basic/slime/mold/radiation)
-	preferred_atmos_conditions = "tritium=5;TEMP=296"
+	preferred_atmos_conditions = "tritium=5;TEMP=1000"
 	resistance_flags = ACID_PROOF | FIRE_PROOF
 
 /datum/mold_type/radioactive/core_defense(obj/structure/mold/structure/core/core)
