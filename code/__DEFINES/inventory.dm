@@ -167,9 +167,6 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_DIGITIGRADE_VARIATION (1<<1)
 ///The sprite works fine for digitigrade legs as-is.
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
-<<<<<<< HEAD
-///has a sprite for monkeys
-#define CLOTHING_MONKEY_VARIATION (1<<3)
 // NOVA EDIT ADDITION START
 /// The sprite works fine for snouts.
 #define CLOTHING_SNOUTED_VARIATION (1<<4)
@@ -184,8 +181,6 @@ DEFINE_BITFIELD(no_equip_flags, list(
 /// The sprite works fine for vox snouts as is.
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<9)
 // NOVA EDIT END
-=======
->>>>>>> 611c48be405 (Monkeys now use height offset (and monkey tail works) (#81598))
 
 //flags for covering body parts
 #define GLASSESCOVERSEYES (1<<0)

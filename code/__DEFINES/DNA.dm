@@ -60,8 +60,7 @@
 #define DNA_POD_HAIR_BLOCK 15
 #define DNA_MONKEY_TAIL_BLOCK 16
 
-<<<<<<< HEAD
-#define DNA_FEATURE_BLOCKS 15
+#define DNA_FEATURE_BLOCKS 16
 */ //NOVA EDIT CHANGE - ORIGINAL
 #define DNA_FEATURE_BLOCKS GLOB.dna_total_feature_blocks
 
@@ -75,9 +74,6 @@
 #define DNA_POD_HAIR_BLOCK 15
 
 // NOVA EDIT CHANGE END
-=======
-#define DNA_FEATURE_BLOCKS 16
->>>>>>> 611c48be405 (Monkeys now use height offset (and monkey tail works) (#81598))
 
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8
