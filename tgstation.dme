@@ -8266,6 +8266,8 @@
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\sentinel.dm"
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\spitter.dm"
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\warrior.dm"
+#include "modular_np_lethal\ammo_stacks\code\ammo_stack_base.dm"
+#include "modular_np_lethal\ammo_stacks\code\stack_types.dm"
 #include "modular_np_lethal\clothing_edits\gear_harness_change.dm"
 #include "modular_np_lethal\epic_loot\code\_basetype.dm"
 #include "modular_np_lethal\epic_loot\code\random_spawners.dm"
