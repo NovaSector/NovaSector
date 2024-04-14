@@ -226,9 +226,7 @@
 	if(!istype(living_parent) || !istype(rider))
 		return
 
-	if (ride_check_flags & RIDING_TAUR) // NOVA EDIT ADDITION
-
-	else if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback // NOVA EDIT ADDITION
+	if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
 		living_parent.log_message("started giving [rider] a piggyback ride.", LOG_GAME, color="pink")
 		rider.log_message("started piggyback riding [living_parent].", LOG_GAME, color="pink")
 	else if(ride_check_flags & CARRIER_NEEDS_ARM) // fireman
