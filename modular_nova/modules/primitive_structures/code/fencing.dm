@@ -6,7 +6,7 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/wooden_fence.dmi'
 	icon_state = "fence"
 	resistance_flags = FLAMMABLE
-	flags_1 = NO_DECONSTRUCTION | ON_BORDER_1
+	flags_1 = NO_DEBRIS_AFTER_DECONSTRUCTION | ON_BORDER_1
 	/// If we randomize our icon on spawning
 	var/random_icons = TRUE
 

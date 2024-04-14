@@ -1,7 +1,7 @@
 // Upgraded Interdyne machines
 
 /obj/machinery/processor/slime/fullupgrade
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DEBRIS_AFTER_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/processor/slime/fullupgrade
 
 /obj/item/circuitboard/machine/processor/slime/fullupgrade
@@ -14,7 +14,7 @@
 	)
 
 /obj/machinery/monkey_recycler/fullupgrade
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DEBRIS_AFTER_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/monkey_recycler/fullupgrade
 
 /obj/item/circuitboard/machine/monkey_recycler/fullupgrade
@@ -28,7 +28,7 @@
 
 /obj/machinery/chem_master/fullupgrade
 	name = "\improper ChemMaster 4000"
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DEBRIS_AFTER_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/chem_master/fullupgrade
 
 /obj/item/circuitboard/machine/chem_master/fullupgrade
@@ -44,7 +44,7 @@
 	needs_anchored = FALSE
 
 /obj/machinery/biogenerator/fullupgrade
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
+	obj_flags = parent_type::obj_flags | NO_DEBRIS_AFTER_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/biogenerator/fullupgrade
 
 /obj/item/circuitboard/machine/biogenerator/fullupgrade

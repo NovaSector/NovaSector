@@ -48,7 +48,7 @@
 
 
 /obj/structure/towel_bin/screwdriver_act(mob/living/user, obj/item/tool)
-	if(obj_flags & NO_DECONSTRUCTION)
+	if(obj_flags & NO_DEBRIS_AFTER_DECONSTRUCTION)
 		return FALSE
 
 	if(amount)

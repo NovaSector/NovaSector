@@ -538,7 +538,7 @@
 	icon_state = "hardlight_down"
 	base_icon_state = "hardlight"
 	max_integrity = 1
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION //Made from nothing, can't deconstruct
+	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION  //Made from nothing, can't deconstruct
 	build_stack_type = null //It would not be good if people could use this to farm materials.
 	var/deploy_time = 20 SECONDS //How long the roller beds lasts for without someone buckled to it.
 
