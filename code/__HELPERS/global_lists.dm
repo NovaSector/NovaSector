@@ -90,6 +90,7 @@
 	GLOB.emote_list = init_emote_list() // WHY DOES THIS NEED TO GO HERE? IT JUST INITS DATUMS
 
 	make_skyrat_datum_references() //NOVA EDIT ADDITION - CUSTOMIZATION
+	init_nova_stack_recipes() //NOVA EDIT ADDITION - More sheet recipes
 	init_crafting_recipes()
 	init_crafting_recipes_atoms()
 
