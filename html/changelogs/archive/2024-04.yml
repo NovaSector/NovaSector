@@ -440,3 +440,41 @@
       no longer give cogbar icons.'
   - bugfix: Airlock electronics and other access-config type UIs should look much
       better.
+2024-04-14:
+  Chelxox:
+  - qol: The Blueshift's warden's office fire alarm was repositioned so it can actually
+      be interacted with.
+  - qol: The bridge's spare ID safe on Blueshift can be walked on and doesn't block
+      the path anymore.
+  LT3:
+  - rscdel: The unmistakable odour of decaying waste will no longer bombard your nostrils
+  NovaBot13:
+  - qol: chef equipment can now deposit and withdraw to/from trays!
+  - qol: chef now has access to griddle and oven sized trays!
+  - qol: service can now print soup pots
+  - bugfix: Being in critical condition no longer damages zombies.
+  - code_imp: TRAIT_NODEATH will actually stop you dying in (most) cases.
+  SomeRandomOwl:
+  - qol: Added TGUI color prefixes for Tarkon :k, Solfed :l, Guild :p, Interdyne :w
+      and Cybersun :q
+  - rscadd: Two radio headsets for the Solfed EMT team, and Solfed Marshel / SWAT
+      / Marine teams
+  YehnBeep:
+  - qol: Blueshift's mixing/crystallizer room has had some pipes moved out of the
+      way of the central area.
+  - bugfix: Fixed icebox interdyne outpost missing GPSs and canisters.
+  Zergspower:
+  - rscadd: Adds a new powersource - A miniature Reactor - for ghost roles to replace
+      bluespace SMES and the need to RTG Spam
+  - qol: BMD now has a mining scanner! Gone are the days of accidentally blowing your
+      home apart trying to get silver to make one
+  - qol: Freighter, DS2 and Ice Interdyne receive a new reactor to give baseline power
+  nikothedude:
+  - rscadd: '*esigh, for exasperated sighing'
+  sqnztb:
+  - qol: lavadyne now has the micro reactor for power support.
+  vinylspiders:
+  - bugfix: the station is now slightly less haunted - ghosts can no longer unflip
+      tables.
+  - bugfix: the remote flipping mechanisms have been removed from all the tables.
+      borgs can no longer remotely tableflip.
