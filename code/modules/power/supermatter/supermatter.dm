@@ -236,6 +236,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	QDEL_NULL(radio)
 	QDEL_NULL(countdown)
 	if(is_main_engine && GLOB.main_supermatter_engine == src)
+		// NOVA EDIT ADDITION BEGIN - DELAM SCRAM
+		SSpersistence.delam_highscore = SSpersistence.rounds_since_engine_exploded
+		SSpersistence.rounds_since_engine_exploded = -1
+		for(var/obj/machinery/incident_display/sign as anything in GLOB.map_delamination_counters)
+			sign.update_delam_count(SSpersistence.rounds_since_engine_exploded)
+		// NOVA EDIT ADDITION END - DELAM SCRAM
 		GLOB.main_supermatter_engine = null
 	QDEL_NULL(soundloop)
 	return ..()
