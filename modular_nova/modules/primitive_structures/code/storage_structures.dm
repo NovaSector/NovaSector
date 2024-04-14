@@ -28,7 +28,6 @@
 
 /obj/structure/rack/wooden/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 2)
-	return ..()
 
 // Barrel but it works like a crate
 
@@ -51,7 +50,6 @@
 
 /obj/structure/closet/crate/wooden/storage_barrel/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 4)
-	return ..()
 
 /obj/machinery/smartfridge/produce_bin
 	name = "produce bin"
@@ -93,7 +91,6 @@
 
 /obj/machinery/smartfridge/produce_bin/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
-	return ..()
 
 /obj/machinery/smartfridge/seed_shelf
 	name = "seed shelf"
@@ -128,7 +125,6 @@
 
 /obj/machinery/smartfridge/seed_shelf/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
-	return ..()
 
 /obj/machinery/smartfridge/ration_shelf
 	name = "ration shelf"
@@ -163,7 +159,6 @@
 
 /obj/machinery/smartfridge/ration_shelf/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
-	return ..()
 
 /obj/machinery/smartfridge/produce_display
 	name = "produce display"
@@ -204,4 +199,3 @@
 
 /obj/machinery/smartfridge/produce_display/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
-	return ..()

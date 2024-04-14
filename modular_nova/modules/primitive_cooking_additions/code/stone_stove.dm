@@ -34,7 +34,6 @@
 
 /obj/machinery/primitive_stove/atom_deconstruct(disassembled)
 	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
-	return ..()
 
 /// Stove component subtype with changed visuals and not much else
 /datum/component/stove/primitive
