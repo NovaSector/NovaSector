@@ -841,9 +841,24 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	if(!standing)
 		standing = mutable_appearance(file2use, t_state, -layer2use)
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
+	var/using_taur_variant = FALSE
 	if(mutant_styles & STYLE_TAUR_ALL)
-		standing = wear_taur_version(standing.icon_state, standing.icon, layer2use, female_uniform, greyscale_colors)
+		if ((mutant_styles & STYLE_TAUR_SNAKE) && worn_icon_taur_snake)
+			standing.icon = worn_icon_taur_snake
+			using_taur_variant = TRUE
+		else if ((mutant_styles & STYLE_TAUR_PAW) && worn_icon_taur_paw)
+			standing.icon = worn_icon_taur_paw
+			using_taur_variant = TRUE
+		else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
+			standing.icon = worn_icon_taur_hoof
+			using_taur_variant = TRUE
+		else		
+			standing = wear_taur_version(standing.icon_state, standing.icon, layer2use, female_uniform, greyscale_colors)
+
+	if (using_taur_variant)
+		standing.pixel_x -= 16 // it doesnt look right otherwise
 	// NOVA EDIT END
+
 
 	//Get the overlays for this item when it's being worn
 	//eg: ammo counters, primed grenade flashes, etc.
