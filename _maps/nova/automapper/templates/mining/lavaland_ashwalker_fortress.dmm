@@ -442,7 +442,6 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "re" = (
-/obj/structure/stone_tile/slab,
 /obj/structure/chair/comfy/beige{
 	dir = 8
 	},
@@ -768,6 +767,9 @@
 "Au" = (
 /obj/structure/geyser,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"Az" = (
+/turf/open/space/basic,
 /area/ruin/unpowered/ash_walkers)
 "AG" = (
 /obj/structure/table/wood,
@@ -1954,7 +1956,7 @@ qA
 mg
 sQ
 WK
-hn
+WK
 CP
 JC
 RU
@@ -2024,7 +2026,7 @@ wR
 JC
 sQ
 WK
-hn
+WK
 Qm
 PW
 WK
@@ -2094,7 +2096,7 @@ qA
 SS
 WK
 TV
-hn
+WK
 hy
 JC
 JC
@@ -2123,7 +2125,7 @@ um
 WK
 WK
 WK
-hn
+WK
 WK
 WK
 WK
@@ -2164,7 +2166,7 @@ WK
 SD
 TV
 WK
-hn
+WK
 WK
 Au
 hy
@@ -2192,13 +2194,13 @@ WK
 uf
 WK
 WK
-hn
 WK
-hn
 WK
-hn
 WK
-hn
+WK
+WK
+WK
+WK
 WK
 WK
 WK
@@ -2235,11 +2237,11 @@ WK
 Zo
 WK
 WK
-hn
+WK
 WK
 aB
 WK
-hn
+WK
 WK
 pK
 um
@@ -2272,7 +2274,7 @@ WK
 WK
 WK
 WK
-hn
+WK
 WK
 WK
 WK
@@ -2309,7 +2311,7 @@ WK
 WK
 ed
 hE
-hn
+WK
 WK
 WK
 WK
@@ -2341,12 +2343,12 @@ vM
 JC
 JC
 kf
-hn
+WK
 TV
 TV
 TV
 ed
-hn
+WK
 WK
 pK
 JC
@@ -2412,12 +2414,12 @@ WK
 uf
 WK
 WK
-hn
+WK
 FD
 rN
 TV
 Fo
-hn
+WK
 WK
 br
 WK
@@ -2481,12 +2483,12 @@ rf
 JC
 JC
 kf
-hn
+WK
 TV
 TV
 TV
 WK
-hn
+WK
 WK
 pK
 JC
@@ -2550,9 +2552,9 @@ JC
 JC
 WK
 WK
-hn
 WK
-hn
+WK
+WK
 WK
 WK
 WK
@@ -2583,7 +2585,7 @@ Zo
 vM
 WK
 WK
-hn
+WK
 WK
 WK
 WK
@@ -2616,7 +2618,7 @@ aB
 Lq
 Io
 WK
-hn
+WK
 WK
 WK
 WK
@@ -2685,7 +2687,7 @@ JC
 Lq
 Zo
 WK
-hn
+WK
 WK
 WK
 WK
@@ -2755,7 +2757,7 @@ WK
 JC
 Mh
 WK
-hn
+WK
 WK
 WK
 WK
@@ -2824,7 +2826,7 @@ WK
 WK
 ys
 nr
-hn
+WK
 WK
 WK
 WK
@@ -2894,7 +2896,7 @@ WK
 WK
 JC
 YL
-hn
+WK
 WK
 WK
 WK
@@ -2965,7 +2967,7 @@ rf
 sQ
 Au
 WK
-hn
+Az
 WK
 WK
 JC
@@ -3034,9 +3036,9 @@ JC
 JC
 WK
 WK
-hn
 WK
-hn
+WK
+Az
 WK
 vM
 WK
@@ -3073,7 +3075,7 @@ MH
 YK
 WK
 WK
-hn
+WK
 WK
 WK
 WK
