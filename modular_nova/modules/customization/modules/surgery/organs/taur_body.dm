@@ -34,6 +34,9 @@
 	/// When being ridden via saddle, how much the rider is offset on the y axis when facing north or south.
 	var/riding_offset_front_y = 5
 
+	/// When considering how much to offset our rider, we multiply size scaling against this.
+	var/riding_offset_scaling_mult = 0.8
+
 /obj/item/organ/external/taur_body/horselike
 	can_use_saddle = TRUE
 
@@ -154,9 +157,12 @@
 		QDEL_NULL(old_right_leg)
 
 /obj/item/organ/external/taur_body/proc/get_riding_offset(oversized = FALSE)
+	var/size_scaling = (owner.dna.features["body_size"] / BODY_SIZE_NORMAL) - 1
+	var/scaling_mult = 1 + (size_scaling * riding_offset_scaling_mult)
+
 	return list(
-				TEXT_NORTH = list(riding_offset_front_x, riding_offset_front_y),
-				TEXT_SOUTH = list(riding_offset_front_x, riding_offset_front_y),
-				TEXT_EAST = list(-riding_offset_side_x, riding_offset_side_y),
-				TEXT_WEST = list(riding_offset_side_x, riding_offset_side_y)
+				TEXT_NORTH = list(riding_offset_front_x, round(riding_offset_front_y * scaling_mult, 1)),
+				TEXT_SOUTH = list(riding_offset_front_x, round(riding_offset_front_y * scaling_mult, 1)),
+				TEXT_EAST = list(round(-riding_offset_side_x * scaling_mult, 1), round(riding_offset_side_y * scaling_mult, 1)),
+				TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round(riding_offset_side_y * scaling_mult, 1))
 			)
