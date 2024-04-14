@@ -32,7 +32,7 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/primitive_stove/atom_deconstruct(disassembled)
+/obj/machinery/primitive_stove/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 
 /// Stove component subtype with changed visuals and not much else

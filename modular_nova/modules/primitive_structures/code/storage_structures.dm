@@ -89,7 +89,7 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/smartfridge/produce_bin/atom_deconstruct(disassembled = TRUE)
+/obj/machinery/smartfridge/produce_bin/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/seed_shelf
@@ -123,7 +123,7 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/smartfridge/seed_shelf/atom_deconstruct(disassembled = TRUE)
+/obj/machinery/smartfridge/seed_shelf/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/ration_shelf
@@ -157,7 +157,7 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/smartfridge/ration_shelf/atom_deconstruct(disassembled = TRUE)
+/obj/machinery/smartfridge/ration_shelf/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/produce_display
@@ -197,5 +197,5 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/smartfridge/produce_display/atom_deconstruct(disassembled = TRUE)
+/obj/machinery/smartfridge/produce_display/on_deconstruction(disassembled)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
