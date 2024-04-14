@@ -31,3 +31,4 @@
 	if(.)
 		return
 	attack_self(user)
+
