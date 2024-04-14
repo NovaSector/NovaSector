@@ -21,6 +21,9 @@
 	)
 	update_appearance()
 
+/obj/structure/railing/wooden_fencing/atom_deconstruct(disassembled)
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
+
 // Fence gates for the above mentioned fences
 
 /obj/structure/railing/wooden_fencing/gate
