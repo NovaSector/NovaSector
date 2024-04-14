@@ -18,14 +18,6 @@
 /obj/structure/stone_tile/block,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"aR" = (
-/obj/item/reagent_containers/cup/soup_pot,
-/obj/structure/rack/wooden,
-/obj/structure/stone_tile/block{
-	dir = 4
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "aT" = (
 /obj/structure/stone_tile/block/cracked,
 /turf/open/lava/smooth/lava_land_surface,
@@ -85,6 +77,17 @@
 /obj/structure/stone_tile/center/cracked,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"cM" = (
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/turf/open/floor/stone/lavaland,
+/area/ruin/unpowered/ash_walkers)
+"cZ" = (
+/obj/structure/curtain/bounty,
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "di" = (
 /obj/structure/stone_tile/block/burnt{
 	dir = 4
@@ -96,6 +99,12 @@
 	dir = 4
 	},
 /obj/structure/stone_tile/cracked{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"ed" = (
+/obj/structure/chair/stool/bamboo{
 	dir = 8
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -116,12 +125,16 @@
 /area/ruin/unpowered/ash_walkers)
 "eO" = (
 /obj/structure/wall_torch/spawns_lit/directional/south,
-/obj/item/reagent_containers/cup/soup_pot,
 /obj/structure/rack/wooden,
 /obj/structure/stone_tile/block{
 	dir = 4
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"ff" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/clothing/suit/straight_jacket/shackles/reinforced,
+/turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "fn" = (
 /obj/item/seeds/potato,
@@ -165,6 +178,12 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"hE" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "hJ" = (
 /obj/item/seeds/wheat/rice,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -198,6 +217,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/item/seeds/pumpkin,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "jW" = (
@@ -258,6 +278,10 @@
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 1
 	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"mj" = (
+/obj/item/seeds/tobacco,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "mA" = (
@@ -343,6 +367,14 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"pB" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/obj/structure/stone_tile/block,
+/obj/structure/ore_container/gutlunch_trough,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "pD" = (
 /obj/structure/stone_tile/block/burnt{
 	dir = 8
@@ -401,9 +433,15 @@
 /obj/structure/stone_tile/surrounding_tile,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"qU" = (
+/obj/item/seeds/aloe,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "re" = (
-/obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/structure/stone_tile/slab,
+/obj/structure/chair/comfy/beige{
+	dir = 8
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "rf" = (
@@ -419,11 +457,21 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"rw" = (
+/obj/item/chair/wood{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "rD" = (
 /obj/structure/stone_tile/slab,
 /obj/structure/necropolis_gate,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"rN" = (
+/obj/structure/chair/wood/wings,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "sx" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/food/raw_headcheese,
@@ -435,6 +483,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 2
 	},
+/obj/item/seeds/reishi,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "sQ" = (
@@ -617,6 +666,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
+/obj/item/seeds/ambrosia,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "xm" = (
@@ -667,6 +717,12 @@
 /obj/structure/curtain/bounty,
 /obj/structure/stone_tile/block{
 	dir = 1
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"yy" = (
+/obj/structure/chair/wood{
+	dir = 8
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -726,6 +782,10 @@
 	},
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
+"AJ" = (
+/obj/structure/chair/stool/bamboo,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "AK" = (
 /obj/structure/stone_tile/surrounding_tile/burnt{
 	dir = 8
@@ -763,6 +823,7 @@
 	dir = 8
 	},
 /obj/structure/stone_tile,
+/obj/item/pestle,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "CW" = (
@@ -822,6 +883,12 @@
 /obj/machinery/cauldron,
 /obj/structure/stone_tile/block{
 	dir = 4
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"Fo" = (
+/obj/structure/chair/wood{
+	dir = 1
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -885,6 +952,13 @@
 /obj/structure/stone_tile/block/burnt,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"HF" = (
+/obj/item/chair/wood{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/stone/lavaland,
+/area/ruin/unpowered/ash_walkers)
 "HT" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -899,6 +973,11 @@
 "Ie" = (
 /obj/structure/table/bronze,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"Ii" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/mineral_door/wood/large_gate,
+/turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "Il" = (
 /obj/item/seeds/onion,
@@ -968,7 +1047,6 @@
 /area/ruin/unpowered/ash_walkers)
 "LP" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/soup_pot,
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 1
 	},
@@ -1171,6 +1249,11 @@
 /obj/item/seeds/eggplant,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"SS" = (
+/obj/structure/rack/wooden,
+/obj/structure/wall_torch/spawns_lit/directional/west,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "SV" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /obj/structure/closet/crate/wooden,
@@ -1264,6 +1347,11 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"VT" = (
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood/lavaland,
+/area/ruin/unpowered/ash_walkers)
 "Wf" = (
 /obj/structure/railing/wooden_fencing{
 	dir = 4
@@ -1274,6 +1362,7 @@
 "Wz" = (
 /obj/structure/large_mortar,
 /obj/structure/table/wood,
+/obj/item/pestle,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "WJ" = (
@@ -1293,6 +1382,11 @@
 "XI" = (
 /obj/item/seeds/tea,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"XM" = (
+/obj/structure/bed/maint,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "XT" = (
 /obj/structure/stone_tile/slab,
@@ -1316,6 +1410,10 @@
 	},
 /obj/structure/stone_tile/surrounding_tile/cracked,
 /turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"YI" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "YK" = (
 /obj/structure/stone_tile/surrounding_tile{
@@ -1705,7 +1803,7 @@ sQ
 WK
 hn
 WK
-LD
+pB
 fB
 ZY
 WK
@@ -1828,11 +1926,11 @@ GP
 GP
 "}
 (14,1,1) = {"
-li
 JC
-WK
-WK
-sQ
+JC
+um
+um
+um
 sQ
 gx
 hy
@@ -1863,11 +1961,11 @@ GP
 GP
 "}
 (15,1,1) = {"
-li
 JC
-WK
-Io
-WK
+um
+XM
+YI
+ff
 sQ
 nV
 WK
@@ -1898,11 +1996,11 @@ GP
 GP
 "}
 (16,1,1) = {"
-li
 JC
-WK
-WK
-WK
+um
+VT
+ZZ
+HF
 sQ
 JC
 Mh
@@ -1933,12 +2031,12 @@ GP
 GP
 "}
 (17,1,1) = {"
-li
 JC
-JC
+um
 WK
-WK
-WK
+YI
+cM
+um
 sQ
 sQ
 fx
@@ -1968,19 +2066,19 @@ GP
 GP
 "}
 (18,1,1) = {"
-li
-li
 JC
 JC
+Io
 WK
-WK
+YI
+Ii
 WK
 nM
 ve
 ve
 ve
 qA
-gx
+SS
 WK
 TV
 hn
@@ -2008,7 +2106,7 @@ JC
 JC
 JC
 JC
-WK
+um
 WK
 WK
 WK
@@ -2119,7 +2217,7 @@ WK
 WK
 WK
 WK
-WK
+rf
 WK
 Zo
 WK
@@ -2130,7 +2228,7 @@ aB
 WK
 hn
 WK
-WK
+pK
 um
 um
 Ho
@@ -2145,7 +2243,7 @@ GP
 (23,1,1) = {"
 JC
 JC
-qi
+cZ
 JC
 JC
 JC
@@ -2196,8 +2294,8 @@ JC
 WK
 WK
 WK
-WK
-WK
+ed
+hE
 hn
 WK
 WK
@@ -2231,10 +2329,10 @@ JC
 JC
 kf
 hn
-WK
-WK
 TV
-WK
+TV
+TV
+ed
 hn
 WK
 pK
@@ -2267,8 +2365,8 @@ JC
 WK
 WK
 WK
-TV
-TV
+WK
+WK
 TV
 WK
 WK
@@ -2302,10 +2400,10 @@ uf
 WK
 WK
 hn
-TV
 FD
+rN
 TV
-WK
+Fo
 hn
 WK
 br
@@ -2337,10 +2435,10 @@ JC
 WK
 WK
 WK
-TV
-TV
-TV
 WK
+rw
+TV
+AJ
 WK
 WK
 JC
@@ -2371,8 +2469,8 @@ JC
 JC
 kf
 hn
-WK
-WK
+TV
+TV
 TV
 WK
 hn
@@ -2406,9 +2504,9 @@ JC
 OR
 WK
 WK
-WK
-WK
-hn
+yy
+ed
+re
 WK
 WK
 fB
@@ -2469,7 +2567,7 @@ JC
 JC
 Io
 Zo
-WK
+vM
 WK
 WK
 hn
@@ -2550,7 +2648,7 @@ Fi
 qA
 WK
 hy
-aR
+Vs
 eO
 JC
 JC
@@ -2638,7 +2736,7 @@ JC
 vE
 Rr
 xd
-WK
+qU
 WK
 WK
 JC
@@ -2673,7 +2771,7 @@ JC
 Wz
 eL
 sI
-WK
+mj
 WK
 WK
 ys
@@ -2718,7 +2816,7 @@ WK
 WK
 WK
 WK
-WK
+rf
 JC
 JC
 ar
@@ -2850,7 +2948,7 @@ WK
 WK
 WK
 WK
-re
+rf
 sQ
 Au
 WK
