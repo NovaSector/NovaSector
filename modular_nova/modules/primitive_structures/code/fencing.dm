@@ -22,7 +22,8 @@
 	update_appearance()
 
 /obj/structure/railing/wooden_fencing/atom_deconstruct(disassembled)
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
+	var/obj/plank = new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
+	transfer_fingerprints_to(plank)
 
 // Fence gates for the above mentioned fences
 
