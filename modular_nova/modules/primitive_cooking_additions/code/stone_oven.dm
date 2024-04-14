@@ -6,7 +6,7 @@
 	icon = 'modular_nova/modules/primitive_cooking_additions/icons/stone_kitchen_machines.dmi'
 	circuit = null
 	use_power = FALSE
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT
 
 	/// A list of the different oven trays we can spawn with
 	var/static/list/random_oven_tray_types = list(
