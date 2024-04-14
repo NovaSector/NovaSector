@@ -43,6 +43,12 @@
 	worn_icon_taur_paw = 'modular_nova/master_files/icons/mob/clothing/suit_taur_paw.dmi'
 	worn_icon_taur_hoof = 'modular_nova/master_files/icons/mob/clothing/suit_taur_hoof.dmi'
 
+/obj/item/clothing/suit/utility/bomb_suit/white
+	worn_icon_taur_hoof = null
+
+/obj/item/clothing/suit/utility/bomb_suit/security
+	worn_icon_taur_hoof = null
+
 /obj/item/clothing/suit/utility/fire/firefighter // outdated but similar sprites, still pretty good
 	worn_icon_taur_snake = 'modular_nova/master_files/icons/mob/clothing/suit_taur_snake.dmi'
 	worn_icon_taur_paw = 'modular_nova/master_files/icons/mob/clothing/suit_taur_paw.dmi'
@@ -62,5 +68,9 @@
 	worn_icon_taur_paw = null
 
 /obj/item/clothing/suit/apron/overalls
+	worn_icon_taur_paw = null
+	worn_icon_taur_hoof = null
+
+/obj/item/clothing/suit/apron/waders
 	worn_icon_taur_paw = null
 	worn_icon_taur_hoof = null
