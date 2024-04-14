@@ -608,12 +608,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	SSping.currentrun -= src
 	QDEL_NULL(view_size)
 	QDEL_NULL(void)
-	QDEL_NULL(tooltips)
-<<<<<<< HEAD
 	QDEL_NULL(open_loadout_ui) //NOVA EDIT ADDITION
-=======
 	QDEL_NULL(loot_panel)
->>>>>>> d554ab7766b (RPG Loot: Revisited & READY (#82533))
 	seen_messages = null
 	Master.UpdateTickRate()
 	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
