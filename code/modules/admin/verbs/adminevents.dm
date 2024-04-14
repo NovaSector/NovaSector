@@ -313,24 +313,6 @@ ADMIN_VERB(command_report_footnote, R_ADMIN, "Command Report Footnote", "Adds a 
 	var/message
 	var/signature
 
-<<<<<<< HEAD
-/client/proc/delay_command_report()
-	set category = "Admin.Events"
-	set name = "Delay Command Report"
-	set desc = "Prevents the roundstart command report from being sent until toggled."
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	if(SScommunications.block_command_report) //If it's anything other than 0, decrease. If 0, increase.
-		SScommunications.block_command_report--
-		message_admins("[usr] has enabled the roundstart command report.")
-	else
-		SScommunications.block_command_report++
-		message_admins("[usr] has delayed the roundstart command report.")
-
-=======
 ADMIN_VERB(delay_command_report, R_FUN, "Delay Command Report", "Prevents the roundstart command report from being sent; or forces it to send it delayed.", ADMIN_CATEGORY_EVENTS)
 	SScommunications.block_command_report = !SScommunications.block_command_report
 	message_admins("[key_name_admin(user)] has [(SScommunications.block_command_report ? "delayed" : "sent")] the roundstart command report.")
->>>>>>> 7f8752be147 (Admin Verb Datums MkIII | Now with functional command bar (#82511))
