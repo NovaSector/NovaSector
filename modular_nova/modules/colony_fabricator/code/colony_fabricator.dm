@@ -9,7 +9,7 @@
 	production_animation = null
 	circuit = null
 	production_animation = "colony_lathe_n"
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION 
 	light_color = LIGHT_COLOR_BRIGHT_YELLOW
 	light_power = 5
 	allowed_buildtypes = COLONY_FABRICATOR
