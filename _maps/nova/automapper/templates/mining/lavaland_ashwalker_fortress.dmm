@@ -49,16 +49,8 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"ci" = (
-/obj/item/seeds/wheat,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "ct" = (
 /obj/machinery/griddle/stone,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"cz" = (
-/obj/item/seeds/cabbage,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "cF" = (
@@ -110,7 +102,8 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "eF" = (
-/obj/item/seeds/sugarcane,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/structure/closet/crate/wooden,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "eG" = (
@@ -137,7 +130,17 @@
 /turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "fn" = (
-/obj/item/seeds/potato,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/tower,
+/obj/item/seeds/tower,
+/obj/item/seeds/tower,
+/obj/item/seeds/bamboo,
+/obj/item/seeds/bamboo,
+/obj/item/seeds/cotton,
+/obj/item/seeds/cotton,
+/obj/item/seeds/cotton,
+/obj/item/seeds/chanter,
+/obj/item/seeds/chanter,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "fx" = (
@@ -164,10 +167,6 @@
 /obj/structure/rack/wooden,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"hh" = (
-/obj/item/seeds/korta_nut/sweet,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "hn" = (
 /obj/structure/stone_tile/slab,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -185,7 +184,17 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "hJ" = (
-/obj/item/seeds/wheat/rice,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/carrot,
+/obj/item/seeds/carrot,
+/obj/item/seeds/onion,
+/obj/item/seeds/onion,
+/obj/item/seeds/garlic,
+/obj/item/seeds/garlic,
+/obj/item/seeds/soya,
+/obj/item/seeds/soya,
+/obj/item/seeds/cabbage,
+/obj/item/seeds/cabbage,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "hS" = (
@@ -217,7 +226,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/item/seeds/pumpkin,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "jW" = (
@@ -254,10 +262,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"kN" = (
-/obj/item/seeds/chili,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "li" = (
 /turf/closed/indestructible/riveted/boss,
 /area/lavaland/surface/outdoors)
@@ -278,10 +282,6 @@
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 1
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"mj" = (
-/obj/item/seeds/tobacco,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "mA" = (
@@ -332,7 +332,15 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "oe" = (
-/obj/item/seeds/sugarcane/saltcane,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/wheat,
+/obj/item/seeds/wheat,
+/obj/item/seeds/corn,
+/obj/item/seeds/corn,
+/obj/item/seeds/wheat/rice,
+/obj/item/seeds/wheat/rice,
+/obj/item/seeds/olive,
+/obj/item/seeds/olive,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "oJ" = (
@@ -433,10 +441,6 @@
 /obj/structure/stone_tile/surrounding_tile,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"qU" = (
-/obj/item/seeds/aloe,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "re" = (
 /obj/structure/stone_tile/slab,
 /obj/structure/chair/comfy/beige{
@@ -483,7 +487,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 2
 	},
-/obj/item/seeds/reishi,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "sQ" = (
@@ -493,10 +496,6 @@
 /obj/structure/railing/wooden_fencing{
 	dir = 8
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"tb" = (
-/obj/item/seeds/corn,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "tl" = (
@@ -595,15 +594,12 @@
 /obj/structure/railing/wooden_fencing{
 	dir = 1
 	},
-/obj/structure/railing/wooden_fencing{
-	dir = 4
-	},
 /mob/living/basic/chicken{
 	name = "\improper gunther";
 	desc = "An odd looking gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that.";
 	unsuitable_atmos_damage = 0
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "ve" = (
 /obj/structure/stone_tile/block{
@@ -639,7 +635,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "wM" = (
-/obj/item/seeds/olive,
+/obj/structure/closet/xenoarch/ashwalker_version,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "wQ" = (
@@ -666,7 +662,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/item/seeds/ambrosia,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "xm" = (
@@ -687,10 +682,6 @@
 /obj/structure/stone_tile/surrounding_tile,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"xO" = (
-/obj/item/seeds/tower,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "xW" = (
 /obj/structure/railing/wooden_fencing{
 	dir = 8
@@ -705,6 +696,10 @@
 "xZ" = (
 /obj/structure/rack/wooden,
 /obj/item/shovel,
+/obj/item/hatchet/wooden{
+	pixel_y = 0
+	},
+/obj/item/secateurs,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "yb" = (
@@ -797,10 +792,6 @@
 /obj/structure/stone_tile/center/burnt,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"AN" = (
-/obj/item/seeds/chanter,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "Br" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /obj/structure/fermenting_barrel,
@@ -869,6 +860,15 @@
 "Ev" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/structure/flora/ash/stem_shroom,
+/obj/item/seeds/ambrosia,
+/obj/item/seeds/ambrosia,
+/obj/item/seeds/ambrosia,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/reishi,
+/obj/item/seeds/reishi,
+/obj/item/seeds/reishi,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ET" = (
@@ -897,7 +897,13 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Gd" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/tea,
+/obj/item/seeds/tea,
 /obj/item/seeds/coffee,
+/obj/item/seeds/coffee,
+/obj/item/seeds/peanut,
+/obj/item/seeds/peanut,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Gq" = (
@@ -940,10 +946,6 @@
 	},
 /turf/open/misc/asteroid/lavaland_atmos,
 /area/ruin/unpowered/ash_walkers)
-"Hi" = (
-/obj/item/seeds/potato/sweet,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "Ho" = (
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
@@ -961,6 +963,15 @@
 /area/ruin/unpowered/ash_walkers)
 "HT" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/pumpkin,
+/obj/item/seeds/pumpkin,
+/obj/item/seeds/pumpkin,
+/obj/item/seeds/starthistle,
+/obj/item/seeds/starthistle,
+/obj/item/seeds/starthistle,
+/obj/item/seeds/tobacco,
+/obj/item/seeds/tobacco,
+/obj/item/seeds/tobacco,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ic" = (
@@ -978,10 +989,6 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/mineral_door/wood/large_gate,
 /turf/open/floor/stone/lavaland,
-/area/ruin/unpowered/ash_walkers)
-"Il" = (
-/obj/item/seeds/onion,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Io" = (
 /obj/structure/flora/ash/cacti,
@@ -1013,8 +1020,13 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Kz" = (
-/obj/item/seeds/peanut,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/structure/railing/wooden_fencing{
+	dir = 4
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "Lm" = (
 /obj/machinery/smartfridge/drying_rack,
@@ -1116,11 +1128,6 @@
 /area/ruin/unpowered/ash_walkers)
 "Oq" = (
 /obj/item/cultivator/rake,
-/obj/item/seeds/soya,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"OA" = (
-/obj/item/seeds/garlic,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "OF" = (
@@ -1162,17 +1169,13 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ql" = (
-/obj/item/seeds/korta_nut,
+/obj/structure/loom,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Qm" = (
 /obj/structure/stone_tile/block{
 	dir = 1
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"Qr" = (
-/obj/item/seeds/tomato,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Qt" = (
@@ -1246,7 +1249,15 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "SN" = (
-/obj/item/seeds/eggplant,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/korta_nut,
+/obj/item/seeds/korta_nut,
+/obj/item/seeds/korta_nut/sweet,
+/obj/item/seeds/korta_nut/sweet,
+/obj/item/seeds/potato,
+/obj/item/seeds/potato,
+/obj/item/seeds/potato/sweet,
+/obj/item/seeds/potato/sweet,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "SS" = (
@@ -1279,10 +1290,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"TP" = (
-/obj/item/seeds/bamboo,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "TV" = (
 /obj/structure/table/wood,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -1304,7 +1311,11 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ug" = (
-/obj/item/seeds/carrot,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/sugarcane/saltcane,
+/obj/item/seeds/sugarcane/saltcane,
+/obj/item/seeds/sugarcane,
+/obj/item/seeds/sugarcane,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Uw" = (
@@ -1380,7 +1391,13 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "XI" = (
-/obj/item/seeds/tea,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/seeds/eggplant,
+/obj/item/seeds/eggplant,
+/obj/item/seeds/chili,
+/obj/item/seeds/chili,
+/obj/item/seeds/tomato,
+/obj/item/seeds/tomato,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "XM" = (
@@ -1433,7 +1450,7 @@
 /obj/structure/railing/wooden_fencing{
 	dir = 8
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "Zj" = (
 /obj/structure/stone_tile/block/cracked{
@@ -1456,10 +1473,6 @@
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 8
 	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"ZQ" = (
-/obj/item/seeds/cotton,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ZY" = (
@@ -1554,7 +1567,7 @@ TN
 JC
 JC
 JC
-kf
+eF
 WK
 WK
 uf
@@ -1588,7 +1601,7 @@ WK
 WK
 ql
 sQ
-WK
+gx
 WK
 hn
 WK
@@ -1623,7 +1636,7 @@ WK
 WK
 hy
 sQ
-WK
+gx
 WK
 WK
 pK
@@ -1658,7 +1671,7 @@ fx
 fx
 zg
 JC
-WK
+wM
 Au
 hn
 WK
@@ -2736,7 +2749,7 @@ JC
 vE
 Rr
 xd
-qU
+WK
 WK
 WK
 JC
@@ -2771,7 +2784,7 @@ JC
 Wz
 eL
 sI
-mj
+WK
 WK
 WK
 ys
@@ -2790,7 +2803,7 @@ ve
 ve
 qA
 WK
-je
+Kz
 um
 Ho
 Ho
@@ -2890,12 +2903,12 @@ JC
 XU
 gx
 xZ
-gx
-je
+Ql
+WK
 UL
+SN
 WK
-WK
-sQ
+je
 JC
 Ho
 Ho
@@ -2921,16 +2934,16 @@ WK
 WK
 Lq
 JC
+Gd
+WK
+WK
+WK
+WK
+WK
+WK
+WK
 WK
 hJ
-AN
-wM
-cz
-WK
-WK
-WK
-WK
-WK
 JC
 JC
 Ho
@@ -2956,16 +2969,16 @@ hn
 WK
 WK
 JC
-WK
-ci
-Ql
-hh
+fn
 WK
 WK
 WK
 WK
-xO
 WK
+WK
+WK
+WK
+oe
 JC
 JC
 Ho
@@ -2992,14 +3005,14 @@ WK
 WK
 JC
 WK
-tb
-fn
-Hi
+WK
+MO
 WK
 WK
 WK
 WK
-TP
+WK
+WK
 pK
 JC
 Ho
@@ -3027,15 +3040,15 @@ hn
 WK
 vM
 WK
-SN
-eF
-oe
+WK
+WK
+WK
 WK
 MO
 WK
 WK
-ZQ
 WK
+Ug
 um
 Ho
 Ho
@@ -3062,14 +3075,14 @@ WK
 WK
 hn
 WK
-kN
-Ug
-Il
 WK
 WK
 WK
 WK
 WK
+WK
+WK
+XI
 WK
 um
 XC
@@ -3097,9 +3110,9 @@ YK
 WK
 rf
 WK
-Qr
+WK
 Oq
-OA
+WK
 WK
 WK
 WK
@@ -3132,9 +3145,9 @@ nr
 WK
 JC
 WK
-XI
-Gd
-Kz
+WK
+WK
+WK
 WK
 WK
 WK
