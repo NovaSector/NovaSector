@@ -29,7 +29,7 @@
 	)
 	slowdown = 1
 	armor_type = /datum/armor/utility_fire
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL // NOVA EDIT ADDITION - HIDETAIL
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL|HIDETAUR // NOVA EDIT ADDITION - HIDETAIL, HIDETAUR
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
@@ -123,7 +123,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	slowdown = 2
 	armor_type = /datum/armor/utility_bomb_suit
-	flags_inv = HIDEJUMPSUIT|HIDETAIL // NOVA EDIT ADDITION - HIDETAIL
+	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDETAUR // NOVA EDIT ADDITION - HIDETAIL, HIDETAUR
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
