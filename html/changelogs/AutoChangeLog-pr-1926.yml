@@ -1,4 +1,0 @@
-author: "YehnBeep"
-delete-after: True
-changes:
-  - bugfix: "Fixed icebox interdyne outpost missing GPSs and canisters."
