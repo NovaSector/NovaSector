@@ -24,7 +24,12 @@
 	desc = "A thick leather riding sattle. Typically used for animals, this one has been designed for use by the taurs of the galaxy. \n\
 	This saddle has specialized footrests that will allow a rider to <b>use both their hands</b> while riding."
 
-	icon_state = "saddle_leather"
+	icon_state = "saddle_leather_item"
+	worn_icon_state = "saddle_leather"
+
+	inhand_icon_state = "syringe_kit" // placeholder
+	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 
 /obj/item/riding_saddle/leather/Initialize(mapload)
 	. = ..()
@@ -34,7 +39,8 @@
 /obj/item/riding_saddle/leather/peacekeeper
 	name = "peacekeeper saddle"
 
-	icon_state = "saddle_sec"
+	icon_state = "saddle_sec_item"
+	worn_icon_state = "saddle_sec"
 
 /obj/item/riding_saddle/leather/peacekeeper/Initialize(mapload)
 	. = ..()
@@ -55,7 +61,8 @@
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
-	icon_state = "saddle_satchel"
+	icon_state = "saddle_satchel_item"
+	worn_icon_state = "saddle_satchel"
 
 /obj/item/storage/backpack/saddlebags/Initialize(mapload)
 	. = ..()
