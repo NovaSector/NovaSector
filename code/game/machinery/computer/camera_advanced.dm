@@ -89,8 +89,6 @@
 /obj/machinery/proc/remove_eye_control(mob/living/user)
 	CRASH("[type] does not implement ai eye handling")
 
-<<<<<<< HEAD
-=======
 /obj/machinery/computer/camera_advanced/proc/give_eye_control(mob/user)
 	if(isnull(user?.client))
 		return
@@ -105,7 +103,6 @@
 		user.client.view_size.supress()
 	begin_processing()
 
->>>>>>> 3a1cd16858e (Advanced camera consoles correctly deactivates when something happens to it or the user (#82619))
 /obj/machinery/computer/camera_advanced/remove_eye_control(mob/living/user)
 	if(isnull(user?.client))
 		return
@@ -125,22 +122,9 @@
 	current_user = null
 	playsound(src, 'sound/machines/terminal_off.ogg', 25, FALSE)
 
-<<<<<<< HEAD
-/obj/machinery/computer/camera_advanced/check_eye(mob/user)
-	if(!can_use(user) || (issilicon(user) && !user.has_unlimited_silicon_privilege))
-		unset_machine(user)
-
-/obj/machinery/computer/camera_advanced/Destroy()
-	if(eyeobj)
-		QDEL_NULL(eyeobj)
-	QDEL_LIST(actions)
-	current_user = null
-	return ..()
-=======
 /obj/machinery/computer/camera_advanced/on_set_is_operational(old_value)
 	if(!is_operational)
 		unset_machine(current_user)
->>>>>>> 3a1cd16858e (Advanced camera consoles correctly deactivates when something happens to it or the user (#82619))
 
 /obj/machinery/computer/camera_advanced/proc/unset_machine(mob/M)
 	if(M == current_user)
