@@ -47,8 +47,6 @@
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))
 		return
 
-	usr.set_machine(src)
-
 	var/selected_goal = href_list["selected_goal"]
 
 	if(href_list["close"])

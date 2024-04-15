@@ -219,8 +219,6 @@
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))
 		return
 
-	usr.set_machine(src)
-
 	var/operation = href_list["function"]
 	var/obj/item/process = locate(href_list["item"]) in src
 
