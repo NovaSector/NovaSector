@@ -70,8 +70,9 @@
 	r_hand = /obj/item/knife/combat/survival
 	uniform = /obj/item/clothing/under/syndicate/coldres
 	belt = /obj/item/storage/belt/military
-	l_pocket = /obj/item/tank/internals/emergency_oxygen/double
-	internals_slot = ITEM_SLOT_LPOCKET
+	mask = /obj/item/clothing/mask/gas/syndicate
+	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
+	internals_slot = ITEM_SLOT_RPOCKET
 	shoes = /obj/item/clothing/shoes/combat/coldres
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/tank/jetpack/oxygen/harness
@@ -110,12 +111,13 @@
 
 	r_hand = /obj/item/knife
 	uniform = /obj/item/clothing/under/color/grey
-	suit = /obj/item/clothing/suit/utility/fire
+	belt = /obj/item/crowbar/large/emergency
+	suit = /obj/item/clothing/suit/utility/fire/firefighter
 	head = /obj/item/clothing/head/utility/hardhat/red
 	mask = /obj/item/clothing/mask/gas/alt
-	l_pocket = /obj/item/reagent_containers/cup/glass/coffee
-	r_pocket = /obj/item/reagent_containers/hypospray/medipen
-	internals_slot = ITEM_SLOT_BACKPACK
+	r_pocket = /obj/item/reagent_containers/cup/glass/coffee
+	l_pocket = /obj/item/reagent_containers/hypospray/medipen
+	internals_slot = ITEM_SLOT_BACK
 	shoes = /obj/item/clothing/shoes/sneakers
 	gloves = /obj/item/clothing/gloves/tackler/offbrand
 	back = /obj/item/tank/internals/oxygen/red
