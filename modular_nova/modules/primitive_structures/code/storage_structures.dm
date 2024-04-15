@@ -52,7 +52,8 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/wooden
-	base_icon_state = "produce"
+	base_icon_state = "producebin"
+	icon_state = "producebin"
 	use_power = NO_POWER_USE
 	light_power = 0
 	idle_power_usage = 0
@@ -93,7 +94,7 @@
 	desc = "A wooden hamper, used to hold plant products and try to keep them safe from pests."
 	icon_state = "producebin"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_bin
-	base_icon_state = "produce"
+	base_icon_state = "producebin"
 
 /obj/machinery/smartfridge/wooden/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
