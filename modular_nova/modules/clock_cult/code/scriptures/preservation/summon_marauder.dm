@@ -28,7 +28,7 @@
 		check_jobban = FALSE,
 		poll_time = 10 SECONDS,
 		ignore_category = POLL_IGNORE_CONSTRUCT,
-		pic_source = /obj/item/clockwork/clockwork_slab,
+		alert_pic = /obj/item/clockwork/clockwork_slab,
 		role_name_text = "clockwork marauder",
 	)
 	if(length(candidates))

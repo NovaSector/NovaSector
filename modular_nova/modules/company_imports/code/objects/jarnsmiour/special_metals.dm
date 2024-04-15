@@ -19,7 +19,7 @@
 	desc = "Cobalt-blue metal that might actually just be cobalt."
 	singular_name = "cobolterium bar"
 	icon = 'modular_nova/modules/company_imports/icons/special_metals_stack.dmi'
-	icon_state = "dracula-rapping"
+	icon_state = "precious-metals"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
 	mats_per_unit = list(/datum/material/cobolterium = SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/cobolterium
@@ -48,7 +48,7 @@
 	desc = "Copper colored metal that might actually just be copper."
 	singular_name = "copporcitite bar"
 	icon = 'modular_nova/modules/company_imports/icons/special_metals_stack.dmi'
-	icon_state = "dracula-rapping"
+	icon_state = "precious-metals"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
 	mats_per_unit = list(/datum/material/copporcitite = SHEET_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/copporcitite
@@ -77,7 +77,7 @@
 	desc = "Heavily blued, silver colored metal."
 	singular_name = "tinumium bar"
 	icon = 'modular_nova/modules/company_imports/icons/special_metals_stack.dmi'
-	icon_state = "dracula-rapping"
+	icon_state = "precious-metals"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
 	mats_per_unit = list(/datum/material/tinumium = SHEET_MATERIAL_AMOUNT )
 	merge_type = /obj/item/stack/sheet/tinumium
@@ -106,7 +106,7 @@
 	desc = "Brassy-yellow metal that might actually just be brass."
 	singular_name = "brussite bar"
 	icon = 'modular_nova/modules/company_imports/icons/special_metals_stack.dmi'
-	icon_state = "dracula-rapping"
+	icon_state = "precious-metals"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR
 	mats_per_unit = list(/datum/material/brussite = SHEET_MATERIAL_AMOUNT )
 	merge_type = /obj/item/stack/sheet/brussite

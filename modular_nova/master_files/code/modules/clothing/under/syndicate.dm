@@ -31,7 +31,7 @@
 	inhand_icon_state = "b_suit"
 	can_adjust = TRUE
 	has_sensor = HAS_SENSORS
-	armor_type = /datum/armor/clothing_under/none
+	armor_type = /datum/armor/clothing_under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	unique_reskin = list(
 		RESKIN_NT = "tactifool_blue",
@@ -49,25 +49,97 @@
 	name = "tacticool skirtleneck"
 	desc = "A snug skirtleneck, in fabulous Nanotrasen-blue. Just looking at it makes you want to buy a NT-certifed coffee, go into the office, and -work-."
 	icon_state = "tactifool_blue_skirt"
-	armor_type = /datum/armor/clothing_under/none
+	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	unique_reskin = list(
-		RESKIN_NT = "tactifool_blue_skirt",
-		RESKIN_CHARCOAL = "tactifool_skirt"
-	)
 
 /obj/item/clothing/under/syndicate/bloodred/sleepytime/sensors //Halloween-only
 	has_sensor = HAS_SENSORS
-	armor_type = /datum/armor/clothing_under/none
+	armor_type = /datum/armor/clothing_under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/syndicate/nova/baseball
 	name = "syndicate baseball tee"
 	desc = "Aaand the Syndicate Snakes are up to bat, ready for one of their signature nuclear home-runs! Lets show these corpos a good time." //NT pitches their plasma/bluespace(something)
 	icon_state = "syndicate_baseball"
+
+/obj/item/clothing/under/syndicate/unarmoured
+	name = "suspicious tactical turtleneck"
+	desc = "A non-descript and slightly suspicious looking turtleneck with digital camouflage cargo pants."
+	icon_state = "syndicate"
+	inhand_icon_state = "bl_suit"
+	has_sensor = HAS_SENSORS
+	armor_type = /datum/armor/clothing_under
+
+/obj/item/clothing/under/syndicate/unarmoured/skirt
+	name = "suspicious tactical skirtleneck"
+	desc = "A non-descript and slightly suspicious looking skirtleneck."
+	icon_state = "syndicate_skirt"
+	gets_cropped_on_taurs = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/syndicate/unarmoured/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The armor has been removed from the fabric.")
+
+/obj/item/clothing/under/syndicate/nova/tactical/unarmoured
+	name = "suspicious tactical turtleneck"
+	desc = "A snug syndicate-red turtleneck with charcoal-black cargo pants."
+	icon_state = "syndicate_red"
+	inhand_icon_state = "r_suit"
+	has_sensor = HAS_SENSORS
+	armor_type = /datum/armor/clothing_under
+	unique_reskin = null
+
+/obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
+	name = "suspicious tactical skirtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
+	icon_state = "syndicate_red_skirt"
+	gets_cropped_on_taurs = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/syndicate/nova/tactical/unarmoured/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The armor has been removed from the fabric.")
+
+/obj/item/clothing/under/syndicate/nova/overalls/unarmoured
+	name = "suspicious utility overalls turtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, useful for both engineering and botanical work."
+	icon_state = "syndicate_overalls"
+	armor_type = /datum/armor/clothing_under
+	has_sensor = HAS_SENSORS
+	can_adjust = TRUE
+
+/obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
+	name = "suspicious utility overalls skirtleneck"
+	desc = "A pair of spiffy overalls with a turtleneck underneath, this one is a skirt instead, breezy."
+	icon_state = "syndicate_overallskirt"
+	gets_cropped_on_taurs = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/syndicate/nova/overalls/unarmoured/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The armor has been removed from the fabric.")
+
+/obj/item/clothing/mask/gas/sechailer/half_mask
+	name = "tacticool neck gaiter"
+	desc = "A black techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
+	actions_types = list(/datum/action/item_action/adjust)
+	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
+	icon_state = "half_mask"
+	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
+	voice_filter = null
+	use_radio_beeps_tts = FALSE
 
 /*
 *	TACTICAL (Real)
@@ -121,7 +193,7 @@
 	desc = "Throughout the stars, rumors of mad scientists and angry drill sergeants run rampant; of creatures in armor black as night, being led by men or women wearing this uniform. They share one thing: a deep, natonalistic zeal of the dream of America."
 	icon_state = "enclave"
 	can_adjust = TRUE
-	armor_type = /datum/armor/clothing_under/none
+	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/under/syndicate/nova/enclave/officer
 	name = "neo-American officer uniform"

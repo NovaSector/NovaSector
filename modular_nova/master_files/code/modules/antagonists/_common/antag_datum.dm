@@ -21,6 +21,11 @@
 		/datum/crafting_recipe/boneaxe,
 		/datum/crafting_recipe/bonespear,
 		/datum/crafting_recipe/bonedagger,
+		/datum/crafting_recipe/ash_recipe/ash_headdress,
+		/datum/crafting_recipe/ash_recipe/ash_headdress/winged,
+		/datum/crafting_recipe/ash_recipe/ash_robes,
+		/datum/crafting_recipe/ash_recipe/ash_plates,
+		/datum/crafting_recipe/ash_recipe/ash_plates/decorated,
 	)
 
 /datum/antagonist/heretic

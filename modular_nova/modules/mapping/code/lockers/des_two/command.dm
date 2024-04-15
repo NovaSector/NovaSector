@@ -64,9 +64,13 @@
 
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/watertank/pepperspray(src)
-	new /obj/item/gun/energy/disabler(src)
 	new /obj/item/storage/bag/garment/master_arms(src)
 	new /obj/item/radio/headset/interdyne(src)
+
+/obj/structure/closet/secure_closet/des_two/maa_locker/populate_contents_immediate()
+	. = ..()
+
+	new /obj/item/gun/energy/disabler(src)
 
 /obj/structure/closet/secure_closet/des_two/cl_locker
 	icon_door = "hop"

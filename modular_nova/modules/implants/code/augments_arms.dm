@@ -52,6 +52,10 @@
 	items_list += WEAKREF(new /obj/item/melee/implantarmblade/energy(src))
 	return TRUE
 
+/obj/item/autosurgeon/syndicate/armblade
+	name = "armblade autosurgeon"
+	starting_organ = /obj/item/organ/internal/cyberimp/arm/armblade
+
 /obj/item/knife/razor_claws
 	name = "implanted razor claws"
 	desc = "A set of sharp, retractable claws built into the fingertips, five double-edged blades sure to turn people into mincemeat. Capable of shifting into 'Precision' mode to act similar to wirecutters."
@@ -251,6 +255,10 @@
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire"
 
+/obj/item/autosurgeon/syndicate/razorwire
+	name = "razorwire autosurgeon"
+	starting_organ = /obj/item/organ/internal/cyberimp/arm/razorwire
+
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
 /obj/item/gun/ballistic/shotgun/shell_launcher
@@ -298,6 +306,10 @@
 	items_to_create = list(/obj/item/gun/ballistic/shotgun/shell_launcher)
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "shell_cannon"
+
+/obj/item/autosurgeon/syndicate/shell_launcher
+	name = "shell launcher autosurgeon"
+	starting_organ = /obj/item/organ/internal/cyberimp/arm/shell_launcher
 
 #undef KNIFE_HITSOUND
 #undef KNIFE_USESOUND

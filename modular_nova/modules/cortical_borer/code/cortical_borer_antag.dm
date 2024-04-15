@@ -131,7 +131,7 @@
 		check_jobban = FALSE,
 		poll_time = 10 SECONDS,
 		ignore_category = POLL_IGNORE_CORTICAL_BORER,
-		pic_source = /obj/item/borer_egg,
+		alert_pic = /obj/item/borer_egg,
 		role_name_text = "cortical borer",
 	)
 	if(!length(candidates))

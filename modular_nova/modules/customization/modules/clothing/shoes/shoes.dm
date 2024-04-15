@@ -45,6 +45,10 @@
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/shoes/high_heels/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+
 /obj/item/clothing/shoes/fancy_heels
 	name = "fancy heels"
 	desc = "A pair of fancy high heels that are much smaller on your feet."
@@ -56,6 +60,10 @@
 	greyscale_config_worn = /datum/greyscale_config/fancyheels/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/fancyheels/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/shoes/fancy_heels/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
 
 /obj/item/clothing/shoes/discoshoes
 	name = "green snakeskin shoes"

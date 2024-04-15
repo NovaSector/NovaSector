@@ -56,13 +56,13 @@
 
 /obj/item/clothing/head/helmet/monkey_sentience/proc/connect(mob/user)
 	polling = TRUE
-	var/list/candidates = SSpolling.poll_ghost_candidates_for_mob(
+	var/list/candidates = SSpolling.poll_ghosts_for_target(
 		"Do you want to play as a mind magnified monkey?",
 		ROLE_MONKEY_HELMET,
 		poll_time = 5 SECONDS,
-		target_mob = magnification,
+		checked_target = magnification,
 		ignore_category = POLL_IGNORE_MONKEY_HELMET,
-		pic_source = magnification,
+		alert_pic = magnification,
 		role_name_text = "mind magnified [magnification.real_name]",
 	)
 	polling = FALSE

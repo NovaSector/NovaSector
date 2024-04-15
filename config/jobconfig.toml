@@ -340,6 +340,13 @@
 "Spawn Positions" = 0
 "Total Positions" = 0
 
+[VETERAN_ADVISOR]
+"# Playtime Requirements" = 6000
+"# Required Account Age" = 7
+"# Required Character Age" = 0
+"# Spawn Positions" = 0
+"# Total Positions" = 0
+
 [VIROLOGIST]
 "Playtime Requirements" = 60
 "Required Account Age" = 0

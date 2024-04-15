@@ -42,6 +42,15 @@
 	for(var/i in 1 to 3)
 		new /mob/living/basic/pet/chinchilla(.)
 
+/datum/supply_pack/critter/fennec
+	name = "Fennec Crate"
+	desc = "For when you need someone that can really listen to you. \
+		Contains two fennecs. \
+		Warning, does not mean the fennecs will actually listen to you."
+	cost = CARGO_CRATE_VALUE * 7
+	contains = list(/mob/living/basic/pet/cat/fennec = 2)
+	crate_name = "fennec crate"
+
 /*
 *	MEDICAL
 */

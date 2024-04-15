@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			if(INTERACTION_REQUIRE_TARGET_HAND)
 				if(!target.get_active_hand())
 					return FALSE
-			
+
 			else
 				CRASH("Unimplemented interaction requirement '[requirement]'")
 	return TRUE
@@ -227,10 +227,6 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	WRITE_FILE(file, json_encode(json))
 	return TRUE
 
-/mob/living/carbon/human/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/interactable)
-
 /// Global loading procs
 /proc/populate_interaction_instances()
 	for(var/spath in subtypesof(/datum/interaction))
@@ -296,11 +292,5 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 		GLOB.interaction_instances[iname] = interaction
 
-/client/proc/reload_interactions()
-	set category = "Debug"
-	set name = "Reload Interactions"
-	set desc = "Force reload interactions"
-	if(!check_rights(R_DEBUG))
-		return
-
+ADMIN_VERB(reload_interactions, R_DEBUG, "Reload Interactions", "Force reload interactions.", ADMIN_CATEGORY_DEBUG)
 	populate_interaction_instances()

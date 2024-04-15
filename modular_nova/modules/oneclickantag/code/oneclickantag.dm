@@ -38,14 +38,8 @@
 			return FALSE
 	return TRUE
 
-/client/proc/one_click_antag()
-	set name = "Create Antagonist"
-	set desc = "Auto-create an antagonist of your choice"
-	set category = "Admin.Events"
-
-	if(holder)
-		holder.one_click_antag()
-	return
+ADMIN_VERB(one_click_antag, R_ADMIN, "Create Antagonist", "Auto-create an antagonist of your choice", ADMIN_CATEGORY_EVENTS)
+	user.holder?.one_click_antag()
 
 /**
 If anyone can figure out how to get Obsessed to work I would be very appreciative.
@@ -201,7 +195,7 @@ If anyone can figure out how to get Obsessed to work I would be very appreciativ
 	var/list/mob/dead/observer/candidates = SSpolling.poll_ghost_candidates(
 		"Do you wish to be considered for the position of a Wizard Foundation 'diplomat'?",
 		role = ROLE_WIZARD,
-		pic_source = /obj/item/clothing/head/wizard,
+		alert_pic = /obj/item/clothing/head/wizard,
 		role_name_text = "wizard",
 	)
 	var/mob/living/carbon/human/target
@@ -222,7 +216,7 @@ If anyone can figure out how to get Obsessed to work I would be very appreciativ
 		"Do you wish to be considered for a nuke team being sent in?",
 		role = ROLE_OPERATIVE,
 		poll_time = 30 SECONDS,
-		pic_source = /obj/structure/sign/poster/contraband/gorlex_recruitment,
+		alert_pic = /obj/structure/sign/poster/contraband/gorlex_recruitment,
 		role_name_text = "syndicate operative",
 	)
 	var/list/mob/dead/observer/chosen = list()

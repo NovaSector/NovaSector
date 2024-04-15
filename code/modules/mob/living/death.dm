@@ -19,7 +19,7 @@
 		death(TRUE)
 
 	ghostize()
-	spill_organs(issynthetic(src) ? drop_bitflags|DROP_BRAIN : drop_bitflags) // NOVA EDIT CHANGE - Synths always drop brains - ORIGINAL: spill_organs(drop_bitflags)
+	spill_organs(drop_bitflags)
 
 	if(drop_bitflags & DROP_BODYPARTS)
 		spread_bodyparts(drop_bitflags)
@@ -108,7 +108,6 @@
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob, emote), "deathgasp")
 
 	set_stat(DEAD)
-	unset_machine()
 	timeofdeath = world.time
 	station_timestamp_timeofdeath = station_time_timestamp()
 	var/turf/death_turf = get_turf(src)
@@ -134,7 +133,6 @@
 	stop_pulling()
 
 	cut_overlay(GLOB.combat_indicator_overlay) //NOVA EDIT ADDITION - COMBAT_INDICATOR
-	set_combat_indicator(FALSE) //NOVA EDIT ADDITION - COMBAT_INDICATOR
 	set_ssd_indicator(FALSE) //NOVA EDIT ADDITION - SSD_INDICATOR
 
 	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)

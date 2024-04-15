@@ -404,6 +404,7 @@
 	return FALSE
 
 /obj/item/organ/internal/cyberimp/brain/nif/emp_act(severity)
+	. = ..()
 	if(!durability_loss_vulnerable)
 		return FALSE
 
@@ -465,7 +466,7 @@
 /datum/component/nif_examine/proc/add_examine(mob/nif_user, mob/looker, list/examine_texts)
 	SIGNAL_HANDLER
 
-	examine_texts += span_purple("<b>[nif_examine_text]</b>")
+	examine_texts += span_purple("[EXAMINE_SECTION_BREAK][EXAMINE_HINT(nif_examine_text)]")
 
 ///Checks to see if a human with a NIF has the nifsoft_to_find type of NIFSoft installed?
 /mob/living/carbon/human/proc/find_nifsoft(datum/nifsoft/nifsoft_to_find)

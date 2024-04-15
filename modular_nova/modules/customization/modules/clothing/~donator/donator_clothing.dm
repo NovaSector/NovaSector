@@ -229,6 +229,10 @@
 	uses_advanced_reskins = FALSE
 	unique_reskin = NONE
 
+/obj/item/clothing/shoes/jackboots/heel/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+
 // Donation reward for Bloodrite
 /obj/item/clothing/shoes/clown_shoes/britches
 	desc = "The prankster's standard-issue clowning shoes. They look extraordinarily cute. Ctrl-click to toggle waddle dampeners."
@@ -905,7 +909,7 @@
 // Donation reward for CandleJax
 /obj/item/clothing/under/plasmaman/candlejax2
 	name = "azulean's environment suit"
-	desc = "An Azulean-made Enviro-Suit. Fitted to the Azulean form, it has surplus containment fabric designed to give the solidified mass of plasma that was once a tail some breathing room."
+	desc = "A form-fitting and modified bodysuit designed to fit the Akulean body. Embossments of the formal crest of the Kingdom of Agurkrral are seen on the shoulderpads."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "ana_envirosuit"
@@ -917,6 +921,79 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "plasmaman_jax"
+
+// Donation reward for snakebitenn
+/datum/action/item_action/adjust/psychomalicek/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/clothing/mask/gas/psycho_malice/psycho_malice = target
+	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
+		psycho_malice.adjust_mask(usr)
+	else
+		psycho_malice.reskin_obj(usr)
+
+/obj/item/clothing/mask/gas/psycho_malice
+	name = "composite filtration mask"
+	desc = "Less of a mask and more of a second face, this device was primarily useful for climate-adjustment and keeping unwanted gasses and particulates out of whoever it's on. However, it's since been adapted into a faceplate for use by humanoid machines."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	icon_state = "psychomalice"
+	w_class = WEIGHT_CLASS_SMALL
+	tint = 0
+	flags_inv = HIDEEARS|HIDEEYES|HIDESNOUT|HIDEFACIALHAIR
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	/// Whether or not the mask is currently being layered over (or under!) hair. FALSE/null means the mask is layered over the hair (this is how it starts off).
+	var/wear_hair_over
+
+/obj/item/clothing/mask/gas/psycho_malice/examine(mob/user)
+    . = ..()
+    . += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
+
+/obj/item/clothing/mask/gas/psycho_malice/CtrlClick(mob/living/user)
+    if(!isliving(user))
+        return
+    if(user.get_active_held_item() != src)
+        to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
+        return
+    voice_filter = voice_filter ? null : initial(voice_filter)
+    to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+
+/obj/item/clothing/mask/gas/psycho_malice/Initialize(mapload)
+	. = ..()
+	register_context()
+	if(wear_hair_over)
+		alternate_worn_layer = BACK_LAYER
+
+/obj/item/clothing/mask/gas/psycho_malice/alt_click_secondary(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(user.can_perform_action(src, NEED_DEXTERITY))
+		adjust_mask(user)
+
+//this moves the mask above or below the hair layer
+/obj/item/clothing/mask/gas/psycho_malice/proc/adjust_mask(mob/living/carbon/human/user)
+	if(!istype(user))
+		return
+	if(!user.incapacitated())
+		var/is_worn = user.wear_mask == src
+		wear_hair_over = !wear_hair_over
+		if(wear_hair_over)
+			alternate_worn_layer = BACK_LAYER
+			to_chat(user, "You [is_worn ? "" : "will "]sweep your hair over the mask.")
+		else
+			alternate_worn_layer = initial(alternate_worn_layer)
+			to_chat(user, "You [is_worn ? "" : "will "]sweep your hair under the mask.")
+
+		user.update_worn_mask()
+
+/obj/item/clothing/mask/gas/psycho_malice/dropped(mob/living/carbon/human/user)
+	var/prev_alternate_worn_layer = alternate_worn_layer
+	. = ..()
+	alternate_worn_layer = prev_alternate_worn_layer
 
 // Donation reward for Raxraus
 /obj/item/clothing/shoes/combat/rax

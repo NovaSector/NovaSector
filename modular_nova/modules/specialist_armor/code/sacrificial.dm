@@ -25,6 +25,7 @@
 	limb_integrity = 200
 	repairable_by = null // No being cheeky and keeping a pile of repair materials in your bag to fix it either
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/suit/armor/sf_sacrificial/Initialize(mapload)
 	. = ..()
@@ -59,6 +60,7 @@
 	dog_fashion = null
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	resistance_flags = FIRE_PROOF
 	/// Holds the faceshield for quick reference
 	var/obj/item/sacrificial_face_shield/face_shield
 
@@ -83,11 +85,14 @@
 	remove_face_shield(user)
 
 /// Attached the passed face shield to the helmet.
-/obj/item/clothing/head/helmet/sf_sacrificial/proc/add_face_shield(mob/living/carbon/human/user, obj/shield_in_question)
+/obj/item/clothing/head/helmet/sf_sacrificial/proc/add_face_shield(mob/living/carbon/human/user, obj/shield_in_question, on_spawn)
 	if(face_shield)
 		return
-	if(!user.transferItemToLoc(shield_in_question, src))
+	if(!user?.transferItemToLoc(shield_in_question, src) && !on_spawn)
 		return
+
+	if(on_spawn)
+		shield_in_question = new /obj/item/sacrificial_face_shield(src)
 
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -146,6 +151,12 @@
 		Passing up self-repair for nigh-immunity to bullets, the right tool for a certain job, if you can find whatever that job may be."
 
 	return .
+
+/obj/item/clothing/head/helmet/sf_sacrificial/spawns_with_shield
+
+/obj/item/clothing/head/helmet/sf_sacrificial/spawns_with_shield/Initialize(mapload)
+	. = ..()
+	add_face_shield(on_spawn = TRUE)
 
 /obj/item/sacrificial_face_shield
 	name = "'Val' ballistic add-on face plate"

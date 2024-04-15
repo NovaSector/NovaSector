@@ -6,6 +6,11 @@
 			held_organs.Add(organ)
 			organs.Remove(organ)
 
+	// synth brains always drop when gibbed, by default
+	var/obj/item/organ/internal/brain/synth/synth_brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(istype(synth_brain))
+		drop_bitflags |= DROP_BRAIN
+
 	. = ..()
 
 	// put the unspillable organs back

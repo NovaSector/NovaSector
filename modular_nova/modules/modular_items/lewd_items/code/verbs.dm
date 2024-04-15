@@ -34,13 +34,6 @@
 /mob/living/silicon/get_reflexes_lose_text()
 	return "Our systems will allow platonic contact."
 
-/mob/living/carbon/human/Initialize(mapload)
-	. = ..()
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		verbs -= /mob/living/carbon/human/verb/climax_verb
-	if(CONFIG_GET(flag/disable_lewd_items))
-		verbs -= /mob/living/carbon/human/verb/safeword
-
 /mob/living/carbon/human/verb/safeword()
 	set name = "Remove Lewd Items"
 	set category = "OOC"

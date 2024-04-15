@@ -96,10 +96,6 @@
 	if(multitooled)
 		src.multitooled = multitooled
 
-	RegisterSignal(src, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(on_parent_multitool))
-
-	ADD_TRAIT(mob_parent, TRAIT_STYLISH, REF(src)) // NOVA EDIT ADD - allows style meter chads to do flips
-
 /datum/component/style/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOB_ITEM_AFTERATTACK, PROC_REF(hotswap))
 	RegisterSignal(parent, COMSIG_MOB_MINED, PROC_REF(on_mine))
@@ -128,7 +124,6 @@
 		)
 	)
 
-
 /datum/component/style/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOB_ITEM_AFTERATTACK)
 	UnregisterSignal(parent, COMSIG_MOB_MINED)
@@ -152,7 +147,6 @@
 	if(mob_parent.hud_used)
 		mob_parent.hud_used.static_inventory -= meter
 		mob_parent.hud_used.show_hud(mob_parent.hud_used.hud_version)
-	REMOVE_TRAIT(mob_parent, TRAIT_STYLISH, REF(src)) // NOVA EDIT ADD - allows style meter chads to do flips
 	return ..()
 
 
@@ -344,12 +338,6 @@
 	atom_storage.attempt_insert(weapon, source, override = TRUE)
 	INVOKE_ASYNC(source, TYPE_PROC_REF(/mob/living, put_in_hands), target)
 	source.visible_message(span_notice("[source] quickly swaps [weapon] out with [target]!"), span_notice("You quickly swap [weapon] with [target]."))
-
-
-/datum/component/style/proc/on_parent_multitool(datum/source, mob/living/user, obj/item/tool, list/recipes)
-	multitooled = !multitooled
-	user.balloon_alert(user, "meter [multitooled ? "" : "un"]hacked")
-
 
 // Point givers
 /datum/component/style/proc/on_punch(mob/living/carbon/human/punching_person, atom/attacked_atom, proximity)

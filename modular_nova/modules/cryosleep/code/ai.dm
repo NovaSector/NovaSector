@@ -8,11 +8,7 @@
 	switch(alert("Would you like to enter cryo? This will ghost you. Remember to AHELP before cryoing out of important roles, even with no admins online.",,"Yes.","No."))
 		if("Yes.")
 			src.ghostize(FALSE)
-			var/announce_rank = "Artificial Intelligence,"
-			if(GLOB.announcement_systems.len)
-				// Sends an announcement the AI has cryoed.
-				var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
-				announcer.announce("CRYOSTORAGE", src.real_name, announce_rank, list())
+			minor_announce("Station AI has disconnected from system networks and moved to remote storage. Preparing for new AI personality upload.", "Station AI")
 			new /obj/structure/ai_core/latejoin_inactive(loc)
 			if(src.mind)
 				//Handle job slot/tater cleanup.

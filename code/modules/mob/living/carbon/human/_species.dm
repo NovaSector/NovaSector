@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///If your race bleeds something other than bog standard blood, change this to reagent id. For example, ethereals bleed liquid electricity.
 	var/datum/reagent/exotic_blood
 	///If your race uses a non standard bloodtype (A+, O-, AB-, etc). For example, lizards have L type blood.
-	var/exotic_bloodtype = ""
+	var/exotic_bloodtype
 	///The rate at which blood is passively drained by having the blood deficiency quirk. Some races such as slimepeople can regen their blood at different rates so this is to account for that
 	var/blood_deficiency_drain_rate = BLOOD_REGEN_FACTOR + BLOOD_DEFICIENCY_MODIFIER // slightly above the regen rate so it slowly drains instead of regenerates.
 	///What the species drops when gibbed by a gibber machine.
@@ -166,9 +166,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	///Unique cookie given by admins through prayers
 	var/species_cookie = /obj/item/food/cookie
-
-	///For custom overrides for species ass images
-	var/icon/ass_image
 
 	/// List of family heirlooms this species can get with the family heirloom quirk. List of types.
 	var/list/family_heirlooms
@@ -572,38 +569,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	SEND_SIGNAL(C, COMSIG_SPECIES_LOSS, src)
 
 /**
- * Proc called when mail goodies need to be updated for this species.
- *
- * Updates the mail goodies if that is required. e.g. for the blood deficiency quirk, which sends bloodbags to quirk holders, update the sent bloodpack to match the species' exotic blood.
- * This is currently only used for the blood deficiency quirk but more can be added as needed.
- * Arguments:
- * * mob/living/carbon/human/recipient - the mob receiving the mail goodies
- */
-/datum/species/proc/update_mail_goodies(mob/living/carbon/human/recipient)
-	update_quirk_mail_goodies(recipient, recipient.get_quirk(/datum/quirk/blooddeficiency))
-
-/**
- * Updates the mail goodies of a specific quirk.
- *
- * Updates the mail goodies belonging to a specific quirk.
- * Add implementation as needed for each individual species. The base species proc should give the species the 'default' version of whatever mail goodies are required.
- * Arguments:
- * * mob/living/carbon/human/recipient - the mob receiving the mail goodies
- * * datum/quirk/quirk - the quirk to update the mail goodies of. Use get_quirk(datum/quirk/some_quirk) to get the actual mob's quirk to pass.
- * * list/mail_goodies - a list of mail goodies. Generally speaking you should not be using this argument on the initial function call. You should instead add to the species' implementation of this proc.
- */
-/datum/species/proc/update_quirk_mail_goodies(mob/living/carbon/human/recipient, datum/quirk/quirk, list/mail_goodies)
-	if(isnull(quirk))
-		return
-	if(length(mail_goodies))
-		quirk.mail_goodies = mail_goodies
-		return
-	if(istype(quirk, /datum/quirk/blooddeficiency))
-		if(HAS_TRAIT(recipient, TRAIT_NOBLOOD) && isnull(recipient.dna.species.exotic_blood))  // TRAIT_NOBLOOD and no exotic blood (yes we have to check for both, jellypeople exist)
-			quirk.mail_goodies = list() // means no blood pack gets sent to them.
-			return
-
-/**
  * Handles the body of a human
  *
  * Handles lipstick, having no eyes, eye color, undergarnments like underwear, undershirts, and socks, and body layers.
@@ -906,7 +871,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(!(I.slot_flags & slot))
 		var/excused = FALSE
 		// Anything that's small or smaller can fit into a pocket by default
-		if((slot & (ITEM_SLOT_RPOCKET|ITEM_SLOT_LPOCKET)) && I.w_class <= WEIGHT_CLASS_SMALL)
+		if((slot & (ITEM_SLOT_RPOCKET|ITEM_SLOT_LPOCKET)) && I.w_class <= POCKET_WEIGHT_CLASS)
 			excused = TRUE
 		else if(slot & (ITEM_SLOT_SUITSTORE|ITEM_SLOT_BACKPACK|ITEM_SLOT_HANDS))
 			excused = TRUE
@@ -1426,7 +1391,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 3)
 
 	// Body temperature is too cold, and we do not have resist traits
-	else if(bodytemp < bodytemp_cold_damage_limit && !HAS_TRAIT(humi, TRAIT_RESISTCOLD))
+	else if(bodytemp < bodytemp_cold_damage_limit && !HAS_TRAIT(humi, TRAIT_RESISTCOLD) && !humi.has_status_effect(/datum/status_effect/inebriated))
 		// clear any hot moods and apply cold mood
 		humi.clear_mood_event("hot")
 		humi.add_mood_event("cold", /datum/mood_event/cold)
@@ -2077,6 +2042,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/create_pref_liver_perks()
 	RETURN_TYPE(/list)
 
+	if(isnull(mutantliver) || (TRAIT_LIVERLESS_METABOLISM in inherent_traits))
+		return null
+
 	var/list/to_add = list()
 
 	var/alcohol_tolerance = initial(mutantliver.alcohol_tolerance)
@@ -2116,6 +2084,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 /datum/species/proc/create_pref_lung_perks()
 	RETURN_TYPE(/list)
+
+	if(isnull(mutantlungs) || (TRAIT_NOBREATH in inherent_traits))
+		return null
 
 	var/list/to_add = list()
 

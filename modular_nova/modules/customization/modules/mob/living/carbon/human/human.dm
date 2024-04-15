@@ -168,12 +168,12 @@
 	var/list/choices = list()
 	for(var/choice in available_selection)
 		var/datum/radial_menu_choice/option = new
-		var/image/part_image = image(icon = HIDING_RADIAL_DMI, icon_state = initial(choice))
+		var/image/part_image = image(icon = HIDING_RADIAL_DMI, icon_state = choice)
 
 		option.image = part_image
 		if(choice in try_hide_mutant_parts)
 			part_image.underlays += image(icon = HIDING_RADIAL_DMI, icon_state = "module_unable")
-		choices[initial(choice)] = option
+		choices[choice] = option
 	// Radial choices
 	sort_list(choices)
 	var/pick = show_radial_menu(usr, src, choices, custom_check = FALSE, tooltips = TRUE)
@@ -211,7 +211,7 @@
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return
 
-	var/static/list/choices = list("drunkenness", "stuttering", "jittering")
+	var/static/list/choices = list("drunkenness", "jittering")
 	var/impairment = tgui_input_list(src, "Select an impairment to perform:", "Impairments", choices)
 	if(!impairment)
 		return
@@ -223,8 +223,6 @@
 			if(istype(living_user))
 				living_user.add_mood_event("drunk", /datum/mood_event/drunk)
 			set_slurring_if_lower(duration SECONDS)
-		if("stuttering")
-			set_stutter_if_lower(duration SECONDS)
 		if("jittering")
 			set_jitter_if_lower(duration SECONDS)
 
