@@ -58415,8 +58415,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/turf/open/openspace,
+/turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "rvh" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -78158,7 +78157,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/openspace,
+/turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "xkH" = (
 /obj/structure/rack,
