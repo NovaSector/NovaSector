@@ -57679,6 +57679,7 @@
 /area/station/security/prison)
 "rgU" = (
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "rgV" = (
@@ -58412,11 +58413,8 @@
 /area/station/security/brig/entrance)
 "ruX" = (
 /obj/structure/cable/multilayer/multiz,
-/obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/turf/open/openspace,
+/turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "rvh" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -78154,11 +78152,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/bridge)
 "xkE" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/openspace,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "xkH" = (
 /obj/structure/rack,
@@ -98423,7 +98420,7 @@ hOu
 dPN
 wwu
 gFL
-iTV
+xMC
 laO
 byb
 laO
