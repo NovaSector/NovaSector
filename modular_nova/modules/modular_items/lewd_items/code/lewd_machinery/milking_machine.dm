@@ -19,10 +19,6 @@
 	max_integrity = 75
 	var/static/list/milkingmachine_designs
 
-// formerly NO_DECONSTRUCTION
-/obj/structure/chair/milking_machine/wrench_act_secondary(mob/living/user, obj/item/weapon)
-	return NONE
-
 /*
 *	OPERATING MODES
 */
@@ -70,33 +66,6 @@
 	var/mutable_appearance/organ_overlay
 	var/organ_overlay_new_icon_state = "" // Organ overlay update optimization
 
-// Additional examine text
-/obj/structure/chair/milking_machine/examine(mob/user)
-	. = ..()
-	. += span_notice("What are these metal mounts on the armrests for...?")
-
-/obj/structure/chair/milking_machine/Destroy()
-	if(current_mob)
-		if(current_mob.handcuffed)
-			current_mob.handcuffed.dropped(current_mob)
-		current_mob.set_handcuffed(null)
-		current_mob.update_abstract_handcuffed()
-		current_mob.layer = initial(current_mob.layer)
-
-	if(beaker)
-		qdel(beaker)
-		beaker = null
-
-	current_selected_organ = null
-	current_mob = null
-	current_breasts = null
-	current_testicles = null
-	current_vagina = null
-
-	STOP_PROCESSING(SSobj, src)
-	unbuckle_all_mobs()
-	return ..()
-
 // Object initialization
 /obj/structure/chair/milking_machine/Initialize(mapload)
 	. = ..()
@@ -126,6 +95,37 @@
 	update_all_visuals()
 	populate_milkingmachine_designs()
 	START_PROCESSING(SSobj, src)
+
+/obj/structure/chair/milking_machine/Destroy()
+	if(current_mob)
+		if(current_mob.handcuffed)
+			current_mob.handcuffed.dropped(current_mob)
+		current_mob.set_handcuffed(null)
+		current_mob.update_abstract_handcuffed()
+		current_mob.layer = initial(current_mob.layer)
+
+	if(beaker)
+		qdel(beaker)
+		beaker = null
+
+	current_selected_organ = null
+	current_mob = null
+	current_breasts = null
+	current_testicles = null
+	current_vagina = null
+
+	STOP_PROCESSING(SSobj, src)
+	unbuckle_all_mobs()
+	return ..()
+
+// Additional examine text
+/obj/structure/chair/milking_machine/examine(mob/user)
+	. = ..()
+	. += span_notice("What are these metal mounts on the armrests for...?")
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/chair/milking_machine/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return NONE
 
 /*
 *	APPEARANCE MANAGEMENT

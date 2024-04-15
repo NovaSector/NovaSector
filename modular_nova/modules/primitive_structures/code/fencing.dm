@@ -6,7 +6,7 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/wooden_fence.dmi'
 	icon_state = "fence"
 	resistance_flags = FLAMMABLE
-	flags_1 = NO_DECONSTRUCTION | ON_BORDER_1
+	flags_1 = ON_BORDER_1
 	/// If we randomize our icon on spawning
 	var/random_icons = TRUE
 
@@ -20,6 +20,10 @@
 		"fence_3",
 	)
 	update_appearance()
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/railing/wirecutter_act(mob/living/user, obj/item/I)
+	return NONE
 
 // Fence gates for the above mentioned fences
 
