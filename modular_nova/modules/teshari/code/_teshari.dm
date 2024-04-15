@@ -39,6 +39,7 @@
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	species_language_holder = /datum/language_holder/teshari
+	mutantears = /obj/item/organ/internal/ears/teshari
 	body_size_restricted = TRUE
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/teshari,
@@ -57,7 +58,7 @@
 	)
 
 /obj/item/organ/internal/tongue/teshari
-	liked_foodtypes = MEAT
+	liked_foodtypes = MEAT | GORE | RAW
 	disliked_foodtypes = GROSS | GRAIN
 
 /datum/species/teshari/random_name(gender, unique, lastname)
@@ -80,3 +81,12 @@
 	tesh.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Teshari (Default)", MUTANT_INDEX_COLOR_LIST = list(base_color, base_color, ear_color))
 	regenerate_organs(tesh, src, visual_only = TRUE)
 	tesh.update_body(TRUE)
+
+/datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load)
+	. = ..()
+	passtable_on(new_teshari, SPECIES_TRAIT)
+
+/datum/species/teshari/on_species_loss(mob/living/carbon/C, datum/species/new_species, pref_load)
+	. = ..()
+	passtable_off(C, SPECIES_TRAIT)
+

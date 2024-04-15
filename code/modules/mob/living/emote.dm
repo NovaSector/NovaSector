@@ -565,7 +565,7 @@
 	message = "smiles weakly."
 
 /// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-#define YAWN_PROPAGATE_CHANCE_BASE 16 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
+#define YAWN_PROPAGATE_CHANCE_BASE 0 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
 /// The amount the base chance to propagate yawns falls for each tile of distance
 #define YAWN_PROPAGATE_CHANCE_DECAY 4
 
@@ -574,8 +574,8 @@
 	key_third_person = "yawns"
 	message = "yawns."
 	message_mime = "acts out an exaggerated silent yawn."
-	message_robot = "symphathetically yawns."
-	message_AI = "symphathetically yawns."
+	message_robot = "synthesizes a yawn." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
+	message_AI = "synthesizes a yawns." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	cooldown = 5 SECONDS
 
@@ -656,20 +656,20 @@
 		to_chat(user, span_warning("\"[input]\""))
 		REPORT_CHAT_FILTER_TO_USER(user, filter_result)
 		log_filter("IC Emote", input, filter_result)
-		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
+		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, LOWER_TEXT(config.ic_filter_regex.match))
 		return FALSE
 
 	filter_result = is_soft_ic_filtered(input)
 
 	if(filter_result)
 		if(tgui_alert(user,"Your emote contains \"[filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to emote it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
-			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
 			log_filter("Soft IC Emote", input, filter_result)
 			return FALSE
 
 		message_admins("[ADMIN_LOOKUPFLW(user)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[input]\"")
 		log_admin_private("[key_name(user)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[input]\"")
-		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
 		log_filter("Soft IC Emote (Passed)", input, filter_result)
 
 	return TRUE

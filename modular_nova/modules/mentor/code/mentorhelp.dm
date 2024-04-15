@@ -1,4 +1,4 @@
-/client/verb/mentorhelp(msg as text|null)
+/client/verb/mentorhelp(msg as text)
 	set category = "Mentor"
 	set name = "Mentorhelp"
 

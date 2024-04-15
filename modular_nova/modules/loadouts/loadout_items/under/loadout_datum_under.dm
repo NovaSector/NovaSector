@@ -421,6 +421,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Treasure Hunter"
 	item_path = /obj/item/clothing/under/rank/civilian/curator/treasure_hunter
 
+/datum/loadout_item/under/miscellaneous/jester
+	name = "Jester Suit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/jester
+
+/datum/loadout_item/under/miscellaneous/jesteralt
+	name = "Jeset Suit (Alt)"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/jesteralt
+
 /datum/loadout_item/under/miscellaneous/overalls
 	name = "Overalls"
 	item_path = /obj/item/clothing/under/misc/overalls
@@ -523,19 +531,35 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /datum/loadout_item/under/miscellaneous/tacticool_turtleneck
 	name = "Tacticool Turtleneck"
-	item_path = /obj/item/clothing/under/syndicate/tacticool //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm
+	item_path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/loadout_item/under/miscellaneous/tactical_skirt
 	name = "Tacticool Skirtleneck"
-	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm
+	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt
+
+/datum/loadout_item/under/miscellaneous/syndicate_unarmoured
+	name = "Suspicious Tactical Turtleneck (Grey)"
+	item_path = /obj/item/clothing/under/syndicate/unarmoured
+
+/datum/loadout_item/under/miscellaneous/syndicate_unarmoured_skirt
+	name = "Suspicious Tactical Skirtleneck (Grey)"
+	item_path = /obj/item/clothing/under/syndicate/unarmoured/skirt
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_unarmoured
+	name = "Suspicious Tactical Turtleneck (Red)"
+	item_path = /obj/item/clothing/under/syndicate/nova/tactical/unarmoured
+
+/datum/loadout_item/under/miscellaneous/syndicate_nova_unarmoured_skirt
+	name = "Suspicious Tactical Skirtleneck (Red)"
+	item_path = /obj/item/clothing/under/syndicate/nova/tactical/unarmoured/skirt
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured
-	name = "Tacticool Utility Overalls Turtleneck"
-	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
+	name = "Suspicious Utility Overalls Turtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured
 
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
-	name = "Tacticool Overalls Skirtleneck"
-	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt //This has been rebalanced in modular_nova\master_files\code\modules\clothing\under\syndicate.dm :3
+	name = "Suspicious Utility Overalls Skirtleneck"
+	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
 
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"
@@ -776,7 +800,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /datum/loadout_item/under/formal/red_gown
 	name = "Red Evening Gown"
-	item_path = /obj/item/clothing/under/dress/redeveninggown
+	item_path = /obj/item/clothing/under/dress/eveninggown
 
 /datum/loadout_item/under/formal/sailor
 	name = "Sailor Suit"

@@ -279,7 +279,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "bS" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -1160,7 +1160,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "ig" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/brown/anticorner{
@@ -1490,9 +1490,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
-"kJ" = (
-/turf/template_noop,
-/area/ruin/space/has_grav/outdoors)
 "kN" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/tarkon/right/directional/south,
@@ -1807,7 +1804,7 @@
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "mn" = (
 /obj/structure/spawner/tarkon_xenos/minor,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "mo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3043,7 +3040,7 @@
 "ug" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/alien/resin/membrane,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "uh" = (
 /obj/structure/cable,
@@ -3537,7 +3534,7 @@
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "xC" = (
 /obj/structure/alien/resin/wall,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "xD" = (
 /obj/structure/reagent_dispensers/fueltank/large,
@@ -3678,13 +3675,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/airalarm/directional/east,
 /obj/structure/safe/floor,
-/obj/item/mod/module/armor_booster/retractplates{
-	desc = "A complex set of actuators, micro-seals and a simple guide on how to install it, This... \"Modification\" allows the plating around the joints to retract, giving minor protection and a bit better mobility. There also seems to be a small, wireless microphone... how odd."
-	},
-/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 4
 	},
+/obj/item/target_designator,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/cerberus/pre_filled,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "yG" = (
@@ -4396,7 +4391,7 @@
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "DG" = (
 /obj/structure/table/reinforced,
-/obj/machinery/reagentgrinder/constructed,
+/obj/machinery/reagentgrinder,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/port_tarkon/kitchen)
@@ -4567,7 +4562,7 @@
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "EN" = (
 /obj/structure/alien/weeds/node,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "EQ" = (
 /turf/closed/wall/r_wall,
@@ -5189,7 +5184,7 @@
 /area/ruin/space/has_grav/port_tarkon/mining)
 "Jg" = (
 /obj/structure/safe/floor,
-/obj/item/areaeditor/blueprints/tarkon,
+/obj/item/blueprints/tarkon,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
@@ -5377,7 +5372,7 @@
 /area/ruin/space/has_grav/port_tarkon/garden)
 "Kn" = (
 /obj/structure/spawner/tarkon_xenos/common,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "Ko" = (
 /obj/structure/falsewall,
@@ -5534,6 +5529,9 @@
 /obj/machinery/camera/tarkon/directional/east,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/observ)
+"Ls" = (
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/outdoors)
 "Lt" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/yellow/half,
@@ -5659,10 +5657,11 @@
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Mg" = (
 /obj/structure/table/reinforced,
-/obj/item/crowbar,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 8
 	},
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "Mp" = (
@@ -5902,7 +5901,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/machinery/modular_computer/console,
+/obj/machinery/modular_computer,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "NS" = (
@@ -6479,7 +6478,7 @@
 /area/ruin/space/has_grav/port_tarkon/afthall)
 "RE" = (
 /obj/structure/alien/resin/membrane,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "RF" = (
 /obj/effect/turf_decal/tile/purple{
@@ -6551,7 +6550,7 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "Sl" = (
 /obj/structure/spawner/tarkon_xenos,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/outdoors)
 "Sm" = (
 /obj/structure/fluff/metalpole,
@@ -6885,7 +6884,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "Uk" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -7204,7 +7203,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/reagentgrinder/constructed,
+/obj/machinery/reagentgrinder,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "Wy" = (
@@ -7461,7 +7460,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/item/areaeditor/blueprints/slime,
+/obj/item/blueprints/slime,
 /obj/item/slime_extract/grey,
 /obj/item/slime_extract/grey,
 /obj/item/slime_extract/grey,
@@ -9785,8 +9784,8 @@ zY
 zY
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 bt
 zY
@@ -9857,9 +9856,9 @@ ZY
 zY
 bt
 xC
-kJ
+Ls
 EN
-kV
+Ls
 EN
 xC
 zY
@@ -9930,10 +9929,10 @@ ZY
 zY
 zY
 xC
-kV
+Ls
 Kn
 EN
-kV
+Ls
 xC
 bt
 eT
@@ -10003,10 +10002,10 @@ ZY
 zY
 bt
 xC
-kV
+Ls
 EN
-kV
-kV
+Ls
+Ls
 xC
 zY
 eT
@@ -10076,10 +10075,10 @@ ZY
 zY
 bt
 xC
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 zY
 eT
@@ -10149,9 +10148,9 @@ ZY
 zY
 zY
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 EN
 xC
 zY
@@ -10223,9 +10222,9 @@ zY
 zY
 xC
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 eT
@@ -10296,8 +10295,8 @@ zY
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 bt
 zY
@@ -10369,7 +10368,7 @@ zY
 zY
 zY
 xC
-kV
+Ls
 xC
 zY
 bt
@@ -10515,7 +10514,7 @@ zY
 bt
 bt
 xC
-kV
+Ls
 xC
 bt
 zY
@@ -10588,7 +10587,7 @@ zY
 bt
 zY
 xC
-kV
+Ls
 xC
 zY
 bt
@@ -10661,7 +10660,7 @@ zY
 zY
 bt
 xC
-kV
+Ls
 xC
 bt
 zY
@@ -10734,7 +10733,7 @@ zY
 zY
 bt
 xC
-kV
+Ls
 xC
 xC
 bt
@@ -10807,9 +10806,9 @@ zY
 bt
 bt
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 zY
 eT
@@ -10882,7 +10881,7 @@ bt
 xC
 EN
 mn
-kV
+Ls
 xC
 zY
 eT
@@ -10953,8 +10952,8 @@ zY
 bt
 bt
 xC
-kJ
-kV
+Ls
+Ls
 EN
 xC
 zY
@@ -11027,8 +11026,8 @@ bt
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 zY
 eT
@@ -11101,7 +11100,7 @@ zY
 bt
 bt
 xC
-kV
+Ls
 xC
 bt
 eT
@@ -11174,7 +11173,7 @@ bt
 bt
 bt
 xC
-kV
+Ls
 xC
 zY
 eT
@@ -11247,7 +11246,7 @@ zY
 bt
 zY
 xC
-kV
+Ls
 xC
 zY
 eT
@@ -11320,7 +11319,7 @@ zY
 bt
 bt
 xC
-kV
+Ls
 xC
 bt
 eT
@@ -11332,7 +11331,7 @@ bt
 bt
 xC
 xC
-kV
+Ls
 EN
 xC
 xC
@@ -11404,10 +11403,10 @@ xC
 bt
 xC
 xC
-kV
-kV
-kV
-kJ
+Ls
+Ls
+Ls
+Ls
 xC
 zY
 OV
@@ -11466,21 +11465,21 @@ bt
 zY
 bt
 xC
-kV
-kV
+Ls
+Ls
 xC
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 xC
-kV
+Ls
 EN
 EN
 EN
-kV
+Ls
 xC
 bt
 OV
@@ -11541,19 +11540,19 @@ bt
 xC
 mn
 EN
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
-kV
+Ls
 EN
 Sl
 EN
-kV
+Ls
 xC
 bt
 OV
@@ -11613,20 +11612,20 @@ bt
 bt
 bt
 xC
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 EN
 EN
 EN
-kV
+Ls
 xC
 bt
 OV
@@ -11686,20 +11685,20 @@ zY
 zY
 bt
 xC
-kV
+Ls
 EN
-kV
+Ls
 xC
 bt
 bt
 xC
-kV
-kV
+Ls
+Ls
 EN
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 xC
 bt
 OV
@@ -11759,19 +11758,19 @@ bt
 zY
 bt
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
 mn
-kV
+Ls
 RE
 RE
 RE
-kV
+Ls
 EN
 xC
 zY
@@ -11832,17 +11831,17 @@ zY
 zY
 zY
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 xC
 bt
 bt
 xC
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 RE
 RE
 xC
@@ -11906,8 +11905,8 @@ zY
 bt
 xC
 EN
-kV
-kV
+Ls
+Ls
 EN
 xC
 xC
@@ -11916,8 +11915,8 @@ RE
 RE
 RE
 EN
-kV
-kV
+Ls
+Ls
 xC
 bt
 bt
@@ -11980,17 +11979,17 @@ zY
 xC
 Kn
 EN
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 RE
-kV
-kV
-kV
-kV
+Ls
+Ls
+Ls
+Ls
 EN
-kJ
+Ls
 xC
 bt
 bt
@@ -12052,15 +12051,15 @@ zY
 zY
 bt
 xC
-kJ
+Ls
 EN
-kV
-kV
-kV
+Ls
+Ls
+Ls
 RE
 EN
 RE
-kV
+Ls
 EN
 mn
 xC
@@ -12129,12 +12128,12 @@ xC
 xC
 xC
 xC
-kV
-kV
-kV
+Ls
+Ls
+Ls
 RE
-kV
-kV
+Ls
+Ls
 xC
 bt
 zY
