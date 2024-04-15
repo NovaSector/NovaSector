@@ -36,6 +36,7 @@
 		/datum/crafting_bench_recipe/coil,
 		/datum/crafting_bench_recipe/seed_mesh,
 		/datum/crafting_bench_recipe/centrifuge,
+		/datum/crafting_bench_recipe/soup_pot,
 		/datum/crafting_bench_recipe/bokken,
 		/datum/crafting_bench_recipe/bow,
 	)
