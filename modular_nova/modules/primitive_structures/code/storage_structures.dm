@@ -39,6 +39,7 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	obj_flags = CAN_BE_HIT
+	material_drop_amount = 4
 
 /obj/structure/closet/crate/wooden/storage_barrel/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
@@ -47,9 +48,6 @@
 
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/structure/closet/crate/wooden/storage_barrel/atom_deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 4)
 
 /obj/machinery/smartfridge/produce_bin
 	name = "produce bin"
