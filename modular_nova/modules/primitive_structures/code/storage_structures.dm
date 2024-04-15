@@ -5,7 +5,7 @@
 	icon_state = "shelf_wood"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT
+
 /obj/structure/rack/wooden/MouseDrop_T(obj/object, mob/user, params)
 	. = ..()
 	if(!.)
@@ -38,7 +38,6 @@
 	base_icon_state = "barrel"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT
 	material_drop_amount = 4
 
 /obj/structure/closet/crate/wooden/storage_barrel/crowbar_act(mob/living/user, obj/item/tool)
@@ -55,7 +54,6 @@
 	icon_state = "producebin"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = parent_type::obj_flags
 	base_build_path = /obj/machinery/smartfridge/produce_bin
 	base_icon_state = "produce"
 	use_power = NO_POWER_USE
@@ -96,7 +94,6 @@
 	icon_state = "seedshelf"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = parent_type::obj_flags
 	base_build_path = /obj/machinery/smartfridge/seed_shelf
 	base_icon_state = "seed"
 	use_power = NO_POWER_USE
@@ -130,7 +127,6 @@
 	icon_state = "rationshelf"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = parent_type::obj_flags
 	base_build_path = /obj/machinery/smartfridge/ration_shelf
 	base_icon_state = "ration"
 	use_power = NO_POWER_USE
@@ -164,7 +160,6 @@
 	icon_state = "producedisplay"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = parent_type::obj_flags
 	base_build_path = /obj/machinery/smartfridge/produce_display
 	base_icon_state = "nonfood"
 	use_power = NO_POWER_USE
