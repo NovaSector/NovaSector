@@ -13,9 +13,6 @@
 
 /obj/item/gps/computer/space/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(obj_flags & NO_DECONSTRUCTION)
-		return TRUE
-
 	if(I.use_tool(src, user, 20, volume=50))
 		user.visible_message(span_warning("[user] disassembles [src]."),
 			span_notice("You start to disassemble [src]..."), span_hear("You hear clanking and banging noises."))
@@ -32,21 +29,19 @@
 		return
 	attack_self(user)
 
-
 /**
  * Power related machines
  */
 
 /// Primarily a replacement for Bluespace SMES/RTG spam into be something more realistic
 /obj/machinery/power/micro_reactor
-	icon = 'modular_nova/modules/mapping/icons/machinery/reactor.dmi'	
+	icon = 'modular_nova/modules/mapping/icons/machinery/reactor.dmi'
 	name = "micro reactor"
 	desc = "Designed as a self-containing powersource for long-haul vessels, the stamp of SOAR Industries \
 		on the top. A steady output once active with plenty of safety features to ensure a meltdown is not possible, \
 		having one installed means a steady clean powersource for between 75-125 years."
 	icon_state = "reactor0_0"
 	base_icon_state = "reactor0"
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	density = TRUE
 	anchored = TRUE
 
@@ -69,6 +64,16 @@
 /obj/machinery/power/micro_reactor/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
+
+// formerly NO_DECONSTRUCTION
+/obj/machinery/power/micro_reactor/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/power/micro_reactor/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/power/micro_reactor/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /obj/machinery/power/micro_reactor/update_icon_state()
 	icon_state = "[base_icon_state]_[active]"
@@ -96,7 +101,7 @@
 	if(active)
 		active = FALSE
 		set_light_power(0)
-		set_light_on(0)	
+		set_light_on(0)
 		update_appearance()
 		soundloop.stop()
 	else
