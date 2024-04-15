@@ -38,8 +38,8 @@
 
 /obj/item/storage/toolbox/guncase/nova/opfor/kiboko/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil(src)
-	new /obj/item/ammo_box/magazine/c980_grenade/drum(src)
-	new /obj/item/ammo_box/magazine/c980_grenade/drum(src)
+	new /obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel(src)
+	new /obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel(src)
 
 /datum/opposing_force_equipment/ranged/amr
 	name = "'Wyłom' AMR"

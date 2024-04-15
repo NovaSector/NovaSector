@@ -5,6 +5,7 @@
 	display_name = "Azulean Boarder"
 	desc = ""
 
+	r_hand = /obj/item/knife/combat
 	uniform = /obj/item/clothing/under/skinsuit
 	head = /obj/item/clothing/head/helmet/space/skinsuit_helmet
 	suit = /obj/item/clothing/suit/armor/riot/skinsuit_armor
@@ -18,9 +19,6 @@
 ///force the akula species onto the player
 /datum/outfit/deathmatch_loadout/azulean/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
 	. = ..()
-	if(is_species(user, /datum/species/akula))
-		return
-
 	//generate our mutable colors
 	var/main_color
 	var/secondary_color
