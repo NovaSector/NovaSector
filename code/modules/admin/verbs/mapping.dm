@@ -191,87 +191,44 @@ ADMIN_VERB(disable_communication, R_DEBUG, "Disable all communication verbs", "D
 	if(GLOB.say_disabled)
 		message_admins("[key_name_admin(user)] used 'Disable all communication verbs', killing all communication methods.")
 	else
-<<<<<<< HEAD
-		message_admins("[key] used 'Disable all communication verbs', restoring all communication methods.")
-/* NOVA EDIT: lol, lmao, fuck icon bugs from byond
-//This generates the icon states for job starting location landmarks.
-/client/proc/create_mapping_job_icons()
-	set name = "Generate job landmarks icons"
-	set category = "Mapping"
-=======
 		message_admins("[key_name_admin(user)] used 'Disable all communication verbs', restoring all communication methods.")
 
 ADMIN_VERB_VISIBILITY(create_mapping_job_icons, ADMIN_VERB_VISIBLITY_FLAG_MAPPING_DEBUG)
 ADMIN_VERB(create_mapping_job_icons, R_DEBUG, "Generate job landmarks icons", "Generates job starting location landmarks.", ADMIN_CATEGORY_MAPPING)
->>>>>>> 7f8752be147 (Admin Verb Datums MkIII | Now with functional command bar (#82511))
 	var/icon/final = icon()
+	var/list/job_key_to_icon = list() // NOVA EDIT ADDITION
 	var/mob/living/carbon/human/dummy/D = new(locate(1,1,1)) //spawn on 1,1,1 so we don't have runtimes when items are deleted
 	D.setDir(SOUTH)
 	for(var/job in subtypesof(/datum/job))
 		var/datum/job/JB = new job
 		switch(JB.title)
 			if(JOB_AI)
-				final.Insert(icon('icons/mob/silicon/ai.dmi', "ai", SOUTH, 1), "AI")
+				job_key_to_icon["AI"] = icon('icons/mob/silicon/ai.dmi', "ai", SOUTH, 1) // NOVA EDIT CHANGE - ORIGINAL: final.Insert(icon('icons/mob/silicon/ai.dmi', "ai", SOUTH, 1), "AI")
 			if(JOB_CYBORG)
-				final.Insert(icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1), "Cyborg")
+				job_key_to_icon["Cyborg"] = icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1) // NOVA EDIT CHANGE - ORIGINAL: final.Insert(icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1), "Cyborg")
 			else
 				for(var/obj/item/I in D)
 					qdel(I)
 				randomize_human(D)
-				D.dress_up_as_job(JB, TRUE)
-				var/icon/I = icon(getFlatIcon(D), frame = 1)
-				final.Insert(I, JB.title)
-	qdel(D)
-	//Also add the x
-	for(var/x_number in 1 to 4)
-		final.Insert(icon('icons/hud/screen_gen.dmi', "x[x_number == 1 ? "" : x_number]"), "x[x_number == 1 ? "" : x_number]")
-	fcopy(final, "icons/mob/landmarks.dmi")
-<<<<<<< HEAD
-*/
-// NOVA EDIT BEGIN: THIS SHIT WAS BROKEN due to an issue with byond and how icons cache
-//This generates the icon states for job starting location landmarks.
-/client/proc/create_mapping_job_icons()
-	set name = "Generate job landmarks icons"
-	set category = "Mapping"
-	var/list/job_key_to_icon = list()
-	for(var/job in subtypesof(/datum/job))
-		var/mob/living/carbon/human/dummy/D = new(locate(1,1,1)) //spawn on 1,1,1 so we don't have runtimes when items are deleted
-		D.setDir(SOUTH)
-		var/datum/job/JB = new job
-		to_chat(world, "Generating icon for job [JB.title]")
-		switch(JB.title)
-			if("AI")
-				job_key_to_icon["AI"] = icon('icons/mob/silicon/ai.dmi', "ai", SOUTH, 1)
-			if("Cyborg")
-				job_key_to_icon["Cyborg"] = icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1)
-			else
-				randomize_human(D)
+				// NOVA EDIT CHANGE START - ORIGINAL: D.dress_up_as_job(JB, TRUE)
 				if(JB.outfit)
 					D.equipOutfit(JB.outfit, TRUE)
+				// NOVA EDIT CHANGE END
 				var/icon/I = icon(getFlatIcon(D), frame = 1)
-				job_key_to_icon[JB.title] = I
-		qdel(D)
-	to_chat(world, "Done generating icons.")
-	var/icon/final = icon()
+				job_key_to_icon[JB.title] = I // NOVA EDIT CHANGE - ORIGINAL: final.Insert(I, JB.title)
+	qdel(D)
+	// NOVA EDIT ADDITION START
 	for(var/job_key in job_key_to_icon)
 		final.Insert(job_key_to_icon[job_key], job_key)
+	// NOVA EDIT ADDITION END
 	//Also add the x
 	for(var/x_number in 1 to 4)
 		final.Insert(icon('icons/hud/screen_gen.dmi', "x[x_number == 1 ? "" : x_number]"), "x[x_number == 1 ? "" : x_number]")
 	fcopy(final, "icons/mob/landmarks.dmi")
-	to_chat(world, "Done generating landmarks.dmi.")
-// NOVA EDIT END
-/client/proc/debug_z_levels()
-	set name = "Debug Z-Levels"
-	set category = "Mapping"
-
-	to_chat(src, examine_block(gather_z_level_information(append_grid = TRUE)), confidential = TRUE)
-=======
 
 ADMIN_VERB_VISIBILITY(debug_z_levels, ADMIN_VERB_VISIBLITY_FLAG_MAPPING_DEBUG)
 ADMIN_VERB(debug_z_levels, R_DEBUG, "Debug Z-Levels", "Displays a list of all z-levels and their linkages.", ADMIN_CATEGORY_MAPPING)
 	to_chat(user, examine_block(gather_z_level_information(append_grid = TRUE)), confidential = TRUE)
->>>>>>> 7f8752be147 (Admin Verb Datums MkIII | Now with functional command bar (#82511))
 
 /// Returns all necessary z-level information. Argument `append_grid` allows the user to see a table showing all of the z-level linkages, which is only visible and useful in-game.
 /proc/gather_z_level_information(append_grid = FALSE)

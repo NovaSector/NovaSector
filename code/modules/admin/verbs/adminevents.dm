@@ -251,45 +251,7 @@ ADMIN_VERB(run_weather, R_FUN, "Run Weather", "Triggers specific weather on the 
 	log_admin("[key_name(user)] started weather of type [weather_type] on the z-level [z_level].")
 	BLACKBOX_LOG_ADMIN_VERB("Run Weather")
 
-<<<<<<< HEAD
-/client/proc/add_marked_mob_ability()
-	set category = "Admin.Events"
-	set name = "Add Mob Ability (Marked Mob)"
-	set desc = "Adds an ability to a marked mob."
-
-	if(!holder)
-		return
-
-	if(!isliving(holder.marked_datum))
-		to_chat(usr, span_warning("Error: Please mark a mob to add actions to it."))
-		return
-	give_mob_action(holder.marked_datum)
-
-/client/proc/remove_marked_mob_ability()
-	set category = "Admin.Events"
-	set name = "Remove Mob Ability (Marked Mob)"
-	set desc = "Removes an ability from marked mob."
-
-	if(!holder)
-		return
-
-	if(!isliving(holder.marked_datum))
-		to_chat(usr, span_warning("Error: Please mark a mob to remove actions from it."))
-		return
-	remove_mob_action(holder.marked_datum)
-
-
-/client/proc/command_report_footnote()
-	set category = "Admin.Events"
-	set name = "Command Report Footnote"
-	set desc = "Adds a footnote to the roundstart command report."
-
-	if(!check_rights(R_ADMIN))
-		return
-
-=======
 ADMIN_VERB(command_report_footnote, R_ADMIN, "Command Report Footnote", "Adds a footnote to the roundstart command report.", ADMIN_CATEGORY_EVENTS)
->>>>>>> 7f8752be147 (Admin Verb Datums MkIII | Now with functional command bar (#82511))
 	var/datum/command_footnote/command_report_footnote = new /datum/command_footnote()
 	SScommunications.block_command_report += 1 //Add a blocking condition to the counter until the inputs are done.
 

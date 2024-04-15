@@ -26,18 +26,17 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mo
 		// NOVA EDIT ADDITION START - Player Ranks
 		var/list/player_ranks = list()
 
-		if(SSplayer_ranks.is_donator(M.client, admin_bypass = FALSE))
+		if(SSplayer_ranks.is_donator(player.client, admin_bypass = FALSE))
 			player_ranks += "Donator"
 
-		if(SSplayer_ranks.is_mentor(M.client, admin_bypass = FALSE))
+		if(SSplayer_ranks.is_mentor(player.client, admin_bypass = FALSE))
 			player_ranks += "Mentor"
 
-		if(SSplayer_ranks.is_veteran(M.client, admin_bypass = FALSE))
+		if(SSplayer_ranks.is_veteran(player.client, admin_bypass = FALSE))
 			player_ranks += "Veteran"
 
 		body += "<br><br><b>Player Ranks: </b>[length(player_ranks) ? player_ranks.Join(", ") : "None"]"
-		// NOVA EDIT END
-=======
+		// NOVA EDIT ADDITION END
 		body += "<br><br><b>CentCom Galactic Ban DB: </b> "
 		if(CONFIG_GET(string/centcom_ban_db))
 			body += "<a href='?_src_=holder;[HrefToken()];centcomlookup=[player.client.ckey]'>Search</a>"
@@ -100,8 +99,8 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mo
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[player.ckey];mute_type=[MUTE_PRAY]'><font color='[(muted & MUTE_PRAY)?"red":"blue"]'>PRAY</font></a> | "
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[player.ckey];mute_type=[MUTE_ADMINHELP]'><font color='[(muted & MUTE_ADMINHELP)?"red":"blue"]'>ADMINHELP</font></a> | "
 		//Nova Edit Addition Begin - LOOC muting again.
-		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</font></a> | "
-		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_LOOC]'><font color='[(muted & MUTE_LOOC)?"red":"blue"]'>LOOC</font></a>\]"
+		body += "<A href='?_src_=holder;[HrefToken()];mute=[player.ckey];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</font></a> | "
+		body += "<A href='?_src_=holder;[HrefToken()];mute=[player.ckey];mute_type=[MUTE_LOOC]'><font color='[(muted & MUTE_LOOC)?"red":"blue"]'>LOOC</font></a>\]"
 		//Nova Edit Addition End - LOOC muting again.
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[player.ckey];mute_type=[MUTE_INTERNET_REQUEST]'><font color='[(muted & MUTE_INTERNET_REQUEST)?"red":"blue"]'>WEBREQ</font></a> | "
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[player.ckey];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</font></a>\]"

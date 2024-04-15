@@ -85,23 +85,8 @@ ADMIN_VERB(start_now, R_SERVER, "Start Now", "Start the round RIGHT NOW.", ADMIN
 		SSticker.SetTimeLeft(3 MINUTES)
 		to_chat(world, span_big(span_notice("The game will start in 3 minutes.")))
 		SEND_SOUND(world, sound('sound/ai/default/attention.ogg'))
-<<<<<<< HEAD
-		message_admins("<font color='blue'>[usr.key] has cancelled immediate game start. Game will start in 180 seconds.</font>")
-		log_admin("[usr.key] has cancelled immediate game start.")
-	else
-		to_chat(usr, "<span class='warningplain'><font color='red'>Error: Start Now: Game has already started.</font></span>")
-	return FALSE
-
-/datum/admins/proc/delay_round_end()
-	set category = "Server"
-	set desc = "Prevent the server from restarting"
-	set name = "Delay Round End"
-
-	if(!check_rights(R_ADMIN)) // NOVA EDIT - Admins can delay the round end - ORIGINAL: if(!check_rights(R_SERVER))
-=======
 		message_admins(span_adminnotice("[key_name_admin(user)] has cancelled immediate game start. Game will start in 3 minutes."))
 		log_admin("[key_name(user)] has cancelled immediate game start.")
->>>>>>> 7f8752be147 (Admin Verb Datums MkIII | Now with functional command bar (#82511))
 		return
 
 	if(!user.is_localhost())
@@ -116,7 +101,7 @@ ADMIN_VERB(start_now, R_SERVER, "Start Now", "Start the round RIGHT NOW.", ADMIN
 		message_admins("The server is still setting up, but the round will be started as soon as possible.")
 	BLACKBOX_LOG_ADMIN_VERB("Start Now")
 
-ADMIN_VERB(delay_round_end, R_SERVER, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER)
+ADMIN_VERB(delay_round_end, R_ADMIN, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER) // NOVA EDIT CHANGE - Admins can delay the round end - ORIGINAL: ADMIN_VERB(delay_round_end, R_SERVER, "Delay Round End", "Prevent the server from restarting.", ADMIN_CATEGORY_SERVER)
 	if(SSticker.delay_end)
 		tgui_alert(user, "The round end is already delayed. The reason for the current delay is: \"[SSticker.admin_delay_notice]\"", "Alert", list("Ok"))
 		return
