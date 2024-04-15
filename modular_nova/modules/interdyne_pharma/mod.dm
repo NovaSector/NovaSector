@@ -8,7 +8,7 @@
 		/obj/item/mod/module/health_analyzer,
 		/obj/item/mod/module/injector,
 		/obj/item/mod/module/surgical_processor/preloaded,
-		/obj/item/mod/module/storage/syndicate,
+		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/tether,
 		/obj/item/mod/module/thread_ripper,
 	)
