@@ -93,7 +93,7 @@
 			balloon_alert(user, "not secured!")
 			return ITEM_INTERACT_BLOCKING
 
-		if(!length(contents) || reagents.total_volume == 0)
+		if(!length(contents) && reagents.total_volume == 0)
 			balloon_alert(user, "nothing to grind!")
 			return ITEM_INTERACT_BLOCKING
 
@@ -108,7 +108,7 @@
 		)
 		var/picked_option = show_radial_menu(user, src, choose_options, radius = 38, require_near = TRUE)
 
-		if(in_range(src, user) || !user.is_holding(tool) && !picked_option)
+		if(!in_range(src, user) || !user.is_holding(tool) && !picked_option)
 			return ITEM_INTERACT_BLOCKING
 		var/act_verb = LOWER_TEXT(picked_option)
 		balloon_alert_to_viewers("[act_verb]ing...")
