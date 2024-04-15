@@ -4,8 +4,6 @@
 	applied_cell = /obj/item/stock_parts/cell/super
 	applied_modules = list(
 		/obj/item/mod/module/defibrillator,
-		/obj/item/mod/module/flashlight,
-		/obj/item/mod/module/health_analyzer,
 		/obj/item/mod/module/injector,
 		/obj/item/mod/module/surgical_processor/preloaded,
 		/obj/item/mod/module/storage/large_capacity,
