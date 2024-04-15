@@ -47,8 +47,6 @@
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))
 		return
 
-	usr.set_machine(src)
-
 	var/selected_goal = href_list["selected_goal"]
 
 	if(href_list["close"])
@@ -61,4 +59,4 @@
 			goal_to_set.send_report()
 			goal_assigned = TRUE
 			break
-	updateUsrDialog()
+	SStgui.update_uis(src)
