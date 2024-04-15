@@ -365,7 +365,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "je" = (
-/obj/machinery/smartfridge/produce_bin,
+/obj/machinery/smartfridge/wooden/produce_bin,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "jg" = (
@@ -931,7 +931,7 @@
 /area/ruin/unpowered/ash_walkers)
 "ul" = (
 /obj/structure/stone_tile/surrounding_tile,
-/obj/machinery/smartfridge/ration_shelf,
+/obj/machinery/smartfridge/wooden/ration_shelf/wooden,
 /turf/open/floor/bamboo/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "um" = (
@@ -1239,6 +1239,9 @@
 	},
 /turf/closed/indestructible/riveted/boss,
 /area/ruin/unpowered/ash_walkers)
+"zu" = (
+/turf/closed/indestructible/riveted/boss/see_through,
+/area/lavaland/surface/outdoors)
 "zK" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2255,7 +2258,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "XU" = (
-/obj/machinery/smartfridge/seed_shelf,
+/obj/machinery/smartfridge/wooden/seed_shelf/wooden,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Yb" = (
@@ -3179,8 +3182,8 @@ JC
 JC
 Ho
 Ho
-li
-li
+zu
+zu
 yF
 "}
 (25,1,1) = {"
@@ -3214,8 +3217,8 @@ WK
 JC
 JC
 Ho
-li
-li
+zu
+zu
 GP
 "}
 (26,1,1) = {"
@@ -3354,8 +3357,8 @@ WK
 JC
 JC
 Ho
-li
-li
+zu
+zu
 GP
 "}
 (30,1,1) = {"
@@ -3389,8 +3392,8 @@ JC
 JC
 Ho
 Ho
-li
-li
+zu
+zu
 yF
 "}
 (31,1,1) = {"
