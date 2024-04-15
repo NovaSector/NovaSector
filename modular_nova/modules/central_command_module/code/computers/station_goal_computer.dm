@@ -61,4 +61,4 @@
 			goal_to_set.send_report()
 			goal_assigned = TRUE
 			break
-	updateUsrDialog()
+	SStgui.update_uis(src)
