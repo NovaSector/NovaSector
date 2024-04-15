@@ -63,9 +63,8 @@
 
 /obj/structure/large_mortar/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	. = ..()
-	if(. || user.combat_mode)
+	if(. || user.combat_mode || tool.is_refillable())
 		return .
-
 	if(istype(tool, /obj/item/storage/bag))
 		if(length(contents) >= maximum_contained_items)
 			balloon_alert(user, "already full!")
