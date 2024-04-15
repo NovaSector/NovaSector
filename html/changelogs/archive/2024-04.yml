@@ -478,3 +478,52 @@
       tables.
   - bugfix: the remote flipping mechanisms have been removed from all the tables.
       borgs can no longer remotely tableflip.
+2024-04-15:
+  Bisar:
+  - qol: Cyborgs now understand door and APC wires at a glance, among others
+  LT3:
+  - balance: Using the delam panic button will now reset the incident display counter
+      to 0
+  - rscdel: Removed modular override of fire alarm lighting
+  Nerev4r:
+  - bugfix: Ethereals now get their proper revive maluses.
+  NovaBot13:
+  - image: Updates old belt sprites. Mostly the bags, but some misc. ones as well
+      like the chainsword and RPED
+  - qol: General settings tab into TGchat, looks better now, and is more convenient
+      to use. Also, each button has a font written on it.
+  - bugfix: minebots no longer bomb each other (and other miners) through landmines
+  - bugfix: minebot shields will no longer lose color in lower z levels
+  - bugfix: Clicking the buckled alert unbuckles you again.
+  - rscadd: Added a loot window for alt-clicking tiles.
+  - rscdel: Removed the item browser from the stat panel.
+  - balance: The Bioscrambler will now actively attempt to get closer to living targets
+      rather than chilling in a closet nobody goes into (unless you trap it in a containment
+      field).
+  - balance: Because it can now travel through walls, the Bioscrambler will no longer
+      transform you THROUGH walls.
+  - spellcheck: Pre-Approved Cyborg Candidates are no longer "Cantidates"
+  - bugfix: Operating computers clears its ui display procedures if patient is moved
+      out of the operating table in any way
+  - bugfix: Battle arcade's higher levels no longer gives you a "Gear" gear, and counterattacks
+      can now properly kill enemies.
+  - image: Updated the ability icons used by AIs and station bots
+  - bugfix: you can put back the oven tray after you take it out
+  - bugfix: only oven trays are allowed in ovens preventing baked food runtimes
+  - bugfix: The HoP's photobooth button is now consistently connected to the HoP's
+      photobooth.
+  - qol: Crayons can now draw up to 4 letters at a time per tile.
+  - bugfix: Living Limbs created by Bioscrambler will be alive.
+  - bugfix: Living Limbs can once more attach themselves to your body.
+  - balance: Living Limbs will prioritise attacking your limbs.
+  - bugfix: Basic Mobs will once again spread their damage across body zones instead
+      of only attacking your chest.
+  vinylspiders:
+  - bugfix: lavaland interdyne base pharmacy now has an apc linked to it
+  zydras:
+  - rscadd: The asteroid belt in close proximity of Lavaland has been recently fully
+      acquired by Nanotrasen, with a brand new station type dubbed 'Ouroboros' inserted
+      into the field!
+  - rscadd: New airless variants of Moon turfs
+  - config: Ouroboros added as a 0-80 connected mid-pop map (similar threshold as
+      VoidRaptor)

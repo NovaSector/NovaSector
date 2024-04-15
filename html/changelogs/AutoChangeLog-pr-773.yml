@@ -1,6 +1,0 @@
-author: "zydras"
-delete-after: True
-changes:
-  - rscadd: "The asteroid belt in close proximity of Lavaland has been recently fully acquired by Nanotrasen, with a brand new station type dubbed 'Ouroboros' inserted into the field!"
-  - rscadd: "New airless variants of Moon turfs"
-  - config: "Ouroboros added as a 0-80 connected mid-pop map (similar threshold as VoidRaptor)"
