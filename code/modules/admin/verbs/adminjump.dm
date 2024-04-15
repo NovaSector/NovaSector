@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-/client/proc/jumptoarea(area/A in get_sorted_areas())
-	set name = "Jump to Area"
-	set desc = "Area to jump to"
-	set category = "Admin.Game"
-	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
-=======
 ADMIN_VERB(jump_to_area, R_ADMIN, "Jump To Area", "Jumps to the specified area.", ADMIN_CATEGORY_GAME, area/target in get_sorted_areas())
 	var/turf/drop_location
 	top_level:
@@ -18,57 +10,18 @@ ADMIN_VERB(jump_to_area, R_ADMIN, "Jump To Area", "Jumps to the specified area."
 
 	if(isnull(drop_location))
 		to_chat(user, span_warning("No valid drop location found in the area!"))
->>>>>>> 9124a73b606 (Put some admin jump verbs back into the context menu | sorts area jump list again (#82647))
 		return
 
 	if(!A)
 		return
 
-<<<<<<< HEAD
-	var/list/turfs = list()
-	for (var/list/zlevel_turfs as anything in A.get_zlevel_turf_lists())
-		for (var/turf/area_turf as anything in zlevel_turfs)
-			if(!area_turf.density)
-				turfs.Add(area_turf)
-
-	if(length(turfs))
-		var/turf/T = pick(turfs)
-		usr.forceMove(T)
-		log_admin("[key_name(usr)] jumped to [AREACOORD(T)]")
-		message_admins("[key_name_admin(usr)] jumped to [AREACOORD(T)]")
-		BLACKBOX_LOG_ADMIN_VERB("Jump To Area")
-	else
-		to_chat(src, "Nowhere to jump to!", confidential = TRUE)
-		return
-
-
-/client/proc/jumptoturf(turf/T in world)
-	set name = "Jump to Turf"
-	set category = "Admin.Game"
-	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
-		return
-
-	log_admin("[key_name(usr)] jumped to [AREACOORD(T)]")
-	message_admins("[key_name_admin(usr)] jumped to [AREACOORD(T)]")
-	usr.forceMove(T)
-=======
 ADMIN_VERB_AND_CONTEXT_MENU(jump_to_turf, R_ADMIN, "Jump To Turf", "Jump to any turf in the game. This will lag your client.", ADMIN_CATEGORY_GAME, turf/locale in world)
 	log_admin("[key_name(user)] jumped to [AREACOORD(locale)]")
 	message_admins("[key_name_admin(user)] jumped to [AREACOORD(locale)]")
 	user.mob.abstract_move(locale)
->>>>>>> 9124a73b606 (Put some admin jump verbs back into the context menu | sorts area jump list again (#82647))
 	BLACKBOX_LOG_ADMIN_VERB("Jump To Turf")
 	return
 
-<<<<<<< HEAD
-/client/proc/jumptomob(mob/M in GLOB.mob_list)
-	set category = "Admin.Game"
-	set name = "Jump to Mob"
-
-	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
-=======
 ADMIN_VERB_AND_CONTEXT_MENU(jump_to_mob, R_ADMIN, "Jump To Mob", "Jump to any mob in the game.", ADMIN_CATEGORY_GAME, mob/target in world)
 	user.mob.abstract_move(target.loc)
 	log_admin("[key_name(user)] jumped to [key_name(target)]")
@@ -79,7 +32,6 @@ ADMIN_VERB(jump_to_coord, R_ADMIN, "Jump To Coordinate", "Jump to a specific coo
 	var/turf/where_we_droppin = locate(cx, cy, cz)
 	if(isnull(where_we_droppin))
 		to_chat(user, span_warning("Invalid coordinates."))
->>>>>>> 9124a73b606 (Put some admin jump verbs back into the context menu | sorts area jump list again (#82647))
 		return
 
 	log_admin("[key_name(usr)] jumped to [key_name(M)]")
@@ -190,16 +142,7 @@ ADMIN_VERB(jump_to_coord, R_ADMIN, "Jump To Coordinate", "Jump to a specific coo
 		usr.forceMove(M.loc)
 		BLACKBOX_LOG_ADMIN_VERB("Get Key")
 
-<<<<<<< HEAD
-/client/proc/sendmob(mob/jumper in sort_mobs())
-	set category = "Admin.Game"
-	set name = "Send Mob"
-	if(!src.holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
-		return
-=======
-ADMIN_VERB_AND_CONTEXT_MENU(send_mob, R_ADMIN, "Send Mob", "Teleport the specified mob to an area of your choosing.", ADMIN_CATEGORY_GAME, mob/jumper)
->>>>>>> 9124a73b606 (Put some admin jump verbs back into the context menu | sorts area jump list again (#82647))
+sIN_VERB_AND_CONTEXT_MENU(send_mob, R_ADMIN, "Send Mob", "Teleport the specified mob to an area of your choosing.", ADMIN_CATEGORY_GAME, mob/jumper)
 	var/list/sorted_areas = get_sorted_areas()
 	if(!length(sorted_areas))
 		to_chat(src, "No areas found.", confidential = TRUE)
