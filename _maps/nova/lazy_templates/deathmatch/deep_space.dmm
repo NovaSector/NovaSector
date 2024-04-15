@@ -876,11 +876,6 @@
 /obj/structure/sign/warning/vacuum/directional/south,
 /turf/open/floor/plating,
 /area/deathmatch)
-"BG" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/deathmatch)
 "BX" = (
 /obj/effect/portal/permanent{
 	id = "dm_deepspace"
@@ -1276,12 +1271,6 @@
 /obj/structure/flora/rock/style_random,
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
-"MW" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/effect/landmark/deathmatch_player_spawn,
-/turf/open/space/basic,
-/area/deathmatch)
 "Nc" = (
 /obj/structure/shipping_container/cybersun,
 /turf/open/floor/plating/airless,
@@ -1516,9 +1505,8 @@
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "WG" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/yellow,
+/obj/effect/landmark/deathmatch_player_spawn,
+/obj/structure/lattice,
 /turf/open/space/basic,
 /area/deathmatch)
 "Xf" = (
@@ -2379,7 +2367,7 @@ RV
 wf
 RV
 wf
-fG
+WG
 wf
 RV
 wf
@@ -2417,7 +2405,7 @@ aq
 ll
 "}
 (20,1,1) = {"
-BG
+RV
 wu
 RV
 wu
@@ -2445,7 +2433,7 @@ wf
 wf
 wf
 wf
-MW
+fG
 KJ
 Nc
 KJ
@@ -2528,7 +2516,7 @@ wf
 wf
 wf
 wf
-WG
+bP
 RV
 XJ
 XJ
@@ -2545,7 +2533,7 @@ ll
 (23,1,1) = {"
 RV
 wu
-RV
+wf
 wu
 RV
 wu
@@ -2587,7 +2575,7 @@ ll
 (24,1,1) = {"
 RV
 wu
-RV
+wf
 wu
 RV
 wu
@@ -2629,7 +2617,7 @@ ll
 (25,1,1) = {"
 RV
 wf
-RV
+wf
 wf
 RV
 wf
