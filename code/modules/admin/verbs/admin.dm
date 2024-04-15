@@ -37,17 +37,6 @@ ADMIN_VERB(unprison, R_ADMIN, "UnPrison", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEG
 	log_admin("[key_name(user)] has unprisoned [key_name(prisoner)]")
 	BLACKBOX_LOG_ADMIN_VERB("Unprison")
 
-/client/proc/cmd_admin_check_player_exp() //Allows admins to determine who the newer players are.
-	set category = "Admin"
-	set name = "Player Playtime"
-	if(!check_rights(R_ADMIN))
-		return
-
-	SSjob.SendToLateJoin(prisoner)
-	message_admins("[key_name_admin(user)] has unprisoned [key_name_admin(prisoner)]")
-	log_admin("[key_name(user)] has unprisoned [key_name(prisoner)]")
-	BLACKBOX_LOG_ADMIN_VERB("Unprison")
-
 ADMIN_VERB(cmd_admin_check_player_exp, R_ADMIN, "Player Playtime", "View player playtime.", ADMIN_CATEGORY_MAIN)
 	if(!CONFIG_GET(flag/use_exp_tracking))
 		to_chat(user, span_warning("Tracking is disabled in the server configuration file."), confidential = TRUE)
