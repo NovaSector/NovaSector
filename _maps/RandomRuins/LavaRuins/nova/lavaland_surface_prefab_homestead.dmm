@@ -60,7 +60,7 @@
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
 "t" = (
-/obj/machinery/smartfridge/ration_shelf,
+/obj/machinery/smartfridge/wooden/ration_shelf,
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
 "u" = (
