@@ -110,6 +110,7 @@
 	desc = "An assistant who just happened to drift by."
 
 	r_hand = /obj/item/knife
+	l_hand = /obj/item/extinguisher
 	uniform = /obj/item/clothing/under/color/grey
 	belt = /obj/item/crowbar/large/emergency
 	suit = /obj/item/clothing/suit/utility/fire/firefighter
