@@ -93,7 +93,7 @@
 			balloon_alert(user, "not secured!")
 			return ITEM_INTERACT_BLOCKING
 
-		if(!length(contents))
+		if(!length(contents) || reagents.total_volume == 0)
 			balloon_alert(user, "nothing to grind!")
 			return ITEM_INTERACT_BLOCKING
 
@@ -104,10 +104,11 @@
 		var/list/choose_options = list(
 			"Grind" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_grind"),
 			"Juice" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_juice"),
+			"Mix" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_mix"),
 		)
 		var/picked_option = show_radial_menu(user, src, choose_options, radius = 38, require_near = TRUE)
 
-		if(!length(contents) || !in_range(src, user) || !user.is_holding(tool) && !picked_option)
+		if(in_range(src, user) || !user.is_holding(tool) && !picked_option)
 			return ITEM_INTERACT_BLOCKING
 		var/act_verb = LOWER_TEXT(picked_option)
 		balloon_alert_to_viewers("[act_verb]ing...")
@@ -130,6 +131,10 @@
 						grind_target_item(target_item, user)
 					else
 						juice_target_item(target_item, user)
+			if("Mix")
+				if (!mix())
+					balloon_alert(user, "nothing to mix!")
+
 		return ITEM_INTERACT_SUCCESS
 
 	if(!tool.grind_results && !tool.juice_typepath)
@@ -165,12 +170,33 @@
 
 	if(!to_be_ground.grind(src.reagents, user))
 		if(isstack(to_be_ground))
-			to_chat(usr, span_notice("[src] attempts to grind as many pieces of [to_be_ground] as possible."))
+			to_chat(user, span_notice("[src] attempts to grind as many pieces of [to_be_ground] as possible."))
 		else
 			to_chat(user, span_danger("You fail to grind [to_be_ground]."))
 
 	to_chat(user, span_notice("You break [to_be_ground] into a fine powder."))
 	QDEL_NULL(to_be_ground)
+
+///Mixes contained reagents, creating butter/mayo/whipped cream
+/obj/structure/large_mortar/proc/mix()
+	if(reagents.total_volume <= 0)
+		return FALSE
+
+	//Recipe to make Butter
+	var/butter_amt = FLOOR(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF, 1)
+	var/purity = reagents.get_reagent_purity(/datum/reagent/consumable/milk)
+	reagents.remove_reagent(/datum/reagent/consumable/milk, MILK_TO_BUTTER_COEFF * butter_amt)
+	for(var/i in 1 to butter_amt)
+		var/obj/item/food/butter/tasty_butter = new(drop_location())
+		tasty_butter.reagents.set_all_reagents_purity(purity)
+
+	//Recipe to make Mayonnaise
+	if (reagents.has_reagent(/datum/reagent/consumable/eggyolk))
+		reagents.convert_reagent(/datum/reagent/consumable/eggyolk, /datum/reagent/consumable/mayonnaise)
+
+	//Recipe to make whipped cream
+	if (reagents.has_reagent(/datum/reagent/consumable/cream))
+		reagents.convert_reagent(/datum/reagent/consumable/cream, /datum/reagent/consumable/whipped_cream)
 
 #undef LARGE_MORTAR_STAMINA_MINIMUM
 #undef LARGE_MORTAR_STAMINA_USE
