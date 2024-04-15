@@ -10,5 +10,7 @@ ADMIN_VERB(fix_air, R_ADMIN, "Fix Air", "Fixes air in a specified radius.", ADMI
 		var/datum/gas_mixture/GM = SSair.parse_gas_string(valid_range_turf.initial_gas_mix, /datum/gas_mixture/turf)
 		valid_range_turf.copy_air(GM)
 		valid_range_turf.update_visuals()
-		if(F.pollution) //NOVA EDIT ADDITION
-				qdel(F.pollution)
+ 		//NOVA EDIT ADDITION START
+		if(valid_range_turf.pollution)
+			qdel(valid_range_turf.pollution)
+		//NOVA EDIT ADDITION END
