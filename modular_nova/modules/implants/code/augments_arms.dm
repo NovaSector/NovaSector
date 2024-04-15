@@ -149,30 +149,35 @@
 	button_icon_state = "wolverine"
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill
-	name = "integrated drill arm"
-	desc = "Extending from a stabilization bracer built into the lower forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
+	name = "Dalba Masterworks 'Burrower' Integrated Drill"
+	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	icon_state = "steel"
+	inhand_icon_state = "steel"
 	items_to_create = list(/obj/item/pickaxe/drill/implant)
 	implant_overlay = null
 	implant_color = null
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
-	var/datum/bodypart_overlay/simple/steel_drill/left_drill_overlay
+	var/datum/bodypart_overlay/simple/steel_drill/left/left_drill_overlay
 	var/datum/bodypart_overlay/simple/steel_drill/right/right_drill_overlay
 
-/datum/bodypart_overlay/simple/steel_drill
+/obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm //You know the drill.
+    zone = BODY_ZONE_R_ARM
+    slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/organ/internal/cyberimp/arm/mining_drill/left_arm
+    zone = BODY_ZONE_L_ARM
+    slot = ORGAN_SLOT_LEFT_ARM_AUG
+
+/datum/bodypart_overlay/simple/steel_drill/left
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	icon_state = "steel_left"
-	layers = EXTERNAL_ADJACENT
+	layers = EXTERNAL_FRONT_OVER
 
 /datum/bodypart_overlay/simple/steel_drill/right
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	icon_state = "steel_right"
-	layers = EXTERNAL_ADJACENT
-/datum/bodypart_overlay/simple/sensory_enhancer
-	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
-	icon_state = "sandy"
-	layers = EXTERNAL_ADJACENT
+	layers = EXTERNAL_FRONT_OVER
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
@@ -181,21 +186,65 @@
 	right_drill_overlay = new()
 	if(istype(limb, /obj/item/bodypart/arm/left))
 		limb.add_bodypart_overlay(left_drill_overlay)
-	else if(istype(limb, /obj/item/bodypart/arm/right))
-		limb.add_bodypart_overlay(right_drill_overlay)
+	else
+		if(istype(limb, /obj/item/bodypart/arm/right))
+			limb.add_bodypart_overlay(right_drill_overlay)
 	owner.update_body_parts()
 	return ..()
 
 /obj/item/pickaxe/drill/implant
 	name = "integrated mining drill"
+	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	righthand_file = 'modular_nova/modules/implants/icons/drillimplant_righthand.dmi'
 	lefthand_file = 'modular_nova/modules/implants/icons/drillimplant_lefthand.dmi'
+	icon_state = "steel"
 	inhand_icon_state = "steel"
 	toolspeed = 0.6 //faster than a pickaxe
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
-	desc = "An electric mining drill for the especially scrawny."
+	var/recent_spin = 0
+	var/spin_delay = 30
+
+/obj/item/pickaxe/drill/implant/AltClick(mob/user)
+	..()
+	spin()
+
+/obj/item/pickaxe/drill/implant/verb/spin()
+	set name = "Spin Drillbit"
+	set category = "Object"
+	set desc = "Click to spin your drill's head. It won't do practically anything, but it's pretty cool anyway."
+
+	var/mob/user = usr
+
+	if(user.stat || !in_range(user, src))
+		return
+
+	if (recent_spin > world.time)
+		return
+	recent_spin = world.time + spin_delay
+
+	playsound(usr, 'modular_nova/master_files/sound/weapons/drillimplant.ogg', 50, FALSE)
+	user.visible_message(span_warning("[user] spins [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"), span_notice("You spin [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"))
+	balloon_alert(user, "chamber spun")
+
+/obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
+	name = "Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
+	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
+	icon_state = "diamond"
+	inhand_icon_state = "diamond"
+	items_to_create = list(/obj/item/pickaxe/drill/implant/diamond)
+
+/obj/item/pickaxe/drill/implant/diamond
+	name = "integrated diamond mining drill"
+	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
+	icon_state = "diamond"
+	inhand_icon_state = "diamond"
+	toolspeed = 0.2
+	force = 20
+	demolition_mod = 1.25
+	usesound = 'sound/weapons/drill.ogg'
+	hitsound = 'sound/weapons/drill.ogg'
 
 /obj/item/organ/internal/cyberimp/arm/hacker
 	name = "hacking arm implant"
