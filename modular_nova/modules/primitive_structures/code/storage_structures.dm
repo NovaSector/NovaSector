@@ -5,7 +5,6 @@
 	icon_state = "shelf_wood"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	obj_flags = CAN_BE_HIT
 
 /obj/structure/rack/wooden/MouseDrop_T(obj/object, mob/user, params)
 	. = ..()
@@ -71,7 +70,7 @@
 /obj/machinery/smartfridge/wooden/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
 	return NONE
 
-/obj/machinery/smartfridge/wooden/produce_bin/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+/obj/machinery/smartfridge/wooden/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
 	return NONE
 
 /obj/machinery/smartfridge/wooden/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
@@ -96,7 +95,7 @@
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_bin
 	base_icon_state = "produce"
 
-/obj/machinery/smartfridge/produce_bin/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
 		/obj/item/food/grown,
 		/obj/item/grown,
@@ -112,27 +111,27 @@
 	base_build_path = /obj/machinery/smartfridge/wooden/seed_shelf
 	base_icon_state = "seed"
 
-/obj/machinery/smartfridge/seed_shelf/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/seed_shelf/wooden/accept_check(obj/item/item_to_check)
 	return istype(item_to_check, /obj/item/seeds)
 
-/obj/machinery/smartfridge/ration_shelf/wooden
+/obj/machinery/smartfridge/wooden/ration_shelf
 	name = "ration shelf"
 	desc = "A wooden shelf, used to store food... Preferably preserved."
 	icon_state = "rationshelf"
 	base_build_path = /obj/machinery/smartfridge/wooden/ration_shelf
 	base_icon_state = "ration"
 
-/obj/machinery/smartfridge/ration_shelf/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/ration_shelf/wooden/accept_check(obj/item/item_to_check)
 	return (IS_EDIBLE(item_to_check) || (istype(item_to_check,/obj/item/reagent_containers/cup/bowl) && length(item_to_check.reagents?.reagent_list)))
 
-/obj/machinery/smartfridge/produce_display/wooden
+/obj/machinery/smartfridge/wooden/produce_display
 	name = "produce display"
 	desc = "A wooden table with awning, used to display produce items."
 	icon_state = "producedisplay"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_display
 	base_icon_state = "nonfood"
 
-/obj/machinery/smartfridge/produce_display/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/produce_display/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
 		/obj/item/grown,
 		/obj/item/bouquet,

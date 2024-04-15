@@ -42,7 +42,6 @@
 		having one installed means a steady clean powersource for between 75-125 years."
 	icon_state = "reactor0_0"
 	base_icon_state = "reactor0"
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
 	density = TRUE
 	anchored = TRUE
 
@@ -65,6 +64,16 @@
 /obj/machinery/power/micro_reactor/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
+
+// formerly NO_DECONSTRUCTION
+/obj/machinery/power/micro_reactor/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/power/micro_reactor/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/power/micro_reactor/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /obj/machinery/power/micro_reactor/update_icon_state()
 	icon_state = "[base_icon_state]_[active]"
