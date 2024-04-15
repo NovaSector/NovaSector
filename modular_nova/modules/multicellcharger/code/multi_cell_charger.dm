@@ -15,7 +15,7 @@
 	/// Number of concurrent batteries that can be charged
 	var/max_batteries = 4
 	/// The base charge rate when spawned
-	var/charge_rate = 250 KILO WATTS
+	var/charge_rate = 375 KILO WATTS
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
