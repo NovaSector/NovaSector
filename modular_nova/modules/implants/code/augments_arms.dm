@@ -148,6 +148,55 @@
 	button_icon = 'modular_nova/master_files/icons/hud/actions.dmi'
 	button_icon_state = "wolverine"
 
+/obj/item/organ/internal/cyberimp/arm/mining_drill
+	name = "integrated drill arm"
+	desc = "Extending from a stabilization bracer built into the lower forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
+	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
+	icon_state = "steel"
+	items_to_create = list(/obj/item/pickaxe/drill/implant)
+	implant_overlay = null
+	implant_color = null
+	/// The bodypart overlay datum we should apply to whatever mob we are put into
+	var/datum/bodypart_overlay/simple/steel_drill/left_drill_overlay
+	var/datum/bodypart_overlay/simple/steel_drill/right/right_drill_overlay
+
+/datum/bodypart_overlay/simple/steel_drill
+	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
+	icon_state = "steel_left"
+	layers = EXTERNAL_ADJACENT
+
+/datum/bodypart_overlay/simple/steel_drill/right
+	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
+	icon_state = "steel_right"
+	layers = EXTERNAL_ADJACENT
+/datum/bodypart_overlay/simple/sensory_enhancer
+	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
+	icon_state = "sandy"
+	layers = EXTERNAL_ADJACENT
+
+/obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	if(isteshari(owner))
+		return ..()
+	left_drill_overlay = new()
+	right_drill_overlay = new()
+	if(istype(limb, /obj/item/bodypart/arm/left))
+		limb.add_bodypart_overlay(left_drill_overlay)
+	else if(istype(limb, /obj/item/bodypart/arm/right))
+		limb.add_bodypart_overlay(right_drill_overlay)
+	owner.update_body_parts()
+	return ..()
+
+/obj/item/pickaxe/drill/implant
+	name = "integrated mining drill"
+	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
+	righthand_file = 'modular_nova/modules/implants/icons/drillimplant_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/implants/icons/drillimplant_lefthand.dmi'
+	inhand_icon_state = "steel"
+	toolspeed = 0.6 //faster than a pickaxe
+	usesound = 'sound/weapons/drill.ogg'
+	hitsound = 'sound/weapons/drill.ogg'
+	desc = "An electric mining drill for the especially scrawny."
+
 /obj/item/organ/internal/cyberimp/arm/hacker
 	name = "hacking arm implant"
 	desc = "An small arm implant containing an advanced screwdriver, wirecutters, and multitool designed for engineers and on-the-field machine modification. Actually legal, despite what the name may make you think."
