@@ -1158,9 +1158,9 @@
 /turf/open/floor/iron,
 /area/deathmatch)
 "IT" = (
-/obj/machinery/vending/snack/teal,
 /obj/structure/sign/poster/contraband/free_drone/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood,
 /area/deathmatch)
 "IU" = (

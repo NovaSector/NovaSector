@@ -1,9 +1,8 @@
-
 //Azulean Pirate
 /datum/outfit/deathmatch_loadout/azulean
 	name = "DM: Azulean Boarder"
 	display_name = "Azulean Boarder"
-	desc = ""
+	desc = "The most feared pirates within the sector, engaging combat with them in space is nothing more than a deathwish."
 
 	r_hand = /obj/item/knife/combat
 	uniform = /obj/item/clothing/under/skinsuit
@@ -60,3 +59,68 @@
 	user.dna.features["legs"] = "Normal Legs"
 	user.dna.species.regenerate_organs(user, /datum/species/akula, visual_only = FALSE)
 	user.update_body(TRUE)
+
+
+//Space Syndie
+/datum/outfit/deathmatch_loadout/syndicate_space
+	name = "DM: Syndicate Spaceman"
+	display_name = "Syndicate Spaceman"
+	desc = "A syndicate operative suited up for some space reconnaissance."
+
+	r_hand = /obj/item/knife/combat/survival
+	uniform = /obj/item/clothing/under/syndicate/coldres
+	belt = /obj/item/storage/belt/military
+	l_pocket = /obj/item/tank/internals/emergency_oxygen/double
+	internals_slot = ITEM_SLOT_LPOCKET
+	shoes = /obj/item/clothing/shoes/combat/coldres
+	gloves = /obj/item/clothing/gloves/combat
+	back = /obj/item/tank/jetpack/oxygen/harness
+	id = /obj/item/card/id/advanced/chameleon
+
+/datum/outfit/deathmatch_loadout/syndicate_space/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
+	if(user.jumpsuit_style == PREF_SKIRT)
+		uniform = /obj/item/clothing/under/syndicate/skirt/coldres
+
+	switch(pick(list("red", "green", "dgreen", "blue", "orange", "black")))
+		if("green")
+			head = /obj/item/clothing/head/helmet/space/syndicate/green
+			suit = /obj/item/clothing/suit/space/syndicate/green
+		if("dgreen")
+			head = /obj/item/clothing/head/helmet/space/syndicate/green/dark
+			suit = /obj/item/clothing/suit/space/syndicate/green/dark
+		if("blue")
+			head = /obj/item/clothing/head/helmet/space/syndicate/blue
+			suit = /obj/item/clothing/suit/space/syndicate/blue
+		if("red")
+			head = /obj/item/clothing/head/helmet/space/syndicate
+			suit = /obj/item/clothing/suit/space/syndicate
+		if("orange")
+			head = /obj/item/clothing/head/helmet/space/syndicate/orange
+			suit = /obj/item/clothing/suit/space/syndicate/orange
+		if("black")
+			head = /obj/item/clothing/head/helmet/space/syndicate/black
+			suit = /obj/item/clothing/suit/space/syndicate/black
+
+
+//Drifting assistant
+/datum/outfit/deathmatch_loadout/assistant_space
+	name = "DM: Assistant (Spaceworthy)"
+	display_name = "Assistant (Spaceworthy)"
+	desc = "An assistant who just happened to drift by."
+
+	r_hand = /obj/item/knife
+	uniform = /obj/item/clothing/under/color/grey
+	suit = /obj/item/clothing/suit/utility/fire
+	head = /obj/item/clothing/head/utility/hardhat/red
+	mask = /obj/item/clothing/mask/gas/alt
+	l_pocket = /obj/item/reagent_containers/cup/glass/coffee
+	r_pocket = /obj/item/reagent_containers/hypospray/medipen
+	internals_slot = ITEM_SLOT_BACKPACK
+	shoes = /obj/item/clothing/shoes/sneakers
+	gloves = /obj/item/clothing/gloves/tackler/offbrand
+	back = /obj/item/tank/internals/oxygen/red
+	id = /obj/item/card/id/advanced/chameleon
+
+/datum/outfit/deathmatch_loadout/assistant_space/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
+	if(user.jumpsuit_style == PREF_SKIRT)
+		uniform = /obj/item/clothing/under/color/jumpskirt/grey
