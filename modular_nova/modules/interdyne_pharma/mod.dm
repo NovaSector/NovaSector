@@ -10,6 +10,7 @@
 		/obj/item/mod/module/surgical_processor/preloaded,
 		/obj/item/mod/module/storage/syndicate,
 		/obj/item/mod/module/tether,
+		/obj/item/mod/module/thread_ripper,
 	)
 
 /datum/mod_theme/interdyne/nerfed
