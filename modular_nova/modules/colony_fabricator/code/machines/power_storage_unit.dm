@@ -9,7 +9,7 @@
 	input_level_max = 400 KILO WATTS
 	output_level_max = 400 KILO WATTS
 	circuit = null
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/station_battery
 

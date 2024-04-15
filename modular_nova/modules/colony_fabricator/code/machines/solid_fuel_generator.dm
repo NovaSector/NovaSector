@@ -11,7 +11,7 @@
 	icon_state = "fuel_generator_0"
 	base_icon_state = "fuel_generator"
 	circuit = null
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	anchored = TRUE
 	max_sheets = 25
 	time_per_sheet = 100

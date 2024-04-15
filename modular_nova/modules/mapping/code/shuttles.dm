@@ -89,7 +89,7 @@
 	shuttleId = "slaver_syndie"
 	possible_destinations = "syndicate_ne;syndicate_nw;syndicate_n;syndicate_se;syndicate_sw;syndicate_s"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
 /datum/map_template/shuttle/slaver_ship
 	port_id = "slaver ship"

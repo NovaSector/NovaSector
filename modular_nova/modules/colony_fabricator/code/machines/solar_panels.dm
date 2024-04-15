@@ -2,7 +2,7 @@
 
 /obj/machinery/power/solar/deployable
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/solar
 
@@ -37,7 +37,7 @@
 
 /obj/machinery/power/tracker/deployable
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/solar_tracker
 

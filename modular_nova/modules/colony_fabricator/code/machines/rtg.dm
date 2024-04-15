@@ -6,7 +6,7 @@
 		application."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	power_gen = 7.5 KILO WATTS
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg

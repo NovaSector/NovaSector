@@ -13,7 +13,7 @@
 
 /obj/item/gps/computer/space/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(obj_flags & NO_DEBRIS_AFTER_DECONSTRUCTION)
+	if(obj_flags & NO_DECONSTRUCTION)
 		return TRUE
 
 	if(I.use_tool(src, user, 20, volume=50))

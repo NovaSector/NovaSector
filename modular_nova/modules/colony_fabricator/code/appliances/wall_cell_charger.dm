@@ -5,7 +5,7 @@
 	icon_state = "wall_charger"
 	base_icon_state = "wall_charger"
 	circuit = null
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	max_batteries = 3
 	charge_rate = 750 KILO WATTS
 	/// The item we turn into when repacked

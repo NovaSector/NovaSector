@@ -10,7 +10,7 @@
 	use_power = FALSE
 	circuit = null
 	resistance_flags = FIRE_PROOF
-	obj_flags = CAN_BE_HIT | NO_DEBRIS_AFTER_DECONSTRUCTION
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
 /obj/machinery/primitive_stove/Initialize(mapload)
 	. = ..()
