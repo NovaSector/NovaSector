@@ -1077,7 +1077,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
-/area/ruin/interdyne_planetary_base/med)
+/area/ruin/interdyne_planetary_base/med/pharm)
 "js" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/bookcase/random,
@@ -6803,7 +6803,7 @@ NW
 jY
 Un
 TH
-Pn
+Mv
 Ey
 uP
 GB
@@ -6844,7 +6844,7 @@ ea
 Uj
 Vf
 DF
-Pn
+Mv
 aA
 Ma
 Ma
@@ -6926,7 +6926,7 @@ vN
 IJ
 Vf
 ED
-Pn
+Mv
 ZE
 LJ
 AU
@@ -6967,7 +6967,7 @@ HB
 Zy
 gO
 LN
-Pn
+Mv
 BN
 aM
 aM
@@ -7008,7 +7008,7 @@ Pn
 Pn
 Pn
 MJ
-Pn
+Mv
 qm
 LC
 NM
