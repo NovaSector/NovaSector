@@ -48,9 +48,9 @@
 	desc = "A large crate for transporting equally large amounts of militar."
 	icon_state = "supplydrop_green"
 	loot_weighted_list = list(
-		/obj/effect/spawner/random/epic_loot/random_other_military_loot = 4,
-		/obj/effect/spawner/random/epic_loot/random_ammunition = 3,
-		/obj/effect/spawner/random/epic_loot/random_silly_arms = 3,
+		/obj/effect/spawner/random/epic_loot/random_other_military_loot = 8,
+		/obj/effect/spawner/random/epic_loot/random_ammunition = 6,
+		/obj/effect/spawner/random/epic_loot/random_silly_arms = 2,
 		/obj/effect/spawner/random/epic_loot/random_serious_arms = 1,
 	)
 

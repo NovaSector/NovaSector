@@ -279,3 +279,6 @@
 		6,
 	)
 	casing_y_padding = 9
+
+/obj/item/ammo_box/magazine/ammo_stack/c60_strela/prefilled
+	start_empty = FALSE

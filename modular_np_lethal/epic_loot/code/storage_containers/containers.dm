@@ -1,3 +1,28 @@
+/obj/item/storage/epic_loot_tag_case
+	name = "tag case"
+	desc = "A semi-rigid case for holding captured id tags, which may be useful!"
+	icon = 'modular_np_lethal/epic_loot/icons/storage_items.dmi'
+	icon_state = "tag_case"
+	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
+	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
+	drop_sound = 'sound/items/handling/cloth_drop.ogg'
+	storage_type = /datum/storage/maintenance_loot_structure/epic_loot_tag_case
+	slot_flags = ITEM_SLOT_POCKETS
+	w_class = WEIGHT_CLASS_NORMAL
+
+/datum/storage/maintenance_loot_structure/epic_loot_tag_case
+	max_slots = 9
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_total_storage = WEIGHT_CLASS_NORMAL * 9
+	opening_sound = 'sound/items/un_zip.ogg'
+
+/datum/storage/maintenance_loot_structure/epic_loot_tag_case/New()
+	. = ..()
+
+	can_hold = typecacheof(list(
+		/obj/item/card,
+	))
+
 /obj/item/storage/epic_loot_medpen_case
 	name = "autoinjector case"
 	desc = "A semi-rigid case for holding a large number of autoinjectors inside of."
@@ -59,7 +84,6 @@
 
 	can_hold = typecacheof(list(
 		/obj/item/folder,
-		/obj/item/paper_bin,
 		/obj/item/epic_loot/intel_folder,
 		/obj/item/epic_loot/corpo_folder,
 		/obj/item/epic_loot/slim_diary,

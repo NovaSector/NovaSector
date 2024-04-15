@@ -10,9 +10,9 @@
 	desc = "A military-grade gun case for secure storage of firearms."
 	icon_state = "guncrate"
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/gun_box
-	loot_spawn_dice_string = "1d8-4"
+	loot_spawn_dice_string = "1d7-3"
 	loot_weighted_list = list(
-		/obj/effect/spawner/random/epic_loot/random_ammunition = 4,
+		/obj/effect/spawner/random/epic_loot/random_ammunition = 8,
 		/obj/effect/spawner/random/epic_loot/random_silly_arms = 2,
 		/obj/effect/spawner/random/epic_loot/random_serious_arms = 1,
 	)
