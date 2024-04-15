@@ -190,19 +190,6 @@
 /obj/machinery/computer/camera_advanced/attack_ai(mob/user)
 	return //AIs would need to disable their own camera procs to use the console safely. Bugs happen otherwise.
 
-/obj/machinery/computer/camera_advanced/proc/give_eye_control(mob/user)
-	if(isnull(user?.client))
-		return
-	GrantActions(user)
-	current_user = user
-	eyeobj.eye_user = user
-	eyeobj.name = "Camera Eye ([user.name])"
-	user.remote_control = eyeobj
-	user.reset_perspective(eyeobj)
-	eyeobj.setLoc(eyeobj.loc)
-	if(should_supress_view_changes)
-		user.client.view_size.supress()
-
 /mob/camera/ai_eye/remote
 	name = "Inactive Camera Eye"
 	ai_detector_visible = FALSE
