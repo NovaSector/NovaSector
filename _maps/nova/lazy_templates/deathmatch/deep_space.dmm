@@ -883,7 +883,7 @@
 /area/deathmatch)
 "BX" = (
 /obj/effect/portal/permanent{
-	id = dm_deepspace
+	id = "dm_deepspace"
 	},
 /turf/open/space/basic,
 /area/deathmatch)
