@@ -2,19 +2,24 @@
 "ad" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/away_general_access,
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "aG" = (
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
+/obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /turf/open/floor/pod/dark,
 /area/shuttle/blackmarket_burst)
 "bu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/shuttle/cargo,
+/area/shuttle/blackmarket_burst)
+"cq" = (
+/obj/structure/marker_beacon/olive,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/blackmarket_burst)
 "cL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -30,8 +35,7 @@
 	pixel_x = -32;
 	pixel_y = 10
 	},
-/obj/machinery/door/poddoor/ruin{
-	dir = 4;
+/obj/machinery/door/poddoor/preopen{
 	id = "burstcargo"
 	},
 /turf/open/floor/engine,
@@ -42,20 +46,24 @@
 	name = "Burst";
 	port_direction = 4;
 	preferred_direction = 8;
-	shuttle_id = "blackmarket_chevvy";
+	shuttle_id = "blackmarket_burst";
 	dir = 8
 	},
-/obj/machinery/door/airlock/external/shuttle_ruin{
-	dir = 4
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external{
+	id = "burstexts"
 	},
 /turf/open/floor/catwalk_floor,
 /area/shuttle/blackmarket_burst)
 "eu" = (
-/obj/machinery/door/airlock/external/shuttle_ruin,
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external{
+	id = "burstexts"
+	},
 /turf/open/floor/catwalk_floor,
 /area/shuttle/blackmarket_burst)
 "fp" = (
-/turf/closed/wall/mineral/titanium/shuttle_ruin,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/blackmarket_burst)
 "jm" = (
 /obj/structure/railing,
@@ -77,7 +85,13 @@
 /area/shuttle/blackmarket_burst)
 "ka" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/titanium/shuttle_ruin,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/blackmarket_burst)
+"lK" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "mP" = (
 /obj/effect/spawner/random/structure/crate_loot,
@@ -99,6 +113,11 @@
 	specialfunctions = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/shuttle/cargo,
+/area/shuttle/blackmarket_burst)
+"ph" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "pI" = (
@@ -180,9 +199,9 @@
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "yt" = (
-/obj/structure/window/reinforced/shuttle/ruin,
-/obj/machinery/door/poddoor/shutters/ruin/preopen{
-	dir = 4;
+/obj/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
 	id = "burstwindf"
 	},
 /turf/open/floor/plating,
@@ -211,6 +230,7 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/blackmarket_burst{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airalarm/away_general_access,
 /turf/open/floor/iron/shuttle/ferry,
 /area/shuttle/blackmarket_burst)
 "Dx" = (
@@ -229,14 +249,13 @@
 /area/shuttle/blackmarket_burst)
 "DD" = (
 /obj/structure/marker_beacon/olive,
-/turf/closed/wall/mineral/titanium/shuttle_ruin,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/blackmarket_burst)
 "Ee" = (
 /obj/structure/fans/tiny/forcefield{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/ruin{
-	dir = 4;
+/obj/machinery/door/poddoor/preopen{
 	id = "burstcargo"
 	},
 /turf/open/floor/engine,
@@ -272,14 +291,18 @@
 	},
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
+"GC" = (
+/obj/machinery/door/airlock/external,
+/turf/open/floor/catwalk_floor,
+/area/shuttle/blackmarket_burst)
 "GO" = (
-/obj/structure/window/reinforced/shuttle/ruin,
-/obj/machinery/door/poddoor/shutters/ruin/preopen,
+/obj/machinery/door/poddoor/shutters/preopen,
+/obj/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/blackmarket_burst)
 "Hj" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/mineral/titanium/shuttle_ruin/nodiagonal,
+/turf/closed/wall/mineral/titanium/interior,
 /area/shuttle/blackmarket_burst)
 "Ii" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
@@ -376,8 +399,8 @@
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "VX" = (
-/obj/structure/window/reinforced/shuttle/ruin,
-/obj/machinery/door/poddoor/shutters/ruin/preopen{
+/obj/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
 	id = "burstwindf"
 	},
 /turf/open/floor/plating,
@@ -405,7 +428,6 @@
 	id = "skiffwinds";
 	name = "Window Shutter Control"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "YP" = (
@@ -413,10 +435,10 @@
 	dir = 4;
 	pixel_x = -33
 	},
-/turf/closed/wall/mineral/titanium/shuttle_ruin/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/blackmarket_burst)
 "YX" = (
-/turf/closed/wall/mineral/titanium/shuttle_ruin/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/blackmarket_burst)
 "ZC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -425,7 +447,7 @@
 "ZE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/external/shuttle_ruin,
+/obj/machinery/door/airlock/shuttle,
 /turf/open/floor/iron/shuttle/ferry,
 /area/shuttle/blackmarket_burst)
 "ZW" = (
@@ -457,13 +479,13 @@ SY
 aG
 jm
 vK
-eu
+GC
 zi
 eu
 "}
 (3,1,1) = {"
 GO
-ZC
+ph
 PY
 Fu
 ss
@@ -480,7 +502,7 @@ Yg
 Fr
 Vy
 JW
-JW
+lK
 Vy
 OR
 Ii
@@ -501,7 +523,7 @@ zH
 ZW
 "}
 (6,1,1) = {"
-DD
+cq
 YX
 zQ
 RN
