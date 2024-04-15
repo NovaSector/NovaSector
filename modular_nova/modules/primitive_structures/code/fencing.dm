@@ -25,6 +25,13 @@
 /obj/structure/railing/wirecutter_act(mob/living/user, obj/item/I)
 	return NONE
 
+/obj/structure/railing/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	to_chat(user, span_warning("You pry apart the railing."))
+	I.play_tool_sound(src, 100)
+	deconstruct()
+	return TRUE
+
 // Fence gates for the above mentioned fences
 
 /obj/structure/railing/wooden_fencing/gate
