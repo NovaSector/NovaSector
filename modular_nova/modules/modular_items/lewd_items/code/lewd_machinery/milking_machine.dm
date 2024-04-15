@@ -16,9 +16,12 @@
 	icon_state = "milking_pink_off"
 	max_buckled_mobs = 1
 	item_chair = null
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 	max_integrity = 75
 	var/static/list/milkingmachine_designs
+
+// formerly NO_DECONSTRUCTION
+/obj/structure/chair/milking_machine/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return NONE
 
 /*
 *	OPERATING MODES
