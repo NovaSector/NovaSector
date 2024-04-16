@@ -219,8 +219,10 @@
 	toolspeed = 0.6 //faster than a pickaxe
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
-	var/recent_spin = 0 //how recent the spin emote was
-	var/spin_delay = 10 SECONDS //the delay for how often you should be able to do it to prevent spam
+	/// How recent the spin emote was
+	var/recent_spin = 0
+	/// The delay for how often you should be able to do it to prevent spam
+	var/spin_delay = 10 SECONDS
 
 /obj/item/pickaxe/drill/implant/AltClick(mob/user)
 	..()
