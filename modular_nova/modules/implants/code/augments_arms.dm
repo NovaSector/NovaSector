@@ -157,8 +157,9 @@
 	items_to_create = list(/obj/item/pickaxe/drill/implant)
 	implant_overlay = null
 	implant_color = null
-	/// The bodypart overlay datum we should apply to whatever mob we are put into
+	/// The bodypart overlay datum we should apply to whatever mob we are put into's left arm
 	var/datum/bodypart_overlay/simple/steel_drill/left/left_drill_overlay
+	/// The bodypart overlay datum we should apply to whatever mob we are put into's right arm
 	var/datum/bodypart_overlay/simple/steel_drill/right/right_drill_overlay
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm //You know the drill.
@@ -192,6 +193,21 @@
 	owner.update_body_parts()
 	return ..()
 
+/obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	if(isteshari(owner))
+		return ..()
+	if(istype(limb, /obj/item/bodypart/arm/left))
+		left_drill_overlay = new()
+		limb.remove_bodypart_overlay(left_drill_overlay)
+		QDEL_NULL(left_drill_overlay)
+	else
+		if(istype(limb, /obj/item/bodypart/arm/right))
+			right_drill_overlay = new()
+			limb.remove_bodypart_overlay(right_drill_overlay)
+			QDEL_NULL(left_drill_overlay)
+	owner.update_body_parts()
+	return ..()
+
 /obj/item/pickaxe/drill/implant
 	name = "integrated mining drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
@@ -203,8 +219,8 @@
 	toolspeed = 0.6 //faster than a pickaxe
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
-	var/recent_spin = 0
-	var/spin_delay = 3 SECONDS
+	var/recent_spin = 0 //how recent the spin emote was
+	var/spin_delay = 10 SECONDS //the delay for how often you should be able to do it to prevent spam
 
 /obj/item/pickaxe/drill/implant/AltClick(mob/user)
 	..()
@@ -224,7 +240,7 @@
 		return
 	recent_spin = world.time + spin_delay
 
-	playsound(user, 'modular_nova/master_files/sound/weapons/drillimplant.ogg', 50, FALSE)
+	playsound(user, 'modular_nova/master_files/sound/effects/robot_smoke.ogg', 50, FALSE)
 	user.visible_message(span_warning("[user] spins [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"), span_notice("You spin [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"))
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
