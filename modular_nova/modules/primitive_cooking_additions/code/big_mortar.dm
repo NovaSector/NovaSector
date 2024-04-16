@@ -93,11 +93,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		if(!length(contents) && reagents.total_volume == 0)
-			balloon_alert(user, "nothing to grind!")
-			return ITEM_INTERACT_BLOCKING
-
-		if(user.getStaminaLoss() > LARGE_MORTAR_STAMINA_MINIMUM)
-			balloon_alert(user, "too tired!")
+			balloon_alert(user, "mortar empty!")
 			return ITEM_INTERACT_BLOCKING
 
 		var/list/choose_options = list(
@@ -107,9 +103,18 @@
 		)
 		var/picked_option = show_radial_menu(user, src, choose_options, radius = 38, require_near = TRUE)
 
+		if(user.getStaminaLoss() > LARGE_MORTAR_STAMINA_MINIMUM)
+			balloon_alert(user, "too tired!")
+			return ITEM_INTERACT_BLOCKING
+
 		if(!in_range(src, user) || !user.is_holding(tool) || !picked_option)
 			return ITEM_INTERACT_BLOCKING
 		var/act_verb = LOWER_TEXT(picked_option)
+
+		if((picked_option == "Mix" && reagents.total_volume <= 0) || !length(contents))
+			balloon_alert(user, "nothing to [act_verb]!")
+			return ITEM_INTERACT_BLOCKING
+
 		balloon_alert_to_viewers("[act_verb]ing...")
 		if(!do_after(user, 5 SECONDS, target = src))
 			balloon_alert_to_viewers("stopped [act_verb]ing")
@@ -137,8 +142,7 @@
 					else
 						juice_target_item(target_item, user)
 			if("Mix")
-				if (!mix())
-					balloon_alert(user, "nothing to mix!")
+				mix()
 
 		return ITEM_INTERACT_SUCCESS
 
@@ -184,9 +188,6 @@
 
 ///Mixes contained reagents, creating butter/mayo/whipped cream
 /obj/structure/large_mortar/proc/mix()
-	if(reagents.total_volume <= 0)
-		return FALSE
-
 	//Recipe to make Butter
 	var/butter_amt = FLOOR(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF, 1)
 	var/purity = reagents.get_reagent_purity(/datum/reagent/consumable/milk)
