@@ -807,7 +807,7 @@
 	balloon_alert_to_viewers("billowing...")
 
 	while(forge_temperature < 91)
-		if(!do_after(user, skill_modifier * forge_item.toolspeed, target = src))
+		if(!do_after(user, (skill_modifier * forge_item.toolspeed) SECONDS, target = src))
 			balloon_alert_to_viewers("stopped billowing")
 			return ITEM_INTERACT_SUCCESS
 
