@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "the station is now slightly less haunted - ghosts can no longer unflip tables."
-  - bugfix: "the remote flipping mechanisms have been removed from all the tables. borgs can no longer remotely tableflip."

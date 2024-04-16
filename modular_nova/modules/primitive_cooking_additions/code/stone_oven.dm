@@ -31,6 +31,16 @@
 
 	. += span_notice("It can be taken apart with a <b>crowbar</b>.")
 
+// formerly NO_DECONSTRUCTION
+/obj/machinery/oven/stone/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/oven/stone/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/oven/stone/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
+
 /obj/machinery/oven/stone/add_tray_to_oven(obj/item/plate/oven_tray, mob/baker)
 	used_tray = oven_tray
 
