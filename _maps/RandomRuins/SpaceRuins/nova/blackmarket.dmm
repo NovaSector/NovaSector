@@ -9,6 +9,7 @@
 /obj/structure/closet/crate/large,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/space/has_grav/nova/blackmarket)
 "cc" = (
@@ -118,7 +119,6 @@
 /area/ruin/space/has_grav/nova/blackmarket)
 "ht" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/m9mm,
 /obj/effect/spawner/random/food_or_drink/booze{
 	pixel_x = -9;
 	pixel_y = -7
@@ -127,6 +127,7 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "hv" = (
@@ -250,6 +251,10 @@
 /obj/effect/spawner/random/food_or_drink/refreshing_beverage{
 	pixel_x = 8;
 	pixel_y = 11
+	},
+/obj/item/ammo_box/magazine/m9mm{
+	pixel_y = 3;
+	pixel_x = -8
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
@@ -714,6 +719,7 @@
 	pixel_y = 11
 	},
 /obj/structure/cable,
+/obj/effect/spawner/random/food_or_drink/dinner,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "JC" = (
