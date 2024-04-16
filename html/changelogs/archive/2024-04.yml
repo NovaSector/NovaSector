@@ -527,3 +527,23 @@
   - rscadd: New airless variants of Moon turfs
   - config: Ouroboros added as a 0-80 connected mid-pop map (similar threshold as
       VoidRaptor)
+2024-04-16:
+  1393F:
+  - qol: the supermatter scram machine no longer blocks placement of vents/anything
+      else
+  Chelxox:
+  - bugfix: Primitive wooden fencing drops wood upon deconstruction (instead of iron
+      rods)
+  NovaBot13:
+  - bugfix: strip menu sensors change respects locked sensors
+  - bugfix: Advanced camera consoles now boots you off when you're moved out of reach.
+  - admin: Something changed, but you shouldn't be able to notice. If verbs are funky
+      report this to <946283057915232337> on discord.
+  - code_imp: renamed `NO_DECONSTRUCTION` to `NO_DEBRIS_AFTER_DECONSTRUCTION` so its
+      name matches its intended purpose
+  - bugfix: fixes some items that incorrectly used `NO_DECONSTRUCTION` prior to its
+      refactor, meaning makes some objects non deconstructable again
+  - bugfix: advanced camera consoles correctly deactivate when something happens(no
+      proximity, no power etc) to its user
+  vinylspiders:
+  - bugfix: you can deconstruct wooden fences again, but now you have to use a crowbar
