@@ -269,7 +269,7 @@
 "oT" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/button/door/directional/west{
-	id = "MarketOut"
+	id = "marketout"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_corner,
@@ -385,7 +385,7 @@
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "uT" = (
 /obj/machinery/button/door/directional/east{
-	id = "MarketOut"
+	id = "marketout"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_corner{
@@ -420,7 +420,7 @@
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "vP" = (
 /obj/machinery/door/airlock/external/ruin{
-	id = "MarketOut"
+	id = "marketout"
 	},
 /obj/structure/fans/tiny,
 /obj/effect/spawner/random/structure/steam_vent,
