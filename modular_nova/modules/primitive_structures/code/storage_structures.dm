@@ -5,6 +5,7 @@
 	icon_state = "shelf_wood"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
 /obj/structure/rack/wooden/MouseDrop_T(obj/object, mob/user, params)
 	. = ..()
@@ -28,6 +29,7 @@
 
 /obj/structure/rack/wooden/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 2)
+	return ..()
 
 // Barrel but it works like a crate
 
@@ -38,7 +40,7 @@
 	base_icon_state = "barrel"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
-	material_drop_amount = 4
+	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
 /obj/structure/closet/crate/wooden/storage_barrel/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
@@ -48,12 +50,17 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
+/obj/structure/closet/crate/wooden/storage_barrel/atom_deconstruct(disassembled = TRUE)
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 4)
+	return ..()
+
 /obj/machinery/smartfridge/produce_bin
 	name = "produce bin"
 	desc = "A wooden hamper, used to hold plant products and try to keep them safe from pests."
 	icon_state = "producebin"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/produce_bin
 	base_icon_state = "produce"
 	use_power = NO_POWER_USE
@@ -82,11 +89,9 @@
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
 
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/machinery/smartfridge/produce_bin/on_deconstruction(disassembled)
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/seed_shelf
 	name = "seed shelf"
@@ -94,6 +99,7 @@
 	icon_state = "seedshelf"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/seed_shelf
 	base_icon_state = "seed"
 	use_power = NO_POWER_USE
@@ -115,11 +121,9 @@
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
 
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/machinery/smartfridge/seed_shelf/on_deconstruction(disassembled)
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/ration_shelf
 	name = "ration shelf"
@@ -127,6 +131,7 @@
 	icon_state = "rationshelf"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/ration_shelf
 	base_icon_state = "ration"
 	use_power = NO_POWER_USE
@@ -148,11 +153,9 @@
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
 
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/machinery/smartfridge/ration_shelf/on_deconstruction(disassembled)
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/produce_display
 	name = "produce display"
@@ -160,6 +163,7 @@
 	icon_state = "producedisplay"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	base_build_path = /obj/machinery/smartfridge/produce_display
 	base_icon_state = "nonfood"
 	use_power = NO_POWER_USE
@@ -187,8 +191,6 @@
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
 
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
-
-/obj/machinery/smartfridge/produce_display/on_deconstruction(disassembled)
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
