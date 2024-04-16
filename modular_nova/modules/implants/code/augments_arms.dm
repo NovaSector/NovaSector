@@ -153,7 +153,6 @@
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	icon_state = "steel"
-	inhand_icon_state = "steel"
 	items_to_create = list(/obj/item/pickaxe/drill/implant)
 	implant_overlay = null
 	implant_color = null
@@ -255,7 +254,6 @@
 	name = "integrated diamond mining drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
-	inhand_icon_state = "diamond"
 	toolspeed = 0.2
 	force = 20
 	demolition_mod = 1.25
