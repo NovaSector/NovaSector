@@ -224,6 +224,17 @@
 /obj/effect/mapping_helpers/airalarm/away_general_access,
 /turf/open/floor/iron/shuttle/ferry,
 /area/shuttle/blackmarket_burst)
+"BK" = (
+/obj/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "burstwindf"
+	},
+/obj/machinery/door/airlock/external{
+	id_tag = "burstexts"
+	},
+/turf/open/floor/plating,
+/area/shuttle/blackmarket_burst)
 "Dx" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -254,6 +265,9 @@
 "EO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/external{
+	id_tag = "burstexts"
+	},
 /turf/open/floor/iron/shuttle/ferry,
 /area/shuttle/blackmarket_burst)
 "Fr" = (
@@ -562,7 +576,7 @@ DD
 Ov
 fp
 yt
-yt
+BK
 YX
 YX
 en
