@@ -169,25 +169,25 @@
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
 
-/datum/bodypart_overlay/simple/steel_drill/left
+/datum/bodypart_overlay/simple/steel_drill
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
-	icon_state = "steel_left"
 	layers = EXTERNAL_FRONT_OVER
 
-/datum/bodypart_overlay/simple/steel_drill/right
-	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
+/datum/bodypart_overlay/simple/steel_drill/left
+	icon_state = "steel_left"
+
+/datum/bodypart_overlay/simple/steel_drill/left
 	icon_state = "steel_right"
-	layers = EXTERNAL_FRONT_OVER
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	if(isteshari(owner))
 		return ..()
-	left_drill_overlay = new()
-	right_drill_overlay = new()
 	if(istype(limb, /obj/item/bodypart/arm/left))
+		left_drill_overlay = new()
 		limb.add_bodypart_overlay(left_drill_overlay)
 	else
 		if(istype(limb, /obj/item/bodypart/arm/right))
+			right_drill_overlay = new()
 			limb.add_bodypart_overlay(right_drill_overlay)
 	owner.update_body_parts()
 	return ..()
@@ -204,7 +204,7 @@
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
 	var/recent_spin = 0
-	var/spin_delay = 30
+	var/spin_delay = 3 SECONDS
 
 /obj/item/pickaxe/drill/implant/AltClick(mob/user)
 	..()
@@ -224,9 +224,8 @@
 		return
 	recent_spin = world.time + spin_delay
 
-	playsound(usr, 'modular_nova/master_files/sound/weapons/drillimplant.ogg', 50, FALSE)
+	playsound(user, 'modular_nova/master_files/sound/weapons/drillimplant.ogg', 50, FALSE)
 	user.visible_message(span_warning("[user] spins [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"), span_notice("You spin [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"))
-	balloon_alert(user, "chamber spun")
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
 	name = "Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
