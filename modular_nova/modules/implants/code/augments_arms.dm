@@ -247,13 +247,13 @@
 	name = "Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
-	inhand_icon_state = "diamond"
 	items_to_create = list(/obj/item/pickaxe/drill/implant/diamond)
 
 /obj/item/pickaxe/drill/implant/diamond
 	name = "integrated diamond mining drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
+	inhand_icon_state = "diamond"
 	toolspeed = 0.2
 	force = 20
 	demolition_mod = 1.25
