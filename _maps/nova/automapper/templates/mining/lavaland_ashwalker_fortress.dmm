@@ -43,7 +43,9 @@
 /area/ruin/unpowered/ash_walkers)
 "aE" = (
 /obj/structure/falsewall/wood,
-/obj/item/storage/box/lewd_toys,
+/obj/item/storage/box/lewd_toys{
+	layer = 2.4
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "aF" = (
@@ -183,7 +185,6 @@
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/food/rootdough,
 /obj/item/food/meat/slab/goliath,
-/obj/item/food/meat/slab/goliath,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "cV" = (
@@ -196,7 +197,7 @@
 "cZ" = (
 /obj/structure/curtain/bounty/start_closed,
 /obj/structure/stone_tile/slab/burnt,
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "di" = (
 /obj/structure/stone_tile/block/burnt{
@@ -335,6 +336,9 @@
 	anchored = 1
 	},
 /obj/item/clothing/suit/straight_jacket/shackles/reinforced,
+/obj/item/melee/baton{
+	name = "baton"
+	},
 /turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "fn" = (
@@ -2237,6 +2241,11 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"KW" = (
+/turf/closed/indestructible/riveted/boss{
+	desc = "A thick, seemingly indestructible stone wall. Some symbols are scratched into it. Even if you don't know the language, you still understand the meaning. Message reads: Thank you, my Kins. Chal, Zehs-Ast-Zeo, Mur, Ink, Slatko, Rikiki and Zur. I give this realm for you all, for you made it possible to be conjured. Your Defender, Luxuria."
+	},
+/area/ruin/unpowered/ash_walkers)
 "KZ" = (
 /obj/structure/stone_tile/cracked{
 	dir = 4;
@@ -2469,6 +2478,15 @@
 /obj/structure/flora/ash/tall_shroom,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"OW" = (
+/obj/structure/wall_torch/spawns_lit/directional/east,
+/obj/item/mop/tribal,
+/obj/item/reagent_containers/cup/bucket/wooden{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "Pa" = (
 /obj/structure/stone_tile/block/burnt{
 	pixel_y = 0;
@@ -2563,6 +2581,21 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_x = -10;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_x = -5;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_x = 11;
+	pixel_y = 3
+	},
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "RA" = (
@@ -2570,6 +2603,10 @@
 /obj/structure/table/wood,
 /obj/structure/stone_tile{
 	dir = 4
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 7;
+	pixel_x = -6
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -2893,17 +2930,6 @@
 /area/ruin/unpowered/ash_walkers)
 "Wz" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/bottle/small{
-	pixel_y = 15
-	},
-/obj/item/reagent_containers/cup/glass/bottle/small{
-	pixel_x = -5;
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/cup/glass/bottle/small{
-	pixel_x = -10;
-	pixel_y = 12
-	},
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "WD" = (
@@ -4125,7 +4151,7 @@ GP
 "}
 (30,1,1) = {"
 JC
-JC
+KW
 qp
 HA
 rv
@@ -4586,7 +4612,7 @@ WK
 WK
 WK
 WK
-rf
+OW
 sQ
 Au
 WK
