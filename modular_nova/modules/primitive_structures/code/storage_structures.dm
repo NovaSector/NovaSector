@@ -82,9 +82,11 @@
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
 
-	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/smartfridge/wooden/on_deconstruction(disassembled)
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 10)
 
 /obj/machinery/smartfridge/wooden/structure_examine()
 	. = span_info("The whole rack can be [EXAMINE_HINT("pried")] apart.")
