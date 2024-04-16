@@ -1,4 +1,0 @@
-author: "Chelxox"
-delete-after: True
-changes:
-  - bugfix: "Primitive wooden fencing drops wood upon deconstruction (instead of iron rods)"
