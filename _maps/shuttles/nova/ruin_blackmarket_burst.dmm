@@ -38,14 +38,14 @@
 	},
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external{
-	id = "burstexts"
+	id_tag = "burstexts"
 	},
 /turf/open/floor/catwalk_floor,
 /area/shuttle/blackmarket_burst)
 "eu" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external{
-	id = "burstexts"
+	id_tag = "burstexts"
 	},
 /turf/open/floor/catwalk_floor,
 /area/shuttle/blackmarket_burst)

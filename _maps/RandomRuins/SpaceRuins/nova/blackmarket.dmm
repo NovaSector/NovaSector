@@ -538,6 +538,14 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"Cg" = (
+/obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/external/ruin{
+	id_tag = "marketout"
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "CB" = (
 /obj/structure/decorative/shelf/alcohol_assortment,
 /turf/open/floor/iron/smooth,
@@ -1778,7 +1786,7 @@ hO
 hO
 SQ
 SQ
-SQ
+Cg
 SQ
 WS
 oV
