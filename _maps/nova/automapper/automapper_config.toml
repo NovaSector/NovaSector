@@ -373,5 +373,5 @@ trait_name = "Station"
 map_files = ["lavaland_ashwalker_fortress.dmm"]
 directory = "_maps/nova/automapper/templates/mining/"
 required_map = "Lavaland.dmm"
-coordinates = [199, 223, 1]
+coordinates = [203, 223, 1]
 trait_name = "Mining"
