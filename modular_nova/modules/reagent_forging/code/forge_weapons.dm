@@ -6,7 +6,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME
 	obj_flags_nova = ANVIL_REPAIR
-	toolspeed = 0.9 //Slightly better than avg. - A forged hammer or knife is probably better than a bone/autolathed one
+	toolspeed = 0.9 //Slightly better than avg. - A forged hammer or knife is probably better than a standard one
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
