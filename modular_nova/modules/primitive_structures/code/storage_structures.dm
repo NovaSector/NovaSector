@@ -31,7 +31,6 @@
 
 /obj/structure/rack/wooden/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 2)
-	return ..()
 
 // Barrel but it works like a crate
 
