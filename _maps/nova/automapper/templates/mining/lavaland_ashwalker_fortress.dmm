@@ -41,6 +41,11 @@
 /obj/structure/flora/ash/stem_shroom,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"aE" = (
+/obj/structure/falsewall/wood,
+/obj/item/storage/box/lewd_toys,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "aF" = (
 /obj/structure/stone_tile/block/burnt,
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -434,6 +439,10 @@
 "hm" = (
 /obj/structure/table/wood,
 /obj/structure/stone_tile/surrounding_tile,
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 12;
+	pixel_x = 8
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "hn" = (
@@ -745,7 +754,8 @@
 /area/ruin/unpowered/ash_walkers)
 "mT" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/mineral/stone,
+/obj/structure/falsewall/stone,
+/turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "mZ" = (
 /obj/structure/stone_tile/block/cracked{
@@ -1008,6 +1018,7 @@
 /obj/structure/stone_tile/block{
 	dir = 4
 	},
+/obj/item/flashlight/flare/candle/infinite,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "rw" = (
@@ -1087,9 +1098,14 @@
 "tl" = (
 /obj/structure/rack/wooden,
 /obj/item/stack/sheet/mineral/gold{
-	amount = 5
+	amount = 5;
+	pixel_y = 1;
+	pixel_x = 7
 	},
-/obj/item/stack/sheet/iron/twenty,
+/obj/item/stack/sheet/iron/twenty{
+	pixel_x = -5;
+	pixel_y = 2
+	},
 /turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "ts" = (
@@ -1197,6 +1213,10 @@
 /obj/item/bedsheet/black{
 	pixel_x = -2;
 	pixel_y = -3
+	},
+/obj/item/smelling_salts{
+	pixel_x = 6;
+	pixel_y = 8
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -1608,6 +1628,7 @@
 /area/ruin/unpowered/ash_walkers)
 "Ak" = (
 /obj/structure/stone_tile/slab/cracked,
+/obj/item/flashlight/flare/candle/infinite,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Al" = (
@@ -1932,7 +1953,22 @@
 	pixel_y = 0
 	},
 /obj/structure/rack/wooden,
-/obj/item/storage/box/lewd_toys,
+/obj/item/pillow{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/item/pillow{
+	pixel_x = 3;
+	pixel_y = 11
+	},
+/obj/item/bedsheet/brown{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/bedsheet/brown{
+	pixel_y = -3;
+	pixel_x = 8
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "GM" = (
@@ -2037,6 +2073,7 @@
 /area/ruin/unpowered/ash_walkers)
 "Ie" = (
 /obj/structure/table/bronze,
+/obj/item/flashlight/flare/candle/infinite,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ii" = (
@@ -2065,7 +2102,18 @@
 /area/ruin/unpowered/ash_walkers)
 "IM" = (
 /obj/structure/rack/wooden,
-/obj/item/stack/medical/aloe,
+/obj/item/stack/medical/aloe{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/food/grown/aloe,
+/obj/item/food/grown/aloe{
+	pixel_x = 5
+	},
+/obj/item/food/grown/aloe{
+	pixel_y = 0;
+	pixel_x = 10
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "IQ" = (
@@ -2159,6 +2207,7 @@
 /obj/structure/stone_tile/block/burnt{
 	dir = 4
 	},
+/obj/item/flashlight/flare/candle/infinite,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Kz" = (
@@ -2299,6 +2348,7 @@
 /obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 1
 	},
+/obj/item/flashlight/flare/candle/infinite,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "MO" = (
@@ -2382,10 +2432,11 @@
 	dir = 1
 	},
 /obj/item/chisel/ashwalker{
-	pixel_x = -5
+	pixel_x = -9
 	},
 /obj/item/dice/d6/bone{
-	pixel_x = 5
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -2423,6 +2474,10 @@
 	pixel_y = 0;
 	pixel_x = 7
 	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"PS" = (
+/obj/structure/falsewall/wood,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "PW" = (
@@ -2765,6 +2820,10 @@
 "UT" = (
 /obj/structure/table/wood,
 /obj/structure/stone_tile/block/cracked,
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 4;
+	pixel_x = -8
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Vl" = (
@@ -2801,6 +2860,7 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
+/obj/item/flashlight/flare/candle/infinite,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "VT" = (
@@ -3473,7 +3533,7 @@ li
 JC
 JC
 sQ
-sQ
+PS
 sQ
 WK
 Do
@@ -4592,8 +4652,8 @@ GP
 li
 li
 JC
-JC
-JC
+sQ
+aE
 JC
 JC
 JC
