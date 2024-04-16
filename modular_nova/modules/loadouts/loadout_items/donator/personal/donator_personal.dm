@@ -789,11 +789,6 @@
 	item_path = /obj/item/clothing/under/bwake
 	ckeywhitelist = list("ignari")
 
-/datum/loadout_item/under/miscellaneous/bwake
-	name = "Compression Bodysuit"
-	item_path = /obj/item/clothing/under/bwake
-	ckeywhitelist = list("ignari")
-
 /datum/loadout_item/inhand/pet/mrfluff_mothroach
 	name = "Mr. Fluff"
 	item_path = /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
