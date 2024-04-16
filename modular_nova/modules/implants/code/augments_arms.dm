@@ -177,7 +177,7 @@
 /datum/bodypart_overlay/simple/steel_drill/left
 	icon_state = "steel_left"
 
-/datum/bodypart_overlay/simple/steel_drill/left
+/datum/bodypart_overlay/simple/steel_drill/right
 	icon_state = "steel_right"
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
