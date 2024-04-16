@@ -1,7 +1,7 @@
 /obj/machinery/computer/order_console/gakster
 	name = "Grey Market Access Point"
 	desc = "An interface for accessing the galactic market of less-than-legal retailers spread across the system."
-	flags_1 = NO_DECONSTRUCTION
+	flags_1 = NO_DEBRIS_AFTER_DECONSTRUCTION
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	order_categories = list(
 		"Peacekeeper",
@@ -75,3 +75,12 @@
 	new /obj/item/stack/spacecash(drop_location(), tha_money)
 	playsound(src, 'sound/effects/cashregister.ogg', 50, TRUE)
 	qdel(weapon)
+
+/obj/machinery/computer/order_console/gakster/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/computer/order_console/gakster/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/computer/order_console/gakster/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE

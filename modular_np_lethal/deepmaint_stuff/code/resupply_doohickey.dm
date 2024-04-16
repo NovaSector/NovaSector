@@ -1,7 +1,7 @@
 /obj/machinery/vending/wallmed/epic_loot
 	name = "\improper SuperSupply ™"
 	desc = "Wall-mounted dispenser filled with bullets and basic medical supplies."
-	flags_1 = NO_DECONSTRUCTION
+	flags_1 = NO_DEBRIS_AFTER_DECONSTRUCTION
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	product_categories = list(
 		list(
@@ -44,6 +44,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 	. = ..()
 	onstation = FALSE
 
+/obj/machinery/vending/wallmed/epic_loot/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/vending/wallmed/epic_loot/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/vending/wallmed/epic_loot/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
+
 /obj/machinery/vending/evil_clothing
 	name = "Evil ClothesMate"
 	desc = "A vending machine for clothing, and also weapons and tools to kill your fellow scavenger with!"
@@ -52,6 +61,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 	icon_state = "clothes"
 	icon_deny = "clothes-deny"
 	panel_type = "panel15"
+	flags_1 = NO_DEBRIS_AFTER_DECONSTRUCTION
 	product_categories = list(
 		list(
 			"name" = "Clothing",
@@ -102,3 +112,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 /obj/machinery/vending/evil_clothing/Initialize(mapload)
 	. = ..()
 	onstation = FALSE
+
+/obj/machinery/vending/evil_clothing/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/vending/evil_clothing/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/vending/evil_clothing/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
