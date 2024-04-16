@@ -211,6 +211,7 @@
 /obj/item/pickaxe/drill/implant
 	name = "integrated mining drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
+	slot_flags = NONE
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	righthand_file = 'modular_nova/modules/implants/icons/drillimplant_righthand.dmi'
 	lefthand_file = 'modular_nova/modules/implants/icons/drillimplant_lefthand.dmi'
