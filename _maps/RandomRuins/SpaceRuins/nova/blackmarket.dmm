@@ -821,6 +821,15 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
+"OC" = (
+/obj/structure/fluff/metalpole/anchor{
+	dir = 10
+	},
+/obj/structure/fluff/metalpole/anchor{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/blackmarket)
 "OR" = (
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /obj/effect/turf_decal/bot_white,
@@ -1654,7 +1663,7 @@ xp
 eV
 mH
 ou
-uG
+OC
 uG
 uG
 uG
@@ -1834,7 +1843,7 @@ hd
 Cg
 hd
 WS
-uG
+OC
 uG
 uG
 uG
