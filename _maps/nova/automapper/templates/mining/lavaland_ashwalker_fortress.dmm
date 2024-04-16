@@ -2009,6 +2009,9 @@
 "HK" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/structure/stone_tile/block,
+/obj/item/clothing/shoes/bone_greaves,
+/obj/item/clothing/gloves/bracer,
+/obj/item/clothing/head/ash_headdress/winged,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "HT" = (
