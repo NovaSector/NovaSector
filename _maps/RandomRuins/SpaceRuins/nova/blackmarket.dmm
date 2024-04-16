@@ -2,6 +2,12 @@
 "af" = (
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"aJ" = (
+/obj/structure/rack,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "bv" = (
 /obj/structure/closet/crate/large,
 /obj/item/stack/sheet/iron/fifty,
@@ -26,6 +32,13 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/recharge_station,
 /obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"cU" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/rack,
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "de" = (
@@ -89,7 +102,21 @@
 "ht" = (
 /obj/structure/table,
 /obj/item/ammo_box/magazine/m9mm,
+/obj/effect/spawner/random/food_or_drink/booze{
+	pixel_x = -9;
+	pixel_y = -7
+	},
+/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
+	pixel_x = -4;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"hv" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "hO" = (
 /turf/closed/mineral/random,
@@ -140,6 +167,10 @@
 	},
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"jl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "kE" = (
 /obj/machinery/recharge_station,
 /obj/effect/turf_decal/bot_white,
@@ -168,6 +199,12 @@
 "lp" = (
 /turf/template_noop,
 /area/template_noop)
+"lt" = (
+/obj/structure/rack/shelf,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "lP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -187,10 +224,20 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"mH" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_half{
+	dir = 4
+	},
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "mP" = (
 /obj/machinery/light/dim/directional/west,
 /obj/structure/table,
 /obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
+	pixel_x = 8;
+	pixel_y = 11
+	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "mQ" = (
@@ -199,26 +246,12 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
-"mX" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 6
-	},
-/turf/open/floor/iron/smooth_edge{
-	dir = 1
-	},
-/area/ruin/space/has_grav/powered/nova/blackmarket)
 "mZ" = (
 /obj/machinery/door/airlock/bathroom{
 	name = "Restroom"
 	},
 /obj/effect/turf_decal/delivery/white,
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"nB" = (
-/obj/structure/rack/gunrack,
-/obj/machinery/door/window/survival_pod/left/directional/south,
-/obj/machinery/light/floor,
-/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "nE" = (
 /obj/machinery/power/smes/engineering,
@@ -229,21 +262,23 @@
 /obj/structure/marker_beacon/teal,
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
-"oP" = (
-/obj/structure/table,
-/obj/machinery/light/warm/directional/south,
-/turf/open/floor/iron/smooth_half{
-	dir = 4
+"ou" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"oT" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/button/door/directional/west{
+	id = "MarketOut"
 	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_corner,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "oV" = (
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"qe" = (
-/obj/effect/spawner/random/structure/grille,
-/obj/effect/turf_decal/stripes/asteroid/corner,
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/misc/asteroid,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "qt" = (
 /obj/effect/spawner/random/structure/chair_maintenance{
@@ -264,27 +299,16 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
-"rs" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 5
-	},
-/turf/open/floor/iron/smooth_edge,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"se" = (
-/obj/structure/table,
-/obj/machinery/door/window/survival_pod/left/directional/south,
-/obj/machinery/light/floor,
-/turf/open/floor/iron/smooth,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
 "sB" = (
 /obj/structure/table,
 /obj/structure/towel_bin,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
-"tA" = (
-/obj/structure/rack,
+"sQ" = (
+/obj/structure/rack/gunrack,
 /obj/machinery/door/window/survival_pod/left/directional/south,
-/turf/open/floor/iron/smooth,
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "tC" = (
 /obj/structure/table,
@@ -346,20 +370,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "tV" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
-	dir = 4
-	},
 /obj/machinery/button/door/directional/west{
 	id = "blackmarkethangar"
 	},
-/turf/open/floor/iron/smooth_corner{
+/obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 4
 	},
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"uv" = (
-/obj/structure/table,
-/obj/machinery/door/window/survival_pod/left/directional/south,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "uG" = (
 /obj/effect/spawner/random/structure/grille,
@@ -368,6 +385,15 @@
 	},
 /obj/effect/turf_decal/stripes/asteroid/line,
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"uT" = (
+/obj/machinery/button/door/directional/east{
+	id = "MarketOut"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "vg" = (
 /obj/effect/turf_decal/bot_white,
@@ -411,21 +437,22 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
-"wq" = (
-/turf/open/floor/iron/smooth_half{
-	dir = 8
-	},
-/area/ruin/space/has_grav/powered/nova/blackmarket)
 "wF" = (
 /obj/docking_port/stationary{
 	dwidth = 4;
 	height = 9;
 	name = "Market";
-	roundstart_template = /datum/map_template/shuttle/ruin/blackmarket_chevvy;
+	roundstart_template = /datum/map_template/shuttle/ruin/blackmarket_burst;
 	shuttle_id = "blackmarket_burst_home";
 	width = 11
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"wZ" = (
+/obj/structure/table,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "xp" = (
 /turf/open/floor/iron/smooth_half{
@@ -462,6 +489,12 @@
 /obj/item/storage/box/nif_ghost_box/ghost_role,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"zM" = (
+/obj/structure/table,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "zS" = (
 /obj/structure/decorative/shelf/milk,
 /turf/open/floor/iron/smooth,
@@ -473,6 +506,12 @@
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
 /turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"AJ" = (
+/obj/effect/spawner/random/structure/grille,
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "AX" = (
 /obj/effect/spawner/random/trash/moisture,
@@ -534,6 +573,15 @@
 /obj/structure/table,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"DM" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "DU" = (
 /obj/effect/spawner/random/trash/moisture,
 /turf/open/floor/iron/smooth,
@@ -567,10 +615,16 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Fq" = (
-/obj/effect/spawner/random/structure/grille,
-/obj/effect/turf_decal/stripes/asteroid/line,
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/misc/asteroid,
+/obj/structure/deployable_barricade/guardrail{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron/smooth_edge{
+	dir = 4
+	},
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "FG" = (
 /obj/structure/table,
@@ -581,14 +635,6 @@
 	pixel_y = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"FJ" = (
-/turf/open/floor/catwalk_floor,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"Gx" = (
-/obj/structure/rack/shelf,
-/obj/machinery/door/window/survival_pod/left/directional/south,
-/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Hq" = (
 /obj/structure/trash_pile,
@@ -643,6 +689,18 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"JU" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"Kr" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/effect/turf_decal/arrows/red{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "KI" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
@@ -667,11 +725,6 @@
 /obj/effect/turf_decal/stripes/asteroid/line,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"Lq" = (
-/turf/open/floor/iron/smooth_corner{
-	dir = 1
-	},
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "LL" = (
 /obj/effect/spawner/random/structure/chair_maintenance{
@@ -713,6 +766,18 @@
 /obj/structure/closet/crate/trashcart/laundry,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"Nf" = (
+/obj/structure/deployable_barricade/guardrail{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "NZ" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/sign/clock/directional/east,
@@ -724,11 +789,6 @@
 /obj/effect/spawner/random/trash/mopbucket,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
-"OC" = (
-/obj/structure/rack/gunrack,
-/obj/machinery/door/window/survival_pod/left/directional/south,
-/turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "OR" = (
 /obj/effect/spawner/random/engineering/atmospherics_portable,
@@ -749,7 +809,7 @@
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Py" = (
 /obj/machinery/washing_machine,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "PW" = (
 /obj/structure/rack,
@@ -762,8 +822,10 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "QB" = (
-/obj/structure/extinguisher_cabinet/directional/north,
-/turf/open/floor/iron/smooth_corner,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_half{
+	dir = 8
+	},
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "QV" = (
 /obj/structure/sign/warning/docking/directional/south,
@@ -805,6 +867,38 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
+"Te" = (
+/obj/structure/table,
+/obj/machinery/light/warm/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_half{
+	dir = 4
+	},
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"Uc" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron/smooth_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"Uv" = (
+/obj/structure/rack/gunrack,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/bot_white/right,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"UF" = (
+/obj/structure/table,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/bot_white/left,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"UH" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
 "UJ" = (
 /obj/effect/spawner/random/structure/furniture_parts,
 /obj/effect/turf_decal/bot_white,
@@ -828,6 +922,8 @@
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "VX" = (
 /obj/machinery/light/dim/directional/east,
+/obj/structure/table/wood,
+/obj/item/market_uplink/blackmarket,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Wi" = (
@@ -836,6 +932,16 @@
 /obj/structure/sign/poster/contraband/random/directional/north,
 /obj/machinery/light/dim/directional/north,
 /obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"WA" = (
+/turf/open/floor/catwalk_floor/airless,
+/area/ruin/space/has_grav/powered/nova/blackmarket)
+"WJ" = (
+/obj/effect/turf_decal/stripes/asteroid/corner,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/rack,
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "WS" = (
@@ -849,9 +955,11 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Yn" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark/corner,
 /obj/machinery/light/red/dim/directional/west,
-/turf/open/floor/iron/smooth_corner,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "YG" = (
 /turf/open/misc/asteroid/airless,
@@ -1142,7 +1250,7 @@ hO
 hO
 SQ
 sB
-io
+UH
 DU
 SQ
 CB
@@ -1178,7 +1286,7 @@ hO
 hO
 SQ
 gf
-io
+UH
 yT
 SQ
 zS
@@ -1217,7 +1325,7 @@ dm
 io
 io
 mZ
-io
+UH
 eV
 PW
 SQ
@@ -1298,7 +1406,7 @@ cA
 cA
 cA
 tV
-af
+en
 Yn
 cA
 cA
@@ -1323,20 +1431,20 @@ hO
 hO
 hO
 hO
-hO
 SQ
 SQ
 eZ
 SQ
 SQ
+hv
 jb
 jb
 jb
 jb
-rs
-en
-mX
 jb
+jb
+jb
+DM
 jb
 Hq
 Zh
@@ -1358,13 +1466,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
 SQ
+oT
 QB
-wq
 CJ
 SQ
+oV
 oV
 oV
 oV
@@ -1394,13 +1502,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
-Gx
-xp
+lt
+mH
 eV
 xp
-qe
+WJ
+oV
 oV
 oV
 oV
@@ -1430,13 +1538,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
-nB
+Uv
 xp
 Xy
 qt
-Fq
+cU
+oV
 oV
 oV
 oV
@@ -1466,13 +1574,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
-OC
+sQ
 xp
 DG
-oP
+Te
 WS
+oV
 oV
 oV
 oV
@@ -1502,13 +1610,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
-tA
+aJ
 xp
 eV
-xp
-Fq
+mH
+ou
+oV
 oV
 oV
 oV
@@ -1538,12 +1646,12 @@ hO
 hO
 hO
 hO
-hO
 SQ
-se
+UF
 xp
 eV
-xp
+mH
+Kr
 Fq
 oV
 oV
@@ -1574,13 +1682,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
-uv
+zM
 xp
-eV
-xp
-Fq
+jl
+mH
+Kr
+JU
 oV
 oV
 oV
@@ -1610,13 +1718,13 @@ hO
 hO
 hO
 hO
-hO
 SQ
-SQ
-cc
-wq
-Lq
-Fq
+wZ
+xp
+eV
+xp
+Kr
+Uc
 oV
 oV
 oV
@@ -1646,13 +1754,13 @@ lp
 hO
 hO
 hO
-hO
-hO
 SQ
 SQ
-vP
-SQ
-WS
+cc
+QB
+uT
+Kr
+Nf
 oV
 oV
 oV
@@ -1683,12 +1791,12 @@ hO
 hO
 hO
 hO
-hO
-hO
-YG
-FJ
-YG
-Fq
+SQ
+SQ
+vP
+SQ
+WS
+oV
 oV
 oV
 oV
@@ -1720,11 +1828,11 @@ hO
 hO
 hO
 hO
-hO
 YG
-FJ
+WA
 YG
-Fq
+AJ
+oV
 oV
 oV
 oV
@@ -1756,11 +1864,11 @@ hO
 hO
 hO
 hO
-hO
 YG
-FJ
+WA
 YG
 WS
+oV
 oV
 oV
 oV
@@ -1791,13 +1899,13 @@ lp
 YG
 YG
 hO
-hO
 SQ
 YG
-FJ
+WA
 SQ
 SQ
 lP
+EE
 EE
 EE
 EE
@@ -1827,11 +1935,11 @@ lp
 lp
 lp
 lp
-lp
 nL
 lp
 lp
 WS
+lp
 lp
 lp
 JC

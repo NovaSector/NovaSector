@@ -11,7 +11,7 @@
 	spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
 /obj/effect/mob_spawn/ghost_role/human/blackmarket
-	name = "cryogenics pod"
+	name = "Black Market Trader"
 	prompt_name = "a blackmarket dealer"
 	desc = "A humming cryo pod. The machine is attempting to wake up its occupant."
 	mob_name = "a black market dealer"
@@ -21,7 +21,7 @@
 	you_are_text = "You are a black market dealer, with shop set up in Nanotrasen Space."
 	flavour_text = "FTU, Independent.. whatever, whoever you are. It doesn't matter out here. \
 	You've set up shop in a slightly shady, yet functional little asteroid for your dealings. \
-	Explore space, find valuable artifacts and nice loot - and pawn it off to those stooges at NT. \
+	Explore space, setup shop and find valuable artifacts and nice loot - and pawn it off to those stooges at NT. \
 	Or perhaps more exotic customers are in local space...?"
 	important_text = "You are not an antagonist."
 	outfit = /datum/outfit/black_market

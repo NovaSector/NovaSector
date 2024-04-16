@@ -15,6 +15,7 @@
 /datum/map_template/shuttle/ruin/blackmarket_burst
 	prefix = "_maps/shuttles/nova/"
 	suffix = "blackmarket_burst"
+	description = "A small cargo jump freighter, popular among smugglers who enjoy both the cargo space and speed"
 	name = "Black Market Burst"
 
 /obj/machinery/computer/shuttle/caravan/blackmarket_burst
