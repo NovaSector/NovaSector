@@ -860,6 +860,9 @@
 	pixel_y = -2
 	},
 /obj/item/restraints/handcuffs/cable/sinew,
+/obj/item/stack/sheet/mineral/bamboo{
+	amount = 25
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "pk" = (
