@@ -143,9 +143,6 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "iG" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 5
 	},
@@ -523,9 +520,6 @@
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
 "Bf" = (
-/obj/structure/deployable_barricade/guardrail{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 9
 	},

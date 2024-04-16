@@ -27,19 +27,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
-"dx" = (
-/obj/structure/fans/tiny/forcefield{
-	dir = 4
-	},
-/obj/structure/fluff/metalpole/end/left{
-	pixel_x = -32;
-	pixel_y = 10
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "burstcargo"
-	},
-/turf/open/floor/engine,
-/area/shuttle/blackmarket_burst)
 "en" = (
 /obj/docking_port/mobile{
 	launch_status = 0;
@@ -83,6 +70,10 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/blackmarket_burst)
+"jK" = (
+/obj/structure/fluff/metalpole/end,
+/turf/template_noop,
+/area/template_noop)
 "ka" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/closed/wall/mineral/titanium,
@@ -320,6 +311,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
+"MH" = (
+/obj/structure/fluff/metalpole/end{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "NC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/shuttle/ferry,
@@ -458,13 +455,13 @@
 /area/shuttle/blackmarket_burst)
 
 (1,1,1) = {"
-Ov
+MH
 fp
 YP
-dx
 Ee
 Ee
-dx
+Ee
+Ee
 YP
 YX
 YX
@@ -571,6 +568,6 @@ YX
 en
 YX
 fp
-Ov
+jK
 Ov
 "}
