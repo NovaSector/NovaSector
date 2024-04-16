@@ -418,15 +418,6 @@
 /obj/structure/cable,
 /turf/open/misc/asteroid,
 /area/ruin/space/has_grav/powered/nova/blackmarket)
-"vP" = (
-/obj/structure/fans/tiny,
-/obj/effect/spawner/random/structure/steam_vent,
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/external/ruin{
-	id = "marketout"
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/ruin/space/has_grav/powered/nova/blackmarket)
 "vU" = (
 /obj/effect/spawner/random/structure/steam_vent,
 /obj/effect/turf_decal/delivery/white,
@@ -1787,7 +1778,7 @@ hO
 hO
 SQ
 SQ
-vP
+SQ
 SQ
 WS
 oV
