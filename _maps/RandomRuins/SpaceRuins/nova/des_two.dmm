@@ -184,7 +184,8 @@
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "aW" = (
 /obj/machinery/porta_turret/syndicate/energy{
-	dir = 6
+	dir = 6;
+	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
@@ -1474,12 +1475,6 @@
 "go" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/cargo)
-"gv" = (
-/obj/machinery/porta_turret/syndicate/energy{
-	dir = 5
-	},
-/turf/closed/wall/r_wall/syndicate,
-/area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "gw" = (
 /obj/item/circuitboard/machine/component_printer,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
@@ -3235,7 +3230,8 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nO" = (
 /obj/machinery/porta_turret/syndicate/energy{
-	dir = 9
+	dir = 9;
+	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
@@ -3381,7 +3377,7 @@
 "oG" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 5;
-	faction = list("Syndicate","neutral")
+	faction = list("Syndicate DS-2 Crew","neutral")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
@@ -4896,7 +4892,9 @@
 /turf/open/floor/iron/pool,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "vS" = (
-/obj/machinery/porta_turret/syndicate/energy,
+/obj/machinery/porta_turret/syndicate/energy{
+	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
+	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "vU" = (
@@ -8559,7 +8557,8 @@
 /area/ruin/space/has_grav/nova/des_two/research)
 "Mt" = (
 /obj/machinery/porta_turret/syndicate/energy{
-	dir = 5
+	dir = 5;
+	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
@@ -10555,7 +10554,8 @@
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "VG" = (
 /obj/machinery/porta_turret/syndicate/energy{
-	dir = 4
+	dir = 4;
+	faction = list("Syndicate DS-2 Crew","Interdyne Lavaland Personnel")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
@@ -13969,7 +13969,7 @@ wg
 wg
 EJ
 kx
-Mt
+vl
 bw
 zV
 Un
@@ -14143,7 +14143,7 @@ wg
 wg
 wg
 wg
-gv
+gn
 bw
 bw
 bw
