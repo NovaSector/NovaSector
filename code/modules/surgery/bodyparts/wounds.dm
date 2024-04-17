@@ -240,7 +240,7 @@
  * Arguments:
  * * It's the same ones on [/obj/item/bodypart/proc/receive_damage]
  */
-/obj/item/bodypart/proc/check_woundings_mods(wounding_type, damage, wound_bonus, bare_wound_bonus)
+/* /obj/item/bodypart/proc/check_woundings_mods(wounding_type, damage, wound_bonus, bare_wound_bonus) // LETHALSTATION EDIT REMOVAL - ARMOR REWORK REAL ??
 	SHOULD_CALL_PARENT(TRUE)
 
 	var/armor_ablation = 0
@@ -272,7 +272,7 @@
 
 	injury_mod += part_mod
 
-	return injury_mod
+	return injury_mod */ // LETHALSTATION EDIT REMOVAL - ARMOR REWORK REAL ??
 
 /// Should return an assoc list of (wound_series -> penalty). Will be used in determining series-specific penalties for wounding.
 /obj/item/bodypart/proc/check_series_wounding_mods()

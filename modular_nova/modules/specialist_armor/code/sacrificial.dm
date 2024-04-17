@@ -30,7 +30,7 @@
 /obj/item/clothing/suit/armor/sf_sacrificial/Initialize(mapload)
 	. = ..()
 
-	AddComponent(/datum/component/clothing_damaged_by_bullets)
+	// AddComponent(/datum/component/clothing_damaged_by_bullets) // LETHALSTATION EDIT REMOVAL
 
 /obj/item/clothing/suit/armor/sf_sacrificial/examine_more(mob/user)
 	. = ..()
@@ -67,7 +67,7 @@
 /obj/item/clothing/head/helmet/sf_sacrificial/Initialize(mapload)
 	. = ..()
 
-	AddComponent(/datum/component/clothing_damaged_by_bullets)
+	// AddComponent(/datum/component/clothing_damaged_by_bullets) // LETHALSTATION EDIT REMOVAL
 
 /obj/item/clothing/head/helmet/sf_sacrificial/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()

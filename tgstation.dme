@@ -8287,6 +8287,8 @@
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\warrior.dm"
 #include "modular_np_lethal\ammo_stacks\code\ammo_stack_base.dm"
 #include "modular_np_lethal\ammo_stacks\code\stack_types.dm"
+#include "modular_np_lethal\armor_but_cool\code\armor_damage_by_bullets.dm"
+#include "modular_np_lethal\armor_but_cool\code\armor_edits.dm"
 #include "modular_np_lethal\clothing_edits\gear_harness_change.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\crafting_bench.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\crafting_bench_recipes.dm"
