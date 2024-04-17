@@ -1,5 +1,8 @@
 // Roundstartslimes!
 
+/obj/item/bodypart/head/slime
+	can_dismember = TRUE //Their organs are in their chest now, all slime subspecies, so they can safely be decapitated.
+
 /obj/item/bodypart/head/jelly/slime/roundstart
 	is_dimorphic = TRUE
 	icon_greyscale = BODYPART_ICON_ROUNDSTARTSLIME

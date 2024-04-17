@@ -267,7 +267,7 @@
 			display_pain(target, "Your [parse_zone(target_zone)] throbs with pain, you can't feel your [target_organ.name] anymore!")
 			log_combat(user, target, "surgically removed [target_organ.name] from", addition="COMBAT MODE: [uppertext(user.combat_mode)]")
 			///NOVA EDIT BEGIN - Makes slime core ejection properly work.
-			var/atom/drop_loc = drop_location(target)
+			var/atom/drop_loc = target.drop_location()
 			target_organ.Remove(target)
 			if(drop_loc)
 				target_organ.forceMove(drop_loc)

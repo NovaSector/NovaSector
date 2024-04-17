@@ -1,5 +1,7 @@
 #define SLIME_ACTIONS_ICON_FILE 'modular_nova/master_files/icons/mob/actions/actions_slime.dmi'
+/// This is the level of waterstacks that start doing noteworthy bloodloss to a slimeperson.
 #define DAMAGE_WATER_STACKS 5
+/// This is the level of waterstacks that prevent a slimeperson from regenerating, doing minimal bloodloss in the process.
 #define REGEN_WATER_STACKS 1
 
 /datum/species/jelly
@@ -54,37 +56,29 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/lungs/slime/on_life(seconds_per_tick, times_fired)
-	. = ..()
-	operated = FALSE
-
 /obj/item/organ/internal/liver/slime
 	name = "endoplasmic reticulum"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
-
-/obj/item/organ/internal/liver/slime/on_life(seconds_per_tick, times_fired)
-	. = ..()
-	operated = FALSE
 
 /obj/item/organ/internal/stomach/slime
 	name = "golgi apparatus"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/stomach/slime/on_life(seconds_per_tick, times_fired)
-	. = ..()
-	operated = FALSE
-
 /obj/item/organ/internal/brain/slime
 	name = "core"
 	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
 	zone = BODY_ZONE_CHEST
+	/// This is the VFX for what happens when they melt and die.
 	var/obj/effect/death_melt_type = /obj/effect/temp_visual/wizard/out
+	/// Color of the slimeperson's 'core' brain, defaults to white.
 	var/core_color = COLOR_WHITE
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "slime_core"
+	/// This tracks whether their core has been ejected or not after they die.
 	var/core_ejected = FALSE
+	/// This tracks whether their GPS microchip is enabled or not, only becomes TRUE on activation of the below ability /datum/action/innate/core_signal.
 	var/gps_active = FALSE
 
 /obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
@@ -144,7 +138,7 @@
 	if(new_stat != DEAD)
 		return
 
-	UnregisterSignal(organ_owner, COMSIG_MOB_STATCHANGE)
+	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
 
 ///////
@@ -156,14 +150,14 @@
 		return
 	core_ejected = TRUE
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
-	var/atom/death_loc = drop_loc(victim)
+	var/atom/death_loc = victim.drop_location()
 	victim.unequip_everything()
 	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
 		Remove(victim)
 	if(death_loc)
 		forceMove(death_loc)
 	src.wash(CLEAN_WASH)
-	new death_melt_type(death_turf, victim.dir)
+	new death_melt_type(death_loc, victim.dir)
 
 	do_steam_effects(get_turf(victim))
 	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
@@ -236,9 +230,6 @@
 		return TRUE
 	return FALSE
 
-/obj/item/bodypart/head/slime
-	can_dismember = TRUE //Their organs are in their chest now. It's okay.
-
 //////
 /// HEALING SECTION
 /// Handles passive healing and water damage.
@@ -293,7 +284,7 @@
 		return
 
 	user.apply_status_effect(/datum/status_effect/slime_washing)
-	user.visible_message(span_purple("[user]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into [user.p.their()] inner layer!"), span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
+	user.visible_message(span_purple("[user]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into [user.p_their()] inner layer!"), span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
 
 /datum/action/cooldown/spell/slime_washing/proc/slime_washing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
 	if(!user.has_status_effect(/datum/status_effect/slime_washing))
