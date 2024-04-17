@@ -93,7 +93,7 @@
 /mob/living/proc/is_ears_covered()
 	return null
 
-/mob/living/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
+/* /mob/living/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE) // LETHALSTATION EDIT OVERRIDE AT modular_np_lethal/armor_but_cool/code/armor_damage_by_bullets.dm
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -130,7 +130,7 @@
 	)
 	if(hitting_projectile.dismemberment)
 		check_projectile_dismemberment(hitting_projectile, def_zone)
-	return BULLET_ACT_HIT
+	return BULLET_ACT_HIT */ // LETHALSTATION EDIT OVERRIDE AT modular_np_lethal/armor_but_cool/code/armor_damage_by_bullets.dm
 
 /mob/living/check_projectile_armor(def_zone, obj/projectile/impacting_projectile, is_silent)
 	return run_armor_check(def_zone, impacting_projectile.armor_flag, "","",impacting_projectile.armour_penetration, "", is_silent, impacting_projectile.weak_against_armour)
