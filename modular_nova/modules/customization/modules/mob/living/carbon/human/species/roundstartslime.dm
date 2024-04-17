@@ -981,9 +981,10 @@
  */
 /datum/action/innate/core_signal
 	name = "Toggle Core Signal"
+	desc = "Interface with the microchip placed in your core, modifying if it emits a GPS signal or not; due to how thick your liquid body is, the signal won't reach out until your core is outside of it."
 	check_flags = AB_CHECK_CONSCIOUS
-	button_icon_state = "alter_form"
-	button_icon = SLIME_ACTIONS_ICON_FILE
+	button_icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
+	button_icon_state = "slime_core"
 	background_icon_state = "bg_alien"
 	/// Do you need to be a slime-person to use this ability?
 	var/slime_restricted = TRUE
