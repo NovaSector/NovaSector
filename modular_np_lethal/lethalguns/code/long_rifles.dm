@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/marsian_super_rifle
 	name = "\improper Fukiya double-barrel rifle"
-	desc = "A traditional shotgun with wood furniture and a four-shell capacity underneath."
+	desc = "A double-barrel over-under rifle of considerable length that fires the powerful 8mm Marsian cartridge."
 
 	icon = 'modular_np_lethal/lethalguns/icons/guns48x.dmi'
 	icon_state = "fukiya"
