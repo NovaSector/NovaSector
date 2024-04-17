@@ -1,0 +1,4 @@
+author: "SomeRandomOwl"
+delete-after: True
+changes:
+  - rscadd: "Added a variant of the interdyne modsuit to interdynes shuttle"
