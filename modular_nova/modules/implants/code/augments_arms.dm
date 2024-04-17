@@ -149,7 +149,7 @@
 	button_icon_state = "wolverine"
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill
-	name = "Dalba Masterworks 'Burrower' Integrated Drill"
+	name = "\improper Dalba Masterworks 'Burrower' Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	icon_state = "steel"
@@ -246,7 +246,7 @@
 	user.visible_message(span_warning("[user] spins [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"), span_notice("You spin [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"))
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
-	name = "Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
+	name = "\improper Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
 	items_to_create = list(/obj/item/pickaxe/drill/implant/diamond)
