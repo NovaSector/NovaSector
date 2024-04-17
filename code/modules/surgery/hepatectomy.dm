@@ -47,13 +47,13 @@
 	var/mob/living/carbon/human/human_target = target
 	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	human_target.setOrganLoss(ORGAN_SLOT_LIVER, 10) //not bad, not great
-	//NOVA EDIT BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
+	//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
 	if(target_liver)
 		if(istype(target_liver, /obj/item/organ/internal/liver/slime))
 			addtimer(VARSET_CALLBACK(target_liver, operated, FALSE), 30 SECONDS)
 		else
 			target_liver.operated = TRUE
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 	display_results(
 		user,
 		target,
