@@ -110,8 +110,13 @@
 		if(!in_range(src, user) || !user.is_holding(tool) || !picked_option)
 			return ITEM_INTERACT_BLOCKING
 		var/act_verb = LOWER_TEXT(picked_option)
+		var/has_resource
+		if(picked_option == "Mix")
+			has_resource = reagents.total_volume > 0
+		else
+			has_resource = length(contents) > 0
 
-		if((picked_option == "Mix" && reagents.total_volume <= 0) || !length(contents))
+		if(!has_resource)
 			balloon_alert(user, "nothing to [act_verb]!")
 			return ITEM_INTERACT_BLOCKING
 
