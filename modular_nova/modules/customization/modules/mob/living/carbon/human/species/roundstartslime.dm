@@ -78,7 +78,7 @@
 
 /obj/item/organ/internal/brain/slime
 	name = "core"
-	desc = "The center core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
+	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
 	zone = BODY_ZONE_CHEST
 	var/obj/effect/death_melt_type = /obj/effect/temp_visual/wizard/out
 	var/core_color = COLOR_WHITE
@@ -101,20 +101,20 @@
 /obj/item/organ/internal/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
 	if(!(gps_active))
 		return
-	user.visible_message(span_warning("[user] begins jamming their hand into a slime core! Slime goes everywhere!"),
-	span_notice("You jam your hand into the core, feeling for the densest point! Slime covers your arm."),
+	user.visible_message(span_warning("[user] begins jamming [user.p_their()] hand into a slime core! Slime goes everywhere!"),
+	span_notice("You jam your hand into the core, feeling for the densest point! Your arm is covered in slime!"),
 	span_notice("You hear an obscene squelching sound.")
 	)
 	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
 
 	if(!do_after(user, 30 SECONDS, src))
 		user.visible_message(span_warning("[user]'s hand slips out of the core before they can cause any harm!'"),
-		span_warning("Your hand slips out of the goopy core before you can find it's densest point."),
+		span_warning("Your hand slips out of the goopy core before you can find its densest point."),
 		span_notice("You hear a resounding plop.")
 		)
 		return
 
-	user.visible_message(span_warning("[user] crunches something deep in the slime core! It gradually stops glowing."),
+	user.visible_message(span_warning("[user] crunches something deep in the slime core! It gradually stops glowing..."),
 	span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissapates."),
 	span_notice("You hear a wet crunching sound."))
 	playsound(user, 'sound/effects/wounds/crackandbleed.ogg', 80, TRUE)
@@ -128,6 +128,10 @@
 	colorize()
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
+	
+/obj/item/organ/internal/brain/slime/Remove(mob/living/carbon/organ_owner, special, movement_flags)
+	UnregisterSignal(organ_owner, COMSIG_MOB_STATCHANGE)
+	return ..()
 
 /obj/item/organ/internal/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
@@ -140,6 +144,7 @@
 	if(new_stat != DEAD)
 		return
 
+	UnregisterSignal(organ_owner, COMSIG_MOB_STATCHANGE)
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
 
 ///////
@@ -151,16 +156,16 @@
 		return
 	core_ejected = TRUE
 	victim.visible_message(span_warning("[victim]'s body completely dissolves, collapsing outwards!"), span_notice("Your body completely dissolves, collapsing outwards!"), span_notice("You hear liquid splattering."))
-	var/turf/death_turf = get_turf(victim)
+	var/atom/death_loc = drop_loc(victim)
 	victim.unequip_everything()
 	if(victim.get_organ_slot(ORGAN_SLOT_BRAIN) == src)
 		Remove(victim)
-	if(death_turf)
-		forceMove(death_turf)
+	if(death_loc)
+		forceMove(death_loc)
 	src.wash(CLEAN_WASH)
 	new death_melt_type(death_turf, victim.dir)
 
-	do_steam_effects(death_turf)
+	do_steam_effects(get_turf(victim))
 	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
@@ -195,6 +200,12 @@
 
 		//we have the plasma. we can rebuild them.
 		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
+		if(isnull(brainmob))
+			user.balloon_alert("This brain is not a viable candidate for repair!")
+			return TRUE
+		if(isnull(brainmob.stored_dna))
+			user.balloon_alert("This brain does not contain any dna!")
+			return TRUE
 
 		new_body.underwear = "Nude"
 		new_body.bra = "Nude"
@@ -219,7 +230,7 @@
 			if(!istype(bodypart, /obj/item/bodypart/chest))
 				qdel(bodypart)
 				continue
-		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from their core, yet to form the rest."))
+		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
 		brainmob.mind.transfer_to(new_body)
 		return TRUE
@@ -282,7 +293,7 @@
 		return
 
 	user.apply_status_effect(/datum/status_effect/slime_washing)
-	user.visible_message(span_purple("[user]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into their inner layer!"), span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
+	user.visible_message(span_purple("[user]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into [user.p.their()] inner layer!"), span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
 
 /datum/action/cooldown/spell/slime_washing/proc/slime_washing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
 	if(!user.has_status_effect(/datum/status_effect/slime_washing))
@@ -992,10 +1003,10 @@
 	if(slime_restricted && !isjellyperson(slime))
 		return
 	if(core.gps_active)
-		to_chat(owner,span_notice("You tune out the electromagnetic signals from your core so they are ignored by GPS receivers upon it's rejection."))
+		to_chat(owner,span_notice("You tune out the electromagnetic signals from your core so they are ignored by GPS receivers upon its rejection."))
 		core.gps_active = FALSE
 	else
-		to_chat(owner, span_notice("You fine-tune the electromagnetic signals from your core to be picked up by GPS receivers upon it's rejection."))
+		to_chat(owner, span_notice("You fine-tune the electromagnetic signals from your core to be picked up by GPS receivers upon its rejection."))
 		core.gps_active = TRUE
 
 #undef SLIME_ACTIONS_ICON_FILE

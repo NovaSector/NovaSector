@@ -42,12 +42,12 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly,
 	)
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
+	// NOVA EDIT ADDITION BEGIN
 	var/datum/action/innate/alter_form/alter_form
-	//NOVA EDIT ADDITION - BEGIN
 	var/datum/action/cooldown/spell/slime_washing/slime_washing
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
 	var/datum/action/innate/core_signal/core_signal
-	//NOVA EDIT ADDITION - END
+	//NOVA EDIT ADDITION END
 
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
 	. = ..()

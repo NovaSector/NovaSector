@@ -23,7 +23,7 @@
 //Not a stomach, but suitable for where we keep oversized schtuff.
 /obj/item/organ/internal/brain/slime/oversized
 	name = "oversized core"
-	desc = "The center core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria? This one is enormous."
+	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria? This one is enormous."
 	brain_size = 2
 
 /obj/item/organ/internal/stomach/ethereal/proc/ethereal_shock_absorb(mob/living/stomach_owner = owner, shock_damage, shock_source, siemens_coeff = 1, flags = NONE)
