@@ -547,3 +547,47 @@
       proximity, no power etc) to its user
   vinylspiders:
   - bugfix: you can deconstruct wooden fences again, but now you have to use a crowbar
+2024-04-17:
+  LT3:
+  - qol: Multi-cell charging rack cell charging power increased to 1.5MW
+  Melbert:
+  - refactor: Staff of Healing should perform slightly better.
+  NovaBot13:
+  - bugfix: Medipens can no longer be deepfried, closing an exploit that allowed people
+      to drain/inject chems into it with saltshakers and IV drips.
+  - bugfix: RPEDs can be used on vendors again. Note that only bluespace RPEDs can
+      carry vendor refills as of writing.
+  - bugfix: RPEDs can display vendor parts again.
+  - bugfix: Restocking vendors gives credits whether done manually or by RPEDs.
+  - bugfix: Vendors reset their contained credits when restocked.
+  - bugfix: Probably fixed directional tinted windows looking like directional frosted
+      windows
+  - image: Deleted a bunch of unused structure sprites
+  - bugfix: basic bots no longer start with all access
+  - bugfix: Ordinance lab igniter in Icebox works again
+  - bugfix: closets & crates will dump all contents out first before deleting itself
+      regardless of `NO_DEBRIS_AFTER_DECONSTRUCTION` thus not for e.g. hard deleting
+      mobs inside it
+  - bugfix: CentCom dispatched a team of interns to fix the loot panel's loading message.
+      It should now load properly. It did before too, but now the message is fixed.
+  - bugfix: tramstation AI sat starts full
+  - bugfix: wiring newly built SMESes should place new teminal under the player and
+      not under the SMES itself.
+  - bugfix: Cleans up some rocks on Birdshot
+  - bugfix: facescarf ui toggle button works again
+  - image: Fixed the lobby menu's collapse button being offset by a pixel
+  - bugfix: Anomalous Research ruin Bioscrambler anomalies won't home in on targets
+  - bugfix: Bioscrambler won't randomly drop its target for no reason
+  - admin: Reactivating an anomaly core via the anomaly releaser is now logged.
+  - bugfix: Fixes various bugs related to dimensional/spectral anomalies moving when
+      they should not.
+  - bugfix: Birdshot now have engi wardrope
+  Vect0r:
+  - bugfix: 'BIRDSHOT: the clown now has a megaphone. Go honk!'
+  Zergspower:
+  - rscadd: Replaces the Chevvy with the Burst for the BMD role
+  - qol: rebrands the BMD to be more of a trader route, with an incentive to recruit
+      a partner from the station.
+  - code_imp: Ghost roles defined with an ID are excluded from paychecks properly
+      now
+  - code_imp: the Blackmarket area is not longer magically powered
