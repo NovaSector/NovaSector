@@ -61,6 +61,10 @@
 	balloon_alert_to_viewers(anchored ? "secured" : "unsecured")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
+/obj/structure/large_mortar/attackby(obj/item/attacking_item, mob/living/carbon/human/user)
+	if(attacking_item.is_refillable())
+		return
+
 /obj/structure/large_mortar/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	. = ..()
 	if(. || user.combat_mode || tool.is_refillable())
