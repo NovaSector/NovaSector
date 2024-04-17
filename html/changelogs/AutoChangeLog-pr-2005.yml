@@ -1,0 +1,7 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "Replaces the Chevvy with the Burst for the BMD role"
+  - qol: "rebrands the BMD to be more of a trader route, with an incentive to recruit a partner from the station."
+  - code_imp: "Ghost roles defined with an ID are excluded from paychecks properly now"
+  - code_imp: "the Blackmarket area is not longer magically powered"
