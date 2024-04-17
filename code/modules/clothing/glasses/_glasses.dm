@@ -65,17 +65,10 @@
 				H.set_eye_blur_if_lower(10 SECONDS)
 				eyes.apply_organ_damage(5)
 
-<<<<<<< HEAD
-/obj/item/clothing/glasses/AltClick(mob/user)
-	. = ..() //NOVA EDIT ADDITION
-	if(glass_colour_type && !forced_glass_color && ishuman(user))
-		var/mob/living/carbon/human/human_user = user
-=======
 /obj/item/clothing/glasses/click_alt(mob/user)
 	if(isnull(glass_colour_type) || forced_glass_color || !ishuman(user))
 		return NONE
 	var/mob/living/carbon/human/human_user = user
->>>>>>> 8e3f635b988 (Alt click refactor (#82656))
 
 	if (HAS_TRAIT_FROM(human_user, TRAIT_SEE_GLASS_COLORS, GLASSES_TRAIT))
 		REMOVE_TRAIT(human_user, TRAIT_SEE_GLASS_COLORS, GLASSES_TRAIT)
