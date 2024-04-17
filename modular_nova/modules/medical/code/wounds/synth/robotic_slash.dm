@@ -347,15 +347,22 @@
 	if (HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		change *= 1.5
 
+	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
+	suture_loop(suturing_item, user, change, delay_mult)
+	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
+	return TRUE
+
+/// Does a while loop that repairs us with cables. A proc for containing runtimes and allowing trait removal at all times.
+/datum/wound/electrical_damage/proc/suture_loop(obj/item/stack/suturing_item, mob/living/carbon/human/user, change, delay_mult)
+	var/is_suture = (istype(suturing_item, /obj/item/stack/medical/suture))
 	var/their_or_other = (user == victim ? "[user.p_their()]" : "[victim]'s")
 	var/your_or_other = (user == victim ? "your" : "[victim]'s")
 	var/replacing_or_suturing = (is_suture ? "repairing some" : "replacing")
-	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	while (suturing_item.tool_start_check())
 		user?.visible_message(span_danger("[user] begins [replacing_or_suturing] wiring within [their_or_other] [limb.plaintext_zone] with [suturing_item]..."), \
 			span_notice("You begin [replacing_or_suturing] wiring within [your_or_other] [limb.plaintext_zone] with [suturing_item]..."))
 		if (!suturing_item.use_tool(target = victim, user = user, delay = ELECTRICAL_DAMAGE_SUTURE_WIRE_BASE_DELAY * delay_mult, amount = 1, volume = 50, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
-			break
+			return
 
 		if (user != victim && user.combat_mode)
 			user?.visible_message(span_danger("[user] mangles some of [their_or_other] [limb.plaintext_zone]'s wiring!"), \
@@ -368,12 +375,10 @@
 			user?.visible_message(span_notice("[user] [repairs_or_replaces] some of [their_or_other] [limb.plaintext_zone]'s wiring!"), \
 				span_notice("You [repair_or_replace] some of [your_or_other] [limb.plaintext_zone]'s wiring!"))
 			adjust_intensity(-change)
-			victim.balloon_alert(user, "intensity reduced to [get_intensity_mult() * 100]%")
+			victim?.balloon_alert(user, "intensity reduced to [get_intensity_mult() * 100]%")
 
 		if (fixed())
-			break
-	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
-	return TRUE
+			return
 
 /**
  * The "proper" treatment, done with wirecutters/retractors. Retractors get a debuff.
@@ -408,14 +413,20 @@
 	if (HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		change *= 1.5
 
+	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
+	wirecut_loop(wirecutting_tool, user, change, delay_mult)
+	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
+	return TRUE
+
+/// Does a while loop that repairs us with a wirecutter. A proc for containing runtimes and allowing trait removal at all times.
+/datum/wound/electrical_damage/proc/wirecut_loop(obj/item/wirecutting_tool, mob/living/carbon/human/user, change, delay_mult)
 	var/their_or_other = (user == victim ? "[user.p_their()]" : "[victim]'s")
 	var/your_or_other = (user == victim ? "your" : "[victim]'s")
-	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	while (wirecutting_tool.tool_start_check())
 		user?.visible_message(span_danger("[user] begins resetting misplaced wiring within [their_or_other] [limb.plaintext_zone]..."), \
 			span_notice("You begin resetting misplaced wiring within [your_or_other] [limb.plaintext_zone]..."))
 		if (!wirecutting_tool.use_tool(target = victim, user = user, delay = ELECTRICAL_DAMAGE_WIRECUTTER_BASE_DELAY * delay_mult, volume = 50, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
-			break
+			return
 
 		if (user != victim && user.combat_mode)
 			user?.visible_message(span_danger("[user] mangles some of [their_or_other] [limb.plaintext_zone]'s wiring!"), \
@@ -426,12 +437,10 @@
 			user?.visible_message(span_notice("[user] resets some of [their_or_other] [limb.plaintext_zone]'s wiring!"), \
 				span_notice("You reset some of [your_or_other] [limb.plaintext_zone]'s wiring!"))
 			adjust_intensity(-change)
-			victim.balloon_alert(user, "intensity reduced to [get_intensity_mult() * 100]%")
+			victim?.balloon_alert(user, "intensity reduced to [get_intensity_mult() * 100]%")
 
 		if (fixed())
-			break
-	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
-	return TRUE
+			return
 
 /// If fixed() is true, we remove ourselves and return TRUE. FALSE otherwise.
 /datum/wound/electrical_damage/proc/remove_if_fixed()
