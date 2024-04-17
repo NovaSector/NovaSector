@@ -110,6 +110,12 @@
 		if(!in_range(src, user) || !user.is_holding(tool) || !picked_option)
 			return ITEM_INTERACT_BLOCKING
 		var/act_verb = LOWER_TEXT(picked_option)
+		var/act_verb_ing
+		if(act_verb == "juice")
+			act_verb_ing = "juicing"
+		else
+			act_verb_ing = "[act_verb]ing"
+
 		var/has_resource
 		if(picked_option == "Mix")
 			has_resource = reagents.total_volume > 0
@@ -120,9 +126,9 @@
 			balloon_alert(user, "nothing to [act_verb]!")
 			return ITEM_INTERACT_BLOCKING
 
-		balloon_alert_to_viewers("[act_verb]ing...")
+		balloon_alert_to_viewers("[act_verb_ing]...")
 		if(!do_after(user, 5 SECONDS, target = src))
-			balloon_alert_to_viewers("stopped [act_verb]ing")
+			balloon_alert_to_viewers("stopped [act_verb_ing]")
 			return ITEM_INTERACT_BLOCKING
 
 		user.adjustStaminaLoss(LARGE_MORTAR_STAMINA_USE) //This is a bit more tiring than a normal sized mortar and pestle
