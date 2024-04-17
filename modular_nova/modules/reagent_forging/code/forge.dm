@@ -777,7 +777,7 @@
 		used_rods = used_rods - 1
 
 	rod_item.use(used_rods)
-	var/obj/item/stack/sheet/iron/result = new(drop_location(), rods_to_sheet_amount)
+	new /obj/item/stack/sheet/iron(drop_location(), rods_to_sheet_amount)
 
 	balloon_alert_to_viewers("finished smelting!")
 
@@ -935,7 +935,9 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/reagent_forge/wrench_act(mob/living/user, obj/item/tool)
-	tool.play_tool_sound(src)
+	user.balloon_alert_to_viewers("disassembling...")
+	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
+		return
 	deconstruct(TRUE)
 	return TRUE
 
