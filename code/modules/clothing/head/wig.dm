@@ -31,6 +31,7 @@
 		icon_state = hair_style.icon_state
 	return ..()
 
+<<<<<<< HEAD
 
 /obj/item/clothing/head/wig/build_worn_icon(
 	default_layer = 0,
@@ -44,6 +45,8 @@
 )
 	return ..(default_layer, default_icon_file, isinhands, female_uniform, override_state, override_file, use_height_offset = FALSE)
 
+=======
+>>>>>>> c66636d21e0 (Fix height settings double-applying offsets / some human icon gen cleanup I guess (#82672))
 /obj/item/clothing/head/wig/worn_overlays(mutable_appearance/standing, isinhands = FALSE, file2use)
 	. = ..()
 	if(isinhands)
