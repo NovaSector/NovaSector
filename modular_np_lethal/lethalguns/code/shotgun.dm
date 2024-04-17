@@ -36,6 +36,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 
+	recoil = 2
+
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/s6gauge
 
 /obj/item/gun/ballistic/shotgun/ramu/give_manufacturer_examine()
@@ -97,6 +99,7 @@
 	fire_delay = 0.5 SECONDS
 
 	projectile_wound_bonus = -10
+	recoil = 0.5
 
 /obj/item/gun/ballistic/automatic/nomi_shotgun/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)

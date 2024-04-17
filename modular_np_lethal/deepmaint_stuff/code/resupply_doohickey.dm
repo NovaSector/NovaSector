@@ -30,6 +30,9 @@
 				/obj/item/ammo_box/magazine/ammo_stack/c40_sol/prefilled = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/c310_strilka/prefilled = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/c60_strela/prefilled = INFINITY,
+				/obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled = INFINITY,
+				/obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled = INFINITY,
+				/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled = INFINITY,
 			),
 		),
 	)

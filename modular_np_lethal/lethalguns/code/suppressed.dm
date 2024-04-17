@@ -103,9 +103,17 @@
 
 /obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher/attackby(obj/item/attacking, mob/user, params)
 	if(isammocasing(attacking))
-		if(istype(attacking, underbarrel.magazine.ammo_type))
+		var/obj/item/ammo_casing/attacking_casing = attacking
+		if(attacking_casing.caliber == underbarrel.magazine.caliber)
 			underbarrel.attack_self(user)
 			underbarrel.attackby(attacking, user, params)
+	else if(isammobox(attacking))
+		var/obj/item/ammo_box/attacking_box = attacking
+		if(attacking_box.caliber == underbarrel.magazine.caliber)
+			underbarrel.attack_self(user)
+			underbarrel.attackby(attacking, user, params)
+		else
+			..()
 	else
 		..()
 
@@ -148,7 +156,8 @@
 	fire_delay = 0.5 SECONDS
 	spread = 0
 
-	projectile_damage_multiplier = 1.2
+	projectile_damage_multiplier = 1.5
+	recoil = 0.5
 
 /obj/item/gun/ballistic/automatic/suppressed_rifle/marksman/Initialize(mapload)
 	. = ..()

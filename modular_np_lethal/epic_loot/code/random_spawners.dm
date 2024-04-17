@@ -485,6 +485,18 @@
 		/obj/item/ammo_box/c27_54cesarzowa = 2,
 		/obj/item/ammo_box/magazine/ammo_stack/c27_54cesarzowa/prefilled/incapacitator = 2,
 		/obj/item/ammo_box/c27_54cesarzowa/rubber = 2,
+		// 12mm silenced
+		/obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled = 2,
+		/obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled/special = 1,
+		/obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled/tracer = 2,
+		// 8mm mars
+		/obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled = 2,
+		/obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled/shockwave = 1,
+		/obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled/piercing = 1,
+		// 6 gauge
+		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled = 2,
+		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/longshot = 1,
+		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/slug = 2,
 		// .60
 		/obj/item/ammo_box/magazine/ammo_stack/c60_strela/prefilled = 2,
 		/obj/item/ammo_casing/p60strela = 2,
@@ -500,6 +512,10 @@
 		/obj/item/ammo_box/magazine/miecz = 2,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = 2,
 		/obj/item/ammo_box/magazine/wylom = 1,
+		/obj/item/ammo_box/magazine/c12chinmoku = 2,
+		/obj/item/ammo_box/magazine/c12chinmoku/standard = 1,
+		/obj/item/ammo_box/magazine/c12nomi = 2,
+		/obj/item/ammo_box/magazine/c8marsian = 2,
 		// Shotgun shells
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/antitide = 1,
@@ -549,6 +565,8 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 2,
 		/obj/item/gun/ballistic/revolver/shotgun_revolver = 2,
 		/obj/item/gun/ballistic/automatic/miecz = 1,
+		/obj/item/gun/ballistic/automatic/seiba_smg = 1,
+		/obj/item/gun/ballistic/automatic/pistol/weevil = 2,
 		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
 		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 1,
 	)
@@ -578,6 +596,13 @@
 		/obj/item/gun/ballistic/automatic/wylom = 1,
 		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
 		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 1,
+		/obj/item/gun/ballistic/automatic/suppressed_rifle = 2,
+		/obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher = 1,
+		/obj/item/gun/ballistic/automatic/suppressed_rifle/marksman = 2,
+		/obj/item/gun/ballistic/marsian_super_rifle = 2,
+		/obj/item/gun/ballistic/rifle/chokyu = 1,
+		/obj/item/gun/ballistic/shotgun/ramu = 1,
+		/obj/item/gun/ballistic/automatic/nomi_shotgun = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_other_military_loot

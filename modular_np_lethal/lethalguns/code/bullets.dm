@@ -11,17 +11,19 @@
 	caliber = CALIBER_12MMCHINMOKU
 	projectile_type = /obj/projectile/bullet/c12chinmoku
 
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku
+
 /obj/projectile/bullet/c12chinmoku
 	name = "12mm Chinmoku bullet"
-	damage = 50
+	damage = 40
 	spread = 2
 
 	wound_bonus = 10
 	bare_wound_bonus = 20
 
-	wound_falloff_tile = 1
+	wound_falloff_tile = 2
 	damage_falloff_tile = 3
-	speed = 1.5
+	speed = 1.2
 
 /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku
 	name = "12mm Chinmoku casings"
@@ -63,12 +65,12 @@
 
 /obj/projectile/bullet/c12chinmoku/special
 	name = "12mm Chinmoku 'special' bullet"
-	damage = 50
+	damage = 40
 	armour_penetration = 30
 	spread = 4
 
 	wound_falloff_tile = 1.5
-	damage_falloff_tile = 4
+	damage_falloff_tile = 5
 
 // Chinmoku tracer, the same as regular chinmoku but it looks cool as fuck in the dark
 
@@ -110,6 +112,8 @@
 
 	caliber = CALIBER_8MMMARSIAN
 	projectile_type = /obj/projectile/bullet/c8marsian
+
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c8marsian
 
 /obj/projectile/bullet/c8marsian
 	name = "8mm Marsian bullet"
@@ -205,6 +209,8 @@
 	pellets = 8
 	variance = 35
 
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/s6gauge
+
 /obj/projectile/bullet/s6gauge
 	name = "6 gauge buckshot pellet"
 	damage = 7.5
@@ -219,7 +225,7 @@
 	desc = "A stack of 6 gauge shells."
 	caliber = CALIBER_6GAUGE
 	ammo_type = /obj/item/ammo_casing/s6gauge
-	max_ammo = 6
+	max_ammo = 4
 	casing_x_positions = list(
 		-8,
 		-4,
@@ -232,10 +238,10 @@
 /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled
 	start_empty = FALSE
 
-/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/special
+/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/longshot
 	ammo_type = /obj/item/ammo_casing/s6gauge/longshot
 
-/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/tracer
+/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/slug
 	ammo_type = /obj/item/ammo_casing/s6gauge/slug
 
 // 6 gauge buckshot but with a spread better made for longer range fighting
