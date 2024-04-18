@@ -74,7 +74,7 @@
 	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
 	internals_slot = ITEM_SLOT_RPOCKET
 	shoes = /obj/item/clothing/shoes/combat/coldres
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat
 	back = /obj/item/tank/jetpack/oxygen/harness
 	id = /obj/item/card/id/advanced/chameleon
 

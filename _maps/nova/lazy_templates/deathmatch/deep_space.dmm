@@ -5,8 +5,7 @@
 /turf/open/space/basic,
 /area/deathmatch)
 "aq" = (
-/obj/effect/turf_decal/sand/plating,
-/obj/effect/landmark/deathmatch_player_spawn,
+/obj/item/storage/toolbox/guncase/nova/opfor/rebar_crossbow,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "aF" = (
@@ -130,12 +129,20 @@
 /area/deathmatch)
 "fs" = (
 /obj/machinery/light/broken/directional/south,
+/obj/machinery/porta_turret_construct{
+	anchored = 1
+	},
 /turf/open/floor/iron,
 /area/deathmatch)
 "fF" = (
-/obj/structure/lattice/catwalk,
 /obj/item/mecha_parts/mecha_equipment/thrusters/ion,
-/turf/open/space/basic,
+/obj/item/mecha_ammo/lmg,
+/obj/item/mecha_ammo/lmg{
+	pixel_y = 12
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "fG" = (
 /obj/structure/lattice,
@@ -147,7 +154,6 @@
 /obj/structure/fluff/tram_rail/floor{
 	dir = 1
 	},
-/obj/item/stock_parts/cell/high,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "fL" = (
@@ -157,7 +163,6 @@
 /obj/structure/railing/corner/end/flip{
 	dir = 4
 	},
-/obj/effect/mob_spawn/corpse/human/engineer,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -199,6 +204,7 @@
 /area/deathmatch)
 "hu" = (
 /obj/item/stack/sheet/iron/ten,
+/obj/item/stack/cable_coil,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "hH" = (
@@ -243,6 +249,9 @@
 /area/deathmatch)
 "is" = (
 /obj/machinery/light/broken/directional/north,
+/obj/machinery/porta_turret_construct{
+	anchored = 1
+	},
 /turf/open/floor/iron,
 /area/deathmatch)
 "iV" = (
@@ -280,6 +289,7 @@
 /obj/item/resonator/upgraded,
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "lf" = (
@@ -310,6 +320,10 @@
 	},
 /turf/open/floor/iron/small,
 /area/deathmatch)
+"lE" = (
+/mob/living/basic/carp/mega,
+/turf/open/misc/asteroid/dug,
+/area/deathmatch)
 "lF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fluff/fake_scrubber,
@@ -321,7 +335,8 @@
 /obj/item/sign/flag/syndicate{
 	pixel_y = 4
 	},
-/turf/open/misc/asteroid,
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "lV" = (
 /obj/effect/turf_decal/stripes/line{
@@ -355,7 +370,8 @@
 /turf/open/floor/plating,
 /area/deathmatch)
 "ne" = (
-/mob/living/basic/carp/mega,
+/obj/structure/lattice/catwalk,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/space/basic,
 /area/deathmatch)
 "ni" = (
@@ -374,7 +390,7 @@
 	light_color = "#DEEFFF";
 	set_luminosity = 4
 	},
-/obj/item/storage/toolbox/guncase/nova/opfor/rebar_crossbow,
+/obj/item/stack/rods/twentyfive,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "ny" = (
@@ -422,13 +438,13 @@
 /turf/open/floor/grass,
 /area/deathmatch)
 "oG" = (
-/obj/structure/festivus/anchored,
 /mob/living/basic/carp,
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "oJ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/misc/asteroid,
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "oO" = (
 /obj/machinery/door/airlock/external,
@@ -505,12 +521,9 @@
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "rC" = (
-/obj/structure/lattice/catwalk,
-/obj/item/mecha_ammo/lmg,
-/obj/item/mecha_ammo/lmg{
-	pixel_y = 12
-	},
-/turf/open/space/basic,
+/obj/effect/turf_decal/delivery,
+/obj/item/crowbar/large/doorforcer,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "rG" = (
 /obj/effect/decal/cleanable/glass/titanium,
@@ -543,7 +556,9 @@
 /turf/open/floor/iron/herringbone,
 /area/deathmatch)
 "tc" = (
-/obj/structure/fans/tiny/shield,
+/obj/structure/fans/tiny/shield{
+	density = 1
+	},
 /turf/open/floor/vault,
 /area/deathmatch)
 "tA" = (
@@ -596,9 +611,7 @@
 /area/deathmatch)
 "vh" = (
 /obj/machinery/light/directional/north,
-/obj/machinery/porta_turret{
-	on = 0
-	},
+/obj/machinery/porta_turret/dm,
 /turf/open/floor/iron,
 /area/deathmatch)
 "vn" = (
@@ -609,8 +622,8 @@
 /turf/closed/indestructible/fakedoor/glass_airlock,
 /area/deathmatch)
 "vy" = (
-/obj/item/clothing/suit/armor/reactive/tesla,
-/turf/open/misc/asteroid/airless,
+/obj/effect/mob_spawn/corpse/human/damaged,
+/turf/open/space/basic,
 /area/deathmatch)
 "vz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -688,7 +701,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/item/storage/toolbox/electrical,
+/obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "xL" = (
@@ -722,6 +735,7 @@
 "yl" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/transport/crossing_signal/northeast,
+/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "ys" = (
@@ -772,8 +786,7 @@
 /area/deathmatch)
 "za" = (
 /obj/structure/sign/warning/directional/north,
-/obj/structure/spacevine,
-/turf/open/misc/asteroid/airless,
+/turf/closed/mineral/random,
 /area/deathmatch)
 "zj" = (
 /obj/structure/flora/bush/fullgrass/style_random,
@@ -958,9 +971,28 @@
 /turf/open/floor/wood,
 /area/deathmatch)
 "DW" = (
-/obj/structure/lattice/catwalk,
-/obj/vehicle/sealed/mecha/gygax,
-/turf/open/space/basic,
+/obj/item/storage/belt/grenade{
+	pixel_x = 10;
+	pixel_y = -7
+	},
+/obj/item/grenade/smokebomb{
+	pixel_x = 13;
+	pixel_y = -6
+	},
+/obj/item/grenade/smokebomb{
+	pixel_x = -12;
+	pixel_y = -10
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/grenade/stingbang{
+	pixel_y = 8;
+	pixel_x = 10
+	},
+/obj/effect/mob_spawn/corpse/human/cin_soldier,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "Eb" = (
 /turf/closed/indestructible/reinforced,
@@ -988,7 +1020,8 @@
 /obj/structure/cable,
 /obj/item/storage/toolbox/guncase/nova/opfor/kiboko,
 /obj/item/sign/flag/terragov{
-	pixel_y = 4
+	pixel_y = 4;
+	layer = 3.1
 	},
 /turf/open/space/basic,
 /area/deathmatch)
@@ -1037,6 +1070,11 @@
 	},
 /turf/open/space/basic,
 /area/deathmatch)
+"FZ" = (
+/mob/living/simple_animal/pet/gondola,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/turf/open/floor/grass,
+/area/deathmatch)
 "Gl" = (
 /obj/structure/table/glass,
 /obj/item/storage/medkit/fire,
@@ -1064,8 +1102,9 @@
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "Hc" = (
-/mob/living/basic/carp,
-/turf/open/space/basic,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
+/turf/open/floor/iron/herringbone,
 /area/deathmatch)
 "Hg" = (
 /obj/effect/landmark/deathmatch_player_spawn,
@@ -1113,9 +1152,10 @@
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "Ic" = (
-/obj/effect/turf_decal/sand/plating,
-/obj/item/stack/cable_coil,
-/turf/open/floor/plating/airless,
+/obj/structure/flora/rock/pile/icy/style_random,
+/mob/living/basic/carp,
+/obj/structure/festivus/anchored,
+/turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "Iv" = (
 /obj/structure/lattice/catwalk,
@@ -1205,7 +1245,7 @@
 /turf/open/floor/grass,
 /area/deathmatch)
 "Ki" = (
-/obj/item/spear,
+/obj/item/toy/plush/lizard_plushie/space,
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "Km" = (
@@ -1214,7 +1254,10 @@
 /turf/open/floor/iron/herringbone,
 /area/deathmatch)
 "Ko" = (
-/obj/item/stack/sheet/iron/five,
+/obj/item/storage/toolbox/guncase/rocketlauncher{
+	weapon_to_spawn = /obj/item/gun/ballistic/rocketlauncher/unrestricted;
+	pixel_x = 6
+	},
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "KE" = (
@@ -1239,8 +1282,10 @@
 /turf/open/space/basic,
 /area/deathmatch)
 "Lw" = (
-/obj/item/stack/rods/twentyfive,
-/turf/open/floor/plating/airless,
+/obj/structure/lattice/catwalk,
+/obj/item/ammo_casing/rebar/syndie,
+/obj/effect/decal/cleanable/blood,
+/turf/open/space/basic,
 /area/deathmatch)
 "LO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1293,7 +1338,6 @@
 "NK" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/fluff/tram_rail/floor,
-/obj/item/crowbar/large/doorforcer,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "NS" = (
@@ -1301,11 +1345,12 @@
 /turf/open/floor/iron/white,
 /area/deathmatch)
 "Od" = (
-/obj/structure/lattice/catwalk,
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg{
-	pixel_y = -8
-	},
-/turf/open/space/basic,
+/obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
+/obj/item/storage/pouch/ammo,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "Ov" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -1324,8 +1369,10 @@
 /turf/open/floor/iron/white,
 /area/deathmatch)
 "OL" = (
-/mob/living/basic/creature,
-/turf/open/misc/asteroid,
+/obj/vehicle/sealed/mecha/gygax,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "OQ" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
@@ -1422,6 +1469,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/item/storage/toolbox/electrical,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "So" = (
@@ -1443,6 +1491,10 @@
 "Tb" = (
 /obj/structure/railing/corner,
 /turf/open/floor/plating/airless,
+/area/deathmatch)
+"Tq" = (
+/obj/effect/mob_spawn/corpse/human/roboticist,
+/turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "TP" = (
 /obj/effect/mob_spawn/corpse/human/skeleton,
@@ -1568,6 +1620,11 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/deathmatch)
+"YX" = (
+/obj/effect/turf_decal/delivery,
+/obj/item/stock_parts/cell/high,
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "Zf" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
@@ -1600,9 +1657,7 @@
 /area/deathmatch)
 "ZW" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/porta_turret{
-	on = 0
-	},
+/obj/machinery/porta_turret/dm,
 /turf/open/floor/iron,
 /area/deathmatch)
 
@@ -1624,7 +1679,7 @@ qw
 qw
 ZK
 aH
-Ko
+ZK
 zJ
 ZK
 ll
@@ -1666,7 +1721,7 @@ qw
 dH
 KK
 NK
-Ic
+Jv
 fH
 Jv
 vJ
@@ -1680,7 +1735,7 @@ Eb
 gf
 Eb
 lF
-LO
+Hc
 Jb
 LO
 xL
@@ -1708,7 +1763,7 @@ sT
 bL
 KJ
 Rf
-CT
+YX
 CA
 mO
 Rr
@@ -1750,7 +1805,7 @@ dH
 ZS
 hu
 aF
-CT
+rC
 vY
 yl
 Bc
@@ -1818,11 +1873,11 @@ Eb
 "}
 (6,1,1) = {"
 qw
-VN
+qw
 bW
 xM
+zj
 Vo
-xM
 yb
 zj
 LV
@@ -1860,8 +1915,8 @@ Eb
 "}
 (7,1,1) = {"
 qw
-LV
-Kh
+qw
+FZ
 zj
 oi
 pP
@@ -1902,8 +1957,8 @@ yN
 "}
 (8,1,1) = {"
 qw
+qw
 xM
-VN
 bW
 VN
 VN
@@ -1945,8 +2000,8 @@ Eb
 (9,1,1) = {"
 qw
 qw
+qw
 oi
-VN
 xM
 LV
 xM
@@ -1958,7 +2013,7 @@ Mw
 wf
 wf
 wf
-wf
+vy
 El
 wf
 Yo
@@ -1987,8 +2042,8 @@ yN
 (10,1,1) = {"
 qw
 qw
-RU
 qw
+RU
 qw
 qw
 qw
@@ -2029,10 +2084,10 @@ Eb
 (11,1,1) = {"
 qw
 qw
+qw
 VN
 qw
 gd
-qw
 qw
 qw
 qw
@@ -2071,8 +2126,8 @@ Eb
 (12,1,1) = {"
 qw
 qw
-xB
 qw
+xB
 qw
 qw
 dH
@@ -2113,8 +2168,8 @@ Eb
 (13,1,1) = {"
 dH
 za
-Mw
 qw
+Mw
 qw
 HA
 hk
@@ -2232,8 +2287,8 @@ wf
 wf
 wf
 uA
-fF
-zB
+ys
+ne
 ll
 "}
 (16,1,1) = {"
@@ -2275,7 +2330,7 @@ wf
 wf
 ys
 DW
-rC
+zB
 ll
 "}
 (17,1,1) = {"
@@ -2316,7 +2371,7 @@ wf
 wf
 wf
 Di
-Od
+Lw
 Zw
 ll
 "}
@@ -2359,7 +2414,7 @@ wf
 wf
 AD
 ys
-ys
+Iv
 ll
 "}
 (19,1,1) = {"
@@ -2400,8 +2455,8 @@ RV
 RV
 RV
 Sj
-KJ
 aq
+eE
 ll
 "}
 (20,1,1) = {"
@@ -2443,7 +2498,7 @@ wf
 wf
 xJ
 nu
-eE
+SS
 ll
 "}
 (21,1,1) = {"
@@ -2484,8 +2539,8 @@ wf
 wf
 wf
 fP
-Lw
-SS
+KJ
+Jv
 ll
 "}
 (22,1,1) = {"
@@ -2653,7 +2708,7 @@ rN
 wf
 wf
 ZK
-HA
+Ic
 ll
 "}
 (26,1,1) = {"
@@ -2694,8 +2749,8 @@ rN
 rN
 rN
 wf
-FP
-ZK
+lE
+Ko
 ll
 "}
 (27,1,1) = {"
@@ -2778,8 +2833,8 @@ XE
 rN
 wf
 wf
-ne
-vy
+wf
+ZK
 ll
 "}
 (29,1,1) = {"
@@ -2792,7 +2847,7 @@ wf
 wf
 rN
 rN
-ZK
+Od
 vn
 ys
 wf
@@ -2821,7 +2876,7 @@ wf
 wf
 wf
 wf
-Hc
+wf
 ll
 "}
 (30,1,1) = {"
@@ -3062,7 +3117,7 @@ ZK
 wf
 wf
 ZK
-ZK
+HA
 wf
 tA
 wf
@@ -3102,9 +3157,9 @@ HA
 wf
 wf
 wf
-ZK
+Tq
 qw
-HA
+qw
 FP
 Ar
 GM
@@ -3128,7 +3183,7 @@ dx
 dx
 FS
 wf
-wf
+nK
 wf
 wf
 wf
@@ -3143,7 +3198,7 @@ wf
 wf
 wf
 HZ
-FP
+qw
 qw
 qw
 qw
@@ -3209,7 +3264,7 @@ Gl
 Dn
 mi
 RV
-nK
+wf
 wf
 ZK
 rN
@@ -3230,7 +3285,7 @@ qw
 qw
 qw
 OL
-qw
+fF
 qw
 qw
 qw
