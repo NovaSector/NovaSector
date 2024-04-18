@@ -72,7 +72,7 @@
 	if(!(weapon.type in stuff_we_buy))
 		return
 	var/tha_money = stuff_we_buy[weapon.type]
-	new /obj/item/stack/spacecash(drop_location(), tha_money)
+	new /obj/item/stack/spacecash/c1(drop_location(), tha_money)
 	playsound(src, 'sound/effects/cashregister.ogg', 50, TRUE)
 	qdel(weapon)
 

@@ -412,6 +412,8 @@
 	desc = "Automagically transforms into some kind of explosive or grenade."
 	icon_state = "random_bomb"
 	loot = list(
+		/obj/item/grenade/syndieminibomb/concussion/impact = 2,
+		/obj/item/grenade/frag/impact = 2,
 		/obj/item/grenade/antigravity = 1,
 		/obj/item/grenade/barrier = 3,
 		/obj/item/grenade/c4 = 1,
