@@ -323,6 +323,10 @@
 /obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
+"so" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark/airless,
+/area/ruin/space/has_grav/nova/blackmarket)
 "sB" = (
 /obj/structure/table,
 /obj/structure/towel_bin,
@@ -1572,7 +1576,7 @@ uG
 AG
 KV
 Yy
-KV
+so
 fu
 qY
 hd
