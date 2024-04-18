@@ -21,8 +21,7 @@
 	wound_bonus = 10
 	bare_wound_bonus = 20
 
-	wound_falloff_tile = 2
-	damage_falloff_tile = 3
+	damage_falloff_tile = -3
 	speed = 1.2
 
 /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku
@@ -69,8 +68,7 @@
 	armour_penetration = 30
 	spread = 4
 
-	wound_falloff_tile = 1.5
-	damage_falloff_tile = 5
+	damage_falloff_tile = -5
 
 // Chinmoku tracer, the same as regular chinmoku but it looks cool as fuck in the dark
 
@@ -123,7 +121,6 @@
 	wound_bonus = 10
 	bare_wound_bonus = 20
 
-	wound_falloff_tile = 0.5
 	speed = 0.5
 
 /obj/item/ammo_box/magazine/ammo_stack/c8marsian
@@ -169,7 +166,6 @@
 	icon_state = "flight"
 	damage = 40
 
-	wound_falloff_tile = 0.25
 	speed = 0.3
 
 // Marsian AP, has armor piercing and slightly less damage, but has some
@@ -183,6 +179,8 @@
 
 	projectile_type = /obj/projectile/bullet/c8marsian/piercing
 
+	variance = 5
+
 /obj/projectile/bullet/c8marsian/piercing
 	name = "8mm Marsian piercing bullet"
 	icon_state = "redtrac"
@@ -190,8 +188,7 @@
 	armour_penetration = 30
 	spread = 5
 
-	wound_falloff_tile = 1
-	damage_falloff_tile = 1
+	damage_falloff_tile = -1
 	speed = 0.6
 
 // 6 gauge giant shotgun shells for killing things dead
@@ -215,8 +212,7 @@
 	name = "6 gauge buckshot pellet"
 	damage = 7.5
 
-	wound_falloff_tile = 1
-	damage_falloff_tile = 0.25
+	damage_falloff_tile = -0.25
 
 	range = 12
 
@@ -280,4 +276,4 @@
 	name = "6 gauge slug"
 	damage = 60
 	armour_penetration = 10
-	damage_falloff_tile = 1
+	damage_falloff_tile = -3
