@@ -180,7 +180,6 @@
 	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
 
 		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."), span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."))
-		brainmob.mind.grab_ghost()
 		if(!do_after(user, 60 SECONDS, src))
 			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 			return TRUE
@@ -194,6 +193,7 @@
 			qdel(GetComponent(/datum/component/gps))
 
 		//we have the plasma. we can rebuild them.
+		brainmob.mind.grab_ghost()
 		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
 		if(isnull(brainmob))
 			user.balloon_alert("This brain is not a viable candidate for repair!")
