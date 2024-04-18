@@ -348,12 +348,12 @@
 		change *= 1.5
 
 	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
-	suture_loop(suturing_item, user, change, delay_mult)
+	do_suture_repairs(suturing_item, user, change, delay_mult)
 	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	return TRUE
 
 /// Does a while loop that repairs us with cables. A proc for containing runtimes and allowing trait removal at all times.
-/datum/wound/electrical_damage/proc/suture_loop(obj/item/stack/suturing_item, mob/living/carbon/human/user, change, delay_mult)
+/datum/wound/electrical_damage/proc/do_suture_repairs(obj/item/stack/suturing_item, mob/living/carbon/human/user, change, delay_mult)
 	var/is_suture = (istype(suturing_item, /obj/item/stack/medical/suture))
 	var/their_or_other = (user == victim ? "[user.p_their()]" : "[victim]'s")
 	var/your_or_other = (user == victim ? "your" : "[victim]'s")
@@ -414,12 +414,12 @@
 		change *= 1.5
 
 	ADD_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
-	wirecut_loop(wirecutting_tool, user, change, delay_mult)
+	do_wirecutter_repairs(wirecutting_tool, user, change, delay_mult)
 	REMOVE_TRAIT(src, TRAIT_ELECTRICAL_DAMAGE_REPAIRING, REF(user))
 	return TRUE
 
 /// Does a while loop that repairs us with a wirecutter. A proc for containing runtimes and allowing trait removal at all times.
-/datum/wound/electrical_damage/proc/wirecut_loop(obj/item/wirecutting_tool, mob/living/carbon/human/user, change, delay_mult)
+/datum/wound/electrical_damage/proc/do_wirecutter_repairs(obj/item/wirecutting_tool, mob/living/carbon/human/user, change, delay_mult)
 	var/their_or_other = (user == victim ? "[user.p_their()]" : "[victim]'s")
 	var/your_or_other = (user == victim ? "your" : "[victim]'s")
 	while (wirecutting_tool.tool_start_check())
