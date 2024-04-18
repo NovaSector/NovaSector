@@ -128,8 +128,8 @@
 /area/deathmatch)
 "fd" = (
 /obj/structure/railing,
-/obj/item/grenade/c4,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/item/grenade/c4/x4,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "fs" = (
@@ -214,9 +214,12 @@
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "hH" = (
-/obj/structure/table/glass,
-/obj/item/storage/medkit/brute,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/brute{
+	pixel_y = 6
+	},
 /turf/open/floor/iron/white,
 /area/deathmatch)
 "hJ" = (
@@ -320,15 +323,15 @@
 /area/deathmatch)
 "lv" = (
 /obj/structure/fans/tiny,
-/obj/machinery/door/airlock/titanium/glass,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
+/obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/small,
 /area/deathmatch)
 "lE" = (
-/mob/living/basic/carp/mega,
-/turf/open/misc/asteroid/dug,
+/obj/effect/mob_spawn/corpse/human/monkey,
+/turf/open/space/basic,
 /area/deathmatch)
 "lF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -448,10 +451,6 @@
 "oi" = (
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
-/area/deathmatch)
-"oG" = (
-/mob/living/basic/carp,
-/turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "oJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -585,8 +584,9 @@
 /turf/open/floor/iron/herringbone,
 /area/deathmatch)
 "tc" = (
-/obj/structure/fans/tiny/shield{
-	density = 1
+/obj/structure/fans/tiny/shield,
+/obj/machinery/door/poddoor/shutters{
+	id = "dm_deepspace"
 	},
 /turf/open/floor/vault,
 /area/deathmatch)
@@ -600,6 +600,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/warning/yes_smoking/circle/directional/north,
 /turf/open/floor/iron/grimy,
 /area/deathmatch)
 "uA" = (
@@ -665,7 +666,7 @@
 /area/deathmatch)
 "vB" = (
 /obj/structure/fans/tiny,
-/obj/machinery/door/airlock/titanium/glass,
+/obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/small,
 /area/deathmatch)
 "vJ" = (
@@ -947,6 +948,9 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
+/obj/machinery/button/door/directional/east{
+	id = "dm_deepspace"
+	},
 /turf/open/floor/iron,
 /area/deathmatch)
 "CT" = (
@@ -1114,9 +1118,9 @@
 /turf/open/floor/grass,
 /area/deathmatch)
 "Gl" = (
-/obj/structure/table/glass,
-/obj/item/storage/medkit/fire,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/mechanical/regular,
 /turf/open/floor/iron/white,
 /area/deathmatch)
 "Gq" = (
@@ -1234,6 +1238,9 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
+/obj/machinery/button/door/directional/west{
+	id = "dm_deepspace"
+	},
 /turf/open/floor/iron,
 /area/deathmatch)
 "IT" = (
@@ -1302,11 +1309,8 @@
 	weapon_to_spawn = /obj/item/gun/ballistic/rocketlauncher/unrestricted;
 	pixel_x = 6
 	},
+/mob/living/basic/carp/mega,
 /turf/open/misc/asteroid/airless,
-/area/deathmatch)
-"KE" = (
-/obj/effect/landmark/deathmatch_player_spawn,
-/turf/open/space/basic,
 /area/deathmatch)
 "KJ" = (
 /turf/open/floor/plating/airless,
@@ -1371,12 +1375,13 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/item/grenade/c4,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/item/grenade/c4/x4,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "NF" = (
 /obj/structure/bed/medical/emergency,
+/obj/effect/landmark/deathmatch_player_spawn,
 /turf/open/space/basic,
 /area/deathmatch)
 "NK" = (
@@ -2803,7 +2808,7 @@ rN
 rN
 rN
 wf
-lE
+FP
 Ko
 ll
 "}
@@ -2846,12 +2851,12 @@ rN
 rN
 wf
 wf
-oG
+ZK
 ll
 "}
 (28,1,1) = {"
 wf
-KE
+wf
 wf
 wf
 So
@@ -2898,7 +2903,7 @@ wf
 ah
 NF
 wf
-wf
+lE
 rN
 rN
 Od
