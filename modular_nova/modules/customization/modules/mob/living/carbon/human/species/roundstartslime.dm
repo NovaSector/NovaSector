@@ -260,7 +260,7 @@
 			return
 		if(slime.stat != CONSCIOUS)
 			return
-		slime.heal_overall_damage(brute = 2 * seconds_per_tick, burn = 2 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
 
 ///////
