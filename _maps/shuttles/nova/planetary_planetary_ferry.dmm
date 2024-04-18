@@ -42,9 +42,7 @@
 	port_direction = 2;
 	preferred_direction = 4
 	},
-/turf/open/floor/iron/stairs/medium{
-	dir = 8
-	},
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/planetary_ferry)
 "v" = (
 /obj/structure/marker_beacon/olive,

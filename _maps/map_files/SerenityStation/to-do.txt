@@ -21,26 +21,24 @@ serenitystation to do list
 -missing rooms 
 	**Main
 	-arrivals ship docks (maybe on sat station) 
-	-library (& library backrooms)
-	-janitor area 
-	-chapel
-	-solars
-	-aux base 
-	-construction zone
-	-aux tool storage
-	-barbershop
-	-more escape pods
+		-library (& library backrooms)
+		-janitor area 
+		-chapel
+		-aux base/construction zone
+		-aux tool storage
+		-more escape pods
 		
 	**Rec areas 
-	-pool 
-	-holodeck 
-	-dorms toilets
-	-dorms 
-	-cryopods
-	-boxing ring 
-	-arcade
-	-locker room
-	-park
+		-barbershop
+		-pool 
+		-holodeck 
+		-dorms toilets
+		-dorms 
+		-cryopods
+		-boxing ring 
+		-arcade
+		-locker room
+		-park
 	
 	**Maints rooms 
 	-disposals
@@ -55,3 +53,4 @@ serenitystation to do list
 	-cabins
 	-maints eva
 	-gambling den 
+	-solars
