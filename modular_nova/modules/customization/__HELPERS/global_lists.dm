@@ -86,6 +86,7 @@
 		/obj/item/stack/ore/glass = list(GLOB.nova_sand_recipes),
 		/obj/item/stack/rods = list(GLOB.nova_rod_recipes),
 		/obj/item/stack/sheet/mineral/stone = list(GLOB.stone_recipes),
+		/obj/item/stack/sheet/mineral/clay = list(GLOB.clay_recipes),
 		/obj/item/stack/sheet/plastic_wall_panel = list(GLOB.plastic_wall_panel_recipes),
 		/obj/item/stack/sheet/spaceshipglass = list(GLOB.spaceshipglass_recipes),
 	)
