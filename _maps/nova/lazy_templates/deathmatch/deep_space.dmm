@@ -178,9 +178,10 @@
 /turf/open/misc/asteroid,
 /area/deathmatch)
 "gf" = (
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light/small/directional/west,
 /obj/structure/sign/warning/vacuum/directional/west,
+/obj/machinery/suit_storage_unit/open,
+/obj/item/tank/internals/oxygen,
 /turf/open/floor/plating,
 /area/deathmatch)
 "gC" = (
@@ -789,10 +790,10 @@
 /turf/open/floor/iron/grimy,
 /area/deathmatch)
 "yw" = (
-/obj/structure/shipping_container/kahraman,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/shipping_container/kahraman/alt,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "yB" = (
@@ -915,9 +916,10 @@
 /turf/open/floor/plating,
 /area/deathmatch)
 "Bz" = (
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/machinery/light/small/directional/south,
 /obj/structure/sign/warning/vacuum/directional/south,
+/obj/machinery/suit_storage_unit/open,
+/obj/item/tank/internals/oxygen,
 /turf/open/floor/plating,
 /area/deathmatch)
 "BX" = (
@@ -1393,9 +1395,9 @@
 "Od" = (
 /obj/item/gun/ballistic/rifle/boltaction/pipegun/prime,
 /obj/item/storage/pouch/ammo,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/scatterlaser,
+/obj/item/ammo_casing/shotgun/scatterlaser,
+/obj/item/ammo_casing/shotgun/scatterlaser,
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
 "Ov" = (
@@ -2857,7 +2859,7 @@ wf
 wf
 wf
 rN
-Gr
+Ki
 EB
 wf
 wf
@@ -3068,7 +3070,7 @@ wf
 wf
 wf
 rN
-Ki
+Gr
 wf
 wf
 wf
