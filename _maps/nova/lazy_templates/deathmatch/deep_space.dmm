@@ -46,6 +46,11 @@
 /obj/structure/sign/warning/directional/south,
 /turf/closed/mineral/random,
 /area/deathmatch)
+"cF" = (
+/obj/structure/lattice/catwalk,
+/obj/item/assembly/igniter,
+/turf/open/space/basic,
+/area/deathmatch)
 "cT" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 4
@@ -135,13 +140,13 @@
 /turf/open/floor/iron,
 /area/deathmatch)
 "fF" = (
-/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
 /obj/item/mecha_ammo/lmg,
 /obj/item/mecha_ammo/lmg{
 	pixel_y = 12
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/sand/plating,
+/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "fG" = (
@@ -329,6 +334,11 @@
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/iron/herringbone,
 /area/deathmatch)
+"lH" = (
+/obj/structure/lattice/catwalk,
+/obj/item/stack/sheet/iron/five,
+/turf/open/space/basic,
+/area/deathmatch)
 "lL" = (
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/m1911,
 /obj/effect/decal/cleanable/dirt,
@@ -361,6 +371,7 @@
 /area/deathmatch)
 "mO" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/item/stack/sheet/iron/ten,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "nc" = (
@@ -473,6 +484,14 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/deathmatch)
+"pk" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/item/stack/cable_coil,
+/turf/open/space/basic,
+/area/deathmatch)
 "px" = (
 /obj/structure/railing{
 	dir = 5
@@ -491,6 +510,19 @@
 "qg" = (
 /turf/closed/wall/mineral/titanium,
 /area/deathmatch)
+"qi" = (
+/obj/structure/lattice/catwalk,
+/obj/item/crowbar/power,
+/turf/open/space/basic,
+/area/deathmatch)
+"qv" = (
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "qw" = (
 /turf/closed/mineral/random,
 /area/deathmatch)
@@ -501,17 +533,15 @@
 /turf/open/floor/iron/grimy,
 /area/deathmatch)
 "rb" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/light_emitter{
-	set_cap = 2;
-	light_color = "#DEEFFF";
-	set_luminosity = 4
-	},
-/obj/effect/landmark/deathmatch_player_spawn,
-/turf/open/space/basic,
+/obj/item/crowbar/large/doorforcer,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "rg" = (
 /turf/open/floor/iron/corner,
+/area/deathmatch)
+"rj" = (
+/obj/item/weldingtool,
+/turf/open/floor/plating/foam,
 /area/deathmatch)
 "ry" = (
 /obj/structure/sign/warning/directional/north,
@@ -521,9 +551,7 @@
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "rC" = (
-/obj/effect/turf_decal/delivery,
-/obj/item/crowbar/large/doorforcer,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating/foam,
 /area/deathmatch)
 "rG" = (
 /obj/effect/decal/cleanable/glass/titanium,
@@ -618,6 +646,10 @@
 /obj/effect/spawner/random/structure/billboard,
 /turf/open/misc/asteroid/airless,
 /area/deathmatch)
+"vs" = (
+/obj/vehicle/sealed/mecha/ripley,
+/turf/open/floor/plating/foam,
+/area/deathmatch)
 "vu" = (
 /turf/closed/indestructible/fakedoor/glass_airlock,
 /area/deathmatch)
@@ -639,6 +671,7 @@
 /obj/structure/railing{
 	dir = 9
 	},
+/obj/effect/landmark/deathmatch_player_spawn,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "vY" = (
@@ -735,7 +768,6 @@
 "yl" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/transport/crossing_signal/northeast,
-/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "ys" = (
@@ -797,9 +829,8 @@
 /turf/open/floor/iron/white,
 /area/deathmatch)
 "zB" = (
-/obj/structure/lattice/catwalk,
 /obj/item/weldingtool,
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "zC" = (
 /obj/effect/spawner/random/structure/grille,
@@ -899,7 +930,6 @@
 /obj/structure/fluff/tram_rail/floor{
 	dir = 1
 	},
-/obj/item/stack/sheet/iron/twenty,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "CE" = (
@@ -922,7 +952,9 @@
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "CV" = (
-/obj/machinery/nuclearbomb,
+/obj/machinery/nuclearbomb{
+	anchored = 1
+	},
 /obj/effect/light_emitter{
 	set_cap = 2;
 	light_color = "#DEEFFF";
@@ -969,6 +1001,10 @@
 	dir = 10
 	},
 /turf/open/floor/wood,
+/area/deathmatch)
+"DP" = (
+/obj/item/clothing/glasses/welding/up,
+/turf/open/floor/plating/foam,
 /area/deathmatch)
 "DW" = (
 /obj/item/storage/belt/grenade{
@@ -1145,6 +1181,12 @@
 "HK" = (
 /obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/plating/airless,
+/area/deathmatch)
+"HS" = (
+/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/kill,
+/obj/item/mecha_parts/mecha_equipment/drill,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "HZ" = (
@@ -1340,6 +1382,10 @@
 /obj/structure/fluff/tram_rail/floor,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
+"NP" = (
+/obj/item/storage/box/smart_metal_foam,
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "NS" = (
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/iron/white,
@@ -1490,6 +1536,7 @@
 /area/deathmatch)
 "Tb" = (
 /obj/structure/railing/corner,
+/obj/item/stock_parts/cell/high,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "Tq" = (
@@ -1499,6 +1546,11 @@
 "TP" = (
 /obj/effect/mob_spawn/corpse/human/skeleton,
 /turf/open/misc/asteroid/airless,
+/area/deathmatch)
+"Uy" = (
+/obj/structure/lattice/catwalk,
+/obj/item/stack/sheet/iron/twenty,
+/turf/open/space/basic,
 /area/deathmatch)
 "Uz" = (
 /turf/open/floor/iron,
@@ -1727,10 +1779,10 @@ Jv
 vJ
 AY
 ys
-ys
-ys
-ys
-ys
+cF
+NP
+ne
+Xs
 Eb
 gf
 Eb
@@ -1767,11 +1819,11 @@ YX
 CA
 mO
 Rr
-KJ
-ys
 rb
+Uy
 ys
-ys
+qv
+qi
 ys
 nc
 ip
@@ -1805,14 +1857,14 @@ dH
 ZS
 hu
 aF
-rC
+CT
 vY
 yl
 Bc
 Tb
-ny
-ys
-ys
+pk
+lH
+HS
 ys
 ny
 Eb
@@ -1852,11 +1904,11 @@ gC
 RV
 li
 fd
-wf
-wf
-wf
-wf
-wf
+rC
+rC
+rC
+rj
+DP
 RV
 RV
 RV
@@ -1895,9 +1947,9 @@ wf
 Ny
 Eu
 wf
-wf
-wf
-wf
+rC
+vs
+rC
 wf
 wf
 wf
@@ -1938,7 +1990,7 @@ wf
 wf
 wf
 wf
-wf
+rC
 wf
 wf
 wf
@@ -2328,7 +2380,7 @@ wf
 wf
 wf
 wf
-ys
+KJ
 DW
 zB
 ll
