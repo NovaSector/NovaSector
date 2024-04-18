@@ -68,6 +68,7 @@
 			trimmed_list.Remove(creature)
 			continue
 		if(!creature.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
+			GLOB.debug_dynamic_be_antag_disabled += creature.client.ckey // For debugging purposes
 			trimmed_list.Remove(creature)
 			continue
 		//NOVA EDIT END
@@ -97,6 +98,7 @@
 		if(HAS_TRAIT(creature, TRAIT_TEMPORARY_BODY)) // are they an avatar?
 			trimmed_list.Remove(creature)
 			continue
+	message_admins("DYNAMIC DEBUG, SAFE TO IGNORE: There are currently [trimmed_list.len] valid candidates for the [name] ruleset. [required_candidates] are needed. [length(GLOB.debug_dynamic_be_antag_disabled)] have antag preferences disabled.") //STRICTLY FOR DEBUGGING PURPOSES ONLY ON LIVE SERVER NEED TO CHECK IF THINGS ARE READING PROPERLY
 	return trimmed_list
 
 // You can then for example prompt dead players in execute() to join as strike teams or whatever
@@ -270,6 +272,10 @@
 			candidates -= player // We don't autotator people in CentCom
 		else if(player.mind && (player.mind.special_role || player.mind.antag_datums?.len > 0))
 			candidates -= player // We don't autotator people with roles already
+		//NOVA EDIT ADDITION
+		else if(player in GLOB.rejected_traitor)
+			candidates -= player
+		//NOVA EDIT END
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
 	var/mob/M = pick(poll_candidates_for_one(candidates)) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)

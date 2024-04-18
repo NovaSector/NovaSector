@@ -1,3 +1,6 @@
+GLOBAL_LIST_INIT(rejected_traitor, list())
+GLOBAL_LIST_INIT(debug_dynamic_be_antag_disabled, list()) //This wont stick around, just for debugging purposes but i need it for now
+
 /**
  * Polls a group of candidates to see if they want to be a sleeper agent.
  *
@@ -29,5 +32,8 @@
 	)
 		if(length(yes_candidate))
 			break
+		else
+			message_admins("Candidate [candidate] has declined to be a sleeper agent.")
+			GLOB.rejected_traitor += candidate
 
 	return yes_candidate
