@@ -257,7 +257,7 @@
 			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 			slime.blood_volume -= 1 * seconds_per_tick
 
-	if(slime.blood_volume > BLOOD_VOLUME_NORMAL && healing)
+	if(slime.blood_volume >= BLOOD_VOLUME_NORMAL && healing)
 		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
 			return
 		if(slime.stat != CONSCIOUS)
