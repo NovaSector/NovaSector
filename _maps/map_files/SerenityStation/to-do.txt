@@ -18,11 +18,11 @@ serenitystation to do list
 	-wall mounts 
 	-navigation points and stuff
 	-requests panels
+	-hallways
 -missing rooms 
 	**Main
 	-arrivals ship docks (maybe on sat station) 
 		-library (& library backrooms)
-		-janitor area 
 		-chapel
 		-aux base/construction zone
 		-aux tool storage
@@ -54,3 +54,5 @@ serenitystation to do list
 	-maints eva
 	-gambling den 
 	-solars
+	
+	**satellite station 
