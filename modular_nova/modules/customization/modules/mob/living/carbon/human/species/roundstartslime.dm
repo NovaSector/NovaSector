@@ -180,13 +180,14 @@
 	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
 
 		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."), span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."))
+		brainmob.mind.grab_ghost()
 		if(!do_after(user, 60 SECONDS, src))
 			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 			return TRUE
 
 		user.visible_message(span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."), span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."))
 		item.reagents.clear_reagents() //removes the whole shit
-		set_organ_damage(-maxHealth) //heals 2 damage per unit of mannitol, and by using "set_organ_damage", we clear the failing variable if that was up
+		set_organ_damage(-maxHealth) //fully heals the brain
 
 		if(gps_active) // making sure the gps signal is removed if it's active on revival
 			gps_active = FALSE
@@ -201,6 +202,7 @@
 			user.balloon_alert("This brain does not contain any dna!")
 			return TRUE
 
+		brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
 		new_body.underwear = "Nude"
 		new_body.bra = "Nude"
 		new_body.undershirt = "Nude" //Which undershirt the player wants
