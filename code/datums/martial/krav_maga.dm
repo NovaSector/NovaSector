@@ -208,10 +208,6 @@
 //Krav Maga Gloves
 
 /obj/item/clothing/gloves/krav_maga
-<<<<<<< HEAD
-	var/datum/martial_art/krav_maga/style
-=======
->>>>>>> b8059b97a0c (turns martial arts gloves into a component (#82599))
 	clothing_traits = list(TRAIT_FAST_CUFFING)
 
 /obj/item/clothing/gloves/krav_maga/Initialize(mapload)
