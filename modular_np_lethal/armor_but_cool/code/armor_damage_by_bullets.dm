@@ -1,5 +1,5 @@
 /// Checks the armor that the person is wearing when they are attacked and damages it under the correct conditions
-/mob/living/proc/damage_armor(damage = 0, damage_flag = MELEE, damage_type = BRUTE, sharpness = NONE, def_zone = BODY_ZONE_CHEST)
+/mob/living/proc/damage_armor(damage = 0, damage_type = BRUTE, def_zone = BODY_ZONE_CHEST)
 	return FALSE
 
 /mob/living/carbon/human/damage_armor(damage = 0, damage_type = BRUTE, def_zone = BODY_ZONE_CHEST)
@@ -62,7 +62,7 @@
 	)
 
 	// If the damage type isn't one of the types that already does clothing damage, then we damage armor
-	if((hitting_projectile.damage_type == BRUTE) && !(hitting_projectile.sharpness = SHARP_EDGED))
+	if(hitting_projectile.damage_type != BURN)
 		damage_armor(
 			armor_damage,
 			hitting_projectile.damage_type,
@@ -72,3 +72,17 @@
 	if(hitting_projectile.dismemberment)
 		check_projectile_dismemberment(hitting_projectile, def_zone)
 	return BULLET_ACT_HIT
+
+// Override take_damage_zone to allow stuff with only one covered zone to take damage
+/obj/item/clothing/proc/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration)
+	if(!def_zone || !limb_integrity) // the second check sees if we only cover one bodypart anyway and don't need to bother with this
+		return
+	var/list/covered_limbs = cover_flags2body_zones(body_parts_covered) // what do we actually cover?
+	if(!(def_zone in covered_limbs))
+		return
+
+	var/damage_dealt = take_damage(damage_amount * 0.1, damage_type, "", FALSE, 1, 100) * 10 // only deal 10% of the damage to the general integrity damage, then multiply it by 10 so we know how much to deal to limb
+	LAZYINITLIST(damage_by_parts)
+	damage_by_parts[def_zone] += damage_dealt
+	if(damage_by_parts[def_zone] > limb_integrity)
+		disable_zone(def_zone, damage_type)

@@ -166,7 +166,7 @@
  * * damage_type: BRUTE or BURN
  * * armour_penetration: If the attack had armour_penetration
  */
-/obj/item/clothing/proc/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration)
+/* /obj/item/clothing/proc/take_damage_zone(def_zone, damage_amount, damage_type, armour_penetration) // LETHALSTATION OVERRIDE - modular_np_lethal/armor_but_cool/code/armor_damage_by_bullets.dm
 	if(!def_zone || !limb_integrity || (initial(body_parts_covered) in GLOB.bitflags)) // the second check sees if we only cover one bodypart anyway and don't need to bother with this
 		return
 	var/list/covered_limbs = cover_flags2body_zones(body_parts_covered) // what do we actually cover?
@@ -177,7 +177,7 @@
 	LAZYINITLIST(damage_by_parts)
 	damage_by_parts[def_zone] += damage_dealt
 	if(damage_by_parts[def_zone] > limb_integrity)
-		disable_zone(def_zone, damage_type)
+		disable_zone(def_zone, damage_type) */ // LETHALSTATION OVERRIDE - modular_np_lethal/armor_but_cool/code/armor_damage_by_bullets.dm
 
 /**
  * disable_zone() is used to disable a given bodypart's protection on our clothing item, mainly from [/obj/item/clothing/proc/take_damage_zone]
