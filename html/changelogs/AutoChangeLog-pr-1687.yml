@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - qol: "re-enabled Borg Resizing for wide and tall borgs"
