@@ -862,7 +862,6 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			standing.pixel_x -= 16 // it doesnt look right otherwise
 	// NOVA EDIT END
 
-
 	//Get the overlays for this item when it's being worn
 	//eg: ammo counters, primed grenade flashes, etc.
 	var/list/worn_overlays = worn_overlays(standing, isinhands, file2use, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/list/worn_overlays = worn_overlays(standing, isinhands)
