@@ -51,10 +51,3 @@
 #undef BAC_STAGE_4_WARN
 #undef BAC_STAGE_4_ACTIVE
 #undef BAC_STAGE_5_WARN
-
-// NOVA EDIT ADDITION BEGIN - PR #1793 ALCOHOL_PROCESSING - TM ONLY. REMOVE BEFORE MERGE
-/datum/status_effect/inebriated/tipsy/on_apply()
-	. = ..()
-	to_chat(owner, span_warning("Hey! Listen! A current test merge to our alcohol metabolism system means that intoxication will linger longer within your virtual veins. Gone are the days of swiftly chugging bottles of spirits without consequence."))
-	to_chat(owner, span_warning("Drink slower, in moderation, and observe until you are familiar with how the new system works. During the test, click your mood icon to get a display of your current drunk level. See Nova Sector PR #1793 for details/comment."))
-// NOVA EDIT ADDITION END - PR #1793 ALCOHOL_PROCESSING - TM ONLY. REMOVE BEFORE MERGE
