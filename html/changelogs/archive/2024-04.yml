@@ -591,3 +591,12 @@
   - code_imp: Ghost roles defined with an ID are excluded from paychecks properly
       now
   - code_imp: the Blackmarket area is not longer magically powered
+2024-04-18:
+  Melbert:
+  - bugfix: Blobs may rejoice, welding torches now consume fuel when attacking objects
+      again after two years.
+  Rhials:
+  - sound: Nightmare has a new sound effect for entering/exiting shadow jaunt. It
+      also no longer can be heard through walls.
+  SomeRandomOwl:
+  - rscadd: Added a variant of the interdyne modsuit to interdynes shuttle
