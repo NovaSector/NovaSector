@@ -5,4 +5,5 @@
 
 /// Logging for dynamic procs
 /proc/log_dynamic(text, list/data)
+	message_admins("DYNAMIC: [text]")
 	logger.Log(LOG_CATEGORY_DYNAMIC, text, data)
