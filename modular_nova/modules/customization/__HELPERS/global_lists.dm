@@ -1,4 +1,4 @@
-/proc/make_skyrat_datum_references()
+/proc/make_nova_datum_references()
 	make_sprite_accessory_references()
 	make_default_mutant_bodypart_references()
 	make_body_marking_references()
