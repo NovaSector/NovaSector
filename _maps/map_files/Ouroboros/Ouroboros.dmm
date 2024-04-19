@@ -7611,7 +7611,7 @@
 /obj/effect/spawner/random/trash/garbage,
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
+/area/station/maintenance/port/lesser)
 "cnj" = (
 /obj/structure/chair/stool/directional/north,
 /obj/structure/closet/secure_closet/wall{
@@ -17483,7 +17483,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/station/commons/storage/primary)
+/area/station/maintenance/port/lesser)
 "ffd" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -27359,8 +27359,9 @@
 /area/station/engineering/atmos/hfr_room)
 "iab" = (
 /obj/structure/cable,
+/obj/effect/spawner/random/structure/steam_vent,
 /turf/open/floor/plating,
-/area/station/commons/storage/primary)
+/area/station/maintenance/port/lesser)
 "iae" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
@@ -31539,7 +31540,7 @@
 /obj/effect/spawner/random/maintenance,
 /obj/effect/spawner/random/trash/hobo_squat,
 /turf/open/floor/plating,
-/area/station/commons/storage/primary)
+/area/station/maintenance/port/lesser)
 "jjg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -33343,10 +33344,6 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space)
-"jKq" = (
-/obj/structure/trash_pile,
-/turf/open/floor/plating,
-/area/station/commons/storage/primary)
 "jKr" = (
 /obj/structure/rack,
 /obj/item/reagent_containers/cup/bottle/epinephrine{
@@ -35594,7 +35591,7 @@
 /obj/structure/lattice,
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
+/area/station/commons/storage/primary)
 "krq" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -36096,7 +36093,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/station/maintenance/port/lesser)
+/area/station/science/genetics)
 "kyo" = (
 /obj/structure/railing/corner,
 /obj/structure/railing/corner{
@@ -42128,7 +42125,7 @@
 "miB" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
-/area/station/commons/storage/primary)
+/area/station/maintenance/port/lesser)
 "miH" = (
 /obj/machinery/computer/atmos_control/oxygen_tank,
 /obj/effect/turf_decal/box,
@@ -42995,7 +42992,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/commons/storage/primary)
+/area/station/maintenance/port/lesser)
 "mxc" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/railing/corner,
@@ -48484,7 +48481,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/bronze,
 /turf/open/openspace,
-/area/station/hallway/secondary/entry)
+/area/station/commons/storage/primary)
 "oaf" = (
 /obj/machinery/vending/dorms,
 /obj/effect/turf_decal/siding/white{
@@ -57044,11 +57041,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/service/library)
-"qCo" = (
-/obj/effect/spawner/random/structure/steam_vent,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lesser)
 "qCt" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -61977,10 +61969,6 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/station/security/warden)
-"sen" = (
-/obj/effect/spawner/random/engineering/atmospherics_portable,
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
 "sex" = (
 /obj/structure/sign/directions/dorms/directional/west{
 	dir = 2;
@@ -61998,9 +61986,10 @@
 /turf/open/openspace,
 /area/station/security/warden)
 "seJ" = (
-/obj/structure/lattice,
-/turf/open/openspace,
-/area/station/hallway/secondary/entry)
+/obj/effect/spawner/random/maintenance,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "seN" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/four,
@@ -68693,10 +68682,6 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/teleporter)
-"uen" = (
-/obj/structure/railing,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/fore)
 "uep" = (
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
@@ -171611,8 +171596,8 @@ rEx
 mxb
 sMI
 sMI
-lJU
-hYP
+sMI
+xaP
 kUp
 lWr
 kUp
@@ -171865,11 +171850,11 @@ hMe
 fPA
 gHA
 fmv
-iab
+oJj
 xaP
 eGr
-seJ
-vnr
+sRA
+tgp
 vtq
 mQU
 vtq
@@ -172125,8 +172110,8 @@ qOP
 miB
 xaP
 eGr
-seJ
-vnr
+sRA
+tgp
 vtq
 nSI
 vtq
@@ -172383,7 +172368,7 @@ miB
 xaP
 sRA
 nZC
-hYP
+xaP
 oGU
 ebd
 oAp
@@ -172635,12 +172620,12 @@ wEl
 nJD
 gHA
 nke
-jKq
+lYH
 xaP
 xaP
 eGr
-seJ
-vnr
+sRA
+tgp
 vtq
 vtq
 vtq
@@ -172896,8 +172881,8 @@ jiJ
 xaP
 eGr
 eGr
-seJ
-vnr
+sRA
+tgp
 vtq
 vtq
 vtq
@@ -173149,12 +173134,12 @@ wEl
 sgw
 kIg
 oJj
-miB
+seJ
 xaP
 sRA
 sRA
 nZC
-hYP
+xaP
 iow
 dKg
 npW
@@ -173405,13 +173390,13 @@ wEl
 wEl
 rBc
 rBc
-qCo
+rBc
 iab
 xaP
 eGr
 eGr
-seJ
-vnr
+sRA
+tgp
 vtq
 nWI
 nWI
@@ -173662,12 +173647,12 @@ amu
 nQL
 npd
 iYw
-kIw
+rBc
 oaJ
 xaP
 xaP
 xaP
-seJ
+sRA
 krl
 rfo
 vtq
@@ -173922,8 +173907,8 @@ hyX
 kyj
 cKv
 feP
-wLm
-xaP
+nQA
+hYP
 hYP
 hYP
 eKI
@@ -174436,7 +174421,7 @@ xIP
 oMa
 kIw
 xsW
-sen
+tIr
 hYP
 ylJ
 ylJ
@@ -177541,7 +177526,7 @@ syA
 ofD
 iyE
 hig
-uen
+fKs
 rRu
 fKs
 fKs
