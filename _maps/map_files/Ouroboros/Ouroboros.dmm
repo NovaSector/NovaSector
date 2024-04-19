@@ -18034,12 +18034,12 @@
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "fmv" = (
-/obj/structure/railing{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/directional/south,
 /obj/structure/cable,
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/openspace,
 /area/station/maintenance/port/lesser)
 "fmz" = (
@@ -56963,11 +56963,6 @@
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/iron,
 /area/station/maintenance/department/security/upper)
-"qAm" = (
-/obj/effect/spawner/random/maintenance,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lesser)
 "qAt" = (
 /obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/siding/white,
@@ -57040,6 +57035,11 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/service/library)
+"qCo" = (
+/obj/effect/spawner/random/maintenance,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "qCt" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -171842,7 +171842,7 @@ fac
 hMe
 hMe
 fPA
-gHA
+fPA
 fmv
 oJj
 xaP
@@ -173128,7 +173128,7 @@ wEl
 sgw
 kIg
 oJj
-qAm
+qCo
 xaP
 sRA
 sRA
