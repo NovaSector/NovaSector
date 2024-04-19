@@ -1,0 +1,6 @@
+author: "JimKil3"
+delete-after: True
+changes:
+  - rscadd: "Forged daggers now act as knives"
+  - rscadd: "Forged tools are now slightly faster than default"
+  - code_imp: "Forging-related tools now use the toolspeed var normally\n/🆑"
