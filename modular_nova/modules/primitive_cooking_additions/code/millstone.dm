@@ -45,9 +45,7 @@
 	return ..()
 
 /obj/structure/millstone/atom_deconstruct(disassembled)
-	var/obj/item/stack/sheet/mineral/stone = new (drop_location())
-	stone.amount = 6
-	stone.update_appearance(UPDATE_ICON)
+	var/obj/item/stack/sheet/mineral/stone/stone = new(drop_location(), 6)
 	transfer_fingerprints_to(stone)
 	return ..()
 
