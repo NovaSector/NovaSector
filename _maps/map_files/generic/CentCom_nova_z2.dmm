@@ -13229,8 +13229,7 @@
 "qjL" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/door/window/brigdoor/left/directional/north{
-	name = "Danger: Conveyor Access";
-	req_access = list("cent_general")
+	name = "Danger: Conveyor Access"
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
