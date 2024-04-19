@@ -262,6 +262,7 @@
 	requirements = list(3,3,3,3,3,3,3,3,3,3)
 	repeatable = TRUE
 	var/list/sleeper_current_polling = list() // NOVA EDIT ADDITION
+	var/list/rejected_traitor = list() // NOVA EDIT ADDITION
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/trim_candidates()
 	..()
@@ -274,9 +275,9 @@
 		else if(player.mind && (player.mind.special_role || player.mind.antag_datums?.len > 0))
 			candidates -= player // We don't autotator people with roles already
 		//NOVA EDIT ADDITION
-		else if(player in GLOB.rejected_traitor)
+		else if(player in rejected_traitor)
 			candidates -= player
-		else if(player in GLOB.sleeper_current_polling)
+		else if(player in sleeper_current_polling)
 			candidates -= player
 		//NOVA EDIT END
 
