@@ -28,17 +28,16 @@
 /turf/open/floor/iron/shuttle/cargo,
 /area/shuttle/blackmarket_burst)
 "en" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external{
+	id_tag = "burstexts"
+	},
 /obj/docking_port/mobile{
-	launch_status = 0;
 	name = "Burst";
 	port_direction = 4;
 	preferred_direction = 8;
 	shuttle_id = "blackmarket_burst";
 	dir = 8
-	},
-/obj/structure/fans/tiny,
-/obj/machinery/door/airlock/external{
-	id_tag = "burstexts"
 	},
 /turf/open/floor/catwalk_floor,
 /area/shuttle/blackmarket_burst)
