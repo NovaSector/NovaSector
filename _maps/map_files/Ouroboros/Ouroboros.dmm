@@ -1849,7 +1849,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/service/lawoffice)
+/area/station/maintenance/department/security/lower)
 "aCP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -16852,7 +16852,7 @@
 /area/space/nearstation)
 "eUQ" = (
 /turf/open/floor/plating,
-/area/station/service/lawoffice)
+/area/station/maintenance/department/security/lower)
 "eUZ" = (
 /obj/structure/transit_tube/station/dispenser/reverse/flipped{
 	dir = 4
@@ -33402,7 +33402,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /turf/open/floor/iron,
-/area/station/service/lawoffice)
+/area/station/maintenance/department/security/lower)
 "jLi" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/cafeteria{
@@ -50689,7 +50689,7 @@
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
-/area/station/service/lawoffice)
+/area/station/maintenance/department/security/lower)
 "oIf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -51425,7 +51425,7 @@
 "oVX" = (
 /obj/structure/stairs/east,
 /turf/open/floor/plating,
-/area/station/service/lawoffice)
+/area/station/maintenance/department/security/lower)
 "oVZ" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 4
@@ -62013,7 +62013,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plating,
-/area/station/service/lawoffice)
+/area/station/maintenance/department/security/lower)
 "seO" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/mecha_part_fabricator{
