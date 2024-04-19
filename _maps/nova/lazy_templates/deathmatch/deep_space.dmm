@@ -147,6 +147,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/sand/plating,
 /obj/item/mecha_parts/mecha_equipment/thrusters/ion,
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg{
+	pixel_y = -8
+	},
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "fG" = (
