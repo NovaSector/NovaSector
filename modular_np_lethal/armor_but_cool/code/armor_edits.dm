@@ -8,8 +8,8 @@
 	repairable_by = null
 
 /obj/item/clothing/head/helmet/sf_peacekeeper
-	max_integrity = 200
-	limb_integrity = 200
+	max_integrity = 250
+	limb_integrity = 250
 	repairable_by = null
 
 // Hardened armor
@@ -20,7 +20,7 @@
 	limb_integrity = 200
 	repairable_by = null
 
-/obj/item/clothing/head/helmet/sf_hardened
+/obj/item/clothing/head/helmet/toggleable/sf_hardened
 	max_integrity = 200
 	limb_integrity = 200
 	repairable_by = null
@@ -28,12 +28,12 @@
 // Sacrificial armor, which needs a lot of health because of its high damage reduction
 
 /obj/item/clothing/suit/armor/sf_sacrificial
-	max_integrity = 500
-	limb_integrity = 500
+	max_integrity = 400
+	limb_integrity = 400
 
 /obj/item/clothing/head/helmet/sf_sacrificial
-	max_integrity = 500
-	limb_integrity = 500
+	max_integrity = 400
+	limb_integrity = 400
 
 // Frontier soft armor
 // These have like security level armor, but the like 5 damage reduction might save you idk

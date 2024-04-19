@@ -8329,6 +8329,7 @@
 #include "modular_np_lethal\knee_pads\code\knee_pads.dm"
 #include "modular_np_lethal\lethalguns\code\bullets.dm"
 #include "modular_np_lethal\lethalguns\code\grenades.dm"
+#include "modular_np_lethal\lethalguns\code\gun_pickup_sounds.dm"
 #include "modular_np_lethal\lethalguns\code\long_rifles.dm"
 #include "modular_np_lethal\lethalguns\code\magazines.dm"
 #include "modular_np_lethal\lethalguns\code\pistol.dm"
