@@ -5344,13 +5344,8 @@
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "cHy" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "cHY" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -5390,10 +5385,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "cMd" = (
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/obj/structure/disposalpipe/trunk,
+/obj/structure/sign/poster/random/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "cMh" = (
@@ -5685,6 +5677,10 @@
 "doA" = (
 /turf/open/floor/wood/large,
 /area/centcom/holding/cafe)
+"dpn" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "drE" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -6314,7 +6310,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "intersposals"
+	id = "interdisposals"
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -6492,7 +6488,7 @@
 "eXn" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "intersposals"
+	id = "interdisposals"
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -6899,12 +6895,10 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "fLG" = (
-/obj/machinery/disposal/bin,
-/obj/effect/turf_decal/delivery,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "fMM" = (
 /obj/machinery/duct,
@@ -7862,7 +7856,7 @@
 /area/centcom/interlink)
 "huK" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 10
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -8288,13 +8282,12 @@
 /turf/open/floor/carpet,
 /area/centcom/holding/cafe)
 "ikj" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 4
+/obj/effect/turf_decal/delivery,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/turf/open/floor/iron,
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "ikl" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -8457,6 +8450,11 @@
 	smoothing_flags = 0
 	},
 /area/centcom/holding/cafepark)
+"iuy" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "iuK" = (
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/carpet/red,
@@ -8852,8 +8850,9 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "jfB" = (
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/conveyor_switch/oneway{
-	id = "cargodisposals";
+	id = "interdisposals";
 	name = "disposals conveyor switch"
 	},
 /turf/open/floor/plating,
@@ -9257,20 +9256,13 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "jTQ" = (
-/obj/structure/closet/crate/bin,
-/obj/item/paper/pamphlet/centcom/visitor_info,
-/obj/item/paper/pamphlet/centcom/visitor_info{
-	pixel_x = -9
-	},
-/obj/item/paper/pamphlet/centcom/visitor_info{
-	pixel_x = -3
-	},
-/obj/item/paper/pamphlet/centcom/visitor_info{
-	pixel_x = 3
-	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 6
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
@@ -9716,9 +9708,6 @@
 /obj/machinery/computer/records/security{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "kKs" = (
@@ -9868,9 +9857,6 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "kWH" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/open/floor/iron/grimy,
 /area/centcom/interlink)
 "kWI" = (
@@ -9949,6 +9935,11 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"laK" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/chair/stool/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "laX" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/railing/corner{
@@ -10603,9 +10594,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/effect/turf_decal/delivery/white,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "mju" = (
@@ -11523,9 +11511,6 @@
 /obj/effect/turf_decal/arrows{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "nKt" = (
@@ -11720,6 +11705,11 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
+"nYN" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "nZP" = (
 /obj/machinery/light/cold/directional/west,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -12216,6 +12206,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/holding/cafe)
+"oPO" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/trimline/dark_green/filled/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "oQW" = (
 /obj/structure/chair/sofa/right/brown{
 	dir = 1
@@ -12618,6 +12618,12 @@
 	},
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
+"ptB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "puo" = (
 /obj/effect/turf_decal/sand,
 /obj/machinery/light/directional/east,
@@ -12753,6 +12759,10 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/freezer,
+/area/centcom/interlink)
+"pFm" = (
+/obj/machinery/door/poddoor/ert,
+/turf/open/space/basic,
 /area/centcom/interlink)
 "pFr" = (
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
@@ -13080,6 +13090,14 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
+"pYA" = (
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "pYF" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -13209,12 +13227,12 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "qjL" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "Danger: Conveyor Access";
+	req_access = list("cent_general")
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "qkZ" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
@@ -13965,13 +13983,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
-"rCG" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "rDg" = (
 /obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
@@ -15847,7 +15858,9 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "uxo" = (
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "uxW" = (
@@ -16875,13 +16888,9 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "wwF" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 5
+/turf/closed/indestructible/fakedoor{
+	name = "Interlink Disposal Access"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/turf/open/floor/iron,
 /area/centcom/interlink)
 "wyd" = (
 /obj/structure/railing/wooden_fencing{
@@ -17296,13 +17305,11 @@
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
 "xkb" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 4
+/obj/machinery/mass_driver/trash{
+	dir = 1;
+	id = "interlinkdriver"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "xkO" = (
 /obj/structure/railing{
@@ -33939,8 +33946,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-tvw
+wwF
+aqG
 cMd
 uxo
 fov
@@ -34196,10 +34203,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-eXn
+nYN
 aqG
+fLG
 tvw
 mtv
 eOx
@@ -34208,7 +34215,7 @@ pZh
 jtl
 aXG
 huK
-xyz
+ikj
 pHQ
 pZh
 pZh
@@ -34453,10 +34460,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-eGs
-aqG
+pYA
+iuy
+ptB
 tvw
 bjh
 cAI
@@ -34464,7 +34471,7 @@ mDs
 xqq
 tUz
 uYo
-cHy
+uYo
 uYo
 eNn
 xqq
@@ -34710,10 +34717,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
 eXn
-aqG
+dpn
+cHy
 tvw
 aXG
 aXG
@@ -34721,7 +34728,7 @@ eHo
 hvQ
 hvQ
 hvQ
-bIG
+hvQ
 hvQ
 hvQ
 hvQ
@@ -34967,10 +34974,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-eXn
+eGs
 jfB
+aqG
 tvw
 aDg
 uTg
@@ -34987,9 +34994,9 @@ alx
 aDg
 tvw
 tvw
-ukp
-lrp
-eYX
+oPO
+bIs
+eXw
 jTQ
 tvw
 aFe
@@ -35224,10 +35231,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-tvw
-tvw
+eXn
+laK
+aqG
 tvw
 aXG
 bdI
@@ -35244,7 +35251,7 @@ cal
 aXG
 tvw
 oAn
-uUo
+oOC
 nJp
 tvw
 tvw
@@ -35481,10 +35488,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+tvw
+eXn
+qjL
+aqG
 tvw
 dLq
 lsV
@@ -35501,7 +35508,7 @@ dHD
 aXG
 tvw
 fGC
-bIG
+hvQ
 nJp
 tvw
 iVr
@@ -35738,10 +35745,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+tvw
+eXn
+tvw
+tvw
 tvw
 aXG
 alO
@@ -35758,7 +35765,7 @@ wYH
 aXG
 tvw
 fGC
-bIG
+hvQ
 nJp
 tvw
 tfe
@@ -35995,9 +36002,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+pFm
+xkb
+tvw
 aaa
 tvw
 aXG
@@ -36015,7 +36022,7 @@ aXG
 aXG
 tvw
 vsB
-bIG
+hvQ
 nJp
 tvw
 tvw
@@ -36252,9 +36259,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+tvw
+tvw
+tvw
 aaa
 ckV
 hES
@@ -36263,7 +36270,7 @@ eHo
 amv
 tvw
 aDg
-rCG
+aDg
 aDg
 tvw
 amv
@@ -36272,7 +36279,7 @@ aXG
 aXG
 tvw
 iMY
-bIG
+hvQ
 pSt
 kOZ
 sga
@@ -36520,7 +36527,7 @@ inr
 nrl
 rYR
 rYR
-xkb
+rYR
 rYR
 rYR
 ojv
@@ -36528,8 +36535,8 @@ liU
 aXG
 gAj
 tvw
-wwF
-ikj
+iIb
+eYX
 eYX
 eYX
 aPe
@@ -36785,7 +36792,7 @@ aXG
 aXG
 aXG
 tvw
-qjL
+xyz
 dAM
 dmR
 tvw
@@ -37034,7 +37041,7 @@ aXG
 aXG
 aXG
 aXG
-fLG
+aXG
 aXG
 aXG
 aXG
