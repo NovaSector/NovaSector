@@ -56418,7 +56418,7 @@
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
 /obj/machinery/door/window/left/directional/east{
-	req_access = kitchen;
+	req_access = list("kitchen")
 	name = "Kitchen Deliveries"
 	},
 /obj/effect/turf_decal/loading_area{
