@@ -7706,7 +7706,7 @@
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/hedge,
 /obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchen_privacy"s";
+	id = "kitchen_privacy";
 	name = "Kitchen Privacy Shutters"
 	},
 /obj/machinery/door/firedoor,
