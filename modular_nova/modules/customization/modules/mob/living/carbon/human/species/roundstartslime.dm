@@ -122,10 +122,6 @@
 	colorize()
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
-	
-/obj/item/organ/internal/brain/slime/Remove(mob/living/carbon/organ_owner, special, movement_flags)
-	UnregisterSignal(organ_owner, COMSIG_MOB_STATCHANGE)
-	return ..()
 
 /obj/item/organ/internal/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
@@ -166,6 +162,7 @@
 		AddComponent(/datum/component/gps, "[victim]'s Core")
 
 	qdel(victim)
+	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
 
 /obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
 	var/datum/effect_system/steam_spread/steam = new()
@@ -194,13 +191,16 @@
 
 		//we have the plasma. we can rebuild them.
 		brainmob.mind.grab_ghost()
-		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
 		if(isnull(brainmob))
 			user.balloon_alert("This brain is not a viable candidate for repair!")
 			return TRUE
 		if(isnull(brainmob.stored_dna))
 			user.balloon_alert("This brain does not contain any dna!")
 			return TRUE
+		if(isnull(brainmob.client))
+			user.balloon_alert("This brain does not contain a mind!")
+			return TRUE
+		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
 
 		brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
 		new_body.underwear = "Nude"
