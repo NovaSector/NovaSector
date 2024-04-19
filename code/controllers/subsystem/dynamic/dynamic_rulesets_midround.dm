@@ -275,6 +275,8 @@
 		//NOVA EDIT ADDITION
 		else if(player in GLOB.rejected_traitor)
 			candidates -= player
+		else if(player in GLOB.sleeper_current_polling)
+			candidates -= player
 		//NOVA EDIT END
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
