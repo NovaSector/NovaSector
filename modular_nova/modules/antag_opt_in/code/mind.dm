@@ -35,7 +35,8 @@ GLOBAL_LIST_INIT(optin_forcing_on_spawn_antag_categories, list(
 
 /mob/living/Login()
 	. = ..()
-
+	if(CONFIG_GET(flag/disable_antag_opt_in_preferences)) //lets not annoy our fellow players with useless info if we don't use this system at all
+		return
 	if (isnull(mind))
 		return
 	if (isnull(client?.prefs))

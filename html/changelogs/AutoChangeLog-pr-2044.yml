@@ -1,0 +1,6 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - code_imp: "removed the faction defines for Black Mesa as they dont exist anymore"
+  - balance: "DS2 and Interdyne factions are properly assigned, syndicate ruins will not retaliate"
+  - qol: "DS2 general crew can now open the shutters to go to the docking area as well as unbolt the vault for turret control"
