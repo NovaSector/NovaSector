@@ -6404,9 +6404,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"Db" = (
-/turf/open/space/basic,
-/area/space)
 "Dc" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -14189,11 +14186,11 @@ wg
 kx
 wg
 wg
-Db
-Db
-Db
-Db
-Db
+wg
+wg
+wg
+wg
+wg
 wg
 wg
 wg
@@ -14244,11 +14241,11 @@ wg
 EJ
 wg
 wg
-Db
-Db
-Db
-Db
-Db
+wg
+wg
+wg
+wg
+wg
 wg
 wg
 wg
@@ -14299,11 +14296,11 @@ wg
 wg
 wg
 wg
-Db
-Db
-Db
-Db
-Db
+wg
+wg
+wg
+wg
+wg
 wg
 wg
 wg
@@ -14354,11 +14351,11 @@ wg
 wg
 wg
 wg
-Db
-Db
-Db
-Db
-Db
+wg
+wg
+wg
+wg
+wg
 wg
 wg
 wg
