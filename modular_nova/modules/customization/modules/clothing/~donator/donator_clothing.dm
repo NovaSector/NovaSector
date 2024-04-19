@@ -284,14 +284,14 @@
 	visor_flags_inv = HIDEFACE | HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
 	tint = 0
+	interaction_flags_click = NEED_DEXTERITY
 
 /obj/item/clothing/mask/gas/nightlight/attack_self(mob/user)
 	adjustmask(user)
 
-/obj/item/clothing/mask/gas/nightlight/AltClick(mob/user)
-	..()
-	if(user.can_perform_action(src, NEED_DEXTERITY))
-		adjustmask(user)
+/obj/item/clothing/mask/gas/nightlight/click_alt(mob/user)
+	adjustmask(user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/nightlight/examine(mob/user)
 	. = ..()
@@ -859,6 +859,7 @@
 	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
 	use_radio_beeps_tts = TRUE
 	flags_inv = NONE
+	interaction_flags_click = NEED_DEXTERITY
 
 /obj/item/clothing/mask/gas/signalis_gaiter/Initialize(mapload)
 	. = ..()
@@ -868,10 +869,9 @@
 /obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
 	adjustmask(user)
 
-/obj/item/clothing/mask/gas/signalis_gaiter/AltClick(mob/user)
-	..()
-	if(user.can_perform_action(src, NEED_DEXTERITY))
-		adjustmask(user)
+/obj/item/clothing/mask/gas/signalis_gaiter/click_alt(mob/user)
+	adjustmask(user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/signalis_gaiter/examine(mob/user)
 	. = ..()
