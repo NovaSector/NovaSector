@@ -15777,9 +15777,6 @@
 	dir = 8
 	},
 /area/station/security/brig/entrance)
-"eEp" = (
-/turf/open/space/openspace,
-/area/station/hallway/secondary/exit/departure_lounge)
 "eEy" = (
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
@@ -46652,9 +46649,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/command/meeting_room/council)
-"nvf" = (
-/turf/open/space/openspace,
-/area/station/security/checkpoint/escape)
 "nvh" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "MiniSat External Upper South-East";
@@ -194713,7 +194707,7 @@ ikB
 dNm
 fac
 fac
-nvf
+fac
 iCn
 goD
 qAz
@@ -194727,7 +194721,7 @@ tjJ
 sQj
 tjJ
 tbE
-eEp
+fac
 fac
 fac
 dNm
@@ -194973,7 +194967,7 @@ fac
 fac
 fac
 fac
-sGb
+fac
 jjT
 fac
 fac
