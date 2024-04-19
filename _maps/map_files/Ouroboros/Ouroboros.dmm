@@ -70818,9 +70818,6 @@
 /obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
-"uJh" = (
-/turf/open/space/openspace,
-/area/station/security/checkpoint/customs)
 "uJk" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
@@ -171070,7 +171067,7 @@ fac
 fac
 fac
 fac
-uJh
+fac
 rEx
 cCg
 mtb
@@ -171327,7 +171324,7 @@ fac
 fac
 fac
 fac
-uJh
+fac
 rEx
 qjY
 tlG
@@ -171584,7 +171581,7 @@ fac
 fac
 fac
 fac
-uJh
+fac
 rEx
 rEx
 mxb
