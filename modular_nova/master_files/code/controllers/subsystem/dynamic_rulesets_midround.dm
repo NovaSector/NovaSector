@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(debug_dynamic_be_antag_disabled, list()) //This wont stick arou
 		chat_text_border_icon = /obj/structure/sign/poster/contraband/gorlex_recruitment,
 	)
 		if(length(yes_candidate))
-			GLOB.sleeper_current_polling -= candidate
+			GLOB.sleeper_current_polling = list()
 			break
 		else
 			message_admins("Candidate [candidate] has declined to be a sleeper agent.")
