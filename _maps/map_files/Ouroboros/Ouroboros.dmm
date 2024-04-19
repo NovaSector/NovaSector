@@ -56963,12 +56963,6 @@
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/iron,
 /area/station/maintenance/department/security/upper)
-"qAm" = (
-/obj/effect/turf_decal/tile/dark_red/opposingcorners{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/station/science/robotics/lab)
 "qAt" = (
 /obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/siding/white,
@@ -57041,6 +57035,11 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/service/library)
+"qCo" = (
+/obj/effect/spawner/random/maintenance,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/lesser)
 "qCt" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -61985,11 +61984,6 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/openspace,
 /area/station/security/warden)
-"seJ" = (
-/obj/effect/spawner/random/maintenance,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lesser)
 "seN" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/four,
@@ -173134,7 +173128,7 @@ wEl
 sgw
 kIg
 oJj
-seJ
+qCo
 xaP
 sRA
 sRA
@@ -174678,7 +174672,7 @@ dXB
 gGY
 kIw
 cMH
-hYP
+fPA
 hYP
 hYP
 hYP
@@ -174935,7 +174929,7 @@ nlK
 dXm
 kIw
 smC
-pka
+fPA
 tDz
 kJu
 inb
@@ -175963,7 +175957,7 @@ gwG
 ncW
 egC
 bCQ
-qAm
+dUs
 njJ
 nQh
 nQh
