@@ -31,31 +31,20 @@
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
-	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
-	if(!istype(old_stomach))
-		return
-	old_stomach.Remove(human_holder, special = TRUE)
-	qdel(old_stomach)
 	if(isjellyperson(human_holder))
-		var/obj/item/organ/internal/brain/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
-		if(!istype(old_brain))
-			return
-		old_brain.Remove(human_holder, special = TRUE)
-		qdel(old_brain)
 		var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
-		new_slime_brain.Insert(human_holder, special = TRUE)
+		new_slime_brain.replace_into(human_holder)
 		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
-		human_holder.mind.transfer_to(human_holder)
 		var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
-		new_slime_stomach.Insert(human_holder, special = TRUE)
+		new_slime_stomach.replace_into(human_holder)
 		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
 	else if(issynthetic(human_holder))
 		var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
-		new_synth_stomach.Insert(human_holder, special = TRUE)
+		new_synth_stomach.replace_into(human_holder)
 		to_chat(human_holder, span_warning("You feel your massive engine rumble!"))
 	else
 		var/obj/item/organ/internal/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
-		new_stomach.Insert(human_holder, special = TRUE)
+		new_stomach.replace_into(human_holder)
 		to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
 
 /datum/quirk/oversized/remove()
