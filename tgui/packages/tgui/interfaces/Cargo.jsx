@@ -1,8 +1,4 @@
 import { filter, sortBy } from 'common/collections';
-<<<<<<< HEAD
-import { flow } from 'common/fp';
-=======
->>>>>>> 1b9ba80604d (Fixes cargo import (#82755))
 
 import { useBackend, useSharedState } from '../backend';
 import {
@@ -172,16 +168,17 @@ const CargoStatus = (props) => {
 const searchForSupplies = (supplies, search) => {
   search = search.toLowerCase();
 
-  return flow([
-    (categories) => categories.flatMap((category) => category.packs),
+  const queriedSupplies = sortBy(
     filter(
+      supplies.flatMap((category) => category.packs),
       (pack) =>
         pack.name?.toLowerCase().includes(search.toLowerCase()) ||
         pack.desc?.toLowerCase().includes(search.toLowerCase()),
     ),
-    sortBy((pack) => pack.name),
-    (packs) => packs.slice(0, 25),
-  ])(supplies);
+    (pack) => pack.name,
+  );
+
+  return queriedSupplies.slice(0, 25);
 };
 
 export const CargoCatalog = (props) => {

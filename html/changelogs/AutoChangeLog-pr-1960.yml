@@ -1,4 +1,0 @@
-author: "nikothedude"
-delete-after: True
-changes:
-  - rscadd: "Synthetic electrical damage can no longer worsen if its currently being repaired"
