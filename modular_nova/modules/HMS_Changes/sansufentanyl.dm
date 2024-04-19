@@ -93,7 +93,7 @@
 /obj/item/folder/syndicate/red/secretformula
 	icon_state = "folder_sred"
 
-/obj/item/folder/syndicate/red/Initialize(mapload)
+/obj/item/folder/syndicate/red/secretformula/Initialize(mapload)
 	. = ..()
 	new /obj/item/paper/secretrecipe/secretformula(src)
 	update_appearance()

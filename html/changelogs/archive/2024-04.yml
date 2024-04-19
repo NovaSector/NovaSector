@@ -527,3 +527,116 @@
   - rscadd: New airless variants of Moon turfs
   - config: Ouroboros added as a 0-80 connected mid-pop map (similar threshold as
       VoidRaptor)
+2024-04-16:
+  1393F:
+  - qol: the supermatter scram machine no longer blocks placement of vents/anything
+      else
+  Chelxox:
+  - bugfix: Primitive wooden fencing drops wood upon deconstruction (instead of iron
+      rods)
+  NovaBot13:
+  - bugfix: strip menu sensors change respects locked sensors
+  - bugfix: Advanced camera consoles now boots you off when you're moved out of reach.
+  - admin: Something changed, but you shouldn't be able to notice. If verbs are funky
+      report this to <946283057915232337> on discord.
+  - code_imp: renamed `NO_DECONSTRUCTION` to `NO_DEBRIS_AFTER_DECONSTRUCTION` so its
+      name matches its intended purpose
+  - bugfix: fixes some items that incorrectly used `NO_DECONSTRUCTION` prior to its
+      refactor, meaning makes some objects non deconstructable again
+  - bugfix: advanced camera consoles correctly deactivate when something happens(no
+      proximity, no power etc) to its user
+  vinylspiders:
+  - bugfix: you can deconstruct wooden fences again, but now you have to use a crowbar
+2024-04-17:
+  LT3:
+  - qol: Multi-cell charging rack cell charging power increased to 1.5MW
+  Melbert:
+  - refactor: Staff of Healing should perform slightly better.
+  NovaBot13:
+  - bugfix: Medipens can no longer be deepfried, closing an exploit that allowed people
+      to drain/inject chems into it with saltshakers and IV drips.
+  - bugfix: RPEDs can be used on vendors again. Note that only bluespace RPEDs can
+      carry vendor refills as of writing.
+  - bugfix: RPEDs can display vendor parts again.
+  - bugfix: Restocking vendors gives credits whether done manually or by RPEDs.
+  - bugfix: Vendors reset their contained credits when restocked.
+  - bugfix: Probably fixed directional tinted windows looking like directional frosted
+      windows
+  - image: Deleted a bunch of unused structure sprites
+  - bugfix: basic bots no longer start with all access
+  - bugfix: Ordinance lab igniter in Icebox works again
+  - bugfix: closets & crates will dump all contents out first before deleting itself
+      regardless of `NO_DEBRIS_AFTER_DECONSTRUCTION` thus not for e.g. hard deleting
+      mobs inside it
+  - bugfix: CentCom dispatched a team of interns to fix the loot panel's loading message.
+      It should now load properly. It did before too, but now the message is fixed.
+  - bugfix: tramstation AI sat starts full
+  - bugfix: wiring newly built SMESes should place new teminal under the player and
+      not under the SMES itself.
+  - bugfix: Cleans up some rocks on Birdshot
+  - bugfix: facescarf ui toggle button works again
+  - image: Fixed the lobby menu's collapse button being offset by a pixel
+  - bugfix: Anomalous Research ruin Bioscrambler anomalies won't home in on targets
+  - bugfix: Bioscrambler won't randomly drop its target for no reason
+  - admin: Reactivating an anomaly core via the anomaly releaser is now logged.
+  - bugfix: Fixes various bugs related to dimensional/spectral anomalies moving when
+      they should not.
+  - bugfix: Birdshot now have engi wardrope
+  Vect0r:
+  - bugfix: 'BIRDSHOT: the clown now has a megaphone. Go honk!'
+  Zergspower:
+  - rscadd: Replaces the Chevvy with the Burst for the BMD role
+  - qol: rebrands the BMD to be more of a trader route, with an incentive to recruit
+      a partner from the station.
+  - code_imp: Ghost roles defined with an ID are excluded from paychecks properly
+      now
+  - code_imp: the Blackmarket area is not longer magically powered
+2024-04-18:
+  Melbert:
+  - bugfix: Blobs may rejoice, welding torches now consume fuel when attacking objects
+      again after two years.
+  Rhials:
+  - sound: Nightmare has a new sound effect for entering/exiting shadow jaunt. It
+      also no longer can be heard through walls.
+  SomeRandomOwl:
+  - rscadd: Added a variant of the interdyne modsuit to interdynes shuttle
+2024-04-19:
+  Iajret:
+  - bugfix: fixes heretics not getting their targets when antag opt-in disabled
+  LT3:
+  - balance: Rebalanced alcohol intoxication effects.
+  - balance: A unit of alcohol will now last longer in your system
+  - balance: Alcohol intoxicates at the same rate regardless if you chug it all at
+      once or sip it over a few minutes
+  - balance: Reduced light drinker quirk's booze penalty from 100% to 33%
+  Melbert:
+  - rscadd: Adds the Strong Stomach quirk, which allows you to eat grimy food without
+      worry about disease, and makes you a bit more resilient to the effects of vomiting.
+  - rscdel: Deviant Tastes no longer prevents you from getting a negative moodlet
+      from eating dirty food. Strong Stomach does that now.
+  - rscadd: Being deafnened from a loud sound (flashbang, explosions) will now force
+      people not naturally deaf to shout
+  - rscadd: Ear damage multiplier now only applies to taking damage, not healing damage,
+      meaning Felinids (who take 2x the ear damage) will no longer heal ear damage
+      2x faster.
+  - refactor: Ears have been refactored slightly, ear deafness should now update more
+      snappily
+  NovaBot13:
+  - code_imp: The way mobs idle has been refactored, please report any issues with
+      non-reactive mobs
+  - rscadd: Regal Rats are now able to tear down those colorful posters those weird
+      grey creatures keep spackling up on the walls of their rightful domain.
+  - bugfix: you no longer need to put your sleeping carp gloves off and on in Deathmatch
+      to get the martial art
+  - rscadd: miners can now purchase grapple guns
+  - bugfix: Netpods have had their security against exploits increased.
+  - bugfix: Bit avatars no longer have access to free binary comms with the AI outfit
+  SomeRandomOwl:
+  - bugfix: Interdyne has noticed that the syndicate has stolen their secret recipe
+      for sanusfentynal, through extensive legal battles they have reclaimed their
+      stolen recipe. (AKA it no longer spawns in space ruins)
+  Zergspower:
+  - qol: re-enabled Borg Resizing for wide and tall borgs
+  nikothedude:
+  - rscadd: Synthetic electrical damage can no longer worsen if its currently being
+      repaired

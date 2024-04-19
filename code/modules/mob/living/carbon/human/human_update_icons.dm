@@ -860,7 +860,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			standing = wear_taur_version(standing.icon_state, standing.icon, layer2use, female_uniform, greyscale_colors)
 		else
 			standing.pixel_x -= 16 // it doesnt look right otherwise
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 
 	//Get the overlays for this item when it's being worn
