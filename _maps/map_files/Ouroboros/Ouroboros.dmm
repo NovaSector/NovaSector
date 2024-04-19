@@ -57137,15 +57137,16 @@
 "qDH" = (
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
-/obj/machinery/door/window/left/directional/east{
-	req_access = list("kitchen")
-	},
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=4";
 	location = "Kitchen"
+	},
+/obj/machinery/door/window/left/directional/east{
+	name = "Kitchen Deliveries";
+	req_access = list("kitchen")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/kitchen)
