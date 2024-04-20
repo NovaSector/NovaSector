@@ -5044,13 +5044,11 @@
 /turf/open/floor/plating,
 /area/station/medical/pharmacy)
 "bwL" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
-/turf/open/floor/iron/kitchen,
-/area/station/service/kitchen)
+/turf/open/floor/wood/large,
+/area/station/service/bar)
 "bwM" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=hall18";
@@ -15777,11 +15775,6 @@
 	dir = 8
 	},
 /area/station/security/brig/entrance)
-"eEp" = (
-/obj/structure/table/wood,
-/obj/effect/turf_decal/siding/wood/end,
-/turf/open/floor/wood/tile,
-/area/station/service/bar)
 "eEy" = (
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
@@ -39371,6 +39364,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -46654,12 +46648,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/command/meeting_room/council)
-"nvf" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/turf/open/floor/wood/large,
-/area/station/service/bar)
 "nvh" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "MiniSat External Upper South-East";
@@ -56181,7 +56169,6 @@
 	pixel_x = -7;
 	pixel_y = 2
 	},
-/obj/effect/mapping_helpers/mail_sorting/service/bar,
 /obj/structure/desk_bell,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -57614,6 +57601,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/mail_sorting/service/bar,
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
 "qLo" = (
@@ -68967,6 +68955,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
+"uhO" = (
+/obj/structure/hedge,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "kitchen_counter";
+	name = "Kitchen Counter Shutters";
+	dir = 4
+	},
+/obj/structure/window/reinforced/fulltile,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/service/kitchen)
 "uhR" = (
 /obj/structure/rack,
 /turf/open/floor/iron,
@@ -69513,16 +69511,6 @@
 "uov" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/chemistry)
-"uoD" = (
-/obj/structure/hedge,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchen_counter";
-	name = "Kitchen Counter Shutters";
-	dir = 4
-	},
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/service/kitchen)
 "upf" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 1
@@ -70825,6 +70813,11 @@
 /obj/effect/mapping_helpers/airlock/unres,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"uJh" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/siding/wood/end,
+/turf/open/floor/wood/tile,
+/area/station/service/bar)
 "uJk" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
@@ -108143,7 +108136,7 @@ bFS
 fkm
 btp
 btp
-bwL
+bLL
 bgT
 bLK
 kzR
@@ -108907,7 +108900,7 @@ bEg
 dIb
 vvg
 qBH
-eEp
+uJh
 xCS
 nuU
 xCS
@@ -109425,11 +109418,11 @@ hRy
 fqI
 jvp
 xCS
-uoD
-uoD
-uoD
-uoD
-uoD
+uhO
+uhO
+uhO
+uhO
+uhO
 qDj
 kkU
 bOj
@@ -110451,7 +110444,7 @@ fsm
 hpL
 hRy
 tla
-nvf
+bwL
 uGd
 foZ
 hJs
