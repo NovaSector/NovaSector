@@ -5244,6 +5244,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
+"cyQ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "czd" = (
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
@@ -5585,6 +5594,14 @@
 /obj/structure/closet/secure_closet/freezer/kitchen/all_access,
 /turf/open/floor/iron/showroomfloor,
 /area/centcom/holding/cafe)
+"dda" = (
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/delivery,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/interlink)
 "ddp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -7855,8 +7872,8 @@
 /turf/open/floor/mineral/titanium,
 /area/centcom/interlink)
 "huK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -9708,6 +9725,9 @@
 /obj/machinery/computer/records/security{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "kKs" = (
@@ -9857,6 +9877,9 @@
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "kWH" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/grimy,
 /area/centcom/interlink)
 "kWI" = (
@@ -10594,6 +10617,9 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/effect/turf_decal/delivery/white,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "mju" = (
@@ -11510,6 +11536,9 @@
 "nJQ" = (
 /obj/effect/turf_decal/arrows{
 	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -12761,8 +12790,13 @@
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
 "pFm" = (
-/obj/machinery/door/poddoor/ert,
-/turf/open/space/basic,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
 /area/centcom/interlink)
 "pFr" = (
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
@@ -14542,6 +14576,13 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"sqk" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "sqZ" = (
 /obj/structure/chair/sofa/bench/left,
@@ -34470,7 +34511,7 @@ mDs
 xqq
 tUz
 uYo
-uYo
+pFm
 uYo
 eNn
 xqq
@@ -34727,7 +34768,7 @@ eHo
 hvQ
 hvQ
 hvQ
-hvQ
+bIG
 hvQ
 hvQ
 hvQ
@@ -36001,7 +36042,7 @@ aaa
 aaa
 aaa
 aaa
-pFm
+asv
 xkb
 tvw
 aaa
@@ -36269,7 +36310,7 @@ eHo
 amv
 tvw
 aDg
-aDg
+sqk
 aDg
 tvw
 amv
@@ -36526,7 +36567,7 @@ inr
 nrl
 rYR
 rYR
-rYR
+cyQ
 rYR
 rYR
 ojv
@@ -37040,7 +37081,7 @@ aXG
 aXG
 aXG
 aXG
-aXG
+dda
 aXG
 aXG
 aXG
