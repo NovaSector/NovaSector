@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "fixes heretics not getting their targets when antag opt-in disabled"
