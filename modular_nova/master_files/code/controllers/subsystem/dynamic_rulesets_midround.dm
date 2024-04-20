@@ -1,5 +1,8 @@
 GLOBAL_LIST_INIT(debug_dynamic_be_antag_disabled, list()) //This wont stick around, just for debugging purposes but i need it for now
 
+/datum/dynamic_ruleset/midround/from_living/autotraitor
+	var/static/list/sleeper_current_polling = list()
+	var/static/list/rejected_traitor = list()
 /**
  * Polls a group of candidates to see if they want to be a sleeper agent.
  *

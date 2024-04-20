@@ -261,8 +261,6 @@
 	cost = 3
 	requirements = list(3,3,3,3,3,3,3,3,3,3)
 	repeatable = TRUE
-	var/list/sleeper_current_polling = list() // NOVA EDIT ADDITION
-	var/list/rejected_traitor = list() // NOVA EDIT ADDITION
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/trim_candidates()
 	..()
