@@ -215,6 +215,10 @@
 	name = "Sandfox (Large)"
 	icon_state = "sandfox_large"
 
+/datum/sprite_accessory/ears/mutant/big/dinnerplate
+	name = "Dinnerplates (Large)"
+	icon_state = "dinnerplate"
+
 /datum/sprite_accessory/ears/mutant/pede
 	name = "Scolipede"
 	icon_state = "pede"
