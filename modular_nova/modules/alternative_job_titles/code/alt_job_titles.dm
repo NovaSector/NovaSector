@@ -232,6 +232,7 @@
 		"Physician",
 		"Surgeon",
 		"Medical Student",
+		"Virologist",
 	)
 
 /datum/job/engineering_guard //see orderly
