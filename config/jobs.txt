@@ -53,7 +53,7 @@ Engineering Guard=2,2
 
 # Medical
 
-Medical Doctor=5,3
+Medical Doctor=6,4
 Paramedic=3,2
 Chemist=2,2
 Geneticist=2,2
