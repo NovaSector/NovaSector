@@ -141,10 +141,6 @@
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
 
-/obj/item/organ/internal/brain/slime/Destroy(mob/living/victim)
-	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
-	return ..()
-
 ///////
 /// CORE EJECTION PROC
 /// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
