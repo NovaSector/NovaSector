@@ -22200,7 +22200,6 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/warning{
 	dir = 8
 	},
-/obj/effect/landmark/start/virologist,
 /obj/machinery/duct,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white/smooth_edge{
@@ -37450,7 +37449,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/duct,
-/obj/effect/landmark/start/virologist,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -49158,7 +49156,6 @@
 /area/station/commons/lounge)
 "nPC" = (
 /obj/structure/cable,
-/obj/effect/landmark/start/virologist,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -65766,7 +65763,6 @@
 /obj/structure/chair/office/light{
 	dir = 4
 	},
-/obj/effect/landmark/start/virologist,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/virology)
 "sqD" = (

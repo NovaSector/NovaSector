@@ -33470,11 +33470,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/office)
-"jWd" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply,
-/obj/effect/landmark/start/virologist,
-/turf/open/floor/iron/white,
-/area/station/medical/virology)
 "jWe" = (
 /obj/structure/chair/pew/left,
 /obj/effect/turf_decal/siding/wood{
@@ -48474,7 +48469,6 @@
 /area/station/security/warden)
 "oqc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply,
-/obj/effect/landmark/start/virologist,
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
@@ -65659,7 +65653,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/start/virologist,
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "tCd" = (
@@ -71136,7 +71129,6 @@
 /turf/open/floor/wood/tile,
 /area/station/service/bar)
 "vje" = (
-/obj/effect/landmark/start/virologist,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply,
 /obj/structure/cable,
 /turf/open/floor/iron/white,
@@ -123649,7 +123641,7 @@ kTx
 pIa
 oqc
 ggh
-jWd
+pIa
 pIa
 aXk
 hWq
