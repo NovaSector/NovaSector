@@ -80,6 +80,8 @@
 	var/core_ejected = FALSE
 	/// This tracks whether their GPS microchip is enabled or not, only becomes TRUE on activation of the below ability /datum/action/innate/core_signal.
 	var/gps_active = FALSE
+	throw_range = 9 //Oh! That's a baseball!
+	throw_speed = 0.5
 
 /obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
@@ -259,7 +261,7 @@
 
 	if(istype(wetness) && wetness.stacks > (REGEN_WATER_STACKS))
 		healing = FALSE
-		if (SPT_PROB(25, seconds_per_tick))
+		if (SPT_PROB(1, seconds_per_tick))
 			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 			slime.blood_volume -= 1 * seconds_per_tick
 
@@ -411,7 +413,7 @@
 
 		slime.blood_volume -= 3 * seconds_per_tick
 		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if (SPT_PROB(25, seconds_per_tick))
+		if (SPT_PROB(1, seconds_per_tick))
 			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))
 		return COMSIG_MOB_STOP_REAGENT_CHECK
 

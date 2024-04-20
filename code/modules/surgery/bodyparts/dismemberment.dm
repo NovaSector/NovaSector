@@ -138,6 +138,12 @@
 		to_chat(phantom_owner, span_warning("Your [src] splatters with an unnerving squelch!"))
 		playsound(phantom_owner, 'sound/effects/blobattack.ogg', 60, TRUE)
 		phantom_owner.blood_volume -= 60 //Makes for 120 when you regenerate it.
+		for(var/obj/item/embedded in embedded_objects)
+			embedded.forceMove(src) // It'll self remove via signal reaction, just need to move it
+		if(!phantom_owner.has_embedded_objects()) //Makes sure that it doesn't qdel embeds.
+			phantom_owner.clear_alert(ALERT_EMBEDDED_OBJECT)
+			phantom_owner.clear_mood_event("embedded")
+		drop_organs(src, TRUE)
 		qdel(src)
 		return
 	//NOVA EDIT END
