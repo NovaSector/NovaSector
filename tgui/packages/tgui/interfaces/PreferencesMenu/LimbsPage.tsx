@@ -198,7 +198,7 @@ export const OrganPage = (props) => {
           <Dropdown
             width="100%"
             options={Object.values(props.organ.organ_choices) as string[]}
-            displayText={props.organ.chosen_organ}
+            selected={props.organ.chosen_organ}
             onSelected={(value) => {
               // Since the costs are positive, it's added and not substracted
               if (
