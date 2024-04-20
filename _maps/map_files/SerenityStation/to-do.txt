@@ -24,13 +24,10 @@ serenitystation to do list
 	-arrivals ship docks (maybe on sat station) 
 		-library (& library backrooms)
 		-chapel
-		-aux base/construction zone
-		-aux tool storage
 		-more escape pods
 		
 	**Rec areas 
 		-barbershop
-		-pool 
 		-holodeck 
 		-dorms toilets
 		-dorms 
@@ -38,7 +35,6 @@ serenitystation to do list
 		-boxing ring 
 		-arcade
 		-locker room
-		-park
 	
 	**Maints rooms 
 	-disposals
