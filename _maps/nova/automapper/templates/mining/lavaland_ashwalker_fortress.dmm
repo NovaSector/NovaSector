@@ -335,10 +335,8 @@
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/seeds/tower,
 /obj/item/seeds/tower,
-/obj/item/seeds/tower,
 /obj/item/seeds/bamboo,
 /obj/item/seeds/bamboo,
-/obj/item/seeds/cotton,
 /obj/item/seeds/cotton,
 /obj/item/seeds/cotton,
 /obj/item/seeds/chanter,
@@ -1799,13 +1797,11 @@
 /obj/structure/flora/ash/stem_shroom,
 /obj/item/seeds/ambrosia,
 /obj/item/seeds/ambrosia,
-/obj/item/seeds/ambrosia,
-/obj/item/seeds/aloe,
 /obj/item/seeds/aloe,
 /obj/item/seeds/aloe,
 /obj/item/seeds/reishi,
 /obj/item/seeds/reishi,
-/obj/item/seeds/reishi,
+/obj/item/seeds/cannabis,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ew" = (
@@ -1962,13 +1958,11 @@
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/seeds/pumpkin,
 /obj/item/seeds/pumpkin,
-/obj/item/seeds/pumpkin,
-/obj/item/seeds/starthistle,
 /obj/item/seeds/starthistle,
 /obj/item/seeds/starthistle,
 /obj/item/seeds/tobacco,
 /obj/item/seeds/tobacco,
-/obj/item/seeds/tobacco,
+/obj/item/seeds/cannabis,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ic" = (
@@ -4540,7 +4534,7 @@ GP
 "}
 (44,1,1) = {"
 li
-li
+JC
 JC
 EH
 Dh
