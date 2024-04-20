@@ -15042,6 +15042,10 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
+"sYV" = (
+/obj/machinery/door/poddoor/ert,
+/turf/closed/indestructible/riveted,
+/area/centcom/interlink)
 "sYY" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 4
@@ -36042,7 +36046,7 @@ aaa
 aaa
 aaa
 aaa
-asv
+sYV
 xkb
 tvw
 aaa
