@@ -121,21 +121,27 @@
 		return
 	colorize()
 	core_ejected = FALSE
-	RegisterSignal(organ_owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_change))
+	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
 
 /obj/item/organ/internal/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
 		core_color = owner.dna.features["mcolor"]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
-/obj/item/organ/internal/brain/slime/proc/on_stat_change(mob/living/victim, new_stat, turf/loc_override)
+/obj/item/organ/internal/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
 	SIGNAL_HANDLER
+	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
-	if(new_stat != DEAD)
+	if(gibbed)
+		qdel(src)
+		UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 		return
 
-	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
+
+/obj/item/organ/internal/brain/slime/Destroy(mob/living/victim)
+	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+	return ..()
 
 ///////
 /// CORE EJECTION PROC
@@ -162,7 +168,7 @@
 		AddComponent(/datum/component/gps, "[victim]'s Core")
 
 	qdel(victim)
-	UnregisterSignal(victim, COMSIG_MOB_STATCHANGE)
+	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
 /obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
 	var/datum/effect_system/steam_spread/steam = new()
