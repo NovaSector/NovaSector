@@ -78,9 +78,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/time_clock, 28)
 	return TRUE
 
 /obj/machinery/time_clock/click_alt(mob/user)
-	to_chat(user, span_warning("You are out of range of the [src]!"))
-	return CLICK_ACTION_BLOCKING
-
 	if(!eject_inserted_id(user))
 		return CLICK_ACTION_BLOCKING
 
