@@ -3797,7 +3797,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/kitchen,
-/area/station/service/kitchen/diner)
+/area/station/service/kitchen)
 "bgU" = (
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
@@ -3852,7 +3852,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/kitchen,
-/area/station/service/kitchen/diner)
+/area/station/service/kitchen)
 "bhw" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -17780,7 +17780,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/box,
 /obj/machinery/power/smes/full,
-/turf/open/floor/iron/dark/small,
+/turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "fiT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
@@ -23011,7 +23011,7 @@
 "gNq" = (
 /obj/machinery/announcement_system,
 /obj/effect/turf_decal/stripes/box,
-/turf/open/floor/iron/dark/telecomms,
+/turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "gNt" = (
 /turf/closed/wall/r_wall,
@@ -57588,7 +57588,6 @@
 /obj/structure/disposalpipe/sorting/mail/flip{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/mail_sorting/service/bar,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/checker,
@@ -68081,7 +68080,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/kitchen,
-/area/station/service/kitchen/diner)
+/area/station/service/kitchen)
 "tUw" = (
 /obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/iron,
@@ -68545,7 +68544,7 @@
 /area/station/commons/storage/primary)
 "uco" = (
 /obj/structure/lattice,
-/turf/open/space/openspace,
+/turf/open/openspace,
 /area/station/maintenance/aft/greater)
 "ucv" = (
 /obj/effect/turf_decal/tile/dark_blue{
@@ -68942,15 +68941,13 @@
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
 "uhO" = (
-/obj/structure/hedge,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchen_counter";
-	name = "Kitchen Counter Shutters";
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/service/kitchen/diner)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
+/turf/open/floor/iron/kitchen,
+/area/station/service/kitchen)
 "uhR" = (
 /obj/structure/rack,
 /turf/open/floor/iron,
@@ -69506,7 +69503,7 @@
 	},
 /obj/structure/window/reinforced/fulltile,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/service/bar)
+/area/station/service/kitchen)
 "upf" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 1
@@ -107356,7 +107353,7 @@ nEN
 xCS
 xCS
 xCS
-aWe
+xCS
 aWe
 kMZ
 giS
@@ -107870,7 +107867,7 @@ fkm
 kcr
 kaY
 uQA
-aWe
+xCS
 bLK
 aWe
 aWe
@@ -108126,7 +108123,7 @@ bFS
 fkm
 btp
 btp
-bLL
+uhO
 bgT
 bLK
 kzR
@@ -108634,7 +108631,7 @@ dIb
 hRy
 hRy
 hRy
-hRy
+xCS
 hlW
 pNm
 fkm
@@ -108891,7 +108888,7 @@ dIb
 vvg
 qBH
 nag
-hRy
+xCS
 nuU
 xCS
 fkm
@@ -109148,7 +109145,7 @@ dIb
 iaQ
 wiu
 gYP
-hRy
+xCS
 xCS
 xCS
 tav
@@ -109407,12 +109404,12 @@ gyb
 hRy
 fqI
 jvp
-hRy
+xCS
 uoD
 uoD
-uhO
-uhO
-uhO
+uoD
+uoD
+uoD
 qDj
 kkU
 bOj
