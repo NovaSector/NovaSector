@@ -30,12 +30,6 @@
 		reagents.expose(get_turf(src), TOUCH) //splash on the floor
 		reagents.clear_reagents()
 
-<<<<<<< HEAD
-/obj/machinery/iv_drip/plumbing/can_use_alt_click(mob/user)
-	return FALSE //Alt click is used for rotation
-
-=======
->>>>>>> 8070e46a8ea (Plumbing machinery power & processing tweaks (#82702))
 /obj/machinery/iv_drip/plumbing/wrench_act(mob/living/user, obj/item/tool)
 	if(user.combat_mode)
 		return NONE
