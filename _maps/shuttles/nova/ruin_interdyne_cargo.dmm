@@ -128,7 +128,6 @@
 /obj/docking_port/mobile{
 	dir = 4;
 	shuttle_id = "interdyne_cargo";
-	launch_status = 0;
 	name = "Interdyne Cargo Shuttle";
 	port_direction = 2;
 	preferred_direction = 4
