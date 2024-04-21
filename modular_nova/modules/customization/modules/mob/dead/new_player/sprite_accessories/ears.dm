@@ -31,6 +31,22 @@
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
 
+// Sorts upstream cat ears types between parenthesis
+/datum/sprite_accessory/ears/cat/big
+	name = "Cat (Big)"
+
+/datum/sprite_accessory/ears/cat/miqo
+	name = "Cat (Coeurl)"
+
+/datum/sprite_accessory/ears/cat/fold
+	name = "Cat (Fold)"
+
+/datum/sprite_accessory/ears/cat/lynx
+	name = "Cat (Lynx)"
+
+/datum/sprite_accessory/ears/cat/round
+	name = "Cat (Round)"
+
 /datum/sprite_accessory/ears/fox
 	color_src = USE_ONE_COLOR
 
