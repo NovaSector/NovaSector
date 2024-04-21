@@ -30,10 +30,10 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/storage/toolbox/guncase/nova/AltClick(mob/user)
-	. = ..()
+/obj/item/storage/toolbox/guncase/nova/click_alt(mob/user)
 	opened = !opened
 	update_icon()
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/storage/toolbox/guncase/nova/attack_self(mob/user)
 	. = ..()
