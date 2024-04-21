@@ -793,3 +793,13 @@
 	name = "Mr. Fluff"
 	item_path = /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
 	ckeywhitelist = list("centralsmith")
+
+/datum/loadout_item/under/jumpsuit/techpants
+    name = "Techwear Pants"
+    item_path = /obj/item/clothing/under/techpants
+    ckeywhitelist = list("AlvCyktor")
+
+/datum/loadout_item/inhand/dropouch
+    name = "Drop Pouch"
+    item_path = /obj/item/storage/backpack/satchel/dropouch
+    ckeywhitelist = list("AlvCyktor")
