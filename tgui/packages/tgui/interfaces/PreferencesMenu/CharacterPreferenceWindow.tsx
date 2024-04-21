@@ -36,14 +36,14 @@ const CharacterProfiles = (props: {
   const { profiles, activeSlot, onClick } = props; // NOVA EDIT CHANGE
 
   return (
-    <Flex /* NOVA EDIT CHANGE START - Skyrat uses a dropdown instead of buttons */
+    <Flex /* NOVA EDIT CHANGE START - Nova uses a dropdown instead of buttons */
       align="center"
       justify="center"
     >
       <Flex.Item width="25%">
         <Dropdown
           width="100%"
-          selected={activeSlot}
+          selected={activeSlot as unknown as string}
           displayText={profiles[activeSlot]}
           options={profiles.map((profile, slot) => ({
             value: slot,

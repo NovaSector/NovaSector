@@ -39,6 +39,7 @@
 	shift_underlay_only = FALSE
 	hide = TRUE
 	piping_layer = PIPING_LAYER_MAX
+	pipe_flags = NONE
 	pipe_state = "injector"
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF | UNACIDABLE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 4
