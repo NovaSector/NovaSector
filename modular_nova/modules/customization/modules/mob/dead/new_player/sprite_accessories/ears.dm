@@ -112,11 +112,11 @@
 	icon_state = "bunny"
 
 /datum/sprite_accessory/ears/mutant/tajaran/catbig
-	name = "Cat, Big"
+	name = "Cat (Tajaran, Big)"
 	icon_state = "catbig"
 
 /datum/sprite_accessory/ears/mutant/tajaran/catnormal
-	name = "Cat, normal"
+	name = "Cat (Tajaran, Normal)"
 	icon_state = "catnormal"
 
 /datum/sprite_accessory/ears/mutant/cow
