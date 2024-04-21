@@ -1,4 +1,0 @@
-author: "nikothedude"
-delete-after: True
-changes:
-  - bugfix: "Clothing with taur-specific clothing sprites now render those sprites properly"

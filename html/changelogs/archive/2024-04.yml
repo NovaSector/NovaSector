@@ -640,3 +640,107 @@
   nikothedude:
   - rscadd: Synthetic electrical damage can no longer worsen if its currently being
       repaired
+2024-04-20:
+  Bmon:
+  - bugfix: Fixed on-mob sprite alightment for the NT SWAT helmet.
+  FlufflesTheDog:
+  - rscadd: large mortars can now mix, like blenders can
+  - qol: large mortars should have better feedback and usability
+  - bugfix: stone stoves no longer give you free pots
+  - rscadd: you can now smith pots using four iron plates
+  - bugfix: smithing iron rods won't randomly short-change you
+  - bugfix: wood racks no longer drop iron rack parts
+  - bugfix: millstones no longer drop "sheet" when deconstructed
+  - bugfix: Clocking out will now open up your job slot for new players to take. Should
+      the role become filled in your absence, you will not be able to clock back in
+      until someone clocks out or cryos.
+  JimKil3:
+  - rscadd: Forged daggers now act as knives
+  - rscadd: Forged tools are now slightly faster than default
+  - code_imp: "Forging-related tools now use the toolspeed var normally\n/\U0001F191"
+  LT3:
+  - bugfix: Medical crew monitor works again
+  Melbert:
+  - bugfix: You can handcuff people with 2 arms and you can no longer handcuff people
+      with 0 arms
+  - refactor: Atom-Item interactions have been refactored once more. Report any oddities.
+  - bugfix: Primal Instincts and Living Flesh should be a tad more reactive
+  NovaBot13:
+  - qol: slimes will stay active without needing any one to watch over
+  - bugfix: Fixed RnD consoles not being able to be opened.
+  - balance: Gulag mining has been rebalanced so that every boulder is worth the same
+      amount of points to mine for a prisoner regardless of what it contains, and
+      should be more consistent.
+  - rscadd: A vent which boulders can be hauled out of by hand has been added to the
+      gulag which you can use if there's nothing left to mine. It is very slow, but
+      at least it gives you a workout...
+  - qol: Replaced the surgical tools in the Primary Surgery Theatre with 2 Surgery
+      Trays.
+  - bugfix: cooling and anti-disruption RCD upgrades can now be printed in ancient
+      protolathes
+  - bugfix: 'Lootpanel additions: Condensed item names for the quick of draw'
+  - bugfix: Carps migrating through the station no longer idle so they don't get stuck
+      after spawning until someone walks by.
+  - admin: Controller Overview UI. Check the Server Tab.
+  - bugfix: TGUI Alerts shouldn't have such wonky buttons any more
+  - bugfix: Fixed a bluescreen in cargo console
+  - bugfix: being revived with a cyber-heart now properly restarts the cyber heart
+  - bugfix: smart pipes release their gases into the air when unwrenched
+  - bugfix: cryo pipe connector component has no side effects of gas reallocation
+      when deleted
+  - qol: There's a bit more user feedback when it comes to attempting to handcuff
+      someone.
+  SomeRandomOwl:
+  - bugfix: Interdyne pharmaceuticals remembered to ship a starter kit and the recipe
+      for sanysfentynal to their base on the ice moon
+  Zergspower:
+  - code_imp: removed the faction defines for Black Mesa as they dont exist anymore
+  - balance: DS2 and Interdyne factions are properly assigned, syndicate ruins will
+      not retaliate
+  - qol: DS2 general crew can now open the shutters to go to the docking area as well
+      as unbolt the vault for turret control
+  dis-integrates-the-integration-tests:
+  - rscdel: Removed Syndicate Bomb (LARGE, 11 TC) from Syndicate Uplink.
+  nikothedude:
+  - bugfix: Clothing with taur-specific clothing sprites now render those sprites
+      properly
+2024-04-21:
+  LT3:
+  - balance: Increased tesla coil zap conversion capacity
+  Motho:
+  - rscadd: Added wizard-themed deathmatch map.
+  - rscadd: Added mystery wand box.
+  NovaBot13:
+  - bugfix: plumbing machinery begins processing only when wrenched & ends when unwrenched
+  - bugfix: plumbing machinery uses energy only when wrenched & doing work, will stop/use
+      less energy when idle
+  - bugfix: plumbing grinder chemical will grinds & juice stuff correctly i.e. prefer
+      grinding over juicing for most stuff
+  - spellcheck: '''inisimin'' verb corrected to ''invisimin'''
+  - code_imp: most cell power usages are scaled with defined constants to help adapt
+      to future changes
+  - bugfix: Fixed the targeting capability of mobs with full auto
+  - bugfix: You can now fire the marksman revolver at things you can see
+  - bugfix: Mecha pilots are no longer bothered by incessant loot panels while holding
+      ALT for strafe disable.
+  - admin: Player Panel is back
+  - bugfix: Dropdowns received some much-needed QoL, like having the scrollbar follow
+      your selection.
+  - bugfix: AI voice changer now shows its current voice selection.
+  - bugfix: Deathmatch screen has been touched up.
+  - bugfix: Prefs menu has their dropdowns simplified, hopefully fixing issues
+  - rscadd: The lootpanel now works at range.
+  - rscadd: Screentips for reskinnable items.
+  - bugfix: Alt click interactions have been refactored, which may lead to unintentional
+      changes to gameplay. Report any issues, please.
+  - admin: New dropdown to force change a mob's name and the attached client's preferences.
+  - bugfix: Ants are no longer picky eaters. Low Purity sugar will no longer result
+      in less Ants than you started with.
+  Rhials:
+  - qol: Water tiles now extinguish fires on items and people.
+  Vishenka0704:
+  - qol: added mass craft for personal crafting
+  tf-4:
+  - rscadd: You can now punch people in the nuts.
+  vinylspiders:
+  - bugfix: fixes the preference menu bluescreen
