@@ -20,7 +20,7 @@
 
 // Iron
 
-GLOBAL_LIST_INIT(skyrat_metal_recipes, list(
+GLOBAL_LIST_INIT(nova_metal_recipes, list(
 	new/datum/stack_recipe("wall mounted fire-safety closet", /obj/item/wallframe/firecloset, 2, time = 1.5 SECONDS, check_density = FALSE, category = CAT_FURNITURE),
 	new/datum/stack_recipe("wall mounted emergency closet", /obj/item/wallframe/emcloset, 2, time = 1.5 SECONDS, check_density = FALSE, category = CAT_FURNITURE),
 	new/datum/stack_recipe("wall mounted closet", /obj/item/wallframe/closet, 2, time = 1.5 SECONDS, check_density = FALSE, category = CAT_FURNITURE),
@@ -35,29 +35,29 @@ GLOBAL_LIST_INIT(skyrat_metal_recipes, list(
 	new/datum/stack_recipe("throwing wheel", /obj/structure/throwing_wheel, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 ))
 
-GLOBAL_LIST_INIT(skyrat_metal_airlock_recipes, list(
+GLOBAL_LIST_INIT(nova_metal_airlock_recipes, list(
 	new /datum/stack_recipe("corporate airlock assembly", /obj/structure/door_assembly/door_assembly_corporate, 4, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_DOORS),
 	new /datum/stack_recipe("service airlock assembly", /obj/structure/door_assembly/door_assembly_service, 4, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_DOORS),
 ))
 
 /obj/item/stack/sheet/iron/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_metal_recipes
-	add_recipes_to_sublist(., "airlock assemblies", GLOB.skyrat_metal_airlock_recipes)
+	. += GLOB.nova_metal_recipes
+	add_recipes_to_sublist(., "airlock assemblies", GLOB.nova_metal_airlock_recipes)
 
 // Plasteel
 
-GLOBAL_LIST_INIT(skyrat_plasteel_recipes, list(
+GLOBAL_LIST_INIT(nova_plasteel_recipes, list(
 	new/datum/stack_recipe("plasteel barricade", /obj/structure/deployable_barricade/metal/plasteel, 2, time = 1 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/sheet/plasteel/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_plasteel_recipes
+	. += GLOB.nova_plasteel_recipes
 
 // Rods
 
-GLOBAL_LIST_INIT(skyrat_rod_recipes, list(
+GLOBAL_LIST_INIT(nova_rod_recipes, list(
 	new/datum/stack_recipe("towel bin", /obj/structure/towel_bin/empty, 2, time = 0.5 SECONDS, one_per_turf = FALSE, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("guard rail", /obj/structure/deployable_barricade/guardrail, 2, time = 1 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("wrestling ropes", /obj/structure/railing/wrestling, 3, time = 1.8 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, check_density = FALSE, category = CAT_STRUCTURE),
@@ -67,11 +67,11 @@ GLOBAL_LIST_INIT(skyrat_rod_recipes, list(
 
 /obj/item/stack/rods/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_rod_recipes
+	. += GLOB.nova_rod_recipes
 
 // Wood
 
-GLOBAL_LIST_INIT(skyrat_wood_recipes, list(
+GLOBAL_LIST_INIT(nova_wood_recipes, list(
 	new/datum/stack_recipe("water basin", /obj/structure/reagent_water_basin, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 	new/datum/stack_recipe("forging work bench", /obj/structure/reagent_crafting_bench, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden half-barricade", /obj/structure/deployable_barricade/wooden, 5, time = 2 SECONDS, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
@@ -79,10 +79,10 @@ GLOBAL_LIST_INIT(skyrat_wood_recipes, list(
 	new/datum/stack_recipe("large wooden mortar", /obj/structure/large_mortar, 10, time = 3 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden cutting board", /obj/item/cutting_board, 5, time = 2 SECONDS, check_density = FALSE, category = CAT_TOOLS),
 	new/datum/stack_recipe("wooden shelf", /obj/structure/rack/wooden, 2, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("seed shelf", /obj/machinery/smartfridge/seed_shelf, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("produce bin", /obj/machinery/smartfridge/produce_bin, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("produce display", /obj/machinery/smartfridge/produce_display, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("ration shelf", /obj/machinery/smartfridge/ration_shelf, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("seed shelf", /obj/machinery/smartfridge/wooden/seed_shelf, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("produce bin", /obj/machinery/smartfridge/wooden/produce_bin, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("produce display", /obj/machinery/smartfridge/wooden/produce_display, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("ration shelf", /obj/machinery/smartfridge/wooden/ration_shelf, 10, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("storage barrel", /obj/structure/closet/crate/wooden/storage_barrel, 4, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = FALSE, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("worm barrel", /obj/structure/wormfarm, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 	new/datum/stack_recipe("gutlunch trough", /obj/structure/ore_container/gutlunch_trough, 5, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_STRUCTURE),
@@ -95,11 +95,11 @@ GLOBAL_LIST_INIT(skyrat_wood_recipes, list(
 
 /obj/item/stack/sheet/mineral/wood/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_wood_recipes
+	. += GLOB.nova_wood_recipes
 
 // Cloth
 
-GLOBAL_LIST_INIT(skyrat_cloth_recipes, list(
+GLOBAL_LIST_INIT(nova_cloth_recipes, list(
 	new/datum/stack_recipe("fancy pillow", /obj/item/fancy_pillow, 3, check_density = FALSE, category = CAT_ENTERTAINMENT),
 	new/datum/stack_recipe("towel", /obj/item/towel, 2, check_density = FALSE, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch wrap", /obj/item/clothing/glasses/eyepatch/wrap, 2, check_density = FALSE, category = CAT_CLOTHING),
@@ -109,14 +109,14 @@ GLOBAL_LIST_INIT(skyrat_cloth_recipes, list(
 
 /obj/item/stack/sheet/cloth/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_cloth_recipes
+	. += GLOB.nova_cloth_recipes
 
 // Leather
 
-GLOBAL_LIST_INIT(skyrat_leather_recipes, list(
+GLOBAL_LIST_INIT(nova_leather_recipes, list(
 ))
 
-GLOBAL_LIST_INIT(skyrat_leather_belt_recipes, list(
+GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
 	new/datum/stack_recipe("xenoarch belt", /obj/item/storage/belt/utility/xenoarch, 4, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("medical bandolier", /obj/item/storage/belt/medbandolier, 5, check_density = FALSE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("gear harness", /obj/item/clothing/under/misc/nova/gear_harness, 6, check_density = FALSE, category = CAT_CLOTHING),
@@ -125,35 +125,35 @@ GLOBAL_LIST_INIT(skyrat_leather_belt_recipes, list(
 
 /obj/item/stack/sheet/leather/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_leather_recipes
-	add_recipes_to_sublist(., "belts", GLOB.skyrat_leather_belt_recipes)
+	. += GLOB.nova_leather_recipes
+	add_recipes_to_sublist(., "belts", GLOB.nova_leather_belt_recipes)
 
 // Titanium
 
-GLOBAL_LIST_INIT(skyrat_titanium_recipes, list(
+GLOBAL_LIST_INIT(nova_titanium_recipes, list(
 	new/datum/stack_recipe("spaceship plating", /obj/item/stack/sheet/spaceship, 1, time = 5, check_density = FALSE, category = CAT_MISC),
 ))
 
 /obj/item/stack/sheet/mineral/titanium/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_titanium_recipes
+	. += GLOB.nova_titanium_recipes
 
 // Snow
 
-GLOBAL_LIST_INIT(skyrat_snow_recipes, list(
+GLOBAL_LIST_INIT(nova_snow_recipes, list(
 	new/datum/stack_recipe("snow barricade", /obj/structure/deployable_barricade/snow, 2, on_solid_ground = TRUE, check_direction = TRUE, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/sheet/mineral/snow/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_snow_recipes
+	. += GLOB.nova_snow_recipes
 
 // Sand
 
-GLOBAL_LIST_INIT(skyrat_sand_recipes, list(
+GLOBAL_LIST_INIT(nova_sand_recipes, list(
 	new/datum/stack_recipe("ant farm", /obj/structure/antfarm, 20, time = 2 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, category = CAT_TOOLS),
 ))
 
 /obj/item/stack/ore/glass/get_main_recipes()
 	. = ..()
-	. += GLOB.skyrat_sand_recipes
+	. += GLOB.nova_sand_recipes
