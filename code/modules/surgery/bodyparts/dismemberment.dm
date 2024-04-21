@@ -134,7 +134,7 @@
 		qdel(src)
 		return
 	//NOVA EDIT BEGIN - These just splatter, they don't fall off.
-	if(src.limb_id == SPECIES_SLIMEPERSON)
+	if(src.limb_id == SPECIES_SLIMEPERSON || src.limb_id == SPECIES_JELLYPERSON || src.limb_id == SPECIES_LUMINESCENT || src.limb_id == SPECIES_STARGAZER)
 		to_chat(phantom_owner, span_warning("Your [src] splatters with an unnerving squelch!"))
 		playsound(phantom_owner, 'sound/effects/blobattack.ogg', 60, TRUE)
 		phantom_owner.blood_volume -= 60 //Makes for 120 when you regenerate it.
