@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "TGUI Alerts shouldn't have such wonky buttons any more"

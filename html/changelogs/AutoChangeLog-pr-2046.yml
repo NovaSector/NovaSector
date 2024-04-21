@@ -1,4 +1,0 @@
-author: "dis-integrates-the-integration-tests"
-delete-after: True
-changes:
-  - rscdel: "Removed Syndicate Bomb (LARGE, 11 TC) from Syndicate Uplink."
