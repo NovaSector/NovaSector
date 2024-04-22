@@ -6533,6 +6533,7 @@
 #include "modular_nova\master_files\code\modules\events\_event.dm"
 #include "modular_nova\master_files\code\modules\experisci\experiment.dm"
 #include "modular_nova\master_files\code\modules\food_and_drinks\recipes\food_mixtures.dm"
+#include "modular_nova\master_files\code\modules\jobs\landmarks.dm"
 #include "modular_nova\master_files\code\modules\jobs\off_duty_check.dm"
 #include "modular_nova\master_files\code\modules\jobs\prisoner.dm"
 #include "modular_nova\master_files\code\modules\jobs\departments\departments.dm"

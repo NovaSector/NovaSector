@@ -571,6 +571,7 @@
 	/obj/item/modular_computer/pda/atmos = list(REGION_ENGINEERING), \
 	/obj/item/modular_computer/pda/chemist = list(REGION_MEDBAY), \
 	/obj/item/modular_computer/pda/geneticist = list(REGION_RESEARCH), \
+	/obj/item/modular_computer/pda/viro = list(REGION_MEDBAY), \
 )
 
 /// All regions that make up the station area. Helper define to quickly designate a region as part of the station or not. Access via SSid_access.station_regions.

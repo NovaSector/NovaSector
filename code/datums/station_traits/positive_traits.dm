@@ -235,6 +235,7 @@
 		/datum/job/station_engineer = /obj/item/organ/internal/cyberimp/arm/toolset,
 		/datum/job/warden = /obj/item/organ/internal/cyberimp/eyes/hud/security,
 		// NOVA EDIT ADDITION START - MODULAR JOBS
+		/datum/job/virologist = /obj/item/organ/internal/lungs/cybernetic/tier2,
 		/datum/job/blueshield = /obj/item/organ/internal/cyberimp/brain/anti_stun,
 		/datum/job/nanotrasen_consultant = /obj/item/organ/internal/heart/cybernetic/tier3,
 		/datum/job/barber = /obj/item/organ/internal/ears/cybernetic/whisper,

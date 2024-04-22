@@ -44,6 +44,7 @@
 		/datum/job/paramedic,
 		/datum/job/psychologist,
 		/datum/job/chemist,
+		/datum/job/virologist, // Nova Edit Addition - Virologist
 		// Service
 		/datum/job/clown,
 		/datum/job/botanist,

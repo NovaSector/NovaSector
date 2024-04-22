@@ -225,13 +225,8 @@
 "Playtime Requirements" = 0
 "Required Account Age" = 0
 "# Required Character Age" = 0
-<<<<<<< HEAD
 "Spawn Positions" = 3
 "Total Positions" = 5
-=======
-"# Spawn Positions" = 4
-"# Total Positions" = 6
->>>>>>> 3842e16a8ba (Removes virologist job (#82723))
 
 [MIME]
 "Playtime Requirements" = 180
@@ -352,19 +347,16 @@
 "# Spawn Positions" = 0
 "# Total Positions" = 0
 
-<<<<<<< HEAD
-[VIROLOGIST]
-"Playtime Requirements" = 60
-"Required Account Age" = 0
+[WARDEN]
+"Playtime Requirements" = 300
+"Required Account Age" = 7
 "# Required Character Age" = 0
 "Spawn Positions" = 1
 "Total Positions" = 1
 
-=======
->>>>>>> 3842e16a8ba (Removes virologist job (#82723))
-[WARDEN]
-"Playtime Requirements" = 300
-"Required Account Age" = 7
+[VIROLOGIST]
+"Playtime Requirements" = 60
+"Required Account Age" = 0
 "# Required Character Age" = 0
 "Spawn Positions" = 1
 "Total Positions" = 1
