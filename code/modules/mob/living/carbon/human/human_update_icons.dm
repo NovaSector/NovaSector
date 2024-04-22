@@ -74,6 +74,10 @@ There are several things that need to be remembered:
 	..()
 	if(worn_item.flags_inv & HIDEFACE)
 		sec_hud_set_security_status()
+	// NOVA EDIT ADDITION START - ERP Overlays
+	if(obscured_slots & HIDESEXTOY)
+		update_inv_lewd()
+	// NOVA EDIT ADDITION END
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
