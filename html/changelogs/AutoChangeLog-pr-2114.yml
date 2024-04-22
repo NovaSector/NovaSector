@@ -1,4 +1,0 @@
-author: "YehnBeep"
-delete-after: True
-changes:
-  - bugfix: "Fixed missing fuel tank on interdyne after a previous remap"
