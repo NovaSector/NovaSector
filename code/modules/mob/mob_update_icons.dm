@@ -63,6 +63,10 @@
 		update_worn_neck(update_obscured = FALSE)
 	if(obscured_slots & HIDEHEADGEAR)
 		update_worn_head(update_obscured = FALSE)
+	// NOVA EDIT ADDITION START - ERP Overlays
+	if(obscured_slots & HIDESEXTOY)
+		update_inv_lewd()
+	// NOVA EDIT ADDITION END
 
 /mob/proc/update_icons()
 	return

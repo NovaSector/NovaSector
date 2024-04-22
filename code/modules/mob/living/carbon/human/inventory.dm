@@ -219,17 +219,6 @@
 			update_mob_action_buttons() //certain action buttons may be usable again.
 		wear_suit = null
 		if(!QDELETED(src)) //no need to update we're getting deleted anyway
-<<<<<<< HEAD
-			if(I.flags_inv & HIDEJUMPSUIT)
-				update_worn_undersuit()
-
-			// NOVA EDIT ADDITION START - ERP Overlays
-			if(I.flags_inv & HIDESEXTOY)
-				update_inv_lewd()
-			// NOVA EDIT ADDITION END
-
-=======
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 			update_worn_oversuit()
 	else if(I == w_uniform)
 		w_uniform = null
@@ -293,13 +282,8 @@
 		s_store = null
 		if(!QDELETED(src))
 			update_suit_storage()
-<<<<<<< HEAD
-
-	update_equipment_speed_mods()
-=======
 	else
 		not_handled = TRUE
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 
 	// Send a signal for when we unequip an item that used to cover our feet/shoes. Used for bloody feet
 	if((I.body_parts_covered & FEET) || (I.flags_inv | I.transparent_protection) & HIDESHOES)

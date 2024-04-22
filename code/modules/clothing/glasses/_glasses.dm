@@ -38,7 +38,7 @@
 
 /obj/item/clothing/glasses/visor_toggling()
 	. = ..()
-	alternate_worn_layer = up ? ABOVE_BODY_FRONT_HEAD_LAYER : null
+	alternate_worn_layer = up ? ABOVE_BODY_FRONT_HEAD_LAYER : initial(alternate_worn_layer) // NOVA EDIT CHANGE - ORIGINAL : alternate_worn_layer = up ? ABOVE_BODY_FRONT_HEAD_LAYER : null
 	if(visor_vars_to_toggle & VISOR_VISIONFLAGS)
 		vision_flags ^= initial(vision_flags)
 	if(visor_vars_to_toggle & VISOR_INVISVIEW)
@@ -46,12 +46,7 @@
 
 /obj/item/clothing/glasses/adjust_visor(mob/living/user)
 	. = ..()
-<<<<<<< HEAD
-	alternate_worn_layer = up ? ABOVE_BODY_FRONT_HEAD_LAYER : initial(alternate_worn_layer) // NOVA EDIT - ORIGINAL : alternate_worn_layer = up ? ABOVE_BODY_FRONT_HEAD_LAYER : null
-	if(. && user)
-=======
 	if(. && !user.is_holding(src) && (visor_vars_to_toggle & (VISOR_VISIONFLAGS|VISOR_INVISVIEW)))
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 		user.update_sight()
 
 //called when thermal glasses are emped.

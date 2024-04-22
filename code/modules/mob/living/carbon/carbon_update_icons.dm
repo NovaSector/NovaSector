@@ -324,13 +324,9 @@
 
 	apply_overlay(WOUND_LAYER)
 
-<<<<<<< HEAD
 //NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
-/mob/living/carbon/update_worn_mask()
-=======
 /mob/living/carbon/update_worn_mask(update_obscured = TRUE)
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 	remove_overlay(FACEMASK_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -367,13 +363,9 @@
 */
 //NOVA EDIT REMOVAL END
 
-<<<<<<< HEAD
 //NOVA EDIT REMOVAL BEGIN - TESHARI CLOTHES (moved to modular)
 /*
-/mob/living/carbon/update_worn_back()
-=======
 /mob/living/carbon/update_worn_back(update_obscured = TRUE)
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 	remove_overlay(BACK_LAYER)
 
 	if(client && hud_used?.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1])
@@ -400,13 +392,9 @@
 		apply_overlay(LEGCUFF_LAYER)
 		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
 
-<<<<<<< HEAD
 //NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
-/mob/living/carbon/update_worn_head()
-=======
 /mob/living/carbon/update_worn_head(update_obscured = TRUE)
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 	remove_overlay(HEAD_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -430,13 +418,9 @@
 
 /mob/living/carbon/update_worn_handcuffs(update_obscured = TRUE)
 	remove_overlay(HANDCUFF_LAYER)
-<<<<<<< HEAD
-	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) //NOVA EDIT ADDED !(handcuffed.item_flags & ABSTRACT)
-=======
-	if(handcuffed)
+	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) // NOVA EDIT CHANGE - ORIGINAL: if(handcuffed)
 		if(update_obscured)
 			update_obscured_slots(handcuffed)
->>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 		var/mutable_appearance/handcuff_overlay = mutable_appearance('icons/mob/simple/mob.dmi', "handcuff1", -HANDCUFF_LAYER)
 		if(handcuffed.blocks_emissive != EMISSIVE_BLOCK_NONE)
 			handcuff_overlay.overlays += emissive_blocker(handcuff_overlay.icon, handcuff_overlay.icon_state, src, alpha = handcuff_overlay.alpha)
