@@ -744,3 +744,35 @@
   - rscadd: You can now punch people in the nuts.
   vinylspiders:
   - bugfix: fixes the preference menu bluescreen
+2024-04-22:
+  Melbert:
+  - bugfix: You can open bags with alt click while resting again
+  - qol: Many items which previously required you to stand to alt-click now don't,
+      such as bedsheets and spray cans
+  NovaBot13:
+  - bugfix: Fixes the sight range on lootpanel.
+  - bugfix: off station & round start lathes with local storage don't have infinite
+      storage size.
+  - rscadd: added ventpointer that points toward nearby ore vents and can be bought
+      with mining points
+  - balance: scanned ore vents can now be found with GPS
+  - bugfix: fixed ore vents missing overlay icon for uranium
+  - bugfix: HPLC can purify inverted chems and are now coloured green(clean) in the
+      UI
+  - bugfix: loading oven trays from serving trays and other containers works again
+  - bugfix: pseudo circuit adapter computes recharge delay durations correctly & won't
+      use power when on cooldown
+  - code_imp: uses standard cell defines for N-spect scanner
+  Regivald&DevillishOne:
+  - rscadd: Mother has blessed her children with the new nest - The Ash Fortress!
+      A place to hunt, worship and rest alike, it is full of new opportunities and
+      secrets!
+  Rhials:
+  - qol: Lava and plasma rivers now immerse you in them.
+  YehnBeep:
+  - bugfix: Fixed missing fuel tank on interdyne after a previous remap
+  Zergspower:
+  - qol: Adjusted loot for Syndie Outpost to reflect the challenge
+  - qol: gives the BMD a Qpad board since they cant print one
+  - balance: Pirate Fort and Syndie Outpost ruins cant be cheesed anymore
+  - bugfix: fixed an AT on Blackmarket
