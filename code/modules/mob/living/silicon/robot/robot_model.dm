@@ -387,7 +387,9 @@
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/borg/cyborg_omnitool/engineering,
-		/obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/multitool/cyborg, // NOVA EDIT CHANGE - Keep multiool here for quicker access - ORIGINAL: obj/item/borg/cyborg_omnitool/engineering,
+		/obj/item/crowbar/cyborg/power, // NOVA EDIT ADDITION
+		/obj/item/screwdriver/cyborg/power, // NOVA EDIT ADDITION
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
 		/obj/item/holosign_creator/atmos, // NOVA EDIT ADDITION - Adds Holofans to engineering borgos
