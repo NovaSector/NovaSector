@@ -53,17 +53,7 @@ export function FeatureDropdownInput(props: DropdownInputProps) {
       buttons={buttons}
       disabled={disabled}
       onSelected={handleSetValue}
-<<<<<<< HEAD
-      // NOVA EDIT CHANGE - ORIGINAL: displayText={value && capitalizeFirst(value)}
-      displayText={
-        display_names
-          ? display_names[value] && capitalizeFirst(display_names[value])
-          : value && capitalizeFirst(value)
-      }
-      // NOVA EDIT CHANGE END
-=======
       displayText={capitalizeFirst(display_text)}
->>>>>>> c31a222cf31 (Fixes dropdown displaytext not working for numeric values (#82778))
       options={dropdownOptions}
       selected={value}
       width="100%"
@@ -113,17 +103,7 @@ export function FeatureIconnedDropdownInput(props: IconnedDropdownInputProps) {
   return (
     <Dropdown
       buttons
-<<<<<<< HEAD
-      // NOVA EDIT CHANGE - ORIGINAL: displayText={value && capitalizeFirst(value)}
-      displayText={
-        display_names
-          ? display_names[value] && capitalizeFirst(display_names[value])
-          : value && capitalizeFirst(value)
-      }
-      // NOVA EDIT CHANGE END
-=======
       displayText={capitalizeFirst(display_text)}
->>>>>>> c31a222cf31 (Fixes dropdown displaytext not working for numeric values (#82778))
       onSelected={handleSetValue}
       options={dropdownOptions}
       selected={value}
