@@ -22,7 +22,7 @@
 
 /obj/item/clothing/mask/bandana/examine(mob/user)
 	. = ..()
-	if(mask_adjusted)
+	if(up)
 		. += "Use in-hand to untie it to wear as a mask!"
 		return
 	if(slot_flags & ITEM_SLOT_NECK)
@@ -32,8 +32,12 @@
 		. += "Alt-click to tie it up to wear on your neck!"
 
 /obj/item/clothing/mask/bandana/attack_self(mob/user)
+	adjust_visor(user)
+
+/obj/item/clothing/mask/bandana/adjust_visor(mob/living/user)
 	if(slot_flags & ITEM_SLOT_NECK)
 		to_chat(user, span_warning("You must undo [src] in order to push it into a hat!"))
+<<<<<<< HEAD
 		return
 	//NOVA EDIT START: BANDANA HATS FOR MUTANTS
 	if(slot_flags & ITEM_SLOT_HEAD)
@@ -43,14 +47,16 @@
 	//NOVA EDIT END
 
 	adjustmask(user)
+=======
+		return FALSE
+	return ..()
+>>>>>>> 7847efd2707 ([READY] the unfuckening of clothing rendering (#79784))
 
-/obj/item/clothing/mask/bandana/adjustmask(mob/living/user)
+/obj/item/clothing/mask/bandana/visor_toggling()
 	. = ..()
-	if(mask_adjusted)
+	if(up)
 		undyeable = TRUE
 	else
-		inhand_icon_state = initial(inhand_icon_state)
-		worn_icon_state = initial(worn_icon_state)
 		undyeable = initial(undyeable)
 
 /obj/item/clothing/mask/bandana/click_alt(mob/user)
@@ -234,11 +240,10 @@
 	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
 
 /obj/item/clothing/mask/facescarf/attack_self(mob/user)
-	adjustmask(user)
-
+	adjust_visor(user)
 
 /obj/item/clothing/mask/facescarf/click_alt(mob/user)
-	adjustmask(user)
+	adjust_visor(user)
 	return CLICK_ACTION_SUCCESS
 
 
