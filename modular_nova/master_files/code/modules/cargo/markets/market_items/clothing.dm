@@ -55,7 +55,7 @@
 	availability_prob = 90
 
 /datum/market_item/clothing/full_spacesuit_set_syndie
-	name = "\improper Syndicate Branded Spacesuit Box"
+	name = "Syndicate Branded Spacesuit Box"
 	desc = "A handy box that stores a stowable yet sturdy spacesuit, probably way better than the Nanotrasen branded suit."
 	item = /obj/item/storage/box/syndie_kit/space_suit
 	price_min = CARGO_CRATE_VALUE
