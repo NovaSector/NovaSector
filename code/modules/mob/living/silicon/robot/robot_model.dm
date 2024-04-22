@@ -386,16 +386,8 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,
-<<<<<<< HEAD
-		/obj/item/screwdriver/cyborg/power, // NOVA EDIT CHANGE - ORIGINAL: /obj/item/screwdriver/cyborg,
-		//obj/item/wrench/cyborg, // NOVA EDIT REMOVAL - Combines Screwdriver and Wrench into one
-		/obj/item/crowbar/cyborg/power, // NOVA EDIT CHANGE - ORIGINAL: /obj/item/crowbar/cyborg,
-		//obj/item/wirecutters/cyborg, // NOVA EDIT REMOVAL - Combines Crowbar and Wirecutters into one
-		/obj/item/multitool/cyborg,
-=======
 		/obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/borg/cyborg_omnitool/engineering,
->>>>>>> b11bdb19102 (Adds Omnitools for engineer and medical cyborgs, reducing on inventory clutter. (#82425))
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
 		/obj/item/holosign_creator/atmos, // NOVA EDIT ADDITION - Adds Holofans to engineering borgos
