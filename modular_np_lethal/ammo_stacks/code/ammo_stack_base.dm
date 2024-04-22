@@ -5,7 +5,7 @@
 	icon = 'modular_np_lethal/ammo_stacks/icons/ammo_stacks.dmi'
 	icon_state = "ammo_stack"
 	base_icon_state = "ammo_stack"
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
 	multiload = FALSE
 	start_empty = TRUE

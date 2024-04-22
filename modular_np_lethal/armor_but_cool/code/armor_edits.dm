@@ -30,6 +30,7 @@
 /obj/item/clothing/suit/armor/sf_sacrificial
 	max_integrity = 400
 	limb_integrity = 400
+	slowdown = 0.25
 
 /obj/item/clothing/head/helmet/sf_sacrificial
 	max_integrity = 400

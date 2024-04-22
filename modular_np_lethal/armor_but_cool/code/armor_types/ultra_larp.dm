@@ -24,6 +24,7 @@
 	max_integrity = 500
 	limb_integrity = 500
 	repairable_by = null
+	slowdown = 0.5
 
 /obj/item/clothing/suit/armor/lethal_slick/examine_more(mob/user)
 	. = ..()
