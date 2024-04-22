@@ -275,7 +275,7 @@ trait_name = "Station"
 map_files = ["tramstation_virologist.dmm"]
 directory = "_maps/nova/automapper/templates/tramstation/"
 required_map = "tramstation.dmm"
-coordinates = [141, 91, 2]
+coordinates = [141, 94, 2]
 trait_name = "Station"
 
 # BIRDSHOT MAP EDITS
