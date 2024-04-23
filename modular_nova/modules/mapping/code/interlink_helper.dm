@@ -3,6 +3,10 @@
 
 /datum/controller/subsystem/mapping/loadWorld()
 	. = ..()
+	// LETHALSTATION ADDITION - FUCK THE INTERLINK COMING STRAIGHT FROM THE UNDERGROUND
+	if(!GLOB.load_the_interlink)
+		return
+	// LETHALSTATION EDIT END
 	var/list/FailedZsRat = list()
 	LoadGroup(FailedZsRat, "The Interlink", "map_files/generic", "CentCom_nova_z2.dmm", default_traits = ZTRAITS_CENTCOM)
 	if(LAZYLEN(FailedZsRat)) //but seriously, unless the server's filesystem is messed up this will never happen

@@ -24,6 +24,7 @@
 			"name" = "Ammunition",
 			"icon" = "person-rifle",
 			"products" = list(
+				/obj/item/flashlight/flare = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/c980/prefilled = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled = INFINITY,
@@ -99,6 +100,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 			"name" = "Weapons",
 			"icon" = "hammer",
 			"products" = list(
+				/obj/item/flashlight/flare = INFINITY,
 				/obj/item/lead_pipe = INFINITY,
 				/obj/item/knife/combat/survival = INFINITY,
 				/obj/item/switchblade = INFINITY,
