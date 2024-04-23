@@ -87,10 +87,10 @@
 
 /datum/mold_controller/proc/spawn_expansion()
 	var/list/turfs = list()
-	var/hatcheries_to_spawn = 2
-	var/bulbs_to_spawn = 2
-	var/conditioners_to_spawn = 2
-	var/spread_radius = 2
+	var/hatcheries_to_spawn = rand(2, 3)
+	var/bulbs_to_spawn = rand(1, 3)
+	var/conditioners_to_spawn = rand(1, 3)
+	var/spread_radius = rand(2, 3)
 	var/our_turf = get_turf(our_core)
 	turfs[our_turf] = TRUE
 	for(var/i in 1 to spread_radius)
