@@ -1,0 +1,4 @@
+author: "tf-4"
+delete-after: True
+changes:
+  - rscdel: "Shortened the Akulan language description in the language selection menu."
