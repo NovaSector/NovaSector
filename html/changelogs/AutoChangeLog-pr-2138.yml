@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "Fixes mechanical sect gaining 1,000 times the favor from a cell sacrifice."
