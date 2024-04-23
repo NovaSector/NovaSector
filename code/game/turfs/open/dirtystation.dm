@@ -47,6 +47,7 @@
 		/area/station/construction,
 		/area/station/commons/vacant_room/commissary,
 		/area/misc/survivalpod,
+		/area/gakster_location/war, // LETHALSTATION EDIT ADDITION
 	))
 	if(is_type_in_typecache(A, engine_dirt_areas))
 		if(prob(3))
