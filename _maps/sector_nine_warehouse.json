@@ -1,0 +1,58 @@
+{
+	"version": 1,
+	"map_name": "Sector Nine Facility",
+	"map_path": "map_files/lethal",
+	"map_file": "comvat.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"minetype": "none",
+	"ignored_unit_tests": [
+		"/datum/unit_test/antag_moodlets",
+		"/datum/unit_test/job_roundstart_spawnpoints",
+		"/datum/unit_test/required_map_items",
+		"/datum/unit_test/space_dragon_expiration",
+		"/datum/unit_test/spy_bounty",
+		"/datum/unit_test/traitor",
+		"/datum/unit_test/breath/breath_sanity_ashwalker",
+		"/datum/unit_test/lungs/lungs_sanity_ashwalker",
+		"/datum/unit_test/area_spawn"
+	],
+	"traits": [
+		{
+			"Up": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/chasm",
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Up": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/openspace",
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Up": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/openspace",
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/openspace",
+			"No Parallax": true
+		},
+		{
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/indestructible/plating",
+			"No Parallax": true
+		}
+	]
+}

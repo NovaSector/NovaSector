@@ -8313,6 +8313,8 @@
 #include "modular_np_lethal\armor_but_cool\code\armor_types\paper.dm"
 #include "modular_np_lethal\armor_but_cool\code\armor_types\ultra_larp.dm"
 #include "modular_np_lethal\clothing_edits\gear_harness_change.dm"
+#include "modular_np_lethal\deepmaint_stuff\code\areas_n_shit.dm"
+#include "modular_np_lethal\deepmaint_stuff\code\blow_up_interlink_spawnpoints.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\entrance_and_exit.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\keycard_doors.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\resupply_doohickey.dm"

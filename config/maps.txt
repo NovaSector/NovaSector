@@ -74,3 +74,6 @@ map ouroboros
 	maxplayers 80
 	votable
 endmap
+
+map sector_nine_warehouse
+endmap

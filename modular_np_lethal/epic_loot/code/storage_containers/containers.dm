@@ -11,7 +11,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/epic_loot_tag_case/attack_hand(mob/user, list/modifiers)
-	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+	if((!user.get_slot_by_item(src) == ITEM_SLOT_RPOCKET) || !user.get_slot_by_item(src) == ITEM_SLOT_LPOCKET)
 		return ..()
 	atom_storage.open_storage(user)
 	return
@@ -42,7 +42,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/epic_loot_medpen_case/attack_hand(mob/user, list/modifiers)
-	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+	if((!user.get_slot_by_item(src) == ITEM_SLOT_RPOCKET) || !user.get_slot_by_item(src) == ITEM_SLOT_LPOCKET)
 		return ..()
 	atom_storage.open_storage(user)
 	return
@@ -84,7 +84,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/epic_loot_docs_case/attack_hand(mob/user, list/modifiers)
-	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+	if((!user.get_slot_by_item(src) == ITEM_SLOT_RPOCKET) || !user.get_slot_by_item(src) == ITEM_SLOT_LPOCKET)
 		return ..()
 	atom_storage.open_storage(user)
 	return
@@ -126,7 +126,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/epic_loot_org_pouch/attack_hand(mob/user, list/modifiers)
-	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+	if((!user.get_slot_by_item(src) == ITEM_SLOT_RPOCKET) || !user.get_slot_by_item(src) == ITEM_SLOT_LPOCKET)
 		return ..()
 	atom_storage.open_storage(user)
 	return
