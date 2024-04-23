@@ -744,3 +744,71 @@
   - rscadd: You can now punch people in the nuts.
   vinylspiders:
   - bugfix: fixes the preference menu bluescreen
+2024-04-22:
+  Melbert:
+  - bugfix: You can open bags with alt click while resting again
+  - qol: Many items which previously required you to stand to alt-click now don't,
+      such as bedsheets and spray cans
+  NovaBot13:
+  - bugfix: Fixes the sight range on lootpanel.
+  - bugfix: off station & round start lathes with local storage don't have infinite
+      storage size.
+  - rscadd: added ventpointer that points toward nearby ore vents and can be bought
+      with mining points
+  - balance: scanned ore vents can now be found with GPS
+  - bugfix: fixed ore vents missing overlay icon for uranium
+  - bugfix: HPLC can purify inverted chems and are now coloured green(clean) in the
+      UI
+  - bugfix: loading oven trays from serving trays and other containers works again
+  - bugfix: pseudo circuit adapter computes recharge delay durations correctly & won't
+      use power when on cooldown
+  - code_imp: uses standard cell defines for N-spect scanner
+  Regivald&DevillishOne:
+  - rscadd: Mother has blessed her children with the new nest - The Ash Fortress!
+      A place to hunt, worship and rest alike, it is full of new opportunities and
+      secrets!
+  Rhials:
+  - qol: Lava and plasma rivers now immerse you in them.
+  YehnBeep:
+  - bugfix: Fixed missing fuel tank on interdyne after a previous remap
+  Zergspower:
+  - qol: Adjusted loot for Syndie Outpost to reflect the challenge
+  - qol: gives the BMD a Qpad board since they cant print one
+  - balance: Pirate Fort and Syndie Outpost ruins cant be cheesed anymore
+  - bugfix: fixed an AT on Blackmarket
+2024-04-23:
+  Chelxox:
+  - bugfix: The Interlink disposal room's conveyor belt now works.
+  - qol: The Interlink disposal room has been expanded a little bit.
+  - qol: A few of the trash bins in the Interlink have been replaced for disposal
+      units.
+  FlufflesTheDog:
+  - bugfix: Stone tiles (and things on them) no longer get immersed in lava
+  Nerev4r:
+  - rscadd: Dalba Masterworks, a Hermean corporation, has begun selling both hardware
+      and blueprints for their 'Burrower' and 'Tunneler' drill implants.
+  NovaBot13:
+  - bugfix: Evolved aliens should no longer have two numbers in their name.
+  - rscadd: Adds an omnitoolset for both engineering and medical cyborgs, containing
+      various basic tools
+  - qol: Engineer and Medical module inventory space is now significantly decluttered
+  - bugfix: Fixes mechanical sect gaining 1,000 times the favor from a cell sacrifice.
+  - bugfix: dropdowns that use display_names as an alias for numeric values will no
+      longer cause tgui bluescreens
+  - rscdel: Due to a need for company restructuring, virologists have been laid off
+      by CentCom and doctors can optionally take their place.
+  - code_imp: /appearance type references are now investigatable in vv editor.
+  - code_imp: '/image references display a summarised name with its dmi file name
+      and icon_state when it''s investigated from a datum where it uses. Format is:
+      "mob_hud_image = /image (hud.dmi:medical) [0x00000]"'
+  - code_imp: /image types no longer show first image incorrectly when its icon_state
+      is null
+  - bugfix: Fixes runtime in advanced camera console when power is turned off
+  grungussuss:
+  - sound: cyborgs now have sounds to indicate they are moving
+  honkpocket:
+  - rscadd: 'Adds new items to the Black Market Uplink: Syndicate clothing, Syndicate
+      duffelbag, Syndicate mask, Military belt, Syndicate spacesuit box, Bulletproof
+      type III armorvest, Anti-slip MOD module, Anti-flash lenses, Syndicate hairtie,
+      Syndicate shotglasses, Dehydrated space-carp, Syndicate smokes, Syndicate stickers,
+      Adaptive cardboard cutouts, AI detector multitool, ablative baseball bat.'
