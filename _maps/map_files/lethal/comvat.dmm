@@ -14,6 +14,11 @@
 /obj/effect/spawner/random/epic_loot/random_provisions,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"al" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ladder,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "ao" = (
 /obj/machinery/light/dim/directional/north,
 /turf/open/openspace,
@@ -1634,7 +1639,7 @@
 /area/gakster_location/war)
 "xu" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/ladder/unbreakable,
+/obj/structure/ladder,
 /turf/open/openspace,
 /area/gakster_location/war)
 "xA" = (
@@ -1749,6 +1754,10 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"yF" = (
+/obj/structure/ladder,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "yG" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_components,
@@ -3260,7 +3269,7 @@
 /area/gakster_location/war)
 "UT" = (
 /obj/structure/lattice,
-/obj/structure/ladder/unbreakable,
+/obj/structure/ladder,
 /turf/open/floor/plating,
 /area/gakster_location/war)
 "UY" = (
@@ -3342,6 +3351,12 @@
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"VW" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing,
+/obj/structure/ladder,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "VZ" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /obj/machinery/light/dim/directional/east,
@@ -21343,7 +21358,7 @@ vr
 vr
 vr
 vr
-DT
+al
 vr
 vr
 vr
@@ -21371,7 +21386,7 @@ IB
 EH
 EH
 EH
-hp
+VW
 vr
 vr
 vr
@@ -31544,6 +31559,7 @@ vr
 vr
 vr
 vr
+yF
 vr
 vr
 vr
@@ -31571,8 +31587,7 @@ vr
 vr
 vr
 vr
-vr
-vr
+yF
 vr
 vr
 vr
@@ -41745,7 +41760,7 @@ DT
 DT
 DT
 DT
-DT
+al
 DT
 DT
 DT
@@ -41773,7 +41788,7 @@ jN
 DT
 DT
 DT
-DT
+al
 DT
 DT
 DT
