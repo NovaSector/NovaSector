@@ -2056,7 +2056,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/storage/backpack/satchel/dropouch
     name = "\improper drop pouch"
-    desc = "A trendy looking satchel."
+    desc = "A tactical pouch attached to a belt."
     icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
     worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
     icon_state = "dropbag"
