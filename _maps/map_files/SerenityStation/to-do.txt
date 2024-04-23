@@ -5,13 +5,12 @@ serenitystation to do list
 -BZ floor decal (for xenobio) and icon state for areas (cyborg dorms and cargo project)
 -underground caves map gen
 -no mountain map gen (for near solars)
--birds 
+-make turf farmable
 -ruins:
 	-abandoned friendly deer monster
 	-broken shuttle
 	-... working shuttle? 
 	-cabin 
-	-bird ruin
 -station improvements
 	-cameras
 	-disposals
@@ -22,7 +21,6 @@ serenitystation to do list
 -missing rooms 
 	**Main
 	-arrivals ship docks (maybe on sat station) 
-		-library (& library backrooms)
 		-chapel
 		-more escape pods
 		
