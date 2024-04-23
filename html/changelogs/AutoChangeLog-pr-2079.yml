@@ -1,0 +1,6 @@
+author: "Chelxox"
+delete-after: True
+changes:
+  - bugfix: "The Interlink disposal room's conveyor belt now works."
+  - qol: "The Interlink disposal room has been expanded a little bit."
+  - qol: "A few of the trash bins in the Interlink have been replaced for disposal units."
