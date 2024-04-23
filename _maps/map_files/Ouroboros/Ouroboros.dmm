@@ -32607,10 +32607,6 @@
 /obj/item/storage/box/syringes{
 	pixel_y = -16
 	},
-/obj/item/toy/figure/virologist{
-	pixel_y = 10;
-	pixel_x = -11
-	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "jJi" = (

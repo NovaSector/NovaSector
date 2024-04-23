@@ -101752,7 +101752,6 @@
 "tvs" = (
 /obj/structure/table/glass,
 /obj/item/clipboard,
-/obj/item/toy/figure/virologist,
 /turf/open/floor/iron,
 /area/station/medical/virology)
 "tvu" = (

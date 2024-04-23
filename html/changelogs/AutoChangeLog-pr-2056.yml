@@ -1,7 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - qol: "Adjusted loot for Syndie Outpost to reflect the challenge"
-  - qol: "gives the BMD a Qpad board since they cant print one"
-  - balance: "Pirate Fort and Syndie Outpost ruins cant be cheesed anymore"
-  - bugfix: "fixed an AT on Blackmarket"
