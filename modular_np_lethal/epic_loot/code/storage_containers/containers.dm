@@ -10,6 +10,12 @@
 	slot_flags = ITEM_SLOT_POCKETS
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/storage/epic_loot_tag_case/attack_hand(mob/user, list/modifiers)
+	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+		return ..()
+	atom_storage.open_storage(user)
+	return
+
 /datum/storage/maintenance_loot_structure/epic_loot_tag_case
 	max_slots = 9
 	max_specific_storage = WEIGHT_CLASS_NORMAL
@@ -34,6 +40,12 @@
 	storage_type = /datum/storage/maintenance_loot_structure/epic_loot_medpen_case
 	slot_flags = ITEM_SLOT_POCKETS
 	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/storage/epic_loot_medpen_case/attack_hand(mob/user, list/modifiers)
+	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+		return ..()
+	atom_storage.open_storage(user)
+	return
 
 /datum/storage/maintenance_loot_structure/epic_loot_medpen_case
 	max_slots = 6
@@ -71,6 +83,12 @@
 	slot_flags = ITEM_SLOT_POCKETS
 	w_class = WEIGHT_CLASS_BULKY
 
+/obj/item/storage/epic_loot_docs_case/attack_hand(mob/user, list/modifiers)
+	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+		return ..()
+	atom_storage.open_storage(user)
+	return
+
 /datum/storage/maintenance_loot_structure/epic_loot_docs_case
 	max_slots = 4
 	max_specific_storage = WEIGHT_CLASS_BULKY
@@ -106,6 +124,12 @@
 	storage_type = /datum/storage/maintenance_loot_structure/epic_loot_org_pouch
 	slot_flags = ITEM_SLOT_POCKETS
 	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/storage/epic_loot_org_pouch/attack_hand(mob/user, list/modifiers)
+	if(!user.get_slot_by_item(src) == ITEM_SLOT_POCKETS)
+		return ..()
+	atom_storage.open_storage(user)
+	return
 
 /datum/storage/maintenance_loot_structure/epic_loot_org_pouch
 	max_slots = 4

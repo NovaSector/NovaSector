@@ -1,8 +1,8 @@
 /obj/structure/epic_loot_crafting_bench
-	name = "crafting bench"
-	desc = "A crafting bench fitted with tools, securing mechanisms, and a steady surface for turning random scrap into tools of war."
-	icon = 'modular_np_lethal/deepmaint_stuff/icons/crafting_bench.dmi'
-	icon_state = "crafting_bench_empty"
+	name = "trade station debug basetype"
+	desc = "GOOOOOD MORNING VIETNAM! This is not a test, this is rock and roll."
+	icon = 'modular_np_lethal/deepmaint_stuff/icons/trade_machine.dmi'
+	icon_state = "debug"
 
 	anchored = TRUE
 	density = TRUE
@@ -13,15 +13,12 @@
 	/// What recipes are we allowed to choose from?
 	var/list/allowed_choices = list(
 		// Grenades
-		/datum/crafting_bench_recipe_real/concussion_grenade,
 		/datum/crafting_bench_recipe_real/pipe_bomb,
 		/datum/crafting_bench_recipe_real/stingbang,
 		/datum/crafting_bench_recipe_real/flashbang,
 		// Gun stuff
 		/datum/crafting_bench_recipe_real/suppressor,
 		/datum/crafting_bench_recipe_real/eland,
-		/datum/crafting_bench_recipe_real/bobr,
-		/datum/crafting_bench_recipe_real/projector,
 		/datum/crafting_bench_recipe_real/sindano,
 		/datum/crafting_bench_recipe_real/shotgun,
 		/datum/crafting_bench_recipe_real/sakhno,
@@ -31,8 +28,6 @@
 		/datum/crafting_bench_recipe_real/nvg,
 		/datum/crafting_bench_recipe_real/thermals,
 		// Armor
-		/datum/crafting_bench_recipe_real/flak_jacket,
-		/datum/crafting_bench_recipe_real/flak_helmet,
 		/datum/crafting_bench_recipe_real/soft_vest,
 		/datum/crafting_bench_recipe_real/un_helmet,
 		/datum/crafting_bench_recipe_real/sacrificial_vest,
@@ -216,7 +211,7 @@
 	create_thing_from_requirements(things_to_use, selected_recipe, user)
 
 /// Passes the list of found ingredients + the recipe to use_or_delete_recipe_requirements, then spawns the given recipe's result
-/obj/structure/epic_loot_crafting_bench/proc/create_thing_from_requirements(list/things_to_use, datum/crafting_bench_recipe/recipe_to_follow, mob/living/user)
+/obj/structure/epic_loot_crafting_bench/proc/create_thing_from_requirements(list/things_to_use, datum/crafting_bench_recipe_real/recipe_to_follow, mob/living/user)
 
 	if(!recipe_to_follow)
 		message_admins("[src] just tried to complete a recipe without having a recipe!")
@@ -227,7 +222,9 @@
 		return FALSE
 
 	use_or_delete_recipe_requirements(things_to_use, recipe_to_follow)
-	var/obj/newly_created_thing = new recipe_to_follow.resulting_item(drop_location())
+	var/obj/newly_created_thing
+	for(var/iterator in 1 to recipe_to_follow.amount_to_make)
+		newly_created_thing = new recipe_to_follow.resulting_item(drop_location())
 	playsound(src, pick(construction_sounds), 50, TRUE)
 
 	if(!newly_created_thing)
@@ -236,10 +233,9 @@
 
 	clear_recipe()
 	update_appearance()
-	return newly_created_thing
 
 /// Takes the given list, things_to_use, compares it to recipe_to_follow's requirements, then either uses items from a stack, or deletes them otherwise. Returns custom material of forge items in the end.
-/obj/structure/epic_loot_crafting_bench/proc/use_or_delete_recipe_requirements(list/things_to_use, datum/crafting_bench_recipe/recipe_to_follow)
+/obj/structure/epic_loot_crafting_bench/proc/use_or_delete_recipe_requirements(list/things_to_use, datum/crafting_bench_recipe_real/recipe_to_follow)
 	for(var/obj/requirement_item as anything in things_to_use)
 		if(isstack(requirement_item))
 			var/stack_type

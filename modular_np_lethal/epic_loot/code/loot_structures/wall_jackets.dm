@@ -20,6 +20,7 @@
 		/obj/effect/spawner/random/entertainment/cigarette = 1,
 		/obj/effect/spawner/random/entertainment/wallet_lighter = 1,
 		/obj/effect/spawner/random/epic_loot/pocket_sized_valuables = 1,
+		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
 	)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/maintenance_loot_structure/wall_jacket, 28)

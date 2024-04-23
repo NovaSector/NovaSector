@@ -21,7 +21,7 @@
 
 	. += "Constructed almost identically to the usual Solfed peacekeeper's vest, this was a special \
 		made version of the armor for close range operations with relatively light armor requirements. \
-		In many places, you won't need invincible armor to successful do police work, just armor that will \
+		In many places, you won't need invincible armor to successful police work, just armor that will \
 		stop weaker-energy ammunition over as many of the parts of your body as possible. Frontier police \
 		doing as frontier police will do, of course, as resulted in this set being tacticool black."
 
