@@ -2047,17 +2047,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 // donator reward for AlvCyktor
 /obj/item/clothing/under/techpants
-    name = "\improper techwear pants"
-    desc = "A pair of pants with some belts and fake pouches for added aesthetics."
-    icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
-    worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
-    icon_state = "techpants"
-    can_adjust = FALSE
+	name = "\improper techwear pants"
+	desc = "A pair of pants with some belts and fake pouches for added aesthetics."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "techpants"
+	can_adjust = FALSE
 
 /obj/item/storage/backpack/satchel/dropouch
-    name = "\improper drop pouch"
-    desc = "A tactical pouch attached to a belt."
-    icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
-    worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
-    icon_state = "dropbag"
-    inhand_icon_state = "dropbag"
+	name = "\improper drop pouch"
+	desc = "A tactical pouch attached to a belt."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
+	icon_state = "dropbag"
+
