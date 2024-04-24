@@ -10,7 +10,7 @@
 	desc = "A large, atmos-sealed plastic container for holding emergency medical supplies."
 	icon_state = "medbox"
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/medical_box
-	loot_spawn_dice_string = "1d10-4"
+	loot_spawn_dice_string = "1d8-2"
 	loot_weighted_list = list(
 		/obj/effect/spawner/random/epic_loot/medical_stack_item = 2,
 		/obj/effect/spawner/random/epic_loot/medical_tools = 2,

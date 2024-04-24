@@ -30,19 +30,20 @@
 	desc = "Automagically transforms into a random medical stack item."
 	icon_state = "random_med_stack"
 	loot = list(
-		/obj/item/stack/medical/bruise_pack = 3,
-		/obj/item/stack/medical/gauze = 2,
-		/obj/item/stack/medical/gauze/sterilized = 1,
+		/obj/item/stack/medical/bruise_pack = 4,
+		/obj/item/stack/medical/gauze = 4,
+		/obj/item/stack/medical/gauze/sterilized = 3,
 		/obj/item/stack/medical/suture/emergency = 3,
 		/obj/item/stack/medical/suture/coagulant = 2,
 		/obj/item/stack/medical/suture/bloody = 1,
-		/obj/item/stack/medical/ointment = 3,
+		/obj/item/stack/medical/ointment = 4,
 		/obj/item/stack/medical/ointment/red_sun = 2,
-		/obj/item/stack/medical/mesh = 1,
+		/obj/item/stack/medical/mesh = 2,
 		/obj/item/stack/medical/aloe = 2,
 		/obj/item/stack/medical/bone_gel/one = 2,
-		/obj/item/stack/medical/bandage/makeshift = 2,
-		/obj/item/stack/medical/bandage = 1,
+		/obj/item/stack/medical/bone_gel = 1,
+		/obj/item/stack/medical/bandage/makeshift = 3,
+		/obj/item/stack/medical/bandage = 2,
 		/obj/item/stack/sticky_tape/surgical = 2,
 		/obj/item/reagent_containers/blood/random = 1,
 		// Chemjaks
@@ -201,8 +202,6 @@
 		/obj/item/storage/medkit/combat_surgeon/stocked = 2,
 		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked = 1,
 		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked = 1,
-		/obj/item/storage/epic_loot_medpen_case = 2,
-		/obj/item/storage/epic_loot_medical_case = 2,
 	)
 
 /obj/effect/spawner/random/epic_loot/medpens
@@ -222,7 +221,6 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin = 2,
-		/obj/item/storage/epic_loot_medpen_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled
@@ -243,7 +241,6 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol = 2,
-		/obj/item/storage/epic_loot_medpen_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_components
@@ -269,10 +266,6 @@
 		/obj/item/epic_loot/display = 1,
 		/obj/item/epic_loot/display_broken = 2,
 		/obj/item/epic_loot/civilian_circuit = 2,
-		/obj/item/storage/epic_loot_cooler = 1,
-		/obj/item/storage/epic_loot_org_pouch = 1,
-		/obj/item/storage/epic_loot_docs_case = 1,
-		/obj/item/storage/epic_loot_money_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_tools
@@ -402,8 +395,6 @@
 		/obj/effect/spawner/random/epic_loot/chainlet = 2,
 		/obj/item/computer_disk/maintenance = 2,
 		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
-		/obj/item/storage/epic_loot_org_pouch = 1,
-		/obj/item/storage/epic_loot_docs_case = 1,
 	)
 
 
@@ -419,7 +410,7 @@
 		/obj/item/grenade/c4 = 1,
 		/obj/item/grenade/firecracker = 2,
 		/obj/item/grenade/flashbang = 3,
-		/obj/item/grenade/frag = 1,
+		/obj/item/grenade/frag = 2,
 		/obj/item/grenade/mirage = 3,
 		/obj/item/grenade/smokebomb = 3,
 		/obj/item/grenade/stingbang = 2,
@@ -427,7 +418,7 @@
 		/obj/item/grenade/syndieminibomb/concussion = 1,
 		/obj/item/grenade/clusterbuster/smoke = 1,
 		/obj/item/grenade/chem_grenade/teargas = 2,
-		/obj/item/epic_loot/plasma_explosive = 1,
+		/obj/item/epic_loot/plasma_explosive = 2,
 		/obj/item/epic_loot/grenade_fuze = 3,
 		/obj/item/storage/epic_loot_grenade_case = 2,
 	)
@@ -612,43 +603,43 @@
 	desc = "Automagically transforms into some kind of misc. military loot item."
 	icon_state = "random_loot_military"
 	loot = list(
-		/obj/item/clothing/mask/gas/sechailer = 1,
+		/obj/item/clothing/mask/gas/sechailer = 3,
 		/obj/item/clothing/mask/gas = 2,
-		/obj/item/clothing/mask/gas/atmos/frontier_colonist = 1,
-		/obj/item/clothing/head/helmet/sf_peacekeeper = 2,
-		/obj/item/clothing/head/helmet/sf_peacekeeper/debranded = 1,
+		/obj/item/clothing/mask/gas/atmos/frontier_colonist = 2,
+		/obj/item/clothing/head/helmet/sf_peacekeeper = 3,
+		/obj/item/clothing/head/helmet/sf_peacekeeper/debranded = 3,
 		/obj/item/clothing/head/helmet/lethal_kulon_helmet = 2,
 		/obj/item/clothing/head/helmet/lethal_kulon_helmet/spawns_with_shield = 1,
 		/obj/item/clothing/head/helmet/sf_sacrificial = 1,
 		/obj/item/clothing/head/helmet/sf_sacrificial/spawns_with_shield = 1,
 		/obj/item/clothing/head/helmet/lethal_larp_helmet = 1,
-		/obj/item/clothing/suit/armor/lethal_paper = 2,
-		/obj/item/clothing/suit/armor/sf_peacekeeper = 2,
-		/obj/item/clothing/suit/armor/sf_peacekeeper/debranded = 1,
-		/obj/item/clothing/suit/armor/lethal_koranda = 2,
+		/obj/item/clothing/suit/armor/lethal_paper = 4,
+		/obj/item/clothing/suit/armor/sf_peacekeeper = 3,
+		/obj/item/clothing/suit/armor/sf_peacekeeper/debranded = 3,
+		/obj/item/clothing/suit/armor/lethal_koranda = 3,
 		/obj/item/clothing/suit/armor/lethal_kora_kulon = 2,
 		/obj/item/clothing/suit/armor/lethal_kora_kulon/full_set = 1,
 		/obj/item/clothing/suit/armor/sf_sacrificial = 1,
 		/obj/item/clothing/suit/armor/lethal_slick = 1,
 		/obj/item/folder/ancient_paperwork = 2,
-		/obj/item/epic_loot/intel_folder = 2,
-		/obj/item/epic_loot/slim_diary = 2,
-		/obj/item/epic_loot/ssd = 1,
-		/obj/item/epic_loot/hdd = 1,
-		/obj/item/epic_loot/military_flash = 1,
+		/obj/item/epic_loot/intel_folder = 3,
+		/obj/item/epic_loot/slim_diary = 3,
+		/obj/item/epic_loot/ssd = 2,
+		/obj/item/epic_loot/hdd = 2,
+		/obj/item/epic_loot/military_flash = 2,
 		/obj/item/computer_disk/maintenance = 2,
 		/obj/item/computer_disk/black_market = 1,
 		/obj/item/epic_loot/plasma_explosive = 1,
-		/obj/item/epic_loot/grenade_fuze = 2,
-		/obj/item/epic_loot/signal_amp = 2,
-		/obj/item/epic_loot/thermal_camera = 1,
-		/obj/item/epic_loot/shuttle_gyro = 1,
-		/obj/item/epic_loot/phased_array = 1,
-		/obj/item/epic_loot/shuttle_battery = 1,
-		/obj/item/epic_loot/aramid = 1,
-		/obj/item/epic_loot/cordura = 1,
-		/obj/item/epic_loot/ripstop = 1,
-		/obj/item/epic_loot/military_circuit = 2,
+		/obj/item/epic_loot/grenade_fuze = 3,
+		/obj/item/epic_loot/signal_amp = 3,
+		/obj/item/epic_loot/thermal_camera = 2,
+		/obj/item/epic_loot/shuttle_gyro = 2,
+		/obj/item/epic_loot/phased_array = 2,
+		/obj/item/epic_loot/shuttle_battery = 2,
+		/obj/item/epic_loot/aramid = 2,
+		/obj/item/epic_loot/cordura = 2,
+		/obj/item/epic_loot/ripstop = 2,
+		/obj/item/epic_loot/military_circuit = 3,
 		/obj/effect/spawner/random/epic_loot/medkit = 2,
 		/obj/effect/spawner/random/epic_loot/random_keycard = 1,
 		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
@@ -742,15 +733,14 @@
 	desc = "Automagically transforms into a random colored keycard."
 	icon_state = "keycard_random"
 	loot = list(
-		/obj/item/keycard/epic_loot/green = 1,
-		/obj/item/keycard/epic_loot/teal = 1,
-		/obj/item/keycard/epic_loot/blue = 1,
-		/obj/item/keycard/epic_loot/ourple = 1,
-		/obj/item/keycard/epic_loot/red = 1,
-		/obj/item/keycard/epic_loot/orange = 1,
-		/obj/item/keycard/epic_loot/yellow = 1,
+		/obj/item/keycard/epic_loot/green = 2,
+		/obj/item/keycard/epic_loot/teal = 2,
+		/obj/item/keycard/epic_loot/blue = 2,
+		/obj/item/keycard/epic_loot/ourple = 2,
+		/obj/item/keycard/epic_loot/red = 2,
+		/obj/item/keycard/epic_loot/orange = 2,
+		/obj/item/keycard/epic_loot/yellow = 2,
 		/obj/item/keycard/epic_loot/black = 1,
-		/obj/item/storage/epic_loot_card_holder = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_maint_loot_structure
