@@ -16,7 +16,10 @@
 
 	display_order = JOB_DISPLAY_ORDER_ASSISTANT
 	bounty_types = CIV_JOB_BASIC
-	department_for_prefs = DEPARTMENT_ASSISTANT
+	department_for_prefs = /datum/job_department/assistant
+	departments_list = list(
+		/datum/job_department/assistant,
+	)
 
 	family_heirlooms = list(/obj/item/lead_pipe)
 
