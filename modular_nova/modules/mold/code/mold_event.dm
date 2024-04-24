@@ -38,64 +38,14 @@
 		mold_spawns = MOLDIES_SPAWN_LOWPOP_MAX
 
 	var/obj/structure/mold/resin/test/test_resin = new()
-
-	var/list/possible_spawn_areas = typecacheof(typesof(
-		/area/station/maintenance/aft/greater,
-		/area/station/maintenance/central/greater,
-		/area/station/maintenance/starboard/greater,
-		/area/station/maintenance/port/greater,
-		/area/station/maintenance/disposal,
-		/area/station/maintenance/wrestle,
-		/area/station/maintenance/library,
-		/area/station/maintenance/night_club,
-		/area/station/maintenance/aux_eva,
-		/area/station/maintenance/department/eva/abandoned,
-		/area/station/maintenance/department/science/xenobiology,
-		/area/station/security/prison,
-		/area/station/security/courtroom,
-		/area/station/engineering/atmos/hfr_room,
-		/area/station/engineering/gravity_generator,
-		/area/station/science/xenobiology,
-		/area/station/science/ordnance/testlab,
-		/area/station/science/auxlab/firing_range,
-		/area/station/science/research/abandoned,
-		/area/station/medical/chemistry,
-		/area/station/medical/aslyum,
-		/area/station/medical/abandoned,
-		/area/station/command/gateway,
-		/area/station/cargo/drone_bay,
-		/area/station/cargo/warehouse,
-		/area/station/commons/toilet,
-		/area/station/commons/fitness,
-		/area/station/commons/vacant_room/office,
-		/area/station/common/wrestling/arena,
-		/area/station/service/chapel,
-		/area/station/service/abandoned_gambling_den,
-		/area/station/service/library/abandoned,
-		/area/station/maintenance/tram/left,
-		/area/station/maintenance/tram/mid,
-		/area/station/maintenance/tram/right,
-		))
-
-	for(var/area/checked_area as anything in GLOB.areas)
-		if(!is_station_level(checked_area.z))
+	for(var/turf/open/floor as anything in GLOB.blobstart)
+		if(isopenspaceturf(floor))
 			continue
 
-		if(!is_type_in_typecache(checked_area, possible_spawn_areas))
+		if(!floor.Enter(test_resin))
 			continue
 
-		for(var/list/zlevel_turfs as anything in checked_area.get_zlevel_turf_lists())
-			for(var/turf/open/floor in zlevel_turfs)
-				if(isopenspaceturf(floor))
-					continue
-
-				if(!floor.Enter(test_resin))
-					continue
-
-				if(locate(/turf/closed) in range(2, floor))
-					continue
-
-				turfs += floor
+		turfs += floor
 
 	qdel(test_resin)
 
