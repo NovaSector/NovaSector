@@ -88,6 +88,7 @@
 /obj/structure/epic_loot_crafting_bench/Initialize(mapload)
 	. = ..()
 	populate_radial_choice_list()
+	update_appearance()
 
 /obj/structure/epic_loot_crafting_bench/proc/populate_radial_choice_list()
 	if(!length(allowed_choices))

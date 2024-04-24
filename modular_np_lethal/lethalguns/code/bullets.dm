@@ -47,10 +47,12 @@
 /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled/special
 	name = "12mm Chinmoku special casings"
 	ammo_type = /obj/item/ammo_casing/c12chinmoku/special
+	icon_state = "stack_spec"
 
 /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled/tracer
 	name = "12mm Chinmoku tracer casings"
 	ammo_type = /obj/item/ammo_casing/c12chinmoku/tracer
+	icon_state = "stack_spec"
 
 // Chinmoku "special", with armor piercing but more damage falloff
 
@@ -148,10 +150,12 @@
 /obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled/shockwave
 	name = "8mm Marsian shockwave casings"
 	ammo_type = /obj/item/ammo_casing/c8marsian/shockwave
+	icon_state = "stack_spec"
 
 /obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled/piercing
 	name = "8mm Marsian piercing casings"
 	ammo_type = /obj/item/ammo_casing/c8marsian/piercing
+	icon_state = "stack_spec"
 
 // Marsian but it flies even faster, but does less damage
 
@@ -242,6 +246,7 @@
 /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/longshot
 	name = "6 gauge longshot shells"
 	ammo_type = /obj/item/ammo_casing/s6gauge/longshot
+	icon_state = "stack_spec"
 
 /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/slug
 	name = "6 gauge slug shells"

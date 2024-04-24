@@ -3,7 +3,7 @@
 	name = "ammo stack"
 	desc = "A stack of ammo."
 	icon = 'modular_np_lethal/ammo_stacks/icons/ammo_stacks.dmi'
-	icon_state = "ammo_stack"
+	icon_state = "stack_regular"
 	base_icon_state = "ammo_stack"
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
@@ -51,6 +51,8 @@
 	cut_overlays()
 	if(!ammo_count(TRUE))
 		return
+
+	icon_state = base_icon_state
 
 	for(var/obj/item/ammo_casing/iterated_casing in stored_ammo)
 		var/image/overlayed_item = image(icon = iterated_casing.icon, icon_state = iterated_casing.icon_state, pixel_x = pick(casing_x_positions), pixel_y = rand((-16 + casing_y_padding), (16 - casing_y_padding)))
