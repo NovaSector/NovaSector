@@ -359,8 +359,8 @@
 // Handles breaking out of gloves that restrain people.
 /mob/living/carbon/human/resist_restraints()
 	if(gloves?.breakouttime)
-		changeNext_move(CLICK_CD_BREAKOUT)
-		last_special = world.time + CLICK_CD_BREAKOUT
+		changeNext_move(CLICK_CD_SLOW)
+		last_special = world.time + CLICK_CD_SLOW
 		cuff_resist(gloves)
 	else
 		..()
