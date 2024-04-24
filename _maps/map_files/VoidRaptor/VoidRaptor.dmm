@@ -7594,8 +7594,8 @@
 /obj/structure/sign/nanotrasen{
 	pixel_y = -32
 	},
-/obj/machinery/power/smes/full,
 /obj/structure/cable,
+/obj/machinery/power/smes/super/full,
 /turf/open/floor/vault,
 /area/station/ai_monitored/turret_protected/ai)
 "cog" = (
