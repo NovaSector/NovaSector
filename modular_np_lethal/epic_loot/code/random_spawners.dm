@@ -384,10 +384,10 @@
 	desc = "Automagically transforms into some kind of item that would be kept in a safe."
 	icon_state = "random_strongbox_loot"
 	loot = list(
-		/obj/item/folder/ancient_paperwork = 3,
+		/obj/item/folder/ancient_paperwork = 2,
 		/obj/item/epic_loot/intel_folder = 2,
 		/obj/item/epic_loot/corpo_folder = 2,
-		/obj/item/epic_loot/slim_diary = 3,
+		/obj/item/epic_loot/slim_diary = 2,
 		/obj/item/epic_loot/diary = 2,
 		/obj/item/epic_loot/ssd = 1,
 		/obj/item/epic_loot/hdd = 1,
