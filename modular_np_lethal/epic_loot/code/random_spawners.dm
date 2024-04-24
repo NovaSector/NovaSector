@@ -519,7 +519,6 @@
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/dragonsbreath = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/express = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette = 1,
-		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/frag12 = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/hunter = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/improvised = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/incendiary = 1,
