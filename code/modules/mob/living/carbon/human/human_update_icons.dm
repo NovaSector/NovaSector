@@ -70,9 +70,9 @@ There are several things that need to be remembered:
 		//damage overlays
 		update_damage_overlays()
 
-/mob/living/carbon/human/update_obscured_slots(obj/item/worn_item)
+/mob/living/carbon/human/update_obscured_slots(obscured_flags)
 	..()
-	if(worn_item.flags_inv & HIDEFACE)
+	if(obscured_flags & HIDEFACE)
 		sec_hud_set_security_status()
 	// NOVA EDIT ADDITION START - ERP Overlays
 	if(worn_item.flags_inv & HIDESEXTOY)
@@ -94,7 +94,7 @@ There are several things that need to be remembered:
 		update_hud_uniform(uniform)
 
 		if(update_obscured)
-			update_obscured_slots(uniform)
+			update_obscured_slots(uniform.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_ICLOTHING)
 			return
@@ -179,7 +179,7 @@ There are several things that need to be remembered:
 		update_hud_id(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		var/icon_file = 'icons/mob/clothing/id.dmi'
 
@@ -219,7 +219,7 @@ There are several things that need to be remembered:
 		update_hud_gloves(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_GLOVES)
 			return
@@ -265,7 +265,7 @@ There are several things that need to be remembered:
 		update_hud_glasses(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EYES)
 			return
@@ -307,7 +307,7 @@ There are several things that need to be remembered:
 		update_hud_ears(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS)
 			return
@@ -344,7 +344,7 @@ There are several things that need to be remembered:
 		update_hud_neck(wear_neck)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_NECK)
 			return
@@ -392,7 +392,7 @@ There are several things that need to be remembered:
 		update_hud_shoes(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_FEET)
 			return
@@ -450,7 +450,7 @@ There are several things that need to be remembered:
 		update_hud_s_store(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SUITSTORE)
 			return
@@ -472,7 +472,7 @@ There are several things that need to be remembered:
 		update_hud_head(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_HEAD)
 			return
@@ -516,7 +516,7 @@ There are several things that need to be remembered:
 		update_hud_belt(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_BELT)
 			return
@@ -555,7 +555,7 @@ There are several things that need to be remembered:
 		update_hud_wear_suit(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		var/icon_file = DEFAULT_SUIT_FILE
 
@@ -632,7 +632,7 @@ There are several things that need to be remembered:
 		update_hud_wear_mask(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_MASK)
 			return
@@ -677,7 +677,7 @@ There are several things that need to be remembered:
 		update_hud_back(worn_item)
 
 		if(update_obscured)
-			update_obscured_slots(worn_item)
+			update_obscured_slots(worn_item.flags_inv)
 
 		var/icon_file = 'icons/mob/clothing/back.dmi'
 
