@@ -29,6 +29,13 @@
 /obj/machinery/jukebox/no_access
 	req_access = null
 
+/obj/machinery/jukebox/no_access/radio //new sprite for jukebox
+	name = "the radio"
+	desc = "An ancient-looking radio. How's it get signal down here?"
+	icon = 'icons/obj/devices/voice.dmi'
+	icon_state = "radio"
+	base_icon_state = "radio"
+
 /obj/machinery/jukebox/wrench_act(mob/living/user, obj/item/tool)
 	if(!isnull(music_player.active_song_sound))
 		return NONE
