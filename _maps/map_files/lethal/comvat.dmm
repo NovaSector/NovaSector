@@ -632,7 +632,10 @@
 /area/gakster_location/war)
 "hf" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/drinkingglasses,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 7
+	},
+/obj/machinery/light/red/dim/directional/west,
 /turf/open/indestructible/plating,
 /area/gakster_location)
 "hh" = (
@@ -882,7 +885,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "ko" = (
-/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "kp" = (
@@ -1144,6 +1147,11 @@
 /obj/structure/chair/plastic{
 	dir = 1
 	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
+"nj" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/blood/innards,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "nn" = (
@@ -1838,7 +1846,9 @@
 /area/gakster_location/war)
 "uU" = (
 /obj/structure/table/reinforced,
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/beerkeg{
+	pixel_y = 10
+	},
 /turf/open/indestructible/plating,
 /area/gakster_location)
 "uW" = (
@@ -2125,6 +2135,7 @@
 /area/gakster_location/war)
 "xX" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "xY" = (
@@ -2248,15 +2259,19 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "yS" = (
-/obj/effect/decal/cleanable/blood/hitsplatter{
-	dir = 4
-	},
-/turf/open/floor/iron/freezer,
+/obj/structure/curtain,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "yU" = (
 /obj/machinery/light/warm/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
+/area/gakster_location/war)
+"yV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "yW" = (
 /obj/structure/stairs/south,
@@ -2390,12 +2405,15 @@
 "AD" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = 5;
-	pixel_x = 2
+	pixel_y = 1;
+	pixel_x = -8
 	},
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = 10;
-	pixel_x = 7
+	pixel_y = 3
+	},
+/obj/machinery/jukebox/no_access/radio{
+	pixel_x = 3;
+	pixel_y = 15
 	},
 /turf/open/indestructible/plating,
 /area/gakster_location)
@@ -2446,6 +2464,13 @@
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location)
+"Bo" = (
+/obj/machinery/computer{
+	dir = 8
+	},
+/obj/machinery/light/broken/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "Bx" = (
 /obj/structure/table,
 /obj/machinery/light/dim/directional/north,
@@ -2456,6 +2481,11 @@
 /obj/item/lighter/skull,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"BC" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "BE" = (
 /obj/structure/stairs/west,
 /turf/open/floor/plating,
@@ -2531,6 +2561,13 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/gakster_location/war)
+"Cu" = (
+/obj/structure/fluff/empty_sleeper{
+	dir = 4
+	},
+/obj/machinery/light/broken/directional/west,
+/turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "Cy" = (
 /obj/structure/chair/plastic{
@@ -2961,6 +2998,13 @@
 	id = "SUPER_WAR"
 	},
 /turf/closed/wall,
+/area/gakster_location/war)
+"GA" = (
+/obj/structure/chair/office/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "GE" = (
 /obj/machinery/computer{
@@ -3405,6 +3449,11 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/hoteltile,
 /area/gakster_location)
+"LJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/iron/freezer,
+/area/gakster_location/war)
 "LQ" = (
 /obj/structure/table,
 /obj/effect/spawner/random/trash/crushed_can,
@@ -3978,6 +4027,11 @@
 /obj/structure/maintenance_loot_structure/gun_box/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"SS" = (
+/obj/structure/curtain,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "SW" = (
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
@@ -4025,6 +4079,11 @@
 "Tu" = (
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/plating,
+/area/gakster_location/war)
+"TN" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "TO" = (
 /obj/structure/maintenance_loot_structure/ammo_box/random,
@@ -4111,6 +4170,11 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location)
+"UH" = (
+/obj/structure/curtain,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "UL" = (
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/floor/iron/smooth_large,
@@ -4533,7 +4597,9 @@
 /area/gakster_location/war)
 "YN" = (
 /obj/structure/table/wood/poker,
-/obj/item/toy/cards/deck,
+/obj/item/toy/cards/deck{
+	pixel_y = 7
+	},
 /turf/open/floor/wood,
 /area/gakster_location)
 "YP" = (
@@ -40066,11 +40132,11 @@ Lh
 NT
 qt
 zQ
-uD
 yS
+Aj
 uD
-zQ
-hz
+Cu
+nj
 NT
 NT
 MY
@@ -40168,7 +40234,7 @@ Lh
 NT
 Tq
 Aj
-uD
+SS
 Iu
 dU
 ac
@@ -40268,13 +40334,13 @@ NT
 NT
 NT
 NT
-iA
-tv
+yV
+ko
 xX
-tv
-iA
-iA
-tv
+ko
+LJ
+TN
+Iu
 gE
 dK
 dK
@@ -40371,10 +40437,10 @@ dK
 dK
 gE
 sv
-Zw
+GA
 ys
-iA
-uD
+LJ
+UH
 ko
 Tq
 NT
@@ -40473,9 +40539,9 @@ oO
 Lh
 NT
 cz
-Rr
-hz
-iA
+Bo
+BC
+ac
 vR
 Ee
 FP
