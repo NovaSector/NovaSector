@@ -18,6 +18,7 @@ serenitystation to do list
 	-navigation points and stuff
 	-requests panels
 	-hallways
+	-fix lightswitches
 -missing rooms 
 	**Main
 	-arrivals ship docks (maybe on sat station) 
