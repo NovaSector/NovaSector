@@ -39,7 +39,7 @@
 
 	family_heirlooms = list(/obj/item/clothing/head/helmet/skull, /obj/item/table_clock, /obj/item/shovel, /obj/item/storage/fancy/pickles_jar)
 
-	job_flags = STATION_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS // LETHALSTATION REMOVAL
 
 	rpg_title = "Undertaker"
 

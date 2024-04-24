@@ -44,7 +44,7 @@
 		/obj/effect/spawner/random/engineering/tool_advanced = 3
 	)
 	rpg_title = "Head Crystallomancer"
-	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS // LETHALSTATION REMOVAL
 
 	voice_of_god_power = 1.4 //Command staff has authority
 

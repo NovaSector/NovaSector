@@ -39,7 +39,7 @@
 		/obj/item/stack/sheet/mineral/uranium = 5,
 	)
 	rpg_title = "Plague Doctor"
-	job_flags = STATION_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS // LETHALSTATION REMOVAL
 
 
 /datum/outfit/job/virologist

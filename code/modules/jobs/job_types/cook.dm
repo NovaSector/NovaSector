@@ -49,7 +49,7 @@
 	alternate_titles = list(
 		JOB_CHEF,
 	)
-	job_flags = STATION_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS // LETHALSTATION REMOVAL
 
 /datum/job/cook/award_service(client/winner, award)
 	winner.give_award(award, winner.mob)

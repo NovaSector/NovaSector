@@ -43,7 +43,7 @@
 		/obj/item/skillchip/sabrage = 5,
 	)
 
-	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS // LETHALSTATION REMOVAL
 	rpg_title = "Star Duke"
 
 	voice_of_god_power = 1.4 //Command staff has authority

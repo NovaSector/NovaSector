@@ -29,7 +29,7 @@
 		/obj/item/stack/sheet/mineral/uranium = 10,
 	)
 
-	job_flags = STATION_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS // LETHALSTATION REMOVAL
 	rpg_title = "Tavernkeeper"
 
 /datum/job/bartender/award_service(client/winner, award)

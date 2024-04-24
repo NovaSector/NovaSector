@@ -31,7 +31,7 @@
 
 	family_heirlooms = list(/obj/item/pen/fountain, /obj/item/storage/dice)
 
-	job_flags = STATION_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS // LETHALSTATION REMOVAL
 
 	voice_of_god_silence_power = 3
 	rpg_title = "Veteran Adventurer"

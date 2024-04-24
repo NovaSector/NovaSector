@@ -31,7 +31,7 @@
 		/obj/item/gun/syringe = 1
 	)
 	rpg_title = "Snake Oil Salesman"
-	job_flags = STATION_JOB_FLAGS
+	// job_flags = STATION_JOB_FLAGS // LETHALSTATION REMOVAL
 
 
 /datum/outfit/job/psychologist
