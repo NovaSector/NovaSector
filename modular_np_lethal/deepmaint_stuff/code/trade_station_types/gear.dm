@@ -4,9 +4,13 @@
 		who will exchange goods for various pieces of important equipment."
 	icon_state = "trade_gear"
 
+	light_color = LIGHT_COLOR_BLUE
+
 	allowed_choices = list(
 		/datum/crafting_bench_recipe_real/binoculars,
 		/datum/crafting_bench_recipe_real/duffelpack,
+		/datum/crafting_bench_recipe_real/sec_belt,
+		/datum/crafting_bench_recipe_real/ammo_pouch,
 		/datum/crafting_bench_recipe_real/cowboy_holster,
 		/datum/crafting_bench_recipe_real/assault_belt,
 		/datum/crafting_bench_recipe_real/grenade_belt,
@@ -18,6 +22,26 @@
 		/datum/crafting_bench_recipe_real/ballistic_shield,
 		/datum/crafting_bench_recipe_real/black_keycard,
 	)
+
+/obj/structure/epic_loot_crafting_bench/gear/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>1</b> solid state drive = <b>1</b> binoculars")
+	. += span_notice("<b>1</b> hard disk drive = <b>1</b> assault pack")
+	. += span_notice("<b>1</b> intelligence folder = <b>1</b> security belt")
+	. += span_notice("<b>1</b> eyes = <b>1</b> ammo pouch")
+	. += span_notice("<b>1</b> liver = <b>1</b> operative holster")
+	. += span_notice("<b>1</b> liver = <b>1</b> assault belt")
+	. += span_notice("<b>1</b> tongue = <b>1</b> grenade belt")
+	. += span_notice("<b>1</b> ears = <b>1</b> chest rig")
+	. += span_notice("<b>1</b> military flash drive = <b>1</b> tag case")
+	. += span_notice("<b>1</b> corporate data folder = <b>1</b> organizational pouch")
+	. += span_notice("<b>1</b> silver chainlet + <b>1</b> gold chainlet = <b>1</b> documents pouch")
+	. += span_notice("<b>1</b> sealed diary = <b>1</b> keycard holder")
+	. += span_notice("<b>1</b> lungs = <b>1</b> ballistic shield")
+	. += span_notice("<b>9</b> ID cards = <b>1</b> black keycard")
+
+	return .
 
 // Misc tools
 
@@ -34,6 +58,20 @@
 		/obj/item/epic_loot/hdd = 1,
 	)
 	resulting_item = /obj/item/storage/backpack/duffelbag/syndie/nri/captain
+
+/datum/crafting_bench_recipe_real/sec_belt
+	recipe_name = "security belt"
+	recipe_requirements = list(
+		/obj/item/epic_loot/intel_folder = 1,
+	)
+	resulting_item = /obj/item/storage/belt/security
+
+/datum/crafting_bench_recipe_real/ammo_pouch
+	recipe_name = "ammo pouch"
+	recipe_requirements = list(
+		/obj/item/organ/internal/eyes = 1,
+	)
+	resulting_item = /obj/item/storage/pouch/ammo
 
 /datum/crafting_bench_recipe_real/cowboy_holster
 	recipe_name = "pistol holster"
@@ -52,14 +90,14 @@
 /datum/crafting_bench_recipe_real/grenade_belt
 	recipe_name = "grenade belt"
 	recipe_requirements = list(
-		/obj/item/organ/internal/tongue = 2,
+		/obj/item/organ/internal/tongue = 1,
 	)
 	resulting_item = /obj/item/storage/belt/grenade
 
 /datum/crafting_bench_recipe_real/chest_rig
 	recipe_name = "chest rig"
 	recipe_requirements = list(
-		/obj/item/organ/internal/ears = 2,
+		/obj/item/organ/internal/ears = 1,
 	)
 	resulting_item = /obj/item/storage/belt/military/cin_surplus/random_color
 

@@ -4,6 +4,8 @@
 		who will exchange goods for many different types of weapons of war."
 	icon_state = "trade_war"
 
+	light_color = LIGHT_COLOR_YELLOW
+
 	allowed_choices = list(
 		// Grenades
 		/datum/crafting_bench_recipe_real/offensive_impact,
@@ -25,6 +27,30 @@
 		/datum/crafting_bench_recipe_real/suppressed_rifle,
 		/datum/crafting_bench_recipe_real/auto_shotgun,
 	)
+
+/obj/structure/epic_loot_crafting_bench/war/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive = <b>2</b> offensive impact grenades")
+	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive + <b>1</b> box of nails = <b>2</b> defensive impact grenades")
+	. += span_notice("<b>1</b> grenade fuze + <b>1</b> water filter = <b>2</b> improvised explosives")
+	. += span_notice("<b>1</b> thermometer + <b>1</b> box of nails = <b>2</b> sting bangs")
+	. += span_notice("<b>1</b> thermometer = <b>2</b> flashbangs")
+	. += span_notice("<b>1</b> water filter = <b>1</b> suppressor")
+	. += span_notice("<b>1</b> solid state drive = <b>1</b> binoculars")
+	. += span_notice("<b>2</b> device fans = <b>1</b> eland revolver")
+	. += span_notice("<b>1</b> display = <b>1</b> fukiya rifle")
+	. += span_notice("<b>2</b> broken displays = <b>1</b> seiba submachinegun")
+	. += span_notice("<b>1</b> graphics processor = <b>1</b> sindano submachinegun")
+	. += span_notice("<b>1</b> military circuit board + <b>1</b> civilian circuit board = <b>1</b> renoster shotgun")
+	. += span_notice("<b>1</b> processor core = <b>1</b> sakhno m2442 rifle")
+	. += span_notice("<b>1</b> power supply + <b>1</b> disk drive = <b>1</b> bogseo submachinegun")
+	. += span_notice("<b>1</b> eyes = <b>1</b> zomushi pistol")
+	. += span_notice("<b>1</b> stomach = <b>1</b> ramu 6ga shotgun")
+	. += span_notice("<b>2</b> lungs = <b>1</b> yari suppressed rifle")
+	. += span_notice("<b>2</b> livers = <b>1</b> nomi repeating shotgun")
+
+	return .
 
 // Grenades
 

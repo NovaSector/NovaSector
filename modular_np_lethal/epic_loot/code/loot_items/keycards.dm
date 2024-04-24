@@ -22,10 +22,12 @@
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
 
+/*
 /obj/item/keycard/epic_loot/examine(mob/user)
 	. = ..()
 	. += span_engradio("You can probably <b>sell</b> this for some good money if you have no other use for it.")
 	return .
+*/
 
 /obj/item/keycard/epic_loot/green
 	name = "green keycard"

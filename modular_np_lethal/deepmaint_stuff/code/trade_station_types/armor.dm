@@ -4,6 +4,8 @@
 		who will exchange goods for various pieces of wearable equipment and gear."
 	icon_state = "trade_armor"
 
+	light_color = LIGHT_COLOR_INTENSE_RED
+
 	allowed_choices = list(
 		// Glasses
 		/datum/crafting_bench_recipe_real/coolglasses,
@@ -23,6 +25,27 @@
 		/datum/crafting_bench_recipe_real/talker_set,
 		/datum/crafting_bench_recipe_real/bowman,
 	)
+
+/obj/structure/epic_loot_crafting_bench/armor/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>1</b> slim diary = <b>1</b> sunglasses")
+	. += span_notice("<b>1</b> signal amplifier + <b>1</b> current converter = <b>1</b> night vision goggles")
+	. += span_notice("<b>1</b> cold weld + <b>1</b> signal amplifier + <b>1</b> thermal camera = <b>1</b> thermal vision goggles")
+	. += span_notice("<b>1</b> high-resistance fabric = <b>1</b> type I 'Kami' vest")
+	. += span_notice("<b>1</b> high-resistance fabric + <b>1</b> appendix = <b>1</b> type II 'Koranda' vest")
+	. += span_notice("<b>1</b> polymer weave fabric + <b>1</b> tear-resistant fabric = <b>1</b> type II 'Touvou' vest")
+	. += span_notice("<b>1</b> polymer weave fabric + <b>1</b> electric motor = <b>1</b> type II 'Kastrol' helmet")
+	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> type III 'Kinu-Kuroba' vest")
+	. += span_notice("<b>1</b> type III 'Kinu-Kuroba' vest + <b>2</b> eyes = <b>1</b> type III 'Kinu-Kuroba' full armor kit")
+	. += span_notice("<b>1</b> shuttle battery = <b>1</b> type III 'Robusuta' helmet")
+	. += span_notice("<b>2</b> hearts = <b>1</b> type IV 'Val' vest")
+	. += span_notice("<b>2</b> stomachs = <b>1</b> type IV 'Val' helmet")
+	. += span_notice("<b>1</b> fuel conditioner = <b>1</b> frontier headset")
+	. += span_notice("<b>1</b> phased array element = <b>1</b> bowman headset")
+
+	return .
+
 
 // Glasses
 

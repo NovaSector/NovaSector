@@ -91,6 +91,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/clothing/neck/robe_cape = INFINITY,
 				/obj/item/clothing/neck/long_cape = INFINITY,
 				/obj/item/clothing/neck/wide_cape = INFINITY,
+				/obj/item/storage/belt/military/nri/captain/lethalstation = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist/messenger = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist/satchel = INFINITY,
@@ -106,6 +107,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/switchblade = INFINITY,
 				/obj/item/crowbar/red = INFINITY,
 				/obj/item/trench_tool = INFINITY,
+				/obj/item/shears = INFINITY,
 			),
 		),
 	)
