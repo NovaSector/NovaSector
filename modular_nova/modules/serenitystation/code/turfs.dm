@@ -40,6 +40,14 @@
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
+/turf/open/misc/asteroid/forest/getDug()
+	. = ..()
+	AddComponent(/datum/component/simple_farm)
+
+/turf/open/misc/asteroid/forest/refill_dug()
+	. = ..()
+	qdel(GetComponent(/datum/component/simple_farm))
+
 /turf/open/openspace/forest
 	name = "open forest air"
 	baseturfs = /turf/open/openspace/forest
