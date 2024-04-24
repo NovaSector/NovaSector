@@ -28483,10 +28483,6 @@
 "frp" = (
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
-"frz" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/station/engineering/atmos/upper)
 "frA" = (
 /obj/structure/table_frame/wood,
 /obj/effect/decal/cleanable/dirt{
@@ -36137,7 +36133,6 @@
 /turf/open/floor/carpet,
 /area/station/service/library/lounge)
 "gSg" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 6
 	},
@@ -166788,7 +166783,7 @@ sBt
 sBt
 sBt
 sBt
-frz
+cgU
 cgU
 cxg
 cgU
