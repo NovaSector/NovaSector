@@ -48,10 +48,10 @@
 	linked_department = department
 	var/datum/job_department/linked_department_real = SSjob.get_department_type(linked_department)
 	// Heads of staff can download
-	download_access |= linked_department_real.head_of_staff_access
+	download_access |= linked_department_real?.head_of_staff_access // LETHALSTATION EDIT: ADDS THE ? :CI STOPS WORKING OTHERWISE??
 	// Heads of staff + anyone in the dept can run it
-	use_access |= linked_department_real.head_of_staff_access
-	use_access |= linked_department_real.department_access
+	use_access |= linked_department_real?.head_of_staff_access // LETHALSTATION EDIT: ADDS THE ? :CI STOPS WORKING OTHERWISE??
+	use_access |= linked_department_real?.department_access // LETHALSTATION EDIT: ADDS THE ? :CI STOPS WORKING OTHERWISE??
 	// Also set up the radio
 	if(dept_to_radio[linked_department])
 		if(!isnull(radio))
@@ -202,7 +202,7 @@
 	if(isnull(pack))
 		computer.physical.say("Something went wrong!")
 		CRASH("requested supply pack id \"[id]\" not found!")
-	if(!can_see_pack(pack) || !(pack.group in linked_department_real.associated_cargo_groups))
+	if(!can_see_pack(pack) || !(pack.group in linked_department_real?.associated_cargo_groups))  // LETHALSTATION EDIT: ADDS THE ? :CI STOPS WORKING OTHERWISE??
 		return
 	var/name = "*None Provided*"
 	var/rank = "*None Provided*"
