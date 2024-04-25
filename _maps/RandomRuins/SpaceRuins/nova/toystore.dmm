@@ -176,9 +176,6 @@
 /obj/item/toy/figure/geneticist{
 	pixel_x = -7
 	},
-/obj/item/toy/figure/virologist{
-	pixel_x = 7
-	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/toy_store)
 "R" = (

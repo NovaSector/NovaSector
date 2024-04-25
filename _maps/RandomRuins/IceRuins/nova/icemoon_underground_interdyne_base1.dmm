@@ -4478,13 +4478,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
-/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lA" = (
@@ -4809,7 +4807,6 @@
 /obj/machinery/light/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "mk" = (
@@ -5452,7 +5449,6 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Dormitories"
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "nM" = (
@@ -7140,12 +7136,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"AX" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "Br" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Wing"
@@ -7441,15 +7431,6 @@
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/med/viro)
-"No" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/floor{
-	pixel_x = -16
-	},
-/obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "Np" = (
 /obj/structure/railing{
 	dir = 8
@@ -7533,13 +7514,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
-"Qk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/south,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/dorms)
 "QK" = (
 /obj/structure/railing{
 	dir = 10
@@ -7621,7 +7595,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
-/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "VH" = (
@@ -8446,7 +8419,7 @@ lx
 lS
 Oy
 lv
-AX
+nJ
 lv
 mi
 lS
@@ -8505,7 +8478,7 @@ lv
 lv
 lv
 lv
-Qk
+nJ
 lv
 lv
 lv
@@ -8564,7 +8537,7 @@ Bx
 lR
 mh
 mx
-AX
+nJ
 nq
 mh
 og
@@ -8623,7 +8596,7 @@ lx
 lS
 VH
 lv
-AX
+nJ
 lv
 WZ
 lS
@@ -8682,7 +8655,7 @@ lv
 lv
 lv
 lv
-No
+nK
 lv
 lv
 lv
@@ -8741,7 +8714,7 @@ Bx
 lR
 mh
 mC
-AX
+nJ
 nr
 mh
 og
@@ -8800,7 +8773,7 @@ lx
 lS
 Oj
 lv
-AX
+nJ
 lv
 VY
 lS
