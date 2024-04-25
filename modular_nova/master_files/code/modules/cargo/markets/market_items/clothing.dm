@@ -35,15 +35,6 @@
 	stock_max = 3
 	availability_prob = 85
 
-/datum/market_item/clothing/military_belt
-	name = "Old Military Belt"
-	desc = "A dusty belt which used to fit a military that's no longer active, reviews state their old MREs are sometimes found within these belts."
-	item = /obj/item/storage/belt/military/nri/plus_mre
-	price_min = CARGO_CRATE_VALUE * 0.5
-	price_max = CARGO_CRATE_VALUE
-	stock_max = 3
-	availability_prob = 75
-
 /datum/market_item/clothing/syndie_mask
 	name = "Syndicate Mask"
 	desc = "A mask seen often on the adversaries of Nanotrasen, and so - they are mass produced and not hard to get your hands on."
