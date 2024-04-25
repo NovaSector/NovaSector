@@ -23,6 +23,7 @@
 
 /datum/orderable_item/peacekeeper/sol35_ripper
 	name = ".35 Sol Short ripper ammo box"
+	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds. The purple stripe indicates this should hold hollowpoint-like ammunition."
 	item_path = /obj/item/ammo_box/c35sol/ripper
 	cost_per_order = 50
 
@@ -33,6 +34,7 @@
 
 /datum/orderable_item/peacekeeper/trappiste_hollowpoint
 	name = ".585 Trappiste hollowhead ammo box"
+	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The purple stripe indicates that it should hold hollowpoint-like rounds."
 	item_path = /obj/item/ammo_box/c585trappiste/hollowpoint
 	cost_per_order = 50
 
@@ -49,6 +51,7 @@
 /datum/orderable_item/peacekeeper/sol40_match
 	name = ".40 Sol Long match ammo box"
 	item_path = /obj/item/ammo_box/c40sol/pierce
+	desc = "A box of .40 Sol Long rifle rounds, holds thirty bullets. The yellow stripe indicates this should hold high performance ammuniton."
 	cost_per_order = 100
 
 /datum/orderable_item/peacekeeper/grenade_magazine
@@ -63,6 +66,7 @@
 
 /datum/orderable_item/peacekeeper/kiboko_shrapnel
 	name = ".980 Tydhouer shrapnel grenade ammo box"
+	desc = "A box of four .980 Tydhouer shrapnel grenades. Instructions on the box indicate these are shrapnel rounds. Its also covered in hazard signs, odd."
 	item_path = /obj/item/ammo_box/c980grenade/shrapnel
 	cost_per_order = 100
 
@@ -99,6 +103,7 @@
 
 /datum/orderable_item/imperial/ap_strilka
 	name = ".310 Strilka piercing ammo box"
+	desc = "A box of .310 Strilka piercing rifle rounds, holds ten cartridges."
 	item_path = /obj/item/ammo_box/c310_cargo_box/piercing
 	cost_per_order = 100
 
@@ -119,11 +124,13 @@
 
 /datum/orderable_item/operator_larp/chinmoku_tracer
 	name = "12mm Chinmoku tracer ammo stack"
+	desc = "A stack of 12mm Chinmoku tracer cartridges."
 	item_path = /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled/tracer
 	cost_per_order = 50
 
 /datum/orderable_item/operator_larp/chinmoku_special
 	name = "12mm Chinmoku special ammo stack"
+	desc = "A stack of 12mm Chinmoku special cartridges."
 	item_path = /obj/item/ammo_box/magazine/ammo_stack/c12chinmoku/prefilled/special
 	cost_per_order = 100
 
@@ -134,11 +141,13 @@
 
 /datum/orderable_item/operator_larp/marsian_shockwave
 	name = "8mm Marsian shockwave ammo stack"
+	desc = "A stack of 8mm Marsian shockwave cartridges."
 	item_path = /obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled/shockwave
 	cost_per_order = 100
 
 /datum/orderable_item/operator_larp/marsian_piercing
 	name = "8mm Marsian piercing ammo stack"
+	desc = "A stack of 8mm Marsian piercing cartridges."
 	item_path = /obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled/piercing
 	cost_per_order = 100
 
@@ -149,6 +158,7 @@
 
 /datum/orderable_item/shotgun_man/longshot
 	name = "6ga longshot ammo stack"
+	desc = "A stack of 6 gauge longshot shells."
 	item_path = /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/longshot
 	cost_per_order = 50
 
@@ -159,15 +169,18 @@
 
 /datum/orderable_item/shotgun_man/magnum
 	name = "12ga magnum blockshot ammo box"
+	desc = "A box of 15 magnum blockshot shells. The size of the pellet is larger in diameter than the typical shot, but there are less of them inside each shell."
 	item_path = /obj/item/ammo_box/advanced/s12gauge/magnum
 	cost_per_order = 100
 
 /datum/orderable_item/shotgun_man/express
 	name = "12ga express pelletshot ammo box"
+	desc = "A box of 15 express pelletshot shells. The size of the pellet is smaller in diameter than the typical shot, but there are more of them inside each shell."
 	item_path = /obj/item/ammo_box/advanced/s12gauge/express
 	cost_per_order = 100
 
 /datum/orderable_item/shotgun_man/flechette
 	name = "12ga flechette ammo box"
+	desc = "A box of 15 flechette shells. Each shell contains a small group of tumbling blades that excel at causing terrible wounds."
 	item_path = /obj/item/ammo_box/advanced/s12gauge/flechette
 	cost_per_order = 200
