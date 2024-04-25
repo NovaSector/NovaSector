@@ -186,7 +186,6 @@
 		/obj/item/defibrillator = 1,
 		/obj/item/defibrillator/loaded = 1,
 		/obj/item/emergency_bed = 2,
-		/obj/item/storage/epic_loot_medpen_case = 1,
 		/obj/item/storage/epic_loot_medical_case = 1,
 		/obj/effect/spawner/random/epic_loot/medkit = 2,
 	)
@@ -336,8 +335,6 @@
 		/obj/item/tank/internals/emergency_oxygen/double = 1,
 		// stuff
 		/obj/item/storage/epic_loot_cooler = 1,
-		/obj/item/storage/epic_loot_org_pouch = 1,
-		/obj/item/storage/epic_loot_docs_case = 1,
 		/obj/item/storage/epic_loot_money_case = 1,
 	)
 
@@ -372,8 +369,6 @@
 		/obj/item/epic_loot/slim_diary = 1,
 		/obj/item/epic_loot/diary = 1,
 		/obj/item/computer_disk/maintenance = 2,
-		/obj/item/storage/epic_loot_org_pouch = 1,
-		/obj/item/storage/epic_loot_docs_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_strongbox_loot
@@ -641,9 +636,6 @@
 		/obj/item/storage/toolbox/ammobox/epic_loot = 1,
 		/obj/item/storage/toolbox/ammobox/epic_loot/magazine_box = 1,
 		/obj/item/storage/epic_loot_grenade_case = 1,
-		/obj/item/storage/epic_loot_org_pouch = 1,
-		/obj/item/storage/epic_loot_docs_case = 1,
-		/obj/item/storage/epic_loot_medpen_case = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_provisions

@@ -50,11 +50,11 @@
 // CIN larp armor
 
 /obj/item/clothing/head/helmet/cin_surplus_helmet
-	max_integrity = 300
-	limb_integrity = 300
+	max_integrity = 200
+	limb_integrity = 200
 	repairable_by = null
 
 /obj/item/clothing/suit/armor/vest/cin_surplus_vest
-	max_integrity = 300
-	limb_integrity = 300
+	max_integrity = 200
+	limb_integrity = 200
 	repairable_by = null
