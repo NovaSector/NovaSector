@@ -310,7 +310,7 @@
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
 
-/examine_more(mob/user)
+/obj/item/epic_loot/ripstop/examine_more(mob/user)
 	. = ..()
 
 	. += span_notice("<b>Armor Trade Station:</b>")
