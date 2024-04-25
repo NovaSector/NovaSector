@@ -31,7 +31,7 @@
 	item_path = /obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty
 	cost_per_order = 50
 
-/datum/orderable_item/peacekeeper/trappiste_magazine
+/datum/orderable_item/peacekeeper/trappiste_hollowpoint
 	name = ".585 Trappiste hollowhead ammo box"
 	item_path = /obj/item/ammo_box/c585trappiste/hollowpoint
 	cost_per_order = 50
@@ -162,12 +162,12 @@
 	item_path = /obj/item/ammo_box/advanced/s12gauge/magnum
 	cost_per_order = 100
 
-/datum/orderable_item/shotgun_man/magnum
+/datum/orderable_item/shotgun_man/express
 	name = "12ga express pelletshot ammo box"
 	item_path = /obj/item/ammo_box/advanced/s12gauge/express
 	cost_per_order = 100
 
-/datum/orderable_item/shotgun_man/magnum
+/datum/orderable_item/shotgun_man/flechette
 	name = "12ga flechette ammo box"
 	item_path = /obj/item/ammo_box/advanced/s12gauge/flechette
 	cost_per_order = 200
