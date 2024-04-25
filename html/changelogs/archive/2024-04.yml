@@ -847,3 +847,23 @@
   - bugfix: 'Cargo express console fixed: No more bluescreen'
   tf-4:
   - rscdel: Shortened the Akulan language description in the language selection menu.
+2024-04-25:
+  Melbert:
+  - qol: Tuberculosis makes you cough more
+  - qol: Nicotine Addiciton makes you cough less
+  - qol: Medicine Addiction maybe makes you cough more, maybe makes you cough less
+  - bugfix: Playing Cards memory now reads better
+  NovaBot13:
+  - bugfix: brimbeams no longer make a cog appear above the mob
+  - balance: Longfall modules no logner stun you when they activate.
+  - balance: Falling from a height greater than one z-level while using the longfall
+      module will still stagger you.
+  - bugfix: you can no longer take off someones glasses or mask through atmos hardhat
+  - bugfix: once you adjust a welding helmet or something it no longer makes your
+      cigarette or sunglasses invisible
+  - bugfix: welding gas mask works once again
+  - bugfix: quick equips dont drop the item if you cant equip it
+  - rscadd: The crew monitor now has sorting options and a search bar.
+  Rhials:
+  - bugfix: Fake handcuffs/Zipties no longer block clicks for a few seconds after
+      being resisted out of.
