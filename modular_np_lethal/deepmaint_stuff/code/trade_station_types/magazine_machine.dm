@@ -7,6 +7,7 @@
 	light_color = LIGHT_COLOR_PURPLE
 
 	allowed_choices = list(
+		/datum/crafting_bench_recipe_real/plasma_pack,
 		/datum/crafting_bench_recipe_real/c8mars_magazine,
 		/datum/crafting_bench_recipe_real/c8mars_piercing,
 		/datum/crafting_bench_recipe_real/c8mars_shockwave,
@@ -42,6 +43,16 @@
 	. += span_notice("<b>1</b> heart + <b>1</b> box of nails = <b>8</b> 12ga flechette")
 
 	return .
+
+// 8mm mars
+
+/datum/crafting_bench_recipe_real/plasma_pack
+	recipe_name = "plasma power packs"
+	recipe_requirements = list(
+		/obj/item/card/id/advanced = 1,
+	)
+	resulting_item = /obj/item/ammo_box/magazine/recharge/plasma_battery
+	amount_to_make = 3
 
 // 8mm mars
 

@@ -145,11 +145,11 @@
 	resulting_item = /obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome
 
 /datum/crafting_bench_recipe_real/sakhno
-	recipe_name = "sakhno M2442 rifle"
+	recipe_name = "sakhno-xhihao rifle"
 	recipe_requirements = list(
 		/obj/item/epic_loot/processor = 1,
 	)
-	resulting_item = /obj/item/gun/ballistic/rifle/boltaction/surplus
+	resulting_item = /obj/item/gun/ballistic/rifle/boltaction/prime
 
 /datum/crafting_bench_recipe_real/boxer
 	recipe_name = "bogseo submachinegun"
