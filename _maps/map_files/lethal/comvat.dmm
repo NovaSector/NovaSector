@@ -687,6 +687,11 @@
 /obj/machinery/light/cold/dim/directional/east,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"hM" = (
+/obj/structure/rack/shelf,
+/obj/effect/spawner/random/epic_loot/random_other_military_loot,
+/turf/open/floor/plating,
+/area/gakster_location/war)
 "hN" = (
 /mob/living/basic/mouse,
 /turf/open/floor/iron/smooth,
@@ -1341,6 +1346,10 @@
 /obj/structure/epic_loot_crafting_bench/medical,
 /turf/closed/indestructible/steel,
 /area/gakster_location)
+"pM" = (
+/obj/structure/maintenance_loot_structure/military_case/random,
+/turf/open/floor/plating,
+/area/gakster_location/war)
 "pQ" = (
 /obj/effect/spawner/random/trash/graffiti,
 /turf/closed/wall,
@@ -2585,6 +2594,10 @@
 /obj/machinery/light/broken/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Cv" = (
+/obj/structure/maintenance_loot_structure/ammo_box/random,
+/turf/open/floor/plating,
+/area/gakster_location/war)
 "Cy" = (
 /obj/structure/chair/plastic{
 	dir = 8
@@ -3218,6 +3231,12 @@
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_documents,
 /turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
+"IS" = (
+/obj/structure/rack/shelf,
+/obj/effect/spawner/random/epic_loot/random_other_military_loot,
+/obj/effect/spawner/random/epic_loot/random_other_military_loot,
+/turf/open/floor/plating,
 /area/gakster_location/war)
 "IU" = (
 /obj/machinery/light/dim/directional/south,
@@ -4338,6 +4357,13 @@
 "Wb" = (
 /obj/machinery/light/red/directional/south,
 /turf/open/floor/catwalk_floor/iron_smooth,
+/area/gakster_location/war)
+"We" = (
+/obj/structure/rack/shelf,
+/obj/effect/spawner/random/epic_loot/random_grenade_or_explosive,
+/obj/effect/spawner/random/epic_loot/medical_tools,
+/obj/effect/spawner/random/epic_loot/medpens,
+/turf/open/floor/plating,
 /area/gakster_location/war)
 "Wf" = (
 /obj/machinery/light/dim/directional/north,
@@ -26956,8 +26982,8 @@ Sn
 Sj
 Fg
 NT
-Sn
-Sn
+pM
+IS
 NT
 jI
 dK
@@ -27058,7 +27084,7 @@ Sn
 Sj
 Fg
 NT
-Lh
+MY
 Lh
 ep
 dK
@@ -27262,9 +27288,9 @@ Sn
 Sj
 Fg
 NT
-Sn
-Lh
-Sn
+We
+VP
+Cv
 NT
 eB
 eB
@@ -27364,9 +27390,9 @@ Sn
 Sj
 Fg
 NT
-Sn
+hM
 Lh
-Sn
+aY
 NT
 eB
 eB
