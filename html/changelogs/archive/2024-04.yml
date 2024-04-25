@@ -812,3 +812,58 @@
       type III armorvest, Anti-slip MOD module, Anti-flash lenses, Syndicate hairtie,
       Syndicate shotglasses, Dehydrated space-carp, Syndicate smokes, Syndicate stickers,
       Adaptive cardboard cutouts, AI detector multitool, ablative baseball bat.'
+2024-04-24:
+  Jacquerel and Melbert:
+  - rscadd: A new achievement for moving a boulder from one place to another, at great
+      effort.
+  - balance: Hauling a boulder around makes you move slower, as it does when dragging
+      it.
+  Melbert:
+  - qol: Getting up from prone, moving up or down a z-level (not via ladders, naturally.
+      Like flight), and de/activating your modsuit no longer shows cogwheel effect
+  - bugfix: Only brute damage causes brain damage when applied to the forehead, rather
+      than all damage types
+  NovaBot13:
+  - bugfix: brimdemons (and other mobs) will act normally
+  - rscadd: Replaces Fitness with Athletics; same skill, but now more specifically
+      applicable to boxing.
+  - rscadd: Athletics does not increase sprite size.
+  - balance: Overhauls Boxing to add a lot more depth to the interactions. Only applicable
+      to other boxers, however. You can still punch the snot out of non-boxers though.
+      But only up to stamcrit or unconsciousness. No hitting someone who can't fight
+      back!
+  - balance: Adds Evil Boxing, which is the evil and fucked up version of boxing that
+      you kill people with and are allowed to flout the sacred rules of boxing as
+      you please. Everyone is a victim!
+  - rscadd: Admin tools buffed, check the Controller Overview
+  - rscadd: Controller Overview moved to debug tab
+  - bugfix: plumbing & chem reaction chamber heating effects accurately reflect the
+      beakers heat capacity & power usage
+  - bugfix: plumbing reaction will not use power when emptying or when there are no
+      reagents to heat
+  - bugfix: you can hit the chem reaction chamber with items like beakers, screwdrivers,
+      crowbars and what not
+  - bugfix: Cargo's supply console has been upgraded visually.
+  - bugfix: 'Cargo express console fixed: No more bluescreen'
+  tf-4:
+  - rscdel: Shortened the Akulan language description in the language selection menu.
+2024-04-25:
+  Melbert:
+  - qol: Tuberculosis makes you cough more
+  - qol: Nicotine Addiciton makes you cough less
+  - qol: Medicine Addiction maybe makes you cough more, maybe makes you cough less
+  - bugfix: Playing Cards memory now reads better
+  NovaBot13:
+  - bugfix: brimbeams no longer make a cog appear above the mob
+  - balance: Longfall modules no logner stun you when they activate.
+  - balance: Falling from a height greater than one z-level while using the longfall
+      module will still stagger you.
+  - bugfix: you can no longer take off someones glasses or mask through atmos hardhat
+  - bugfix: once you adjust a welding helmet or something it no longer makes your
+      cigarette or sunglasses invisible
+  - bugfix: welding gas mask works once again
+  - bugfix: quick equips dont drop the item if you cant equip it
+  - rscadd: The crew monitor now has sorting options and a search bar.
+  Rhials:
+  - bugfix: Fake handcuffs/Zipties no longer block clicks for a few seconds after
+      being resisted out of.
