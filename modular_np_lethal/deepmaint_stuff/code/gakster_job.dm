@@ -29,6 +29,7 @@
 /datum/job/gakster/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	ADD_TRAIT(spawned, TRAIT_NODISMEMBER, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
 
 /datum/outfit/job/gakster
 	name = "Gakster"
