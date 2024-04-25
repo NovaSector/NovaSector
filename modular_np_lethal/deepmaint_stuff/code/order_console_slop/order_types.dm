@@ -109,7 +109,7 @@
 
 /datum/orderable_item/operator_larp/chinmoku_short
 	name = "Chinmoku short magazine"
-	item_path = /obj/item/ammo_box/magazine/c12chinmoku/spawns_empty
+	item_path = /obj/item/ammo_box/magazine/c12chinmoku/starts_empty
 	cost_per_order = 50
 
 /datum/orderable_item/operator_larp/chinmoku_real
