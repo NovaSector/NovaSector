@@ -27,6 +27,14 @@
 	)
 	new /obj/effect/temp_visual/medical_holosign(get_turf(target), user)
 
+/obj/item/epic_loot/vein_finder/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> satchel medical kit.")
+
+	return .
+
 // Eyescope, a now rare device that was used to check the eyes of patients before the universal health scanner became common
 /obj/item/epic_loot/eye_scope
 	name = "medical eye-scope"
@@ -35,6 +43,14 @@
 	inhand_icon_state = "zippo"
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
+
+/obj/item/epic_loot/eye_scope/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> first responder surgical kit.")
+
+	return .
 
 /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super
 	name = "advanced satchel medical kit"

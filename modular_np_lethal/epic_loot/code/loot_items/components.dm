@@ -35,6 +35,17 @@
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
 
+/obj/item/epic_loot/grenade_fuze/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive can be traded for <b>2</b> offensive impact grenades.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> box of nails can be traded for <b>2</b> defensive impact grenades.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> water filter cartridge can be traded for <b>2</b> improvised explosives.")
+
+	return .
+
+
 // The filter part of a water filter machine, though these machines are insanely rare due to modern synthesis technology
 /obj/item/epic_loot/water_filter
 	name = "water filter cartridge"
@@ -43,6 +54,15 @@
 	inhand_icon_state = "miniFE"
 	drop_sound = 'sound/items/handling/weldingtool_drop.ogg'
 	pickup_sound = 'sound/items/handling/weldingtool_pickup.ogg'
+
+/obj/item/epic_loot/water_filter/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> suppressor.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> grenade fuze can be traded for <b>2</b> improvised explosives.")
+
+	return .
 
 // Analog thermometer, how to tell temperature before gas analyzers were cool
 /obj/item/epic_loot/thermometer
@@ -53,6 +73,15 @@
 	drop_sound = 'sound/items/handling/multitool_drop.ogg'
 	pickup_sound = 'sound/items/handling/multitool_pickup.ogg'
 
+/obj/item/epic_loot/thermometer/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>2</b> flashbangs.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> box of nails can be traded for <b>2</b> stingbangs.")
+
+	return .
+
 // A box of nails, impossible tech on a space station
 /obj/item/epic_loot/nail_box
 	name = "box of nails"
@@ -62,6 +91,15 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
+/obj/item/epic_loot/nail_box/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> analog thermometer can be traded for <b>2</b> stingbangs.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> grenade fuze can be traded for <b>2</b> defensive impact grenades.")
+
+	return .
+
 // Used for joining together plastics, ideally.
 /obj/item/epic_loot/cold_weld
 	name = "tube of cold weld"
@@ -70,6 +108,14 @@
 	inhand_icon_state = "razor"
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
+
+/obj/item/epic_loot/cold_weld/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> thermal camera module + <b>1</b> signal amplifier can be traded for <b>1</b> pair of thermal vision goggles.")
+
+	return .
 
 // An electronic motor
 /obj/item/epic_loot/electric_motor
@@ -81,6 +127,14 @@
 	drop_sound = 'sound/items/handling/cardboardbox_drop.ogg'
 	pickup_sound = 'sound/items/handling/cardboardbox_pickup.ogg'
 
+/obj/item/epic_loot/electric_motor/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> polymer weave fabric can be traded for <b>1</b> type II 'Kastrol' helmet.")
+
+	return .
+
 // Current converters, these change one rating of current into another in a mostly safe manner
 /obj/item/epic_loot/current_converter
 	name = "current converter"
@@ -91,6 +145,14 @@
 	drop_sound = 'sound/items/handling/weldingtool_drop.ogg'
 	pickup_sound = 'sound/items/handling/weldingtool_pickup.ogg'
 
+/obj/item/epic_loot/current_converter/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> signal amplifier can be traded for <b>1</b> pair of night vision goggles.")
+
+	return .
+
 // Signal amplifiers, used to take a faint signal and return it stronger than before
 /obj/item/epic_loot/signal_amp
 	name = "signal amplifier"
@@ -99,6 +161,15 @@
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
 
+/obj/item/epic_loot/signal_amp/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> current converter can be traded for <b>1</b> pair of night vision goggles.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> thermal camera module + <b>1</b> tube of cold weld can be traded for <b>1</b> pair of thermal vision goggles")
+
+	return .
+
 // Thermal camera modules
 /obj/item/epic_loot/thermal_camera
 	name = "thermal camera module"
@@ -106,6 +177,14 @@
 	icon_state = "thermal"
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
+
+/obj/item/epic_loot/thermal_camera/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> signal amplifier + <b>1</b> tube of cold weld can be traded for <b>1</b> pair of thermal vision goggles.")
+
+	return .
 
 // Shuttle gyroscopes, AKA how a shuttle realizes which way it's pointing
 /obj/item/epic_loot/shuttle_gyro
@@ -121,6 +200,14 @@
 	. = ..()
 	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
 
+/obj/item/epic_loot/shuttle_gyro/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type III 'Kinu-Kuroba' vest.")
+
+	return .
+
 // Phased array elements, combine a bunch together to get god's strongest radar, or whatever else you can think of
 /obj/item/epic_loot/phased_array
 	name = "phased array element"
@@ -130,6 +217,14 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
+
+/obj/item/epic_loot/phased_array/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> bowman headset.")
+
+	return .
 
 // Shuttle batteries, used to power electronics while the engines are off
 /obj/item/epic_loot/shuttle_battery
@@ -145,6 +240,14 @@
 	. = ..()
 	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
 
+/obj/item/epic_loot/shuttle_battery/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type III 'Robusuta' helmet.")
+
+	return .
+
 // Industrial fuel conditioner, used to keep most fuel-burning machines within regulations for waste emissions
 /obj/item/epic_loot/fuel_conditioner
 	name = "fuel conditioner"
@@ -153,6 +256,14 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/cardboardbox_drop.ogg'
 	pickup_sound = 'sound/items/handling/cardboardbox_pickup.ogg'
+
+/obj/item/epic_loot/fuel_conditioner/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> frontier headset.")
+
+	return .
 
 // Bullet and stab resistant fabric, use lots to make something stop bullets a bit better
 /obj/item/epic_loot/aramid
@@ -163,6 +274,15 @@
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
 
+/obj/item/epic_loot/aramid/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type I 'Kami' vest.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> appendix can be traded for <b>1</b> type II 'Koranda' vest.")
+
+	return .
+
 // You know they make your pouches and such out of this stuff?
 /obj/item/epic_loot/cordura
 	name = "polymer weave fabric"
@@ -172,6 +292,15 @@
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
 
+/obj/item/epic_loot/cordura/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> tear-resistant fabric can be traded for <b>1</b> type II 'Touvou' vest.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> electric motor can be traded for <b>1</b> type II 'Kastrol' helmet")
+
+	return .
+
 // It's like the one above but for different stuff
 /obj/item/epic_loot/ripstop
 	name = "tear-resistant fabric"
@@ -180,3 +309,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
+
+/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> polymer weave fabric can be traded for <b>1</b> type II 'Touvou' vest.")
+
+	return .

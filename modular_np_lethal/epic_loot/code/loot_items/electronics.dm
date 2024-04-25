@@ -27,6 +27,14 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
+/obj/item/epic_loot/device_fan/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> eland revolver.")
+
+	return .
+
 // A display of some sort, this one probably still works
 /obj/item/epic_loot/display
 	name = "display"
@@ -35,6 +43,14 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
+
+/obj/item/epic_loot/display/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> fukiya rifle.")
+
+	return .
 
 // A display of some sort, this one for sure does not work
 /obj/item/epic_loot/display_broken
@@ -45,6 +61,14 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
+/obj/item/epic_loot/display_broken/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> seiba submachinegun.")
+
+	return .
+
 // You think nvidia still makes this shit? Nah son we got the konjin preemo stuff here
 /obj/item/epic_loot/graphics
 	name = "graphics processor"
@@ -54,6 +78,14 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
+/obj/item/epic_loot/graphics/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> sindano submachinegun.")
+
+	return .
+
 // A military general-use circuit board
 /obj/item/epic_loot/military_circuit
 	name = "military-grade circuit board"
@@ -62,6 +94,14 @@
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
 
+/obj/item/epic_loot/military_circuit/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> general-purpose circuit board can be traded for <b>1</b> renoster shotgun.")
+
+	return .
+
 // A civilian general-use circuit board
 /obj/item/epic_loot/civilian_circuit
 	name = "general-purpose circuit board"
@@ -69,6 +109,14 @@
 	icon_state = "civilian_circuit"
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
+
+/obj/item/epic_loot/civilian_circuit/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> military-grade circuit board can be traded for <b>1</b> renoster shotgun.")
+
+	return .
 
 // A computer processor unit
 /obj/item/epic_loot/processor
@@ -79,6 +127,14 @@
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
 
+/obj/item/epic_loot/processor/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> sakhno-xhihao rifle.")
+
+	return .
+
 // A computer power supply
 /obj/item/epic_loot/power_supply
 	name = "computer power supply"
@@ -88,6 +144,14 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
+/obj/item/epic_loot/power_supply/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> hard disk reader can be traded for <b>1</b> bogseo submachinegun.")
+
+	return .
+
 // A drive for reading data from data disks in computers
 /obj/item/epic_loot/disk_drive
 	name = "hard-disk reader"
@@ -96,3 +160,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
+
+/obj/item/epic_loot/disk_drive/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> computer power supply can be traded for <b>1</b> bogseo submachinegun.")
+
+	return .

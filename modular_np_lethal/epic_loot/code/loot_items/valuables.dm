@@ -30,6 +30,14 @@
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/epic_loot/press_pass/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> frontier first aid kit.")
+
+	return .
+
 // A computer SSD
 /obj/item/epic_loot/ssd
 	name = "solid-state drive"
@@ -38,6 +46,14 @@
 	inhand_icon_state = "razor"
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+/obj/item/epic_loot/ssd/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> pair of binoculars.")
+
+	return .
 
 // A computer hard drive
 /obj/item/epic_loot/hdd
@@ -49,6 +65,14 @@
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/epic_loot/hdd/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> assault pack.")
+
+	return .
+
 // Military-grade flash drives, made for use specifically with military computers
 /obj/item/epic_loot/military_flash
 	name = "military flash drive"
@@ -57,6 +81,14 @@
 	inhand_icon_state = "razor"
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+/obj/item/epic_loot/military_flash/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> tag case.")
+
+	return .
 
 // Someone's personal diary, or bootleg captain's log, whatever
 /obj/item/epic_loot/diary
@@ -67,6 +99,14 @@
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/epic_loot/diary/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> keycard holder.")
+
+	return .
+
 // A slimmer version of the regular diary
 /obj/item/epic_loot/slim_diary
 	name = "sealed slim diary"
@@ -74,6 +114,14 @@
 	icon_state = "slim_diary"
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+/obj/item/epic_loot/slim_diary/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> pair of sunglasses.")
+
+	return .
 
 // Straight up, a brick of plasma-cringe explosive, keep away from fire
 /obj/item/epic_loot/plasma_explosive
@@ -88,6 +136,15 @@
 	. = ..()
 	AddComponent(/datum/component/explodable, 0, 1, 3, 5, 5)
 
+/obj/item/epic_loot/plasma_explosive/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> grenade fuze can be traded for <b>2</b> offensive impact grenades.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> grenade fuze + <b>1</b> box of nails can be traded for <b>2</b> defensive impact grenades")
+
+	return .
+
 // A folder from some corporation with likely valuable data inside
 /obj/item/epic_loot/corpo_folder
 	name = "corporate data folder"
@@ -96,6 +153,14 @@
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/epic_loot/corpo_folder/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> organizational pouch.")
+
+	return .
 
 // Brown unlabeled folder of doom, may contain government secrets
 /obj/item/epic_loot/intel_folder
@@ -106,6 +171,14 @@
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/epic_loot/intel_folder/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> security belt.")
+
+	return .
+
 // A small chainlet made of silver
 /obj/item/epic_loot/silver_chainlet
 	name = "silver chainlet"
@@ -114,6 +187,14 @@
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
 
+/obj/item/epic_loot/silver_chainlet/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> gold chainlet can be traded for <b>1</b> documents pouch.")
+
+	return .
+
 // A small chainlet made of gold
 /obj/item/epic_loot/gold_chainlet
 	name = "gold chainlet"
@@ -121,3 +202,11 @@
 	icon_state = "gold_chain"
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+
+/obj/item/epic_loot/gold_chainlet/examine_more(mob/user)
+	. = ..()
+
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these + <b>1</b> silver chainlet can be traded for <b>1</b> documents pouch.")
+
+	return .
