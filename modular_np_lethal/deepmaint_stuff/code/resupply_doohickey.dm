@@ -102,6 +102,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/storage/backpack/industrial/frontier_colonist/messenger = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist/satchel = INFINITY,
 			),
+		),
 		list(
 			"name" = "Gear",
 			"icon" = "gear",

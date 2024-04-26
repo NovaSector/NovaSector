@@ -51,37 +51,3 @@
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> first responder surgical kit.")
 
 	return .
-
-/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super
-	name = "advanced satchel medical kit"
-	icon = 'modular_np_lethal/epic_loot/icons/epic_loot.dmi'
-	icon_state = "satchel_super"
-	worn_icon_state = "satchel"
-	storage_type = /datum/storage/duffel/deforest_medkit/super
-
-/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super/PopulateContents()
-	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/combat = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 2,
-		/obj/item/bonesetter = 1,
-		/obj/item/hemostat/alien = 1,
-		/obj/item/cautery/alien = 1,
-		/obj/item/stack/medical/wound_recovery = 1,
-		/obj/item/stack/medical/wound_recovery/rapid_coagulant = 1,
-		/obj/item/stack/medical/suture/coagulant = 1,
-		/obj/item/stack/medical/suture/medicated = 2,
-		/obj/item/stack/medical/mesh/advanced = 2,
-		/obj/item/stack/medical/gauze/sterilized = 1,
-		/obj/item/stack/medical/gauze = 1,
-		/obj/item/stack/medical/ointment/red_sun = 1,
-		/obj/item/storage/pill_bottle/painkiller = 1,
-		/obj/item/healthanalyzer/advanced = 1,
-	)
-	generate_items_inside(items_inside,src)
-
-/datum/storage/duffel/deforest_medkit/super
-	max_specific_storage = WEIGHT_CLASS_NORMAL
-	max_total_storage = 21 * WEIGHT_CLASS_NORMAL
