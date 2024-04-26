@@ -22,18 +22,13 @@ serenitystation to do list
 -missing rooms 
 	**Main
 	-arrivals ship docks (maybe on sat station) 
-		-chapel
-		-more escape pods
-		
-	**Rec areas 
-		-barbershop
-		-holodeck 
-		-dorms toilets
-		-dorms 
-		-cryopods
-		-boxing ring 
-		-arcade
-		-locker room
+	-more escape pods
+	
+	**satellite station 
+	-ship docks
+	-security checkpoint
+	-power/grav 
+	-lounge/aux dorm 
 	
 	**Maints rooms 
 	-disposals
