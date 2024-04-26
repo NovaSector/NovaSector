@@ -105,8 +105,8 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/exit/enter_the_fun_zone(mob/user)
 	if(!in_range(src, user) || DOING_INTERACTION(user, DOAFTER_SOURCE_CLIMBING_LADDER))
 		return
-	var/user_is_a_filtre = (user.mind?.assigned_role == /datum/job/filtre)
-	if(user_is_a_filtre)
+	var/user_is_a_filtre = istype((user.mind?.assigned_role == /datum/job/filtre), /datum/job/filtre)
+	if(!user_is_a_filtre)
 		if(!length(GLOB.deepmaints_entrances))
 			balloon_alert(user, "hatch above seems stuck...")
 			return
@@ -119,7 +119,7 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/exit/send_him_to_detroit(mob/user)
 	if(!do_after(user, travel_time, target = src))
 		return
-	var/user_is_a_filtre = (user.mind?.assigned_role == /datum/job/filtre)
+	var/user_is_a_filtre = istype((user.mind?.assigned_role == /datum/job/filtre), /datum/job/filtre)
 	var/obj/destination
 	if(user_is_a_filtre)
 		destination = pick(GLOB.deepmaints_entrances_filtre)

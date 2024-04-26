@@ -315,7 +315,6 @@
 	var/flash_range = 3
 
 /obj/projectile/bullet/s6gauge/slug/flash/on_range()
-	. = ..()
 	var/turf/flash_turf = get_turf(src)
 	flash_turf.flash_lighting_fx(range = flash_range)
 	playsound(flash_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 2, 0.9)
@@ -326,3 +325,4 @@
 		else
 			var/mob/living/carbon/flashee = living_mob_nearby
 			flashee.soundbang_act(stun_pwr = 0, damage_pwr = 2, deafen_pwr = 5)
+	return ..()

@@ -131,20 +131,20 @@
 
 /obj/item/reagent_containers/hypospray/medipen/deforest/captagon
 	name = "'Sector 9 Special' emergency autoinjector"
-	desc = "A two-use autoinjector filled with an outright insane cocktail of chemicals to allow any Gakster on the planet to go, 'Nah, I'd win'."
+	desc = "An autoinjector filled with an outright insane cocktail of chemicals to allow any Gakster on the planet to go, 'Nah, I'd win'."
 	icon = 'modular_np_lethal/medical_stuff/icons/medpens.dmi'
 	icon_state = "captagon"
 	base_icon_state = "captagon"
-	volume = 140
+	volume = 70
 	amount_per_transfer_from_this = 70
 	list_reagents = list(
-		/datum/reagent/drug/demoneye = 20,
-		/datum/reagent/drug/kronkaine = 20,
-		/datum/reagent/drug/pumpup = 20,
-		/datum/reagent/medicine/c2/penthrite = 20,
-		/datum/reagent/medicine/mine_salve = 20,
-		/datum/reagent/medicine/muscle_stimulant = 20,
-		/datum/reagent/impurity = 20,
+		/datum/reagent/drug/demoneye = 10,
+		/datum/reagent/drug/kronkaine = 10,
+		/datum/reagent/drug/pumpup = 10,
+		/datum/reagent/medicine/c2/penthrite = 10,
+		/datum/reagent/medicine/mine_salve = 10,
+		/datum/reagent/medicine/muscle_stimulant = 10,
+		/datum/reagent/impurity = 10,
 	)
 
 /obj/item/reagent_containers/hypospray/medipen/deforest/captagon/update_icon_state()

@@ -1,3 +1,9 @@
+// Makes clothes not get shot off
+
+/obj/item/clothing/under
+	limb_integrity = 0
+	resistance_flags = FIRE_PROOF
+
 // Peacekeeper armor
 // 250 doesn't seem like a massive amount until you realize
 // They only take at most 12 damage a hit
