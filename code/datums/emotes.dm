@@ -196,7 +196,12 @@
 	// NOVA EDIT ADDITION START - AI QOL - RELAY EMOTES OVER HOLOPADS
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
-		if(is_visual && is_audible)
+		if(is_important)
+			for(var/mob/living/viewer in viewers(world.view, hologram))
+				if(!pref_check_emote(viewer))
+					continue
+				to_chat(viewer, msg)
+		else if(is_visual && is_audible)
 			hologram.audible_message(
 				message = msg,
 				deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
@@ -221,11 +226,6 @@
 				separation = space,
 				pref_to_check = pref_to_check,
 			)
-		if(emote_type & EMOTE_IMPORTANT)
-			for(var/mob/living/viewer in viewers(world.view, hologram))
-				if(viewer.is_blind() && !viewer.can_hear())
-					if(pref_check_emote(viewer))
-						to_chat(viewer, msg)
 	// NOVA EDIT ADDITION END
 	if(!isnull(user.client))
 		var/dchatmsg = "<b>[user]</b>[space][msg]" // NOVA EDIT CHANGE - ORIGINAL: var/dchatmsg = "<b>[user]</b> [msg]"
