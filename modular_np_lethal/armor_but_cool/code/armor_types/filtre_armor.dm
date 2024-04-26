@@ -35,6 +35,7 @@
 	limb_integrity = 900
 	slowdown = 0.75
 	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
+	equip_delay_self = 10 SECONDS
 
 /obj/item/clothing/suit/armor/lethal_filtre/Initialize(mapload)
 	. = ..()
