@@ -158,43 +158,7 @@
 		Destroy()
 		return
 
-	//if its sinew, lower the cooldown
-	else if(istype(attacking_item, /obj/item/stack/sheet/sinew))
-		var/obj/item/stack/sheet/sinew/use_item = attacking_item
-
-		if(!use_item.use(1))
-			return
-
-		decrease_cooldown(user)
-		return
-
-	//if its goliath hide, increase the amount dropped
-	else if(istype(attacking_item, /obj/item/stack/sheet/animalhide/goliath_hide))
-		var/obj/item/stack/sheet/animalhide/goliath_hide/use_item = attacking_item
-
-		if(!use_item.use(1))
-			return
-
-		increase_yield(user)
-		return
-
-	else if(istype(attacking_item, /obj/item/stack/worm_fertilizer))
-
-		var/obj/item/stack/attacking_stack = attacking_item
-
-		if(!attacking_stack.use(1))
-			balloon_alert(user, "unable to use [attacking_item]")
-			return
-
-		if(!decrease_cooldown(user, silent = TRUE) && !increase_yield(user, silent = TRUE))
-			balloon_alert(user, "plant is already fully upgraded")
-
-		else
-			balloon_alert(user, "plant was upgraded")
-
-		return
-
-	else if(istype(attacking_item, /obj/item/storage/bag/plants))
+	if(istype(attacking_item, /obj/item/storage/bag/plants))
 		if(!COOLDOWN_FINISHED(src, harvest_timer))
 			return
 
@@ -202,6 +166,33 @@
 		create_harvest(attacking_item, user)
 		update_appearance()
 		return
+
+	var/obj/item/stack/use_item = attacking_item
+	if(istype(use_item) && !use_item.tool_use_check(1))
+		return
+
+	//if its sinew, lower the cooldown
+	if(istype(use_item, /obj/item/stack/sheet/sinew))
+		if(decrease_cooldown(user))
+			use_item.use(1)
+		return
+
+	//if its goliath hide, increase the amount dropped
+	if(istype(use_item, /obj/item/stack/sheet/animalhide/goliath_hide))
+		if(increase_yield(user))
+			use_item.use(1)
+		return
+
+	if(istype(use_item, /obj/item/stack/worm_fertilizer))
+		var/cooldown_improved = decrease_cooldown(user, silent = TRUE)
+		var/yield_improved = increase_yield(user, silent = TRUE)
+		if (cooldown_improved || yield_improved)
+			use_item.use(1)
+			balloon_alert(user, "fertilized")
+		else
+			balloon_alert(user, "already fertilized!")
+		return
+
 
 	return ..()
 
