@@ -4050,6 +4050,12 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"SB" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gakster_location/outside)
 "SG" = (
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/iron/smooth,
@@ -4117,6 +4123,13 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"TA" = (
+/obj/structure/stairs/north,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gakster_location/outside)
 "TN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -20808,8 +20821,8 @@ vr
 vr
 vr
 vr
-qK
-yc
+TA
+SB
 DT
 DT
 DT
@@ -42720,7 +42733,7 @@ Sn
 dK
 Sn
 ep
-DT
+hp
 vr
 vr
 vr
@@ -42762,7 +42775,7 @@ vr
 vr
 vr
 vr
-DT
+IB
 ep
 dK
 dK

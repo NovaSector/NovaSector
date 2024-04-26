@@ -19,6 +19,7 @@
 				/obj/item/stack/sticky_tape/surgical = INFINITY,
 				/obj/item/storage/pill_bottle/iron = INFINITY,
 				/obj/item/reagent_containers/hypospray/medipen/ekit = INFINITY,
+				/obj/item/stack/medical/wound_recovery/robofoam = INFINITY,
 				/obj/item/storage/medkit/combat_surgeon/organ/stocked = INFINITY,
 				/obj/item/storage/organbox/preloaded = INFINITY,
 			),

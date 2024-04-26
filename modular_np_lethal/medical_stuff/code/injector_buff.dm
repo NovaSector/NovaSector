@@ -132,6 +132,7 @@
 /obj/item/reagent_containers/hypospray/medipen/deforest/captagon
 	name = "'Sector 9 Special' emergency autoinjector"
 	desc = "A two-use autoinjector filled with an outright insane cocktail of chemicals to allow any Gakster on the planet to go, 'Nah, I'd win'."
+	icon = 'modular_np_lethal/medical_stuff/icons/medpens.dmi'
 	icon_state = "captagon"
 	base_icon_state = "captagon"
 	volume = 140

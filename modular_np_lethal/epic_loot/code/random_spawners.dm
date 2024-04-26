@@ -46,6 +46,7 @@
 		/obj/item/stack/medical/bandage = 2,
 		/obj/item/stack/sticky_tape/surgical = 2,
 		/obj/item/reagent_containers/blood/random = 1,
+		/obj/item/stack/medical/wound_recovery/robofoam = 2,
 		// Chemjaks
 		/obj/item/reagent_containers/cup/bottle/epinephrine = 2,
 		/obj/item/reagent_containers/cup/bottle/morphine = 1,
@@ -106,6 +107,8 @@
 		/obj/item/stack/medical/wound_recovery = 1,
 		/obj/item/stack/medical/wound_recovery/rapid_coagulant = 1,
 		/obj/item/reagent_containers/blood/random = 2,
+		/obj/item/stack/medical/wound_recovery/robofoam = 3,
+		/obj/item/stack/medical/wound_recovery/robofoam_super = 2,
 		// Chemjaks
 		/obj/item/reagent_containers/cup/bottle/epinephrine = 1,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
@@ -195,12 +198,13 @@
 	desc = "Automagically transforms into a random medkit of some sort."
 	icon_state = "random_medkit"
 	loot = list(
-		/obj/item/storage/medkit/civil_defense/stocked = 3,
-		/obj/item/storage/medkit/civil_defense/comfort/stocked = 3,
-		/obj/item/storage/medkit/frontier/stocked = 2,
-		/obj/item/storage/medkit/combat_surgeon/stocked = 2,
-		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked = 1,
-		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked = 1,
+		/obj/item/storage/medkit/civil_defense/stocked = 4,
+		/obj/item/storage/medkit/civil_defense/comfort/stocked = 4,
+		/obj/item/storage/medkit/frontier/stocked = 3,
+		/obj/item/storage/medkit/combat_surgeon/stocked = 3,
+		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked = 2,
+		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked = 2,
+		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/medpens
@@ -336,6 +340,9 @@
 		// stuff
 		/obj/item/storage/epic_loot_cooler = 1,
 		/obj/item/storage/epic_loot_money_case = 1,
+		// Robofoam is a tool, right?
+		/obj/item/stack/medical/wound_recovery/robofoam = 2,
+		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_computer_parts
