@@ -29,7 +29,7 @@
 	. += span_notice("<b>1</b> solid state drive = <b>1</b> binoculars")
 	. += span_notice("<b>1</b> hard disk drive = <b>1</b> assault pack")
 	. += span_notice("<b>1</b> intelligence folder = <b>1</b> security belt")
-	. += span_notice("<b>1</b> eyes = <b>1</b> ammo pouch")
+	. += span_notice("<b>1</b> gold chainlet = <b>1</b> ammo pouch")
 	. += span_notice("<b>1</b> liver = <b>1</b> operative holster")
 	. += span_notice("<b>1</b> liver = <b>1</b> assault belt")
 	. += span_notice("<b>1</b> tongue = <b>1</b> grenade belt")
@@ -69,7 +69,7 @@
 /datum/crafting_bench_recipe_real/ammo_pouch
 	recipe_name = "ammo pouch"
 	recipe_requirements = list(
-		/obj/item/organ/internal/eyes = 1,
+		/obj/item/epic_loot/gold_chainlet = 1,
 	)
 	resulting_item = /obj/item/storage/pouch/ammo
 

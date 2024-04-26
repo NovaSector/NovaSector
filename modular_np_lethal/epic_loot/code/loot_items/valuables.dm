@@ -196,6 +196,8 @@
 /obj/item/epic_loot/silver_chainlet/examine_more(mob/user)
 	. = ..()
 
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> civil defense medical kit.")
 	. += span_notice("<b>Equipment Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these + <b>1</b> gold chainlet can be traded for <b>1</b> documents pouch.")
 
@@ -214,5 +216,6 @@
 
 	. += span_notice("<b>Equipment Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these + <b>1</b> silver chainlet can be traded for <b>1</b> documents pouch.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> ammo pouch.")
 
 	return .

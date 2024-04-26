@@ -25,6 +25,7 @@
 	. += span_notice("<b>1</b> general-purpose circuit board = <b>1</b> pocket first aid kit")
 	. += span_notice("<b>1</b> military grade circuit board = <b>1<b> pocket medical kit")
 	. += span_notice("<b>2</b> ID card = <b>1</b> medical case")
+	. += span_notice("<b>1</b> silver chainlet = <b>1</b> civil defense medical kit")
 	. += span_notice("<b>1</b> press pass = <b>1</b> frontier first aid kit")
 	. += span_notice("<b>1</b> eyes = <b>1</b> combat surgeon kit")
 	. += span_notice("<b>1</b> vein finder = <b>1</b> stachel first aid kit")
@@ -64,6 +65,13 @@
 	resulting_item = /obj/item/storage/epic_loot_medical_case
 
 // Medkits
+
+/datum/crafting_bench_recipe_real/cheese
+	recipe_name = "civil defense medical kit"
+	recipe_requirements = list(
+		/obj/item/epic_loot/silver_chainlet = 1,
+	)
+	resulting_item = /obj/item/storage/medkit/civil_defense/stocked
 
 /datum/crafting_bench_recipe_real/slewa
 	recipe_name = "frontier first aid kit"
