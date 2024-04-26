@@ -1,6 +1,6 @@
 GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
-	"Sneeze" = 1,
-	"Stun" = 2,
+	"Stun" = 1,
+	"Sneeze" = 2,
 	"Collapse" = 3,
 ))
 
