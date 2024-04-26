@@ -20,11 +20,7 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
-<<<<<<< HEAD
-#define DB_MINOR_VERSION 28
-=======
-#define DB_MINOR_VERSION 27
->>>>>>> cbcf5a71087 (ip intel mk2 (#82683))
+#define DB_MINOR_VERSION 29
 
 
 //! ## Timing subsystem

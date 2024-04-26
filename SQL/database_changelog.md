@@ -2,26 +2,15 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-<<<<<<< HEAD
-The latest database version is 5.28 (5.26 for /tg/); The query to update the schema revision table is:
+The latest database version is 5.29 (5.27 for /tg/);; The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 28);
-=======
-The latest database version is 5.27; The query to update the schema revision table is:
-
-```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 27);
->>>>>>> cbcf5a71087 (ip intel mk2 (#82683))
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 29);
 ```
 or
 
 ```sql
-<<<<<<< HEAD
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 28);
-=======
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 27);
->>>>>>> cbcf5a71087 (ip intel mk2 (#82683))
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 29);
 ```
 
 In any query remember to add a prefix to the table names if you use one.
