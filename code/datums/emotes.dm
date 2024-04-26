@@ -101,13 +101,6 @@
 		return TRUE
 
 	user.log_message(msg, LOG_EMOTE)
-<<<<<<< HEAD
-	// NOVA EDIT START - Better emotes - Original: var/dchatmsg = "<b>[user]</b> [msg]"
-	var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : ""
-	var/dchatmsg = "<b>[user]</b>[space][msg]"
-	// NOVA EDIT END
-=======
->>>>>>> c80622ace0a (Fixes all emotes being "audible", adds support for runechat only emotes (makes cough runechat only) (#82832))
 
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, type))
@@ -123,45 +116,22 @@
 	var/is_important = emote_type & EMOTE_IMPORTANT
 	var/is_visual = emote_type & EMOTE_VISIBLE
 	var/is_audible = emote_type & EMOTE_AUDIBLE
+	var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : "" // NOVA EDIT ADDITION
 
 	// Emote doesn't get printed to chat, runechat only
 	if(emote_type & EMOTE_RUNECHAT)
 		for(var/mob/viewer as anything in viewers(user))
 			if(isnull(viewer.client))
 				continue
-<<<<<<< HEAD
-			if(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT && !(ghost in viewers(user_turf, null)))
-				if(pref_check_emote(ghost)) // NOVA EDIT ADDITION - Pref checked emotes
-					ghost.show_message("<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>") // NOVA EDIT CHANGE - Indented
-	if(emote_type & (EMOTE_AUDIBLE | EMOTE_VISIBLE)) //emote is audible and visible
-		user.audible_message(msg, deaf_message = "<span class='emote'>You see how <b>[user]</b>[space][msg]</span>", audible_message_flags = EMOTE_MESSAGE, separation = space, pref_to_check = pref_to_check) // NOVA EDIT - Better emotes - ORIGINAL: user.audible_message(msg, deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>", audible_message_flags = EMOTE_MESSAGE)
-	else if(emote_type & EMOTE_VISIBLE)	//emote is only visible
-		user.visible_message(msg, visible_message_flags = EMOTE_MESSAGE, separation = space, pref_to_check = pref_to_check) // NOVA EDIT - Better emotes - ORIGINAL: user.visible_message(msg, visible_message_flags = EMOTE_MESSAGE)
-	if(emote_type & EMOTE_IMPORTANT)
-		for(var/mob/living/viewer in viewers())
-			if(viewer.is_blind() && !viewer.can_hear())
-				if(pref_check_emote(viewer)) // NOVA EDIT ADDITION - Pref checked emotes
-					to_chat(viewer, msg) // NOVA EDIT CHANGE - Indented
-
-	// NOVA EDIT -- BEGIN -- ADDITION -- AI QOL - RELAY EMOTES OVER HOLOPADS
-	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
-	if(hologram)
-		if(emote_type & (EMOTE_AUDIBLE | EMOTE_VISIBLE))
-			hologram.audible_message(msg, deaf_message = span_emote("You see how <b>[user]</b> [msg]"), audible_message_flags = EMOTE_MESSAGE, pref_to_check = pref_to_check)
-		else if(emote_type & EMOTE_VISIBLE)
-			hologram.visible_message(msg, visible_message_flags = EMOTE_MESSAGE, pref_to_check = pref_to_check)
-		if(emote_type & EMOTE_IMPORTANT)
-			for(var/mob/living/viewer in viewers(world.view, hologram))
-				if(viewer.is_blind() && !viewer.can_hear())
-					if(pref_check_emote(viewer))
-						to_chat(viewer, msg)
-	// NOVA EDIT -- END
-=======
 			if(!is_important && viewer != user && (!is_visual || !is_audible))
 				if(is_audible && !viewer.can_hear())
 					continue
 				if(is_visual && viewer.is_blind())
 					continue
+				// NOVA EDIT ADDITION START - Pref checked emotes
+				if(!pref_check_emote(viewer))
+					continue
+				// NOVA EDIT ADDITION END
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
 				viewer.create_chat_message(
 					speaker = user,
@@ -199,6 +169,8 @@
 			deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
+			separation = space, // NOVA EDIT ADDITION
+			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
 		)
 	// Emote is entirely audible, no visible component
 	else if(is_audible)
@@ -206,6 +178,8 @@
 			message = msg,
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE,
+			separation = space, // NOVA EDIT ADDITION
+			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
 		)
 	// Emote is entirely visible, no audible component
 	else if(is_visual)
@@ -213,23 +187,62 @@
 			message = msg,
 			self_message = msg,
 			visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
+			separation = space, // NOVA EDIT ADDITION
+			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
 		)
 	else
 		CRASH("Emote [type] has no valid emote type set!")
 
+	// NOVA EDIT ADDITION START - AI QOL - RELAY EMOTES OVER HOLOPADS
+	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
+	if(hologram)
+		if(is_visual && is_audible)
+			hologram.audible_message(
+				message = msg,
+				deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
+				self_message = msg,
+				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
+				separation = space,
+				pref_to_check = pref_to_check,
+			)
+		else if(is_audible)
+			hologram.audible_message(
+				message = msg,
+				self_message = msg,
+				audible_message_flags = EMOTE_MESSAGE,
+				separation = space,
+				pref_to_check = pref_to_check,
+			)
+		else if(is_visual)
+			hologram.visible_message(
+				message = msg,
+				self_message = msg,
+				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
+				separation = space,
+				pref_to_check = pref_to_check,
+			)
+		if(emote_type & EMOTE_IMPORTANT)
+			for(var/mob/living/viewer in viewers(world.view, hologram))
+				if(viewer.is_blind() && !viewer.can_hear())
+					if(pref_check_emote(viewer))
+						to_chat(viewer, msg)
+	// NOVA EDIT ADDITION END
 	if(!isnull(user.client))
-		var/dchatmsg = "<b>[user]</b> [msg]"
+		var/dchatmsg = "<b>[user]</b>[space][msg]" // NOVA EDIT CHANGE - ORIGINAL: var/dchatmsg = "<b>[user]</b> [msg]"
 		for(var/mob/ghost as anything in GLOB.dead_mob_list - viewers(get_turf(user)))
 			if(isnull(ghost.client) || isnewplayer(ghost))
 				continue
 			if(!(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT))
 				continue
+			// NOVA EDIT ADDITION START - Pref checked emotes
+			if(!pref_check_emote(ghost))
+				continue
+			// NOVA EDIT ADDITION END
 			to_chat(ghost, "<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>")
 
 	return TRUE
 
 
->>>>>>> c80622ace0a (Fixes all emotes being "audible", adds support for runechat only emotes (makes cough runechat only) (#82832))
 
 /**
  * For handling emote cooldown, return true to allow the emote to happen.
