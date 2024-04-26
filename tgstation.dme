@@ -6804,6 +6804,7 @@
 #include "modular_nova\modules\ashwalkers\code\effects\ash_rituals.dm"
 #include "modular_nova\modules\ashwalkers\code\effects\ash_rune.dm"
 #include "modular_nova\modules\ashwalkers\code\items\ash_centrifuge.dm"
+#include "modular_nova\modules\ashwalkers\code\items\ash_chicken.dm"
 #include "modular_nova\modules\ashwalkers\code\items\ash_seedmesh.dm"
 #include "modular_nova\modules\ashwalkers\code\items\ash_surgery.dm"
 #include "modular_nova\modules\ashwalkers\code\items\ash_tool.dm"
