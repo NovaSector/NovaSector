@@ -196,6 +196,41 @@
 /datum/orderable_item/medical_consumable
 	category_index = "Dealer"
 
+/datum/orderable_item/medical_consumable/coagulant
+	name = "coagulant-F packet"
+	item_path = /obj/item/stack/medical/suture/coagulant
+	cost_per_order = 25
+
+/datum/orderable_item/medical_consumable/sutures
+	name = "hemostatic sutures"
+	item_path = /obj/item/stack/medical/suture/bloody
+	cost_per_order = 50
+
+/datum/orderable_item/medical_consumable/red_sun_over_paradise
+	name = "coagulant-F packet"
+	item_path = /obj/item/stack/medical/ointment/red_sun
+	cost_per_order = 25
+
+/datum/orderable_item/medical_consumable/blood_mesh
+	name = "hemostatic mesh"
+	item_path = /obj/item/stack/medical/mesh/bloody
+	cost_per_order = 50
+
+/datum/orderable_item/medical_consumable/bone_breaker
+	name = "subdermal splint applicator"
+	item_path = /obj/item/stack/medical/wound_recovery
+	cost_per_order = 200
+
+/datum/orderable_item/medical_consumable/super_coagulant
+	name = "rapid coagulant applicator"
+	item_path = /obj/item/stack/medical/wound_recovery/rapid_coagulant
+	cost_per_order = 200
+
+/datum/orderable_item/medical_consumable/blood_mesh
+	name = "premium robotic repair spray"
+	item_path = /obj/item/stack/medical/wound_recovery/robofoam_super
+	cost_per_order = 200
+
 /datum/orderable_item/medical_consumable/medpen_morpital
 	name = "morpital regenerative stimulant injector"
 	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/morpital
