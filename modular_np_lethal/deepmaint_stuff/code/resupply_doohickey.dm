@@ -129,7 +129,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/knife/combat/survival = INFINITY,
 				/obj/item/crowbar/red = INFINITY,
 				/obj/item/trench_tool = INFINITY,
-				/obj/item/gun/ballistic/automatic/m6pdw = INFINITY,
 			),
 		),
 	)
