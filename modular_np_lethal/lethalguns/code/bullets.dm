@@ -254,6 +254,7 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/flash
 	name = "6 gauge flash shells"
+	icon_state = "stack_spec"
 	ammo_type = /obj/item/ammo_casing/s6gauge/flashbang
 
 // 6 gauge buckshot but with a spread better made for longer range fighting

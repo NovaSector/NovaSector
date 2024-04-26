@@ -7,6 +7,8 @@
 	light_color = LIGHT_COLOR_YELLOW
 
 	allowed_choices = list(
+		// Melee (based)
+		/datum/crafting_bench_recipe_real/fire_axe,
 		// Grenades
 		/datum/crafting_bench_recipe_real/offensive_impact,
 		/datum/crafting_bench_recipe_real/defensive_impact,
@@ -31,6 +33,11 @@
 /obj/structure/epic_loot_crafting_bench/war/examine_more(mob/user)
 	. = ..()
 
+	. += span_notice("<b>2</b> computer power supplies = <b>1</b> fancy sabre")
+	. += span_notice("<b>1</b> intelligence folder + <b>1</b> corporate data folder = <b>1</b> fire axe")
+	. += span_notice("<b>1</b> box of nails = <b>1</b> bowie knife")
+	. += span_notice("<b>1</b> shuttle battery = <b>1</b> energy sword")
+	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> implanted armblade")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive = <b>2</b> offensive impact grenades")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive + <b>1</b> box of nails = <b>2</b> defensive impact grenades")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> water filter = <b>2</b> improvised explosives")
@@ -38,7 +45,7 @@
 	. += span_notice("<b>1</b> thermometer = <b>2</b> flashbangs")
 	. += span_notice("<b>1</b> water filter = <b>1</b> suppressor")
 	. += span_notice("<b>1</b> solid state drive = <b>1</b> binoculars")
-	. += span_notice("<b>2</b> device fans = <b>1</b> eland revolver")
+	. += span_notice("<b>2</b> device fans = <b>1</b> zomushi pistol")
 	. += span_notice("<b>1</b> display = <b>1</b> fukiya rifle")
 	. += span_notice("<b>2</b> broken displays = <b>1</b> seiba submachinegun")
 	. += span_notice("<b>1</b> graphics processor = <b>1</b> sindano submachinegun")
@@ -51,6 +58,49 @@
 	. += span_notice("<b>2</b> livers = <b>1</b> nomi repeating shotgun")
 
 	return .
+
+// Melee weapons (based)
+
+/datum/crafting_bench_recipe_real/sabre
+	recipe_name = "fancy sabre"
+	recipe_requirements = list(
+		/obj/item/epic_loot/power_supply = 2,
+	)
+	resulting_item = /obj/item/storage/belt/sabre
+	amount_to_make = 1
+
+/datum/crafting_bench_recipe_real/fire_axe
+	recipe_name = "fire axe"
+	recipe_requirements = list(
+		/obj/item/epic_loot/intel_folder = 1,
+		/obj/item/epic_loot/corpo_folder = 1,
+	)
+	resulting_item = /obj/item/fireaxe
+	amount_to_make = 1
+
+/datum/crafting_bench_recipe_real/bowie
+	recipe_name = "bowie knife"
+	recipe_requirements = list(
+		/obj/item/epic_loot/nail_box = 1,
+	)
+	resulting_item = /obj/item/storage/belt/bowie_sheath
+	amount_to_make = 1
+
+/datum/crafting_bench_recipe_real/esword
+	recipe_name = "energy sword"
+	recipe_requirements = list(
+		/obj/item/epic_loot/shuttle_battery = 1,
+	)
+	resulting_item = /obj/item/melee/energy/sword
+	amount_to_make = 1
+
+/datum/crafting_bench_recipe_real/armblade
+	recipe_name = "implanted armblade"
+	recipe_requirements = list(
+		/obj/item/epic_loot/shuttle_gyro = 1,
+	)
+	resulting_item = /obj/item/autosurgeon/armblade
+	amount_to_make = 1
 
 // Grenades
 
@@ -109,11 +159,11 @@
 	resulting_item = /obj/item/suppressor/standard
 
 /datum/crafting_bench_recipe_real/eland
-	recipe_name = "eland revolver"
+	recipe_name = "zomushi pistol"
 	recipe_requirements = list(
 		/obj/item/epic_loot/device_fan = 2,
 	)
-	resulting_item = /obj/item/gun/ballistic/revolver/sol
+	resulting_item = /obj/item/gun/ballistic/automatic/pistol/weevil
 
 /datum/crafting_bench_recipe_real/signalis_rifle
 	recipe_name = "fukiya rifle"

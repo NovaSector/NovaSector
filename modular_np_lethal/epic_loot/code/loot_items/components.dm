@@ -95,6 +95,7 @@
 	. = ..()
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> bowie knife.")
 	. += span_notice("- <b>1</b> of these + <b>1</b> analog thermometer can be traded for <b>2</b> stingbangs.")
 	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> grenade fuze can be traded for <b>2</b> defensive impact grenades.")
 
@@ -203,6 +204,8 @@
 /obj/item/epic_loot/shuttle_gyro/examine_more(mob/user)
 	. = ..()
 
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> implanted armblade.")
 	. += span_notice("<b>Armor Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type III 'Kinu-Kuroba' vest.")
 
@@ -243,6 +246,8 @@
 /obj/item/epic_loot/shuttle_battery/examine_more(mob/user)
 	. = ..()
 
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> energy sword.")
 	. += span_notice("<b>Armor Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type III 'Robusuta' helmet.")
 

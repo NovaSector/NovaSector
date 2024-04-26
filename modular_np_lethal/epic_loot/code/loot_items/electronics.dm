@@ -150,6 +150,7 @@
 	. = ..()
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> fancy sabre.")
 	. += span_notice("- <b>1</b> of these + <b>1</b> hard disk reader can be traded for <b>1</b> bogseo submachinegun.")
 
 	return .
