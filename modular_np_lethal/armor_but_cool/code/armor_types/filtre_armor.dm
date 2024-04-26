@@ -65,7 +65,7 @@
 		the only signs of which on the outside are the twin pair of visible cameras on the front of the face. \
 		There are, of course, more than this, but the visible ones are for the fun factor."
 	icon = 'modular_np_lethal/armor_but_cool/icons/armor.dmi'
-	icon_state = "larp"
+	icon_state = "filtre_helmet"
 	worn_icon = 'modular_np_lethal/armor_but_cool/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_lethal_filtre_super
