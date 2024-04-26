@@ -14257,6 +14257,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple,
+/obj/machinery/camera/directional/east{
+	c_tag = "Arrivals - Public Mining Dock"
+	},
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -54327,6 +54330,10 @@
 "pNm" = (
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/light/warm/directional/east,
+/obj/machinery/camera/directional/east{
+	network = list("ss13","bar");
+	c_tag = "Canteen - Kitchen"
+	},
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "pNo" = (
