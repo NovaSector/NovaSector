@@ -1386,9 +1386,6 @@
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 10
 	},
-/obj/item/toy/figure/virologist{
-	pixel_y = 17
-	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)

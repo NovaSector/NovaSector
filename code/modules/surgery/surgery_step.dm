@@ -112,9 +112,14 @@
 	fail_prob = min(max(0, modded_time - (time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)),99)//if modded_time > time * modifier, then fail_prob = modded_time - time*modifier. starts at 0, caps at 99
 	modded_time = min(modded_time, time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)//also if that, then cap modded_time at time*modifier
 
+	// NOVA EDIT REMOVAL START - Cyborgs are no longer immune to surgery speedups.
+	if(iscyborg(user))//any immunities to surgery slowdown should go in this check.
+		modded_time = time * tool.toolspeed
+	// NOVA EDIT REMOVAL END
+
 	var/was_sleeping = (target.stat != DEAD && target.IsSleeping())
 
-	// NOVA EDIT Addition - reward for doing surgery on calm patients, and for using surgery rooms(ie. surgerying alone)
+	// NOVA EDIT ADDITION START - reward for doing surgery on calm patients, and for using surgery rooms(ie. surgerying alone)
 	if(was_sleeping || HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat == DEAD)
 		modded_time *= SURGERY_SPEEDUP_AREA
 		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!"))
@@ -126,12 +131,7 @@
 	if(quiet_enviromnent)
 		modded_time *= SURGERY_SPEEDUP_AREA
 		to_chat(user, span_notice("You are able to work faster due to the quiet environment!"))
-	// NOVA EDIT End
-	// NOVA EDIT: Cyborgs are no longer immune to surgery speedups.
-	//if(iscyborg(user))//any immunities to surgery slowdown should go in this check.
-		//modded_time = time
-	// NOVA EDIT End
-
+	// NOVA EDIT ADDITION END
 	if(do_after(user, modded_time, target = target, interaction_key = user.has_status_effect(/datum/status_effect/hippocratic_oath) ? target : DOAFTER_SOURCE_SURGERY)) //If we have the hippocratic oath, we can perform one surgery on each target, otherwise we can only do one surgery in total.
 
 		var/chem_check_result = chem_check(target)
@@ -158,7 +158,6 @@
 	return advance
 
 #undef SURGERY_SPEEDUP_AREA // NOVA EDIT ADDITION
-
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
 		user,
