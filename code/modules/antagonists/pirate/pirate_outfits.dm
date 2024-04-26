@@ -171,7 +171,10 @@
 	neck = /obj/item/bedsheet/pirate
 	suit = /obj/item/clothing/suit/armor/riot/knight/warlord
 	suit_store = null
-	back = /obj/item/fireaxe/boardingaxe
+	// NOVA EDIT CHANGE BEGIN - Outfit sanity
+	l_hand = /obj/item/fireaxe/boardingaxe
+	back = /obj/item/storage/backpack/satchel/leather
+	// NOVA EDIT CHANGE END
 	gloves = /obj/item/clothing/gloves/combat
 	head = /obj/item/clothing/head/helmet/knight/warlord
 	mask = /obj/item/clothing/mask/breath
