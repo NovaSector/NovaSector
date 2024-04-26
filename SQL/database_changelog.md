@@ -15,7 +15,7 @@ INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 29);
 
 In any query remember to add a prefix to the table names if you use one.
 -----------------------------------------------------
-Version 5.27, 26 April 2024, by zephyrtfa
+Version 5.29, 26 April 2024, by zephyrtfa
 Add the ip intel table
 ```sql
 DROP TABLE IF EXISTS `ipintel`;
