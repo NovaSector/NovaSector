@@ -144,7 +144,7 @@
 		/datum/reagent/medicine/c2/penthrite = 10,
 		/datum/reagent/medicine/mine_salve = 10,
 		/datum/reagent/medicine/muscle_stimulant = 10,
-		/datum/reagent/medicine/atropine = 10
+		/datum/reagent/medicine/atropine = 10,
 		/datum/reagent/impurity = 10,
 	)
 
