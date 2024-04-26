@@ -112,9 +112,9 @@
 	. = ..()
 	. += span_notice("<br>[src] will be ready for harvest in [DisplayTimeText(COOLDOWN_TIMELEFT(src, harvest_timer))]")
 	if(max_harvest < 6)
-		. += span_notice("<br>You can use sinew or worm fertilizer to lower the time between each harvest!")
-	if(harvest_cooldown > 30 SECONDS)
 		. += span_notice("You can use goliath hides or worm fertilizer to increase the amount dropped per harvest!")
+	if(harvest_cooldown > 30 SECONDS)
+		. += span_notice("<br>You can use sinew or worm fertilizer to lower the time between each harvest!")
 
 /obj/structure/simple_farm/process(seconds_per_tick)
 	update_appearance()
