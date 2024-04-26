@@ -126,3 +126,29 @@
 	. = ..()
 	. += span_notice("Heals <b>stamina damage</b> and makes you <b>immune to stuns</b>.")
 	return .
+
+// Super emergency drug cocktail two-use injector
+
+/obj/item/reagent_containers/hypospray/medipen/deforest/captagon
+	name = "'Sector 9 Special' emergency autoinjector"
+	desc = "Bio Virus Antidote Kit autoinjector. Has a two use system for yourself, and someone else. Inject when infected."
+	icon_state = "captagon"
+	base_icon_state = "captagon"
+	volume = 140
+	amount_per_transfer_from_this = 70
+	list_reagents = list(
+		/datum/reagent/drug/demoneye = 20,
+		/datum/reagent/drug/kronkaine = 20,
+		/datum/reagent/drug/pumpup = 20,
+		/datum/reagent/medicine/c2/penthrite = 20,
+		/datum/reagent/medicine/mine_salve = 20,
+		/datum/reagent/medicine/muscle_stimulant = 20,
+		/datum/reagent/impurity = 20,
+	)
+
+/obj/item/reagent_containers/hypospray/medipen/deforest/captagon/update_icon_state()
+	. = ..()
+	if(reagents.total_volume >= volume)
+		icon_state = base_icon_state
+		return
+	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? 1 : 0]"

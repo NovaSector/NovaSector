@@ -184,3 +184,33 @@
 	desc = "A box of 15 flechette shells. Each shell contains a small group of tumbling blades that excel at causing terrible wounds."
 	item_path = /obj/item/ammo_box/advanced/s12gauge/flechette
 	cost_per_order = 200
+
+// Consumable medical stuff
+
+/datum/orderable_item/medical_consumable
+	category_index = "Dealer"
+
+/datum/orderable_item/medical_consumable/medpen_morpital
+	name = "morpital regenerative stimulant injector"
+	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/morpital
+	cost_per_order = 50
+
+/datum/orderable_item/medical_consumable/medpen_lipital
+	name = "lipital regenerative stimulant injector"
+	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/lipital
+	cost_per_order = 50
+
+/datum/orderable_item/medical_consumable/medpen_lepoturi
+	name = "lepoturi burn treatment injector"
+	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi
+	cost_per_order = 50
+
+/datum/orderable_item/medical_consumable/medpen_coagulants
+	name = "coagulant-S injector"
+	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/coagulants
+	cost_per_order = 50
+
+/datum/orderable_item/medical_consumable/medpen_calopine
+	name = "calopine emergency stabilizant injector"
+	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/calopine
+	cost_per_order = 50

@@ -40,7 +40,7 @@
 	uniform = /obj/item/clothing/under/frontier_colonist
 	box = null
 	backpack_contents = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/captagon = 1,
 	)
 	belt = null
 	ears = null
