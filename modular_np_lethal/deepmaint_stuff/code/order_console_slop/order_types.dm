@@ -162,6 +162,12 @@
 	item_path = /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/longshot
 	cost_per_order = 50
 
+/datum/orderable_item/shotgun_man/flash_6ga
+	name = "6ga flash ammo stack"
+	desc = "A stack of 6 gauge flash shells."
+	item_path = /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/flash
+	cost_per_order = 50
+
 /datum/orderable_item/shotgun_man/nomi_magazine
 	name = "Nomi 12ga drum"
 	item_path = /obj/item/ammo_box/magazine/c12nomi/starts_empty

@@ -252,6 +252,10 @@
 	name = "6 gauge slug shells"
 	ammo_type = /obj/item/ammo_casing/s6gauge/slug
 
+/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/flash
+	name = "6 gauge flash shells"
+	ammo_type = /obj/item/ammo_casing/s6gauge/flash
+
 // 6 gauge buckshot but with a spread better made for longer range fighting
 
 /obj/item/ammo_casing/s6gauge/longshot
@@ -289,3 +293,36 @@
 	damage = 60
 	armour_penetration = 10
 	damage_falloff_tile = -3
+
+// 6 gauge slug, but it makes a (non stunning) flashbang on range out (3 tiles)
+
+/obj/item/ammo_casing/s6gauge/flashbang
+	name = "6 gauge flash shell"
+	desc = "A monster sized slug filled with an evil amount of flash powder. Hearing and eye protection suggested during use."
+
+	icon_state = "ramu_flash"
+
+	projectile_type = /obj/projectile/bullet/s6gauge/slug/flash
+
+	pellets = 1
+	variance = 5
+
+/obj/projectile/bullet/s6gauge/slug/flash
+	name = "6 gauge flash slug"
+	damage = 40
+	range = 3
+	/// How much range should the shell's aoe effects have
+	var/flash_range = 3
+
+/obj/projectile/bullet/s6gauge/slug/flash/on_range()
+	. = ..()
+	var/turf/flash_turf = get_turf(src)
+	flash_turf.flash_lighting_fx(range = flash_range)
+	playsound(flash_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 2, 0.9)
+	for(var/mob/living/living_mob_nearby in get_hearers_in_view(range, flash_turf))
+		living_mob_nearby.flash_act(affect_silicon = TRUE)
+		if(!iscarbon(living_mob_nearby))
+			living_mob_nearby.soundbang_act()
+		else
+			var/mob/living/carbon/flashee = living_mob_nearby
+			flashee.soundbang_act(stun_pwr = 0, damage_pwr = 2, deafen_pwr = 5)

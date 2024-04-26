@@ -489,6 +489,7 @@
 		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled = 2,
 		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/longshot = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/slug = 2,
+		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/flash = 1,
 		// .60
 		/obj/item/ammo_box/magazine/ammo_stack/c60_strela/prefilled = 2,
 		/obj/item/ammo_casing/p60strela = 2,
