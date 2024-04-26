@@ -670,7 +670,7 @@
 
 /datum/loadout_item/head/somerandomowl
 	name = "Starry Witch Hat"
-	item_path = /obj/item/clothing/head/costume/strigihat
+	item_path = /obj/item/clothing/head/costume/owlhat
 	ckeywhitelist = list("somerandomowl")
 
 /datum/loadout_item/head/razurathhat
