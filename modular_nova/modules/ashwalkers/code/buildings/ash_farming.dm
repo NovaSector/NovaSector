@@ -223,7 +223,9 @@
 
 		return FALSE
 
+	var/timeleft_percent = COOLDOWN_TIMELEFT(src, harvest_timer) / harvest_cooldown
 	harvest_cooldown -= 10 SECONDS
+	COOLDOWN_START(src, harvest_timer, harvest_cooldown * timeleft_percent)
 
 	if(!silent)
 		balloon_alert_to_viewers("plant will grow faster")
