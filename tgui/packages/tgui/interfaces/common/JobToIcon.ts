@@ -70,6 +70,7 @@ const BASEICONS = {
   'Science Guard': 'shield-heart',
   'Security Medic': 'heart-pulse',
   Gakster: 'toolbox',
+  Filtre: 'shield-halved',
   // NOVA EDIT END
 } as const;
 

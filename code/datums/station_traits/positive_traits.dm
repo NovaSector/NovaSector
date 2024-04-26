@@ -246,6 +246,7 @@
 		/datum/job/bouncer = /obj/item/organ/internal/cyberimp/arm/muscle,
 		/datum/job/engineering_guard = /obj/item/organ/internal/cyberimp/arm/flash,
 		/datum/job/gakster = /obj/item/organ/internal/cyberimp/sensory_enhancer,
+		/datum/job/filtre = /obj/item/organ/internal/cyberimp/sensory_enhancer,
 		// NOVA EDIT END
 	)
 
