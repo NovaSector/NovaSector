@@ -542,7 +542,7 @@
 		/obj/item/gun/ballistic/revolver/takbok = 1,
 		/obj/item/gun/ballistic/automatic/sol_smg = 1,
 		/obj/item/gun/ballistic/automatic/sol_smg/evil = 1,
-		/obj/item/gun/ballistic/automatic/m6pdw = 1,
+		/obj/item/gun/ballistic/automatic/m6pdw/spawns_with_ammo = 1,
 		/obj/item/gun/energy/e_gun/mini = 2,
 		/obj/item/gun/energy/modular_laser_rifle/carbine = 1,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower = 2,
