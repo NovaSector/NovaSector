@@ -12,15 +12,9 @@
 
 // so the lewd straight jacket behaves (and because the reason behind this is /too/ lewd for upstream) - also allows for more downstream freedom
 /mob/living/carbon/human/resist_restraints()
-	var/obj/item/I = null
-	var/type = 0
-	if(wear_suit)
-		I = wear_suit
-		type = 1
-	if(I)
-		if(type == 1)
-			changeNext_move(I.resist_cooldown)
-			last_special = world.time + I.resist_cooldown
-		cuff_resist(I)
+	if(wear_suit?.breakouttime)
+		changeNext_move(wear_suit.resist_cooldown)
+		last_special = world.time + wear_suit.resist_cooldown
+		cuff_resist(wear_suit)
 	else
-		..()
+		return ..()
