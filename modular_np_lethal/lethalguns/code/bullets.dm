@@ -319,7 +319,7 @@
 	var/turf/flash_turf = get_turf(src)
 	flash_turf.flash_lighting_fx(range = flash_range)
 	playsound(flash_turf, 'sound/weapons/flashbang.ogg', 100, TRUE, 2, 0.9)
-	for(var/mob/living/living_mob_nearby in get_hearers_in_view(range, flash_turf))
+	for(var/mob/living/living_mob_nearby in get_hearers_in_view(flash_range, flash_turf))
 		living_mob_nearby.flash_act(affect_silicon = TRUE)
 		if(!iscarbon(living_mob_nearby))
 			living_mob_nearby.soundbang_act()
