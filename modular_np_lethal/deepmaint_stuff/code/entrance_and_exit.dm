@@ -1,4 +1,5 @@
 GLOBAL_LIST_EMPTY(deepmaints_entrances)
+GLOBAL_LIST_EMPTY(deepmaints_entrances_filtre)
 GLOBAL_LIST_EMPTY(deepmaints_exits)
 
 /obj/structure/deepmaints_entrance
@@ -80,6 +81,14 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 	playsound(src, 'sound/machines/tramopen.ogg', 60, TRUE, frequency = 65000)
 	playsound(destination, 'sound/machines/tramclose.ogg', 60, TRUE, frequency = 65000)
 
+/obj/structure/deepmaints_entrance/filtre
+
+/obj/structure/deepmaints_entrance/filtre/log_to_global_list()
+	GLOB.deepmaints_entrances_filtre += src
+
+/obj/structure/deepmaints_entrance/filtre/remove_from_global_list()
+	GLOB.deepmaints_entrances_filtre -= src
+
 /obj/structure/deepmaints_entrance/exit
 	name = "exit ladder"
 	desc = "A ladder that leads back to 'civilization' above, though its mighty dark up there... \
@@ -96,15 +105,26 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/exit/enter_the_fun_zone(mob/user)
 	if(!in_range(src, user) || DOING_INTERACTION(user, DOAFTER_SOURCE_CLIMBING_LADDER))
 		return
-	if(!length(GLOB.deepmaints_entrances))
-		balloon_alert(user, "hatch above seems stuck...")
-		return
+	var/user_is_a_filtre = (user.mind?.assigned_role == /datum/job/filtre)
+	if(user_is_a_filtre)
+		if(!length(GLOB.deepmaints_entrances))
+			balloon_alert(user, "hatch above seems stuck...")
+			return
+	else
+		if(!length(GLOB.deepmaints_entrances_filtre))
+			balloon_alert(user, "hatch above seems stuck...")
+			return
 	INVOKE_ASYNC(src, PROC_REF(send_him_to_detroit), user)
 
 /obj/structure/deepmaints_entrance/exit/send_him_to_detroit(mob/user)
 	if(!do_after(user, travel_time, target = src))
 		return
-	var/obj/destination = pick(GLOB.deepmaints_entrances)
+	var/user_is_a_filtre = (user.mind?.assigned_role == /datum/job/filtre)
+	var/obj/destination
+	if(user_is_a_filtre)
+		destination = pick(GLOB.deepmaints_entrances_filtre)
+	else
+		destination = pick(GLOB.deepmaints_entrances)
 	if(!destination)
 		balloon_alert(user, "hatch above seems stuck...")
 		return

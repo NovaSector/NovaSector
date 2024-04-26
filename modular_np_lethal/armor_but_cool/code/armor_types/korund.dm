@@ -10,7 +10,7 @@
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_sf_peacekeeper
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	body_parts_covered = CHEST|LEGS
+	body_parts_covered = CHEST|GROIN|LEGS
 	max_integrity = 500
 	limb_integrity = 300
 	slowdown = 0.25

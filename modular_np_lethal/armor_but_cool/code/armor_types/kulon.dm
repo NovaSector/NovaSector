@@ -48,7 +48,7 @@
 		It's also a particularly rare variant of the armor, sporting protection for both the \
 		legs and arms of the user."
 	icon_state = "kulon_full"
-	body_parts_covered = CHEST|LEGS|ARMS
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	max_integrity = 600
 	limb_integrity = 300
 	slowdown = 0.5
