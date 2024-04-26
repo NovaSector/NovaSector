@@ -45,3 +45,15 @@
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 10)
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 10)
 	healed_mob.reagents.add_reagent(/datum/reagent/dinitrogen_plasmide, 10)
+
+// Synth repair patch, gives the synth a small amount of healing chems
+/obj/item/reagent_containers/pill/patch/lethal_synth_repair
+	name = "robotic repair patch"
+	desc = "A sealed patch with a small nanite swarm along with electrical coagulant reagents to repair small amounts of synthetic damage."
+	icon = 'modular_np_lethal/medical_stuff/icons/stack_items.dmi'
+	icon_state = "synth_patch"
+	list_reagents = list(
+		/datum/reagent/medicine/nanite_slurry = 10,
+		/datum/reagent/dinitrogen_plasmide = 5,
+		/datum/reagent/medicine/coagulant/fabricated = 10,
+	)

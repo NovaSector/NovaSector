@@ -135,8 +135,8 @@
 	icon = 'modular_np_lethal/medical_stuff/icons/medpens.dmi'
 	icon_state = "captagon"
 	base_icon_state = "captagon"
-	volume = 70
-	amount_per_transfer_from_this = 70
+	volume = 80
+	amount_per_transfer_from_this = 80
 	list_reagents = list(
 		/datum/reagent/drug/demoneye = 10,
 		/datum/reagent/drug/kronkaine = 10,
@@ -144,6 +144,7 @@
 		/datum/reagent/medicine/c2/penthrite = 10,
 		/datum/reagent/medicine/mine_salve = 10,
 		/datum/reagent/medicine/muscle_stimulant = 10,
+		/datum/reagent/medicine/atropine = 10
 		/datum/reagent/impurity = 10,
 	)
 
