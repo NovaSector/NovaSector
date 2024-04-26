@@ -20,6 +20,7 @@
 				/obj/item/storage/pill_bottle/iron = INFINITY,
 				/obj/item/reagent_containers/hypospray/medipen/ekit = INFINITY,
 				/obj/item/storage/medkit/combat_surgeon/organ/stocked = INFINITY,
+				/obj/item/storage/organbox/preloaded = INFINITY,
 			),
 		),
 		list(
@@ -113,6 +114,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/storage/backpack/industrial/frontier_colonist = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist/messenger = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist/satchel = INFINITY,
+				/obj/item/storage/organbox/preloaded = INFINITY,
+				/obj/item/storage/medkit/combat_surgeon/organ/stocked = INFINITY,
 			),
 		),
 		list(
@@ -124,7 +127,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/knife/combat/survival = INFINITY,
 				/obj/item/crowbar/red = INFINITY,
 				/obj/item/trench_tool = INFINITY,
-				/obj/item/storage/medkit/combat_surgeon/organ/stocked = INFINITY,
 			),
 		),
 	)
