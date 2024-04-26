@@ -73,12 +73,10 @@
 	key_third_person = "coughs"
 	message = "coughs!"
 	message_mime = "acts out an exaggerated cough!"
-	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
+	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE | EMOTE_RUNECHAT
 
 /datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE , intentional)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_SOOTHED_THROAT))
-		return FALSE
+	return !HAS_TRAIT(user, TRAIT_SOOTHED_THROAT) && ..()
 
 =======
 >>>>>>> 0a8e58b4937 (More emote sounds and new whistle emote (#82748))

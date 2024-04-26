@@ -1,0 +1,4 @@
+author: "Chelxox"
+delete-after: True
+changes:
+  - bugfix: "Latex straight jacket and ball mittens don't block your hands after you break out of them anymore"

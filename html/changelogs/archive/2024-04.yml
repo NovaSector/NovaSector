@@ -847,3 +847,45 @@
   - bugfix: 'Cargo express console fixed: No more bluescreen'
   tf-4:
   - rscdel: Shortened the Akulan language description in the language selection menu.
+2024-04-25:
+  Melbert:
+  - qol: Tuberculosis makes you cough more
+  - qol: Nicotine Addiciton makes you cough less
+  - qol: Medicine Addiction maybe makes you cough more, maybe makes you cough less
+  - bugfix: Playing Cards memory now reads better
+  NovaBot13:
+  - bugfix: brimbeams no longer make a cog appear above the mob
+  - balance: Longfall modules no logner stun you when they activate.
+  - balance: Falling from a height greater than one z-level while using the longfall
+      module will still stagger you.
+  - bugfix: you can no longer take off someones glasses or mask through atmos hardhat
+  - bugfix: once you adjust a welding helmet or something it no longer makes your
+      cigarette or sunglasses invisible
+  - bugfix: welding gas mask works once again
+  - bugfix: quick equips dont drop the item if you cant equip it
+  - rscadd: The crew monitor now has sorting options and a search bar.
+  Rhials:
+  - bugfix: Fake handcuffs/Zipties no longer block clicks for a few seconds after
+      being resisted out of.
+2024-04-26:
+  Bisar:
+  - bugfix: AI controlled monkeys are no longer catatonic, and they have primal eyes
+      again when turned into humans.
+  - spellcheck: Noticable organs now have more modular grammar, and their current
+      grammar is fixed.
+  - refactor: Refactored the code for displaying the messages for noticable organs.
+  - config: Added a documented define of all our pronouns
+  LT3:
+  - balance: ChemMaster can again print a maximum of 50 pills/patches per run
+  - balance: Higher tier servos increase ChemMaster printing speed
+  NovaBot13:
+  - bugfix: The rebar crossbows now properly loosen their bowstring upon firing.
+  - bugfix: Restored silicon alt-clicking capability
+  - bugfix: The plasma flower modsuit core now actually contains a reasonable quantity
+      of power.
+  - bugfix: fixed cyborg bonesetter not working for compound fractures
+  - bugfix: butchering not disabling in cyborg omnitool
+  - bugfix: fixes a bug where if you select the omnitool it would be stuck in surgery
+      initiator mode
+  - bugfix: cautery in off hand for cyborg omnitools not working
+  - bugfix: all bots have their normal accesses restored
