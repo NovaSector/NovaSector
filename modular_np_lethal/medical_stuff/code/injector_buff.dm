@@ -131,7 +131,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/deforest/captagon
 	name = "'Sector 9 Special' emergency autoinjector"
-	desc = "Bio Virus Antidote Kit autoinjector. Has a two use system for yourself, and someone else. Inject when infected."
+	desc = "A two-use autoinjector filled with an outright insane cocktail of chemicals to allow any Gakster on the planet to go, 'Nah, I'd win'."
 	icon_state = "captagon"
 	base_icon_state = "captagon"
 	volume = 140
