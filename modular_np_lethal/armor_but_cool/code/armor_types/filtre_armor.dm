@@ -36,6 +36,21 @@
 	slowdown = 0.75
 	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 
+/obj/item/clothing/suit/armor/lethal_filtre/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/seclite_attachable, \
+		starting_light = new /obj/item/flashlight/seclite(src), \
+		is_light_removable = FALSE, \
+		light_icon_state = null, \
+		light_overlay_icon = null, \
+		light_overlay = null, \
+		)
+
+/obj/item/clothing/suit/armor/lethal_filtre/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+
 /obj/item/clothing/suit/armor/lethal_filtre/examine(mob/user)
 	. = ..()
 	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>premium robotic repair spray</b>.")
@@ -80,6 +95,12 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet/examine(mob/user)
 	. = ..()
