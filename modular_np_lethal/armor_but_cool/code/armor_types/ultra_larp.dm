@@ -23,8 +23,12 @@
 	body_parts_covered = CHEST
 	max_integrity = 500
 	limb_integrity = 500
-	repairable_by = null
 	slowdown = 0.5
+	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
+
+/obj/item/clothing/suit/armor/lethal_slick/examine(mob/user)
+	. = ..()
+	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>premium robotic repair spray</b>.")
 
 /obj/item/clothing/suit/armor/lethal_slick/examine_more(mob/user)
 	. = ..()
@@ -51,11 +55,15 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	max_integrity = 500
 	limb_integrity = 500
-	repairable_by = null // No being cheeky and keeping a pile of repair materials in your bag to fix it either
 	dog_fashion = null
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
+	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
+
+/obj/item/clothing/head/helmet/lethal_larp_helmet/examine(mob/user)
+	. = ..()
+	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>premium robotic repair spray</b>.")
 
 /obj/item/clothing/head/helmet/lethal_larp_helmet/examine_more(mob/user)
 	. = ..()

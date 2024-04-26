@@ -13,8 +13,12 @@
 	body_parts_covered = CHEST|LEGS
 	max_integrity = 500
 	limb_integrity = 300
-	repairable_by = null
 	slowdown = 0.25
+	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam
+
+/obj/item/clothing/suit/armor/lethal_koranda/examine(mob/user)
+	. = ..()
+	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>robotic repair spray</b>.")
 
 /obj/item/clothing/suit/armor/lethal_koranda/examine_more(mob/user)
 	. = ..()

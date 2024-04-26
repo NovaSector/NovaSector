@@ -23,7 +23,11 @@
 	body_parts_covered = CHEST
 	max_integrity = 375
 	limb_integrity = 375
-	repairable_by = null
+	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
+
+/obj/item/clothing/suit/armor/lethal_kora_kulon/examine(mob/user)
+	. = ..()
+	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>premium robotic repair spray</b>.")
 
 /obj/item/clothing/suit/armor/lethal_kora_kulon/examine_more(mob/user)
 	. = ..()
@@ -62,13 +66,17 @@
 	armor_type = /datum/armor/armor_lethal_kora_kulon
 	max_integrity = 300
 	limb_integrity = 300
-	repairable_by = null // No being cheeky and keeping a pile of repair materials in your bag to fix it either
 	dog_fashion = null
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
+	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 	/// Holds the faceshield for quick reference
 	var/obj/item/sacrificial_face_shield/face_shield
+
+/obj/item/clothing/head/helmet/lethal_kulon_helmet/examine(mob/user)
+	. = ..()
+	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>premium robotic repair spray</b>.")
 
 /obj/item/clothing/head/helmet/lethal_kulon_helmet/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
