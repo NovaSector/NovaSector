@@ -153,3 +153,10 @@
 		icon_state = base_icon_state
 		return
 	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? 1 : 0]"
+
+// Pen for charging synths
+
+/obj/item/reagent_containers/hypospray/medipen/glucose/synth_charger
+	name = "pressurised synthetic charge pen"
+	desc = "A pen filled with a special chemical substance for recharging the power cells of synthetics once used."
+	list_reagents = list(/datum/reagent/toxin/plasma = 15)

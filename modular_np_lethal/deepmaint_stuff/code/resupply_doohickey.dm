@@ -19,9 +19,12 @@
 				/obj/item/stack/sticky_tape/surgical = INFINITY,
 				/obj/item/storage/pill_bottle/iron = INFINITY,
 				/obj/item/reagent_containers/hypospray/medipen/ekit = INFINITY,
+				/obj/item/reagent_containers/hypospray/medipen/glucose/synth_charger = INFINITY,
 				/obj/item/stack/medical/wound_recovery/robofoam = INFINITY,
 				/obj/item/storage/medkit/combat_surgeon/organ/stocked = INFINITY,
 				/obj/item/storage/organbox/preloaded = INFINITY,
+				/obj/item/tank/internals/plasmaman/belt/full = INFINITY,
+				/obj/item/tank/internals/nitrogen/belt/full = INFINITY,
 			),
 		),
 		list(
