@@ -8,7 +8,11 @@
 
 	allowed_choices = list(
 		// Melee (based)
+		/datum/crafting_bench_recipe_real/sabre,
 		/datum/crafting_bench_recipe_real/fire_axe,
+		/datum/crafting_bench_recipe_real/bowie,
+		/datum/crafting_bench_recipe_real/esword,
+		/datum/crafting_bench_recipe_real/armblade,
 		// Grenades
 		/datum/crafting_bench_recipe_real/offensive_impact,
 		/datum/crafting_bench_recipe_real/defensive_impact,
@@ -24,6 +28,7 @@
 		/datum/crafting_bench_recipe_real/sindano,
 		/datum/crafting_bench_recipe_real/shotgun,
 		/datum/crafting_bench_recipe_real/sakhno,
+		/datum/crafting_bench_recipe_real/sakhno_larp,
 		/datum/crafting_bench_recipe_real/boxer,
 		/datum/crafting_bench_recipe_real/weevil,
 		/datum/crafting_bench_recipe_real/suppressed_rifle,
@@ -50,7 +55,8 @@
 	. += span_notice("<b>2</b> broken displays = <b>1</b> seiba submachinegun")
 	. += span_notice("<b>1</b> graphics processor = <b>1</b> sindano submachinegun")
 	. += span_notice("<b>1</b> military circuit board + <b>1</b> civilian circuit board = <b>1</b> renoster shotgun")
-	. += span_notice("<b>1</b> processor core = <b>1</b> sakhno m2442 rifle")
+	. += span_notice("<b>1</b> processor core = <b>1</b> sakhno-xhihao rifle")
+	. += span_notice("<b>3</b> sealed diaries = <b>1</b> rengo precision rifle")
 	. += span_notice("<b>1</b> power supply + <b>1</b> disk drive = <b>1</b> bogseo submachinegun")
 	. += span_notice("<b>1</b> eyes = <b>1</b> zomushi pistol")
 	. += span_notice("<b>1</b> stomach = <b>1</b> ramu 6ga shotgun")
@@ -200,6 +206,13 @@
 		/obj/item/epic_loot/processor = 1,
 	)
 	resulting_item = /obj/item/gun/ballistic/rifle/boltaction/prime
+
+/datum/crafting_bench_recipe_real/sakhno_larp
+	recipe_name = "rengo precision rifle"
+	recipe_requirements = list(
+		/obj/item/epic_loot/diary = 3,
+	)
+	resulting_item = /obj/item/gun/ballistic/rifle/boltaction/sporterized
 
 /datum/crafting_bench_recipe_real/boxer
 	recipe_name = "bogseo submachinegun"

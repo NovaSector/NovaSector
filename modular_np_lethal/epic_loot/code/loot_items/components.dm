@@ -132,7 +132,7 @@
 	. = ..()
 
 	. += span_notice("<b>Armor Trade Station:</b>")
-	. += span_notice("- <b>1</b> of these + <b>1</b> polymer weave fabric can be traded for <b>1</b> type II 'Kastrol' helmet.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type II 'Kastrol' helmet.")
 
 	return .
 
@@ -302,7 +302,6 @@
 
 	. += span_notice("<b>Armor Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these + <b>1</b> tear-resistant fabric can be traded for <b>1</b> type II 'Touvou' vest.")
-	. += span_notice("- <b>1</b> of these + <b>1</b> electric motor can be traded for <b>1</b> type II 'Kastrol' helmet")
 
 	return .
 

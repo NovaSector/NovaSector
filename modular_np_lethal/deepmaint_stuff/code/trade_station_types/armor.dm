@@ -102,7 +102,6 @@
 	recipe_name = "type II 'Kastrol' helmet"
 	recipe_requirements = list(
 		/obj/item/epic_loot/electric_motor = 1,
-		/obj/item/epic_loot/cordura = 1,
 	)
 	resulting_item = /obj/item/clothing/head/helmet/sf_peacekeeper
 
