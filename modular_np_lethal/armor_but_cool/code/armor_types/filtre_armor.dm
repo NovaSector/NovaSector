@@ -31,8 +31,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	max_integrity = 900
-	limb_integrity = 600
+	max_integrity = 1200
+	limb_integrity = 900
 	slowdown = 0.75
 	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 
@@ -57,6 +57,8 @@
 	icon_state = "filtre_heavy"
 	armor_type = /datum/armor/armor_lethal_filtre_super
 	slowdown = 1.25
+	max_integrity = 1600
+	limb_integrity = 1100
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet
 	name = "'Firuta' type V ballistic helmet"
@@ -71,8 +73,8 @@
 	armor_type = /datum/armor/armor_lethal_filtre_super
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
-	max_integrity = 800
-	limb_integrity = 800
+	max_integrity = 900
+	limb_integrity = 900
 	dog_fashion = null
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON

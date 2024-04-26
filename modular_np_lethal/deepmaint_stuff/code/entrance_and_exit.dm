@@ -105,13 +105,12 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/exit/enter_the_fun_zone(mob/user)
 	if(!in_range(src, user) || DOING_INTERACTION(user, DOAFTER_SOURCE_CLIMBING_LADDER))
 		return
-	var/user_is_a_filtre = istype((user.mind?.assigned_role == /datum/job/filtre), /datum/job/filtre)
-	if(!user_is_a_filtre)
-		if(!length(GLOB.deepmaints_entrances))
+	if(HAS_TRAIT(user, TRAIT_EXTRACT_TO_FILTRE_SHIP))
+		if(!length(GLOB.deepmaints_entrances_filtre))
 			balloon_alert(user, "hatch above seems stuck...")
 			return
 	else
-		if(!length(GLOB.deepmaints_entrances_filtre))
+		if(!length(GLOB.deepmaints_entrances))
 			balloon_alert(user, "hatch above seems stuck...")
 			return
 	INVOKE_ASYNC(src, PROC_REF(send_him_to_detroit), user)
@@ -119,9 +118,8 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/exit/send_him_to_detroit(mob/user)
 	if(!do_after(user, travel_time, target = src))
 		return
-	var/user_is_a_filtre = istype((user.mind?.assigned_role == /datum/job/filtre), /datum/job/filtre)
 	var/obj/destination
-	if(user_is_a_filtre)
+	if(HAS_TRAIT(user, TRAIT_EXTRACT_TO_FILTRE_SHIP))
 		destination = pick(GLOB.deepmaints_entrances_filtre)
 	else
 		destination = pick(GLOB.deepmaints_entrances)

@@ -31,6 +31,7 @@
 	. = ..()
 	ADD_TRAIT(spawned, TRAIT_NODISMEMBER, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_EXTRACT_TO_FILTRE_SHIP, JOB_TRAIT)
 
 /datum/outfit/job/filtre
 	name = "Filtre"

@@ -19,3 +19,6 @@
 #define BULLET_ARMOR_IV 90
 /// LEVEL V PROTECTION, FOR THE STRONGEST OF THE STRONG BULLET VESTS
 #define BULLET_ARMOR_V 120
+
+/// If the owner of this trait should not extract to the regular gakster camp
+#define TRAIT_EXTRACT_TO_FILTRE_SHIP "extract_to_filtre_ship"
