@@ -57,7 +57,7 @@
 	recipe_requirements = list(
 		/obj/item/epic_loot/hdd = 1,
 	)
-	resulting_item = /obj/item/storage/backpack/duffelbag/syndie/nri/captain
+	resulting_item = /obj/item/storage/backpack/duffelbag/syndie/nri/captain/lethal
 
 /datum/crafting_bench_recipe_real/sec_belt
 	recipe_name = "security belt"

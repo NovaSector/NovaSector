@@ -8381,4 +8381,6 @@
 #include "modular_np_lethal\magic_quirk\code\spells\lesser_arcane_barrage.dm"
 #include "modular_np_lethal\magic_quirk\code\spells\lesser_fleshmend.dm"
 #include "modular_np_lethal\magic_quirk\code\spells\lesser_shift.dm"
+#include "modular_np_lethal\medical_stuff\code\injector_buff.dm"
+#include "modular_np_lethal\medical_stuff\code\storage.dm"
 // END_INCLUDE

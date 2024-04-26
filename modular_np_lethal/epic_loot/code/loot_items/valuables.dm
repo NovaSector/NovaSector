@@ -87,6 +87,8 @@
 
 	. += span_notice("<b>Equipment Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> tag case.")
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> autoinjector pouch.")
 
 	return .
 

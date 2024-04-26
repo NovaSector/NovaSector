@@ -8,6 +8,7 @@
 
 	allowed_choices = list(
 		/datum/crafting_bench_recipe_real/medpen_kit,
+		/datum/crafting_bench_recipe_real/pocket_medkit_small,
 		/datum/crafting_bench_recipe_real/pocket_medkit,
 		/datum/crafting_bench_recipe_real/medical_box,
 		/datum/crafting_bench_recipe_real/super_medkit,
@@ -20,8 +21,9 @@
 /obj/structure/epic_loot_crafting_bench/medical/examine_more(mob/user)
 	. = ..()
 
-	. += span_notice("<b>1</b> ID card = <b>1</b> autoinjector pouch")
-	. += span_notice("<b>1</b> ID card = <b>1</b> pocket first aid kit")
+	. += span_notice("<b>1</b> military flash drive = <b>1</b> autoinjector pouch")
+	. += span_notice("<b>1</b> general-purpose circuit board = <b>1</b> pocket first aid kit")
+	. += span_notice("<b>1</b> military grade circuit board = <b>1<b> pocket medical kit")
 	. += span_notice("<b>2</b> ID card = <b>1</b> medical case")
 	. += span_notice("<b>1</b> press pass = <b>1</b> frontier first aid kit")
 	. += span_notice("<b>1</b> eyes = <b>1</b> combat surgeon kit")
@@ -36,16 +38,23 @@
 /datum/crafting_bench_recipe_real/medpen_kit
 	recipe_name = "autoinjector pouch"
 	recipe_requirements = list(
-		/obj/item/card/id/advanced = 1,
+		/obj/item/epic_loot/military_flash = 1,
 	)
 	resulting_item = /obj/item/storage/epic_loot_medpen_case
 
-/datum/crafting_bench_recipe_real/pocket_medkit
+/datum/crafting_bench_recipe_real/pocket_medkit_small
 	recipe_name = "pocket first aid kit"
 	recipe_requirements = list(
-		/obj/item/card/id/advanced = 1,
+		/obj/item/epic_loot/civilian_circuit = 1,
 	)
-	resulting_item = /obj/item/storage/pouch/cin_medkit
+	resulting_item = /obj/item/storage/pouch/medical/firstaid/loaded
+
+/datum/crafting_bench_recipe_real/pocket_medkit
+	recipe_name = "pocket medical kit"
+	recipe_requirements = list(
+		/obj/item/epic_loot/military_circuit = 1,
+	)
+	resulting_item = /obj/item/storage/pouch/medical/loaded
 
 /datum/crafting_bench_recipe_real/medical_box
 	recipe_name = "medical case"
