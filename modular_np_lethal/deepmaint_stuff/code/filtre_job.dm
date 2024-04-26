@@ -67,3 +67,6 @@
 
 /datum/id_trim/job/security_officer/filtre
 	assignment = "Filtre"
+
+/obj/effect/landmark/start/lethal_filtre
+	name = "Filtre"
