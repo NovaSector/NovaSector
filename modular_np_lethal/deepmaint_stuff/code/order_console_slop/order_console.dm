@@ -7,7 +7,8 @@
 		"Peacekeeper",
 		"Rayisa",
 		"Operator",
-		"Safariman"
+		"Safariman",
+		"Dealer",
 	)
 	blackbox_key = null
 	express_cost_multiplier = 1
