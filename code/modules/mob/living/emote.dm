@@ -67,19 +67,6 @@
 		var/mob/living/L = user
 		L.Unconscious(40)
 
-<<<<<<< HEAD
-/datum/emote/living/cough
-	key = "cough"
-	key_third_person = "coughs"
-	message = "coughs!"
-	message_mime = "acts out an exaggerated cough!"
-	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE | EMOTE_RUNECHAT
-
-/datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE , intentional)
-	return !HAS_TRAIT(user, TRAIT_SOOTHED_THROAT) && ..()
-
-=======
->>>>>>> 0a8e58b4937 (More emote sounds and new whistle emote (#82748))
 /datum/emote/living/dance
 	key = "dance"
 	key_third_person = "dances"
@@ -292,25 +279,12 @@
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	return ..() && user.can_speak(allow_mimes = TRUE)
 
-<<<<<<< HEAD
-/datum/emote/living/laugh/get_sound(mob/living/user)
-	. = ..()
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/human_user = user
-	if((ishumanbasic(human_user) || isfelinid(human_user)) && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
-		if(human_user.gender == FEMALE)
-			return 'sound/voice/human/womanlaugh.ogg'
-		else
-			return pick('sound/voice/human/manlaugh1.ogg', 'sound/voice/human/manlaugh2.ogg')
-*/ //NOVA EDIT END
-=======
 /datum/emote/living/laugh/get_sound(mob/living/carbon/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/human_user = user
 	return human_user.dna.species.get_laugh_sound(user)
->>>>>>> 0a8e58b4937 (More emote sounds and new whistle emote (#82748))
+*/ //NOVA EDIT REMOVAL END
 
 /datum/emote/living/look
 	key = "look"
