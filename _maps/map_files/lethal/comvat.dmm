@@ -3008,11 +3008,6 @@
 /obj/machinery/iv_drip,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
-"Gr" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/red/dim/directional/north,
-/turf/open/openspace,
-/area/gakster_location/outside)
 "Gs" = (
 /obj/structure/deepmaints_entrance/exit,
 /turf/open/floor/plating,
@@ -36493,7 +36488,7 @@ NG
 KK
 KK
 KK
-NG
+KK
 KK
 Yi
 xH
@@ -41084,7 +41079,7 @@ vr
 vr
 vr
 Mw
-Gr
+DT
 DT
 DT
 Mw

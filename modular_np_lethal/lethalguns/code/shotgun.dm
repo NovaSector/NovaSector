@@ -40,6 +40,10 @@
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/s6gauge
 
+/obj/item/gun/ballistic/shotgun/ramu/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/gun_launches_little_guys, throwing_force = 3, throwing_range = 5)
+
 /obj/item/gun/ballistic/shotgun/ramu/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
 

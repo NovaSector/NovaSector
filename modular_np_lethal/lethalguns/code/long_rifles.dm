@@ -45,6 +45,10 @@
 	pb_knockback = 2
 	recoil = 2
 
+/obj/item/gun/ballistic/marsian_super_rifle/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/gun_launches_little_guys, throwing_force = 3, throwing_range = 5)
+
 /obj/item/gun/ballistic/marsian_super_rifle/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
 
