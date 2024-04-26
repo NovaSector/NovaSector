@@ -2047,7 +2047,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 // donator reward for AlvCyktor
 /obj/item/clothing/under/techpants
-	name = "\improper techwear pants"
+	name = "techwear pants"
 	desc = "A pair of pants with some belts and fake pouches for added aesthetics."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
@@ -2055,7 +2055,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	can_adjust = FALSE
 
 /obj/item/storage/backpack/satchel/dropouch
-	name = "\improper drop pouch"
+	name = "drop pouch"
 	desc = "A tactical pouch attached to a belt."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
