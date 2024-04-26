@@ -2,7 +2,7 @@
 	melee = ARMOR_LEVEL_MID
 	bullet = BULLET_ARMOR_IV
 	laser = ARMOR_LEVEL_MID
-	energy = ARMOR_LEVEL_SMALL
+	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
 	fire = ARMOR_LEVEL_MID + 25
 	acid = ARMOR_LEVEL_MID
@@ -12,7 +12,7 @@
 	melee = ARMOR_LEVEL_MID + 25
 	bullet = BULLET_ARMOR_V
 	laser = ARMOR_LEVEL_MID + 25
-	energy = ARMOR_LEVEL_SMALL
+	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
 	fire = ARMOR_LEVEL_MID + 25
 	acid = ARMOR_LEVEL_MID
