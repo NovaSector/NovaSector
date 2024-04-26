@@ -96,6 +96,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/clothing/gloves/latex/nitrile = INFINITY,
 				/obj/item/clothing/shoes/jackboots/frontier_colonist = INFINITY,
 				/obj/item/clothing/glasses/heat = INFINITY,
+				/obj/item/clothing/glasses/welding = INFINITY,
 				/obj/item/clothing/glasses/nightmare_vision = INFINITY,
 				/obj/item/clothing/under/frontier_colonist = INFINITY,
 				/obj/item/clothing/under/sol_peacekeeper = INFINITY,
