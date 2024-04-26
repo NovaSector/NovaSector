@@ -891,6 +891,10 @@
 	},
 /turf/open/indestructible/stone,
 /area/gakster_location)
+"jK" = (
+/obj/machinery/iv_drip/health_station/directional/north,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/gakster_location/filtre_spawn)
 "jN" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -3991,6 +3995,10 @@
 /obj/effect/spawner/random/epic_loot/random_computer_parts,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"PS" = (
+/obj/machinery/iv_drip/health_station/directional/south,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/gakster_location/filtre_spawn)
 "PV" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -4857,6 +4865,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall,
 /area/gakster_location/war)
+"YT" = (
+/obj/machinery/iv_drip/health_station/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/gakster_location/filtre_spawn)
 "YW" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/iron/smooth,
@@ -48222,7 +48234,7 @@ vn
 oC
 rt
 vn
-PP
+YT
 PP
 hx
 vn
@@ -48726,14 +48738,14 @@ Vi
 Vi
 Vi
 vn
-zZ
+jK
 zZ
 zZ
 PP
 PP
 zZ
 zZ
-zZ
+PS
 vn
 Vi
 Vi
@@ -48930,14 +48942,14 @@ Vi
 Vi
 Vi
 vn
-zZ
+jK
 zZ
 zZ
 PP
 PP
 zZ
 zZ
-zZ
+PS
 vn
 Vi
 Vi
