@@ -29,7 +29,7 @@
 	. += span_notice("<b>1</b> eyes = <b>1</b> combat surgeon kit")
 	. += span_notice("<b>1</b> vein finder = <b>1</b> stachel first aid kit")
 	. += span_notice("<b>1</b> eye scope = <b>1</b> first responder surgical kit")
-	. += span_notice("<b>1</b> stachel first aid kit + <b>3</b> ID cards = <b>1</b> advanced satchel first aid kit")
+	. += span_notice("<b>1</b> vein finder + <b>1</b> eye scope = <b>1</b> advanced satchel first aid kit")
 
 	return .
 
@@ -96,7 +96,7 @@
 /datum/crafting_bench_recipe_real/super_medkit_ultra
 	recipe_name = "advanced satchel medical kit"
 	recipe_requirements = list(
-		/obj/item/storage/backpack/duffelbag/deforest_medkit = 1,
-		/obj/item/card/id/advanced = 3,
+		/obj/item/epic_loot/eye_scope = 1,
+		/obj/item/epic_loot/vein_finder = 1,
 	)
 	resulting_item = /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super
