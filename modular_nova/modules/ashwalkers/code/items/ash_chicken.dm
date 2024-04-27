@@ -20,7 +20,7 @@
 	fertile = FALSE
 
 /mob/living/basic/chicken/gunther/egg_laid(obj/item/egg)
-	if(GLOB.chicken_count <= MAX_CHICKENS && fertile && prob(5))
+	if(GLOB.chicken_count <= MAX_CHICKENS && fertile && prob(10))
 		egg.AddComponent(\
 			/datum/component/fertile_egg,\
 			embryo_type = /mob/living/basic/chick/gunther,\
