@@ -23,7 +23,7 @@
 
 	. += span_notice("<b>1</b> military flash drive = <b>1</b> autoinjector pouch")
 	. += span_notice("<b>1</b> general-purpose circuit board = <b>1</b> pocket first aid kit")
-	. += span_notice("<b>1</b> military grade circuit board = <b>1<b> pocket medical kit")
+	. += span_notice("<b>1</b> military grade circuit board = <b>1</b> pocket medical kit")
 	. += span_notice("<b>2</b> ID card = <b>1</b> medical case")
 	. += span_notice("<b>1</b> silver chainlet = <b>1</b> civil defense medical kit")
 	. += span_notice("<b>1</b> press pass = <b>1</b> frontier first aid kit")
