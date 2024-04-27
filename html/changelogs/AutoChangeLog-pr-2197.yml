@@ -1,0 +1,4 @@
+author: "honkpocket"
+delete-after: True
+changes:
+  - qol: "All lipstick colors are now available in the loadout, quantum is still barber vendor only"
