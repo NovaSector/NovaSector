@@ -45,7 +45,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/captagon = 1,
 	)
 	belt = null
-	ears = /obj/item.radio/headset/syndicate/alt
+	ears = /obj/item.radio/headset/headset_cent/alt
 	gloves = /obj/item/clothing/gloves/frontier_colonist
 	head = null
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
@@ -56,6 +56,15 @@
 	satchel = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
 	duffelbag = /obj/item/storage/backpack/industrial/frontier_colonist
 	messenger = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
+
+/datum/outfit/job/filtre/post_equip(mob/living/carbon/human/squaddie, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/radio/radio = squaddie.ears
+	radio.set_frequency(FREQ_CENTCOM)
+	radio.freqlock = RADIO_FREQENCY_LOCKED
+	return ..()
 
 /datum/outfit/plasmaman/filtre
 	name = "Filtre Plasmaman"
