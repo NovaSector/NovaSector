@@ -1,0 +1,4 @@
+author: "nikothedude"
+delete-after: True
+changes:
+  - rscadd: "Fragile now has quirk customization"
