@@ -23,6 +23,11 @@
 	item_path = /obj/item/clothing/under/syndicate/tacticool/black
 	ckeywhitelist = list("thedragmeme")
 
+/datum/loadout_item/under/jumpsuit/long_skirtleneck
+	name = "Tacticool Skirtleneck (Long)"
+	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt/long
+	ckeywhitelist = list("HollandaiseSauce", "Latinfishy", "Tf4")
+
 /datum/loadout_item/suit/ryddid
 	name = "The Ryddid"
 	item_path = /obj/item/clothing/suit/jacket/ryddid
@@ -665,7 +670,7 @@
 
 /datum/loadout_item/head/somerandomowl
 	name = "Starry Witch Hat"
-	item_path = /obj/item/clothing/head/costume/strigihat
+	item_path = /obj/item/clothing/head/costume/owlhat
 	ckeywhitelist = list("somerandomowl")
 
 /datum/loadout_item/head/razurathhat

@@ -41,6 +41,7 @@ GLOBAL_LIST_INIT(command_strings, list(
 	light_power = 0.6
 	speed = 3
 	req_one_access = list(ACCESS_ROBOTICS)
+	interaction_flags_click = ALLOW_SILICON_REACH
 	///The Robot arm attached to this robot - has a 50% chance to drop on death.
 	var/robot_arm = /obj/item/bodypart/arm/right/robot
 	///The inserted (if any) pAI in this bot.
@@ -103,7 +104,7 @@ GLOBAL_LIST_INIT(command_strings, list(
 	AddElement(/datum/element/relay_attackers)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(handle_loop_movement))
 	RegisterSignal(src, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(after_attacked))
-	RegisterSignal(src, COMSIG_OBJ_ALLOWED, PROC_REF(attempt_access))
+	RegisterSignal(src, COMSIG_MOB_TRIED_ACCESS, PROC_REF(attempt_access))
 	ADD_TRAIT(src, TRAIT_NO_GLIDE, INNATE_TRAIT)
 	GLOB.bots_list += src
 
@@ -362,13 +363,9 @@ GLOBAL_LIST_INIT(command_strings, list(
 		ui = new(user, src, "SimpleBot", name)
 		ui.open()
 
-/mob/living/basic/bot/AltClick(mob/user)
-	. = ..()
-	if(!can_interact(user))
-		return
-	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
-		return
+/mob/living/basic/bot/click_alt(mob/user)
 	unlock_with_id(user)
+	return CLICK_ACTION_SUCCESS
 
 /mob/living/basic/bot/proc/unlock_with_id(mob/living/user)
 	if(bot_access_flags & BOT_COVER_EMAGGED)
@@ -760,7 +757,7 @@ GLOBAL_LIST_INIT(command_strings, list(
 /mob/living/basic/bot/proc/attempt_access(mob/bot, obj/door_attempt)
 	SIGNAL_HANDLER
 
-	return (door_attempt.check_access(access_card) ? COMPONENT_OBJ_ALLOW : COMPONENT_OBJ_DISALLOW)
+	return (door_attempt.check_access(access_card) ? ACCESS_ALLOWED : ACCESS_DISALLOWED)
 
 /mob/living/basic/bot/proc/generate_speak_list()
 	return null

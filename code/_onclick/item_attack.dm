@@ -11,7 +11,7 @@
 	var/list/modifiers = params2list(params)
 	var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
 
-	var/item_interact_result = target.item_interaction(user, src, modifiers, is_right_clicking)
+	var/item_interact_result = target.base_item_interaction(user, src, modifiers)
 	if(item_interact_result & ITEM_INTERACT_SUCCESS)
 		return TRUE
 	if(item_interact_result & ITEM_INTERACT_BLOCKING)
@@ -159,7 +159,7 @@
 		return FALSE
 	return attacking_item.attack_atom(src, user, params)
 
-/mob/living/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
+/mob/living/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	// Surgery and such happens very high up in the interaction chain, before parent call
 	var/attempt_tending = item_tending(user, tool, modifiers)
 	if(attempt_tending & ITEM_INTERACT_ANY_BLOCKER)
@@ -387,7 +387,7 @@
 					glasses.add_mob_blood(src)
 					update_worn_glasses()
 
-			if(!attacking_item.get_sharpness() && !HAS_TRAIT(src, TRAIT_HEAD_INJURY_BLOCKED))
+			if(!attacking_item.get_sharpness() && !HAS_TRAIT(src, TRAIT_HEAD_INJURY_BLOCKED) && attacking_item.damtype == BRUTE)
 				if(prob(damage_done))
 					adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
 					if(stat == CONSCIOUS)
@@ -417,7 +417,7 @@
 					w_uniform.add_mob_blood(src)
 					update_worn_undersuit()
 
-			if(stat == CONSCIOUS && !attacking_item.get_sharpness() && !HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
+			if(stat == CONSCIOUS && !attacking_item.get_sharpness() && !HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED) && attacking_item.damtype == BRUTE)
 				if(prob(damage_done))
 					visible_message(
 						span_danger("[src] is knocked down!"),

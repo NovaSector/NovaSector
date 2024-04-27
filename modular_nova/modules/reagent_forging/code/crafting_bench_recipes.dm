@@ -125,6 +125,14 @@
 	resulting_item = /obj/item/reagent_containers/cup/primitive_centrifuge
 	required_good_hits = 4
 
+/datum/crafting_bench_recipe/soup_pot
+	recipe_name = "soup pot"
+	recipe_requirements = list(
+		/obj/item/forging/complete/plate = 4,
+	)
+	resulting_item = /obj/item/reagent_containers/cup/soup_pot
+	required_good_hits = 10
+
 /datum/crafting_bench_recipe/bokken
 	recipe_name = "bokken"
 	recipe_requirements = list(
