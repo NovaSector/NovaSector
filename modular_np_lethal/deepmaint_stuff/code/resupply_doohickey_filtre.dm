@@ -36,6 +36,8 @@
 				/obj/item/storage/medkit/combat_surgeon/stocked = INFINITY,
 				/obj/item/tank/internals/plasmaman/belt/full = INFINITY,
 				/obj/item/tank/internals/nitrogen/belt/full = INFINITY,
+				/obj/item/stack/cable_coil/thirty = INFINITY,
+				/obj/item/weldingtool/electric = INFINITY,
 			),
 		),
 		list(
