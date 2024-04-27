@@ -1,7 +1,19 @@
+/datum/language_holder/ashmob
+	understood_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+		/datum/language/ashtongue = list(LANGUAGE_ATOM),
+	)
+	spoken_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+		/datum/language/ashtongue = list(LANGUAGE_ATOM),
+	)
+	selected_language = /datum/language/ashtongue
+
 /mob/living/basic/chicken/gunther
 	name = "\improper gunther"
 	desc = "An odd looking gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that."
 	unsuitable_atmos_damage = 0
+	initial_language_holder = /datum/language_holder/ashmob
 
 /mob/living/basic/chicken/gunther/jr
 	name = "\improper gunther jr"
@@ -24,4 +36,5 @@
 	name = "\improper gunther chick"
 	desc = "An odd looking baby gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that."
 	unsuitable_atmos_damage = 0
-	grow_as = /mob/living/basic/chicken/guntherjr
+	grow_as = /mob/living/basic/chicken/gunther/jr
+	initial_language_holder = /datum/language_holder/ashmob
