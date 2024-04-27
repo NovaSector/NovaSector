@@ -98,11 +98,13 @@
 	drop_sound = 'modular_np_lethal/lethalguns/sound/pickup_sounds/drop_mediumgun.wav'
 
 	can_bayonet = FALSE
+	can_suppress = FALSE
 
 	burst_size = 2
 	fire_delay = 0.5 SECONDS
 
-	projectile_wound_bonus = -10
+	projectile_wound_bonus = -20
+	projectile_damage_multiplier = 0.75
 	recoil = 0.5
 
 /obj/item/gun/ballistic/automatic/nomi_shotgun/give_manufacturer_examine()
