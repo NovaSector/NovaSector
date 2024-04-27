@@ -338,7 +338,7 @@
 /area/station/science/ordnance/testlab)
 "aft" = (
 /obj/structure/cable,
-/obj/machinery/power/smes/full,
+/obj/machinery/power/smes/super/full,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai)
 "afy" = (
