@@ -17,3 +17,11 @@
 // Tarkon gun but it spawns with ammo
 /obj/item/gun/ballistic/automatic/m6pdw/spawns_with_ammo
 	spawnwithmagazine = TRUE
+
+// Modlink scryer super
+/obj/item/clothing/neck/link_scryer/infinity
+	starting_frequency = "NT"
+
+/obj/item/clothing/neck/link_scryer/infinity/Initialize(mapload)
+	. = ..()
+	cell = new /obj/item/stock_parts/cell/infinite/abductor(src)

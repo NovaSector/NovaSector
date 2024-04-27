@@ -16,7 +16,7 @@
 
 /obj/item/stack/medical/wound_recovery/robofoam/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
-	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 10)
+	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry/super, 10)
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 10)
 
 // Used to cure practically any synthetic wound, and also repair armor if you're fucked up
@@ -43,7 +43,7 @@
 /obj/item/stack/medical/wound_recovery/robofoam_super/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 10)
-	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 10)
+	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry/super, 10)
 	healed_mob.reagents.add_reagent(/datum/reagent/dinitrogen_plasmide, 10)
 
 // Synth repair patch, gives the synth a small amount of healing chems
@@ -53,7 +53,13 @@
 	icon = 'modular_np_lethal/medical_stuff/icons/stack_items.dmi'
 	icon_state = "synth_patch"
 	list_reagents = list(
-		/datum/reagent/medicine/nanite_slurry = 10,
+		/datum/reagent/medicine/nanite_slurry/super = 10,
 		/datum/reagent/dinitrogen_plasmide = 5,
 		/datum/reagent/medicine/coagulant/fabricated = 10,
 	)
+
+// Nanite slurry but its not ass
+/datum/reagent/medicine/nanite_slurry/super
+	name = "Super Nanite Slurry"
+	healing = 4
+	temperature_change = 20

@@ -100,6 +100,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 				/obj/item/clothing/glasses/nightmare_vision = INFINITY,
 				/obj/item/clothing/under/frontier_colonist = INFINITY,
 				/obj/item/clothing/under/sol_peacekeeper = INFINITY,
+				/obj/item/clothing/neck/link_scryer/infinity = INFINITY,
 				/obj/item/clothing/neck/ranger_poncho = INFINITY,
 				/obj/item/clothing/neck/robe_cape = INFINITY,
 				/obj/item/clothing/neck/long_cape = INFINITY,
