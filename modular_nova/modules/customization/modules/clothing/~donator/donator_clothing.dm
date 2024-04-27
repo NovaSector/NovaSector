@@ -2054,7 +2054,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "techpants"
 	can_adjust = FALSE
 
-/obj/item/storage/backpack/satchel/dropouch
+/obj/item/storage/backpack/satchel/drop_pouch
 	name = "drop pouch"
 	desc = "A tactical pouch attached to a belt."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'

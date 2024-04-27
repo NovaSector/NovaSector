@@ -797,9 +797,9 @@
 /datum/loadout_item/under/jumpsuit/techpants
     name = "Techwear Pants"
     item_path = /obj/item/clothing/under/techpants
-    ckeywhitelist = list("AlvCyktor")
+    ckeywhitelist = list("alvcyktor")
 
-/datum/loadout_item/inhand/dropouch
+/datum/loadout_item/inhand/drop_pouch
     name = "Drop Pouch"
-    item_path = /obj/item/storage/backpack/satchel/dropouch
-    ckeywhitelist = list("AlvCyktor")
+    item_path = /obj/item/storage/backpack/satchel/drop_pouch
+    ckeywhitelist = list("alvcyktor")
