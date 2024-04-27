@@ -10,13 +10,13 @@
 	selected_language = /datum/language/ashtongue
 
 /mob/living/basic/chicken/gunther
-	name = "\improper gunther"
+	name = "\improper Gunther"
 	desc = "An odd looking gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that."
 	unsuitable_atmos_damage = 0
 	initial_language_holder = /datum/language_holder/ashmob
 
 /mob/living/basic/chicken/gunther/jr
-	name = "\improper gunther jr"
+	name = "\improper Gunther jr"
 	fertile = FALSE
 
 /mob/living/basic/chicken/gunther/egg_laid(obj/item/egg)
@@ -33,7 +33,7 @@
 		)
 
 /mob/living/basic/chick/gunther
-	name = "\improper gunther chick"
+	name = "\improper Gunther chick"
 	desc = "An odd looking baby gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that."
 	unsuitable_atmos_damage = 0
 	grow_as = /mob/living/basic/chicken/gunther/jr
