@@ -1889,11 +1889,14 @@
 /turf/open/floor/iron/white,
 /area/station/science/breakroom)
 "aMa" = (
-/obj/machinery/conveyor{
-	dir = 4;
+/obj/machinery/conveyor_switch/oneway{
 	id = "cargolower"
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "aMc" = (
 /obj/machinery/power/apc/auto_name/directional/south,
@@ -1921,10 +1924,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"aMw" = (
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/misc/sandy_dirt/forest,
-/area/forestplanet/outdoors/nospawn)
 "aMK" = (
 /obj/machinery/computer/shuttle/planetary_ferry{
 	dir = 4
@@ -3348,6 +3347,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/grass,
 /area/station/security/prison/garden)
+"bpG" = (
+/obj/machinery/conveyor{
+	id = "cargodisposals";
+	dir = 8
+	},
+/turf/open/floor/iron/pool,
+/area/station/cargo/sorting)
 "bpQ" = (
 /obj/vehicle/ridden/janicart,
 /obj/item/key/janitor,
@@ -3678,16 +3684,6 @@
 	dir = 1
 	},
 /area/station/command/heads_quarters/captain)
-"bvl" = (
-/obj/structure/disposalpipe/trunk/multiz{
-	dir = 1
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "cargolower"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "bvv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -3707,6 +3703,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/science/research)
+"bvT" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargolower"
+	},
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "bvY" = (
 /obj/machinery/door/window/right/directional/west{
 	name = "Brig Surgery";
@@ -3720,6 +3724,17 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
+"bvZ" = (
+/obj/machinery/conveyor{
+	dir = 2;
+	id = "cargolower"
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Disposal Exit";
+	name = "Disposal Exit Vent"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "bwp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -4967,11 +4982,13 @@
 /turf/open/openspace,
 /area/station/science/lab)
 "bVb" = (
-/obj/item/radio/intercom/directional/west,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "bVc" = (
@@ -5041,15 +5058,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
-"bVw" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 10
-	},
-/obj/effect/turf_decal/trimline/brown/filled/corner{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "bVA" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible,
 /turf/closed/wall/r_wall,
@@ -6248,9 +6256,18 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/blueshield)
 "cvH" = (
-/obj/structure/disposalpipe/trunk/multiz/down,
-/turf/closed/wall,
-/area/station/cargo/warehouse)
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "cvI" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
@@ -6648,12 +6665,9 @@
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
 "cEd" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "cargolower"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/misc/sandy_dirt/forest,
+/area/forestplanet/outdoors/nospawn)
 "cEh" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
@@ -11279,6 +11293,16 @@
 /obj/machinery/oven/range,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
+"esN" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 32
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 5
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "esR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible{
 	dir = 4
@@ -11300,11 +11324,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/engineering/atmos)
-"etu" = (
-/obj/effect/turf_decal/trimline/brown/filled/corner,
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "etU" = (
 /obj/structure/railing{
 	dir = 1
@@ -12851,16 +12870,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"eZf" = (
-/obj/structure/disposalpipe/junction/yjunction{
-	dir = 1
-	},
-/obj/machinery/door/window/left/directional/south{
-	name = "Danger: Conveyor Access";
-	req_access = list("maint_tunnels")
-	},
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "eZg" = (
 /obj/structure/cable/multilayer/connected,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -16262,6 +16271,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/lesser)
+"gqc" = (
+/obj/structure/disposalpipe/trunk/multiz{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "gqe" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -17669,13 +17689,6 @@
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
-"gQM" = (
-/obj/machinery/conveyor/inverted{
-	dir = 5;
-	id = "cargolower"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "gQU" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/trimline/yellow/warning,
@@ -18513,6 +18526,10 @@
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/iron,
 /area/station/security/prison)
+"hhU" = (
+/obj/structure/disposalpipe/trunk/multiz/down,
+/turf/closed/wall,
+/area/station/cargo/warehouse)
 "hin" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -19338,11 +19355,11 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "hyV" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 10
+/obj/machinery/conveyor{
+	dir = 10;
+	id = "cargolower"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "hzg" = (
 /obj/machinery/disposal/delivery_chute{
@@ -19908,19 +19925,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat_interior)
-"hJT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/machinery/door/window/left/directional/south{
-	name = "Danger: Conveyor Access";
-	req_access = list("maint_tunnels")
-	},
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "hJX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -22178,14 +22182,17 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/station/common/night_club/back_stage)
 "iAy" = (
-/obj/machinery/recycler{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "cargolower"
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
 	},
-/turf/open/floor/plating,
+/obj/machinery/door/window/left/directional/south{
+	name = "Danger: Conveyor Access";
+	req_access = list("maint_tunnels")
+	},
+/turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "iAC" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -24379,6 +24386,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/security/prison)
+"jta" = (
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 4;
+	name = "Disposals Junction"
+	},
+/obj/effect/mapping_helpers/mail_sorting/supply/disposals,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "jtg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
@@ -25333,16 +25349,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/office)
-"jLE" = (
-/obj/structure/disposalpipe/junction{
-	dir = 2
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "jLP" = (
 /obj/structure/sign/warning/docking/directional/west,
 /turf/open/misc/sandy_dirt/forest,
@@ -25717,6 +25723,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
+"jSP" = (
+/obj/effect/turf_decal/trimline/brown/filled/corner,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "jST" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/large,
@@ -25919,6 +25930,14 @@
 	},
 /turf/open/floor/iron/checker,
 /area/station/engineering/main)
+"jVV" = (
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/structure/sign/warning/secure_area/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "jVY" = (
 /obj/machinery/light/small/directional/south,
 /obj/structure/mirror/directional/south,
@@ -26361,17 +26380,11 @@
 /turf/open/floor/wood/large,
 /area/station/security/prison/garden)
 "kfg" = (
-/obj/machinery/door/window/left/directional/east{
-	name = "Danger: Conveyor Access";
-	req_access = list("maint_tunnels")
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargolower"
 	},
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/machinery/light/directional/south,
-/obj/machinery/door/window/left/directional/north{
-	name = "Danger: Conveyor Access";
-	req_access = list("maint_tunnels")
-	},
-/turf/open/floor/iron/smooth,
+/turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "kfk" = (
 /turf/closed/wall,
@@ -27124,12 +27137,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "ktY" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Disposal Access"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
+/obj/structure/sign/warning/secure_area/directional/south,
 /turf/open/floor/plating,
-/area/station/maintenance/disposal)
+/area/station/maintenance/fore/greater)
 "kuy" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/coffee{
@@ -28351,14 +28361,17 @@
 /turf/open/floor/iron,
 /area/station/security/prison)
 "kUQ" = (
-/obj/machinery/disposal/delivery_chute{
-	dir = 4
+/obj/machinery/door/window/left/directional/east{
+	name = "Danger: Conveyor Access";
+	req_access = list("maint_tunnels")
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/machinery/light/directional/south,
+/obj/machinery/door/window/left/directional/north{
+	name = "Danger: Conveyor Access";
+	req_access = list("maint_tunnels")
 	},
-/obj/structure/window/reinforced/spawner/directional/west,
-/turf/open/floor/plating,
+/turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "kUT" = (
 /obj/structure/railing{
@@ -30843,16 +30856,6 @@
 "lVZ" = (
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
-"lWq" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "lWr" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
@@ -31246,9 +31249,14 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage/gas)
 "meS" = (
-/obj/structure/sign/warning/secure_area/directional/south,
-/turf/open/floor/plating,
-/area/station/maintenance/fore/greater)
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/brown/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "mfa" = (
 /obj/effect/mapping_helpers/airlock/access/all/medical/morgue,
 /obj/machinery/door/airlock/grunge{
@@ -31409,16 +31417,6 @@
 /obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
-"mhM" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "mhY" = (
 /obj/structure/railing{
 	dir = 10
@@ -31799,6 +31797,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"mql" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "mqm" = (
 /obj/machinery/light/warm/directional/south,
 /obj/structure/table/reinforced,
@@ -33160,6 +33168,16 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"mTL" = (
+/obj/structure/disposalpipe/junction{
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "mUn" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -34512,6 +34530,13 @@
 	dir = 8
 	},
 /area/station/cargo/miningdock)
+"nAY" = (
+/obj/machinery/mineral/stacking_machine{
+	output_dir = 2;
+	stack_amt = 10
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "nBj" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
@@ -35026,13 +35051,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/mechbay)
-"nPg" = (
-/obj/machinery/mineral/stacking_machine{
-	output_dir = 2;
-	stack_amt = 10
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "nPh" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -35751,14 +35769,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
-"odA" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "cargolower"
-	},
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "odC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -36258,7 +36268,10 @@
 /turf/open/floor/circuit/green,
 /area/station/cargo/miningdock)
 "onh" = (
-/obj/machinery/mass_driver/trash,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargolower"
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "onq" = (
@@ -37696,6 +37709,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
+"oRI" = (
+/obj/machinery/disposal/delivery_chute{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "oRQ" = (
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -38813,6 +38836,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
 /area/station/science/genetics)
+"pol" = (
+/obj/machinery/door/poddoor/massdriver_trash,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "pop" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
 /obj/structure/cable/layer1,
@@ -39037,14 +39064,11 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "puq" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "cargolower"
+/obj/machinery/door/airlock/maintenance{
+	name = "Disposal Access"
 	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/smooth,
+/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
+/turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "puw" = (
 /obj/machinery/light/warm/directional/east,
@@ -39618,12 +39642,15 @@
 /turf/open/floor/iron/checker,
 /area/station/medical/morgue)
 "pEN" = (
-/obj/machinery/conveyor{
-	id = "cargodisposals";
+/obj/machinery/recycler{
 	dir = 8
 	},
-/turf/open/floor/iron/pool,
-/area/station/cargo/sorting)
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "cargolower"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "pFa" = (
 /obj/machinery/firealarm/directional/north,
 /obj/machinery/disposal/bin,
@@ -41318,10 +41345,14 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/secondary/service)
 "qoV" = (
-/obj/machinery/conveyor{
-	dir = 10;
-	id = "cargolower"
+/obj/machinery/door/airlock/maintenance{
+	name = "Disposal Access"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
+/obj/structure/cable,
+/obj/effect/landmark/navigate_destination/disposals,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "qpg" = (
@@ -41546,11 +41577,24 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/funeral)
 "qsW" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "cargolower"
+/obj/machinery/button/door/directional/east{
+	name = "Disposal Vent Control";
+	id = "Disposal Exit";
+	req_access = list("maint_tunnels");
+	pixel_y = -7;
+	pixel_x = 25
 	},
-/turf/open/floor/plating,
+/obj/machinery/computer/pod/old/mass_driver_controller/trash{
+	pixel_x = 26;
+	pixel_y = 7
+	},
+/obj/effect/turf_decal/trimline/brown/filled/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "qtb" = (
 /obj/machinery/vending/medical,
@@ -42269,26 +42313,6 @@
 	dir = 8
 	},
 /area/station/service/chapel)
-"qGA" = (
-/obj/machinery/button/door/directional/east{
-	name = "Disposal Vent Control";
-	id = "Disposal Exit";
-	req_access = list("maint_tunnels");
-	pixel_y = -7;
-	pixel_x = 25
-	},
-/obj/machinery/computer/pod/old/mass_driver_controller/trash{
-	pixel_x = 26;
-	pixel_y = 7
-	},
-/obj/effect/turf_decal/trimline/brown/filled/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "qHc" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -42306,12 +42330,10 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/lesser)
 "qHl" = (
-/obj/structure/disposalpipe/sorting/mail{
-	dir = 4;
-	name = "Disposals Junction"
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 10
 	},
-/obj/effect/mapping_helpers/mail_sorting/supply/disposals,
-/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "qHm" = (
@@ -42767,6 +42789,18 @@
 /obj/item/analyzer,
 /turf/open/floor/engine,
 /area/station/science/ordnance)
+"qOU" = (
+/obj/machinery/door/window/left/directional/east{
+	name = "Danger: Driver Access";
+	req_access = list("maint_tunnels")
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "qOY" = (
 /obj/machinery/door/airlock/hydroponics{
 	name = "Hydroponics Storage"
@@ -42912,6 +42946,16 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/station/common/pool/sauna)
+"qRw" = (
+/obj/structure/disposalpipe/trunk/multiz{
+	dir = 1
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "cargolower"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "qRy" = (
 /obj/machinery/light/warm/directional/west,
 /turf/open/floor/iron,
@@ -43805,7 +43849,10 @@
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/bitrunning/den)
 "rnj" = (
-/obj/machinery/door/poddoor/massdriver_trash,
+/obj/machinery/conveyor/inverted{
+	dir = 5;
+	id = "cargolower"
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "rnp" = (
@@ -44721,6 +44768,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/office)
+"rEM" = (
+/obj/machinery/mass_driver/trash,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "rFn" = (
 /obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
 	dir = 4
@@ -46976,15 +47027,13 @@
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/hop)
 "sAr" = (
-/obj/machinery/door/window/left/directional/east{
-	name = "Danger: Driver Access";
-	req_access = list("maint_tunnels")
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
-/obj/machinery/light/small/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "sAE" = (
@@ -47563,10 +47612,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/prison)
-"sME" = (
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "sMH" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -47808,14 +47853,6 @@
 	dir = 1
 	},
 /area/station/medical/treatment_center)
-"sQR" = (
-/obj/machinery/newscaster/directional/west,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "sQX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -48505,17 +48542,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
-"thH" = (
-/obj/structure/disposalpipe/trunk/multiz{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/machinery/airalarm/directional/west,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "thQ" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
@@ -49190,12 +49216,11 @@
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "tvA" = (
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/structure/sign/warning/secure_area/directional/south,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
+/obj/machinery/conveyor{
+	dir = 6;
+	id = "cargolower"
 	},
-/turf/open/floor/iron/smooth,
+/turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "tvE" = (
 /obj/structure/mirror/directional/north,
@@ -49557,17 +49582,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"tBC" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Disposal Access"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
-/obj/structure/cable,
-/obj/effect/landmark/navigate_destination/disposals,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "tBN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -50596,6 +50610,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
+"tSH" = (
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
+	},
+/obj/machinery/door/window/left/directional/south{
+	name = "Danger: Conveyor Access";
+	req_access = list("maint_tunnels")
+	},
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "tST" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/spawner/structure/window/reinforced,
@@ -50947,6 +50971,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/security/holding_cell)
+"uaF" = (
+/obj/machinery/newscaster/directional/west,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "ubb" = (
 /obj/machinery/door/window/right/directional/north{
 	name = "Containment Pen #7";
@@ -51017,16 +51049,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
-"ucy" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/obj/structure/window/reinforced/spawner/directional/west,
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "ucG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -53940,6 +53962,14 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
+"vkY" = (
+/obj/item/radio/intercom/directional/west,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/disposal)
 "vll" = (
 /obj/machinery/atmospherics/components/binary/valve,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
@@ -57101,16 +57131,6 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/hallway/secondary/command)
-"wxS" = (
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_x = 32
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 5
-	},
-/obj/structure/window/reinforced/spawner/directional/south,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "wxZ" = (
 /obj/machinery/door/airlock/external/glass{
 	name = "Arrival Airlock";
@@ -57513,15 +57533,8 @@
 /turf/open/floor/grass,
 /area/station/medical/break_room)
 "wGU" = (
-/obj/machinery/conveyor{
-	dir = 2;
-	id = "cargolower"
-	},
-/obj/machinery/door/poddoor/preopen{
-	id = "Disposal Exit";
-	name = "Disposal Exit Vent"
-	},
-/turf/open/floor/plating,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal)
 "wGX" = (
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -58911,19 +58924,6 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood/large,
 /area/station/hallway/secondary/command)
-"xkH" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/obj/machinery/light_switch/directional/north,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/disposal)
 "xld" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -87723,12 +87723,12 @@ wEW
 wEW
 wEW
 wEW
-tBC
-lWq
-thH
+qoV
 bVb
-sQR
-hyV
+gqc
+vkY
+uaF
+qHl
 xjD
 cLl
 cLl
@@ -87979,13 +87979,13 @@ vOy
 vOy
 vOy
 vOy
-meS
+ktY
 xjD
-puq
-qHl
-ucy
-sME
-tvA
+aMa
+jta
+mql
+wGU
+jVV
 xjD
 xjD
 cLl
@@ -88238,12 +88238,12 @@ cLl
 vOy
 siq
 xjD
-xkH
-eZf
-aMa
-etu
-qGA
-bVw
+cvH
+tSH
+kfg
+jSP
+qsW
+meS
 xjD
 cLl
 egS
@@ -88495,18 +88495,18 @@ cLl
 vOy
 siq
 xjD
-mhM
-kUQ
-aMa
-kfg
-xjD
 sAr
+oRI
+kfg
+kUQ
+xjD
+qOU
 pHB
 egS
 kRM
 kRM
 kRM
-aMw
+cEd
 cLl
 cLl
 cLl
@@ -88752,18 +88752,18 @@ cLl
 vOy
 siq
 xjD
-hJT
-cEd
 iAy
-gQM
-wGU
 onh
+pEN
 rnj
+bvZ
+rEM
+pol
 egS
 kRM
 kRM
 kRM
-aMw
+cEd
 cLl
 cLl
 cLl
@@ -89008,11 +89008,11 @@ iJB
 cLl
 vOy
 siq
-ktY
-jLE
-bvl
-aMa
-odA
+puq
+mTL
+qRw
+kfg
+bvT
 xjD
 xjD
 pHB
@@ -89020,7 +89020,7 @@ egS
 kRM
 kRM
 kRM
-aMw
+cEd
 cLl
 cLl
 cLl
@@ -89266,10 +89266,10 @@ cLl
 vOy
 vOy
 xjD
-wxS
-nPg
-qsW
-qoV
+esN
+nAY
+tvA
+hyV
 xjD
 cLl
 cLl
@@ -89277,7 +89277,7 @@ cLl
 egS
 egS
 kRM
-aMw
+cEd
 cLl
 cLl
 cLl
@@ -153261,7 +153261,7 @@ jWf
 koq
 xsy
 lPP
-cvH
+hhU
 hzg
 jzK
 lhU
@@ -154033,7 +154033,7 @@ rBj
 kVH
 tbh
 lET
-pEN
+bpG
 yjs
 yjl
 dVc
@@ -154290,7 +154290,7 @@ owq
 ili
 bNk
 lET
-pEN
+bpG
 vTh
 cJF
 oyX
@@ -154546,7 +154546,7 @@ jWf
 jlr
 qIT
 uHI
-cvH
+hhU
 nVD
 rjA
 frc
