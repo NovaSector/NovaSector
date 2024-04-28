@@ -59909,6 +59909,7 @@
 	c_tag = "Medbay - Primary Treatment Centre Starboard";
 	network = list("ss13","medbay")
 	},
+/obj/machinery/defibrillator_mount/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "rwZ" = (
@@ -61538,6 +61539,7 @@
 	codes_txt = "delivery;dir=4";
 	location = "Medical"
 	},
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/iron/large,
 /area/station/medical/treatment_center)
 "rVR" = (
