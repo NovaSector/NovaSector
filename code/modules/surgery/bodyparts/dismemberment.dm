@@ -61,8 +61,8 @@
 	var/mob/living/carbon/chest_owner = owner
 	if(bodypart_flags & BODYPART_UNREMOVABLE)
 		return FALSE
-	if(HAS_TRAIT(chest_owner, TRAIT_NODISMEMBER))
-		return FALSE
+	/* if(HAS_TRAIT(chest_owner, TRAIT_NODISMEMBER))
+		return FALSE */ // LETHALSTATION EDIT REMOVAL : WE STILL WANT ORGANS TO EXPLODE EVERYWHERE
 	. = list()
 	if(wounding_type != WOUND_BURN && isturf(chest_owner.loc) && can_bleed())
 		chest_owner.add_splatter_floor(chest_owner.loc)

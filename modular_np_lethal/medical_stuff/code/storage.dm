@@ -18,7 +18,7 @@
 		/obj/item/cautery/cruel = 1,
 		/obj/item/circular_saw = 1,
 		/obj/item/surgical_drapes = 1,
-		/obj/item/healthanalyzer/simple = 1,
+		/obj/item/shears = 1,
 	)
 	generate_items_inside(items_inside,src)
 

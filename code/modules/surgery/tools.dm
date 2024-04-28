@@ -505,9 +505,9 @@
 
 	var/mob/living/carbon/patient = amputee
 
-	if(HAS_TRAIT(patient, TRAIT_NODISMEMBER))
+	/* if(HAS_TRAIT(patient, TRAIT_NODISMEMBER))
 		to_chat(user, span_warning("The patient's limbs look too sturdy to amputate."))
-		return
+		return */ // LETHALSTATION REMOVAL : DONT CARE + GET AMPUTATED + RATIO
 
 	var/candidate_name
 	var/obj/item/organ/external/tail_snip_candidate
