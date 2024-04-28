@@ -66643,10 +66643,6 @@
 /obj/item/storage/box/syringes{
 	pixel_y = -16
 	},
-/obj/item/toy/figure/virologist{
-	pixel_x = -10;
-	pixel_y = 9
-	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "tuE" = (
@@ -81905,9 +81901,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
-"xPz" = (
-/turf/closed/wall/r_wall,
-/area/space)
 "xPB" = (
 /obj/structure/railing{
 	dir = 1
@@ -124500,11 +124493,11 @@ jwx
 pjT
 eaM
 tMW
-xPz
+uov
 iiJ
 xEB
 lVo
-xPz
+kTx
 kTx
 vEj
 iSU
