@@ -14,7 +14,7 @@
 		potential_candidates -= candidate
 		sleeper_current_polling += candidate
 		yes_candidate += SSpolling.poll_candidates(
-		question = "Do you want to be a syndicate sleeper agent?",
+		question = "Do you want to be a syndicate sleeper agent? If you ignore this, you will be considered to have declined and will be inelegible for all future rolls this round.",
 		group = list(candidate),
 		poll_time = 15 SECONDS,
 		flash_window = TRUE,
