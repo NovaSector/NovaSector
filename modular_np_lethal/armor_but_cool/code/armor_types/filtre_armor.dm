@@ -77,6 +77,14 @@
 	max_integrity = 1600
 	limb_integrity = 1100
 
+/obj/item/clothing/suit/armor/lethal_filtre/heavy/giggler
+	name = "'Armageddon' type V heavy armor kit"
+	desc = "An excessively heavy full kit of armor for protecting every part of your body but the head with exceptional plating. \
+		The armor's insane bulk, however, makes the kit extremely slow to move in. A small price to pay for such superior protection. \
+		This one appears to have been modified with extra plating and red markings, but remains otherwide identical in performance \
+		to the standard filtre's armor."
+	icon_state = "filtre_heavy_armageddon"
+
 /obj/item/clothing/head/helmet/lethal_filtre_helmet
 	name = "'Firuta' type V ballistic helmet"
 	desc = "A high tech full-head helmet with supreme class V protection for the whole of the second \
@@ -103,7 +111,6 @@
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
-
 /obj/item/clothing/head/helmet/lethal_filtre_helmet/examine(mob/user)
 	. = ..()
 	. += span_notice("In a pinch, it can be <b>repaired</b> with <b>premium robotic repair spray</b>.")
@@ -117,3 +124,11 @@
 		types of armor combined into a generally cohesive theme of providing full protection from everything."
 
 	return .
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/giggler
+	name = "'Armageddon' type V ballistic helmet"
+	desc = "A high tech full-head helmet with supreme class V protection for the whole of the second \
+		most important part of a marine's body. Vision is provided by an internal camera system. \
+		This one appears to be modified with a more visible HUD system, as well as a bright-red \
+		face shield that someone has painted a smiley face on."
+	icon_state = "filtre_helmet_armageddon"
