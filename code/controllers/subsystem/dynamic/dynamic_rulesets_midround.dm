@@ -270,6 +270,12 @@
 			candidates -= player // We don't autotator people in CentCom
 		else if(player.mind && (player.mind.special_role || player.mind.antag_datums?.len > 0))
 			candidates -= player // We don't autotator people with roles already
+		//NOVA EDIT ADDITION
+		else if(player in rejected_traitor)
+			candidates -= player
+		else if(player in sleeper_current_polling)
+			candidates -= player
+		//NOVA EDIT END
 
 /datum/dynamic_ruleset/midround/from_living/autotraitor/execute()
 	var/mob/M = pick(poll_candidates_for_one(candidates)) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
