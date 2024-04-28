@@ -34,7 +34,6 @@
 	max_integrity = 1200
 	limb_integrity = 900
 	slowdown = 0.5
-	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 	equip_delay_self = 10 SECONDS
 
 /obj/item/clothing/suit/armor/lethal_filtre/Initialize(mapload)
@@ -104,7 +103,6 @@
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
-	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()

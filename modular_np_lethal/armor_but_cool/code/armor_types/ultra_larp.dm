@@ -24,7 +24,6 @@
 	max_integrity = 500
 	limb_integrity = 500
 	slowdown = 0.5
-	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 
 /obj/item/clothing/suit/armor/lethal_slick/examine(mob/user)
 	. = ..()
@@ -59,7 +58,6 @@
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
-	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 
 /obj/item/clothing/head/helmet/lethal_larp_helmet/examine(mob/user)
 	. = ..()

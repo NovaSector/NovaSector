@@ -23,7 +23,6 @@
 	body_parts_covered = CHEST
 	max_integrity = 375
 	limb_integrity = 375
-	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 
 /obj/item/clothing/suit/armor/lethal_kora_kulon/examine(mob/user)
 	. = ..()
@@ -70,7 +69,6 @@
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
-	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 	/// Holds the faceshield for quick reference
 	var/obj/item/sacrificial_face_shield/face_shield
 

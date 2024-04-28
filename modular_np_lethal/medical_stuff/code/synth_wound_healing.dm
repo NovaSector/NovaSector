@@ -11,6 +11,8 @@
 	applicable_wounds = list(
 		/datum/wound/blunt/robotic
 	)
+	max_amount = 2
+	amount = 2
 	merge_type = /obj/item/stack/medical/wound_recovery/robofoam
 	treatment_sound = 'sound/effects/spray.ogg'
 
@@ -37,14 +39,35 @@
 		/datum/wound/electrical_damage,
 		/datum/wound/burn/robotic,
 	)
+	max_amount = 2
+	amount = 2
 	merge_type = /obj/item/stack/medical/wound_recovery/robofoam_super
 	treatment_sound = 'sound/effects/spray.ogg'
+
+/obj/item/stack/medical/wound_recovery/robofoam_super/examine(mob/user)
+	. = ..()
+	. += span_engradio("This can be used to <b>repair</b> damaged <b>armor</b>.")
 
 /obj/item/stack/medical/wound_recovery/robofoam_super/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)
 	. = ..()
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 10)
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry/super, 10)
 	healed_mob.reagents.add_reagent(/datum/reagent/dinitrogen_plasmide, 10)
+
+/obj/item/stack/medical/wound_recovery/robofoam_super/afterattack(obj/item/clothing/target, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(!proximity_flag || !istype(target))
+		return FALSE
+	if(!use(1, check = TRUE))
+		return FALSE
+	target.balloon_alert(user, "repairing...")
+	if(!do_after(user, 10 SECONDS, target))
+		return FALSE
+	if(!use(1, check = TRUE))
+		return FALSE
+	target.repair(user)
+	playsound(target, treatment_sound, 100, TRUE)
+	use(1)
 
 // Synth repair patch, gives the synth a small amount of healing chems
 /obj/item/reagent_containers/pill/patch/lethal_synth_repair
