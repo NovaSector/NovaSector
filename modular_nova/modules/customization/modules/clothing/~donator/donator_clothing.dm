@@ -1623,13 +1623,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	spans = list("glossy")
 
 //reward for SomeRandomOwl
-/obj/item/clothing/head/costume/strigihat
+/obj/item/clothing/head/costume/owlhat
 	name = "starry witch hat"
-	desc = "A cute witch hat typically worn by an owl-like teshari."
+	desc = "A cute witch hat typically worn by a random owl that can sometimes be spotted on station."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/donator/mob/clothing/head_teshari.dmi'
-	icon_state = "strigihat"
+	icon_state = "owlhat"
+	worn_y_offset = 2
 
 //Donation reward for Razurath
 /obj/item/clothing/head/razurathhat
@@ -2044,3 +2045,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tacticool_skirtleneck_long"
 	unique_reskin = null
+
+// donator reward for AlvCyktor
+/obj/item/clothing/under/techpants
+	name = "techwear pants"
+	desc = "A pair of pants with some belts and fake pouches for added aesthetics."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "techpants"
+	can_adjust = FALSE
+
+/obj/item/storage/backpack/satchel/drop_pouch
+	name = "drop pouch"
+	desc = "A tactical pouch attached to a belt."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
+	icon_state = "dropbag"
+

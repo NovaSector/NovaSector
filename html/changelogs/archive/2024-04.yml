@@ -867,3 +867,89 @@
   Rhials:
   - bugfix: Fake handcuffs/Zipties no longer block clicks for a few seconds after
       being resisted out of.
+2024-04-26:
+  Bisar:
+  - bugfix: AI controlled monkeys are no longer catatonic, and they have primal eyes
+      again when turned into humans.
+  - spellcheck: Noticable organs now have more modular grammar, and their current
+      grammar is fixed.
+  - refactor: Refactored the code for displaying the messages for noticable organs.
+  - config: Added a documented define of all our pronouns
+  LT3:
+  - balance: ChemMaster can again print a maximum of 50 pills/patches per run
+  - balance: Higher tier servos increase ChemMaster printing speed
+  NovaBot13:
+  - bugfix: The rebar crossbows now properly loosen their bowstring upon firing.
+  - bugfix: Restored silicon alt-clicking capability
+  - bugfix: The plasma flower modsuit core now actually contains a reasonable quantity
+      of power.
+  - bugfix: fixed cyborg bonesetter not working for compound fractures
+  - bugfix: butchering not disabling in cyborg omnitool
+  - bugfix: fixes a bug where if you select the omnitool it would be stuck in surgery
+      initiator mode
+  - bugfix: cautery in off hand for cyborg omnitools not working
+  - bugfix: all bots have their normal accesses restored
+2024-04-27:
+  Chelxox:
+  - bugfix: Latex straight jacket and ball mittens don't block your hands after you
+      break out of them anymore
+  Melbert:
+  - qol: Coughing will now no longer print to chat, IE, it is runechat only. If you
+      have runechat emotes disabled, however, it will still print to chat.
+  - qol: Snapping now has a visual component.
+  - bugfix: All emotes are no longer considered audible, meaning blind people go back
+      to not being able to see people do flips and jumps
+  - bugfix: However, blind people are now told when they do a visible emote like flipping
+      (because they can, obviously, feel themselves flipping). Likewise, deaf people
+      are told when they do some audible emotes, like coughing or screaming.
+  grungussuss:
+  - rscadd: whistle emote
+  - refactor: Refactored how laugh, sneeze, cough and cry sound is called in the code,
+      report strange behavior with these emotes.
+  - sound: added sounds for whistle, cry, cough, sneeze, laugh for moths and lizards
+      emotes
+2024-04-28:
+  AlvCyktor:
+  - rscadd: Donator item for myself
+  FlufflesTheDog:
+  - qol: ashwalker's pet chicken lays hardier chicks
+  - qol: ashwalkers can how understand their pet chickens
+  - bugfix: simple farm/ash farm examine messages make more sense
+  - qol: worm fertilizer works better on simple farms and won't be wasted if it can't
+      be used
+  Melbert:
+  - bugfix: Midround malf can roll again
+  NovaBot13:
+  - bugfix: Removed a power loop on icebox
+  - bugfix: Disconnected aux power smes from icebox grid at roundstart
+  - bugfix: Removed some power cables connecting Deltastation's aux power
+  - bugfix: Fixed tramstation's gravity generator SMES, now functions and charged
+      at roundstart.
+  - bugfix: NorthStar's gravity generator SMES is now properly charged at roundstart
+  - rscadd: New heavy weight pirates, medieval warmongers
+  - rscadd: Adds military spear, shortsword, boarding axe, kite shields
+  - rscadd: Adds warlord and crude armor
+  - rscadd: Adds medieval shuttle (made by striders18)
+  - rscadd: Adds a higher capacity SMES unit to lower maintenance areas and maps.
+  - bugfix: Miners can actually access and fix their engineering issues on the lavaland
+      base via the engineering section of the base.
+  - bugfix: The gulag SMES unit is no longer needlessly draining the entire power
+      grid of the main mining base.
+  - bugfix: fixes mobs getting stuck trying to reach something unreachable
+  - bugfix: Fixes clipping in the ESC menu between buttons and long station names.
+  - bugfix: Spraycan no longer spams your chat when you mouse over it.
+  Rhials:
+  - bugfix: Overwatch Intelligence Agents no longer get their own uplinks, leading
+      to a self-replicating grey goo scenario.
+  SomeRandomOwl:
+  - rscadd: Ouroboros now has light switches.
+  - rscadd: Lizard laugh is now a selectable laugh in the character creator
+  aKromatopzia:
+  - bugfix: puts the teshari leg-organ movespeed modifier on the raptor cybernetics
+  grungussuss:
+  - bugfix: fixed being able to install multiple of the same upgrade to medical cyborgs
+  honkpocket:
+  - qol: All lipstick colors are now available in the loadout, quantum is still barber
+      vendor only
+  nikothedude:
+  - rscadd: Fragile now has quirk customization
