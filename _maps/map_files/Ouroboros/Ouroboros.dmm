@@ -45260,20 +45260,15 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/service)
 "nag" = (
-/obj/item/wrench,
-/obj/item/stack/sheet/glass{
-	amount = 30
+/obj/structure/closet/cabinet,
+/obj/item/circuitboard/machine/dish_drive,
+/obj/item/etherealballdeployer,
+/obj/item/roulette_wheel_beacon,
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 1
 	},
-/obj/item/stack/sheet/iron{
-	amount = 30
-	},
-/obj/item/stack/cable_coil,
-/obj/item/stack/cable_coil,
-/obj/structure/closet,
-/obj/item/vending_refill/cigarette,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/service/bar)
+/turf/open/floor/wood/tile,
+/area/station/maintenance/port/central)
 "nal" = (
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/structure/cable,
@@ -68896,13 +68891,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "ueA" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
 	},
-/obj/structure/closet/cabinet,
-/obj/item/roulette_wheel_beacon,
-/obj/item/circuitboard/machine/dish_drive,
-/obj/item/etherealballdeployer,
 /turf/open/floor/wood/tile,
 /area/station/service/bar)
 "ueK" = (
@@ -70989,9 +70980,19 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "uJh" = (
-/obj/structure/table/wood,
-/obj/effect/turf_decal/siding/wood/end,
-/turf/open/floor/wood/tile,
+/obj/structure/closet,
+/obj/item/vending_refill/cigarette,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/sheet/iron{
+	amount = 30
+	},
+/obj/item/stack/sheet/glass{
+	amount = 30
+	},
+/obj/item/wrench,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/service/bar)
 "uJk" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
@@ -81903,6 +81904,11 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/pharmacy)
+"xPz" = (
+/obj/effect/spawner/random/maintenance/three,
+/obj/effect/spawner/random/structure/closet_maintenance,
+/turf/open/floor/plating,
+/area/station/maintenance/port/central)
 "xPB" = (
 /obj/structure/railing{
 	dir = 1
@@ -109326,7 +109332,7 @@ dJi
 dIb
 gYP
 wiu
-nag
+hRy
 xCS
 xCS
 xCS
@@ -110343,7 +110349,7 @@ hKI
 xvW
 wLJ
 llT
-bgt
+xPz
 jpx
 mIs
 blS
@@ -110351,7 +110357,7 @@ tZn
 kQv
 cLC
 fsm
-fsm
+nag
 ueA
 hEN
 hRy
@@ -110607,7 +110613,7 @@ nRh
 nRh
 iCU
 fOn
-cSh
+fsm
 fsm
 fsm
 hpL
