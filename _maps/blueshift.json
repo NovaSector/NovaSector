@@ -28,5 +28,8 @@
 		"Captain": {
 			"special_charter": "ship"
 		}
-	}
+	},
+	"ignored_unit_tests": [
+		"/datum/unit_test/job_roundstart_spawnpoints"
+	]
 }

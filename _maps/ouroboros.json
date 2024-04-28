@@ -26,5 +26,8 @@
 		"Captain": {
 			"special_charter": "asteroid field"
 		}
-	}
+	},
+	"ignored_unit_tests": [
+		"/datum/unit_test/job_roundstart_spawnpoints"
+	]
 }

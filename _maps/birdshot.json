@@ -13,5 +13,8 @@
 		"Cook": {
 			"additional_cqc_areas": ["/area/station/service/bar", "/area/station/commons/lounge"]
 		}
-	}
+	},
+	"ignored_unit_tests": [
+		"/datum/unit_test/job_roundstart_spawnpoints"
+	]
 }

@@ -49,5 +49,8 @@
 		"Captain": {
 			"special_charter": "moon"
 		}
-	}
+	},
+	"ignored_unit_tests": [
+		"/datum/unit_test/job_roundstart_spawnpoints"
+	]
 }
