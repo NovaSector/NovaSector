@@ -1224,11 +1224,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "uW" = (
-/mob/living/basic/chicken{
-	name = "\improper gunther";
-	desc = "An odd looking gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that.";
-	unsuitable_atmos_damage = 0
-	},
+/mob/living/basic/chicken/gunther,
 /obj/structure/railing/wooden_fencing/gate{
 	dir = 1
 	},

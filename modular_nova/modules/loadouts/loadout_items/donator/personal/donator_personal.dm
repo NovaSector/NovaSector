@@ -660,7 +660,7 @@
 
 /datum/loadout_item/head/somerandomowl
 	name = "Starry Witch Hat"
-	item_path = /obj/item/clothing/head/costume/strigihat
+	item_path = /obj/item/clothing/head/costume/owlhat
 	ckeywhitelist = list("somerandomowl")
 
 /datum/loadout_item/head/razurathhat
@@ -783,3 +783,13 @@
 	name = "Mr. Fluff"
 	item_path = /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
 	ckeywhitelist = list("centralsmith")
+
+/datum/loadout_item/under/jumpsuit/techpants
+    name = "Techwear Pants"
+    item_path = /obj/item/clothing/under/techpants
+    ckeywhitelist = list("alvcyktor")
+
+/datum/loadout_item/inhand/drop_pouch
+    name = "Drop Pouch"
+    item_path = /obj/item/storage/backpack/satchel/drop_pouch
+    ckeywhitelist = list("alvcyktor")
