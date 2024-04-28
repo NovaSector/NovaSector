@@ -10,7 +10,7 @@
 	ex_dev = 0
 	ex_heavy = 0
 	ex_light = 2
-	ex_flame = 2
+	ex_flame = 0
 	/// Can this grenade explode on impact yet?
 	var/impact_explosion_ready = FALSE
 
@@ -42,7 +42,7 @@
 	ex_dev = 0
 	ex_heavy = 0
 	ex_light = 3
-	ex_flame = 4
+	ex_flame = 0
 	/// Can this grenade explode on impact yet?
 	var/impact_explosion_ready = FALSE
 
