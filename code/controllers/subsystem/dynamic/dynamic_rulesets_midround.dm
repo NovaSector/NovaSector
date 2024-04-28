@@ -68,7 +68,6 @@
 			trimmed_list.Remove(creature)
 			continue
 		if(!creature.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
-			GLOB.debug_dynamic_be_antag_disabled += creature.client.ckey // For debugging purposes
 			trimmed_list.Remove(creature)
 			continue
 		//NOVA EDIT END
@@ -98,7 +97,6 @@
 		if(HAS_TRAIT(creature, TRAIT_TEMPORARY_BODY)) // are they an avatar?
 			trimmed_list.Remove(creature)
 			continue
-	message_admins("DYNAMIC DEBUG, SAFE TO IGNORE: There are currently [trimmed_list.len] valid candidates for the [name] ruleset. [required_candidates] are needed. [length(GLOB.debug_dynamic_be_antag_disabled)] have antag preferences disabled.") //STRICTLY FOR DEBUGGING PURPOSES ONLY ON LIVE SERVER NEED TO CHECK IF THINGS ARE READING PROPERLY
 	return trimmed_list
 
 // You can then for example prompt dead players in execute() to join as strike teams or whatever
