@@ -1,5 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "simple farm/ash farm examine messages make more sense"
-  - qol: "worm fertilizer works better on simple farms and won't be wasted if it can't be used"

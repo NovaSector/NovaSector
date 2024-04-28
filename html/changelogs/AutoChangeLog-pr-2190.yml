@@ -1,4 +1,0 @@
-author: "aKromatopzia"
-delete-after: True
-changes:
-  - bugfix: "puts the teshari leg-organ movespeed modifier on the raptor cybernetics"
