@@ -19,8 +19,8 @@
 	wound = WOUND_ARMOR_HIGH
 
 /obj/item/clothing/suit/armor/lethal_filtre
-	name = "'Firuta' type IV full armor kit"
-	desc = "A heavy full kit of armor for protecting every part of your body but the head with exceptional plating. \
+	name = "'Firuta' type IV high mobility armor kit"
+	desc = "A heavy full kit of armor for protecting every part of your body but the head and legs with exceptional plating. \
 		The armor's excessive bulk, however, makes the kit slow to move in. A small price to pay for such superior protection."
 	icon = 'modular_np_lethal/armor_but_cool/icons/armor.dmi'
 	icon_state = "filtre_light"
@@ -30,10 +30,10 @@
 	armor_type = /datum/armor/armor_lethal_giga_larp
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
-	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	body_parts_covered = CHEST|GROIN|ARMS
 	max_integrity = 1200
 	limb_integrity = 900
-	slowdown = 0.75
+	slowdown = 0.5
 	repairable_by = /obj/item/stack/medical/wound_recovery/robofoam_super
 	equip_delay_self = 10 SECONDS
 
@@ -72,6 +72,7 @@
 		The armor's insane bulk, however, makes the kit extremely slow to move in. A small price to pay for such superior protection."
 	icon_state = "filtre_heavy"
 	armor_type = /datum/armor/armor_lethal_filtre_super
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	slowdown = 1.25
 	max_integrity = 1600
 	limb_integrity = 1100
