@@ -7,7 +7,7 @@
 	fixed_mut_color = "#DBBF92"
 	hair_color = "#FF4B19" //cap color, spot color uses eye color
 
-	external_organs = list(/obj/item/organ/external/mushroom_cap = "Round")
+	//external_organs = list(/obj/item/organ/external/mushroom_cap = "Round") // NOVA EDIT REMOVAL - Customization (it messes up unit tests.)
 
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
@@ -81,7 +81,7 @@
 	feature_key = "caps"
 
 /datum/bodypart_overlay/mutant/mushroom_cap/get_global_feature_list()
-	return GLOB.sprite_accessories["caps"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.caps_list
+	return GLOB.sprite_accessories["caps"] // NOVA EDIT CHANGE - Customization - ORIGINAL: return GLOB.caps_list
 
 /datum/bodypart_overlay/mutant/mushroom_cap/can_draw_on_bodypart(mob/living/carbon/human/human)
 	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
