@@ -608,6 +608,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * Arguments:
  * * species_human - Human, whoever we're handling the body for
  */
+//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
+/*
 /datum/species/proc/handle_body(mob/living/carbon/human/species_human)
 	species_human.remove_overlay(BODY_LAYER)
 	var/height_offset = species_human.get_top_offset() // From high changed by varying limb height
@@ -708,7 +710,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * * H - Human, whoever we're handling the body for
  * * forced_colour - The forced color of an accessory. Leave null to use mutant color.
  */
-/* NOVA EDIT REMOVAL - Customization - Moved to modular
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	var/list/bodyparts_to_add = mutant_bodyparts.Copy()
 	var/list/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
