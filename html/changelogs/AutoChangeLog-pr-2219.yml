@@ -1,0 +1,5 @@
+author: "chestlet"
+delete-after: True
+changes:
+  - qol: "Feline Traits now gives a cat tongue"
+  - qol: "Cat tongue now has special saymods"

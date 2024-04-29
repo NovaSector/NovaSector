@@ -10,25 +10,36 @@
 	use_power = FALSE
 	circuit = null
 	resistance_flags = FIRE_PROOF
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
 
 /obj/machinery/primitive_stove/Initialize(mapload)
 	. = ..()
+	var/obj/item/reagent_containers/cup/soup_pot/mapload_container
+	if(mapload)
+		mapload_container = new(loc)
 
-	AddComponent(/datum/component/stove/primitive, container_x = -7, container_y = 7, spawn_container = new /obj/item/reagent_containers/cup/soup_pot)
+	AddComponent(/datum/component/stove/primitive, container_x = -7, container_y = 7, spawn_container = mapload_container)
 
 /obj/machinery/primitive_stove/examine(mob/user)
 	. = ..()
 
 	. += span_notice("It can be taken apart with a <b>crowbar</b>.")
 
+// formerly NO_DECONSTRUCTION
+/obj/machinery/primitive_stove/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/primitive_stove/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
 /obj/machinery/primitive_stove/crowbar_act(mob/living/user, obj/item/tool)
 	user.balloon_alert_to_viewers("disassembling...")
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
-	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/primitive_stove/on_deconstruction(disassembled)
+	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 
 /// Stove component subtype with changed visuals and not much else
 /datum/component/stove/primitive
