@@ -16,6 +16,7 @@
 /turf/open/floor/iron/shuttle/arrivals,
 /area/shuttle/arrival)
 "d" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "8,0"
 	},
@@ -36,6 +37,7 @@
 	},
 /area/shuttle/arrival)
 "h" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "4,0"
 	},
@@ -98,6 +100,7 @@
 /turf/open/floor/iron/shuttle/arrivals,
 /area/shuttle/arrival)
 "t" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "5,0"
 	},
@@ -125,6 +128,7 @@
 /turf/closed/wall/mineral/titanium/shuttle_wall/arrivals,
 /area/shuttle/arrival)
 "z" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "8,4"
 	},
@@ -150,6 +154,7 @@
 	},
 /area/shuttle/arrival)
 "H" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "7,4"
 	},
@@ -160,6 +165,7 @@
 	},
 /area/shuttle/arrival)
 "J" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "7,0"
 	},
@@ -193,11 +199,13 @@
 /turf/open/floor/iron/shuttle/arrivals,
 /area/shuttle/arrival)
 "P" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "5,4"
 	},
 /area/shuttle/arrival)
 "Q" = (
+/obj/structure/fans/tiny/invisible,
 /turf/closed/wall/mineral/titanium/shuttle_wall/window/arrivals{
 	icon_state = "4,4"
 	},
@@ -218,6 +226,7 @@
 /area/shuttle/arrival)
 "U" = (
 /obj/machinery/door/airlock/external,
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/shuttle/arrivals,
 /area/shuttle/arrival)
 "V" = (

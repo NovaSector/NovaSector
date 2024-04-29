@@ -119,10 +119,16 @@
 /area/shuttle/arrival)
 "W" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/plating,
 /area/shuttle/arrival)
 "Y" = (
 /obj/structure/closet/wardrobe/mixed,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/arrival)
+"Z" = (
+/obj/machinery/door/airlock/titanium/glass,
+/obj/structure/fans/tiny,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 
@@ -181,13 +187,13 @@ b
 a
 "}
 (7,1,1) = {"
-V
+Z
 M
 U
 U
 U
 M
-V
+Z
 "}
 (8,1,1) = {"
 a
@@ -226,13 +232,13 @@ I
 a
 "}
 (12,1,1) = {"
-V
+Z
 M
 M
 M
 M
 M
-V
+Z
 "}
 (13,1,1) = {"
 a
