@@ -4,6 +4,8 @@
 // Clock cult's faction
 #define FACTION_CLOCK "clock"
 
+// Antag factions
+#define FACTION_SAPPER "sapper"
 #define FACTION_RAIDER "raider"
 
 // Tarkon faction
