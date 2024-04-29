@@ -78,7 +78,7 @@
 		return
 
 	if(bodypart_overlay.imprint_on_next_insertion) //We only want this set *once*
-		var/feature_name = receiver.dna.features[bodypart_overlay.feature_key]
+		var/feature_name = receiver.dna.features[bodypart_overlay.feature_key] || receiver.dna.species.external_organs[type] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = receiver.dna.features[bodypart_overlay.feature_key]
 		if (isnull(feature_name))
 			bodypart_overlay.set_appearance_from_dna(receiver.dna) // NOVA EDIT CHANGE - ORIGINAL: feature_name = receiver.dna.species.external_organs[type]
 		// NOVA EDIT CHANGE START - Puts the following line in an else block
