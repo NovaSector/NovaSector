@@ -16,7 +16,7 @@
 		// Grenades
 		/datum/crafting_bench_recipe_real/offensive_impact,
 		/datum/crafting_bench_recipe_real/defensive_impact,
-		/datum/crafting_bench_recipe_real/smoke_grenade
+		/datum/crafting_bench_recipe_real/smoke_grenade,
 		/datum/crafting_bench_recipe_real/pipe_bomb,
 		/datum/crafting_bench_recipe_real/stingbang,
 		/datum/crafting_bench_recipe_real/flashbang,
