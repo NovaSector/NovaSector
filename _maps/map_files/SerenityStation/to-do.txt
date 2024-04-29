@@ -1,13 +1,10 @@
 serenitystation to do list
 
 -fix disposals stacker
--fix labor shuttle
 -Stress test science
--BZ floor decal (for xenobio) and icon state for areas (cyborg dorms and cargo project)
 -underground caves map gen
 -no mountain map gen (for near solars)
--make turf farmable
--assistant spawns and all spawns check 
+-make farmed turf look good
 -ruins:
 	-abandoned friendly deer monster
 	-broken shuttle
@@ -15,25 +12,15 @@ serenitystation to do list
 	-cabin 
 -station improvements
 	-cameras
-	-disposals
 	-wall mounts 
-	-navigation points and stuff
 	-requests panels
 	-hallways
 	-fix lightswitches
 -missing rooms 
 	**Main
-	-arrivals ship docks (maybe on sat station) 
-	-more escape pods
-	
-	**satellite station 
-	-ship docks
-	-security checkpoint
-	-power/grav 
-	-lounge/aux dorm 
+	-more escape pods (add one to sat station)  
 	
 	**Maints rooms 
-	-disposals
 	-maints kitchen
 	-maints bar
 	-maints robotics
@@ -46,5 +33,3 @@ serenitystation to do list
 	-maints eva
 	-gambling den 
 	-solars
-	
-	**satellite station 
