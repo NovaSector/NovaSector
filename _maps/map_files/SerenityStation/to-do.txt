@@ -1,0 +1,35 @@
+serenitystation to do list
+
+-fix disposals stacker
+-Stress test science
+-underground caves map gen
+-no mountain map gen (for near solars)
+-make farmed turf look good
+-ruins:
+	-abandoned friendly deer monster
+	-broken shuttle
+	-... working shuttle? 
+	-cabin 
+-station improvements
+	-cameras
+	-wall mounts 
+	-requests panels
+	-hallways
+	-fix lightswitches
+-missing rooms 
+	**Main
+	-more escape pods (add one to sat station)  
+	
+	**Maints rooms 
+	-maints kitchen
+	-maints bar
+	-maints robotics
+	-maints botany
+	-date spots
+	-maints medbay 
+	-abandoned office 
+	-maints cafe
+	-cabins
+	-maints eva
+	-gambling den 
+	-solars
