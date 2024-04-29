@@ -1,5 +1,0 @@
-author: "SomeRandomOwl"
-delete-after: True
-changes:
-  - qol: "People who decline polls for sleeper agent will be considered ineligible for all future rolls for the round"
-  - admin: "Sleeper agent polls should ignore people who are currently getting polled in the case more than one are rolled."

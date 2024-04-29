@@ -953,3 +953,28 @@
       vendor only
   nikothedude:
   - rscadd: Fragile now has quirk customization
+2024-04-29:
+  Melbert:
+  - bugfix: Plasma cutters work again
+  NovaBot13:
+  - bugfix: Mech domination now properly integrates with shunting.
+  - bugfix: Combat upgraded AIs no longer get two buggy malf ability pickers if they
+      also become malfunctioning
+  - refactor: Refactored most of the functionality around malf AI shunting, mech control
+  - bugfix: Examining someone with Med/Sec HUDs will no longer filter the message
+      under Radio.
+  - bugfix: pAI requests should no longer randomly permanently break in a round.
+  - admin: Possess Object is now back in the right-click context menu.
+  - image: The Infiltrator Suit has received a new model, sleeker than ever!
+  - bugfix: minebot shields are now actually orderable
+  - bugfix: vinegar may once again be crafted with wine, water, and sugar
+  - bugfix: All alert polls ignore option works
+  - admin: spy can now be rolebanned
+  Rhials:
+  - admin: Lazy loading map templates now gives you the option to not ghost/teleport
+      to the loaded area upon completion.
+  SomeRandomOwl:
+  - qol: People who decline polls for sleeper agent will be considered ineligible
+      for all future rolls for the round
+  - admin: Sleeper agent polls should ignore people who are currently getting polled
+      in the case more than one are rolled.
