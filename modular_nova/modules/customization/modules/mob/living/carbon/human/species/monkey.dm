@@ -1,8 +1,3 @@
-/datum/species/monkey/get_default_mutant_bodyparts()
-	return list(
-		"tail" = list("Monkey", FALSE),
-	)
-
 /datum/species/monkey/randomize_features()
 	var/list/features = ..()
 	features["tail"] = pick(GLOB.tails_list_monkey - list("None")) // No tail-less monkeys.
