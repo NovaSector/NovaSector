@@ -1,7 +1,5 @@
 /datum/emote/living/scream
 	vary = TRUE
-
-/datum/emote/living/scream
 	mob_type_blacklist_typecache = list(/mob/living/carbon/human, /mob/living/basic/slime, /mob/living/brain) //Humans get specialized scream.
 
 /datum/emote/living/scream/get_sound(mob/living/user)
@@ -15,6 +13,11 @@
 		return 'sound/creatures/gorilla.ogg'
 	if(isalien(user))
 		return 'sound/voice/hiss6.ogg'
+	if(ishuman(user))
+		var/datum/emote/living/carbon/human/scream/human_scream = new
+		. = human_scream.get_sound(user)
+		qdel(human_scream)
+		return
 
 /datum/emote/living/scream/can_run_emote(mob/living/user, status_check, intentional)
 	if(iscyborg(user))
@@ -31,11 +34,11 @@
 		return
 	if(user.is_muzzled())
 		return
-	if(isnull(user.selected_scream)) //For things that don't have a selected scream(npcs)
+	if(isnull(user.selected_scream) || (LAZYLEN(user.selected_scream.male_screamsounds) && LAZYLEN(user.selected_scream.female_screamsounds))) //For things that don't have a selected scream(npcs)
 		if(prob(1))
 			return 'sound/voice/human/wilhelm_scream.ogg'
 		return user.dna.species.get_scream_sound(user)
-	if(user.physique == MALE || !LAZYLEN(user.selected_scream.female_screamsounds))
-		return pick(user.selected_scream.male_screamsounds)
-	else
+	if(user.physique == FEMALE && LAZYLEN(user.selected_scream.female_screamsounds))
 		return pick(user.selected_scream.female_screamsounds)
+	else
+		return pick(user.selected_scream.male_screamsounds)
