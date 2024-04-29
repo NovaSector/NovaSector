@@ -3,10 +3,10 @@
 
 	mutantpart_key = "caps"
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list("#FF4B19"))
+	slot = ORGAN_SLOT_EXTERNAL_CAP
 	preference = "feature_caps"
 
 /datum/bodypart_overlay/mutant/mushroom_cap
-	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_OVERRIDE
 	draw_color = "#FF4B19"
 
