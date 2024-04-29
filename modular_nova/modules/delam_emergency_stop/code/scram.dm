@@ -39,6 +39,7 @@
 	shift_underlay_only = FALSE
 	hide = TRUE
 	piping_layer = PIPING_LAYER_MAX
+	pipe_flags = NONE
 	pipe_state = "injector"
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF | UNACIDABLE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 4
@@ -63,7 +64,7 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/atmospherics/components/unary/delam_scram/LateInitialize()
+/obj/machinery/atmospherics/components/unary/delam_scram/post_machine_initialize()
 	. = ..()
 	if(isnull(id_tag))
 		id_tag = "SCRAM"
@@ -189,6 +190,7 @@
 
 	// Fire bell close, that nice 'are we gonna die?' rumble out far
 	on = TRUE
+	SSpersistence.reset_delam_counter()
 	alert_sound_to_playing('sound/misc/earth_rumble_distant3.ogg', override_volume = TRUE)
 	update_appearance()
 
@@ -387,7 +389,7 @@
 	else if(machine_stat & (NOPOWER|BROKEN))
 		icon_state += "-nopower"
 
-/obj/machinery/power/emitter/LateInitialize(mapload)
+/obj/machinery/power/emitter/post_machine_initialize(mapload)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_MAIN_SM_DELAMINATING, PROC_REF(emergency_stop))
 
@@ -460,6 +462,13 @@
 		return UI_CLOSE
 
 	return ..()
+
+/// Resets the safety incident display internal counter back to -1 (delam event happened)
+/datum/controller/subsystem/persistence/proc/reset_delam_counter()
+	delam_highscore = rounds_since_engine_exploded
+	rounds_since_engine_exploded = -1
+	for(var/obj/machinery/incident_display/sign as anything in GLOB.map_delamination_counters)
+		sign.update_delam_count(rounds_since_engine_exploded)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/atmospherics/components/unary/delam_scram, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/delam_procedure, 32)

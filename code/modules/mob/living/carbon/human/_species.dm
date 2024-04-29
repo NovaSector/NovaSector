@@ -431,7 +431,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			replacement.Insert(organ_holder, special=TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/species/proc/worn_items_fit_body_check(mob/living/carbon/wearer)
-	for(var/obj/item/equipped_item in wearer.get_all_worn_items())
+	for(var/obj/item/equipped_item in wearer.get_equipped_items(include_pockets = TRUE))
 		var/equipped_item_slot = wearer.get_slot_by_item(equipped_item)
 		if(!equipped_item.mob_can_equip(wearer, equipped_item_slot, bypass_equip_delay_self = TRUE, ignore_equipped = TRUE))
 			wearer.dropItemToGround(equipped_item, force = TRUE)
@@ -1120,7 +1120,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		attacking_bodypart = brain.get_attacking_limb(target)
 	if(!attacking_bodypart)
 		attacking_bodypart = user.get_active_hand()
-	var/atk_verb = attacking_bodypart.unarmed_attack_verb
+	var/atk_verb = pick(attacking_bodypart.unarmed_attack_verbs)
 	var/atk_effect = attacking_bodypart.unarmed_attack_effect
 
 	if(atk_effect == ATTACK_EFFECT_BITE)
@@ -1197,6 +1197,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	//This does not work against opponents who are knockdown immune, such as from wearing riot armor.
 	if(!HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
 		if((target.stat != DEAD) && prob(limb_accuracy) || (target.stat != DEAD) && staggered && (target.getStaminaLoss() + user.getBruteLoss()) >= 40)
+			// NOVA EDIT ADD START
+			if(target.try_nut_shot(user))
+				return
+			// NOVA EDIT ADD END
 			target.visible_message(span_danger("[user] knocks [target] down!"), \
 							span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, span_danger("You knock [target] down!"))
@@ -1643,8 +1647,24 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/prepare_human_for_preview(mob/living/carbon/human/human)
 	return
 
-/// Returns the species's scream sound.
+/// Returns the species' scream sound.
 /datum/species/proc/get_scream_sound(mob/living/carbon/human/human)
+	return
+
+/// Returns the species' cry sound.
+/datum/species/proc/get_cry_sound(mob/living/carbon/human/human)
+	return
+
+/// Returns the species' cough sound.
+/datum/species/proc/get_cough_sound(mob/living/carbon/human/human)
+	return
+
+/// Returns the species' laugh sound
+/datum/species/proc/get_laugh_sound(mob/living/carbon/human/human)
+	return
+
+/// Returns the species' sneeze sound.
+/datum/species/proc/get_sneeze_sound(mob/living/carbon/human/human)
 	return
 
 /datum/species/proc/get_types_to_preload()
