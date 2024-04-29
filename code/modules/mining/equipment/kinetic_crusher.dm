@@ -46,6 +46,14 @@
 		speed = 6 SECONDS, \
 		effectiveness = 110, \
 	)
+	// NOVA EDIT ADDITION - BEGIN
+	if(!overrides_main)
+		AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
+		AddComponent(/datum/component/butchering, \
+			speed = 6 SECONDS, \
+			effectiveness = 110, \
+	)
+	// NOVA EDIT ADDITION - END
 	//technically it's huge and bulky, but this provides an incentive to use it
 	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
 	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
@@ -84,7 +92,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/kinetic_crusher/attack(mob/living/target, mob/living/carbon/user)
-	if(!HAS_TRAIT(src, TRAIT_WIELDED))
+	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !overrides_twohandrequired) // NOVA EDIT ADDITION - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		to_chat(user, span_warning("[src] is too heavy to use with one hand! You fumble and drop everything."))
 		user.drop_all_held_items()
 		return
@@ -142,7 +150,7 @@
 	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 /obj/item/kinetic_crusher/afterattack_secondary(atom/target, mob/living/user, proximity_flag, click_parameters)
-	if(!HAS_TRAIT(src, TRAIT_WIELDED))
+	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !overrides_twohandrequired) // NOVA EDIT CHANGE ADDITION - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		balloon_alert(user, "wield it first!")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(target == user)
@@ -188,8 +196,15 @@
 	return COMSIG_SABOTEUR_SUCCESS
 
 /obj/item/kinetic_crusher/update_icon_state()
+	// NOVA EDIT CHANGE - BEGIN ORIGINAL:
+	/*
 	inhand_icon_state = "crusher[HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
 	return ..()
+	*/
+	if(!override_twohandedsprite)
+		inhand_icon_state = "crusher[HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
+		return ..()
+	// NOVA EDIT CHANGE - END
 
 /obj/item/kinetic_crusher/update_overlays()
 	. = ..()
