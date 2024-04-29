@@ -1,14 +1,8 @@
 /datum/emote/living/scream
 	vary = TRUE
 
-/datum/emote/living/scream/New()
-	mob_type_blacklist_typecache += list(/mob/living/basic/slime, /mob/living/brain)
-	return ..()
-
-/datum/emote/living/scream/select_message_type(mob/user, intentional)
-	if(user.is_muzzled())
-		return "makes a very loud muffled noise from their mouth."
-	return ..()
+/datum/emote/living/scream
+	mob_type_blacklist_typecache = list(/mob/living/carbon/human, /mob/living/basic/slime, /mob/living/brain) //Humans get specialized scream.
 
 /datum/emote/living/scream/get_sound(mob/living/user)
 	if(user.is_muzzled())

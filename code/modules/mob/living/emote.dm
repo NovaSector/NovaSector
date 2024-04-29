@@ -2,7 +2,7 @@
 /* EMOTE DATUMS */
 /datum/emote/living
 	mob_type_allowed_typecache = /mob/living
-	mob_type_blacklist_typecache = list(/mob/living/brain) //NOVA EDIT - OVERWIRTTEN BY `modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_mob.dm`
+	mob_type_blacklist_typecache = list(/mob/living/brain)
 
 /datum/emote/living/blush
 	key = "blush"
@@ -128,8 +128,6 @@
 	hands_use_check = TRUE
 	var/wing_time = 20
 
-//NOVA EDIT REMOVAL BEGIN - EMOTES - Not working due to modified mutant code, will be fixed later
-/*
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && ishuman(user))
@@ -141,16 +139,14 @@
 		if(istype(wings))
 			if(wings.wings_open)
 				open = TRUE
-				H.CloseWings()
+				wings.close_wings()
 			else
-				H.OpenWings()
+				wings.open_wings()
 			addtimer(CALLBACK(wings,  open ? TYPE_PROC_REF(/obj/item/organ/external/wings/functional, open_wings) : TYPE_PROC_REF(/obj/item/organ/external/wings/functional, close_wings)), wing_time)
 
 		// play moth flutter noise if moth wing
 		if(istype(wings, /obj/item/organ/external/wings/moth))
 			playsound(H, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE)
-*/
-//NOVA EDIT REMOVAL END
 
 /datum/emote/living/flap/aflap
 	key = "aflap"
@@ -277,6 +273,12 @@
 
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	return ..() && user.can_speak(allow_mimes = TRUE)
+
+/datum/emote/living/laugh/get_sound(mob/living/carbon/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/human_user = user
+	return human_user.dna.species.get_laugh_sound(user)
 
 /datum/emote/living/look
 	key = "look"
@@ -429,20 +431,6 @@
 	message_mime = "sniffs silently."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
-//NOVA EDIT ADDITION
-/datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(.)
-		var/turf/open/current_turf = get_turf(user)
-		if(istype(current_turf) && current_turf.pollution)
-			if(iscarbon(user))
-				var/mob/living/carbon/carbon_user = user
-				if(carbon_user.internal) //Breathing from internals means we cant smell
-					return
-				carbon_user.next_smell = world.time + SMELL_COOLDOWN
-			current_turf.pollution.smell_act(user)
-//NOVA EDIT END
-
 /datum/emote/living/snore
 	key = "snore"
 	key_third_person = "snores"
@@ -473,14 +461,12 @@
 	message = "puts their hands on their head and falls to the ground, they surrender%s!"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
-/*	NOVA EDIT CHANGE - MOVED TO combat_indicator.dm IN INDICATORS MODULE
 /datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(200)
 		L.remove_status_effect(/datum/status_effect/grouped/surrender)
-*/
 
 /datum/emote/living/sway
 	key = "sway"
@@ -574,8 +560,8 @@
 	key_third_person = "yawns"
 	message = "yawns."
 	message_mime = "acts out an exaggerated silent yawn."
-	message_robot = "synthesizes a yawn." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
-	message_AI = "synthesizes a yawns." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
+	message_robot = "symphathetically yawns."
+	message_AI = "symphathetically yawns."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	cooldown = 5 SECONDS
 
@@ -719,8 +705,7 @@
 		emote_type = user_emote_type
 	else if(type_override)
 		emote_type = type_override
-
-	message = user.say_emphasis(message) //NOVA EDIT ADDITION - EMOTES
+	message = user.say_emphasis(message) // NOVA EDIT ADDITION - EMOTES
 
 	. = ..()
 

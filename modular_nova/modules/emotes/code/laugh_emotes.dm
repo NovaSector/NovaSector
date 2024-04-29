@@ -1,6 +1,5 @@
-/datum/emote/living/laugh/New()
-	mob_type_allowed_typecache += list(/mob/living/silicon/pai)
-	return ..()
+/datum/emote/living/laugh
+	mob_type_allowed_typecache = list(/mob/living/carbon/human, /mob/living/silicon/pai)
 
 // This sucks and is not how we should be allowing pais to use these emotes
 /datum/emote/living/laugh/get_sound(mob/living/user)
@@ -11,8 +10,7 @@
 		if(!istype(pai_user))
 			return
 		return get_pai_laugh_sound(user)
-	if(human_user)
-		return human_user.dna.species.get_laugh_sound(user)
+	return human_user.dna.species.get_laugh_sound(user)
 
 /datum/emote/living/laugh/proc/get_pai_laugh_sound(mob/living/silicon/pai/user)
 	if(!istype(user))
@@ -31,7 +29,7 @@
 
 // use selected_laugh, otherwise for males use tg laugh females use our version
 /datum/species/human/get_laugh_sound(mob/living/carbon/human/human)
-	if(!ishuman(human))
+	if(!istype(human))
 		return
 	if(isnull(human.selected_laugh)) //For things that don't have a selected laugh(npcs)
 		if(human.physique == FEMALE)
@@ -40,11 +38,9 @@
 				'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg',
 
 			)
-		else
-			return ..()
+		return ..()
 
 	if(human.physique == MALE || !LAZYLEN(human.selected_laugh.female_laughsounds))
 		return pick(human.selected_laugh.male_laughsounds)
 	else
 		return pick(human.selected_laugh.female_laughsounds)
-	return
