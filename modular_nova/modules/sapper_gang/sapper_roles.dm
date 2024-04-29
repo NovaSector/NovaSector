@@ -1,10 +1,6 @@
-/datum/job/space_sapper
-	title = ROLE_SPACE_SAPPER
-	policy_index = ROLE_SPACE_SAPPER
-
 /obj/effect/mob_spawn/ghost_role/human/sapper
-	name = "sapper gang sleeper"
-	desc = "A cryo sleeper smelling faintly of rum."
+	name = "space sapper sleeper"
+	desc = "Try and say that three times in a row without stumbling over your own tongue."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	prompt_name = "a space sapper"
@@ -18,15 +14,22 @@
 	spawner_job_path = /datum/job/space_sapper
 	random_appearance = FALSE
 
-	///Path of the structure we spawn after creating a sapper.
-	var/fluff_spawn = /obj/structure/showcase/machinery/oldpod/used
-
 /obj/effect/mob_spawn/ghost_role/human/sapper/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
-	SSquirks.AssignQuirks(spawned_mob, spawned_mob.client, TRUE, TRUE, null, FALSE, spawned_mob)
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/sapper)
 
-/obj/effect/mob_spawn/ghost_role/human/sapper/create(mob/mob_possessor, newname)
-	if(fluff_spawn)
-		new fluff_spawn(drop_location())
-	return ..()
+/datum/crafting_recipe/credit_miner
+	name = "Credit-miner"
+	result = /obj/item/powersink/creditminer
+	time = 10 SECONDS
+	always_available = FALSE
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
+	reqs = list(
+		/obj/item/stack/cable_coil = 5,
+		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/mineral/uranium = 3,
+		/obj/item/stack/sheet/mineral/diamond = 2,
+		/obj/item/stack/sheet/bluespace_crystal = 1,
+		/obj/item/assembly/igniter/condenser = 1,
+	)
+	category = CAT_MISC

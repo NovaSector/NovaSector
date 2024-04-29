@@ -1,10 +1,11 @@
 /datum/antagonist/sapper
-	name = "\improper Sapper Gang"
+	name = "\improper Space Sapper"
 	job_rank = ROLE_TRAITOR
-	roundend_category = "sapper gang"
-	antagpanel_category = "Sapper Gang"
+	roundend_category = "space sappers"
+	antagpanel_category = "Space Sappers"
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
+	antag_recipes = list(/datum/crafting_recipe/credit_miner)
 	var/datum/team/sapper/gang
 
 /datum/antagonist/sapper/greet()
@@ -75,8 +76,3 @@
 	var/datum/objective/sapper/sapper_objective = locate() in objectives
 	parts += "Total cash out: [sapper_objective.get_loot_value()] credits"
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
-
-/datum/map_template/shuttle/pirate/sapper
-	prefix = "_maps/shuttles/nova/"
-	suffix = "sapper"
-	name = "Sapper ship (Default)"

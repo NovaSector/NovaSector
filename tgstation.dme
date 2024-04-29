@@ -8121,6 +8121,7 @@
 #include "modular_nova\modules\sapper_gang\sapper_event.dm"
 #include "modular_nova\modules\sapper_gang\sapper_outfits.dm"
 #include "modular_nova\modules\sapper_gang\sapper_roles.dm"
+#include "modular_nova\modules\sapper_gang\sapper_shuttle_equipment.dm"
 #include "modular_nova\modules\sapper_gang\code\creditminer.dm"
 #include "modular_nova\modules\sapper_gang\code\sapperpad.dm"
 #include "modular_nova\modules\science_tools\medical_tool_designs.dm"
