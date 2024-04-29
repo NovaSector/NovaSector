@@ -36,7 +36,6 @@
 	*/ //NOVA EDIT REMOVAL END
 	//bras
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/bra, GLOB.bra_list, GLOB.bra_m, GLOB.bra_f) // NOVA EDIT ADDITION
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/caps, GLOB.caps_list) // NOVA EDIT ADDITION
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings/moth, GLOB.moth_wings_list) // NOVA EDIT ADDITION - Customization
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE) // NOVA EDIT ADDITION - We don't want monkeys getting randomized non-monkey tails
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list, add_blank = TRUE) // NOVA EDIT - Customization - ORIGINAL: init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)

@@ -1,6 +1,7 @@
-/obj/item/organ/external/mushroom_cap
-	mutantpart_key = "cap"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list("#FF4B19"))
+/datum/species/mush/randomize_features()
+	var/list/features = ..()
+	features["caps"] = "Round" // No cap-less mushpeople
+	return features
 
 /datum/species/mush/prepare_human_for_preview(mob/living/carbon/human/shrooman)
 	shrooman.dna.mutant_bodyparts["caps"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list("#FF4B19"))

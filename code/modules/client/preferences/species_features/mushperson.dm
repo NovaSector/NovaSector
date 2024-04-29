@@ -1,3 +1,4 @@
+/* NOVA EDIT REMOVAL
 /datum/preference/choiced/mushroom_cap
 	savefile_key = "feature_mushperson_cap"
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -9,3 +10,4 @@
 
 /datum/preference/choiced/mushroom_cap/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["caps"] = value
+*/
