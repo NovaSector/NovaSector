@@ -44,6 +44,7 @@ GLOBAL_LIST_EMPTY(caps_list)
 //NOVA EDIT REMOVAL END
 GLOBAL_LIST_EMPTY(moth_wings_list) // NOVA EDIT ADDITION - Customization
 GLOBAL_LIST_EMPTY(tails_list_monkey) // NOVA EDIT ADDITION - Customization
+GLOBAL_LIST_EMPTY(caps_list) // NOVA EDIT ADDITION - Customization
 GLOBAL_LIST_EMPTY(pod_hair_list)
 
 GLOBAL_LIST_INIT(color_list_ethereal, list(
