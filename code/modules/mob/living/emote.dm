@@ -266,7 +266,6 @@
 		qdel(kiss_blower)
 		to_chat(user, span_warning("You're incapable of blowing a kiss in your current state."))
 
-/* NOVA EDIT REMOVAL - EMOTES - MOVED TO EMOTES.DM MODULAR
 /datum/emote/living/laugh
 	key = "laugh"
 	key_third_person = "laughs"
@@ -278,13 +277,6 @@
 
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	return ..() && user.can_speak(allow_mimes = TRUE)
-
-/datum/emote/living/laugh/get_sound(mob/living/carbon/user)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/human_user = user
-	return human_user.dna.species.get_laugh_sound(user)
-*/ //NOVA EDIT REMOVAL END
 
 /datum/emote/living/look
 	key = "look"

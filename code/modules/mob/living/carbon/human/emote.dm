@@ -125,12 +125,10 @@
 		return
 	return ..()
 
-/* - NOVA EDIT REMOVAL: EMOTES
 /datum/emote/living/carbon/human/scream/get_sound(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
 	return user.dna.species.get_scream_sound(user)
-*/
 
 /datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
 	key = "screech"

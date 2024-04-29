@@ -369,12 +369,6 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/caw2.ogg'
 
-/datum/emote/living/whistle
-	key = "whistle"
-	key_third_person = "whistles"
-	message = "whistles."
-	emote_type = EMOTE_AUDIBLE
-
 /datum/emote/living/blep
 	key = "blep"
 	key_third_person = "bleps"
@@ -546,7 +540,7 @@
 	key_third_person = "esighs"
 	message = "lets out an exasperated sigh."
 	emote_type = EMOTE_AUDIBLE
-	
+
 /datum/emote/living/sigh_exasperated/get_sound(mob/living/user)
 	if(iscarbon(user))
 		if(user.gender == MALE)
