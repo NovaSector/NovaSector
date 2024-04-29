@@ -61,7 +61,9 @@
 
 /obj/item/gakster_phone/proc/get_user()
 	var/mob/living/carbon/user = loc
-	return istype(user)
+	if(istype(user))
+		return user
+	return null
 
 /obj/item/gakster_phone/proc/can_call()
 	var/mob/living/user = loc
