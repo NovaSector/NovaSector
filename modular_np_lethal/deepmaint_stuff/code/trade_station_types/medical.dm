@@ -7,6 +7,9 @@
 	light_color = LIGHT_COLOR_GREEN
 
 	allowed_choices = list(
+		/datum/crafting_bench_recipe_real/premium_signalis_spray,
+		/datum/crafting_bench_recipe_real/captagon,
+		/datum/crafting_bench_recipe_real/combat_hypospray,
 		/datum/crafting_bench_recipe_real/medpen_kit,
 		/datum/crafting_bench_recipe_real/pocket_medkit_small,
 		/datum/crafting_bench_recipe_real/pocket_medkit,
@@ -21,6 +24,9 @@
 /obj/structure/epic_loot_crafting_bench/medical/examine_more(mob/user)
 	. = ..()
 
+	. += span_notice("<b>3</b> processor cores = <b>1</b> premium robotic repair spray")
+	. += span_notice("<b>1</b> press pass = <b>1</b> 'Sector 9 Special' autoinjector")
+	. += span_notice("<b>1</b> hard disk reader = <b>1</b> combat stimulant injector")
 	. += span_notice("<b>1</b> military flash drive = <b>1</b> autoinjector pouch")
 	. += span_notice("<b>1</b> general-purpose circuit board = <b>1</b> pocket first aid kit")
 	. += span_notice("<b>1</b> military grade circuit board = <b>1</b> pocket medical kit")
@@ -33,6 +39,30 @@
 	. += span_notice("<b>1</b> vein finder + <b>1</b> eye scope = <b>1</b> advanced satchel first aid kit")
 
 	return .
+
+// Medical consumable items
+
+/datum/crafting_bench_recipe_real/premium_signalis_spray
+	recipe_name = "premium robotic repair spray"
+	recipe_requirements = list(
+		/obj/item/epic_loot/processor = 3,
+	)
+	resulting_item = /obj/item/stack/medical/wound_recovery/robofoam_super
+
+/datum/crafting_bench_recipe_real/captagon
+	recipe_name = "'Sector 9 Special' autoinjector"
+	recipe_requirements = list(
+		/obj/item/epic_loot/press_pass = 1,
+	)
+	resulting_item = /obj/item/reagent_containers/hypospray/medipen/deforest/captagon
+
+
+/datum/crafting_bench_recipe_real/combat_hypospray
+	recipe_name = "combat stimulant injector"
+	recipe_requirements = list(
+		/obj/item/epic_loot/disk_drive = 1,
+	)
+	resulting_item = /obj/item/reagent_containers/hypospray/combat
 
 // Storage stuff
 

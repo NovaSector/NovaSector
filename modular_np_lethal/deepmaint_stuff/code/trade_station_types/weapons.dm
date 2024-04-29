@@ -16,12 +16,13 @@
 		// Grenades
 		/datum/crafting_bench_recipe_real/offensive_impact,
 		/datum/crafting_bench_recipe_real/defensive_impact,
+		/datum/crafting_bench_recipe_real/smoke_grenade
 		/datum/crafting_bench_recipe_real/pipe_bomb,
 		/datum/crafting_bench_recipe_real/stingbang,
 		/datum/crafting_bench_recipe_real/flashbang,
 		// Gun stuff
 		/datum/crafting_bench_recipe_real/suppressor,
-		/datum/crafting_bench_recipe_real/eland,
+		/datum/crafting_bench_recipe_real/zomushi,
 		/datum/crafting_bench_recipe_real/signalis_rifle,
 		/datum/crafting_bench_recipe_real/super_shotgun,
 		/datum/crafting_bench_recipe_real/seiba,
@@ -30,7 +31,7 @@
 		/datum/crafting_bench_recipe_real/sakhno,
 		/datum/crafting_bench_recipe_real/sakhno_larp,
 		/datum/crafting_bench_recipe_real/boxer,
-		/datum/crafting_bench_recipe_real/weevil,
+		/datum/crafting_bench_recipe_real/chokyu,
 		/datum/crafting_bench_recipe_real/suppressed_rifle,
 		/datum/crafting_bench_recipe_real/auto_shotgun,
 	)
@@ -45,6 +46,7 @@
 	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> implanted armblade")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive = <b>2</b> offensive impact grenades")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive + <b>1</b> box of nails = <b>2</b> defensive impact grenades")
+	. += span_notice("<b>1</b> slim diary = <b>2</b> smoke bombs")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> water filter = <b>2</b> improvised explosives")
 	. += span_notice("<b>1</b> thermometer + <b>1</b> box of nails = <b>2</b> sting bangs")
 	. += span_notice("<b>1</b> thermometer = <b>2</b> flashbangs")
@@ -56,11 +58,11 @@
 	. += span_notice("<b>1</b> graphics processor = <b>1</b> sindano submachinegun")
 	. += span_notice("<b>1</b> military circuit board + <b>1</b> civilian circuit board = <b>1</b> renoster shotgun")
 	. += span_notice("<b>1</b> processor core = <b>1</b> sakhno-xhihao rifle")
-	. += span_notice("<b>3</b> sealed diaries = <b>1</b> rengo precision rifle")
+	. += span_notice("<b>2</b> sealed diaries = <b>1</b> rengo precision rifle")
 	. += span_notice("<b>1</b> power supply + <b>1</b> disk drive = <b>1</b> bogseo submachinegun")
 	. += span_notice("<b>1</b> eyes = <b>1</b> zomushi pistol")
 	. += span_notice("<b>1</b> stomach = <b>1</b> ramu 6ga shotgun")
-	. += span_notice("<b>2</b> lungs = <b>1</b> yari suppressed rifle")
+	. += span_notice("<b>1</b> lungs = <b>1</b> yari suppressed rifle")
 	. += span_notice("<b>2</b> livers = <b>1</b> nomi repeating shotgun")
 
 	return .
@@ -129,6 +131,14 @@
 	resulting_item = /obj/item/grenade/frag/impact
 	amount_to_make = 2
 
+/datum/crafting_bench_recipe_real/smoke_grenade
+	recipe_name = "smoke grenade"
+	recipe_requirements = list(
+		/obj/item/epic_loot/slim_diary = 1,
+	)
+	resulting_item = /obj/item/grenade/smokebomb
+	amount_to_make = 2
+
 /datum/crafting_bench_recipe_real/pipe_bomb
 	recipe_name = "improvised explosive"
 	recipe_requirements = list(
@@ -164,10 +174,10 @@
 	)
 	resulting_item = /obj/item/suppressor/standard
 
-/datum/crafting_bench_recipe_real/eland
+/datum/crafting_bench_recipe_real/zomushi
 	recipe_name = "zomushi pistol"
 	recipe_requirements = list(
-		/obj/item/epic_loot/device_fan = 2,
+		/obj/item/epic_loot/device_fan = 1,
 	)
 	resulting_item = /obj/item/gun/ballistic/automatic/pistol/weevil
 
@@ -210,7 +220,7 @@
 /datum/crafting_bench_recipe_real/sakhno_larp
 	recipe_name = "rengo precision rifle"
 	recipe_requirements = list(
-		/obj/item/epic_loot/diary = 3,
+		/obj/item/epic_loot/diary = 2,
 	)
 	resulting_item = /obj/item/gun/ballistic/rifle/boltaction/sporterized
 
@@ -224,12 +234,12 @@
 
 // Guns that require killing your fellow man to attain
 
-/datum/crafting_bench_recipe_real/weevil
-	recipe_name = "zomushi pistol"
+/datum/crafting_bench_recipe_real/chokyu
+	recipe_name = "chokyu sniper rifle"
 	recipe_requirements = list(
 		/obj/item/organ/internal/eyes = 1,
 	)
-	resulting_item = /obj/item/gun/ballistic/automatic/pistol/weevil
+	resulting_item = /obj/item/gun/ballistic/rifle/chokyu
 
 /datum/crafting_bench_recipe_real/super_shotgun
 	recipe_name = "ramu 6ga shotgun"
@@ -241,7 +251,7 @@
 /datum/crafting_bench_recipe_real/suppressed_rifle
 	recipe_name = "yari suppressed rifle"
 	recipe_requirements = list(
-		/obj/item/organ/internal/lungs = 2,
+		/obj/item/organ/internal/lungs = 1,
 	)
 	resulting_item = /obj/item/gun/ballistic/automatic/suppressed_rifle
 

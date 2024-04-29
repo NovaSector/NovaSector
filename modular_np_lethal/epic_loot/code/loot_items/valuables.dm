@@ -35,6 +35,7 @@
 
 	. += span_notice("<b>Medical Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> frontier first aid kit.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> 'Secotr 9 Special' autoinjector.")
 
 	return .
 
@@ -52,6 +53,7 @@
 
 	. += span_notice("<b>Equipment Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> pair of binoculars.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> assault belt.")
 
 	return .
 
@@ -105,7 +107,7 @@
 	. = ..()
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
-	. += span_notice("- <b>3</b> of these can be traded for <b>1</b> rengo precision rifle.")
+	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> rengo precision rifle.")
 	. += span_notice("<b>Equipment Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> keycard holder.")
 
@@ -122,6 +124,8 @@
 /obj/item/epic_loot/slim_diary/examine_more(mob/user)
 	. = ..()
 
+	. += span_notice("<b>Weapons Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>2</b> smoke grenades.")
 	. += span_notice("<b>Armor Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> pair of sunglasses.")
 

@@ -14,6 +14,8 @@
 		// Armor
 		/datum/crafting_bench_recipe_real/paper_vest,
 		/datum/crafting_bench_recipe_real/koranda_vest,
+		/datum/crafting_bench_recipe_real/cin_vest,
+		/datum/crafting_bench_recipe_real/cin_helmet,
 		/datum/crafting_bench_recipe_real/soft_vest,
 		/datum/crafting_bench_recipe_real/un_helmet,
 		/datum/crafting_bench_recipe_real/kulon_vest,
@@ -81,6 +83,20 @@
 		/obj/item/epic_loot/aramid = 1,
 	)
 	resulting_item = /obj/item/clothing/suit/armor/lethal_paper
+
+/datum/crafting_bench_recipe_real/cin_vest
+	recipe_name = "CIN surplus vest"
+	recipe_requirements = list(
+		/obj/item/epic_loot/graphics = 1,
+	)
+	resulting_item = /obj/item/clothing/suit/armor/sf_peacekeeper
+
+/datum/crafting_bench_recipe_real/cin_helmet
+	recipe_name = "CIN surplus helmet"
+	recipe_requirements = list(
+		/obj/item/epic_loot/display_broken = 1,
+	)
+	resulting_item = /obj/item/clothing/head/helmet/sf_peacekeeper
 
 /datum/crafting_bench_recipe_real/koranda_vest
 	recipe_name = "type II 'Koranda' vest"

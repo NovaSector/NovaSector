@@ -19,6 +19,7 @@
 		/datum/crafting_bench_recipe_real/sick_case,
 		/datum/crafting_bench_recipe_real/docs_bag,
 		/datum/crafting_bench_recipe_real/keycard_holder,
+		/datum/crafting_bench_recipe_real/tele_shield,
 		/datum/crafting_bench_recipe_real/ballistic_shield,
 		/datum/crafting_bench_recipe_real/black_keycard,
 	)
@@ -30,14 +31,15 @@
 	. += span_notice("<b>1</b> hard disk drive = <b>1</b> assault pack")
 	. += span_notice("<b>1</b> intelligence folder = <b>1</b> security belt")
 	. += span_notice("<b>1</b> gold chainlet = <b>1</b> ammo pouch")
-	. += span_notice("<b>1</b> liver = <b>1</b> operative holster")
-	. += span_notice("<b>1</b> liver = <b>1</b> assault belt")
+	. += span_notice("<b>1</b> display = <b>1</b> operative holster")
+	. += span_notice("<b>1</b> solid state drive = <b>1</b> assault belt")
 	. += span_notice("<b>1</b> tongue = <b>1</b> grenade belt")
 	. += span_notice("<b>1</b> ears = <b>1</b> chest rig")
 	. += span_notice("<b>1</b> military flash drive = <b>1</b> tag case")
 	. += span_notice("<b>1</b> corporate data folder = <b>1</b> organizational pouch")
 	. += span_notice("<b>1</b> silver chainlet + <b>1</b> gold chainlet = <b>1</b> documents pouch")
 	. += span_notice("<b>1</b> sealed diary = <b>1</b> keycard holder")
+	. += span_notice("<b>3</b> device fans = <b>1</b> telescopic shield")
 	. += span_notice("<b>1</b> lungs = <b>1</b> ballistic shield")
 	. += span_notice("<b>9</b> ID cards = <b>1</b> black keycard")
 
@@ -76,14 +78,14 @@
 /datum/crafting_bench_recipe_real/cowboy_holster
 	recipe_name = "pistol holster"
 	recipe_requirements = list(
-		/obj/item/organ/internal/liver = 1,
+		/obj/item/epic_loot/display = 1,
 	)
 	resulting_item = /obj/item/storage/belt/holster/nukie/cowboy
 
 /datum/crafting_bench_recipe_real/assault_belt
 	recipe_name = "assault belt"
 	recipe_requirements = list(
-		/obj/item/organ/internal/liver = 1,
+		/obj/item/epic_loot/ssd = 1,
 	)
 	resulting_item = /obj/item/storage/belt/military/assault
 
@@ -129,6 +131,13 @@
 		/obj/item/epic_loot/diary = 1,
 	)
 	resulting_item = /obj/item/storage/epic_loot_card_holder
+
+/datum/crafting_bench_recipe_real/tele_shield
+	recipe_name = "telescopic shield"
+	recipe_requirements = list(
+		/obj/item/epic_loot/device_fan = 3,
+	)
+	resulting_item = /obj/item/shield/ballistic
 
 /datum/crafting_bench_recipe_real/ballistic_shield
 	recipe_name = "ballistic shield"

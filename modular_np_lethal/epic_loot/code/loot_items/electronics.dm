@@ -31,7 +31,9 @@
 	. = ..()
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
-	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> eland revolver.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> zomushi pistol.")
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>3</b> of these can be traded for <b>1</b> telescopic shield.")
 
 	return .
 
@@ -49,6 +51,8 @@
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> fukiya rifle.")
+	. += span_notice("<b>Equipment Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> operative holster")
 
 	return .
 
@@ -66,6 +70,8 @@
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> seiba submachinegun.")
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> CIN surplus helmet.")
 
 	return .
 
@@ -82,7 +88,9 @@
 	. = ..()
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
-	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> sindano submachinegun.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> sindano submachinegun.")
+	. += span_notice("<b>Armor Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> CIN surplus vest.")
 
 	return .
 
@@ -136,6 +144,8 @@
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> sakhno-xhihao rifle.")
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>3</b> of these can be traded for <b>1</b> premium robotic repair spray.")
 
 	return .
 
@@ -171,5 +181,7 @@
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these + <b>1</b> computer power supply can be traded for <b>1</b> bogseo submachinegun.")
+	. += span_notice("<b>Medical Trade Station:</b>")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> combat stimulant hypospray.")
 
 	return .
