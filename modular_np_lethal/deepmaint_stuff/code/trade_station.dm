@@ -21,7 +21,6 @@
 		/datum/crafting_bench_recipe_real/flashbang,
 		// Gun stuff
 		/datum/crafting_bench_recipe_real/suppressor,
-		/datum/crafting_bench_recipe_real/eland,
 		/datum/crafting_bench_recipe_real/sindano,
 		/datum/crafting_bench_recipe_real/shotgun,
 		/datum/crafting_bench_recipe_real/sakhno,
