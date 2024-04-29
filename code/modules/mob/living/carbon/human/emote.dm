@@ -110,7 +110,6 @@
 	message_mime = "mumbles silently!"
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
-
 /datum/emote/living/carbon/human/scream
 	key = "scream"
 	key_third_person = "screams"
