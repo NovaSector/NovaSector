@@ -20,7 +20,7 @@
 	signer.verb_yell = "barks"
 
 /obj/item/organ/internal/tongue/dog/Remove(mob/living/carbon/speaker, special = FALSE)
-	..()
+	. = ..()
 	speaker.verb_ask = initial(verb_ask)
 	speaker.verb_exclaim = initial(verb_exclaim)
 	speaker.verb_whisper = initial(verb_whisper)
