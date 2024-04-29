@@ -211,9 +211,6 @@
 	fade_in = 20
 	fade_out = 20
 
-/datum/client_colour/monochrome/colorblind
-	priority = PRIORITY_HIGH
-
 /datum/client_colour/monochrome/trance
 	priority = PRIORITY_NORMAL
 
