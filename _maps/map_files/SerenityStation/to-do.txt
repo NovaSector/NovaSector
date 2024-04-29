@@ -1,11 +1,13 @@
 serenitystation to do list
 
+-fix disposals stacker
 -fix labor shuttle
 -Stress test science
 -BZ floor decal (for xenobio) and icon state for areas (cyborg dorms and cargo project)
 -underground caves map gen
 -no mountain map gen (for near solars)
 -make turf farmable
+-assistant spawns and all spawns check 
 -ruins:
 	-abandoned friendly deer monster
 	-broken shuttle
