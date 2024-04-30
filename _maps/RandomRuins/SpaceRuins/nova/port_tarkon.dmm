@@ -279,7 +279,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "bS" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -1160,7 +1160,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "ig" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/brown/anticorner{
@@ -3675,13 +3675,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/airalarm/directional/east,
 /obj/structure/safe/floor,
-/obj/item/mod/module/armor_booster/retractplates{
-	desc = "A complex set of actuators, micro-seals and a simple guide on how to install it, This... \"Modification\" allows the plating around the joints to retract, giving minor protection and a bit better mobility. There also seems to be a small, wireless microphone... how odd."
-	},
-/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 4
 	},
+/obj/item/target_designator,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/cerberus/pre_filled,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "yG" = (
@@ -5186,7 +5184,7 @@
 /area/ruin/space/has_grav/port_tarkon/mining)
 "Jg" = (
 /obj/structure/safe/floor,
-/obj/item/areaeditor/blueprints/tarkon,
+/obj/item/blueprints/tarkon,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
 /obj/item/flatpacked_machine/ore_thumper,
@@ -5659,10 +5657,11 @@
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Mg" = (
 /obj/structure/table/reinforced,
-/obj/item/crowbar,
 /obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 8
 	},
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "Mp" = (
@@ -5902,7 +5901,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/machinery/modular_computer/console,
+/obj/machinery/modular_computer,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "NS" = (
@@ -6885,7 +6884,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
 "Uk" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
@@ -7461,7 +7460,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/item/areaeditor/blueprints/slime,
+/obj/item/blueprints/slime,
 /obj/item/slime_extract/grey,
 /obj/item/slime_extract/grey,
 /obj/item/slime_extract/grey,

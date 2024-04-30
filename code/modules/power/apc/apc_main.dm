@@ -17,6 +17,7 @@
 	damage_deflection = 10
 	resistance_flags = FIRE_PROOF
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
+	interaction_flags_click = ALLOW_SILICON_REACH
 	processing_flags = START_PROCESSING_MANUALLY
 
 	///Range of the light emitted when on
@@ -208,7 +209,7 @@
 
 	//Make the apc visually interactive
 	register_context()
-	addtimer(CALLBACK(src, PROC_REF(update)), 5)
+	addtimer(CALLBACK(src, PROC_REF(update)), 0.5 SECONDS)
 	RegisterSignal(SSdcs, COMSIG_GLOB_GREY_TIDE, PROC_REF(grey_tide))
 	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
 	update_appearance()
@@ -227,8 +228,11 @@
 	find_and_hang_on_wall()
 
 /obj/machinery/power/apc/Destroy()
-	if(malfai && operating)
-		malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
+	if(malfai)
+		if(operating)
+			malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
+		malfai.hacked_apcs -= src
+		malfai = null
 	disconnect_from_area()
 	QDEL_NULL(alarm_manager)
 	if(occupier)
@@ -636,7 +640,7 @@
 /obj/machinery/power/apc/proc/overload_lighting()
 	if(!operating || shorted)
 		return
-	if(cell && cell.use(20 KILO JOULES))
+	if(cell && cell.use(0.02 * STANDARD_CELL_CHARGE))
 		INVOKE_ASYNC(src, PROC_REF(break_lights))
 
 /obj/machinery/power/apc/proc/break_lights()
@@ -721,3 +725,12 @@
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
+
+/// Returns the amount of time it will take the APC at its current trickle charge rate to reach a charge level. If the APC is functionally not charging, returns null.
+/obj/machinery/power/apc/proc/time_to_charge(joules)
+	var/required_joules = joules - charge()
+	var/trickle_charge_power = energy_to_power(area.energy_usage[AREA_USAGE_APC_CHARGE])
+	if(trickle_charge_power >= 1 KILO WATTS) // require at least a bit of charging
+		return round(energy_to_power(required_joules / trickle_charge_power) * SSmachines.wait + SSmachines.wait, SSmachines.wait)
+
+	return null

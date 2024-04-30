@@ -34,12 +34,15 @@
 	. = ..()
 	set_wires(new /datum/wires/tesla_coil(src))
 
-/obj/machinery/power/energy_accumulator/tesla_coil/cable_layer_change_checks(mob/living/user, obj/item/tool)
+/obj/machinery/power/energy_accumulator/tesla_coil/cable_layer_act(mob/living/user, obj/item/tool)
+	if(panel_open)
+		return NONE
 	if(anchored)
 		balloon_alert(user, "unanchor first!")
-		return FALSE
-	return TRUE
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
+/* NOVA EDIT CHANGE BEGIN - MOVED TO modular_nova/master_files/code/modules/power/tesla/coil.dm
 /obj/machinery/power/energy_accumulator/tesla_coil/RefreshParts()
 	. = ..()
 	var/power_multiplier = 0
@@ -48,6 +51,7 @@
 		power_multiplier += capacitor.tier
 		zap_cooldown -= (capacitor.tier * 20)
 	input_power_multiplier = max(1 * (power_multiplier / 8), 0.25) //Max out at 50% efficency.
+*/// NOVA EDIT CHANGE END
 
 /obj/machinery/power/energy_accumulator/tesla_coil/examine(mob/user)
 	. = ..()
