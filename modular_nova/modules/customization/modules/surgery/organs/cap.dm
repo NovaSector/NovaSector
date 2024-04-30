@@ -14,7 +14,7 @@
 	randomize_cap_color()
 
 /datum/bodypart_overlay/mutant/mushroom_cap/proc/randomize_cap_color()
-	draw_color = pick("#FF4B19", "#925858", "#E7AB33", "#704923") // mushroom colors I guess
+	draw_color = pick("#FF4B19", "#925858","#e6dfdf", "#E7AB33", "#704923", "#5db847", "#b359ab", "#9039a1", "#533ea0", "#3192af") // mushroom colors I guess
 
 /datum/bodypart_overlay/mutant/mushroom_cap/override_color(rgb_value)
 	if(isnull(draw_color))
