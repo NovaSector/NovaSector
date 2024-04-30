@@ -730,9 +730,6 @@
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"pu" = (
-/turf/closed/wall/r_wall/syndicate,
-/area/ruin/space/has_grav/shuttle8532bridge)
 "py" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -2217,9 +2214,6 @@
 	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"Uy" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/space/has_grav/shuttle8532bridge)
 "UN" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -2962,8 +2956,8 @@ qb
 qb
 "}
 (8,1,1) = {"
-pu
-Uy
+xO
+xO
 XQ
 fp
 HK
@@ -3025,7 +3019,7 @@ qb
 qb
 "}
 (9,1,1) = {"
-pu
+xO
 zA
 ZU
 Vi

@@ -191,6 +191,10 @@
 	item_type = /obj/item/device/custom_kit/medigun_fastcharge
 	cost = PAYCHECK_COMMAND * 2
 
+/datum/armament_entry/company_import/deforest/equipment/hypospray_upgrade
+	item_type = /obj/item/device/custom_kit/deluxe_hypo2
+	cost = PAYCHECK_COMMAND * 2
+
 /datum/armament_entry/company_import/deforest/equipment/afad
 	item_type = /obj/item/gun/medbeam/afad
 	cost = PAYCHECK_COMMAND * 5

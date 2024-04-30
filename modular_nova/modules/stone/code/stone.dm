@@ -11,7 +11,6 @@
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/mineral/stone
 	grind_results = null
-	point_value = 0
 	material_type = /datum/material/stone
 	matter_amount = 0
 	source = null
@@ -22,6 +21,7 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 	new/datum/stack_recipe("stone brick wall", /turf/closed/wall/mineral/stone, 5, one_per_turf = 1, on_solid_ground = 1, applies_mats = TRUE, category = CAT_STRUCTURE), \
 	new/datum/stack_recipe("stone brick tile", /obj/item/stack/tile/mineral/stone, 1, 4, 20, check_density = FALSE, category = CAT_TILES),
 	new/datum/stack_recipe("millstone", /obj/structure/millstone, 6, one_per_turf = 1, on_solid_ground = 1, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("stone cauldron", /obj/machinery/cauldron, 5, one_per_turf = 1, on_solid_ground = 1, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("stone stove", /obj/machinery/primitive_stove, 5, one_per_turf = 1, on_solid_ground = 1, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("stone oven", /obj/machinery/oven/stone, 5, one_per_turf = 1, on_solid_ground = 1, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("stone griddle", /obj/machinery/griddle/stone, 5, one_per_turf = 1, on_solid_ground = 1, category = CAT_STRUCTURE),

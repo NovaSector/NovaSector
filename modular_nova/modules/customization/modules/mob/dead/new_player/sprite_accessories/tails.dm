@@ -437,3 +437,7 @@
 /datum/sprite_accessory/tails/mammal/wagging/peacock
 	name = "Peacock"
 	icon_state = "peacock"
+
+/datum/sprite_accessory/tails/mammal/wagging/rattlesnake
+	name = "Rattlesnake"
+	icon_state = "rattlesnake"

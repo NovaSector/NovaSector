@@ -85,7 +85,8 @@
 	init_hair_gradients()
 	init_keybindings()
 	GLOB.emote_list = init_emote_list() // WHY DOES THIS NEED TO GO HERE? IT JUST INITS DATUMS
-	make_nova_datum_references() // NOVA EDIT ADDITION - CUSTOMIZATION
+	make_nova_datum_references() //NOVA EDIT ADDITION - CUSTOMIZATION
+	init_nova_stack_recipes() //NOVA EDIT ADDITION - More sheet recipes
 	init_crafting_recipes()
 	init_crafting_recipes_atoms()
 
@@ -116,7 +117,6 @@
 		/obj/item/stack/sheet/sinew = GLOB.sinew_recipes,
 		/obj/item/stack/sheet/animalhide/carp = GLOB.carp_recipes,
 		/obj/item/stack/sheet/mineral/sandstone = GLOB.sandstone_recipes,
-		/obj/item/stack/sheet/mineral/clay = GLOB.clay_recipes, // NOVA EDIT ADDITION
 		/obj/item/stack/sheet/mineral/sandbags = GLOB.sandbag_recipes,
 		/obj/item/stack/sheet/mineral/diamond = GLOB.diamond_recipes,
 		/obj/item/stack/sheet/mineral/uranium = GLOB.uranium_recipes,

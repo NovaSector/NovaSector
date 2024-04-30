@@ -109,8 +109,10 @@
 	. = ..()
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/fast_web)
 
-/mob/living/basic/spider/giant/hunter/mold //NOVA EDIT: exists to make molds not spam the world with simple mobs
-	basic_mob_flags = DEL_ON_DEATH
+///Used in the caves away mission.
+/mob/living/basic/spider/giant/hunter/away_caves
+	minimum_survivable_temperature = 0
+	gold_core_spawnable = NO_SPAWN
 
 /**
  * ### Scout Spider
@@ -168,6 +170,11 @@
 	menu_description = "Avarage speed spider able to heal other spiders and itself together with a fast web laying capability, has low damage and health."
 	///The health HUD applied to the mob.
 	var/health_hud = DATA_HUD_MEDICAL_ADVANCED
+
+///Used in the caves away mission.
+/mob/living/basic/spider/giant/nurse/away_caves
+	minimum_survivable_temperature = 0
+	gold_core_spawnable = NO_SPAWN
 
 /mob/living/basic/spider/giant/nurse/Initialize(mapload)
 	. = ..()
@@ -467,7 +474,7 @@
  */
 /mob/living/basic/spider/giant/ice
 	name = "giant ice spider"
-	habitable_atmos = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	habitable_atmos = null
 	minimum_survivable_temperature = 0
 	maximum_survivable_temperature = 1500
 	color = rgb(114,228,250)
@@ -481,7 +488,7 @@
  */
 /mob/living/basic/spider/giant/nurse/ice
 	name = "giant ice spider"
-	habitable_atmos = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	habitable_atmos = null
 	minimum_survivable_temperature = 0
 	maximum_survivable_temperature = 1500
 	poison_type = /datum/reagent/consumable/frostoil
@@ -495,7 +502,7 @@
  */
 /mob/living/basic/spider/giant/hunter/ice
 	name = "giant ice spider"
-	habitable_atmos = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	habitable_atmos = null
 	minimum_survivable_temperature = 0
 	maximum_survivable_temperature = 1500
 	poison_type = /datum/reagent/consumable/frostoil

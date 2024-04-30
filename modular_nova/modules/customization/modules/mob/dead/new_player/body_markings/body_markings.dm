@@ -115,6 +115,11 @@
 	icon_state = "brows"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/ears
+	name = "Ears"
+	icon_state = "ears"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"

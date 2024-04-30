@@ -770,8 +770,6 @@
 		fail_message(user, "stopped smelting [rod_item]")
 		return
 
-	var/src_turf = get_turf(src)
-	var/spawning_item = /obj/item/stack/sheet/iron
 	var/rods_to_sheet_amount = round((rod_item.amount / 2))
 	var/used_rods = rod_item.amount
 
@@ -779,10 +777,7 @@
 		used_rods = used_rods - 1
 
 	rod_item.use(used_rods)
-	var/obj/item/stack/sheet/iron/result = new spawning_item(src_turf)
-
-	if(rods_to_sheet_amount > 1)
-		result.add(rods_to_sheet_amount - 1)
+	new /obj/item/stack/sheet/iron(drop_location(), rods_to_sheet_amount)
 
 	balloon_alert_to_viewers("finished smelting!")
 
@@ -794,8 +789,6 @@
 	var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER)
 	var/obj/item/forging/forge_item = tool
 
-	in_use = TRUE
-
 	if(!forge_fuel_strong && !forge_fuel_weak)
 		fail_message(user, "no fuel in [src]")
 		return ITEM_INTERACT_SUCCESS
@@ -806,9 +799,11 @@
 
 	balloon_alert_to_viewers("billowing...")
 
+	in_use = TRUE
 	while(forge_temperature < 91)
-		if(!do_after(user, skill_modifier * forge_item.toolspeed, target = src))
+		if(!do_after(user, (skill_modifier * forge_item.toolspeed) SECONDS, target = src))
 			balloon_alert_to_viewers("stopped billowing")
+			in_use = FALSE
 			return ITEM_INTERACT_SUCCESS
 
 		forge_temperature += 10
@@ -940,11 +935,13 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/reagent_forge/wrench_act(mob/living/user, obj/item/tool)
-	tool.play_tool_sound(src)
+	user.balloon_alert_to_viewers("disassembling...")
+	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
+		return
 	deconstruct(TRUE)
 	return TRUE
 
-/obj/structure/reagent_forge/deconstruct(disassembled)
+/obj/structure/reagent_forge/atom_deconstruct(disassembled)
 	new /obj/item/stack/sheet/iron/ten(get_turf(src))
 	return ..()
 
