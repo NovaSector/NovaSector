@@ -188,10 +188,6 @@
 	return COMSIG_SABOTEUR_SUCCESS
 
 /obj/item/kinetic_crusher/update_icon_state()
-    // NOVA EDIT ADDITION START
-    if(acts_as_if_wielded)
-        return ..()
-    // NOVA EDIT ADDITION END
     inhand_icon_state = "crusher[HAS_TRAIT(src, TRAIT_WIELDED)]"  // this is not icon_state and not supported by 2hcomponent
     return ..()
 
