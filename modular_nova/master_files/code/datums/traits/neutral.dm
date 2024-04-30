@@ -243,7 +243,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-/datum/quirk/canine
+/datum/quirk/canine_aspect
 	name = "Canidae Traits"
 	desc = "Bark. You seem to act like a canine for whatever reason. This will replace most other tongue-based speech quirks."
 	mob_trait = TRAIT_CANINE
@@ -251,14 +251,14 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	medical_record_text = "Patient was seen digging through the trash can. Keep an eye on them."
 
-/datum/quirk/canine/add_unique(client/client_source)
+/datum/quirk/canine_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/dog/new_tongue = new(get_turf(human_holder))
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-/datum/quirk/avian
+/datum/quirk/avian_aspect
 	name = "Avian Traits"
 	desc = "You're a birdbrain, or you've got a bird's brain. This will replace most other tongue-based speech quirks."
 	mob_trait = TRAIT_AVIAN
@@ -266,7 +266,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	medical_record_text = "Patient exhibits avian-adjacent mannerisms."
 
-/datum/quirk/avian/add_unique(client/client_source)
+/datum/quirk/avian_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/avian/new_tongue = new(get_turf(human_holder))
 
