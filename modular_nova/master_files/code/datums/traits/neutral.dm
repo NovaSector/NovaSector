@@ -229,7 +229,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 /datum/quirk/feline_aspect
 	name = "Feline Traits"
-	desc = "You happen to act like a feline, for whatever reason."
+	desc = "You happen to act like a feline, for whatever reason. This will replace most other tongue-based speech quirks."
 	gain_text = span_notice("Nya could go for some catnip right about now...")
 	lose_text = span_notice("You feel less attracted to lasers.")
 	medical_record_text = "Patient seems to possess behavior much like a feline."
