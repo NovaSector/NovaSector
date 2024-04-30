@@ -125,7 +125,7 @@
 	detonation_damage = 70
 	backstab_bonus = 0
 	overrides_main = TRUE
-	overrides_twohandrequired = FALSE
+	acts_as_if_wielded = FALSE
 
 /obj/item/kinetic_crusher/hammer/Initialize(mapload)
 		. = ..()
