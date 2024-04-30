@@ -3365,6 +3365,10 @@
 	name = "External Access";
 	space_dir = 2
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/orbital_maints)
 "bhY" = (
@@ -6172,6 +6176,10 @@
 	name = "Dock Airlock";
 	space_dir = 2
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "cfw" = (
@@ -10971,9 +10979,17 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "dPR" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating/airless,
-/area/station/cargo/miningoffice)
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/commons/orbital_dock)
 "dPW" = (
 /obj/machinery/vending/coffee,
 /obj/machinery/firealarm/directional/west,
@@ -12124,6 +12140,20 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/command/heads_quarters/nt_rep)
+"ekS" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/commons/orbital_dock)
 "ekX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -16376,6 +16406,10 @@
 	name = "External Access";
 	space_dir = 1
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/orbital_maints)
 "fKl" = (
@@ -17498,6 +17532,9 @@
 /turf/open/floor/iron/dark,
 /area/station/security/range)
 "gfP" = (
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/commons/orbital_lounge)
 "gfZ" = (
@@ -17825,10 +17862,10 @@
 /turf/open/floor/iron,
 /area/station/security/courtroom/holding)
 "gmP" = (
-/obj/machinery/computer/shuttle/planetary_ferry,
-/obj/item/radio/intercom/directional/north,
+/obj/structure/sign/warning/pods/directional/north,
+/obj/structure/chair/sofa/bench/right,
 /obj/effect/turf_decal/siding/wood{
-	dir = 6
+	dir = 10
 	},
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
@@ -17913,6 +17950,10 @@
 	name = "External Access";
 	space_dir = 2
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/commons/orbital_lounge)
 "goi" = (
@@ -18228,7 +18269,10 @@
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "gtO" = (
-/turf/open/floor/plating/airless,
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "gtT" = (
 /obj/structure/flora/tree/jungle/small/style_2,
@@ -27717,7 +27761,7 @@
 /area/station/security/office)
 "jFp" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating/forest,
 /area/station/science/ordnance/bomb)
 "jFr" = (
 /obj/effect/turf_decal/siding/wood{
@@ -30059,9 +30103,9 @@
 /turf/open/floor/iron,
 /area/station/security/prison/visit)
 "ksN" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating/airless,
-/area/station/commons/orbital_dock)
+/obj/docking_port/stationary/escape_pod,
+/turf/open/space/basic,
+/area/space/nearstation)
 "ktc" = (
 /obj/effect/turf_decal/tile/dark/opposingcorners{
 	dir = 1
@@ -31394,6 +31438,10 @@
 	name = "External Access";
 	space_dir = 1
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/orbital_maints)
 "kUj" = (
@@ -35099,7 +35147,13 @@
 	name = "Dock Airlock";
 	space_dir = 8
 	},
-/turf/open/floor/plating/airless,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "mlT" = (
 /obj/structure/cable,
@@ -38347,6 +38401,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "nDf" = (
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "nDp" = (
@@ -38600,6 +38657,20 @@
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"nJQ" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/commons/orbital_dock)
 "nKb" = (
 /obj/structure/railing/corner,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -39140,6 +39211,10 @@
 	name = "Dock Airlock";
 	space_dir = 2
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "nUp" = (
@@ -43896,6 +43971,10 @@
 	name = "External Access";
 	space_dir = 2
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/orbital_maints)
 "pDp" = (
@@ -45427,14 +45506,12 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "qhr" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/computer/shuttle/planetary_ferry,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
 	},
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock";
-	space_dir = 1
-	},
-/turf/open/floor/plating,
+/turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
 "qhz" = (
 /obj/machinery/vending/wardrobe/chap_wardrobe,
@@ -52565,9 +52642,6 @@
 /area/station/hallway/primary/central/fore)
 "sKT" = (
 /obj/machinery/vending/wardrobe/viro_wardrobe,
-/obj/item/toy/figure/virologist{
-	pixel_y = 17
-	},
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 6
 	},
@@ -54863,9 +54937,8 @@
 /turf/open/floor/wood/large,
 /area/station/service/library/lounge)
 "tBd" = (
-/obj/structure/chair/sofa/bench/right,
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/large,
+/obj/effect/turf_decal/caution/stand_clear,
+/turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "tBe" = (
 /obj/structure/cable,
@@ -61034,6 +61107,11 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/station/engineering/main)
+"vIq" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/chair/sofa/bench/right,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "vIA" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -61686,13 +61764,13 @@
 /area/station/engineering/atmos)
 "vUw" = (
 /obj/machinery/status_display/shuttle/directional/north,
-/obj/item/kirbyplants/random,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/structure/chair/sofa/bench/left,
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
 "vUM" = (
@@ -62149,6 +62227,10 @@
 	name = "External Access";
 	space_dir = 2
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/commons/orbital_lounge)
 "wdg" = (
@@ -62438,13 +62520,14 @@
 /turf/open/floor/grass,
 /area/station/medical/virology)
 "wkB" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock";
-	space_dir = 1
+/obj/structure/lattice,
+/obj/docking_port/stationary/random{
+	name = "lavaland";
+	shuttle_id = "pod_lavaland";
+	dir = 1
 	},
-/turf/open/floor/plating,
-/area/station/commons/orbital_dock)
+/turf/open/space/basic,
+/area/space/nearstation)
 "wkE" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -64234,6 +64317,18 @@
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"wNJ" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/commons/orbital_dock)
 "wNQ" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/machinery/light_switch/directional/east,
@@ -65592,7 +65687,13 @@
 	name = "Dock Airlock";
 	space_dir = 8
 	},
-/turf/open/floor/plating/airless,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "xoH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -157681,9 +157782,9 @@ ujU
 ujU
 ujU
 ujU
-dPR
-dPR
-dPR
+apL
+apL
+apL
 fpi
 qUb
 ybJ
@@ -158195,9 +158296,9 @@ ujU
 ujU
 ujU
 ujU
-dPR
-dPR
-dPR
+apL
+apL
+apL
 gcR
 awh
 awh
@@ -228379,12 +228480,12 @@ cwL
 cwL
 cwL
 cwL
-cwL
-cwL
-cwL
-cwL
-cwL
-cwL
+oag
+nAK
+nAK
+nAK
+nAK
+oag
 cwL
 cwL
 cwL
@@ -228636,9 +228737,7 @@ cwL
 cwL
 cwL
 cwL
-cwL
-cwL
-cwL
+nAK
 cwL
 cwL
 cwL
@@ -228646,9 +228745,11 @@ cwL
 bud
 qyV
 bud
+qyV
+bud
 mlS
 bud
-ksN
+qyV
 bud
 cwL
 oag
@@ -228893,20 +228994,20 @@ cwL
 cwL
 cwL
 cwL
+wkB
 cwL
 cwL
 cwL
-cwL
-cwL
-cwL
-cwL
-qyV
+ksN
+dPR
 tBd
+ekS
+hlh
 xsa
 hlh
 hlh
 klx
-ksN
+qyV
 cwL
 nAK
 cwL
@@ -229148,22 +229249,22 @@ cwL
 cwL
 cwL
 cwL
-oag
-nAK
-nAK
-nAK
-nAK
-nAK
-nAK
-oag
 cwL
+cwL
+nAK
+cwL
+cwL
+cwL
+cwL
+bud
 qyV
-rYL
+bud
+gmP
 hlh
 oSh
 hlh
 fks
-ksN
+qyV
 cwL
 nAK
 cwL
@@ -229405,17 +229506,17 @@ cwL
 cwL
 cwL
 cwL
+oag
 nAK
+omb
+nAK
+nAK
+nAK
+nAK
+omb
 cwL
-cwL
-cwL
-cwL
-cwL
-cwL
-bud
 qyV
-bud
-gmP
+rYL
 hlh
 yhU
 hlh
@@ -229668,11 +229769,11 @@ cwL
 cwL
 cwL
 cwL
-igN
-wkB
-nDf
+cwL
+bud
+qyV
+bud
 qhr
-hlh
 hlh
 cEx
 hlh
@@ -229925,11 +230026,11 @@ cwL
 cwL
 cwL
 cwL
-cwL
-bud
-qyV
-bud
-ewc
+igN
+wNJ
+tBd
+nJQ
+hlh
 hlh
 yhU
 hlh
@@ -230183,10 +230284,10 @@ cwL
 cwL
 cwL
 cwL
-nAK
-cwL
+bud
 qyV
-tBd
+bud
+ewc
 hlh
 yhU
 hlh
@@ -230433,17 +230534,17 @@ cwL
 cwL
 cwL
 cwL
-oag
 nAK
+cwL
+cwL
+cwL
+cwL
+cwL
+cwL
 nAK
-nAK
-nAK
-nAK
-nAK
-oag
 cwL
 qyV
-rYL
+vIq
 hlh
 fbq
 guY
@@ -230691,7 +230792,7 @@ cwL
 cwL
 cwL
 jLK
-cwL
+nAK
 vEm
 vEm
 vEm

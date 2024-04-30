@@ -18,7 +18,7 @@ serenitystation to do list
 	-fix lightswitches
 -missing rooms 
 	**Main
-	-more escape pods (add one to sat station)  
+	-more escape pods (add one to sat station)  - fix escape pod loader #s
 	
 	**Maints rooms 
 	-maints kitchen
