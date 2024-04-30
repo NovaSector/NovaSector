@@ -1,6 +1,11 @@
+/datum/species/mush/get_default_mutant_bodyparts()
+	return list(
+		"caps" = list("Round", FALSE), // we don't want cap-less mushpeople
+	)
+
 /datum/species/mush/randomize_features()
 	var/list/features = ..()
-	features["caps"] = "Round" // No cap-less mushpeople
+	features["caps"] = "Round" // No cap-less mushpeople.
 	return features
 
 /datum/species/mush/prepare_human_for_preview(mob/living/carbon/human/shrooman)

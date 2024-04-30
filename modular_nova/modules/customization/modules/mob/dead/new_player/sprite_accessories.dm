@@ -133,8 +133,8 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	generic = "Caps"
 	default_color = "#FF4B19"
 	icon = 'icons/mob/human/species/mush_cap.dmi'
+	relevent_layers = list(BODY_ADJ_LAYER)
 	color_src = USE_ONE_COLOR
-	em_block = TRUE
 	organ_type = /obj/item/organ/external/mushroom_cap
 	genetic = TRUE
 
