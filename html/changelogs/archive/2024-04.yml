@@ -978,3 +978,20 @@
       for all future rolls for the round
   - admin: Sleeper agent polls should ignore people who are currently getting polled
       in the case more than one are rolled.
+2024-04-30:
+  NovaBot13:
+  - balance: Netguardian Prime can see in the dark.
+  - image: You can see Netguardian Prime in the dark.
+  - bugfix: Eigenstasium exposed & Anomaly station trait affected closets work again.
+      Eigenstasium closets are tainted blue
+  - code_imp: Unarmed attacks (punches, etc.) now support multiple attack verbs instead
+      of only one
+  - qol: Arrivals shuttle is now more player friendly
+  - rscadd: Added a short scene when getting an Ordeal of Sisyphus achievement.
+  - bugfix: The start-of-the-round tips will no longer feature virologists, but will,
+      however, start featuring heretics and coroners.
+  VexingRaven:
+  - bugfix: The debug box no longer spills its contents everywhere
+  chestlet:
+  - qol: Feline Traits now gives a cat tongue
+  - qol: Cat tongue now has special saymods
