@@ -253,6 +253,8 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 /datum/quirk/canine_aspect
 	name = "Canidae Traits"
 	desc = "Bark. You seem to act like a canine for whatever reason. This will replace most other tongue-based speech quirks."
+	gain_text = span_notice("B-.. Bacon strips...")
+	lose_text = span_notice("You feel less abandonment issues.")
 	mob_trait = TRAIT_CANINE
 	icon = FA_ICON_DOG
 	value = 0
@@ -275,6 +277,8 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 /datum/quirk/avian_aspect
 	name = "Avian Traits"
 	desc = "You're a birdbrain, or you've got a bird's brain. This will replace most other tongue-based speech quirks."
+	gain_text = span_notice("BAWWWWWK LEAVE THE HEADSET BAWKKKKK!")
+	lose_text = span_notice("You feel less inclined to sit on eggs.")
 	mob_trait = TRAIT_AVIAN
 	icon = FA_ICON_KIWI_BIRD
 	value = 0
