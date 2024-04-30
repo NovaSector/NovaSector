@@ -1,3 +1,10 @@
+//MODULAR DS-2 FAX OVERRIDE
+/obj/machinery/fax
+	special_networks = list(
+			nanotrasen = list(fax_name = "NT HR Department", fax_id = "central_command", color = "teal", emag_needed = FALSE),
+			syndicate = list(fax_name = "Syndicate Sectorial Command", fax_id = "syndicate", color = "red", emag_needed = TRUE),
+			)
+
 //SPAWNERS//
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
