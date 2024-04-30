@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "Ethereal unarmed attacks \"sear\" instead of \"singe\", which was buggy"

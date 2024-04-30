@@ -35,6 +35,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTE, P, act, m_type, message, intentional)
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTED(P.key))
 			return TRUE
+		src.nextsoundemote = world.time // NOVA EDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
 	if(intentional && !silenced && !force_silence)
 		to_chat(src, span_notice("Unusable emote '[act]'. Say *help for a list."))
 	return FALSE

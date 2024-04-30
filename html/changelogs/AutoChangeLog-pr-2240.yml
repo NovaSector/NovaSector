@@ -1,0 +1,4 @@
+author: "SomeRandomOwl, vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes milking machine causing infinite loops and crashing the server"
