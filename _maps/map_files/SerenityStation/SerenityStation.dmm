@@ -1139,6 +1139,10 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/qm)
+"avO" = (
+/obj/docking_port/stationary/escape_pod,
+/turf/open/space/basic,
+/area/space/nearstation)
 "awe" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -7480,6 +7484,14 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
 /area/station/commons/orbital_dock)
+"cEB" = (
+/obj/item/radio/intercom/directional/north,
+/obj/machinery/computer/shuttle/planetary_ferry,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "cEC" = (
 /turf/open/floor/iron/dark/small,
 /area/station/commons/dorms/room6)
@@ -9526,6 +9538,20 @@
 	},
 /turf/open/floor/carpet,
 /area/station/command/meeting_room)
+"doa" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/commons/orbital_dock)
 "dob" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 1
@@ -10979,16 +11005,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "dPR" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock";
-	space_dir = 1
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/chair/sofa/bench/right,
+/turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
 "dPW" = (
 /obj/machinery/vending/coffee,
@@ -12140,20 +12159,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/command/heads_quarters/nt_rep)
-"ekS" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock";
-	space_dir = 1
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
-/area/station/commons/orbital_dock)
 "ekX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -17862,12 +17867,16 @@
 /turf/open/floor/iron,
 /area/station/security/courtroom/holding)
 "gmP" = (
-/obj/structure/sign/warning/pods/directional/north,
-/obj/structure/chair/sofa/bench/right,
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
 	},
-/turf/open/floor/wood/large,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "gmT" = (
 /obj/machinery/airalarm/directional/south,
@@ -30103,9 +30112,13 @@
 /turf/open/floor/iron,
 /area/station/security/prison/visit)
 "ksN" = (
-/obj/docking_port/stationary/escape_pod,
-/turf/open/space/basic,
-/area/space/nearstation)
+/obj/structure/sign/warning/pods/directional/north,
+/obj/structure/chair/sofa/bench/right,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "ktc" = (
 /obj/effect/turf_decal/tile/dark/opposingcorners{
 	dir = 1
@@ -32939,7 +32952,6 @@
 /area/station/science/ordnance/bomb)
 "lyj" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
-/obj/item/clothing/gloves/color/yellow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -38657,20 +38669,6 @@
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron,
 /area/station/engineering/main)
-"nJQ" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock";
-	space_dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
-/area/station/commons/orbital_dock)
 "nKb" = (
 /obj/structure/railing/corner,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -45506,12 +45504,18 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "qhr" = (
-/obj/item/radio/intercom/directional/north,
-/obj/machinery/computer/shuttle/planetary_ferry,
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
 	},
-/turf/open/floor/wood/large,
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "qhz" = (
 /obj/machinery/vending/wardrobe/chap_wardrobe,
@@ -50467,6 +50471,18 @@
 /obj/item/storage/dice,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms/room2)
+"rVZ" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external/glass{
+	name = "Dock Airlock";
+	space_dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/commons/orbital_dock)
 "rWb" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood/large,
@@ -53194,6 +53210,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/lightreplacer,
+/obj/item/clothing/gloves/color/yellow,
 /turf/open/floor/iron/dark,
 /area/station/engineering/orbital_utilities)
 "sUM" = (
@@ -61107,11 +61124,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/station/engineering/main)
-"vIq" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/chair/sofa/bench/right,
-/turf/open/floor/wood/large,
-/area/station/commons/orbital_dock)
 "vIA" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -64317,18 +64329,6 @@
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"wNJ" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock";
-	space_dir = 1
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
-/area/station/commons/orbital_dock)
 "wNQ" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/machinery/light_switch/directional/east,
@@ -228998,10 +228998,10 @@ wkB
 cwL
 cwL
 cwL
-ksN
-dPR
+avO
+gmP
 tBd
-ekS
+doa
 hlh
 xsa
 hlh
@@ -229259,7 +229259,7 @@ cwL
 bud
 qyV
 bud
-gmP
+ksN
 hlh
 oSh
 hlh
@@ -229773,7 +229773,7 @@ cwL
 bud
 qyV
 bud
-qhr
+cEB
 hlh
 cEx
 hlh
@@ -230027,9 +230027,9 @@ cwL
 cwL
 cwL
 igN
-wNJ
+rVZ
 tBd
-nJQ
+qhr
 hlh
 hlh
 yhU
@@ -230544,7 +230544,7 @@ cwL
 nAK
 cwL
 qyV
-vIq
+dPR
 hlh
 fbq
 guY
