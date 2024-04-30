@@ -6,7 +6,8 @@
 
 /obj/item/storage/box/milking_kit/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/construction_kit/milker = 1)
+		/obj/item/reagent_containers/condiment/milk = 1)
+		///obj/item/construction_kit/milker = 1)
 	generate_items_inside(items_inside, src)
 
 // X-Stand
