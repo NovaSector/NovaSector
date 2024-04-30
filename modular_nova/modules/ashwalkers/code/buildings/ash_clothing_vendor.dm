@@ -32,7 +32,7 @@
 		/obj/item/clothing/gloves/military/ashwalk = 10,
 		/obj/item/clothing/accessory/skilt = 5,
 		/obj/item/clothing/accessory/skullcodpiece = 5,
-		/obj/item/clothing/accessory/talisman = 5
+		/obj/item/clothing/accessory/talisman = 5,
 	)
 
 /obj/machinery/vending/ashclothingvendor/Initialize(mapload)
