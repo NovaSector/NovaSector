@@ -29,6 +29,9 @@
 		robot_user.cell.use(200)
 	return ..()
 
+/datum/emote/living/carbon/human/scream
+	only_forced_audio = FALSE
+
 /datum/emote/living/carbon/human/scream/get_sound(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
