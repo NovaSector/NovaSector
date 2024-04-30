@@ -1,0 +1,5 @@
+author: "honkpocket"
+delete-after: True
+changes:
+  - rscadd: "Adds DM Deep Space"
+  - code_imp: "Restores TG code that was non-modularly removed on the Ripley's 'killer_clamp' hydraulic clamp subtype"
