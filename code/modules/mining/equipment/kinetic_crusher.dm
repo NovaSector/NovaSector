@@ -46,14 +46,6 @@
 		speed = 6 SECONDS, \
 		effectiveness = 110, \
 	)
-	// NOVA EDIT ADDITION - BEGIN
-	if(!overrides_main)
-		AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
-		AddComponent(/datum/component/butchering, \
-			speed = 6 SECONDS, \
-			effectiveness = 110, \
-	)
-	// NOVA EDIT ADDITION - END
 	//technically it's huge and bulky, but this provides an incentive to use it
 	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
 	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
@@ -196,15 +188,12 @@
 	return COMSIG_SABOTEUR_SUCCESS
 
 /obj/item/kinetic_crusher/update_icon_state()
-	// NOVA EDIT CHANGE - BEGIN ORIGINAL:
-	/*
-	inhand_icon_state = "crusher[HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
-	return ..()
-	*/
-	if(!override_twohandedsprite)
-		inhand_icon_state = "crusher[HAS_TRAIT(src, TRAIT_WIELDED)]" // this is not icon_state and not supported by 2hcomponent
-		return ..()
-	// NOVA EDIT CHANGE - END
+    // NOVA EDIT ADDITION START
+    if(override_twohandedsprite)
+        return ..()
+    // NOVA EDIT ADDITION END
+    inhand_icon_state = "crusher[HAS_TRAIT(src, TRAIT_WIELDED)]"  // this is not icon_state and not supported by 2hcomponent
+    return ..()
 
 /obj/item/kinetic_crusher/update_overlays()
 	. = ..()
