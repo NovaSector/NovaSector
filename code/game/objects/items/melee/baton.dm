@@ -184,6 +184,8 @@
 	if(!in_attack_chain && HAS_TRAIT_FROM(target, TRAIT_IWASBATONED, REF(user)))
 		return BATON_ATTACK_DONE
 
+	SEND_SIGNAL(src, COMSIG_BATON_ATTACK, target, user, modifiers, in_attack_chain) // NOVA EDIT ADDITION
+
 	cooldown_check = world.time + cooldown
 	if(on_stun_sound)
 		playsound(get_turf(src), on_stun_sound, on_stun_volume, TRUE, -1)
