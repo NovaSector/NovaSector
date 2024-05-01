@@ -5,7 +5,7 @@
 // We still launch with haste on amber or above
 /obj/docking_port/mobile/emergency/on_emergency_launch()
 	// Lets not overwrite the emag effect
-	for (var/obj/machinery/computer/emergency_shuttle/shuttle_computer as anything in shuttle_areas[/area/shuttle/escape])
+	for (var/obj/machinery/computer/emergency_shuttle/shuttle_computer as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/computer/emergency_shuttle))
 		if(shuttle_computer.obj_flags & EMAGGED)
 			return ..()
 	// Check the security level
