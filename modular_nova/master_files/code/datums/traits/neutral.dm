@@ -318,6 +318,9 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	severity = isnum(desired_severity) ? desired_severity : 1
 
 /datum/quirk/sensitivesnout/proc/get_booped(attacker)
+	if (ishuman(quirk_holder))
+		var/mob/living/carbon/human/human_holder = quirk_holder
+		human_holder.force_say()
 	switch(severity)
 		if(1)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, freezing you in place!"))
