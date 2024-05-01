@@ -121,7 +121,7 @@
 				target.buckled.unbuckle_mob(target)
 			target.Paralyze(knockdown_time)
 		user.visible_message(span_danger("[msg]!"))
-		successful_joust_callback?.Invoke(parent, user, target, user, usable_charge) // NOVA EDIT ADDITION - Baton jousting
+		successful_joust_callback?.Invoke(target, user, usable_charge) // NOVA EDIT ADDITION - Baton jousting
 /**
  * Called when a mob moves.
  * Handles checking their direction, changing it if they turned,
