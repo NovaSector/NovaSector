@@ -1,5 +1,4 @@
 /obj/item/kinetic_crusher
-	var/overrides_main
 	var/acts_as_if_wielded
 
 /obj/item/kinetic_crusher/machete
@@ -35,8 +34,7 @@
 	charge_time = 10
 	detonation_damage = 35
 	backstab_bonus = 20
-	overrides_main = TRUE
-	acts_as_if_wielded= TRUE
+	acts_as_if_wielded = TRUE
 
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
@@ -78,7 +76,6 @@
 	detonation_damage = 45
 	backstab_bonus = 20
 	reach = 2
-	overrides_main = TRUE
 
 /obj/item/kinetic_crusher/spear/Initialize(mapload)
 	. = ..()
@@ -124,12 +121,11 @@
 	charge_time = 25
 	detonation_damage = 70
 	backstab_bonus = 0
-	overrides_main = TRUE
 	acts_as_if_wielded = FALSE
 
 /obj/item/kinetic_crusher/hammer/Initialize(mapload)
-		. = ..()
-		AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
+	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
 
 /obj/item/kinetic_crusher/hammer/attack(mob/living/target, mob/living/user)
 	var/relative_direction = get_cardinal_dir(src, target)
@@ -176,7 +172,6 @@
 	charge_time = 2
 	detonation_damage = 40
 	backstab_bonus = 120
-	overrides_main = TRUE
 	acts_as_if_wielded = TRUE
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
