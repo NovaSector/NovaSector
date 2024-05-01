@@ -26,12 +26,18 @@
 	///The min amount of tiles before you can joust someone.
 	var/min_tile_charge
 
+	// NOVA EDIT ADDITION BEGIN -- Baton jousting
+	/// The proc to call when a joust is successfully accomplished.
+	var/datum/callback/successful_joust_callback
+	// NOVA EDIT ADDITION NED
+
 /datum/component/jousting/Initialize(
 	damage_boost_per_tile = 2,
 	knockdown_chance_per_tile = 20,
 	knockdown_time = 2 SECONDS,
 	max_tile_charge = 5,
 	min_tile_charge = 2,
+	datum/callback/successful_joust_callback // NOVA EDIT ADDITION
 )
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -40,11 +46,12 @@
 	src.knockdown_time = knockdown_time
 	src.max_tile_charge = max_tile_charge
 	src.min_tile_charge = min_tile_charge
+	src.successful_joust_callback = successful_joust_callback // NOVA EDIT ADDITION
 
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
-	RegisterSignal(parent, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
+	RegisterSignals(parent, list(COMSIG_ITEM_ATTACK, COMSIG_BATON_ATTACK), PROC_REF(on_attack)) // NOVA EDIT ADDITION - Changed to RegisterSiganls and added COMSIG_BATON_ATTACK
 	RegisterSignal(parent, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /datum/component/jousting/UnregisterFromParent()
@@ -114,7 +121,7 @@
 				target.buckled.unbuckle_mob(target)
 			target.Paralyze(knockdown_time)
 		user.visible_message(span_danger("[msg]!"))
-
+		successful_joust_callback?.Invoke(parent, user, target, user, usable_charge) // NOVA EDIT ADDITION - Baton jousting
 /**
  * Called when a mob moves.
  * Handles checking their direction, changing it if they turned,
