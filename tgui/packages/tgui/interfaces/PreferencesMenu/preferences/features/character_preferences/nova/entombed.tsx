@@ -3,10 +3,10 @@ import {
   CheckboxInput,
   Feature,
   FeatureChoiced,
-  FeatureDropdownInput,
   FeatureShortTextInput,
   FeatureToggle,
 } from '../../base';
+import { FeatureDropdownInput } from '../../dropdowns';
 
 export const entombed_skin: FeatureChoiced = {
   name: 'MODsuit Skin',

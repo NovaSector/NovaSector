@@ -106,3 +106,29 @@
 	minimal_access = list(ACCESS_BARBER, ACCESS_MAINT_TUNNELS, ACCESS_SERVICE, ACCESS_THEATRE)
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CHANGE_IDS, ACCESS_HOP)
 	job = /datum/job/barber
+
+/datum/id_trim/job/virologist
+	assignment = "Virologist"
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
+	trim_state = "trim_virologist"
+	department_color = COLOR_MEDICAL_BLUE
+	subdepartment_color = COLOR_MEDICAL_BLUE
+	sechud_icon_state = SECHUD_VIROLOGIST
+	minimal_access = list(
+		ACCESS_MECH_MEDICAL,
+		ACCESS_MEDICAL,
+		ACCESS_MINERAL_STOREROOM,
+		ACCESS_VIROLOGY,
+		ACCESS_PHARMACY,
+		)
+	extra_access = list(
+		ACCESS_PLUMBING,
+		ACCESS_MORGUE,
+		ACCESS_SURGERY,
+		)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+		ACCESS_CMO,
+		)
+	job = /datum/job/virologist

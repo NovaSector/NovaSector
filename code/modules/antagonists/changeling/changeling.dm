@@ -124,6 +124,7 @@
 		"Water aspect (Emotes)",
 		"Webbing aspect (Emotes)",
 		"Friendly",
+		"Avian Traits",
 	)
 	// NOVA EDIT END
 
