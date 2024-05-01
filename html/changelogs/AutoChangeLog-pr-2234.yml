@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes a bug that was causing the audio for some emotes to not play (cry for instance) as well as restoring the ability to scream at will (with sound)"
-  - bugfix: "restores a missing fourth lizard scream audio that was supposed to play"
