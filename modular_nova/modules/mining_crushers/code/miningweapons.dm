@@ -1,4 +1,5 @@
 /obj/item/kinetic_crusher
+	/// This var is used to imitate being weilded if its one handed
 	var/acts_as_if_wielded
 
 /obj/item/kinetic_crusher/machete
