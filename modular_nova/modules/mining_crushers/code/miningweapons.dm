@@ -73,7 +73,7 @@
 	light_on = FALSE
 	charged = TRUE
 	charge_time = 15
-	detonation_damage = 45
+	detonation_damage = 35
 	backstab_bonus = 20
 	reach = 2
 
@@ -118,7 +118,7 @@
 	light_range = 5
 	light_on = FALSE
 	charged = TRUE
-	charge_time = 25
+	charge_time = 20
 	detonation_damage = 70
 	backstab_bonus = 0
 	acts_as_if_wielded = FALSE
