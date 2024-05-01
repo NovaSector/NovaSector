@@ -1,5 +1,7 @@
 serenitystation to do list
 
+-delivery areas (see startup messages)
+-runtime issues
 -fix disposals stacker
 -Stress test science
 -underground caves map gen
@@ -18,18 +20,12 @@ serenitystation to do list
 	-fix lightswitches
 -missing rooms 
 	**Main
-	-more escape pods (add one to sat station)  - fix escape pod loader #s
+	-more escape pods  - fix escape pod loader #s
 	
 	**Maints rooms 
-	-maints kitchen
-	-maints bar
-	-maints robotics
-	-maints botany
 	-date spots
-	-maints medbay 
-	-abandoned office 
-	-maints cafe
 	-cabins
-	-maints eva
-	-gambling den 
-	-solars
+	-maints areas and APCs 
+	-maints trash
+	-maints access
+	-steam vents
