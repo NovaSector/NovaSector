@@ -8,6 +8,18 @@
 	antag_recipes = list(/datum/crafting_recipe/credit_miner)
 	var/datum/team/sapper/gang
 
+/datum/antagonist/sapper/apply_innate_effects(mob/living/mob_override)
+	. = ..()
+	var/mob/living/owner_mob = mob_override || owner.current
+	var/datum/language_holder/holder = owner_mob.get_language_holder()
+	holder.grant_language(/datum/language/gutter, source = LANGUAGE_PIRATE)
+	holder.selected_language = /datum/language/gutter
+
+/datum/antagonist/sapper/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/owner_mob = mob_override || owner.current
+	owner_mob.remove_language(/datum/language/gutter, source = LANGUAGE_PIRATE)
+	return ..()
+
 /datum/antagonist/sapper/greet()
 	. = ..()
 	to_chat(owner, "<B>You're an illegal credits miner, build to defend your mining machines and your ship to harvest as many credits as you can!</B>")

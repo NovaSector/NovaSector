@@ -1,13 +1,13 @@
-#define RADIO_ALERT 80
-#define POWER_FOR_PAYOUT (20 KILO WATTS)
-#define PAYOUT 100
+#define RADIO_ALERT 80 // Precentage near explosion to begin announcing on radio
+#define POWER_FOR_PAYOUT (20 KILO WATTS) // How much do we draw for a payout
+#define PAYOUT 100 // How much is the energy worth
 
 /obj/item/powersink/creditminer
 	name = "credit-miner"
 	desc = "An altered version of the Syndicate power-sink, this one converts energy into credits."
 	w_class = WEIGHT_CLASS_HUGE
 	max_heat = 1e8 // double the heat of its parent type
-	// The amount of power the machine has converted to credits.
+	/// The amount of power the machine has converted to credits.
 	var/cash_out = 0
 	///The machine's internal radio, used to broadcast alerts.
 	var/obj/item/radio/radio
@@ -70,6 +70,23 @@
 				drained += 0.001 * apc.cell.use(0.05 * STANDARD_CELL_CHARGE, force = TRUE)
 	internal_heat += drained
 	cash_out += min(energy_to_power(drained) / POWER_FOR_PAYOUT, PAYOUT)
+
+/// Credit Miner crafting recipe (Incase the intial one explodes)
+/datum/crafting_recipe/credit_miner
+	name = "Credit-miner"
+	result = /obj/item/powersink/creditminer
+	time = 10 SECONDS
+	always_available = FALSE
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
+	reqs = list(
+		/obj/item/stack/cable_coil = 5,
+		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/mineral/uranium = 3,
+		/obj/item/stack/sheet/mineral/diamond = 2,
+		/obj/item/stack/sheet/bluespace_crystal = 1,
+		/obj/item/assembly/igniter/condenser = 1,
+	)
+	category = CAT_MISC
 
 #undef RADIO_ALERT
 #undef POWER_FOR_PAYOUT

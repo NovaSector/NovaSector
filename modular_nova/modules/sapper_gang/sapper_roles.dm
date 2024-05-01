@@ -17,19 +17,3 @@
 /obj/effect/mob_spawn/ghost_role/human/sapper/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/sapper)
-
-/datum/crafting_recipe/credit_miner
-	name = "Credit-miner"
-	result = /obj/item/powersink/creditminer
-	time = 10 SECONDS
-	always_available = FALSE
-	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
-	reqs = list(
-		/obj/item/stack/cable_coil = 5,
-		/obj/item/stack/sheet/iron = 5,
-		/obj/item/stack/sheet/mineral/uranium = 3,
-		/obj/item/stack/sheet/mineral/diamond = 2,
-		/obj/item/stack/sheet/bluespace_crystal = 1,
-		/obj/item/assembly/igniter/condenser = 1,
-	)
-	category = CAT_MISC

@@ -2,26 +2,24 @@
 	name = "Space Sapper"
 
 	id = /obj/item/card/id/advanced
-	id_trim = /datum/id_trim/chameleon/sapper
+	id_trim = /datum/id_trim/sapper
 
 	ears = /obj/item/radio/headset/headset_eng
-	glasses = /obj/item/clothing/glasses/meson/night
 	uniform = /obj/item/clothing/under/syndicate/nova/overalls
 	suit = /obj/item/clothing/suit/armor/bulletproof
 	belt = /obj/item/storage/belt/utility/sapper
 	gloves = /obj/item/clothing/gloves/color/yellow
-	shoes = /obj/item/clothing/shoes/combat
+	shoes = /obj/item/clothing/shoes/workboots
 
 	box = /obj/item/storage/box/smart_metal_foam
 	back = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	backpack_contents = list(
-		/obj/item/stack/cable_coil/thirty = 1,
+		/obj/item/storage/backpack/satchel/flat/empty = 1,
 		/obj/item/fireaxe = 1,
+		/obj/item/stack/cable_coil/thirty = 2,
 		)
 
-	r_hand = /obj/item/storage/toolbox/emergency/turret/sapper
-	l_hand = /obj/item/mod/control/pre_equipped/engineering
-	l_pocket = /obj/item/knife/combat/survival
+	l_pocket = /obj/item/paper/fluff/sapper_intro
 	r_pocket = /obj/item/tank/internals/emergency_oxygen/double
 
 	skillchips = list(/obj/item/skillchip/job/engineer)
@@ -31,7 +29,7 @@
 
 	var/obj/item/radio/outfit_radio = equipped.ears
 	if(outfit_radio)
-		outfit_radio.make_syndie()
+		outfit_radio.keyslot = new /obj/item/encryptionkey/syndicate()
 		outfit_radio.set_frequency(FREQ_SYNDICATE)
 
 	var/obj/item/card/id/outfit_id = equipped.wear_id
@@ -51,31 +49,24 @@
 /obj/item/storage/belt/utility/sapper
 	preload = FALSE
 
-/obj/item/storage/belt/utility/sapper/PopulateContents()
+/obj/item/storage/belt/utility/sapper/PopulateContents() //its just a complete mishmash
 	new /obj/item/multitool(src)
 	new /obj/item/crowbar/power(src)
 	new /obj/item/wrench/combat(src)
-	new /obj/item/construction/rcd/combat(src)
-	new /obj/item/screwdriver/nuke(src)
+	new /obj/item/construction/rcd/improved(src)
+	new /obj/item/screwdriver/caravan(src)
 	new /obj/item/inducer/syndicate(src)
-	new /obj/item/weldingtool/experimental(src)
+	new /obj/item/weldingtool/abductor(src)
 
-/obj/item/storage/toolbox/emergency/turret/sapper
-
-/obj/item/storage/toolbox/emergency/turret/sapper/PopulateContents()
-
-/obj/item/storage/toolbox/emergency/turret/sapper/set_faction(obj/machinery/porta_turret/turret, mob/user)
-	turret.faction = list(FACTION_SAPPER)
-	turret.max_integrity = 150
-	turret.shot_delay = 1 SECONDS
-
-/datum/id_trim/chameleon/sapper
+/datum/id_trim/sapper
 	assignment = "Sapper"
 	trim_state = "trim_sapper"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	department_color = COLOR_ORANGE
 	subdepartment_color = COLOR_ORANGE
 	sechud_icon_state = SECHUD_SAPPER
+	access = list(ACCESS_SAPPER_SHIP)
+	threat_modifier = 10 //gangs are illegal
 
 /datum/job/space_sapper
 	title = ROLE_SPACE_SAPPER
