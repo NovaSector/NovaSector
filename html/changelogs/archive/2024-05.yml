@@ -1,0 +1,79 @@
+2024-05-01:
+  FearfulFurnishing:
+  - rscadd: Added tribal accessories to the Ash Clothing Vendor for ashwalkers.
+  Flleeppyy, Absolucy:
+  - sound: Added unique announcement jingles to each heretic path's ascension, replacing
+      the old "space-time anomalies detected" announcement.
+  LT3:
+  - qol: The various RCD upgrade disks no longer look identical
+  NovaBot13:
+  - rscadd: you can use a photo with blueprints on it to read wires
+  - rscadd: trainship hijack deathmatch map
+  - bugfix: On examine PDAs will now inform players that the power cell can be removed
+      for recharging or replacement, and how to do so.
+  - bugfix: If you are a freerunner, you don't end up faceplanting despite having
+      catlike grace.
+  - bugfix: Infinite-range laser pointer (for "AI" Big Brother) now has a correct
+      diode. If you accidentaly remove it then you can put it back!
+  - bugfix: Ethereal unarmed attacks "sear" instead of "singe", which was buggy
+  - bugfix: Fixes a bluescreen in the deathmatch lobby UI.
+  - bugfix: Genetic sequence scanners now show the sequence to mutated genes from
+      scanned individuals.
+  - bugfix: Fixes tramstation gravgen wiring
+  - bugfix: Fixes tramstation turbine wiring
+  - bugfix: Fixes northstar cmo button name
+  - qol: Made birdshot atmos easier to use.
+  - bugfix: The Birdshot engineering department is no longer using a second hand broken
+      microwave.
+  - bugfix: The syndicate infiltrator has no weak spots anymore
+  - qol: The Human AI's advanced security console can be repackaged with a screwdriver
+      if you wish to move it.
+  - bugfix: computers don't deconstruct themselves twice so machines like slotmachine
+      don't spawn excess chips upon deconstruction
+  - bugfix: QM is now excluded from getting tasked with stealing telescopic batons
+      and the captain's spare ID, like all other command personnel are.
+  SomeRandomOwl, vinylspiders:
+  - bugfix: fixes milking machine causing infinite loops and crashing the server
+  chestlet:
+  - rscdel: Deleted all references to speaker.verb_sing from tongues.dm, as none of
+      the tongues change them.
+  - code_imp: Changed the Avian and Canidae Traits quirks to no longer pointlessly
+      be item quirks.
+  - code_imp: Changed the path for Avian and Canidae Traits quirks to be avian_aspect
+      and canine_aspect respectively.
+  - qol: Added feedback for the Avian, Canidae, and Feline Traits quirks being added/removed.
+  - qol: Made it so the Avian, Canidae, and Feline Traits quirks being removed gives
+      you your default species tongue.
+  - bugfix: Changelings can now copy the Avian Traits quirk.
+  - bugfix: Changelings are no longer stuck with a dead giveaway animal tongue after
+      copying someone who has an Animal Traits quirk.
+  honkpocket:
+  - rscadd: Adds DM Deep Space
+  - code_imp: Restores TG code that was non-modularly removed on the Ripley's 'killer_clamp'
+      hydraulic clamp subtype
+  vinylspiders:
+  - bugfix: fixes a bug that was causing the audio for some emotes to not play (cry
+      for instance) as well as restoring the ability to scream at will (with sound)
+  - bugfix: restores a missing fourth lizard scream audio that was supposed to play
+2024-05-02:
+  Fluffles:
+  - qol: you can pick up wheelchairs while on the ground
+  - qol: you can place wheelchairs a tile away from you, like roller beds
+  NovaBot13:
+  - bugfix: Constantly fleeing in Battle Arcade will no longer give you a very large
+      amount of decimals due to halving your gold every time.
+  - qol: conveyor switches now have direction-specific input signals
+  - bugfix: Fixes hypercharged slime core cells and circuit guns having 1,000 times
+      less energy than intended.
+  - bugfix: You can now re-construct pod doors that had deconstruction started.
+  - qol: You can now make pod door assemblies using plasteel in-hand.
+  - bugfix: AIs can now track Silicon as long as their built-in camera is online.
+  - bugfix: Monkeys can no longer be knocked over by walking into a windoor on combat
+      mode while they're behind it.
+  - bugfix: Monkey changelings that are disguised as someone can now take off their
+      flesh clothes.
+  - admin: Debug uplinks now shows all categories and won't lock upon buying items
+      like his grace and the syndicate balloon.
+  RatFromTheJungle:
+  - balance: made it so EMPs don't hardstun people who have nifs. (doesn't affect
+      other implants)
