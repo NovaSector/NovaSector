@@ -574,6 +574,9 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	// NOVA EDIT ADDITION START - BODYPARTS AND FEATURES
 	// We need to instantiate the list with compatible mutant parts so we don't break things
 
+	// mostly for external organs--make sure that mutant_bodyparts list has appropriate entries for the default parts that spawn with a species (e.g. mush caps, monkey tails, lizard frills, etc)
+	dna.mutant_bodyparts = dna.species.get_mutant_bodyparts(dna.features, existing_mutant_bodyparts = dna.mutant_bodyparts)
+
 	if(override_mutantparts && override_mutantparts.len)
 		for(var/feature in dna.mutant_bodyparts)
 			override_mutantparts[feature] = dna.mutant_bodyparts[feature]
