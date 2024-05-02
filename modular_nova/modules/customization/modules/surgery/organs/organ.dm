@@ -32,9 +32,10 @@
 			mutantpart_info = human_receiver.dna.species.mutant_bodyparts[mutantpart_key].Copy() //Update the info in case it was changed on the person
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 	. = ..()
-	if(mutantpart_key && being_replaced_with.mutantpart_key && mutantpart_info[MUTANT_INDEX_NAME] != being_replaced_with.mutantpart_info[MUTANT_INDEX_NAME]) // Don't want to remove this after we've just added it...
-		human_receiver.dna.mutant_bodyparts -= mutantpart_key
-		human_receiver.dna.species.mutant_bodyparts -= mutantpart_key
+	if(being_replaced_with && mutantpart_info && being_replaced_with.mutantpart_info) // Don't want to remove this after we've just added it...
+		if(mutantpart_info[MUTANT_INDEX_NAME] != being_replaced_with.mutantpart_info[MUTANT_INDEX_NAME])
+			human_receiver.dna.mutant_bodyparts -= mutantpart_key
+			human_receiver.dna.species.mutant_bodyparts -= mutantpart_key
 	if(!special)
 		human_receiver.update_body()
 	being_replaced_with = null
