@@ -12,6 +12,7 @@
 	name = "research directors labcoat"
 	desc = "A Nanotrasen standard labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
 	icon_state = "labcoat_rd"
+	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|ARMS|LEGS
 	armor_type = /datum/armor/nova_rd
 
@@ -25,6 +26,7 @@
 	name = "researcher's labcoat"
 	desc = "A Nanotrasen standard labcoat for researchers in the scientific field."
 	icon_state = "labcoat_regular"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
@@ -41,6 +43,7 @@
 	name = "hospital gown"
 	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
 	icon_state = "labcoat_job"
+	gets_cropped_on_taurs = FALSE
 	greyscale_config = /datum/greyscale_config/labcoat
 	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
 	greyscale_colors = "#478294#478294#478294#478294"
@@ -56,6 +59,7 @@
 	name = "medical labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a blue stripe on the shoulder."
 	icon_state = "labcoat_job"
+	gets_cropped_on_taurs = FALSE
 	greyscale_config = /datum/greyscale_config/labcoat
 	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
 	greyscale_colors = "#EEEEEE#4A77A1#4A77A1#7095C2"

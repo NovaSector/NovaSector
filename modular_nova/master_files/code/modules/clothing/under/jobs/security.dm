@@ -78,6 +78,47 @@
 		),
 	)
 
+/obj/item/clothing/under/rank/security/peacekeeper/jumpsuit
+	name = "Security Jumpsuit"
+	desc = "test."
+	icon_state = "jumpsuit_blue"
+	can_adjust = TRUE
+
+/obj/item/clothing/under/rank/security/peacekeeper/jumpskirt
+	name = "Security Jumpskirt"
+	desc = "test."
+	icon_state = "jumpskirt_blue"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "jumpskirt_black",
+			RESKIN_WORN_ICON_STATE = "jumpskirt_black"
+		),
+	)
+
+/obj/item/clothing/under/rank/security/peacekeeper/shortskirt
+	name = "Security Shortskirt"
+	desc = "test."
+	icon_state = "shortskirt_blue"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "shortskirt_black",
+			RESKIN_WORN_ICON_STATE = "shortskirt_black"
+	    ),
+	)
+
+/obj/item/clothing/under/rank/security/peacekeeper/miniskirt
+	name = "Security Miniskirt"
+	desc = "test."
+	icon_state = "miniskirt"
+	gets_cropped_on_taurs = FALSE
+	can_adjust = TRUE
+
 /*
 *	HEAD OF SECURITY
 */
