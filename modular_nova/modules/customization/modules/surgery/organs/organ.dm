@@ -9,7 +9,7 @@
 	/// Relevant layer flags, as set by the organ's associated sprite_accessory, should there be one.
 	var/relevant_layers
 	/// What the organ is being replaced with (in case it's the same thing, we don't want to remove it from mutant_bodyparts)
-	var/obj/item/organ/being_replaced_with
+	var/being_replaced_with
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
@@ -33,7 +33,7 @@
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 	. = ..()
 	// Don't want to remove this from mutant_bodyparts after we've just added it...(in case of replacing it with the same type of organ)
-	if(istype(human_receiver) && (isnull(being_replaced_with) || (mutantpart_key && being_replaced_with.mutantpart_key && mutantpart_key != being_replaced_with.mutantpart_key)))
+	if(istype(human_receiver) && (isnull(being_replaced_with) || (mutantpart_key && (mutantpart_key != being_replaced_with))))
 		human_receiver.dna.mutant_bodyparts -= mutantpart_key
 		human_receiver.dna.species.mutant_bodyparts -= mutantpart_key
 	if(!special)
