@@ -6,6 +6,11 @@
 	slot = ORGAN_SLOT_EXTERNAL_CAP
 	preference = "feature_caps"
 
+/obj/item/organ/external/mushroom_cap/Initialize(mapload)
+	if(!ispath(bodypart_overlay))
+		mutantpart_info[MUTANT_INDEX_COLOR_LIST] = bodypart_overlay.draw_color
+	return ..()
+
 /datum/bodypart_overlay/mutant/mushroom_cap
 	color_source = ORGAN_COLOR_OVERRIDE
 

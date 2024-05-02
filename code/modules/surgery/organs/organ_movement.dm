@@ -52,6 +52,7 @@
 
 	var/obj/item/organ/replaced = receiver.get_organ_slot(slot)
 	if(replaced)
+		being_replaced_with = replaced // NOVA EDIT ADDITION - Make note of what we are replacing, for mutant_bodyparts to update correctly
 		replaced.Remove(receiver, special = TRUE)
 		if(movement_flags & DELETE_IF_REPLACED)
 			qdel(replaced)

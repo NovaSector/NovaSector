@@ -8,30 +8,36 @@
 	var/sprite_accessory_flags = NONE
 	/// Relevant layer flags, as set by the organ's associated sprite_accessory, should there be one.
 	var/relevant_layers
+	/// What the organ is being replaced with (in case it's the same thing, we don't want to remove it from mutant_bodyparts)
+	var/obj/item/organ/being_replaced_with
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
 	if(mutantpart_key)
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 
-/obj/item/organ/Insert(mob/living/carbon/M, special = FALSE, movement_flags = DELETE_IF_REPLACED)
-	var/mob/living/carbon/human/H = M
-	if(mutantpart_key && istype(H))
-		H.dna.species.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
+/obj/item/organ/Insert(mob/living/carbon/receiver, special = FALSE, movement_flags = DELETE_IF_REPLACED)
+	var/mob/living/carbon/human/human_receiver = receiver
+	if(mutantpart_key && istype(human_receiver))
+		human_receiver.dna.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
+		human_receiver.dna.species.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
 		if(!special)
-			H.update_body()
-	. = ..()
+			human_receiver.update_body()
+	return ..()
 
-/obj/item/organ/Remove(mob/living/carbon/M, special = FALSE, movement_flags)
-	var/mob/living/carbon/human/H = M
-	if(mutantpart_key && istype(H))
-		if(H.dna.species.mutant_bodyparts[mutantpart_key])
-			mutantpart_info = H.dna.species.mutant_bodyparts[mutantpart_key].Copy() //Update the info in case it was changed on the person
+/obj/item/organ/Remove(mob/living/carbon/receiver, special = FALSE, movement_flags)
+	var/mob/living/carbon/human/human_receiver = receiver
+	if(mutantpart_key && istype(human_receiver))
+		if(human_receiver.dna.species.mutant_bodyparts[mutantpart_key])
+			mutantpart_info = human_receiver.dna.species.mutant_bodyparts[mutantpart_key].Copy() //Update the info in case it was changed on the person
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
-		H.dna.species.mutant_bodyparts -= mutantpart_key
-		if(!special)
-			H.update_body()
 	. = ..()
+	if(being_replaced_with.type != type) // Don't want to remove this after we've just added it...
+		human_receiver.dna.mutant_bodyparts -= mutantpart_key
+		human_receiver.dna.species.mutant_bodyparts -= mutantpart_key
+	if(!special)
+		human_receiver.update_body()
+	being_replaced_with = null
 
 /obj/item/organ/proc/build_from_dna(datum/dna/DNA, associated_key)
 	mutantpart_key = associated_key
