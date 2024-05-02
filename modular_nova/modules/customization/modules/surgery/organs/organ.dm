@@ -33,7 +33,7 @@
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 	. = ..()
 	// Don't want to remove this from mutant_bodyparts after we've just added it...(in case of replacing it with the same type of organ)
-	if(isnull(being_replaced_with) || (mutantpart_key && being_replaced_with.mutantpart_key && mutantpart_key != being_replaced_with.mutantpart_key))
+	if(istype(human_receiver) && (isnull(being_replaced_with) || (mutantpart_key && being_replaced_with.mutantpart_key && mutantpart_key != being_replaced_with.mutantpart_key)))
 		human_receiver.dna.mutant_bodyparts -= mutantpart_key
 		human_receiver.dna.species.mutant_bodyparts -= mutantpart_key
 	if(!special)
