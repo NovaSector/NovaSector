@@ -37,7 +37,7 @@
 	. += span_notice("<b>1</b> high-resistance fabric = <b>1</b> type I 'Kami' vest")
 	. += span_notice("<b>1</b> high-resistance fabric + <b>1</b> appendix = <b>1</b> type II 'Koranda' vest")
 	. += span_notice("<b>1</b> polymer weave fabric + <b>1</b> tear-resistant fabric = <b>1</b> type II 'Touvou' vest")
-	. += span_notice("<b>1</b> polymer weave fabric + <b>1</b> electric motor = <b>1</b> type II 'Kastrol' helmet")
+	. += span_notice("<b>1</b> electric motor = <b>1</b> type II 'Kastrol' helmet")
 	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> type III 'Kinu-Kuroba' vest")
 	. += span_notice("<b>1</b> type III 'Kinu-Kuroba' vest + <b>2</b> eyes = <b>1</b> type III 'Kinu-Kuroba' full armor kit")
 	. += span_notice("<b>1</b> shuttle battery = <b>1</b> type III 'Robusuta' helmet")

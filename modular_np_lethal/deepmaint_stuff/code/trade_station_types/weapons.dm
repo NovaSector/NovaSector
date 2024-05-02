@@ -60,7 +60,7 @@
 	. += span_notice("<b>1</b> processor core = <b>1</b> sakhno-xhihao rifle")
 	. += span_notice("<b>2</b> sealed diaries = <b>1</b> rengo precision rifle")
 	. += span_notice("<b>1</b> power supply + <b>1</b> disk drive = <b>1</b> bogseo submachinegun")
-	. += span_notice("<b>1</b> eyes = <b>1</b> zomushi pistol")
+	. += span_notice("<b>1</b> eyes = <b>1</b> chokyu sniper rifle")
 	. += span_notice("<b>1</b> stomach = <b>1</b> ramu 6ga shotgun")
 	. += span_notice("<b>1</b> lungs = <b>1</b> yari suppressed rifle")
 	. += span_notice("<b>2</b> livers = <b>1</b> nomi repeating shotgun")
