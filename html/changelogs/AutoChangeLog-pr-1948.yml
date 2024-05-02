@@ -1,4 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - balance: "made it so EMPs don't hardstun people who have nifs. (doesn't affect other implants)"
