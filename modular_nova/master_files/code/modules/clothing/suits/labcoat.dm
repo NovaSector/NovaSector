@@ -26,6 +26,11 @@
 	desc = "A Nanotrasen standard labcoat for researchers in the scientific field."
 	icon_state = "labcoat_regular"
 
+/obj/item/clothing/suit/toggle/labcoat/nova/pharm
+	name = "pharmacist's labcoat"
+	desc = "A standard labcoat for chemistry which protects the wearer from acid spills."
+	icon_state = "labcoat_pharm"
+
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
 	desc = "A high visibility vest for emergency responders, intended to draw attention away from the blood."

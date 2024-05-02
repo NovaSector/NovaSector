@@ -560,6 +560,7 @@
 		/obj/item/clothing/under/rank/medical/chemist = 2,
 		/obj/item/clothing/under/rank/medical/chemist/skirt = 2,
 		/obj/item/clothing/suit/toggle/labcoat/chemist = 2,
+		/obj/item/clothing/suit/toggle/labcoat/nova/pharm = 2,
 		/obj/item/clothing/suit/hooded/wintercoat/medical/chemistry = 2,
 		/obj/item/clothing/gloves/latex = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
