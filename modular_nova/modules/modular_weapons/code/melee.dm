@@ -42,6 +42,6 @@
 /obj/item/melee/baton/proc/add_jousting_component()
 	AddComponent(/datum/component/jousting, damage_boost_per_tile = 0, knockdown_chance_per_tile = 6, successful_joust_callback = CALLBACK(src, PROC_REF(on_successful_joust)))
 
-/// Callback proc for jousting. Called when a joust is successfully done.
+/// For jousting. Called when a joust is considered successfully done.
 /obj/item/melee/baton/proc/on_successful_joust(mob/living/target, mob/user, usable_charge)
 	target.apply_damage(stamina_damage_per_jousting_tile * usable_charge, STAMINA)

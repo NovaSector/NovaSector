@@ -86,4 +86,4 @@
 #define COMSIG_SOULCATCHER_SCAN_BODY "soulcatcher_scan_body"
 
 /// Whenever a baton successfully executes its nonlethal attack. WARNING HORRIBLE FUCKING CODE THIS IS ASS AAAAAAAAAAAAH
-#define COMSIG_BATON_ATTACK "baton_attack"
+#define COMSIG_PRE_BATON_FINALIZE_ATTACK "pre_baton_finalize_attack"

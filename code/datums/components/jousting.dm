@@ -51,7 +51,8 @@
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
-	RegisterSignals(parent, list(COMSIG_ITEM_ATTACK, COMSIG_BATON_ATTACK), PROC_REF(on_attack)) // NOVA EDIT ADDITION - Changed to RegisterSiganls and added COMSIG_BATON_ATTACK
+	RegisterSignal(parent, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
+	RegisterSignal(parent, COMSIG_PRE_BATON_FINALIZE_ATTACK, PROC_REF(on_baton_finalize_attack)) // NOVA EDIT ADDITION
 	RegisterSignal(parent, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /datum/component/jousting/UnregisterFromParent()
@@ -121,7 +122,8 @@
 				target.buckled.unbuckle_mob(target)
 			target.Paralyze(knockdown_time)
 		user.visible_message(span_danger("[msg]!"))
-		successful_joust_callback?.Invoke(target, user, usable_charge) // NOVA EDIT ADDITION - Baton jousting
+
+		return usable_charge // NOVA EDIT ADDITION - Baton jousting
 /**
  * Called when a mob moves.
  * Handles checking their direction, changing it if they turned,
