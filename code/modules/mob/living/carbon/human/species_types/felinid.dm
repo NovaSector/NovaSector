@@ -6,10 +6,12 @@
 	mutant_bodyparts = list("ears" = "Cat", "wings" = "None")
 	mutantbrain = /obj/item/organ/internal/brain/felinid
 	mutanttongue = /obj/item/organ/internal/tongue/cat
+	/* NOVA EDIT REMOVAL - CUSTOMIZATION
 	mutantears = /obj/item/organ/internal/ears/cat
 	external_organs = list(
 		/obj/item/organ/external/tail/cat = "Cat",
 	)
+	*/ // NOVA EDIT REMOVAL END
 	inherent_traits = list(
 		TRAIT_CATLIKE_GRACE,
 		TRAIT_HATED_BY_DOGS,
