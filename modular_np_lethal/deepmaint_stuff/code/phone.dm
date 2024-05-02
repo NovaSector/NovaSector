@@ -87,7 +87,7 @@
 
 /obj/item/gakster_phone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods, message_range)
 	. = ..()
-	if((speaker != loc) && !(speaker in loc))
+	if((speaker != loc) && !(speaker in loc) && (speaker != mod_link.visual))
 		return
 	mod_link.visual.say(raw_message, sanitize = FALSE, message_range = 3)
 
