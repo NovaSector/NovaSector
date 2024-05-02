@@ -30,6 +30,7 @@
 	name = "pharmacist's labcoat"
 	desc = "A standard labcoat for chemistry which protects the wearer from acid spills."
 	icon_state = "labcoat_pharm"
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
