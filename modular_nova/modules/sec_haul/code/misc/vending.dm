@@ -54,7 +54,7 @@
 					/obj/item/storage/backpack/duffelbag/sec = 5,
 					/obj/item/clothing/under/rank/security/officer = 10,
 					/obj/item/clothing/under/rank/security/officer/skirt = 10,
-					/obj/item/clothing/under/rank/security/peacekeeper/jumpskirt = 10,
+					/obj/item/clothing/under/rank/security/peacekeeper/skirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper/shortskirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper/miniskirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper/jumpsuit = 10,
