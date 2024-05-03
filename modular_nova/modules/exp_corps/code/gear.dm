@@ -15,6 +15,19 @@
 	new /obj/item/stack/medical/suture/medicated(src)
 	new /obj/item/clothing/glasses/hud/health(src)
 
+/obj/item/storage/medkit/expeditionary/surplus
+	desc = "Now with less bullshit. And more dust. But mainly less bullshit. If you have to use this, there's no way you've got insurance."
+
+/obj/item/storage/medkit/expeditionary/surplus/PopulateContents()
+	if(empty)
+		return
+	new /obj/item/stack/medical/gauze/twelve(src)
+	new /obj/item/reagent_containers/hypospray/combat(src) // epi/atro + lepo + omnizine
+	new /obj/item/stack/medical/suture/medicated(src)
+	new /obj/item/stack/medical/suture/medicated(src)
+	new /obj/item/stack/medical/mesh/advanced(src)
+	new /obj/item/stack/medical/mesh/advanced(src)
+
 //Field Medic's weapon, no more tomahawk!
 /obj/item/circular_saw/field_medic
 	name = "bone saw"
@@ -33,64 +46,76 @@
 //Pointman's riot shield. Fixable with 1 plasteel, crafting recipe for broken shield
 /obj/item/shield/riot/pointman
 	name = "pointman shield"
-	desc = "A shield fit for those that want to sprint headfirst into the unknown! Cumbersome as hell."
+	desc = "A shield fit for those that want to sprint headfirst into the unknown. Its heavy, unwieldy nature makes its defensive performance suffer when in the off-hand; \
+	wielding will provide best results at the cost of reduced mobility."
 	icon_state = "riot"
 	icon = 'modular_nova/modules/exp_corps/icons/riot.dmi'
 	lefthand_file = 'modular_nova/modules/exp_corps/icons/riot_left.dmi'
 	righthand_file = 'modular_nova/modules/exp_corps/icons/riot_right.dmi'
-	force = 14
+	force = 10
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 1
-	block_chance = 60
+	block_chance = 30
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb_continuous = list("shoves", "bashes")
-	attack_verb_simple = list("shove", "bash")
-	transparent = TRUE
+	attack_verb_continuous = list("slams", "bashes")
+	attack_verb_simple = list("slam", "bash")
+	transparent = FALSE
 	max_integrity = 200
-	shield_break_sound = 'sound/effects/glassbr3.ogg'
 	shield_break_leftover = /obj/item/pointman_broken
-	var/repairable_by = /obj/item/stack/sheet/plasteel //what to repair the shield with
 
-/obj/item/shield/riot/pointman/attackby(obj/item/W, mob/user, params)
-	if(istype(W, repairable_by))
-		var/obj/item/stack/sheet/plasteel_repair = W
-		plasteel_repair.use(1)
-		repair(user, params)
-	return ..()
+/obj/item/shield/riot/pointman/Initialize(mapload)
+	. = ..()
+	RegisterSignals(src, list(COMSIG_TWOHANDED_WIELD, COMSIG_TWOHANDED_UNWIELD), PROC_REF(shield_wield))
+	AddComponent(/datum/component/two_handed, force_unwielded=10, force_wielded=20)
 
-/obj/item/shield/riot/pointman/proc/repair(mob/user, params)
-	atom_integrity = max_integrity
-	if(user)
-		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
-		to_chat(user, span_notice("You fix the damage on [src]."))
+/// handles buffing the shield's defensive ability and nerfing user mobility
+/obj/item/shield/riot/pointman/proc/shield_wield()
+	if(HAS_TRAIT(src, TRAIT_WIELDED))
+		item_flags |= SLOWS_WHILE_IN_HAND
+		block_chance *= 2.5 // 30 * 2.5 = 75
+		slowdown = 0.3
+	else
+		item_flags &= ~SLOWS_WHILE_IN_HAND
+		block_chance /= 2.5
+		slowdown = 0
 
 /obj/item/pointman_broken
 	name = "broken pointman shield"
-	desc = "Might be able to be repaired with plasteel and a welder."
+	desc = "Enough of it is still intact that you could probably just weld more bits on."
 	icon_state = "riot_broken"
 	icon = 'modular_nova/modules/exp_corps/icons/riot.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 
+/obj/item/pointman_broken/Initialize(mapload)
+	. = ..()
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/pointman_repair)
+	AddComponent(
+		/datum/component/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+	)
+
 //broken shield fixing
 /datum/crafting_recipe/pointman
-	name = "Broken Riot Repair"
+	name = "pointman shield (repaired)"
 	result = /obj/item/shield/riot/pointman
 	reqs = list(/obj/item/pointman_broken = 1,
 				/obj/item/stack/sheet/plasteel = 3,
 				/obj/item/stack/sheet/rglass = 3)
-	time = 40
+	time = 5 SECONDS
 	category = CAT_MISC
 	tool_behaviors = list(TOOL_WELDER)
 
 //Marksman's throwing knife and a pouch for it
 /obj/item/knife/combat/marksman
 	name = "throwing knife"
-	desc = "Very well weighted for throwing, feels awkward to use for anything else."
+	desc = "While very well weighted for throwing, the distribution of mass makes it unwieldy for use in melee."
 	icon = 'modular_nova/modules/exp_corps/icons/throwing.dmi'
 	icon_state = "throwing"
-	force = 12
+	force = 12 // don't stab with this
 	throwforce = 30
+	embedding = list("pain_mult" = 4, "embed_chance" = 75, "fall_chance" = 10) // +10 embed chance up from combat knife's 65
+	bayonet = FALSE // throwing knives probably aren't made for use as bayonets
 
 /obj/item/storage/pouch/ammo/marksman
 	name = "marksman's knife pouch"
