@@ -16,29 +16,28 @@
 	if(mutantpart_key)
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 
-/obj/item/organ/Insert(mob/living/carbon/receiver, special = FALSE, movement_flags = DELETE_IF_REPLACED)
-	var/mob/living/carbon/human/human_receiver = receiver
-	if(mutantpart_key && istype(human_receiver))
-		human_receiver.dna.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
-		human_receiver.dna.species.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
-		if(!special)
-			human_receiver.update_body()
-	return ..()
-
-/obj/item/organ/Remove(mob/living/carbon/receiver, special = FALSE, movement_flags)
-	var/mob/living/carbon/human/human_receiver = receiver
-	if(mutantpart_key && istype(human_receiver))
-		if(human_receiver.dna.species.mutant_bodyparts[mutantpart_key])
-			mutantpart_info = human_receiver.dna.species.mutant_bodyparts[mutantpart_key].Copy() //Update the info in case it was changed on the person
-		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
+/obj/item/organ/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
-	// Don't want to remove this from mutant_bodyparts after we've just added it...(in case of replacing it with the same type of organ)
-	if(istype(human_receiver) && (isnull(being_replaced_with) || (mutantpart_key && (mutantpart_key != being_replaced_with))))
-		human_receiver.dna.mutant_bodyparts -= mutantpart_key
-		human_receiver.dna.species.mutant_bodyparts -= mutantpart_key
-	if(!special)
-		human_receiver.update_body()
-	being_replaced_with = null
+	var/mob/living/carbon/human/human_owner = organ_owner
+	if(!istype(human_owner))
+		return
+	if(mutantpart_key)
+		human_owner.dna.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
+		human_owner.dna.species.mutant_bodyparts[mutantpart_key] = mutantpart_info.Copy()
+		if(!special)
+			human_owner.update_body()
+
+/obj/item/organ/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	. = ..()
+	var/mob/living/carbon/human/human_owner = organ_owner
+	if(!istype(human_owner))
+		return
+
+	if(mutantpart_key)
+		human_owner.dna.mutant_bodyparts -= mutantpart_key
+		human_owner.dna.species.mutant_bodyparts -= mutantpart_key
+		if(!special)
+			human_owner.update_body()
 
 /obj/item/organ/proc/build_from_dna(datum/dna/DNA, associated_key)
 	mutantpart_key = associated_key
