@@ -7392,6 +7392,7 @@
 #include "modular_nova\modules\goofsec\code\cellphone.dm"
 #include "modular_nova\modules\goofsec\code\department_guards.dm"
 #include "modular_nova\modules\goofsec\code\hud.dm"
+#include "modular_nova\modules\goofsec\code\lockers.dm"
 #include "modular_nova\modules\goofsec\code\sec_clothing_overrides.dm"
 #include "modular_nova\modules\goofsec\code\sol_fed.dm"
 #include "modular_nova\modules\goofsec\code\solfed_clothing.dm"
