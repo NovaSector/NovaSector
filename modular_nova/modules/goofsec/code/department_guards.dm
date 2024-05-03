@@ -190,6 +190,7 @@
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
 	new /obj/item/melee/baton/security/loaded/departmental/service(src)
+
 /*
 	LANDMARKS
 */
