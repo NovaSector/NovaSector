@@ -138,9 +138,9 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/rank/security/officer/skirt
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
-/datum/loadout_item/under/jumpsuit/security_shortskirt
-	name = "Security Shortskirt"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/shortskirt
+/datum/loadout_item/under/jumpsuit/security_plainskirt
+	name = "Security Plainskirt"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/plainskirt
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_miniskirt

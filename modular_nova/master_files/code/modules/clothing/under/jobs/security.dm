@@ -32,7 +32,7 @@
 	armor_type = /datum/armor/clothing_under/redsec_syndicate
 	has_sensor = NO_SENSORS
 
-/obj/item/clothing/under/rank/security/peacekeeper/skirt
+/obj/item/clothing/under/rank/security/peacekeeper/dress
 	name = "security battle dress"
 	desc = "An asymmetrical, unisex uniform with the legs replaced by a utility skirt."
 	worn_icon_state = "security_skirt"
@@ -95,30 +95,10 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/under/rank/security/officer/skirt
-	name = "security jumpskirt"
-	desc = "Turtleneck sweater commonly worn by Peacekeepers, attached with a skirt."
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "jumpskirt_blue"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	gets_cropped_on_taurs = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_blue",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_blue"
-        ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_black",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_black"
-		),
-	)
-
-/obj/item/clothing/under/rank/security/peacekeeper/shortskirt
-	name = "security shortskirt"
+/obj/item/clothing/under/rank/security/peacekeeper/plainskirt
+	name = "security plainskirt"
 	desc = "Plainshirted uniform commonly worn by Peacekeepers, attached with a skirt."
-	icon_state = "shortskirt_blue"
+	icon_state = "plainskirt_blue"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -126,12 +106,12 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "shortskirt_blue",
-			RESKIN_WORN_ICON_STATE = "shortskirt_blue"
+			RESKIN_ICON_STATE = "plainskirt_blue",
+			RESKIN_WORN_ICON_STATE = "plainskirt_blue"
 	    ),
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "shortskirt_black",
-			RESKIN_WORN_ICON_STATE = "shortskirt_black"
+			RESKIN_ICON_STATE = "plainskirt_black",
+			RESKIN_WORN_ICON_STATE = "plainskirt_black"
 	    ),
 	)
 
