@@ -95,8 +95,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/under/rank/security/peacekeeper/plainskirt
-	name = "security plainskirt"
+/obj/item/clothing/under/rank/security/peacekeeper/plain_skirt
+	name = "security plain skirt"
 	desc = "Plainshirted uniform commonly worn by Peacekeepers, attached with a skirt."
 	icon_state = "plainskirt_blue"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
