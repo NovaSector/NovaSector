@@ -46,4 +46,3 @@
 	new /obj/item/restraints/handcuffs/cable/blue(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/bag/garment/orderly(src)
-// NOVA EDIT CHANGE END -- GOOFSEC DEP GUARDS
