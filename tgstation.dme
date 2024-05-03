@@ -6643,7 +6643,6 @@
 #include "modular_nova\master_files\code\modules\paperwork\paperplane.dm"
 #include "modular_nova\master_files\code\modules\paperwork\stamps.dm"
 #include "modular_nova\master_files\code\modules\power\cable.dm"
-#include "modular_nova\master_files\code\modules\power\powernet.dm"
 #include "modular_nova\master_files\code\modules\power\lighting\light_mapping_helpers.dm"
 #include "modular_nova\master_files\code\modules\power\singularity\containment_field.dm"
 #include "modular_nova\master_files\code\modules\power\tesla\coil.dm"
