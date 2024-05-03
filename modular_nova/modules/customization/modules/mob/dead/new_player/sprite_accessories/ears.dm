@@ -215,9 +215,10 @@
 	name = "Sandfox (Large)"
 	icon_state = "sandfox_large"
 
-/datum/sprite_accessory/ears/mutant/big/dinnerplate
-	name = "Dinnerplates (Large)"
-	icon_state = "dinnerplate"
+// /datum/sprite_accessory/ears/mutant/big/dinnerplate
+//	name = "Dinnerplates (Large)"
+//	icon_state = "dinnerplate"
+// commented out on request. didn't want to take the effort to actually remove the sprites, if other people want this ear sprite in they're free to uncomment this -- iska
 
 /datum/sprite_accessory/ears/mutant/pede
 	name = "Scolipede"
