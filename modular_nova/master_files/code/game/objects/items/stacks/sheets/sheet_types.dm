@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(nova_metal_recipes, list(
 	new/datum/stack_recipe("elevated floor tile", /obj/item/stack/tile/iron/elevated, 1, 4, 20, category = CAT_TILES),
 	new/datum/stack_recipe("wrestling turnbuckle", /obj/structure/wrestling_corner, 3, time = 2.5 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("metal barricade", /obj/structure/deployable_barricade/metal, 2, time = 1 SECONDS, crafting_flags = CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("metal shelf", /obj/structure/rack/shelf, 1, time = 2 SECONDS, one_per_turf = TRUE, crafting_flags = CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("metal shelf", /obj/structure/rack/shelf, 1, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("anvil", /obj/structure/reagent_anvil, 10, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forge", /obj/structure/reagent_forge, 10, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("throwing wheel", /obj/structure/throwing_wheel, 10, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
@@ -61,8 +61,8 @@ GLOBAL_LIST_INIT(nova_rod_recipes, list(
 	new/datum/stack_recipe("towel bin", /obj/structure/towel_bin/empty, 2, time = 0.5 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("guard rail", /obj/structure/deployable_barricade/guardrail, 2, time = 1 SECONDS, crafting_flags = CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("wrestling ropes", /obj/structure/railing/wrestling, 3, time = 1.8 SECONDS, crafting_flags = CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("crutch", /obj/item/cane/crutch, 3, time = 1 SECONDS, one_per_turf = FALSE, category = CAT_TOOLS),
-	new/datum/stack_recipe("torch mount", /obj/item/wallframe/torch_mount, 2, one_per_turf = FALSE, category = CAT_MISC),
+	new/datum/stack_recipe("crutch", /obj/item/cane/crutch, 3, time = 1 SECONDS, category = CAT_TOOLS),
+	new/datum/stack_recipe("torch mount", /obj/item/wallframe/torch_mount, 2, category = CAT_MISC),
 ))
 
 /obj/item/stack/rods/get_main_recipes()
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(nova_wood_recipes, list(
 	new/datum/stack_recipe("produce display", /obj/machinery/smartfridge/wooden/produce_display, 10, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("ration shelf", /obj/machinery/smartfridge/wooden/ration_shelf, 10, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("storage barrel", /obj/structure/closet/crate/wooden/storage_barrel, 4, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
-	new/datum/stack_recipe("worm barrel", /obj/structure/wormfarm, 5, time = 2 SECONDS, one_per_turf = TRUE, crafting_flags = CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
+	new/datum/stack_recipe("worm barrel", /obj/structure/wormfarm, 5, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("gutlunch trough", /obj/structure/ore_container/gutlunch_trough, 5, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("sturdy wooden fence", /obj/structure/railing/wooden_fencing, 5, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 	new/datum/stack_recipe("sturdy wooden fence gate", /obj/structure/railing/wooden_fencing/gate, 5, time = 2 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
