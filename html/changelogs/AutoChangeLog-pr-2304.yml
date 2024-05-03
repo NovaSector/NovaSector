@@ -1,0 +1,4 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - bugfix: "Transfer votes will once again happen automatically."
