@@ -1,0 +1,4 @@
+author: "Lutowski"
+delete-after: True
+changes:
+  - rscadd: "Pharmacist's labcoat added to chemdrobe & loadout."
