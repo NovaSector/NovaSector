@@ -77,3 +77,31 @@
   RatFromTheJungle:
   - balance: made it so EMPs don't hardstun people who have nifs. (doesn't affect
       other implants)
+2024-05-03:
+  CandleJaxx:
+  - rscadd: Zhenkov & Co has lost another shipment of their legs to the deep dark
+      frontier. These ones happen to be deeply dark.
+  Melbert:
+  - admin: Custom Single and Custom Multi votes are now combined into one vote
+  - admin: Admins can now end votes instantly, rather than cancelling them
+  - admin: Admins can now reset the vote cooldown
+  - bugfix: Vote cooldown actually applies now
+  NovaBot13:
+  - rscadd: increased the size of the pool that Machine Blessing draws from
+  - balance: weighted some of the implants that Machine Blessing can give
+  - image: added directional sprites for radiation shutters
+  - bugfix: fix runtime when no events were drafted to be picked from
+  - config: make events frequency configurable
+  - bugfix: the civilian bounty control terminal displays the payout of new bounty
+      options again
+  - qol: the civilian bounty control terminal displays the description of new bounty
+      options
+  - qol: conveyors now use left and right click controls
+  - qol: add screentips for conveyor switches
+  - rscdel: removes circuit conveyor circuit default trigger behavior in favor in
+      favor of the three state triggers
+  - qol: You can now quickly stamp papers with a right click
+  Thlumyn:
+  - bugfix: NT Rep door on tramstation is now NT Rep access only
+  nikothedude:
+  - bugfix: Jousting no longer bypasses pacifism
