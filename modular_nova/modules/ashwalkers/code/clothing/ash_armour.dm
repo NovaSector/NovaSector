@@ -109,8 +109,7 @@
 	name = "Ash Combat Plates"
 	result = /obj/item/clothing/suit/ash_plates
 	category = CAT_CLOTHING
-
-	always_available = FALSE
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /obj/item/clothing/suit/ash_plates/Initialize(mapload)
 	. = ..()
