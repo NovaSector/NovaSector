@@ -97,7 +97,7 @@
 
 /obj/item/clothing/under/rank/security/peacekeeper/plain_skirt
 	name = "security plain skirt"
-	desc = "Plainshirted uniform commonly worn by Peacekeepers, attached with a skirt."
+	desc = "Plain-shirted uniform commonly worn by Peacekeepers, attached with a skirt."
 	icon_state = "plainskirt_blue"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
