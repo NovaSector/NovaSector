@@ -126,7 +126,7 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/mandibles1
+/datum/body_marking/other/mandibles
 	name = "Mandibles"
 	icon_state = "mandibles1"
 	default_color = "#CCCCCC"
