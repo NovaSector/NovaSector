@@ -37,6 +37,7 @@
 
 	color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 	human_owner.dna.species.mutant_bodyparts -= mutantpart_key
+	human_owner.dna.mutant_bodyparts -= mutantpart_key
 	if(!special)
 		human_owner.update_body()
 
