@@ -7,8 +7,8 @@
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	drop_sound = 'sound/items/handling/toolbelt_drop.ogg'
 	slot_flags = ITEM_SLOT_BELT
-	/// Who's this attached to?
-	var/mob/living/currently_leashed
+	/// Weakref to the leash component we're using, if it exists.
+	var/datum/weakref/our_leash_component
 
 	unique_reskin = list(
 		"Pink" = "neckleash_pink",
@@ -26,12 +26,13 @@
 		if(leash_component.owner != src)
 			to_chat(user, span_danger("There's a leash attached to [to_be_leashed] already!"))
 			return
-	/// Do we have the target already leashed? If so; proceed to remove the leash.
-	if(to_be_leashed == currently_leashed)
-		remove_leash(currently_leashed)
+	/// Get a ref to our own leash component; and if one exists; handle removing it IF the target meets our requirements.
+	var/datum/component/resolved_leash_component = our_leash_component.resolve()
+	if(resolved_leash_component?.parent == to_be_leashed)
+		remove_leash(resolved_leash_component.parent)
 		return
 	/// Check if we even CAN leash someone / if we already have someone leashed / if someone is leashing themselves. If so; prevent it.
-	if(!istype(to_be_leashed) || currently_leashed != null || user == to_be_leashed)
+	if(!istype(to_be_leashed) || resolved_leash_component || user == to_be_leashed)
 		return
 	/// Check their ERP prefs; if they don't allow sextoys: BTFO
 	if(!to_be_leashed.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
@@ -43,9 +44,8 @@
 				span_hear("You hear a light click as pressure builds in the air around your neck."))
 	if(!do_after(user, 2 SECONDS, to_be_leashed))
 		return
-	currently_leashed = to_be_leashed
-	create_leash(currently_leashed)
-	currently_leashed.balloon_alert(user, "leashed!")
+	create_leash(to_be_leashed)
+	to_be_leashed.balloon_alert(user, "leashed!")
 
 /// Leash Initialization
 /obj/item/clothing/erp_leash/proc/create_leash(mob/ouppy)
@@ -53,22 +53,16 @@
 		return
 	ouppy.AddComponent(/datum/component/leash, src, 2)
 
-/// Leash Removal
+/// Leash removal
 /obj/item/clothing/erp_leash/proc/remove_leash(mob/free_bird)
-	if(!istype(free_bird))
-		return
-	free_bird.balloon_alert_to_viewers("unhooked")
-	for(var/datum/component/leash/leash_component in free_bird.GetComponents(/datum/component/leash))
-		if(leash_component.owner == src) // We don't want to remove any other possible leash components - not that they'd play nice regardless.
-			qdel(leash_component)
-		currently_leashed = null
+	free_bird?.balloon_alert_to_viewers("unhooked")
+	qdel(our_leash_component.resolve())
 
 /*
 	Leash Component
 */
 
 // 'owner' refers the leash item, while 'parent' refers to the one it's affixed to.
-
 /datum/component/leash/erp/RegisterWithParent()
 	. = ..()
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
@@ -99,13 +93,9 @@
 /datum/component/leash/erp/proc/on_item_dropped(var/obj/item/clothing/erp_leash/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(!istype(source))
-		return
-	source.remove_leash(parent)
+	qdel(src)
 
 /datum/component/leash/erp/proc/on_qdeleting(var/obj/item/clothing/erp_leash/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(!istype(source))
-		return
-	source.remove_leash(parent)
+	qdel(src)
