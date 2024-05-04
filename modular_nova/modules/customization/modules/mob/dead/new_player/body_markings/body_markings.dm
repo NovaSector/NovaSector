@@ -120,7 +120,7 @@
 	icon_state = "ears"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/colormothant
+/datum/body_marking/other/colorable_moth_antennae
 	name = "Colourable Moth Antennae"
 	icon_state = "colormothant"
 	default_color = "#CCCCCC"
