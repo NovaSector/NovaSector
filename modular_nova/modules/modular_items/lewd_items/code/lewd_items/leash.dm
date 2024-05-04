@@ -68,10 +68,6 @@
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
 
-/datum/component/leash/erp/Destroy()
-	. = ..()
-	UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
-
 /datum/component/leash/erp/proc/on_item_attack_self(datum/source, mob/user)
 	SIGNAL_HANDLER
 
