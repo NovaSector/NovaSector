@@ -21,22 +21,23 @@
 
 /// Checks; leashing start
 /obj/item/clothing/erp_leash/attack(mob/living/carbon/human/to_be_leashed, mob/living/user, params)
-	for(var/datum/component/leash/leash_component in to_be_leashed.GetComponents(/datum/component/leash))
-		/// Our leash component? Get 'em out!
-		if(leash_component == our_leash_component)
+	if(our_leash_component)
+		var/datum/component/leash/erp/workable_ref = our_leash_component
+		if(workable_ref.parent == to_be_leashed) // We're hooked to them; and we have a component. Get 'em out!
 			remove_leash(to_be_leashed)
 			return
-		/// Are they already leashed by another leash? If so; don't go further.
-		if(leash_component.owner != src)
-			to_chat(user, span_danger("There's a leash attached to [to_be_leashed] already!"))
-			return
+	else if (to_be_leashed.GetComponent(/datum/component/leash)) // It's possible they might have a leash component already still. Certain mobs rely on these; and having multiple will cause recursion/epilepsy triggers.
+		to_chat(user, span_danger("There's a leash attached to [to_be_leashed] already."))
+		return
 	/// Check if we even CAN leash someone / if someone is leashing themselves. If so; prevent it.
 	if(!istype(to_be_leashed) || user == to_be_leashed)
 		return
 	/// Check their ERP prefs; if they don't allow sextoys: BTFO
+	/* SHOG DEBUG
 	if(!to_be_leashed.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
 		to_chat(user, span_danger("[to_be_leashed] doesn't want you to do that."))
 		return
+	*/
 	/// Actually start the leashing part here
 	to_be_leashed.visible_message(span_warning("[user] raises the [src] to [to_be_leashed]'s neck!"),\
 				span_userdanger("[user] starts to bring the [src] to your neck!"),\
@@ -67,10 +68,9 @@
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
 
-/datum/component/leash/erp/UnregisterFromParent()
+/datum/component/leash/erp/Destroy()
 	. = ..()
 	UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
-	return ..()
 
 /datum/component/leash/erp/proc/on_item_attack_self(datum/source, mob/user)
 	SIGNAL_HANDLER
