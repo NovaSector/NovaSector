@@ -378,7 +378,7 @@
 	name = "Skulldog (Top)"
 	icon_state = "fskulldog"
 
-/datum/sprite_accessory/snouts/mammal/top/fskulldogalt
+/datum/sprite_accessory/snouts/mammal/top/fskulldog_greyscale
 	name = "Skulldog (Top, Greyscale)"
 	icon_state = "fskulldogalt"
 
@@ -386,7 +386,7 @@
 	name = "Skulldog"
 	icon_state = "skulldog"
 
-/datum/sprite_accessory/snouts/mammal/skulldogalt
+/datum/sprite_accessory/snouts/mammal/skulldog_greyscale
 	name = "Skulldog (Greyscale)"
 	icon_state = "skulldogalt"
 
