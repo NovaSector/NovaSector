@@ -1,0 +1,30 @@
+{
+	"replicaparadejacket": [
+		{
+			"type": "icon_state",
+			"icon_state": "replicaparadejacket_flair",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "replicaparadejacket_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"replicaparadejacket_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "replicaparadejacket_flair_t",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "replicaparadejacket_base_t",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}
