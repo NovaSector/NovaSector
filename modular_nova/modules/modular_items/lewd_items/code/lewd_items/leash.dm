@@ -71,7 +71,6 @@
 
 /datum/component/leash/erp/RegisterWithParent()
 	. = ..()
-	// RegisterSignal(owner, COMSIG_ITEM_ATTACK, PROC_REF(on_item_attack))
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
 	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdeleting))
@@ -81,10 +80,12 @@
 	UnregisterSignal(owner, COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED, COMSIG_QDELETING)
 	return ..()
 
-/datum/component/leash/erp/proc/on_item_attack_self(/obj/item/clothing/erp_leash/source, mob/user)
+/datum/component/leash/erp/proc/on_item_attack_self(var/obj/item/clothing/erp_leash/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(!istype(source) || !COOLDOWN_FINISHED(source, tug_cd))
+	if(!istype(source))
+		return
+	if(!COOLDOWN_FINISHED(source, tug_cd))
 		return
 	if(istype(parent, /mob/living))
 		var/mob/living/yoinked = parent
@@ -95,14 +96,14 @@
 				span_userdanger("A sudden tug against your neck pulls you ahead!"))
 		COOLDOWN_START(source, tug_cd, 1 SECONDS)
 
-/datum/component/leash/erp/proc/on_item_dropped(/obj/item/clothing/erp_leash/source, mob/user)
+/datum/component/leash/erp/proc/on_item_dropped(var/obj/item/clothing/erp_leash/source, mob/user)
 	SIGNAL_HANDLER
 
 	if(!istype(source))
 		return
 	source.remove_leash(parent)
 
-/datum/component/leash/erp/proc/on_qdeleting(/obj/item/clothing/erp_leash/source, mob/user)
+/datum/component/leash/erp/proc/on_qdeleting(var/obj/item/clothing/erp_leash/source, mob/user)
 	SIGNAL_HANDLER
 
 	if(!istype(source))
