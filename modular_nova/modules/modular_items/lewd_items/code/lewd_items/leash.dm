@@ -35,9 +35,11 @@
 	if(!istype(to_be_leashed) || resolved_leash_component || user == to_be_leashed)
 		return
 	/// Check their ERP prefs; if they don't allow sextoys: BTFO
+	/* SHOG DEBUG - DO NOT COMMIT
 	if(!to_be_leashed.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
 		to_chat(user, span_danger("[to_be_leashed] doesn't want you to do that."))
 		return
+	*/
 	/// Actually start the leashing part here
 	to_be_leashed.visible_message(span_warning("[user] raises the [src] to [to_be_leashed]'s neck!"),\
 				span_userdanger("[user] starts to bring the [src] to your neck!"),\
@@ -51,7 +53,7 @@
 /obj/item/clothing/erp_leash/proc/create_leash(mob/ouppy)
 	if(!istype(ouppy))
 		return
-	ouppy.AddComponent(/datum/component/leash, src, 2)
+	ouppy.AddComponent(/datum/component/leash/erp, src, 2)
 
 /// Leash removal
 /obj/item/clothing/erp_leash/proc/remove_leash(mob/free_bird)
@@ -63,11 +65,15 @@
 */
 
 // 'owner' refers the leash item, while 'parent' refers to the one it's affixed to.
-/datum/component/leash/erp/Initialize(atom/movable/owner, distance, force_teleport_out_effect, force_teleport_in_effect)
+/datum/component/leash/erp/RegisterWithParent()
 	. = ..()
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
-	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdeleting))
+
+/datum/component/leash/erp/UnregisterFromParent()
+	. = ..()
+	UnregisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED)
+	return ..()
 
 /datum/component/leash/erp/proc/on_item_attack_self(datum/source, mob/user)
 	SIGNAL_HANDLER
@@ -88,10 +94,4 @@
 /datum/component/leash/erp/proc/on_item_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 
-	qdel(src)
-
-/datum/component/leash/erp/proc/on_qdeleting(datum/source, mob/user)
-	SIGNAL_HANDLER
-
-	UnregisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED, COMSIG_QDELETING)
 	qdel(src)
