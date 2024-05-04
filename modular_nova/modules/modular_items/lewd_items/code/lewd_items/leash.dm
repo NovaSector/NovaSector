@@ -83,7 +83,9 @@
 
 /datum/component/leash/erp/Destroy() // Have to do this here too
 	UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
-	our_leash_component = null
+	if(istype(owner, /obj/item/clothing/erp_leash))
+		var/obj/item/clothing/erp_leash/our_leash = owner
+		our_leash.our_leash_component = null
 	return ..()
 
 
