@@ -33,11 +33,9 @@
 	if(!istype(to_be_leashed) || user == to_be_leashed)
 		return
 	/// Check their ERP prefs; if they don't allow sextoys: BTFO
-	/* SHOG DEBUG
 	if(!to_be_leashed.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
 		to_chat(user, span_danger("[to_be_leashed] doesn't want you to do that."))
 		return
-	*/
 	/// Actually start the leashing part here
 	to_be_leashed.visible_message(span_warning("[user] raises the [src] to [to_be_leashed]'s neck!"),\
 				span_userdanger("[user] starts to bring the [src] to your neck!"),\
