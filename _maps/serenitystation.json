@@ -28,7 +28,6 @@
 		{
 			"Linkage": "Cross",
 			"Gravity": false,
-			"Baseturf": "/turf/open/open/space",
 			"No Parallax": false
 		}
 	],
