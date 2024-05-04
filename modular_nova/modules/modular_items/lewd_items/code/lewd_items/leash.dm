@@ -1,6 +1,6 @@
 /obj/item/clothing/erp_leash
 	name = "leash"
-	desc = "A guiding hand's best friend; in a sleek, semi-elastic package. Can either clip to a collar or be affixed to the neck on it's own."
+	desc = "A guiding hand's best friend; in a sleek, semi-elastic package. Can either clip to a collar or be affixed to the neck on its own."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_belts.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_belts.dmi'
 	icon_state = "neckleash_pink"
@@ -12,7 +12,7 @@
 
 	unique_reskin = list(
 		"Pink" = "neckleash_pink",
-		"Teal" = "neckleash_teal"
+		"Teal" = "neckleash_teal",
 	)
 
 	COOLDOWN_DECLARE(tug_cd)
@@ -45,7 +45,7 @@
 		return
 	currently_leashed = to_be_leashed
 	create_leash(currently_leashed)
-	currently_leashed.balloon_alert(user, "leashed")
+	currently_leashed.balloon_alert(user, "leashed!")
 
 /obj/item/clothing/erp_leash/attack_self(mob/user, modifiers)
 	. = ..()
