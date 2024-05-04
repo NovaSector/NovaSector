@@ -67,8 +67,14 @@
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
 
 /datum/component/leash/erp/UnregisterFromParent()
+	if(owner) // Destroy() sets owner to null
+		UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
+	return ..()
+	
+/datum/component/leash/erp/Destroy() // Have to do this here too
 	UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
 	return ..()
+	
 
 /datum/component/leash/erp/proc/on_item_attack_self(datum/source, mob/user)
 	SIGNAL_HANDLER
