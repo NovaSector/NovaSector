@@ -21,7 +21,8 @@
 
 /// Checks; leashing start
 /obj/item/clothing/erp_leash/attack(mob/living/carbon/human/to_be_leashed, mob/living/user, params)
-	if(our_leash_component?.resolve())
+	var/datum/component/leash/erp/the_leash_component = our_leash_component?.resolve()
+	if(the_leash_component)
 		var/datum/component/leash/erp/workable_ref = our_leash_component.resolve()
 		if(workable_ref.parent == to_be_leashed) // We're hooked to them; and we have a component. Get 'em out!
 			remove_leash(to_be_leashed)
