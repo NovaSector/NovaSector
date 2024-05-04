@@ -26,5 +26,3 @@
 /datum/sprite_accessory/moth_antennae/none
 	name = "None"
 	icon_state = "none"
-
-// Someone modularise these please -- iska
