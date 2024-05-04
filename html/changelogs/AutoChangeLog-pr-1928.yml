@@ -1,5 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - image: "Added departmental guard belts"
-  - qol: "Department guards now start with their gear equipped in a spiffy looking belt"
