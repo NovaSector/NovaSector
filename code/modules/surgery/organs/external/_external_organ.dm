@@ -60,10 +60,18 @@
 		RegisterSignal(src, COMSIG_ATOM_RESTYLE, PROC_REF(on_attempt_feature_restyle))
 
 /obj/item/organ/external/Insert(mob/living/carbon/receiver, special, movement_flags)
+	// NOVA EDIT ADDITION START
+	if(mutantpart_key)
+		copy_to_mutant_bodyparts(receiver, special)
+	// NOVA EDIT ADDITION END
 	. = ..()
 	receiver.update_body_parts()
 
 /obj/item/organ/external/Remove(mob/living/carbon/organ_owner, special, movement_flags)
+	// NOVA EDIT ADDITION START
+	if(mutantpart_key)
+		transfer_mutantpart_info(organ_owner, special)
+	// NOVA EDIT ADDITION END
 	. = ..()
 	if(!special)
 		organ_owner.update_body_parts()
