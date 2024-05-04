@@ -16,7 +16,7 @@
 
 GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	new/datum/stack_recipe("prefabricated wall", /turf/closed/wall/prefab_plastic, time = 3 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, , category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("prefabricated window", /obj/structure/window/fulltile/colony_fabricator, time = 1 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, is_fulltile = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("prefabricated window", /obj/structure/window/fulltile/colony_fabricator, time = 1 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
 	))
 
 /obj/item/stack/sheet/plastic_wall_panel
