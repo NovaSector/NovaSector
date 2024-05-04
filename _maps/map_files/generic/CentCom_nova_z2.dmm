@@ -9078,7 +9078,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/window/indestructible{
 	id = "arriv_hall";
-	name = "Windowed Interlink Access Shutters"
+	name = "Windowed Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -11846,7 +11847,8 @@
 "onb" = (
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arriv_hall";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -12841,7 +12843,8 @@
 /obj/effect/turf_decal/trimline/dark_green/corner,
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arr_hall_lookout";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
@@ -13160,7 +13163,8 @@
 	},
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arriv_hall";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -17729,7 +17733,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arr_hall_lookout";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
