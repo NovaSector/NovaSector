@@ -86,8 +86,8 @@
 
 	if(!istype(source) || !COOLDOWN_FINISHED(source, tug_cd))
 		return
-	if(istype(owner, /mob/living))
-		var/mob/living/yoinked = owner
+	if(istype(parent, /mob/living))
+		var/mob/living/yoinked = parent
 		yoinked.Move(get_step_towards(yoinked,user))
 		yoinked.adjustStaminaLoss(10)
 		yoinked.visible_message(span_warning("[yoinked] is pulled in as [user] tugs the [source]!"),\
