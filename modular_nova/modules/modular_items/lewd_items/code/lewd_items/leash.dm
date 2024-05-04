@@ -26,33 +26,31 @@
 		if(workable_ref.parent == to_be_leashed) // We're hooked to them; and we have a component. Get 'em out!
 			remove_leash(to_be_leashed)
 			return
-	if (to_be_leashed.GetComponent(/datum/component/leash)) // It's possible they might have a leash component already still. Certain mobs rely on these; and having multiple will cause recursion/epilepsy triggers.
-		to_chat(user, span_danger("There's a leash attached to [to_be_leashed] already."))
-		return
 	/// Check if we even CAN leash someone / if someone is leashing themselves. If so; prevent it.
 	if(!istype(to_be_leashed) || user == to_be_leashed)
 		return
 	/// Check their ERP prefs; if they don't allow sextoys: BTFO
-	/* SHOG DEBUG - do not undraft with this comment in place
 	if(!to_be_leashed.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
 		to_chat(user, span_danger("[to_be_leashed] doesn't want you to do that."))
 		return
-	*/
 	/// Actually start the leashing part here
 	to_be_leashed.visible_message(span_warning("[user] raises the [src] to [to_be_leashed]'s neck!"),\
 				span_userdanger("[user] starts to bring the [src] to your neck!"),\
 				span_hear("You hear a light click as pressure builds in the air around your neck."))
 	if(!do_after(user, 2 SECONDS, to_be_leashed))
 		return
-	create_leash(to_be_leashed)
-	to_be_leashed.balloon_alert(user, "leashed!")
+	create_leash(user, to_be_leashed)
 
 /// Leash Initialization
-/obj/item/clothing/erp_leash/proc/create_leash(mob/ouppy)
+/obj/item/clothing/erp_leash/proc/create_leash(mob/user, mob/ouppy)
 	if(!istype(ouppy))
 		return
 
 	ouppy.AddComponent(/datum/component/leash/erp, src, 2)
+	if(our_leash_component.resolve()) // The component will immediately delete itself if there's an existing one; this sanity checks for feedback on if it failed.
+		ouppy.balloon_alert(user, "leashed!")
+		return
+	else to_chat(user, span_danger("There's a leash attached to [ouppy] already."))
 
 /// Leash removal
 /obj/item/clothing/erp_leash/proc/remove_leash(mob/free_bird)
@@ -62,6 +60,10 @@
 /*
 	Leash Component
 */
+
+/datum/component/leash/erp
+	dupe_mode = COMPONENT_DUPE_UNIQUE
+	dupe_type = /datum/component/leash
 
 // 'owner' refers the leash item, while 'parent' refers to the one it's affixed to.
 /datum/component/leash/erp/RegisterWithParent()
