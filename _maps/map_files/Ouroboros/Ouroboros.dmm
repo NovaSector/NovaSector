@@ -19774,12 +19774,12 @@
 /area/station/maintenance/fore/lesser)
 "fOn" = (
 /obj/effect/spawner/random/trash/garbage,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "fOo" = (
@@ -75106,6 +75106,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
+"vPD" = (
+/obj/structure/trash_pile,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/port/central)
 "vPH" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/structure/disposalpipe/segment,
@@ -110666,7 +110673,7 @@ nRh
 nRh
 nRh
 nRh
-iCU
+vPD
 fOn
 fsm
 fsm
