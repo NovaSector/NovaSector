@@ -21,8 +21,8 @@
 
 /// Checks; leashing start
 /obj/item/clothing/erp_leash/attack(mob/living/carbon/human/to_be_leashed, mob/living/user, params)
-	if(our_leash_component)
-		var/datum/component/leash/erp/workable_ref = our_leash_component
+	if(our_leash_component.resolve())
+		var/datum/component/leash/erp/workable_ref = our_leash_component.resolve()
 		if(workable_ref.parent == to_be_leashed) // We're hooked to them; and we have a component. Get 'em out!
 			remove_leash(to_be_leashed)
 			return
@@ -33,9 +33,11 @@
 	if(!istype(to_be_leashed) || user == to_be_leashed)
 		return
 	/// Check their ERP prefs; if they don't allow sextoys: BTFO
+	/* SHOG DEBUG - do not undraft with this comment in place
 	if(!to_be_leashed.check_erp_prefs(/datum/preference/toggle/erp/sex_toy, user, src))
 		to_chat(user, span_danger("[to_be_leashed] doesn't want you to do that."))
 		return
+	*/
 	/// Actually start the leashing part here
 	to_be_leashed.visible_message(span_warning("[user] raises the [src] to [to_be_leashed]'s neck!"),\
 				span_userdanger("[user] starts to bring the [src] to your neck!"),\
@@ -49,12 +51,14 @@
 /obj/item/clothing/erp_leash/proc/create_leash(mob/ouppy)
 	if(!istype(ouppy))
 		return
-	our_leash_component = ouppy.AddComponent(/datum/component/leash/erp, src, 2)
+
+	var/new_component = ouppy.AddComponent(/datum/component/leash/erp, src, 2)
+	our_leash_component = WEAKREF(new_component)
 
 /// Leash removal
 /obj/item/clothing/erp_leash/proc/remove_leash(mob/free_bird)
 	free_bird?.balloon_alert_to_viewers("unhooked")
-	qdel(our_leash_component)
+	qdel(our_leash_component.resolve())
 
 /*
 	Leash Component
