@@ -98,7 +98,7 @@
 /obj/item/clothing/under/rank/security/peacekeeper/plain_skirt
 	name = "security plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Peacekeepers, attached with a skirt."
-	icon_state = "plainskirt_blue"
+	icon_state = "plain_skirt_blue"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -106,12 +106,12 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "plainskirt_blue",
-			RESKIN_WORN_ICON_STATE = "plainskirt_blue"
+			RESKIN_ICON_STATE = "plain_skirt_blue",
+			RESKIN_WORN_ICON_STATE = "plain_skirt_blue"
 	    ),
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "plainskirt_black",
-			RESKIN_WORN_ICON_STATE = "plainskirt_black"
+			RESKIN_ICON_STATE = "plain_skirt_black",
+			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
 	    ),
 	)
 
