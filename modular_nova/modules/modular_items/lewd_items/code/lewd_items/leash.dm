@@ -47,19 +47,6 @@
 	create_leash(currently_leashed)
 	currently_leashed.balloon_alert(user, "leashed!")
 
-/obj/item/clothing/erp_leash/attack_self(mob/user, modifiers)
-	. = ..()
-	if(!COOLDOWN_FINISHED(src, tug_cd))
-		return
-	if(istype(currently_leashed, /mob/living))
-		var/mob/living/yoinked = currently_leashed
-		yoinked.Move(get_step_towards(yoinked,user))
-		yoinked.adjustStaminaLoss(10)
-		yoinked.visible_message(span_warning("[yoinked] is pulled in as [user] tugs the [src]!"),\
-				span_userdanger("[user] suddenly tugs the [src], pulling you closer!"),\
-				span_userdanger("A sudden tug against your neck pulls you ahead!"))
-	COOLDOWN_START(src, tug_cd, 1 SECONDS)
-
 /// Leash Initialization
 /obj/item/clothing/erp_leash/proc/create_leash(mob/ouppy)
 	if(!istype(ouppy))
@@ -76,12 +63,48 @@
 			qdel(leash_component)
 		currently_leashed = null
 
-/// Dropped it
-/obj/item/clothing/erp_leash/dropped(mob/user, silent)
-	. = ..()
-	remove_leash(currently_leashed)
+/*
+	Leash Component
+*/
 
-/// Clean up when destroyed
-/obj/item/clothing/erp_leash/Destroy()
-	remove_leash(currently_leashed)
+// 'owner' refers the leash item, while 'parent' refers to the one it's affixed to.
+
+/datum/component/leash/erp/RegisterWithParent()
 	. = ..()
+	// RegisterSignal(owner, COMSIG_ITEM_ATTACK, PROC_REF(on_item_attack))
+	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
+	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
+	RegisterSignal(owner, COMSIG_QDELETING, PROC_REF(on_qdeleting))
+
+/datum/component/leash/erp/UnregisterFromParent()
+	. = ..()
+	UnregisterSignal(owner, COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED, COMSIG_QDELETING)
+	return ..()
+
+/datum/component/leash/erp/proc/on_item_attack_self(/obj/item/clothing/erp_leash/source, mob/user)
+	SIGNAL_HANDLER
+
+	if(!istype(source) || !COOLDOWN_FINISHED(source, tug_cd))
+		return
+	if(istype(owner, /mob/living))
+		var/mob/living/yoinked = owner
+		yoinked.Move(get_step_towards(yoinked,user))
+		yoinked.adjustStaminaLoss(10)
+		yoinked.visible_message(span_warning("[yoinked] is pulled in as [user] tugs the [source]!"),\
+				span_userdanger("[user] suddenly tugs the [source], pulling you closer!"),\
+				span_userdanger("A sudden tug against your neck pulls you ahead!"))
+		COOLDOWN_START(source, tug_cd, 1 SECONDS)
+
+/datum/component/leash/erp/proc/on_item_dropped(/obj/item/clothing/erp_leash/source, mob/user)
+	SIGNAL_HANDLER
+
+	if(!istype(source))
+		return
+	source.remove_leash(parent)
+
+/datum/component/leash/erp/proc/on_qdeleting(/obj/item/clothing/erp_leash/source, mob/user)
+	SIGNAL_HANDLER
+
+	if(!istype(source))
+		return
+	source.remove_leash(parent)
