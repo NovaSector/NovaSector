@@ -55,7 +55,7 @@
 					/obj/item/clothing/under/rank/security/officer = 10,
 					/obj/item/clothing/under/rank/security/officer/skirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper/dress = 10,
-					/obj/item/clothing/under/rank/security/peacekeeper/plainskirt = 10,
+					/obj/item/clothing/under/rank/security/peacekeeper/plain_skirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper/miniskirt = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper/jumpsuit = 10,
 					/obj/item/clothing/under/rank/security/peacekeeper = 10,
