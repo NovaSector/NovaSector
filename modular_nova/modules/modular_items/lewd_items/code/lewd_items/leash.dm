@@ -21,12 +21,12 @@
 
 /// Checks; leashing start
 /obj/item/clothing/erp_leash/attack(mob/living/carbon/human/to_be_leashed, mob/living/user, params)
-	if(our_leash_component.resolve())
+	if(our_leash_component?.resolve())
 		var/datum/component/leash/erp/workable_ref = our_leash_component.resolve()
 		if(workable_ref.parent == to_be_leashed) // We're hooked to them; and we have a component. Get 'em out!
 			remove_leash(to_be_leashed)
 			return
-	else if (to_be_leashed.GetComponent(/datum/component/leash)) // It's possible they might have a leash component already still. Certain mobs rely on these; and having multiple will cause recursion/epilepsy triggers.
+	if (to_be_leashed.GetComponent(/datum/component/leash)) // It's possible they might have a leash component already still. Certain mobs rely on these; and having multiple will cause recursion/epilepsy triggers.
 		to_chat(user, span_danger("There's a leash attached to [to_be_leashed] already."))
 		return
 	/// Check if we even CAN leash someone / if someone is leashing themselves. If so; prevent it.
@@ -52,8 +52,7 @@
 	if(!istype(ouppy))
 		return
 
-	var/new_component = ouppy.AddComponent(/datum/component/leash/erp, src, 2)
-	our_leash_component = WEAKREF(new_component)
+	ouppy.AddComponent(/datum/component/leash/erp, src, 2)
 
 /// Leash removal
 /obj/item/clothing/erp_leash/proc/remove_leash(mob/free_bird)
@@ -69,16 +68,19 @@
 	. = ..()
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
+	if(istype(owner, /obj/item/clothing/erp_leash))
+		var/obj/item/clothing/erp_leash/our_leash = owner
+		our_leash.our_leash_component = WEAKREF(src)
 
 /datum/component/leash/erp/UnregisterFromParent()
 	if(owner) // Destroy() sets owner to null
 		UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
 	return ..()
-	
+
 /datum/component/leash/erp/Destroy() // Have to do this here too
 	UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
 	return ..()
-	
+
 
 /datum/component/leash/erp/proc/on_item_attack_self(datum/source, mob/user)
 	SIGNAL_HANDLER
