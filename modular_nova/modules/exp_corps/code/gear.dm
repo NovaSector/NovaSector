@@ -1,6 +1,6 @@
 //Gateway Medkit, no more combat defibs!
 /obj/item/storage/medkit/expeditionary
-	name = "combat medical kit"
+	name = "expeditionary medical kit"
 	desc = "Now with 100% less bullshit."
 	icon_state = "medkit_tactical"
 	damagetype_healed = "all"
@@ -27,6 +27,7 @@
 	new /obj/item/stack/medical/suture/medicated(src)
 	new /obj/item/stack/medical/mesh/advanced(src)
 	new /obj/item/stack/medical/mesh/advanced(src)
+	new /obj/item/clothing/glasses/hud/health(src)
 
 //Field Medic's weapon, no more tomahawk!
 /obj/item/circular_saw/field_medic
@@ -56,7 +57,7 @@
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 1
-	block_chance = 30
+	block_chance = 15
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb_continuous = list("slams", "bashes")
 	attack_verb_simple = list("slam", "bash")
@@ -66,19 +67,24 @@
 
 /obj/item/shield/riot/pointman/Initialize(mapload)
 	. = ..()
-	RegisterSignals(src, list(COMSIG_TWOHANDED_WIELD, COMSIG_TWOHANDED_UNWIELD), PROC_REF(shield_wield))
-	AddComponent(/datum/component/two_handed, force_unwielded=10, force_wielded=20)
+	AddComponent(/datum/component/two_handed, \
+	force_unwielded=10, force_wielded=20, \
+	wield_callback = CALLBACK(src, PROC_REF(shield_wield)), \
+	unwield_callback = CALLBACK(src, PROC_REF(shield_unwield)), \
+	)
+
 
 /// handles buffing the shield's defensive ability and nerfing user mobility
 /obj/item/shield/riot/pointman/proc/shield_wield()
-	if(HAS_TRAIT(src, TRAIT_WIELDED))
-		item_flags |= SLOWS_WHILE_IN_HAND
-		block_chance *= 2.5 // 30 * 2.5 = 75
-		slowdown = 0.3
-	else
-		item_flags &= ~SLOWS_WHILE_IN_HAND
-		block_chance /= 2.5
-		slowdown = 0
+	item_flags |= SLOWS_WHILE_IN_HAND
+	block_chance *= 5 // 15 * 5 = 75
+	slowdown = 0.6
+
+/// nerfs the shield's defensive ability, buffs user mobility
+/obj/item/shield/riot/pointman/proc/shield_unwield()
+	item_flags &= ~SLOWS_WHILE_IN_HAND
+	block_chance /= 5
+	slowdown = 0
 
 /obj/item/pointman_broken
 	name = "broken pointman shield"
@@ -96,7 +102,7 @@
 	)
 
 //broken shield fixing
-/datum/crafting_recipe/pointman
+/datum/crafting_recipe/pointman_repair
 	name = "pointman shield (repaired)"
 	result = /obj/item/shield/riot/pointman
 	reqs = list(/obj/item/pointman_broken = 1,

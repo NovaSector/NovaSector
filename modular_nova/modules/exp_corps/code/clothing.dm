@@ -147,7 +147,7 @@
 
 /obj/item/clothing/suit/armor/vest/expeditionary_corps
 	name = "expeditionary corps armor vest"
-	desc = "An armored vest that provides okay protection against most types of damage. Somehow also covers the arms."
+	desc = "An armored vest that provides okay protection against most types of damage. Includes concealable sleeves for your arms."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "exp_corps"

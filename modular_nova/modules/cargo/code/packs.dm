@@ -333,39 +333,6 @@
 	)
 	crate_name = "candle crate"
 
-/datum/supply_pack/imports/vanguard_surplus
-	name = "Vanguard Expeditionary Corps Surplus"
-	desc = "Contains an assortment of surplus equipment from the now-defunct Vanguard Expeditionary Corps."
-	cost = CARGO_CRATE_VALUE * 20
-	// note: weights are entirely arbitrary. also arbitrarily sorted by weight
-	contains = list(
-		// clothes incl. storage
-		/obj/item/clothing/under/rank/expeditionary_corps = 4,
-		/obj/item/storage/belt/military/expeditionary_corps = 4,
-		/obj/item/storage/backpack/duffelbag/expeditionary_corps = 3,
-		/obj/item/clothing/gloves/color/black/expeditionary_corps = 3,
-		/obj/item/clothing/shoes/combat/expeditionary_corps = 3,
-		// misc goodies?
-		/obj/item/storage/box/expeditionary_survival = 3,
-		/obj/item/melee/tomahawk = 3,
-		/obj/item/knife/combat/marksman = 3,
-		/obj/item/storage/medkit/expeditionary = 2,
-		// armor
-		/obj/item/clothing/head/helmet/expeditionary_corps = 2,
-		/obj/item/clothing/suit/armor/vest/expeditionary_corps = 2,
-		// maybe not junk
-		/obj/item/pointman_broken = 1, // diy project for a 75 blockchance shield that you can beat people to death with
-		/obj/item/clothing/gloves/chief_engineer/expeditionary_corps = 1, // congratulations you won (it's basically combat gloves but not quite)
-		/obj/item/modular_computer/pda/expeditionary_corps = 1, // except for when you didn't (scammed)
-	)
-	/// How many of the contains to put in the crate
-	var/num_contained = 10
-
-/datum/supply_pack/imports/vanguard_surplus/fill(obj/structure/closet/crate/filled_crate)
-	for(var/i in 1 to num_contained)
-		var/item = pick_weight(contains)
-		new item(filled_crate)
-
 /datum/supply_pack/misc/gravity_harness
 	name = "Gravity Suspension Harness"
 	desc = "A back-mounted suspensor harness powered by cells, designed by Deep Spacer tribes to either nullify or amplify gravity. \
