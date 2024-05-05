@@ -95,8 +95,8 @@
 	worn_icon = 'modular_np_lethal/armor_but_cool/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_lethal_filtre_super
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDESNOUT
-	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
+	flags_cover = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF
 	max_integrity = 900
 	limb_integrity = 900
 	dog_fashion = null
