@@ -133,3 +133,25 @@
       belt
   mogeoko:
   - bugfix: Ventcrawling mobs can change Z-level using multiz-decks again.
+2024-05-05:
+  GoldenAlpharex:
+  - image: The game client now uses Nova Sector's logo, at long last!
+  Lutowski:
+  - rscadd: Three Security skirts & a jumpsuit were added to the Peacekeeper Outfitting
+      Station & loadout.
+  - rscadd: Security officers with jumpskirt pref now spawn with the new jumpskirt,
+      battle dress is moved to loadout.
+  NovaBot13:
+  - bugfix: Materials are now correctly applied to crafted items (chairs, toilets,
+      etc)
+  - bugfix: You can no longer bypass construction restrictions via the crafting menu
+  - bugfix: Blood Brothers should spawn knowing what their objectives are.
+  - bugfix: Teams of 3 Blood Brothers will once more have an additional objective.
+  - bugfix: If kidnapped and ransomed by pirates, you will now properly return to
+      the station automatically after 6 minutes.
+  - bugfix: You can no longer be kidnapped and held for ransom by cargo technicians
+      posing as pirates.
+  - balance: Bitrunners can now earn Bepis disks, once per medium domain or above,
+      if they scored at least an A.
+  - rscdel: Bitrunners can not buy Bepis disks from their vendors.
+  - bugfix: Fixed lua scripts breaking when turfs with registered signals get deleted.
