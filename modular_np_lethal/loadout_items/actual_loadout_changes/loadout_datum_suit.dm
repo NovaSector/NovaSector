@@ -14,9 +14,15 @@
 	name = "Expeditionary Corps Armored Vest"
 	item_path = /obj/item/clothing/suit/armor/vest/expeditionary_corps
 
-// Vol's funny giggler armor for filtres
+//Custom filtre armors
 /datum/loadout_item/suit/giggler_armor
 	name = "'Armageddon' type V heavy armor kit"
 	item_path = /obj/item/clothing/suit/armor/lethal_filtre/heavy/giggler
 	ckeywhitelist = list("ApplePlastic")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/suit/novem_armor
+	name = "'Novem' type V heavy armor kit"
+	item_path = /obj/item/clothing/suit/armor/lethal_filtre/heavy/nineball
+	ckeywhitelist = list("DawsonKeyes")
 	restricted_roles = list("Filtre")
