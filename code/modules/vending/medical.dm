@@ -19,7 +19,6 @@
 		/obj/item/stack/medical/bone_gel = 4,
 		/obj/item/cane/white = 2,
 		/obj/item/clothing/glasses/eyepatch/medical = 2,
-		/obj/item/clothing/glasses/blindfold/color = 2,
 		/obj/item/storage/box/bandages = 2,
 	)
 	contraband = list(
