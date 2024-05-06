@@ -123,14 +123,13 @@
 	INVOKE_ASYNC(src, PROC_REF(do_resist))
 
 /datum/component/leash/erp/proc/do_resist(datum/source, mob/user)
-	if(istype(parent, /mob))
+	if(istype(parent, /mob) && if(istype(owner,/obj/item)))
 		var/mob/our_parent = parent
+		var/obj/item/our_owner = owner
 		our_parent.visible_message(span_warning("[our_parent] attempts to unhook [our_parent.p_them()]self from the leash!"),\
 		span_userdanger("You start to unhook yourself from the leash..."),\
-		span_userdanger("You fumble in the dark, looking to unhook the leash..."))\
-		if(istype(owner,/obj/item))
-			var/obj/item/our_owner = owner
-			if(do_after(our_parent, our_owner.breakouttime, target = our_parent))
-				to_chat(our_parent, span_notice("You unhook yourself from the leash."))
-				qdel(src)
-		else qdel(src) // If they're not an item; something is very wrong - qdel anyways without the breakout time.
+		span_userdanger("You fumble in the dark, looking to unhook the leash..."))
+		if(do_after(our_parent, our_owner.breakouttime, target = our_parent))
+			to_chat(our_parent, span_notice("You unhook yourself from the leash."))
+			qdel(src)
+	else qdel(src) // If they're not an item; something is very wrong - qdel anyways without the breakout time.
