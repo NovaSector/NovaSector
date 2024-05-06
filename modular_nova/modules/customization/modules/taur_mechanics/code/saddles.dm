@@ -8,10 +8,10 @@
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
-/obj/item/riding_saddle/mob_can_equip(mob/living/M, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
-	if (!iscarbon(M))
+/obj/item/riding_saddle/mob_can_equip(mob/living/target, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
+	if (!iscarbon(target))
 		return FALSE
-	var/mob/living/carbon/target_carbon = M
+	var/mob/living/carbon/target_carbon = target
 
 	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in target_carbon.organs // hardcoded for now, we can do a better job later
 	if (!taur_body?.can_use_saddle)
