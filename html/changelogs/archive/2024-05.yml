@@ -155,3 +155,6 @@
       if they scored at least an A.
   - rscdel: Bitrunners can not buy Bepis disks from their vendors.
   - bugfix: Fixed lua scripts breaking when turfs with registered signals get deleted.
+2024-05-06:
+  NovaBot13:
+  - qol: Admin modsuit now has a radiation protect module
