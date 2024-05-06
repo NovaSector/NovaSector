@@ -1,0 +1,5 @@
+author: "unit0016"
+delete-after: True
+changes:
+  - admin: "The nuke codes will no longer be consistently randomly generated roundstart, though it's still possible."
+  - bugfix: "It's no longer possible to break into the emergency shuttle before it reaches the station."
