@@ -817,11 +817,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	female_uniform = NO_FEMALE_UNIFORM,
 	override_state = null,
 	override_file = null,
-<<<<<<< HEAD
-	use_height_offset = TRUE,
 	mutant_styles = NONE, // NOVA EDIT ADD - Further outfit modification for outfits (added `mutant_styles` argument)
-=======
->>>>>>> c66636d21e0 (Fix height settings double-applying offsets / some human icon gen cleanup I guess (#82672))
 )
 
 	//Find a valid icon_state from variables+arguments
