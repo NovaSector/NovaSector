@@ -904,34 +904,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 
 	//Get the overlays for this item when it's being worn
 	//eg: ammo counters, primed grenade flashes, etc.
-<<<<<<< HEAD
-	var/list/worn_overlays = worn_overlays(standing, isinhands, file2use, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/list/worn_overlays = worn_overlays(standing, isinhands)
-	if(worn_overlays?.len)
-		if(!isinhands && default_layer && ishuman(loc) && use_height_offset)
-			var/mob/living/carbon/human/human_loc = loc
-			if(human_loc.get_mob_height() != HUMAN_HEIGHT_MEDIUM)
-				var/string_form_layer = num2text(default_layer)
-				var/offset_amount = GLOB.layers_to_offset[string_form_layer]
-				if(isnull(offset_amount))
-					// Worn overlays don't get batched in with standing overlays because they are overlay overlays
-					// ...So we need to apply human height here as well
-					for(var/mutable_appearance/applied_appearance as anything in worn_overlays)
-						if(isnull(applied_appearance))
-							continue
-						human_loc.apply_height_filters(applied_appearance)
-
-				else
-					for(var/mutable_appearance/applied_appearance in worn_overlays)
-						if(isnull(applied_appearance))
-							continue
-						human_loc.apply_height_offsets(applied_appearance, offset_amount)
-
-		standing.overlays.Add(worn_overlays)
-=======
-	var/list/worn_overlays = worn_overlays(standing, isinhands, file2use)
+	var/list/worn_overlays = worn_overlays(standing, isinhands, file2use, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/list/worn_overlays = worn_overlays(standing, isinhands, file2use)
 	if(length(worn_overlays))
 		standing.overlays += worn_overlays
->>>>>>> c66636d21e0 (Fix height settings double-applying offsets / some human icon gen cleanup I guess (#82672))
 
 	standing = center_image(standing, isinhands ? inhand_x_dimension : worn_x_dimension, isinhands ? inhand_y_dimension : worn_y_dimension)
 
