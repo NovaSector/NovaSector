@@ -126,9 +126,9 @@
 	if(istype(parent, /mob) && istype(owner,/obj/item))
 		var/mob/our_parent = parent
 		var/obj/item/our_owner = owner
-		our_parent.visible_message(span_warning("[our_parent] attempts to unhook [our_parent.p_them()]self from the leash!"),\
-		span_userdanger("You start to unhook yourself from the leash..."),\
-		span_userdanger("You fumble in the dark, looking to unhook the leash..."))
+		our_parent.visible_message(span_warning("[our_parent] attempts to unhook [our_parent.p_them()]self from the leash!"), \
+			span_userdanger("You start to unhook yourself from the leash..."), \
+			span_userdanger("You fumble in the dark, looking to unhook the leash..."))
 		if(do_after(our_parent, our_owner.breakouttime, target = our_parent))
 			to_chat(our_parent, span_notice("You unhook yourself from the leash."))
 			qdel(src)
