@@ -32,7 +32,6 @@
 	knockdown_time = 2 SECONDS,
 	max_tile_charge = 5,
 	min_tile_charge = 2,
-	datum/callback/successful_joust_callback // NOVA EDIT ADDITION
 )
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -116,7 +115,7 @@
 			target.Paralyze(knockdown_time)
 		user.visible_message(span_danger("[msg]!"))
 
-		successful_joust_callback?.Invoke(target, user, usable_charge) // NOVA EDIT ADDITION - Baton jousting
+		return usable_charge // NOVA EDIT ADDITION - Baton jousting
 /**
  * Called when a mob moves.
  * Handles checking their direction, changing it if they turned,
