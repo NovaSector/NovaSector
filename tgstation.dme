@@ -7565,6 +7565,7 @@
 #include "modular_nova\modules\mapping\code\airless.dm"
 #include "modular_nova\modules\mapping\code\asteroid_moon.dm"
 #include "modular_nova\modules\mapping\code\automatic_respawner.dm"
+#include "modular_nova\modules\mapping\code\buttons.dm"
 #include "modular_nova\modules\mapping\code\color.dm"
 #include "modular_nova\modules\mapping\code\doors.dm"
 #include "modular_nova\modules\mapping\code\dungeon.dm"
