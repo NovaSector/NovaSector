@@ -66,9 +66,9 @@
 	icon_state = "saddle_satchel_item"
 	worn_icon_state = "saddle_satchel"
 
-// on par with a duffel bag, but it has accessable_storage, so anyone can take anything from it
+// slightly better than a backpack, but accessable_storage counterbalances this
 /datum/storage/saddlebags
-	max_total_storage = 30
+	max_total_storage = 26
 	max_slots = 21
 
 /obj/item/storage/backpack/saddlebags/Initialize(mapload)
