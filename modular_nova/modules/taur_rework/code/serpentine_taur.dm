@@ -24,5 +24,3 @@
 	if (!owner_blocked_feet_before_insert)
 		organ_owner.dna.species.no_equip_flags &= ~ITEM_SLOT_FEET
 	owner_blocked_feet_before_insert = FALSE
-
-	

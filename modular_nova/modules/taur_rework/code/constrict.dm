@@ -5,7 +5,7 @@
 
 /datum/action/innate/constrict
 	name = "Constrict"
-	desc = "Left click to coil/uncoil your powerful tail around something, right click to begin crushing."
+	desc = "<b>Left click</b> to coil/uncoil your powerful tail around something, <b>right click</b> to begin crushing."
 	check_flags = AB_CHECK_LYING|AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED|AB_CHECK_PHASED
 
 	button_icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
@@ -43,11 +43,15 @@
 		if (tail)
 			QDEL_NULL(tail)
 			return TRUE
+
 		tail = new /obj/structure/serpentine_tail(owner.loc, caller, src)
 		return TRUE
+
 	var/mob/living/living_target = clicked_on
+
 	if (living_target == caller)
 		return TRUE
+
 	if (!can_coil_target(living_target))
 		return TRUE
 
@@ -81,14 +85,17 @@
 		if (!silent)
 			owner.balloon_alert(owner, "too far!")
 		return FALSE
+
 	if (target.buckled)
 		if (!silent)
 			owner.balloon_alert(owner, "unbuckle [target.p_them()] first!")
 		return FALSE
+
 	if (owner.buckled)
 		if (!silent)
 			owner.balloon_alert(owner, "unbuckle yourself first!")
 		return FALSE
+
 	return TRUE
 
 /obj/structure/serpentine_tail
@@ -132,7 +139,7 @@
 
 /obj/structure/serpentine_tail/New(loc, mob/living/carbon/human/new_owner, datum/action/innate/constrict/action)
 	if (isnull(new_owner))
-		qdel(src) // requires a owner, not stack tracing because it fails tests
+		qdel(src) // requires an owner, not stack tracing because it fails tests
 		return FALSE
 
 	set_owner(new_owner)
@@ -147,7 +154,7 @@
 
 	var/mutable_appearance/overlay = mutable_appearance('modular_nova/modules/taur_rework/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
 	overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
-	src.add_overlay(overlay)
+	add_overlay(overlay)
 
 /obj/structure/serpentine_tail/Destroy()
 	. = ..()
@@ -155,8 +162,8 @@
 	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
-	creating_action?.tail = null
 	set_action(null)
+	creating_action?.tail = null
 	old_owner?.update_mutant_bodyparts()
 
 /// Syncs our colors, size, sprite, etc. with owner.
@@ -177,7 +184,7 @@
 			finished_list += rgb2num(padded_string)
 			finished_list += rgb2num(padded_string)
 
-	finished_list += list(0,0,0,255)
+	finished_list += list(0, 0, 0, 255)
 	for(var/index in 1 to finished_list.len)
 		finished_list[index] /= 255
 
@@ -249,26 +256,32 @@
 	if (currently_crushing && !target)
 		stop_crushing()
 
-	if (constricted)
+	if (constricted)		
 		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL))
 		constricted.pixel_x -= CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
 		constricted.remove_status_effect(/datum/status_effect/constricted)
+
 	constricted = target
 
-	if (constricted)
-		RegisterSignal(constricted, COMSIG_MOVABLE_MOVED, PROC_REF(constricted_moved))
-		RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
-		RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
-		var/old_grab_state = owner.grab_state // intentionally placed before the signals so we can allow the grab to carry over
-		constricted.forceMove(get_turf(src))
-		buckle_mob(constricted)
-		constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
-		constricted.apply_status_effect(/datum/status_effect/constricted)
-		if (old_grab_state >= GRAB_AGGRESSIVE)
-			allowing_grab_on_constricted = TRUE
-			owner.grab(constricted)
-			owner.setGrabState(old_grab_state)
-			allowing_grab_on_constricted = FALSE
+	if (!constricted)
+		return
+
+	RegisterSignal(constricted, COMSIG_MOVABLE_MOVED, PROC_REF(constricted_moved))
+	RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
+	RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
+	var/old_grab_state = owner.grab_state // intentionally placed before the signals so we can allow the grab to carry over
+	constricted.forceMove(get_turf(src))
+	buckle_mob(constricted)
+	constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
+	constricted.apply_status_effect(/datum/status_effect/constricted)
+
+	if (old_grab_state < GRAB_AGGRESSIVE)
+		return
+
+	allowing_grab_on_constricted = TRUE
+	owner.grab(constricted)
+	owner.setGrabState(old_grab_state)
+	allowing_grab_on_constricted = FALSE
 
 /// Toggle proc for crushing. See stop_crushing and start_crushing.
 /obj/structure/serpentine_tail/proc/toggle_crushing()
@@ -280,6 +293,7 @@
 		stop_crushing()
 	else
 		start_crushing()
+
 	return TRUE
 
 /// Setter proc for currently_crushing that handles processing and warnings.
@@ -326,7 +340,7 @@
 
 /// Setter proc for action.
 /obj/structure/serpentine_tail/proc/set_action(datum/action/innate/constrict/action)
-	src.creating_action = action
+	creating_action = action
 
 /obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)	
 	if (!constricted || (user != constricted)) // anyone can easily free them except themselves
@@ -335,14 +349,17 @@
 	if (!COOLDOWN_FINISHED(src, escape_cooldown))
 		to_chat(user, span_warning("You're still recovering from your last escape attempt!")) // prevent escape spam
 		return FALSE
+
 	var/escape_chance = CONSTRICT_ESCAPE_CHANCE
 	if (HAS_TRAIT(user, TRAIT_SLIPPERY))
 		escape_chance += 10 // akula
+
 	if (!prob(escape_chance))
 		user.visible_message(span_warning("[user] squirms as they fail to escape from [owner]'s tail!"), span_warning("You squirm as you fail to escape from [owner]'s tail!"), ignored_mobs = owner)
 		to_chat(owner, span_warning("[user] squirms as they fail to escape from the grip of your tail!"))
 		COOLDOWN_START(src, escape_cooldown, 0.5 SECONDS) // arbitrary
 		return FALSE
+
 	user.visible_message(span_warning("[user] breaks free from [owner]'s tail!"), span_warning("You break free from [owner]'s tail!"), ignored_mobs = owner)
 	to_chat(owner, span_boldwarning("[user] breaks free from the grip of your tail!"))
 	return ..()
@@ -361,8 +378,10 @@
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
-			if(damage_amount)
-				playsound(loc, 'sound/items/welder.ogg', 100, TRUE)
+			if(!damage_amount)
+				return
+
+			playsound(loc, 'sound/items/welder.ogg', 100, TRUE)
 
 
 /// Signal proc for when owner moves. Qdels src.
