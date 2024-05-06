@@ -22,7 +22,7 @@
 	icon = 'modular_nova/modules/GAGS/icons/eyes.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
 	icon_state = "blindfoldcolor"
-	greyscale_config = /datum/greyscale_config/blindfoldcolor
-	greyscale_config_worn = /datum/greyscale_config/blindfoldcolor/worn
+	greyscale_config = /datum/greyscale_config/blindfold
+	greyscale_config_worn = /datum/greyscale_config/blindfold/worn
 	greyscale_colors = "#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
