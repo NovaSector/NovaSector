@@ -332,7 +332,7 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/eyes.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/blindfold_eyes/blindfoldcolor.json'
 
-/datum/greyscale_config/blindfoldcolor/worn
+/datum/greyscale_config/blindfold/worn
 	name = "Blind Personnel Blindfold (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
 
