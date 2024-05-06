@@ -35,7 +35,8 @@
 	var/alt_taur_mode = NONE
 
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
-	if (target.hide_taur_body)
+	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in target.organs
+	if (taur_body?.hide_self)
 		return TRUE
 
 	var/obj/item/clothing/suit/worn_suit = target.wear_suit

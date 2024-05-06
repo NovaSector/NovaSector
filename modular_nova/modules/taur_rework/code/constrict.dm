@@ -1,6 +1,6 @@
 /// When a mob is constricted, its pixel_x will be modified by this. Reverted on unconstriction. Modified by sprite scaling.
 #define CONSTRICT_BASE_PIXEL_SHIFT 12
-/// The base chance a mob has to escape from a constriction.	
+/// The base chance a mob has to escape from a constriction.
 #define CONSTRICT_ESCAPE_CHANCE 25
 
 /datum/action/innate/constrict
@@ -9,7 +9,7 @@
 	check_flags = AB_CHECK_LYING|AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED|AB_CHECK_PHASED
 
 	button_icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
-	button_icon_state = "constrict" 
+	button_icon_state = "constrict"
 
 	ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_pickturf.dmi'
 
@@ -25,7 +25,7 @@
 
 	QDEL_NULL(tail)
 
-/datum/action/innate/constrict/Trigger(trigger_flags)	
+/datum/action/innate/constrict/Trigger(trigger_flags)
 	if(!..())
 		return FALSE
 
@@ -59,10 +59,10 @@
 	caller.visible_message(span_warning("[caller] starts coiling their tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]..."), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[caller] starts coiling their tail around you!"))
 
-	owner.changeNext_move(10 MINUTES) // prevent interaction during this
+	owner.changeNext_move(base_coil_delay) // prevent interaction during this
 	unset_ranged_ability(owner) // because we sleep
 	var/result = do_after(caller, base_coil_delay, living_target, IGNORE_HELD_ITEM, extra_checks = CALLBACK(src, PROC_REF(can_coil_target), living_target))
-	owner.changeNext_move(-10 MINUTES)
+	owner.changeNext_move(-base_coil_delay)
 	if (!result)
 		return TRUE
 
@@ -73,7 +73,7 @@
 /datum/action/innate/constrict/proc/do_constriction(mob/living/living_target)
 	owner.visible_message(span_boldwarning("[owner] coils [owner.p_their()] tail around [living_target]!"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[owner] coils [owner.p_their()] tail around you!"))
-	
+
 	if (!tail)
 		tail = new /obj/structure/serpentine_tail(owner.loc, owner, src)
 	tail.set_constricted(living_target)
@@ -117,7 +117,7 @@
 	var/mob/living/carbon/human/owner
 	/// The action that made us. Nullable.
 	var/datum/action/innate/constrict/creating_action
-	
+
 	/// The mob we are currently constricting, usually coincides with what we have buckled to us. Nullable.
 	var/mob/living/constricted
 
@@ -143,13 +143,13 @@
 		return FALSE
 
 	set_owner(new_owner)
-	set_action(action)	
+	set_action(action)
 
 	return ..()
 
 /obj/structure/serpentine_tail/Initialize(mapload)
 	. = ..()
-	
+
 	sync_sprite()
 
 	var/mutable_appearance/overlay = mutable_appearance('modular_nova/modules/taur_rework/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
@@ -158,12 +158,14 @@
 
 /obj/structure/serpentine_tail/Destroy()
 	. = ..()
-	
+
 	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
-	set_action(null)
+
 	creating_action?.tail = null
+	set_action(null)
+
 	old_owner?.update_mutant_bodyparts()
 
 /// Syncs our colors, size, sprite, etc. with owner.
@@ -206,18 +208,49 @@
 	stored_damage += (brute_per_second * seconds_per_tick)
 	if (stored_damage < WOUND_MINIMUM_DAMAGE)
 		return
+	squeeze_constricted(stored_damage, SPT_PROB(chance_to_cause_wound, seconds_per_tick))
+	stored_damage = 0
+
+/// The minimum wound bonus caused by a forced wound in squeeze_constricted.
+#define CONSTRICTED_FORCE_WOUND_BONUS_MIN 40
+/// The maximum wound bonus caused by a forced wound in squeeze_constricted.
+#define CONSTRICTED_FORCE_WOUND_BONUS_MAX 70
+
+/**
+ * Attempts to squeeze constricted with ourselves, dealing blunt brute damage to them based on the damage arg.
+ *
+ * Arguments:
+ * * damage: Float - The numerical damage to apply, with MELEE armor flag and BLUNT wounding type.
+ * * force_wound: Boolean - If we should force a wound to be applied to constricted.
+ *
+ * Returns:
+ * * FALSE if we aborted trying to inflict damage, TRUE otherwise.
+ */
+/obj/structure/serpentine_tail/proc/squeeze_constricted(damage, force_wound = FALSE)
+	if (!constricted || damage <= 0)
+		return FALSE
+
 	var/armor = constricted.run_armor_check(attack_flag = MELEE)
 	var/wound_bonus = 0
-	if (SPT_PROB(chance_to_cause_wound, seconds_per_tick))
-		wound_bonus = rand(40, 70)
+	if (force_wound)
+		wound_bonus += rand(CONSTRICTED_FORCE_WOUND_BONUS_MIN, CONSTRICTED_FORCE_WOUND_BONUS_MAX)
 	var/def_zone = null
 	if (iscarbon(constricted))
 		var/mob/living/carbon/carbon_target = constricted
 		def_zone = pick(carbon_target.bodyparts)
 	constricted.apply_damage(stored_damage, BRUTE, def_zone = def_zone, blocked = armor, wound_bonus = wound_bonus)
-	stored_damage = 0
 	owner.visible_message(span_warning("[owner] squeezes [constricted] with [owner.p_their()] tail!"), span_danger("You squeeze [constricted] with your tail!"), ignored_mobs = list(constricted))
 	to_chat(constricted, span_warning("[owner] squeezes you with [owner.p_their()] tail!"))
+	return TRUE
+
+#undef CONSTRICTED_FORCE_WOUND_BONUS_MIN
+#undef CONSTRICTED_FORCE_WOUND_BONUS_MAX
+
+
+/// The damage dealt to a serpentine tail's owner apon its destruction.
+#define SERPENTINE_TAIL_DESTRUCTION_OWNER_BRUTE_DAMAGE 30
+/// The chance that the damage dealt to a destroyed tail's owner goes to the right leg over the left leg.
+#define SERPENTINE_TAIL_DESTRUCTION_R_LEG_CHANCE 50
 
 /obj/structure/serpentine_tail/atom_destruction(damage_flag)
 	/// Assoc list of [damage_flag -> damage_type], e.g. ACID = BURN.
@@ -238,15 +271,18 @@
 		damage_type = BRUTE
 
 	var/obj/item/bodypart/def_zone = owner.get_bodypart(BODY_ZONE_L_LEG)
-	if (!def_zone || rand(50))
+	if (!def_zone || rand(SERPENTINE_TAIL_DESTRUCTION_R_LEG_CHANCE))
 		def_zone = owner.get_bodypart(BODY_ZONE_R_LEG)
 	if (!def_zone)
 		def_zone = owner.get_bodypart(BODY_ZONE_CHEST)
 
 	to_chat(owner, span_userdanger("You recall your tail as a sharp pain shoots through it!"))
-	owner.apply_damage(30, damage_type, def_zone)
+	owner.apply_damage(SERPENTINE_TAIL_DESTRUCTION_OWNER_BRUTE_DAMAGE, damage_type, def_zone)
 
 	return ..()
+
+#undef SERPENTINE_TAIL_DESTRUCTION_OWNER_BRUTE_DAMAGE
+#undef SERPENTINE_TAIL_DESTRUCTION_R_LEG_CHANCE
 
 /// Setter proc for constricted. Handles signals, pixel shifting, status effects, etc.
 /obj/structure/serpentine_tail/proc/set_constricted(mob/living/target)
@@ -256,7 +292,7 @@
 	if (currently_crushing && !target)
 		stop_crushing()
 
-	if (constricted)		
+	if (constricted)
 		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL))
 		constricted.pixel_x -= CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
 		constricted.remove_status_effect(/datum/status_effect/constricted)
@@ -328,9 +364,15 @@
 	if (owner)
 		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_SET_BODY_POSITION))
 
-	owner?.hide_taur_body = FALSE
+	if (owner)
+		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in owner.organs
+		taur_body.hide_self = FALSE
+
 	owner = new_owner
-	owner?.hide_taur_body = TRUE
+
+	if (owner)
+		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in owner.organs
+		taur_body.hide_self = TRUE
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(owner_moved))
 	RegisterSignal(owner, COMSIG_LIVING_GRAB, PROC_REF(owner_tried_grab))
@@ -342,7 +384,11 @@
 /obj/structure/serpentine_tail/proc/set_action(datum/action/innate/constrict/action)
 	creating_action = action
 
-/obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)	
+
+/// The time it takes for a constricted thing to do a break-out attempt.
+#define SERPENTINE_TAIL_UNBUCKLE_TIME 0.5 SECONDS // arbitrary
+
+/obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	if (!constricted || (user != constricted)) // anyone can easily free them except themselves
 		return ..()
 
@@ -352,21 +398,23 @@
 
 	var/escape_chance = CONSTRICT_ESCAPE_CHANCE
 	if (HAS_TRAIT(user, TRAIT_SLIPPERY))
-		escape_chance += 10 // akula
+		escape_chance += AKULA_GRAB_RESIST_BONUS
 
 	if (!prob(escape_chance))
 		user.visible_message(span_warning("[user] squirms as they fail to escape from [owner]'s tail!"), span_warning("You squirm as you fail to escape from [owner]'s tail!"), ignored_mobs = owner)
 		to_chat(owner, span_warning("[user] squirms as they fail to escape from the grip of your tail!"))
-		COOLDOWN_START(src, escape_cooldown, 0.5 SECONDS) // arbitrary
+		COOLDOWN_START(src, escape_cooldown, SERPENTINE_TAIL_UNBUCKLE_TIME)
 		return FALSE
 
 	user.visible_message(span_warning("[user] breaks free from [owner]'s tail!"), span_warning("You break free from [owner]'s tail!"), ignored_mobs = owner)
 	to_chat(owner, span_boldwarning("[user] breaks free from the grip of your tail!"))
 	return ..()
 
+#undef SERPENTINE_TAIL_UNBUCKLE_TIME
+
 /obj/structure/serpentine_tail/post_unbuckle_mob(mob/living/unbuckled_mob)
 	. = ..()
-	
+
 	if (unbuckled_mob == constricted)
 		set_constricted(null)
 
@@ -393,7 +441,7 @@
 /// Signal proc for if our owner changes body positions. Qdels src if they lie down.
 /obj/structure/serpentine_tail/proc/owner_body_position_changed(datum/signal_source, old_position, new_position)
 	SIGNAL_HANDLER
-	
+
 	if (new_position == LYING_DOWN)
 		qdel(src)
 
@@ -445,7 +493,7 @@
 	desc = "You're being constricted by a giant tail! You can resist, attack the tail, or attack the constricter to escape!"
 
 	icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
-	icon_state = "constrict" 
+	icon_state = "constrict"
 
 #undef CONSTRICT_BASE_PIXEL_SHIFT
 #undef CONSTRICT_ESCAPE_CHANCE
