@@ -1,0 +1,5 @@
+author: "UEDHighCommand"
+delete-after: True
+changes:
+  - rscadd: "Renamed the Syndicate CentCom fax to \"Syndicate Sectorial Command\""
+  - rscdel: "Edited the intro text for DS-2 operatives, removing the edgy mention of \"terrorist cells\""
