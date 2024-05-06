@@ -61,8 +61,15 @@
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
+	storage_type = /datum/storage/saddlebags
+
 	icon_state = "saddle_satchel_item"
 	worn_icon_state = "saddle_satchel"
+
+// on par with a duffel bag, but it has accessable_storage, so anyone can take anything from it
+/datum/storage/saddlebags
+	max_total_storage = 30
+	max_slots = 21
 
 /obj/item/storage/backpack/saddlebags/Initialize(mapload)
 	. = ..()
