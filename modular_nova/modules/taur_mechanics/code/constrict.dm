@@ -8,7 +8,7 @@
 	desc = "<b>Left click</b> to coil/uncoil your powerful tail around something, <b>right click</b> to begin crushing."
 	check_flags = AB_CHECK_LYING|AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED|AB_CHECK_PHASED
 
-	button_icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
+	button_icon = 'modular_nova/modules/taur_mechanics/sprites/ability.dmi'
 	button_icon_state = "constrict"
 
 	ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_pickturf.dmi'
@@ -102,7 +102,7 @@
 	name = "serpentine tail"
 	desc = "A scaley tail, currently coiled."
 
-	icon = 'modular_nova/modules/taur_rework/sprites/tail.dmi'
+	icon = 'modular_nova/modules/taur_mechanics/sprites/tail.dmi'
 	icon_state = "naga"
 	pixel_x = -16
 
@@ -152,7 +152,7 @@
 
 	sync_sprite()
 
-	var/mutable_appearance/overlay = mutable_appearance('modular_nova/modules/taur_rework/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
+	var/mutable_appearance/overlay = mutable_appearance('modular_nova/modules/taur_mechanics/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
 	overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	add_overlay(overlay)
 
@@ -498,7 +498,7 @@
 	name = "Constricted"
 	desc = "You're being constricted by a giant tail! You can resist, attack the tail, or attack the constricter to escape!"
 
-	icon = 'modular_nova/modules/taur_rework/sprites/ability.dmi'
+	icon = 'modular_nova/modules/taur_mechanics/sprites/ability.dmi'
 	icon_state = "constrict"
 
 #undef CONSTRICT_BASE_PIXEL_SHIFT
