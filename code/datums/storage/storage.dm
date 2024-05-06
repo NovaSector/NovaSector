@@ -1109,7 +1109,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/animate_parent(atom/target = parent) // NOVA EDIT ADDITION -- target arg
 	var/matrix/old_matrix = target.transform // NOVA EDIT -- target var
 	animate(target, time = 1.5, loop = 0, transform = target.transform.Scale(1.07, 0.9)) // NOVA EDIT -- target var
-	animate(time = 2, transform = old_matrix) // NOVA EDIT -- target var
+	animate(time = 2, transform = old_matrix)
 
 /// Signal proc for [COMSIG_ATOM_CONTENTS_WEIGHT_CLASS_CHANGED] to drop items out of our storage if they're suddenly too heavy.
 /datum/storage/proc/contents_changed_w_class(datum/source, obj/item/changed, old_w_class, new_w_class)
