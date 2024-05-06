@@ -126,6 +126,6 @@
 		var/mob/our_parent = parent
 		visible_message(span_warning("[our_parent] attempts to unhook [our_parent.p_them()]self from the leash!"))
 		to_chat(our_parent, span_notice("You start to unhook yourself from the leash..."))
-		if(do_after(our_parent, 1 SECONDS, target = our_parent))
+		if(do_after(our_parent, breakouttime, target = our_parent))
 			to_chat(our_parent, span_notice("You unhook yourself from the leash."))
 			qdel(src)
