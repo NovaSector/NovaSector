@@ -7,6 +7,7 @@
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	drop_sound = 'sound/items/handling/toolbelt_drop.ogg'
 	slot_flags = ITEM_SLOT_BELT
+	breakouttime = 3 SECONDS
 	/// Weakref to the leash component we're using, if it exists.
 	var/datum/weakref/our_leash_component
 
