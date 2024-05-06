@@ -1,38 +1,7 @@
-/mob/living/carbon/human/update_clothing(slot_flags)
-	if(slot_flags & ITEM_SLOT_BACK)
-		update_worn_back()
-	if(slot_flags & ITEM_SLOT_MASK)
-		update_worn_mask()
-	if(slot_flags & ITEM_SLOT_NECK)
-		update_worn_neck()
-	if(slot_flags & ITEM_SLOT_HANDCUFFED)
-		update_worn_handcuffs()
-	if(slot_flags & ITEM_SLOT_LEGCUFFED)
-		update_worn_legcuffs()
-	if(slot_flags & ITEM_SLOT_BELT)
-		update_worn_belt()
-	if(slot_flags & ITEM_SLOT_ID)
-		update_worn_id()
-	if(slot_flags & ITEM_SLOT_EARS)
-		update_inv_ears()
-	if(slot_flags & ITEM_SLOT_EYES)
-		update_worn_glasses()
-	if(slot_flags & ITEM_SLOT_GLOVES)
-		update_worn_gloves()
-	if(slot_flags & ITEM_SLOT_HEAD)
-		update_worn_head()
-	if(slot_flags & ITEM_SLOT_FEET)
-		update_worn_shoes()
-	if(slot_flags & ITEM_SLOT_OCLOTHING)
-		update_worn_oversuit()
-	if(slot_flags & ITEM_SLOT_ICLOTHING)
-		update_worn_undersuit()
-	if(slot_flags & ITEM_SLOT_SUITSTORE)
-		update_suit_storage()
-	if(slot_flags & (ITEM_SLOT_LPOCKET|ITEM_SLOT_RPOCKET))
-		update_pockets()
-	if(slot_flags & ITEM_SLOT_HANDS)
-		update_held_items()
+/mob/living/carbon/update_obscured_slots(obscured_flags)
+	..()
+	if(obscured_flags & (HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEMUTWINGS))
+		update_body()
 
 /// Updates features and clothing attached to a specific limb with limb-specific offsets
 /mob/living/carbon/proc/update_features(feature_key)
@@ -46,7 +15,7 @@
 		if(OFFSET_GLASSES)
 			update_worn_glasses()
 		if(OFFSET_EARS)
-			update_inv_ears()
+			update_worn_ears()
 		if(OFFSET_SHOES)
 			update_worn_shoes()
 		if(OFFSET_S_STORE)
@@ -365,7 +334,7 @@
 
 //NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
-/mob/living/carbon/update_worn_mask()
+/mob/living/carbon/update_worn_mask(update_obscured = TRUE)
 	remove_overlay(FACEMASK_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -376,13 +345,15 @@
 		inv.update_appearance()
 
 	if(wear_mask)
+		if(update_obscured)
+			update_obscured_slots(wear_mask.flags_inv)
 		if(!(check_obscured_slots() & ITEM_SLOT_MASK))
 			overlays_standing[FACEMASK_LAYER] = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
 		update_hud_wear_mask(wear_mask)
 
 	apply_overlay(FACEMASK_LAYER)
 
-/mob/living/carbon/update_worn_neck()
+/mob/living/carbon/update_worn_neck(update_obscured = TRUE)
 	remove_overlay(NECK_LAYER)
 
 	if(client && hud_used?.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1])
@@ -390,6 +361,8 @@
 		inv.update_appearance()
 
 	if(wear_neck)
+		if(update_obscured)
+			update_obscured_slots(wear_neck.flags_inv)
 		if(!(check_obscured_slots() & ITEM_SLOT_NECK))
 			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = 'icons/mob/clothing/neck.dmi')
 		update_hud_neck(wear_neck)
@@ -400,7 +373,7 @@
 
 //NOVA EDIT REMOVAL BEGIN - TESHARI CLOTHES (moved to modular)
 /*
-/mob/living/carbon/update_worn_back()
+/mob/living/carbon/update_worn_back(update_obscured = TRUE)
 	remove_overlay(BACK_LAYER)
 
 	if(client && hud_used?.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1])
@@ -408,6 +381,8 @@
 		inv.update_appearance()
 
 	if(back)
+		if(update_obscured)
+			update_obscured_slots(back.flags_inv)
 		overlays_standing[BACK_LAYER] = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi')
 		update_hud_back(back)
 
@@ -415,17 +390,19 @@
 */
 //NOVA EDIT REMOVAL END
 
-/mob/living/carbon/update_worn_legcuffs()
+/mob/living/carbon/update_worn_legcuffs(update_obscured = TRUE)
 	remove_overlay(LEGCUFF_LAYER)
 	clear_alert("legcuffed")
 	if(legcuffed)
+		if(update_obscured)
+			update_obscured_slots(legcuffed.flags_inv)
 		overlays_standing[LEGCUFF_LAYER] = mutable_appearance('icons/mob/simple/mob.dmi', "legcuff1", -LEGCUFF_LAYER)
 		apply_overlay(LEGCUFF_LAYER)
 		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
 
 //NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION (moved to modular)
 /*
-/mob/living/carbon/update_worn_head()
+/mob/living/carbon/update_worn_head(update_obscured = TRUE)
 	remove_overlay(HEAD_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -436,7 +413,10 @@
 		inv.update_appearance()
 
 	if(head)
-		overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/default.dmi')
+		if(update_obscured)
+			update_obscured_slots(head.flags_inv)
+		if(!(check_obscured_slots() & ITEM_SLOT_HEAD))
+			overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/default.dmi')
 		update_hud_head(head)
 
 	apply_overlay(HEAD_LAYER)
@@ -444,9 +424,11 @@
 //NOVA EDIT REMOVAL END
 
 
-/mob/living/carbon/update_worn_handcuffs()
+/mob/living/carbon/update_worn_handcuffs(update_obscured = TRUE)
 	remove_overlay(HANDCUFF_LAYER)
-	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) //NOVA EDIT ADDED !(handcuffed.item_flags & ABSTRACT)
+	if(handcuffed && !(handcuffed.item_flags & ABSTRACT)) // NOVA EDIT CHANGE - ORIGINAL: if(handcuffed)
+		if(update_obscured)
+			update_obscured_slots(handcuffed.flags_inv)
 		var/mutable_appearance/handcuff_overlay = mutable_appearance('icons/mob/simple/mob.dmi', "handcuff1", -HANDCUFF_LAYER)
 		if(handcuffed.blocks_emissive != EMISSIVE_BLOCK_NONE)
 			handcuff_overlay.overlays += emissive_blocker(handcuff_overlay.icon, handcuff_overlay.icon_state, src, alpha = handcuff_overlay.alpha)
@@ -508,7 +490,7 @@
 		var/old_key = icon_render_keys?[limb.body_zone] //Checks the mob's icon render key list for the bodypart
 		icon_render_keys[limb.body_zone] = (limb.is_husked) ? limb.generate_husk_key().Join() : limb.generate_icon_key().Join() //Generates a key for the current bodypart
 
-		if(icon_render_keys[limb.body_zone] != old_key || get_top_offset() != last_top_offset) //If the keys match, that means the limb doesn't need to be redrawn
+		if(icon_render_keys[limb.body_zone] != old_key) //If the keys match, that means the limb doesn't need to be redrawn
 			needs_update += limb
 
 	var/list/missing_bodyparts = get_missing_limbs()
@@ -525,15 +507,10 @@
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
 		if(limb in needs_update)
 			var/bodypart_icon = limb.get_limb_icon()
-			if(!istype(limb, /obj/item/bodypart/leg))
-				var/top_offset = get_top_offset()
-				for(var/image/image as anything in bodypart_icon)
-					image.pixel_y += top_offset
 			new_limbs += bodypart_icon
 			limb_icon_cache[icon_render_keys[limb.body_zone]] = bodypart_icon //Caches the icon with the bodypart key, as it is new
 		else
 			new_limbs += limb_icon_cache[icon_render_keys[limb.body_zone]] //Pulls existing sprites from the cache
-		last_top_offset = get_top_offset()
 
 
 	remove_overlay(BODYPARTS_LAYER)
@@ -542,19 +519,6 @@
 		overlays_standing[BODYPARTS_LAYER] = new_limbs
 
 	apply_overlay(BODYPARTS_LAYER)
-
-/// This looks at the chest and legs of the mob and decides how much our chest, arms, and head should be adjusted. This is useful for limbs that are larger or smaller than the scope of normal human height while keeping the feet anchored to the bottom of the tile
-/mob/living/carbon/proc/get_top_offset()
-	var/from_chest
-	var/from_leg
-	for(var/obj/item/bodypart/leg/leg_checked in bodyparts)
-		if(leg_checked.top_offset > from_leg || isnull(from_leg)) // We find the tallest leg available
-			from_leg = leg_checked.top_offset
-	if(isnull(from_leg))
-		from_leg = 0 // If we have no legs, we set this to zero to avoid any math issues that might stem from it being NULL
-	for(var/obj/item/bodypart/chest/chest_checked in bodyparts) // Take the height from the chest
-		from_chest = chest_checked.top_offset
-	return (from_chest + from_leg) // The total hight of the chest and legs together
 
 /////////////////////////
 // Limb Icon Cache 2.0 //

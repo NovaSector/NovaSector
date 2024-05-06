@@ -35,7 +35,7 @@
 			playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
 			Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
 
-/obj/machinery/power/apc/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
+/obj/machinery/power/apc/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(.)
 		return .

@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "laughs will now once again play the appropriate audio if you have a laugh set in prefs instead of defaulting to the species laugh"

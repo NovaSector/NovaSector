@@ -96,6 +96,7 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Zeng-Hu Pharmaceuticals" = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi',
 	"Mariinsky Ballet Company" = 'modular_nova/master_files/icons/mob/augmentation/mariinskyipc.dmi',
 	"Zhenkov & Co. Foundries" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc.dmi',
+	"Zhenkov & Co. Foundries - Dark" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc_dark.dmi',
 	))
 
 //ghoul colors

@@ -65,8 +65,10 @@
 	user.balloon_alert_to_viewers("disassembling...")
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
-	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/oven/stone/on_deconstruction(disassembled)
+	new /obj/item/stack/sheet/mineral/stone(drop_location(), 5)
 
 #undef OVEN_TRAY_Y_OFFSET

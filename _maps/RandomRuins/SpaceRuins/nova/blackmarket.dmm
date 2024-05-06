@@ -323,6 +323,10 @@
 /obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
+"so" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark/airless,
+/area/ruin/space/has_grav/nova/blackmarket)
 "sB" = (
 /obj/structure/table,
 /obj/structure/towel_bin,
@@ -479,6 +483,7 @@
 /obj/structure/table,
 /obj/machinery/door/window/survival_pod/left/directional/south,
 /obj/effect/turf_decal/bot_white/left,
+/obj/item/circuitboard/machine/quantumpad,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "xp" = (
@@ -1572,7 +1577,7 @@ uG
 AG
 KV
 Yy
-KV
+so
 fu
 qY
 hd
