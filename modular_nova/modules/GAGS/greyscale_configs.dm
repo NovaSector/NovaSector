@@ -950,16 +950,6 @@
 	name = "Prison Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/color_digi.dmi'
 
-/datum/greyscale_config/jumpsuit/worn/monkey
-	name = "Jumpsuit (Worn) - Monkey"
-	icon_file = MONKEY_UNIFORM_FILE
-	json_config = 'modular_nova/modules/GAGS/json_configs/jumpsuit/jumpsuit_worn_monkey.json'
-
-/datum/greyscale_config/jumpsuit/prison/worn/monkey
-	name = "Prison Jumpsuit (Worn) - Monkey"
-	icon_file = MONKEY_UNIFORM_FILE
-	json_config = 'modular_nova/modules/GAGS/json_configs/jumpsuit/jumpsuit_prison_worn_monkey.json'
-
 /datum/greyscale_config/jumpsuit/worn/vox
 	name = "Jumpsuit (Worn, Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/jumpsuit_vox.dmi'

@@ -2386,6 +2386,7 @@
 "ug" = (
 /obj/effect/turf_decal/siding/thinplating,
 /obj/machinery/light/cold/directional/east,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "ui" = (
