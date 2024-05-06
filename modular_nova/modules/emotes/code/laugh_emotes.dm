@@ -2,7 +2,7 @@
 	mob_type_allowed_typecache = list(/mob/living/carbon/human, /mob/living/silicon/pai)
 
 // This sucks and is not how we should be allowing pais to use these emotes
-// for humans use selected_laugh, otherwise for males use tg laugh females use our version
+// for humans use selected_laugh, otherwise default to the species-specific laughs.
 /datum/emote/living/laugh/get_sound(mob/living/user)
 	var/mob/living/carbon/human/human_user = user
 	if(!istype(human_user)) // pais
@@ -35,7 +35,7 @@
 			'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg',
 		)
 
-// for males use tg laugh females use our version
+// human laugh - for males use tg audio females use our version
 /datum/species/human/get_laugh_sound(mob/living/carbon/human/human)
 	if(!ishuman(human))
 		return
