@@ -3,9 +3,9 @@
 	desc = "someone spawned a basetype!"
 	slot_flags = ITEM_SLOT_BACK // no storage
 
-	icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
-	worn_icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
-	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
+	icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
+	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
+	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
 /obj/item/riding_saddle/mob_can_equip(mob/living/M, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
@@ -56,9 +56,9 @@
 
 	slot_flags = ITEM_SLOT_BACK
 
-	icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
-	worn_icon = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
-	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_rework/sprites/saddles.dmi'
+	icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
+	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
+	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
 	icon_state = "saddle_satchel_item"
