@@ -161,7 +161,7 @@
 	wag_flags = WAG_ABLE
 
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
-	return GLOB.tails_list_human
+	return GLOB.sprite_accessories["tail"] // NOVA EDIT CHANGE - ORIGINAL: return GLOB.tails_list_human
 
 /obj/item/organ/external/tail/cat/get_butt_sprite()
 	return BUTT_SPRITE_CAT
@@ -173,7 +173,7 @@
 
 /obj/item/organ/external/tail/monkey
 	name = "monkey tail"
-	preference = "feature_monkey_tail"
+	//preference = "feature_monkey_tail" NOVA EDIT REMOVAL
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
 
