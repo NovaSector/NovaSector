@@ -10,13 +10,17 @@
 	mutantpart_info = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
 
+	/// If not null, the left leg limb we add to our mob will have this name.
 	var/left_leg_name = "front legs"
+	/// If not null, the right leg limb we add to our mob will have this name.
 	var/right_leg_name = "back legs"
-	
+
 	/// The mob's old right leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_right_leg = null
 	/// The mob's old left leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_left_leg = null
+
+/obj/item/organ/external/taur_body/horselike
 
 /obj/item/organ/external/taur_body/horselike/synth
 	organ_flags = ORGAN_ROBOTIC
@@ -29,6 +33,8 @@
 	organ_flags = ORGAN_ROBOTIC
 
 /obj/item/organ/external/taur_body/spider
+	left_leg_name = "left legs"
+	right_leg_name = "right legs"
 
 /obj/item/organ/external/taur_body/tentacle
 	left_leg_name = "front tentacles"

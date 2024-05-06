@@ -24,7 +24,7 @@
 	center = TRUE
 	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/taur_body
+	organ_type = /obj/item/organ/external/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
@@ -56,7 +56,6 @@
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/cow/spotted
 	name = "Cow (Spotted)"
@@ -68,13 +67,11 @@
 	icon_state = "deer"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/drake
 	name = "Drake"
 	icon_state = "drake"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/drake/old
 	name = "Drake (Old)"
@@ -94,14 +91,12 @@
 	name = "Eevee"
 	icon_state = "eevee"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/horse
 	name = "Horse"
 	icon_state = "horse"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/naga
 	name = "Naga"
@@ -123,13 +118,11 @@
 	name = "Otie"
 	icon_state = "otie"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/pede
 	name = "Scolipede"
 	icon_state = "pede"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
@@ -148,13 +141,11 @@
 	name = "Canine"
 	icon_state = "canine"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/feline
 	name = "Feline"
 	icon_state = "feline"
 	taur_mode = STYLE_TAUR_PAW
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/goop
 	name = "Goop"
