@@ -123,7 +123,7 @@
 	INVOKE_ASYNC(src, PROC_REF(do_resist))
 
 /datum/component/leash/erp/proc/do_resist(datum/source, mob/user)
-	if(istype(parent, /mob) && istype(owner,/obj/item)))
+	if(istype(parent, /mob) && istype(owner,/obj/item))
 		var/mob/our_parent = parent
 		var/obj/item/our_owner = owner
 		our_parent.visible_message(span_warning("[our_parent] attempts to unhook [our_parent.p_them()]self from the leash!"),\
