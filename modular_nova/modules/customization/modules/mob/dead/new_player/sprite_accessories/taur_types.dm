@@ -62,7 +62,6 @@
 	name = "Cow (Spotted)"
 	icon_state = "cow_spotted"
 	color_src = USE_MATRIXED_COLORS
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
@@ -80,7 +79,6 @@
 /datum/sprite_accessory/taur/drake/old
 	name = "Drake (Old)"
 	icon_state = "drake_old"
-	organ_type = /obj/item/organ/external/taur_body/horselike
 
 /datum/sprite_accessory/taur/tarantula
 	name = "Tarantula"
@@ -115,13 +113,11 @@
 	name = "Naga, Striped"
 	icon_state = "nagastriped"
 	taur_mode = STYLE_TAUR_SNAKE
-	organ_type = /obj/item/organ/external/taur_body/serpentine
 
 /datum/sprite_accessory/taur/naga/rattle
 	name = "Naga, Rattle"
 	icon_state = "nagarattle"
 	taur_mode = STYLE_TAUR_SNAKE
-	organ_type = /obj/item/organ/external/taur_body/serpentine
 
 /datum/sprite_accessory/taur/otie
 	name = "Otie"
@@ -147,7 +143,6 @@
 	icon_state = "tentaclealt"
 	taur_mode = STYLE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/external/taur_body/tentacle
 
 /datum/sprite_accessory/taur/canine
 	name = "Canine"
