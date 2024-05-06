@@ -30,7 +30,7 @@
 
 
 /// Loads the modular customizations of a character from the savefile
-/datum/preferences/proc/load_character_skyrat(list/save_data)
+/datum/preferences/proc/load_character_nova(list/save_data)
 	if(!save_data)
 		save_data = list()
 
@@ -267,7 +267,7 @@
 
 
 /// Saves the modular customizations of a character on the savefile
-/datum/preferences/proc/save_character_skyrat(list/save_data)
+/datum/preferences/proc/save_character_nova(list/save_data)
 	save_data["loadout_list"] = loadout_list
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles

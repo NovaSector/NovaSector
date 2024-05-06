@@ -60,10 +60,6 @@
 		RegisterSignal(src, COMSIG_ATOM_RESTYLE, PROC_REF(on_attempt_feature_restyle))
 
 /obj/item/organ/external/Insert(mob/living/carbon/receiver, special, movement_flags)
-	// NOVA EDIT ADDITION START
-	if(mutantpart_key)
-		copy_to_mutant_bodyparts(receiver, special)
-	// NOVA EDIT ADDITION END
 	. = ..()
 	receiver.update_body_parts()
 
@@ -85,10 +81,15 @@
 	if(!.)
 		return
 
+	// NOVA EDIT ADDITION START
+	if(mutantpart_key)
+		copy_to_mutant_bodyparts(receiver, special)
+	// NOVA EDIT ADDITION END
 	if(bodypart_overlay.imprint_on_next_insertion) //We only want this set *once*
 		var/feature_name = receiver.dna.features[bodypart_overlay.feature_key]
 		if (isnull(feature_name))
-			bodypart_overlay.set_appearance_from_dna(receiver.dna) // NOVA EDIT CHANGE - ORIGINAL: feature_name = receiver.dna.species.external_organs[type]
+			if(!bodypart_overlay.set_appearance_from_dna(receiver.dna)) // NOVA EDIT CHANGE - ORIGINAL: feature_name = receiver.dna.species.external_organs[type]
+				bodypart_overlay.set_appearance_from_name(receiver.dna.species.external_organs[type]) // NOVA EDIT ADDITION
 		// NOVA EDIT CHANGE START - Puts the following line in an else block
 		else
 			bodypart_overlay.set_appearance_from_name(feature_name)
