@@ -92,9 +92,3 @@
 	name = "head of security's naval jumpsuit"
 	icon_state = "imphos"
 
-/*
-*	PRISONER
-*/
-
-/obj/item/clothing/under/rank/prisoner
-	greyscale_config_worn_monkey = /datum/greyscale_config/jumpsuit/prison/worn/monkey
