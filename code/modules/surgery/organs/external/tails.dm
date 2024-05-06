@@ -173,7 +173,7 @@
 
 /obj/item/organ/external/tail/monkey
 	name = "monkey tail"
-	//preference = "feature_monkey_tail" NOVA EDIT REMOVAL
+	preference = "feature_monkey_tail"
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
 
