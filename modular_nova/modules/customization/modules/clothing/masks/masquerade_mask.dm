@@ -21,7 +21,7 @@
 	greyscale_config_worn_teshari = /datum/greyscale_config/masquerade_mask/worn/teshari
 
 /obj/item/clothing/mask/masquerade/attack_self(mob/user)
-	weldingvisortoggle(user)
+	adjust_visor(user)
 
 /obj/item/clothing/mask/masquerade/visor_toggling()
 	up = !up

@@ -93967,8 +93967,8 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "rXc" = (
-/obj/machinery/power/smes/full,
 /obj/structure/cable,
+/obj/machinery/power/smes/super/full,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai)
 "rXe" = (
@@ -101752,7 +101752,6 @@
 "tvs" = (
 /obj/structure/table/glass,
 /obj/item/clipboard,
-/obj/item/toy/figure/virologist,
 /turf/open/floor/iron,
 /area/station/medical/virology)
 "tvu" = (

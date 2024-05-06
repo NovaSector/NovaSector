@@ -17,6 +17,7 @@
 	equip_delay_self = NONE
 	strip_delay = 12 SECONDS
 	breakouttime = 1 SECONDS
+	resist_cooldown = CLICK_CD_SLOW
 
 /obj/item/clothing/suit/straight_jacket/latex_straight_jacket/attackby(obj/item/attacking_item, mob/user, params) //That part allows reinforcing this item with normal straightjacket
 	if(!istype(attacking_item, /obj/item/clothing/suit/straight_jacket))
