@@ -168,6 +168,9 @@
 
 	old_owner?.update_mutant_bodyparts()
 
+/// Since slimepeople are transparent, we have to match their alpha. What our alpha is set to when our owner is a slime.
+#define SERPENTINE_TAIL_SLIME_ALPHA 130
+
 /// Syncs our colors, size, sprite, etc. with owner.
 /obj/structure/serpentine_tail/proc/sync_sprite()
 	//coloring
@@ -191,14 +194,17 @@
 		finished_list[index] /= 255
 
 	color = finished_list
-	if(isroundstartslime(owner) || isslimeperson(owner) || isjellyperson(owner))
-		alpha = 130
+	if(isroundstartslime(owner) || isslimeperson(owner) || isjellyperson(owner)) // slimes are translucent
+		alpha = SERPENTINE_TAIL_SLIME_ALPHA
 
-	var/change_multiplier = get_scale_change_mult()
-	var/translate = ((change_multiplier-1) * 32)/2
-	transform = transform.Scale(change_multiplier)
-	transform = transform.Translate(0, translate)
+	var/scale_multiplier = get_scale_change_mult()
+	// If our owner is big and we scale, we need to move to the side so we remain aligned with them.
+	var/translate = ((scale_multiplier-1) * 32)/2
+	transform = transform.Scale(scale_multiplier)
+	transform = transform.Translate(0, translate) // re-align ourselves
 	appearance_flags = PIXEL_SCALE
+
+#undef SERPENTINE_TAIL_SLIME_ALPHA
 
 /// Returns the scale, compared to default, our owner has.
 /obj/structure/serpentine_tail/proc/get_scale_change_mult()
