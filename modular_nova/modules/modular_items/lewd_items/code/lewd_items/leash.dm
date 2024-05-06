@@ -70,8 +70,11 @@
 // 'owner' refers the leash item, while 'parent' refers to the one it's affixed to.
 /datum/component/leash/erp/RegisterWithParent()
 	. = ..()
+	// Owner Signals
 	RegisterSignal(owner, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 	RegisterSignal(owner, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
+	// Parent Signals
+	RegisterSignal(parent, COMSIG_LIVING_RESIST, PROC_REF(on_parent_resist))
 	if(istype(owner, /obj/item/clothing/erp_leash))
 		var/obj/item/clothing/erp_leash/our_leash = owner
 		our_leash.our_leash_component = WEAKREF(src)
@@ -79,6 +82,7 @@
 /datum/component/leash/erp/UnregisterFromParent()
 	if(owner) // Destroy() sets owner to null
 		UnregisterSignal(owner, list(COMSIG_ITEM_ATTACK_SELF, COMSIG_ITEM_DROPPED))
+		UnregisterSignal(parent, COMSIG_LIVING_RESIST)
 	return ..()
 
 /datum/component/leash/erp/Destroy() // Have to do this here too
@@ -108,7 +112,19 @@
 /datum/component/leash/erp/proc/on_item_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(istype(source, /mob))
-		var/mob/our_source = source
-		our_source.balloon_alert_to_viewers("unhooked")
+	if(istype(parent, /mob))
+		var/mob/our_parent = parent
+		our_parent.balloon_alert_to_viewers("unhooked")
 	qdel(src)
+
+/datum/component/leash/erp/proc/on_parent_resist(datum/source, mob/user)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(do_resist))
+
+/datum/component/leash/erp/proc/do_resist(datum/source, mob/user)
+	if(istype(parent, /mob))
+		var/mob/our_parent = parent
+		to_chat(our_parent, span_notice("You start to unhook yourself from the leash..."))
+		if(do_after(our_parent, 1 SECONDS, target = our_parent))
+			to_chat(our_parent, span_notice("You unhook yourself from the leash."))
+			qdel(src)
