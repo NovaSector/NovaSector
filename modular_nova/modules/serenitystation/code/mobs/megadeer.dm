@@ -1,10 +1,10 @@
-/mob/living/basic/mining/cervimorph
-	name = "cervimorph"
+/mob/living/basic/mining/megadeer
+	name = "megadeer"
 	desc = "The descendents of the common deer, turned into angry beasts by the harshness of the land."
 	icon = 'modular_nova/modules/serenitystation/icons/newfauna_wide.dmi'
-	icon_state = "cervimorph"
-	icon_living = "cervimorph"
-	icon_dead = "cervimorph_dead"
+	icon_state = "megadeer"
+	icon_living = "megadeer"
+	icon_dead = "megadeer_dead"
 	pixel_x = -12
 	base_pixel_x = -12
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
@@ -35,11 +35,11 @@
 	move_resist = MOVE_FORCE_WEAK
 	pull_force = MOVE_FORCE_WEAK
 
-	ai_controller = /datum/ai_controller/basic_controller/cervimorph
+	ai_controller = /datum/ai_controller/basic_controller/megadeer
 
 	var/can_tame = FALSE
 
-/mob/living/basic/mining/cervimorph/Initialize(mapload)
+/mob/living/basic/mining/megadeer/Initialize(mapload)
 	. = ..()
 
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_CLAW)
@@ -61,7 +61,7 @@
 /obj/item/crusher_trophy/deer_fur/on_mark_detonation(mob/living/target, mob/living/user)
 	user.apply_status_effect(/datum/status_effect/speed_boost, 1 SECONDS)
 
-//sinew re-flavor for cervimorphs
+//sinew re-flavor for megadeers
 /obj/item/stack/sheet/sinew/deer
 	name = "deer sinew"
 	singular_name = "deer sinew"

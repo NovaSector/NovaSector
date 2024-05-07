@@ -15,7 +15,7 @@
 			"Up": true,
 			"Linkage": null,
 			"Gravity": true,
-			"Baseturf": "/turf/open/misc/sandy_dirt/forest",
+			"Baseturf": "/turf/open/misc/dirt/forest",
 			"No Parallax": true
 		},
 		{

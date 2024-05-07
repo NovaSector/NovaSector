@@ -37,3 +37,7 @@
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
 	map_generator = /datum/map_generator/cave_generator/forest
 
+/area/forestplanet/outdoors/unexplored/deep //monsters and ruins spawn here
+	name = "Mushroom Caves"
+	map_generator = /datum/map_generator/cave_generator/forest/deep
+

@@ -1,21 +1,19 @@
 serenitystation to do list
 
--why are AI solars sucking so bad
--bot pathing?
--delivery areas (see startup messages)
--runtime issues
--fix disposals stacker
--Stress test science
--underground caves map gen - add sprites too
--make farmed turf look good
--change name of megadeer 
--why are deer killing each other (reduce spawn rate of megadeer)
--ruins: 
-	-abandoned friendly deer monster
-	-broken shuttle
-	-... working shuttle? 
-	-cabin 
--station improvements
-	-requests panels
-	-hallways (wall things) 
-	-fix lightswitches
+-Stress test
+
+-readme.md
+-final check
+	
+In the future:
+	-ruins: 
+		-abandoned friendly deer monster
+		-broken shuttle
+		-... working shuttle? 
+		-cabin 
+	-make farmed turf look good
+	-underground caves map gen
+		-mushroom color variety
+		-mushroom rocks 
+		-mushroom bush
+		-mushroom fauna

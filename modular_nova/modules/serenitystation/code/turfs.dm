@@ -6,7 +6,7 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "grass"
 	base_icon_state = "grass"
-	baseturfs = /turf/open/misc/sandy_dirt/forest //TODO change to this specific one
+	baseturfs = /turf/open/misc/dirt/forest //TODO change to this specific one
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
@@ -44,13 +44,33 @@
 	. = ..()
 	AddComponent(/datum/component/simple_farm)
 
-/turf/open/misc/asteroid/forest/refill_dug()
-	. = ..()
-	qdel(GetComponent(/datum/component/simple_farm))
+///turf/open/misc/asteroid/forest/refill_dug() - keeping the code here for now but theres no way to refill so
+//	. = ..()
+//	qdel(GetComponent(/datum/component/simple_farm))
+
+/turf/open/misc/asteroid/forest/mushroom
+	name = "mushroom floor"
+	desc = "A patch of mushrooms."
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi'
+	icon_state = "mushroom"
+	base_icon_state = "mushroom"
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_MUSHROOM
+	canSmoothWith = SMOOTH_GROUP_MUSHROOM + SMOOTH_GROUP_CLOSED_TURFS
+	damaged_dmi = 'icons/turf/damaged.dmi'
+	smooth_icon = 'modular_nova/modules/serenitystation/icons/turfs/floors/mushroom.dmi'
+	dig_result = /obj/item/food/grown/ash_flora
+	light_range = 2
+	light_power = 0.50
+	light_color = COLOR_VERY_LIGHT_GRAY
 
 /turf/open/openspace/forest
 	name = "open forest air"
 	baseturfs = /turf/open/openspace/forest
+	initial_gas_mix = FOREST_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/misc/dirt/forest
+	desc = "Hard-packed dirt - much too hard to plant seeds in."
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
@@ -66,8 +86,8 @@
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
 	defer_change = TRUE
-	turf_type = /turf/open/misc/sandy_dirt/forest
-	baseturfs = /turf/open/misc/sandy_dirt/forest
+	turf_type = /turf/open/misc/dirt/forest
+	baseturfs = /turf/open/misc/dirt/forest
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 	weak_turf = TRUE
 
