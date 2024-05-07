@@ -62,13 +62,13 @@
 /// Transfers the emote pref to the silicon mob
 /mob/living/silicon/proc/transfer_emote_pref(client/player_client)
 	var/chosen_laugh = player_client?.prefs?.read_preference(/datum/preference/choiced/laugh)
-	var/laugh_id = GLOB.laugh_types[value]
+	var/laugh_id = GLOB.laugh_types[chosen_laugh]
 	if(laugh_id)
 		var/datum/laugh_type/laugh_type = new laugh_id
 		selected_laugh = laugh_type
 
 	var/chosen_scream = player_client?.prefs?.read_preference(/datum/preference/choiced/laugh)
-	var/scream_id = GLOB.scream_types[value]
+	var/scream_id = GLOB.scream_types[chosen_scream]
 	if(scream_id)
 		var/datum/scream_type/scream_type = new scream_id
 		selected_scream = scream_type
