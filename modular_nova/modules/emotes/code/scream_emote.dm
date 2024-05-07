@@ -7,7 +7,7 @@
 		return
 	if(issilicon(user))
 		var/mob/living/silicon/silicon_user = user
-		var/selected_scream = silicon_user.selected_scream
+		var/datum/scream_type/selected_scream = silicon_user.selected_scream
 		if(isnull(selected_scream))
 			return 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg'
 		if(user.gender == FEMALE && LAZYLEN(user.selected_scream.female_screamsounds))
