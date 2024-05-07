@@ -47,4 +47,4 @@ All tg file & defines changes included within existing NOVA edit tags.
 
 ### Credits:
 
-Credits to SableSteel (thlumyn on Github)
+Credits to SableSteel (sable.steel on Discord, thlumyn on Github)
