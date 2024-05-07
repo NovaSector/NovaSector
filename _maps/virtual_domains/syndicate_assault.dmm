@@ -311,6 +311,12 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/powered/virtual_domain)
+"kJ" = (
+/obj/modular_map_root/safehouse{
+	key = "shuttle_space"
+	},
+/turf/template_noop,
+/area/virtual_domain/safehouse)
 "li" = (
 /obj/structure/transit_tube/station/dispenser/reverse{
 	dir = 4
@@ -535,12 +541,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/powered/virtual_domain)
-"tR" = (
-/obj/modular_map_root/safehouse{
-	key = "shuttle_space"
-	},
-/turf/template_noop,
-/area/virtual_domain/safehouse)
 "uP" = (
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/powered/virtual_domain)
@@ -2539,7 +2539,7 @@ sM
 sM
 sM
 sM
-tR
+kJ
 qx
 Hq
 "}

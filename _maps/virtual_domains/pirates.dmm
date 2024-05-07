@@ -164,17 +164,7 @@
 /obj/structure/closet/crate/grave,
 /obj/structure/flora/grass/jungle/b,
 /turf/open/misc/dirt/jungle,
-<<<<<<< HEAD
-/area/virtual_domain/fullbright)
-"iw" = (
-/obj/modular_map_root/safehouse{
-	key = "wood"
-	},
-/turf/template_noop,
-/area/virtual_domain/safehouse)
-=======
 /area/virtual_domain/protected_space)
->>>>>>> 6aa0dee37fc (Virtual Domains now have certain areas protected from ghost role interference (#82960))
 "jp" = (
 /obj/effect/landmark/bitrunning/cache_spawn,
 /turf/open/misc/beach/sand,
@@ -934,6 +924,12 @@
 "WW" = (
 /turf/template_noop,
 /area/virtual_domain/fullbright)
+"Xn" = (
+/obj/modular_map_root/safehouse{
+	key = "wood"
+	},
+/turf/template_noop,
+/area/virtual_domain/safehouse)
 "XP" = (
 /obj/structure/barricade/wooden/crude,
 /turf/closed/wall/mineral/wood/nonmetal,
@@ -1527,7 +1523,7 @@ ub
 ub
 ub
 ub
-iw
+Xn
 hb
 "}
 (13,1,1) = {"
