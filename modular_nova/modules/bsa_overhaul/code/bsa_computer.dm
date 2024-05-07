@@ -31,7 +31,7 @@
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "BluespaceArtillerySkyrat", name)
+		ui = new(user, src, "BluespaceArtilleryNova", name)
 		ui.open()
 
 /obj/machinery/computer/bsa_control/ui_data()

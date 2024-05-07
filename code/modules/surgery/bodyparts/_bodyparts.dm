@@ -165,8 +165,8 @@
 
 	/// Type of an attack from this limb does. Arms will do punches, Legs for kicks, and head for bites. (TO ADD: tactical chestbumps)
 	var/attack_type = BRUTE
-	/// the verb used for an unarmed attack when using this limb, such as arm.unarmed_attack_verb = punch
-	var/unarmed_attack_verb = "bump"
+	/// the verbs used for an unarmed attack when using this limb, such as arm.unarmed_attack_verbs = list("punch")
+	var/list/unarmed_attack_verbs = list("bump")
 	/// if we have a special attack verb for hitting someone who is grappled by us, it goes here.
 	var/grappled_attack_verb
 	/// what visual effect is used when this limb is used to strike someone.
@@ -180,8 +180,6 @@
 	var/unarmed_damage_high = 1
 	///Determines the accuracy bonus, armor penetration and knockdown probability.
 	var/unarmed_effectiveness = 10
-	/// How many pixels this bodypart will offset the top half of the mob, used for abnormally sized torsos and legs
-	var/top_offset = 0
 
 	/// Traits that are given to the holder of the part. If you want an effect that changes this, don't add directly to this. Use the add_bodypart_trait() proc
 	var/list/bodypart_traits = list()
