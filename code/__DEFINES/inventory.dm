@@ -116,6 +116,8 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define HIDESPINE (1<<16)
 /// Does this sprite hide devious devices?
 #define HIDESEXTOY (1<<17)
+/// If this has our taur variant, do we hide our taur part?
+#define HIDETAUR (1<<18)
 //NOVA EDIT ADDITION END
 
 //bitflags for clothing coverage - also used for limbs
