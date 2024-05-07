@@ -6,7 +6,7 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "grass"
 	base_icon_state = "grass"
-	baseturfs = /turf/open/misc/dirt/forest //TODO change to this specific one
+	baseturfs = /turf/open/misc/dirt/forest
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
@@ -43,10 +43,6 @@
 /turf/open/misc/asteroid/forest/getDug()
 	. = ..()
 	AddComponent(/datum/component/simple_farm)
-
-///turf/open/misc/asteroid/forest/refill_dug() - keeping the code here for now but theres no way to refill so
-//	. = ..()
-//	qdel(GetComponent(/datum/component/simple_farm))
 
 /turf/open/misc/asteroid/forest/mushroom
 	name = "mushroom floor"
@@ -94,7 +90,7 @@
 /turf/closed/mineral/random/forest/Change_Ore(ore_type, random = 0)
 	. = ..()
 	if(mineralType)
-		icon = 'icons/turf/walls/icerock_wall.dmi' //TODO change icon
+		icon = 'icons/turf/walls/icerock_wall.dmi'
 		icon_state = "icerock_wall-0"
 		base_icon_state = "icerock_wall"
 		smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
@@ -127,80 +123,3 @@
 /turf/open/floor/plating/forest
 	icon_state = "plating"
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
-
-///here for reference
-
-/*
-/turf/open/misc/grass
-	name = "grass"
-	desc = "A patch of grass."
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "grass"
-	base_icon_state = "grass"
-	baseturfs = /turf/open/misc/sandy_dirt
-	bullet_bounce_sound = null
-	footstep = FOOTSTEP_GRASS
-	barefootstep = FOOTSTEP_GRASS
-	clawfootstep = FOOTSTEP_GRASS
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_GRASS
-	canSmoothWith = SMOOTH_GROUP_FLOOR_GRASS + SMOOTH_GROUP_CLOSED_TURFS
-	layer = HIGH_TURF_LAYER
-	damaged_dmi = 'icons/turf/damaged.dmi'
-	var/smooth_icon = 'icons/turf/floors/grass.dmi'
-
-/turf/open/misc/grass/broken_states()
-	return list("grass_damaged")
-
-/turf/open/misc/grass/burnt_states()
-	return list("grass_damaged")
-
-/turf/open/misc/grass/Initialize(mapload)
-	. = ..()
-	if(smoothing_flags)
-		var/matrix/translation = new
-		translation.Translate(-9, -9)
-		transform = translation
-		icon = smooth_icon
-
-	if(is_station_level(z))
-		GLOB.station_turfs += src
-
-/turf/open/misc/grass/lavaland
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-
-/turf/open/misc/asteroid/snow
-	gender = PLURAL
-	name = "snow"
-	desc = "Looks cold."
-	icon = 'icons/turf/snow.dmi'
-	damaged_dmi = 'icons/turf/snow.dmi'
-	baseturfs = /turf/open/misc/asteroid/snow
-	icon_state = "snow"
-	base_icon_state = "snow"
-	initial_gas_mix = FROZEN_ATMOS
-	slowdown = 2
-	flags_1 = NONE
-	planetary_atmos = TRUE
-	bullet_sizzle = TRUE
-	bullet_bounce_sound = null
-	dig_result = /obj/item/stack/sheet/mineral/snow
-
-/turf/open/misc/asteroid/snow/burn_tile()
-	if(!burnt)
-		visible_message(span_danger("[src] melts away!."))
-		slowdown = 0
-		burnt = TRUE
-		update_appearance()
-		return TRUE
-	return FALSE
-
-/turf/open/misc/grass/burnt_states()
-	return list("snow_dug")
-
-/turf/open/misc/asteroid/snow/icemoon
-	baseturfs = /turf/open/openspace/icemoon
-	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
-	slowdown = 0
-*/

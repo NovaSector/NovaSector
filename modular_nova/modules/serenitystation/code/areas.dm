@@ -4,8 +4,8 @@
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
-	ambience_index = AMBIENCE_ICEMOON //TODO fix ambience???
-	sound_environment = SOUND_AREA_ICEMOON //TODO fix sound????
+	ambience_index = AMBIENCE_ICEMOON
+	sound_environment = SOUND_AREA_ICEMOON
 	ambient_buzz = 'sound/ambience/magma.ogg'
 	name = "Forest Planet"
 	icon_state = "explored"
@@ -21,23 +21,17 @@
 	name = "Woodlands"
 	outdoors = TRUE
 
-/area/forestplanet/outdoors/nospawn // this is the area you use for stuff to not spawn, but if you still want weather.
+/area/forestplanet/outdoors/nospawn
 
-/area/forestplanet/outdoors/nospawn/New() // unless you roll forested trait lol
+/area/forestplanet/outdoors/nospawn/New()
 	. = ..()
 
-/*/area/forestplanet/outdoors/noruins // when you want random generation without the chance of getting ruins
-	icon_state = "noruins"
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
-	map_generator =  /datum/map_generator/cave_generator/icemoon/surface/noruins //TODO - fix map gen
-	*/
-
-/area/forestplanet/outdoors/unexplored //monsters and ruins spawn here
+/area/forestplanet/outdoors/unexplored
 	icon_state = "unexplored"
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
 	map_generator = /datum/map_generator/cave_generator/forest
 
-/area/forestplanet/outdoors/unexplored/deep //monsters and ruins spawn here
+/area/forestplanet/outdoors/unexplored/deep
 	name = "Mushroom Caves"
 	map_generator = /datum/map_generator/cave_generator/forest/deep
 
