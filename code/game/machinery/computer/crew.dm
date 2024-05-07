@@ -103,7 +103,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_HEAD_OF_SECURITY = 10,
 		JOB_WARDEN = 11,
 		JOB_SECURITY_OFFICER = 12,
-		/* SKYRAT REMOVAL - We need those slots for our own jobs, these jobs aren't on Skyrat anymore anyway.
+		/* NOVA EDIT REMOVAL - We need those slots for our own jobs, these jobs aren't on Nova anymore anyway.
 		JOB_SECURITY_OFFICER_MEDICAL = 13,
 		JOB_SECURITY_OFFICER_ENGINEERING = 14,
 		JOB_SECURITY_OFFICER_SCIENCE = 15,
@@ -114,10 +114,10 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
 		JOB_CHEMIST = 21,
-		JOB_VIROLOGIST = 22,
-		JOB_MEDICAL_DOCTOR = 23,
-		JOB_PARAMEDIC = 24,
-		JOB_CORONER = 25,
+		JOB_MEDICAL_DOCTOR = 22,
+		JOB_PARAMEDIC = 23,
+		JOB_CORONER = 24,
+		JOB_VIROLOGIST = 25, // NOVA EDIT ADDITION: Returns Virologist
 		JOB_ORDERLY = 26, // NOVA EDIT ADDITION
 		JOB_PSYCHOLOGIST = 27, // NOVA EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
 		// 30-39: Science
@@ -178,7 +178,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsoleSkyrat")
+		ui = new(user, src, "CrewConsoleNova")
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)

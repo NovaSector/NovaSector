@@ -758,7 +758,7 @@
 
 /obj/machinery/door/firedoor/heavy
 	name = "heavy firelock"
-	icon = 'icons/obj/doors/Doorfire.dmi'  //NOVA EDIT - ICON OVERRIDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/doors/Doorfire.dmi'  // NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	glass = FALSE
 	explosion_block = 2
 	assemblytype = /obj/structure/firelock_frame/heavy
@@ -773,7 +773,7 @@
 /obj/structure/firelock_frame
 	name = "firelock frame"
 	desc = "A partially completed firelock."
-	icon = 'icons/obj/doors/Doorfire.dmi' //NOVA EDIT - ICON OVERRIDEN IN AESTHETICS MODULE
+	icon = 'icons/obj/doors/Doorfire.dmi' // NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "frame1"
 	base_icon_state = "frame"
 	anchored = FALSE
@@ -887,7 +887,7 @@
 				return
 			if(istype(attacking_object, /obj/item/electroadaptive_pseudocircuit))
 				var/obj/item/electroadaptive_pseudocircuit/raspberrypi = attacking_object
-				if(!raspberrypi.adapt_circuit(user, circuit_cost = DEFAULT_STEP_TIME * 0.5 KILO JOULES))
+				if(!raspberrypi.adapt_circuit(user, circuit_cost = DEFAULT_STEP_TIME * 0.0005 * STANDARD_CELL_CHARGE))
 					return
 				user.visible_message(span_notice("[user] fabricates a circuit and places it into [src]."), \
 				span_notice("You adapt a firelock circuit and slot it into the assembly."))

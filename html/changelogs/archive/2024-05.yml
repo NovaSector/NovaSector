@@ -1,0 +1,200 @@
+2024-05-01:
+  FearfulFurnishing:
+  - rscadd: Added tribal accessories to the Ash Clothing Vendor for ashwalkers.
+  Flleeppyy, Absolucy:
+  - sound: Added unique announcement jingles to each heretic path's ascension, replacing
+      the old "space-time anomalies detected" announcement.
+  LT3:
+  - qol: The various RCD upgrade disks no longer look identical
+  NovaBot13:
+  - rscadd: you can use a photo with blueprints on it to read wires
+  - rscadd: trainship hijack deathmatch map
+  - bugfix: On examine PDAs will now inform players that the power cell can be removed
+      for recharging or replacement, and how to do so.
+  - bugfix: If you are a freerunner, you don't end up faceplanting despite having
+      catlike grace.
+  - bugfix: Infinite-range laser pointer (for "AI" Big Brother) now has a correct
+      diode. If you accidentaly remove it then you can put it back!
+  - bugfix: Ethereal unarmed attacks "sear" instead of "singe", which was buggy
+  - bugfix: Fixes a bluescreen in the deathmatch lobby UI.
+  - bugfix: Genetic sequence scanners now show the sequence to mutated genes from
+      scanned individuals.
+  - bugfix: Fixes tramstation gravgen wiring
+  - bugfix: Fixes tramstation turbine wiring
+  - bugfix: Fixes northstar cmo button name
+  - qol: Made birdshot atmos easier to use.
+  - bugfix: The Birdshot engineering department is no longer using a second hand broken
+      microwave.
+  - bugfix: The syndicate infiltrator has no weak spots anymore
+  - qol: The Human AI's advanced security console can be repackaged with a screwdriver
+      if you wish to move it.
+  - bugfix: computers don't deconstruct themselves twice so machines like slotmachine
+      don't spawn excess chips upon deconstruction
+  - bugfix: QM is now excluded from getting tasked with stealing telescopic batons
+      and the captain's spare ID, like all other command personnel are.
+  SomeRandomOwl, vinylspiders:
+  - bugfix: fixes milking machine causing infinite loops and crashing the server
+  chestlet:
+  - rscdel: Deleted all references to speaker.verb_sing from tongues.dm, as none of
+      the tongues change them.
+  - code_imp: Changed the Avian and Canidae Traits quirks to no longer pointlessly
+      be item quirks.
+  - code_imp: Changed the path for Avian and Canidae Traits quirks to be avian_aspect
+      and canine_aspect respectively.
+  - qol: Added feedback for the Avian, Canidae, and Feline Traits quirks being added/removed.
+  - qol: Made it so the Avian, Canidae, and Feline Traits quirks being removed gives
+      you your default species tongue.
+  - bugfix: Changelings can now copy the Avian Traits quirk.
+  - bugfix: Changelings are no longer stuck with a dead giveaway animal tongue after
+      copying someone who has an Animal Traits quirk.
+  honkpocket:
+  - rscadd: Adds DM Deep Space
+  - code_imp: Restores TG code that was non-modularly removed on the Ripley's 'killer_clamp'
+      hydraulic clamp subtype
+  vinylspiders:
+  - bugfix: fixes a bug that was causing the audio for some emotes to not play (cry
+      for instance) as well as restoring the ability to scream at will (with sound)
+  - bugfix: restores a missing fourth lizard scream audio that was supposed to play
+2024-05-02:
+  Fluffles:
+  - qol: you can pick up wheelchairs while on the ground
+  - qol: you can place wheelchairs a tile away from you, like roller beds
+  NovaBot13:
+  - bugfix: Constantly fleeing in Battle Arcade will no longer give you a very large
+      amount of decimals due to halving your gold every time.
+  - qol: conveyor switches now have direction-specific input signals
+  - bugfix: Fixes hypercharged slime core cells and circuit guns having 1,000 times
+      less energy than intended.
+  - bugfix: You can now re-construct pod doors that had deconstruction started.
+  - qol: You can now make pod door assemblies using plasteel in-hand.
+  - bugfix: AIs can now track Silicon as long as their built-in camera is online.
+  - bugfix: Monkeys can no longer be knocked over by walking into a windoor on combat
+      mode while they're behind it.
+  - bugfix: Monkey changelings that are disguised as someone can now take off their
+      flesh clothes.
+  - admin: Debug uplinks now shows all categories and won't lock upon buying items
+      like his grace and the syndicate balloon.
+  RatFromTheJungle:
+  - balance: made it so EMPs don't hardstun people who have nifs. (doesn't affect
+      other implants)
+2024-05-03:
+  CandleJaxx:
+  - rscadd: Zhenkov & Co has lost another shipment of their legs to the deep dark
+      frontier. These ones happen to be deeply dark.
+  Melbert:
+  - admin: Custom Single and Custom Multi votes are now combined into one vote
+  - admin: Admins can now end votes instantly, rather than cancelling them
+  - admin: Admins can now reset the vote cooldown
+  - bugfix: Vote cooldown actually applies now
+  NovaBot13:
+  - rscadd: increased the size of the pool that Machine Blessing draws from
+  - balance: weighted some of the implants that Machine Blessing can give
+  - image: added directional sprites for radiation shutters
+  - bugfix: fix runtime when no events were drafted to be picked from
+  - config: make events frequency configurable
+  - bugfix: the civilian bounty control terminal displays the payout of new bounty
+      options again
+  - qol: the civilian bounty control terminal displays the description of new bounty
+      options
+  - qol: conveyors now use left and right click controls
+  - qol: add screentips for conveyor switches
+  - rscdel: removes circuit conveyor circuit default trigger behavior in favor in
+      favor of the three state triggers
+  - qol: You can now quickly stamp papers with a right click
+  Thlumyn:
+  - bugfix: NT Rep door on tramstation is now NT Rep access only
+  nikothedude:
+  - bugfix: Jousting no longer bypasses pacifism
+2024-05-04:
+  GoldenAlpharex:
+  - bugfix: Transfer votes will once again happen automatically.
+  LT3:
+  - bugfix: Getting electrocuted should no longer be a guaranteed death sentence
+  Lutowski:
+  - rscadd: Pharmacist's labcoat added to chemdrobe & loadout.
+  Melbert:
+  - bugfix: New machine god blessings now actually works probably
+  NovaBot13:
+  - bugfix: Fire ant colonies created by burning regular ants will now contain fire
+      ants as their reagent
+  - rscadd: Adds an Icebox-specific station trait that brightens outdoors areas on
+      the surface level.
+  - bugfix: mobs in the same faction will no longer be at odds against one another
+  - bugfix: mobs can now perform behaviors alongside searching for targets
+  - bugfix: mobs will no longer be starting and stopping when chasing targets
+  - bugfix: Candy corn is once again available to detective fedoras
+  - bugfix: Stage 2 singularities should no longer escape containment
+  Ryll/Shaps:
+  - bugfix: Pacifists can no longer endlessly spam the backblast functionality of
+      loaded rocket launchers that they cannot actually fire
+  honkpocket:
+  - image: Added departmental guard belts
+  - qol: Department guards now start with their gear equipped in a spiffy looking
+      belt
+  mogeoko:
+  - bugfix: Ventcrawling mobs can change Z-level using multiz-decks again.
+2024-05-05:
+  GoldenAlpharex:
+  - image: The game client now uses Nova Sector's logo, at long last!
+  Lutowski:
+  - rscadd: Three Security skirts & a jumpsuit were added to the Peacekeeper Outfitting
+      Station & loadout.
+  - rscadd: Security officers with jumpskirt pref now spawn with the new jumpskirt,
+      battle dress is moved to loadout.
+  NovaBot13:
+  - bugfix: Materials are now correctly applied to crafted items (chairs, toilets,
+      etc)
+  - bugfix: You can no longer bypass construction restrictions via the crafting menu
+  - bugfix: Blood Brothers should spawn knowing what their objectives are.
+  - bugfix: Teams of 3 Blood Brothers will once more have an additional objective.
+  - bugfix: If kidnapped and ransomed by pirates, you will now properly return to
+      the station automatically after 6 minutes.
+  - bugfix: You can no longer be kidnapped and held for ransom by cargo technicians
+      posing as pirates.
+  - balance: Bitrunners can now earn Bepis disks, once per medium domain or above,
+      if they scored at least an A.
+  - rscdel: Bitrunners can not buy Bepis disks from their vendors.
+  - bugfix: Fixed lua scripts breaking when turfs with registered signals get deleted.
+2024-05-06:
+  NovaBot13:
+  - qol: Admin modsuit now has a radiation protect module
+2024-05-07:
+  CandleJaxx:
+  - rscadd: We found a bunch of old synthetic casings that were left to rot in a scrapyard
+      out of Eridani. Have them, Frontier Scum.
+  JohnFulpWillard, Tattax:
+  - rscadd: Monkeys can now wear all jumpsuits.
+  - rscadd: Bioscrambler anomalies can now give monkey legs.
+  - bugfix: Monkeys can have their tails removed, and tails are no longer invisible
+      when implanted into another species.
+  Melbert:
+  - bugfix: Height now applies less weird to certain worn items, bare-handed bloody
+      hands, and damage overlays.
+  - bugfix: Map vote should work better
+  NovaBot13:
+  - admin: The return of IPIntel
+  - bugfix: fixes traditional equipment crate name
+  - rscadd: '''puppy'' ''kitten'' and ''spider'' pai skins'
+  - bugfix: Fixed the ipintel subsystem not working.
+  UEDHighCommand:
+  - rscadd: Renamed the Syndicate CentCom fax to "Syndicate Sectorial Command"
+  - rscdel: Edited the intro text for DS-2 operatives, removing the edgy mention of
+      "terrorist cells"
+  Z0w0plankton:
+  - rscadd: Adds missing wagging animation for two fox tails.
+  aKromatopzia:
+  - bugfix: moved raptor and digi cybernetics' categories
+  chestlet:
+  - qol: Added an alternate version of "cat, big" ears, which are layered above hair.
+  nikothedude:
+  - code_imp: Taur bodies are properly subtyped
+  - rscadd: Taurs now have custom leg names
+  unit0016:
+  - admin: The nuke codes will no longer be consistently randomly generated roundstart,
+      though it's still possible.
+  - bugfix: It's no longer possible to break into the emergency shuttle before it
+      reaches the station.
+  - rscadd: Leashes have been stocked in a very particular vendor in the dormitories.
+  vinylspiders:
+  - bugfix: laughs will now once again play the appropriate audio if you have a laugh
+      set in prefs instead of defaulting to the species laugh

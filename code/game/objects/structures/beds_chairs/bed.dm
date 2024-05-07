@@ -110,17 +110,14 @@
 	if(!isnull(foldable_type))
 		. += span_notice("You can fold it up with a Right-click.")
 
-/obj/structure/bed/medical/AltClick(mob/user)
-	. = ..()
-	if(!can_interact(user))
-		return
-
+/obj/structure/bed/medical/click_alt(mob/user)
 	if(has_buckled_mobs() && (user in buckled_mobs))
-		return
+		return CLICK_ACTION_BLOCKING
 
 	anchored = !anchored
 	balloon_alert(user, "brakes [anchored ? "applied" : "released"]")
 	update_appearance()
+	return CLICK_ACTION_SUCCESS
 
 /obj/structure/bed/medical/post_buckle_mob(mob/living/buckled)
 	. = ..()
@@ -221,13 +218,12 @@
 /obj/item/emergency_bed/attack_self(mob/user)
 	deploy_bed(user, user.loc)
 
-/obj/item/emergency_bed/afterattack(obj/target, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
+/obj/item/emergency_bed/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(isopenturf(interacting_with))
+		deploy_bed(user, interacting_with)
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
-	if(isopenturf(target))
-		deploy_bed(user, target)
 
 /obj/item/emergency_bed/proc/deploy_bed(mob/user, atom/location)
 	var/obj/structure/bed/medical/emergency/deployed = new /obj/structure/bed/medical/emergency(location)
@@ -319,7 +315,7 @@
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 
-// Double Beds, for luxurious sleeping, i.e. the captain and maybe heads- if people use this for ERP, send them to skyrat
+// Double Beds, for luxurious sleeping, i.e. the captain and maybe heads- if people use this for ERP, send them to nova
 /obj/structure/bed/double
 	name = "double bed"
 	desc = "A luxurious double bed, for those too important for small dreams."

@@ -1,4 +1,7 @@
-ADMIN_VERB_AND_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", "Get the player panel for the target mob.", ADMIN_CATEGORY_MAIN, mob/player in world)
+ADMIN_VERB(cmd_player_panel, R_ADMIN, "Player Panel", "See all players and their Player Panel.", ADMIN_CATEGORY_GAME)
+	user.holder.player_panel_new()
+
+ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mob/player in world)
 	log_admin("[key_name(user)] checked the individual player panel for [key_name(player)][isobserver(user.mob)?"":" while in game"].")
 
 	if(!player)
@@ -443,6 +446,6 @@ ADMIN_VERB(lag_switch_panel, R_ADMIN, "Show Lag Switches", "Display the controls
 	dat += "Disable examine icons: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_USR_ICON2HTML]'><b>[SSlag_switch.measures[DISABLE_USR_ICON2HTML] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to examiner</span><br/>"
 	dat += "Disable parallax: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_PARALLAX]'><b>[SSlag_switch.measures[DISABLE_PARALLAX] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to character</span><br />"
 	dat += "Disable footsteps: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_FOOTSTEPS]'><b>[SSlag_switch.measures[DISABLE_FOOTSTEPS] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to character</span><br />"
-	dat += "Disable character creator: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_CREATOR]'><b>[SSlag_switch.measures[DISABLE_CREATOR] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to all</span><br />" // SKRYAT EDIT ADDITION
+	dat += "Disable character creator: <a href='?_src_=holder;[HrefToken()];change_lag_switch=[DISABLE_CREATOR]'><b>[SSlag_switch.measures[DISABLE_CREATOR] ? "On" : "Off"]</b></a> - <span style='font-size:80%'>trait applies to all</span><br />" // NOVA EDIT ADDITION
 	dat += "</body></html>"
 	user << browse(dat.Join(), "window=lag_switch_panel;size=420x480")

@@ -236,7 +236,8 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_HEAD_OF_PERSONNEL,
 		JOB_CHIEF_ENGINEER,
-		JOB_CHIEF_MEDICAL_OFFICER
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
 	)
 	exists_on_map = TRUE
 	difficulty = 3
@@ -279,7 +280,8 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_HEAD_OF_PERSONNEL,
 		JOB_CHIEF_ENGINEER,
-		JOB_CHIEF_MEDICAL_OFFICER
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
 	)
 	exists_on_map = TRUE
 	difficulty = 4
@@ -512,12 +514,12 @@
 	if(istype(potential_storage, /obj/item/aicard))
 		var/obj/item/aicard/card = potential_storage
 		being = card.AI // why is this one capitalized and the other one not? i wish i knew.
-	// SKYRAT REMOVAL START - MOD PAI
+	// NOVA EDIT REMOVAL START - MOD PAI
 	/*else if(istype(potential_storage, /obj/item/mod/control))
 		var/obj/item/mod/control/suit = potential_storage
 		if(isAI(suit.ai_assistant))
 			being = suit.ai_assistant
-	*/ // SKYRAT REMOVAL END
+	*/ // NOVA EDIT REMOVAL END
 	else
 		stack_trace("check_special_completion() called on [src] with [potential_storage] ([potential_storage.type])! That's not supposed to happen!")
 		return FALSE
@@ -578,7 +580,7 @@
 /datum/objective_item/steal/traitor/moth_plush
 	name = "cute moth plush toy"
 	targetitem = /obj/item/toy/plush/moth
-	excludefromjob = list(JOB_PSYCHOLOGIST, JOB_PARAMEDIC, JOB_CHEMIST, JOB_MEDICAL_DOCTOR, JOB_VIROLOGIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_CORONER)
+	excludefromjob = list(JOB_PSYCHOLOGIST, JOB_PARAMEDIC, JOB_CHEMIST, JOB_MEDICAL_DOCTOR, JOB_VIROLOGIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_CORONER) // Nova Edit Addition: Virologist
 	exists_on_map = TRUE
 	difficulty = 1
 	steal_hint = "A moth plush toy. The Psychologist has one to help console patients."
@@ -633,7 +635,15 @@
 /datum/objective_item/steal/traitor/rpd
 	name = "rapid pipe dispenser"
 	targetitem = /obj/item/pipe_dispenser
-	excludefromjob = list(JOB_ATMOSPHERIC_TECHNICIAN, JOB_STATION_ENGINEER, JOB_CHIEF_ENGINEER, JOB_SCIENTIST, JOB_RESEARCH_DIRECTOR, JOB_GENETICIST, JOB_ROBOTICIST)
+	excludefromjob = list(
+		JOB_ATMOSPHERIC_TECHNICIAN,
+		JOB_STATION_ENGINEER,
+		JOB_CHIEF_ENGINEER,
+		JOB_SCIENTIST,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_GENETICIST,
+		JOB_ROBOTICIST,
+	)
 	item_owner = list(JOB_CHIEF_ENGINEER)
 	exists_on_map = TRUE
 	difficulty = 1
@@ -645,7 +655,19 @@
 /datum/objective_item/steal/traitor/donut_box
 	name = "a box of prized donuts"
 	targetitem = /obj/item/storage/fancy/donut_box
-	excludefromjob = list(JOB_CAPTAIN, JOB_CHIEF_ENGINEER, JOB_HEAD_OF_PERSONNEL, JOB_HEAD_OF_SECURITY, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_LAWYER, JOB_DETECTIVE)
+	excludefromjob = list(
+		JOB_CAPTAIN,
+		JOB_CHIEF_ENGINEER,
+		JOB_HEAD_OF_PERSONNEL,
+		JOB_HEAD_OF_SECURITY,
+		JOB_QUARTERMASTER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_SECURITY_OFFICER,
+		JOB_WARDEN,
+		JOB_LAWYER,
+		JOB_DETECTIVE,
+	)
 	exists_on_map = TRUE
 	difficulty = 1
 	steal_hint = "Everyone has a box of donuts - you may most commonly find them on the Bridge, within Security, or in any department's break room."

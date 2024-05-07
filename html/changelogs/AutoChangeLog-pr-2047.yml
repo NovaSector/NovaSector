@@ -1,4 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "Clocking out will now open up your job slot for new players to take. Should the role become filled in your absence, you will not be able to clock back in until someone clocks out or cryos."
