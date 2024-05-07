@@ -7,10 +7,7 @@
 	var/selected_laugh
 	var/mob/living/carbon/human/human_user = user
 	if(!istype(human_user)) // pais
-		var/mob/living/silicon/silicon_user = user
-		if(!istype(silicon_user))
-			return
-		selected_laugh = silicon_user.selected_laugh
+		return
 
 	if(isnull(selected_laugh)) //For things that don't have a selected laugh(npcs)
 		return ..()
