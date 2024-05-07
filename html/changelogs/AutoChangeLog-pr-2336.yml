@@ -1,0 +1,4 @@
+author: "Thlumyn"
+delete-after: True
+changes:
+  - bugfix: "moved some scrubbers in the blackmarket shuttle to not be layered on top of same-layer pipes"
