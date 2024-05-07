@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "you can once again select 'None' as an option for pod hair in preferences"
+  - bugfix: "the icons of pod hair options in preferences will now look like the actual hairstyles"
