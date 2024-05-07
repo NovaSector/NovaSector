@@ -37,13 +37,16 @@
 		if((worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
 			return TRUE
 		if (worn_suit.flags_inv & HIDETAUR)
-			var/target_taur_mode = target.get_taur_mode() // i hate this. TODO: make more oop
-			if (target_taur_mode == STYLE_TAUR_SNAKE && worn_suit.worn_icon_taur_snake)
-				return TRUE
-			if (target_taur_mode == STYLE_TAUR_PAW && worn_suit.worn_icon_taur_paw)
-				return TRUE
-			if (target_taur_mode == STYLE_TAUR_HOOF && worn_suit.worn_icon_taur_hoof)
-				return TRUE
+			switch (taur_mode)
+				if (STYLE_TAUR_SNAKE)
+					if (worn_suit.worn_icon_taur_snake)
+						return TRUE
+				if (STYLE_TAUR_PAW)
+					if (worn_suit.worn_icon_taur_paw)
+						return TRUE
+				if (STYLE_TAUR_HOOF)
+					if (worn_suit.worn_icon_taur_hoof)
+						return TRUE
 	if(target.owned_turf)
 		var/list/used_in_turf = list("tail")
 		if(target.owned_turf.name in used_in_turf)
