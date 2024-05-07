@@ -3,10 +3,12 @@
 	desc = "Quite similar to the jaws of life, this tool combines the utility of a crowbar and a set of wirecutters without the hydraulic force required to pry open doors."
 	icon_state = "jaws_sci"
 	inhand_icon_state = "jaws_sci"
+	toolspeed = 0.5
 	force_opens = FALSE
 
 /obj/item/screwdriver/power/science
 	icon_state = "drill_sci"
+	toolspeed = 0.5
 
 /obj/item/screwdriver/power/science/Initialize(mapload)
 	. = ..()
