@@ -195,7 +195,7 @@
 	savefile_key = "entombed_mod_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
-	maximum_value_length = 48
+	maximum_value_length = 64
 
 /datum/preference/text/entombed_mod_name/is_accessible(datum/preferences/preferences)
 	if (!..())
