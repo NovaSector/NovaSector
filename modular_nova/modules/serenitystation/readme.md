@@ -15,6 +15,7 @@ There are custom mushroom tree, mushroom floor and megadeer sprites for this map
 There are two main cave generation types: the surface and /deep for the caves. There are some grass underground; this is intentional, it is where there is glass above so sun can get through.
 
 The mushroom sprites were cut using the icon cutter; I included the .png and .toml files needed for the cutter if that sprite gets edited.
+To rerun the cutting tool move the relevant .dmi .png and .png.toml files to the \icons\turf\floors file and rerun the icon cutter, as it checks that non-modular folder for them.
 
 ### TG Proc/File Changes:
 

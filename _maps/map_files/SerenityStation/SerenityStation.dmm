@@ -5317,6 +5317,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "bGP" = (
@@ -24647,7 +24649,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/grill,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -27172,6 +27173,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -28616,6 +28618,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "iYB" = (
@@ -29077,9 +29080,6 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "jfB" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -35505,6 +35505,7 @@
 /obj/item/stock_parts/cell/high,
 /obj/machinery/status_display/evac/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/spawner/random/entertainment/money,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/aft)
 "lhP" = (
@@ -36928,9 +36929,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/service/library)
-"lFt" = (
-/turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
 "lFx" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
@@ -48676,12 +48674,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/ai_monitored/command/nuke_storage)
-"pAq" = (
-/obj/structure/ladder,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
 "pAt" = (
 /obj/structure/hoop{
 	dir = 8
@@ -52656,6 +52648,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "qND" = (
@@ -52860,7 +52854,7 @@
 /area/station/cargo/miningoffice)
 "qQM" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/station/commons/storage/mining)
 "qQN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -55806,14 +55800,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/evidence)
 "rRM" = (
-/obj/structure/table/reinforced,
-/obj/machinery/computer/med_data/laptop{
-	pixel_x = -4
-	},
-/obj/machinery/computer/secure_data/laptop{
-	pixel_x = 6;
-	pixel_y = 2
-	},
 /obj/machinery/computer/security/telescreen{
 	desc = "Used for monitoring medbay to ensure patient safety.";
 	name = "Medbay Monitor";
@@ -55829,6 +55815,9 @@
 	},
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/supplies,
+/obj/machinery/computer/med_data{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
 "rRR" = (
@@ -56198,7 +56187,6 @@
 /area/station/service/theater)
 "rXs" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/entertainment/money,
 /obj/structure/cable,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/spawner/random/engineering/atmospherics_portable,
@@ -56677,12 +56665,12 @@
 /turf/open/floor/iron,
 /area/station/maintenance/central/greater)
 "seU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/landmark/start/virologist,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "seW" = (
@@ -57426,7 +57414,6 @@
 "sqQ" = (
 /obj/machinery/photocopier,
 /obj/effect/turf_decal/trimline/yellow/filled/line,
-/obj/machinery/requests_console/directional/south,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/engineering/lobby)
 "sqS" = (
@@ -59448,9 +59435,6 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
-"sZU" = (
-/turf/open/misc/dirt/forest,
-/area/station/engineering/atmos/hfr_room)
 "sZV" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -69613,7 +69597,7 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "wkE" = (
-/obj/structure/ladder,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
 "wkG" = (
@@ -74383,7 +74367,6 @@
 /area/station/security/prison/garden)
 "xNx" = (
 /obj/machinery/door/firedoor,
-/obj/item/kirbyplants/random,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron,
 /area/station/command/bridge)
@@ -74774,6 +74757,7 @@
 /obj/machinery/door/airlock/wood{
 	name = "Sauna"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms/room8)
 "xUj" = (
@@ -109497,7 +109481,7 @@ lID
 bxX
 tzm
 tBq
-pAq
+gAJ
 lID
 vGb
 wMD
@@ -119279,7 +119263,7 @@ uVZ
 uVZ
 uVZ
 uVZ
-sZU
+uVZ
 huI
 huI
 iMY
@@ -119537,7 +119521,7 @@ xFJ
 iWy
 oAi
 uVZ
-uVZ
+huI
 huI
 iMY
 egS
@@ -172151,8 +172135,8 @@ cih
 gqa
 dDQ
 pCa
-lFt
 dDQ
+dKo
 qhR
 sEg
 dKo
@@ -172408,8 +172392,8 @@ iJb
 gqa
 dDQ
 ehd
-lFt
 dDQ
+dKo
 dKo
 iiB
 lxk
@@ -172666,7 +172650,7 @@ oXG
 dDQ
 ehd
 dDQ
-dDQ
+dKo
 wPq
 gHq
 ayU
@@ -173694,7 +173678,7 @@ yaa
 dDQ
 cOV
 dDQ
-dDQ
+dKo
 qLt
 cLi
 rIL
@@ -173950,8 +173934,8 @@ uoC
 gqa
 dDQ
 cOV
-lFt
 dDQ
+dKo
 gNC
 wDc
 gNC
@@ -174207,8 +174191,8 @@ cih
 gqa
 dDQ
 agR
-lFt
 dDQ
+dKo
 xGB
 eUw
 qhR

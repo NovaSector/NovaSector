@@ -11,3 +11,15 @@
 
 /obj/structure/flora/tree/mushroom/reverse
 	icon_state = "tree2"
+
+/obj/structure/flora/tree/mushroom/blue
+	icon_state = "tree_blue1"
+
+/obj/structure/flora/tree/mushroom/blue/reverse
+	icon_state = "tree_blue2"
+
+/obj/structure/flora/tree/mushroom/green
+	icon_state = "tree_green1"
+
+/obj/structure/flora/tree/mushroom/green/reverse
+	icon_state = "tree_green2"

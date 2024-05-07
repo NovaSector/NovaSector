@@ -59,6 +59,16 @@
 	light_power = 0.50
 	light_color = COLOR_VERY_LIGHT_GRAY
 
+/turf/open/misc/asteroid/forest/mushroom/blue
+	icon_state = "mushroom_blue"
+	base_icon_state = "mushroom_blue"
+	smooth_icon = 'modular_nova/modules/serenitystation/icons/turfs/floors/mushroom_blue.dmi'
+
+/turf/open/misc/asteroid/forest/mushroom/green
+	icon_state = "mushroom_green"
+	base_icon_state = "mushroom_green"
+	smooth_icon = 'modular_nova/modules/serenitystation/icons/turfs/floors/mushroom_green.dmi'
+
 /turf/open/openspace/forest
 	name = "open forest air"
 	baseturfs = /turf/open/openspace/forest
