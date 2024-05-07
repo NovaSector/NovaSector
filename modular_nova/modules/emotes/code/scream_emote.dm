@@ -10,10 +10,10 @@
 		var/datum/scream_type/selected_scream = silicon_user.selected_scream
 		if(isnull(selected_scream))
 			return 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg'
-		if(user.gender == FEMALE && LAZYLEN(user.selected_scream.female_screamsounds))
-			return pick(user.selected_scream.female_screamsounds)
+		if(user.gender == FEMALE && LAZYLEN(selected_scream.female_screamsounds))
+			return pick(selected_scream.female_screamsounds)
 		else
-			return pick(user.selected_scream.male_screamsounds)
+			return pick(selected_scream.male_screamsounds)
 	if(issilicon(user))
 		return 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg'
 	if(ismonkey(user))
