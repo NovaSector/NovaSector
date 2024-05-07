@@ -21,6 +21,8 @@ GLOBAL_LIST_INIT(lethal_funny_mystery_box_items, list(
 /obj/structure/mystery_box/grant_weapon(mob/living/user)
 	var/obj/item/new_thing = new presented_item.selected_path(src)
 	for(var/obj/item/iterated_item in contents)
+		if(!isitem(iterated_item))
+			continue
 		user.put_in_hands(iterated_item)
 
 		if(isgun(iterated_item)) // handle pins + possibly extra ammo
