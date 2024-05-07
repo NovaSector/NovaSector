@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "cyborg screams now use the scream pref for determining which audio track to play"
+  - bugfix: "emotes with audio use gender instead of physique for determining the gendered track to play"

@@ -194,7 +194,7 @@
 		return
 	var/mob/living/carbon/human/human_user = user
 	if(!HAS_MIND_TRAIT(human_user, TRAIT_MIMING)) // NOVA EDIT CHANGE - Let other species gasp - ORIGINAL: if(ishumanbasic(human_user) || isfelinid(human_user) && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
-		if(human_user.physique == FEMALE)
+		if(human_user.gender == FEMALE) // NOVA EDIT CHANGE - ORIGINAL: if(human_user.physique == FEMALE)
 			return pick('sound/voice/human/gasp_female1.ogg', 'sound/voice/human/gasp_female2.ogg', 'sound/voice/human/gasp_female3.ogg')
 		else
 			return pick('sound/voice/human/gasp_male1.ogg', 'sound/voice/human/gasp_male2.ogg')
