@@ -1,7 +1,3 @@
-// Un-nerfs loading ammo from boxes
-/obj/item/gun/ballistic
-	box_reload_penalty = FALSE
-
 /// Object for holding stacks of loose ammo as a handful of shells
 /obj/item/ammo_box/magazine/ammo_stack
 	name = "ammo stack"
