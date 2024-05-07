@@ -1329,7 +1329,7 @@
 
 // Donation reward for 1ceres
 /obj/item/poster/korpstech
-	name = "Empire Enhancements poster"
+	name = "\improper Empire Enhancements poster"
 	poster_type = /obj/structure/sign/poster/contraband/korpstech
 	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
 	icon_state = "rolled_poster"
