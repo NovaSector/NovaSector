@@ -322,6 +322,21 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/mask/masquerade_mask_worn_vox.dmi'
 
 /*
+*	EYES
+*/
+
+// BLINDFOLD
+
+/datum/greyscale_config/blindfold
+	name = "Blind Personnel Blindfold"
+	icon_file = 'modular_nova/modules/GAGS/icons/eyes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/blindfold_eyes/blindfoldcolor.json'
+
+/datum/greyscale_config/blindfold/worn
+	name = "Blind Personnel Blindfold (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
+
+/*
 *	NECK
 */
 
@@ -950,16 +965,6 @@
 	name = "Prison Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/color_digi.dmi'
 
-/datum/greyscale_config/jumpsuit/worn/monkey
-	name = "Jumpsuit (Worn) - Monkey"
-	icon_file = MONKEY_UNIFORM_FILE
-	json_config = 'modular_nova/modules/GAGS/json_configs/jumpsuit/jumpsuit_worn_monkey.json'
-
-/datum/greyscale_config/jumpsuit/prison/worn/monkey
-	name = "Prison Jumpsuit (Worn) - Monkey"
-	icon_file = MONKEY_UNIFORM_FILE
-	json_config = 'modular_nova/modules/GAGS/json_configs/jumpsuit/jumpsuit_prison_worn_monkey.json'
-
 /datum/greyscale_config/jumpsuit/worn/vox
 	name = "Jumpsuit (Worn, Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/jumpsuit_vox.dmi'
@@ -1173,6 +1178,10 @@
 
 // KILT
 // COSTUMES
+
+/datum/greyscale_config/jester_suit/worn/digi
+	name = "Jester Suit (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/civilian_digi.dmi'
 
 /datum/greyscale_config/buttondown_slacks/worn/digi
 	name = "Buttondown with Slacks (Worn, Digi)"
@@ -1558,6 +1567,10 @@ TREK
 	name = "Fancy Heels (Worn, Digi)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/fancyheels/fancyheels_worn_digi.json'
 
+/datum/greyscale_config/jester_shoes/worn/digi
+	name = "Jester Shoes (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
 // TESHARI FALLBACKS.
 
 /datum/greyscale_config/teshari
@@ -1681,6 +1694,21 @@ TREK
 	name = "Wargame Hologram Projector"
 	icon_file = 'modular_nova/modules/wargame_projectors/icons/projectors_and_holograms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/wargame_holoprojector/projector.json'
+
+/datum/greyscale_config/hypokit
+	name = "Hypospray Kit"
+	icon_file = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypokit.json'
+
+/datum/greyscale_config/hypospray_mkii
+	name = "Hypospray Mk. II"
+	icon_file = 'modular_nova/modules/hyposprays/icons/hyposprays.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypospray.json'
+
+/datum/greyscale_config/hypovial
+	name = "Hypovial"
+	icon_file = 'modular_nova/modules/hyposprays/icons/vials.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/items/hypovial.json'
 
 // Evil primitive catgirl clothing
 

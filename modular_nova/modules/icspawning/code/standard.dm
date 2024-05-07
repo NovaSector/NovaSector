@@ -1,4 +1,4 @@
-//SKYRAT MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
+// NOVA MODULE IC-SPAWNING https://github.com/Skyrat-SS13/Skyrat-tg/pull/104
 /obj/item/gun/energy/taser/debug
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/debug)
 	w_class = WEIGHT_CLASS_TINY
@@ -44,6 +44,7 @@
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
+		/obj/item/storage/hypospraykit/cmo/combat = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
@@ -61,6 +62,7 @@
 		/obj/item/debug/human_spawner = 1,
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
+		/obj/item/storage/hypospraykit/cmo/combat = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst

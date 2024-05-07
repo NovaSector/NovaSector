@@ -27,7 +27,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/docking_port/mobile/arrivals_nova/LateInitialize()
-	. = ..()
 	console = get_control_console()
 
 /obj/docking_port/mobile/arrivals_nova/check()
@@ -135,6 +134,16 @@
 	prefix = "_maps/shuttles/nova/"
 	port_id = "whiteship"
 	suffix = "blueshift"
+
+/datum/map_template/shuttle/cargo/nova/ouroboros
+	suffix = "ouroboros"
+
+/datum/map_template/shuttle/whiteship/ouroboros
+	name = "JN Chasse-Galerie"
+	description = "A small Jim Nortons shuttle meant to be a mobile cafe. No hostiles onboard, but multiple corpses of Jim Nortons employees."
+	prefix = "_maps/shuttles/nova/"
+	port_id = "whiteship"
+	suffix = "ouroboros"
 
 /datum/map_template/shuttle/arrivals_nova
 	name = "NTV Relay (Arrivals)"

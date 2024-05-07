@@ -2,19 +2,13 @@
 /**
  * Enables an admin to upload a new titlescreen image.
  */
-/client/proc/admin_change_title_screen()
-	set category = "Admin.Fun"
-	set name = "Title Screen: Change"
-
-	if(!check_rights(R_FUN))
-		return
-
-	log_admin("[key_name(usr)] is changing the title screen.")
-	message_admins("[key_name_admin(usr)] is changing the title screen.")
+ADMIN_VERB(admin_change_title_screen, R_FUN, "Title Screen: Change", "Upload a new titlescreen image.", ADMIN_CATEGORY_FUN)
+	log_admin("[key_name(user)] is changing the title screen.")
+	message_admins("[key_name_admin(user)] is changing the title screen.")
 
 	switch(alert(usr, "Please select a new title screen.", "Title Screen", "Change", "Reset", "Cancel"))
 		if("Change")
-			var/file = input(usr) as icon|null
+			var/file = input(user) as icon|null
 			if(!file)
 				return
 			SStitle.change_title_screen(file)
@@ -26,13 +20,7 @@
 /**
  * Sets a titlescreen notice, a big red text on the main screen.
  */
-/client/proc/change_title_screen_notice()
-	set category = "Admin.Fun"
-	set name = "Title Screen: Set Notice"
-
-	if(!check_rights(R_FUN))
-		return
-
+ADMIN_VERB(change_title_screen_notice, R_FUN, "Title Screen: Set Notice", "Sets a titlescreen notice, a big red text on the main screen.", ADMIN_CATEGORY_FUN)
 	log_admin("[key_name(usr)] is setting the title screen notice.")
 	message_admins("[key_name_admin(usr)] is setting the title screen notice.")
 
@@ -47,13 +35,9 @@
 /**
  * Reloads the titlescreen if it is bugged for someone.
  */
-/client/verb/fix_title_screen()
-	set name = "Fix Lobby Screen"
-	set desc = "Lobbyscreen broke? Press this."
-	set category = "OOC"
-
-	if(istype(mob, /mob/dead/new_player))
-		var/mob/dead/new_player/new_player = mob
+ADMIN_VERB(fix_title_screen, R_ADMIN, "Fix Lobby Screen", "Lobbyscreen broke? Press this.", ADMIN_CATEGORY_MAIN)
+	if(istype(user.mob, /mob/dead/new_player))
+		var/mob/dead/new_player/new_player = user.mob
 		new_player.show_title_screen()
 	else
 		winset(src, "title_browser", "is-disabled=true;is-visible=false")
@@ -62,17 +46,11 @@
 /**
  * An admin debug command that enables you to change the HTML on the go.
  */
-/client/proc/change_title_screen_html()
-	set category = "Admin.Fun"
-	set name = "Title Screen: Set HTML"
+ADMIN_VERB(change_title_screen_html, R_DEBUG, "Title Screen: Set HTML", "Change lobby screen HTML on the go.", ADMIN_CATEGORY_FUN)
+	log_admin("[key_name(user)] is setting the title screen HTML.")
+	message_admins("[key_name_admin(user)] is setting the title screen HTML.")
 
-	if(!check_rights(R_DEBUG))
-		return
-
-	log_admin("[key_name(usr)] is setting the title screen HTML.")
-	message_admins("[key_name_admin(usr)] is setting the title screen HTML.")
-
-	var/new_html = input(usr, "Please enter your desired HTML(WARNING: YOU WILL BREAK SHIT)", "DANGER: TITLE HTML EDIT") as message|null
+	var/new_html = input(user, "Please enter your desired HTML(WARNING: YOU WILL BREAK SHIT)", "DANGER: TITLE HTML EDIT") as message|null
 
 	if(!new_html)
 		return
@@ -80,4 +58,4 @@
 	SStitle.title_html = new_html
 	SStitle.show_title_screen()
 
-	message_admins("[key_name_admin(usr)] has changed the title screen HTML.")
+	message_admins("[key_name_admin(user)] has changed the title screen HTML.")

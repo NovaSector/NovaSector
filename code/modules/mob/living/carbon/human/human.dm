@@ -88,11 +88,6 @@
 
 
 /mob/living/carbon/human/Topic(href, href_list)
-	if(href_list["item"]) //canUseTopic check for this is handled by mob/Topic()
-		var/slot = text2num(href_list["item"])
-		if(check_obscured_slots(TRUE) & slot)
-			to_chat(usr, span_warning("You can't reach that! Something is covering it."))
-			return
 
 ///////HUDs///////
 	if(href_list["hud"])
@@ -277,23 +272,30 @@
 						sec_record_message += "\nAdded by [crime.author] at [crime.time]"
 				to_chat(human_or_ghost_user, examine_block(sec_record_message))
 				return
+			// NOVA EDIT ADDITION START- EXAMINE RECORDS
+			if(href_list["genrecords"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/human_user = usr
+					if(!human_user.canUseHUD())
+						return
+					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+						return
+				else if(!isobserver(usr))
+					return
+				to_chat(usr, "<b>General Record:</b> [target_record.past_general_records]")
+			if(href_list["secrecords"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/human_user = usr
+					if(!human_user.canUseHUD())
+						return
+					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+						return
+				else if(!isobserver(usr))
+					return
+				to_chat(usr, "<b>Security Record:</b> [target_record.past_security_records]")
+			// NOVA EDIT ADDITION END - EXAMINE RECORDS
 			if(ishuman(human_or_ghost_user))
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
-				//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
-				if(href_list["genrecords"])
-					if(!human_user.canUseHUD())
-						return
-					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
-						return
-					to_chat(human_user, "<b>General Record:</b> [target_record.past_general_records]")
-
-				if(href_list["secrecords"])
-					if(!human_user.canUseHUD())
-						return
-					if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
-						return
-					to_chat(human_user, "<b>Security Record:</b> [target_record.past_security_records]")
-				//NOVA EDIT ADDITION END
 				if(href_list["add_citation"])
 					var/max_fine = CONFIG_GET(number/maxfine)
 					var/citation_name = tgui_input_text(human_user, "Citation crime", "Security HUD")
@@ -625,7 +627,7 @@
 	// Check and wash stuff that can be covered
 	var/obscured = check_obscured_slots()
 
-	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && w_uniform.wash(clean_types))
+	if(!(obscured & ITEM_SLOT_ICLOTHING) && w_uniform?.wash(clean_types))
 		update_worn_undersuit()
 		. = TRUE
 
@@ -685,12 +687,12 @@
 		visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
 		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
-	//SKYRAT ERP UPDATE ADDITION: NOW GLOVES CAN RESTRAIN PLAYERS
+	// NOVA EDIT ADDITION: NOW GLOVES CAN RESTRAIN PLAYERS
 	if(I == gloves)
 		visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
 		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
-	//SKYRAT ERP UPDATE ADDITION END
+	// NOVA EDIT ADDITION END
 
 /mob/living/carbon/human/replace_records_name(oldname, newname) // Only humans have records right now, move this up if changed.
 	var/datum/record/crew/crew_record = find_record(oldname)
@@ -748,7 +750,7 @@
 /mob/living/carbon/human/fully_heal(heal_flags = HEAL_ALL)
 	if(heal_flags & HEAL_NEGATIVE_MUTATIONS)
 		for(var/datum/mutation/human/existing_mutation in dna.mutations)
-			if(existing_mutation.quality != POSITIVE)
+			if(existing_mutation.quality != POSITIVE && existing_mutation.remove_on_aheal)
 				dna.remove_mutation(existing_mutation)
 
 	if(heal_flags & HEAL_TEMP)
@@ -775,6 +777,10 @@
 
 /mob/living/carbon/human/vv_edit_var(var_name, var_value)
 	if(var_name == NAMEOF(src, mob_height))
+		var/static/list/monkey_heights = list(
+			MONKEY_HEIGHT_DWARF,
+			MONKEY_HEIGHT_MEDIUM,
+		)
 		var/static/list/heights = list(
 			HUMAN_HEIGHT_SHORTEST,
 			HUMAN_HEIGHT_SHORT,
@@ -783,7 +789,10 @@
 			HUMAN_HEIGHT_TALLER,
 			HUMAN_HEIGHT_TALLEST
 		)
-		if(!(var_value in heights))
+		if(ismonkey(src))
+			if(!(var_value in monkey_heights))
+				return
+		else if(!(var_value in heights))
 			return
 
 		. = set_mob_height(var_value)
@@ -964,7 +973,7 @@
 
 	var/carrydelay = 5 SECONDS //if you have latex you are faster at grabbing
 	var/skills_space
-	var/fitness_level = mind.get_skill_level(/datum/skill/fitness) - 1
+	var/fitness_level = mind.get_skill_level(/datum/skill/athletics) - 1
 	if(HAS_TRAIT(src, TRAIT_QUICKER_CARRY))
 		carrydelay -= 2 SECONDS
 	else if(HAS_TRAIT(src, TRAIT_QUICK_CARRY))

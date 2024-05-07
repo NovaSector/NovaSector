@@ -88,7 +88,7 @@
 		. += span_notice("Its must be constructed <b>outdoors</b> to function.")
 	if(!istype(get_turf(src), /turf/open/misc))
 		. += span_notice("It must be constructed on <b>suitable terrain</b>, like ash, snow, or sand.")
-	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it with <b>[active_power_usage / BASE_MACHINE_ACTIVE_CONSUMPTION] kW</b> of excess power to function.")
+	. += span_notice("It must have a powered, <b>wired connection</b> running beneath it with <b>[display_power(active_power_usage, convert = FALSE)]</b> of excess power to function.")
 	. += span_notice("It will produce a box of materials after it has slammed [slam_jams_needed] times.")
 	. += span_notice("Currently, it has slammed [slam_jams] / [slam_jams_needed] times needed.")
 	. += span_notice("It will stop producing resources if there are <b>too many piles of ore</b> near it.")
@@ -98,6 +98,7 @@
 /obj/machinery/power/colony_ore_thumper/process()
 	var/turf/our_turf = get_turf(src)
 	var/obj/structure/cable/cable_under_us = locate() in our_turf
+	var/energy_needed = power_to_energy(active_power_usage)
 	if(!cable_under_us && powernet)
 		disconnect_from_network()
 	else if(cable_under_us && !powernet)
@@ -107,8 +108,8 @@
 			balloon_alert_to_viewers("invalid location!")
 			cut_that_out()
 			return
-		if(avail(active_power_usage))
-			add_load(active_power_usage)
+		if(avail(energy_needed))
+			add_load(energy_needed)
 		else
 			balloon_alert_to_viewers("not enough power!")
 			cut_that_out()

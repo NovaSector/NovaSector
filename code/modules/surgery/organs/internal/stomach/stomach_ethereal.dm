@@ -3,14 +3,22 @@
 	icon_state = "stomach-p" //Welp. At least it's more unique in functionaliy.
 	desc = "A crystal-like organ that stores the electric charge of ethereals."
 	organ_traits = list(TRAIT_NOHUNGER) // We have our own hunger mechanic.
-	///basically satiety but electrical
-	var/crystal_charge = ETHEREAL_CHARGE_FULL
+	/// Where the energy of the stomach is stored.
+	var/obj/item/stock_parts/cell/cell
 	///used to keep ethereals from spam draining power sources
 	var/drain_time = 0
 
+/obj/item/organ/internal/stomach/ethereal/Initialize(mapload)
+	. = ..()
+	cell = new /obj/item/stock_parts/cell/ethereal(null)
+
+/obj/item/organ/internal/stomach/ethereal/Destroy()
+	QDEL_NULL(cell)
+	return ..()
+
 /obj/item/organ/internal/stomach/ethereal/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	adjust_charge(-ETHEREAL_CHARGE_FACTOR * seconds_per_tick)
+	adjust_charge(-ETHEREAL_DISCHARGE_RATE * seconds_per_tick)
 	handle_charge(owner, seconds_per_tick, times_fired)
 
 /obj/item/organ/internal/stomach/ethereal/on_mob_insert(mob/living/carbon/stomach_owner)
@@ -27,24 +35,32 @@
 	stomach_owner.clear_alert(ALERT_ETHEREAL_OVERCHARGE)
 
 /obj/item/organ/internal/stomach/ethereal/handle_hunger_slowdown(mob/living/carbon/human/human)
-	human.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/hunger, multiplicative_slowdown = (1.5 * (1 - crystal_charge / 100)))
+	human.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/hunger, multiplicative_slowdown = (1.5 * (1 - cell.charge() / 100)))
 
-/obj/item/organ/internal/stomach/ethereal/proc/charge(datum/source, amount, repairs)
+/obj/item/organ/internal/stomach/ethereal/proc/charge(datum/source, datum/callback/charge_cell, seconds_per_tick)
 	SIGNAL_HANDLER
-	adjust_charge(amount / 3.5)
+
+	charge_cell.Invoke(cell, seconds_per_tick / 3.5) // Ethereals don't have NT designed charging ports, so they charge slower.
 
 /obj/item/organ/internal/stomach/ethereal/proc/on_electrocute(datum/source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE)
 	SIGNAL_HANDLER
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(shock_damage * siemens_coeff * 2)
+	. = ethereal_shock_absorb(source, shock_damage, shock_source, siemens_coeff = 1, flags = NONE) //NOVA EDIT CHANGE - Ethereal Rework 2024 - This prevents the damage from the shocks.
 	to_chat(owner, span_notice("You absorb some of the shock into your body!"))
 
+/**Changes the energy of the crystal stomach.
+* Args:
+* - amount: The change of the energy, in joules.
+* Returns: The amount of energy that actually got changed in joules.
+**/
 /obj/item/organ/internal/stomach/ethereal/proc/adjust_charge(amount)
-	crystal_charge = clamp(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_DANGEROUS)
+	var/amount_changed = clamp(amount, ETHEREAL_CHARGE_NONE - cell.charge(), ETHEREAL_CHARGE_DANGEROUS - cell.charge())
+	return cell.change(amount_changed)
 
 /obj/item/organ/internal/stomach/ethereal/proc/handle_charge(mob/living/carbon/carbon, seconds_per_tick, times_fired)
-	switch(crystal_charge)
+	switch(cell.charge())
 		if(-INFINITY to ETHEREAL_CHARGE_NONE)
 			carbon.add_mood_event("charge", /datum/mood_event/decharged)
 			carbon.throw_alert(ALERT_ETHEREAL_CHARGE, /atom/movable/screen/alert/emptycell/ethereal)
@@ -60,16 +76,22 @@
 			carbon.throw_alert(ALERT_ETHEREAL_CHARGE, /atom/movable/screen/alert/lowcell/ethereal, 2)
 		if(ETHEREAL_CHARGE_ALMOSTFULL to ETHEREAL_CHARGE_FULL)
 			carbon.add_mood_event("charge", /datum/mood_event/charged)
+			carbon.adjustToxLoss(-0.325 * seconds_per_tick, carbon) //NOVA EDIT ADDITION - Ethereal Rework 2024 - Your natural reward for no longer being over or under charged, but having it just right.
 		if(ETHEREAL_CHARGE_FULL to ETHEREAL_CHARGE_OVERLOAD)
 			carbon.add_mood_event("charge", /datum/mood_event/overcharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 1)
-			carbon.apply_damage(0.2, TOX, null, null, carbon)
+			//carbon.apply_damage(0.2, TOX, null, null, carbon) //NOVA EDIT REMOVAL- Ethereal Rework 2024 - You should only really be getting that damage when you're actually overcharged.
 		if(ETHEREAL_CHARGE_OVERLOAD to ETHEREAL_CHARGE_DANGEROUS)
 			carbon.add_mood_event("charge", /datum/mood_event/supercharged)
 			carbon.throw_alert(ALERT_ETHEREAL_OVERCHARGE, /atom/movable/screen/alert/ethereal_overcharge, 2)
 			carbon.apply_damage(0.325 * seconds_per_tick, TOX, null, null, carbon)
 			if(SPT_PROB(5, seconds_per_tick)) // 5% each seacond for ethereals to explosively release excess energy if it reaches dangerous levels
 				discharge_process(carbon)
+			// NOVA EDIT ADDITION BEGIN
+			if (SPT_PROB(10, seconds_per_tick))
+				do_sparks(5, TRUE, carbon)
+				carbon.visible_message(span_danger("[carbon] sparks, [carbon.p_their()] body aglow with excess energy!"), span_warning("Your body ejects voltage as sparks, you should discharge some electricity!"))
+			// NOVA EDIT ADDITION END
 		else
 			owner.clear_mood_event("charge")
 			carbon.clear_alert(ALERT_ETHEREAL_CHARGE)
@@ -92,8 +114,9 @@
 
 		playsound(carbon, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 		carbon.cut_overlay(overcharge)
-		tesla_zap(source = carbon, zap_range = 2, power = crystal_charge * 2.5, cutoff = 1e3, zap_flags = ZAP_OBJ_DAMAGE | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
-		adjust_charge(ETHEREAL_CHARGE_FULL - crystal_charge)
+		// Only a small amount of the energy gets discharged as the zap. The rest dissipates as heat. Keeps the damage and energy from the zap the same regardless of what STANDARD_CELL_CHARGE is.
+		var/discharged_energy = -adjust_charge(ETHEREAL_CHARGE_FULL - cell.charge()) * min(7500 / STANDARD_CELL_CHARGE, 1)
+		tesla_zap(source = carbon, zap_range = 2, power = discharged_energy, cutoff = 1 KILO JOULES, zap_flags = ZAP_OBJ_DAMAGE | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
 		carbon.visible_message(span_danger("[carbon] violently discharges energy!"), span_warning("You violently discharge energy!"))
 
 		if(prob(10)) //chance of developing heart disease to dissuade overcharging oneself

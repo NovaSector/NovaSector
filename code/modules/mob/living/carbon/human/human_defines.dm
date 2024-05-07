@@ -56,8 +56,8 @@
 	var/backpack = DBACKPACK //Which backpack type the player has chosen.
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 
-	var/datum/scream_type/selected_scream //SKRYAT EDIT ADDITION
-	var/datum/laugh_type/selected_laugh //NOVA EDIT ADDITION
+	var/datum/scream_type/selected_scream // NOVA EDIT ADDITION
+	var/datum/laugh_type/selected_laugh // NOVA EDIT ADDITION
 
 	//Equipment slots
 	var/obj/item/clothing/wear_suit = null
@@ -76,7 +76,7 @@
 	var/static/list/can_ride_typecache = typecacheof(list(
 		/mob/living/basic/parrot,
 		/mob/living/carbon/human,
-		/mob/living/simple_animal/slime,
+		/mob/living/basic/slime,
 	))
 	var/lastpuke = 0
 	var/account_id

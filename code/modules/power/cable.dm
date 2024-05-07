@@ -141,11 +141,9 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 	return ..() // then go ahead and delete the cable
 
-/obj/structure/cable/deconstruct(disassembled = TRUE)
-	if(!(obj_flags & NO_DECONSTRUCTION))
-		var/obj/item/stack/cable_coil/cable = new(drop_location(), 1)
-		cable.set_cable_color(cable_color)
-	qdel(src)
+/obj/structure/cable/atom_deconstruct(disassembled = TRUE)
+	var/obj/item/stack/cable_coil/cable = new(drop_location(), 1)
+	cable.set_cable_color(cable_color)
 
 ///////////////////////////////////
 // General procedures
@@ -575,12 +573,11 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(affecting && IS_ROBOTIC_LIMB(affecting))
 		if(user == H)
 			user.visible_message(span_notice("[user] starts to fix some of the wires in [H]'s [affecting.name]."), span_notice("You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name]."))
-			/* NOVA EDIT START - ORIGINAL:
-			if(!do_after(user, 50, H))
+			/* NOVA EDIT CHANGE START - ORIGINAL:
+			if(!do_after(user, 5 SECONDS, H))
 				return
 			*/
-		// NOVA EDIT CHANGE START
-		if(!do_after(user, (user == H ? self_delay : other_delay)))
+		if(!do_after(user, (user == H ? self_delay : other_delay))) 
 			return
 		// NOVA EDIT CHANGE END
 		if(item_heal_robotic(H, user, 0, 15))
@@ -636,6 +633,9 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/item/stack/cable_coil/five
 	amount = 5
+
+/obj/item/stack/cable_coil/thirty
+	amount = 30
 
 /obj/item/stack/cable_coil/cut
 	amount = null
