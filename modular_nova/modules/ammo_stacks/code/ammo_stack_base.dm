@@ -2,7 +2,7 @@
 /obj/item/ammo_box/magazine/ammo_stack
 	name = "ammo stack"
 	desc = "A stack of ammo."
-	icon = 'modular_np_lethal/ammo_stacks/icons/ammo_stacks.dmi'
+	icon = 'modular_nova/modules/ammo_stacks/icons/ammo_stacks.dmi'
 	icon_state = "stack_regular"
 	base_icon_state = "ammo_stack"
 	w_class = WEIGHT_CLASS_SMALL
