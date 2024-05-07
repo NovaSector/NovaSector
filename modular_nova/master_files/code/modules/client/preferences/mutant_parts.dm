@@ -823,14 +823,13 @@
 		var/datum/sprite_accessory/pod_hair/pod_hair = GLOB.pod_hair_list[pod_name]
 		if(pod_hair.locked)
 			continue
-
 		var/icon/icon_with_hair = new(pod_head)
-		var/icon/icon_adj = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_ADJ")
+		var/icon/icon_front_hair = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER_HAIR")
 		var/icon/icon_front = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER")
 		icon_front.Blend(COLOR_MAGENTA, ICON_MULTIPLY)
-		icon_adj.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-		icon_adj.Blend(icon_front, ICON_OVERLAY)
-		icon_with_hair.Blend(icon_adj, ICON_OVERLAY)
+		icon_front_hair.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+		icon_front_hair.Blend(icon_front, ICON_OVERLAY)
+		icon_with_hair.Blend(icon_front_hair, ICON_OVERLAY)
 		icon_with_hair.Scale(64, 64)
 		icon_with_hair.Crop(15, 64, 15 + 31, 64 - 31)
 

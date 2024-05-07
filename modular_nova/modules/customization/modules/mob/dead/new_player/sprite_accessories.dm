@@ -121,12 +121,15 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 	return FALSE
 
 /datum/sprite_accessory/pod_hair
-	name = "None"
 	icon = 'modular_nova/master_files/icons/mob/species/podperson_hair.dmi'
-	icon_state = "None"
 	key = "pod_hair"
 	recommended_species = list(SPECIES_PODPERSON, SPECIES_PODPERSON_WEAK)
 	organ_type = /obj/item/organ/external/pod_hair
+
+/datum/sprite_accessory/pod_hair/none
+	name = "None"
+	icon_state = "none"
+	factual = FALSE
 
 /datum/sprite_accessory/caps
 	key = "caps"
