@@ -8140,6 +8140,7 @@
 #include "modular_nova\modules\sec_haul\code\peacekeeper\peacekeeper_hammer.dm"
 #include "modular_nova\modules\sec_haul\code\peacekeeper\peacekeeper_lockers.dm"
 #include "modular_nova\modules\self_actualization_device\code\self_actualization_device.dm"
+#include "modular_nova\modules\serenitystation\code\biome_cave_generator.dm"
 #include "modular_nova\modules\serenitystation\code\mobs\megadeer_ai.dm"
 #include "modular_nova\modules\serenitystation\code\mobs\megadeer.dm"
 #include "modular_nova\modules\serenitystation\code\mobs\deer.dm"

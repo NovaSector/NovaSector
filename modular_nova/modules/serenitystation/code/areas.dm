@@ -33,5 +33,5 @@
 
 /area/forestplanet/outdoors/unexplored/deep
 	name = "Mushroom Caves"
-	map_generator = /datum/map_generator/cave_generator/forest/deep
+	map_generator = /datum/map_generator/cave_generator/biome/forest/mushroom
 
