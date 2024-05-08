@@ -34,7 +34,6 @@
 	markings_alpha = 130 //This is set lower than the other so that the alpha values don't stack on top of each other so much
 	mutanteyes = /obj/item/organ/internal/eyes
 	mutanttongue = /obj/item/organ/internal/tongue/jelly
-	hair_color_mode = null // let roundstartslimes have different hair colors
 
 	bodypart_overrides = list( //Overriding jelly bodyparts
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/jelly/slime/roundstart,
