@@ -77,7 +77,7 @@
 
 /datum/design/organic_printer_synth_patch
 	name = "Robotic Repair Patch"
-	id = "organic_surgical_tape"
+	id = "organic_repair_patch"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/reagent_containers/pill/robotic_patch/synth_repair
@@ -88,7 +88,7 @@
 
 /datum/design/organic_printer_repair_foam
 	name = "Robotic Repair Spray"
-	id = "organic_surgical_tape"
+	id = "organic_repair_foam"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/stack/sticky_tape/surgical
