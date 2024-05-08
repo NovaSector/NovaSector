@@ -214,6 +214,17 @@
 			if(advanced)
 				render_list += "<span class='info ml-1'>Subject Minor Disabilities: [carbontarget.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, TRUE)].</span>\n"
 
+	// NOVA EDIT ADDITION START -- Show increased/decreased brute/burn mods, to "leave a paper trail" for the fragility quirk
+	if(ishuman(target))
+		var/mob/living/carbon/human/humantarget = target
+
+		var/datum/physiology/physiology = humantarget.physiology
+		if (physiology.brute_mod != 1)
+			render_list += "<span class='danger ml-1'>Subject takes [(physiology.brute_mod) * 100]% brute damage.</span>\n"
+		if (physiology.burn_mod != 1)
+			render_list += "<span class='danger ml-1'>Subject takes [(physiology.burn_mod) * 100]% burn damage.</span>\n"
+	// NOVA EDIT ADDITION END
+
 	if (HAS_TRAIT(target, TRAIT_IRRADIATED))
 		render_list += "<span class='alert ml-1'>Subject is irradiated. Supply toxin healing.</span>\n"
 
@@ -264,7 +275,7 @@
 
 			if(mode == SCANNER_VERBOSE)
 				for(var/obj/item/bodypart/limb as anything in damaged)
-					if(limb.bodytype & BODYTYPE_ROBOTIC)
+					if(limb.bodytype & BODYTYPE_ROBOTIC || limb.bodytype & BODYTYPE_TAUR) // NOVA EDIT ADDITION - Taur limbs show their full name - ORIGINAL: if(limb.bodytype & BODYTYPE_ROBOTIC)
 						dmgreport += "<tr><td><font color='#cc3333'>[capitalize(limb.name)]:</font></td>"
 					else
 						dmgreport += "<tr><td><font color='#cc3333'>[capitalize(limb.plaintext_zone)]:</font></td>"

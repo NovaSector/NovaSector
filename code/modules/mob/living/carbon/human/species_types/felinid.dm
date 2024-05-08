@@ -60,6 +60,54 @@
 	features["ears"] = pick("None", "Cat")
 	return features
 
+/datum/species/human/felinid/get_laugh_sound(mob/living/carbon/human/felinid)
+	if(felinid.physique == FEMALE)
+		return 'sound/voice/human/womanlaugh.ogg'
+	return pick(
+		'sound/voice/human/manlaugh1.ogg',
+		'sound/voice/human/manlaugh2.ogg',
+	)
+
+
+/datum/species/human/felinid/get_cough_sound(mob/living/carbon/human/felinid)
+	if(felinid.physique == FEMALE)
+		return pick(
+			'sound/voice/human/female_cough1.ogg',
+			'sound/voice/human/female_cough2.ogg',
+			'sound/voice/human/female_cough3.ogg',
+			'sound/voice/human/female_cough4.ogg',
+			'sound/voice/human/female_cough5.ogg',
+			'sound/voice/human/female_cough6.ogg',
+		)
+	return pick(
+		'sound/voice/human/male_cough1.ogg',
+		'sound/voice/human/male_cough2.ogg',
+		'sound/voice/human/male_cough3.ogg',
+		'sound/voice/human/male_cough4.ogg',
+		'sound/voice/human/male_cough5.ogg',
+		'sound/voice/human/male_cough6.ogg',
+	)
+
+
+/datum/species/human/felinid/get_cry_sound(mob/living/carbon/human/felinid)
+	if(felinid.physique == FEMALE)
+		return pick(
+			'sound/voice/human/female_cry1.ogg',
+			'sound/voice/human/female_cry2.ogg',
+		)
+	return pick(
+		'sound/voice/human/male_cry1.ogg',
+		'sound/voice/human/male_cry2.ogg',
+		'sound/voice/human/male_cry3.ogg',
+	)
+
+
+/datum/species/human/felinid/get_sneeze_sound(mob/living/carbon/human/felinid)
+	if(felinid.physique == FEMALE)
+		return 'sound/voice/human/female_sneeze1.ogg'
+	return 'sound/voice/human/male_sneeze1.ogg'
+
+
 /proc/mass_purrbation()
 	for(var/mob in GLOB.human_list)
 		purrbation_apply(mob)
@@ -210,14 +258,14 @@
 			SPECIES_PERK_NAME = "Hydrophobia",
 			SPECIES_PERK_DESC = "Felinids don't like getting soaked with water.",
 		),
-//Skyrat addition begin
+// NOVA EDIT ADDITION START
 		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "paw",
 			SPECIES_PERK_NAME = "Soft Landing",
 			SPECIES_PERK_DESC = "Felinids are unhurt by high falls, and land on their feet.",
 		),
-//Skyrat addition end
+// NOVA EDIT ADDITION END
 	)
 
 	return to_add

@@ -30,9 +30,9 @@
 #define MODE_WHISPER "whisper"
 #define MODE_WHISPER_CRIT "whispercrit"
 
-//SKYRAT custom verb
+//NOVA custom verb
 #define MODE_CUSTOM_SAY "custom_say"
-//SKYRAT custom sayverb end.
+//NOVA custom sayverb end.
 
 #define MODE_DEPARTMENT "department"
 #define MODE_KEY_DEPARTMENT "h"
@@ -119,5 +119,10 @@
 
 
 
-//Used in visible_message_flags, audible_message_flags and runechat_flags
+// Used in visible_message_flags, audible_message_flags and runechat_flags
+/// Automatically applies emote related spans/fonts/formatting to the message
 #define EMOTE_MESSAGE (1<<0)
+/// By default, self_message will respect the visual / audible component of the message.
+/// Meaning that if the message is visual, and sourced from a blind mob, they will not see it.
+/// This flag skips that behavior, and will always show the self message to the mob.
+#define ALWAYS_SHOW_SELF_MESSAGE (1<<1)
