@@ -18,7 +18,7 @@
 	/// The tail we use to constrict mobs with. Nullable, if inactive.
 	var/obj/structure/serpentine_tail/tail
 	/// The base time it takes for us to constrict a mob.
-	var/base_coil_delay = 4 SECONDS
+	var/base_coil_delay = 3.25 SECONDS
 
 /datum/action/innate/constrict/Destroy()
 	. = ..()
@@ -131,6 +131,11 @@
 	/// How likely are we, per second, to cause a blunt wound on constricted if we are crushing?
 	var/chance_to_cause_wound = 5
 
+	/// Chance, per second, of us causing losebreath for a constricted target we are crushing.
+	var/chance_to_losebreath = 55
+	/// Assuming we proc chance_to_losebreath, this is the losebreath we will inflict on our target.
+	var/losebreath_to_cause = 2 // above 1 to allow potential suffocation
+
 	/// If we try to do crush damage and total below 5 (the minimum wounding amount), we store it here for next time.
 	var/stored_damage = 0
 
@@ -214,7 +219,10 @@
 	stored_damage += (brute_per_second * seconds_per_tick)
 	if (stored_damage < WOUND_MINIMUM_DAMAGE)
 		return
-	squeeze_constricted(stored_damage, SPT_PROB(chance_to_cause_wound, seconds_per_tick))
+	var/losebreath = 0
+	if (SPT_PROB(chance_to_losebreath, seconds_per_tick))
+		losebreath += losebreath_to_cause
+	squeeze_constricted(stored_damage, losebreath, SPT_PROB(chance_to_cause_wound, seconds_per_tick))
 	stored_damage = 0
 
 /// The minimum wound bonus caused by a forced wound in squeeze_constricted.
@@ -232,8 +240,13 @@
  * Returns:
  * * FALSE if we aborted trying to inflict damage, TRUE otherwise.
  */
-/obj/structure/serpentine_tail/proc/squeeze_constricted(damage, force_wound = FALSE)
-	if (!constricted || damage <= 0)
+/obj/structure/serpentine_tail/proc/squeeze_constricted(damage, losebreath_to_use, force_wound = FALSE)
+	if (!constricted)
+		return FALSE
+
+	constricted.losebreath += losebreath_to_use
+
+	if (damage <= 0)
 		return FALSE
 
 	var/armor = constricted.run_armor_check(attack_flag = MELEE)
