@@ -98,7 +98,7 @@
 	desc = "A sealed patch with a small nanite swarm along with electrical coagulant reagents to repair small amounts of synthetic damage."
 	icon_state = "synth_patch"
 	list_reagents = list(
-		/datum/reagent/medicine/nanite_slurry/super = 10,
+		/datum/reagent/medicine/nanite_slurry = 10,
 		/datum/reagent/dinitrogen_plasmide = 5,
 		/datum/reagent/medicine/coagulant/fabricated = 10,
 	)
