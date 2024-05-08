@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "using the flap emote with moth wings now makes a sound like it's supposed to"
