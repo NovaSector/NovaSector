@@ -1,4 +1,0 @@
-author: "Thlumyn"
-delete-after: True
-changes:
-  - bugfix: "removed some directional var-edits from void raptor request consoles"
