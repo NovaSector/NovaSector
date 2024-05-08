@@ -13,12 +13,12 @@
 /datum/preference/toggle/allow_mismatched_parts/is_accessible(datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_mismatched_parts))
 		return FALSE
-	. = ..()
+	return ..()
 
 /datum/preference/toggle/allow_mismatched_parts/deserialize(input, datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_mismatched_parts))
 		return FALSE
-	. = ..()
+	return ..()
 
 /datum/preference/toggle/allow_mismatched_hair_color
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -33,13 +33,13 @@
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!ispath(species, /datum/species/jelly)) // only slimes can see this pref
 		return FALSE
-	. = ..()
+	return ..()
 
 /datum/preference/toggle/allow_mismatched_hair_color/deserialize(input, datum/preferences/preferences)
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!ispath(species, /datum/species/jelly)) // only slimes can see this pref
 		return FALSE
-	. = ..()
+	return ..()
 
 /datum/preference/toggle/allow_emissives
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
