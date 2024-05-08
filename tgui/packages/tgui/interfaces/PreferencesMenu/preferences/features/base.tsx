@@ -266,8 +266,7 @@ export const FeatureShortTextInput = (
     />
   );
 };
-
-// SKYRAT FEATURES DOWN HERE
+// NOVA EDIT ADDITION START - NOVA FEATURES DOWN HERE
 
 export const FeatureTextInput = (
   props: FeatureValueProps<string, string, FeatureShortTextData>,
@@ -356,3 +355,4 @@ export const FeatureTriBoolInput = (props: FeatureValueProps<boolean[]>) => {
     </Stack>
   );
 };
+// NOVA EDIT ADDITION END

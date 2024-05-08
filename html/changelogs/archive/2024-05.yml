@@ -158,3 +158,100 @@
 2024-05-06:
   NovaBot13:
   - qol: Admin modsuit now has a radiation protect module
+2024-05-07:
+  CandleJaxx:
+  - rscadd: We found a bunch of old synthetic casings that were left to rot in a scrapyard
+      out of Eridani. Have them, Frontier Scum.
+  JohnFulpWillard, Tattax:
+  - rscadd: Monkeys can now wear all jumpsuits.
+  - rscadd: Bioscrambler anomalies can now give monkey legs.
+  - bugfix: Monkeys can have their tails removed, and tails are no longer invisible
+      when implanted into another species.
+  Melbert:
+  - bugfix: Height now applies less weird to certain worn items, bare-handed bloody
+      hands, and damage overlays.
+  - bugfix: Map vote should work better
+  NovaBot13:
+  - admin: The return of IPIntel
+  - bugfix: fixes traditional equipment crate name
+  - rscadd: '''puppy'' ''kitten'' and ''spider'' pai skins'
+  - bugfix: Fixed the ipintel subsystem not working.
+  UEDHighCommand:
+  - rscadd: Renamed the Syndicate CentCom fax to "Syndicate Sectorial Command"
+  - rscdel: Edited the intro text for DS-2 operatives, removing the edgy mention of
+      "terrorist cells"
+  Z0w0plankton:
+  - rscadd: Adds missing wagging animation for two fox tails.
+  aKromatopzia:
+  - bugfix: moved raptor and digi cybernetics' categories
+  chestlet:
+  - qol: Added an alternate version of "cat, big" ears, which are layered above hair.
+  nikothedude:
+  - code_imp: Taur bodies are properly subtyped
+  - rscadd: Taurs now have custom leg names
+  unit0016:
+  - admin: The nuke codes will no longer be consistently randomly generated roundstart,
+      though it's still possible.
+  - bugfix: It's no longer possible to break into the emergency shuttle before it
+      reaches the station.
+  - rscadd: Leashes have been stocked in a very particular vendor in the dormitories.
+  vinylspiders:
+  - bugfix: laughs will now once again play the appropriate audio if you have a laugh
+      set in prefs instead of defaulting to the species laugh
+2024-05-08:
+  BurgerBB:
+  - qol: The inspector's Fedora now uses regex. When saying commands, it is much more
+      generous on picking up trigger word.
+  Melbert:
+  - balance: To see wires in photos of blueprints, you first must squint at the photo.
+  - bugfix: Fixed Slimepeople's hair not matching their slimey colors.
+  MrEmre12, Majkl-J:
+  - rscadd: Fishing pool introduced to metastation garden
+  - refactor: All water tiles now handle fishing through a unified fishing_datum variable
+  NovaBot13:
+  - bugfix: A meter attached to distribution pipes in Birdshot's atmospherics has
+      been moved to the matching pipe layer.
+  - rscadd: RD's skillchip adds cyborg wires knowledge
+  - qol: temporarily soulless (deathmatch, etc) bodies dont appear as soulless on
+      medhud
+  - balance: Spies can now use other spies' uplinks.
+  - bugfix: Lootpanel now requires 515.1635 to generate most icons. TG support for
+      514 ended May 1. Update your client to fix the icons.
+  - rscdel: You can no longer use another station's blueprint photo to look at wires
+      or do the traitor objective with.
+  ReturnToZender (hitting delete on a power cable):
+  - rscdel: Single loose power cable in icebox maintenance
+  Rhials:
+  - balance: Virtual domain ghost roles can no longer enter the safehouse/"equipment"
+      areas of a domain.
+  - bugfix: Pirate virtual domain ghost roles will no longer make a pirate team antag
+      datum.
+  ShizCalev:
+  - bugfix: Inducers no longer break completely after trying to charge a PDA with
+      them.
+  Thlumyn:
+  - bugfix: removed some directional var-edits from void raptor request consoles
+  - bugfix: moved some scrubbers in the blackmarket shuttle to not be layered on top
+      of same-layer pipes
+  Time-Green, vinylspiders:
+  - code_imp: The mushroom cap is now an external organ (jungle station will never
+      happen)
+  - bugfix: Mushpeople caps are no longer solid black
+  - bugfix: you can no longer be dismembered by teleporters if you have TRAIT_NODISMEMBER
+  Z0w0plankton:
+  - bugfix: fixed a icon state for wagging fox tail alt 2
+  nikothedude:
+  - rscadd: Reimplemented taur sprites for a bunch of clothing items
+  vinylspiders:
+  - bugfix: (admins) 'Add/Revoke PB Bypass' verbs will now prompt for a ckey once
+      again
+  - qol: cyborg screams now use the scream pref for determining which audio track
+      to play
+  - bugfix: emotes with audio use gender instead of physique for determining the gendered
+      track to play
+  - bugfix: you can once again select 'None' as an option for pod hair in preferences
+  - bugfix: the icons of pod hair options in preferences will now look like the actual
+      hairstyles
+  white-snek:
+  - rscadd: A fresh shipment of blindfolds has arrived on station for visually impaired
+      crew, distributed to apropriate vendors.

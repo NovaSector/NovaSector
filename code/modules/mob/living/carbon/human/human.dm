@@ -687,12 +687,12 @@
 		visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
 		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
-	//SKYRAT ERP UPDATE ADDITION: NOW GLOVES CAN RESTRAIN PLAYERS
+	// NOVA EDIT ADDITION: NOW GLOVES CAN RESTRAIN PLAYERS
 	if(I == gloves)
 		visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
 		to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 		return TRUE
-	//SKYRAT ERP UPDATE ADDITION END
+	// NOVA EDIT ADDITION END
 
 /mob/living/carbon/human/replace_records_name(oldname, newname) // Only humans have records right now, move this up if changed.
 	var/datum/record/crew/crew_record = find_record(oldname)

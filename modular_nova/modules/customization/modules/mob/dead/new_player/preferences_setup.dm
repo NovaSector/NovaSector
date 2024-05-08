@@ -111,7 +111,7 @@
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 
-//SKYRAT SPECIFIC PROCS
+// NOVA SPECIFIC PROCS
 
 //This proc makes sure that we only have the parts that the species should have, add missing ones, remove extra ones(should any be changed)
 //Also, this handles missing color keys
@@ -225,7 +225,7 @@
 			ITEM.forceMove(get_turf(H))
 
 //For creating consistent icons for human looking simple animals
-/proc/get_flat_human_icon_skyrat(icon_id, datum/job/job, datum/species/species_to_set, dummy_key, showDirs = GLOB.cardinals, outfit_override = null)
+/proc/get_flat_human_icon_nova(icon_id, datum/job/job, datum/species/species_to_set, dummy_key, showDirs = GLOB.cardinals, outfit_override = null)
 	var/static/list/humanoid_icon_cache = list()
 	if(icon_id && humanoid_icon_cache[icon_id])
 		return humanoid_icon_cache[icon_id]

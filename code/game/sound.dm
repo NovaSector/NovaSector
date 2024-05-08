@@ -183,7 +183,7 @@
 
 /proc/get_sfx(soundin)
 	if(istext(soundin))
-		soundin = get_sfx_skyrat(soundin) //NOVA EDIT ADDITION - This overrides the default sound effects too, so use it to modularly change a sound effect output.
+		soundin = get_sfx_nova(soundin) // NOVA EDIT ADDITION - This overrides the default sound effects too, so use it to modularly change a sound effect output.
 		switch(soundin)
 			if(SFX_SHATTER)
 				soundin = pick('sound/effects/glassbr1.ogg','sound/effects/glassbr2.ogg','sound/effects/glassbr3.ogg')
