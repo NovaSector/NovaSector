@@ -1126,31 +1126,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.force_say()
 		log_combat(user, target, grappled ? "grapple punched" : "kicked")
 		target.apply_damage(damage, attack_type, affecting, armor_block - limb_accuracy, attack_direction = attack_direction)
-		target.apply_damage(damage*1.5, STAMINA, affecting, armor_block - limb_accuracy)
+		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block - limb_accuracy) // NOVA EDIT ADDITION - Adds back some of the stamina damage
 	else // Normal attacks do not gain the benefit of armor penetration.
 		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //NOVA EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
-		target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
+		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block) // NOVA EDIT ADDITION - Adds back some of the stamina damage
 		if(damage >= 9)
 			target.force_say()
 		log_combat(user, target, "punched")
-
-	//If we rolled a punch high enough to hit our stun threshold, or our target is staggered and they have at least 40 damage+stamina loss, we knock them down
-	//This does not work against opponents who are knockdown immune, such as from wearing riot armor.
-	if(!HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
-		if((target.stat != DEAD) && prob(limb_accuracy) || (target.stat != DEAD) && staggered && (target.getStaminaLoss() + user.getBruteLoss()) >= 40)
-			// NOVA EDIT ADD START
-			if(target.try_nut_shot(user))
-				return
-			// NOVA EDIT ADD END
-			target.visible_message(span_danger("[user] knocks [target] down!"), \
-							span_userdanger("You're knocked down by [user]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, span_danger("You knock [target] down!"))
-			/* NOVA EDIT REMOVAL START - Less combat lethality and hard stuns
-			var/knockdown_duration = 4 SECONDS + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 4 second base stun + 4 second stun modifier = 8 second knockdown duration
-			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
-			NOVA EDIT REMOVAL END */
-			target.StaminaKnockdown(20) // NOVA EDIT ADDITION
-			log_combat(user, target, "got a stun punch with their previous punch")
+	// NOVA EDIT ADDITION START
+	if(target.try_nut_shot(user, limb_accuracy, staggered))
+		return
+	// NOVA EDIT ADDITION END
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(user.body_position != STANDING_UP)
