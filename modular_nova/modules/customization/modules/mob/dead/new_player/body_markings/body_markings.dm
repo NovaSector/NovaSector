@@ -183,6 +183,21 @@
 	icon_state = "legband"
 	affected_bodyparts = LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/other/protogenlegs
+	name = "Protogen Leg - Digitigrade"
+	icon_state = "protogen"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/protogenarms
+	name = "Protogen Arm"
+	icon_state = "protogen"
+	affected_bodyparts = ARM_RIGHT | ARM_LEFT
+
+/datum/body_marking/other/protogenchest
+	name = "Protogen Chest"
+	icon_state = "protogen"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/other/lightbelly
 	name = "Simple Light Belly"
 	icon_state = "simple_lightbelly"
