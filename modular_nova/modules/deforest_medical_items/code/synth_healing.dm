@@ -15,7 +15,7 @@
 	amount = 2
 	merge_type = /obj/item/stack/medical/wound_recovery/robofoam
 	treatment_sound = 'sound/effects/spray.ogg'
-	extremely_painful = FALSE
+	causes_pain = FALSE
 
 /obj/item/stack/medical/wound_recovery/robofoam/examine(mob/user)
 	. = ..()
