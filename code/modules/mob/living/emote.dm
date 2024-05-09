@@ -128,8 +128,6 @@
 	hands_use_check = TRUE
 	var/wing_time = 20
 
-//NOVA EDIT REMOVAL BEGIN - EMOTES - Not working due to modified mutant code, TODO: Fix this
-/*
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && ishuman(user))
@@ -149,8 +147,6 @@
 		// play moth flutter noise if moth wing
 		if(istype(wings, /obj/item/organ/external/wings/moth))
 			playsound(H, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE)
-*/
-//NOVA EDIT REMOVAL END
 
 /datum/emote/living/flap/aflap
 	key = "aflap"

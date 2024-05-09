@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "(admins) 'Add/Revoke PB Bypass' verbs will now prompt for a ckey once again"

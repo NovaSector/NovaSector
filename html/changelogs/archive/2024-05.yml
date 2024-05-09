@@ -198,3 +198,81 @@
   vinylspiders:
   - bugfix: laughs will now once again play the appropriate audio if you have a laugh
       set in prefs instead of defaulting to the species laugh
+2024-05-08:
+  BurgerBB:
+  - qol: The inspector's Fedora now uses regex. When saying commands, it is much more
+      generous on picking up trigger word.
+  Melbert:
+  - balance: To see wires in photos of blueprints, you first must squint at the photo.
+  - bugfix: Fixed Slimepeople's hair not matching their slimey colors.
+  MrEmre12, Majkl-J:
+  - rscadd: Fishing pool introduced to metastation garden
+  - refactor: All water tiles now handle fishing through a unified fishing_datum variable
+  NovaBot13:
+  - bugfix: A meter attached to distribution pipes in Birdshot's atmospherics has
+      been moved to the matching pipe layer.
+  - rscadd: RD's skillchip adds cyborg wires knowledge
+  - qol: temporarily soulless (deathmatch, etc) bodies dont appear as soulless on
+      medhud
+  - balance: Spies can now use other spies' uplinks.
+  - bugfix: Lootpanel now requires 515.1635 to generate most icons. TG support for
+      514 ended May 1. Update your client to fix the icons.
+  - rscdel: You can no longer use another station's blueprint photo to look at wires
+      or do the traitor objective with.
+  ReturnToZender (hitting delete on a power cable):
+  - rscdel: Single loose power cable in icebox maintenance
+  Rhials:
+  - balance: Virtual domain ghost roles can no longer enter the safehouse/"equipment"
+      areas of a domain.
+  - bugfix: Pirate virtual domain ghost roles will no longer make a pirate team antag
+      datum.
+  ShizCalev:
+  - bugfix: Inducers no longer break completely after trying to charge a PDA with
+      them.
+  Thlumyn:
+  - bugfix: removed some directional var-edits from void raptor request consoles
+  - bugfix: moved some scrubbers in the blackmarket shuttle to not be layered on top
+      of same-layer pipes
+  Time-Green, vinylspiders:
+  - code_imp: The mushroom cap is now an external organ (jungle station will never
+      happen)
+  - bugfix: Mushpeople caps are no longer solid black
+  - bugfix: you can no longer be dismembered by teleporters if you have TRAIT_NODISMEMBER
+  Z0w0plankton:
+  - bugfix: fixed a icon state for wagging fox tail alt 2
+  nikothedude:
+  - rscadd: Reimplemented taur sprites for a bunch of clothing items
+  vinylspiders:
+  - bugfix: (admins) 'Add/Revoke PB Bypass' verbs will now prompt for a ckey once
+      again
+  - qol: cyborg screams now use the scream pref for determining which audio track
+      to play
+  - bugfix: emotes with audio use gender instead of physique for determining the gendered
+      track to play
+  - bugfix: you can once again select 'None' as an option for pod hair in preferences
+  - bugfix: the icons of pod hair options in preferences will now look like the actual
+      hairstyles
+  white-snek:
+  - rscadd: A fresh shipment of blindfolds has arrived on station for visually impaired
+      crew, distributed to apropriate vendors.
+2024-05-09:
+  Bisar:
+  - balance: Knockdown effects will know consistently disarm, instead of failing to
+      disarm if you're already lying down.
+  Jane:
+  - qol: The Coroner's Ritual Knife can now sit upon Med Belts!
+  Melbert:
+  - bugfix: DNA infusing tiers works again
+  - qol: Spies may spawn in less numbers, but rarely may also spawn in more numbers.
+  NovaBot13:
+  - bugfix: Removed stray pixels appearing on certain parts of railing
+  - qol: Mech drills can auto-mine by walking into rock.
+  - bugfix: The quick equip 'E' hotkey shouldn't warn if one of your bags is full
+      anymore
+  - bugfix: Added the missing  bulwark MOD module and the jawed fishing hook to the
+      black market.
+  - bugfix: Silicons can set the teleporter destinations again.
+  - bugfix: Pride pins can be reskinned again with alt-click.
+  vinylspiders:
+  - bugfix: using the flap emote with moth wings now makes a sound like it's supposed
+      to
