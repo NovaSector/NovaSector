@@ -34,8 +34,6 @@
 
 
 /datum/species/proc/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_hair_color))
-		target.dna.species.hair_color_mode = null
 	return
 
 /datum/species/create_pref_traits_perks()

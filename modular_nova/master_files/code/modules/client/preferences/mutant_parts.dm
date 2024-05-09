@@ -15,7 +15,7 @@
 		return FALSE
 	return ..()
 
-/datum/preference/toggle/allow_mismatched_parts/deserialize(input, datum/preferences/preferences)
+/datum/preference/toggle/allow_mismatched_parts/deserialize(input)
 	if(CONFIG_GET(flag/disable_mismatched_parts))
 		return FALSE
 	return ..()
@@ -30,12 +30,6 @@
 	return // applied in apply_supplementary_body_changes()
 
 /datum/preference/toggle/allow_mismatched_hair_color/is_accessible(datum/preferences/preferences)
-	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!ispath(species, /datum/species/jelly)) // only slimes can see this pref
-		return FALSE
-	return ..()
-
-/datum/preference/toggle/allow_mismatched_hair_color/deserialize(input, datum/preferences/preferences)
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!ispath(species, /datum/species/jelly)) // only slimes can see this pref
 		return FALSE

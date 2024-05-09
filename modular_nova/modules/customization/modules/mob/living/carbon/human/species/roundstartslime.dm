@@ -56,6 +56,10 @@
 
 	return perk_descriptions
 
+/datum/species/jelly/roundstartslime/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
+	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_hair_color))
+		target.dna.species.hair_color_mode = null
+
 /**
  * Alter Form is the ability of slimes to edit many of their character attributes at will
  * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc, to changing the presence of their genitalia
