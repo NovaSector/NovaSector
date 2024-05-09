@@ -65,7 +65,7 @@
 // Synth repair patch, gives the synth a small amount of healing chems
 /obj/item/reagent_containers/pill/robotic_patch
 	name = "robotic patch"
-	desc = "A chemical patch for touch based applications on synthetics."
+	desc = "A chemical patch for touch-based applications on synthetics."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "synth_patch"
 	inhand_icon_state = null
