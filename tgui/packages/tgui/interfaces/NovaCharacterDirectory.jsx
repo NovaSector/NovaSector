@@ -117,7 +117,7 @@ export const NovaCharacterDirectory = (props) => {
           />
         )) || (
           <>
-            <Section title="Controls">
+            <Section title="Your Preferences">
               <LabeledList>
                 <LabeledList.Item label="Visibility">
                   <Button fluid>
