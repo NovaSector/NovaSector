@@ -219,7 +219,7 @@
 		/datum/reagent/dinitrogen_plasmide = 5,
 	)
 
-// Medpen for robors that fixes brain damage but slows them down for a bit
+// Medpen for robots that fixes brain damage but slows them down for a bit
 /obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder
 	name = "synthetic smart-solder autoinjector"
 	desc = "A Deforest branded autoinjector, loaded with liquid solder to repair synthetic processor core damage."
