@@ -26,7 +26,7 @@
 		/obj/item/clothing/glasses/welding,
 	)
 	var/static/list/exception_cache = typecacheof(
-		/obj/item/clothing/head/utility/welding
+		/obj/item/clothing/head/utility/welding,
 	)
 
 	atom_storage.set_holdable(list_of_everything_mechanical_medkits_can_hold)
