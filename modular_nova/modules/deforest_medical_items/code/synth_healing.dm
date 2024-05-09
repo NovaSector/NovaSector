@@ -85,7 +85,7 @@
 		if(!IS_ROBOTIC_LIMB(affecting))
 			to_chat(user, span_notice("Robotic patches won't work on an organic limb!"))
 			return
-	..()
+	return ..()
 
 /obj/item/reagent_containers/pill/robotic_patch/canconsume(mob/eater, mob/user)
 	if(!iscarbon(eater))
