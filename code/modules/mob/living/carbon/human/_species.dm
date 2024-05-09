@@ -1129,7 +1129,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block - limb_accuracy) // NOVA EDIT ADDITION - Adds back some of the stamina damage
 	else // Normal attacks do not gain the benefit of armor penetration.
 		target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction, sharpness = unarmed_sharpness) //NOVA EDIT - Applies sharpness if it does - ORIGINAL: target.apply_damage(damage, attack_type, affecting, armor_block, attack_direction = attack_direction)
-		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block - limb_accuracy) // NOVA EDIT ADDITION - Adds back some of the stamina damage
+		target.apply_damage(damage*1.2, STAMINA, affecting, armor_block) // NOVA EDIT ADDITION - Adds back some of the stamina damage
 		if(damage >= 9)
 			target.force_say()
 		log_combat(user, target, "punched")
