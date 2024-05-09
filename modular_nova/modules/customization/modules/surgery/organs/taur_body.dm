@@ -21,7 +21,7 @@
 	var/obj/item/bodypart/leg/right/old_left_leg = null
 
 	/// If true, our sprite accessory will not render.
-	var/hide_self = FALSE
+	var/hide_self
 
 /obj/item/organ/external/taur_body/horselike
 

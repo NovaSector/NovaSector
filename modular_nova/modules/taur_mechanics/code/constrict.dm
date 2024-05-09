@@ -499,7 +499,7 @@
 	SIGNAL_HANDLER
 
 	if (thing == owner)
-		constricted.balloon_alert(constricted, "can't grab constricter!")
+		constricted.balloon_alert(constricted, "can't grab constrictor!")
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/status_effect/constricted
@@ -509,7 +509,7 @@
 
 /atom/movable/screen/alert/status_effect/constricted
 	name = "Constricted"
-	desc = "You're being constricted by a giant tail! You can resist, attack the tail, or attack the constricter to escape!"
+	desc = "You're being constricted by a giant tail! You can resist, attack the tail, or attack the constrictor to escape!"
 
 	icon = 'modular_nova/modules/taur_mechanics/sprites/ability.dmi'
 	icon_state = "constrict"

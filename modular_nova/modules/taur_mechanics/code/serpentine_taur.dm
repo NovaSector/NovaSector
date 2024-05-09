@@ -3,7 +3,7 @@
 	var/datum/action/innate/constrict/constrict_ability
 
 	/// Did our owner have their feet blocked before we ran on_mob_insert? Used for determining if we should unblock their feet slots on removal.
-	var/owner_blocked_feet_before_insert = FALSE
+	var/owner_blocked_feet_before_insert
 
 /obj/item/organ/external/taur_body/serpentine/Destroy()
 	. = ..()

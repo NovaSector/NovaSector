@@ -1,6 +1,3 @@
-/mob/living/carbon
-	var/hide_taur_body = FALSE // lazy. please remove later
-
 /**
  * Get a human's taur mode in a standardized way.
  *
