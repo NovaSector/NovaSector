@@ -23,7 +23,7 @@
 /datum/action/innate/constrict/Destroy()
 	. = ..()
 
-	QDEL_NULL(tail)
+	qdel(tail) // we already listen for COMSIG_QDELETING on our tail, so it already sets it to null via the signal
 
 /datum/action/innate/constrict/Trigger(trigger_flags)
 	if(!..())
@@ -41,10 +41,10 @@
 /datum/action/innate/constrict/do_ability(mob/living/caller, atom/clicked_on)
 	if (!isliving(clicked_on))
 		if (tail)
-			QDEL_NULL(tail)
+			qdel(tail)
 			return TRUE
 
-		tail = new /obj/structure/serpentine_tail(owner.loc, caller, src)
+		create_tail()
 		return TRUE
 
 	var/mob/living/living_target = clicked_on
@@ -73,9 +73,7 @@
 /datum/action/innate/constrict/proc/do_constriction(mob/living/living_target)
 	owner.visible_message(span_boldwarning("[owner] coils [owner.p_their()] tail around [living_target]!"), span_notice("You coil your tail around [living_target]!"), ignored_mobs = list(living_target))
 	to_chat(living_target, span_userdanger("[owner] coils [owner.p_their()] tail around you!"))
-
-	if (!tail)
-		tail = new /obj/structure/serpentine_tail(owner.loc, owner, src)
+	create_tail()
 	tail.set_constricted(living_target)
 	return TRUE
 
@@ -98,6 +96,32 @@
 
 	return TRUE
 
+/// If we have no tail, sets our tail to a new tail instance.
+/datum/action/innate/constrict/proc/create_tail()
+	RETURN_TYPE(/obj/structure/serpentine_tail)
+
+	if (isnull(tail))
+		set_tail(new /obj/structure/serpentine_tail(owner.loc, owner))
+	return tail
+
+/// Setter proc for tail. Handles signals.
+/datum/action/innate/constrict/proc/set_tail(obj/structure/serpentine_tail/new_tail)
+	if (tail)
+		UnregisterSignal(tail, COMSIG_QDELETING)
+
+	tail = new_tail
+
+	if (tail)
+		RegisterSignal(tail, COMSIG_QDELETING, PROC_REF(tail_qdeleting))
+
+	return tail
+
+/// Signal handler for COMSIG_QDELETING. Sets our tail to null.
+/datum/action/innate/constrict/proc/tail_qdeleting(datum/signal_source)
+	SIGNAL_HANDLER
+
+	set_tail(null)
+
 /obj/structure/serpentine_tail
 	name = "serpentine tail"
 	desc = "A scaley tail, currently coiled."
@@ -115,8 +139,6 @@
 
 	/// The mob we are originating from.
 	var/mob/living/carbon/human/owner
-	/// The action that made us. Nullable.
-	var/datum/action/innate/constrict/creating_action
 
 	/// The mob we are currently constricting, usually coincides with what we have buckled to us. Nullable.
 	var/mob/living/constricted
@@ -142,13 +164,12 @@
 	/// Used for escaping the tail, separate from grab cooldowns.
 	COOLDOWN_DECLARE(escape_cooldown)
 
-/obj/structure/serpentine_tail/New(loc, mob/living/carbon/human/new_owner, datum/action/innate/constrict/action)
+/obj/structure/serpentine_tail/New(loc, mob/living/carbon/human/new_owner)
 	if (isnull(new_owner))
 		qdel(src) // requires an owner, not stack tracing because it fails tests
 		return FALSE
 
 	set_owner(new_owner)
-	set_action(action)
 
 	return ..()
 
@@ -167,9 +188,6 @@
 	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
-
-	creating_action?.tail = null
-	set_action(null)
 
 	old_owner?.update_mutant_bodyparts()
 
@@ -312,7 +330,7 @@
 		stop_crushing()
 
 	if (constricted)
-		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL))
+		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL, COMSIG_QDELETING))
 		constricted.pixel_x -= CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
 		constricted.remove_status_effect(/datum/status_effect/constricted)
 
@@ -324,6 +342,7 @@
 	RegisterSignal(constricted, COMSIG_MOVABLE_MOVED, PROC_REF(constricted_moved))
 	RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
 	RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
+	RegisterSignal(constricted, COMSIG_QDELETING, PROC_REF(constricted_qdeleting))
 	var/old_grab_state = owner.grab_state // intentionally placed before the signals so we can allow the grab to carry over
 	constricted.forceMove(get_turf(src))
 	buckle_mob(constricted)
@@ -399,11 +418,6 @@
 	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
 	owner?.update_mutant_bodyparts()
 
-/// Setter proc for action.
-/obj/structure/serpentine_tail/proc/set_action(datum/action/innate/constrict/action)
-	creating_action = action
-
-
 /// The time it takes for a constricted thing to do a break-out attempt.
 #define SERPENTINE_TAIL_UNBUCKLE_TIME 0.5 SECONDS // arbitrary
 
@@ -458,7 +472,7 @@
 	qdel(src)
 
 /// Signal proc for if our owner changes body positions. Qdels src if they lie down.
-/obj/structure/serpentine_tail/proc/owner_body_position_changed(datum/signal_source, old_position, new_position)
+/obj/structure/serpentine_tail/proc/owner_body_position_changed(datum/signal_source, new_position, old_position)
 	SIGNAL_HANDLER
 
 	if (new_position == LYING_DOWN)
@@ -477,6 +491,12 @@
 
 	if (currently_crushing)
 		examine_text += span_boldwarning("[owner] is crushing [constricted.p_them()] with [owner.p_their()] tail!")
+
+/// Signal proc for constricted qdeleting. Sets constricted to null.
+/obj/structure/serpentine_tail/proc/constricted_qdeleting(datum/signal_source)
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 
 /// Signal proc for owner pulling someone. Forbids them from pulling constricted.
 /obj/structure/serpentine_tail/proc/owner_tried_pull(datum/signal_source, atom/movable/thing, force)
