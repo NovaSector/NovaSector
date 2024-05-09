@@ -49,7 +49,7 @@
 
 /obj/item/storage/medkit/robotic_repair/preemo
 	name = "premium robotic repair equipment kit"
-	desc = "An industrial strength plastic box filled with supplies for repairing synthetics from critical damage. \
+	desc = "An industrial-strength plastic box filled with supplies for repairing synthetics from critical damage. \
 		This one has extra storage on the sides for even more equipment than the standard medkit model."
 	icon_state = "synth_medkit_super"
 
