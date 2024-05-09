@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "roundstart slimes can change their hair color once again and are no longer locked to their mutant color"
+  - qol: "for roundstart slimes who actually want to be locked to mutant color there is a new pref for them, 'allow mismatched hair color', and can be found near the top of the prefs menu (only viewable by slimes, and toggled on by default)."

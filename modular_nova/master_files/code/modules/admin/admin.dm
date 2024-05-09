@@ -1,9 +1,6 @@
 GLOBAL_VAR_INIT(dchat_allowed, TRUE)
 
-/datum/admins/proc/toggledchat()
-	set category = "Server"
-	set desc = "Toggle dis bitch"
-	set name = "Toggle Dead Chat"
+ADMIN_VERB(toggledchat, R_ADMIN, "Toggle Dead Chat", "Toggle dis bitch.", ADMIN_CATEGORY_SERVER)
 	toggle_dchat()
 	log_admin("[key_name(usr)] toggled dead chat.")
 	message_admins("[key_name_admin(usr)] toggled dead chat.")

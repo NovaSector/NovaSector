@@ -68,6 +68,18 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 *	LIPSTICK
 */
 
+/datum/loadout_item/pocket_items/lipstick_green
+	name = "Green Lipstick"
+	item_path = /obj/item/lipstick/green
+
+/datum/loadout_item/pocket_items/lipstick_white
+	name = "White Lipstick"
+	item_path = /obj/item/lipstick/white
+
+/datum/loadout_item/pocket_items/lipstick_blue
+	name = "Blue Lipstick"
+	item_path = /obj/item/lipstick/blue
+
 /datum/loadout_item/pocket_items/lipstick_black
 	name = "Black Lipstick"
 	item_path = /obj/item/lipstick/black

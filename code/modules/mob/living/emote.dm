@@ -2,7 +2,7 @@
 /* EMOTE DATUMS */
 /datum/emote/living
 	mob_type_allowed_typecache = /mob/living
-	mob_type_blacklist_typecache = list(/mob/living/brain) //NOVA EDIT - OVERWIRTTEN BY `modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_mob.dm`
+	mob_type_blacklist_typecache = list(/mob/living/brain)
 
 /datum/emote/living/blush
 	key = "blush"
@@ -67,18 +67,6 @@
 		var/mob/living/L = user
 		L.Unconscious(40)
 
-/datum/emote/living/cough
-	key = "cough"
-	key_third_person = "coughs"
-	message = "coughs!"
-	message_mime = "acts out an exaggerated cough!"
-	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-/datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE , intentional)
-	. = ..()
-	if(HAS_TRAIT(user, TRAIT_SOOTHED_THROAT))
-		return FALSE
-
 /datum/emote/living/dance
 	key = "dance"
 	key_third_person = "dances"
@@ -138,31 +126,26 @@
 	key_third_person = "flaps"
 	message = "flaps their wings."
 	hands_use_check = TRUE
-	var/wing_time = 20
+	var/wing_time = 0.35 SECONDS
 
-//NOVA EDIT REMOVAL BEGIN - EMOTES - Not working due to modified mutant code, will be fixed later
-/*
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/human_user = user
 		var/open = FALSE
-		var/obj/item/organ/external/wings/functional/wings = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+		var/obj/item/organ/external/wings/functional/wings = human_user.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
 
 		// open/close functional wings
 		if(istype(wings))
 			if(wings.wings_open)
 				open = TRUE
-				H.CloseWings()
+				wings.close_wings()
 			else
-				H.OpenWings()
+				wings.open_wings()
 			addtimer(CALLBACK(wings,  open ? TYPE_PROC_REF(/obj/item/organ/external/wings/functional, open_wings) : TYPE_PROC_REF(/obj/item/organ/external/wings/functional, close_wings)), wing_time)
 
-		// play moth flutter noise if moth wing
-		if(istype(wings, /obj/item/organ/external/wings/moth))
-			playsound(H, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE)
-*/
-//NOVA EDIT REMOVAL END
+		// play a flapping noise if the wing has this implemented
+		wings.make_flap_sound(human_user)
 
 /datum/emote/living/flap/aflap
 	key = "aflap"
@@ -206,7 +189,7 @@
 		return
 	var/mob/living/carbon/human/human_user = user
 	if(!HAS_MIND_TRAIT(human_user, TRAIT_MIMING)) // NOVA EDIT CHANGE - Let other species gasp - ORIGINAL: if(ishumanbasic(human_user) || isfelinid(human_user) && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
-		if(human_user.physique == FEMALE)
+		if(human_user.gender == FEMALE) // NOVA EDIT CHANGE - ORIGINAL: if(human_user.physique == FEMALE)
 			return pick('sound/voice/human/gasp_female1.ogg', 'sound/voice/human/gasp_female2.ogg', 'sound/voice/human/gasp_female3.ogg')
 		else
 			return pick('sound/voice/human/gasp_male1.ogg', 'sound/voice/human/gasp_male2.ogg')
@@ -278,7 +261,6 @@
 		qdel(kiss_blower)
 		to_chat(user, span_warning("You're incapable of blowing a kiss in your current state."))
 
-/* NOVA EDIT REMOVAL - EMOTES - MOVED TO EMOTES.DM MODULAR
 /datum/emote/living/laugh
 	key = "laugh"
 	key_third_person = "laughs"
@@ -291,17 +273,11 @@
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	return ..() && user.can_speak(allow_mimes = TRUE)
 
-/datum/emote/living/laugh/get_sound(mob/living/user)
-	. = ..()
+/datum/emote/living/laugh/get_sound(mob/living/carbon/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/human_user = user
-	if((ishumanbasic(human_user) || isfelinid(human_user)) && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
-		if(human_user.gender == FEMALE)
-			return 'sound/voice/human/womanlaugh.ogg'
-		else
-			return pick('sound/voice/human/manlaugh1.ogg', 'sound/voice/human/manlaugh2.ogg')
-*/ //NOVA EDIT END
+	return human_user.dna.species.get_laugh_sound(user)
 
 /datum/emote/living/look
 	key = "look"
@@ -334,6 +310,38 @@
 				message_param = "[span_userdanger("bumps [user.p_their()] head on the ground")] trying to motion towards %t."
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
 	return ..()
+
+/datum/emote/living/carbon/cry
+	key = "cry"
+	key_third_person = "cries"
+	message = "cries."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	stat_allowed = SOFT_CRIT
+	mob_type_blacklist_typecache = list(/mob/living/carbon/human) //Humans get specialized cry emote with sound and animation.
+
+/datum/emote/living/sneeze
+	key = "sneeze"
+	key_third_person = "sneezes"
+	message = "sneezes."
+	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
+	mob_type_blacklist_typecache = list(/mob/living/carbon/human) //Humans get specialized sneeze emote with sound.
+
+/datum/emote/living/carbon/human/glasses/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	var/image/emote_animation = image('icons/mob/human/emote_visuals.dmi', user, "glasses")
+	flick_overlay_global(emote_animation, GLOB.clients, 1.6 SECONDS)
+
+/datum/emote/living/carbon/cough
+	key = "cough"
+	key_third_person = "coughs"
+	message = "coughs!"
+	message_mime = "acts out an exaggerated cough!"
+	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE | EMOTE_RUNECHAT
+	mob_type_blacklist_typecache = list(/mob/living/carbon/human) //Humans get specialized cough emote with sound.
+
+/datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE , intentional)
+	return !HAS_TRAIT(user, TRAIT_SOOTHED_THROAT) && ..()
+
 
 /datum/emote/living/pout
 	key = "pout"
@@ -410,13 +418,6 @@
 	key_third_person = "smiles"
 	message = "smiles."
 
-/datum/emote/living/sneeze
-	key = "sneeze"
-	key_third_person = "sneezes"
-	message = "sneezes."
-	message_mime = "acts out an exaggerated silent sneeze."
-	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
 /datum/emote/living/smug
 	key = "smug"
 	key_third_person = "smugs"
@@ -428,20 +429,6 @@
 	message = "sniffs."
 	message_mime = "sniffs silently."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-//NOVA EDIT ADDITION
-/datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(.)
-		var/turf/open/current_turf = get_turf(user)
-		if(istype(current_turf) && current_turf.pollution)
-			if(iscarbon(user))
-				var/mob/living/carbon/carbon_user = user
-				if(carbon_user.internal) //Breathing from internals means we cant smell
-					return
-				carbon_user.next_smell = world.time + SMELL_COOLDOWN
-			current_turf.pollution.smell_act(user)
-//NOVA EDIT END
 
 /datum/emote/living/snore
 	key = "snore"
@@ -473,14 +460,12 @@
 	message = "puts their hands on their head and falls to the ground, they surrender%s!"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
-/*	NOVA EDIT CHANGE - MOVED TO combat_indicator.dm IN INDICATORS MODULE
 /datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && isliving(user))
 		var/mob/living/L = user
 		L.Paralyze(200)
 		L.remove_status_effect(/datum/status_effect/grouped/surrender)
-*/
 
 /datum/emote/living/sway
 	key = "sway"
@@ -574,8 +559,8 @@
 	key_third_person = "yawns"
 	message = "yawns."
 	message_mime = "acts out an exaggerated silent yawn."
-	message_robot = "synthesizes a yawn." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
-	message_AI = "synthesizes a yawns." // NOVA EDIT - ORIGINAL: message_robot = "symphathetically yawns."
+	message_robot = "symphathetically yawns."
+	message_AI = "symphathetically yawns."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	cooldown = 5 SECONDS
 
@@ -656,20 +641,20 @@
 		to_chat(user, span_warning("\"[input]\""))
 		REPORT_CHAT_FILTER_TO_USER(user, filter_result)
 		log_filter("IC Emote", input, filter_result)
-		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
+		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, LOWER_TEXT(config.ic_filter_regex.match))
 		return FALSE
 
 	filter_result = is_soft_ic_filtered(input)
 
 	if(filter_result)
 		if(tgui_alert(user,"Your emote contains \"[filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to emote it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
-			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
 			log_filter("Soft IC Emote", input, filter_result)
 			return FALSE
 
 		message_admins("[ADMIN_LOOKUPFLW(user)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[input]\"")
 		log_admin_private("[key_name(user)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[input]\"")
-		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, lowertext(config.soft_ic_filter_regex.match))
+		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
 		log_filter("Soft IC Emote (Passed)", input, filter_result)
 
 	return TRUE
@@ -719,8 +704,7 @@
 		emote_type = user_emote_type
 	else if(type_override)
 		emote_type = type_override
-
-	message = user.say_emphasis(message) //NOVA EDIT ADDITION - EMOTES
+	message = user.say_emphasis(message) // NOVA EDIT ADDITION - EMOTES
 
 	. = ..()
 
@@ -757,3 +741,17 @@
 	message = "says a swear word!"
 	message_mime = "makes a rude gesture!"
 	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/carbon/whistle
+	key = "whistle"
+	key_third_person = "whistles"
+	message = "whistles."
+	message_mime = "whistles silently!"
+	audio_cooldown = 5 SECONDS
+	vary = TRUE
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+
+/datum/emote/living/carbon/whistle/get_sound(mob/living/user)
+	if(!istype(user))
+		return
+	return 'sound/voice/human/whistle1.ogg'

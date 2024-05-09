@@ -1,5 +1,5 @@
 /// The name of the table on the database containing the player ranks.
-/// See `skyrat_schema.sql` for the schema of the table.
+/// See `nova_schema.sql` for the schema of the table.
 #define PLAYER_RANK_TABLE_NAME "player_rank"
 /// The index of the ckey in the items of a given row in a query for player ranks.
 #define INDEX_CKEY 1
@@ -237,7 +237,7 @@ SUBSYSTEM_DEF(player_ranks)
 	if(IsAdminAdvancedProcCall())
 		return null
 
-	rank_title = lowertext(rank_title)
+	rank_title = LOWER_TEXT(rank_title)
 
 	// Can't make switch() statements with non-constant values.
 	if(rank_title == donator_controller.rank_title)
@@ -288,7 +288,7 @@ SUBSYSTEM_DEF(player_ranks)
 		return FALSE
 
 
-	rank_title = lowertext(rank_title)
+	rank_title = LOWER_TEXT(rank_title)
 
 	var/datum/player_rank_controller/controller = get_controller_for_group(rank_title)
 
@@ -378,7 +378,7 @@ SUBSYSTEM_DEF(player_ranks)
 
 		return FALSE
 
-	rank_title = lowertext(rank_title)
+	rank_title = LOWER_TEXT(rank_title)
 
 	var/datum/player_rank_controller/controller = get_controller_for_group(rank_title)
 
