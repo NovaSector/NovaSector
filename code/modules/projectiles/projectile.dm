@@ -206,10 +206,10 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 		COMSIG_ATOM_ATTACK_HAND = PROC_REF(attempt_parry),
 	)
-	//SKYRAT ADDITION START
+	// NOVA EDIT ADDITION START
 	/// If this should be able to hit the target even on direct firing when `ignored_factions` applies
 	var/ignore_direct_target = FALSE
-	//SKYRAT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
@@ -306,7 +306,7 @@
 	else
 		impact_sound = target.impact_sound
 		get_sfx()
-	playsound(src, get_sfx_skyrat(impact_sound), vol_by_damage(), TRUE, -1)
+	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
