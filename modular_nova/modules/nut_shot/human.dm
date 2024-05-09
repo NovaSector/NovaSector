@@ -17,7 +17,7 @@
 	if(HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
 		return FALSE
 	//If we don't roll a punch high enough to hit our stun threshold, or if we are not staggered and have at least 40 damage+stamina
-	if(!prob(limb_accuracy) || !(staggered && (getStaminaLoss() + getBruteLoss()) >= 40))
+	if(!prob(limb_accuracy) && !(staggered && (getStaminaLoss() + getBruteLoss()) >= 40))
 		return FALSE
 
 	var/balls_of_steel = issynthetic(src) // Update when we have cybernetic testes. When.
