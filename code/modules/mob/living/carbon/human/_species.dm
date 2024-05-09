@@ -1135,7 +1135,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		log_combat(user, target, "punched")
 	// NOVA EDIT ADDITION START
 	if(target.try_nut_shot(user, limb_accuracy, staggered))
-			return
+		return
 	// NOVA EDIT ADDITION END
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
