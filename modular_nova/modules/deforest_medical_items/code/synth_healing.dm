@@ -32,7 +32,7 @@
 	name = "premium robotic repair spray"
 	singular_name = "premium robotic repair spray"
 	desc = "A needle-tip foam gun filled with an advanced synthetic foam that rapidly \
-		fills and stabilizes structural damage in synthetics. The damage area will be \
+		fills and stabilizes structural damage in synthetics. The damaged area will be \
 		vulnerable to further damage while the foam hardens. \
 		This special premium type can also be used to repair almost any possible type \
 		of synthetic damage."
