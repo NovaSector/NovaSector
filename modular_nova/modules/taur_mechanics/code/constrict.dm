@@ -21,9 +21,8 @@
 	var/base_coil_delay = 3.25 SECONDS
 
 /datum/action/innate/constrict/Destroy()
-	. = ..()
-
 	qdel(tail) // we already listen for COMSIG_QDELETING on our tail, so it already sets it to null via the signal
+	return ..()
 
 /datum/action/innate/constrict/Trigger(trigger_flags)
 	if(!..())
@@ -183,13 +182,12 @@
 	add_overlay(overlay)
 
 /obj/structure/serpentine_tail/Destroy()
-	. = ..()
-
 	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
 
 	old_owner?.update_mutant_bodyparts()
+	return ..()
 
 /// Since slimepeople are transparent, we have to match their alpha. What our alpha is set to when our owner is a slime.
 #define SERPENTINE_TAIL_SLIME_ALPHA 130

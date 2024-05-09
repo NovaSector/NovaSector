@@ -6,9 +6,8 @@
 	var/owner_blocked_feet_before_insert
 
 /obj/item/organ/external/taur_body/serpentine/Destroy()
-	. = ..()
-
 	QDEL_NULL(constrict_ability) // handled in remove, but lets be safe
+	return ..()
 
 /obj/item/organ/external/taur_body/serpentine/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
