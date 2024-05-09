@@ -23,7 +23,7 @@
 	merge_type = /obj/item/stack/medical/wound_recovery
 	custom_price = PAYCHECK_COMMAND * 2.5
 	/// If this checks for pain, used for synthetic repair foam
-	var/extremely_painful = TRUE
+	var/causes_pain = TRUE
 	/// The types of wounds that we work on, in list format
 	var/list/applicable_wounds = list(
 		/datum/wound/blunt/bone,
