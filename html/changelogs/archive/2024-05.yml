@@ -255,3 +255,24 @@
   white-snek:
   - rscadd: A fresh shipment of blindfolds has arrived on station for visually impaired
       crew, distributed to apropriate vendors.
+2024-05-09:
+  Bisar:
+  - balance: Knockdown effects will know consistently disarm, instead of failing to
+      disarm if you're already lying down.
+  Jane:
+  - qol: The Coroner's Ritual Knife can now sit upon Med Belts!
+  Melbert:
+  - bugfix: DNA infusing tiers works again
+  - qol: Spies may spawn in less numbers, but rarely may also spawn in more numbers.
+  NovaBot13:
+  - bugfix: Removed stray pixels appearing on certain parts of railing
+  - qol: Mech drills can auto-mine by walking into rock.
+  - bugfix: The quick equip 'E' hotkey shouldn't warn if one of your bags is full
+      anymore
+  - bugfix: Added the missing  bulwark MOD module and the jawed fishing hook to the
+      black market.
+  - bugfix: Silicons can set the teleporter destinations again.
+  - bugfix: Pride pins can be reskinned again with alt-click.
+  vinylspiders:
+  - bugfix: using the flap emote with moth wings now makes a sound like it's supposed
+      to
