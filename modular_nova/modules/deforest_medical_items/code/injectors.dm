@@ -208,7 +208,7 @@
 		/datum/reagent/medicine/silibinin = 5,
 	)
 
-// Medpen for robors that fixes toxin damage and purges synth chems but slows them down for a bit
+// Medpen for robots that fixes toxin damage and purges synth chems but slows them down for a bit
 /obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner
 	name = "synthetic cleaner autoinjector"
 	desc = "A Deforest branded autoinjector, loaded with system cleaner for purging synthetics of reagents."
