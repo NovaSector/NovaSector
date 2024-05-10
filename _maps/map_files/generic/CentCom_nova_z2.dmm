@@ -6123,10 +6123,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "eIn" = (
-/obj/machinery/door/window/brigdoor/right/directional/south{
+/obj/machinery/door/window/brigdoor/right/directional/west{
 	name = "Interlink Cell";
-	req_access = list("brig");
-	dir = 8
+	req_access = list("brig")
 	},
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /turf/open/floor/iron/dark,
@@ -6861,7 +6860,6 @@
 /obj/item/toy/plush/lizard_plushie/space/green,
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
-/turf/open/space/basic,
 /area/centcom/interlink)
 "fZU" = (
 /obj/effect/turf_decal/siding/thinplating_new{
@@ -8537,8 +8535,7 @@
 /area/centcom/interlink)
 "iVN" = (
 /obj/structure/chair/sofa/bench/left{
-	dir = 1;
-	greyscale_colors = "#AA8A61"
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 9
@@ -8872,10 +8869,9 @@
 /area/centcom/holding/cafe)
 "jxe" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/left/directional/north{
+/obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "Interlink Customs";
-	req_access = list("cent_general");
-	dir = 4
+	req_access = list("brig")
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -10410,8 +10406,7 @@
 /area/centcom/holding/cafepark)
 "moG" = (
 /obj/structure/chair/sofa/bench/left{
-	dir = 1;
-	greyscale_colors = "#AA8A61"
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 9
@@ -13278,10 +13273,9 @@
 /area/centcom/holding/cafe)
 "qQA" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/left/directional/north{
+/obj/machinery/door/window/brigdoor/left/directional/west{
 	name = "Interlink Customs";
-	req_access = list("cent_general");
-	dir = 8
+	req_access = list("brig")
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -13443,10 +13437,9 @@
 /area/centcom/holding/cafepark)
 "rgl" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/left/directional/north{
+/obj/machinery/door/window/brigdoor/left/directional/west{
 	name = "Interlink Customs";
-	req_access = list("cent_general");
-	dir = 8
+	req_access = list("brig")
 	},
 /obj/machinery/door/poddoor/shutters/indestructible{
 	name = "Interlink Customs";
@@ -13700,10 +13693,9 @@
 /area/centcom/interlink)
 "rzt" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/left/directional/north{
+/obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "Interlink Customs";
-	req_access = list("cent_general");
-	dir = 4
+	req_access = list("brig")
 	},
 /obj/machinery/door/poddoor/shutters/indestructible{
 	name = "Interlink Customs";
@@ -13995,16 +13987,6 @@
 	},
 /turf/open/floor/carpet/cyan,
 /area/centcom/holding/cafe)
-"rUv" = (
-/obj/structure/chair/sofa/bench/left{
-	greyscale_colors = "#AA8A61"
-	},
-/obj/effect/turf_decal/siding/white{
-	dir = 6
-	},
-/obj/effect/landmark/latejoin,
-/turf/open/floor/mineral/titanium,
-/area/centcom/interlink)
 "rUz" = (
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/stone,
@@ -14189,13 +14171,11 @@
 /obj/effect/spawner/random/structure/billboard/nanotrasen,
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
-/turf/open/space/basic,
 /area/centcom/interlink)
 "shG" = (
-/obj/machinery/door/window/brigdoor/right/directional/south{
+/obj/machinery/door/window/brigdoor/right/directional/east{
 	name = "Interlink Cell";
-	req_access = list("brig");
-	dir = 4
+	req_access = list("brig")
 	},
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /turf/open/floor/iron/dark,
@@ -14218,8 +14198,7 @@
 /area/centcom/holding/cafepark)
 "skm" = (
 /obj/structure/chair/sofa/bench/right{
-	dir = 1;
-	greyscale_colors = "#AA8A61"
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -15178,11 +15157,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
-"tIb" = (
-/obj/effect/light_emitter/interlink,
-/turf/open/floor/grass,
-/turf/open/space/basic,
-/area/centcom/interlink)
 "tIy" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -15920,8 +15894,7 @@
 /area/centcom/holding/cafepark)
 "uVF" = (
 /obj/structure/chair/sofa/bench/right{
-	dir = 1;
-	greyscale_colors = "#AA8A61"
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 5
@@ -16245,9 +16218,7 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "vzn" = (
-/obj/structure/chair/sofa/bench/left{
-	greyscale_colors = "#AA8A61"
-	},
+/obj/structure/chair/sofa/bench/left,
 /obj/effect/turf_decal/siding/white,
 /obj/effect/landmark/latejoin,
 /turf/open/floor/mineral/titanium,
@@ -16411,8 +16382,7 @@
 /area/centcom/interlink)
 "vSV" = (
 /obj/structure/chair/sofa/bench/left{
-	dir = 1;
-	greyscale_colors = "#AA8A61"
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 1
@@ -42283,7 +42253,7 @@ xdQ
 iZz
 xdQ
 kzD
-tIb
+hQJ
 shm
 hQJ
 tvw
@@ -42540,8 +42510,8 @@ xdQ
 iZz
 xdQ
 kzD
-tIb
-tIb
+hQJ
+hQJ
 sqB
 tvw
 qiK
@@ -42797,8 +42767,8 @@ xdQ
 iZz
 xdQ
 kzD
-tIb
-tIb
+hQJ
+hQJ
 fYE
 tvw
 tdh
@@ -43835,7 +43805,7 @@ kOf
 oFV
 fLb
 uVF
-rUv
+sCn
 fLb
 hWX
 nYN
@@ -46919,7 +46889,7 @@ kOf
 oFV
 fLb
 uVF
-rUv
+sCn
 fLb
 hWX
 nYN
