@@ -44,7 +44,7 @@
 	empty_indicator = TRUE
 	suppressor_x_offset = 12
 
-/obj/item/gun/ballistic/automatic/pistol/m1911 //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+/obj/item/gun/ballistic/automatic/pistol/m1911 //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
 	name = "\improper M1911"
 	desc = "A classic .45 handgun with a small magazine capacity."
 	icon_state = "m1911"

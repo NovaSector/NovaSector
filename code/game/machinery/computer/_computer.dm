@@ -135,7 +135,7 @@
 	//NOVA EDIT ADDITON BEGIN - AESTHETICS
 	if(clicksound && world.time > next_clicksound && isliving(user))
 		next_clicksound = world.time + rand(50, 150)
-		playsound(src, get_sfx_skyrat(clicksound), clickvol)
+		playsound(src, get_sfx_nova(clicksound), clickvol)
 	//NOVA EDIT END
 	. = ..()
 	update_use_power(ACTIVE_POWER_USE)

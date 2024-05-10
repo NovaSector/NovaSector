@@ -8,7 +8,7 @@ This adds a set of content introducing a new faction, including their own access
 
 ### TG Proc Changes:
 
-- Please see changed files on PR. Skyrat tags applied.
+- Please see changed files on PR. Nova tags applied.
 
 ### Defines:
 
