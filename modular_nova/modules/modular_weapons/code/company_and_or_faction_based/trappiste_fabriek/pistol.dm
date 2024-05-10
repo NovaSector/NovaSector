@@ -47,6 +47,10 @@
 /obj/item/gun/ballistic/automatic/pistol/sol/no_mag
 	spawnwithmagazine = FALSE
 
+/obj/item/gun/ballistic/automatic/pistol/sol/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, 0.3 SECONDS)
+
 // Sol pistol evil gun
 
 /obj/item/gun/ballistic/automatic/pistol/sol/evil
