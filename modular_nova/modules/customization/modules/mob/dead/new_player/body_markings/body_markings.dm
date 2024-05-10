@@ -126,12 +126,6 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
-/datum/body_marking/other/mandibles
-	name = "Mandibles"
-	icon_state = "mandibles1"
-	default_color = "#CCCCCC"
-	affected_bodyparts = HEAD
-
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
