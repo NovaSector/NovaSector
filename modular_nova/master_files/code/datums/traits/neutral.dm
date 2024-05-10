@@ -308,6 +308,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	mob_trait = TRAIT_SENSITIVESNOUT
 	icon = FA_ICON_FINGERPRINT
 	var/severity = 1
+	COOLDOWN_DECLARE(emote_cooldown)
 
 /datum/quirk_constant_data/sensitive_snout
 	associated_typepath = /datum/quirk/sensitivesnout
@@ -318,7 +319,11 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	severity = isnum(desired_severity) ? desired_severity : 1
 
 /datum/quirk/sensitivesnout/proc/get_booped(attacker)
-	if (ishuman(quirk_holder))
+	var/can_emote = FALSE
+	if(COOLDOWN_FINISHED(src, emote_cooldown))
+		can_emote = TRUE
+		COOLDOWN_START(src, emote_cooldown, 5 SECONDS)
+	if (ishuman(quirk_holder) && can_emote)
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		human_holder.force_say()
 	switch(severity)
@@ -328,12 +333,12 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 		if(2)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
 			quirk_holder.Stun(1 SECONDS)
-			quirk_holder.emote("sneeze")
+			if(can_emote)
+				quirk_holder.emote("sneeze")
 		if(3)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
 			quirk_holder.Knockdown(1 SECONDS)
 			quirk_holder.apply_damage(30, STAMINA)
-
 
 /datum/quirk/overweight
 	name = "Overweight"
