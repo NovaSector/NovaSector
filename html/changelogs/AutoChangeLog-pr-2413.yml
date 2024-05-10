@@ -1,0 +1,5 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - balance: "Razorwires do two (2) more damage (now 20 from 18)"
+  - image: "The melee item of the razorwire implant can now be alt-clicked to be recolored to a few different pre-set variants"

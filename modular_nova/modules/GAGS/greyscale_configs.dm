@@ -322,6 +322,21 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/mask/masquerade_mask_worn_vox.dmi'
 
 /*
+*	EYES
+*/
+
+// BLINDFOLD
+
+/datum/greyscale_config/blindfold
+	name = "Blind Personnel Blindfold"
+	icon_file = 'modular_nova/modules/GAGS/icons/eyes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/blindfold_eyes/blindfoldcolor.json'
+
+/datum/greyscale_config/blindfold/worn
+	name = "Blind Personnel Blindfold (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
+
+/*
 *	NECK
 */
 

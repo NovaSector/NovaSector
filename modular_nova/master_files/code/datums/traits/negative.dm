@@ -1,4 +1,4 @@
-// SKYRAT NEGATIVE TRAITS
+// NOVA NEGATIVE TRAITS
 
 /datum/quirk/alexithymia
 	name = "Alexithymia"
@@ -18,7 +18,7 @@
 /datum/quirk_constant_data/fragile
 	associated_typepath = /datum/quirk/fragile
 	customization_options = list(
-		/datum/preference/numeric/fragile_customization/brute, 
+		/datum/preference/numeric/fragile_customization/brute,
 		/datum/preference/numeric/fragile_customization/burn,
 	)
 
@@ -26,14 +26,14 @@
 	abstract_type = /datum/preference/numeric/fragile_customization
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
-	
-	minimum = 1.25 
+
+	minimum = 1.25
 	maximum = 5 // 5x damage, arbitrary
 
-	step = 0.01	
+	step = 0.01
 
 /datum/preference/numeric/fragile_customization/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE	
+	return FALSE
 
 /datum/preference/numeric/fragile_customization/create_default_value()
 	return 1.25
