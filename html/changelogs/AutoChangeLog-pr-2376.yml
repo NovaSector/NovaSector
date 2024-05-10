@@ -1,0 +1,7 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "Many new options for treating synths without having to use the whole robotics bay have been added to the common sources of DeForest branded medical supplies."
+  - balance: "nanite slurry has been buffed to 3 healing rather than 1, so it's not literally the worst healing chem in the entire game."
+  - image: "All icons for the new synthetic treatment items are made by me, Paxilmaniac"
+  - spellcheck: "Some wording of a few strings in the wound treatment items has been adjusted to fit better to the items."

@@ -116,6 +116,8 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define HIDESPINE (1<<16)
 /// Does this sprite hide devious devices?
 #define HIDESEXTOY (1<<17)
+/// If this has our taur variant, do we hide our taur part?
+#define HIDETAUR (1<<18)
 //NOVA EDIT ADDITION END
 
 //bitflags for clothing coverage - also used for limbs
@@ -180,7 +182,7 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION (1<<8)
 /// The sprite works fine for vox snouts as is.
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<9)
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 //flags for covering body parts
 #define GLASSESCOVERSEYES (1<<0)

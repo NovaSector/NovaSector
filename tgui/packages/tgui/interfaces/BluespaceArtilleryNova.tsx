@@ -25,7 +25,7 @@ type Data = {
   status: string;
 };
 
-export const BluespaceArtillerySkyrat = (props) => {
+export const BluespaceArtilleryNova = (props) => {
   const { act, data } = useBackend<Data>();
   const {
     notice,
