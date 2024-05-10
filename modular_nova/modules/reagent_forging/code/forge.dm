@@ -309,7 +309,7 @@
 		baked_item.fire_act(1000) // Overcooked food really does burn, hot hot hot!
 
 		if(SPT_PROB(10, seconds_per_tick))
-			var/list/asomnia_hadders = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, src)
+			var/list/asomnia_havers = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, src)
 			for(var/mob/cannot_smell in asomnia_havers)
 				if(!HAS_TRAIT(cannot_smell, TRAIT_ANOSMIA))
 					asomnia_havers -= cannot_smell
