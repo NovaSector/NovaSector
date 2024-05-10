@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - qol: "Ammunition can now be made into piles of bullets by attacking one bullet with another to create the pile. These piles delete themselves when empty, and usually hold enough bullets to reload 1 or 1/2 of a magazine for the weapon that uses that ammo, depending on the weapon."
