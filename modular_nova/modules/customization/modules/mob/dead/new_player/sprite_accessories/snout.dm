@@ -125,10 +125,6 @@
 	flags_for_organ = NONE
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/snouts/mammal/mandibles
-	name = "Mandibles"
-	icon_state = "mandibles1"
-
 /datum/sprite_accessory/snouts/mammal/top/fmandibles
 	name = "Mandibles (Top)"
 	icon_state = "fmandibles1"
