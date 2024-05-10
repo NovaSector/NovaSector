@@ -41,10 +41,10 @@
 	target_jobs = list(
 		// Medical
 		/datum/job/doctor,
-		/datum/job/virologist,
 		/datum/job/paramedic,
 		/datum/job/psychologist,
 		/datum/job/chemist,
+		/datum/job/virologist, // Nova Edit Addition - Virologist
 		// Service
 		/datum/job/clown,
 		/datum/job/botanist,

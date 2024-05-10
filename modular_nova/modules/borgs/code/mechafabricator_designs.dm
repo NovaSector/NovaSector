@@ -105,7 +105,7 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING,
 	)
 
-//Cyborg Skyrat overrides
+//Cyborg Nova overrides
 /datum/design/borg_suit
 	name = "Cyborg Endoskeleton"
 	id = "borg_suit"
