@@ -310,10 +310,10 @@
 
 		if(SPT_PROB(10, seconds_per_tick))
 			var/list/asomnia_hadders = get_hearers_in_view(DEFAULT_MESSAGE_RANGE, src)
-			for(var/mob/M in asomnia_hadders)
+			for(var/mob/cannot_smell in asomnia_havers)
 				if(!HAS_TRAIT(M, TRAIT_ANOSMIA))
-					asomnia_hadders -= M
-			visible_message(span_danger("You smell a burnt smell coming from [src]!"), ignored_mobs = asomnia_hadders)
+					asomnia_havers -= cannot_smell
+			visible_message(span_danger("You smell a burnt smell coming from [src]!"), ignored_mobs = asomnia_havers)
 			// Give indication that something is burning in the oven
 	set_smoke_state(worst_cooked_food_state)
 
