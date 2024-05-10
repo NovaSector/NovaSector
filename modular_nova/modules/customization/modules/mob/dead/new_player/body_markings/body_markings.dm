@@ -198,6 +198,72 @@
 	icon_state = "protogen"
 	affected_bodyparts = CHEST
 
+/datum/body_marking/other/facedisc
+	name = "Face disc"
+	icon_state = "facedisc"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/facemask
+	name = "Facemask"
+	icon_state = "facemask"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/verticalstripe
+	name = "Vertical stripe"
+	icon_state = "verticalstripe"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/lips
+	name = "Lips"
+	icon_state = "lips"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/fangs
+	name = "Fangs"
+	icon_state = "fangs"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/longsock
+	name = "Longsock"
+	icon_state = "longsock"
+	affected_bodyparts = LEG_LEFT | LEG_RIGHT
+
+/datum/body_marking/other/sock
+	name = "Sock"
+	icon_state = "sock"
+	affected_bodyparts = LEG_LEFT | LEG_RIGHT
+
+/datum/body_marking/other/sleeve
+	name = "Sleeve"
+	icon_state = "sleeve"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
+
+/datum/body_marking/other/glove
+	name = "Glove"
+	icon_state = "glove"
+	affected_bodyparts = HAND_LEFT | HAND_RIGHT
+
+/datum/body_marking/other/shoulder
+	name = "Shoulder"
+	icon_state = "shoulder"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT
+
+/datum/body_marking/other/elbow
+	name = "Elbow"
+	icon_state = "elbow"
+	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT
+
+/datum/body_marking/other/hip
+	name = "Hip"
+	icon_state = "hip"
+	affected_bodyparts = LEG_LEFT | LEG_RIGHT
+
+/datum/body_marking/other/chestplate
+	name = "Chestplate"
+	icon_state = "chestplate"
+	affected_bodyparts = CHEST
+	gendered = FALSE
+
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
