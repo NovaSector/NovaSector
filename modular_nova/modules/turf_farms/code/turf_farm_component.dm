@@ -17,7 +17,8 @@
 
 /datum/component/turf_farm/Destroy(force)
 	UnregisterSignal(turf_parent, list(COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_EXAMINE, COMSIG_QDELETING))
-	UnregisterSignal(tracked_farm, COMSIG_QDELETING)
+	if(tracked_farm)
+		UnregisterSignal(tracked_farm, COMSIG_QDELETING)
 	QDEL_NULL(tracked_farm)
 	turf_parent = null
 	return ..()
