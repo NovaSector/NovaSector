@@ -1,0 +1,4 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - bugfix: "Fixed a donator item appearing on station when it wasn't supposed to."
