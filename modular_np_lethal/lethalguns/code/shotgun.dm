@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/shotgun/ramu
 	name = "\improper Ramu 6ga Shotgun"
-	desc = "A six gauge monster-sized shotgun with a capacity of four total shells, including one in the chamber."
+	desc = "A six gauge, monster-sized shotgun with a capacity of four total shells, including one in the chamber."
 
 	icon = 'modular_np_lethal/lethalguns/icons/guns48x.dmi'
 	icon_state = "ramu"
