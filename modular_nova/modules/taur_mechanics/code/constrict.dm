@@ -136,6 +136,9 @@
 	density = FALSE
 	max_integrity = 60
 
+	/// The overlay for our coiled tail.
+	var/mutable_appearance/tail_overlay
+
 	/// The mob we are originating from.
 	var/mob/living/carbon/human/owner
 
@@ -175,11 +178,22 @@
 /obj/structure/serpentine_tail/Initialize(mapload)
 	. = ..()
 
+	add_tail_overlay()
 	sync_sprite()
 
-	var/mutable_appearance/overlay = mutable_appearance('modular_nova/modules/taur_mechanics/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
-	overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
-	add_overlay(overlay)
+/// If we have no tail overlay, creates a new one and sets it up.
+/obj/structure/serpentine_tail/proc/add_tail_overlay()
+	RETURN_TYPE(/mutable_appearance)
+
+	if (tail_overlay)
+		return tail_overlay // we already have it
+
+	tail_overlay = mutable_appearance('modular_nova/modules/taur_mechanics/sprites/tail.dmi', "naga_top", ABOVE_MOB_LAYER + 0.01, src)
+	tail_overlay.appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
+	tail_overlay.setDir(owner.dir)
+	add_overlay(tail_overlay)
+
+	return tail_overlay
 
 /obj/structure/serpentine_tail/Destroy()
 	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
@@ -187,6 +201,8 @@
 	set_owner(null)
 
 	old_owner?.update_mutant_bodyparts()
+
+	tail_overlay = null
 	return ..()
 
 /// Since slimepeople are transparent, we have to match their alpha. What our alpha is set to when our owner is a slime.
@@ -225,11 +241,47 @@
 	transform = transform.Translate(0, translate) // re-align ourselves
 	appearance_flags = PIXEL_SCALE
 
+	sync_direction()
+
 #undef SERPENTINE_TAIL_SLIME_ALPHA
+
+/// Syncs our dir with our owner. Fails to sync if we have a constricted mob and we move in a way that would spin them around.
+/obj/structure/serpentine_tail/proc/sync_direction()
+	SIGNAL_HANDLER
+
+	if (dir == owner.dir)
+		return
+
+	if (constricted)
+		/// Assoc list of stringified dir to dir. Controls what dir we can switch to from any given dir.
+		var/static/list/switchable_dirs = list(
+		"[NORTH]" = EAST,
+		"[EAST]" = NORTH,
+		"[WEST]" = SOUTH,
+		"[SOUTH]" = WEST
+	)
+		// prevents snakes from spinning their victims around
+		var/switchable_dir = switchable_dirs["[dir]"]
+		if (switchable_dir != owner.dir)
+			return
+
+	dir = owner.dir
+	tail_overlay.setDir(owner.dir)
 
 /// Returns the scale, compared to default, our owner has.
 /obj/structure/serpentine_tail/proc/get_scale_change_mult()
 	return owner.dna.features["body_size"] / BODY_SIZE_NORMAL
+
+/// Returns the x shift for anything we constrict.
+/obj/structure/serpentine_tail/proc/get_constriction_pixel_x_shift()
+	var/static/list/dirs_to_shift = list( // stringified since dirs are numbers
+		"[SOUTH]" = CONSTRICT_BASE_PIXEL_SHIFT,
+		"[WEST]" = CONSTRICT_BASE_PIXEL_SHIFT,
+		"[NORTH]" = -CONSTRICT_BASE_PIXEL_SHIFT,
+		"[EAST]" = -CONSTRICT_BASE_PIXEL_SHIFT
+	)
+
+	return dirs_to_shift["[owner.dir]"]
 
 /obj/structure/serpentine_tail/process(seconds_per_tick)
 	stored_damage += (brute_per_second * seconds_per_tick)
@@ -327,9 +379,14 @@
 	if (currently_crushing && !target)
 		stop_crushing()
 
+	var/scale_change_mult = get_scale_change_mult()
+	var/pixel_shift = get_constriction_pixel_x_shift()
+
+	var/final_shift = (pixel_shift * scale_change_mult)
+
 	if (constricted)
 		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL, COMSIG_QDELETING))
-		constricted.pixel_x -= CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
+		constricted.pixel_x -= final_shift
 		constricted.remove_status_effect(/datum/status_effect/constricted)
 
 	constricted = target
@@ -341,10 +398,10 @@
 	RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
 	RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
 	RegisterSignal(constricted, COMSIG_QDELETING, PROC_REF(constricted_qdeleting))
-	var/old_grab_state = owner.grab_state // intentionally placed before the signals so we can allow the grab to carry over
+	var/old_grab_state = owner.grab_state
 	constricted.forceMove(get_turf(src))
 	buckle_mob(constricted)
-	constricted.pixel_x += CONSTRICT_BASE_PIXEL_SHIFT * get_scale_change_mult()
+	constricted.pixel_x += final_shift
 	constricted.apply_status_effect(/datum/status_effect/constricted)
 
 	if (old_grab_state < GRAB_AGGRESSIVE)
@@ -398,7 +455,7 @@
 /// Setter proc for owner that handles signals, bodyparts, etc.
 /obj/structure/serpentine_tail/proc/set_owner(mob/living/carbon/human/new_owner)
 	if (owner)
-		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_SET_BODY_POSITION))
+		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_ATOM_POST_DIR_CHANGE))
 
 	if (owner)
 		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in owner.organs
@@ -414,6 +471,7 @@
 	RegisterSignal(owner, COMSIG_LIVING_GRAB, PROC_REF(owner_tried_grab))
 	RegisterSignal(owner, COMSIG_LIVING_TRY_PULL, PROC_REF(owner_tried_pull))
 	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
+	RegisterSignal(owner, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(sync_direction))
 	owner?.update_mutant_bodyparts()
 
 /// The time it takes for a constricted thing to do a break-out attempt.
