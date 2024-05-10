@@ -22,14 +22,19 @@
 		/obj/item/stack/ore/uranium = 3,
 		/obj/item/stack/ore/gold = 3,
 	)
+	/// The turfs that ant farms are allowed to be placed on
+	var/static/list/valid_turfs_to_be = list(
+		/turf/open/misc/asteroid/basalt,
+		/turf/open/misc/asteroid/snow,
+	)
 	// The cooldown between each worm "breeding"
 	COOLDOWN_DECLARE(ant_timer)
 
 /obj/structure/antfarm/Initialize(mapload)
 	. = ..()
 	var/turf/src_turf = get_turf(src)
-	if(!src_turf.GetComponent(/datum/component/simple_farm))
-		src_turf.balloon_alert_to_viewers("must be on farmable surface")
+	if(!is_type_in_list(src_turf, valid_turfs_to_be))
+		src_turf.balloon_alert_to_viewers("must be on farmable ground")
 		return INITIALIZE_HINT_QDEL
 
 	for(var/obj/structure/antfarm/found_farm in range(2, get_turf(src)))

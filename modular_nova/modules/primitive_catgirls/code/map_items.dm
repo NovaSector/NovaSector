@@ -16,7 +16,7 @@
 
 /turf/open/misc/dirt/icemoon/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/simple_farm, set_plant = TRUE)
+	AddComponent(/datum/component/turf_farm, 0.5)
 
 // Water that can be fished out of
 
