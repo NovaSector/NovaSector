@@ -15020,7 +15020,7 @@
 "ttF" = (
 /obj/machinery/door/airlock/service{
 	name = "Interlink 2";
-	id_tag = "I1"
+	id_tag = "I2"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink/dorm_rooms)
