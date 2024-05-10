@@ -6776,6 +6776,8 @@
 #include "modular_nova\modules\alt_vox\code\vox_sounds_hl1.dm"
 #include "modular_nova\modules\alternative_job_titles\code\alt_job_titles.dm"
 #include "modular_nova\modules\alternative_job_titles\code\job.dm"
+#include "modular_nova\modules\ammo_stacks\code\ammo_stack_base.dm"
+#include "modular_nova\modules\ammo_stacks\code\stack_types.dm"
 #include "modular_nova\modules\ammo_workbench\code\ammo_workbench.dm"
 #include "modular_nova\modules\ammo_workbench\code\design_disks.dm"
 #include "modular_nova\modules\antag_opt_in\code\antag_optin_config.dm"
