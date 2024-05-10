@@ -99,6 +99,6 @@
 	icon_state = "synth_patch"
 	list_reagents = list(
 		/datum/reagent/medicine/nanite_slurry = 10,
-		/datum/reagent/dinitrogen_plasmide = 30,
+		/datum/reagent/dinitrogen_plasmide = 5,
 		/datum/reagent/medicine/coagulant/fabricated = 10,
 	)

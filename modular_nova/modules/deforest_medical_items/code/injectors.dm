@@ -216,7 +216,7 @@
 	icon_state = "robor"
 	list_reagents = list(
 		/datum/reagent/medicine/system_cleaner = 15,
-		/datum/reagent/dinitrogen_plasmide = 30,
+		/datum/reagent/dinitrogen_plasmide = 5,
 	)
 
 // Medpen for robots that fixes brain damage but slows them down for a bit
