@@ -25309,7 +25309,7 @@
 /obj/effect/turf_decal/lunar_sand/plating,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/space/basic,
+/turf/open/floor/glass/reinforced,
 /area/station/science/xenobiology)
 "htT" = (
 /obj/structure/cable,
@@ -58457,7 +58457,7 @@
 	id = "XenobioTrash";
 	name = "Disposal Shutters"
 	},
-/turf/open/space/openspace,
+/turf/open/floor/plating/airless,
 /area/station/science/xenobiology)
 "qYj" = (
 /turf/open/openspace,
