@@ -63438,7 +63438,9 @@
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "mey" = (
-/obj/structure/plaque/static_plaque/golden/commission,
+/obj/structure/plaque/static_plaque/golden/commission{
+	desc = "Spinward Sector Station SS-13\n'Blueshift' Class Vessel\nCommissioned 10/01/2561\n'Dedicated to the Pioneers'"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
