@@ -477,6 +477,12 @@
 /// The time it takes for a constricted thing to do a break-out attempt.
 #define SERPENTINE_TAIL_UNBUCKLE_TIME 0.5 SECONDS // arbitrary
 
+/obj/structure/serpentine_tail/is_buckle_possible(mob/living/target, force, check_loc)
+	if (target == owner)
+		return FALSE
+
+	return ..()
+
 /obj/structure/serpentine_tail/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	if (!constricted || (user != constricted)) // anyone can easily free them except themselves
 		return ..()
