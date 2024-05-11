@@ -121,15 +121,29 @@
 	icon_state = "random_common_gun_blue"
 	loot = list(
 		/obj/item/gun/ballistic/automatic/pistol/trappiste = 1,
-		/obj/item/gun/ballistic/revolver/takbok = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/takbok = 1,
 		/obj/item/gun/ballistic/automatic/sol_smg = 1,
 		/obj/item/gun/ballistic/automatic/sol_smg/evil = 1,
 		/obj/item/gun/energy/modular_laser_rifle/carbine = 1,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
-		/obj/item/gun/ballistic/revolver/shotgun_revolver = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/kurwa = 1,
 		/obj/item/gun/ballistic/automatic/miecz = 1,
 		/obj/item/gun/ballistic/automatic/seiba_smg = 1,
-		/obj/item/gun/ballistic/revolver/mateba = 1,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually
+	name = "deathmatch single weapon spawner"
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/takbok
+	loot = list(
+		/obj/item/gun/ballistic/revolver/takbok,
+		/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/kurwa
+	loot = list(
+		/obj/item/gun/ballistic/revolver/shotgun_revolver,
+		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette,
 	)
 
 /obj/effect/spawner/random/epic_loot/deathmatch_serious_arms
@@ -137,18 +151,48 @@
 	desc = "Automagically transforms into a super serious firearm."
 	icon_state = "random_rare_gun"
 	loot = list(
-		/obj/item/gun/ballistic/automatic/sol_rifle/marksman = 2,
+		/obj/item/gun/ballistic/automatic/sol_rifle/marksman = 1,
 		/obj/item/gun/ballistic/automatic/sol_grenade_launcher = 1,
-		/obj/item/gun/ballistic/automatic/xhihao_smg = 2,
-		/obj/effect/spawner/random/sakhno = 2,
-		/obj/item/gun/ballistic/shotgun/riot/sol = 2,
-		/obj/item/gun/ballistic/rifle/boltaction/prime = 1,
-		/obj/item/gun/energy/laser = 2,
+		/obj/item/gun/ballistic/automatic/xhihao_smg = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/sakhno = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/shotgun = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/sakhno_moderna = 1,
+		/obj/item/gun/energy/laser = 1,
 		/obj/item/gun/energy/e_gun = 1,
 		/obj/item/gun/ballistic/automatic/lanca = 1,
-		/obj/item/gun/ballistic/automatic/suppressed_rifle = 2,
-		/obj/item/gun/ballistic/marsian_super_rifle = 2,
-		/obj/item/gun/ballistic/shotgun/ramu = 1,
+		/obj/item/gun/ballistic/automatic/suppressed_rifle = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/lesbian_gun = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/super_shotgun = 1,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/sakhno
+	loot = list(
+		/obj/effect/spawner/random/sakhno,
+		/obj/item/ammo_box/magazine/ammo_stack/c310_strilka/prefilled,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/sakhno_moderna
+	loot = list(
+		/obj/item/gun/ballistic/rifle/boltaction/prime,
+		/obj/item/ammo_box/magazine/ammo_stack/c310_strilka/prefilled/ap,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/shotgun
+	loot = list(
+		/obj/item/gun/ballistic/shotgun/riot/sol/thunderdome,
+		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/dragonsbreath,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/lesbian_gun
+	loot = list(
+		/obj/item/gun/ballistic/marsian_super_rifle,
+		/obj/item/ammo_box/magazine/ammo_stack/c8marsian/prefilled,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/super_shotgun
+	loot = list(
+		/obj/item/gun/ballistic/shotgun/ramu,
+		/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled,
 	)
 
 /obj/effect/spawner/random/epic_loot/deathmatch_serious_arms_blue
@@ -160,17 +204,23 @@
 		/obj/item/gun/ballistic/automatic/sol_rifle/evil = 1,
 		/obj/item/gun/ballistic/automatic/sol_rifle/machinegun = 1,
 		/obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil = 1,
-		/obj/item/gun/ballistic/automatic/xhihao_smg = 2,
-		/obj/item/gun/ballistic/shotgun/riot/sol/evil = 1,
+		/obj/item/gun/ballistic/automatic/xhihao_smg = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/shotgun_evil = 1,
 		/obj/item/gun/energy/laser/hellgun = 1,
 		/obj/item/gun/energy/tesla_cannon = 1,
 		/obj/item/gun/energy/modular_laser_rifle = 1,
 		/obj/item/gun/ballistic/automatic/wylom = 1,
 		/obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher = 1,
-		/obj/item/gun/ballistic/automatic/suppressed_rifle/marksman = 2,
+		/obj/item/gun/ballistic/automatic/suppressed_rifle/marksman = 1,
 		/obj/item/gun/ballistic/rifle/chokyu = 1,
 		/obj/item/gun/ballistic/automatic/nomi_shotgun = 1,
 		/obj/item/gun/energy/pulse = 1,
+	)
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/shotgun_evil
+	loot = list(
+		/obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome,
+		/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette,
 	)
 
 /obj/effect/spawner/random/epic_loot/deathmatch_grenade_or_explosive
@@ -209,6 +259,8 @@
 		/obj/item/storage/medkit/civil_defense/thunderdome = 1,
 		/obj/item/storage/medkit/frontier/stocked = 1,
 		/obj/item/storage/medkit/combat_surgeon/stocked = 1,
+		/obj/item/storage/medkit/robotic_repair/stocked = 1,
+		/obj/item/storage/medkit/robotic_repair/preemo/stocked = 1,
 		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked = 1,
 		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked = 1,
 		/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super = 1,
