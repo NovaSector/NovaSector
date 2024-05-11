@@ -132,7 +132,7 @@
 	icon_state = "blob_floor"
 	density = FALSE
 	plane = FLOOR_PLANE
-	layer = LOW_SIGIL_LAYER
+	layer = PROJECTILE_HIT_THRESHHOLD_LAYER + 0.001
 	max_integrity = 50
 	var/blooming = FALSE
 	/// Are we a floor resin? If not then we're a wall resin
@@ -194,7 +194,7 @@
 			icon_state = "blob_wall"
 			can_atmos_pass = ATMOS_PASS_NO
 			plane = GAME_PLANE
-			layer = LOW_SIGIL_LAYER
+			layer = PROJECTILE_HIT_THRESHHOLD_LAYER
 
 	if(prob(7))
 		blooming = TRUE
@@ -332,7 +332,7 @@
 	icon = 'modular_nova/modules/mold/icons/blob_spawner.dmi'
 	icon_state = "blob_vent"
 	density = FALSE
-	layer = SIGIL_LAYER
+	layer = PROJECTILE_HIT_THRESHHOLD_LAYER + 0.002
 	max_integrity = 150
 	/// The mold atmosphere conditioner will spawn the mold's preferred atmosphere every so often.
 	var/happy_atmos = null
@@ -371,7 +371,7 @@
 	icon = 'modular_nova/modules/mold/icons/blob_spawner.dmi'
 	icon_state = "blob_spawner"
 	density = FALSE
-	layer = SIGIL_LAYER
+	layer = PROJECTILE_HIT_THRESHHOLD_LAYER + 0.003
 	max_integrity = 150
 
 /obj/structure/mold/structure/spawner/Destroy()
