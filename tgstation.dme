@@ -6420,6 +6420,7 @@
 #include "modular_nova\master_files\code\game\objects\structures\beds-chairs\sofa.dm"
 #include "modular_nova\master_files\code\game\objects\structures\crates_lockers\secure\cargo.dm"
 #include "modular_nova\master_files\code\game\objects\structures\crates_lockers\secure\security.dm"
+#include "modular_nova\master_files\code\game\objects\structures\plaques\static_plaques.dm"
 #include "modular_nova\master_files\code\game\turfs\closed\_closed.dm"
 #include "modular_nova\master_files\code\game\turfs\open\floor\iron_floor.dm"
 #include "modular_nova\master_files\code\game\turfs\open\space\space.dm"
