@@ -18,28 +18,8 @@
 /datum/supply_pack/imports/russian
 	special = TRUE
 
-/// placeholder type that uses paxil's crate budgeting system
+/// base type that uses paxil's crate budgeting system. contains stuff from the CIN
 /datum/supply_pack/imports/budgeted
-	/// lower bound of random crate budget
-	var/item_budget_min = CRATE_BUDGET_MINIMUM
-	/// upper bound of random crate budget
-	var/item_budget_max = CRATE_BUDGET_MAXIMUM
-	/// maximum number of contents
-	var/max_contents = 20
-
-/datum/supply_pack/imports/budgeted/fill(obj/structure/closet/crate/we_are_filling_this_crate)
-	var/item_budget = rand(item_budget_min, item_budget_max)
-	for(var/iterator in 1 to max_contents) // 20 items max, but we have a budget too
-		var/new_thing = pick_weight(contains)
-		// We don't want to go too far over budget
-		if(item_budget <= 0)
-			return
-		new new_thing(we_are_filling_this_crate)
-		// Basically inverts the weight before subtracting it from the budget
-		item_budget -= ((CRATE_ITEM_WEIGHT_MAX + 1) - contains[new_thing])
-
-/// contains stuff from the CIN
-/datum/supply_pack/imports/budgeted/cin_surplus
 	name = "CIN Surplus Equipment Crate"
 	desc = "A collection of surplus equipment sourced from the Coalition of Independent Nations' military stockpiles. \
 	Likely to contain old and outdated equipment, as is the nature of surplus."
@@ -92,12 +72,30 @@
 		/obj/item/storage/box/colonial_rations = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/toolbox/maint_kit = ITEM_WEIGHT_MISC_BUT_RARER,
 	)
+	/// lower bound of random crate budget
+	var/item_budget_min = CRATE_BUDGET_MINIMUM
+	/// upper bound of random crate budget
+	var/item_budget_max = CRATE_BUDGET_MAXIMUM
+	/// maximum number of contents
+	var/max_contents = 20
+
+/datum/supply_pack/imports/budgeted/fill(obj/structure/closet/crate/we_are_filling_this_crate)
+	var/item_budget = rand(item_budget_min, item_budget_max)
+	for(var/iterator in 1 to max_contents) // 20 items max, but we have a budget too
+		var/new_thing = pick_weight(contains)
+		// We don't want to go too far over budget
+		if(item_budget <= 0)
+			return
+		new new_thing(we_are_filling_this_crate)
+		// Basically inverts the weight before subtracting it from the budget
+		item_budget -= ((CRATE_ITEM_WEIGHT_MAX + 1) - contains[new_thing])
 
 /// contains stuff from the vanguard expeditionary corps
 /datum/supply_pack/imports/budgeted/vanguard_surplus
 	name = "Vanguard Expeditionary Corps Surplus"
 	desc = "Contains an assortment of surplus equipment from the now-defunct Vanguard Expeditionary Corps. May or may not just be things they stole from other stations."
 	cost = CARGO_CRATE_VALUE * 20
+	contraband = FALSE
 	// note: weights are entirely arbitrary. also arbitrarily sorted by weight
 	contains = list(
 		// clothes incl. storage
@@ -121,7 +119,7 @@
 		/obj/item/storage/pouch/medical/firstaid/loaded = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/pouch/medical/firstaid/advanced = ITEM_WEIGHT_MISC_BUT_RARER,
 		// maybe not junk
-		/obj/item/knife/combat/marksman = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/knife/combat/throwing = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/medkit/expeditionary/surplus = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/pointman_broken = ITEM_WEIGHT_GUN_RARE, // diy project for a shield that you can wield for 75 blockchance + beat people to death with
 		/obj/item/clothing/gloves/chief_engineer/expeditionary_corps = ITEM_WEIGHT_MISC_BUT_RARER, // congratulations you won (it's basically combat gloves but not quite)
