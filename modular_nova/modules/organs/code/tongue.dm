@@ -160,7 +160,7 @@
 /obj/item/organ/internal/tongue/lizard/filterless
 	name = "smooth forked tongue"
 
-	voice_filter = ""
+	voice_filter = null
 
 /obj/item/organ/internal/tongue/lizard/filterless/Initialize(mapload)
 	. = ..()
