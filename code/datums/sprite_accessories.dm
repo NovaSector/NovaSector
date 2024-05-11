@@ -1138,8 +1138,6 @@
 	gender = MALE
 	use_static = TRUE
 
-
-
 /* NOVA EDIT REMOVAL START - Underwear and bra split
 //FEMALE UNDERWEAR
 /datum/sprite_accessory/underwear/female_bikini
@@ -1438,6 +1436,7 @@
 	name = "Short-sleeved Shirt (White)"
 	icon_state = "whiteshortsleeve"
 	gender = NEUTER
+
 /* NOVA EDIT REMOVAL START - Underwear and bra split
 /datum/sprite_accessory/undershirt/sports_bra
 	name = "Sports Bra"
@@ -1449,6 +1448,7 @@
 	icon_state = "sports_bra_alt"
 	gender = NEUTER
 */ // NOVA EDIT END
+
 /datum/sprite_accessory/undershirt/blueshirtsport
 	name = "Sports Shirt (Blue)"
 	icon_state = "blueshirtsport"
@@ -1713,17 +1713,17 @@
 /datum/sprite_accessory/body_markings/dtiger
 	name = "Dark Tiger Body"
 	icon_state = "dtiger"
-	gender_specific = 1
+	gender_specific = TRUE
 
 /datum/sprite_accessory/body_markings/ltiger
 	name = "Light Tiger Body"
 	icon_state = "ltiger"
-	gender_specific = 1
+	gender_specific = TRUE
 
 /datum/sprite_accessory/body_markings/lbelly
 	name = "Light Belly"
 	icon_state = "lbelly"
-	gender_specific = 1
+	gender_specific = TRUE
 
 /datum/sprite_accessory/tails
 	em_block = TRUE
@@ -1761,13 +1761,11 @@
 	icon_state = "default"
 	color_src = HAIR_COLOR
 
-/datum/sprite_accessory/tails/monkey
-	icon = 'icons/mob/human/species/monkey/monkey_tail.dmi'
-	color_src = FALSE
-
-/datum/sprite_accessory/tails/monkey/standard
+/datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
-	icon_state = "monkey"
+	icon = 'icons/mob/human/species/monkey/monkey_tail.dmi'
+	icon_state = "default"
+	color_src = FALSE
 
 /datum/sprite_accessory/pod_hair
 	icon = 'icons/mob/human/species/podperson_hair.dmi'
@@ -1860,18 +1858,6 @@
 /datum/sprite_accessory/horns/angler
 	name = "Angeler"
 	icon_state = "angler"
-
-/datum/sprite_accessory/horns/broken
-	name = "Broken"
-	icon_state = "broken"
-
-/datum/sprite_accessory/horns/broken_right
-	name = "Broken(right)"
-	icon_state = "rbroken"
-
-/datum/sprite_accessory/horns/broken_left
-	name = "Broken(left)"
-	icon_state = "lbroken"
 
 /datum/sprite_accessory/ears
 	icon = 'icons/mob/human/cat_features.dmi'
@@ -2149,16 +2135,9 @@
 	color_src = HAIR_COLOR
 	em_block = TRUE
 
-/datum/sprite_accessory/caps/none
-	name = "None"
-	icon_state = "none"
-
 /datum/sprite_accessory/caps/round
 	name = "Round"
 	icon_state = "round"
-
-
-
 
 /datum/sprite_accessory/moth_wings
 	icon = 'icons/mob/human/species/moth/moth_wings.dmi'

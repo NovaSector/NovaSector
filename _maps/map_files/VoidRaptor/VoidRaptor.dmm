@@ -11649,13 +11649,12 @@
 	dir = 9
 	},
 /obj/machinery/dna_scannernew,
-/obj/machinery/requests_console/directional/south{
-	department = "Genetics";
-	name = "Genetics Requests console";
-	pixel_y = 30
-	},
 /obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/requests_console/directional/north{
+	department = "Genetics";
+	name = "Genetics Requests console"
+	},
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
 "dwH" = (
@@ -13680,11 +13679,6 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/machinery/requests_console/directional/north{
-	department = "Security";
-	name = "Security Requests Console";
-	pixel_y = -32
-	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/light/warm/directional/south,
@@ -13694,6 +13688,10 @@
 /obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
+	},
+/obj/machinery/requests_console/directional/south{
+	department = "Security";
+	name = "Security Requests Console"
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
@@ -62797,13 +62795,11 @@
 /turf/open/floor/cult,
 /area/station/service/library)
 "ryN" = (
-/obj/machinery/requests_console/directional/south{
-	department = "Law Office";
-	name = "Law Office Requests Console";
-	pixel_x = 32;
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/requests_console/directional/east{
+	department = "Law Office";
+	name = "Law Office Requests Console"
+	},
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "ryU" = (
@@ -72230,15 +72226,14 @@
 	pixel_x = 8;
 	pixel_y = -1
 	},
-/obj/machinery/requests_console/directional/east{
-	department = "Bar";
-	name = "Bar Requests Console";
-	pixel_x = -30
-	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/item/reagent_containers/cup/glass/bottle/champagne{
 	pixel_y = -2
+	},
+/obj/machinery/requests_console/directional/west{
+	department = "Bar";
+	name = "Bar Requests Console"
 	},
 /turf/open/floor/iron,
 /area/station/service/bar)
@@ -76669,13 +76664,6 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/requests_console/directional/south{
-	department = "Engineering";
-	dir = 4;
-	name = "Engineering Requests Console";
-	pixel_x = 30;
-	pixel_y = 0
-	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/item/storage/medkit/fire{
@@ -76685,6 +76673,10 @@
 /obj/item/radio/off{
 	pixel_x = 6;
 	pixel_y = 6
+	},
+/obj/machinery/requests_console/directional/east{
+	department = "Engineering";
+	name = "Engineering Requests Console"
 	},
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)

@@ -14,7 +14,7 @@
 /obj/machinery/status_display
 	name = "status display"
 	desc = null
-	icon = 'icons/obj/machines/status_display.dmi' //// NOVA EDIT CHANGE - ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/status_display.dmi' //// NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
 	icon_state = "frame"
 	verb_say = "beeps"
 	verb_ask = "beeps"

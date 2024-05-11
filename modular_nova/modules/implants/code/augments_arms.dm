@@ -350,7 +350,7 @@
 	inhand_icon_state = "razorwire"
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
-	force = 18
+	force = 20
 	demolition_mod = 0.25 // This thing sucks at destroying stuff
 	wound_bonus = 10
 	bare_wound_bonus = 20
@@ -359,6 +359,30 @@
 	hitsound = 'sound/weapons/whip.ogg'
 	attack_verb_continuous = list("slashes", "whips", "lashes", "lacerates")
 	attack_verb_simple = list("slash", "whip", "lash", "lacerate")
+	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Evil Red" = list(
+			RESKIN_ICON_STATE = "razorwire_weapon",
+			RESKIN_INHAND_STATE = "razorwire"
+		),
+		"Teal I Think?" = list(
+			RESKIN_ICON_STATE = "razorwire_weapon_teal",
+			RESKIN_INHAND_STATE = "razorwire_teal"
+		),
+		"Yellow" = list(
+			RESKIN_ICON_STATE = "razorwire_weapon_yellow",
+			RESKIN_INHAND_STATE = "razorwire_yellow"
+		),
+		"Ourple" = list(
+			RESKIN_ICON_STATE = "razorwire_weapon_ourple",
+			RESKIN_INHAND_STATE = "razorwire_ourple"
+		),
+		"Green" = list(
+			RESKIN_ICON_STATE = "razorwire_weapon_green",
+			RESKIN_INHAND_STATE = "razorwire_green"
+		),
+	)
 
 /obj/item/organ/internal/cyberimp/arm/razorwire
 	name = "razorwire spool implant"

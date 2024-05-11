@@ -2,11 +2,11 @@
 	name = "Mushroomperson"
 	plural_form = "Mushroompeople"
 	id = SPECIES_MUSHROOM
-	mutant_bodyparts = list("caps" = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list("#FF4B19"))) // NOVA EDIT - Customization - ORIGINAL: mutant_bodyparts = list("caps" = "Round")
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 
 	fixed_mut_color = "#DBBF92"
-	hair_color = "#FF4B19" //cap color, spot color uses eye color
+
+	external_organs = list(/obj/item/organ/external/mushroom_cap = "Round")
 
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
@@ -41,10 +41,6 @@
 /datum/species/mush/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	. = ..()
 	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
-		if(!H.dna.mutant_bodyparts["caps"] || H.dna.mutant_bodyparts["caps"][MUTANT_INDEX_NAME] != "None") // NOVA EDIT - Customization - ORIGINAL: if(!H.dna.features["caps"])
-			H.dna.mutant_bodyparts["caps"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(H.hair_color)) // NOVA EDIT - Customization - ORIGINAL: H.dna.features["caps"] = "Round"
-			handle_mutant_bodyparts(H)
 		mush = new()
 		mush.teach(C)
 		mush.allow_temp_override = FALSE
@@ -61,11 +57,6 @@
 	if(chem.type == /datum/reagent/toxin/plantbgone/weedkiller)
 		affected.adjustToxLoss(3 * REM * seconds_per_tick)
 
-<<<<<<< HEAD
-/datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour, force_update = FALSE) //NOVA EDIT - ORIGINAL: /datum/species/mush/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour) (one parameter added)
-	forced_colour = FALSE
-	return ..()
-=======
 /datum/species/mush/get_fixed_hair_color(mob/living/carbon/human/for_mob)
 	return "#FF4B19" //cap color, spot color uses eye color
 
@@ -81,7 +72,7 @@
 
 	preference = "feature_mushperson_cap"
 
-	dna_block = DNA_MUSHROOM_CAPS_BLOCK
+	//dna_block = DNA_MUSHROOM_CAPS_BLOCK // NOVA EDIT REMOVAL - Customization - We have our own system to handle DNA.
 	restyle_flags = EXTERNAL_RESTYLE_PLANT
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/mushroom_cap
@@ -99,4 +90,3 @@
 		return FALSE
 
 	return TRUE
->>>>>>> 5f44545da81 (Moves "sprite accessories" (e.g. Hair, Undergarments, Mutant Bits) from `GLOB` to a datasystem (#82847))
