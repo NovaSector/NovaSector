@@ -19,7 +19,7 @@
 				/obj/item/stack/medical/ointment/red_sun = INFINITY,
 				/obj/item/stack/medical/mesh/bloody = INFINITY,
 				/obj/item/stack/medical/mesh/advanced = INFINITY,
-				/obj/item/reagent_containers/pill/patch/lethal_synth_repair = INFINITY,
+				/obj/item/reagent_containers/pill/robotic_patch/synth_repair = INFINITY,
 				/obj/item/stack/medical/wound_recovery = INFINITY,
 				/obj/item/stack/medical/wound_recovery/rapid_coagulant = INFINITY,
 				/obj/item/stack/medical/wound_recovery/robofoam = INFINITY,
