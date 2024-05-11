@@ -3552,6 +3552,13 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
 /area/station/maintenance/central/greater)
+"bbA" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/iron/kitchen,
+/area/station/maintenance/starboard/fore)
 "bbC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -5637,6 +5644,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "bGh" = (
@@ -17897,6 +17905,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
@@ -21833,6 +21842,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/starboard/aft)
+"gvF" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central/fore)
 "gvY" = (
 /obj/structure/railing{
 	dir = 9
@@ -31751,6 +31769,7 @@
 	dir = 5
 	},
 /obj/machinery/photocopier,
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "jlx" = (
@@ -40369,6 +40388,7 @@
 /obj/machinery/vending/cart{
 	req_access = list("hop")
 	},
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
 	},
@@ -46684,6 +46704,7 @@
 "nPq" = (
 /obj/machinery/photocopier,
 /obj/machinery/light/directional/west,
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "nPu" = (
@@ -47068,6 +47089,9 @@
 	name = "Science Monitor";
 	network = list("rd","toxins","minisat","xeno","test");
 	pixel_x = 32
+	},
+/obj/item/radio/intercom/directional/east{
+	pixel_y = 25
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science/research)
@@ -52808,6 +52832,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
 	},
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "pFk" = (
@@ -52951,6 +52976,7 @@
 	c_tag = "Atmospherics - North";
 	name = "atmospherics camera"
 	},
+/obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "pHg" = (
@@ -59175,6 +59201,7 @@
 /obj/machinery/camera/directional/south{
 	c_tag = "Command - Meeting Room"
 	},
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/bridge)
 "rCs" = (
@@ -66417,9 +66444,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "tIM" = (
-/obj/structure/sign/nanotrasen{
-	pixel_x = 32
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -76680,6 +76704,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/gateway)
 "wHR" = (
@@ -77167,6 +77192,7 @@
 	c_tag = "Engineering - SMES Room";
 	name = "engineering camera"
 	},
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "wOZ" = (
@@ -175939,7 +175965,7 @@ xBP
 gMe
 ncK
 wMp
-wMp
+gvF
 wMp
 hfn
 hfn
@@ -184905,7 +184931,7 @@ okg
 hnl
 oOq
 jcv
-aJW
+bbA
 mCV
 sDF
 cGd
