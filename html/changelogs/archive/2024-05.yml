@@ -359,3 +359,9 @@
       with another to create the pile. These piles delete themselves when empty, and
       usually hold enough bullets to reload 1 or 1/2 of a magazine for the weapon
       that uses that ammo, depending on the weapon.
+  carlarctg:
+  - rscadd: Chance to become crab on nonlethal DNA meltdown
+  norsvenska:
+  - bugfix: The Coroner and Bitrunner can now be selected as a target for kidnapping
+      and heirloom destruction objectives.
+  - bugfix: The Chief Engineer is now a valid target for heirloom destruction objectives.
