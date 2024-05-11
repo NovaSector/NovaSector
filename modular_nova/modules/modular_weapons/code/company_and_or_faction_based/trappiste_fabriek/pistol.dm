@@ -49,7 +49,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/sol/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.3 SECONDS)
+	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 // Sol pistol evil gun
 
