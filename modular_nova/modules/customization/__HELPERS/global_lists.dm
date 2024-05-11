@@ -1,4 +1,5 @@
 /proc/make_nova_datum_references()
+	init_prefs_emotes()
 	make_sprite_accessory_references()
 	make_default_mutant_bodypart_references()
 	make_body_marking_references()
@@ -30,6 +31,19 @@
 			//TODO: Replace "generic" definitions with something better
 			if(P.generic && !GLOB.generic_accessories[P.key])
 				GLOB.generic_accessories[P.key] = P.generic
+
+/proc/init_prefs_emotes()
+	//Scream types
+	for(var/spath in subtypesof(/datum/scream_type))
+		var/datum/scream_type/S = new spath()
+		GLOB.scream_types[S.name] = spath
+	sort_list(GLOB.scream_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
+
+	//Laugh types
+	for(var/spath in subtypesof(/datum/laugh_type))
+		var/datum/laugh_type/L = new spath()
+		GLOB.laugh_types[L.name] = spath
+	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 /proc/make_default_mutant_bodypart_references()
 	// Build the global list for default species' mutant_bodyparts

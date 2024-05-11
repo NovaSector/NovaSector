@@ -198,11 +198,7 @@
 	return TRUE
 
 /datum/bodypart_overlay/mutant/horns/get_global_feature_list()
-<<<<<<< HEAD
-	return GLOB.sprite_accessories["horns"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.horns_list
-=======
-	return SSaccessories.horns_list
->>>>>>> 5f44545da81 (Moves "sprite accessories" (e.g. Hair, Undergarments, Mutant Bits) from `GLOB` to a datasystem (#82847))
+	return GLOB.sprite_accessories["horns"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.horns_list
 
 ///The frills of a lizard (like weird fin ears)
 /obj/item/organ/external/frills
@@ -229,11 +225,7 @@
 	return FALSE
 
 /datum/bodypart_overlay/mutant/frills/get_global_feature_list()
-<<<<<<< HEAD
-	return GLOB.sprite_accessories["frills"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.frills_list
-=======
-	return SSaccessories.frills_list
->>>>>>> 5f44545da81 (Moves "sprite accessories" (e.g. Hair, Undergarments, Mutant Bits) from `GLOB` to a datasystem (#82847))
+	return GLOB.sprite_accessories["frills"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.frills_list
 
 ///Guess what part of the lizard this is?
 /obj/item/organ/external/snout
@@ -262,11 +254,7 @@
 	return FALSE
 
 /datum/bodypart_overlay/mutant/snout/get_global_feature_list()
-<<<<<<< HEAD
-	return GLOB.sprite_accessories["snout"] // NOVA EDIT - Customization - ORIGINAL : return GLOB.snouts_list
-=======
-	return SSaccessories.snouts_list
->>>>>>> 5f44545da81 (Moves "sprite accessories" (e.g. Hair, Undergarments, Mutant Bits) from `GLOB` to a datasystem (#82847))
+	return GLOB.sprite_accessories["snout"] // NOVA EDIT - Customization - ORIGINAL : return SSaccessories.snouts_list
 
 ///A moth's antennae
 /obj/item/organ/external/antennae
@@ -343,11 +331,7 @@
 	burn_datum = fetch_sprite_datum(burn_datum) //turn the path into the singleton instance
 
 /datum/bodypart_overlay/mutant/antennae/get_global_feature_list()
-<<<<<<< HEAD
-	return GLOB.sprite_accessories["moth_antennae"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.moth_antennae_list
-=======
-	return SSaccessories.moth_antennae_list
->>>>>>> 5f44545da81 (Moves "sprite accessories" (e.g. Hair, Undergarments, Mutant Bits) from `GLOB` to a datasystem (#82847))
+	return GLOB.sprite_accessories["moth_antennae"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.moth_antennae_list
 
 /datum/bodypart_overlay/mutant/antennae/get_base_icon_state()
 	return burnt ? burn_datum.icon_state : sprite_datum.icon_state

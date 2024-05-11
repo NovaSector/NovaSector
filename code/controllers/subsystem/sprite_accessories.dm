@@ -31,9 +31,14 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/undershirt_m //! stores only undershirt name
 	var/list/undershirt_f //! stores only undershirt name
 
+	var/list/bra_list
+	var/list/bra_m
+	var/list/bra_f
+
 	//Socks
 	var/list/socks_list //! stores /datum/sprite_accessory/socks indexed by name
 
+	/* NOVA EDIT REMOVAL START - Customization
 	//Lizard Bits (all datum lists indexed by name)
 	var/list/body_markings_list
 	var/list/snouts_list
@@ -53,8 +58,11 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/moth_wings_list
 	var/list/moth_antennae_list
 	var/list/moth_markings_list
+	*/ //NOVA EDIT REMOVAL END
 	var/list/caps_list
 	var/list/pod_hair_list
+	var/list/tails_list_monkey // NOVA EDIT ADDITION - Customization
+	var/list/moth_wings_list // NOVA EDIT ADDITION - Customization
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
 	setup_lists()
@@ -85,8 +93,16 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	undershirt_m = undershirt_lists[MALE_SPRITE_LIST]
 	undershirt_f = undershirt_lists[FEMALE_SPRITE_LIST]
 
+	// NOVA EDIT ADDITION START - Underwear/bra split
+	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/bra)
+	bra_list = GLOB.bra_list
+	bra_m = GLOB.bra_m
+	bra_f = GLOB.bra_f
+	// NOVA EDIT ADDITION END
+
 	socks_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/socks)[DEFAULT_SPRITE_LIST]
 
+	/* // NOVA EDIT REMOVAL START - Customization
 	body_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/body_markings)[DEFAULT_SPRITE_LIST]
 	tails_list_human = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
 	tails_list_lizard = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/lizard, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
@@ -104,7 +120,13 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	moth_wings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings)[DEFAULT_SPRITE_LIST]
 	moth_antennae_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae)[DEFAULT_SPRITE_LIST]
 	moth_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings)[DEFAULT_SPRITE_LIST]
+	*/ // NOVA EDIT REMOVAL END
 	pod_hair_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair)[DEFAULT_SPRITE_LIST]
+	// NOVA EDIT ADDITION START - Customization
+	tails_list_monkey = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	caps_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/caps, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	moth_wings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings)[DEFAULT_SPRITE_LIST]
+	// NOVA EDIT ADDITION END
 
 /// This proc just intializes all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 /datum/controller/subsystem/accessories/proc/init_hair_gradients()
