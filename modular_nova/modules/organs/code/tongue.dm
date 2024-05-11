@@ -165,4 +165,4 @@
 /obj/item/organ/internal/tongue/lizard/filterless/Initialize(mapload)
 	. = ..()
 
-	desc += " This one is noticably smooth, and would lack any non-hissing lisps if used."
+	desc += " This one is noticeably smooth, and would lack any non-hissing lisps if used."
