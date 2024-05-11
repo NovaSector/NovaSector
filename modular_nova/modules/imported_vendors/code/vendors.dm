@@ -18,7 +18,7 @@
 
 /datum/supply_pack/vending/imported/fill(obj/structure/closet/crate/target_crate)
 	. = ..()
-	for(var/obj/vendor_refill as anything in typesof(/obj/item/vending_refill/snack/imported) - /obj/item/vending_refill/snack/imported)
+	for(var/obj/vendor_refill as anything in subtypesof(/obj/item/vending_refill/snack/imported))
 		new vendor_refill(target_crate)
 
 /obj/machinery/vending/imported
@@ -28,7 +28,6 @@
 	default_price = PAYCHECK_CREW * 0.5
 	extra_price = PAYCHECK_COMMAND
 	payment_department = NO_FREEBIES
-
 
 /obj/machinery/vending/imported/nt
 	name = "NT Sustenance Supplier"
