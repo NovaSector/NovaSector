@@ -130,6 +130,16 @@
 	baseturfs = /turf/open/lava/plasma/forest
 	planetary_atmos = TRUE
 
+	icon = 'modular_nova/modules/serenitystation/icons/turfs/floors/plasma_forest.dmi'
+	mask_icon = 'modular_nova/modules/serenitystation/icons/turfs/floors/plasma_forest_mask.dmi'
+	icon_state = "plasma_forest-255"
+	mask_state = "plasma_forest-255"
+	base_icon_state = "plasma_forest"
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_LAVA
+	canSmoothWith = SMOOTH_GROUP_FLOOR_LAVA
+	underfloor_accessibility = 2 //This avoids strangeness when routing pipes / wires along catwalks over lava
+
 /turf/open/floor/plating/forest
 	icon_state = "plating"
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
