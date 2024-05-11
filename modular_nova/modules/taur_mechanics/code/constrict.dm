@@ -55,8 +55,8 @@
 		return TRUE
 
 	caller.balloon_alert_to_viewers("starts coiling tail")
-	caller.visible_message(span_warning("[caller] starts coiling their tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]..."), ignored_mobs = list(living_target))
-	to_chat(living_target, span_userdanger("[caller] starts coiling their tail around you!"))
+	caller.visible_message(span_warning("[caller] starts coiling [caller.p_their()] tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]..."), ignored_mobs = list(living_target))
+	to_chat(living_target, span_userdanger("[caller] starts coiling [caller.p_their()] tail around you!"))
 
 	owner.changeNext_move(base_coil_delay) // prevent interaction during this
 	unset_ranged_ability(owner) // because we sleep
