@@ -262,5 +262,21 @@
 	. = ..()
 	allowed += STUFF_WINTER_COATS_HOLD
 	AddComponent(/datum/component/toggle_icon, "sleeves")
+	
+/obj/item/clothing/suit/sleeveless_crop_jacket
+	name = "sleeveless crop-top jacket"
+	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
+		some barbarian has cut the entire bottom half out, as well as the sleeves."
+	icon_state = "crop_jacket"
+	greyscale_config = /datum/greyscale_config/sleeveless_crop_jacket
+	greyscale_config_worn = /datum/greyscale_config/sleeveless_crop_jacket/worn
+	greyscale_colors = "#ebebeb#a52f29"
+	body_parts_covered = CHEST
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/sleeveless_crop_jacket/Initialize(mapload)
+	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
 
 #undef STUFF_WINTER_COATS_HOLD
