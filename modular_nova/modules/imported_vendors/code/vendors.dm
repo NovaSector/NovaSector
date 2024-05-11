@@ -23,6 +23,7 @@
 
 /obj/machinery/vending/imported
 	icon = 'modular_nova/modules/imported_vendors/icons/imported_vendors.dmi'
+	icon_state = null
 	panel_type = "panel15"
 	default_price = PAYCHECK_CREW * 0.5
 	extra_price = PAYCHECK_COMMAND
