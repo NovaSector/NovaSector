@@ -343,6 +343,8 @@
 	if(fire_nuclear_particle)
 		source.fire_nuclear_particle()
 
+/mob/living/basic/spider/giant/hunter/mold
+	basic_mob_flags = DEL_ON_DEATH
 
 #undef MAX_MOLD_FOAM_RANGE_BULB
 #undef MAX_MOLD_FOAM_RANGE_CORE

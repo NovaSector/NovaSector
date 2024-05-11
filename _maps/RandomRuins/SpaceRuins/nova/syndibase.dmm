@@ -12,7 +12,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "aZ" = (
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "be" = (
 /obj/effect/spawner/random/trash/bin,
@@ -57,10 +57,10 @@
 /area/ruin/space/has_grav/powered)
 "dY" = (
 /obj/structure/chair/sofa/corp/left,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "ei" = (
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "eo" = (
 /obj/machinery/atmospherics/components/tank/air{
@@ -68,15 +68,9 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
-"eB" = (
-/obj/structure/table/reinforced,
-/obj/effect/spawner/random/engineering/material_rare,
-/obj/effect/spawner/random/engineering/material_rare,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
 "eL" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/random/exotic/antag_gear,
+/obj/effect/spawner/random/engineering/material_rare,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "eT" = (
@@ -92,7 +86,7 @@
 /area/ruin/space/has_grav/powered)
 "hE" = (
 /mob/living/basic/trooper/syndicate/ranged/space/anthro/cat,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "if" = (
 /mob/living/basic/trooper/syndicate/ranged,
@@ -167,7 +161,7 @@
 /area/ruin/space/has_grav/powered)
 "pL" = (
 /obj/structure/table/reinforced,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "qo" = (
 /obj/structure/table/reinforced,
@@ -189,16 +183,16 @@
 /area/ruin/space/has_grav/powered)
 "tD" = (
 /obj/structure/chair/sofa/corp/right,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav/powered)
+"tE" = (
+/mob/living/basic/trooper/syndicate/ranged/smg/space/stormtrooper,
+/turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "tH" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
-"uf" = (
-/mob/living/basic/trooper/nanotrasen/ranged/elite,
-/turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "vf" = (
 /obj/structure/table/reinforced,
@@ -256,6 +250,12 @@
 /obj/item/circular_saw/alien,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+"Cv" = (
+/obj/structure/safe,
+/obj/item/syndicrate_key,
+/obj/effect/spawner/random/exotic/antag_gear,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "Da" = (
 /obj/machinery/power/smes/magical{
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Produces power through an unstable bluespace pocket.";
@@ -271,7 +271,7 @@
 /area/ruin/space/has_grav/powered)
 "DI" = (
 /mob/living/basic/trooper/syndicate/melee/space/stormtrooper,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "DM" = (
 /obj/structure/table/optable,
@@ -300,10 +300,14 @@
 /area/ruin/space/has_grav/powered)
 "EL" = (
 /mob/living/basic/trooper/syndicate/melee/sword/space,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "FA" = (
 /obj/effect/spawner/random/entertainment/arcade,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"FH" = (
+/mob/living/basic/trooper/syndicate/melee/sword/space/stormtrooper,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "FJ" = (
@@ -311,6 +315,7 @@
 	req_access = list("syndicate")
 	},
 /obj/structure/fans/tiny,
+/obj/structure/fans/tiny/invisible,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered)
 "Gp" = (
@@ -328,6 +333,10 @@
 /obj/item/retractor/advanced{
 	pixel_y = 3
 	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"Hb" = (
+/mob/living/basic/trooper/syndicate/ranged/smg/space/stormtrooper,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "HA" = (
@@ -350,6 +359,14 @@
 /obj/item/paper{
 	pixel_x = 3
 	},
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
+"IG" = (
+/obj/structure/closet/crate/secure/syndicrate,
+/obj/item/stack/spacecash/c10000,
+/obj/item/mod/control/pre_equipped/empty/syndicate,
+/obj/item/mod/module/clamp,
+/obj/item/mod/module/storage/syndicate,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Kn" = (
@@ -387,7 +404,7 @@
 /obj/machinery/porta_turret/syndicate/energy{
 	dir = 9
 	},
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "NA" = (
 /obj/machinery/computer{
@@ -414,10 +431,7 @@
 /area/ruin/space)
 "Qt" = (
 /obj/structure/showcase/machinery/signal_decrypter,
-/turf/open/misc/asteroid/lowpressure,
-/area/ruin/space/has_grav/powered)
-"Qw" = (
-/turf/closed/wall/mineral/plastitanium,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "RI" = (
 /obj/structure/table,
@@ -479,7 +493,7 @@
 /area/ruin/space/has_grav/powered)
 "Yw" = (
 /obj/structure/barricade/sandbags,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/powered)
 "ZK" = (
 /obj/structure/fluff/empty_sleeper/syndicate{
@@ -673,10 +687,10 @@ eL
 Eu
 bg
 Iw
-Qw
+Mr
 Kw
 Kw
-Qw
+Mr
 Pl
 wU
 Vo
@@ -701,7 +715,7 @@ Ew
 ck
 qT
 qT
-Qw
+Mr
 qT
 qT
 il
@@ -732,7 +746,7 @@ qT
 ME
 qT
 qT
-Qw
+Mr
 eT
 ka
 Uh
@@ -757,10 +771,10 @@ cL
 Dh
 qT
 qT
-Qw
+Mr
 qT
 dc
-Qw
+Mr
 vS
 jV
 np
@@ -781,17 +795,17 @@ ei
 ei
 ei
 Mr
-Qw
-Qw
-Qw
+Mr
+Mr
+Mr
 ME
-Qw
+Mr
 qT
 qT
-Qw
-Qw
-Qw
-Qw
+Mr
+Mr
+Mr
+Mr
 Mr
 PT
 DO
@@ -864,7 +878,7 @@ ei
 ei
 ei
 MZ
-Qw
+Mr
 qT
 qT
 qT
@@ -891,19 +905,19 @@ Mr
 Mr
 Mr
 FJ
-Qw
-Qw
+Mr
+Mr
 qT
 qT
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
 ME
-Qw
+Mr
 Mr
 PT
 PT
@@ -915,7 +929,7 @@ Mr
 wf
 kw
 dM
-Qw
+Mr
 FA
 qT
 qT
@@ -923,7 +937,7 @@ qT
 qT
 qT
 qT
-Qw
+Mr
 GV
 ok
 TG
@@ -971,7 +985,7 @@ Mr
 eT
 eT
 eT
-Qw
+Mr
 qT
 qT
 qT
@@ -979,7 +993,7 @@ Ws
 qT
 qT
 qT
-Qw
+Mr
 oG
 qT
 Gp
@@ -999,15 +1013,15 @@ Mr
 eo
 eT
 LE
-Qw
+Mr
 qT
 qT
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
 WT
 qT
 qT
@@ -1027,15 +1041,15 @@ Mr
 eo
 eT
 oP
-Qw
+Mr
 qT
 qT
-Qw
-eB
+Mr
+eL
 vf
 kl
 Kn
-Qw
+Mr
 oG
 qT
 fW
@@ -1053,23 +1067,23 @@ PT
 PT
 Mr
 eT
+tE
 eT
-eT
-Qw
+Mr
 qT
 qT
-Qw
+Mr
 Ew
 dc
 qT
 Ws
-Qw
+Mr
 oG
 qT
 qT
 VF
 DM
-qT
+Hb
 qT
 zZ
 Mr
@@ -1081,14 +1095,14 @@ PT
 PT
 Mr
 Da
-uf
+eT
 GG
-Qw
+Mr
 qT
 qT
-Qw
-Ew
-Gp
+Mr
+Cv
+FH
 tH
 qT
 ME
@@ -1111,15 +1125,15 @@ Mr
 Da
 eT
 sN
-Qw
+Mr
 if
 qT
-Qw
+Mr
 Ew
 qT
-Gp
+FH
 PD
-Qw
+Mr
 Ew
 qT
 qT
@@ -1139,15 +1153,15 @@ Mr
 Da
 eT
 qo
-Qw
+Mr
 be
 qT
-Qw
+Mr
 nL
-qT
+IG
 bY
 NA
-Qw
+Mr
 Bf
 NA
 NA

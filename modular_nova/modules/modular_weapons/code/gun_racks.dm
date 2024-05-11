@@ -15,7 +15,7 @@
 
 /obj/structure/rack/gunrack/attackby(obj/item/attacking_item, mob/living/user, params)
 	var/list/modifiers = params2list(params)
-	if(attacking_item.tool_behaviour == TOOL_WRENCH && !(obj_flags & NO_DECONSTRUCTION) && LAZYACCESS(modifiers, RIGHT_CLICK))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH && LAZYACCESS(modifiers, RIGHT_CLICK))
 		attacking_item.play_tool_sound(src)
 		deconstruct(TRUE)
 		return

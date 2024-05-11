@@ -9,6 +9,7 @@
 	flavour_text = "On the recently reclaimed Port Tarkon, You are tasked to help finish construction and carry on any tasks given by the site director. It may be best to look at your departmental noteboard. (OOC note: This ghost role was not designed with Plasmamen or Vox in mind. While there are some accommodations so that they can survive, it should be noted that they were not the focal point whilst designing Port Tarkon. The closet in the middle of the room above contains the 'accommodations' for those species.)"
 	important_text = "You are not to abandon Port Tarkon. Check other sleepers for alternative jobs. Listen to the Site Director and Ensign."
 	outfit = /datum/outfit/tarkon
+	faction = list(FACTION_TARKON)
 	spawner_job_path = /datum/job/tarkon
 	loadout_enabled = TRUE
 	quirks_enabled = TRUE
@@ -192,16 +193,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	max_mobs = 4
 	spawn_time = 30 SECONDS
 	mob_types = list(
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone,
-		/mob/living/simple_animal/hostile/alien/sentinel
+		/mob/living/basic/alien,
+		/mob/living/basic/alien/drone,
+		/mob/living/basic/alien/sentinel
 	)
 	spawn_text = "crawls out of"
 	faction = list(ROLE_TARKALIEN)
-	var/boss_mob = /mob/living/simple_animal/hostile/alien/queen/large
+	var/boss_mob = /mob/living/basic/alien/queen/large
 	var/loot_drop = /obj/effect/mob_spawn/corpse/human/tarkon
 
-/obj/structure/spawner/tarkon_xenos/deconstruct(disassembled)
+/obj/structure/spawner/tarkon_xenos/atom_deconstruct(disassembled)
 	new /obj/effect/nest_break(loc, loot_drop, boss_mob)
 	return ..()
 
@@ -221,7 +222,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 		shake_camera(shooken, 15, 1)
 	playsound(get_turf(src),'sound/effects/explosionfar.ogg', 200, TRUE)
 	visible_message(span_boldannounce("The nest's entrance starts to crumble before something charges forth!"))
-	new boss_mob(loc)
+	var/mob/living/basic/boss_baby = new boss_mob(loc)
+	boss_baby.faction = faction
 	new loot_drop(loc)
 	qdel(src)
 
@@ -242,7 +244,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	max_integrity = 300
 	max_mobs = 2
 	spawn_time = 40 SECONDS
-	boss_mob = /mob/living/simple_animal/hostile/alien/queen
+	boss_mob = /mob/living/basic/alien/queen
 	loot_drop = /obj/effect/spawner/random/astrum/sci_loot/tarkon
 
 /obj/structure/spawner/tarkon_xenos/minor
@@ -254,10 +256,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 	max_mobs = 1
 	spawn_time = 40 SECONDS
 	mob_types = list(
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone
+		/mob/living/basic/alien,
+		/mob/living/basic/alien/drone
 	)
-	boss_mob = /mob/living/simple_animal/hostile/alien/sentinel
+	boss_mob = /mob/living/basic/alien/sentinel
 	loot_drop = /obj/effect/spawner/random/exotic/technology/tarkon
 
 /obj/effect/spawner/random/astrum/sci_loot/tarkon

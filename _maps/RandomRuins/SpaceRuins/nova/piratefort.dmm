@@ -92,6 +92,13 @@
 /mob/living/basic/trooper/nanotrasen/peaceful,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
+"dG" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 4
+	},
+/mob/living/basic/trooper/pirate/melee/space,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "dI" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate/large,
@@ -176,9 +183,7 @@
 /area/ruin/space/has_grav/powered)
 "ge" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
+/obj/structure/closet/crate/secure,
 /obj/item/laser_pointer,
 /obj/item/lazarus_injector,
 /obj/effect/turf_decal/tile/brown/full,
@@ -281,7 +286,7 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered)
 "kb" = (
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "kh" = (
 /obj/structure/safe,
@@ -300,6 +305,7 @@
 /obj/item/stack/sheet/bluespace_crystal{
 	amount = 10
 	},
+/obj/item/syndicrate_key,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
 "km" = (
@@ -394,10 +400,8 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "nJ" = (
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
 /obj/item/storage/backpack/holding/satchel,
+/obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
 "ok" = (
@@ -429,11 +433,8 @@
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
-"oR" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/space/has_grav/powered)
 "oZ" = (
-/turf/open/floor/engine,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "pu" = (
 /mob/living/basic/trooper/syndicate/ranged{
@@ -553,9 +554,6 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered)
 "tC" = (
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
 /obj/item/stack/sheet/plastic/fifty,
 /obj/effect/spawner/random/entertainment/coin,
 /obj/effect/spawner/random/entertainment/coin,
@@ -569,6 +567,7 @@
 /obj/effect/spawner/random/entertainment/money,
 /obj/effect/spawner/random/entertainment/money_large,
 /obj/effect/spawner/random/entertainment/money_large,
+/obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
 "tD" = (
@@ -650,9 +649,7 @@
 /turf/closed/mineral/random/asteroid,
 /area/ruin/space)
 "vY" = (
-/obj/structure/closet/crate/secure/plasma{
-	req_access = list("armory")
-	},
+/obj/structure/closet/crate/secure/plasma,
 /obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/spawner/random/engineering/material_rare,
@@ -787,9 +784,6 @@
 /area/ruin/space/has_grav/powered)
 "yP" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
 /obj/item/stack/sheet/mineral/gold{
 	amount = 10
 	},
@@ -797,6 +791,7 @@
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "yU" = (
@@ -1004,9 +999,7 @@
 /area/ruin/space/has_grav/powered)
 "Gf" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
+/obj/structure/closet/crate/secure,
 /obj/item/retractor/alien,
 /obj/item/scalpel/alien,
 /obj/effect/turf_decal/tile/brown/full,
@@ -1029,9 +1022,6 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/powered)
 "Ht" = (
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
 /obj/effect/spawner/random/engineering/material,
 /obj/effect/spawner/random/engineering/material,
 /obj/effect/spawner/random/engineering/material_rare,
@@ -1039,11 +1029,17 @@
 /obj/effect/spawner/random/engineering/material_rare,
 /obj/effect/spawner/random/engineering/material_cheap,
 /obj/effect/spawner/random/engineering/material_cheap,
+/obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered)
 "Iy" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
+/area/ruin/space/has_grav/powered)
+"IY" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "Jd" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
@@ -1094,6 +1090,13 @@
 	faction = list("pirate")
 	},
 /turf/closed/wall/r_wall/syndicate,
+/area/ruin/space/has_grav/powered)
+"KZ" = (
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 8
+	},
+/mob/living/basic/trooper/pirate/melee/space,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "LG" = (
 /mob/living/basic/trooper/pirate/melee,
@@ -1192,8 +1195,12 @@
 /area/ruin/space/has_grav/powered)
 "Ph" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/open/floor/engine,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
+"Pl" = (
+/mob/living/basic/trooper/pirate/melee/space,
+/turf/open/floor/iron/dark,
+/area/ruin/space/has_grav/powered)
 "Qc" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/corner{
 	dir = 1
@@ -1202,9 +1209,7 @@
 /area/ruin/space/has_grav/powered)
 "Qr" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure{
-	req_access = list("armory")
-	},
+/obj/structure/closet/crate/secure,
 /obj/item/raw_anomaly_core/random,
 /obj/item/raw_anomaly_core/random,
 /obj/item/raw_anomaly_core/random,
@@ -1282,7 +1287,7 @@
 /area/ruin/space/has_grav/powered)
 "TK" = (
 /mob/living/basic/trooper/pirate/ranged/space,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "TO" = (
 /obj/machinery/door/airlock/vault{
@@ -1326,7 +1331,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "UH" = (
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/indestructible{
 	id = "piratefortloot"
 	},
 /turf/open/floor/iron/dark,
@@ -1349,7 +1354,6 @@
 /area/ruin/space/has_grav/powered)
 "Vx" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/crate/secure/loot,
 /obj/item/stack/sheet/mineral/diamond{
 	amount = 8
 	},
@@ -1357,11 +1361,12 @@
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
 /obj/effect/turf_decal/tile/brown/full,
+/obj/structure/closet/crate/secure/cargo,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "VI" = (
 /mob/living/basic/trooper/pirate/melee/space,
-/turf/open/misc/asteroid/lowpressure,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space)
 "VL" = (
 /mob/living/basic/trooper/pirate/melee,
@@ -1687,7 +1692,7 @@ hN
 hN
 hN
 hN
-hN
+KZ
 hN
 xw
 ih
@@ -1719,12 +1724,12 @@ dP
 dP
 dP
 dP
-LG
+Pl
 dP
 dP
 dP
 dP
-LG
+dP
 dP
 dP
 dP
@@ -1734,7 +1739,7 @@ dP
 Xe
 Ss
 eY
-Ss
+IY
 kb
 kb
 kb
@@ -1768,7 +1773,7 @@ Kj
 Kj
 Kj
 Kj
-Kj
+dG
 Kj
 Kj
 Kj
@@ -1798,24 +1803,24 @@ UM
 UM
 km
 BS
-LG
+Pl
 Xe
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
 YJ
-oR
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
+ih
+ih
 ih
 kb
 kb
@@ -1842,17 +1847,17 @@ km
 BS
 dP
 Xe
-oR
+ih
 Kk
 Kk
 Kk
 nw
 Qr
 MB
-oR
+ih
 ox
 wL
-oR
+ih
 RQ
 Iy
 zQ
@@ -1891,7 +1896,7 @@ eV
 eV
 vE
 vU
-oR
+ih
 CV
 Jz
 YJ
@@ -1926,23 +1931,23 @@ km
 BS
 dP
 Xe
-oR
+ih
 ge
 Nn
 NJ
 vF
 Nn
 Gf
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
 Js
 Js
 Js
 Js
 Js
-YM
+ih
 ih
 ih
 ih
@@ -1968,14 +1973,14 @@ ih
 BS
 dP
 Xe
-oR
+ih
 hl
 xg
 eV
 Nz
 Et
 fN
-oR
+ih
 WT
 us
 Js
@@ -2010,14 +2015,14 @@ ih
 FP
 Kj
 zx
-oR
+ih
 Vx
 yP
 dI
 be
 Yy
 Tm
-oR
+ih
 xV
 us
 Js
@@ -2026,7 +2031,7 @@ jK
 jK
 ga
 Js
-oR
+ih
 FP
 LI
 Kj
@@ -2048,18 +2053,18 @@ vX
 vX
 ih
 ih
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
 FL
-oR
-oR
+ih
+ih
 yr
 us
 Js
@@ -2068,15 +2073,15 @@ Ej
 Ao
 Um
 Js
-oR
+ih
 ox
 Jz
-oR
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
+ih
+ih
 BS
 Xe
 ih
@@ -2094,14 +2099,14 @@ Re
 ET
 Zz
 wG
-oR
+ih
 Qw
 zk
 MY
 Fb
 wL
 ox
-oR
+ih
 EH
 us
 Js
@@ -2110,15 +2115,15 @@ sA
 CN
 Um
 Js
-oR
-oR
+ih
+ih
 dO
-oR
+ih
 NM
 yl
 mx
 El
-oR
+ih
 BS
 Xe
 ih
@@ -2136,14 +2141,14 @@ Hi
 Re
 Fj
 LM
-oR
+ih
 xL
 Gm
 hN
 hN
 hd
 DF
-oR
+ih
 ru
 us
 Js
@@ -2152,15 +2157,15 @@ ad
 ad
 Mc
 Js
-oR
+ih
 TD
 eY
-oR
+ih
 XT
 vR
 cR
 sz
-oR
+ih
 BS
 Xe
 ih
@@ -2178,14 +2183,14 @@ Re
 UL
 Js
 Js
-oR
+ih
 Gm
 BV
 dP
 dP
 dP
 gZ
-oR
+ih
 qX
 us
 Js
@@ -2194,15 +2199,15 @@ Js
 Js
 Js
 Js
-oR
+ih
 RG
 eY
-oR
+ih
 WI
 vR
 cR
 qq
-oR
+ih
 BS
 Ma
 ih
@@ -2227,7 +2232,7 @@ dP
 dP
 LG
 Xe
-oR
+ih
 FW
 us
 us
@@ -2236,15 +2241,15 @@ us
 us
 Js
 Js
-oR
+ih
 lV
 eY
-oR
+ih
 jj
 sV
 Jd
 tD
-oR
+ih
 BS
 Xe
 ih
@@ -2262,14 +2267,14 @@ sS
 SX
 ap
 ap
-oR
+ih
 TY
 BS
 dP
 dP
 dP
 Xe
-oR
+ih
 yo
 us
 ff
@@ -2278,15 +2283,15 @@ Yn
 us
 ln
 rQ
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
+ih
 Oo
 Oo
-oR
-oR
+ih
+ih
 FP
 zx
 ih
@@ -2303,24 +2308,24 @@ ih
 ih
 ih
 ih
-oR
-oR
+ih
+ih
 TY
 Uu
 aD
 aD
 CM
 Xe
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
+ih
 cy
 EA
 Qw
@@ -2328,7 +2333,7 @@ ko
 Gm
 DF
 pV
-oR
+ih
 dP
 mV
 ih
@@ -2345,7 +2350,7 @@ vX
 vX
 vX
 vX
-YM
+ih
 cx
 EP
 mg
@@ -2353,7 +2358,7 @@ hw
 yU
 BS
 Xe
-oR
+ih
 ox
 Gm
 hN
@@ -2362,7 +2367,7 @@ hN
 hN
 hN
 DF
-oR
+ih
 xX
 rA
 AA
@@ -2370,7 +2375,7 @@ uc
 Zj
 na
 pV
-oR
+ih
 Gm
 DF
 ih
@@ -2382,12 +2387,12 @@ Ug
 vX
 vX
 vX
+vX
+vX
+vX
+vX
+vX
 ih
-ih
-ih
-ih
-ih
-oR
 cx
 EC
 Xe
@@ -2412,7 +2417,7 @@ tZ
 xb
 bR
 DF
-oR
+ih
 BS
 Xe
 ih
@@ -2424,12 +2429,12 @@ Ug
 Ug
 vX
 vX
+vX
 ih
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
 Gm
 Qc
 DY
@@ -2437,7 +2442,7 @@ Ok
 jc
 Uu
 zx
-oR
+ih
 FP
 Kj
 Kj
@@ -2446,7 +2451,7 @@ Kj
 xD
 Kj
 zx
-oR
+ih
 Ze
 JO
 UG
@@ -2454,7 +2459,7 @@ AS
 tZ
 BS
 Xe
-oR
+ih
 BS
 Xe
 ih
@@ -2466,12 +2471,12 @@ Ug
 Ug
 vX
 vX
+vX
 ih
-oR
 nJ
 Ht
 tC
-oR
+ih
 BS
 dP
 yE
@@ -2479,16 +2484,16 @@ hN
 ok
 mg
 An
-oR
-oR
+ih
+ih
 Zs
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
 Zs
-oR
-oR
+ih
+ih
 wT
 JO
 fa
@@ -2496,7 +2501,7 @@ ou
 fa
 BS
 Xe
-oR
+ih
 BS
 Xe
 ih
@@ -2508,8 +2513,8 @@ Ug
 vX
 vX
 vX
+vX
 ih
-oR
 Fd
 wv
 Fd
@@ -2521,7 +2526,7 @@ dP
 dP
 Xe
 Jw
-oR
+ih
 MX
 Js
 Js
@@ -2530,7 +2535,7 @@ Js
 Js
 Js
 pA
-oR
+ih
 Dy
 pu
 hN
@@ -2550,8 +2555,8 @@ Ug
 vX
 vX
 vX
+vX
 ih
-oR
 Fd
 Fd
 Fd
@@ -2563,7 +2568,7 @@ dP
 dP
 Xe
 pV
-oR
+ih
 MX
 Js
 Js
@@ -2572,7 +2577,7 @@ gz
 Js
 Js
 Js
-oR
+ih
 ox
 FP
 Kj
@@ -2580,7 +2585,7 @@ LI
 Kj
 Kj
 zx
-oR
+ih
 CV
 Jz
 ih
@@ -2592,12 +2597,12 @@ Ug
 Ug
 vX
 vX
+vX
 ih
-oR
 bF
 vY
 kh
-oR
+ih
 FP
 gl
 dP
@@ -2605,7 +2610,7 @@ dP
 dP
 DY
 pV
-oR
+ih
 Js
 Gc
 Js
@@ -2614,16 +2619,16 @@ xM
 Js
 Js
 Js
-oR
-oR
+ih
+ih
 nj
-oR
+ih
 nf
-oR
+ih
 nj
-oR
-oR
-oR
+ih
+ih
+ih
 vW
 ih
 vX
@@ -2634,12 +2639,12 @@ Ug
 Ug
 vX
 vX
+vX
 ih
-oR
-oR
-oR
-oR
-oR
+ih
+ih
+ih
+ih
 cx
 FP
 Kj
@@ -2647,7 +2652,7 @@ Kj
 Kj
 zx
 MY
-oR
+ih
 Js
 Js
 Js
@@ -2656,15 +2661,15 @@ Js
 Js
 Js
 Js
-oR
+ih
 Fd
 Fd
-oR
+ih
 nf
-oR
+ih
 Fd
 Fd
-oR
+ih
 hC
 Kb
 ih
@@ -2676,12 +2681,12 @@ vX
 Ug
 vX
 vX
+vX
+vX
+vX
+vX
+vX
 ih
-ih
-ih
-ih
-ih
-oR
 WA
 WA
 Ef
@@ -2689,7 +2694,7 @@ Fb
 Fb
 Yt
 Wd
-oR
+ih
 wR
 Iy
 wR
@@ -2698,15 +2703,15 @@ wR
 gP
 wR
 dv
-oR
+ih
 dF
 Fd
-oR
+ih
 Jz
-oR
+ih
 Fd
 VZ
-oR
+ih
 hC
 di
 ih

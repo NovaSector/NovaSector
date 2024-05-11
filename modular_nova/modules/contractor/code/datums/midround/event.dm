@@ -2,7 +2,8 @@
 	name = "Drifting Contractor"
 	typepath = /datum/round_event/ghost_role/contractor
 	weight = 8
-	max_occurrences = 1
+	max_occurrences = 0
+	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_INVASION
 	description = "A pre-equipped contractor floats towards the station to fulfill contracts."
 

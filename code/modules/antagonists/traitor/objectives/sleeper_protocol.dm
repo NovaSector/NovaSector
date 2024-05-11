@@ -18,8 +18,8 @@
 		JOB_CHIEF_MEDICAL_OFFICER,
 		JOB_MEDICAL_DOCTOR,
 		JOB_PARAMEDIC,
-		JOB_VIROLOGIST,
 		JOB_ROBOTICIST,
+		JOB_VIROLOGIST, // Nova Edit Addition: Virology
 	)
 
 	var/obj/item/disk/surgery/sleeper_protocol/disk

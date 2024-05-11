@@ -428,13 +428,14 @@
 				ROLE_REV_HEAD,
 				ROLE_SENTIENT_DISEASE,
 				ROLE_SPIDER,
+				ROLE_SPY,
 				ROLE_SYNDICATE,
 				ROLE_TRAITOR,
 				ROLE_WIZARD,
-				ROLE_BORER, //NOVA EDIT
-				ROLE_ASSAULT_OPERATIVE, //NOVA EDIT
+				ROLE_BORER, // NOVA EDIT ADDITION
+				ROLE_ASSAULT_OPERATIVE, // NOVA EDIT ADDITION
 			),
-			"Skyrat Ban Options" = list(
+			"Nova Ban Options" = list(
 				BAN_PACIFICATION,
 				BAN_DONOTREVIVE,
 				BAN_RESPAWN,
@@ -444,8 +445,8 @@
 				BAN_EORG,
 				BAN_ANTAGONIST,
 				BAN_OPFOR,
-				BAN_LOOC, //SKYRAT ADDITION - LOOC muting again
-			),//NOVA EDIT ADDITION - EXTRA_BANS
+				BAN_LOOC, // NOVA EDIT ADDITION - LOOC muting again
+			), // NOVA EDIT ADDITION - EXTRA_BANS
 		)
 		for(var/department in long_job_lists)
 			output += "<div class='column'><label class='rolegroup long [ckey(department)]'>[tgui_fancy ? "<input type='checkbox' name='[department]' class='hidden' onClick='header_click_all_checkboxes(this)'>" : ""][department]</label><div class='content'>"
@@ -636,7 +637,7 @@
 	duration = text2num(duration)
 	if (!(interval in list("SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "YEAR")))
 		interval = "MINUTE"
-	var/time_message = "[duration] [lowertext(interval)]" //no DisplayTimeText because our duration is of variable interval type
+	var/time_message = "[duration] [LOWER_TEXT(interval)]" //no DisplayTimeText because our duration is of variable interval type
 	if(duration > 1) //pluralize the interval if necessary
 		time_message += "s"
 	var/is_server_ban = (roles_to_ban[1] == "Server")

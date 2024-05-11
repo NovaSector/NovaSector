@@ -8,7 +8,7 @@
 	if(connectable)
 		AddComponent(/datum/component/connectable_computer)
 
-/obj/machinery/modular_computer/console/Initialize(mapload)
+/obj/machinery/modular_computer/Initialize(mapload)
 	. = ..()
 
 	// Modular consoles all have the same case.

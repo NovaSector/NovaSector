@@ -72,6 +72,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Crab" = /mob/living/basic/crab,
 	"Deer" = /mob/living/basic/deer,
 	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
+	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
 	"Frog" = /mob/living/basic/frog,
 	"Giant ant" = /mob/living/basic/ant,

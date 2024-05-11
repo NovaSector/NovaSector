@@ -9,7 +9,7 @@
 	filename = "nt_messenger"
 	filedesc = "Direct Messenger"
 	downloader_category = PROGRAM_CATEGORY_DEVICE
-	program_open_overlay = "command"
+	program_open_overlay = "text"
 	extended_desc = "This program allows old-school communication with other modular devices."
 	size = 0
 	undeletable = TRUE // It comes by default in tablets, can't be downloaded, takes no space and should obviously not be able to be deleted.
@@ -293,7 +293,7 @@
 
 				return disk.send_virus(computer, target_messenger.computer, usr, params["message"])
 
-			return send_message(usr, params["message"], list(target))
+			return send_message(usr, params["message"], list(target), subtle = params["subtle"]) // NOVA EDIT CHANGE - ORIGINAL: return send_message(usr, params["message"], list(target))
 
 		if("PDA_clearPhoto")
 			selected_image = null
@@ -386,7 +386,7 @@
 //////////////////////
 
 /// Brings up the quick reply prompt to send a message.
-/datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat)
+/datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat, subtle = FALSE) // NOVA EDIT ADDITION - ORIGINAL: /datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat)
 	if(!istype(chat))
 		return
 	var/datum/computer_file/program/messenger/target = chat.recipient?.resolve()
@@ -397,7 +397,7 @@
 		return
 	var/target_name = target.computer.saved_identification
 	var/input_message = tgui_input_text(user, "Enter [mime_mode ? "emojis":"a message"]", "NT Messaging[target_name ? " ([target_name])" : ""]", encode = FALSE)
-	send_message(user, input_message, list(chat))
+	send_message(user, input_message, list(chat), subtle = subtle)
 
 /// Helper proc that sends a message to everyone
 /datum/computer_file/program/messenger/proc/send_message_to_all(mob/living/user, message)
@@ -466,7 +466,7 @@
 	return message
 
 /// Sends a message to targets via PDA. When sending to everyone, set `everyone` to true so the message is formatted accordingly
-/datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE)
+/datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE, subtle = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE)
 	var/mob/living/sender
 	if(isliving(source))
 		sender = source
@@ -474,6 +474,13 @@
 	if(!message)
 		return FALSE
 
+	// NOVA ADDITION BEGIN
+	// If "subtle" it wont be sent to ghostchats.
+	// A message is "subtle" if it begins with "#", the below code also removes it from the sent message.
+	if(findtext(message,"#") == 1)
+		subtle = TRUE
+		message = copytext(message,2,0)
+	// NOVA ADDITION END
 
 	// upgrade the image asset to a permanent key
 	var/photo_asset_key = selected_image
@@ -535,11 +542,12 @@
 		target_chats += target_chat
 		target_messengers += target_messenger
 
-	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
+
+	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone, FALSE, null, null, subtle)) // NOVA EDIT CHANGE - ORIGINAL: if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
 		return FALSE
 
 	// Log it in our logs
-	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
+	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle = subtle) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
 	for(var/datum/pda_chat/target_chat as anything in target_chats)
 		target_chat.add_message(message_datum, show_in_recents = !everyone)
 		target_chat.unread_messages = 0
@@ -565,7 +573,7 @@
 
 	return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job)
 
-/datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
+/datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null, subtle = FALSE) // NOVA EDIT ADDITION - ORIGINAL: /datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
 	var/mob/sender
 	if(ismob(source))
 		sender = source
@@ -601,6 +609,7 @@
 		"everyone" = everyone,
 		"photo" = photo_path,
 		"automated" = FALSE,
+		"subtle" = subtle, // NOVA EDIT ADDITION
 	))
 	if(rigged) //Will skip the message server and go straight to the hub so it can't be cheesed by disabling the message server machine
 		signal.data["fakename"] = fake_name
@@ -628,7 +637,7 @@
 		shell_addendum = "[circuit.parent.get_creator()] "
 
 	// Log in the talk log
-	source.log_talk(message, LOG_PDA, tag="[shell_addendum][rigged ? "Rigged" : ""] PDA: [computer.saved_identification] to [signal.format_target()]")
+	source.log_talk(message, LOG_PDA, tag="[shell_addendum][rigged ? "Rigged" : ""] PDA[subtle ? "(Subtle)" : ""]: [computer.saved_identification] to [signal.format_target()]") // NOVA EDIT CHANGE - ORIGINAL: source.log_talk(message, LOG_PDA, tag="[shell_addendum][rigged ? "Rigged" : ""] PDA: [computer.saved_identification] to [signal.format_target()]")
 	if(rigged)
 		log_bomber(sender, "sent a rigged PDA message (Name: [fake_name]. Job: [fake_job]) to [english_list(stringified_targets)] [!is_special_character(sender) ? "(SENT BY NON-ANTAG)" : ""]")
 
@@ -637,10 +646,18 @@
 	// Show it to ghosts
 	var/ghost_message = span_game_say("[span_name("[source]")] [rigged ? "(as [span_name(fake_name)]) Rigged " : ""]PDA Message --> [span_name("[signal.format_target()]")]: \"[signal.format_message()]\"")
 	var/list/message_listeners = GLOB.dead_player_list + GLOB.current_observers_list
-	for(var/mob/listener as anything in message_listeners)
-		if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
-			continue
-		to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	/** NOVA EDIT CHANGE BEGIN - ORIGINAL:
+	//	for(var/mob/listener as anything in message_listeners)
+	//	if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
+	//		continue
+	//	to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	*/
+	if(!subtle)
+		for(var/mob/listener as anything in message_listeners)
+			if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
+				continue
+			to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	// NOVA EDIT CHANGE END
 
 	if(sender)
 		to_chat(sender, span_info("PDA message sent to [signal.format_target()]: \"[message]\""))
@@ -669,7 +686,7 @@
 
 	// don't create a new chat for rigged messages, make it a one off notif
 	if(!is_rigged)
-		var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"])
+		var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"], signal.data["subtle"]) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"])
 
 		chat = find_chat_by_recipient(is_fake_user ? fake_name : sender_ref, is_fake_user)
 		if(!istype(chat))

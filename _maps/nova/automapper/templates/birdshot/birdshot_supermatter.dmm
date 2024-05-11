@@ -2,70 +2,57 @@
 "a" = (
 /turf/template_noop,
 /area/template_noop)
-"b" = (
-/obj/effect/turf_decal/stripes/red/box,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 8
-	},
-/turf/open/floor/iron/smooth,
-/area/station/engineering/supermatter/room)
 "j" = (
-/obj/machinery/airalarm/directional/south,
+/obj/machinery/button/delam_scram,
 /turf/template_noop,
 /area/template_noop)
 "v" = (
-/obj/structure/sign/delam_procedure,
+/obj/machinery/atmospherics/components/unary/delam_scram/directional/west,
 /turf/template_noop,
 /area/template_noop)
 "B" = (
-/obj/machinery/button/delam_scram,
-/turf/closed/wall,
-/area/station/engineering/supermatter/room)
-"D" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
-/obj/effect/turf_decal/trimline/yellow/line{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron/smooth,
-/area/station/engineering/supermatter/room)
-"T" = (
-/obj/machinery/atmospherics/components/unary/delam_scram/directional/east,
+/obj/structure/sign/delam_procedure/directional/east,
 /turf/template_noop,
 /area/template_noop)
+"T" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/obj/effect/spawner/random/engineering/tracking_beacon,
+/obj/effect/turf_decal/stripes/red/box,
+/turf/open/floor/iron/smooth,
+/area/station/engineering/supermatter/room)
 
 (1,1,1) = {"
 T
-a
-a
-a
-a
-a
+B
 "}
 (2,1,1) = {"
-a
-a
-a
-a
 j
 a
 "}
 (3,1,1) = {"
 a
-v
-a
-b
-B
 a
 "}
 (4,1,1) = {"
 a
 a
+"}
+(5,1,1) = {"
 a
 a
-D
+"}
+(6,1,1) = {"
 a
+a
+"}
+(7,1,1) = {"
+a
+a
+"}
+(8,1,1) = {"
+a
+v
 "}

@@ -2,7 +2,6 @@
 
 /datum/species/jelly
 	mutant_bodyparts = list()
-	hair_color = "mutcolor"
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
 
@@ -37,12 +36,12 @@
 	mutanttongue = /obj/item/organ/internal/tongue/jelly
 
 	bodypart_overrides = list( //Overriding jelly bodyparts
-		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/slime/roundstart,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/slime/roundstart,
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/slime/roundstart,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/slime/roundstart,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/slime/roundstart,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/slime/roundstart,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/jelly/slime/roundstart,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/jelly/slime/roundstart,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/jelly/slime/roundstart,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/jelly/slime/roundstart,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/jelly/slime/roundstart,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly/slime/roundstart,
 	)
 
 /datum/species/jelly/roundstartslime/create_pref_unique_perks()
@@ -56,6 +55,10 @@
 	))
 
 	return perk_descriptions
+
+/datum/species/jelly/roundstartslime/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
+	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_hair_color))
+		target.dna.species.hair_color_mode = null
 
 /**
  * Alter Form is the ability of slimes to edit many of their character attributes at will
@@ -111,7 +114,7 @@
 
 /datum/action/innate/alter_form/New(Target)
 	. = ..()
-	
+
 	generate_radial_icons()
 
 	if(length(available_choices))
@@ -225,7 +228,7 @@
 
 	var/new_mutant_colour = input(
 		alterer,
-		"Choose your character's new [color_choice = "All" ? "" : lowertext(color_choice)] color:",
+		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
 	) as color|null

@@ -72,9 +72,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "du" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
@@ -107,9 +105,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "fp" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
@@ -141,9 +137,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "gG" = (
 /obj/effect/turf_decal/stripes/line{
@@ -177,9 +171,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "gZ" = (
 /obj/effect/turf_decal/trimline/yellow/warning{
@@ -217,9 +209,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "iA" = (
 /obj/effect/turf_decal/bot,
@@ -314,9 +304,7 @@
 	id = "privateerslavercellarealockdown";
 	name = "Brig Lockdown"
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "mJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -363,9 +351,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "qp" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
@@ -448,9 +434,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "wj" = (
 /obj/structure/cable,
@@ -514,9 +498,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "zh" = (
 /obj/machinery/chem_master,
@@ -636,12 +618,11 @@
 "Ct" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood,
-/obj/machinery/microwave{
-	icon = 'icons/obj/kitchen.dmi';
-	pixel_x = -1;
-	pixel_y = 8
-	},
 /obj/machinery/light/directional/north,
+/obj/machinery/microwave{
+	pixel_y = 8;
+	pixel_x = -1
+	},
 /turf/open/floor/wood,
 /area/shuttle/syndicate/slaver)
 "CR" = (
@@ -663,9 +644,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "DO" = (
 /obj/structure/table/wood,
@@ -740,9 +719,7 @@
 	name = "Lockdown"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "Hk" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -794,9 +771,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "JJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden{
@@ -806,9 +781,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "JM" = (
 /obj/structure/lattice,
@@ -839,9 +812,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/south,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "Lf" = (
 /obj/structure/table/optable,
@@ -974,9 +945,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "Qx" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1000,9 +969,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "QO" = (
 /obj/effect/turf_decal/trimline/yellow/warning{
@@ -1023,9 +990,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "Rx" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
@@ -1046,9 +1011,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
@@ -1094,9 +1057,7 @@
 	port_direction = 8
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "SE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1124,9 +1085,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "VH" = (
 /obj/effect/turf_decal/trimline/yellow/warning{
@@ -1238,9 +1197,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/south,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "YI" = (
 /obj/machinery/door/airlock/security/old{
@@ -1255,9 +1212,7 @@
 	name = "Lockdown"
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/pod/dark{
-	icon = 'icons/turf/floors.dmi'
-	},
+/turf/open/floor/pod/dark,
 /area/shuttle/syndicate/slaver)
 "Zp" = (
 /obj/structure/chair{

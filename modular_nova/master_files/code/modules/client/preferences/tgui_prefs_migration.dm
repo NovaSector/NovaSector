@@ -26,11 +26,11 @@ MUTANT_SYNTH_CHASSIS, \
 "vagina", \
 "breasts",))
 
-/datum/preferences/proc/migrate_skyrat(list/skyrat_data)
+/datum/preferences/proc/migrate_nova(list/nova_data)
 	if(features["flavor_text"])
 		write_preference(GLOB.preference_entries[/datum/preference/text/flavor_text], features["flavor_text"])
 
-	var/ooc_prefs = skyrat_data["ooc_prefs"]
+	var/ooc_prefs = nova_data["ooc_prefs"]
 	if(ooc_prefs)
 		write_preference(GLOB.preference_entries[/datum/preference/text/ooc_notes], ooc_prefs)
 
@@ -96,7 +96,7 @@ MUTANT_SYNTH_CHASSIS, \
 
 	to_chat(parent, examine_block(span_greentext("Preference migration successful! You may safely interact with the preferences menu.")))
 	tgui_prefs_migration = TRUE
-	skyrat_data["tgui_prefs_migration"] = tgui_prefs_migration
+	nova_data["tgui_prefs_migration"] = tgui_prefs_migration
 
 /datum/preferences/proc/migrate_mentor()
 	write_preference(GLOB.preference_entries[/datum/preference/toggle/admin/auto_dementor], FALSE) // Someone thought it was a good idea to make it start at true :)
