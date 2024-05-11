@@ -298,6 +298,16 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
+#define SEVERITY_STUN 1
+#define SEVERITY_SNEEZE 2
+#define SEVERITY_KNOCKDOWN 3
+
+GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
+	"Stun" = SEVERITY_STUN,
+	"Sneeze" = SEVERITY_SNEEZE, //Includes a stun
+	"Collapse" = SEVERITY_KNOCKDOWN,
+))
+
 /datum/quirk/sensitivesnout
 	name = "Sensitive Snout"
 	desc = "Your face has always been sensitive, and it really hurts when someone pokes it!"
@@ -307,7 +317,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	mob_trait = TRAIT_SENSITIVESNOUT
 	icon = FA_ICON_FINGERPRINT
-	var/severity = 1
+	var/severity = SEVERITY_KNOCKDOWN
 	COOLDOWN_DECLARE(emote_cooldown)
 
 /datum/quirk_constant_data/sensitive_snout
@@ -327,18 +337,22 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		human_holder.force_say()
 	switch(severity)
-		if(1)
+		if(SEVERITY_STUN)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, freezing you in place!"))
 			quirk_holder.Stun(1 SECONDS)
-		if(2)
+		if(SEVERITY_SNEEZE)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
 			quirk_holder.Stun(1 SECONDS)
 			if(can_emote)
 				quirk_holder.emote("sneeze")
-		if(3)
+		if(SEVERITY_KNOCKDOWN)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
 			quirk_holder.Knockdown(1 SECONDS)
 			quirk_holder.apply_damage(30, STAMINA)
+
+#undef SEVERITY_STUN
+#undef SEVERITY_SNEEZE
+#undef SEVERITY_KNOCKDOWN
 
 /datum/quirk/overweight
 	name = "Overweight"

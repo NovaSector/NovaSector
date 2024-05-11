@@ -1,9 +1,3 @@
-GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
-	"Stun" = 1,
-	"Sneeze" = 2,
-	"Collapse" = 3,
-))
-
 /datum/preference/choiced/snout_sensitivity
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "snout_sensitivity"
