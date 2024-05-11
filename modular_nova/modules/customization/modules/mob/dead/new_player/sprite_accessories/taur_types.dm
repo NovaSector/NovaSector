@@ -64,6 +64,18 @@
 	color_src = null
 	flags_for_organ = NONE
 
+/datum/sprite_accessory/taur/mermaid
+	name = "Mermaid (Legless)"
+	icon_state = "mermaid"
+	taur_mode = STYLE_TAUR_MERMAID
+	color_src = USE_MATRIXED_COLORS
+	organ_type = /obj/item/organ/external/taur_body/mermaid
+
+/datum/sprite_accessory/taur/mermaid/synth
+	name = "Mermaid (Synthetic) (Legless)"
+	icon_state = "mermaid_synth"
+	organ_type = /obj/item/organ/external/taur_body/mermaid/synth
+
 /datum/sprite_accessory/taur/cow
 	name = "Cow"
 	icon_state = "cow"

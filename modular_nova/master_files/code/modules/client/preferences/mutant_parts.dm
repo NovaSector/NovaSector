@@ -706,6 +706,13 @@
 	relevant_mutant_bodypart = "taur"
 	type_to_check = /datum/preference/toggle/mutant_toggle/taur
 
+/datum/preference/choiced/mutant_choice/taur/is_valid(value)
+	///Warn the player this taur type will make their character legless
+	var/find_index = findtext(value, "Legless")
+	if(find_index)
+		to_chat(usr, span_warning("Be aware, the taur type you selected will delete your character's legs!"))
+	return ..()
+
 /// Xenodorsal
 
 /datum/preference/toggle/mutant_toggle/xenodorsal
