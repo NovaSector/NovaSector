@@ -17,9 +17,9 @@
 		if(!affecting)
 			to_chat(user, span_warning("The limb is missing!"))
 			return
-		/* if(!IS_ORGANIC_LIMB(affecting))
+		if(!IS_ORGANIC_LIMB(affecting))
 			to_chat(user, span_notice("Medicine won't work on an inorganic limb!"))
-			return */ // LETHALSTATION REMOVAL - FUCK YOU BALTIMORE
+			return
 	..()
 
 /obj/item/reagent_containers/pill/patch/canconsume(mob/eater, mob/user)
