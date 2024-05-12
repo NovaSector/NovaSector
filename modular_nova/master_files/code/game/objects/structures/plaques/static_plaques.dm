@@ -2,4 +2,4 @@
 
 /obj/structure/plaque/static_plaque/golden/commission/blueshift
 	name = "Commission Plaque"
-	desc = "Spinward Sector Station SS-13\n'Blueshift' Class Vessel\nCommissioned 01/10/2561\n'Adventures Ahoy'"
+	desc = "Spinward Sector Station SS-13\n'Blueshift' Class Vessel\nCommissioned 12/09/2561, Recommissioned 26/10/2563\n'Adventures Ahoy'"
