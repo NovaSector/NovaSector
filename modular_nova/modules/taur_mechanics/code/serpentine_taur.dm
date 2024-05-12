@@ -19,6 +19,8 @@
 	organ_owner.dna.species.no_equip_flags |= ITEM_SLOT_FEET
 	organ_owner.dna.species.modsuit_slot_exceptions |= ITEM_SLOT_FEET
 
+	ADD_TRAIT(organ_owner, TRAIT_LIGHT_STEP, ORGAN_TRAIT)
+
 /obj/item/organ/external/taur_body/serpentine/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 
@@ -27,3 +29,5 @@
 		organ_owner.dna.species.no_equip_flags &= ~ITEM_SLOT_FEET
 	owner_blocked_feet_before_insert = FALSE
 	organ_owner.dna.species.modsuit_slot_exceptions &= ~ITEM_SLOT_FEET
+
+	REMOVE_TRAIT(organ_owner, TRAIT_LIGHT_STEP, ORGAN_TRAIT)
