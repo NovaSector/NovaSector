@@ -150,10 +150,19 @@
 
 /obj/item/organ/internal/tongue/xeno_hybrid/Initialize(mapload)
 	. = ..()
-	var/obj/item/organ/internal/tongue/alien/alien_tongue_type = /obj/item/organ/internal/tongue/alien
-	voice_filter = initial(alien_tongue_type.voice_filter)
+	voice_filter = /obj/item/organ/internal/tongue/alien::voice_filter
 
 /obj/item/organ/internal/tongue/skrell
 	name = "skrell tongue"
 	desc = "A fleshy muscle mostly used for warbling."
 	say_mod = "warbles"
+
+/obj/item/organ/internal/tongue/lizard/filterless
+	name = "smooth forked tongue"
+
+	voice_filter = null
+
+/obj/item/organ/internal/tongue/lizard/filterless/Initialize(mapload)
+	. = ..()
+
+	desc += " This one is noticeably smooth, and would lack any non-hissing lisps if used."

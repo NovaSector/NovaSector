@@ -337,3 +337,52 @@
   - qol: for roundstart slimes who actually want to be locked to mutant color there
       is a new pref for them, 'allow mismatched hair color', and can be found near
       the top of the prefs menu (only viewable by slimes, and toggled on by default).
+2024-05-11:
+  GoldenAlpharex:
+  - bugfix: Fixed a donator item appearing on station when it wasn't supposed to.
+  NeonNik2245:
+  - bugfix: anosmia holders now can't feel perfumes and some other things
+  NovaBot13:
+  - rscadd: Chance to become crab on nonlethal DNA meltdown
+  Paxilmaniac:
+  - rscadd: Many new options for treating synths without having to use the whole robotics
+      bay have been added to the common sources of DeForest branded medical supplies.
+  - balance: nanite slurry has been buffed to 3 healing rather than 1, so it's not
+      literally the worst healing chem in the entire game.
+  - image: All icons for the new synthetic treatment items are made by me, Paxilmaniac
+  - spellcheck: Some wording of a few strings in the wound treatment items has been
+      adjusted to fit better to the items.
+  - balance: Razorwires do two (2) more damage (now 20 from 18)
+  - image: The melee item of the razorwire implant can now be alt-clicked to be recolored
+      to a few different pre-set variants
+  - qol: Ammunition can now be made into piles of bullets by attacking one bullet
+      with another to create the pile. These piles delete themselves when empty, and
+      usually hold enough bullets to reload 1 or 1/2 of a magazine for the weapon
+      that uses that ammo, depending on the weapon.
+  carlarctg:
+  - rscadd: Chance to become crab on nonlethal DNA meltdown
+  norsvenska:
+  - bugfix: The Coroner and Bitrunner can now be selected as a target for kidnapping
+      and heirloom destruction objectives.
+  - bugfix: The Chief Engineer is now a valid target for heirloom destruction objectives.
+2024-05-12:
+  FlufflesTheDog:
+  - bugfix: food vendors now drop the correct circuit and resupply canister
+  - rscadd: Customization for sensitive snout! Including an option for automatically
+      sneezing. Bless you.
+  Higgin:
+  - bugfix: Spies no longer get the 'nothing' / 'free objective' due to trying to
+      make Protect objectives without targets.
+  Paxilmaniac:
+  - code_imp: some entirely unused code defines have been cleaned up
+  Xander3359:
+  - bugfix: Ale now has a drinking_glass style
+  nikothedude:
+  - balance: Synth blunt T3 now requires a T1 burn wound to mold
+  - balance: Synth blunt T3 heating step now gives a T1 burn wound
+  - balance: Synth blunt T3 heating now takes 3 secs
+  - rscadd: A filterless forked tongue that has no TTS filters
+  - balance: Synth premium medkits no longer have a premium spray, instead having
+      a plasmide spray.
+  - balance: Plasmide now metabolizes slower
+  - rscadd: Stun batons now have the jousting component
