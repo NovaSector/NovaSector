@@ -104,3 +104,7 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 	name = "Expeditionary Chest Rig/Webbing Belt"
 	item_path = /obj/item/storage/belt/military/expeditionary_corps
 
+/datum/loadout_item/belts/frontier_chestrig
+	name = "Frontier Chest Rig"
+	item_path = /obj/item/storage/belt/utility/frontier_colonist
+
