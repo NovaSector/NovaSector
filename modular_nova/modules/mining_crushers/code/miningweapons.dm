@@ -44,6 +44,10 @@
 		effectiveness = 130, \
 	)
 
+/obj/item/kinetic_crusher/machete/update_icon_state()
+	. = ..()
+	inhand_icon_state = "PKMachete0" // this is not icon_state and not supported by 2hcomponent
+
 /obj/item/kinetic_crusher/spear
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'
 	icon_state = "PKSpear"
