@@ -106,13 +106,12 @@
 	loot = list(
 		/obj/item/gun/ballistic/automatic/pistol/sol = 1,
 		/obj/item/gun/ballistic/automatic/pistol/sol/evil = 1,
-		/obj/item/gun/ballistic/revolver/sol = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/signalis_real = 1,
 		/obj/item/gun/ballistic/automatic/m6pdw/spawns_with_ammo = 1,
 		/obj/item/gun/energy/e_gun/mini = 1,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower = 1,
-		/obj/item/gun/ballistic/revolver/shotgun_revolver = 1,
 		/obj/item/gun/ballistic/automatic/pistol/weevil = 1,
-		/obj/item/gun/ballistic/revolver/syndicate = 1,
+		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/kurwa = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/deathmatch_silly_arms_blue
@@ -126,13 +125,18 @@
 		/obj/item/gun/ballistic/automatic/sol_smg/evil = 1,
 		/obj/item/gun/energy/modular_laser_rifle/carbine = 1,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = 1,
-		/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/kurwa = 1,
 		/obj/item/gun/ballistic/automatic/miecz = 1,
 		/obj/item/gun/ballistic/automatic/seiba_smg = 1,
 	)
 
 /obj/effect/spawner/random/lethalstation_armor_set/gun_actually
 	name = "deathmatch single weapon spawner"
+
+/obj/effect/spawner/random/lethalstation_armor_set/gun_actually/signalis_real
+	loot = list(
+		/obj/item/gun/ballistic/revolver/sol,
+		/obj/item/ammo_box/magazine/ammo_stack/c35_sol/prefilled,
+	)
 
 /obj/effect/spawner/random/lethalstation_armor_set/gun_actually/takbok
 	loot = list(
@@ -232,8 +236,6 @@
 		/obj/item/grenade/frag/impact = 1,
 		/obj/item/grenade/antigravity = 1,
 		/obj/item/grenade/barrier = 1,
-		/obj/item/grenade/c4 = 1,
-		/obj/item/grenade/c4/x4 = 1,
 		/obj/item/grenade/flashbang = 1,
 		/obj/item/grenade/frag = 1,
 		/obj/item/grenade/frag/mega = 1,
@@ -293,6 +295,7 @@
 		/obj/item/reagent_containers/blood/random = 1,
 		/obj/item/stack/medical/wound_recovery/robofoam = 1,
 		/obj/item/stack/medical/wound_recovery/robofoam_super = 1,
+		/obj/item/reagent_containers/pill/robotic_patch/synth_repair = 1,
 		// Medigels
 		/obj/item/reagent_containers/medigel/libital = 1,
 		/obj/item/reagent_containers/medigel/aiuri = 1,
