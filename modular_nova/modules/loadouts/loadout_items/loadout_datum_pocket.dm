@@ -232,6 +232,10 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 	name = "Frontier Medical Kit"
 	item_path = /obj/item/storage/medkit/frontier/stocked
 
+/datum/loadout_item/pocket_items/synthetic_medkit
+	name = "Robotic Repair Equipment Kit"
+	item_path = /obj/item/storage/medkit/robotic_repair/stocked
+
 /datum/loadout_item/pocket_items/ingredients
 	name = "Wildcard Ingredient Box"
 	item_path = /obj/item/storage/box/ingredients/wildcard
