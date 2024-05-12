@@ -19,6 +19,9 @@
 	organ_owner.dna.species.no_equip_flags |= ITEM_SLOT_FEET
 	organ_owner.dna.species.modsuit_slot_exceptions |= ITEM_SLOT_FEET
 
+	var/obj/item/clothing/shoes/shoe = organ_owner.get_item_by_slot(ITEM_SLOT_FEET)
+	shoe?.forceMove(get_turf(organ_owner))
+
 	ADD_TRAIT(organ_owner, TRAIT_LIGHT_STEP, ORGAN_TRAIT)
 
 /obj/item/organ/external/taur_body/serpentine/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
