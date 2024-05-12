@@ -122,6 +122,76 @@
 	greyscale_colors = "#5E8F2D#F2F2F2"
 
 /*
+	BELT
+*/
+/obj/item/storage/belt/security/department_guard
+	icon_state = "engine"
+	worn_icon_state = "engine"
+	icon = 'modular_nova/modules/goofsec/icons/belts.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/belt_worn.dmi'
+	unique_reskin = null
+
+/obj/item/storage/belt/security/department_guard/science
+	name = "science guard belt"
+	icon_state = "science"
+	worn_icon_state = "science"
+
+/obj/item/storage/belt/security/department_guard/science/PopulateContents()
+	new /obj/item/restraints/handcuffs/cable/pink(src)
+	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
+	new /obj/item/melee/baton/security/loaded/departmental/science(src)
+
+/obj/item/storage/belt/security/department_guard/medical
+	name = "medical guard belt"
+	icon_state = "medical"
+	worn_icon_state = "medical"
+
+/obj/item/storage/belt/security/department_guard/medical/PopulateContents()
+	new /obj/item/restraints/handcuffs/cable/blue(src)
+	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
+	new /obj/item/melee/baton/security/loaded/departmental/medical(src)
+
+/obj/item/storage/belt/security/department_guard/engineering
+	name = "engineer guard belt"
+	icon_state = "engine"
+	worn_icon_state = "engine"
+
+/obj/item/storage/belt/security/department_guard/engineering/PopulateContents()
+	new /obj/item/restraints/handcuffs/cable/yellow(src)
+	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
+	new /obj/item/melee/baton/security/loaded/departmental/engineering(src)
+
+/obj/item/storage/belt/security/department_guard/cargo
+	name = "cargo guard belt"
+	icon_state = "cargo"
+	worn_icon_state = "cargo"
+
+/obj/item/storage/belt/security/department_guard/cargo/PopulateContents()
+	new /obj/item/restraints/handcuffs/cable/orange(src)
+	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
+	new /obj/item/melee/baton/security/loaded/departmental/cargo(src)
+
+/obj/item/storage/belt/security/department_guard/service
+	name = "service guard belt"
+	icon_state = "service"
+	worn_icon_state = "service"
+
+/obj/item/storage/belt/security/department_guard/service/PopulateContents()
+	new /obj/item/restraints/handcuffs/cable/green(src)
+	new /obj/item/assembly/flash/handheld(src)
+	new /obj/item/ammo_box/magazine/pepperball(src)
+	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
+	new /obj/item/melee/baton/security/loaded/departmental/service(src)
+
+/*
 	LANDMARKS
 */
 /obj/effect/landmark/start/science_guard
@@ -190,18 +260,14 @@
 	name = "Science Guard"
 	jobtype = /datum/job/science_guard
 
-	belt = /obj/item/modular_computer/pda/science
+	belt = /obj/item/storage/belt/security/department_guard/science
 	ears = /obj/item/radio/headset/headset_sci
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova
 	shoes = /obj/item/clothing/shoes/jackboots
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/pink
-	backpack_contents = list(
-		/obj/item/melee/baton/security/loaded/departmental/science = 1,
-		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
-	)
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/science
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/science
@@ -294,18 +360,14 @@
 	name = "Orderly"
 	jobtype = /datum/job/orderly
 
-	belt = /obj/item/modular_computer/pda/medical
+	belt = /obj/item/storage/belt/security/department_guard/medical
 	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/blue
-	backpack_contents = list(
-		/obj/item/melee/baton/security/loaded/departmental/medical = 1,
-		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
-	)
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/medical
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -392,18 +454,14 @@
 	name = "Engineering Guard"
 	jobtype = /datum/job/engineering_guard
 
-	belt = /obj/item/modular_computer/pda/engineering
+	belt = /obj/item/storage/belt/security/department_guard/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	shoes = /obj/item/clothing/shoes/workboots
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/yellow
-	backpack_contents = list(
-		/obj/item/melee/baton/security/loaded/departmental/engineering = 1,
-		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
-	)
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/engineering
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -496,19 +554,15 @@
 	name = "Customs Agent"
 	jobtype = /datum/job/customs_agent
 
-	belt = /obj/item/modular_computer/pda/cargo
+	belt = /obj/item/storage/belt/security/department_guard/cargo
 	ears = /obj/item/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent
 	glasses = /obj/item/clothing/glasses/hud/gun_permit
-	r_pocket = /obj/item/assembly/flash/handheld
-	l_pocket = /obj/item/restraints/handcuffs/cable/orange
-	backpack_contents = list(
-		/obj/item/melee/baton/security/loaded/departmental/cargo = 1,
-		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
-	)
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/modular_computer/pda/cargo
 
 	backpack = /obj/item/storage/backpack
 	satchel = /obj/item/storage/backpack/satchel
@@ -594,18 +648,14 @@
 	name = "Bouncer"
 	jobtype = /datum/job/bouncer
 
-	belt = /obj/item/modular_computer/pda/bar
+	belt = /obj/item/storage/belt/security/department_guard/service
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	head =  /obj/item/clothing/head/helmet/blueshirt/nova/guard
 	suit = /obj/item/clothing/suit/armor/vest/blueshirt/nova/guard
-	l_pocket = /obj/item/restraints/handcuffs/cable/green
-	r_pocket = /obj/item/assembly/flash/handheld
-	backpack_contents = list(
-		/obj/item/melee/baton/security/loaded/departmental/service = 1,
-		/obj/item/storage/toolbox/guncase/nova/pistol/pepperball = 1,
-		)
+	l_pocket = /obj/item/modular_computer/pda/bar
+	r_pocket = /obj/item/flashlight
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	backpack = /obj/item/storage/backpack
@@ -659,6 +709,7 @@
 	desc = "A stun baton fitted with a departmental area-lock, based off the station's blueprint layout - outside of its department, it only has three uses."
 	icon = 'modular_nova/modules/goofsec/icons/departmental_batons.dmi'
 	icon_state = "prison_baton"
+	belt_icon_state = "stunbaton"
 	var/list/valid_areas = list()
 	var/emagged = FALSE
 	var/non_departmental_uses_left = 4

@@ -118,6 +118,11 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Grey Officer's Naval Jumpsuit (Trousers)"
 	item_path = /obj/item/clothing/under/rank/captain/nova/imperial/generic/pants
 
+/datum/loadout_item/under/jumpsuit/security_dress
+	name = "Security Battle Dress"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/dress
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
 /datum/loadout_item/under/jumpsuit/security_trousers
 	name = "Security Trousers"
 	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers
@@ -126,6 +131,26 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/security_shorts
 	name = "Security Shorts"
 	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_jumpskirt
+	name = "Security Jumpskirt"
+	item_path = /obj/item/clothing/under/rank/security/officer/skirt
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_plain_skirt
+	name = "Security Plain Skirt"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/plain_skirt
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_miniskirt
+	name = "Security Miniskirt"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/miniskirt
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_jumpsuit
+	name = "Security Jumpsuit"
+	item_path = /obj/item/clothing/under/rank/security/peacekeeper/jumpsuit
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_peacekeeper
