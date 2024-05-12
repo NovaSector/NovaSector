@@ -1,4 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "food vendors now drop the correct circuit and resupply canister"

@@ -365,3 +365,24 @@
   - bugfix: The Coroner and Bitrunner can now be selected as a target for kidnapping
       and heirloom destruction objectives.
   - bugfix: The Chief Engineer is now a valid target for heirloom destruction objectives.
+2024-05-12:
+  FlufflesTheDog:
+  - bugfix: food vendors now drop the correct circuit and resupply canister
+  - rscadd: Customization for sensitive snout! Including an option for automatically
+      sneezing. Bless you.
+  Higgin:
+  - bugfix: Spies no longer get the 'nothing' / 'free objective' due to trying to
+      make Protect objectives without targets.
+  Paxilmaniac:
+  - code_imp: some entirely unused code defines have been cleaned up
+  Xander3359:
+  - bugfix: Ale now has a drinking_glass style
+  nikothedude:
+  - balance: Synth blunt T3 now requires a T1 burn wound to mold
+  - balance: Synth blunt T3 heating step now gives a T1 burn wound
+  - balance: Synth blunt T3 heating now takes 3 secs
+  - rscadd: A filterless forked tongue that has no TTS filters
+  - balance: Synth premium medkits no longer have a premium spray, instead having
+      a plasmide spray.
+  - balance: Plasmide now metabolizes slower
+  - rscadd: Stun batons now have the jousting component
