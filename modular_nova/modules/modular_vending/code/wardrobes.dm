@@ -125,6 +125,7 @@
 	products_nova = list(
 		/obj/item/clothing/under/rank/medical/chemist/nova/formal = 2,
 		/obj/item/clothing/under/rank/medical/chemist/nova/formal/skirt = 2,
+		/obj/item/clothing/suit/toggle/labcoat/nova/pharmacist = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
 		/obj/item/storage/backpack/messenger/chem = 2,
 	)

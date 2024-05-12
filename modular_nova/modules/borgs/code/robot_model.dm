@@ -19,8 +19,6 @@
 		switch(cyborg_base_icon)
 			if("mekamine")
 				cyborg.AddComponent(/datum/component/robot_smoke)
-			else
-
 	else
 		cyborg.maptext_height = initial(cyborg.maptext_height)
 		cyborg.RemoveElement(/datum/element/footstep, FOOTSTEP_MOB_SHOE, 2, -6, sound_vary = TRUE)
@@ -386,9 +384,9 @@
 		/obj/item/borg/sight/thermal,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/electric,
-		/obj/item/screwdriver/cyborg/power,
+		/obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/crowbar/cyborg/power,
-		/obj/item/multitool/cyborg,
+		/obj/item/screwdriver/cyborg/power,
 		/obj/item/construction/rcd/borg/syndicate,
 		/obj/item/lightreplacer/cyborg,
 		/obj/item/stack/sheet/iron,
@@ -531,9 +529,9 @@
 		/obj/item/restraints/handcuffs/cable/zipties,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/electric,
-		/obj/item/screwdriver/cyborg/power,
+		/obj/item/borg/cyborg_omnitool/engineering,
 		/obj/item/crowbar/cyborg/power,
-		/obj/item/multitool/cyborg,
+		/obj/item/screwdriver/cyborg/power,
 		/obj/item/stack/sheet/iron,
 		/obj/item/stack/sheet/glass,
 		/obj/item/borg/apparatus/sheet_manipulator,

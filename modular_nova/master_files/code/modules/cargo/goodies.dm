@@ -12,7 +12,6 @@
 
 /datum/supply_pack/goody/mars_single
 	access_view = FALSE
-	special = TRUE
 
 /datum/supply_pack/goody/Survivalknives_single
 	access_view = FALSE
@@ -46,5 +45,4 @@
 	special = TRUE
 
 /datum/supply_pack/goody/double_barrel
-	special = TRUE
 	access_view = FALSE

@@ -13,18 +13,21 @@
 */
 
 /obj/item/gun/ballistic/revolver
-	box_reload_delay = CLICK_CD_RAPID // honestly this is negligible because of the inherent delay of having to switch hands
+	box_reload_delay = NONE // honestly this is negligible because of the inherent delay of having to switch hands
+
+/obj/item/gun/ballistic/revolver/shotgun_revolver
+	box_reload_delay = CLICK_CD_MELEE // unfortunately this is a shotgun
 
 /obj/item/gun/ballistic/rifle/boltaction // slightly less negligible than a revolver, since this is mostly for fairly powerful but crew-accessible stuff like mosins
-	box_reload_delay = CLICK_CD_RANGE
+	box_reload_delay = NONE
 
 /// Reloading with ammo box can incur penalty with some guns
 /obj/item/gun/ballistic/proc/handle_box_reload(mob/user, obj/item/ammo_box/ammobox, num_loaded)
 	var/box_load = FALSE // if you're reloading with an ammo box, inflicts a cooldown
-	if(istype(ammobox, /obj/item/ammo_box) && box_reload_penalty)
+	if(istype(ammobox, /obj/item/ammo_box) && box_reload_penalty && box_reload_delay)
 		box_load = TRUE
 		user.changeNext_move(box_reload_delay) // cooldown to simulate having to fumble for another round
-		balloon_alert(user, "reload encumbered!")
+		balloon_alert(user, "reload encumbered ([box_reload_delay * 0.1]s)!")
 	to_chat(user, span_notice("You load [num_loaded] [cartridge_wording]\s into [src][box_load ?  ", but it takes some extra effort" : ""]."))
 
 /obj/effect/temp_visual/dir_setting/firing_effect

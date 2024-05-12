@@ -92,7 +92,6 @@
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "bp" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/decal/cleanable/cobweb,
 /obj/structure/chair/plastic{
 	dir = 4
 	},
@@ -513,11 +512,6 @@
 "jQ" = (
 /turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
-"kp" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/template_noop,
-/area/ruin/space/has_grav/shuttle8532crewquarters)
 "ks" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /turf/open/floor/iron/airless,
@@ -729,9 +723,6 @@
 	},
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532bridge)
-"pu" = (
-/turf/closed/wall/r_wall/syndicate,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "py" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -1749,7 +1740,6 @@
 /area/ruin/space/has_grav/shuttle8532bridge)
 "JN" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/chair/plastic{
 	dir = 8
 	},
@@ -2216,9 +2206,6 @@
 	dir = 1
 	},
 /turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532bridge)
-"Uy" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "UN" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -2962,8 +2949,8 @@ qb
 qb
 "}
 (8,1,1) = {"
-pu
-Uy
+xO
+xO
 XQ
 fp
 HK
@@ -2972,7 +2959,7 @@ cg
 Hs
 oR
 jQ
-kp
+ou
 ou
 ou
 ou
@@ -3025,7 +3012,7 @@ qb
 qb
 "}
 (9,1,1) = {"
-pu
+xO
 zA
 ZU
 Vi

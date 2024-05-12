@@ -192,6 +192,7 @@
 				if(WEST)
 					pixel_x = -32
 			icon_state = "blob_wall"
+			can_atmos_pass = ATMOS_PASS_NO
 			plane = GAME_PLANE
 			layer = LOW_SIGIL_LAYER
 
