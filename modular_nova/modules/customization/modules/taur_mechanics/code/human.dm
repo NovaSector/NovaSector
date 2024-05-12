@@ -68,9 +68,9 @@
 			balloon_alert(user, "ridee incapacitated!")
 		return FALSE
 
-	if ((buckling == user) && (buckling.stat > CONSCIOUS))
+	if (user.incapacitated())
 		if (!silent)
-			balloon_alert(user, "unconcious!")
+			balloon_alert(user, "incapacitated!")
 		return FALSE
 
 	if (buckling.incapacitated())
