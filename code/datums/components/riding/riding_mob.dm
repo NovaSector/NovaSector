@@ -206,10 +206,13 @@
 /datum/component/riding/creature/human/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE, potion_boost = FALSE)
 	. = ..()
 	var/mob/living/carbon/human/human_parent = parent
-	if (!(ride_check_flags & RIDING_TAUR)) // NOVA EDIT ADDITION -- Taur saddles
+	//human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START - Taur saddles
+	if (!(ride_check_flags & RIDING_TAUR))
 		human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
+	// NOVA EDIT ADDITION END
 
-	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // piggyback // NOVA EDIT ADDITION
+	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // NOVA CHANGE - ORIGINAL: if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
 		human_parent.buckle_lying = 0
 		// the riding mob is made nondense so they don't bump into any dense atoms the carrier is pulling,
 		// since pulled movables are moved before buckled movables
@@ -297,7 +300,7 @@
 				TEXT_EAST = list(0, REGULAR_OFFSET),
 				TEXT_WEST = list(0, REGULAR_OFFSET),
 			)
-	else if (!(ride_check_flags & RIDING_TAUR)) // NOVA EDIT ADDITION
+	else if (!(ride_check_flags & RIDING_TAUR)) // NOVA EDIT CHANGE - ORIGINAL: else
 		return HAS_TRAIT(H, TRAIT_OVERSIZED) ? list(
 				TEXT_NORTH = list(0, OVERSIZED_OFFSET),
 				TEXT_SOUTH = list(0, OVERSIZED_OFFSET),
@@ -310,14 +313,12 @@
 				TEXT_WEST = list(REGULAR_OFFSET, REGULAR_SIDE_OFFSET)
 			)
 	//NOVA EDIT END
-
 	// NOVA EDIT BEGIN -- Taur riding
 	if (ride_check_flags & RIDING_TAUR)
 		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in H.organs
 		return taur_body.get_riding_offset(oversized = HAS_TRAIT(H, TRAIT_OVERSIZED))
 
 	// NOVA EDIT END
-
 /datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider)
 	var/atom/movable/AM = parent
 	AM.unbuckle_mob(dismounted_rider)
