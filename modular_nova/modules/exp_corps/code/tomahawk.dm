@@ -1,6 +1,6 @@
 /obj/item/melee/tomahawk
 	name = "expeditionary tomahawk"
-	desc = "A somewhat dulled axe blade upon a short fibremetal handle."
+	desc = "A decently sharp axe blade upon a short fibremetal handle. "
 	icon = 'modular_nova/modules/exp_corps/icons/tomahawk.dmi'
 	icon_state = "tomahawk"
 	inhand_icon_state = "tomahawk"
@@ -14,6 +14,7 @@
 	throw_speed = 4
 	throw_range = 8
 	embedding = list("pain_mult" = 6, "embed_chance" = 60, "fall_chance" = 10)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*7.5)
 	attack_verb_continuous = list("chops", "tears", "lacerates", "cuts")
 	attack_verb_simple = list("chop", "tear", "lacerate", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -21,4 +22,7 @@
 
 /obj/item/melee/tomahawk/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/butchering, 70, 100)
+	AddComponent(/datum/component/butchering, \
+	speed = 7 SECONDS, \
+	effectiveness = 100, \
+	)
