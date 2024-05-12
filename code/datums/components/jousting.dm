@@ -115,6 +115,7 @@
 			target.Paralyze(knockdown_time)
 		user.visible_message(span_danger("[msg]!"))
 
+		return usable_charge // NOVA EDIT ADDITION - Baton jousting
 /**
  * Called when a mob moves.
  * Handles checking their direction, changing it if they turned,

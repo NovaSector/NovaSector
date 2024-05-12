@@ -14,8 +14,8 @@ tgui/packages/tgui/interfaces/CommunicationsConsole.js
 tgui/packages/tgui/interfaces/KeycardAuth.js
 
 ### Defines:
-AIRLOCK_LIGHT_ENGINEERING in \Skyrat-tg\modular_nova\modules\aesthetics\airlock\code\airlock.dm
-AIRLOCK_ENGINEERING_LIGHT_COLOR in \Skyrat-tg\modular_nova\modules\aesthetics\airlock\code\airlock.dm
+AIRLOCK_LIGHT_ENGINEERING in modular_nova\modules\aesthetics\airlock\code\airlock.dm
+AIRLOCK_ENGINEERING_LIGHT_COLOR in modular_nova\modules\aesthetics\airlock\code\airlock.dm
 
 ### Credits:
 LT3

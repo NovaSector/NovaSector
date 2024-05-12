@@ -1,6 +1,6 @@
 //THIS FILE HAS BEEN EDITED BY NOVA EDIT
 
-/obj/structure/dresser//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/structure/dresser//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	name = "dresser"
 	desc = "A nicely-crafted wooden dresser. It's filled with lots of undies."
 	icon = 'icons/obj/fluff/general.dmi'

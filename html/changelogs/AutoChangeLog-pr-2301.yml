@@ -1,4 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Getting electrocuted should no longer be a guaranteed death sentence"
