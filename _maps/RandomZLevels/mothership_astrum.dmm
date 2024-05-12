@@ -655,7 +655,7 @@
 /area/awaymission/mothership_astrum/deck4)
 "ll" = (
 /obj/structure/table/abductor,
-/obj/item/knife/combat/marksman,
+/obj/item/knife/combat/throwing,
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
 "lu" = (
@@ -1771,7 +1771,7 @@
 "CN" = (
 /obj/structure/closet/abductor,
 /obj/effect/spawner/random/exotic/technology,
-/obj/item/knife/combat/marksman,
+/obj/item/knife/combat/throwing,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "CU" = (
@@ -2289,7 +2289,7 @@
 /area/awaymission/mothership_astrum/halls)
 "IC" = (
 /obj/structure/table/wood,
-/obj/item/knife/combat/marksman,
+/obj/item/knife/combat/throwing,
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck3)
 "II" = (
@@ -2345,7 +2345,7 @@
 /area/awaymission/mothership_astrum/deck2)
 "Jn" = (
 /obj/structure/table/abductor,
-/obj/item/knife/combat/marksman,
+/obj/item/knife/combat/throwing,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Jo" = (
@@ -3069,7 +3069,7 @@
 /area/awaymission/mothership_astrum/deck2)
 "Ru" = (
 /obj/structure/closet/abductor,
-/obj/item/knife/combat/marksman,
+/obj/item/knife/combat/throwing,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "RG" = (
