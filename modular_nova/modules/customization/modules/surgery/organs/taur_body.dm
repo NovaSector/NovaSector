@@ -23,8 +23,8 @@
 	/// If true, this taur body allows a saddle to be equipped and used.
 	var/can_use_saddle = FALSE
 
-	/// If true, can piggyback and by piggybacked by other taurs with this set to TRUE.
-	var/can_piggyback_taurs = FALSE
+	/// If true, can ride saddled taurs and be ridden by other taurs with this set to TRUE.
+	var/can_ride_saddled_taurs = FALSE
 
 	/// When being ridden via saddle, how much the rider is offset on the x axis when facing west or east.
 	var/riding_offset_side_x = 12
@@ -68,7 +68,7 @@
 	left_leg_name = null
 	right_leg_name = null
 
-	can_piggyback_taurs = TRUE
+	can_ride_saddled_taurs = TRUE
 
 /datum/bodypart_overlay/mutant/taur_body
 	feature_key = "taur"

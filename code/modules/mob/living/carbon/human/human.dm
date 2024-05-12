@@ -1041,12 +1041,7 @@
 		return
 		//NOVA EDIT END
 
-	// NOVA EDIT BEGIN -- piggyback flags
-	var/piggyback_flags = SEND_SIGNAL(src, COMSIG_HUMAN_PIGGYBACK_ATTEMPT, target)
-	if (!piggyback_flags)
-		piggyback_flags = RIDER_NEEDS_ARMS
-	// NOVA EDIT END
-	return buckle_mob(target, TRUE, TRUE, piggyback_flags) // NOVA EDIT -- Original: return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
+	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
 /mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, buckle_mob_flags= NONE)
 	if(!is_type_in_typecache(target, can_ride_typecache))

@@ -1,20 +1,16 @@
-/mob/living
-	/// Flags passed into piggyback()'s buckle_mob() call in the buckle_mob_flags arg.
-	var/piggyback_flags = RIDER_NEEDS_ARMS
-
 /// Allows the attached item to enable saddle mechanics on the mob wearing it.
 /datum/component/carbon_saddle
 	/// The piggyback flags to apply to any mob that wears parent.
-	var/piggyback_flags = RIDER_NEEDS_ARM|RIDING_TAUR
+	var/saddle_flags = RIDER_NEEDS_ARM|RIDING_TAUR
 	/// If our parent does not have this organ, we cannot be equipped by them.
 	var/obj/item/organ/required_organ = /obj/item/organ/external/taur_body
 
-/datum/component/carbon_saddle/Initialize(piggyback_flags)
+/datum/component/carbon_saddle/Initialize(saddle_flags)
 	if (!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	if (!isnull(piggyback_flags))
-		src.piggyback_flags = piggyback_flags
+	if (!isnull(saddle_flags))
+		src.saddle_flags = saddle_flags
 
 /datum/component/carbon_saddle/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ITEM_POST_EQUIPPED, PROC_REF(parent_equipped))
@@ -24,7 +20,7 @@
 	var/obj/item/item_parent = parent
 	UnregisterSignal(item_parent, COMSIG_ITEM_EQUIPPED)
 
-/// Signal handler for COMSIG_ITEM_POST_EQUIPPED. Handles registering signals on the equipper.
+/// Signal handler for COMSIG_ITEM_POST_EQUIPPED. Handles registering signals and traits on the equipper.
 /datum/component/carbon_saddle/proc/parent_equipped(datum/signal_source, mob/equipper, slot)
 	SIGNAL_HANDLER
 
@@ -34,7 +30,9 @@
 
 	RegisterSignal(living_equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_item))
 	RegisterSignal(living_equipper, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(wearer_lost_organ))
-	RegisterSignal(living_equipper, COMSIG_HUMAN_PIGGYBACK_ATTEMPT, PROC_REF(wearer_piggybacked))
+	RegisterSignal(living_equipper, COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT, PROC_REF(wearer_riden))
+
+	ADD_TRAIT(living_equipper, TRAIT_SADDLED, REF(src))
 
 /// Signal handler for COMSIG_MOB_UNEQUIPPED_ITEM.
 /datum/component/carbon_saddle/proc/mob_unequipped_item(mob/signal_source, obj/item/item, force, atom/newloc, no_move, invdrop, silent)
@@ -43,13 +41,10 @@
 	if (item == parent)
 		mob_unequipped_parent(signal_source)
 
-/// Called when our parent is inequipped. Handles unsetting signals.
+/// Called when our parent is inequipped. Handles unsetting signals and traits.
 /datum/component/carbon_saddle/proc/mob_unequipped_parent(mob/target)
-	if (isliving(target))
-		var/mob/living/living_mob = target
-		living_mob.piggyback_flags = initial(living_mob.piggyback_flags)
-
-	UnregisterSignal(target, list(COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_CARBON_LOSE_ORGAN, COMSIG_HUMAN_PIGGYBACK_ATTEMPT))
+	UnregisterSignal(target, list(COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_CARBON_LOSE_ORGAN, COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT))
+	REMOVE_TRAIT(target, TRAIT_SADDLED, REF(src))
 
 /// Signal handler for COMSIG_CARBON_LOSE_ORGAN. Handles unequipping if the requisite organ is removed.
 /datum/component/carbon_saddle/proc/wearer_lost_organ(mob/living/carbon/signal_source, /obj/item/organ/lost)
@@ -59,9 +54,9 @@
 		var/obj/item/item_parent = parent
 		item_parent.forceMove(get_turf(item_parent)) // force unequip
 
-/// Signal handler for COMSIG_HUMAN_PIGGYBACK_ATTEMPT. Returns piggyback_flags into the signal bitfield.
-/datum/component/carbon_saddle/proc/wearer_piggybacked(mob/living/carbon/human/wearer, mob/living/carbon/rider)
-	return piggyback_flags
+/// Signal handler for COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT. Returns saddle_flags into the signal bitfield.
+/datum/component/carbon_saddle/proc/wearer_riden(mob/living/carbon/human/wearer, mob/living/carbon/rider)
+	return saddle_flags
 
 /// Signal handler for COMSIG_ITEM_MOB_CAN_EQUIP. If equipped into a non-hands and pockets slot, returns COMPONENT_ITEM_CANT_EQUIP if our owner doesnt have our required organ.
 /datum/component/carbon_saddle/proc/parent_can_equip(obj/item/signal_source, mob/living/target, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
@@ -72,7 +67,6 @@
 
 	if (required_organ && !wearer_has_requisite_organ(target))
 		return COMPONENT_ITEM_CANT_EQUIP
-
 
 /// Determines if our wearer, target, has our required organ, a subtype of our required organ var.
 /datum/component/carbon_saddle/proc/wearer_has_requisite_organ(mob/target)

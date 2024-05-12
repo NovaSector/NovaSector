@@ -14,5 +14,8 @@
 /// Applied when the ridee is normal sized. Applies to side offsets.
 #define REGULAR_SIDE_OFFSET 4
 
-/// Sent when a mob attempts to piggyback us. Should return a bitfield containing riding flags, ex. RIDER_NEEDS_ARMS (mob/living/carbon)
-#define COMSIG_HUMAN_PIGGYBACK_ATTEMPT "human_piggyback_attempt"
+/// Sent when a mob attempts to ride our saddle. Should return a bitfield containing riding flags, ex. RIDER_NEEDS_ARMS (mob/living/carbon)
+#define COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT "human_saddle_ride_attempt"
+
+/// If true, the saddled mob can have someone clickdragged onto them to be ridden.
+#define TRAIT_SADDLED "trait_saddled"
