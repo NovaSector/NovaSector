@@ -136,7 +136,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/imperial_police_uniform
 	name = "Imperial Police Uniform"
 	item_path = /obj/item/clothing/under/colonial/nri_police
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE)
 
 /datum/loadout_item/under/jumpsuit/cin_surplus_uniform
 	name = "CIN Combat Uniform"
