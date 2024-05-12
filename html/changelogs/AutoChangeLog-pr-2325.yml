@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "The Vanguard Expeditionary Corps surplus crate now works off a weighted budget system, like the CIN surplus crate."
+  - balance: "Some more valuable equipment can now be rolled for from the Vanguard surplus crate, like better gloves and medkits with improved medical supplies."

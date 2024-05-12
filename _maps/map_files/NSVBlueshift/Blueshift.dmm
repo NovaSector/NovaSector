@@ -63438,7 +63438,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "mey" = (
-/obj/structure/plaque/static_plaque/golden/commission,
+/obj/structure/plaque/static_plaque/golden/commission/blueshift,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
