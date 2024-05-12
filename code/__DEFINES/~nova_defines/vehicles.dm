@@ -13,3 +13,6 @@
 #define REGULAR_OFFSET 6
 /// Applied when the ridee is normal sized. Applies to side offsets.
 #define REGULAR_SIDE_OFFSET 4
+
+/// Sent when a mob attempts to piggyback us. Should return a bitfield containing riding flags, ex. RIDER_NEEDS_ARMS (mob/living/carbon)
+#define COMSIG_HUMAN_PIGGYBACK_ATTEMPT "human_piggyback_attempt"

@@ -1,5 +1,5 @@
 /obj/item/riding_saddle
-	name = "generic riding sattle"
+	name = "generic riding saddle"
 	desc = "someone spawned a basetype!"
 	slot_flags = ITEM_SLOT_BACK // no storage
 
@@ -7,6 +7,11 @@
 	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
+
+/obj/item/riding_saddle/Initialize(mapload)
+	. = ..()
+	if(type == /obj/item/riding_saddle) // don't even let these prototypes exist
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/riding_saddle/mob_can_equip(mob/living/target, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	if (!iscarbon(target))
@@ -21,7 +26,7 @@
 
 /obj/item/riding_saddle/leather
 	name = "riding saddle"
-	desc = "A thick leather riding sattle. Typically used for animals, this one has been designed for use by the taurs of the galaxy. \n\
+	desc = "A thick leather riding saddle. Typically used for animals, this one has been designed for use by the taurs of the galaxy. \n\
 	This saddle has specialized footrests that will allow a rider to <b>use both their hands</b> while riding."
 
 	icon_state = "saddle_leather_item"

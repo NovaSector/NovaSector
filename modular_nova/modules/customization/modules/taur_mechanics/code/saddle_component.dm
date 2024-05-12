@@ -24,6 +24,7 @@
 	var/obj/item/item_parent = parent
 	UnregisterSignal(item_parent, COMSIG_ITEM_EQUIPPED)
 
+/// Signal handler for COMSIG_ITEM_POST_EQUIPPED. Handles registering signals on the equipper.
 /datum/component/carbon_saddle/proc/parent_equipped(datum/signal_source, mob/equipper, slot)
 	SIGNAL_HANDLER
 
@@ -31,32 +32,36 @@
 		return
 	var/mob/living/living_equipper = equipper
 
-	RegisterSignal(living_equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_parent))
+	RegisterSignal(living_equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_item))
 	RegisterSignal(living_equipper, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(wearer_lost_organ))
-
-	living_equipper.piggyback_flags = piggyback_flags
+	RegisterSignal(living_equipper, COMSIG_HUMAN_PIGGYBACK_ATTEMPT, PROC_REF(wearer_piggybacked))
 
 /// Signal handler for COMSIG_MOB_UNEQUIPPED_ITEM.
-/datum/component/carbon_saddle/proc/mob_unequipped_parent(mob/signal_source, obj/item/item, force, atom/newloc, no_move, invdrop, silent)
+/datum/component/carbon_saddle/proc/mob_unequipped_item(mob/signal_source, obj/item/item, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
 
 	if (item == parent)
 		mob_unequipped_parent(signal_source)
 
-/// Called when our parent is inequipped. Handles resetting piggyback flags and unsetting signals.
+/// Called when our parent is inequipped. Handles unsetting signals.
 /datum/component/carbon_saddle/proc/mob_unequipped_parent(mob/target)
 	if (isliving(target))
 		var/mob/living/living_mob = target
 		living_mob.piggyback_flags = initial(living_mob.piggyback_flags)
 
-	UnregisterSignal(target, list(COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_CARBON_LOSE_ORGAN))
+	UnregisterSignal(target, list(COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_CARBON_LOSE_ORGAN, COMSIG_HUMAN_PIGGYBACK_ATTEMPT))
 
+/// Signal handler for COMSIG_CARBON_LOSE_ORGAN. Handles unequipping if the requisite organ is removed.
 /datum/component/carbon_saddle/proc/wearer_lost_organ(mob/living/carbon/signal_source, /obj/item/organ/lost)
 	SIGNAL_HANDLER
 
 	if (!wearer_has_requisite_organ(signal_source))
 		var/obj/item/item_parent = parent
 		item_parent.forceMove(get_turf(item_parent)) // force unequip
+
+/// Signal handler for COMSIG_HUMAN_PIGGYBACK_ATTEMPT. Returns piggyback_flags into the signal bitfield.
+/datum/component/carbon_saddle/proc/wearer_piggybacked(mob/living/carbon/human/wearer, mob/living/carbon/rider)
+	return piggyback_flags
 
 /// Signal handler for COMSIG_ITEM_MOB_CAN_EQUIP. If equipped into a non-hands and pockets slot, returns COMPONENT_ITEM_CANT_EQUIP if our owner doesnt have our required organ.
 /datum/component/carbon_saddle/proc/parent_can_equip(obj/item/signal_source, mob/living/target, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
