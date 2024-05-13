@@ -386,3 +386,14 @@
       a plasmide spray.
   - balance: Plasmide now metabolizes slower
   - rscadd: Stun batons now have the jousting component
+2024-05-13:
+  Hatterhat:
+  - balance: The Vanguard Expeditionary Corps surplus crate now works off a weighted
+      budget system, like the CIN surplus crate.
+  - balance: Some more valuable equipment can now be rolled for from the Vanguard
+      surplus crate, like better gloves and medkits with improved medical supplies.
+  RatFromTheJungle:
+  - balance: gives the CE a RCF in their locker at the start of the round, removing
+      the need to get it from the colony starter crate.
+  cherdaq:
+  - rscadd: added a commission plaque for blueshift
