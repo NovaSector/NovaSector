@@ -126,16 +126,14 @@
 	key_third_person = "flaps"
 	message = "flaps their wings."
 	hands_use_check = TRUE
-	var/wing_time = 20
+	var/wing_time = 0.35 SECONDS
 
-//NOVA EDIT REMOVAL BEGIN - EMOTES - Not working due to modified mutant code, TODO: Fix this
-/*
 /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/human_user = user
 		var/open = FALSE
-		var/obj/item/organ/external/wings/functional/wings = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
+		var/obj/item/organ/external/wings/functional/wings = human_user.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
 
 		// open/close functional wings
 		if(istype(wings))
@@ -146,11 +144,8 @@
 				wings.open_wings()
 			addtimer(CALLBACK(wings,  open ? TYPE_PROC_REF(/obj/item/organ/external/wings/functional, open_wings) : TYPE_PROC_REF(/obj/item/organ/external/wings/functional, close_wings)), wing_time)
 
-		// play moth flutter noise if moth wing
-		if(istype(wings, /obj/item/organ/external/wings/moth))
-			playsound(H, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE)
-*/
-//NOVA EDIT REMOVAL END
+		// play a flapping noise if the wing has this implemented
+		wings.make_flap_sound(human_user)
 
 /datum/emote/living/flap/aflap
 	key = "aflap"
@@ -194,7 +189,7 @@
 		return
 	var/mob/living/carbon/human/human_user = user
 	if(!HAS_MIND_TRAIT(human_user, TRAIT_MIMING)) // NOVA EDIT CHANGE - Let other species gasp - ORIGINAL: if(ishumanbasic(human_user) || isfelinid(human_user) && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
-		if(human_user.physique == FEMALE)
+		if(human_user.gender == FEMALE) // NOVA EDIT CHANGE - ORIGINAL: if(human_user.physique == FEMALE)
 			return pick('sound/voice/human/gasp_female1.ogg', 'sound/voice/human/gasp_female2.ogg', 'sound/voice/human/gasp_female3.ogg')
 		else
 			return pick('sound/voice/human/gasp_male1.ogg', 'sound/voice/human/gasp_male2.ogg')

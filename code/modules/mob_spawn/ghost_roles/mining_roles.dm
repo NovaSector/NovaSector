@@ -194,9 +194,9 @@
 /obj/structure/ash_walker_eggshell/Destroy()
 	if(!egg)
 		return ..()
-	var/mob/living/carbon/human/yolk = new /mob/living/carbon/human/(get_turf(src))
-	yolk.fully_replace_character_name(null,random_unique_lizard_name(gender))
+	var/mob/living/carbon/human/yolk = new(get_turf(src))
 	yolk.set_species(/datum/species/lizard/ashwalker)
+	yolk.fully_replace_character_name(null, yolk.generate_random_mob_name(TRUE))
 	yolk.underwear = "Nude"
 	yolk.equipOutfit(/datum/outfit/ashwalker)//this is an authentic mess we're making
 	yolk.update_body()
@@ -234,17 +234,18 @@
 	return FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
+	// NOVA EDIT ADDITION BEGIN
 	/*
 	 * 2024/01/03 TODO:
 	 * MOVE THE MODULAR STUFF IN THIS PROC TO
 	 * /modular_nova/master_files/code/modules/mob_spawn/ghost_roles/mining_roles.dm
 	 * There's an ashwalker camp section ready for you to slot it into
 	 */
-	// NOVA EDIT BEGIN
-	spawned_human.fully_replace_character_name(null,random_unique_lizard_name(gender)) // NOVA EDIT MOVE - Moving before parent call prevents char name randomization
-	quirks_enabled = TRUE // NOVA EDIT ADDITION - ghost role quirks
+	spawned_human.fully_replace_character_name(null, spawned_human.generate_random_mob_name(TRUE)) // NOVA EDIT MOVE - Moving before parent call prevents char name randomization
+	quirks_enabled = TRUE // ghost role quirks
+	// NOVA EDIT ADDITION END
 	. = ..()
-	// NOVA EDIT END
+	spawned_human.fully_replace_character_name(null, spawned_human.generate_random_mob_name(TRUE))
 	to_chat(spawned_human, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Invade the strange structure of the outsiders if you must. Do not cause unnecessary destruction, as littering the wastes with ugly wreckage is certain to not gain you favor. Glory to the Necropolis!</b>")
 
 	spawned_human.mind.add_antag_datum(/datum/antagonist/ashwalker, team)
