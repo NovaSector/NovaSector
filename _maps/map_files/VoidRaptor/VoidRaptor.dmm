@@ -34581,6 +34581,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
 /area/station/maintenance/disposal/incinerator)
+"jPk" = (
+/obj/effect/landmark/event_spawn,
+/obj/structure/plaque/static_plaque/golden/commission/voidraptor,
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/fore)
 "jPt" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/chair/sofa/bench/right{
@@ -120845,7 +120850,7 @@ rCi
 gQK
 kek
 uMy
-nPr
+jPk
 hSn
 qSu
 qSu
