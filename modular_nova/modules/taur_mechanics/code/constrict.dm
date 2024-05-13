@@ -415,7 +415,7 @@
 /// Toggle proc for crushing. See stop_crushing and start_crushing.
 /obj/structure/serpentine_tail/proc/toggle_crushing()
 	if (!constricted)
-		owner.balloon_alert(owner, "not constricted anything!")
+		owner.balloon_alert(owner, "not constricting anything!")
 		return FALSE
 
 	if (currently_crushing)
