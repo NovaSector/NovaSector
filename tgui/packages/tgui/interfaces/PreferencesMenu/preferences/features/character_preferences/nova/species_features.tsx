@@ -634,6 +634,11 @@ export const taur_emissive: Feature<boolean[]> = {
   component: FeatureTriBoolInput,
 };
 
+export const naga_sole: FeatureToggle = {
+  name: 'Taur (Naga) hardened soles',
+  component: CheckboxInput,
+};
+
 export const xenodorsal_toggle: FeatureToggle = {
   name: 'Xenodorsal',
   component: CheckboxInput,

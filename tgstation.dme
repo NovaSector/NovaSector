@@ -8228,6 +8228,7 @@
 #include "modular_nova\modules\tarkon\code\misc_fluff\turret.dm"
 #include "modular_nova\modules\taur_mechanics\code\constrict.dm"
 #include "modular_nova\modules\taur_mechanics\code\mod.dm"
+#include "modular_nova\modules\taur_mechanics\code\preferences.dm"
 #include "modular_nova\modules\taur_mechanics\code\serpentine_taur.dm"
 #include "modular_nova\modules\taur_mechanics\code\species.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_action.dm"

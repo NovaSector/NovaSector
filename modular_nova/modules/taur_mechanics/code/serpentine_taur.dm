@@ -22,6 +22,14 @@
 	var/obj/item/clothing/shoes/shoe = organ_owner.get_item_by_slot(ITEM_SLOT_FEET)
 	shoe?.forceMove(get_turf(organ_owner))
 
+	var/datum/preferences/prefs = organ_owner.client?.prefs
+	var/use_hardened_soles = prefs?.read_preference(/datum/preference/toggle/naga_soles)
+
+	if (use_hardened_soles)
+		add_hardened_soles(organ_owner)
+
+/// Adds TRAIT_HARD_SOLES to our owner.
+/obj/item/organ/external/taur_body/serpentine/proc/add_hardened_soles(mob/living/carbon/organ_owner = owner)
 	ADD_TRAIT(organ_owner, TRAIT_HARD_SOLES, ORGAN_TRAIT)
 
 /obj/item/organ/external/taur_body/serpentine/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
