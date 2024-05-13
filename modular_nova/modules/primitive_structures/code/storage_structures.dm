@@ -63,6 +63,7 @@
 
 /obj/machinery/smartfridge/wooden/Initialize(mapload)
 	. = ..()
+	welded_down = FALSE
 	if(type == /obj/machinery/smartfridge/wooden) // don't even let these prototypes exist
 		return INITIALIZE_HINT_QDEL
 
