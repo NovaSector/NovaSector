@@ -636,7 +636,8 @@ export const taur_emissive: Feature<boolean[]> = {
 
 export const naga_sole: FeatureToggle = {
   name: 'Taur (Naga) hardened soles',
-  description: 'If using a serpentine taur body, determines if you get the hardened soles quirk for free or not.'
+  description: 'If using a serpentine taur body, determines if you get the hardened soles quirk for free or not.',
+  description: 'If using a serpentine taur body, determines if you get the hardened soles quirk for free or not.',
   component: CheckboxInput,
 };
 
