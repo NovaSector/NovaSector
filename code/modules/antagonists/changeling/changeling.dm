@@ -547,14 +547,20 @@
 	new_profile.name = target.real_name
 	new_profile.protected = protect
 
+	new_profile.age = target.age
+	new_profile.physique = target.physique
+	new_profile.athletics_level = target.mind?.get_skill_level(/datum/skill/athletics) || SKILL_LEVEL_NONE
+
+	// Grab the target's quirks.
+	for(var/datum/quirk/target_quirk as anything in target.quirks)
+		LAZYADD(new_profile.quirks, new target_quirk.type)
+
 	// Clothes, of course
 	new_profile.underwear = target.underwear
 	new_profile.undershirt = target.undershirt
 	new_profile.socks = target.socks
-
-	// NOVA EDIT START
+	// NOVA EDIT ADDITION START
 	new_profile.bra = target.bra
-
 	new_profile.underwear_color = target.underwear_color
 	new_profile.undershirt_color = target.undershirt_color
 	new_profile.socks_color = target.socks_color
@@ -564,13 +570,9 @@
 	new_profile.emissive_eyes = target.emissive_eyes
 	new_profile.grad_style = LAZYLISTDUPLICATE(target.grad_style)
 	new_profile.grad_color = LAZYLISTDUPLICATE(target.grad_color)
-	new_profile.physique = target.physique
 	new_profile.scream_type = target.selected_scream?.type || /datum/scream_type/none
 	new_profile.laugh_type = target.selected_laugh?.type || /datum/laugh_type/none
-	new_profile.age = target.age
-	for(var/datum/quirk/target_quirk in target.quirks)
-		LAZYADD(new_profile.quirks, new target_quirk.type)
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
@@ -801,8 +803,10 @@
 	user.underwear = chosen_profile.underwear
 	user.undershirt = chosen_profile.undershirt
 	user.socks = chosen_profile.socks
-
-	// NOVA EDIT START
+	user.age = chosen_profile.age
+	user.physique = chosen_profile.physique
+	user.mind?.set_level(/datum/skill/athletics, chosen_profile.athletics_level, silent = TRUE)
+	// NOVA EDIT ADDITION START
 	user.bra = chosen_profile.bra
 
 	user.underwear_color = chosen_profile.underwear_color
@@ -815,12 +819,10 @@
 	user.grad_style = LAZYLISTDUPLICATE(chosen_profile.grad_style)
 	user.grad_color = LAZYLISTDUPLICATE(chosen_profile.grad_color)
 
-	user.physique = chosen_profile.physique
 	qdel(user.selected_scream)
 	qdel(user.selected_laugh)
 	user.selected_scream = new chosen_profile.scream_type
 	user.selected_laugh = new chosen_profile.laugh_type
-	user.age = chosen_profile.age
 
 	// Only certain quirks will be copied, to avoid making the changeling blind or wheelchair-bound when they can simply pretend to have these quirks.
 
@@ -836,7 +838,7 @@
 				user.add_quirk(target_quirk.type)
 				break
 
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	user.voice = chosen_profile.voice
 	user.voice_filter = chosen_profile.voice_filter
 
@@ -991,8 +993,18 @@
 	var/datum/icon_snapshot/profile_snapshot
 	/// ID HUD icon associated with the profile
 	var/id_icon
-
-
+	/// The age of the profile source.
+	var/age
+	/// The body type of the profile source.
+	var/physique
+	/// The athleticism of the profile source.
+	var/athletics_level
+	/// The quirks of the profile source.
+	var/list/quirks = list()
+	/// The hair and facial hair gradient styles of the profile source.
+	var/list/grad_style = list("None", "None")
+	/// The hair and facial hair gradient colours of the profile source.
+	var/list/grad_color = list(null, null)
 	/// The TTS voice of the profile source
 	var/voice
 	/// The TTS filter of the profile filter
@@ -1029,8 +1041,11 @@
 	new_profile.stored_scars = stored_scars.Copy()
 	new_profile.profile_snapshot = profile_snapshot
 	new_profile.id_icon = id_icon
-
-	// NOVA EDIT START
+	new_profile.age = age
+	new_profile.physique = physique
+	new_profile.athletics_level = athletics_level
+	new_profile.quirks = quirks.Copy()
+	// NOVA EDIT ADDITION START
 	new_profile.underwear_color = underwear_color
 	new_profile.undershirt_color = undershirt_color
 	new_profile.socks_color = socks_color
@@ -1039,10 +1054,10 @@
 	new_profile.eye_color_left = eye_color_left
 	new_profile.eye_color_right = eye_color_right
 	new_profile.emissive_eyes = emissive_eyes
+
 	new_profile.grad_style = LAZYLISTDUPLICATE(grad_style)
 	new_profile.grad_color = LAZYLISTDUPLICATE(grad_color)
 
-	new_profile.physique = physique
 	new_profile.worn_icon_digi_list = worn_icon_digi_list.Copy()
 	new_profile.worn_icon_monkey_list = worn_icon_monkey_list.Copy()
 	new_profile.worn_icon_teshari_list = worn_icon_teshari_list.Copy()
@@ -1050,8 +1065,6 @@
 	new_profile.supports_variations_flags_list = supports_variations_flags_list.Copy()
 	new_profile.scream_type = scream_type
 	new_profile.laugh_type = laugh_type
-	new_profile.age = age
-	new_profile.quirks = quirks.Copy()
 	// NOVA EDIT END
 
 	new_profile.voice = voice
