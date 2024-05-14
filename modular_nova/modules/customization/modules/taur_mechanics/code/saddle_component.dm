@@ -47,7 +47,7 @@
 	REMOVE_TRAIT(target, TRAIT_SADDLED, REF(src))
 
 /// Signal handler for COMSIG_CARBON_LOSE_ORGAN. Handles unequipping if the requisite organ is removed.
-/datum/component/carbon_saddle/proc/wearer_lost_organ(mob/living/carbon/signal_source, /obj/item/organ/lost)
+/datum/component/carbon_saddle/proc/wearer_lost_organ(mob/living/carbon/signal_source, obj/item/organ/lost)
 	SIGNAL_HANDLER
 
 	if (!wearer_has_requisite_organ(signal_source))

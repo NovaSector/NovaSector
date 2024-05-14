@@ -38,7 +38,7 @@
 	var/obj/item/organ/reject_organ = new organ_type()
 
 	TEST_ASSERT(test_organ.Insert(lab_rat, special = TRUE, movement_flags = DELETE_IF_REPLACED), TEST_ORGAN_INSERT_MESSAGE(test_organ, "should return TRUE to indicate success."))
-	TEST_ASSERT(!reject_organ.Insert(lab_dog, special = TRUE, movement_flags = DELETE_IF_REPLACED), TEST_ORGAN_INSERT_MESSAGE(test_organ, "shouldn't return TRUE when inserting into a basic mob (Corgi). organ type: [reject_organ.type]"))
+	TEST_ASSERT(!reject_organ.Insert(lab_dog, special = TRUE, movement_flags = DELETE_IF_REPLACED), TEST_ORGAN_INSERT_MESSAGE(test_organ, "shouldn't return TRUE when inserting into a basic mob (Corgi)."))
 
 	// Species change swaps out all the organs, making test_organ un-usable by this point.
 	if(species_changing_organs[test_organ.type])
