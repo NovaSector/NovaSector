@@ -2066,8 +2066,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/replica_parade_jacket
 	name = "replica parade jacket"
 	desc = "Ever see command staff in a fancy parade jacket and think to yourself, \"I want that\" without having to steal it? Here's your chance. Made from the finest synthleather and synthwool, it cost far more than most people care to admit they paid."
-	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "replicaparadejacket"
 	greyscale_config = /datum/greyscale_config/replica_parade_jacket
 	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
