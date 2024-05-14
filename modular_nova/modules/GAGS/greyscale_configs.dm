@@ -953,12 +953,11 @@
 // PARADE JACKET
 /datum/greyscale_config/replica_parade_jacket
 	name = "Replica Parade Jacket"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket.json'
 
 /datum/greyscale_config/replica_parade_jacket/worn
 	name = "Replica Parade Jacket (Worn)"
-	icon_file = "modular_nova/master_files/icons/mob/clothing/suit.dmi"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket_worn.json'
 
 /*
