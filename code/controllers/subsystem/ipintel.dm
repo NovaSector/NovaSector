@@ -104,7 +104,13 @@ SUBSYSTEM_DEF(ipintel)
 	if(intel.query_status != "success")
 		return intel
 	intel.result = data["result"]
+<<<<<<< HEAD
 	intel.date = SQLtime()
+=======
+	if(istext(intel.result))
+		intel.result = text2num(intel.result)
+	intel.date = ISOtime()
+>>>>>>> a8dda646a1a (Moves as many db related date/time operations to the db side to avoid byond bugs with dates and times. (#83193))
 	intel.address = address
 	cached_queries[address] = intel
 	add_intel_to_database(intel)
