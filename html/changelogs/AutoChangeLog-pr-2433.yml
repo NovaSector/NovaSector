@@ -1,0 +1,6 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "The miecz now holds ten more shots per magazine, and does 18 instead of 15 damage."
+  - balance: " The wespe is now full-auto, meaning solfed finally found the switches for them."
+  - spellcheck: "fixed the miecz being misspelled (meicz) in it's expanded flavortext."
