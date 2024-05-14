@@ -397,3 +397,10 @@
       the need to get it from the colony starter crate.
   cherdaq:
   - rscadd: added a commission plaque for blueshift
+2024-05-14:
+  FlufflesTheDog:
+  - bugfix: crafted wooden produce/seed shelves now properly store their intended
+      resourcessa
+  - qol: wooden "smartfridges" now start unwelded (but wrenched)
+  Hatterhat:
+  - balance: You can now shoot mold if you directly target (click) it.

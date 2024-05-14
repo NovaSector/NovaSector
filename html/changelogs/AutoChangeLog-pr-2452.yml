@@ -1,5 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "crafted wooden produce/seed shelves now properly store their intended resourcessa"
-  - qol: "wooden \"smartfridges\" now start unwelded (but wrenched)"
