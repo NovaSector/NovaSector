@@ -2072,6 +2072,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	greyscale_colors = "#b0c5ff#434343"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/replicaparadejacket/Initialize(mapload)
+/obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
