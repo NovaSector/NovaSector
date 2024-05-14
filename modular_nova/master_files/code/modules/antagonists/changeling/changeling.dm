@@ -19,13 +19,6 @@
 	var/eye_color_right
 	/// Does the profile source's eyes glow
 	var/emissive_eyes
-	/// The profile sorce's gradient styles
-	var/list/grad_style = list("None", "None")
-	/// The colors for the profile source's gradients
-	var/list/grad_color = list(null, null)
-
-	/// The physique used by the profile source
-	var/physique
 	/// Profile source digi leg icons
 	var/list/worn_icon_digi_list = list()
 	/// profile source monkey icons
@@ -40,7 +33,3 @@
 	var/scream_type
 	/// The profile source laugh type
 	var/laugh_type
-	/// The profile source's age
-	var/age
-	/// The quirks used by the profile source
-	var/list/quirks = list()
