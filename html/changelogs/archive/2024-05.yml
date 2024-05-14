@@ -359,3 +359,48 @@
       with another to create the pile. These piles delete themselves when empty, and
       usually hold enough bullets to reload 1 or 1/2 of a magazine for the weapon
       that uses that ammo, depending on the weapon.
+  carlarctg:
+  - rscadd: Chance to become crab on nonlethal DNA meltdown
+  norsvenska:
+  - bugfix: The Coroner and Bitrunner can now be selected as a target for kidnapping
+      and heirloom destruction objectives.
+  - bugfix: The Chief Engineer is now a valid target for heirloom destruction objectives.
+2024-05-12:
+  FlufflesTheDog:
+  - bugfix: food vendors now drop the correct circuit and resupply canister
+  - rscadd: Customization for sensitive snout! Including an option for automatically
+      sneezing. Bless you.
+  Higgin:
+  - bugfix: Spies no longer get the 'nothing' / 'free objective' due to trying to
+      make Protect objectives without targets.
+  Paxilmaniac:
+  - code_imp: some entirely unused code defines have been cleaned up
+  Xander3359:
+  - bugfix: Ale now has a drinking_glass style
+  nikothedude:
+  - balance: Synth blunt T3 now requires a T1 burn wound to mold
+  - balance: Synth blunt T3 heating step now gives a T1 burn wound
+  - balance: Synth blunt T3 heating now takes 3 secs
+  - rscadd: A filterless forked tongue that has no TTS filters
+  - balance: Synth premium medkits no longer have a premium spray, instead having
+      a plasmide spray.
+  - balance: Plasmide now metabolizes slower
+  - rscadd: Stun batons now have the jousting component
+2024-05-13:
+  Hatterhat:
+  - balance: The Vanguard Expeditionary Corps surplus crate now works off a weighted
+      budget system, like the CIN surplus crate.
+  - balance: Some more valuable equipment can now be rolled for from the Vanguard
+      surplus crate, like better gloves and medkits with improved medical supplies.
+  RatFromTheJungle:
+  - balance: gives the CE a RCF in their locker at the start of the round, removing
+      the need to get it from the colony starter crate.
+  cherdaq:
+  - rscadd: added a commission plaque for blueshift
+2024-05-14:
+  FlufflesTheDog:
+  - bugfix: crafted wooden produce/seed shelves now properly store their intended
+      resourcessa
+  - qol: wooden "smartfridges" now start unwelded (but wrenched)
+  Hatterhat:
+  - balance: You can now shoot mold if you directly target (click) it.
