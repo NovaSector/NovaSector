@@ -881,6 +881,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
 				override_file = worn_icon_taur_hoof
 				using_taur_variant = TRUE
+			else if ((mutant_styles & STYLE_TAUR_MERMAID) && worn_icon_taur_mermaid)
+				override_file = worn_icon_taur_mermaid
+				using_taur_variant = TRUE
 	// NOVA EDIT END
 	//Find a valid icon_state from variables+arguments
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state

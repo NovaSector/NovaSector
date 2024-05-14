@@ -708,8 +708,7 @@
 
 /datum/preference/choiced/mutant_choice/taur/is_valid(value)
 	///Warn the player this taur type will make their character legless
-	var/find_index = findtext(value, "Legless")
-	if(find_index)
+	if(findtext(value, "Legless"))
 		to_chat(usr, span_warning("Be aware, the taur type you selected will delete your character's legs!"))
 	return ..()
 

@@ -22,7 +22,7 @@
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
 	center = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
 	genetic = TRUE
 	organ_type = /obj/item/organ/external/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
@@ -37,6 +37,10 @@
 		if((worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
 			return TRUE
 
+	if(!use_custom_mod_icon && istype(worn_suit, /obj/item/clothing/suit/mod))
+		if(findtext(worn_suit.icon_state, "sealed"))
+			return TRUE
+
 		if (worn_suit.flags_inv & HIDETAUR)
 			switch (taur_mode)
 				if (STYLE_TAUR_SNAKE)
@@ -47,6 +51,9 @@
 						return TRUE
 				if (STYLE_TAUR_HOOF)
 					if (worn_suit.worn_icon_taur_hoof)
+						return TRUE
+				if (STYLE_TAUR_MERMAID)
+					if (worn_suit.worn_icon_taur_mermaid)
 						return TRUE
 
 	if(target.owned_turf)
@@ -63,18 +70,6 @@
 	factual = FALSE
 	color_src = null
 	flags_for_organ = NONE
-
-/datum/sprite_accessory/taur/mermaid
-	name = "Mermaid (Legless)"
-	icon_state = "mermaid"
-	taur_mode = STYLE_TAUR_MERMAID
-	color_src = USE_MATRIXED_COLORS
-	organ_type = /obj/item/organ/external/taur_body/mermaid
-
-/datum/sprite_accessory/taur/mermaid/synth
-	name = "Mermaid (Synthetic) (Legless)"
-	icon_state = "mermaid_synth"
-	organ_type = /obj/item/organ/external/taur_body/mermaid/synth
 
 /datum/sprite_accessory/taur/cow
 	name = "Cow"
@@ -204,3 +199,22 @@
 /datum/sprite_accessory/taur/biglegs/stanced/bird
 	name = "Big Legs, Stanced Bird"
 	icon_state = "biglegs_bird_stanced"
+
+/datum/sprite_accessory/taur/mermaid
+	name = "Mermaid (Legless)"
+	icon_state = "mermaid"
+	taur_mode = STYLE_TAUR_MERMAID
+	use_custom_mod_icon = FALSE //
+	organ_type = /obj/item/organ/external/taur_body/mermaid
+
+/datum/sprite_accessory/taur/mermaid/synth
+	name = "Mermaid (Synthetic) (Legless)"
+	organ_type = /obj/item/organ/external/taur_body/mermaid/synth
+
+/datum/sprite_accessory/taur/mermaid/finned
+	name = "Mermaid Finned (Legless)"
+	icon_state = "mermaid_f"
+
+/datum/sprite_accessory/taur/mermaid/finned/synth
+	name = "Mermaid Finned (Synthetic) (Legless)"
+	organ_type = /obj/item/organ/external/taur_body/mermaid/synth

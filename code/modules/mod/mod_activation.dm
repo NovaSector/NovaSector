@@ -97,10 +97,12 @@
 	else
 		if(!user)
 			return FALSE
+		wearer.visible_message(span_notice("[wearer]'s [part.name] deploy[part.p_s()] carefully begins to deploy..."),
+			span_notice("[part] deploy[part.p_s()] slowly..."),
+			span_hear("You hear a long mechanical hiss..."))
+		if(!do_after(wearer, 1 SECONDS, wearer))
+			return FALSE
 		wearer.equip_to_slot(part, part.slot_flags)
-		wearer.visible_message(span_notice("[wearer]'s [part.name] deploy[part.p_s()] with a mechanical hiss."),
-			span_notice("[part] deploy[part.p_s()] with a mechanical hiss."),
-			span_hear("You hear a mechanical hiss."))
 		ADD_TRAIT(part, TRAIT_NODROP, MOD_TRAIT)
 		playsound(src, 'sound/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		return TRUE
