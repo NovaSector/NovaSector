@@ -132,7 +132,7 @@
 		overslotting_parts[part] = null
 	// NOVA EDIT START - Avoiding exploits with the modules staying active when any of the parts are retracted.
 	for(var/obj/item/mod/module/module as anything in modules)
-		if(module.active)
+		if(module.active && module.allow_flags != MODULE_ALLOW_INACTIVE)
 			module.on_deactivation(display_message = !!user)
 	// NOVA EDIT END
 	if(!user)

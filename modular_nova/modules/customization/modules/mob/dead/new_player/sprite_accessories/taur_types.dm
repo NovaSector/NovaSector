@@ -204,7 +204,7 @@
 	name = "Mermaid (Legless)"
 	icon_state = "mermaid"
 	taur_mode = STYLE_TAUR_MERMAID
-	use_custom_mod_icon = FALSE //
+	use_custom_mod_icon = FALSE
 	organ_type = /obj/item/organ/external/taur_body/mermaid
 
 /datum/sprite_accessory/taur/mermaid/synth
