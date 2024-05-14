@@ -3,7 +3,7 @@
 	savefile_key = "naga_sole"
 	savefile_identifier = PREFERENCE_CHARACTER
 	priority = PREFERENCE_PRIORITY_BODYPARTS + 0.1
-	default_value = TRUE
+	default_value = FALSE
 
 /datum/preference/toggle/naga_soles/is_accessible(datum/preferences/preferences)
 	if (!..())
@@ -13,7 +13,7 @@
 	return (istype(taur_mode, /datum/sprite_accessory/taur/naga))
 
 /datum/preference/toggle/naga_soles/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	if (!value)
+	if (value)
 		return
 	var/obj/item/organ/external/taur_body/serpentine/snake_body = locate(/obj/item/organ/external/taur_body/serpentine) in target.organs
 	if (istype(snake_body))

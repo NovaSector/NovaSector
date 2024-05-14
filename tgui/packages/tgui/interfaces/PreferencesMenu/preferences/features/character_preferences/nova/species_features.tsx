@@ -635,9 +635,9 @@ export const taur_emissive: Feature<boolean[]> = {
 };
 
 export const naga_sole: FeatureToggle = {
-  name: 'Taur (Naga) hardened soles',
+  name: 'Taur (Naga) disable hardened soles',
   description:
-    'If using a serpentine taur body, determines if you get the hardened soles quirk for free or not.',
+    'If using a serpentine taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
   component: CheckboxInput,
 };
 
