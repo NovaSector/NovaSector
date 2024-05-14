@@ -7679,6 +7679,7 @@
 #include "modular_nova\modules\mentor\code\mentorwho.dm"
 #include "modular_nova\modules\Midroundtraitor\code\datum_traitor.dm"
 #include "modular_nova\modules\Midroundtraitor\code\event.dm"
+#include "modular_nova\modules\mining_crushers\code\miningweapons.dm"
 #include "modular_nova\modules\mining_vendor_additions\code\order_mining.dm"
 #include "modular_nova\modules\modsuit_armour\modsuit_armour.dm"
 #include "modular_nova\modules\modsuit_pai\code\mod_pai.dm"
