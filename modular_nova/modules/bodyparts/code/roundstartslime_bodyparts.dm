@@ -37,7 +37,6 @@
 	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
 	owner.blood_volume -= 60
 	. = ..()
-	drop_organs(src, TRUE)
 	qdel(src)
 	return .
 
