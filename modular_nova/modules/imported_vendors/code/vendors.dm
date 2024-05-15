@@ -1,6 +1,6 @@
 /obj/effect/spawner/random/vending/snackvend
 	loot = list(
-		/obj/machinery/vending/imported,
+		/obj/machinery/vending/imported/nt,
 		/obj/machinery/vending/imported/yangyu,
 		/obj/machinery/vending/imported/mothic,
 		/obj/machinery/vending/imported/tiziran,
@@ -9,7 +9,7 @@
 
 /obj/effect/spawner/random/vending/colavend //These can serve both snacks AND drinks so its kinda both of them?
 	loot = list(
-		/obj/machinery/vending/imported,
+		/obj/machinery/vending/imported/nt,
 		/obj/machinery/vending/imported/yangyu,
 		/obj/machinery/vending/imported/mothic,
 		/obj/machinery/vending/imported/tiziran,
@@ -18,15 +18,21 @@
 
 /datum/supply_pack/vending/imported/fill(obj/structure/closet/crate/target_crate)
 	. = ..()
-	for(var/obj/vendor_refill as anything in typesof(/obj/item/vending_refill/snack/imported))
+	for(var/obj/vendor_refill as anything in subtypesof(/obj/item/vending_refill/snack/imported))
 		new vendor_refill(target_crate)
 
 /obj/machinery/vending/imported
+	icon = 'modular_nova/modules/imported_vendors/icons/imported_vendors.dmi'
+	icon_state = null
+	panel_type = "panel15"
+	default_price = PAYCHECK_CREW * 0.5
+	extra_price = PAYCHECK_COMMAND
+	payment_department = NO_FREEBIES
+
+/obj/machinery/vending/imported/nt
 	name = "NT Sustenance Supplier"
 	desc = "A vending machine serving up only the finest of human college student food."
-	icon = 'modular_nova/modules/imported_vendors/icons/imported_vendors.dmi'
 	icon_state = "nt_food"
-	panel_type = "panel15"
 	light_mask = "nt_food-light-mask"
 	light_color = LIGHT_COLOR_LIGHT_CYAN
 	product_slogans = "Caution, contents may be selling hot!;Look at these low prices!;Hungry? Me too- Wait, no, you didn't hear that!"
@@ -60,12 +66,9 @@
 		),
 	)
 
-	refill_canister = /obj/item/vending_refill/snack/imported
-	default_price = PAYCHECK_CREW * 0.5
-	extra_price = PAYCHECK_COMMAND
-	payment_department = NO_FREEBIES
+	refill_canister = /obj/item/vending_refill/snack/imported/nt
 
-/obj/item/vending_refill/snack/imported
+/obj/item/vending_refill/snack/imported/nt
 	machine_name = "NT Sustenance Supplier"
 
 /obj/machinery/vending/imported/yangyu

@@ -432,10 +432,10 @@
 				ROLE_SYNDICATE,
 				ROLE_TRAITOR,
 				ROLE_WIZARD,
-				ROLE_BORER, //NOVA EDIT
-				ROLE_ASSAULT_OPERATIVE, //NOVA EDIT
+				ROLE_BORER, // NOVA EDIT ADDITION
+				ROLE_ASSAULT_OPERATIVE, // NOVA EDIT ADDITION
 			),
-			"Skyrat Ban Options" = list(
+			"Nova Ban Options" = list(
 				BAN_PACIFICATION,
 				BAN_DONOTREVIVE,
 				BAN_RESPAWN,
@@ -445,8 +445,8 @@
 				BAN_EORG,
 				BAN_ANTAGONIST,
 				BAN_OPFOR,
-				BAN_LOOC, //SKYRAT ADDITION - LOOC muting again
-			),//NOVA EDIT ADDITION - EXTRA_BANS
+				BAN_LOOC, // NOVA EDIT ADDITION - LOOC muting again
+			), // NOVA EDIT ADDITION - EXTRA_BANS
 		)
 		for(var/department in long_job_lists)
 			output += "<div class='column'><label class='rolegroup long [ckey(department)]'>[tgui_fancy ? "<input type='checkbox' name='[department]' class='hidden' onClick='header_click_all_checkboxes(this)'>" : ""][department]</label><div class='content'>"

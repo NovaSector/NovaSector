@@ -292,6 +292,7 @@
 		/obj/item/weaponcell/medical, //NOVA EDIT MEDIGUNS
 		/obj/item/handheld_soulcatcher, // NOVA EDIT SOULCATCHERS
 		/obj/item/wrench/medical,
+		/obj/item/knife/ritual,
 	))
 
 /obj/item/storage/belt/medical/paramedic
@@ -740,6 +741,7 @@
 		/obj/item/ammo_casing/strilka310,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_casing/a357,
+		/obj/item/ammo_casing/junk,
 	))
 
 /obj/item/storage/belt/fannypack
@@ -831,6 +833,7 @@
 	atom_storage.rustle_sound = FALSE
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.set_holdable(/obj/item/melee/sabre)
+	atom_storage.click_alt_open = FALSE
 
 /obj/item/storage/belt/sabre/examine(mob/user)
 	. = ..()

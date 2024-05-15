@@ -103,7 +103,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_HEAD_OF_SECURITY = 10,
 		JOB_WARDEN = 11,
 		JOB_SECURITY_OFFICER = 12,
-		/* SKYRAT REMOVAL - We need those slots for our own jobs, these jobs aren't on Skyrat anymore anyway.
+		/* NOVA EDIT REMOVAL - We need those slots for our own jobs, these jobs aren't on Nova anymore anyway.
 		JOB_SECURITY_OFFICER_MEDICAL = 13,
 		JOB_SECURITY_OFFICER_ENGINEERING = 14,
 		JOB_SECURITY_OFFICER_SCIENCE = 15,
@@ -178,7 +178,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsoleSkyrat")
+		ui = new(user, src, "CrewConsoleNova")
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)

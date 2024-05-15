@@ -1,4 +1,4 @@
-// SKYRAT GOOD TRAITS
+// NOVA GOOD TRAITS
 
 /datum/quirk/hard_soles
 	name = "Hardened Soles"
