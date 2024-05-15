@@ -79,7 +79,7 @@
 	if(prevent_leg_insertion) //we can skip the rest if we have no legs to play with anyway
 		return ..()
 
-		old_right_leg = reciever.get_bodypart(BODY_ZONE_R_LEG)
+	old_right_leg = reciever.get_bodypart(BODY_ZONE_R_LEG)
 	old_left_leg = reciever.get_bodypart(BODY_ZONE_L_LEG)
 	var/obj/item/bodypart/leg/left/taur/new_left_leg
 	var/obj/item/bodypart/leg/right/taur/new_right_leg
