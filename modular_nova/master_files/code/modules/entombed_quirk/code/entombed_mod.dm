@@ -71,9 +71,11 @@
 		//if we have no host suit, we shouldn't exist, so delete
 		host = null
 		qdel(parent)
+		return
 
 	var/obj/item/clothing/piece = parent
-	piece.doMove(host_suit)
+	if (!isnull(piece))
+		piece.doMove(host_suit)
 
 /obj/item/mod/module/anomaly_locked/antigrav/entombed
 	name = "assistive anti-gravity ambulator"
