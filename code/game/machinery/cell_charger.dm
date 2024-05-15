@@ -138,13 +138,7 @@
 		charge_rate *= capacitor.tier
 
 /obj/machinery/cell_charger/process(seconds_per_tick)
-<<<<<<< HEAD
-	if(!charging || !anchored || (machine_stat & (BROKEN|NOPOWER)))
-		return
-	if(charging.percent() >= 100)
-=======
 	if(!charging || charging.percent() >= 100 || !anchored || !is_operational)
->>>>>>> 16be085f7bb (Fixes energy lost as heat for some machines (#83205))
 		return
 
 	var/main_draw = charge_rate * seconds_per_tick
