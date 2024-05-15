@@ -1,4 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - qol: "Paraplegic characters who also have the Entombed quirk now start with an altered anti-gravity MOD module that allows them to emulate the effects of a gravity harness at roundstart. In addition, entombed MODsuits can have longer custom names (up to 64 chars from 48)."

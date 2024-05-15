@@ -387,16 +387,37 @@
   - balance: Plasmide now metabolizes slower
   - rscadd: Stun batons now have the jousting component
 2024-05-13:
+  Bisar:
+  - qol: Most of the alternate click modes (right click, control clicking, shift clicking,
+      etc) have been enabled in the alt-click item menu.
+  - bugfix: You will no longer point at things you right-click in the alt-click item
+      menu.
   Hatterhat:
   - balance: The Vanguard Expeditionary Corps surplus crate now works off a weighted
       budget system, like the CIN surplus crate.
   - balance: Some more valuable equipment can now be rolled for from the Vanguard
       surplus crate, like better gloves and medkits with improved medical supplies.
+  Melbert:
+  - rscadd: Cigarette smoke is now more smokey.
+  - rscadd: Taking a cigarette out of your mouth will let out a big puff of smoke.
+  PapaMichael:
+  - bugfix: Rat Kings can no longer trap mice inside of pipes by creating them while
+      ventcrawling.
+  - balance: Rat Kings can no longer create grime and miasma while ventcrawling.
   RatFromTheJungle:
   - balance: gives the CE a RCF in their locker at the start of the round, removing
       the need to get it from the colony starter crate.
+  Rhials:
+  - rscadd: Bitrunners now have their own job figurine. Cool!
   cherdaq:
   - rscadd: added a commission plaque for blueshift
+  nikothedude:
+  - spellcheck: Added a period to the end of the wendigo deathrattle
+  paganiy:
+  - qol: Now you can put a cigarette in your mouth just by hitting the pack of cigarettes
+      on yourself.
+  - bugfix: The cigarette pack no longer moves under the spaceman when they interacts
+      with it with the RMB
 2024-05-14:
   FlufflesTheDog:
   - bugfix: crafted wooden produce/seed shelves now properly store their intended
@@ -404,3 +425,46 @@
   - qol: wooden "smartfridges" now start unwelded (but wrenched)
   Hatterhat:
   - balance: You can now shoot mold if you directly target (click) it.
+  Jacquerel:
+  - rscadd: People who spend time improving their bodies are able to evaluate the
+      relative physical strength of those they examine as a kind of "power level".
+  - rscadd: Changeling transformation copies the target's athletics skill level.
+  Time-Green:
+  - bugfix: Deleting someones brain kills them again
+  jlsnow301:
+  - bugfix: Alt click will draw the captain's sabre again
+  paganiy:
+  - bugfix: Accelerator laser gun no longer shoots sun size projectiles.
+  starrm4nn:
+  - qol: Gives Health sensor assemblies a UI so its easier to use.
+2024-05-15:
+  DaCoolBoss:
+  - bugfix: The random arcade machines in the 'Interdyne Spinward Research Base's
+      now function.
+  Melbert:
+  - qol: Some alerts, such as Fleshmend's, show their remaining duration on their
+      icon.
+  Paxilmaniac:
+  - rscdel: The robohand gun and associated traitor kit are gone
+  RatFromTheJungle:
+  - balance: The miecz now holds ten more shots per magazine, and does 18 instead
+      of 15 damage.
+  - balance: ' The wespe is now full-auto, meaning solfed finally found the switches
+      for them.'
+  - spellcheck: fixed the miecz being misspelled (meicz) in it's expanded flavortext.
+  SomeRandomOwl:
+  - rscadd: Added four new PKA crusher variants for miners to use out on the ashlands
+      and icewastes. Try them out today!
+  Webcomicartist:
+  - bugfix: The lavaland mining shuttle doors no longer trap cargo security on lavaland
+      due to access weirdness.
+  iwishforducks:
+  - bugfix: Fixes random decal in space on Tramstation
+  sqnztb:
+  - rscadd: new donator item - replica parade jacket, find it under the suits category
+      in loadout
+  yooriss:
+  - qol: Paraplegic characters who also have the Entombed quirk now start with an
+      altered anti-gravity MOD module that allows them to emulate the effects of a
+      gravity harness at roundstart. In addition, entombed MODsuits can have longer
+      custom names (up to 64 chars from 48).
