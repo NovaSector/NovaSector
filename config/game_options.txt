@@ -267,6 +267,7 @@ RANDOM_LAWS corporate
 ## Quirky laws. Shouldn't cause too much harm
 #RANDOM_LAWS hippocratic
 #RANDOM_LAWS maintain
+#RANDOM_LAWS drone
 #RANDOM_LAWS liveandletlive
 #RANDOM_LAWS peacekeeper
 #RANDOM_LAWS reporter
@@ -282,13 +283,11 @@ RANDOM_LAWS corporate
 
 ## meme laws. Honk
 #RANDOM_LAWS buildawall
-# NOVA EDIT ADDITION BEGIN - Nova Laws
-
-RANDOM_LAWS armadyne_safeguard
-RANDOM_LAWS dagothbot
+## NOVA EDIT ADDITION BEGIN - Nova Laws
+#RANDOM_LAWS armadyne_safeguard
+#RANDOM_LAWS dagothbot
 #RANDOM_LAWS texas
-#RANDOM_LAWS drone
-# NOVA EDIT ADDITION END
+## NOVA EDIT ADDITION END
 
 ## If weighted laws are selected (DEFAULT_LAWS = 3),
 ## then an AI's starting laws will be determined by the weights of these values
