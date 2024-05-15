@@ -25,6 +25,8 @@
 			if("open_examine_panel")
 				tgui.holder = src
 				tgui.ui_interact(usr) //datum has a tgui component, here we open the window
+			if("open_character_ad")
+				usr.client?.show_character_directory()
 
 /mob/living/carbon/human/species/vox
 	race = /datum/species/vox
