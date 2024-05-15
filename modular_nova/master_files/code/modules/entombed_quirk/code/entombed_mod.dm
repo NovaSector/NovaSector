@@ -46,9 +46,41 @@
 	idle_power_cost = 0
 	removable = FALSE
 
+// ENTOMBED MOD CLOTHING COMPONENT
+
+/datum/component/entombed_mod_piece
+	// This component handles returning errant MODsuit pieces back to their control module in the event of shenanigans. Entombed pieces should *never* be outside the unit.
+	/// Ref to the source MODsuit we came from.
+	var/datum/weakref/host
+
+/datum/component/entombed_mod_piece/Initialize(host_suit)
+	. = ..()
+	if (!isnull(host_suit))
+		host = WEAKREF(host_suit)
+	else
+		return COMPONENT_INCOMPATIBLE
+
+	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(piece_dropped))
+
+/datum/component/entombed_mod_piece/proc/piece_dropped(datum/source)
+	SIGNAL_HANDLER
+	// The piece of MOD clothing has been dropped, somehow. Find our source suit and send it back, or delete us if the host suit does not exist.
+	var/obj/item/mod/control/host_suit = host.resolve()
+	if (!host_suit)
+		//if we have no host suit, we shouldn't exist, so delete
+		host = null
+		qdel(parent)
+
+	var/obj/item/clothing/piece = parent
+	piece.doMove(host_suit)
+
+// MOD CONTROL UNIT
+
 /obj/item/mod/control/pre_equipped/entombed
 	theme = /datum/mod_theme/entombed
 	applied_cell = /obj/item/stock_parts/cell/high
+
+// CUSTOM BEHAVIOR
 
 /obj/item/mod/control/pre_equipped/entombed/canStrip(mob/who)
 	return TRUE //you can always try, and it'll hit doStrip below
@@ -92,4 +124,13 @@
 
 /obj/item/mod/control/pre_equipped/entombed/Initialize(mapload, new_theme, new_skin, new_core)
 	. = ..()
+	// Apply the entombed mod piece component to our applicable clothing pieces, so that they *always* return to the unit or self-delete if they can't.
+	for (var/obj/item/part as anything in mod_parts)
+		part.AddComponent(/datum/component/entombed_mod_piece, host_suit = src)
+
 	ADD_TRAIT(src, TRAIT_NODROP, QUIRK_TRAIT)
+
+/obj/item/mod/control/pre_equipped/entombed/dropped(mob/user)
+	. = ..()
+	// we do this so that in the rare event that someone gets gibbed/destroyed, their suit can be retrieved easily w/o requiring admin intervention
+	REMOVE_TRAIT(src, TRAIT_NODROP, QUIRK_TRAIT)
