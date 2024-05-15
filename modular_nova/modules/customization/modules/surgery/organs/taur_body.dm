@@ -79,34 +79,33 @@
 	if(prevent_leg_insertion) //we can skip the rest if we have no legs to play with anyway
 		return ..()
 
-	old_right_leg = reciever.get_bodypart(BODY_ZONE_R_LEG)
+		old_right_leg = reciever.get_bodypart(BODY_ZONE_R_LEG)
 	old_left_leg = reciever.get_bodypart(BODY_ZONE_L_LEG)
 	var/obj/item/bodypart/leg/left/taur/new_left_leg
 	var/obj/item/bodypart/leg/right/taur/new_right_leg
 
-	if (organ_flags & ORGAN_ORGANIC)
+	if(organ_flags & ORGAN_ORGANIC)
 		new_left_leg = new /obj/item/bodypart/leg/left/taur()
 		new_right_leg = new /obj/item/bodypart/leg/right/taur()
 
-	if (organ_flags & ORGAN_ROBOTIC)
+	if(organ_flags & ORGAN_ROBOTIC)
 		new_left_leg = new /obj/item/bodypart/leg/left/robot/synth/taur()
 		new_right_leg = new /obj/item/bodypart/leg/right/robot/synth/taur()
 
 	if (left_leg_name)
 		new_left_leg.name = left_leg_name + " (Left)"
-		new_left_leg.bodyshape |= external_bodyshapes
-		new_left_leg.replace_limb(reciever, TRUE)
+	if (right_leg_name)
+		new_right_leg.name = right_leg_name + " (Right)"
 
-	if (old_left_leg)
+	new_left_leg.bodyshape |= external_bodyshapes
+	new_left_leg.replace_limb(reciever, TRUE)
+	if(old_left_leg)
 		old_left_leg.forceMove(src)
 	new_left_leg.bodytype |= BODYTYPE_TAUR
 
-	if (right_leg_name)
-		new_right_leg.name = right_leg_name + " (Right)"
-		new_right_leg.bodyshape |= external_bodyshapes
-		new_right_leg.replace_limb(reciever, TRUE)
-
-	if (old_right_leg)
+	new_right_leg.bodyshape |= external_bodyshapes
+	new_right_leg.replace_limb(reciever, TRUE)
+	if(old_right_leg)
 		old_right_leg.forceMove(src)
 	new_right_leg.bodytype |= BODYTYPE_TAUR
 
