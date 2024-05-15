@@ -27,6 +27,11 @@
 		ViewManifest()
 		return
 
+	if(href_list["view_directory"])
+		play_lobby_button_sound()
+		client?.show_character_directory()
+		return
+
 	if(href_list["toggle_antag"])
 		play_lobby_button_sound()
 		var/datum/preferences/preferences = client.prefs
