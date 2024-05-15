@@ -15,12 +15,16 @@
 	/// If not null, the right leg limb we add to our mob will have this name.
 	var/right_leg_name = "back legs"
 
+	///Prevent legs from being inserted for as long as the player has this organ
+	var/prevent_leg_insertion = FALSE
+
 	/// The mob's old right leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_right_leg = null
 	/// The mob's old left leg. Used if the person switches to this organ and then back, so they don't just, have no legs anymore. Can be null.
 	var/obj/item/bodypart/leg/right/old_left_leg = null
 
 /obj/item/organ/external/taur_body/mermaid
+	prevent_leg_insertion = TRUE
 	left_leg_name = null
 	right_leg_name = null
 
@@ -72,34 +76,37 @@
 /obj/item/organ/external/taur_body/Insert(mob/living/carbon/reciever, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_HIDE_SHOES)
 		external_bodyshapes |= BODYSHAPE_HIDE_SHOES
+	if(prevent_leg_insertion) //we can skip the rest if we have no legs to play with anyway
+		return ..()
 
 	old_right_leg = reciever.get_bodypart(BODY_ZONE_R_LEG)
 	old_left_leg = reciever.get_bodypart(BODY_ZONE_L_LEG)
 	var/obj/item/bodypart/leg/left/taur/new_left_leg
 	var/obj/item/bodypart/leg/right/taur/new_right_leg
 
-	if(organ_flags & ORGAN_ORGANIC)
+	if (organ_flags & ORGAN_ORGANIC)
 		new_left_leg = new /obj/item/bodypart/leg/left/taur()
 		new_right_leg = new /obj/item/bodypart/leg/right/taur()
 
-	if(organ_flags & ORGAN_ROBOTIC)
+	if (organ_flags & ORGAN_ROBOTIC)
 		new_left_leg = new /obj/item/bodypart/leg/left/robot/synth/taur()
 		new_right_leg = new /obj/item/bodypart/leg/right/robot/synth/taur()
 
 	if (left_leg_name)
 		new_left_leg.name = left_leg_name + " (Left)"
-	if (right_leg_name)
-		new_right_leg.name = right_leg_name + " (Right)"
+		new_left_leg.bodyshape |= external_bodyshapes
+		new_left_leg.replace_limb(reciever, TRUE)
 
-	new_left_leg.bodyshape |= external_bodyshapes
-	new_left_leg.replace_limb(reciever, TRUE)
-	if(old_left_leg)
+	if (old_left_leg)
 		old_left_leg.forceMove(src)
 	new_left_leg.bodytype |= BODYTYPE_TAUR
 
-	new_right_leg.bodyshape |= external_bodyshapes
-	new_right_leg.replace_limb(reciever, TRUE)
-	if(old_right_leg)
+	if (right_leg_name)
+		new_right_leg.name = right_leg_name + " (Right)"
+		new_right_leg.bodyshape |= external_bodyshapes
+		new_right_leg.replace_limb(reciever, TRUE)
+
+	if (old_right_leg)
 		old_right_leg.forceMove(src)
 	new_right_leg.bodytype |= BODYTYPE_TAUR
 
