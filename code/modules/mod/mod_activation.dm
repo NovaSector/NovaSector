@@ -93,27 +93,12 @@
 			span_hear("You hear a mechanical hiss."))
 		playsound(src, 'sound/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		return TRUE
-	///NOVA ADDITION - Enable MODsuits on characters with missing limbs
-	else
-		if(!user)
-			return FALSE
-		wearer.visible_message(span_notice("[wearer]'s [part.name] deploy[part.p_s()] carefully begins to deploy..."),
-			span_notice("[part] deploy[part.p_s()] slowly..."),
-			span_hear("You hear a long mechanical hiss..."))
-		if(!do_after(wearer, 1 SECONDS, wearer))
-			return FALSE
-		wearer.equip_to_slot(part, part.slot_flags)
-		ADD_TRAIT(part, TRAIT_NODROP, MOD_TRAIT)
-		playsound(src, 'sound/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-		return TRUE
-	/*// TG code below
 	else
 		if(!user)
 			return FALSE
 		balloon_alert(user, "bodypart clothed!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return FALSE
-	*///NOVA ADDITION END
 
 /// Retract a part of the suit from the user.
 /obj/item/mod/control/proc/retract(mob/user, obj/item/part)

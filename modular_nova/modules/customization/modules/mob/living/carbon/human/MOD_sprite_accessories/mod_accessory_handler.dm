@@ -164,8 +164,10 @@
 	use_custom_mod_icon = TRUE
 
 /datum/sprite_accessory/taur/get_custom_mod_icon(mob/living/carbon/human/wearer, mutable_appearance/appearance_to_use = null)
-	if(!use_custom_mod_icon)
+	. = ..()
+	if(!.)
 		return
+
 	if(wearer?.wear_suit && istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
 		var/obj/item/mod/control/modsuit_control = wearer.back
 		if(!istype(modsuit_control))
