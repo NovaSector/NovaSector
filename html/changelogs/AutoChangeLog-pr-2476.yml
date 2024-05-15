@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - rscadd: "Adds a new neutral lawset, the Y.E.S.M.A.N. lawset, to the AI lawset boards and random pool."
