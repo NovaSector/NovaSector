@@ -1,0 +1,4 @@
+author: "cherdaq"
+delete-after: True
+changes:
+  - rscadd: "added commission plaques for ouroboros and void raptor"
