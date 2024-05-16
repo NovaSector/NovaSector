@@ -89,8 +89,7 @@ GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 
 // A proc for accessories which have 'use_custom_mod_icon' set to TRUE
 /datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
-	if(!use_custom_mod_icon)
-		return null
+	return null
 
 /datum/sprite_accessory/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
 	var/list/colors
