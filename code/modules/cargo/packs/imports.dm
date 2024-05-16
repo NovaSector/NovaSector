@@ -286,6 +286,7 @@
 	contains = list(/obj/item/weaponcrafting/giant_wrench)
 	crate_name = "unknown parts crate"
 
+/* NOVA REMOVAL - economy fixes (stops people printing infinite money via basic arbitrage)
 /datum/supply_pack/imports/materials_market
 	name = "Galactic Materials Market Crate"
 	desc = "A circuit board to build your own materials market for use by certified market traders. Warning: Losses are not covered by insurance."
@@ -299,6 +300,7 @@
 	)
 	crate_name = "materials market crate"
 	crate_type = /obj/structure/closet/crate/cargo
+*/
 
 /datum/supply_pack/imports/floortilecamo
 	name = "Floor-tile Camouflage Uniform"
