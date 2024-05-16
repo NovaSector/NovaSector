@@ -1,5 +1,5 @@
 /// Number of paychecks jobs start with at the creation of a new bank account for a player (So at shift-start or game join, but not a blank new account.)
-#define STARTING_PAYCHECKS 5
+#define STARTING_PAYCHECKS 10 // NOVA EDIT: increase from 5 to 10
 /// How much mail the Economy SS will create per minute, regardless of firing time.
 #define MAX_MAIL_PER_MINUTE 3
 /// Probability of using letters of envelope sprites on all letters.
@@ -25,7 +25,7 @@
 #define MAX_GRANT_DPT 500
 
 //What should vending machines charge when you buy something in-department.
-#define DEPARTMENT_DISCOUNT 0.2
+#define DEPARTMENT_DISCOUNT 0.5 // NOVA EDIT: increase from 0.2 to 0.5
 
 #define ACCOUNT_CIV "CIV"
 #define ACCOUNT_CIV_NAME "Civil Budget"
