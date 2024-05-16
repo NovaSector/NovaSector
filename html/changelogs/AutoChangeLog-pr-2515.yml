@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "fixes metastation science scrubber pipeline"
