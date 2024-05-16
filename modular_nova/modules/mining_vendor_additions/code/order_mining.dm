@@ -6,7 +6,7 @@
 	item_path = /obj/item/suit_voucher
 	cost_per_order = 2000
 
-/datum/orderable_item/mining/robo_medkit
+/datum/orderable_item/consumables/robo_medkit
 	item_path = /obj/item/storage/medkit/robotic_repair/stocked
 	cost_per_order = 650 // I set this at this slightly-higher-than-normal value because the robot medkits heal brute, burn, and have a coagulent equivalent in them
 
