@@ -675,7 +675,6 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-<<<<<<< HEAD
 #define TOTAL_LAYERS 41 // NOVA EDIT CHANGE - ORIGINAL: 35
 /// Mutations layer - Tk headglows, cold resistance glow, etc
 #define MUTATIONS_LAYER 41 // NOVA EDIT CHANGE - ORIGINAL: 35
