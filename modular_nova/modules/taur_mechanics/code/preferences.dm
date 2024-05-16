@@ -10,7 +10,7 @@
 		return FALSE
 
 	var/datum/sprite_accessory/taur_mode = GLOB.sprite_accessories["taur"][preferences.read_preference(/datum/preference/choiced/mutant_choice/taur)]
-	return (istype(taur_mode, /datum/sprite_accessory/taur/naga))
+	return (istype(taur_mode, /datum/sprite_accessory/taur/naga) || istype(taur_mode, /datum/sprite_accessory/taur/synthliz/synthnaga))
 
 /datum/preference/toggle/naga_soles/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if (value)

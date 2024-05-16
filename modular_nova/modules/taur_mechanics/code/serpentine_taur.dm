@@ -22,8 +22,10 @@
 	var/obj/item/clothing/shoes/shoe = organ_owner.get_item_by_slot(ITEM_SLOT_FEET)
 	shoe?.forceMove(get_turf(organ_owner))
 
+	var/use_hardened_soles = FALSE
 	var/datum/preferences/prefs = organ_owner.client?.prefs
-	var/use_hardened_soles = !(prefs?.read_preference(/datum/preference/toggle/naga_soles))
+	if (prefs)
+		use_hardened_soles = !(prefs.read_preference(/datum/preference/toggle/naga_soles))
 
 	if (use_hardened_soles)
 		add_hardened_soles(organ_owner)
