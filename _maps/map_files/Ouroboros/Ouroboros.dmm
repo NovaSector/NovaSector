@@ -29853,6 +29853,11 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/execution/education)
+"iJQ" = (
+/obj/machinery/smartfridge/food,
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/service/hydroponics)
 "iJS" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/dark,
@@ -47260,8 +47265,8 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/teleporter)
 "nBi" = (
-/obj/machinery/biogenerator,
 /obj/machinery/door/firedoor,
+/obj/machinery/smartfridge,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/hydroponics)
 "nBm" = (
@@ -52216,8 +52221,8 @@
 /turf/open/floor/iron/large,
 /area/station/command/heads_quarters/qm)
 "pfs" = (
-/obj/machinery/smartfridge,
 /obj/machinery/door/firedoor,
+/obj/machinery/biogenerator,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/hydroponics)
 "pfu" = (
@@ -108660,7 +108665,7 @@ kSJ
 kSJ
 syF
 lBx
-dIb
+iJQ
 gqq
 fkm
 bFS
