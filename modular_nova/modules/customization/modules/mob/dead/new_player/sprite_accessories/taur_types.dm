@@ -22,7 +22,7 @@
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
 	center = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_FRONT_UNDER_CLOTHES, ABOVE_BODY_FRONT_HEAD_LAYER)
 	genetic = TRUE
 	organ_type = /obj/item/organ/external/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
@@ -39,7 +39,7 @@
 
 	if(!use_custom_mod_icon && istype(worn_suit, /obj/item/clothing/suit/mod))
 		if(findtext(worn_suit.icon_state, "sealed"))
-			return TRUE
+			return TRUE //flagged not to use generative modsuit textures, so hide our body to show off the fancy modsuit sprites
 
 		if (worn_suit.flags_inv & HIDETAUR)
 			switch (taur_mode)
