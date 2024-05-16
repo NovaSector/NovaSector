@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "mobs with the obeys_commands component (e.g cleanbots, tamed mobs, and more) will now show all of the related examine text"
