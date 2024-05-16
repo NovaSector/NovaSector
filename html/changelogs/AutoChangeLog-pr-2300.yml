@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - balance: "Turns down the added shock multiplier for synths"
