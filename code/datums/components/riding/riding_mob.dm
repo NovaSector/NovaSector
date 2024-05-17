@@ -560,6 +560,12 @@
 	. = ..()
 	UnregisterSignal(rider,  COMSIG_MOB_POINTED)
 
+//NOVA EDIT ADDITION: Human Riding Defines
+#undef OVERSIZED_OFFSET
+#undef OVERSIZED_SIDE_OFFSET
+#undef REGULAR_OFFSET
+#undef REGULAR_SIDE_OFFSET
+//NOVA EDIT END
 /datum/component/riding/creature/raptor
 	require_minigame = TRUE
 	ride_check_flags = RIDER_NEEDS_ARM
