@@ -1,0 +1,5 @@
+author: "nikothedude"
+delete-after: True
+changes:
+  - bugfix: "Taur legs' names are now respected in all aspects of the game"
+  - spellcheck: "Taur legs suffix now specifies they are legs"
