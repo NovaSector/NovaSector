@@ -683,14 +683,17 @@ There are several things that need to be remembered:
 
 		// NOVA EDIT ADDITION
 		var/mutant_override = FALSE
+		var/mutant_styles = NONE
 		if(bodyshape & BODYSHAPE_CUSTOM)
 			var/species_icon_file = dna.species.generate_custom_worn_icon(LOADOUT_ITEM_MISC, back, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
+		if(bodyshape & BODYSHAPE_TAUR)
+			mutant_styles |= get_taur_mode()
 		// NOVA EDIT END
 
-		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE
+		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, override_file = mutant_override ? icon_file : null, mutant_styles = mutant_styles) // NOVA EDIT CHANGE
 
 		if(!back_overlay)
 			return
