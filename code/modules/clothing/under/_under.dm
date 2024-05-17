@@ -349,6 +349,7 @@
 
 	sensor_mode = SENSOR_COORDS
 	balloon_alert(user, "set to tracking")
+	to_chat(usr, span_notice("Your suit will now report your exact vital lifesigns as well as your coordinate position.")) // NOVA EDIT ADDITION
 
 /// Checks if the toggler is allowed to toggle suit sensors currently
 /obj/item/clothing/under/proc/can_toggle_sensors(mob/toggler)
