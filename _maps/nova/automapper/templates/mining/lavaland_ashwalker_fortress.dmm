@@ -861,7 +861,7 @@
 /obj/structure/railing/wooden_fencing{
 	dir = 1
 	},
-/obj/structure/ore_container/gutlunch_trough,
+/obj/structure/ore_container/food_trough/gutlunch_trough,
 /obj/structure/stone_tile/block/cracked,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)

@@ -560,14 +560,6 @@
 	. = ..()
 	UnregisterSignal(rider,  COMSIG_MOB_POINTED)
 
-<<<<<<< HEAD
-//NOVA EDIT START: Human Riding Defines
-#undef OVERSIZED_OFFSET
-#undef OVERSIZED_SIDE_OFFSET
-#undef REGULAR_OFFSET
-#undef REGULAR_SIDE_OFFSET
-//NOVA EDIT END
-=======
 /datum/component/riding/creature/raptor
 	require_minigame = TRUE
 	ride_check_flags = RIDER_NEEDS_ARM
@@ -691,4 +683,3 @@
 	mounter = null
 	host = null
 	return ..()
->>>>>>> 761b14ef7c2 (lavaland raptors (#82537))
