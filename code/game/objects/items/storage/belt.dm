@@ -384,7 +384,7 @@
 /obj/item/storage/belt/security/full/PopulateContents()
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/restraints/handcuffs(src)
-	new /obj/item/grenade/flashbang(src)
+	new /obj/item/restraints/legcuffs/bola/energy(src) // NOVA EDIT - ADDITION (bola replaces flashbang due to sec policy)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/melee/baton/security/loaded(src)
 	update_appearance()
