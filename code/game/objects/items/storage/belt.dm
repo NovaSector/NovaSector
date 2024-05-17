@@ -384,7 +384,8 @@
 /obj/item/storage/belt/security/full/PopulateContents()
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/restraints/handcuffs(src)
-	new /obj/item/grenade/flashbang(src)
+	//new /obj/item/grenade/flashbang(src) // NOVA EDIT REMOVAL - No more flashbangs in secbelts
+	new /obj/item/restraints/legcuffs/bola/energy(src) // NOVA EDIT ADDITION - Energy bola in secbelts
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/melee/baton/security/loaded(src)
 	update_appearance()
