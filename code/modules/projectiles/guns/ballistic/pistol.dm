@@ -58,9 +58,6 @@
 	empty_indicator = TRUE
 	suppressor_x_offset = 12
 
-<<<<<<< HEAD
-/obj/item/gun/ballistic/automatic/pistol/m1911 //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
-=======
 /obj/item/gun/ballistic/automatic/pistol/clandestine/fisher
 	name = "\improper Ansem/SC pistol"
 	desc = "A modified variant of the Ansem, spiritual successor to the Makarov, featuring an integral suppressor and push-button trigger on the grip \
@@ -109,7 +106,6 @@
 	simulated_hit.on_hit(hit_atom)
 
 /obj/item/gun/ballistic/automatic/pistol/m1911
->>>>>>> 14e27ec4620 (adds the Ansem/SC, the logical conclusion to the John Splintercell series (#83228))
 	name = "\improper M1911"
 	desc = "A classic .45 handgun with a small magazine capacity."
 	icon_state = "m1911"
