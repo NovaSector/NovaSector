@@ -1177,8 +1177,6 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
-<<<<<<< HEAD
-=======
 "JD" = (
 /obj/effect/mapping_helpers/no_lava,
 /obj/structure/ore_container/food_trough/gutlunch_trough,
@@ -1191,7 +1189,6 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
->>>>>>> 761b14ef7c2 (lavaland raptors (#82537))
 "Kt" = (
 /obj/structure/water_source/puddle{
 	pixel_x = -3;
