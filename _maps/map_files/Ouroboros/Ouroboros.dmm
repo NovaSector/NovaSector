@@ -1157,7 +1157,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "asr" = (
@@ -2138,6 +2137,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/coldroom)
+"aHc" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/white,
+/area/station/medical/chemistry)
 "aHu" = (
 /obj/structure/railing/corner,
 /obj/structure/railing/corner{
@@ -4851,10 +4857,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
-	},
-/obj/machinery/camera/directional/east{
-	c_tag = "Medbay - Recovery Centre Access";
-	network = list("ss13","medbay")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -10867,6 +10869,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/hos)
 "djJ" = (
@@ -20081,6 +20086,9 @@
 /obj/effect/turf_decal/tile/bar/fourcorners,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
 "fSB" = (
@@ -23988,9 +23996,12 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/dark_blue,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/landmark/start/security_officer,
+/obj/structure/disposalpipe/sorting/mail/flip{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/mail_sorting/security/hos_office,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -31073,6 +31084,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/office)
 "iZQ" = (
@@ -33331,14 +33345,15 @@
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "jIr" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/railing/corner/end/flip{
 	dir = 1
 	},
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/mail_sorting/service/janitor_closet,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -39430,6 +39445,9 @@
 /area/station/maintenance/starboard/fore)
 "lrk" = (
 /obj/effect/turf_decal/tile/bar/half/contrasted,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/floor/iron/dark/corner,
 /area/station/service/kitchen/diner)
 "lrs" = (
@@ -44234,10 +44252,10 @@
 /area/station/maintenance/port/central)
 "mKr" = (
 /obj/effect/turf_decal/tile/dark_blue,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -48061,6 +48079,9 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -49019,6 +49040,13 @@
 /obj/item/flashlight/lamp/green,
 /turf/open/floor/wood,
 /area/station/commons/dorms/room5)
+"oev" = (
+/obj/effect/turf_decal/tile/bar/fourcorners,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/station/service/kitchen/diner)
 "oey" = (
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/wood,
@@ -55375,7 +55403,6 @@
 	},
 /obj/effect/mapping_helpers/mail_sorting/service/library,
 /obj/effect/mapping_helpers/mail_sorting/service/hydroponics,
-/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
 /obj/effect/mapping_helpers/mail_sorting/service/dormitories,
 /obj/effect/mapping_helpers/mail_sorting/supply/qm_office,
 /obj/effect/mapping_helpers/mail_sorting/science/experimentor_lab,
@@ -55397,6 +55424,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "qap" = (
@@ -57481,8 +57509,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar/fourcorners,
-/obj/structure/disposalpipe/junction{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 9
 	},
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
@@ -59283,6 +59311,10 @@
 	dir = 8
 	},
 /obj/machinery/light_switch/directional/east,
+/obj/machinery/camera/directional/east{
+	c_tag = "Medbay - Recovery Centre Access";
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "rjz" = (
@@ -61806,6 +61838,9 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
 "rXg" = (
@@ -64248,6 +64283,9 @@
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -71574,6 +71612,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -71716,12 +71757,12 @@
 "uQf" = (
 /obj/effect/turf_decal/tile/bar/fourcorners,
 /obj/machinery/firealarm/directional/north,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
 "uQk" = (
@@ -72071,6 +72112,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/commons/vacant_room/office)
+"uWb" = (
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 8
+	},
+/area/station/security/office)
 "uWe" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 8
@@ -72078,7 +72131,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/item/kirbyplants/synthetic/plant28,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -76395,10 +76451,9 @@
 /area/station/commons/lounge)
 "weK" = (
 /obj/structure/chair/stool/bar/directional/north,
-/obj/structure/disposalpipe/sorting/mail/flip{
+/obj/structure/disposalpipe/junction/flip{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
 /turf/open/floor/iron/cafeteria{
 	dir = 5
 	},
@@ -82902,7 +82957,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/mail_sorting/service/kitchen,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "ybP" = (
@@ -111504,7 +111558,7 @@ viJ
 aWe
 vDs
 qFs
-pLt
+oev
 hnH
 twB
 lab
@@ -120710,7 +120764,7 @@ uUr
 dbR
 fmY
 xTG
-eCU
+uWb
 eCU
 oRu
 tTT
@@ -125370,7 +125424,7 @@ fiu
 unu
 eGW
 qsn
-nvV
+aHc
 asp
 irc
 irc
