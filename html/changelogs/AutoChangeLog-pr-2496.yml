@@ -1,0 +1,4 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - bugfix: "Medical bounties no longer accept the base IPC organs that could be printed from medical's techfab pretty much at round start. Sorry, paramedics - you'll have to wait a bit for science to research t2 cybernetic organs before the money fountain opens again."

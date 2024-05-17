@@ -114,6 +114,7 @@
 /datum/quirk/equipping/entombed/post_add()
 	. = ..()
 	// quickly deploy it on roundstart. we can't do this in add_unique because that gets called in the preview screen, which overwrites people's loadout stuff in suit/shoes/gloves slot. very unfun for them
+	install_quirk_interaction_features() // have to do this here to ensure all traumas and the like from quirks are applied to our mob
 	modsuit.quick_activation()
 
 /datum/quirk/equipping/entombed/remove()
@@ -133,6 +134,15 @@
 	else if (isplasmaman(human_holder))
 		var/obj/item/mod/module/plasma_stabilizer/entombed/plasma_stab = new
 		modsuit.install(plasma_stab, human_holder)
+
+/datum/quirk/equipping/entombed/proc/install_quirk_interaction_features()
+	// if entombed needs to interact with certain other quirks, add it here
+	if (!modsuit)
+		return
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if (human_holder.get_quirk(/datum/quirk/paraplegic))
+		var/obj/item/mod/module/anomaly_locked/antigrav/entombed/ambulator = new
+		modsuit.install(ambulator, human_holder)
 
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed
@@ -185,7 +195,7 @@
 	savefile_key = "entombed_mod_name"
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
-	maximum_value_length = 48
+	maximum_value_length = 64
 
 /datum/preference/text/entombed_mod_name/is_accessible(datum/preferences/preferences)
 	if (!..())

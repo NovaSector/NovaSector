@@ -289,12 +289,7 @@
 		if(body_position == LYING_DOWN)
 			zone_hit_chance += 10
 		targeting = get_random_valid_zone(targeting, zone_hit_chance)
-	var/targeting_human_readable = parse_zone(targeting)
-	// NOVA EDIT ADDITION -- Taur bodies have unique zone names
-	var/obj/item/bodypart/part = get_bodypart(targeting)
-	if (part?.use_plaintext_zone_when_attacked)
-		targeting_human_readable = part.plaintext_zone
-	// NOVA EDIT END
+	var/targeting_human_readable = parse_zone_with_bodypart(targeting)
 
 	send_item_attack_message(attacking_item, user, targeting_human_readable, targeting)
 

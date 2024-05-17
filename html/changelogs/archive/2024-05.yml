@@ -255,3 +255,355 @@
   white-snek:
   - rscadd: A fresh shipment of blindfolds has arrived on station for visually impaired
       crew, distributed to apropriate vendors.
+2024-05-09:
+  Bisar:
+  - balance: Knockdown effects will know consistently disarm, instead of failing to
+      disarm if you're already lying down.
+  Jane:
+  - qol: The Coroner's Ritual Knife can now sit upon Med Belts!
+  Melbert:
+  - bugfix: DNA infusing tiers works again
+  - qol: Spies may spawn in less numbers, but rarely may also spawn in more numbers.
+  NovaBot13:
+  - bugfix: Removed stray pixels appearing on certain parts of railing
+  - qol: Mech drills can auto-mine by walking into rock.
+  - bugfix: The quick equip 'E' hotkey shouldn't warn if one of your bags is full
+      anymore
+  - bugfix: Added the missing  bulwark MOD module and the jawed fishing hook to the
+      black market.
+  - bugfix: Silicons can set the teleporter destinations again.
+  - bugfix: Pride pins can be reskinned again with alt-click.
+  vinylspiders:
+  - bugfix: using the flap emote with moth wings now makes a sound like it's supposed
+      to
+2024-05-10:
+  GoldenAlpharex:
+  - bugfix: Removed another rogue cable from underneath a disconnected SMES.
+  GoldenAlpharex for the code, Thlumyn for the sprites:
+  - bugfix: Fixed smoothing turfs displaying some incorrect damaged overlays because
+      of a non-smoothing damage overlay of different dimensions than the smoothing
+      sprite used as the base. Less black void, let's go!
+  - image: Added smooth broken/burnt overlays for grass, meaning that it's going to
+      look a lot less broken when the grass tile is at the edge of a smoothing group.
+  Melbert:
+  - refactor: Random Name Generation has been refactored. Report any instances of
+      people having weird (or "Unknown") names.
+  - qol: Felinids, Slimepeople, Podpeople, and some other species without defined
+      namelists now automatically generate names based on their primary language(s).
+  - qol: More non-human names can be generated in codewords (and other misc. areas)
+      than just lizard names.
+  - bugfix: Cult can build again
+  - qol: Morgue trays (and the contents inside) are now animated on open and close
+  - qol: There is now a slight animation to entering a portal or teleporter.
+  MrStonedOne & Lilah Novi:
+  - rscadd: Say commands typed in the command bar now trigger typing indicators
+  NovaBot13:
+  - bugfix: Supermatter shards now have screentips with a wrench in hand
+  - bugfix: space heaters now display the correct mode when the maintenance panel
+      is closed
+  - bugfix: The stomach pump surgery actually works again.
+  - spellcheck: '"brusing" to "bruising" in the message you get when failing the stomach
+      pump surgery.'
+  - qol: Added alt-click usage context to toggle_icon component
+  - bugfix: conveyor switches work for cyborgs again
+  - sound: Lasers adjust their pitch as they run out of charge, rather than frequency
+  - qol: The labor camp shuttle properly sets people to parole after they complete
+      their work.
+  - qol: The labor camp shuttle specifies which person returned to the station.
+  - rscdel: Being sacrified by a Heretic no longer gives you an incurable phobia.
+  - rscadd: Being sacrificed by a Heretic will drop 2-4 of your organs on the ground
+      and replace them with "corrupt organs" with negative effects which can be suppressed
+      with Holy Water.
+  - rscadd: Players who have been sacrificed by Heretics will experience additional
+      and rapidly lethal consequences for attempting to fight someone who previously
+      sacrificed them, as long as that person is wearing a focus.
+  - bugfix: The shuttle will no longer delete you while you are in jaunt
+  - balance: punches no longer knock down and stamina damage dealt is (slightly) reduced
+  - bugfix: fixed clients being seen as stuck doing tutorials in some cases when changing
+      mobs
+  - bugfix: moths with functional/flight potion wings get an animation when they *flap
+      once again, and it makes a sound
+  RatFromTheJungle:
+  - balance: buckshot, rubbershot, and their equivalents no longer do muchless damage
+      against people with the relevant armors.
+  ShizCalev:
+  - bugfix: Cursed Items wizard event actually works again.
+  Thlumyn:
+  - bugfix: removed a light inside the wall on the Interlink
+  - bugfix: removed some cobwebs in space in shuttle 8532 ruin
+  vinylspiders:
+  - bugfix: roundstart slimes can change their hair color once again and are no longer
+      locked to their mutant color
+  - qol: for roundstart slimes who actually want to be locked to mutant color there
+      is a new pref for them, 'allow mismatched hair color', and can be found near
+      the top of the prefs menu (only viewable by slimes, and toggled on by default).
+2024-05-11:
+  GoldenAlpharex:
+  - bugfix: Fixed a donator item appearing on station when it wasn't supposed to.
+  NeonNik2245:
+  - bugfix: anosmia holders now can't feel perfumes and some other things
+  NovaBot13:
+  - rscadd: Chance to become crab on nonlethal DNA meltdown
+  Paxilmaniac:
+  - rscadd: Many new options for treating synths without having to use the whole robotics
+      bay have been added to the common sources of DeForest branded medical supplies.
+  - balance: nanite slurry has been buffed to 3 healing rather than 1, so it's not
+      literally the worst healing chem in the entire game.
+  - image: All icons for the new synthetic treatment items are made by me, Paxilmaniac
+  - spellcheck: Some wording of a few strings in the wound treatment items has been
+      adjusted to fit better to the items.
+  - balance: Razorwires do two (2) more damage (now 20 from 18)
+  - image: The melee item of the razorwire implant can now be alt-clicked to be recolored
+      to a few different pre-set variants
+  - qol: Ammunition can now be made into piles of bullets by attacking one bullet
+      with another to create the pile. These piles delete themselves when empty, and
+      usually hold enough bullets to reload 1 or 1/2 of a magazine for the weapon
+      that uses that ammo, depending on the weapon.
+  carlarctg:
+  - rscadd: Chance to become crab on nonlethal DNA meltdown
+  norsvenska:
+  - bugfix: The Coroner and Bitrunner can now be selected as a target for kidnapping
+      and heirloom destruction objectives.
+  - bugfix: The Chief Engineer is now a valid target for heirloom destruction objectives.
+2024-05-12:
+  FlufflesTheDog:
+  - bugfix: food vendors now drop the correct circuit and resupply canister
+  - rscadd: Customization for sensitive snout! Including an option for automatically
+      sneezing. Bless you.
+  Higgin:
+  - bugfix: Spies no longer get the 'nothing' / 'free objective' due to trying to
+      make Protect objectives without targets.
+  Paxilmaniac:
+  - code_imp: some entirely unused code defines have been cleaned up
+  Xander3359:
+  - bugfix: Ale now has a drinking_glass style
+  nikothedude:
+  - balance: Synth blunt T3 now requires a T1 burn wound to mold
+  - balance: Synth blunt T3 heating step now gives a T1 burn wound
+  - balance: Synth blunt T3 heating now takes 3 secs
+  - rscadd: A filterless forked tongue that has no TTS filters
+  - balance: Synth premium medkits no longer have a premium spray, instead having
+      a plasmide spray.
+  - balance: Plasmide now metabolizes slower
+  - rscadd: Stun batons now have the jousting component
+2024-05-13:
+  Bisar:
+  - qol: Most of the alternate click modes (right click, control clicking, shift clicking,
+      etc) have been enabled in the alt-click item menu.
+  - bugfix: You will no longer point at things you right-click in the alt-click item
+      menu.
+  Hatterhat:
+  - balance: The Vanguard Expeditionary Corps surplus crate now works off a weighted
+      budget system, like the CIN surplus crate.
+  - balance: Some more valuable equipment can now be rolled for from the Vanguard
+      surplus crate, like better gloves and medkits with improved medical supplies.
+  Melbert:
+  - rscadd: Cigarette smoke is now more smokey.
+  - rscadd: Taking a cigarette out of your mouth will let out a big puff of smoke.
+  PapaMichael:
+  - bugfix: Rat Kings can no longer trap mice inside of pipes by creating them while
+      ventcrawling.
+  - balance: Rat Kings can no longer create grime and miasma while ventcrawling.
+  RatFromTheJungle:
+  - balance: gives the CE a RCF in their locker at the start of the round, removing
+      the need to get it from the colony starter crate.
+  Rhials:
+  - rscadd: Bitrunners now have their own job figurine. Cool!
+  cherdaq:
+  - rscadd: added a commission plaque for blueshift
+  nikothedude:
+  - spellcheck: Added a period to the end of the wendigo deathrattle
+  paganiy:
+  - qol: Now you can put a cigarette in your mouth just by hitting the pack of cigarettes
+      on yourself.
+  - bugfix: The cigarette pack no longer moves under the spaceman when they interacts
+      with it with the RMB
+2024-05-14:
+  FlufflesTheDog:
+  - bugfix: crafted wooden produce/seed shelves now properly store their intended
+      resourcessa
+  - qol: wooden "smartfridges" now start unwelded (but wrenched)
+  Hatterhat:
+  - balance: You can now shoot mold if you directly target (click) it.
+  Jacquerel:
+  - rscadd: People who spend time improving their bodies are able to evaluate the
+      relative physical strength of those they examine as a kind of "power level".
+  - rscadd: Changeling transformation copies the target's athletics skill level.
+  Time-Green:
+  - bugfix: Deleting someones brain kills them again
+  jlsnow301:
+  - bugfix: Alt click will draw the captain's sabre again
+  paganiy:
+  - bugfix: Accelerator laser gun no longer shoots sun size projectiles.
+  starrm4nn:
+  - qol: Gives Health sensor assemblies a UI so its easier to use.
+2024-05-15:
+  DaCoolBoss:
+  - bugfix: The random arcade machines in the 'Interdyne Spinward Research Base's
+      now function.
+  Melbert:
+  - qol: Some alerts, such as Fleshmend's, show their remaining duration on their
+      icon.
+  Paxilmaniac:
+  - rscdel: The robohand gun and associated traitor kit are gone
+  RatFromTheJungle:
+  - balance: The miecz now holds ten more shots per magazine, and does 18 instead
+      of 15 damage.
+  - balance: ' The wespe is now full-auto, meaning solfed finally found the switches
+      for them.'
+  - spellcheck: fixed the miecz being misspelled (meicz) in it's expanded flavortext.
+  SomeRandomOwl:
+  - rscadd: Added four new PKA crusher variants for miners to use out on the ashlands
+      and icewastes. Try them out today!
+  Webcomicartist:
+  - bugfix: The lavaland mining shuttle doors no longer trap cargo security on lavaland
+      due to access weirdness.
+  iwishforducks:
+  - bugfix: Fixes random decal in space on Tramstation
+  sqnztb:
+  - rscadd: new donator item - replica parade jacket, find it under the suits category
+      in loadout
+  yooriss:
+  - qol: Paraplegic characters who also have the Entombed quirk now start with an
+      altered anti-gravity MOD module that allows them to emulate the effects of a
+      gravity harness at roundstart. In addition, entombed MODsuits can have longer
+      custom names (up to 64 chars from 48).
+2024-05-16:
+  Hatterhat:
+  - bugfix: The medkit-ransacking charlatan in the Vanguard Expeditionary surplus
+      warehouses has been field-executed via comically large mallet. Regular medkits
+      in the expeditionary surplus crates should now come with actual items.
+  Jane:
+  - qol: Shovels, Serrated Bone Shovels, and Entrenching Tools can now be hung upon
+      Miner and Coroner Winter Coats, as well as the Coroner's Labcoat!
+  - image: Mirrored the mirrored sprites to display Shovels in the suit slot properly.
+  Melbert:
+  - qol: When you are offered something, you can shift-click the alert to examine
+      the item rather than take it.
+  - qol: Examine blocks for screen alert examining.
+  - qol: Screentips for offer alerts.
+  NovaBot13:
+  - bugfix: Bitrunning antagonists no longer gib on teleport
+  - bugfix: Cyber tac now have a visible name / ID
+  - bugfix: 'Renamed the bitrunning malfunction event to just "Malfunction: x"'
+  - qol: adds examines & screentips for tool & container actions on the smoke machine
+  - qol: smoke machine no longer requires a power cell for construction
+  - code_imp: autodocs & removes vars for some machine, Updated attack chain to latest
+      standards for smoke machine
+  - bugfix: You no longer hit the smoke machine with the beaker
+  - bugfix: You can hit the smoke machine with tools & beakers when in combat mode
+  - bugfix: no abstract & hologram item interactions allowed with smoke machine
+  - bugfix: cell chargers, mechbay port chargers & recharge stations heat lost is
+      directly proportional to energy drawn from the grid to charge their respective
+      cells
+  - bugfix: cyborgs should charge more frequently & to their max capacity at recharge
+      stations
+  - bugfix: Fixes the knife offset for pipeguns
+  - rscadd: parrots will now try to immitate the speaker's voice
+  - balance: There are reports of malfunctioning guns being confiscated.
+  - qol: Additional box types can be crafted from cardboard. Happy organizing.
+  - spellcheck: A typo in box crafting for prescription glasses has been fixed.
+  - rscadd: Adds a new neutral lawset, the Y.E.S.M.A.N. lawset, to the AI lawset boards
+      and random pool.
+  - bugfix: Space Ninja and other space spawned antags get a 1 minute radiation shield
+      in the radioactive nebula
+  - bugfix: You can adjust your uniform while lying down again
+  - bugfix: Fixes error when running docker compose on apt upgrade
+  - qol: Add tooltips to circuit editor buttons
+  - qol: Add grid alignment mode to circuit editor
+  - rscadd: Added new compare health state component
+  - rscadd: Added new NTNet send list literal component
+  - rscadd: Added new toggle component
+  - qol: Added activity toggle to voice activator component
+  - qol: Added quiet mode to speech component
+  - qol: NTNet send component will not use power/trigger if NTNet is offline
+  - qol: The "Confirm Order" button on Cargo consoles is now active when the cargo
+      shuttle is at Central Command instead of at the station.
+  - rscadd: New funny wizard staff/wand that shrinks stuff.
+  - rscadd: Being shrunken now leaves you vulnerable to being crushed to death.
+  - bugfix: The SC/FISHER can now shoot floor lights.
+  - bugfix: Fixes an accidental reversion to greyscale plate armor.
+  - admin: Admins can now more easily modify whether a Blood Brother can convert someone
+  Seven:
+  - bugfix: Fixed a runtime when using the cultist blood rites on yourself.
+  - bugfix: Destroyed solar panels no longer drop their overlays
+  ShizCalev:
+  - bugfix: Spam clicking a modkit with a kinetic accelerator can no longer lead to
+      ghosted versions of the modkits appearing in the modkit list, breaking the gun.
+  cherdaq:
+  - rscadd: added commission plaques for ouroboros and void raptor
+  grungussuss and Virgilcore:
+  - sound: portals now have a unique sound to them
+  vinylspiders:
+  - bugfix: mobs with the obeys_commands component (e.g cleanbots, tamed mobs, and
+      more) will now show all of the related examine text
+2024-05-17:
+  Melbert:
+  - bugfix: After 3 years, radiation now causes you to go bald and mutate again
+  NovaBot13:
+  - bugfix: Fixes engineering cyborg screwdriver not being pointy. Fixes engineering
+      cyborg crowbar from being pointy.
+  - bugfix: Fixes cyborg omnitools not using the correct wound bonus and armour penetration
+      values.
+  - bugfix: Simplebot UI won't display '0' anymore when locked
+  - balance: Rust Heretics rusting is now consistent and tied to knowledge progression.
+  - balance: Walking on rust applies disgust and chem purge to non-heretics and brute
+      damage to silicons.
+  - balance: Toxic damage on heretic skills is replaced with disgust.
+  - balance: Aggressive Spread radius is now a bit shorter in exchange for losing
+      its RNG elements, cooldown is halved on ascension.
+  - balance: Pulse of Entropy had its radius doubled and the recipe simplified.
+  - balance: Leeching walk has had its healing increased and a minor temp regulation
+      effect added.
+  - balance: Rust Walker's knowledge has been moved up in tree(close to aggressive
+      spread) they are now easier to summon and have more health.
+  - balance: You cannot place floor tiles on rusted turfs anymore, (use a welder to
+      scrape off the rust first).
+  - balance: Rustbringer's oath has been reworked to propagate around in a circular
+      fashion and not just on the bridge z level.
+  - balance: Resist cold trait now gives immunity to freeze effects, and has now been
+      added to Rustbringer's oath along with slowdown immunity.
+  - bugfix: Fixed glowing runes being invisible.
+  - bugfix: fixes metastation science scrubber pipeline
+  - bugfix: Emotion masks no longer use a janky workaround for infinite reskinning.
+  - bugfix: Mech pilot suit shows reskinning usage context correctly.
+  - bugfix: Accessories show "wear above/below suit" usage context appropriately.
+  - bugfix: Accessories don't block reskinning usage context when they shouldn't.
+  - bugfix: Showing reskinning usage context cares about the infinite reskinning flag,
+      rather than whether it's in storage or not.
+  - rscdel: Removed redundant reskinning usage context code from medical sprays, now
+      shows reskinning usage context like other reskinnables.
+  - qol: Neckties are now worn underneath suit items and accessories, they can still
+      be optionally worn over them in case you want the "business space suit" look
+  - bugfix: Fixed a bug where accessories wouldn't correctly apply over suits if you
+      equipped the jumpsuit they're attached to after the suit
+  - rscdel: Removes the sleeper protocol traitor objective
+  - balance: RND server/Telecomms sabotage can now show up even later in the round
+  - bugfix: Fixed an issue preventing space ninjas from having a hud icon
+  - rscadd: 'ORBIT UI CHANGES:'
+  - rscadd: AFK players are greyed out.
+  - rscadd: Living NPCs now display health.
+  - rscadd: Icons displayed are now based on hud icons, which includes icons for player-visible
+      antagonists
+  - rscadd: You can now sort by job department (click health icon)
+  - rscadd: Round ending "critical" items will be listed at the top.
+  - rscadd: Click the settings button to expand for more info
+  - rscadd: Your current orbit target is highlighted.
+  - code_imp: Most instances of parse_zone now refer to the limb's plaintext_zone
+      var
+  - bugfix: Pyre chaplains can no longer generate infinite favour for free by buying
+      and selling candles. Candles now offer for 40 favour, down from 50.
+  - rscadd: mobile defibrillator mount
+  - bugfix: Fixed the spess knife's cutter tool icon being invisible.
+  - spellcheck: Fixes some typos in the goodies section and makes it look a bit more
+      consistent.
+  Rengan:
+  - bugfix: Officers sabre and grilles now conducts electricity as it should.
+  Seven:
+  - bugfix: Wings no longer work in space if you activated them beforehand.
+  ShizCalev:
+  - bugfix: Atoms on the border of a tile will now only trigger landmines if they
+      ACTUALLY pass over said mine.
+  Zergspower:
+  - balance: Turns down the added shock multiplier for synths
+  - code_imp: gave names to modular Cargo Shuttles to tell them apart

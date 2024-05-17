@@ -1329,16 +1329,17 @@
 
 // Donation reward for 1ceres
 /obj/item/poster/korpstech
-	name = "Korps Genetics poster"
+	name = "\improper Empire Enhancements poster"
 	poster_type = /obj/structure/sign/poster/contraband/korpstech
 	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
 	icon_state = "rolled_poster"
 
 /obj/structure/sign/poster/contraband/korpstech
-	name = "Korps Genetics"
-	desc = "This poster bears a huge, pink helix on it, with smaller text underneath it that reads 'The Korps institute, advancing the Genetics field since 2423!'"
+	name = "Empire Enhancements"
+	desc = "This poster bears a huge, pink helix on it, with smaller text underneath it that mentions some alleged genetic advancements from a long time ago."
 	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
 	icon_state = "korpsposter"
+	never_random = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
@@ -2062,3 +2063,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
 	icon_state = "dropbag"
 
+/obj/item/clothing/suit/replica_parade_jacket
+	name = "replica parade jacket"
+	desc = "Ever see command staff in a fancy parade jacket and think to yourself, \"I want that\" without having to steal it? Here's your chance. Made from the finest synthleather and synthwool, it cost far more than most people care to admit they paid."
+	icon_state = "r_parade_jacket"
+	greyscale_config = /datum/greyscale_config/replica_parade_jacket
+	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
+	greyscale_colors = "#b0c5ff#434343"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
