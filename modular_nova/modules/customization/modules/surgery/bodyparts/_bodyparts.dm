@@ -6,8 +6,6 @@
 	/// The bodypart's currently applied style's name. Only necessary for bodyparts that come in multiple
 	/// variants, like prosthetics and cyborg bodyparts.
 	var/current_style = null
-	/// If true, our plaintext_zone will be used instead of our def_zone when we send attacked by messages.
-	var/use_plaintext_zone_when_attacked = FALSE
 
 /obj/item/bodypart/generate_icon_key()
 	RETURN_TYPE(/list)
