@@ -36,10 +36,6 @@
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
 	burn_modifier = 2
-<<<<<<< HEAD
-	// speed_modifier = 3 //disgustingly slow // NOVA EDIT REMOVAL - Moved the movespeed to the shell.
-=======
->>>>>>> f1a22b367d4 (Changes how lube crawling works and fixes a bug with snails (#83238))
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 /obj/item/bodypart/leg/right/snail
@@ -47,10 +43,6 @@
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
 	burn_modifier = 2
-<<<<<<< HEAD
-	// speed_modifier = 3 //disgustingly slow // NOVA EDIT REMOVAL - Moved the movespeed to the shell.
-=======
->>>>>>> f1a22b367d4 (Changes how lube crawling works and fixes a bug with snails (#83238))
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 ///ABDUCTOR
