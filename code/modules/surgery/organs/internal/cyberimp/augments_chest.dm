@@ -207,7 +207,7 @@
 		return
 
 	on = TRUE
-	owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack) //NOVA EDIT CHANGE -- Walance, since anyone can get it. ORIGINAL: owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 	if(!silent)
 		to_chat(owner, span_notice("You turn your thrusters set on."))
 	update_appearance()
