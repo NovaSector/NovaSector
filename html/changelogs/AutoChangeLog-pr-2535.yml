@@ -1,4 +1,0 @@
-author: "hack-wrench"
-delete-after: True
-changes:
-  - bugfix: "fixed \"bad text\" error when using non-ascii characters in traitor announcements"

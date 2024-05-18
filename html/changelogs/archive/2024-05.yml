@@ -607,3 +607,38 @@
   Zergspower:
   - balance: Turns down the added shock multiplier for synths
   - code_imp: gave names to modular Cargo Shuttles to tell them apart
+2024-05-18:
+  Melbert:
+  - rscadd: Adds Minecarts, (possibly admin only depending on when this PR is merged
+      in relation to the Icebox Bar PR)
+  NovaBot13:
+  - bugfix: You will now be ejected from Space Phase if you lose your focus or lose
+      consciousness somehow during the jaunt.
+  - bugfix: adds missing prefix to name of The Lizard's Gas Lava land ruin.
+  - qol: The Ansem, suppressor, and SC/FISHER included in the Fisher gimmick bundle
+      now come together as one whole gun, the Ansem/SC. It's integrally suppressed,
+      and fires the disruptor on right-click.
+  - bugfix: The SC/FISHER disrupts APCs for an appropriate amount of time, not ten
+      times the intended disruption length.
+  - balance: Nukies ordnance now include more gasses and stock parts
+  - bugfix: Fixes a bunch of hearts turning into errors when you try to eat them
+  - bugfix: fixed malf AI being able to overload shuttle consoles and the gateway
+      control console
+  ShizCalev:
+  - bugfix: Malf AI can now override/overload closed turrets.
+  - bugfix: Fixed a scenario in which a turret would have its covers closed while
+      still firing.
+  grungussuss:
+  - qol: suit sensors can now be maxed by ctrl clicking your jumpsuit
+  hack-wrench:
+  - bugfix: fixed "bad text" error when using non-ascii characters in traitor announcements
+  nikothedude:
+  - bugfix: Taur legs' names are now respected in all aspects of the game
+  - spellcheck: Taur legs suffix now specifies they are legs
+  sheets, spacemenart, ben10omintrix, goofball, infrared baron, aofie:
+  - rscadd: adds lavaland raptors and the raptor ranch
+  yooriss:
+  - bugfix: Medical bounties no longer accept the base IPC organs that could be printed
+      from medical's techfab pretty much at round start. Sorry, paramedics - you'll
+      have to wait a bit for science to research t2 cybernetic organs before the money
+      fountain opens again.
