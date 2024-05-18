@@ -195,6 +195,10 @@
 	name = "Simple Ponytail"
 	icon_state = "hair_simple_ponytail"
 
+/datum/sprite_accessory/hair/nova/simple_ponytail_alt
+	name = "Simple Ponytail Alt"
+	icon_state = "hair_simple_ponytail_alt"
+
 /datum/sprite_accessory/hair/nova/loose_slicked
 	name = "Loose Slicked"
 	icon_state = "hair_loose_slicked"
@@ -515,7 +519,7 @@
 	name = "Bonnie long 2"
 	icon_state = "hair_bonnie_2_long"
 
-/datum/sprite_accessory/hair/nova/bonie_2_short
+/datum/sprite_accessory/hair/nova/bonnie_2_short
 	name = "Bonnie short 2"
 	icon_state = "hair_bonnie_2_short"
 
