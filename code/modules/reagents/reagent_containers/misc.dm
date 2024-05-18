@@ -131,7 +131,7 @@
 
 /obj/item/reagent_containers/cup/rag/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/cleaner, 3 SECONDS, pre_clean_callback=CALLBACK(src, PROC_REF(should_clean)))
+	AddComponent(/datum/component/cleaner, 3 SECONDS, cleaning_strength = CLEAN_WASH, pre_clean_callback=CALLBACK(src, PROC_REF(should_clean))) //NOVA EDIT CHANGE - Walance, they now don't eliminate fingerprints or fibers. ORIGINAL: AddComponent(/datum/component/cleaner, 3 SECONDS, pre_clean_callback=CALLBACK(src, PROC_REF(should_clean)))
 
 /obj/item/reagent_containers/cup/rag/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is smothering [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
