@@ -112,7 +112,7 @@
 		/obj/item/storage/box/expeditionary_survival = ITEM_WEIGHT_MISC,
 		/obj/item/melee/tomahawk = ITEM_WEIGHT_MISC_BUT_RARER,
 		// the stuff they probably just stole from the station before going
-		/obj/item/storage/medkit = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/storage/medkit/regular = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/trench_tool = ITEM_WEIGHT_MISC,
 		/obj/item/binoculars = ITEM_WEIGHT_MISC,
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,
