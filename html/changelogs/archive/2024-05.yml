@@ -642,3 +642,17 @@
       from medical's techfab pretty much at round start. Sorry, paramedics - you'll
       have to wait a bit for science to research t2 cybernetic organs before the money
       fountain opens again.
+2024-05-19:
+  Melbert:
+  - rscadd: 'Icebox: The bar returns to its home.'
+  - rscadd: 'Icebox: Standardizes some decal styles in the main hallway.'
+  - bugfix: 'Icebox: The lower brig''s missing air alarm has been found.'
+  Merek2:
+  - qol: Changed a recipe line for the beer battered sausage. Now chefs can know how
+      to make the beer batter! Find it by looking for the recipe in the crafting menu!
+  NovaBot13:
+  - bugfix: Mob spawners (such as lavaland tendrils) won't spawn more mobs than they
+      are supposed to, faster than they should.
+  OzzyMcPseudonym:
+  - balance: Synths rejoice! The basic robotics medkit is now available for purchase
+      in mining vendors, at a small premium compared to kits for organics.
