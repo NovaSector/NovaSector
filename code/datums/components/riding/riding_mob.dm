@@ -287,7 +287,7 @@
 
 /datum/component/riding/creature/human/get_offsets(pass_index)
 	var/mob/living/carbon/human/H = parent
-	//NOVA EDIT BEGIN - Oversized Overhaul
+	//NOVA EDIT ADDITION BEGIN - Oversized Overhaul, Taur riding
 	if(H.buckle_lying)
 		return HAS_TRAIT(H, TRAIT_OVERSIZED) ? list(
 				TEXT_NORTH = list(0, OVERSIZED_OFFSET),
@@ -312,13 +312,11 @@
 				TEXT_EAST = list(-REGULAR_OFFSET, REGULAR_SIDE_OFFSET),
 				TEXT_WEST = list(REGULAR_OFFSET, REGULAR_SIDE_OFFSET)
 			)
-	//NOVA EDIT END
-	// NOVA EDIT BEGIN -- Taur riding
 	if (ride_check_flags & RIDING_TAUR)
 		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in H.organs
 		return taur_body.get_riding_offset(oversized = HAS_TRAIT(H, TRAIT_OVERSIZED))
 
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 /datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider)
 	var/atom/movable/AM = parent
 	AM.unbuckle_mob(dismounted_rider)

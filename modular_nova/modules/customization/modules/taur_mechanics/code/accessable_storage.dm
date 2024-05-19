@@ -29,7 +29,7 @@
 
 	var/obj/item/item_parent = parent
 	item_parent.atom_storage?.open_storage(clicker, signal_source)
-	item_parent.atom_storage?.animate_parent(signal_source)
+	animate_parent(signal_source)
 
 /// Signal handler for COMSIG_MOB_UNEQUIPPED_ITEM. Handles unregistering signals.
 /datum/component/accessable_storage/proc/mob_unequipped_item(mob/signal_source, obj/item/item, force, atom/newloc, no_move, invdrop, silent)
@@ -43,13 +43,17 @@
 	SIGNAL_HANDLER
 
 	if (isliving(signal_source.loc))
-		var/datum/storage/storage_datum = signal_source.atom_storage
-		storage_datum.animate_parent(signal_source.loc)
+		animate_parent(signal_source.loc)
 
 /// Signal handler for COMSIG_STORAGE_REMOVED_ITEM. Handles animating our parent's wearer.
 /datum/component/accessable_storage/proc/parent_removed_item(obj/item/signal_source, obj/item/thing, atom/remove_to_loc, silent)
 	SIGNAL_HANDLER
 
 	if (isliving(signal_source.loc))
-		var/datum/storage/storage_datum = signal_source.atom_storage
-		storage_datum.animate_parent(signal_source.loc)
+		animate_parent(signal_source.loc)
+
+/// Gives a spiffy animation to the target to represent opening and closing. Copy pasted from storage.dm, please change if that proc ever changes
+/datum/component/accessable_storage/proc/animate_target(atom/target = parent)
+	var/matrix/old_matrix = target.transform
+	animate(target, time = 1.5, loop = 0, transform = target.transform.Scale(1.07, 0.9))
+	animate(time = 2, transform = old_matrix)
