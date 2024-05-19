@@ -140,9 +140,15 @@
 	if (!modsuit)
 		return
 	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/vehicle/ridden/wheelchair/wheelchair = locate() in quirk_holder.loc
 	if (human_holder.get_quirk(/datum/quirk/paraplegic))
 		var/obj/item/mod/module/anomaly_locked/antigrav/entombed/ambulator = new
 		modsuit.install(ambulator, human_holder)
+		ambulator.on_activation()
+		if(wheelchair)
+			var/obj/vehicle/ridden/wheelchair/wheelchair_folded = new wheelchair.foldabletype(get_turf(quirk_holder))
+			quirk_holder.put_in_hands(wheelchair_folded)
+			qdel(wheelchair)
 
 /datum/quirk_constant_data/entombed
 	associated_typepath = /datum/quirk/equipping/entombed
