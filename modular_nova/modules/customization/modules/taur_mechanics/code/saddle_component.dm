@@ -77,7 +77,7 @@
 	if (!istype(target))
 		return TRUE
 
-	for (var/obj/item/organ/iter_organ as anything in carbon_target.organs)
+	for (var/obj/item/organ/iter_organ as anything in target.organs)
 		if (istype(iter_organ, required_organ))
 			return TRUE
 

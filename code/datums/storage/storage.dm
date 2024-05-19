@@ -1109,7 +1109,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /// Gives a spiffy animation to our parent to represent opening and closing.
 /datum/storage/proc/animate_parent()
 	var/matrix/old_matrix = parent.transform
-	animate(parent, time = 1.5, loop = 0, transform = target.transform.Scale(1.07, 0.9))
+	animate(parent, time = 1.5, loop = 0, transform = parent.transform.Scale(1.07, 0.9))
 	animate(time = 2, transform = old_matrix)
 
 /// Signal proc for [COMSIG_ATOM_CONTENTS_WEIGHT_CLASS_CHANGED] to drop items out of our storage if they're suddenly too heavy.
