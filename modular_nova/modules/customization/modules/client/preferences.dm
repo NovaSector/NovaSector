@@ -35,3 +35,20 @@
 			quirks_edited = TRUE
 
 	return quirks_edited
+
+/datum/preferences/update_preference(datum/preference/preference, preference_value)
+	. = ..()
+	if (!.)
+		return FALSE
+
+	preference.on_value_update(src, preference_value)
+
+/**
+ * Called after /datum/preferences/update_preference().
+ *
+ * Args:
+ * * prefs: The preference datum that updated this preference. Non-nullable.
+ * * new_value: The new value of this preference.
+ */
+/datum/preference/proc/on_value_update(datum/preferences/prefs, new_value)
+	return FALSE

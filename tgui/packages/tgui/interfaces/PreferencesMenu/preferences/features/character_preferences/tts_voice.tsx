@@ -47,5 +47,6 @@ export const tts_voice: FeatureChoiced = {
 
 export const tts_voice_pitch: FeatureNumeric = {
   name: 'Voice Pitch Adjustment',
+  description: 'This is a dynamic setting, and can be changed in-game.', // NOVA EDIT ADDITION - DESCRIPTION
   component: FeatureSliderInput,
 };
