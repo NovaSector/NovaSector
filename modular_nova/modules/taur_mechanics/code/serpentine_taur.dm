@@ -20,7 +20,8 @@
 	organ_owner.dna.species.modsuit_slot_exceptions |= ITEM_SLOT_FEET
 
 	var/obj/item/clothing/shoes/shoe = organ_owner.get_item_by_slot(ITEM_SLOT_FEET)
-	shoe?.forceMove(get_turf(organ_owner))
+	if (shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
+		shoe.forceMove(get_turf(organ_owner))
 
 	var/use_hardened_soles = FALSE
 	var/datum/preferences/prefs = organ_owner.client?.prefs
