@@ -30,7 +30,7 @@
 
 	RegisterSignal(living_equipper, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(mob_unequipped_item))
 	RegisterSignal(living_equipper, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(wearer_lost_organ))
-	RegisterSignal(living_equipper, COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT, PROC_REF(wearer_riden))
+	RegisterSignal(living_equipper, COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT, PROC_REF(wearer_ridden))
 
 	ADD_TRAIT(living_equipper, TRAIT_SADDLED, REF(src))
 
@@ -55,7 +55,9 @@
 		item_parent.forceMove(get_turf(item_parent)) // force unequip
 
 /// Signal handler for COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT. Returns saddle_flags into the signal bitfield.
-/datum/component/carbon_saddle/proc/wearer_riden(mob/living/carbon/human/wearer, mob/living/carbon/rider)
+/datum/component/carbon_saddle/proc/wearer_ridden(mob/living/carbon/human/wearer, mob/living/carbon/rider)
+	SIGNAL_HANDLER
+
 	return saddle_flags
 
 /// Signal handler for COMSIG_ITEM_MOB_CAN_EQUIP. If equipped into a non-hands and pockets slot, returns COMPONENT_ITEM_CANT_EQUIP if our owner doesnt have our required organ.
@@ -69,13 +71,12 @@
 		return COMPONENT_ITEM_CANT_EQUIP
 
 /// Determines if our wearer, target, has our required organ, a subtype of our required organ var.
-/datum/component/carbon_saddle/proc/wearer_has_requisite_organ(mob/target)
+/datum/component/carbon_saddle/proc/wearer_has_requisite_organ(mob/living/carbon/target)
 	if (isnull(required_organ))
 		return TRUE
-	if (!iscarbon(target))
+	if (!istype(target))
 		return TRUE
 
-	var/mob/living/carbon/carbon_target = target
 	for (var/obj/item/organ/iter_organ as anything in carbon_target.organs)
 		if (istype(iter_organ, required_organ))
 			return TRUE

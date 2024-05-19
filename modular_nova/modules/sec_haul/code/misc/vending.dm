@@ -110,5 +110,5 @@
 	premium = list(
 		/obj/item/clothing/under/rank/security/officer/formal = 5,
 		/obj/item/clothing/suit/jacket/officer/tan = 5,
-		/obj/item/clothing/head/beret/sec/navyofficer = 5
+		/obj/item/clothing/head/beret/sec/navyofficer = 5,
 	)

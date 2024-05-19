@@ -70,7 +70,7 @@
 
 	if (user.incapacitated())
 		if (!silent)
-			balloon_alert(user, "incapacitated!")
+			balloon_alert(user, "you are incapacitated!")
 		return FALSE
 
 	if (buckling.incapacitated())
