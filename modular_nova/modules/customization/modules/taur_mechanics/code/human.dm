@@ -6,8 +6,11 @@
 
 	return ride_saddle(buckling, user)
 
+/// The amount of time it takes to mount a mob with a saddle on.
 #define SADDLE_MOUNTING_TIME 1.5 SECONDS
+/// The mult to be applied to SADDLE_MOUNTING_TIME if the user is mounting someone else onto the saddled mob.
 #define SADDLE_MOUNTING_OTHER_MULT 3
+
 /// Attempts to have buckling ride on our saddle, if we have one.
 /mob/living/carbon/human/proc/ride_saddle(mob/living/buckling, mob/living/user)
 	if (!can_be_ridden_by(buckling, user))
@@ -45,15 +48,24 @@
 #undef SADDLE_MOUNTING_TIME
 #undef SADDLE_MOUNTING_OTHER_MULT
 
-/// Returns TRUE if we have a saddle and buckling could reasonably ride us, FALSE otherwise.
-/mob/living/carbon/human/proc/can_be_ridden_by(mob/living/buckling, mob/living/user, silent = FALSE)
+/**
+ * Determines if src can be ridden by to_buckle.
+ *
+ * Args:
+ * * to_buckle: The mob trying to mount us. Non-nullable.
+ * * user: The mob mounting to_buckle onto us, most likely to_buckle itself. Non-nullable.
+ * * silent = FALSE: If FALSE, we do not send feedback messages. Boolean.
+ * Returns:
+ * * FALSE if we have no saddle, if we're trying to mount ourself, or if to_buckle can't be mounted. TRUE otherwise.
+ */
+/mob/living/carbon/human/proc/can_be_ridden_by(mob/living/to_buckle, mob/living/user, silent = FALSE)
 	if (!HAS_TRAIT(src, TRAIT_SADDLED))
 		return FALSE // no feedback as its very very common
 
 	if (user == src) // would open the inventory screen otherwise
 		return FALSE // no feedback as you get your answer via the inventory screen
 
-	if (buckling == src)
+	if (to_buckle == src)
 		if (!silent)
 			balloon_alert(user, "can't ride self!")
 		return FALSE
@@ -65,7 +77,7 @@
 
 	if (incapacitated())
 		if (!silent)
-			balloon_alert(user, "ridee incapacitated!")
+			balloon_alert(user, "target incapacitated!")
 		return FALSE
 
 	if (user.incapacitated())
@@ -73,7 +85,7 @@
 			balloon_alert(user, "you are incapacitated!")
 		return FALSE
 
-	if (buckling.incapacitated())
+	if (to_buckle.incapacitated())
 		if (!silent)
 			balloon_alert(user, "rider incapacitated!")
 		return FALSE
@@ -83,10 +95,10 @@
 			balloon_alert(user, "already being ridden!")
 		return FALSE
 
-	if (!ishuman(buckling))
+	if (!ishuman(to_buckle))
 		return TRUE // no more checks need to be made
 
-	var/mob/living/carbon/human/human_target = buckling
+	var/mob/living/carbon/human/human_target = to_buckle
 
 	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in organs
 	var/obj/item/organ/external/taur_body/other_taur_body = locate(/obj/item/organ/external/taur_body) in human_target.organs
