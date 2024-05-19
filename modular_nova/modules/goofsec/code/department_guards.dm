@@ -275,6 +275,7 @@
 	messenger = /obj/item/storage/backpack/messenger/science
 
 	id_trim = /datum/id_trim/job/science_guard
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/science_guard
 	assignment = "Science Guard"
@@ -376,6 +377,7 @@
 	box = /obj/item/storage/box/survival/medical
 
 	id_trim = /datum/id_trim/job/orderly
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/orderly
 	assignment = "Orderly"
@@ -470,6 +472,7 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	id_trim = /datum/id_trim/job/engineering_guard
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/engineering_guard
 	assignment = "Engineering Guard"
@@ -570,6 +573,7 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	id_trim = /datum/id_trim/job/customs_agent
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/customs_agent
 	assignment = "Customs Agent"
@@ -664,6 +668,7 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	id_trim = /datum/id_trim/job/bouncer
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/bouncer
 	assignment = "Bouncer"

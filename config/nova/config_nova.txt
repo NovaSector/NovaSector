@@ -152,3 +152,6 @@ ARRIVALS_WAIT 150
 
 ## Uncomment to enable the replacing of flashbangs in secbelts with energy bolas
 REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
+
+## Uncomment to make flashbangs forbidden during green alerts
+FLASHBANGS_FORBIDDEN_DURING_GREEN
