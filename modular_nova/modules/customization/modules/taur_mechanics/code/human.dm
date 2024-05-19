@@ -77,7 +77,7 @@
 
 	if (incapacitated())
 		if (!silent)
-			balloon_alert(user, "target incapacitated!")
+			balloon_alert(user, "can't mount incapacitated mobs!")
 		return FALSE
 
 	if (user.incapacitated())
