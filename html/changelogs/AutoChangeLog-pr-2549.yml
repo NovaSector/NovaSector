@@ -1,0 +1,4 @@
+author: "nikothedude"
+delete-after: True
+changes:
+  - refactor: "Secbelt flashbang to bola code is now handled by a config in a modular fashion"
