@@ -656,3 +656,10 @@
   OzzyMcPseudonym:
   - balance: Synths rejoice! The basic robotics medkit is now available for purchase
       in mining vendors, at a small premium compared to kits for organics.
+2024-05-20:
+  Hatterhat:
+  - rscadd: Xenoarch strange rocks can now show up in artifact boulders.
+  nikothedude:
+  - balance: Flashbangs dont spawn in secbelts, energy bolas do
+  - refactor: Secbelt flashbang to bola code is now handled by a config in a modular
+      fashion
