@@ -1,11 +1,30 @@
+/obj/item/grenade/flashbang/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/item/grenade/flashbang/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(!is_currently_forbidden(user))
+		return
+
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Break Company Policy! There will be consequences..."
+	return CONTEXTUAL_SCREENTIP_SET
+
+/// If the company policy currently forbids flashbangs during green alert
+/obj/item/grenade/flashbang/proc/is_currently_forbidden(mob/user)
+	if(!CONFIG_GET(flag/flashbangs_forbidden_during_green) || SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_GREEN)
+		return FALSE
+
+	if(!(user.mind?.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY|DEPARTMENT_BITFLAG_COMMAND)))
+		return FALSE
+
+	return TRUE
+
+
 // Security members are not supposed to use flashbangs during green alert, as per company policy.
 // Disobeying this policy will result in IC consequences.
 /obj/item/grenade/flashbang/attack_self(mob/user, modifiers, breaking_policy = FALSE)
-	if (!CONFIG_GET(flag/flashbangs_forbidden_during_green) || SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_GREEN)
-		return ..()
-
-	var/is_sec_or_command = user.mind?.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY|DEPARTMENT_BITFLAG_COMMAND)
-	if(active || HAS_TRAIT(src, TRAIT_NODROP) || !is_sec_or_command)
+	if(active || HAS_TRAIT(src, TRAIT_NODROP) || !is_currently_forbidden(user))
 		return ..()
 
 	if(breaking_policy)
@@ -15,7 +34,7 @@
 			JOB_DETECTIVE,
 			JOB_HEAD_OF_SECURITY,
 		)
-		var/message = "[user], [user.mind?.assigned_role.title] has armed a flashbang during security level green! This is a blatant violation of company policy and must be investigated."
+		var/message = "<span class='doyourjobidiot'><b>\n\nWARNING: Breach of company policy detected!:</b></span>\n\n[user], <b>[user.mind?.assigned_role.title]</b> has armed a flashbang during security level green! This is a blatant violation of company policy and must be investigated."
 		silent_alert(user, src, crew_to_alert, message)
 		return ..()
 	else
@@ -57,3 +76,30 @@
 		sender.log_message("(PDA: Flashbang Alerts) sent \"[message]\" to [signal.format_target()]", LOG_PDA)
 
 	return TRUE
+
+// Keybindings
+/datum/keybinding/mob/ctrl_activate_inhand
+	hotkey_keys = list("CtrlZ")
+	name = "ctrl-activate_inhand"
+	full_name = "CTRL-Activate in-hand"
+	description = "Uses whatever item you have inhand"
+	keybind_signal = COMSIG_KB_MOB_CTRL_ACTIVATEINHAND_DOWN
+
+/datum/keybinding/mob/ctrl_activate_inhand/down(client/user)
+	. = ..()
+	if(.)
+		return
+	var/mob/user_mob = user.mob
+	if(ismecha(user_mob.loc))
+		return
+
+	if(user_mob.incapacitated())
+		return
+
+	var/obj/item/held_item = user_mob.get_active_held_item()
+	if(held_item)
+		held_item.CtrlClick(user_mob)
+		user_mob.update_held_items()
+
+	return TRUE
+
