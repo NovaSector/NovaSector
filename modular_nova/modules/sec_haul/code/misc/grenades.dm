@@ -48,7 +48,7 @@
 
 /// Sends a silent alert message to certain crew members' PDAs
 /proc/silent_alert(mob/sender, atom/source, crew_to_alert, message)
-	// build list of alt titles + base titles
+	// build list of alt titles + base titles. We have to do this because the pda's saved_job uses the alt_title string instead of the job datum.
 	var/list/base_title_by_alt_title = list()
 	for(var/job_title in crew_to_alert)
 		var/datum/job/job_datum = SSjob.GetJob(job_title)
