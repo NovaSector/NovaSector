@@ -15,7 +15,7 @@
 			JOB_DETECTIVE,
 			JOB_HEAD_OF_SECURITY,
 		)
-		var/message = "[user], [user.mind?.assigned_role.title] has armed a flashbang during security level green! This is a blatant violation of company policy."
+		var/message = "[user], [user.mind?.assigned_role.title] has armed a flashbang during security level green! This is a blatant violation of company policy and must be investigated."
 		silent_alert(user, src, crew_to_alert, message)
 		return ..()
 	else

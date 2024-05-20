@@ -26,7 +26,6 @@
 	)
 
 	id_trim = /datum/id_trim/chameleon/contractor
-	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visualsOnly)
 	. = ..()
