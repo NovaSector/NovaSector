@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "jumpsuit sensors quick maxing now works"
