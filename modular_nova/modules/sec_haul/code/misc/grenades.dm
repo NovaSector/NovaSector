@@ -20,7 +20,6 @@
 
 	return TRUE
 
-
 // Security members are not supposed to use flashbangs during green alert, as per company policy.
 // Disobeying this policy will result in IC consequences.
 /obj/item/grenade/flashbang/attack_self(mob/user, modifiers, breaking_policy = FALSE)
@@ -102,4 +101,3 @@
 		user_mob.update_held_items()
 
 	return TRUE
-
