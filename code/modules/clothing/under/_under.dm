@@ -132,7 +132,6 @@
 		has_sensor = HAS_SENSORS
 	update_appearance()
 
-/* NOVA EDIT REMOVAL START : See modular_nova\master_files\code\modules\clothing\under\_under.dm for EMP Act
 /obj/item/clothing/under/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
@@ -142,12 +141,13 @@
 
 	if(severity <= EMP_HEAVY)
 		has_sensor = BROKEN_SENSORS
+		sensor_mode = SENSOR_LIVING // NOVA EDIT ADDITION
 		if(ismob(loc))
 			var/mob/M = loc
 			to_chat(M,span_warning("[src]'s sensors short out!"))
 
 	else
-		sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
+		sensor_mode = clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS) // NOVA EDIT CHANGE - ORIGINAL: sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
 		if(ismob(loc))
 			var/mob/M = loc
 			to_chat(M,span_warning("The sensors on the [src] change rapidly!"))
@@ -156,7 +156,7 @@
 		var/mob/living/carbon/human/ooman = loc
 		if(ooman.w_uniform == src)
 			ooman.update_suit_sensors()
-NOVA EDIT REMOVAL END */
+
 
 /obj/item/clothing/under/visual_equipped(mob/user, slot)
 	. = ..()
