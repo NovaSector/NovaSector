@@ -66,6 +66,7 @@
 	incompatible_modules = list(/obj/item/mod/module/anomaly_locked, /obj/item/mod/module/atrocinator)
 	cooldown_time = 0.5 SECONDS
 	accepted_anomalies = list(/obj/item/assembly/signaler/anomaly/grav)
+	var/datum/quirk/spacer_born/spacer = user.get_quirk(/datum/quirk/spacer_born)
 
 /obj/item/mod/module/anomaly_locked/antigrav/on_activation()
 	. = ..()
@@ -75,6 +76,8 @@
 		new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	mod.wearer.AddElement(/datum/element/forced_gravity, 0)
 	playsound(src, 'sound/effects/gravhit.ogg', 50)
+	if (!isnull(spacer))
+		spacer.in_space(user)
 
 /obj/item/mod/module/anomaly_locked/antigrav/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
@@ -86,6 +89,8 @@
 	if(mod.wearer.has_gravity())
 		new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	playsound(src, 'sound/effects/gravhit.ogg', 50)
+	if (!isnull(spacer))
+		spacer.check_z(user)
 
 /obj/item/mod/module/anomaly_locked/antigrav/prebuilt
 	prebuilt = TRUE
