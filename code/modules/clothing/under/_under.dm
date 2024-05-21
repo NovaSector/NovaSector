@@ -157,7 +157,6 @@
 		if(ooman.w_uniform == src)
 			ooman.update_suit_sensors()
 
-
 /obj/item/clothing/under/visual_equipped(mob/user, slot)
 	. = ..()
 	if(adjusted == ALT_STYLE)
