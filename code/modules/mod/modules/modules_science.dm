@@ -66,7 +66,7 @@
 	incompatible_modules = list(/obj/item/mod/module/anomaly_locked, /obj/item/mod/module/atrocinator)
 	cooldown_time = 0.5 SECONDS
 	accepted_anomalies = list(/obj/item/assembly/signaler/anomaly/grav)
-	var/datum/quirk/spacer_born/spacer = user.get_quirk(/datum/quirk/spacer_born)
+	var/datum/quirk/spacer_born/spacer = mod.wearer.get_quirk(/datum/quirk/spacer_born) // NOVA EDIT ADDITON
 
 /obj/item/mod/module/anomaly_locked/antigrav/on_activation()
 	. = ..()
