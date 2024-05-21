@@ -193,7 +193,6 @@
 			qdel(GetComponent(/datum/component/gps))
 
 		//we have the plasma. we can rebuild them.
-		brainmob.mind.grab_ghost()
 		if(isnull(brainmob))
 			user.balloon_alert("This brain is not a viable candidate for repair!")
 			return TRUE
@@ -221,13 +220,10 @@
 		new_body.blood_volume = BLOOD_VOLUME_SAFE+60
 		REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
 		SSquirks.AssignQuirks(new_body, brainmob.client)
-		var/obj/item/organ/internal/brain/new_body_brain = new_body.get_organ_slot(ORGAN_SLOT_BRAIN)
-		qdel(new_body_brain)
-		src.forceMove(new_body)
-		Insert(new_body)
-		for(var/obj/item/bodypart as anything in new_body.bodyparts)
+		src.replace_into(new_body)
+		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
 			if(!istype(bodypart, /obj/item/bodypart/chest))
-				qdel(bodypart)
+				bodypart.drop_limb()
 				continue
 		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
 		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
