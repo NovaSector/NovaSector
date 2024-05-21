@@ -1,5 +1,5 @@
-#define MINIMUM_VALUE_MULT 0.5 // used in price_minimum declarations, /tg/ default is 0.5
-#define MAXIMUM_VALUE_MULT 1.25 // used in prixe_maximum declarations, /tg/ default is 3
+#define MINIMUM_VALUE_MULT 0.95 // used in price_minimum declarations, /tg/ default is 0.5
+#define MAXIMUM_VALUE_MULT 1.15 // used in prixe_maximum declarations, /tg/ default is 3
 
 SUBSYSTEM_DEF(stock_market)
 	name = "Stock Market"
