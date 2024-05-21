@@ -69,3 +69,8 @@ map blueshift
 	minplayers 70
 	votable
 endmap
+
+map ouroboros
+	maxplayers 80
+	votable
+endmap

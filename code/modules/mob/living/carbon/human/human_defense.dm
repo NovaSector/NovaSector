@@ -199,7 +199,7 @@
 			apply_damage(damage, BRUTE, affecting, run_armor_check(affecting, MELEE))
 		return TRUE
 
-//NOVA EDIT REMOVAL BEGIN - SKYRAT_XENO_REDO - Moved to: modular_nova\modules\xenos_skyrat_redo\code\human_defense.dm
+//NOVA EDIT REMOVAL BEGIN - NOVA_XENO_REDO - Moved to: modular_nova\modules\xenos_nova_redo\code\human_defense.dm
 /*
 /mob/living/carbon/human/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
 	. = ..()

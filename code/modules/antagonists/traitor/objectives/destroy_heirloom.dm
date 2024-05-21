@@ -41,10 +41,11 @@
 	target_jobs = list(
 		// Medical
 		/datum/job/doctor,
-		/datum/job/virologist,
 		/datum/job/paramedic,
 		/datum/job/psychologist,
 		/datum/job/chemist,
+		/datum/job/coroner,
+		/datum/job/virologist, // NOVA EDIT ADDITION - Virologist
 		// Service
 		/datum/job/clown,
 		/datum/job/botanist,
@@ -76,6 +77,7 @@
 	telecrystal_reward = list(1, 2)
 	target_jobs = list(
 		// Cargo
+		/datum/job/bitrunner,
 		/datum/job/shaft_miner,
 		// Service
 		/datum/job/chaplain,
@@ -100,6 +102,7 @@
 		/datum/job/chief_medical_officer,
 		/datum/job/research_director,
 		/datum/job/quartermaster,
+		/datum/job/chief_engineer,
 	)
 
 /datum/traitor_objective/destroy_heirloom/captain

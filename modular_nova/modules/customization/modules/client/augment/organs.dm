@@ -119,3 +119,7 @@
 /datum/augment_item/organ/tongue/forked
 	name = "Forked tongue"
 	path = /obj/item/organ/internal/tongue/lizard
+
+/datum/augment_item/organ/tongue/forked/filterless
+	name = "Forked tongue (Without TTS Filter)"
+	path = /obj/item/organ/internal/tongue/lizard/filterless

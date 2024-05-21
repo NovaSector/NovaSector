@@ -6,7 +6,6 @@
 
 /datum/species/jelly
 	mutant_bodyparts = list()
-	hair_color = "mutcolor"
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
 	mutantliver = /obj/item/organ/internal/liver/slime
@@ -451,6 +450,10 @@
 
 	return perk_descriptions
 
+/datum/species/jelly/roundstartslime/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
+	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_hair_color))
+		target.dna.species.hair_color_mode = null
+
 /**
  * Alter Form is the ability of slimes to edit many of their character attributes at will
  * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc, to changing the presence of their genitalia
@@ -619,7 +622,7 @@
 
 	var/new_mutant_colour = input(
 		alterer,
-		"Choose your character's new [color_choice = "All" ? "" : lowertext(color_choice)] color:",
+		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
 	) as color|null

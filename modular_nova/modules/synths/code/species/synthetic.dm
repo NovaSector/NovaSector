@@ -45,7 +45,7 @@
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	coldmod = 1.2
 	heatmod = 2 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us.
-	siemens_coeff = 1.4 // Not more because some shocks will outright crit you, which is very unfun
+	siemens_coeff = 1 // Puts you in deep crit and near death but not outright dead
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
@@ -180,11 +180,6 @@
 	transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN][MUTANT_INDEX_NAME] = screen_name
 	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna)
 	transformer.update_body()
-
-/datum/species/synthetic/random_name(gender, unique, lastname)
-	var/randname = pick(GLOB.posibrain_names)
-	randname = "[randname]-[rand(100, 999)]"
-	return randname
 
 /datum/species/synthetic/get_types_to_preload()
 	return ..() - typesof(/obj/item/organ/internal/cyberimp/arm/power_cord) // Don't cache things that lead to hard deletions.
