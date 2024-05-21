@@ -663,3 +663,54 @@
   - balance: Flashbangs dont spawn in secbelts, energy bolas do
   - refactor: Secbelt flashbang to bola code is now handled by a config in a modular
       fashion
+2024-05-21:
+  Melbert:
+  - qol: Custom emotes now default to both visible and audible rather than just audible
+  - qol: Invoking the custom emote verb now explains how to set your custom emote
+      to visible or audible
+  NovaBot13:
+  - balance: Multiver stops purging when Anacea is present in the bloodstream.
+  - bugfix: ' fixes being able to ride all mobs through space'
+  - bugfix: playful raptors now correctly play with owners
+  - bugfix: Miners can actually access and fix their engineering issues on the lavaland
+      base via the engineering section of the base. AGAIN.
+  - bugfix: The gulag SMES unit is no longer needlessly draining the entire power
+      grid of the main mining base. AGAIN.
+  - bugfix: The RD remote works on the AI upload door now
+  - rscadd: Nanotrasen has made strides in their frontier sector food networks, increasing
+      the selection of produce available to chefs.
+  - image: Medical doctors and CMOs now start with their jumpsuits rather than surgery
+      scrubs and caps.
+  - bugfix: Slimes will no longer consider feeding upon slime people
+  - balance: Cargo ripley's cell starts fully charged.
+  - bugfix: HoS on birdshot now has a pet like on all other maps
+  - spellcheck: Improved the grammar/spelling of a few raptor descriptions
+  - balance: Ore vents, if blocked off from all four sides while being defended, now
+      cause a mild gas explosion, resulting in a mild dissuasive explosion.
+  - bugfix: NODE drones spawned from ore vent defense have lower maximum health.
+  - balance: If you can't absorb a species' DNA as a changeling, you also can't use
+      transform sting to turn someone into that species.
+  - spellcheck: Pulse of entropy description now displays the correct reagents for
+      the ritual
+  - admin: Various bad things that can happen as a result of Legion organs are now
+      logged
+  - bugfix: jumpsuit sensors quick maxing now works
+  - bugfix: carps now properly stop floating when you kill them
+  - bugfix: 'underage drinkers beware: the Booze-O-Mat and ShadyCigs Deluxe check
+      your age again'
+  - balance: Certain unhealthy organs can be detected via the advanced health scanner
+  - bugfix: '[Metastation] Service hallway door being bypassed by lying down'
+  - admin: sentience balloon can now assign antag to affected mobs
+  - balance: Halved Psyker echolocation cooldown. This will hopefully make it actually
+      usable.
+  - balance: Buffs Antihol's purge rate to 8u/tick when pure (6u/tick minimum).
+  - bugfix: Fixed spies having a slightly increased chance of getting a different
+      cost model for the elite syndicate hardsuit
+  ShizCalev:
+  - bugfix: Icecream vats will no longer eat cyborg beakers.
+  - bugfix: Malf AI can now properly interact with APCs under their control
+  - bugfix: Malf AI & their slaved cyborgs won't be told that access is denied when
+      trying to right-click lock/unlock APCs.
+  - bugfix: Balloons are no longer invisible when held.
+  grungussuss and Virgilcore:
+  - sound: added sounds for the gateway
