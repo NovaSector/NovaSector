@@ -46,7 +46,6 @@
 	idle_power_cost = 0
 	removable = FALSE
 
-
 // ENTOMBED MOD CLOTHING COMPONENT
 
 /datum/component/entombed_mod_piece
