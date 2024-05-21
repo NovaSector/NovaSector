@@ -237,7 +237,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			continue
 
 		// Check if their uniform is in a compatible mode.
-		if((uniform.has_sensor == NO_SENSORS) || !uniform.sensor_mode) //Nova Edit: Original (uniform.has_sensor <= NO_SENSORS)
+		if((uniform.has_sensor == NO_SENSORS) || !uniform.sensor_mode) // NOVA EDIT CHANGE - ORIGINAL if((uniform.has_sensor <= NO_SENSORS) || !uniform.sensor_mode)
 			stack_trace("Human without active suit sensors is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform.type])")
 			continue
 
@@ -259,7 +259,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
 
-		// NOVA EDIT ADDITION: EMP SENSORS
+		// NOVA EDIT ADDITION START - EMP SENSORS
 		if(uniform.has_sensor == BROKEN_SENSORS)
 			entry["is_robot"] = rand(0,1)
 			entry["life_status"] = rand(0,1)
@@ -272,8 +272,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["can_track"] = tracked_living_mob.can_track()
 			results[++results.len] = entry
 			continue
-		// NOVA EDIT END
-
+		// NOVA EDIT ADDITION END
 		// NOVA EDIT BEGIN: Checking for robotic race
 		if (issynthetic(tracked_human))
 			entry["is_robot"] = TRUE
