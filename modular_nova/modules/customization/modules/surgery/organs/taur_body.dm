@@ -80,9 +80,11 @@
 		new_right_leg = new /obj/item/bodypart/leg/right/robot/synth/taur()
 
 	if (left_leg_name)
-		new_left_leg.name = left_leg_name + " (Left)"
+		new_left_leg.name = left_leg_name + " (Left leg)"
+		new_left_leg.plaintext_zone = lowertext(new_left_leg.name) // weird otherwise
 	if (right_leg_name)
-		new_right_leg.name = right_leg_name + " (Right)"
+		new_right_leg.name = right_leg_name + " (Right leg)"
+		new_right_leg.plaintext_zone = lowertext(new_right_leg.name)
 
 	new_left_leg.bodyshape |= external_bodyshapes
 	new_left_leg.replace_limb(reciever, TRUE)
