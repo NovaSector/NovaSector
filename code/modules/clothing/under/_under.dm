@@ -132,6 +132,7 @@
 		has_sensor = HAS_SENSORS
 	update_appearance()
 
+/* NOVA CHANGE: See modular_nova\master_files\code\modules\clothing\under\_under.dm for EMP Act
 /obj/item/clothing/under/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
@@ -155,6 +156,7 @@
 		var/mob/living/carbon/human/ooman = loc
 		if(ooman.w_uniform == src)
 			ooman.update_suit_sensors()
+*/
 
 /obj/item/clothing/under/visual_equipped(mob/user, slot)
 	. = ..()
