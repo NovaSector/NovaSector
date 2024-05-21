@@ -76,8 +76,10 @@
 		new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	mod.wearer.AddElement(/datum/element/forced_gravity, 0)
 	playsound(src, 'sound/effects/gravhit.ogg', 50)
+	//NOVA EDIT ADDITION - START
 	if (!isnull(spacer))
-		spacer.in_space(user)
+		spacer.in_space(mod.wearer)
+	//NOVA EDIT ADDITION - END
 
 /obj/item/mod/module/anomaly_locked/antigrav/on_deactivation(display_message = TRUE, deleting = FALSE)
 	. = ..()
