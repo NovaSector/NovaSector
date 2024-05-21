@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "EMP's on suit sensors now show flavor on the crew console"
