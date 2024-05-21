@@ -91,8 +91,10 @@
 	if(mod.wearer.has_gravity())
 		new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	playsound(src, 'sound/effects/gravhit.ogg', 50)
+	//NOVA EDIT ADDITION - START
 	if (!isnull(spacer))
-		spacer.check_z(user)
+		spacer.check_z(mod.wearer)
+	//NOVA EDIT ADDITION - END
 
 /obj/item/mod/module/anomaly_locked/antigrav/prebuilt
 	prebuilt = TRUE
