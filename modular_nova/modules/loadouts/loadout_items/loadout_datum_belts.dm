@@ -71,3 +71,40 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 /datum/loadout_item/belts/candle_box
 	name = "Candle Box"
 	item_path = /obj/item/storage/fancy/candle_box
+
+// HOLSTERS
+
+/datum/loadout_item/belts/holster_shoulders
+	name = "Shoulder Holster"
+	item_path = /obj/item/storage/belt/holster
+
+/datum/loadout_item/belts/holster_cowboy
+	name = "Cowboy Belt (Thigh Holster)"
+	item_path = /obj/item/storage/belt/holster/cowboy
+
+// RIGS/WEBBING (for military larpers)
+
+/datum/loadout_item/belts/cin_surplus_chestrig
+	name = "CIN Surplus Chest Rig (Standard)"
+	item_path = /obj/item/storage/belt/military/cin_surplus
+
+/datum/loadout_item/belts/cin_surplus_chestrig_desert
+	name = "CIN Surplus Chest Rig (Desert)"
+	item_path = /obj/item/storage/belt/military/cin_surplus/desert
+
+/datum/loadout_item/belts/cin_surplus_chestrig_forest
+	name = "CIN Surplus Chest Rig (Forest)"
+	item_path = /obj/item/storage/belt/military/cin_surplus/forest
+
+/datum/loadout_item/belts/cin_surplus_chestrig_marine
+	name = "CIN Surplus Chest Rig (Marine)"
+	item_path = /obj/item/storage/belt/military/cin_surplus/marine
+
+/datum/loadout_item/belts/expeditionary_chestrig_belt
+	name = "Expeditionary Chest Rig/Webbing Belt"
+	item_path = /obj/item/storage/belt/military/expeditionary_corps
+
+/datum/loadout_item/belts/frontier_chestrig
+	name = "Frontier Chest Rig"
+	item_path = /obj/item/storage/belt/utility/frontier_colonist
+
