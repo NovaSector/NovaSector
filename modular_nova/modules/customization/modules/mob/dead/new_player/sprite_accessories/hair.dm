@@ -279,6 +279,10 @@
 	name = "Cotton"
 	icon_state = "hair_cotton"
 
+/datum/sprite_accessory/hair/nova/cottonalt
+	name = "Cotton (Alt)"
+	icon_state = "hair_cottonalt"
+
 /datum/sprite_accessory/hair/nova/african_pigtails
 	name = "African Pigtails"
 	icon_state = "hair_africanpigtails"
