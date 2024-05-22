@@ -252,7 +252,7 @@
 
 //laser
 /datum/opposing_force_equipment/ranged_stealth/fisher
-	item_type = /obj/item/gun/energy/recharge/fisher
+	item_type = /obj/item/gun/ballistic/automatic/pistol/clandestine/fisher
 
 /datum/opposing_force_equipment/ranged_stealth/ebow
 	item_type = /obj/item/gun/energy/recharge/ebow
