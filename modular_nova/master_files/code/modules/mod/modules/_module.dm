@@ -9,8 +9,6 @@
 	var/head_only_when_inactive = FALSE
 	/// Which part of the modsuit this module is 'attached' to, for purposes of hiding them when retracting the part. Null means it won't get hidden.
 	var/datum/weakref/retracts_into
-	/// Check to see if the users has the spacer quirk. If not null, will result in the negation of gravity sickness.
-	var/datum/quirk/spacer_born/spacer_quirk
 
 // we need to update mob overlays on deploy/retract in order for the hiding to work because this doesn't happen otherwise
 /obj/item/mod/control/deploy(mob/user, obj/item/part)
