@@ -1,3 +1,4 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { BooleanLike } from 'common/react';
 import { createSearch } from 'common/string';
 import { useState } from 'react';
@@ -30,7 +31,7 @@ const SORT_OPTIONS = ['ijob', 'name', 'area', 'health'];
 
 const jobIsHead = (jobId: number) => jobId % 10 === 0;
 
-const jobToColor = (jobId: number) => {
+const jobToColor = (jobId) => {
   if (jobId === 0) {
     return COLORS.department.captain;
   }
@@ -49,10 +50,10 @@ const jobToColor = (jobId: number) => {
   if (jobId >= 50 && jobId < 60) {
     return COLORS.department.cargo;
   }
-  if (jobId >= 60 && jobId < 200) {
+  if (jobId >= 60 && jobId < 80) {
     return COLORS.department.service;
   }
-  if (jobId >= 200 && jobId < 230) {
+  if (jobId >= 200 && jobId < 240) {
     return COLORS.department.centcom;
   }
   return COLORS.department.other;
@@ -110,7 +111,7 @@ const HealthStat = (props: HealthStatProps) => {
   );
 };
 
-export const CrewConsole = () => {
+export const CrewConsoleNova = () => {
   return (
     <Window title="Crew Monitor" width={600} height={600}>
       <Window.Content scrollable>
@@ -126,6 +127,7 @@ type CrewSensor = {
   name: string;
   assignment: string | undefined;
   ijob: number;
+  is_robot: any;
   life_status: number;
   oxydam: number;
   toxdam: number;
@@ -196,6 +198,7 @@ const CrewTable = () => {
       <Table>
         <Table.Row>
           <Table.Cell bold>Name</Table.Cell>
+          <Table.Cell bold collapsing textAlign="center" />
           <Table.Cell bold collapsing />
           <Table.Cell bold collapsing textAlign="center">
             Vitals
@@ -229,6 +232,7 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
     name,
     assignment,
     ijob,
+    is_robot,
     life_status,
     oxydam,
     toxdam,
@@ -243,6 +247,9 @@ const CrewTableEntry = (props: CrewTableEntryProps) => {
       <Table.Cell bold={jobIsHead(ijob)} color={jobToColor(ijob)}>
         {name}
         {assignment !== undefined ? ` (${assignment})` : ''}
+      </Table.Cell>
+      <Table.Cell collapsing textAlign="center">
+        {is_robot ? <Icon name="wrench" color="#B7410E" size={1} /> : ''}
       </Table.Cell>
       <Table.Cell collapsing textAlign="center">
         {oxydam !== undefined ? (
