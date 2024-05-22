@@ -109,7 +109,3 @@
 	if(attached_suit_part && attached_suit_part.loc == mod)
 		return TRUE
 
-/// Check if the person wearing the MOD has the spacer quirk for use in anti-gravity MODule
-/obj/item/mod/module/on_suit_activation()
-	. = ..()
-	spacer_quirk = mod.wearer.get_quirk(/datum/quirk/spacer_born)
