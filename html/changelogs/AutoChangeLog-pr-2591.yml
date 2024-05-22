@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Viewing Reticence's stats no longer causes an NtOS UI error"

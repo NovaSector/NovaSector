@@ -714,3 +714,45 @@
   - bugfix: Balloons are no longer invisible when held.
   grungussuss and Virgilcore:
   - sound: added sounds for the gateway
+2024-05-22:
+  Bisar:
+  - balance: A wound being inflicted doesn't get broadcasted to everyone in view until
+      a higher severity now.
+  - sound: Wound sounds drop off more quickly, and no longer travel through walls.
+      This has no effect on attack sounds.
+  NovaBot13:
+  - bugfix: Monkey power reactions are instant and won't occur when exact reagent
+      requirements (50u power & 1u water) or above aren't met. Stops players from
+      cheesing monkeys from plumbing factories
+  - rscadd: Adds a new deathmatch modifier that enables quirks
+  - rscadd: Added smoke kit (5 grenades) with four grenades to uplink by 2 TC
+  - bugfix: fixed a weird door in icebox bridge
+  - spellcheck: Correctly spells "received."
+  - bugfix: Viewing Reticence's stats no longer causes an NtOS UI error
+  - qol: Crew Monitor UI now scrolls properly even after clicking the inner list.
+  - spellcheck: the nuke op reinforcement beacon no longer talks about clones
+  - spellcheck: Corrects spelling of "amulette" to "amulet"
+  - bugfix: The deathmatch modifier menu works now
+  - qol: New players will no longer start with ghost ears, ghost sight and ghost whispers
+      on by default.
+  - bugfix: Crafting menu loads long lists faster
+  Zergspower:
+  - code_imp: Skub Revolution Station Trait weight set to 0
+  - code_imp: Altered the BMD's spawn to no longer be TRUE Spawn
+  - rscadd: EMP's on suit sensors now show flavor on the crew console
+  yooriss:
+  - bugfix: Entombed MODsuits now handle dismemberment much better, hopefully resulting
+      in less cases of discarded MOD clothing with the NODROP flag lying around. It
+      is also  safe for first responders to pick up and transport Entombed MODs without
+      them fusing to their hand and becoming undroppable.
+  - qol: 'Stasis beds (and other sources of the effect) now halt the life support
+      failure damage for Entombed characters. Side note: it is also possible to mitigate
+      the toxin damage this causes with slow IV drips of anti-tox chemicals.'
+  - qol: It is now possible to turn on an Entombed character's MODsuit via the strip
+      menu after a short delay if it is off and they are otherwise unconscious/unable/unwilling.
+      You cannot turn it off, however, as this would kill them.
+  - rscadd: 'The following items are now available in the loadout menu: bunny suit
+      (black), bunny suit (white), latex catsuit, geisha suit, jabroni outfit, CIN
+      combat uniform, shoulder holsters, cowboy belt, all the CIN surplus chest rigs,
+      expeditionary chest rig, the frontier chest rig, hairbrush (and combs), basic
+      robotic repair equipment kit (synthetic medkit) and the imperial police cloak.'

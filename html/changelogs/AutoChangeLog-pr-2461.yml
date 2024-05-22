@@ -1,6 +1,0 @@
-author: "yooriss"
-delete-after: True
-changes:
-  - bugfix: "Entombed MODsuits now handle dismemberment much better, hopefully resulting in less cases of discarded MOD clothing with the NODROP flag lying around. It is also  safe for first responders to pick up and transport Entombed MODs without them fusing to their hand and becoming undroppable."
-  - qol: "Stasis beds (and other sources of the effect) now halt the life support failure damage for Entombed characters. Side note: it is also possible to mitigate the toxin damage this causes with slow IV drips of anti-tox chemicals."
-  - qol: "It is now possible to turn on an Entombed character's MODsuit via the strip menu after a short delay if it is off and they are otherwise unconscious/unable/unwilling. You cannot turn it off, however, as this would kill them."

@@ -1,4 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - code_imp: "Altered the BMD's spawn to no longer be TRUE Spawn"
