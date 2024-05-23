@@ -763,7 +763,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	
 /datum/loadout_item/suit/sleeveless_crop_jacket
 	name = "Colourable Sleeveless Crop-Top Jacket"
-	item_path = /obj/item/clothing/suit/sleeveless_crop_jacket
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless
 
 /*
 *	CHAPLAIN
