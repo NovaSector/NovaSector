@@ -1,5 +1,0 @@
-author: "Adeheuer, mogeoko for the port"
-delete-after: True
-changes:
-  - image: "ported new hairstyle - Simple Ponytail Alt"
-  - code_imp: "fixed typo in bonnie_2_short"
