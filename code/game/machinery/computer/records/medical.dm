@@ -17,6 +17,9 @@
 	icon_state = "laptop"
 	icon_screen = "medlaptop"
 	icon_keyboard = "laptop_key"
+	/// NOVA ADDITION BEGIN - Circuitboard for records laptop
+ 	circuit = /obj/item/circuitboard/computer/med_data/laptop
+	/// NOVA ADDITION END
 	pass_flags = PASSTABLE
 
 /obj/machinery/computer/records/medical/attacked_by(obj/item/attacking_item, mob/living/user)
