@@ -149,3 +149,6 @@ ARRIVALS_WAIT 150
 
 ## Uncomment to completely disable the opt-in system, which is a system that forces objectives to only roll on individuals who consent to it.
 #DISABLE_ANTAG_OPT_IN_PREFERENCES
+
+## Uncomment to enable the replacing of flashbangs in secbelts with energy bolas
+REPLACE_SECBELT_FLASHBANGS_WITH_BOLA

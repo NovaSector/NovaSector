@@ -109,4 +109,3 @@
 	if(attached_suit_part && attached_suit_part.loc == mod)
 		return TRUE
 
-
