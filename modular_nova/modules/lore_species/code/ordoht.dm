@@ -3,7 +3,7 @@
 	wikilink = "Lore:Ordoht"
 
 /datum/species/skrell/get_species_description()
-	return "A collection of several closely-related amphibian bipedals, the Ordoht (once known as the 'Skrell') are a distinctly varied race recognizable for their flared heads, angular eyes and and highly diverse colorations. Compared to many of the other races, Ordoht are not especially commonly scene, and their visual diversity can make it hard for onlookers to discern their species at all."
+	return "A collection of several closely-related amphibian bipedals, the Ordoht (once known as the 'Skrell') are a distinctly varied race recognizable for their flared heads, angular eyes and and highly diverse colorations. Compared to many of the other races, Ordoht are not especially commonly seen, and their visual diversity can make it hard for onlookers to discern their species at all."
 
 /datum/species/skrell/get_species_lore()
 	return list(
