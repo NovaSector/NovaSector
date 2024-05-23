@@ -560,13 +560,8 @@
 
 /// Sets us to the passed job datum, then greets them to their new job.
 /// Use this one for when you're assigning this mind to a new job for the first time,
-<<<<<<< HEAD
-/// or for when someone's recieving a job they'd really want to be greeted to.
-/datum/mind/proc/set_assigned_role_with_greeting(datum/job/new_role, client/incoming_client, alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/mind/proc/set_assigned_role_with_greeting(datum/job/new_role, client/incoming_client)
-=======
 /// or for when someone's receiving a job they'd really want to be greeted to.
-/datum/mind/proc/set_assigned_role_with_greeting(datum/job/new_role, client/incoming_client)
->>>>>>> 53a8ba74c88 (grep's for "recieve" typos (#83369))
+/datum/mind/proc/set_assigned_role_with_greeting(datum/job/new_role, client/incoming_client, alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/mind/proc/set_assigned_role_with_greeting(datum/job/new_role, client/incoming_client)
 	. = set_assigned_role(new_role)
 	if(assigned_role != new_role)
 		return
