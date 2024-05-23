@@ -149,14 +149,14 @@
 	if(old_right_leg)
 		QDEL_NULL(old_right_leg)
 
-///Prevent organic legs from being granted if prevent_leg_insertion is flagged TRUE
+//Prevent organic legs from being granted if prevent_leg_insertion is flagged TRUE
 /obj/item/bodypart/leg/can_attach_limb(mob/living/carbon/new_limb_owner, special)
 	for(var/obj/item/organ/external/taur_body/taur_body in new_limb_owner.organs)
 		if(taur_body.prevent_leg_insertion)
 			return FALSE
 	return ..()
 
-///Prevent legs from being surgically attached if prevent_leg_insertion is flagged TRUE
+//Prevent legs from being surgically attached if prevent_leg_insertion is flagged TRUE
 //(the above can_attach_limb proc edit still allows synthetic limbs to pass)
 /datum/surgery/prosthetic_replacement/can_start(mob/user, mob/living/carbon/target)
 	if(!(user.zone_selected == BODY_ZONE_L_LEG || user.zone_selected == BODY_ZONE_R_LEG))
