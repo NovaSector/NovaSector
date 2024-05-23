@@ -46,11 +46,9 @@
 /datum/component/boomerang/proc/prepare_throw(datum/source, datum/thrownthing/throwingdatum, spin)
 	SIGNAL_HANDLER
 	var/mob/thrower = throwingdatum?.get_thrower()
-	if(thrower_easy_catch_enabled && thrower)
-		if(iscarbon(thrower))
-			var/mob/living/carbon/carbon_mob = thrower
-			carbon_mob.throw_mode_on(THROW_MODE_TOGGLE)
-	return
+	if(thrower_easy_catch_enabled && iscarbon(thrower))
+		var/mob/living/carbon/carbon_mob = thrower
+		carbon_mob.throw_mode_on(THROW_MODE_TOGGLE)
 
 /datum/component/boomerang/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
