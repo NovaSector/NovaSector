@@ -10,6 +10,7 @@
 	name = "chemical press"
 	desc = "A press that makes pills, patches and bottles."
 	icon_state = "pill_press"
+	
 	/// current operating product (pills or patches)
 	var/product = "pill"
 	/// selected size of the product
@@ -164,6 +165,6 @@
 			packaging_type = params["ref"]
 			var/obj/item/reagent_containers/container = decode_category()
 			current_volume = clamp(current_volume, MIN_VOLUME, initial(container.volume))
-
+#undef MAX_VOLUME
 #undef MIN_VOLUME
 #undef MAX_FLOOR_PRODUCTS
