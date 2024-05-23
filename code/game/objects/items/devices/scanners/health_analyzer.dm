@@ -275,7 +275,7 @@
 
 			if(mode == SCANNER_VERBOSE)
 				for(var/obj/item/bodypart/limb as anything in damaged)
-					if(limb.bodytype & BODYTYPE_ROBOTIC || limb.bodytype & BODYTYPE_TAUR) // NOVA EDIT ADDITION - Taur limbs show their full name - ORIGINAL: if(limb.bodytype & BODYTYPE_ROBOTIC)
+					if(limb.bodytype & BODYTYPE_ROBOTIC)
 						dmgreport += "<tr><td><font color='#cc3333'>[capitalize(limb.name)]:</font></td>"
 					else
 						dmgreport += "<tr><td><font color='#cc3333'>[capitalize(limb.plaintext_zone)]:</font></td>"
@@ -300,7 +300,7 @@
 				<td style='width:12em;'><font color='#ff0000'><b>Status</b></font></td>"
 
 			for(var/obj/item/organ/organ as anything in humantarget.organs)
-				var/status = organ.get_status_text()
+				var/status = organ.get_status_text(advanced)
 				if (status != "")
 					render = TRUE
 					toReport += "<tr><td><font color='#cc3333'>[organ.name]:</font></td>\

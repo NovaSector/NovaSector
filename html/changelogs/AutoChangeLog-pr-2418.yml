@@ -1,5 +1,0 @@
-author: "Thlumyn"
-delete-after: True
-changes:
-  - bugfix: "removed a light inside the wall on the Interlink"
-  - bugfix: "removed some cobwebs in space in shuttle 8532 ruin"
