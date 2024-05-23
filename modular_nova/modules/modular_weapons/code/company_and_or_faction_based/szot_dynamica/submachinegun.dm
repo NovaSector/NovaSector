@@ -18,7 +18,7 @@
 
 	bolt_type = BOLT_TYPE_STANDARD
 
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_BELT
 
@@ -51,7 +51,7 @@
 /obj/item/gun/ballistic/automatic/miecz/examine_more(mob/user)
 	. = ..()
 
-	. += "The Meicz is one of the newest weapons to come out of CIN member state hands and \
+	. += "The Miecz is one of the newest weapons to come out of CIN member state hands and \
 		into the wild, typically the frontier. It was built alongside the round it fires, the \
 		.27-54 Cesarzawa pistol round. Based on the proven Lanca design, it seeks to bring that \
 		same reliable weapon design into the factor of a submachinegun. While it is significantly \

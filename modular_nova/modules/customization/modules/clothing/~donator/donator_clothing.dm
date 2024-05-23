@@ -2063,3 +2063,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
 	icon_state = "dropbag"
 
+/obj/item/clothing/suit/replica_parade_jacket
+	name = "replica parade jacket"
+	desc = "Ever see command staff in a fancy parade jacket and think to yourself, \"I want that\" without having to steal it? Here's your chance. Made from the finest synthleather and synthwool, it cost far more than most people care to admit they paid."
+	icon_state = "r_parade_jacket"
+	greyscale_config = /datum/greyscale_config/replica_parade_jacket
+	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
+	greyscale_colors = "#b0c5ff#434343"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
