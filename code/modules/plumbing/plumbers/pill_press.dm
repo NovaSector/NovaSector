@@ -1,7 +1,5 @@
 ///the minimum size of a pill or patch
 #define MIN_VOLUME 5
-///the maximum size a pill or patch can be
-#define MAX_VOLUME 50
 ///max amount of pills allowed on our tile before we start storing them instead
 #define MAX_FLOOR_PRODUCTS 10
 
@@ -10,7 +8,10 @@
 	name = "chemical press"
 	desc = "A press that makes pills, patches and bottles."
 	icon_state = "pill_press"
-
+	//NOVA EDIT ADDITION BEGIN - 100u Capacity for large vials and Beakers
+	///the maximum size a pill or patch can be
+	var/max_volume = 50
+	//NOVA EDIT ADDITION END
 	/// current operating product (pills or patches)
 	var/product = "pill"
 	/// selected size of the product
@@ -131,7 +132,7 @@
 	var/list/data = list()
 
 	data["min_volume"] = MIN_VOLUME
-	data["max_volume"] = MAX_VOLUME
+	data["max_volume"] = max_volume
 	data["packaging_types"] = packaging_types
 
 	return data
@@ -154,7 +155,7 @@
 	. = TRUE
 	switch(action)
 		if("change_current_volume")
-			current_volume = round(clamp(text2num(params["volume"]), MIN_VOLUME, MAX_VOLUME))
+			current_volume = round(clamp(text2num(params["volume"]), MIN_VOLUME, max_volume))
 		if("change_product_name")
 			var/formatted_name = html_encode(params["name"])
 			if (length(formatted_name) > MAX_NAME_LEN)
@@ -164,8 +165,16 @@
 		if("change_product")
 			packaging_type = params["ref"]
 			var/obj/item/reagent_containers/container = decode_category()
+
+			//NOVA EDIT ADDITION BEGIN - 100u Capacity for large vials and Beakers
+			/// Check to see if the container would be large enough to hold 100u.
+			if(packaging_type = /obj/item/reagent_containers/cup/vial/large, /obj/item/reagent_containers/cup/bottle)
+				max_volume = 100
+			else
+				max_volume = 50
+			//NOVA EDIT ADDITION END
+
 			current_volume = clamp(current_volume, MIN_VOLUME, initial(container.volume))
 
 #undef MIN_VOLUME
-#undef MAX_VOLUME
 #undef MAX_FLOOR_PRODUCTS
