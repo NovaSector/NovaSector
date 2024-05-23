@@ -6663,6 +6663,7 @@
 #include "modular_nova\master_files\code\modules\mod\mod_types.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\_module.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\modules_antag.dm"
+#include "modular_nova\master_files\code\modules\mod\modules\modules_science.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\modules_supply.dm"
 #include "modular_nova\master_files\code\modules\modular_computers\computers\item\laptop_presets.dm"
 #include "modular_nova\master_files\code\modules\modular_computers\computers\machinery\modular_computer.dm"
