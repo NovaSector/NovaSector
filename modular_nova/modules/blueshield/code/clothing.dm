@@ -143,3 +143,13 @@
 	icon_state = "hood_blueshield"
 	desc = "A comfy kevlar-lined hood to go with the comfy kevlar-lined coat."
 	armor_type = /datum/armor/suit_armor
+
+/obj/item/card/id/advanced/fakecentcom
+	icon = 'modular_nova/master_files/icons/obj/card.dmi'
+	icon_state = "centcom_silver"
+	name = "\improper CentCom Silver ID"
+	assigned_icon_state = "assigned_centcom"
+	registered_name = JOB_CENTCOM
+	registered_age = null
+	trim = /datum/id_trim/fakecentcom
+	wildcard_slots = WILDCARD_LIMIT_FAKECENTCOM
