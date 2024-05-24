@@ -125,6 +125,10 @@
 	flags_for_organ = NONE
 	color_src = USE_ONE_COLOR
 
+/datum/sprite_accessory/snouts/mammal/top/fmandibles
+	name = "Mandibles (Top)"
+	icon_state = "fmandibles1"
+
 /datum/sprite_accessory/snouts/mammal/elephant
 	name = "Elephant"
 	icon_state = "elephant"
@@ -374,9 +378,21 @@
 	name = "WahCoon (Top)"
 	icon_state = "fwah"
 
+/datum/sprite_accessory/snouts/mammal/top/fskulldog
+	name = "Skulldog (Top)"
+	icon_state = "fskulldog"
+
+/datum/sprite_accessory/snouts/mammal/top/fskulldog_greyscale
+	name = "Skulldog (Top, Greyscale)"
+	icon_state = "fskulldogalt"
+
 /datum/sprite_accessory/snouts/mammal/skulldog
 	name = "Skulldog"
 	icon_state = "skulldog"
+
+/datum/sprite_accessory/snouts/mammal/skulldog_greyscale
+	name = "Skulldog (Greyscale)"
+	icon_state = "skulldogalt"
 
 /datum/sprite_accessory/snouts/mammal/hanubus
 	name = "Anubus"
