@@ -1,5 +1,7 @@
 // Roundstartslimes!
 
+#define SLIME_LIMB_BLOOD_LOSS 60
+
 /obj/item/bodypart/head/jelly
 	can_dismember = TRUE //Their organs are in their chest now, all slime subspecies, so they can safely be decapitated.
 
@@ -35,7 +37,7 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= 60
+	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	qdel(src)
 	return .
@@ -46,7 +48,7 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= 60
+	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
 	qdel(src)
@@ -58,7 +60,7 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= 60
+	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
 	qdel(src)
@@ -70,7 +72,7 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= 60
+	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
 	qdel(src)
@@ -82,8 +84,10 @@
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
 	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
-	owner.blood_volume -= 60
+	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
 	qdel(src)
 	return .
+
+#undef SLIME_LIMB_BLOOD_LOSS

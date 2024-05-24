@@ -42,44 +42,18 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly,
 	)
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
-	// NOVA EDIT ADDITION BEGIN
-	var/datum/action/innate/alter_form/alter_form
-	var/datum/action/cooldown/spell/slime_washing/slime_washing
-	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
-	var/datum/action/innate/core_signal/core_signal
-	//NOVA EDIT ADDITION END
 
 /datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
 	. = ..()
 	if(ishuman(new_jellyperson))
 		regenerate_limbs = new
 		regenerate_limbs.Grant(new_jellyperson)
-		//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-		alter_form = new
-		alter_form.Grant(new_jellyperson)
-		slime_washing = new
-		slime_washing.Grant(new_jellyperson)
-		slime_hydrophobia = new
-		slime_hydrophobia.Grant(new_jellyperson)
-		core_signal = new
-		core_signal.Grant(new_jellyperson)
-		//NOVA EDIT ADDITION END
 	new_jellyperson.AddElement(/datum/element/soft_landing)
 	RegisterSignal(new_jellyperson, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(slime_blood))
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	if(regenerate_limbs)
 		regenerate_limbs.Remove(former_jellyperson)
-	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	if(alter_form)
-		alter_form.Remove(former_jellyperson)
-	if(slime_washing)
-		slime_washing.Remove(former_jellyperson)
-	if(slime_hydrophobia)
-		slime_hydrophobia.Remove(former_jellyperson)
-	if(core_signal)
-		core_signal.Remove(former_jellyperson)
-	//NOVA EDIT ADDITION END
 	former_jellyperson.RemoveElement(/datum/element/soft_landing)
 	UnregisterSignal(former_jellyperson, COMSIG_HUMAN_ON_HANDLE_BLOOD)
 	return ..()

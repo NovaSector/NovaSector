@@ -18,6 +18,37 @@
 		TRAIT_NOBLOOD,
 		TRAIT_EASYDISMEMBER,
 	)
+	/// Ability to allow them to shapeshift their body around.
+	var/datum/action/innate/alter_form/alter_form
+	/// Ability to allow them to clean themselves and their stuff.
+	var/datum/action/cooldown/spell/slime_washing/slime_washing
+	/// Ability to allow them to resist the effects of water.
+	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
+	/// Ability to allow them to turn their core's GPS on or off.
+	var/datum/action/innate/core_signal/core_signal
+
+/datum/species/jelly/on_species_gain(mob/living/carbon/new_jellyperson, datum/species/old_species, pref_load)
+	. = ..()
+	if(ishuman(new_jellyperson))
+		alter_form = new
+		alter_form.Grant(new_jellyperson)
+		slime_washing = new
+		slime_washing.Grant(new_jellyperson)
+		slime_hydrophobia = new
+		slime_hydrophobia.Grant(new_jellyperson)
+		core_signal = new
+		core_signal.Grant(new_jellyperson)
+
+/datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
+	. = ..()
+	if(alter_form)
+		alter_form.Remove(former_jellyperson)
+	if(slime_washing)
+		slime_washing.Remove(former_jellyperson)
+	if(slime_hydrophobia)
+		slime_hydrophobia.Remove(former_jellyperson)
+	if(core_signal)
+		core_signal.Remove(former_jellyperson)
 
 /datum/species/jelly/get_default_mutant_bodyparts()
 	return list(
@@ -124,11 +155,17 @@
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
 
+/**
+* Colors the slime's core (their brain) the same as their first mutant color.
+*/
 /obj/item/organ/internal/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
 		core_color = owner.dna.features["mcolor"]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
+/**
+* Handling for tracking when the slime in question dies (except through gibbing), which then segues into the core ejection proc.
+*/
 /obj/item/organ/internal/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
 	SIGNAL_HANDLER
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
@@ -140,10 +177,10 @@
 
 	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
 
-///////
-/// CORE EJECTION PROC
-/// Makes it so that when a slime dies, their core ejects and their body is qdel'd.
-
+/**
+* CORE EJECTION PROC -
+* Makes it so that when a slime dies, their core ejects and their body is qdel'd.
+*/
 /obj/item/organ/internal/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
 	if(core_ejected)
 		return
@@ -167,15 +204,18 @@
 	qdel(victim)
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
+/**
+* Procs the ethereal jaunt liquid effect when the slime dissolves on death.
+*/
 /obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
 	var/datum/effect_system/steam_spread/steam = new()
 	steam.set_up(10, FALSE, loc)
 	steam.start()
 
-///////
-/// CHECK FOR REPAIR SECTION
-/// Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
-
+/**
+* CHECK FOR REPAIR SECTION
+* Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
+*/
 /obj/item/organ/internal/brain/slime/check_for_repair(obj/item/item, mob/user)
 	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
 
@@ -231,10 +271,9 @@
 		return TRUE
 	return FALSE
 
-//////
-/// HEALING SECTION
-/// Handles passive healing and water damage.
 
+// HEALING SECTION
+// Handles passive healing and water damage.
 /datum/species/jelly/spec_life(mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
 	if(slime.stat != CONSCIOUS)
@@ -264,10 +303,11 @@
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
 
-///////
-/// SLIME CLEANING ABILITY
-/// Makes it so slimes clean themselves.
 
+/**
+* SLIME CLEANING ABILITY -
+* When toggled, slimes clean themselves and their equipment.
+*/
 /datum/action/cooldown/spell/slime_washing
 	name = "Toggle Slime Cleaning"
 	desc = "Filter grime through your outer membrane, cleaning yourself and your equipment for sustenance. Also cleans the floor, providing your feet are uncovered. For sustenance."
@@ -287,7 +327,10 @@
 	user.apply_status_effect(/datum/status_effect/slime_washing)
 	user.visible_message(span_purple("[user]'s outer membrane starts to develop a roiling film on the outside, absorbing grime into [user.p_their()] inner layer!"), span_purple("Your outer membrane develops a roiling film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
 
-/datum/action/cooldown/spell/slime_washing/proc/slime_washing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
+/**
+* Called when you activate it again after casting the ability-- turning it off, so to say.
+*/
+/datum/action/cooldown/spell/slime_washing/proc/slime_washing_deactivate(mob/living/carbon/human/user)
 	if(!user.has_status_effect(/datum/status_effect/slime_washing))
 		return
 
@@ -318,10 +361,10 @@
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of their body and vanishing.")
 
-///////
-/// HYDROPHOBIA SPELL
-/// Makes it so that slimes are waterproof, but slower, and they don't regenerate.
-
+/*
+* HYDROPHOBIA SPELL
+* Makes it so that slimes are waterproof, but slower, and they don't regenerate.
+*/
 /datum/action/cooldown/spell/slime_hydrophobia
 	name = "Toggle Hydrophobia"
 	desc = "Develop an oily layer on your outer membrane, repelling water at the cost of lower viscosity."
@@ -342,6 +385,9 @@
 	user.apply_status_effect(/datum/status_effect/slime_hydrophobia)
 	user.visible_message(span_purple("[user]'s outer membrane starts to ooze out an oily coating, [owner.p_their()] body becoming more viscous!"), span_purple("Your outer membrane starts to ooze out an oily coating, protecting you from water but making your body more viscous."))
 
+/**
+* Called when you activate it again after casting the ability-- turning it off, so to say.
+*/
 /datum/action/cooldown/spell/slime_hydrophobia/proc/slime_hydrophobia_deactivate(mob/living/carbon/human/user)
 	if(!user.has_status_effect(/datum/status_effect/slime_hydrophobia))
 		return
@@ -369,9 +415,8 @@
 /datum/status_effect/slime_hydrophobia/get_examine_text()
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
 
-///////
-/// CHEMICAL HANDLING
-/// Here's where slimes heal off plasma and where they hate drinking water.
+// CHEMICAL HANDLING
+// Here's where slimes heal off plasma and where they hate drinking water.
 
 /datum/species/jelly/handle_chemical(datum/reagent/chem, mob/living/carbon/human/slime, seconds_per_tick, times_fired)
 	. = ..()
@@ -435,16 +480,54 @@
 	)
 
 /datum/species/jelly/roundstartslime/create_pref_unique_perks()
-	var/list/perk_descriptions = list()
+	var/list/to_add = list()
 
-	perk_descriptions += list(list(
-		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
-		SPECIES_PERK_ICON = "biohazard",
-		SPECIES_PERK_NAME = "Squishy Form",
-		SPECIES_PERK_DESC = "Being made of slime, you have the ability to alter your physical form to be whatever you choose! You may grow ears, change your hair, and even become a taur-like if you so choose, at the press of a button and the snap of a finger!"
-	))
+	to_add += list(
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_ICON = "scissors",
+			SPECIES_PERK_NAME = "Headcase",
+			SPECIES_PERK_DESC = "Given slimepeople have all their organs in their chest, and no neck to boot, they can be decapitated easily.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "circle",
+			SPECIES_PERK_NAME = "Single-Celled Organism",
+			SPECIES_PERK_DESC = "Slimes only have one discrete organ, their core. It comes pre-installed with a togglable microchip for ease in location; their other organelles are unremovable.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "notes-medical",
+			SPECIES_PERK_NAME = "Regenerator",
+			SPECIES_PERK_DESC = "Slimes, if they have a proper amount of jelly inside, are capable of regenerating damage and limbs. If they're exposed to plasma at a high jelly volume, they can regenerate wounds.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_ICON = "droplet-slash",
+			SPECIES_PERK_NAME = "Dissolution",
+			SPECIES_PERK_DESC = "If slimes have their limbs chopped off, they disintegrate and cannot be recovered. If their body dies as a whole, it dissolves away from their core and requires 100u of liquid plasma to fix.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "hand-holding-droplet",
+			SPECIES_PERK_NAME = "Washes Right Out",
+			SPECIES_PERK_DESC = "Slimes are capable of cleaning themselves and their clothing, siphoning the dirt off it and into themselves; even off the floor, if they're barefoot. This gives them a mild amount of nutrition.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_ICON = "person-swimming",
+			SPECIES_PERK_NAME = "Major Hydrophobia",
+			SPECIES_PERK_DESC = "Slimes dissolve when exposed to water under normal circumstances, water nuking their blood volume and stopping their ability to regenerate.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "person-booth",
+			SPECIES_PERK_NAME = "Shapeshifter",
+			SPECIES_PERK_DESC = "Slimes can alter their size and general shape.",
+		),
+	)
 
-	return perk_descriptions
+	return to_add
 
 /datum/species/jelly/roundstartslime/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
 	if(preferences.read_preference(/datum/preference/toggle/allow_mismatched_hair_color))
