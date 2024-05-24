@@ -7369,7 +7369,6 @@
 #include "modular_nova\modules\customization\modules\surgery\organs\xenodorsal.dm"
 #include "modular_nova\modules\customization\modules\surgery\organs\xenohead.dm"
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\accessable_storage.dm"
-#include "modular_nova\modules\customization\modules\taur_mechanics\code\atom_storage.dm"
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\human.dm"
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\item.dm"
 #include "modular_nova\modules\customization\modules\taur_mechanics\code\saddle_component.dm"
