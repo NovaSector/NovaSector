@@ -120,6 +120,12 @@
 	icon_state = "ears"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/colorable_moth_antennae
+	name = "Colourable Moth Antennae"
+	icon_state = "colormothant"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
@@ -159,6 +165,20 @@
 /datum/body_marking/other/big_ol_eyes
 	name = "Large Eyes"
 	icon_state = "bigoleyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/three_eyes
+	name = "Three Eyes"
+	icon_state = "3eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/four_eyes
+	name = "Four Eyes"
+	icon_state = "4eyes"
 	default_color = "#FF0000"
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
