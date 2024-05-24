@@ -21,3 +21,6 @@
 
 /datum/station_trait/birthday
 	weight = 3
+
+/datum/station_trait/skub
+	weight = 0

@@ -1396,7 +1396,6 @@
 "xb" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
-/obj/item/ammo_casing/c14mm,
 /obj/effect/mob_spawn/corpse/human/assistant{
 	brute_damage = 70;
 	desc = null;
@@ -2129,9 +2128,7 @@
 "GK" = (
 /obj/machinery/porta_turret/syndicate/pod{
 	faction = list("Abductor");
-	lethal_projectile = /obj/projectile/bullet/c14mm;
 	max_integrity = 120;
-	stun_projectile = /obj/projectile/bullet/c14mm
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
