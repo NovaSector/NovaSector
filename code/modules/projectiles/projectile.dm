@@ -1,5 +1,6 @@
 #define MOVES_HITSCAN -1 //Not actually hitscan but close as we get without actual hitscan.
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 17 //How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
+#define MAX_RANGE_HIT_PRONE_TARGETS 10 //How far do the projectile hits the prone mob
 
 /obj/projectile
 	name = "projectile"
@@ -190,8 +191,10 @@
 	var/shrapnel_type
 	///If we have a shrapnel_type defined, these embedding stats will be passed to the spawned shrapnel type, which will roll for embedding on the target
 	var/list/embedding
-	///If TRUE, hit mobs even if they're on the floor and not our target
+	///If TRUE, hit mobs, even if they are lying on the floor and are not our target within MAX_RANGE_HIT_PRONE_TARGETS tiles
 	var/hit_prone_targets = FALSE
+	///if TRUE, ignores the range of MAX_RANGE_HIT_PRONE_TARGETS tiles of hit_prone_targets
+	var/ignore_range_hit_prone_targets = FALSE
 	///For what kind of brute wounds we're rolling for, if we're doing such a thing. Lasers obviously don't care since they do burn instead.
 	var/sharpness = NONE
 	///How much we want to drop damage per tile as it travels through the air
@@ -206,10 +209,10 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 		COMSIG_ATOM_ATTACK_HAND = PROC_REF(attempt_parry),
 	)
-	//SKYRAT ADDITION START
+	// NOVA EDIT ADDITION START
 	/// If this should be able to hit the target even on direct firing when `ignored_factions` applies
 	var/ignore_direct_target = FALSE
-	//SKYRAT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
@@ -306,7 +309,7 @@
 	else
 		impact_sound = target.impact_sound
 		get_sfx()
-	playsound(src, get_sfx_skyrat(impact_sound), vol_by_damage(), TRUE, -1)
+	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
@@ -358,7 +361,7 @@
 
 		var/organ_hit_text = ""
 		if(hit_limb_zone)
-			organ_hit_text = " in \the [parse_zone(hit_limb_zone)]"
+			organ_hit_text = " in \the [living_target.parse_zone_with_bodypart(hit_limb_zone)]"
 		if(suppressed == SUPPRESSED_VERY)
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 			organ_hit_text = organ_hit_text // NOVA EDIT ADDITION -- this is just so we don't have to nova edit the TG control statements. Otherwise will error in linters for being an empty block
@@ -640,13 +643,15 @@
 			return FALSE
 		if(HAS_TRAIT(living_target, TRAIT_IMMOBILIZED) && HAS_TRAIT(living_target, TRAIT_FLOORED) && HAS_TRAIT(living_target, TRAIT_HANDS_BLOCKED))
 			return FALSE
-		if(!hit_prone_targets)
+		if(hit_prone_targets)
 			var/mob/living/buckled_to = living_target.lowest_buckled_mob()
-			if(!buckled_to.density) // Will just be us if we're not buckled to another mob
-				return FALSE
-			if(living_target.body_position != LYING_DOWN)
+			if((decayedRange - range) <= MAX_RANGE_HIT_PRONE_TARGETS) // after MAX_RANGE_HIT_PRONE_TARGETS tiles, auto-aim hit for mobs on the floor turns off
 				return TRUE
-	return TRUE
+			if(ignore_range_hit_prone_targets) // doesn't apply to projectiles that must hit the target in combat mode or something else, no matter what
+				return TRUE
+			if(buckled_to.density) // Will just be us if we're not buckled to another mob
+				return TRUE
+	return FALSE
 
 /**
  * Scan if we should hit something and hit it if we need to
@@ -1196,6 +1201,7 @@
 
 #undef MOVES_HITSCAN
 #undef MUZZLE_EFFECT_PIXEL_INCREMENT
+#undef MAX_RANGE_HIT_PRONE_TARGETS
 
 /// Fire a projectile from this atom at another atom
 /atom/proc/fire_projectile(projectile_type, atom/target, sound, firer, list/ignore_targets = list())

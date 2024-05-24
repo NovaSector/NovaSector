@@ -221,6 +221,14 @@ required_map = "IceBoxStation.dmm"
 coordinates = [202, 16, 2]
 trait_name = "Station"
 
+# Icebox Raptor Ranch
+[templates.icebox_ranch]
+map_files = ["icebox_ranch.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [57, 82, 2]
+trait_name = "Station"
+
 # TRAMSTATION MAP EDITS
 # Tramstation Arrivals
 [templates.tramstation_arrivals]

@@ -9,7 +9,7 @@
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	mutant_bodyparts = list("moth_markings" = "None")
-	// external_organs = list(/obj/item/organ/external/wings/moth = "Plain", /obj/item/organ/external/antennae = "Plain") // NOVA EDIT - Fixing moths
+	// external_organs = list(/obj/item/organ/external/wings/moth = "Plain", /obj/item/organ/external/antennae = "Plain") // NOVA EDIT REMOVAL - Fixing moths
 	meat = /obj/item/food/meat/slab/human/mutant/moth
 	mutanttongue = /obj/item/organ/internal/tongue/moth
 	mutanteyes = /obj/item/organ/internal/eyes/moth
@@ -33,17 +33,6 @@
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		handle_mutant_bodyparts(H)
-
-/datum/species/moth/random_name(gender,unique,lastname)
-	if(unique)
-		return random_unique_moth_name()
-
-	var/randname = moth_name()
-
-	if(lastname)
-		randname += " [lastname]"
-
-	return randname
 
 /datum/species/moth/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
 	. = ..()
