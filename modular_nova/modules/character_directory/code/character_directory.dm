@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /client
 	COOLDOWN_DECLARE(char_directory_cooldown)
 
-//Make a verb to open the character directory
+/// Opens character directory UI for a specific user
 /client/verb/show_character_directory()
 	set name = "Character Directory"
 	set category = "OOC"
@@ -65,7 +65,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	if(is_character_directory_on_cooldown())
 		return
 
-//Check if there's not already a character directory open; open a new one if one is not present
+	//Check if there's not already a character directory open; open a new one if one is not present
 	if(!GLOB.character_directory)
 		GLOB.character_directory = new
 	GLOB.character_directory.ui_interact(mob)
@@ -94,6 +94,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		qdel(preview)
 	return ..()
 
+/// Makes a managed character preview view for a specific user
 /datum/character_directory/proc/create_character_preview_view(mob/user)
 	var/assigned_view = "preview_[user.ckey]_[REF(src)]_directory"
 
@@ -143,7 +144,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	. = ..()
 	var/list/data = .
 
-//Collect the user's own preferences for the top of the UI
+	//Collect the user's own preferences for the top of the UI
 	if (user?.client?.prefs)
 		data["personalVisibility"] = READ_PREFS(user, toggle/show_in_directory)
 		data["personalAttraction"] = READ_PREFS(user, choiced/attraction)
@@ -167,7 +168,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	//We want the directory to display only alive players, not observers or people in the lobby
 	for(var/mob/mob in GLOB.alive_player_list)
 		// Skip people who are opted out
-		if(!READ_PREFS(user, toggle/show_in_directory))
+		if(!READ_PREFS(mob, toggle/show_in_directory))
 			continue
 		// These are the variables we're trying to display in the directory
 		var/name = ""
