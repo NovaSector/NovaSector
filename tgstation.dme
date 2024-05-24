@@ -7562,6 +7562,7 @@
 #include "modular_nova\modules\lore_species\code\ordoht.dm"
 #include "modular_nova\modules\lore_species\code\plasmoid.dm"
 #include "modular_nova\modules\lore_species\code\species.dm"
+#include "modular_nova\modules\lore_species\code\tajaran.dm"
 #include "modular_nova\modules\lorecaster\code\archive_viewer.dm"
 #include "modular_nova\modules\lorecaster\code\config.dm"
 #include "modular_nova\modules\lorecaster\code\story_manager.dm"
