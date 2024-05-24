@@ -48,5 +48,6 @@
 	human.dna.features["mcolor"] = main_color
 	human.dna.features["mcolor2"] = secondary_color
 	human.dna.features["mcolor3"] = secondary_color
+	human.dna.species.body_markings["head"] = list("Insect Antennae" = list("#644b07", 0))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
