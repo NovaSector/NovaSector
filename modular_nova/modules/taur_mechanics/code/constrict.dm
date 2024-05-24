@@ -144,6 +144,8 @@
 
 	/// The mob we are currently constricting, usually coincides with what we have buckled to us. Nullable.
 	var/mob/living/constricted
+	/// The pixel shift we have applied to constricted. Is null if constricted is null. Used to unapply it.
+	var/applied_x_shift
 
 	/// If we're currently allowing constricted to be grabbed. Only briefly true, during set_constricted.
 	var/allowing_grab_on_constricted = FALSE
@@ -196,7 +198,7 @@
 	return tail_overlay
 
 /obj/structure/serpentine_tail/Destroy()
-	INVOKE_ASYNC(src, PROC_REF(set_constricted), null)
+	INVOKE_ASYNC(src, PROC_REF(set_constricted), null) // safe - the only time it can potentially sleep is if we dont pass in null
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
 
@@ -379,14 +381,9 @@
 	if (currently_crushing && !target)
 		stop_crushing()
 
-	var/scale_change_mult = get_scale_change_mult()
-	var/pixel_shift = get_constriction_pixel_x_shift()
-
-	var/final_shift = (pixel_shift * scale_change_mult)
-
 	if (constricted)
-		UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL, COMSIG_QDELETING))
-		constricted.pixel_x -= final_shift
+		unregister_constricted()
+		unapply_pixel_shift()
 		constricted.remove_status_effect(/datum/status_effect/constricted)
 
 	constricted = target
@@ -394,23 +391,76 @@
 	if (!constricted)
 		return
 
+	register_constricted()
+	apply_pixel_shift()
+	constricted.apply_status_effect(/datum/status_effect/constricted)
+
+	restrain_constricted()
+
+/// Applies our pixel shift to our constricted. Do not call if we have already applied our pixel shift.
+/obj/structure/serpentine_tail/proc/apply_pixel_shift()
+	if (!constricted)
+		return FALSE
+
+	if (!isnull(applied_x_shift)) // this isnt a proc to call willy nilly so this is fine
+		stack_trace("apply_pixel_shift called with a non-null applied_x_shift! value: [applied_x_shift]")
+		return FALSE
+
+	var/pixel_shift = get_constriction_pixel_x_shift()
+	var/scale_change_mult = get_scale_change_mult()
+	var/final_shift = (pixel_shift * scale_change_mult)
+
+	constricted.pixel_x += final_shift
+	applied_x_shift = final_shift
+
+	return TRUE
+
+/// Unapplies our pixel shift to our constricted. Do not call if we have not applied our pixel shift.
+/obj/structure/serpentine_tail/proc/unapply_pixel_shift()
+	if (!constricted)
+		return FALSE
+
+	if (isnull(applied_x_shift))
+		stack_trace("unapply_pixel_shift called with a null applied_x_shift!")
+		return FALSE
+
+	constricted.pixel_x -= applied_x_shift
+	applied_x_shift = null
+
+	return TRUE
+
+/// Registers signals to constricted.
+/obj/structure/serpentine_tail/proc/register_constricted()
 	RegisterSignal(constricted, COMSIG_MOVABLE_MOVED, PROC_REF(constricted_moved))
 	RegisterSignal(constricted, COMSIG_ATOM_EXAMINE, PROC_REF(constricted_examined))
 	RegisterSignal(constricted, COMSIG_LIVING_TRY_PULL, PROC_REF(constricted_tried_pull))
 	RegisterSignal(constricted, COMSIG_QDELETING, PROC_REF(constricted_qdeleting))
+
+/// Unregisters signals to constricted.
+/obj/structure/serpentine_tail/proc/unregister_constricted()
+	UnregisterSignal(constricted, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_EXAMINE, COMSIG_LIVING_TRY_PULL, COMSIG_QDELETING))
+
+/// Buckles constricted to ourselves, and migrates the current grab constricted may have on them.
+/obj/structure/serpentine_tail/proc/restrain_constricted()
+	if (!constricted)
+		return FALSE
+
+	if (constricted.buckled == src) // already restrained
+		return FALSE
+
 	var/old_grab_state = owner.grab_state
 	constricted.forceMove(get_turf(src))
 	buckle_mob(constricted)
-	constricted.pixel_x += final_shift
-	constricted.apply_status_effect(/datum/status_effect/constricted)
 
 	if (old_grab_state < GRAB_AGGRESSIVE)
-		return
+		return FALSE
 
 	allowing_grab_on_constricted = TRUE
-	owner.grab(constricted)
+	owner.grab(constricted) // can potentially sleep
 	owner.setGrabState(old_grab_state)
 	allowing_grab_on_constricted = FALSE
+
+	return FALSE
 
 /// Toggle proc for crushing. See stop_crushing and start_crushing.
 /obj/structure/serpentine_tail/proc/toggle_crushing()
