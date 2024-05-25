@@ -1,4 +1,4 @@
-/datum/martial_art1
+/datum/martial_art
 	/// Player readable name of the martial art
 	var/name = "Martial Art"
 	/// ID of the martial art
