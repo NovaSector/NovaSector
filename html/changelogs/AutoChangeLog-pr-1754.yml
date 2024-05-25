@@ -1,8 +1,0 @@
-author: "iskawhiskers"
-delete-after: True
-changes:
-  - image: "new horns -- moogle poms (6 variants)"
-  - image: "new body markings -- 3 eyes, 4 eyes"
-  - image: "new snout -- spider mandibles"
-  - image: "separate antennae from insect species head and makes them a body marking instead. INSECT/MOTH PLAYERS, THIS MODIFIES YOUR BASE SPRITE APPEARANCE. PLEASE BE AWARE OF THIS"
-  - image: "ported snout -- greyscale skulldog (from Bubberstation)"
