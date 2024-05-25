@@ -30,7 +30,7 @@
 	return !sprite_datum.is_hidden(human)
 
 
-/obj/item/organ/external/snout/Insert(mob/living/carbon/reciever, special, movement_flags)
+/obj/item/organ/external/snout/Insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_MUZZLED_SPRITE)
 		external_bodyshapes |= BODYSHAPE_SNOUTED
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER)
@@ -124,6 +124,10 @@
 	icon_state = "bug_no_eyes"
 	flags_for_organ = NONE
 	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/snouts/mammal/top/fmandibles
+	name = "Mandibles (Top)"
+	icon_state = "fmandibles1"
 
 /datum/sprite_accessory/snouts/mammal/elephant
 	name = "Elephant"
@@ -374,9 +378,21 @@
 	name = "WahCoon (Top)"
 	icon_state = "fwah"
 
+/datum/sprite_accessory/snouts/mammal/top/fskulldog
+	name = "Skulldog (Top)"
+	icon_state = "fskulldog"
+
+/datum/sprite_accessory/snouts/mammal/top/fskulldog_greyscale
+	name = "Skulldog (Top, Greyscale)"
+	icon_state = "fskulldogalt"
+
 /datum/sprite_accessory/snouts/mammal/skulldog
 	name = "Skulldog"
 	icon_state = "skulldog"
+
+/datum/sprite_accessory/snouts/mammal/skulldog_greyscale
+	name = "Skulldog (Greyscale)"
+	icon_state = "skulldogalt"
 
 /datum/sprite_accessory/snouts/mammal/hanubus
 	name = "Anubus"
