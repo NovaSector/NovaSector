@@ -737,6 +737,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Interdyne Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/interdyne
 
+/datum/loadout_item/suit/donator/replica_parade_jacket
+	name = "Replica Parade Jacket"
+	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
 /datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/glitched
