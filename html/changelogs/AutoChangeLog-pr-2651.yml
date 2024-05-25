@@ -1,0 +1,6 @@
+author: "nikothedude"
+delete-after: True
+changes:
+  - bugfix: "Synth taur legs now have all attributes of a organic taur leg except the fact theyre robotic"
+  - bugfix: "Markings no longer render on taur legs"
+  - code_imp: "Various improvements to taur leg code"
