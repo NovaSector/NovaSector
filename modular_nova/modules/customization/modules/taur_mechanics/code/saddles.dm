@@ -54,7 +54,7 @@
 
 /obj/item/storage/backpack/saddlebags
 	name = "saddlebags"
-	desc = "A collection of small pockets bound together by belt, typically used on caravan animals. This one has been designed for use by the taurs of the galaxy. \n\
+	desc = "A collection of small pockets bound together by belt, typically used on caravan animals due to their superior storage capacity. This one has been designed for use by the taurs of the galaxy. \n\
 	These saddlebags can be accessed by anyone if they <b>alt-click</b> the wearer.\n\
 	Additionally, they have been modified with a hand grip that would allow <b>one free hand</b> during riding."
 	gender = PLURAL
