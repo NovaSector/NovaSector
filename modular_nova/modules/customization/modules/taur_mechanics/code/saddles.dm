@@ -8,6 +8,25 @@
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
+/obj/item/riding_saddle/worn_overlays(mutable_appearance/standing, isinhands, icon_file, mutant_styles)
+	. = ..()
+
+	if (!iscarbon(loc))
+		return
+
+	if (isinhands)
+		return
+
+	var/mob/living/carbon/target_carbon = loc
+	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in target_carbon.organs
+	if (!istype(taur_body))
+		return
+
+	var/offset = taur_body.taur_specific_clothing_y_offset
+	if (!offset)
+		return
+	standing.pixel_y += offset
+
 /obj/item/riding_saddle/Initialize(mapload)
 	. = ..()
 	if(type == /obj/item/riding_saddle) // don't even let these prototypes exist

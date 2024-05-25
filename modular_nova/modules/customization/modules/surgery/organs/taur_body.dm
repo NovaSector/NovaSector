@@ -22,7 +22,7 @@
 
 	/// If true, our sprite accessory will not render.
 	var/hide_self
-  
+
   /// If true, this taur body allows a saddle to be equipped and used.
 	var/can_use_saddle = FALSE
 
@@ -39,6 +39,9 @@
 	/// When being ridden via saddle, how much the rider is offset on the y axis when facing north or south.
 	var/riding_offset_front_y = 5
 
+	/// The Y offset to be applied to taur-specific clothing that isn't specifically made for this sprite.
+	var/taur_specific_clothing_y_offset = 0
+
 	/// When considering how much to offset our rider, we multiply size scaling against this.
 	var/riding_offset_scaling_mult = 0.8
 
@@ -47,6 +50,9 @@
 
 /obj/item/organ/external/taur_body/horselike/synth
 	organ_flags = ORGAN_ROBOTIC
+
+/obj/item/organ/external/taur_body/horselike/deer
+	taur_specific_clothing_y_offset = 3
 
 /obj/item/organ/external/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
@@ -169,9 +175,12 @@
 	var/size_scaling = (owner.dna.features["body_size"] / BODY_SIZE_NORMAL) - 1
 	var/scaling_mult = 1 + (size_scaling * riding_offset_scaling_mult)
 
+	var/adjusted_front_y = riding_offset_front_y + taur_specific_clothing_y_offset
+	var/adjusted_side_y = riding_offset_side_y + taur_specific_clothing_y_offset
+
 	return list(
-		TEXT_NORTH = list(riding_offset_front_x, round(riding_offset_front_y * scaling_mult, 1)),
-		TEXT_SOUTH = list(riding_offset_front_x, round(riding_offset_front_y * scaling_mult, 1)),
-		TEXT_EAST = list(round(-riding_offset_side_x * scaling_mult, 1), round(riding_offset_side_y * scaling_mult, 1)),
-		TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round(riding_offset_side_y * scaling_mult, 1)),
+		TEXT_NORTH = list(riding_offset_front_x, round(adjusted_front_y * scaling_mult, 1)),
+		TEXT_SOUTH = list(riding_offset_front_x, round(adjusted_front_y * scaling_mult, 1)),
+		TEXT_EAST = list(round(-riding_offset_side_x * scaling_mult, 1), round(adjusted_side_y * scaling_mult, 1)),
+		TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round(adjusted_side_y * scaling_mult, 1)),
 	)
