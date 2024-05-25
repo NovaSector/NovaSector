@@ -257,15 +257,14 @@
 	body_parts_covered = CHEST|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	var/sleeveless = 0
+	/// Whether or not this gets the /datum/component/toggle_icon component added (for rolling up sleeves)
+	var/has_sleeves = TRUE
 
 /obj/item/clothing/suit/crop_jacket/Initialize(mapload)
 	. = ..()
 	allowed += STUFF_WINTER_COATS_HOLD
-	if(sleeveless != 1)
+	if(has_sleeves)
 		AddComponent(/datum/component/toggle_icon, "sleeves")
-	else
-		return
 	
 /obj/item/clothing/suit/crop_jacket/sleeveless
 	name = "sleeveless crop-top jacket"
@@ -275,6 +274,6 @@
 	greyscale_config_worn = /datum/greyscale_config/sleeveless_crop_jacket/worn
 	greyscale_colors = "#ebebeb#a52f29"
 	body_parts_covered = CHEST
-	sleeveless = 1
+	has_sleeves = FALSE
 
 #undef STUFF_WINTER_COATS_HOLD
