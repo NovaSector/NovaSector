@@ -1,0 +1,8 @@
+author: "Ketrai"
+delete-after: True
+changes:
+  - qol: "Makes Ouroboros quite a bit more spacious with area overhauls! (Ouroborous changelog start)"
+  - qol: "Size increases to botany, robotics, chem, security meeting room, security hall, bridge, bridge meeting room."
+  - qol: "Increases the kitchen size, moving the kitchen to the same level as the main counter. Also increases bar size."
+  - qol: "Gave the bar their own side entrance. NT rep should now have an actual bedroom."
+  - qol: "Adds a bunch of extra light switches as well. (Ouroborous changelog end)"
