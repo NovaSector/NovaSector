@@ -280,7 +280,7 @@
 		"[SOUTH]" = CONSTRICT_BASE_PIXEL_SHIFT,
 		"[WEST]" = CONSTRICT_BASE_PIXEL_SHIFT,
 		"[NORTH]" = -CONSTRICT_BASE_PIXEL_SHIFT,
-		"[EAST]" = -CONSTRICT_BASE_PIXEL_SHIFT
+		"[EAST]" = -CONSTRICT_BASE_PIXEL_SHIFT,
 	)
 
 	return dirs_to_shift["[owner.dir]"]
@@ -352,7 +352,7 @@
 		CONSUME = BRUTE,
 		MELEE = BRUTE,
 		BULLET = BRUTE,
-		BOMB = BRUTE
+		BOMB = BRUTE,
 	)
 
 	var/damage_type = damage_flags_to_types[damage_flag]
