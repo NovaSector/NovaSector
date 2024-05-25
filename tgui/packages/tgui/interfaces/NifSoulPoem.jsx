@@ -41,7 +41,7 @@ export const NifSoulPoem = (props) => {
               <Divider />
               <Box>{message.message}</Box>
               <br />
-              <BlockQuote>Time Recieved: {message.timestamp}</BlockQuote>
+              <BlockQuote>Time Received: {message.timestamp}</BlockQuote>
             </Flex.Item>
           ))}
         </Section>

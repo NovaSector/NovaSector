@@ -798,3 +798,46 @@
   by INFRARED_BARON:
   - image: 'Changes icons of: Gygax, d-gygax, durand, ripley variants, firefighter
       statue, phazon & odysseus. Adds new icons for polar hide item.'
+2024-05-25:
+  NovaBot13:
+  - bugfix: The destructive analyser once more hungers for multitools
+  - bugfix: You can no longer open the loot panel at range as a blind person and cheese
+      item names
+  - qol: Added a "Remind me later" button for tutorials
+  - bugfix: Airlocks without access requirements no longer create airlock electronics
+      with a broken menu.
+  - code_imp: New signals for atom storage remove and insert
+  - bugfix: Fixed an inconsistency regarding the interactions between the Piercing
+      Hypo Borg upgrade and Hacked Borg Hypos.
+  - spellcheck: When a vendor tells you something dropped onto the floor, the line
+      no longer starts with a broken character in the case of cigarette boxes.
+  - spellcheck: A handful of grammar errors in some department signs has been fixed.
+  - bugfix: Mixing the reagents for moon rocks, bLaSToFF ampoules, or SaturnX globs
+      in amounts less than the minimum for the recipe no longer eats the reagents
+      without doing anything.
+  - spellcheck: Examining a renamed airlock assembly no longer says it has a paper
+      placard that is "labelled with written on it is".
+  - bugfix: Airlock electronics created by deconstructing roundstart airlocks inherit
+      their cycling id properly.
+  - balance: you can now polymorph into raptors
+  - balance: raptors overall have less health and no longer have armor against ranged
+      attacks
+  - image: resprites egg (and more)
+  PapaMichael:
+  - bugfix: Epinephrine will prevent metabolism of all allergic reagents (instead
+      of just one), if taken with multiple chemicals that one is allergic to.
+  avimour:
+  - image: New wings added - Manta Ray
+  iskawhiskers:
+  - image: new horns -- moogle poms (6 variants)
+  - image: new body markings -- 3 eyes, 4 eyes
+  - image: new snout -- spider mandibles
+  - image: separate antennae from insect species head and makes them a body marking
+      instead. INSECT/MOTH PLAYERS, THIS MODIFIES YOUR BASE SPRITE APPEARANCE. PLEASE
+      BE AWARE OF THIS
+  - image: ported snout -- greyscale skulldog (from Bubberstation)
+  nikothedude:
+  - rscadd: LOOC appears in runetext
+  vinylspiders:
+  - image: antennae head marking renamed from 'Colourable Moth Anetennae' to 'Insect
+      Antennae'
