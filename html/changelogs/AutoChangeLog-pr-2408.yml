@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - sound: "Lasers adjust their pitch as they run out of charge, rather than frequency"

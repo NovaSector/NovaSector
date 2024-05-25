@@ -63,6 +63,7 @@
 
 /obj/machinery/smartfridge/wooden/Initialize(mapload)
 	. = ..()
+	welded_down = FALSE
 	if(type == /obj/machinery/smartfridge/wooden) // don't even let these prototypes exist
 		return INITIALIZE_HINT_QDEL
 
@@ -113,7 +114,7 @@
 	base_build_path = /obj/machinery/smartfridge/wooden/seed_shelf
 	base_icon_state = "seed"
 
-/obj/machinery/smartfridge/wooden/seed_shelf/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/seed_shelf/accept_check(obj/item/item_to_check)
 	return istype(item_to_check, /obj/item/seeds)
 
 /obj/machinery/smartfridge/wooden/ration_shelf
@@ -123,7 +124,7 @@
 	base_build_path = /obj/machinery/smartfridge/wooden/ration_shelf
 	base_icon_state = "ration"
 
-/obj/machinery/smartfridge/wooden/ration_shelf/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/ration_shelf/accept_check(obj/item/item_to_check)
 	return (IS_EDIBLE(item_to_check) || (istype(item_to_check,/obj/item/reagent_containers/cup/bowl) && length(item_to_check.reagents?.reagent_list)))
 
 /obj/machinery/smartfridge/wooden/produce_display
