@@ -805,7 +805,7 @@
     ckeywhitelist = list("alvcyktor", "snakebittenn")
 
 /datum/loadout_item/inhand/melonseva
-	name = "Sundownder SEVA"
+	name = "Sundowner SEVA"
 	item_path = /obj/item/clothing/suit/hooded/seva/melon
 	ckeywhitelist = list("deadmonwonderland")
 	restricted_roles = list(JOB_SHAFT_MINER)
