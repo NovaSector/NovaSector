@@ -39,3 +39,49 @@
 	human.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Slugcat", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color, "#4D4D4D"))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)
+
+
+/*
+* LIMBS AS AUGS ZONE
+*/
+/datum/augment_item/limb/head/slugcat
+	name = "slugcat head"
+	path = /obj/item/bodypart/head/mutant/slugcat
+	cost = 0
+	uses_robotic_styles = FALSE
+	uses_greyscale = TRUE
+
+/datum/augment_item/limb/chest/slugcat
+	name = "slugcat chest"
+	path = /obj/item/bodypart/chest/mutant/slugcat
+	cost = 0
+	uses_robotic_styles = FALSE
+	uses_greyscale = TRUE
+
+/datum/augment_item/limb/l_arm/slugcat
+	name = "slugcat left arm"
+	path = /obj/item/bodypart/arm/left/mutant/slugcat
+	cost = 0
+	uses_robotic_styles = FALSE
+	uses_greyscale = TRUE
+
+/datum/augment_item/limb/r_arm/slugcat
+	name = "slugcat right arm"
+	path = /obj/item/bodypart/arm/right/mutant/slugcat
+	cost = 0
+	uses_robotic_styles = FALSE
+	uses_greyscale = TRUE
+
+/datum/augment_item/limb/l_leg/slugcat
+	name = "slugcat left leg"
+	path = /obj/item/bodypart/leg/left/mutant/slugcat
+	cost = 0
+	uses_robotic_styles = FALSE
+	uses_greyscale = TRUE
+
+/datum/augment_item/limb/r_leg/slugcat
+	name = "slugcat right leg"
+	path = /obj/item/bodypart/leg/right/mutant/slugcat
+	cost = 0
+	uses_robotic_styles = FALSE
+	uses_greyscale = TRUE
