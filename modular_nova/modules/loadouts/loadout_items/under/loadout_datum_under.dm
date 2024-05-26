@@ -219,10 +219,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/rank/cargo/qm
 	restricted_roles = list(JOB_QUARTERMASTER)
 
-/datum/loadout_item/under/rank/expeditionary_corps
-	name = "Expeditionary Corps Uniform"
-	item_path = /obj/item/clothing/under/rank/expeditionary_corps
-
 /datum/loadout_item/under/jumpsuit/utility
 	name = "Utility Uniform"
 	item_path = /obj/item/clothing/under/misc/nova/utility
@@ -573,6 +569,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Suspicious Tactical Turtleneck (Grey)"
 	item_path = /obj/item/clothing/under/syndicate/unarmoured
 
+
 /datum/loadout_item/under/miscellaneous/syndicate_unarmoured_skirt
 	name = "Suspicious Tactical Skirtleneck (Grey)"
 	item_path = /obj/item/clothing/under/syndicate/unarmoured/skirt
@@ -592,6 +589,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/syndicate_nova_overalls_unarmoured_skirt
 	name = "Suspicious Utility Overalls Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
+
+/datum/loadout_item/under/miscellaneous/expeditionary_corps
+	name = "Expeditionary Corps Uniform"
+	item_path = /obj/item/clothing/under/rank/expeditionary_corps
 
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"
