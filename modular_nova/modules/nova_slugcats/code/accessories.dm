@@ -1,3 +1,11 @@
+/datum/body_marking/other/lightbelly
+	name = "Simple Light Belly"
+	icon_state = "simple_lightbelly"
+	default_color = DEFAULT_PRIMARY
+	affected_bodyparts = CHEST
+	gendered = TRUE
+	icon = 'modular_nova/modules/nova_slugcats/slugcat_accessories.dmi'
+
 /*
 *	EARS
 */

@@ -218,13 +218,6 @@
 	icon_state = "protogen"
 	affected_bodyparts = CHEST
 
-/datum/body_marking/other/lightbelly
-	name = "Simple Light Belly"
-	icon_state = "simple_lightbelly"
-	default_color = DEFAULT_PRIMARY
-	affected_bodyparts = CHEST
-	gendered = TRUE
-
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
 	default_color = DEFAULT_SECONDARY
