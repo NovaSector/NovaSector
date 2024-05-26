@@ -8003,6 +8003,7 @@
 #include "modular_nova\modules\new_cells\code\power_cell.dm"
 #include "modular_nova\modules\night_vision\night_vision.dm"
 #include "modular_nova\modules\nova_slugcats\code\_slugcat.dm"
+#include "modular_nova\modules\nova_slugcats\code\accessories.dm"
 #include "modular_nova\modules\nova_slugcats\code\language_holder.dm"
 #include "modular_nova\modules\nova_slugcats\code\wawa.dm"
 #include "modular_nova\modules\novaya_ert\code\advanced_choice_beacon.dm"
