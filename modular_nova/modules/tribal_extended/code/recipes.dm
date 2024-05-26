@@ -94,7 +94,7 @@
 	result = /obj/item/storage/bag/quiver
 	reqs = list(
 		/obj/item/stack/sheet/leather = 2,
-		/obj/item/stack/sheet/sinew = 4,
+		/obj/item/weaponcrafting/silkstring = 4,
 	)
 	time = 8 SECONDS
 	category = CAT_WEAPON_AMMO
@@ -108,3 +108,14 @@
 	)
 	time = 20 SECONDS
 	category = CAT_WEAPON_RANGED
+
+
+/datum/crafting_recipe/torch
+	name = "Torch"
+	result = /obj/item/flashlight/flare/torch
+	reqs = list(
+		/obj/item/stack/sheet/mineral/wood = 1,
+		/obj/item/stack/sheet/mineral/coal = 1,
+	)
+	time = 4 SECONDS
+	category = CAT_MISC
