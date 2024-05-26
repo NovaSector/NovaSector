@@ -569,7 +569,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Suspicious Tactical Turtleneck (Grey)"
 	item_path = /obj/item/clothing/under/syndicate/unarmoured
 
-
 /datum/loadout_item/under/miscellaneous/syndicate_unarmoured_skirt
 	name = "Suspicious Tactical Skirtleneck (Grey)"
 	item_path = /obj/item/clothing/under/syndicate/unarmoured/skirt
