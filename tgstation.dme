@@ -7555,7 +7555,6 @@
 #include "modular_nova\modules\loadouts\loadout_ui\loadout_manager.dm"
 #include "modular_nova\modules\loadouts\loadout_ui\loadout_outfit_helpers.dm"
 #include "modular_nova\modules\lore_species\code\ethereal.dm"
-#include "modular_nova\modules\lore_species\code\felinid.dm"
 #include "modular_nova\modules\lore_species\code\human.dm"
 #include "modular_nova\modules\lore_species\code\lizardperson.dm"
 #include "modular_nova\modules\lore_species\code\mothpeople.dm"
