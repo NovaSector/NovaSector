@@ -16,7 +16,9 @@
 		exosuit_packs = list()
 		var/list/possible_exosuit_packs = list(
 			/obj/vehicle/sealed/mecha/gygax/streetsweeper,
-			/obj/vehicle/sealed/mecha/savannah_ivanov/exstasi
+			/obj/vehicle/sealed/mecha/savannah_ivanov/exstasi,
+			/obj/vehicle/sealed/mecha/durand/tortuga,
+			/obj/vehicle/sealed/mecha/marauder/horizon
 		)
 		for(var/obj/vehicle/sealed/mecha/exosuit_pack as anything in possible_exosuit_packs)
 			exosuit_packs[initial(exosuit_pack.name)] = exosuit_pack
@@ -25,10 +27,10 @@
 //special pre equipped exosuits for it to deploy. they get max ammo and better parts.
 /obj/vehicle/sealed/mecha/gygax/streetsweeper
 	name = "\improper Gygax 'Streetsweeper'"
-	desc = "A medium, high mobility exosuit equipped with an LBX-10 Autocannon and PEP-6 anti-structural missiles, intended for breachwork and urban crowd control."
+	desc = "A light weight, high mobility exosuit equipped with an LBX-10 Autocannon and heavy laser, intended for breachwork and urban crowd control."
 	equip_by_category = list(
 		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot,
-		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/breaching,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy,
 		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full),
 		MECHA_POWER = list(),
 		MECHA_ARMOR = list(),)
@@ -48,8 +50,8 @@
 	name = "\improper Savannah Ivanov 'Ecstasy of Saint Teresa'"
 	desc = "A high mobility fire support mech with a lightweight, long range loadout, named for Bernini's masterpiece sculpture of Teresa of Avila."
 	equip_by_category = list(
-		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
-		MECHA_R_ARM = null,
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg/railgun,
 		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full),
 		MECHA_POWER = list(),
 		MECHA_ARMOR = list(),)
@@ -59,6 +61,49 @@
 	max_ammo()
 
 /obj/vehicle/sealed/mecha/savannah_ivanov/exstasi/populate_parts()
+	cell = new /obj/item/stock_parts/cell/hyper(src)
+	scanmod = new /obj/item/stock_parts/scanning_module/adv(src)
+	capacitor = new /obj/item/stock_parts/capacitor/adv(src)
+	servo = new /obj/item/stock_parts/servo/nano(src)
+	update_part_values()
+
+
+/obj/vehicle/sealed/mecha/durand/tortuga
+	name = "\improper Durand 'Tortuga'"
+	desc = "A heavy defensive powerhouse of a mech. Very slow with a energy shield to deflect all damage from the front, comes with a Ultra AC2 and a impact gernade launcher to flush people out of cover"
+	equip_by_category = list(
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/flashbang/stringers,
+		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full),
+		MECHA_POWER = list(),
+		MECHA_ARMOR = list(),)
+
+/obj/vehicle/sealed/mecha/durand/tortuga/Initialize(mapload)
+	. = ..()
+	max_ammo()
+
+/obj/vehicle/sealed/mecha/durand/tortuga/populate_parts()
+	cell = new /obj/item/stock_parts/cell/hyper(src)
+	scanmod = new /obj/item/stock_parts/scanning_module/adv(src)
+	capacitor = new /obj/item/stock_parts/capacitor/adv(src)
+	servo = new /obj/item/stock_parts/servo/nano(src)
+	update_part_values()
+
+/obj/vehicle/sealed/mecha/marauder/horizon
+	name = "\improper Marauder 'Horizon'"
+	desc = "A medium chasis, highly customizable but defualted to long range combat. This one comes with one rapid fire energy weapon to keep enemies off of you and one fast a light beam to deal damage from afar"
+	equip_by_category = list(
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/lasershot,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy,
+		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full),
+		MECHA_POWER = list(),
+		MECHA_ARMOR = list(),)
+
+/obj/vehicle/sealed/mecha/marauder/horizon/Initialize(mapload)
+	. = ..()
+	max_ammo()
+
+/obj/vehicle/sealed/mecha/marauder/horizon/populate_parts()
 	cell = new /obj/item/stock_parts/cell/hyper(src)
 	scanmod = new /obj/item/stock_parts/scanning_module/adv(src)
 	capacitor = new /obj/item/stock_parts/capacitor/adv(src)
