@@ -534,7 +534,7 @@
 		return
 
 	picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
-	balloon_alert(src, "adjusted to [picked_visibility]")
+	balloon_alert(src, "set to [lowertext(picked_visibility)]")
 	update_body()
 
 
@@ -555,7 +555,7 @@
 	if(!genital_list.len) //There is nothing to modify.
 		return
 
-	var/obj/item/organ/external/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to change arousal", "Expose/Hide genitals", genital_list)
+	var/obj/item/organ/external/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to the change arousal of", "Expose/Hide genitals", genital_list)
 
 	if(!picked_organ || !(picked_organ in organs))
 		return
@@ -573,5 +573,5 @@
 
 	picked_organ.aroused = gen_arous_trans[picked_arousal]
 	picked_organ.update_sprite_suffix()
-	balloon_alert(src, "adjusted to [picked_arousal]")
+	balloon_alert(src, "set to [lowertext(picked_arousal)]")
 	update_body()
