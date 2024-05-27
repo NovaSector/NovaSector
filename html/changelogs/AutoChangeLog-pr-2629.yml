@@ -1,0 +1,4 @@
+author: "MajManatee"
+delete-after: True
+changes:
+  - qol: "Chemical press can now dispense 100u bottles and large hypovials"
