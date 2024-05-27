@@ -871,3 +871,25 @@
   - rscadd: Serpentine taurs can now use their tails to constrict things and crush
       them
   - rscadd: Serpentine taurs can no longer wear shoes
+2024-05-27:
+  Melbert:
+  - refactor: Refactored the way high toxins cause you to vomit.
+  Merek2:
+  - rscadd: Add Expedition Uniform to loadout. People can wear what they want on top
+      and try to look cool!
+  Nerev4r:
+  - image: Adds a right-side-up version of the broad elf ears.
+  NovaBot13:
+  - bugfix: Material floor tiles once again have their improved sprite.
+  - rscdel: Removes sentient disease from the game
+  - rscdel: Miasma and gibs no longer generates random diseases
+  TheSS13Melon:
+  - rscadd: Adds a donator SEVA for deadmon
+  by INFRARED_BARON:
+  - image: Changes the sprites of bone and ash drake armor (suit + helmet mob/objs)
+  grungussuss:
+  - qol: tramstation upload now has an extra motion camera
+  - qol: tramstation SM setup now has an emergency cooling setup
+  sergeirocks100, Paxilmaniac:
+  - rscadd: A sleeveless variant of the crop-top jacket has been added to the loadout
+      selection.
