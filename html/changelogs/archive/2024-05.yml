@@ -841,3 +841,55 @@
   vinylspiders:
   - image: antennae head marking renamed from 'Colourable Moth Anetennae' to 'Insect
       Antennae'
+2024-05-26:
+  Ketrai:
+  - qol: Makes Ouroboros quite a bit more spacious with area overhauls! (Ouroborous
+      changelog start)
+  - qol: Size increases to botany, robotics, chem, security meeting room, security
+      hall, bridge, bridge meeting room.
+  - qol: Increases the kitchen size, moving the kitchen to the same level as the main
+      counter. Also increases bar size.
+  - qol: Gave the bar their own side entrance. NT rep should now have an actual bedroom.
+  - qol: Adds a bunch of extra light switches as well. (Ouroborous changelog end)
+  NovaBot13:
+  - bugfix: You can shoot at items on the floor again
+  - bugfix: '[Ice Box Station] Dorm 1''s door no longer shares ID with dorm 2''s door'
+  - bugfix: Ghosts can more reliably become a harvester.
+  - qol: Made borg inventory not shift around depending on equipped items
+  - qol: The "Proto-Nitrate BZ response" atmsopheric reaction now lists it's required
+      temperature.
+  grungussuss:
+  - bugfix: changed layout of Northstar dining hall so customer bots can reach the
+      kitchen counter
+  jwc1015:
+  - rscadd: The Plague Doctor's Hat is now available in the loadout menu.
+  nikothedude:
+  - bugfix: Synth taur legs now have all attributes of a organic taur leg except the
+      fact theyre robotic
+  - bugfix: Markings no longer render on taur legs
+  - code_imp: Various improvements to taur leg code
+  - rscadd: Serpentine taurs can now use their tails to constrict things and crush
+      them
+  - rscadd: Serpentine taurs can no longer wear shoes
+2024-05-27:
+  Melbert:
+  - refactor: Refactored the way high toxins cause you to vomit.
+  Merek2:
+  - rscadd: Add Expedition Uniform to loadout. People can wear what they want on top
+      and try to look cool!
+  Nerev4r:
+  - image: Adds a right-side-up version of the broad elf ears.
+  NovaBot13:
+  - bugfix: Material floor tiles once again have their improved sprite.
+  - rscdel: Removes sentient disease from the game
+  - rscdel: Miasma and gibs no longer generates random diseases
+  TheSS13Melon:
+  - rscadd: Adds a donator SEVA for deadmon
+  by INFRARED_BARON:
+  - image: Changes the sprites of bone and ash drake armor (suit + helmet mob/objs)
+  grungussuss:
+  - qol: tramstation upload now has an extra motion camera
+  - qol: tramstation SM setup now has an emergency cooling setup
+  sergeirocks100, Paxilmaniac:
+  - rscadd: A sleeveless variant of the crop-top jacket has been added to the loadout
+      selection.

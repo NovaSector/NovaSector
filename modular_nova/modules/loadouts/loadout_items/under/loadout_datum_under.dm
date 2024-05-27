@@ -589,6 +589,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Suspicious Utility Overalls Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
 
+/datum/loadout_item/under/miscellaneous/expeditionary_corps
+	name = "Expeditionary Corps Uniform"
+	item_path = /obj/item/clothing/under/rank/expeditionary_corps
+
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"
 	item_path = /obj/item/clothing/under/pants/tactical
