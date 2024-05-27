@@ -26,7 +26,7 @@
 	/// list of products stored in the machine, so we dont have 610 pills on one tile
 	var/list/stored_products = list()
 	// NOVA EDIT ADDITION START
-	/// Increases the standard plumbing machine buffer to account for the increased max volume - NOVA EDIT ADDITION
+	/// Increases the standard plumbing machine buffer to account for the increased max volume
 	buffer = MAX_VOLUME
 	// NOVA EDIT ADDITION END
 
