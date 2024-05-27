@@ -167,8 +167,8 @@
 		liquids.total_reagents += reagent_list[reagent]
 
 	if(liquids.total_reagents)
-		var/recieved_thermal_energy = (liquids.total_reagents - prev_total_reagents) * chem_temp
-		liquids.temp = (recieved_thermal_energy + prev_thermal_energy) / liquids.total_reagents
+		var/received_thermal_energy = (liquids.total_reagents - prev_total_reagents) * chem_temp
+		liquids.temp = (received_thermal_energy + prev_thermal_energy) / liquids.total_reagents
 
 	if(!no_react)
 		//We do react so, make a simulation

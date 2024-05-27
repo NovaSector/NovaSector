@@ -46,6 +46,36 @@
 	idle_power_cost = 0
 	removable = FALSE
 
+// ENTOMBED MOD CLOTHING COMPONENT
+
+/datum/component/entombed_mod_piece
+	// This component handles returning errant MODsuit pieces back to their control module in the event of shenanigans. Entombed pieces should *never* be outside the unit.
+	/// Ref to the source MODsuit we came from.
+	var/datum/weakref/host
+
+/datum/component/entombed_mod_piece/Initialize(host_suit)
+	. = ..()
+	if (!isnull(host_suit))
+		host = WEAKREF(host_suit)
+	else
+		return COMPONENT_INCOMPATIBLE
+
+	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(piece_dropped))
+
+/datum/component/entombed_mod_piece/proc/piece_dropped(datum/source)
+	SIGNAL_HANDLER
+	// The piece of MOD clothing has been dropped, somehow. Find our source suit and send it back, or delete us if the host suit does not exist.
+	var/obj/item/mod/control/host_suit = host.resolve()
+	if (!host_suit)
+		//if we have no host suit, we shouldn't exist, so delete
+		host = null
+		qdel(parent)
+		return
+
+	var/obj/item/clothing/piece = parent
+	if (!isnull(piece))
+		piece.doMove(host_suit)
+
 /obj/item/mod/module/anomaly_locked/antigrav/entombed
 	name = "assistive anti-gravity ambulator"
 	desc = "An obligatory addition from the NanoTrasen science division as part of the Space Disabilities Act, this augmentation allows your suit to project a limited anti-gravity field to aid in your ambulation around the station for both general use and emergencies. It is powered by a tiny sliver of a gravitational anomaly core, inextricably linked to the power systems that keep you alive. Warning: not rated for EMP protection."
@@ -56,9 +86,13 @@
 	prebuilt = TRUE
 	core_removable = FALSE
 
+// MOD CONTROL UNIT
+
 /obj/item/mod/control/pre_equipped/entombed
 	theme = /datum/mod_theme/entombed
 	applied_cell = /obj/item/stock_parts/cell/high
+
+// CUSTOM BEHAVIOR
 
 /obj/item/mod/control/pre_equipped/entombed/canStrip(mob/who)
 	return TRUE //you can always try, and it'll hit doStrip below
@@ -102,4 +136,13 @@
 
 /obj/item/mod/control/pre_equipped/entombed/Initialize(mapload, new_theme, new_skin, new_core)
 	. = ..()
+	// Apply the entombed mod piece component to our applicable clothing pieces, so that they *always* return to the unit or self-delete if they can't.
+	for (var/obj/item/part as anything in mod_parts)
+		part.AddComponent(/datum/component/entombed_mod_piece, host_suit = src)
+
 	ADD_TRAIT(src, TRAIT_NODROP, QUIRK_TRAIT)
+
+/obj/item/mod/control/pre_equipped/entombed/dropped(mob/user)
+	. = ..()
+	// we do this so that in the rare event that someone gets gibbed/destroyed, their suit can be retrieved easily w/o requiring admin intervention
+	REMOVE_TRAIT(src, TRAIT_NODROP, QUIRK_TRAIT)
