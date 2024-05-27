@@ -25,6 +25,8 @@
 	var/packaging_category
 	/// list of products stored in the machine, so we dont have 610 pills on one tile
 	var/list/stored_products = list()
+	/// Increases the standard plumbing machine buffer to account for the increased max volume - NOVA EDIT ADDITION
+	buffer = MAX_VOLUME
 
 /obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
 	. = ..()
