@@ -513,21 +513,30 @@
 	for(var/obj/item/organ/external/genital/genital in organs)
 		if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
 			genital_list += genital
+
 	if(!genital_list.len) //There is nothing to expose
 		return
-	//Full list of exposable genitals created
-	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in organs))
-		var/list/gen_vis_trans = list("Never show" = GENITAL_NEVER_SHOW,
-												"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
-												"Always show" = GENITAL_ALWAYS_SHOW
-												)
-		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in gen_vis_trans
-		if(picked_visibility && picked_organ && (picked_organ in organs))
-			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
-			update_body()
-	return
+
+	var/obj/item/organ/external/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals", genital_list)
+
+	if(!picked_organ || !(picked_organ in organs))
+		return
+
+	var/static/list/gen_vis_trans = list(
+		"Never show" = GENITAL_NEVER_SHOW,
+		"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
+		"Always show" = GENITAL_ALWAYS_SHOW,
+	)
+
+	var/picked_visibility = tgui_input_list(src, "Choose visibility setting", "Expose/Hide genitals", gen_vis_trans)
+
+	if(!picked_visibility || !picked_organ || !(picked_organ in organs))
+		return
+
+	picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
+	balloon_alert(src, "set to [lowertext(picked_visibility)]")
+	update_body()
+
 
 /mob/living/carbon/human/verb/toggle_arousal()
 	set category = "IC"
@@ -542,19 +551,27 @@
 	for(var/obj/item/organ/external/genital/genital in organs)
 		if(!genital.aroused == AROUSAL_CANT)
 			genital_list += genital
-	if(!genital_list.len) //There is nothing to expose
+
+	if(!genital_list.len) //There is nothing to modify.
 		return
-	//Full list of exposable genitals created
-	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to change arousal", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in organs))
-		var/list/gen_arous_trans = list(
-			"Not aroused" = AROUSAL_NONE,
-			"Partly aroused" = AROUSAL_PARTIAL,
-			"Very aroused" = AROUSAL_FULL,
-		)
-		var/picked_arousal = input(src, "Choose arousal", "Toggle Arousal") as null|anything in gen_arous_trans
-		if(picked_arousal && picked_organ && (picked_organ in organs))
-			picked_organ.aroused = gen_arous_trans[picked_arousal]
-			picked_organ.update_sprite_suffix()
-			update_body()
+
+	var/obj/item/organ/external/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to the change arousal of", "Expose/Hide genitals", genital_list)
+
+	if(!picked_organ || !(picked_organ in organs))
+		return
+
+	var/list/gen_arous_trans = list(
+		"Not aroused" = AROUSAL_NONE,
+		"Partly aroused" = AROUSAL_PARTIAL,
+		"Very aroused" = AROUSAL_FULL,
+	)
+
+	var/picked_arousal = tgui_input_list(src, "Choose arousal", "Toggle Arousal", gen_arous_trans)
+
+	if(!picked_arousal || !picked_organ || !(picked_organ in organs))
+		return
+
+	picked_organ.aroused = gen_arous_trans[picked_arousal]
+	picked_organ.update_sprite_suffix()
+	balloon_alert(src, "set to [lowertext(picked_arousal)]")
+	update_body()
