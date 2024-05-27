@@ -1,0 +1,6 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - qol: "Converted three verbs to using TGUI input lists instead of default BYOND input lists."
+  - spellcheck: "Fixed a capitalization issue in one of said verbs' options."
+  - spellcheck: "Fixed a lack of capitalization in certain strings visible when examining people when you have the Empath quirk."
