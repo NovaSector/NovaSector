@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "fixes suit sensors not breaking the right (fun) way when EMP'd"
