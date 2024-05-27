@@ -523,16 +523,20 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "lF" = (
 /obj/structure/table/wood,
-/obj/item/clothing/neck/necklace/translator/hearthkin,
-/obj/structure/wall_torch/spawns_lit/directional/south,
-/obj/item/trash/candle{
-	pixel_y = 17;
-	pixel_x = -7
+/obj/item/clothing/neck/necklace/translator/hearthkin{
+	pixel_y = -1;
+	pixel_x = 2
 	},
-/obj/item/trash/candle{
-	pixel_y = 17;
-	pixel_x = 8
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 15;
+	pixel_x = -10
 	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 15;
+	pixel_x = 11
+	},
+/obj/structure/wall_torch/mount_only/directional/south,
+/obj/effect/turf_decal/siding/wood/end,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "lM" = (
@@ -693,8 +697,17 @@
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oF" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
 /obj/structure/mineral_door/wood/large_gate,
-/turf/open/misc/dirt/icemoon,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oJ" = (
 /turf/open/misc/asteroid/snow/icemoon,
@@ -978,25 +991,15 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "uw" = (
-/obj/structure/rack/wooden,
-/obj/item/knife/hunting{
-	pixel_y = 5
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
 	},
-/obj/item/flashlight/flare/candle{
-	pixel_y = -5;
-	pixel_x = 9
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
 	},
-/obj/item/flashlight/flare/candle{
-	pixel_y = -4;
-	pixel_x = 11
-	},
-/obj/item/flashlight/flare/candle{
-	pixel_y = -4;
-	pixel_x = 7
-	},
-/obj/item/storage/box/matches{
-	pixel_x = -4;
-	pixel_y = -6
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 4
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
@@ -1174,6 +1177,12 @@
 	pixel_y = -4
 	},
 /turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"zd" = (
+/obj/item/clothing/neck/necklace/translator/hearthkin{
+	pixel_y = -1
+	},
+/turf/closed/mineral/snowmountain/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "zh" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -1386,6 +1395,10 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Ge" = (
 /obj/structure/rack/wooden,
+/obj/item/reagent_containers/cup/primitive_centrifuge{
+	pixel_x = -4;
+	pixel_y = 10
+	},
 /obj/item/reagent_containers/cup/mortar{
 	pixel_y = -5;
 	pixel_x = 2
@@ -1394,9 +1407,12 @@
 	pixel_y = -7;
 	pixel_x = -5
 	},
-/obj/item/reagent_containers/cup/primitive_centrifuge{
-	pixel_x = -4;
-	pixel_y = 10
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_y = 12;
+	pixel_x = 11
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
@@ -1534,6 +1550,36 @@
 	pixel_x = -5
 	},
 /turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"Ju" = (
+/obj/structure/rack/wooden,
+/obj/item/storage/box/matches{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/flashlight/flare/candle/pear{
+	pixel_y = -4
+	},
+/obj/item/flashlight/flare/candle/vanilla{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/flashlight/flare/candle{
+	pixel_y = -4;
+	pixel_x = 7
+	},
+/obj/item/flashlight/flare/candle{
+	pixel_y = -4;
+	pixel_x = 11
+	},
+/obj/item/flashlight/flare/candle{
+	pixel_y = -5;
+	pixel_x = 9
+	},
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "JD" = (
 /obj/structure/railing/wooden_fencing{
@@ -3399,8 +3445,8 @@ oJ
 Te
 aA
 yF
-GU
 Ge
+yF
 GN
 yF
 GN
@@ -3441,7 +3487,7 @@ Vb
 no
 ZJ
 oF
-GU
+uw
 lF
 yF
 GN
@@ -3483,9 +3529,9 @@ oJ
 oJ
 Rq
 yF
-GU
-uw
-GN
+Ju
+yF
+zd
 GN
 GN
 GN
