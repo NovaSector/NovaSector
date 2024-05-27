@@ -2,14 +2,13 @@
 	name = "Slugcat Morph" //Called so because the species is so much more universal than just mammals
 	id = SPECIES_SLUGCAT
 	bodypart_overrides = list(
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/slugcat,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/slugcat/eyes,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/slugcat,
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/mutant/slugcat,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/mutant/slugcat,
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/slugcat,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/slugcat,
 	)
-	eyes_icon = 'modular_nova/modules/organs/icons/slugcat_eyes.dmi'
 	species_language_holder = /datum/language_holder/slugcat
 
 /datum/species/mammal/get_default_mutant_bodyparts()
@@ -45,11 +44,15 @@
 * LIMBS AS AUGS ZONE
 */
 /datum/augment_item/limb/head/slugcat
-	name = "slugcat head"
+	name = "small-eyes slugcat head"
 	path = /obj/item/bodypart/head/mutant/slugcat
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
+
+/datum/augment_item/limb/head/slugcat/eyes
+	name = "big-eyes slugcat head"
+	path = /obj/item/bodypart/head/mutant/slugcat/eyes
 
 /datum/augment_item/limb/chest/slugcat
 	name = "slugcat chest"

@@ -2,6 +2,9 @@
 	icon_greyscale = BODYPART_ICON_SLUGCAT
 	limb_id = SPECIES_SLUGCAT
 
+/obj/item/bodypart/head/mutant/slugcat/eyes
+	eyes_icon = 'modular_nova/modules/organs/icons/slugcat_eyes.dmi'
+
 /obj/item/bodypart/chest/mutant/slugcat
 	icon_greyscale = BODYPART_ICON_SLUGCAT
 	limb_id = SPECIES_SLUGCAT
