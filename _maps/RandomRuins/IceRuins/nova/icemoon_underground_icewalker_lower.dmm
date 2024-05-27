@@ -1178,12 +1178,6 @@
 	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"zd" = (
-/obj/item/clothing/neck/necklace/translator/hearthkin{
-	pixel_y = -1
-	},
-/turf/closed/mineral/snowmountain/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "zh" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/food/plumphelmetbiscuit{
@@ -3531,7 +3525,7 @@ Rq
 yF
 Ju
 yF
-zd
+GN
 GN
 GN
 GN
