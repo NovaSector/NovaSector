@@ -6750,6 +6750,7 @@
 #include "modular_nova\modules\aesthetics\device\device.dm"
 #include "modular_nova\modules\aesthetics\directwindow\code\window.dm"
 #include "modular_nova\modules\aesthetics\disposals\code\disposals.dm"
+#include "modular_nova\modules\aesthetics\disposals\code\pipes.dm"
 #include "modular_nova\modules\aesthetics\emitter\code\emitter.dm"
 #include "modular_nova\modules\aesthetics\extinguisher\code\extinguisher.dm"
 #include "modular_nova\modules\aesthetics\firealarm\code\firealarm.dm"
