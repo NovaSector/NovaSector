@@ -12,5 +12,5 @@
 /proc/lowercase_title(input_text)
 	if (!input_text)
 		return input_text
-	var/start = lowertext(input_text[1])
+	var/start = LOWER_TEXT(input_text[1])
 	return splicetext_char(input_text, 1, 2, start)

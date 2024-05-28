@@ -120,6 +120,12 @@
 	icon_state = "ears"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/insect_antennae
+	name = "Insect Antennae"
+	icon_state = "insect_antennae"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
@@ -163,6 +169,20 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/three_eyes
+	name = "Three Eyes"
+	icon_state = "3eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/four_eyes
+	name = "Four Eyes"
+	icon_state = "4eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
 /datum/body_marking/other/bands
 	name = "Color Bands"
 	icon_state = "bands"
@@ -182,6 +202,21 @@
 	name = "Leg Band"
 	icon_state = "legband"
 	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/protogenlegs
+	name = "Protogen Leg - Digitigrade"
+	icon_state = "protogen"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/protogenarms
+	name = "Protogen Arm"
+	icon_state = "protogen"
+	affected_bodyparts = ARM_RIGHT | ARM_LEFT
+
+/datum/body_marking/other/protogenchest
+	name = "Protogen Chest"
+	icon_state = "protogen"
+	affected_bodyparts = CHEST
 
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'

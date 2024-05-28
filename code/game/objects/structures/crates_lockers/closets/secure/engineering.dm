@@ -22,12 +22,13 @@
 	new /obj/item/construction/plumbing/engineering(src) //NOVA EDIT ADDITION
 	new /obj/item/circuitboard/machine/rodstopper(src) //NOVA EDIT ADDITION
 	new /obj/item/card/id/departmental_budget/eng(src) //NOVA EDIT ADDITION
+	new /obj/item/flatpacked_machine(src) //NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/engineering_chief/populate_contents_immediate()
 	. = ..()
 
 	// Traitor steal objective
-	new /obj/item/areaeditor/blueprints(src)
+	new /obj/item/blueprints(src)
 	new /obj/item/pipe_dispenser/bluespace(src) // NOVA EDIT -- BLUESPACE RPD -- ORIGINAL: new /obj/item/pipe_dispenser(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
