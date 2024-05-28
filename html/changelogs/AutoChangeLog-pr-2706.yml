@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - rscdel: "Removed the 'Xeno Egg' bundle from opfor, as xeno-opfors wouldn't be approved"
