@@ -1,4 +1,0 @@
-author: "CliffracerX"
-delete-after: True
-changes:
-  - refactor: "refactored eye sprites to be head-type dependant"
