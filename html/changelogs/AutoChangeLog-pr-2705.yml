@@ -1,0 +1,5 @@
+author: "GoldenAlpharex for the code, Thlumyn for the sprites & mapping"
+delete-after: True
+changes:
+  - rscadd: "Added translator room to the Hearth map."
+  - image: "Added a unique sprite for the Icecat's translator"

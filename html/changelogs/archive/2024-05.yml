@@ -893,3 +893,52 @@
   sergeirocks100, Paxilmaniac:
   - rscadd: A sleeveless variant of the crop-top jacket has been added to the loadout
       selection.
+2024-05-28:
+  CliffracerX:
+  - refactor: refactored eye sprites to be head-type dependant
+  Fluffles:
+  - bugfix: echolocation is less laggy. and works.
+  GoldenAlpharex:
+  - qol: Converted three verbs to using TGUI input lists instead of default BYOND
+      input lists.
+  - spellcheck: Fixed a capitalization issue in one of said verbs' options.
+  - spellcheck: Fixed a lack of capitalization in certain strings visible when examining
+      people when you have the Empath quirk.
+  LemonInTheDark:
+  - refactor: I have reworked how parallax and its animations (space travel) work.
+      Please report any bugs lads!
+  MajManatee:
+  - qol: Chemical press can now dispense 100u bottles and large hypovials
+  NovaBot13:
+  - balance: Viruses now self-heal much more effectively with good mood, sleep, food,
+      and spaceacillin.
+  - balance: Viruses now punish being hungry more. Stay fed!
+  - balance: Spaceacillin now gives 200 ticks of symptom resistance, declining over
+      time, rather than 100.
+  - balance: Viruses now progress slightly slower.
+  - balance: Viruses now only hide if their stealth stat is greater than their total
+      computed severity.
+  - image: makes food hud burger icon have a sharp outline
+  - bugfix: Rust debuffs now gets properly removed if you derust a tile you  are standing
+      on.
+  - bugfix: computers with no lights can now turn on using the on/off signal
+  - bugfix: RGB lights on PDA circuits now use a signal
+  - bugfix: the is_off signal now works on consoles
+  - bugfix: printing text on a console component now uses a signal
+  - refactor: each input signal in console circuits now have their own proc
+  - spellcheck: Fixes labour camp shuttle retrieval message starting with "/p".
+  - balance: Mobs significantly larger than humans, such as Space Dragons and Xenomorph
+      Queens, breakout of being arrested by a mech significantly faster.
+  - bugfix: Venus Man Traps cannot use vines to drag around machines or objects that
+      are bolted, welded, rooted to, or otherwise are part of the ground
+  - bugfix: Standing on a table will not prevent you from being grappled by a Venus
+      Man Trap
+  - refactor: Wendigos abilities have been changed into actions that can be added
+      to any mob.
+  - qol: Traitor-created Infected AIs no longer hear the Malf AI antag sound alert.
+  Thlumyn:
+  - bugfix: manage player ranks & lorecaster stories buttons work again
+  Zergspower:
+  - bugfix: fixes suit sensors not breaking the right (fun) way when EMP'd
+  delingar:
+  - qol: Heretic's Relentless Heartbeat is knowledge-free
