@@ -8092,6 +8092,7 @@
 #include "modular_nova\modules\primitive_catgirls\code\smelling_salts.dm"
 #include "modular_nova\modules\primitive_catgirls\code\spawner.dm"
 #include "modular_nova\modules\primitive_catgirls\code\species.dm"
+#include "modular_nova\modules\primitive_catgirls\code\translator.dm"
 #include "modular_nova\modules\primitive_cooking_additions\code\big_mortar.dm"
 #include "modular_nova\modules\primitive_cooking_additions\code\cauldron.dm"
 #include "modular_nova\modules\primitive_cooking_additions\code\cookware.dm"
