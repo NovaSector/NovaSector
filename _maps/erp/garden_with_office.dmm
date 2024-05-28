@@ -1,0 +1,805 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/space/basic,
+/area/space)
+"c" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/cargo/office)
+"d" = (
+/obj/item/seeds/cannabis,
+/obj/item/seeds/cannabis,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/holofloor/dark,
+/area/station/service/hydroponics/garden)
+"e" = (
+/obj/structure/bed/bdsm_bed,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"f" = (
+/obj/machinery/vending/dorms{
+	onstation = 0;
+	shut_up = 1
+	},
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"g" = (
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"h" = (
+/obj/structure/table/bronze,
+/obj/machinery/camera/directional/east,
+/obj/machinery/computer/security,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"i" = (
+/obj/machinery/door/airlock/hydroponics/glass,
+/obj/effect/mapping_helpers/airlock/access/all,
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/garden)
+"j" = (
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/upper)
+"k" = (
+/obj/machinery/hydroponics/constructable{
+	maxnutri = 2000;
+	nutridrain = 0.1
+	},
+/obj/structure/sign/poster/contraband/andromeda_bitters/directional/east,
+/turf/open/floor/circuit/green,
+/area/station/service/hydroponics/garden)
+"l" = (
+/obj/structure/table/bronze,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"m" = (
+/obj/structure/table/abductor,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/obj/item/reagent_containers/cup/glass/waterbottle/large,
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"n" = (
+/obj/machinery/camera/directional/north,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/upper)
+"o" = (
+/obj/structure/chair/comfy/black,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/obj/structure/sign/poster/contraband/ambrosia_vulgaris/directional/north,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"p" = (
+/obj/structure/closet/crate/hydroponics,
+/turf/open/floor/holofloor/dark,
+/area/station/service/hydroponics/garden)
+"q" = (
+/obj/structure/fake_stairs/directional/west,
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/upper)
+"r" = (
+/obj/structure/table/abductor,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/item/condom_pack,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"s" = (
+/obj/structure/sign/poster/official/no_erp/directional/north,
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"t" = (
+/turf/open/floor/catwalk_floor,
+/area/station/cargo/office)
+"u" = (
+/turf/closed/wall/vault,
+/area/station/service/hydroponics/upper)
+"v" = (
+/turf/closed/wall/vault,
+/area/station/cargo/office)
+"w" = (
+/obj/structure/chair/x_stand,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF";
+	color = "#00FFFF"
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"x" = (
+/obj/machinery/hydroponics/constructable{
+	maxnutri = 2000;
+	nutridrain = 0.1
+	},
+/turf/open/floor/circuit/green,
+/area/station/service/hydroponics/garden)
+"y" = (
+/obj/structure/chair/comfy/teal{
+	dir = 8;
+	pixel_x = 5
+	},
+/obj/machinery/camera/directional/east,
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"z" = (
+/obj/machinery/camera/directional/west,
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/upper)
+"A" = (
+/obj/structure/table/bronze,
+/obj/item/paper_bin/carbon,
+/obj/item/pen/blue,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"B" = (
+/turf/closed/wall/vault,
+/area/station/service/hydroponics/garden)
+"D" = (
+/turf/open/openspace,
+/area/station/cargo/office)
+"E" = (
+/obj/item/reagent_containers/syringe{
+	name = "for a fantasy injecxtions"
+	},
+/turf/open/floor/catwalk_floor,
+/area/station/cargo/office)
+"F" = (
+/obj/structure/chair/comfy/carp{
+	dir = 1
+	},
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"G" = (
+/obj/machinery/plumbing/synthesizer/colony_hydroponics,
+/turf/open/floor/holofloor/dark,
+/area/station/service/hydroponics/garden)
+"H" = (
+/obj/machinery/hydroponics/constructable{
+	maxnutri = 2000;
+	nutridrain = 0.1
+	},
+/obj/machinery/camera/directional/west,
+/turf/open/floor/circuit/green,
+/area/station/service/hydroponics/garden)
+"I" = (
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/upper)
+"J" = (
+/turf/closed/wall/vault,
+/area/station/maintenance/floor2)
+"K" = (
+/obj/machinery/hydroponics/constructable{
+	maxnutri = 2000;
+	nutridrain = 0.1
+	},
+/obj/machinery/camera/directional/east,
+/obj/structure/sign/poster/contraband/andromeda_bitters/directional/east,
+/turf/open/floor/circuit/green,
+/area/station/service/hydroponics/garden)
+"L" = (
+/obj/structure/filingcabinet/medical,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"M" = (
+/obj/structure/table/abductor,
+/obj/item/reagent_containers/syringe{
+	name = "for a fantasy injecxtions"
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"N" = (
+/obj/structure/table/abductor,
+/obj/item/food/chips,
+/obj/item/food/chips,
+/obj/item/food/chips,
+/obj/item/food/chips,
+/obj/item/food/chips,
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/station/maintenance/floor2)
+"O" = (
+/obj/structure/sign/departments/botany,
+/turf/closed/wall/vault,
+/area/station/service/hydroponics/garden)
+"P" = (
+/turf/closed/indestructible/fakedoor,
+/area/station/service/hydroponics/upper)
+"Q" = (
+/obj/item/seeds/cannabis,
+/obj/item/seeds/cannabis,
+/turf/open/floor/holofloor/dark,
+/area/station/service/hydroponics/garden)
+"R" = (
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"S" = (
+/turf/open/floor/holofloor/dark,
+/area/station/service/hydroponics/garden)
+"T" = (
+/obj/machinery/photocopier,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"U" = (
+/obj/structure/table/bronze,
+/obj/machinery/fax,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"V" = (
+/obj/item/seeds/cannabis,
+/obj/item/seeds/cannabis,
+/obj/item/seeds/cannabis,
+/obj/machinery/light/floor{
+	light_color = "#00FFFF"
+	},
+/turf/open/floor/holofloor/dark,
+/area/station/service/hydroponics/garden)
+"W" = (
+/obj/structure/closet/secure_closet/hydroponics,
+/turf/open/floor/iron/herringbone,
+/area/station/service/hydroponics/upper)
+"X" = (
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/cargo/office)
+"Y" = (
+/obj/structure/falsewall/iron,
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+"Z" = (
+/turf/open/floor/iron/herringbone,
+/area/station/cargo/office)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+u
+u
+u
+u
+u
+u
+u
+u
+u
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+u
+u
+n
+I
+I
+I
+z
+j
+P
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+u
+q
+I
+W
+W
+W
+I
+j
+u
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+B
+B
+i
+O
+B
+O
+i
+B
+B
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+B
+x
+d
+H
+B
+x
+d
+H
+B
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+B
+G
+S
+S
+B
+S
+S
+S
+B
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+B
+x
+Q
+x
+B
+x
+Q
+x
+B
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+B
+p
+S
+S
+B
+S
+S
+S
+B
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+B
+x
+V
+x
+B
+x
+d
+x
+B
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+B
+S
+S
+S
+B
+S
+S
+S
+B
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+B
+k
+d
+K
+B
+k
+d
+K
+B
+a
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+B
+B
+B
+B
+B
+B
+B
+B
+B
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+
+(1,1,2) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,2) = {"
+a
+a
+v
+v
+v
+v
+v
+v
+J
+J
+J
+J
+J
+a
+a
+"}
+(3,1,2) = {"
+a
+a
+v
+U
+R
+L
+T
+v
+f
+g
+r
+m
+J
+a
+a
+"}
+(4,1,2) = {"
+a
+a
+v
+Z
+Z
+Z
+Z
+Y
+g
+g
+g
+N
+J
+a
+a
+"}
+(5,1,2) = {"
+a
+a
+v
+D
+Z
+A
+Z
+v
+s
+g
+g
+g
+J
+a
+a
+"}
+(6,1,2) = {"
+a
+a
+v
+v
+o
+h
+F
+v
+w
+y
+e
+M
+J
+a
+a
+"}
+(7,1,2) = {"
+a
+a
+v
+Z
+Z
+l
+Z
+v
+J
+J
+J
+J
+J
+a
+a
+"}
+(8,1,2) = {"
+a
+a
+v
+c
+c
+c
+c
+c
+X
+D
+v
+a
+a
+a
+a
+"}
+(9,1,2) = {"
+a
+a
+v
+D
+D
+D
+t
+D
+D
+D
+v
+a
+a
+a
+a
+"}
+(10,1,2) = {"
+a
+a
+v
+D
+D
+D
+t
+D
+D
+D
+v
+a
+a
+a
+a
+"}
+(11,1,2) = {"
+a
+a
+v
+t
+t
+t
+t
+t
+t
+t
+v
+a
+a
+a
+a
+"}
+(12,1,2) = {"
+a
+a
+v
+D
+t
+D
+t
+D
+E
+D
+v
+a
+a
+a
+a
+"}
+(13,1,2) = {"
+a
+a
+v
+D
+t
+D
+t
+D
+t
+D
+v
+a
+a
+a
+a
+"}
+(14,1,2) = {"
+a
+a
+v
+v
+v
+v
+v
+v
+v
+v
+v
+a
+a
+a
+a
+"}
+(15,1,2) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

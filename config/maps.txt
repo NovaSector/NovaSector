@@ -58,7 +58,7 @@ endmap
 map runtimestation
 endmap
 
-##NOVA SECTOR MAPS##
+##SKYRAT MAPS##
 
 map voidraptor
 	maxplayers 100
@@ -70,7 +70,7 @@ map blueshift
 	votable
 endmap
 
-map ouroboros
-	maxplayers 80
+map kilostation
+	maxplayers 75
 	votable
 endmap
