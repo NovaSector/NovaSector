@@ -942,3 +942,12 @@
   - bugfix: fixes suit sensors not breaking the right (fun) way when EMP'd
   delingar:
   - qol: Heretic's Relentless Heartbeat is knowledge-free
+2024-05-29:
+  GoldenAlpharex for the code, Thlumyn for the sprites & mapping:
+  - rscadd: Added translator room to the Hearth map.
+  - image: Added a unique sprite for the Icecat's translator
+  NovaBot13:
+  - bugfix: Fixed a typo preventing creation of paystands using an ID.
+  - rscdel: Wipes the last echo of sentient disease from existence
+  RatFromTheJungle:
+  - rscdel: Removed the 'Xeno Egg' bundle from opfor, as xeno-opfors wouldn't be approved
