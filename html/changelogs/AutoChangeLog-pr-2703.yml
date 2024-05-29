@@ -1,0 +1,6 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - image: "Disposal bins now use the proper sprites when disconnected from the floor."
+  - image: "Junction pipes have received a very minor resprite, making their arrows gray instead of blue."
+  - bugfix: "The RPD will now display the correct sprites when displaying the disposals options."
