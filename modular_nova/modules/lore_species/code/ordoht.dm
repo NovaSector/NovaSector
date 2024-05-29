@@ -7,7 +7,7 @@
 
 /datum/species/skrell/get_species_lore()
 	return list(
-		"Historically a civilization of vast intellect and power, the modern Ordoht are little but a shadow of what they once were. A victim of their own technological prowess, the Ordoht fell prey to a self-replicating terraforming technology they themselves developed, turing their homeworld Ordo (and everything) into something entirely and horrifyingly new.",
+		"Historically a civilization of vast intellect and power, the modern Ordoht are little but a shadow of what they once were. A victim of their own technological prowess, the Ordoht fell prey to a self-replicating terraforming technology they themselves developed, turning their homeworld Ordo (and everything) into something entirely and horrifyingly new.",
 
 		"A small selection of Ordoht alive at the time of this initial exodus managed to escape and pool their scientific expertise together, ultimately venturing into a space beyond reality via some of the earliest application of bluespace technology known to all the races. This legendary blind jaunt did not just teleport them elsewhere - it severed them from the concept of location altogether. Postulations by remaining Ordoht scientists suggest these individuals (known as the Somnolant) exist as a 'metaphysical liquid' without form, though still alive. As such, the Ordoht are swift to blame many local phenomena across a wide variety of circumstances on the Somnolant, and some dedicate their lives to researching the topic.",
 
