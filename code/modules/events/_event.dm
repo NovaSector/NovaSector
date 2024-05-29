@@ -109,7 +109,7 @@
 			message_admins("Second pre-condition check for [name] failed, rerolling...")
 			SSevents.spawnEvent(excluded_event = src)
 			return EVENT_INTERRUPTED
-		// NOVA EDIT ADDITION BEGIN - Event notification
+		// NOVA EDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
 		message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
 			<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
 			<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
