@@ -105,7 +105,7 @@
 			balloon_alert(mod.wearer, "not active!")
 		return
 	// NOVA EDIT START - DEPLOYABLE EVERYTHING OVER EVERYTHING
-	if((mod.wearer.wear_suit != mod.chestplate) && !(allow_flags & MODULE_ALLOW_INACTIVE))
+	if(mod.get_part_from_slot(ITEM_SLOT_OCLOTHING)?.loc == mod && !(allow_flags & MODULE_ALLOW_INACTIVE))
 		balloon_alert(mod.wearer, "chestplate retracted!")
 		return
 	// NOVA EDIT END
@@ -136,7 +136,7 @@
 
 	// NOVA EDIT START - No using modules when not all parts are deployed.
 	if(!(allow_flags & MODULE_ALLOW_INACTIVE))
-		for(var/obj/item/part as anything in mod.mod_parts)
+		for(var/obj/item/part as anything in mod.get_parts())
 			if(part.loc == mod)
 				balloon_alert(mod.wearer, "deploy all parts first!")
 				return FALSE
