@@ -148,3 +148,23 @@ GLOBAL_LIST_INIT(prisoner_crimes, init_prisoner_crimes())
 	name = "Worship of Blacklisted Deities"
 	desc = "Practiced worship of blacklisted deities."
 	tattoos = 1
+
+/datum/prisoner_crime/grand_tresspass
+	name = "Grand Tresspass"
+	desc = "Entering highly restricted areas."
+	tattoos = 0
+
+/datum/prisoner_crime/cannibal
+	name = "Sapient Consumption"
+	desc = "To consume, prepare or possess the prepared meat of a sapient species." //-15 mood for non cannibals
+	tattoos = 2
+
+/datum/prisoner_crime/boom_man
+	name = "Possession of unauthorised explosives."
+	desc = "Being in possession of restricted explosives."
+	tattoos = 2
+
+/datum/prisoner_crime/self_destructive
+	name = "Self-Destructive Tendencies"
+	desc = "The complete disregard for personnal safety shown by repeatedly putting oneself in death or near death situations." //this is mainly for protective custody prisoners
+	tattoos = 0
