@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "You can no longer change your ready state in the middle of the match starting. Thanks, Eddie."
