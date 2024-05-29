@@ -1,0 +1,4 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - balance: "The Freerunning quirk is no longer required to *flip."
