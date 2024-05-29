@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(events)
  * Arguments:
  * * excluded_event - The event path we will be foregoing, if present.
  */
-/datum/controller/subsystem/events/proc/spawnEvent(datum/round_event_control/excluded_event, threat_override = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/controller/subsystem/events/proc/spawnEvent(datum/round_event_control/excluded_event)
+/datum/controller/subsystem/events/proc/spawnEvent(datum/round_event_control/excluded_event)
 	set waitfor = FALSE //for the admin prompt
 	if(!CONFIG_GET(flag/allow_random_events))
 		return
@@ -88,10 +88,6 @@ SUBSYSTEM_DEF(events)
 			continue
 		if(!event_to_check.can_spawn_event(players_amt))
 			continue
-		//NOVA EDIT ADDITION
-		if(threat_override && !event_to_check.alert_observers)
-			continue
-		//NOVA EDIT END
 		if(event_to_check.weight < 0) //for round-start events etc.
 			var/res = TriggerEvent(event_to_check)
 			if(res == EVENT_INTERRUPTED)
