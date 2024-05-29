@@ -8423,4 +8423,17 @@
 #include "modular_np_lethal\magic_quirk\code\spells\lesser_shift.dm"
 #include "modular_np_lethal\medical_stuff\code\injector_buff.dm"
 #include "modular_np_lethal\medical_stuff\code\storage.dm"
+#include "modular_np_lethal\mechs_buffs\code\equipment\gravcata.dm"
+#include "modular_np_lethal\mechs_buffs\code\equipment\mecha_ammo.dm"
+#include "modular_np_lethal\mechs_buffs\code\equipment\module.dm"
+#include "modular_np_lethal\mechs_buffs\code\mechs\SI.dm"
+#include "modular_np_lethal\mechs_buffs\code\mechs\durand.dm"
+#include "modular_np_lethal\mechs_buffs\code\mechs\gygax.dm"
+#include "modular_np_lethal\mechs_buffs\code\mechs\marauder.dm"
+#include "modular_np_lethal\mechs_buffs\code\weapons\ballistic_guns.dm"
+#include "modular_np_lethal\mechs_buffs\code\weapons\energy_guns.dm"
+#include "modular_np_lethal\mechs_buffs\code\weapons\launchers.dm"
+#include "modular_np_lethal\mechs_buffs\code\weapons\melee.dm"
+#include "modular_np_lethal\mechs_buffs\code\weapons\projectiles.dm"
+
 // END_INCLUDE
