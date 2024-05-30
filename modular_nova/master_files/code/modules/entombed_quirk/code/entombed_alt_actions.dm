@@ -21,7 +21,7 @@
 				user.visible_message(span_info("[user] begins initiating emergency reactivation procedures on [entombed_suit]..."))
 				if (do_after(user, 3 SECONDS, entombed_suit.wearer))
 					// deploy all our parts so activation actually works
-					for (var/obj/item/part as anything in entombed_suit.mod_parts)
+					for (var/obj/item/part as anything in entombed_suit.get_parts())
 						entombed_suit.deploy(user, part)
 					entombed_suit.toggle_activate(user, TRUE)
 			else
