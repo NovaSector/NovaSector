@@ -134,19 +134,22 @@
 
 /obj/item/clothing/under/emp_act(severity)
 	. = ..()
+
 	if(. & EMP_PROTECT_SELF)
 		return
+
 	if(has_sensor == NO_SENSORS || has_sensor == BROKEN_SENSORS)
 		return
 
 	if(severity <= EMP_HEAVY)
 		has_sensor = BROKEN_SENSORS
+		sensor_mode = SENSOR_LIVING // NOVA EDIT ADDITION
 		if(ismob(loc))
 			var/mob/M = loc
 			to_chat(M,span_warning("[src]'s sensors short out!"))
 
 	else
-		sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
+		sensor_mode = clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS) // NOVA EDIT CHANGE - ORIGINAL: sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
 		if(ismob(loc))
 			var/mob/M = loc
 			to_chat(M,span_warning("The sensors on the [src] change rapidly!"))
@@ -181,7 +184,7 @@
 
 /mob/living/carbon/human/proc/update_sensor_list()
 	var/obj/item/clothing/under/U = w_uniform
-	if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
+	if(istype(U) && U.has_sensor != NO_SENSORS && U.sensor_mode) // NOVA EDIT CHANGE - ORIGINAL: if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
 		GLOB.suit_sensors_list |= src
 	else
 		GLOB.suit_sensors_list -= src
@@ -342,7 +345,7 @@
 
 /obj/item/clothing/under/CtrlClick(mob/user)
 	. = ..()
-	if(!.)
+	if(.)
 		return
 	if(!can_toggle_sensors(user))
 		return

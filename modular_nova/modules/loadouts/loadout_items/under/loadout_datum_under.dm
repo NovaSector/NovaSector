@@ -161,7 +161,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/imperial_police_uniform
 	name = "Imperial Police Uniform"
 	item_path = /obj/item/clothing/under/colonial/nri_police
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE)
+
+/datum/loadout_item/under/jumpsuit/cin_surplus_uniform
+	name = "CIN Combat Uniform"
+	item_path = /obj/item/clothing/under/syndicate/rus_army/cin_surplus
 
 /datum/loadout_item/under/jumpsuit/disco
 	name = "Superstar Cop Uniform"
@@ -586,6 +589,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Suspicious Utility Overalls Skirtleneck"
 	item_path = /obj/item/clothing/under/syndicate/nova/overalls/unarmoured/skirt
 
+/datum/loadout_item/under/miscellaneous/expeditionary_corps
+	name = "Expeditionary Corps Uniform"
+	item_path = /obj/item/clothing/under/rank/expeditionary_corps
+
 /datum/loadout_item/under/miscellaneous/tactical_pants
 	name = "Tactical Pants"
 	item_path = /obj/item/clothing/under/pants/tactical
@@ -593,6 +600,26 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/blastwave_uniform
 	name = "Blastwave Uniform"
 	item_path = /obj/item/clothing/under/blastwave
+
+/datum/loadout_item/under/miscellaneous/black_bunnysuit
+	name = "Black Bunny Suit"
+	item_path = /obj/item/clothing/under/costume/bunnylewd //contrary to the path, it's actually tame
+
+/datum/loadout_item/under/miscellaneous/white_bunnysuit
+	name = "White Bunny Suit"
+	item_path = /obj/item/clothing/under/costume/bunnylewd/white //also tame
+
+/datum/loadout_item/under/miscellaneous/latex_catsuit
+	name = "Latex Catsuit"
+	item_path = /obj/item/clothing/under/misc/latex_catsuit
+
+/datum/loadout_item/under/miscellaneous/geisha_suit
+	name = "Geisha Suit"
+	item_path = /obj/item/clothing/under/costume/geisha
+
+/datum/loadout_item/under/miscellaneous/jabroni
+	name = "Jabroni Outfit"
+	item_path = /obj/item/clothing/under/costume/jabroni
 
 //HALLOWEEN
 /datum/loadout_item/under/miscellaneous/pj_blood
