@@ -6,6 +6,8 @@
 		Prices are known to fluctuate quite often, sometimes even within the same minute. All transactions are final."
 
 /obj/machinery/materials_market/attackby(obj/item/O, mob/user, params)
-	say("Selling materials to the GMM is no longer available due to volatile logistics conditions in frontier space. Please export your materials via standard Union-NT cargo arrangements.")
-	playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE)
-	return TRUE
+	if(is_type_in_list(O, exportable_material_items))
+		say("Selling materials to the GMM is no longer available due to volatile logistics conditions in frontier space. Please export your materials via standard Union-NT cargo arrangements.")
+		playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE)
+		return TRUE
+	return ..()
