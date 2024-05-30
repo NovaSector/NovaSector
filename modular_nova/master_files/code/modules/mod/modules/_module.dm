@@ -31,6 +31,9 @@
 	. = ..()
 	retracts_into = WEAKREF(mod.get_part_from_slot(ITEM_SLOT_HEAD) || mod.get_part_from_slot(ITEM_SLOT_MASK) || mod.get_part_from_slot(ITEM_SLOT_EYES)) // hide visor module when the helmet is retracted
 
+/obj/item/mod/module/flashlight/on_install()
+	. = ..()
+	retracts_into = WEAKREF(mod.get_part_from_slot(ITEM_SLOT_HEAD) || mod.get_part_from_slot(ITEM_SLOT_MASK)) // hide visor module when the helmet is retracted
 
 /**
  * Proc that handles the mutable_appearances of the module on the MODsuits
