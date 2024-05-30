@@ -9,6 +9,10 @@
 	return GLOB.always_state
 
 
+/datum/examine_panel/ui_status(mob/user, datum/ui_state/state)
+	return QDELETED(holder) ? UI_CLOSE : ..()
+
+
 /datum/examine_panel/ui_close(mob/user)
 	user.client.clear_map(examine_panel_screen.assigned_map)
 
@@ -46,6 +50,9 @@
 
 /datum/examine_panel/ui_data(mob/user)
 	var/list/data = list()
+
+	if(QDELETED(holder))
+		return data
 
 	var/datum/preferences/preferences = holder.client?.prefs
 
