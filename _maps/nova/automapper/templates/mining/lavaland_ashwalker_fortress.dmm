@@ -2742,6 +2742,19 @@
 	amount = 20
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/stack/sheet/brussite{
+	amount = 20
+	},
+/obj/item/stack/sheet/cobolterium{
+	amount = 32;
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/stack/sheet/copporcitite{
+	amount = 37;
+	pixel_x = -4;
+	pixel_y = 10
+	},
 /turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "MZ" = (

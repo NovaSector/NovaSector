@@ -762,6 +762,19 @@
 /obj/item/stack/sheet/glass{
 	pixel_y = 4
 	},
+/obj/item/stack/sheet/copporcitite{
+	amount = 37;
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/obj/item/stack/sheet/cobolterium{
+	amount = 32;
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/stack/sheet/brussite{
+	amount = 20
+	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qg" = (
@@ -785,10 +798,6 @@
 "qk" = (
 /obj/structure/table/wood,
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/item/cutting_board,
-/obj/item/knife/hunting{
-	pixel_y = 5
-	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qq" = (
@@ -1580,10 +1589,11 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "JK" = (
 /obj/structure/rack/wooden,
-/obj/item/pickaxe/mini{
+/obj/item/pickaxe{
 	pixel_x = -5
 	},
-/obj/item/pickaxe/mini{
+/obj/item/pickaxe,
+/obj/item/pickaxe{
 	pixel_x = 5
 	},
 /turf/open/misc/asteroid/snow/icemoon,
