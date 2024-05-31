@@ -773,7 +773,6 @@
 		/obj/item/keycard/epic_loot/red = 2,
 		/obj/item/keycard/epic_loot/orange = 2,
 		/obj/item/keycard/epic_loot/yellow = 2,
-		/obj/item/keycard/epic_loot/black = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_maint_loot_structure
