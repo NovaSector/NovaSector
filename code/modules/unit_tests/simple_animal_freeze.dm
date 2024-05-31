@@ -125,7 +125,6 @@
 		/mob/living/simple_animal/hostile/vox/ranged/space/laser,
 		/mob/living/simple_animal/hostile/zombie/cheesezombie,
 		/mob/living/simple_animal/hostile/zombie/nocorpse,
-		/mob/living/simple_animal/pet/gondola/funky,
 		/mob/living/simple_animal/pet/poppy,
 
 		// DO NOT ADD NEW ENTRIES TO THIS LIST
