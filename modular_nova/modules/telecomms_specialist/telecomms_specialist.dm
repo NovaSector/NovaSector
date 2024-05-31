@@ -1,6 +1,6 @@
 /datum/job/telecomms_specialist
 	title = JOB_TELECOMMS_SPECIALIST
-	description = "Monitor and maintain all station communications \
+	description = "Monitor, configure, and maintain all station communications \
 		and assist with light engineering work."
 	department_head = list(JOB_CHIEF_ENGINEER)
 	faction = FACTION_STATION
@@ -47,13 +47,13 @@
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	neck = /obj/item/clothing/neck/link_scryer
 	belt = /obj/item/screwdriver
-	ears = /obj/item/radio/headset/headset_infosec
+	ears = /obj/item/radio/headset/headset_eng
 	head = /obj/item/clothing/head/utility/hardhat/dblue
 	shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/modular_computer/pda/telecomms
 	r_pocket = /obj/item/multitool
 
-	backpack = /obj/item/storage/backpack/
+	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	messenger = /obj/item/storage/backpack/messenger/eng
@@ -102,17 +102,3 @@
 		ACCESS_CE,
 		)
 	job = /datum/job/telecomms_specialist
-
-/obj/item/encryptionkey/headset_infosec
-	name = "infosec radio encryption key"
-	icon_state = "cypherkey_engineering"
-	channels = list(RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_SECURITY = 1)
-	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
-	greyscale_colors = "#f8d860#dca01b"
-
-/obj/item/radio/headset/headset_infosec
-	name = "infosec radio headset"
-	desc = "Designed to be perfect for snitching. Stitches not included."
-	icon_state = "eng_headset"
-	worn_icon_state = "eng_headset"
-	keyslot = /obj/item/encryptionkey/headset_infosec

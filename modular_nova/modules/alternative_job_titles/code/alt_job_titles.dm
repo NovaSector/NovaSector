@@ -412,8 +412,8 @@
 /datum/job/telecomms_specialist
 	alt_titles = list(
 		"SysAdmin",
-		"Communications Officer",
 		"Network Engineer",
+		"IT Technician",
 	)
 
 /datum/job/virologist
