@@ -35,8 +35,8 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist/Initialize(mapload)
- 	. = ..()
-    allowed += /obj/item/storage/bag/chemistry
+	. = ..()
+	allowed += /obj/item/storage/bag/chemistry
 
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
