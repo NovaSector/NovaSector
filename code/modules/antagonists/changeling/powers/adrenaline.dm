@@ -11,12 +11,6 @@
 //Recover from stuns.
 /datum/action/changeling/adrenaline/sting_action(mob/living/carbon/user)
 	..()
-<<<<<<< HEAD
-	to_chat(user, span_notice("Energy rushes through us."))
-	user.SetKnockdown(0)
-	user.setStaminaLoss(0) //NOVA EDIT ADDITION
-	user.set_resting(FALSE)
-=======
 	to_chat(user, span_changeling("Our arms feel weak, but our legs become unstoppable!"))
 
 	for(var/datum/action/changeling/weapon/weapon_ability in user.actions)
@@ -46,7 +40,6 @@
 	user.set_resting(FALSE, instant = TRUE)
 
 	// Add fast reagents to go fast.
->>>>>>> fc4c61441b8 (Reworks Adrenaline Glands into Repurposed Glands (Realingment) (#83474))
 	user.reagents.add_reagent(/datum/reagent/medicine/changelingadrenaline, 4) //20 seconds
 
 	return TRUE
