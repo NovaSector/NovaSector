@@ -290,12 +290,6 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "ml" = (
 /obj/structure/rack/wooden,
-/obj/item/shield/goliath{
-	pixel_x = 8
-	},
-/obj/item/shield/goliath{
-	pixel_x = -6
-	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "mm" = (
