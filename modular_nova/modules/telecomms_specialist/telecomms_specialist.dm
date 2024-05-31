@@ -62,6 +62,10 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 	skillchips = list(/obj/item/skillchip/job/engineer)
 
+	backpack_contents = list(
+		/obj/item/paper/monitorkey,
+	)
+
 /obj/item/modular_computer/pda/telecomms
 	name = "telecomms PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_split
