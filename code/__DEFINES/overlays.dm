@@ -9,10 +9,11 @@
 		var/text_lays = overlays2text(changed_on.overlays); \
 		stack_trace("Too many overlays on [changed_on.type] - [length(changed_on.overlays)], please investigate why this might be happening!\
 			\n What follows is a printout of all existing overlays at the time of the overflow \n[text_lays]"); \
-		if(length(changed_on.overlays) >= MAX_ATOM_OVERLAYS)
-			stack_trace("Hard overlay limit reached on [changed_on.type], refusing to update and cutting.")
+		if(length(changed_on.overlays) >= MAX_ATOM_OVERLAYS) { \
+			stack_trace("Hard overlay limit reached on [changed_on.type], refusing to update and cutting."); \
 			changed_on.overlays.Cut(); \
 			changed_on.add_overlay(mutable_appearance('icons/testing/greyscale_error.dmi')); \
+		} \
 	} \
 
 
