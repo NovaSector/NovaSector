@@ -25,9 +25,10 @@
 /datum/quirk/equipping/entombed/process(seconds_per_tick)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if (!modsuit || life_support_failed)
-		// we've got no modsuit or life support. take damage ow
-		human_holder.adjustToxLoss(ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE, forced = TRUE)
-		human_holder.set_jitter_if_lower(10 SECONDS)
+		if (!HAS_TRAIT(human_holder, TRAIT_STASIS))
+			// we've got no modsuit or life support and we're not on stasis. take damage ow
+			human_holder.adjustToxLoss(ENTOMBED_TICK_DAMAGE * seconds_per_tick, updating_health = TRUE, forced = TRUE)
+			human_holder.set_jitter_if_lower(10 SECONDS)
 
 	if (!modsuit.active)
 		if (!life_support_timer)
