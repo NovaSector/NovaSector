@@ -149,6 +149,11 @@
 	armor_type = /datum/armor/armor_lethal_filtre_light
 	flags_inv = HIDEEARS|HIDEEYES
 	flags_cover = HEADCOVERSEYES|PEPPERPROOF
+	clothing_traits = list(
+		TRAIT_DIAGNOSTIC_HUD,
+		TRAIT_REAGENT_SCANNER,
+		TRAIT_MEDICAL_HUD,
+	)
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet/light/examine_more(mob/user)
 	. = ..()
