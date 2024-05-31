@@ -5,7 +5,7 @@
 	icon_state = "durand"
 	base_icon_state = "durand"
 	movedelay = 5
-	internal_damage_threshold = 35
+	internal_damage_threshold = 25
 	internal_damage_probability = 15
 	max_integrity = 1000
 	accesses = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_SECURITY)
@@ -27,13 +27,15 @@
 
 
 /datum/armor/mecha_durand
-	melee = 40
-	bullet = 45
-	laser = 45
+	melee = 30
+	bullet = 40
+	laser = 35
 	energy = 10
 	bomb = 20
 	fire = 100
 	acid = 100
+
+
 
 
 //evil durand. This ones funny, it's probably the tankiest thing in the game, it's slow, slower then the durand but over twice as durable
@@ -67,6 +69,24 @@
 		MECHA_ARMOR = list(),
 	)
 	destruction_sleep_duration = 20
+
+
+/obj/durand_shield/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
+	if(!chassis)
+		qdel(src)
+		return
+	if(!chassis.defense_mode) //if defense mode is disabled, we're taking damage that we shouldn't be taking
+		return
+	. = ..()
+	flick("shield_impact", src)
+	if(!chassis.use_energy((max_integrity - atom_integrity) * 0.000000000000000000000000000000000000000000000000001 * STANDARD_CELL_CHARGE))
+		for(var/O in chassis.occupants)
+			var/mob/living/occupant = O
+			var/datum/action/action = LAZYACCESSASSOC(chassis.occupant_actions, occupant, /datum/action/vehicle/sealed/mecha/mech_defense_mode)
+			action.Trigger()
+	atom_integrity = 10000
+
+
 
 /datum/armor/mecha_mauler
 	melee = 45

@@ -6,10 +6,10 @@
 	desc = "Jagged rusty chainsaw sized for exosuits, you get the idea you know what this is for."
 	icon_state = "chainsaw_off"
 	icon = 'icons/obj/weapons/chainsaw.dmi'
-	equip_cooldown = 1
-	drill_delay = 1.5
+	equip_cooldown = 1.5
+	drill_delay = 1.7
 	force = 7
-	toolspeed = 10
+	toolspeed = 12
 
 
 /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill/mechsaw/drill_mob(mob/living/target, mob/living/user)

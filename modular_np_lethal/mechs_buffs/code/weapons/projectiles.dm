@@ -9,7 +9,7 @@
 //mech heavy laser
 
 /obj/projectile/beam/laser/heavy/lethalheavy
-	damage = 65
+	damage = 60
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
 	speed = 0.5
 	light_range = 2
@@ -26,9 +26,8 @@
 // lbx pellet mechs
 /obj/projectile/bullet/scattershot
 	icon_state = "pellet"
-	damage = 15
+	damage = 12
 	range = 12
-	damage_falloff_tile = -0.10
 
 
 //mech ac20
@@ -76,7 +75,7 @@
 /obj/projectile/bullet/rebar/r500
 	name = "rebar"
 	icon_state = "rebar"
-	damage = 80
+	damage = 70
 	speed = 0.3
 	armour_penetration = 10
 	wound_bonus = -20

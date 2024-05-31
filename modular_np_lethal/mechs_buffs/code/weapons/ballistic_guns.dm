@@ -10,7 +10,7 @@
 	projectiles_cache = 80
 	projectiles_cache_max = 200
 	projectiles_per_shot = 8
-	variance = 35
+	variance = 30
 	harmful = TRUE
 	ammo_type = MECHA_AMMO_LMG
 
@@ -65,7 +65,7 @@
 	desc = "A weapon for combat exosuits. Magnetically fires a metallic rod at a high speed, prone to peircing armor and embedding. Requires a manual reload of the rail between each shot. Shoots Ballistic Ammo "
 	icon_state = "mecha_mime"
 	fire_sound = "sound/weapons/emitter2.ogg"
-	equip_cooldown = 30
+	equip_cooldown = 40
 	projectile = /obj/projectile/bullet/rebar/r500
 	projectiles = 1
 	projectiles_cache = 30

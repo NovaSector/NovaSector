@@ -10,7 +10,7 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
-	equip_cooldown = 2
+	equip_cooldown = 1.5
 	name = "\improper CH-PS \"Immolator\" laser"
 	desc = "A weapon for combat exosuits. Shoots basic rapid lasers."
 	icon_state = "mecha_laser"

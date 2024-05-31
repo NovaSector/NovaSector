@@ -22,6 +22,7 @@
 		/datum/crafting_bench_recipe_real/tele_shield,
 		/datum/crafting_bench_recipe_real/ballistic_shield,
 		/datum/crafting_bench_recipe_real/black_keycard,
+		/datum/crafting_bench_recipe_real/exo_beacon,
 	)
 
 /obj/structure/epic_loot_crafting_bench/gear/examine_more(mob/user)
@@ -42,7 +43,7 @@
 	. += span_notice("<b>3</b> device fans = <b>1</b> telescopic shield")
 	. += span_notice("<b>1</b> lungs = <b>1</b> ballistic shield")
 	. += span_notice("<b>9</b> ID cards = <b>1</b> black keycard")
-
+	. += span_notice("<b>1</b> black keycard = <b>1</b> exosuit beacon") // horrible dente creation
 	return .
 
 // Misc tools
@@ -152,3 +153,10 @@
 		/obj/item/card/id/advanced = 9,
 	)
 	resulting_item = /obj/item/keycard/epic_loot/black
+
+/datum/crafting_bench_recipe_real/exo_beacon // horrible dente creation
+	recipe_name = "exo beacon"
+	recipe_requirements = list(
+		/obj/item/keycard/epic_loot/black = 1,
+	)
+	resulting_item = /obj/item/choice_beacon/mecha

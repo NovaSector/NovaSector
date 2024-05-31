@@ -7,7 +7,7 @@
 	icon_state = "marauder"
 	base_icon_state = "marauder"
 	movedelay = 4
-	internal_damage_threshold = 25
+	internal_damage_threshold = 22
 	internal_damage_probability = 10
 	max_integrity = 900
 	armor_type = /datum/armor/mecha_marauder
@@ -19,7 +19,7 @@
 	wreckage = /obj/structure/mecha_wreckage/marauder
 	mecha_flags = CAN_STRAFE | IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE
 	mech_type = EXOSUIT_MODULE_MARAUDER
-	force = 45
+	force = 25
 	max_equip_by_category = list(
 		MECHA_L_ARM = 1,
 		MECHA_R_ARM = 1,
@@ -31,8 +31,8 @@
 
 /datum/armor/mecha_marauder
 	melee = 35
-	bullet = 35
-	laser = 35
+	bullet = 30
+	laser = 25
 	energy = 30
 	bomb = 15
 	fire = 100
@@ -48,11 +48,11 @@
 	base_icon_state = "seraph"
 	armor_type = /datum/armor/mecha_seraph
 	movedelay = 3
-	internal_damage_threshold = 30
+	internal_damage_threshold = 25
 	internal_damage_probability = 10
 	max_integrity = 1000
 	wreckage = /obj/structure/mecha_wreckage/seraph
-	force = 55
+	force = 35
 	max_equip_by_category = list(
 		MECHA_L_ARM = 1,
 		MECHA_R_ARM = 1,
