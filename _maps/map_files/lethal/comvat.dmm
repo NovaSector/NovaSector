@@ -4,7 +4,7 @@
 	dir = 1
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "ac" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -13,7 +13,11 @@
 "ag" = (
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"ah" = (
+/obj/structure/bodycontainer/crematorium,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "aj" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_provisions,
@@ -28,10 +32,17 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"ar" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "as" = (
-/obj/structure/closet,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "au" = (
 /obj/structure/sink/kitchen/directional/south,
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
@@ -47,7 +58,7 @@
 /obj/machinery/light/dim/directional/north,
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "az" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -60,23 +71,43 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"aC" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "aJ" = (
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/catwalk_floor,
 /area/gakster_location/war)
+"aK" = (
+/obj/machinery/computer/order_console/gakster,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "aL" = (
 /obj/structure/railing{
 	dir = 8
 	},
 /obj/effect/spawner/random/trash/mess,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"aN" = (
+/obj/structure/hoop{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "aO" = (
 /obj/structure/railing{
 	dir = 8
 	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "aQ" = (
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -85,13 +116,25 @@
 /obj/structure/railing{
 	dir = 6
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"aS" = (
+/obj/machinery/door/poddoor/shutters/indestructible/preopen,
+/obj/structure/barricade/wooden,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "aV" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"aX" = (
+/obj/structure/table/glass,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "aY" = (
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
 /turf/open/floor/plating,
@@ -118,6 +161,10 @@
 /obj/effect/spawner/random/epic_loot/medpens,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"bj" = (
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "bl" = (
 /obj/structure/bed{
 	dir = 1
@@ -139,6 +186,18 @@
 /obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"bo" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
+	},
+/obj/effect/landmark/latejoin,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
+"bp" = (
+/obj/machinery/vending/imported/nt,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "bq" = (
 /obj/machinery/light/dim/directional/east,
 /obj/effect/decal/cleanable/dirt,
@@ -155,6 +214,16 @@
 /obj/structure/maintenance_loot_structure/medbox/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"bx" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/closet/crate/large,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "bB" = (
 /obj/structure/deployable_barricade/metal,
 /turf/open/floor/iron/smooth,
@@ -211,6 +280,15 @@
 /obj/structure/maintenance_loot_structure/computer_tower/random,
 /turf/open/floor/iron/dark/textured_large,
 /area/gakster_location/war)
+"bO" = (
+/obj/structure/table/optable,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/catwalk_floor/titanium,
+/area/gakster_location/hideout_real)
+"bR" = (
+/obj/structure/maintenance_loot_structure/military_case/random/rare_loot,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "bU" = (
 /obj/structure/maintenance_loot_structure/ammo_box/random,
 /obj/structure/table,
@@ -222,6 +300,12 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"bY" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "bZ" = (
 /obj/effect/spawner/random/trash/mopbucket,
 /turf/open/floor/iron/dark/smooth_large,
@@ -229,7 +313,11 @@
 "ca" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"cb" = (
+/obj/structure/fluff/oldturret,
+/turf/open/floor/plating,
+/area/gakster_location/war)
 "cc" = (
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -253,6 +341,12 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"ch" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/rnd/production/circuit_imprinter/department/science,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "cp" = (
 /obj/machinery/light/warm/dim/directional/west,
 /turf/open/floor/wood/tile,
@@ -284,11 +378,16 @@
 "cB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "cE" = (
 /obj/structure/maintenance_loot_structure/large_crate/engineering,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"cF" = (
+/obj/item/clothing/head/collectable/hardhat,
+/obj/structure/barricade/wooden/crude,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "cG" = (
 /obj/structure/sink/kitchen/directional/south,
 /turf/open/floor/iron/kitchen/small,
@@ -302,6 +401,11 @@
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"cL" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "cP" = (
 /obj/machinery/light/cold/dim/directional/east,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
@@ -335,7 +439,21 @@
 "df" = (
 /obj/machinery/light/dim/directional/south,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"dg" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"dh" = (
+/obj/structure/table/wood,
+/obj/machinery/light/dim/directional/east,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "dj" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/wood/large,
@@ -361,6 +479,12 @@
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"dp" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "dr" = (
 /obj/structure/falsewall,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -373,6 +497,10 @@
 /mob/living/basic/mouse/brown,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"dz" = (
+/obj/structure/noticeboard,
+/turf/closed/indestructible/wood,
+/area/gakster_location/hideout_real)
 "dC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/garbage,
@@ -384,7 +512,7 @@
 	dir = 8
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "dG" = (
 /obj/structure/fluff/metalpole/anchor{
 	dir = 4
@@ -409,16 +537,41 @@
 	dir = 8
 	},
 /obj/effect/spawner/random/trash/grime,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"dS" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "dU" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"dW" = (
+/obj/structure/rack/gunrack,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "ea" = (
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"eb" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "ec" = (
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
 /turf/open/floor/iron/smooth,
@@ -430,7 +583,7 @@
 "el" = (
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "eo" = (
 /obj/structure/bed,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
@@ -441,6 +594,13 @@
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"eu" = (
+/obj/structure/table/wood/poker,
+/obj/item/toy/cards/deck{
+	pixel_y = 7
+	},
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "ev" = (
 /obj/structure/fluff/tram_rail/anchor,
 /turf/open/floor/plating,
@@ -459,7 +619,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "eA" = (
 /obj/structure/table/reinforced,
 /obj/machinery/vending/wallmed/epic_loot/evil/directional/west,
@@ -475,8 +635,15 @@
 /area/gakster_location/war)
 "eE" = (
 /obj/machinery/vending/deforest_medvend,
+/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"eF" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "eK" = (
 /obj/structure/bed{
 	dir = 1
@@ -486,14 +653,20 @@
 	},
 /obj/structure/curtain/bounty,
 /obj/effect/landmark/start,
-/obj/effect/landmark/latejoin,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "eL" = (
 /obj/machinery/light/dim/directional/west,
 /obj/structure/rack/shelf,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"eM" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/floor/catwalk_floor/titanium,
+/area/gakster_location/hideout_real)
 "eP" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /obj/machinery/light/dim/directional/north,
@@ -501,18 +674,14 @@
 /area/gakster_location/war)
 "eR" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/structure/fluff/empty_sleeper{
-	dir = 1
-	},
-/mob/living/basic/meteor_heart/opens_puzzle_door{
-	name = "the lover";
-	desc = "Remember our promise.";
-	puzzle_id = "lover"
-	},
-/obj/item/keycard/epic_loot/blue,
-/obj/item/food/grown/poppy/lily,
+/obj/structure/fluff/empty_sleeper,
+/obj/effect/mob_spawn/corpse/human/zombie,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
+"eU" = (
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "eV" = (
 /obj/structure/chair/plastic,
 /turf/open/floor/plating,
@@ -554,6 +723,11 @@
 /obj/machinery/light/dim/directional/west,
 /turf/closed/wall,
 /area/gakster_location/war)
+"fg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "fn" = (
 /obj/structure/fluff/metalpole{
 	dir = 8
@@ -561,18 +735,36 @@
 /obj/effect/turf_decal,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"fo" = (
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
 "fp" = (
 /obj/item/kirbyplants/random/fullysynthetic,
 /obj/machinery/light/cold/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "fr" = (
-/turf/closed/indestructible/rock,
-/area/gakster_location)
+/obj/machinery/light/red/dim/directional/east,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"fs" = (
+/obj/structure/table,
+/obj/effect/spawner/random/epic_loot/random_other_military_loot/rare_loot,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "ft" = (
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"fv" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "fz" = (
 /obj/machinery/light/red/dim/directional/east,
 /turf/open/floor/plating,
@@ -585,6 +777,18 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"fK" = (
+/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
+"fO" = (
+/obj/structure/chair/sofa/bench{
+	dir = 4
+	},
+/obj/machinery/light/dim/directional/west,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "fQ" = (
 /obj/effect/decal/cleanable/greenglow,
 /obj/structure/deployable_barricade/metal{
@@ -598,7 +802,7 @@
 	},
 /obj/structure/marker_beacon/burgundy,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "fV" = (
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/floor/plating,
@@ -634,7 +838,7 @@
 "gi" = (
 /obj/structure/curtain/bounty,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "gj" = (
 /obj/machinery/door/airlock/grunge,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -642,6 +846,10 @@
 	},
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"gk" = (
+/obj/structure/chair/plastic,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "gl" = (
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -656,8 +864,11 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "gq" = (
 /obj/machinery/computer{
 	dir = 8
@@ -674,7 +885,7 @@
 	dir = 8
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "gv" = (
 /obj/structure/bed/medical/anchored{
 	dir = 1
@@ -684,11 +895,15 @@
 "gy" = (
 /obj/effect/spawner/random/trash/grime,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "gz" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"gC" = (
+/obj/structure/chair/plastic,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "gD" = (
 /obj/structure/deepmaints_entrance/exit,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -698,13 +913,26 @@
 /obj/effect/mapping_helpers/airlock/welded,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"gJ" = (
+/obj/structure/fluff/tram_rail/end{
+	desc = "This probably won't stop a titanium tram from hitting the wall, but it's the thought that counts.";
+	dir = 1;
+	name = "buffer rail"
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "gK" = (
 /turf/open/floor/wood,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "gL" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"gO" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "gP" = (
 /obj/structure/railing{
 	dir = 8
@@ -712,15 +940,29 @@
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"gR" = (
+/obj/machinery/vending/imported/yangyu,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
+"gU" = (
+/obj/structure/shipping_container/kahraman/alt,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "gW" = (
 /obj/effect/turf_decal/arrows/red,
 /obj/structure/marker_beacon/burgundy,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"gY" = (
+/obj/machinery/vending/imported/mothic,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "hc" = (
-/obj/item/chair/stool/bar,
-/turf/open/floor/iron/grimy,
-/area/gakster_location)
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "hd" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_provisions,
@@ -735,32 +977,57 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "hf" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/wood,
 /obj/item/storage/box/drinkingglasses{
 	pixel_y = 7
 	},
-/obj/machinery/light/red/dim/directional/west,
-/turf/open/indestructible/plating,
-/area/gakster_location)
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "hh" = (
 /obj/machinery/computer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"hk" = (
+/obj/structure/fence/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "hl" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "hp" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"hq" = (
+/obj/machinery/vending/cigarette/beach{
+	name = "\improper Evil Shadycigs"
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
+"hu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "hv" = (
 /obj/machinery/light/warm/dim/directional/south,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"hw" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "hx" = (
 /obj/machinery/vending/evil_clothing/super_evil,
 /obj/machinery/light/cold/dim/directional/south,
@@ -770,6 +1037,12 @@
 /obj/structure/table,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"hA" = (
+/obj/structure/hoop{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "hB" = (
 /obj/machinery/light/red/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -807,6 +1080,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"hR" = (
+/obj/item/chair/plastic,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
+"hS" = (
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "hT" = (
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/iron/smooth_large,
@@ -825,6 +1105,12 @@
 /obj/effect/spawner/random/trash/grime,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"ib" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "ic" = (
 /obj/machinery/computer,
 /obj/machinery/light/warm/dim/directional/north,
@@ -834,7 +1120,11 @@
 /obj/effect/turf_decal/arrows/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"ie" = (
+/obj/structure/fluff/iced_abductor,
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/gakster_location/hideout_real)
 "if" = (
 /obj/machinery/door/puzzle/keycard/epic_loot_orange,
 /turf/open/floor/iron/colony/texture,
@@ -848,11 +1138,26 @@
 /obj/structure/maintenance_loot_structure/medbox/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"il" = (
+/obj/machinery/light/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"im" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "in" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/south,
 /obj/machinery/light/dim/directional/south,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"io" = (
+/obj/structure/table/reinforced,
+/obj/machinery/jukebox/no_access/radio{
+	pixel_y = 7
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "ip" = (
 /obj/machinery/light/cold/dim/directional/south,
 /obj/structure/chair/comfy/black{
@@ -860,6 +1165,20 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"iq" = (
+/obj/effect/decal/cleanable/oil/slippery,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"is" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "iu" = (
 /obj/machinery/computer,
 /obj/machinery/light/dim/directional/north,
@@ -878,7 +1197,7 @@
 /obj/machinery/light/dim/directional/east,
 /obj/structure/curtain,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "iL" = (
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -897,6 +1216,21 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"iZ" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"jb" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
+"jd" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/obj/item/melee/moonlight_greatsword,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "je" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
 /obj/machinery/light/cold/dim/directional/east,
@@ -924,12 +1258,23 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/cigbutt,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "jl" = (
 /obj/structure/decorative/shelf/crates1,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"jm" = (
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
+"jq" = (
+/obj/machinery/door/poddoor/ert,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "jr" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light/warm/dim/directional/west,
@@ -939,6 +1284,12 @@
 /mob/living/basic/mouse/brown,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"jv" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "jx" = (
 /obj/machinery/light/warm/dim/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -961,6 +1312,10 @@
 /obj/structure/maintenance_loot_structure/ammo_box/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"jG" = (
+/obj/structure/lattice/catwalk,
+/turf/open/chasm,
+/area/gakster_location/hideout_real)
 "jH" = (
 /mob/living/simple_animal/hostile/true_changeling{
 	name = "???";
@@ -977,7 +1332,7 @@
 	dir = 4
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "jK" = (
 /obj/machinery/iv_drip/health_station/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
@@ -989,6 +1344,13 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"jR" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 4
+	},
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
 "jU" = (
 /obj/machinery/washing_machine,
 /obj/machinery/light/warm/dim/directional/north,
@@ -998,6 +1360,13 @@
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"jW" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "ka" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_computer_parts,
@@ -1016,7 +1385,14 @@
 "kg" = (
 /obj/structure/sink/directional/south,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"kj" = (
+/obj/structure/decorative/shelf/crates,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "kk" = (
 /obj/structure/railing{
 	dir = 4
@@ -1043,14 +1419,14 @@
 "kr" = (
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "ks" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "kt" = (
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall,
@@ -1079,19 +1455,49 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"kI" = (
+/obj/structure/chair/sofa/bench{
+	dir = 8
+	},
+/obj/effect/landmark/latejoin,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
+"kK" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "kO" = (
 /obj/machinery/photocopier,
 /obj/machinery/light/warm/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"kP" = (
+/obj/structure/holosign/barrier/engineering,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "kQ" = (
 /obj/structure/maintenance_loot_structure/gun_box/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"kT" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "kU" = (
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/plating,
 /area/gakster_location/outside)
+"kV" = (
+/obj/structure/shipping_container/cybersun,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "kW" = (
 /obj/structure/railing{
 	dir = 1
@@ -1112,7 +1518,7 @@
 /obj/structure/railing,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "lg" = (
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/iron/smooth,
@@ -1120,7 +1526,7 @@
 "lj" = (
 /obj/machinery/light/dim/directional/east,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "lk" = (
 /obj/structure/maintenance_loot_structure/gun_box/random{
 	pixel_y = 6
@@ -1157,6 +1563,16 @@
 /obj/structure/closet/crate/trashcart/filled,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"lx" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"lA" = (
+/obj/machinery/vending/medical,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "lC" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /obj/structure/table,
@@ -1168,6 +1584,10 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"lF" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "lH" = (
 /obj/structure/kitchenspike,
 /obj/machinery/light/warm/dim/directional/south,
@@ -1207,6 +1627,14 @@
 /obj/item/card/id/advanced/gold/captains_spare,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"lX" = (
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "lY" = (
 /obj/structure/rack/shelf,
 /obj/machinery/light/dim/directional/south,
@@ -1262,6 +1690,17 @@
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/openspace,
 /area/gakster_location/war)
+"mx" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "my" = (
 /obj/structure/railing{
 	dir = 8
@@ -1275,11 +1714,15 @@
 /obj/structure/mineral_door/manual_colony_door,
 /obj/machinery/vending/cigarette/beach,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "mB" = (
 /obj/effect/spawner/random/trash/crushed_can,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"mE" = (
+/obj/machinery/light/dim/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "mJ" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
@@ -1289,14 +1732,36 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"mO" = (
+/obj/structure/barricade/wooden/snowed,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "mQ" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
 /area/gakster_location/war)
+"mR" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"mT" = (
+/obj/effect/landmark/observer_start,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "mV" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"mY" = (
+/obj/effect/spawner/random/trash/mess,
+/obj/machinery/light/dim/directional/west,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "mZ" = (
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
 /turf/open/floor/iron/smooth_large,
@@ -1313,10 +1778,21 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"nf" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"ng" = (
+/obj/machinery/mechpad,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "nh" = (
 /obj/effect/spawner/random/trash,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "ni" = (
 /obj/structure/chair/plastic{
 	dir = 1
@@ -1347,9 +1823,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
 "ns" = (
-/obj/structure/maintenance_loot_structure/military_case/random/rare_loot,
-/turf/open/floor/iron/dark/smooth_large,
-/area/gakster_location/war)
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "nt" = (
 /obj/structure/table,
 /obj/machinery/light/cold/dim/directional/west,
@@ -1361,17 +1839,40 @@
 /obj/machinery/light/broken/directional/west,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"nx" = (
+/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "ny" = (
 /obj/machinery/light/cold/dim/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
+"nz" = (
+/obj/item/clothing/head/collectable/hardhat,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"nA" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "nC" = (
 /obj/structure/fluff/metalpole/anchor{
 	dir = 8
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"nD" = (
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "nF" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/yellow/directional/north,
 /turf/open/floor/iron/smooth,
@@ -1380,6 +1881,13 @@
 /obj/structure/deepmaints_entrance/exit,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"nR" = (
+/obj/machinery/door/poddoor/ert,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "nZ" = (
 /obj/structure/lattice,
 /obj/structure/fluff/metalpole{
@@ -1392,10 +1900,12 @@
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/filtre_spawn)
 "oe" = (
-/obj/vehicle/sealed/mecha/gygax/streetsweeper,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
-/area/gakster_location/outside)
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "of" = (
 /obj/machinery/computer{
 	dir = 1
@@ -1403,6 +1913,12 @@
 /obj/machinery/light/cold/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"og" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/hideout_real)
 "oh" = (
 /obj/structure/lattice,
 /obj/structure/fluff/metalpole{
@@ -1414,6 +1930,11 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"oj" = (
+/obj/structure/closet/crate/large,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "ol" = (
 /obj/structure/railing{
 	dir = 1
@@ -1426,6 +1947,11 @@
 /obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"oo" = (
+/obj/effect/decal/cleanable/robot_debris,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "op" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
@@ -1445,7 +1971,7 @@
 "oA" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/south,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "oC" = (
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/mineral/titanium/white,
@@ -1460,6 +1986,10 @@
 /obj/effect/spawner/random/epic_loot/random_components,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"oL" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "oN" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
@@ -1518,6 +2048,11 @@
 /obj/machinery/light/cold/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/filtre_spawn)
+"pe" = (
+/obj/machinery/vending/engineering,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
 "pf" = (
 /obj/machinery/computer{
 	dir = 4
@@ -1556,6 +2091,13 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"pq" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
+	},
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
 "ps" = (
 /obj/machinery/vending/wallmed/epic_loot/evil/directional/north,
 /obj/machinery/light/cold/dim/directional/north,
@@ -1580,7 +2122,7 @@
 "pL" = (
 /obj/structure/epic_loot_crafting_bench/medical,
 /turf/closed/indestructible/steel,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "pM" = (
 /obj/structure/maintenance_loot_structure/military_case/random,
 /turf/open/floor/plating,
@@ -1598,8 +2140,11 @@
 /obj/structure/drain,
 /obj/machinery/shower/directional/west,
 /obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "pU" = (
 /obj/machinery/door/poddoor/shutters/indestructible/preopen{
 	id = "SUPER_WAR_2"
@@ -1610,6 +2155,10 @@
 /obj/machinery/light/warm/dim/directional/north,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"pX" = (
+/obj/structure/mecha_wreckage/mauler,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "qa" = (
 /obj/machinery/door/puzzle/keycard/epic_loot_red,
 /turf/open/floor/iron/colony/texture,
@@ -1623,6 +2172,17 @@
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"qf" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 1;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 3
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "qh" = (
 /obj/machinery/light/dim/directional/west,
 /obj/structure/chair/plastic{
@@ -1645,9 +2205,17 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "qo" = (
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/iron/grimy,
-/area/gakster_location)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/chasm,
+/area/gakster_location/hideout_real)
+"qp" = (
+/obj/item/storage/medkit/robotic_repair/stocked,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
 "qt" = (
 /obj/structure/maintenance_loot_structure/large_crate/medical/airdrop,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1670,7 +2238,7 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /obj/machinery/light/dim/directional/north,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "qC" = (
 /obj/machinery/computer{
 	dir = 1
@@ -1692,6 +2260,10 @@
 /obj/structure/stairs/north,
 /turf/open/floor/plating,
 /area/gakster_location/outside)
+"qL" = (
+/obj/item/toy/basketball,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "qN" = (
 /obj/structure/toilet{
 	dir = 8
@@ -1699,7 +2271,7 @@
 /obj/structure/curtain,
 /obj/effect/landmark/start,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "qQ" = (
 /obj/structure/railing{
 	dir = 1
@@ -1720,6 +2292,12 @@
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"qU" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "qZ" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_components,
@@ -1727,6 +2305,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"rb" = (
+/obj/structure/table/wood/poker,
+/obj/item/toy/cards/deck{
+	pixel_y = 7
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "rc" = (
 /obj/machinery/computer{
 	dir = 8
@@ -1736,7 +2321,7 @@
 "re" = (
 /obj/machinery/light/red/dim/directional/east,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "rf" = (
 /obj/structure/table/wood,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/west,
@@ -1753,16 +2338,28 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"rl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "rm" = (
 /obj/structure/railing,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"rn" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/spawner/random/trash/crushed_can,
+/turf/open/chasm,
+/area/gakster_location/hideout_real)
 "rp" = (
 /obj/effect/turf_decal/arrows/red{
 	dir = 4
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "rr" = (
 /obj/structure/railing{
 	dir = 10
@@ -1770,6 +2367,13 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"rs" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "rt" = (
 /turf/open/floor/mineral/titanium/white,
 /area/gakster_location/filtre_spawn)
@@ -1777,6 +2381,18 @@
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/wood/large,
 /area/gakster_location/war)
+"rw" = (
+/obj/structure/closet/crate/trashcart/laundry,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
+"rx" = (
+/obj/structure/lattice,
+/turf/open/chasm,
+/area/gakster_location/hideout_real)
+"ry" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "rz" = (
 /obj/structure/railing{
 	dir = 1
@@ -1785,6 +2401,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"rA" = (
+/obj/structure/table,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "rB" = (
 /obj/structure/chair/office/light,
 /obj/effect/decal/cleanable/blood/old,
@@ -1818,7 +2438,7 @@
 	dir = 4
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "rZ" = (
 /obj/machinery/light/dim/directional/west,
 /obj/structure/table,
@@ -1849,6 +2469,21 @@
 /obj/structure/window/green_glass_pane,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"sk" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"so" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
+"sq" = (
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "sr" = (
 /obj/machinery/light/warm/dim/directional/west,
 /obj/structure/fireaxecabinet/directional/north,
@@ -1865,6 +2500,11 @@
 /obj/item/circuitboard/mecha/savannah_ivanov/peripherals,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"su" = (
+/obj/structure/barricade/wooden/snowed,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "sv" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/innards,
@@ -1888,6 +2528,15 @@
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"sA" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "sB" = (
 /obj/structure/displaycase/captain,
 /obj/machinery/light/warm/dim/directional/north,
@@ -1897,6 +2546,10 @@
 /obj/machinery/door/puzzle/keycard/epic_loot_yellow,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"sG" = (
+/obj/machinery/vending/wallmed/epic_loot/directional/south,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "sJ" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/grenade_box/random,
@@ -1926,7 +2579,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "sV" = (
 /obj/structure/maintenance_loot_structure/large_crate/medical/airdrop,
 /obj/machinery/light/cold/dim/directional/west,
@@ -1995,12 +2648,29 @@
 /obj/item/mecha_parts/chassis/durand,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"tl" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "tm" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_silly_arms,
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"tn" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/structure/curtain,
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "tq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -2021,6 +2691,23 @@
 /obj/structure/maintenance_loot_structure/computer_tower/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"tB" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 4
+	},
+/obj/effect/landmark/latejoin,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
+"tC" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "tD" = (
 /obj/structure/chair/comfy/carp{
 	dir = 1
@@ -2043,8 +2730,8 @@
 /area/gakster_location/war)
 "tM" = (
 /obj/effect/landmark/blow_up_interlink_latejoin_markers,
-/turf/closed/indestructible/rock,
-/area/gakster_location)
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/gakster_location/hideout_real)
 "tQ" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -2068,12 +2755,12 @@
 "tX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "tY" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "ub" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
@@ -2100,6 +2787,20 @@
 /obj/structure/sink/kitchen/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"uk" = (
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"ur" = (
+/obj/structure/toilet,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "ut" = (
 /obj/machinery/griddle,
 /turf/open/floor/iron/dark/smooth_large,
@@ -2119,6 +2820,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"uB" = (
+/obj/structure/fluff/tram_rail/anchor{
+	desc = "This probably won't stop a titanium tram from hitting the wall, but it's the thought that counts.";
+	dir = 1;
+	name = "buffer rail anchor"
+	},
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "uC" = (
 /obj/machinery/light/red/dim/directional/south,
 /obj/effect/decal/cleanable/dirt,
@@ -2133,18 +2844,17 @@
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"uH" = (
+/obj/machinery/vending/imported/tiziran,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "uI" = (
 /obj/machinery/light/warm/dim/directional/west,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "uJ" = (
-/obj/structure/table/reinforced,
-/obj/machinery/jukebox/no_access/radio{
-	pixel_x = -2;
-	pixel_y = -4
-	},
-/turf/open/indestructible/stone,
-/area/gakster_location)
+/turf/closed/indestructible/wood,
+/area/gakster_location/hideout_real)
 "uK" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_tools,
@@ -2172,12 +2882,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "uU" = (
-/obj/structure/table/reinforced,
-/obj/structure/reagent_dispensers/beerkeg{
-	pixel_y = 10
-	},
-/turf/open/indestructible/plating,
-/area/gakster_location)
+/turf/closed/wall/mineral/titanium/interior,
+/area/gakster_location/hideout_real)
 "uW" = (
 /obj/machinery/light/dim/directional/west,
 /obj/effect/decal/cleanable/dirt,
@@ -2191,11 +2897,22 @@
 "uZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "vc" = (
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"vd" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/structure/curtain,
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "ve" = (
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/iron/smooth_large,
@@ -2206,6 +2923,10 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"vg" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "vn" = (
 /turf/closed/indestructible/titanium/nodiagonal,
 /area/gakster_location/filtre_spawn)
@@ -2237,7 +2958,7 @@
 "vy" = (
 /obj/structure/epic_loot_crafting_bench/armor,
 /turf/closed/indestructible/steel,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "vA" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_components,
@@ -2249,6 +2970,12 @@
 /obj/item/circuitboard/mecha/durand/targeting,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"vE" = (
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "vH" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/dim/directional/east,
@@ -2268,6 +2995,9 @@
 /obj/effect/mob_spawn/corpse/human/scientist,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"vO" = (
+/turf/open/space/basic,
+/area/gakster_location/hideout_real)
 "vR" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/smooth_large,
@@ -2287,8 +3017,11 @@
 /obj/structure/railing{
 	dir = 10
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "vX" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /obj/effect/spawner/random/structure/closet_maintenance,
@@ -2297,11 +3030,18 @@
 "vY" = (
 /obj/structure/epic_loot_crafting_bench/gear,
 /turf/closed/indestructible/steel,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "vZ" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall,
 /area/gakster_location/outside)
+"wa" = (
+/obj/effect/spawner/random/trash/mess,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "wb" = (
 /obj/machinery/computer{
 	dir = 4
@@ -2314,6 +3054,12 @@
 /obj/effect/mapping_helpers/damaged_window,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"wf" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "wg" = (
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "SUPER_WAR"
@@ -2323,7 +3069,28 @@
 "wi" = (
 /obj/effect/turf_decal/loading_area/red,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"wj" = (
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/effect/spawner/random/bedsheet/any{
+	dir = 1
+	},
+/obj/structure/curtain/bounty,
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
+"wl" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "wn" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/desk_safe/random{
@@ -2343,18 +3110,21 @@
 /obj/structure/mineral_door/manual_colony_door,
 /obj/structure/steam_vent,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"wr" = (
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "ws" = (
 /obj/structure/railing,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "wu" = (
-/obj/structure/chair/stool/bar{
-	dir = 1
-	},
-/turf/open/floor/iron/grimy,
-/area/gakster_location)
+/obj/effect/decal/cleanable/robot_debris/down,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "wx" = (
 /obj/structure/lattice,
 /obj/machinery/light/dim/directional/south,
@@ -2368,12 +3138,32 @@
 "wB" = (
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"wF" = (
+/obj/machinery/vending/drugs,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
+"wG" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "wH" = (
 /obj/machinery/light/red/dim/directional/west,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"wJ" = (
+/obj/effect/spawner/random/trash/grime,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "wK" = (
 /obj/structure/closet/crate/trashcart/laundry,
 /turf/open/floor/iron/dark/smooth_large,
@@ -2385,6 +3175,16 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"wM" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "wO" = (
 /obj/machinery/light/red/dim/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -2403,7 +3203,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "wY" = (
 /obj/structure/railing{
 	dir = 5
@@ -2446,6 +3246,10 @@
 /obj/structure/ladder,
 /turf/open/openspace,
 /area/gakster_location/war)
+"xv" = (
+/obj/structure/closet/crate/large,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "xA" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/register/random,
@@ -2470,7 +3274,7 @@
 "xF" = (
 /obj/effect/spawner/random/trash,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "xH" = (
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
@@ -2480,6 +3284,16 @@
 /obj/effect/spawner/random/epic_loot/random_provisions,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"xM" = (
+/obj/structure/bed,
+/obj/effect/spawner/random/bedsheet/any,
+/obj/structure/curtain/bounty,
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "xN" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_provisions,
@@ -2492,7 +3306,7 @@
 "xR" = (
 /obj/effect/landmark/observer_start,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "xV" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/iron/dark/smooth_large,
@@ -2548,6 +3362,10 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"yi" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "yj" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_tools,
@@ -2560,6 +3378,11 @@
 /obj/effect/spawner/random/epic_loot/random_provisions,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"yo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/computer/mech_bay_power_console,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "yp" = (
 /obj/structure/table,
 /obj/machinery/light/dim/directional/north,
@@ -2594,10 +3417,20 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "yx" = (
-/obj/structure/closet,
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"yz" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "yB" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_provisions,
@@ -2641,6 +3474,11 @@
 /obj/structure/maintenance_loot_structure/large_crate/military,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"yP" = (
+/obj/structure/closet/crate/large,
+/obj/machinery/light/dim/directional/west,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "yR" = (
 /obj/structure/table,
 /obj/machinery/light/dim/directional/north,
@@ -2672,7 +3510,7 @@
 /area/gakster_location/war)
 "yY" = (
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "zb" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -2680,6 +3518,12 @@
 /obj/machinery/light/warm/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"zf" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "zh" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/spawner/random/trash/garbage,
@@ -2705,12 +3549,24 @@
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_documents,
 /obj/effect/spawner/random/epic_loot/random_keycard,
+/obj/effect/spawner/random/epic_loot/random_keycard,
+/obj/effect/spawner/random/epic_loot/random_keycard,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "zo" = (
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
+"zq" = (
+/obj/structure/curtain,
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "zr" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /turf/open/floor/wood/large,
@@ -2724,7 +3580,16 @@
 "zy" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"zC" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "zD" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
@@ -2751,11 +3616,24 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"zP" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "zQ" = (
 /obj/machinery/light/cold/dim/directional/west,
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"zR" = (
+/obj/item/storage/toolbox/mechanical,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "zS" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/mob_spawn/corpse/human/scientist,
@@ -2766,6 +3644,12 @@
 /obj/structure/mecha_wreckage/gygax,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"zU" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
 "zW" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -2780,6 +3664,20 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Ag" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Ah" = (
+/obj/structure/fence,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "Ai" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -2796,6 +3694,17 @@
 /obj/effect/mine/stun,
 /turf/open/floor/plating,
 /area/gakster_location/outside)
+"Ao" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
+"Ap" = (
+/obj/structure/closet/crate/trashcart/filled,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Aq" = (
 /obj/structure/chair/office/tactical{
 	dir = 1
@@ -2815,11 +3724,25 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Aw" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/spawner/random/trash/grime,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Ax" = (
 /obj/structure/bookcase/random,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"AA" = (
+/obj/item/chair,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "AB" = (
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -2830,25 +3753,31 @@
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/filtre_spawn)
 "AD" = (
-/obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = 1;
-	pixel_x = -8
+/obj/structure/railing{
+	dir = 4
 	},
-/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
-	pixel_y = 3
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
 	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "AF" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/toolbox/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"AM" = (
+/obj/structure/fence/door/opened,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "AO" = (
 /obj/structure/maintenance_loot_structure/large_crate/engineering/airdrop,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"AR" = (
+/obj/machinery/vending/custom,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "AT" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -2871,15 +3800,14 @@
 /turf/open/indestructible/hoteltile,
 /area/gakster_location/filtre_spawn)
 "Be" = (
-/obj/structure/table/reinforced,
-/mob/living/basic/pet/cat/runtime{
-	name = "The Bartender";
-	desc = "A raggedy old black cat. It moves slowly, on aching limbs. ";
-	maxHealth = 2000;
-	health = 2000
+/obj/structure/fluff/tram_rail/end{
+	desc = "This probably won't stop a titanium tram from hitting the wall, but it's the thought that counts.";
+	dir = 4;
+	name = "buffer rail"
 	},
-/turf/open/indestructible/plating,
-/area/gakster_location)
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "Bk" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_tools,
@@ -2890,7 +3818,14 @@
 /obj/structure/curtain/bounty,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Bm" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/mech_bay_recharge_port{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Bo" = (
 /obj/machinery/computer{
 	dir = 8
@@ -2902,7 +3837,7 @@
 /obj/structure/table,
 /obj/machinery/light/dim/directional/north,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Bz" = (
 /obj/structure/lattice/catwalk,
 /obj/item/lighter/skull,
@@ -2937,12 +3872,17 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"BK" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/evilborg/roomba,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "BL" = (
 /obj/structure/railing{
 	dir = 9
 	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "BM" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/open/floor/iron/dark/smooth_large,
@@ -2950,6 +3890,10 @@
 "BN" = (
 /turf/open/floor/catwalk_floor,
 /area/gakster_location/war)
+"BO" = (
+/obj/structure/weightmachine/weightlifter,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "BP" = (
 /obj/structure/closet,
 /obj/item/storage/box/bodybags,
@@ -2973,8 +3917,11 @@
 /obj/structure/drain,
 /obj/effect/landmark/start,
 /obj/effect/spawner/random/trash/mess,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "BW" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_components,
@@ -2991,17 +3938,33 @@
 /obj/machinery/vending/evil_clothing,
 /obj/machinery/light/dim/directional/north,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Ca" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/obj/machinery/light/dim/directional/west,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "Cf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Cg" = (
+/obj/structure/railing{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Ch" = (
 /obj/structure/curtain/bounty,
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/dim/directional/east,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Ci" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/decoration/ornament,
@@ -3011,7 +3974,7 @@
 /obj/structure/curtain/bounty,
 /obj/effect/turf_decal/bot_red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Cq" = (
 /obj/structure/stairs/south,
 /obj/structure/railing{
@@ -3019,6 +3982,15 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Cs" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Cu" = (
 /obj/machinery/light/broken/directional/west,
 /obj/effect/decal/cleanable/blood/gibs,
@@ -3028,13 +4000,17 @@
 /obj/structure/maintenance_loot_structure/ammo_box/random,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Cx" = (
+/obj/structure/shipping_container/kosmologistika,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Cy" = (
 /obj/structure/chair/plastic{
 	dir = 8
 	},
 /obj/effect/landmark/start,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Cz" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/medical_stack_item,
@@ -3073,10 +4049,15 @@
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/gakster_location/war)
+"CQ" = (
+/obj/structure/rack/shelf,
+/obj/machinery/light/dim/directional/east,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "CU" = (
-/obj/structure/chair/plastic,
-/turf/open/floor/wood,
-/area/gakster_location)
+/obj/structure/shipping_container/conarex,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "CX" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/medkit,
@@ -3101,8 +4082,11 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Dg" = (
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/floor/iron/freezer,
@@ -3111,7 +4095,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/dim/directional/east,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Dk" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/dim/directional/east,
@@ -3131,6 +4115,16 @@
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Do" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Dp" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_ammunition,
@@ -3148,6 +4142,20 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Dv" = (
+/obj/structure/barricade/wooden/snowed,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Dx" = (
+/obj/structure/table/wood,
+/obj/structure/reagent_dispensers/beerkeg{
+	pixel_y = 10
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "Dy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -3160,16 +4168,17 @@
 /turf/closed/indestructible/titanium/nodiagonal,
 /area/gakster_location/filtre_spawn)
 "DA" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/machinery/light/dim/directional/east,
-/turf/open/floor/iron/grimy,
-/area/gakster_location)
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/gakster_location/hideout_real)
 "DB" = (
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
 /obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "DC" = (
 /obj/structure/table,
 /obj/machinery/light/cold/dim/directional/south,
@@ -3189,28 +4198,46 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"DI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/smartfridge/chemistry,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "DJ" = (
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/effect/spawner/random/trash/cigbutt,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "DK" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/medical_tools,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"DM" = (
+/obj/structure/weightmachine,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "DN" = (
 /obj/structure/sink/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "DQ" = (
 /obj/structure/maintenance_loot_structure/military_case/random,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"DS" = (
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "DT" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
@@ -3220,7 +4247,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "DV" = (
 /obj/structure/maintenance_loot_structure/military_case/random,
 /obj/machinery/light/dim/directional/east,
@@ -3244,12 +4271,8 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "Ea" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/machinery/light/dim/directional/west,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/trash/cigbutt,
-/turf/open/floor/wood,
-/area/gakster_location)
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/gakster_location/hideout_real)
 "Ed" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/south,
 /obj/effect/spawner/random/structure/closet_maintenance,
@@ -3260,6 +4283,26 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Eh" = (
+/obj/item/toy/basketball,
+/obj/item/toy/basketball{
+	pixel_y = -4;
+	pixel_x = -10
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Ek" = (
+/obj/structure/table,
+/obj/machinery/light/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Eo" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Eq" = (
 /obj/structure/curtain,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3278,6 +4321,16 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Ey" = (
+/obj/structure/table/reinforced,
+/mob/living/basic/pet/cat/runtime{
+	name = "The Bartender";
+	desc = "A raggedy old black cat. It moves slowly, on aching limbs. ";
+	maxHealth = 2000;
+	health = 2000
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "Ez" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/fluff/metalpole{
@@ -3295,8 +4348,11 @@
 /obj/machinery/vending/cigarette/beach{
 	name = "\improper Evil Shadycigs"
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "EG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash,
@@ -3314,7 +4370,13 @@
 "EK" = (
 /obj/structure/mineral_door/manual_colony_door,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"EL" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "EM" = (
 /obj/machinery/computer{
 	dir = 8
@@ -3326,6 +4388,16 @@
 /obj/machinery/light/red/directional/west,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"ES" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/closet/crate/large/import,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "EU" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/ammo_box/random,
@@ -3343,11 +4415,22 @@
 /obj/structure/table/wood,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"EZ" = (
+/obj/item/chair/plastic,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Fc" = (
 /obj/machinery/light/dim/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Fd" = (
+/obj/machinery/vending/coffee,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Ff" = (
 /obj/machinery/light/red/directional/west,
 /obj/effect/decal/cleanable/dirt,
@@ -3363,6 +4446,10 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Fn" = (
+/obj/machinery/button/crematorium,
+/turf/closed/wall/mineral/titanium/interior,
+/area/gakster_location/hideout_real)
 "Fo" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -3370,10 +4457,21 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/war)
+"Fq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/hideout_real)
 "Fr" = (
 /obj/effect/spawner/random/trash/mopbucket,
 /turf/open/floor/catwalk_floor,
 /area/gakster_location/war)
+"Fs" = (
+/obj/machinery/door/poddoor/ert,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "Fv" = (
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -3385,11 +4483,22 @@
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Fy" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "FA" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_provisions,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"FC" = (
+/obj/structure/closet/crate/trashcart/filled,
+/obj/effect/spawner/random/trash/mess,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "FE" = (
 /obj/structure/chair/plastic,
 /turf/open/floor/iron/smooth,
@@ -3407,12 +4516,16 @@
 /area/gakster_location/war)
 "FN" = (
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "FP" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/medkit,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"FQ" = (
+/obj/machinery/vending/custom,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "FR" = (
 /obj/effect/spawner/random/epic_loot/medical_stack_item_advanced,
 /turf/open/floor/iron/freezer,
@@ -3439,10 +4552,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Gb" = (
+/turf/open/floor/mineral/titanium,
+/area/gakster_location/hideout_real)
+"Gd" = (
+/obj/structure/epic_loot_crafting_bench/medical,
+/turf/closed/wall/mineral/titanium/interior,
+/area/gakster_location/hideout_real)
 "Ge" = (
 /obj/structure/bed/maint,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Gf" = (
+/obj/machinery/light/red/dim/directional/east,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Gg" = (
 /obj/structure/fluff/metalpole{
 	dir = 8
@@ -3470,7 +4595,7 @@
 /obj/structure/chair/plastic,
 /obj/effect/landmark/start,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Gv" = (
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "SUPER_WAR"
@@ -3480,6 +4605,10 @@
 "GA" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/iron/smooth,
+/area/gakster_location/war)
+"GC" = (
+/obj/structure/maintenance_loot_structure/large_crate/military/rare_loot,
+/turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "GE" = (
 /obj/machinery/computer{
@@ -3498,12 +4627,28 @@
 /obj/effect/spawner/random/epic_loot/random_provisions,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"GL" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/spawner/random/trash,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "GN" = (
 /obj/structure/chair/comfy/carp{
 	dir = 8
 	},
+/mob/living/basic/trooper/nanotrasen/ranged/assault{
+	name = "Blue Company Filtre";
+	desc = "A mean-looking corpo goon. Doesn't look interested in talking."
+	},
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
+"GQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "GT" = (
 /obj/structure/marker_beacon/jade,
 /obj/machinery/light/red/dim/directional/north,
@@ -3526,17 +4671,25 @@
 	dir = 4
 	},
 /obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"GZ" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "Ha" = (
 /obj/structure/holosign/barrier/engineering,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Hd" = (
 /obj/machinery/vending/evil_clothing,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Hg" = (
 /obj/structure/fluff/metalpole{
 	dir = 4
@@ -3561,6 +4714,11 @@
 /obj/item/kirbyplants/random/fullysynthetic,
 /turf/open/floor/mineral/titanium,
 /area/gakster_location/filtre_spawn)
+"Hl" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/red/dim/directional/east,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
 "Hm" = (
 /obj/structure/rack/shelf,
 /obj/item/mecha_parts/part/durand_left_leg,
@@ -3570,6 +4728,13 @@
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"Ho" = (
+/obj/structure/closet/crate/large,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "Hp" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/random_silly_arms,
@@ -3588,8 +4753,11 @@
 /obj/structure/railing{
 	dir = 10
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Hz" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -3603,10 +4771,19 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/war)
+"HC" = (
+/obj/machinery/shower/directional/east,
+/obj/structure/drain,
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "HD" = (
 /obj/effect/turf_decal/arrows/red,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "HH" = (
 /obj/structure/rack/shelf,
 /turf/open/floor/iron/dark/smooth_large,
@@ -3638,6 +4815,14 @@
 /obj/structure/mecha_wreckage/durand,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"HY" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/table/wood,
+/obj/item/chair/plastic,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "HZ" = (
 /obj/effect/spawner/random/trash/bin,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/west,
@@ -3654,15 +4839,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "Ie" = (
-/mob/living/basic/mega_arachnid{
-	name = "the thing in bay 14";
-	desc = "A ghost story told to new gaksters by veterans. Unfortunately for you, it seems to be very real.";
-	maxHealth = 1000;
-	health = 1000;
-	melee_damage_upper = 60
+/obj/structure/chair/plastic{
+	dir = 1
 	},
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/gakster_location/war)
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "If" = (
 /mob/living/basic/trooper/nanotrasen/ranged/elite{
 	name = "Blue Company Filtre Elite";
@@ -3693,11 +4874,17 @@
 /obj/structure/maintenance_loot_structure/medbox/random/advanced_loot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Io" = (
+/obj/effect/decal/cleanable/robot_debris/up,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Is" = (
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "It" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -3728,6 +4915,18 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/grimy,
 /area/gakster_location/war)
+"IH" = (
+/obj/structure/closet/crate/large,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"IN" = (
+/obj/structure/door_assembly/door_assembly_hatch,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/hideout_real)
 "IO" = (
 /obj/machinery/light/cold/dim/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3770,6 +4969,13 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Jc" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Je" = (
 /obj/structure/maintenance_loot_structure/large_crate,
 /turf/open/floor/iron/smooth_large,
@@ -3789,6 +4995,11 @@
 /obj/structure/maintenance_loot_structure/large_crate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Jo" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Jp" = (
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/iron/smooth,
@@ -3800,11 +5011,31 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Js" = (
+/obj/structure/chair/sofa/bench{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
+"Jt" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Ju" = (
 /obj/machinery/light/red/dim/directional/north,
 /obj/effect/spawner/random/trash/caution_sign,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Jw" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Jx" = (
 /obj/structure/maintenance_loot_structure/file_cabinet/random,
 /obj/machinery/light/dim/directional/north,
@@ -3834,7 +5065,7 @@
 /obj/structure/curtain/bounty,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "JI" = (
 /obj/structure/table,
 /obj/machinery/light/cold/dim/directional/east,
@@ -3862,6 +5093,15 @@
 	},
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"JN" = (
+/obj/structure/fluff/tram_rail{
+	desc = "This probably won't stop a titanium tram from hitting the wall, but it's the thought that counts.";
+	dir = 1;
+	name = "buffer rail"
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "JO" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/iron/freezer,
@@ -3923,6 +5163,12 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Ke" = (
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 4
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "Kj" = (
 /obj/machinery/light/dim/directional/east,
 /obj/effect/turf_decal{
@@ -3930,11 +5176,20 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Kk" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Km" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Kn" = (
+/obj/machinery/mecha_part_fabricator,
+/turf/open/indestructible/dark/textured,
+/area/gakster_location/hideout_real)
 "Ko" = (
 /obj/machinery/door/puzzle/keycard/epic_loot_blue,
 /turf/open/floor/iron/colony/texture,
@@ -3943,6 +5198,10 @@
 /obj/structure/sign/poster/contraband,
 /turf/closed/wall,
 /area/gakster_location/war)
+"Kz" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/catwalk_floor/titanium,
+/area/gakster_location/hideout_real)
 "KA" = (
 /obj/structure/railing{
 	dir = 8
@@ -3952,7 +5211,7 @@
 /area/gakster_location/war)
 "KC" = (
 /turf/closed/indestructible/steel,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "KD" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_tools,
@@ -3960,14 +5219,31 @@
 /obj/effect/spawner/random/epic_loot/random_components,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"KE" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "KF" = (
 /obj/structure/table/wood,
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"KH" = (
+/obj/item/chair/stool/bar,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "KK" = (
 /turf/closed/indestructible/riveted,
 /area/gakster_location/war)
+"KN" = (
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "KQ" = (
 /obj/structure/fluff/metalpole{
 	dir = 4
@@ -3981,7 +5257,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"KU" = (
+/obj/structure/steam_vent,
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "KX" = (
 /obj/structure/chair/office/light{
 	dir = 1
@@ -4002,12 +5283,18 @@
 /obj/structure/curtain/bounty,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Ld" = (
+/obj/structure/fence/corner{
+	dir = 6
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "Lf" = (
 /obj/structure/sink/directional/south,
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Lh" = (
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
@@ -4016,6 +5303,10 @@
 /obj/item/mecha_parts/part/savannah_ivanov_right_leg,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Lk" = (
+/obj/structure/table/wood/poker,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Ln" = (
 /obj/structure/bed,
 /obj/effect/spawner/random/bedsheet/any,
@@ -4028,6 +5319,22 @@
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Lp" = (
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
+"Lr" = (
+/obj/machinery/light/warm/dim/directional/west,
+/mob/living/basic/trooper/nanotrasen/ranged/assault{
+	name = "Blue Company Filtre";
+	desc = "A mean-looking corpo goon. Doesn't look interested in talking."
+	},
+/turf/open/floor/wood/tile,
+/area/gakster_location/war)
+"Lv" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "Lx" = (
 /obj/machinery/light/red/directional/east,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -4045,7 +5352,7 @@
 /obj/structure/curtain,
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "LG" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -4055,6 +5362,11 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
+"LK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/observer_start,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "LL" = (
 /obj/structure/rack/shelf,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot,
@@ -4068,11 +5380,15 @@
 /obj/structure/table,
 /obj/effect/spawner/random/trash/crushed_can,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "LU" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"LY" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "LZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -4086,22 +5402,37 @@
 	dir = 4
 	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Mc" = (
 /obj/effect/turf_decal/bot_red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Md" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /obj/machinery/light/cold/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Me" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Mg" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Mh" = (
+/obj/structure/barricade/wooden/crude/snow,
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile/ice,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Mi" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -4109,6 +5440,9 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/war)
+"Mk" = (
+/turf/open/space/basic,
+/area/gakster_location/outside)
 "Ml" = (
 /obj/machinery/door/airlock/grunge,
 /obj/structure/barricade/wooden/crude,
@@ -4117,7 +5451,7 @@
 "Mo" = (
 /obj/structure/deepmaints_entrance,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Ms" = (
 /obj/structure/chair/comfy/black,
 /turf/open/floor/iron/dark/smooth_large,
@@ -4137,22 +5471,42 @@
 "Mw" = (
 /turf/closed/wall,
 /area/gakster_location/outside)
+"Mx" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile/ice,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "My" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/random_computer_parts,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Mz" = (
+/obj/machinery/computer/order_console/gakster,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "MA" = (
 /obj/structure/maintenance_loot_structure/large_crate/engineering,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"MC" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/hideout_real)
 "ME" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
 "MG" = (
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"MK" = (
+/obj/item/wrench,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "MM" = (
 /obj/structure/closet/crate/trashcart/filled,
 /obj/machinery/light/red/dim/directional/east,
@@ -4172,6 +5526,12 @@
 /obj/machinery/light/red/dim/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"MT" = (
+/obj/structure/chair/stool/bar{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "MW" = (
 /turf/open/floor/wood/large,
 /area/gakster_location/war)
@@ -4185,9 +5545,11 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "Nb" = (
-/obj/structure/maintenance_loot_structure/large_crate/military/rare_loot,
-/turf/open/floor/iron/dark/smooth_large,
-/area/gakster_location/war)
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "Nd" = (
 /obj/machinery/light/red/dim/directional/east,
 /turf/open/openspace,
@@ -4208,6 +5570,14 @@
 /obj/item/mecha_parts/part/durand_left_arm,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Nk" = (
+/obj/structure/railing,
+/obj/structure/holosign/barrier/engineering,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Nl" = (
 /obj/structure/chair/office/light{
 	dir = 1
@@ -4233,18 +5603,49 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/south,
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Ns" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/effect/spawner/random/trash/grime,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Nt" = (
+/obj/structure/drain,
+/obj/machinery/shower/directional/west,
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
+"Nu" = (
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Nv" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Nw" = (
+/obj/structure/chair/sofa/bench{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/obj/effect/landmark/latejoin,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
 "Nx" = (
 /obj/structure/curtain,
 /obj/structure/toilet{
@@ -4257,15 +5658,37 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"NB" = (
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "NE" = (
 /obj/structure/rack/shelf,
 /obj/item/mecha_parts/part/durand_right_leg,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"NF" = (
+/obj/machinery/smartfridge/organ,
+/turf/open/floor/catwalk_floor/titanium,
+/area/gakster_location/hideout_real)
 "NG" = (
 /obj/machinery/door/puzzle/keycard/epic_loot_black,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"NJ" = (
+/obj/structure/weightmachine/weightlifter,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
+"NM" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
 "NN" = (
 /obj/structure/stairs/east,
 /turf/open/floor/plating,
@@ -4299,7 +5722,7 @@
 	},
 /obj/effect/landmark/start,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "NW" = (
 /obj/structure/weightmachine,
 /turf/open/floor/iron/smooth,
@@ -4321,8 +5744,9 @@
 "Od" = (
 /obj/structure/holosign/barrier/engineering,
 /obj/structure/railing,
+/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Oi" = (
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/freezer,
@@ -4331,7 +5755,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/red/dim/directional/east,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Om" = (
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/smooth,
@@ -4340,7 +5764,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Oq" = (
 /obj/machinery/computer,
 /obj/machinery/light/cold/dim/directional/north,
@@ -4367,6 +5791,11 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"OG" = (
+/obj/item/choice_beacon/mecha,
+/obj/effect/mob_spawn/corpse/human/roboticist,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "OJ" = (
 /obj/structure/table,
 /obj/machinery/light/dim/directional/east,
@@ -4375,12 +5804,12 @@
 /area/gakster_location/war)
 "OK" = (
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "OM" = (
 /obj/structure/table,
 /obj/item/trash/can/food/tuna,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "OQ" = (
 /obj/structure/table,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/flashbang,
@@ -4428,11 +5857,24 @@
 /obj/machinery/light/warm/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Pq" = (
+/obj/machinery/vending/evil_clothing,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "Pt" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/dim/directional/west,
 /turf/open/openspace,
 /area/gakster_location/war)
+"Pu" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/gakster_location/hideout_real)
 "Py" = (
 /obj/machinery/light/dim/directional/west,
 /obj/effect/turf_decal{
@@ -4446,9 +5888,9 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "PA" = (
-/obj/structure/noticeboard,
-/turf/closed/indestructible/steel,
-/area/gakster_location)
+/obj/structure/barricade/wooden/crude,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "PE" = (
 /obj/structure/maintenance_loot_structure/grenade_box/random,
 /obj/structure/table,
@@ -4489,7 +5931,7 @@
 	dir = 5
 	},
 /turf/open/indestructible/plating,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "PP" = (
 /turf/open/floor/mineral/plastitanium,
 /area/gakster_location/filtre_spawn)
@@ -4512,13 +5954,20 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/war)
+"PW" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "Qd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/order_console/gakster{
 	dir = 4
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Qe" = (
 /obj/machinery/light/cold/dim/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4527,11 +5976,11 @@
 "Qg" = (
 /obj/item/chair/plastic,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Qh" = (
 /obj/structure/sink/directional/north,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Qj" = (
 /obj/structure/deployable_barricade/metal{
 	dir = 8
@@ -4562,6 +6011,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Qr" = (
+/obj/machinery/light/small/dim/directional/north,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "Qs" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /obj/effect/spawner/random/trash/bin,
@@ -4578,6 +6031,12 @@
 	},
 /turf/open/floor/mineral/titanium/tiled,
 /area/gakster_location/filtre_spawn)
+"QB" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "QC" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/east,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -4627,7 +6086,7 @@
 "Rd" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Re" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
@@ -4635,15 +6094,34 @@
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Ri" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Rj" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/decoration/statue,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Rl" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/dim/directional/east,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
+"Rm" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Rn" = (
 /obj/effect/spawner/random/trash/soap,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Ro" = (
 /obj/machinery/light/dim/directional/south,
 /obj/effect/spawner/random/trash/hobo_squat,
@@ -4671,11 +6149,21 @@
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
+"Rv" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Rx" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/emergency/turret,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"RA" = (
+/mob/living/basic/deer/ice,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "RB" = (
 /obj/effect/spawner/random/entertainment/arcade{
 	dir = 8
@@ -4686,7 +6174,12 @@
 /obj/structure/table,
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"RE" = (
+/obj/effect/turf_decal/arrows/red,
+/obj/effect/spawner/random/trash/grime,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "RF" = (
 /obj/structure/maintenance_loot_structure/toolbox/random,
 /obj/structure/table,
@@ -4696,10 +6189,36 @@
 /obj/machinery/light/dim/directional/south,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"RR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "RU" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/south,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"RV" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"RX" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Sb" = (
+/obj/machinery/door/poddoor/shutters/indestructible/preopen,
+/obj/structure/barricade/wooden/crude,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Sf" = (
+/obj/machinery/light/dim/directional/south,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "Sj" = (
 /obj/structure/fluff/tram_rail/electric{
 	dir = 1
@@ -4723,17 +6242,29 @@
 "So" = (
 /obj/structure/table,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Sr" = (
 /obj/effect/turf_decal/arrows/red{
 	dir = 8
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Su" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"Sv" = (
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
+"Sw" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "SB" = (
 /obj/structure/railing{
 	dir = 4
@@ -4753,6 +6284,10 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"SK" = (
+/obj/machinery/light/red/dim/directional/east,
+/turf/open/floor/plating,
+/area/gakster_location/hideout_real)
 "SL" = (
 /obj/structure/closet,
 /obj/item/storage/box/bodybags,
@@ -4761,6 +6296,10 @@
 /obj/item/knife/combat,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/filtre_spawn)
+"SQ" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "SR" = (
 /obj/structure/table,
 /obj/structure/maintenance_loot_structure/gun_box/random,
@@ -4775,6 +6314,10 @@
 /obj/structure/drain,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"SX" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "SZ" = (
 /obj/structure/railing{
 	dir = 8
@@ -4784,6 +6327,15 @@
 	},
 /turf/open/floor/glass,
 /area/gakster_location/war)
+"Ta" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/emcloset,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/hideout_real)
+"Tc" = (
+/obj/structure/closet/crate/large/import,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Td" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/deepmaints_entrance/exit,
@@ -4807,6 +6359,13 @@
 /obj/effect/spawner/random/epic_loot/medical_stack_item,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Tr" = (
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood,
+/area/gakster_location/hideout_real)
 "Tt" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -4818,6 +6377,18 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"Tv" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
+"Tw" = (
+/obj/machinery/vending/deforest_medvend,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "TA" = (
 /obj/structure/stairs/north,
 /obj/structure/railing{
@@ -4853,6 +6424,11 @@
 /obj/effect/spawner/random/trash,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Ub" = (
+/obj/effect/mapping_helpers/airlock/welded,
+/obj/machinery/door/airlock/grunge,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Uc" = (
 /obj/structure/bed/medical/anchored,
 /obj/machinery/light/cold/dim/directional/west,
@@ -4870,15 +6446,21 @@
 /area/gakster_location/war)
 "Ug" = (
 /turf/open/floor/iron/grimy,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Uk" = (
 /obj/machinery/door/puzzle/keycard/epic_loot_green,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
 "Ul" = (
 /obj/machinery/vending/sustenance,
+/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"Um" = (
+/obj/structure/rack/shelf,
+/obj/machinery/light/dim/directional/west,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Un" = (
 /obj/machinery/door/airlock/grunge,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -4903,10 +6485,15 @@
 /obj/structure/table,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Ut" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "Uu" = (
 /obj/effect/spawner/random/trash/graffiti,
 /turf/closed/indestructible/steel,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Uy" = (
 /obj/effect/decal/cleanable/robot_debris/up,
 /turf/open/floor/iron/smooth,
@@ -4918,7 +6505,7 @@
 "UB" = (
 /obj/machinery/light/dim/directional/north,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "UC" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/smooth,
@@ -4927,7 +6514,7 @@
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "UF" = (
 /obj/effect/spawner/random/epic_loot/random_grenade_or_explosive,
 /obj/effect/spawner/random/epic_loot/random_grenade_or_explosive,
@@ -4939,6 +6526,10 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"UI" = (
+/obj/structure/fence,
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "UL" = (
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/floor/iron/smooth_large,
@@ -4950,15 +6541,22 @@
 "UN" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "UP" = (
 /obj/structure/table/reinforced,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "UQ" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/west,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"US" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
+	},
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
 "UT" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -4988,9 +6586,11 @@
 /obj/effect/spawner/random/bedsheet/any,
 /obj/structure/curtain/bounty,
 /obj/effect/landmark/start,
-/obj/effect/landmark/latejoin,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Ve" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/smooth,
@@ -5029,6 +6629,17 @@
 /obj/structure/maintenance_loot_structure/grenade_box/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Vx" = (
+/obj/effect/spawner/random/trash/grime,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Vy" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "VB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
@@ -5039,9 +6650,27 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "VD" = (
-/obj/item/chair/plastic,
-/turf/open/floor/wood,
-/area/gakster_location)
+/obj/structure/rack/shelf,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"VF" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"VG" = (
+/turf/open/floor/catwalk_floor/titanium,
+/area/gakster_location/hideout_real)
+"VI" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "VL" = (
 /obj/structure/table,
 /obj/machinery/light/warm/dim/directional/north,
@@ -5064,6 +6693,13 @@
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"VR" = (
+/obj/structure/decorative/shelf/crates1,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "VS" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/autolathe,
@@ -5073,6 +6709,12 @@
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"VU" = (
+/obj/machinery/door/airlock/multi_tile/metal{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/gakster_location/hideout_real)
 "VV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/trash/garbage,
@@ -5115,6 +6757,10 @@
 /obj/structure/maintenance_loot_structure/toolbox/random,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Wi" = (
+/obj/structure/barricade/wooden/crude,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Wn" = (
 /obj/effect/spawner/random/trash/grime,
 /turf/open/floor/iron/smooth,
@@ -5129,6 +6775,11 @@
 /obj/item/mecha_parts/part/savannah_ivanov_torso,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Ws" = (
+/obj/structure/rack/gunrack,
+/obj/machinery/light/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Wu" = (
 /obj/docking_port/stationary{
 	dir = 4;
@@ -5140,6 +6791,12 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"Wv" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/mecha_wreckage/gygax,
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Wz" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/red/dim/directional/east,
@@ -5150,6 +6807,9 @@
 /obj/item/mecha_ammo/scattershot,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"WB" = (
+/turf/closed/wall,
+/area/gakster_location/hideout_real)
 "WC" = (
 /obj/structure/fluff/metalpole{
 	dir = 8
@@ -5183,6 +6843,16 @@
 /obj/item/mecha_parts/part/durand_right_arm,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"WP" = (
+/mob/living/basic/mega_arachnid{
+	name = "the thing in bay 14";
+	desc = "A ghost story told to new gaksters by veterans. Unfortunately for you, it seems to be very real.";
+	maxHealth = 1000;
+	health = 1000;
+	melee_damage_upper = 60
+	},
+/turf/open/floor/plating,
+/area/gakster_location/war)
 "WR" = (
 /obj/effect/spawner/random/trash/bin,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -5200,6 +6870,10 @@
 /obj/machinery/light/cold/dim/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"WW" = (
+/obj/machinery/barsign/all_access,
+/turf/closed/indestructible/wood,
+/area/gakster_location/hideout_real)
 "WZ" = (
 /obj/structure/chair/office/light,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5215,12 +6889,32 @@
 /obj/effect/spawner/random/trash/caution_sign,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
+"Xd" = (
+/obj/structure/curtain,
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/effect/landmark/start,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "Xf" = (
 /obj/structure/drain,
 /obj/structure/curtain,
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Xi" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Xk" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/medical_stack_item_advanced,
@@ -5241,6 +6935,21 @@
 /obj/item/mecha_ammo/missiles_srm,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Xr" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
+"Xs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/chair/plastic,
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
+"Xu" = (
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "Xw" = (
 /obj/structure/maintenance_loot_structure/medbox/random,
 /turf/open/floor/iron/dark/smooth_large,
@@ -5253,6 +6962,11 @@
 /obj/item/storage/cans/sixbeer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"XB" = (
+/obj/item/surgery_tray/full/deployed,
+/obj/machinery/light/dim/directional/east,
+/turf/open/floor/catwalk_floor/titanium,
+/area/gakster_location/hideout_real)
 "XE" = (
 /obj/structure/railing{
 	dir = 8
@@ -5273,6 +6987,14 @@
 /obj/machinery/light/warm/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"XI" = (
+/obj/effect/spawner/random/trash/mess,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "XM" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -5309,7 +7031,11 @@
 /obj/structure/sink/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/hoteltile,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
+"XX" = (
+/obj/effect/spawner/random/trash/grime,
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "XY" = (
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/iron/smooth,
@@ -5337,11 +7063,17 @@
 "Yg" = (
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Yi" = (
 /obj/item/kirbyplants/random/fullysynthetic,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Yj" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "Yn" = (
 /obj/item/hand_item/circlegame,
 /obj/structure/closet/crate,
@@ -5355,12 +7087,12 @@
 /obj/effect/turf_decal/bot_red,
 /obj/effect/landmark/start,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Yq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/crushed_can,
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Yr" = (
 /obj/structure/reagent_dispensers/water_cooler/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
@@ -5375,30 +7107,34 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "Yv" = (
-/obj/effect/turf_decal/bot_red,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/obj/structure/curtain/bounty/start_closed,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "Yw" = (
-/obj/effect/turf_decal/delivery/red,
-/obj/effect/spawner/random/trash/mess,
-/turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/hideout_real)
 "Yx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/order_console/gakster{
 	dir = 8
 	},
 /turf/open/indestructible/stone,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Yy" = (
 /obj/machinery/vending/assist,
+/obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "YA" = (
 /obj/structure/bed/medical/anchored,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"YB" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/iron/grimy,
+/area/gakster_location/hideout_real)
 "YH" = (
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/wood/large,
@@ -5418,12 +7154,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "YN" = (
-/obj/structure/table/wood/poker,
-/obj/item/toy/cards/deck{
-	pixel_y = 7
-	},
-/turf/open/floor/wood,
-/area/gakster_location)
+/turf/open/chasm,
+/area/gakster_location/hideout_real)
 "YP" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -5467,6 +7199,22 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Zh" = (
+/obj/structure/railing,
+/obj/effect/spawner/random/trash,
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Zk" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Zm" = (
+/mob/living/simple_animal/hostile/megafauna/colossus{
+	current_size = 3
+	},
+/turf/open/chasm,
+/area/gakster_location/outside)
 "Zo" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/west,
 /turf/open/floor/iron/smooth,
@@ -5493,7 +7241,7 @@
 "Zu" = (
 /obj/machinery/vending/evil_clothing,
 /turf/open/indestructible/dark/smooth_large,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "Zw" = (
 /obj/structure/chair/office/light{
 	dir = 4
@@ -5509,19 +7257,38 @@
 /obj/machinery/light/cold/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Zz" = (
+/obj/structure/chair/sofa/bench{
+	dir = 8
+	},
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/dark/diagonal,
+/area/gakster_location/hideout_real)
 "ZB" = (
 /obj/machinery/door/airlock/grunge,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"ZD" = (
+/obj/machinery/mech_bay_recharge_port{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "ZG" = (
 /obj/structure/sign/poster/contraband/smoke/directional/north,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"ZI" = (
+/obj/structure/table,
+/obj/effect/spawner/random/epic_loot/random_other_military_loot/rare_loot,
+/obj/effect/spawner/random/epic_loot/random_other_military_loot/rare_loot,
+/turf/open/floor/iron/dark/smooth_large,
+/area/gakster_location/war)
 "ZJ" = (
 /obj/structure/epic_loot_crafting_bench/war,
 /turf/closed/indestructible/steel,
-/area/gakster_location)
+/area/gakster_location/hideout_real)
 "ZN" = (
 /obj/effect/spawner/random/epic_loot/random_provisions,
 /obj/structure/rack/shelf,
@@ -5539,6 +7306,12 @@
 /obj/structure/table,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"ZT" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/indestructible/stone,
+/area/gakster_location/hideout_real)
 "ZV" = (
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -5548,6 +7321,13 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"ZY" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/chasm,
+/area/gakster_location/hideout_real)
 
 (1,1,1) = {"
 Vi
@@ -7517,7 +9297,7 @@ PH
 PH
 PH
 PH
-PH
+Zm
 PH
 PH
 PH
@@ -12313,7 +14093,7 @@ PH
 PH
 PH
 PH
-PH
+Mk
 PH
 PH
 PH
@@ -17765,7 +19545,7 @@ EH
 EH
 DT
 DT
-oe
+DT
 DT
 DT
 vr
@@ -26631,7 +28411,7 @@ dK
 dK
 dK
 sW
-Ie
+dK
 dK
 dK
 dK
@@ -28769,7 +30549,7 @@ Lh
 Lh
 Lh
 Lh
-tq
+BK
 tq
 tq
 Lh
@@ -32154,7 +33934,7 @@ Fg
 NT
 Fg
 JP
-Sn
+WP
 Sj
 Fg
 NT
@@ -34990,7 +36770,7 @@ vr
 vr
 vr
 NT
-Lh
+ng
 dK
 bM
 NT
@@ -36361,7 +38141,7 @@ Vi
 KK
 Yi
 xH
-cp
+Lr
 xH
 xH
 KK
@@ -36400,7 +38180,7 @@ dK
 Lh
 KK
 Ic
-hz
+fs
 Xq
 KK
 nJ
@@ -36567,13 +38347,13 @@ sB
 EY
 EY
 Gj
-xH
+uL
 xH
 uL
 xH
 xH
 ep
-xH
+uL
 zm
 zm
 Yi
@@ -36605,7 +38385,7 @@ jI
 KK
 Im
 Lh
-hz
+ZI
 KK
 NT
 NT
@@ -36807,9 +38587,9 @@ NT
 dK
 jI
 KK
-ns
+bR
 Lh
-Nb
+GC
 KK
 Ur
 NT
@@ -36973,7 +38753,7 @@ Vi
 KK
 WI
 xH
-xH
+uL
 xH
 WI
 KK
@@ -37013,7 +38793,7 @@ Lh
 KK
 eP
 lq
-hz
+ZI
 JC
 FE
 rZ
@@ -37081,11 +38861,11 @@ gm
 KK
 Xb
 tD
-xH
+uL
 AV
 cp
 xH
-xH
+uL
 KK
 WI
 WI
@@ -37215,7 +38995,7 @@ NT
 dK
 tq
 KK
-ns
+bR
 Lh
 Lh
 sF
@@ -38705,7 +40485,7 @@ Vi
 (26,1,4) = {"
 Vi
 KK
-Nb
+yO
 Lh
 Lh
 Lh
@@ -38807,10 +40587,10 @@ Vi
 (27,1,4) = {"
 Vi
 KK
-ns
-Lh
+bR
+OG
 YL
-ns
+bR
 KK
 Lh
 dK
@@ -41187,7 +42967,7 @@ eR
 LJ
 TN
 Iu
-Ya
+gE
 dK
 dK
 tq
@@ -41195,19 +42975,19 @@ si
 eB
 Fg
 Sn
-Sn
+cb
 Sn
 Fg
 Kb
 Fg
 Sn
-Sn
+cb
 Sn
 Fg
 eB
 Fg
 Sn
-Sn
+cb
 Sn
 Fg
 eB
@@ -41489,7 +43269,7 @@ NT
 NT
 NT
 NT
-Ya
+gE
 NT
 NT
 NT
@@ -46608,29 +48388,29 @@ Vi
 Vi
 Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -46709,31 +48489,31 @@ Vi
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -46811,31 +48591,31 @@ Vi
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -46913,31 +48693,31 @@ Vi
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -46999,66 +48779,66 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
 KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-fr
-fr
-fr
-KC
-Vi
-Vi
-Vi
-KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -47101,67 +48881,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 BU
 LE
 DB
-fr
-DB
+Ea
+HC
 LE
 DB
-fr
-DB
+Ea
+HC
 LE
 DB
-fr
-DB
+Ea
+HC
 LE
 DB
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -47203,67 +48983,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 kg
 MG
 Qh
-fr
+Ea
 kg
 MG
 XW
-fr
+Ea
 kg
 cB
 Qh
-fr
+Ea
 kg
 Rd
 Qh
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -47305,67 +49085,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+tn
+cB
+vd
+Ea
+tn
+MG
+vd
+Ea
+tn
+MG
+vd
+Ea
 qN
 cB
-qN
-fr
-qN
-MG
-qN
-fr
-qN
-MG
-qN
-fr
-qN
-cB
-qN
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-FN
-fr
-fr
-fr
-fr
-fr
+vd
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+zP
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -47407,66 +49187,66 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
 mz
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-OK
+wB
 Mc
 OK
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -47509,67 +49289,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-eK
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Ea
+Ea
+Ea
+Ea
+Ea
+wj
 yY
-as
-fr
-as
+jW
+Ea
+kK
 Cf
 eK
-fr
-eK
+Ea
+wj
 yY
-as
-fr
-as
+jW
+Ea
+kK
 yY
 eK
-fr
-BL
+Ea
+dS
 dN
-aO
+Sw
 Uu
-aO
-aO
+Sw
+Sw
 gp
 KC
-aO
+Sw
 aL
 Hy
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 jk
 yY
-rm
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -47611,44 +49391,44 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Ea
+Ea
+Ea
+Ea
+Ea
 ay
 yY
 Zu
-fr
+Ea
 BY
 yY
 LQ
-fr
+Ea
 Bx
 yY
 Zu
-fr
+Ea
 BY
 mV
 OM
-fr
-hl
+Ea
+Me
 yY
 HD
 Is
@@ -47658,20 +49438,20 @@ ab
 Is
 yY
 yY
-rm
-fr
-fr
-fr
-fr
-fr
-hl
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
 Ha
 Od
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -47713,44 +49493,44 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-Vc
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Ea
+Ea
+Ea
+Ea
+Ea
+xM
 Cf
 as
-fr
-as
+Ea
+rs
 yY
 Vc
-fr
-Vc
+Ea
+xM
 yY
 as
-fr
-as
+Ea
+rs
 yY
 Vc
-fr
-hl
+Ea
+Me
 Cf
 FN
 Mc
@@ -47760,20 +49540,20 @@ UN
 Mc
 FN
 rp
-rm
-fr
-fr
-fr
-fr
-fr
-hl
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
 rp
-rm
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -47815,42 +49595,42 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+KC
+Ea
+Ea
+Ea
+KC
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 Uu
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
 La
 Cl
@@ -47864,21 +49644,21 @@ KC
 Cl
 La
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 OK
 Mc
 OK
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -47917,43 +49697,43 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-BL
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Cs
+lx
+lx
+FN
+Cs
 yY
-aO
+Sw
 Bl
-aO
+Sw
 yY
-aO
+Sw
 ag
-aO
+Sw
 yY
-aO
+Sw
 Bl
-aO
+Sw
 Cf
-aO
-fr
+Rm
+Ea
 Ns
 dE
 KC
@@ -47964,24 +49744,24 @@ vY
 pL
 KC
 ca
-rm
-fr
-BL
-aO
-aO
+Kk
+Ea
+dS
+Sw
+Sw
 el
 kr
 yY
 uZ
 el
-aO
+Sw
 gp
 Hy
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 "}
@@ -48019,37 +49799,37 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
 hl
+Jo
+FN
+gU
+FN
 mV
 HD
 Cl
 yY
-xR
+yY
 HD
 Mc
 yY
-xR
+yY
 HD
 Cl
 yY
@@ -48079,11 +49859,11 @@ Mc
 HD
 Mo
 fT
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 "}
@@ -48121,30 +49901,30 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-PO
-Ma
-Ma
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+BL
+aO
+FN
+FN
+FN
+FN
+gy
+FN
+FN
 Ch
 FN
 yY
@@ -48154,11 +49934,11 @@ gy
 yY
 FN
 Ch
-Ma
-Ma
-Ma
-fr
-hl
+AD
+AD
+KE
+Ea
+Me
 yY
 KC
 ca
@@ -48168,24 +49948,24 @@ Yg
 oA
 KC
 Cf
-rm
-fr
-PO
-Ma
-Ma
+Kk
+Ea
+Cg
+AD
+AD
 re
 FN
 Cf
 FN
 re
 De
-Ma
+AD
 aR
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 "}
@@ -48223,31 +50003,31 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-EB
-CU
 YN
-PA
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+BL
+uZ
+FN
+FN
+uZ
+FN
+FN
+FN
+CU
+mE
+KC
 ag
 Mc
 Hd
@@ -48256,9 +50036,9 @@ Hd
 Mc
 ag
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 ez
 Mc
@@ -48272,21 +50052,21 @@ KC
 Mc
 sT
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 OK
 Mc
 OK
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -48325,43 +50105,43 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-hf
-ag
-gK
-VD
 Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+hl
+Jo
+FN
+FN
+mR
+FN
+FN
+FN
+FN
+FN
+ag
 NV
 NV
 yY
 UD
 NV
 yY
-NV
-fr
-fr
-fr
-fr
-Zu
+Tv
+Ea
+Ea
+Ea
+Ea
+Pq
 yY
 KS
 gi
@@ -48374,18 +50154,18 @@ gi
 Sr
 yY
 Yy
-fr
-fr
-fr
-fr
-hl
+Ea
+Ea
+Ea
+Ea
+Me
 Sr
-rm
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -48427,67 +50207,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-tM
-fr
-uU
-Yv
-Be
-wu
-qo
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+ks
+FN
+FN
+gk
+rb
+FN
+FN
+FN
+FN
+FN
+Mc
 UP
 UP
 yY
 Mc
 UP
 On
-UP
-fr
-fr
-fr
-fr
-Zu
+Ut
+Ea
+Ea
+Ea
+Ea
+Pq
 yY
-yY
+xR
 Cl
 Gt
 UP
 Km
-uJ
+UP
 UP
 Yo
 yY
 yY
 Ul
-fr
-fr
-fr
-fr
-hl
+Ea
+Ea
+Ea
+Ea
+Me
 yY
-ld
-fr
-fr
-fr
-fr
-fr
+vE
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -48529,43 +50309,43 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-Yw
-AD
-hc
-DA
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+hl
+Jo
+FN
+FN
+Lk
+Ie
+FN
+FN
+FN
+FN
+ag
 Yq
 Cy
 yY
 Dj
 Cf
 Cy
-Cy
-fr
-fr
-fr
-fr
-Zu
+lX
+Ea
+Ea
+Ea
+Ea
+Pq
 Cf
 rp
 gi
@@ -48578,18 +50358,18 @@ gi
 rp
 yY
 eE
-fr
-fr
-fr
-fr
-hl
+Ea
+Ea
+Ea
+Ea
+Me
 rp
-rm
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -48631,31 +50411,31 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-Ug
-Uu
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+PO
+FN
+Cx
+FN
+EZ
+FN
+FN
+uZ
+FN
+mE
+KC
 ag
 Mc
 Hd
@@ -48664,9 +50444,9 @@ Hd
 Mc
 ag
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 ez
 Mc
@@ -48680,21 +50460,21 @@ KC
 Mc
 sT
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 Uu
 tX
 Mc
 OK
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -48733,30 +50513,30 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-BL
-aO
-aO
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+hl
+FN
+FN
+FN
+FN
+kV
+FN
+FN
+FN
 DU
 FN
 yY
@@ -48767,10 +50547,10 @@ yY
 FN
 DU
 aL
-aO
-aO
-fr
-hl
+Sw
+Rm
+Ea
+Me
 yY
 KC
 ca
@@ -48780,24 +50560,24 @@ lj
 oA
 KC
 yY
-rm
-fr
-BL
-aO
-aO
+Kk
+Ea
+dS
+Sw
+Sw
 el
 xF
 yY
 FN
 el
 gp
-aO
+Sw
 vW
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 "}
@@ -48835,37 +50615,37 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
 hl
+FN
+gy
+Jo
+FN
+FN
+FN
 Cf
 id
 Cl
 yY
-xR
+yY
 HD
 Mc
 yY
-xR
+yY
 HD
 Cl
 yY
@@ -48895,11 +50675,11 @@ Mc
 HD
 Mo
 ab
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 "}
@@ -48937,44 +50717,44 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
 PO
+Ma
+AD
+AD
+tl
+FN
+tl
 yY
 DJ
 JG
-Ma
+AD
 yY
-Ma
+AD
 ag
-Ma
+AD
 yY
-Ma
+AD
 JG
-Ma
+AD
 Cf
-Ma
-fr
-hl
+KE
+Ea
+Me
 rR
 KC
 pL
@@ -48984,24 +50764,24 @@ vy
 ZJ
 KC
 ca
-rm
-fr
-PO
-Ma
-Ma
+Kk
+Ea
+Cg
+AD
+AD
 re
 FN
 Cf
 zy
 re
-Ma
+AD
 De
 aR
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 "}
@@ -49039,42 +50819,42 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+KC
+Ea
+Ea
+Ea
+KC
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
 La
 Cl
@@ -49088,21 +50868,21 @@ KC
 Cl
 La
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 OK
 Mc
 OK
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -49141,67 +50921,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-eK
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Ea
+Ea
+Ea
+Ea
+Ea
+wj
 yY
-as
-fr
+jW
+Ea
 yx
 yY
 eK
-fr
-eK
+Ea
+wj
 yY
-as
-fr
-as
+jW
+Ea
+kK
 yY
 eK
-fr
-hl
+Ea
+Me
 yY
 gy
 Mc
 yY
 rp
-UN
+cL
 Mc
 FN
 Sr
-rm
-fr
-fr
-fr
-fr
-fr
-hl
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
 Sr
-rm
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -49243,44 +51023,44 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Ea
+Ea
+Ea
+Ea
+Ea
 Bx
 yY
 Zu
-fr
+Ea
 BY
 yY
 So
-fr
+Ea
 Bx
 yY
 Zu
-fr
+Ea
 BY
 yY
 RC
-fr
-hl
+Ea
+Me
 Cf
 HD
 Ok
@@ -49290,20 +51070,20 @@ ab
 Ok
 yY
 nh
-rm
-fr
-fr
-fr
-fr
-fr
-ks
-Ha
-Od
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+mx
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -49345,67 +51125,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-Vc
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+Ea
+Ea
+Ea
+Ea
+Ea
+xM
 Cf
 as
-fr
-as
+Ea
+rs
 yY
 Vc
-fr
-Vc
+Ea
+xM
 yY
 as
-fr
-as
+Ea
+rs
 yY
 Vc
-fr
-PO
-Ma
-Ma
+Ea
+Cg
+AD
+AD
 KC
-Ma
+AD
 De
-Ma
+AD
 KC
-Ma
-Ma
+AD
+AD
 aR
-fr
-fr
-fr
-fr
-fr
-hl
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
 yY
-rm
-fr
-fr
-fr
-fr
-fr
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -49447,66 +51227,66 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
+Ea
 EK
-fr
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-wB
 OK
+Mc
 OK
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -49549,67 +51329,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-GY
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Xd
 MG
 GY
-fr
-GY
+Ea
+zq
 cB
 GY
-fr
-GY
+Ea
+Xd
 MG
 GY
-fr
-GY
+Ea
+Xd
 cB
 GY
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-FN
-FN
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -49651,67 +51431,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 kg
 Rn
 Qh
-fr
+Ea
 DN
 wW
 Qh
-fr
+Ea
 Lf
 cB
 Qh
-fr
+Ea
 kg
 MG
 XW
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Do
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -49753,67 +51533,67 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
-pT
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Nt
 iE
 pT
-fr
-pT
+Ea
+Nt
 iE
 pT
-fr
-pT
+Ea
+Nt
 iE
 pT
-fr
-pT
+Ea
+Nt
 iE
 pT
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-Vi
-Vi
-Vi
-fr
-fr
-fr
-fr
-fr
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+tC
+yY
+wl
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -49855,66 +51635,66 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Uu
+Ea
+Ea
+Ea
+KC
+Ea
+KU
+Ea
+KC
+Ea
+Ea
+Ea
 KC
 Vi
 Vi
@@ -49973,51 +51753,51 @@ Vi
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+YN
+YN
+YN
+YN
+YN
+YN
+jG
+rx
+YN
+YN
+KC
+OK
+Mc
+OK
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -50075,51 +51855,51 @@ Vi
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+tM
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+hl
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50177,51 +51957,51 @@ Vi
 Vi
 Vi
 Vi
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-fr
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+ks
+yY
+Zh
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50280,50 +52060,50 @@ Vi
 Vi
 Vi
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
+Ea
+Ea
+Ea
 KC
-fr
-fr
-fr
-KC
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+hl
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50385,47 +52165,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Uu
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Uu
+Ea
+Ea
+Ea
+KC
+YN
+YN
+YN
+YN
+YN
+WB
+WB
+WB
+YN
+YN
+YN
+YN
+bY
+Mc
+Lp
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -50487,47 +52267,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+dS
+ES
+Sw
+el
+Sw
+Sw
+Sw
+el
+bx
+Sw
+Sw
+el
+Sw
+Sw
+Sw
+el
+ZY
+ZY
+ZY
+ZY
+ZY
+jG
+jm
+jG
+ZY
+ZY
+ZY
+ZY
+FN
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50589,47 +52369,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Yj
+Cf
+RE
+Mc
+wi
+LK
+HD
+Mc
+wi
+Cf
+HD
+Mc
+wi
+Cf
+HD
+Mc
+jG
+jG
+jG
+jG
+jG
+jG
+yi
+jG
+jG
+jG
+jG
+jG
+FN
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50691,47 +52471,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Cg
+yY
+AD
+re
+AD
+yY
+AD
+re
+Aw
+yY
+AD
+re
+AD
+ZT
+AD
+re
+qo
+qo
+qo
+rn
+qo
+jG
+SK
+jG
+qo
+qo
+qo
+qo
+FN
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50793,47 +52573,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+KU
+Ea
+KC
+Ea
+KU
+Ea
+KC
+Ea
+KU
+Ea
+KC
+Ea
+Ea
+Ea
+Uu
+YN
+YN
+YN
+YN
+YN
+WB
+WB
+WB
+YN
+YN
+YN
+YN
+bY
+Mc
+Lp
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -50895,47 +52675,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+VR
+yY
+IH
+yP
+IH
+yY
+VF
+fO
+dg
+Cf
+IH
+KC
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+GL
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -50997,47 +52777,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+EB
+Cf
+iZ
+xv
+xv
+yY
+ZT
+ZT
+ZT
+yY
+sk
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+ks
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -51099,47 +52879,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Fd
+yY
+xR
+yY
+yY
+GQ
+FN
+FN
+mT
+Yj
+oj
+Ea
+Ea
+Ea
+Ea
+Ea
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+YN
+hl
+yY
+vE
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -51201,47 +52981,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+kj
+XX
+Cf
+yY
+yY
+XX
+Ho
+Nb
+Nb
+Cf
+Vx
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+YN
+YN
+rx
+YN
+YN
+YN
+vO
+vO
+vO
+vO
+KC
+bY
+Mc
+OK
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -51303,47 +53083,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+iZ
+yY
+yY
+FN
+Tc
+xv
+FN
+FN
+yY
+yY
+FN
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+KU
+Ea
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -51405,47 +53185,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+nR
+so
+so
+DA
+DA
+Lv
+Gb
+VU
+Lv
+DA
+DA
+DA
+Lv
+Gb
+VU
+Lv
+DA
+DA
+sA
+sA
+Be
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+is
+Cf
+Ag
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -51507,47 +53287,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Fs
+EL
+DA
+DA
+jR
+bo
+og
+MC
+jR
+US
+DA
+tB
+US
+og
+MC
+jR
+US
+DA
+DA
+jd
+uB
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -51609,47 +53389,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+jq
+DS
+DA
+Ta
+Yw
+Fq
+Fq
+Yw
+Fq
+Yw
+IN
+Fq
+Yw
+Yw
+Fq
+Fq
+Fq
+Ta
+DA
+DS
+JN
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -51711,47 +53491,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+nR
+so
+DA
+DA
+pq
+Js
+Zz
+Zz
+Nw
+NM
+DA
+pq
+Js
+kI
+Zz
+Js
+NM
+DA
+DA
+so
+uB
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Uu
+OK
+Mc
+Lp
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -51813,47 +53593,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Fs
+EL
+EL
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+DA
+zC
+zC
+gJ
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -51915,47 +53695,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Do
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -52017,47 +53797,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+wM
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -52119,47 +53899,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+UB
+Mc
+OK
+KC
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -52221,47 +54001,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Me
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -52323,47 +54103,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Do
+Cf
+dp
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 Vi
 Vi
@@ -52425,47 +54205,47 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+tC
+yY
+wl
+Ea
+Ea
+Ea
+Ea
+KC
 Vi
 Vi
 Vi
@@ -52522,57 +54302,57 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+uJ
+uJ
+uJ
+uJ
+uJ
+Ea
+KU
+Ea
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (62,1,5) = {"
@@ -52624,57 +54404,57 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+uJ
+uJ
+uJ
+Ug
+Ca
+Ug
+Mx
+lx
+yY
+Ag
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (63,1,5) = {"
@@ -52726,57 +54506,57 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+wJ
+Xi
+Xi
+lx
+Eo
+Ea
+ur
+XI
+wG
+Ea
+Ea
+uJ
+uJ
+uJ
+uJ
+uJ
+gC
+eU
+Xs
+eu
+hR
+WW
+uZ
+Cf
+dp
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (64,1,5) = {"
@@ -52828,57 +54608,57 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ap
+Zk
+Ea
+Ea
+wa
+VI
+Ea
+Ea
+Ea
+Yv
+Ea
+Ea
+uJ
+hq
+mY
+gK
+gK
+HY
+ib
+ib
+ib
+ar
+uJ
+FN
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (65,1,5) = {"
@@ -52928,59 +54708,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+FC
+Zk
+Ea
+Ea
+fv
+Sv
+Sv
+Sv
+Sv
+Sv
+Sv
+Sv
+KN
+wf
+gK
+SX
+gK
+gK
+gK
+im
+gK
+YB
+Mx
+OK
+Mc
+OK
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (66,1,5) = {"
@@ -53030,59 +54810,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+QB
+lx
+bj
+Eo
+Ea
+Ea
+Ea
+Ea
+KC
+gy
+gy
+KC
+Ea
+Ea
+Ea
+Sv
+Sv
+Sv
+Sv
+Sv
+wr
+uJ
+gK
+LY
+ns
+ns
+ns
+Tr
+ns
+gK
+zf
+Mx
+FN
+Cf
+Kk
+Ea
+Ea
+Ea
+uU
+uU
+uU
+Gd
+uU
+Ea
+Ea
 Vi
 "}
 (67,1,5) = {"
@@ -53132,59 +54912,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+QB
+FN
+FN
+FN
+FN
+Eo
+Ea
+Ea
+Ea
+KC
+KC
+KC
+KC
+KC
+Ea
+Ah
+Ah
+Ah
+Ah
+hk
+Sv
+Sv
+Mh
+gK
+io
+LY
+LY
+Ey
+LY
+qf
+SX
+gK
+uJ
+il
+Cf
+Kk
+Ea
+Ea
+Ea
+uU
+aK
+hS
+sG
+uU
+Ea
+Ea
 Vi
 "}
 (68,1,5) = {"
@@ -53234,59 +55014,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+nD
+RA
+FN
+FN
+FN
+FN
+Eo
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+eF
+FN
+FN
+hA
+FN
+FN
+PW
+Sv
+Sv
+Mh
+gK
+gK
+gK
+im
+SX
+gK
+LY
+MT
+gK
+sq
+FN
+yY
+ld
+uU
+uU
+uU
+uU
+uU
+DI
+hS
+uU
+Ea
+Ea
 Vi
 "}
 (69,1,5) = {"
@@ -53336,59 +55116,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Jt
+FN
+FN
+FN
+FN
+FN
+uk
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+zU
+Eh
+FN
+FN
+FN
+hw
+PW
+Sv
+Sv
+uJ
+Ao
+dh
+Ao
+Dx
+hf
+gK
+Rl
+KH
+gK
+uJ
+OK
+Mc
+Lp
+uU
+Vy
+AA
+hS
+Xu
+hS
+Sf
+uU
+uU
+Ea
 Vi
 "}
 (70,1,5) = {"
@@ -53438,59 +55218,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+QB
+FN
+FN
+FN
+FN
+FN
+FN
+Zk
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+DM
+lF
+FN
+FN
+FN
+hw
+PW
+Sv
+Sv
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+uJ
+dz
+FN
+Cf
+ld
+Mx
+hS
+hS
+rl
+uU
+hS
+hS
+hS
+uU
+Ea
 Vi
 "}
 (71,1,5) = {"
@@ -53540,59 +55320,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+nf
+FN
+FN
+FN
+FN
+FN
+FN
+Zk
+Sv
+Ea
+Ea
+Ea
+KC
+KC
+KC
+Jc
+Jw
+Jw
+Jw
+Rv
+Xr
+kT
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+gY
+RR
+yY
+ld
+Mx
+hS
+aX
+hS
+uU
+Tw
+wF
+lA
+uU
+Ea
 Vi
 "}
 (72,1,5) = {"
@@ -53642,59 +55422,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+Jt
+FN
+FN
+yz
+FN
+FN
+mO
+Sv
+Ea
+Ea
+Ea
+Ea
+NJ
+OK
+FN
+FN
+qL
+FN
+FN
+Xr
+Zk
+Ea
+Ea
+Ea
+KC
+KC
+ZJ
+vy
+vY
+pL
+KC
+Ea
+Sv
+Jt
+Cf
+ld
+uU
+rl
+aX
+Sf
+uU
+uU
+uU
+uU
+uU
+Ea
 Vi
 "}
 (73,1,5) = {"
@@ -53744,59 +55524,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+hc
+FN
+FN
+vg
+vg
+su
+cF
+SQ
+KC
+Ea
+Ea
+Ea
+zU
+fo
+RX
+qU
+qU
+qU
+RV
+AM
+FN
+KC
+Ea
+Ea
+KC
+gO
+FN
+VD
+Um
+VD
+KC
+Ea
+KC
+UB
+Mc
+OK
+Xu
+hS
+aX
+jv
+uU
+ah
+hS
+Fn
+Ea
+Ea
 Vi
 "}
 (74,1,5) = {"
@@ -53846,59 +55626,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+Sv
+hc
+tl
+Wi
+zR
+VI
+SQ
+Sv
+Ea
+Ea
+Ea
+Ea
+DM
+BO
+lF
+FN
+FN
+FN
+hw
+Xr
+FN
+tl
+Xi
+lx
+KC
+Ek
+uZ
+FN
+FN
+uZ
+KC
+Ea
+bp
+Jt
+yY
+rm
+uU
+hS
+aX
+aX
+uU
+Qr
+rl
+uU
+Ea
+Ea
 Vi
 "}
 (75,1,5) = {"
@@ -53948,59 +55728,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+NB
+SQ
+SQ
+Dv
+mO
+Sv
+Sv
+Sv
+Ea
+Ea
+Ea
+KC
+KC
+KC
+Ri
+FN
+FN
+FN
+hw
+Xr
+Zk
+Ea
+Ea
+Jt
+KC
+Mz
+FN
+FN
+fg
+rA
+KC
+Ea
+uH
+RR
+yY
+rm
+Mx
+hS
+hS
+Fy
+GZ
+oL
+hS
+uU
+Ea
+Ea
 Vi
 "}
 (76,1,5) = {"
@@ -54050,59 +55830,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+Sv
+SQ
+Sv
+Sv
+Sv
+Sv
+Sv
+Ea
+Ea
+Ea
+Ea
+KC
+rw
+FN
+FN
+aN
+FN
+FN
+Xr
+Gf
+Ea
+QB
+tl
+KC
+KC
+KC
+FN
+FN
+FN
+KC
+Ea
+gR
+oe
+Cf
+rm
+uU
+uU
+AR
+uU
+uU
+Xu
+uU
+uU
+Ea
+Ea
 Vi
 "}
 (77,1,5) = {"
@@ -54152,59 +55932,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+Sv
+PA
+SQ
+KC
+Sv
+kP
+Sv
+KC
+Ea
+Ea
+Ea
+KC
+UI
+UI
+UI
+UI
+UI
+UI
+Ld
+KC
+Ea
+nA
+Ea
+KC
+Ea
+KC
+rA
+rA
+FQ
+KC
+Ea
+KC
+OK
+Mc
+Lp
+KC
+uU
+uU
+uU
+Kz
+VG
+VG
+uU
+Ea
+Ea
 Vi
 "}
 (78,1,5) = {"
@@ -54254,59 +56034,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+SQ
+Sv
+el
+lx
+lx
+lx
+OK
+Sw
+Sw
+Sw
+el
+FN
+FN
+FN
+OK
+FN
+FN
+FN
+OK
+Sw
+yY
+Sw
+el
+Sw
+FN
+FN
+OK
+FN
+FN
+Sw
+el
+FN
+yY
+Kk
+Ea
+Ea
+Ea
+uU
+VG
+bO
+eM
+uU
+Ea
+Ea
 Vi
 "}
 (79,1,5) = {"
@@ -54356,59 +56136,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Mc
+Ha
+yY
+yY
+Mc
+yY
+yY
+yY
+Mc
+yY
+yY
+yY
+Mc
+yY
+yY
+yY
+Mc
+yY
+yY
+yY
+Mc
+yY
+yY
+yY
+Mc
+yY
+yY
+yY
+Mc
+yY
+yY
+Kk
+Ea
+Ea
+Ea
+uU
+NF
+XB
+VG
+uU
+Ea
+Ea
 Vi
 "}
 (80,1,5) = {"
@@ -54458,59 +56238,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+OK
+AD
+AD
+AD
+re
+AD
+AD
+FN
+OK
+FN
+FN
+FN
+OK
+fr
+AD
+AD
+re
+AD
+AD
+AD
+OK
+fr
+FN
+FN
+OK
+FN
+FN
+AD
+OK
+FN
+yY
+Kk
+Ea
+Ea
+Ea
+uU
+uU
+uU
+uU
+uU
+Ea
+Ea
 Vi
 "}
 (81,1,5) = {"
@@ -54560,59 +56340,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+KC
+Ub
+KC
+aS
+Sb
+aS
+KC
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+KC
+KC
+VD
+FN
+FN
+VD
+KC
+Ea
+KC
+UB
+Mc
+OK
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (82,1,5) = {"
@@ -54662,59 +56442,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+ry
+iq
+ry
+oo
+ry
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+VD
+FN
+FN
+VD
+KC
+Ea
+Ea
+Me
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (83,1,5) = {"
@@ -54764,59 +56544,59 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Io
+ry
+pX
+nx
+Wv
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+VD
+FN
+FN
+FN
+KC
+Ea
+Ea
+Do
+Cf
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (84,1,5) = {"
@@ -54871,54 +56651,54 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+ry
+ry
+ZD
+yo
+Bm
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+KC
+rA
+rA
+FQ
+KC
+Ea
+Ea
+Me
+yY
+Kk
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (85,1,5) = {"
@@ -54973,54 +56753,54 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+ie
+Ea
+Ea
+Ea
+Ea
+KC
+KC
+wu
+Ke
+ry
+aC
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+dW
+FN
+FN
+FN
+KC
+Ea
+KC
+OK
+Mc
+Lp
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (86,1,5) = {"
@@ -55075,54 +56855,54 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+jb
+jb
+hu
+ry
+ry
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ws
+FN
+VD
+VD
+KC
+Ea
+Ea
+Me
+yY
+Kk
+Sv
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (87,1,5) = {"
@@ -55177,54 +56957,54 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+pe
+fK
+hu
+ch
+KC
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+KC
+KC
+VD
+FN
+FN
+FN
+KC
+Ea
+Ea
+Me
+yY
+dp
+Sv
+SQ
+Sv
+QB
+lx
+bj
+Eo
+Ea
+Ea
+Ea
 Vi
 "}
 (88,1,5) = {"
@@ -55282,51 +57062,51 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Kn
+Hl
+jb
+qp
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Mz
+FN
+FN
+FN
+VD
+VD
+KC
+Ea
+Ea
+tC
+Cf
+Nk
+Sv
+SQ
+Sv
+Jt
+FN
+FN
+Zk
+Ea
+Ea
+Ea
 Vi
 "}
 (89,1,5) = {"
@@ -55384,51 +57164,51 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+KC
+KC
+KC
+KC
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+rA
+FN
+FN
+FN
+FN
+FN
+KC
+Ea
+Ea
+kP
+Sv
+Sv
+Sv
+PA
+Sv
+Jt
+FN
+FN
+FN
+Eo
+Ea
+Ea
 Vi
 "}
 (90,1,5) = {"
@@ -55489,48 +57269,48 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+gO
+gO
+VD
+VD
+CQ
+VD
+KC
+Ea
+Ea
+Sv
+Sv
+SQ
+Sv
+SQ
+QB
+FN
+FN
+FN
+FN
+uk
+KC
+Ea
 Vi
 "}
 (91,1,5) = {"
@@ -55598,41 +57378,41 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+KC
+KC
+ZJ
+vy
+vY
+pL
+KC
+Ea
+Ea
+SQ
+SQ
+PA
+SQ
+SQ
+Jt
+FN
+FN
+FN
+FN
+VI
+Ea
+Ea
 Vi
 "}
 (92,1,5) = {"
@@ -55700,41 +57480,41 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Sv
+SQ
+Sv
+nz
+zR
+FN
+FN
+FN
+Zk
+Ea
+Ea
+Ea
 Vi
 "}
 (93,1,5) = {"
@@ -55802,41 +57582,41 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+eb
+Nu
+tl
+MK
+FN
+FN
+tl
+KC
+Ea
+Ea
 Vi
 "}
 (94,1,5) = {"
@@ -55911,34 +57691,34 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Pu
+Ea
+Ea
+hc
+fr
+VI
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (95,1,5) = {"
@@ -56024,23 +57804,23 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+KC
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (96,1,5) = {"
@@ -56126,23 +57906,23 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (97,1,5) = {"
@@ -56228,23 +58008,23 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
+Ea
 Vi
 "}
 (98,1,5) = {"

@@ -35,6 +35,7 @@
 
 	. += span_notice("<b>Medical Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> frontier first aid kit.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> premium robotic repair kit.")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> 'Secotr 9 Special' autoinjector.")
 
 	return .

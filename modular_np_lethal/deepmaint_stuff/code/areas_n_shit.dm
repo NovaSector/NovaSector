@@ -10,6 +10,9 @@
 /area/gakster_location/filtre_spawn
 	name = "RLOS Relicten"
 
+/area/gakster_location/hideout_real
+	name = "Hideout (Real)"
+
 /area/gakster_location/war
 	name = "The Location"
 	ambience_index = AMBIENCE_RUINS

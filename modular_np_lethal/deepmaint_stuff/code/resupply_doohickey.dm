@@ -20,6 +20,7 @@
 				/obj/item/storage/pill_bottle/iron = INFINITY,
 				/obj/item/reagent_containers/hypospray/medipen/ekit = INFINITY,
 				/obj/item/reagent_containers/hypospray/medipen/glucose/synth_charger = INFINITY,
+				/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = INFINITY,
 				/obj/item/reagent_containers/pill/robotic_patch/synth_repair = INFINITY,
 				/obj/item/stack/medical/wound_recovery/robofoam = INFINITY,
 				/obj/item/storage/medkit/combat_surgeon/organ/stocked = INFINITY,

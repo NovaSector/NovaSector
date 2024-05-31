@@ -18,6 +18,7 @@
 		/datum/crafting_bench_recipe_real/super_surgical_kit,
 		/datum/crafting_bench_recipe_real/super_medkit_ultra,
 		/datum/crafting_bench_recipe_real/slewa,
+		/datum/crafting_bench_recipe_real/robo_kit_preemo,
 		/datum/crafting_bench_recipe_real/cms,
 	)
 
@@ -33,6 +34,7 @@
 	. += span_notice("<b>2</b> ID card = <b>1</b> medical case")
 	. += span_notice("<b>1</b> silver chainlet = <b>1</b> civil defense medical kit")
 	. += span_notice("<b>1</b> press pass = <b>1</b> frontier first aid kit")
+	. += span_notice("<b>1</b> press pass = <b>1</b> premium robotic repair kit")
 	. += span_notice("<b>1</b> eyes = <b>1</b> combat surgeon kit")
 	. += span_notice("<b>1</b> vein finder = <b>1</b> satchel first aid kit")
 	. += span_notice("<b>1</b> eye scope = <b>1</b> first responder surgical kit")
@@ -108,6 +110,13 @@
 		/obj/item/epic_loot/press_pass = 1,
 	)
 	resulting_item = /obj/item/storage/medkit/frontier/stocked
+
+/datum/crafting_bench_recipe_real/robo_kit_preemo
+	recipe_name = "premium robotic repair kit"
+	recipe_requirements = list(
+		/obj/item/epic_loot/press_pass = 1,
+	)
+	resulting_item = /obj/item/storage/medkit/robotic_repair/preemo/stocked
 
 /datum/crafting_bench_recipe_real/cms
 	recipe_name = "combat surgeon kit"
