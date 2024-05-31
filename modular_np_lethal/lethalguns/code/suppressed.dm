@@ -85,6 +85,7 @@
 	icon_state = "gureibu"
 
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c12chinmoku
+	spread = 10
 
 	/// The stored under-barrel grenade launcher for this weapon
 	var/obj/item/gun/ballistic/revolver/grenadelauncher/tydhouer/underbarrel

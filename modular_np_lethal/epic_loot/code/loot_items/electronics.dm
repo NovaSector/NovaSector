@@ -71,7 +71,7 @@
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> seiba submachinegun.")
 	. += span_notice("<b>Armor Trade Station:</b>")
-	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> CIN surplus helmet.")
+	. += span_notice("- <b>2</b> of these can be traded for <b>1</b> CIN surplus helmet.")
 
 	return .
 

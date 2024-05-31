@@ -37,3 +37,11 @@
 	. = ..()
 	icon_state = pick(random_icon_states)
 	update_appearance()
+
+/obj/structure/maintenance_loot_structure/military_case/random/rare_loot
+	loot_weighted_list = list(
+		/obj/effect/spawner/random/epic_loot/random_other_military_loot/rare_loot = 8,
+		/obj/effect/spawner/random/epic_loot/random_ammunition = 6,
+		/obj/effect/spawner/random/epic_loot/random_silly_arms = 2,
+		/obj/effect/spawner/random/epic_loot/random_serious_arms = 1,
+	)

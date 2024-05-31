@@ -18,11 +18,10 @@
 		/datum/crafting_bench_recipe_real/cin_helmet,
 		/datum/crafting_bench_recipe_real/soft_vest,
 		/datum/crafting_bench_recipe_real/un_helmet,
+		/datum/crafting_bench_recipe_real/cin_vest,
+		/datum/crafting_bench_recipe_real/cin_helmet,
 		/datum/crafting_bench_recipe_real/kulon_vest,
-		/datum/crafting_bench_recipe_real/kulon_vest_super,
 		/datum/crafting_bench_recipe_real/kulon_helmet,
-		/datum/crafting_bench_recipe_real/sacrificial_vest,
-		/datum/crafting_bench_recipe_real/sacrificial_helmet,
 		// Headsets
 		/datum/crafting_bench_recipe_real/talker_set,
 		/datum/crafting_bench_recipe_real/bowman,
@@ -38,16 +37,13 @@
 	. += span_notice("<b>1</b> high-resistance fabric + <b>1</b> appendix = <b>1</b> type II 'Koranda' vest")
 	. += span_notice("<b>1</b> polymer weave fabric + <b>1</b> tear-resistant fabric = <b>1</b> type II 'Touvou' vest")
 	. += span_notice("<b>1</b> electric motor = <b>1</b> type II 'Kastrol' helmet")
-	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> type III 'Kinu-Kuroba' vest")
-	. += span_notice("<b>1</b> type III 'Kinu-Kuroba' vest + <b>2</b> eyes = <b>1</b> type III 'Kinu-Kuroba' full armor kit")
-	. += span_notice("<b>1</b> shuttle battery = <b>1</b> type III 'Robusuta' helmet")
-	. += span_notice("<b>2</b> hearts = <b>1</b> type IV 'Val' vest")
-	. += span_notice("<b>2</b> stomachs = <b>1</b> type IV 'Val' helmet")
+	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> type II 'Muur' vest")
+	. += span_notice("<b>1</b> shuttle battery = <b>1</b> type II 'Muur' helmet")
+	. += span_notice("<b>2</b> hearts = <b>1</b> CIN surplus vest")
+	. += span_notice("<b>2</b> stomachs = <b>1</b> CIN surplus helmet")
 	. += span_notice("<b>1</b> fuel conditioner = <b>1</b> frontier headset")
 	. += span_notice("<b>1</b> phased array element = <b>1</b> bowman headset")
-
 	return .
-
 
 // Glasses
 
@@ -121,41 +117,33 @@
 	)
 	resulting_item = /obj/item/clothing/head/helmet/sf_peacekeeper
 
+/datum/crafting_bench_recipe_real/cin_vest
+	recipe_name = "CIN surplus vest"
+	recipe_requirements = list(
+		/obj/item/epic_loot/graphics = 1,
+	)
+	resulting_item = /obj/item/clothing/suit/armor/vest/cin_surplus_vest
+
+/datum/crafting_bench_recipe_real/cin_helmet
+	recipe_name = "CIN surplus helmet"
+	recipe_requirements = list(
+		/obj/item/epic_loot/display_broken = 2,
+	)
+	resulting_item = /obj/item/clothing/head/helmet/cin_surplus_helmet/random_color
+
 /datum/crafting_bench_recipe_real/kulon_vest
-	recipe_name = "type III 'Kinu-Kuroba' vest"
+	recipe_name = "type II 'Muur' vest"
 	recipe_requirements = list(
 		/obj/item/epic_loot/shuttle_gyro = 1,
 	)
-	resulting_item = /obj/item/clothing/suit/armor/lethal_kora_kulon
-
-/datum/crafting_bench_recipe_real/kulon_vest_super
-	recipe_name = "type III 'Kinu-Kuroba' full armor kit"
-	recipe_requirements = list(
-		/obj/item/clothing/suit/armor/lethal_kora_kulon = 1,
-		/obj/item/organ/internal/eyes = 2,
-	)
-	resulting_item = /obj/item/clothing/suit/armor/lethal_kora_kulon/full_set
+	resulting_item = /obj/item/clothing/suit/armor/sf_hardened
 
 /datum/crafting_bench_recipe_real/kulon_helmet
-	recipe_name = "type III 'Robusuta' helmet"
+	recipe_name = "type II 'Muur' helmet"
 	recipe_requirements = list(
 		/obj/item/epic_loot/shuttle_battery = 1,
 	)
-	resulting_item = /obj/item/clothing/head/helmet/lethal_kulon_helmet/spawns_with_shield
-
-/datum/crafting_bench_recipe_real/sacrificial_vest
-	recipe_name = "type IV 'Val' vest"
-	recipe_requirements = list(
-		/obj/item/organ/internal/heart = 2,
-	)
-	resulting_item = /obj/item/clothing/suit/armor/sf_sacrificial
-
-/datum/crafting_bench_recipe_real/sacrificial_helmet
-	recipe_name = "type IV 'Val' helmet"
-	recipe_requirements = list(
-		/obj/item/organ/internal/stomach = 2,
-	)
-	resulting_item = /obj/item/clothing/head/helmet/sf_sacrificial/spawns_with_shield
+	resulting_item = /obj/item/clothing/head/helmet/toggleable/sf_hardened
 
 // Headsets
 

@@ -40,7 +40,7 @@
 
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive can be traded for <b>2</b> offensive impact grenades.")
-	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> box of nails can be traded for <b>2</b> defensive impact grenades.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> box of nails can be traded for <b>1</b> frag grenade.")
 	. += span_notice("- <b>1</b> of these + <b>1</b> water filter cartridge can be traded for <b>2</b> improvised explosives.")
 
 	return .
@@ -97,7 +97,7 @@
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> bowie knife.")
 	. += span_notice("- <b>1</b> of these + <b>1</b> analog thermometer can be traded for <b>2</b> stingbangs.")
-	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> grenade fuze can be traded for <b>2</b> defensive impact grenades.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> plasma explosive + <b>1</b> grenade fuze can be traded for <b>1</b> frag grenades.")
 
 	return .
 
@@ -193,7 +193,7 @@
 	desc = "A bulky device used by shuttles and other space faring vessels to find the direction they are facing."
 	icon_state = "shuttle_gyro"
 	inhand_icon_state = "miniFE"
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 
@@ -207,7 +207,7 @@
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> implanted armblade.")
 	. += span_notice("<b>Armor Trade Station:</b>")
-	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type III 'Kinu-Kuroba' vest.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type II 'Muur' vest.")
 
 	return .
 
@@ -249,7 +249,7 @@
 	. += span_notice("<b>Weapons Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> energy sword.")
 	. += span_notice("<b>Armor Trade Station:</b>")
-	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type III 'Robusuta' helmet.")
+	. += span_notice("- <b>1</b> of these can be traded for <b>1</b> type II 'Muur' helmet.")
 
 	return .
 

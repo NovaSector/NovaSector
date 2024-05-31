@@ -45,14 +45,14 @@
 	. += span_notice("<b>1</b> shuttle battery = <b>1</b> energy sword")
 	. += span_notice("<b>1</b> shuttle gyroscope = <b>1</b> implanted armblade")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive = <b>2</b> offensive impact grenades")
-	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive + <b>1</b> box of nails = <b>2</b> defensive impact grenades")
+	. += span_notice("<b>1</b> grenade fuze + <b>1</b> plasma explosive + <b>1</b> box of nails = <b>1</b> frag grenades")
 	. += span_notice("<b>1</b> slim diary = <b>2</b> smoke bombs")
 	. += span_notice("<b>1</b> grenade fuze + <b>1</b> water filter = <b>2</b> improvised explosives")
 	. += span_notice("<b>1</b> thermometer + <b>1</b> box of nails = <b>2</b> sting bangs")
 	. += span_notice("<b>1</b> thermometer = <b>2</b> flashbangs")
 	. += span_notice("<b>1</b> water filter = <b>1</b> suppressor")
 	. += span_notice("<b>1</b> solid state drive = <b>1</b> binoculars")
-	. += span_notice("<b>2</b> device fans = <b>1</b> zomushi pistol")
+	. += span_notice("<b>1</b> device fans = <b>1</b> zomushi pistol")
 	. += span_notice("<b>1</b> display = <b>1</b> fukiya rifle")
 	. += span_notice("<b>2</b> broken displays = <b>1</b> seiba submachinegun")
 	. += span_notice("<b>1</b> graphics processor = <b>1</b> sindano submachinegun")
@@ -64,7 +64,6 @@
 	. += span_notice("<b>1</b> stomach = <b>1</b> ramu 6ga shotgun")
 	. += span_notice("<b>1</b> lungs = <b>1</b> yari suppressed rifle")
 	. += span_notice("<b>2</b> livers = <b>1</b> nomi repeating shotgun")
-
 	return .
 
 // Melee weapons (based)
@@ -122,14 +121,14 @@
 	amount_to_make = 2
 
 /datum/crafting_bench_recipe_real/defensive_impact
-	recipe_name = "defensive impact grenade"
+	recipe_name = "frag grenade"
 	recipe_requirements = list(
 		/obj/item/epic_loot/grenade_fuze = 1,
 		/obj/item/epic_loot/plasma_explosive = 1,
 		/obj/item/epic_loot/nail_box = 1,
 	)
-	resulting_item = /obj/item/grenade/frag/impact
-	amount_to_make = 2
+	resulting_item = /obj/item/grenade/frag
+	amount_to_make = 1
 
 /datum/crafting_bench_recipe_real/smoke_grenade
 	recipe_name = "smoke grenade"

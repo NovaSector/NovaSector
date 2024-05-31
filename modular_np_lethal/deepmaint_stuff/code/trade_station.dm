@@ -15,40 +15,7 @@
 	var/datum/crafting_bench_recipe_real/selected_recipe
 	/// What recipes are we allowed to choose from?
 	var/list/allowed_choices = list(
-		// Grenades
-		/datum/crafting_bench_recipe_real/pipe_bomb,
-		/datum/crafting_bench_recipe_real/stingbang,
-		/datum/crafting_bench_recipe_real/flashbang,
-		// Gun stuff
-		/datum/crafting_bench_recipe_real/suppressor,
-		/datum/crafting_bench_recipe_real/sindano,
-		/datum/crafting_bench_recipe_real/shotgun,
-		/datum/crafting_bench_recipe_real/sakhno,
-		/datum/crafting_bench_recipe_real/boxer,
-		// Glasses
 		/datum/crafting_bench_recipe_real/coolglasses,
-		/datum/crafting_bench_recipe_real/nvg,
-		/datum/crafting_bench_recipe_real/thermals,
-		// Armor
-		/datum/crafting_bench_recipe_real/soft_vest,
-		/datum/crafting_bench_recipe_real/un_helmet,
-		/datum/crafting_bench_recipe_real/sacrificial_vest,
-		/datum/crafting_bench_recipe_real/sacrificial_helmet,
-		// Headsets
-		/datum/crafting_bench_recipe_real/talker_set,
-		/datum/crafting_bench_recipe_real/bowman,
-		// Medical stuff
-		/datum/crafting_bench_recipe_real/super_medkit,
-		/datum/crafting_bench_recipe_real/super_medkit_ultra,
-		/datum/crafting_bench_recipe_real/slewa,
-		// Misc
-		/datum/crafting_bench_recipe_real/binoculars,
-		/datum/crafting_bench_recipe_real/duffelpack,
-		/datum/crafting_bench_recipe_real/dogtag_case,
-		/datum/crafting_bench_recipe_real/sick_case,
-		/datum/crafting_bench_recipe_real/docs_bag,
-		/datum/crafting_bench_recipe_real/ballistic_shield,
-		/datum/crafting_bench_recipe_real/black_keycard,
 	)
 	/// Radial options for recipes in the allowed_choices list, populated by populate_radial_choice_list
 	var/list/radial_choice_list = list()

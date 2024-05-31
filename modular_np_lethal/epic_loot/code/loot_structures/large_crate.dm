@@ -54,6 +54,17 @@
 		/obj/effect/spawner/random/epic_loot/random_serious_arms = 1,
 	)
 
+/obj/structure/maintenance_loot_structure/large_crate/military/rare_loot
+	name = "military supply box"
+	desc = "A large crate for transporting equally large amounts of militar."
+	icon_state = "supplydrop_green"
+	loot_weighted_list = list(
+		/obj/effect/spawner/random/epic_loot/random_other_military_loot/rare_loot = 8,
+		/obj/effect/spawner/random/epic_loot/random_ammunition = 6,
+		/obj/effect/spawner/random/epic_loot/random_silly_arms = 2,
+		/obj/effect/spawner/random/epic_loot/random_serious_arms = 1,
+	)
+
 /obj/effect/spawner/random/epic_loot/random_supply_crate
 	name = "random supply crate spawner"
 	desc = "Automagically transforms into a random supply crate, hopefully filled with goodies."

@@ -34,10 +34,9 @@
 	. += span_notice("<b>1</b> silver chainlet = <b>1</b> civil defense medical kit")
 	. += span_notice("<b>1</b> press pass = <b>1</b> frontier first aid kit")
 	. += span_notice("<b>1</b> eyes = <b>1</b> combat surgeon kit")
-	. += span_notice("<b>1</b> vein finder = <b>1</b> stachel first aid kit")
+	. += span_notice("<b>1</b> vein finder = <b>1</b> satchel first aid kit")
 	. += span_notice("<b>1</b> eye scope = <b>1</b> first responder surgical kit")
 	. += span_notice("<b>1</b> vein finder + <b>1</b> eye scope = <b>1</b> advanced satchel first aid kit")
-
 	return .
 
 // Medical consumable items
