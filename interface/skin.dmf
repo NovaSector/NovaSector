@@ -65,7 +65,7 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-		icon = 'icons\\ui_icons\\common\\tg_32.png'
+		icon = 'modular_nova\\master_files\\icons\\ui_icons\\common\\nova_logo_32.png'
 		macro = "default"
 		menu = "menu"
 	elem "split"
@@ -90,6 +90,15 @@ window "mainwindow"
 		type = BROWSER
 		pos = 0,0
 		size = 999x999
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = ""
+	elem "commandbar_spy"
+		type = BROWSER
+		is-default = false
+		pos = 0,0
+		size = 200x200
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		is-visible = false

@@ -86,8 +86,6 @@
 	var/mob/living/owner
 	var/bubble_icon = "default"
 
-
-
 /mob/camera/imaginary_friend/Login()
 	. = ..()
 	if(!. || !client)
@@ -129,8 +127,8 @@
 
 /// Randomise friend name and appearance
 /mob/camera/imaginary_friend/proc/setup_friend()
-	var/gender = pick(MALE, FEMALE)
-	real_name = random_unique_name(gender)
+	gender = pick(MALE, FEMALE)
+	real_name = generate_random_name_species_based(gender, FALSE, /datum/species/human)
 	name = real_name
 	human_image = get_flat_human_icon(null, pick(SSjob.joinable_occupations))
 	Show()

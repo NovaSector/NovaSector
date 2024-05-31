@@ -146,6 +146,8 @@
 	#define COMPONENT_LIVING_BLOCK_PRE_MOB_BUMP (1<<0)
 ///From base of mob/living/MobBump() (mob/living)
 #define COMSIG_LIVING_MOB_BUMP "living_mob_bump"
+///From base of mob/living/MobBump() (mob/living)
+#define COMSIG_LIVING_MOB_BUMPED "living_mob_bumped"
 ///From base of mob/living/Bump() (turf/closed)
 #define COMSIG_LIVING_WALL_BUMP "living_wall_bump"
 ///From base of turf/closed/Exited() (turf/closed)
@@ -271,3 +273,8 @@
 
 /// From /datum/element/basic_eating/finish_eating()
 #define COMSIG_MOB_ATE "mob_ate"
+
+///From mob/living/carbon/proc/throw_mode_on and throw_mode_off
+#define COMSIG_LIVING_THROW_MODE_TOGGLE "living_throw_mode_toggle"
+///From /datum/component/happiness()
+#define COMSIG_MOB_HAPPINESS_CHANGE "happiness_change"

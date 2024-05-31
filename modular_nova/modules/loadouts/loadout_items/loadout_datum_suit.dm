@@ -124,6 +124,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Researcher's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
 
+/datum/loadout_item/suit/labcoat_pharmacist
+	name = "Pharmacist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
+
 /*
 *	PONCHOS
 */
@@ -733,6 +737,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Interdyne Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/interdyne
 
+/datum/loadout_item/suit/donator/replica_parade_jacket
+	name = "Replica Parade Jacket"
+	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
 /datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/glitched
@@ -752,6 +760,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/crop_jacket
 	name = "Colourable Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket
+	
+/datum/loadout_item/suit/sleeveless_crop_jacket
+	name = "Colourable Sleeveless Crop-Top Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless
 
 /*
 *	CHAPLAIN

@@ -13,13 +13,13 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/undershirt, GLOB.undershirt_list, GLOB.undershirt_m, GLOB.undershirt_f)
 	//socks
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
-	//bodypart accessories (blizzard intensifies)
 	//NOVA EDIT REMOVAL BEGIN - CUSTOMIZATION
 	/*
+	//bodypart accessories (blizzard intensifies)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/body_markings, GLOB.body_markings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, GLOB.tails_list_human, add_blank = TRUE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/lizard, GLOB.tails_list_lizard, add_blank = TRUE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = FALSE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/snouts, GLOB.snouts_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/horns,GLOB.horns_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears, GLOB.ears_list)
@@ -33,15 +33,14 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae, GLOB.moth_antennae_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
-	*/ //NOVA EDIT REMOVAL END
-	//bras
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/bra, GLOB.bra_list, GLOB.bra_m, GLOB.bra_f) // NOVA EDIT ADDITION
+*/ //NOVA EDIT REMOVAL END
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
+	// NOVA EDIT ADDITION START
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/bra, GLOB.bra_list, GLOB.bra_m, GLOB.bra_f)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/caps, GLOB.caps_list, add_blank = TRUE)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings/moth, GLOB.moth_wings_list)
 
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings/moth, GLOB.moth_wings_list) // NOVA EDIT ADDITION - Customization
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE) // NOVA EDIT ADDITION - We don't want monkeys getting randomized non-monkey tails
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list, add_blank = TRUE) // NOVA EDIT - Customization - ORIGINAL: init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
-
-	//NOVA EDIT ADDITION BEGIN
 	//Scream types
 	for(var/spath in subtypesof(/datum/scream_type))
 		var/datum/scream_type/S = new spath()
@@ -53,14 +52,7 @@
 		var/datum/laugh_type/L = new spath()
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
-	//NOVA EDIT END
-
-/// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
-/proc/init_species_list()
-	for(var/species_path in subtypesof(/datum/species))
-		var/datum/species/species = new species_path()
-		GLOB.species_list[species.id] = species_path
-	sort_list(GLOB.species_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
+	// NOVA EDIT ADDITION END
 
 /// Inits GLOB.surgeries
 /proc/init_surgeries()
@@ -83,12 +75,9 @@
 /proc/make_datum_reference_lists()
 	// I tried to eliminate this proc but I couldn't untangle their init-order interdependencies -Dominion/Cyberboss
 	init_sprite_accessories()
-	init_species_list()
 	init_hair_gradients()
 	init_keybindings()
-
 	GLOB.emote_list = init_emote_list() // WHY DOES THIS NEED TO GO HERE? IT JUST INITS DATUMS
-
 	make_nova_datum_references() //NOVA EDIT ADDITION - CUSTOMIZATION
 	init_nova_stack_recipes() //NOVA EDIT ADDITION - More sheet recipes
 	init_crafting_recipes()
@@ -100,7 +89,7 @@
 		if(ispath(path, /datum/crafting_recipe/stack))
 			continue
 		var/datum/crafting_recipe/recipe = new path()
-		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_nova)) // NOVA EDIT - Add nova food crafting category
+		var/is_cooking = ((recipe.category in GLOB.crafting_category_food) || (recipe.category in GLOB.crafting_category_food_nova)) // NOVA EDIT CHANGE - ORIGINAL: var/is_cooking = (recipe.category in GLOB.crafting_category_food)
 		recipe.reqs = sort_list(recipe.reqs, GLOBAL_PROC_REF(cmp_crafting_req_priority))
 		if(recipe.name != "" && recipe.result)
 			if(is_cooking)
@@ -165,8 +154,8 @@
 					GLOB.crafting_recipes += recipe
 
 	var/list/material_stack_recipes = list(
-		DSmaterials.base_stack_recipes,
-		DSmaterials.rigid_stack_recipes,
+		SSmaterials.base_stack_recipes,
+		SSmaterials.rigid_stack_recipes,
 	)
 
 	for(var/list/recipe_list in material_stack_recipes)

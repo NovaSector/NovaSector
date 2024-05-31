@@ -21,7 +21,6 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/insect,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/insect,
 	)
-	eyes_icon = 'modular_nova/modules/organs/icons/insect_eyes.dmi'
 
 /datum/species/insect/get_default_mutant_bodyparts()
 	return list(
@@ -48,5 +47,6 @@
 	human.dna.features["mcolor"] = main_color
 	human.dna.features["mcolor2"] = secondary_color
 	human.dna.features["mcolor3"] = secondary_color
+	human.dna.species.body_markings["head"] = list("Insect Antennae" = list("#644b07", 0))
 	regenerate_organs(human, src, visual_only = TRUE)
 	human.update_body(TRUE)

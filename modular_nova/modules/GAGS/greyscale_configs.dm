@@ -322,6 +322,21 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/mask/masquerade_mask_worn_vox.dmi'
 
 /*
+*	EYES
+*/
+
+// BLINDFOLD
+
+/datum/greyscale_config/blindfold
+	name = "Blind Personnel Blindfold"
+	icon_file = 'modular_nova/modules/GAGS/icons/eyes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/blindfold_eyes/blindfoldcolor.json'
+
+/datum/greyscale_config/blindfold/worn
+	name = "Blind Personnel Blindfold (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
+
+/*
 *	NECK
 */
 
@@ -933,7 +948,28 @@
 /datum/greyscale_config/crop_jacket/worn
 	name = "Tailored Jacket (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
+	
+// SLEEVELESS CROPPED JACKET
 
+/datum/greyscale_config/sleeveless_crop_jacket
+	name = "Tailored Jacket"
+	icon_file = 'modular_nova/modules/GAGS/icons/sleeveless_crop_jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/sleeveless_crop_jacket/sleeveless_crop_jacket.json'
+
+/datum/greyscale_config/sleeveless_crop_jacket/worn
+	name = "Tailored Jacket (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/sleeveless_crop_jacket_worn.dmi'
+
+
+// PARADE JACKET
+/datum/greyscale_config/replica_parade_jacket
+	name = "Replica Parade Jacket"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket.json'
+
+/datum/greyscale_config/replica_parade_jacket/worn
+	name = "Replica Parade Jacket (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket_worn.json'
 
 /*
 *	UNDER
@@ -949,16 +985,6 @@
 /datum/greyscale_config/jumpsuit/prison/worn/digi
 	name = "Prison Jumpsuit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/color_digi.dmi'
-
-/datum/greyscale_config/jumpsuit/worn/monkey
-	name = "Jumpsuit (Worn) - Monkey"
-	icon_file = MONKEY_UNIFORM_FILE
-	json_config = 'modular_nova/modules/GAGS/json_configs/jumpsuit/jumpsuit_worn_monkey.json'
-
-/datum/greyscale_config/jumpsuit/prison/worn/monkey
-	name = "Prison Jumpsuit (Worn) - Monkey"
-	icon_file = MONKEY_UNIFORM_FILE
-	json_config = 'modular_nova/modules/GAGS/json_configs/jumpsuit/jumpsuit_prison_worn_monkey.json'
 
 /datum/greyscale_config/jumpsuit/worn/vox
 	name = "Jumpsuit (Worn, Vox)"
