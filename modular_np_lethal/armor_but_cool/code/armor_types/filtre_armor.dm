@@ -18,6 +18,16 @@
 	acid = ARMOR_LEVEL_MID
 	wound = WOUND_ARMOR_HIGH
 
+/datum/armor/armor_lethal_filtre_light
+	melee = ARMOR_LEVEL_MID + 25
+	bullet = BULLET_ARMOR_III
+	laser = ARMOR_LEVEL_MID
+	energy = ARMOR_LEVEL_WEAK
+	bomb = ARMOR_LEVEL_MID
+	fire = ARMOR_LEVEL_MID + 25
+	acid = ARMOR_LEVEL_MID
+	wound = WOUND_ARMOR_HIGH
+
 /obj/item/clothing/suit/armor/lethal_filtre
 	name = "'Firuta' type IV high mobility armor kit"
 	desc = "A heavy full kit of armor for protecting every part of your body but the head and legs with exceptional plating. \
@@ -76,6 +86,18 @@
 	max_integrity = 1600
 	limb_integrity = 1100
 
+/obj/item/clothing/suit/armor/lethal_filtre/super_light
+	name = "'Sukyana' type III extreme mobility armor kit"
+	desc = "A high-tech kit of armor for protecting every part of your body but the head with exceptional plating. \
+		This type is made for the highest mobility possible, sacrificing petty concepts like 'actually protecting the wearer' \
+		in exchange for simply not being hit."
+	icon_state = "filtre_meowers"
+	armor_type = /datum/armor/armor_lethal_filtre_light
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	slowdown = 0.25
+	max_integrity = 1000
+	limb_integrity = 800
+
 /obj/item/clothing/head/helmet/lethal_filtre_helmet
 	name = "'Firuta' type V ballistic helmet"
 	desc = "A high tech full-head helmet with supreme class V protection for the whole of the second \
@@ -114,6 +136,45 @@
 		types of armor combined into a generally cohesive theme of providing full protection from everything."
 
 	return .
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light
+	name = "'Sukyana' type III ballistic helmet"
+	desc = "A high tech helmet with a complicated-looking sensors suite stuck to the front. \
+		While not as protective as other types of helmets, the sensors suite has a variety of \
+		modern HUDs useful for all types of operations."
+	icon = 'modular_np_lethal/armor_but_cool/icons/armor.dmi'
+	icon_state = "filtre_helmet_meowers"
+	worn_icon = 'modular_np_lethal/armor_but_cool/icons/armor_worn.dmi'
+	inhand_icon_state = "helmet"
+	armor_type = /datum/armor/armor_lethal_filtre_light
+	flags_inv = HIDEEARS|HIDEEYES
+	flags_cover = HEADCOVERSEYES|PEPPERPROOF
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light/examine_more(mob/user)
+	. = ..()
+
+	. += "What's better than simply being protected from everything? \
+		Knowing where everything is at all times. The most expensive sensors \
+		equipment this side of the planet compressed into something that \
+		conveniently fits over your eyes!"
+
+	return .
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light/equipped(mob/living/carbon/human/user, slot)
+	..()
+	if(!(slot & ITEM_SLOT_HEAD))
+		return
+	for(var/hudtype in list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED))
+		var/datum/atom_hud/atom_hud = GLOB.huds[hudtype]
+		atom_hud.show_to(user)
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light/dropped(mob/living/carbon/human/user)
+	..()
+	if(!istype(user) || user.head != src)
+		return
+	for(var/hudtype in list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED))
+		var/datum/atom_hud/atom_hud = GLOB.huds[hudtype]
+		atom_hud.hide_from(user)
 
 // CUSTOM LOADOUT FILTRE ARMORS
 
