@@ -846,6 +846,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "ra" = (
 /obj/structure/rack/wooden,
+/obj/item/stack/sheet/cloth/ten,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ru" = (
@@ -1924,6 +1925,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Sf" = (
 /obj/structure/rack/wooden,
+/obj/item/stack/sheet/cloth/ten,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "SF" = (

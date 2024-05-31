@@ -331,22 +331,12 @@
 	dir = 2
 	},
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/stack/sheet/cobolterium{
-	amount = 20
-	},
-/obj/item/stack/sheet/bronze{
-	amount = 10
-	},
-/obj/item/stack/sheet/brussite{
-	amount = 20
-	},
-/obj/item/stack/sheet/copporcitite{
-	amount = 20
-	},
-/obj/item/stack/sheet/tinumium{
-	amount = 20
-	},
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/stack/sheet/mineral/gold{
+	amount = 5;
+	pixel_y = 1;
+	pixel_x = 7
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ev" = (
@@ -971,13 +961,11 @@
 /obj/item/claymore/bone{
 	pixel_y = 5
 	},
-/obj/item/shield/goliath{
-	pixel_x = 10
-	},
-/obj/item/shield/goliath{
-	pixel_x = 15
-	},
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/shield/buckler{
+	pixel_y = 7;
+	pixel_x = -3
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ob" = (
@@ -1680,17 +1668,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "xc" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/bronze,
-/obj/item/ammo_casing/arrow/bronze,
+/obj/structure/ore_vein/gold,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "xd" = (
@@ -1735,21 +1713,6 @@
 "xq" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/structure/stone_tile/block,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"xE" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/bronze,
-/obj/item/ammo_casing/arrow/bronze,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -3961,7 +3924,7 @@ AX
 qA
 sQ
 sQ
-xE
+zQ
 Do
 IQ
 CV
@@ -5430,7 +5393,7 @@ Xr
 Xr
 GX
 fH
-xE
+CV
 JC
 JC
 CV
