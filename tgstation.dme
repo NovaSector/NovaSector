@@ -8270,6 +8270,7 @@
 #include "modular_nova\modules\taur_mechanics\code\preferences.dm"
 #include "modular_nova\modules\taur_mechanics\code\serpentine_taur.dm"
 #include "modular_nova\modules\taur_mechanics\code\species.dm"
+#include "modular_nova\modules\telecomms_specialist\telecomms_specialist.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_action.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_quirk.dm"
 #include "modular_nova\modules\telepathy_quirk\code\telepathy_reply_emote.dm"
