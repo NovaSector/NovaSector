@@ -122,7 +122,7 @@
 	// NOVA EDIT START - Avoiding exploits with the modules staying active when any of the parts are retracted.
 	for(var/obj/item/mod/module/module as anything in modules)
 		if(module.active)
-			module.on_deactivation(display_message = !!user)
+			module.deactivate(display_message = !!user)
 	// NOVA EDIT END
 	SEND_SIGNAL(src, COMSIG_MOD_PART_RETRACTED, user, part)
 	if(!user)
