@@ -105,8 +105,14 @@
 			balloon_alert(mod.wearer, "not active!")
 		return
 	// NOVA EDIT START - DEPLOYABLE EVERYTHING OVER EVERYTHING
-	if(mod.get_part_from_slot(ITEM_SLOT_OCLOTHING)?.loc == mod && !(allow_flags & MODULE_ALLOW_INACTIVE))
-		balloon_alert(mod.wearer, "chestplate retracted!")
+	var/can_activate = TRUE
+	if(!(allow_flags & MODULE_ALLOW_INACTIVE))
+		for(var/obj/item/part in mod.get_parts())
+			if(part.loc == mod)
+				can_activate = FALSE
+				break
+	if(!can_activate)
+		balloon_alert(mod.wearer, "not fully deployed!")
 		return
 	// NOVA EDIT END
 	if(module_type != MODULE_USABLE)
