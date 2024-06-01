@@ -9,6 +9,7 @@
 				/obj/item/clothing/head/costume/kabuto = 5,
 				/obj/item/clothing/suit/costume/samurai = 5,
 				/obj/item/clothing/suit/dutchjacketsr = 5,
+				/obj/item/clothing/head/costume/sombrero = 5,
 			),
 		),
 		list(
