@@ -412,9 +412,10 @@
 /datum/job/telecomms_specialist
 	alt_titles = list(
 		"Telecomms Specialist",
-		"SysAdmin",
+		"Wireless Operator",
 		"Network Engineer",
-		"IT Technician",
+		"Sysadmin"
+		"Tram Technician",
 	)
 
 /datum/job/virologist

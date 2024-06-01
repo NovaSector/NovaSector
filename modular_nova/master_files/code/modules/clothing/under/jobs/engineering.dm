@@ -81,3 +81,21 @@
 	armor_type = /datum/armor/clothing_under/atmos_adv
 	icon_state = "util_eng"
 	can_adjust = FALSE
+
+/*
+*	TELECOMMS SPECIALIST
+*/
+
+/obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm
+	desc = "It's a yellow high visibility jumpsuit with deep blue trim worn by specialists. Made from fire resistant materials."
+	name = "telecomm jumpsuit"
+	icon_state = "telecomm"
+	inhand_icon_state = "util_eng"
+	can_adjust = TRUE
+
+/obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm/skirt
+	desc = "It's a yellow high visibility jumpskirt with deep blue trim worn by specialists. Made from fire resistant materials."
+	name = "telecomm jumpskirt"
+	icon_state = "telecomm_skirt"
+	inhand_icon_state = "util_eng"
+	can_adjust = TRUE
