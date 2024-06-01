@@ -537,11 +537,6 @@
 /obj/effect/landmark/start/librarian,
 /turf/open/floor/iron/colony,
 /area/station/hallway/secondary/entry)
-"zB" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/iron/colony/texture,
-/area/icemoon/surface/outdoors/nospawn)
 "zL" = (
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 8
@@ -723,7 +718,6 @@
 /turf/open/floor/iron/dark/textured_half,
 /area/station/hallway/secondary/entry)
 "HX" = (
-/obj/structure/cable,
 /obj/structure/cable,
 /obj/effect/turf_decal/vg_decals/department/mining,
 /turf/open/floor/iron/colony,
@@ -144414,7 +144408,7 @@ EK
 Oh
 dR
 dR
-zB
+dR
 TP
 TP
 TP
