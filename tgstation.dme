@@ -8448,5 +8448,6 @@
 #include "modular_np_lethal\mechs_buffs\code\weapons\launchers.dm"
 #include "modular_np_lethal\mechs_buffs\code\weapons\melee.dm"
 #include "modular_np_lethal\mechs_buffs\code\weapons\projectiles.dm"
+#include "modular_np_lethal\medical_stuff\code\synth_repair.dm"
 
 // END_INCLUDE
