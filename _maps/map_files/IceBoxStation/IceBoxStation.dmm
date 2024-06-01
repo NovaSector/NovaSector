@@ -73138,6 +73138,10 @@
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
+"vXe" = (
+/obj/structure/aquarium/lawyer,
+/turf/open/floor/wood,
+/area/station/service/lawoffice)
 "vXh" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -168564,7 +168568,7 @@ gjq
 gjq
 gjq
 gjq
-gjq
+wUj
 wUj
 dKC
 dKC
@@ -168822,9 +168826,9 @@ gjq
 iDt
 gjq
 wUj
-wUj
 qLB
 jpy
+vXe
 ssY
 wUj
 gjq

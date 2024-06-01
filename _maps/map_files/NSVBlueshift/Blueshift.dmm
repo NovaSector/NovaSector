@@ -26725,7 +26725,7 @@
 	department = "Law Office";
 	name = "Law Office Requests Console"
 	},
-/obj/item/kirbyplants/random,
+/obj/structure/aquarium/lawyer,
 /turf/open/floor/carpet/blue,
 /area/station/service/lawoffice)
 "faw" = (
