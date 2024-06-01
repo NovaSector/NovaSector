@@ -191,7 +191,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "bp" = (
@@ -1350,7 +1350,7 @@
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
 	},
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "jU" = (
@@ -1462,7 +1462,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "kK" = (
@@ -2097,7 +2097,7 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
 	},
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "ps" = (
@@ -2698,7 +2698,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "tC" = (
@@ -5007,7 +5007,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/east,
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "Jt" = (
@@ -5631,7 +5631,7 @@
 	},
 /obj/machinery/light/directional/east,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "Nx" = (
@@ -5674,7 +5674,7 @@
 /obj/structure/chair/sofa/bench/left{
 	dir = 8
 	},
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "NN" = (
@@ -6540,7 +6540,7 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 4
 	},
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "UT" = (
@@ -7248,7 +7248,7 @@
 /obj/structure/chair/sofa/bench{
 	dir = 8
 	},
-/obj/effect/landmark/start,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/dark/diagonal,
 /area/gakster_location/hideout_real)
 "ZB" = (
