@@ -98,7 +98,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot/evil, 32)
 				/obj/item/clothing/head/soft/sec = INFINITY,
 				/obj/item/clothing/head/helmet/lethal_filtre_helmet/light = INFINITY,
 				/obj/item/clothing/head/helmet/lethal_filtre_helmet = INFINITY,
-				/obj/item/clothing/suit/armor/lethal_filtre/super_light = INFINITY,
+				//obj/item/clothing/suit/armor/lethal_filtre/super_light = INFINITY,
 				/obj/item/clothing/suit/armor/lethal_filtre = INFINITY,
 				/obj/item/clothing/suit/armor/lethal_filtre/heavy = INFINITY,
 				/obj/item/clothing/mask/gas/sechailer/half_mask = INFINITY,
