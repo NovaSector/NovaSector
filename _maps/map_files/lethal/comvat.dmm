@@ -2728,10 +2728,6 @@
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
-"tM" = (
-/obj/effect/landmark/blow_up_interlink_latejoin_markers,
-/turf/closed/indestructible/rock/snow/ice/ore,
-/area/gakster_location/hideout_real)
 "tQ" = (
 /obj/structure/chair/office/light{
 	dir = 8
@@ -3771,10 +3767,6 @@
 /obj/structure/maintenance_loot_structure/large_crate/engineering/airdrop,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
-"AR" = (
-/obj/machinery/vending/custom,
-/turf/open/floor/mineral/titanium/white,
-/area/gakster_location/hideout_real)
 "AT" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -4519,10 +4511,6 @@
 /obj/effect/spawner/random/epic_loot/medkit,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
-"FQ" = (
-/obj/machinery/vending/custom,
-/turf/open/indestructible/plating,
-/area/gakster_location/hideout_real)
 "FR" = (
 /obj/effect/spawner/random/epic_loot/medical_stack_item_advanced,
 /turf/open/floor/iron/freezer,
@@ -51863,7 +51851,7 @@ Ea
 Ea
 Ea
 Ea
-tM
+Ea
 Ea
 Ea
 Ea
@@ -55869,7 +55857,7 @@ Cf
 rm
 uU
 uU
-AR
+hS
 uU
 uU
 Xu
@@ -55962,7 +55950,7 @@ Ea
 KC
 rA
 rA
-FQ
+FN
 KC
 Ea
 KC
@@ -56676,7 +56664,7 @@ KC
 KC
 rA
 rA
-FQ
+FN
 KC
 Ea
 Ea
