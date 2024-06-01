@@ -18,7 +18,9 @@
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
 		#include "map_files\Ouroboros\Ouroboros.dmm"
 		// NOVA EDIT END
-
+		// HISPANIA EDIT ADDITON START - Compiling our modular maps too!
+		#include "map_files\Hispania\Events\Arcadia\Arcadia.dmm"
+		// HISPANIA EDIT END
 		#ifdef CIBUILDING
 			#include "templates.dm"
 		#endif
