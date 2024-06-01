@@ -564,25 +564,18 @@
 	if(borg.hasExpanded)
 		to_chat(usr, span_warning("This unit already has an expand module installed!"))
 		return FALSE
-<<<<<<< HEAD
-	// NOVA EDIT BEGIN
-	var/resize_amount = 1.25
-	if(TRAIT_R_WIDE in robot.model.model_features)
-		resize_amount = 1.25
-	if(TRAIT_R_TALL in robot.model.model_features)
-		resize_amount = 1.05
-	// NOVA EDIT END
-	ADD_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
-	var/prev_lockcharge = robot.lockcharge
-	robot.SetLockdown(TRUE)
-	robot.set_anchored(TRUE)
-=======
 
+	// NOVA EDIT ADDITION BEGIN
+	var/resize_amount = 1.25
+	if(TRAIT_R_WIDE in borg.model.model_features)
+		resize_amount = 1.25
+	if(TRAIT_R_TALL in borg.model.model_features)
+		resize_amount = 1.05
+	// NOVA EDIT ADDITION END
 	ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 	var/prev_lockcharge = borg.lockcharge
 	borg.SetLockdown(TRUE)
 	borg.set_anchored(TRUE)
->>>>>>> 63f5f65ef66 (Borgs: the moduling (Various fixups to borg module code) (#83116))
 	var/datum/effect_system/fluid_spread/smoke/smoke = new
 	smoke.set_up(1, holder = borg, location = borg.loc)
 	smoke.start()
@@ -591,37 +584,21 @@
 		playsound(borg, pick('sound/items/drill_use.ogg', 'sound/items/jaws_cut.ogg', 'sound/items/jaws_pry.ogg', 'sound/items/welder.ogg', 'sound/items/ratchet.ogg'), 80, TRUE, -1)
 		sleep(1.2 SECONDS)
 	if(!prev_lockcharge)
-<<<<<<< HEAD
-		robot.SetLockdown(FALSE)
-	robot.set_anchored(FALSE)
-	REMOVE_TRAIT(robot, TRAIT_NO_TRANSFORM, REF(src))
-	robot.hasExpanded = TRUE
-	robot.update_transform(resize_amount) // NOVA EDIT CHANGE - ORIGINAL: robot.update_transform(2)
-=======
 		borg.SetLockdown(FALSE)
 	borg.set_anchored(FALSE)
 	REMOVE_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 	borg.hasExpanded = TRUE
-	borg.update_transform(2)
->>>>>>> 63f5f65ef66 (Borgs: the moduling (Various fixups to borg module code) (#83116))
+	borg.update_transform(resize_amount) // NOVA EDIT CHANGE - ORIGINAL: borg.update_transform(2)
 
 /obj/item/borg/upgrade/expand/deactivate(mob/living/silicon/robot/borg, mob/living/user = usr)
 	. = ..()
-<<<<<<< HEAD
-	if (.)
-		if (R.hasExpanded)
-			R.hasExpanded = FALSE
-			//R.update_transform(0.5) // Original
-			R.update_transform(0.8) // NOVA EDIT CHANGE
-=======
 	if(!.)
 		return .
 	if (borg.hasExpanded)
 		borg.hasExpanded = FALSE
-		borg.update_transform(0.5)
->>>>>>> 63f5f65ef66 (Borgs: the moduling (Various fixups to borg module code) (#83116))
+		borg.update_transform(0.8) // NOVA EDIT CHANGE - ORIGINAL: borg.update_transform(0.5)
 
-/obj/item/borg/upgrade/rped//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/borg/upgrade/rped
 	name = "engineering cyborg RPED"
 	desc = "A rapid part exchange device for the engineering cyborg."
 	icon = 'icons/obj/storage/storage.dmi'
