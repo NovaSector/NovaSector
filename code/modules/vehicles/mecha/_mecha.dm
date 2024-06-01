@@ -275,6 +275,7 @@
 	var/list/potential_occupants = contents | occupants
 	for(var/mob/buggy_ejectee in potential_occupants)
 		mob_exit(buggy_ejectee, silent = TRUE, forced = TRUE)
+	explosion(src, 1, 2, 4, 4) //mech explodes before everything else is qdel'd and allat
 
 	if(LAZYLEN(flat_equipment))
 		for(var/obj/item/mecha_parts/mecha_equipment/equip as anything in flat_equipment)
