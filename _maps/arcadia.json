@@ -1,0 +1,51 @@
+{
+	"version": 1,
+	"map_name": "Arcadia",
+	"map_path": "map_files/Hispania/Events/Arcadia",
+	"map_file": "Arcadia.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"planetary": 1,
+	"shuttles": {
+		"cargo": "cargo_nova",
+		"ferry": "ferry_fancy",
+		"emergency": "emergency_box"
+	},
+	"traits": [
+		{
+			"Up": true,
+			"Mining": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Lava Ruins": true,
+			"Baseturf": "/turf/open/lava/smooth/lava_land_surface",
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Up": true,
+			"Mining": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Ice Ruins Underground": true,
+			"Baseturf": "/turf/open/openspace/icemoon/keep_below",
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Mining": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Ice Ruins": true,
+			"Weather_Snowstorm": true,
+			"Baseturf": "/turf/open/openspace/icemoon/keep_below",
+			"No Parallax": true
+		}
+	],
+	"minetype": "none",
+	"job_changes": {
+		"Captain": {
+			"special_charter": "moon"
+		}
+	}
+}
