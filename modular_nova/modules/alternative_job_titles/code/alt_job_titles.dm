@@ -414,7 +414,7 @@
 		"Telecomms Specialist",
 		"Wireless Operator",
 		"Network Engineer",
-		"Sysadmin"
+		"Sysadmin",
 		"Tram Technician",
 	)
 
