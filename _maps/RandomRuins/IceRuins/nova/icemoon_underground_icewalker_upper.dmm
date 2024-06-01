@@ -33,12 +33,6 @@
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"ce" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "cv" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -1281,10 +1275,6 @@
 /obj/structure/railing/wooden_fencing,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"UP" = (
-/obj/machinery/cauldron,
-/turf/open/floor/stone/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "UW" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -2211,9 +2201,9 @@ NA
 mD
 lv
 Va
-iu
-mm
-BZ
+Kg
+Kg
+Kg
 Va
 Op
 NX
@@ -2253,9 +2243,9 @@ cA
 cA
 cA
 gS
-Pr
-Ej
-ce
+iu
+mm
+mm
 nC
 BZ
 Pr
@@ -2297,7 +2287,7 @@ nu
 os
 Pr
 va
-UP
+Ej
 LM
 rC
 xA

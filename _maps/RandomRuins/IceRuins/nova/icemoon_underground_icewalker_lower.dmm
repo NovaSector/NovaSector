@@ -66,6 +66,11 @@
 /obj/structure/wall_torch/spawns_lit/directional/south,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"bm" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/machinery/smartfridge/drying_rack,
+/turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "bn" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/fishing_hook/weighted,
@@ -1448,8 +1453,16 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Hi" = (
-/obj/machinery/smartfridge/drying_rack,
-/turf/open/misc/dirt/icemoon,
+/obj/machinery/cauldron{
+	pixel_y = 9
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Hv" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -3789,7 +3802,7 @@ gY
 wM
 ZJ
 pa
-Ug
+bm
 oJ
 oJ
 sS
