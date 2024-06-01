@@ -542,6 +542,11 @@
 	},
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"dP" = (
+/obj/structure/rack/shelf,
+/obj/machinery/vending/wallmed/epic_loot/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "dS" = (
 /obj/structure/railing{
 	dir = 9
@@ -556,7 +561,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "dW" = (
-/obj/structure/rack/gunrack,
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/vending/wallmed/epic_loot/directional/east,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "ea" = (
@@ -724,9 +730,7 @@
 /turf/closed/wall,
 /area/gakster_location/war)
 "fg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/turf/open/indestructible/plating,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/gakster_location/hideout_real)
 "fn" = (
 /obj/structure/fluff/metalpole{
@@ -881,10 +885,10 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "gu" = (
-/obj/machinery/computer/order_console/gakster{
-	dir = 8
-	},
-/turf/open/indestructible/stone,
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/wallmed/epic_loot/directional/south,
+/turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "gv" = (
 /obj/structure/bed/medical/anchored{
@@ -1328,10 +1332,8 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "jJ" = (
-/obj/machinery/computer/order_console/gakster{
-	dir = 4
-	},
-/turf/open/indestructible/stone,
+/obj/machinery/vending/wallmed/epic_loot/directional/north,
+/turf/open/floor/mineral/titanium/white,
 /area/gakster_location/hideout_real)
 "jK" = (
 /obj/machinery/iv_drip/health_station/directional/north,
@@ -3042,6 +3044,10 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"wc" = (
+/obj/machinery/vending/wallmed/epic_loot/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "we" = (
 /obj/structure/window/green_glass_pane,
 /obj/effect/mapping_helpers/damaged_window,
@@ -4437,7 +4443,7 @@
 /area/gakster_location/war)
 "Fn" = (
 /obj/machinery/button/crematorium,
-/turf/closed/wall/mineral/titanium/interior,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/gakster_location/hideout_real)
 "Fo" = (
 /obj/structure/lattice/catwalk,
@@ -4542,7 +4548,7 @@
 /area/gakster_location/hideout_real)
 "Gd" = (
 /obj/structure/epic_loot_crafting_bench/medical,
-/turf/closed/wall/mineral/titanium/interior,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/gakster_location/hideout_real)
 "Ge" = (
 /obj/structure/bed/maint,
@@ -5944,11 +5950,9 @@
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/hideout_real)
 "Qd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/order_console/gakster{
-	dir = 4
-	},
-/turf/open/indestructible/stone,
+/obj/structure/epic_loot_crafting_bench/medical,
+/obj/structure/epic_loot_crafting_bench/gear,
+/turf/closed/indestructible/steel,
 /area/gakster_location/hideout_real)
 "Qe" = (
 /obj/machinery/light/cold/dim/directional/south,
@@ -6888,6 +6892,10 @@
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Xg" = (
+/obj/machinery/vending/wallmed/epic_loot/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "Xi" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
@@ -7096,11 +7104,8 @@
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/hideout_real)
 "Yx" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/order_console/gakster{
-	dir = 8
-	},
-/turf/open/indestructible/stone,
+/obj/machinery/vending/wallmed/epic_loot/directional/east,
+/turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "Yy" = (
 /obj/machinery/vending/assist,
@@ -49619,7 +49624,7 @@ Cl
 KC
 tY
 lj
-Yx
+Cf
 lj
 Nr
 KC
@@ -49719,11 +49724,11 @@ Ea
 Ns
 dE
 KC
-ZJ
-vy
 KC
-vY
-pL
+KC
+KC
+KC
+KC
 KC
 ca
 Kk
@@ -49821,11 +49826,11 @@ wq
 wi
 in
 KC
-pL
-vY
 KC
-vy
-ZJ
+KC
+KC
+KC
+KC
 KC
 qA
 HD
@@ -49925,7 +49930,7 @@ yY
 KC
 ca
 Yg
-jJ
+yY
 Yg
 oA
 KC
@@ -50537,7 +50542,7 @@ yY
 KC
 ca
 lj
-gu
+yY
 lj
 oA
 KC
@@ -50637,11 +50642,11 @@ wq
 wi
 in
 KC
-ZJ
-vy
 KC
-vY
-pL
+KC
+KC
+KC
+KC
 KC
 qA
 HD
@@ -50739,11 +50744,11 @@ Ea
 Me
 rR
 KC
-pL
-vY
 KC
-vy
-ZJ
+KC
+KC
+KC
+KC
 KC
 ca
 Kk
@@ -50843,7 +50848,7 @@ Cl
 KC
 tY
 Yg
-Qd
+Cf
 Yg
 Nr
 KC
@@ -54838,11 +54843,11 @@ Kk
 Ea
 Ea
 Ea
-uU
-uU
-uU
+fg
+fg
+fg
 Gd
-uU
+fg
 Ea
 Ea
 Vi
@@ -54940,11 +54945,11 @@ Kk
 Ea
 Ea
 Ea
-uU
+fg
 aK
 hS
 sG
-uU
+fg
 Ea
 Ea
 Vi
@@ -55039,14 +55044,14 @@ sq
 FN
 yY
 ld
-uU
-uU
-uU
-uU
-uU
+fg
+fg
+fg
+fg
+fg
 DI
 hS
-uU
+fg
 Ea
 Ea
 Vi
@@ -55141,15 +55146,15 @@ uJ
 OK
 Mc
 Lp
-uU
+fg
 Vy
 AA
 hS
 Xu
 hS
 Sf
-uU
-uU
+fg
+fg
 Ea
 Vi
 "}
@@ -55247,11 +55252,11 @@ Mx
 hS
 hS
 rl
-uU
+fg
 hS
 hS
 hS
-uU
+fg
 Ea
 Vi
 "}
@@ -55348,12 +55353,12 @@ ld
 Mx
 hS
 aX
-hS
-uU
+sG
+fg
 Tw
 wF
 lA
-uU
+fg
 Ea
 Vi
 "}
@@ -55446,16 +55451,16 @@ Ea
 Sv
 Jt
 Cf
-ld
+gu
 uU
 rl
 aX
 Sf
-uU
-uU
-uU
-uU
-uU
+fg
+fg
+fg
+fg
+fg
 Ea
 Vi
 "}
@@ -55542,7 +55547,7 @@ gO
 FN
 VD
 Um
-VD
+dP
 KC
 Ea
 KC
@@ -55553,7 +55558,7 @@ Xu
 hS
 aX
 jv
-uU
+fg
 ah
 hS
 Fn
@@ -55645,20 +55650,20 @@ uZ
 FN
 FN
 uZ
-KC
+ZJ
 Ea
 bp
 Jt
 yY
 rm
 uU
-hS
+jJ
 aX
 aX
-uU
+fg
 Qr
 rl
-uU
+fg
 Ea
 Ea
 Vi
@@ -55745,9 +55750,9 @@ KC
 Mz
 FN
 FN
-fg
-rA
-KC
+uZ
+FN
+vy
 Ea
 uH
 RR
@@ -55760,7 +55765,7 @@ Fy
 GZ
 oL
 hS
-uU
+fg
 Ea
 Ea
 Vi
@@ -55846,23 +55851,23 @@ tl
 KC
 KC
 KC
+wc
 FN
 FN
-FN
-KC
+vY
 Ea
 gR
 oe
 Cf
 rm
-uU
-uU
+fg
+fg
 hS
-uU
-uU
+fg
+fg
 Xu
-uU
-uU
+fg
+fg
 Ea
 Ea
 Vi
@@ -55951,20 +55956,20 @@ KC
 rA
 rA
 FN
-KC
+Qd
 Ea
 KC
 OK
 Mc
 Lp
 KC
-uU
-uU
-uU
+fg
+fg
+fg
 Kz
 VG
 VG
-uU
+fg
 Ea
 Ea
 Vi
@@ -56062,11 +56067,11 @@ Kk
 Ea
 Ea
 Ea
-uU
+fg
 VG
 bO
 eM
-uU
+fg
 Ea
 Ea
 Vi
@@ -56164,11 +56169,11 @@ Kk
 Ea
 Ea
 Ea
-uU
+fg
 NF
 XB
 VG
-uU
+fg
 Ea
 Ea
 Vi
@@ -56266,11 +56271,11 @@ Kk
 Ea
 Ea
 Ea
-uU
-uU
-uU
-uU
-uU
+fg
+fg
+fg
+fg
+fg
 Ea
 Ea
 Vi
@@ -56354,12 +56359,12 @@ Ea
 Ea
 Ea
 KC
-KC
+ZJ
 VD
 FN
 FN
 VD
-KC
+pL
 Ea
 KC
 UB
@@ -56456,12 +56461,12 @@ Ea
 Ea
 Ea
 Ea
-KC
+vy
 VD
 FN
 FN
 VD
-KC
+vY
 Ea
 Ea
 Me
@@ -56558,12 +56563,12 @@ Ea
 Ea
 Ea
 Ea
-KC
+vY
 VD
 FN
 FN
 FN
-KC
+vy
 Ea
 Ea
 Do
@@ -56660,12 +56665,12 @@ Ea
 Ea
 Ea
 Ea
-KC
-KC
-rA
-rA
+pL
+Yx
 FN
-KC
+FN
+FN
+ZJ
 Ea
 Ea
 Me
@@ -56763,10 +56768,10 @@ Ea
 Ea
 Ea
 KC
-dW
-FN
-FN
-FN
+KC
+rA
+rA
+Xg
 KC
 Ea
 KC
@@ -56867,8 +56872,8 @@ Ea
 KC
 Ws
 FN
-VD
-VD
+FN
+FN
 KC
 Ea
 Ea
@@ -56970,7 +56975,7 @@ KC
 VD
 FN
 FN
-FN
+VD
 KC
 Ea
 Ea
@@ -57272,7 +57277,7 @@ Ea
 Ea
 KC
 gO
-gO
+dW
 VD
 VD
 CQ
