@@ -100,7 +100,7 @@
 #define JOB_CHAPLAIN "Chaplain"
 #define JOB_PSYCHOLOGIST "Psychologist"
 #define JOB_BARBER "Barber" // NOVA EDIT ADDITION
-#define JOB_BOUNCER "Bouncer" // NOVA EDIT ADDITION
+#define JOB_BOUNCER "Service Guard" // NOVA EDIT ADDITION
 //ERTs
 #define JOB_ERT_DEATHSQUAD "Death Commando"
 #define JOB_ERT_COMMANDER "Emergency Response Team Commander"
