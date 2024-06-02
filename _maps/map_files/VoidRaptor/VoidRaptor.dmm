@@ -116,6 +116,14 @@
 	name = "Law Office Fax Machine";
 	pixel_y = 3
 	},
+/obj/item/storage/briefcase{
+	pixel_x = -3;
+	pixel_y = -12
+	},
+/obj/item/storage/briefcase/secure{
+	pixel_x = 2;
+	pixel_y = -15
+	},
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "abP" = (
@@ -33771,6 +33779,9 @@
 /obj/item/clothing/glasses/sunglasses/big{
 	pixel_y = -11
 	},
+/obj/item/clothing/glasses/sunglasses{
+	pixel_y = -5
+	},
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "jEA" = (
@@ -62896,19 +62907,10 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "rAD" = (
-/obj/structure/rack,
-/obj/item/storage/briefcase{
-	pixel_x = -3;
-	pixel_y = 2
-	},
-/obj/item/storage/briefcase/secure{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/clothing/glasses/sunglasses,
 /obj/machinery/status_display/evac/directional/east,
 /obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/bot,
+/obj/structure/aquarium/lawyer,
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "rAU" = (
