@@ -45,6 +45,7 @@
 
 	id_trim = /datum/id_trim/job/telecomms_specialist
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm
+	suit = /obj/item/clothing/suit/toggle/jacket/engi
 	neck = /obj/item/clothing/neck/link_scryer
 	belt = /obj/item/screwdriver
 	ears = /obj/item/radio/headset/headset_eng
@@ -64,6 +65,7 @@
 
 	backpack_contents = list(
 		/obj/item/paper/monitorkey,
+		/obj/item/wirecutters,
 	)
 
 /obj/item/modular_computer/pda/telecomms
@@ -81,7 +83,7 @@
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_telecommsspecialist"
 	department_color = COLOR_ENGINEERING_ORANGE
-	subdepartment_color = COLOR_SECURITY_RED
+	subdepartment_color = COLOR_ENGINEERING_ORANGE
 	sechud_icon_state = SECHUD_TELECOMMS_SPECIALIST
 	minimal_access = list(
 		ACCESS_CONSTRUCTION,
