@@ -79,6 +79,10 @@
 
 /datum/emote/flip/run_emote(mob/user, params , type_override, intentional)
 	. = ..()
+	// NOVA EDIT ADDITION START - flips for everyone, but freerunners do it faster
+	if(intentional && !HAS_TRAIT(user, TRAIT_FREERUNNING) && !HAS_TRAIT(user, TRAIT_STYLISH) && !do_after(user, 0.5 SECONDS, target = user, hidden = TRUE))
+		return
+	// NOVA EDIT ADDITION END
 	if(.)
 		user.SpinAnimation(FLIP_EMOTE_DURATION,1)
 

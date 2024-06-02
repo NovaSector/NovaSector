@@ -373,6 +373,9 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka
 
+/datum/loadout_item/head/sombrero
+	name = "Sombrero"
+	item_path = /obj/item/clothing/head/costume/sombrero
 
 /datum/loadout_item/head/wrussian
 	name = "Black Papakha"
@@ -424,6 +427,10 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/blastwave_cap
 	name = "Blastwave Peaked Cap"
 	item_path = /obj/item/clothing/head/blastwave/officer
+
+/datum/loadout_item/head/plague_hat
+	name = "Plague Doctor's Hat"
+	item_path = /obj/item/clothing/head/bio_hood/plague
 
 /datum/loadout_item/head/chap_nunh
 	name = "Nun's Hood"

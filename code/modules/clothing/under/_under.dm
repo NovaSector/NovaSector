@@ -134,8 +134,10 @@
 
 /obj/item/clothing/under/emp_act(severity)
 	. = ..()
+
 	if(. & EMP_PROTECT_SELF)
 		return
+
 	if(has_sensor == NO_SENSORS || has_sensor == BROKEN_SENSORS)
 		return
 
@@ -182,7 +184,7 @@
 
 /mob/living/carbon/human/proc/update_sensor_list()
 	var/obj/item/clothing/under/U = w_uniform
-	if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
+	if(istype(U) && U.has_sensor != NO_SENSORS && U.sensor_mode) // NOVA EDIT CHANGE - ORIGINAL: if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
 		GLOB.suit_sensors_list |= src
 	else
 		GLOB.suit_sensors_list -= src

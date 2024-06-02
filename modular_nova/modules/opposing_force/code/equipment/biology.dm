@@ -76,9 +76,3 @@
 	description = "An organ implant kit filled with illegally obtained xenomorph organs."
 	admin_note = "Gives the ability to place resin structures, spit acid and melt station structures."
 	item_type = /obj/item/storage/organbox/strange
-
-/datum/opposing_force_equipment/organs/xeno_eggsac
-	name = "Xeno-organ plus eggsac Implant Kit"
-	description = "An organ implant kit filled with illegally obtained xenomorph organs. Includes an eggsac which is capable of birthing the prime species itself."
-	admin_note = "Gives every xeno organ, including the one that CAN spawn real xenomorphs."
-	item_type = /obj/item/storage/organbox/strange/eggsac

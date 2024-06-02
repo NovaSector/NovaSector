@@ -1,7 +1,7 @@
 ///the minimum size of a pill or patch
 #define MIN_VOLUME 5
 ///the maximum size a pill or patch can be
-#define MAX_VOLUME 50
+#define MAX_VOLUME 100 // NOVA EDIT CHANGE - 100u MAX - ORIGINAL: #define MAX_VOLUME 50
 ///max amount of pills allowed on our tile before we start storing them instead
 #define MAX_FLOOR_PRODUCTS 10
 
@@ -25,6 +25,10 @@
 	var/packaging_category
 	/// list of products stored in the machine, so we dont have 610 pills on one tile
 	var/list/stored_products = list()
+	// NOVA EDIT ADDITION START
+	/// Increases the standard plumbing machine buffer to account for the increased max volume
+	buffer = MAX_VOLUME
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
 	. = ..()

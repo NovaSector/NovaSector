@@ -841,3 +841,198 @@
   vinylspiders:
   - image: antennae head marking renamed from 'Colourable Moth Anetennae' to 'Insect
       Antennae'
+2024-05-26:
+  Ketrai:
+  - qol: Makes Ouroboros quite a bit more spacious with area overhauls! (Ouroborous
+      changelog start)
+  - qol: Size increases to botany, robotics, chem, security meeting room, security
+      hall, bridge, bridge meeting room.
+  - qol: Increases the kitchen size, moving the kitchen to the same level as the main
+      counter. Also increases bar size.
+  - qol: Gave the bar their own side entrance. NT rep should now have an actual bedroom.
+  - qol: Adds a bunch of extra light switches as well. (Ouroborous changelog end)
+  NovaBot13:
+  - bugfix: You can shoot at items on the floor again
+  - bugfix: '[Ice Box Station] Dorm 1''s door no longer shares ID with dorm 2''s door'
+  - bugfix: Ghosts can more reliably become a harvester.
+  - qol: Made borg inventory not shift around depending on equipped items
+  - qol: The "Proto-Nitrate BZ response" atmsopheric reaction now lists it's required
+      temperature.
+  grungussuss:
+  - bugfix: changed layout of Northstar dining hall so customer bots can reach the
+      kitchen counter
+  jwc1015:
+  - rscadd: The Plague Doctor's Hat is now available in the loadout menu.
+  nikothedude:
+  - bugfix: Synth taur legs now have all attributes of a organic taur leg except the
+      fact theyre robotic
+  - bugfix: Markings no longer render on taur legs
+  - code_imp: Various improvements to taur leg code
+  - rscadd: Serpentine taurs can now use their tails to constrict things and crush
+      them
+  - rscadd: Serpentine taurs can no longer wear shoes
+2024-05-27:
+  Melbert:
+  - refactor: Refactored the way high toxins cause you to vomit.
+  Merek2:
+  - rscadd: Add Expedition Uniform to loadout. People can wear what they want on top
+      and try to look cool!
+  Nerev4r:
+  - image: Adds a right-side-up version of the broad elf ears.
+  NovaBot13:
+  - bugfix: Material floor tiles once again have their improved sprite.
+  - rscdel: Removes sentient disease from the game
+  - rscdel: Miasma and gibs no longer generates random diseases
+  TheSS13Melon:
+  - rscadd: Adds a donator SEVA for deadmon
+  by INFRARED_BARON:
+  - image: Changes the sprites of bone and ash drake armor (suit + helmet mob/objs)
+  grungussuss:
+  - qol: tramstation upload now has an extra motion camera
+  - qol: tramstation SM setup now has an emergency cooling setup
+  sergeirocks100, Paxilmaniac:
+  - rscadd: A sleeveless variant of the crop-top jacket has been added to the loadout
+      selection.
+2024-05-28:
+  CliffracerX:
+  - refactor: refactored eye sprites to be head-type dependant
+  Fluffles:
+  - bugfix: echolocation is less laggy. and works.
+  GoldenAlpharex:
+  - qol: Converted three verbs to using TGUI input lists instead of default BYOND
+      input lists.
+  - spellcheck: Fixed a capitalization issue in one of said verbs' options.
+  - spellcheck: Fixed a lack of capitalization in certain strings visible when examining
+      people when you have the Empath quirk.
+  LemonInTheDark:
+  - refactor: I have reworked how parallax and its animations (space travel) work.
+      Please report any bugs lads!
+  MajManatee:
+  - qol: Chemical press can now dispense 100u bottles and large hypovials
+  NovaBot13:
+  - balance: Viruses now self-heal much more effectively with good mood, sleep, food,
+      and spaceacillin.
+  - balance: Viruses now punish being hungry more. Stay fed!
+  - balance: Spaceacillin now gives 200 ticks of symptom resistance, declining over
+      time, rather than 100.
+  - balance: Viruses now progress slightly slower.
+  - balance: Viruses now only hide if their stealth stat is greater than their total
+      computed severity.
+  - image: makes food hud burger icon have a sharp outline
+  - bugfix: Rust debuffs now gets properly removed if you derust a tile you  are standing
+      on.
+  - bugfix: computers with no lights can now turn on using the on/off signal
+  - bugfix: RGB lights on PDA circuits now use a signal
+  - bugfix: the is_off signal now works on consoles
+  - bugfix: printing text on a console component now uses a signal
+  - refactor: each input signal in console circuits now have their own proc
+  - spellcheck: Fixes labour camp shuttle retrieval message starting with "/p".
+  - balance: Mobs significantly larger than humans, such as Space Dragons and Xenomorph
+      Queens, breakout of being arrested by a mech significantly faster.
+  - bugfix: Venus Man Traps cannot use vines to drag around machines or objects that
+      are bolted, welded, rooted to, or otherwise are part of the ground
+  - bugfix: Standing on a table will not prevent you from being grappled by a Venus
+      Man Trap
+  - refactor: Wendigos abilities have been changed into actions that can be added
+      to any mob.
+  - qol: Traitor-created Infected AIs no longer hear the Malf AI antag sound alert.
+  Thlumyn:
+  - bugfix: manage player ranks & lorecaster stories buttons work again
+  Zergspower:
+  - bugfix: fixes suit sensors not breaking the right (fun) way when EMP'd
+  delingar:
+  - qol: Heretic's Relentless Heartbeat is knowledge-free
+2024-05-29:
+  GoldenAlpharex for the code, Thlumyn for the sprites & mapping:
+  - rscadd: Added translator room to the Hearth map.
+  - image: Added a unique sprite for the Icecat's translator
+  NovaBot13:
+  - bugfix: Fixed a typo preventing creation of paystands using an ID.
+  - rscdel: Wipes the last echo of sentient disease from existence
+  RatFromTheJungle:
+  - rscdel: Removed the 'Xeno Egg' bundle from opfor, as xeno-opfors wouldn't be approved
+2024-05-30:
+  Fluffles:
+  - bugfix: holodecks no longer use increasing amounts of power the longer they're
+      on
+  FlufflesTheDog:
+  - bugfix: You can no longer change your ready state in the middle of the match starting.
+      Thanks, Eddie.
+  GoldenAlpharex:
+  - qol: Grown logs no longer spam your chat when cut into planks, instead displaying
+      balloon alerts informing you of how many planks were made!
+  - qol: Cotton and Durathread bundles no longer spam your chat either, and display
+      a balloon alert instead.
+  - bugfix: Cotton and Durathread bundles no longer runtime when creating raw cotton/durathread
+      from the created stack having been merged with an existing one.
+  - image: Disposal bins now use the proper sprites when disconnected from the floor.
+  - image: Junction pipes have received a very minor resprite, making their arrows
+      gray instead of blue.
+  - bugfix: The RPD will now display the correct sprites when displaying the disposals
+      options.
+  Melbert:
+  - bugfix: The Bar on Icebox should receive less trash
+  MortoSasye:
+  - bugfix: Hearthkin remembered how to fall on their own two feet.
+  NovaBot13:
+  - balance: Adds a threshold to oculine and increases metabolism, and reduces the
+      amount of oculine in a carrot
+  - bugfix: Lootpanel no longer opens up when alt clicking objects on your person
+  - sound: Disposal chutes will no longer play a sound for each item when many items
+      enter it at once
+  - admin: fix_air will also fix the turfs' temperatures.
+  - bugfix: Slightly cleaned up PAI software downloads interface
+  - bugfix: fixed watcher wreath bounties being incompletable
+  - image: Revamped Contractor Gear. You'll stand out more now, but hey, that's why
+      the syndicate contracts out work in the first place.
+  - rscadd: Added a screentip for hilbert's hotel door
+  - bugfix: Fixed alt-click interaction with hilbert's hotel door
+  - bugfix: Fix a rare issue where a turf would remain permanently "elevated" if an
+      elevated object was initialized inside of a non-turf object.
+  - bugfix: "\u0421ertain cooldowns should now be more accurate and will no longer\
+      \ take an extra decisecond to clear."
+  - bugfix: When removing a corrupted organ from a patient, the patient will now be
+      checked for Holy Water or magic resistance, rather than the person performing
+      the surgery.
+  - bugfix: viruses can no longer potentially have 8 symptoms
+  - spellcheck: Fixed a missing space typo in ion law logic.
+  - bugfix: Drones stored inside objects will call the stored object's relaymove()
+      and return upon move
+  - balance: Bioscramblers pulse more often but with less range, plus you can see
+      them pulsing.
+  Rhials:
+  - admin: Admins can now reroll random events into something else.
+  ShizCalev:
+  - bugfix: Trees will no longer be growing through railings on forest planets
+  - bugfix: Trees/plants will no longer grow through wood pathways on Icebox
+  - bugfix: Railings will no longer appear ontop of rock walls on icebox
+  Vekter:
+  - bugfix: Fixed a missing access helper in Northstar Medbay. Assistants should no
+      longer be trapped post-mending.
+  - bugfix: Replaced an incorrect disposal variant in Northstar's Medbay.
+  - spellcheck: Fixed a grammar inconsistency in round tips.
+  avimour:
+  - image: 'New body markings: splotches, top scars, and claw tips.'
+  grungussus:
+  - bugfix: fixed metal foam plating description and add more user friendly explanation
+      on how to replace tiling.
+  grungussuss:
+  - admin: admin RCD now works much faster.
+  honkpocket:
+  - rscadd: You can now buy a sombrero from the autodrobe, or maybe you already have
+      one from the loadout list
+  yooriss:
+  - balance: The Freerunning quirk is no longer required to *flip.
+2024-05-31:
+  NovaBot13:
+  - bugfix: Fixed screentips not appearing on clip on neckties
+  - sound: Shuttle docking and undocking is quieter now
+  - sound: The volume of the gravity generator has been halved
+  Rhials:
+  - bugfix: You can no longer force NODE Drones off of ore vents. That includes using
+      fulton packs!
+  - bugfix: When a NODE Drone is forcibly separated from its vent, it will fly away.
+  grungussuss:
+  - balance: The DNA vault now requires less animal and plant DNA to be completed
+  oranges:
+  - spellcheck: Gripper gloves are now Enhanced Retrieval gloves
