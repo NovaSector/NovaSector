@@ -57921,8 +57921,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/hydroponics/upper)
 "qLZ" = (
-/obj/structure/table/wood,
 /obj/structure/cable,
+/obj/structure/aquarium/lawyer,
 /turf/open/floor/carpet,
 /area/station/service/lawoffice)
 "qMo" = (
