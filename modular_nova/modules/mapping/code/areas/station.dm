@@ -596,7 +596,7 @@
 	name = "\improper Xenobiology Control Room"
 	icon_state = "xenobio"
 
-// SerenityStation Rooms 
+// SerenityStation Rooms
 /area/station/commons/dorms/cyborgA
 	name = "\improper Cyborg Storage A"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
@@ -641,3 +641,8 @@
 	name = "\improper Orbital Solar Array"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "orbital_solars"
+
+/area/station/maintenance/sushi_maint
+	name = "\improper Maintenance Sushi Shop"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon_state = "sushi_maint"
