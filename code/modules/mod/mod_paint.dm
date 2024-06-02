@@ -186,7 +186,6 @@
 	if(!(skin in mod.theme.variants))
 		balloon_alert(user, "incompatible theme!")
 		return TRUE
-
 	mod.theme.set_skin(mod, skin)
 	balloon_alert(user, "skin applied")
 	qdel(src)
