@@ -46800,6 +46800,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/sign/directions/science/directional/north,
+/obj/structure/sign/directions/supply/directional/north{
+	pixel_y = 38
+	},
+/obj/structure/sign/directions/evac/directional/north{
+	pixel_y = 26;
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
 "nKZ" = (
@@ -71467,6 +71475,24 @@
 	dir = 1
 	},
 /area/station/command/gateway)
+"uYk" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/sign/directions/engineering/directional/south,
+/obj/structure/sign/directions/medical/directional/south{
+	pixel_y = -26
+	},
+/obj/structure/sign/directions/security/directional/south{
+	pixel_y = -38;
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central/aft)
 "uYz" = (
 /obj/structure/rack/shelf,
 /obj/item/tank/internals/emergency_oxygen/engi/empty{
@@ -174582,7 +174608,7 @@ pmd
 pmd
 nKM
 qPc
-nKM
+uYk
 sYJ
 sYJ
 sYJ
