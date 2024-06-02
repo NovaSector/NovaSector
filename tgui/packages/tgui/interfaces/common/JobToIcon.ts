@@ -273,8 +273,9 @@ const ALTTITLES = {
   'Engineering Trainee': BASEICONS['Station Engineer'],
   // Telecomms Specialist - tower-cell
   'Network Engineer': BASEICONS['Telecomms Specialist'],
-  'IT Technician': BASEICONS['Telecomms Specialist'],
-  SysAdmin: BASEICONS['Telecomms Specialist'],
+  'Wireless Operator': BASEICONS['Telecomms Specialist'],
+  'Tram Technician': BASEICONS['Telecomms Specialist'],
+  Sysadmin: BASEICONS['Telecomms Specialist'],
   // Virologist - virus
   Pathologist: BASEICONS['Virologist'],
   'Junior Pathologist': BASEICONS['Virologist'],
