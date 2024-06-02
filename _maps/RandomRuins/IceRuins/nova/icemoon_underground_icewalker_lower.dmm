@@ -339,16 +339,6 @@
 	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"hA" = (
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/structure/bed/maint,
-/obj/item/bedsheet/black/double{
-	dir = 1
-	},
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "hQ" = (
 /obj/structure/rack/wooden,
 /obj/item/shield/goliath{
@@ -466,10 +456,6 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
-"kF" = (
-/obj/structure/bed/dogbed,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "kM" = (
@@ -606,11 +592,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "mN" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/structure/bed/maint,
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/black/double{
+/obj/structure/bed/double/black_pelt_bed{
 	dir = 1
 	},
 /turf/open/misc/dirt/icemoon,
@@ -735,13 +717,9 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "pc" = (
-/obj/item/bedsheet/black{
-	pixel_y = 12
+/obj/structure/bed/double/black_pelt_bed{
+	dir = 1
 	},
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/structure/bed/dogbed,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "pA" = (
@@ -894,16 +872,6 @@
 /obj/structure/chair/sofa/bamboo/left,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"rL" = (
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/black{
-	dir = 1;
-	pixel_y = 12
-	},
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "rS" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/structure/flora/ash/leaf_shroom,
@@ -925,10 +893,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "sJ" = (
-/obj/structure/bed/maint,
-/obj/item/bedsheet/black{
-	dir = 1
-	},
+/obj/structure/bed/double/black_pelt_bed,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "sK" = (
@@ -1749,11 +1714,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "OM" = (
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/structure/bed/maint,
-/obj/item/bedsheet/black/double,
+/obj/structure/bed/double/white_pelt_bed,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "OR" = (
@@ -1948,16 +1909,6 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Te" = (
 /obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
-"Ti" = (
-/obj/structure/bed/maint,
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/black/double{
 	dir = 1
 	},
 /turf/open/misc/dirt/icemoon,
@@ -3366,7 +3317,7 @@ oX
 ZJ
 ZJ
 ZJ
-rL
+OM
 pa
 GN
 oJ
@@ -3404,9 +3355,9 @@ mu
 sf
 GN
 pa
-hA
+OM
 ZJ
-Ti
+OM
 ZJ
 sJ
 pa
@@ -3446,7 +3397,7 @@ yF
 GN
 GN
 pa
-kF
+pc
 ZJ
 pc
 ZJ

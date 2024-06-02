@@ -296,8 +296,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "mD" = (
-/obj/structure/bed/maint,
 /obj/structure/curtain/bounty,
+/obj/structure/bed/double/white_pelt_bed,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "mH" = (
@@ -417,11 +417,8 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "oA" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/structure/bed/maint{
-	pixel_y = 13
-	},
-/obj/structure/bed/maint,
 /obj/structure/curtain/bounty,
+/obj/structure/bed/double/white_pelt_bed,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "pa" = (
@@ -751,8 +748,8 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Bb" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
-/obj/structure/bed/maint,
 /obj/structure/curtain/bounty,
+/obj/structure/bed/double/white_pelt_bed,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Bt" = (

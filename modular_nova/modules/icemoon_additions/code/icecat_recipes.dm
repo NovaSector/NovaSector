@@ -88,3 +88,64 @@
 	)
 
 	result = /obj/item/clothing/suit/armor/handcrafted_hearthkin_armor
+
+// Hearthkin Exclusive Beds
+/obj/structure/bed/double/black_pelt_bed
+	name = "black pelts bed"
+	desc = "A luxurious double bed, made with black wolf pelts."
+	icon_state = "pelt_bed_black"
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_beds.dmi'
+	anchored = TRUE
+	can_buckle = TRUE
+	buckle_lying = 90
+	resistance_flags = FLAMMABLE
+	max_integrity = 100
+	integrity_failure = 0.35
+	max_buckled_mobs = 2
+	/// What material this bed is made of
+	build_stack_type = 	/obj/item/stack/sheet/sinew/wolf
+	/// How many mats to drop when deconstructed
+	build_stack_amount = 4
+
+/datum/crafting_recipe/black_pelt_bed
+	name = "Black Pelts Bed"
+	category = CAT_FURNITURE
+	//recipe given to icecats as part of their spawner/team setting
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
+
+	reqs = list(
+		/obj/item/stack/sheet/sinew/wolf = 4,
+		/obj/item/stack/sheet/mineral/wood = 4,
+	)
+
+	result = /obj/structure/bed/double/black_pelt_bed
+
+/obj/structure/bed/double/white_pelt_bed
+	name = "white pelts bed"
+	desc = "A luxurious double bed, made with white wolf pelts."
+	icon_state = "pelt_bed_white"
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_beds.dmi'
+	anchored = TRUE
+	can_buckle = TRUE
+	buckle_lying = 90
+	resistance_flags = FLAMMABLE
+	max_integrity = 100
+	integrity_failure = 0.35
+	max_buckled_mobs = 2
+	/// What material this bed is made of
+	build_stack_type = 	/obj/item/stack/sheet/sinew/wolf
+	/// How many mats to drop when deconstructed
+	build_stack_amount = 4
+
+/datum/crafting_recipe/white_pelt_bed
+	name = "White Pelts Bed"
+	category = CAT_FURNITURE
+	//recipe given to icecats as part of their spawner/team setting
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND
+
+	reqs = list(
+		/obj/item/stack/sheet/sinew/wolf = 4,
+		/obj/item/stack/sheet/mineral/wood = 4,
+	)
+
+	result = /obj/structure/bed/double/white_pelt_bed
