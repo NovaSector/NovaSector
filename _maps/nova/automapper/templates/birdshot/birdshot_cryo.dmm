@@ -145,9 +145,6 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/cryopod{
-	dir = 4
-	},
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/small,
 /area/station/common/cryopods)
