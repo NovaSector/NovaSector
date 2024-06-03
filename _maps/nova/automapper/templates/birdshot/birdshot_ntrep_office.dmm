@@ -258,6 +258,7 @@
 /obj/structure/displaycase/captain{
 	pixel_y = 5
 	},
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/captain/private)
 "HS" = (
