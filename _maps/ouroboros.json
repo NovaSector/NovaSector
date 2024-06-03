@@ -4,9 +4,9 @@
 	"map_path": "map_files/Ouroboros",
 	"map_file": "Ouroboros.dmm",
 	"shuttles": {
-		"emergency": "emergency_skyrat",
-		"ferry": "ferry_skyrat",
-		"mining": "mining_large_skyrat",
+		"emergency": "emergency_nova",
+		"ferry": "ferry_nova",
+		"mining": "mining_nova_large",
 		"cargo": "cargo_ouroboros",
 		"whiteship": "whiteship_ouroboros"
 	},

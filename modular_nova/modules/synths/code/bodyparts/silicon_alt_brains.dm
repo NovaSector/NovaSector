@@ -59,6 +59,14 @@
 /mob/living/silicon/proc/transfer_brain_pref(client/player_client)
 	return
 
+/// Transfers the emote pref to the silicon mob
+/mob/living/silicon/proc/transfer_emote_pref(client/player_client)
+	var/chosen_scream = player_client?.prefs?.read_preference(/datum/preference/choiced/scream)
+	var/scream_id = GLOB.scream_types[chosen_scream]
+	if(scream_id)
+		var/datum/scream_type/scream_type = new scream_id
+		selected_scream = scream_type
+
 // This is only implemented for cyborgs at the moment. AI has their own weird way of doing things.
 /mob/living/silicon/robot/transfer_brain_pref(client/player_client)
 	// Read the brain type from prefs and apply it to the mob.
@@ -86,6 +94,7 @@
 /mob/living/silicon/proc/transfer_silicon_prefs(client/player_client)
 	transfer_chat_color_pref(player_client)
 	transfer_brain_pref(player_client)
+	transfer_emote_pref(player_client)
 
 /mob/living/silicon/robot/apply_prefs_job(client/player_client, datum/job/job)
 	. = ..()

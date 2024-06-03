@@ -42,7 +42,7 @@
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
 			ghost.show_message(span_emote(message_with_name))
 
-	for(var/mob/reciever in viewers)
-		reciever.show_message(span_emote(message_with_name), alt_msg = span_emote(message_with_name))
-		if (reciever.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
+	for(var/mob/receiver in viewers)
+		receiver.show_message(span_emote(message_with_name), alt_msg = span_emote(message_with_name))
+		if (receiver.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
 			create_chat_message(usr, null, message, null, EMOTE_MESSAGE)

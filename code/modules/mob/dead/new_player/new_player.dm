@@ -80,7 +80,7 @@
 		show_title_screen() // NOVA EDIT ADDITION
 		return FALSE
 
-	hide_title_screen() // NOVA EDIT ADDITION - Skyrat Titlescreen
+	hide_title_screen() // NOVA EDIT ADDITION - Nova Titlescreen
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
 

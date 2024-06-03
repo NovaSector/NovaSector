@@ -47,4 +47,9 @@
 		log_message("[equipped_item] was removed from [key_name(src)].", LOG_ATTACK)
 		dropItemToGround(equipped_item, TRUE)
 
+	// Leashes are treated a smidge different than the rest of the clothing; and need their own handling here.
+	var/leash_check = src?.GetComponent(/datum/component/leash/erp)
+	if(leash_check)
+		qdel(leash_check)
+
 	return TRUE

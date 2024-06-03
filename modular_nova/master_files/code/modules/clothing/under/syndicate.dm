@@ -185,6 +185,15 @@
 		desc = "A non-descript and slightly suspicious looking skirtleneck."
 		inhand_icon_state = "bl_suit"
 
+
+/obj/item/clothing/under/syndicate/skirt/coldres
+	name = "insulated tactical turtleneck skirt"
+	desc = "A non-descript and slightly suspicious looking skirtleneck. The interior has been padded with special insulation for both warmth and protection."
+	armor_type = /datum/armor/clothing_under/syndicate/coldres
+	cold_protection = CHEST|GROIN|ARMS|LEGS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+
 /*
 *	ENCLAVE
 */

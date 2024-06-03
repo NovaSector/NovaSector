@@ -5,6 +5,9 @@
 // may be opened to change power cell
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
+///Cap for how fast cells charge, as a percentage per second (.01 means cellcharge is capped to 1% per second)
+#define CHARGELEVEL 0.01
+
 /obj/machinery/power/apc
 	name = "area power controller"
 	desc = "A control terminal for the area's electrical systems."
@@ -228,8 +231,11 @@
 	find_and_hang_on_wall()
 
 /obj/machinery/power/apc/Destroy()
-	if(malfai && operating)
-		malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
+	if(malfai)
+		if(operating)
+			malfai.malf_picker.processing_time = clamp(malfai.malf_picker.processing_time - 10, 0, 1000)
+		malfai.hacked_apcs -= src
+		malfai = null
 	disconnect_from_area()
 	QDEL_NULL(alarm_manager)
 	if(occupier)
@@ -244,6 +250,7 @@
 
 /obj/machinery/power/apc/proc/on_saboteur(datum/source, disrupt_duration)
 	SIGNAL_HANDLER
+	disrupt_duration *= 0.1 // so, turns out, failure timer is in seconds, not deciseconds; without this, disruptions last 10 times as long as they probably should
 	energy_fail(disrupt_duration)
 	return COMSIG_SABOTEUR_SUCCESS
 
@@ -583,7 +590,7 @@
 		// now trickle-charge the cell
 		if(chargemode && operating && excess && cell.used_charge())
 			// Max charge is capped to % per second constant.
-			lastused_total += charge_cell(min(cell.chargerate, cell.maxcharge * GLOB.CHARGELEVEL) * seconds_per_tick, cell = cell, grid_only = TRUE, channel = AREA_USAGE_APC_CHARGE)
+			lastused_total += charge_cell(min(cell.chargerate, cell.maxcharge * CHARGELEVEL) * seconds_per_tick, cell = cell, grid_only = TRUE, channel = AREA_USAGE_APC_CHARGE)
 			charging = APC_CHARGING
 
 		// show cell as fully charged if so
@@ -708,6 +715,8 @@
 /obj/machinery/power/apc/proc/draw_energy(amount)
 	var/grid_used = min(terminal?.surplus(), amount)
 	terminal?.add_load(grid_used)
+	if(QDELETED(cell))
+		return grid_used
 	var/cell_used = 0
 	if(amount > grid_used)
 		cell_used += cell.use(amount - grid_used, force = TRUE)
@@ -731,3 +740,5 @@
 		return round(energy_to_power(required_joules / trickle_charge_power) * SSmachines.wait + SSmachines.wait, SSmachines.wait)
 
 	return null
+
+#undef CHARGELEVEL

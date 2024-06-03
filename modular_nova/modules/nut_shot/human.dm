@@ -7,17 +7,22 @@
 
 // For when you want to hurt a motherfucker
 /// Checks to see if it is possible to reach the mob's testicles and influence them through that - i.e. not medicated or unconscious. Knocks down when successful, with a small chance to vomit.
-/mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker)
+/mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker, limb_accuracy, staggered)
 	if(stat >= UNCONSCIOUS)
 		return FALSE
 	if(!(attacker.zone_selected == BODY_ZONE_PRECISE_GROIN))
 		return FALSE
 	if(!has_balls(REQUIRE_GENITAL_EXPOSED))
 		return FALSE
+	if(HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
+		return FALSE
+	//If we don't roll a punch high enough to hit our stun threshold, or if we are not staggered and have at least 40 damage+stamina
+	if(!prob(limb_accuracy) && !(staggered && (getStaminaLoss() + getBruteLoss()) >= 40))
+		return FALSE
 
 	var/balls_of_steel = issynthetic(src) // Update when we have cybernetic testes. When.
 	var/is_kick = body_position == LYING_DOWN
-	
+
 	if(balls_of_steel) // hitting metal hurts
 		attacker.apply_damage(
 			damage = NUTSHOT_SELF_DAMAGE,
@@ -30,7 +35,7 @@
 			span_danger("You [is_kick ? "kick" : "punch"] [src] in the nuts with all your might... but your efforts are for naught as they remain impassive! Inhuman!")
 			)
 		return FALSE
-	
+
 	// General applied effects
 	Knockdown(NUTSHOT_KNOCKDOWN_TIME)
 	var/nauseating = prob(NUTSHOT_VOMIT_CHANCE)

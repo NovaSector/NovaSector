@@ -644,7 +644,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 /obj/structure/window/fulltile
 	name = "full tile window"
 	desc = "A full tile window."
-	icon = 'icons/obj/smooth_structures/window.dmi' //ICON OVERRIDDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/smooth_structures/window.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
 	icon_state = "window-0"
 	base_icon_state = "window"
 	max_integrity = 100
@@ -665,7 +665,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/plasma/fulltile
-	icon = 'icons/obj/smooth_structures/plasma_window.dmi' //ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/smooth_structures/plasma_window.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
 	icon_state = "plasma_window-0"
 	base_icon_state = "plasma_window"
 	max_integrity = 400

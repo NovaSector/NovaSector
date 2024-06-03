@@ -1,4 +1,4 @@
-/obj/item/implantpad//NOVA EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+/obj/item/implantpad//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	name = "implant pad"
 	desc = "Used to modify implants."
 	icon = 'icons/obj/devices/tool.dmi'

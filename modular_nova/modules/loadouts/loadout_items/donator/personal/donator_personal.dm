@@ -114,7 +114,7 @@
 /datum/loadout_item/mask/composite_filtration
 	name = "Composite Filtration Mask"
 	item_path = /obj/item/clothing/mask/gas/psycho_malice
-	ckeywhitelist = list("snakebittenn", "chillylobster", "candlejax", "theooz")
+	ckeywhitelist = list("snakebittenn", "chillylobster", "candlejax", "theooz", "alvcyktor")
 
 /datum/loadout_item/suit/jacket/cherno
 	name = "Blue-Silvered Coat"
@@ -797,9 +797,15 @@
 /datum/loadout_item/under/jumpsuit/techpants
     name = "Techwear Pants"
     item_path = /obj/item/clothing/under/techpants
-    ckeywhitelist = list("alvcyktor")
+    ckeywhitelist = list("alvcyktor", "snakebittenn")
 
 /datum/loadout_item/inhand/drop_pouch
     name = "Drop Pouch"
     item_path = /obj/item/storage/backpack/satchel/drop_pouch
-    ckeywhitelist = list("alvcyktor")
+    ckeywhitelist = list("alvcyktor", "snakebittenn")
+
+/datum/loadout_item/inhand/melonseva
+	name = "Sundowner SEVA"
+	item_path = /obj/item/clothing/suit/hooded/seva/melon
+	ckeywhitelist = list("deadmonwonderland")
+	restricted_roles = list(JOB_SHAFT_MINER)

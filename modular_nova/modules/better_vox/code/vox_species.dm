@@ -1,7 +1,6 @@
 /datum/species/vox_primalis
 	name = "Vox Primalis"
 	id = SPECIES_VOX_PRIMALIS
-	eyes_icon = 'modular_nova/modules/better_vox/icons/bodyparts/vox_eyes.dmi'
 	can_augment = FALSE
 	body_size_restricted = TRUE
 	digitigrade_customization = DIGITIGRADE_NEVER // We have our own unique sprites!
@@ -58,17 +57,6 @@
 		equipping.equipOutfit(job.vox_outfit, visuals_only)
 	else
 		give_important_for_life(equipping)
-
-/datum/species/vox_primalis/random_name(gender, unique, lastname)
-	if(unique)
-		return random_unique_vox_name()
-
-	var/randname = vox_name()
-
-	if(lastname)
-		randname += " [lastname]"
-
-	return randname
 
 /datum/species/vox_primalis/get_custom_worn_icon(item_slot, obj/item/item)
 	return item.worn_icon_better_vox
