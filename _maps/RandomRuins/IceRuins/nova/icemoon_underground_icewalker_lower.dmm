@@ -592,7 +592,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "mN" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/structure/bed/double/black_pelt_bed{
+/obj/structure/bed/double/pelt/black{
 	dir = 1
 	},
 /turf/open/misc/dirt/icemoon,
@@ -717,7 +717,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "pc" = (
-/obj/structure/bed/double/black_pelt_bed{
+/obj/structure/bed/double/pelt/black{
 	dir = 1
 	},
 /turf/open/misc/dirt/icemoon,
@@ -893,7 +893,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "sJ" = (
-/obj/structure/bed/double/black_pelt_bed,
+/obj/structure/bed/double/pelt/black,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "sK" = (
@@ -1714,7 +1714,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "OM" = (
-/obj/structure/bed/double/white_pelt_bed,
+/obj/structure/bed/double/pelt,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "OR" = (
