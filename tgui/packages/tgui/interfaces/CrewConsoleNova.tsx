@@ -35,10 +35,10 @@ const jobToColor = (jobId) => {
   if (jobId === 0) {
     return COLORS.department.captain;
   }
-  if (jobId >= 10 && jobId < 15) {
+  if (jobId >= 10 && jobId < 20) {
     return COLORS.department.security;
   }
-  if (jobId >= 15 && jobId < 20) {
+  if (jobId >= 401 && jobId < 409) {
     return COLORS.department.prisoner;
   }
   if (jobId >= 20 && jobId < 30) {

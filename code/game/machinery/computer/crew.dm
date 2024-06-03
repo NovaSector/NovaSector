@@ -111,7 +111,6 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		*/
 		JOB_CORRECTIONS_OFFICER = 13, // NOVA EDIT ADDITION
 		JOB_DETECTIVE = 14,
-		JOB_PRISONER = 15, //NOVA EDIT ADDITION
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
 		JOB_CHEMIST = 21,
@@ -174,6 +173,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,
+		JOB_PRISONER = 401, //NOVA EDIT ADDITION
 	)
 
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
