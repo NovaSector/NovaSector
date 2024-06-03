@@ -292,7 +292,7 @@ trait_name = "Station"
 map_files = ["birdshot_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
-coordinates = [104, 163, 1]
+coordinates = [111, 157, 1]
 trait_name = "Station"
 
 # Birdshot ERT Bay
