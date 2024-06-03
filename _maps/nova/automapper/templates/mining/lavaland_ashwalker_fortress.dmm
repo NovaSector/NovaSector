@@ -801,13 +801,6 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"lY" = (
-/obj/effect/mapping_helpers/no_lava,
-/obj/structure/sink/oil_well{
-	pixel_y = 4
-	},
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "ma" = (
 /obj/structure/statue/bone/rib{
 	dir = 1
@@ -5016,7 +5009,7 @@ sQ
 sQ
 BU
 CV
-lY
+CV
 JC
 zK
 cM

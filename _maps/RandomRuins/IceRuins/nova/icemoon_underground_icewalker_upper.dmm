@@ -577,6 +577,10 @@
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"uH" = (
+/obj/structure/geyser,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "uO" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -668,9 +672,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "yi" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/structure/sink/oil_well{
-	pixel_y = 4
-	},
+/obj/structure/geyser,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Ad" = (
@@ -2318,7 +2320,7 @@ Yn
 Yn
 ua
 rT
-LW
+uH
 LW
 LW
 gG

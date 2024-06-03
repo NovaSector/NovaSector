@@ -1037,6 +1037,10 @@
 /obj/item/seeds/banana,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"vs" = (
+/obj/structure/geyser,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "vx" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -2447,7 +2451,7 @@ pa
 pa
 pb
 je
-oJ
+vs
 yF
 pa
 yF
@@ -2719,7 +2723,7 @@ ZJ
 ZJ
 ZJ
 qg
-oJ
+vs
 pa
 oJ
 oJ
