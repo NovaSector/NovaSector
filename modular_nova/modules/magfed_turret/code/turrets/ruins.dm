@@ -6,6 +6,7 @@
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
 	inhand_icon_state = "outpost_turretkit"
+	throw_speed = 2
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	mag_slots = 2
 	turret_safety = TRUE
@@ -24,6 +25,6 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "outpost_off"
 	base_icon_state = "outpost"
-	shot_delay = 20
+	shot_delay = 2 SECONDS
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost/pre_filled

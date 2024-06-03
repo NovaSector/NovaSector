@@ -7604,6 +7604,7 @@
 #include "modular_nova\modules\lorecaster\code\subsystem.dm"
 #include "modular_nova\modules\magfed_turret\code\designators.dm"
 #include "modular_nova\modules\magfed_turret\code\turret_framework.dm"
+#include "modular_nova\modules\magfed_turret\code\turrets\cargo.dm"
 #include "modular_nova\modules\magfed_turret\code\turrets\ruins.dm"
 #include "modular_nova\modules\manufacturer_examine\code\gun_company_additions.dm"
 #include "modular_nova\modules\manufacturer_examine\code\manufacturer_element.dm"
