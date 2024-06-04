@@ -1,0 +1,7 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "Added an oil pool to both tribal bases for upcoming"
+  - rscadd: "Added a gold and iron vein to the Icecat village as well as bone tools"
+  - balance: "Ashwalkers and Icecats have their starting base items tuned down"
+  - rscdel: "Removed the security batons from both Ashwalkers and Icecats"
