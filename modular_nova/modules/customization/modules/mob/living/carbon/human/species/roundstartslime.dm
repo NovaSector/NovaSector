@@ -112,6 +112,7 @@
 	var/gps_active = FALSE
 	throw_range = 9 //Oh! That's a baseball!
 	throw_speed = 0.5
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
