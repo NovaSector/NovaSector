@@ -206,12 +206,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		for(var/A in B.contents)
 			qdel(A)
 		return
-<<<<<<< HEAD
-	QDEL_LIST(blueprint_data)
-=======
 
 	LAZYCLEARLIST(blueprint_data)
->>>>>>> 234eb80c94e (Adds Biomes to the Cave Generator, for all of your procedurally-placed cave biome needs! (#83138))
 	flags_1 &= ~INITIALIZED_1
 	requires_activation = FALSE
 	..()
