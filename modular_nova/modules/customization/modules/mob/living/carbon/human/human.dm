@@ -26,7 +26,7 @@
 				tgui.holder = src
 				tgui.ui_interact(usr) //datum has a tgui component, here we open the window
 			if("open_character_ad")
-				usr.client?.show_character_directory()
+				usr.client?.show_character_directory(specific_ad = real_name)
 
 /mob/living/carbon/human/species/vox
 	race = /datum/species/vox

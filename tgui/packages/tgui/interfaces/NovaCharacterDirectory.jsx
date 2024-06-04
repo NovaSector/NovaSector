@@ -79,7 +79,8 @@ export const NovaCharacterDirectory = (props) => {
     personalVoreTag,
     personalNonconTag,
     personalHypnoTag,
-    assigned_view,
+    assignedView,
+    startViewing,
   } = data;
 
   const [overlay, setOverlay] = useState(null);
@@ -87,7 +88,7 @@ export const NovaCharacterDirectory = (props) => {
     setOverlay(character);
   };
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(startViewing || '');
   const updateSearchTerm = (character) => {
     setSearchTerm(character);
   };
@@ -113,7 +114,7 @@ export const NovaCharacterDirectory = (props) => {
           <ViewCharacter
             overlay={overlay}
             updateOverlay={updateOverlay}
-            assigned_view={assigned_view}
+            assignedView={assignedView}
           />
         )) || (
           <>
@@ -164,13 +165,13 @@ export const NovaCharacterDirectory = (props) => {
 };
 
 const ViewCharacter = (props) => {
-  const { overlay, updateOverlay, assigned_view } = props;
+  const { overlay, updateOverlay, assignedView } = props;
 
   return (
     <Stack fill>
       <Stack.Item>
         <Section height="375px" width="262px" title={overlay.name}>
-          <CharacterPreview height="330px" width="250px" id={assigned_view} />
+          <CharacterPreview height="330px" width="250px" id={assignedView} />
         </Section>
         <Section title="Headshot">
           <img
@@ -297,7 +298,7 @@ const CharacterDirectoryList = (props) => {
     updateColorCodeEnabled,
   } = props;
 
-  const { directory, canOrbit, assigned_view } = data;
+  const { directory, canOrbit, assignedView } = data;
 
   const handleSort = (id) => {
     if (sortId === id) {
@@ -314,7 +315,7 @@ const CharacterDirectoryList = (props) => {
       const randomCharacter = directory[randomIndex];
       updateOverlay(randomCharacter);
       act('view_character', {
-        assigned_view: assigned_view,
+        assignedView: assignedView,
         name: randomCharacter.appearance_name,
       });
     }
@@ -473,7 +474,7 @@ const CharacterDirectoryList = (props) => {
                 onClick={() => {
                   updateOverlay(character);
                   act('view_character', {
-                    assigned_view: assigned_view,
+                    assignedView: assignedView,
                     name: character.appearance_name,
                   });
                 }}
