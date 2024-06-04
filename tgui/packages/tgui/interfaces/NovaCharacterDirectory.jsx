@@ -474,7 +474,7 @@ const CharacterDirectoryList = (props) => {
                 onClick={() => {
                   updateOverlay(character);
                   act('view_character', {
-                    assignedView: assignedView,
+                    assigned_view: assignedView,
                     name: character.appearance_name,
                   });
                 }}
