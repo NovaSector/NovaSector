@@ -113,3 +113,56 @@
   grungussuss:
   - qol: lathes will now print cables coils in packs of 5
   - bugfix: added missing context tips for atmos canisters
+2024-06-03:
+  NovaBot13:
+  - bugfix: Made the anxious zipzap accessible.
+  - bugfix: some missing modsuit (un)sealing messages should no longer be missing
+  - bugfix: MOD circuit adapter core deployed parts output should work again
+  - bugfix: Modsuit painter works again
+  - bugfix: Fixed some borg modules just being constantly eaten up by borgs even when
+      they shouldn't allow duplicates
+  - refactor: Borg module code now has better handling for adding/removing items,
+      and to prevent duplicate module usage (Unless one wishes to override the behaviour.
+  - rscadd: Added crutches! Wooden ones can be made with wood. Medical ones can be
+      bought from the medvendor.
+  - rscadd: Crutches will reduce slowdown from missing a leg by 60%, and they will
+      remove the limping from fractured bones. (canes do that now too) They're also
+      a fairly decent bludgeon. However, they do nothing if both legs are cut off.
+  - balance: 'Floor diseases cures are now common chemicals: Milk, Chlorine, Space
+      Cleaner'
+  - refactor: modsuits have been refactored if you see bugs report them
+  - bugfix: admin cargo tech modsuit outfit now works correctly
+  Rhials:
+  - rscadd: Shovels and entrenching tools can be used to dig graves on asteroid/dirt/etc.
+      surfaces. Neat!
+  - rscadd: The Icebox Morgue has been given a fenced-off graveyard in the back.
+  - code_imp: burn_tile() is no longer double-defined on asteroid turfs.
+  Zenitheevee:
+  - balance: Tarkon Smes' Tweaked For Better Experience.
+2024-06-04:
+  FlufflesTheDog:
+  - bugfix: clocking in no longer bricks ID creation for that job type
+  Jane:
+  - balance: Spider Breachers and Vipers have swapped castes. Breachers come from
+      Enriched Eggs while Vipers come from Abnormals! Breachers can no longer survive
+      in spaced rooms/temperatures. The Nurse wraps wounds faster, but with less damage
+      healed per wrap.
+  Melbert:
+  - sound: Boiling soup now makes a sound.
+  NovaBot13:
+  - qol: Many Janitors have cleaned up Birdshot station. Permanently.
+  - qol: Loose floortiles on Birdshot Station have been properly affixed to the floor
+      by the Engineering and Atmospherics Teams.
+  - bugfix: Birdshot Dorms have been reworked and incorporated the Holodeck Ship as
+      an actual and permanent installment. Come visit our new and improved barber
+      shop!
+  - bugfix: fixed being able to confirm cargo orders from cargo request console (and,
+      probably, from PDAs)
+  Zergspower:
+  - rscadd: Added an oil pool to both tribal bases for upcoming
+  - rscadd: Added a gold and iron vein to the Icecat village as well as bone tools
+  - balance: Ashwalkers and Icecats have their starting base items tuned down
+  - rscdel: Removed the security batons from both Ashwalkers and Icecats
+  - rscadd: Prisoner Crew Monitor State and color
+  - bugfix: Fixed missing Bouncer and Barber from being in their respective Crew Monitor
+      group
