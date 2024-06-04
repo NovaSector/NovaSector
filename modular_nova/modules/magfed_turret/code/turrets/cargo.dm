@@ -8,8 +8,8 @@
 	inhand_icon_state = "toy_turretkit"
 	throw_speed = 2
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/quick_deploy
-	mag_slots = 2
-	turret_safety = TRUE
+	mag_slots = 1
+	turret_safety = FALSE
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/toy
 	)

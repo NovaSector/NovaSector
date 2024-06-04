@@ -7602,6 +7602,7 @@
 #include "modular_nova\modules\lorecaster\code\config.dm"
 #include "modular_nova\modules\lorecaster\code\story_manager.dm"
 #include "modular_nova\modules\lorecaster\code\subsystem.dm"
+#include "modular_nova\modules\magfed_turret\code\assembly.dm"
 #include "modular_nova\modules\magfed_turret\code\designators.dm"
 #include "modular_nova\modules\magfed_turret\code\turret_framework.dm"
 #include "modular_nova\modules\magfed_turret\code\turrets\cargo.dm"
