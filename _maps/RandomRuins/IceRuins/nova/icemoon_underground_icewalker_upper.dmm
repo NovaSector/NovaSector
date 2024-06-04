@@ -105,7 +105,7 @@
 "di" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /obj/structure/curtain/bounty,
-/obj/structure/bed/double/white_pelt_bed,
+/obj/structure/bed/double/pelt,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "dk" = (
@@ -657,7 +657,7 @@
 "zr" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /obj/structure/curtain/bounty,
-/obj/structure/bed/double/white_pelt_bed,
+/obj/structure/bed/double/pelt,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Ad" = (
@@ -967,7 +967,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Lr" = (
 /obj/structure/curtain/bounty,
-/obj/structure/bed/double/white_pelt_bed,
+/obj/structure/bed/double/pelt,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "LM" = (
