@@ -55,7 +55,7 @@
 	implants = list(/obj/item/implant/mindshield)
 	backpack_contents = list(
 		/obj/item/choice_beacon/blueshield = 1,
-		)
+	)
 	backpack = /obj/item/storage/backpack/blueshield
 	satchel = /obj/item/storage/backpack/satchel/blueshield
 	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
@@ -86,7 +86,7 @@
 
 /obj/item/gun/energy/laser/hellgun/blueshield
 	name ="hellfire laser gun - Custom"
-	desc = "A lightly overtuned version of NT's Hellfire Laser rifle, scratches showing its age and the fact it has definitely been owned before. This one is more energy effecient without sacrificing damage."
+	desc = "A lightly overtuned version of NT's Hellfire Laser rifle, scratches showing its age and the fact it has definitely been owned before. This one is more energy efficient without sacrificing damage."
 	icon_state = "hellgun"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
@@ -94,7 +94,7 @@
 	name = "gunset beacon"
 	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
 	company_source = "Sol Defense Contracting"
-	company_message = span_bold("Supply Pod incoming please stand by")
+	company_message = span_bold("Supply Pod incoming, please stand by.")
 
 /obj/item/choice_beacon/blueshield/generate_display_names()
 	var/static/list/selectable_gun_types = list(

@@ -59,7 +59,7 @@
 		ACCESS_COURT,
 		ACCESS_GATEWAY,
 		ACCESS_SECURITY,
-		)
+	)
 	minimal_access = list(
 		ACCESS_ALL_PERSONAL_LOCKERS,
 		ACCESS_BRIG_ENTRANCE,
@@ -74,15 +74,15 @@
 		ACCESS_SCIENCE,
 		ACCESS_TELEPORTER,
 		ACCESS_WEAPONS,
-		)
+	)
 	minimal_wildcard_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL
-		)
+		ACCESS_CENT_GENERAL,
+	)
 	template_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS
-		)
+		ACCESS_CHANGE_IDS,
+	)
 
 /datum/id_trim/job/nanotrasen_consultant
 	assignment = "Nanotrasen Consultant"
@@ -130,16 +130,16 @@
 		ACCESS_TELEPORTER,
 		ACCESS_THEATRE,
 		ACCESS_VAULT,
-		ACCESS_WEAPONS
-		)
+		ACCESS_WEAPONS,
+	)
 	minimal_wildcard_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL
-		)
+		ACCESS_CENT_GENERAL,
+	)
 	template_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS
-		)
+		ACCESS_CHANGE_IDS,
+	)
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"
@@ -155,13 +155,13 @@
 		ACCESS_COURT,
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_SECURITY,
-		ACCESS_WEAPONS
-		)
+		ACCESS_WEAPONS,
+	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
-		ACCESS_HOS
-		)
+		ACCESS_HOS,
+	)
 	job = /datum/job/corrections_officer
 
 /datum/id_trim/job/barber
@@ -176,13 +176,13 @@
 		ACCESS_BARBER,
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_SERVICE,
-		ACCESS_THEATRE
-		)
+		ACCESS_THEATRE,
+	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
-		ACCESS_HOP
-		)
+		ACCESS_HOP,
+	)
 	job = /datum/job/barber
 
 /datum/id_trim/job/virologist
