@@ -195,6 +195,10 @@
 	name = "Plain"
 	body_marking_list = list("Plain")
 
+/datum/body_marking_set/splotches
+	name = "Splotches"
+	body_marking_list = list("Splotches")
+
 //AKULA MARKINGS
 /datum/body_marking_set/akula
 	recommended_species = list(SPECIES_AKULA)

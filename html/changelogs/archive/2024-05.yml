@@ -942,3 +942,97 @@
   - bugfix: fixes suit sensors not breaking the right (fun) way when EMP'd
   delingar:
   - qol: Heretic's Relentless Heartbeat is knowledge-free
+2024-05-29:
+  GoldenAlpharex for the code, Thlumyn for the sprites & mapping:
+  - rscadd: Added translator room to the Hearth map.
+  - image: Added a unique sprite for the Icecat's translator
+  NovaBot13:
+  - bugfix: Fixed a typo preventing creation of paystands using an ID.
+  - rscdel: Wipes the last echo of sentient disease from existence
+  RatFromTheJungle:
+  - rscdel: Removed the 'Xeno Egg' bundle from opfor, as xeno-opfors wouldn't be approved
+2024-05-30:
+  Fluffles:
+  - bugfix: holodecks no longer use increasing amounts of power the longer they're
+      on
+  FlufflesTheDog:
+  - bugfix: You can no longer change your ready state in the middle of the match starting.
+      Thanks, Eddie.
+  GoldenAlpharex:
+  - qol: Grown logs no longer spam your chat when cut into planks, instead displaying
+      balloon alerts informing you of how many planks were made!
+  - qol: Cotton and Durathread bundles no longer spam your chat either, and display
+      a balloon alert instead.
+  - bugfix: Cotton and Durathread bundles no longer runtime when creating raw cotton/durathread
+      from the created stack having been merged with an existing one.
+  - image: Disposal bins now use the proper sprites when disconnected from the floor.
+  - image: Junction pipes have received a very minor resprite, making their arrows
+      gray instead of blue.
+  - bugfix: The RPD will now display the correct sprites when displaying the disposals
+      options.
+  Melbert:
+  - bugfix: The Bar on Icebox should receive less trash
+  MortoSasye:
+  - bugfix: Hearthkin remembered how to fall on their own two feet.
+  NovaBot13:
+  - balance: Adds a threshold to oculine and increases metabolism, and reduces the
+      amount of oculine in a carrot
+  - bugfix: Lootpanel no longer opens up when alt clicking objects on your person
+  - sound: Disposal chutes will no longer play a sound for each item when many items
+      enter it at once
+  - admin: fix_air will also fix the turfs' temperatures.
+  - bugfix: Slightly cleaned up PAI software downloads interface
+  - bugfix: fixed watcher wreath bounties being incompletable
+  - image: Revamped Contractor Gear. You'll stand out more now, but hey, that's why
+      the syndicate contracts out work in the first place.
+  - rscadd: Added a screentip for hilbert's hotel door
+  - bugfix: Fixed alt-click interaction with hilbert's hotel door
+  - bugfix: Fix a rare issue where a turf would remain permanently "elevated" if an
+      elevated object was initialized inside of a non-turf object.
+  - bugfix: "\u0421ertain cooldowns should now be more accurate and will no longer\
+      \ take an extra decisecond to clear."
+  - bugfix: When removing a corrupted organ from a patient, the patient will now be
+      checked for Holy Water or magic resistance, rather than the person performing
+      the surgery.
+  - bugfix: viruses can no longer potentially have 8 symptoms
+  - spellcheck: Fixed a missing space typo in ion law logic.
+  - bugfix: Drones stored inside objects will call the stored object's relaymove()
+      and return upon move
+  - balance: Bioscramblers pulse more often but with less range, plus you can see
+      them pulsing.
+  Rhials:
+  - admin: Admins can now reroll random events into something else.
+  ShizCalev:
+  - bugfix: Trees will no longer be growing through railings on forest planets
+  - bugfix: Trees/plants will no longer grow through wood pathways on Icebox
+  - bugfix: Railings will no longer appear ontop of rock walls on icebox
+  Vekter:
+  - bugfix: Fixed a missing access helper in Northstar Medbay. Assistants should no
+      longer be trapped post-mending.
+  - bugfix: Replaced an incorrect disposal variant in Northstar's Medbay.
+  - spellcheck: Fixed a grammar inconsistency in round tips.
+  avimour:
+  - image: 'New body markings: splotches, top scars, and claw tips.'
+  grungussus:
+  - bugfix: fixed metal foam plating description and add more user friendly explanation
+      on how to replace tiling.
+  grungussuss:
+  - admin: admin RCD now works much faster.
+  honkpocket:
+  - rscadd: You can now buy a sombrero from the autodrobe, or maybe you already have
+      one from the loadout list
+  yooriss:
+  - balance: The Freerunning quirk is no longer required to *flip.
+2024-05-31:
+  NovaBot13:
+  - bugfix: Fixed screentips not appearing on clip on neckties
+  - sound: Shuttle docking and undocking is quieter now
+  - sound: The volume of the gravity generator has been halved
+  Rhials:
+  - bugfix: You can no longer force NODE Drones off of ore vents. That includes using
+      fulton packs!
+  - bugfix: When a NODE Drone is forcibly separated from its vent, it will fly away.
+  grungussuss:
+  - balance: The DNA vault now requires less animal and plant DNA to be completed
+  oranges:
+  - spellcheck: Gripper gloves are now Enhanced Retrieval gloves

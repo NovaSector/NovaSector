@@ -131,6 +131,11 @@
 	icon_state = "eyeliner"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/topscars
+	name = "Top Surgery Scars"
+	icon_state = "topscars"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/other/weight
 	name = "Body Weight"
 	icon_state = "weight"
@@ -182,6 +187,22 @@
 	default_color = "#FF0000"
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
+
+/datum/body_marking/other/claws
+	name = "Claw Tips"
+	icon_state = "claws"
+	affected_bodyparts = HAND_LEFT | HAND_RIGHT
+	gendered = FALSE
+
+/datum/body_marking/other/splotches
+	name = "Splotches"
+	icon_state = "splotches"
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/splotcheswap
+	name = "Splotches Swapped"
+	icon_state = "splotcheswap"
+	affected_bodyparts = HEAD
 
 /datum/body_marking/other/bands
 	name = "Color Bands"
