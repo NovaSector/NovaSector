@@ -306,19 +306,14 @@
 /area/station/hallway/secondary/entry)
 "ql" = (
 /obj/machinery/airalarm/directional/south,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
-/obj/item/flashlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
+/obj/machinery/power/floodlight,
 /turf/open/floor/iron/colony,
 /area/station/hallway/secondary/entry)
 "qJ" = (
