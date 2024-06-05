@@ -113,9 +113,6 @@
 /datum/crafting_recipe/torch
 	name = "Torch"
 	result = /obj/item/flashlight/flare/torch
-	reqs = list(
-		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/stack/sheet/mineral/coal = 1,
-	)
-	time = 4 SECONDS
 	category = CAT_MISC
+	non_craftable = TRUE
+	steps = list("Use any dried leaf-like plant on a towercap log! (Ambrosia, cannabis, tobacco, etc!)")
