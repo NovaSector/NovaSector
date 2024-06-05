@@ -5,16 +5,23 @@
 	var/atom/movable/screen/map_view/examine_panel_screen/examine_panel_screen
 
 
+/datum/examine_panel/New(mob/holder_mob)
+	holder = holder_mob
+
+
+/datum/examine_panel/Destroy(force)
+	SStgui.close_uis(src)
+	holder = null
+	qdel(examine_panel_screen)
+	return ..()
+
+
 /datum/examine_panel/ui_state(mob/user)
 	return GLOB.always_state
 
 
-/datum/examine_panel/ui_status(mob/user, datum/ui_state/state)
-	return QDELETED(holder) ? UI_CLOSE : ..()
-
-
 /datum/examine_panel/ui_close(mob/user)
-	user.client.clear_map(examine_panel_screen.assigned_map)
+	user.client?.clear_map(examine_panel_screen.assigned_map)
 
 
 /atom/movable/screen/map_view/examine_panel_screen
@@ -50,9 +57,6 @@
 
 /datum/examine_panel/ui_data(mob/user)
 	var/list/data = list()
-
-	if(QDELETED(holder))
-		return data
 
 	var/datum/preferences/preferences = holder.client?.prefs
 
