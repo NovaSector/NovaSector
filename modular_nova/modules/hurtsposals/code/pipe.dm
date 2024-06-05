@@ -1,4 +1,5 @@
 // Make disposal pipes hurt you if you ride them.
+/*
 
 /obj/structure/disposalpipe
 	/// Whether a disposal pipe will hurt if a person changes direction. `FALSE` for hurting, `TRUE` to prevent making them hurt.
@@ -22,4 +23,4 @@
 			continue
 		if(HAS_TRAIT(living_within, TRAIT_TRASHMAN))
 			continue
-		living_within.adjustBruteLoss(5)
+		living_within.adjustBruteLoss(5)*/
