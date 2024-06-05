@@ -5749,7 +5749,6 @@
 /area/station/security/warden)
 "bGA" = (
 /obj/structure/toilet/greyscale{
-	cistern = 1;
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -58081,7 +58080,6 @@
 /area/station/common/pool/sauna)
 "rcg" = (
 /obj/structure/toilet/greyscale{
-	cistern = 1;
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/brown/filled/line{
