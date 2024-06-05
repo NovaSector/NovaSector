@@ -1,5 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - bugfix: "Produce bins now display their contents overlay once more!"
-  - bugfix: "Wooden shelves can now be interacted with via mouse-drop once more, allowing pixel-precision when setting down items onto them!"
