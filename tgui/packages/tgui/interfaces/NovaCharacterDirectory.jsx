@@ -315,7 +315,7 @@ const CharacterDirectoryList = (props) => {
       const randomCharacter = directory[randomIndex];
       updateOverlay(randomCharacter);
       act('view_character', {
-        assignedView: assignedView,
+        assigned_view: assignedView,
         name: randomCharacter.appearance_name,
       });
     }
