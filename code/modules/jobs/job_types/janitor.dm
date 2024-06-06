@@ -49,18 +49,6 @@
 		backpack_contents += list(/obj/item/gun/ballistic/revolver)
 		r_pocket = /obj/item/ammo_box/a357
 
-<<<<<<< HEAD
-//NOVA EDIT REMOVAL BEGIN - JANITOR KEY - (Moved to modular_nova/master_files/code/modules/jobs/job_types/janitor.dm)
-/*
-	var/static/access_key_given = FALSE
-	if(!access_key_given && !visuals_only)
-		access_key_given = TRUE
-		backpack_contents += list(/obj/item/access_key)
-*/
-//NOVA EDIT REMOVAL END
-
-=======
->>>>>>> d6d13f372e4 (janitor keyring now spawns in all janitor's backpacks instead of only the first one's (#83103))
 /datum/outfit/job/janitor/get_types_to_preload()
 	. = ..()
 	if(check_holidays(GARBAGEDAY))
