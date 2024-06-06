@@ -10753,8 +10753,9 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "cee" = (
+/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 9
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
@@ -14461,6 +14462,8 @@
 "cKR" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/entertainment/musical_instrument,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "cKT" = (
@@ -36706,10 +36709,9 @@
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore)
 "haM" = (
-/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "haN" = (
@@ -55797,9 +55799,14 @@
 /turf/open/floor/iron,
 /area/station/maintenance/solars/port/fore)
 "kFQ" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/entertainment/coin,
-/obj/effect/spawner/random/entertainment/coin,
+/obj/structure/closet/crate/engineering,
+/obj/item/wrench,
+/obj/item/clothing/gloves/color/fyellow,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil{
+	pixel_x = 2;
+	pixel_y = 3
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "kFV" = (
@@ -66929,15 +66936,9 @@
 	},
 /area/station/common/wrestling/arena)
 "mQa" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Atmospherics Maintenance"
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 10
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
-/obj/machinery/door/poddoor/preopen{
-	id = "atmoslock";
-	name = "Atmospherics Lockdown Blast Door"
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "mQc" = (
@@ -70338,14 +70339,14 @@
 /turf/open/floor/iron/dark,
 /area/station/common/night_club)
 "nzZ" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "nAl" = (
@@ -113086,8 +113087,10 @@
 	},
 /area/station/security/office)
 "vBy" = (
-/obj/machinery/atmospherics/pipe/smart/simple/violet/visible,
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 9
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "vBF" = (
@@ -117142,14 +117145,14 @@
 	},
 /area/station/security/prison/work)
 "wot" = (
-/obj/structure/closet/crate/engineering,
-/obj/structure/window/spawner/directional/east,
-/obj/item/wrench,
-/obj/item/clothing/gloves/color/fyellow,
-/obj/item/stack/cable_coil,
-/obj/item/stack/cable_coil{
-	pixel_x = 2;
-	pixel_y = 3
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Atmospherics Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
+/obj/machinery/door/poddoor/preopen{
+	id = "atmoslock";
+	name = "Atmospherics Lockdown Blast Door"
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
@@ -117850,10 +117853,8 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/nuke_storage)
 "wvh" = (
-/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
-	dir = 10
-	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "wvi" = (
@@ -123492,11 +123493,11 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "xBb" = (
-/obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
+/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
 	dir = 4
 	},
-/turf/open/floor/iron,
-/area/station/engineering/atmos/pumproom)
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "xBd" = (
 /obj/structure/sign/warning/pods/directional/east,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -160879,11 +160880,11 @@ tKB
 mFp
 bDV
 nzZ
-mQa
+pmS
 haM
-vqP
+oky
 cee
-xBb
+bbU
 eqL
 aXD
 qyE
@@ -161135,12 +161136,12 @@ iWN
 iWN
 lqC
 vXN
-eTz
-pmS
+mQa
+wot
 wvh
-oky
+vqP
 vBy
-bbU
+fIi
 cDU
 aXD
 shy
@@ -161392,7 +161393,7 @@ eaU
 iWN
 aMe
 qAu
-wot
+eTz
 tHY
 abj
 abj
@@ -161648,7 +161649,7 @@ dol
 iWN
 iWN
 iWN
-qAu
+xBb
 kFQ
 tHY
 xJH
@@ -162178,9 +162179,9 @@ cPS
 vOJ
 uis
 vOJ
-vOJ
-mMX
-vOJ
+aFW
+csV
+swy
 gBp
 tWf
 pPY
@@ -162435,9 +162436,9 @@ qnp
 fWY
 eEy
 vOJ
-aFW
-csV
-wzq
+dLS
+mMX
+oCM
 hKS
 ehx
 oII
