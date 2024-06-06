@@ -8358,6 +8358,7 @@
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\sentinel.dm"
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\spitter.dm"
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\warrior.dm"
+#include "modular_np_lethal\administration\code\whitelisting.dm"
 #include "modular_np_lethal\armor_but_cool\code\armor_damage_by_bullets.dm"
 #include "modular_np_lethal\armor_but_cool\code\armor_edits.dm"
 #include "modular_np_lethal\armor_but_cool\code\armor_types\filtre_armor.dm"
