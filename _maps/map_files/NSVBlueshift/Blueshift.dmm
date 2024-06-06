@@ -4974,7 +4974,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "aZz" = (
-/obj/machinery/air_sensor/incinerator_tank,
+/obj/machinery/air_sensor/incinerator_tank{
+	pixel_y = -32
+	},
 /turf/open/floor/engine/vacuum,
 /area/station/maintenance/disposal/incinerator)
 "aZG" = (
@@ -12049,6 +12051,12 @@
 "cra" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/pharmacy)
+"crm" = (
+/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "crn" = (
 /obj/structure/girder,
 /obj/structure/grille/broken,
@@ -66936,11 +66944,9 @@
 	},
 /area/station/common/wrestling/arena)
 "mQa" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "mQc" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -79585,6 +79591,18 @@
 /obj/effect/turf_decal/tile/green/tram,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
+"pmu" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Atmospherics Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
+/obj/machinery/door/poddoor/preopen{
+	id = "atmoslock";
+	name = "Atmospherics Lockdown Blast Door"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "pmD" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -90043,6 +90061,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/maintenance/department/medical/central)
+"rkm" = (
+/obj/machinery/light/directional/east,
+/obj/structure/table,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "rko" = (
 /obj/effect/spawner/liquids_spawner{
 	reagent_list = list(/datum/reagent/water=600)
@@ -117145,17 +117170,9 @@
 	},
 /area/station/security/prison/work)
 "wot" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Atmospherics Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/machinery/door/poddoor/preopen{
-	id = "atmoslock";
-	name = "Atmospherics Lockdown Blast Door"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "woL" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
@@ -123171,6 +123188,12 @@
 /obj/structure/billboard/azik,
 /turf/open/space/openspace,
 /area/space/nearstation)
+"xwV" = (
+/obj/structure/table,
+/obj/item/wrench,
+/obj/item/pipe_dispenser,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "xxf" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -123493,8 +123516,8 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "xBb" = (
-/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 10
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
@@ -159607,7 +159630,7 @@ ngB
 vOJ
 cLk
 oIR
-vOJ
+wot
 hMm
 hMm
 hMm
@@ -161136,8 +161159,8 @@ iWN
 iWN
 lqC
 vXN
-mQa
-wot
+xBb
+pmu
 wvh
 vqP
 vBy
@@ -161649,7 +161672,7 @@ dol
 iWN
 iWN
 iWN
-xBb
+crm
 kFQ
 tHY
 xJH
@@ -163489,14 +163512,14 @@ vLv
 vLv
 vLv
 vLv
+vLv
+vLv
 mAZ
 mAZ
 mAZ
 vLv
 vLv
 vLv
-fZI
-fZI
 fZI
 fZI
 fZI
@@ -165550,7 +165573,7 @@ whj
 tCe
 vLv
 vLv
-fZI
+gJW
 fZI
 fZI
 fZI
@@ -165807,7 +165830,7 @@ sQQ
 bWF
 aBf
 hOt
-fZI
+nrT
 fZI
 fZI
 fZI
@@ -166064,7 +166087,7 @@ vWN
 vLv
 vAV
 vLv
-fZI
+tci
 fZI
 fZI
 fZI
@@ -166313,9 +166336,9 @@ vLv
 gkT
 gkT
 vLv
-vLv
-vLv
-vLv
+sQQ
+sQQ
+sQQ
 vLv
 vLv
 vLv
@@ -166570,14 +166593,14 @@ bmP
 laI
 aCo
 vwS
+sQQ
+rkm
+xwV
+vLv
+vLv
 fZI
 fZI
-fZI
-fZI
-fZI
-fZI
-fZI
-fZI
+xJH
 fZI
 fZI
 fZI
@@ -166827,14 +166850,14 @@ fth
 slR
 cIK
 vwS
+mQa
+vLv
+vLv
+vLv
 fZI
 fZI
-fZI
-fZI
-fZI
-fZI
-fZI
-fZI
+sbZ
+sbZ
 fZI
 fZI
 fZI
@@ -167084,13 +167107,13 @@ fth
 yla
 fth
 fth
+vLv
+vLv
 fZI
+xJH
 fZI
-fZI
-fZI
-fZI
-fZI
-fZI
+sbZ
+sbZ
 fZI
 fZI
 fZI
@@ -167344,9 +167367,9 @@ aFn
 fZI
 fZI
 fZI
-fZI
-fZI
-fZI
+xJH
+xJH
+sbZ
 fZI
 fZI
 fZI
@@ -167600,9 +167623,9 @@ fth
 fth
 fZI
 fZI
-fZI
-fZI
-fZI
+sbZ
+sbZ
+xJH
 fZI
 fZI
 fZI
@@ -167857,7 +167880,7 @@ fZI
 fZI
 fZI
 fZI
-fZI
+sbZ
 fZI
 fZI
 fZI
