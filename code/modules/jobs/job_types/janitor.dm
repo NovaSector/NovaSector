@@ -41,6 +41,7 @@
 	belt = /obj/item/modular_computer/pda/janitor
 	ears = /obj/item/radio/headset/headset_srv
 	skillchips = list(/obj/item/skillchip/job/janitor)
+	backpack_contents = list(/obj/item/access_key)
 
 /datum/outfit/job/janitor/pre_equip(mob/living/carbon/human/human_equipper, visuals_only)
 	. = ..()
@@ -48,6 +49,7 @@
 		backpack_contents += list(/obj/item/gun/ballistic/revolver)
 		r_pocket = /obj/item/ammo_box/a357
 
+<<<<<<< HEAD
 //NOVA EDIT REMOVAL BEGIN - JANITOR KEY - (Moved to modular_nova/master_files/code/modules/jobs/job_types/janitor.dm)
 /*
 	var/static/access_key_given = FALSE
@@ -57,6 +59,8 @@
 */
 //NOVA EDIT REMOVAL END
 
+=======
+>>>>>>> d6d13f372e4 (janitor keyring now spawns in all janitor's backpacks instead of only the first one's (#83103))
 /datum/outfit/job/janitor/get_types_to_preload()
 	. = ..()
 	if(check_holidays(GARBAGEDAY))
