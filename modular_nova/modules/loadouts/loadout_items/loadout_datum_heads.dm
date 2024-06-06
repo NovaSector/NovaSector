@@ -373,6 +373,9 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka
 
+/datum/loadout_item/head/sombrero
+	name = "Sombrero"
+	item_path = /obj/item/clothing/head/costume/sombrero
 
 /datum/loadout_item/head/wrussian
 	name = "Black Papakha"
