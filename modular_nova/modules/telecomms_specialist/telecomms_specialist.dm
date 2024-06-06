@@ -38,6 +38,10 @@
 	rpg_title = "Diviner"
 	job_flags = STATION_JOB_FLAGS
 
+/obj/effect/landmark/start/telecomms_specialist
+	name = "Telecomms Specialist"
+	icon = 'modular_nova/master_files/icons/mob/landmarks.dmi'
+	icon_state = "Engineering Guard"
 
 /datum/outfit/job/telecomms_specialist
 	name = "Telecomms Specialist"
