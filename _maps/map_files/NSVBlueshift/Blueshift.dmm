@@ -3123,10 +3123,10 @@
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "aFW" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 6
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/yellow/visible,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "aGj" = (
@@ -10953,7 +10953,7 @@
 /turf/open/floor/wood,
 /area/station/service/hydroponics/garden/abandoned)
 "cgc" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 6
 	},
 /turf/closed/wall,
@@ -31170,11 +31170,11 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+/obj/machinery/portable_atmospherics/scrubber,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
 	dir = 1;
 	name = "Waste connector port"
 	},
-/obj/machinery/portable_atmospherics/scrubber,
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -64787,7 +64787,7 @@
 /turf/open/floor/iron,
 /area/station/science/robotics)
 "mvk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden{
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/closed/wall,
@@ -86152,7 +86152,7 @@
 /turf/open/floor/glass/reinforced,
 /area/station/security/prison/safe)
 "qys" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "qyt" = (
@@ -98568,6 +98568,13 @@
 "sRq" = (
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/blueshield)
+"sRs" = (
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "sRt" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -162196,9 +162203,9 @@ cPS
 vOJ
 uis
 vOJ
-aFW
-csV
-swy
+vOJ
+mMX
+vOJ
 gBp
 tWf
 pPY
@@ -162453,9 +162460,9 @@ qnp
 fWY
 eEy
 vOJ
-dLS
-mMX
-oCM
+sRs
+aFW
+wzq
 hKS
 ehx
 oII
