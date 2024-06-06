@@ -177,11 +177,7 @@
  * * seconds - Return the time in seconds if TRUE, else deciseconds.
  */
 /obj/machinery/status_display/door_timer/proc/time_left(seconds = FALSE)
-<<<<<<< HEAD
-	. = max(0, timer_duration - (activation_time ? REALTIMEOFDAY - activation_time : 0))  // NOVA EDIT CHANGE: original was world.time
-=======
-	. = max(0, timer_duration + activation_time - world.time)
->>>>>>> 4cc434510a1 (Fixes brig cell timer adjusting reducing the time by the time served for every operation. The maximum allowed time is based on the timer and not time served. (#83520))
+	. = max(0, timer_duration + activation_time - REALTIMEOFDAY) // NOVA EDIT CHANGE, Original: . = max(0, timer_duration + activation_time - world.time) 
 	if(seconds)
 		. /= (1 SECONDS)
 
