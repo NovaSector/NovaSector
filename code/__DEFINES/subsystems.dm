@@ -136,6 +136,7 @@
 #define INIT_ORDER_DBCORE 95
 #define INIT_ORDER_BLACKBOX 94
 #define INIT_ORDER_SERVER_MAINT 93
+#define INIT_ORDER_WHITELIST 92 // LETHAL EDIT ADDITION - automatic whitelist refresh
 #define INIT_ORDER_PLAYER_RANKS 86 // NOVA EDIT ADDITION - Player Ranks Subsystem
 #define INIT_ORDER_INPUT 85
 #define INIT_ORDER_ADMIN_VERBS 84 // needs to be pretty high, admins cant do much without it
