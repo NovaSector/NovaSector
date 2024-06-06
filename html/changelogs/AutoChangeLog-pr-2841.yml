@@ -1,0 +1,5 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - rscadd: "Added Tarkon Clothing to the loadout menu"
+  - bugfix: "The tarkon welding hat no longer covers the mouth"
