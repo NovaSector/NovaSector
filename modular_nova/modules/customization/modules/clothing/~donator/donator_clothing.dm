@@ -2075,3 +2075,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
+
+// donation reward for deadmon
+/obj/item/clothing/suit/hooded/seva/melon
+	name = "sundowner SEVA suit"
+	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had it's typical armor plating and anti-radiation lining removed in favor of movement. "
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
+	icon_state = "seva_melon"
+	hoodtype = /obj/item/clothing/head/hooded/seva/melon
+	hood_up_affix = ""
+
+/obj/item/clothing/head/hooded/seva/melon
+	name = "sundowner hood"
+	desc = "Designed for the SolFed Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
+	icon_state = "seva_melon"

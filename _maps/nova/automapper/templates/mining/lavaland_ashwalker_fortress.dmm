@@ -126,6 +126,13 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"by" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "bI" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 4
@@ -324,22 +331,12 @@
 	dir = 2
 	},
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/stack/sheet/cobolterium{
-	amount = 20
-	},
-/obj/item/stack/sheet/bronze{
-	amount = 10
-	},
-/obj/item/stack/sheet/brussite{
-	amount = 20
-	},
-/obj/item/stack/sheet/copporcitite{
-	amount = 20
-	},
-/obj/item/stack/sheet/tinumium{
-	amount = 20
-	},
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/stack/sheet/mineral/gold{
+	amount = 5;
+	pixel_y = 1;
+	pixel_x = 7
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ev" = (
@@ -415,10 +412,6 @@
 /obj/structure/closet/crate/wooden/storage_barrel{
 	anchored = 1
 	},
-/obj/item/clothing/suit/straight_jacket/shackles/reinforced,
-/obj/item/melee/baton{
-	name = "baton"
-	},
 /turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "fn" = (
@@ -460,6 +453,11 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/wall_torch/spawns_lit/directional/south,
 /turf/open/floor/stone/lavaland,
+/area/ruin/unpowered/ash_walkers)
+"fN" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/ore_vein/stone,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "fU" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
@@ -519,6 +517,13 @@
 	dir = 2
 	},
 /obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"gT" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/railing/wooden_fencing/gate{
+	dir = 1
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "gX" = (
@@ -596,6 +601,11 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"hV" = (
+/obj/structure/ore_vein/iron,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "ik" = (
 /obj/structure/stone_tile/block{
 	dir = 8
@@ -609,20 +619,11 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "iv" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/stack/sheet/mineral/bamboo{
-	amount = 20
-	},
 /obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "iK" = (
 /obj/structure/stone_tile/block/burnt{
@@ -644,6 +645,11 @@
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"iZ" = (
+/obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "je" = (
 /obj/machinery/smartfridge/wooden/produce_bin,
@@ -948,13 +954,11 @@
 /obj/item/claymore/bone{
 	pixel_y = 5
 	},
-/obj/item/shield/goliath{
-	pixel_x = 10
-	},
-/obj/item/shield/goliath{
-	pixel_x = 15
-	},
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/shield/buckler{
+	pixel_y = 7;
+	pixel_x = -3
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ob" = (
@@ -1203,6 +1207,13 @@
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"rp" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "rt" = (
 /obj/structure/chair/pew/left{
@@ -1520,6 +1531,11 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"vm" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/ore_container/food_trough/raptor_trough,
+/turf/open/floor/grass/lavaland,
+/area/ruin/unpowered/ash_walkers)
 "vu" = (
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/bamboo/lavaland,
@@ -1645,17 +1661,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "xc" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/bronze,
-/obj/item/ammo_casing/arrow/bronze,
+/obj/structure/ore_vein/gold,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "xd" = (
@@ -1700,21 +1706,6 @@
 "xq" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/structure/stone_tile/block,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"xE" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/ash,
-/obj/item/ammo_casing/arrow/bronze,
-/obj/item/ammo_casing/arrow/bronze,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -1889,6 +1880,19 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"zQ" = (
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/ammo_casing/arrow,
+/obj/item/ammo_casing/arrow,
+/obj/item/ammo_casing/arrow,
+/obj/item/ammo_casing/arrow,
+/obj/item/ammo_casing/arrow,
+/obj/item/ammo_casing/arrow/ash,
+/obj/item/ammo_casing/arrow/ash,
+/obj/item/ammo_casing/arrow/ash,
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "zV" = (
 /obj/structure/stone_tile/block/cracked,
 /obj/effect/mapping_helpers/no_lava,
@@ -1943,6 +1947,11 @@
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"As" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/effect/spawner/random/lavaland_mob/raptor,
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "Au" = (
 /obj/structure/geyser,
@@ -2115,6 +2124,23 @@
 "Dq" = (
 /obj/structure/stone_tile/surrounding/burnt,
 /obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"Du" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/closet/crate{
+	desc = "A metal box, stolen from the ruins of old colony.";
+	name = "old cargo crate"
+	},
+/obj/item/clothing/head/utility/hardhat/white,
+/obj/item/clothing/suit/hazardvest,
+/obj/item/clothing/shoes/jackboots/colonial,
+/obj/item/storage/box/tiziran_cans,
+/obj/item/toy/plush/lizard_plushie,
+/obj/item/storage/crayons,
+/obj/item/toy/crayon/spraycan,
+/obj/item/hand_labeler,
+/obj/item/raptor_dex,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "DD" = (
@@ -2354,6 +2380,10 @@
 /obj/effect/mapping_helpers/no_lava,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"HP" = (
+/obj/effect/mapping_helpers/no_lava,
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "HT" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -2705,6 +2735,19 @@
 	amount = 20
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/stack/sheet/brussite{
+	amount = 20
+	},
+/obj/item/stack/sheet/cobolterium{
+	amount = 32;
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/stack/sheet/copporcitite{
+	amount = 37;
+	pixel_x = -4;
+	pixel_y = 10
+	},
 /turf/open/floor/stone/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "MZ" = (
@@ -2838,13 +2881,16 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"PJ" = (
-/obj/effect/mapping_helpers/no_lava,
-/turf/closed/wall/mineral/wood/nonmetal,
-/area/ruin/unpowered/ash_walkers)
 "PS" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/mineral/stone,
+/area/ruin/unpowered/ash_walkers)
+"PT" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "PW" = (
 /obj/structure/table/wood,
@@ -3021,6 +3067,22 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"So" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/stack/sheet/mineral/bamboo{
+	amount = 20
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "St" = (
@@ -3275,22 +3337,6 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
-"UE" = (
-/obj/structure/closet/crate{
-	desc = "A metal box, stolen from the ruins of old colony.";
-	name = "old cargo crate"
-	},
-/obj/item/clothing/head/utility/hardhat/white,
-/obj/item/clothing/suit/hazardvest,
-/obj/item/clothing/shoes/jackboots/colonial,
-/obj/item/storage/box/tiziran_cans,
-/obj/item/toy/plush/lizard_plushie,
-/obj/item/storage/crayons,
-/obj/item/toy/crayon/spraycan,
-/obj/item/hand_labeler,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
 "UL" = (
 /obj/structure/millstone,
 /obj/effect/mapping_helpers/no_lava,
@@ -3301,6 +3347,13 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"UP" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "UT" = (
@@ -3343,6 +3396,16 @@
 	pixel_y = -3
 	},
 /obj/effect/mapping_helpers/no_lava,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"VH" = (
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/railing/wooden_fencing{
+	dir = 8
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "VN" = (
@@ -3411,6 +3474,7 @@
 "Wz" = (
 /obj/structure/table/wood,
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/reagent_containers/cup/bucket/wooden,
 /turf/open/floor/wood/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "WD" = (
@@ -3536,8 +3600,8 @@
 /area/ruin/unpowered/ash_walkers)
 "Yb" = (
 /obj/structure/wall_torch/spawns_lit/directional/south,
-/obj/structure/reagent_forge,
 /obj/effect/mapping_helpers/no_lava,
+/obj/structure/table/wood,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Yr" = (
@@ -3866,7 +3930,7 @@ AX
 qA
 sQ
 sQ
-xE
+zQ
 Do
 IQ
 CV
@@ -4612,7 +4676,7 @@ re
 ko
 XA
 UA
-xE
+zQ
 JC
 JC
 JC
@@ -5231,8 +5295,9 @@ Xr
 Xr
 zf
 LQ
-Zo
+fN
 JC
+So
 CV
 CV
 CV
@@ -5241,8 +5306,7 @@ CV
 CV
 CV
 CV
-CV
-CV
+Du
 um
 XC
 Ho
@@ -5268,16 +5332,16 @@ nr
 CV
 JC
 JC
-sQ
 CV
 CV
-CV
-CV
-CV
-CV
-CV
-CV
-CV
+VH
+by
+by
+by
+by
+by
+PT
+PT
 um
 Ho
 Ho
@@ -5303,16 +5367,16 @@ Wl
 pK
 JC
 JC
-sQ
+CV
+CV
+UP
 CV
 CV
 CV
-CV
-CV
-CV
-CV
-CV
-pK
+HP
+HP
+HP
+iZ
 JC
 Ho
 Ho
@@ -5335,19 +5399,19 @@ Xr
 Xr
 GX
 fH
-xE
+CV
 JC
 JC
-sQ
 CV
 CV
+gT
 CV
-CV
-CV
-CV
-CV
-CV
-CV
+HP
+HP
+HP
+HP
+HP
+HP
 JC
 JC
 Ho
@@ -5373,16 +5437,16 @@ Ot
 JC
 JC
 JC
-sQ
-PJ
+CV
+CV
 iv
-CV
-CV
-CV
-UE
-CV
-CV
-CV
+HP
+HP
+HP
+HP
+As
+HP
+HP
 JC
 JC
 Ho
@@ -5409,14 +5473,14 @@ JC
 li
 JC
 JC
-sQ
-sQ
-sQ
-sQ
-sQ
-sQ
-sQ
-CV
+hV
+rp
+HP
+HP
+HP
+HP
+HP
+vm
 JC
 JC
 Ho

@@ -3,6 +3,7 @@
 	icon_greyscale = BODYPART_ICON_VOX
 	bodyshape = parent_type::bodyshape | BODYSHAPE_SNOUTED | BODYSHAPE_CUSTOM
 	limb_id = SPECIES_VOX
+	eyes_icon = 'modular_nova/modules/organs/icons/vox_eyes.dmi'
 
 /obj/item/bodypart/chest/mutant/vox
 	icon_greyscale = BODYPART_ICON_VOX

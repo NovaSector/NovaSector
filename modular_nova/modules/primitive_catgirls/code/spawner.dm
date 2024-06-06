@@ -292,6 +292,8 @@
 		/datum/crafting_recipe/bonedagger,
 		/datum/crafting_recipe/anointing_oil,
 		/datum/crafting_recipe/handcrafted_hearthkin_armor,
+		/datum/crafting_recipe/black_pelt_bed,
+		/datum/crafting_recipe/white_pelt_bed,
 	)
 
 /datum/antagonist/primitive_catgirl/Destroy()
