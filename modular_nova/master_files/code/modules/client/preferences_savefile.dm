@@ -18,9 +18,9 @@
 
 /**
  * Checks if the modular side of the savefile is up to date.
- * If the return value is higher than 0, update_character_skyrat() will be called later.
+ * If the return value is higher than 0, update_character_nova() will be called later.
  */
-/datum/preferences/proc/savefile_needs_update_skyrat(list/save_data)
+/datum/preferences/proc/savefile_needs_update_nova(list/save_data)
 	var/savefile_version = save_data["modular_version"]
 
 	if(savefile_version < MODULAR_SAVEFILE_VERSION_MAX)
@@ -30,7 +30,7 @@
 
 
 /// Loads the modular customizations of a character from the savefile
-/datum/preferences/proc/load_character_skyrat(list/save_data)
+/datum/preferences/proc/load_character_nova(list/save_data)
 	if(!save_data)
 		save_data = list()
 
@@ -92,7 +92,7 @@
 		\nDO NOT INTERACT WITH YOUR PREFERENCES UNTIL THIS PROCESS HAS BEEN COMPLETED.\
 		\nDO NOT DISCONNECT UNTIL THIS PROCESS HAS BEEN COMPLETED.\
 		")))
-		migrate_skyrat(save_data)
+		migrate_nova(save_data)
 		addtimer(CALLBACK(src, PROC_REF(check_migration)), 10 SECONDS)
 
 	headshot = save_data["headshot"]
@@ -101,11 +101,11 @@
 	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
 
 	if(needs_update >= 0)
-		update_character_skyrat(needs_update, save_data) // needs_update == savefile_version if we need an update (positive integer)
+		update_character_nova(needs_update, save_data) // needs_update == savefile_version if we need an update (positive integer)
 
 
-/// Brings a savefile up to date with modular preferences. Called if savefile_needs_update_skyrat() returned a value higher than 0
-/datum/preferences/proc/update_character_skyrat(current_version, list/save_data)
+/// Brings a savefile up to date with modular preferences. Called if savefile_needs_update_nova() returned a value higher than 0
+/datum/preferences/proc/update_character_nova(current_version, list/save_data)
 	if(current_version < VERSION_GENITAL_TOGGLES)
 		// removed genital toggles, with the new choiced prefs paths as assoc
 		var/static/list/old_toggles
@@ -267,7 +267,7 @@
 
 
 /// Saves the modular customizations of a character on the savefile
-/datum/preferences/proc/save_character_skyrat(list/save_data)
+/datum/preferences/proc/save_character_nova(list/save_data)
 	save_data["loadout_list"] = loadout_list
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles

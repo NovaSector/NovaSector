@@ -284,14 +284,14 @@
 	visor_flags_inv = HIDEFACE | HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
 	tint = 0
+	interaction_flags_click = NEED_DEXTERITY
 
 /obj/item/clothing/mask/gas/nightlight/attack_self(mob/user)
-	adjustmask(user)
+	adjust_visor(user)
 
-/obj/item/clothing/mask/gas/nightlight/AltClick(mob/user)
-	..()
-	if(user.can_perform_action(src, NEED_DEXTERITY))
-		adjustmask(user)
+/obj/item/clothing/mask/gas/nightlight/click_alt(mob/user)
+	adjust_visor(user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/nightlight/examine(mob/user)
 	. = ..()
@@ -523,7 +523,7 @@
 		to_chat(user, span_notice("You focus all your willpower to put the goggles down on your eyes."))
 	goggles = !goggles
 	if(user)
-		user.head_update(src, forced = 1)
+		user.update_worn_head()
 		user.update_mob_action_buttons()
 
 /obj/item/clothing/head/avipilot/ui_action_click(mob/living/carbon/user, action)
@@ -859,6 +859,7 @@
 	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
 	use_radio_beeps_tts = TRUE
 	flags_inv = NONE
+	interaction_flags_click = NEED_DEXTERITY
 
 /obj/item/clothing/mask/gas/signalis_gaiter/Initialize(mapload)
 	. = ..()
@@ -866,12 +867,11 @@
 	voice_filter = initial(sechailer_type.voice_filter)
 
 /obj/item/clothing/mask/gas/signalis_gaiter/attack_self(mob/user)
-	adjustmask(user)
+	adjust_visor(user)
 
-/obj/item/clothing/mask/gas/signalis_gaiter/AltClick(mob/user)
-	..()
-	if(user.can_perform_action(src, NEED_DEXTERITY))
-		adjustmask(user)
+/obj/item/clothing/mask/gas/signalis_gaiter/click_alt(mob/user)
+	adjust_visor(user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/signalis_gaiter/examine(mob/user)
 	. = ..()
@@ -1088,7 +1088,7 @@
 	slot_flags = up ? ITEM_SLOT_EYES | ITEM_SLOT_HEAD : ITEM_SLOT_EYES
 	toggle_vision_effects()
 
-/obj/item/clothing/glasses/welding/steampunk_goggles/weldingvisortoggle(mob/user)
+/obj/item/clothing/glasses/welding/steampunk_goggles/adjust_visor(mob/user)
 	. = ..()
 	handle_sight_updating(user)
 
@@ -1115,7 +1115,7 @@
 	playsound(user, shutters_sound, 100, TRUE)
 	if(iscarbon(user))
 		var/mob/living/carbon/carbon_user = user
-		carbon_user.head_update(src, forced = 1)
+		carbon_user.update_worn_head()
 	update_item_action_buttons()
 	return TRUE
 
@@ -1147,7 +1147,7 @@
 		if(iscarbon(user))
 			var/mob/living/carbon/carbon_user = user
 			carbon_user.update_tint()
-			carbon_user.head_update(src, forced = TRUE)
+			carbon_user.update_worn_head()
 
 /obj/item/clothing/glasses/welding/steampunk_goggles/ui_action_click(mob/user, actiontype, is_welding_toggle = FALSE)
 	if(!is_welding_toggle)
@@ -1329,16 +1329,17 @@
 
 // Donation reward for 1ceres
 /obj/item/poster/korpstech
-	name = "Korps Genetics poster"
+	name = "\improper Empire Enhancements poster"
 	poster_type = /obj/structure/sign/poster/contraband/korpstech
 	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
 	icon_state = "rolled_poster"
 
 /obj/structure/sign/poster/contraband/korpstech
-	name = "Korps Genetics"
-	desc = "This poster bears a huge, pink helix on it, with smaller text underneath it that reads 'The Korps institute, advancing the Genetics field since 2423!'"
+	name = "Empire Enhancements"
+	desc = "This poster bears a huge, pink helix on it, with smaller text underneath it that mentions some alleged genetic advancements from a long time ago."
 	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
 	icon_state = "korpsposter"
+	never_random = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
@@ -1623,13 +1624,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	spans = list("glossy")
 
 //reward for SomeRandomOwl
-/obj/item/clothing/head/costume/strigihat
+/obj/item/clothing/head/costume/owlhat
 	name = "starry witch hat"
-	desc = "A cute witch hat typically worn by an owl-like teshari."
+	desc = "A cute witch hat typically worn by a random owl that can sometimes be spotted on station."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/donator/mob/clothing/head_teshari.dmi'
-	icon_state = "strigihat"
+	icon_state = "owlhat"
+	worn_y_offset = 2
 
 //Donation reward for Razurath
 /obj/item/clothing/head/razurathhat
@@ -2035,3 +2037,60 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "bwake_uniform"
 	can_adjust = FALSE
+
+// Donator reward for Latinfishy
+/obj/item/clothing/under/syndicate/tacticool/skirt/long
+	name = "long tacticool skirtleneck"
+	desc = "A sleek, navy blue turtleneck complete with an extra long black skirt. Just looking at it makes you want to watch your step in case you -trip-."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "tacticool_skirtleneck_long"
+	unique_reskin = null
+
+// donator reward for AlvCyktor
+/obj/item/clothing/under/techpants
+	name = "techwear pants"
+	desc = "A pair of pants with some belts and fake pouches for added aesthetics."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "techpants"
+	can_adjust = FALSE
+
+/obj/item/storage/backpack/satchel/drop_pouch
+	name = "drop pouch"
+	desc = "A tactical pouch attached to a belt."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/belt.dmi'
+	icon_state = "dropbag"
+
+/obj/item/clothing/suit/replica_parade_jacket
+	name = "replica parade jacket"
+	desc = "Ever see command staff in a fancy parade jacket and think to yourself, \"I want that\" without having to steal it? Here's your chance. Made from the finest synthleather and synthwool, it cost far more than most people care to admit they paid."
+	icon_state = "r_parade_jacket"
+	greyscale_config = /datum/greyscale_config/replica_parade_jacket
+	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
+	greyscale_colors = "#b0c5ff#434343"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
+
+// donation reward for deadmon
+/obj/item/clothing/suit/hooded/seva/melon
+	name = "sundowner SEVA suit"
+	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had it's typical armor plating and anti-radiation lining removed in favor of movement. "
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
+	icon_state = "seva_melon"
+	hoodtype = /obj/item/clothing/head/hooded/seva/melon
+	hood_up_affix = ""
+
+/obj/item/clothing/head/hooded/seva/melon
+	name = "sundowner hood"
+	desc = "Designed for the SolFed Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
+	icon_state = "seva_melon"

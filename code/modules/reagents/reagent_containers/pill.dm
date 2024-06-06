@@ -49,7 +49,7 @@
 ///Runs the consumption code, can be overriden for special effects
 /obj/item/reagent_containers/pill/proc/on_consumption(mob/consumer, mob/giver)
 	if(icon_state == "pill4" && prob(5)) //you take the red pill - you stay in Wonderland, and I show you how deep the rabbit hole goes
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), consumer, span_notice("[pick(strings(REDPILL_FILE, "redpill_questions"))]")), 50)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), consumer, span_notice("[pick(strings(REDPILL_FILE, "redpill_questions"))]")), 5 SECONDS)
 	if(apply_type == INGEST)
 		SEND_SIGNAL(consumer, COMSIG_LIVING_PILL_CONSUMED, src, giver)
 		SEND_SIGNAL(src, COMSIG_PILL_CONSUMED, eater = consumer, feeder = giver)
@@ -151,7 +151,7 @@
 	name = "sansufentanyl pill"
 	desc = "Used to treat Hereditary Manifold Sickness. Temporary side effects include - nausea, dizziness, impaired motor coordination."
 	icon_state = "pill19"
-	list_reagents = list(/datum/reagent/medicine/sansufentanyl = 5)
+	list_reagents = list(/datum/reagent/medicine/sansufentanyl = 10) // NOVA EDIT CHANGE - ORIGINAL: list_reagents = list(/datum/reagent/medicine/sansufentanyl = 5)
 
 //Lower quantity mannitol pills (50u pills heal 250 brain damage, 5u pills heal 25)
 /obj/item/reagent_containers/pill/mannitol/braintumor
@@ -313,6 +313,12 @@
 	icon_state = "pill8"
 	list_reagents = list(/datum/reagent/gravitum = 5)
 	rename_with_volume = TRUE
+
+/obj/item/reagent_containers/pill/ondansetron
+	name = "ondansetron pill"
+	desc = "Alleviates nausea. May cause drowsiness."
+	icon_state = "pill11"
+	list_reagents = list(/datum/reagent/medicine/ondansetron = 10)
 
 // Pill styles for chem master
 

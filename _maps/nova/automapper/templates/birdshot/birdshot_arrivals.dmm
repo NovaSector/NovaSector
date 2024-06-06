@@ -91,7 +91,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
-/turf/open/floor/noslip,
+/turf/open/floor/iron/dark/small,
 /area/station/hallway/secondary/entry)
 "gn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -358,7 +358,7 @@
 /obj/machinery/light/cold/directional/north{
 	pixel_x = 16
 	},
-/turf/open/floor/noslip,
+/turf/open/floor/iron/dark/small,
 /area/station/hallway/secondary/entry)
 "MR" = (
 /obj/structure/chair/sofa/bench{
@@ -419,10 +419,10 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/turf/open/floor/noslip,
+/turf/open/floor/iron/dark/small,
 /area/station/hallway/secondary/entry)
 "UF" = (
-/turf/open/floor/noslip,
+/turf/open/floor/iron/dark/small,
 /area/station/hallway/secondary/entry)
 "UH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

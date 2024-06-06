@@ -99,6 +99,10 @@
 	name = "Cat, Big"
 	icon_state = "catbig"
 
+/datum/sprite_accessory/ears/mutant/tajaran/catbigalt
+	name = "Cat, Big (Alt)"
+	icon_state = "catbigalt"
+
 /datum/sprite_accessory/ears/mutant/tajaran/catnormal
 	name = "Cat, normal"
 	icon_state = "catnormal"
@@ -142,6 +146,10 @@
 /datum/sprite_accessory/ears/mutant/elf/broad
 	name = "Broad Elf"
 	icon_state = "elfbroad"
+
+/datum/sprite_accessory/ears/mutant/elf/broad/reverse
+	name = "Broad Elf, Reversed"
+	icon_state = "elfbroadreverse"
 
 /datum/sprite_accessory/ears/mutant/elf/longer
 	name = "Longer Elf"

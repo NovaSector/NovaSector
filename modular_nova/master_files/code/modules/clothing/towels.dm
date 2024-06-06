@@ -191,7 +191,7 @@
 	if(!choice)
 		return
 
-	change_towel_shape(user, lowertext(choice))
+	change_towel_shape(user, LOWER_TEXT(choice))
 
 
 /obj/item/towel/attackby(obj/item/attacking_item, mob/user, params)
@@ -236,17 +236,12 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 
-/obj/item/towel/AltClick(mob/user)
-	. = ..()
-
-	if(. == FALSE)
-		return
-
+/obj/item/towel/click_alt(mob/user)
 	if(!(shape == TOWEL_FULL || shape == TOWEL_WAIST))
-		return FALSE
+		return CLICK_ACTION_BLOCKING
 
 	if(!ishuman(user))
-		return FALSE
+		return CLICK_ACTION_BLOCKING
 
 	var/mob/living/carbon/human/towel_user = user
 	var/worn = towel_user.wear_suit == src
@@ -258,6 +253,7 @@
 		return
 
 	to_chat(user, span_notice(shape == TOWEL_FULL ? "You raise \the [src] over your [shape]." : "You lower \the [src] down to your [shape]."))
+	return CLICK_ACTION_SUCCESS
 
 
 /obj/item/towel/CtrlClick(mob/user)

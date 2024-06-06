@@ -6,6 +6,10 @@
 	item_path = /obj/item/suit_voucher
 	cost_per_order = 2000
 
+/datum/orderable_item/consumables/robo_medkit
+	item_path = /obj/item/storage/medkit/robotic_repair/stocked
+	cost_per_order = 650 // I set this at this slightly-higher-than-normal value because the robot medkits heal brute, burn, and have a coagulent equivalent in them
+
 /obj/item/kinetic_crusher
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -56,3 +60,19 @@
 /datum/orderable_item/interdyne/prescription_meson
 	item_path = /obj/item/clothing/glasses/meson/prescription
 	cost_per_order = 325
+
+/datum/orderable_item/mining/crusher/spear
+	item_path = /obj/item/kinetic_crusher/spear
+	cost_per_order = 1250
+
+/datum/orderable_item/mining/crusher/hammer
+	item_path = /obj/item/kinetic_crusher/hammer
+	cost_per_order = 1250
+
+/datum/orderable_item/mining/crusher/machete
+	item_path = /obj/item/kinetic_crusher/machete
+	cost_per_order = 1250
+
+/datum/orderable_item/mining/crusher/claw
+	item_path = /obj/item/kinetic_crusher/claw
+	cost_per_order = 1250

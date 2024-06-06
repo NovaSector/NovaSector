@@ -31,4 +31,4 @@
 
 /mob/living/basic/mining_drone/interdyne
 	name = "\improper Interdyne minebot"
-	faction = list(FACTION_NEUTRAL, ROLE_SYNDICATE)
+	faction = list(FACTION_NEUTRAL, ROLE_INTERDYNE_PLANETARY_BASE)

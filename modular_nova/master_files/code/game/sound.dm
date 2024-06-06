@@ -1,4 +1,4 @@
-/proc/get_sfx_skyrat(soundin)
+/proc/get_sfx_nova(soundin)
 	if(istext(soundin))
 		switch(soundin)
 			if(SFX_KEYBOARD)

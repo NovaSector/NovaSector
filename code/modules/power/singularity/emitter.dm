@@ -1,7 +1,7 @@
 /obj/machinery/power/emitter
 	name = "emitter"
 	desc = "A heavy-duty industrial laser, often used in containment fields and power generation."
-	icon = 'icons/obj/machines/engine/singularity.dmi' //NOVA EDIT CHANGE - ICON OVERRIDEN IN SKYRAT AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/engine/singularity.dmi' //NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
 	icon_state = "emitter"
 	base_icon_state = "emitter"
 
@@ -77,11 +77,13 @@
 	welded = TRUE
 	. = ..()
 
-/obj/machinery/power/emitter/cable_layer_change_checks(mob/living/user, obj/item/tool)
+/obj/machinery/power/emitter/cable_layer_act(mob/living/user, obj/item/tool)
+	if(panel_open)
+		return NONE
 	if(welded)
 		balloon_alert(user, "unweld first!")
-		return FALSE
-	return TRUE
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
 /obj/machinery/power/emitter/set_anchored(anchorvalue)
 	. = ..()
@@ -344,8 +346,6 @@
 			return
 	return ..()
 
-/obj/machinery/power/emitter/AltClick(mob/user)
-	return ..() // This hotkey is BLACKLISTED since it's used by /datum/component/simple_rotation
 
 /obj/machinery/power/emitter/proc/integrate(obj/item/gun/energy/energy_gun, mob/user)
 	if(!istype(energy_gun, /obj/item/gun/energy))

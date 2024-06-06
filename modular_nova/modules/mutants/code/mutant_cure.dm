@@ -219,8 +219,6 @@
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))
 		return
 
-	usr.set_machine(src)
-
 	var/operation = href_list["function"]
 	var/obj/item/process = locate(href_list["item"]) in src
 
@@ -230,7 +228,8 @@
 	else if(operation == "eject")
 		ejectItem()
 	else if(operation == "refresh")
-		updateUsrDialog()
+		SStgui.update_uis(src)
+		return
 	else
 		if(status != STATUS_IDLE)
 			to_chat(usr, span_warning("[src] is currently recombinating!"))
@@ -246,7 +245,7 @@
 			recombinate_start()
 			use_energy(active_power_usage)
 
-	updateUsrDialog()
+	SStgui.update_uis(src)
 
 /obj/machinery/rnd/rna_recombinator/proc/ejectItem()
 	if(loaded_item)

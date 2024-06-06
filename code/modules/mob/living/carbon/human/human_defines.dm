@@ -14,6 +14,7 @@
 	can_be_shoved_into = TRUE
 	initial_language_holder = /datum/language_holder/empty // We get stuff from our species
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
+	max_grab = GRAB_KILL
 
 	maxHealth = HUMAN_MAXHEALTH //NOVA EDIT ADDITION
 	health = HUMAN_MAXHEALTH //NOVA EDIT ADDITION
@@ -56,8 +57,8 @@
 	var/backpack = DBACKPACK //Which backpack type the player has chosen.
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 
-	var/datum/scream_type/selected_scream //SKRYAT EDIT ADDITION
-	var/datum/laugh_type/selected_laugh //NOVA EDIT ADDITION
+	var/datum/scream_type/selected_scream // NOVA EDIT ADDITION
+	var/datum/laugh_type/selected_laugh // NOVA EDIT ADDITION
 
 	//Equipment slots
 	var/obj/item/clothing/wear_suit = null
@@ -78,7 +79,7 @@
 		/mob/living/carbon/human,
 		/mob/living/basic/slime,
 	))
-	var/lastpuke = 0
+
 	var/account_id
 
 	var/hardcore_survival_score = 0

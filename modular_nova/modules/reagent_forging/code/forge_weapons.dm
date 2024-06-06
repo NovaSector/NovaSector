@@ -6,6 +6,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME
 	obj_flags_nova = ANVIL_REPAIR
+	toolspeed = 0.9 //Slightly better than avg. - A forged hammer or knife is probably better than a standard one
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -75,6 +76,7 @@
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
+	tool_behaviour = TOOL_KNIFE
 
 //what a cute gimmick
 /obj/item/forging/reagent_weapon/dagger/attack(mob/living/M, mob/living/user, params)
@@ -212,7 +214,7 @@
 		var/obj/item/forging/hammer/attacking_hammer = attacking_item
 		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * attacking_hammer.toolspeed
 		while(atom_integrity < max_integrity)
-			if(!do_after(user, skill_modifier, src))
+			if(!do_after(user, skill_modifier SECONDS, src))
 				return
 			var/fixing_amount = min(max_integrity - atom_integrity, 5)
 			atom_integrity += fixing_amount

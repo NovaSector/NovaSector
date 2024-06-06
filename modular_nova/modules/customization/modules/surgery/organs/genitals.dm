@@ -155,7 +155,7 @@
 
 /obj/item/organ/external/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = ""
-	var/pname = lowertext(genital_name) == "nondescript" ? "" : lowertext(genital_name) + " "
+	var/pname = LOWER_TEXT(genital_name) == "nondescript" ? "" : LOWER_TEXT(genital_name) + " "
 	if(sheath != SHEATH_NONE && aroused != AROUSAL_FULL) //Hidden in sheath
 		switch(sheath)
 			if(SHEATH_NORMAL)
@@ -199,7 +199,7 @@
 		var/poking_out = 0
 		if(aroused == AROUSAL_PARTIAL)
 			poking_out = 1
-		return "[lowertext(sheath)]_[poking_out]"
+		return "[LOWER_TEXT(sheath)]_[poking_out]"
 
 	var/size_affix
 	var/measured_size = FLOOR(genital_size,1)
@@ -269,7 +269,7 @@
 	if(genital_name == "Internal") //Checks if Testicles are of Internal Variety
 		visibility_preference = GENITAL_SKIP_VISIBILITY //Removes visibility if yes.
 	else
-		return "You see a pair of testicles, they look [lowertext(balls_size_to_description(genital_size))]."
+		return "You see a pair of testicles, they look [LOWER_TEXT(balls_size_to_description(genital_size))]."
 
 /obj/item/organ/external/genital/testicles/build_from_dna(datum/dna/DNA, associated_key)
 	uses_skin_color = DNA.features["testicles_uses_skincolor"]
@@ -325,8 +325,8 @@
 	layers = EXTERNAL_FRONT
 
 /obj/item/organ/external/genital/vagina/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see a [lowertext(genital_name)] vagina."
-	if(lowertext(genital_name) == "cloaca")
+	var/returned_string = "You see a [LOWER_TEXT(genital_name)] vagina."
+	if(LOWER_TEXT(genital_name) == "cloaca")
 		returned_string = "You see a cloaca." //i deserve a pipebomb for this
 	switch(aroused)
 		if(AROUSAL_NONE)
@@ -397,7 +397,7 @@
 	layers = NONE
 
 /obj/item/organ/external/genital/anus/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see an [lowertext(genital_name)]."
+	var/returned_string = "You see an [LOWER_TEXT(genital_name)]."
 	if(aroused == AROUSAL_PARTIAL)
 		returned_string += " It looks tight."
 	if(aroused == AROUSAL_FULL)
@@ -428,7 +428,7 @@
 	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 
 /obj/item/organ/external/genital/breasts/get_description_string(datum/sprite_accessory/genital/gas)
-	var/returned_string = "You see a [lowertext(genital_name)] of breasts."
+	var/returned_string = "You see a [LOWER_TEXT(genital_name)] of breasts."
 	var/size_description
 	var/translation = breasts_size_to_cup(genital_size)
 	switch(translation)
@@ -513,21 +513,30 @@
 	for(var/obj/item/organ/external/genital/genital in organs)
 		if(!genital.visibility_preference == GENITAL_SKIP_VISIBILITY)
 			genital_list += genital
+
 	if(!genital_list.len) //There is nothing to expose
 		return
-	//Full list of exposable genitals created
-	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in organs))
-		var/list/gen_vis_trans = list("Never show" = GENITAL_NEVER_SHOW,
-												"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
-												"Always show" = GENITAL_ALWAYS_SHOW
-												)
-		var/picked_visibility = input(src, "Choose visibility setting", "Expose/Hide genitals") as null|anything in gen_vis_trans
-		if(picked_visibility && picked_organ && (picked_organ in organs))
-			picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
-			update_body()
-	return
+
+	var/obj/item/organ/external/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to expose/hide", "Expose/Hide genitals", genital_list)
+
+	if(!picked_organ || !(picked_organ in organs))
+		return
+
+	var/static/list/gen_vis_trans = list(
+		"Never show" = GENITAL_NEVER_SHOW,
+		"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
+		"Always show" = GENITAL_ALWAYS_SHOW,
+	)
+
+	var/picked_visibility = tgui_input_list(src, "Choose visibility setting", "Expose/Hide genitals", gen_vis_trans)
+
+	if(!picked_visibility || !picked_organ || !(picked_organ in organs))
+		return
+
+	picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
+	balloon_alert(src, "set to [lowertext(picked_visibility)]")
+	update_body()
+
 
 /mob/living/carbon/human/verb/toggle_arousal()
 	set category = "IC"
@@ -542,19 +551,27 @@
 	for(var/obj/item/organ/external/genital/genital in organs)
 		if(!genital.aroused == AROUSAL_CANT)
 			genital_list += genital
-	if(!genital_list.len) //There is nothing to expose
+
+	if(!genital_list.len) //There is nothing to modify.
 		return
-	//Full list of exposable genitals created
-	var/obj/item/organ/external/genital/picked_organ
-	picked_organ = input(src, "Choose which genitalia to change arousal", "Expose/Hide genitals") as null|anything in genital_list
-	if(picked_organ && (picked_organ in organs))
-		var/list/gen_arous_trans = list(
-			"Not aroused" = AROUSAL_NONE,
-			"Partly aroused" = AROUSAL_PARTIAL,
-			"Very aroused" = AROUSAL_FULL,
-		)
-		var/picked_arousal = input(src, "Choose arousal", "Toggle Arousal") as null|anything in gen_arous_trans
-		if(picked_arousal && picked_organ && (picked_organ in organs))
-			picked_organ.aroused = gen_arous_trans[picked_arousal]
-			picked_organ.update_sprite_suffix()
-			update_body()
+
+	var/obj/item/organ/external/genital/picked_organ = tgui_input_list(src, "Choose which genitalia to the change arousal of", "Expose/Hide genitals", genital_list)
+
+	if(!picked_organ || !(picked_organ in organs))
+		return
+
+	var/list/gen_arous_trans = list(
+		"Not aroused" = AROUSAL_NONE,
+		"Partly aroused" = AROUSAL_PARTIAL,
+		"Very aroused" = AROUSAL_FULL,
+	)
+
+	var/picked_arousal = tgui_input_list(src, "Choose arousal", "Toggle Arousal", gen_arous_trans)
+
+	if(!picked_arousal || !picked_organ || !(picked_organ in organs))
+		return
+
+	picked_organ.aroused = gen_arous_trans[picked_arousal]
+	picked_organ.update_sprite_suffix()
+	balloon_alert(src, "set to [lowertext(picked_arousal)]")
+	update_body()

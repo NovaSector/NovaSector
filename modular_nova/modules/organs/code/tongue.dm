@@ -20,11 +20,24 @@
 	signer.verb_yell = "barks"
 
 /obj/item/organ/internal/tongue/dog/Remove(mob/living/carbon/speaker, special = FALSE)
-	..()
+	. = ..()
 	speaker.verb_ask = initial(verb_ask)
 	speaker.verb_exclaim = initial(verb_exclaim)
 	speaker.verb_whisper = initial(verb_whisper)
-	speaker.verb_sing = initial(verb_sing)
+	speaker.verb_yell = initial(verb_yell)
+
+/obj/item/organ/internal/tongue/cat/Insert(mob/living/carbon/signer, special = FALSE, movement_flags = DELETE_IF_REPLACED)
+	. = ..()
+	signer.verb_ask = "mrrps"
+	signer.verb_exclaim = "mrrowls"
+	signer.verb_whisper = "purrs"
+	signer.verb_yell = "yowls"
+
+/obj/item/organ/internal/tongue/cat/Remove(mob/living/carbon/speaker, special = FALSE)
+	. = ..()
+	speaker.verb_ask = initial(verb_ask)
+	speaker.verb_exclaim = initial(verb_exclaim)
+	speaker.verb_whisper = initial(verb_whisper)
 	speaker.verb_yell = initial(verb_yell)
 
 /obj/item/organ/internal/tongue/avian
@@ -46,7 +59,6 @@
 	speaker.verb_ask = initial(verb_ask)
 	speaker.verb_exclaim = initial(verb_exclaim)
 	speaker.verb_whisper = initial(verb_whisper)
-	speaker.verb_sing = initial(verb_sing)
 	speaker.verb_yell = initial(verb_yell)
 
 /// This "human" tongue is only used in Character Preferences / Augmentation menu.
@@ -138,10 +150,19 @@
 
 /obj/item/organ/internal/tongue/xeno_hybrid/Initialize(mapload)
 	. = ..()
-	var/obj/item/organ/internal/tongue/alien/alien_tongue_type = /obj/item/organ/internal/tongue/alien
-	voice_filter = initial(alien_tongue_type.voice_filter)
+	voice_filter = /obj/item/organ/internal/tongue/alien::voice_filter
 
 /obj/item/organ/internal/tongue/skrell
 	name = "skrell tongue"
 	desc = "A fleshy muscle mostly used for warbling."
 	say_mod = "warbles"
+
+/obj/item/organ/internal/tongue/lizard/filterless
+	name = "smooth forked tongue"
+
+	voice_filter = null
+
+/obj/item/organ/internal/tongue/lizard/filterless/Initialize(mapload)
+	. = ..()
+
+	desc += " This one is noticeably smooth, and would lack any non-hissing lisps if used."

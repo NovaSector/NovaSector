@@ -16,7 +16,8 @@
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/door_buttons/LateInitialize()
+/obj/machinery/door_buttons/post_machine_initialize()
+	. = ..()
 	find_objects_by_tag()
 
 /obj/machinery/door_buttons/emag_act(mob/user, obj/item/card/emag/emag_card)
@@ -30,7 +31,7 @@
 	return TRUE
 
 /obj/machinery/door_buttons/access_button
-	icon = 'icons/obj/machines/wallmounts.dmi' // NOVA EDIT CHANGE - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/wallmounts.dmi' // NOVA EDIT CHANGE - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	icon_state = "access_button_standby"
 	base_icon_state = "access_button"
 	name = "access button"

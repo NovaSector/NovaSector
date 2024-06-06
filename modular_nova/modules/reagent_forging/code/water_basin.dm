@@ -58,13 +58,15 @@
 	return ..()
 
 /obj/structure/reagent_water_basin/wrench_act(mob/living/user, obj/item/tool)
-	tool.play_tool_sound(src)
+	user.balloon_alert_to_viewers("disassembling...")
+	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
+		return
 
-	for(var/i in 1 to 5)
-		new /obj/item/stack/sheet/mineral/wood(get_turf(src))
+	deconstruct(disassembled = TRUE)
+	return ITEM_INTERACT_SUCCESS
 
-	qdel(src)
-	return TRUE
+/obj/structure/reagent_water_basin/atom_deconstruct(disassembled = TRUE)
+	new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 
 /obj/structure/reagent_water_basin/tong_act(mob/living/user, obj/item/tool)
 	var/obj/item/forging/incomplete/search_incomplete = locate(/obj/item/forging/incomplete) in tool.contents

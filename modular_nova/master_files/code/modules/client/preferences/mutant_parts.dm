@@ -8,17 +8,32 @@
 	default_value = FALSE
 
 /datum/preference/toggle/allow_mismatched_parts/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return TRUE // we dont actually want this to do anything
+	return // we dont actually want this to do anything
 
 /datum/preference/toggle/allow_mismatched_parts/is_accessible(datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_mismatched_parts))
 		return FALSE
-	. = ..()
+	return ..()
 
-/datum/preference/toggle/allow_mismatched_parts/deserialize(input, datum/preferences/preferences)
+/datum/preference/toggle/allow_mismatched_parts/deserialize(input)
 	if(CONFIG_GET(flag/disable_mismatched_parts))
 		return FALSE
-	. = ..()
+	return ..()
+
+/datum/preference/toggle/allow_mismatched_hair_color
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "allow_mismatched_hair_color_toggle"
+	default_value = TRUE
+
+/datum/preference/toggle/allow_mismatched_hair_color/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return // applied in apply_supplementary_body_changes()
+
+/datum/preference/toggle/allow_mismatched_hair_color/is_accessible(datum/preferences/preferences)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!ispath(species, /datum/species/jelly)) // only slimes can see this pref
+		return FALSE
+	return ..()
 
 /datum/preference/toggle/allow_emissives
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -823,14 +838,13 @@
 		var/datum/sprite_accessory/pod_hair/pod_hair = GLOB.pod_hair_list[pod_name]
 		if(pod_hair.locked)
 			continue
-
 		var/icon/icon_with_hair = new(pod_head)
-		var/icon/icon_adj = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_ADJ")
+		var/icon/icon_front_hair = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER_HAIR")
 		var/icon/icon_front = icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT_OVER")
 		icon_front.Blend(COLOR_MAGENTA, ICON_MULTIPLY)
-		icon_adj.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-		icon_adj.Blend(icon_front, ICON_OVERLAY)
-		icon_with_hair.Blend(icon_adj, ICON_OVERLAY)
+		icon_front_hair.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+		icon_front_hair.Blend(icon_front, ICON_OVERLAY)
+		icon_with_hair.Blend(icon_front_hair, ICON_OVERLAY)
 		icon_with_hair.Scale(64, 64)
 		icon_with_hair.Crop(15, 64, 15 + 31, 64 - 31)
 
