@@ -12051,12 +12051,6 @@
 "cra" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/pharmacy)
-"crm" = (
-/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
 "crn" = (
 /obj/structure/girder,
 /obj/structure/grille/broken,
@@ -23592,6 +23586,18 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"eyU" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Atmospherics Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
+/obj/machinery/door/poddoor/preopen{
+	id = "atmoslock";
+	name = "Atmospherics Lockdown Blast Door"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "ezf" = (
 /obj/machinery/door/airlock/bathroom{
 	name = "Restroom"
@@ -30777,6 +30783,10 @@
 /obj/item/toy/figure/engineer,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
+"fSl" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "fSq" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -66944,9 +66954,11 @@
 	},
 /area/station/common/wrestling/arena)
 "mQa" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
+/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "mQc" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -79591,18 +79603,6 @@
 /obj/effect/turf_decal/tile/green/tram,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"pmu" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Atmospherics Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/machinery/door/poddoor/preopen{
-	id = "atmoslock";
-	name = "Atmospherics Lockdown Blast Door"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
 "pmD" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -90061,13 +90061,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/maintenance/department/medical/central)
-"rkm" = (
-/obj/machinery/light/directional/east,
-/obj/structure/table,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "rko" = (
 /obj/effect/spawner/liquids_spawner{
 	reagent_list = list(/datum/reagent/water=600)
@@ -96337,6 +96330,12 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/library)
+"svT" = (
+/obj/structure/table,
+/obj/item/wrench,
+/obj/item/pipe_dispenser,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "svX" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/half/contrasted{
@@ -117170,9 +117169,11 @@
 	},
 /area/station/security/prison/work)
 "wot" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron,
-/area/station/engineering/atmos)
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "woL" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
@@ -123188,12 +123189,6 @@
 /obj/structure/billboard/azik,
 /turf/open/space/openspace,
 /area/space/nearstation)
-"xwV" = (
-/obj/structure/table,
-/obj/item/wrench,
-/obj/item/pipe_dispenser,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "xxf" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -123433,6 +123428,13 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
+"xAa" = (
+/obj/machinery/light/directional/east,
+/obj/structure/table,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "xAb" = (
 /obj/machinery/computer/security,
 /obj/effect/turf_decal/bot,
@@ -123516,11 +123518,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "xBb" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "xBd" = (
 /obj/structure/sign/warning/pods/directional/east,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -159630,7 +159630,7 @@ ngB
 vOJ
 cLk
 oIR
-wot
+xBb
 hMm
 hMm
 hMm
@@ -161159,8 +161159,8 @@ iWN
 iWN
 lqC
 vXN
-xBb
-pmu
+wot
+eyU
 wvh
 vqP
 vBy
@@ -161672,7 +161672,7 @@ dol
 iWN
 iWN
 iWN
-crm
+mQa
 kFQ
 tHY
 xJH
@@ -166339,7 +166339,7 @@ vLv
 sQQ
 sQQ
 sQQ
-vLv
+sQQ
 vLv
 vLv
 vLv
@@ -166594,8 +166594,8 @@ laI
 aCo
 vwS
 sQQ
-rkm
-xwV
+xAa
+svT
 vLv
 vLv
 fZI
@@ -166850,7 +166850,7 @@ fth
 slR
 cIK
 vwS
-mQa
+fSl
 vLv
 vLv
 vLv
