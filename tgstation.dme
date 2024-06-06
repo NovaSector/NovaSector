@@ -6604,7 +6604,6 @@
 #include "modular_nova\master_files\code\modules\jobs\job_types\geneticist.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\head_of_personnel.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\head_of_security.dm"
-#include "modular_nova\master_files\code\modules\jobs\job_types\janitor.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\medical_doctor.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\mime.dm"
 #include "modular_nova\master_files\code\modules\jobs\job_types\paramedic.dm"
