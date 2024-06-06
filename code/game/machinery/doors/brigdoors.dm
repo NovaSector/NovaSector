@@ -190,7 +190,7 @@
  * value - time in deciseconds to set the timer for.
  */
 /obj/machinery/status_display/door_timer/proc/set_timer(value)
-	var/new_time = clamp(value, 0, MAX_TIMER + world.time - activation_time)
+	var/new_time = clamp(value, 0, MAX_TIMER + REALTIMEOFDAY - activation_time) // NOVA EDIT CHANGE, Original: var/new_time = clamp(value, 0, MAX_TIMER + world.time - activation_time) 
 	. = new_time == timer_duration //return 1 on no change
 	timer_duration = new_time
 	update_content()
