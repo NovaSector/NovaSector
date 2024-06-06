@@ -18,12 +18,12 @@
 #define TURRET_FLAG_SHOOT_NOONE 3 // Turrets will not fire at any player-type mob.
 #define TURRET_FLAG_SHOOT_EVERYONE 4 // Turrets will shoot at all player-type mobs.
 
-#define TURRET_THREAT_PASSIVE 0 
+#define TURRET_THREAT_PASSIVE 0
 #define TURRET_THREAT_LOW 2
 #define TURRET_THREAT_MEDIUM 4
 #define TURRET_THREAT_HIGH 6
 #define TURRET_THREAT_SEVERE 8
-#define TURRET_THREAT_PRIORITY 10 
+#define TURRET_THREAT_PRIORITY 10
 
 DEFINE_BITFIELD(turret_flags, list(
 	"TURRET_FLAG_SHOOT_ALL_REACT" = TURRET_FLAG_SHOOT_ALL_REACT,
@@ -45,6 +45,10 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/turret_safety = FALSE
 	////// Whether the turret will deploy obeying flags.
 	var/flags_on = FALSE
+	////// Whether the turret can deploy by being thrown
+	var/quick_deployable = FALSE
+	////// How long the turret takes to deploy when quick_deploying
+	var/quick_deploy_timer = 1 SECONDS
 	////// The type of turret deployed
 	var/turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed
 	////// Number of mags that can be put in.
@@ -124,6 +128,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	user.visible_message(span_danger("[user] bashes [src] with [attacking_item]!"), \
 		span_danger("You bash [src] with [attacking_item]!"), null, COMBAT_MESSAGE_RANGE)
 
+	deploy_turret(user)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/proc/deploy_turret(mob/living/user)
 	playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
 	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(get_turf(loc))
 	set_faction(turret, user)
@@ -134,6 +141,12 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.target_assessment = TURRET_FLAG_OBEY_FLAGS
 	forceMove(turret)
 	turret.setState(TRUE)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	. = ..()
+	if(quick_deployable)
+		balloon_alert_to_viewers("deploying...")
+		addtimer(CALLBACK(src, PROC_REF(deploy_turret), throwingdatum.thrower?.resolve()), quick_deploy_timer)
 
 ////// Targeting Device handling //////
 
@@ -234,7 +247,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		balloon_alert(user, "designation cleared!")
 
 /// Sets all turrets to the same state as the controller.
-/obj/item/target_designator/proc/sync_turrets() 
+/obj/item/target_designator/proc/sync_turrets()
 	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
 		if(target_all == TRUE && follow_flags == FALSE)
 			if(!(turret.target_assessment == TURRET_FLAG_SHOOT_EVERYONE))
