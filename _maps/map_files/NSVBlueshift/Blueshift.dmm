@@ -23586,18 +23586,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"eyU" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Atmospherics Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/obj/machinery/door/poddoor/preopen{
-	id = "atmoslock";
-	name = "Atmospherics Lockdown Blast Door"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
 "ezf" = (
 /obj/machinery/door/airlock/bathroom{
 	name = "Restroom"
@@ -30783,10 +30771,6 @@
 /obj/item/toy/figure/engineer,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
-"fSl" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "fSq" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -61564,6 +61548,18 @@
 /obj/structure/mirror/directional/east,
 /turf/open/floor/carpet/black,
 /area/station/service/barber)
+"lNt" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Atmospherics Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
+/obj/machinery/door/poddoor/preopen{
+	id = "atmoslock";
+	name = "Atmospherics Lockdown Blast Door"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "lNw" = (
 /obj/structure/bookcase/manuals/engineering,
 /turf/open/floor/wood,
@@ -66954,11 +66950,9 @@
 	},
 /area/station/common/wrestling/arena)
 "mQa" = (
-/obj/machinery/atmospherics/pipe/bridge_pipe/violet/visible{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "mQc" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -95306,6 +95300,13 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
+"slx" = (
+/obj/machinery/light/directional/east,
+/obj/structure/table,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/iron,
+/area/station/engineering/atmos/test_chambers)
 "sly" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
@@ -96330,12 +96331,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/library)
-"svT" = (
-/obj/structure/table,
-/obj/item/wrench,
-/obj/item/pipe_dispenser,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "svX" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/half/contrasted{
@@ -117169,11 +117164,9 @@
 	},
 /area/station/security/prison/work)
 "wot" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/central)
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "woL" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
@@ -121484,6 +121477,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/medical/break_room)
+"xgh" = (
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/central)
 "xgi" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -123428,13 +123427,6 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
-"xAa" = (
-/obj/machinery/light/directional/east,
-/obj/structure/table,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/open/floor/iron,
-/area/station/engineering/atmos/test_chambers)
 "xAb" = (
 /obj/machinery/computer/security,
 /obj/effect/turf_decal/bot,
@@ -123518,9 +123510,11 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "xBb" = (
-/obj/item/kirbyplants/random,
+/obj/structure/table,
+/obj/item/wrench,
+/obj/item/pipe_dispenser,
 /turf/open/floor/iron,
-/area/station/engineering/atmos)
+/area/station/engineering/atmos/test_chambers)
 "xBd" = (
 /obj/structure/sign/warning/pods/directional/east,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -159630,7 +159624,7 @@ ngB
 vOJ
 cLk
 oIR
-xBb
+wot
 hMm
 hMm
 hMm
@@ -161159,8 +161153,8 @@ iWN
 iWN
 lqC
 vXN
-wot
-eyU
+xgh
+lNt
 wvh
 vqP
 vBy
@@ -161672,7 +161666,7 @@ dol
 iWN
 iWN
 iWN
-mQa
+qAu
 kFQ
 tHY
 xJH
@@ -166594,8 +166588,8 @@ laI
 aCo
 vwS
 sQQ
-xAa
-svT
+slx
+xBb
 vLv
 vLv
 fZI
@@ -166850,7 +166844,7 @@ fth
 slR
 cIK
 vwS
-fSl
+mQa
 vLv
 vLv
 vLv
