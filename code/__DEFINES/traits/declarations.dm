@@ -228,6 +228,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_PROFOUND_FISHER "profound_fisher"
 /// This trait lets you evaluate someone's fitness level against your own
 #define TRAIT_EXAMINE_FITNESS "reveal_power_level"
+/// These mobs have particularly hygienic tongues
+#define TRAIT_WOUND_LICKER "wound_licker"
 
 /// This trait designate that the mob was originally a monkey
 #define TRAIT_BORN_MONKEY "born_as_a_monkey"
