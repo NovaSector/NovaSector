@@ -218,3 +218,19 @@
   vinylspiders:
   - bugfix: 'fixes an /image harddel in station blueprints code: cleaned up some more
       /image qdels'
+2024-06-06:
+  NovaBot13:
+  - balance: cult stun gets weaker when they get red eyes and later more when they
+      have halos
+  - rscadd: A unique kind of mob is created when a Monkey is infested by a Legion.
+  - image: New icons for berserker, godslayer and adamantine armor. Removes the old
+      icons.
+  Rhials:
+  - balance: cultist shades can no longer contribute to rune invocation until they've
+      been out of their soulstone for a minute. Put them in a shell for God's sake!
+  - code_imp: sweeps up cultist antag datum code into its own subfolder.
+  - code_imp: cult shades now have their own antag datum.
+  - bugfix: constructs now properly clear the cultist antag datum and transfer the
+      mind slightly earlier.
+  grungussuss:
+  - sound: frog sounds will no longer explode your ears
