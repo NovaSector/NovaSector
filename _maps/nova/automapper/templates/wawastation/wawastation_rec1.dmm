@@ -1,0 +1,1049 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bV" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"cI" = (
+/obj/effect/landmark/transport/nav_beacon/tram/platform/tramstation/east,
+/turf/open/floor/tram/plate,
+/area/station/hallway/secondary/entry)
+"di" = (
+/obj/structure/bed,
+/obj/effect/spawner/random/bedsheet/any,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"dy" = (
+/obj/structure/rack/skeletal,
+/obj/item/storage/fancy/candle_box,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"eg" = (
+/obj/machinery/door/airlock/multi_tile/public/glass{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/hallway/secondary/entry)
+"en" = (
+/obj/machinery/photocopier,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"fm" = (
+/obj/structure/chair/office{
+	name = "grimy chair"
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"fC" = (
+/obj/structure/easel,
+/obj/item/canvas/twentythree_twentythree,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"fX" = (
+/obj/structure/fluff/tram_rail/electric{
+	dir = 1
+	},
+/turf/open/floor/glass/reinforced,
+/area/station/hallway/secondary/entry)
+"gd" = (
+/turf/open/floor/noslip/tram,
+/area/station/hallway/secondary/entry)
+"hq" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"jk" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"lk" = (
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"lJ" = (
+/obj/structure/sign/painting/large/library_private{
+	dir = 8;
+	pixel_x = -29
+	},
+/obj/item/storage/photo_album/library{
+	pixel_x = 4
+	},
+/obj/item/camera{
+	pixel_x = -4
+	},
+/obj/structure/table/wood,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"mo" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"np" = (
+/obj/structure/fluff/tram_rail/electric{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"oz" = (
+/obj/machinery/vending/games,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"oG" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/effect/landmark/event_spawn,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"oS" = (
+/turf/open/floor/holofloor/stairs{
+	dir = 4
+	},
+/area/station/hallway/secondary/entry)
+"qe" = (
+/obj/machinery/skill_station,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"rC" = (
+/turf/open/floor/wood,
+/area/station/hallway/secondary/entry)
+"rP" = (
+/obj/machinery/newscaster/directional/west,
+/obj/machinery/vending/wardrobe/curator_wardrobe,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"tz" = (
+/obj/structure/fluff/tram_rail/electric,
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"tZ" = (
+/turf/open/misc/asteroid,
+/area/station/hallway/secondary/entry)
+"uh" = (
+/obj/machinery/light_switch/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"uk" = (
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"ur" = (
+/obj/structure/fluff/tram_rail/electric{
+	dir = 1
+	},
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"ve" = (
+/turf/open/floor/glass/reinforced,
+/area/station/hallway/secondary/entry)
+"vi" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"vz" = (
+/obj/machinery/computer/cryopod/directional/west,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"vJ" = (
+/obj/structure/destructible/cult/item_dispenser/archives/library,
+/obj/item/book/codex_gigas,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"vT" = (
+/obj/machinery/door/morgue{
+	name = "Private Study";
+	req_access = list("library")
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"wQ" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/station/hallway/secondary/entry)
+"xh" = (
+/turf/template_noop,
+/area/template_noop)
+"xE" = (
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"yH" = (
+/obj/structure/fluff/tram_rail/electric,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"zz" = (
+/obj/machinery/time_clock/directional/east,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"AZ" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Quiet Room"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Bl" = (
+/turf/template_noop,
+/area/station/hallway/secondary/entry)
+"Ca" = (
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/station/hallway/secondary/entry)
+"DU" = (
+/obj/machinery/modular_computer/preset/curator{
+	dir = 8
+	},
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"EH" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"FJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"FY" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Quiet Room"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Hv" = (
+/turf/open/floor/tram/plate,
+/area/station/hallway/secondary/entry)
+"IY" = (
+/obj/structure/fluff/tram_rail/electric,
+/turf/open/floor/glass/reinforced,
+/area/station/hallway/secondary/entry)
+"Kp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Mi" = (
+/obj/machinery/transport/destination_sign/indicator/directional/north,
+/obj/machinery/button/transport/tram/directional/north{
+	id = 3
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"Mr" = (
+/obj/structure/table/wood,
+/obj/item/storage/crayons,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"ML" = (
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
+"Nr" = (
+/obj/structure/table/wood,
+/obj/item/storage/crayons,
+/obj/item/toy/crayon/spraycan{
+	pixel_x = -4
+	},
+/obj/item/toy/crayon/spraycan{
+	pixel_x = -4
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"NO" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"NR" = (
+/obj/machinery/newscaster/directional/north,
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Pb" = (
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"Pk" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/effect/landmark/blobstart,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"PD" = (
+/obj/structure/bookcase{
+	name = "Forbidden Knowledge"
+	},
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"QS" = (
+/obj/structure/chair/office{
+	name = "grimy chair"
+	},
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Rj" = (
+/obj/machinery/vending/cigarette,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"SV" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/pen,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Xk" = (
+/obj/machinery/door/airlock/multi_tile/public/glass,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"Ya" = (
+/obj/effect/landmark/start/librarian,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"Yr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/engine/cult,
+/area/station/hallway/secondary/entry)
+"YG" = (
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"YT" = (
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/tram/plate,
+/area/station/hallway/secondary/entry)
+"Zh" = (
+/obj/structure/table/wood,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+"Zj" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet/purple,
+/area/station/hallway/secondary/entry)
+
+(1,1,1) = {"
+xh
+xE
+xE
+xE
+xE
+ML
+YG
+tz
+YT
+ur
+YG
+ML
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+"}
+(2,1,1) = {"
+xh
+xE
+Pb
+Pb
+Pb
+Pb
+ve
+IY
+Hv
+fX
+ve
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+rC
+rC
+"}
+(3,1,1) = {"
+xh
+xE
+Pb
+Pb
+Pb
+Pb
+ve
+IY
+Hv
+fX
+ve
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+rC
+rC
+"}
+(4,1,1) = {"
+xh
+xE
+Pb
+Pb
+Pb
+Pb
+ve
+IY
+Hv
+fX
+ve
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+rC
+rC
+"}
+(5,1,1) = {"
+xh
+xE
+Pb
+Pb
+Pb
+ML
+YG
+tz
+YT
+ur
+YG
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+rC
+eg
+"}
+(6,1,1) = {"
+xh
+xE
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+ML
+oS
+oS
+oS
+ML
+ML
+fC
+fC
+Nr
+ML
+Bl
+Bl
+"}
+(7,1,1) = {"
+xh
+xE
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+ML
+Pb
+Pb
+Pb
+ML
+NR
+oG
+Zj
+FJ
+AZ
+Bl
+Bl
+"}
+(8,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+ML
+Pb
+Pb
+Pb
+ML
+QS
+Mr
+NO
+Kp
+FY
+Bl
+Bl
+"}
+(9,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+ML
+Pb
+Pb
+Pb
+ML
+fm
+SV
+Zh
+uh
+ML
+Bl
+Bl
+"}
+(10,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+vi
+Pk
+mo
+jk
+EH
+ML
+Bl
+Bl
+"}
+(11,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+ML
+bV
+en
+oz
+qe
+ML
+Bl
+Bl
+"}
+(12,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+ML
+ML
+ML
+ML
+ML
+ML
+rC
+rC
+"}
+(13,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+hq
+ML
+PD
+lJ
+rP
+ML
+rC
+rC
+"}
+(14,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+hq
+ML
+di
+Ya
+Yr
+vT
+rC
+rC
+"}
+(15,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+cI
+np
+xE
+ML
+Mi
+Pb
+Pb
+Rj
+ML
+vJ
+dy
+DU
+ML
+rC
+rC
+"}
+(16,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+"}
+(17,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+uk
+vz
+wQ
+wQ
+wQ
+ML
+xh
+xh
+"}
+(18,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+Xk
+lk
+lk
+lk
+lk
+ML
+xh
+xh
+"}
+(19,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+lk
+lk
+lk
+lk
+lk
+ML
+xh
+xh
+"}
+(20,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+xE
+yH
+Hv
+np
+xE
+gd
+Pb
+Pb
+Pb
+uk
+zz
+Ca
+Ca
+Ca
+ML
+xh
+xh
+"}
+(21,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+Pb
+Pb
+Pb
+ML
+ML
+ML
+ML
+ML
+ML
+xh
+xh
+"}
+(22,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+ML
+tZ
+tZ
+"}
+(23,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+ML
+tZ
+tZ
+tZ
+"}
+(24,1,1) = {"
+xh
+ML
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+Pb
+ML
+tZ
+tZ
+tZ
+xh
+"}
+(25,1,1) = {"
+xh
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+ML
+tZ
+tZ
+tZ
+tZ
+xh
+"}
+(26,1,1) = {"
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+tZ
+tZ
+tZ
+tZ
+tZ
+tZ
+xh
+xh
+"}
+(27,1,1) = {"
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+tZ
+tZ
+tZ
+tZ
+tZ
+xh
+xh
+xh
+"}

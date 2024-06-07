@@ -431,3 +431,28 @@ directory = "_maps/nova/automapper/templates/mining/"
 required_map = "Lavaland.dmm"
 coordinates = [203, 223, 1]
 trait_name = "Mining"
+
+# WAWASTATION MAP EDITS
+# Wawastation Arrivals
+[templates.wawastation_arrivals]
+map_files = ["wawastation_arrivals3.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [69, 81, 2]
+trait_name = "Station"
+
+# Wawastation Corridor
+[templates.wawastation_corridor]
+map_files = ["wawastation_corridor2.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [81, 102, 2]
+trait_name = "Station"
+
+# Wawastation Recreation
+[templates.wawastation_rec]
+map_files = ["wawastation_rec1.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [109, 91, 2]
+trait_name = "Station"

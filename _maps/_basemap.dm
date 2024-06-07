@@ -18,6 +18,7 @@
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
 		#include "map_files\Ouroboros\Ouroboros.dmm"
 		// NOVA EDIT END
+		#include "map_files\wawastation\wawastation.dmm"
 
 		#ifdef CIBUILDING
 			#include "templates.dm"

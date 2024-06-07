@@ -1,0 +1,710 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"b" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/item/rack_parts,
+/turf/open/floor/plating,
+/area/station/asteroid)
+"d" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
+/area/station/hallway/secondary/entry)
+"e" = (
+/obj/machinery/computer/shuttle/arrivals/recall,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"h" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"i" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small/dim/directional/west,
+/turf/open/floor/plating,
+/area/station/asteroid)
+"j" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/asteroid)
+"k" = (
+/turf/template_noop,
+/area/template_noop)
+"m" = (
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
+"o" = (
+/obj/docking_port/stationary/mining_home/common,
+/turf/open/floor/engine,
+/area/station/hallway/secondary/entry)
+"p" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/welded,
+/turf/open/floor/plating,
+/area/station/asteroid)
+"s" = (
+/obj/machinery/door/window/elevator/right,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"t" = (
+/turf/closed/wall,
+/area/station/asteroid)
+"u" = (
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 1;
+	height = 13;
+	shuttle_id = "arrivals_stationary";
+	name = "arrivals";
+	width = 5
+	},
+/turf/open/floor/engine,
+/area/station/hallway/secondary/entry)
+"v" = (
+/obj/machinery/door/airlock/external,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"w" = (
+/obj/effect/landmark/navigate_destination{
+	location = "Public Mining Dock"
+	},
+/obj/machinery/door/airlock/external{
+	name = "Common Mining Dock"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"x" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"y" = (
+/obj/effect/spawner/random/vending/colavend,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"z" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/asteroid)
+"C" = (
+/turf/open/floor/engine,
+/area/station/hallway/secondary/entry)
+"D" = (
+/obj/machinery/door/airlock/maintenance/external/glass,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"E" = (
+/obj/machinery/door/airlock/maintenance/external/glass,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"F" = (
+/obj/machinery/button/elevator/directional/south,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"G" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/spawner/random/structure/crate,
+/turf/open/floor/plating,
+/area/station/asteroid)
+"J" = (
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine,
+/area/station/hallway/secondary/entry)
+"K" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/hallway/secondary/entry)
+"O" = (
+/turf/open/misc/asteroid,
+/area/station/asteroid)
+"P" = (
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"Q" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/computer/shuttle/mining/common{
+	pixel_x = 2
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"U" = (
+/turf/open/floor/plating/elevatorshaft,
+/area/station/hallway/secondary/entry)
+"W" = (
+/obj/machinery/door/window/elevator/left,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"X" = (
+/obj/effect/landmark/observer_start,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"Z" = (
+/obj/structure/sign/warning/docking,
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
+
+(1,1,1) = {"
+k
+k
+k
+k
+t
+G
+i
+z
+p
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(2,1,1) = {"
+k
+k
+k
+k
+t
+G
+j
+b
+t
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(3,1,1) = {"
+k
+k
+k
+k
+t
+t
+t
+t
+t
+m
+m
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(4,1,1) = {"
+k
+k
+k
+k
+m
+C
+u
+C
+C
+C
+m
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(5,1,1) = {"
+k
+m
+m
+m
+m
+C
+C
+C
+C
+C
+m
+O
+O
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(6,1,1) = {"
+k
+a
+a
+a
+v
+C
+C
+C
+C
+C
+m
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(7,1,1) = {"
+k
+a
+a
+a
+m
+C
+C
+C
+C
+C
+m
+k
+O
+k
+k
+k
+k
+k
+k
+k
+k
+"}
+(8,1,1) = {"
+k
+a
+a
+a
+P
+C
+C
+C
+C
+C
+m
+O
+O
+k
+k
+k
+O
+O
+O
+O
+k
+"}
+(9,1,1) = {"
+E
+a
+a
+a
+P
+C
+C
+C
+C
+C
+m
+D
+m
+m
+m
+m
+m
+m
+m
+k
+k
+"}
+(10,1,1) = {"
+k
+a
+a
+a
+P
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+C
+m
+k
+k
+"}
+(11,1,1) = {"
+e
+a
+a
+a
+P
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+C
+Z
+a
+a
+"}
+(12,1,1) = {"
+y
+a
+a
+a
+P
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+C
+h
+a
+a
+"}
+(13,1,1) = {"
+x
+a
+a
+a
+m
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+o
+w
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+v
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+C
+Q
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+m
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+C
+m
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+m
+C
+C
+C
+C
+C
+d
+J
+K
+C
+C
+C
+C
+C
+m
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+m
+m
+m
+m
+m
+m
+m
+D
+m
+P
+P
+P
+P
+P
+m
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+a
+X
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+F
+m
+m
+m
+m
+m
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+W
+U
+U
+U
+m
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+s
+U
+U
+U
+m
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+m
+U
+U
+U
+m
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+k
+k
+k
+k
+k
+k
+k
+k
+m
+m
+m
+m
+m
+k
+k
+k
+k
+k
+k
+k
+k
+"}
