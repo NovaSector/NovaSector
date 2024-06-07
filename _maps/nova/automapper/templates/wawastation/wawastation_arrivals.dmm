@@ -7,6 +7,12 @@
 /obj/item/rack_parts,
 /turf/open/floor/plating,
 /area/station/asteroid)
+"c" = (
+/obj/machinery/lift_indicator{
+	linked_elevator_id = "transport_centre"
+	},
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
 "d" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
@@ -52,7 +58,9 @@
 /turf/open/floor/plating,
 /area/station/asteroid)
 "s" = (
-/obj/machinery/door/window/elevator/right,
+/obj/machinery/door/window/elevator/right{
+	transport_linked_id = "transport_centre"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "t" = (
@@ -107,7 +115,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "F" = (
-/obj/machinery/button/elevator/directional/south,
+/obj/machinery/button/elevator/directional/south{
+	id = "transport_centre"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "G" = (
@@ -144,7 +154,9 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/station/hallway/secondary/entry)
 "W" = (
-/obj/machinery/door/window/elevator/left,
+/obj/machinery/door/window/elevator/left{
+	transport_linked_id = "transport_centre"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "X" = (
@@ -602,7 +614,7 @@ a
 a
 a
 F
-m
+c
 m
 m
 m
