@@ -104,3 +104,7 @@
 /datum/area_spawn/virologist_landmark
 	target_areas = list(/area/station/medical/virology, /area/station/medical/virology/isolation)
 	desired_atom = /obj/effect/landmark/start/virologist
+
+/datum/area_spawn/telecomms_specialist_landmark
+	target_areas = list(/area/station/tcommsat, /area/station/engineering/lobby)
+	desired_atom = /obj/effect/landmark/start/telecomms_specialist
