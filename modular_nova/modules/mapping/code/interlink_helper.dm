@@ -3,10 +3,8 @@
 
 /datum/controller/subsystem/mapping/loadWorld()
 	. = ..()
-	// LETHALSTATION ADDITION - FUCK THE INTERLINK COMING STRAIGHT FROM THE UNDERGROUND
-	/*
 	var/list/FailedZsRat = list()
-	LoadGroup(FailedZsRat, "The Interlink", "map_files/generic", "CentCom_nova_z2.dmm", default_traits = ZTRAITS_CENTCOM)
+	LoadGroup(FailedZsRat, "The Interlink", "map_files/generic", "CentCom_lethal_z2.dmm", default_traits = ZTRAITS_CENTCOM)
 	if(LAZYLEN(FailedZsRat)) //but seriously, unless the server's filesystem is messed up this will never happen
 		var/msg = "RED ALERT! The following map files failed to load: [FailedZsRat[1]]"
 		if(FailedZsRat.len > 1)
@@ -14,7 +12,5 @@
 				msg += ", [FailedZsRat[I]]"
 		msg += ". Yell at your server host!"
 		INIT_ANNOUNCE(msg)
-	*/
-	// LETHALSTATION EDIT END
 
 #undef INIT_ANNOUNCE
