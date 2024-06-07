@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT(lethal_funny_mystery_box_items, list(
 	valid_types = GLOB.lethal_deathmatch_guns + GLOB.lethal_funny_mystery_box_items
 
 /obj/structure/mystery_box/grant_weapon(mob/living/user)
-	var/obj/item/new_thing = new presented_item.selected_path(src)
+	new presented_item.selected_path(src)
 	for(var/obj/item/iterated_item in contents)
 		if(!isitem(iterated_item))
 			continue
