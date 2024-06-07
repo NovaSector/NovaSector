@@ -353,7 +353,7 @@ GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 			quirk_holder.apply_damage(30, STAMINA)
 		if(SEVERITY_BLEP)
 			if(can_emote)
-				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! Your stick your tongue out on relfex!"))
+				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! Your stick your tongue out on reflex!"))
 				quirk_holder.emote("blep")
 
 #undef SEVERITY_STUN
