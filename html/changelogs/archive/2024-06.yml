@@ -1,0 +1,305 @@
+2024-06-01:
+  NovaBot13:
+  - rscadd: 'Station-Wide Background Checks (station trait, rare): Disables crew antagonists,
+      but get a lot more non-crew antagonists'
+  - bugfix: '[Tramstation] Departures and under east tram distro/waste pipes now properly
+      connected'
+  - bugfix: Minebots purchased via mining points are no longer stuck in idle mode.
+      Clicking on them will activate their AI.
+  - spellcheck: Removed the examine text about feeding ore to minebots; this functionality
+      was removed already.
+  - balance: Reworks Adrenaline Glands into Repurposed Glands (Realingment). Lose
+      the use of your arms, but you can escape any situation!
+  - bugfix: Fixes railings being invisible
+  - bugfix: Snow walls dont spawn on railings anymore in icebox
+  - rscadd: New fish, the anxious zipzap
+  - rscadd: New syndicate fish, the monocloning jumpercable
+  - rscadd: New aquarium, the bioelectricity generator
+  - bugfix: Mixotrophic fish now properly lack food requirements
+2024-06-02:
+  GoldenAlpharex:
+  - qol: Fermenting (wooden) barrels can now be emptied when opened by right-clicking
+      with an empty hand!
+  - qol: Fermenting (wooden) barrels can now be anchored/unanchored using wrenches!
+  - qol: Fermenting (wooden) barrels now have contextual helpers, to show what you
+      need to do at a glance to interact with them.
+  - code_imp: Documented a few of the fermenting barrel's variables.
+  Jane:
+  - image: Central Command has cut funding to the Mining department, resulting in
+      leather sleeves for the Shaft Miner Explorer Suit rather than the metal plates
+      of before.
+  LT3:
+  - bugfix: Fixed bug where players could be invisibly attached to the tram forever
+  Melbert:
+  - balance: Re-ups the cost of the new ling adrenal ability
+  - bugfix: Patches an exploit with new ling adrenal ability
+  - balance: Wearing a mask can now prevent you from being spread airborne diseases.
+      Prior, it only stopped you from spreading it yourself.
+  - balance: Wearing a mask no longer 100% guarantees you don't spread viruses to
+      others people - it now scales on the masks BIO armor. Get a sterile mask from
+      Medical for max safety.
+  - balance: Wearing a mask to stop you from spreading to other people is doubly effective
+      than wearing a mask to prevent spread to yourself - Mask up for the greater
+      good!
+  - balance: Passive airborne virus spread attempts are now done every time you breathe
+      (every eight seconds), rather than every two seconds. The chance of spread is
+      the same, though - it has been scaled up to accommodate.
+  - code_imp: Cleaned up a fair bid of airborne-transmission-code. Report any oddities.
+  NovaBot13:
+  - bugfix: Fixes janitor borgs killing the machinery subsystem by charging light
+      replacers 200k times a tick.
+  - bugfix: Cryo tube respects `NO_DEBRIS_AFTER_DECONSTRUCTION` for the occupants
+      visual contents flags & traits & won't allow hologram/abstract item interactions
+  - code_imp: Cryo has improved attack chain & uses defines for reagent volume rounding
+  - bugfix: positive viruses are no longer hidden.
+  - bugfix: The NTSS Independence cryogenics thermomachine is now properly hooked
+      up to the cryo loop.
+  - qol: The NTSS Independence's medical bay has received improvements. The medibot
+      and the sleeper are upgraded, and advanced surgery equipment has been added.
+  - bugfix: Imaginary friend brain trauma works again.
+  - bugfix: Imaginary friends can be heard by their hosts from more than a tile away
+      again.
+  - balance: you may not decap people with a plasma cutter
+  - spellcheck: Photo descriptions containing living entities no longer have a pile
+      of unnecessary periods. .. Which they used to have between describing different
+      entities. ..  Also removed that additional space they had too sometimes..
+  - qol: Photo descriptions containing living entities have these sub-descriptions
+      split into newlines for ease of reading.
+  - qol: Sign language users can now sign in cuffs, but to a very limited degree.
+      They also have more descriptive emotes for questions, exclamations, and a combination
+      of the two.
+  - rscadd: Changes the layout of MetaStation's cargo to fit with new Nanotrasen guidelines.
+  - bugfix: Orbit UI icons are no longer scrollable..
+  - balance: The various mining related suits now have consistent suit storage. Try
+      putting a knife into your explorer suit's suit storage today!
+  - balance: Bone armor work similarly to explorer suits, with similar armor values
+      and options to upgrade their parts. However, they use bone talismans instead
+      of goliath hides to upgrade. Magic? Just believing really strongly that the
+      drake is hitting you slightly less hard because of the talismans? You be the
+      judge.
+  - balance: Goliath cloaks come fully upgraded. However...
+  - balance: The recipes for bone armor and goliath cloaks are slightly different.
+      Particularly goliath cloaks, which need a lot more dead goliaths to make. Sorry.
+  - balance: Mining MODsuits achieve at maximum ash accretion the same amount of melee
+      armor as an upgraded explorer suit.
+  - balance: These various suits also consistently have wound armor.
+  - bugfix: Berserker armor properly hides underclothing and hair.
+  - balance: Berserker armor pieces can absorb drake armor to gain their enhanced
+      protection. Become the warrior of Khorne you've always wanted to be.
+  - balance: Berserker rage now halves brute damage rather than just adding Melee
+      Armor to you and your squishy body.
+  - qol: Berserker and H.E.C.K. helmets can be used for internals.
+  - bugfix: you are now able to cancel the look up/down verbs from anywhere
+  - balance: When an AI is alive, on main power, and not SSD its bolts cannot be raised
+      or lowered externally.
+  - bugfix: Fixed the biogenerator's tabs
+  - bugfix: COMSIG_ATOM_POST_DIR_CHANGE is now a functional signal
+  - rscadd: You can now flush toilets. You can also put fish in the toilet. And flush
+      them.
+  - bugfix: Urinals can no longer be used to delete items.
+  - bugfix: Urinals no longer grant infinite urinal cakes.
+  - rscadd: The Law office now has a pet goldfish.
+  - balance: Attack with a pillow now consumes 5 stamina regardless of wielded or
+      not.
+  - refactor: ghetto chem separator has been reworked from scratch. See PR 83275 for
+      details
+  - qol: adds examines & screentips for ghetto chem separator
+  - bugfix: ambush spider (should instantly agressive grab) and other giant spiders
+      can now agressively grab
+  SpathiCaptain:
+  - bugfix: pharmacist's labcoat can now hold chemistry bags
+  Vekter:
+  - rscadd: Adds an ion law possibility that changes the human status of station pets.
+  grungussuss:
+  - qol: lathes will now print cables coils in packs of 5
+  - bugfix: added missing context tips for atmos canisters
+2024-06-03:
+  NovaBot13:
+  - bugfix: Made the anxious zipzap accessible.
+  - bugfix: some missing modsuit (un)sealing messages should no longer be missing
+  - bugfix: MOD circuit adapter core deployed parts output should work again
+  - bugfix: Modsuit painter works again
+  - bugfix: Fixed some borg modules just being constantly eaten up by borgs even when
+      they shouldn't allow duplicates
+  - refactor: Borg module code now has better handling for adding/removing items,
+      and to prevent duplicate module usage (Unless one wishes to override the behaviour.
+  - rscadd: Added crutches! Wooden ones can be made with wood. Medical ones can be
+      bought from the medvendor.
+  - rscadd: Crutches will reduce slowdown from missing a leg by 60%, and they will
+      remove the limping from fractured bones. (canes do that now too) They're also
+      a fairly decent bludgeon. However, they do nothing if both legs are cut off.
+  - balance: 'Floor diseases cures are now common chemicals: Milk, Chlorine, Space
+      Cleaner'
+  - refactor: modsuits have been refactored if you see bugs report them
+  - bugfix: admin cargo tech modsuit outfit now works correctly
+  Rhials:
+  - rscadd: Shovels and entrenching tools can be used to dig graves on asteroid/dirt/etc.
+      surfaces. Neat!
+  - rscadd: The Icebox Morgue has been given a fenced-off graveyard in the back.
+  - code_imp: burn_tile() is no longer double-defined on asteroid turfs.
+  Zenitheevee:
+  - balance: Tarkon Smes' Tweaked For Better Experience.
+2024-06-04:
+  FlufflesTheDog:
+  - bugfix: clocking in no longer bricks ID creation for that job type
+  Jane:
+  - balance: Spider Breachers and Vipers have swapped castes. Breachers come from
+      Enriched Eggs while Vipers come from Abnormals! Breachers can no longer survive
+      in spaced rooms/temperatures. The Nurse wraps wounds faster, but with less damage
+      healed per wrap.
+  Melbert:
+  - sound: Boiling soup now makes a sound.
+  NovaBot13:
+  - qol: Many Janitors have cleaned up Birdshot station. Permanently.
+  - qol: Loose floortiles on Birdshot Station have been properly affixed to the floor
+      by the Engineering and Atmospherics Teams.
+  - bugfix: Birdshot Dorms have been reworked and incorporated the Holodeck Ship as
+      an actual and permanent installment. Come visit our new and improved barber
+      shop!
+  - bugfix: fixed being able to confirm cargo orders from cargo request console (and,
+      probably, from PDAs)
+  Zergspower:
+  - rscadd: Added an oil pool to both tribal bases for upcoming
+  - rscadd: Added a gold and iron vein to the Icecat village as well as bone tools
+  - balance: Ashwalkers and Icecats have their starting base items tuned down
+  - rscdel: Removed the security batons from both Ashwalkers and Icecats
+  - rscadd: Prisoner Crew Monitor State and color
+  - bugfix: Fixed missing Bouncer and Barber from being in their respective Crew Monitor
+      group
+2024-06-05:
+  Goat:
+  - bugfix: meta's cargo lobby and mining maintenance APCs is now connected to the
+      power line
+  GoldenAlpharex:
+  - bugfix: Produce bins now display their contents overlay once more!
+  - bugfix: Wooden shelves can now be interacted with via mouse-drop once more, allowing
+      pixel-precision when setting down items onto them!
+  - rscadd: Added Biomes capabilities to the Cave Generator, to allow for procedurally-placed
+      biomes to be introduced in cave generation. This feature is not currently used
+      on any map, but the tools are all there for anyone with the motivation to add
+      biomes to any cave-generating area, like Lavaland and Ice Box.
+  - code_imp: Biomes can now affect features (which are usually structures), on top
+      of flora and fauna.
+  - bugfix: You can no longer easily grief people using the anomalous crystal to change
+      the theme of entire areas.
+  LT3:
+  - qol: Icebox's service hall has a disposal unit again
+  MortoSasye:
+  - rscadd: The hearthkin have discovered an old book describing a technique to make
+      fancy pelts beds. Comes in white and black!
+  NovaBot13:
+  - qol: AI's jump to AI Core button works while on backup power (likely when needed
+      most).
+  - bugfix: Status displays should now no longer sporadically randomly break when
+      in the custom message mode
+  - qol: The memories for Smoker and Alcoholic now actually mention the preferred
+      brand.
+  - code_imp: crab17 telegraph now uses animated spinning telegraph circle instead
+      of sniper scope button
+  - spellcheck: Changed grammar in cat_house.dm
+  - bugfix: A tiny fan was added to Tramstation's disposal room under the blast doors.
+      No more accidental depressurizations.
+  - qol: Disgust vomit knocks you down rather than stunning you.
+  - rscdel: Mitogen Metabolism Factor knocks you down rather than stunning you.
+  - bugfix: fixes touching a crutch permanently crippling you
+  - bugfix: fixes crutches giving permanent speedboosts even when dropped
+  - qol: Failing to hit someone with a proto-kinetic crusher one-handedly no longer
+      force drops everything in your hands.
+  - bugfix: Metastation's vault is now connected to the power grid
+  PapaMichael:
+  - spellcheck: Nukie uplinks no longer claim to have nonexistent "Tesla Energy Relays"
+  RatFromTheJungle:
+  - bugfix: The wall med station now properly dispenses the robo-spray-foam
+  nikothedude:
+  - rscadd: 'New deathmatch modifier: Loadout enabled. It enables the loadout'
+  sprites by INFRARED_BARON:
+  - image: New icons for Marauder, Seraph, Mauler and adjusts the Phazon/Dark Gygax's
+      sprites.
+  vinylspiders:
+  - bugfix: 'fixes an /image harddel in station blueprints code: cleaned up some more
+      /image qdels'
+2024-06-06:
+  NovaBot13:
+  - balance: cult stun gets weaker when they get red eyes and later more when they
+      have halos
+  - rscadd: A unique kind of mob is created when a Monkey is infested by a Legion.
+  - image: New icons for berserker, godslayer and adamantine armor. Removes the old
+      icons.
+  Rhials:
+  - balance: cultist shades can no longer contribute to rune invocation until they've
+      been out of their soulstone for a minute. Put them in a shell for God's sake!
+  - code_imp: sweeps up cultist antag datum code into its own subfolder.
+  - code_imp: cult shades now have their own antag datum.
+  - bugfix: constructs now properly clear the cultist antag datum and transfer the
+      mind slightly earlier.
+  grungussuss:
+  - sound: frog sounds will no longer explode your ears
+2024-06-07:
+  GoldenAlpharex:
+  - bugfix: The examine menu will now close when the mob it's attached to gets deleted,
+      avoiding runtimes.
+  Iajret:
+  - bugfix: fixed ability to call shuttle from request console
+  - bugfix: fixed orbit menu missing icons for NovaSector jobs
+  LT3:
+  - balance: Doubled number of assignable wildcard slots on grey ID cards
+  - balance: Doubled number of assignable wildcard slots on silver ID cards
+  - balance: Doubled number of assignable wildcard slots on agent/chameleon ID cards
+  NovaBot13:
+  - qol: Cyborgs on AI statpanel now have jules energy format.
+  - qol: Coffee types are overall more consistent, causing jittering only from the
+      overdose effect.
+  - bugfix: Pumpkin lattes will actually work like coffee.
+  - bugfix: When implanting functional wings into a new body, they will actually be
+      able to use said wings now.
+  - bugfix: Pre-Loaded Syndicate Intellicard AI's no longer appear in PDA messenger.
+  - bugfix: Drake empowerment for berserker armor now uses valuable drake remains,
+      made from ashdrake hides and bones.
+  - rscadd: Drake armor is made use drake remains to construct. (This is a net neutral
+      to the previous recipe)
+  - bugfix: autolathes don't hang when printing items in areas without apc or if it
+      runs out of materials mid printing
+  - image: Cleaned a single stray pixel in a single frame of a bite telegraphing accidentaly
+      found while re-organizing the files.
+  - bugfix: fixed the mis-rotated disposals pipe on birdshot
+  - bugfix: curator whip will no longer disarm when parried
+  - bugfix: Using the 'ESC' key on your keyboard to unbind a key in the keybindings
+      preferences menu should now work as expected. This should also be fixed for
+      people in a variety of other spots too.
+  - bugfix: RLD glowsticks actually glow again.
+  - qol: more examines & screentips for plumbing machinery
+  - qol: plumbing grinder has a grind/juice mode which be toggled by hand
+  - code_imp: improved attack chain for RPLD & plumbing grinder
+  - bugfix: You can deconstruct the plumbing grinder with the RPLD
+  - bugfix: You can attack the plumbing grinder with any item in combat mode without
+      getting that item consumed
+  - bugfix: You cannot grind abstract/ hologram items in the plumbing grinder
+  - bugfix: growing vat now uses the correct layer selected on rapid plumbing device
+  - bugfix: Bubblegum can no longer melee you while using his charge abilities.
+  - bugfix: COMSIG_ATOM_POST_DIR_CHANGE should ACTUALLY work now
+  - bugfix: Fixes paradox clones using a different voice from the owner.
+  - balance: Mutadone restores your originally monkey status, rather than always turning
+      monkeys into humans
+  - refactor: honkbots are now basic mobs, please report any bugs
+  - rscadd: honkbots will try to slip people on banana peels
+  - rscadd: Janitorial keyrings are now part of every janitor's toolkit instead of
+      just the first one.
+  - balance: Corrosive slime left behind after a slime fails to eat you can be scraped
+      off with your hands, or shaken off in some other way, by clicking on the debuff.
+      This is slower and less effective than washing it off using water.
+  - qol: 'Swabbing the clown''s stamp also gives clown cells.
+
+      :cl:'
+  - bugfix: 'Tool-based flashes (read: from welders) are no longer incorrectly locked
+      at flash level 1. Wear proper PPE!'
+  ShizCalev:
+  - bugfix: Syndicate AI can no longer be selected via the station law upload console.
+  - bugfix: Non-syndicate borgs can no longer accidentally be slaved to syndicate
+      AI by pulsing their AI wires.
+  - bugfix: Syndicate borgs can no longer be slaved to the station AI by pulsing their
+      AI wires.
+  - bugfix: Syndicate operatives onboard the station can no longer end up with an
+      objective to destroy their own syndicate AI.
+  Zenitheevee:
+  - rscadd: Added Tarkon Clothing to the loadout menu
+  - bugfix: The tarkon welding hat no longer covers the mouth
