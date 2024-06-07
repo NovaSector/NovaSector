@@ -301,11 +301,13 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 #define SEVERITY_STUN 1
 #define SEVERITY_SNEEZE 2
 #define SEVERITY_KNOCKDOWN 3
+#define SEVERITY_BLEP 4
 
 GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 	"Stun" = SEVERITY_STUN,
 	"Sneeze" = SEVERITY_SNEEZE, //Includes a stun
 	"Collapse" = SEVERITY_KNOCKDOWN,
+	"Blep" = SEVERITY_BLEP,
 ))
 
 /datum/quirk/sensitivesnout
@@ -349,10 +351,15 @@ GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
 			quirk_holder.Knockdown(1 SECONDS)
 			quirk_holder.apply_damage(30, STAMINA)
+		if(SEVERITY_BLEP)
+			if(can_emote)
+				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! Your stick your tongue out on relfex!"))
+				quirk_holder.emote("blep")
 
 #undef SEVERITY_STUN
 #undef SEVERITY_SNEEZE
 #undef SEVERITY_KNOCKDOWN
+#undef SEVERITY_BLEP
 
 /datum/quirk/overweight
 	name = "Overweight"
