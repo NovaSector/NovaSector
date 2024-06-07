@@ -1,4 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - bugfix: "The examine menu will now close when the mob it's attached to gets deleted, avoiding runtimes."
