@@ -809,3 +809,8 @@
 	item_path = /obj/item/clothing/suit/hooded/seva/melon
 	ckeywhitelist = list("deadmonwonderland")
 	restricted_roles = list(JOB_SHAFT_MINER)
+
+/datum/loadout_item/suit/chokha
+    name = "Iseurian Chokha"
+    item_path = /obj/item/clothing/suit/chokha
+    ckeywhitelist = list("blindpoet")

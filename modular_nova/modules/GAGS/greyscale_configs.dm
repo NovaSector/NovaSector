@@ -948,7 +948,7 @@
 /datum/greyscale_config/crop_jacket/worn
 	name = "Tailored Jacket (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
-	
+
 // SLEEVELESS CROPPED JACKET
 
 /datum/greyscale_config/sleeveless_crop_jacket
@@ -970,6 +970,17 @@
 /datum/greyscale_config/replica_parade_jacket/worn
 	name = "Replica Parade Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket_worn.json'
+
+// ISEURIAN CHOKHA
+/datum/greyscale_config/chokha
+	name = "Chokha"
+	icon_file = 'modular_nova/modules/GAGS/icons/chokha.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha.json'
+
+/datum/greyscale_config/chokha/worn
+	name = "Chokha (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/chokha_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha_worn.json'
 
 /*
 *	UNDER
