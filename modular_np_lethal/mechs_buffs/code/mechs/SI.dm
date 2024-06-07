@@ -9,12 +9,6 @@
 //The SI is a powerhouse, similarly as tanky as the durand but able to move at a speed of a gygax. However, of course, it takes two pilots working in synch to use effectivly.
 //All it got was it's stats bumped up.
 /obj/vehicle/sealed/mecha/savannah_ivanov
-	name = "\improper Savannah-Ivanov"
-	desc = "An insanely overbulked mecha that handily crushes single-pilot opponents. The price is that you need two pilots to use it."
-	icon = 'icons/mob/coop_mech.dmi'
-	base_icon_state = "savannah_ivanov"
-	icon_state = "savannah_ivanov_0_0"
-	//does not include mmi compatibility
 	mecha_flags = CAN_STRAFE | IS_ENCLOSED | HAS_LIGHTS
 	mech_type = EXOSUIT_MODULE_SAVANNAH
 	movedelay = 3

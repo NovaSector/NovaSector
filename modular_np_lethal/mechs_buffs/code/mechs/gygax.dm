@@ -1,8 +1,4 @@
 /obj/vehicle/sealed/mecha/gygax
-	desc = "A lightweight, security exosuit. Popular among private and corporate security."
-	name = "\improper Gygax"
-	icon_state = "gygax"
-	base_icon_state = "gygax"
 	movedelay = 3
 	max_integrity = 800
 	internal_damage_threshold = 25
@@ -40,11 +36,6 @@
 // In the case of the dark gygax, this things fast. Faster then any mech should be, slightly weaker in structure though. it dies fast.
 
 /obj/vehicle/sealed/mecha/gygax/dark
-	desc = "A lightweight exosuit, painted in a dark scheme. This model appears to have some modifications."
-	name = "\improper Dark Gygax"
-	ui_theme = "syndicate"
-	icon_state = "darkgygax"
-	base_icon_state = "darkgygax"
 	movedelay = 2
 	internal_damage_threshold = 25
 	internal_damage_probability = 10

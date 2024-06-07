@@ -2,10 +2,6 @@
 // To achieve this it's armor has been lowerd, and it's health brought up both of these values sit in the middle of the two other mechs. It also moves alot faster.
 
 /obj/vehicle/sealed/mecha/marauder
-	desc = "A medium weight modular exosuit, decently fast on its feed and able to take more then a few hits before going down."
-	name = "\improper Marauder"
-	icon_state = "marauder"
-	base_icon_state = "marauder"
 	movedelay = 4
 	internal_damage_threshold = 22
 	internal_damage_probability = 10
@@ -42,10 +38,6 @@
 // It's similar to a durand in it's durability but can walk around the speed of a gygax. Be afraid.
 
 /obj/vehicle/sealed/mecha/marauder/seraph
-	desc = "Heavy-duty, command-type exosuit. This is a custom model, utilized only by high-ranking military personnel."
-	name = "\improper Seraph"
-	icon_state = "seraph"
-	base_icon_state = "seraph"
 	armor_type = /datum/armor/mecha_seraph
 	movedelay = 3
 	internal_damage_threshold = 25

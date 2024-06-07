@@ -1,9 +1,5 @@
 //The durand is the staple heavy mech. It's slower, even fucking slower then usual. It can deflect all damage with it's shield and it's stats have been moved up to be similar to a vanilla Marauder.
 /obj/vehicle/sealed/mecha/durand
-	desc = "An aging combat exosuit utilized by the Nanotrasen corporation. Originally developed to combat hostile alien lifeforms."
-	name = "\improper Durand"
-	icon_state = "durand"
-	base_icon_state = "durand"
 	movedelay = 5
 	internal_damage_threshold = 25
 	internal_damage_probability = 15
@@ -42,15 +38,10 @@
 // it's a big admin boss monster
 
 /obj/vehicle/sealed/mecha/marauder/mauler
-	desc = "Heavy-duty, combat exosuit, developed off of the existing Durand model."
 	movedelay = 5.5
-	name = "\improper Mauler"
-	ui_theme = "syndicate"
 	internal_damage_threshold = 40
 	internal_damage_probability = 10
-	icon_state = "mauler"
 	max_integrity = 3500
-	base_icon_state = "mauler"
 	armor_type = /datum/armor/mecha_mauler
 	wreckage = /obj/structure/mecha_wreckage/mauler
 	mecha_flags = ID_LOCK_ON | CAN_STRAFE | IS_ENCLOSED | HAS_LIGHTS | MMI_COMPATIBLE
