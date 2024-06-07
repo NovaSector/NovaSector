@@ -50,7 +50,7 @@
 	turf_type = /turf/open/misc/asteroid/forest/mushroom
 	flora_density = 15
 	feature_density = 0.25
-	fauna_density = 0.25
+	fauna_density = 1
 	flora_types = list(
 		/obj/structure/flora/tree/mushroom = 4,
 		/obj/structure/flora/tree/mushroom/reverse = 4,
@@ -62,8 +62,7 @@
 		/obj/structure/flora/ash/tall_shroom = 1,
 	)
 	fauna_types = list(
-		/obj/effect/spawner/random/lavaland_mob/goliath = 3,
-		/mob/living/basic/mining/goldgrub = 1,
+		/mob/living/basic/mining/stillcap = 3,
 	)
 	feature_types = list(
 		/obj/structure/geyser/hollowwater = 10,
@@ -77,6 +76,9 @@
 	turf_type = /turf/open/misc/asteroid/forest/mushroom/blue
 	flora_density = 15
 	feature_density = 0.25
+	fauna_types = list(
+		/mob/living/basic/mining/stillcap/blue = 3,
+	)
 	flora_types = list(
 		/obj/structure/flora/tree/mushroom/blue = 4,
 		/obj/structure/flora/tree/mushroom/blue/reverse = 4,
@@ -92,6 +94,9 @@
 	turf_type = /turf/open/misc/asteroid/forest/mushroom/green
 	flora_density = 15
 	feature_density = 0.25
+	fauna_types = list(
+		/mob/living/basic/mining/stillcap/green = 3,
+	)
 	flora_types = list(
 		/obj/structure/flora/tree/mushroom/green = 4,
 		/obj/structure/flora/tree/mushroom/green/reverse = 4,
