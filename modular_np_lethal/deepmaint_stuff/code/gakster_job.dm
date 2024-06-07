@@ -56,6 +56,17 @@
 	duffelbag = /obj/item/storage/backpack/industrial/frontier_colonist
 	messenger = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 
+/datum/outfit/job/gakster/post_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
+	make_secure_container(user, user.client.ckey)
+
+/// Spawns the secure container and links it to the mob's ckey
+/datum/outfit/job/gakster/proc/make_secure_container(mob/living/carbon/human/spawned_mob, player_ckey)
+	if(!player_ckey)
+		message_admins("[spawned_mob] tried to spawn a ckey linked secure container, but the proc got no ckey!")
+		return
+	var/obj/new_secure_container = new /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/secure_container(get_turf(spawned_mob), player_ckey)
+	spawned_mob.put_in_hands(new_secure_container)
+
 /datum/outfit/plasmaman/gakster
 	name = "Gakster Plasmaman"
 

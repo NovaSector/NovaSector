@@ -8393,6 +8393,7 @@
 #include "modular_np_lethal\deepmaint_stuff\code\random_equipment.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\resupply_doohickey.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\resupply_doohickey_filtre.dm"
+#include "modular_np_lethal\deepmaint_stuff\code\stash.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\trade_station.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\trade_station_recipe_base.dm"
 #include "modular_np_lethal\deepmaint_stuff\code\order_console_slop\order_console.dm"
