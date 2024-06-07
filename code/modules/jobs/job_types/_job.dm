@@ -329,11 +329,6 @@
 		info += span_warning("Remember that alternate titles are purely for flavor and roleplay.")
 		info += span_doyourjobidiot("Do not use your \"[alt_title]\" alt title as an excuse to forego your duties as a [title].")
 	//NOVA EDIT END
-	//NOVA EDIT START - TELECOMMS SPECIALIST WARNING
-	if(title == JOB_TELECOMMS_SPECIALIST)
-		info += span_doyourjobidiot("Do not abuse your role to read erotic PDA messages out loud. You will be banned.")
-	//NOVA EDIT END
-	return info
 
 /// Returns information pertaining to this job's radio.
 /datum/job/proc/get_radio_information()

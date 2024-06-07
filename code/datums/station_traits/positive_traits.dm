@@ -247,6 +247,7 @@
 		/datum/job/customs_agent = /obj/item/organ/internal/cyberimp/eyes/hud/security,
 		/datum/job/bouncer = /obj/item/organ/internal/cyberimp/arm/muscle,
 		/datum/job/engineering_guard = /obj/item/organ/internal/cyberimp/arm/flash,
+		/datum/job/telecomms_specialist = /obj/item/organ/internal/ears/cybernetic/xray,
 		// NOVA EDIT END
 	)
 

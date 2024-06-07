@@ -90,13 +90,11 @@
 	desc = "It's a jumpsuit worn by telecomms specialists. Made from fire resistant materials."
 	name = "telecomm jumpsuit"
 	icon_state = "telecomm"
-	inhand_icon_state = "util_eng"
 	can_adjust = TRUE
 
 /obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm/skirt
 	desc = "It's a jumpskirt worn by telecomms specialists. Made from fire resistant materials."
 	name = "telecomm jumpskirt"
 	icon_state = "telecomm_skirt"
-	inhand_icon_state = "util_eng"
 	can_adjust = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
