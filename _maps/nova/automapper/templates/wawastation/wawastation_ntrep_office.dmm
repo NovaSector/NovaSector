@@ -159,7 +159,7 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/corporate{
 	name = "NT Consultant's Office";
-	id = "nt_rep_bolt"
+	id_tag = "nt_rep_bolt"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

@@ -472,3 +472,19 @@ directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [133, 95, 2]
 trait_name = "Station"
+
+# Wawastation Elevator
+[templates.wawastation_elevator]
+map_files = ["wawastation_elevator.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [86, 89, 1]
+trait_name = "Station"
+
+# Wawastation Supermatter
+[templates.wawastation_supermatter]
+map_files = ["wawastation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [162, 63, 1]
+trait_name = "Station"
