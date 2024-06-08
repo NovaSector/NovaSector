@@ -496,3 +496,11 @@ directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [116, 111, 2]
 trait_name = "Station"
+
+# Wawastation Armory
+[templates.wawastation_armory]
+map_files = ["wawastation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [63, 127, 2]
+trait_name = "Station"
