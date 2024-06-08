@@ -2,8 +2,6 @@
 /datum/component/carbon_saddle
 	/// The piggyback flags to apply to any mob that wears parent.
 	var/saddle_flags = RIDER_NEEDS_ARM|RIDING_TAUR
-	/// If our parent does not have this organ, we cannot be equipped by them.
-	var/obj/item/organ/required_organ = /obj/item/organ/external/taur_body
 
 /datum/component/carbon_saddle/Initialize(saddle_flags)
 	if (!isitem(parent))
@@ -67,18 +65,19 @@
 	if (!(slot & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS)))
 		return
 
-	if (required_organ && !wearer_has_requisite_organ(target))
+	if (!wearer_has_requisite_organ(target))
 		return COMPONENT_ITEM_CANT_EQUIP
 
-/// Determines if our wearer, target, has our required organ, a subtype of our required organ var.
+/// Determines if our wearer, target, has our required organ.
 /datum/component/carbon_saddle/proc/wearer_has_requisite_organ(mob/living/carbon/target)
-	if (isnull(required_organ))
-		return TRUE
 	if (!istype(target))
 		return TRUE
 
 	for (var/obj/item/organ/iter_organ as anything in target.organs)
-		if (istype(iter_organ, required_organ))
+		if (!istype(iter_organ, /obj/item/organ/external/taur_body))
+			continue
+		var/obj/item/organ/external/taur_body/taur_body = iter_organ
+		if (taur_body.can_use_saddle)
 			return TRUE
 
 	return FALSE

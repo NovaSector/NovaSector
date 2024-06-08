@@ -39,8 +39,8 @@
 	/// When being ridden via saddle, how much the rider is offset on the y axis when facing north or south.
 	var/riding_offset_front_y = 5
 
-	/// The Y offset to be applied to taur-specific clothing that isn't specifically made for this sprite.
-	var/taur_specific_clothing_y_offset = 0
+	/// Lazylist of (TEXT_DIR -> y offset) to be applied to taur-specific clothing that isn't specifically made for this sprite.
+	var/list/taur_specific_clothing_y_offsets
 
 	/// When considering how much to offset our rider, we multiply size scaling against this.
 	var/riding_offset_scaling_mult = 0.8
@@ -52,7 +52,16 @@
 	organ_flags = ORGAN_ROBOTIC
 
 /obj/item/organ/external/taur_body/horselike/deer
-	taur_specific_clothing_y_offset = 3
+
+/obj/item/organ/external/taur_body/horselike/deer/Initialize(mapload)
+	. = ..()
+
+	taur_specific_clothing_y_offsets = list(
+		TEXT_EAST = 3,
+		TEXT_WEST = 3,
+		TEXT_NORTH = 0,
+		TEXT_SOUTH = 0
+	)
 
 /obj/item/organ/external/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
@@ -175,12 +184,9 @@
 	var/size_scaling = (owner.dna.features["body_size"] / BODY_SIZE_NORMAL) - 1
 	var/scaling_mult = 1 + (size_scaling * riding_offset_scaling_mult)
 
-	var/adjusted_front_y = riding_offset_front_y + taur_specific_clothing_y_offset
-	var/adjusted_side_y = riding_offset_side_y + taur_specific_clothing_y_offset
-
 	return list(
-		TEXT_NORTH = list(riding_offset_front_x, round(adjusted_front_y * scaling_mult, 1)),
-		TEXT_SOUTH = list(riding_offset_front_x, round(adjusted_front_y * scaling_mult, 1)),
-		TEXT_EAST = list(round(-riding_offset_side_x * scaling_mult, 1), round(adjusted_side_y * scaling_mult, 1)),
-		TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round(adjusted_side_y * scaling_mult, 1)),
+		TEXT_NORTH = list(riding_offset_front_x, round((riding_offset_front_y + taur_specific_clothing_y_offsets[TEXT_NORTH]) * scaling_mult, 1)),
+		TEXT_SOUTH = list(riding_offset_front_x, round((riding_offset_front_y + taur_specific_clothing_y_offsets[TEXT_SOUTH]) * scaling_mult, 1)),
+		TEXT_EAST = list(round(-riding_offset_side_x * scaling_mult, 1), round((riding_offset_side_y + taur_specific_clothing_y_offsets[TEXT_EAST]) * scaling_mult, 1)),
+		TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round((riding_offset_side_y + taur_specific_clothing_y_offsets[TEXT_WEST]) * scaling_mult, 1)),
 	)

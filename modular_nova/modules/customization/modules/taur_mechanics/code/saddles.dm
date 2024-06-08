@@ -8,40 +8,13 @@
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
-/obj/item/riding_saddle/worn_overlays(mutable_appearance/standing, isinhands, icon_file, mutant_styles)
-	. = ..()
-
-	if (!iscarbon(loc))
-		return
-
-	if (isinhands)
-		return
-
-	var/mob/living/carbon/target_carbon = loc
-	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in target_carbon.organs
-	if (!istype(taur_body))
-		return
-
-	var/offset = taur_body.taur_specific_clothing_y_offset
-	if (!offset)
-		return
-	standing.pixel_y += offset
-
 /obj/item/riding_saddle/Initialize(mapload)
 	. = ..()
 	if(type == /obj/item/riding_saddle) // don't even let these prototypes exist
 		return INITIALIZE_HINT_QDEL
 
-/obj/item/riding_saddle/mob_can_equip(mob/living/target, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
-	if (!iscarbon(target))
-		return FALSE
-	var/mob/living/carbon/target_carbon = target
-
-	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in target_carbon.organs // hardcoded for now, we can do a better job later
-	if (!taur_body?.can_use_saddle)
-		return FALSE
-
-	return ..()
+	AddComponent(/datum/component/carbon_saddle, RIDING_TAUR) // FREE HANDS
+	AddComponent(/datum/component/taur_clothing_offset)
 
 /obj/item/riding_saddle/leather
 	name = "riding saddle"
@@ -57,8 +30,6 @@
 
 /obj/item/riding_saddle/leather/Initialize(mapload)
 	. = ..()
-
-	AddComponent(/datum/component/carbon_saddle, RIDING_TAUR) // FREE HANDS
 
 /obj/item/riding_saddle/leather/peacekeeper
 	name = "peacekeeper saddle"
@@ -84,6 +55,7 @@
 	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
+	alternate_worn_layer = BACK_LAYER
 
 	storage_type = /datum/storage/saddlebags
 
@@ -100,4 +72,5 @@
 
 	AddComponent(/datum/component/carbon_saddle, RIDING_TAUR|RIDER_NEEDS_ARM) // one arm
 	AddComponent(/datum/component/accessable_storage)
+	AddComponent(/datum/component/taur_clothing_offset)
 
