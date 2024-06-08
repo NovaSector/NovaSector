@@ -701,6 +701,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 5
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
 "UY" = (
