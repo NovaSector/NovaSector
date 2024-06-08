@@ -22,7 +22,7 @@
 /datum/component/carbon_saddle/proc/parent_equipped(datum/signal_source, mob/equipper, slot)
 	SIGNAL_HANDLER
 
-	if (!isliving(equipper))
+	if (!isliving(equipper) || (slot & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS))
 		return
 	var/mob/living/living_equipper = equipper
 
@@ -62,7 +62,7 @@
 /datum/component/carbon_saddle/proc/parent_can_equip(obj/item/signal_source, mob/living/target, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	SIGNAL_HANDLER
 
-	if (!(slot & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS)))
+	if (slot & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS))
 		return
 
 	if (!wearer_has_requisite_organ(target))
