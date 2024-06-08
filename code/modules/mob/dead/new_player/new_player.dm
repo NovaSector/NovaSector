@@ -244,16 +244,11 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-<<<<<<< HEAD
-		// BEGIN NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES
-		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank
-		GLOB.manifest.inject(humanc, humanc.client)
-=======
->>>>>>> 1e60447adab (Fix crew records not accounting for quirks for latejoiners (#83740))
+		var/chosen_rank = humanc.client?.prefs.alt_job_titles?[rank] || rank // NOVA EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 		if(SSshuttle.arrivals)
-			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank)
+			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: SSshuttle.arrivals.QueueAnnounce(humanc, rank)
 		else
-			announce_arrival(humanc, chosen_rank)
+			announce_arrival(humanc, chosen_rank) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES -  ORIGINAL: announce_arrival(humanc, rank)
 		// END NOVA EDIT CHANGE - customization
 		AddEmploymentContract(humanc)
 
