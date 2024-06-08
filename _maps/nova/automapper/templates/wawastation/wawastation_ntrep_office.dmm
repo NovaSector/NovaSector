@@ -232,7 +232,8 @@
 	pixel_x = 1;
 	name = "Secure Door";
 	id = "nt_rep_bolt";
-	normaldoorcontrol = 1
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = -8;
