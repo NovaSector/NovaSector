@@ -55,7 +55,6 @@
 	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
-	alternate_worn_layer = BACK_LAYER
 
 	storage_type = /datum/storage/saddlebags
 
