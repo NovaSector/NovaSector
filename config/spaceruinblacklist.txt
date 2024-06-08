@@ -22,10 +22,7 @@
 #_maps/RandomRuins/SpaceRuins/clownplanet.dmm
 #_maps/RandomRuins/SpaceRuins/crashedclownship.dmm
 #_maps/RandomRuins/SpaceRuins/crashedship.dmm
-<<<<<<< HEAD
-=======
 #_maps/RandomRuins/SpaceRuins/cyborg_mothership.dmm
->>>>>>> f5287e740b0 (Fixes space ruin blacklist (#83748))
 #_maps/RandomRuins/SpaceRuins/dangerous_research.dmm
 #_maps/RandomRuins/SpaceRuins/deepstorage.dmm
 #_maps/RandomRuins/SpaceRuins/derelict_construction.dmm
