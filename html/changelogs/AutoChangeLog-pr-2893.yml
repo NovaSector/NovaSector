@@ -1,0 +1,5 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - rscadd: "final destination deathmatch map, loadouts"
+  - bugfix: "indestructible light tile emits light"
