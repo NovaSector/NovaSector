@@ -22,7 +22,7 @@
 /datum/component/carbon_saddle/proc/parent_equipped(datum/signal_source, mob/equipper, slot)
 	SIGNAL_HANDLER
 
-	if (!isliving(equipper) || (slot & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS))
+	if (!isliving(equipper) || (slot & (ITEM_SLOT_HANDS|ITEM_SLOT_POCKETS)))
 		return
 	var/mob/living/living_equipper = equipper
 
