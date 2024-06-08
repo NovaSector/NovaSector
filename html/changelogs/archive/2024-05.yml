@@ -1023,3 +1023,16 @@
       one from the loadout list
   yooriss:
   - balance: The Freerunning quirk is no longer required to *flip.
+2024-05-31:
+  NovaBot13:
+  - bugfix: Fixed screentips not appearing on clip on neckties
+  - sound: Shuttle docking and undocking is quieter now
+  - sound: The volume of the gravity generator has been halved
+  Rhials:
+  - bugfix: You can no longer force NODE Drones off of ore vents. That includes using
+      fulton packs!
+  - bugfix: When a NODE Drone is forcibly separated from its vent, it will fly away.
+  grungussuss:
+  - balance: The DNA vault now requires less animal and plant DNA to be completed
+  oranges:
+  - spellcheck: Gripper gloves are now Enhanced Retrieval gloves

@@ -8,8 +8,14 @@
 
 /obj/structure/rack/wooden/MouseDrop_T(obj/object, mob/user, params)
 	. = ..()
-	if(!.)
+	if ((!isitem(object) || user.get_active_held_item() != object))
 		return
+
+	if(!user.dropItemToGround(object))
+		return
+
+	if(object.loc != src.loc)
+		step(object, get_dir(object, src))
 
 	var/list/modifiers = params2list(params)
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
@@ -51,8 +57,8 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/wooden
-	base_icon_state = "producebin"
 	icon_state = "producebin"
+	base_icon_state = "produce" // This is used to decide which overlay to display. Blame upstream.
 	use_power = NO_POWER_USE
 	light_power = 0
 	idle_power_usage = 0
@@ -96,7 +102,7 @@
 	desc = "A wooden hamper, used to hold plant products and try to keep them safe from pests."
 	icon_state = "producebin"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_bin
-	base_icon_state = "producebin"
+	base_icon_state = "produce" // This is used to decide which overlay to display. Blame upstream.
 
 /obj/machinery/smartfridge/wooden/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
