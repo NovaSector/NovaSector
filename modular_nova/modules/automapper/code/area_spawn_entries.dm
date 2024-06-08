@@ -106,5 +106,5 @@
 	desired_atom = /obj/effect/landmark/start/virologist
 
 /datum/area_spawn/telecomms_specialist_landmark
-	target_areas = list(/area/station/tcommsat/computer, /area/station/engineering/lobby, /area/station/engineering/break_room, /area/station/engineering/hallway)
+	target_areas = list(/area/station/tcommsat/computer, /area/station/engineering/lobby, /area/station/engineering/break_room)
 	desired_atom = /obj/effect/landmark/start/telecomms_specialist
