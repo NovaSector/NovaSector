@@ -30,7 +30,7 @@
 	if (!istype(taur_body))
 		return
 
-	var/offset = taur_body.taur_specific_clothing_y_offsets["[target_carbon.dir]"]
+	var/offset = taur_body.taur_specific_clothing_y_offsets?["[target_carbon.dir]"]
 	if (!offset)
 		return
 	standing.pixel_y += offset
@@ -59,6 +59,6 @@
 		return
 
 	var/obj/item/item_parent = parent
-	if (taur_body.taur_specific_clothing_y_offsets?["[new_dir]"] || taur_body.taur_specific_clothing_y_offsets["[old_dir]"]) // discounts null and 0
+	if (taur_body.taur_specific_clothing_y_offsets?["[new_dir]"] || taur_body.taur_specific_clothing_y_offsets?["[old_dir]"]) // discounts null and 0
 		// if the last dir had a offset, we need to reset if the new dir has NO offset
 		signal_source.update_clothing(item_parent.slot_flags)
