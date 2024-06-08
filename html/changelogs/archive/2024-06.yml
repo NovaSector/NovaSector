@@ -303,3 +303,21 @@
   Zenitheevee:
   - rscadd: Added Tarkon Clothing to the loadout menu
   - bugfix: The tarkon welding hat no longer covers the mouth
+2024-06-08:
+  LT3:
+  - bugfix: Fixed timing issue where tram crossing signals would be out of sync with
+      the moving tram
+  - bugfix: Tram crossing signals consistently show green when safe, blue when broken
+  - bugfix: Tram crossing signals show red instead of yellow when degraded
+  Melbert:
+  - bugfix: Fix some modifiers to do after speed (sanity, midas gun) stacking when
+      they shouldn't
+  NovaBot13:
+  - bugfix: Fixes the brig cell timer adjustment not working correctly on live timers.
+  - bugfix: The armor plate component only adds the prefix once.
+  - rscadd: You may choose a color preference for your blindfold with the blindness
+      quirk.
+  - qol: you now don't need to weld a closet to install/uninstall electronics/card
+      readers.
+  vinylspiders:
+  - bugfix: fixes laugh emote not playing prefs-selected audio.
