@@ -41,6 +41,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	name = "mag-fed turret kit"
 	desc = "A discreet kit for a magazine fed turret."
 	has_latches = FALSE
+	////// Whether the turret's settings can be adjusted.
+	var/setting_change = FALSE
 	////// Whether the turret will ignore humans when deployed.
 	var/turret_safety = FALSE
 	////// Whether the turret will deploy obeying flags.
@@ -70,8 +72,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	. += span_notice("The targeting safety is [turret_safety ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")
 	. += span_notice("The turret is [flags_on ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
 	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <b>wrenching tool.</b>")
-	. += span_notice("You can toggle the targeting safety with a <b>screwdriving bit.</b>")
-	. += span_notice("You can change if the turret obeys flags with a <b>multitool.</b>")
+	if(setting_change)
+		. += span_notice("You can toggle the targeting safety with a <b>screwdriving bit.</b>")
+		. += span_notice("You can change if the turret obeys flags with a <b>multitool.</b>")
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 
@@ -96,13 +99,13 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.allies += REF(user)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+	if(setting_change && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
 			return
 		turret_safety = !turret_safety
 		return
 
-	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
+	if(setting_change && attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
 			return
 		flags_on = !flags_on
@@ -310,6 +313,10 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/datum/weakref/chambered
 	////// linked target designator
 	var/datum/weakref/linkage
+	////// will the turret destruct into a frame?
+	var/fragile = FALSE
+	////// what frame will it destruct into?
+	var/obj/item/turret_assembly/turret_frame
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
@@ -365,6 +372,21 @@ DEFINE_BITFIELD(turret_flags, list(
 		UnregisterSignal(controller, COMSIG_QDELETING)
 	linkage = null
 
+	if(fragile)
+		if(!disassembled)
+			for(var/obj/item/guts in auto_loader?.contents)
+				guts.forceMove(drop_location())
+			new turret_frame(drop_location())
+			if(prob(75)) // rarely breaks but is a big problem when it does
+				new /obj/item/weaponcrafting/receiver(drop_location())
+			if(prob(33)) //breaks often. fairly easy to replace
+				new /obj/item/assembly/prox_sensor(drop_location())
+			qdel(auto_loader) //servo always break. I dont want to deal with people thinking the one they put in is important or is being tracked
+			if(timer_id)
+				deltimer(timer_id)
+			qdel(src)
+			new /obj/effect/gibspawner/robot(drop_location())
+			return
 	mag_box = null
 	auto_loader?.forceMove(drop_location())
 	if(timer_id)
