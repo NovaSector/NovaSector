@@ -530,6 +530,7 @@
 /obj/structure/chair/sofa/bench/tram/left{
 	dir = 1
 	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/commons)
 "sq" = (
@@ -1081,6 +1082,7 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/wood,
 /area/station/service/library)
 "Jz" = (
@@ -1133,6 +1135,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/west,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/white,
 /area/station/maintenance/central/greater)
 "KH" = (
@@ -1347,6 +1350,13 @@
 /obj/effect/turf_decal/siding/corner,
 /turf/open/floor/iron/white,
 /area/station/maintenance/central/greater)
+"RV" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/white,
+/area/station/commons)
 "RW" = (
 /obj/structure/chair/sofa/bench/tram/right{
 	dir = 8
@@ -1678,7 +1688,7 @@ xd
 vv
 uC
 Si
-TN
+RV
 OO
 CP
 GR
@@ -2223,7 +2233,7 @@ tp
 Yp
 zK
 Si
-TN
+RV
 bj
 TN
 TN
