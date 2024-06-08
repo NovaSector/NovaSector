@@ -171,6 +171,10 @@
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/central/greater)
+"sT" = (
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/noslip/tram,
+/area/station/hallway/secondary/entry)
 "tT" = (
 /obj/structure/fluff/tram_rail/electric{
 	dir = 1
@@ -379,6 +383,10 @@
 /obj/structure/lattice,
 /turf/open/openspace,
 /area/station/maintenance/central/greater)
+"KZ" = (
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/noslip/tram,
+/area/station/hallway/secondary/entry)
 "LT" = (
 /obj/structure/transport/linear/tram/corner/northwest,
 /obj/structure/tram/spoiler{
@@ -525,7 +533,7 @@ VT
 Az
 Gm
 cm
-Im
+KZ
 "}
 (4,1,1) = {"
 vg
@@ -616,7 +624,7 @@ iD
 rC
 HP
 ET
-Im
+sT
 "}
 (11,1,1) = {"
 vg
