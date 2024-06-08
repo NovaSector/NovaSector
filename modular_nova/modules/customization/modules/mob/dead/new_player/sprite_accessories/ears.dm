@@ -286,9 +286,9 @@
 	icon_state = "geniculate"
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/ears/mutant/big/eye
+/datum/sprite_accessory/ears/mutant/big/eyes
 	name = "Eye Antenna"
-	icon_state = "eye"
+	icon_state = "eyes"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/mutant/cobrahood
