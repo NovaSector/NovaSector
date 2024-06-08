@@ -279,18 +279,31 @@
  * * target - Who the message will be sent to
  * * pain_message - The message to be displayed
  * * mechanical_surgery - Boolean flag that represents if a surgery step is done on a mechanical limb (therefore does not force scream)
+ * * mood_event_type - What type of mood event the step applies if they're still conscious (ie "THEY'RE CUTTING ME OPEN!!" when being sliced open with a scalpel/saw/ect)
  */
-/datum/surgery_step/proc/display_pain(mob/living/target, pain_message, mechanical_surgery = FALSE)
+/datum/surgery_step/proc/display_pain(mob/living/target, pain_message, mechanical_surgery = FALSE, datum/mood_event/mood_event_type)
 	if(target.stat < UNCONSCIOUS)
 		if(HAS_TRAIT(target, TRAIT_ANALGESIA))
+<<<<<<< HEAD
 			target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds mood effects to surgeries
+=======
+			if(!pain_message)
+				return
+>>>>>>> 9e11a5c71d1 (Getting surgically cut open while conscious will now give you the "THEY'RE CUTTING ME OPEN!!" surgical mood event. (#83797))
 			to_chat(target, span_notice("You feel a dull, numb sensation as your body is surgically operated on."))
 		// NOVA EDIT ADDITION START
 		else if(mechanical_surgery == TRUE) //robots can't benefit from numbing agents like most but have no reason not to sleep - their debuff falls in-between
 			target.add_mood_event("robot_surgery", /datum/mood_event/robot_surgery)
 		// NOVA EDIT ADDITION END
 		else
+<<<<<<< HEAD
 			target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // NOVA EDIT ADDITION - Adds mood effects to surgeries
+=======
+			if(mood_event_type)
+				target.add_mood_event("surgery", mood_event_type)
+			if(!pain_message)
+				return
+>>>>>>> 9e11a5c71d1 (Getting surgically cut open while conscious will now give you the "THEY'RE CUTTING ME OPEN!!" surgical mood event. (#83797))
 			to_chat(target, span_userdanger(pain_message))
 			if(prob(30) && !mechanical_surgery)
 				target.emote("scream")
