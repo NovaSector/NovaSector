@@ -57,7 +57,8 @@
 	messenger = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 
 /datum/outfit/job/gakster/post_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
-	make_secure_container(user, user.client.ckey)
+	if(user.client?.ckey)
+		make_secure_container(user, user.client.ckey)
 
 /// Spawns the secure container and links it to the mob's ckey
 /datum/outfit/job/gakster/proc/make_secure_container(mob/living/carbon/human/spawned_mob, player_ckey)
