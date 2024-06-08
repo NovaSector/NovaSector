@@ -8,7 +8,7 @@
 /area/station/commons/locker)
 "b" = (
 /obj/machinery/shower/directional/south,
-/obj/effect/spawner/random/trash/soap,
+/obj/structure/drain,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "c" = (
@@ -22,6 +22,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"e" = (
+/obj/machinery/shower/directional/south,
+/obj/effect/spawner/random/trash/soap,
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/restrooms)
 "f" = (
 /obj/machinery/vending/autodrobe/all_access,
 /obj/effect/turf_decal/delivery,
@@ -32,22 +37,16 @@
 /turf/closed/wall,
 /area/station/maintenance/central/lesser)
 "h" = (
-/obj/structure/table,
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/turf/open/floor/iron/cafeteria,
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
 /area/station/commons/locker)
 "i" = (
 /turf/closed/wall,
 /area/station/commons/locker)
 "j" = (
-/obj/machinery/door/airlock/freezer{
-	name = "Showers"
-	},
-/obj/machinery/duct,
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet/restrooms)
+/obj/machinery/light/directional/west,
+/turf/template_noop,
+/area/template_noop)
 "k" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -58,6 +57,10 @@
 /turf/open/floor/iron/stairs/left{
 	dir = 8
 	},
+/area/station/commons/locker)
+"m" = (
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/template_noop,
 /area/station/commons/locker)
 "n" = (
 /turf/closed/wall,
@@ -76,11 +79,13 @@
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "q" = (
-/obj/structure/sign/directions/arrival{
-	dir = 9
-	},
-/turf/closed/wall,
-/area/station/hallway/primary/central)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/sink/directional/west,
+/obj/structure/mirror/directional/east,
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/restrooms)
 "r" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -92,14 +97,17 @@
 	},
 /turf/template_noop,
 /area/station/commons/locker)
-"t" = (
-/obj/machinery/shower/directional/north,
-/obj/effect/landmark/start/hangover,
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet/restrooms)
 "v" = (
 /turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
+"w" = (
+/obj/structure/table,
+/obj/structure/bedsheetbin,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/cafeteria,
+/area/station/commons/locker)
 "x" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -116,13 +124,19 @@
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "z" = (
-/obj/structure/extinguisher_cabinet/directional/south,
-/turf/template_noop,
-/area/station/commons/locker)
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/machinery/duct,
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/restrooms)
 "A" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/station/commons/locker)
+/obj/machinery/door/airlock/freezer{
+	name = "Showers"
+	},
+/obj/machinery/duct,
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/restrooms)
 "C" = (
 /turf/open/floor/iron/stairs/right{
 	dir = 8
@@ -136,11 +150,6 @@
 /obj/structure/stairs/west,
 /turf/open/floor/plating,
 /area/station/hallway/primary/central)
-"F" = (
-/obj/machinery/duct,
-/obj/machinery/light/small/directional/west,
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet/restrooms)
 "G" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -153,9 +162,11 @@
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "H" = (
-/obj/item/radio/intercom/directional/south,
-/turf/template_noop,
-/area/station/commons/locker)
+/obj/structure/sign/directions/arrival{
+	dir = 9
+	},
+/turf/closed/wall,
+/area/station/hallway/primary/central)
 "I" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -169,10 +180,6 @@
 	dir = 8
 	},
 /area/station/hallway/primary/central)
-"K" = (
-/obj/machinery/light/directional/west,
-/turf/template_noop,
-/area/template_noop)
 "L" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -181,8 +188,7 @@
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "M" = (
-/obj/machinery/shower/directional/south,
-/obj/structure/drain,
+/obj/machinery/shower/directional/north,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "N" = (
@@ -202,11 +208,7 @@
 /turf/open/floor/plating,
 /area/station/commons/locker)
 "Q" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/sink/directional/west,
-/obj/structure/mirror/directional/east,
+/obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "R" = (
@@ -232,6 +234,7 @@
 /area/station/maintenance/central/lesser)
 "U" = (
 /obj/machinery/shower/directional/north,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "V" = (
@@ -242,13 +245,10 @@
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "W" = (
-/obj/structure/table,
-/obj/structure/bedsheetbin,
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/turf/open/floor/iron/cafeteria,
-/area/station/commons/locker)
+/obj/machinery/duct,
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet/restrooms)
 "X" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -256,16 +256,16 @@
 /turf/closed/wall,
 /area/station/maintenance/central/lesser)
 "Y" = (
-/obj/machinery/duct,
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet/restrooms)
-"Z" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+/obj/structure/table,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/machinery/duct,
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet/restrooms)
+/turf/open/floor/iron/cafeteria,
+/area/station/commons/locker)
+"Z" = (
+/obj/item/radio/intercom/directional/south,
+/turf/template_noop,
+/area/station/commons/locker)
 
 (1,1,1) = {"
 c
@@ -355,7 +355,7 @@ c
 c
 c
 c
-H
+Z
 c
 "}
 (8,1,1) = {"
@@ -365,10 +365,10 @@ c
 c
 c
 c
-A
-W
 h
-h
+w
+Y
+Y
 c
 "}
 (9,1,1) = {"
@@ -392,9 +392,9 @@ c
 c
 c
 c
-b
-F
-t
+e
+W
+U
 c
 "}
 (11,1,1) = {"
@@ -405,9 +405,9 @@ c
 c
 c
 c
+b
+Q
 M
-Y
-U
 c
 "}
 (12,1,1) = {"
@@ -419,7 +419,7 @@ c
 c
 c
 O
-j
+A
 O
 c
 "}
@@ -432,8 +432,8 @@ c
 c
 c
 c
-Z
-K
+z
+j
 c
 "}
 (14,1,1) = {"
@@ -444,7 +444,7 @@ c
 c
 c
 c
-Q
+q
 c
 c
 c
@@ -454,7 +454,7 @@ c
 c
 c
 c
-z
+m
 c
 c
 O
@@ -494,7 +494,7 @@ c
 c
 c
 c
-q
+H
 J
 R
 n

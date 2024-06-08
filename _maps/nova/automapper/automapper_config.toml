@@ -462,7 +462,7 @@ trait_name = "Station"
 map_files = ["wawastation_commons.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
-coordinates = [109, 91, 2]
+coordinates = [109, 88, 2]
 trait_name = "Station"
 
 # Wawastation NTR Office
@@ -487,4 +487,12 @@ map_files = ["wawastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [162, 63, 1]
+trait_name = "Station"
+
+# Wawastation Barber
+[templates.wawastation_barber]
+map_files = ["wawastation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [116, 111, 2]
 trait_name = "Station"
