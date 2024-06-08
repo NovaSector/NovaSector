@@ -1,3 +1,6 @@
+/// By how much should the time until they start hiding again be multiplied with.
+#define START_HIDING_COOLDOWN_COEFFICIENT 0.1
+
 /// This subtree causes the mob to go into hiding after a random duration
 /// since the last time they went into hiding.
 /datum/ai_planning_subtree/random_hiding
@@ -23,7 +26,7 @@
 		var/chance_to_stop_hiding = controller.blackboard[BB_HIDING_RANDOM_STOP_HIDING_CHANCE] || DEFAULT_RANDOM_STOP_HIDING_CHANCE
 		if(SPT_PROB(chance_to_stop_hiding, seconds_per_tick))
 			controller.queue_behavior(/datum/ai_behavior/toggle_hiding, FALSE)
-			var/new_cooldown = world.time + rand(cooldown_minimum, cooldown_maximum)
+			var/new_cooldown = world.time + rand(cooldown_minimum, cooldown_maximum) * START_HIDING_COOLDOWN_COEFFICIENT
 			controller.set_blackboard_key(cooldown_before_hiding_key, new_cooldown)
 
 			return SUBTREE_RETURN_FINISH_PLANNING
