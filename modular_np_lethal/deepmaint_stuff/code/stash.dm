@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(ckey_to_storage_box)
 /datum/storage/stash_storage
 	max_slots = 6
 	max_specific_storage = WEIGHT_CLASS_NORMAL
-	max_total_storage = WEIGHT_CLASS_NORMAL * 6
+	max_total_storage = WEIGHT_CLASS_BULKY * 6
 	numerical_stacking = FALSE
 	rustle_sound = TRUE
 	screen_max_columns = 3
