@@ -58,6 +58,7 @@
 	messenger = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 
 /datum/outfit/job/gakster/post_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
+	. = ..()
 	if(user.client?.ckey)
 		make_secure_container(user, user.client.ckey)
 
