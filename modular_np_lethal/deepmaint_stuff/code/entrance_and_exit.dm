@@ -1,5 +1,6 @@
 GLOBAL_LIST_EMPTY(deepmaints_entrances)
 GLOBAL_LIST_EMPTY(deepmaints_entrances_filtre)
+GLOBAL_LIST_EMPTY(deepmaints_entrances_inborn)
 GLOBAL_LIST_EMPTY(deepmaints_exits)
 
 /obj/structure/deepmaints_entrance
@@ -80,6 +81,24 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 	user.zMove(target = get_turf(destination), z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
 	playsound(src, 'sound/machines/tramopen.ogg', 60, TRUE, frequency = 65000)
 	playsound(destination, 'sound/machines/tramclose.ogg', 60, TRUE, frequency = 65000)
+	if(HAS_TRAIT(user, TRAIT_INFIL_BUFF))
+		user.apply_status_effect(/datum/status_effect/gakster_locked_in)
+
+/obj/structure/deepmaints_entrance/inborn
+	name = "one-way heavy hatch"
+
+/obj/structure/deepmaints_entrance/inborn/examine(mob/user)
+	. = ..()
+	. += span_engradio("Choom you got this, it's time to cut loose no holding back. \
+		It's just you and the road, no doubters to slow you down now. \
+		So show 'em who you are. What you're made of. \
+		You're special, remember?")
+
+/obj/structure/deepmaints_entrance/inborn/log_to_global_list()
+	GLOB.deepmaints_entrances_inborn += src
+
+/obj/structure/deepmaints_entrance/inborn/remove_from_global_list()
+	GLOB.deepmaints_entrances_inborn -= src
 
 /obj/structure/deepmaints_entrance/filtre
 
@@ -105,6 +124,9 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/exit/enter_the_fun_zone(mob/user)
 	if(!in_range(src, user) || DOING_INTERACTION(user, DOAFTER_SOURCE_CLIMBING_LADDER))
 		return
+	if(HAS_TRAIT(user, TRAIT_NO_EXTRACT))
+		balloon_alert(user, "no going back, not anymore")
+		return
 	if(HAS_TRAIT(user, TRAIT_EXTRACT_TO_FILTRE_SHIP))
 		if(!length(GLOB.deepmaints_entrances_filtre))
 			balloon_alert(user, "hatch above seems stuck...")
@@ -129,3 +151,34 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 	user.zMove(target = get_turf(destination), z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
 	playsound(src, 'sound/machines/tramopen.ogg', 60, TRUE, frequency = 65000)
 	playsound(destination, 'sound/machines/tramclose.ogg', 60, TRUE, frequency = 65000)
+
+// Buff for gaksters when they first infil
+
+/atom/movable/screen/alert/status_effect/gakster_locked_in
+	name = "Locked In"
+	desc = "Danger lurks around every corner, keep your weapon close and your eyes open."
+	icon_state = "realignment"
+
+/datum/status_effect/gakster_locked_in
+	id = "gakster_locked_in"
+	duration = 1 MINUTES
+	alert_type = /atom/movable/screen/alert/status_effect/gakster_locked_in
+	remove_on_fullheal = TRUE
+	/// The percentage damage modifier we give the mob we're applied to
+	var/damage_resistance_addition = 50
+	/// How much bleeding is subtracted
+	var/bleed_modifier_subtraction = 0.5
+
+/datum/status_effect/vulnerable_to_damage/on_apply()
+	to_chat(owner, span_userdanger("Lock in, danger lurks around every corner."))
+	var/mob/living/carbon/human/carbon_owner = owner
+	carbon_owner.physiology.damage_resistance += damage_resistance_addition
+	carbon_owner.physiology.bleed_mod -= bleed_modifier_subtraction
+	return ..()
+
+/datum/status_effect/vulnerable_to_damage/on_remove()
+	to_chat(owner, span_notice("Reality begins to set in, you'll be here for a while. Relax."))
+	var/mob/living/carbon/human/carbon_recoverer = owner
+	carbon_recoverer.physiology.damage_resistance -= damage_resistance_addition
+	carbon_recoverer.physiology.bleed_mod += bleed_modifier_subtraction
+	return ..()

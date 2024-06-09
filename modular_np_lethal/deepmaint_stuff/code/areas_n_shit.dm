@@ -10,6 +10,9 @@
 /area/gakster_location/filtre_spawn
 	name = "RLOS Relicten"
 
+/area/gakster_location/inborn_spawn
+	name = "Hideout (Evil)"
+
 /area/gakster_location/hideout_real
 	name = "Hideout (Real)"
 
