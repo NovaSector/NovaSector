@@ -101,6 +101,8 @@
 	var/datum/martial_art/cqc/get_real = new
 	get_real.teach(squaddie)
 
+	squaddie.physiology.stamina_mod = 0.5
+
 	return ..()
 
 /datum/outfit/plasmaman/pinata
