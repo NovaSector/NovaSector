@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "Lobstrosities are no longer pre-cooked through bluespace shenanigans."
