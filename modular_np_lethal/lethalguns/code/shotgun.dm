@@ -66,6 +66,10 @@
 /obj/item/gun/ballistic/shotgun/ramu/starts_empty
 	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/s6gauge/starts_empty
 
+/obj/item/storage/toolbox/guncase/nova/super_shotgun
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/ramu
+	extra_to_spawn = /obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled
+
 // Drum fed semi-automatic shotgun firing 12ga
 
 /obj/item/gun/ballistic/automatic/nomi_shotgun
@@ -126,3 +130,7 @@
 
 /obj/item/gun/ballistic/automatic/nomi_shotgun/starts_empty
 	spawnwithmagazine = FALSE
+
+/obj/item/storage/toolbox/guncase/nova/nomi_shotgun
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nomi_shotgun
+	extra_to_spawn = /obj/item/ammo_box/magazine/c12nomi

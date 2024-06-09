@@ -59,3 +59,19 @@
 /// Allows the grenade to explode on throw impact
 /obj/item/grenade/frag/impact/proc/ready_impact()
 	impact_explosion_ready = TRUE
+
+/obj/item/gun/ballistic/rocketlauncher/unrestricted/filtre_anti_mech
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/rocketlauncher/super_rocket
+
+/obj/item/storage/toolbox/guncase/nova/filtre_rocket_launcher
+	weapon_to_spawn = /obj/item/gun/ballistic/rocketlauncher/unrestricted/filtre_weak_rocket
+	extra_to_spawn = /obj/item/ammo_casing/rocket/weak
+
+/obj/item/gun/ballistic/rocketlauncher/unrestricted/filtre_weak_rocket
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/rocketlauncher/super_rocket
+
+/obj/item/ammo_box/magazine/internal/rocketlauncher/super_rocket
+	ammo_type = /obj/item/ammo_casing/rocket/heap
+
+/obj/item/ammo_box/magazine/internal/rocketlauncher/weak_rocket
+	ammo_type = /obj/item/ammo_casing/rocket/weak

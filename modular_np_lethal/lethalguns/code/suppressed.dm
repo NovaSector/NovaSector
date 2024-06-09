@@ -121,6 +121,10 @@
 /obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher/starts_empty
 	spawnwithmagazine = FALSE
 
+/obj/item/storage/toolbox/guncase/nova/launcher_suppressed_rifle
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher
+	extra_to_spawn = /obj/item/ammo_box/magazine/c12chinmoku
+
 // Grenade launcher for holding .980 grenades in for the rifle
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/tydhouer

@@ -64,6 +64,8 @@
 	var/obj/item/radio/radio = squaddie.ears
 	radio.set_frequency(FREQ_CENTCOM)
 	radio.freqlock = RADIO_FREQENCY_LOCKED
+
+	squaddie.faction |= FACTION_ERT
 	return ..()
 
 /datum/outfit/plasmaman/filtre
