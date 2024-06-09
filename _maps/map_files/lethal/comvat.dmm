@@ -880,6 +880,9 @@
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"gr" = (
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/misc/cordon)
 "gt" = (
 /obj/effect/decal/cleanable/robot_debris/old,
 /turf/open/floor/iron/smooth,
@@ -896,6 +899,12 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"gw" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "gy" = (
 /obj/effect/spawner/random/trash/grime,
 /turf/open/indestructible/plating,
@@ -1206,6 +1215,9 @@
 /obj/structure/curtain,
 /turf/open/indestructible/hoteltile,
 /area/gakster_location/hideout_real)
+"iK" = (
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "iL" = (
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -1215,11 +1227,24 @@
 /obj/effect/spawner/random/epic_loot/medpens,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"iQ" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/obj/effect/landmark/start/lethal_pinata,
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "iS" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/openspace,
 /area/gakster_location/outside)
+"iV" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "iX" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1901,6 +1926,12 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/hideout_real)
+"nV" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "nZ" = (
 /obj/structure/lattice,
 /obj/structure/fluff/metalpole{
@@ -3171,6 +3202,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"wI" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "wJ" = (
 /obj/effect/spawner/random/trash/grime,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -3847,6 +3884,12 @@
 /obj/machinery/light/broken/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Bv" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "Bx" = (
 /obj/structure/table,
 /obj/machinery/light/dim/directional/north,
@@ -3867,6 +3910,9 @@
 /obj/machinery/recharger,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"BD" = (
+/turf/open/misc/asteroid/snow/standard_air,
+/area/misc/cordon)
 "BE" = (
 /obj/structure/stairs/west,
 /turf/open/floor/plating,
@@ -5152,6 +5198,15 @@
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"JZ" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "Ka" = (
 /obj/machinery/light/broken/directional/east,
 /turf/open/floor/iron/smooth_large,
@@ -5204,6 +5259,9 @@
 /obj/machinery/door/puzzle/keycard/epic_loot_blue,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"Kr" = (
+/turf/closed/indestructible/steel,
+/area/misc/cordon)
 "Ks" = (
 /obj/structure/sign/poster/contraband,
 /turf/closed/wall,
@@ -5431,6 +5489,10 @@
 	},
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"Mf" = (
+/obj/structure/mineral_door/manual_colony_door,
+/turf/open/indestructible/dark/smooth_large,
+/area/misc/cordon)
 "Mg" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
@@ -5754,6 +5816,10 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"Of" = (
+/obj/structure/deepmaints_entrance/inborn,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/misc/cordon)
 "Oi" = (
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/freezer,
@@ -6025,6 +6091,12 @@
 /obj/effect/spawner/random/trash/bin,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Qt" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "Qx" = (
 /obj/machinery/vending/wallmed/epic_loot/evil/directional/south,
 /obj/machinery/light/cold/dim/directional/south,
@@ -6535,6 +6607,12 @@
 /obj/structure/fence,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/hideout_real)
+"UK" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "UL" = (
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/floor/iron/smooth_large,
@@ -6658,6 +6736,10 @@
 /obj/structure/rack/shelf,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"VE" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/misc/cordon)
 "VF" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
@@ -52651,10 +52733,10 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gr
+gr
+gr
 Vi
 Vi
 Vi
@@ -52747,17 +52829,17 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Kr
+gr
+gr
+gr
+Kr
+gr
+Kr
+Qt
+Qt
+Kr
+gr
 Vi
 Vi
 Vi
@@ -52849,18 +52931,18 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gw
+iQ
+UK
+gr
+gw
+iK
+iK
+iK
+VE
+gr
+gr
 Vi
 Vi
 Vi
@@ -52951,19 +53033,19 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+iV
+iK
+iK
+Mf
+iK
+iK
+iK
+iK
+iK
+Qt
+Kr
+gr
 Vi
 Vi
 Vi
@@ -53053,19 +53135,19 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+wI
+Bv
+Kr
+Kr
+iK
+iK
+iK
+iK
+iK
+iK
+VE
+gr
 Vi
 Vi
 Vi
@@ -53155,19 +53237,19 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+Kr
+gr
+gr
+Kr
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+VE
+gr
 Vi
 Vi
 Vi
@@ -53257,19 +53339,19 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gw
+Qt
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+Kr
+gr
 Vi
 Vi
 Vi
@@ -53359,18 +53441,18 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+iV
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+nV
+gr
 Vi
 Vi
 Vi
@@ -53461,18 +53543,18 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+Kr
+Bv
+iK
+iK
+iK
+iK
+iK
+iK
+VE
+gr
+gr
 Vi
 Vi
 Vi
@@ -53564,16 +53646,16 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gr
+iV
+iK
+iK
+iK
+iK
+Bv
+Kr
+gr
 Vi
 Vi
 Vi
@@ -53667,14 +53749,14 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+Kr
+Bv
+iK
+iK
+JZ
+gr
+gr
 Vi
 Vi
 Vi
@@ -53770,12 +53852,12 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gr
+wI
+nV
+BD
+gr
 Vi
 Vi
 Vi
@@ -53873,11 +53955,11 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gr
+BD
+BD
+gr
 Vi
 Vi
 Vi
@@ -53976,10 +54058,10 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
+Kr
+BD
+BD
+Kr
 Vi
 Vi
 Vi
@@ -54078,10 +54160,10 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
-Vi
+gr
+gr
+BD
+gr
 Vi
 Vi
 Vi
@@ -54181,9 +54263,9 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
+gr
+Of
+gr
 Vi
 Vi
 Vi
@@ -54283,9 +54365,9 @@ Vi
 Vi
 Vi
 Vi
-Vi
-Vi
-Vi
+Kr
+gr
+Kr
 Vi
 Vi
 Vi

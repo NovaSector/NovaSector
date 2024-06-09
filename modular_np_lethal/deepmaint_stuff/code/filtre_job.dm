@@ -45,7 +45,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/captagon = 1,
 	)
 	belt = null
-	ears = /obj/item.radio/headset/headset_cent/alt
+	ears = /obj/item/radio/headset/headset_cent/alt
 	gloves = /obj/item/clothing/gloves/frontier_colonist
 	head = null
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist

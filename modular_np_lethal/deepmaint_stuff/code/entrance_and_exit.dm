@@ -89,10 +89,7 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 
 /obj/structure/deepmaints_entrance/inborn/examine(mob/user)
 	. = ..()
-	. += span_engradio("Choom you got this, it's time to cut loose no holding back. \
-		It's just you and the road, no doubters to slow you down now. \
-		So show 'em who you are. What you're made of. \
-		You're special, remember?")
+	. += span_engradio("You're special, remember? This will be a <b>one-way</b> trip.")
 
 /obj/structure/deepmaints_entrance/inborn/log_to_global_list()
 	GLOB.deepmaints_entrances_inborn += src

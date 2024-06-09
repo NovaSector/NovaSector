@@ -134,3 +134,11 @@
 /obj/item/storage/toolbox/guncase/nova/nomi_shotgun
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nomi_shotgun
 	extra_to_spawn = /obj/item/ammo_box/magazine/c12nomi
+
+// Renoster shotgun but with buckshot
+
+/obj/item/gun/ballistic/shotgun/riot/sol/evil/filtre
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/filtre
+
+/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/filtre
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
