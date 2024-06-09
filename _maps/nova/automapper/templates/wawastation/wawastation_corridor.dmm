@@ -105,6 +105,15 @@
 	},
 /turf/closed/wall,
 /area/station/hallway/secondary/entry)
+"hH" = (
+/obj/structure/fluff/tram_rail/electric{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 1
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/station/maintenance/central/greater)
 "ma" = (
 /obj/structure/fluff/tram_rail/electric,
 /obj/structure/transport/linear/tram,
@@ -127,6 +136,9 @@
 	dir = 1
 	},
 /obj/structure/cable/multilayer/multiz,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 6
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/central/greater)
 "nH" = (
@@ -234,6 +246,9 @@
 "uQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 9
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/central/greater)
 "yu" = (
@@ -363,6 +378,9 @@
 /area/station/maintenance/central/greater)
 "Kk" = (
 /obj/structure/cable,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/central/greater)
 "KC" = (
@@ -378,6 +396,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/plating,
+/area/station/maintenance/central/greater)
+"Lf" = (
+/obj/effect/turf_decal/caution/white,
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/central/greater)
 "Li" = (
 /obj/structure/fluff/tram_rail/electric,
@@ -560,6 +583,9 @@
 	},
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
 /obj/machinery/atmospherics/pipe/multiz/supply/hidden/layer4,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 10
+	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/central/greater)
 "ZI" = (
@@ -827,8 +853,8 @@ nH
 tK
 Pm
 VV
-Ol
-tK
+hH
+Lf
 HM
 Ok
 "}
