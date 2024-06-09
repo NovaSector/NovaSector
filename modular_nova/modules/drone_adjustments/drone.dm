@@ -22,7 +22,7 @@
 	shy = FALSE
 	//So drones aren't forced to carry around a nodrop toolbox essentially
 	//and so drones don't have to choose between a multitool and an upgraded welder
-	default_storage = /obj/item/storage/backpack/dufflebag/drone
+	default_storage = /obj/item/storage/backpack/duffelbag/drone
 
 /mob/living/basic/drone/Initialize(mapload)
 	. = ..()
