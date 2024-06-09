@@ -897,9 +897,6 @@
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
-"gr" = (
-/turf/closed/indestructible/rock/snow/ice/ore,
-/area/misc/cordon)
 "gt" = (
 /obj/effect/decal/cleanable/robot_debris/old,
 /turf/open/floor/iron/smooth,
@@ -54092,7 +54089,7 @@ Vi
 Vi
 Vi
 Vi
-gr
+sg
 sg
 wI
 nV

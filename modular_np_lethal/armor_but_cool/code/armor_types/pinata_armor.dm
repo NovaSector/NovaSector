@@ -31,12 +31,12 @@
 		TRAIT_DIAGNOSTIC_HUD,
 		TRAIT_REAGENT_SCANNER,
 		TRAIT_MEDICAL_HUD,
-		TRAIT_NODROP,
 	)
 
 /obj/item/clothing/head/helmet/lethal_pinata_helmet/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_HEAD))
+	ADD_TRAIT(TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/clothing/head/helmet/lethal_pinata_helmet/equipped(mob/living/carbon/human/user, slot)
 	..()
