@@ -93,6 +93,7 @@
 		/obj/item/photo,
 		/obj/item/documents,
 		/obj/item/paperwork,
+		/obj/item/lethalcash,
 	))
 
 /obj/item/storage/epic_loot_org_pouch
