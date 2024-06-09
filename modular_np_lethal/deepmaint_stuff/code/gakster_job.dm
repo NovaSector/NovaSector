@@ -30,6 +30,7 @@
 	. = ..()
 	ADD_TRAIT(spawned, TRAIT_NODISMEMBER, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_INFIL_BUFF, JOB_TRAIT)
 
 /datum/outfit/job/gakster
 	name = "Gakster"
