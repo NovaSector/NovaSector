@@ -1007,6 +1007,10 @@
 	},
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"hm" = (
+/obj/structure/epic_loot_crafting_bench/gear_filtre,
+/turf/closed/indestructible/titanium/nodiagonal,
+/area/gakster_location/filtre_spawn)
 "hp" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -50195,7 +50199,7 @@ vn
 vn
 vn
 vn
-vn
+hm
 oC
 rt
 vn
@@ -50406,7 +50410,7 @@ qm
 PP
 PP
 PP
-vn
+hm
 Vi
 Vi
 Vi
@@ -50603,7 +50607,7 @@ vn
 vn
 vn
 vn
-vn
+hm
 oC
 rt
 vn
@@ -50814,7 +50818,7 @@ uN
 PP
 PP
 PP
-vn
+hm
 Vi
 Vi
 Vi
