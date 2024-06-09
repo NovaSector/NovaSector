@@ -43,7 +43,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	max_integrity = 1000
 	limb_integrity = 800
-	slowdown = 0.35
+	slowdown = 0.4
 	equip_delay_self = 10 SECONDS
 
 /obj/item/clothing/suit/armor/lethal_filtre/Initialize(mapload)
