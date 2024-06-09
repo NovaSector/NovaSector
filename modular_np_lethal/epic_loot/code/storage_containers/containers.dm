@@ -241,6 +241,7 @@
 	can_hold = typecacheof(list(
 		/obj/item/stack/spacecash,
 		/obj/item/coin,
+		/obj/item/lethalcash,
 	))
 
 /obj/item/storage/epic_loot_medical_case
