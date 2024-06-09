@@ -139,7 +139,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
-<<<<<<< HEAD
 	//NOVA EDIT ADDITION
 	var/list/type_blacklist = list(
 		/obj/item/mmi,
@@ -154,9 +153,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 		return
 	//NOVA EDIT END
 	if(get_dir(src,AM) == SOUTH)
-=======
-	if(get_dir(src,AM) == gateway?.dir)
->>>>>>> c57afc4689f (Wawastation (#82298))
 		playsound(src, 'sound/effects/gateway_travel.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		gateway.Transfer(AM)
 
