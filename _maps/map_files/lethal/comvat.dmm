@@ -1883,6 +1883,13 @@
 /obj/structure/deepmaints_entrance/exit,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"nL" = (
+/obj/machinery/autobank,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/gakster_location/hideout_real)
 "nR" = (
 /obj/machinery/door/poddoor/ert,
 /obj/effect/turf_decal/stripes/asteroid/line{
@@ -2236,6 +2243,10 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"qz" = (
+/obj/machinery/autobank,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/hideout_real)
 "qA" = (
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /obj/machinery/light/dim/directional/north,
@@ -3489,6 +3500,10 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"yT" = (
+/obj/machinery/autobank,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
 "yU" = (
 /obj/machinery/light/warm/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6762,7 +6777,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "Ws" = (
-/obj/structure/rack/gunrack,
+/obj/machinery/autobank,
 /obj/machinery/light/dim/directional/north,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
@@ -50230,7 +50245,7 @@ Ea
 Ea
 Ea
 Ea
-Pq
+nL
 yY
 xR
 Cl
@@ -50521,7 +50536,7 @@ FN
 FN
 FN
 kV
-FN
+yT
 FN
 FN
 DU
@@ -55448,7 +55463,7 @@ vY
 pL
 KC
 Ea
-Sv
+qz
 Jt
 Cf
 gu
@@ -55543,7 +55558,7 @@ KC
 Ea
 Ea
 KC
-gO
+yT
 FN
 VD
 Um

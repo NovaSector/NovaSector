@@ -32,7 +32,7 @@
 /obj/structure/holopay/Initialize(mapload)
 	. = ..()
 	register_context()
-
+/* LETHAL EDIT: THE FOLLY OF GOD
 /obj/structure/holopay/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 
@@ -296,3 +296,4 @@
 	log_econ("[amount] credits were transferred from [payee]'s transaction to [linked_card.registered_account.account_holder]")
 	SSblackbox.record_feedback("amount", "credits_transferred", amount)
 	return TRUE
+*/ // JUSTICE IS A PENDULUM AND I AWAIT THE SWING

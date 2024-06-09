@@ -8467,5 +8467,9 @@
 #include "modular_np_lethal\mechs_buffs\code\weapons\melee.dm"
 #include "modular_np_lethal\mechs_buffs\code\weapons\projectiles.dm"
 #include "modular_np_lethal\medical_stuff\code\synth_repair.dm"
+#include "modular_np_lethal\money_rework\code\atm.dm"
+#include "modular_np_lethal\money_rework\code\atmflatpacked.dm"
+#include "modular_np_lethal\money_rework\code\money.dm"
+#include "modular_np_lethal\money_rework\code\moneyspawners.dm"
 
 // END_INCLUDE
