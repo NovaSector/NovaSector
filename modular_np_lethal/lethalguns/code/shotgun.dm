@@ -142,3 +142,7 @@
 
 /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/filtre
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+
+// Edits the arm cannon to let people with chunky fingers use it
+/obj/item/gun/ballistic/shotgun/shell_launcher
+	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
