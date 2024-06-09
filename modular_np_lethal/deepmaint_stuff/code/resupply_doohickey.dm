@@ -129,6 +129,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 			"icon" = "hammer",
 			"products" = list(
 				/obj/item/flashlight/flare = INFINITY,
+				/obj/item/gun/ballistic/revolver/sol = INFINITY,
 				/obj/item/lead_pipe = INFINITY,
 				/obj/item/knife/combat/survival = INFINITY,
 				/obj/item/crowbar/red = INFINITY,
@@ -138,7 +139,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot, 32)
 	)
 
 	refill_canister = /obj/item/vending_refill/clothing
-	default_price = PAYCHECK_CREW * 0.7 //Default of
+	default_price = PAYCHECK_CREW * 0.7 //Default of // Default of what? What did she mean by this?
 	extra_price = PAYCHECK_COMMAND
 	payment_department = NO_FREEBIES
 	light_mask = "wardrobe-light-mask"
