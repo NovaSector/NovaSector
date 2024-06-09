@@ -71,7 +71,7 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 	INVOKE_ASYNC(src, PROC_REF(send_him_to_detroit), user)
 
 /// Actually moves the entree passed to it to a random exit
-/obj/structure/deepmaints_entrance/proc/send_him_to_detroit(mob/user)
+/obj/structure/deepmaints_entrance/proc/send_him_to_detroit(mob/living/carbon/human/user)
 	if(!do_after(user, travel_time, target = src))
 		return
 	var/obj/destination = pick(GLOB.deepmaints_exits)
@@ -166,14 +166,14 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 	/// How much bleeding is subtracted
 	var/bleed_modifier_subtraction = 0.5
 
-/datum/status_effect/vulnerable_to_damage/on_apply()
+/datum/status_effect/gakster_locked_in/on_apply()
 	to_chat(owner, span_userdanger("Lock in, danger lurks around every corner."))
 	var/mob/living/carbon/human/carbon_owner = owner
 	carbon_owner.physiology.damage_resistance += damage_resistance_addition
 	carbon_owner.physiology.bleed_mod -= bleed_modifier_subtraction
 	return ..()
 
-/datum/status_effect/vulnerable_to_damage/on_remove()
+/datum/status_effect/gakster_locked_in/on_remove()
 	to_chat(owner, span_notice("Reality begins to set in, you'll be here for a while. Relax."))
 	var/mob/living/carbon/human/carbon_recoverer = owner
 	carbon_recoverer.physiology.damage_resistance -= damage_resistance_addition

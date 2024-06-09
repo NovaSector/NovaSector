@@ -63,4 +63,4 @@
 /obj/item/storage/toolbox/emergency/turret/filtre
 
 /obj/item/storage/toolbox/emergency/turret/filtre/set_faction(obj/machinery/porta_turret/turret, mob/user)
-	turret.faction = list(ROLE_ERT)
+	turret.faction = list(FACTION_ERT)

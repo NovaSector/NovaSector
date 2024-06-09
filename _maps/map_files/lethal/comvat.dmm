@@ -586,6 +586,13 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"ei" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "el" = (
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/indestructible/dark/smooth_large,
@@ -732,6 +739,12 @@
 "fg" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/gakster_location/hideout_real)
+"fh" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "SUPER_WAR"
+	},
+/turf/closed/indestructible/fakedoor/engineering,
+/area/gakster_location/inborn_spawn)
 "fn" = (
 /obj/structure/fluff/metalpole{
 	dir = 8
@@ -786,6 +799,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/indestructible/dark/textured,
 /area/gakster_location/hideout_real)
+"fL" = (
+/obj/effect/spawner/random/structure/shipping_container,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "fO" = (
 /obj/structure/chair/sofa/bench{
 	dir = 4
@@ -903,8 +920,11 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "gy" = (
 /obj/effect/spawner/random/trash/grime,
 /turf/open/indestructible/plating,
@@ -1020,6 +1040,15 @@
 /obj/structure/epic_loot_crafting_bench/gear_filtre,
 /turf/closed/indestructible/titanium/nodiagonal,
 /area/gakster_location/filtre_spawn)
+"ho" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "hp" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -1217,7 +1246,7 @@
 /area/gakster_location/hideout_real)
 "iK" = (
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "iL" = (
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/catwalk_floor/iron_smooth,
@@ -1232,8 +1261,12 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/lethal_pinata,
+/obj/structure/bed/maint,
+/obj/effect/spawner/random/bedsheet/any{
+	dir = 1
+	},
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "iS" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/red/dim/directional/north,
@@ -1243,8 +1276,9 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
+/obj/effect/spawner/random/trash/box,
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "iX" = (
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1317,6 +1351,9 @@
 /mob/living/basic/mouse/brown,
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"ju" = (
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "jv" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -1341,6 +1378,12 @@
 /obj/structure/maintenance_loot_structure/large_crate/medical,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"jD" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "jE" = (
 /obj/structure/maintenance_loot_structure/ammo_box/random,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1629,6 +1672,15 @@
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"lK" = (
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "lM" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/epic_loot/medical_stack_item,
@@ -1853,6 +1905,12 @@
 /obj/structure/deepmaints_entrance/exit,
 /turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
+"nr" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "ns" = (
 /obj/structure/chair/stool/bar{
 	dir = 4
@@ -1930,8 +1988,11 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 5
+	},
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "nZ" = (
 /obj/structure/lattice,
 /obj/structure/fluff/metalpole{
@@ -2001,6 +2062,13 @@
 /obj/effect/spawner/random/epic_loot/random_other_military_loot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"or" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/structure/closet,
+/obj/item/storage/medkit/frontier/stocked,
+/obj/item/flashlight/seclite,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "ou" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled,
@@ -2061,6 +2129,12 @@
 /obj/machinery/computer/terminal,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"oV" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "oW" = (
 /obj/structure/rack/shelf,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
@@ -2507,6 +2581,9 @@
 /obj/machinery/light/cold/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"sg" = (
+/turf/closed/indestructible/rock/snow/ice/ore,
+/area/gakster_location/inborn_spawn)
 "sh" = (
 /obj/structure/fluff/metalpole/anchor{
 	dir = 8
@@ -2859,6 +2936,11 @@
 /obj/structure/maintenance_loot_structure/medbox/random/advanced_loot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"uw" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/machinery/light/dim/directional/east,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "uz" = (
 /obj/machinery/light/warm/dim/directional/south,
 /obj/effect/decal/cleanable/dirt,
@@ -2971,6 +3053,17 @@
 /obj/structure/barricade/wooden/snowed,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"vl" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/structure/sink/directional/south,
+/obj/structure/closet/crate/freezer,
+/obj/effect/spawner/random/trash/botanical_waste,
+/obj/effect/spawner/random/trash/botanical_waste,
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "vn" = (
 /turf/closed/indestructible/titanium/nodiagonal,
 /area/gakster_location/filtre_spawn)
@@ -3207,7 +3300,7 @@
 	dir = 5
 	},
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "wJ" = (
 /obj/effect/spawner/random/trash/grime,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -3584,6 +3677,14 @@
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/openspace,
 /area/gakster_location/war)
+"zj" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/structure/table,
+/obj/machinery/microwave/frontier_printed,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "zk" = (
 /obj/structure/chair/office/light,
 /turf/open/floor/wood/large,
@@ -3612,6 +3713,10 @@
 /obj/machinery/light/warm/dim/directional/east,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
+"zp" = (
+/obj/machinery/vending/wallmed/epic_loot/evil/inborn/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "zq" = (
 /obj/structure/curtain,
 /obj/structure/toilet{
@@ -3885,11 +3990,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "Bv" = (
+/obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
+	dir = 5
 	},
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "Bx" = (
 /obj/structure/table,
 /obj/machinery/light/dim/directional/north,
@@ -3911,8 +4017,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "BD" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
 /turf/open/misc/asteroid/snow/standard_air,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "BE" = (
 /obj/structure/stairs/west,
 /turf/open/floor/plating,
@@ -4097,6 +4206,11 @@
 /obj/machinery/light/warm/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"CK" = (
+/obj/structure/table,
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "CO" = (
 /obj/machinery/light/cold/dim/directional/east,
 /turf/open/floor/iron/smooth,
@@ -4197,6 +4311,16 @@
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Dr" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "Dt" = (
 /obj/structure/maintenance_loot_structure/file_cabinet/random,
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
@@ -4543,6 +4667,10 @@
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Fx" = (
+/obj/machinery/vending/wallmed/epic_loot/evil/inborn/directional/north,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "Fy" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/dirt,
@@ -5041,6 +5169,12 @@
 /obj/effect/spawner/random/epic_loot/random_components,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Jj" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 10
+	},
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "Jk" = (
 /obj/machinery/door/airlock/grunge,
 /obj/effect/mapping_helpers/airlock/welded,
@@ -5051,6 +5185,13 @@
 /obj/structure/maintenance_loot_structure/large_crate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Jm" = (
+/obj/machinery/light/dim/directional/south,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "Jo" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/delivery/red,
@@ -5184,6 +5325,10 @@
 /obj/machinery/light/red/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
+"JV" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "JW" = (
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/openspace,
@@ -5206,7 +5351,7 @@
 	dir = 6
 	},
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "Ka" = (
 /obj/machinery/light/broken/directional/east,
 /turf/open/floor/iron/smooth_large,
@@ -5261,7 +5406,7 @@
 /area/gakster_location/war)
 "Kr" = (
 /turf/closed/indestructible/steel,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "Ks" = (
 /obj/structure/sign/poster/contraband,
 /turf/closed/wall,
@@ -5308,6 +5453,14 @@
 "KK" = (
 /turf/closed/indestructible/riveted,
 /area/gakster_location/war)
+"KM" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/machinery/light/dim/directional/north,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "KN" = (
 /obj/structure/mineral_door/manual_colony_door,
 /turf/open/misc/asteroid/snow/standard_air,
@@ -5352,6 +5505,11 @@
 /obj/effect/turf_decal/delivery/red,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/hideout_real)
+"Lc" = (
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/effect/spawner/random/structure/shipping_container,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "Ld" = (
 /obj/structure/fence/corner{
 	dir = 6
@@ -5492,7 +5650,7 @@
 "Mf" = (
 /obj/structure/mineral_door/manual_colony_door,
 /turf/open/indestructible/dark/smooth_large,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "Mg" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
@@ -5569,6 +5727,13 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/north,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
+"MF" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/machinery/vending/evil_clothing/super_evil/inborn,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "MG" = (
 /turf/open/indestructible/hoteltile,
 /area/gakster_location/hideout_real)
@@ -5819,7 +5984,7 @@
 "Of" = (
 /obj/structure/deepmaints_entrance/inborn,
 /turf/open/misc/asteroid/snow/standard_air,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "Oi" = (
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/freezer,
@@ -5843,6 +6008,17 @@
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Or" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/structure/closet/crate/medical{
+	name = "anti-psychosis injectors"
+	},
+/obj/effect/spawner/random/trash/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "Ou" = (
 /obj/structure/chair/plastic{
 	dir = 1
@@ -5901,6 +6077,10 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"OY" = (
+/obj/structure/table,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "OZ" = (
 /mob/living/basic/bot/cleanbot,
 /turf/open/floor/iron/freezer,
@@ -6095,8 +6275,9 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
+/obj/effect/spawner/random/structure/shipping_container,
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "Qx" = (
 /obj/machinery/vending/wallmed/epic_loot/evil/directional/south,
 /obj/machinery/light/cold/dim/directional/south,
@@ -6160,6 +6341,12 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/war)
+"QX" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "Rd" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/hoteltile,
@@ -6348,6 +6535,13 @@
 	},
 /turf/open/floor/plating,
 /area/gakster_location/outside)
+"SD" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/machinery/light/dim/directional/north,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "SF" = (
 /obj/machinery/light/broken/directional/south,
 /turf/open/floor/iron/smooth,
@@ -6361,6 +6555,12 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"SJ" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "SK" = (
 /obj/machinery/light/red/dim/directional/east,
 /turf/open/floor/plating,
@@ -6373,6 +6573,12 @@
 /obj/item/knife/combat,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/filtre_spawn)
+"SO" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "SQ" = (
 /obj/structure/barricade/wooden/snowed,
 /turf/open/misc/asteroid/snow/standard_air,
@@ -6501,6 +6707,15 @@
 /obj/effect/spawner/random/trash,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Ua" = (
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "Ub" = (
 /obj/effect/mapping_helpers/airlock/welded,
 /obj/machinery/door/airlock/grunge,
@@ -6611,8 +6826,9 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
 	},
+/obj/structure/table,
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "UL" = (
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/floor/iron/smooth_large,
@@ -6633,6 +6849,15 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/west,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"UR" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 9
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "US" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 4
@@ -6738,8 +6963,9 @@
 /area/gakster_location/hideout_real)
 "VE" = (
 /obj/effect/turf_decal/weather/snow/corner,
+/obj/structure/table,
 /turf/open/indestructible/plating,
-/area/misc/cordon)
+/area/gakster_location/inborn_spawn)
 "VF" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
@@ -6913,6 +7139,10 @@
 /obj/effect/spawner/random/epic_loot/medpens,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"WF" = (
+/obj/machinery/light/dim/directional/north,
+/turf/open/misc/asteroid/snow/standard_air,
+/area/gakster_location/inborn_spawn)
 "WH" = (
 /obj/structure/maintenance_loot_structure/file_cabinet/random,
 /turf/open/floor/iron/dark/smooth_large,
@@ -7179,6 +7409,12 @@
 /obj/effect/landmark/start,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/hideout_real)
+"Yp" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "Yq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/crushed_can,
@@ -7357,6 +7593,10 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"ZC" = (
+/obj/machinery/light/dim/directional/west,
+/turf/open/indestructible/plating,
+/area/gakster_location/inborn_spawn)
 "ZD" = (
 /obj/machinery/mech_bay_recharge_port{
 	dir = 8
@@ -52733,10 +52973,10 @@ Vi
 Vi
 Vi
 Vi
-gr
-gr
-gr
-gr
+sg
+sg
+sg
+sg
 Vi
 Vi
 Vi
@@ -52830,16 +53070,16 @@ Vi
 Vi
 Vi
 Kr
-gr
-gr
-gr
+sg
+sg
+sg
 Kr
-gr
+sg
 Kr
+oV
 Qt
-Qt
 Kr
-gr
+sg
 Vi
 Vi
 Vi
@@ -52931,18 +53171,18 @@ Vi
 Vi
 Vi
 Vi
-gr
+sg
 gw
 iQ
 UK
-gr
-gw
+sg
+SO
+ZC
+fL
 iK
-iK
-iK
-VE
-gr
-gr
+Lc
+sg
+sg
 Vi
 Vi
 Vi
@@ -53033,9 +53273,9 @@ Vi
 Vi
 Vi
 Vi
-gr
-iV
-iK
+sg
+WF
+Yp
 iK
 Mf
 iK
@@ -53043,9 +53283,9 @@ iK
 iK
 iK
 iK
-Qt
+oV
 Kr
-gr
+sg
 Vi
 Vi
 Vi
@@ -53135,19 +53375,19 @@ Vi
 Vi
 Vi
 Vi
-gr
-wI
+sg
+ju
 Bv
 Kr
 Kr
 iK
 iK
 iK
+fL
 iK
 iK
-iK
-VE
-gr
+or
+sg
 Vi
 Vi
 Vi
@@ -53238,8 +53478,8 @@ Vi
 Vi
 Vi
 Kr
-gr
-gr
+sg
+sg
 Kr
 iK
 iK
@@ -53249,7 +53489,7 @@ iK
 iK
 iK
 VE
-gr
+sg
 Vi
 Vi
 Vi
@@ -53339,19 +53579,19 @@ Vi
 Vi
 Vi
 Vi
-gr
-gw
-Qt
+sg
+zj
+Dr
+iK
+QX
+ho
 iK
 iK
 iK
 iK
-iK
-iK
-iK
-iK
+zp
 Kr
-gr
+sg
 Vi
 Vi
 Vi
@@ -53441,18 +53681,18 @@ Vi
 Vi
 Vi
 Vi
-gr
-iV
+sg
+KM
+lK
+JV
+CK
+OY
+Yp
 iK
 iK
 iK
-iK
-iK
-iK
-iK
-iK
-nV
-gr
+MF
+sg
 Vi
 Vi
 Vi
@@ -53543,18 +53783,18 @@ Vi
 Vi
 Vi
 Vi
-gr
+sg
 Kr
-Bv
+vl
 iK
-iK
-iK
-iK
-iK
-iK
-VE
-gr
-gr
+Ua
+ju
+UR
+nr
+jD
+uw
+sg
+sg
 Vi
 Vi
 Vi
@@ -53646,16 +53886,16 @@ Vi
 Vi
 Vi
 Vi
-gr
-gr
+sg
+sg
 iV
 iK
+oV
+SJ
 iK
-iK
-iK
-Bv
+Or
 Kr
-gr
+sg
 Vi
 Vi
 Vi
@@ -53749,14 +53989,14 @@ Vi
 Vi
 Vi
 Vi
-gr
+sg
 Kr
-Bv
+SD
 iK
-iK
+SJ
 JZ
-gr
-gr
+sg
+sg
 Vi
 Vi
 Vi
@@ -53853,11 +54093,11 @@ Vi
 Vi
 Vi
 gr
-gr
+sg
 wI
 nV
-BD
-gr
+Jj
+sg
 Vi
 Vi
 Vi
@@ -53955,11 +54195,11 @@ Vi
 Vi
 Vi
 Vi
-gr
-gr
+sg
+sg
+ju
 BD
-BD
-gr
+sg
 Vi
 Vi
 Vi
@@ -54059,8 +54299,8 @@ Vi
 Vi
 Vi
 Kr
-BD
-BD
+Fx
+Jm
 Kr
 Vi
 Vi
@@ -54160,10 +54400,10 @@ Vi
 Vi
 Vi
 Vi
-gr
-gr
-BD
-gr
+sg
+sg
+ei
+sg
 Vi
 Vi
 Vi
@@ -54263,9 +54503,9 @@ Vi
 Vi
 Vi
 Vi
-gr
+sg
 Of
-gr
+sg
 Vi
 Vi
 Vi
@@ -54366,7 +54606,7 @@ Vi
 Vi
 Vi
 Kr
-gr
+fh
 Kr
 Vi
 Vi
