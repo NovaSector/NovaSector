@@ -13,7 +13,6 @@
 	storage_datum_to_use = /datum/storage/maintenance_loot_structure/jacket
 	loot_spawn_dice_string = "1d4-2"
 	loot_weighted_list = list(
-		/obj/effect/spawner/random/entertainment/coin = 2,
 		/obj/effect/spawner/random/entertainment/money_small_lethal = 2,
 		/obj/effect/spawner/random/entertainment/money_lethal = 2,
 		/obj/effect/spawner/random/entertainment/cigarette_pack = 1,
