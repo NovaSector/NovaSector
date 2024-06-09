@@ -116,7 +116,7 @@
 	assignment = "Pinata"
 
 /obj/effect/landmark/start/lethal_pinata
-	name = "Pinata"
+	name = "Piñata"
 
 ///Try to attach this bodypart to a mob, while replacing one if it exists, deletes the old limb if successful
 /obj/item/bodypart/proc/replace_limb_evil(mob/living/carbon/limb_owner, special)
