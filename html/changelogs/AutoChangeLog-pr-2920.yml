@@ -1,4 +1,0 @@
-author: "MortoSasye"
-delete-after: True
-changes:
-  - bugfix: "Hearthkin no longer suffer eternal heart attacks via salts, or have the choking moodlet if they survive through it."
