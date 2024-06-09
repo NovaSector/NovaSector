@@ -1,6 +1,6 @@
 /datum/armor/armor_lethal_filtre
 	melee = ARMOR_LEVEL_MID
-	bullet = BULLET_ARMOR_IV
+	bullet = BULLET_ARMOR_III
 	laser = ARMOR_LEVEL_MID
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
@@ -10,7 +10,7 @@
 
 /datum/armor/armor_lethal_filtre_super
 	melee = ARMOR_LEVEL_MID + 25
-	bullet = BULLET_ARMOR_V
+	bullet = BULLET_ARMOR_IV
 	laser = ARMOR_LEVEL_MID + 25
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
@@ -20,7 +20,7 @@
 
 /datum/armor/armor_lethal_filtre_light
 	melee = ARMOR_LEVEL_MID + 25
-	bullet = BULLET_ARMOR_III
+	bullet = BULLET_ARMOR_II
 	laser = ARMOR_LEVEL_MID
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
@@ -29,7 +29,7 @@
 	wound = WOUND_ARMOR_HIGH
 
 /obj/item/clothing/suit/armor/lethal_filtre
-	name = "'Firuta' type IV high mobility armor kit"
+	name = "'Firuta' type III high mobility armor kit"
 	desc = "A heavy full kit of armor for protecting every part of your body but the head and legs with exceptional plating. \
 		The armor's excessive bulk, however, makes the kit slow to move in. A small price to pay for such superior protection."
 	icon = 'modular_np_lethal/armor_but_cool/icons/armor.dmi'
@@ -41,9 +41,9 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = CHEST|GROIN|ARMS
-	max_integrity = 1200
-	limb_integrity = 900
-	slowdown = 0.5
+	max_integrity = 1000
+	limb_integrity = 800
+	slowdown = 0.35
 	equip_delay_self = 10 SECONDS
 
 /obj/item/clothing/suit/armor/lethal_filtre/Initialize(mapload)
@@ -76,18 +76,18 @@
 	return .
 
 /obj/item/clothing/suit/armor/lethal_filtre/heavy
-	name = "'Firuta' type V heavy armor kit"
+	name = "'Firuta' type IV heavy armor kit"
 	desc = "An excessively heavy full kit of armor for protecting every part of your body but the head with exceptional plating. \
 		The armor's insane bulk, however, makes the kit extremely slow to move in. A small price to pay for such superior protection."
 	icon_state = "filtre_heavy"
 	armor_type = /datum/armor/armor_lethal_filtre_super
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	slowdown = 1.25
-	max_integrity = 1600
-	limb_integrity = 1100
+	slowdown = 1
+	max_integrity = 1000
+	limb_integrity = 700
 
 /obj/item/clothing/suit/armor/lethal_filtre/super_light
-	name = "'Sukyana' type III extreme mobility armor kit"
+	name = "'Sukyana' type II extreme mobility armor kit"
 	desc = "A high-tech kit of armor for protecting every part of your body but the head with exceptional plating. \
 		This type is made for the highest mobility possible, sacrificing petty concepts like 'actually protecting the wearer' \
 		in exchange for simply not being hit."
@@ -96,10 +96,10 @@
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	slowdown = 0.25
 	max_integrity = 1000
-	limb_integrity = 800
+	limb_integrity = 700
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet
-	name = "'Firuta' type V ballistic helmet"
+	name = "'Firuta' type IV ballistic helmet"
 	desc = "A high tech full-head helmet with supreme class V protection for the whole of the second \
 		most important part of a marine's body. Vision is provided by an internal camera system, \
 		the only signs of which on the outside are the twin pair of visible cameras on the front of the face. \
@@ -111,8 +111,8 @@
 	armor_type = /datum/armor/armor_lethal_filtre_super
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
 	flags_cover = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF
-	max_integrity = 900
-	limb_integrity = 900
+	max_integrity = 800
+	limb_integrity = 800
 	dog_fashion = null
 	flags_inv = null
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
@@ -146,7 +146,7 @@
 	icon_state = "filtre_helmet_meowers"
 	worn_icon = 'modular_np_lethal/armor_but_cool/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
-	armor_type = /datum/armor/armor_lethal_filtre_light
+	armor_type = /datum/armor/armor_lethal_filtre
 	flags_inv = HIDEEARS|HIDEEYES
 	flags_cover = HEADCOVERSEYES|PEPPERPROOF
 	clothing_traits = list(
@@ -184,7 +184,7 @@
 // CUSTOM LOADOUT FILTRE ARMORS
 
 /obj/item/clothing/suit/armor/lethal_filtre/heavy/giggler
-	name = "'Armageddon' type V heavy armor kit"
+	name = "'Armageddon' type IV heavy armor kit"
 	desc = "An excessively heavy full kit of armor for protecting every part of your body but the head with exceptional plating. \
 		The armor's insane bulk, however, makes the kit extremely slow to move in. A small price to pay for such superior protection. \
 		This one appears to have been modified with extra plating and red markings, but remains otherwide identical in performance \
@@ -192,7 +192,7 @@
 	icon_state = "filtre_heavy_armageddon"
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet/giggler
-	name = "'Armageddon' type V ballistic helmet"
+	name = "'Armageddon' type IV ballistic helmet"
 	desc = "A high tech full-head helmet with supreme class V protection for the whole of the second \
 		most important part of a marine's body. Vision is provided by an internal camera system. \
 		This one appears to be modified with a more visible HUD system, as well as a bright-red \
@@ -200,7 +200,7 @@
 	icon_state = "filtre_helmet_armageddon"
 
 /obj/item/clothing/suit/armor/lethal_filtre/heavy/nineball
-	name = "'Novem' type V heavy armor kit"
+	name = "'Novem' type IV heavy armor kit"
 	desc = "An excessively heavy full kit of armor for protecting every part of your body but the head with exceptional plating. \
 		The armor's insane bulk, however, makes the kit extremely slow to move in. A small price to pay for such superior protection. \
 		This one has been mounted with extraneous armor plating and a custom paintjob in certain areas, but it nonetheless functions \
@@ -208,7 +208,7 @@
 	icon_state = "filtre_heavy_novem"
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet/nineball
-	name = "'Novem' type V ballistic helmet"
+	name = "'Novem' type IV ballistic helmet"
 	desc = "A high tech full-head helmet with supreme class V protection for the whole of the second \
 		most important part of a marine's body. Vision is provided by an internal camera system, \
 		which on this helmet has been augmented by a single heads-up display visible on the front \

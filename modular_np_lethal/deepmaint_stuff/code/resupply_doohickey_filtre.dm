@@ -153,6 +153,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot/evil, 32)
 				/obj/item/grenade/stingbang = INFINITY,
 				/obj/item/gun/energy/modular_laser_rifle = INFINITY,
 				/obj/item/gun/energy/modular_laser_rifle/carbine = INFINITY,
+				/obj/item/gun/ballistic/shotgun/riot/sol/evil/filtre = INFINITY,
 				/obj/item/ammo_box/magazine/c12nomi/starts_empty = INFINITY,
 				/obj/item/gun/ballistic/automatic/pistol/weevil = INFINITY,
 				/obj/item/gun/ballistic/automatic/seiba_smg = INFINITY,
