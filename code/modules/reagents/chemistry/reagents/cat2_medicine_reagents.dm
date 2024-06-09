@@ -225,21 +225,14 @@
 /datum/reagent/medicine/c2/hercuri/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/need_mob_update
-<<<<<<< HEAD
 	// NOVA EDIT CHANGE BEGIN -- Adds check for owner_flags; indented the getFireLoss check and everything under it, so synths can get cooled down
 	var/owner_flags = affected_mob.dna.species.reagent_flags
 	if (owner_flags & PROCESS_ORGANIC)
 		if(affected_mob.getFireLoss() > 50)
-			need_mob_update = affected_mob.adjustFireLoss(-2 * REM * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+			need_mob_update = affected_mob.adjustFireLoss(-3 * REM * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
 		else
-			need_mob_update = affected_mob.adjustFireLoss(-1.25 * REM * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+			need_mob_update = affected_mob.adjustFireLoss(-2.25 * REM * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
 	// NOVA EDIT CHANGE END
-=======
-	if(affected_mob.getFireLoss() > 50)
-		need_mob_update = affected_mob.adjustFireLoss(-3 * REM * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
-	else
-		need_mob_update = affected_mob.adjustFireLoss(-2.25 * REM * seconds_per_tick * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
->>>>>>> 8c64a298b15 (buffs other cat2 chems to make them more appealing (+vendor calomel) (#83258))
 	affected_mob.adjust_bodytemperature(rand(-25,-5) * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick, 50)
 	if(ishuman(affected_mob))
 		var/mob/living/carbon/human/humi = affected_mob
