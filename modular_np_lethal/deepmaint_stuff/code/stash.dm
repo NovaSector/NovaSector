@@ -13,7 +13,17 @@ GLOBAL_LIST_EMPTY(ckey_to_storage_box)
 	var/linked_ckey
 
 /datum/storage/stash_storage/open_storage(mob/to_show)
-	if(to_show.client.ckey != linked_ckey)
+	var/user_ckey = to_show.client.ckey
+	if(!linked_ckey)
+		if(!GLOB.ckey_to_storage_box[user_ckey])
+			GLOB.ckey_to_storage_box[user_ckey] = src
+		else if(GLOB.ckey_to_storage_box[user_ckey])
+			set_real_location(GLOB.ckey_to_storage_box[user_ckey])
+		else
+			message_admins("Peep the horror in secure container code, because it broke. Control-F this exact line to see why!")
+			return
+		linked_ckey = user_ckey
+	if(user_ckey != linked_ckey)
 		parent.balloon_alert(to_show, "you cannot access this!")
 		return FALSE
 
@@ -29,24 +39,12 @@ GLOBAL_LIST_EMPTY(ckey_to_storage_box)
 	storage_type = /datum/storage/stash_storage
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/secure_container/Initialize(mapload, storage_linked_ckey)
-	. = ..()
-	if(!storage_linked_ckey)
-		message_admins("[src] tried to spawn without a linked ckey, don't do that")
-		return INITIALIZE_HINT_QDEL
-	var/datum/storage/stash_storage/our_storage = atom_storage
-	our_storage.linked_ckey = storage_linked_ckey
-	if(!GLOB.ckey_to_storage_box[storage_linked_ckey])
-		GLOB.ckey_to_storage_box[storage_linked_ckey] = src
-	else if(GLOB.ckey_to_storage_box[storage_linked_ckey])
-		atom_storage.set_real_location(GLOB.ckey_to_storage_box[storage_linked_ckey])
-	else
-		message_admins("Peep the horror in secure container code, because it broke. Control-F this exact line to see why!")
-
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/secure_container/examine(mob/user)
 	. = ..()
 	var/datum/storage/stash_storage/our_storage = atom_storage
-	if(user.client.ckey == our_storage.linked_ckey)
+	if(!our_storage.linked_ckey)
+		. += span_engradio("This secure container has not been linked to anyone yet, open it to do so.")
+	else if(user.client.ckey == our_storage.linked_ckey)
 		. += span_engradio("This secure container is linked to you, and only you can open it.")
 	else
 		. += span_engradio("This secure container is inaccessible to you.")
