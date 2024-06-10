@@ -12,8 +12,8 @@ type IconSettings = {
 };
 
 const normalIcon: IconSettings = {
-  dmi: 'icons/mob/huds/hud.dmi',
-  transform: 'scale(2.3) translateX(8px) translateY(1px)',
+  dmi: 'modular_nova/master_files/icons/mob/huds/hud.dmi', // NOVA CHANGE - ORIGINAL 'icons/mob/huds/hud.dmi'
+  transform: 'scale(2.3) translateX(9px) translateY(1px)',
 };
 
 const antagIcon: IconSettings = {
