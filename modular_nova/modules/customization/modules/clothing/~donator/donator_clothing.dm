@@ -945,6 +945,7 @@
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	interaction_flags_click = NEED_DEXTERITY
 	/// Whether or not the mask is currently being layered over (or under!) hair. FALSE/null means the mask is layered over the hair (this is how it starts off).
 	var/wear_hair_over
 
@@ -967,12 +968,8 @@
 	if(wear_hair_over)
 		alternate_worn_layer = BACK_LAYER
 
-/obj/item/clothing/mask/gas/psycho_malice/alt_click_secondary(mob/user)
-	. = ..()
-	if(.)
-		return
-	if(user.can_perform_action(src, NEED_DEXTERITY))
-		adjust_mask(user)
+/obj/item/clothing/mask/gas/psycho_malice/click_alt_secondary(mob/user)
+	adjust_mask(user)
 
 //this moves the mask above or below the hair layer
 /obj/item/clothing/mask/gas/psycho_malice/proc/adjust_mask(mob/living/carbon/human/user)
