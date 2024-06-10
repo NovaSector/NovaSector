@@ -84,7 +84,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	if(prefs.unlock_content)
 		if(prefs.toggles & MEMBER_PUBLIC)
-			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui_icons/chat/member_content.dmi', world, "blag")][keyname]</font>"
+			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui/chat/member_content.dmi', world, "blag")][keyname]</font>"
 	// NOVA EDIT ADDITION START - Donator icons in OOC
 	if(SSplayer_ranks.is_donator(src))
 		if(prefs.read_preference(/datum/preference/toggle/display_donator_status))
