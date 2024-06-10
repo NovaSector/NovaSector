@@ -4,12 +4,11 @@
 // This sucks and is not how we should be allowing pais to use these emotes
 // for humans use selected_laugh, otherwise default to the species-specific laughs.
 /datum/emote/living/laugh/get_sound(mob/living/user)
-	var/selected_laugh
 	var/mob/living/carbon/human/human_user = user
 	if(!istype(human_user)) // pais
 		return
 
-	if(isnull(selected_laugh)) //For things that don't have a selected laugh(npcs)
+	if(isnull(human_user.selected_laugh)) //For things that don't have a selected laugh(npcs)
 		return ..()
 
 	if(human_user.gender == MALE || !LAZYLEN(human_user.selected_laugh.female_laughsounds))

@@ -18,7 +18,7 @@
 /mob/living/proc/soulcatcher_emote()
 	set name = "Soul Me"
 	set category = "IC"
-	set desc = "Send a emote to your currently targeted soulcatcher room."
+	set desc = "Send an emote to your currently targeted soulcatcher room."
 	var/datum/component/soulcatcher/target_soulcatcher = find_soulcatcher()
 	if(!target_soulcatcher || !target_soulcatcher.targeted_soulcatcher_room)
 		return FALSE
