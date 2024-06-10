@@ -6211,11 +6211,6 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/hideout_real)
-"Qd" = (
-/obj/structure/epic_loot_crafting_bench/medical,
-/obj/structure/epic_loot_crafting_bench/gear,
-/turf/closed/indestructible/steel,
-/area/gakster_location/hideout_real)
 "Qe" = (
 /obj/machinery/light/cold/dim/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -35974,7 +35969,7 @@ vr
 vr
 NT
 Lh
-NS
+dK
 dK
 ep
 dK
@@ -56294,7 +56289,7 @@ KC
 rA
 rA
 FN
-Qd
+pL
 Ea
 KC
 OK
