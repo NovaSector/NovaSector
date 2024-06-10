@@ -27,4 +27,6 @@
 	base_icon_state = "outpost"
 	shot_delay = 2 SECONDS
 	faction = list(FACTION_TURRET)
+	fragile = TRUE
+	turret_frame = /obj/item/turret_assembly
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost/pre_filled

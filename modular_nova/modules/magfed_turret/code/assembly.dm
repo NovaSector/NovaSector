@@ -9,8 +9,9 @@
 
 /obj/item/turret_assembly
 	name = "turret plate assembly"
-	icon_state = "turret-assembly"
-	desc = "A MOD shell."
+	icon = 'modular_nova/modules/magfed_turret/icons/assembly.dmi'
+	icon_state = "turret_assembly"
+	desc = "A case holding a set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction."
 	/// modular receiver
 	var/obj/item/receiver
 	/// proximity sensor
@@ -18,7 +19,7 @@
 	/// any stockpart servo
 	var/obj/item/servo
 	/// The turret being produced. Why so elaborate while everything else simple? iunno.
-	var/obj/item/storage/toolbox/emergency/turret/mag_fed/design = /obj/item/storage/toolbox/emergency/turret/mag_fed
+	var/obj/item/storage/toolbox/emergency/turret/mag_fed/design = /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost
 	/// step tracking
 	var/step = TURRET_ASSEMBLY_START
 
