@@ -388,3 +388,84 @@
   - rscadd: Remodeled Blueshift's atmos.
   grungussuss:
   - spellcheck: all instances of reactive armor are now spelt the same
+2024-06-10:
+  LT3:
+  - bugfix: Tram doors can now be constructed and assemblies built
+  - bugfix: Emergency opening tram doors no longer spam balloon alerts
+  - bugfix: Tram doors open faster on arrival
+  - bugfix: Tram doors correctly force close on attempt 3
+  - rscadd: Get ready for a trip to Wawastation, now with automapper templates!
+  - balance: Tram malfunction event frequency reduced by half
+  - rscadd: Telecoms now has a central tram controller
+  - rscadd: Tram controller is now included in communications blackout event
+  - qol: Tram malfunction event only stops tram once, requiring engineering to reset
+      (no tools required)
+  - qol: Tram malfunction event no longer sends a Central Command announcement when
+      fixed
+  - rscdel: Tram doors no longer force crush you during tram malfunction event
+  - rscdel: Silicons can no longer control the tram when communication is lost
+  Melbert:
+  - balance: Coders are now locked to the coderbus
+  NovaBot13:
+  - bugfix: fish with the Anxiety gene wont die when in the same loc as any 3 items
+  - balance: Changelings now do not like fire, as is tradition.
+  - balance: If they are on fire, they no longer generate chemicals until they put
+      the fire out.
+  - balance: If they are on fire, they no longer can use any changeling powers until
+      they put the fire out.
+  - balance: All changeling equippable items like armblades, shields, armor, spacesuits,
+      etc. are now flammable and super-duper vulnerable to flames.
+  - balance: The Armblade now costs 30 chemicals to equip, and has a DNA cost of 3,
+      compared to the previous 20 chemicals and 2 DNA cost.
+  - rscadd: The Armblade now shatters after enough uses in exactly the same way as
+      the Shield; extract genomes with Absorb to maximize your Armblade's efficiency.
+      for its' chemical cost.
+  - bugfix: Fixes items you're holding not catching on fire alongside the rest of
+      you when you light on fire.
+  - bugfix: Fixes the Changeling Shield having one more hit than it was supposed to.
+  - bugfix: Fixes certain quirks being erased by slimeperson cloning.
+  - balance: Roundstart mutadone pills now have less chems in them from 50 to 5
+  - code_imp: stacking machine consoles check in area instead of a tiny view range
+      on init
+  - rscadd: Adds a positronic sphere to bepis tech and roboticist mail goodies. It
+      can now wreack havoc across the robotics lab while whining for a DURAND body,
+      but you can also punt it!
+  - bugfix: energy bolas now work on prone targets and don't leave behind a fake item
+      when they whiff.
+  - bugfix: Snails no longer move at normal speed while resting.
+  - bugfix: Snails can no longer get insane speed from getting their legs replaced.
+  - bugfix: Humans don't become immensely slow when getting a Snail leg.
+  - admin: lube walking element is now much easier to mess with to fit however you
+      want to use it for.
+  - bugfix: Fixes several service and item-handling borg modules not functioning
+  - qol: Adds a chat message for fishing in a chasm with a normal and rescue hook,
+      to clarify that only rescue hooks can drag up corpses.
+  - bugfix: You may no longer submit, or obtain, a spy bounty for the contractor baton.
+  - bugfix: Lobstrosities are no longer pre-cooked through bluespace shenanigans.
+  ShizCalev:
+  - bugfix: The spooky element will now apply the spooked mood event when someone
+      is spooked.
+  - bugfix: Fixed spookers getting a popup message when spooking mobs not actively
+      controlled by a player.
+  - bugfix: Basic bots are now in the proper faction and will no longer be targeted
+      by turrets.
+  Thlumyn:
+  - bugfix: add general engineering access to birdshot engineering entrance
+  WebcomicArtist:
+  - rscadd: Added zaukerite (high damage/embed, low AP) and metallic hydrogen (High
+      AP and piercing, but low embed) crossbow ammo for the rebar crossbows
+  - rscadd: Added healium crystal ammo for the crossbow as well, which heals whomever
+      you shoot it at.
+  - rscadd: Added admin-only supermatter crossbow bolts that dust you, because why
+      the hell not.
+  - rscadd: Added non-harmful paper balls. Can be shot from a crossbow, or thrown
+      at co-workers.
+  - rscadd: Added a quiver made from cutting an o2 tank in half, to hold it all.
+  - image: added sprites for all the above.
+  - balance: Traitor Engineer Crossbow ammo now does 55 damage instead of 45, to make
+      it compete with revolver.
+  - balance: Stressed Rebar Crossbow now has a shorter delay required to rack it,
+      but can shoot you in the face on misfire.
+  - bugfix: fixed rebar crossbow shots not dropping items on hitting walls
+  - bugfix: fixed traitor crossbow having worse wound chance than the base one
+  - sound: added new crossbow firing sound effect
