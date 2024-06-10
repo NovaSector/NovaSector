@@ -98,9 +98,6 @@
 		var/obj/item/organ/new_implant = new iterated_implant()
 		new_implant.Insert(squaddie)
 
-	var/datum/martial_art/cqc/get_real = new
-	get_real.teach(squaddie)
-
 	squaddie.physiology.stamina_mod = 0.5
 
 	return ..()
