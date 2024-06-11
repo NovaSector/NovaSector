@@ -5,6 +5,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/commons)
+"ap" = (
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/commons)
 "at" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/grass,
@@ -456,6 +465,9 @@
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/commons)
 "pk" = (
@@ -829,6 +841,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white,
+/area/station/commons)
+"yh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/textured_large,
 /area/station/commons)
 "yq" = (
 /obj/structure/cable,
@@ -2094,8 +2112,8 @@ Gk
 (13,1,1) = {"
 lE
 QW
-QW
-Jp
+yh
+ap
 Mf
 vZ
 Bc
