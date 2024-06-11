@@ -26,20 +26,20 @@
 /datum/crafting_bench_recipe_real/breaching_weapons_drop_pod
 	recipe_name = "breaching weapon beacon"
 	recipe_requirements = list(
-		/obj/item/card/id/advanced = 3,
+		/obj/item/card/id/advanced = 2,
 	)
 	resulting_item = /obj/item/choice_beacon/filtre/breaching
 
 /datum/crafting_bench_recipe_real/turret_drop_pod
 	recipe_name = "point defense weapon beacon"
 	recipe_requirements = list(
-		/obj/item/card/id/advanced = 4,
+		/obj/item/card/id/advanced = 3,
 	)
 	resulting_item = /obj/item/choice_beacon/filtre/turret
 
 /datum/crafting_bench_recipe_real/explosives_drop_pod
 	recipe_name = "explosive support weapon beacon"
 	recipe_requirements = list(
-		/obj/item/card/id/advanced = 5,
+		/obj/item/card/id/advanced = 4,
 	)
 	resulting_item = /obj/item/choice_beacon/filtre/rocket
