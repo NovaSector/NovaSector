@@ -59,17 +59,14 @@
 
 /datum/outfit/job/gakster/post_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
 	. = ..()
-	if(!user.ckey)
-		message_admins("[user] tried to make a ckey locked container, but the mob didnt have a ckey attached!")
-		return
-	make_secure_container(user, user.ckey)
+	addtimer(CALLBACK(src, PROC_REF(make_secure_container), user), 5 SECONDS)
 
 /// Spawns the secure container and links it to the mob's ckey
-/datum/outfit/job/gakster/proc/make_secure_container(mob/living/carbon/human/spawned_mob, player_ckey)
-	if(!player_ckey)
+/datum/outfit/job/gakster/proc/make_secure_container(mob/living/carbon/human/spawned_mob)
+	if(!spawned_mob.ckey)
 		message_admins("[spawned_mob] tried to spawn a ckey linked secure container, but the proc got no ckey!")
 		return
-	var/obj/new_secure_container = new /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/secure_container(get_turf(spawned_mob), player_ckey)
+	var/obj/new_secure_container = new /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/secure_container(get_turf(spawned_mob), spawned_mob.ckey)
 	spawned_mob.put_in_hands(new_secure_container)
 
 /datum/outfit/plasmaman/gakster
