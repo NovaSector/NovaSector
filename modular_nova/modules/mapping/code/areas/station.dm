@@ -601,3 +601,27 @@
 /area/station/hallway/primary/primaryservicestairs
 	name = "Primary Service Stairwell"
 	icon_state = "primaryhall"
+
+/area/station/hallway/primary/spaceelevator
+	name = "Space Elevator"
+	icon_state = "vacant_room"
+
+/area/station/commons/arrivalsshop
+	name = "Gift Shop"
+	icon_state = "vacant_commissary"
+
+/area/station/hallway/primary/aftstarboardhall
+	name = "Aft Starboard Primary Hallway"
+	icon_state = "primaryhall"
+
+/area/station/hallway/primary/aftporthall
+	name = "Aft Port Primary Hallway"
+	icon_state = "primaryhall"
+
+/area/station/hallway/primary/forestarboardhall
+	name = "Fore Starboard Primary Hallway"
+	icon_state = "primaryhall"
+
+/area/station/hallway/primary/foreporthall
+	name = "Fore Port Primary Hallway"
+	icon_state = "primaryhall"
