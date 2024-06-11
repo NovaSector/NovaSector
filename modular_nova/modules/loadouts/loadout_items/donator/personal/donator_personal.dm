@@ -809,3 +809,13 @@
 	item_path = /obj/item/clothing/suit/hooded/seva/melon
 	ckeywhitelist = list("deadmonwonderland")
 	restricted_roles = list(JOB_SHAFT_MINER)
+
+/datum/loadout_item/suit/desminus
+	name = "Jómsvíking Coat"
+	item_path = /obj/item/clothing/suit/toggle/desminus
+	ckeywhitelist = list("desminus", "junglerat", "deadmonwonderland")
+
+/datum/loadout_item/suit/desminus2
+	name = "Elderwood Garment"
+	item_path = /obj/item/clothing/suit/toggle/desminus2
+	ckeywhitelist = list("desminus", "junglerat", "deadmonwonderland")
