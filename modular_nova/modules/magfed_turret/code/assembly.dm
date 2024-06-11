@@ -137,15 +137,6 @@
 				if(part.use_tool(src, user, 0, volume=30))
 					balloon_alert(user, "assembly unsecured")
 					step = TURRET_ASSEMBLY_SEC_3
-	update_icon_state()
-
-/obj/item/turret_assembly/update_icon_state()
-	. = ..()
-	if(step == TURRET_ASSEMBLY_START)
-		icon_state = "[initial(icon_state)]"
-	else
-		icon_state = "[initial(icon_state)]-opened"
-
 
 /obj/item/turret_assembly/Destroy()
 	QDEL_NULL(receiver)

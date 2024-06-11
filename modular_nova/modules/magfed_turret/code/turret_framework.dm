@@ -47,6 +47,10 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/turret_safety = FALSE
 	////// Whether the turret will deploy obeying flags.
 	var/flags_on = FALSE
+	////// Whether the turret needs a wrench to deploy. Still needs a wrench to pack up.
+	var/easy_deploy = FALSE
+	////// If easy deployable, how quick will it be?
+	var/easy_deploy_timer = 2 SECONDS
 	////// Whether the turret can deploy by being thrown
 	var/quick_deployable = FALSE
 	////// How long the turret takes to deploy when quick_deploying
@@ -71,7 +75,10 @@ DEFINE_BITFIELD(turret_flags, list(
 	. = ..()
 	. += span_notice("The targeting safety is [turret_safety ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")
 	. += span_notice("The turret is [flags_on ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
-	. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <b>wrenching tool.</b>")
+	if(!easy_deploy)
+		. += span_notice("You can deploy this by clicking in <b>combat mode</b> with a <b>wrenching tool.</b>")
+	else
+		. += span_notice("You can deploy this by <b>using it</b> or using a <b>wrenching tool</b> in <b>combat mode</b>")
 	if(setting_change)
 		. += span_notice("You can toggle the targeting safety with a <b>screwdriving bit.</b>")
 		. += span_notice("You can change if the turret obeys flags with a <b>multitool.</b>")
@@ -131,11 +138,30 @@ DEFINE_BITFIELD(turret_flags, list(
 	user.visible_message(span_danger("[user] bashes [src] with [attacking_item]!"), \
 		span_danger("You bash [src] with [attacking_item]!"), null, COMBAT_MESSAGE_RANGE)
 
-	deploy_turret(user)
+	deploy_turret(user, loc)
 
-/obj/item/storage/toolbox/emergency/turret/mag_fed/proc/deploy_turret(mob/living/user)
+/obj/item/storage/toolbox/emergency/turret/mag_fed/attack_self(mob/user, modifiers)
+	if(!easy_deploy)
+		return
+	var/turf/chosen_spot = get_step(user, user.dir) //find spot infront of person and places it there
+	if(chosen_spot.is_blocked_turf(TRUE, src))
+		balloon_alert(user, "area is unfit for deployment.")
+		return
+	balloon_alert(user, "deploying...")
+	playsound(src, 'sound/items/ratchet.ogg', 50, TRUE)
+	if(!do_after(user, easy_deploy_timer))
+		return
+	deploy_turret(user, chosen_spot)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/proc/deploy_turret(mob/living/user, turf/chosen_spot)
+	var/turf/target_area = chosen_spot
+	if(!chosen_spot)
+		target_area = loc
+	if(target_area.is_blocked_turf(TRUE, src))
+		balloon_alert(user, "deployment area is unfit for deploying.")
+		return
 	playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
-	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(get_turf(loc))
+	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(target_area)
 	set_faction(turret, user)
 	turret.mag_box = WEAKREF(src)
 	if(turret_safety == TRUE)
