@@ -2108,7 +2108,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/toggle/desminus2
 	name = "elderwood garment"
-	desc = "A cloak forged from the finest strands of elderwood trees. It is woven in an old elven style, with reinforced hides to keep nomatic tribes warm in bitter winters. It can be opened up to keep cool in the more temperate summers. On the collar is a silken weave with the engraving: Ad Avalon Infinitum."
+	desc = "A cloak forged from the finest strands of elderwood trees. It is woven in an old elven style, with reinforced hides to keep nomadic tribes warm in bitter winters. It can be opened up to keep cool in the more temperate summers. On the collar is a silken weave with the engraving: Ad Avalon Infinitum."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
