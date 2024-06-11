@@ -2091,3 +2091,23 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
 	icon_state = "seva_melon"
+
+//donator reward for Desminus
+
+/obj/item/clothing/suit/toggle/desminus
+	name = "jómsvíking coat"
+	desc = "A long, woolen coat. Made for those who pillaged and plundered countless people in their age. It was built to stand the test of time. This one is white as pure snow, adorned with the whiskers of a black drake and with every silken stitch hand woven."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+	icon_state = "jomcoat"
+
+/obj/item/clothing/suit/toggle/desminus2
+	name = "elderwood garment"
+	desc = "A cloak forged from the finest strands of elderwood trees. It is woven in an old elven style, with reinforced hides to keep nomadic tribes warm in bitter winters. It can be opened up to keep cool in the more temperate summers. On the collar is a silken weave with the engraving: Ad Avalon Infinitum."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+	icon_state = "eldercoat"
