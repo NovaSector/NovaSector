@@ -154,7 +154,7 @@
 
 /obj/item/frozen_breath/afterattack(atom/target, mob/living/carbon/user)
     if (!is_species(user, /datum/species/human/felinid/primitive))
-        to_chat(user, span_warning("You have no idea what this freezing concoction is used for."))
+        to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
         return
 
     if(istype(target, /obj/item/organ/internal/lungs))
