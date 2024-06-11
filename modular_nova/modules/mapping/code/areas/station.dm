@@ -595,3 +595,9 @@
 /area/station/science/xenobiology/control
 	name = "\improper Xenobiology Control Room"
 	icon_state = "xenobio"
+
+//Snowglobe Areas
+
+/area/station/hallway/primary/primaryservicestairs
+	name = "Primary Service Stairwell"
+	icon_state = "primaryhall"
