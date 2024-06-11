@@ -11,9 +11,9 @@
 	max_integrity = 100
 	integrity_failure = 0.35
 	max_buckled_mobs = 2
-	/// What material this bed is made of
+	// What material this bed is made of
 	build_stack_type = /obj/item/stack/tile/grass/thatch
-	/// How many mats to drop when deconstructed
+	// How many mats to drop when deconstructed
 	build_stack_amount = 4
 
 /obj/structure/bed/double/thatch/atom_deconstruct(disassembled = TRUE)
