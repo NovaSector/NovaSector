@@ -6,7 +6,7 @@
 	///The range of this motion detector
 	var/scan_range = 9
 	/// Used for the cooldown below, how long do we wait between uses
-	var/scan_cooldown_time = 15 SECONDS
+	var/scan_cooldown_time = 10 SECONDS
 	/// Time between using the big ping scan
 	COOLDOWN_DECLARE(motion_detector_cooldown)
 

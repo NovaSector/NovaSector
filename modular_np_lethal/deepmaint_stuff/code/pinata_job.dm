@@ -101,7 +101,7 @@
 		/obj/item/organ/internal/cyberimp/brain/anti_drop,
 		/obj/item/organ/internal/cyberimp/sensory_enhancer,
 		/obj/item/organ/internal/cyberimp/mouth/breathing_tube,
-		/obj/item/organ/internal/eyes/robotic/thermals,
+		/obj/item/organ/internal/eyes/robotic/binoculars,
 	)
 	for(var/iterated_implant in implants_to_add)
 		var/obj/item/organ/new_implant = new iterated_implant()
