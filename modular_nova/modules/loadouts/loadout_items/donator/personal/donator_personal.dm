@@ -811,6 +811,6 @@
 	restricted_roles = list(JOB_SHAFT_MINER)
 
 /datum/loadout_item/pocket_items/akarimod
-	name = "Akari's mod refitter"
+	name = "Akari's MOD Refitter"
 	item_path = /obj/item/mod/skin_applier/akari
 	ckeywhitelist = list("samman166", "cainedclxvi")

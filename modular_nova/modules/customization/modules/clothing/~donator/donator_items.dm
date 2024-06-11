@@ -267,8 +267,8 @@
 	. += emissive_appearance('modular_nova/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_obj_lights_emissive", src, alpha = src.alpha)
 
 /obj/item/mod/skin_applier/akari
-	name = "nanite modsuit refitter"
-	desc = "A small kit full of nanites designed to refit a modsuit to Akari's personal design. Only compatible with fused modsuits due to the refit's reliance on a symbiote."
+	name = "nanite MODsuit refitter"
+	desc = "A small kit full of nanites designed to refit a MODsuit to Akari's personal design. Only compatible with fused MODsuits due to the refit's reliance on a symbiote."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	icon_state = "skinapplier"
 	skin = "akari"
