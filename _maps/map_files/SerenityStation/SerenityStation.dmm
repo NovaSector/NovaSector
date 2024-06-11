@@ -6998,7 +6998,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "bYm" = (
 /obj/effect/landmark/secequipment,
@@ -23562,9 +23565,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "gNd" = (
-/obj/effect/turf_decal/vg_decals/department/hop{
-	pixel_x = 32
-	},
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -67870,7 +67870,10 @@
 "tLm" = (
 /obj/machinery/light/directional/south,
 /obj/structure/closet/emcloset,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "tLn" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -79023,7 +79026,10 @@
 "wXt" = (
 /obj/structure/closet/firecloset,
 /obj/effect/landmark/start/hangover/closet,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "wXv" = (
 /obj/structure/closet/toolcloset,
