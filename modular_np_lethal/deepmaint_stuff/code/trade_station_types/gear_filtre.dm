@@ -16,9 +16,9 @@
 /obj/structure/epic_loot_crafting_bench/gear/examine_more(mob/user)
 	. = ..()
 
-	. += span_notice("<b>3</b> ID cards = <b>1</b> breaching weapon beacon")
-	. += span_notice("<b>4</b> ID cards = <b>1</b> point defense weapon beacon")
-	. += span_notice("<b>5</b> ID cards = <b>1</b> explosive support weapon beacon")
+	. += span_notice("<b>2</b> ID cards = <b>1</b> breaching weapon beacon")
+	. += span_notice("<b>3</b> ID cards = <b>1</b> point defense weapon beacon")
+	. += span_notice("<b>4</b> ID cards = <b>1</b> explosive support weapon beacon")
 	return .
 
 /// Drop pod callers
