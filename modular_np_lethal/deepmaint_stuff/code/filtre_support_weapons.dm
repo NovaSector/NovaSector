@@ -11,7 +11,6 @@
 		"style" = STYLE_MISSILE,
 		"spawn" = choice_path,
 		"delays" = list(POD_TRANSIT = 0, POD_FALLING = (15 SECONDS), POD_OPENING = (5 SECONDS), POD_LEAVING = 0),
-		"effectMissile" = TRUE,
 		"explosionSize" = list(0,0,1,2)
 	))
 
