@@ -522,6 +522,30 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/goose_honk.ogg'
 
+/datum/emote/living/mggaow
+	key = "mggaow"
+	key_third_person = "meows loudly"
+	message = "meows loudly!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/mggaow.ogg'
+
+/datum/emote/living/mrrp
+	key = "mrrp"
+	key_third_person = "mrrps"
+	message = "mrrps!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/mrrp.ogg'
+
+/datum/emote/living/prbt
+	key = "prbt"
+	key_third_person = "prbts!"
+	message = "prbts!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'modular_nova/modules/emotes/sound/voice/prbt.ogg'
+
 /datum/emote/living/gnash
 	key = "gnash"
 	key_third_person = "gnashes"
