@@ -59,8 +59,10 @@
 
 /datum/outfit/job/gakster/post_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
 	. = ..()
-	if(user.client?.ckey)
-		make_secure_container(user, user.client.ckey)
+	if(!user.ckey)
+		message_admins("[user] tried to make a ckey locked container, but the mob didnt have a ckey attached!")
+		return
+	make_secure_container(user, user.ckey)
 
 /// Spawns the secure container and links it to the mob's ckey
 /datum/outfit/job/gakster/proc/make_secure_container(mob/living/carbon/human/spawned_mob, player_ckey)
