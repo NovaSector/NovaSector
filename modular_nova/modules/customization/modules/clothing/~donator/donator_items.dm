@@ -274,7 +274,7 @@
 	skin = "akari"
 
 /obj/item/mod/skin_applier/akari/pre_attack(atom/attacked_atom, mob/living/user, params)
-	if(!istype(attacked_atom, /obj/item/mod/control))
+	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/entombed))
 		return ..()
 	var/obj/item/mod/control/mod = attacked_atom
 	mod.theme.variants += list("akari" = list(
