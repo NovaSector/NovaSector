@@ -166,7 +166,8 @@
         playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)
         user.visible_message(span_notice("[user] pours a strange blue liquid over the set of lungs. The flesh starts glistening in a strange cyan light, transforming before your very eyes."),
             span_notice("Recalling the instructions for the lung transfiguration ritual, you pour the liquid over the flesh of the organ. Soon, the lungs glow in a mute cyan light, before they turn dim and change form before your very eyes."))
-        new /obj/item/organ/internal/lungs/icebox_adapted(location)
+        var/obj/item/organ/internal/lungs/icebox_adapted/new_lungs = new(location)
+        new_lungs.damage = target_lungs.damage
         qdel(target_lungs)
         qdel(src)
 
