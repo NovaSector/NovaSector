@@ -174,7 +174,7 @@
 /obj/item/frozen_breath/examine(mob/user)
     . = ..()
     if(is_species(user, /datum/species/human/felinid/primitive))
-        . += span_info("Using this on a pair of organic lungs transforms them into hardy lungs.")
+        . += span_info("Using this on a pair of organic lungs transforms them into hardy lungs. This will remove any other special features from the old lungs, if there were any.")
 
 /datum/crafting_recipe/frozen_breath
     name = "Frozen Breath"
