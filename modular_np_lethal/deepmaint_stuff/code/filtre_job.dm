@@ -90,4 +90,5 @@
 	assignment = "Filtre"
 
 /obj/effect/landmark/start/lethal_filtre
+	delete_after_roundstart = FALSE
 	name = "Filtre"

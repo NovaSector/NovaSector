@@ -124,6 +124,7 @@
 	assignment = "Pinata"
 
 /obj/effect/landmark/start/lethal_pinata
+	delete_after_roundstart = FALSE
 	name = "Piñata"
 
 ///Try to attach this bodypart to a mob, while replacing one if it exists, deletes the old limb if successful
