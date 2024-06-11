@@ -40,6 +40,14 @@
 	ADD_TRAIT(spawned, TRAIT_NO_EXTRACT, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_CHUNKYFINGERS, JOB_TRAIT)
 
+/datum/job/pinata/get_latejoin_spawn_point()
+	var/list/spawn_markers_to_use = list()
+	for(var/obj/effect/landmark/start/spawn_point as anything in GLOB.start_landmarks_list)
+		if(spawn_point.name != job_spawn_title)
+			continue
+		spawn_markers_to_use += spawn_point
+	return pick(spawn_markers_to_use)
+
 /datum/outfit/job/pinata
 	name = "Piñata"
 	jobtype = /datum/job/pinata

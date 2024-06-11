@@ -33,6 +33,14 @@
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_EXTRACT_TO_FILTRE_SHIP, JOB_TRAIT)
 
+/datum/job/filtre/get_latejoin_spawn_point()
+	var/list/spawn_markers_to_use = list()
+	for(var/obj/effect/landmark/start/spawn_point as anything in GLOB.start_landmarks_list)
+		if(spawn_point.name != job_spawn_title)
+			continue
+		spawn_markers_to_use += spawn_point
+	return pick(spawn_markers_to_use)
+
 /datum/outfit/job/filtre
 	name = "Filtre"
 	jobtype = /datum/job/filtre
