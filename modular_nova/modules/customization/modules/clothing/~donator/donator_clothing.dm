@@ -2099,7 +2099,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/toggle/desminus
 	name = "jómsvíking coat"
-	desc = "A long, woolen coat. Made for those who pillaged and plundered countless people in their age. It was built to stand the test of time. This one is white as pure snow, adorned with the whiskers of a black drake and with every silken stitch hand woven. On the collar bears an engraving: To the seeker of Avalon."
+	desc = "A long, woolen coat. Made for those who pillaged and plundered countless people in their age. It was built to stand the test of time. This one is white as pure snow, adorned with the whiskers of a black drake and with every silken stitch hand woven."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
