@@ -49,11 +49,9 @@
 			"icon" = "person-rifle",
 			"products" = list(
 				/obj/item/flashlight/flare = INFINITY,
-				/obj/item/ammo_box/magazine/ammo_stack/c980/prefilled/fire = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/c980/prefilled/smoke = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/c980/prefilled/shrap = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/c980/prefilled/gas = INFINITY,
-				/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/dragonsbreath = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/beehive = INFINITY,
 				/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/breacher = INFINITY,
