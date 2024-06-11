@@ -114,7 +114,7 @@
 	. = ..()
 
 	. += span_notice("<b>Armor Trade Station:</b>")
-	. += span_notice("- <b>1</b> of these + <b>1</b> thermal camera module + <b>1</b> signal amplifier can be traded for <b>1</b> pair of thermal vision goggles.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> thermal camera module + <b>1</b> signal amplifier can be traded for <b>1</b> motion detector.")
 
 	return .
 
@@ -167,7 +167,7 @@
 
 	. += span_notice("<b>Armor Trade Station:</b>")
 	. += span_notice("- <b>1</b> of these + <b>1</b> current converter can be traded for <b>1</b> pair of night vision goggles.")
-	. += span_notice("- <b>1</b> of these + <b>1</b> thermal camera module + <b>1</b> tube of cold weld can be traded for <b>1</b> pair of thermal vision goggles")
+	. += span_notice("- <b>1</b> of these + <b>1</b> thermal camera module + <b>1</b> tube of cold weld can be traded for <b>1</b> motion detector")
 
 	return .
 
@@ -183,7 +183,7 @@
 	. = ..()
 
 	. += span_notice("<b>Armor Trade Station:</b>")
-	. += span_notice("- <b>1</b> of these + <b>1</b> signal amplifier + <b>1</b> tube of cold weld can be traded for <b>1</b> pair of thermal vision goggles.")
+	. += span_notice("- <b>1</b> of these + <b>1</b> signal amplifier + <b>1</b> tube of cold weld can be traded for <b>1</b> motion detector.")
 
 	return .
 

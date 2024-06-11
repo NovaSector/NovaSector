@@ -51,6 +51,7 @@
 	box = null
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/medipen/deforest/captagon = 1,
+		/obj/item/motiondetector = 1,
 	)
 	belt = null
 	ears = /obj/item/radio/headset/headset_cent/alt

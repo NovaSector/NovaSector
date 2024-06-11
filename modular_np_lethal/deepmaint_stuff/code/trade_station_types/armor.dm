@@ -32,7 +32,7 @@
 
 	. += span_notice("<b>1</b> slim diary = <b>1</b> sunglasses")
 	. += span_notice("<b>1</b> signal amplifier + <b>1</b> current converter = <b>1</b> night vision goggles")
-	. += span_notice("<b>1</b> cold weld + <b>1</b> signal amplifier + <b>1</b> thermal camera = <b>1</b> thermal vision goggles")
+	. += span_notice("<b>1</b> cold weld + <b>1</b> signal amplifier + <b>1</b> thermal camera = <b>1</b> motion detector")
 	. += span_notice("<b>1</b> high-resistance fabric = <b>1</b> type I 'Kami' vest")
 	. += span_notice("<b>1</b> high-resistance fabric + <b>1</b> appendix = <b>1</b> type II 'Koranda' vest")
 	. += span_notice("<b>1</b> polymer weave fabric + <b>1</b> tear-resistant fabric = <b>1</b> type II 'Touvou' vest")
@@ -63,13 +63,13 @@
 	resulting_item = /obj/item/clothing/glasses/night
 
 /datum/crafting_bench_recipe_real/thermals
-	recipe_name = "thermal vision goggles"
+	recipe_name = "motion detector"
 	recipe_requirements = list(
 		/obj/item/epic_loot/cold_weld = 1,
 		/obj/item/epic_loot/signal_amp = 1,
 		/obj/item/epic_loot/thermal_camera = 1,
 	)
-	resulting_item = /obj/item/clothing/glasses/thermal
+	resulting_item = /obj/item/motiondetector
 
 // Armor
 

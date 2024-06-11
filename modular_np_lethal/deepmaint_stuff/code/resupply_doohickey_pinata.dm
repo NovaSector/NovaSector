@@ -116,6 +116,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot/evil/inborn
 				/obj/item/storage/backpack/industrial/frontier_colonist/messenger = INFINITY,
 				/obj/item/storage/backpack/industrial/frontier_colonist/satchel = INFINITY,
 				/obj/item/shield/ballistic = INFINITY,
+				/obj/item/motiondetector = INFINITY,
 			),
 		),
 		list(
