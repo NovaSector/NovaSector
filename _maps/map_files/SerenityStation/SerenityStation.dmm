@@ -28236,6 +28236,7 @@
 /area/station/cargo/sorting)
 "ieP" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/white/small,
 /area/station/science/xenobiology)
 "ieR" = (
@@ -74668,6 +74669,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/iron/white/small,
 /area/station/science/xenobiology)
 "vJP" = (
