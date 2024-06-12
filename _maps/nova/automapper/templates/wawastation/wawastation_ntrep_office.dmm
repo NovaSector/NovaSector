@@ -27,6 +27,13 @@
 	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
+"e" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/obj/effect/landmark/start/nanotrasen_consultant,
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/nt_rep)
 "f" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -84,6 +91,7 @@
 	},
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/light/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "q" = (
@@ -122,6 +130,7 @@
 /obj/machinery/light/small/blacklight/directional/east{
 	desc = "A small lighting fixture. Why is this here?"
 	},
+/obj/effect/landmark/start/nanotrasen_consultant,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "B" = (
@@ -153,6 +162,9 @@
 /area/station/command/heads_quarters/nt_rep)
 "F" = (
 /obj/machinery/airalarm/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "H" = (
@@ -213,6 +225,7 @@
 /obj/structure/chair/office/tactical{
 	dir = 8
 	},
+/obj/effect/landmark/start/nanotrasen_consultant,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "Q" = (
@@ -315,7 +328,7 @@ D
 L
 R
 V
-V
+e
 a
 v
 "}
