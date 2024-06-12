@@ -19803,8 +19803,8 @@
 	pixel_y = 4
 	},
 /obj/item/folder/white{
-	pixel_x = 16;
-	pixel_y = 3
+	pixel_x = -11;
+	pixel_y = 2
 	},
 /obj/item/radio/headset/headset_srvmed{
 	pixel_x = -1;
@@ -21376,7 +21376,6 @@
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "gil" = (
-/obj/structure/table/wood,
 /obj/machinery/computer/med_data/laptop{
 	dir = 1;
 	pixel_y = 4
@@ -27908,7 +27907,6 @@
 /turf/open/floor/engine,
 /area/station/engineering/main)
 "ian" = (
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -46463,7 +46461,6 @@
 "nuJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -63802,7 +63799,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/firealarm/directional/east,
+/obj/machinery/firealarm/directional/east{
+	pixel_y = 13
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/patients_rooms)
 "sFC" = (
