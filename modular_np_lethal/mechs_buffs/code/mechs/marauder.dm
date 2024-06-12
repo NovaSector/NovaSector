@@ -23,7 +23,7 @@
 		MECHA_POWER = 1,
 		MECHA_ARMOR = 3,
 	)
-	bumpsmash = TRUE
+	bumpsmash = FALSE
 
 /datum/armor/mecha_marauder
 	melee = 35
