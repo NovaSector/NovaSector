@@ -36548,6 +36548,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/jungle/b,
+/obj/structure/sign/xenobio_guide/directional/south,
 /turf/open/floor/grass,
 /area/station/science/xenobiology)
 "kxi" = (
@@ -36759,14 +36760,13 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/sushi_maint)
 "kAr" = (
-/obj/machinery/atmospherics/pipe/multiz/violet/visible{
-	name = "Infiltrate";
-	dir = 1
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/structure/sign/warning/radiation/rad_area/directional/south,
+/obj/machinery/atmospherics/pipe/multiz/violet/visible{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "kAv" = (
@@ -63213,6 +63213,7 @@
 /obj/structure/chair/office{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/tcommsat/computer)
 "sxt" = (
@@ -82067,14 +82068,13 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "xVB" = (
-/obj/machinery/atmospherics/pipe/multiz/violet/visible{
-	name = "Infiltrate";
-	dir = 1
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/machinery/light/small/directional/south,
+/obj/machinery/atmospherics/pipe/multiz/violet/visible{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "xVE" = (
@@ -113603,7 +113603,7 @@ iMY
 iMY
 iMY
 iMY
-pRr
+xhJ
 iMY
 iMY
 iMY
