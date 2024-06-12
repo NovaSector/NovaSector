@@ -488,3 +488,43 @@
       CUTTING ME OPEN!!" surgical mood event.
   Zergspower:
   - rscadd: Adds a blep option for sensitive snout trait
+2024-06-12:
+  Goat:
+  - bugfix: blood drunk miner can now path over lava
+  NovaBot13:
+  - bugfix: Polishes up new Meta Cargo's decals and associated amenities.
+  - bugfix: Eastern icebox visitation door no longer missing a floor tile.
+  - qol: the first Medieval pirate to spawn will be the Warlord, warlord and crude
+      helmet have flash protection
+  - bugfix: Medieval shuttle has actual engines now
+  - bugfix: Shortsword has its original colours
+  - bugfix: Crude helmet no longer makes you bald
+  - rscadd: wawastation, the station map
+  - rscadd: New room in Wawastation, the Cytology Lab! Positioned behind the test
+      fire range.
+  - bugfix: there is now one more crayon in the Mortidrobe.
+  - rscadd: The Lizard's Gas ruin in Lavaland has been revamped, and now dispenses
+      plasma gas fuel.
+  - bugfix: The Syndicate has corrected some technical issues at a listening post
+      in the Icemoon.
+  RatFromTheJungle:
+  - rscadd: You can now craft torches, to uhhh light stuff.
+  - qol: made it more practical to craft quivers by using string, keeping it inline
+      with belt-primal-options.
+  TheSS13Melon:
+  - rscadd: Gives Desminus 2 donator coats.
+  Zergspower:
+  - rscadd: Added a gun beacon to the Blueshield Loadout, removing the locker spawn
+  - rscadd: Added a Hellfire Custom for the Blueshield to select as a weapon option
+  - qol: Gun beacons have descriptions for the NTC's
+  - qol: Blueshield now has acces to the ORM and NTC office
+  avimour:
+  - image: 'New Ears: Setaceous, Medium Setaceous, Geniculate , and Eye'
+  - image: 'New Snouts: Dragonfly, Bug (No Antennae)'
+  - image: 'New Body Marking: Chitin'
+  grungususs:
+  - bugfix: fixed the hole in lawyer's office on tramstation
+  the-og-gear:
+  - balance: Maintenance drones now have a duffel bag instead of a backpack.
+  tmyqlfpir:
+  - rscadd: Added mggaow, prbt and mrrp emotes from bubberstation

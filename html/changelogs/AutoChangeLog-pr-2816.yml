@@ -1,7 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - rscadd: "Added a gun beacon to the Blueshield Loadout, removing the locker spawn"
-  - rscadd: "Added a Hellfire Custom for the Blueshield to select as a weapon option"
-  - qol: "Gun beacons have descriptions for the NTC's"
-  - qol: "Blueshield now has acces to the ORM and NTC office"
