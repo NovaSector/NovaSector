@@ -7939,7 +7939,7 @@
 	anchored = 1;
 	name = "Poppy's bed"
 	},
-/mob/living/simple_animal/pet/poppy,
+/mob/living/basic/pet/poppy,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "cqr" = (
