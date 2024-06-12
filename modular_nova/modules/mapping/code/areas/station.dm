@@ -625,3 +625,7 @@
 /area/station/hallway/primary/foreporthall
 	name = "Fore Port Primary Hallway"
 	icon_state = "primaryhall"
+
+/area/station/service/greenroom
+	name = "Theater Greenroom"
+	icon_state = "vacant_room"
