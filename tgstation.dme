@@ -6650,6 +6650,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\pets\bumbles.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\poppy.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\syndicatefox.dm"
+#include "modular_nova\master_files\code\modules\mob\living\pets\cat\fennec.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\dog\corgi.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\dog\doberman.dm"
 #include "modular_nova\master_files\code\modules\mob\living\pets\dog\markus.dm"
