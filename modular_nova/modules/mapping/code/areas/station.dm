@@ -628,4 +628,12 @@
 
 /area/station/service/greenroom
 	name = "Theater Greenroom"
-	icon_state = "vacant_room"
+	icon_state = "theatre"
+
+/area/station/cargo/miningstairs
+	name = "Mining Stairwell"
+	icon_state = "mining"
+
+/area/station/cargo/miningfoyer
+	name = "Mining Foyer"
+	icon_state = "mining_lobby"
