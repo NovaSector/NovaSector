@@ -83,30 +83,11 @@
 		crusher_trophy.remove_from(src, user)
 	return ITEM_INTERACT_SUCCESS
 
-<<<<<<< HEAD
-/obj/item/kinetic_crusher/attack(mob/living/target, mob/living/carbon/user)
-	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
-		user.balloon_alert(user, "must be wielded!")
-		return
-	var/datum/status_effect/crusher_damage/crusher_damage_effect = target.has_status_effect(/datum/status_effect/crusher_damage)
-	if(!crusher_damage_effect)
-		crusher_damage_effect = target.apply_status_effect(/datum/status_effect/crusher_damage)
-	var/target_health = target.health
-	..()
-	for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
-		if(!QDELETED(target))
-			crusher_trophy.on_melee_hit(target, user)
-	if(!QDELETED(crusher_damage_effect) && !QDELETED(target))
-		crusher_damage_effect.total_damage += target_health - target.health //we did some damage, but let's not assume how much we did
-
-/obj/item/kinetic_crusher/afterattack(mob/living/target, mob/living/user, proximity_flag, clickparams)
-=======
 /obj/item/kinetic_crusher/pre_attack(atom/A, mob/living/user, params)
->>>>>>> ff6b41aa074 (Afterattack is dead, long live Afterattack (#83818))
 	. = ..()
 	if(.)
 		return TRUE
-	if(!HAS_TRAIT(src, TRAIT_WIELDED))
+	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		user.balloon_alert(user, "must be wielded!")
 		return TRUE
 	return .
@@ -153,16 +134,8 @@
 	SEND_SIGNAL(user, COMSIG_LIVING_CRUSHER_DETONATE, target, src, backstabbed)
 	target.apply_damage(combined_damage, BRUTE, blocked = def_check)
 
-<<<<<<< HEAD
-/obj/item/kinetic_crusher/attack_secondary(atom/target, mob/living/user, clickparams)
-	return SECONDARY_ATTACK_CONTINUE_CHAIN
-
-/obj/item/kinetic_crusher/afterattack_secondary(atom/target, mob/living/user, proximity_flag, click_parameters)
-	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
-=======
 /obj/item/kinetic_crusher/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!HAS_TRAIT(src, TRAIT_WIELDED))
->>>>>>> ff6b41aa074 (Afterattack is dead, long live Afterattack (#83818))
+	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		balloon_alert(user, "wield it first!")
 		return ITEM_INTERACT_BLOCKING
 	if(interacting_with == user)

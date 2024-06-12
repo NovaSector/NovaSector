@@ -253,31 +253,18 @@
 	buyer_account = _buyer_account
 	ADD_TRAIT(src, TRAIT_NO_MISSING_ITEM_ERROR, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NO_MANIFEST_CONTENTS_ERROR, TRAIT_GENERIC)
-
-<<<<<<< HEAD
-	//NOVA EDIT START
+	//NOVA EDIT ADDITION START
 	if(istype(buyer_account, /datum/bank_account/department))
 		department_purchase = TRUE
 		department_account = buyer_account
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
-/obj/item/storage/lockbox/order/attackby(obj/item/W, mob/user, params)
-	var/obj/item/card/id/id_card = W.GetID()
-	if(!id_card)
-		return ..()
-
-	if(iscarbon(user))
-		add_fingerprint(user)
-
-	if((id_card.registered_account != buyer_account) && !(department_purchase && (id_card.registered_account?.account_job?.paycheck_department) == (department_account.department_id))) //NOVA EDIT
-=======
 /obj/item/storage/lockbox/order/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
 	var/obj/item/card/id/id_card = inserted.GetID()
 	if(!id_card)
 		return ..()
 
-	if(id_card.registered_account != buyer_account)
->>>>>>> ff6b41aa074 (Afterattack is dead, long live Afterattack (#83818))
+	if((id_card.registered_account != buyer_account) && !(department_purchase && (id_card.registered_account?.account_job?.paycheck_department) == (department_account.department_id))) //NOVA EDIT CHANGE - ORIGINAL: if(id_card.registered_account != buyer_account)
 		balloon_alert(user, "incorrect bank account!")
 		return FALSE
 
