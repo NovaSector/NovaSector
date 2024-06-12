@@ -7954,7 +7954,7 @@
 	},
 /obj/machinery/vending/cigarette/syndicate,
 /obj/machinery/camera/xray/directional/east{
-	c_tag = "DS-2 Botany";
+	c_tag = "DS-2 Library";
 	network = list("ds2")
 	},
 /turf/open/floor/wood/parquet,
