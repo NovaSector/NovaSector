@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - rscadd: "Added new keywords (%d, %date, %t, %time) for fields"
