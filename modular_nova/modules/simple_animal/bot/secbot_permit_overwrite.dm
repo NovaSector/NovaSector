@@ -8,9 +8,3 @@
 
 /obj/item/knife/razor_claws
 	item_flags = null
-
-/obj/item/knife/kitchen
-	item_flags = null
-
-/obj/item/knife/plastic
-	item_flags = null
