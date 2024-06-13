@@ -109,6 +109,7 @@
 	knife_force = ENHANCED_KNIFE_FORCE
 	knife_wound_bonus = ENHANCED_KNIFE_WOUND_BONUS
 	armour_penetration = ENHANCED_KNIFE_ARMOR_PENETRATION //Let's give them some AP for the trouble.
+	item_flags |= NEEDS_PERMIT
 
 	if(tool_behaviour == TOOL_KNIFE)
 		force = knife_force
