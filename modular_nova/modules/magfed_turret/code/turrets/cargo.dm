@@ -11,6 +11,8 @@
 	mag_slots = 1
 	quick_deployable = TRUE
 	quick_deploy_timer = 0.5 SECONDS
+	easy_deploy = TRUE
+	easy_deploy_timer = 0.5 SECONDS
 	turret_safety = FALSE
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/toy
@@ -26,6 +28,8 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/cargo.dmi'
 	icon_state = "toy_off"
 	base_icon_state = "toy"
+	quick_retract = TRUE
+	retract_timer = 1 SECONDS
 	shot_delay = 0.5 SECONDS
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled

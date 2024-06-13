@@ -311,6 +311,16 @@ DEFINE_BITFIELD(turret_flags, list(
 	ignore_faction = TRUE
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list(FACTION_TURRET)
+	////// Simple damage multiplier for bullets. 1 = normal bullet damage. 0.5 = half damage. 1.5 = 50% more damage. You get the gist.
+	var/turret_damage_multiplier = 1
+	////// Simple wound bonus for bullets. 0 = no bonus. 10 = more likely to wound. I dont know if we support negative bonuses.
+	var/turret_wound_bonus = 0
+	////// Can this turret be retracted without tools?
+	var/quick_retract = FALSE
+	///// Does quick_retract require faction tags?
+	var/smart_retract = TRUE
+	///// How long is the timer to retract?
+	var/retract_timer = 1 SECONDS
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
@@ -349,6 +359,32 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(!mag_box) //If we want to make map-spawned turrets in turret form.
 		var/auto_loader = new mag_box_type
 		mag_box = WEAKREF(auto_loader)
+	register_context()
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	var/screentip_change = FALSE
+
+	if(istype(held_item) && held_item.tool_behaviour == TOOL_WRENCH && in_faction(user))
+		context[SCREENTIP_CONTEXT_LMB] = "Repair Turret"
+		return screentip_change = TRUE
+	if(istype(held_item) && held_item.tool_behaviour == TOOL_WRENCH && in_faction(user))
+		context[SCREENTIP_CONTEXT_RMB] = "Retract Turret"
+		return screentip_change = TRUE
+	if(istype(held_item, /obj/item/ammo_box/magazine) && in_faction(user))
+		context[SCREENTIP_CONTEXT_LMB] = "Feed Turret"
+		return screentip_change = TRUE
+	if(istype(held_item, /obj/item/target_designator) && in_faction(user))
+		context[SCREENTIP_CONTEXT_LMB] = "Link Turret"
+		return screentip_change = TRUE
+	if(istype(held_item, /obj/item/target_designator) && in_faction(user))
+		context[SCREENTIP_CONTEXT_RMB] = "Unlink Turret"
+		return screentip_change = TRUE
+	if(quick_retract)
+		if(smart_retract && !in_faction(user))
+			return
+		context[SCREENTIP_CONTEXT_ALT_RMB] = "Retract Turret"
+		return screentip_change = TRUE
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/examine(mob/user) //If this breaks i'm gonna have to go to further seperate its examination text to allow better editing.
 	. = ..()
@@ -362,10 +398,12 @@ DEFINE_BITFIELD(turret_flags, list(
 		. += span_notice("You can link it by <b>left-clicking</b> with a <b>target designator.</b>")
 		. += span_notice("You can unlink it by <b>right-clicking</b> with a <b>target designator.</b>")
 		. += span_notice("You can force it to load a cartridge by <b>right-clicking</b> with an empty hand")
+		if(quick_retract)
+			. += span_notice ("You can retract it manually with <b>alt + right-click</b>!")
 		if(linkage)
 			. += span_notice("<b><i>This turret is currently linked!</i></b>")
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled) // Full re-write, to stop the toolbox var from being a runtimer
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/on_deconstruction(disassembled, mob/user) // Full re-write, to stop the toolbox var from being a runtimer
 	var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 	if(isnull(mag))
 		magazine_ref = null
@@ -661,6 +699,11 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/obj/projectile/our_projectile = casing.loaded_projectile
 	if(ignore_faction)
 		our_projectile.ignored_factions = (faction + allies)
+	our_projectile.damage *= turret_damage_multiplier
+	our_projectile.stamina *= turret_damage_multiplier
+
+	our_projectile.wound_bonus += turret_wound_bonus
+	our_projectile.bare_wound_bonus += turret_wound_bonus
 	casing.fire_casing(target, src, null, null, null, BODY_ZONE_CHEST, 0, src)
 	play_fire_sound(casing)
 
@@ -774,6 +817,16 @@ DEFINE_BITFIELD(turret_flags, list(
 	attacking_item.play_tool_sound(src, 50)
 	deconstruct(TRUE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/alt_click_secondary(mob/user)
+	. = ..()
+	if(quick_retract)
+		if(smart_retract && !in_faction(user))
+			return
+		playsound(src, 'sound/items/ratchet.ogg', 50, TRUE)
+		if(!do_after(user, retract_timer))
+			return
+		deconstruct(TRUE)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
