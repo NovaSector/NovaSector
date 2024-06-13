@@ -8,6 +8,7 @@
 	armor_type = /datum/armor/mecha_durand
 	max_temperature = 30000
 	force = 40
+	step_energy_drain = 4
 	destruction_sleep_duration = 20
 	exit_delay = 20
 	wreckage = /obj/structure/mecha_wreckage/durand
