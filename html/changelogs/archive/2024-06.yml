@@ -528,3 +528,47 @@
   - balance: Maintenance drones now have a duffel bag instead of a backpack.
   tmyqlfpir:
   - rscadd: Added mggaow, prbt and mrrp emotes from bubberstation
+2024-06-13:
+  Goat:
+  - bugfix: Enviro suit lights no longer stay on when the welding visor is activated.
+  LT3:
+  - sound: You can now experience tram crashes in higher fidelity than ever!
+  Melbert:
+  - balance: Taking stamina damage in stamcrit has diminishing returns associated,
+      meaning you cannot be infinitely stamcrit.
+  MortoSasye:
+  - rscadd: Ashwalkers have decided to make themselves some beds made from thatch,
+      instead of cooking their flesh on the iron ones.
+  NovaBot13:
+  - bugfix: ' RCD, RPLD & RTD cancels their build process if their design is changed
+      during build.'
+  - rscadd: 'added a new virtual domain
+
+      :cl:
+
+      ![image](https://github.com/tgstation/tgstation/assets/154919526/2d94fe21-bc45-40dc-9f84-4b69088b353c)'
+  - rscadd: Added new keywords (%d, %date, %t, %time) for fields
+  - balance: Pacifists can now use psychotic brawling, at major mood costs.
+  - rscadd: Added another ruin to Lavaland
+  - bugfix: EMPs on carbons no longer happen twice
+  - code_imp: Moves organ emps under bodyparts, changes how bodyparts handle emp effects
+  - bugfix: The recyclers in the snow cabin gateway, the cyborg mothership, and the
+      deep storage space ruin are now rotated properly.
+  - balance: Stamina healing has been significantly increased for most reagents and
+      passive effects.
+  - sound: Some ambience tracks are quieter now.
+  PowerfulAtom111:
+  - rscadd: after a quick galactic meeting, insane people around the universe can
+      now speak gibbering to express their ideas free from the prying ears of the
+      walls
+  - rscadd: as an insane person, taking your meds deafens your ears to the holy tongue
+      all the other insane people are speaking
+  - spellcheck: added a bit of text to the RDS quirk and the RDS medical record text
+      to highlight the insane's new abilities
+  grungussuss:
+  - bugfix: fixed getting a fake white dwarf report when the shift isn't extended
+      mode, which lead to meta knowledge being used.
+  sylvia-from-fulp-station:
+  - image: Adds a unique sprite for envyknife
+  vinylspiders:
+  - bugfix: personal crafting menu no longer bluescreens
