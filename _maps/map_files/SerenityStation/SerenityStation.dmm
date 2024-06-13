@@ -35,6 +35,10 @@
 	pixel_x = -7;
 	pixel_y = -1
 	},
+/obj/item/storage/pill_bottle/mannitol{
+	pixel_x = 5;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/bitrunning/den)
 "aaz" = (
