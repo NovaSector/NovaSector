@@ -344,16 +344,17 @@
 		if(H.w_uniform == src)
 			H.update_suit_sensors()
 
-/obj/item/clothing/under/CtrlClick(mob/user)
-	. = ..()
-	if(.)
-		return
+/obj/item/clothing/under/item_ctrl_click(mob/user)
 	if(!can_toggle_sensors(user))
-		return
+		return CLICK_ACTION_BLOCKING
 
 	sensor_mode = SENSOR_COORDS
 	balloon_alert(user, "set to tracking")
+<<<<<<< HEAD
 	to_chat(usr, span_notice("Your suit will now report your exact vital lifesigns as well as your coordinate position.")) // NOVA EDIT ADDITION
+=======
+	return CLICK_ACTION_SUCCESS
+>>>>>>> 47be0bffc2e (Ctrl click refactor (#83784))
 
 /// Checks if the toggler is allowed to toggle suit sensors currently
 /obj/item/clothing/under/proc/can_toggle_sensors(mob/toggler)
