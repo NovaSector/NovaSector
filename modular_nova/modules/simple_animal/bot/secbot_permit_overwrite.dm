@@ -8,6 +8,3 @@
 
 /obj/item/gun/energy/floragun
 	item_flags = 0
-
-/obj/item/knife/razor_claws
-	item_flags = 0
