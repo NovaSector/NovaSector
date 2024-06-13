@@ -1,0 +1,4 @@
+author: "Thlumyn"
+delete-after: True
+changes:
+  - bugfix: "fixed duplicated camera tags on P-T and DS-2"
