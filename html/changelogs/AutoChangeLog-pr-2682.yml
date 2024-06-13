@@ -1,5 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - rscadd: "You can now craft torches, to uhhh light stuff."
-  - qol: "made it more practical to craft quivers by using string, keeping it inline with belt-primal-options."
