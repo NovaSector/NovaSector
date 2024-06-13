@@ -13,6 +13,7 @@
 #define SMES_INPUTTING 8
 #define SMES_INPUT_ATTEMPT 9
 
+/* NOVA EDIT: Modularized Power change in modular_nova\master_files\code\modules\power\smes.dm
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
@@ -29,19 +30,18 @@
 
 	var/input_attempt = TRUE // TRUE = attempting to charge, FALSE = not attempting to charge
 	var/inputting = TRUE // TRUE = actually inputting, FALSE = not inputting
-	// NOVA EDIT START : ORIGINAL input_level = 50, input_level_max = 200
-	var/input_level = 75 KILO WATTS // amount of power the SMES attempts to charge by
-	var/input_level_max = 300 KILO WATTS // cap on input_level
+	var/input_level = 50 KILO WATTS // amount of power the SMES attempts to charge by
+	var/input_level_max = 200 KILO WATTS // cap on input_level
 	var/input_available = 0 // amount of charge available from input last tick
 
 	var/output_attempt = TRUE // TRUE = attempting to output, FALSE = not attempting to output
 	var/outputting = TRUE // TRUE = actually outputting, FALSE = not outputting
-	var/output_level = 75 KILO WATTS // amount of power the SMES attempts to output
-	var/output_level_max = 300 KILO WATTS // cap on output_level
-	// NOVA EDIT END: Original output_level = 50, output_level_max = 200
+	var/output_level = 50 KILO WATTS // amount of power the SMES attempts to output
+	var/output_level_max = 200 KILO WATTS // cap on output_level
 	var/output_used = 0 // amount of power actually outputted. may be less than output_level if the powernet returns excess power
 
 	var/obj/machinery/power/terminal/terminal = null
+*/
 
 /obj/machinery/power/smes/examine(user)
 	. = ..()
