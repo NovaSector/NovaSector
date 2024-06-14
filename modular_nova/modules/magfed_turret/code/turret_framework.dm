@@ -69,6 +69,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_slots = mag_slots
 	atom_storage.can_hold = typecacheof(mag_types_allowed)
+	if(greyscale_config)
+		AddElement(/datum/element/gags_recolorable)
 	update_appearance()
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/examine(mob/user)
@@ -170,6 +172,11 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.target_assessment = TURRET_FLAG_OBEY_FLAGS
 	forceMove(turret)
 	turret.setState(TRUE)
+	if(greyscale_colors)
+		turret.set_greyscale(greyscale_colors)
+		turret.base.set_greyscale(greyscale_colors)
+		turret.update_greyscale()
+		turret.base.update_appearance()
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()

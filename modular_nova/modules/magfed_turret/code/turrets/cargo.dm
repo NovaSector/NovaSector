@@ -6,6 +6,9 @@
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
 	inhand_icon_state = "toy_turretkit"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	greyscale_config = /datum/greyscale_config/turret/toolbox
+	greyscale_colors = "#E0C14F#C67A4B"
 	throw_speed = 2
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy
 	mag_slots = 1
@@ -28,6 +31,9 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/cargo.dmi'
 	icon_state = "toy_off"
 	base_icon_state = "toy"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	greyscale_config = /datum/greyscale_config/turret
+	greyscale_colors = "#E0C14F#C67A4B"
 	quick_retract = TRUE
 	retract_timer = 1 SECONDS
 	shot_delay = 0.5 SECONDS
