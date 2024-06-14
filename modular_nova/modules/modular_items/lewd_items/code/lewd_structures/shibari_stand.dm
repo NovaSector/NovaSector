@@ -187,11 +187,7 @@
 	breakouttime = 2 MINUTES
 
 //Disassembling shibari stand
-/obj/structure/chair/shibari_stand/CtrlShiftClick(mob/user)
-	. = ..()
-	if(. == FALSE)
-		return FALSE
-
+/obj/structure/chair/shibari_stand/click_ctrl_shift(mob/user)
 	to_chat(user, span_notice("You begin unfastening the frame of \the [src]..."))
 	if(!do_after(user, 8 SECONDS, src))
 		to_chat(user, span_warning("You fail to disassemble \the [src]."))
@@ -205,7 +201,7 @@
 	return TRUE
 
 //Changing color of shibari stand
-/obj/structure/chair/shibari_stand/CtrlClick(mob/user)
+/obj/structure/chair/shibari_stand/click_ctrl(mob/user)
 	. = ..()
 	if(. == FALSE)
 		return FALSE
