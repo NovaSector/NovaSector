@@ -51,7 +51,7 @@
 	icon_state = "mushroom"
 	base_icon_state = "mushroom"
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_MUSHROOM
-	canSmoothWith = SMOOTH_GROUP_MUSHROOM + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MUSHROOM
 	damaged_dmi = 'icons/turf/damaged.dmi'
 	smooth_icon = 'modular_nova/modules/serenitystation/icons/turfs/floors/mushroom.dmi'
 	dig_result = /obj/item/food/grown/ash_flora
