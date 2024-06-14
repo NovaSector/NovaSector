@@ -178,7 +178,6 @@
 	icon_dead = "red_mushroom_dead"
 	product = /obj/item/food/grown/ash_flora/lightshroom
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow/red)
-	mutatelist = list(/obj/item/seeds/lavaland/lightshroom/blue, /obj/item/seeds/lavaland/lightshroom/green)
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.04, /datum/reagent/consumable/vitfro = 0.04, /datum/reagent/uranium/radium = 0.04)
 	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
@@ -190,7 +189,6 @@
 	icon_dead = "blue_mushroom_dead"
 	product = /obj/item/food/grown/ash_flora/lightshroom/blue
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow/blue)
-	mutatelist = list(/obj/item/seeds/lavaland/lightshroom, /obj/item/seeds/lavaland/lightshroom/green)
 
 /obj/item/seeds/lavaland/lightshroom/green
 	name = "pack of green lightshroom mycelium"
@@ -200,4 +198,3 @@
 	icon_dead = "green_mushroom_dead"
 	product = /obj/item/food/grown/ash_flora/lightshroom/green
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow/green)
-	mutatelist = list(/obj/item/seeds/lavaland/lightshroom, /obj/item/seeds/lavaland/lightshroom/blue)
