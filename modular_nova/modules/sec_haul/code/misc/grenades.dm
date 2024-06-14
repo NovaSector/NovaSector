@@ -44,8 +44,9 @@
 		return
 
 // CTRL + Click to willingly bypass the green alert restriction
-/obj/item/grenade/flashbang/CtrlClick(mob/user)
-	return attack_self(user, breaking_policy = TRUE)
+/obj/item/grenade/flashbang/item_ctrl_click(mob/user)
+	attack_self(user, breaking_policy = TRUE)
+	return CLICK_ACTION_SUCCESS
 
 /// Sends a silent alert message to certain crew members' PDAs
 /proc/silent_alert(mob/sender, atom/source, crew_to_alert, message)
