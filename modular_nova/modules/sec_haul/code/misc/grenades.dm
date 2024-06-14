@@ -100,7 +100,7 @@
 
 	var/obj/item/held_item = user_mob.get_active_held_item()
 	if(held_item)
-		held_item.CtrlClick(user_mob)
+		held_item.CtrlClickOn(user_mob)
 		user_mob.update_held_items()
 
 	return TRUE
