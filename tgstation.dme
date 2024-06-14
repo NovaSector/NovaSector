@@ -8199,6 +8199,7 @@
 #include "modular_nova\modules\self_actualization_device\code\self_actualization_device.dm"
 #include "modular_nova\modules\serenitystation\code\areas.dm"
 #include "modular_nova\modules\serenitystation\code\atmosphere.dm"
+#include "modular_nova\modules\serenitystation\code\flora.dm"
 #include "modular_nova\modules\serenitystation\code\forest_cavegen.dm"
 #include "modular_nova\modules\serenitystation\code\items.dm"
 #include "modular_nova\modules\serenitystation\code\mushroom_caves.dm"
