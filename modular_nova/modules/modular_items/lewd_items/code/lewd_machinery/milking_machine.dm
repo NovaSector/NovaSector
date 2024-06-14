@@ -17,6 +17,8 @@
 	max_buckled_mobs = 1
 	item_chair = null
 	max_integrity = 75
+	custom_materials = null
+	/// For the color variations
 	var/static/list/milkingmachine_designs
 
 /*
