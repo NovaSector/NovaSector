@@ -102,6 +102,21 @@
 /obj/item/kinetic_crusher/afterattack(mob/living/target, mob/living/user, proximity_flag, clickparams)
 	. = ..()
 	if(.)
+<<<<<<< HEAD
+=======
+		return TRUE
+	if(!HAS_TRAIT(src, TRAIT_WIELDED))
+		user.balloon_alert(user, "must be wielded!")
+		return TRUE
+	return .
+
+/obj/item/kinetic_crusher/attack(mob/living/target, mob/living/carbon/user)
+	target.apply_status_effect(/datum/status_effect/crusher_damage)
+	return ..()
+
+/obj/item/kinetic_crusher/afterattack(mob/living/target, mob/living/user, clickparams)
+	if(!isliving(target))
+>>>>>>> 4c536fa5e27 (After Attack Fixes (#83910))
 		return
 	if(!proximity_flag || !isliving(target))
 		return
