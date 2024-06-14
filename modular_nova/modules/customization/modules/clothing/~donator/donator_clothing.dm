@@ -950,17 +950,18 @@
 	var/wear_hair_over
 
 /obj/item/clothing/mask/gas/psycho_malice/examine(mob/user)
-    . = ..()
-    . += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
+	. = ..()
+	. += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
 
-/obj/item/clothing/mask/gas/psycho_malice/CtrlClick(mob/living/user)
-    if(!isliving(user))
-        return
-    if(user.get_active_held_item() != src)
-        to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
-        return
-    voice_filter = voice_filter ? null : initial(voice_filter)
-    to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+/obj/item/clothing/mask/gas/psycho_malice/item_ctrl_click(mob/user)
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
+	if(user.get_active_held_item() != src)
+		to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
+		return CLICK_ACTION_BLOCKING
+	voice_filter = voice_filter ? null : initial(voice_filter)
+	to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/psycho_malice/Initialize(mapload)
 	. = ..()
