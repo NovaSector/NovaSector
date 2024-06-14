@@ -195,6 +195,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "v" = (
 /obj/machinery/newscaster/directional/north,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
@@ -255,6 +256,7 @@
 /area/station/command/corporate_showroom)
 "I" = (
 /obj/structure/chair/comfy/black,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "J" = (
@@ -304,6 +306,7 @@
 	},
 /obj/item/bedsheet/centcom/double,
 /obj/effect/landmark/start/nanotrasen_consultant,
+/obj/structure/cable,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "P" = (
@@ -410,6 +413,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 
