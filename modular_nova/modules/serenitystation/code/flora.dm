@@ -1,34 +1,45 @@
+/obj/structure/flora/tree
+	/// The type of stump to spawn when harvested.
+	var/stump_type = /obj/structure/flora/tree/stump
+
+
 /obj/structure/flora/tree/mushroom
 	name = "mushroom tree"
 	desc = "A large branching mushroom that seems to thrive under the planet's surface."
 	icon = 'modular_nova/modules/serenitystation/icons/mushroomtrees.dmi'
 	icon_state = "tree1"
+	base_icon_state = "tree_dead1"
 	pixel_x = -48
 	pixel_y = -20
+	stump_type = /obj/structure/flora/tree/stump/mushroom
 
 /obj/structure/flora/tree/mushroom/reverse
 	icon_state = "tree2"
+	stump_type = /obj/structure/flora/tree/stump/mushroom/reverse
+
 
 /obj/structure/flora/tree/mushroom/blue
 	icon_state = "tree_blue1"
 
 /obj/structure/flora/tree/mushroom/blue/reverse
 	icon_state = "tree_blue2"
+	stump_type = /obj/structure/flora/tree/stump/mushroom/reverse
 
 /obj/structure/flora/tree/mushroom/green
 	icon_state = "tree_green1"
 
 /obj/structure/flora/tree/mushroom/green/reverse
 	icon_state = "tree_green2"
+	stump_type = /obj/structure/flora/tree/stump/mushroom/reverse
 
-// This is just temporary until Golden can improve how we do this...
-// /obj/structure/flora/tree/mushroom/harvest(mob/living/user, product_amount_multiplier)
 
 /obj/structure/flora/tree/stump/mushroom
 	icon = 'modular_nova/modules/serenitystation/icons/mushroomtrees.dmi'
 	icon_state = "tree1_dead"
+	pixel_x = -48
+	pixel_y = -20
 
-/obj/structure/flora/tree/stump/mushroom/reverse // Currently unused
+/obj/structure/flora/tree/stump/mushroom/reverse
 	icon_state = "tree2_dead"
 
 /obj/structure/flora/ash/tall_shroom/colored
