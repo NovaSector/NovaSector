@@ -97,10 +97,11 @@
 	set_greyscale(holosign_color)
 	return CLICK_ACTION_SUCCESS
 
-/obj/item/wargame_projector/CtrlClick(mob/user)
+/obj/item/wargame_projector/item_ctrl_click(mob/user)
 	if(tgui_alert(usr,"Clear all currently active holograms?", "Hologram Removal", list("Yes", "No")) == "Yes")
 		for(var/hologram as anything in projections)
 			qdel(hologram)
+	return CLICK_ACTION_SUCCESS
 
 /// Can we place a hologram at the target location?
 /obj/item/wargame_projector/proc/check_can_place_hologram(atom/target, mob/user, proximity_flag, team)

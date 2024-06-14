@@ -354,15 +354,6 @@
 /mob/proc/ShiftMiddleClickOn(atom/A)
 	src.pointed(A)
 	return
-<<<<<<< HEAD
-//NOVA EDIT NOTE: CtrlShiftClick for HUMANS has been overriden in click.dm in the interaction module.
-/atom/proc/CtrlShiftClick(mob/user)
-	if(!can_interact(user))
-		return FALSE
-	SEND_SIGNAL(src, COMSIG_CLICK_CTRL_SHIFT, user)
-	return
-=======
->>>>>>> 47be0bffc2e (Ctrl click refactor (#83784))
 
 /*
 	Misc helpers
