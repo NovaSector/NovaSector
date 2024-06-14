@@ -368,6 +368,15 @@ DEFINE_BITFIELD(turret_flags, list(
 		mag_box = WEAKREF(auto_loader)
 	register_context()
 
+/obj/machinery/porta_turret/syndicate/toolbox/update_greyscale()
+	. = ..()
+	update_appearance()
+
+/obj/machinery/porta_turret/syndicate/toolbox/update_appearance(updates)
+	. = ..()
+	underlays.Cut()
+	underlays += image(icon = icon, icon_state = "[base_icon_state]_frame")
+
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	var/screentip_change = FALSE
