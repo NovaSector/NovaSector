@@ -12,6 +12,7 @@
 		return ELEMENT_INCOMPATIBLE
 
 	RegisterSignal(target, COMSIG_MOVABLE_TOGGLE_HIDING, PROC_REF(on_toggle_hiding))
+	ADD_TRAIT(target, TRAIT_SUBTREE_REQUIRED_OPERATIONAL_DATUM, type)
 
 
 /datum/element/can_hide/Detach(datum/source, ...)

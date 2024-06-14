@@ -1,6 +1,6 @@
 /// This subtree ensures that the mob gets out from hiding if they have a target.
 /datum/ai_planning_subtree/stop_hiding_if_target
-	operational_datums = list(/datum/element/can_hide)
+	operational_datums = list(/datum/element/can_hide, /datum/element/can_hide/basic)
 	/// Blackboard key where we check if there's currently a target.
 	var/target_key = BB_BASIC_MOB_CURRENT_TARGET
 
