@@ -174,9 +174,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	turret.setState(TRUE)
 	if(greyscale_colors)
 		turret.set_greyscale(greyscale_colors)
-		turret.base.set_greyscale(greyscale_colors)
 		turret.update_greyscale()
-		turret.base.update_appearance()
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -318,6 +316,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	ignore_faction = TRUE
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list(FACTION_TURRET)
+	////// Whether or not the turret takes faction into account. If not, only works off user.
+	var/faction_targeting = TRUE
 	////// Simple damage multiplier for bullets. 1 = normal bullet damage. 0.5 = half damage. 1.5 = 50% more damage. You get the gist.
 	var/turret_damage_multiplier = 1
 	////// Simple wound bonus for bullets. 0 = no bonus. 10 = more likely to wound. I dont know if we support negative bonuses.
@@ -344,7 +344,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled
 	//////To stop runtimes x1
 	var/staminaloss = 0
-	//////To stop runtimes x2 + resting firing
+	//////To stop runtimes x2 + resting firing capabilities. Might be smart to turn off for shotgun?
 	var/combat_mode = TRUE
 	//////to stop runtimes x3
 	var/timer_id
@@ -368,11 +368,11 @@ DEFINE_BITFIELD(turret_flags, list(
 		mag_box = WEAKREF(auto_loader)
 	register_context()
 
-/obj/machinery/porta_turret/syndicate/toolbox/update_greyscale()
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/update_greyscale()
 	. = ..()
 	update_appearance()
 
-/obj/machinery/porta_turret/syndicate/toolbox/update_appearance(updates)
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/update_appearance(updates)
 	. = ..()
 	underlays.Cut()
 	underlays += image(icon = icon, icon_state = "[base_icon_state]_frame")
@@ -627,6 +627,12 @@ DEFINE_BITFIELD(turret_flags, list(
 	return threatcount
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/in_faction(mob/target)
+	if(!faction_targeting)
+		if(REF(target) in allies)
+			return TRUE
+		else
+			return FALSE
+
 	for(var/faction1 in faction)
 		if((faction1 in target.faction) || (REF(target) in allies)) // For an Ally System
 			return TRUE

@@ -38,4 +38,5 @@
 	retract_timer = 1 SECONDS
 	shot_delay = 0.5 SECONDS
 	faction = list(FACTION_TURRET)
+	faction_targeting = FALSE
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled
