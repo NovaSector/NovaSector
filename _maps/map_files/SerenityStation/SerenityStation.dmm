@@ -971,6 +971,15 @@
 /obj/effect/landmark/generic_maintenance_landmark,
 /turf/open/floor/iron/dark/small,
 /area/station/maintenance/central/greater)
+"aoz" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central/aft)
 "aoF" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -29607,12 +29616,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
-"ixU" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/wood/large,
-/area/station/medical/psychology)
 "iyc" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/captain)
@@ -46451,14 +46454,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
-"nwz" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/aft)
 "nwC" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/modular_computer/preset/cargochat/service{
@@ -68246,7 +68241,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -71969,7 +71963,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "vad" = (
@@ -77565,6 +77558,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/fore/greater)
+"wFb" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/station/medical/psychology)
 "wFp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -81226,15 +81225,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/genetics)
-"xMC" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/aft)
 "xMJ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/kirbyplants/random,
@@ -167890,7 +167880,7 @@ wjY
 mbl
 nav
 hUE
-ixU
+wFb
 jxc
 sJf
 tTg
@@ -184571,7 +184561,7 @@ bGj
 iTO
 oVN
 uuE
-xMC
+aoz
 eQx
 ydm
 ydm
@@ -184828,7 +184818,7 @@ esZ
 qzT
 xMs
 vSl
-nwz
+qMR
 qMR
 qMR
 qMR
