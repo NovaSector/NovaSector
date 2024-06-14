@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "fixed synths persocom. Rejoice, synthlizards! (and ipcs too but i dont believe in your existence)"
