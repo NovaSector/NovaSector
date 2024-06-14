@@ -86,7 +86,7 @@
 			continue
 		if (!((antag_preference || antag_flag) in creature.client.prefs.be_special))
 			if(creature.ckey == "dalaoazure")
-				message_admins("Dalao Azure filtered from not being in be_special")
+				message_admins("Dalao Azure filtered from not being in be_special ([antag_preference || antag_flag]) ([english_list(creature.client.prefs.be_special)])")
 			trimmed_list.Remove(creature)
 			continue
 		if (is_banned_from(creature.ckey, list(antag_flag_override || antag_flag, ROLE_SYNDICATE)))
