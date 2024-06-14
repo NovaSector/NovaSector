@@ -259,32 +259,46 @@
 	for(var/mob/dead/new_player/candidate_player in candidates)
 		var/client/candidate_client = GET_CLIENT(candidate_player)
 		if (!candidate_client || !candidate_player.mind) // Are they connected?
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from not having a client or a mind.")
 			candidates.Remove(candidate_player)
 			continue
 
 		//NOVA EDIT ADDITION
 		if(!candidate_client.prefs?.read_preference(/datum/preference/toggle/be_antag))
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from be_antag preference")
 			candidates.Remove(candidate_player)
 			continue
 
 		if(is_banned_from(candidate_client.ckey, BAN_ANTAGONIST))
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from BAN_ANTAGONIST ban")
 			candidates.Remove(candidate_player)
 			continue
 		//NOVA EDIT END
 
 		if(candidate_client.get_remaining_days(minimum_required_age) > 0)
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from get_remaining_days > 0")
 			candidates.Remove(candidate_player)
 			continue
 
 		if(candidate_player.mind.special_role) // We really don't want to give antag to an antag.
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from already being an antag")
 			candidates.Remove(candidate_player)
 			continue
 
 		if (!((antag_preference || antag_flag) in candidate_client.prefs.be_special))
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from not having their be_special preference toggled for this role")
 			candidates.Remove(candidate_player)
 			continue
 
 		if (is_banned_from(candidate_player.ckey, list(antag_flag_override || antag_flag, ROLE_SYNDICATE)))
+			if(candidate_client?.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from being banned from ROLE_SYNDICATE ([antag_flag_override || antag_flag])")
 			candidates.Remove(candidate_player)
 			continue
 
@@ -302,6 +316,8 @@
 			// If they didn't have any of the required job prefs enabled or were banned from all enabled prefs,
 			// they're not eligible for this antag type.
 			if(!exclusive_candidate)
+				if(candidate_client?.ckey == "dalaoazure")
+					message_admins("Dalao Azure filtered from not being an exclusive candidate")
 				candidates.Remove(candidate_player)
 
 /// Do your checks if the ruleset is ready to be executed here.

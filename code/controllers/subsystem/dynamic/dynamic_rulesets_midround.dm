@@ -58,43 +58,69 @@
 	var/list/trimmed_list = to_trim.Copy()
 	for(var/mob/creature in trimmed_list)
 		if (!istype(creature, required_type))
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from !istype()")
 			trimmed_list.Remove(creature)
 			continue
 		if (isnull(creature.client)) // Are they connected?
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from isnull()")
 			trimmed_list.Remove(creature)
 			continue
 		//NOVA EDIT ADDITION
 		if(is_banned_from(creature.client.ckey, BAN_ANTAGONIST))
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from BAN_ANTAGONIST")
 			trimmed_list.Remove(creature)
 			continue
 		if(!creature.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from be_antag pref")
 			trimmed_list.Remove(creature)
 			continue
 		//NOVA EDIT END
 		if(creature.client.get_remaining_days(minimum_required_age) > 0)
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from get_remaining_days()")
 			trimmed_list.Remove(creature)
 			continue
 		if (!((antag_preference || antag_flag) in creature.client.prefs.be_special))
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from not being in be_special")
 			trimmed_list.Remove(creature)
 			continue
 		if (is_banned_from(creature.ckey, list(antag_flag_override || antag_flag, ROLE_SYNDICATE)))
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from is_banned_from ROLE_SYNDICATE ([antag_flag_override || antag_flag])")
 			trimmed_list.Remove(creature)
 			continue
 		if (isnull(creature.mind))
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from isnull() mind")
 			continue
 		if (restrict_ghost_roles && !(creature.mind.assigned_role.job_flags & JOB_CREW_MEMBER)) // Are they not playing a station role?
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from check for JOB_CREW_MEMBER")
 			trimmed_list.Remove(creature)
 			continue
 		if (creature.mind.assigned_role.title in restricted_roles) // Does their job allow it?
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from being in restricted_roles")
 			trimmed_list.Remove(creature)
 			continue
 		if (length(exclusive_roles) && !(creature.mind.assigned_role.title in exclusive_roles)) // Is the rule exclusive to their job?
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from not being in exclusive_roles")
 			trimmed_list.Remove(creature)
 			continue
 		if(HAS_TRAIT(creature, TRAIT_MIND_TEMPORARILY_GONE)) // are they out of body?
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from TRAIT_MIND_TEMPORARILY_GONE")
 			trimmed_list.Remove(creature)
 			continue
 		if(HAS_TRAIT(creature, TRAIT_TEMPORARY_BODY)) // are they an avatar?
+			if(creature.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from TRAIT_TEMPORARY_BODY")
 			trimmed_list.Remove(creature)
 			continue
 	return trimmed_list
@@ -266,15 +292,25 @@
 	candidates = living_players
 	for(var/mob/living/player in candidates)
 		if(issilicon(player)) // Your assigned role doesn't change when you are turned into a silicon.
+			if(player.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from issilicon()")
 			candidates -= player
 		else if(is_centcom_level(player.z))
+			if(player.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from is_centcom_level()")
 			candidates -= player // We don't autotator people in CentCom
 		else if(player.mind && (player.mind.special_role || player.mind.antag_datums?.len > 0))
+			if(player.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from having a special role/antag_datum already.")
 			candidates -= player // We don't autotator people with roles already
 		//NOVA EDIT ADDITION
 		else if(player in rejected_traitor)
+			if(player.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from rejected_traitor")
 			candidates -= player
 		else if(player in sleeper_current_polling)
+			if(player.ckey == "dalaoazure")
+				message_admins("Dalao Azure filtered from sleeper_current_polling")
 			candidates -= player
 		//NOVA EDIT END
 
