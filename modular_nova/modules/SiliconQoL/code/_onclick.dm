@@ -62,7 +62,7 @@
 	else
 		target.BorgCtrlShiftClick(src)
 
-/mob/living/silicon/robot/ShiftClickOn(atom/A)
+/mob/living/silicon/robot/ShiftClickOn(atom/target)
 	if(isturf(target))
 		var/obj/machinery/door/airlock/airlock = locate() in target
 		if(airlock)
