@@ -21,6 +21,9 @@ To rerun the cutting tool move the relevant .dmi .png and .png.toml files to the
 
 - _maps/_basemap.dm -> adds SerenityStation.dmm to the map file includes
 - code/datums/ai/basic_mobs/basic_ai_behaviors/targeting.dm -> removes aggro_range in /datum/ai_behavior/find_potential_targets
+- code/datums/map_config.dm -> added reading "allow_space_when_planetary" from the config json
+- code/game/structures/flora.dm -> added variable tree stump types
+- code/modules/unit_tests/mapload_space_verification -> made to check if planetary map allows space from the config
 - config/maps.txt -> adds SerenityStation to the map config
 - tgstation.dme -> adds new modular files to the includes
 
@@ -42,6 +45,7 @@ To rerun the cutting tool move the relevant .dmi .png and .png.toml files to the
 
 ### Included files that are not contained in this module:
 
+- modular_nova/master_files/code/controllers/subsystem/mapping.dm -> added proc to return is_planetary_with_space maps
 - _maps/map_files/SerenityStation/SerenityStation.dmm
 - _maps/serenitystation.json
 - _maps/shuttles/nova/planetary_planetary_ferry.dmm
