@@ -572,3 +572,43 @@
   - image: Adds a unique sprite for envyknife
   vinylspiders:
   - bugfix: personal crafting menu no longer bluescreens
+2024-06-14:
+  MortoSasye:
+  - rscadd: One of the hearthkin witches discovered how to re-create their sacred
+      lungs. This requires a special brew, made from synthflesh and frost oil, to
+      be used on a normal set of lungs.
+  - balance: Reduces the needed amount of liquid gibs for the anointing bloodresin
+      from eighty to twenty.
+  - image: Adds a new icon for the anointing bloodresin.
+  - image: Changed the hearthkin lung sprite to look more unique.
+  NovaBot13:
+  - balance: Juicing and distilling plants only consumes nutriment and vitamin
+  - balance: Lanternfruit and polypore mushrooms now contain nutriment
+  - balance: Increased the amount of nutriment in sugarcane and saltcane
+  - balance: Moon Smile only does a knockdown if the targets sanity is low enough
+      and the minimum duration of its abilities have been decreased
+  - qol: Bots can now bind voice lines to an action slot. Lowers cooldown for all
+      bot voicelines to 5 seconds.
+  - bugfix: special networks are now displayed in the fax if it is the only one in
+      the world
+  - qol: Cult pylons slowly close bleeding wounds
+  - refactor: allowed aura healing to clot wounds shut
+  - balance: Corpses won't remain cultists when ghouled by a flesheretic
+  - bugfix: Catwalk deconstruction yields iron rods as intended.
+  - qol: make the cart hold 2.5x more water
+  - balance: Now regaining a tail has three states. If you got your tail back - you'll
+      get a temporarily debuff in exchange of infinite "tail missing" debuff (new).
+      If it's NOT your tail and of same species - this temporarily debuff will be
+      a bit stronger (new). If it's NOT your tail and NOT of same species - it will
+      be a considerably stronger debuff (currently on live).
+  Rhials:
+  - bugfix: The "mopper" gimmick assistant outfit spawns with one cart instead of
+      nine.
+  Samman166:
+  - rscadd: Adds a donator item for use by samman166 and CaineDCLXVI
+  Thlumyn:
+  - bugfix: fixed duplicated camera tags on P-T and DS-2
+  honkpocket:
+  - bugfix: beepsky has become smarter and will no longer try to arrest you for having
+      gardening tools, a skateboard or baseball bats
+  - balance: only sharpened razor claws require a permit
