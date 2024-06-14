@@ -129,10 +129,11 @@
 	sorting_list = list()
 	return CLICK_ACTION_SUCCESS
 
-/obj/effect/decal/conveyor_sorter/CtrlClick(mob/user)
+/obj/effect/decal/conveyor_sorter/click_ctrl(mob/user)
 	visible_message("[src] begins to ping violently!")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	qdel(src)
+	return CLICK_ACTION_SUCCESS
 
 /obj/effect/decal/conveyor_sorter/proc/on_entered(datum/source, atom/movable/entering_atom)
 	SIGNAL_HANDLER

@@ -184,6 +184,7 @@
 			if(!design)
 				return FALSE
 			blueprint = design
+			blueprint_changed = TRUE
 
 			playsound(src, 'sound/effects/pop.ogg', 50, vary = FALSE)
 
@@ -209,7 +210,7 @@
 		if(!is_allowed)
 			balloon_alert(user, "turf is blocked!")
 		return FALSE
-	if(!do_after(user, cost, target = destination)) //"cost" is relative to delay at a rate of 10 matter/second  (1matter/decisecond) rather than playing with 2 different variables since everyone set it to this rate anyways.
+	if(!build_delay(user, cost, target = destination))
 		return FALSE
 	if(!checkResource(cost, user) || !(is_allowed = canPlace(destination)))
 		if(!is_allowed)
@@ -247,23 +248,8 @@
 			if(duct_machine.duct_layer & layer_id)
 				return FALSE
 
-/obj/item/construction/plumbing/pre_attack_secondary(obj/machinery/target, mob/user, params)
-	if(!istype(target, /obj/machinery/duct))
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-	var/obj/machinery/duct/duct = target
-	if(duct.duct_layer && duct.duct_color)
-		current_color = GLOB.pipe_color_name[duct.duct_color]
-		current_layer = GLOB.plumbing_layer_names["[duct.duct_layer]"]
-		balloon_alert(user, "using [current_color], layer [current_layer]")
-
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-
-/obj/item/construction/plumbing/afterattack(atom/target, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-
+/obj/item/construction/plumbing/interact_with_atom(atom/target, mob/living/user, list/modifiers)
+	. = NONE
 	for(var/category_name in plumbing_design_types)
 		var/list/designs = plumbing_design_types[category_name]
 
@@ -274,13 +260,26 @@
 			var/obj/machinery/machine_target = target
 			if(machine_target.anchored)
 				balloon_alert(user, "unanchor first!")
-				return
+				return ITEM_INTERACT_BLOCKING
 			if(do_after(user, 2 SECONDS, target = target))
 				machine_target.deconstruct() //Let's not substract matter
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE) //this is just such a great sound effect
-			return
+			return ITEM_INTERACT_SUCCESS
 
-	create_machine(target, user)
+	if(create_machine(target, user))
+		return ITEM_INTERACT_SUCCESS
+
+/obj/item/construction/plumbing/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
+	. = NONE
+	if(!istype(target, /obj/machinery/duct))
+		return ITEM_INTERACT_BLOCKING
+
+	var/obj/machinery/duct/duct = target
+	if(duct.duct_layer && duct.duct_color)
+		current_color = GLOB.pipe_color_name[duct.duct_color]
+		current_layer = GLOB.plumbing_layer_names["[duct.duct_layer]"]
+		balloon_alert(user, "using [current_color], layer [current_layer]")
+		return ITEM_INTERACT_SUCCESS
 
 /obj/item/construction/plumbing/click_alt(mob/user)
 	ui_interact(user)

@@ -62,10 +62,10 @@
 		return
 	pouch.atom_storage.dump_content_at(dest_object, dumping_mob)
 
-/obj/item/storage/belt/crusader/CtrlClick(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
+/obj/item/storage/belt/crusader/item_ctrl_click(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
 	. = ..()
 	atom_storage.show_contents(user)
-	return
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/storage/belt/crusader/click_alt(mob/user)	//This is basically the same as the normal sheath, but because there's always an item locked in the first slot it uses the second slot for swords
 	if(contents.len == 2)

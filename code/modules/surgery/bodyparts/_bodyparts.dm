@@ -1107,7 +1107,7 @@
 	if(is_husked)
 		override_color = "#888888"
 	// We need to check that the owner exists(could be a placed bodypart) and that it's not a chainsawhand and that they're a human with usable DNA.
-	if(!(bodypart_flags & BODYPART_PSEUDOPART))
+	if(!(bodypart_flags & BODYPART_PSEUDOPART) && (!(bodyshape & BODYSHAPE_TAUR))) // taur legs never ever render
 		for(var/key in markings) // Cycle through all of our currently selected markings.
 			var/datum/body_marking/body_marking = GLOB.body_markings[key]
 			if (!body_marking) // Edge case prevention.
@@ -1407,12 +1407,24 @@
 	else
 		update_icon_dropped()
 
-// Note: Does NOT return EMP protection value from parent call or pass it on to subtypes
+// Note: For effects on subtypes, use the emp_effect() proc instead
 /obj/item/bodypart/emp_act(severity)
 	var/protection = ..()
-	if((protection & EMP_PROTECT_WIRES) || !IS_ROBOTIC_LIMB(src))
-		return FALSE
+	// If the limb doesn't protect contents, strike them first
+	if(!(protection & EMP_PROTECT_CONTENTS))
+		for(var/atom/content as anything in contents)
+			content.emp_act(severity)
 
+	if((protection & (EMP_PROTECT_WIRES | EMP_PROTECT_SELF)))
+		return protection
+
+	emp_effect(severity, protection)
+	return protection
+
+/// The actual effect of EMPs on the limb. Allows children to override it however they want
+/obj/item/bodypart/proc/emp_effect(severity, protection)
+	if(!IS_ROBOTIC_LIMB(src))
+		return FALSE
 	// with defines at the time of writing, this is 2 brute and 1.5 burn
 	// 2 + 1.5 = 3,5, with 6 limbs thats 21, on a heavy 42
 	// 42 * 0.8 = 33.6

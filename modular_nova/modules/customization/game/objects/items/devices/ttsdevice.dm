@@ -27,7 +27,7 @@
 	say(str)
 	str = null
 
-/obj/item/ttsdevice/CtrlClick(mob/living/user)
+/obj/item/ttsdevice/item_ctrl_click(mob/user)
 	var/noisechoice = tgui_input_list(user, "What noise would you like to make?", "Robot Noises", list("Beep","Buzz","Ping"))
 	if(noisechoice == "Beep")
 		user.audible_message("makes their TTS beep!", audible_message_flags = EMOTE_MESSAGE)
@@ -38,8 +38,11 @@
 	if(noisechoice == "Ping")
 		user.audible_message("makes their TTS ping!", audible_message_flags = EMOTE_MESSAGE)
 		playsound(user, 'sound/machines/ping.ogg', 50, 1, -1)
+	if(!noisechoice)
+		return CLICK_ACTION_BLOCKING
+	return CLICK_ACTION_SUCCESS
 
-/obj/item/ttsdevice/CtrlShiftClick(mob/living/user)
+/obj/item/ttsdevice/click_ctrl_shift(mob/user)
 	var/new_name = reject_bad_name(tgui_input_text(user, "Name your Text-to-Speech device. This matters for displaying it in the chat bar.", "Set TTS Device Name", "", MAX_NAME_LEN))
 	if(new_name)
 		name = "[new_name]'s [initial(name)]"

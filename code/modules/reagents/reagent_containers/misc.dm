@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/cup/maunamug
 	name = "mauna mug"
 	desc = "A drink served in a classy mug. Now with built-in heating!"
-	icon = 'icons/obj/mauna_mug.dmi'
+	icon = 'icons/obj/devices/mauna_mug.dmi'
 	icon_state = "maunamug"
 	base_icon_state = "maunamug"
 	spillable = TRUE
@@ -50,13 +50,14 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/reagent_containers/cup/maunamug/CtrlClick(mob/living/user)
+/obj/item/reagent_containers/cup/maunamug/item_ctrl_click(mob/user)
 	if(on)
 		change_power_status(FALSE)
 	else
 		if(!cell || cell.charge <= 0)
 			return FALSE //No power, so don't turn on
 		change_power_status(TRUE)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/reagent_containers/cup/maunamug/proc/change_power_status(status)
 	on = status

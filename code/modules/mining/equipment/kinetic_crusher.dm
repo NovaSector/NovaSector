@@ -15,6 +15,7 @@
 	desc = "An early design of the proto-kinetic accelerator, it is little more than a combination of various mining tools cobbled together, \
 		forming a high-tech club. While it is an effective mining tool, it did little to aid any but the most skilled and/or \
 		suicidal miners against local fauna."
+	resistance_flags = FIRE_PROOF
 	force = 0 //You can't hit stuff unless wielded
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
@@ -85,8 +86,7 @@
 
 /obj/item/kinetic_crusher/attack(mob/living/target, mob/living/carbon/user)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
-		to_chat(user, span_warning("[src] is too heavy to use with one hand! You fumble and drop everything."))
-		user.drop_all_held_items()
+		user.balloon_alert(user, "must be wielded!")
 		return
 	var/datum/status_effect/crusher_damage/crusher_damage_effect = target.has_status_effect(/datum/status_effect/crusher_damage)
 	if(!crusher_damage_effect)
