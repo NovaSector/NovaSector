@@ -4296,16 +4296,6 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/service)
-"bma" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "kitchen_counter";
-	name = "Kitchen Counter Shutters";
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/station/service/kitchen)
 "bmi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -10661,6 +10651,16 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
+"dbC" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "kitchen_counter";
+	name = "Kitchen Counter Shutters";
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/kitchen)
 "dbH" = (
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
@@ -18796,6 +18796,10 @@
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
+"fwJ" = (
+/obj/machinery/drone_dispenser,
+/turf/open/floor/plating,
+/area/station/maintenance/central/greater)
 "fwK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -21091,6 +21095,10 @@
 "gfk" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/table/reinforced,
+/obj/item/flashlight/lamp{
+	pixel_y = 12
+	},
+/obj/item/stamp/head/hos,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hos)
 "gfp" = (
@@ -34490,7 +34498,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/structure/safe,
 /obj/item/gun/ballistic/automatic/pistol/deagle,
 /obj/item/stack/sheet/mineral/diamond,
 /obj/item/stack/spacecash/c1000,
@@ -34503,6 +34510,7 @@
 /obj/item/stack/spacecash/c500,
 /obj/item/clothing/neck/stethoscope,
 /obj/item/clothing/neck/stethoscope,
+/obj/structure/safe/vault,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -121062,7 +121070,7 @@ bXw
 ppr
 bqG
 gNQ
-skT
+fwJ
 bXj
 iJB
 rma
@@ -177352,7 +177360,7 @@ oGU
 wrD
 gGX
 dqq
-bma
+dbC
 uLc
 wqn
 fIp
