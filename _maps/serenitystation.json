@@ -4,6 +4,7 @@
 	"map_path": "map_files/SerenityStation",
 	"map_file": "SerenityStation.dmm",
 	"planetary": 1,
+	"allow_space_when_planetary": 1,
 	"shuttles": {
 		"cargo": "cargo_nova",
 		"ferry": "ferry_fancy",

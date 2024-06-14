@@ -6350,6 +6350,7 @@
 #include "modular_nova\master_files\code\controllers\subsystem\dbcore.dm"
 #include "modular_nova\master_files\code\controllers\subsystem\dynamic_rulesets_midround.dm"
 #include "modular_nova\master_files\code\controllers\subsystem\events.dm"
+#include "modular_nova\master_files\code\controllers\subsystem\mapping.dm"
 #include "modular_nova\master_files\code\datums\ai_laws.dm"
 #include "modular_nova\master_files\code\datums\emotes.dm"
 #include "modular_nova\master_files\code\datums\ert.dm"
