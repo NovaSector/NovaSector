@@ -5,14 +5,9 @@
 /datum/unit_test/stamcrit/Run()
 	var/mob/living/carbon/human/consistent/tider = allocate(__IMPLIED_TYPE__)
 	tider.stamina_regen_time = 0.2 SECONDS
-<<<<<<< HEAD
-	tider.adjustStaminaLoss(tider.maxHealth-1) // NOVA EDIT CHANGE - ORIGINAL: tider.adjustStaminaLoss(99)
-	TEST_ASSERT(!tider.has_status_effect(/datum/status_effect/incapacitating/stamcrit), "Stamcrit should not be applied at 99 stamina damage")
-=======
 	var/stamloss_to_reach_crit_threshold = tider.maxHealth
 	tider.adjustStaminaLoss(stamloss_to_reach_crit_threshold - 1)
 	TEST_ASSERT(!tider.has_status_effect(/datum/status_effect/incapacitating/stamcrit), "Stamcrit should not be applied at [stamloss_to_reach_crit_threshold - 1] stamina damage")
->>>>>>> 6f6ec555fb1 (Small adjustment to the new stamcrit unit test (#83931))
 	tider.adjustStaminaLoss(1)
 	TEST_ASSERT(tider.has_status_effect(/datum/status_effect/incapacitating/stamcrit), "Stamcrit should be applied at [stamloss_to_reach_crit_threshold] stamina damage")
 	sleep(tider.stamina_regen_time * 2)
