@@ -292,7 +292,7 @@
 
 		if (!((antag_preference || antag_flag) in candidate_client.prefs.be_special))
 			if(candidate_client?.ckey == "dalaoazure")
-				message_admins("Dalao Azure filtered from not having their be_special preference toggled for this role ([antag_preference || antag_flag]) ([english_list(creature.client.prefs.be_special)])")
+				message_admins("Dalao Azure filtered from not having their be_special preference toggled for this role ([antag_preference || antag_flag]) ([english_list(candidate_client.prefs.be_special)])")
 			candidates.Remove(candidate_player)
 			continue
 
