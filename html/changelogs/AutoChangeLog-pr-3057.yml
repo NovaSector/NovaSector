@@ -1,0 +1,4 @@
+author: "00-Steven"
+delete-after: True
+changes:
+  - qol: "Narcolepsy now has parity with All Nighter regarding drinks that offset the effects. Most importantly, the coffee variants actually reduces your sleepy chances just like coffee."
