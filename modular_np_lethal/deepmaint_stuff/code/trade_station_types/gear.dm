@@ -138,7 +138,7 @@
 	recipe_requirements = list(
 		/obj/item/epic_loot/device_fan = 3,
 	)
-	resulting_item = /obj/item/shield/ballistic
+	resulting_item = /obj/item/shield/riot/tele
 
 /datum/crafting_bench_recipe_real/ballistic_shield
 	recipe_name = "ballistic shield"
