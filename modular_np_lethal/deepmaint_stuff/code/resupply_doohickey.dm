@@ -51,6 +51,16 @@
 				/obj/item/ammo_box/magazine/ammo_stack/s6gauge/prefilled/slug = INFINITY,
 			),
 		),
+		list(
+			"name" = "Limb Replacement",
+			"icon" = "hand",
+			"products" = list(
+				/obj/item/bodypart/arm/left/robot/surplus = INFINITY,
+				/obj/item/bodypart/arm/right/robot/surplus = INFINITY,
+				/obj/item/bodypart/leg/left/robot/surplus = INFINITY,
+				/obj/item/bodypart/leg/right/robot/surplus = INFINITY,
+			),
+		),
 	)
 	contraband = list()
 	default_price = 0
