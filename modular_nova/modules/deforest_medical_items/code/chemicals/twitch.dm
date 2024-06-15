@@ -154,7 +154,7 @@
 	constant_dose_time += seconds_per_tick
 
 	// If the target is a robot, or has muscle veins, then they get an effect similar to herignis, heating them up quite a bit
-	if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
+	if(our_guy.mob_biotypes & MOB_ROBOTIC) // LETHAL EDIT CHANGE - ORIGINAL : if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
 		var/heating = mob_heating_muliplier * creation_purity * REM * seconds_per_tick
 		our_guy.reagents?.chem_temp += heating
 		our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
@@ -192,7 +192,7 @@
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
 
 	// If the target is a robot, or has muscle veins, then they get an effect similar to herignis, heating them up quite a bit
-	if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
+	if(our_guy.mob_biotypes & MOB_ROBOTIC) // LETHAL EDIT CHANGE - ORIGINAL : if((our_guy.mob_biotypes & MOB_ROBOTIC) || HAS_TRAIT(our_guy, TRAIT_STABLEHEART))
 		var/heating = (mob_heating_muliplier * 2) * creation_purity * REM * seconds_per_tick
 		our_guy.reagents?.chem_temp += heating
 		our_guy.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT)
