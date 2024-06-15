@@ -289,6 +289,12 @@
 /obj/structure/maintenance_loot_structure/military_case/random/rare_loot,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"bS" = (
+/obj/machinery/biogenerator/medstation/directional/north{
+	biomass = 100000000000
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/gakster_location/hideout_real)
 "bU" = (
 /obj/structure/maintenance_loot_structure/ammo_box/random,
 /obj/structure/table,
@@ -7144,6 +7150,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/mecha_wreckage/gygax,
 /obj/machinery/light/red/dim/directional/south,
+/turf/open/indestructible/plating,
+/area/gakster_location/hideout_real)
+"Ww" = (
+/obj/machinery/vending/evil_clothing,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "Wz" = (
@@ -53254,7 +53264,7 @@ xR
 yY
 yY
 GQ
-FN
+Ww
 FN
 mT
 Yj
@@ -53455,7 +53465,7 @@ KC
 iZ
 yY
 yY
-FN
+Ww
 Tc
 xv
 FN
@@ -55630,7 +55640,7 @@ hS
 hS
 rl
 fg
-hS
+bS
 hS
 hS
 fg
