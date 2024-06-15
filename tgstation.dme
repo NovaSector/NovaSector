@@ -8485,5 +8485,8 @@
 #include "modular_np_lethal\money_rework\code\moneyspawners.dm"
 #include "modular_np_lethal\movement\code\ledge_behavior.dm"
 #include "modular_np_lethal\movement\code\living_z_level.dm"
+#include "modular_np_lethal\mobs\lethalmobs.dm"
+#include "modular_np_lethal\mobs\mob_dsword.dm"
+#include "modular_np_lethal\mobs\moboutfits.dm"
 
 // END_INCLUDE
