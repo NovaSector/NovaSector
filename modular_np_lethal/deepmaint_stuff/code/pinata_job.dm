@@ -39,6 +39,8 @@
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_NO_EXTRACT, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_CHUNKYFINGERS, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_STABLEHEART, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_STABLELIVER, JOB_TRAIT)
 
 /datum/job/pinata/get_latejoin_spawn_point()
 	var/list/spawn_markers_to_use = list()
