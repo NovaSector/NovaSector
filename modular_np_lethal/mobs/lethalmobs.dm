@@ -1,8 +1,8 @@
 /mob/living/basic/trooper/gakster
 	name = "Gakster"
 	desc = "This assclown looks like they barely know what they're doing."
-	maxHealth = 200
-	health = 200
+	maxHealth = 150
+	health = 150
 	faction = list(ROLE_SYNDICATE)
 	loot = list(/obj/effect/mob_spawn/corpse/human/gakstermob)
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/gakstermob
@@ -117,20 +117,13 @@
 	projectilesound = 'modular_np_lethal/lethalguns/sound/seiba/seiba.wav'
 	burst_shots = 3
 	ranged_cooldown = 0.4 SECONDS
-	var/projectile_deflect_chance = 50 //chauchat has a ballistic shield!
 
-/mob/living/basic/trooper/gakster/ranged/chauchat/bullet_act(obj/projectile/projectile)
-	if(prob(projectile_deflect_chance))
-		visible_message(span_danger("[src] blocks [projectile] with their ballistic shield!"))
-		return BULLET_ACT_BLOCK
-	return ..()
-
-// 287 Prophet : Drops double energy sword and type five armor - IMMUNE TO RANGED ATTACKS
+// 287 Prophet : Drops double energy sword and type five armor - IMMUNE TO RANGED ATTACKS - NO THEY ARENT FUCK YOU!!!
 /mob/living/basic/trooper/gakster/melee/prophet
 	name = "287 Prophet"
 	desc = "A near-mythical triple-digit gakster wielding a rare double-bladed energy sword and clad in the heaviest of armor. Are you certain whatever you're doing is worth it?"
-	maxHealth = 300
-	health = 300
+	maxHealth = 600
+	health = 600
 	loot = list(/obj/effect/mob_spawn/corpse/human/prophet, /obj/item/dualsaber/red)
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/prophet
 	melee_damage_lower = 40
@@ -143,11 +136,3 @@
 	light_range = 6
 	light_power = 2.5
 	light_color = COLOR_SOFT_RED
-	var/projectile_deflect_chance = 100 //rules of nature
-
-/mob/living/basic/trooper/gakster/melee/prophet/bullet_act(obj/projectile/projectile)
-	if(prob(projectile_deflect_chance))
-		visible_message(span_danger("[src] blocks [projectile] with their energy sword!"))
-		playsound(src.loc, 'sound/weapons/block_blade.ogg', 50, TRUE)
-		return BULLET_ACT_BLOCK
-	return ..()
