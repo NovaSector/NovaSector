@@ -14,6 +14,7 @@
 		neighbors. Keep your village and your Kin safe, but bringing death on their heads from \
 		being reckless with the outsiders will not have the Gods be so kind."
 	spawner_job_path = /datum/job/primitive_catgirl
+	interaction_flags_mouse_drop = NEED_DEXTERITY
 
 	/// The team the spawner will assign players to and use to keep track of people that have already used the spawner
 	var/datum/team/primitive_catgirls/team
@@ -125,8 +126,10 @@
 	team.players_spawned += (spawned_human.key)
 
 
-/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/MouseDrop_T(mob/living/carbon/human/target, mob/living/user)
-	if(!isprimitivedemihuman(target) || !can_interact(user) || !target.Adjacent(user)  || target.buckled)
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/mouse_drop_receive(mob/living/carbon/human/target, mob/user, params)
+	if(!istype(target))
+		return
+	if(!isprimitivedemihuman(target) || target.buckled)
 		return
 
 	if(target.stat == DEAD)
@@ -294,6 +297,7 @@
 		/datum/crafting_recipe/handcrafted_hearthkin_armor,
 		/datum/crafting_recipe/black_pelt_bed,
 		/datum/crafting_recipe/white_pelt_bed,
+		/datum/crafting_recipe/frozen_breath,
 	)
 
 /datum/antagonist/primitive_catgirl/Destroy()
