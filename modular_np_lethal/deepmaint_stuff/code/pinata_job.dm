@@ -35,12 +35,12 @@
 
 /datum/job/pinata/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	ADD_TRAIT(spawned, TRAIT_NODISMEMBER, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_NO_EXTRACT, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_CHUNKYFINGERS, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_STABLEHEART, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_STABLELIVER, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_LIMBATTACHMENT, JOB_TRAIT)
 
 /datum/job/pinata/get_latejoin_spawn_point()
 	var/list/spawn_markers_to_use = list()

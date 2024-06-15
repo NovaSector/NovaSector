@@ -29,9 +29,9 @@
 
 /datum/job/filtre/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	ADD_TRAIT(spawned, TRAIT_NODISMEMBER, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_EXTRACT_TO_FILTRE_SHIP, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_LIMBATTACHMENT, JOB_TRAIT)
 
 /datum/job/filtre/get_latejoin_spawn_point()
 	var/list/spawn_markers_to_use = list()
