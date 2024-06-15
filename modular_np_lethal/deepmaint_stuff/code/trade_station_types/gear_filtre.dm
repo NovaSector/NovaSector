@@ -15,7 +15,7 @@
 		/datum/crafting_bench_recipe_real/turret_drop_pod,
 	)
 
-/obj/structure/epic_loot_crafting_bench/gear/examine_more(mob/user)
+/obj/structure/epic_loot_crafting_bench/gear_filtre/examine_more(mob/user)
 	. = ..()
 
 	. += span_notice("<b>1</b> ID card = <b>1</b> medical support beacon")
