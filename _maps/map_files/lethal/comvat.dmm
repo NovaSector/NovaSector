@@ -943,6 +943,11 @@
 /obj/effect/mapping_helpers/airlock/welded,
 /turf/open/floor/iron/colony/texture,
 /area/gakster_location/war)
+"gF" = (
+/obj/structure/lattice/catwalk,
+/mob/living/basic/trooper/gakster/ranged/chauchat,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "gJ" = (
 /obj/structure/fluff/tram_rail/end{
 	desc = "This probably won't stop a titanium tram from hitting the wall, but it's the thought that counts.";
@@ -1361,6 +1366,10 @@
 /obj/machinery/light/warm/dim/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
+/area/gakster_location/war)
+"jy" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
 "jz" = (
 /obj/machinery/autolathe,
@@ -2909,6 +2918,11 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"ul" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/basic/trooper/gakster/melee/prophet,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/war)
 "ur" = (
 /obj/structure/toilet,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -2985,10 +2999,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "uL" = (
-/mob/living/basic/trooper/nanotrasen/ranged/assault{
-	name = "Blue Company Filtre";
-	desc = "A mean-looking corpo goon. Doesn't look interested in talking."
-	},
+/mob/living/basic/trooper/gakster/ranged/filtre,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
 "uM" = (
@@ -3565,6 +3576,11 @@
 	},
 /turf/open/indestructible/dark/smooth_large,
 /area/gakster_location/hideout_real)
+"yy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/war)
 "yz" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/glass/fifty,
@@ -3848,9 +3864,10 @@
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "Am" = (
-/obj/effect/mine/stun,
-/turf/open/floor/plating,
-/area/gakster_location/outside)
+/obj/structure/lattice/catwalk,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/openspace,
+/area/gakster_location/war)
 "Ao" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -4711,6 +4728,10 @@
 /obj/effect/spawner/random/epic_loot/medical_stack_item_advanced,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
+"FS" = (
+/mob/living/basic/trooper/gakster/ranged,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/gakster_location/war)
 "FT" = (
 /obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/smooth,
@@ -4755,6 +4776,11 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"Gh" = (
+/obj/structure/lattice/catwalk,
+/mob/living/basic/trooper/gakster/ranged,
+/turf/open/openspace,
+/area/gakster_location/war)
 "Gj" = (
 /obj/structure/table/wood,
 /obj/item/storage/toolbox/emergency/turret,
@@ -4819,10 +4845,7 @@
 /obj/structure/chair/comfy/carp{
 	dir = 8
 	},
-/mob/living/basic/trooper/nanotrasen/ranged/assault{
-	name = "Blue Company Filtre";
-	desc = "A mean-looking corpo goon. Doesn't look interested in talking."
-	},
+/mob/living/basic/trooper/gakster/melee/filtre,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
 "GQ" = (
@@ -4974,6 +4997,10 @@
 /obj/effect/spawner/random/epic_loot/medical_tools,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"HK" = (
+/mob/living/basic/trooper/gakster/melee/filtre,
+/turf/open/floor/wood/tile,
+/area/gakster_location/war)
 "HL" = (
 /obj/structure/table/glass,
 /obj/structure/maintenance_loot_structure/medbox/random/advanced_loot,
@@ -5026,11 +5053,8 @@
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "If" = (
-/mob/living/basic/trooper/nanotrasen/ranged/elite{
-	name = "Blue Company Filtre Elite";
-	desc = "A mean-looking corpo goon. Doesn't look interested in talking."
-	},
-/turf/open/floor/wood/tile,
+/mob/living/basic/trooper/gakster/ranged/fathomer,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/gakster_location/war)
 "Ig" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -5087,6 +5111,10 @@
 	},
 /turf/open/openspace,
 /area/gakster_location/outside)
+"IC" = (
+/mob/living/basic/trooper/gakster/melee,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "ID" = (
 /obj/effect/decal/cleanable/robot_debris/limb,
 /turf/open/floor/iron/freezer,
@@ -5103,6 +5131,11 @@
 	},
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"IL" = (
+/obj/structure/railing,
+/mob/living/basic/trooper/gakster/ranged,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "IN" = (
 /obj/structure/door_assembly/door_assembly_hatch,
 /obj/structure/barricade/wooden/crude,
@@ -5447,6 +5480,11 @@
 /obj/item/chair/stool/bar,
 /turf/open/floor/wood,
 /area/gakster_location/hideout_real)
+"KI" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/basic/trooper/gakster/melee,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "KK" = (
 /turf/closed/indestructible/riveted,
 /area/gakster_location/war)
@@ -5548,10 +5586,7 @@
 /area/gakster_location/hideout_real)
 "Lr" = (
 /obj/machinery/light/warm/dim/directional/west,
-/mob/living/basic/trooper/nanotrasen/ranged/assault{
-	name = "Blue Company Filtre";
-	desc = "A mean-looking corpo goon. Doesn't look interested in talking."
-	},
+/mob/living/basic/trooper/gakster/ranged/filtre,
 /turf/open/floor/wood/tile,
 /area/gakster_location/war)
 "Lv" = (
@@ -6629,6 +6664,10 @@
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Tm" = (
+/mob/living/basic/trooper/gakster/ranged,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "Tq" = (
 /obj/structure/table,
 /obj/effect/spawner/random/epic_loot/medical_stack_item,
@@ -6778,6 +6817,11 @@
 /obj/effect/spawner/random/trash/graffiti,
 /turf/closed/indestructible/steel,
 /area/gakster_location/hideout_real)
+"Ux" = (
+/obj/structure/lattice/catwalk,
+/mob/living/basic/trooper/gakster/ranged,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "Uy" = (
 /obj/effect/decal/cleanable/robot_debris/up,
 /turf/open/floor/iron/smooth,
@@ -7007,7 +7051,7 @@
 /area/gakster_location/hideout_real)
 "VS" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/autolathe,
+/mob/living/basic/trooper/gakster/ranged/razor,
 /turf/open/openspace,
 /area/gakster_location/war)
 "VT" = (
@@ -28994,15 +29038,15 @@ dK
 NT
 TX
 TX
-Xp
-Xp
+jy
+jy
 NT
 xk
 Xp
 yW
 NT
-Xp
-Xp
+jy
+jy
 Xp
 TX
 NT
@@ -30014,15 +30058,15 @@ dK
 NT
 Xp
 Xp
-Xp
-Xp
+jy
+jy
 NT
 xk
 sW
 yW
 NT
-Xp
-sW
+jy
+yy
 sW
 sW
 NT
@@ -30717,7 +30761,7 @@ gD
 iL
 NT
 Lh
-dK
+FS
 Np
 dK
 dK
@@ -33225,7 +33269,7 @@ Sn
 Sn
 Sn
 do
-sW
+ul
 Fg
 JP
 Sn
@@ -34515,7 +34559,7 @@ dK
 Xp
 Lh
 Lh
-Lh
+Tm
 Xp
 dK
 Lh
@@ -34615,7 +34659,7 @@ dK
 Lh
 dK
 qb
-Lh
+Tm
 Lh
 Lh
 qb
@@ -38572,7 +38616,7 @@ jf
 zD
 KK
 xH
-If
+uL
 xH
 xH
 KK
@@ -38669,7 +38713,7 @@ EY
 Gj
 uL
 xH
-uL
+HK
 xH
 xH
 ep
@@ -39073,7 +39117,7 @@ Vi
 KK
 WI
 xH
-uL
+HK
 xH
 WI
 KK
@@ -39181,7 +39225,7 @@ gm
 KK
 Xb
 tD
-uL
+HK
 AV
 cp
 xH
@@ -39193,7 +39237,7 @@ Lh
 Hi
 WH
 NT
-Ph
+Am
 Ph
 Fo
 mw
@@ -39205,7 +39249,7 @@ Fo
 mw
 Fo
 Ph
-Ph
+Am
 NT
 jI
 dK
@@ -39457,7 +39501,7 @@ eB
 NT
 eB
 Kb
-Ph
+Gh
 Kb
 eB
 NT
@@ -40213,7 +40257,7 @@ MW
 Ci
 tA
 NT
-Ph
+Am
 Ph
 vw
 LZ
@@ -40225,7 +40269,7 @@ vw
 LZ
 vw
 Ph
-Ph
+Am
 NT
 NT
 NT
@@ -41782,7 +41826,7 @@ MW
 yJ
 xV
 mQ
-fA
+IL
 eB
 eB
 eB
@@ -42954,7 +42998,7 @@ vr
 vr
 vr
 yE
-DT
+Ux
 DT
 DT
 Mw
@@ -43159,7 +43203,7 @@ vr
 vr
 vr
 IB
-DT
+gF
 hp
 vr
 vr
@@ -43364,7 +43408,7 @@ vr
 Mw
 DT
 DT
-DT
+Ux
 Mw
 vr
 vr
@@ -43465,7 +43509,7 @@ vr
 vr
 Mw
 fV
-Am
+yc
 kU
 Mw
 vr
@@ -44875,7 +44919,7 @@ dK
 Xp
 NT
 dK
-Lh
+IC
 NT
 Zb
 QO
@@ -45180,7 +45224,7 @@ dK
 dK
 dK
 Np
-dK
+If
 Lh
 NT
 NT
@@ -45280,7 +45324,7 @@ dK
 NT
 jI
 Lh
-tq
+KI
 NT
 Lh
 lq
@@ -46795,7 +46839,7 @@ IU
 NT
 eB
 Kb
-Ph
+Gh
 Kb
 Kb
 NT
