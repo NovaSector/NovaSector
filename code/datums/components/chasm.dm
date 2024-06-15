@@ -164,6 +164,14 @@
 		falling_atoms -= falling_ref
 		return
 
+	// LETHAL EDIT: turns chasms into 'lethal ledges' l4d style
+	if (isliving(dropped_thing))
+		var/mob/living/falling_mob = dropped_thing
+		if (falling_mob.recover_from_ledge(list(/turf/open/chasm))) // handles the whole thing
+			falling_atoms -= falling_ref
+			return
+	// LETHAL EDIT END
+
 	// send to oblivion
 	dropped_thing.visible_message(span_boldwarning("[dropped_thing] falls into [parent]!"), span_userdanger("[oblivion_message]"))
 	if (isliving(dropped_thing))

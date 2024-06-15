@@ -8483,5 +8483,7 @@
 #include "modular_np_lethal\money_rework\code\atmflatpacked.dm"
 #include "modular_np_lethal\money_rework\code\money.dm"
 #include "modular_np_lethal\money_rework\code\moneyspawners.dm"
+#include "modular_np_lethal\movement\code\ledge_behavior.dm"
+#include "modular_np_lethal\movement\code\living_z_level.dm"
 
 // END_INCLUDE
