@@ -64,9 +64,7 @@
 	/// Linked bank account.
 	var/datum/bank_account/registered_account
 
- /*
-	LETHAL 'EDIT' - MORE 'ACT OF DIVINE FOLLY' - disables HOLOPAY, MONEY INSERTION, and HOLOCHIPS.
-
+	/* LETHAL 'EDIT' - MORE 'ACT OF DIVINE FOLLY' - disables HOLOPAY, MONEY INSERTION, and HOLOCHIPS.
 	/// Linked holopay.
 	var/obj/structure/holopay/my_store
 	/// Cooldown between projecting holopays
@@ -86,8 +84,8 @@
 	/// Minimum forced fee for holopay stations. Registers as "pay what you want."
 	var/holopay_min_fee = 0
 	/// The holopay name chosen by the user
-	var/holopay_name = "holographic pay stand"
-*/
+	var/holopay_name = "holographic pay stand" */
+
 	/// Registered owner's age.
 	var/registered_age = 18 //NOVA EDIT - ORIGINAL (13)
 
@@ -142,8 +140,8 @@
 /obj/item/card/id/Destroy()
 	if (registered_account)
 		registered_account.bank_cards -= src
-//	if (my_store) // LETHAL EDIT REMOVAL
-//		QDEL_NULL(my_store)
+	//if (my_store) // LETHAL EDIT REMOVAL
+		//QDEL_NULL(my_store)
 	return ..()
 
 /obj/item/card/id/get_id_examine_strings(mob/user)
@@ -452,6 +450,7 @@
 	//else if(registered_account.account_balance > 0) // LETHAL EDIT REMOVAL
 	//	context[SCREENTIP_CONTEXT_ALT_LMB] = "Withdraw credits" // LETHAL EDIT REMOVAL
 	return CONTEXTUAL_SCREENTIP_SET
+
 /*	LETHAL EDIT - REMOVE HOLOPAY STAND
 /obj/item/card/id/proc/try_project_paystand(mob/user, turf/target)
 	if(!COOLDOWN_FINISHED(src, last_holopay_projection))
@@ -635,8 +634,8 @@
 	log_econ("[total] credits were inserted into [src] owned by [src.registered_name]")
 	QDEL_LIST(money)
 
-	return total
-*/
+	return total */
+
 /// Helper proc. Can the user alt-click the ID?
 /obj/item/card/id/proc/alt_click_can_use_id(mob/living/user)
 	if(!isliving(user))
