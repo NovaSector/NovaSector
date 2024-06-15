@@ -36,14 +36,15 @@
 
 /// Fills random contents into this structure's inventory, starting a loop to respawn loot if the container is empty later
 /obj/structure/maintenance_loot_structure/proc/make_contents()
-	var/refill_check_time = 10 MINUTES
-	if(!length(contents))
-		spawn_loot()
-		refill_check_time = 30 MINUTES
+	var/refill_check_time = rand(7 MINUTES, 15 MINUTES)
+	spawn_loot()
 	addtimer(CALLBACK(src, PROC_REF(make_contents)), refill_check_time)
 
 /// Spawns a random amount of loot into the structure, random numbers based on the amount of storage slots inside it
 /obj/structure/maintenance_loot_structure/proc/spawn_loot()
+	if(length(contents))
+		for(var/obj/thing in contents)
+			qdel(thing)
 	var/random_loot_amount = roll(loot_spawn_dice_string)
 	for(var/loot_spawn in 1 to random_loot_amount)
 		var/obj/new_loot = pick_weight(loot_weighted_list)
