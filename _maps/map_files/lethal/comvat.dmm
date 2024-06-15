@@ -513,6 +513,14 @@
 /obj/structure/noticeboard,
 /turf/closed/indestructible/wood,
 /area/gakster_location/hideout_real)
+"dB" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/red/dim/directional/east,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/gakster_location/outside)
 "dC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/garbage,
@@ -973,13 +981,9 @@
 /turf/open/floor/wood,
 /area/gakster_location/hideout_real)
 "gL" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/red/dim/directional/east,
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/openspace,
-/area/gakster_location/outside)
+/obj/effect/spawner/random/trash/caution_sign,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/gakster_location/war)
 "gO" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/open/indestructible/plating,
@@ -2935,6 +2939,10 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"ul" = (
+/obj/effect/spawner/random/trash/caution_sign,
+/turf/open/floor/iron/smooth_large,
+/area/gakster_location/war)
 "ur" = (
 /obj/structure/toilet,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -3569,8 +3577,9 @@
 /turf/open/floor/plating,
 /area/gakster_location/war)
 "yv" = (
-/obj/structure/marker_beacon/jade,
-/turf/closed/wall,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/trash/caution_sign,
+/turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "yw" = (
 /obj/structure/table/wood,
@@ -4351,6 +4360,12 @@
 /obj/structure/maintenance_loot_structure/wall_jacket/random/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
+"Du" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/red/dim/directional/west,
+/obj/structure/railing,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "Dv" = (
 /obj/structure/barricade/wooden/snowed,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -5065,8 +5080,9 @@
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "If" = (
-/mob/living/basic/trooper/gakster/ranged/fathomer,
-/turf/open/floor/catwalk_floor/iron_smooth,
+/obj/machinery/light/warm/dim/directional/north,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "Ig" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -5800,11 +5816,10 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "MQ" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/light/red/dim/directional/west,
-/obj/structure/railing,
-/turf/open/openspace,
-/area/gakster_location/outside)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "MT" = (
 /obj/structure/chair/stool/bar{
 	dir = 1
@@ -6660,9 +6675,8 @@
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "Td" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/marker_beacon/jade,
-/turf/open/floor/iron/smooth,
+/turf/closed/wall,
 /area/gakster_location/war)
 "Tf" = (
 /obj/machinery/light/red/dim/directional/west,
@@ -6840,9 +6854,8 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "UA" = (
-/obj/machinery/light/warm/dim/directional/north,
-/obj/structure/marker_beacon/jade,
-/turf/open/floor/iron/smooth,
+/obj/effect/spawner/random/trash/caution_sign,
+/turf/open/floor/plating,
 /area/gakster_location/war)
 "UB" = (
 /obj/machinery/light/dim/directional/north,
@@ -7430,6 +7443,10 @@
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
+"Yd" = (
+/mob/living/basic/trooper/gakster/ranged/fathomer,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "Yg" = (
 /obj/machinery/light/dim/directional/west,
 /turf/open/indestructible/stone,
@@ -7578,6 +7595,10 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
+"Zj" = (
+/obj/effect/spawner/random/trash/caution_sign,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "Zk" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/indestructible/plating,
@@ -28552,7 +28573,7 @@ NT
 WH
 Lh
 Lh
-Td
+MQ
 tq
 Lh
 ep
@@ -28652,7 +28673,7 @@ tq
 Lh
 ep
 Lh
-Td
+MQ
 EX
 tq
 Lh
@@ -29157,7 +29178,7 @@ Sn
 Sn
 Fv
 Sn
-Sn
+UA
 Sn
 Fv
 Sn
@@ -29557,7 +29578,7 @@ ep
 NT
 NT
 NT
-MY
+Ju
 ep
 Xp
 Sn
@@ -29973,7 +29994,7 @@ Sn
 aY
 Eu
 Sn
-Sn
+UA
 Sn
 Eu
 Sn
@@ -30284,7 +30305,7 @@ dK
 dK
 NT
 Xp
-Xp
+ul
 Xp
 Xp
 TX
@@ -33914,7 +33935,7 @@ Sn
 Sn
 cW
 NT
-UA
+If
 Lh
 Lh
 ep
@@ -34019,7 +34040,7 @@ NT
 Lh
 on
 hz
-yv
+Td
 dK
 NT
 Vi
@@ -37401,7 +37422,7 @@ vr
 vr
 vr
 IB
-MQ
+Du
 vr
 vr
 vr
@@ -37706,7 +37727,7 @@ NT
 vr
 vr
 vr
-gL
+dB
 hp
 vr
 vr
@@ -39350,7 +39371,7 @@ Lh
 Lh
 Lh
 Lh
-Lh
+Zj
 ep
 Ph
 fc
@@ -40476,7 +40497,7 @@ ey
 Lh
 NT
 Lh
-dK
+gL
 NT
 Lh
 jI
@@ -40484,7 +40505,7 @@ NT
 jI
 Lh
 NT
-tq
+yv
 tq
 NT
 uG
@@ -41253,10 +41274,10 @@ Kb
 eB
 KK
 Om
+IC
 Lh
 Lh
-Lh
-Lh
+Yd
 Lh
 if
 dK
@@ -44932,7 +44953,7 @@ dK
 Xp
 NT
 dK
-IC
+Lh
 NT
 Zb
 QO
@@ -45237,7 +45258,7 @@ dK
 dK
 dK
 Np
-If
+dK
 Lh
 NT
 NT
