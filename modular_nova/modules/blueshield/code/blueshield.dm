@@ -53,10 +53,14 @@
 	ears = /obj/item/radio/headset/headset_bs/alt
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	implants = list(/obj/item/implant/mindshield)
+	backpack_contents = list(
+		/obj/item/choice_beacon/blueshield = 1,
+	)
 	backpack = /obj/item/storage/backpack/blueshield
 	satchel = /obj/item/storage/backpack/satchel/blueshield
 	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
 	messenger = /obj/item/storage/backpack/messenger/blueshield
+
 	head = /obj/item/clothing/head/beret/blueshield
 	box = /obj/item/storage/box/survival/security
 	belt = /obj/item/modular_computer/pda/security
@@ -69,3 +73,34 @@
 
 	head = /obj/item/clothing/head/helmet/space/plasmaman/blueshield
 	uniform = /obj/item/clothing/under/plasmaman/blueshield
+
+/*
+	Blueshield's Hellfire is between SC-1 and the Hellfire in terms of Damage and wound output
+*/
+
+/// Blueshield's Custom Hellfire
+/obj/item/ammo_casing/energy/laser/hellfire/blueshield
+	projectile_type = /obj/projectile/beam/laser/hellfire
+	e_cost = LASER_SHOTS(13, STANDARD_CELL_CHARGE)
+	select_name = "maim"
+
+/obj/item/gun/energy/laser/hellgun/blueshield
+	name ="modified hellfire laser gun"
+	desc = "A lightly overtuned version of NT's Hellfire Laser rifle, scratches showing its age and the fact it has definitely been owned before. This one is more energy efficient without sacrificing damage."
+	icon_state = "hellgun"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
+
+/obj/item/choice_beacon/blueshield
+	name = "gunset beacon"
+	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
+	company_source = "Sol Defense Contracting"
+	company_message = span_bold("Supply Pod incoming, please stand by.")
+
+/obj/item/choice_beacon/blueshield/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
+		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
+		"Bogseo Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/bogseo,
+	)
+
+	return selectable_gun_types
