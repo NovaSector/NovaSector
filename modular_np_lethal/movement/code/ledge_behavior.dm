@@ -7,21 +7,30 @@
 /mob/living/proc/recover_from_ledge(list/unsafe_turfs, channel = 20 SECONDS, channel_cancel = 18 SECONDS, checks)
 	if (stat == CONSCIOUS && !IsSleeping() && !IsUnconscious())
 		var/turf/the_chasm = get_turf(src)
-		var/list/nearby_turfs = the_chasm.reachableAdjacentTurfs(src, null, FALSE)
-		var/list/safe_turfs = list()
-
 		if (!unsafe_turfs)
 			unsafe_turfs = GLOB.turfs_openspace // initialize with typical openspace turfs if none supplied
 
-		for (var/turf/turf_to_check as anything in nearby_turfs) // attempt to find as many "safe" turfs as possible for us to try and clamber back up from
+		var/list/safe_turfs = list()
+		// we used to be able to do reachableAdjacentTurfs but it doesn't factor in some stuff we want, so...
+		var/datum/can_pass_info/pass_info = new(src, null, FALSE)
+		for (var/iter_dir in GLOB.cardinals)
+			var/turf/turf_to_check = get_step(src, iter_dir)
+			if (!turf_to_check)
+				continue
+			if (turf_to_check.density || the_chasm.LinkBlockedWithAccess(turf_to_check, pass_info))
+				continue
 			if (!locate(turf_to_check) in unsafe_turfs)
 				safe_turfs += turf_to_check
+				continue
+			if (locate(/obj/structure/lattice) in turf_to_check || istype(turf_to_check, /turf/open/floor/catwalk_floor)) // but we also want to grip onto turfs with lattices or catwalks in them, too, even if they're open
+				safe_turfs += turf_to_check
+				continue
 
 		if (LAZYLEN(safe_turfs) >= 1) //we have at least 1 safe turf we can try to grasp onto
-
 			var/turf/salvation = pick(safe_turfs)
+
 			Immobilize(channel_cancel, TRUE) // you get 2 seconds of leeway at the end of the channel to decide if you want to live or die
-			visible_message(span_boldwarning("Scrabbling wildly, [src] only barely manages to avoid falling down into [the_chasm], clinging to the edge of [salvation] for dear life!"), span_userdanger("Scrabbling wildly, you grip onto the edge of [salvation] for dear life!"))
+			visible_message(span_boldwarning("Scrabbling wildly, [src] only barely manages to avoid falling down, clinging to a ledge for dear life!"), span_userdanger("Scrabbling wildly, you grip onto a ledge for dear life!"))
 
 			ADD_TRAIT(src, TRAIT_MOVE_FLYING, LEDGE_TRAIT) // temporary so they don't fall down again
 			ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, LEDGE_TRAIT)
@@ -33,7 +42,7 @@
 			if (do_after(src, channel, salvation, extra_checks = checks, interaction_key = LEDGE_KEY, max_interact_count = 1))
 				forceMove(salvation) // ONLY A HERO CAN SAVE US, I'M NOT GONNA STAND HERE AND WAAAAIITTT
 				playsound(src, 'modular_np_lethal/movement/sound/stumble.mp3', 50)
-				visible_message(span_warning("[src] clambers up and onto [salvation], exhausted."), span_userdanger("With a final burst of strength, you haul yourself up and over onto [salvation], and promptly collapse into an exhausted heap."))
+				visible_message(span_warning("[src] clambers up the ledge to safety, exhausted."), span_userdanger("With a final burst of strength, you haul yourself up and over the ledge, and promptly collapse into an exhausted heap."))
 
 				StaminaKnockdown(200)
 
