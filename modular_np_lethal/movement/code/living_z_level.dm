@@ -100,6 +100,12 @@ GLOBAL_LIST_INIT(drugs_that_cause_zfalls, list(
 		if (is_it_stairs && locate(/obj/structure/stairs) in is_it_stairs) //hey but first does it have stairs? because stairs are good, we like stairs
 			return allow_movement()
 
+		if (istype(new_loc_turf, /turf/open/floor/catwalk_floor)) //catwalks are okay
+			return allow_movement()
+
+		if (locate(/obj/structure/lattice) in new_loc_turf) //lattices are also okay
+			return allow_movement()
+
 		if (alive_thing.stat != CONSCIOUS || alive_thing.IsUnconscious() || alive_thing.IsParalyzed() || alive_thing.IsImmobilized() || alive_thing.IsStun() || alive_thing.IsKnockdown() || alive_thing.IsFrozen() || alive_thing.IsSleeping()) // you can't do shit, so you're going off the edge
 			return allow_movement()
 
