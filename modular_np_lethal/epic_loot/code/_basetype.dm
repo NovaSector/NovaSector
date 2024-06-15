@@ -24,7 +24,7 @@
 
 /obj/structure/maintenance_loot_structure/examine(mob/user)
 	. = ..()
-	. += span_engradio("If it's <b>empty</b>, perhaps you should check it again at a <b>later</b> time?")
+	. += span_engradio("It might have other things you're looking for <b>at a later time</b>?")
 	return .
 
 // Since it doesn't want to play nice for whatever reason
