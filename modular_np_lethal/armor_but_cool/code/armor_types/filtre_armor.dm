@@ -272,3 +272,17 @@
 		While not as protective as other types of helmets, the sensors suite has a variety of \
 		modern HUDs useful for all types of operations. This one has a fully-enclosed faceplate!"
 	icon_state = "filtre_helmet_scout"
+
+/obj/item/clothing/suit/armor/lethal_filtre/heavy/honorguard
+	name = "'Kharuul' type IV armor kit"
+	desc = "A heavy full kit of armor for protecting every part of your body but the head and legs with exceptional plating. \
+		The armor's excessive bulk, however, makes the kit slow to move in. A small price to pay for such superior protection. \
+		This model comes equipped with a specialized sensor suite and radio antenna. This ones designed to specifically fit some kind of reptillan, it's platings made for digi legs."
+	icon_state = "filtre_heavy_dente"
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/honorguard
+	name = "'Kharuul' type IV ballistic helmet"
+	desc = "A high tech helmet with a complicated-looking sensors suite stuck to the front. \
+		While not as protective as other types of helmets, the sensors suite has a variety of \
+		modern HUDs useful for all types of operations. This one has a fully-enclosed faceplate!"
+	icon_state = "filtre_helmet_dente"

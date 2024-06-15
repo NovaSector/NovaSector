@@ -46,3 +46,10 @@
 	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/headswoman
 	ckeywhitelist = list("ChillyLobster")
 	restricted_roles = list("Filtre")
+
+/datum/loadout_item/head/honorgaurd_armor
+	name = "'Kharuul' type IV ballistic helmet'"
+	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/honorguard
+	ckeywhitelist = list("Luckydente")
+	restricted_roles = list("Filtre")
+
