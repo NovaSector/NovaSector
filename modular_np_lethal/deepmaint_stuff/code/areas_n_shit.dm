@@ -16,6 +16,18 @@
 /area/gakster_location/hideout_real
 	name = "Hideout (Real)"
 
+/area/gakster_location/hideout_real/Entered(atom/movable/arrived, area/old_area)
+	. = ..()
+	var/mob/living/carbon/human/arriving_mob = arrived
+	if(istype(arriving_mob))
+		ADD_TRAIT(arriving_mob, TRAIT_PACIFISM, TRAIT_GENERIC)
+
+/area/gakster_location/hideout_real/Exited(atom/movable/gone, direction)
+	. = ..()
+	var/mob/living/carbon/human/leaving_mob = gone
+	if(istype(leaving_mob))
+		REMOVE_TRAIT(leaving_mob, TRAIT_PACIFISM, TRAIT_GENERIC)
+
 /area/gakster_location/war
 	name = "The Location"
 	ambience_index = AMBIENCE_RUINS
