@@ -48,16 +48,14 @@
 
 
 /obj/structure/towel_bin/screwdriver_act(mob/living/user, obj/item/tool)
-	if(obj_flags & NO_DECONSTRUCTION)
-		return FALSE
-
 	if(amount)
 		to_chat(user, span_warning("[src] must be empty first!"))
 		return ITEM_INTERACT_SUCCESS
 
 	if(tool.use_tool(src, user, 0.5 SECONDS, volume = 50))
 		to_chat(user, span_notice("You disassemble [src]."))
-		new /obj/item/stack/rods(loc, 2)
+		if(!(obj_flags & NO_DEBRIS_AFTER_DECONSTRUCTION))
+			new /obj/item/stack/rods(loc, 2)
 		qdel(src)
 		return ITEM_INTERACT_SUCCESS
 

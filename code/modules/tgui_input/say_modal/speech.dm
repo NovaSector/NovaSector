@@ -45,7 +45,7 @@
 			client.ooc(entry)
 			return TRUE
 		if(ADMIN_CHANNEL)
-			client.cmd_admin_say(entry)
+			SSadmin_verbs.dynamic_invoke_verb(client, /datum/admin_verb/cmd_admin_say, entry)
 			return TRUE
 		// NOVA EDIT ADDITION START - CUSTOMIZATION
 		if(LOOC_CHANNEL)
@@ -54,6 +54,8 @@
 		if(WHIS_CHANNEL)
 			client.mob.whisper_verb(entry)
 			return TRUE
+		if(DO_CHANNEL)
+			client.mob.do_verb(entry)
 		// NOVA EDIT ADDITION END
 	return FALSE
 

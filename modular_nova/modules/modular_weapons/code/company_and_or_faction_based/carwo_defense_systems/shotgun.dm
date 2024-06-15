@@ -56,6 +56,12 @@
 
 	. = ..()
 
+/obj/item/gun/ballistic/shotgun/riot/sol/thunderdome
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
+
+/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
+	ammo_type = /obj/item/ammo_casing/shotgun/beehive
+
 // Shotgun but EVIL!
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil
@@ -64,3 +70,9 @@
 	icon_state = "renoster_evil"
 	worn_icon_state = "renoster_evil"
 	inhand_icon_state = "renoster_evil"
+
+/obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
+
+/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette

@@ -18,7 +18,7 @@
 
 /obj/projectile/bullet/c27_54cesarzowa
 	name = ".27-54 Cesarzowa piercing bullet"
-	damage = 15
+	damage = 18
 	armour_penetration = 30
 	wound_bonus = -30
 	bare_wound_bonus = -10
@@ -36,7 +36,7 @@
 
 	caliber = CALIBER_CESARZOWA
 	ammo_type = /obj/item/ammo_casing/c27_54cesarzowa
-	max_ammo = 18
+	max_ammo = 28
 
 // .27-54 Cesarzowa rubber
 // Small caliber pistol round meant to be fired out of something that shoots real quick like, this one is less lethal

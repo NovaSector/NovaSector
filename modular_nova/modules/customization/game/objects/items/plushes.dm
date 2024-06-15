@@ -595,10 +595,10 @@
 // Donation reward for SomeRandomOwl
 /obj/item/toy/plush/nova/snow_owl
 	name = "snowy owl plush"
-	desc = "A very soft plush resembling a feathery and witch like owl who is known to frequent science and medical."
+	desc = "A very soft plush resembling a feathery snow owl. It has a cute witch like hat and hoots every time you squeeze it. It smells faintly of oreo cookies."
 	icon_state = "plushie_owl"
-	attack_verb_continuous = list("hoots", "screms", "hugs")
-	attack_verb_simple = list("hoot", "screm", "hug")
+	attack_verb_continuous = list("nuzzles", "hoots", "hugs")
+	attack_verb_simple = list("nuzzle", "hoot", "hug")
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/hoot.ogg' = 1)
 
 // Donation reward for Jolly66

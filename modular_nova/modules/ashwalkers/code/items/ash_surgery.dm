@@ -3,6 +3,7 @@
 	name = "primitive cautery"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "cautery"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -18,6 +19,7 @@
 	name = "primitive surgical drill"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "surgical_drill"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -33,6 +35,7 @@
 	name = "primitive scalpel"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "scalpel"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -48,6 +51,7 @@
 	name = "primitive circular saw"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "surgical_saw"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -63,6 +67,7 @@
 	name = "primitive retractor"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "retractors"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -78,6 +83,7 @@
 	name = "primitive hemostat"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "hemostat"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null
@@ -93,6 +99,7 @@
 	name = "primitive bonesetter"
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
 	icon_state = "bonesetter"
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null
 	greyscale_config = null

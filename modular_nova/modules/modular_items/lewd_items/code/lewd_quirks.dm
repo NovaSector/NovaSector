@@ -154,18 +154,18 @@
 	speech_args[SPEECH_MESSAGE] = message
 
 /datum/brain_trauma/very_special/bimbo/on_gain()
+	. = ..()
 	owner.add_mood_event("bimbo", /datum/mood_event/bimbo)
 	if(!HAS_TRAIT_FROM(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM))
 		ADD_TRAIT(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM)
-	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	if(!HAS_TRAIT_FROM(owner, TRAIT_MASOCHISM, TRAIT_APHRO))
 		ADD_TRAIT(owner, TRAIT_MASOCHISM, TRAIT_APHRO)
 
 /datum/brain_trauma/very_special/bimbo/on_lose()
+	. = ..()
 	owner.clear_mood_event("bimbo")
 	if(HAS_TRAIT_FROM(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM))
 		REMOVE_TRAIT(owner, TRAIT_BIMBO, TRAIT_LEWDCHEM)
-	UnregisterSignal(owner, COMSIG_MOB_SAY)
 	if(HAS_TRAIT_FROM(owner, TRAIT_MASOCHISM, TRAIT_APHRO))
 		REMOVE_TRAIT(owner, TRAIT_MASOCHISM, TRAIT_APHRO)
 
@@ -218,10 +218,12 @@
 	resilience = TRAUMA_RESILIENCE_ABSOLUTE
 
 /datum/brain_trauma/very_special/neverboner/on_gain()
+	. = ..()
 	var/mob/living/carbon/human/affected_human = owner
 	ADD_TRAIT(affected_human, TRAIT_NEVERBONER, TRAIT_APHRO)
 
 /datum/brain_trauma/very_special/neverboner/on_lose()
+	. = ..()
 	var/mob/living/carbon/human/affected_human = owner
 	REMOVE_TRAIT(affected_human, TRAIT_NEVERBONER, TRAIT_APHRO)
 
@@ -343,14 +345,14 @@
 		var/arousal_message
 		switch(arousal)
 			if(AROUSAL_MINIMUM_DETECTABLE to AROUSAL_LOW)
-				arousal_message = span_purple("[p_they()] [p_are()] slightly blushed.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] slightly blushed.") + "\n"
 			if(AROUSAL_LOW to AROUSAL_MEDIUM)
-				arousal_message = span_purple("[p_they()] [p_are()] quite aroused and seems to be stirring up lewd thoughts in [p_their()] head.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] quite aroused and seems to be stirring up lewd thoughts in [p_their()] head.") + "\n"
 			if(AROUSAL_HIGH to AROUSAL_AUTO_CLIMAX_THRESHOLD)
-				arousal_message = span_purple("[p_they()] [p_are()] aroused as hell.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] aroused as hell.") + "\n"
 			if(AROUSAL_AUTO_CLIMAX_THRESHOLD to INFINITY)
-				arousal_message = span_purple("[p_they()] [p_are()] extremely excited, exhausting from entolerable desire.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] extremely excited, exhausting from entolerable desire.") + "\n"
 		if(arousal_message)
 			. += arousal_message
 	else if(arousal > AROUSAL_MINIMUM_DETECTABLE)
-		. += span_purple("[p_they()] [p_are()] slightly blushed.") + "\n"
+		. += span_purple("[p_They()] [p_are()] slightly blushed.") + "\n"

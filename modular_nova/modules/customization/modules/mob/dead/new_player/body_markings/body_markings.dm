@@ -79,11 +79,30 @@
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/blank_face2
+	name = "Blank Round Face, Alt"
+	icon_state = "blankface2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/monster_mouth
 	name = "Monster Mouth"
 	icon_state = "monster"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
+
+/datum/body_marking/other/monster_mouth2
+	name = "Monster Mouth (White)"
+	icon_state = "monster2"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/monster_mouth3
+	name = "Monster Mouth (White, eye-compatible)"
+	icon_state = "monster3"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+//you're welcome -- iska
 
 /datum/body_marking/other/nose_blemish
 	name = "Nose Blemish"
@@ -96,14 +115,36 @@
 	icon_state = "brows"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/ears
+	name = "Ears"
+	icon_state = "ears"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/other/insect_antennae
+	name = "Insect Antennae"
+	icon_state = "insect_antennae"
+	default_color = "#CCCCCC"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/eyeliner
 	name = "Eyeliner"
 	icon_state = "eyeliner"
 	affected_bodyparts = HEAD
 
+/datum/body_marking/other/topscars
+	name = "Top Surgery Scars"
+	icon_state = "topscars"
+	affected_bodyparts = CHEST
+
 /datum/body_marking/other/weight
 	name = "Body Weight"
 	icon_state = "weight"
+	default_color = DEFAULT_PRIMARY
+	affected_bodyparts = CHEST
+
+/datum/body_marking/other/weight2
+	name = "Body Weight (Greyscale)"
+	icon_state = "weight2"
 	default_color = DEFAULT_PRIMARY
 	affected_bodyparts = CHEST
 
@@ -126,9 +167,51 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/big_ol_eyes
+	name = "Large Eyes"
+	icon_state = "bigoleyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/three_eyes
+	name = "Three Eyes"
+	icon_state = "3eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/four_eyes
+	name = "Four Eyes"
+	icon_state = "4eyes"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/claws
+	name = "Claw Tips"
+	icon_state = "claws"
+	affected_bodyparts = HAND_LEFT | HAND_RIGHT
+	gendered = FALSE
+
+/datum/body_marking/other/splotches
+	name = "Splotches"
+	icon_state = "splotches"
+	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/splotcheswap
+	name = "Splotches Swapped"
+	icon_state = "splotcheswap"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/other/bands
 	name = "Color Bands"
 	icon_state = "bands"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/chitin
+	name = "Chitin"
+	icon_state = "chitin"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/other/bands_foot
@@ -145,6 +228,21 @@
 	name = "Leg Band"
 	icon_state = "legband"
 	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/protogenlegs
+	name = "Protogen Leg - Digitigrade"
+	icon_state = "protogen"
+	affected_bodyparts = LEG_RIGHT | LEG_LEFT
+
+/datum/body_marking/other/protogenarms
+	name = "Protogen Arm"
+	icon_state = "protogen"
+	affected_bodyparts = ARM_RIGHT | ARM_LEFT
+
+/datum/body_marking/other/protogenchest
+	name = "Protogen Chest"
+	icon_state = "protogen"
+	affected_bodyparts = CHEST
 
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'

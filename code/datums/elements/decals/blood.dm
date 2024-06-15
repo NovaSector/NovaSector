@@ -9,10 +9,14 @@
 
 /datum/element/decal/blood/Detach(atom/source)
 	UnregisterSignal(source, COMSIG_ATOM_GET_EXAMINE_NAME)
+	if(isitem(source))
+		var/obj/item/source_item = source
+		REMOVE_KEEP_TOGETHER(source_item, type)
 	return ..()
 
 /datum/element/decal/blood/generate_appearance(_icon, _icon_state, _dir, _plane, _layer, _color, _alpha, _smoothing, source)
 	var/obj/item/I = source
+	ADD_KEEP_TOGETHER(I, type)
 	var/icon = I.icon
 	var/icon_state = I.icon_state
 	if(!icon || !icon_state)
@@ -29,10 +33,7 @@
 	pic = blood_splatter
 	return TRUE
 
-/datum/element/decal/blood/proc/get_examine_name(datum/source, mob/user, list/override)
+/datum/element/decal/blood/proc/get_examine_name(atom/source, mob/user, list/override)
 	SIGNAL_HANDLER
 
-	var/atom/A = source
-	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"
-	override[EXAMINE_POSITION_BEFORE] = " blood-stained "
-	return COMPONENT_EXNAME_CHANGED
+	override[EXAMINE_POSITION_BEFORE] = "blood-stained"

@@ -56,9 +56,6 @@
 //when someone pulls back their fishing rod
 #define COMSIG_FINISH_FISHING "finish_fishing"
 
-/// From mob/living/*/set_combat_mode(): (new_state)
-#define COMSIG_LIVING_COMBAT_MODE_TOGGLE "living_combat_mode_toggle"
-
 /// From /obj/item/organ/internal/stomach/after_eat(atom/edible)
 #define COMSIG_STOMACH_AFTER_EAT "stomach_after_eat"
 
@@ -87,3 +84,6 @@
 
 /// Whenever we need to get the soul of the mob inside of the soulcatcher.
 #define COMSIG_SOULCATCHER_SCAN_BODY "soulcatcher_scan_body"
+
+/// Whenever a baton successfully executes its nonlethal attack. WARNING HORRIBLE FUCKING CODE THIS IS ASS AAAAAAAAAAAAH
+#define COMSIG_PRE_BATON_FINALIZE_ATTACK "pre_baton_finalize_attack"

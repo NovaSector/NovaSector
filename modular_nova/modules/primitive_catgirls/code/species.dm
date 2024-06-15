@@ -28,6 +28,7 @@
 	bodytemp_cold_damage_limit = 213 // Man up bro its not even that cold out here
 
 	inherent_traits = list(
+		TRAIT_CATLIKE_GRACE,
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_RESISTCOLD,
 		TRAIT_USES_SKINTONES,

@@ -10,12 +10,18 @@ $_channel_map: (
   'Admin': #ffbbff,
   'AI': #d65d95,
   'CCom': #2681a5,
+  'Cling': #4c701f,
   'Cmd': #fcdf03,
   'Engi': #f37746,
   'Hive': #855d85,
   'io': #1e90ff,
   // NOVA EDIT ADDITION
   'LOOC': #ffceb6,
+  'Dyne': #ab455b,
+  'Tark': #b69549,
+  'Csun': #b36033,
+  'Guild': #b3b3b3,
+  'SolFed': #cee152,
   'Me': #5975da,
   'Med': #57b8f0,
   'OOC': #cca300,
@@ -28,6 +34,7 @@ $_channel_map: (
   'Synd': #8f4a4b,
   // NOVA EDIT ADDITION
   'Whis': #7c7fd9,
+  'Do': #59da7e,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

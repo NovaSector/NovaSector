@@ -5,6 +5,7 @@ export type Channel =
   // NOVA EDIT ADDITION START
   | 'Whis'
   | 'LOOC'
+  | 'Do'
   // NOVA EDIT ADDITION END
   | 'OOC'
   | 'Admin';
@@ -24,6 +25,7 @@ export class ChannelIterator {
     // NOVA EDIT ADDITION
     'Whis',
     'LOOC',
+    'Do',
     // NOVA EDIT ADDITION
     'OOC',
     'Admin',

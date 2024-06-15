@@ -12,32 +12,33 @@
 	occupancy_limit = 45
 
 /*----- Black Market Shuttle Datum + related code -----*/
-/datum/map_template/shuttle/ruin/blackmarket_chevvy
+/datum/map_template/shuttle/ruin/blackmarket_burst
 	prefix = "_maps/shuttles/nova/"
-	suffix = "blackmarket_chevvy"
-	name = "Black Market Chevvy"
+	suffix = "blackmarket_burst"
+	description = "A small cargo jump freighter, popular among smugglers who enjoy both the cargo space and speed"
+	name = "Black Market Burst"
 
-/obj/machinery/computer/shuttle/caravan/blackmarket_chevvy
-	name = "Chevvy Shuttle Console"
-	desc = "Used to control the affectionately named 'Chevvy'."
-	circuit = /obj/item/circuitboard/computer/blackmarket_chevvy
-	shuttleId = "blackmarket_chevvy"
-	possible_destinations = "blackmarket_chevvy_custom;blackmarket_chevvy_home;whiteship_home"
+/obj/machinery/computer/shuttle/caravan/blackmarket_burst
+	name = "Burst Shuttle Console"
+	desc = "Used to control the affectionately named 'Burst'."
+	circuit = /obj/item/circuitboard/computer/blackmarket_burst
+	shuttleId = "blackmarket_burst"
+	possible_destinations = "blackmarket_burst_custom;blackmarket_burst_home;whiteship_home"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/blackmarket_chevvy
-	name = "Chevvy Navigation Computer"
-	desc = "Used to designate a precise transit location for the affectionately named 'Chevvy'."
-	shuttleId = "blackmarket_chevvy"
+/obj/machinery/computer/camera_advanced/shuttle_docker/blackmarket_burst
+	name = "Burst Navigation Computer"
+	desc = "Used to designate a precise transit location for the affectionately named 'Burst'."
+	shuttleId = "blackmarket_burst"
 	lock_override = NONE
-	shuttlePortId = "blackmarket_chevvy_custom"
-	jump_to_ports = list("blackmarket_chevvy_home" = 1, "whiteship_home" = 1)
+	shuttlePortId = "blackmarket_burst_custom"
+	jump_to_ports = list("blackmarket_burst_home" = 1, "whiteship_home" = 1)
 	view_range = 0
 	x_offset = 2
 	y_offset = 0
 
-/obj/item/circuitboard/computer/blackmarket_chevvy
-	name = "Chevvy Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/caravan/blackmarket_chevvy
+/obj/item/circuitboard/computer/blackmarket_burst
+	name = "Burst Control Console (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/caravan/blackmarket_burst
 /*----- End of Black Market Shuttle Code -----*/
 
 /*Interdyne Cargo Shuttle*/
@@ -89,7 +90,16 @@
 	shuttleId = "slaver_syndie"
 	possible_destinations = "syndicate_ne;syndicate_nw;syndicate_n;syndicate_se;syndicate_sw;syndicate_s"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-	obj_flags = CAN_BE_HIT | NO_DECONSTRUCTION
+
+// formerly NO_DECONSTRUCTION
+/obj/machinery/computer/shuttle/slaver/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/computer/shuttle/slaver/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/computer/shuttle/slaver/default_pry_open(obj/item/crowbar, close_after_pry = FALSE, open_density = FALSE, closed_density = TRUE)
+	return NONE
 
 /datum/map_template/shuttle/slaver_ship
 	port_id = "slaver ship"

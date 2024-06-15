@@ -12,6 +12,7 @@
 		"ci-janitor",
 		"ci-lighter",
 		"ci-razor",
+		"ci-drill",
 		"combat_implant_sandy",
 		"combat_implant_hackerman",
 		"combat_implant_razorwire",
@@ -27,3 +28,12 @@
 	design_ids = list("ci-antidrop", "ci-antistun", "ci-antisleep", "ci-thrusters", "ci-mantis", "ci-flash", "ci-reviver")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12000)
 
+/datum/techweb_node/adv_mining //Here for the integrated drill augments.
+	design_ids = list(
+		"drill_diamond",
+		"hypermod",
+		"jackhammer",
+		"plasmacutter_adv",
+		"ci-drill-diamond"
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)

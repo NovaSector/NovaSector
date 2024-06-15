@@ -34,13 +34,6 @@
 /mob/living/silicon/get_reflexes_lose_text()
 	return "Our systems will allow platonic contact."
 
-/mob/living/carbon/human/Initialize(mapload)
-	. = ..()
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		verbs -= /mob/living/carbon/human/verb/climax_verb
-	if(CONFIG_GET(flag/disable_lewd_items))
-		verbs -= /mob/living/carbon/human/verb/safeword
-
 /mob/living/carbon/human/verb/safeword()
 	set name = "Remove Lewd Items"
 	set category = "OOC"
@@ -53,5 +46,10 @@
 
 		log_message("[equipped_item] was removed from [key_name(src)].", LOG_ATTACK)
 		dropItemToGround(equipped_item, TRUE)
+
+	// Leashes are treated a smidge different than the rest of the clothing; and need their own handling here.
+	var/leash_check = src?.GetComponent(/datum/component/leash/erp)
+	if(leash_check)
+		qdel(leash_check)
 
 	return TRUE

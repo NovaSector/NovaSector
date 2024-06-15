@@ -91,8 +91,8 @@
 	anchored_tabletop_offset = 4
 	anchored = FALSE
 	circuit = null
-	powerefficiency = 0.5
-	recharge_amount = 50
+	powerefficiency = 5e-4
+	recharge_amount = 10 KILO WATTS //50 secs for full charge but shouldn't kill our crappy colony powergrid.
 	show_ph = FALSE
 	base_reagent_purity = 0.5
 	// God's strongest coffee machine

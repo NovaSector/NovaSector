@@ -295,7 +295,7 @@ All the important duct code:
 	disconnect_duct()
 	return ..()
 
-/obj/machinery/duct/MouseDrop_T(atom/drag_source, mob/living/user)
+/obj/machinery/duct/mouse_drop_receive(atom/drag_source, mob/living/user, params)
 	if(!istype(drag_source, /obj/machinery/duct))
 		return
 	var/obj/machinery/duct/other = drag_source
@@ -343,9 +343,13 @@ All the important duct code:
 
 /obj/item/stack/ducts/attack_self(mob/user)
 	var/new_layer = tgui_input_list(user, "Select a layer", "Layer", GLOB.plumbing_layers, duct_layer)
+	if(!user.is_holding(src))
+		return
 	if(new_layer)
 		duct_layer = new_layer
 	var/new_color = tgui_input_list(user, "Select a color", "Color", GLOB.pipe_paint_colors, duct_color)
+	if(!user.is_holding(src))
+		return
 	if(new_color)
 		duct_color = new_color
 		add_atom_colour(GLOB.pipe_paint_colors[new_color], FIXED_COLOUR_PRIORITY)

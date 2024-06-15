@@ -16,11 +16,13 @@
 	new /obj/item/computer_disk/command/captain(src)
 	new /obj/item/radio/headset/heads/captain/alt(src)
 	new /obj/item/radio/headset/heads/captain(src)
-	new /obj/item/storage/belt/sabre(src)
-	new /obj/item/gun/energy/e_gun(src)
 	new /obj/item/door_remote/captain(src)
 	new /obj/item/storage/photo_album/captain(src)
 	new /obj/item/card/id/departmental_budget(src) //NOVA EDIT ADDITION
+
+/obj/structure/closet/secure_closet/captains/populate_contents_immediate()
+	new /obj/item/gun/energy/e_gun(src)
+	new /obj/item/storage/belt/sabre(src)
 
 /obj/structure/closet/secure_closet/hop
 	name = "head of personnel's locker"
@@ -38,7 +40,6 @@
 	new /obj/item/storage/box/silver_ids(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/gun/energy/e_gun(src)
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/door_remote/civilian(src)
@@ -46,6 +47,9 @@
 	new /obj/item/storage/photo_album/hop(src)
 	new /obj/item/storage/lockbox/medal/hop(src)
 	new /obj/item/card/id/departmental_budget/srv(src) //NOVA EDIT ADDITION
+
+/obj/structure/closet/secure_closet/hop/populate_contents_immediate()
+	new /obj/item/gun/energy/e_gun(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
@@ -117,52 +121,6 @@
 /obj/structure/closet/secure_closet/security/sec/PopulateContents()
 	..()
 	new /obj/item/storage/belt/security/full(src)
-
-// NOVA EDIT CHANGE -- GOOFSEC DEP GUARDS
-/obj/structure/closet/secure_closet/security/cargo
-	name = "\proper customs agent's locker"
-	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_CARGO)
-	icon_state = "qm"
-	icon = 'icons/obj/storage/closet.dmi'
-
-/obj/structure/closet/secure_closet/security/cargo/PopulateContents()
-	new /obj/item/storage/bag/garment/customs_agent(src)
-	new /obj/item/restraints/handcuffs/cable/orange(src)
-	new /obj/item/assembly/flash/handheld(src)
-
-/obj/structure/closet/secure_closet/security/engine
-	name = "\proper engineering guard's locker"
-	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_ENGINEERING)
-	icon_state = "eng_secure"
-	icon = 'icons/obj/storage/closet.dmi'
-
-/obj/structure/closet/secure_closet/security/engine/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/yellow(src)
-	new /obj/item/storage/bag/garment/engineering_guard(src)
-	new /obj/item/assembly/flash/handheld(src)
-
-/obj/structure/closet/secure_closet/security/science
-	name = "\proper science guard's locker"
-	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_RESEARCH)
-	icon_state = "science"
-	icon = 'icons/obj/storage/closet.dmi'
-
-/obj/structure/closet/secure_closet/security/science/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/pink(src)
-	new /obj/item/storage/bag/garment/science_guard(src)
-	new /obj/item/assembly/flash/handheld(src)
-
-/obj/structure/closet/secure_closet/security/med
-	name = "\proper orderly's locker"
-	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_MEDICAL)
-	icon_state = "med_secure"
-	icon = 'icons/obj/storage/closet.dmi'
-
-/obj/structure/closet/secure_closet/security/med/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/blue(src)
-	new /obj/item/storage/bag/garment/orderly(src)
-	new /obj/item/assembly/flash/handheld(src)
-// NOVA EDIT CHANGE END -- GOOFSEC DEP GUARDS
 
 /obj/structure/closet/secure_closet/detective
 	name = "\improper detective's cabinet"
@@ -308,6 +266,8 @@
 	new /obj/item/storage/box/firingpins(src)
 	for(var/i in 1 to 3)
 		new /obj/item/storage/box/rubbershot(src)
+
+/obj/structure/closet/secure_closet/armory2/populate_contents_immediate()
 	for(var/i in 1 to 3)
 		new /obj/item/gun/ballistic/shotgun/riot(src)
 
@@ -322,11 +282,13 @@
 	new /obj/item/storage/box/firingpins(src)
 	new /obj/item/gun/energy/ionrifle(src)
 	for(var/i in 1 to 3)
+		new /obj/item/gun/energy/laser/thermal(src)
+
+/obj/structure/closet/secure_closet/armory3/populate_contents_immediate()
+	for(var/i in 1 to 3)
 		new /obj/item/gun/energy/e_gun(src)
 	for(var/i in 1 to 3)
 		new /obj/item/gun/energy/laser(src)
-	for(var/i in 1 to 3)
-		new /obj/item/gun/energy/laser/thermal(src)
 
 /obj/structure/closet/secure_closet/tac
 	name = "armory tac locker"

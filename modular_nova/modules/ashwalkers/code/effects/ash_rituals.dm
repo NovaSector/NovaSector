@@ -28,7 +28,7 @@
 		/obj/item/stack/sheet/sinew,
 	)
 	ritual_success_items = list(
-		/obj/item/clothing/neck/necklace/ashwalker,
+		/obj/item/clothing/neck/necklace/translator,
 	)
 
 /datum/ash_ritual/summon_key

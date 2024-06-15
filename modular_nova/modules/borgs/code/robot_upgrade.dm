@@ -412,7 +412,6 @@
 		if(TRAIT_R_SMALL in borg.model.model_features)
 			to_chat(usr, span_warning("This unit's chassis cannot be shrunk any further."))
 			return FALSE
-
 		borg.hasShrunk = TRUE
 		ADD_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
 		var/prev_lockcharge = borg.lockcharge
@@ -429,7 +428,7 @@
 			borg.SetLockdown(FALSE)
 		borg.set_anchored(FALSE)
 		REMOVE_TRAIT(borg, TRAIT_NO_TRANSFORM, REF(src))
-		borg.update_transform(0.75)
+		borg.update_transform(0.90)
 
 /obj/item/borg/upgrade/shrink/deactivate(mob/living/silicon/robot/borg, user = usr)
 	. = ..()

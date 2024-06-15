@@ -27,3 +27,5 @@
 //SR Misc
 #define SECHUD_BARBER "hudbarber"
 #define SECHUD_SCRAMBLED "hudscrambled"
+// Nova Medical
+#define SECHUD_VIROLOGIST "hudvirologist"
