@@ -612,3 +612,46 @@
   - bugfix: beepsky has become smarter and will no longer try to arrest you for having
       gardening tools, a skateboard or baseball bats
   - balance: only sharpened razor claws require a permit
+2024-06-15:
+  Goat:
+  - qol: Mining's PKAs and PKCs are now fireproof.
+  Iajret:
+  - bugfix: fixed synths persocom. Rejoice, synthlizards! (and ipcs too but i dont
+      believe in your existence)
+  Melbert:
+  - bugfix: Humans can't cough on menthol again
+  - bugfix: Moth and lizard emotes decide what sound to play based on body type, not
+      gender.
+  - sound: '*gasp now makes a sound, it''s the same as *gaspshock.'
+  - sound: Xenos (or anything with hands) can clap
+  NovaBot13:
+  - rscadd: Added screentips to extinguishers.
+  - bugfix: Fixed alt-click interaction with extinguishers and mod control units.
+  - bugfix: Fixed thermal pistols sometimes not recognising an equipped holster when
+      trying to spin them to recharge.
+  - bugfix: Missing legs no longer slow you down in non-gravity environments.
+  - refactor: Ctrl click & Ctrl shift click has been refactored. Please report bugs
+      on GitHub
+  - refactor: Mouse drag & drop attack chain has been refactored. Report any bugs
+      on GitHub
+  - bugfix: You cannot close the cryo tube on yourself with Alt click like before
+  - bugfix: added an id trim painter that was missing to MetaStation's QM office.
+  - refactor: Gondolas (including gondola pods) are now basic mobs.
+  - bugfix: the syndicate now imports warm air instead of cold air to their icemoon
+      listening post
+  - bugfix: Fix bug where you can't interact with a shocked door without shock protection
+      even if it is depowered.
+  - image: Rust Heretic's blade now has a new, slicker sprite.
+  - bugfix: Icebox's service hall now now has a regular hand labeler.
+  - bugfix: Peter Jr. is capable of surviving in the environment they spawn in.
+  - qol: you can now take pulled objects with you when going up and down in zero gravity
+  - bugfix: conga lines now work correctly when going up and down ladders, and in
+      zero gravity
+  - image: Updated slime sprites
+  ShizCalev:
+  - bugfix: Autolathes now print the correct number of cable coils.
+  - bugfix: Fixed a bug with station traits being added to modify weights for events
+      that couldn't actually occur on the current map!
+  honkpocket:
+  - balance: the long to short range bluespace transceiver has received the same fate
+      cloning machines have (theyre gone)
