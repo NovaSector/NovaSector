@@ -177,10 +177,8 @@
 
 	surgery.step_in_progress = FALSE
 	return advance
-
-<<<<<<< HEAD
 #undef SURGERY_SPEEDUP_AREA // NOVA EDIT ADDITION
-=======
+
 /**
  * Handles updating the mob's mood depending on the surgery states.
  * * surgery_state = SURGERY_STATE_STARTED, SURGERY_STATE_FAILURE, SURGERY_STATE_SUCCESS
@@ -193,11 +191,13 @@
 		return
 	if(HAS_TRAIT(target, TRAIT_ANALGESIA))
 		target.clear_mood_event(SURGERY_MOOD_CATEGORY) //incase they gained the trait mid-surgery. has the added side effect that if someone has a bad surgical memory/mood and gets drunk & goes back to surgery, they'll forget they hated it, which is kinda funny imo.
+		target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
 		return
 	if(target.stat >= UNCONSCIOUS)
 		var/datum/mood_event/surgery/target_mood_event = target.mob_mood.mood_events[SURGERY_MOOD_CATEGORY]
 		if(target_mood_event?.surgery_completed) //don't give sleeping mobs trauma. that said, if they fell asleep mid-surgery after already getting the bad mood, lets make sure they wake up to a (hopefully) happy memory.
 			return
+	target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
 	switch(surgery_state)
 		if(SURGERY_STATE_STARTED)
 			target.add_mood_event(SURGERY_MOOD_CATEGORY, surgery_started_mood_event)
@@ -209,7 +209,6 @@
 			CRASH("passed invalid surgery_state, \"[surgery_state]\".")
 
 
->>>>>>> eba7298ce09 (Fixes certain surgery failure states not properly updating surgery moods (#83976))
 /datum/surgery_step/proc/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
 		user,
@@ -335,7 +334,6 @@
 /datum/surgery_step/proc/display_pain(mob/living/target, pain_message, mechanical_surgery = FALSE)
 	if(target.stat < UNCONSCIOUS)
 		if(HAS_TRAIT(target, TRAIT_ANALGESIA))
-			target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds mood effects to surgeries
 			if(!pain_message)
 				return
 			to_chat(target, span_notice("You feel a dull, numb sensation as your body is surgically operated on."))
@@ -344,12 +342,6 @@
 			target.add_mood_event("robot_surgery", /datum/mood_event/robot_surgery)
 		// NOVA EDIT ADDITION END
 		else
-<<<<<<< HEAD
-			target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // NOVA EDIT ADDITION - Adds mood effects to surgeries
-			if(mood_event_type)
-				target.add_mood_event("surgery", mood_event_type)
-=======
->>>>>>> eba7298ce09 (Fixes certain surgery failure states not properly updating surgery moods (#83976))
 			if(!pain_message)
 				return
 			to_chat(target, span_userdanger(pain_message))
