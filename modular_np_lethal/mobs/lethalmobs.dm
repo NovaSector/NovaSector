@@ -8,6 +8,7 @@
 	mob_spawner = /obj/effect/mob_spawn/corpse/human/gakstermob
 
 /mob/living/basic/trooper/gakster/Initialize(mapload)
+	. = ..()
 	AddComponent(/datum/component/regenerator, regeneration_delay = 30 SECONDS, brute_per_second = 8, outline_colour = COLOR_SOFT_RED)
 
 /mob/living/basic/trooper/gakster/melee
