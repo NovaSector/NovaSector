@@ -452,7 +452,7 @@
 	//else if(registered_account.account_balance > 0) // LETHAL EDIT REMOVAL
 	//	context[SCREENTIP_CONTEXT_ALT_LMB] = "Withdraw credits" // LETHAL EDIT REMOVAL
 	return CONTEXTUAL_SCREENTIP_SET
-/* LETHAL EDIT - REMOVE HOLOPAY STAND
+/*	LETHAL EDIT - REMOVE HOLOPAY STAND
 /obj/item/card/id/proc/try_project_paystand(mob/user, turf/target)
 	if(!COOLDOWN_FINISHED(src, last_holopay_projection))
 		balloon_alert(user, "still recharging")
@@ -697,7 +697,7 @@
 		if(choice == "Link Account")
 			set_new_account(user)
 			return CLICK_ACTION_SUCCESS
-	/* LETHAL EDIT - goodbye holochips i hate you
+	/*	LETHAL EDIT - goodbye holochips i hate you
 	var/amount_to_remove = tgui_input_number(user, "How much do you want to withdraw? (Max: [registered_account.account_balance] cr)", "Withdraw Funds", max_value = registered_account.account_balance)
 	if(!amount_to_remove || QDELETED(user) || QDELETED(src) || issilicon(user) || loc != user)
 		return CLICK_ACTION_BLOCKING

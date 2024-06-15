@@ -26,3 +26,27 @@
 	item_path = /obj/item/clothing/suit/armor/lethal_filtre/heavy/nineball
 	ckeywhitelist = list("DawsonKeyes")
 	restricted_roles = list("Filtre")
+
+/datum/loadout_item/head/bloodhound_armor
+	name = "'Bloodhound' type III armor kit"
+	item_path = /obj/item/clothing/suit/armor/lethal_filtre/bloodhound
+	ckeywhitelist = list("Valx001")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/suit/manchurian_armor
+	name = "'Whispersmith' type II armor kit"
+	item_path = /obj/item/clothing/suit/armor/lethal_filtre/super_light/realpolitik
+	ckeywhitelist = list("Waff-AI")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/suit/nukie_armor
+	name = "'Kakuheiki' type II armor kit"
+	item_path = /obj/item/clothing/suit/armor/lethal_filtre/super_light/kakuheiki
+	ckeywhitelist = list("SindyKate")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/suit/headswoman_armor
+	name = "'Judeti' type IV armor kit'"
+	item_path = /obj/item/clothing/suit/armor/lethal_filtre/heavy/headswoman
+	ckeywhitelist = list("ChillyLobster")
+	restricted_roles = list("Filtre")

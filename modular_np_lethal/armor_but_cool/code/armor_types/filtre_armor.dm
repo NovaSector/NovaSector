@@ -94,7 +94,7 @@
 	icon_state = "filtre_meowers"
 	armor_type = /datum/armor/armor_lethal_filtre_light
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	slowdown = 0.25
+	slowdown = 0.4
 	max_integrity = 1000
 	limb_integrity = 700
 
@@ -214,3 +214,61 @@
 		which on this helmet has been augmented by a single heads-up display visible on the front \
 		of the face shield. It's also got fancy golden stripes, because they look cool."
 	icon_state = "filtre_helmet_novem"
+
+/obj/item/clothing/suit/armor/lethal_filtre/super_light/realpolitik
+	name = "'Whispersmith' type II armor kit"
+	desc = "A high tech full-body suit of bullet-resistant fabric, enhanced with light-absorbing materials and ultra-silent joint reinforcements \
+		under a standard set of bulletproof armor plates. Suits such as this are typically prototyped for stealth operatives, snipers, and prostitutes themed \
+		around stealth operatives and snipers. The thick material, while certainly quiet, nonetheless is extremely obnoxious to actually \
+		move around in. This one has subtle blue highlights, indicating the wearer is a bootlicker."
+	icon_state = "filtre_light_whispersmith"
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/realpolitik
+	name = "'Whispersmith' type IV ballistic helmet"
+	desc = "A high tech full-face helmet. The most important asset in any sniper duel, beside aim, is not being shot in the head, at least \
+		if this helmet is anything to go off of. There are no external cameras on this solid chunk of metal and ceramics, but it does feature a \
+		dull-blue highlight. Curiously, this one is much heavier than the armor set it currently supports."
+	icon_state = "filtre_helmet_whispersmith"
+
+/obj/item/clothing/suit/armor/lethal_filtre/super_light/kakuheiki
+	name = "'Kakuheiki' type II armor kit"
+	desc = "A high-tech kit of armor for protecting every part of your body but the head with exceptional plating. \
+		This type is made for the highest mobility possible, sacrificing petty concepts like 'actually protecting the wearer' \
+		in exchange for simply not being hit. The legs seem to have a hydraulics kit and several plates fitted around them."
+	icon_state = "filtre_light_nuke"
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/kakuheiki
+	name = "'Kakuheiki' type IV ballistic helmet"
+	desc = "A high-tech full-head helmet with supreme class IV protection for the whole of the \
+		second-most important part of a marine's body. Vision is provided by an internal camera system, \
+		whgich on this helmet has been augmented by two heads-up displays visible on the front \
+		of the white face shield. It's also got an indigo star and a pair of whiskers drawn on it."
+	icon_state = "filtre_helmet_nuke"
+
+/obj/item/clothing/suit/armor/lethal_filtre/heavy/headswoman
+	name = "'Judeti' type IV armor kit"
+	desc = "A high-tech kit of armor for protecting every part of your body but the head with exceptional plating. \
+		This one is outfitted with a gorget and kilt to deflect shrapnel and bloodspray, but is nonetheless just as protective as \
+		any other filtre's armor."
+	icon_state = "filtre_heavy_headswoman"
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/headswoman
+	name = "'Judeti' type IV ballistic helmet"
+	desc = "A high-tech full-head helmet with supreme class IV protection for the whole of the \
+		second-most important part of a marine's body. Green Company markings compliment the full-coverage \
+		HUD that replaces the typical visor, and there appears to be a hole created to reveal the right eye."
+	icon_state = "filtre_helmet_headswoman"
+
+/obj/item/clothing/suit/armor/lethal_filtre/bloodhound
+	name = "'Bloodhound' type III armor kit"
+	desc = "A heavy full kit of armor for protecting every part of your body but the head and legs with exceptional plating. \
+		The armor's excessive bulk, however, makes the kit slow to move in. A small price to pay for such superior protection. \
+		This model comes equipped with a specialized sensor suite and radio antenna."
+	icon_state = "filtre_light_scout"
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light/bloodhound
+	name = "'Bloodhound' type III ballistic helmet"
+	desc = "A high tech helmet with a complicated-looking sensors suite stuck to the front. \
+		While not as protective as other types of helmets, the sensors suite has a variety of \
+		modern HUDs useful for all types of operations. This one has a fully-enclosed faceplate!"
+	icon_state = "filtre_helmet_scout"

@@ -12,13 +12,37 @@
 
 // Custom filtre helmets
 /datum/loadout_item/head/giggler_armor
-	name = "'Armageddon' type V ballistic helmet"
+	name = "'Armageddon' type IV ballistic helmet"
 	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/giggler
 	ckeywhitelist = list("ApplePlastic")
 	restricted_roles = list("Filtre")
 
 /datum/loadout_item/head/nineball_armor
-	name = "'Novem' type V ballistic helmet"
+	name = "'Novem' type IV ballistic helmet"
 	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/nineball
 	ckeywhitelist = list("DawsonKeyes")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/head/bloodhound_armor
+	name = "'Bloodhound' type IV ballistic helmet"
+	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/light/bloodhound
+	ckeywhitelist = list("Valx001")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/head/manchurian_armor
+	name = "'Whispersmith' type IV ballistic helmet"
+	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/realpolitik
+	ckeywhitelist = list("Waff-AI")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/head/nukie_armor
+	name = "'Kakuheiki' type IV ballistic helmet"
+	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/kakuheiki
+	ckeywhitelist = list("SindyKate")
+	restricted_roles = list("Filtre")
+
+/datum/loadout_item/head/headswoman_armor
+	name = "'Judeti' type IV ballistic helmet'"
+	item_path = /obj/item/clothing/head/helmet/lethal_filtre_helmet/headswoman
+	ckeywhitelist = list("ChillyLobster")
 	restricted_roles = list("Filtre")
