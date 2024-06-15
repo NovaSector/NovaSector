@@ -172,23 +172,23 @@
 	else
 		return TRUE
 
-/obj/structure/epic_loot_crafting_bench/CtrlClick(mob/user)
-	. = ..()
-
+/obj/structure/epic_loot_crafting_bench/click_ctrl(mob/user)
 	if(!can_interact(user) || !user.can_perform_action(src))
-		return
+		return CLICK_ACTION_BLOCKING
 
 	if(!selected_recipe)
 		balloon_alert(user, "no recipe selected")
-		return
+		return CLICK_ACTION_BLOCKING
 
 	if(!can_we_craft_this(selected_recipe.recipe_requirements))
 		balloon_alert(user, "missing ingredients")
-		return
+		return CLICK_ACTION_BLOCKING
 
 	var/list/things_to_use = can_we_craft_this(selected_recipe.recipe_requirements, TRUE)
 
 	create_thing_from_requirements(things_to_use, selected_recipe, user)
+
+	return CLICK_ACTION_SUCCESS
 
 /// Passes the list of found ingredients + the recipe to use_or_delete_recipe_requirements, then spawns the given recipe's result
 /obj/structure/epic_loot_crafting_bench/proc/create_thing_from_requirements(list/things_to_use, datum/crafting_bench_recipe_real/recipe_to_follow, mob/living/user)
