@@ -157,8 +157,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot/evil, 32)
 				/obj/item/knife/combat = INFINITY,
 				/obj/item/trench_tool = INFINITY,
 				/obj/item/suppressor = INFINITY,
-				/obj/item/grenade/syndieminibomb/concussion/impact = INFINITY,
-				/obj/item/grenade/frag/impact = INFINITY,
 				/obj/item/grenade/smokebomb = INFINITY,
 				/obj/item/grenade/stingbang = INFINITY,
 				/obj/item/gun/energy/modular_laser_rifle = INFINITY,

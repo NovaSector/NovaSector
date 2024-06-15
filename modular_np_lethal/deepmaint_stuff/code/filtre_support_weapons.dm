@@ -57,9 +57,57 @@
 	)
 	return selectable_gun_types
 
+/obj/item/choice_beacon/filtre/medical
+	name = "medical support beacon"
+	icon_state = "remote_med_emergency"
+
+/obj/item/choice_beacon/filtre/medical/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Surgical Equipment" = /obj/item/storage/backpack/duffelbag/deforest_surgical/stocked,
+		"Defibrilator" = /obj/item/defibrillator/loaded,
+		"Advanced Medical Satchel" = /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/super,
+	)
+	return selectable_gun_types
+
+/obj/item/choice_beacon/filtre/grenade
+	name = "consumable weapon beacon"
+
+/obj/item/choice_beacon/filtre/grenade/generate_display_names()
+	var/static/list/selectable_gun_types = list(
+		"Impact Grenades" = /obj/item/storage/epic_loot_grenade_case/fun_and_games,
+		"General Purpose Explosives" = /obj/item/storage/epic_loot_grenade_case/big_bombs,
+	)
+	return selectable_gun_types
+
 // Filtre point defense turret
 
 /obj/item/storage/toolbox/emergency/turret/filtre
 
 /obj/item/storage/toolbox/emergency/turret/filtre/set_faction(obj/machinery/porta_turret/turret, mob/user)
 	turret.faction = list(FACTION_ERT)
+
+// Pile of impact grenades
+
+/obj/item/storage/epic_loot_grenade_case/fun_and_games
+
+/obj/item/storage/epic_loot_grenade_case/fun_and_games/PopulateContents()
+	new /obj/item/grenade/frag/impact(src)
+	new /obj/item/grenade/frag/impact(src)
+	new /obj/item/grenade/frag/impact(src)
+	new /obj/item/grenade/frag/impact(src)
+	new /obj/item/grenade/syndieminibomb/concussion/impact(src)
+	new /obj/item/grenade/syndieminibomb/concussion/impact(src)
+	new /obj/item/grenade/syndieminibomb/concussion/impact(src)
+	new /obj/item/grenade/syndieminibomb/concussion/impact(src)
+
+/obj/item/storage/epic_loot_grenade_case/big_bombs
+
+/obj/item/storage/epic_loot_grenade_case/big_bombs/PopulateContents()
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/frag(src)
+	new /obj/item/grenade/syndieminibomb(src)
+	new /obj/item/grenade/syndieminibomb(src)
+	new /obj/item/grenade/syndieminibomb/concussion(src)
+	new /obj/item/grenade/syndieminibomb/concussion(src)
