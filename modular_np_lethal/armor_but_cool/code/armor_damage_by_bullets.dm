@@ -34,7 +34,7 @@
 	var/armor_check = check_projectile_armor(def_zone, hitting_projectile, is_silent = TRUE)
 
 	var/flat_reduction = (getarmor(def_zone, hitting_projectile.armor_flag) / 5) * ((100 - hitting_projectile.armour_penetration) / 100)
-	var/armor_damage = ((hitting_projectile.armour_penetration + 100) / 100) * (hitting_projectile.damage - (hitting_projectile.damage - flat_reduction))
+	var/armor_damage = hitting_projectile.damage - (hitting_projectile.damage - flat_reduction)
 
 	apply_damage(
 		damage = max(0, hitting_projectile.damage - flat_reduction),
