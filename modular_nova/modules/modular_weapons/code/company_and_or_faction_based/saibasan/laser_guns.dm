@@ -103,9 +103,9 @@
 	QDEL_NULL(tracked_soulcatcher)
 	return ..()
 
-/obj/item/gun/energy/modular_laser_rifle/AltClick(mob/user)
-	. = ..()
+/obj/item/gun/energy/modular_laser_rifle/click_alt(mob/user)
 	tracked_soulcatcher?.ui_interact(user)
+	return CLICK_ACTION_SUCCESS
 
 /// Handles filling out all of the lists regarding weapon modes and radials around that
 /obj/item/gun/energy/modular_laser_rifle/proc/create_weapon_mode_stuff()
@@ -266,8 +266,8 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	SET_BASE_PIXEL(0, 0)
-	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
+	w_class = WEIGHT_CLASS_NORMAL
 	weapon_mode_options = list(
 		/datum/laser_weapon_mode/hellfire,
 		/datum/laser_weapon_mode/sword,

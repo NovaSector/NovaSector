@@ -14,6 +14,7 @@
 	max_integrity = 200
 	armor_type = /datum/armor/item_watertank
 	resistance_flags = FIRE_PROOF
+	interaction_flags_mouse_drop = ALLOW_RESTING
 
 	var/obj/item/noz
 	var/volume = 500
@@ -93,12 +94,11 @@
 	else
 		return ..()
 
-/obj/item/watertank/MouseDrop(obj/over_object)
+/obj/item/watertank/mouse_drop_dragged(atom/over_object)
 	var/mob/M = loc
 	if(istype(M) && istype(over_object, /atom/movable/screen/inventory/hand))
 		var/atom/movable/screen/inventory/hand/H = over_object
 		M.putItemFromInventoryInHandIfPossible(src, H.held_index)
-	return ..()
 
 /obj/item/watertank/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item == noz)
@@ -304,12 +304,12 @@
 			balloon_alert(user, "still recharging!")
 			return
 		COOLDOWN_START(src, resin_cooldown, 10 SECONDS)
-		R.remove_any(100)
+		R.remove_all(100)
 		var/obj/effect/resin_container/resin = new (get_turf(src))
 		user.log_message("used Resin Launcher", LOG_GAME)
 		playsound(src,'sound/items/syringeproj.ogg',40,TRUE)
 		var/delay = 2
-		var/datum/move_loop/loop = SSmove_manager.move_towards(resin, target, delay, timeout = delay * 5, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+		var/datum/move_loop/loop = GLOB.move_manager.move_towards(resin, target, delay, timeout = delay * 5, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
 		RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(resin_stop_check))
 		RegisterSignal(loop, COMSIG_QDELETING, PROC_REF(resin_landed))
 		return

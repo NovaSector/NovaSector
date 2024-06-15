@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/cup/maunamug
 	name = "mauna mug"
 	desc = "A drink served in a classy mug. Now with built-in heating!"
-	icon = 'icons/obj/mauna_mug.dmi'
+	icon = 'icons/obj/devices/mauna_mug.dmi'
 	icon_state = "maunamug"
 	base_icon_state = "maunamug"
 	spillable = TRUE
@@ -32,7 +32,7 @@
 	if(on && (!cell || cell.charge <= 0)) //Check if we ran out of power
 		change_power_status(FALSE)
 		return FALSE
-	cell.use(5 * seconds_per_tick) //Basic cell goes for like 200 seconds, bluespace for 8000
+	cell.use(0.005 * STANDARD_CELL_RATE * seconds_per_tick) //Basic cell goes for like 200 seconds, bluespace for 8000
 	if(!reagents.total_volume)
 		return FALSE
 	var/max_temp = min(500 + (500 * (0.2 * cell.rating)), 1000) // 373 to 1000
@@ -50,13 +50,14 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/reagent_containers/cup/maunamug/CtrlClick(mob/living/user)
+/obj/item/reagent_containers/cup/maunamug/item_ctrl_click(mob/user)
 	if(on)
 		change_power_status(FALSE)
 	else
 		if(!cell || cell.charge <= 0)
 			return FALSE //No power, so don't turn on
 		change_power_status(TRUE)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/reagent_containers/cup/maunamug/proc/change_power_status(status)
 	on = status

@@ -15,3 +15,14 @@
 /obj/item/clothing/glasses/dropped(mob/living/carbon/human/user)
 	. = ..()
 	alternate_worn_layer = initial(alternate_worn_layer)
+
+/obj/item/clothing/glasses/blindfold/color
+	name = "blind personnel blindfold"
+	desc = "Indicates that the wearer suffers from blindness."
+	icon = 'modular_nova/modules/GAGS/icons/eyes.dmi'
+	worn_icon = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
+	icon_state = "blindfoldcolor"
+	greyscale_config = /datum/greyscale_config/blindfold
+	greyscale_config_worn = /datum/greyscale_config/blindfold/worn
+	greyscale_colors = "#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1

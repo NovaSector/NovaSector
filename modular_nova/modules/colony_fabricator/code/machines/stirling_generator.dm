@@ -22,7 +22,7 @@
 	/// Maximum efficient heat difference, at what heat difference does more difference stop meaning anything for power?
 	var/max_efficient_heat_difference = 8000
 	/// Maximum power output from this machine
-	var/max_power_output = 100 * 1000
+	var/max_power_output = 100 KILO WATTS
 	/// How much power the generator is currently making
 	var/current_power_generation
 	/// Our looping fan sound that we play when turned on
@@ -39,13 +39,12 @@
 	// This is just to make sure our atmos connection spawns facing the right way
 	setDir(dir)
 
-
 /obj/machinery/power/stirling_generator/examine(mob/user)
 	. = ..()
 	. += span_notice("You can use a <b>wrench</b> with <b>Left-Click</b> to rotate the generator.")
 	. += span_notice("It will not work in a <b>vacuum</b> as it must be cooled by the gas around it.")
-	. += span_notice("It is currently generating <b>[current_power_generation / 1000] kW</b> of power.")
-	. += span_notice("It has a maximum power output of <b>[max_power_output / 1000] kW</b> at a temperature difference of <b>[max_efficient_heat_difference] K</b>.")
+	. += span_notice("It is currently generating <b>[display_power(current_power_generation, convert = FALSE)]</b> of power.")
+	. += span_notice("It has a maximum power output of <b>[display_power(max_power_output, convert = FALSE)]</b> at a temperature difference of <b>[max_efficient_heat_difference] K</b>.")
 
 
 /obj/machinery/power/stirling_generator/Destroy()
@@ -85,7 +84,7 @@
 
 /obj/machinery/power/stirling_generator/process()
 	var/power_output = round(current_power_generation)
-	add_avail(power_output)
+	add_avail(power_to_energy(power_output))
 	var/new_icon_state = (power_output ? "stirling_on" : "stirling")
 	icon_state = new_icon_state
 	if(soundloop.is_active() && !power_output)

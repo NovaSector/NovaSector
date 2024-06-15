@@ -89,6 +89,10 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Half Mask Respirator"
 	item_path = /obj/item/clothing/mask/gas/respirator
 
+/datum/loadout_item/mask/sechailer_half_mask
+	name = "Tacticool Neck Gaiter"
+	item_path = /obj/item/clothing/mask/gas/sechailer/half_mask
+
 /*
 *	JOB-LOCKED
 */

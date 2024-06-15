@@ -48,6 +48,32 @@
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_grenade_launcher/no_mag
 	extra_to_spawn = /obj/item/ammo_box/magazine/c980_grenade/starts_empty
 
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko
+	name = "\improper Carwo 'Kiboko' gunset"
+
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_grenade_launcher/no_mag
+	extra_to_spawn = /obj/item/ammo_box/magazine/c980_grenade/starts_empty
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/PopulateContents()
+	new weapon_to_spawn (src)
+
+	generate_items_inside(list(
+		/obj/item/ammo_box/magazine/c980_grenade/thunderdome_shrapnel = 1,
+		/obj/item/ammo_box/magazine/c980_grenade/thunderdome_smoke = 1,
+		/obj/item/ammo_box/magazine/c980_grenade/thunderdome_gas = 1,
+	), src)
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil/no_mag
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil/PopulateContents()
+	new weapon_to_spawn (src)
+
+	generate_items_inside(list(
+		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_fire = 1,
+		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel = 1,
+		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_gas = 1,
+	), src)
 
 /obj/structure/closet/secure_closet/armory_kiboko
 	name = "heavy equipment locker"

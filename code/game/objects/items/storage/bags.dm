@@ -271,11 +271,10 @@
 	. = ..()
 	. += span_notice("Ctrl-click to activate seed extraction.")
 
-/obj/item/storage/bag/plants/portaseeder/CtrlClick(mob/user)
-	if(user.incapacitated())
-		return
+/obj/item/storage/bag/plants/portaseeder/item_ctrl_click(mob/user)
 	for(var/obj/item/plant in contents)
 		seedify(plant, 1)
+	return CLICK_ACTION_SUCCESS
 
 // -----------------------------
 //        Sheet Snatcher
@@ -360,23 +359,30 @@
 /obj/item/storage/bag/tray/Initialize(mapload)
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY //Plates are required bulky to keep them out of backpacks
-	atom_storage.set_holdable(list(
-		/obj/item/clothing/mask/cigarette,
-		/obj/item/food,
-		/obj/item/kitchen,
-		/obj/item/lighter,
-		/obj/item/organ,
-		/obj/item/plate,
-		/obj/item/reagent_containers/condiment,
-		/obj/item/reagent_containers/cup,
-		/obj/item/rollingpaper,
-		/obj/item/storage/box/gum,
-		/obj/item/storage/box/matches,
-		/obj/item/storage/fancy,
-		/obj/item/trash,
-	)) //Should cover: Bottles, Beakers, Bowls, Booze, Glasses, Food, Food Containers, Food Trash, Organs, Tobacco Products, Lighters, and Kitchen Tools.
+	atom_storage.set_holdable(
+		can_hold_list = list(
+			/obj/item/clothing/mask/cigarette,
+			/obj/item/food,
+			/obj/item/kitchen,
+			/obj/item/lighter,
+			/obj/item/organ,
+			/obj/item/plate,
+			/obj/item/reagent_containers/condiment,
+			/obj/item/reagent_containers/cup,
+			/obj/item/rollingpaper,
+			/obj/item/storage/box/gum,
+			/obj/item/storage/box/matches,
+			/obj/item/storage/fancy,
+			/obj/item/trash,
+		),
+		cant_hold_list = list(
+			/obj/item/plate/oven_tray,
+			/obj/item/reagent_containers/cup/soup_pot,
+		),
+	) //Should cover: Bottles, Beakers, Bowls, Booze, Glasses, Food, Food Containers, Food Trash, Organs, Tobacco Products, Lighters, and Kitchen Tools.
 	atom_storage.insert_preposition = "on"
-	atom_storage.max_slots = 7
+	atom_storage.max_slots = 8
+	atom_storage.max_total_storage = 16
 
 /obj/item/storage/bag/tray/attack(mob/living/M, mob/living/user)
 	. = ..()
@@ -399,7 +405,7 @@
 
 /obj/item/storage/bag/tray/proc/do_scatter(obj/item/tray_item)
 	var/delay = rand(2,4)
-	var/datum/move_loop/loop = SSmove_manager.move_rand(tray_item, list(NORTH,SOUTH,EAST,WEST), delay, timeout = rand(1, 2) * delay, flags = MOVEMENT_LOOP_START_FAST)
+	var/datum/move_loop/loop = GLOB.move_manager.move_rand(tray_item, list(NORTH,SOUTH,EAST,WEST), delay, timeout = rand(1, 2) * delay, flags = MOVEMENT_LOOP_START_FAST)
 	//This does mean scattering is tied to the tray. Not sure how better to handle it
 	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(change_speed))
 
@@ -460,9 +466,6 @@
 		/obj/item/reagent_containers/syringe,
 	))
 
-/*
- *  Biowaste bag (mostly for virologists)
- */
 
 /obj/item/storage/bag/bio
 	name = "bio bag"
@@ -568,5 +571,29 @@
 /obj/item/storage/bag/harpoon_quiver/PopulateContents()
 	for(var/i in 1 to 40)
 		new /obj/item/ammo_casing/harpoon(src)
+
+/obj/item/storage/bag/rebar_quiver
+	name = "Rebar Storage Quiver"
+	icon = 'icons/obj/weapons/bows/quivers.dmi'
+	icon_state = "rebar_quiver"
+	worn_icon_state = "rebar_quiver"
+	inhand_icon_state = "rebar_quiver"
+	desc = "A oxygen tank cut in half, used for holding sharpened rods for the rebar crossbow."
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE
+	resistance_flags = FLAMMABLE
+
+/obj/item/storage/bag/rebar_quiver/Initialize(mapload)
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_TINY
+	atom_storage.max_slots = 10
+	atom_storage.max_total_storage = 15
+	atom_storage.set_holdable(list(
+		/obj/item/ammo_casing/rebar,
+		/obj/item/ammo_casing/rebar/syndie,
+		/obj/item/ammo_casing/rebar/healium,
+		/obj/item/ammo_casing/rebar/hydrogen,
+		/obj/item/ammo_casing/rebar/zaukerite,
+		/obj/item/ammo_casing/rebar/paperball,
+		))
 
 #undef ORE_BAG_BALOON_COOLDOWN

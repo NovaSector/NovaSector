@@ -117,7 +117,7 @@
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/quartermaster
-	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	banned_quirks = list(HEAD_RESTRICTED_QUIRKS_QM)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 //Silicon
@@ -142,6 +142,7 @@
 
 /datum/job/prisoner
 	required_languages = null
+	banned_quirks = list(PRISONER_RESTRICTED_QUIRKS)
 
 /datum/job/orderly
 	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)

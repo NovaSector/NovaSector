@@ -114,6 +114,40 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SECURITY
 
+/datum/design/cyberimp_drill
+	name = "Dalba Masterworks 'Burrower' Integrated Drill"
+	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
+	id = "ci-drill"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	materials = list (
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 20 SECONDS
+	build_path = /obj/item/organ/internal/cyberimp/arm/mining_drill
+	category = list(
+		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_CARGO
+
+/datum/design/cyberimp_diamond_drill
+	name = "Dalba Masterworks 'Tunneler' Diamond Drill"
+	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
+	id = "ci-drill-diamond"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 30 SECONDS
+	build_path = /obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_CARGO
+
 /datum/design/cyberimp_hacker
 	name = "Hacking Hand Implant"
 	desc = "An advanced hacking and machine modification toolkit fitted into an arm implant, designed to be installed on a subject's arm."

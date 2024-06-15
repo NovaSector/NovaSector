@@ -13,6 +13,7 @@
 			span_notice("[owner] slowly peeks up from the ground..."),
 			span_noticealien("You stop hiding."),
 		)
+		ADD_TRAIT(owner, TRAIT_IGNORE_ELEVATION, ACTION_TRAIT)
 
 	else
 		owner.layer = hide_layer
@@ -20,6 +21,7 @@
 			span_name("[owner] scurries to the ground!"),
 			span_noticealien("You are now hiding."),
 		)
+		REMOVE_TRAIT(owner, TRAIT_IGNORE_ELEVATION, ACTION_TRAIT)
 
 	return TRUE
 
@@ -46,7 +48,7 @@
 
 	return TRUE
 
-//NOVA EDIT REMOVAL BEGIN - SKYRAT_XENO_REDO - Moved to: modular_nova\modules\xenos_skyrat_redo\code\xeno_types\larva.dm
+//NOVA EDIT REMOVAL BEGIN - NOVA_XENO_REDO - Moved to: modular_nova\modules\xenos_nova_redo\code\xeno_types\larva.dm
 /*
 /datum/action/cooldown/alien/larva_evolve/Activate(atom/target)
 	var/mob/living/carbon/alien/larva/larva = owner

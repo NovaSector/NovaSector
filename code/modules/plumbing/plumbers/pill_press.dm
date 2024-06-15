@@ -1,7 +1,7 @@
 ///the minimum size of a pill or patch
 #define MIN_VOLUME 5
 ///the maximum size a pill or patch can be
-#define MAX_VOLUME 50
+#define MAX_VOLUME 100 // NOVA EDIT CHANGE - 100u MAX - ORIGINAL: #define MAX_VOLUME 50
 ///max amount of pills allowed on our tile before we start storing them instead
 #define MAX_FLOOR_PRODUCTS 10
 
@@ -10,7 +10,6 @@
 	name = "chemical press"
 	desc = "A press that makes pills, patches and bottles."
 	icon_state = "pill_press"
-	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2
 
 	/// current operating product (pills or patches)
 	var/product = "pill"
@@ -26,6 +25,10 @@
 	var/packaging_category
 	/// list of products stored in the machine, so we dont have 610 pills on one tile
 	var/list/stored_products = list()
+	// NOVA EDIT ADDITION START
+	/// Increases the standard plumbing machine buffer to account for the increased max volume
+	buffer = MAX_VOLUME
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
 	. = ..()
@@ -80,7 +83,7 @@
 	return container
 
 /obj/machinery/plumbing/pill_press/process(seconds_per_tick)
-	if(machine_stat & NOPOWER)
+	if(!is_operational)
 		return
 
 	//shift & check to account for floating point inaccuracies
@@ -115,7 +118,7 @@
 			stored_products -= AM
 			AM.forceMove(drop_location())
 
-	use_power(active_power_usage * seconds_per_tick)
+	use_energy(active_power_usage * seconds_per_tick)
 
 /obj/machinery/plumbing/pill_press/ui_assets(mob/user)
 	return list(

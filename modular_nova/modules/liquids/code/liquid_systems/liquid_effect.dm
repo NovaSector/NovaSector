@@ -229,7 +229,7 @@
 	if(!has_top)
 		return
 
-	. += make_liquid_overlay("stage[state]_top", GATEWAY_UNDERLAY_LAYER, GAME_PLANE)
+	. += make_liquid_overlay("stage[state]_top", TABLE_LAYER + 0.05 , GAME_PLANE)
 
 /obj/effect/abstract/liquid_turf/proc/set_new_liquid_state(new_state)
 	liquid_state = new_state
@@ -622,7 +622,7 @@
 					reagents_string += "and "
 	while(reagents_remaining)
 
-	return lowertext(reagents_string)
+	return LOWER_TEXT(reagents_string)
 
 /obj/effect/temp_visual/liquid_splash
 	icon = 'modular_nova/modules/liquids/icons/obj/effects/splash.dmi'

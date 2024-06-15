@@ -23,8 +23,7 @@
 				if(length(line))
 					to_chat(usr, span_notice("[jointext(line, "\n")]"))
 			if("open_examine_panel")
-				tgui.holder = src
-				tgui.ui_interact(usr) //datum has a tgui component, here we open the window
+				mob_examine_panel.ui_interact(usr) //datum has a examine_panel component, here we open the window
 
 /mob/living/carbon/human/species/vox
 	race = /datum/species/vox
@@ -56,6 +55,9 @@
 /mob/living/carbon/human/species/dwarf
 	race = /datum/species/dwarf
 
+/mob/living/carbon/human/species/ghoul
+	race = /datum/species/ghoul
+
 /mob/living/carbon/human/species/roundstartslime
 	race = /datum/species/jelly/roundstartslime
 
@@ -81,25 +83,37 @@
 	var/undershirt_button = underwear_visibility & UNDERWEAR_HIDE_SHIRT ? "Show shirt" : "Hide shirt"
 	var/socks_button = underwear_visibility & UNDERWEAR_HIDE_SOCKS ? "Show socks" : "Hide socks"
 	var/bra_button = underwear_visibility & UNDERWEAR_HIDE_BRA ? "Show bra" : "Hide bra"
-	var/list/choice_list = list("[underwear_button]" = "underwear", "[bra_button]" = "bra", "[undershirt_button]" = "shirt", "[socks_button]" = "socks","show all" = "show", "Hide all" = "hide")
-	var/picked_visibility = input(src, "Choose visibility setting", "Show/Hide underwear") as null|anything in choice_list
-	if(picked_visibility)
-		var/picked_choice = choice_list[picked_visibility]
-		switch(picked_choice)
-			if("underwear")
-				underwear_visibility ^= UNDERWEAR_HIDE_UNDIES
-			if("bra")
-				underwear_visibility ^= UNDERWEAR_HIDE_BRA
-			if("shirt")
-				underwear_visibility ^= UNDERWEAR_HIDE_SHIRT
-			if("socks")
-				underwear_visibility ^= UNDERWEAR_HIDE_SOCKS
-			if("show")
-				underwear_visibility = NONE
-			if("hide")
-				underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_BRA
-		update_body()
-	return
+
+	var/list/choice_list = list("[underwear_button]" = "underwear", "[bra_button]" = "bra", "[undershirt_button]" = "shirt", "[socks_button]" = "socks")
+
+	if(underwear_visibility != NONE)
+		choice_list += list("Show all" = "show")
+
+	if(underwear_visibility != UNDERWEAR_HIDE_ALL)
+		choice_list += list("Hide all" = "hide")
+
+	var/picked_visibility = tgui_input_list(src, "Choose visibility setting", "Show/Hide underwear", choice_list)
+
+	if(!picked_visibility)
+		return
+
+	var/picked_choice = choice_list[picked_visibility]
+
+	switch(picked_choice)
+		if("underwear")
+			underwear_visibility ^= UNDERWEAR_HIDE_UNDIES
+		if("bra")
+			underwear_visibility ^= UNDERWEAR_HIDE_BRA
+		if("shirt")
+			underwear_visibility ^= UNDERWEAR_HIDE_SHIRT
+		if("socks")
+			underwear_visibility ^= UNDERWEAR_HIDE_SOCKS
+		if("show")
+			underwear_visibility = NONE
+		if("hide")
+			underwear_visibility = UNDERWEAR_HIDE_ALL
+
+	update_body()
 
 /mob/living/carbon/human/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	. = ..()
@@ -165,12 +179,12 @@
 	var/list/choices = list()
 	for(var/choice in available_selection)
 		var/datum/radial_menu_choice/option = new
-		var/image/part_image = image(icon = HIDING_RADIAL_DMI, icon_state = initial(choice))
+		var/image/part_image = image(icon = HIDING_RADIAL_DMI, icon_state = choice)
 
 		option.image = part_image
 		if(choice in try_hide_mutant_parts)
 			part_image.underlays += image(icon = HIDING_RADIAL_DMI, icon_state = "module_unable")
-		choices[initial(choice)] = option
+		choices[choice] = option
 	// Radial choices
 	sort_list(choices)
 	var/pick = show_radial_menu(usr, src, choices, custom_check = FALSE, tooltips = TRUE)
@@ -208,7 +222,7 @@
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return
 
-	var/static/list/choices = list("drunkenness", "stuttering", "jittering")
+	var/static/list/choices = list("drunkenness", "jittering")
 	var/impairment = tgui_input_list(src, "Select an impairment to perform:", "Impairments", choices)
 	if(!impairment)
 		return
@@ -220,8 +234,6 @@
 			if(istype(living_user))
 				living_user.add_mood_event("drunk", /datum/mood_event/drunk)
 			set_slurring_if_lower(duration SECONDS)
-		if("stuttering")
-			set_stutter_if_lower(duration SECONDS)
 		if("jittering")
 			set_jitter_if_lower(duration SECONDS)
 

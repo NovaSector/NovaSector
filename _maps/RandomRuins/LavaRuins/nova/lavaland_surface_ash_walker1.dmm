@@ -927,11 +927,7 @@
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 8
 	},
-/mob/living/basic/chicken{
-	name = "\improper gunther";
-	desc = "An odd looking gutlunch, this one seems to have feathers and lay eggs, not like you'd complain about that.";
-	unsuitable_atmos_damage = 0
-	},
+/mob/living/basic/chicken/gunther,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Jh" = (

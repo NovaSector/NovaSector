@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 	icon = 'modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi'
 	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
 	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
-	toolspeed = 1 SECONDS
+	toolspeed = 1
 	///whether the item is in use or not
 	var/in_use = FALSE
 
@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/tongs/primitive
 	name = "primitive forging tongs"
-	toolspeed = 2 SECONDS
+	toolspeed = 2
 
 /obj/item/forging/tongs/attack_self(mob/user, modifiers)
 	. = ..()
@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 
 /obj/item/forging/billow/primitive
 	name = "primitive forging billow"
-	toolspeed = 2 SECONDS
+	toolspeed = 2
 
 //incomplete pre-complete items
 /obj/item/forging/incomplete

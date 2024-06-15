@@ -7,6 +7,8 @@
 	density = TRUE
 	layer = ABOVE_MOB_LAYER
 	opacity = FALSE
+	interaction_flags_click = NEED_DEXTERITY
+	/// type of table that this becomes when unflipped
 	var/table_type = /obj/structure/table
 
 /obj/structure/flippedtable/Initialize(mapload)
@@ -46,9 +48,8 @@
 	if(direction == dir)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/structure/flippedtable/CtrlShiftClick(mob/user)
-	. = ..()
-	if(!istype(user) || !user.can_interact_with(src) || iscorticalborer(user))
+/obj/structure/flippedtable/click_ctrl_shift(mob/user)
+	if(!istype(user) || iscorticalborer(user))
 		return FALSE
 	user.balloon_alert_to_viewers("flipping table upright...")
 	if(do_after(user, max_integrity * 0.25))
@@ -67,10 +68,11 @@
 		qdel(src)
 
 //TABLES
+/obj/structure/table/
+	interaction_flags_click = NEED_DEXTERITY
 
-/obj/structure/table/CtrlShiftClick(mob/living/user)
-	. = ..()
-	if(!istype(user) || !user.can_interact_with(src) || isobserver(user) || iscorticalborer(user))
+/obj/structure/table/click_ctrl_shift(mob/user)
+	if(!istype(user) || iscorticalborer(user))
 		return
 	if(!can_flip)
 		return

@@ -116,6 +116,14 @@
 	name = "Law Office Fax Machine";
 	pixel_y = 3
 	},
+/obj/item/storage/briefcase{
+	pixel_x = -3;
+	pixel_y = -12
+	},
+/obj/item/storage/briefcase/secure{
+	pixel_x = 2;
+	pixel_y = -15
+	},
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "abP" = (
@@ -479,7 +487,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/aft)
 "agX" = (
-/mob/living/simple_animal/slime,
+/mob/living/basic/slime,
 /turf/open/floor/circuit/green,
 /area/station/science/xenobiology)
 "aha" = (
@@ -1385,9 +1393,6 @@
 /obj/machinery/vending/wardrobe/viro_wardrobe,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 10
-	},
-/obj/item/toy/figure/virologist{
-	pixel_y = 17
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/white,
@@ -3082,9 +3087,7 @@
 /area/station/security/prison)
 "aTu" = (
 /obj/structure/cable,
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
@@ -7185,9 +7188,6 @@
 /turf/closed/wall,
 /area/station/maintenance/port/greater)
 "chg" = (
-/obj/structure/secure_safe/caps_spare{
-	pixel_x = -24
-	},
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/photo_album,
 /obj/item/camera{
@@ -7602,10 +7602,8 @@
 /obj/structure/sign/nanotrasen{
 	pixel_y = -32
 	},
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
 /obj/structure/cable,
+/obj/machinery/power/smes/super/full,
 /turf/open/floor/vault,
 /area/station/ai_monitored/turret_protected/ai)
 "cog" = (
@@ -11659,13 +11657,12 @@
 	dir = 9
 	},
 /obj/machinery/dna_scannernew,
-/obj/machinery/requests_console/directional/south{
-	department = "Genetics";
-	name = "Genetics Requests console";
-	pixel_y = 30
-	},
 /obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/requests_console/directional/north{
+	department = "Genetics";
+	name = "Genetics Requests console"
+	},
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
 "dwH" = (
@@ -13690,11 +13687,6 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/machinery/requests_console/directional/north{
-	department = "Security";
-	name = "Security Requests Console";
-	pixel_y = -32
-	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/machinery/light/warm/directional/south,
@@ -13704,6 +13696,10 @@
 /obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
+	},
+/obj/machinery/requests_console/directional/south{
+	department = "Security";
+	name = "Security Requests Console"
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
@@ -15252,6 +15248,11 @@
 "esP" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
+/obj/structure/secure_safe/caps_spare{
+	base_icon_state = "floorsafe";
+	icon_state = "floorsafe";
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "etd" = (
@@ -26753,12 +26754,20 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/port)
 "hIp" = (
-/obj/structure/safe,
+/obj/structure/safe/vault,
+/obj/item/storage/briefcase/secure/riches,
 /obj/item/storage/backpack/duffelbag/syndie/hitman,
 /obj/item/card/id/advanced/silver/reaper,
 /obj/item/lazarus_injector,
-/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
-/obj/item/stack/spacecash/c5000,
+/obj/item/gun/energy/disabler,
+/obj/item/gun/ballistic/revolver/russian,
+/obj/item/ammo_box/a357,
+/obj/item/clothing/neck/stethoscope,
+/obj/item/book{
+	desc = "An undeniably handy book.";
+	icon_state = "bookknock";
+	name = "\improper A Simpleton's Guide to Safe-cracking with Stethoscopes"
+	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/station/ai_monitored/command/nuke_storage)
@@ -33120,7 +33129,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
-/obj/machinery/computer/department_orders/service,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/service)
@@ -33770,6 +33778,9 @@
 	},
 /obj/item/clothing/glasses/sunglasses/big{
 	pixel_y = -11
+	},
+/obj/item/clothing/glasses/sunglasses{
+	pixel_y = -5
 	},
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
@@ -34709,7 +34720,6 @@
 /area/station/science/xenobiology)
 "jSl" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/department_orders/science,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
@@ -36898,9 +36908,6 @@
 /turf/open/floor/iron/smooth,
 /area/station/cargo/lobby)
 "kyH" = (
-/obj/machinery/computer/department_orders/medical{
-	dir = 4
-	},
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
 	},
@@ -38906,7 +38913,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/pet/gondola/funky,
+/mob/living/basic/pet/gondola/funky,
 /turf/open/floor/iron/herringbone,
 /area/station/service/theater)
 "kYC" = (
@@ -48167,9 +48174,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
 	},
-/obj/machinery/computer/department_orders/security{
-	dir = 1
-	},
 /obj/machinery/firealarm/directional/south,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner{
 	dir = 8
@@ -49578,9 +49582,6 @@
 /turf/closed/wall,
 /area/station/medical/medbay/central)
 "nUc" = (
-/obj/machinery/computer/department_orders/engineering{
-	dir = 1
-	},
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner{
 	dir = 1
 	},
@@ -49758,9 +49759,6 @@
 "nWq" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
-	},
-/obj/machinery/modular_computer/preset/cargochat/cargo{
-	dir = 4
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_edge{
@@ -52801,9 +52799,7 @@
 "oOG" = (
 /obj/structure/sign/warning/electric_shock/directional/north,
 /obj/effect/turf_decal/bot,
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /obj/structure/cable,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/tcommsat/server)
@@ -54967,9 +54963,7 @@
 	c_tag = "Monastery Dock";
 	network = list("ss13","monastery")
 	},
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
+/obj/machinery/power/smes/full,
 /obj/structure/cable,
 /turf/open/floor/pod/light,
 /area/station/service/chapel)
@@ -55693,8 +55687,8 @@
 /area/station/maintenance/starboard/lesser)
 "pBG" = (
 /obj/machinery/status_display/evac/directional/north,
-/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/siding/blue,
+/obj/machinery/photobooth,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/command)
 "pBQ" = (
@@ -56338,8 +56332,7 @@
 "pLl" = (
 /obj/machinery/button/flasher{
 	id = "hopflash";
-	pixel_x = 6;
-	pixel_y = 34
+	pixel_x = -26
 	},
 /obj/machinery/pdapainter,
 /obj/machinery/button/door/directional/north{
@@ -56365,6 +56358,10 @@
 	pixel_y = 36
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/button/photobooth{
+	pixel_x = 6;
+	pixel_y = 36
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "pLH" = (
@@ -58597,7 +58594,7 @@
 	name = "Poppy's bed"
 	},
 /obj/machinery/firealarm/directional/south,
-/mob/living/simple_animal/pet/poppy,
+/mob/living/basic/pet/poppy,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)
@@ -62809,13 +62806,11 @@
 /turf/open/floor/cult,
 /area/station/service/library)
 "ryN" = (
-/obj/machinery/requests_console/directional/south{
-	department = "Law Office";
-	name = "Law Office Requests Console";
-	pixel_x = 32;
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/requests_console/directional/east{
+	department = "Law Office";
+	name = "Law Office Requests Console"
+	},
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "ryU" = (
@@ -62912,19 +62907,10 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "rAD" = (
-/obj/structure/rack,
-/obj/item/storage/briefcase{
-	pixel_x = -3;
-	pixel_y = 2
-	},
-/obj/item/storage/briefcase/secure{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/clothing/glasses/sunglasses,
 /obj/machinery/status_display/evac/directional/east,
 /obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/bot,
+/obj/structure/aquarium/lawyer,
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "rAU" = (
@@ -67681,7 +67667,7 @@
 /area/station/hallway/primary/central)
 "sOh" = (
 /obj/effect/landmark/observer_start,
-/obj/effect/turf_decal/plaque,
+/obj/structure/plaque/static_plaque/golden/commission/voidraptor,
 /turf/open/floor/iron/large,
 /area/station/hallway/primary/fore)
 "sOp" = (
@@ -72242,15 +72228,14 @@
 	pixel_x = 8;
 	pixel_y = -1
 	},
-/obj/machinery/requests_console/directional/east{
-	department = "Bar";
-	name = "Bar Requests Console";
-	pixel_x = -30
-	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/item/reagent_containers/cup/glass/bottle/champagne{
 	pixel_y = -2
+	},
+/obj/machinery/requests_console/directional/west{
+	department = "Bar";
+	name = "Bar Requests Console"
 	},
 /turf/open/floor/iron,
 /area/station/service/bar)
@@ -76681,13 +76666,6 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/requests_console/directional/south{
-	department = "Engineering";
-	dir = 4;
-	name = "Engineering Requests Console";
-	pixel_x = 30;
-	pixel_y = 0
-	},
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/item/storage/medkit/fire{
@@ -76697,6 +76675,10 @@
 /obj/item/radio/off{
 	pixel_x = 6;
 	pixel_y = 6
+	},
+/obj/machinery/requests_console/directional/east{
+	department = "Engineering";
+	name = "Engineering Requests Console"
 	},
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)
@@ -79603,6 +79585,7 @@
 /area/station/commons/storage/primary)
 "waK" = (
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/photobooth/security,
 /turf/open/floor/glass/reinforced,
 /area/station/security/execution/transfer)
 "waM" = (
@@ -106987,10 +106970,10 @@ nQt
 dVY
 kVR
 uiw
-agX
+tAl
 uiw
 uKe
-tAl
+agX
 uiw
 uKe
 tAl
@@ -109043,10 +109026,10 @@ sAL
 ohh
 kVR
 uiw
-tAl
+agX
 uiw
 uKe
-agX
+tAl
 uiw
 uKe
 xXU

@@ -48,6 +48,8 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 
 /obj/item/organ/internal/borer_body/Destroy()
 	borer = null
+	if(owner && HAS_TRAIT_FROM(owner, TRAIT_WEATHER_IMMUNE, "borer_in_host"))
+		REMOVE_TRAIT(owner, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 	return ..()
 
 /obj/item/organ/internal/borer_body/Insert(mob/living/carbon/carbon_target, special, movement_flags)
@@ -55,6 +57,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	for(var/datum/borer_focus/body_focus as anything in borer.body_focuses)
 		body_focus.on_add()
 	carbon_target.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, type)
+	ADD_TRAIT(carbon_target, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 
 //on removal, force the borer out
 /obj/item/organ/internal/borer_body/Remove(mob/living/carbon/carbon_target, special)
@@ -65,6 +68,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	if(cb_inside)
 		cb_inside.leave_host()
 	carbon_target.remove_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, type)
+	REMOVE_TRAIT(carbon_target, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 	qdel(src)
 
 /obj/item/reagent_containers/borer
@@ -245,7 +249,13 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	do_evolution(/datum/borer_evolution/base)
 
 /mob/living/basic/cortical_borer/Destroy()
-	human_host = null
+	if(human_host)
+		if(human_host.organs)
+			var/obj/item/organ/internal/borer_body/borer_organ = locate() in human_host.organs
+			borer_organ.Remove(human_host)
+		if(HAS_TRAIT_FROM(human_host, TRAIT_WEATHER_IMMUNE, "borer_in_host"))
+			REMOVE_TRAIT(human_host, TRAIT_WEATHER_IMMUNE, "borer_in_host")
+		human_host = null
 	GLOB.cortical_borers -= src
 	QDEL_NULL(reagent_holder)
 	return ..()
@@ -260,7 +270,8 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		deathgasp_once = TRUE
 		for(var/borers in GLOB.cortical_borers)
 			to_chat(borers, span_boldwarning("[src] has left the hivemind forcibly!"))
-	QDEL_NULL(reagent_holder)
+	if(gibbed)
+		QDEL_NULL(reagent_holder)
 	return ..()
 
 //so we can add some stuff to status, making it easier to read... maybe some hud some day
@@ -382,7 +393,19 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 //previously had borers unable to emote... but that means less RP, and we want that
 
 //borers should not be talking without a host at least
-/mob/living/basic/cortical_borer/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
+/mob/living/basic/cortical_borer/say(
+	message,
+	bubble_type,
+	list/spans = list(),
+	sanitize = TRUE,
+	datum/language/language,
+	ignore_spam = FALSE,
+	forced,
+	filterproof = FALSE,
+	message_range = 7,
+	datum/saymode/saymode,
+	list/message_mods = list(),
+)
 	if(!inside_human())
 		to_chat(src, span_warning("You are not able to speak without a host!"))
 		return

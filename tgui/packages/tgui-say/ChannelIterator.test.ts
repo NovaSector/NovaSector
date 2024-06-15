@@ -14,6 +14,7 @@ describe('ChannelIterator', () => {
     // NOVA EDIT ADDITION START
     expect(channelIterator.next()).toBe('Whis');
     expect(channelIterator.next()).toBe('LOOC');
+    expect(channelIterator.next()).toBe('Do');
     // NOVA EDIT ADDITION END
     expect(channelIterator.next()).toBe('OOC');
     expect(channelIterator.next()).toBe('Say'); // Admin is blacklisted so it should be skipped
