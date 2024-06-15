@@ -127,9 +127,15 @@
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "aV" = (
-/obj/structure/maintenance_loot_structure/wall_jacket/random/directional/south,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/smooth,
+/obj/effect/spawner/random/bedsheet/any{
+	dir = 1
+	},
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/structure/curtain/bounty,
+/turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "aX" = (
 /obj/structure/table/glass,
@@ -967,9 +973,13 @@
 /turf/open/floor/wood,
 /area/gakster_location/hideout_real)
 "gL" = (
-/obj/structure/ladder,
-/turf/open/floor/plating,
-/area/gakster_location/war)
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/red/dim/directional/east,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/openspace,
+/area/gakster_location/outside)
 "gO" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/open/indestructible/plating,
@@ -2542,6 +2552,7 @@
 "rB" = (
 /obj/structure/chair/office/light,
 /obj/effect/decal/cleanable/blood/old,
+/mob/living/basic/trooper/gakster/melee/prophet,
 /turf/open/floor/iron/freezer,
 /area/gakster_location/war)
 "rJ" = (
@@ -2924,11 +2935,6 @@
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
-"ul" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/basic/trooper/gakster/melee/prophet,
-/turf/open/floor/iron/smooth_large,
-/area/gakster_location/war)
 "ur" = (
 /obj/structure/toilet,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -3563,10 +3569,9 @@
 /turf/open/floor/plating,
 /area/gakster_location/war)
 "yv" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/jade,
-/turf/open/openspace,
-/area/gakster_location/outside)
+/turf/closed/wall,
+/area/gakster_location/war)
 "yw" = (
 /obj/structure/table/wood,
 /obj/item/kirbyplants/random/fullysynthetic{
@@ -4612,8 +4617,9 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "EX" = (
-/obj/structure/marker_beacon/jade,
-/turf/open/floor/wood/large,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/deepmaints_entrance/exit,
+/turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "EY" = (
 /obj/structure/table/wood,
@@ -5794,10 +5800,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/gakster_location/war)
 "MQ" = (
-/obj/structure/marker_beacon/jade,
-/obj/machinery/light/red/dim/directional/east,
-/turf/open/floor/iron/smooth_large,
-/area/gakster_location/war)
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/red/dim/directional/west,
+/obj/structure/railing,
+/turf/open/openspace,
+/area/gakster_location/outside)
 "MT" = (
 /obj/structure/chair/stool/bar{
 	dir = 1
@@ -6653,10 +6660,10 @@
 /turf/open/indestructible/plating,
 /area/gakster_location/hideout_real)
 "Td" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/deepmaints_entrance/exit,
-/turf/open/openspace,
-/area/gakster_location/outside)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/iron/smooth,
+/area/gakster_location/war)
 "Tf" = (
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/iron/smooth_large,
@@ -6833,8 +6840,9 @@
 /turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "UA" = (
-/obj/structure/deepmaints_entrance/exit,
-/turf/open/floor/wood/large,
+/obj/machinery/light/warm/dim/directional/north,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/iron/smooth,
 /area/gakster_location/war)
 "UB" = (
 /obj/machinery/light/dim/directional/north,
@@ -7421,11 +7429,6 @@
 /obj/machinery/vending/wallmed/epic_loot/directional/north,
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/smooth,
-/area/gakster_location/war)
-"Yd" = (
-/obj/structure/marker_beacon/jade,
-/obj/machinery/light/red/dim/directional/west,
-/turf/open/floor/iron/smooth_large,
 /area/gakster_location/war)
 "Yg" = (
 /obj/machinery/light/dim/directional/west,
@@ -28475,7 +28478,7 @@ Sn
 hT
 Sn
 dK
-Sn
+WP
 dK
 Sn
 hT
@@ -28549,7 +28552,7 @@ NT
 WH
 Lh
 Lh
-tq
+Td
 tq
 Lh
 ep
@@ -28649,8 +28652,8 @@ tq
 Lh
 ep
 Lh
-tq
-tq
+Td
+EX
 tq
 Lh
 Yi
@@ -28752,7 +28755,7 @@ WH
 NT
 lt
 tq
-Lh
+lg
 pp
 Lh
 WH
@@ -29521,7 +29524,7 @@ NT
 My
 gt
 NT
-Lh
+lg
 dK
 Lh
 NT
@@ -29624,8 +29627,8 @@ Om
 Lh
 NT
 MY
-dK
-Lh
+gD
+lg
 NT
 YW
 Lh
@@ -29725,7 +29728,7 @@ NT
 aY
 oJ
 NT
-Lh
+lg
 dK
 Uy
 NT
@@ -31056,9 +31059,9 @@ dK
 Tf
 dK
 dK
-Yd
+Tf
 dK
-iL
+dK
 Gv
 NT
 Vi
@@ -31159,7 +31162,7 @@ Xp
 Sn
 Sn
 Xp
-Gs
+Sn
 Sn
 Gv
 NT
@@ -31260,9 +31263,9 @@ dK
 Ja
 dK
 dK
-MQ
+Ja
 dK
-iL
+dK
 Gv
 NT
 Vi
@@ -33279,7 +33282,7 @@ Sn
 Sn
 Sn
 do
-ul
+sW
 Fg
 JP
 Sn
@@ -33809,8 +33812,8 @@ dK
 ZV
 Xp
 NT
-xV
-bl
+ji
+lg
 aV
 NT
 dK
@@ -33911,7 +33914,7 @@ Sn
 Sn
 cW
 NT
-pV
+UA
 Lh
 Lh
 ep
@@ -34015,8 +34018,8 @@ Xp
 NT
 Lh
 on
-bt
-NT
+hz
+yv
 dK
 NT
 Vi
@@ -34308,7 +34311,7 @@ Fg
 NT
 Fg
 JP
-WP
+Sn
 Sj
 Fg
 NT
@@ -35354,7 +35357,7 @@ vr
 vr
 vr
 vr
-EH
+vr
 NT
 lN
 yX
@@ -36168,7 +36171,7 @@ Vi
 NT
 vr
 vr
-EH
+vr
 NT
 NT
 Mg
@@ -36270,7 +36273,7 @@ Vi
 NT
 vr
 vr
-EH
+vr
 NT
 FT
 Kc
@@ -36372,7 +36375,7 @@ Vi
 NT
 vr
 vr
-EH
+vr
 NT
 Lh
 LG
@@ -36474,7 +36477,7 @@ Vi
 NT
 vr
 vr
-EH
+vr
 NT
 NT
 Lh
@@ -36886,7 +36889,7 @@ vr
 NT
 nF
 dK
-dK
+iL
 LM
 Lh
 NT
@@ -36987,8 +36990,8 @@ NT
 NT
 NT
 FT
-dK
-gL
+iL
+Gs
 dK
 Lh
 NT
@@ -37091,7 +37094,7 @@ NT
 Lh
 dK
 dK
-dK
+iL
 bB
 Lh
 UZ
@@ -37192,7 +37195,7 @@ NT
 NT
 Lh
 fY
-Lh
+NT
 Lh
 bB
 cQ
@@ -37295,7 +37298,7 @@ NT
 NT
 NT
 NT
-NT
+ep
 NT
 NT
 NT
@@ -37397,10 +37400,10 @@ NT
 vr
 vr
 vr
-EH
-EH
-EH
-EH
+IB
+MQ
+vr
+vr
 vr
 vr
 NT
@@ -37499,8 +37502,8 @@ NT
 vr
 vr
 vr
-vr
-vr
+IB
+hp
 vr
 vr
 vr
@@ -37601,12 +37604,12 @@ NT
 vr
 vr
 vr
+IB
+hp
 vr
 vr
 vr
 vr
-vr
-EH
 NT
 NT
 NT
@@ -37703,8 +37706,8 @@ NT
 vr
 vr
 vr
-vr
-vr
+gL
+hp
 vr
 vr
 vr
@@ -37806,7 +37809,7 @@ NT
 NT
 NT
 NT
-NT
+ep
 NT
 NT
 NT
@@ -37907,11 +37910,11 @@ jI
 Lh
 Lh
 NT
+Lh
+Lh
+NT
 jI
 WA
-NT
-Lh
-Lh
 NT
 Lh
 eB
@@ -38838,7 +38841,7 @@ jI
 dK
 NT
 Yi
-EX
+MW
 MW
 MW
 Yi
@@ -38940,8 +38943,8 @@ NT
 MY
 NT
 MW
-UA
-EX
+MW
+MW
 MW
 NT
 NT
@@ -39041,7 +39044,7 @@ KK
 Lh
 dK
 NT
-EX
+MW
 MW
 MW
 WH
@@ -40968,7 +40971,7 @@ bR
 KK
 Lh
 dK
-lg
+Lh
 NT
 FI
 CH
@@ -41068,8 +41071,8 @@ zT
 KK
 KK
 KK
-lg
-gD
+Lh
+dK
 tq
 mQ
 NT
@@ -41171,7 +41174,7 @@ KK
 tq
 NT
 Lh
-iL
+dK
 tq
 Lh
 jI
@@ -46806,7 +46809,7 @@ vr
 vr
 vr
 vr
-yv
+DT
 vr
 vr
 vr
@@ -46908,7 +46911,7 @@ vr
 vr
 vr
 vr
-Td
+DT
 vr
 vr
 vr
@@ -47009,9 +47012,9 @@ DT
 DT
 DT
 DT
-yv
+DT
 jN
-yv
+DT
 DT
 Tt
 EH
@@ -47189,7 +47192,7 @@ lq
 NT
 pl
 dK
-gL
+Sn
 dK
 Sn
 Ka
