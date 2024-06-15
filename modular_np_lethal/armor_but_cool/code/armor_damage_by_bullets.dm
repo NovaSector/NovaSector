@@ -33,14 +33,14 @@
 	// on [/atom/proc/bullet_act] where it's just to pass it to the projectile's on_hit().
 	var/armor_check = check_projectile_armor(def_zone, hitting_projectile, is_silent = TRUE)
 
-	var/flat_reduction = getarmor(def_zone, hitting_projectile.armor_flag) / 5
+	var/flat_reduction = (getarmor(def_zone, hitting_projectile.armor_flag) / 5) * ((100 - hitting_projectile.armour_penetration) / 100)
 	var/armor_damage = ((hitting_projectile.armour_penetration + 100) / 100) * (hitting_projectile.damage - (hitting_projectile.damage - flat_reduction))
 
 	apply_damage(
 		damage = max(0, hitting_projectile.damage - flat_reduction),
 		damagetype = hitting_projectile.damage_type,
 		def_zone = def_zone,
-		blocked = min(ARMOR_MAX_BLOCK, armor_check),  //cap damage reduction at 90%
+		blocked = min(ARMOR_MAX_BLOCK, armor_check - armor_damage),  //cap damage reduction at 90%
 		wound_bonus = hitting_projectile.wound_bonus,
 		bare_wound_bonus = hitting_projectile.bare_wound_bonus,
 		sharpness = hitting_projectile.sharpness,
