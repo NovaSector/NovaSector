@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - balance: "Certain changeling abilities won't work while on fire."
