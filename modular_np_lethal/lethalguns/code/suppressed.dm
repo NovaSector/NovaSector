@@ -143,7 +143,7 @@
 	name = "\improper Ransu suppressed marksman rifle"
 	desc = "A special rifle firing 12mm Chinmoku out of an integrally suppressed barrel. Uses Chinmoku magazines. \
 		This one is mounted with a scope and other furniture to support more long range action. Automatic fire \
-		capability was removed and instead replaced with an optional three-round burst mode."
+		capability was removed to increase the accuracy of the weapon."
 
 	icon_state = "ransu"
 
