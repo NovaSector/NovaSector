@@ -88,12 +88,6 @@
 		else
 			toggle_silo(user)
 
-<<<<<<< HEAD
-/obj/item/construction/rld/afterattack(atom/A, mob/user)
-	. = ..()
-	if(!range_check(A,user))
-		return
-=======
 /obj/item/construction/rld/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!range_check(interacting_with, user))
 		return NONE
@@ -107,7 +101,6 @@
 
 /obj/item/construction/rld/proc/try_lighting(atom/interacting_with, mob/user)
 
->>>>>>> 4c536fa5e27 (After Attack Fixes (#83910))
 	var/turf/start = get_turf(src)
 	switch(mode)
 		if(REMOVE_MODE)

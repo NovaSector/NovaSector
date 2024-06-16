@@ -228,12 +228,6 @@
 
 	return TRUE
 
-<<<<<<< HEAD
-/obj/item/construction/rtd/afterattack(turf/open/floor/floor, mob/user)
-	. = ..()
-	if(!istype(floor) || !range_check(floor,user))
-		return TRUE
-=======
 /obj/item/construction/rtd/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!range_check(interacting_with, user))
 		return NONE
@@ -250,7 +244,6 @@
 	var/turf/open/floor/floor = interacting_with
 	if(!istype(floor))
 		return NONE
->>>>>>> 4c536fa5e27 (After Attack Fixes (#83910))
 
 	var/floor_designs = GLOB.floor_designs
 	if(!istype(floor, /turf/open/floor/plating)) //we infer what floor type it is if its not the usual plating
