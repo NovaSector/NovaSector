@@ -1039,8 +1039,11 @@
 /obj/effect/turf_decal/tile/dark/opposingcorners{
 	dir = 1
 	},
-/obj/machinery/griddle,
 /obj/effect/turf_decal/bot,
+/obj/structure/table,
+/obj/machinery/processor{
+	pixel_y = 8
+	},
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
 "apz" = (
@@ -3483,6 +3486,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/blueshield)
 "aZX" = (
@@ -25277,7 +25281,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "hpe" = (
-/obj/machinery/light/floor,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -27865,11 +27868,8 @@
 /obj/effect/turf_decal/tile/dark/opposingcorners{
 	dir = 1
 	},
-/obj/structure/table,
-/obj/machinery/processor{
-	pixel_y = 8
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/oven/range,
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
 "iaX" = (
@@ -56540,7 +56540,6 @@
 /obj/effect/turf_decal/tile/dark/opposingcorners{
 	dir = 1
 	},
-/obj/machinery/oven/range,
 /obj/effect/turf_decal/bot,
 /obj/item/radio/intercom/prison/directional/north,
 /obj/machinery/light/directional/north,
@@ -56548,6 +56547,7 @@
 	c_tag = "Permabrig - Kitchen";
 	network = list("ss13","prison")
 	},
+/obj/machinery/griddle,
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
 "qBS" = (
@@ -61241,6 +61241,7 @@
 	id = "kitchen_counter";
 	name = "Kitchen Counter Shutters"
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "rWE" = (
@@ -70417,7 +70418,6 @@
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "uCO" = (
-/obj/machinery/airalarm/directional/south,
 /obj/effect/landmark/start/blueshield,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/blueshield)
@@ -180965,7 +180965,7 @@ fsk
 bTt
 tup
 vAi
-xeV
+uCO
 aZN
 rON
 rLZ
@@ -181222,8 +181222,8 @@ uUl
 bTt
 tYp
 gLZ
+xeV
 lpI
-uCO
 rON
 fvL
 bsr
