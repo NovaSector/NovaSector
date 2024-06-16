@@ -35189,12 +35189,12 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/effect/turf_decal/lunar_sand/plating,
 /obj/effect/turf_decal/box,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/lunar_sand/plating,
+/turf/open/floor/plating/airless,
 /area/station/asteroid)
 "kjK" = (
 /turf/closed/wall,
