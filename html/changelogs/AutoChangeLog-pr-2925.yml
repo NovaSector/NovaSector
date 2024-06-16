@@ -1,7 +1,0 @@
-author: "MortoSasye"
-delete-after: True
-changes:
-  - rscadd: "One of the hearthkin witches discovered how to re-create their sacred lungs. This requires a special brew, made from synthflesh and frost oil, to be used on a normal set of lungs."
-  - balance: "Reduces the needed amount of liquid gibs for the anointing bloodresin from eighty to twenty."
-  - image: "Adds a new icon for the anointing bloodresin."
-  - image: "Changed the hearthkin lung sprite to look more unique."
