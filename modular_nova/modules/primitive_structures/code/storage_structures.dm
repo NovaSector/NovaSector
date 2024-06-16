@@ -5,24 +5,24 @@
 	icon_state = "shelf_wood"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	interaction_flags_mouse_drop = NEED_DEXTERITY
 
-/obj/structure/rack/wooden/MouseDrop_T(obj/object, mob/user, params)
-	. = ..()
-	if ((!isitem(object) || user.get_active_held_item() != object))
+/obj/structure/rack/wooden/mouse_drop_receive(atom/dropping, mob/user, params)
+	if ((!isitem(dropping) || user.get_active_held_item() != dropping))
 		return
 
-	if(!user.dropItemToGround(object))
+	if(!user.dropItemToGround(dropping))
 		return
 
-	if(object.loc != src.loc)
-		step(object, get_dir(object, src))
+	if(dropping.loc != src.loc)
+		step(dropping, get_dir(dropping, src))
 
 	var/list/modifiers = params2list(params)
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
 
-	object.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size / 3), world.icon_size / 3)
-	object.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
+	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size / 3), world.icon_size / 3)
+	dropping.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
 
 /obj/structure/rack/wrench_act_secondary(mob/living/user, obj/item/tool)
 	return NONE

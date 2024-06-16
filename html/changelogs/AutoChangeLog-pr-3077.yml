@@ -1,0 +1,4 @@
+author: "Thlumyn"
+delete-after: True
+changes:
+  - bugfix: "fix active turf in virology disposal outlet on OB station"

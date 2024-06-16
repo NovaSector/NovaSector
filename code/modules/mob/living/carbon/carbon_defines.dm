@@ -121,6 +121,3 @@
 	var/bodyshape = BODYSHAPE_HUMANOID
 
 	COOLDOWN_DECLARE(bleeding_message_cd)
-
-
-	var/next_smell = 0 //NOVA EDIT ADDITION /// Cooldown for the next smell
