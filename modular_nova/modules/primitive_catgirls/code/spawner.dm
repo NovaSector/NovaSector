@@ -152,7 +152,7 @@
 			visible_message(span_infoplain("[user] starts putting [target] into [src]..."))
 
 			if(!do_after(user, 3 SECONDS, target))
-				balloon_alert("cancelled transfer!")
+				balloon_alert(user, "cancelled transfer!")
 				return
 
 			to_chat(user, span_danger("You put [target] into [src]."))
@@ -166,7 +166,7 @@
 		visible_message(span_infoplain("[user] starts climbing down into [src]..."))
 
 		if(!do_after(user, 3 SECONDS, target))
-			balloon_alert("cancelled transfer!")
+			balloon_alert(user, "cancelled transfer!")
 			return
 
 	if(LAZYLEN(target.buckled_mobs) > 0)
