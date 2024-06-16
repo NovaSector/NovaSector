@@ -27699,9 +27699,7 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
-/obj/structure/sign/poster/timeclock_psa/directional/west{
-	pixel_y = 4
-	},
+/obj/structure/sign/poster/timeclock_psa/directional/west,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},

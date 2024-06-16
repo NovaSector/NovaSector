@@ -1261,9 +1261,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/poster/timeclock_psa/directional/south{
-	pixel_y = -28
-	},
+/obj/structure/sign/poster/timeclock_psa/directional/south,
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
 "asr" = (
