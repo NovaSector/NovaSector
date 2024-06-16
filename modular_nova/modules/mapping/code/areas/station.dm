@@ -630,6 +630,10 @@
 	name = "Theater Greenroom"
 	icon_state = "theatre"
 
+/area/station/service/quietroom
+	name = "Quiet Room"
+	icon_state = "theatre"
+
 /area/station/cargo/miningstairs
 	name = "Mining Stairwell"
 	icon_state = "mining"
