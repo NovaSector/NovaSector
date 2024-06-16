@@ -53,7 +53,7 @@
 
 /datum/storage/maintenance_loot_structure
 	max_slots = 9
-	max_specific_storage = WEIGHT_CLASS_BULKY
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	max_total_storage = WEIGHT_CLASS_BULKY * 6
 	numerical_stacking = FALSE
 	rustle_sound = FALSE
