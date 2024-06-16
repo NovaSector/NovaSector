@@ -11,3 +11,9 @@
 	desc = "...hey wait this isn't even connected to a drain. It's purely cosmetic! What the!?"
 	icon = 'modular_nova/modules/snowglobe_fluff/icons/sg_props.dmi'
 	icon_state = "mallgutter"
+
+/obj/structure/fluff/mall_TV
+	name = "Television"
+	desc = "Pre-programmed with Nanotrasen approved media and nothing else!"
+	icon = 'modular_nova/modules/snowglobe_fluff/icons/sg_props.dmi'
+	icon_state = "sgTV"
