@@ -22156,6 +22156,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 8
 	},
+/obj/item/piggy_bank/vault,
 /turf/open/floor/engine,
 /area/station/ai_monitored/command/nuke_storage)
 "hdy" = (
