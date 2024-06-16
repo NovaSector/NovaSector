@@ -37567,7 +37567,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/checker,
 /area/station/hallway/primary/central/aft)
 "kQK" = (
 /obj/structure/railing{
