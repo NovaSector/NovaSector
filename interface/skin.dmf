@@ -65,7 +65,7 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-		icon = 'modular_no_lethal\\taskbar_icon\\lethal_logo_32.png'
+		icon = 'modular_np_lethal\\taskbar_icon\\lethal_logo_32.png'
 		macro = "default"
 		menu = "menu"
 	elem "split"
