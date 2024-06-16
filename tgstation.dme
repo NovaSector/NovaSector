@@ -8200,6 +8200,7 @@
 #include "modular_nova\modules\SiliconQoL\code\_onclick.dm"
 #include "modular_nova\modules\SiliconQoL\code\countdown.dm"
 #include "modular_nova\modules\SiliconQoL\code\robotic_factory.dm"
+#include "modular_nova\modules\snowglobe_fluff\code\sg_props.dm"
 #include "modular_nova\modules\soulstone_changes\code\soulstone.dm"
 #include "modular_nova\modules\soulstone_changes\code\components\return_on_death.dm"
 #include "modular_nova\modules\space_vines\scythes.dm"
