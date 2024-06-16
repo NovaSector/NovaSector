@@ -7,7 +7,7 @@
 	icon_state = "directory"
 
 /obj/structure/fluff/mall_gutter
-	name = "Mall Directory"
-	desc = "...hey wait this isn't even connected to a drain. It's purely cosmetic! What the!!"
+	name = "Mall Gutter"
+	desc = "...hey wait this isn't even connected to a drain. It's purely cosmetic! What the!?"
 	icon = 'modular_nova/modules/snowglobe_fluff/icons/sg_props.dmi'
 	icon_state = "mallgutter"
