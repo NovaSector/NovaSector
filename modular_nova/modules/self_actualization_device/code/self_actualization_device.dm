@@ -214,6 +214,7 @@
 		Original Name: [original_name], New Name: [patient.dna.real_name]. \
 		This may be a false positive from changing from a humanized monkey into a character, so be careful.")
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+	say("Procedure complete! Enjoy your life being a new you!")
 
 	open_machine()
 
