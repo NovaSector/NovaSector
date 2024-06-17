@@ -38,7 +38,7 @@
 	)
 	return ..()
 
-/datum/techweb_node/construction/New()
+/datum/techweb_node/office_equip/New()
 	design_ids += list(
 		"gbp_machine",
 	)
