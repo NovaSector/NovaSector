@@ -27699,6 +27699,7 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
+/obj/structure/sign/poster/timeclock_psa/directional/west,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -27800,7 +27801,7 @@
 /obj/effect/turf_decal/box,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light/cold/directional/north,
-/obj/machinery/airalarm/directional/north,
+/obj/structure/sign/poster/timeclock_psa/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/common/cryopods)
 "ier" = (
@@ -29108,7 +29109,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/newscaster/directional/south,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/station/common/cryopods)
 "ixC" = (
