@@ -61,6 +61,8 @@
 /datum/techweb_node/medbay_equip/New()
 	design_ids += list(
 		"hospital_gown",
+		"anesthetic_machine",
+		"smartdartgun",
 	)
 	return ..()
 
@@ -89,12 +91,6 @@
 		"tempmedicell",
 		"bodymedicell",
 		"clotmedicell",
-	)
-	return ..()
-
-/datum/techweb_node/medbay_equip/New()
-	design_ids += list(
-		"anesthetic_machine",
 	)
 	return ..()
 
