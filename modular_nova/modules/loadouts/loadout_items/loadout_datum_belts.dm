@@ -16,9 +16,8 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 	if(override_items == LOADOUT_OVERRIDE_BACKPACK && !visuals_only)
 		if(outfit.belt)
 			LAZYADD(outfit.backpack_contents, outfit.belt)
-		outfit.belt = item_path
-	else
-		outfit.belt = item_path
+
+	outfit.belt = item_path
 
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Black Fannypack"

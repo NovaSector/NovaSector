@@ -20,10 +20,8 @@
  * outfit - the job outfit we're equipping
  * visuals_only - whether we call special equipped procs, or if we just look like we equipped it
  * preference_source - the preferences of the thing we're equipping
+ * equipping_job - The job that's being applied.
  */
-/mob/living/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
-	return
-
 /mob/living/carbon/human/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
@@ -78,36 +76,27 @@
 	return TRUE
 
 // cyborgs can wear hats from loadout
-/mob/living/silicon/robot/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
+/*
+ * Actually equip our mob with our job outfit and our loadout items.
+ * Loadout items override the pre-existing item in the corresponding slot of the job outfit.
+ * Some job items are preserved after being overridden - belt items, ear items, and glasses.
+ * The rest of the slots, the items are overridden completely and deleted.
+ *
+ * Plasmamen are snowflaked to not have any envirosuit pieces removed just in case.
+ * Their loadout items for those slots will be added to their backpack on spawn.
+ *
+ * outfit - the job outfit we're equipping
+ * visuals_only - whether we call special equipped procs, or if we just look like we equipped it
+ * preference_source - the preferences of the thing we're equipping
+ * equipping_job - The job that's being applied.
+ */
+/mob/living/silicon/robot/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
 	var/list/loadout_datums = loadout_list_to_datums(preference_source?.loadout_list)
 	for (var/datum/loadout_item/head/item in loadout_datums)
 		if (!item.can_be_applied_to(src, preference_source, equipping_job))
 			continue
 		place_on_head(new item.item_path)
 		break
-
-/*
- * Takes a list of paths (such as a loadout list)
- * and returns a list of their singleton loadout item datums
- *
- * loadout_list - the list being checked
- *
- * returns a list of singleton datums
- */
-/proc/loadout_list_to_datums(list/loadout_list)
-	RETURN_TYPE(/list)
-
-	. = list()
-
-	if(!GLOB.all_loadout_datums.len)
-		CRASH("No loadout datums in the global loadout list!")
-
-	for(var/path in loadout_list)
-		if(!GLOB.all_loadout_datums[path])
-			stack_trace("Could not find ([path]) loadout item in the global list of loadout datums!")
-			continue
-
-		. |= GLOB.all_loadout_datums[path]
 
 
 /*
@@ -158,7 +147,7 @@
 	return
 
 // Cyborg loadouts (currently used for hats)
-/mob/living/silicon/on_job_equipping(datum/job/equipping, client/player_client)
+/mob/living/silicon/robot/on_job_equipping(datum/job/equipping, client/player_client)
 	. = ..()
 	dress_up_as_job(
 		equipping = equipping,
@@ -168,7 +157,7 @@
 	)
 
 // Cyborg loadouts (currently used for hats)
-/mob/living/silicon/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
+/mob/living/silicon/robot/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	. = ..()
 	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping)
 

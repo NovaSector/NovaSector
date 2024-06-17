@@ -1,8 +1,5 @@
 // -- The loadout item datum and related procs. --
 
-/// Global list of ALL loadout datums instantiated.
-GLOBAL_LIST_EMPTY(all_loadout_datums)
-
 /*
  * Generate a list of singleton loadout_item datums from all subtypes of [type_to_generate]
  *
@@ -57,8 +54,9 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
  * equipper - If we're equipping our outfit onto a mob at the time, this is the mob it is equipped on. Can be null.
  * outfit - The outfit we're equipping our items into.
  * visual - If TRUE, then our outfit is only for visual use (for example, a preview).
+ * override_items - The type of override to use.
  */
-/datum/loadout_item/proc/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
+/datum/loadout_item/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
 	if(!visuals_only)
 		LAZYADD(outfit.backpack_contents, item_path)
 
@@ -77,44 +75,6 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 /datum/loadout_item/proc/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(!visuals_only)
 		LAZYADD(outfit.backpack_contents, item_path)
-
-/*
- * Called When the item is equipped on [equipper].
- */
-/datum/loadout_item/proc/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(!preference_source)
-		return
-
-	var/list/our_loadout = preference_source.loadout_list
-	var/atom/loadout_atom = item_path
-	var/can_be_greyscale = !!(initial(loadout_atom.greyscale_config) && initial(loadout_atom.greyscale_colors) && (initial(loadout_atom.flags_1) & IS_PLAYER_COLORABLE_1))
-	if(can_be_greyscale && (INFO_GREYSCALE in our_loadout[item_path]))
-		if(ispath(item_path, /obj/item/clothing))
-			// When an outfit is equipped in preview, get_equipped_items() does not work, so we have to use get_all_contents()
-			var/obj/item/clothing/equipped_item = locate(item_path) in (visuals_only ? equipper.get_all_contents() : equipper.get_all_gear()) // needs held items for briefcasers
-			if(equipped_item)
-				equipped_item.set_greyscale(our_loadout[item_path][INFO_GREYSCALE])
-			else
-				stack_trace("[type] on_equip_item(): Could not locate clothing item (path: [item_path]) in [equipper]'s [visuals_only ? "visible":"all"] contents to set greyscaling!")
-
-		else if(!visuals_only)
-			var/obj/item/other_item = locate(item_path) in equipper.get_all_gear()
-			if(other_item)
-				other_item.set_greyscale(our_loadout[item_path][INFO_GREYSCALE])
-			else
-				stack_trace("[type] on_equip_item(): Could not locate backpack item (path: [item_path]) in [equipper]'s contents to set greyscaling!")
-
-	if(can_be_named && !visuals_only)
-		var/obj/item/equipped_item = locate(item_path) in equipper.get_all_gear()
-		if(equipped_item)
-			if(INFO_NAMED in our_loadout[item_path])
-				equipped_item.name = our_loadout[item_path][INFO_NAMED]
-				equipped_item.on_loadout_custom_named()
-			if(INFO_DESCRIBED in our_loadout[item_path])
-				equipped_item.desc = our_loadout[item_path][INFO_DESCRIBED]
-				equipped_item.on_loadout_custom_described()
-		else
-			stack_trace("[type] on_equip_item(): Could not locate item (path: [item_path]) in [equipper]'s contents to set name/desc!")
 
 /*
  * Called after the item is equipped on [equipper], at the end of character setup.
