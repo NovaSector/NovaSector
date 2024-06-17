@@ -2,7 +2,7 @@
 	id = "improved_robotic_surgery"
 	display_name = "Improved Robotic Repair Surgeries"
 	description = "As it turns out, you don't actually need to cut out entire support rods if it's just scratched!"
-	prereq_ids = list("engineering")
+	prereq_ids = list("construction")
 	design_ids = list(
 		"robotic_heal_surgery_upgrade"
 	)

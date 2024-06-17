@@ -157,7 +157,7 @@
 	id = "conveyorsorter"
 	display_name = "Conveyor Sorter"
 	description = "Finally, the ability to automatically sort stuff."
-	prereq_ids = list("bluespace_basic", "engineering")
+	prereq_ids = list("bluespace_theory")
 	design_ids = list(
 		"conveysorter",
 	)
@@ -197,7 +197,7 @@
 	id = "conveyor_sorter_improved"
 	display_name = "Improved Conveyor Sorter"
 	description = "An improved version of the conveyor sorter, this one allows for more control over sorting."
-	prereq_ids = list("practical_bluespace", "conveyorsorter")
+	prereq_ids = list("applied_bluespace")
 	design_ids = list(
 		"conveyor_sorter_improved",
 	)

@@ -14,7 +14,7 @@
 	id = "comp_advanced_interacts"
 	display_name = "Advanced Action Components"
 	description = "Grants access to more advanced action components for the drone shell."
-	prereq_ids = list("movable_shells")
+	prereq_ids = list("programmed_robot")
 	design_ids = list(
 		"comp_mine",
 		"comp_iinteract",
@@ -37,7 +37,7 @@
 	id = "comp_advanced_sensors"
 	display_name = "Advanced Sensor Components"
 	description = "Grants access to advanced sensor components component for shells."
-	prereq_ids = list("adv_shells")
+	prereq_ids = list("programming")
 	design_ids = list(
 		"comp_tscanner",
 		"comp_ccharge",

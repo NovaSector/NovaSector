@@ -4,7 +4,7 @@
 	id = "teshari_cyber"
 	display_name = "Raptoral Cybernetics"
 	description = "Specialized civilian-grade cybernetic limb designs."
-	prereq_ids = list("base")
+	prereq_ids = list("robotics")
 	design_ids = list(
 		"teshari_cyber_chest",
 		"teshari_cyber_l_arm",
@@ -20,7 +20,7 @@
 	id = "adv_teshari_cyber"
 	display_name = "Advanced Raptoral Cybernetics"
 	description = "Specialized industrial-grade cybernetic limb designs."
-	prereq_ids = list("adv_robotics", "teshari_cyber")
+	prereq_ids = list("cybernetics", "teshari_cyber")
 	design_ids = list(
 		"teshari_advanced_l_arm",
 		"teshari_advanced_r_arm",

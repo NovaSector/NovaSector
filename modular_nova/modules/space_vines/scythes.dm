@@ -86,7 +86,7 @@
 	id = "t1scythe"
 	display_name = "Scythe (Tier 1)"
 	description = "Culling tools"
-	prereq_ids = list("adv_engi", "biotech", "botany")
+	prereq_ids = list("exp_tools", "chem_synthesis", "botany_equip")
 	design_ids = list(
 		"scythet1",
 	)
