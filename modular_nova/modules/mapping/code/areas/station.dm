@@ -642,10 +642,12 @@
 	name = "Mining Foyer"
 	icon_state = "mining_lobby"
 
-/area/station/commons/nightclubbooth1
+/area/station/common/nightclubbooth1
 	name = "Private Booth A"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "nightclub"
 
-/area/station/commons/nightclubbooth2
+/area/station/common/nightclubbooth2
 	name = "Private Booth B"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "nightclub"
