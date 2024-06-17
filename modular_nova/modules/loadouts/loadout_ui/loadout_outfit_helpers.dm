@@ -81,7 +81,7 @@
 		item.on_equip_item(
 			equipped_item = equipped,
 			preference_source = preference_source,
-			preference_list = loadout_datums,
+			preference_list = preference_source.loadout_list,
 			equipper = src,
 			visuals_only = visuals_only,
 		)
