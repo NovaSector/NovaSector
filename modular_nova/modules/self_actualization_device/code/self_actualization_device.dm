@@ -1,3 +1,7 @@
+#define NO_CONSENT 0
+#define CONSENT_GRANTED 1
+#define WAITING_PLAYER 2
+
 /datum/design/board/self_actualization_device
 	name = "Machine Design (Self-Actualization Device)"
 	desc = "The circuit board for a Self-Actualization Device by Cinco: A Family Company."
@@ -28,6 +32,10 @@
 	var/processing_time = 1 MINUTES
 	/// The interval that advertisements are said by the machine's speaker.
 	var/next_fact = 10
+	/// wzhzhzh
+	var/datum/looping_sound/microwave/sound_loop
+	/// Has the player consented to the DNA change
+	var/player_consent = NO_CONSENT
 	/// A list containing advertisements that the machine says while working.
 	var/static/list/advertisements = list(\
 	"Thank you for using the Self-Actualization Device, brought to you by Veymed, because you asked for it.", \
@@ -50,19 +58,28 @@
 
 	return .
 
+/obj/machinery/self_actualization_device/Initialize(mapload)
+	. = ..()
+	sound_loop = new(src, FALSE)
+	register_context()
+	update_appearance()
+
+/obj/machinery/self_actualization_device/Destroy()
+	QDEL_NULL(sound_loop)
+	return ..()
 
 /obj/machinery/self_actualization_device/update_appearance(updates)
 	. = ..()
-	if(occupant)
-		icon_state = processing ? "sad_on" : "sad_off"
+	if(isnull(occupant))
+		icon_state = state_open ? "sad_open" : "sad_empty"
 	else
-		icon_state = state_open ? "sad_open" : "sad_closed"
-
-
-
-/obj/machinery/self_actualization_device/Initialize(mapload)
-	. = ..()
-	update_appearance()
+		switch(player_consent)
+			if(WAITING_PLAYER)
+				icon_state = "sad_validating"
+			if(CONSENT_GRANTED)
+				icon_state = "sad_on"
+			if(NO_CONSENT)
+				icon_state = "sad_occupied"
 
 /obj/machinery/self_actualization_device/close_machine(atom/movable/target, density_to_set = TRUE)
 	..()
@@ -74,20 +91,30 @@
 		set_occupant(null)
 		return FALSE
 	to_chat(occupant, span_notice("You enter [src]."))
+	addtimer(CALLBACK(src, PROC_REF(get_consent)), 4 SECONDS, TIMER_OVERRIDE|TIMER_UNIQUE)
 	update_appearance()
 
 /obj/machinery/self_actualization_device/examine(mob/user)
 	. = ..()
-	. += span_notice("ALT-Click to turn ON when closed.")
+	. += span_info("Laser power <b>[display_power(active_power_usage)]</b> at average cycle time of <b>[DisplayTimeText(processing_time)]</b>.")
+	. += span_notice("Left-click to <b>[state_open ? "close" : "open"]</b>.")
+	if(!isnull(occupant) && !state_open)
+		. += span_notice("Alt-Click to turn on.")
+
+/obj/machinery/self_actualization_device/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(!processing)
+		context[SCREENTIP_CONTEXT_LMB] = "[state_open ? "Close" : "Open"] machine"
+	if(!isnull(occupant) && !state_open && !processing)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Start machine"
+
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/self_actualization_device/click_alt(mob/user)
-	if(!powered() || !occupant || state_open)
+	if(!powered() || !occupant || state_open || processing)
 		return CLICK_ACTION_BLOCKING
 
-	to_chat(user, "You power on [src].")
-	addtimer(CALLBACK(src, PROC_REF(eject_new_you)), processing_time, TIMER_OVERRIDE|TIMER_UNIQUE)
-	processing = TRUE
-	update_appearance()
+	user.visible_message(span_notice("[user] presses the start button of the [src]."), span_notice("You press the start button of the [src]."))
+	get_consent()
 	return CLICK_ACTION_SUCCESS
 
 /obj/machinery/self_actualization_device/container_resist_act(mob/living/user)
@@ -135,42 +162,63 @@
 
 /// Ejects the occupant after asking them if they want to accept the rejuvenation. If yes, they exit as their preferences character.
 /obj/machinery/self_actualization_device/proc/eject_new_you()
+	player_consent = NO_CONSENT
+	set_light(l_on = FALSE)
+	sound_loop.stop()
 	if(state_open || !occupant || !powered())
 		return
 	processing = FALSE
 
-	if(!ishuman(occupant))
-		return FALSE
-	var/mob/living/carbon/human/human_occupant = occupant
+	var/mob/living/carbon/human/patient = occupant
+	var/original_name = patient.dna.real_name
 
-	var/failure = FALSE
-	var/failure_text
+	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+	patient.dna.update_dna_identity()
+	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
 
-	if (!isnull(human_occupant.ckey) && isnull(human_occupant.client)) // player mob, currently disconnected
-		failure = TRUE
-		failure_text = "ERROR: Treatment elicited no response from occupant genes. Subject may be suffering from Sudden Sleep Disorder."
-	else if (tgui_alert(occupant, "The SAD you are within is about to rejuvenate you, resetting your body to its default state (in character preferences). Do you consent?", "Rejuvenate", list("Yes", "No"), timeout = 10 SECONDS) != "Yes")
-		failure = TRUE // defaults to rejecting it unless specified otherwise
-		failure_text = "ERROR: Occupant genes have willfully rejected the procedure. You may try again if you think this was an error."
-
-	if (failure)
-		say(failure_text)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
-	else
-		var/mob/living/carbon/human/patient = occupant
-		var/original_name = patient.dna.real_name
-
-		patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
-		patient.dna.update_dna_identity()
-		log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
-
-		if(patient.dna.real_name != original_name)
-			message_admins("[key_name_admin(patient)] has used the Self-Actualization Device, and changed the name of their character. \
-			Original Name: [original_name], New Name: [patient.dna.real_name]. \
-			This may be a false positive from changing from a humanized monkey into a character, so be careful.")
-		playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+	if(patient.dna.real_name != original_name)
+		message_admins("[key_name_admin(patient)] has used the Self-Actualization Device, and changed the name of their character. \
+		Original Name: [original_name], New Name: [patient.dna.real_name]. \
+		This may be a false positive from changing from a humanized monkey into a character, so be careful.")
+	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
 
 	open_machine()
+
+/obj/machinery/self_actualization_device/proc/get_consent()
+	if(state_open || !occupant || !powered())
+		return
+
+	if(!ishuman(occupant))
+		return
+
+	if(player_consent != NO_CONSENT)
+		return
+
+	playsound(loc, 'sound/machines/chime.ogg', 30, FALSE)
+	say("Procedure validation in progress...")
+	var/mob/living/carbon/human/human_occupant = occupant
+	if(!isnull(human_occupant.ckey) && isnull(human_occupant.client)) // player mob, currently disconnected
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		say("ERROR: Validation failed: No elicited response from occupant genes. Subject may be suffering from Sudden Sleep Disorder.")
+		return
+
+	player_consent = WAITING_PLAYER
+	update_appearance()
+
+	// defaults to rejecting it unless specified otherwise
+	if(tgui_alert(occupant, "The SAD you are within is about to rejuvenate you, resetting your body to its default state (in character preferences). Do you consent?", "Rejuvenate", list("Yes", "No"), timeout = 10 SECONDS) == "Yes")
+		player_consent = CONSENT_GRANTED
+		say("Starting procedure! Please remain still while the [src] rejuvenates you...")
+		addtimer(CALLBACK(src, PROC_REF(eject_new_you)), processing_time, TIMER_OVERRIDE|TIMER_UNIQUE)
+		set_light(l_range = 1.5, l_power = 1.2, l_on = TRUE)
+		sound_loop.start()
+		processing = TRUE
+		update_appearance()
+	else
+		player_consent = NO_CONSENT
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+		say("ERROR: Validation failed: Occupant genes have willfully rejected the procedure. You may try again if you think this was an error.")
+		update_appearance()
 
 /obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/used_item)
 	. = TRUE
@@ -195,3 +243,14 @@
 	if(default_deconstruction_crowbar(used_item))
 		return TRUE
 
+/obj/machinery/self_actualization_device/RefreshParts()
+	. = ..()
+	processing_time = 70 SECONDS
+	for(var/datum/stock_part/micro_laser/laser in component_parts)
+		processing_time -= laser.tier * 10 SECONDS
+		active_power_usage = 7200000 / processing_time WATTS
+		idle_power_usage = active_power_usage / 4
+
+#undef NO_CONSENT
+#undef CONSENT_GRANTED
+#undef WAITING_PLAYER
