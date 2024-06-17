@@ -69,7 +69,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/machinery/camera/tarkon/directional/south,
+/obj/machinery/camera/autoname/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "hW" = (
@@ -107,7 +107,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/tarkon/directional/south,
+/obj/machinery/camera/autoname/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "ni" = (
@@ -136,12 +136,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/machinery/camera/tarkon/directional/south,
+/obj/machinery/camera/autoname/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "pi" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/tarkon/directional/south,
+/obj/machinery/camera/autoname/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "rr" = (
@@ -224,7 +224,7 @@
 /obj/item/tank/internals/emergency_oxygen,
 /obj/machinery/door/window/brigdoor/tarkon/right/directional/west,
 /obj/machinery/light/directional/south,
-/obj/machinery/camera/tarkon/directional/south,
+/obj/machinery/camera/autoname/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Cv" = (
@@ -280,7 +280,7 @@
 /obj/item/clothing/mask/breath,
 /obj/machinery/door/window/brigdoor/tarkon/right/directional/east,
 /obj/machinery/light/directional/south,
-/obj/machinery/camera/tarkon/directional/south,
+/obj/machinery/camera/autoname/tarkon/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Jo" = (
@@ -396,7 +396,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
 /obj/machinery/light_switch/directional/east,
-/obj/machinery/camera/tarkon/directional/east,
+/obj/machinery/camera/autoname/tarkon/directional/east,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/tarkon_driver)
 "Ut" = (

@@ -1,0 +1,5 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "railings can be deconstructed"
+  - bugfix: "racks can be deconstructed"
