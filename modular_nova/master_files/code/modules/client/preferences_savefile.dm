@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 5
+#define MODULAR_SAVEFILE_VERSION_MAX 6
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -12,6 +12,7 @@
 #define VERSION_SYNTH_REFACTOR 3
 #define VERSION_UNDERSHIRT_BRA_SPLIT 4
 #define VERSION_CHRONOLOGICAL_AGE 5
+#define VERSION_TG_LOADOUT 6
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -258,6 +259,9 @@
 	// Resets Chronological Age field to default.
 	if(current_version < VERSION_CHRONOLOGICAL_AGE)
 		write_preference(GLOB.preference_entries[/datum/preference/numeric/chronological_age], read_preference(/datum/preference/numeric/age))
+
+	if(current_version < VERSION_TG_LOADOUT)
+		write_preference(GLOB.preference_entries[/datum/preference/loadout], loadout_list)
 
 
 /datum/preferences/proc/check_migration()
