@@ -1,8 +1,8 @@
 /datum/loadout_category/suit
 	category_name = "Suit"
-	category_ui_icon = FA_ICON_SHIRTSINBULK
+	category_ui_icon = FA_ICON_VEST
 	type_to_generate = /datum/loadout_item/suit
-	tab_order = /datum/loadout_category/pocket::tab_order + 6
+	tab_order = /datum/loadout_category/neck::tab_order + 1
 
 /*
 *	LOADOUT ITEM DATUMS FOR THE (EXO/OUTER)SUIT SLOT

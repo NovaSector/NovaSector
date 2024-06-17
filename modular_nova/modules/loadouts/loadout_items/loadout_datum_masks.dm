@@ -2,7 +2,7 @@
 	category_name = "Face"
 	category_ui_icon = FA_ICON_MASK
 	type_to_generate = /datum/loadout_item/mask
-	tab_order = /datum/loadout_category/pocket::tab_order + 4
+	tab_order = /datum/loadout_category/glasses::tab_order + 1
 
 /*
 *	LOADOUT ITEM DATUMS FOR THE MASK SLOT

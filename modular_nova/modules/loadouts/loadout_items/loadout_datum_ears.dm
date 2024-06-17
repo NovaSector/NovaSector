@@ -2,7 +2,7 @@
 	category_name = "Ears"
 	category_ui_icon = FA_ICON_EAR_LISTEN
 	type_to_generate = /datum/loadout_item/ears
-	tab_order = /datum/loadout_category/pocket::tab_order + 2
+	tab_order = /datum/loadout_category/face::tab_order + 1
 
 
 /*

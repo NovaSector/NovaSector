@@ -5,7 +5,7 @@
 	category_name = "Undersuit"
 	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = /datum/loadout_item/under
-	tab_order = /datum/loadout_category/pocket::tab_order + 8
+	tab_order = /datum/loadout_category/suit::tab_order + 1
 
 
 /datum/loadout_item/under
