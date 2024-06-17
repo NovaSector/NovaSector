@@ -24,7 +24,7 @@
 		"arcs",
 		"rcd_tarkon"
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
 	hidden = TRUE
 
 /datum/design/mod_plating/tarkon

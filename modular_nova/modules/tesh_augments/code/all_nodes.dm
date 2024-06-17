@@ -13,7 +13,7 @@
 		"teshari_cyber_r_leg",
 		"teshari_cyber_head",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 
 /datum/techweb_node/adv_teshari_cyber
@@ -27,4 +27,4 @@
 		"teshari_advanced_l_leg",
 		"teshari_advanced_r_leg",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)

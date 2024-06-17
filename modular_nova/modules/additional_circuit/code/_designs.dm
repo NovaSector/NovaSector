@@ -19,7 +19,7 @@
 		"comp_mine",
 		"comp_iinteract",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 //Target Scanner Component
 /datum/design/component/radar_scanner
@@ -42,4 +42,4 @@
 		"comp_tscanner",
 		"comp_ccharge",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)

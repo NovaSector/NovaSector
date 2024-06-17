@@ -14,7 +14,7 @@
 	description = "Research devices from the Nanotrasen viral bioweapons division! Got a virus problem? This'll save your day."
 	prereq_ids = list("adv_engi", "adv_biotech")
 	design_ids = list("rna_vial", "rna_extractor", "rna_recombinator")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/design/rna_vial
 	name = "Empty RNA vial"

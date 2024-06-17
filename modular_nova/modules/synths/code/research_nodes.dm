@@ -6,7 +6,7 @@
 	design_ids = list(
 		"robotic_heal_surgery_upgrade"
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 900)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/advanced_robotic_tend_wounds
 	id = "advanced_robotic_surgery"
@@ -16,4 +16,4 @@
 	design_ids = list(
 		"robotic_heal_surgery_upgrade_2"
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1300) // less expensive than the organic surgery research equivalent since its JUST tend wounds
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS) // less expensive than the organic surgery research equivalent since its JUST tend wounds
