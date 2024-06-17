@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	design_ids = list(
 		"cargotele",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /obj/effect/decal/cleanable/cargo_mark
 	name = "cargo mark"
