@@ -112,6 +112,7 @@
 
 /datum/crafting_recipe/torch
 	name = "Torch"
+	reqs = list(/obj/item/grown/log = 1)
 	result = /obj/item/flashlight/flare/torch
 	category = CAT_MISC
 	non_craftable = TRUE

@@ -18,12 +18,12 @@
 #define TURRET_FLAG_SHOOT_NOONE 3 // Turrets will not fire at any player-type mob.
 #define TURRET_FLAG_SHOOT_EVERYONE 4 // Turrets will shoot at all player-type mobs.
 
-#define TURRET_THREAT_PASSIVE 0 
+#define TURRET_THREAT_PASSIVE 0
 #define TURRET_THREAT_LOW 2
 #define TURRET_THREAT_MEDIUM 4
 #define TURRET_THREAT_HIGH 6
 #define TURRET_THREAT_SEVERE 8
-#define TURRET_THREAT_PRIORITY 10 
+#define TURRET_THREAT_PRIORITY 10
 
 DEFINE_BITFIELD(turret_flags, list(
 	"TURRET_FLAG_SHOOT_ALL_REACT" = TURRET_FLAG_SHOOT_ALL_REACT,
@@ -190,30 +190,29 @@ DEFINE_BITFIELD(turret_flags, list(
 	sync_turrets()
 	return
 
-/obj/item/target_designator/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!can_see(user,target,scan_range)) //if outside range, dont bother.
-		return
+/obj/item/target_designator/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!can_see(user, interacting_with, scan_range)) //if outside range, dont bother.
+		return NONE
 
-	if(target in linked_turrets) //to stop issues with linking turrets.
-		return
+	if(interacting_with in linked_turrets) //to stop issues with linking turrets.
+		return NONE
 
 	if(acquired_target) //if there's a target already, cant designate one.
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	designate_enemy(target, user)
+	designate_enemy(interacting_with, user)
 	addtimer(CALLBACK(src, PROC_REF(clear_target), user), acquisition_duration) //clears after 5 seconds. to avoid issues.
-	return
+	return ITEM_INTERACT_SUCCESS
 
-/obj/item/target_designator/afterattack_secondary(atom/movable/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!can_see(user,target,scan_range)) //if outside range, dont bother.
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+/obj/item/target_designator/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!can_see(user, interacting_with, scan_range)) //if outside range, dont bother.
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(target, /mob/living))
+	if(istype(interacting_with, /mob/living))
 		for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
-			turret.toggle_ally(target)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			turret.toggle_ally(interacting_with)
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /// designates a manual target to turrets
 /obj/item/target_designator/proc/designate_enemy(atom/movable/target, mob/user)
@@ -234,7 +233,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		balloon_alert(user, "designation cleared!")
 
 /// Sets all turrets to the same state as the controller.
-/obj/item/target_designator/proc/sync_turrets() 
+/obj/item/target_designator/proc/sync_turrets()
 	for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
 		if(target_all == TRUE && follow_flags == FALSE)
 			if(!(turret.target_assessment == TURRET_FLAG_SHOOT_EVERYONE))

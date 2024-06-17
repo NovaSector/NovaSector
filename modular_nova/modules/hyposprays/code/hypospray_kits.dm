@@ -13,6 +13,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	throw_speed = 3
 	throw_range = 7
+	storage_type = /datum/storage/hypospray_kit
 	var/empty = FALSE
 	var/current_case = "firstaid"
 	var/static/list/case_designs
@@ -35,11 +36,6 @@
 	. = ..()
 	if(!length(case_designs))
 		populate_case_designs()
-	atom_storage.max_slots = 7
-	atom_storage.can_hold = typecacheof(list(
-		/obj/item/hypospray/mkii,
-		/obj/item/reagent_containers/cup/vial
-	))
 	update_icon_state()
 	update_icon()
 
@@ -101,19 +97,18 @@
 			var/mutable_appearance/hypo_overlay = mutable_appearance(initial(icon), attached_hypo.icon_state)
 			. += hypo_overlay
 
-/obj/item/storage/hypospraykit/attackby_secondary(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/hypospray/mkii))
-		if(attached_hypo != null)
-			balloon_alert(user, "Mount point full!  Remove [attached_hypo] first!")
-		else
-			weapon.moveToNullspace()
-			attached_hypo = weapon
-			RegisterSignal(weapon, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel))
-			balloon_alert(user, "Attached [attached_hypo].")
-			update_appearance()
-			// This stops atom_storage from hogging your right-click and opening the inventory.
-			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	return ..()
+/obj/item/storage/hypospraykit/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/hypospray/mkii))
+		return NONE
+	if(!isnull(attached_hypo))
+		balloon_alert(user, "Mount point full!  Remove [attached_hypo] first!")
+		return ITEM_INTERACT_BLOCKING
+	tool.moveToNullspace()
+	attached_hypo = tool
+	RegisterSignal(tool, COMSIG_QDELETING, PROC_REF(on_attached_hypo_qdel))
+	balloon_alert(user, "Attached [attached_hypo].")
+	update_appearance()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/storage/hypospraykit/click_alt_secondary(mob/user)
 	if(attached_hypo != null)
@@ -168,7 +163,7 @@
 	return TRUE
 
 
-/obj/item/storage/hypospraykit/CtrlShiftClick(mob/user, obj/item/I)
+/obj/item/storage/hypospraykit/click_ctrl_shift(mob/user)
 	case_menu(user)
 
 //END OF HYPOSPRAY CASE MENU CODE
@@ -189,11 +184,7 @@
 	current_case = "cmo"
 	is_xl = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
-
-/obj/item/storage/hypospraykit/cmo/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 21
-	atom_storage.max_total_storage = 28 //keeps a wiggle room of 7 just in case size weirdness happens
+	storage_type = /datum/storage/hypospray_kit/cmo
 
 /obj/item/storage/hypospraykit/cmo/PopulateContents()
 	if(empty)
@@ -265,3 +256,28 @@
 		var/obj/item/storage/hypospraykit/newkit = new /obj/item/storage/hypospraykit(src)
 		newkit.current_case = label
 		newkit.update_icon_state()
+
+/datum/storage/hypospray_kit
+	max_slots = 7
+
+/datum/storage/hypospray_kit/cmo
+	max_slots = 21
+	max_total_storage = 28 //keeps a wiggle room of 7 just in case size weirdness happens
+
+/datum/storage/hypospray_kit/New(
+	atom/parent,
+	max_slots = src.max_slots,
+	max_specific_storage = src.max_specific_storage,
+	max_total_storage = src.max_total_storage,
+)
+	. = ..()
+	var/static/list/hypokit_holdable = typecacheof(list(
+		/obj/item/hypospray/mkii,
+		/obj/item/reagent_containers/cup/vial
+	))
+	can_hold = hypokit_holdable
+
+/datum/storage/hypospray_kit/on_item_interact_secondary(datum/source, mob/user, atom/weapon)
+	if(istype(weapon, /obj/item/hypospray/mkii))
+		return NONE //handled by item secondary interact
+	return ..()
