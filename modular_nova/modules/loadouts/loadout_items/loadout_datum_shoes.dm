@@ -1,12 +1,14 @@
+/datum/loadout_category/feet
+	category_name = "Feet"
+	category_ui_icon = FA_ICON_SHOE_PRINTS
+	type_to_generate = /datum/loadout_item/shoes
+	tab_order = /datum/loadout_category/pocket::tab_order + 5
+
 /*
 *	LOADOUT ITEM DATUMS FOR THE SHOE SLOT
 */
-
-/// Shoe Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes))
-
 /datum/loadout_item/shoes
-	category = LOADOUT_ITEM_SHOES
+	abstract_type = /datum/loadout_item/shoes
 
 /datum/loadout_item/shoes/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.shoes))

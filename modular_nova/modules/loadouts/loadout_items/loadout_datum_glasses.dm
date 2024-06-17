@@ -1,12 +1,4 @@
-/*
- *	LOADOUT ITEM DATUMS FOR THE EYE SLOT
- */
-
-/// Glasses Slot Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/glasses))
-
-/datum/loadout_item/glasses
-	category = LOADOUT_ITEM_GLASSES
+// LOADOUT ITEM DATUMS FOR THE EYE SLOT
 
 /datum/loadout_item/glasses/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.glasses))

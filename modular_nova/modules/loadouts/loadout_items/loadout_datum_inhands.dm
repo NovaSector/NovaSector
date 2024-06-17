@@ -1,12 +1,4 @@
-/*
-*	LOADOUT ITEM DATUMS FOR BOTH HAND SLOTS
-*/
-
-/// Inhand items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_item/inhand))
-
-/datum/loadout_item/inhand
-	category = LOADOUT_ITEM_INHAND
+// LOADOUT ITEM DATUMS FOR BOTH HAND SLOTS
 
 /datum/loadout_item/inhand/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	// if no hands are available then put in backpack

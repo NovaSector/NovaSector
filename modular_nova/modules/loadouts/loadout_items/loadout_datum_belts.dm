@@ -1,12 +1,15 @@
+/datum/loadout_category/belt
+	category_name = "Belt"
+	category_ui_icon = FA_ICON_CIRCLE
+	type_to_generate = /datum/loadout_item/belts
+	tab_order = /datum/loadout_category/pocket::tab_order + 1
+
+
 /*
 *	LOADOUT ITEM DATUMS FOR THE BELT SLOT
 */
-
-/// Belt Slot Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts))
-
 /datum/loadout_item/belts
-	category = LOADOUT_ITEM_BELT
+	abstract_type = /datum/loadout_item/belts
 
 /datum/loadout_item/belts/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // don't bother storing in backpack, can't fit
 	if(initial(outfit_important_for_life.belt))

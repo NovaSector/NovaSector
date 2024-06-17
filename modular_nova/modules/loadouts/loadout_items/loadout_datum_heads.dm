@@ -1,12 +1,4 @@
-/*
-*	LOADOUT ITEM DATUMS FOR THE HEAD SLOT
-*/
-
-/// Head Slot Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/head))
-
-/datum/loadout_item/head
-	category = LOADOUT_ITEM_HEAD
+// LOADOUT ITEM DATUMS FOR THE HEAD SLOT
 
 /datum/loadout_item/head/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.head))
