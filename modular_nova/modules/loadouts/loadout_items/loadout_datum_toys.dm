@@ -54,6 +54,7 @@
 /datum/loadout_item/toys/lizard_greyscale
 	name = "Greyscale Lizard Plushie"
 	item_path = /obj/item/toy/plush/lizard_plushie
+	can_be_greyscale = TRUE
 
 /datum/loadout_item/toys/moth
 	name = "Moth Plushie"
