@@ -641,3 +641,11 @@
 /area/station/cargo/miningfoyer
 	name = "Mining Foyer"
 	icon_state = "mining_lobby"
+
+/area/station/commons/nightclubbooth1
+	name = "Private Booth A"
+	icon_state = "nightclub"
+
+/area/station/commons/nightclubbooth2
+	name = "Private Booth B"
+	icon_state = "nightclub"
