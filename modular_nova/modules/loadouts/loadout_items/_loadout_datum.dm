@@ -103,3 +103,62 @@
 			return FALSE
 
 	return TRUE
+
+
+/datum/loadout_item/get_ui_buttons()
+	var/list/buttons = ..()
+
+	if(can_be_named)
+		UNTYPED_LIST_ADD(buttons, list(
+			"label" = "Change description",
+			"act_key" = "set_description",
+			"button_icon" = FA_ICON_PEN,
+			"active_key" = INFO_DESCRIBED,
+		))
+
+	return buttons
+
+
+/datum/loadout_item/to_ui_data()
+	var/list/formatted_item = ..()
+	formatted_item["ckey_whitelist"] = ckeywhitelist
+	formatted_item["restricted_roles"] = restricted_roles
+	formatted_item["blacklisted_roles"] = blacklisted_roles
+	formatted_item["restricted_species"] = restricted_species
+	formatted_item["donator_only"] = donator_only
+	formatted_item["erp_item"] = erp_item
+
+	return formatted_item
+
+
+/datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
+	if(action == "set_description" && can_be_named)
+		return set_description(manager, user)
+
+	return ..()
+
+
+/// Sets the description of the item.
+/datum/loadout_item/proc/set_description(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/input_desc = tgui_input_text(
+		user = user,
+		message = "What description do you want to give the [name]? Leave blank to clear.",
+		title = "[name] description",
+		default = loadout?[item_path]?[INFO_DESCRIBED], // plop in existing description (if any)
+		max_length = MAX_DESC_LEN,
+	)
+	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
+		return FALSE
+
+	loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
+	if(!loadout?[item_path])
+		return FALSE
+
+	if(input_desc)
+		loadout[item_path][INFO_DESCRIBED] = input_desc
+	else if(input_desc == "")
+		loadout[item_path] -= INFO_DESCRIBED
+
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	return FALSE // no update needed
