@@ -75,19 +75,19 @@ GLOBAL_LIST_EMPTY(polarization_controllers)
  * Called when the parent window is being hit by an item
  *
  * Arguments:
- * * obj/item/attacking_item - The item hitting this atom
+ * * obj/item/thing - The item hitting this atom
  * * mob/user - The wielder of this item
  * * params - click params such as alt/shift etc
  *
  * See: [/obj/item/proc/melee_attack_chain]
  */
-/datum/component/polarization_controller/proc/window_item_interact(datum/source, obj/item/attacking_item, mob/user, params)
+/datum/component/polarization_controller/proc/window_item_interact(datum/source, mob/user, obj/item/thing, params)
 	SIGNAL_HANDLER
 
-	if(!istype(attacking_item, /obj/item/assembly/control/polarizer))
+	if(!istype(thing, /obj/item/assembly/control/polarizer))
 		return NONE
 
-	var/obj/item/assembly/control/polarizer/polarizer = attacking_item
+	var/obj/item/assembly/control/polarizer/polarizer = thing
 	var/atom/parent_atom = parent
 
 	if(!polarizer.id)
