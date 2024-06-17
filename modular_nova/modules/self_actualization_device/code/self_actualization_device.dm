@@ -1,10 +1,14 @@
 #define NO_CONSENT 0
 #define CONSENT_GRANTED 1
 #define WAITING_PLAYER 2
+/// How long does it take to break out of the machine?
+#define BREAKOUT_TIME 5 SECONDS
+/// The interval that advertisements are said by the machine's speaker.
+#define ADVERT_TIME 18 SECONDS
 
 /datum/design/board/self_actualization_device
 	name = "Machine Design (Self-Actualization Device)"
-	desc = "The circuit board for a Self-Actualization Device by Cinco: A Family Company."
+	desc = "The circuit board for a Self-Actualization Device by Veymed: A Family Company."
 	id = "self_actualization_device"
 	build_path = /obj/item/circuitboard/machine/self_actualization_device
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_MEDICAL)
@@ -18,7 +22,7 @@
 
 /obj/machinery/self_actualization_device
 	name = "Self-Actualization Device"
-	desc = "A state of the art medical device that can restore someone's physical appearance to the last known database backup."
+	desc = "A state of the art medical device that can restore someone's physical appearance to the last known DNA database backup."
 	icon = 'modular_nova/modules/self_actualization_device/icons/self_actualization_device.dmi'
 	icon_state = "sad_open"
 	circuit = /obj/item/circuitboard/machine/self_actualization_device
@@ -26,12 +30,8 @@
 	density = TRUE
 	/// Is someone being processed inside of the machine?
 	var/processing = FALSE
-	/// How long does it take to break out of the machine?
-	var/breakout_time = 10 SECONDS
 	/// How long does the machine take to work?
 	var/processing_time = 1 MINUTES
-	/// The interval that advertisements are said by the machine's speaker.
-	var/next_fact = 10
 	/// wzhzhzh
 	var/datum/looping_sound/microwave/sound_loop
 	/// Has the player consented to the DNA change
@@ -39,12 +39,14 @@
 	/// A list containing advertisements that the machine says while working.
 	var/static/list/advertisements = list(\
 	"Thank you for using the Self-Actualization Device, brought to you by Veymed, because you asked for it.", \
-	"The Self-Actualization device is not to be used by the elderly without direct adult supervision. Cinco is not liable for any and all injuries sustained under unsupervised usage of the Self-Actualization Device.", \
-	"Please make sure to clean the Self-Actualization Device every fifteen minutes! The Self-Actualization Device is not to be used un-cleaned.", \
+	"The Self-Actualization device is not to be used by the elderly without direct adult supervision. Veymed is not liable for any and all injuries sustained under unsupervised usage of the Self-Actualization Device.", \
+	"The Self-Actualization Device is not to be used un-cleaned. Thanks to its non-stick coating, cleaning up after a failed rejuvenation is easy as cleaning a microwave. Blood just doesn't stick!", \
 	"Before using the Self-Actualization Device, remove any and all metal devices, or you might make the term 'ironman' a bit too literal!" , \
-	"Have more questions about the Self-Actualization Device? Call your nearest Veymed Representative to requisition more information about the Self-Actualization Device!" \
+	"Remember, this is not cloning! Self-Actualization is a legally distinct, Veymed patent pending procedure. Still have questions? Call your nearest Veymed Representative to requisition more information about the Self-Actualization Device!" , \
+	"Coming soon... Self-Actualization Device: Colony Fabricator Edition! Flat-packed and better in every way, with no medical expertise required! It's so easy, it's like cheating! Contact your nearest Veymed Representative to find out more!" \
 	)
-
+	COOLDOWN_DECLARE(advert_time)
+	COOLDOWN_DECLARE(sad_processing_time)
 
 /obj/machinery/self_actualization_device/examine_more(mob/user)
 	. = ..()
@@ -109,33 +111,6 @@
 
 	return CONTEXTUAL_SCREENTIP_SET
 
-/obj/machinery/self_actualization_device/click_alt(mob/user)
-	if(!powered() || !occupant || state_open || processing)
-		return CLICK_ACTION_BLOCKING
-
-	user.visible_message(span_notice("[user] presses the start button of the [src]."), span_notice("You press the start button of the [src]."))
-	get_consent()
-	return CLICK_ACTION_SUCCESS
-
-/obj/machinery/self_actualization_device/container_resist_act(mob/living/user)
-	if(state_open)
-		open_machine()
-		return FALSE
-
-	to_chat(user, span_notice("The emergency release is not responding! You start pushing against the hull!"))
-	user.changeNext_move(CLICK_CD_BREAKOUT)
-	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message(span_notice("You see [user] kicking against the door of [src]!"), \
-		span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)"), \
-		span_hear("You hear a metallic creaking from [src]."))
-
-	if(do_after(user, breakout_time, target = src))
-		if(!user || user.stat != CONSCIOUS || user.loc != src || state_open)
-			return
-		user.visible_message(span_warning("[user] successfully broke out of [src]!"), \
-			span_notice("You successfully break out of [src]!"))
-		open_machine()
-
 /obj/machinery/self_actualization_device/interact(mob/user)
 	if(state_open)
 		close_machine()
@@ -145,44 +120,40 @@
 		open_machine()
 		return
 
+/obj/machinery/self_actualization_device/click_alt(mob/user)
+	if(!powered() || !occupant || state_open || processing)
+		return CLICK_ACTION_BLOCKING
+
+	user.visible_message(span_notice("[user] presses the start button of the [src]."), span_notice("You press the start button of the [src]."))
+	get_consent()
+	return CLICK_ACTION_SUCCESS
+
 /obj/machinery/self_actualization_device/process(seconds_per_tick)
 	if(!processing)
 		return
+
+	if(!powered() && occupant && processing)
+		eject_old_you(damaged_goods = TRUE)
+		return
+
 	if(!powered() || !occupant || !iscarbon(occupant))
 		open_machine()
 		return
 
-	next_fact--
-	if(next_fact <= 0)
-		next_fact = rand(initial(next_fact), 2 * initial(next_fact))
+	if(player_consent != CONSENT_GRANTED) // breakout
+		processing = FALSE
+		return
+
+	if(COOLDOWN_FINISHED(src, sad_processing_time))
+		eject_new_you()
+		return
+
+	if(COOLDOWN_FINISHED(src, advert_time))
+		COOLDOWN_START(src, advert_time, rand(ADVERT_TIME, ADVERT_TIME * 2))
 		say(pick(advertisements))
 		playsound(loc, 'sound/machines/chime.ogg', 30, FALSE)
 
 	use_energy(active_power_usage)
-
-/// Ejects the occupant after asking them if they want to accept the rejuvenation. If yes, they exit as their preferences character.
-/obj/machinery/self_actualization_device/proc/eject_new_you()
-	player_consent = NO_CONSENT
-	set_light(l_on = FALSE)
-	sound_loop.stop()
-	if(state_open || !occupant || !powered())
-		return
-	processing = FALSE
-
-	var/mob/living/carbon/human/patient = occupant
-	var/original_name = patient.dna.real_name
-
-	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
-	patient.dna.update_dna_identity()
-	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
-
-	if(patient.dna.real_name != original_name)
-		message_admins("[key_name_admin(patient)] has used the Self-Actualization Device, and changed the name of their character. \
-		Original Name: [original_name], New Name: [patient.dna.real_name]. \
-		This may be a false positive from changing from a humanized monkey into a character, so be careful.")
-	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
-
-	open_machine()
 
 /obj/machinery/self_actualization_device/proc/get_consent()
 	if(state_open || !occupant || !powered())
@@ -208,10 +179,12 @@
 	// defaults to rejecting it unless specified otherwise
 	if(tgui_alert(occupant, "The SAD you are within is about to rejuvenate you, resetting your body to its default state (in character preferences). Do you consent?", "Rejuvenate", list("Yes", "No"), timeout = 10 SECONDS) == "Yes")
 		player_consent = CONSENT_GRANTED
-		say("Starting procedure! Please remain still while the [src] rejuvenates you...")
-		addtimer(CALLBACK(src, PROC_REF(eject_new_you)), processing_time, TIMER_OVERRIDE|TIMER_UNIQUE)
+		say("Starting procedure! Baking for a cycle time of [DisplayTimeText(processing_time)] at laser power [display_power(active_power_usage)].")
+		to_chat(occupant, span_warning("This will take [DisplayTimeText(processing_time)] to complete. To cancel the procedure, hit the RESIST button or hotkey."))
 		set_light(l_range = 1.5, l_power = 1.2, l_on = TRUE)
 		sound_loop.start()
+		COOLDOWN_START(src, sad_processing_time, processing_time)
+		COOLDOWN_START(src, advert_time, rand(ADVERT_TIME * 0.75, ADVERT_TIME * 1.25))
 		processing = TRUE
 		update_appearance()
 	else
@@ -219,6 +192,73 @@
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		say("ERROR: Validation failed: Occupant genes have willfully rejected the procedure. You may try again if you think this was an error.")
 		update_appearance()
+
+/// Ejects the occupant after asking them if they want to accept the rejuvenation. If yes, they exit as their preferences character.
+/obj/machinery/self_actualization_device/proc/eject_new_you()
+	player_consent = NO_CONSENT
+	set_light(l_on = FALSE)
+	sound_loop.stop()
+	processing = FALSE
+	if(state_open || !occupant || !powered())
+		return
+
+	var/mob/living/carbon/human/patient = occupant
+	var/original_name = patient.dna.real_name
+
+	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+	patient.dna.update_dna_identity()
+	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
+
+	if(patient.dna.real_name != original_name)
+		message_admins("[key_name_admin(patient)] has used the Self-Actualization Device, and changed the name of their character. \
+		Original Name: [original_name], New Name: [patient.dna.real_name]. \
+		This may be a false positive from changing from a humanized monkey into a character, so be careful.")
+	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
+
+	open_machine()
+
+/obj/machinery/self_actualization_device/proc/eject_old_you(damaged_goods = FALSE)
+	player_consent = NO_CONSENT
+	set_light(l_on = FALSE)
+	sound_loop.stop()
+	processing = FALSE
+
+	if(damaged_goods)
+		var/mob/living/carbon/human/victim_living = occupant
+		var/damage = (rand(75, 150))
+		victim_living.emote("scream")
+		victim_living.apply_damage(0.2 * damage, BURN, BODY_ZONE_HEAD, wound_bonus = 7)
+		victim_living.apply_damage(0.4 * damage, BURN, BODY_ZONE_CHEST, wound_bonus = 21)
+		victim_living.apply_damage(0.10 * damage, BURN, BODY_ZONE_L_LEG, wound_bonus = 14)
+		victim_living.apply_damage(0.10 * damage, BURN, BODY_ZONE_R_LEG, wound_bonus = 14)
+		victim_living.apply_damage(0.10 * damage, BURN, BODY_ZONE_L_ARM, wound_bonus = 14)
+		victim_living.apply_damage(0.10 * damage, BURN, BODY_ZONE_R_ARM, wound_bonus = 14)
+		victim_living.visible_message(span_warning("[src] shuts down, forcefully ejecting [victim_living]!"), span_danger("The [src] shuts down mid-procedure! That can't be good..."))
+
+	open_machine()
+
+/obj/machinery/self_actualization_device/container_resist_act(mob/living/user)
+	if(state_open)
+		return
+
+	if(COOLDOWN_TIMELEFT(src, sad_processing_time) < BREAKOUT_TIME)
+		to_chat(user, span_warning("The emergency release is not responding! You start pushing against the door, but you feel your body changing... It's too late!"))
+		return
+
+	to_chat(user, span_notice("The emergency release is not responding! You start pushing against the door!"))
+	user.changeNext_move(CLICK_CD_BREAKOUT)
+	user.last_special = world.time + CLICK_CD_BREAKOUT
+	user.visible_message(span_notice("You see [user] kicking against the door of [src]!"), \
+		span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(BREAKOUT_TIME)].)"), \
+		span_hear("You hear a metallic creaking from [src]."))
+	user.emote("scream")
+
+	if(do_after(user, BREAKOUT_TIME, target = src))
+		if(!user || user.stat != CONSCIOUS || user.loc != src || state_open)
+			return
+		user.visible_message(span_warning("[user] successfully broke out of [src]!"), \
+			span_notice("You successfully break out of [src]!"))
+		eject_old_you(damaged_goods = TRUE)
 
 /obj/machinery/self_actualization_device/screwdriver_act(mob/living/user, obj/item/used_item)
 	. = TRUE
@@ -254,3 +294,5 @@
 #undef NO_CONSENT
 #undef CONSENT_GRANTED
 #undef WAITING_PLAYER
+#undef BREAKOUT_TIME
+#undef ADVERT_TIME
