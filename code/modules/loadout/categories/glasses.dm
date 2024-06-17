@@ -30,9 +30,11 @@
 	name = "Jamjar Glasses"
 	item_path = /obj/item/clothing/glasses/regular/jamjar
 
+/* NOVA EDIT REMOVAL - Already exists in our loadout
 /datum/loadout_item/glasses/black_blindfold
 	name = "Black Blindfold"
 	item_path = /obj/item/clothing/glasses/blindfold
+*/ // NOVA REMOVAL END
 
 /datum/loadout_item/glasses/cold_glasses
 	name = "Cold Glasses"

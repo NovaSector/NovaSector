@@ -286,10 +286,6 @@
 	name = "Maid Neck Cover"
 	item_path = /obj/item/clothing/neck/maid
 
-/datum/loadout_item/neck/link_scryer
-	name = "MODlink Scryer"
-	item_path = /obj/item/clothing/neck/link_scryer/loaded
-
 /datum/loadout_item/neck/imperial_police_cloak
 	name = "Imperial Police Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police

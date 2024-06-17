@@ -84,6 +84,7 @@
 	abstract_type = /datum/loadout_item/pocket_items/plush
 	can_be_named = TRUE
 
+/* NOVA EDIT REMOVAL - Already exists in our loadout
 /datum/loadout_item/pocket_items/plush/bee
 	name = "Plush (Bee)"
 	item_path = /obj/item/toy/plush/beeplushie
@@ -95,6 +96,7 @@
 /datum/loadout_item/pocket_items/plush/lizard_greyscale
 	name = "Plush (Lizard, Colorable)"
 	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
+*/ // NOVA REMOVAL END
 
 /datum/loadout_item/pocket_items/plush/lizard_random
 	name = "Plush (Lizard, Random)"
@@ -102,6 +104,7 @@
 	item_path = /obj/item/toy/plush/lizard_plushie
 	additional_displayed_text = list("Random color")
 
+/* NOVA EDIT REMOVAL - Already exists in our loadout
 /datum/loadout_item/pocket_items/plush/moth
 	name = "Plush (Moth)"
 	item_path = /obj/item/toy/plush/moth
@@ -201,3 +204,4 @@
 /datum/loadout_item/pocket_items/d00
 	name = "D00"
 	item_path = /obj/item/dice/d00
+*/ // NOVA REMOVAL END
