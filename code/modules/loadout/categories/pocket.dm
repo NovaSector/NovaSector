@@ -96,7 +96,6 @@
 /datum/loadout_item/pocket_items/plush/lizard_greyscale
 	name = "Plush (Lizard, Colorable)"
 	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
-*/ // NOVA REMOVAL END
 
 /datum/loadout_item/pocket_items/plush/lizard_random
 	name = "Plush (Lizard, Random)"
@@ -104,7 +103,6 @@
 	item_path = /obj/item/toy/plush/lizard_plushie
 	additional_displayed_text = list("Random color")
 
-/* NOVA EDIT REMOVAL - Already exists in our loadout
 /datum/loadout_item/pocket_items/plush/moth
 	name = "Plush (Moth)"
 	item_path = /obj/item/toy/plush/moth
