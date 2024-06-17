@@ -22,7 +22,12 @@
  * preference_source - the preferences of the thing we're equipping
  * equipping_job - The job that's being applied.
  */
-/mob/living/carbon/human/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
+/mob/living/carbon/human/equip_outfit_and_loadout(
+	datum/outfit/outfit = /datum/outfit,
+	datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey],
+	visuals_only = FALSE,
+	datum/job/equipping_job,
+)
 	if (!preference_source)
 		equipOutfit(outfit, visuals_only) // no prefs for loadout items, but we should still equip the outfit.
 		return FALSE
@@ -63,10 +68,23 @@
 
 		equipOutfit(equipped_outfit, visuals_only)
 
+	var/list/new_contents = get_all_gear()
+
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
 			continue
-		item.on_equip_item(preference_source, src, visuals_only)
+
+		var/obj/item/equipped = locate(item.item_path) in new_contents
+		if(isnull(equipped))
+			continue
+
+		item.on_equip_item(
+			equipped_item = equipped,
+			preference_source = preference_source,
+			preference_list = loadout_datums,
+			equipper = src,
+			visuals_only = visuals_only,
+		)
 
 	if(preference_source?.read_preference(/datum/preference/toggle/green_pin))
 		var/obj/item/clothing/under/uniform = w_uniform
