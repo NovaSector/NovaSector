@@ -260,17 +260,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			return TRUE
 		if ("rotate")
-<<<<<<< HEAD
 			/* NOVA EDIT - Bi-directional prefs menu rotation - ORIGINAL:
-			character_preview_view.dir = turn(character_preview_view.dir, -90)
+			character_preview_view.setDir(turn(character_preview_view.dir, -90))
 			*/ // ORIGINAL END - NOVA EDIT START:
 			var/backwards = params["backwards"]
-			character_preview_view.dir = turn(character_preview_view.dir, backwards ? 90 : -90)
+			character_preview_view.setDir(turn(character_preview_view.dir, backwards ? 90 : -90))
 			// NOVA EDIT END
 
-=======
-			character_preview_view.setDir(turn(character_preview_view.dir, -90))
->>>>>>> d244c86ce64 (Adds Character Loadout Tab to preferences (with just a small handful of items to start) (#83521))
 			return TRUE
 		if ("set_preference")
 			var/requested_preference_key = params["preference"]
@@ -487,12 +483,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	body = new
 
-<<<<<<< HEAD
-	// Without this, it doesn't show up in the menu
-	body.appearance_flags |= KEEP_TOGETHER // NOVA EDIT - Fix pixel scaling - ORIGINAL: body.appearance_flags &= ~KEEP_TOGETHER
-
-=======
->>>>>>> d244c86ce64 (Adds Character Loadout Tab to preferences (with just a small handful of items to start) (#83521))
 /datum/preferences/proc/create_character_profiles()
 	var/list/profiles = list()
 

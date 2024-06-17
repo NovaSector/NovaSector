@@ -179,18 +179,17 @@
 /obj/item/clothing/accessory/pride
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-
-GLOBAL_LIST_INIT(pride_pin_reskins, list(
-	"Rainbow Pride" = "pride",
-	"Bisexual Pride" = "pride_bi",
-	"Pansexual Pride" = "pride_pan",
-	"Asexual Pride" = "pride_ace",
-	"Non-binary Pride" = "pride_enby",
-	"Transgender Pride" = "pride_trans",
-	"Intersex Pride" = "pride_intersex",
-	"Lesbian Pride" = "pride_lesbian",
-	"Man-Loving-Man / Gay Pride" = "pride_mlm",
-	"Genderfluid Pride" = "pride_genderfluid",
-	"Genderqueer Pride" = "pride_genderqueer",
-	"Aromantic Pride" = "pride_aromantic",
-))
+	unique_reskin = list(
+		"Rainbow Pride" = "pride",
+		"Bisexual Pride" = "pride_bi",
+		"Pansexual Pride" = "pride_pan",
+		"Asexual Pride" = "pride_ace",
+		"Non-binary Pride" = "pride_enby",
+		"Transgender Pride" = "pride_trans",
+		"Intersex Pride" = "pride_intersex",
+		"Lesbian Pride" = "pride_lesbian",
+		"Man-Loving-Man / Gay Pride" = "pride_mlm",
+		"Genderfluid Pride" = "pride_genderfluid",
+		"Genderqueer Pride" = "pride_genderqueer",
+		"Aromantic Pride" = "pride_aromantic",
+	)
