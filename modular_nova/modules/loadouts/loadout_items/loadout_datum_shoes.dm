@@ -164,6 +164,9 @@
 	name = "Blue Leg Wraps"
 	item_path = /obj/item/clothing/shoes/wraps/blue
 
+/datum/loadout_item/shoes/cuffs
+	abstract_type = /datum/loadout_item/shoes/cuffs
+
 /datum/loadout_item/shoes/cuffs/colourable
 	name = "Colourable Leg Wraps"
 	item_path = /obj/item/clothing/shoes/wraps/colourable
@@ -254,6 +257,9 @@
 	name = "Clown's Jester Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/jester
 	restricted_roles = list(JOB_CLOWN)
+
+/datum/loadout_item/shoes/clown_shoes
+	abstract_type = /datum/loadout_item/shoes/clown_shoes
 
 /datum/loadout_item/shoes/clown_shoes/pink
 	name = "Pink Clown Shoes"

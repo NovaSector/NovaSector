@@ -192,6 +192,9 @@
 	abstract_type = /datum/loadout_item/mask/donator
 	donator_only = TRUE
 
+/datum/loadout_item/mask/donator/nightlight_mask
+	abstract_type = /datum/loadout_item/mask/donator/nightlight_mask
+
 /datum/loadout_item/mask/donator/nightlight_mask/alldono
 	name = "Commercial FIR-36 Rebreather"
 	item_path = /obj/item/clothing/mask/gas/nightlight/alldono

@@ -303,6 +303,9 @@
 	abstract_type = /datum/loadout_item/neck/donator
 	donator_only = TRUE
 
+/datum/loadout_item/neck/donator/mantle
+	abstract_type = /datum/loadout_item/neck/donator/mantle
+
 /datum/loadout_item/neck/donator/mantle/regal
 	name = "Regal Mantle"
 	item_path = /obj/item/clothing/neck/mantle/regal

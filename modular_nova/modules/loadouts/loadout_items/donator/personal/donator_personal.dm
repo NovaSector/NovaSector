@@ -116,6 +116,9 @@
 	item_path = /obj/item/clothing/mask/gas/psycho_malice
 	ckeywhitelist = list("snakebittenn", "chillylobster", "candlejax", "theooz", "alvcyktor")
 
+/datum/loadout_item/suit/jacket
+	abstract_type = /datum/loadout_item/suit/jacket
+
 /datum/loadout_item/suit/jacket/cherno
 	name = "Blue-Silvered Coat"
 	item_path = /obj/item/clothing/suit/jacket/cherno

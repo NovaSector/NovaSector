@@ -453,6 +453,9 @@
 	name = "Colourable Leather Jacket"
 	item_path = /obj/item/clothing/suit/jacket/leather/colourable
 
+/datum/loadout_item/suit/frontierjacket
+	abstract_type = /datum/loadout_item/suit/frontierjacket
+
 /datum/loadout_item/suit/frontierjacket/short
 	name = "Frontier Jacket (Short)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
@@ -501,6 +504,9 @@
 /*
 *	HOODIES
 */
+/datum/loadout_item/suit/hoodie
+	abstract_type = /datum/loadout_item/suit/hoodie
+
 
 /datum/loadout_item/suit/hoodie/greyscale
 	name = "Greyscale Hoodie"
@@ -732,6 +738,9 @@
 /datum/loadout_item/suit/donator/blondie
 	name = "Cowboy Vest"
 	item_path = /obj/item/clothing/suit/cowboyvest
+
+/datum/loadout_item/suit/donator/digicoat
+	abstract_type = /datum/loadout_item/suit/donator/digicoat
 
 /datum/loadout_item/suit/donator/digicoat/nanotrasen
 	name = "nanotrasen digicoat"
