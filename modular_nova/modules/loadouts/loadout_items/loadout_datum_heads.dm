@@ -682,6 +682,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 */
 
 /datum/loadout_item/head/donator
+	abstract_type = /datum/loadout_item/head/donator
 	donator_only = TRUE
 
 /*

@@ -311,6 +311,7 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 */
 
 /datum/loadout_item/neck/donator
+	abstract_type = /datum/loadout_item/neck/donator
 	donator_only = TRUE
 
 /datum/loadout_item/neck/donator/mantle/regal

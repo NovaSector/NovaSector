@@ -263,6 +263,7 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 */
 
 /datum/loadout_item/shoes/donator
+	abstract_type = /datum/loadout_item/shoes/donator
 	donator_only = TRUE
 
 /datum/loadout_item/shoes/donator/blackjackboots

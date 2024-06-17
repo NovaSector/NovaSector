@@ -187,6 +187,7 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 */
 
 /datum/loadout_item/mask/donator
+	abstract_type = /datum/loadout_item/mask/donator
 	donator_only = TRUE
 
 /datum/loadout_item/mask/donator/nightlight_mask/alldono

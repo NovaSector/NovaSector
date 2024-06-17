@@ -334,6 +334,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 */
 
 /datum/loadout_item/pocket_items/donator
+	abstract_type = /datum/loadout_item/pocket_items/donator
 	donator_only = TRUE
 
 /datum/loadout_item/pocket_items/donator/coin

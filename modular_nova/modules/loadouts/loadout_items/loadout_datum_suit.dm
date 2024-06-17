@@ -707,6 +707,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 */
 
 /datum/loadout_item/suit/donator
+	abstract_type = /datum/loadout_item/suit/donator
 	donator_only = TRUE
 
 /datum/loadout_item/suit/donator/furredjacket
@@ -760,7 +761,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/crop_jacket
 	name = "Colourable Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket
-	
+
 /datum/loadout_item/suit/sleeveless_crop_jacket
 	name = "Colourable Sleeveless Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless

@@ -294,6 +294,7 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
  */
 
 /datum/loadout_item/glasses/donator
+	abstract_type = /datum/loadout_item/glasses/donator
 	donator_only = TRUE
 
 /datum/loadout_item/glasses/donator/fake_sunglasses

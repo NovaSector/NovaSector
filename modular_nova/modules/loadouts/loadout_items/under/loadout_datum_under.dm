@@ -1076,6 +1076,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /// DONATOR
 /datum/loadout_item/under/donator
+	abstract_type = /datum/loadout_item/under/donator
 	donator_only = TRUE
 
 /datum/loadout_item/under/donator/captain_black
