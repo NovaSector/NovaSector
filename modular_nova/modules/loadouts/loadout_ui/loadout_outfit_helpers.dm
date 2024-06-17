@@ -158,14 +158,19 @@
 	return
 
 // Cyborg loadouts (currently used for hats)
-/mob/living/silicon/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client)
+/mob/living/silicon/on_job_equipping(datum/job/equipping, client/player_client)
 	. = ..()
-	dress_up_as_job(equipping, FALSE, used_pref)
+	dress_up_as_job(
+		equipping = equipping,
+		visual_only = FALSE,
+		player_client = player_client,
+		consistent = FALSE,
+	)
 
 // Cyborg loadouts (currently used for hats)
-/mob/living/silicon/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref)
+/mob/living/silicon/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	. = ..()
-	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only, equipping)
+	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping)
 
 // originally made as a workaround the fact borgs lose their hats on module change, this
 // is how borgs can pick up and drop hats

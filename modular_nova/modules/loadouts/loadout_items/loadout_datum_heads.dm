@@ -401,12 +401,12 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/maidhead
 	name = "Simple Maid Headband"
 	item_path = /obj/item/clothing/head/costume/nova/maid
-	additional_tooltip_contents = list("Small headband that only fits on top the head.")
+	additional_displayed_text = list("Small headband that only fits on top the head.")
 
 /datum/loadout_item/head/maidhead2
 	name = "Frilly Maid Headband"
 	item_path = /obj/item/clothing/head/costume/maidheadband
-	additional_tooltip_contents = list("Larger headband from the maid rework. Fits around head and ears.")
+	additional_displayed_text = list("Larger headband from the maid rework. Fits around head and ears.")
 
 /datum/loadout_item/head/wig
 	name = "Wig"
@@ -723,7 +723,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/donator/rainbow_bunch
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
+	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
 
 // Legacy unpaintable cowboy hat because it fits a character better
 /datum/loadout_item/head/cowboyhat_legacy

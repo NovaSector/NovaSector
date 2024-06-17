@@ -32,20 +32,8 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 		GLOB.all_loadout_datums[spawned_type.item_path] = spawned_type
 		. |= spawned_type
 
-/// Loadout item datum.
-/// Holds all the information about each loadout items.
-/// A list of singleton loadout items are generated on initialize.
+
 /datum/loadout_item
-	/// Displayed name of the loadout item.
-	var/name
-	/// Whether this item can be renamed and described.
-	var/can_be_named = TRUE
-	/// The category of the loadout item.
-	var/category
-	/// The actual item path of the loadout item.
-	var/atom/item_path
-	/// List of additional text for the tooltip displayed on this item.
-	var/list/additional_tooltip_contents
 	/// If set, it's a list containing ckeys which only can get the item
 	var/list/ckeywhitelist
 	/// If set, is a list of job names of which can get the loadout item

@@ -14,8 +14,7 @@
 #define LOADOUT_ITEM_MISC "pocket_items"
 #define LOADOUT_ITEM_TOYS "toys"
 
-#define INFO_GREYSCALE "greyscale"
-#define INFO_NAMED "name"
+/// Used to set custom descriptions.
 #define INFO_DESCRIBED "description"
 
 /// Max amonut of misc / backpack items that are allowed.

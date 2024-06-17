@@ -196,20 +196,12 @@
 	return TRUE
 
 
-<<<<<<< HEAD
-/mob/living/proc/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/on_job_equipping(datum/job/equipping)
-=======
 /mob/living/proc/on_job_equipping(datum/job/equipping, client/player_client)
->>>>>>> d244c86ce64 (Adds Character Loadout Tab to preferences (with just a small handful of items to start) (#83521))
 	return
 
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
-<<<<<<< HEAD
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/human/on_job_equipping(datum/job/equipping)
-=======
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping, client/player_client)
->>>>>>> d244c86ce64 (Adds Character Loadout Tab to preferences (with just a small handful of items to start) (#83521))
 	if(equipping.paycheck_department)
 		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 		bank_account.payday(STARTING_PAYCHECKS, TRUE)
@@ -217,16 +209,12 @@
 		bank_account.replaceable = FALSE
 		add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-<<<<<<< HEAD
-	dress_up_as_job(equipping, FALSE, used_pref) // NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
-=======
 	dress_up_as_job(
 		equipping = equipping,
 		visual_only = FALSE,
 		player_client = player_client,
 		consistent = FALSE,
 	)
->>>>>>> d244c86ce64 (Adds Character Loadout Tab to preferences (with just a small handful of items to start) (#83521))
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // NOVA EDIT REMOVAL - See below
@@ -239,21 +227,12 @@
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
-<<<<<<< HEAD
-/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
-	return
-
-/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE
-	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.get_outfit(), used_pref, visual_only, equipping) //NOVA EDIT CHANGE : ORIGINAL equipOutfit(equipping.get_outfit(), visual_only)
-=======
 /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	return
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
->>>>>>> d244c86ce64 (Adds Character Loadout Tab to preferences (with just a small handful of items to start) (#83521))
+	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping) // NOVA EDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
 
 /// tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 /datum/job/proc/announce_head(mob/living/carbon/human/H, channels, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_head(mob/living/carbon/human/H, channels)

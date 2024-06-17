@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 /datum/loadout_item/glasses/prescription_glasses
 	name = "Glasses"
 	item_path = /obj/item/clothing/glasses/regular
-	additional_tooltip_contents = list("PRESCRIPTION - This item functions with the 'nearsighted' quirk.")
+	additional_displayed_text = list("PRESCRIPTION - This item functions with the 'nearsighted' quirk.")
 
 /datum/loadout_item/glasses/prescription_glasses/circle_glasses
 	name = "Circle Glasses"
