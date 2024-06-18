@@ -28,7 +28,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 
 	minimum = 1.25
-	maximum = 5 // 5x damage, arbitrary
+	maximum = 2 // 2x damage, arbitrary
 
 	step = 0.01
 
