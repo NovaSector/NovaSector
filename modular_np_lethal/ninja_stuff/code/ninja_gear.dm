@@ -1,5 +1,5 @@
 //weapons
-/*/obj/item/knife/combat/kunai
+/obj/item/knife/combat/kunai
 	name = "kunai"
 	desc = "A long, dual-edged utility knife that serves a dual-function as tool and as weapon. \
 	Historically forged from raw iron, they are often improvised in the frontier by stealing the \
@@ -81,6 +81,36 @@
 	max_integrity = 300
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-
 //misc
-*/
+/obj/item/storage/belt/kunai
+	name = "tactical sling bag"
+	desc = "Members of the Tsukomogami are known to modify designer sling bags to better facilitate carrying gear and small weapons. \
+	Don't call it a fanny pack around the serious ones."
+	icon =
+	icon_state =
+	inhand_icon_state =
+	worn_icon_state =
+
+/obj/item/storage/belt/grenade/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 30
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.max_total_storage = 60
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.set_holdable(list(
+		/obj/item/throwing_star/stamina/ninja,
+		/obj/item/knife/combat/kunai,
+		/obj/item/food/grown/cherry_bomb,
+		/obj/item/food/grown/firelemon,
+		/obj/item/grenade,
+		/obj/item/lighter,
+		/obj/item/reagent_containers/cup/glass/bottle/molotov,
+	))
+
+/obj/item/storage/belt/grenade/full/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/knife/combat/kunai = 20,
+		/obj/item/grenade/smokebomb = 5,
+		/obj/item/grenade/mirage = 2,
+		/obj/item/grenade/spawnergrenade/cat = 1,
+	),src)
