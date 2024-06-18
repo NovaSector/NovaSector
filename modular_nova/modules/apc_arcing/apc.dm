@@ -13,7 +13,7 @@
 		else
 			. += "It could be arc shielded with a <b>sheet of bronze</b>."
 
-/obj/machinery/power/apc/process()
+/obj/machinery/power/apc/late_process(seconds_per_tick)
 	. = ..()
 	var/excess = surplus()
 	if(!cell || shorted)
