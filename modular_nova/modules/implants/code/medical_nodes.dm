@@ -1,5 +1,4 @@
 /datum/techweb_node/cyber/cyber_implants/New()
-	. = ..()
 	design_ids += list(
 		"ci-scanner",
 		"ci-gloweyes",
@@ -21,6 +20,7 @@
 	design_ids -= list(
 		"ci-thrusters",
 	)
+	return ..()
 
 /datum/techweb_node/cyber/combat_implants/New()
 	design_ids += list(
