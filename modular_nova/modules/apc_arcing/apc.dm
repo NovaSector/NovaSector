@@ -25,15 +25,26 @@
 		shock_chance = 15
 	else if(excess >= APC_ARC_MEDIUMLIMIT)
 		shock_chance = 10
-	if(prob(shock_chance))
-		var/list/shock_mobs = list()
-		for(var/mob/living/creature in viewers(get_turf(src), 5)) // We only want to shock a single random mob in range, not all.
-			shock_mobs += creature
-		if(length(shock_mobs))
-			var/mob/living/living_target = pick(shock_mobs)
-			living_target.electrocute_act(rand(5, 25), "electrical arc")
-			playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
-			Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
+	if(prob(shock_chance)) // sometimes arc, otherwise give the players a hint something is amiss
+		var/effect = rand(1, 3)
+		switch(effect)
+			if(1)
+				var/list/shock_mobs = list()
+				for(var/mob/living/creature in viewers(get_turf(src), 5)) // We only want to shock a single random mob in range, not all.
+					shock_mobs += creature
+				if(length(shock_mobs))
+					var/mob/living/living_target = pick(shock_mobs)
+					do_sparks(number = 3, cardinal_only = FALSE, source = living_target)
+					living_target.electrocute_act(rand(5, 25), "electrical arc")
+					playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
+					Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
+					energy_fail(3)
+			if(2)
+				do_sparks(number = 3, cardinal_only = FALSE, source = src)
+			if(3)
+				energy_fail(rand(3, 7))
+
+
 
 /obj/machinery/power/apc/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
