@@ -1,5 +1,5 @@
 //weapons
-/obj/item/knife/combat/kunai
+/*/obj/item/knife/combat/kunai
 	name = "kunai"
 	desc = "A long, dual-edged utility knife that serves a dual-function as tool and as weapon. \
 	Historically forged from raw iron, they are often improvised in the frontier by stealing the \
@@ -83,3 +83,4 @@
 
 
 //misc
+*/
