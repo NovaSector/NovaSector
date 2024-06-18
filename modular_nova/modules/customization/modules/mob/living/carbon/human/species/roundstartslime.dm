@@ -135,14 +135,14 @@
 	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
 
 	if(!do_after(user, 30 SECONDS, src))
-		user.visible_message(span_warning("[user]'s hand slips out of the core before they can cause any harm!'"),
+		user.visible_message(span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
 		span_warning("Your hand slips out of the goopy core before you can find its densest point."),
 		span_notice("You hear a resounding plop.")
 		)
 		return
 
 	user.visible_message(span_warning("[user] crunches something deep in the slime core! It gradually stops glowing..."),
-	span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissapates."),
+	span_notice("You find the densest point, crushing it in your palm. The blinking light in the core slowly dissipates."),
 	span_notice("You hear a wet crunching sound."))
 	playsound(user, 'sound/effects/wounds/crackandbleed.ogg', 80, TRUE)
 	gps_active = FALSE
@@ -360,7 +360,7 @@
 				slime.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
-	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of their body and vanishing.")
+	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
 
 /*
 * HYDROPHOBIA SPELL
@@ -395,7 +395,7 @@
 
 	REMOVE_TRAIT(user, TRAIT_SLIME_HYDROPHOBIA, ACTION_TRAIT)
 	user.remove_status_effect(/datum/status_effect/slime_hydrophobia)
-	user.visible_message(span_purple("[user]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"), span_purple("Your outer membrane returns to normal, water being dangerous to you again."))
+	user.visible_message(span_purple("[user]'s outer membrane returns to normal, [owner.p_their()] body drawing the oily coat back inside!"), span_purple("Your outer membrane returns to normal, water becoming dangerous to you once again."))
 
 /datum/movespeed_modifier/status_effect/slime_hydrophobia
 	multiplicative_slowdown = 1.5
