@@ -252,7 +252,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"vore" = vore,
 			"noncon" = noncon,
 			"hypno" = hypno,
-			"exploitable" = exploitable,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
 			"headshot" = headshot,
