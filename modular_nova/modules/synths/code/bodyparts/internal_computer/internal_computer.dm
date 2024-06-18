@@ -18,6 +18,9 @@
 	if(!istype(loc, /obj/item/organ/internal/brain/synth))
 		return INITIALIZE_HINT_QDEL
 
+/obj/item/modular_computer/pda/synth/check_power_override()
+	return TRUE
+
 /datum/action/item_action/synth/open_internal_computer
 	name = "Open persocom emulation"
 	desc = "Accesses your built-in virtual machine."
