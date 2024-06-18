@@ -1,11 +1,12 @@
 GLOBAL_LIST_EMPTY(bunker_passthrough)
 
-/client/proc/addbunkerbypass(ckeytobypass as text|null)
-	set category = "Admin"
-	set name = "Add PB Bypass"
-	set desc = "Allows a given ckey to connect despite the panic bunker for a given round."
+ADMIN_VERB(addbunkerbypass, R_ADMIN, "Add PB Bypass", "Allows a given ckey to connect despite the panic bunker for a given round.", ADMIN_CATEGORY_MAIN)
 	if(!CONFIG_GET(flag/sql_enabled))
 		to_chat(usr, span_adminnotice("The Database is not enabled!"))
+		return
+
+	var/ckeytobypass = input(user, "Enter a ckey to add panic bunker bypass for.", "Ckey Input") as text|null
+	if(!ckeytobypass)
 		return
 
 	GLOB.bunker_passthrough |= ckey(ckeytobypass)
@@ -14,13 +15,13 @@ GLOBAL_LIST_EMPTY(bunker_passthrough)
 	log_admin("[key_name(usr)] has added [ckeytobypass] to the current round's bunker bypass list.")
 	message_admins("[key_name_admin(usr)] has added [ckeytobypass] to the current round's bunker bypass list.")
 
-/client/proc/revokebunkerbypass(ckeytobypass as text|null)
-	set category = "Admin"
-	set name = "Revoke PB Bypass"
-	set desc = "Revoke's a ckey's permission to bypass the panic bunker for a given round."
-
+ADMIN_VERB(revokebunkerbypass, R_ADMIN, "Revoke PB Bypass", "Revoke's a ckey's permission to bypass the panic bunker for a given round.", ADMIN_CATEGORY_MAIN)
 	if(!CONFIG_GET(flag/sql_enabled))
 		to_chat(usr, span_adminnotice("The Database is not enabled!"))
+		return
+
+	var/ckeytobypass = input(user, "Enter a ckey to revoke panic bunker bypass for.", "Ckey Input") as text|null
+	if(!ckeytobypass)
 		return
 
 	GLOB.bunker_passthrough -= ckey(ckeytobypass)

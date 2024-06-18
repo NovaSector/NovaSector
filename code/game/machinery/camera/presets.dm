@@ -66,7 +66,7 @@
 
 /**
  * Autonaming camera
- * Automatically names itself after the area it's in during LateInitialize,
+ * Automatically names itself after the area it's in during post_machine_initialize,
  * good for mappers who don't want to manually name them all.
  */
 /obj/machinery/camera/autoname
@@ -76,7 +76,7 @@
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/camera/autoname/LateInitialize()
+/obj/machinery/camera/autoname/post_machine_initialize()
 	. = ..()
 	var/static/list/autonames_in_areas = list()
 	var/area/camera_area = get_area(src)
@@ -84,6 +84,13 @@
 	autonames_in_areas[camera_area] = number
 	c_tag = "[format_text(camera_area.name)] #[number]"
 
+/obj/machinery/camera/autoname/motion
+	start_active = TRUE
+	name = "motion-sensitive security camera"
+
+/obj/machinery/camera/autoname/motion/Initialize(mapload)
+	. = ..()
+	upgradeMotion()
 
 /**
  * Bomb preset

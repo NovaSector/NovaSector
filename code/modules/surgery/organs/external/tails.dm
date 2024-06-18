@@ -28,10 +28,15 @@
 		receiver.clear_mood_event("tail_lost")
 		receiver.clear_mood_event("tail_balance_lost")
 
+		// If it's your tail, an infinite debuff is replaced with a timed one
+		// If it's not your tail but of same species, I guess it works, but we are more sad
+		// If it's not your tail AND of different species, we are horrified
 		if(IS_WEAKREF_OF(receiver, original_owner))
-			receiver.clear_mood_event("wrong_tail_regained")
+			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_right)
 		else if(type in receiver.dna.species.external_organs)
-			receiver.add_mood_event("wrong_tail_regained", /datum/mood_event/tail_regained_wrong)
+			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_species)
+		else
+			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_wrong)
 
 /obj/item/organ/external/tail/on_bodypart_insert(obj/item/bodypart/bodypart)
 	var/obj/item/organ/external/spines/our_spines = bodypart.owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_SPINES)
@@ -58,6 +63,10 @@
 
 	tail_spines_overlay = new
 	tail_spines_overlay.tail_spine_key = tail_spine_key
+	// NOVA EDIT ADDITION START
+	if(!bodypart.owner.dna.mutant_bodyparts["spines"])
+		bodypart.owner.dna.mutant_bodyparts["spines"][MUTANT_INDEX_NAME] = list(MUTANT_INDEX_NAME = "None", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600"))
+	// NOVA EDIT ADDITION END
 	var/feature_name = bodypart.owner.dna.mutant_bodyparts["spines"][MUTANT_INDEX_NAME] // NOVA EDIT CHANGE - ORIGINAL: var/feature_name = bodypart.owner.dna.features["spines"] //tail spines don't live in DNA, but share feature names with regular spines
 	tail_spines_overlay.set_appearance_from_dna(bodypart.owner.dna, feature_name, feature_key = "spines") // NOVA EDIT CHANGE - ORIGINAL: tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
@@ -74,6 +83,8 @@
 
 	if(wag_flags & WAG_WAGGING)
 		stop_wag(organ_owner)
+
+	organ_owner.clear_mood_event("tail_regained")
 
 	if(type in organ_owner.dna.species.external_organs)
 		organ_owner.add_mood_event("tail_lost", /datum/mood_event/tail_lost)
@@ -136,7 +147,7 @@
 	var/wagging = FALSE
 
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
-	return (wagging ? "wagging_" : "") + sprite_datum.icon_state //add the wagging tag if we be wagging
+	return "[wagging ? "wagging_" : ""][sprite_datum.icon_state]" //add the wagging tag if we be wagging
 
 // NOVA EDIT ADDITION - CUSTOMIZATION
 /datum/bodypart_overlay/mutant/tail/get_global_feature_list()
@@ -156,6 +167,9 @@
 
 	wag_flags = WAG_ABLE
 
+/datum/bodypart_overlay/mutant/tail/get_global_feature_list()
+	return GLOB.sprite_accessories["tail"] // NOVA EDIT CHANGE - ORIGINAL: return GLOB.tails_list_human
+
 /obj/item/organ/external/tail/cat/get_butt_sprite()
 	return BUTT_SPRITE_CAT
 
@@ -164,11 +178,13 @@
 	feature_key = "tail" // NOVA EDIT - Customization - ORIGINAL: feature_key = "tail_cat"
 	// color_source = ORGAN_COLOR_HAIR // NOVA EDIT REMOVAL
 
-/datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
-	return GLOB.sprite_accessories["tail"] // NOVA EDIT - Customization - ORIGINAL: return GLOB.tails_list_human
-
 /obj/item/organ/external/tail/monkey
+	name = "monkey tail"
+	preference = "feature_monkey_tail"
+
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
+
+	//dna_block = DNA_MONKEY_TAIL_BLOCK NOVA EDIT REMOVAL
 
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey

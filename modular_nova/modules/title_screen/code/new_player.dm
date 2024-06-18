@@ -27,6 +27,11 @@
 		ViewManifest()
 		return
 
+	if(href_list["view_directory"])
+		play_lobby_button_sound()
+		client?.show_character_directory()
+		return
+
 	if(href_list["toggle_antag"])
 		play_lobby_button_sound()
 		var/datum/preferences/preferences = client.prefs
@@ -51,6 +56,9 @@
 		return
 
 	if(href_list["toggle_ready"])
+		if(SSticker && SSticker.current_state > GAME_STATE_PREGAME)
+			to_chat(src, span_notice("It's too late for that, the round is already starting!"))
+			return
 		play_lobby_button_sound()
 		if(CONFIG_GET(flag/min_flavor_text))
 			if(!is_admin(client) && length_char(client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < CONFIG_GET(number/flavor_text_character_requirement))

@@ -5,7 +5,6 @@ import {
   FeatureChoiced,
   FeatureChoicedServerData,
   FeatureColorInput,
-  FeatureDropdownInput,
   FeatureNumberInput,
   FeatureShortTextInput,
   FeatureTextInput,
@@ -14,6 +13,7 @@ import {
   FeatureTriColorInput,
   FeatureValueProps,
 } from '../../base';
+import { FeatureDropdownInput } from '../../dropdowns';
 
 export const feature_leg_type: FeatureChoiced = {
   name: 'Leg type',
@@ -49,6 +49,27 @@ export const silicon_flavor_text: Feature<string> = {
 export const ooc_notes: Feature<string> = {
   name: 'OOC Notes',
   component: FeatureTextInput,
+};
+
+export const character_ad: Feature<string> = {
+  name: 'Character Advert',
+  description:
+    'An advertisement for your character. Give information on how to approach for those interested, for either regular and erotic roleplay.',
+  component: FeatureTextInput,
+};
+
+export const attraction: FeatureChoiced = {
+  name: 'Character Attraction',
+  description:
+    'What your character is attracted to. This is displayed in the Directory.',
+  component: FeatureDropdownInput,
+};
+
+export const display_gender: FeatureChoiced = {
+  name: 'Character Gender',
+  description:
+    'What classifies as the gender for your character. This is displayed in the Directory.',
+  component: FeatureDropdownInput,
 };
 
 export const custom_species: Feature<string> = {
@@ -113,6 +134,13 @@ export const pda_ringer: Feature<string> = {
 export const allow_mismatched_parts_toggle: FeatureToggle = {
   name: 'Allow Mismatched Parts',
   description: 'Allows parts from any species to be picked.',
+  component: CheckboxInput,
+};
+
+export const allow_mismatched_hair_color_toggle: FeatureToggle = {
+  name: 'Allow Mismatched Hair Color',
+  description:
+    'Allows species who normally have a fixed hair color to have different hair colors. This includes in-round sources such as dyeing hair, alter form, etc. Currently only applicable to slimes.',
   component: CheckboxInput,
 };
 
@@ -632,6 +660,13 @@ export const taur_emissive: Feature<boolean[]> = {
   name: 'Taur Emissives',
   description: 'Emissive parts glow in the dark.',
   component: FeatureTriBoolInput,
+};
+
+export const naga_sole: FeatureToggle = {
+  name: 'Taur (Naga) disable hardened soles',
+  description:
+    'If using a serpentine taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
+  component: CheckboxInput,
 };
 
 export const xenodorsal_toggle: FeatureToggle = {

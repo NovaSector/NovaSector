@@ -20,7 +20,6 @@
 		/mob/living/simple_animal/bot/secbot/genesky,
 		/mob/living/simple_animal/bot/secbot/grievous,
 		/mob/living/simple_animal/bot/secbot/grievous/toy,
-		/mob/living/simple_animal/bot/secbot/honkbot,
 		/mob/living/simple_animal/bot/secbot/pingsky,
 		/mob/living/simple_animal/bot/vibebot,
 		/mob/living/simple_animal/hostile,
@@ -74,14 +73,10 @@
 		/mob/living/simple_animal/hostile/retaliate/goose/vomit,
 		/mob/living/simple_animal/hostile/vatbeast,
 		/mob/living/simple_animal/hostile/zombie,
-		/mob/living/simple_animal/pet,
-		/mob/living/simple_animal/pet/gondola,
-		/mob/living/simple_animal/pet/gondola/gondolapod,
-		/mob/living/simple_animal/pet/gondola/virtual_domain,
 		/mob/living/simple_animal/soulscythe,
 
-		//MODULAR SKYRAT ENTRIES
-		//PLEASE REFACTOR THESE AS YOU CAN
+		// MODULAR NOVA ENTRIES
+		// PLEASE REFACTOR THESE AS YOU CAN
 		/mob/living/simple_animal/hostile/bigcrab,
 		/mob/living/simple_animal/hostile/cazador,
 		/mob/living/simple_animal/hostile/cult,
@@ -129,8 +124,6 @@
 		/mob/living/simple_animal/hostile/vox/ranged/space/laser,
 		/mob/living/simple_animal/hostile/zombie/cheesezombie,
 		/mob/living/simple_animal/hostile/zombie/nocorpse,
-		/mob/living/simple_animal/pet/gondola/funky,
-		/mob/living/simple_animal/pet/poppy,
 		/mob/living/simple_animal/hostile/fleshmind/slicer,
 		/mob/living/simple_animal/hostile/fleshmind/floater,
 		/mob/living/simple_animal/hostile/fleshmind/globber,
@@ -142,7 +135,6 @@
 		/mob/living/simple_animal/hostile/fleshmind/mechiver,
 		/mob/living/simple_animal/hostile/fleshmind/mauler_monkey,
 		/mob/living/simple_animal/hostile/fleshmind,
-
 		// DO NOT ADD NEW ENTRIES TO THIS LIST
 		// READ THE COMMENT ABOVE
 	)

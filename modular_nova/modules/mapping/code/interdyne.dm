@@ -1,7 +1,6 @@
 // Upgraded Interdyne machines
 
 /obj/machinery/processor/slime/fullupgrade
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/processor/slime/fullupgrade
 
 /obj/item/circuitboard/machine/processor/slime/fullupgrade
@@ -13,9 +12,27 @@
 		/datum/stock_part/matter_bin/tier4 = 1,
 	)
 
+/obj/machinery/processor/slime/fullupgrade/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/processor/slime/fullupgrade/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/processor/slime/fullupgrade/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
+
 /obj/machinery/monkey_recycler/fullupgrade
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/monkey_recycler/fullupgrade
+
+// formerly NO_DECONSTRUCTION
+/obj/machinery/monkey_recycler/fullupgrade/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/monkey_recycler/fullupgrade/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/monkey_recycler/fullupgrade/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /obj/item/circuitboard/machine/monkey_recycler/fullupgrade
 	name = "\improper Monkey Recycler"
@@ -28,7 +45,6 @@
 
 /obj/machinery/chem_master/fullupgrade
 	name = "\improper ChemMaster 4000"
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/chem_master/fullupgrade
 
 /obj/item/circuitboard/machine/chem_master/fullupgrade
@@ -44,8 +60,16 @@
 	needs_anchored = FALSE
 
 /obj/machinery/biogenerator/fullupgrade
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	circuit = /obj/item/circuitboard/machine/biogenerator/fullupgrade
+
+/obj/machinery/biogenerator/fullupgrade/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/biogenerator/fullupgrade/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/biogenerator/fullupgrade/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
 
 /obj/item/circuitboard/machine/biogenerator/fullupgrade
 	name = "\improper Biogenerator"

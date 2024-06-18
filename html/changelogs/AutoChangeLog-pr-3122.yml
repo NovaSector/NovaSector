@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "adds back the missing nova-specific techweb nodes that went missing"

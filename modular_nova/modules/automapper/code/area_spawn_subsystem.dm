@@ -263,7 +263,7 @@ SUBSYSTEM_DEF(area_spawn)
 	/// See code/__DEFINES/~nova_defines/automapper.dm
 	var/mode = AREA_SPAWN_MODE_OPEN
 	/// Map blacklist, this is used to determine what maps we should not spawn on.
-	var/list/blacklisted_stations = list("Void Raptor", "Runtime Station", "MultiZ Debug", "Gateway Test", "Blueshift")
+	var/list/blacklisted_stations = list("Void Raptor", "Ouroboros", "Runtime Station", "MultiZ Debug", "Gateway Test", "Blueshift")
 	/// If failing to find a suitable area is OK, then this should be TRUE or CI will fail.
 	/// Should probably be true if the target_areas are random, such as ruins.
 	var/optional = FALSE
@@ -358,11 +358,7 @@ SUBSYSTEM_DEF(area_spawn)
 /**
  * Show overlay over area of priorities. Wall priority over open priority.
  */
-/client/proc/test_area_spawner(area/area)
-	set category = "Debug"
-	set name = "Test Area Spawner"
-	set desc = "Show area spawner placement candidates as an overlay."
-
+ADMIN_VERB(test_area_spawner, R_DEBUG, "Test Area Spawner", "Show area spawner placement candidates as an overlay.", ADMIN_CATEGORY_DEBUG, area/area)
 	for(var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
 		for(var/turf/area_turf as anything in zlevel_turfs)
 			for(var/obj/effect/turf_test/old_test in area_turf)

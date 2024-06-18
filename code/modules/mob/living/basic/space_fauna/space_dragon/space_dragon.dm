@@ -28,7 +28,6 @@
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0.5, OXY = 1)
 	combat_mode = TRUE
 	speed = 0
-	movement_type = FLYING
 	attack_verb_continuous = "chomps"
 	attack_verb_simple = "chomp"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
@@ -77,6 +76,11 @@
 
 	buffet = new(src)
 	buffet.Grant(src)
+
+/mob/living/basic/space_dragon/Destroy()
+	fire_breath = null
+	buffet = null
+	return ..()
 
 /mob/living/basic/space_dragon/Login()
 	. = ..()

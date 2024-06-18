@@ -1,0 +1,4 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - bugfix: "APCs have received another budget cut, and will no longer come with surge protectors built-in. Be careful of those electricity arcs if there's too much power in the grid!"

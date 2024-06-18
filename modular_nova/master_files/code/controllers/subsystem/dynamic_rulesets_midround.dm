@@ -1,3 +1,6 @@
+/datum/dynamic_ruleset/midround/from_living/autotraitor
+	var/static/list/sleeper_current_polling = list()
+	var/static/list/rejected_traitor = list()
 /**
  * Polls a group of candidates to see if they want to be a sleeper agent.
  *
@@ -9,8 +12,9 @@
 	var/list/yes_candidate = list()
 	for(var/mob/living/candidate in potential_candidates)
 		potential_candidates -= candidate
+		sleeper_current_polling += candidate
 		yes_candidate += SSpolling.poll_candidates(
-		question = "Do you want to be a syndicate sleeper agent?",
+		question = "Do you want to be a syndicate sleeper agent? If you ignore this, you will be considered to have declined and will be inelegible for all future rolls this round.",
 		group = list(candidate),
 		poll_time = 15 SECONDS,
 		flash_window = TRUE,
@@ -28,6 +32,11 @@
 		chat_text_border_icon = /obj/structure/sign/poster/contraband/gorlex_recruitment,
 	)
 		if(length(yes_candidate))
+			sleeper_current_polling -= candidate
 			break
+		else
+			message_admins("Candidate [candidate] has declined to be a sleeper agent.")
+			rejected_traitor += candidate
+			sleeper_current_polling -= candidate
 
 	return yes_candidate

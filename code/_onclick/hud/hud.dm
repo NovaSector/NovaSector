@@ -270,11 +270,10 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	alien_plasma_display = null
 	alien_queen_finder = null
 	combo_display = null
-
-	//NOVA EDIT START - SKYRAT HUD
+	//NOVA EDIT ADDITION START - NOVA HUD
 	ammo_counter = null
 	wanted_lvl = null
-	// NOVA EDIT END - SKYRAT HUD
+	// NOVA EDIT ADDITION END - NOVA HUD
 
 	QDEL_LIST_ASSOC_VAL(master_groups)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
