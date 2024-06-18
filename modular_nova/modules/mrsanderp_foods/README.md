@@ -27,5 +27,5 @@ Please don't place these items on maps, or otherwise make them available to play
 - N/A
 
 ### Credits:
-Sprite Creator: @Dumbdumn5
-Module Maintainer: @Floofies
+- Sprite Creator: [Dumbdumn5](https://github.com/Dumbdumn5)
+- Module Maintainer: [Floofies](https://github.com/Floofies)
