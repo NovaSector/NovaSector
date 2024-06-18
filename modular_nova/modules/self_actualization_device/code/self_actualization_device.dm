@@ -106,7 +106,7 @@
 		. += span_notice("Left-click to <b>[state_open ? "close" : "open"]</b>.")
 
 	if(!isnull(occupant) && !state_open)
-		. += span_notice("Alt-Click to turn on.")
+		. += span_notice("<b>Alt-click</b> to turn on.")
 
 /obj/machinery/self_actualization_device/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(!processing)
