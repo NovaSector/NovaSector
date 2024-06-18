@@ -43,7 +43,9 @@
 				do_sparks(number = 3, cardinal_only = FALSE, source = src)
 			if(3)
 				energy_fail(rand(2, 4)) // energy_fail does not use the SECONDS macro, so it's deliberately not used here in the arg. don't add it.
-
+		#undef SHOCK_SOMEONE
+		#undef MAKE_SPARKS
+		#undef CAUSE_BROWNOUT
 
 
 /obj/machinery/power/apc/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
