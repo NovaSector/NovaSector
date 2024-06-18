@@ -16,6 +16,7 @@
 		"combat_implant_razorwire",
 		"combat_implant_shell_launcher",
 	)
+	. = ..()
 	// thrusters in combat_implants
 	design_ids -= list(
 		"ci-thrusters",
@@ -39,12 +40,10 @@
 		"ci-nv",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
-/datum/techweb_node/adv_mining //Here for the integrated drill augments.
+
+/datum/techweb_node/mining_adv/New() //Here for the integrated drill augments.
 	design_ids = list(
-		"drill_diamond",
-		"hypermod",
-		"jackhammer",
-		"plasmacutter_adv",
 		"ci-drill-diamond"
 	)
+	return ..()
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
