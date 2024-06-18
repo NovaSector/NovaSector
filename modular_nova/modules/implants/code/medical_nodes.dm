@@ -1,4 +1,5 @@
 /datum/techweb_node/cyber/cyber_implants/New()
+	. = ..()
 	design_ids += list(
 		"ci-scanner",
 		"ci-gloweyes",
@@ -16,7 +17,6 @@
 		"combat_implant_razorwire",
 		"combat_implant_shell_launcher",
 	)
-	. = ..()
 	// thrusters in combat_implants
 	design_ids -= list(
 		"ci-thrusters",
