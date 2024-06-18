@@ -26,7 +26,18 @@
 	else if(excess >= APC_ARC_MEDIUMLIMIT)
 		shock_chance = 10
 	if(prob(shock_chance)) // sometimes arc, otherwise give the players a hint something is amiss
-		var/effect = rand(1, 3)
+		// pick a random person in range to shock
+		#define SHOCK_SOMEONE 1
+		// create some sparks
+		#define MAKE_SPARKS 2
+		// cut the power for 2-4 seconds
+		#define CAUSE_BROWNOUT 3
+		
+		var/effect = pick(list(
+			SHOCK_SOMEONE,
+			MAKE_SPARKS,
+			CAUSE_BROWNOUT,
+		))
 		switch(effect)
 			if(1)
 				var/list/shock_mobs = list()
