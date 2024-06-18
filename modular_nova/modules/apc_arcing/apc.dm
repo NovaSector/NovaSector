@@ -38,11 +38,11 @@
 					living_target.electrocute_act(rand(5, 25), "electrical arc")
 					playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
 					Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
-					energy_fail(3)
+					energy_fail(2)
 			if(2)
 				do_sparks(number = 3, cardinal_only = FALSE, source = src)
 			if(3)
-				energy_fail(rand(3, 7))
+				energy_fail(rand(2, 4))
 
 
 
