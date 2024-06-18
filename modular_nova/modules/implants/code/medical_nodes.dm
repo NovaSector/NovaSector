@@ -1,8 +1,6 @@
-/datum/techweb_node/cyber_implants
-	design_ids = list(
-		"ci-nutriment",
+/datum/techweb_node/cyber/cyber_implants/New()
+	design_ids += list(
 		"ci-scanner",
-		"ci-breather",
 		"ci-gloweyes",
 		"ci-welding",
 		"ci-medhud",
@@ -17,6 +15,9 @@
 		"combat_implant_hackerman",
 		"combat_implant_razorwire",
 		"combat_implant_shell_launcher",
+	)
+	design_ids -= list(
+		"ci-thrusters",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
