@@ -15,35 +15,20 @@
 	pixel_y = -32
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 	flags_1 = SUPERMATTER_IGNORES_1
-<<<<<<< HEAD
-//NOVA EDIT START: Nicer RodStopper
-/obj/boh_tear/Initialize(mapload)
-	. = ..()
-	QDEL_IN(src, 10 SECONDS) // vanishes after 10 seconds
-	addtimer(CALLBACK(src, PROC_REF(add_singularity)), 5 SECONDS)
-
-/obj/boh_tear/proc/add_singularity()
-	// the grav_pull was BOH_TEAR_GRAV_PULL (25), but that is a whole lot
-	AddComponent(
-		/datum/component/singularity, \
-		consume_range = BOH_TEAR_CONSUME_RANGE, \
-		grav_pull = 4, \
-		roaming = FALSE, \
-		singularity_size = STAGE_SIX, \
-	)
-//NOVA EDIT STOP: Nicer RodStopper
-=======
 
 /obj/boh_tear/proc/start_disaster()
 	apply_wibbly_filters(src)
 	playsound(loc, 'sound/effects/clockcult_gateway_disrupted.ogg', vary = 200, extrarange = 3, falloff_exponent = 1, frequency = 0.33, pressure_affected = FALSE, ignore_walls = TRUE, falloff_distance = 7)
-	AddComponent(
-		/datum/component/singularity, \
-		consume_range = 1, \
-		grav_pull = 21, \
-		roaming = FALSE, \
-		singularity_size = STAGE_SIX, \
-	)
+	// NOVA EDIT CHANGE START - Locks the singularity behind config options
+	if(!CONFIG_GET(flag/disable_stationary_boh_singularity))
+		AddComponent(
+			/datum/component/singularity, \
+			consume_range = 1, \
+			grav_pull = CONFIG_GET(number/stationary_boh_singularity_grav_pull), /* NOVA EDIT CHANGE - ORIGINAL: grav_pull = 21, \ */ \
+			roaming = FALSE, \
+			singularity_size = STAGE_SIX, \
+		)
+	// NOVA EDIT CHANGE END
 	addtimer(CALLBACK(src, PROC_REF(bagulo_time)), 9 SECONDS, TIMER_DELETE_ME)
 	animate(src, time = 7.5 SECONDS, transform = transform.Scale(2), flags = ANIMATION_PARALLEL)
 	animate(time = 2 SECONDS, transform = transform.Scale(0.25), easing = ELASTIC_EASING)
@@ -51,12 +36,14 @@
 
 /obj/boh_tear/proc/bagulo_time()
 	playsound(loc, 'sound/effects/supermatter.ogg', 200, vary = TRUE, extrarange = 3, falloff_exponent = 1, frequency = 0.5, pressure_affected = FALSE, ignore_walls = TRUE, falloff_distance = 7)
-	var/obj/singularity/bagulo = new(loc)
-	bagulo.expand(STAGE_TWO)
-	bagulo.energy = 400
+	// NOVA EDIT CHANGE START - Locks the singularity behind config options
+	if(!CONFIG_GET(flag/disable_roaming_boh_singularity))
+		var/obj/singularity/bagulo = new(loc)
+		bagulo.expand(STAGE_TWO)
+		bagulo.energy = 400
+	// NOVA EDIT CHANGE END
 	qdel(src)
 
->>>>>>> bea0930a188 (Re-adds bagulo (remastered), 3 max bluespace cores, singulos may collapse if a third BoH is added (#83892))
 /obj/boh_tear/attack_tk(mob/user)
 	if(!isliving(user))
 		return

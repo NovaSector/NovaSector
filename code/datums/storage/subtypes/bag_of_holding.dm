@@ -39,8 +39,6 @@
 	user.investigate_log("has been gibbed by a bag of holding recursive insertion.", INVESTIGATE_DEATHS)
 	user.gib()
 	var/obj/boh_tear/tear = new(rift_loc)
-	/* NOVA EDIT REMOVAL START - No singuloose please.
 	tear.start_disaster()
-	*/ // NOVA EDIT END
 	qdel(to_insert)
 	qdel(parent)
