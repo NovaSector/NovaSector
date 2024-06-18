@@ -1,4 +1,4 @@
-https://github.com/Skyrat-SS13/Skyrat-tg/pull/TBD
+https://github.com/NovaSector/NovaSector/pull/3110
 
 ## Title: Mrsanderp Foods
 
