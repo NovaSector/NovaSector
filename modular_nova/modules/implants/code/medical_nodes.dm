@@ -16,18 +16,19 @@
 		"combat_implant_razorwire",
 		"combat_implant_shell_launcher",
 	)
+	// thrusters in combat_implants
 	design_ids -= list(
 		"ci-thrusters",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
-/datum/techweb_node/adv_cyber_implants
-	design_ids = list("ci-nv", "ci-nutrimentplus", "ci-surgery", "ci-toolset")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
-
-/datum/techweb_node/combat_cyber_implants
-	design_ids = list("ci-antidrop", "ci-antistun", "ci-antisleep", "ci-thrusters", "ci-mantis", "ci-flash", "ci-reviver")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
+/datum/techweb_node/cyber/combat_implants/New()
+	design_ids += list(
+		"ci-mantis",
+		"ci-flash",
+		"ci-thrusters",
+		"ci-antisleep",
+	)
+	return ..()
 
 /datum/techweb_node/adv_mining //Here for the integrated drill augments.
 	design_ids = list(
