@@ -39,7 +39,7 @@
 			CAUSE_BROWNOUT,
 		))
 		switch(effect)
-			if(1)
+			if(SHOCK_SOMEONE)
 				var/list/shock_mobs = list()
 				for(var/mob/living/creature in viewers(get_turf(src), 5)) // We only want to shock a single random mob in range, not all.
 					shock_mobs += creature
@@ -50,9 +50,9 @@
 					playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
 					Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
 					energy_fail(2)
-			if(2)
+			if(MAKE_SPARKS)
 				do_sparks(number = 3, cardinal_only = FALSE, source = src)
-			if(3)
+			if(CAUSE_BROWNOUT)
 				energy_fail(rand(2, 4)) // energy_fail does not use the SECONDS macro, so it's deliberately not used here in the arg. don't add it.
 		#undef SHOCK_SOMEONE
 		#undef MAKE_SPARKS
