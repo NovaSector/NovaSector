@@ -322,6 +322,16 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/turret_damage_multiplier = 1
 	////// Simple wound bonus for bullets. 0 = no bonus. 10 = more likely to wound. I dont know if we support negative bonuses.
 	var/turret_wound_bonus = 0
+	////// Does the gun fire in bursts?
+	var/burst_fire = FALSE
+	////// If burst fire, count of volley?
+	var/burst_volley = 3
+	////// Where in the burst are we?
+	var/volley_count = 0
+	////// delay of burst if burst fire
+	var/burst_delay = 0.25 SECONDS
+	////// Target of a burst. We need this to seperate it from a target override.
+	var/datum/weakref/burst_target
 	////// Can this turret be retracted without tools?
 	var/quick_retract = FALSE
 	///// Does quick_retract require faction tags?
@@ -570,6 +580,14 @@ DEFINE_BITFIELD(turret_flags, list(
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/process()
 	if(linkage)
+		if(burst_target) //we put this before target_override to avoid issues.
+			var/atom/movable/bursttarget = burst_target.resolve()
+			if(isnull(bursttarget))
+				burst_target = null
+				volley_count = initial(volley_count)
+				return
+			trytoshootfucker(bursttarget)
+			return
 		if(target_override) //Forces turret to shoot
 			var/atom/movable/overridden_target = target_override.resolve()
 			if(isnull(overridden_target))
@@ -650,12 +668,32 @@ DEFINE_BITFIELD(turret_flags, list(
 		return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/target(atom/movable/target)
+	if(burst_fire && !burst_target) //if burstfire and not in the middle of a burst, start one.
+		if(last_fired + initial(shot_delay) > world.time)
+			return
+		do_burst_fire(target, burst_volley)
+		return TRUE
+
 	if(target)
 		popUp() //pop the turret up if it's not already up.
 		setDir(get_dir(base, target))//even if you can't shoot, follow the target
 		shootAt(target)
 		return TRUE
 	return
+
+/// Burst fire everywhere is a fuck and wont transfer here. We're ESSENTIALLY doing an adjacent override_target proc.
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/do_burst_fire(atom/movable/target)
+	if(!target)
+		return
+	burst_target = WEAKREF(target)
+	volley_count = burst_volley
+	shot_delay = burst_delay
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/end_burst()
+	burst_target = null
+	shot_delay = initial(shot_delay)
+	if(target_override) //to avoid issues with it. Put after to over-write.
+		shot_delay = (initial(shot_delay) / 2)
 
 /// manual target acquisition from target designator, improves fire rate.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/override_target(atom/movable/target)
@@ -664,11 +702,13 @@ DEFINE_BITFIELD(turret_flags, list(
 	target_override = WEAKREF(target)
 	balloon_alert_to_viewers("target acquired!") // So you know whats causing it to fire
 	shot_delay = (initial(shot_delay) / 2) //No need to scan for targets so faster work
+	burst_delay = (initial(burst_delay) / 2)
 
 /// clears the target and resets fire rate
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/clear_override()
 	target_override = null
 	shot_delay = initial(shot_delay)
+	burst_delay = initial(burst_delay)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/tryToShootAt(list/atom/movable/things_in_my_lawn) //better target prioritization, shoots at closest simple mob
 	var/turf/my_lawn = get_turf(src)
@@ -678,11 +718,12 @@ DEFINE_BITFIELD(turret_flags, list(
 		if(target(whipper_snapper))
 			return TRUE
 
-/// Shoots at one specific target. Only happens if target is overridden
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/trytoshootfucker()
-	var/atom/movable/overridden_target = target_override?.resolve()
+/// Shoots at one specific target. Only happens if target is overridden. modularized for burst?
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/trytoshootfucker(datum/weakref/target_weakref)
+	var/atom/movable/overridden_target = target_weakref?.resolve()
 	if(isnull(overridden_target))
 		target_override = null
+		burst_target = null
 		return
 	while(overridden_target)
 		if(target(overridden_target)) //ok. Its trying to shoot a weakref. Thats the issue.
@@ -700,6 +741,10 @@ DEFINE_BITFIELD(turret_flags, list(
 		if(last_fired + shot_delay > world.time)
 			return
 		last_fired = world.time
+		if(burst_target && volley_count >= 1) // we put this here so its somewhat in-sync. i hope.
+			volley_count -= 1
+			if(volley_count == 0)
+				end_burst()
 
 	var/turf/my_lawn = get_turf(src)
 	var/turf/targetturf = get_turf(target)

@@ -1,12 +1,13 @@
 /obj/item/storage/toolbox/emergency/turret/mag_fed/toy
 	name = "toy turret kit"
-	desc = "A deployable turret designed for office warfare. Throw it in the neighboring cubicle and take cover as it does the rest."
+	desc = "A deployable turret designed for office warfare. Throw it in the neighboring cubicle and take cover as it does the rest. Made with a flexible, recolourable material."
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/cargo.dmi'
 	icon_state = "toy_toolbox"
-	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
-	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
-	inhand_icon_state = "toy_turretkit"
+	inhand_icon_state = "smoke" //I was originally gonna leave it spriteless here but after doing this for the other quick_deploy, why not.
+	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
+	w_class = WEIGHT_CLASS_NORMAL
 	greyscale_config = /datum/greyscale_config/turret/toolbox
 	greyscale_colors = "#E0C14F#C67A4B"
 	throw_speed = 2
@@ -27,7 +28,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy
 	name = "\improper Cubicle Point-Defense Turret"
 	desc = "A small deployable turret designed to expand after being thrown. It is chambered in the most frightening of rounds: foam darts."
-	max_integrity = 100
+	max_integrity = 10 //small weak thing
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/cargo.dmi'
 	icon_state = "toy_off"
 	base_icon_state = "toy"
@@ -37,6 +38,5 @@
 	quick_retract = TRUE
 	retract_timer = 1 SECONDS
 	shot_delay = 0.5 SECONDS
-	faction = list(FACTION_TURRET)
 	faction_targeting = FALSE
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled

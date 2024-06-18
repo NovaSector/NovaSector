@@ -26,7 +26,7 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "outpost_off"
 	base_icon_state = "outpost"
-	shot_delay = 2 SECONDS
+	shot_delay = 1.5 SECONDS
 	faction = list(FACTION_TURRET)
 	fragile = TRUE
 	turret_frame = /obj/item/turret_assembly
@@ -66,7 +66,7 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "colonist_off"
 	base_icon_state = "colonist"
-	shot_delay = 2 SECONDS
+	shot_delay = 1.5 SECONDS
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled
 
@@ -77,10 +77,11 @@
 	desc = "A throw-deployable turret capsule designed for securing areas within hostile fauna held zones. It is chambered in .35 Sol ammunition."
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "35_spider_toolbox"
-	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
-	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
-	inhand_icon_state = "35_spider_turretkit"
+	inhand_icon_state = "smoke" //I dont want to squash-make something. This should cover until i work something.
+	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	throw_speed = 2
+	w_class = WEIGHT_CLASS_NORMAL // This isn't going to spawn outside of ruins/ghost roles, so it being small shouldn't be too big of a concern?
 	quick_deployable = TRUE
 	quick_deploy_timer = 1 SECONDS
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider
@@ -96,10 +97,41 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider
 	name = "\improper Stinger Spider Turret"
 	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition."
-	max_integrity = 200
+	max_integrity = 100
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "35_spider_off"
 	base_icon_state = "35_spider"
-	shot_delay = 2 SECONDS
+	shot_delay = 1.5 SECONDS
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled
+
+////// Twin-Fang turret. Spider Turret's nastier cousin. Slightly less durable but more vitriol. Chambered in .27-54
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang
+	name = "twin-fang offensive turret capsule"
+	desc = "A throw-deployable turret capsule designed for securing areas within hostile fauna held zones. It is chambered in .27-54 Cesarzowa ammunition."
+	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
+	icon_state = "35_spider_toolbox"
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
+	mag_slots = 1
+	turret_safety = FALSE
+	mag_types_allowed = list(
+		/obj/item/ammo_box/magazine/miecz
+	)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled/PopulateContents()
+	new /obj/item/ammo_box/magazine/miecz(src)
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
+	name = "\improper Twin-Fang Spider Turret"
+	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .27-54 Cesarzowa ammunition."
+	max_integrity = 75
+	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
+	icon_state = "35_spider_off"
+	base_icon_state = "35_spider"
+	shot_delay = 1.5 SECONDS
+	burst_fire = TRUE
+	burst_delay = 0.1 SECONDS
+	burst_volley = 2
+	faction = list(FACTION_TURRET)
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled
