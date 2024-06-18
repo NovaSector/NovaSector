@@ -42,7 +42,7 @@
 			if(2)
 				do_sparks(number = 3, cardinal_only = FALSE, source = src)
 			if(3)
-				energy_fail(rand(2, 4))
+				energy_fail(rand(2, 4)) // energy_fail does not use the SECONDS macro, so it's deliberately not used here in the arg. don't add it.
 
 
 
