@@ -189,7 +189,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/noncon
 	var/hypno
 	var/character_ad
-	var/exploitable
 	var/headshot
 	var/ref
 
@@ -239,13 +238,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
-		// If the user is an antagonist or Observer, we want them to be able to see exploitables in the Directory.
-		if(user.mind?.has_antag_datum(/datum/antagonist) || isobserver(user))
-			exploitable = READ_PREFS(mob, text/exploitable)
-			if(exploitable == EXPLOITABLE_DEFAULT_TEXT)
-				exploitable = "(Not set)"
-		else
-			exploitable = "Obscured"
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
 
