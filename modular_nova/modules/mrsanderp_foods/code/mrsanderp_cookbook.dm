@@ -13,10 +13,10 @@
 		/datum/crafting_recipe/food/pineappletrifle
 	)
 	remarks = list(
-		"So that is how icing is made!",
-		"Placing fruit on top? How simple...",
-		"Huh layering cake seems harder then this...",
-		"This book smells like candy",
-		"A clown must have made this page, or they forgot to spell check it before printing...",
-		"Wait, a way to cook slime to be safe?",
+		"Reispan and chicken? Do they work together?",
+		"I wonder how much pineapple is too much pineapple...",
+		"It's not really Martian, but it looks delicious...",
+		"I'm salivating already at the words alone...",
+		"Is there really anything that Red Bay seasoning can't fix?",
+		"Grandma Riva would be so proud...",
 	)
