@@ -29,8 +29,10 @@
 	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in target_carbon.organs
 	if (!istype(taur_body))
 		return
-
-	var/offset = taur_body.taur_specific_clothing_y_offsets?["[target_carbon.dir]"]
+	var/icon_dir = target_carbon.dir
+	if(ISDIAGONALDIR(icon_dir))
+		icon_dir &= ~(NORTH | SOUTH)
+	var/offset = taur_body.taur_specific_clothing_y_offsets?["[icon_dir]"]
 	if (!offset)
 		return
 	standing.pixel_y += offset
@@ -56,6 +58,13 @@
 
 	var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in signal_source.organs
 	if (!taur_body)
+		return
+
+	if(ISDIAGONALDIR(new_dir))
+		new_dir &= ~(NORTH | SOUTH) //remove diagonal for lookup, matching how directional player sprites are selected
+	if(ISDIAGONALDIR(old_dir))
+		old_dir &= ~(NORTH | SOUTH)
+	if(new_dir == old_dir)
 		return
 
 	var/obj/item/item_parent = parent

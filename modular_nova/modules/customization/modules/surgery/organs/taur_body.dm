@@ -60,7 +60,7 @@
 		TEXT_EAST = 3,
 		TEXT_WEST = 3,
 		TEXT_NORTH = 0,
-		TEXT_SOUTH = 0
+		TEXT_SOUTH = 0,
 	)
 
 /obj/item/organ/external/taur_body/serpentine
