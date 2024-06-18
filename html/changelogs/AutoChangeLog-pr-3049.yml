@@ -1,0 +1,6 @@
+author: "Melbert, vinylspiders"
+delete-after: True
+changes:
+  - balance: "Re-adds Bagulo (config disabled on nova)"
+  - balance: "The max number of bluespace cores available to the crew has been increased to 16 (was: 8)"
+  - balance: "Chucking a BoH into an uncharged singulo may save the station."
