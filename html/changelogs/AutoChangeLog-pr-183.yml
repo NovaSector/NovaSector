@@ -1,0 +1,4 @@
+author: "Motho, vinylspiders, LT3"
+delete-after: True
+changes:
+  - rscadd: "Ported the Character Directory from Bubberstation. Now you can advertise your silly little characters! To view the character directory, check the OOC tab in the verb panel."
