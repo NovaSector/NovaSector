@@ -85,7 +85,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	COOLDOWN_START(src, char_directory_cooldown, 10)
 	return FALSE
 
-
 // This is a global singleton. Keep in mind that all operations should occur on user, not src.
 /datum/character_directory
 	/// The character preview views for the UI.
