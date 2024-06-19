@@ -12,7 +12,8 @@
 	speak_chance = 15
 	speak_emote = list("mechanically states")
 	mob_biotypes = MOB_ROBOTIC
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = INFINITY
 	minbodytemp = 0
 	maxbodytemp = INFINITY
 	/// A link to our controller
