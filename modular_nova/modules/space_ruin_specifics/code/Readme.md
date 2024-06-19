@@ -2,7 +2,7 @@ https://github.com/NovaSector/NovaSector/pull/1557
 
 ## Title: Modular Items
 
-Space_ruin_specifics - Fleshmind
+Space_ruin_specifics - Infected
 
 ### Description:
 

@@ -1,20 +1,20 @@
 /**
- * fleshmind basetype(abstract)
+ * infected basetype(abstract)
  */
-/obj/structure/fleshmind
+/obj/structure/infected
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_structures.dmi'
 	icon_state = "wires"
 	anchored = TRUE
 	/// Our faction
-	var/faction_types = list(FACTION_FLESHMIND)
+	var/faction_types = list(FACTION_INFECTED)
 	/// A reference to our controller.
-	var/datum/fleshmind_controller/our_controller
+	var/datum/infected_controller/our_controller
 	/// The minimum core level for us to spawn at
 	var/required_controller_level = CONTROLLER_LEVEL_1
 	/// A list of possible rewards for destroying this thing.
 	var/list/possible_rewards
 
-/obj/structure/fleshmind/Destroy()
+/obj/structure/infected/Destroy()
 	our_controller = null
 	if(possible_rewards)
 		var/thing_to_spawn = pick(possible_rewards)
@@ -25,7 +25,7 @@
  * Deletion cleanup
  *
  */
-/obj/structure/fleshmind/proc/controller_destroyed(datum/fleshmind_controller/dying_controller, force)
+/obj/structure/infected/proc/controller_destroyed(datum/infected_controller/dying_controller, force)
 	SIGNAL_HANDLER
 
 	our_controller = null
@@ -35,7 +35,7 @@
  *
  * These are the arteries of the fleshmind, they are required for spreading and support machine life.
  */
-/obj/structure/fleshmind/wireweed
+/obj/structure/infected/wireweed
 	name = "wireweed"
 	desc = "A strange pulsating mass of organic wires."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/wireweed_floor.dmi'
@@ -56,7 +56,7 @@
 	/// Are we a vent burrow?
 	var/vent_burrow = FALSE
 
-/obj/structure/fleshmind/wireweed/Initialize(mapload, starting_alpha = 255, datum/fleshmind_controller/incoming_controller)
+/obj/structure/infected/wireweed/Initialize(mapload, starting_alpha = 255, datum/infected_controller/incoming_controller)
 	. = ..()
 	alpha = starting_alpha
 	var/static/list/loc_connections = list(
@@ -65,7 +65,7 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	our_controller = incoming_controller
 
-/obj/structure/fleshmind/wireweed/wirecutter_act(mob/living/user, obj/item/tool)
+/obj/structure/infected/wireweed/wirecutter_act(mob/living/user, obj/item/tool)
 	. = ..()
 	loc.balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, WIREWEED_WIRECUTTER_KILL_TIME, volume = 50))
@@ -76,7 +76,7 @@
 	return TRUE
 
 
-/obj/structure/fleshmind/wireweed/update_icon(updates)
+/obj/structure/infected/wireweed/update_icon(updates)
 	. = ..()
 
 	if(QDELETED(src))
@@ -88,13 +88,13 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /// if burrowing through a vent, alter the icon state
-/obj/structure/fleshmind/wireweed/update_icon_state()
+/obj/structure/infected/wireweed/update_icon_state()
 	. = ..()
 	if(vent_burrow)
 		icon_state = "vent_burrow"
 
 /// EMP Damage call for wireweed
-/obj/structure/fleshmind/wireweed/emp_act(severity)
+/obj/structure/infected/wireweed/emp_act(severity)
 	. = ..()
 	switch(severity)
 		if(EMP_LIGHT)
@@ -103,7 +103,7 @@
 			take_damage(40)
 
 /// Overlay and icon update for wireweed
-/obj/structure/fleshmind/wireweed/update_overlays()
+/obj/structure/infected/wireweed/update_overlays()
 	. = ..()
 	if(active)
 		. += "active"
@@ -123,12 +123,12 @@
 			. += new_wall_overlay
 
 /// Sets the alpha after the animation finishes
-/obj/structure/fleshmind/wireweed/proc/visual_finished()
+/obj/structure/infected/wireweed/proc/visual_finished()
 	SIGNAL_HANDLER
 	alpha = 255
 
 /// Checks who's on top of the wireweed itself, if a faction mod heal them slowly
-/obj/structure/fleshmind/wireweed/proc/on_entered(datum/source, atom/movable/moving_atom)
+/obj/structure/infected/wireweed/proc/on_entered(datum/source, atom/movable/moving_atom)
 	SIGNAL_HANDLER
 	if(!isliving(moving_atom))
 		return
