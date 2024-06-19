@@ -209,6 +209,11 @@
 	icon_state = "bands"
 	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
+/datum/body_marking/other/chitin
+	name = "Chitin"
+	icon_state = "chitin"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+
 /datum/body_marking/other/bands_foot
 	name = "Color Bands (Foot)"
 	icon_state = "bands_foot"
