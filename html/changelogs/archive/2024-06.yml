@@ -782,3 +782,60 @@
       with upgraded parts (required for tier 3 parts)
   - rscdel: Removed material scanning experiments from the tech tree
   - bugfix: Non-metallic slime types are semi-transparent
+2024-06-19:
+  00-Steven:
+  - bugfix: Latejoiners' alt titles, general/medical/security records, backgrounds,
+      and exploitable information are actually saved to the manifest data. This means
+      your general/medical/security records actually show up in the records console
+      again.
+  Bisar:
+  - rscadd: Sparks now ignite flammable things. Including you. Keep a fire extinguisher
+      handy or stop dousing yourself in welding fuel!
+  - bugfix: Fixed a few oversights with welding fuel pools not igniting when you throw
+      lit/hot things into them or when you walk into them while on fire.
+  GoldenAlpharex:
+  - bugfix: APCs have received another budget cut, and will no longer come with surge
+      protectors built-in. Be careful of those electricity arcs if there's too much
+      power in the grid!
+  LT3:
+  - qol: APCs will sometimes spark or overload before arcing
+  Melbert, vinylspiders:
+  - balance: Re-adds Bagulo (config disabled on nova)
+  - balance: 'The max number of bluespace cores available to the crew has been increased
+      to 16 (was: 8)'
+  - balance: Chucking a BoH into an uncharged singulo may save the station.
+  Motho, vinylspiders, LT3:
+  - rscadd: Ported the Character Directory from Bubberstation. Now you can advertise
+      your silly little characters! To view the character directory, check the OOC
+      tab in the verb panel.
+  NovaBot13:
+  - bugfix: Mining borgs can get multiple modkits of the same type installed again.
+  - bugfix: you may now open the panel of a flatpacker with a screwdriver
+  - qol: A message with a link to publicly accessible logs (if enabled by your server
+      operators) should now be visible far earlier when a world is about to reboot.
+  - rscadd: the advanced omnitool upgrade now hastens the mediborg's syringe too
+  - bugfix: TGUI say will no longer spill your /me contents when you get attacked
+  - bugfix: Transcendent Olfaction mutation now works properly
+  - balance: Gorillas have big fingers, which mostly just prevents them from using
+      laser pointers and stun batons
+  - balance: Negative mutations now allow you to have more positive mutations, via
+      reducing your instability!
+  - code_imp: All mutations have been overall standardized via defines on their instability
+      values. Many mediocre positive mutations have had their cost reduced significantly!
+  - rscadd: 'Added a new height mutation: Acromegaly! It''s the opposite of Dwarfism
+      and makes you uncannily tall. It also makes you hit your head 8% or 4% (with
+      synch) of the time  you pass through airlocks. Wear a helmet!'
+  - rscadd: Gigantism is now a recipe mutation, mix Acromegaly with Strength to get
+      it.
+  - qol: Injectors and activators' duration is now dependent on the in/stability (absolute
+      value) of the mutations to be injected! With a minimum of 5-10-15 seconds for
+      each type of injector. Also changed up a bit how part upgrade cooldowns work,
+      by making each tier reduce cooldowns by 25-15-10% for each injector type.
+  - sound: added squeaky turn and gas hissing sound to gas valve
+  kittysmooch:
+  - rscadd: 'a new hairstyle, the enigmatic mcsqueeb, has appeared in frontier stylist
+      catalogues.
+
+      :cl:'
+  vinylspiders:
+  - bugfix: adds back the missing nova-specific techweb nodes that went missing

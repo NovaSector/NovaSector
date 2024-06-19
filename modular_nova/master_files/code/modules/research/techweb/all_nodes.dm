@@ -157,13 +157,13 @@
 
 // Modularly removes x-ray and thermals from here, it's in adv_vision instead
 /datum/techweb_node/cyber/cyber_organs_adv/New()
-	. = ..()
 	design_ids -= list(
 		"ci-thermals",
 		"ci-xray",
 		"ci-thermals-moth",
 		"ci-xray-moth",
 	)
+	return ..()
 
 ////////////////////////Tools////////////////////////
 
@@ -174,7 +174,6 @@
 	return ..()
 
 /datum/techweb_node/sec_equip/New()
-	. = ..()
 	design_ids += list(
 		"nifsoft_remover",
 	)
