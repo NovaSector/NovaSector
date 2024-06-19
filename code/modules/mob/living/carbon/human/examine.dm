@@ -393,12 +393,14 @@
 		. += trait_exam
 
 	if(isliving(user))
-		var/mob/living/morbid_weirdo = user
-		if(HAS_MIND_TRAIT(morbid_weirdo, TRAIT_MORBID))
+		var/mob/living/privacy_invader = user
+		if(HAS_MIND_TRAIT(privacy_invader, TRAIT_MORBID))
 			if(HAS_TRAIT(src, TRAIT_DISSECTED))
 				msg += "[span_notice("[t_He] appears to have been dissected. Useless for examination... <b><i>for now.</i></b>")]\n"
 			if(HAS_TRAIT(src, TRAIT_SURGICALLY_ANALYZED))
 				msg += "[span_notice("A skilled hand has mapped this one's internal intricacies. It will be far easier to perform future experimentations upon [t_him]. <b><i>Exquisite.</i></b>")]\n"
+		if(HAS_MIND_TRAIT(privacy_invader, TRAIT_EXAMINE_FITNESS))
+			. += compare_fitness(user)
 
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
@@ -497,6 +499,8 @@
 		flavor_text_link = span_notice("<a href='?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine closely...\]</a>")
 	if (flavor_text_link)
 		. += flavor_text_link
+	if (!face_obscured && !HAS_TRAIT(src, TRAIT_UNKNOWN) && client?.prefs.read_preference(/datum/preference/text/character_ad))
+		. += span_notice("[t_He] [t_has] an ad in the character directory... <a href='?src=[REF(src)];lookup_info=open_character_ad'>\[Open directory?\]</a>")
 
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)

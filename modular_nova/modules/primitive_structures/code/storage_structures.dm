@@ -5,20 +5,26 @@
 	icon_state = "shelf_wood"
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
+	interaction_flags_mouse_drop = NEED_DEXTERITY
 
-/obj/structure/rack/wooden/MouseDrop_T(obj/object, mob/user, params)
-	. = ..()
-	if(!.)
+/obj/structure/rack/wooden/mouse_drop_receive(atom/dropping, mob/user, params)
+	if ((!isitem(dropping) || user.get_active_held_item() != dropping))
 		return
+
+	if(!user.dropItemToGround(dropping))
+		return
+
+	if(dropping.loc != src.loc)
+		step(dropping, get_dir(dropping, src))
 
 	var/list/modifiers = params2list(params)
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
 
-	object.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size / 3), world.icon_size / 3)
-	object.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
+	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size / 3), world.icon_size / 3)
+	dropping.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
 
-/obj/structure/rack/wrench_act_secondary(mob/living/user, obj/item/tool)
+/obj/structure/rack/wooden/wrench_act_secondary(mob/living/user, obj/item/tool)
 	return NONE
 
 /obj/structure/rack/wooden/crowbar_act(mob/living/user, obj/item/tool)
@@ -51,8 +57,8 @@
 	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/wooden
-	base_icon_state = "producebin"
 	icon_state = "producebin"
+	base_icon_state = "produce" // This is used to decide which overlay to display. Blame upstream.
 	use_power = NO_POWER_USE
 	light_power = 0
 	idle_power_usage = 0
@@ -63,6 +69,7 @@
 
 /obj/machinery/smartfridge/wooden/Initialize(mapload)
 	. = ..()
+	welded_down = FALSE
 	if(type == /obj/machinery/smartfridge/wooden) // don't even let these prototypes exist
 		return INITIALIZE_HINT_QDEL
 
@@ -95,7 +102,7 @@
 	desc = "A wooden hamper, used to hold plant products and try to keep them safe from pests."
 	icon_state = "producebin"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_bin
-	base_icon_state = "producebin"
+	base_icon_state = "produce" // This is used to decide which overlay to display. Blame upstream.
 
 /obj/machinery/smartfridge/wooden/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
@@ -113,7 +120,7 @@
 	base_build_path = /obj/machinery/smartfridge/wooden/seed_shelf
 	base_icon_state = "seed"
 
-/obj/machinery/smartfridge/wooden/seed_shelf/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/seed_shelf/accept_check(obj/item/item_to_check)
 	return istype(item_to_check, /obj/item/seeds)
 
 /obj/machinery/smartfridge/wooden/ration_shelf
@@ -123,7 +130,7 @@
 	base_build_path = /obj/machinery/smartfridge/wooden/ration_shelf
 	base_icon_state = "ration"
 
-/obj/machinery/smartfridge/wooden/ration_shelf/wooden/accept_check(obj/item/item_to_check)
+/obj/machinery/smartfridge/wooden/ration_shelf/accept_check(obj/item/item_to_check)
 	return (IS_EDIBLE(item_to_check) || (istype(item_to_check,/obj/item/reagent_containers/cup/bowl) && length(item_to_check.reagents?.reagent_list)))
 
 /obj/machinery/smartfridge/wooden/produce_display

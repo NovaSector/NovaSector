@@ -15,6 +15,7 @@ import {
   Stack,
   Tabs,
   Tooltip,
+  VirtualList,
 } from '../components';
 import { Window } from '../layouts';
 import { Food } from './PreferencesMenu/data';
@@ -499,32 +500,36 @@ export const PersonalCrafting = (props) => {
               style={{ overflowY: 'auto' }}
             >
               {recipes.length > 0 ? (
-                recipes
-                  .slice(0, displayLimit)
-                  .map((item) =>
-                    display_compact ? (
-                      <RecipeContentCompact
-                        key={item.ref}
-                        item={item}
-                        craftable={
-                          !item.non_craftable && Boolean(craftability[item.ref])
-                        }
-                        busy={busy}
-                        mode={mode}
-                      />
-                    ) : (
-                      <RecipeContent
-                        key={item.ref}
-                        item={item}
-                        craftable={
-                          !item.non_craftable && Boolean(craftability[item.ref])
-                        }
-                        busy={busy}
-                        mode={mode}
-                        diet={diet}
-                      />
-                    ),
-                  )
+                <VirtualList>
+                  {recipes
+                    .slice(0, displayLimit)
+                    .map((item) =>
+                      display_compact ? (
+                        <RecipeContentCompact
+                          key={item.ref}
+                          item={item}
+                          craftable={
+                            !item.non_craftable &&
+                            Boolean(craftability[item.ref])
+                          }
+                          busy={busy}
+                          mode={mode}
+                        />
+                      ) : (
+                        <RecipeContent
+                          key={item.ref}
+                          item={item}
+                          craftable={
+                            !item.non_craftable &&
+                            Boolean(craftability[item.ref])
+                          }
+                          busy={busy}
+                          mode={mode}
+                          diet={diet}
+                        />
+                      ),
+                    )}
+                </VirtualList>
               ) : (
                 <NoticeBox m={1} p={1}>
                   No recipes found.
@@ -590,6 +595,23 @@ const MaterialContent = (props) => {
 
 const FoodtypeContent = (props) => {
   const { type, diet, craftableCount } = props;
+  let iconName = '',
+    iconColor = '';
+
+  // We use iconName in the return to see if this went through.
+  if (type !== 'Can Make' && diet) {
+    if (diet.liked_food.includes(type)) {
+      iconName = 'face-laugh-beam';
+      iconColor = 'good';
+    } else if (diet.disliked_food.includes(type)) {
+      iconName = 'face-tired';
+      iconColor = 'average';
+    } else if (diet.toxic_food.includes(type)) {
+      iconName = 'skull-crossbones';
+      iconColor = 'bad';
+    }
+  }
+
   return (
     <Stack>
       <Stack.Item width="14px" textAlign="center">
@@ -601,16 +623,7 @@ const FoodtypeContent = (props) => {
       <Stack.Item>
         {type === 'Can Make'
           ? craftableCount
-          : diet &&
-            (diet.liked_food.includes(type) ? (
-              <Icon name="face-laugh-beam" color={'good'} />
-            ) : diet.disliked_food.includes(type) ? (
-              <Icon name="face-tired" color={'average'} />
-            ) : (
-              diet.toxic_food.includes(type) && (
-                <Icon name="skull-crossbones" color={'bad'} />
-              )
-            ))}
+          : iconName && <Icon name={iconName} color={iconColor} />}
       </Stack.Item>
     </Stack>
   );

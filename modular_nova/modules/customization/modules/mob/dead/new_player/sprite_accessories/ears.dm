@@ -147,6 +147,10 @@
 	name = "Broad Elf"
 	icon_state = "elfbroad"
 
+/datum/sprite_accessory/ears/mutant/elf/broad/reverse
+	name = "Broad Elf, Reversed"
+	icon_state = "elfbroadreverse"
+
 /datum/sprite_accessory/ears/mutant/elf/longer
 	name = "Longer Elf"
 	icon_state = "elflonger"
@@ -266,6 +270,26 @@
 /datum/sprite_accessory/ears/mutant/antenna_fuzzball_v2
 	name = "Fuzzball antenna (coloring 3+1)"
 	icon_state = "antenna_fuzzballv2"
+
+/datum/sprite_accessory/ears/mutant/setaceous
+	name = "Setaceous Antenna"
+	icon_state = "setaceous"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/setaceousm
+	name = "Medium Setaceous Antenna"
+	icon_state = "setaceousm"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/geniculate
+	name = "Geniculate Antenna"
+	icon_state = "geniculate"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/big/eyes
+	name = "Eye Antenna"
+	icon_state = "eyes"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/mutant/cobrahood
 	name = "Cobra Hood"

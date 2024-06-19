@@ -664,7 +664,7 @@
 		/obj/machinery/vending/access/command = "Command Outfitting Station", //NOVA EDIT ADDITION
 		/obj/machinery/vending/barbervend = "Fab-O-Vend", //NOVA EDIT ADDITION
 		/obj/machinery/vending/dorms = "LustWish",	//NOVA EDIT CHANGE - ERP UPDATE - ORIGINAL: /obj/machinery/vending/dorms = "KinkVend"
-		/obj/machinery/vending/imported = "NT Sustenance Supplier", //NOVA EDIT ADDITION
+		/obj/machinery/vending/imported/nt = "NT Sustenance Supplier", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies", //NOVA EDIT ADDITION
 		/obj/machinery/vending/imported/yangyu = "Fudobenda", //NOVA EDIT ADDITION
@@ -922,8 +922,7 @@
 		/datum/stock_part/matter_bin = 2,
 		/datum/stock_part/capacitor = 1,
 		/datum/stock_part/servo = 1,
-		/obj/item/stack/sheet/glass = 1,
-		/obj/item/stock_parts/cell = 1)
+		/obj/item/stack/sheet/glass = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/stasis
@@ -1617,4 +1616,15 @@
 		/datum/stock_part/capacitor/tier2 = 2,
 		/datum/stock_part/micro_laser/tier2 = 2,
 		/obj/item/stack/sheet/plasteel = 2,
+	)
+
+/obj/item/circuitboard/machine/flatpacker
+	name = "Flatpacker"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/flatpacker
+	req_components = list(
+		/datum/stock_part/matter_bin = 2,
+		/datum/stock_part/micro_laser = 2,
+		/datum/stock_part/servo = 1,
+		/obj/item/stack/sheet/plasteel = 5,
 	)

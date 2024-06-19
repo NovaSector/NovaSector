@@ -75,14 +75,6 @@ required_map = "MetaStation.dmm"
 coordinates = [163, 155, 1]
 trait_name = "Station"
 
-# Metastation Virologist Spawn
-[templates.metastation_virologist]
-map_files = ["metastation_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/metastation/"
-required_map = "MetaStation.dmm"
-coordinates = [56, 86, 1]
-trait_name = "Station"
-
 # DELTASTATION MAP EDITS
 # Deltastation Arrivals
 [templates.deltastation_arrivals]
@@ -130,14 +122,6 @@ map_files = ["deltastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [84, 109, 1]
-trait_name = "Station"
-
-# Deltastation Virologist Spawn
-[templates.deltastation_virologist]
-map_files = ["deltastation_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/deltastation/"
-required_map = "DeltaStation2.dmm"
-coordinates = [134, 45, 1]
 trait_name = "Station"
 
 # ICEBOX MAP EDITS
@@ -197,14 +181,6 @@ required_map = "IceBoxStation.dmm"
 coordinates = [114, 65, 3]
 trait_name = "Station"
 
-# Icebox Virologist Spawn
-[templates.icebox_virologist]
-map_files = ["icebox_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/icebox/"
-required_map = "IceBoxStation.dmm"
-coordinates = [153, 109, 2]
-trait_name = "Station"
-
 # Icecats Camp Lower Level
 [templates.icebox_icecats_lower]
 map_files = ["icemoon_underground_icewalker_lower.dmm"]
@@ -219,6 +195,14 @@ map_files = ["icemoon_underground_icewalker_upper.dmm"]
 directory = "_maps/RandomRuins/IceRuins/nova/"
 required_map = "IceBoxStation.dmm"
 coordinates = [202, 16, 2]
+trait_name = "Station"
+
+# Icebox Raptor Ranch
+[templates.icebox_ranch]
+map_files = ["icebox_ranch.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [57, 82, 2]
 trait_name = "Station"
 
 # TRAMSTATION MAP EDITS
@@ -270,14 +254,6 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
-# Tramstation Virologist Spawn
-[templates.tramstation_virologist]
-map_files = ["tramstation_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/tramstation/"
-required_map = "tramstation.dmm"
-coordinates = [141, 94, 2]
-trait_name = "Station"
-
 # BIRDSHOT MAP EDITS
 # Birdshot Arrivals
 [templates.birdshot_arrivals]
@@ -300,7 +276,7 @@ trait_name = "Station"
 map_files = ["birdshot_cryo.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
-coordinates = [147, 142, 1]
+coordinates = [142, 84, 1]
 trait_name = "Station"
 
 # Birdshot Barber
@@ -333,14 +309,6 @@ map_files = ["birdshot_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
 coordinates = [65, 212, 1]
-trait_name = "Station"
-
-# Birdshot Virologist Spawn
-[templates.birdshot_virologist]
-map_files = ["birdshot_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [123, 73, 1]
 trait_name = "Station"
 
 # NORTHSTAR MAP EDITS
@@ -408,14 +376,6 @@ required_map = "north_star.dmm"
 coordinates = [171, 129, 1]
 trait_name = "Station"
 
-# Northstar Virologist Spawn
-[templates.northstar_virologist]
-map_files = ["northstar_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [143, 141, 2]
-trait_name = "Station"
-
 # Lavaland NE Ashwalker Fortress
 [templates.lavaland_ashwalker_fortress]
 map_files = ["lavaland_ashwalker_fortress.dmm"]
@@ -423,3 +383,84 @@ directory = "_maps/nova/automapper/templates/mining/"
 required_map = "Lavaland.dmm"
 coordinates = [203, 223, 1]
 trait_name = "Mining"
+
+# WAWASTATION MAP EDITS
+# Wawastation Lockers
+[templates.wawastation_lockers]
+map_files = ["wawastation_lockers.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [111, 93, 1]
+trait_name = "Station"
+
+# Wawastation Arrivals
+[templates.wawastation_arrivals]
+map_files = ["wawastation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [69, 81, 2]
+trait_name = "Station"
+
+# Wawastation Corridor
+[templates.wawastation_corridor]
+map_files = ["wawastation_corridor.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [81, 101, 2]
+trait_name = "Station"
+
+# Wawastation Commons
+[templates.wawastation_commons]
+map_files = ["wawastation_commons.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [109, 88, 2]
+trait_name = "Station"
+
+# Wawastation NTR Office
+[templates.wawastation_ntrep_office]
+map_files = ["wawastation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [108, 122, 1]
+trait_name = "Station"
+
+# Wawastation Elevator
+[templates.wawastation_elevator]
+map_files = ["wawastation_elevator.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [86, 89, 1]
+trait_name = "Station"
+
+# Wawastation Supermatter
+[templates.wawastation_supermatter]
+map_files = ["wawastation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [162, 63, 1]
+trait_name = "Station"
+
+# Wawastation Barber
+[templates.wawastation_barber]
+map_files = ["wawastation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [116, 111, 2]
+trait_name = "Station"
+
+# Wawastation Kiosk
+[templates.wawastation_kiosk]
+map_files = ["wawastation_kiosk.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [133, 94, 2]
+trait_name = "Station"
+
+# Wawastation Armory
+[templates.wawastation_armory]
+map_files = ["wawastation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [63, 127, 2]
+trait_name = "Station"

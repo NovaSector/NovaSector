@@ -200,6 +200,14 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 *	UTILITY
 */
 
+/datum/loadout_item/pocket_items/hairbrush
+	name = "Hairbrush"
+	item_path = /obj/item/hairbrush
+
+/datum/loadout_item/pocket_items/comb
+	name = "Comb"
+	item_path = /obj/item/hairbrush/comb
+
 /datum/loadout_item/pocket_items/moth_mre
 	name = "Mothic Rations Pack"
 	item_path = /obj/item/storage/box/mothic_rations
@@ -223,6 +231,10 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 /datum/loadout_item/pocket_items/deforest_frontiermedkit
 	name = "Frontier Medical Kit"
 	item_path = /obj/item/storage/medkit/frontier/stocked
+
+/datum/loadout_item/pocket_items/synthetic_medkit
+	name = "Robotic Repair Equipment Kit"
+	item_path = /obj/item/storage/medkit/robotic_repair/stocked
 
 /datum/loadout_item/pocket_items/ingredients
 	name = "Wildcard Ingredient Box"

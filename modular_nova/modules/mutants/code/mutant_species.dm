@@ -4,7 +4,6 @@
 	name = "High-Functioning mutant"
 	id = SPECIES_MUTANT
 	meat = /obj/item/food/meat/slab/human/mutant/zombie
-	eyes_icon = 'modular_nova/modules/mutants/icons/mutant_eyes.dmi'
 	inherent_traits = list(
 		TRAIT_NOBLOOD,
 		TRAIT_NODISMEMBER,
@@ -213,11 +212,8 @@
 	else
 		icon_state = icon_right
 
-/obj/item/hnz_mutant_hand/afterattack(atom/target, mob/user, proximity_flag)
-	. = ..()
-	if(!proximity_flag)
-		return
-	else if(isliving(target))
+/obj/item/hnz_mutant_hand/afterattack(atom/target, mob/user, click_parameters)
+	if(isliving(target))
 		if(ishuman(target))
 			try_to_mutant_infect(target, user = user)
 		else
