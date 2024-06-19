@@ -2,7 +2,6 @@
 /datum/mutation/human/nearsight
 	name = "Near Sightness"
 	desc = "The holder of this mutation has poor eyesight."
-	instability = NEGATIVE_STABILITY_MODERATE
 	quality = MINOR_NEGATIVE
 	text_gain_indication = "<span class='danger'>You can't see very well.</span>"
 
@@ -20,7 +19,6 @@
 /datum/mutation/human/blind
 	name = "Blindness"
 	desc = "Renders the subject completely blind."
-	instability = NEGATIVE_STABILITY_MAJOR
 	quality = NEGATIVE
 	text_gain_indication = "<span class='danger'>You can't seem to see anything.</span>"
 
@@ -42,7 +40,8 @@
 	difficulty = 18
 	text_gain_indication = "<span class='notice'>You can see the heat rising off of your skin...</span>"
 	text_lose_indication = "<span class='notice'>You can no longer see the heat rising off of your skin...</span>"
-	instability = POSITIVE_INSTABILITY_MAJOR // thermals aren't station equipment
+	instability = 25
+	locked = TRUE //NOVA EDIT ADDITION
 	synchronizer_coeff = 1
 	power_coeff = 1
 	energy_coeff = 1
@@ -112,7 +111,7 @@
 	name = "X Ray Vision"
 	desc = "A strange genome that allows the user to see between the spaces of walls." //actual x-ray would mean you'd constantly be blasting rads, wich might be fun for later //hmb
 	text_gain_indication = "<span class='notice'>The walls suddenly disappear!</span>"
-	instability = POSITIVE_INSTABILITY_MAJOR
+	instability = 35
 	locked = TRUE
 
 /datum/mutation/human/xray/on_acquiring(mob/living/carbon/human/owner)
@@ -184,7 +183,6 @@
 /datum/mutation/human/illiterate
 	name = "Illiterate"
 	desc = "Causes a severe case of Aphasia that prevents reading or writing."
-	instability = NEGATIVE_STABILITY_MAJOR
 	quality = NEGATIVE
 	text_gain_indication = "<span class='danger'>You feel unable to read or write.</span>"
 	text_lose_indication = "<span class='danger'>You feel able to read and write again.</span>"

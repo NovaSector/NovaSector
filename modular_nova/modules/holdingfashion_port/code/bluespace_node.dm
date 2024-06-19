@@ -1,6 +1,2 @@
-/datum/techweb_node/anomaly_shells/New()
-	design_ids += list(
-		"satchel_holding",
-		"duffel_holding",
-	)
-	return ..()
+/datum/techweb_node/advanced_bluespace
+	design_ids = list("bag_holding", "satchel_holding", "duffel_holding")

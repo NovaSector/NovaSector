@@ -4,7 +4,7 @@
 	quality = POSITIVE
 	difficulty = 16
 	text_gain_indication = "<span class='notice'>Your body feels warm!</span>"
-	instability = POSITIVE_INSTABILITY_MAJOR
+	instability = 25
 	conflicts = list(/datum/mutation/human/pressure_adaptation)
 
 /datum/mutation/human/temperature_adaptation/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)
@@ -31,7 +31,7 @@
 	quality = POSITIVE
 	difficulty = 16
 	text_gain_indication = "<span class='notice'>Your body feels numb!</span>"
-	instability = POSITIVE_INSTABILITY_MAJOR
+	instability = 25
 	conflicts = list(/datum/mutation/human/temperature_adaptation)
 
 /datum/mutation/human/pressure_adaptation/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)

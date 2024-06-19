@@ -144,18 +144,18 @@
 	var/open_feature_key = "wingsopen"
 
 /datum/bodypart_overlay/mutant/wings/functional/get_global_feature_list()
-	/* NOVA EDIT REMOVAL - CUSTOMIZATION
+	/* NOVA EDIT - CUSTOMIZATION - ORIGINAL:
 	if(wings_open)
-		return SSaccessories.wings_open_list
+		return GLOB.wings_open_list
 	else
-		return SSaccessories.wings_list
-	*/ // NOVA EDIT REMOVAL END
-	// NOVA EDIT ADDITION START
+		return GLOB.wings_list
+	*/ // ORIGINAL END - NOVA EDIT START - CUSTOMIZATION - TODO: Add support for wings_open
 	if(wings_open)
-		return SSaccessories.sprite_accessories["wings_open"]
+		return GLOB.sprite_accessories["wings_open"]
 
-	return SSaccessories.sprite_accessories["wings"]
-	// NOVA EDIT ADDITION END
+	return GLOB.sprite_accessories["wings"]
+	// NOVA EDIT END
+
 ///Update our wingsprite to the open wings variant
 /datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()
 	wings_open = TRUE

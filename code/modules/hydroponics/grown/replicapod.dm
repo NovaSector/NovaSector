@@ -196,10 +196,8 @@
 	podman.faction |= factions
 	if(!features["mcolor"])
 		features["mcolor"] = "#59CE00"
-	/* NOVA EDIT REMOVAL START
-	if(!features["pod_hair"])
-		features["pod_hair"] = pick(SSaccessories.pod_hair_list)
-	*/ //NOVA EDIT REMOVAL END - Tricolor Pod Hair
+	/*if(!features["pod_hair"])
+		features["pod_hair"] = pick(GLOB.pod_hair_list)*/ //NOVA EDIT - Tricolor Pod Hair
 
 	for(var/V in quirks)
 		new V(podman)

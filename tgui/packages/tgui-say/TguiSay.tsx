@@ -162,7 +162,7 @@ export class TguiSay extends Component<{}, State> {
       ? prefix + currentValue
       : currentValue;
 
-    this.messages.forceSayMsg(grunt, this.channelIterator.current());
+    this.messages.forceSayMsg(grunt);
     this.reset();
   }
 
@@ -274,7 +274,6 @@ export class TguiSay extends Component<{}, State> {
   };
 
   reset() {
-    this.currentPrefix = null;
     this.setValue('');
     this.setSize();
     this.setState({

@@ -6,7 +6,7 @@
 	difficulty = 16
 	text_gain_indication = "<span class='notice'>You feel one with your surroundings.</span>"
 	text_lose_indication = "<span class='notice'>You feel oddly exposed.</span>"
-	instability = POSITIVE_INSTABILITY_MAJOR
+	instability = 25
 	power_coeff = 1
 
 /datum/mutation/human/chameleon/on_acquiring(mob/living/carbon/human/owner)

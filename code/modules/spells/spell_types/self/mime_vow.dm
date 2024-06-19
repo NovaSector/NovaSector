@@ -8,8 +8,7 @@
 	panel = "Mime"
 
 	school = SCHOOL_MIME
-	//MMI mimes should be able to break their vow
-	spell_requirements = SPELL_CASTABLE_AS_BRAIN
+	spell_requirements = NONE
 
 	spell_max_level = 1
 

@@ -99,7 +99,7 @@
 
 
 /datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
-	return SSaccessories.sprite_accessories["taur"]
+	return GLOB.sprite_accessories["taur"]
 
 
 /obj/item/organ/external/taur_body/Insert(mob/living/carbon/receiver, special, movement_flags)

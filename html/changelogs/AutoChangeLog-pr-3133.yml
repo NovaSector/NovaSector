@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Fixed techweb app showing wrong designs on Details button click"

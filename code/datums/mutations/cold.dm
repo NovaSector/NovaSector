@@ -3,7 +3,7 @@
 	desc = "Allows the user to concentrate moisture and sub-zero forces into snow."
 	quality = POSITIVE
 	text_gain_indication = "<span class='notice'>Your hand feels cold.</span>"
-	instability = POSITIVE_INSTABILITY_MINOR
+	instability = 10
 	difficulty = 10
 	synchronizer_coeff = 1
 	power_path = /datum/action/cooldown/spell/conjure_item/snow
@@ -25,7 +25,7 @@
 	desc = "Draws negative energy from the sub-zero void to freeze surrounding temperatures at subject's will."
 	quality = POSITIVE //upsides and downsides
 	text_gain_indication = "<span class='notice'>Your hand feels cold.</span>"
-	instability = POSITIVE_INSTABILITY_MODERATE
+	instability = 30
 	difficulty = 12
 	synchronizer_coeff = 1
 	energy_coeff = 1
