@@ -41,6 +41,9 @@
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
 
+	var/mutable_appearance/character_appearance = new(spawned_human.appearance)
+	GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
+
 	return spawned_mob
 
 /// This edit would cause somewhat ugly diffs, so I'm just replacing it.
