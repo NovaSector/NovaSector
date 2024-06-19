@@ -27700,6 +27700,7 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
+/obj/structure/sign/poster/timeclock_psa/directional/west,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -27801,7 +27802,7 @@
 /obj/effect/turf_decal/box,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light/cold/directional/north,
-/obj/machinery/airalarm/directional/north,
+/obj/structure/sign/poster/timeclock_psa/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/common/cryopods)
 "ier" = (
@@ -29110,7 +29111,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/newscaster/directional/south,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark/small,
 /area/station/common/cryopods)
 "ixC" = (
@@ -35191,12 +35192,12 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/effect/turf_decal/lunar_sand/plating,
 /obj/effect/turf_decal/box,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/lunar_sand/plating,
+/turf/open/floor/plating/airless,
 /area/station/asteroid)
 "kjK" = (
 /turf/closed/wall,
@@ -37569,7 +37570,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/checker,
 /area/station/hallway/primary/central/aft)
 "kQK" = (
 /obj/structure/railing{

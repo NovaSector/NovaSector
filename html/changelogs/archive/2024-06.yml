@@ -655,3 +655,187 @@
   honkpocket:
   - balance: the long to short range bluespace transceiver has received the same fate
       cloning machines have (theyre gone)
+2024-06-16:
+  00-Steven:
+  - qol: Narcolepsy now has parity with All Nighter regarding drinks that offset the
+      effects. Most importantly, the coffee variants actually reduces your sleepy
+      chances just like coffee.
+  BurgerBB:
+  - bugfix: Tweaks some instances of get_safe_turf so things like the nuclear disk
+      doesn't accidentally teleport to the Icebox Syndicate Base
+  Goat:
+  - bugfix: A wrecked shuttle on lavaland no longer has asteroid tiles containing
+      the danger of space.
+  - code_imp: Added volcanic versions of all mineral turfs for those that did not
+      have it.
+  LT3:
+  - bugfix: Wawastation barber and NT rep office are no longer blocked off by a wall
+  - bugfix: Wawastation NT rep office moved to command hallway
+  - bugfix: Various minor Wawastation fixes and updates
+  NovaBot13:
+  - qol: You can now repair portable scrubbers and pumps.
+  - refactor: Refactored wall button code, please report any issues.
+  - bugfix: Wall buttons actually drop their contents when destroyed.
+  - sound: Putting items into wall buttons actually plays a sound. This matters for
+      assembly devices, but airlock electronics do not have a sound.
+  - qol: Added screentips to wall buttons.
+  - qol: You can now take out the airlock electronics or assembly device out of wall
+      buttons individually. Left click prioritises the board, right click prioritises
+      the device.
+  - qol: Wall buttons are renamable with a pen when opened.
+  - qol: Attempting to wrench deconstruct a wall button or put in airlock electronics
+      or an assembly device when you can't actually gives feedback.
+  - rscadd: Cats and Dogs can lick slashing wounds clean.
+  - rscadd: Basic Mobs with hands can relocate dislocated bones, and pluck eyeballs
+      out of pulped skulls.
+  - balance: Gorillas can strangle people.
+  - balance: Phazon mechs use ectoplasm cores now
+  - balance: You can now acquire ectoplasm cores from the science supply interface
+  - qol: Changes description of steal objective to match the name
+  - qol: Baby plushies are now smaller than their parents
+  - bugfix: Fixed revenant spawning next to brains and other unharvestable dead mobs.
+  - bugfix: Fixed the patient information for the mech sleeper module not displaying
+      when the mech didn't also have a syringe gun.
+  - rscadd: the flatpacker, a machine unlocked at industrial engineering
+  - bugfix: Neutralising an anomaly cannot produce more anomaly cores than are supposed
+      to exist in a single round
+  - bugfix: Crayons now fit in pdas
+  - bugfix: The reset button in the bluespace launchpad UI should work again.
+  - bugfix: Cosmos spells will no longer star mark your steed
+  ShizCalev:
+  - bugfix: Fixed some surgery failure states not properly setting the correct mood
+      event.
+  - refactor: Minor refactor to how surgery events work, there is now better support
+      for per-surgery mood events!
+  WebcomicArtist:
+  - bugfix: Healium bolt now no longer affects silicons.
+2024-06-17:
+  Hacks-The-Doors:
+  - balance: dental pills can now be used in crit.
+  - balance: dental pills now give off a message when you start using them
+  - balance: dental pills have a 2.5 second delay when in soft crit
+  Melbert:
+  - sound: Portals made by portal guns now make sounds as expected
+  - sound: Wormholes from the wormhole event now make sounds when formed
+  - bugfix: Heirophant Club Blink at range
+  - bugfix: Crusher Loot
+  - bugfix: RCD material reclamation
+  - refactor: Over 200 item interactions have been refactored to use a newer, easier-to-use
+      system. Report any oddities with using items on other objects you may see (such
+      as surgery, reagent containers like cups and spray bottles, or construction
+      devices), especially using something at range (such as guns or chisels)
+  - refactor: Item-On-Modsuit interactions have changed slightly. While on combat
+      mode, you will attempt to "use" the item on the suit instead of inserting it
+      into the suit's storage. This means being on combat mode while the suit's panel
+      is open will block you from inserting items entirely via click (but other methods
+      such as hotkey, clicking on the storage boxes, and mousedrop will still work).
+  - refactor: The detective's scanner will now be inserted into storage items if clicked
+      normally, and will scan the storage item if on combat mode
+  - qol: Attack animations for cult spells on attackable objects (people, airlocks)
+  - bugfix: Fix cult spells on non-attackable objects (metal sheets, blood decals)
+  - bugfix: Fix inability to make r-glass by hand inside your backpack
+  NovaBot13:
+  - balance: Certain changeling abilities won't work while on fire.
+  - sound: added compressed air sound for when air tanks are inserted into machinery
+  Thlumyn:
+  - bugfix: fix active turf in virology disposal outlet on OB station
+  grungussuss:
+  - rscadd: Added Misha the bear to the HoS office on icebox.
+2024-06-18:
+  Bisar:
+  - balance: Replaced the free reagent purging with actually purging by exploding
+      someone in the blood while they have omnizine and a purgative in their bloodstream.
+      Let's go practice medicine!
+  - bugfix: Fixed the free reagent purging mechanic from causing an explosion so weak
+      that it doesn't cause any damage.
+  FlufflesTheDog:
+  - bugfix: railings can be deconstructed
+  - bugfix: racks can be deconstructed
+  - bugfix: window polarizers can be linked again
+  - bugfix: hyposprays can be attached to hypokits
+  Goat:
+  - qol: fire extinguishers can now be filled via stationary tanks. (and water coolers)
+  LT3:
+  - image: Added time clock informational poster to all maps
+  Melbert:
+  - bugfix: Crusher Fix For Real
+  - qol: Block'd out armor readout, should be more readable now
+  NeonNik2245:
+  - bugfix: Catnip distillation gives you pink milk, as it intended
+  NovaBot13:
+  - bugfix: ctrl+shift clicking on a ghost will only quick spawn that clicked target
+      and not you
+  - bugfix: Fixed mulebots being able to run over people who are leaning against a
+      wall.
+  - bugfix: build mode and space dragons dont harddel on destroy
+  - bugfix: allows cigarette grinding in mortar
+  - qol: adds a confirmation to malf AI shunting into APCs
+  - bugfix: Fixed anomaly cores from the high-intensity grav anomaly event creating
+      the wrong type of reactive armour.
+  - balance: Reshuffled tech tree, making nodes more specialized
+  - qol: Research points devided by the amount generated per second, so now research
+      points correspond to seconds
+  - rscadd: Introduced reagent purity scan experiments (required for Cryostasis node)
+  - rscadd: Introduced synthetic organ scan experiment (required for top tier cyber
+      organs)
+  - rscadd: Added a variant of machinery scan experiment that accepts any machines
+      with upgraded parts (required for tier 3 parts)
+  - rscdel: Removed material scanning experiments from the tech tree
+  - bugfix: Non-metallic slime types are semi-transparent
+2024-06-19:
+  00-Steven:
+  - bugfix: Latejoiners' alt titles, general/medical/security records, backgrounds,
+      and exploitable information are actually saved to the manifest data. This means
+      your general/medical/security records actually show up in the records console
+      again.
+  Bisar:
+  - rscadd: Sparks now ignite flammable things. Including you. Keep a fire extinguisher
+      handy or stop dousing yourself in welding fuel!
+  - bugfix: Fixed a few oversights with welding fuel pools not igniting when you throw
+      lit/hot things into them or when you walk into them while on fire.
+  GoldenAlpharex:
+  - bugfix: APCs have received another budget cut, and will no longer come with surge
+      protectors built-in. Be careful of those electricity arcs if there's too much
+      power in the grid!
+  LT3:
+  - qol: APCs will sometimes spark or overload before arcing
+  Melbert, vinylspiders:
+  - balance: Re-adds Bagulo (config disabled on nova)
+  - balance: 'The max number of bluespace cores available to the crew has been increased
+      to 16 (was: 8)'
+  - balance: Chucking a BoH into an uncharged singulo may save the station.
+  Motho, vinylspiders, LT3:
+  - rscadd: Ported the Character Directory from Bubberstation. Now you can advertise
+      your silly little characters! To view the character directory, check the OOC
+      tab in the verb panel.
+  NovaBot13:
+  - bugfix: Mining borgs can get multiple modkits of the same type installed again.
+  - bugfix: you may now open the panel of a flatpacker with a screwdriver
+  - qol: A message with a link to publicly accessible logs (if enabled by your server
+      operators) should now be visible far earlier when a world is about to reboot.
+  - rscadd: the advanced omnitool upgrade now hastens the mediborg's syringe too
+  - bugfix: TGUI say will no longer spill your /me contents when you get attacked
+  - bugfix: Transcendent Olfaction mutation now works properly
+  - balance: Gorillas have big fingers, which mostly just prevents them from using
+      laser pointers and stun batons
+  - balance: Negative mutations now allow you to have more positive mutations, via
+      reducing your instability!
+  - code_imp: All mutations have been overall standardized via defines on their instability
+      values. Many mediocre positive mutations have had their cost reduced significantly!
+  - rscadd: 'Added a new height mutation: Acromegaly! It''s the opposite of Dwarfism
+      and makes you uncannily tall. It also makes you hit your head 8% or 4% (with
+      synch) of the time  you pass through airlocks. Wear a helmet!'
+  - rscadd: Gigantism is now a recipe mutation, mix Acromegaly with Strength to get
+      it.
+  - qol: Injectors and activators' duration is now dependent on the in/stability (absolute
+      value) of the mutations to be injected! With a minimum of 5-10-15 seconds for
+      each type of injector. Also changed up a bit how part upgrade cooldowns work,
+      by making each tier reduce cooldowns by 25-15-10% for each injector type.
+  - sound: added squeaky turn and gas hissing sound to gas valve
+  kittysmooch:
+  - rscadd: 'a new hairstyle, the enigmatic mcsqueeb, has appeared in frontier stylist
+      catalogues.
+
+      :cl:'
+  vinylspiders:
+  - bugfix: adds back the missing nova-specific techweb nodes that went missing
