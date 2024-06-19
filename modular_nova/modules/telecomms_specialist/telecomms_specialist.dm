@@ -26,7 +26,12 @@
 		/datum/job_department/engineering,
 		)
 
-	family_heirlooms = list(/obj/item/modular_computer/laptop, /obj/item/radio, /obj/item/pai_card, /obj/item/clothing/accessory/pocketprotector)
+	family_heirlooms = list(
+		/obj/item/modular_computer/laptop,
+		/obj/item/radio,
+		/obj/item/pai_card,
+		/obj/item/clothing/accessory/pocketprotector,
+	)
 
 	mail_goodies = list(
 		/obj/item/coffee_cartridge = 20,
@@ -70,6 +75,7 @@
 	backpack_contents = list(
 		/obj/item/paper/monitorkey,
 		/obj/item/wirecutters,
+		/obj/item/holosign_creator/atmos,
 	)
 
 /obj/item/modular_computer/pda/telecomms
