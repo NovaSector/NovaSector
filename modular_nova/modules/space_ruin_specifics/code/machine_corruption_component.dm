@@ -80,7 +80,7 @@
 	var/damage_response_cooldown = 3 SECONDS
 	COOLDOWN_DECLARE(damage_response)
 
-/datum/component/machine_corruption/Initialize(datum/infected_controller/incoming_controller)
+/datum/component/machine_corruption/Initialize(datum/fleshmind_controller/incoming_controller)
 
 	if(!isobj(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -91,7 +91,7 @@
 
 	if(incoming_controller)
 		RegisterSignal(incoming_controller, COMSIG_QDELETING, PROC_REF(controller_death))
-		incoming_controller.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/datum/infected_controller, component_death))
+		incoming_controller.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/datum/fleshmind_controller, component_death))
 
 	set_overlay = pick(possible_overlays)
 
@@ -103,7 +103,7 @@
 
 	addtimer(CALLBACK(src, PROC_REF(finish_setup), incoming_controller), COMPONENT_SETUP_TIME)
 
-/datum/component/machine_corruption/proc/finish_setup(datum/infected_controller/incoming_controller)
+/datum/component/machine_corruption/proc/finish_setup(datum/fleshmind_controller/incoming_controller)
 	var/obj/machinery/parent_machinery = parent
 
 //	if(parent(blacklisted_corruption_structures))
@@ -127,7 +127,7 @@
 
 	parent_machinery.update_appearance()
 
-	parent_machinery.light_color = INFECTED_LIGHT_BLUE
+	parent_machinery.light_color = FLESHMIND_LIGHT_BLUE
 	parent_machinery.light_power = 1
 	parent_machinery.light_range = 2
 	parent_machinery.update_light()
@@ -157,7 +157,7 @@
  *
  * Handles when the controller dies.
  */
-/datum/component/machine_corruption/proc/controller_death(datum/infected_controller/deleting_controller, force)
+/datum/component/machine_corruption/proc/controller_death(datum/fleshmind_controller/deleting_controller, force)
 	SIGNAL_HANDLER
 
 	qdel(src)
@@ -174,7 +174,7 @@
 	if(!isliving(user))
 		return
 	var/mob/living/living_user = user
-	if((FACTION_INFECTED in living_user.faction))
+	if((FACTION_FLESHMIND in living_user.faction))
 		return
 	if(!living_user.can_interact_with(parent_machinery))
 		return
@@ -219,7 +219,7 @@
 
 /datum/component/machine_corruption/proc/update_name()
 	var/obj/machinery/parent_machinery = parent
-	parent_machinery.name = "[pick(INFECTED_NAME_MODIFIER_LIST)] [parent_machinery.name]"
+	parent_machinery.name = "[pick(FLESHMIND_NAME_MODIFIER_LIST)] [parent_machinery.name]"
 
 /datum/component/machine_corruption/proc/on_examine(atom/examined, mob/user, list/examine_list)
 	SIGNAL_HANDLER
@@ -266,9 +266,9 @@
 /**
  * Converts our parent into a factory
  */
-/datum/component/machine_corruption/proc/convert_to_factory(datum/infected_controller/incoming_controller)
+/datum/component/machine_corruption/proc/convert_to_factory(datum/fleshmind_controller/incoming_controller)
 	var/turf/our_turf = get_turf(parent)
-	incoming_controller.spawn_structure(our_turf, /obj/structure/infected/structure/assembler)
+	incoming_controller.spawn_structure(our_turf, /obj/structure/fleshmind/structure/assembler)
 	var/obj/machinery/parent_machinery = parent
 	if(parent_machinery.circuit)
 		parent_machinery.circuit.forceMove(our_turf)

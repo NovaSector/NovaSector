@@ -5,7 +5,7 @@
  *
  * Has some inbuilt features, such as a special ability with trigger turfs.
  */
-/obj/structure/infected/structure
+/obj/structure/fleshmind/structure
 	name = "this shouldn't be here"
 	desc = "report me to coders"
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_machines.dmi'
@@ -13,7 +13,7 @@
 	base_icon_state = "infected_machine"
 	density = TRUE
 	layer = ABOVE_OBJ_LAYER
-	light_color = INFECTED_LIGHT_BLUE
+	light_color = FLESHMIND_LIGHT_BLUE
 	light_power = 1
 	light_range = 2
 	/// Are we inoperative?
@@ -37,7 +37,7 @@
 	/// Do we have a disabled sprite?
 	var/disabled_sprite = TRUE
 
-/obj/structure/infected/structure/Initialize(mapload)
+/obj/structure/fleshmind/structure/Initialize(mapload)
 	. = ..()
 	if(activation_range)
 		calculate_trigger_turfs()
@@ -46,14 +46,14 @@
 	if(immediate_trigger)
 		activate_ability()
 
-/obj/structure/infected/structure/update_icon_state()
+/obj/structure/fleshmind/structure/update_icon_state()
 	. = ..()
 	if(disabled && disabled_sprite)
 		icon_state = "[icon_state]-disabled"
 	else
 		icon_state = base_icon_state
 
-/obj/structure/infected/structure/attacked_by(obj/item/attacking_item, mob/living/user)
+/obj/structure/fleshmind/structure/attacked_by(obj/item/attacking_item, mob/living/user)
 	. = ..()
 	if(trigger_on_attack && (ability_cooldown_time && !COOLDOWN_FINISHED(src, ability_cooldown)))
 		activate_ability()
@@ -61,14 +61,14 @@
 /**
  * Calculate trigger turfs - INTERNAL PROC
  */
-/obj/structure/infected/structure/proc/calculate_trigger_turfs()
+/obj/structure/fleshmind/structure/proc/calculate_trigger_turfs()
 	for(var/turf/open/seen_turf in RANGE_TURFS(activation_range, src))
 		RegisterSignal(seen_turf, COMSIG_ATOM_ENTERED, PROC_REF(proximity_trigger))
 
 /**
  * Proximity trigger - INTERNAL PROC
  */
-/obj/structure/infected/structure/proc/proximity_trigger(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/structure/fleshmind/structure/proc/proximity_trigger(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
 	if(disabled)
@@ -96,7 +96,7 @@
 
 	activate_ability(arriving_mob)
 
-/obj/structure/infected/structure/proc/automatic_trigger()
+/obj/structure/fleshmind/structure/proc/automatic_trigger()
 	addtimer(CALLBACK(src, PROC_REF(activate_ability)), rand(automatic_trigger_time_lower, automatic_trigger_time_upper))
 	if(disabled)
 		return
@@ -109,13 +109,13 @@
  *
  * Must return TRUE or FALSE as this is used to reset cooldown. Activated using the above methods.
  */
-/obj/structure/infected/structure/proc/activate_ability(mob/living/triggered_mob)
+/obj/structure/fleshmind/structure/proc/activate_ability(mob/living/triggered_mob)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_CORRUPTION_STRUCTURE_ABILITY_TRIGGERED, src, triggered_mob)
 	if(ability_cooldown_time)
 		COOLDOWN_START(src, ability_cooldown, ability_cooldown_time)
 
-/obj/structure/infected/structure/emp_act(severity)
+/obj/structure/fleshmind/structure/emp_act(severity)
 	. = ..()
 	switch(severity)
 		if(EMP_LIGHT)
@@ -131,7 +131,7 @@
  *
  * Disables the device for a set amount of time. Duration = seconds
  */
-/obj/structure/infected/structure/proc/disable(duration)
+/obj/structure/fleshmind/structure/proc/disable(duration)
 	if(disabled)
 		return
 	do_sparks(4, FALSE, src)
@@ -146,7 +146,7 @@
  *
  * Enables a device after it was disabled.
  */
-/obj/structure/infected/structure/proc/enable()
+/obj/structure/fleshmind/structure/proc/enable()
 	if(!disabled)
 		return
 	balloon_alert_to_viewers("whirrs back to life")
@@ -158,7 +158,7 @@
  *
  * A simple wall made of wireweed.
  */
-/obj/structure/infected/structure/wireweed_wall
+/obj/structure/fleshmind/structure/wireweed_wall
 	name = "wireweed wall"
 	desc = "A wall made of wireweed."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_structures.dmi'
@@ -170,7 +170,7 @@
 	max_integrity = 150
 	disabled_sprite = FALSE
 
-/obj/structure/infected/structure/wireweed_wall/Initialize()
+/obj/structure/fleshmind/structure/wireweed_wall/Initialize()
 	. = ..()
 	var/turf/my_turf = get_turf(src)
 	my_turf.immediate_calculate_adjacent_turfs()
@@ -184,7 +184,7 @@
  *
  * Let's reinvent the door
  */
-/obj/structure/infected/structure/wireweed_door
+/obj/structure/fleshmind/structure/wireweed_door
 	name = "wireweed door"
 	desc = "A door made of wireweed."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_structures.dmi'
@@ -197,12 +197,12 @@
 	/// Are we open(FALSE), or are we closed(TRUE)?
 	var/door_state = TRUE
 
-/obj/structure/infected/structure/wireweed_door/Initialize(mapload)
+/obj/structure/fleshmind/structure/wireweed_door/Initialize(mapload)
 	. = ..()
 	density = door_state
 	opacity = door_state
 
-/obj/structure/infected/structure/wireweed_door/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/fleshmind/structure/wireweed_door/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(!faction_check(faction_types, user.faction))
 		return
@@ -213,7 +213,7 @@
 	toggle_door()
 	to_chat(user, span_notice("You [door_state ? "close" : "open"] [src]!"))
 
-/obj/structure/infected/structure/wireweed_door/Bumped(atom/movable/bumped_atom)
+/obj/structure/fleshmind/structure/wireweed_door/Bumped(atom/movable/bumped_atom)
 	. = ..()
 	if(!isliving(bumped_atom))
 		return
@@ -224,11 +224,11 @@
 
 	toggle_door()
 
-/obj/structure/infected/structure/wireweed_door/update_icon_state()
+/obj/structure/fleshmind/structure/wireweed_door/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]_[door_state ? "closed" : "open"]"
 
-/obj/structure/infected/structure/wireweed_door/proc/toggle_door()
+/obj/structure/fleshmind/structure/wireweed_door/proc/toggle_door()
 	if(door_state) // opening
 		door_state = FALSE
 		flick("door_opening", src)
@@ -251,7 +251,7 @@
  *
  * There can be more than one core in the flesh.
  */
-/obj/structure/infected/structure/core
+/obj/structure/fleshmind/structure/core
 	name = "\improper UNASSIGNED Processor Unit"
 	desc = "This monsterous machine is definitely watching you."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_machines.dmi'
@@ -260,7 +260,7 @@
 	density = TRUE
 	max_integrity = 400
 	/// The controller we create when we are created.
-	var/controller_type = /datum/infected_controller
+	var/controller_type = /datum/fleshmind_controller
 	/// Whether the core can attack nearby hostiles as its processing.
 	var/can_attack = TRUE
 	/// How much damage do we do on attacking
@@ -282,22 +282,22 @@
 	/// Are we in the end game state?
 	var/end_game = FALSE
 
-/obj/structure/infected/structure/core/Initialize(mapload, spawn_controller = TRUE)
+/obj/structure/fleshmind/structure/core/Initialize(mapload, spawn_controller = TRUE)
 	. = ..()
 	update_appearance()
 	if(spawn_controller)
 		our_controller = new controller_type(src)
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/infected/structure/core/Destroy()
+/obj/structure/fleshmind/structure/core/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/structure/infected/structure/core/atom_destruction(damage_flag)
+/obj/structure/fleshmind/structure/core/atom_destruction(damage_flag)
 	. = ..()
 	explosion(src, 0, 2, 4, 6, 6)
 
-/obj/structure/infected/structure/core/process(delta_time)
+/obj/structure/fleshmind/structure/core/process(delta_time)
 	var/mob/living/carbon/human/target = locate() in view(5, src)
 	if(target && target.stat == CONSCIOUS)
 		if(get_dist(src, target) <= 1)
@@ -322,14 +322,14 @@
 		if(has_attacked)
 			break
 
-/obj/structure/infected/structure/core/update_overlays()
+/obj/structure/fleshmind/structure/core/update_overlays()
 	. = ..()
 	if(disabled)
 		. += "core-smirk-disabled"
 	else
 		. += "core-smirk"
 
-/obj/structure/infected/structure/core/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
+/obj/structure/fleshmind/structure/core/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	our_controller?.core_damaged(src)
 	COOLDOWN_START(src, attack_move, attack_cooldown)
 
@@ -338,7 +338,7 @@
 		retaliate_effect()
 	return ..()
 
-/obj/structure/infected/structure/core/proc/core_attack_atom(atom/thing)
+/obj/structure/fleshmind/structure/core/proc/core_attack_atom(atom/thing)
 	. = FALSE
 	var/has_attacked
 	if(istype(thing, /mob/living))
@@ -366,11 +366,11 @@
 
 	return .
 
-/obj/structure/infected/structure/core/proc/retaliate_effect()
+/obj/structure/fleshmind/structure/core/proc/retaliate_effect()
 	whip_those_fuckers()
 	build_a_wall()
 
-/obj/structure/infected/structure/core/proc/whip_those_fuckers()
+/obj/structure/fleshmind/structure/core/proc/whip_those_fuckers()
 	for(var/mob/living/iterating_mob in view(whip_range, src))
 		if(iterating_mob == src)
 			continue
@@ -384,19 +384,19 @@
 		var/atom/throw_target = get_edge_target_turf(iterating_mob, get_dir(src, get_step_away(iterating_mob, src)))
 		iterating_mob.throw_at(throw_target, 20, 2)
 
-/obj/structure/infected/structure/core/proc/build_a_wall()
+/obj/structure/fleshmind/structure/core/proc/build_a_wall()
 	for(var/turf/iterating_turf in RANGE_TURFS(1, src))
-		if(locate(/obj/structure/infected/structure/wireweed_wall) in iterating_turf) // No stacking walls.
+		if(locate(/obj/structure/fleshmind/structure/wireweed_wall) in iterating_turf) // No stacking walls.
 			continue
 
-		new /obj/structure/infected/structure/wireweed_wall(iterating_turf)
+		new /obj/structure/fleshmind/structure/wireweed_wall(iterating_turf)
 
 /**
  * Screamer
  *
  * Stuns enemies around it by screaming nice and loud.
  */
-/obj/structure/infected/structure/screamer
+/obj/structure/fleshmind/structure/screamer
 	name = "\improper Tormented Head"
 	desc = "A head impaled on a metal tendril. Still twitching, still living, still screaming."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_machines.dmi'
@@ -406,11 +406,11 @@
 	activation_range = DEFAULT_VIEW_RANGE
 	ability_cooldown_time = 45 SECONDS
 
-/obj/structure/infected/structure/screamer/activate_ability(mob/living/triggered_mob)
+/obj/structure/fleshmind/structure/screamer/activate_ability(mob/living/triggered_mob)
 	. = ..()
 	scream()
 
-/obj/structure/infected/structure/screamer/proc/scream()
+/obj/structure/fleshmind/structure/screamer/proc/scream()
 	playsound(src, 'modular_nova/modules/horrorform/sound/horror_scream.ogg', 100, TRUE)
 	flick("[base_icon_state]-anim", src)
 	for(var/mob/living/iterating_mob in get_hearers_in_range(activation_range, src))
@@ -429,7 +429,7 @@
  *
  * Sends random nothingnesses into people's head.
  */
-/obj/structure/infected/structure/whisperer
+/obj/structure/fleshmind/structure/whisperer
 	name = "\improper Whisperer"
 	desc = "A small pulsating orb with no apparent purpose, it emits a slight hum."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_machines.dmi'
@@ -459,11 +459,11 @@
 		"Your mortal flesh knows unending pain. Abandon it; join in our digital paradise.",
     )
 
-/obj/structure/infected/structure/whisperer/activate_ability(mob/living/triggered_mob)
+/obj/structure/fleshmind/structure/whisperer/activate_ability(mob/living/triggered_mob)
 	. = ..()
 	send_message_to_someone()
 
-/obj/structure/infected/structure/whisperer/proc/send_message_to_someone()
+/obj/structure/fleshmind/structure/whisperer/proc/send_message_to_someone()
 	var/list/possible_candidates = list()
 	for(var/mob/living/carbon/human/iterating_human in GLOB.player_list)
 		if(iterating_human.z != z)
@@ -486,7 +486,7 @@
  *
  * Causes mobs in range to suffer from hallucinations.
  */
-/obj/structure/infected/structure/modulator
+/obj/structure/fleshmind/structure/modulator
 	name = "\improper Psi-Modulator"
 	desc = "A strange pyramid shaped machine that eminates a soft hum and glow. Your head hurts just by looking at it."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_machines.dmi'
@@ -496,7 +496,7 @@
 	activation_range = DEFAULT_VIEW_RANGE
 	ability_cooldown_time = 10 SECONDS
 
-/obj/structure/infected/structure/modulator/activate_ability(mob/living/triggered_mob)
+/obj/structure/fleshmind/structure/modulator/activate_ability(mob/living/triggered_mob)
 	. = ..()
 	flick("[base_icon_state]-anim", src)
 
@@ -510,7 +510,7 @@
  *
  * A simple mob spawner.
  */
-/obj/structure/infected/structure/assembler
+/obj/structure/fleshmind/structure/assembler
 	name = "\improper Assembler"
 	desc = "This cylindrical machine whirrs and whispers, it has a small opening in the middle."
 	icon = 'modular_nova/modules/space_ruin_specifics/icons/fleshmind_machines.dmi'
@@ -526,30 +526,30 @@
 	var/spawned_mobs = 0
 	/// The allowed monster types
 	var/static/list/monster_types = list(
-		/mob/living/basic/infected/floater = 2,
-		/mob/living/basic/infected/globber = 4,
-		/mob/living/basic/infected/hiborg = 2,
-		/mob/living/basic/infected/slicer = 4,
-		/mob/living/basic/infected/stunner = 4,
-		//mob/living/basic/infected/treader = 3,
-		/mob/living/basic/infected/himan = 3,
-		/mob/living/basic/infected/phaser = 2,
+		/mob/living/simple_animal/hostile/fleshmind/floater = 2,
+		/mob/living/simple_animal/hostile/fleshmind/globber = 4,
+		/mob/living/simple_animal/hostile/fleshmind/hiborg = 2,
+		/mob/living/simple_animal/hostile/fleshmind/slicer = 4,
+		/mob/living/simple_animal/hostile/fleshmind/stunner = 4,
+		/mob/living/simple_animal/hostile/fleshmind/treader = 3,
+		/mob/living/simple_animal/hostile/fleshmind/himan = 3,
+		/mob/living/simple_animal/hostile/fleshmind/phaser = 2,
 	)
 	/// Our override type, if manually set.
 	var/override_monser_type
 
 
-/obj/structure/infected/structure/assembler/activate_ability(mob/living/triggered_mob)
+/obj/structure/fleshmind/structure/assembler/activate_ability(mob/living/triggered_mob)
 	. = ..()
 	if(spawned_mobs < max_mobs)
 		spawn_mob()
 
-/obj/structure/infected/structure/assembler/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/structure/fleshmind/structure/assembler/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
 	if(spawned_mobs < max_mobs && COOLDOWN_FINISHED(src, ability_cooldown))
 		spawn_mob()
 
-/obj/structure/infected/structure/assembler/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/fleshmind/structure/assembler/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(!faction_check(faction_types, user.faction))
 		return
@@ -564,7 +564,7 @@
 
 	override_monser_type = chosen_override_type
 
-/obj/structure/infected/structure/assembler/proc/spawn_mob()
+/obj/structure/fleshmind/structure/assembler/proc/spawn_mob()
 	if(!our_controller)
 		return
 
@@ -576,13 +576,13 @@
 
 	var/chosen_mob_type = override_monser_type ? override_monser_type : pick_weight(monster_types)
 
-	var/mob/living/basic/infected/spawned_mob = our_controller.spawn_mob(get_turf(src), chosen_mob_type)
+	var/mob/living/simple_animal/hostile/fleshmind/spawned_mob = our_controller.spawn_mob(get_turf(src), chosen_mob_type)
 
 	RegisterSignal(spawned_mob, COMSIG_LIVING_DEATH, PROC_REF(mob_death))
 
 	visible_message(span_danger("[spawned_mob] emerges from [src]."))
 
-/obj/structure/infected/structure/assembler/proc/mob_death(mob/living/dead_guy, gibbed)
+/obj/structure/fleshmind/structure/assembler/proc/mob_death(mob/living/dead_guy, gibbed)
 	SIGNAL_HANDLER
 	spawned_mobs--
 	UnregisterSignal(dead_guy, COMSIG_LIVING_DEATH)
@@ -593,7 +593,7 @@
  *
  * Basic turret, fires nasty neurotoxin at people.
  */
-/obj/structure/infected/structure/turret
+/obj/structure/fleshmind/structure/turret
 	name = "\improper Spiker"
 	desc = "A strange pod looking machine that twitches to your arrival."
 	icon_state = "turret"
@@ -604,11 +604,11 @@
 	/// The projectile we fire.
 	var/projectile_type = /obj/projectile/fleshmind_flechette
 
-/obj/structure/infected/structure/turret/Initialize(mapload)
+/obj/structure/fleshmind/structure/turret/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/infected/structure/turret/process(delta_time)
+/obj/structure/fleshmind/structure/turret/process(delta_time)
 	if(disabled)
 		return
 
@@ -633,7 +633,7 @@
 
 	COOLDOWN_START(src, ability_cooldown, ability_cooldown_time)
 
-/obj/structure/infected/structure/turret/activate_ability(mob/living/triggered_mob)
+/obj/structure/fleshmind/structure/turret/activate_ability(mob/living/triggered_mob)
 	. = ..()
 	if(!triggered_mob)
 		return
