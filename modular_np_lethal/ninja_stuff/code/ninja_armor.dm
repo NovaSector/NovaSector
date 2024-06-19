@@ -84,7 +84,22 @@
 		incoming_projectile.armour_penetration = 0
 		playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
 
-//stuff that goes on your torso
+//stuff that protects the rest of your body
+
+
+//stuff that's clothes
+/obj/item/clothing/under/genin_uniform
+	name = "designer activewear"
+	desc = "As innumerable countercultural groups before them, members of the Tsukomogami often hustle or outright \
+	steal luxury designer clothing. People who think too much would tell you about subversion and detournement, but \
+	most of the actual wearers would just tell you that it's important to look good. Don't get caught wearing fakes."
+	icon = ''
+	icon_state = ""
+	worn_icon = ''
+	worn_icon_digi = ''
+	worn_icon_state = ""
+	has_sensor = SENSOR_COORDS
+	random_sensor = FALSE
 
 //stuff that goes on your hands
 
@@ -101,3 +116,5 @@
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 
 //stuff that goes on your feet
+
+
