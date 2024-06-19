@@ -786,7 +786,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/on_mousedropped_onto(datum/source, obj/item/dropping, mob/user)
 	SIGNAL_HANDLER
 
-	. = COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 	if(!istype(dropping))
 		return
 	if(dropping != user.get_active_held_item())
@@ -799,6 +798,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 
 	attempt_insert(dropping, user)
+	return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 
 /// Signal handler for whenever we're attacked by an object.
 /datum/storage/proc/on_item_interact(datum/source, mob/user, obj/item/thing, params)
