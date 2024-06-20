@@ -216,15 +216,6 @@
 
 	return data
 
-/// Edits the job title of the found record.
-/datum/manifest/proc/modify_rank(name, assignment)
-	var/datum/record/crew/target = find_record(name)
-	if(!target)
-		return FALSE
-
-	target.rank = assignment
-	return TRUE
-
 /// Places any items inside of the `eligible_items` list to a lockbox, to be opened by the player when they clock back in.
 /mob/living/carbon/human/proc/secure_items(list/eligible_items, obj/incoming_box)
 	var/obj/item/storage/lockbox/timeclock/shame_box = incoming_box
