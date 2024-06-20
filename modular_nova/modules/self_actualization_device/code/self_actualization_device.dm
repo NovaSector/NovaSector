@@ -99,7 +99,7 @@
 
 /obj/machinery/self_actualization_device/examine(mob/user)
 	. = ..()
-	. += span_info("Laser power <b>[display_power(active_power_usage)]</b> at average cycle time of <b>[DisplayTimeText(processing_time)]</b>.")
+	. += span_info("The status panel indicates an average laser power consumption of <b>[display_power(active_power_usage)]</b> with an estimated total cycle time of <b>[DisplayTimeText(processing_time)]</b>.")
 
 	if(processing)
 		. += span_notice("The status display indicates <b>[DisplayTimeText(COOLDOWN_TIMELEFT(src, sad_processing_time), 2)]</b> remaining on the current cycle.")
