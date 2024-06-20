@@ -328,7 +328,7 @@
 	for(var/datum/quirk/original_quircks as anything in quirks)
 		clone.add_quirk(original_quircks.type, override_client = client)
 	for(var/datum/mutation/human/mutations in dna.mutations)
-		clone.dna.add_mutation(mutations)
+		clone.dna.add_mutation(mutations, MUT_NORMAL)
 
 	clone.updateappearance(mutcolor_update = TRUE, mutations_overlay_update = TRUE)
 	clone.domutcheck()
@@ -367,7 +367,7 @@
 
 /mob/living/carbon/human/proc/item_heal(mob/user, brute_heal, burn_heal, heal_message_brute, heal_message_burn, required_bodytype)
 	var/obj/item/bodypart/affecting = src.get_bodypart(check_zone(user.zone_selected))
-	if (!affecting || !(affecting.bodytype == required_bodytype))
+	if (!affecting || !(affecting.bodytype & required_bodytype))
 		to_chat(user, span_warning("[affecting] is already in good condition!"))
 		return FALSE
 

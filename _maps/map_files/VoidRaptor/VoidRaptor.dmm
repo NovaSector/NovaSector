@@ -10009,6 +10009,7 @@
 /area/station/hallway/primary/fore)
 "cZW" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/machinery/flatpacker,
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
