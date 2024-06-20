@@ -51,7 +51,7 @@
 /obj/item/clothing/under/pants/nova/big_pants
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
-	now and then. This pair has generous onboard storage."
+		now and then. This pair has generous onboard storage."
 	icon_state = "big_pants"
 	greyscale_config = /datum/greyscale_config/big_pants
 	greyscale_config_worn = /datum/greyscale_config/big_pants/worn
