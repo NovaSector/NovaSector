@@ -111,7 +111,7 @@
 	name = "twin-fang offensive turret capsule"
 	desc = "A throw-deployable turret capsule designed for securing areas within hostile fauna held zones. It is chambered in .27-54 Cesarzowa ammunition."
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
-	icon_state = "35_spider_toolbox"
+	icon_state = "twin_spider_toolbox"
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
 	mag_slots = 1
 	turret_safety = FALSE
@@ -125,10 +125,10 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
 	name = "\improper Twin-Fang Spider Turret"
 	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .27-54 Cesarzowa ammunition."
-	max_integrity = 75
+	max_integrity = 75 // more aggressive but obviously easier to deal with.
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
-	icon_state = "35_spider_off"
-	base_icon_state = "35_spider"
+	icon_state = "twin_spider_off"
+	base_icon_state = "twin_spider"
 	quick_retract = TRUE
 	shot_delay = 1.5 SECONDS
 	burst_fire = TRUE
