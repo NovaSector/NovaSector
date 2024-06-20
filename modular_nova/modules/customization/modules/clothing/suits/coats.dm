@@ -277,7 +277,7 @@
 	has_sleeves = FALSE
 
 /obj/item/clothing/suit/big_jacket
-	name = "Alpha Atelier pilot jacket"
+	name = "\improper Alpha Atelier pilot jacket"
 	desc = "An exacting reproduction of the pilot jackets worn in the infancy of faster than light travel, \
 	right down the precise tension of thread spun on the precisely correct looms. The pilots it pays homage \
 	to worked in small ships and in close proximity to their supercooled drives and needed extreme insulation, \
