@@ -6,8 +6,8 @@
 #define BREAKOUT_TIME 5 SECONDS
 /// The interval that advertisements are said by the machine's speaker.
 #define ADVERT_TIME 18 SECONDS
-/// The wattage consumed by the machine's laser.
-#define LASER_POWER_USAGE 7200000 WATTS
+/// The wattage consumed by the machine's laser. Some serious face-melting power here I tell you what.
+#define LASER_POWER_USAGE 7.2 MEGA WATTS
 
 /datum/design/board/self_actualization_device
 	name = "Machine Design (Self-Actualization Device)"
