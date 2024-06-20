@@ -1,6 +1,7 @@
 /// We want there to be only one of these because this way we cap the amount that are able to run concurrently to 20. (so mass-deletions don't create massive lag)
 GLOBAL_DATUM(admin_sparks_system, /datum/effect_system/spark_spread/admin_sparks)
 
+/// The singleton spark system, don't make more of these please!
 /datum/effect_system/spark_spread/admin_sparks
 	effect_type = /obj/effect/particle_effect/sparks/quantum/inert
 
@@ -15,7 +16,7 @@ GLOBAL_DATUM(admin_sparks_system, /datum/effect_system/spark_spread/admin_sparks
 	return
 
 /// Creates non-interactive rainbow sparks at the given source location
-proc/do_admin_sparks(number, cardinals_only, datum/source, client/admin)
+proc/do_admin_sparks(number, cardinals_only, datum/source)
 	var/location = isturf(source) ? source : get_turf(source)
 	if(isnull(location))
 		return
