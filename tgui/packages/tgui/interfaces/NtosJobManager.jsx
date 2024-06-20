@@ -32,22 +32,6 @@ export const NtosJobManagerContent = (props) => {
         </Dimmer>
       )}
       <Table>
-        {/* NOVA EDIT ADDITION START - Crew Self Serve */}
-        <Table.Row header>
-          <Table.Cell>Crew Self Serve</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>
-            <Button.Checkbox
-              checked={data.selfServeBlocked}
-              onClick={() => act('PRG_selfservetoggle')}
-              tooltip="Enable or disable self serve title edits by crew."
-            >
-              Block crew self serve title editing
-            </Button.Checkbox>
-          </Table.Cell>
-        </Table.Row>
-        {/* NOVA EDIT ADDITION END - Crew Self Serve */}
         <Table.Row header>
           <Table.Cell>Prioritized</Table.Cell>
           <Table.Cell>Slots</Table.Cell>
