@@ -287,12 +287,12 @@
 		return
 	if(istype(wetness) && wetness.stacks > (DAMAGE_WATER_STACKS))
 		slime.blood_volume -= 2 * seconds_per_tick
-		if (SPT_PROB(25, seconds_per_tick))
+		if(SPT_PROB(25, seconds_per_tick))
 			slime.visible_message(span_danger("[slime]'s form begins to lose cohesion, seemingly diluting with the water!"), span_warning("The water starts to dilute your body, dry it off!"))
 
 	if(istype(wetness) && wetness.stacks > (REGEN_WATER_STACKS))
 		healing = FALSE
-		if (SPT_PROB(1, seconds_per_tick))
+		if(SPT_PROB(1, seconds_per_tick))
 			to_chat(slime, span_warning("You can't pull your body together and regenerate with water inside it!"))
 			slime.blood_volume -= 1 * seconds_per_tick
 
@@ -346,7 +346,7 @@
 /datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
 	if(ishuman(owner))
 		var/mob/living/carbon/human/slime = owner
-		for(var/obj/item/slime_items in slime.get_equipped_items(include_pockets = FALSE, include_accessories = TRUE))
+		for(var/obj/item/slime_items in slime.get_equipped_items(INCLUDE_ACCESSORIES | INCLUDE_HELD))
 			slime_items.wash(CLEAN_WASH)
 			slime.wash(CLEAN_WASH)
 		if((slime.wear_suit?.body_parts_covered | slime.w_uniform?.body_parts_covered | slime.shoes?.body_parts_covered) & FEET)
@@ -356,7 +356,7 @@
 			if(istype(open_turf))
 				open_turf.wash(CLEAN_WASH)
 				return TRUE
-			if (SPT_PROB(5, seconds_per_tick))
+			if(SPT_PROB(5, seconds_per_tick))
 				slime.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
@@ -441,7 +441,7 @@
 			pick(organs_we_mend),
 			- 2 * seconds_per_tick,
 		)
-		if (SPT_PROB(5, seconds_per_tick))
+		if(SPT_PROB(5, seconds_per_tick))
 			to_chat(slime, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
 
 	if(chem.type == /datum/reagent/water)
@@ -450,7 +450,7 @@
 
 		slime.blood_volume -= 3 * seconds_per_tick
 		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if (SPT_PROB(1, seconds_per_tick))
+		if(SPT_PROB(1, seconds_per_tick))
 			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))
 		return COMSIG_MOB_STOP_REAGENT_CHECK
 
