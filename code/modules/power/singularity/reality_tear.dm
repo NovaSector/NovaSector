@@ -33,7 +33,7 @@
 		AddComponent(
 			/datum/component/singularity, \
 			consume_range = singularity_consume_range, \
-			grav_pull = singularity_grav_pull, ? singularity_grav_pull : CONFIG_GET(number/stationary_boh_singularity_grav_pull), /* NOVA EDIT CHANGE - ORIGINAL: grav_pull = singularity_grav_pull, \ */ \
+			grav_pull = singularity_grav_pull ? singularity_grav_pull : CONFIG_GET(number/stationary_boh_singularity_grav_pull), /* NOVA EDIT CHANGE - ORIGINAL: grav_pull = singularity_grav_pull, \ */ \
 			roaming = FALSE, \
 			singularity_size = STAGE_SIX, \
 		)
