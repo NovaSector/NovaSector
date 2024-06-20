@@ -49,7 +49,7 @@
 	icon_state = "tactical_pants"
 
 /obj/item/clothing/under/pants/nova/big_pants
-	name = "JUNCO megacargo pants"
+	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 	now and then. This pair has generous onboard storage."
 	icon_state = "big_pants"
