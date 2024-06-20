@@ -149,9 +149,6 @@
  * * user - Person who is doing the applying.
  */
 /obj/item/organ/internal/monster_core/proc/try_apply(atom/target, mob/user)
-	if (istype(target, /obj/structure/lavaland/ash_walker))
-		target.attackby(src, user)
-		return
 	if (!isliving(target))
 		balloon_alert(user, "invalid target!")
 		return
