@@ -6,6 +6,8 @@
 #define BREAKOUT_TIME 5 SECONDS
 /// The interval that advertisements are said by the machine's speaker.
 #define ADVERT_TIME 18 SECONDS
+/// The wattage consumed by the machine's laser.
+#define LASER_POWER_USAGE 7200000 WATTS
 
 /datum/design/board/self_actualization_device
 	name = "Machine Design (Self-Actualization Device)"
@@ -297,7 +299,7 @@
 	processing_time = 70 SECONDS
 	for(var/datum/stock_part/micro_laser/laser in component_parts) // Laser tier increases speed, at the expense of power.
 		processing_time -= laser.tier * 10 SECONDS
-		active_power_usage = 7200000 / processing_time WATTS
+		active_power_usage = LASER_POWER_USAGE / processing_time
 		idle_power_usage = active_power_usage / 4
 
 #undef NO_CONSENT
@@ -305,3 +307,4 @@
 #undef WAITING_PLAYER
 #undef BREAKOUT_TIME
 #undef ADVERT_TIME
+#undef LASER_POWER_USAGE
