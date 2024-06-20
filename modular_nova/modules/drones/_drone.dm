@@ -7,7 +7,7 @@
 	"<span class='notice'>Drones are a ghost role that are allowed to fix the station and build things.</span>\n"+\
 	"<span class='notice'>Actions that are not allowed:</span>\n"+\
 	"<span class='notice'>     - Interacting with round critical objects (IDs, weapons, contraband, powersinks, bombs, etc.)</span>\n"+\
-	"<span class='warning'><B>          - THIS INCLUDES SETTING UP THE SM, OR ANY MATTERS INVOLVING IT!!</B></span>\n"+\
+	"<span class='boldwarning'>          - THIS INCLUDES SETTING UP THE SM, OR ANY MATTERS INVOLVING IT!!</span>\n"+\
 	"<span class='notice'>     - Changing the health state of living beings (attacking, healing, etc.)</span>\n"+\
 	"<span class='notice'>     - Interacting with non-living beings (dragging bodies, looting bodies, etc.)</span>\n"+\
 	"<span class='warning'>Please keep these rules in mind, failing to do so can lead to a ban.</span>\n"+\
