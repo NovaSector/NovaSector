@@ -104,7 +104,7 @@
 	if(processing)
 		. += span_notice("The status display indicates <b>[DisplayTimeText(COOLDOWN_TIMELEFT(src, sad_processing_time), 2)]</b> remaining on the current cycle.")
 	else
-		. += span_notice("Left-click to <b>[state_open ? "close" : "open"]</b>.")
+		. += span_notice("<b>Left-click</b> to <b>[state_open ? "close" : "open"]</b>.")
 		if(!isnull(occupant) && !state_open)
 			. += span_notice("<b>Alt-click</b> to turn on.")
 
