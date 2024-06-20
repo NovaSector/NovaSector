@@ -15095,8 +15095,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "erZ" = (
-/obj/machinery/vending/imported,
 /obj/machinery/light/warm/directional/north,
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/white/herringbone,
 /area/station/medical/patients_rooms)
 "esc" = (
@@ -20090,13 +20090,13 @@
 /turf/open/floor/catwalk_floor,
 /area/station/cargo/bitrunning/den)
 "fSn" = (
-/obj/machinery/vending/imported,
 /obj/effect/turf_decal/tile/bar/fourcorners,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
 "fSB" = (
@@ -32838,7 +32838,7 @@
 /area/station/medical/medbay/central)
 "jAS" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/photocopier,
+/obj/machinery/flatpacker,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "jAT" = (
@@ -34838,10 +34838,10 @@
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/maint)
 "kfq" = (
-/obj/machinery/vending/imported,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/light/warm/directional/west,
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/dark/small,
 /area/station/command/meeting_room/council)
 "kft" = (
