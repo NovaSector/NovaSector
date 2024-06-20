@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	item_path = /obj/item/clothing/suit/costume/poncho/red
 
 /datum/loadout_item/suit/dagger_mantle
-	name = "'dagger' designer mantle"
+	name = "'Dagger' Designer Mantle"
 	item_path = /obj/item/clothing/suit/dagger_mantle
 
 /*
@@ -209,7 +209,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	item_path = /obj/item/clothing/suit/mothcoat
 
 /datum/loadout_item/suit/big_jacket
-	name = "Alpha Atelier pilot jacket"
+	name = "Alpha Atelier Pilot Jacket"
 	item_path = /obj/item/clothing/suit/big_jacket
 
 /*

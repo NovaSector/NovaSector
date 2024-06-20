@@ -335,7 +335,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	item_path = /obj/item/clothing/under/pants/nova/jeans_ripped
 
 /datum/loadout_item/under/miscellaneous/big_pants
-	name = "'JUNCO' megacargo pants"
+	name = "'JUNCO' Megacargo Pants"
 	item_path = /obj/item/clothing/under/pants/nova/big_pants
 
 /datum/loadout_item/under/miscellaneous/yoga
