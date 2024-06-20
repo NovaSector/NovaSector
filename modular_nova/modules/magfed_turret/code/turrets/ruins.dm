@@ -140,7 +140,7 @@
 ////// Shotgun Turret. Surprisingly nothing new added as the firing proc will handle pellet clouds. Note however that shotgun rounds CANT smart-gun around allies.
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster
 	name = "duster emergent turret kit"
-	desc = "A quick-deployable turret kit designed for sudden deployment in emergent situations. It is chambered in Shotgun Shells."
+	desc = "A quick-deployable turret kit designed for sudden deployment in emergent situations, having warnings to \"Not stand infront of the barrel. Friendly Fire Isn't\". It is fitted to use handfuls of loose Shotgun Shells or M12g Magazines."
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_toolbox"
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
@@ -148,7 +148,7 @@
 	inhand_icon_state = "duster_turretkit"
 	easy_deploy = TRUE
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
-	mag_slots = 3
+	mag_slots = 3 // Most mags dont have more than 8 rounds, and you're going to have hell getting a shotgun mag to re-fill. 24 round total.
 	turret_safety = FALSE
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge, //Easy to get actually. Quite Nice
@@ -162,7 +162,7 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
 	name = "\improper Duster Emergent Turret"
-	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is chambered to fire Shotgun Shells."
+	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is fitted to use handfuls of loose Shotgun Shells or M12g Magazines."
 	max_integrity = 150
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_off"
