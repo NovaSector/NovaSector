@@ -40,6 +40,7 @@
 		/datum/computer_file/program/notepad,
 		// NOVA EDIT ADDITION START
 		/datum/computer_file/program/crew_manifest, // Adds crew manifest to all base tablets
+		/datum/computer_file/program/crew_self_serve, // Adds crew self serve to all base tablets
 		/datum/computer_file/program/maintenance/camera // Adds camera to all base tablets
 		// SKRAT EDIT ADDITION END
 	)

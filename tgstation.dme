@@ -7178,6 +7178,8 @@
 #include "modular_nova\modules\cortical_borer\code\evolution\evolution_symbiote.dm"
 #include "modular_nova\modules\cortical_borer\code\evolution\evolution_things\empowered_egg.dm"
 #include "modular_nova\modules\crafting\crafting.dm"
+#include "modular_nova\modules\crew_self_serve\code\plexagon_self_serve.dm"
+#include "modular_nova\modules\crew_self_serve\code\shame_box.dm"
 #include "modular_nova\modules\cryosleep\code\admin.dm"
 #include "modular_nova\modules\cryosleep\code\ai.dm"
 #include "modular_nova\modules\cryosleep\code\config.dm"

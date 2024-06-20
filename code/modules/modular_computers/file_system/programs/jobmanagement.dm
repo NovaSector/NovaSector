@@ -105,6 +105,11 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 					computer.say("Error: CentCom employment protocols restrict prioritising more than 5 jobs.")
 			playsound(computer, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			return TRUE
+		// NOVA EDIT ADDITION START - Crew Self Serve
+		if("PRG_selfservetoggle")
+			GLOB.block_manifest_selfserve = !GLOB.block_manifest_selfserve
+			return TRUE
+		// NOVA EDIT ADDITION END - Crew Self Serve
 
 
 /datum/computer_file/program/job_management/ui_data(mob/user)
@@ -136,4 +141,5 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	data["prioritized"] = priority
 	var/delta = round(change_position_cooldown - ((world.time / 10) - GLOB.time_last_changed_position), 1)
 	data["cooldown"] = delta < 0 ? 0 : delta
+	data["selfServeBlocked"] = GLOB.block_manifest_selfserve // NOVA EDIT ADDITION ADD - Crew Self Serve
 	return data
