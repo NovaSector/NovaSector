@@ -49,7 +49,7 @@
 	icon_state = "tactical_pants"
 
 /obj/item/clothing/under/pants/nova/big_pants
-	name = "'JUNCO' megacargo pants"
+	name = "JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 	now and then. This pair has generous onboard storage."
 	icon_state = "big_pants"
@@ -58,3 +58,4 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/big_pants/worn/digi
 	greyscale_colors = "#874f16"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER
