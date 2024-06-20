@@ -21,35 +21,24 @@
 	/// Range that our singularity component consumes objects
 	var/singularity_consume_range = 1
 	/// Ranges that the singularity pulls objects
-	var/singularity_grav_pull = 21
+	var/singularity_grav_pull // NOVA EDIT CHANGE - Use config instead - ORIGINAL: var/singularity_grav_pull = 21
 	/// Time before we begin our bagulo spawn
 	var/collapse_spawn_time = 9 SECONDS
 
 /obj/reality_tear/proc/start_disaster()
 	apply_wibbly_filters(src)
 	playsound(loc, 'sound/effects/clockcult_gateway_disrupted.ogg', vary = 200, extrarange = 3, falloff_exponent = 1, frequency = 0.33, pressure_affected = FALSE, ignore_walls = TRUE, falloff_distance = 7)
-<<<<<<< HEAD:code/modules/power/singularity/boh_tear.dm
 	// NOVA EDIT CHANGE START - Locks the singularity behind config options
 	if(!CONFIG_GET(flag/disable_stationary_boh_singularity))
 		AddComponent(
 			/datum/component/singularity, \
-			consume_range = 1, \
-			grav_pull = CONFIG_GET(number/stationary_boh_singularity_grav_pull), /* NOVA EDIT CHANGE - ORIGINAL: grav_pull = 21, \ */ \
+			consume_range = singularity_consume_range, \
+			grav_pull = singularity_grav_pull, ? singularity_grav_pull : CONFIG_GET(number/stationary_boh_singularity_grav_pull), /* NOVA EDIT CHANGE - ORIGINAL: grav_pull = singularity_grav_pull, \ */ \
 			roaming = FALSE, \
 			singularity_size = STAGE_SIX, \
 		)
 	// NOVA EDIT CHANGE END
-	addtimer(CALLBACK(src, PROC_REF(bagulo_time)), 9 SECONDS, TIMER_DELETE_ME)
-=======
-	AddComponent(
-		/datum/component/singularity, \
-		consume_range = singularity_consume_range, \
-		grav_pull = singularity_grav_pull, \
-		roaming = FALSE, \
-		singularity_size = STAGE_SIX, \
-	)
-	addtimer(CALLBACK(src, PROC_REF(reality_collapse)), collapse_spawn_time, TIMER_DELETE_ME)
->>>>>>> 4739cedebc8 (Event Horizon Anti-Existential Beam Rifle. The ultimate conclusion to the arms race and the sniper's art. (#83934)):code/modules/power/singularity/reality_tear.dm
+	addtimer(CALLBACK(src, PROC_REF(reality_collapse)), 9 SECONDS, TIMER_DELETE_ME)
 	animate(src, time = 7.5 SECONDS, transform = transform.Scale(2), flags = ANIMATION_PARALLEL)
 	animate(time = 2 SECONDS, transform = transform.Scale(0.25), easing = ELASTIC_EASING)
 	animate(time = 0.5 SECONDS, alpha = 0)
