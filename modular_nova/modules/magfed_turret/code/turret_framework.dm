@@ -180,7 +180,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	. = ..()
 	if(quick_deployable)
 		balloon_alert_to_viewers("deploying...")
-		addtimer(CALLBACK(src, PROC_REF(deploy_turret), throwingdatum.thrower?.resolve()), quick_deploy_timer)
+		addtimer(CALLBACK(src, PROC_REF(deploy_turret), throwingdatum.thrower?.resolve()), quick_deploy_timer, TIMER_STOPPABLE)
 
 ////// Targeting Device handling //////
 
@@ -249,7 +249,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		return
 
 	designate_enemy(target, user)
-	addtimer(CALLBACK(src, PROC_REF(clear_target), user), acquisition_duration) //clears after 5 seconds. to avoid issues.
+	addtimer(CALLBACK(src, PROC_REF(clear_target), user), acquisition_duration, TIMER_STOPPABLE) //clears after 5 seconds. to avoid issues. Stoppable for deconning
 	return
 
 /obj/item/target_designator/afterattack_secondary(atom/movable/target, mob/user, proximity_flag, click_parameters)
@@ -539,7 +539,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(!auto_loader.get_mag())
 		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
-		timer_id = addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS)
+		timer_id = addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS, TIMER_STOPPABLE)
 		return
 	magazine_ref = WEAKREF(auto_loader.get_mag(FALSE))
 	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
@@ -586,7 +586,7 @@ DEFINE_BITFIELD(turret_flags, list(
 				burst_target = null
 				volley_count = initial(volley_count)
 				return
-			trytoshootfucker(bursttarget)
+			trytoshootfucker(burst_target)
 			return
 		if(target_override) //Forces turret to shoot
 			var/atom/movable/overridden_target = target_override.resolve()

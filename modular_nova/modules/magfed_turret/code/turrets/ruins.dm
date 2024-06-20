@@ -129,9 +129,46 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "35_spider_off"
 	base_icon_state = "35_spider"
+	quick_retract = TRUE
 	shot_delay = 1.5 SECONDS
 	burst_fire = TRUE
 	burst_delay = 0.1 SECONDS
 	burst_volley = 2
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled
+
+////// Shotgun Turret. Surprisingly nothing new added as the firing proc will handle pellet clouds. Note however that shotgun rounds CANT smart-gun around allies.
+/obj/item/storage/toolbox/emergency/turret/mag_fed/duster
+	name = "duster emergent turret kit"
+	desc = "A quick-deployable turret kit designed for sudden deployment in emergent situations. It is chambered in Shotgun Shells."
+	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
+	icon_state = "duster_toolbox"
+	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
+	inhand_icon_state = "duster_turretkit"
+	easy_deploy = TRUE
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
+	mag_slots = 3
+	turret_safety = FALSE
+	mag_types_allowed = list(
+		/obj/item/ammo_box/magazine/ammo_stack/s12gauge, //Easy to get actually. Quite Nice
+		/obj/item/ammo_box/magazine/m12g
+	)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/duster/pre_filled/PopulateContents()
+	new /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot(src)
+	new /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot(src)
+	new /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot(src)
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
+	name = "\improper Duster Emergent Turret"
+	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is chambered to fire Shotgun Shells."
+	max_integrity = 150
+	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
+	icon_state = "duster_off"
+	base_icon_state = "duster"
+	ignore_faction = FALSE // Pellet cloud wont work with it anyways.
+	quick_retract = TRUE
+	shot_delay = 1.5 SECONDS
+	faction = list(FACTION_TURRET)
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/duster/pre_filled
