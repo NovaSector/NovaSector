@@ -16,7 +16,7 @@ GLOBAL_DATUM(admin_sparks_system, /datum/effect_system/spark_spread/admin_sparks
 	return
 
 /// Creates non-interactive rainbow sparks at the given source location
-proc/do_admin_sparks(number, cardinals_only, datum/source)
+/proc/do_admin_sparks(number, cardinals_only, datum/source)
 	var/location = isturf(source) ? source : get_turf(source)
 	if(isnull(location))
 		return
