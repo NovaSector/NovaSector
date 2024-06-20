@@ -637,8 +637,6 @@
 //defines for grad_color and grad_styles list access keys
 #define GRADIENT_HAIR_KEY 1
 #define GRADIENT_FACIAL_HAIR_KEY 2
-//Keep up to date with the highest key value
-#define GRADIENTS_LEN 2
 
 // /datum/sprite_accessory/gradient defines
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
@@ -651,6 +649,7 @@
 // Otherwise they are completely arbitrary
 #define MONKEY_HEIGHT_DWARF 2
 #define MONKEY_HEIGHT_MEDIUM 4
+#define MONKEY_HEIGHT_TALL HUMAN_HEIGHT_DWARF
 #define HUMAN_HEIGHT_DWARF 6
 #define HUMAN_HEIGHT_SHORTEST 8
 #define HUMAN_HEIGHT_SHORT 10
