@@ -462,6 +462,8 @@
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_FLASH 1
 #define FLASH_PROTECTION_WELDER 2
+#define FLASH_PROTECTION_WELDER_PLUS 3
+#define FLASH_PROTECTION_MAXIMUM 4
 
 // AI Toggles
 #define AI_CAMERA_LUMINOSITY 5
@@ -637,8 +639,6 @@
 //defines for grad_color and grad_styles list access keys
 #define GRADIENT_HAIR_KEY 1
 #define GRADIENT_FACIAL_HAIR_KEY 2
-//Keep up to date with the highest key value
-#define GRADIENTS_LEN 2
 
 // /datum/sprite_accessory/gradient defines
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
