@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - code_imp: "Drone text now explicitly states not to touch the SM and removes vagueness from the text in other areas"
