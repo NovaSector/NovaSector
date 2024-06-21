@@ -42,7 +42,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	desc = "A discreet kit for a magazine fed turret."
 	has_latches = FALSE
 	////// Whether the turret's settings can be adjusted.
-	var/setting_change = FALSE
+	var/setting_change = TRUE //we'll default this to true because... well- You'll mostly get these AFTER destroying or constructing them, and should be able to. Exceptions will be made per-item.
 	////// Whether the turret will ignore humans when deployed.
 	var/turret_safety = FALSE
 	////// Whether the turret will deploy obeying flags.
@@ -107,40 +107,47 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.faction += user.faction
 		turret.allies += REF(user)
 
-/obj/item/storage/toolbox/emergency/turret/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(setting_change && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
-			return
+/obj/item/storage/toolbox/emergency/turret/mag_fed/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
+	if(!is_type_in_list(inserted, list(/obj/item/wrench, /obj/item/screwdriver, /obj/item/multitool, /obj/item/toy/crayon/spraycan)))
+		return TRUE
+	if(!inserted.toolspeed)
+		return TRUE
+	return FALSE
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // This was changed but not updated???? I guess no one uses the tarkon ones gawd DAHM
+	if(setting_change && tool.tool_behaviour == TOOL_SCREWDRIVER)
+		if(!tool.use_tool(src, user, 2 SECONDS, volume = 20))
+			return ITEM_INTERACT_BLOCKING
 		turret_safety = !turret_safety
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(setting_change && attacking_item.tool_behaviour == TOOL_MULTITOOL)
-		if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
-			return
+	if(setting_change && tool.tool_behaviour == TOOL_MULTITOOL)
+		if(!tool.use_tool(src, user, 2 SECONDS, volume = 20))
+			return ITEM_INTERACT_BLOCKING
 		flags_on = !flags_on
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(attacking_item.tool_behaviour != TOOL_WRENCH)
-		return ..()
+	if(tool.tool_behaviour == TOOL_WRENCH)
+		if(!user.combat_mode)
+			return NONE
+		if(!tool.toolspeed)
+			return ITEM_INTERACT_BLOCKING
+		balloon_alert(user, "constructing...")
+		if(!tool.use_tool(src, user, 2 SECONDS, volume = 20))
+			return ITEM_INTERACT_BLOCKING
 
-	if(in_contents_of(user))
-		return
+		balloon_alert(user, "constructed!")
+		user.visible_message(
+			span_danger("[user] bashes [src] with [tool]!"),
+			span_danger("You bash [src] with [tool]!"),
+			null,
+			COMBAT_MESSAGE_RANGE,
+		)
 
-	if(!user.combat_mode)
-		return
-
-	if(!attacking_item.toolspeed)
-		return
-
-	balloon_alert_to_viewers("constructing...")
-	if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 20))
-		return
-
-	balloon_alert_to_viewers("constructed!")
-	user.visible_message(span_danger("[user] bashes [src] with [attacking_item]!"), \
-		span_danger("You bash [src] with [attacking_item]!"), null, COMBAT_MESSAGE_RANGE)
-
-	deploy_turret(user, loc)
+		playsound(src, 'sound/items/drill_use.ogg', 80, TRUE, -1)
+		deploy_turret(user, loc)
+		return ITEM_INTERACT_SUCCESS
+	..()
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/attack_self(mob/user, modifiers)
 	if(!easy_deploy)
@@ -237,30 +244,29 @@ DEFINE_BITFIELD(turret_flags, list(
 	sync_turrets()
 	return
 
-/obj/item/target_designator/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!can_see(user,target,scan_range)) //if outside range, dont bother.
-		return
+/obj/item/target_designator/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!can_see(user, interacting_with, scan_range)) //if outside range, dont bother.
+		return NONE
 
-	if(target in linked_turrets) //to stop issues with linking turrets.
-		return
+	if(interacting_with in linked_turrets) //to stop issues with linking turrets.
+		return NONE
 
 	if(acquired_target) //if there's a target already, cant designate one.
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	designate_enemy(target, user)
-	addtimer(CALLBACK(src, PROC_REF(clear_target), user), acquisition_duration, TIMER_STOPPABLE) //clears after 5 seconds. to avoid issues. Stoppable for deconning
-	return
+	designate_enemy(interacting_with, user)
+	addtimer(CALLBACK(src, PROC_REF(clear_target), user), acquisition_duration) //clears after 5 seconds. to avoid issues.
+	return ITEM_INTERACT_SUCCESS
 
-/obj/item/target_designator/afterattack_secondary(atom/movable/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!can_see(user,target,scan_range)) //if outside range, dont bother.
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+/obj/item/target_designator/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!can_see(user, interacting_with, scan_range)) //if outside range, dont bother.
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(target, /mob/living))
+	if(istype(interacting_with, /mob/living))
 		for(var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret in linked_turrets)
-			turret.toggle_ally(target)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			turret.toggle_ally(interacting_with)
+		return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /// designates a manual target to turrets
 /obj/item/target_designator/proc/designate_enemy(atom/movable/target, mob/user)
@@ -586,14 +592,14 @@ DEFINE_BITFIELD(turret_flags, list(
 				burst_target = null
 				volley_count = initial(volley_count)
 				return
-			trytoshootfucker(burst_target)
+			trytoshootfucker(burst_target) //we send _this_ one because its the weakref. Same with the one below. I've had several runtimes before figuring this out.
 			return
 		if(target_override) //Forces turret to shoot
 			var/atom/movable/overridden_target = target_override.resolve()
 			if(isnull(overridden_target))
 				target_override = null
 				return
-			trytoshootfucker(overridden_target) //This is 1 thing. It does not need a list. This kills it because it'll never read a list as null.
+			trytoshootfucker(target_override) //This is 1 thing. It does not need a list. This kills it because it'll never read a list as null.
 			return
 
 	return ..()
@@ -800,7 +806,7 @@ DEFINE_BITFIELD(turret_flags, list(
 
 ////// Operation Handling //////
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/living/user, params) // This hasn't been changed upstream yet.
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
 	if(isnull(auto_loader))
 		mag_box = null
@@ -885,7 +891,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	deconstruct(TRUE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/alt_click_secondary(mob/user)
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/click_alt_secondary(mob/user)
 	. = ..()
 	if(quick_retract)
 		if(smart_retract && !in_faction(user))
@@ -921,7 +927,7 @@ DEFINE_BITFIELD(turret_flags, list(
 #undef TURRET_FLAG_SHOOT_BORGS
 #undef TURRET_FLAG_SHOOT_HEADS
 
-#undef TURRET_FLAG_OBEY_FLAGS.
+#undef TURRET_FLAG_OBEY_FLAGS
 #undef TURRET_FLAG_SHOOT_NOONE
 #undef TURRET_FLAG_SHOOT_EVERYONE
 
