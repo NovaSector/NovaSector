@@ -35,7 +35,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return list()
 
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
-	update_body_markings(source)
 	return
 
 /datum/species/dullahan
