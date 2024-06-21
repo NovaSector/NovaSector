@@ -21,7 +21,7 @@
 	if(!isnull(crew_id) || !istype(crew_id))
 		associated_card = crew_id
 
-	if(associated_card.trim)
+	if(associated_card && associated_card.trim)
 		var/datum/id_trim/card_trim = associated_card.trim
 		name = "[lowertext(card_trim.assignment)] equipment lockbox ([associated_card.registered_name])"
 
