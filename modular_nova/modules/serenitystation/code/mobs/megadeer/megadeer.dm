@@ -1,6 +1,6 @@
 /mob/living/basic/mining/megadeer
 	name = "megadeer"
-	desc = "The descendents of the common deer, turned into angry beasts by the harshness of the land."
+	desc = "The descendants of the common deer, turned into angry beasts by the harshness of the land."
 	icon = 'modular_nova/modules/serenitystation/icons/newfauna_wide.dmi'
 	icon_state = "megadeer"
 	icon_living = "megadeer"

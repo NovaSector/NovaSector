@@ -23,9 +23,6 @@
 
 /area/forestplanet/outdoors/nospawn
 
-/area/forestplanet/outdoors/nospawn/New()
-	. = ..()
-
 /area/forestplanet/outdoors/unexplored
 	icon_state = "unexplored"
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED

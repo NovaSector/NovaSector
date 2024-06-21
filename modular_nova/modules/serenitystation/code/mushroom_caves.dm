@@ -45,7 +45,6 @@
 		/obj/structure/flora/ash/tall_shroom/colored = 1,
 	)
 
-
 /datum/biome/mushroom_cave
 	turf_type = /turf/open/misc/asteroid/forest/mushroom
 	flora_density = 25

@@ -8,10 +8,10 @@
 	normal_gases = list(
 		/datum/gas/oxygen=10,
 		/datum/gas/nitrogen=10,
-		/datum/gas/bz=1.2
+		/datum/gas/bz=1.2,
 	)
 	restricted_gases = list(
-		/datum/gas/water_vapor=0.1
+		/datum/gas/water_vapor=0.1,
 	)
 	restricted_chance = 20
 

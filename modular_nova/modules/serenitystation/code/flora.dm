@@ -2,7 +2,6 @@
 	/// The type of stump to spawn when harvested.
 	var/stump_type = /obj/structure/flora/tree/stump
 
-
 /obj/structure/flora/tree/mushroom
 	name = "mushroom tree"
 	desc = "A large branching mushroom that seems to thrive under the planet's surface."
@@ -17,7 +16,6 @@
 	icon_state = "tree2"
 	stump_type = /obj/structure/flora/tree/stump/mushroom/reverse
 
-
 /obj/structure/flora/tree/mushroom/blue
 	icon_state = "tree_blue1"
 
@@ -31,7 +29,6 @@
 /obj/structure/flora/tree/mushroom/green/reverse
 	icon_state = "tree_green2"
 	stump_type = /obj/structure/flora/tree/stump/mushroom/reverse
-
 
 /obj/structure/flora/tree/stump/mushroom
 	icon = 'modular_nova/modules/serenitystation/icons/mushroomtrees.dmi'
