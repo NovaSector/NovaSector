@@ -1,6 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - rscadd: "every engineering lobby starts with a flatpacked flatpacker and multitool"
-  - rscdel: "CE locker no longer spawns with a flatpack"
-  - rscadd: "a hot dog vending machine has arrived at the ghost cafe"
