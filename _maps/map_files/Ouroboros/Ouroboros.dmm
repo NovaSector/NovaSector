@@ -6482,6 +6482,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/wood/large,
 /area/station/tcommsat/computer)
 "bVN" = (
@@ -28276,6 +28277,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -41894,6 +41896,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/wood/large,
 /area/station/tcommsat/computer)
 "mbl" = (
