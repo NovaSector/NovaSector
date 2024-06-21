@@ -46034,12 +46034,7 @@
 	},
 /obj/structure/rack/shelf,
 /obj/machinery/light/cold/directional/north,
-/obj/item/gun/energy/e_gun/dragnet{
-	pixel_y = 4
-	},
-/obj/item/gun/energy/e_gun/dragnet{
-	pixel_y = -4
-	},
+/obj/effect/spawner/random/armory/dragnet,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "njJ" = (

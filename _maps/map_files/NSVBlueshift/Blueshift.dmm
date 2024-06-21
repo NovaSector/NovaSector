@@ -76402,8 +76402,7 @@
 /obj/item/melee/baton/security/loaded,
 /obj/structure/cable,
 /obj/effect/spawner/random/armory/riot_shield,
-/obj/item/gun/energy/e_gun/dragnet,
-/obj/item/gun/energy/e_gun/dragnet,
+/obj/effect/spawner/random/armory/dragnet,
 /turf/open/floor/iron,
 /area/station/ai_monitored/security/armory)
 "oGG" = (
