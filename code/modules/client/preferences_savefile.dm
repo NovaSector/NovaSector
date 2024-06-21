@@ -312,14 +312,17 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	randomise = SANITIZE_LIST(randomise)
 	job_preferences = SANITIZE_LIST(job_preferences)
 	all_quirks = SANITIZE_LIST(all_quirks)
+	languages = SANITIZE_LIST(languages) // NOVA EDIT ADDITION
+	augments = SANITIZE_LIST(augments) // NOVA EDIT ADDITION
 
 	//Validate job prefs
 	for(var/j in job_preferences)
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)
 			job_preferences -= j
 
-	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), augments)// NOVA EDIT - AUGMENTS+
+	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), SANITIZE_LIST(augments)) // NOVA EDIT CHANGE - AUGMENTS+ - ORIGINAL: all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks))
 	validate_quirks()
+	sanitize_languages() // NOVA EDIT ADDITION
 
 	return TRUE
 
