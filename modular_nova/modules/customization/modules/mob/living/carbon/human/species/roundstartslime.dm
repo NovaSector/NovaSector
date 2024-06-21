@@ -63,6 +63,29 @@
 		"frills" = list("None", FALSE),
 	)
 
+/datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
+	var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
+
+	var/obj/item/organ/internal/brain/slime/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/internal/stomach/slime/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	oversized_quirk.old_organs = list(
+		old_brain,
+		old_stomach,
+	)
+
+	// To prevent ghosting. We have to do this manually here because TG has replace_into() hardcoded to qdel the old brain no matter what and there is no way around it.
+	old_brain.Remove(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
+
+	if(new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER | DELETE_IF_REPLACED))
+		old_brain.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_brain)
+		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
+	if(new_slime_stomach.Insert(human_holder, special = TRUE))
+		old_stomach.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_stomach)
+		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
+
 /obj/item/organ/internal/eyes/jelly
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
@@ -155,6 +178,10 @@
 	colorize()
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
+
+/obj/item/organ/internal/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
+	. = ..()
+	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
