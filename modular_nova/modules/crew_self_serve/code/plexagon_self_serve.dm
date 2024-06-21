@@ -1,11 +1,36 @@
+/// Wall mounted time clock, running Plexagon Self Serve by default
+/obj/machinery/modular_computer/preset/time_clock
+	name = "time clock"
+	desc = "Allows crew to clock in/out from their job duties, giving the impression they have a semblance of control over their lives."
+	starting_programs = list(
+		/datum/computer_file/program/crew_self_serve
+	)
+	icon = 'modular_nova/modules/time_clock/icons/machinery/console.dmi'
+	icon_state = "timeclock"
+	icon_state_powered = "timeclock"
+	screen_icon_state_menu = "timeclock_r_idle"
+	screen_icon_screensaver = "timeclock_r_idle"
+	density = FALSE
+
+/obj/machinery/modular_computer/preset/time_clock/Initialize(mapload)
+	. = ..()
+	setup_starting_software()
+
+/obj/machinery/modular_computer/preset/time_clock/proc/setup_starting_software()
+	var/datum/computer_file/program/crew_self_serve/plexagon = cpu.find_file_by_name("plexagonselfserve")
+	cpu.active_program = plexagon
+	update_appearance(UPDATE_ICON)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/modular_computer/preset/time_clock, 32)
+
 /datum/computer_file/program/crew_self_serve
 	filename = "plexagonselfserve"
 	filedesc = "Plexagon Crew Self Serve"
 	downloader_category = PROGRAM_CATEGORY_SECURITY
-	program_open_overlay = "generic"
+	program_open_overlay = "timeclock_l_idle"
 	extended_desc = "Lets crew manage their own HR, giving the impression they have a semblance of control over their employment."
 	program_flags = PROGRAM_ON_NTNET_STORE
-	size = 4
+	size = 2
 	tgui_id = "NtosSelfServe"
 	program_icon = "id-card"
 	/// The ID card used to authenticate.
