@@ -45,9 +45,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	oversized_quirk.old_organs += list(old_stomach)
 
 	if(new_stomach.Insert(human_holder, special = TRUE))
-		old_stomach.moveToNullspace()
-		STOP_PROCESSING(SSobj, old_stomach)
 		to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
+		if(old_stomach)
+			old_stomach.moveToNullspace()
+			STOP_PROCESSING(SSobj, old_stomach)
 
 /datum/species/dullahan
 	mutant_bodyparts = list()

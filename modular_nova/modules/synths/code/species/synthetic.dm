@@ -156,9 +156,10 @@
 	oversized_quirk.old_organs += list(old_stomach)
 
 	if(new_synth_stomach.Insert(human_holder, special = TRUE))
-		old_stomach.moveToNullspace()
-		STOP_PROCESSING(SSobj, old_stomach)
 		to_chat(human_holder, span_warning("You feel your massive engine rumble!"))
+		if(old_stomach)
+			old_stomach.moveToNullspace()
+			STOP_PROCESSING(SSobj, old_stomach)
 
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen

@@ -77,14 +77,16 @@
 	// To prevent ghosting. We have to do this manually here because TG has replace_into() hardcoded to qdel the old brain no matter what and there is no way around it.
 	old_brain.Remove(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
 
-	if(new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER | DELETE_IF_REPLACED))
-		old_brain.moveToNullspace()
-		STOP_PROCESSING(SSobj, old_brain)
+	if(new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER))
 		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
+		if(old_brain)
+			old_brain.moveToNullspace()
+			STOP_PROCESSING(SSobj, old_brain)
 	if(new_slime_stomach.Insert(human_holder, special = TRUE))
-		old_stomach.moveToNullspace()
-		STOP_PROCESSING(SSobj, old_stomach)
 		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
+		if(old_stomach)
+			old_stomach.moveToNullspace()
+			STOP_PROCESSING(SSobj, old_stomach)
 
 /obj/item/organ/internal/eyes/jelly
 	name = "photosensitive eyespots"

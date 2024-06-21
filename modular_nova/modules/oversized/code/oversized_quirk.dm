@@ -71,6 +71,9 @@
 	for(var/obj/item/organ/organ_to_restore in old_organs)
 		old_organs -= organ_to_restore
 
+		if(QDELETED(organ_to_restore)) // not sure why this would ever happen but just in case
+			continue
+
 		// if it's a brain, make sure the mob doesn't get stuck outside their body
 		var/obj/item/organ/internal/brain/possibly_a_brain = organ_to_restore
 		if(istype(possibly_a_brain))
