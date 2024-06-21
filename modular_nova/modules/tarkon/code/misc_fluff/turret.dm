@@ -72,3 +72,17 @@
 	shot_delay = 15 //1.5 seconds
 	faction = list(FACTION_TARKON, FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled
+
+/obj/item/turret_assembly/cerberus
+	name = "cerberus plate assembly"
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	icon_state = "cerberus_assembly"
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one is for a \"Cerberus\" model turret type."
+	design = /obj/item/storage/toolbox/emergency/turret/mag_fed/cerberus
+
+/obj/item/turret_assembly/hoplite
+	name = "hoplite plate assembly"
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	icon_state = "hoplite_assembly"
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one is for a \"Hoplite\" model turret type."
+	design = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite

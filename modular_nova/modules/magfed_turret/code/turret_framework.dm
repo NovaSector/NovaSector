@@ -907,10 +907,11 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/obj/item/target_designator/controller = linkage?.resolve()
 	controller.linked_turrets -= source
 
-////// Define Killing. For testing.
+////// Define Killing.
 
 #undef TURRET_STUN
 #undef TURRET_LETHAL
+
 #undef TURRET_FLAG_SHOOT_ALL_REACT
 #undef TURRET_FLAG_AUTH_WEAPONS
 #undef TURRET_FLAG_SHOOT_CRIMINALS
@@ -919,3 +920,14 @@ DEFINE_BITFIELD(turret_flags, list(
 #undef TURRET_FLAG_SHOOT_UNSHIELDED
 #undef TURRET_FLAG_SHOOT_BORGS
 #undef TURRET_FLAG_SHOOT_HEADS
+
+#undef TURRET_FLAG_OBEY_FLAGS.
+#undef TURRET_FLAG_SHOOT_NOONE
+#undef TURRET_FLAG_SHOOT_EVERYONE
+
+#undef TURRET_THREAT_PASSIVE
+#undef TURRET_THREAT_LOW
+#undef TURRET_THREAT_MEDIUM
+#undef TURRET_THREAT_HIGH
+#undef TURRET_THREAT_SEVERE
+#undef TURRET_THREAT_PRIORITY

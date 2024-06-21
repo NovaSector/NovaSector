@@ -11,7 +11,7 @@
 	name = "turret plate assembly"
 	icon = 'modular_nova/modules/magfed_turret/icons/assembly.dmi'
 	icon_state = "turret_assembly"
-	desc = "A case holding a set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction."
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one seems to be for a basic outpost defense turret."
 	/// modular receiver
 	var/obj/item/receiver
 	/// proximity sensor
@@ -153,6 +153,19 @@
 	if(gone == sensor)
 		sensor = null
 
+/obj/item/turret_assembly/twin_fang
+	name = "twin_fang plate assembly"
+	icon = 'modular_nova/modules/magfed_turret/icons/assembly.dmi'
+	icon_state = "twinfang_assembly"
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one is for a \"Twin-Fang\" model of the \"Spider\" turret type."
+	design = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang
+
+/obj/item/turret_assembly/duster
+	name = "duster plate assembly"
+	icon = 'modular_nova/modules/magfed_turret/icons/assembly.dmi'
+	icon_state = "duster_assembly"
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one is for a \"Duster\" model of the \"Emergent\" turret type."
+	design = /obj/item/storage/toolbox/emergency/turret/mag_fed/duster
 
 #undef TURRET_ASSEMBLY_START
 #undef TURRET_ASSEMBLY_RECEIVER
