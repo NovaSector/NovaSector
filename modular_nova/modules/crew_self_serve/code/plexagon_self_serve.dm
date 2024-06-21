@@ -175,13 +175,12 @@
 					user_mind.clocked_out_of_job = FALSE
 
 			else
-				log_admin("[key_name(usr)] clocked out as \an [authenticated_card.assignment].")
-				clock_out()
 				var/mob/living/carbon/human/human_user = usr
 				if(human_user)
 					var/obj/item/storage/lockbox/timeclock/shame_box = new /obj/item/storage/lockbox/timeclock(src, authenticated_card)
 					human_user.secure_items(eligible_items = SELF_SERVE_RETURN_ITEMS, incoming_box = shame_box)
-
+				clock_out()
+				log_admin("[key_name(usr)] clocked out as \an [authenticated_card.assignment].")
 				var/datum/mind/user_mind = usr.mind
 				if(user_mind)
 					user_mind.clocked_out_of_job = TRUE

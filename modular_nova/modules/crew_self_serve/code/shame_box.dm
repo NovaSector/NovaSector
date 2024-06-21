@@ -21,6 +21,10 @@
 	if(!isnull(crew_id) || !istype(crew_id))
 		associated_card = crew_id
 
+	if(associated_card.trim)
+		var/datum/id_trim/card_trim = associated_card.trim
+		name = "[lowertext(card_trim.assignment)] equipment lockbox ([associated_card.registered_name])"
+
 /// Timeclock boxes can only be opened while the crew member is on duty, or by a command member with the proper access.
 /obj/item/storage/lockbox/timeclock/check_access(obj/item/crew_id)
 	if(isnull(crew_id))
@@ -57,4 +61,5 @@
 	emptyStorage()
 	usr.visible_message(span_notice("[usr] activates the lockbox mechanism, releasing its contents before vanishing in a puff of bluespace smoke!"))
 	associated_card = null
+	do_admin_sparks(number = 10, cardinals_only = FALSE, source = src)
 	qdel(src)
