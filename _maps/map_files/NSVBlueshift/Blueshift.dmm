@@ -5140,14 +5140,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/maintenance/department/engineering/engine_aft_port)
-"bbm" = (
-/obj/effect/spawner/random/trash/mess,
-/obj/effect/decal/cleanable/dirt{
-	icon_state = "dirt-flat-1"
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/maintenance/starboard/fore)
 "bbn" = (
 /obj/structure/filingcabinet/security,
 /obj/effect/turf_decal/tile/red/half/contrasted{
@@ -16167,6 +16159,7 @@
 /area/station/common/locker_room_shower)
 "dcL" = (
 /obj/effect/spawner/random/structure/steam_vent,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "dcR" = (
@@ -28121,17 +28114,6 @@
 /obj/structure/sign/departments/restroom/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
-"fpW" = (
-/obj/effect/turf_decal/tile/brown/half/contrasted{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/cargo/lobby)
 "fpY" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Engineering Maintenance"
@@ -37245,14 +37227,13 @@
 /turf/open/floor/carpet,
 /area/station/service/bar/atrium)
 "hgl" = (
-/obj/effect/decal/cleanable/dirt{
-	icon_state = "dirt-flat-1"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
 /obj/structure/sign/poster/contraband/free_drone/directional/south,
-/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt{
+	icon_state = "dirt-flat-1"
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "hgo" = (
@@ -37718,7 +37699,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
@@ -66876,6 +66856,7 @@
 /area/station/security/checkpoint)
 "mPS" = (
 /obj/structure/barricade/wooden,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "mPX" = (
@@ -69531,11 +69512,10 @@
 /turf/open/floor/plating,
 /area/station/engineering/transit_tube)
 "nsz" = (
-/obj/effect/decal/cleanable/dirt{
-	icon_state = "dirt-flat-1"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/cable,
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "nsA" = (
 /obj/structure/chair/office{
@@ -91405,7 +91385,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "rxA" = (
@@ -92288,7 +92267,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "rGo" = (
@@ -117319,7 +117297,6 @@
 /obj/structure/grille,
 /obj/structure/barricade/wooden,
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore)
 "wrz" = (
@@ -122288,14 +122265,13 @@
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/qm)
 "xpx" = (
-/obj/effect/decal/cleanable/dirt{
-	icon_state = "dirt-flat-1"
-	},
 /obj/effect/spawner/random/trash/moisture_trap,
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt{
+	icon_state = "dirt-flat-1"
+	},
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore)
 "xpA" = (
@@ -123675,7 +123651,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
@@ -164142,7 +164117,7 @@ rzg
 dDD
 uiv
 iSr
-fpW
+iSr
 hkt
 rxy
 xDq
@@ -165639,11 +165614,11 @@ aqk
 dVy
 qlI
 tVI
-tVI
-tVI
+fqP
+fqP
 dcL
-tVI
-tVI
+fqP
+fqP
 pdU
 hAd
 nYM
@@ -165900,7 +165875,7 @@ mPS
 uyp
 mrV
 ugS
-tVI
+fqP
 pdU
 hAd
 nWm
@@ -166154,8 +166129,8 @@ ivW
 jZl
 rSw
 mZc
-nsz
-bbm
+jYW
+jGU
 mrV
 pvk
 oOr
@@ -166414,7 +166389,7 @@ lSU
 hSi
 hgl
 dVy
-jAj
+nsz
 pdU
 btP
 cWP
