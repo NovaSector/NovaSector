@@ -17,11 +17,12 @@
 	canSmoothWith = SMOOTH_GROUP_FLOOR_GRASS + SMOOTH_GROUP_CLOSED_TURFS
 	layer = HIGH_TURF_LAYER
 	damaged_dmi = 'icons/turf/damaged.dmi'
-	var/smooth_icon = 'icons/turf/floors/grass.dmi'
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 	flags_1 = NONE
 	planetary_atmos = TRUE
 	dig_result = /obj/item/food/grown/grass
+	/// Which icon file to use for turf specific edge smoothing states.
+	var/smooth_icon = 'icons/turf/floors/grass.dmi'
 
 /turf/open/misc/asteroid/forest/broken_states()
 	return list("grass_damaged")
