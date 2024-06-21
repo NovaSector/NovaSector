@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "the optional admin rainbow sparks (from item deletion) will no longer set things on fire"
