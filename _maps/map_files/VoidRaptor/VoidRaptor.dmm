@@ -1261,6 +1261,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/poster/timeclock_psa/directional/south,
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
 "asr" = (
@@ -10008,6 +10009,7 @@
 /area/station/hallway/primary/fore)
 "cZW" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/machinery/flatpacker,
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
@@ -38913,7 +38915,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/pet/gondola/funky,
+/mob/living/basic/pet/gondola/funky,
 /turf/open/floor/iron/herringbone,
 /area/station/service/theater)
 "kYC" = (
@@ -58594,7 +58596,7 @@
 	name = "Poppy's bed"
 	},
 /obj/machinery/firealarm/directional/south,
-/mob/living/simple_animal/pet/poppy,
+/mob/living/basic/pet/poppy,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)
@@ -65292,7 +65294,6 @@
 	},
 /obj/machinery/light/warm/directional/north,
 /obj/machinery/disposal/bin,
-/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /obj/effect/turf_decal/box,
 /obj/structure/disposalpipe/trunk{
 	dir = 4

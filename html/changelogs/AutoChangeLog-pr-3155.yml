@@ -1,0 +1,4 @@
+author: "FearfulFurnishing"
+delete-after: True
+changes:
+  - bugfix: "fixes Ashwalkers not being able to stabilize legion cores at there tendril. Made message for using a stabilized core on tendril more clear."

@@ -29,31 +29,31 @@
 			return COLOR_BLACK
 
 /proc/random_underwear(gender)
-	if(!GLOB.underwear_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear, GLOB.underwear_list, GLOB.underwear_m, GLOB.underwear_f)
+	if(length(SSaccessories.underwear_list) == 0)
+		CRASH("No underwear to choose from!")
 	switch(gender)
 		if(MALE)
-			return pick(GLOB.underwear_m)
+			return pick(SSaccessories.underwear_m)
 		if(FEMALE)
-			return pick(GLOB.underwear_f)
+			return pick(SSaccessories.underwear_f)
 		else
-			return pick(GLOB.underwear_list)
+			return pick(SSaccessories.underwear_list)
 
 /proc/random_undershirt(gender)
-	if(!GLOB.undershirt_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/undershirt, GLOB.undershirt_list, GLOB.undershirt_m, GLOB.undershirt_f)
+	if(length(SSaccessories.undershirt_list) == 0)
+		CRASH("No undershirts to choose from!")
 	switch(gender)
 		if(MALE)
-			return pick(GLOB.undershirt_m)
+			return pick(SSaccessories.undershirt_m)
 		if(FEMALE)
-			return pick(GLOB.undershirt_f)
+			return pick(SSaccessories.undershirt_f)
 		else
-			return pick(GLOB.undershirt_list)
+			return pick(SSaccessories.undershirt_list)
 
 /proc/random_socks()
-	if(!GLOB.socks_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
-	return pick(GLOB.socks_list)
+	if(length(SSaccessories.socks_list) == 0)
+		CRASH("No socks to choose from!")
+	return pick(SSaccessories.socks_list)
 
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
@@ -119,20 +119,20 @@
 /proc/random_hairstyle(gender)
 	switch(gender)
 		if(MALE)
-			return pick(GLOB.hairstyles_male_list)
+			return pick(SSaccessories.hairstyles_male_list)
 		if(FEMALE)
-			return pick(GLOB.hairstyles_female_list)
+			return pick(SSaccessories.hairstyles_female_list)
 		else
-			return pick(GLOB.hairstyles_list)
+			return pick(SSaccessories.hairstyles_list)
 
 /proc/random_facial_hairstyle(gender)
 	switch(gender)
 		if(MALE)
-			return pick(GLOB.facial_hairstyles_male_list)
+			return pick(SSaccessories.facial_hairstyles_male_list)
 		if(FEMALE)
-			return pick(GLOB.facial_hairstyles_female_list)
+			return pick(SSaccessories.facial_hairstyles_female_list)
 		else
-			return pick(GLOB.facial_hairstyles_list)
+			return pick(SSaccessories.facial_hairstyles_list)
 
 GLOBAL_LIST_INIT(skin_tones, sort_list(list(
 	"albino",
@@ -524,12 +524,17 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 		. += borg
 
 //Returns a list of AI's
-/proc/active_ais(check_mind=FALSE, z = null)
+/proc/active_ais(check_mind=FALSE, z = null, skip_syndicate, only_syndicate)
 	. = list()
 	for(var/mob/living/silicon/ai/ai as anything in GLOB.ai_list)
 		if(ai.stat == DEAD)
 			continue
 		if(ai.control_disabled)
+			continue
+		var/syndie_ai = istype(ai, /mob/living/silicon/ai/weak_syndie)
+		if(skip_syndicate && syndie_ai)
+			continue
+		if(only_syndicate && !syndie_ai)
 			continue
 		if(check_mind)
 			if(!ai.mind)
@@ -557,8 +562,8 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 			. = pick(borgs)
 	return .
 
-/proc/select_active_ai(mob/user, z = null)
-	var/list/ais = active_ais(FALSE, z)
+/proc/select_active_ai(mob/user, z = null, skip_syndicate, only_syndicate)
+	var/list/ais = active_ais(FALSE, z, skip_syndicate, only_syndicate)
 	if(ais.len)
 		if(user)
 			. = input(user,"AI signals detected:", "AI Selection", ais[1]) in sort_list(ais)
