@@ -1138,7 +1138,6 @@
 /datum/greyscale_config/big_pants/worn/digi
 	name = "'JUNCO' megacargo pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
-	//json_config = 'modular_nova/modules/GAGS/json_configs/big_pants/big_pants_worn_digi.json'
 
 // DRESSES / SKIRTS
 
