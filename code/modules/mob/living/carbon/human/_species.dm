@@ -108,7 +108,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/obj/item/organ/internal/appendix/mutantappendix = /obj/item/organ/internal/appendix
 
 	/// Store body marking defines. See mobs.dm for bitflags
-	var/list/body_markings = list()
+	//var/list/body_markings = list() // NOVA EDIT REMOVAL - We already have this defined as an assoc list
 
 	/// Flat modifier on all damage taken via [apply_damage][/mob/living/proc/apply_damage] (so being punched, shot, etc.)
 	/// IE: 10 = 10% less damage taken.
@@ -700,11 +700,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	source.apply_overlay(BODY_BEHIND_LAYER)
 	source.apply_overlay(BODY_ADJ_LAYER)
 	source.apply_overlay(BODY_FRONT_LAYER)
-*/
-//NOVA EDIT REMOVAL END
-
 
 	update_body_markings(source)
+	*/
+//NOVA EDIT REMOVAL END
 
 //This exists so sprite accessories can still be per-layer without having to include that layer's
 //number in their sprite name, which causes issues when those numbers change.
