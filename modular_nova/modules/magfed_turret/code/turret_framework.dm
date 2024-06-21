@@ -346,6 +346,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/retract_timer = 1 SECONDS
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
+	////// Does this turret auto-eject its magazines? Will be used later.
+	var/auto_mag_drop = FALSE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/datum/weakref/target_override
 	//////Target Assessment System. Whether or not its targeting according to flags or even ignoring everyone.
@@ -374,6 +376,10 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/datum/weakref/linkage
 	////// will the turret destruct into a frame?
 	var/fragile = FALSE
+	////// whats the chance of the turret dropping a receiver?
+	var/receiver_check = 70
+	////// whats the chance of the turret dropping a prox sensor?
+	var/sensor_check = 30
 	////// what frame will it destruct into?
 	var/obj/item/turret_assembly/turret_frame
 
@@ -473,9 +479,9 @@ DEFINE_BITFIELD(turret_flags, list(
 			for(var/obj/item/guts in auto_loader?.contents)
 				guts.forceMove(drop_location())
 			new turret_frame(drop_location())
-			if(prob(75)) // rarely breaks but is a big problem when it does
+			if(prob(receiver_check))
 				new /obj/item/weaponcrafting/receiver(drop_location())
-			if(prob(33)) //breaks often. fairly easy to replace
+			if(prob(sensor_check))
 				new /obj/item/assembly/prox_sensor(drop_location())
 			qdel(auto_loader) //servo always break. I dont want to deal with people thinking the one they put in is important or is being tracked
 			if(timer_id)
@@ -532,8 +538,13 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(magazine_ref)
 		var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 		if(istype(mag))
-			mag.forceMove(drop_location())
-			UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
+			if(auto_mag_drop)
+				var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
+				auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
+				UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
+			else
+				mag.forceMove(drop_location())
+				UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
 		magazine_ref = null
 	load_mag()
 	playsound(src, 'sound/weapons/gun/general/chunkyrack.ogg', 30, TRUE)
