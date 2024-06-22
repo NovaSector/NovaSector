@@ -37,6 +37,19 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	return
 
+/// Replacing organs with oversized versions, for the oversized quirk. Add implementation for species-specific oversized organs as needed
+/datum/species/proc/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	var/obj/item/organ/internal/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
+
+	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	oversized_quirk.old_organs += list(old_stomach)
+
+	if(new_stomach.Insert(human_holder, special = TRUE))
+		to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
+		if(old_stomach)
+			old_stomach.moveToNullspace()
+			STOP_PROCESSING(SSobj, old_stomach)
+
 /datum/species/dullahan
 	mutant_bodyparts = list()
 
