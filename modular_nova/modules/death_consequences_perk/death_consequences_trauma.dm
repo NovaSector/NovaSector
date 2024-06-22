@@ -26,6 +26,8 @@
 	var/max_degradation = DEATH_CONSEQUENCES_DEFAULT_MAX_DEGRADATION // arbitrary
 	/// While alive, our victim will lose degradation by this amount per second.
 	var/base_degradation_reduction_per_second_while_alive = DEATH_CONSEQUENCES_DEFAULT_LIVING_DEGRADATION_RECOVERY
+	/// While alive, our victim will degrade by this amount every second.
+	var/base_degradation_per_second_while_alive = 0
 	/// When our victim dies, they will degrade by this amount, but only if the last time they died was after [time_required_between_deaths_to_degrade] ago.
 	var/base_degradation_on_death = DEATH_CONSEQUENCES_DEFAULT_DEGRADATION_ON_DEATH
 	/// While dead, our victim will degrade by this amount every second. Reduced by stasis and formeldahyde.
@@ -207,8 +209,7 @@
 			if (reagent_process_flags_valid(owner, reagent_instance))
 				increase *= formaldehyde_death_degradation_mult
 	else
-		if (base_degradation_reduction_per_second_while_alive < 0) // if you wanna die slowly while alive, go ahead bud
-			increase -= base_degradation_reduction_per_second_while_alive
+		increase += base_degradation_per_second_while_alive // if you wanna die slowly while alive, go ahead bud
 
 	if (HAS_TRAIT(owner, TRAIT_STASIS))
 		increase *= stasis_passive_degradation_multiplier
@@ -450,8 +451,11 @@
 
 	var/owner_organic = (owner.dna.species.reagent_flags & PROCESS_ORGANIC)
 	message += span_danger("\nCurrent degradation/max: [span_blue("<b>[current_degradation]</b>")]/<b>[max_degradation]</b>.")
-	if (base_degradation_reduction_per_second_while_alive)
-		message += span_danger("\nWhile alive, subject will recover from degradation at a rate of [span_blue("[base_degradation_reduction_per_second_while_alive] per second")].")
+	if (base_degradation_reduction_per_second_while_alive || base_degradation_per_second_while_alive)
+		var/total_living_degradation_change = base_degradation_reduction_per_second_while_alive - base_degradation_per_second_while_alive
+		message += span_danger("\nWhile alive, subject will [total_living_degradation_change > 0 ? "recover from": "suffer"] degradation at a rate of [span_blue("[abs(total_living_degradation_change)] per second")].")
+	if (base_degradation_reduction_per_second_while_alive && base_degradation_per_second_while_alive)
+		message += span_danger("\nThis is compounded from a decay rate of [span_blue("[base_degradation_per_second_while_alive] per second")] offset by a recovery rate of [span_blue("[base_degradation_reduction_per_second_while_alive] per second")].")
 	if (base_degradation_per_second_while_dead)
 		message += span_danger("\nWhile dead, subject will suffer degradation at a rate of [span_bolddanger("[base_degradation_per_second_while_dead] per second")].")
 		if (owner_organic && formaldehyde_death_degradation_mult != 1)
@@ -517,6 +521,7 @@
 	current_degradation = clamp(victim_prefs.read_preference(/datum/preference/numeric/death_consequences/starting_degradation), 0, max_degradation - 1) // let's not let people instantly fucking die
 
 	base_degradation_reduction_per_second_while_alive = victim_prefs.read_preference(/datum/preference/numeric/death_consequences/living_degradation_recovery_per_second)
+	base_degradation_per_second_while_alive = victim_prefs.read_preference(/datum/preference/numeric/death_consequences/living_degradation_per_second)
 	base_degradation_per_second_while_dead = victim_prefs.read_preference(/datum/preference/numeric/death_consequences/dead_degradation_per_second)
 	base_degradation_on_death = victim_prefs.read_preference(/datum/preference/numeric/death_consequences/degradation_on_death)
 
