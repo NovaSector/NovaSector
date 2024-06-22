@@ -367,8 +367,9 @@
 	if(ishuman(victim))
 		var/mob/living/carbon/human/human_victim = victim
 		if(HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(src, TRAIT_EASY_ATTACH) || HAS_TRAIT(victim, TRAIT_ROBOTIC_LIMBATTACHMENT)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(src, TRAIT_EASY_ATTACH))
-			// NOVA EDIT ADDITION START - robot_limb_detach_quirk
-			if (HAS_TRAIT(victim, TRAIT_ROBOTIC_LIMBATTACHMENT) && !(bodytype & BODYTYPE_ROBOTIC)) //if we're trying to attach something that's not robotic, end out
+			// NOVA EDIT ADDITION START - robot_limb_detach_quirk - but first let peg limbs through, and also let androids through
+			if (!(HAS_TRAIT(src, TRAIT_EASY_ATTACH)) && !HAS_TRAIT(victim, TRAIT_LIMBATTACHMENT) && HAS_TRAIT(victim, TRAIT_ROBOTIC_LIMBATTACHMENT) && !(bodytype & BODYTYPE_ROBOTIC)) //if we're trying to attach something that's not robotic, end out - but ONLY if we have this quirk
+				to_chat(user, span_warning("[human_victim]'s body rejects [src]! It can only accept robotic limbs."))
 				return
 			// NOVA EDIT ADDITION END
 			if(!human_victim.get_bodypart(body_zone))
