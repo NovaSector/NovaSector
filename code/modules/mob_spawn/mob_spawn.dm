@@ -140,9 +140,9 @@
 	/// Typepath indicating the kind of job datum this ghost role will have. PLEASE inherit this with a new job datum, it's not hard. jobs come with policy configs.
 	var/spawner_job_path = /datum/job/ghost_role
 
-<<<<<<< HEAD
-
-	// NOVA EDIT ADDITION
+	/// Whether this offers a temporary body or not. Essentially, you'll be able to reenter your body after using this spawner.
+	var/temp_body = FALSE
+	// NOVA EDIT ADDITION START
 	/// Do we use a random appearance for this ghost role?
 	var/random_appearance = TRUE
 	/// Can we use our loadout for this role?
@@ -151,12 +151,8 @@
 	var/quirks_enabled = FALSE
 	/// Are we limited to a certain species type? LISTED TYPE
 	var/restricted_species
-	// NOVA EDIT END
-=======
-	/// Whether this offers a temporary body or not. Essentially, you'll be able to reenter your body after using this spawner.
-	var/temp_body = FALSE
+	// NOVA EDIT ADDITION END
 
->>>>>>> 1116f150eba (Bitrunning: Tweaks, QoL and removals (#84125))
 
 /obj/effect/mob_spawn/ghost_role/Initialize(mapload)
 	. = ..()
