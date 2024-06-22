@@ -142,16 +142,6 @@
 
 	/// Whether this offers a temporary body or not. Essentially, you'll be able to reenter your body after using this spawner.
 	var/temp_body = FALSE
-	// NOVA EDIT ADDITION START
-	/// Do we use a random appearance for this ghost role?
-	var/random_appearance = TRUE
-	/// Can we use our loadout for this role?
-	var/loadout_enabled = FALSE
-	/// Can we use our quirks for this role?
-	var/quirks_enabled = FALSE
-	/// Are we limited to a certain species type? LISTED TYPE
-	var/restricted_species
-	// NOVA EDIT ADDITION END
 
 
 /obj/effect/mob_spawn/ghost_role/Initialize(mapload)
@@ -177,14 +167,13 @@
 
 	var/user_ckey = user.ckey // Just in case shenanigans happen, we always want to remove it from the list.
 	LAZYADD(ckeys_trying_to_spawn, user_ckey)
-
-	// NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
 	if(restricted_species && !(user.client?.prefs?.read_preference(/datum/preference/choiced/species) in restricted_species))
 		var/incorrect_species = tgui_alert(user, "Current species preference incompatible, proceed with random appearance?", "Incompatible Species", list("Yes", "No"))
 		if(incorrect_species != "Yes")
 			LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 			return
-	// NOVA EDIT END
+	// NOVA EDIT ADDITIONEND
 
 	if(prompt_ghost)
 		var/prompt = "Become [prompt_name]?"
@@ -213,7 +202,7 @@
 		to_chat(user, span_warning("Error, you are banned from playing ghost roles!"))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 		return
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	if(!allow_spawn(user, silent = FALSE))
 		LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 		return
