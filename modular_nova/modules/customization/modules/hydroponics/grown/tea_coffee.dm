@@ -23,4 +23,5 @@
 	filling_color = "#4582B4"
 	grind_results = list(/datum/reagent/pax/catnip = 2, /datum/reagent/water = 1)
 	distill_reagent = /datum/reagent/consumable/pinkmilk //Don't ask, cats speak in poptart
+	can_distill = TRUE //override for tea's FALSE
 

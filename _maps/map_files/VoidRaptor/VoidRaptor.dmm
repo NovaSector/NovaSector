@@ -1261,6 +1261,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/poster/timeclock_psa/directional/south,
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central)
 "asr" = (
@@ -10008,6 +10009,7 @@
 /area/station/hallway/primary/fore)
 "cZW" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/machinery/flatpacker,
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
@@ -17715,6 +17717,7 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/engine,
 /area/station/tcommsat/computer)
 "fdP" = (
@@ -23222,6 +23225,11 @@
 /obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/atmos/hfr_room)
+"gJZ" = (
+/obj/structure/chair/stool/directional/south,
+/obj/effect/landmark/start/telecomms_specialist,
+/turf/open/floor/iron/smooth_large,
+/area/station/engineering/lobby)
 "gKa" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -38913,7 +38921,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/pet/gondola/funky,
+/mob/living/basic/pet/gondola/funky,
 /turf/open/floor/iron/herringbone,
 /area/station/service/theater)
 "kYC" = (
@@ -40201,13 +40209,12 @@
 /area/station/command/heads_quarters/hos)
 "lqX" = (
 /obj/structure/rack,
-/obj/item/gun/energy/e_gun/dragnet,
-/obj/item/gun/energy/e_gun/dragnet,
 /obj/effect/turf_decal/tile/dark_red/half,
 /obj/machinery/camera/directional/south{
 	c_tag = "Armory - Interior"
 	},
 /obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/armory/dragnet,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "lrc" = (
@@ -58594,7 +58601,7 @@
 	name = "Poppy's bed"
 	},
 /obj/machinery/firealarm/directional/south,
-/mob/living/simple_animal/pet/poppy,
+/mob/living/basic/pet/poppy,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/lobby)
@@ -65292,7 +65299,6 @@
 	},
 /obj/machinery/light/warm/directional/north,
 /obj/machinery/disposal/bin,
-/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /obj/effect/turf_decal/box,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -122235,7 +122241,7 @@ gwM
 rKH
 nwm
 efQ
-lVG
+gJZ
 nDn
 hAj
 enY

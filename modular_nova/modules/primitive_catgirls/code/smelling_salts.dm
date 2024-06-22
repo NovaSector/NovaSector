@@ -31,7 +31,7 @@
 	user.balloon_alert_to_viewers("trying to revive [carbon_target]")
 
 	if(!do_after(user, 3 SECONDS, carbon_target))
-		user.balloon_alert("stopped reviving [carbon_target]")
+		user.balloon_alert(user, "stopped reviving [carbon_target]")
 		return
 
 	if(carbon_target.stat != DEAD)
@@ -60,6 +60,7 @@
 
 	carbon_target.adjustOxyLoss(amount = 60, updating_health = TRUE)
 	playsound(src, 'modular_nova/modules/emotes/sound/emotes/female/female_sniff.ogg', 50, FALSE)
+	carbon_target.set_heartattack(FALSE)
 
 	if(defib_result == DEFIB_POSSIBLE)
 		carbon_target.grab_ghost()

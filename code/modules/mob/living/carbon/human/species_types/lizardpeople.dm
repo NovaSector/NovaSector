@@ -51,7 +51,7 @@
 /*
 /datum/species/lizard/randomize_features()
 	var/list/features = ..()
-	features["body_markings"] = pick(GLOB.body_markings_list)
+	features["body_markings"] = pick(SSaccessories.body_markings_list)
 	return features
 */
 //NOVA EDIT REMOVAL END
@@ -64,7 +64,7 @@
 	)
 
 /datum/species/lizard/get_cough_sound(mob/living/carbon/human/lizard)
-	if(lizard.gender == FEMALE)
+	if(lizard.physique == FEMALE)
 		return pick(
 			'sound/voice/human/female_cough1.ogg',
 			'sound/voice/human/female_cough2.ogg',
@@ -84,7 +84,7 @@
 
 
 /datum/species/lizard/get_cry_sound(mob/living/carbon/human/lizard)
-	if(lizard.gender == FEMALE)
+	if(lizard.physique == FEMALE)
 		return pick(
 			'sound/voice/human/female_cry1.ogg',
 			'sound/voice/human/female_cry2.ogg',
@@ -97,13 +97,11 @@
 
 
 /datum/species/lizard/get_sneeze_sound(mob/living/carbon/human/lizard)
-	if(lizard.gender == FEMALE)
+	if(lizard.physique == FEMALE)
 		return 'sound/voice/human/female_sneeze1.ogg'
 	return 'sound/voice/human/male_sneeze1.ogg'
 
-/datum/species/lizard/get_laugh_sound(mob/living/carbon/human)
-	if(!istype(human))
-		return
+/datum/species/lizard/get_laugh_sound(mob/living/carbon/human/lizard)
 	return 'sound/voice/lizard/lizard_laugh1.ogg'
 
 /datum/species/lizard/get_physical_attributes()
@@ -162,7 +160,6 @@ Lizard subspecies: ASHWALKERS
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_VIRUSIMMUNE,
-		TRAIT_FORBID_MINING_SHUTTLE_CONSOLE_OUTSIDE_STATION,
 	)
 	species_language_holder = /datum/language_holder/lizard/ash
 	digitigrade_customization = DIGITIGRADE_FORCED
