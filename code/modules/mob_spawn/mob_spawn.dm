@@ -173,7 +173,7 @@
 		if(incorrect_species != "Yes")
 			LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
 			return
-	// NOVA EDIT ADDITIONEND
+	// NOVA EDIT ADDITION END
 
 	if(prompt_ghost)
 		var/prompt = "Become [prompt_name]?"
