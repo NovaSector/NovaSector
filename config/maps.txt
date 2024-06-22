@@ -21,6 +21,7 @@ map birdshot
 endmap
 
 map deltastation
+	#default
 	minplayers 50
 	votable
 endmap
@@ -80,7 +81,6 @@ map ouroboros
 endmap
 
 map snowglobe
-	#default
-	minplayers 0
+	minplayers 50
 	votable
 endmap
