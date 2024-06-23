@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixed an issue where peg limbs were not attachable to mobs with the \"cybernetic limb mounts\" quirk"
