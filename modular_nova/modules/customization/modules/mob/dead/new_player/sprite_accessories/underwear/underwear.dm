@@ -99,6 +99,14 @@
 	icon_state = "striped_panties"
 	gender = FEMALE
 
+/datum/sprite_accessory/underwear/loincloth
+	name = "Loin Cloth"
+	icon_state = "loincloth"
+
+/datum/sprite_accessory/underwear/loincloth_alt
+	name = "Shorter Loin Cloth"
+	icon_state = "loincloth_alt"
+
 //Presets
 /datum/sprite_accessory/underwear/lizared
 	name = "LIZARED Underwear"

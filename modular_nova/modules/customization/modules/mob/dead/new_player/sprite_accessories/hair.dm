@@ -132,11 +132,11 @@
 	icon_state = "hair_bunhead4"
 
 /datum/sprite_accessory/hair/nova/rows1
-	name = "Rows 1"
+	name = "Nova Cornrows Short"
 	icon_state = "hair_rows1"
 
 /datum/sprite_accessory/hair/nova/rows2
-	name = "Rows 2"
+	name = "Nova Cornrows Long"
 	icon_state = "hair_rows2"
 
 /datum/sprite_accessory/hair/nova/toriyama
@@ -642,6 +642,10 @@
 /datum/sprite_accessory/hair/nova/mcsqueeb
 	name = "McSqueeb"
 	icon_state = "hair_mcsqueeb"
+
+/datum/sprite_accessory/hair/nova/dreadlocks_long
+	name = "Long Dreadlocks"
+	icon_state = "hair_dreadlocks_long"
 
 // Facial hair
 
