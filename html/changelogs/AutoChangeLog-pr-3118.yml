@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - refactor: "Lizard and moth markings now use the bodypart overlay system"
