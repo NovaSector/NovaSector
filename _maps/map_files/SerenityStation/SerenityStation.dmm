@@ -22726,6 +22726,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/engineering/lobby)
 "gCI" = (
@@ -63101,6 +63102,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron/dark/small,
 /area/station/tcommsat/computer)
 "sxt" = (
