@@ -11,7 +11,7 @@
 	RegisterSignal(parent, COMSIG_STORAGE_REMOVED_ITEM, PROC_REF(parent_removed_item))
 
 /datum/component/accessable_storage/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED))
+	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_STORED_ITEM, COMSIG_STORAGE_REMOVED_ITEM))
 
 /// Signal handler for COMSIG_ITEM_EQUIPPED. Handles registering signals.
 /datum/component/accessable_storage/proc/parent_equipped(datum/signal_source, mob/equipper, slot)

@@ -43,7 +43,7 @@
 	if (!saddle_flags)
 		saddle_flags = RIDER_NEEDS_ARMS
 
-	return buckle_mob(buckling, TRUE, TRUE, saddle_flags)
+	return buckle_mob(buckling, force = TRUE, check_loc = TRUE, buckle_mob_flags = saddle_flags)
 
 #undef SADDLE_MOUNTING_TIME
 #undef SADDLE_MOUNTING_OTHER_MULT
@@ -65,34 +65,24 @@
 	if (user == src) // would open the inventory screen otherwise
 		return FALSE // no feedback as you get your answer via the inventory screen
 
+	/// Conditions that prevent riding, with a balloon alert
+	var/cant_buckle_message
 	if (to_buckle == src)
-		if (!silent)
-			balloon_alert(user, "can't ride self!")
-		return FALSE
+		cant_buckle_message = "can't ride self!"
+	else if (body_position == LYING_DOWN)
+		cant_buckle_message = "can't ride resting!"
+	else if (incapacitated())
+		cant_buckle_message = "can't mount incapacitated mobs!"
+	else if (user.incapacitated())
+		cant_buckle_message = "you are incapacitated!
+	else if (to_buckle.incapacitated())
+		cant_buckle_message = "rider incapacitated!"
+	else if (length(buckled_mobs))
+		cant_buckle_message = "already being ridden!"
 
-	if (body_position == LYING_DOWN)
+	if (cant_buckle_message)
 		if (!silent)
-			balloon_alert(user, "can't ride resting!")
-		return FALSE
-
-	if (incapacitated())
-		if (!silent)
-			balloon_alert(user, "can't mount incapacitated mobs!")
-		return FALSE
-
-	if (user.incapacitated())
-		if (!silent)
-			balloon_alert(user, "you are incapacitated!")
-		return FALSE
-
-	if (to_buckle.incapacitated())
-		if (!silent)
-			balloon_alert(user, "rider incapacitated!")
-		return FALSE
-
-	if (length(buckled_mobs))
-		if (!silent)
-			balloon_alert(user, "already being ridden!")
+			balloon_alert(user, cant_buckle_message)
 		return FALSE
 
 	if (!ishuman(to_buckle))

@@ -23,7 +23,7 @@
 	/// If true, our sprite accessory will not render.
 	var/hide_self
 
-  /// If true, this taur body allows a saddle to be equipped and used.
+	/// If true, this taur body allows a saddle to be equipped and used.
 	var/can_use_saddle = FALSE
 
 	/// If true, can ride saddled taurs and be ridden by other taurs with this set to TRUE.

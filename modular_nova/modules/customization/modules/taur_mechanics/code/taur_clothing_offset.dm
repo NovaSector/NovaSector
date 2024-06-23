@@ -13,7 +13,7 @@
 /datum/component/taur_clothing_offset/UnregisterFromParent()
 	. = ..()
 
-	UnregisterSignal(parent, COMSIG_ITEM_GET_WORN_OVERLAYS)
+	UnregisterSignal(parent, list(COMSIG_ITEM_GET_WORN_OVERLAYS, COMSIG_ITEM_EQUIPPED))
 
 /// Signal handler for COMSIG_ITEM_GET_WORN_OVERLAYS. Offsets parent's worn overlay based on their wearer's taur body.
 /datum/component/taur_clothing_offset/proc/modify_overlays(obj/item/signal_source, list/overlays, mutable_appearance/standing, isinhands, icon_file)
@@ -57,7 +57,7 @@
 	SIGNAL_HANDLER
 
 	var/obj/item/organ/external/taur_body/taur_body = signal_source.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
-	if (!taur_body)
+	if (isnull(taur_body))
 		return
 
 	if(ISDIAGONALDIR(new_dir))
