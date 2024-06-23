@@ -4915,7 +4915,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/icemoon/surface/outdoors/nospawn)
+/area/station/engineering/storage/tech)
 "bEC" = (
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 10
@@ -36481,7 +36481,7 @@
 /obj/effect/spawner/structure/window,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/icemoon/surface/outdoors/nospawn)
+/area/station/engineering/storage/tech)
 "mjM" = (
 /obj/machinery/airalarm/directional/north,
 /obj/item/wrench,
@@ -37123,7 +37123,7 @@
 "mvx" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
-/area/icemoon/surface/outdoors/nospawn)
+/area/station/engineering/storage/tech)
 "mvD" = (
 /obj/effect/landmark/start/quartermaster,
 /turf/open/floor/iron/large,
@@ -58454,7 +58454,7 @@
 /obj/structure/cable,
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
-/area/icemoon/surface/outdoors/nospawn)
+/area/station/engineering/storage/tech)
 "tCJ" = (
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
@@ -242479,14 +242479,14 @@ wTk
 wTk
 wTk
 wTk
-aVO
-aVO
+tYt
+tYt
 mjI
 mjI
 mjI
 mjI
-aVO
-aVO
+tYt
+tYt
 uXJ
 uXJ
 uXJ
@@ -242736,18 +242736,18 @@ wTk
 wTk
 wTk
 otf
-aVO
+tYt
 nGR
 hpQ
 eMu
 lDK
 tYh
 xyB
-aVO
+tYt
 tCF
 mvx
 mvx
-aVO
+tYt
 uXJ
 mzV
 vMu
@@ -242993,7 +242993,7 @@ ozX
 ozX
 csu
 vMu
-aVO
+tYt
 fyB
 vIS
 vIS
@@ -243250,7 +243250,7 @@ dKk
 ozX
 dKk
 vMu
-aVO
+tYt
 gTf
 fcc
 oeG
@@ -243507,7 +243507,7 @@ dKk
 ozX
 mvx
 mvx
-aVO
+tYt
 plK
 bLr
 vIS
@@ -243518,7 +243518,7 @@ tYt
 plK
 bLr
 nUd
-aVO
+tYt
 uXJ
 mzV
 wTD
@@ -244021,7 +244021,7 @@ dKk
 dKk
 mvx
 mvx
-aVO
+tYt
 nEr
 eoZ
 noD
@@ -244278,18 +244278,18 @@ dKk
 dKk
 otf
 otf
-aVO
+tYt
 fyB
 vIS
 vIS
 vIS
 prq
 kLV
-aVO
+tYt
 mvx
 mvx
 mvx
-aVO
+tYt
 uXJ
 mzV
 vMu
@@ -244535,14 +244535,14 @@ dKk
 dKk
 vMu
 otf
-aVO
+tYt
 nvp
 sxl
 dvN
 xLn
 wSv
 wTF
-aVO
+tYt
 uXJ
 uXJ
 uXJ
@@ -244792,14 +244792,14 @@ dKk
 dKk
 vMu
 otf
-aVO
-aVO
+tYt
+tYt
 mjI
 mjI
 mjI
 mjI
-aVO
-aVO
+tYt
+tYt
 mzV
 mzV
 mzV
