@@ -3344,6 +3344,10 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/station/command/heads_quarters/captain/private)
+"bdC" = (
+/obj/effect/landmark/start/telecomms_specialist,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/engineering/lobby)
 "bdQ" = (
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -41512,6 +41516,7 @@
 /obj/item/bedsheet/rd/double{
 	dir = 1
 	},
+/obj/machinery/posialert/directional/west,
 /turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "nYh" = (
@@ -41687,6 +41692,10 @@
 	dir = 4
 	},
 /area/station/engineering/atmos/office)
+"obf" = (
+/obj/effect/landmark/start/telecomms_specialist,
+/turf/open/floor/iron,
+/area/station/tcommsat/computer)
 "obt" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -56000,6 +56009,7 @@
 	dir = 9
 	},
 /obj/machinery/status_display/evac/directional/west,
+/obj/machinery/posialert/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/rd)
 "sPE" = (
@@ -63773,6 +63783,7 @@
 "vwn" = (
 /obj/machinery/newscaster/directional/south,
 /obj/machinery/camera/autoname/directional/south,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "vwH" = (
@@ -227943,7 +227954,7 @@ vMu
 vMu
 orf
 baC
-fna
+obf
 fna
 fna
 orf
@@ -233841,7 +233852,7 @@ nWa
 kpU
 pyV
 haz
-sKn
+bdC
 sKn
 sKn
 psD
