@@ -38490,10 +38490,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/security/range)
-"mwf" = (
-/obj/effect/mapping_helpers/airlock/locked,
-/turf/closed/wall,
-/area/station/maintenance/port/central)
 "mwm" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/landmark/start/chemist,
@@ -56532,7 +56528,7 @@
 "sfP" = (
 /obj/machinery/camera/directional/south{
 	c_tag = "Medbay - Waiting Room";
-	name = "medbay camera";
+	name = "medbay lobby";
 	network = list("ss13","medbay")
 	},
 /obj/effect/turf_decal/tile/blue{
@@ -57829,6 +57825,7 @@
 	name = "Storage Room"
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/port/central)
 "sBz" = (
@@ -74316,11 +74313,6 @@
 	pixel_y = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/machinery/camera{
-	c_tag = "Library - Port";
-	dir = 5;
-	name = "library camera"
-	},
 /obj/item/stack/medical/suture,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -115697,7 +115689,7 @@ jID
 rCS
 jID
 jID
-mwf
+jID
 sBt
 jID
 jID
