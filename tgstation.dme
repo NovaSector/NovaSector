@@ -6448,6 +6448,7 @@
 #include "modular_nova\master_files\code\game\objects\items\cards_ids.dm"
 #include "modular_nova\master_files\code\game\objects\items\dualsaber.dm"
 #include "modular_nova\master_files\code\game\objects\items\dyekit.dm"
+#include "modular_nova\master_files\code\game\objects\items\emags.dm"
 #include "modular_nova\master_files\code\game\objects\items\hhmirror.dm"
 #include "modular_nova\master_files\code\game\objects\items\holy_weapons.dm"
 #include "modular_nova\master_files\code\game\objects\items\oxygen_candle.dm"
