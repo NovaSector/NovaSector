@@ -35813,11 +35813,6 @@
 "mcb" = (
 /turf/open/floor/plating,
 /area/station/maintenance/bloodcasino)
-"mcj" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/open/openspace/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "mcH" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -227854,7 +227849,7 @@ otf
 dKk
 dKk
 dKk
-mcj
+dKk
 dKk
 dKk
 vMu
