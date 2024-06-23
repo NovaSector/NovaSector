@@ -4415,12 +4415,11 @@
 	},
 /area/station/medical/patients_rooms/room_b)
 "bxW" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 8";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 7"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "byc" = (
@@ -7637,12 +7636,11 @@
 /turf/open/floor/iron/dark/airless,
 /area/station/science/ordnance)
 "cCn" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 1";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	name = "Slime Pen 2";
+	req_access = list("xenobiology")
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "cCs" = (
@@ -11875,7 +11873,6 @@
 /area/station/service/barber)
 "dYF" = (
 /obj/structure/table,
-/obj/structure/table,
 /obj/machinery/processor{
 	pixel_y = 8
 	},
@@ -14025,14 +14022,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/pharmacy)
-"eNH" = (
-/obj/structure/chair/wood{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/sepia,
-/area/station/service/kitchen/diner)
 "eNR" = (
 /obj/machinery/computer/shuttle/mining/common,
 /turf/open/floor/carpet/executive,
@@ -16784,12 +16773,11 @@
 	},
 /area/station/hallway/primary/aftporthall)
 "fJi" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 3";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 4"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "fJv" = (
@@ -18103,12 +18091,11 @@
 	},
 /area/station/command/bridge)
 "gfR" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 4";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 3"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "gga" = (
@@ -18122,12 +18109,11 @@
 /turf/open/misc/dirt/icemoon,
 /area/icemoon/underground/explored/graveyard)
 "ggd" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 7";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 8"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "ggj" = (
@@ -20325,6 +20311,9 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint_lesser)
+"gSc" = (
+/turf/closed/wall/r_wall,
+/area/station/cargo/miningfoyer)
 "gSe" = (
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/dark_green{
@@ -24541,12 +24530,11 @@
 	},
 /area/station/hallway/primary/foreporthall)
 "ios" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 2";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	name = "Slime Pen 1";
+	req_access = list("xenobiology")
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "ioy" = (
@@ -25673,12 +25661,11 @@
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/blueshield)
 "iIg" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 9";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 10"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "iIv" = (
@@ -26718,12 +26705,11 @@
 	},
 /area/station/hallway/secondary/entry)
 "jak" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 2";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 1"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "jas" = (
@@ -31057,7 +31043,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera/autoname/directional/north,
 /obj/structure/table,
 /obj/machinery/firealarm/directional/north,
@@ -31241,11 +31226,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/orange,
 /area/station/commons/dorms/room5)
-"kyq" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/openspace/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "kyv" = (
 /obj/effect/landmark/start/virologist,
 /obj/effect/turf_decal/tile/dark_green/opposingcorners,
@@ -31655,12 +31635,11 @@
 	},
 /area/station/engineering/atmos)
 "kFb" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 6";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 5"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "kFl" = (
@@ -34115,12 +34094,11 @@
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
 "luP" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 8";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 7"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "luS" = (
@@ -34435,13 +34413,6 @@
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/spaceelevator)
-"lAT" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/station/maintenance/abandon_wrestle)
 "lAW" = (
 /obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/stripes{
@@ -38304,12 +38275,11 @@
 	},
 /area/station/hallway/primary/forestarboardhall)
 "mWB" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 4";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 3"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "mWJ" = (
@@ -43718,12 +43688,11 @@
 /turf/open/openspace/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "oLM" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 9";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 10"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "oLO" = (
@@ -46811,12 +46780,11 @@
 	},
 /area/station/engineering/atmos/office)
 "pOV" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 10";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 9"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "pOY" = (
@@ -50215,15 +50183,14 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/station/hallway/primary/foreporthall)
 "qWd" = (
-/obj/machinery/door/window/left/directional/north{
-	name = "AI Core Door";
-	req_access = list("ai_upload");
-	dir = 8
-	},
 /obj/structure/cable,
 /obj/machinery/light/floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("ai_upload");
+	name = "AI Battery"
+	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
 "qWi" = (
@@ -50402,12 +50369,11 @@
 /turf/open/floor/grass,
 /area/station/hallway/primary/forestarboardhall)
 "rap" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 7";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 8"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "ray" = (
@@ -50600,12 +50566,11 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/warehouse)
 "rdl" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 10";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 9"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "rdr" = (
@@ -60302,12 +60267,11 @@
 /turf/open/floor/iron/white,
 /area/station/medical/paramedic)
 "uqk" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 1";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 2"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "uqp" = (
@@ -60634,7 +60598,6 @@
 	},
 /area/station/engineering/lobby)
 "uuy" = (
-/obj/structure/table/reinforced,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 4
@@ -61303,12 +61266,11 @@
 	},
 /area/station/hallway/primary/aftstarboardhall)
 "uHb" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 5";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 6"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "uHj" = (
@@ -67861,12 +67823,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/condemned_med)
 "wPq" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 3";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 4"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "wPH" = (
@@ -70717,12 +70678,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
 "xKy" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 6";
-	req_access = list("xenobiology");
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("xenobiology");
+	name = "Slime Pen 5"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "xKG" = (
@@ -70773,12 +70733,11 @@
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs)
 "xLK" = (
-/obj/machinery/door/window/right/directional/west{
-	name = "Containment Pen 5";
-	req_access = list("xenobiology");
-	dir = 2
-	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("xenobiology");
+	name = "Slime Pen 6"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "xLL" = (
@@ -92909,11 +92868,11 @@ jcZ
 pdy
 pdy
 pdy
-kel
-kel
-kel
-kel
-kel
+gSc
+gSc
+gSc
+gSc
+gSc
 jKe
 jKe
 jKe
@@ -93166,12 +93125,12 @@ jcZ
 pdy
 hVP
 qIu
-kel
+gSc
 hVP
 cyT
 hVP
-kel
-kel
+gSc
+gSc
 jKe
 jKe
 jKe
@@ -93428,7 +93387,7 @@ hVP
 hVP
 hVP
 qEY
-kel
+gSc
 jKe
 jKe
 jKe
@@ -93685,7 +93644,7 @@ hVP
 hVP
 hVP
 qEY
-kel
+gSc
 jKe
 jKe
 jKe
@@ -93937,12 +93896,12 @@ jcZ
 pdy
 noJ
 rSu
-kel
+gSc
 hVP
 vVw
 hVP
-kel
-kel
+gSc
+gSc
 jKe
 jKe
 jKe
@@ -94194,11 +94153,11 @@ jcZ
 pdy
 pdy
 pdy
-kel
-kel
-kel
-kel
-kel
+gSc
+gSc
+gSc
+gSc
+gSc
 jKe
 jKe
 jKe
@@ -181609,7 +181568,7 @@ dtj
 evq
 dMB
 nFF
-lAT
+gJy
 gJy
 gJy
 gJy
@@ -220158,7 +220117,7 @@ dKk
 dKk
 dKk
 dKk
-mcj
+dKk
 dKk
 vMu
 vMu
@@ -228931,7 +228890,7 @@ qsz
 tWG
 jPR
 fGW
-otf
+vMu
 dKk
 dKk
 vMu
@@ -230189,7 +230148,7 @@ brx
 mQJ
 cVx
 gju
-eNH
+nEu
 nEu
 uoI
 oKV
@@ -243580,7 +243539,7 @@ gWW
 gWW
 gWW
 alm
-kyq
+otf
 dKk
 dKk
 mvx
