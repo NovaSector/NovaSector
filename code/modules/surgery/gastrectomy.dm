@@ -33,6 +33,7 @@
 	preop_sound = 'sound/surgery/scalpel1.ogg'
 	success_sound = 'sound/surgery/organ1.ogg'
 	failure_sound = 'sound/surgery/organ2.ogg'
+	surgery_effects_mood = TRUE
 
 /datum/surgery_step/gastrectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -42,14 +43,19 @@
 		span_notice("[user] begins to make an incision in [target]."),
 		span_notice("[user] begins to make an incision in [target]."),
 	)
-	display_pain(target, "You feel a horrible stab in your gut!", mood_event_type = /datum/mood_event/surgery)
+	display_pain(target, "You feel a horrible stab in your gut!")
 
 /datum/surgery_step/gastrectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/target_human = target
 	var/obj/item/organ/internal/stomach/target_stomach = target.get_organ_slot(ORGAN_SLOT_STOMACH)
 	target_human.setOrganLoss(ORGAN_SLOT_STOMACH, 20) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
+	//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
 	if(target_stomach)
-		target_stomach.operated = TRUE
+		if(istype(target_stomach, /obj/item/organ/internal/stomach/slime))
+			addtimer(VARSET_CALLBACK(target_stomach, operated, FALSE), 30 SECONDS)
+		else
+			target_stomach.operated = TRUE
+	//NOVA EDIT ADDITION END
 	display_results(
 		user,
 		target,
@@ -57,7 +63,7 @@
 		span_notice("[user] successfully removes the damaged part of [target]'s stomach."),
 		span_notice("[user] successfully removes the damaged part of [target]'s stomach."),
 	)
-	display_pain(target, "The pain in your gut ebbs and fades somewhat.", mood_event_type = /datum/mood_event/surgery/success)
+	display_pain(target, "The pain in your gut ebbs and fades somewhat.")
 	return ..()
 
 /datum/surgery_step/gastrectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
@@ -70,4 +76,4 @@
 		span_warning("[user] cuts the wrong part of [target]'s stomach!"),
 		span_warning("[user] cuts the wrong part of [target]'s stomach!"),
 	)
-	display_pain(target, "Your stomach throbs with pain; it's not getting any better!", mood_event_type = /datum/mood_event/surgery/failure)
+	display_pain(target, "Your stomach throbs with pain; it's not getting any better!")

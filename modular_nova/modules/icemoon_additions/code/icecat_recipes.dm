@@ -152,15 +152,15 @@
     throwforce = 0
     w_class = WEIGHT_CLASS_TINY
 
-/obj/item/frozen_breath/afterattack(atom/target, mob/living/carbon/user)
+/obj/item/frozen_breath/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
     if (!is_species(user, /datum/species/human/felinid/primitive))
         to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
         return
 
-    if(istype(target, /obj/item/organ/internal/lungs))
-        var/obj/item/organ/internal/lungs/target_lungs = target
+    if(istype(interacting_with, /obj/item/organ/internal/lungs))
+        var/obj/item/organ/internal/lungs/target_lungs = interacting_with
         if(IS_ROBOTIC_ORGAN(target_lungs))
-            target.balloon_alert(user, "The lungs have to be organic!")
+            user.balloon_alert(user, "The lungs have to be organic!")
             return
         var/location = get_turf(target_lungs)
         playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)
