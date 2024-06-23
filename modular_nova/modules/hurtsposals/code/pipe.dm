@@ -14,6 +14,9 @@
 	if(!prob(20))
 		return
 
+	if(!is_station_level(z)) // no hurtsposals off-station (bitrunning, ruins)
+		return
+
 	for(var/objects_within in holder.contents)
 		if(!isliving(objects_within))
 			continue
