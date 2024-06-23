@@ -323,6 +323,8 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	// Can't spawn openspace above nothing, it'll get pissy at me
 	returnable_list += typesof(/turf/open/space/openspace)
 	returnable_list += typesof(/turf/open/openspace)
+	// Only you can prevent CI fires
+	returnable_list += typesof(/obj/effect/particle_effect/sparks)
 
 	//NOVA EDIT ADDITION START - OUR UNCREATABLES DOWN HERE
 	//Not designed to be spawned without a turf.
