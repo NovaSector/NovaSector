@@ -6989,7 +6989,6 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
-/obj/item/mmi/posibrain,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -42561,10 +42560,6 @@
 	pixel_y = -7
 	},
 /obj/item/clothing/glasses/welding{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/clothing/glasses/welding{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -42572,6 +42567,10 @@
 	dir = 4
 	},
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/ecto_sniffer{
+	pixel_x = 9;
+	pixel_y = -7
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
