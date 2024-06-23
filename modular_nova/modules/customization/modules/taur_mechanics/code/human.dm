@@ -74,7 +74,7 @@
 	else if (incapacitated())
 		cant_buckle_message = "can't mount incapacitated mobs!"
 	else if (user.incapacitated())
-		cant_buckle_message = "you are incapacitated!
+		cant_buckle_message = "you are incapacitated!"
 	else if (to_buckle.incapacitated())
 		cant_buckle_message = "rider incapacitated!"
 	else if (length(buckled_mobs))
