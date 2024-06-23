@@ -71614,7 +71614,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
-/obj/machinery/newscaster/directional/west,
+/obj/machinery/posialert/directional/west,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
