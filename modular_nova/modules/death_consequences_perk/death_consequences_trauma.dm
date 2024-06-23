@@ -346,7 +346,7 @@
 	if (owner_staminaloss > (current_minimum_stamina_damage + 1))
 		return
 	else if ((owner_staminaloss >= (current_minimum_stamina_damage - 1)) && (owner_staminaloss <= (current_minimum_stamina_damage + 1)))
-		received_stamina_damage(staminaloss, 0, 0) // Just reset the stamina regen timer
+		owner.received_stamina_damage(staminaloss, 0, 0) // Just reset the stamina regen timer
 		return
 
 	var/final_adjustment = (current_minimum_stamina_damage - owner_staminaloss)
