@@ -19,7 +19,7 @@
 /obj/item/riding_saddle/leather
 	name = "riding saddle"
 	desc = "A thick leather riding saddle. Typically used for animals, this one has been designed for use by the taurs of the galaxy. \n\
-	This saddle has specialized footrests that will allow a rider to <b>use both their hands</b> while riding."
+		This saddle has specialized footrests that will allow a rider to <b>use both their hands</b> while riding."
 
 	icon_state = "saddle_leather_item"
 	worn_icon_state = "saddle_leather"
@@ -45,8 +45,8 @@
 /obj/item/storage/backpack/saddlebags
 	name = "saddlebags"
 	desc = "A collection of small pockets bound together by belt, typically used on caravan animals due to their superior storage capacity. This one has been designed for use by the taurs of the galaxy. \n\
-	These saddlebags can be accessed by anyone if they <b>alt-click</b> the wearer.\n\
-	Additionally, they have been modified with a hand grip that would allow <b>one free hand</b> during riding."
+		These saddlebags can be accessed by anyone if they <b>alt-click</b> the wearer.\n\
+		Additionally, they have been modified with a hand grip that would allow <b>one free hand</b> during riding."
 	gender = PLURAL
 
 	slot_flags = ITEM_SLOT_BACK
