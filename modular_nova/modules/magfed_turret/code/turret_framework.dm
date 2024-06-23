@@ -171,7 +171,8 @@ DEFINE_BITFIELD(turret_flags, list(
 		return
 	playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
 	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(target_area)
-	set_faction(turret, user)
+	if(user) //We do this so those deployed via disposal throws dont runtime.
+		set_faction(turret, user)
 	turret.mag_box = WEAKREF(src)
 	if(turret_safety == TRUE)
 		turret.target_assessment = TURRET_FLAG_SHOOT_NOONE

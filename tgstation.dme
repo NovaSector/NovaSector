@@ -7647,6 +7647,7 @@
 #include "modular_nova\modules\lorecaster\code\subsystem.dm"
 #include "modular_nova\modules\magfed_turret\code\assembly.dm"
 #include "modular_nova\modules\magfed_turret\code\designators.dm"
+#include "modular_nova\modules\magfed_turret\code\spawners.dm"
 #include "modular_nova\modules\magfed_turret\code\turret_framework.dm"
 #include "modular_nova\modules\magfed_turret\code\turrets\cargo.dm"
 #include "modular_nova\modules\magfed_turret\code\turrets\ruins.dm"

@@ -5,5 +5,5 @@
 	icon_state = "designator"
 	scan_range = 15
 	turret_limit = 1
-	acquisition_duration = 0.5 SECONDS //tbh i just wanted something that'd work better for getting icon showcases.
+	acquisition_duration = 0.2 SECONDS //tbh i just wanted something that'd work better for getting icon showcases.
 	target_all = FALSE
