@@ -5101,12 +5101,11 @@
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/floor2)
 "bJh" = (
-/obj/machinery/door/window/left/directional/north{
-	name = "AI Core Door";
-	req_access = list("ai_upload");
-	dir = 4
-	},
 /obj/machinery/light/floor,
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("ai_upload");
+	name = "AI Core Access"
+	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
 "bJi" = (
@@ -16663,10 +16662,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
-"fGW" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall,
-/area/icemoon/surface/outdoors/nospawn)
 "fHc" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/flashlight/lamp{
@@ -17731,15 +17726,14 @@
 /area/station/service/hydroponics/garden)
 "gah" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/security{
-	dir = 8;
-	req_access = list("science");
-	name = "Sci Front Desk"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/item/folder,
+/obj/machinery/door/window/brigdoor/security/cell/right/directional/west{
+	req_access = list("science");
+	name = "Science Front Desk"
+	},
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 8
 	},
@@ -20129,7 +20123,10 @@
 "gOH" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
-/obj/machinery/door/window/brigdoor/left/directional/east,
+/obj/machinery/door/window/brigdoor/left/directional/east{
+	req_access = list("science");
+	name = "Guard Post Access"
+	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
@@ -39313,11 +39310,6 @@
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance)
 "nqh" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_y = 5;
-	pixel_x = -4
-	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -47830,12 +47822,12 @@
 	},
 /area/station/commons/fitness)
 "qjZ" = (
-/obj/machinery/door/window/left/directional/east{
-	name = "'Monkey Pen";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/window/left/directional/north{
+	req_access = list("genetics");
+	name = "Monkey Cage"
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "qke" = (
@@ -56412,7 +56404,7 @@
 	cycle_id = "miningdockz1"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/supply/mining,
-/turf/closed/wall,
+/turf/open/floor/iron,
 /area/station/cargo/miningfoyer)
 "sZr" = (
 /turf/open/floor/iron/smooth_corner{
@@ -227605,7 +227597,7 @@ vMu
 dKk
 csu
 dKk
-mcj
+dKk
 dKk
 csu
 vMu
@@ -228889,8 +228881,8 @@ aaS
 qsz
 tWG
 jPR
-fGW
-vMu
+aVO
+otf
 dKk
 dKk
 vMu
