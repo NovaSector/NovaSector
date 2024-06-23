@@ -187,6 +187,8 @@
 
 /mob/living/basic/slime/regenerate_icons()
 	cut_overlays()
+	if(slime_type.transparent)
+		alpha = SLIME_TRANSPARENCY_ALPHA
 	var/icon_text = "[slime_type.colour]-[life_stage]"
 	icon_dead = "[icon_text]-dead"
 	if(stat != DEAD)
@@ -204,12 +206,11 @@
 		. += "Growth: [amount_grown]/[SLIME_EVOLUTION_THRESHOLD]"
 		. += "Power Level: [powerlevel]/[SLIME_MAX_POWER]"
 
-/mob/living/basic/slime/MouseDrop(atom/movable/target_atom as mob|obj)
-	if(isliving(target_atom) && target_atom != src && usr == src)
+/mob/living/basic/slime/mouse_drop_dragged(atom/target_atom, mob/user)
+	if(isliving(target_atom) && target_atom != src && user == src)
 		var/mob/living/food = target_atom
 		if(can_feed_on(food))
 			start_feeding(food)
-	return ..()
 
 ///Slimes can hop off mobs they have latched onto
 /mob/living/basic/slime/resist_buckle()

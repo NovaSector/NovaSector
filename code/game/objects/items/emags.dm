@@ -9,12 +9,9 @@
  */
 /obj/item/card/emag
 	desc = "It's a card with a magnetic strip attached to some circuitry."
-	// NOVA EDIT ADDITION COMMENT: Everyone knows what an emag is, both IC and OOC, they even make toy lookalikes.
 	name = "cryptographic sequencer"
 	icon_state = "emag"
 	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT ADDITION
-	special_desc = "An specially modified ID card used to break machinery and disable safeties. Notoriously used by Syndicate agents." // NOVA EDIT
 	slot_flags = ITEM_SLOT_ID
 	worn_icon_state = "emag"
 	var/prox_check = TRUE //If the emag requires you to be in range
@@ -37,13 +34,14 @@
 	icon_state = "hack_o_lantern"
 
 /obj/item/card/emagfake
-	desc = "It's a card with a magnetic strip attached to some circuitry." //NOVA EDIT CHANGE
-	name = "cryptographic sequencer"
-	icon_state = "emag"
+	name = /obj/item/card/emag::name
+	desc = /obj/item/card/emag::desc + " Closer inspection shows that this card is a poorly made replica, with a \"Donk Co.\" logo stamped on the back."
+	icon = /obj/item/card/emag::icon
+	icon_state = /obj/item/card/emag::icon_state
+	worn_icon_state = /obj/item/card/emag::worn_icon_state
 	slot_flags = ITEM_SLOT_ID
-	worn_icon_state = "emag"
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE_TOY // NOVA EDIT ADDITION - It's a toy, we're not hiding it.
-	special_desc = "Closer inspection shows that this card is a poorly made replica, with a \"DonkCo\" logo stamped on the back." // NOVA EDIT ADDITION
+	/// Whether we are exploding
+	var/exploding = FALSE
 
 /obj/item/card/emagfake/attack_self(mob/user) //for assistants with balls of plasteel
 	if(Adjacent(user))
@@ -51,12 +49,40 @@
 	add_fingerprint(user)
 
 /obj/item/card/emagfake/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
+	if(exploding)
+		playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE, frequency = 2)
+	else if(obj_flags & EMAGGED)
+		log_bomber(user, "triggered", src, "(rigged/emagged)")
+		visible_message(span_boldwarning("[src] begins to heat up!"))
+		playsound(src, 'sound/items/bikehorn.ogg', 100, TRUE, frequency = 0.25)
+		addtimer(CALLBACK(src, PROC_REF(blow_up)), 1 SECONDS, TIMER_DELETE_ME)
+		exploding = TRUE
+	else
+		playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
 	return ITEM_INTERACT_SKIP_TO_ATTACK // So it does the attack animation.
+
+/obj/item/card/emagfake/proc/blow_up()
+	visible_message(span_boldwarning("[src] explodes!"))
+	explosion(src, light_impact_range = 1, explosion_cause = src)
+	qdel(src)
+
+/obj/item/card/emagfake/emag_act(mob/user, obj/item/card/emag/emag_card)
+	if(obj_flags & EMAGGED)
+		return FALSE
+	playsound(src, SFX_SPARKS, 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+	desc = /obj/item/card/emag::desc
+	obj_flags |= EMAGGED
+	if(user)
+		balloon_alert(user, "rigged to blow")
+		log_bomber(user, "rigged to blow", src, "(emagging)")
+	return TRUE
 
 /obj/item/card/emag/Initialize(mapload)
 	. = ..()
 	type_blacklist = list(typesof(/obj/machinery/door/airlock) + typesof(/obj/machinery/door/window/) +  typesof(/obj/machinery/door/firedoor) - typesof(/obj/machinery/door/airlock/tram)) //list of all typepaths that require a specialized emag to hack.
+
+/obj/item/card/emag/storage_insert_on_interaction(datum/storage, atom/storage_holder, mob/living/user)
+	return !user.combat_mode
 
 /obj/item/card/emag/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!can_emag(interacting_with, user))
@@ -65,15 +91,8 @@
 	interacting_with.emag_act(user, src)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/item/card/emag/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	// Proximity based emagging is handled by above
-	// This is only for ranged emagging
-	if(proximity_flag || prox_check)
-		return
-
-	. |= AFTERATTACK_PROCESSED_ITEM
-	interact_with_atom(target, user)
+/obj/item/card/emag/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	return prox_check ? NONE : interact_with_atom(interacting_with, user)
 
 /obj/item/card/emag/proc/can_emag(atom/target, mob/user)
 	for (var/subtypelist in type_blacklist)
@@ -86,11 +105,9 @@
  * DOORMAG
  */
 /obj/item/card/emag/doorjack
-	desc = "This dated-looking ID card has been obviously and illegally modified with extra circuitry. Resembles the infamous \"emag\"." //NOVA EDIT CHANGE
+	desc = "Commonly known as a \"doorjack\", this device is a specialized cryptographic sequencer specifically designed to override station airlock access codes. Uses self-refilling charges to hack airlocks."
 	name = "modified ID card"
 	icon_state = "doorjack"
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT ADDITION
-	special_desc = "Identifies commonly as a \"doorjack\", this illegally modified ID card can disrupt airlock electronics. Has a self recharging cell. Used often by Syndicate agents." // NOVA EDIT ADDITION
 	worn_icon_state = "doorjack"
 	var/type_whitelist //List of types
 	var/charges = 3

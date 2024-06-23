@@ -265,7 +265,7 @@
 	allowed += STUFF_WINTER_COATS_HOLD
 	if(has_sleeves)
 		AddComponent(/datum/component/toggle_icon, "sleeves")
-	
+
 /obj/item/clothing/suit/crop_jacket/sleeveless
 	name = "sleeveless crop-top jacket"
 	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
@@ -275,5 +275,27 @@
 	greyscale_colors = "#ebebeb#a52f29"
 	body_parts_covered = CHEST
 	has_sleeves = FALSE
+
+/obj/item/clothing/suit/big_jacket
+	name = "\improper Alpha Atelier pilot jacket"
+	desc = "An exacting reproduction of the pilot jackets worn in the infancy of faster than light travel, \
+		right down the precise tension of thread spun on the precisely correct looms. The pilots it pays homage \
+		to worked in small ships and in close proximity to their supercooled drives and needed extreme insulation, \
+		hence the bulk."
+	icon_state = "big_jacket"
+	greyscale_config = /datum/greyscale_config/big_jacket
+	greyscale_config_worn = /datum/greyscale_config/big_jacket/worn
+	greyscale_colors = "#666633#333300#666633"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+
+/obj/item/clothing/suit/big_jacket/Initialize(mapload)
+	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
 
 #undef STUFF_WINTER_COATS_HOLD
