@@ -6669,6 +6669,7 @@
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\new_player.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\preferences_setup.dm"
 #include "modular_nova\master_files\code\modules\mob\living\blood.dm"
+#include "modular_nova\master_files\code\modules\mob\living\damage_procs.dm"
 #include "modular_nova\master_files\code\modules\mob\living\emote_popup.dm"
 #include "modular_nova\master_files\code\modules\mob\living\examine_tgui.dm"
 #include "modular_nova\master_files\code\modules\mob\living\init_signals.dm"

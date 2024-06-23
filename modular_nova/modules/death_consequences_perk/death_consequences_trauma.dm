@@ -69,6 +69,8 @@
 	var/stamina_damage_max_degradation = 500
 	/// The amount our victims crit threshold will be reduced by at [stamina_damage_max_degradation] degradation.
 	var/max_stamina_damage = 80
+	/// What our current minimum stam damage is at
+	var/current_minimum_stamina_damage
 
 	/// Used for updating our crit threshold reduction. We store the previous value, then subtract it from crit threshold, to get the value we had before we adjusted.
 	var/crit_threshold_currently_reduced_by = 0
@@ -142,6 +144,7 @@
 	. = ..()
 
 	RegisterSignal(owner, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(victim_ahealed))
+	RegisterSignal(owner, COMSIG_LIVING_RECEIEVED_STAMINA_DAMAGE, PROC_REF(on_received_stamina_damage))
 
 	update_variables()
 	START_PROCESSING(SSprocessing, src)
@@ -153,7 +156,7 @@
 	if (final_death_delivered)
 		REMOVE_TRAIT(owner, TRAIT_DNR, TRAUMA_TRAIT)
 
-	UnregisterSignal(owner, COMSIG_LIVING_POST_FULLY_HEAL)
+	UnregisterSignal(owner, list(COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_LIVING_RECEIEVED_STAMINA_DAMAGE))
 
 	return ..()
 
@@ -194,6 +197,11 @@
 
 	if ((world.time - time_between_reminders) > time_of_last_message_sent)
 		send_reminder()
+
+/datum/brain_trauma/severe/death_consequences/proc/on_received_stamina_damage(mob/living/source, current_level, amount_actual, amount)
+	SIGNAL_HANDLER
+	if(current_level <= current_minimum_stamina_damage)
+		return COMPONENT_LIVING_BLOCK_STAMINA_REGEN_TIMER
 
 /// Returns the amount, every second, degradation should INCREASE by.
 /datum/brain_trauma/severe/death_consequences/proc/get_passive_degradation_increase(is_dead)
@@ -328,19 +336,19 @@
 
 	var/clamped_degradation = clamp((current_degradation - stamina_damage_minimum_degradation), 0, stamina_damage_max_degradation)
 	var/percent_to_max = min((clamped_degradation / stamina_damage_max_degradation), 1)
-	var/minimum_stamina_damage = max_stamina_damage * percent_to_max
+	current_minimum_stamina_damage = max_stamina_damage * percent_to_max
 
 	// The constantly decreasing degradation will constantly lower the minimum stamina damage, and thus, if we DONT check a range of staminaloss,
 	// we will always consider it "above" our minimum, and thus never delay stamina regen.
 	var/owner_staminaloss = owner.getStaminaLoss()
-	if (minimum_stamina_damage <= 0)
+	if (current_minimum_stamina_damage <= 0)
 		return
-	if (owner_staminaloss > (minimum_stamina_damage + 1))
+	if (owner_staminaloss > (current_minimum_stamina_damage + 1))
 		return
-	else if ((owner_staminaloss >= (minimum_stamina_damage - 1)) && (owner_staminaloss <= (minimum_stamina_damage + 1)))
+	else if ((owner_staminaloss >= (current_minimum_stamina_damage - 1)) && (owner_staminaloss <= (current_minimum_stamina_damage + 1)))
 		return
 
-	var/final_adjustment = (minimum_stamina_damage - owner_staminaloss)
+	var/final_adjustment = (current_minimum_stamina_damage - owner_staminaloss)
 	owner.adjustStaminaLoss(final_adjustment) // we adjust instead of set for things like stamina regen timer
 
 /**
@@ -536,6 +544,12 @@
 
 	rezadone_degradation_decrease = victim_prefs.read_preference(/datum/preference/numeric/death_consequences/rezadone_living_degradation_reduction)
 	eigenstasium_degradation_decrease = victim_prefs.read_preference(/datum/preference/numeric/death_consequences/eigenstasium_degradation_reduction)
+
+	// the initial setup of this var, it will be updated in damage_stamina() as needed
+	if(isnull(current_minimum_stamina_damage))
+		var/clamped_degradation = clamp((current_degradation - stamina_damage_minimum_degradation), 0, stamina_damage_max_degradation)
+		var/percent_to_max = min((clamped_degradation / stamina_damage_max_degradation), 1)
+		current_minimum_stamina_damage = max_stamina_damage * percent_to_max
 
 	update_effects()
 
