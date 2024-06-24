@@ -100,11 +100,11 @@
 	gender = FEMALE
 
 /datum/sprite_accessory/underwear/loincloth
-	name = "Loin Cloth"
+	name = "Loincloth"
 	icon_state = "loincloth"
 
 /datum/sprite_accessory/underwear/loincloth_alt
-	name = "Shorter Loin Cloth"
+	name = "Shorter Loincloth"
 	icon_state = "loincloth_alt"
 
 //Presets
