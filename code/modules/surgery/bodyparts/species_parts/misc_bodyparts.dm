@@ -36,7 +36,6 @@
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
 	burn_modifier = 2
-	// speed_modifier = 3 //disgustingly slow // NOVA EDIT REMOVAL - Moved the movespeed to the shell.
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 /obj/item/bodypart/leg/right/snail
@@ -44,7 +43,6 @@
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
 	burn_modifier = 2
-	// speed_modifier = 3 //disgustingly slow // NOVA EDIT REMOVAL - Moved the movespeed to the shell.
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 ///ABDUCTOR
@@ -61,7 +59,7 @@
 	wing_types = NONE
 
 /obj/item/bodypart/chest/abductor/get_butt_sprite()
-	return BUTT_SPRITE_GREY
+	return icon('icons/mob/butts.dmi', BUTT_SPRITE_GREY)
 
 /obj/item/bodypart/arm/left/abductor
 	limb_id = SPECIES_ABDUCTOR
@@ -99,7 +97,7 @@
 	wing_types = list(/obj/item/organ/external/wings/functional/slime)
 
 /obj/item/bodypart/chest/jelly/get_butt_sprite()
-	return BUTT_SPRITE_SLIME
+	return icon('icons/mob/butts.dmi', BUTT_SPRITE_SLIME)
 
 /obj/item/bodypart/arm/left/jelly
 	biological_state = (BIO_FLESH|BIO_BLOODED)
@@ -218,7 +216,7 @@
 	wing_types = NONE
 
 /obj/item/bodypart/chest/pod/get_butt_sprite()
-	return BUTT_SPRITE_FLOWERPOT
+	return icon('icons/mob/butts.dmi', BUTT_SPRITE_FLOWERPOT)
 
 /obj/item/bodypart/arm/left/pod
 	limb_id = SPECIES_PODPERSON

@@ -971,6 +971,7 @@
 	name = "Replica Parade Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket_worn.json'
 
+
 // ISEURIAN CHOKHA
 /datum/greyscale_config/chokha
 	name = "Chokha"
@@ -981,6 +982,25 @@
 	name = "Chokha (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/chokha_worn.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha_worn.json'
+
+//BIG JACKET
+/datum/greyscale_config/big_jacket
+	name = "Alpha Atelier pilot jacket"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/big_jacket/big_jacket.json'
+
+/datum/greyscale_config/big_jacket/worn
+	name = "Alpha Atelier pilot jacket (worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/big_jacket/big_jacket_worn.json'
+
+/datum/greyscale_config/dagger_mantle
+	name = "'dagger' designer mantle"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/dagger_mantle/dagger_mantle.json'
+
+/datum/greyscale_config/dagger_mantle/worn
+	name = "'dagger' designer mantle (worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/dagger_mantle/dagger_mantle_worn.json'
 
 /*
 *	UNDER
@@ -1116,6 +1136,19 @@
 
 /datum/greyscale_config/camo_pants/worn/digi
 	name = "Camo Pants (Worn, Digi)"
+	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
+
+/datum/greyscale_config/big_pants
+	name = "'JUNCO' megacargo pants"
+	icon_file = 'modular_nova/modules/GAGS/icons/big_pants.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/big_pants/big_pants.json'
+
+/datum/greyscale_config/big_pants/worn
+	name = "'JUNCO' megacargo pants (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/big_pants/big_pants_worn.json'
+
+/datum/greyscale_config/big_pants/worn/digi
+	name = "'JUNCO' megacargo pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
 // DRESSES / SKIRTS

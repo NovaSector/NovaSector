@@ -6138,12 +6138,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
-	},
+/obj/machinery/vending/hotdog/museum,
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
