@@ -132,11 +132,11 @@
 	icon_state = "hair_bunhead4"
 
 /datum/sprite_accessory/hair/nova/rows1
-	name = "Nova Cornrows Short"
+	name = "Rows 1"
 	icon_state = "hair_rows1"
 
 /datum/sprite_accessory/hair/nova/rows2
-	name = "Nova Cornrows Long"
+	name = "Rows 2"
 	icon_state = "hair_rows2"
 
 /datum/sprite_accessory/hair/nova/toriyama
