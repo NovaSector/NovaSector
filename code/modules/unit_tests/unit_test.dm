@@ -325,6 +325,7 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	returnable_list += typesof(/turf/open/openspace)
 	// Only you can prevent CI fires
 	returnable_list += typesof(/obj/effect/particle_effect/sparks)
+	returnable_list += typesof(/obj/effect/decal/cleanable/fuel_pool)
 
 	//NOVA EDIT ADDITION START - OUR UNCREATABLES DOWN HERE
 	//Not designed to be spawned without a turf.
