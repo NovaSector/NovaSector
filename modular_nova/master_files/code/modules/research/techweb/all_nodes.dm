@@ -154,6 +154,12 @@
 	discount_experiments += list(/datum/experiment/scanning/random/cytology)
 	return ..()
 
+/datum/techweb_node/selection/New()
+	// QOL - Makes wild harvest experiment a discount rather than required experiment
+	required_experiments -= list(/datum/experiment/scanning/random/plants/wild)
+	discount_experiments += list(/datum/experiment/scanning/random/plants/wild)
+	return ..()
+
 /datum/techweb_node/cyber/cyber_organs/New()
 	design_ids += list(
 		"cybernetic_tongue",
