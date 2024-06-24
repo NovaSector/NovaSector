@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(marking_zones, list(
 	))
 
 GLOBAL_LIST_INIT(preference_balls_sizes, list(
-	"Very Small"
+	"Very Small",
 	"Small",
 	"Average",
 	"Big",
