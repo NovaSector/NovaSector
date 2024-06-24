@@ -13,8 +13,6 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(attackby_react))
 	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, PROC_REF(projectile_react))
-	RegisterSignal(parent, COMSIG_ATOM_TOUCHED_SPARKS, PROC_REF(sparks_react))
-	RegisterSignal(parent, COMSIG_ATOM_FIRE_ACT, PROC_REF(flame_react))
 	RegisterSignal(parent, COMSIG_ATOM_TOOL_ACT(TOOL_WELDER), PROC_REF(welder_react))
 	if(isturf(parent))
 		RegisterSignal(parent, COMSIG_TURF_EXPOSE, PROC_REF(hotspots_react))
