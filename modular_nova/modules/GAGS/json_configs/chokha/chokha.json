@@ -27,8 +27,7 @@
 		{
 			"type": "icon_state",
 			"icon_state": "chokha_misc_obj",
-			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"blend_mode": "overlay"
 		}
 	]
 }

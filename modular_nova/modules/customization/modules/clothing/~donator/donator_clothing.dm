@@ -2095,12 +2095,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
 	icon_state = "seva_melon"
 
-// Donation reward for BlindPoet
 /obj/item/clothing/suit/chokha
-	name = "Iseurian chokha"
+	name = "\improper Iseurian chokha"
 	desc = "A ceremonial woolen coat sporting a high neck and decorative gunpowder cases on the breast. The label on this one bears the Iseurian Revolutionary flag."
 	icon_state = "chokha"
 	greyscale_config = /datum/greyscale_config/chokha
 	greyscale_config_worn = /datum/greyscale_config/chokha/worn
-	greyscale_colors = "#1c1c1c#491618#1c1c1c#491618#ffffff"
+	greyscale_colors = "#1c1c1c#491618#1c1c1c#491618"
 	flags_1 = IS_PLAYER_COLORABLE_1
