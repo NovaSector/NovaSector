@@ -606,9 +606,9 @@
 	name = "Primary Service Stairwell"
 	icon_state = "primaryhall"
 
-/area/station/hallway/primary/spaceelevator
-	name = "Space Elevator"
-	icon_state = "vacant_room"
+/area/station/commons/cafealps
+	name = "Cafe Alps"
+	icon_state = "cafeteria"
 
 /area/station/commons/arrivalsshop
 	name = "Gift Shop"
