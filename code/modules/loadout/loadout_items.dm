@@ -316,8 +316,10 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(can_be_greyscale)
 		displayed_text += "Recolorable"
 
+	/* NOVA EDIT REMOVAL - Everything can be renamed in the loadout
 	if(can_be_named)
 		displayed_text += "Renamable"
+	*/ // NOVA EDIT END
 
 	if(can_be_reskinned)
 		displayed_text += "Reskinnable"
