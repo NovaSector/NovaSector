@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "Cafe's Hotdog vendor will no longer try to crush you"
