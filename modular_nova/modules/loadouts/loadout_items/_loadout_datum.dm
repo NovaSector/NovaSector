@@ -145,15 +145,6 @@
 /datum/loadout_item/get_item_information()
 	var/list/displayed_text = ..()
 
-	if(LAZYLEN(ckeywhitelist))
-		displayed_text += "CKEY-Whitelisted"
-
-	if(LAZYLEN(restricted_roles) || LAZYLEN(blacklisted_roles))
-		displayed_text += "Job-Restricted"
-
-	if(LAZYLEN(restricted_species))
-		displayed_text += "Species-Locked"
-
 	if(donator_only)
 		displayed_text += "Donator-Only"
 

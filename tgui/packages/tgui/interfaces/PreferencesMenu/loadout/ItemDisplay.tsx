@@ -86,6 +86,15 @@ export const ItemDisplay = (props: {
             ))}
           </Flex.Item>
         )}
+        {
+          // NOVA EDIT START - Expanded loadout framework
+          ShouldDisplayRestriction(item) && (
+            <Flex.Item ml={5.7} mt={0.35}>
+              {ItemRestriction(item)}
+            </Flex.Item>
+          )
+          /* NOVA EDIT END */
+        }
       </Flex>
     </Button>
   );
@@ -132,6 +141,55 @@ const FilterItemList = (items: LoadoutItem[]) => {
 
     return true;
   });
+};
+
+const ShouldDisplayRestriction = (item: LoadoutItem) => {
+  if (
+    item.ckey_whitelist ||
+    item.restricted_roles ||
+    item.blacklisted_roles ||
+    item.restricted_species
+  ) {
+    return true;
+  }
+
+  return false;
+};
+
+const ItemRestriction = (item: LoadoutItem) => {
+  let restrictions: string[] = [];
+
+  if (item.ckey_whitelist) {
+    restrictions.push('CKEY Whitelist: ' + item.ckey_whitelist.join(', '));
+  }
+
+  if (item.restricted_roles) {
+    restrictions.push('Job Whitelist: ' + item.restricted_roles.join(', '));
+  }
+
+  if (item.blacklisted_roles) {
+    restrictions.push('Job Blacklist: ' + item.blacklisted_roles.join(', '));
+  }
+
+  if (item.restricted_species) {
+    restrictions.push(
+      'Species Whitelist: ' + item.restricted_species.join(', '),
+    );
+  }
+
+  const tooltip = restrictions.join(', ');
+
+  return (
+    <Button
+      icon="lock"
+      height="22px"
+      width="22px"
+      color="blue"
+      tooltip={tooltip}
+      tooltipPosition={'bottom-start'}
+      style={{ zIndex: '2' }}
+    />
+  );
 };
 // NOVA EDIT END
 
