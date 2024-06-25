@@ -101,9 +101,6 @@
 		if(SSjob.initialized) // in case we're reloading from disk after initialization, wanna make sure the changes update in the ongoing shift
 			SSjob.load_jobs_from_config()
 
-	if(CONFIG_GET(flag/usewhitelist))
-		load_whitelist()
-
 	// NOVA EDIT ADDITION START
 	populate_interaction_instances()
 	remove_erp_things()
