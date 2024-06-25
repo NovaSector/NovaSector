@@ -787,87 +787,6 @@
 		return
 	name = "[saved_identification] ([saved_job])"
 
-/obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user, params)
-	// Check for ID first
-	if(isidcard(attacking_item) && InsertID(attacking_item, user))
-		return
-
-	// Check for cash next
-	if(computer_id_slot && iscash(attacking_item))
-		var/obj/item/card/id/inserted_id = computer_id_slot.GetID()
-		if(inserted_id)
-			inserted_id.attackby(attacking_item, user) // If we do, try and put that attacking object in
-			return
-
-	// Inserting a pAI
-	if(istype(attacking_item, /obj/item/pai_card) && insert_pai(user, attacking_item))
-		return
-
-	if(istype(attacking_item, /obj/item/stock_parts/cell))
-		if(ismachinery(physical))
-			return
-		if(internal_cell)
-			to_chat(user, span_warning("You try to connect \the [attacking_item] to \the [src], but its connectors are occupied."))
-			return
-		if(user && !user.transferItemToLoc(attacking_item, src))
-			return
-		internal_cell = attacking_item
-		to_chat(user, span_notice("You plug \the [attacking_item] to \the [src]."))
-		return
-
-	if(istype(attacking_item, /obj/item/photo))
-		var/obj/item/photo/attacking_photo = attacking_item
-		if(store_file(new /datum/computer_file/picture(attacking_photo.picture)))
-			balloon_alert(user, "photo scanned")
-		else
-			balloon_alert(user, "no space!")
-		return
-
-	// Check if any Applications need it
-	for(var/datum/computer_file/item_holding_app as anything in stored_files)
-		if(item_holding_app.application_attackby(attacking_item, user))
-			return
-
-	if(istype(attacking_item, /obj/item/paper))
-		if(stored_paper >= max_paper)
-			balloon_alert(user, "no more room!")
-			return
-		if(!user.temporarilyRemoveItemFromInventory(attacking_item))
-			return FALSE
-		balloon_alert(user, "inserted paper")
-		qdel(attacking_item)
-		stored_paper++
-		return
-	if(istype(attacking_item, /obj/item/paper_bin))
-		var/obj/item/paper_bin/bin = attacking_item
-		if(bin.total_paper <= 0)
-			balloon_alert(user, "empty bin!")
-			return
-		var/papers_added //just to keep track
-		while((bin.total_paper > 0) && (stored_paper < max_paper))
-			papers_added++
-			stored_paper++
-			bin.remove_paper()
-		if(!papers_added)
-			return
-		balloon_alert(user, "inserted paper")
-		to_chat(user, span_notice("Added in [papers_added] new sheets. You now have [stored_paper] / [max_paper] printing paper stored."))
-		bin.update_appearance()
-		return
-
-	// Insert a data disk
-	if(istype(attacking_item, /obj/item/computer_disk))
-		if(inserted_disk)
-			user.put_in_hands(inserted_disk)
-			balloon_alert(user, "disks swapped")
-		if(!user.transferItemToLoc(attacking_item, src))
-			return
-		inserted_disk = attacking_item
-		playsound(src, 'sound/machines/card_slide.ogg', 50)
-		return
-
-	return ..()
-
 /obj/item/modular_computer/screwdriver_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	if(internal_cell)
@@ -1041,18 +960,6 @@
 ///Returns a string of what to send at the end of messenger's messages.
 /obj/item/modular_computer/proc/get_messenger_ending()
 	return "Sent from my PDA"
-
-/obj/item/modular_computer/proc/insert_pai(mob/user, obj/item/pai_card/card)
-	if(inserted_pai)
-		return FALSE
-	if(!user.transferItemToLoc(card, src))
-		return FALSE
-	inserted_pai = card
-	balloon_alert(user, "inserted pai")
-	if(inserted_pai.pai)
-		inserted_pai.pai.give_messenger_ability()
-	update_appearance(UPDATE_ICON)
-	return TRUE
 
 /obj/item/modular_computer/proc/remove_pai(mob/user)
 	if(!inserted_pai)
