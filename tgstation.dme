@@ -6493,6 +6493,7 @@
 #include "modular_nova\master_files\code\modules\antagonists\changeling\powers\tiny_prick.dm"
 #include "modular_nova\master_files\code\modules\antagonists\cult\cult_items.dm"
 #include "modular_nova\master_files\code\modules\antagonists\ert\ert.dm"
+#include "modular_nova\master_files\code\modules\antagonists\heretic\items\heretic_blades.dm"
 #include "modular_nova\master_files\code\modules\antagonists\heretic\knowledge\general_side.dm"
 #include "modular_nova\master_files\code\modules\antagonists\pirate\pirate_gang.dm"
 #include "modular_nova\master_files\code\modules\antagonists\pirate\pirate_outfits.dm"
