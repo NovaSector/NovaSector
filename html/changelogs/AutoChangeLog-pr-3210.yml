@@ -1,6 +1,0 @@
-author: "MortoSasye"
-delete-after: True
-changes:
-  - rscadd: "Added a new loincloth option for underwear."
-  - rscadd: "Added a new hair style: Long Dreadlocks."
-  - image: "Updated the hair sprite for: floor-length twin tails, hair_rows 1 and 2."

@@ -1068,3 +1068,30 @@
   vinylspiders:
   - bugfix: fixed an issue where peg limbs were not attachable to mobs with the "cybernetic
       limb mounts" quirk
+2024-06-25:
+  MortoSasye:
+  - rscadd: Added a new loincloth option for underwear.
+  - rscadd: 'Added a new hair style: Long Dreadlocks.'
+  - image: 'Updated the hair sprite for: floor-length twin tails, hair_rows 1 and
+      2.'
+  MrDas:
+  - bugfix: Fixed the duration of wizard's mutate spell.
+  NovaBot13:
+  - bugfix: Refactored borg omnitool code, fixing most of the unique interaction issues.
+  - bugfix: fixes an issue that was causing the quirk config tooltips to render behind
+      the window, making them nearly impossible to read.
+  - spellcheck: Grapple gun's description has been updated.
+  - bugfix: Medicated suture, advanced regenerative mesh, and mourning poultice reactions
+      should more consistently spawn the items they are meant to produce.
+  - bugfix: printed medical beds are no longer randomly offset
+  - spellcheck: rewrote GLA device's description for clarity
+  Rhials:
+  - bugfix: Drone fabricator subtypes that spawn pre-loaded now actually start with
+      materials inside.
+  - bugfix: The binocular fabriactor on the MediSim shuttle works again.
+  - sound: The abductor team now has their own antag stinger.
+  nikothedude:
+  - rscadd: Quadruped taurs can now wear saddles, which allow anyone to clickdrag
+      themselves onto them to ride with free hands
+  - rscadd: Saddlebags for quadruped taurs, which are one-handed saddles that allow
+      anyone to access their storage by alt clicking the wearer
