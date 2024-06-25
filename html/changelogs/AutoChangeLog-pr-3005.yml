@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - balance: "SMES Output/Input ability doubled"
+  - qol: "Solar power generation greatly improved"
