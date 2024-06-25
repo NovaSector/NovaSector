@@ -1861,5 +1861,5 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt.json'
 
 /datum/greyscale_config/loincloth_alt/worn
-	name = "Shorter Loincloth"
+	name = "Shorter Loincloth (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt_worn.json'
