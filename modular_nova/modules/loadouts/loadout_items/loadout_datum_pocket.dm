@@ -8,7 +8,7 @@
 /datum/loadout_item/pocket_items/wallet
 	name = "Wallet"
 	item_path = /obj/item/storage/wallet
-	additional_displayed_text = list("FILLS AUTOMATICALLY - This item will populate itself with your ID card and other small items you may have on spawn.")
+	additional_displayed_text = list("Auto-Filled")
 
 // We add our wallet manually, later, so no need to put it in any outfits.
 /datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)

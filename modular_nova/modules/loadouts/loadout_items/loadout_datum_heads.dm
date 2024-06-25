@@ -393,12 +393,12 @@
 /datum/loadout_item/head/maidhead
 	name = "Simple Maid Headband"
 	item_path = /obj/item/clothing/head/costume/nova/maid
-	additional_displayed_text = list("Small headband that only fits on top the head.")
+	additional_displayed_text = list("Top of Head")
 
 /datum/loadout_item/head/maidhead2
 	name = "Frilly Maid Headband"
 	item_path = /obj/item/clothing/head/costume/maidheadband
-	additional_displayed_text = list("Larger headband from the maid rework. Fits around head and ears.")
+	additional_displayed_text = list("Behind Ears")
 
 /datum/loadout_item/head/wig
 	name = "Wig"
