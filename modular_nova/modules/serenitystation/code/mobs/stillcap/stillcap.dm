@@ -41,16 +41,6 @@
 	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_duration = 0.6 SECONDS)
 
 
-// /mob/living/basic/mining/stillcap/toggle_hiding(new_hiding)
-// 	. = ..()
-// 	pass_flags_self = hiding ? PASSSTRUCTURE : PASSMOB
-
-
-// /mob/living/basic/mining/hiding/update_icon_state()
-// 	. = ..()
-// 	icon_state = "[base_icon_state][hiding ? "_hidden" : ""]"
-
-
 /mob/living/basic/mining/stillcap/red
 	name = "red stillcap"
 	desc = parent_type::desc + " This one appears to be red."

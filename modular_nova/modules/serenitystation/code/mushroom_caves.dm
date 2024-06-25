@@ -17,17 +17,17 @@
 		BIOME_LOW_HEAT = list(
 			BIOME_LOW_HUMIDITY = /datum/biome/mushroom_cave/blue,
 			BIOME_MEDIUM_HUMIDITY = /datum/biome/mushroom_cave,
-			BIOME_HIGH_HUMIDITY = /datum/biome/mushroom_cave/green
+			BIOME_HIGH_HUMIDITY = /datum/biome/mushroom_cave/green,
 		),
 		BIOME_MEDIUM_HEAT = list(
 			BIOME_LOW_HUMIDITY = /datum/biome/mushroom_cave/green,
 			BIOME_MEDIUM_HUMIDITY = /datum/biome/mushroom_cave/blue,
-			BIOME_HIGH_HUMIDITY = /datum/biome/mushroom_cave
+			BIOME_HIGH_HUMIDITY = /datum/biome/mushroom_cave,
 		),
 		BIOME_HIGH_HEAT = list(
 			BIOME_LOW_HUMIDITY = /datum/biome/mushroom_cave,
 			BIOME_MEDIUM_HUMIDITY = /datum/biome/mushroom_cave/green,
-			BIOME_HIGH_HUMIDITY = /datum/biome/mushroom_cave/blue
+			BIOME_HIGH_HUMIDITY = /datum/biome/mushroom_cave/blue,
 		)
 	)
 

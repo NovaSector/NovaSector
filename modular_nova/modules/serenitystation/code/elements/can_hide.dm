@@ -39,10 +39,11 @@
 	target.update_appearance()
 
 
+/// Like datum/element/can_hide, but for basic mobs.
 /datum/element/can_hide/basic
 
-
-/datum/element/can_hide/basic/Attach(datum/target, list/can_hide_types)
+// Contains an additional parameter, can_hide_types, to tell the basic mob AI subroutine what types of turfs it can hide onto.
+/datum/element/can_hide/basic/Attach(datum/target, list/turf/can_hide_types)
 	var/mob/living/basic/basic_target = target
 	if(!istype(basic_target))
 		return ELEMENT_INCOMPATIBLE
