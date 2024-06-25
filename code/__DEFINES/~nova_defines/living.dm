@@ -7,6 +7,6 @@
 	/// Allow to movable atoms to pass through this living mob
 	#define COMPONENT_LIVING_PASSABLE (1<<0)
 ///from base of living/received_stamina_damage(): (current_level, amount_actual, amount)
-#define COMSIG_LIVING_RECEIEVED_STAMINA_DAMAGE "living_received_stam_damage"
+#define COMSIG_LIVING_RECEIVED_STAMINA_DAMAGE "living_received_stam_damage"
 	/// Block the timer for stam regen from being started (or refreshed)
 	#define COMPONENT_LIVING_BLOCK_STAMINA_REGEN_TIMER (1<<0)

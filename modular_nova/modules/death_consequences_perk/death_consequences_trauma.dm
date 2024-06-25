@@ -144,7 +144,7 @@
 	. = ..()
 
 	RegisterSignal(owner, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(victim_ahealed))
-	RegisterSignal(owner, COMSIG_LIVING_RECEIEVED_STAMINA_DAMAGE, PROC_REF(on_received_stamina_damage))
+	RegisterSignal(owner, COMSIG_LIVING_RECEIVED_STAMINA_DAMAGE, PROC_REF(on_received_stamina_damage))
 
 	update_variables()
 	START_PROCESSING(SSprocessing, src)
@@ -156,7 +156,7 @@
 	if (final_death_delivered)
 		REMOVE_TRAIT(owner, TRAIT_DNR, TRAUMA_TRAIT)
 
-	UnregisterSignal(owner, list(COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_LIVING_RECEIEVED_STAMINA_DAMAGE))
+	UnregisterSignal(owner, list(COMSIG_LIVING_POST_FULLY_HEAL, COMSIG_LIVING_RECEIVED_STAMINA_DAMAGE))
 
 	return ..()
 
