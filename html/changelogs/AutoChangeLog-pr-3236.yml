@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "xenobiology research node no longer requires the cytology experiment; instead it gives a discount"
+  - qol: "artificial selection research node no longer requires the wild harvest experiment; instead it gives a discount\n/:cl"
