@@ -75,15 +75,9 @@
 	var/comp_light_color = COLOR_WHITE
 
 	///Power usage when the computer is open (screen is active) and can be interacted with.
-<<<<<<< HEAD
-	var/base_active_power_usage = 15 // NOVA EDIT CHANGE - Original: 125
-	///Power usage when the computer is idle and screen is off.
-	var/base_idle_power_usage = 2 // NOVA EDIT CHANGE - Original: 5
-=======
 	var/base_active_power_usage = 2 WATTS
 	///Power usage when the computer is idle and screen is off.
 	var/base_idle_power_usage = 1 WATTS
->>>>>>> 0db2a23fafd (Adds a new power storage type: The Megacell. Drastically reduces power cell consumption/storage. [MDB Ignore] (#84079))
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console & Tablet)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
@@ -908,8 +902,6 @@
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
-<<<<<<< HEAD
-=======
 /obj/item/modular_computer/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(isidcard(tool))
 		return InsertID(tool, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
@@ -1016,7 +1008,6 @@
 	playsound(src, 'sound/machines/card_slide.ogg', 50)
 	return ITEM_INTERACT_SUCCESS
 
->>>>>>> 0db2a23fafd (Adds a new power storage type: The Megacell. Drastically reduces power cell consumption/storage. [MDB Ignore] (#84079))
 /obj/item/modular_computer/atom_deconstruct(disassembled = TRUE)
 	remove_pai()
 	eject_aicard()
