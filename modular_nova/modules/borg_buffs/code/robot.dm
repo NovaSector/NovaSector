@@ -141,8 +141,8 @@
 /obj/item/inducer/cyborg
 	name = "Cyborg Inducer"
 	desc = "A tool for inductively charging internal power cells using the battery of a cyborg"
-	powertransfer = 250
-	var/power_safety_threshold = 1000
+	power_transfer_multiplier = 0.25
+	var/power_safety_threshold = STANDARD_CELL_CHARGE
 
 
 
@@ -160,7 +160,7 @@
 		return TRUE
 	else
 		recharging = TRUE
-	var/obj/item/stock_parts/cell/target_cell = target_atom.get_cell()
+	var/obj/item/stock_parts/power_store/target_cell = target_atom.get_cell()
 	var/obj/target_object
 	var/coefficient = 1
 	if(istype(target_atom, /obj/item/gun/energy))
@@ -182,7 +182,7 @@
 			return TRUE
 		user.visible_message(span_notice("[user] starts recharging [target_atom] with [src]."), span_notice("You start recharging [target_atom] with [src]."))
 		while(target_cell.charge < target_cell.maxcharge)
-			if(do_after(user, 1 SECONDS, target = user) && cell.charge > (power_safety_threshold + powertransfer))
+			if(do_after(user, 1 SECONDS, target = user) && cell.charge > (power_safety_threshold + target_cell.rating_base * coefficient * power_transfer_multiplier))
 				done_any = TRUE
 				induce(target_cell, coefficient)
 				do_sparks(1, FALSE, target_atom)
