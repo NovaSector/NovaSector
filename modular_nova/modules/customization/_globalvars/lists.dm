@@ -42,13 +42,13 @@ GLOBAL_LIST_INIT(breast_size_to_number, list(
 	))
 
 GLOBAL_LIST_INIT(balls_size_translation, list(
-	"0" = "Very Small",
-	"1" = "Small",
-	"2" = "Average",
-	"3" = "Big",
-	"4" = "Very Big",
-	"5" = "Enormous",
-	"6" = "Immense"
+	"0" = "Small",
+	"1" = "Average",
+	"2" = "Big",
+	"3" = "Very Big",
+	"4" = "Enormous",
+	"5" = "Immense",
+	"6" = "Gargantuan"
 	))
 
 GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
@@ -74,13 +74,13 @@ GLOBAL_LIST_INIT(marking_zones, list(
 	))
 
 GLOBAL_LIST_INIT(preference_balls_sizes, list(
-	"Very Small",
 	"Small",
 	"Average",
 	"Big",
 	"Very Big",
 	"Enormous",
-	"Immense"
+	"Immense",
+	"Gargantuan"
 	))
 
 GLOBAL_LIST_INIT(robotic_styles_list, list(
