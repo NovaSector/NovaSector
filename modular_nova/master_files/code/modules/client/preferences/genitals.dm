@@ -201,9 +201,9 @@
 
 /datum/preference/numeric/penis_length/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	// Clamp this for normal sized characters
-	var/has_lewd_quirk = preferences.all_quirks.Find(/datum/quirk/endowed_enjoyer::name)
-	var/has_oversized_quirk = preferences.all_quirks.Find(/datum/quirk/oversized::name)
-	if(!has_oversized_quirk && preferences.read_preference(/datum/preference/numeric/body_size) < 1.3)
+	var/has_lewd_quirk = preferences?.all_quirks.Find(/datum/quirk/endowed_enjoyer::name)
+	var/has_oversized_quirk = preferences?.all_quirks.Find(/datum/quirk/oversized::name)
+	if(!has_oversized_quirk && preferences?.read_preference(/datum/preference/numeric/body_size) < 1.3)
 		if(!has_lewd_quirk)
 			value = min(value, PENIS_MAX_LENGTH_NORMAL_SIZED)
 	target.dna.features["penis_size"] = value
