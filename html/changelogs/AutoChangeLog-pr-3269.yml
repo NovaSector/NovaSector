@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "apc arcing doesn't happen until the intended 4MW limit (previously 2MW due to a conversion issue)"
