@@ -464,6 +464,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Long Colourable Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/long
 
+/datum/loadout_item/under/miscellaneous/loincloth
+	name = "Loincloth"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/loincloth
+
+/datum/loadout_item/under/miscellaneous/loincloth_alt
+	name = "Shorter Loincloth"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt
+
 /datum/loadout_item/under/miscellaneous/denim_skirt
 	name = "Jean Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/jean
