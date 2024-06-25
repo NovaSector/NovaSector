@@ -43,7 +43,6 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 const CharacterControls = (props: {
   handleRotate: () => void;
   handleOpenSpecies: () => void;
-  handleLoadout: () => void; // NOVA EDIT ADDITION
   handleFood: () => void; // NOVA EDIT ADDITION
   gender: Gender;
   setGender: (gender: Gender) => void;
@@ -80,17 +79,6 @@ const CharacterControls = (props: {
         </Stack.Item>
       )}
       {/* NOVA EDIT ADDITION START */}
-      {props.handleLoadout && (
-        <Stack.Item>
-          <Button
-            onClick={props.handleLoadout}
-            fontSize="22px"
-            icon="suitcase"
-            tooltip="Show Loadout Menu"
-            tooltipPosition="top"
-          />
-        </Stack.Item>
-      )}
       <Stack.Item>
         <Button
           onClick={props.handleFood}
@@ -583,9 +571,6 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                       handleOpenSpecies={props.openSpecies}
                       handleRotate={() => {
                         act('rotate');
-                      }}
-                      handleLoadout={() => {
-                        act('open_loadout');
                       }}
                       // NOVA EDIT ADDITION - BEGIN
                       handleFood={() => {
