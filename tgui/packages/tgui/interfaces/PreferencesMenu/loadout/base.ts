@@ -31,6 +31,15 @@ export type LoadoutItem = {
   buttons: LoadoutButton[];
   reskins: ReskinOption[] | null;
   information: string[];
+  // NOVA EDIT ADDITION START - Expanded loadout framework
+  ckey_whitelist: string[] | null;
+  restricted_roles: string[] | null;
+  blacklisted_roles: string[] | null;
+  restricted_species: string[] | null;
+  donator_only: BooleanLike;
+  veteran_only: BooleanLike;
+  erp_item: BooleanLike;
+  // NOVA EDIT END
 };
 
 // Category of items in the loadout

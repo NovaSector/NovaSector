@@ -94,9 +94,14 @@ export const ItemDisplay = (props: {
 const ItemListDisplay = (props: { items: LoadoutItem[] }) => {
   const { data } = useBackend<LoadoutManagerData>();
   const { loadout_list } = data.character_preferences.misc;
+  // NOVA EDIT ADDITION START - Expanded loadout framework
+  const itemList = FilterItemList(props.items);
+  // NOVA EDIT END
   return (
     <Flex wrap>
-      {props.items.map((item) => (
+      {/* NOVA EDIT - LOADOUT ORIGINAL: {props.items.map((item) => (*/}
+      {itemList.map((item) => (
+        // NOVA EDIT END
         <Flex.Item key={item.name} mr={2} mb={2}>
           <ItemDisplay
             item={item}
@@ -107,6 +112,28 @@ const ItemListDisplay = (props: { items: LoadoutItem[] }) => {
     </Flex>
   );
 };
+
+// NOVA EDIT ADDITION START - Expanded loadout framework
+const FilterItemList = (items: LoadoutItem[]) => {
+  const { data } = useBackend<LoadoutManagerData>();
+  const { is_donator, is_veteran } = data;
+  const ckey = data.ckey;
+
+  return items.filter((item: LoadoutItem) => {
+    if (item.ckey_whitelist && item.ckey_whitelist.indexOf(ckey) === -1) {
+      return false;
+    }
+    if (item.donator_only && !is_donator) {
+      return false;
+    }
+    if (item.veteran_only && !is_veteran) {
+      return false;
+    }
+
+    return true;
+  });
+};
+// NOVA EDIT END
 
 export const LoadoutTabDisplay = (props: {
   category: LoadoutCategory | undefined;
