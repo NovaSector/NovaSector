@@ -3486,9 +3486,6 @@
 	dir = 1
 	},
 /area/station/science/robotics)
-"bdR" = (
-/turf/open/genturf,
-/area/icemoon/surface/outdoors/nospawn)
 "bea" = (
 /obj/machinery/oven/range,
 /turf/open/floor/iron/dark,
@@ -228421,7 +228418,7 @@ vMu
 vMu
 vMu
 vMu
-bdR
+kom
 kom
 kom
 kom
