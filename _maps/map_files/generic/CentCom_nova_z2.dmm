@@ -6138,7 +6138,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/hotdog/museum,
+/obj/machinery/vending/hotdog/museum{
+	onstation = 0
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
