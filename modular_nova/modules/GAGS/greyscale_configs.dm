@@ -1845,3 +1845,21 @@ TREK
 /datum/greyscale_config/primitive_catgirl_tunic/worn
 	name = "Handmade Tunic (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/tunic_worn.json'
+
+/datum/greyscale_config/loincloth
+	name = "Loincloth"
+	icon_file = 'modular_nova/modules/GAGS/icons/loincloth.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth.json'
+
+/datum/greyscale_config/loincloth/worn
+	name = "Loincloth (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_worn.json'
+
+/datum/greyscale_config/loincloth_alt
+	name = "Shorter Loincloth"
+	icon_file = 'modular_nova/modules/GAGS/icons/loincloth.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt.json'
+
+/datum/greyscale_config/loincloth_alt/worn
+	name = "Shorter Loincloth (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt_worn.json'
