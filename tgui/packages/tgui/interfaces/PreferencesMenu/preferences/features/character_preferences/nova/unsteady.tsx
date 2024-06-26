@@ -1,4 +1,4 @@
-import { CheckboxInput, Feature, FeatureNumberInput } from '../../base';
+import { Feature, FeatureNumberInput } from '../../base';
 
 export const unsteady_pushfactor: Feature<number> = {
   name: 'Chance on pushed',
@@ -19,5 +19,5 @@ export const unsteady_damagethreshold: Feature<number> = {
   name: 'Damage Threshold',
   component: FeatureNumberInput,
 
-  description: "Minimum damage required to knock you down.",
+  description: 'Minimum damage required to knock you down.',
 };

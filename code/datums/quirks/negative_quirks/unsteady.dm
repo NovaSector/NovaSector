@@ -7,7 +7,6 @@
 	desc = "You are easy to knock down, and fall often when hit or pushed."
 	icon = FA_ICON_VOLUME_XMARK
 	value = -4
-	mob_trait = TRAIT_UNSTEADY
 	gain_text = span_danger("You feel like you could fall over easily.")
 	lose_text = span_notice("You feel steady again.")
 	medical_record_text = "The patient finds it remarkably easy to fall over due to external influence."
@@ -30,6 +29,8 @@
 	if(damagetype != BRUTE)
 		return
 	if(damage < /datum/preference/numeric/unsteady_damagethreshold)
+		return
+	if (!prob(/datum/preference/numeric/unsteady_hurtfactor))
 		return
 
 	//don't display the message if already downed
