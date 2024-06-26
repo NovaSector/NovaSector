@@ -7,12 +7,12 @@ export const unsteady_hurtfactor: Feature<number> = {
 };
 
 export const unsteady_stunlength: Feature<number> = {
-  name: 'Length of stun',
+  name: 'Length of falldown',
   component: FeatureNumberInput,
 };
 
 export const unsteady_damagethreshold: Feature<number> = {
-  name: 'Damage Threshold',
+  name: 'Damage threshold',
   component: FeatureNumberInput,
   description: 'Minimum damage required to knock you down.',
 };
