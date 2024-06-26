@@ -3,14 +3,7 @@
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_identifier = PREFERENCE_CHARACTER
 
-	step = .1
-
-// chance to activate after getting pushed over
-/datum/preference/numeric/unsteady/unsteady_pushfactor
-	savefile_key = "unsteady_pushfactor"
-
-	minimum = 5
-	maximum = 100
+	step = 0.1
 
 // chance to activate after getting hurt
 /datum/preference/numeric/unsteady/unsteady_hurtfactor
@@ -23,12 +16,30 @@
 /datum/preference/numeric/unsteady/unsteady_stunlength
 	savefile_key = "unsteady_stunlength"
 
-	minimum = .5
+	minimum = 0.5
 	maximum = 4
 
 // minimum damage required
-/datum/preference/numeric/unsteady/unsteady_stunlength
-	savefile_key = "unsteady_stunlength"
+/datum/preference/numeric/unsteady/unsteady_damagethreshold
+	savefile_key = "unsteady_damagethreshold"
 
 	minimum = 0
 	maximum = 100
+
+/datum/preference/numeric/unsteady/unsteady_hurtfactor/create_default_value()
+	return UNSTEADY_DAMAGECHANCE
+
+/datum/preference/numeric/unsteady/unsteady_stunlength/create_default_value()
+	return UNSTEADY_STUNLENGTH
+
+/datum/preference/numeric/unsteady/unsteady_damagethreshold/create_default_value()
+	return UNSTEADY_DAMAGETHRESHOLD
+
+/datum/preference/numeric/unsteady/unsteady_stunlength/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/numeric/unsteady/unsteady_damagethreshold/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/numeric/unsteady/unsteady_hurtfactor/apply_to_human(mob/living/carbon/human/target, value)
+	return
