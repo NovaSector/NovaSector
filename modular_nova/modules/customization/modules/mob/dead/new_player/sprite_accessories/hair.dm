@@ -639,6 +639,14 @@
 	name = "Upwards"
 	icon_state = "hair_upwards"
 
+/datum/sprite_accessory/hair/nova/mcsqueeb
+	name = "McSqueeb"
+	icon_state = "hair_mcsqueeb"
+
+/datum/sprite_accessory/hair/nova/dreadlocks_long
+	name = "Long Dreadlocks"
+	icon_state = "hair_dreadlocks_long"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova
@@ -675,3 +683,4 @@
 /datum/sprite_accessory/facial_hair/nova/squid
 	name = "Tentacle Beard"
 	icon_state = "facial_squid"
+

@@ -6482,6 +6482,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/wood/large,
 /area/station/tcommsat/computer)
 "bVN" = (
@@ -15095,8 +15096,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "erZ" = (
-/obj/machinery/vending/imported,
 /obj/machinery/light/warm/directional/north,
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/white/herringbone,
 /area/station/medical/patients_rooms)
 "esc" = (
@@ -20090,13 +20091,13 @@
 /turf/open/floor/catwalk_floor,
 /area/station/cargo/bitrunning/den)
 "fSn" = (
-/obj/machinery/vending/imported,
 /obj/effect/turf_decal/tile/bar/fourcorners,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/checker,
 /area/station/service/kitchen/diner)
 "fSB" = (
@@ -28276,6 +28277,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -32838,7 +32840,7 @@
 /area/station/medical/medbay/central)
 "jAS" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/photocopier,
+/obj/machinery/flatpacker,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "jAT" = (
@@ -34838,10 +34840,10 @@
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/maint)
 "kfq" = (
-/obj/machinery/vending/imported,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/light/warm/directional/west,
+/obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/dark/small,
 /area/station/command/meeting_room/council)
 "kft" = (
@@ -41894,6 +41896,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/wood/large,
 /area/station/tcommsat/computer)
 "mbl" = (
@@ -46034,12 +46037,7 @@
 	},
 /obj/structure/rack/shelf,
 /obj/machinery/light/cold/directional/north,
-/obj/item/gun/energy/e_gun/dragnet{
-	pixel_y = 4
-	},
-/obj/item/gun/energy/e_gun/dragnet{
-	pixel_y = -4
-	},
+/obj/effect/spawner/random/armory/dragnet,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "njJ" = (

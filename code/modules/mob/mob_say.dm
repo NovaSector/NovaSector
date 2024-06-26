@@ -187,7 +187,7 @@
 	var/customsaypos = findtext(message, "*")
 	if(!customsaypos)
 		return message
-	if (is_banned_from(ckey, "Emote"))
+	if (!isnull(ckey) && is_banned_from(ckey, "Emote"))
 		return copytext(message, customsaypos + 1)
 	mods[MODE_CUSTOM_SAY_EMOTE] = lowercase_title(copytext(message, 1, customsaypos)) // NOVA EDIT: ORIGINAL: mods[MODE_CUSTOM_SAY_EMOTE] = copytext(message, 1, customsaypos)
 	message = trim(copytext(message, customsaypos + 1)) //NOVA EDIT: ORIGINAL: message = copytext(message, customsaypos + 1)

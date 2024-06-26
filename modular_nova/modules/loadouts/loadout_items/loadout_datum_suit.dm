@@ -147,6 +147,9 @@
 	name = "Red Poncho"
 	item_path = /obj/item/clothing/suit/costume/poncho/red
 
+/datum/loadout_item/suit/dagger_mantle
+	name = "'Dagger' Designer Mantle"
+	item_path = /obj/item/clothing/suit/dagger_mantle
 
 /*
 *	JACKETS
@@ -207,6 +210,10 @@
 /datum/loadout_item/suit/mothcoat
 	name = "Mothic Flightsuit"
 	item_path = /obj/item/clothing/suit/mothcoat
+
+/datum/loadout_item/suit/big_jacket
+	name = "Alpha Atelier Pilot Jacket"
+	item_path = /obj/item/clothing/suit/big_jacket
 
 /*
 *	VARSITY JACKET

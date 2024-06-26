@@ -1,12 +1,38 @@
+/datum/antagonist/changeling
+	dna_max = 8 // changed from 6
+	genetic_points = 15 // changed from 10
+	total_genetic_points = 15 // changed from 10
+	/// The time that the horror form died.
+	var/true_form_death
+	/// Any quirks that we don't want to be mimicked when transforming
+	var/list/mimicable_quirks_list = list(
+		"Bad Touch",
+		"Sensitive Snout",
+		"Ash aspect (Emotes)",
+		"Canidae Traits",
+		"Excitable!",
+		"Feline Traits",
+		"Floral aspect (Emotes)",
+		"Heterochromatic",
+		"Hydra Heads",
+		"Oversized",
+		"Personal Space",
+		"Pseudobulbar Affect",
+		"Shifty Eyes",
+		"Smooth-Headed",
+		"Sparkle aspect (Emotes)",
+		"Water aspect (Emotes)",
+		"Webbing aspect (Emotes)",
+		"Friendly",
+		"Avian Traits",
+	)
+
 /datum/antagonist/changeling/forge_objectives()
 	return
-
 
 /datum/changeling_profile
 	/// The bra worn by the profile source
 	var/bra
-	/// The color of the underwear used by the profile source
-	var/underwear_color
 	/// The color of the undershirt used by the profile source
 	var/undershirt_color
 	/// The color of the socks used by the profile source

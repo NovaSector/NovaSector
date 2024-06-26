@@ -319,7 +319,7 @@
 #define SLIME_EVOLUTION_THRESHOLD 10
 
 //Slime evolution cost in nutrition
-#define SLIME_EVOLUTION_COST 200
+#define SLIME_EVOLUTION_COST 100
 
 //Slime extract crossing. Controls how many extracts is required to feed to a slime to core-cross.
 #define SLIME_EXTRACT_CROSSING_REQUIRED 10
@@ -457,11 +457,14 @@
 #define REM REAGENTS_EFFECT_MULTIPLIER //! Shorthand for the above define for ease of use in equations and the like
 
 // Eye protection
+// THese values are additive to determine your overall flash protection.
 #define FLASH_PROTECTION_HYPER_SENSITIVE -2
 #define FLASH_PROTECTION_SENSITIVE -1
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_FLASH 1
 #define FLASH_PROTECTION_WELDER 2
+#define FLASH_PROTECTION_WELDER_SENSITIVE 3
+#define FLASH_PROTECTION_WELDER_HYPER_SENSITIVE 4
 
 // AI Toggles
 #define AI_CAMERA_LUMINOSITY 5
@@ -637,8 +640,6 @@
 //defines for grad_color and grad_styles list access keys
 #define GRADIENT_HAIR_KEY 1
 #define GRADIENT_FACIAL_HAIR_KEY 2
-//Keep up to date with the highest key value
-#define GRADIENTS_LEN 2
 
 // /datum/sprite_accessory/gradient defines
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
@@ -651,6 +652,7 @@
 // Otherwise they are completely arbitrary
 #define MONKEY_HEIGHT_DWARF 2
 #define MONKEY_HEIGHT_MEDIUM 4
+#define MONKEY_HEIGHT_TALL HUMAN_HEIGHT_DWARF
 #define HUMAN_HEIGHT_DWARF 6
 #define HUMAN_HEIGHT_SHORTEST 8
 #define HUMAN_HEIGHT_SHORT 10
