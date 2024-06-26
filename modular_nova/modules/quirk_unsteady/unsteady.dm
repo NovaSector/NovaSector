@@ -16,6 +16,9 @@
 
 	var/unsteady_stunlength = UNSTEADY_STUNLENGTH
 
+/datum/quirk_constant_data/unsteady
+    associated_typepath = /datum/quirk/unsteady
+
 /datum/quirk_constant_data/unsteady/New()
 	customization_options = subtypesof(/datum/preference/numeric/unsteady)
 
