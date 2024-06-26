@@ -1,3 +1,4 @@
+// THIS IS A NOVA SECTOR UI FILE
 import { Feature, FeatureNumberInput } from '../../base';
 
 export const unsteady_pushfactor: Feature<number> = {
@@ -18,6 +19,5 @@ export const unsteady_stunlength: Feature<number> = {
 export const unsteady_damagethreshold: Feature<number> = {
   name: 'Damage Threshold',
   component: FeatureNumberInput,
-
   description: 'Minimum damage required to knock you down.',
 };

@@ -1,7 +1,3 @@
-// this quirk just intends to make it harder to run from danger
-// kinda like glass jaw quirk, only applies to brute
-// this however does not render unconscious, just knocks down like a slip
-
 /datum/quirk/unsteady
 	name = "Unsteady"
 	desc = "You are easy to knock down, and fall often when hit or pushed."
@@ -12,9 +8,18 @@
 	medical_record_text = "The patient finds it remarkably easy to fall over due to external influence."
 	hardcore_value = 4
 
-/datum/quirk_constant_data/unsteady
-	associated_typepath = /datum/quirk/unsteady
-	customization_options = list(/datum/preference/numeric/unsteady_pushfactor, /datum/preference/numeric/unsteady_hurtfactor, /datum/preference/numeric/unsteady_stunlength, /datum/preference/numeric/unsteady_damagethreshold)
+	var/unsteady_damagethreshold = UNSTEADY_DAMAGETHRESHOLD
+
+	var/unsteady_hurtchance = UNSTEADY_HURTCHANCE
+
+	var/unsteady_pushchance = UNSTEADY_PUSHCHANCE
+
+	var/unsteady_stunlength = UNSTEADY_STUNLENGTH
+
+/datum/quirk_constant_data/unsteady/New()
+	customization_options = subtypesof(/datum/preference/numeric/unsteady)
+
+	return ..()
 
 /datum/quirk/unsteady/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(ouchie))
@@ -28,9 +33,9 @@
 
 	if(damagetype != BRUTE)
 		return
-	if(damage < /datum/preference/numeric/unsteady_damagethreshold)
+	if(damage < unsteady_damagethreshold)
 		return
-	if (!prob(/datum/preference/numeric/unsteady_hurtfactor))
+	if (!prob(unsteady_hurtchance))
 		return
 
 	//don't display the message if already downed
@@ -40,4 +45,4 @@
 			span_userdanger("You fall over in a scramble!"),
 			vision_distance = COMBAT_MESSAGE_RANGE,
 	)
-	source.Knockdown(/datum/preference/numeric/unsteady_stunlength SECONDS)
+	source.Knockdown(unsteady_stunlength SECONDS)
