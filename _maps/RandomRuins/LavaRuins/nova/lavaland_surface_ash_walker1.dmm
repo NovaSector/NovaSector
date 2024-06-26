@@ -1057,6 +1057,7 @@
 /obj/item/seeds/kronkus,
 /obj/item/seeds/tea,
 /obj/item/seeds/tea,
+/obj/item/seeds/honeysuckle,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Nf" = (
