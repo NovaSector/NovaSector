@@ -200,12 +200,13 @@
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
 /datum/preference/numeric/penis_length/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	// Clamp this for normal sized characters
-	var/has_lewd_quirk = preferences?.all_quirks.Find(/datum/quirk/endowed_enjoyer::name)
+	//Adjust allowed size based on character size, rounded up
+	var/adjusted_size = ceil(PENIS_MAX_LENGTH_NORMAL_SIZED + ((preferences?.read_preference(/datum/preference/numeric/body_size) %% 1) * 2) * 16)
 	var/has_oversized_quirk = preferences?.all_quirks.Find(/datum/quirk/oversized::name)
-	if(!has_oversized_quirk && preferences?.read_preference(/datum/preference/numeric/body_size) < 1.3)
-		if(!has_lewd_quirk)
-			value = min(value, PENIS_MAX_LENGTH_NORMAL_SIZED)
+	// Clamp this for normal sized characters
+	if(!has_oversized_quirk)
+		if(value > adjusted_size)
+			value = adjusted_size
 	target.dna.features["penis_size"] = value
 
 /datum/preference/numeric/penis_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
@@ -227,12 +228,13 @@
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
 /datum/preference/numeric/penis_girth/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	// Clamp this for normal sized characters
-	var/has_lewd_quirk = preferences?.all_quirks.Find(/datum/quirk/endowed_enjoyer::name)
+	//Adjust allowed size based on character size, rounded up
+	var/adjusted_size = ceil(PENIS_MAX_GIRTH_NORMAL_SIZED + ((preferences?.read_preference(/datum/preference/numeric/body_size) %% 1) * 2) * 16)
 	var/has_oversized_quirk = preferences?.all_quirks.Find(/datum/quirk/oversized::name)
-	if(!has_oversized_quirk && preferences?.read_preference(/datum/preference/numeric/body_size) < 1.3)
-		if(!has_lewd_quirk)
-			value = min(value, PENIS_MAX_LENGTH_NORMAL_SIZED)
+	// Clamp this for normal sized characters
+	if(!has_oversized_quirk)
+		if(value > adjusted_size)
+			value = adjusted_size
 	target.dna.features["penis_girth"] = value
 
 /datum/preference/numeric/penis_girth/create_default_value()

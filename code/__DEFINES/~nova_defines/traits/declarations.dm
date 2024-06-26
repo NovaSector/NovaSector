@@ -141,7 +141,6 @@
 #define TRAIT_BIMBO "bimbo"
 #define TRAIT_RIGGER "rigger"
 #define TRAIT_ROPEBUNNY "rope bunny"
-#define TRAIT_ENDOWED_ENJOYER "endowed_enjoyer"
 ///traits gained by brain traumas, can be removed if the brain trauma is gone
 #define TRAIT_APHRO "aphro"
 ///traits gained by quirks, cannot be removed unless the quirk itself is gone

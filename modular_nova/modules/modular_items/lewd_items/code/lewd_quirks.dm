@@ -331,28 +331,6 @@
 /datum/mood_event/sadistic
 	description = span_purple("Others' suffering makes me happier\n")
 
-//Endowed enjoyer code
-/datum/quirk/endowed_enjoyer
-	name = "Endowed Enjoyer"
-	desc = "You're a fan of the larger things in life, in this case, male body parts."
-	value = 0
-	mob_trait = TRAIT_ENDOWED_ENJOYER
-	gain_text = span_notice("They always said bigger is better.")
-	lose_text = span_notice("Perhaps bigger isn't better.")
-	icon = FA_ICON_EXPAND_ARROWS_ALT
-	erp_quirk = TRUE
-	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
-
-/datum/quirk/endowed_enjoyer/post_add()
-	. = ..()
-	var/mob/living/carbon/human/affected_mob = quirk_holder
-	ADD_TRAIT(affected_mob, TRAIT_ENDOWED_ENJOYER, TRAIT_LEWDQUIRK)
-
-/datum/quirk/endowed_enjoyer/remove()
-	. = ..()
-	var/mob/living/carbon/human/affected_mob = quirk_holder
-	REMOVE_TRAIT(affected_mob, TRAIT_ENDOWED_ENJOYER, TRAIT_LEWDQUIRK)
-
 /*
 *	EMPATH BONUS
 */
