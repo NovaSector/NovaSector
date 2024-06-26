@@ -7,9 +7,9 @@
 			owner.take_bodypart_damage(20,25,check_armor = FALSE)
 			var/turf/T = get_turf(owner)
 			T.visible_message(span_warning("Unknown force pushes [owner] to cut themself by the blade!"))
-			final_block_chance == 0
+			final_block_chance = 0
 			return FALSE
 	else
 		if(attack_type == PROJECTILE_ATTACK)
-			final_block_chance == 30
+			final_block_chance = 30
 			return TRUE
