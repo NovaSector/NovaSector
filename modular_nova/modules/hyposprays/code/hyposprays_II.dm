@@ -165,33 +165,28 @@
 		to_chat(user, span_notice("This hypo isn't loaded!"))
 		return
 
-/obj/item/hypospray/mkii/proc/insert_vial(obj/item/new_vial, mob/living/user, obj/item/current_vial)
-	var/obj/item/reagent_containers/cup/vial/container = new_vial
-	var/old_loc //The location of and old vial.
-	if(!is_type_in_list(container, allowed_containers))
+/obj/item/hypospray/mkii/proc/insert_vial(obj/item/new_vial, mob/living/user)
+	if(!is_type_in_list(new_vial, allowed_containers))
 		to_chat(user, span_notice("[src] doesn't accept this type of vial."))
 		return FALSE
-	if(current_vial)
-		old_loc = container.loc
-		var/obj/item/reagent_containers/cup/vial/old_container = current_vial
-		old_container.forceMove(drop_location())
-	if(!user.transferItemToLoc(container, src))
+	var/atom/quickswap_loc = new_vial.loc
+	if(!user.transferItemToLoc(new_vial, src))
 		return FALSE
-	vial = container
+	if(!isnull(vial))
+		if(quickswap_loc == user)
+			user.put_in_hands(vial)
+		else
+			vial.forceMove(quickswap_loc)
+	vial = new_vial
 	user.visible_message(span_notice("[user] has loaded a vial into [src]."), span_notice("You have loaded [vial] into [src]."))
 	playsound(loc, 'sound/weapons/autoguninsert.ogg', 35, 1)
 	update_appearance()
-	if(current_vial)
-		if(old_loc == user)
-			user.put_in_hands(current_vial)
-		else
-			current_vial.forceMove(old_loc)
 
 /obj/item/hypospray/mkii/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/reagent_containers/cup/vial))
 		return NONE
 	if(isnull(vial) || quickload)
-		insert_vial(tool, user, vial)
+		insert_vial(tool, user)
 		return ITEM_INTERACT_SUCCESS
 	to_chat(user, span_warning("[src] can not hold more than one vial!"))
 	return ITEM_INTERACT_BLOCKING
@@ -225,7 +220,7 @@
 
 /obj/item/hypospray/mkii/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(istype(interacting_with, /obj/item/reagent_containers/cup/vial))
-		insert_vial(interacting_with, user, interacting_with)
+		insert_vial(interacting_with, user)
 		return ITEM_INTERACT_SUCCESS
 	return do_inject(interacting_with, user, mode=HYPO_INJECT)
 
