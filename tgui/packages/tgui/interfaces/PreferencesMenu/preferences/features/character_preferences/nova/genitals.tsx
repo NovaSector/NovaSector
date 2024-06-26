@@ -64,9 +64,9 @@ export const penis_length: FeatureNumeric = {
 export const penis_girth: FeatureNumeric = {
   name: 'Penis Girth',
   description:
-  'Value is circumference, measured in inches.\
-   This value is limited to 15 for characters with a body size <= 1, \
-   or without the oversized trait.',
+    'Value is circumference, measured in inches.\
+    This value is limited to 15 for characters with a body size <= 1, \
+    or without the oversized trait.',
   component: FeatureNumberInput,
 };
 
