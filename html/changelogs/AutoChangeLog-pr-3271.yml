@@ -1,7 +1,0 @@
-author: "MortoSasye"
-delete-after: True
-changes:
-  - bugfix: "Fixed the hearthkin armor icon when thrown."
-  - bugfix: "Fixed the hearthkin armor not being able to carry forged weapons like the forging plate armor."
-  - rscadd: "Added new icons for rings when they're carried."
-  - bugfix: "Fixed the in-hand sprite of forged rings."

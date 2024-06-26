@@ -1095,3 +1095,137 @@
       themselves onto them to ride with free hands
   - rscadd: Saddlebags for quadruped taurs, which are one-handed saddles that allow
       anyone to access their storage by alt clicking the wearer
+2024-06-26:
+  00-Steven:
+  - qol: Split off settings for Death Degradation's degradation decay and recovery
+      while alive. You could now set both at once, letting you die by default while
+      letting buckle/rest/sleeping overpower the dying.
+  Bisar:
+  - bugfix: The light eater can now again eat lights from things with lights.
+  Fluffles:
+  - bugfix: emoji show up in the messenger UI
+  - bugfix: emoji show up in the message server monitor UI
+  - bugfix: you can adjust your pda ringtone in-game
+  - bugfix: having an empty pAI in your pda doesn't break ringtones
+  - bugfix: pdas specifically set to not consume power don't constantly switch to
+      messenger
+  - bugfix: you can use the quick-reply button for messages while resting
+  - bugfix: deadchat pda messages show the imprinted sender's name instead of whoever
+      is holding the pda
+  - bugfix: emoji show up in deadchat pda messages
+  FlufflesTheDog:
+  - bugfix: screaming respects character preferences
+  - bugfix: apc arcing doesn't happen until the intended 4MW limit (previously 2MW
+      due to a conversion issue)
+  Goat:
+  - rscadd: Added boards for the library's book binder and scanner, printable at the
+      service fabricator once computer tech is researched. Spritework done by lepiromano.
+  Guestify:
+  - bugfix: Fixed secbots and mulebots bold text
+  - bugfix: The visor of the welding mask no longer goes down when you enable internals
+  Jolly:
+  - rscadd: '[Blueshift] Added more powernet redundancy as compensation.'
+  - rscdel: '[Blueshift] There department power stations have been removed. Departments
+      are now powered by the main powernet.'
+  - rscdel: '[Blueshift] Removed the notice paper about the power stations in Engineering.'
+  LT3:
+  - bugfix: Fixed Blueshift and Void Raptor engineering/telecoms airlock access
+  - bugfix: Telecomms Tech job trim now actually has access to Blueshift's telecomms
+  MortoSasye:
+  - bugfix: Fixed the hearthkin armor icon when thrown.
+  - bugfix: Fixed the hearthkin armor not being able to carry forged weapons like
+      the forging plate armor.
+  - rscadd: Added new icons for rings when they're carried.
+  - bugfix: Fixed the in-hand sprite of forged rings.
+  - rscadd: The loincloths now come in an underclothes variant, and was added in the
+      misc. under category of the loadout.
+  - rscadd: 'Added the above to the hearthkin''s wardrobe, plus: Robed Colourable
+      Cape, both Papakha''s variants, and the Hair Tie.'
+  NovaBot13:
+  - bugfix: Interacting with an assembly bomb in hand will now allow you to interact
+      with the attached assembly instead of opening the gas tank UI. Right-clicking
+      will display the gas tank UI instead.
+  - rscadd: wawastation stand-in shuttle
+  - qol: ' The xenobio console''s monkey placing command also clears dead monkeys
+      on the tile.'
+  - spellcheck: fixed typo in raptor emote
+  - bugfix: Minebots, Tamed Wolves, and Regal Rat Minions will now give you some space
+      if you start attacking yourself, rather than joining in.
+  - bugfix: '[IceBox] The Head of Personnel''s Requests Console announcements now
+      correctly display the HoP as the announcer, rather than "Unknown"'
+  - bugfix: Autopsy experiments for techweb can be performed roundstart
+  - bugfix: wawa ordnance air alarms dont send alerts roundstart
+  - qol: wawa ordnance gets more portable atmos machines to compensate for having
+      next to no actual portable atmos machines
+  - bugfix: wawa ordnance gets 3 random roundstart cores (forgor to add)
+  - bugfix: The Stimmed mutation now has the appropriate instability value for a largely
+      meaningless mutation.
+  - qol: space dragon can see in the dark and the invalid rift location alert is more
+      informative
+  - refactor: vibebots are not basic bots
+  - rscadd: vibebots will now seek out the depressed and cheer them up
+  - bugfix: durand shield doesnt immediately depower the mech when taking stamina
+      damage
+  - balance: durand shield is a bit stronger
+  - refactor: Modular computers (PDAs, laptops, etc) and their applications have had
+      their item interaction logic refactored. Please report any issues.
+  - bugfix: You can deposit cash into IDs inside of PDAs by slapping it against the
+      PDA again.
+  - bugfix: multi-z hole repair works better, especially when the turf below is blocked
+      by items
+  - rscadd: 'Bitrunning: You can now choose your hacker alias in prefs.'
+  - rscadd: Bit avatars get orbit icons.
+  - bugfix: you can piggyback on players again
+  - bugfix: you can strip someone while lying down
+  - bugfix: paraplegics can buckle others & themselves to chairs & mobs
+  - qol: improved feedback messages when an action cannot be done
+  - bugfix: The Infiltrator module now has the same welding protections as the engineering
+      module.
+  - bugfix: The infiltrator module now properly protects you from head impacts. Helpful
+      if you wipe out on your hoverboard while fleeing the cops.
+  - code_imp: Improves the definitions for welding protection values.
+  - bugfix: Fixed ctrl-click not dragging the bluespace gas sender or hydroponics
+      trays.
+  - qol: NT Frontier app now allows to select experiments from inserted data disks
+  - bugfix: Orange balloons are no longer invisible in the hand slot.
+  - rscadd: The nullblade, a nullrod variant that is weaker outright, but can inflict
+      severe wounds by performing a sneak attack. Debilitate your target or attack
+      from behind.
+  - bugfix: The shortsword sprite no longer has a misaligned handle.
+  - code_imp: Organized the nullrod file, and removed some unnecessary subtyping on
+      various types of nullrods.
+  - bugfix: RND console now properly rounds research points
+  - bugfix: You should no longer attack mobs that don't have a chest in the chest
+      (bots).
+  - rscadd: You can now click pens! Clickity clickery click!
+  - bugfix: E-Daggers can now break lockers/other renamable objects, and pendrivers
+      can now extract their electronics.
+  - code_imp: Most pen typechecks now check for writing implements.
+  - bugfix: Spraycans can once more paint things.
+  - balance: Thanks to incredible strides in selective slime breeding, slimes require
+      substantially less nutrients to grow into adults, and split into children.
+  - spellcheck: fixed typos in a few heretic items
+  - spellcheck: rewrote parts of the lunar heretic's abilities, items and traumas
+  - bugfix: Analyzers should work on bioscrambler anomalies again.
+  - bugfix: Fixed crayons not being usable on anything except turfs (including washing
+      machines)
+  - admin: Admins have a new secret to mass revive and heal all players on the server.
+  - spellcheck: Shrapnel removal messages now have closing parenthesis, removed unnecessary
+      punctuation.
+  - spellcheck: The nutriment pump implant's description in the lathes are no longer
+      typo'd.
+  ShizCalev:
+  - image: Foam darts in the magazine of a toy/riot C20R45 will now show the correct
+      color corresponding to the type of said dart loaded in it instead of a generic
+      bullet sprite.
+  Zergspower:
+  - balance: SMES Output/Input ability doubled
+  - qol: Solar power generation greatly improved
+  - bugfix: Cafe's Hotdog vendor will no longer try to crush you
+  vinylspiders:
+  - qol: xenobiology research node no longer requires the cytology experiment; instead
+      it gives a discount
+  - qol: 'artificial selection research node no longer requires the wild harvest experiment;
+      instead it gives a discount
+
+      /:cl'

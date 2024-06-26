@@ -1,4 +1,0 @@
-author: "00-Steven"
-delete-after: True
-changes:
-  - qol: "Split off settings for Death Degradation's degradation decay and recovery while alive. You could now set both at once, letting you die by default while letting buckle/rest/sleeping overpower the dying."

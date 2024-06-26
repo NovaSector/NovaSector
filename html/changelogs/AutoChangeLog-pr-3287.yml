@@ -1,5 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Fixed Blueshift and Void Raptor engineering/telecoms airlock access"
-  - bugfix: "Telecomms Tech job trim now actually has access to Blueshift's telecomms"
