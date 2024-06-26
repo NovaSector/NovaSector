@@ -94,4 +94,3 @@
 	value = -6
 	mob_trait = TRAIT_NOGUNS
 	icon = FA_ICON_GUN
-
