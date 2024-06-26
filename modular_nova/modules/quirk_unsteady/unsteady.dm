@@ -1,6 +1,6 @@
 /datum/quirk/unsteady
 	name = "Unsteady"
-	desc = "You are easy to knock down, and fall often when hit or pushed."
+	desc = "You are easy to knock down or very easy to startle, and fall often when being hurt."
 	icon = "tg-bad-touch"
 	value = 0 // much like death degredation, effects can be negated in configuration
 	gain_text = span_danger("You feel like you could fall over easily.")
