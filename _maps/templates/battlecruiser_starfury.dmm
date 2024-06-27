@@ -645,6 +645,7 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/sbc_starfury)
+<<<<<<< HEAD
 "cy" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -653,6 +654,8 @@
 /obj/effect/turf_decal/stripes/red/line,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/sbc_starfury)
+=======
+>>>>>>> e3cc97d3de3 ([MDB IGNORE] Gives telescreens mapping directionals + adds a map lint for them (#84261))
 "cz" = (
 /obj/machinery/newscaster/directional/south,
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -1592,6 +1595,15 @@
 /obj/machinery/door/airlock/multi_tile/public/glass,
 /turf/open/floor/pod/light,
 /area/shuttle/sbc_starfury)
+"fE" = (
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/shuttle/sbc_starfury)
 "fF" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/machinery/door/firedoor/heavy,
@@ -1613,6 +1625,14 @@
 /obj/machinery/door/airlock/hatch,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/showroomfloor,
+/area/shuttle/sbc_starfury)
+"fR" = (
+/obj/structure/table,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/effect/turf_decal/siding/thinplating_new/dark,
+/obj/effect/turf_decal/stripes/red/line,
+/turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/sbc_starfury)
 "fS" = (
 /obj/structure/cable,
@@ -1732,6 +1752,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/shuttle/sbc_starfury)
+<<<<<<< HEAD
 "gN" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -1745,6 +1766,8 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/sbc_starfury)
+=======
+>>>>>>> e3cc97d3de3 ([MDB IGNORE] Gives telescreens mapping directionals + adds a map lint for them (#84261))
 "gO" = (
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
@@ -2257,21 +2280,6 @@
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/pod/light,
-/area/shuttle/sbc_starfury)
-"ic" = (
-/obj/machinery/computer/security/telescreen/entertainment{
-	pixel_x = -31
-	},
-/obj/item/book/manual/wiki/barman_recipes,
-/obj/item/reagent_containers/cup/glass/shaker{
-	pixel_x = 10
-	},
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/bar,
-/turf/open/floor/iron/dark,
 /area/shuttle/sbc_starfury)
 "id" = (
 /obj/item/toy/cards/deck/syndicate{
@@ -3276,6 +3284,7 @@
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/sbc_starfury)
+<<<<<<< HEAD
 "lg" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
@@ -3285,6 +3294,8 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/sbc_starfury)
+=======
+>>>>>>> e3cc97d3de3 ([MDB IGNORE] Gives telescreens mapping directionals + adds a map lint for them (#84261))
 "lh" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -4577,6 +4588,19 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/sbc_starfury)
+"Dy" = (
+/obj/structure/table,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/sbc_starfury)
 "Dz" = (
 /obj/item/crowbar/red,
 /obj/structure/cable,
@@ -5088,6 +5112,7 @@
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/sbc_starfury)
+<<<<<<< HEAD
 "MQ" = (
 /obj/structure/closet/crate,
 /obj/item/stock_parts/cell/high,
@@ -5099,6 +5124,8 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/sbc_starfury)
+=======
+>>>>>>> e3cc97d3de3 ([MDB IGNORE] Gives telescreens mapping directionals + adds a map lint for them (#84261))
 "MR" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -5371,6 +5398,19 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/engine,
 /area/shuttle/sbc_starfury)
+"RX" = (
+/obj/item/book/manual/wiki/barman_recipes,
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_x = 10
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/bar,
+/obj/machinery/computer/security/telescreen/entertainment/directional/west,
+/turf/open/floor/iron/dark,
+/area/shuttle/sbc_starfury)
 "Sb" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/centcom{
@@ -5630,6 +5670,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/side,
+/area/shuttle/sbc_starfury)
+"WI" = (
+/obj/structure/closet/crate,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/inducer/syndicate,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
 /area/shuttle/sbc_starfury)
 "WV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6066,7 +6117,7 @@ ce
 ae
 hd
 hD
-ic
+RX
 iq
 iy
 ae
@@ -6486,7 +6537,7 @@ Jf
 ae
 kz
 kO
-lg
+fE
 ae
 ae
 Fc
@@ -6720,7 +6771,7 @@ ay
 ag
 dY
 UB
-cy
+fR
 ec
 eB
 aH
@@ -7286,7 +7337,7 @@ ST
 ae
 ae
 gB
-gN
+Dy
 gY
 Fl
 hS
@@ -7772,7 +7823,7 @@ mQ
 ae
 nR
 Xr
-MQ
+WI
 ae
 ko
 ae
