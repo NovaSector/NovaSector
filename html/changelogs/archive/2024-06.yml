@@ -1229,3 +1229,10 @@
       instead it gives a discount
 
       /:cl'
+2024-06-27:
+  FlufflesTheDog:
+  - bugfix: round-start drone dispensers are stocked again
+  - bugfix: hypovial quickswitching works
+  Vekter:
+  - balance: The Event Horizon Anti-Existential Beam Rifle now requires Unregulated
+      Bluespace Research to be constructed.
