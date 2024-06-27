@@ -121,19 +121,20 @@
 	// See Initialize() on SSReagents
 
 	// Loadouts
+	for(var/datum/loadout_category/category in GLOB.all_loadout_categories)
+		for(var/datum/loadout_item/loadout_item in category.associated_items)
+			if(!loadout_item.erp_item)
+				continue
+
+			category.associated_items -= loadout_item
+
 	for(var/loadout_path in GLOB.all_loadout_datums)
 		var/datum/loadout_item/loadout_datum = GLOB.all_loadout_datums[loadout_path]
 		if(!loadout_datum.erp_item)
 			continue
-		GLOB.all_loadout_datums -= loadout_path
+		qdel(loadout_datum) // This actually handles removing it from the list.
 		// Ensure this FULLY works later
 
-	for(var/datum/loadout_category/category in GLOB.all_loadout_categories)
-		for(var/datum/loadout_item/loadout_typepath in category.associated_items)
-			if(!initial(loadout_typepath.erp_item))
-				continue
-
-			category.associated_items -= loadout_typepath
 
 	// Underwear
 	for(var/sprite_name in SSaccessories.underwear_list)
