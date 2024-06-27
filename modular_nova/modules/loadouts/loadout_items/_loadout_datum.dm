@@ -196,4 +196,4 @@
 		loadout[item_path] -= INFO_DESCRIBED
 
 	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
-	return FALSE // no update needed
+	return TRUE // just so that it updates the UI. Gonna change it later, upstream.

@@ -187,7 +187,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		loadout[item_path] -= INFO_NAMED
 
 	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
-	return FALSE // no update needed
+	return TRUE // NOVA EDIT - Temp fix to loadout UI issue while waiting on upstream fix - ORIGINAL: return FALSE // no update needed
 
 /// Used for reskinning an item to an alt skin.
 /datum/loadout_item/proc/set_skin(datum/preference_middleware/loadout/manager, mob/user, params)
