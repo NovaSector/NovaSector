@@ -117,16 +117,8 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	if(!isnull(start_vial))
-		var/init_vial = new start_vial()
-		vial = init_vial
-		start_vial = null
+		vial = new start_vial
 		update_appearance()
-
-/obj/item/hypospray/mkii/Destroy()
-	if(!isnull(start_vial))
-		start_vial = null
-
-	return ..()
 
 /obj/item/hypospray/mkii/update_overlays()
 	. = ..()
