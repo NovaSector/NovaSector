@@ -36,7 +36,6 @@
 /// Return a list of all /datum/loadout_items in this category.
 /datum/loadout_category/proc/get_items() as /list
 	var/list/all_items = list()
-	var/remove_erp_items = CONFIG_GET(flag/disable_erp_preferences) // NOVA EDIT ADDITION - Extended loadout framework (removing ERP items from the loadout following config)
 	for(var/datum/loadout_item/found_type as anything in typesof(type_to_generate))
 		if(found_type == initial(found_type.abstract_type))
 			continue
@@ -44,11 +43,6 @@
 		if(!ispath(initial(found_type.item_path), /obj/item))
 			stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
 			continue
-
-		// NOVA EDIT ADDITION START - Extended loadout framework (removing ERP items from the loadout following config)
-		if(remove_erp_items && initial(found_type.erp_item)) // Just skip it if we don't want ERP items added here.
-			continue
-		// NOVA EDIT END
 
 		var/datum/loadout_item/spawned_type = new found_type(src)
 		all_items += spawned_type
