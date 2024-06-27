@@ -260,8 +260,10 @@
 				loadout = _text2path(loadout)
 			save_loadout[loadout] = entry
 
-		loadout_list = sanitize_loadout_list(save_loadout)
-		write_preference(GLOB.preference_entries[/datum/preference/loadout], loadout_list)
+		var/loadout_list = sanitize_loadout_list(save_loadout)
+
+		if (length(loadout_list)) // We only want to write these changes down if we're certain that there was anything in that.
+			write_preference(GLOB.preference_entries[/datum/preference/loadout], loadout_list)
 
 
 /datum/preferences/proc/check_migration()
@@ -272,7 +274,6 @@
 
 /// Saves the modular customizations of a character on the savefile
 /datum/preferences/proc/save_character_nova(list/save_data)
-	save_data["loadout_list"] = loadout_list
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles
 	save_data["features"] = features

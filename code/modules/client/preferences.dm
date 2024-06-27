@@ -313,16 +313,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			character_preview_view.update_body()
 			return TRUE
 
-		if ("open_loadout")
-			var/datum/loadout_manager/open_loadout_ui = parent.open_loadout_ui?.resolve()
-			if(open_loadout_ui)
-				open_loadout_ui.ui_interact(usr)
-			else
-				parent.open_loadout_ui = null
-				var/datum/loadout_manager/tgui = new(usr)
-				tgui.ui_interact(usr)
-			return TRUE
-
 		if ("open_food")
 			GLOB.food_prefs_menu.ui_interact(usr)
 			return TRUE
