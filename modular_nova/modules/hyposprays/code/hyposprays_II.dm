@@ -1,20 +1,20 @@
-#define HYPO_SPRAY 0
 #define HYPO_INJECT 1
+#define HYPO_SPRAY 0
 
-#define WAIT_SPRAY 15
-#define WAIT_INJECT 20
-#define SELF_SPRAY 15
-#define SELF_INJECT 15
+#define WAIT_INJECT 2 SECONDS
+#define WAIT_SPRAY 1.5 SECONDS
+#define SELF_INJECT 1.5 SECONDS
+#define SELF_SPRAY 1.5 SECONDS
 
+#define DELUXE_WAIT_INJECT 0.5 SECONDS
 #define DELUXE_WAIT_SPRAY 0
-#define DELUXE_WAIT_INJECT 5
-#define DELUXE_SELF_SPRAY 10
-#define DELUXE_SELF_INJECT 10
+#define DELUXE_SELF_INJECT 1 SECONDS
+#define DELUXE_SELF_SPRAY 1 SECONDS
 
-#define COMBAT_WAIT_SPRAY 0
 #define COMBAT_WAIT_INJECT 0
-#define COMBAT_SELF_SPRAY 0
+#define COMBAT_WAIT_SPRAY 0
 #define COMBAT_SELF_INJECT 0
+#define COMBAT_SELF_SPRAY 0
 
 /obj/item/hypospray/mkii
 	name = "hypospray mk.II"
@@ -47,32 +47,33 @@
 	/// Used for GAGS-ified hypos.
 	var/gags_bodystate = "hypo2_normal"
 
-/obj/item/hypospray/mkii/piercing
-	name = "hypospray mk.II combat"
-	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
-	icon_state = "piercinghypo2"
-	desc = "The combat variant of DeForest Mk. II hypospray, able to pierce through thick armor and quickly inject the chemicals."
-	inject_wait = COMBAT_WAIT_INJECT
-	spray_wait = COMBAT_WAIT_SPRAY
-	spray_self = COMBAT_SELF_SPRAY
-	inject_self = COMBAT_SELF_INJECT
-	penetrates = INJECT_CHECK_PENETRATE_THICK
-
-/obj/item/hypospray/mkii/piercing/atropine
-	start_vial = /obj/item/reagent_containers/cup/vial/small/atropine
-
 /obj/item/hypospray/mkii/deluxe
 	name = "hypospray mk.II deluxe"
 	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small, /obj/item/reagent_containers/cup/vial/large)
 	icon_state = "bighypo2"
 	gags_bodystate = "hypo2_deluxe"
-	desc = "The deluxe DeForest Mk. II hypospray, able to take both 100u and 50u vials."
+	desc = "The deluxe variant in the DeForest Hypospray Mk. II series, able to take both 100u and 50u vials."
 	small_only = FALSE
+
+/obj/item/hypospray/mkii/piercing
+	name = "hypospray mk.II advanced"
+	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
+	icon_state = "piercinghypo2"
+	gags_bodystate = "hypo2_piercing"
+	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor and quickly inject the chemicals."
+	inject_wait = DELUXE_WAIT_INJECT
+	spray_wait = DELUXE_WAIT_SPRAY
+	spray_self = DELUXE_SELF_INJECT
+	inject_self = DELUXE_SELF_SPRAY
+	penetrates = INJECT_CHECK_PENETRATE_THICK
+
+/obj/item/hypospray/mkii/piercing/atropine
+	start_vial = /obj/item/reagent_containers/cup/vial/small/atropine
 
 // Deluxe hypo upgrade Kit
 /obj/item/device/custom_kit/deluxe_hypo2
-	name = "DeForest Mk. II Hypospray Deluxe Bodykit"
-	desc = "Upgrades the DeForest Mk. II Hypospray to support larger vials."
+	name = "DeForest Hypospray Mk. II Deluxe Bodykit"
+	desc = "Upgrades the DeForest Hypospray Mk. II to support larger vials."
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
 	to_obj = /obj/item/hypospray/mkii/deluxe
@@ -88,10 +89,10 @@
 	return TRUE
 
 /obj/item/hypospray/mkii/deluxe/cmo
-	name = "CMO's deluxe hypospray mk.II"
+	name = "hypospray mk.II deluxe: CMO edition"
 	icon_state = "cmo2"
 	gags_bodystate = "hypo2_cmo"
-	desc = "The CMO's prized deluxe hypospray, able to take both 100u and 50u vials, acting faster and able to deliver more reagents per spray."
+	desc = "The CMO's prized Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, acting faster and able to deliver more reagents per spray."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	inject_wait = DELUXE_WAIT_INJECT
 	spray_wait = DELUXE_WAIT_SPRAY
@@ -100,10 +101,10 @@
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
 /obj/item/hypospray/mkii/deluxe/cmo/combat
-	name = "combat-grade hypospray mk.II"
+	name = "hypospray mk.II deluxe: combat edition"
 	icon_state = "combat2"
 	gags_bodystate = "hypo2_tactical"
-	desc = "A variant of the deluxe hypospray, able to take both 100u and 50u vials, with overcharged applicators and an armor-piercing tip."
+	desc = "A variant of the Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, with overcharged applicators and an armor-piercing tip."
 	// Made non-indestructible since this is typically an admin spawn.  still robust though!
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	inject_wait = COMBAT_WAIT_INJECT
@@ -325,17 +326,17 @@
 	. = ..()
 	. += span_notice("<b>Left-Click</b> on patients to inject, <b>Right-Click</b> to spray.")
 
-#undef HYPO_SPRAY
 #undef HYPO_INJECT
-#undef WAIT_SPRAY
+#undef HYPO_SPRAY
 #undef WAIT_INJECT
-#undef SELF_SPRAY
+#undef WAIT_SPRAY
 #undef SELF_INJECT
-#undef DELUXE_WAIT_SPRAY
+#undef SELF_SPRAY
 #undef DELUXE_WAIT_INJECT
-#undef DELUXE_SELF_SPRAY
+#undef DELUXE_WAIT_SPRAY
 #undef DELUXE_SELF_INJECT
-#undef COMBAT_WAIT_SPRAY
+#undef DELUXE_SELF_SPRAY
 #undef COMBAT_WAIT_INJECT
-#undef COMBAT_SELF_SPRAY
+#undef COMBAT_WAIT_SPRAY
 #undef COMBAT_SELF_INJECT
+#undef COMBAT_SELF_SPRAY
