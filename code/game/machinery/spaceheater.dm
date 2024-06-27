@@ -20,11 +20,7 @@
 	//We don't use area power, we always use the cell
 	use_power = NO_POWER_USE
 	///The cell we spawn with
-<<<<<<< HEAD
-	var/obj/item/stock_parts/cell/cell = /obj/item/stock_parts/cell
-=======
 	var/obj/item/stock_parts/power_store/cell = /obj/item/stock_parts/power_store/cell/high
->>>>>>> 9995a0dde73 (Space Heaters no longer deplete their starting cell instantly, and scale appropriately (#84360))
 	///Is the machine on?
 	var/on = FALSE
 	///What is the mode we are in now?
