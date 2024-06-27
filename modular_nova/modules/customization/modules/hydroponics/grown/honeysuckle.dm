@@ -13,7 +13,7 @@
 	growing_icon = 'modular_nova/master_files/icons/obj/hydroponics/growing.dmi'
 	icon_grow = "honeysuckle-grow"
 	icon_dead = "honeysuckle-dead"
-	genes = list(/datum/plant_gene/trait/preserved)
+	genes = list(/datum/plant_gene/trait/preserved, /datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/honey = 0.2, /datum/reagent/consumable/nutriment = 0.05)
 
 /obj/item/food/grown/honeysuckle
