@@ -5,8 +5,8 @@
 	desc = "A long, dual-edged utility knife that serves a dual-function as tool and as weapon. \
 	Historically forged from raw iron, they are often improvised in the frontier by stealing the \
 	spikes out of industrial rail lines."
-	icon =''
-	icon_state = ""
+	icon ='modular_np_lethal/ninja_stuff/icons/weapons.dmi'
+	icon_state = "kunai"
 	bayonet = FALSE
 
 
@@ -39,12 +39,12 @@
 	of a killing tool, and subsequently brutally forced into compliance with reality by way of countless passionate \
 	hours by the artisans of material sciences, by computer assisted design and modeling, and by a shared passion in \
 	anime."
-	icon = ''
-	icon_state = ""
+	icon ='modular_np_lethal/ninja_stuff/icons/weapons.dmi'
+	icon_state = "fuuma_shuriken"
 	inhand_icon_state = ""
 	worn_icon_state = ""
-	lefthand_file = ''
-	righthand_file = ''
+	lefthand_file = 'modular_np_lethal/ninja_stuff/icons/weapons.dmi'
+	righthand_file = 'modular_np_lethal/ninja_stuff/icons/weapons.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	sharpness = SHARP_EDGED
 	force = 15
@@ -53,21 +53,30 @@
 	block_chance = 40
 	throw_range = 6
 	throw_speed = 2
-	hitsound = ''
-	AddComponent(/datum/component/boomerang, boomerang_throw_range = throw_range + 4, thrower_easy_catch_enabled = TRUE, \
-	examine_message = span_green("They spent a lot of time figuring out how to make this come back to you."))
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	pickup_sound = 'sound/items/unsheath.ogg'
+	drop_sound = 'sound/items/sheath.ogg'
+	block_sound = 'sound/weapons/block_blade.ogg'
+
+/obj/item/fuuma_shuriken/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/boomerang, throw_range+2, TRUE)
 
 //ninjato but cyberpunk
 /obj/item/polymer_tachi
 	name = "polymer tachi"
 	desc = "A 50cm blade made of laminated layers of polymer, carbon, and oriented glass strands. The result \
 	is a strong, weatherproof weapon that maintains a sharp edge, though it requires specialist tools to hone."
-	icon = ''
-	icon_state = ""
-	inhand_icon_state = ""
-	worn_icon_state = ""
-	lefthand_file = ''
-	righthand_file = ''
+	icon = 'modular_np_lethal/ninja_stuff/icons/weapons.dmi'
+	//icon_state = "poly_tachi"
+	//inhand_icon_state = ""
+	//worn_icon_state = ""
+	//lefthand_file = ''
+	//righthand_file = ''
+	greyscale_config = /datum/greyscale_config/poly_tachi
+	greyscale_config_worn = /datum/greyscale_config/poly_tachi_worn
+	greyscale_colors = "#666633#333300"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	force = 30
 	throwforce = 20
 	block_chance = 10
@@ -83,6 +92,8 @@
 	sharpness = SHARP_EDGED
 	max_integrity = 400
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+
+
 
 //misc
 /obj/item/storage/belt/kunai_bandolier
