@@ -6,7 +6,7 @@
 	medical_record_text = "Patient's processors are unusually uninsulated."
 	value = -8
 	mob_trait = TRAIT_SYSTEM_SHOCK
-	icon = FA_ICON_BED
+	icon = FA_ICON_PLUG_CIRCLE_XMARK
 	quirk_flags = QUIRK_HUMAN_ONLY
 
 /datum/quirk/system_shock/add(client/client_source)
