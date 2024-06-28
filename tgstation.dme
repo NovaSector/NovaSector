@@ -8297,6 +8297,7 @@
 #include "modular_nova\modules\synths\code\surgery\robot_brain_surgery.dm"
 #include "modular_nova\modules\synths\code\surgery\robot_chassis_restoration.dm"
 #include "modular_nova\modules\synths\code\surgery\robot_healing.dm"
+#include "modular_nova\modules\system_shock\code\system_shock_quirk.dm"
 #include "modular_nova\modules\tableflip\code\flipped_table.dm"
 #include "modular_nova\modules\tagline\code\world.dm"
 #include "modular_nova\modules\tarkon\code\clothing\head.dm"
