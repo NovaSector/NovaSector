@@ -72,7 +72,7 @@
 
 // Deluxe hypo upgrade Kit
 /obj/item/device/custom_kit/deluxe_hypo2
-	name = "DeForest Hypospray Mk. II Deluxe Bodykit"
+	name = "\improper DeForest Hypospray Mk. II Deluxe Bodykit"
 	desc = "Upgrades the DeForest Hypospray Mk. II to support larger vials."
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
