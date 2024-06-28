@@ -1229,3 +1229,37 @@
       instead it gives a discount
 
       /:cl'
+2024-06-27:
+  FlufflesTheDog:
+  - bugfix: round-start drone dispensers are stocked again
+  - bugfix: hypovial quickswitching works
+  Vekter:
+  - balance: The Event Horizon Anti-Existential Beam Rifle now requires Unregulated
+      Bluespace Research to be constructed.
+2024-06-28:
+  Melbert:
+  - sound: Glug-glug sound when dragging a leaking gas tank
+  - bugfix: Fixed cyborg omnitools being unusable on some things
+  - bugfix: Fix timestop being 1 tile too small again, and fixes a lot of other field
+      effects from being 1-small as well
+  - bugfix: Lizards and Moths don't deathgasp twice when they die
+  Melberte:
+  - rscadd: Cool Sword Cursor Maintenance App
+  NovaBot13:
+  - balance: Mediborg surgical omnitool upgrade makes the health analyzer advanced
+  - bugfix: Retracted pens can be put into PDAs
+  - bugfix: Protolathes/Circuit Imprinters/Techfabs with better parts should now print
+      items faster again.
+  - rscadd: Crystallizer boards added to Delta and Tram HFR rooms
+  - qol: 'polypore mycelium no longer contains sugar, preventing it from instantly
+      creating fringe weaver beverage when ground up. qol: sugar may be acquired from
+      grinding fireblossoms instead of polypore mycelium.'
+  - bugfix: MODsuit pathfinder module works. Again.
+  - code_imp: AI pathfinding should produce slightly better paths.
+  - bugfix: Headprotector modules and constructor modules work properly once more.
+  - bugfix: Fixed hunger affecting your speed in nograv
+  - rscadd: There is a chance that Spess Knife will be in a mail for engi and clowns
+  - rscdel: Removed tank dispenser UI to use left/right clicks instead
+  - bugfix: actions buttons can be dragged anywhere again
+  - refactor: firebots are now basic bots
+  - bugfix: infiltrator modsuit sprite is not misaligned anymore
