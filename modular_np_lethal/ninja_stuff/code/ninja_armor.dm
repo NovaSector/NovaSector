@@ -119,11 +119,24 @@
 	desc = "As innumerable countercultural groups before them, members of the Tsukomogami often hustle or outright \
 	steal luxury designer clothing. People who think too much would tell you about subversion and detournement, but \
 	most of the actual wearers would just tell you that it's important to look good. Don't get caught wearing fakes."
-	icon = ''
-	icon_state = ""
-	worn_icon = ''
+	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
+	icon_state = "designer_activewear"
+	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
 	worn_icon_digi = ''
-	worn_icon_state = ""
+	worn_icon_state = "wrap_tunic"
+	has_sensor = SENSOR_COORDS
+	random_sensor = FALSE
+
+/obj/item/clothing/under/genin_uniform/femme
+	name = "designer wrap tunic"
+	desc = "As innumerable countercultural groups before them, members of the Tsukomogami often hustle or outright \
+	steal luxury designer clothing. People who think too much would tell you about subversion and detournement, but \
+	most of the actual wearers would just tell you that it's important to look good. Don't get caught wearing fakes."
+	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
+	icon_state = "wrap_tunic"
+	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
+	worn_icon_digi = ''
+	worn_icon_state = "wrap_tunic"
 	has_sensor = SENSOR_COORDS
 	random_sensor = FALSE
 

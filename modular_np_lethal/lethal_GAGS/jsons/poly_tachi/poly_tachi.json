@@ -8,9 +8,21 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "poly_tachi_handle",
+			"icon_state": "poly_tachi_spine",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "poly_tachi_handle",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "poly_tachi_inlay",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
 		}
 	]
 }

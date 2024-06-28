@@ -2,15 +2,27 @@
 	"poly_tachi": [
 		{
 			"type": "icon_state",
-			"icon_state": "poly_tachi_blade",
+			"icon_state": "poly_tachi_blade_worn",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "poly_tachi_handle",
+			"icon_state": "poly_tachi_spine_worn",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "poly_tachi_handle_worn",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "poly_tachi_inlay_worn",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
 		}
 	]
 }
