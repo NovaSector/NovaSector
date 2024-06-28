@@ -89,7 +89,7 @@
 	return TRUE
 
 /obj/item/hypospray/mkii/deluxe/cmo
-	name = "hypospray mk.II deluxe: CMO edition"
+	name = "hypospray Mk.II deluxe: CMO edition"
 	icon_state = "cmo2"
 	gags_bodystate = "hypo2_cmo"
 	desc = "The CMO's prized Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, acting faster and able to deliver more reagents per spray."
