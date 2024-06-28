@@ -102,7 +102,7 @@
 
 	var/needs_nova_update = savefile_needs_update_nova(save_data)
 	if(needs_nova_update >= 0)
-		update_character_nova(needs_nova_update, save_data) // needs_update == savefile_version if we need an update (positive integer)
+		update_character_nova(needs_nova_update, save_data) // needs_nova_update == savefile_version if we need an update (positive integer)
 
 
 /// Brings a savefile up to date with modular preferences. Called if savefile_needs_update_nova() returned a value higher than 0
