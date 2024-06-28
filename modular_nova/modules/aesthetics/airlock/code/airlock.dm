@@ -391,7 +391,6 @@
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/tram/tram_overlays.dmi'
 	doorOpen = 'sound/machines/tramopen.ogg'
 	doorClose = 'sound/machines/tramclose.ogg'
-	has_environment_lights = FALSE
 
 //ASSEMBLYS
 /obj/structure/door_assembly/door_assembly_public
