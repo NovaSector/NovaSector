@@ -15,7 +15,7 @@
 	/// Number of concurrent batteries that can be charged
 	var/max_batteries = 4
 	/// The base charge rate when spawned
-	var/charge_rate = STANDARD_CELL_RATE * 0.375
+	var/charge_rate = STANDARD_CELL_RATE
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
