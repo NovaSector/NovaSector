@@ -56,7 +56,7 @@
 	small_only = FALSE
 
 /obj/item/hypospray/mkii/piercing
-	name = "hypospray mk.II advanced"
+	name = "hypospray Mk.II advanced"
 	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
 	icon_state = "piercinghypo2"
 	gags_bodystate = "hypo2_piercing"
