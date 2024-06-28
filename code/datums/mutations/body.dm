@@ -208,8 +208,8 @@
 	// NOVA EDIT ADDITION BEGIN
 	if(owner.dna.features["body_size"] > 1)
 		to_chat(owner, "You feel relief as your bones cease their growth spurt.")
-		if(!HAS_TRAIT_FROM(owner, TRAIT_GIANT, GENETIC_MUTATION)) // Don't shrink if we didn't grow in the first place.
-			return
+	if(!HAS_TRAIT_FROM(owner, TRAIT_GIANT, GENETIC_MUTATION)) // Don't shrink if we didn't grow in the first place.
+		return
 	// NOVA EDIT ADDITION END
 	REMOVE_TRAIT(owner, TRAIT_GIANT, GENETIC_MUTATION)
 	owner.update_transform(0.8)
