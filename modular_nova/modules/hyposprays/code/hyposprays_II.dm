@@ -101,7 +101,7 @@
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
 /obj/item/hypospray/mkii/deluxe/cmo/combat
-	name = "hypospray mk.II deluxe: combat edition"
+	name = "hypospray Mk.II deluxe: combat edition"
 	icon_state = "combat2"
 	gags_bodystate = "hypo2_tactical"
 	desc = "A variant of the Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, with overcharged applicators and an armor-piercing tip."
