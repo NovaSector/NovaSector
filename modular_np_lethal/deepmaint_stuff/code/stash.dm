@@ -31,6 +31,8 @@ GLOBAL_LIST_EMPTY(ckey_to_storage_box)
 
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/secure_container/Initialize(mapload, storage_linked_ckey)
 	. = ..()
+	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY * 6
+	atom_storage.max_slots = 6
 	if(!storage_linked_ckey)
 		message_admins("[src] tried to spawn without a linked ckey, don't do that")
 		return INITIALIZE_HINT_QDEL

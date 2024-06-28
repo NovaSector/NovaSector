@@ -136,6 +136,18 @@
 	/// Type of mob light emitter we use when on fire
 	var/moblight_type = /obj/effect/dummy/lighting_obj/moblight/fire
 
+/datum/status_effect/fire_handler/fire_stacks/proc/owner_touched_sparks()
+	SIGNAL_HANDLER
+
+	ignite()
+
+/datum/status_effect/fire_handler/fire_stacks/on_creation(mob/living/new_owner, new_stacks, forced = FALSE)
+	. = ..()
+	RegisterSignal(owner, COMSIG_ATOM_TOUCHED_SPARKS, PROC_REF(owner_touched_sparks))
+
+/datum/status_effect/fire_handler/fire_stacks/on_remove()
+	UnregisterSignal(owner, COMSIG_ATOM_TOUCHED_SPARKS)
+
 /datum/status_effect/fire_handler/fire_stacks/tick(seconds_between_ticks)
 	if(stacks <= 0)
 		qdel(src)
@@ -144,8 +156,11 @@
 	if(!on_fire)
 		return TRUE
 
-	var/decay_multiplier = HAS_TRAIT(owner, TRAIT_HUSK) ? 2 : 1 // husks decay twice as fast
-	adjust_stacks(owner.fire_stack_decay_rate * decay_multiplier * seconds_between_ticks)
+	var/decay_multiplier = HAS_TRAIT(owner, TRAIT_HUSK) ? 4 : 1 // LETHAL EDIT: husks burn out four times as fast
+	// LETHAL EDIT START: fire stacks no longer decay above 10 if you're alive and not a husk
+	if (stacks < 10 || HAS_TRAIT(owner, TRAIT_HUSK))
+		adjust_stacks(owner.fire_stack_decay_rate * decay_multiplier * seconds_between_ticks)
+	// LETHAL EDIT END
 
 	if(stacks <= 0)
 		qdel(src)
@@ -247,7 +262,7 @@
 	owner.clear_mood_event("on_fire")
 	SEND_SIGNAL(owner, COMSIG_LIVING_EXTINGUISHED, owner)
 	cache_stacks()
-	for(var/obj/item/equipped in owner.get_equipped_items())
+	for(var/obj/item/equipped in (owner.get_equipped_items(INCLUDE_HELD)))
 		equipped.extinguish()
 
 /datum/status_effect/fire_handler/fire_stacks/on_remove()

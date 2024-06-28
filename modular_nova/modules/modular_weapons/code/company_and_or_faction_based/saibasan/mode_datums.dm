@@ -16,6 +16,7 @@
 	var/json_speech_string = "kill"
 	/// What do we change the gun's runetext color to when applied
 	var/gun_runetext_color = "#cd4456"
+	var/gun_muzzleflash_iconstate = "muzzle_flash_laser"
 
 /// Applies some of the universal stats from the variables above
 /datum/laser_weapon_mode/proc/apply_stats(obj/item/gun/energy/applied_gun)
@@ -34,6 +35,8 @@
 	applied_gun.update_appearance()
 	applied_gun.chat_color = gun_runetext_color
 	applied_gun.chat_color_darkened = process_chat_color(gun_runetext_color, sat_shift = 0.85, lum_shift = 0.85)
+	applied_gun.muzzle_flash = new(src, gun_muzzleflash_iconstate)
+	applied_gun.muzzle_flash_color = gun_runetext_color
 
 /// Stuff applied to the passed gun when the weapon mode is given to the gun
 /datum/laser_weapon_mode/proc/apply_to_weapon(obj/item/gun/energy/applied_gun)
@@ -51,6 +54,7 @@
 	shot_delay = 2 SECONDS
 	json_speech_string = "sniper"
 	gun_runetext_color = "#f8d860"
+	gun_muzzleflash_iconstate = "muzzle_flash_light"
 	/// Keeps track of the scope component for deleting later
 	var/datum/component/scope/scope_component
 
@@ -71,6 +75,7 @@
 	gun_runetext_color = "#47a1b3"
 	/// Keeps track of the autofire component for deleting later
 	var/datum/component/automatic_fire/autofire_component
+	gun_muzzleflash_iconstate = "muzzle_flash_pulse"
 
 /datum/laser_weapon_mode/disabler_machinegun/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	autofire_component = applied_gun.AddComponent(/datum/component/automatic_fire, shot_delay)
@@ -87,6 +92,7 @@
 	shot_delay = 2 SECONDS
 	json_speech_string = "launcher"
 	gun_runetext_color = "#77bd5d"
+	gun_muzzleflash_iconstate = "muzzle_flash_green"
 
 /datum/laser_weapon_mode/launcher/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 2
@@ -103,6 +109,7 @@
 	shot_delay = 0.75 SECONDS
 	json_speech_string = "shotgun"
 	gun_runetext_color = "#7a0bb7"
+	gun_muzzleflash_iconstate = "muzzle_flash_purple"
 
 /datum/laser_weapon_mode/shotgun/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 1
@@ -166,6 +173,7 @@
 	shot_delay = 2 SECONDS
 	json_speech_string = "flare"
 	gun_runetext_color = "#77bd5d"
+	gun_muzzleflash_iconstate = "muzzle_flash_green"
 
 /datum/laser_weapon_mode/flare/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 2
@@ -182,6 +190,7 @@
 	shot_delay = 0.6 SECONDS
 	json_speech_string = "shotgun"
 	gun_runetext_color = "#7a0bb7"
+	gun_muzzleflash_iconstate = "muzzle_flash_purple"
 
 /datum/laser_weapon_mode/shotgun_small/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	applied_gun.recoil = 1
@@ -198,6 +207,7 @@
 	shot_delay = 0.4 SECONDS
 	json_speech_string = "disable"
 	gun_runetext_color = "#47a1b3"
+	gun_muzzleflash_iconstate = "muzzle_flash_pulse"
 
 /datum/laser_weapon_mode/trickshot_disabler/apply_to_weapon(obj/item/gun/energy/applied_gun)
 	return

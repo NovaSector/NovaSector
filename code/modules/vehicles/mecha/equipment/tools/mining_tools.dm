@@ -185,7 +185,7 @@
 		target.apply_damage(10, BRUTE, BODY_ZONE_CHEST, target.run_armor_check(target_part, MELEE))
 
 		//blood splatters
-		var/splatter_dir = get_dir(chassis, target)
+		var/splatter_dir = get_angle_raw(chassis, target)
 		if(isalien(target))
 			new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target.drop_location(), splatter_dir)
 		else

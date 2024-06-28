@@ -9,7 +9,7 @@
 	icon_state = "impact_offense"
 	ex_dev = 0
 	ex_heavy = 0
-	ex_light = 2
+	ex_light = 4
 	ex_flame = 0
 	/// Can this grenade explode on impact yet?
 	var/impact_explosion_ready = FALSE
@@ -39,7 +39,7 @@
 	icon_state = "impact_defense"
 	shrapnel_type = /obj/projectile/bullet/shrapnel
 	shrapnel_radius = 3
-	ex_dev = 0
+	ex_dev = 1
 	ex_heavy = 0
 	ex_light = 3
 	ex_flame = 0

@@ -134,4 +134,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/vending/wallmed/epic_loot/evil/inborn
 				/obj/item/organ/internal/cyberimp/arm/armblade = INFINITY,
 			),
 		),
+		list(
+			"name" = "Limb Replacement",
+			"icon" = "hand",
+			"products" = list(
+				/obj/item/bodypart/leg/left/robot/advanced = INFINITY,
+				/obj/item/bodypart/leg/right/robot/advanced = INFINITY,
+				/obj/item/bodypart/arm/left/robot/advanced = INFINITY,
+				/obj/item/bodypart/arm/right/robot/advanced = INFINITY,
+				/obj/item/shears  = INFINITY,
+			),
+		),
+
 	)

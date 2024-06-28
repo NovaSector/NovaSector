@@ -13,6 +13,7 @@
 		/datum/crafting_bench_recipe_real/breaching_weapons_drop_pod,
 		/datum/crafting_bench_recipe_real/explosives_drop_pod,
 		/datum/crafting_bench_recipe_real/turret_drop_pod,
+		/datum/crafting_bench_recipe_real/filtre_exosuit
 	)
 
 /obj/structure/epic_loot_crafting_bench/gear_filtre/examine_more(mob/user)
@@ -23,6 +24,7 @@
 	. += span_notice("<b>2</b> ID cards = <b>1</b> breaching weapon beacon")
 	. += span_notice("<b>3</b> ID cards = <b>1</b> point defense weapon beacon")
 	. += span_notice("<b>4</b> ID cards = <b>1</b> explosive support weapon beacon")
+	. += span_notice("<b>8</b> ID cards = <b>1</b> exosuit support beacon")
 	return .
 
 /// Drop pod callers
@@ -61,3 +63,12 @@
 		/obj/item/card/id/advanced = 4,
 	)
 	resulting_item = /obj/item/choice_beacon/filtre/rocket
+
+//evil dente addition of the filtre mech
+
+/datum/crafting_bench_recipe_real/filtre_exosuit
+	recipe_name = "exosuit support beacon"
+	recipe_requirements = list(
+		/obj/item/card/id/advanced = 8,
+	)
+	resulting_item = /obj/item/choice_beacon/mecha/filtre

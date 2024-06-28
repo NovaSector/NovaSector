@@ -71,3 +71,14 @@
 		enough to make up for the fact that the headset is too bulky to wear alongside a regular helmet."
 
 	return .
+
+// CUSTOM LOADOUT PINATA ARMORS
+
+/obj/item/clothing/head/helmet/lethal_pinata_helmet/candle
+	name = "'Yamakari-Lain' wetware interface"
+	desc = "A high-tech neural interface that is implanted directly to the user's head. \
+		Once implanted, it cannot be taken off. Provides a full suite of sensing and HUD elements."
+	icon = 'modular_np_lethal/armor_but_cool/icons/armor.dmi'
+	icon_state = "pinata_candle"
+	worn_icon = 'modular_np_lethal/armor_but_cool/icons/armor_worn.dmi'
+	inhand_icon_state = "helmet"

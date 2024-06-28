@@ -116,3 +116,53 @@
 	capacitor = new /obj/item/stock_parts/capacitor/adv(src)
 	servo = new /obj/item/stock_parts/servo/nano(src)
 	update_part_values()
+
+// evil filtre mech beacon
+
+/obj/item/choice_beacon/mecha/filtre
+	name = "Filtre Exosuit Deployment Beacon"
+	icon = 'icons/obj/antags/gang/cell_phone.dmi'
+	icon_state = "phone_off"
+	desc = "Owing to the expense of deploying exosuit fleets it has become common practice to field pilots ahead of their vehicles. \
+	Long range communication and beacon devices are used to coordinate the timely delivery of their mechs."
+	company_source = "Ahkter Frontier Corps Exosuit Support Team"
+	company_message = span_bold("Pilot coordinates received. War Machine inbound.")
+
+/obj/item/choice_beacon/mecha/filtre/can_use_beacon(mob/living/user)
+	var/area/our_area = get_area(src)
+	if((istype(our_area, /area/gakster_location/hideout_real)) || (istype(our_area, /area/gakster_location/filtre_spawn)))
+		balloon_alert(user, "cannot deploy in hideout")
+		return FALSE
+	return ..()
+
+/obj/item/choice_beacon/mecha/filtre/generate_display_names()
+	var/static/list/exosuit_packs
+	if(!exosuit_packs)
+		exosuit_packs = list()
+		var/list/possible_exosuit_packs = list(
+			/obj/vehicle/sealed/mecha/marauder/seraph/firewall
+
+		)
+		for(var/obj/vehicle/sealed/mecha/exosuit_pack as anything in possible_exosuit_packs)
+			exosuit_packs[initial(exosuit_pack.name)] = exosuit_pack
+	return exosuit_packs
+
+
+/obj/vehicle/sealed/mecha/marauder/seraph/firewall
+	name = "\improper Seraph 'Firewall'"
+	desc = "A top of the line, high firepower mech built for all ranges, comes pre-eqiupped with an AC20 for harder targets and a fast firing laser for smaller ones."
+	equip_by_category = list(
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg/ac20,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser,
+		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank/full),
+		MECHA_POWER = list(),
+		MECHA_ARMOR = list(),)
+
+
+
+/obj/vehicle/sealed/mecha/marauder/seraph/firewall/populate_parts()
+	cell = new /obj/item/stock_parts/cell/hyper(src)
+	scanmod = new /obj/item/stock_parts/scanning_module/adv(src)
+	capacitor = new /obj/item/stock_parts/capacitor/adv(src)
+	servo = new /obj/item/stock_parts/servo/nano(src)
+	update_part_values()

@@ -9,6 +9,7 @@
 		"Operator",
 		"Safariman",
 		"Dealer",
+		"Allstar",
 	)
 	blackbox_key = null
 	express_cost_multiplier = 1
@@ -62,6 +63,7 @@
 		/obj/item/epic_loot/corpo_folder = PAYCHECK_COMMAND * 2,
 		/obj/item/epic_loot/intel_folder = PAYCHECK_COMMAND * 2,
 		/obj/item/epic_loot/gold_chainlet = PAYCHECK_COMMAND * 2,
+		/obj/item/gun = PAYCHECK_COMMAND
 	)
 
 /obj/machinery/computer/order_console/gakster/examine(mob/user)

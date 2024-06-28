@@ -26,6 +26,9 @@
 	///The mobile ship we are connected to.
 	var/datum/weakref/connected_ship_ref
 
+/obj/machinery/power/shuttle_engine/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
+
 /datum/armor/power_shuttle_engine
 	melee = 100
 	bullet = 10

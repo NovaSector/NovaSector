@@ -74,6 +74,8 @@
 	. = ..()
 
 	. += span_engradio("You can <b>examine closer</b> to get a list of <b>everything</b> this station trades for.")
+	. += span_engradio("To use the trade station, select a trade and gather the requirements <b>near</b> the station \
+		on the ground. Once the requirements are nearby, <b>control-click</b> to finish the trade.")
 
 	if(!selected_recipe)
 		return

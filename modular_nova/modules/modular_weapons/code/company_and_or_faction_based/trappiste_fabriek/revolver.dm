@@ -38,7 +38,7 @@
 /obj/item/ammo_box/magazine/internal/cylinder/c35sol
 	ammo_type = /obj/item/ammo_casing/c35sol
 	caliber = CALIBER_SOL35SHORT
-	max_ammo = 8
+	max_ammo = 9
 
 // .585 super revolver
 
@@ -59,7 +59,7 @@
 	can_suppress = TRUE
 
 	fire_delay = 1 SECONDS
-	recoil = 3
+	recoil = 2
 
 /obj/item/gun/ballistic/revolver/takbok/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)

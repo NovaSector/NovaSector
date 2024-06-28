@@ -486,7 +486,8 @@
 	. = ..()
 	if(has_gravity())
 		for(var/mob/living/carbon/human/future_pancake in loc)
-			run_over(future_pancake)
+			if(future_pancake.body_position == LYING_DOWN)
+				run_over(future_pancake)
 
 	diag_hud_set_mulebotcell()
 
@@ -637,7 +638,7 @@
 
 		if(load) // if loaded, unload at target
 			if(report_delivery)
-				speak("Destination <b>[destination]</b> reached. Unloading [load].",radio_channel)
+				speak("Destination [RUNECHAT_BOLD("[destination]")] reached. Unloading [load].",radio_channel)
 			unload(loaddir)
 		else
 			// not loaded
@@ -653,7 +654,7 @@
 				if(AM?.Adjacent(src))
 					load(AM)
 					if(report_delivery)
-						speak("Now loading [load] at <b>[get_area_name(src)]</b>.", radio_channel)
+						speak("Now loading [load] at [RUNECHAT_BOLD("[get_area_name(src)]")].", radio_channel)
 		// whatever happened, check to see if we return home
 
 		if(auto_return && home_destination && destination != home_destination)

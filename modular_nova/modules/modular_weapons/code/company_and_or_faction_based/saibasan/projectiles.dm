@@ -2,7 +2,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_kill
 	projectile_type = /obj/projectile/beam/cybersun_laser
-	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(40, STANDARD_CELL_CHARGE * 2)
 	select_name = "Kill"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/laser.ogg'
 
@@ -18,7 +18,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_sniper
 	projectile_type = /obj/projectile/beam/cybersun_laser/marksman
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE * 2)
 	select_name = "Marksman"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/vaporize.ogg'
 
@@ -35,7 +35,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_disabler
 	projectile_type = /obj/projectile/beam/cybersun_laser/disable
-	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(40, STANDARD_CELL_CHARGE * 2)
 	select_name = "Disable"
 	harmful = FALSE
 
@@ -51,7 +51,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_launcher
 	projectile_type = /obj/projectile/beam/cybersun_laser/granata
-	e_cost = LASER_SHOTS(5, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE * 2)
 	select_name = "Launcher"
 
 /obj/projectile/beam/cybersun_laser/granata
@@ -104,7 +104,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_shotgun
 	projectile_type = /obj/projectile/beam/cybersun_laser/granata_shrapnel/shotgun_pellet
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE * 2)
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE * 2)
 	pellets = 5
 	variance = 30
 	select_name = "Shotgun"
@@ -112,7 +112,7 @@
 
 /obj/projectile/beam/cybersun_laser/granata_shrapnel/shotgun_pellet
 	icon_state = "because_it_doesnt_miss"
-	damage = 10
+	damage = 15
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
 	speed = 0.8
 	light_color = COLOR_SCIENCE_PINK
@@ -123,7 +123,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_small_hellfire
 	projectile_type = /obj/projectile/beam/cybersun_laser/hellfire
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
 	select_name = "Incinerate"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/incinerate.ogg'
 
@@ -139,7 +139,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_small_disabler
 	projectile_type = /obj/projectile/beam/cybersun_laser/disable_bounce
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
 	select_name = "Disable"
 	harmful = FALSE
 
@@ -219,7 +219,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_small_shotgun
 	projectile_type = /obj/projectile/beam/cybersun_laser/granata_shrapnel/shotgun_pellet
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE)
+	e_cost = LASER_SHOTS(20, STANDARD_CELL_CHARGE)
 	pellets = 3
 	variance = 15
 	select_name = "Shotgun"

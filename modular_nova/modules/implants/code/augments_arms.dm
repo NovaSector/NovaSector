@@ -33,7 +33,7 @@
 	name = "energy arm blade"
 	desc = "A long mantis-like blade made entirely of blazing-hot energy. Stylish and EXTRA deadly!"
 	icon_state = "energy_mantis_blade"
-	force = 30
+	force = 40
 	armour_penetration = 10 //Energy isn't as good at going through armor as it is through flesh alone.
 	hitsound = 'sound/weapons/blade1.ogg'
 

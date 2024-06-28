@@ -101,14 +101,14 @@
 	fire_sound = 'modular_nova/modules/novaya_ert/sound/amr_fire.ogg'
 	fire_sound_volume = 100 // BOOM BABY
 
-	recoil = 4
+	recoil = 69 //im going to break your fucking client
 
 	weapon_weight = WEAPON_HEAVY
 	burst_size = 1
-	fire_delay = 2 SECONDS
+	fire_delay = 5 SECONDS
 	actions_types = list()
 
-	force = 15 // I mean if you're gonna beat someone with the thing you might as well get damage appropriate for how big the fukken thing is
+	force = 20 // I mean if you're gonna beat someone with the thing you might as well get damage appropriate for how big the fukken thing is
 
 /obj/item/gun/ballistic/automatic/wylom/Initialize(mapload)
 	. = ..()

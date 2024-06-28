@@ -22,6 +22,7 @@
 	suppressor_y_offset = 0
 
 	fire_delay = 0.25 SECONDS
+	muzzleflash_iconstate = "muzzle_flash_light"
 
 /obj/item/gun/ballistic/automatic/pistol/weevil/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
@@ -82,6 +83,8 @@
 	fire_delay = 0.18 SECONDS
 
 	spread = 7.5
+
+	muzzleflash_iconstate = "muzzle_flash_light"
 
 /obj/item/gun/ballistic/automatic/seiba_smg/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)

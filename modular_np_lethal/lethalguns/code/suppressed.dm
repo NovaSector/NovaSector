@@ -98,9 +98,12 @@
 	QDEL_NULL(underbarrel)
 	return ..()
 
-/obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher/afterattack_secondary(atom/target, mob/living/user, proximity_flag, click_parameters)
-	underbarrel.afterattack(target, user, proximity_flag, click_parameters)
-	return SECONDARY_ATTACK_CONTINUE_CHAIN
+/obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(isammocasing(tool))
+		if(istype(tool, underbarrel.magazine.ammo_type))
+			underbarrel.attackby(tool, user, list2params(modifiers))
+		return ITEM_INTERACT_BLOCKING
+	return ..()
 
 /obj/item/gun/ballistic/automatic/suppressed_rifle/grenade_launcher/attackby(obj/item/attacking, mob/user, params)
 	if(isammocasing(attacking))
@@ -143,7 +146,7 @@
 	name = "\improper Ransu suppressed marksman rifle"
 	desc = "A special rifle firing 12mm Chinmoku out of an integrally suppressed barrel. Uses Chinmoku magazines. \
 		This one is mounted with a scope and other furniture to support more long range action. Automatic fire \
-		capability was removed and instead replaced with an optional three-round burst mode."
+		capability was removed to increase the accuracy of the weapon."
 
 	icon_state = "ransu"
 

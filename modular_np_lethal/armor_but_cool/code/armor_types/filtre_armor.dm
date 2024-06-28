@@ -1,7 +1,7 @@
 /datum/armor/armor_lethal_filtre
 	melee = ARMOR_LEVEL_MID
 	bullet = BULLET_ARMOR_III
-	laser = ARMOR_LEVEL_MID
+	laser = ARMOR_LEVEL_WEAK
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
 	fire = ARMOR_LEVEL_MID + 25
@@ -9,9 +9,9 @@
 	wound = WOUND_ARMOR_HIGH
 
 /datum/armor/armor_lethal_filtre_super
-	melee = ARMOR_LEVEL_MID + 25
-	bullet = BULLET_ARMOR_IV
-	laser = ARMOR_LEVEL_MID + 25
+	melee = ARMOR_LEVEL_MID + 50
+	bullet = BULLET_ARMOR_IV + 50
+	laser = ARMOR_LEVEL_MID
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
 	fire = ARMOR_LEVEL_MID + 25
@@ -19,9 +19,9 @@
 	wound = WOUND_ARMOR_HIGH
 
 /datum/armor/armor_lethal_filtre_light
-	melee = ARMOR_LEVEL_MID + 25
+	melee = ARMOR_LEVEL_MID
 	bullet = BULLET_ARMOR_II
-	laser = ARMOR_LEVEL_MID
+	laser = ARMOR_LEVEL_WEAK
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
 	fire = ARMOR_LEVEL_MID + 25
@@ -41,8 +41,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = CHEST|GROIN|ARMS
-	max_integrity = 1000
-	limb_integrity = 800
+	max_integrity = 800
+	limb_integrity = 500
 	slowdown = 0.4
 	equip_delay_self = 10 SECONDS
 
@@ -82,9 +82,9 @@
 	icon_state = "filtre_heavy"
 	armor_type = /datum/armor/armor_lethal_filtre_super
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	slowdown = 1
-	max_integrity = 1000
-	limb_integrity = 700
+	slowdown = 2.2
+	max_integrity = 800
+	limb_integrity = 500
 
 /obj/item/clothing/suit/armor/lethal_filtre/super_light
 	name = "'Sukyana' type II extreme mobility armor kit"
@@ -95,8 +95,8 @@
 	armor_type = /datum/armor/armor_lethal_filtre_light
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	slowdown = 0.4
-	max_integrity = 1000
-	limb_integrity = 700
+	max_integrity = 800
+	limb_integrity = 500
 
 /obj/item/clothing/head/helmet/lethal_filtre_helmet
 	name = "'Firuta' type IV ballistic helmet"
@@ -109,7 +109,7 @@
 	worn_icon = 'modular_np_lethal/armor_but_cool/icons/armor_worn.dmi'
 	inhand_icon_state = "helmet"
 	armor_type = /datum/armor/armor_lethal_filtre_super
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	flags_cover = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF
 	max_integrity = 800
 	limb_integrity = 800
@@ -272,16 +272,31 @@
 		modern HUDs useful for all types of operations. This one has a fully-enclosed faceplate!"
 	icon_state = "filtre_helmet_scout"
 
-/obj/item/clothing/suit/armor/lethal_filtre/heavy/honorguard
+/obj/item/clothing/suit/armor/lethal_filtre/honorguard
 	name = "'Kharuul' type IV armor kit"
 	desc = "A heavy full kit of armor for protecting every part of your body but the head and legs with exceptional plating. \
 		The armor's excessive bulk, however, makes the kit slow to move in. A small price to pay for such superior protection. \
 		This model comes equipped with a specialized sensor suite and radio antenna. This ones designed to specifically fit some kind of reptillan, it's platings made for digi legs."
 	icon_state = "filtre_heavy_dente"
 
-/obj/item/clothing/head/helmet/lethal_filtre_helmet/honorguard
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light/honorguard
 	name = "'Kharuul' type IV ballistic helmet"
 	desc = "A high tech helmet with a complicated-looking sensors suite stuck to the front. \
 		While not as protective as other types of helmets, the sensors suite has a variety of \
 		modern HUDs useful for all types of operations. This one has a fully-enclosed faceplate!"
 	icon_state = "filtre_helmet_dente"
+
+/obj/item/clothing/suit/armor/lethal_filtre/super_light/runner
+	name = "Runner-Class type II armor kit"
+	desc = "A customized armor-coat combo. Features standard filtre armor plating. \
+	A small square, devoid of color, is embossed into the armorpeices' nape. Black Company. \
+	Aside from the backlit vambrace-computer, there's nothing special here."
+	icon_state = "filtre_light_runner"
+
+/obj/item/clothing/head/helmet/lethal_filtre_helmet/light/runner
+	name = "Runner-Class Awareness Suite"
+	desc = "A high tech head-mounted sensor. \
+		While not as protective as any type of helmet, the sensors suite has a variety of \
+		modern HUDs useful for all types of operations."
+	icon_state = "filtre_helmet_runner"
+	flags_inv = HIDEEARS

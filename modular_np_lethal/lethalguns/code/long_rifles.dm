@@ -44,6 +44,8 @@
 
 	pb_knockback = 2
 	recoil = 2
+	muzzle_flash_lum = 3
+	muzzleflash_iconstate = "muzzle_flash_medium"
 
 /obj/item/gun/ballistic/marsian_super_rifle/Initialize(mapload)
 	. = ..()
@@ -112,6 +114,9 @@
 	tac_reloads = TRUE
 	rack_delay = 1 SECONDS
 	suppressor_x_offset = 10
+
+	muzzle_flash_lum = 3
+	muzzleflash_iconstate = "muzzle_flash_medium"
 
 /obj/item/gun/ballistic/rifle/chokyu/Initialize(mapload)
 	. = ..()

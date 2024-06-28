@@ -356,6 +356,9 @@
 	/// Can we be upgraded?
 	var/can_upgrade = TRUE
 
+/obj/structure/barricade/metal/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
+
 /datum/armor/deployable_barricade_metal
 	bio = 100
 	fire = 80

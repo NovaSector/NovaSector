@@ -420,6 +420,7 @@
 		/obj/item/epic_loot/plasma_explosive = 2,
 		/obj/item/epic_loot/grenade_fuze = 3,
 		/obj/item/storage/epic_loot_grenade_case = 2,
+		/obj/item/grenade/spawnergrenade/manhacks = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_ammunition
@@ -559,6 +560,7 @@
 		/obj/item/gun/ballistic/automatic/miecz = 1,
 		/obj/item/gun/ballistic/automatic/seiba_smg = 2,
 		/obj/item/gun/ballistic/automatic/pistol/weevil = 2,
+		/obj/item/gun/energy/marksman_revolver = 1,
 	)
 
 /obj/effect/spawner/random/epic_loot/random_serious_arms

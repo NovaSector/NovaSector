@@ -341,7 +341,7 @@
 			if (living_target.blood_volume && (isnull(hit_bodypart) || hit_bodypart.can_bleed()))
 				var/splatter_dir = dir
 				if(starting)
-					splatter_dir = get_dir(starting, target_turf)
+					splatter_dir = round(get_angle_raw(starting, target_turf), 1)
 				if(isalien(living_target))
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_turf, splatter_dir)
 				else

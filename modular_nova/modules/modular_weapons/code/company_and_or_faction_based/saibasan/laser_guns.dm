@@ -39,6 +39,8 @@
 	fire_sound_volume = 50
 	recoil = 0.25 // This isn't enough to mean ANYTHING aside from it jolting your screen the tiniest amount
 	/// What datums of weapon modes can we use?
+	muzzleflash_iconstate = "muzzle_flash_laser"
+	muzzle_flash_color = "#cd4456"
 	var/list/weapon_mode_options = list(
 		/datum/laser_weapon_mode,
 		/datum/laser_weapon_mode/marksman,
@@ -284,6 +286,9 @@
 		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
 		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
 		from users in wiping the intelligence's memory before resale or transport."
+
+	muzzleflash_iconstate = "muzzle_flash_laser"
+	muzzle_flash_color = "#cd4456"
 
 /obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)
 	. = ..()

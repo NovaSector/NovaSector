@@ -74,7 +74,7 @@
 	fire_delay = 0.6 SECONDS
 	spread = 2.5
 
-	projectile_damage_multiplier = 3 // 30 damage a shot
+	projectile_damage_multiplier = 2 //30 damage a shot
 	projectile_wound_bonus = 10 // +55 of the base projectile, burn baby burn
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_marksman/give_manufacturer_examine()

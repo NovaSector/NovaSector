@@ -107,6 +107,23 @@
 	item_path = /obj/item/ammo_box/c310_cargo_box/piercing
 	cost_per_order = 100
 
+/datum/orderable_item/imperial/plasmathrower
+	name = "Słońce Plasma Projector"
+	item_path = /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
+	cost_per_order = 200
+
+/datum/orderable_item/imperial/wylom
+	name = "Wyłom Anti-Materiel Rifle"
+	desc = "A massive, outdated beast of an anti materiel rifle."
+	item_path = /obj/item/gun/ballistic/automatic/wylom
+	cost_per_order = 1200
+
+/datum/orderable_item/imperial/wylom_ammo
+	name = "Wyłom Anti-Materiel Rifle magazine"
+	desc = "Ammo for the Wyłom."
+	item_path = /obj/item/ammo_box/magazine/wylom
+	cost_per_order = 500
+
 // Some of the special larp ammo
 
 /datum/orderable_item/operator_larp
@@ -255,3 +272,30 @@
 	name = "calopine emergency stabilizant injector"
 	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/calopine
 	cost_per_order = 50
+
+// Lasers and such
+
+/datum/orderable_item/pewpew
+	category_index = "Allstar"
+
+/datum/orderable_item/pewpew/lasergun
+	name = "Allstar SC-1 laser carbine"
+	item_path = /obj/item/gun/energy/laser
+	cost_per_order = 200
+
+/datum/orderable_item/pewpew/lasergunauto
+	name = "Allstar SC-1 laser auto-carbine"
+	item_path = /obj/item/gun/energy/laser/carbine
+	cost_per_order = 200
+
+/datum/orderable_item/pewpew/lasergunduo
+	name = "Allstar SC-2 energy carbine"
+	item_path = /obj/item/gun/energy/e_gun
+	cost_per_order = 250
+
+/datum/orderable_item/pewpew/lasergunmini
+	name = "Holdout energy pistol"
+	item_path = /obj/item/gun/energy/e_gun/mini
+	cost_per_order = 150
+
+

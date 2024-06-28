@@ -19,6 +19,9 @@
 	// Stops people from "diving into" a crate you can't open normally
 	divable = FALSE
 
+/obj/structure/largecrate/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
+
 /obj/structure/closet/crate/large/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NO_MISSING_ITEM_ERROR, TRAIT_GENERIC)

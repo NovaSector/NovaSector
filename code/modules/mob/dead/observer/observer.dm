@@ -219,7 +219,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	if(ghost_accs == GHOST_ACCS_FULL && (icon_state in GLOB.ghost_forms_with_accessories_list)) //check if this form supports accessories and if the client wants to show them
 		if(facial_hairstyle)
-			var/datum/sprite_accessory/S = GLOB.facial_hairstyles_list[facial_hairstyle]
+			var/datum/sprite_accessory/S = SSaccessories.facial_hairstyles_list[facial_hairstyle]
 			if(S)
 				facial_hair_overlay = mutable_appearance(S.icon, "[S.icon_state]", -HAIR_LAYER)
 				if(facial_hair_color)
@@ -227,7 +227,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 				facial_hair_overlay.alpha = 200
 				add_overlay(facial_hair_overlay)
 		if(hairstyle)
-			var/datum/sprite_accessory/hair/S = GLOB.hairstyles_list[hairstyle]
+			var/datum/sprite_accessory/hair/S = SSaccessories.hairstyles_list[hairstyle]
 			if(S)
 				hair_overlay = mutable_appearance(S.icon, "[S.icon_state]", -HAIR_LAYER)
 				if(hair_color)
@@ -998,8 +998,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	game.ui_interact(usr)
 
 /mob/dead/observer/CtrlShiftClickOn(atom/target)
-	if(check_rights(R_SPAWN))
-		change_mob_type(/mob/living/carbon/human , null, null, TRUE) //always delmob, ghosts shouldn't be left lingering
+	if(isobserver(target) && check_rights(R_SPAWN))
+		var/mob/dead/observer/target_ghost = target
+
+		target_ghost.change_mob_type(/mob/living/carbon/human , null, null, TRUE) //always delmob, ghosts shouldn't be left lingering
 
 /mob/dead/observer/examine(mob/user)
 	. = ..()

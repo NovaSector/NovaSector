@@ -57,6 +57,8 @@ GLOBAL_LIST_EMPTY(objects_by_id_tag)
 	if (id_tag)
 		GLOB.objects_by_id_tag[id_tag] = src
 
+	add_debris_element()
+
 /obj/Destroy(force)
 	if(!ismachinery(src))
 		STOP_PROCESSING(SSobj, src) // TODO: Have a processing bitflag to reduce on unnecessary loops through the processing lists

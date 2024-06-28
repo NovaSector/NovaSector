@@ -10,6 +10,10 @@
 	max_integrity = 70
 	door_anim_time = 0 // no animation
 
+/obj/structure/closet/cabinet/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
+
+
 /obj/structure/closet/acloset
 	name = "strange closet"
 	desc = "It looks alien!"

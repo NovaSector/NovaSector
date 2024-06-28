@@ -73,11 +73,11 @@
 	if (!istype(targloc) || !istype(curloc) || !loaded_projectile)
 		return null
 
-	var/firing_dir
+	/*var/firing_dir
 	if(loaded_projectile.firer)
 		firing_dir = get_dir(fired_from, target)
 	if(!loaded_projectile.suppressed && firing_effect_type && !tk_firing(user, fired_from))
-		new firing_effect_type(get_turf(src), firing_dir)
+		new firing_effect_type(get_turf(src), firing_dir) */
 
 	var/direct_target
 	if(target && curloc.Adjacent(targloc, target=targloc, mover=src)) //if the target is right on our location or adjacent (including diagonally if reachable) we'll skip the travelling code in the proj's fire()

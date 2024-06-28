@@ -7,12 +7,27 @@
 /datum/outfit/gakstermob
 	name = "\improper Gakster Corpse"
 	uniform = /obj/item/clothing/under/frontier_colonist
-	suit = /obj/item/clothing/suit/frontier_colonist_flak
+	suit = /obj/item/clothing/suit/armor/sf_peacekeeper/debranded
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	gloves = /obj/item/clothing/gloves/frontier_colonist
-	mask = /obj/item/clothing/mask/gas/atmos/frontier_colonist
-	head = /obj/item/clothing/head/frontier_colonist_helmet
+	mask = /obj/item/clothing/mask/gas/sechailer/half_mask
+	head = /obj/item/clothing/head/helmet/sf_peacekeeper/debranded
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
+
+/obj/effect/mob_spawn/corpse/human/gakstersuicide
+	name = "\improper Suicide Gakster Corpse"
+	outfit = /datum/outfit/gakstersuicide
+	hairstyle = "Bald"
+	facial_hairstyle = "Shaved"
+
+/datum/outfit/gakstersuicide
+	name = "\improper Suicide Gakster Corpse"
+	uniform = /obj/item/clothing/under/frontier_colonist
+	suit = /obj/item/clothing/suit/hazardvest
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	belt = /obj/item/storage/belt/grenade
+	mask = /obj/item/clothing/mask/balaclava
+	head = /obj/item/clothing/head/utility/welding
 
 /obj/effect/mob_spawn/corpse/human/filtremob
 	name = "\improper Blue Company Filtre Corpse"

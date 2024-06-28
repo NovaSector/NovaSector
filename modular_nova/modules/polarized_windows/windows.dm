@@ -6,6 +6,9 @@
 	/// HAS NO EFFECT AFTER THE WINDOW HAS BEEN THROUGH `Initialize()`!!!
 	var/polarizer_id_on_spawn = ""
 
+/obj/structure/window/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_GLASS, -10, 5)
+
 /obj/structure/window/Initialize(mapload, direct)
 	. = ..()
 

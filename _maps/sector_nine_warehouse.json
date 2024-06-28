@@ -49,9 +49,17 @@
 			"No Parallax": true
 		},
 		{
+			"Up": true,
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/indestructible/plating",
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/openspace",
 			"No Parallax": true
 		}
 	]
