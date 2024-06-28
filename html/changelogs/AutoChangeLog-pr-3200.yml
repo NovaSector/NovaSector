@@ -1,0 +1,4 @@
+author: "00-Steven"
+delete-after: True
+changes:
+  - bugfix: "Fixed Death Degradation sending you into an endless stamcrit loop."

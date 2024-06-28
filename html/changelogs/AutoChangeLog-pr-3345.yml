@@ -1,4 +1,4 @@
 author: "NovaBot13"
 delete-after: True
 changes:
-  - refactor: "firebots are now basic bots"
+  - bugfix: "added a keycard auth to QM room"
