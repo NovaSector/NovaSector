@@ -963,11 +963,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		show_contents(to_show)
 		return FALSE
 
+<<<<<<< HEAD
 	if(!to_show.CanReach(can_reach_target)) // NOVA EDIT CHANGE - ORIGINAL: if(!to_show.CanReach(parent))
 		parent.balloon_alert(to_show, "can't reach!")
 		return FALSE
 
 	if(!isliving(to_show) || to_show.incapacitated())
+=======
+	if(!isliving(to_show) || !to_show.can_perform_action(parent, ALLOW_RESTING | FORBID_TELEKINESIS_REACH))
+>>>>>>> f42a7fe3942 (You can access your inventory when lying down (#84380))
 		return FALSE
 
 	if(locked)
