@@ -958,12 +958,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 
 /// Opens the storage to the mob, showing them the contents to their UI.
-/datum/storage/proc/open_storage(mob/to_show)
+/datum/storage/proc/open_storage(mob/to_show, can_reach_target = parent) // NOVA EDIT CHANGE - ORIGINAL: /datum/storage/proc/open_storage(mob/to_show)
 	if(isobserver(to_show))
 		show_contents(to_show)
 		return FALSE
 
-	if(!to_show.CanReach(parent))
+	if(!to_show.CanReach(can_reach_target)) // NOVA EDIT CHANGE - ORIGINAL: if(!to_show.CanReach(parent))
 		parent.balloon_alert(to_show, "can't reach!")
 		return FALSE
 

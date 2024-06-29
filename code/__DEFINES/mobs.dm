@@ -16,10 +16,11 @@
 #define BLOOD_VOLUME_MAXIMUM 1000 // NOVA EDIT - Blood volume balancing (mainly for Hemophages as nobody else really goes much above regular blood volume) - ORIGINAL VALUE: 2000
 #define BLOOD_VOLUME_SLIME_SPLIT 1120
 #define BLOOD_VOLUME_NORMAL 560
-#define BLOOD_VOLUME_SAFE 475
-#define BLOOD_VOLUME_OKAY 336
-#define BLOOD_VOLUME_BAD 224
-#define BLOOD_VOLUME_SURVIVE 122
+#define BLOOD_VOLUME_SAFE (BLOOD_VOLUME_NORMAL * (1 - 0.15)) // Latter number is percentage of blood lost, for readability!
+#define BLOOD_VOLUME_OKAY (BLOOD_VOLUME_NORMAL * (1 - 0.30))
+#define BLOOD_VOLUME_RISKY (BLOOD_VOLUME_NORMAL * (1 - 0.45))
+#define BLOOD_VOLUME_BAD (BLOOD_VOLUME_NORMAL * (1 - 0.60))
+#define BLOOD_VOLUME_SURVIVE (BLOOD_VOLUME_NORMAL * (1 - 0.80))
 
 /// How efficiently humans regenerate blood.
 #define BLOOD_REGEN_FACTOR 0.25
@@ -319,7 +320,7 @@
 #define SLIME_EVOLUTION_THRESHOLD 10
 
 //Slime evolution cost in nutrition
-#define SLIME_EVOLUTION_COST 200
+#define SLIME_EVOLUTION_COST 100
 
 //Slime extract crossing. Controls how many extracts is required to feed to a slime to core-cross.
 #define SLIME_EXTRACT_CROSSING_REQUIRED 10
@@ -457,13 +458,14 @@
 #define REM REAGENTS_EFFECT_MULTIPLIER //! Shorthand for the above define for ease of use in equations and the like
 
 // Eye protection
+// THese values are additive to determine your overall flash protection.
 #define FLASH_PROTECTION_HYPER_SENSITIVE -2
 #define FLASH_PROTECTION_SENSITIVE -1
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_FLASH 1
 #define FLASH_PROTECTION_WELDER 2
-#define FLASH_PROTECTION_WELDER_PLUS 3
-#define FLASH_PROTECTION_MAXIMUM 4
+#define FLASH_PROTECTION_WELDER_SENSITIVE 3
+#define FLASH_PROTECTION_WELDER_HYPER_SENSITIVE 4
 
 // AI Toggles
 #define AI_CAMERA_LUMINOSITY 5
