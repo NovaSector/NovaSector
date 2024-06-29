@@ -256,26 +256,11 @@
 /obj/item/storage/lockbox/order/can_unlock(mob/living/user, obj/item/card/id/id_card)
 	if(id_card.registered_account == buyer_account)
 		return TRUE
-
-<<<<<<< HEAD
-	if((id_card.registered_account != buyer_account) && !(department_purchase && (id_card.registered_account?.account_job?.paycheck_department) == (department_account.department_id))) //NOVA EDIT CHANGE - ORIGINAL: if(id_card.registered_account != buyer_account)
-		balloon_alert(user, "incorrect bank account!")
-		return FALSE
-
-	if(privacy_lock)
-		atom_storage.locked = STORAGE_NOT_LOCKED
-		icon_state = icon_locked
-	else
-		atom_storage.locked = STORAGE_FULLY_LOCKED
-		icon_state = icon_closed
-	privacy_lock = atom_storage.locked
-	user.visible_message(
-		span_notice("[user] [privacy_lock ? "" : "un"]locks [src]'s privacy lock."),
-		span_notice("You [privacy_lock ? "" : "un"]lock [src]'s privacy lock."),
-	)
-=======
+	//NOVA EDIT ADDITION START - private department orders
+	if(department_purchase && id_card.registered_account?.account_job?.paycheck_department == department_account.department_id)
+		return TRUE
+	//NOVA EDIT ADDITION END
 	balloon_alert(user, "incorrect bank account!")
->>>>>>> 4aa7bae77ae (Moves tool use back higher in the chain, but makes it so tool acts are only called on non-combat-mode (#84083))
 	return FALSE
 
 ///screentips for lockboxes
