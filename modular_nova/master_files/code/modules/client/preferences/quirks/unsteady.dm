@@ -16,7 +16,7 @@
 /datum/preference/numeric/unsteady/unsteady_stunlength
 	savefile_key = "unsteady_stunlength"
 
-	minimum = 0.5
+	minimum = UNSTEADY_STUNLENGTH
 	maximum = 4
 
 // minimum damage required
