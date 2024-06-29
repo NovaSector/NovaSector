@@ -33,7 +33,8 @@
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost/pre_filled
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost/malf
-	faction = list()
+	name = "\improper Malfunctioning Outpost Turret"
+	faction = list(FACTION_MALF_TURRET)
 	shot_delay = 1 SECONDS
 
 ////// Colonist Turret. Kinda just made to be a ghost-role friendly version of the outpost turret
@@ -105,6 +106,20 @@
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled
 
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/malf // for ruins from here on
+	name = "\improper Malfunctioning Twin-fang Turret"
+	faction = list(FACTION_MALF_TURRET)
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf/pre_filled
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf
+
+	name = "odd spider turret kit"
+	desc = "A deployable turret kit used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition. This one seems to have some odd lights flashing on it."
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/malf
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf/pre_filled/PopulateContents()
+	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+
 ////// Twin-Fang turret. Spider Turret's nastier cousin. Slightly less durable but more vitriol. Chambered in .27-54
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang
@@ -129,6 +144,8 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "twin_spider_off"
 	base_icon_state = "twin_spider"
+	fragile = TRUE
+	turret_frame = /obj/item/turret_assembly/twin_fang
 	quick_retract = TRUE
 	shot_delay = 1.5 SECONDS
 	burst_fire = TRUE
@@ -136,6 +153,20 @@
 	burst_volley = 2
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang/malf
+	name = "\improper Malfunctioning Twin-fang Turret"
+	faction = list(FACTION_MALF_TURRET)
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf/pre_filled
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf
+
+	name = "odd twinfang turret kit"
+	desc = "A throw-deployable turret capsule designed for securing areas within hostile fauna held zones. It is chambered in .27-54 Cesarzowa ammunition. This one seems to have some odd lights flashing on it."
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang/malf
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf/pre_filled/PopulateContents()
+	new /obj/item/ammo_box/magazine/miecz(src)
 
 ////// Shotgun Turret. Surprisingly nothing new added as the firing proc will handle pellet clouds. Note however that shotgun rounds CANT smart-gun around allies.
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster
@@ -167,8 +198,14 @@
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_off"
 	base_icon_state = "duster"
+	fragile = TRUE
+	turret_frame = /obj/item/turret_assembly/duster
 	ignore_faction = FALSE // Pellet cloud wont work with it anyways.
 	quick_retract = TRUE
 	shot_delay = 1.5 SECONDS
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/duster/pre_filled
+
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster/malf
+	name = "\improper Malfunctioning Duster Turret"
+	faction = list(FACTION_MALF_TURRET)

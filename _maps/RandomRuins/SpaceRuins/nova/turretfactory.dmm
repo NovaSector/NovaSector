@@ -20,6 +20,7 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "bg" = (
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "bi" = (
@@ -31,6 +32,7 @@
 "bp" = (
 /obj/structure/decorative/shelf/soda_multipacks,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "bv" = (
@@ -75,6 +77,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/item/screwdriver,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "ej" = (
@@ -104,7 +107,6 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "eC" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/structure/window/hollow/reinforced/directional,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "turretfactorylobbydesk"
 	},
@@ -113,6 +115,7 @@
 /obj/item/stamp/denied,
 /obj/item/stamp/granted,
 /obj/machinery/light/cold/directional/east,
+/obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "eZ" = (
@@ -162,6 +165,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"hw" = (
+/obj/structure/safe,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_medium,
+/obj/effect/spawner/random/entertainment/money,
+/obj/effect/spawner/random/entertainment/money_small,
+/turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "hA" = (
 /obj/machinery/door/firedoor,
@@ -270,21 +281,22 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "ny" = (
-/obj/machinery/autolathe/hacked,
-/obj/machinery/conveyor/auto,
-/obj/item/assembly/prox_sensor,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/turretfactory)
-"nI" = (
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost/malf,
-/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/item/wallframe/button,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
+"nI" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
 "nY" = (
-/obj/item/assembly/prox_sensor,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
@@ -292,6 +304,7 @@
 	dir = 4;
 	id = "tf_assembly"
 	},
+/obj/item/assembly/prox_sensor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "oe" = (
@@ -631,12 +644,19 @@
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
+"Ei" = (
+/obj/structure/closet/firecloset/wall{
+	pixel_y = 27
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
 "Er" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/item/multitool,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Ex" = (
@@ -649,7 +669,8 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "EB" = (
 /obj/structure/table/reinforced,
-/obj/item/wrench/caravan,
+/obj/item/assembly/prox_sensor,
+/obj/item/assembly/prox_sensor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "EG" = (
@@ -722,12 +743,12 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "Hf" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/structure/window/hollow/reinforced/directional,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "turretfactorylobbydesk"
 	},
 /obj/machinery/door/firedoor,
 /obj/item/gps/spaceruin,
+/obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "HE" = (
@@ -756,7 +777,6 @@
 /obj/machinery/conveyor/auto{
 	dir = 4
 	},
-/obj/effect/spawner/random/throwturretkit,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
@@ -801,6 +821,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "LG" = (
@@ -813,18 +834,27 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "LQ" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/structure/window/hollow/reinforced/directional,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "turretfactorylobbydesk"
 	},
 /obj/machinery/door/firedoor,
 /obj/item/pen,
+/obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "MH" = (
 /obj/structure/decorative/shelf,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/cold/directional/east,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"MW" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/closet/emcloset/wall{
+	pixel_x = 29
+	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Ng" = (
@@ -834,14 +864,6 @@
 /obj/structure/table/reinforced,
 /obj/structure/disposalpipe/segment,
 /obj/item/stack/sheet/iron/five,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/turretfactory)
-"NP" = (
-/obj/structure/table/rolling,
-/obj/effect/spawner/random/turretassembly,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "OQ" = (
@@ -892,12 +914,12 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "RS" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/structure/window/hollow/reinforced/directional,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "turretfactorylobbydesk"
 	},
 /obj/machinery/door/firedoor,
 /obj/item/paper_bin,
+/obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Sg" = (
@@ -917,7 +939,6 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "SI" = (
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster,
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
@@ -977,9 +998,9 @@
 "US" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/item/screwdriver/red,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/cold/directional/west,
+/obj/item/assembly/prox_sensor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "UX" = (
@@ -1059,17 +1080,11 @@
 	},
 /turf/open/misc/asteroid/airless,
 /area/ruin/space)
-"Ze" = (
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost/malf,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/turretfactory)
 "Zv" = (
 /turf/open/floor/carpet/cyan,
 /area/ruin/space/has_grav/powered/turretfactory)
 "ZD" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/structure/window/hollow/reinforced/directional,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "turretfactorylobbydesk"
 	},
@@ -1077,6 +1092,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/item/pen/red,
+/obj/structure/window/reinforced,
 /turf/open/floor/carpet/black,
 /area/ruin/space/has_grav/powered/turretfactory)
 
@@ -1311,7 +1327,7 @@ tT
 Ng
 on
 vX
-wD
+uZ
 yH
 zL
 ao
@@ -1414,16 +1430,16 @@ XA
 aZ
 uf
 Dv
-Ze
+Dv
 ts
 bg
 OQ
 XA
-NP
 XA
 XA
 XA
 XA
+ny
 Er
 Ng
 tT
@@ -1437,7 +1453,7 @@ Fi
 Fi
 tT
 Ng
-ny
+IP
 vX
 wD
 yH
@@ -1469,7 +1485,7 @@ Fi
 Fi
 tT
 Ng
-wD
+Ei
 vX
 wD
 yH
@@ -1483,11 +1499,11 @@ dM
 Fg
 Jq
 pR
+nI
 pR
+nI
 pR
-pR
-pR
-pR
+nI
 jE
 Ng
 tT
@@ -1667,7 +1683,7 @@ yp
 FB
 zz
 yp
-nI
+zz
 Fg
 Fg
 Fg
@@ -1701,7 +1717,7 @@ XA
 wD
 UK
 gg
-Dv
+vD
 Dv
 sI
 wD
@@ -1833,7 +1849,7 @@ nu
 jy
 sx
 kI
-Vy
+hw
 Vy
 Vy
 RS
@@ -1889,7 +1905,7 @@ ps
 Cc
 ud
 sI
-UK
+MW
 yS
 FL
 bp
