@@ -162,7 +162,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "bs" = (
 /obj/machinery/porta_turret/syndicate{
-	faction = list("Syndicate","neutral")
+	faction = list("Syndicate","neutral","ashwalker")
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base)
@@ -1015,7 +1015,7 @@
 /area/lavaland/surface/outdoors)
 "jb" = (
 /obj/machinery/porta_turret/syndicate{
-	faction = list("Syndicate","neutral");
+	faction = list("Syndicate","neutral","ashwalker");
 	dir = 8
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -2172,7 +2172,7 @@
 "su" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 4;
-	faction = list("Syndicate","neutral")
+	faction = list("Syndicate","neutral","ashwalker")
 	},
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ruin/interdyne_planetary_base)
@@ -5081,7 +5081,7 @@
 "QD" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 8;
-	faction = list("Syndicate","neutral")
+	faction = list("Syndicate","neutral","ashwalker")
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base)
@@ -6188,7 +6188,7 @@
 "Ys" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 1;
-	faction = list("Syndicate","neutral")
+	faction = list("Syndicate","neutral","ashwalker")
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base)
