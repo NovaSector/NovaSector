@@ -245,8 +245,8 @@
 	cell_cover_open = !cell_cover_open
 	return TRUE
 
-/obj/item/gravity_harness/attack_hand(mob/user)
-	if(!cell_cover_open)
+/obj/item/gravity_harness/attack_hand(mob/user, list/modifiers)
+	if(!cell_cover_open || loc != user)
 		return ..()
 
 	if(!current_cell)
