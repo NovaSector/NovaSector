@@ -888,7 +888,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		show_contents(to_show)
 		return FALSE
 
-	if(!isliving(to_show) || !to_show.can_perform_action(can_reach_target)) //NOVA EDIT CHANGE - ORIGINAL: if(!isliving(to_show) || !to_show.can_perform_action(parent))
+	if(!isliving(to_show) || !to_show.can_perform_action(can_reach_target, ALLOW_RESTING | FORBID_TELEKINESIS_REACH)) // NOVA EDIT CHANGE - ORIGINAL: if(!isliving(to_show) || !to_show.can_perform_action(parent, ALLOW_RESTING | FORBID_TELEKINESIS_REACH))
 		return FALSE
 
 	if(locked)
