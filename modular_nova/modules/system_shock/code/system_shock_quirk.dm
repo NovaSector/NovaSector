@@ -29,4 +29,4 @@
 	addtimer(CALLBACK(src, PROC_REF(knock_out), knockout_length-4), 2 SECONDS)
 
 /datum/quirk/system_shock/proc/knock_out(var/length)
-	quirk_holder.Sleeping(length SECONDS)
+	quirk_holder.Sleeping(length)
