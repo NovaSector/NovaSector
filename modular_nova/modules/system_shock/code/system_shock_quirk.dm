@@ -16,8 +16,7 @@
 	RegisterSignal(quirk_holder, COMSIG_LIVING_MINOR_SHOCK, PROC_REF(on_electrocute))
 
 /datum/quirk/system_shock/remove()
-	UnregisterSignal(quirk_holder, COMSIG_LIVING_ELECTROCUTE_ACT)
-	UnregisterSignal(quirk_holder, COMSIG_LIVING_MINOR_SHOCK)
+	UnregisterSignal(quirk_holder, list(COMSIG_LIVING_ELECTROCUTE_ACT, COMSIG_LIVING_MINOR_SHOCK))
 
 
 /datum/quirk/system_shock/proc/on_electrocute()
