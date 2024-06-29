@@ -177,6 +177,7 @@
 		"Mining",
 		"Prototype",
 		"Security",
+		"Colonist",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()
