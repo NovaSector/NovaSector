@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes gigantism mutation not reducing a mob's size upon losing when it should be doing so."
