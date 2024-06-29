@@ -216,22 +216,6 @@
 /obj/item/mod/core/standard/proc/on_mod_storage_insert(datum/source, obj/item/thing, mob/living/user)
 	SIGNAL_HANDLER
 
-<<<<<<< HEAD
-	if(istype(attacking_item, /obj/item/stock_parts/cell))
-		if(!mod.open)
-			mod.balloon_alert(user, "open the cover first!")
-			playsound(mod, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-			return NONE
-		if(cell)
-			mod.balloon_alert(user, "cell already installed!")
-			playsound(mod, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-			return COMPONENT_NO_AFTERATTACK
-		install_cell(attacking_item)
-		mod.balloon_alert(user, "cell installed")
-		playsound(mod, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
-		return COMPONENT_NO_AFTERATTACK
-	return NONE
-=======
 	return replace_cell(thing, user) ? BLOCK_STORAGE_INSERT : NONE
 
 /obj/item/mod/core/standard/proc/on_mod_interaction(datum/source, mob/living/user, obj/item/thing)
@@ -246,7 +230,7 @@
 	return replace_cell(tool, user) ? ITEM_INTERACT_SUCCESS : NONE
 
 /obj/item/mod/core/standard/proc/replace_cell(obj/item/attacking_item, mob/user)
-	if(!istype(attacking_item, /obj/item/stock_parts/power_store/cell))
+	if(!istype(attacking_item, /obj/item/stock_parts/cell))
 		return FALSE
 	if(!mod.open)
 		mod.balloon_alert(user, "open the cover first!")
@@ -260,7 +244,6 @@
 	mod.balloon_alert(user, "cell installed")
 	playsound(mod, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return TRUE
->>>>>>> 4aa7bae77ae (Moves tool use back higher in the chain, but makes it so tool acts are only called on non-combat-mode (#84083))
 
 /obj/item/mod/core/standard/proc/on_wearer_set(datum/source, mob/user)
 	SIGNAL_HANDLER
