@@ -1,0 +1,4 @@
+author: "RuinedTrickster"
+delete-after: True
+changes:
+  - rscadd: "Make monkey tails waggable"
