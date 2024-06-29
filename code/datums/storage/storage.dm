@@ -138,14 +138,15 @@
 	src.max_total_storage = max_total_storage
 
 /datum/storage/Destroy()
-	parent = null
-	real_location = null
 
 	for(var/mob/person in is_using)
 		hide_contents(person)
 
 	is_using.Cut()
-	QDEL_LAZYLIST(storage_interfaces)
+	QDEL_LIST_ASSOC_VAL(storage_interfaces)
+
+	parent = null
+	real_location = null
 
 	return ..()
 
@@ -880,8 +881,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(!click_alt_open)
 		return
 
-	return open_storage_on_signal(source, user)
-
+	return open_storage_on_signal(source, user) ? CLICK_ACTION_SUCCESS : NONE
 
 /// Opens the storage to the mob, showing them the contents to their UI.
 /datum/storage/proc/open_storage(mob/to_show, can_reach_target = parent) // NOVA EDIT CHANGE - ORIGINAL: /datum/storage/proc/open_storage(mob/to_show)
@@ -889,11 +889,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		show_contents(to_show)
 		return FALSE
 
-	if(!to_show.CanReach(can_reach_target)) // NOVA EDIT CHANGE - ORIGINAL: if(!to_show.CanReach(parent))
-		parent.balloon_alert(to_show, "can't reach!")
-		return FALSE
-
-	if(!isliving(to_show) || to_show.incapacitated())
+	if(!isliving(to_show) || !to_show.can_perform_action(can_reach_target, ALLOW_RESTING | FORBID_TELEKINESIS_REACH)) // NOVA EDIT CHANGE - ORIGINAL: if(!isliving(to_show) || !to_show.can_perform_action(parent, ALLOW_RESTING | FORBID_TELEKINESIS_REACH))
 		return FALSE
 
 	if(locked)
@@ -1036,6 +1032,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	to_hide.client.screen -= storage_interfaces[to_hide].list_ui_elements()
 	to_hide.client.screen -= real_location.contents
 	QDEL_NULL(storage_interfaces[to_hide])
+	storage_interfaces -= to_hide
 
 	return TRUE
 
