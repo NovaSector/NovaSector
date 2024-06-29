@@ -4030,7 +4030,6 @@
 /area/station/service/chapel/office)
 "bkP" = (
 /obj/effect/turf_decal/delivery,
-/obj/machinery/light/directional/north,
 /obj/machinery/portable_atmospherics/canister/plasma,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -29950,6 +29949,9 @@
 	},
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
+/obj/structure/sign/directions/cryo/directional/south{
+	icon_state = "map-right-fland"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "jHA" = (
@@ -34788,6 +34790,12 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/port/aft)
+"ljt" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/science/ordnance/storage)
 "ljy" = (
 /obj/structure/table/wood/poker,
 /turf/open/floor/carpet,
@@ -48055,6 +48063,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
+"pBb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/engine,
+/area/station/science/ordnance/storage)
 "pBe" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/effect/turf_decal/bot,
@@ -56587,9 +56601,6 @@
 	dir = 9;
 	name = "hallway camera"
 	},
-/obj/structure/sign/directions/cryo/directional/north{
-	icon_state = "map-right-fland"
-	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "sfk" = (
@@ -58681,7 +58692,8 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/maintenance/starboard/aft)
 "sOH" = (
-/obj/structure/sign/directions/cryo/directional/north{
+/obj/structure/cable,
+/obj/structure/sign/directions/cryo/directional/south{
 	icon_state = "map-left-fland"
 	},
 /turf/open/floor/iron,
@@ -104832,7 +104844,7 @@ sQo
 oEY
 gTL
 ecS
-usG
+sOH
 wFZ
 wCB
 sTv
@@ -105344,7 +105356,7 @@ vlr
 rrf
 sQD
 oEY
-sOH
+xUL
 ecS
 usG
 wFZ
@@ -115667,7 +115679,7 @@ dNq
 fLe
 jUk
 aia
-lXI
+ljt
 bTw
 eQj
 lXI
@@ -116693,7 +116705,7 @@ pVB
 qwU
 cSS
 qwU
-vAQ
+pBb
 iDk
 bkP
 pOi
