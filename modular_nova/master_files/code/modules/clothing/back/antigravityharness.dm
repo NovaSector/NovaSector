@@ -272,26 +272,26 @@
 		current_cell.emp_act(severity)
 		change_mode(MODE_GRAVOFF)
 
-/obj/item/gravity_harness/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(!istype(attacking_item, /obj/item/stock_parts/cell))
+/obj/item/gravity_harness/tool_act(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/stock_parts/cell))
 		return ..()
 
 	if(!cell_cover_open)
 		balloon_alert(user, "open the cell cover first!")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	if(current_cell)
 		balloon_alert(user, "cell already installed!")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	/// Shadow realm? I'm sending you to Lake City, FL!
-	attacking_item.moveToNullspace()
-	current_cell = attacking_item
+	tool.moveToNullspace()
+	current_cell = tool
 	balloon_alert(user, "cell installed")
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 #undef MODE_GRAVOFF
 #undef MODE_ANTIGRAVITY
