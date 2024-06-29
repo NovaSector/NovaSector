@@ -57,7 +57,8 @@ export const penis_length: FeatureNumeric = {
   description:
     'Value is measured in inches.\
      This value is limited to 20 for characters with a body size <= 1, \
-     or without the oversized trait.',
+     or without the oversized trait. The maximum allowed value scales up\
+     based on the body size of a character, up to a max of 36.',
   component: FeatureNumberInput,
 };
 
@@ -66,7 +67,8 @@ export const penis_girth: FeatureNumeric = {
   description:
     'Value is circumference, measured in inches.\
     This value is limited to 15 for characters with a body size <= 1, \
-    or without the oversized trait.',
+    or without the oversized trait. The maximum allowed value scales up\
+    based on the body size of a character, up to a max of 20.',
   component: FeatureNumberInput,
 };
 
