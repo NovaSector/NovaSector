@@ -731,6 +731,22 @@
 		/datum/stock_part/micro_laser = 1,
 		/datum/stock_part/servo = 1,)
 
+/obj/item/circuitboard/machine/bookbinder
+	name = "Book Binder"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/bookbinder
+	req_components = list(
+		/datum/stock_part/servo = 1,
+	)
+
+/obj/item/circuitboard/machine/libraryscanner
+	name = "Book Scanner"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/libraryscanner
+	req_components = list(
+		/datum/stock_part/scanning_module = 1,
+	)
+
 //Medical
 
 /obj/item/circuitboard/machine/chem_dispenser
@@ -1616,4 +1632,15 @@
 		/datum/stock_part/capacitor/tier2 = 2,
 		/datum/stock_part/micro_laser/tier2 = 2,
 		/obj/item/stack/sheet/plasteel = 2,
+	)
+
+/obj/item/circuitboard/machine/flatpacker
+	name = "Flatpacker"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/flatpacker
+	req_components = list(
+		/datum/stock_part/matter_bin = 2,
+		/datum/stock_part/micro_laser = 2,
+		/datum/stock_part/servo = 1,
+		/obj/item/stack/sheet/plasteel = 5,
 	)

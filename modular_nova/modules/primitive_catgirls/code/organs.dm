@@ -5,6 +5,8 @@
 /obj/item/organ/internal/lungs/icebox_adapted
 	name = "hardy lungs"
 	desc = "Lungs adapted to frozen environments that would be otherwise inhospitable to most races. Feels cold."
+	icon_state = "hardylungs"
+	icon = 'modular_nova/modules/primitive_catgirls/icons/organs.dmi'
 
 /obj/item/organ/internal/lungs/icebox_adapted/Initialize(mapload)
 	. = ..()

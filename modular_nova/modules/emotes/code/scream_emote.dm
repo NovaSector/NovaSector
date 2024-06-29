@@ -14,8 +14,6 @@
 			return pick(selected_scream.female_screamsounds)
 		else
 			return pick(selected_scream.male_screamsounds)
-	if(issilicon(user))
-		return 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg'
 	if(ismonkey(user))
 		return 'modular_nova/modules/emotes/sound/voice/scream_monkey.ogg'
 	if(istype(user, /mob/living/basic/gorilla))
@@ -41,7 +39,7 @@
 		return
 	if(user.is_muzzled())
 		return
-	if(isnull(user.selected_scream) || (LAZYLEN(user.selected_scream.male_screamsounds) && LAZYLEN(user.selected_scream.female_screamsounds))) //For things that don't have a selected scream(npcs)
+	if(isnull(user.selected_scream) || !(LAZYLEN(user.selected_scream.male_screamsounds) || LAZYLEN(user.selected_scream.female_screamsounds))) //For things that don't have a selected scream(npcs)
 		if(prob(1))
 			return 'sound/voice/human/wilhelm_scream.ogg'
 		return user.dna.species.get_scream_sound(user)

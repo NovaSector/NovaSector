@@ -13,7 +13,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/basic_medical/New()
+/datum/techweb_node/medbay_equip/New()
 	design_ids += list(
 		"hypovial",
 	)
@@ -44,7 +44,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/biotech/New()
+/datum/techweb_node/chem_synthesis/New()
 	design_ids += list(
 		"large_hypovial",
 		"hypokit",
@@ -78,7 +78,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/adv_biotech/New()
+/datum/techweb_node/medbay_equip_adv/New()
 	design_ids += list(
 		"hypokit_deluxe",
 		"hypomkii",
@@ -101,17 +101,35 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/alien_bio/New()
+/datum/techweb_node/alien_surgery/New()
 	design_ids += list(
 		"hypomkii_deluxe",
 	)
 	return ..()
+
+/datum/design/hypomkii/piercing
+	name = "Advanced MkII Hypospray"
+	id = "hypomkii_advanced"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/hypospray/mkii/piercing
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_MEDICAL
 
 // Tarkon and similar get enough to work with, but if they want deluxe kits/hypos they still need to trade with the station for 'em.
 /datum/techweb_node/oldstation_surgery/New()
 	design_ids += list(
 		"hypokit",
 		"hypomkii",
+		"hypomkii_advanced",
 	)
 	return ..()
 

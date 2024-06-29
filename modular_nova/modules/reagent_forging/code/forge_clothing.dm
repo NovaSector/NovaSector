@@ -114,8 +114,8 @@
 	desc = "A tiny ring, sized to wrap around a finger."
 	icon_state = "ringsilver"
 	worn_icon_state = "sring"
-	inhand_icon_state = null
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
+	inhand_icon_state = "ringsilver"
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	obj_flags_nova = ANVIL_REPAIR
 
 /obj/item/clothing/gloves/ring/reagent_clothing/Initialize(mapload)
