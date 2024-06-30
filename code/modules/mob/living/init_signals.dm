@@ -38,16 +38,12 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), PROC_REF(on_restrained_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_RESTRAINED), PROC_REF(on_restrained_trait_loss))
 
-<<<<<<< HEAD
 	// NOVA EDIT ADDITION START - Numbed alert
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_ANALGESIA), PROC_REF(on_analgesia_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_ANALGESIA), PROC_REF(on_analgesia_trait_loss))
 	// NOVA EDIT ADDITION END - Numbed alert
-=======
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_DEAF), PROC_REF(on_hearing_loss))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_DEAF), PROC_REF(on_hearing_regain))
->>>>>>> 48c986feda6 (Fixes deaf mobs hearing ship/area ambience (#84207))
-
 	RegisterSignals(src, list(
 		SIGNAL_ADDTRAIT(TRAIT_CRITICAL_CONDITION),
 		SIGNAL_REMOVETRAIT(TRAIT_CRITICAL_CONDITION),
