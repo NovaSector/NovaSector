@@ -468,6 +468,7 @@
 #include "code\__DEFINES\~nova_defines\species_clothing_paths.dm"
 #include "code\__DEFINES\~nova_defines\strippable.dm"
 #include "code\__DEFINES\~nova_defines\synth_defines.dm"
+#include "code\__DEFINES\~nova_defines\techweb_nodes.dm"
 #include "code\__DEFINES\~nova_defines\teshari_clothing_paths.dm"
 #include "code\__DEFINES\~nova_defines\text.dm"
 #include "code\__DEFINES\~nova_defines\tools.dm"
