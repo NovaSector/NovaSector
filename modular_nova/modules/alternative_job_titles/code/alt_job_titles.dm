@@ -30,6 +30,7 @@
 		"Off-Duty Crew",
 		"Off-Duty Staff",
 		"Colonist",
+		"Mercenary",
 	)
 
 /datum/job/atmospheric_technician
