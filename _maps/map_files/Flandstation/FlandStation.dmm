@@ -27963,7 +27963,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/structure/chair/stool/bar/directional/west,
+/obj/structure/chair/stool/bar/directional/west{
+	dir = 4
+	},
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "iVD" = (
@@ -32913,6 +32915,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/hop)
+"kHO" = (
+/obj/structure/chair/stool/directional/west{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/station/commons/lounge)
 "kHU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/binary/pump{
@@ -35261,7 +35269,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "lru" = (
-/obj/structure/chair/stool/directional/south,
+/obj/structure/chair/stool/directional/south{
+	dir = 1
+	},
 /turf/open/floor/carpet,
 /area/station/commons/lounge)
 "lrw" = (
@@ -37561,8 +37571,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/structure/chair/stool/bar/directional/west,
 /obj/effect/landmark/start/assistant,
+/obj/structure/chair/stool/bar/directional/west{
+	dir = 4
+	},
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "meh" = (
@@ -43552,8 +43564,10 @@
 /area/station/command/meeting_room/council)
 "nZF" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/stool/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/chair/stool/directional/west{
+	dir = 4
+	},
 /turf/open/floor/carpet,
 /area/station/commons/lounge)
 "nZG" = (
@@ -57826,12 +57840,17 @@
 "sxV" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/disposalpipe/segment,
-/obj/structure/chair/stool/bar/directional/south,
+/obj/structure/chair/stool/bar/directional/south{
+	dir = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "sxX" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/structure/chair/stool/bar/directional/south,
+/obj/structure/chair/stool/bar/directional/south{
+	dir = 1
+	},
+/obj/effect/landmark/start/assistant,
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "sxZ" = (
@@ -57888,7 +57907,9 @@
 "syY" = (
 /obj/effect/landmark/start/assistant,
 /obj/effect/turf_decal/siding/wood,
-/obj/structure/chair/stool/bar/directional/south,
+/obj/structure/chair/stool/bar/directional/south{
+	dir = 1
+	},
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "sze" = (
@@ -64334,7 +64355,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/chair/stool/directional/west,
+/obj/structure/chair/stool/directional/west{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
 /area/station/commons/lounge)
@@ -66930,8 +66953,10 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/storage)
 "vqq" = (
-/obj/structure/chair/stool/directional/south,
 /obj/effect/landmark/start/assistant,
+/obj/structure/chair/stool/directional/south{
+	dir = 1
+	},
 /turf/open/floor/carpet,
 /area/station/commons/lounge)
 "vqt" = (
@@ -69487,6 +69512,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
+/obj/structure/chair/stool/directional/south,
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "wdz" = (
@@ -69803,6 +69829,13 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/qm)
+"wks" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/chair/stool/bar/directional/south{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/station/commons/lounge)
 "wkv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -75132,6 +75165,13 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"xGP" = (
+/obj/effect/landmark/start/assistant,
+/obj/structure/chair/stool/directional/west{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/station/commons/lounge)
 "xGW" = (
 /obj/structure/closet/firecloset,
 /obj/effect/turf_decal/delivery,
@@ -97417,7 +97457,7 @@ eGt
 saG
 xFq
 sCQ
-sxX
+wks
 liw
 xLt
 tCN
@@ -98188,10 +98228,10 @@ lNL
 mrM
 xFq
 xIJ
-sxX
+eje
 liw
-cXO
-sAa
+kHO
+xGP
 liw
 fXw
 rkv
@@ -98445,7 +98485,7 @@ cIs
 aDk
 ghK
 sdf
-syY
+eje
 liw
 tvr
 rkv
