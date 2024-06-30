@@ -6,8 +6,8 @@
 	anchored = TRUE
 	density = FALSE
 	circuit = null
-	heating_energy = 20 KILO JOULES
-	efficiency = 10
+	heating_energy = STANDARD_CELL_RATE * 0.2
+	efficiency = 40
 	display_panel = TRUE
 	/// What this repacks into when its wrenched off a wall
 	var/repacked_type = /obj/item/wallframe/wall_heater
@@ -18,11 +18,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	. = ..()
 	find_and_hang_on_wall()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+	RemoveElement(/datum/element/elevation, pixel_shift = 8) //they're on the wall, you can't climb this
+	RemoveElement(/datum/element/climbable)
 
 /obj/machinery/space_heater/wall_mounted/RefreshParts()
 	. = ..()
-	heating_energy = 20 KILO JOULES
-	efficiency = 10
+	heating_energy = STANDARD_CELL_RATE * 0.1
+	efficiency = 40
 
 /obj/machinery/space_heater/wall_mounted/default_deconstruction_crowbar()
 	return
@@ -38,6 +40,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 /obj/machinery/space_heater/wall_mounted/on_deconstruction(disassembled)
 	if(disassembled)
 		new repacked_type(drop_location())
+	cell.forceMove(drop_location())
 	return ..()
 
 // Wallmount for creating the heaters
