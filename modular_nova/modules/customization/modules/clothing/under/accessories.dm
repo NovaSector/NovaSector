@@ -194,3 +194,19 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	"Genderqueer Pride" = "pride_genderqueer",
 	"Aromantic Pride" = "pride_aromantic",
 ))
+
+// Akula wet making accessory
+/obj/item/clothing/accessory/wetmaker
+	name = "wetmaker"
+	desc = "A device that makes the wearer wet."
+	icon_state = "wetmaker"
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
+/obj/item/clothing/accessory/wetmaker/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wetsuit)
+
+/obj/item/clothing/accessory/wetmaker/Destroy()
+	. = ..()
+	qdel(GetComponent(/datum/component/wetsuit))

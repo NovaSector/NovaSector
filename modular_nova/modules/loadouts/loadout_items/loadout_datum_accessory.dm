@@ -46,6 +46,10 @@ GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/a
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride
 
+/datum/loadout_item/accessory/wetmaker
+	name = "wetmaker"
+	item_path = /obj/item/clothing/accessory/wetmaker
+
 /*
 *	ARMBANDS
 */
