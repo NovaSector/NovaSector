@@ -190,13 +190,8 @@
  * value - time in deciseconds to set the timer for.
  */
 /obj/machinery/status_display/door_timer/proc/set_timer(value)
-<<<<<<< HEAD
-	var/new_time = clamp(value, 0, MAX_TIMER + REALTIMEOFDAY - activation_time) // NOVA EDIT CHANGE, Original: var/new_time = clamp(value, 0, MAX_TIMER + world.time - activation_time) 
-	. = new_time == timer_duration //return 1 on no change
-=======
 	var/new_time = clamp(value, 0, MAX_TIMER)
 	. = new_time != timer_duration //return 1 on change
->>>>>>> 53eaf0c2bb7 (fixes brig timer ui (#84429))
 	timer_duration = new_time
 	update_content()
 
