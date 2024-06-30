@@ -37,7 +37,7 @@
 	name = "'Ninko' helmet system"
 	desc = "A complex helmet system that sacrifices some armor plating for a suite of sensors and signal amplifiers \
 	that serve to augment the wearer's situational awareness, sensory capacity, and tactical effect."
-	icon = 'modular_np_lethal/ninja_stuff/icons/armor.dmi'
+	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
 	icon_state = "genin_helmet_kitsune"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
 	armor_type = /datum/armor/armor_lethal_kudagitsune
@@ -70,7 +70,7 @@
 	desc = "An armored helmet system that makes no sacrifices in terms of protection. The plating is a laminate blend \
 	of ceramic, petrochemical resins, and oriented titanium strands that can stand up to more abuse than sacrificial \
 	ceramic plates alone."
-	icon = 'modular_np_lethal/ninja_stuff/icons/armor.dmi'
+	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
 	icon_state = "genin_helmet_oni"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
 	armor_type = /datum/armor/armor_lethal_baku
@@ -86,9 +86,9 @@
 		playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
 
 /obj/item/clothing/suit/armor/lethal_ninja_armor
-	name = ""
+	name = "Kudagitsune Heat Silk"
 	desc = ""
-	icon = 'modular_np_lethal/ninja_stuff/icons/armor.dmi'
+	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
 	icon_state = "genin_armor_light"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
 	inhand_icon_state = "armor"
@@ -103,7 +103,7 @@
 /obj/item/clothing/suit/armor/lethal_ninja_armor/medium
 	name = ""
 	desc = ""
-	icon = 'modular_np_lethal/ninja_stuff/icons/armor.dmi'
+	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
 	icon_state = "genin_armor_light"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
 	inhand_icon_state = "armor"
@@ -122,7 +122,7 @@
 	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
 	icon_state = "designer_activewear"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
-	worn_icon_digi = ''
+	//worn_icon_digi = ''
 	worn_icon_state = "wrap_tunic"
 	has_sensor = SENSOR_COORDS
 	random_sensor = FALSE
@@ -135,7 +135,7 @@
 	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
 	icon_state = "wrap_tunic"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
-	worn_icon_digi = ''
+	//worn_icon_digi = ''
 	worn_icon_state = "wrap_tunic"
 	has_sensor = SENSOR_COORDS
 	random_sensor = FALSE

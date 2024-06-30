@@ -17,13 +17,14 @@
 	name = "fuuma shuriken"
 	desc = "An unusual weapon that descends from media and fiction rather than the practical considerations \
 	of a killing tool. It has been brutally forced into compliance with reality by computer assisted design, \
-	exotic materials, and the intense passion
+	exotic materials, and the intense passion."
 	icon = 'modular_np_lethal/ninja_stuff/icons/weapons.dmi'
 	lefthand_file = 'modular_np_lethal/ninja_stuff/icons/weapons_lefthand_48x.dmi'
 	righthand_file = 'modular_np_lethal/ninja_stuff/icons/weapons_righthand_48x.dmi'
 	icon_state = "fuuma_shuriken"
 	worn_icon_state = "fuuma_shuriken_worn"
 	inhand_icon_state = "fuuma_shuriken"
+	inhand_x_dimension = 48
 	w_class = WEIGHT_CLASS_HUGE
 	sharpness = SHARP_EDGED
 	force = 15
@@ -46,12 +47,14 @@
 	name = "polymer tachi"
 	desc = "A 50cm blade made of laminated layers of polymer, carbon, and oriented glass strands. The result \
 	is a strong, weatherproof weapon that maintains a sharp edge, though it requires specialist tools to hone."
-	icon = 'modular_np_lethal/ninja_stuff/icons/weapons_obj.dmi'
+	//icon = 'modular_np_lethal/ninja_stuff/icons/weapons.dmi'
+	icon_state = "poly_tachi"
+	inhand_icon_state = "poly_tachi"
 	greyscale_config = /datum/greyscale_config/poly_tachi
 	greyscale_config_worn = /datum/greyscale_config/poly_tachi_worn
 	greyscale_config_inhand_left = /datum/greyscale_config/poly_tachi_lefthand
-	greyscale_config_inahnd_right = /datum/greyscale_config/poly_tachi_righthand
-	greyscale_colors = "#666633#333300"
+	greyscale_config_inhand_right = /datum/greyscale_config/poly_tachi_righthand
+	greyscale_colors = "#ffffff#ffffff#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	force = 40
 	throwforce = 20
@@ -76,10 +79,10 @@
 	name = "tactical sling bag"
 	desc = "Members of the Tsukomogami are known to modify designer sling bags to better facilitate carrying gear and small weapons. \
 	Don't call it a fanny pack around the serious ones."
-	icon =
-	icon_state =
-	inhand_icon_state =
-	worn_icon_state =
+	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
+	icon_state = "tactical_bag"
+	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
+	worn_icon_state = "tactical_bag"
 
 /obj/item/storage/belt/kunai_bandolier/Initialize(mapload)
 	. = ..()

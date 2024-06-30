@@ -72,7 +72,7 @@
 			"name" = "Clothing",
 			"icon" = "shirt",
 			"products" = list(
-				/obj/item/clothing/head/helmet/lethal_kudagitsune_helmet = INFINITY,
+				/obj/item/clothing/head/helmet/lethal_filtre_helmet/kitsune = INFINITY,
 				/obj/item/clothing/head/soft/black = INFINITY,
 				/obj/item/clothing/head/standalone_hood = INFINITY,
 				/obj/item/clothing/mask/bandana/black = INFINITY,
@@ -118,7 +118,7 @@
 				/obj/item/lead_pipe = INFINITY,
 				/obj/item/knife/combat/kunai = INFINITY,
 				/obj/item/crowbar/red = INFINITY,
-				/obj/item/trench_tool = INFINITY
+				/obj/item/trench_tool = INFINITY,
 				/obj/item/grapple_gun = INFINITY,
 				/obj/item/gun/magic/hook = INFINITY,
 				/obj/item/fuuma_shuriken = INFINITY,
