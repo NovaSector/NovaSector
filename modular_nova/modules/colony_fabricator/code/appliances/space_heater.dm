@@ -9,6 +9,7 @@
 	heating_energy = STANDARD_CELL_RATE * 0.2
 	efficiency = 40
 	display_panel = TRUE
+	cell = null
 	/// What this repacks into when its wrenched off a wall
 	var/repacked_type = /obj/item/wallframe/wall_heater
 
@@ -39,8 +40,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 
 /obj/machinery/space_heater/wall_mounted/on_deconstruction(disassembled)
 	if(disassembled)
-		new repacked_type(drop_location())
-	cell.forceMove(drop_location())
+		var/obj/item/wallframe/wall_heater/frame = new repacked_type(drop_location())
+		frame.cell = cell
+		cell?.forceMove(frame)
+	else
+		cell.forceMove(drop_location())
+	cell = null
 	return ..()
 
 // Wallmount for creating the heaters
@@ -59,3 +64,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
 	)
+	/// The cell stored in the actual heater (so that it can start with one without making a new one every placement)
+	var/obj/item/stock_parts/power_store/cell = /obj/machinery/space_heater::cell
+
+/obj/item/wallframe/wall_heater/after_attach(obj/machinery/space_heater/wall_mounted/attached_to)
+	. = ..()
+	if(!istype(attached_to))
+		return
+	if(ispath(cell))
+		cell = new cell
+	attached_to.cell = cell
+	cell?.forceMove(attached_to)
+	cell = null
