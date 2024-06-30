@@ -64,7 +64,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
 	)
-	/// The cell stored in the actual heater (so that it can start with one without making a new one every placement)
+	/// lazy-initialized cell stored in the actual heater (so that it can start with one without making a new one every placement)
 	var/obj/item/stock_parts/power_store/cell = /obj/machinery/space_heater::cell
 
 /obj/item/wallframe/wall_heater/after_attach(obj/machinery/space_heater/wall_mounted/attached_to)
@@ -76,3 +76,33 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	attached_to.cell = cell
 	cell?.forceMove(attached_to)
 	cell = null
+
+/obj/item/wallframe/wall_heater/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/stock_parts/power_store/cell))
+		return NONE
+	if(ispath(cell))
+		cell = new cell
+	playsound(src, 'sound/machines/click.ogg', 75, TRUE)
+	user.transferItemToLoc(tool, src)
+	if(!isnull(cell))
+		user.put_in_hands(cell)
+	cell = tool
+
+
+/obj/item/wallframe/wall_heater/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+	if(isnull(cell))
+		return SECONDARY_ATTACK_CALL_NORMAL
+	playsound(src, 'sound/weapons/guns/general/ballistic_click.ogg', 75, TRUE)
+	user.put_in_hands(cell)
+	cell = null
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/wallframe/wall_heater/examine(mob/user)
+	. = ..()
+	if(cell)
+		. += span_notice("It contains a [ispath(cell) ? cell::name : cell.name], which could be replaced.")
+	else
+		. += span_notice("It is empty. You could insert a [span_bold("cell")].")
