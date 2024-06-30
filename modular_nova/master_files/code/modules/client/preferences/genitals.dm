@@ -211,7 +211,6 @@
 		var/adjusted_size = PENIS_MAX_LENGTH_NORMAL_SIZED
 		if(body_size > 1)
 			adjusted_size = ceil(round(PENIS_MAX_LENGTH_NORMAL_SIZED, step) + ((((body_size - round(1, step)) * round(2, step))) * round(PENIS_LENGTH_ABOVE_NORMAL, step))) // floating point inaccuracy fun
-		log_world("[adjusted_size]")
 		if(value > adjusted_size)
 			value = adjusted_size
 	target.dna.features["penis_size"] = value
