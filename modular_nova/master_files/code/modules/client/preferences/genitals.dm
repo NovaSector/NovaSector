@@ -199,15 +199,24 @@
 	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/penis))
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
+/// The difference between the absolute max length and the length for normal sized mobs
+#define PENIS_LENGTH_ABOVE_NORMAL PENIS_MAX_LENGTH - PENIS_MAX_LENGTH_NORMAL_SIZED
+
 /datum/preference/numeric/penis_length/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	//Adjust allowed size based on character size, rounded up
-	var/adjusted_size = ceil(PENIS_MAX_LENGTH_NORMAL_SIZED + ((preferences?.read_preference(/datum/preference/numeric/body_size) %% 1) * 2) * 16)
+	// Adjust allowed size based on character size
+	var/body_size = preferences?.read_preference(/datum/preference/numeric/body_size) || BODY_SIZE_NORMAL
 	var/has_oversized_quirk = preferences?.all_quirks.Find(/datum/quirk/oversized::name)
-	// Clamp this for normal sized characters
+	// Clamp this for normal sized characters. Max allowed size is proportional to the mob's body_size, rounded up.
 	if(!has_oversized_quirk)
+		var/adjusted_size = PENIS_MAX_LENGTH_NORMAL_SIZED
+		if(body_size > 1)
+			adjusted_size = ceil(round(PENIS_MAX_LENGTH_NORMAL_SIZED, step) + ((((body_size - round(1, step)) * round(2, step))) * round(PENIS_LENGTH_ABOVE_NORMAL, step))) // floating point inaccuracy fun
+		log_world("[adjusted_size]")
 		if(value > adjusted_size)
 			value = adjusted_size
 	target.dna.features["penis_size"] = value
+
+#undef PENIS_LENGTH_ABOVE_NORMAL
 
 /datum/preference/numeric/penis_length/create_default_value() // if you change from this to PENIS_MAX_LENGTH the game should laugh at you
 	return round(max(PENIS_MIN_LENGTH, PENIS_DEFAULT_LENGTH))
@@ -227,15 +236,23 @@
 	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/penis))
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
+/// The difference between the absolute max girth and the girth for normal sized mobs
+#define PENIS_GIRTH_ABOVE_NORMAL PENIS_MAX_GIRTH - PENIS_MAX_GIRTH_NORMAL_SIZED
+
 /datum/preference/numeric/penis_girth/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	//Adjust allowed size based on character size, rounded up
-	var/adjusted_size = ceil(PENIS_MAX_GIRTH_NORMAL_SIZED + ((preferences?.read_preference(/datum/preference/numeric/body_size) %% 1) * 2) * 16)
+	// Adjust allowed size based on character size
+	var/body_size = preferences?.read_preference(/datum/preference/numeric/body_size) || BODY_SIZE_NORMAL
 	var/has_oversized_quirk = preferences?.all_quirks.Find(/datum/quirk/oversized::name)
-	// Clamp this for normal sized characters
+	// Clamp this for normal sized characters. Max allowed size is proportional to the mob's body_size, rounded up.
 	if(!has_oversized_quirk)
+		var/adjusted_size = PENIS_MAX_GIRTH_NORMAL_SIZED
+		if(body_size > 1)
+			adjusted_size = ceil(round(PENIS_MAX_GIRTH_NORMAL_SIZED, step) + ((((body_size - round(1, step)) * round(2, step))) * round(PENIS_GIRTH_ABOVE_NORMAL, step))) // floating point inaccuracy fun
 		if(value > adjusted_size)
 			value = adjusted_size
 	target.dna.features["penis_girth"] = value
+
+#undef PENIS_GIRTH_ABOVE_NORMAL
 
 /datum/preference/numeric/penis_girth/create_default_value()
 	return round(max(PENIS_MIN_GIRTH, PENIS_DEFAULT_GIRTH))
