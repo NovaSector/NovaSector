@@ -528,7 +528,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/cell/bluespace
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace
 	},
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,
@@ -1121,7 +1121,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south{
-	cell_type = /obj/item/stock_parts/cell/bluespace;
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace;
 	start_charge = 63
 	},
 /turf/open/floor/iron/airless,
@@ -1181,7 +1181,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east{
-	cell_type = /obj/item/stock_parts/cell/bluespace;
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace;
 	start_charge = 94
 	},
 /turf/open/floor/iron/airless,
@@ -1229,7 +1229,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/cell/bluespace
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace
 	},
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,
@@ -1383,7 +1383,7 @@
 /obj/machinery/light/dim/directional/north,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/cell/bluespace
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace
 	},
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,

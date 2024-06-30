@@ -40,7 +40,7 @@
 	righthand_file = 'modular_nova/modules/exp_corps/icons/bonesaw_r.dmi'
 	inhand_icon_state = "bonesaw"
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	toolspeed = 0.2
+	toolspeed = 2
 	throw_range = 3
 	w_class = WEIGHT_CLASS_SMALL
 
