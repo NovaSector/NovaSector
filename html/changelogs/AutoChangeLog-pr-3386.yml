@@ -1,8 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Advanced hypospray is no longer available to security and Tarkon"
-  - bugfix: "Advanced hypospray is available to medical"
-  - spellcheck: "More hypospray text consistency"
-  - spellcheck: "Empty hypospray kits are now called cases, case/hypospray combos remain kits"
-  - qol: "Hypospray application method is spray by default"
