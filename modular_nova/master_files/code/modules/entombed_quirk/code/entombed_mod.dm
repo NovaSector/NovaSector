@@ -90,7 +90,7 @@
 
 /obj/item/mod/control/pre_equipped/entombed
 	theme = /datum/mod_theme/entombed
-	applied_cell = /obj/item/stock_parts/cell/high
+	applied_cell = /obj/item/stock_parts/power_store/cell/high
 
 // CUSTOM BEHAVIOR
 
