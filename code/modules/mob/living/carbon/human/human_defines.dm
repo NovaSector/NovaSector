@@ -52,6 +52,9 @@
 	var/age = 30 //Player's age
 	var/chrono_age = 30 // NOVA EDIT ADDITION - Chronological age
 
+	/// What sound to play when the playher is walking barefoot. Can be 'default', 'shoes', or 'claws'.
+	var/footstep_type = "default" // NOVA EDIT ADDITION - Barefoot footstep sound overrides.
+
 	/// Which body type to use
 	var/physique = MALE
 
