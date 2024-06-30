@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 /obj/item/clothing/accessory/wetmaker
 	name = "wetmaker"
 	desc = "A device that makes the wearer wet."
-	icon_state = "wetmaker"
+	icon_state = "green"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	attachment_slot = NONE
@@ -211,3 +211,17 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 /obj/item/clothing/accessory/wetmaker/Destroy()
 	. = ..()
 	qdel(GetComponent(/datum/component/wetsuit))
+
+/obj/item/clothing/accessory/wetmaker/emp_act(severity)
+	. = ..()
+	var/mob/wearer = loc.loc
+	if(!istype(wearer, /mob/living/carbon/human))
+		return
+	var/turf/open/tile = get_turf(wearer)
+	if(istype(tile))
+		tile.atmos_spawn_air("[GAS_WATER_VAPOR]=50;[TURF_TEMPERATURE(1000)]")
+	wearer.balloon_alert(wearer, "overloaded!")
+	wearer.visible_message("<span class='danger'>[src] overloads, exploding in a cloud of hot steam!</span>")
+	playsound(src, 'sound/effects/spray.ogg')
+	detach(loc)
+	qdel(src)
