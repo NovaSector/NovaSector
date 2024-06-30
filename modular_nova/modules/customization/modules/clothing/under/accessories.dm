@@ -202,6 +202,7 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	icon_state = "wetmaker"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	attachment_slot = NONE
 
 /obj/item/clothing/accessory/wetmaker/Initialize(mapload)
 	. = ..()
