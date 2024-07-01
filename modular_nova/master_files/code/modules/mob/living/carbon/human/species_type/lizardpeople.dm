@@ -4,10 +4,6 @@ Lizard subspecies: ASHWALKERS
 
 /datum/species/lizard/ashwalker/
 	language_prefs_whitelist = list(/datum/language/ashtongue)
-	inherent_factions = list(
-		FACTION_MINING,
-		FACTION_NEUTRAL,
-	)
 
 /datum/species/lizard/ashwalker/create_pref_language_perk()
 	var/list/to_add = list()
