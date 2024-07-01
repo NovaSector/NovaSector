@@ -106,6 +106,11 @@ GLOBAL_LIST_EMPTY(scream_types)
 		'sound/voice/ethereal/ethereal_scream_3.ogg')
 	female_screamsounds = null
 
+/datum/scream_type/slugcat
+	name = "Slugcat Scream"
+	male_screamsounds = list('modular_nova/modules/emotes/sound/voice/scugscream_1.ogg')
+	female_screamsounds = null
+
 //DONATOR SCREAMS
 /datum/scream_type/zombie
 	name = "Zombie Scream"
