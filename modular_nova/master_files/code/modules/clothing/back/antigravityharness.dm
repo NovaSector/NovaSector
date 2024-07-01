@@ -1,7 +1,7 @@
 #define MODE_GRAVOFF "Off"
 #define MODE_ANTIGRAVITY "Anti-Gravity Field"
 #define MODE_EXTRAGRAVITY "Extra-Gravity Field"
-#define GRAVITY_FIELD_COST 20
+#define GRAVITY_FIELD_COST STANDARD_CELL_CHARGE * 0.05
 #define OFF_STATE "gravityharness-off"
 #define ANTIGRAVITY_STATE "gravityharness-anti"
 #define EXTRAGRAVITY_STATE "gravityharness-extra"
@@ -21,7 +21,7 @@
 	/// The current operating mode
 	var/mode = MODE_GRAVOFF
 	/// The cell that the harness is currently using
-	var/obj/item/stock_parts/cell/current_cell
+	var/obj/item/stock_parts/power_store/cell/current_cell
 	/// If the cell cover is open or not
 	var/cell_cover_open = FALSE
 	/// If it's manipulating gravity at all.
@@ -267,7 +267,7 @@
 		change_mode(MODE_GRAVOFF)
 
 /obj/item/gravity_harness/tool_act(mob/living/user, obj/item/tool, list/modifiers)
-	if(!istype(tool, /obj/item/stock_parts/cell))
+	if(!istype(tool, /obj/item/stock_parts/power_store/cell))
 		return ..()
 
 	if(!cell_cover_open)

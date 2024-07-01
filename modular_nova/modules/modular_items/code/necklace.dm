@@ -7,6 +7,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
 	icon_state = "ashnecklace"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_OCLOTHING
 	w_class = WEIGHT_CLASS_SMALL //allows this to fit inside of pockets.
 	/// The language granted by this necklace
 	var/datum/language/language_granted = /datum/language/ashtongue
@@ -23,7 +24,7 @@
 /obj/item/clothing/neck/necklace/translator/proc/on_necklace_equip(datum/source, mob/living/carbon/human/equipper, slot)
 	SIGNAL_HANDLER
 
-	if(!(slot & ITEM_SLOT_NECK))
+	if(!(slot_flags & slot))
 		return
 
 	if(!istype(equipper))
@@ -51,9 +52,6 @@
 	SIGNAL_HANDLER
 
 	if(!istype(unequipper))
-		return
-
-	if(unequipper.wear_neck != source)
 		return
 
 	unequipper.remove_language(language_granted, source = LANGUAGE_TRANSLATOR)
