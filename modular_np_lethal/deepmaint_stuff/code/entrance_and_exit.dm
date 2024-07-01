@@ -1,6 +1,7 @@
 GLOBAL_LIST_EMPTY(deepmaints_entrances)
 GLOBAL_LIST_EMPTY(deepmaints_entrances_filtre)
 GLOBAL_LIST_EMPTY(deepmaints_entrances_inborn)
+GLOBAL_LIST_EMPTY(deepmaints_entrances_ninja)
 GLOBAL_LIST_EMPTY(deepmaints_exits)
 
 /obj/structure/deepmaints_entrance
@@ -105,6 +106,14 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 /obj/structure/deepmaints_entrance/filtre/remove_from_global_list()
 	GLOB.deepmaints_entrances_filtre -= src
 
+/obj/structure/deepmaints_entrance/ninja
+
+/obj/structure/deepmaints_entrance/ninja/log_to_global_list()
+	GLOB.deepmaints_entrances_ninja += src
+
+/obj/structure/deepmaints_entrance/ninja/remove_from_global_list()
+	GLOB.deepmaints_entrances_ninja -= src
+
 /obj/structure/deepmaints_entrance/exit
 	name = "exit ladder"
 	desc = "A ladder that leads back to 'civilization' above, though its mighty dark up there... \
@@ -140,6 +149,8 @@ GLOBAL_LIST_EMPTY(deepmaints_exits)
 	var/obj/destination
 	if(HAS_TRAIT(user, TRAIT_EXTRACT_TO_FILTRE_SHIP))
 		destination = pick(GLOB.deepmaints_entrances_filtre)
+	if(HAS_TRAIT(user, TRAIT_EXTRACT_TO_NINJA_HIDEOUT))
+		destination = pick(GLOB.deepmaints_entrances_ninja)
 	else
 		destination = pick(GLOB.deepmaints_entrances)
 	if(!destination)

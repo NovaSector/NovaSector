@@ -26,3 +26,5 @@
 #define TRAIT_INFIL_BUFF "gakster_infil_buff"
 /// If the owner of this trait cannot use the exit ladders
 #define TRAIT_NO_EXTRACT "remember_you_are_here_forever"
+// If the owner of this trait should extract to the super secret ninja hideout
+#define TRAIT_EXTRACT_TO_NINJA_HIDEOUT

@@ -86,11 +86,13 @@
 		playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
 
 /obj/item/clothing/suit/armor/lethal_ninja_armor
-	name = "Kudagitsune Heat Silk"
-	desc = ""
+	name = "Tsukomogami Heatsilk"
+	desc = "A specialized cloak that can protect its wearer from inclement weather as well as laser and energy based weaponry \
+	sporting the heraldry of the Tsukomogami group. It has been supplemented with light anti-kinetic armored plates."
 	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
 	icon_state = "genin_armor_light"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
+	worn_icon_state = "genin_armor_light"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_lethal_kudagitsune
@@ -109,6 +111,9 @@
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_lethal_baku
+	max_integrity = 600
+	limb_integrity = 400
+	slowdown = 0.1
 
 //stuff that protects the rest of your body
 
@@ -147,35 +152,36 @@
 	desc = "A pair of armwarmers has been reinforced with printed chain and and high strength resin plates in \
 	imitation of medieval underarmor. The result is less resilient then dedicated armored gauntlets, but these \
 	are able to protect your extremities without hampering your manual dexterity."
-	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
-	icon_state = "gloves"
-	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
+	icon_state = "kote_sleeves"
+	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	worn_icon_state = "gloves"
+	worn_icon_state = "kote_sleeves"
+	armor_type = /datum/armor/colonist_clothing
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 
 //stuff that goes on your feet
 
 /obj/item/clothing/shoes/jackboots/jikatabi
 	name = "jikatabi"
-	desc = ""
-	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
-	icon_state = "boots"
-	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
-	worn_icon_digi = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi'
-	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
-	worn_icon_state = "boots"
+	desc = "Originating in medieval Japanese battle dress, jikatabi have survived as both a practical choice for \
+	some and a fashionable novelty for others. The design has changed little in centuries even as high tech textiles \
+	and rubbers have replaced its traditional materials. This one has been supplemented with a little protective armor."
+	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
+	icon_state = "jikatabi"
+	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
+	worn_icon_state = "jikatabi"
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
 
 /obj/item/clothing/shoes/jackboots/long_jikatabi
 	name = "long jikatabi"
-	desc = ""
-	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
-	icon_state = "boots"
-	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
-	worn_icon_digi = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi'
-	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
-	worn_icon_state = "boots"
+	desc = "Originating in medieval Japanese battle dress, jikatabi have survived as both a practical choice for \
+	some and a fashionable novelty for others. The design has changed little in centuries even as high tech textiles \
+	and rubbers have replaced its traditional materials. This pair is more stylized and extensively customized than most."
+	icon = 'modular_np_lethal/ninja_stuff/icons/clothing_obj.dmi'
+	icon_state = "long_jikatabi"
+	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
+	worn_icon_state = "long_jikatabi"
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE

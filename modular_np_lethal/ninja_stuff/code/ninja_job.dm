@@ -1,39 +1,42 @@
 /datum/job/genin
 	title = "Genin"
-	description = "Defend the bunker and assist your fellow shinobi \
-		Your loyalty is with the Tsukomogami."
+	description = "Prove your worth and support your fellow shinobi."
 	faction = FACTION_STATION
-	total_positions = -1
-	spawn_positions = -1
+	total_positions = 2
+	spawn_positions = 2
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "GENIN"
 
-	outfit = /datum/outfit/job/filtre
-	plasmaman_outfit = /datum/outfit/plasmaman/filtre
+	outfit = /datum/outfit/job/genin
+	plasmaman_outfit = /datum/outfit/plasmaman/genin
 
 	paycheck = PAYCHECK_LOWER
 
 	liver_traits = list(TRAIT_ENGINEER_METABOLISM, TRAIT_ROYAL_METABOLISM)
 
-	display_order = JOB_DISPLAY_ORDER_SECURITY_MEDIC
+	display_order = JOB_DISPLAY_ORDER_BOUNCER
 	bounty_types = CIV_JOB_BASIC
-	department_for_prefs = /datum/job_department/security
+	department_for_prefs = /datum/job_department/service
 	departments_list = list(
-		/datum/job_department/security,
+		/datum/job_department/service,
 	)
 
 	family_heirlooms = list(/obj/item/lead_pipe)
 
-	rpg_title = "Dungeon Guard"
+	rpg_title = "Fiendish Rogue"
 	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS & ~JOB_REOPEN_ON_ROUNDSTART_LOSS
 
-/datum/job/filtre/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/genin/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	ADD_TRAIT(spawned, TRAIT_NODISMEMBER, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_LIMBATTACHMENT, JOB_TRAIT)
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
-	ADD_TRAIT(spawned, TRAIT_EXTRACT_TO_FILTRE_SHIP, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_EXTRACT_TO_NINJA_HIDEOUT, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_XRAY_HEARING, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_NIGHT_VISION, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_LIGHT_STEP, JOB_TRAIT)
+	ADD_TRAIT(spawned, TRAIT_CATLIKE_GRACE, JOB_TRAIT)
 
-/datum/job/filtre/get_latejoin_spawn_point()
+/datum/job/genin/get_latejoin_spawn_point()
 	var/list/spawn_markers_to_use = list()
 	for(var/obj/effect/landmark/start/spawn_point as anything in GLOB.start_landmarks_list)
 		if(spawn_point.name != job_spawn_title)
@@ -41,13 +44,13 @@
 		spawn_markers_to_use += spawn_point
 	return pick(spawn_markers_to_use)
 
-/datum/outfit/job/filtre
-	name = "Filtre"
-	jobtype = /datum/job/filtre
+/datum/outfit/job/genin
+	name = "Genin"
+	jobtype = /datum/job/genin
 
-	id_trim = /datum/id_trim/job/security_officer/filtre
+	id_trim = /datum/id_trim/job/bouncer/genin
 
-	uniform = /obj/item/clothing/under/syndicate/combat
+	uniform = /obj/item/clothing/under/genin_uniform
 	box = null
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/medipen/deforest/captagon = 1,
@@ -57,8 +60,8 @@
 	ears = /obj/item/radio/headset/headset_cent/alt
 	gloves = /obj/item/clothing/gloves/frontier_colonist
 	head = null
-	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
-	l_pocket = /obj/item/switchblade
+	shoes = /obj/item/clothing/shoes/jackboots/jikatabi
+	l_pocket = /obj/item/knife/combat/kunai
 	r_pocket = /obj/item/flashlight/flare
 
 	backpack = /obj/item/storage/backpack/industrial/frontier_colonist
@@ -66,7 +69,7 @@
 	duffelbag = /obj/item/storage/backpack/industrial/frontier_colonist
 	messenger = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 
-/datum/outfit/job/filtre/post_equip(mob/living/carbon/human/squaddie, visualsOnly = FALSE)
+/datum/outfit/job/genin/post_equip(mob/living/carbon/human/squaddie, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
@@ -77,8 +80,8 @@
 	squaddie.faction |= FACTION_ERT
 	return ..()
 
-/datum/outfit/plasmaman/filtre
-	name = "Filtre Plasmaman"
+/datum/outfit/plasmaman/genin
+	name = "Genin Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/security
 	gloves = /obj/item/clothing/gloves/color/plasmaman/black
@@ -86,9 +89,9 @@
 	r_hand= /obj/item/tank/internals/plasmaman/belt/full
 	internals_slot = ITEM_SLOT_HANDS
 
-/datum/id_trim/job/security_officer/filtre
-	assignment = "Filtre"
+/datum/id_trim/job/bouncer/genin
+	assignment = "Genin"
 
-/obj/effect/landmark/start/lethal_filtre
+/obj/effect/landmark/start/lethal_genin
 	delete_after_roundstart = FALSE
-	name = "Filtre"
+	name = "Genin"

@@ -16,6 +16,9 @@
 /area/gakster_location/hideout_real
 	name = "Hideout (Real)"
 
+/area/gakster_location/ninja_hideout
+	name = "Hideout (Stealthy)"
+
 /area/gakster_location/hideout_real/Entered(atom/movable/arrived, area/old_area)
 	. = ..()
 	var/mob/living/carbon/human/arriving_mob = arrived
