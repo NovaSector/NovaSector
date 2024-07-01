@@ -20,8 +20,8 @@
 
 /datum/quirk/system_shock/proc/on_electrocute()
 	SIGNAL_HANDLER
-	var/knockout_length = 9 + rand(0,5)
-	quirk_holder.set_static_vision(knockout_length SECONDS)
+	var/knockout_length = 0.9 SECONDS + rand(0 SECONDS, 0.5 SECONDS)
+	quirk_holder.set_static_vision(knockout_length)
 	quirk_holder.balloon_alert(quirk_holder, "system rebooting")
 	to_chat(quirk_holder, span_danger("CRIT&!AL ERR%R: S#STEM REBO#TING."))
 	addtimer(CALLBACK(src, PROC_REF(knock_out), knockout_length-4), 2 SECONDS)
