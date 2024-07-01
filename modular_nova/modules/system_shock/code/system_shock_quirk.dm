@@ -24,7 +24,7 @@
 	quirk_holder.set_static_vision(knockout_length)
 	quirk_holder.balloon_alert(quirk_holder, "system rebooting")
 	to_chat(quirk_holder, span_danger("CRIT&!AL ERR%R: S#STEM REBO#TING."))
-	addtimer(CALLBACK(src, PROC_REF(knock_out), knockout_length-4), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(knock_out), knockout_length - 0.4 SECONDS), 2 SECONDS)
 
 /datum/quirk/system_shock/proc/knock_out(var/length)
 	quirk_holder.Sleeping(length)
