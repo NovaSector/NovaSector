@@ -89,7 +89,7 @@
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/clothing_worn.dmi'
 	worn_icon_state = "tactical_bag"
 
-/obj/item/storage/belt/kunai_bandolier/Initialize(mapload)
+/obj/item/storage/belt/ninja_bandolier/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 30
 	atom_storage.numerical_stacking = TRUE
@@ -105,7 +105,7 @@
 		/obj/item/reagent_containers/cup/glass/bottle/molotov,
 	))
 
-/obj/item/storage/belt/kunai_bandolier/full/PopulateContents()
+/obj/item/storage/belt/ninja_bandolier/full/PopulateContents()
 	generate_items_inside(list(
 		/obj/item/knife/combat/kunai = 20,
 		/obj/item/grenade/smokebomb = 5,

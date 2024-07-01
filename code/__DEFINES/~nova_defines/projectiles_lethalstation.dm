@@ -27,4 +27,4 @@
 /// If the owner of this trait cannot use the exit ladders
 #define TRAIT_NO_EXTRACT "remember_you_are_here_forever"
 // If the owner of this trait should extract to the super secret ninja hideout
-#define TRAIT_EXTRACT_TO_NINJA_HIDEOUT
+#define TRAIT_EXTRACT_TO_NINJA_HIDEOUT "extract_to_ninja_hideout"

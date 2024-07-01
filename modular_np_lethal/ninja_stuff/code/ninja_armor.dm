@@ -14,7 +14,7 @@
 //the baku are frontline combatants that get mid tier gakster armor (tier iii-ish)
 /datum/armor/armor_lethal_baku
 	melee = ARMOR_LEVEL_MID
-	bullet = BULLET_ARMOR_II + 10
+	bullet = BULLET_ARMOR_III
 	laser = ARMOR_LEVEL_MID
 	energy = ARMOR_LEVEL_WEAK
 	bomb = ARMOR_LEVEL_MID
@@ -90,9 +90,9 @@
 	desc = "A specialized cloak that can protect its wearer from inclement weather as well as laser and energy based weaponry \
 	sporting the heraldry of the Tsukomogami group. It has been supplemented with light anti-kinetic armored plates."
 	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
-	icon_state = "genin_armor_light"
+	icon_state = "genin_heatsilk"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
-	worn_icon_state = "genin_armor_light"
+	worn_icon_state = "genin_heatsilk"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_lethal_kudagitsune
@@ -103,11 +103,14 @@
 	slowdown = 0
 
 /obj/item/clothing/suit/armor/lethal_ninja_armor/medium
-	name = ""
-	desc = ""
+	name = "Tsukomogami Armor"
+	desc = "As the Tsukomogami group transitioned from clandestine activity to open militant engagements they also greater \
+	personal protection. The same polymer-laminates utilized in their weaponry proved capable to the task of making strong, \
+	weather resistant armor. The interior bears a maker's mark generally associated with Cybersun's munitions division."
 	icon = 'modular_np_lethal/ninja_stuff/icons/armor_obj.dmi'
-	icon_state = "genin_armor_light"
+	icon_state = "genin_medium"
 	worn_icon = 'modular_np_lethal/ninja_stuff/icons/armor_worn.dmi'
+	worn_icon_state = "genin_medium"
 	inhand_icon_state = "armor"
 	blood_overlay_type = "armor"
 	armor_type = /datum/armor/armor_lethal_baku

@@ -115,6 +115,7 @@
 			"name" = "Gear",
 			"icon" = "gear",
 			"products" = list(
+				/obj/item/storage/belt/ninja_bandolier = INFINITY,
 				/obj/item/storage/pouch/medical/loaded = INFINITY,
 				/obj/item/storage/pouch/ammo = INFINITY,
 				/obj/item/storage/epic_loot_org_pouch = INFINITY,
