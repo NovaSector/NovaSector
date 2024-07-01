@@ -27,19 +27,15 @@
 /datum/antagonist/ashwalker/on_gain()
 	. = ..()
 	RegisterSignal(owner.current, COMSIG_MOB_EXAMINATE, PROC_REF(on_examinate))
-<<<<<<< HEAD
-	//owner.teach_crafting_recipe(/datum/crafting_recipe/skeleton_key) //NOVA EDIT REMOVAL - ASH RITUALS
-=======
-	owner.teach_crafting_recipe(/datum/crafting_recipe/skeleton_key)
-	if(FACTION_NEUTRAL in owner.current.faction)
-		owner.current.faction.Remove(FACTION_NEUTRAL) // ashwalkers aren't neutral; they're ashwalker-aligned
->>>>>>> 43bf03f2b4c (Ashwalkers now start out in their proper faction; Lavaland mobs also have this if ashwalkers don't attack them (#84127))
+	// owner.teach_crafting_recipe(/datum/crafting_recipe/skeleton_key) //NOVA EDIT REMOVAL - ASH RITUALS
+	// if(FACTION_NEUTRAL in owner.current.faction) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
+		// owner.current.faction.Remove(FACTION_NEUTRAL) // ashwalkers aren't neutral; they're ashwalker-aligned //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
 
 /datum/antagonist/ashwalker/on_removal()
 	. = ..()
 	UnregisterSignal(owner.current, COMSIG_MOB_EXAMINATE)
-	if(!(FACTION_NEUTRAL in owner.current.faction))
-		owner.current.faction.Add(FACTION_NEUTRAL)
+	// if(!(FACTION_NEUTRAL in owner.current.faction)) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
+		// owner.current.faction.Add(FACTION_NEUTRAL) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
 
 /datum/antagonist/ashwalker/proc/on_examinate(datum/source, atom/A)
 	SIGNAL_HANDLER
