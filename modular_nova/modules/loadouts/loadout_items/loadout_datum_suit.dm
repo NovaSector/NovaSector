@@ -748,6 +748,11 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
 
+// All-donators donator item for BlindPoet
+/datum/loadout_item/suit/donator/chokha
+	name = "Iseurian Chokha"
+	item_path = /obj/item/clothing/suit/chokha
+
 /datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/glitched
