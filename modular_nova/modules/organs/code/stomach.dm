@@ -42,7 +42,7 @@
 			human_target.electrocution_animation(1 SECONDS)
 	return COMPONENT_LIVING_BLOCK_SHOCK
 
-//lithovore stomach - modified golem
+//lithovore stomach - modified golem - this whole section calls to the vars set under stomach/golem, they work in game
 /obj/item/organ/internal/stomach/lithovore
 	name = "litho-adapted stomach"
 	icon_state = "stomach-p"
@@ -64,16 +64,16 @@
 	organ_owner.remove_movespeed_modifier(/datum/movespeed_modifier/golem_hunger)
 	organ_owner.remove_status_effect(/datum/status_effect/golem_statued) // failsafes to ensure you don't get accidentally golem statue'd
 
-/// ROCK EATER
+/// ROCK EATER - allows you to eat the golem food list
 /obj/item/organ/internal/stomach/lithovore/proc/try_eating(mob/living/carbon/source, atom/eating)
 	SIGNAL_HANDLER
 	if(istype(eating, /obj/item/food/golem_food))
 		return
 
-//actual code, makes sure u don't get the fancy 'golem rocks' from eating the material type
+//actual code, makes sure u don't get the fancy 'golem rocks' from eating the material type. also makes food eaten normally give u similar nutrients
 /obj/item/organ/internal/stomach/lithovore/on_life(delta_time, times_fired)
 	for(var/datum/reagent/consumable/food in reagents.reagent_list)
 		if (istype(food, /datum/reagent/consumable/nutriment/mineral))
 			continue
-		food.nutriment_factor = 0
+		food.nutriment_factor = 5 // adjusts to mid-baseline food for non-mineral items
 	return ..()
