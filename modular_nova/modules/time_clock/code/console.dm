@@ -1,5 +1,3 @@
-#define CLOCK_IN_COOLDOWN 15 MINUTES
-
 /obj/machinery/time_clock
 	name = "time clock"
 	desc = "Allows employees to clock in and out of their jobs"
@@ -103,7 +101,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/time_clock, 28)
 	if(!inserted_id)
 		return FALSE
 
-	var/datum/component/off_duty_timer/timer_component = inserted_id.AddComponent(/datum/component/off_duty_timer, CLOCK_IN_COOLDOWN)
+	var/datum/component/off_duty_timer/timer_component = inserted_id.AddComponent(/datum/component/off_duty_timer, JOB_TIME_CLOCK_COOLDOWN)
 	if(important_job_check())
 		timer_component.hop_locked = TRUE
 		log_admin("[inserted_id.registered_name] clocked out as a head of staff and/or command")
@@ -202,5 +200,3 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/time_clock, 28)
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
 	)
-
-#undef CLOCK_IN_COOLDOWN
