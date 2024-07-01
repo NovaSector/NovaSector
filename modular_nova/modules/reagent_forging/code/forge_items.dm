@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 		/obj/structure/reagent_crafting_bench
 	)
 
-/obj/item/forging/hammer/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/forging/hammer/afterattack(atom/target, mob/user, click_parameters)
 	. = ..()
 	if(!is_type_in_list(target, fast_attacks))
 		return
@@ -307,9 +307,9 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 		new /obj/item/ammo_casing/arrow/(src_turf)
 	qdel(src)
 
-/obj/item/stock_parts/cell/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/stock_parts/power_store/cell/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/forging/coil))
-		var/obj/item/stock_parts/cell/crank/new_crank = new(get_turf(src))
+		var/obj/item/stock_parts/power_store/cell/crank/new_crank = new(get_turf(src))
 		new_crank.maxcharge = maxcharge
 		new_crank.charge = charge
 		qdel(attacking_item)

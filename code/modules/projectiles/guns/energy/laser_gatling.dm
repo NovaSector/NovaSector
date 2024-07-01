@@ -13,7 +13,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 
 	var/obj/item/gun/energy/minigun/gun
-	var/obj/item/stock_parts/cell/minigun/battery
+	var/obj/item/stock_parts/power_store/cell/minigun/battery
 	var/armed = FALSE //whether the gun is attached, FALSE is attached, TRUE is the gun is wielded.
 	var/overheat = 0
 	var/overheat_max = 40
@@ -102,7 +102,7 @@
 	custom_materials = null
 	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/minigun)
-	cell_type = /obj/item/stock_parts/cell/crap
+	cell_type = /obj/item/stock_parts/power_store/cell/crap
 	item_flags = NEEDS_PERMIT | SLOWS_WHILE_IN_HAND
 	can_charge = FALSE
 	var/obj/item/minigunpack/ammo_pack
@@ -142,12 +142,13 @@
 		cell.give(transferred)
 
 
-/obj/item/gun/energy/minigun/afterattack(atom/target, mob/living/user, flag, params)
+/obj/item/gun/energy/minigun/try_fire_gun(atom/target, mob/living/user, params)
 	if(!ammo_pack || ammo_pack.loc != user)
 		to_chat(user, span_warning("You need the backpack power source to fire the gun!"))
-	. = ..()
+		return FALSE
+	return ..()
 
-/obj/item/stock_parts/cell/minigun
+/obj/item/stock_parts/power_store/cell/minigun
 	name = "gatling gun fusion core"
 	desc = "Where did these come from?"
 	maxcharge = 500 * STANDARD_CELL_CHARGE

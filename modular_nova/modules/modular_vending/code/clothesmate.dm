@@ -53,6 +53,9 @@
 			"icon" = "shirt",
 			"products" = list(
 				/obj/item/clothing/under/pants/nova/jeans_ripped = 5,
+				/obj/item/clothing/under/pants/nova/big_pants = 5,
+				/obj/item/clothing/under/dress/skirt/nova/loincloth = 5,
+				/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
 				/obj/item/clothing/under/shorts/nova/shorts_ripped = 5,
 				/obj/item/clothing/under/pants/nova/yoga = 5,
 				/obj/item/clothing/under/misc/nova/mechanic = 5,
@@ -129,6 +132,8 @@
 				/obj/item/clothing/suit/warm_sweater = 5,
 				/obj/item/clothing/suit/heart_sweater = 5,
 				/obj/item/clothing/suit/crop_jacket = 5,
+				/obj/item/clothing/suit/big_jacket = 5,
+				/obj/item/clothing/suit/dagger_mantle = 5,
 			),
 		),
 

@@ -68,12 +68,16 @@
 	name = "handcrafted hearthkin armor"
 	desc = "An armor obviously crafted by the expertise of a hearthkin. It has leather shoulder pads and a chain mail underneath."
 	icon_state = "chained_leather_armor"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = GROIN|CHEST
 	obj_flags_nova = ANVIL_REPAIR
 	armor_type = /datum/armor/armor_forging_plate_armor
+
+/obj/item/clothing/suit/armor/handcrafted_hearthkin_armor/Initialize(mapload)
+    . = ..()
+    allowed += /obj/item/forging/reagent_weapon
 
 /datum/crafting_recipe/handcrafted_hearthkin_armor
 	name = "Handcrafted Hearthkin Armor"
@@ -152,15 +156,15 @@
     throwforce = 0
     w_class = WEIGHT_CLASS_TINY
 
-/obj/item/frozen_breath/afterattack(atom/target, mob/living/carbon/user)
+/obj/item/frozen_breath/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
     if (!is_species(user, /datum/species/human/felinid/primitive))
         to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
         return
 
-    if(istype(target, /obj/item/organ/internal/lungs))
-        var/obj/item/organ/internal/lungs/target_lungs = target
+    if(istype(interacting_with, /obj/item/organ/internal/lungs))
+        var/obj/item/organ/internal/lungs/target_lungs = interacting_with
         if(IS_ROBOTIC_ORGAN(target_lungs))
-            target.balloon_alert(user, "The lungs have to be organic!")
+            user.balloon_alert(user, "The lungs have to be organic!")
             return
         var/location = get_turf(target_lungs)
         playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)

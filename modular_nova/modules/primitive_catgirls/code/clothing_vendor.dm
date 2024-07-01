@@ -13,6 +13,8 @@
 		/obj/item/clothing/under/dress/skirt/primitive_catgirl_body_wraps = 15,
 		/obj/item/clothing/under/dress/skirt/primitive_catgirl_tailored_dress = 15,
 		/obj/item/clothing/under/dress/skirt/primitive_catgirl_tunic = 15,
+		/obj/item/clothing/under/dress/skirt/nova/loincloth = 5,
+		/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
 		/obj/item/clothing/suit/jacket/primitive_catgirl_coat = 15,
 		/obj/item/clothing/gloves/fingerless/primitive_catgirl_armwraps = 15,
 		/obj/item/clothing/shoes/winterboots/ice_boots/primitive_catgirl_boots = 15,
@@ -27,6 +29,8 @@
 		/obj/item/clothing/neck/mantle/recolorable/primitive_catgirl_off_white = 5,
 		/obj/item/clothing/neck/ranger_poncho/primitive_catgirl_leather = 5,
 		/obj/item/clothing/neck/wide_cape = 5,
+		/obj/item/clothing/neck/robe_cape = 5,
+		/obj/item/clothing/neck/long_cape = 5,
 		/obj/item/clothing/glasses/eyepatch/wrap = 5,
 		/obj/item/clothing/head/primitive_catgirl_ferroniere = 5,
 		/obj/item/clothing/head/pelt/snow_tiger = 5,
@@ -35,6 +39,9 @@
 		/obj/item/clothing/head/pelt/white = 5,
 		/obj/item/clothing/head/pelt/wolf = 5,
 		/obj/item/clothing/head/pelt/wolf/white = 5,
+		/obj/item/clothing/head/costume/nova/papakha = 5,
+		/obj/item/clothing/head/costume/nova/papakha/white = 5,
+		/obj/item/clothing/head/hair_tie = 5,
 	)
 
 /obj/machinery/vending/primitive_catgirl_clothing_vendor/Initialize(mapload)
