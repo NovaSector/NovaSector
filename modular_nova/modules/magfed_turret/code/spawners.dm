@@ -1,13 +1,20 @@
 /obj/effect/spawner/random/magturret
 	name = "Random Magazine Turret"
 	icon = 'modular_nova/modules/magfed_turret/icons/spawners.dmi'
-	icon_state = "turret_spawner"
+	icon_state = "dep_turret_spawner"
 	loot = list(
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost/malf,
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider,
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang,
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster,
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy
+		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost/malf = 80,
+		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster = 20
+	)
+
+/obj/effect/spawner/random/throwturret
+	name =  "Random Throwable Turret"
+	icon = 'modular_nova/modules/magfed_turret/icons/spawners.dmi'
+	icon_state = "dep_throw_spawner"
+	loot = list(
+		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider = 80,
+		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang = 15,
+		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy = 5
 	)
 
 /obj/effect/spawner/random/turretkit

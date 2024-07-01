@@ -11,6 +11,8 @@
 	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	has_latches = FALSE
 	slot_flags = ITEM_SLOT_BELT
+	easy_deploy = TRUE
+	easy_deploy_timer = 1.5 SECONDS
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/cerberus //To make it more available for subtyping. LET. THEM. COOK.
 	mag_slots = 3 //how many magazines can be held.
 	mag_types_allowed = list( //This is a whitelist for what is allowed. Nothing else may enter.
@@ -35,6 +37,8 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
 	mag_slots = 2
 	slot_flags = ITEM_SLOT_BELT
+	easy_deploy = TRUE
+	easy_deploy_timer = 1.5 SECONDS
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/c35sol_pistol,
 		/obj/item/ammo_box/magazine/c585trappiste_pistol,

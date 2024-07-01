@@ -119,7 +119,7 @@
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS
 	)
 
-/datum/design/hoplite_assembly
+/datum/design/target_designator
 	name = "Turret Target Designator"
 	desc = "A basic target designator designed to control magazine-fed turrets."
 	id = "target_designator"

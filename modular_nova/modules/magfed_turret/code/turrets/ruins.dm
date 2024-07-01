@@ -7,10 +7,8 @@
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
 	inhand_icon_state = "outpost_turretkit"
-	throw_speed = 2
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	mag_slots = 2
-	turret_safety = TRUE
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/c40sol_rifle
 	)
@@ -22,7 +20,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	name = "\improper Outpost Point-Defense Turret"
 	desc = "A deployable turret used for protection of outposts and civilian constructs."
-	max_integrity = 200
+	max_integrity = 150
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "outpost_off"
 	base_icon_state = "outpost"
@@ -47,7 +45,6 @@
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/magfed_turret/icons//inhands/lefthand.dmi'
 	inhand_icon_state = "colonist_turretkit"
-	throw_speed = 2
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist
 	mag_slots = 2
 	easy_deploy = TRUE
@@ -63,11 +60,12 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist
 	name = "\improper Colonist Point-Defense Turret"
 	desc = "A deployable turret used for protection of colonists during construction or expeditionary trips. It is chambered to fire .40 Sol ammunition."
-	max_integrity = 200
+	max_integrity = 200 //bit more health since its ment for mobs only
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "colonist_off"
 	base_icon_state = "colonist"
 	shot_delay = 1.5 SECONDS
+	quick_retract = TRUE
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled
 
@@ -194,7 +192,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
 	name = "\improper Duster Emergent Turret"
 	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is fitted to use handfuls of loose Shotgun Shells or M12g Magazines."
-	max_integrity = 150
+	max_integrity = 125
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_off"
 	base_icon_state = "duster"

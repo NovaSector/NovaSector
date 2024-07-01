@@ -136,7 +136,7 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "gg" = (
 /obj/structure/table/rolling,
-/obj/effect/spawner/random/turretassembly,
+/obj/item/stock_parts/servo,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
@@ -223,6 +223,16 @@
 /obj/effect/spawner/random/food_or_drink/booze,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
+"jz" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/effect/spawner/random/turretassembly,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
 "jB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -294,6 +304,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/item/ammo_box/magazine/miecz/spawns_empty,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "nY" = (
@@ -346,7 +357,6 @@
 	dir = 10
 	},
 /obj/machinery/ammo_workbench/unlocked,
-/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "pA" = (
@@ -527,7 +537,6 @@
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/table/reinforced,
-/obj/item/ammo_box/magazine/c40sol_rifle,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "xh" = (
@@ -617,10 +626,10 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "Bz" = (
 /obj/structure/table/rolling,
-/obj/item/turret_assembly/duster,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/item/weaponcrafting/receiver,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Cc" = (
@@ -669,8 +678,6 @@
 /area/ruin/space/has_grav/powered/turretfactory)
 "EB" = (
 /obj/structure/table/reinforced,
-/obj/item/assembly/prox_sensor,
-/obj/item/assembly/prox_sensor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "EG" = (
@@ -700,7 +707,6 @@
 /area/template_noop)
 "Fk" = (
 /obj/machinery/ammo_workbench/unlocked,
-/obj/item/ammo_box/magazine/miecz/spawns_empty,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Ft" = (
@@ -781,6 +787,7 @@
 	dir = 8
 	},
 /obj/machinery/light/cold/directional/north,
+/obj/item/assembly/prox_sensor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Ke" = (
@@ -801,13 +808,14 @@
 /turf/open/floor/carpet/purple,
 /area/ruin/space/has_grav/powered/turretfactory)
 "KS" = (
-/obj/structure/disposalpipe/segment,
-/obj/item/weaponcrafting/receiver,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "tf_assembly"
+/obj/machinery/conveyor/auto{
+	dir = 4
 	},
-/turf/open/floor/iron,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Lq" = (
 /obj/structure/disposalpipe/segment{
@@ -1000,7 +1008,6 @@
 /obj/structure/table/reinforced,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/cold/directional/west,
-/obj/item/assembly/prox_sensor,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "UX" = (
@@ -1011,6 +1018,16 @@
 	pixel_y = -31
 	},
 /turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Vf" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Vh" = (
 /obj/structure/disposalpipe/segment{
@@ -1036,6 +1053,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
+"WC" = (
+/obj/structure/table/rolling,
+/obj/structure/disposalpipe/segment,
+/obj/item/assembly/prox_sensor,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
 "XA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -1046,7 +1069,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/item/turret_assembly,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "tf_assembly"
@@ -1270,7 +1292,7 @@ bi
 NC
 US
 vD
-gg
+WC
 Dv
 Fh
 xQ
@@ -1302,7 +1324,7 @@ Gm
 rX
 hA
 rX
-KS
+rX
 rX
 rX
 rX
@@ -1498,12 +1520,12 @@ Ft
 dM
 Fg
 Jq
+jz
+KS
 pR
 nI
 pR
-nI
-pR
-nI
+Vf
 jE
 Ng
 tT

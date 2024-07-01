@@ -115,6 +115,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	return FALSE
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // This was changed but not updated???? I guess no one uses the tarkon ones gawd DAHM
+	if(istype(tool, /obj/item/toy/crayon/spraycan))
+		return attackby(tool, user) //This is entirely just so people can use the gagsification for the toy turret.
+
 	if(setting_change && tool.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!tool.use_tool(src, user, 2 SECONDS, volume = 20))
 			return ITEM_INTERACT_BLOCKING
