@@ -161,3 +161,6 @@ ARRIVALS_WAIT 150
 
 ## Uncomment to enable the replacing of flashbangs in secbelts with energy bolas
 REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
+
+## Uncomment to block borgs/silicons from going through gateways
+BORG_GATEWAY_BLACKLIST

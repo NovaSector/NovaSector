@@ -1,0 +1,56 @@
+2024-07-01:
+  Chestlet:
+  - bugfix: Nanotrasen sent us a batch of faulty canisters. They've been recalled
+      and replaced with less faulty canisters.
+  - bugfix: Zauker SM interaction works correctly now.
+  LT3:
+  - bugfix: Fixed surgery speed of field medic bone saw
+  Melbert:
+  - rscadd: Humanizing a monkey removes undergarments such as socks
+  NovaBot13:
+  - bugfix: fixed blood loss knocking you down at somewhat safe (~80%) blood levels
+  - bugfix: Space heaters do not completely drain their starting cell while trying
+      to change their room temperature by a few degrees.
+  - qol: RD's labcoat is now classified as an actual labcoat instead of a glorified
+      jacket, allowing them to put science-related stuffs into it
+  - image: You can now toggle RD's labcoat
+  - bugfix: Vent-born wendigos no longer create one-way portals
+  - rscadd: Added tons of new mutations to Genetics, alongside some recipes!
+  - rscadd: Thermal Adaptation has been made a combination mutation from the stronger
+      but narrower Cold and Heat adaptations.
+  - balance: Cryobeams have 9 tile range, and fiery sweat doesn't cause spread on
+      contact.
+  - image: Added some neat new sprites for the new mutations, and added a greyscale
+      version of the magic hand sprites.
+  - code_imp: Infinitesmally improved mutation code.
+  - image: Captain's spare safe received a new texture
+  - bugfix: Game not refocusing after closing a TGUI
+  - image: Relics ("strange objects") now have unique sprites.
+  - code_imp: Supermatter zap power generation takes perspective of the machines subsystem.
+  - image: updated halloween metoer sprites.
+  - rscdel: Removed cordons on deathmatch maps, since they're autoadded now.
+  - bugfix: Fixed the camera offset for the navigation console on a handful of Whiteships.
+  - bugfix: Fixed the Pubby Whiteship drifting sideways through hyperspace when in
+      flight.
+  - bugfix: Fixed the Kilo Whiteship flying backwards through hyperspace when in flight.
+  - bugfix: The Birdshot Whiteship should actually be able to spawn now.
+  - spellcheck: fixed spelling of "aggressive" in the shuttle manipulator description
+      for the Birdshot Whiteship.
+  - rscadd: Shield generators and shield gen walls now glow a light blue. Pretty!
+  ShizCalev, SpaceLove:
+  - refactor: Techweb strings are defined now so to maintain modularity
+  - balance: Research papers will have less overall point generation.
+  Wallem:
+  - rscadd: The detective now starts with the DET.ekt Skillchip, which allows them
+      to identify chemicals and bloodtypes by taste.
+  Watermelon, Mayhazah:
+  - balance: Drastically reduces the power consumption and max charge of power cells
+  - balance: Added a new stock part called the battery, used primarily in the construction
+      of APCs and SMESs.
+  - rscadd: Suiciding with a cell/battery will shock you and potentially dust you/shock
+      the people around you if the charge is great enough.
+  grungussuss:
+  - qol: Windoors now stay open for 8 seconds instead of 5
+  - qol: Secure windoors now stay open for 5 seconds instead of 2
+  grungususs:
+  - bugfix: fixed the name of a request console in the medical sec outpost on metastation
