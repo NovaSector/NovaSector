@@ -63,6 +63,10 @@
 	name = "Cybernetic stomach"
 	path = /obj/item/organ/internal/stomach/cybernetic
 
+/datum/augment_item/organ/stomach/lithovore
+	name = "Lithovore Stomach"
+	path = /obj/item/organ/internal/stomach/lithovore
+
 //EYES
 /datum/augment_item/organ/eyes
 	slot = AUGMENT_SLOT_EYES

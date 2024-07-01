@@ -41,3 +41,39 @@
 			var/mob/living/carbon/human/human_target = stomach_owner
 			human_target.electrocution_animation(1 SECONDS)
 	return COMPONENT_LIVING_BLOCK_SHOCK
+
+//lithovore stomach - modified golem
+/obj/item/organ/internal/stomach/lithovore
+	name = "litho-adapted stomach"
+	icon_state = "stomach-p"
+	desc = "An unfamiliar organ which appears to excel in material deconstruction"
+	color = COLOR_GOLEM_GRAY
+	organ_flags = ORGAN_MINERAL
+	organ_traits = list(TRAIT_ROCK_EATER)
+	hunger_modifier = 7 //adjusted so you're not eating stacks of metal every 10 minutes
+	var/min_hunger_slowdown = 0.5
+	var/max_hunger_slowdown = 4
+
+/obj/item/organ/internal/stomach/lithovore/on_mob_insert(mob/living/carbon/organ_owner, special)
+	. = ..()
+	RegisterSignal(owner, COMSIG_CARBON_ATTEMPT_EAT, PROC_REF(try_eating))
+
+/obj/item/organ/internal/stomach/lithovore/on_mob_remove(mob/living/carbon/organ_owner, special)
+	. = ..()
+	UnregisterSignal(organ_owner, COMSIG_CARBON_ATTEMPT_EAT)
+	organ_owner.remove_movespeed_modifier(/datum/movespeed_modifier/golem_hunger)
+	organ_owner.remove_status_effect(/datum/status_effect/golem_statued) // failsafes to ensure you don't get accidentally golem statue'd
+
+/// ROCK EATER
+/obj/item/organ/internal/stomach/lithovore/proc/try_eating(mob/living/carbon/source, atom/eating)
+	SIGNAL_HANDLER
+	if(istype(eating, /obj/item/food/golem_food))
+		return
+
+//actual code, makes sure u don't get the fancy 'golem rocks' from eating the material type
+/obj/item/organ/internal/stomach/lithovore/on_life(delta_time, times_fired)
+	for(var/datum/reagent/consumable/food in reagents.reagent_list)
+		if (istype(food, /datum/reagent/consumable/nutriment/mineral))
+			continue
+		food.nutriment_factor = 0
+	return ..()
