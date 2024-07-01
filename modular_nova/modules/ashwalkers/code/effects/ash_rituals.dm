@@ -482,7 +482,7 @@
 
 /// Pacification
 /datum/ash_ritual/pacification
-	name = "Attune your body to the land,"
+	name = "Attune your body to the land"
 	desc = "Pacifies creatures in the wastes to come to your aide instead, the tradeoff being your ability to fight."
 	required_components = list(
 		"north" = /obj/item/food/grown/ash_flora/fireblossom,
@@ -499,5 +499,5 @@
 /datum/ash_ritual/pacification/ritual_success(obj/effect/ash_rune/success_rune)
 	. = ..()
 	for(var/mob/living/carbon/human/lizard_target in range(2, get_turf(success_rune)))
-		lizard_target.faction.Add(MINING_FAUNA)
+		lizard_target.faction.Add(FACTION_MINING_FAUNA)
 		ADD_TRAIT(lizard_target, TRAIT_PACIFISM, SPECIES_TRAIT)

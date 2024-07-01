@@ -10,4 +10,4 @@
 #define FACTION_TARKON "tarkon"
 
 // Lavaland Mobs
-#define MINING_FAUNA "mining_fauna"
+#define FACTION_MINING_FAUNA "mining_fauna"
