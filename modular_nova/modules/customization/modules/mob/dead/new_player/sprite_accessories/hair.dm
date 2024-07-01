@@ -643,6 +643,10 @@
 	name = "McSqueeb"
 	icon_state = "hair_mcsqueeb"
 
+/datum/sprite_accessory/hair/nova/dreadlocks_long
+	name = "Long Dreadlocks"
+	icon_state = "hair_dreadlocks_long"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova

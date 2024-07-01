@@ -1,11 +1,5 @@
 // For any mob that can be ridden
 
-//NOVA EDIT START: Human Riding Defines
-#define OVERSIZED_OFFSET 18
-#define OVERSIZED_SIDE_OFFSET 11
-#define REGULAR_OFFSET 6
-#define REGULAR_SIDE_OFFSET 4
-//NOVA EDIT END
 /datum/component/riding/creature
 	/// If TRUE, this creature's movements can be controlled by the rider while mounted (as opposed to riding cyborgs and humans, which is passive)
 	var/can_be_driven = TRUE
@@ -143,25 +137,18 @@
 	return ..()
 
 /// Yeets the rider off, used for animals and cyborgs, redefined for humans who shove their piggyback rider off
-/datum/component/riding/creature/proc/force_dismount(mob/living/rider, gentle = FALSE)
+/datum/component/riding/creature/proc/force_dismount(mob/living/rider, throw_range = 8, throw_speed = 3, gentle = FALSE)
 	var/atom/movable/movable_parent = parent
 	movable_parent.unbuckle_mob(rider)
-
+	rider.Knockdown(3 SECONDS)
+	if(throw_range == 0)
+		return
 	if(!iscyborg(movable_parent) && !isanimal_or_basicmob(movable_parent))
 		return
-
 	var/turf/target = get_edge_target_turf(movable_parent, movable_parent.dir)
-	var/turf/targetm = get_step(get_turf(movable_parent), movable_parent.dir)
-	rider.Move(targetm)
-	rider.Knockdown(3 SECONDS)
-	if(gentle)
-		rider.visible_message(span_warning("[rider] is thrown clear of [movable_parent]!"), \
-		span_warning("You're thrown clear of [movable_parent]!"))
-		rider.throw_at(target, 8, 3, movable_parent, gentle = TRUE)
-	else
-		rider.visible_message(span_warning("[rider] is thrown violently from [movable_parent]!"), \
-		span_warning("You're thrown violently from [movable_parent]!"))
-		rider.throw_at(target, 14, 5, movable_parent, gentle = FALSE)
+	rider.visible_message(span_warning("[rider] is thrown clear of [movable_parent]!"), \
+	span_warning("You're thrown clear of [movable_parent]!"))
+	rider.throw_at(target, throw_range, throw_speed, movable_parent, gentle = gentle)
 
 /// If we're a cyborg or animal and we spin, we yeet whoever's on us off us
 /datum/component/riding/creature/proc/check_emote(mob/living/user, datum/emote/emote)
@@ -219,9 +206,13 @@
 /datum/component/riding/creature/human/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE, potion_boost = FALSE)
 	. = ..()
 	var/mob/living/carbon/human/human_parent = parent
-	human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
+	//human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START - Taur saddles
+	if (!(ride_check_flags & RIDING_TAUR))
+		human_parent.add_movespeed_modifier(/datum/movespeed_modifier/human_carry)
+	// NOVA EDIT ADDITION END
 
-	if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
+	if(ride_check_flags & RIDER_NEEDS_ARMS || (ride_check_flags & RIDING_TAUR)) // NOVA CHANGE - ORIGINAL: if(ride_check_flags & RIDER_NEEDS_ARMS) // piggyback
 		human_parent.buckle_lying = 0
 		// the riding mob is made nondense so they don't bump into any dense atoms the carrier is pulling,
 		// since pulled movables are moved before buckled movables
@@ -304,7 +295,13 @@
 
 /datum/component/riding/creature/human/get_offsets(pass_index)
 	var/mob/living/carbon/human/H = parent
-	//NOVA EDIT BEGIN - Oversized Overhaul
+	/* NOVA EDIT REMOVAL START
+	if(H.buckle_lying)
+		return list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(0, 6), TEXT_WEST = list(0, 6))
+	else
+		return list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(-6, 4), TEXT_WEST = list( 6, 4))
+	*/ // NOVA EDIT REMOVAL END
+	// NOVA EDIT ADDITION BEGIN - Oversized Overhaul, Taur riding
 	if(H.buckle_lying)
 		return HAS_TRAIT(H, TRAIT_OVERSIZED) ? list(
 				TEXT_NORTH = list(0, OVERSIZED_OFFSET),
@@ -317,7 +314,7 @@
 				TEXT_EAST = list(0, REGULAR_OFFSET),
 				TEXT_WEST = list(0, REGULAR_OFFSET),
 			)
-	else
+	else if (!(ride_check_flags & RIDING_TAUR)) // NOVA EDIT CHANGE - ORIGINAL: else
 		return HAS_TRAIT(H, TRAIT_OVERSIZED) ? list(
 				TEXT_NORTH = list(0, OVERSIZED_OFFSET),
 				TEXT_SOUTH = list(0, OVERSIZED_OFFSET),
@@ -329,7 +326,12 @@
 				TEXT_EAST = list(-REGULAR_OFFSET, REGULAR_SIDE_OFFSET),
 				TEXT_WEST = list(REGULAR_OFFSET, REGULAR_SIDE_OFFSET)
 			)
-	//NOVA EDIT END
+	if (ride_check_flags & RIDING_TAUR)
+		var/obj/item/organ/external/taur_body/taur_body = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+		return taur_body.get_riding_offset(oversized = HAS_TRAIT(H, TRAIT_OVERSIZED))
+
+	// NOVA EDIT ADDITION END
+
 /datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider)
 	var/atom/movable/AM = parent
 	AM.unbuckle_mob(dismounted_rider)
@@ -573,7 +575,33 @@
 //NOVA EDIT END
 /datum/component/riding/creature/raptor
 	require_minigame = TRUE
-	ride_check_flags = RIDER_NEEDS_ARM
+	ride_check_flags = RIDER_NEEDS_ARM | UNBUCKLE_DISABLED_RIDER
+
+/datum/component/riding/creature/raptor/Initialize(mob/living/riding_mob, force, ride_check_flags, potion_boost)
+	. = ..()
+	RegisterSignal(parent, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_bullet_hit))
+	RegisterSignal(parent, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(on_attacked))
+
+/datum/component/riding/creature/raptor/proc/on_bullet_hit(atom/target, list/bullet_args, obj/projectile/hit_projectile)
+	SIGNAL_HANDLER
+
+	if(hit_projectile.armor_flag == ENERGY)
+		freak_out()
+
+/datum/component/riding/creature/raptor/proc/on_attacked(mob/living/source, damage_dealt, damagetype, def_zone, blocked, wound_bonus, bare_wound_bonus, sharpness, attack_direction, obj/item/attacking_item)
+	SIGNAL_HANDLER
+
+	if(damagetype == STAMINA)
+		freak_out()
+
+/datum/component/riding/creature/raptor/proc/freak_out()
+	var/mob/living/living_parent = parent
+	if(!length(living_parent.buckled_mobs))
+		return
+	living_parent.balloon_alert_to_viewers("freaks out!")
+	living_parent.spin(spintime = 2 SECONDS, speed = 1)
+	for(var/mob/living/buckled_mob in living_parent.buckled_mobs)
+		force_dismount(buckled_mob, throw_range = 2, gentle = TRUE)
 
 /datum/component/riding/creature/raptor/handle_specials()
 	. = ..()

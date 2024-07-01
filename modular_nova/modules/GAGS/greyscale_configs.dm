@@ -971,6 +971,18 @@
 	name = "Replica Parade Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket_worn.json'
 
+
+// ISEURIAN CHOKHA
+/datum/greyscale_config/chokha
+	name = "Chokha"
+	icon_file = 'modular_nova/modules/GAGS/icons/chokha.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha.json'
+
+/datum/greyscale_config/chokha/worn
+	name = "Chokha (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/chokha_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha_worn.json'
+
 //BIG JACKET
 /datum/greyscale_config/big_jacket
 	name = "Alpha Atelier pilot jacket"
@@ -1845,3 +1857,21 @@ TREK
 /datum/greyscale_config/primitive_catgirl_tunic/worn
 	name = "Handmade Tunic (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/tunic_worn.json'
+
+/datum/greyscale_config/loincloth
+	name = "Loincloth"
+	icon_file = 'modular_nova/modules/GAGS/icons/loincloth.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth.json'
+
+/datum/greyscale_config/loincloth/worn
+	name = "Loincloth (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_worn.json'
+
+/datum/greyscale_config/loincloth_alt
+	name = "Shorter Loincloth"
+	icon_file = 'modular_nova/modules/GAGS/icons/loincloth.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt.json'
+
+/datum/greyscale_config/loincloth_alt/worn
+	name = "Shorter Loincloth (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt_worn.json'

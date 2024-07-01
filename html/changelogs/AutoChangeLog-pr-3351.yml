@@ -1,0 +1,4 @@
+author: "white-snek"
+delete-after: True
+changes:
+  - rscadd: "Ash/Siik translator necklaces can now fit and work in the suit slot"
