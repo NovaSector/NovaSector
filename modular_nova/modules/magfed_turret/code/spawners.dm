@@ -13,8 +13,7 @@
 	icon_state = "dep_throw_spawner"
 	loot = list(
 		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider = 80,
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang = 15,
-		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy = 5
+		/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang = 20
 	)
 
 /obj/effect/spawner/random/turretkit
