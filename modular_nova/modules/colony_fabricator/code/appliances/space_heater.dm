@@ -92,6 +92,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 		user.put_in_hands(cell)
 		user.balloon_alert(user, "swapped")
 	cell = tool
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/wallframe/wall_heater/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
