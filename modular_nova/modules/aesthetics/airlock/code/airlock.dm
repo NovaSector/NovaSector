@@ -90,9 +90,6 @@
 		. += get_airlock_overlay("lights_[light_state]", overlays_file, src, em_block = FALSE)
 		. += emissive_appearance(overlays_file, "lights_[light_state]", src, alpha = src.alpha)
 
-		if(multi_tile && filler)
-			filler.set_light(l_range = AIRLOCK_LIGHT_RANGE, l_power = AIRLOCK_LIGHT_POWER, l_color = pre_light_color, l_on = TRUE)
-
 		set_light(l_range = AIRLOCK_LIGHT_RANGE, l_power = AIRLOCK_LIGHT_POWER, l_color = pre_light_color, l_on = TRUE)
 	else
 		set_light(l_on = FALSE)
