@@ -202,6 +202,7 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	icon_state = "green"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	obj_flags = UNIQUE_RENAME
 	attachment_slot = NONE
 
 /obj/item/clothing/accessory/wetmaker/Initialize(mapload)
@@ -214,14 +215,18 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 
 /obj/item/clothing/accessory/wetmaker/emp_act(severity)
 	. = ..()
-	var/mob/wearer = loc.loc
+	var/mob/living/wearer = loc.loc
+	var/obj/item/clothing/attached_to = loc
 	if(!istype(wearer, /mob/living/carbon/human))
+		return
+	if(!istype(attached_to, /obj/item/clothing/under))
 		return
 	var/turf/open/tile = get_turf(wearer)
 	if(istype(tile))
 		tile.atmos_spawn_air("[GAS_WATER_VAPOR]=50;[TURF_TEMPERATURE(1000)]")
 	wearer.balloon_alert(wearer, "overloaded!")
-	wearer.visible_message("<span class='danger'>[src] overloads, exploding in a cloud of hot steam!</span>")
-	playsound(src, 'sound/effects/spray.ogg')
-	detach(loc)
+	wearer.visible_message("<span class='danger'>[wearer] [wearer.p_their()] [src] overloads, exploding in a cloud of hot steam!</span>")
+	wearer.set_jitter_if_lower(10 SECONDS)
+	playsound(wearer, 'sound/effects/spray.ogg', 80)
+	detach(attached_to) // safely remove wetsuit status effect
 	qdel(src)
