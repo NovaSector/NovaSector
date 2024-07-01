@@ -129,8 +129,6 @@
 		wearer.visible_message(span_danger("[src] fall[p_s()] apart, completely destroyed!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		clean_up()
 	for(var/obj/item/mod/module/module as anything in modules)
-		for(var/obj/item/item in module)
-			item.forceMove(drop_location())
 		uninstall(module)
 	if(ai_assistant)
 		if(ispAI(ai_assistant))
