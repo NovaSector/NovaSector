@@ -25,7 +25,7 @@
 	always_place = TRUE
 
 /*----- Above Ground -----*/
-
+////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.
 /datum/map_template/ruin/icemoon/nova/turret_bunker
 	name = "Ice-ruin Surface Geological Research Bunker"
 	id = "turret_bunker"
@@ -33,4 +33,3 @@
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_turretbunker.dmm"
 	allow_duplicates = FALSE
-	always_place = TRUE // for testing purposes. If this makes it to live-... ohwell
