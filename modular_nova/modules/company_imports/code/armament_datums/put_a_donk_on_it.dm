@@ -138,7 +138,3 @@
 
 /datum/armament_entry/company_import/donk/foamforce_ammo/m762_mag
 	item_type = /obj/item/ammo_box/magazine/toy/m762
-
-/datum/armament_entry/company_import/donk/foamforce_ammo/foam_turret //Not an actual magazine, but is an "accessory"
-	item_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled
-	cost = PAYCHECK_COMMAND * 4
