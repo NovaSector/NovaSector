@@ -2,11 +2,14 @@
 *	LOADOUT ITEM DATUMS FOR THE HAND SLOT
 */
 
-/// Glove Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/gloves))
+/datum/loadout_category/hands
+	category_name = "Hands"
+	category_ui_icon = FA_ICON_HAND
+	type_to_generate = /datum/loadout_item/gloves
+	tab_order = /datum/loadout_category/belt::tab_order + 1
 
 /datum/loadout_item/gloves
-	category = LOADOUT_ITEM_GLOVES
+	abstract_type = /datum/loadout_item/gloves
 
 /datum/loadout_item/gloves/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.gloves))
@@ -64,7 +67,7 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 /datum/loadout_item/gloves/yellow
 	name = "Yellow Gloves"
 	item_path = /obj/item/clothing/gloves/color/ffyellow
-	additional_tooltip_contents = list("NON-INSULATING - This item is purely cosmetic and provide no shock insulation.")
+	additional_displayed_text = list("Non-Insulating")
 
 /datum/loadout_item/gloves/white
 	name = "White Gloves"
@@ -115,6 +118,7 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 */
 
 /datum/loadout_item/gloves/donator
+	abstract_type = /datum/loadout_item/gloves/donator
 	donator_only = TRUE
 
 /datum/loadout_item/gloves/donator/military

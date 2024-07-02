@@ -1,5 +1,5 @@
 /datum/loadout_item/toys/miafoxplush
-	name = "Mia’s fox plushie"
+	name = "Mia's fox plushie"
 	item_path = /obj/item/toy/plush/nova/fox/mia
 	ckeywhitelist = list("fuzlet")
 
@@ -115,6 +115,9 @@
 	name = "Composite Filtration Mask"
 	item_path = /obj/item/clothing/mask/gas/psycho_malice
 	ckeywhitelist = list("snakebittenn", "chillylobster", "candlejax", "theooz", "alvcyktor")
+
+/datum/loadout_item/suit/jacket
+	abstract_type = /datum/loadout_item/suit/jacket
 
 /datum/loadout_item/suit/jacket/cherno
 	name = "Blue-Silvered Coat"

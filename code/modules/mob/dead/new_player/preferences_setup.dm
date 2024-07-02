@@ -93,10 +93,11 @@
 			highest_pref = job_preferences[job]
 
 	return preview_job
-/* NOVA EDIT REMOVE - MOVED TO MASTER FILES
-/datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin)
-	var/datum/job/preview_job = get_highest_priority_job()
-	mannequin.dna.mutant_bodyparts = list()
+
+/* NOVA EDIT REMOVAL - MOVED TO MASTER FILES
+/datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin, show_job_clothes = TRUE)
+	var/datum/job/no_job = SSjob.GetJobType(/datum/job/unassigned)
+	var/datum/job/preview_job = get_highest_priority_job() || no_job
 
 	if(preview_job)
 		// Silicons only need a very basic preview since there is no customization for them.
@@ -108,9 +109,13 @@
 	// Set up the dummy for its photoshoot
 	apply_prefs_to(mannequin, TRUE)
 
-	if(preview_job)
-		mannequin.job = preview_job.title
-		mannequin.dress_up_as_job(preview_job, TRUE)
+	mannequin.job = preview_job.title
+	mannequin.dress_up_as_job(
+		equipping = show_job_clothes ? preview_job : no_job,
+		visual_only = TRUE,
+		player_client = parent,
+		consistent = TRUE,
+	)
 
 	// Apply visual quirks
 	// Yes we do it every time because it needs to be done after job gear

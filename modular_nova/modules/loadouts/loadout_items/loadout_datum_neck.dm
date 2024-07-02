@@ -1,12 +1,6 @@
-/*
-*	LOADOUT ITEM DATUMS FOR THE NECK SLOT
-*/
-
-/// Neck Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck))
-
-/datum/loadout_item/neck
-	category = LOADOUT_ITEM_NECK
+// LOADOUT ITEM DATUMS FOR THE NECK SLOT
+/datum/loadout_category/neck
+	tab_order = /datum/loadout_category/ears::tab_order + 1
 
 /datum/loadout_item/neck/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.neck))
@@ -293,10 +287,6 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 	name = "Maid Neck Cover"
 	item_path = /obj/item/clothing/neck/maid
 
-/datum/loadout_item/neck/link_scryer
-	name = "MODlink Scryer"
-	item_path = /obj/item/clothing/neck/link_scryer/loaded
-
 /datum/loadout_item/neck/imperial_police_cloak
 	name = "Imperial Police Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
@@ -311,7 +301,11 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 */
 
 /datum/loadout_item/neck/donator
+	abstract_type = /datum/loadout_item/neck/donator
 	donator_only = TRUE
+
+/datum/loadout_item/neck/donator/mantle
+	abstract_type = /datum/loadout_item/neck/donator/mantle
 
 /datum/loadout_item/neck/donator/mantle/regal
 	name = "Regal Mantle"

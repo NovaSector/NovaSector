@@ -1,12 +1,6 @@
-/*
-*	LOADOUT ITEM DATUMS FOR BOTH HAND SLOTS
-*/
-
-/// Inhand items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_item/inhand))
-
-/datum/loadout_item/inhand
-	category = LOADOUT_ITEM_INHAND
+// LOADOUT ITEM DATUMS FOR BOTH HAND SLOTS
+/datum/loadout_category/inhands
+	tab_order = /datum/loadout_category/feet::tab_order + 1
 
 /datum/loadout_item/inhand/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	// if no hands are available then put in backpack
@@ -84,9 +78,11 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 	name = "Rose Bouquet"
 	item_path = /obj/item/bouquet/rose
 
+/*
 /datum/loadout_item/inhand/smokingpipe
 	name = "Smoking Pipe"
 	item_path = /obj/item/cigarette/pipe
+*/
 
 /datum/loadout_item/inhand/flag_nt
 	name = "Folded Nanotrasen Flag"
@@ -133,6 +129,9 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 	item_path = /obj/item/riding_saddle/leather/peacekeeper
 
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/inhand/pet
+	abstract_type = /datum/loadout_item/inhand/pet
 
 /datum/loadout_item/inhand/pet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
 	var/obj/item/clothing/head/mob_holder/pet/equipped_pet = locate(item_path) in equipper.get_all_gear()

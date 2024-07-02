@@ -45,7 +45,7 @@
 		post_transfer_prefs(spawned_human)
 
 	if(load_prefs && loadout_enabled)
-		spawned_mob.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
+		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
 

@@ -1,12 +1,14 @@
+/datum/loadout_category/feet
+	category_name = "Feet"
+	category_ui_icon = FA_ICON_SHOE_PRINTS
+	type_to_generate = /datum/loadout_item/shoes
+	tab_order = /datum/loadout_category/hands::tab_order + 1
+
 /*
 *	LOADOUT ITEM DATUMS FOR THE SHOE SLOT
 */
-
-/// Shoe Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes))
-
 /datum/loadout_item/shoes
-	category = LOADOUT_ITEM_SHOES
+	abstract_type = /datum/loadout_item/shoes
 
 /datum/loadout_item/shoes/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.shoes))
@@ -162,6 +164,9 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 	name = "Blue Leg Wraps"
 	item_path = /obj/item/clothing/shoes/wraps/blue
 
+/datum/loadout_item/shoes/cuffs
+	abstract_type = /datum/loadout_item/shoes/cuffs
+
 /datum/loadout_item/shoes/cuffs/colourable
 	name = "Colourable Leg Wraps"
 	item_path = /obj/item/clothing/shoes/wraps/colourable
@@ -253,6 +258,9 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 	item_path = /obj/item/clothing/shoes/clown_shoes/jester
 	restricted_roles = list(JOB_CLOWN)
 
+/datum/loadout_item/shoes/clown_shoes
+	abstract_type = /datum/loadout_item/shoes/clown_shoes
+
 /datum/loadout_item/shoes/clown_shoes/pink
 	name = "Pink Clown Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/pink
@@ -263,6 +271,7 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 */
 
 /datum/loadout_item/shoes/donator
+	abstract_type = /datum/loadout_item/shoes/donator
 	donator_only = TRUE
 
 /datum/loadout_item/shoes/donator/blackjackboots
