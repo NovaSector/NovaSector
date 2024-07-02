@@ -346,4 +346,4 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/donator/vape
 	name = "E-Cigarette"
-	item_path = /obj/item/clothing/mask/vape
+	item_path = /obj/item/vape
