@@ -19,3 +19,5 @@
 	name = "Jungle Biodome"
 	icon_state = "dk_yellow"
 
+/area/ruin/turretbunker
+	name = "Geological Research Bunker" //yes, code is "Turret bunker", But this is more for immersion reasons

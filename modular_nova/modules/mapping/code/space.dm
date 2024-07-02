@@ -162,6 +162,12 @@
 	name = "Space-Ruin Broken Shuttle"
 	description = "A small shuttle that clearly got clipped by something."
 
+/datum/map_template/ruin/space/nova/turretfactory
+	id = "turretfactory"
+	suffix = "turretfactory.dmm"
+	name = "Turret Factory"
+	description = "A turret factory that was forgotten. Maybe abandoned. Idk. Goodluck."
+
 /datum/map_template/ruin/space/nova/escapefromtarkon
 	id = "escapefromtarkon"
 	suffix = "port_tarkon.dmm"

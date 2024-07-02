@@ -50,6 +50,10 @@
 /area/ruin/space/has_grav/powered/posterpandamonium
 	name = "Strange Shuttle"
 
+/area/ruin/space/has_grav/powered/turretfactory //give it vague mechanical sounds
+	name = "Turret Factory"
+	ambientsounds = list('sound/ambience/ambimaint.ogg','sound/ambience/ambimaint1.ogg','sound/ambience/ambimaint3.ogg', 'sound/ambience/ambimaint5.ogg', 'sound/ambience/ambimaint6.ogg')
+
 //Port Tarkon
 
 /area/ruin/space/has_grav/outdoors
