@@ -54,3 +54,64 @@
   - qol: Secure windoors now stay open for 5 seconds instead of 2
   grungususs:
   - bugfix: fixed the name of a request console in the medical sec outpost on metastation
+2024-07-02:
+  Bisar:
+  - bugfix: Ashwalkers can now once again pet birds as their neutral faction has been
+      returned
+  Kapu (ported by StrangeWeirdKitten):
+  - bugfix: Ambience buzz will now respect ship ambience prefrences for observers.
+  - sound: Ambience buzz requires APC enviorment power to function
+  Melbert:
+  - qol: Handheld Genetic Scanners fit in Geneticist equipment suit storage
+  NovaBot13:
+  - bugfix: Pyrokinesis bolts no longer have infinite range and create trails of fiery
+      doom.
+  - spellcheck: Heretic spell invocations now use one dead language per path. Altered
+      a few invocation types.
+  - bugfix: Some varieties of snow now visually melt properly again when burned
+  - qol: you can now swap pens in pdas
+  - bugfix: Fix /datum/weakref appearing when linking airlock heretic portals
+  - bugfix: Mecha weaponry is capable, for the first time ever, of experiencing recoil.
+      This was an intended mechanic, I promise. The code just literally never worked.
+  - bugfix: Mecha bump melee attacks and click melee attacks are now on the same cooldown,
+      but have varying cooldown timers. You will always bump attack faster than you
+      will click.
+  - bugfix: You must be in combat mode to punch objects and to bumpsmash into objects.
+  - bugfix: Stops mecha being able to punch literally any object and damage them.
+  - code_imp: Tidies up some of the autodoc comments for mech weapons.
+  - rscadd: Bounty Hunter teams now have personalized announcements for when they
+      are spawned in.
+  - balance: raptors will now knock off their rider and disable them if hit by any
+      energy projectiles or if they recieve any stamina damage
+  - bugfix: You can grind slime extracts in reagent grinders once more.
+  - bugfix: Inducers now accept megacells AND regular cells.
+  - qol: Made light tiles available in the crafting menu
+  - qol: Circuit tile variants can be cycled in-hand
+  - rscadd: Moved loose tiles and wall frames from lathe designs to other tiles and
+      frames in the crafting menu
+  - image: Decluttered card textures
+  - bugfix: 'Hostile plant monsters (EX: Killer Tomatoes) no longer act hostile toward
+      Seedlings.'
+  - bugfix: wawastation arrivals has firealarms so you may now leave
+  - bugfix: fixed Wawastation areas
+  - bugfix: fixed wawastation disposals
+  - balance: portable air scrubbers scrub in a 3x3 square + hold as much gas as a
+      canister
+  - bugfix: brig cell timer ui works properly now
+  - bugfix: Fixed some UI bugs in the power monitor screen.
+  - bugfix: Hand of Midas now works point-blank.
+  - sound: added pickup and drop sound for beakers
+  - bugfix: Fulton animation is no longer sideways.
+  ShizCalev:
+  - bugfix: Deafened mobs will no longer hear the station's ambient sounds.
+  - bugfix: Fixed ambient sounds resetting their loop when entering different bodies
+      (ie admin ghosting, being moved to other mobs, ect.)
+  Thlumyn:
+  - balance: let silicons go through the gateway
+  Zergspower:
+  - bugfix: Ashwalkers faction returned properly
+  lorwp:
+  - bugfix: extinguishers now can be filled with subtypes of water again (Namely,
+      holy water)
+  white-snek:
+  - rscadd: Ash/Siik translator necklaces can now fit and work in the suit slot
