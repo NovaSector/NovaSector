@@ -1962,7 +1962,7 @@
 /area/station/commons/vacant_room)
 "agG" = (
 /obj/structure/dresser,
-/obj/item/clothing/mask/cigarette/cigar/havana,
+/obj/item/cigarette/cigar/havana,
 /turf/open/floor/iron/grimy,
 /area/station/commons/vacant_room)
 "agH" = (
@@ -10732,15 +10732,15 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = -4;
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4;
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba,
+/obj/item/cigarette/cigar/cohiba,
 /turf/open/floor/wood,
 /area/station/command/meeting_room)
 "cFP" = (
@@ -48359,12 +48359,6 @@
 /obj/structure/sign/calendar/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
-"qcE" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "Civilian - Restroom North"
-	},
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet)
 "qcG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/smooth,
@@ -69333,12 +69327,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"xut" = (
-/obj/machinery/camera/directional/south{
-	c_tag = "Civilian - Restroom South"
-	},
-/turf/open/floor/iron/freezer,
-/area/station/commons/toilet)
 "xuA" = (
 /obj/structure/closet/secure_closet/medical2,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -85115,12 +85103,12 @@ apC
 apC
 veV
 veV
-qcE
+hAD
 hAD
 veV
 pdr
 kMD
-xut
+hAD
 veV
 veV
 apC

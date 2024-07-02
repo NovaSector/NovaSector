@@ -21460,7 +21460,7 @@
 /area/station/maintenance/port/fore)
 "gmQ" = (
 /obj/effect/spawner/random/maintenance/three,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/sign/poster/random/directional/north,
 /obj/structure/rack/shelf,
@@ -28982,7 +28982,7 @@
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette{
+/obj/item/cigarette{
 	pixel_x = -6
 	},
 /obj/structure/table,
@@ -35006,13 +35006,13 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 7
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 10
 	},
 /obj/machinery/light/warm/directional/east,
@@ -35717,22 +35717,22 @@
 	pixel_y = 6;
 	pixel_x = 6
 	},
-/obj/item/clothing/mask/cigarette/rollie/cannabis{
+/obj/item/cigarette/rollie/cannabis{
 	pixel_y = 9
 	},
-/obj/item/clothing/mask/cigarette/rollie/cannabis{
+/obj/item/cigarette/rollie/cannabis{
 	pixel_y = 7;
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette/rollie/nicotine{
+/obj/item/cigarette/rollie/nicotine{
 	pixel_y = 5;
 	pixel_x = -3
 	},
-/obj/item/clothing/mask/cigarette/rollie/trippy{
+/obj/item/cigarette/rollie/trippy{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
+/obj/item/cigarette/rollie/mindbreaker,
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron/vaporwave,
 /area/station/maintenance/department/security/upper)
@@ -53925,15 +53925,15 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4;
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = -4;
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba,
+/obj/item/cigarette/cigar/cohiba,
 /obj/structure/table/wood,
 /obj/item/toy/plush/carpplushie{
 	greyscale_colors = "#ff5050#000000";
@@ -54890,13 +54890,13 @@
 	},
 /obj/machinery/keycard_auth/directional/west,
 /obj/item/lighter,
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4.5
 	},
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar/havana{
 	pixel_x = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_x = 6
 	},
 /obj/item/phone{
@@ -63362,7 +63362,7 @@
 /obj/item/toy/dummy,
 /obj/item/clothing/glasses/monocle,
 /obj/item/clothing/mask/fakemoustache,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /obj/item/bikehorn,
 /obj/item/radio/intercom/directional/south,
 /obj/item/cardboard_cutout/adaptive,
