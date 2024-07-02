@@ -264,7 +264,7 @@
 /area/station/medical/virology)
 "agp" = (
 /obj/structure/table/wood,
-/obj/item/cigarette/cigar/cohiba,
+/obj/item/ciarette/cigar/cohiba,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "agy" = (
@@ -3364,7 +3364,7 @@
 /obj/structure/rack,
 /obj/item/weldingtool/mini,
 /obj/item/tank/internals/emergency_oxygen/empty,
-/obj/item/cigarette/rollie,
+/obj/item/ciarette/rollie,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/central/lesser)
 "bxs" = (
@@ -3531,25 +3531,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/atmospherics_engine)
-<<<<<<< HEAD
-=======
-"bBN" = (
-/obj/structure/window/spawner/directional/east,
-/obj/structure/table/wood,
-/obj/machinery/cell_charger{
-	pixel_y = 5
-	},
-/obj/item/stock_parts/power_store/cell/crap{
-	pixel_y = 5
-	},
-/obj/item/cigarette/pipe/cobpipe{
-	pixel_x = 1;
-	pixel_y = -2
-	},
-/obj/structure/sign/poster/official/random/directional/north,
-/turf/open/floor/wood/tile,
-/area/station/command/corporate_showroom)
->>>>>>> 35484728f1f (Cigarettes and vapes are no longer subtypes of masks. (#82942))
 "bBX" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
@@ -4880,7 +4861,7 @@
 	pixel_y = 9;
 	pixel_x = 14
 	},
-/obj/item/cigarette{
+/obj/item/ciarette{
 	pixel_y = 2
 	},
 /turf/open/floor/iron/small,
@@ -9534,7 +9515,7 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/cigarette{
+/obj/item/ciarette{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -16947,7 +16928,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/stack/spacecash/c1,
-/obj/item/cigarette/cigar/havana,
+/obj/item/ciarette/cigar/havana,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/station/maintenance/starboard/central)
 "gJS" = (
@@ -26713,26 +26694,6 @@
 /obj/item/instrument/harmonica,
 /turf/open/floor/iron,
 /area/station/security/prison/rec)
-<<<<<<< HEAD
-=======
-"jUr" = (
-/obj/item/cigarette,
-/obj/item/storage/fancy/cigarettes/cigpack_robust{
-	pixel_y = 5;
-	pixel_x = 6
-	},
-/obj/item/lighter,
-/obj/structure/sign/poster/official/random/directional/east,
-/obj/structure/table,
-/obj/effect/turf_decal/tile/neutral/opposingcorners{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 6
-	},
-/turf/open/floor/iron/small,
-/area/station/hallway/secondary/service)
->>>>>>> 35484728f1f (Cigarettes and vapes are no longer subtypes of masks. (#82942))
 "jUx" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
@@ -30149,7 +30110,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
-/obj/item/cigarette/candy{
+/obj/item/ciarette/candy{
 	pixel_x = -3;
 	pixel_y = 10
 	},
@@ -32487,11 +32448,11 @@
 /area/station/engineering/atmos)
 "lNF" = (
 /obj/effect/spawner/random/entertainment/lighter,
-/obj/item/cigarette/rollie/mindbreaker{
+/obj/item/ciarette/rollie/mindbreaker{
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/item/cigarette/rollie/trippy{
+/obj/item/ciarette/rollie/trippy{
 	pixel_x = 4
 	},
 /obj/effect/mapping_helpers/burnt_floor,
@@ -33015,7 +32976,7 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/cigarette/cigar/cohiba{
+/obj/item/ciarette/cigar/cohiba{
 	pixel_y = 4
 	},
 /turf/open/floor/iron/dark/small,
@@ -33169,7 +33130,7 @@
 	pixel_x = -3;
 	pixel_y = 10
 	},
-/obj/item/cigarette/cigar{
+/obj/item/ciarette/cigar{
 	pixel_x = -1;
 	pixel_y = -2
 	},
@@ -35002,7 +34963,7 @@
 	pixel_y = 2
 	},
 /obj/item/wrench,
-/obj/item/cigarette/xeno{
+/obj/item/ciarette/xeno{
 	pixel_x = -3;
 	pixel_y = -9
 	},
@@ -42548,7 +42509,7 @@
 /area/station/service/kitchen)
 "pot" = (
 /obj/structure/table/wood,
-/obj/item/cigarette/cigar/premium{
+/obj/item/ciarette/cigar/premium{
 	pixel_y = 5
 	},
 /turf/open/floor/stone,
@@ -48786,7 +48747,7 @@
 	pixel_y = -3;
 	pixel_x = -2
 	},
-/obj/item/cigarette{
+/obj/item/ciarette{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -49092,7 +49053,7 @@
 	dir = 10
 	},
 /obj/structure/table,
-/obj/item/cigarette,
+/obj/item/ciarette,
 /obj/item/toy/toy_dagger,
 /obj/item/clothing/head/collectable/paper,
 /obj/item/toy/figure/roboticist{
@@ -57654,7 +57615,7 @@
 	pixel_x = -2;
 	pixel_y = -3
 	},
-/obj/item/cigarette/cigar,
+/obj/item/ciarette/cigar,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/smooth,
@@ -66707,7 +66668,7 @@
 /obj/item/stock_parts/cell/crap{
 	pixel_y = 5
 	},
-/obj/item/clothing/mask/cigarette/pipe/cobpipe{
+/obj/item/ciarette/pipe/cobpipe{
 	pixel_x = 1;
 	pixel_y = -2
 	},
