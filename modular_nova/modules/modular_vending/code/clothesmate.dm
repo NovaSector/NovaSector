@@ -125,6 +125,7 @@
 				/obj/item/clothing/suit/duster = 5,
 				/obj/item/clothing/suit/fallsparka = 5,
 				/obj/item/clothing/suit/jacket/croptop = 5,
+				/obj/item/clothing/suit/jacket/white_robe = 5,
 				/obj/item/clothing/suit/modernwintercoatthing = 5,
 				/obj/item/clothing/suit/hooded/wintercoat/colourable = 5,
 				/obj/item/clothing/suit/apron/chef/colorable_apron = 5,

@@ -112,6 +112,12 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
+/obj/item/clothing/under/costume/nova/shihakusho
+	name = "shihakusho"
+	desc = "A traditional ancient Earth Japanese Shihakusho."
+	icon_state = "shihakusho"
+	body_parts_covered = CHEST|GROIN|ARMS
+
 /*
 *	CHRISTMAS CLOTHES
 */
