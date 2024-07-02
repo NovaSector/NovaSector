@@ -43131,7 +43131,6 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "oEG" = (
-/obj/item/clothing/mask/cigarette,
 /obj/item/storage/fancy/cigarettes/cigpack_robust{
 	pixel_y = 5;
 	pixel_x = 6
