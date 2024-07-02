@@ -123,6 +123,7 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/effect/mapping_helpers/apc/cell_5k,
 /obj/machinery/hydroponics/constructable,
+/obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/colony,
 /area/ruin/turretbunker)
 "ka" = (

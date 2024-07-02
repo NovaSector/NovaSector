@@ -314,6 +314,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	desc = "A turret designed to feed from an attatched magazine system."
 	integrity_failure = 0
 	max_integrity = 200
+	////// delay between shots. Affects burst fire.
 	shot_delay = 2 SECONDS
 	uses_stored = FALSE
 	stored_gun = null
@@ -324,6 +325,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	ignore_faction = TRUE
+	armor_type = /datum/armor/mobile_turret
 	req_access = list() //We use faction and ally system for access. Also so people can change turret flags as needed, though useless bc of syndicate subtyping.
 	faction = list(FACTION_TURRET)
 	////// Whether or not the turret takes faction into account. If not, only works off user.
@@ -338,10 +340,12 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/burst_volley = 3
 	////// Where in the burst are we?
 	var/volley_count = 0
-	////// delay of burst if burst fire
-	var/burst_delay = 0.25 SECONDS
+	////// delay between burst if burst fire
+	var/burst_delay = 2 SECONDS
 	////// Target of a burst. We need this to seperate it from a target override.
 	var/datum/weakref/burst_target
+	////// time of last burst.
+	var/last_burst = null
 	////// Can this turret be retracted without tools?
 	var/quick_retract = FALSE
 	///// Does quick_retract require faction tags?
@@ -386,6 +390,15 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/sensor_check = 30
 	////// what frame will it destruct into?
 	var/obj/item/turret_assembly/turret_frame
+
+/datum/armor/mobile_turret //weaker armor than syndicate turret.
+	melee = 40
+	bullet = 30
+	laser = 40
+	energy = 30
+	bomb = 20
+	fire = 80
+	acid = 80
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/Initialize(mapload)
 	. = ..()
@@ -689,11 +702,10 @@ DEFINE_BITFIELD(turret_flags, list(
 		return
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/target(atom/movable/target)
-	if(burst_fire && !burst_target) //if burstfire and not in the middle of a burst, start one.
-		if(last_fired + initial(shot_delay) > world.time)
-			return
-		do_burst_fire(target, burst_volley)
-		return TRUE
+	if(burst_fire) //if burstfire and not recovering
+		if(!burst_target) //if no burst target, assigns one. otherwise goes straight to next area
+			do_burst_fire(target, burst_volley)
+			return TRUE
 
 	if(target)
 		popUp() //pop the turret up if it's not already up.
@@ -706,15 +718,14 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/do_burst_fire(atom/movable/target)
 	if(!target)
 		return
+	if(last_burst + burst_delay > world.time)
+		return
 	burst_target = WEAKREF(target)
 	volley_count = burst_volley
-	shot_delay = burst_delay
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/end_burst()
 	burst_target = null
-	shot_delay = initial(shot_delay)
-	if(target_override) //to avoid issues with it. Put after to over-write.
-		shot_delay = (initial(shot_delay) / 2)
+	last_burst = world.time
 
 /// manual target acquisition from target designator, improves fire rate.
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/override_target(atom/movable/target)

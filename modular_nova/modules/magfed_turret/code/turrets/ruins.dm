@@ -20,7 +20,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	name = "\improper Outpost Point-Defense Turret"
 	desc = "A deployable turret used for protection of outposts and civilian constructs."
-	max_integrity = 150
+	max_integrity = 120
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "outpost_off"
 	base_icon_state = "outpost"
@@ -60,7 +60,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist
 	name = "\improper Colonist Point-Defense Turret"
 	desc = "A deployable turret used for protection of colonists during construction or expeditionary trips. It is chambered to fire .40 Sol ammunition."
-	max_integrity = 200 //bit more health since its ment for mobs only. Malf version is one of a kind to use.
+	max_integrity = 150 //bit more health since its ment for mobs only. Malf version is one of a kind to use.
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "colonist_off"
 	base_icon_state = "colonist"
@@ -101,7 +101,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider
 	name = "\improper Stinger Spider Turret"
 	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition."
-	max_integrity = 100
+	max_integrity = 80
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "35_spider_off"
 	base_icon_state = "35_spider"
@@ -143,16 +143,16 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
 	name = "\improper Twin-Fang Spider Turret"
 	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .27-54 Cesarzowa ammunition."
-	max_integrity = 75 // more aggressive but obviously easier to deal with.
+	max_integrity = 50 // more aggressive but obviously easier to deal with.
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "twin_spider_off"
 	base_icon_state = "twin_spider"
 	fragile = TRUE
 	turret_frame = /obj/item/turret_assembly/twin_fang
 	quick_retract = TRUE
-	shot_delay = 1.5 SECONDS
+	shot_delay = 0.1 SECONDS
 	burst_fire = TRUE
-	burst_delay = 0.1 SECONDS
+	burst_delay = 1.5 SECONDS
 	burst_volley = 2
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled
@@ -197,7 +197,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
 	name = "\improper Duster Emergent Turret"
 	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is fitted to use handfuls of loose Shotgun Shells or M12g Magazines."
-	max_integrity = 125
+	max_integrity = 100
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_off"
 	base_icon_state = "duster"
@@ -205,7 +205,7 @@
 	turret_frame = /obj/item/turret_assembly/duster
 	ignore_faction = FALSE // Pellet cloud wont work with it anyways.
 	quick_retract = TRUE
-	shot_delay = 1.5 SECONDS
+	shot_delay = 2 SECONDS
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/duster/pre_filled
 
