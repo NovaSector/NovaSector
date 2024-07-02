@@ -8,25 +8,28 @@
 	medical_record_text = "The patient finds it remarkably easy to fall over due to external influence."
 
 	// the minimum amount of damage required to knockdown
-	var/unsteady_damagethreshold = UNSTEADY_DAMAGETHRESHOLD
+	var/unsteady_damagethreshold = UNSTEADY_DEFAULT_DAMAGETHRESHOLD
 	// chance to knockdown when hit over threshold
-	var/unsteady_hurtchance = UNSTEADY_DAMAGECHANCE
+	var/unsteady_hurtchance = UNSTEADY_DEFAULT_DAMAGECHANCE
 	// length of the knockdown
-	var/unsteady_stunlength = UNSTEADY_STUNLENGTH
+	var/unsteady_stunlength = UNSTEADY_DEFAULT_STUNLENGTH
 
 /datum/quirk_constant_data/unsteady
-    associated_typepath = /datum/quirk/unsteady
-
-/datum/quirk_constant_data/unsteady/New()
-	customization_options = subtypesof(/datum/preference/numeric/unsteady)
-
-	return ..()
+	associated_typepath = /datum/quirk/unsteady
+	customization_options = list(
+		/datum/preference/numeric/unsteady/unsteady_damagethreshold,
+		/datum/preference/numeric/unsteady/unsteady_hurtfactor,
+		/datum/preference/numeric/unsteady/unsteady_stunlength
+	)
 
 /datum/quirk/unsteady/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(ouchie))
 
 	// update vars on preferences
 	var/datum/preferences/client_preferences = client_source?.prefs
+
+	if(!client_preferences)
+		return
 
 	unsteady_damagethreshold = client_preferences.read_preference(/datum/preference/numeric/unsteady/unsteady_damagethreshold)
 	unsteady_hurtchance = client_preferences.read_preference(/datum/preference/numeric/unsteady/unsteady_hurtfactor)
@@ -55,4 +58,4 @@
 	)
 
 	// get down on the floor, break it down
-	source.Knockdown(unsteady_stunlength SECONDS)
+	source.Knockdown(unsteady_stunlength)

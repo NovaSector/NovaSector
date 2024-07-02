@@ -16,8 +16,8 @@
 /datum/preference/numeric/unsteady/unsteady_stunlength
 	savefile_key = "unsteady_stunlength"
 
-	minimum = UNSTEADY_STUNLENGTH
-	maximum = 4
+	minimum = UNSTEADY_DEFAULT_STUNLENGTH
+	maximum = 4 SECONDS
 
 // minimum damage required
 /datum/preference/numeric/unsteady/unsteady_damagethreshold
@@ -27,13 +27,13 @@
 	maximum = 100
 
 /datum/preference/numeric/unsteady/unsteady_hurtfactor/create_default_value()
-	return UNSTEADY_DAMAGECHANCE
+	return UNSTEADY_DEFAULT_DAMAGECHANCE
 
 /datum/preference/numeric/unsteady/unsteady_stunlength/create_default_value()
-	return UNSTEADY_STUNLENGTH
+	return UNSTEADY_DEFAULT_STUNLENGTH
 
 /datum/preference/numeric/unsteady/unsteady_damagethreshold/create_default_value()
-	return UNSTEADY_DAMAGETHRESHOLD
+	return UNSTEADY_DEFAULT_DAMAGETHRESHOLD
 
 /datum/preference/numeric/unsteady/unsteady_stunlength/apply_to_human(mob/living/carbon/human/target, value)
 	return
