@@ -138,7 +138,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/cigar //smoking is bad mkay
 	name = "Cigar"
-	item_path = /obj/item/clothing/mask/cigarette/cigar
+	item_path = /obj/item/ciarette/cigar
 
 /datum/loadout_item/pocket_items/flask
 	name = "Flask"
