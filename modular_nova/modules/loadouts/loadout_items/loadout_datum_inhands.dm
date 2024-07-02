@@ -81,8 +81,7 @@
 /*
 /datum/loadout_item/inhand/smokingpipe
 	name = "Smoking Pipe"
-	item_path = /obj/item/clothing/mask/cigarette/pipe
-*/
+	item_path = /obj/item/cigarette/pipe
 
 /datum/loadout_item/inhand/flag_nt
 	name = "Folded Nanotrasen Flag"
