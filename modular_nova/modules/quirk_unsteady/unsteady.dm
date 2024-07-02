@@ -19,7 +19,7 @@
 	customization_options = list(
 		/datum/preference/numeric/unsteady/unsteady_damagethreshold,
 		/datum/preference/numeric/unsteady/unsteady_hurtfactor,
-		/datum/preference/numeric/unsteady/unsteady_stunlength
+		/datum/preference/numeric/unsteady/unsteady_stunlength,
 	)
 
 /datum/quirk/unsteady/add(client/client_source)
