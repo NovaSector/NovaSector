@@ -288,3 +288,4 @@
 	target.adjustStaminaLoss(3)
 	target.adjust_pain(9)
 	target.adjust_stutter(30 SECONDS)
+	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
