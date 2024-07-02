@@ -201,3 +201,11 @@
 	contains = list(
 		/obj/item/storage/pouch/medical/firstaid/stabilizer,
 	)
+
+/datum/supply_pack/goody/wetmaker
+	name = "wetmaker"
+	desc = ""
+	cost = PAYCHECK_CREW
+	contains = list(
+		/obj/item/clothing/accessory/wetmaker,
+	)
