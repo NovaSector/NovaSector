@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;obj&#x2F;machinery&#x2F;porta_turret&#x2F;syndicate&#x2F;toolbox&#x2F;mag_fed - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var">Var Details</a> - <a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc">Proc Details</a></header>
+<main>
+<h1>mag_fed <aside>/<a href="obj.html">obj</a>/<a href="obj/machinery.html">machinery</a>/<a href="obj/machinery/porta_turret.html">porta_turret</a>/<a href="obj/machinery/porta_turret/syndicate/toolbox.html">syndicate/toolbox</a>/<a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html">mag_fed</a></aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L254">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 254"/></a></h1>
+
+<p>Turret handling</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/adjustable_magwell">adjustable_magwell</a></th><td>Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/allies">allies</a></th><td>Ally system.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/casing_ejector">casing_ejector</a></th><td>Do we want it to eject casings?</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/chambered">chambered</a></th><td>currently loaded bullet</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/claptrap_moment">claptrap_moment</a></th><td>Do we want this to shut up? Mostly for testing and debugging purposes purposes.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/combat_mode">combat_mode</a></th><td>To stop runtimes x2 + resting firing</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/linkage">linkage</a></th><td>linked target designator</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/mag_box">mag_box</a></th><td>Container of the turret. Needs expanded ref.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/mag_box_type">mag_box_type</a></th><td>what box should this spawn with if its map_spawned?</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/magazine_ref">magazine_ref</a></th><td>Magazine inside the turret.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/staminaloss">staminaloss</a></th><td>To stop runtimes x1</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/target_assessment">target_assessment</a></th><td>Target Assessment System. Whether or not its targeting according to flags or even ignoring everyone.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/target_override">target_override</a></th><td>This is for manual target acquisition stuff. If present, should immediately over-ride as a target.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#var/timer_id">timer_id</a></th><td>to stop runtimes x3</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/assess_perp">assess_perp</a></th><td>decides a threat level depending on factors.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/attackby">attackby</a></th><td>Operation Handling</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/chamber_round">chamber_round</a></th><td>pulls a cartridge from the magazine and loads it into the chamber</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/changeNext_move">changeNext_move</a></th><td>So because the casing firing process calls it, Lets use this to handle the auto-reload.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/clear_override">clear_override</a></th><td>clears the target and resets fire rate</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/eject_cartridge">eject_cartridge</a></th><td>ejects cartridge and calls if issues arrive.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/handle_chamber">handle_chamber</a></th><td>main proc to handle loading magazines and bullets. might need improved?</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/handle_firing">handle_firing</a></th><td>Handles the firing process. Will need edited for special ammo types like 980.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/handle_mag">handle_mag</a></th><td>handles magazine ejecting and automatic load proccing</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/insert_mag">insert_mag</a></th><td>Allows you to insert magazines while the turret is deployed</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/load_mag">load_mag</a></th><td>loads a magazine from the base storage box</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/override_target">override_target</a></th><td>manual target acquisition from target designator, improves fire rate.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/play_fire_sound">play_fire_sound</a></th><td>Handles which sound should play when the gun fires, as it does adjust between different ammo types.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/process">process</a></th><td>I rewrite/add to the entire proccess.</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/toggle_ally">toggle_ally</a></th><td>toggles between whether things are inside the ally system</td></tr>
+            <tr><th><a href="obj/machinery/porta_turret/syndicate/toolbox/mag_fed.html#proc/trytoshootfucker">trytoshootfucker</a></th><td>Shoots at one specific target. Only happens if target is overridden</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/adjustable_magwell"><aside class="declaration">var </aside>adjustable_magwell
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L272">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 272"/></a></h3>
+        <p>Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.</p><h3 id="var/allies"><aside class="declaration">var </aside>allies
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L278">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 278"/></a></h3>
+        <p>Ally system.</p><h3 id="var/casing_ejector"><aside class="declaration">var </aside>casing_ejector
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L282">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 282"/></a></h3>
+        <p>Do we want it to eject casings?</p><h3 id="var/chambered"><aside class="declaration">var </aside>chambered
+            <aside>&ndash; /<a href="datum.html">datum</a>/<a href="datum/weakref.html">weakref</a></aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L296">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 296"/></a></h3>
+        <p>currently loaded bullet</p><h3 id="var/claptrap_moment"><aside class="declaration">var </aside>claptrap_moment
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L280">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 280"/></a></h3>
+        <p>Do we want this to shut up? Mostly for testing and debugging purposes purposes.</p><h3 id="var/combat_mode"><aside class="declaration">var </aside>combat_mode
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L288">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 288"/></a></h3>
+        <p>To stop runtimes x2 + resting firing</p><h3 id="var/linkage"><aside class="declaration">var </aside>linkage
+            <aside>&ndash; /<a href="datum.html">datum</a>/<a href="datum/weakref.html">weakref</a></aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L300">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 300"/></a></h3>
+        <p>linked target designator</p><h3 id="var/mag_box"><aside class="declaration">var </aside>mag_box
+            <aside>&ndash; /<a href="datum.html">datum</a>/<a href="datum/weakref.html">weakref</a></aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L292">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 292"/></a></h3>
+        <p>Container of the turret. Needs expanded ref.</p><h3 id="var/mag_box_type"><aside class="declaration">var </aside>mag_box_type
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L284">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 284"/></a></h3>
+        <p>what box should this spawn with if its map_spawned?</p><h3 id="var/magazine_ref"><aside class="declaration">var </aside>magazine_ref
+            <aside>&ndash; /<a href="datum.html">datum</a>/<a href="datum/weakref.html">weakref</a></aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L294">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 294"/></a></h3>
+        <p>Magazine inside the turret.</p><h3 id="var/staminaloss"><aside class="declaration">var </aside>staminaloss
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L286">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 286"/></a></h3>
+        <p>To stop runtimes x1</p><h3 id="var/target_assessment"><aside class="declaration">var </aside>target_assessment
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L276">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 276"/></a></h3>
+        <p>Target Assessment System. Whether or not its targeting according to flags or even ignoring everyone.</p><h3 id="var/target_override"><aside class="declaration">var </aside>target_override
+            <aside>&ndash; /<a href="datum.html">datum</a>/<a href="datum/weakref.html">weakref</a></aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L274">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 274"/></a></h3>
+        <p>This is for manual target acquisition stuff. If present, should immediately over-ride as a target.</p><h3 id="var/timer_id"><aside class="declaration">var </aside>timer_id
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L290">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 290"/></a></h3>
+        <p>to stop runtimes x3</p><h2 id="proc">Proc Details</h2><h3 id="proc/assess_perp">assess_perp<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/<a href="mob/living/carbon.html">carbon</a>/<a href="mob/living/carbon/human.html">human</a>/perp) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L468">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 468"/></a></aside>
+        </h3>
+        <p>decides a threat level depending on factors.</p><h3 id="proc/attackby"><aside class="parent"><a title="/atom" href="atom.html#proc/attackby">&uarr;</a></aside>attackby<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/attacking_item, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/user, params) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L631">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 631"/></a></aside>
+        </h3>
+        <p>Operation Handling</p><h3 id="proc/chamber_round"><aside class="declaration">proc </aside>chamber_round<aside>(replace_new_round) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L380">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 380"/></a></aside>
+        </h3>
+        <p>pulls a cartridge from the magazine and loads it into the chamber</p><h3 id="proc/changeNext_move"><aside class="declaration">proc </aside>changeNext_move<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L608">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 608"/></a></aside>
+        </h3>
+        <p>So because the casing firing process calls it, Lets use this to handle the auto-reload.</p><h3 id="proc/clear_override"><aside class="declaration">proc </aside>clear_override<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L547">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 547"/></a></aside>
+        </h3>
+        <p>clears the target and resets fire rate</p><h3 id="proc/eject_cartridge"><aside class="declaration">proc </aside>eject_cartridge<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L428">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 428"/></a></aside>
+        </h3>
+        <p>ejects cartridge and calls if issues arrive.</p><h3 id="proc/handle_chamber"><aside class="declaration">proc </aside>handle_chamber<aside>(chamber_next_round) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L362">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 362"/></a></aside>
+        </h3>
+        <p>main proc to handle loading magazines and bullets. might need improved?</p><h3 id="proc/handle_firing"><aside class="declaration">proc </aside>handle_firing<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/ammo_casing.html">ammo_casing</a>/casing, /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/target) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L598">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 598"/></a></aside>
+        </h3>
+        <p>Handles the firing process. Will need edited for special ammo types like 980.</p><h3 id="proc/handle_mag"><aside class="declaration">proc </aside>handle_mag<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L399">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 399"/></a></aside>
+        </h3>
+        <p>handles magazine ejecting and automatic load proccing</p><h3 id="proc/insert_mag"><aside class="declaration">proc </aside>insert_mag<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/ammo_box.html">ammo_box</a>/<a href="obj/item/ammo_box/magazine.html">magazine</a>/magaroni, /<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/guy_with_mag) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L442">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 442"/></a></aside>
+        </h3>
+        <p>Allows you to insert magazines while the turret is deployed</p><h3 id="proc/load_mag"><aside class="declaration">proc </aside>load_mag<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L411">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 411"/></a></aside>
+        </h3>
+        <p>loads a magazine from the base storage box</p><h3 id="proc/override_target"><aside class="declaration">proc </aside>override_target<aside>(/<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/target) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L539">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 539"/></a></aside>
+        </h3>
+        <p>manual target acquisition from target designator, improves fire rate.</p><h3 id="proc/play_fire_sound"><aside class="declaration">proc </aside>play_fire_sound<aside>(/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/ammo_casing.html">ammo_casing</a>/soundmaker) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L612">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 612"/></a></aside>
+        </h3>
+        <p>Handles which sound should play when the gun fires, as it does adjust between different ammo types.</p><h3 id="proc/process"><aside class="parent"><a title="/datum" href="datum.html#proc/process">&uarr;</a></aside>process<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L455">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 455"/></a></aside>
+        </h3>
+        <p>I rewrite/add to the entire proccess.</p><h3 id="proc/toggle_ally"><aside class="declaration">proc </aside>toggle_ally<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/target) 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L520">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 520"/></a></aside>
+        </h3>
+        <p>toggles between whether things are inside the ally system</p><h3 id="proc/trytoshootfucker"><aside class="declaration">proc </aside>trytoshootfucker<aside>() 
+        
+    
+            <a href="https://github.com/NovaSector/NovaSector/blob/7a3a8d186d17cfe97549045597e40713fe39497c/modular_nova/modules/magfed_turret/code/turret_framework.dm#L560">
+        <img src="git.png" width="16" height="16" title="modular_nova&#x2F;modules&#x2F;magfed_turret&#x2F;code&#x2F;turret_framework.dm 560"/></a></aside>
+        </h3>
+        <p>Shoots at one specific target. Only happens if target is overridden</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/NovaSector/NovaSector/tree/7a3a8d186d17cfe97549045597e40713fe39497c">7a3a8d1</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
