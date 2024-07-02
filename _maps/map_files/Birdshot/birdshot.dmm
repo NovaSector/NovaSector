@@ -264,7 +264,7 @@
 /area/station/medical/virology)
 "agp" = (
 /obj/structure/table/wood,
-/obj/item/ciarette/cigar/cohiba,
+/obj/item/cigarette/cigar/cohiba,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "agy" = (
@@ -3372,7 +3372,7 @@
 /obj/structure/rack,
 /obj/item/weldingtool/mini,
 /obj/item/tank/internals/emergency_oxygen/empty,
-/obj/item/ciarette/rollie,
+/obj/item/cigarette/rollie,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/central/lesser)
 "bxs" = (
@@ -3548,7 +3548,7 @@
 /obj/item/stock_parts/power_store/cell/crap{
 	pixel_y = 5
 	},
-/obj/item/ciarette/pipe/cobpipe{
+/obj/item/cigarette/pipe/cobpipe{
 	pixel_x = 1;
 	pixel_y = -2
 	},
@@ -4907,7 +4907,7 @@
 	pixel_y = 9;
 	pixel_x = 14
 	},
-/obj/item/ciarette{
+/obj/item/cigarette{
 	pixel_y = 2
 	},
 /turf/open/floor/iron/small,
@@ -9557,7 +9557,7 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/ciarette{
+/obj/item/cigarette{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -16980,7 +16980,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/stack/spacecash/c1,
-/obj/item/ciarette/cigar/havana,
+/obj/item/cigarette/cigar/havana,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/station/maintenance/starboard/central)
 "gJS" = (
@@ -30139,7 +30139,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
-/obj/item/ciarette/candy{
+/obj/item/cigarette/candy{
 	pixel_x = -3;
 	pixel_y = 10
 	},
@@ -32468,11 +32468,11 @@
 /area/station/engineering/atmos)
 "lNF" = (
 /obj/effect/spawner/random/entertainment/lighter,
-/obj/item/ciarette/rollie/mindbreaker{
+/obj/item/cigarette/rollie/mindbreaker{
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/item/ciarette/rollie/trippy{
+/obj/item/cigarette/rollie/trippy{
 	pixel_x = 4
 	},
 /obj/effect/mapping_helpers/burnt_floor,
@@ -32996,7 +32996,7 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/ciarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_y = 4
 	},
 /turf/open/floor/iron/dark/small,
@@ -33150,7 +33150,7 @@
 	pixel_x = -3;
 	pixel_y = 10
 	},
-/obj/item/ciarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = -1;
 	pixel_y = -2
 	},
@@ -35016,7 +35016,7 @@
 	pixel_y = 2
 	},
 /obj/item/wrench,
-/obj/item/ciarette/xeno{
+/obj/item/cigarette/xeno{
 	pixel_x = -3;
 	pixel_y = -9
 	},
@@ -42635,7 +42635,7 @@
 /area/station/service/kitchen)
 "pot" = (
 /obj/structure/table/wood,
-/obj/item/ciarette/cigar/premium{
+/obj/item/cigarette/cigar/premium{
 	pixel_y = 5
 	},
 /turf/open/floor/stone,
@@ -48832,7 +48832,7 @@
 	pixel_y = -3;
 	pixel_x = -2
 	},
-/obj/item/ciarette{
+/obj/item/cigarette{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -49138,7 +49138,7 @@
 	dir = 10
 	},
 /obj/structure/table,
-/obj/item/ciarette,
+/obj/item/cigarette,
 /obj/item/toy/toy_dagger,
 /obj/item/clothing/head/collectable/paper,
 /obj/item/toy/figure/roboticist{
@@ -57670,7 +57670,7 @@
 	pixel_x = -2;
 	pixel_y = -3
 	},
-/obj/item/ciarette/cigar,
+/obj/item/cigarette/cigar,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/smooth,
