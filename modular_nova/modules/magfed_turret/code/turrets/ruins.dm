@@ -69,6 +69,11 @@
 	faction = list(FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled
 
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist/malf
+	name = "\improper Malfunctioning Colonist Point-Defense Turret"
+	faction = list(FACTION_MALF_TURRET)
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled
+
 ////// Spider turret. Throw-deployable turret with actual ammunition.
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider

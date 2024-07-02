@@ -240,6 +240,7 @@
 /obj/item/shovel/spade,
 /obj/machinery/light/dim/directional/south,
 /obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/colony,
 /area/ruin/turretbunker)
 "wZ" = (
@@ -290,6 +291,7 @@
 /area/ruin/turretbunker)
 "Bt" = (
 /obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/turretbunker)
 "BQ" = (
@@ -343,7 +345,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/obj/effect/spawner/random/magturret,
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist/malf,
 /turf/open/floor/iron/colony/white,
 /area/ruin/turretbunker)
 "Gn" = (
@@ -351,6 +353,8 @@
 /turf/open/floor/iron/colony/texture,
 /area/ruin/turretbunker)
 "Go" = (
+/obj/structure/table/reinforced,
+/obj/item/target_designator/sniper,
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/turretbunker)
 "GX" = (
@@ -459,6 +463,7 @@
 	},
 /obj/machinery/light/dim/directional/north,
 /obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/turretbunker)
 "Zu" = (

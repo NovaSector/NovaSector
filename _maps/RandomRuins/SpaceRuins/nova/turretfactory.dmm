@@ -46,11 +46,6 @@
 /obj/item/stack/cable_coil/cut,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
-"bF" = (
-/obj/machinery/ammo_workbench/unlocked,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/turretfactory)
 "bP" = (
 /obj/effect/spawner/structure/window/reinforced/no_firelock,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -537,6 +532,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "xh" = (
@@ -706,7 +702,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Fk" = (
-/obj/machinery/ammo_workbench/unlocked,
+/obj/structure/table/reinforced,
+/obj/item/turret_assembly/twin_fang,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Ft" = (
@@ -885,14 +882,6 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
-"PP" = (
-/obj/structure/table/rolling,
-/obj/item/turret_assembly/twin_fang,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/powered/turretfactory)
 "QF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -974,7 +963,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "TL" = (
-/obj/machinery/door/poddoor/shutters/window{
+/obj/machinery/door/poddoor/shutters{
 	id = "turretfactorytrap"
 	},
 /obj/structure/disposalpipe/segment{
@@ -1079,7 +1068,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/machinery/door/poddoor/shutters/window{
+/obj/machinery/door/poddoor/shutters{
 	id = "turretfactorytrap"
 	},
 /turf/open/floor/plating,
@@ -1731,7 +1720,7 @@ Sg
 tT
 tT
 Ng
-bF
+wD
 XA
 CX
 yH
@@ -1796,7 +1785,7 @@ tT
 tT
 Ng
 mz
-PP
+XA
 wD
 yH
 xK
