@@ -48,7 +48,7 @@
 	var/gags_bodystate = "hypo2_normal"
 
 /obj/item/hypospray/mkii/deluxe
-	name = "hypospray mk.II deluxe"
+	name = "hypospray Mk.II deluxe"
 	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small, /obj/item/reagent_containers/cup/vial/large)
 	icon_state = "bighypo2"
 	gags_bodystate = "hypo2_deluxe"
@@ -72,7 +72,7 @@
 
 // Deluxe hypo upgrade Kit
 /obj/item/device/custom_kit/deluxe_hypo2
-	name = "\improper DeForest Hypospray Mk. II Deluxe Bodykit"
+	name = "hypospray Mk.II deluxe bodykit"
 	desc = "Upgrades the DeForest Hypospray Mk. II to support larger vials."
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
@@ -240,10 +240,10 @@
 	if(istype(interacting_with, /obj/item/reagent_containers/cup/vial))
 		insert_vial(interacting_with, user)
 		return ITEM_INTERACT_SUCCESS
-	return do_inject(interacting_with, user, mode=HYPO_INJECT)
+	return do_inject(interacting_with, user, mode=HYPO_SPRAY)
 
 /obj/item/hypospray/mkii/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	return do_inject(interacting_with, user, mode=HYPO_SPRAY)
+	return do_inject(interacting_with, user, mode=HYPO_INJECT)
 
 /obj/item/hypospray/mkii/proc/do_inject(mob/living/injectee, mob/living/user, mode)
 	if(!isliving(injectee))
@@ -317,7 +317,7 @@
 
 /obj/item/hypospray/mkii/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Left-Click</b> on patients to inject, <b>Right-Click</b> to spray.")
+	. += span_notice("<b>Left-Click</b> on patients to spray, <b>Right-Click</b> to inject.")
 
 #undef HYPO_INJECT
 #undef HYPO_SPRAY
