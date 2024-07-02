@@ -1,6 +1,6 @@
 /datum/quirk/system_shock
 	name = "System Shock"
-	desc = "You and electricity have a volatile relationship. One spark's liable to forcefully reboot your systems."
+	desc = "You and electricity have a volatile relationship. One spark's liable to forcefully reboot your systems. Note: This quirk only works on synths."
 	gain_text = span_danger("You start feeling nervous around plug sockets.")
 	lose_text = span_notice("You feel normal about sparks.")
 	medical_record_text = "Patient's processors are unusually uninsulated."
