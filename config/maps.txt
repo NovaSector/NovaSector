@@ -79,3 +79,8 @@ map ouroboros
 	maxplayers 80
 	votable
 endmap
+
+map snowglobe
+	minplayers 50
+	votable
+endmap
