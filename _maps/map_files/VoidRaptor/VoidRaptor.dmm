@@ -38887,10 +38887,6 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/station/cargo/office)
-"kXK" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "kXW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -55887,11 +55883,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/fore)
-"pDv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/teal,
-/turf/open/space/basic,
-/area/space)
 "pDx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -86803,7 +86794,7 @@
 "ycM" = (
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "ycQ" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
@@ -107124,7 +107115,7 @@ mnM
 uUU
 oVO
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -107381,8 +107372,8 @@ rzh
 uUU
 jwC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -107638,8 +107629,8 @@ oOK
 uUU
 rmo
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -108153,7 +108144,7 @@ spp
 uUU
 oVO
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -108410,8 +108401,8 @@ iaq
 uUU
 jwC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -108667,8 +108658,8 @@ eMd
 uUU
 rmo
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -109280,7 +109271,7 @@ hdF
 hdF
 hdF
 hdF
-kXK
+xMq
 gPJ
 ttw
 ttw
@@ -111322,7 +111313,7 @@ ttw
 ttw
 ttw
 gPJ
-kXK
+xMq
 hdF
 hdF
 hdF
@@ -111336,7 +111327,7 @@ hdF
 hdF
 hdF
 hdF
-kXK
+xMq
 gPJ
 ttw
 ttw
@@ -111756,7 +111747,7 @@ tot
 deE
 wTj
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -112013,8 +112004,8 @@ urO
 deE
 mwR
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -112270,8 +112261,8 @@ fon
 deE
 gyG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -115091,7 +115082,7 @@ cwa
 brI
 gAd
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -115348,8 +115339,8 @@ cwa
 brI
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -115605,8 +115596,8 @@ cwa
 brI
 wNk
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -117146,7 +117137,7 @@ tSH
 gmz
 gAd
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -117403,8 +117394,8 @@ sLM
 gmz
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -117660,8 +117651,8 @@ sBr
 gmz
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -117917,7 +117908,7 @@ pqO
 gmz
 ngt
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -118174,8 +118165,8 @@ aZH
 gmz
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -118431,8 +118422,8 @@ hUm
 gmz
 wNk
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -118941,7 +118932,7 @@ lhE
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -119198,8 +119189,8 @@ jfq
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -119455,8 +119446,8 @@ awv
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -119712,7 +119703,7 @@ czs
 qbp
 nIl
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -119969,8 +119960,8 @@ xgK
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -120226,8 +120217,8 @@ dyl
 qbp
 rTG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -120741,7 +120732,7 @@ rYy
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -120998,8 +120989,8 @@ avz
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -121255,8 +121246,8 @@ vau
 qbp
 rTG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -121768,7 +121759,7 @@ veD
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -122025,8 +122016,8 @@ ceN
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -122282,8 +122273,8 @@ koQ
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -122539,7 +122530,7 @@ rfk
 qbp
 nIl
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -122796,8 +122787,8 @@ xgK
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -123053,8 +123044,8 @@ xgK
 qbp
 rTG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -123569,7 +123560,7 @@ dyl
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -123826,8 +123817,8 @@ evE
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -124083,8 +124074,8 @@ kvZ
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -124340,7 +124331,7 @@ qbp
 qbp
 nIl
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -124597,8 +124588,8 @@ aXG
 xGA
 gdu
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -124854,8 +124845,8 @@ aXG
 xGA
 myC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -127688,7 +127679,7 @@ xAr
 sJd
 gUC
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -127945,8 +127936,8 @@ oxH
 sJd
 ykC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -128202,8 +128193,8 @@ gwJ
 sJd
 wuU
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -130772,7 +130763,7 @@ gIT
 unI
 otq
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -131029,8 +131020,8 @@ ayt
 unI
 hqJ
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -131286,8 +131277,8 @@ sUV
 unI
 vag
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -131795,7 +131786,7 @@ wsc
 lAi
 jBK
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -132052,8 +132043,8 @@ ajL
 lAi
 uLA
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -132309,8 +132300,8 @@ ajL
 lAi
 ftr
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -132467,7 +132458,7 @@ kUb
 kUb
 ttw
 ttw
-kXK
+xMq
 ttw
 ttw
 skC
@@ -132717,14 +132708,14 @@ xMq
 ttw
 ttw
 ttw
-kXK
+xMq
 ttw
 ttw
-kXK
+xMq
 ttw
 ttw
 ttw
-pDv
+smE
 ttw
 ttw
 skC
@@ -132974,10 +132965,10 @@ xMq
 ttw
 ttw
 ttw
-pDv
+smE
 ttw
 ttw
-pDv
+smE
 ttw
 ttw
 ttw

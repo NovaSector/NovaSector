@@ -8481,7 +8481,7 @@
 "bIU" = (
 /obj/machinery/power/shuttle_engine/large,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "bIW" = (
 /obj/machinery/dish_drive/bullet,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -21247,7 +21247,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "ecR" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -24982,7 +24982,7 @@
 "eMh" = (
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "eMi" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/cobweb,
@@ -28772,7 +28772,7 @@
 "fwM" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "fwU" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Bow Solar Access"
@@ -31903,6 +31903,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron/smooth_edge,
 /area/station/command/secure_bunker)
+"gdI" = (
+/turf/open/space/openspace,
+/area/space/nearstation)
 "gdJ" = (
 /obj/machinery/photocopier,
 /obj/machinery/power/apc/auto_name/directional/south,
@@ -36718,7 +36721,7 @@
 "haT" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "haZ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -43680,7 +43683,7 @@
 "itJ" = (
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "itP" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -62346,7 +62349,7 @@
 "lWy" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "lWz" = (
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
@@ -88660,7 +88663,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "qXV" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -95929,7 +95932,7 @@
 "stn" = (
 /obj/machinery/power/shuttle_engine/large,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "sto" = (
 /obj/structure/chair/sofa/corp/left,
 /obj/structure/cable,
@@ -103017,7 +103020,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "tJJ" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -110760,7 +110763,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "vhK" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -144883,7 +144886,7 @@ xJH
 fZI
 rUF
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -145140,8 +145143,8 @@ ojX
 ojX
 iBx
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -145397,8 +145400,8 @@ ojX
 ojX
 kSt
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -145912,7 +145915,7 @@ vPM
 jtq
 tfY
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -146169,8 +146172,8 @@ vPM
 daD
 eqS
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -146426,8 +146429,8 @@ vPM
 xDN
 rus
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -148495,7 +148498,7 @@ uUZ
 lKJ
 wMq
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -149527,7 +149530,7 @@ eqS
 eqS
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -149784,7 +149787,7 @@ xDN
 jxA
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -150300,7 +150303,7 @@ wVX
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -150557,8 +150560,8 @@ hvs
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -150814,8 +150817,8 @@ kmr
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -151329,7 +151332,7 @@ hvs
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -151586,8 +151589,8 @@ dom
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -151843,8 +151846,8 @@ hvs
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -152357,7 +152360,7 @@ vko
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -152614,8 +152617,8 @@ wyt
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -152871,8 +152874,8 @@ vhy
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -153388,7 +153391,7 @@ gpv
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -153645,8 +153648,8 @@ xNy
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -153902,8 +153905,8 @@ rFD
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -154676,7 +154679,7 @@ hDr
 hDr
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -154933,7 +154936,7 @@ dNq
 wzb
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -156749,7 +156752,7 @@ qBd
 eFZ
 hIY
 aML
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -161118,7 +161121,7 @@ rbL
 eFZ
 hIY
 aML
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -210678,7 +210681,7 @@ tcq
 tcq
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -210935,7 +210938,7 @@ mkZ
 rkF
 ojX
 ojX
-fZI
+nuU
 ulx
 ulx
 ulx
@@ -211707,7 +211710,7 @@ tcq
 tcq
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -211964,7 +211967,7 @@ mkZ
 rkF
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -212736,7 +212739,7 @@ tcq
 tcq
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -212993,7 +212996,7 @@ mkZ
 rkF
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -214032,7 +214035,7 @@ iVF
 sXD
 wVE
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -226668,7 +226671,7 @@ haT
 haT
 haT
 haT
-ulx
+fZI
 ulx
 ulx
 ulx
@@ -234338,7 +234341,7 @@ kta
 lQX
 tvm
 bqk
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -235110,7 +235113,7 @@ tzf
 tzf
 hMF
 hMF
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -235367,7 +235370,7 @@ rnF
 rnF
 bqk
 hMF
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -236137,7 +236140,7 @@ aqy
 cIB
 tvm
 bqk
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -238698,7 +238701,7 @@ soz
 soz
 soz
 nvJ
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -238955,7 +238958,7 @@ nvJ
 nvJ
 nvJ
 nvJ
-ulx
+gdI
 ulx
 ulx
 ulx

@@ -1086,7 +1086,7 @@
 	dir = 10
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "ark" = (
 /turf/closed/wall/r_wall,
 /area/station/security/eva)
@@ -6492,7 +6492,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "bVU" = (
 /obj/effect/turf_decal/tile/dark_blue,
 /obj/structure/chair/office{
@@ -9587,7 +9587,7 @@
 	dir = 10
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "cPt" = (
 /obj/effect/spawner/random/maintenance,
 /obj/structure/disposalpipe/segment{
@@ -21149,7 +21149,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "gik" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/blue,
@@ -21494,7 +21494,7 @@
 	dir = 9
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "gnf" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/air_sensor/engine_chamber,
@@ -27062,7 +27062,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "hUF" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -32644,7 +32644,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "jyy" = (
 /turf/closed/wall,
 /area/station/commons/dorms/room1)
@@ -33482,7 +33482,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "jKr" = (
 /obj/structure/rack,
 /obj/item/reagent_containers/cup/bottle/epinephrine{
@@ -50393,7 +50393,7 @@
 	dir = 9
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "oyX" = (
 /obj/structure/railing{
 	dir = 1
@@ -59259,7 +59259,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible,
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "riF" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -61349,7 +61349,7 @@
 	dir = 6
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "rQM" = (
 /obj/structure/railing/corner/end{
 	dir = 4
@@ -76831,10 +76831,6 @@
 	},
 /turf/open/space/openspace,
 /area/space/nearstation)
-"wjk" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space/basic,
-/area/space)
 "wjl" = (
 /obj/item/storage/box/deputy,
 /obj/item/storage/box/seccarts{
@@ -81493,7 +81489,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "xDe" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -82168,7 +82164,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "xNd" = (
 /obj/effect/turf_decal/tile/red/fourcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -82218,7 +82214,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "xOm" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -106651,7 +106647,7 @@ laO
 laO
 laO
 laO
-cpO
+obu
 laO
 laO
 laO
@@ -111018,9 +111014,9 @@ vmE
 vmE
 vmE
 vmE
-wjk
-wjk
-wjk
+wmi
+wmi
+wmi
 soH
 soH
 soH
@@ -111532,8 +111528,8 @@ vmE
 vmE
 vmE
 vmE
-wjk
-wjk
+wmi
+wmi
 oZn
 oOL
 sic
@@ -112302,8 +112298,8 @@ vmE
 vmE
 vmE
 vmE
-wjk
-wjk
+wmi
+wmi
 oZn
 fHz
 wBk
@@ -114358,7 +114354,7 @@ vmE
 vmE
 vmE
 gii
-wjk
+wmi
 soH
 soH
 soH
