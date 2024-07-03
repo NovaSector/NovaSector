@@ -4839,12 +4839,12 @@
 	dir = 4
 	},
 /obj/structure/rack/shelf,
-/obj/item/stock_parts/cell/lead{
+/obj/item/stock_parts/power_store/cell/lead{
 	pixel_x = 4;
 	pixel_y = -6
 	},
-/obj/item/stock_parts/cell/lead,
-/obj/item/stock_parts/cell/lead{
+/obj/item/stock_parts/power_store/cell/lead,
+/obj/item/stock_parts/power_store/cell/lead{
 	pixel_x = -4;
 	pixel_y = -8
 	},
@@ -7655,22 +7655,22 @@
 /obj/item/electronics/airalarm{
 	pixel_x = 2
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/battery/high{
 	pixel_x = -8;
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/battery/high{
 	pixel_x = -4;
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/battery/high{
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 4;
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 8;
 	pixel_y = -8
 	},

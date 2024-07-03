@@ -8665,7 +8665,7 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
 /obj/item/electronics/airlock,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
 	},
@@ -12164,7 +12164,7 @@
 "dEH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "dEM" = (
@@ -21460,7 +21460,7 @@
 /area/station/maintenance/port/fore)
 "gmQ" = (
 /obj/effect/spawner/random/maintenance/three,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/sign/poster/random/directional/north,
 /obj/structure/rack/shelf,
@@ -24790,7 +24790,7 @@
 /area/station/maintenance/starboard/greater)
 "hmf" = (
 /obj/structure/closet/crate,
-/obj/item/stock_parts/cell/lead,
+/obj/item/stock_parts/power_store/cell/lead,
 /obj/effect/spawner/random/maintenance/eight,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/large,
@@ -28982,7 +28982,7 @@
 /obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette{
+/obj/item/cigarette{
 	pixel_x = -6
 	},
 /obj/structure/table,
@@ -31396,7 +31396,7 @@
 "jeH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 1
 	},
@@ -35006,13 +35006,13 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 7
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 10
 	},
 /obj/machinery/light/warm/directional/east,
@@ -35717,22 +35717,22 @@
 	pixel_y = 6;
 	pixel_x = 6
 	},
-/obj/item/clothing/mask/cigarette/rollie/cannabis{
+/obj/item/cigarette/rollie/cannabis{
 	pixel_y = 9
 	},
-/obj/item/clothing/mask/cigarette/rollie/cannabis{
+/obj/item/cigarette/rollie/cannabis{
 	pixel_y = 7;
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette/rollie/nicotine{
+/obj/item/cigarette/rollie/nicotine{
 	pixel_y = 5;
 	pixel_x = -3
 	},
-/obj/item/clothing/mask/cigarette/rollie/trippy{
+/obj/item/cigarette/rollie/trippy{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
+/obj/item/cigarette/rollie/mindbreaker,
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron/vaporwave,
 /area/station/maintenance/department/security/upper)
@@ -44256,7 +44256,7 @@
 	pixel_y = 3;
 	pixel_x = -10
 	},
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/item/flashlight{
 	pixel_y = -14
 	},
@@ -44577,15 +44577,15 @@
 /area/station/hallway/primary/port)
 "mOW" = (
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/structure/table,
 /turf/open/floor/iron/small,
 /area/station/science/robotics/lab)
@@ -45146,7 +45146,7 @@
 "mVN" = (
 /obj/structure/rack,
 /obj/item/mod/core/standard,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -45272,10 +45272,10 @@
 /obj/machinery/newscaster/directional/west,
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/empty{
+/obj/item/stock_parts/power_store/cell/high/empty{
 	pixel_y = 4
 	},
-/obj/item/stock_parts/cell/high/empty,
+/obj/item/stock_parts/power_store/cell/high/empty,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/lobby)
 "mXl" = (
@@ -52484,7 +52484,7 @@
 	dir = 4
 	},
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/crap,
+/obj/item/stock_parts/power_store/cell/crap,
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/command/meeting_room/council)
@@ -53925,15 +53925,15 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4;
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = -4;
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba,
+/obj/item/cigarette/cigar/cohiba,
 /obj/structure/table/wood,
 /obj/item/toy/plush/carpplushie{
 	greyscale_colors = "#ff5050#000000";
@@ -54890,13 +54890,13 @@
 	},
 /obj/machinery/keycard_auth/directional/west,
 /obj/item/lighter,
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4.5
 	},
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar/havana{
 	pixel_x = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_x = 6
 	},
 /obj/item/phone{
@@ -55830,7 +55830,7 @@
 /obj/machinery/cell_charger{
 	pixel_y = 5
 	},
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/iron/dark/small,
 /area/station/engineering/storage/tech)
 "qfs" = (
@@ -63108,7 +63108,7 @@
 /obj/machinery/cell_charger{
 	pixel_y = 3
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_y = 3
 	},
 /turf/open/floor/iron/dark/small,
@@ -63362,7 +63362,7 @@
 /obj/item/toy/dummy,
 /obj/item/clothing/glasses/monocle,
 /obj/item/clothing/mask/fakemoustache,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /obj/item/bikehorn,
 /obj/item/radio/intercom/directional/south,
 /obj/item/cardboard_cutout/adaptive,
@@ -71121,7 +71121,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/storage)
 "uHb" = (
-/obj/item/stock_parts/cell/lead{
+/obj/item/stock_parts/power_store/cell/lead{
 	pixel_x = -5;
 	pixel_y = 8
 	},
@@ -71693,7 +71693,7 @@
 /obj/machinery/cell_charger{
 	pixel_y = 3
 	},
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
@@ -71768,7 +71768,7 @@
 "uPX" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/airalarm/directional/east,
@@ -74413,7 +74413,7 @@
 "vCW" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/sign/poster/contraband/borg_fancy_1/directional/north,
 /obj/machinery/light/small/directional/north,
@@ -81984,7 +81984,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/maintenance/two,
 /obj/item/storage/box/lights/mixed,
-/obj/item/stock_parts/cell/high/empty,
+/obj/item/stock_parts/power_store/cell/high/empty,
 /obj/structure/closet/crate,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)

@@ -2033,7 +2033,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "fu" = (
 /obj/machinery/cell_charger_multi,
-/obj/item/stock_parts/cell/bluespace,
+/obj/item/stock_parts/power_store/cell/bluespace,
 /obj/machinery/airalarm/directional/west{
 	req_access = list("syndicate")
 	},
