@@ -463,12 +463,11 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		message = unintelligize(message)
 
 	tts_filter = list()
-	var/list/data = list(message, tts_message, tts_filter, capitalize_message)
+	var/list/data = list(message, tts_message, tts_filter)
 	SEND_SIGNAL(src, COMSIG_LIVING_TREAT_MESSAGE, data)
 	message = data[TREAT_MESSAGE_ARG]
 	tts_message = data[TREAT_TTS_MESSAGE_ARG]
 	tts_filter = data[TREAT_TTS_FILTER_ARG]
-	capitalize_message = data[TREAT_CAPITALIZE_MESSAGE]
 
 	if(!tts_message)
 		tts_message = message

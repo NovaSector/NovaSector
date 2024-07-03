@@ -140,7 +140,7 @@
 	for (var/i in 1 to rand(2,6))
 		new /obj/effect/spawner/random/maintenance(src)
 
-	UnregisterSignal(src, COMSIG_CLOSET_CONTENTS_INITIALIZED)
+	UnregisterSignal(src, COMSIG_CLOSET_POPULATE_CONTENTS)
 
 ///Removes the supply manifest from the closet
 /obj/structure/closet/crate/proc/tear_manifest(mob/user)

@@ -379,7 +379,6 @@
 		"whiteship_tram",
 		"whiteship_personalshuttle",
 		"whiteship_obelisk",
-		"whiteship_birdshot",
 	)
 
 /// Helper proc that tests to ensure all whiteship templates can spawn at their docking port, and logs their sizes

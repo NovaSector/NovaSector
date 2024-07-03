@@ -30,7 +30,7 @@
 	build_path = /obj/item/reagent_containers/cup/vial/large
 
 /datum/design/hypokit
-	name = "Hypospray Case"
+	name = "Hypospray Kit"
 	id = "hypokit"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -48,13 +48,12 @@
 	design_ids += list(
 		"large_hypovial",
 		"hypokit",
-		"hypomkii",
 	)
 	return ..()
 
 /// Hyposprays
 /datum/design/hypokit/deluxe
-	name = "Deluxe Hypospray Case"
+	name = "Deluxe Hypospray Kit"
 	id = "hypokit_deluxe"
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 6,
@@ -64,7 +63,7 @@
 	build_path = /obj/item/storage/hypospraykit/cmo/empty
 
 /datum/design/hypomkii
-	name = "Hypospray Mk. II"
+	name = "MkII Hypospray"
 	id = "hypomkii"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -82,12 +81,12 @@
 /datum/techweb_node/medbay_equip_adv/New()
 	design_ids += list(
 		"hypokit_deluxe",
-		"hypomkii_advanced",
+		"hypomkii",
 	)
 	return ..()
 
 /datum/design/hypomkii/deluxe
-	name = "Hypospray Mk. II Deluxe Upgrade"
+	name = "MkII Hypospray Upgrade Kit"
 	id = "hypomkii_deluxe"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -98,33 +97,15 @@
 	build_path = /obj/item/device/custom_kit/deluxe_hypo2
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ADVANCED,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/alien_surgery/New()
 	design_ids += list(
 		"hypomkii_deluxe",
-		"hypomkii_advanced",
 	)
 	return ..()
-
-/datum/design/hypomkii/piercing
-	name = "Hypospray Mk. II Advanced"
-	id = "hypomkii_advanced"
-	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
-	)
-	build_path = /obj/item/hypospray/mkii/piercing
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ADVANCED,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 // Tarkon and similar get enough to work with, but if they want deluxe kits/hypos they still need to trade with the station for 'em.
 /datum/techweb_node/oldstation_surgery/New()

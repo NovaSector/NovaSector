@@ -11,9 +11,6 @@
 /turf/open/floor/holofloor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	return ITEM_INTERACT_BLOCKING // Fuck you
 
-/turf/open/floor/holofloor/crowbar_act(mob/living/user, obj/item/I)
-	return NONE // Fuck you
-
 /turf/open/floor/holofloor/burn_tile()
 	return //you can't burn a hologram!
 
@@ -164,7 +161,7 @@
 
 /turf/open/floor/holofloor/carpet/update_icon(updates=ALL)
 	. = ..()
-	if((updates & UPDATE_SMOOTHING) && overfloor_placed && smoothing_flags & USES_SMOOTHING)
+	if((updates & UPDATE_SMOOTHING) && overfloor_placed && smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH(src)
 
 /turf/open/floor/holofloor/wood

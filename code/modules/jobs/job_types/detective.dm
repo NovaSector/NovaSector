@@ -61,7 +61,7 @@
 	ears = /obj/item/radio/headset/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/fedora/det_hat
-	mask = /obj/item/cigarette
+	mask = /obj/item/clothing/mask/cigarette
 	neck = /obj/item/clothing/neck/tie/detective
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_pocket = /obj/item/modular_computer/pda/detective // NOVA EDIT CHANGE - ORIGINAL: /obj/item/toy/crayon/white
@@ -73,17 +73,15 @@
 		)
 	implants = list(/obj/item/implant/mindshield)
 
-	skillchips = list(/obj/item/skillchip/job/detectives_taste)
-
 /datum/outfit/job/detective/pre_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
 	if (human.age < AGE_MINOR)
-		mask = /obj/item/cigarette/candy
+		mask = /obj/item/clothing/mask/cigarette/candy
 		head = /obj/item/clothing/head/fedora/det_hat/minor
 
 /datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
-	var/obj/item/cigarette/cig = H.wear_mask
+	var/obj/item/clothing/mask/cigarette/cig = H.wear_mask
 	if(istype(cig)) //Some species specfic changes can mess this up (plasmamen)
 		cig.light("")
 

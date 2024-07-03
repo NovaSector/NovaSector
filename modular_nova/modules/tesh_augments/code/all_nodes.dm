@@ -1,10 +1,10 @@
 //teshari_ robolimb research node
 
 /datum/techweb_node/teshari_cyber
-	id = TECHWEB_NODE_CYBERNETICS_TESHARI
+	id = "teshari_cyber"
 	display_name = "Raptoral Cybernetics"
 	description = "Specialized civilian-grade cybernetic limb designs."
-	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
+	prereq_ids = list("robotics")
 	design_ids = list(
 		"teshari_cyber_chest",
 		"teshari_cyber_l_arm",
@@ -17,10 +17,10 @@
 
 
 /datum/techweb_node/adv_teshari_cyber
-	id = TECHWEB_NODE_CYBERNETICS_TESHARI_ADVANCED
+	id = "adv_teshari_cyber"
 	display_name = "Advanced Raptoral Cybernetics"
 	description = "Specialized industrial-grade cybernetic limb designs."
-	prereq_ids = list(TECHWEB_NODE_CYBERNETICS, TECHWEB_NODE_CYBERNETICS_TESHARI)
+	prereq_ids = list("cybernetics", "teshari_cyber")
 	design_ids = list(
 		"teshari_advanced_l_arm",
 		"teshari_advanced_r_arm",

@@ -1,5 +1,5 @@
 /datum/techweb_node/medbay_equip
-	id = TECHWEB_NODE_MEDBAY_EQUIP
+	id = "medbay_equip"
 	starting_node = TRUE
 	display_name = "Medbay Equipment"
 	description = "Essential medical tools to patch you up while medbay is still intact."
@@ -23,8 +23,6 @@
 		"stethoscope",
 		"beaker",
 		"large_beaker",
-		"chem_pack",
-		"blood_pack",
 		"syringe",
 		"dropper",
 		"pillbottle",
@@ -36,12 +34,14 @@
 	)
 
 /datum/techweb_node/chem_synthesis
-	id = TECHWEB_NODE_CHEM_SYNTHESIS
+	id = "chem_synthesis"
 	display_name = "Chemical Synthesis"
 	description = "Synthesizing complex chemicals from electricity and thin air... Don't ask how..."
-	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP)
+	prereq_ids = list("medbay_equip")
 	design_ids = list(
 		"xlarge_beaker",
+		"blood_pack",
+		"chem_pack",
 		"med_spray_bottle",
 		"medigel",
 		"medipen_refiller",
@@ -55,10 +55,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/plumbing
-	id = TECHWEB_NODE_PLUMBING
+	id = "plumbing"
 	display_name = "Plumbing"
 	description = "Essential infrastructure for building chemical factories. To scale up the production of happy pills to an industrial level."
-	prereq_ids = list(TECHWEB_NODE_CHEM_SYNTHESIS)
+	prereq_ids = list("chem_synthesis")
 	design_ids = list(
 		"plumbing_rcd",
 		"plumbing_rcd_service",
@@ -71,10 +71,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/cryostasis
-	id = TECHWEB_NODE_CRYOSTASIS
+	id = "cryostasis"
 	display_name = "Cryostasis"
 	description = "The result of clown accidentally drinking a chemical, now repurposed for safely preserving crew members in suspended animation."
-	prereq_ids = list(TECHWEB_NODE_PLUMBING, TECHWEB_NODE_PLASMA_CONTROL)
+	prereq_ids = list("plumbing", "plasma_control")
 	design_ids = list(
 		"cryotube",
 		"mech_sleeper",
@@ -86,10 +86,10 @@
 	required_experiments = list(/datum/experiment/scanning/reagent/cryostylane)
 
 /datum/techweb_node/medbay_equip_adv
-	id = TECHWEB_NODE_MEDBAY_EQUIP_ADV
+	id = "medbay_equip_adv"
 	display_name = "Advanced Medbay Equipment"
 	description = "State-of-the-art medical gear for keeping the crew in one piece — mostly."
-	prereq_ids = list(TECHWEB_NODE_CRYOSTASIS)
+	prereq_ids = list("cryostasis")
 	design_ids = list(
 		"chem_mass_spec",
 		"healthanalyzer_advanced",

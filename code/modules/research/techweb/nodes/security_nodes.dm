@@ -1,5 +1,5 @@
 /datum/techweb_node/basic_arms
-	id = TECHWEB_NODE_BASIC_ARMS
+	id = "basic_arms"
 	starting_node = TRUE
 	display_name = "Basic Arms"
 	description = "Ballistics can be unpredictable in space."
@@ -16,11 +16,12 @@
 	)
 
 /datum/techweb_node/sec_equip
-	id = TECHWEB_NODE_SEC_EQUIP
+	id = "sec_equip"
 	display_name = "Security Equipment"
 	description = "All the essentials to subdue a mime."
-	prereq_ids = list(TECHWEB_NODE_BASIC_ARMS)
+	prereq_ids = list("basic_arms")
 	design_ids = list(
+		"camera_assembly",
 		"secdata",
 		"mining",
 		"prisonmanage",
@@ -29,6 +30,7 @@
 		"security_photobooth",
 		"photobooth",
 		"scanner_gate",
+		"turret_control",
 		"pepperspray",
 		"dragnet_beacon",
 		"inspector",
@@ -41,10 +43,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/riot_supression
-	id = TECHWEB_NODE_RIOT_SUPRESSION
+	id = "riot_supression"
 	display_name = "Riot Supression"
 	description = "When you are on the opposing side of a revolutionary movement."
-	prereq_ids = list(TECHWEB_NODE_SEC_EQUIP)
+	prereq_ids = list("sec_equip")
 	design_ids = list(
 		"pin_testing",
 		"pin_loyalty",
@@ -55,10 +57,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/explosives
-	id = TECHWEB_NODE_EXPLOSIVES
+	id = "explosives"
 	display_name = "Explosives"
 	description = "For once, intentional explosions."
-	prereq_ids = list(TECHWEB_NODE_RIOT_SUPRESSION)
+	prereq_ids = list("riot_supression")
 	design_ids = list(
 		"large_grenade",
 		"adv_grenade",
@@ -69,10 +71,10 @@
 	discount_experiments = list(/datum/experiment/ordnance/explosive/highyieldbomb = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/exotic_ammo
-	id = TECHWEB_NODE_EXOTIC_AMMO
+	id = "exotic_ammo"
 	display_name = "Exotic Ammunition"
 	description = "Specialized bullets designed to ignite, freeze, and inflict various other effects on targets, expanding combat capabilities."
-	prereq_ids = list(TECHWEB_NODE_EXPLOSIVES)
+	prereq_ids = list("explosives")
 	design_ids = list(
 		"c38_hotshot",
 		"c38_iceblox",
@@ -81,10 +83,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
 
 /datum/techweb_node/electric_weapons
-	id = TECHWEB_NODE_ELECTRIC_WEAPONS
+	id = "electric_weapons"
 	display_name = "Electric Weaponry"
 	description = "Energy-based weaponry designed for both lethal and non-lethal applications."
-	prereq_ids = list(TECHWEB_NODE_RIOT_SUPRESSION)
+	prereq_ids = list("riot_supression")
 	design_ids = list(
 		"stunrevolver",
 		"ioncarbine",
@@ -94,10 +96,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/beam_weapons
-	id = TECHWEB_NODE_BEAM_WEAPONS
+	id = "beam_weapons"
 	display_name = "Advanced Beam Weaponry"
 	description = "So advanced, even engineers are baffled by its operational principles."
-	prereq_ids = list(TECHWEB_NODE_ELECTRIC_WEAPONS)
+	prereq_ids = list("electric_weapons")
 	design_ids = list(
 		"xray_laser",
 		"nuclear_gun",

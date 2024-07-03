@@ -130,9 +130,6 @@
 		our_hud.position_action_relative(src, button)
 		save_position()
 		return
-
-	. = ..()
-
 	our_hud.position_action(src, screen_loc)
 	save_position()
 

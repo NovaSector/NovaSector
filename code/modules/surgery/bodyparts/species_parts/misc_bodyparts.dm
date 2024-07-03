@@ -5,7 +5,6 @@
 	burn_modifier = 2
 	head_flags = HEAD_EYESPRITES|HEAD_DEBRAIN
 	biological_state = (BIO_FLESH|BIO_BLOODED)
-	teeth_count = 0
 
 /obj/item/bodypart/chest/snail
 	limb_id = SPECIES_SNAIL
@@ -52,7 +51,6 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	head_flags = NONE
-	teeth_count = 0
 
 /obj/item/bodypart/chest/abductor
 	limb_id = SPECIES_ABDUCTOR
@@ -148,7 +146,6 @@
 ///LUMINESCENT
 /obj/item/bodypart/head/jelly/luminescent
 	limb_id = SPECIES_LUMINESCENT
-	teeth_count = 0
 
 /obj/item/bodypart/chest/jelly/luminescent
 	limb_id = SPECIES_LUMINESCENT
@@ -253,7 +250,6 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN // NOVA EDIT - Flies deserve hair - ORIGINAL: head_flags = HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN
-	teeth_count = 0
 
 /obj/item/bodypart/chest/fly
 	limb_id = SPECIES_FLYPERSON
@@ -371,7 +367,6 @@
 	is_dimorphic = TRUE
 	burn_modifier = 1.25
 	head_flags = NONE
-	teeth_count = 0
 
 /obj/item/bodypart/chest/mushroom
 	limb_id = SPECIES_MUSHROOM
@@ -441,8 +436,6 @@
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
 	head_flags = NONE
-	// too hard to drill through
-	teeth_count = 0
 
 /obj/item/bodypart/head/golem/Initialize(mapload)
 	worn_ears_offset = new(

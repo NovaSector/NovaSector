@@ -1,5 +1,5 @@
 /datum/techweb_node/material_processing
-	id = TECHWEB_NODE_MATERIAL_PROC
+	id = "material_proc"
 	starting_node = TRUE
 	display_name = "Material Processing"
 	description = "Refinement and processing of alloys and ores to enhance their utility and value."
@@ -23,10 +23,10 @@
 	)
 
 /datum/techweb_node/mining
-	id = TECHWEB_NODE_MINING
+	id = "mining"
 	display_name = "Mining Technology"
 	description = "Development of tools meant to optimize mining operations and resource extraction."
-	prereq_ids = list(TECHWEB_NODE_MATERIAL_PROC)
+	prereq_ids = list("material_proc")
 	design_ids = list(
 		"cargoexpress",
 		"brm",
@@ -50,10 +50,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/low_pressure_excavation
-	id = TECHWEB_NODE_LOW_PRESSURE_EXCAVATION
+	id = "low_pressure_excavation"
 	display_name = "Low-Pressure Excavation"
 	description = "Research of Proto-Kinetic Accelerators (PKAs), pneumatic guns renowned for their exceptional performance in low-pressure environments."
-	prereq_ids = list(TECHWEB_NODE_MINING, TECHWEB_NODE_GAS_COMPRESSION)
+	prereq_ids = list("mining", "gas_compression")
 	design_ids = list(
 		"mecha_kineticgun",
 		"damagemod",
@@ -69,10 +69,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/plasma_mining
-	id = TECHWEB_NODE_PLASMA_MINING
+	id = "plasma_mining"
 	display_name = "Plasma Beam Mining"
 	description = "Engineers' plasma welders have proven highly effective in mining operations. This led to the development of a mech-mounted variant and an enhanced handheld cutter for miners."
-	prereq_ids = list(TECHWEB_NODE_LOW_PRESSURE_EXCAVATION, TECHWEB_NODE_PLASMA_CONTROL)
+	prereq_ids = list("low_pressure_excavation", "plasma_control")
 	design_ids = list(
 		"mech_plasma_cutter",
 		"plasmacutter_adv",
@@ -80,10 +80,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/bitrunning
-	id = TECHWEB_NODE_BITRUNNING
+	id = "bitrunning"
 	display_name = "Bitrunning Technology"
 	description = "Bluespace technology has led to the development of quantum-scale computing, which unlocks the means to materialize atomic structures while executing advanced programs."
-	prereq_ids = list(TECHWEB_NODE_GAMING, TECHWEB_NODE_APPLIED_BLUESPACE)
+	prereq_ids = list("gaming", "applied_bluespace")
 	design_ids = list(
 		"byteforge",
 		"quantum_console",
@@ -92,10 +92,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/mining_adv
-	id = TECHWEB_NODE_MINING_ADV
+	id = "mining_adv"
 	display_name = "Advanced Mining Technology"
 	description = "High-level mining equipment, pushing the boundaries of efficiency and effectiveness in resource extraction."
-	prereq_ids = list(TECHWEB_NODE_PLASMA_MINING)
+	prereq_ids = list("plasma_mining")
 	design_ids = list(
 		"jackhammer",
 		"drill_diamond",

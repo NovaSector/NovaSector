@@ -268,6 +268,3 @@
 
 	/// Loot panel for the client
 	var/datum/lootpanel/loot_panel
-
-	///Which ambient sound this client is currently being provided.
-	var/current_ambient_sound

@@ -1,5 +1,5 @@
 /datum/techweb_node/fundamental_sci
-	id = TECHWEB_NODE_FUNDIMENTAL_SCI
+	id = "fundamental_sci"
 	starting_node = TRUE
 	display_name = "Fundamental Science"
 	description = "Establishing the bedrock of scientific understanding, paving the way for deeper exploration and theoretical inquiry."
@@ -13,6 +13,7 @@
 		"destructive_analyzer",
 		"destructive_scanner",
 		"experi_scanner",
+		"ntnet_relay",
 		"laptop",
 		"portadrive_basic",
 		"portadrive_advanced",
@@ -20,20 +21,20 @@
 	)
 
 /datum/techweb_node/bluespace_theory
-	id = TECHWEB_NODE_BLUESPACE_THEORY
+	id = "bluespace_theory"
 	display_name = "Bluespace Theory"
 	description = "Basic studies into the mysterious alternate dimension known as bluespace."
-	prereq_ids = list(TECHWEB_NODE_FUNDIMENTAL_SCI)
+	prereq_ids = list("fundamental_sci")
 	design_ids = list(
 		"bluespace_crystal",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/applied_bluespace
-	id = TECHWEB_NODE_APPLIED_BLUESPACE
+	id = "applied_bluespace"
 	display_name = "Applied Bluespace Research"
 	description = "With a heightened grasp of bluespace dynamics, sophisticated applications and technologies can be devised using data from bluespace crystal analyses."
-	prereq_ids = list(TECHWEB_NODE_BLUESPACE_THEORY)
+	prereq_ids = list("bluespace_theory")
 	design_ids = list(
 		"ore_silo",
 		"minerbag_holding",
@@ -50,10 +51,10 @@
 	required_experiments = list(/datum/experiment/scanning/points/bluespace_crystal)
 
 /datum/techweb_node/bluespace_travel
-	id = TECHWEB_NODE_BLUESPACE_TRAVEL
+	id = "bluespace_travel"
 	display_name = "Bluespace Travel"
 	description = "Facilitate teleportation methods based on bluespace principles to revolutionize logistical efficiency."
-	prereq_ids = list(TECHWEB_NODE_APPLIED_BLUESPACE)
+	prereq_ids = list("applied_bluespace")
 	design_ids = list(
 		"teleconsole",
 		"tele_station",
@@ -68,10 +69,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/anomaly_research
-	id = TECHWEB_NODE_ANOMALY_RESEARCH
+	id = "anomaly_research"
 	display_name = "Anomaly Research"
 	description = "Delving into the study of mysterious anomalies to investigate methods to refine and harness their unpredictable energies."
-	prereq_ids = list(TECHWEB_NODE_APPLIED_BLUESPACE)
+	prereq_ids = list("applied_bluespace")
 	design_ids = list(
 		"anomaly_refinery",
 		"anomaly_neutralizer",
@@ -80,13 +81,12 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/anomaly_shells
-	id = TECHWEB_NODE_ANOMALY_SHELLS
+	id = "anomaly_shells"
 	display_name = "Advanced Anomaly Shells"
 	description = "New shells designed to utilize anomaly cores, maximizing their potential in innovative ways."
-	prereq_ids = list(TECHWEB_NODE_ANOMALY_RESEARCH)
+	prereq_ids = list("anomaly_research")
 	design_ids = list(
 		"bag_holding",
-		"cybernetic_heart_anomalock",
 		"wormholeprojector",
 		"gravitygun",
 		"polymorph_belt"

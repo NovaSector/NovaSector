@@ -9,7 +9,7 @@
 	icon_state = "setup_medium_med"
 	maxHealth = 300
 	health = 300
-	living_flags = NONE
+	living_flags = 0
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_on = FALSE
 

@@ -20,11 +20,12 @@
 	if(SEND_SIGNAL(target, COMSIG_CLICK_CTRL, src) & CLICK_ACTION_ANY)
 		return TRUE
 
-	// If it has a custom click_alt that returns success/block, done.
-	if(can_perform_action(target, target.interaction_flags_click | SILENT_ADJACENCY))
-		return target.click_ctrl(src) & CLICK_ACTION_ANY
+	// This means the action has been processed even though nothing happened
+	if(!can_perform_action(target, target.interaction_flags_click | SILENT_ADJACENCY))
+		return TRUE
 
-	return FALSE
+	// If it has a custom click_alt that returns success/block, done.
+	return target.click_ctrl(src) & CLICK_ACTION_ANY
 
 /**
  * Ctrl click
@@ -34,7 +35,7 @@
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	. = ..()
-	if(. || world.time < next_move || !can_perform_action(target, NOT_INSIDE_TARGET | SILENT_ADJACENCY | FORBID_TELEKINESIS_REACH))
+	if(. || world.time < next_move || !CanReach(target))
 		return
 
 	. = TRUE

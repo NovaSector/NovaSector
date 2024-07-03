@@ -4,7 +4,6 @@
 	SEND_SIGNAL(src, COMSIG_BITRUNNER_THREAT_CREATED)
 	threat.AddComponent(/datum/component/virtual_entity, src)
 
-
 /// Choses which antagonist role is spawned based on threat
 /obj/machinery/quantum_server/proc/get_antagonist_role()
 	var/list/available = list()
@@ -19,7 +18,6 @@
 	threat -= initial(chosen.threat) * 0.5
 
 	return chosen
-
 
 /// Selects a target to mutate. Gives two attempts, then crashes if it fails.
 /obj/machinery/quantum_server/proc/get_mutation_target()
@@ -36,7 +34,6 @@
 	target_ref = pick(mutation_candidate_refs)
 	resolved = target_ref.resolve()
 	return resolved
-
 
 /// Finds any mobs with minds in the zones and gives them the bad news
 /obj/machinery/quantum_server/proc/notify_spawned_threats()
@@ -55,11 +52,9 @@
 
 		to_chat(baddie, span_userdanger("You have been flagged for deletion! Thank you for your service."))
 
-
 /// Removes a specific threat - used when station spawning
 /obj/machinery/quantum_server/proc/remove_threat(mob/living/threat)
 	spawned_threat_refs.Remove(WEAKREF(threat))
-
 
 /// Selects the role and waits for a ghost orbiter
 /obj/machinery/quantum_server/proc/setup_glitch(datum/antagonist/bitrunning_glitch/forced_role)
@@ -87,7 +82,6 @@
 	)
 	spawn_glitch(chosen_role, mutation_target, chosen_one)
 	return mutation_target
-
 
 /// Orbit poll has concluded - spawn the antag
 /obj/machinery/quantum_server/proc/spawn_glitch(datum/antagonist/bitrunning_glitch/chosen_role, mob/living/mutation_target, mob/dead/observer/ghost)
@@ -126,7 +120,6 @@
 	new_mob.log_message("was spawned as a virtual antagonist by an event.", LOG_GAME)
 
 	add_threats(new_mob)
-
 
 /// Oh boy - transports the antag station side
 /obj/machinery/quantum_server/proc/station_spawn(mob/living/antag, obj/machinery/byteforge/chosen_forge)
@@ -171,7 +164,6 @@
 		qdel(temp_body)
 
 	do_teleport(antag, get_turf(chosen_forge), forced = TRUE, asoundin = 'sound/magic/ethereal_enter.ogg', asoundout = 'sound/magic/ethereal_exit.ogg', channel = TELEPORT_CHANNEL_QUANTUM)
-
 
 /// Removes any invalid candidates from the list
 /obj/machinery/quantum_server/proc/validate_mutation_candidates()

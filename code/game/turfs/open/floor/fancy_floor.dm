@@ -163,9 +163,6 @@
 	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass, 2, worm_chance = 50, \
 		action_text = "uproot", action_text_third_person = "uproots")
 
-/turf/open/floor/grass/Airless
-	initial_gas_mix = AIRLESS_ATMOS
-
 /turf/open/floor/grass/proc/spawniconchange()
 	icon_state = "grass[rand(0,3)]"
 
@@ -279,11 +276,11 @@
 	if(!. || !(updates & UPDATE_SMOOTHING))
 		return
 	if(!broken && !burnt)
-		if(smoothing_flags & USES_SMOOTHING)
+		if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 			QUEUE_SMOOTH(src)
 	else
 		make_plating()
-		if(smoothing_flags & USES_SMOOTHING)
+		if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 			QUEUE_SMOOTH_NEIGHBORS(src)
 
 /turf/open/floor/carpet/lone

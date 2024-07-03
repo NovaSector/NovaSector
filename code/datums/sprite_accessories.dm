@@ -1763,8 +1763,8 @@
 
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	icon_state = "monkey"
+	icon = 'icons/mob/human/species/monkey/monkey_tail.dmi'
+	icon_state = "default"
 	color_src = FALSE
 
 /datum/sprite_accessory/pod_hair

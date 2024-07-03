@@ -215,7 +215,7 @@
 	wing_types = list(/obj/item/organ/external/wings/functional/robotic)
 
 	var/wired = FALSE
-	var/obj/item/stock_parts/power_store/cell = null
+	var/obj/item/stock_parts/cell/cell = null
 
 /obj/item/bodypart/chest/robot/emp_effect(severity, protection)
 	. = ..()
@@ -295,7 +295,7 @@
 			), AUGMENTATION_TRAIT)
 
 /obj/item/bodypart/chest/robot/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/stock_parts/power_store/cell))
+	if(istype(weapon, /obj/item/stock_parts/cell))
 		if(cell)
 			to_chat(user, span_warning("You have already inserted a cell!"))
 			return

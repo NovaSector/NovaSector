@@ -14,9 +14,6 @@
 	if(!prob(20))
 		return
 
-	if(!is_station_level(z)) // no hurtsposals off-station (bitrunning, ruins)
-		return
-
 	for(var/objects_within in holder.contents)
 		if(!isliving(objects_within))
 			continue
@@ -25,4 +22,4 @@
 			continue
 		if(HAS_TRAIT(living_within, TRAIT_TRASHMAN))
 			continue
-		living_within.adjustBruteLoss(2)
+		living_within.adjustBruteLoss(5)

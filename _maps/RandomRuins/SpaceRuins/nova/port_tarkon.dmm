@@ -587,7 +587,7 @@
 "dU" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/power_store/cell/high/empty,
+/obj/item/stock_parts/cell/high/empty,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
 	},
@@ -995,8 +995,8 @@
 	dir = 4
 	},
 /obj/structure/rack,
-/obj/item/stock_parts/power_store/battery/high,
-/obj/item/stock_parts/power_store/battery/high,
+/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/high,
 /obj/machinery/camera/autoname/tarkon/directional/north,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/power1)
@@ -2563,7 +2563,7 @@
 	},
 /obj/structure/table,
 /obj/item/defibrillator,
-/obj/item/stock_parts/power_store/cell/super,
+/obj/item/stock_parts/cell/super,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/trauma)
 "qO" = (
@@ -3396,10 +3396,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/starboardhall)
-"wR" = (
-/obj/machinery/icecream_vat,
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/port_tarkon/kitchen)
 "wT" = (
 /obj/structure/chair/office,
 /obj/effect/turf_decal/tile/blue/half{
@@ -4909,10 +4905,7 @@
 "HB" = (
 /obj/machinery/door/window/left/directional/west,
 /obj/machinery/door/window/right/directional/east,
-/obj/machinery/mineral/ore_redemption/offstation{
-	input_dir = 4;
-	output_dir = 8
-	},
+/obj/machinery/mineral/ore_redemption/offstation,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/mining)
 "HC" = (
@@ -5906,7 +5899,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 1
 	},
-/obj/machinery/modular_computer/preset/research/away,
+/obj/machinery/modular_computer,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "NS" = (
@@ -7038,7 +7031,6 @@
 /obj/structure/noticeboard/directional/north,
 /obj/item/paper/fluff/ruins/oldstation/generator_manual,
 /obj/item/paper/fluff/ruins/tarkon,
-/obj/structure/tank_dispenser,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Vv" = (
@@ -7504,7 +7496,6 @@
 /obj/item/raw_anomaly_core/random,
 /obj/item/raw_anomaly_core/random,
 /obj/machinery/camera/autoname/tarkon/directional/north,
-/obj/item/computer_disk/ordnance,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "YT" = (
@@ -11287,7 +11278,7 @@ tT
 tT
 iG
 hG
-wR
+VZ
 VZ
 Ut
 hG
