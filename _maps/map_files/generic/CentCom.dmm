@@ -3236,6 +3236,8 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
+<<<<<<< HEAD
+=======
 "oV" = (
 /obj/structure/table/wood,
 /obj/item/storage/briefcase/secure{
@@ -3250,6 +3252,7 @@
 /obj/machinery/computer/security/telescreen/research/directional/south,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/admin)
+>>>>>>> e3cc97d3de3 ([MDB IGNORE] Gives telescreens mapping directionals + adds a map lint for them (#84261))
 "oW" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -8621,6 +8624,15 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
+/obj/item/clothing/mask/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/clothing/mask/cigarette/cigar/havana{
+	pixel_x = 2
+	},
+/obj/item/clothing/mask/cigarette/cigar{
+	pixel_x = 4.5
+	},
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -8798,6 +8810,15 @@
 	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
 	pixel_x = -3;
 	pixel_y = 3
+	},
+/obj/item/clothing/mask/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/clothing/mask/cigarette/cigar/havana{
+	pixel_x = 2
+	},
+/obj/item/clothing/mask/cigarette/cigar{
+	pixel_x = 4.5
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 10
@@ -9020,6 +9041,15 @@
 	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
 	pixel_x = -3;
 	pixel_y = 3
+	},
+/obj/item/clothing/mask/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/clothing/mask/cigarette/cigar/havana{
+	pixel_x = 2
+	},
+/obj/item/clothing/mask/cigarette/cigar{
+	pixel_x = 4.5
 	},
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -9470,6 +9500,10 @@
 /obj/item/reagent_containers/cup/glass/bottle/whiskey{
 	pixel_y = 19;
 	pixel_x = 7
+	},
+/obj/item/clothing/mask/cigarette/cigar/havana{
+	pixel_x = -6;
+	pixel_y = 5
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod)
@@ -10212,6 +10246,15 @@
 	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
 	pixel_x = -3;
 	pixel_y = 3
+	},
+/obj/item/clothing/mask/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/clothing/mask/cigarette/cigar/havana{
+	pixel_x = 2
+	},
+/obj/item/clothing/mask/cigarette/cigar{
+	pixel_x = 4.5
 	},
 /obj/machinery/newscaster/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
