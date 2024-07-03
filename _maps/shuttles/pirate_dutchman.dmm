@@ -618,7 +618,7 @@
 	pixel_x = -4;
 	pixel_y = 12
 	},
-/obj/item/cigarette/cigar{
+/obj/item/clothing/mask/cigarette/cigar{
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{

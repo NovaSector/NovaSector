@@ -46,7 +46,7 @@
 /area/centcom/wizard_station)
 "dr" = (
 /obj/structure/table/wood,
-/obj/item/cigarette/cigar{
+/obj/item/clothing/mask/cigarette/cigar{
 	pixel_y = -9;
 	pixel_x = -5
 	},

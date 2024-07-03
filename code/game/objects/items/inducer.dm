@@ -1,28 +1,26 @@
 /obj/item/inducer
 	name = "inducer"
-	desc = "A tool for inductively charging internal power cells and batteries."
+	desc = "A tool for inductively charging internal power cells."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "inducer-engi"
 	inhand_icon_state = "inducer-engi"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	force = 7
-	/// Multiplier that determines the speed at which this inducer works at.
-	var/power_transfer_multiplier = 1
+	var/powertransfer = STANDARD_CELL_CHARGE
 	var/opened = FALSE
-	var/cell_type = /obj/item/stock_parts/power_store/battery/high
-	var/obj/item/stock_parts/power_store/powerdevice
+	var/cell_type = /obj/item/stock_parts/cell/high
+	var/obj/item/stock_parts/cell/cell
 	var/recharging = FALSE
 
 /obj/item/inducer/Initialize(mapload)
 	. = ..()
-	if(!powerdevice && cell_type)
-		powerdevice = new cell_type
+	if(!cell && cell_type)
+		cell = new cell_type
 
-/obj/item/inducer/proc/induce(obj/item/stock_parts/power_store/target, coefficient)
-	var/obj/item/stock_parts/power_store/our_cell = get_cell()
-	var/rating_base = target.rating_base
-	var/totransfer = min(our_cell.charge, (rating_base * coefficient * power_transfer_multiplier))
+/obj/item/inducer/proc/induce(obj/item/stock_parts/cell/target, coefficient)
+	var/obj/item/stock_parts/cell/our_cell = get_cell()
+	var/totransfer = min(our_cell.charge, (powertransfer * coefficient))
 	var/transferred = target.give(totransfer)
 
 	our_cell.use(transferred)
@@ -30,11 +28,11 @@
 	target.update_appearance()
 
 /obj/item/inducer/get_cell()
-	return powerdevice
+	return cell
 
 /obj/item/inducer/emp_act(severity)
 	. = ..()
-	var/obj/item/stock_parts/power_store/our_cell = get_cell()
+	var/obj/item/stock_parts/cell/our_cell = get_cell()
 	if(!isnull(our_cell) && !(. & EMP_PROTECT_CONTENTS))
 		our_cell.emp_act(severity)
 
@@ -55,7 +53,7 @@
 		to_chat(user, span_warning("You don't have the dexterity to use [src]!"))
 		return TRUE
 
-	var/obj/item/stock_parts/power_store/our_cell = get_cell()
+	var/obj/item/stock_parts/cell/our_cell = get_cell()
 
 	if(isnull(our_cell))
 		balloon_alert(user, "no cell installed!")
@@ -81,14 +79,14 @@
 		return
 
 /obj/item/inducer/attackby(obj/item/used_item, mob/user)
-	if(istype(used_item, /obj/item/stock_parts/power_store))
+	if(istype(used_item, /obj/item/stock_parts/cell))
 		if(opened)
-			var/obj/item/stock_parts/power_store/our_cell = get_cell()
+			var/obj/item/stock_parts/cell/our_cell = get_cell()
 			if(isnull(our_cell))
 				if(!user.transferItemToLoc(used_item, src))
 					return
 				to_chat(user, span_notice("You insert [used_item] into [src]."))
-				powerdevice = used_item
+				cell = used_item
 				update_appearance()
 				return
 			else
@@ -110,8 +108,8 @@
 		return TRUE
 
 	recharging = TRUE
-	var/obj/item/stock_parts/power_store/our_cell = get_cell()
-	var/obj/item/stock_parts/power_store/target_cell = target.get_cell()
+	var/obj/item/stock_parts/cell/our_cell = get_cell()
+	var/obj/item/stock_parts/cell/target_cell = target.get_cell()
 	var/obj/target_as_object = target
 	var/coefficient = 1
 
@@ -158,17 +156,17 @@
 
 
 /obj/item/inducer/attack_self(mob/user)
-	if(opened && powerdevice)
-		user.visible_message(span_notice("[user] removes [powerdevice] from [src]!"), span_notice("You remove [powerdevice]."))
-		powerdevice.update_appearance()
-		user.put_in_hands(powerdevice)
-		powerdevice = null
+	if(opened && cell)
+		user.visible_message(span_notice("[user] removes [cell] from [src]!"), span_notice("You remove [cell]."))
+		cell.update_appearance()
+		user.put_in_hands(cell)
+		cell = null
 		update_appearance()
 
 
 /obj/item/inducer/examine(mob/living/user)
 	. = ..()
-	var/obj/item/stock_parts/power_store/our_cell = get_cell()
+	var/obj/item/stock_parts/cell/our_cell = get_cell()
 	if(!isnull(our_cell))
 		. += span_notice("Its display shows: [display_energy(our_cell.charge)].")
 	else
@@ -187,7 +185,7 @@
 	opened = TRUE
 
 /obj/item/inducer/orderable
-	cell_type = /obj/item/stock_parts/power_store/cell/inducer_supply
+	cell_type = /obj/item/stock_parts/cell/inducer_supply
 	opened = FALSE
 
 /obj/item/inducer/sci
@@ -205,5 +203,5 @@
 	icon_state = "inducer-syndi"
 	inhand_icon_state = "inducer-syndi"
 	desc = "A tool for inductively charging internal power cells. This one has a suspicious colour scheme, and seems to be rigged to transfer charge at a much faster rate."
-	power_transfer_multiplier = 2 // 2x the base speed
-	cell_type = /obj/item/stock_parts/power_store/cell/super
+	powertransfer = 2 * STANDARD_CELL_CHARGE
+	cell_type = /obj/item/stock_parts/cell/super

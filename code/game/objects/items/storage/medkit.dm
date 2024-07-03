@@ -171,9 +171,6 @@
 	inhand_icon_state = "medkit-ointment"
 	damagetype_healed = BURN
 
-/obj/item/storage/medkit/fire/get_medbot_skin()
-	return "ointment"
-
 /obj/item/storage/medkit/fire/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins rubbing \the [src] against [user.p_them()]self! It looks like [user.p_theyre()] trying to start a fire!"))
 	return FIRELOSS
@@ -194,9 +191,6 @@
 	icon_state = "medkit_toxin"
 	inhand_icon_state = "medkit-toxin"
 	damagetype_healed = TOX
-
-/obj/item/storage/medkit/toxin/get_medbot_skin()
-	return "tox"
 
 /obj/item/storage/medkit/toxin/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins licking the lead paint off \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -222,9 +216,6 @@
 	inhand_icon_state = "medkit-o2"
 	damagetype_healed = OXY
 
-/obj/item/storage/medkit/o2/get_medbot_skin()
-	return "o2"
-
 /obj/item/storage/medkit/o2/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins hitting [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return OXYLOSS
@@ -245,9 +236,6 @@
 	icon_state = "medkit_brute"
 	inhand_icon_state = "medkit-brute"
 	damagetype_healed = BRUTE
-
-/obj/item/storage/medkit/brute/get_medbot_skin()
-	return "brute"
 
 /obj/item/storage/medkit/brute/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins beating [user.p_them()]self over the head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -273,9 +261,6 @@
 	custom_premium_price = PAYCHECK_COMMAND * 6
 	damagetype_healed = HEAL_ALL_DAMAGE
 
-/obj/item/storage/medkit/advanced/get_medbot_skin()
-	return "advanced"
-
 /obj/item/storage/medkit/advanced/PopulateContents()
 	if(empty)
 		return
@@ -291,9 +276,6 @@
 	icon_state = "medkit_tactical"
 	inhand_icon_state = "medkit-tactical"
 	damagetype_healed = HEAL_ALL_DAMAGE
-
-/obj/item/storage/medkit/tactical_lite/get_medbot_skin()
-	return "bezerk"
 
 /obj/item/storage/medkit/tactical_lite/PopulateContents()
 	if(empty)
@@ -417,28 +399,35 @@
 	generate_items_inside(items_inside,src)
 
 //medibot assembly
-/obj/item/storage/medkit/tool_act(mob/living/user, obj/item/tool, list/modifiers)
-	if(!istype(tool, /obj/item/bodypart/arm/left/robot) && !istype(tool, /obj/item/bodypart/arm/right/robot))
-		return ..()
+/obj/item/storage/medkit/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
+	if(!istype(inserted, /obj/item/bodypart/arm/left/robot) && !istype(inserted, /obj/item/bodypart/arm/right/robot))
+		return TRUE
 	//Making a medibot!
 	if(contents.len >= 1)
 		balloon_alert(user, "items inside!")
-		return ITEM_INTERACT_BLOCKING
+		return FALSE
 
-	var/obj/item/bot_assembly/medbot/medbot_assembly = new()
-	medbot_assembly.set_skin(get_medbot_skin())
+	///if you add a new one don't forget to update /datum/crafting_recipe/medbot/on_craft_completion()
+	var/obj/item/bot_assembly/medbot/medbot_assembly = new
+	if (istype(src, /obj/item/storage/medkit/fire))
+		medbot_assembly.set_skin("ointment")
+	else if (istype(src, /obj/item/storage/medkit/toxin))
+		medbot_assembly.set_skin("tox")
+	else if (istype(src, /obj/item/storage/medkit/o2))
+		medbot_assembly.set_skin("o2")
+	else if (istype(src, /obj/item/storage/medkit/brute))
+		medbot_assembly.set_skin("brute")
+	else if (istype(src, /obj/item/storage/medkit/advanced))
+		medbot_assembly.set_skin("advanced")
+	else if (istype(src, /obj/item/storage/medkit/tactical))
+		medbot_assembly.set_skin("bezerk")
 	user.put_in_hands(medbot_assembly)
 	medbot_assembly.balloon_alert(user, "arm added")
-	medbot_assembly.robot_arm = tool.type
+	medbot_assembly.robot_arm = inserted.type
 	medbot_assembly.medkit_type = type
-	qdel(tool)
+	qdel(inserted)
 	qdel(src)
-	return ITEM_INTERACT_SUCCESS
-
-/// Gets what skin (icon_state) this medkit uses for a medbot
-/obj/item/storage/medkit/proc/get_medbot_skin()
-	// The skin var is nullsafe so returning nothing is A-OK
-	return
+	return FALSE
 
 /*
  * Pill Bottles
@@ -744,7 +733,14 @@
 	icon_state = "[base_icon_state][cooling ? "-working" : null]"
 	return ..()
 
-/obj/item/storage/organbox/tool_act(mob/living/user, obj/item/tool, list/modifiers)
+/obj/item/storage/organbox/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
+	if(is_reagent_container(inserted) && inserted.is_open_container())
+		return FALSE
+	if(istype(inserted, /obj/item/plunger))
+		return FALSE
+	return TRUE
+
+/obj/item/storage/organbox/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(is_reagent_container(tool) && tool.is_open_container())
 		var/obj/item/reagent_containers/RC = tool
 		var/units = RC.reagents.trans_to(src, RC.amount_per_transfer_from_this, transferred_by = user)
@@ -758,7 +754,7 @@
 			balloon_alert(user, "plunged")
 			reagents.clear_reagents()
 		return ITEM_INTERACT_SUCCESS
-	return ..()
+	return NONE
 
 /obj/item/storage/organbox/suicide_act(mob/living/carbon/user)
 	if(HAS_TRAIT(user, TRAIT_RESISTCOLD)) //if they're immune to cold, just do the box suicide

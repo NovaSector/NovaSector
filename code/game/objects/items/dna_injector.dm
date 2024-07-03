@@ -426,12 +426,12 @@
 /obj/item/dnainjector/pressuremut
 	name = "\improper DNA injector (Pressure Adaptation)"
 	desc = "Gives you fire."
-	add_mutations = list(/datum/mutation/human/adaptation/pressure)
+	add_mutations = list(/datum/mutation/human/pressure_adaptation)
 
 /obj/item/dnainjector/antipressure
 	name = "\improper DNA injector (Anti-Pressure Adaptation)"
 	desc = "Cures fire."
-	remove_mutations = list(/datum/mutation/human/adaptation/pressure)
+	remove_mutations = list(/datum/mutation/human/pressure_adaptation)
 
 /obj/item/dnainjector/radioactive
 	name = "\improper DNA injector (Radioactive)"
@@ -500,12 +500,12 @@
 /obj/item/dnainjector/firemut
 	name = "\improper DNA injector (Temp Adaptation)"
 	desc = "Gives you fire."
-	add_mutations = list(/datum/mutation/human/adaptation/thermal)
+	add_mutations = list(/datum/mutation/human/temperature_adaptation)
 
 /obj/item/dnainjector/antifire
 	name = "\improper DNA injector (Anti-Temp Adaptation)"
 	desc = "Cures fire."
-	remove_mutations = list(/datum/mutation/human/adaptation/thermal)
+	remove_mutations = list(/datum/mutation/human/temperature_adaptation)
 
 /obj/item/dnainjector/thermal
 	name = "\improper DNA injector (Thermal Vision)"

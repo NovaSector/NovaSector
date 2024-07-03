@@ -14,9 +14,6 @@
 	brute_modifier = 1.2
 	burn_modifier = 1.5
 	bodypart_traits = list(TRAIT_CHUNKYFINGERS)
-	disabling_threshold_percentage = 1
-	bodypart_flags = BODYPART_UNHUSKABLE
-	biological_state = (BIO_JOINTED)
 
 /obj/item/bodypart/arm/left/ghetto/Initialize(mapload, ...)
 	. = ..()
@@ -38,9 +35,6 @@
 	brute_modifier = 1.2
 	burn_modifier = 1.5
 	bodypart_traits = list(TRAIT_CHUNKYFINGERS)
-	disabling_threshold_percentage = 1
-	bodypart_flags = BODYPART_UNHUSKABLE
-	biological_state = (BIO_JOINTED)
 
 /obj/item/bodypart/arm/right/ghetto/Initialize(mapload, ...)
 	. = ..()
@@ -60,9 +54,6 @@
 	unarmed_effectiveness = 10
 	brute_modifier = 1.2
 	burn_modifier = 1.5
-	disabling_threshold_percentage = 1
-	bodypart_flags = BODYPART_UNHUSKABLE
-	biological_state = (BIO_JOINTED)
 
 /obj/item/bodypart/leg/left/ghetto/Initialize(mapload, ...)
 	. = ..()
@@ -82,9 +73,6 @@
 	unarmed_effectiveness = 10
 	brute_modifier = 1.2
 	burn_modifier = 1.5
-	disabling_threshold_percentage = 1
-	bodypart_flags = BODYPART_UNHUSKABLE
-	biological_state = (BIO_JOINTED)
 
 /obj/item/bodypart/leg/right/ghetto/Initialize(mapload, ...)
 	. = ..()

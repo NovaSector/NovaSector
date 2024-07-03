@@ -83,10 +83,10 @@
 	build_path = /obj/item/scythe/tier2
 
 /datum/techweb_node/scythe_t1
-	id = TECHWEB_NODE_SCYTHE_1
+	id = "t1scythe"
 	display_name = "Scythe (Tier 1)"
 	description = "Culling tools"
-	prereq_ids = list(TECHWEB_NODE_EXP_TOOLS, TECHWEB_NODE_CHEM_SYNTHESIS, TECHWEB_NODE_BOTANY_EQUIP)
+	prereq_ids = list("exp_tools", "chem_synthesis", "botany_equip")
 	design_ids = list(
 		"scythet1",
 	)
@@ -94,10 +94,10 @@
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = 500)
 
 /datum/techweb_node/scythe_t2
-	id = TECHWEB_NODE_SCYTHE_2
+	id = "t2scythe"
 	display_name = "Scythe (Tier 2)"
 	description = "Culling tools"
-	prereq_ids = list(TECHWEB_NODE_SCYTHE_1)
+	prereq_ids = list("t1scythe")
 	design_ids = list(
 		"scythet2",
 	)

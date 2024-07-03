@@ -8,7 +8,6 @@
 	icon_locked = "bitrunning+l"
 	icon_closed = "bitrunning"
 	icon_broken = "bitrunning+b"
-	icon_open = "bitrunning"
 
 /obj/item/storage/lockbox/bitrunning/encrypted
 	name = "encrypted curiosity"

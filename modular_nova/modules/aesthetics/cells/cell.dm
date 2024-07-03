@@ -1,38 +1,38 @@
-/obj/item/stock_parts/power_store/cell
+/obj/item/stock_parts/cell
 	icon = 'modular_nova/modules/aesthetics/cells/cell.dmi'
 	/// The charge overlay icon file for the cell charge lights
 	var/charging_icon = "cell_in"
 	connector_type = null
 
-/obj/item/stock_parts/power_store/cell/high
+/obj/item/stock_parts/cell/high
 	charging_icon = "hcell_in"
 
-/obj/item/stock_parts/power_store/cell/super
+/obj/item/stock_parts/cell/super
 	charging_icon = "scell_in"
 
-/obj/item/stock_parts/power_store/cell/hyper
+/obj/item/stock_parts/cell/hyper
 	charging_icon = "hpcell_in"
 
-/obj/item/stock_parts/power_store/cell/bluespace
+/obj/item/stock_parts/cell/bluespace
 	charging_icon = "bscell_in"
 
-/obj/item/stock_parts/power_store/cell/infinite
+/obj/item/stock_parts/cell/infinite
 	charging_icon = "icell_in"
 
-/obj/item/stock_parts/power_store/cell/potato
+/obj/item/stock_parts/cell/potato
 	charging_icon = "potato_in"
 	charge_light_type = "old"
 
-/obj/item/stock_parts/power_store/cell/emproof/slime
+/obj/item/stock_parts/cell/emproof/slime
 	charging_icon = "slime_in"
 
-/obj/item/stock_parts/power_store/cell/high/slime_hypercharged
+/obj/item/stock_parts/cell/high/slime_hypercharged
 	charging_icon = "slime_in"
 
-/obj/item/stock_parts/power_store/cell/lead
+/obj/item/stock_parts/cell/lead
 	charging_icon = "lead_in"
 
-/obj/item/stock_parts/power_store/cell/update_overlays()
+/obj/item/stock_parts/cell/update_overlays()
 	. = ..()
 	if(grown_battery)
 		. += mutable_appearance('icons/obj/machines/cell_charger.dmi', "grown_wires")

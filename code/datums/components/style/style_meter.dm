@@ -93,10 +93,10 @@
 /obj/item/style_meter/proc/on_click_alt(datum/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(!istype(loc, /obj/item/clothing/glasses) || !user.can_perform_action(source))
+	if(!istype(loc, /obj/item/clothing/glasses))
 		return CLICK_ACTION_BLOCKING
 
-	clean_up(loc)
+	clean_up()
 	forceMove(get_turf(src))
 	return CLICK_ACTION_SUCCESS
 

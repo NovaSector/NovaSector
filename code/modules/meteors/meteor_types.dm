@@ -60,7 +60,8 @@
 			get_hit()
 
 	if(z != z_original || loc == get_turf(dest))
-		moved_off_z()
+		qdel(src)
+		return
 
 /obj/effect/meteor/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
 	return TRUE //Keeps us from drifting for no reason
@@ -79,9 +80,13 @@
 	if(!new_loop)
 		return
 
+	RegisterSignal(new_loop, COMSIG_QDELETING, PROC_REF(handle_stopping))
+
 ///Deals with what happens when we stop moving, IE we die
-/obj/effect/meteor/proc/moved_off_z()
-	qdel(src)
+/obj/effect/meteor/proc/handle_stopping()
+	SIGNAL_HANDLER
+	if(!QDELETED(src))
+		qdel(src)
 
 /obj/effect/meteor/proc/ram_turf(turf/T)
 	//first yell at mobs about them dying horribly
@@ -454,8 +459,8 @@
 /obj/effect/meteor/pumpkin
 	name = "PUMPKING"
 	desc = "THE PUMPKING'S COMING!"
-	icon = 'icons/obj/meteor.dmi'
-	icon_state = "spooky"
+	icon = 'icons/obj/meteor_spooky.dmi'
+	icon_state = "pumpkin"
 	hits = 10
 	heavy = TRUE
 	dropamt = 1

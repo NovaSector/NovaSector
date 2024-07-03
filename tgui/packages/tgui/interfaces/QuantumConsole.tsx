@@ -1,4 +1,6 @@
 import { BooleanLike } from 'common/react';
+
+import { useBackend, useSharedState } from '../backend';
 import {
   Button,
   Collapsible,
@@ -10,9 +12,7 @@ import {
   Table,
   Tabs,
   Tooltip,
-} from 'tgui-core/components';
-
-import { useBackend, useSharedState } from '../backend';
+} from '../components';
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 import { LoadingScreen } from './common/LoadingToolbox';
@@ -47,7 +47,6 @@ type Avatar = {
 };
 
 type Domain = {
-  announce_ghosts: BooleanLike;
   cost: number;
   desc: string;
   difficulty: number;
@@ -75,11 +74,10 @@ enum Difficulty {
   High,
 }
 
-function isConnected(data: Data): data is Data & { connected: 1 } {
-  return data.connected === 1;
-}
+const isConnected = (data: Data): data is Data & { connected: 1 } =>
+  data.connected === 1;
 
-function getColor(difficulty: number) {
+const getColor = (difficulty: number) => {
   switch (difficulty) {
     case Difficulty.Low:
       return 'yellow';
@@ -90,9 +88,9 @@ function getColor(difficulty: number) {
     default:
       return 'green';
   }
-}
+};
 
-export function QuantumConsole(props) {
+export const QuantumConsole = (props) => {
   const { data } = useBackend<Data>();
 
   return (
@@ -103,9 +101,9 @@ export function QuantumConsole(props) {
       </Window.Content>
     </Window>
   );
-}
+};
 
-function AccessView(props) {
+const AccessView = (props) => {
   const { act, data } = useBackend<Data>();
   const [tab, setTab] = useSharedState('tab', 0);
 
@@ -230,24 +228,22 @@ function AccessView(props) {
             </Stack.Item>
             <Stack.Item>
               <Button.Confirm
+                content="Stop Domain"
                 disabled={!ready || !generated_domain}
                 onClick={() => act('stop_domain')}
                 tooltip="Begins shutdown. Will notify anyone connected."
-              >
-                Stop Domain
-              </Button.Confirm>
+              />
             </Stack.Item>
           </Stack>
         </Section>
       </Stack.Item>
     </Stack>
   );
-}
+};
 
-function DomainEntry(props: DomainEntryProps) {
+const DomainEntry = (props: DomainEntryProps) => {
   const {
     domain: {
-      announce_ghosts,
       cost,
       desc,
       difficulty,
@@ -279,8 +275,6 @@ function DomainEntry(props: DomainEntryProps) {
     buttonName = 'Deploy';
   }
 
-  const canView = name !== '???';
-
   return (
     <Collapsible
       buttons={
@@ -297,9 +291,10 @@ function DomainEntry(props: DomainEntryProps) {
       title={
         <>
           {name}
-          {!!is_modular && canView && <Icon name="cubes" ml={1} />}
-          {!!has_secondary_objectives && canView && <Icon name="gem" ml={1} />}
-          {!!announce_ghosts && canView && <Icon name="ghost" ml={1} />}
+          {!!is_modular && name !== '???' && <Icon name="cubes" ml={1} />}
+          {!!has_secondary_objectives && name !== '???' && (
+            <Icon name="gem" ml={1} />
+          )}
         </>
       }
     >
@@ -308,7 +303,6 @@ function DomainEntry(props: DomainEntryProps) {
           {desc}
           {!!is_modular && ' (Modular)'}
           {!!has_secondary_objectives && ' (Secondary Objective Available)'}
-          {!!announce_ghosts && ' (Ghost Interaction)'}
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item grow>
@@ -328,7 +322,7 @@ function DomainEntry(props: DomainEntryProps) {
       </Stack>
     </Collapsible>
   );
-}
+};
 
 const AvatarDisplay = (props) => {
   const { act, data } = useBackend<Data>();

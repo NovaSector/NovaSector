@@ -106,11 +106,10 @@
 
 	if(!COOLDOWN_FINISHED(src, command_cooldown))
 		return
-	if(!istype(clicker) || blackboard[BB_HOSTILE_FRIEND] != clicker || !clicker.can_perform_action(source))
+	if(!istype(clicker) || blackboard[BB_HOSTILE_FRIEND] != clicker)
 		return
-
+	. = CLICK_ACTION_BLOCKING
 	INVOKE_ASYNC(src, PROC_REF(command_radial), clicker)
-	return CLICK_ACTION_BLOCKING
 
 /// Show the command radial menu
 /datum/ai_controller/hostile_friend/proc/command_radial(mob/living/clicker)

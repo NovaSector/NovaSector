@@ -10,7 +10,6 @@
 	name = "Sandwich"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
-		/obj/item/food/grown/cabbage = 1,
 		/obj/item/food/meat/steak = 1,
 		/obj/item/food/cheese/wedge = 1
 	)

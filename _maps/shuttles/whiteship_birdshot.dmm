@@ -26,6 +26,9 @@
 /obj/machinery/meter,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/abandoned/engine)
+"bp" = (
+/turf/closed/wall/mineral/titanium/overspace,
+/area/shuttle/abandoned/engine)
 "bq" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -178,12 +181,11 @@
 /obj/machinery/porta_turret/centcom_shuttle/weak{
 	dir = 4
 	},
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/overspace,
 /area/shuttle/abandoned/crew)
 "gj" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/whiteship{
-	dir = 1;
-	x_offset = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/small,
@@ -336,6 +338,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/abandoned/cargo)
+"ma" = (
+/turf/closed/wall/mineral/titanium/overspace,
 /area/shuttle/abandoned/cargo)
 "mU" = (
 /obj/structure/toilet{
@@ -533,7 +538,7 @@
 /turf/open/floor/iron/small,
 /area/shuttle/abandoned/medbay)
 "ry" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/overspace,
 /area/shuttle/abandoned/bar)
 "rO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -593,6 +598,9 @@
 /obj/structure/sign/poster/official/random/directional/north,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/abandoned/engine)
+"uk" = (
+/turf/closed/wall/mineral/titanium/overspace,
+/area/shuttle/abandoned/pod)
 "ur" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -1025,7 +1033,7 @@
 	pixel_x = 4;
 	pixel_y = 11
 	},
-/obj/item/stock_parts/power_store/cell/high{
+/obj/item/stock_parts/cell/high{
 	pixel_x = 4;
 	pixel_y = 11
 	},
@@ -1162,7 +1170,7 @@
 /obj/machinery/porta_turret/centcom_shuttle/weak{
 	dir = 4
 	},
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/overspace,
 /area/shuttle/abandoned/pod)
 "Ll" = (
 /obj/structure/cable,
@@ -1191,7 +1199,7 @@
 /obj/machinery/cell_charger{
 	pixel_y = 11
 	},
-/obj/item/stock_parts/power_store/cell/high{
+/obj/item/stock_parts/cell/high{
 	pixel_y = 11
 	},
 /obj/item/stack/cable_coil{
@@ -1269,7 +1277,7 @@
 /obj/machinery/porta_turret/centcom_shuttle/weak{
 	dir = 4
 	},
-/turf/closed/wall/mineral/titanium,
+/turf/closed/wall/mineral/titanium/overspace,
 /area/shuttle/abandoned/bridge)
 "Ql" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1440,6 +1448,9 @@
 /obj/machinery/light/built/directional/west,
 /turf/open/floor/carpet/green,
 /area/shuttle/abandoned/bar)
+"WG" = (
+/turf/closed/wall/mineral/titanium/overspace,
+/area/shuttle/abandoned/bridge)
 "WW" = (
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 4
@@ -1527,9 +1538,9 @@
 (1,1,1) = {"
 lt
 lt
-Gi
+bp
 BH
-Gi
+bp
 lt
 lt
 lt
@@ -1541,15 +1552,15 @@ lt
 lt
 lt
 lt
-Gi
+bp
 BH
-Gi
+bp
 lt
 lt
 "}
 (2,1,1) = {"
 lt
-Gi
+bp
 Om
 oe
 Gi
@@ -1567,7 +1578,7 @@ BH
 Gi
 oe
 Om
-Gi
+bp
 lt
 "}
 (3,1,1) = {"
@@ -1577,7 +1588,7 @@ Wu
 RH
 Gi
 oe
-Gi
+bp
 lt
 lt
 lt
@@ -1585,7 +1596,7 @@ lt
 lt
 lt
 lt
-Gi
+bp
 oe
 Gi
 qn
@@ -1663,7 +1674,7 @@ Gi
 lt
 "}
 (7,1,1) = {"
-Tg
+ma
 kQ
 DK
 er
@@ -1683,7 +1694,7 @@ uF
 uF
 BR
 kQ
-Tg
+ma
 "}
 (8,1,1) = {"
 kQ
@@ -1917,7 +1928,7 @@ lt
 "}
 (18,1,1) = {"
 lt
-PN
+uk
 pv
 pv
 pv
@@ -1935,7 +1946,7 @@ KR
 JP
 JP
 JP
-XB
+WG
 lt
 "}
 (19,1,1) = {"
@@ -2010,7 +2021,7 @@ lt
 (22,1,1) = {"
 lt
 lt
-PN
+uk
 pv
 xr
 qO
@@ -2021,12 +2032,12 @@ lt
 lt
 lt
 lt
-XB
+WG
 JP
 Hk
 Bs
 JP
-XB
+WG
 lt
 lt
 "}
@@ -2034,7 +2045,7 @@ lt
 lt
 lt
 lt
-PN
+uk
 BZ
 BZ
 Lj
@@ -2048,7 +2059,7 @@ lt
 Qf
 YJ
 YJ
-XB
+WG
 lt
 lt
 lt

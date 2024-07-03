@@ -57,7 +57,6 @@
 		/mob/living/simple_animal/hostile/megafauna/legion/medium/right,
 		/mob/living/simple_animal/hostile/megafauna/legion/small,
 		/mob/living/simple_animal/hostile/megafauna/wendigo,
-		/mob/living/simple_animal/hostile/megafauna/wendigo/noportal,
 		/mob/living/simple_animal/hostile/mimic,
 		/mob/living/simple_animal/hostile/mimic/copy,
 		/mob/living/simple_animal/hostile/mimic/copy/machine,

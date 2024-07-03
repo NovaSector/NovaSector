@@ -1,9 +1,9 @@
 /datum/techweb_node/mod_suit
-	id = TECHWEB_NODE_MOD_SUIT
+	id = "mod_suit"
 	starting_node = TRUE
 	display_name = "Modular Exosuit"
 	description = "Specialized back mounted power suits with various different modules."
-	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
+	prereq_ids = list("robotics")
 	design_ids = list(
 		"suit_storage_unit",
 		"mod_shell",
@@ -19,10 +19,10 @@
 	)
 
 /datum/techweb_node/mod_equip
-	id = TECHWEB_NODE_MOD_EQUIP
+	id = "mod_equip"
 	display_name = "Modular Suit Equipment"
 	description = "More advanced modules, to improve modular suits."
-	prereq_ids = list(TECHWEB_NODE_MOD_SUIT)
+	prereq_ids = list("mod_suit")
 	design_ids = list(
 		"modlink_scryer",
 		"mod_clamp",
@@ -37,10 +37,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/mod_entertainment
-	id = TECHWEB_NODE_MOD_ENTERTAINMENT
+	id = "mod_entertainment"
 	display_name = "Entertainment Modular Suit"
 	description = "Powered suits for protection against low-humor environments."
-	prereq_ids = list(TECHWEB_NODE_MOD_SUIT)
+	prereq_ids = list("mod_suit")
 	design_ids = list(
 		"mod_plating_cosmohonk",
 		"mod_bikehorn",
@@ -50,10 +50,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/mod_medical
-	id = TECHWEB_NODE_MOD_MEDICAL
+	id = "mod_medical"
 	display_name = "Medical Modular Suit"
 	description = "Medical exosuits for quick rescue purposes."
-	prereq_ids = list(TECHWEB_NODE_MOD_SUIT, TECHWEB_NODE_CHEM_SYNTHESIS)
+	prereq_ids = list("mod_suit", "chem_synthesis")
 	design_ids = list(
 		"mod_plating_medical",
 		"mod_quick_carry",
@@ -64,10 +64,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/mod_engi
-	id = TECHWEB_NODE_MOD_ENGI
+	id = "mod_engi"
 	display_name = "Engineering Modular Suits"
 	description = "Engineering suits, for powered engineers."
-	prereq_ids = list(TECHWEB_NODE_MOD_EQUIP)
+	prereq_ids = list("mod_equip")
 	design_ids = list(
 		"mod_plating_engineering",
 		"mod_t_ray",
@@ -78,10 +78,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/mod_security
-	id = TECHWEB_NODE_MOD_SECURITY
+	id = "mod_security"
 	display_name = "Security Modular Suits"
 	description = "Security suits for space crime handling."
-	prereq_ids = list(TECHWEB_NODE_MOD_EQUIP)
+	prereq_ids = list("mod_equip")
 	design_ids = list(
 		"mod_plating_security",
 		"mod_stealth",
@@ -95,10 +95,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/mod_medical_adv
-	id = TECHWEB_NODE_MOD_MEDICAL_ADV
+	id = "mod_medical_adv"
 	display_name = "Field Surgery Modules"
 	description = "Medical exosuit equipment designed for conducting surgical operations in field conditions."
-	prereq_ids = list(TECHWEB_NODE_MOD_MEDICAL, TECHWEB_NODE_SURGERY_ADV)
+	prereq_ids = list("mod_medical", "surgery_adv")
 	design_ids = list(
 		"mod_defib",
 		"mod_threadripper",
@@ -108,10 +108,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/mod_engi_adv
-	id = TECHWEB_NODE_MOD_ENGI_ADV
+	id = "mod_engi_adv"
 	display_name = "Advanced Engineering Modular Suit"
 	description = "Advanced Engineering suits, for advanced powered engineers."
-	prereq_ids = list(TECHWEB_NODE_MOD_ENGI)
+	prereq_ids = list("mod_engi")
 	design_ids = list(
 		"mod_plating_atmospheric",
 		"mod_jetpack",
@@ -127,10 +127,10 @@
 	return ..()
 
 /datum/techweb_node/mod_anomaly
-	id = TECHWEB_NODE_MOD_ANOMALY
+	id = "mod_anomaly"
 	display_name = "Anomalock Modular Suit"
 	description = "Modules for exosuits that require anomaly cores to function."
-	prereq_ids = list(TECHWEB_NODE_MOD_ENGI_ADV, TECHWEB_NODE_ANOMALY_RESEARCH)
+	prereq_ids = list("mod_engi_adv", "anomaly_research")
 	design_ids = list(
 		"mod_antigrav",
 		"mod_teleporter",

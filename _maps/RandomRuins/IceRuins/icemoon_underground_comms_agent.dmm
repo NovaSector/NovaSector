@@ -373,7 +373,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/turf/open/floor/plating/snowed/standard_air,
+/turf/open/floor/plating/snowed{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
 /area/ruin/comms_agent)
 "uk" = (
 /obj/structure/cable,
@@ -759,7 +761,9 @@
 /obj/structure/cable,
 /obj/item/cultivator/rake,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/plating/snowed/standard_air,
+/turf/open/floor/plating/snowed{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
 /area/ruin/comms_agent)
 "Ll" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -863,7 +867,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/plating/snowed/standard_air,
+/turf/open/floor/plating/snowed{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
 /area/ruin/comms_agent)
 "NJ" = (
 /obj/item/storage/medkit/regular,
@@ -886,7 +892,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating/snowed/standard_air,
+/turf/open/floor/plating/snowed{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
 /area/ruin/comms_agent)
 "OB" = (
 /turf/open/lava/plasma/ice_moon,
