@@ -11364,13 +11364,13 @@
 	pixel_x = -8;
 	pixel_y = -3
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4.5
 	},
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar/havana{
 	pixel_x = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_x = 6
 	},
 /obj/item/flashlight/lamp{
@@ -15343,7 +15343,7 @@
 /area/station/hallway/primary/fore)
 "euI" = (
 /obj/structure/table/wood/poker,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /turf/open/floor/iron/grimy,
 /area/station/commons/lounge)
 "evd" = (
@@ -17273,12 +17273,9 @@
 /area/station/common/pool)
 "eWi" = (
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/computer/security/telescreen/ordnance{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /obj/effect/turf_decal/stripes/red/corner,
+/obj/machinery/computer/security/telescreen/ordnance/directional/west,
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
@@ -20939,12 +20936,7 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/machinery/computer/security/telescreen{
-	dir = 8;
-	name = "Prisoner Telescreen";
-	network = list("prison");
-	pixel_x = 28
-	},
+/obj/machinery/computer/security/telescreen/prison/directional/east,
 /obj/machinery/recharger{
 	pixel_x = -7;
 	pixel_y = 3
@@ -26298,9 +26290,7 @@
 /area/station/medical/virology)
 "hBZ" = (
 /obj/machinery/pdapainter/research,
-/obj/machinery/computer/security/telescreen/rd{
-	pixel_y = 30
-	},
+/obj/machinery/computer/security/telescreen/rd/directional/north,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/white/smooth_large,
@@ -28610,10 +28600,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/machinery/computer/security/telescreen/cmo{
-	dir = 1;
-	pixel_y = -32
-	},
+/obj/machinery/computer/security/telescreen/cmo/directional/south,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/cmo)
 "imh" = (
@@ -29530,13 +29517,13 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 7
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 10
 	},
 /turf/open/floor/wood/large,
@@ -31092,9 +31079,7 @@
 	color = "#A46106"
 	},
 /obj/effect/landmark/start/quartermaster,
-/obj/machinery/computer/security/telescreen/vault{
-	pixel_y = 30
-	},
+/obj/machinery/computer/security/telescreen/vault/directional/north,
 /turf/open/floor/carpet/black,
 /area/station/command/heads_quarters/qm)
 "iVa" = (
@@ -38887,10 +38872,6 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/station/cargo/office)
-"kXK" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "kXW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -46722,7 +46703,7 @@
 	pixel_x = 9;
 	pixel_y = 6
 	},
-/obj/item/clothing/mask/cigarette/pipe{
+/obj/item/cigarette/pipe{
 	pixel_x = -5
 	},
 /obj/structure/table/wood,
@@ -49854,13 +49835,7 @@
 	},
 /obj/structure/chair/office,
 /obj/effect/landmark/start/science_guard,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	dir = 8;
-	name = "Science Monitor";
-	network = list("rd","toxins","minisat","xeno","test");
-	pixel_x = 32
-	},
+/obj/machinery/computer/security/telescreen/research/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 8
 	},
@@ -53401,10 +53376,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/computer/security/telescreen/minisat{
-	dir = 4;
-	pixel_x = -32
-	},
+/obj/machinery/computer/security/telescreen/minisat/directional/west,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth,
 /area/station/security/checkpoint/engineering)
@@ -55887,11 +55859,6 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/fore)
-"pDv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/teal,
-/turf/open/space/basic,
-/area/space)
 "pDx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -58662,13 +58629,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring the engine.";
-	dir = 4;
-	name = "Engine Monitor";
-	network = list("engine");
-	pixel_x = -32
-	},
+/obj/machinery/computer/security/telescreen/engine/directional/west,
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},
@@ -62339,11 +62300,7 @@
 /obj/item/clothing/glasses/sunglasses{
 	pixel_y = 12
 	},
-/obj/machinery/computer/security/telescreen{
-	name = "Prisoner Telescreen";
-	network = list("prison");
-	pixel_y = 28
-	},
+/obj/machinery/computer/security/telescreen/prison/directional/north,
 /obj/machinery/button/door/directional/east{
 	id = "brigprison";
 	name = "Prison Lockdown";
@@ -67346,13 +67303,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/light/small/directional/east,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the AI Upload.";
-	dir = 4;
-	name = "AI Upload Monitor";
-	network = list("aiupload");
-	pixel_x = -29
-	},
+/obj/machinery/computer/security/telescreen/aiupload/directional/west,
 /turf/open/floor/vault,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "sLs" = (
@@ -74705,11 +74656,8 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/effect/turf_decal/bot,
 /obj/machinery/computer/crew,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	name = "Medbay Monitor";
-	network = list("medbay");
-	pixel_y = 32
+/obj/machinery/computer/security/telescreen/cmo/directional/north{
+	name = "Medbay Monitor"
 	},
 /turf/open/floor/iron/freezer,
 /area/station/security/checkpoint/medical)
@@ -83376,10 +83324,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/command/cc_dock)
 "xfA" = (
-/obj/machinery/computer/security/telescreen/vault{
-	dir = 8;
-	pixel_x = 26
-	},
+/obj/machinery/computer/security/telescreen/vault/directional/east,
 /obj/machinery/computer/records/medical{
 	dir = 1
 	},
@@ -86803,7 +86748,7 @@
 "ycM" = (
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "ycQ" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
@@ -107124,7 +107069,7 @@ mnM
 uUU
 oVO
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -107381,8 +107326,8 @@ rzh
 uUU
 jwC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -107638,8 +107583,8 @@ oOK
 uUU
 rmo
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -108153,7 +108098,7 @@ spp
 uUU
 oVO
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -108410,8 +108355,8 @@ iaq
 uUU
 jwC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -108667,8 +108612,8 @@ eMd
 uUU
 rmo
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -109280,7 +109225,7 @@ hdF
 hdF
 hdF
 hdF
-kXK
+xMq
 gPJ
 ttw
 ttw
@@ -111322,7 +111267,7 @@ ttw
 ttw
 ttw
 gPJ
-kXK
+xMq
 hdF
 hdF
 hdF
@@ -111336,7 +111281,7 @@ hdF
 hdF
 hdF
 hdF
-kXK
+xMq
 gPJ
 ttw
 ttw
@@ -111756,7 +111701,7 @@ tot
 deE
 wTj
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -112013,8 +111958,8 @@ urO
 deE
 mwR
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -112270,8 +112215,8 @@ fon
 deE
 gyG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -115091,7 +115036,7 @@ cwa
 brI
 gAd
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -115348,8 +115293,8 @@ cwa
 brI
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -115605,8 +115550,8 @@ cwa
 brI
 wNk
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -117146,7 +117091,7 @@ tSH
 gmz
 gAd
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -117403,8 +117348,8 @@ sLM
 gmz
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -117660,8 +117605,8 @@ sBr
 gmz
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -117917,7 +117862,7 @@ pqO
 gmz
 ngt
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -118174,8 +118119,8 @@ aZH
 gmz
 ngt
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -118431,8 +118376,8 @@ hUm
 gmz
 wNk
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -118941,7 +118886,7 @@ lhE
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -119198,8 +119143,8 @@ jfq
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -119455,8 +119400,8 @@ awv
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -119712,7 +119657,7 @@ czs
 qbp
 nIl
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -119969,8 +119914,8 @@ xgK
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -120226,8 +120171,8 @@ dyl
 qbp
 rTG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -120741,7 +120686,7 @@ rYy
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -120998,8 +120943,8 @@ avz
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -121255,8 +121200,8 @@ vau
 qbp
 rTG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -121768,7 +121713,7 @@ veD
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -122025,8 +121970,8 @@ ceN
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -122282,8 +122227,8 @@ koQ
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -122539,7 +122484,7 @@ rfk
 qbp
 nIl
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -122796,8 +122741,8 @@ xgK
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -123053,8 +122998,8 @@ xgK
 qbp
 rTG
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -123569,7 +123514,7 @@ dyl
 qbp
 oWM
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -123826,8 +123771,8 @@ evE
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -124083,8 +124028,8 @@ kvZ
 qbp
 nIl
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -124340,7 +124285,7 @@ qbp
 qbp
 nIl
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -124597,8 +124542,8 @@ aXG
 xGA
 gdu
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -124854,8 +124799,8 @@ aXG
 xGA
 myC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -127688,7 +127633,7 @@ xAr
 sJd
 gUC
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -127945,8 +127890,8 @@ oxH
 sJd
 ykC
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -128202,8 +128147,8 @@ gwJ
 sJd
 wuU
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -130772,7 +130717,7 @@ gIT
 unI
 otq
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -131029,8 +130974,8 @@ ayt
 unI
 hqJ
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -131286,8 +131231,8 @@ sUV
 unI
 vag
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -131795,7 +131740,7 @@ wsc
 lAi
 jBK
 pkp
-ttw
+xXo
 ycM
 ttw
 ttw
@@ -132052,8 +131997,8 @@ ajL
 lAi
 uLA
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -132309,8 +132254,8 @@ ajL
 lAi
 ftr
 pkp
-ttw
-ttw
+xXo
+xXo
 ttw
 ttw
 ttw
@@ -132467,7 +132412,7 @@ kUb
 kUb
 ttw
 ttw
-kXK
+xMq
 ttw
 ttw
 skC
@@ -132717,14 +132662,14 @@ xMq
 ttw
 ttw
 ttw
-kXK
+xMq
 ttw
 ttw
-kXK
+xMq
 ttw
 ttw
 ttw
-pDv
+smE
 ttw
 ttw
 skC
@@ -132974,10 +132919,10 @@ xMq
 ttw
 ttw
 ttw
-pDv
+smE
 ttw
 ttw
-pDv
+smE
 ttw
 ttw
 ttw
