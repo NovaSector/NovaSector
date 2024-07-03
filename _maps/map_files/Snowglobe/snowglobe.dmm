@@ -21991,12 +21991,6 @@
 /turf/open/floor/plating,
 /area/station/engineering/supermatter)
 "guc" = (
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	name = "Medbay Monitor";
-	network = list("medbay");
-	pixel_y = 32
-	},
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/tile/blue/full,
 /obj/structure/disposalpipe/trunk{
