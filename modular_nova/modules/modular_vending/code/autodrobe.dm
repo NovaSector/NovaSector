@@ -30,6 +30,7 @@
 				/obj/item/clothing/under/costume/nova/kamishimo = 5,
 				/obj/item/clothing/under/costume/nova/yukata = 5,
 				/obj/item/clothing/under/costume/nova/kimono = 5,
+				/obj/item/clothing/under/costume/nova/shihakusho = 5,
 				/obj/item/clothing/head/beret/badge = 5,
 				/obj/item/clothing/mask/masquerade = 25,
 				/obj/item/clothing/mask/masquerade/two_colors = 25,
