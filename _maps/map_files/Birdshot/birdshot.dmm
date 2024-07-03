@@ -264,7 +264,6 @@
 /area/station/medical/virology)
 "agp" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/cigar/cohiba,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "agy" = (
@@ -2080,12 +2079,14 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/machinery/button/door/directional/north{
-	name = "Lock Control";
-	id = "Toilet1"
-	},
 /obj/machinery/light/small/directional/west,
 /obj/structure/sign/poster/official/random/directional/west,
+/obj/machinery/button/door/directional/north{
+	id = "Toilet1";
+	specialfunctions = 4;
+	name = "Lock Control";
+	normaldoorcontrol = 1
+	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/toilet/restrooms)
 "aTc" = (
@@ -2268,7 +2269,6 @@
 /obj/structure/cable,
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
 /obj/machinery/status_display/ai/directional/north,
 /obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
@@ -3386,7 +3386,6 @@
 /obj/structure/rack,
 /obj/item/weldingtool/mini,
 /obj/item/tank/internals/emergency_oxygen/empty,
-/obj/item/clothing/mask/cigarette/rollie,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/central/lesser)
 "bxs" = (
@@ -4883,9 +4882,6 @@
 	pixel_y = 9;
 	pixel_x = 14
 	},
-/obj/item/clothing/mask/cigarette{
-	pixel_y = 2
-	},
 /turf/open/floor/iron/small,
 /area/station/engineering/atmos/pumproom)
 "cdg" = (
@@ -5190,7 +5186,9 @@
 	},
 /obj/machinery/button/door/directional/north{
 	id = "CabinS";
-	name = "Bolt Control"
+	name = "Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/carpet/green,
 /area/station/commons/dorms)
@@ -6349,7 +6347,6 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
 /obj/item/electronics/airlock,
-/obj/item/stock_parts/cell/high,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
 	},
@@ -9537,10 +9534,6 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette{
-	pixel_x = 5;
-	pixel_y = 2
-	},
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
 "dYj" = (
@@ -11710,7 +11703,6 @@
 "ePg" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
 /turf/open/floor/circuit,
 /area/station/maintenance/port/aft)
 "ePn" = (
@@ -13936,7 +13928,9 @@
 	},
 /obj/machinery/button/door/directional/north{
 	name = "Lock Control";
-	id = "Toilet2"
+	id = "Toilet2";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /obj/machinery/light/small/directional/west,
 /obj/structure/sign/poster/contraband/random/directional/west,
@@ -16954,7 +16948,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/stack/spacecash/c1,
-/obj/item/clothing/mask/cigarette/cigar/havana,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/station/maintenance/starboard/central)
 "gJS" = (
@@ -17336,6 +17329,14 @@
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/freezer,
 /area/station/command/heads_quarters/captain/private)
+"gRH" = (
+/obj/machinery/button/door/directional/north{
+	id = "Cabin4";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1
+	},
+/turf/closed/wall,
+/area/station/service/abandoned_gambling_den)
 "gRL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -17410,10 +17411,6 @@
 /area/station/service/chapel/funeral)
 "gSQ" = (
 /obj/structure/table/glass,
-/obj/item/stock_parts/cell/high{
-	pixel_x = 11;
-	pixel_y = 6
-	},
 /obj/item/folder/blue{
 	pixel_x = -3;
 	pixel_y = 2
@@ -18302,10 +18299,6 @@
 /obj/machinery/cell_charger{
 	pixel_x = -1;
 	pixel_y = 2
-	},
-/obj/item/stock_parts/cell/high{
-	pixel_x = -1;
-	pixel_y = 1
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/tools)
@@ -19656,7 +19649,6 @@
 /obj/structure/table,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
 /obj/item/clothing/mask/breath{
 	pixel_x = 15;
 	pixel_y = 5
@@ -22498,7 +22490,7 @@
 	name = "Cabin Bolt Control";
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	id = "Cabin4"
+	id = "Cabin1"
 	},
 /turf/open/floor/carpet/orange,
 /area/station/commons/dorms)
@@ -24135,11 +24127,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/obj/item/stock_parts/cell/high,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "jbd" = (
@@ -24222,9 +24209,6 @@
 /area/station/service/chapel/funeral)
 "jcx" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/stock_parts/cell/emproof{
-	pixel_y = 9
-	},
 /turf/open/floor/iron/grimy,
 /area/station/engineering/main)
 "jcE" = (
@@ -25619,10 +25603,6 @@
 	},
 /obj/machinery/camera/directional/west{
 	c_tag = "Engineering - Office"
-	},
-/obj/item/stock_parts/cell/emproof{
-	pixel_x = -6;
-	pixel_y = 9
 	},
 /turf/open/floor/iron/grimy,
 /area/station/engineering/main)
@@ -30165,10 +30145,6 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
-/obj/item/clothing/mask/cigarette/candy{
-	pixel_x = -3;
-	pixel_y = 10
-	},
 /obj/item/food/gumball{
 	pixel_x = 2;
 	pixel_y = 5
@@ -30702,9 +30678,6 @@
 	pixel_y = 4
 	},
 /obj/machinery/airalarm/directional/east,
-/obj/item/stock_parts/cell/emproof{
-	pixel_y = 9
-	},
 /turf/open/floor/iron/small,
 /area/station/engineering/break_room)
 "lkR" = (
@@ -32503,13 +32476,6 @@
 /area/station/engineering/atmos)
 "lNF" = (
 /obj/effect/spawner/random/entertainment/lighter,
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker{
-	pixel_x = -2;
-	pixel_y = 6
-	},
-/obj/item/clothing/mask/cigarette/rollie/trippy{
-	pixel_x = 4
-	},
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -33031,9 +32997,6 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
-	pixel_y = 4
-	},
 /turf/open/floor/iron/dark/small,
 /area/station/commons/fitness/locker_room)
 "lWz" = (
@@ -33184,10 +33147,6 @@
 /obj/item/storage/wallet{
 	pixel_x = -3;
 	pixel_y = 10
-	},
-/obj/item/clothing/mask/cigarette/cigar{
-	pixel_x = -1;
-	pixel_y = -2
 	},
 /obj/item/lighter{
 	pixel_x = 11;
@@ -35018,10 +34977,6 @@
 	pixel_y = 2
 	},
 /obj/item/wrench,
-/obj/item/clothing/mask/cigarette/xeno{
-	pixel_x = -3;
-	pixel_y = -9
-	},
 /obj/item/clothing/head/utility/welding,
 /turf/open/floor/iron/small,
 /area/station/maintenance/department/engine/atmos)
@@ -42579,9 +42534,6 @@
 /area/station/service/kitchen)
 "pot" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/cigar/premium{
-	pixel_y = 5
-	},
 /turf/open/floor/stone,
 /area/station/service/abandoned_gambling_den)
 "pox" = (
@@ -42941,10 +42893,6 @@
 /obj/machinery/cell_charger{
 	pixel_x = 2;
 	pixel_y = 1
-	},
-/obj/item/stock_parts/cell/high{
-	pixel_x = 2;
-	pixel_y = 2
 	},
 /turf/open/floor/iron/smooth,
 /area/station/engineering/break_room)
@@ -45795,7 +45743,6 @@
 /obj/machinery/cell_charger{
 	pixel_y = 5
 	},
-/obj/item/stock_parts/cell/high,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "qjh" = (
@@ -48471,7 +48418,6 @@
 "qYq" = (
 /obj/structure/table/glass,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell,
 /turf/open/floor/iron/white,
 /area/station/science/auxlab/firing_range)
 "qYu" = (
@@ -48818,10 +48764,6 @@
 	pixel_y = -3;
 	pixel_x = -2
 	},
-/obj/item/clothing/mask/cigarette{
-	pixel_x = 6;
-	pixel_y = 4
-	},
 /obj/item/clothing/mask/gas{
 	pixel_y = 5
 	},
@@ -49124,7 +49066,6 @@
 	dir = 10
 	},
 /obj/structure/table,
-/obj/item/clothing/mask/cigarette,
 /obj/item/toy/toy_dagger,
 /obj/item/clothing/head/collectable/paper,
 /obj/item/toy/figure/roboticist{
@@ -49449,8 +49390,10 @@
 	dir = 4
 	},
 /obj/machinery/button/door/directional/north{
-	id = "Cabin4";
-	name = "Cabin Bolt Control"
+	id = "Cabin3";
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/carpet/blue,
 /area/station/commons/dorms)
@@ -51075,10 +51018,6 @@
 "rLu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/item/stock_parts/cell/high{
-	pixel_x = -11;
-	pixel_y = 2
-	},
 /obj/item/reagent_containers/cup/glass/bottle/vodka,
 /obj/item/food/grown/citrus/orange,
 /obj/item/food/grown/citrus/orange{
@@ -54169,7 +54108,6 @@
 	},
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /turf/open/floor/iron/cafeteria,
@@ -56861,7 +56799,6 @@
 "twR" = (
 /obj/structure/table/glass,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell,
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/sign/directions/supply/directional/west,
 /obj/structure/sign/directions/engineering/directional/west{
@@ -57686,7 +57623,6 @@
 	pixel_x = -2;
 	pixel_y = -3
 	},
-/obj/item/clothing/mask/cigarette/cigar,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/smooth,
@@ -60869,6 +60805,10 @@
 "uDE" = (
 /obj/structure/window/spawner/directional/north,
 /obj/structure/flora/bush/flowers_yw/style_random,
+/obj/machinery/door/airlock{
+	id_tag = "Toilet1";
+	name = "Unit 1"
+	},
 /turf/open/misc/sandy_dirt,
 /area/station/commons/fitness/locker_room)
 "uDF" = (
@@ -62995,9 +62935,6 @@
 /obj/machinery/cell_charger{
 	pixel_y = 18
 	},
-/obj/item/stock_parts/cell/high{
-	pixel_y = 18
-	},
 /obj/item/clothing/suit/hazardvest,
 /obj/effect/turf_decal/siding/thinplating_new/terracotta{
 	dir = 4
@@ -63946,7 +63883,6 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/stock_parts/cell/high,
 /obj/item/electronics/airlock{
 	pixel_y = 13
 	},
@@ -64003,7 +63939,9 @@
 	},
 /obj/machinery/button/door/directional/south{
 	id = "Cabin4";
-	name = "Cabin Bolt Control"
+	name = "Cabin Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
 	},
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
@@ -66748,13 +66686,6 @@
 /obj/machinery/cell_charger{
 	pixel_y = 5
 	},
-/obj/item/stock_parts/cell/crap{
-	pixel_y = 5
-	},
-/obj/item/clothing/mask/cigarette/pipe/cobpipe{
-	pixel_x = 1;
-	pixel_y = -2
-	},
 /obj/structure/sign/poster/official/random/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/command/corporate_showroom)
@@ -66816,9 +66747,6 @@
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /obj/structure/table/reinforced/titaniumglass,
 /obj/item/rcl/pre_loaded,
-/obj/item/stock_parts/cell/high{
-	pixel_y = 17
-	},
 /obj/machinery/light/small/directional/south,
 /obj/structure/secure_safe/directional/east,
 /turf/open/floor/iron,
@@ -67226,7 +67154,9 @@
 "wrx" = (
 /obj/machinery/button/door/directional/north{
 	name = "Lock Control";
-	id = "Toilet3"
+	id = "Toilet3";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /obj/machinery/recharge_station,
 /obj/structure/sign/poster/official/random/directional/east,
@@ -116192,7 +116122,7 @@ aJq
 aJq
 aJq
 wOp
-wOp
+gRH
 wOp
 wOp
 nWk
