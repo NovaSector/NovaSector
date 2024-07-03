@@ -1595,13 +1595,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
-"aIi" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Library"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/textured_half,
-/area/station/service/library)
 "aIk" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -3463,33 +3456,6 @@
 /obj/effect/gibspawner,
 /turf/open/floor/wood,
 /area/station/maintenance/starboard/greater)
-<<<<<<< HEAD
-=======
-"bzj" = (
-/obj/machinery/rnd/production/techfab/department/service,
-/obj/effect/turf_decal/tile/neutral/opposingcorners{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 4
-	},
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron/small,
-/area/station/hallway/secondary/service)
-"bzJ" = (
-/obj/structure/table/wood,
-/obj/machinery/barsign{
-	chosen_sign = "thecavern";
-	icon_state = "thecavern";
-	pixel_y = 32
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/obj/machinery/chem_dispenser/drinks/beer,
-/turf/open/floor/iron/dark/textured,
-/area/station/service/bar)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "bzZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
@@ -5746,37 +5712,6 @@
 "ctH" = (
 /turf/open/floor/iron/herringbone,
 /area/station/commons/dorms)
-<<<<<<< HEAD
-=======
-"ctN" = (
-/obj/structure/closet/secure_closet/freezer/empty,
-/obj/item/food/grown/tomato{
-	pixel_y = 2;
-	pixel_x = 2
-	},
-/obj/item/food/grown/tomato{
-	pixel_y = 2;
-	pixel_x = 2
-	},
-/obj/item/food/grown/eggplant{
-	pixel_y = 5;
-	pixel_x = 5
-	},
-/obj/item/food/grown/eggplant{
-	pixel_y = 5;
-	pixel_x = 5
-	},
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/milk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/soymilk,
-/obj/item/reagent_containers/condiment/flour,
-/obj/item/reagent_containers/condiment/flour,
-/turf/open/floor/iron/kitchen/small,
-/area/station/service/kitchen)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "cua" = (
 /obj/effect/spawner/random/maintenance,
 /obj/effect/spawner/random/structure/crate,
@@ -5846,21 +5781,6 @@
 	dir = 1
 	},
 /area/station/cargo/bitrunning/den)
-<<<<<<< HEAD
-=======
-"cvX" = (
-/obj/structure/sign/poster/official/random/directional/south,
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/obj/machinery/airalarm/directional/east,
-/obj/item/kirbyplants/random,
-/turf/open/floor/stone,
-/area/station/service/bar)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "cwb" = (
 /obj/effect/turf_decal/stripes/white/end{
 	dir = 1
@@ -6510,25 +6430,6 @@
 	},
 /turf/open/space/basic,
 /area/station/engineering/atmos/space_catwalk)
-<<<<<<< HEAD
-=======
-"cJv" = (
-/obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
-/obj/machinery/door/airlock/hydroponics/glass{
-	name = "Hydroponics"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/textured_half{
-	dir = 8
-	},
-/area/station/service/hydroponics)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "cJz" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6589,16 +6490,6 @@
 "cKk" = (
 /turf/closed/mineral/random/stationside,
 /area/station/ai_monitored/turret_protected/aisat/maint)
-<<<<<<< HEAD
-=======
-"cKt" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/central/greater)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "cKv" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 4
@@ -7184,15 +7075,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
-<<<<<<< HEAD
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
-=======
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/fore)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "cXu" = (
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/plating,
@@ -10111,19 +9996,6 @@
 /obj/structure/sign/poster/official/random/directional/east,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/atmos/office)
-<<<<<<< HEAD
-=======
-"ehT" = (
-/obj/machinery/door/airlock{
-	id_tag = "commiss2";
-	name = "Commissary"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/textured_half,
-/area/station/commons/vacant_room/commissary)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "ehV" = (
 /obj/structure/cable,
 /obj/structure/chair/sofa/right{
@@ -10262,14 +10134,6 @@
 	},
 /turf/open/floor/catwalk_floor,
 /area/station/engineering/main)
-"ejX" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/obj/machinery/vending/cigarette,
-/turf/open/floor/stone,
-/area/station/service/bar)
 "ekf" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -10614,19 +10478,6 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
-<<<<<<< HEAD
-=======
-"erf" = (
-/obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
-/obj/machinery/door/airlock/hydroponics/glass{
-	name = "Hydroponics"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/textured_half{
-	dir = 8
-	},
-/area/station/service/hydroponics)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "erg" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -13389,32 +13240,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
-<<<<<<< HEAD
-=======
-"fvK" = (
-/obj/item/holosign_creator/robot_seat/restaurant,
-/obj/item/book/manual/chef_recipes,
-/obj/item/stack/package_wrap{
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/condiment/enzyme{
-	pixel_x = -7;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/condiment/saltshaker{
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/condiment/peppermill{
-	pixel_x = 3
-	},
-/obj/machinery/light_switch/directional/north,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/table,
-/turf/open/floor/iron/kitchen/small,
-/area/station/service/kitchen)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "fvL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -20150,37 +19975,6 @@
 /obj/structure/sign/departments/telecomms/directional/south,
 /turf/open/floor/iron,
 /area/station/science/lobby)
-<<<<<<< HEAD
-=======
-"hHj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/sorting/mail{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/mail_sorting/service/bar,
-/turf/open/floor/plating,
-/area/station/maintenance/central/greater)
-"hHn" = (
-/obj/effect/turf_decal/weather/snow,
-/obj/structure/closet/secure_closet/freezer/fridge,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 2
-	},
-/obj/item/food/meat/bacon,
-/obj/item/food/meat/bacon,
-/obj/item/food/meat/slab/monkey,
-/obj/item/food/meat/slab/monkey,
-/obj/item/food/meat/slab/monkey,
-/turf/open/floor/iron/freezer,
-/area/station/service/kitchen/coldroom)
-"hHy" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/stone,
-/area/station/service/chapel)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "hHE" = (
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/engine,
@@ -25406,29 +25200,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/tile,
 /area/station/command/corporate_showroom)
-<<<<<<< HEAD
-=======
-"jwl" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/dark_red/half/contrasted{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/obj/structure/disposalpipe/junction/flip{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/security)
-"jwt" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/table,
-/turf/open/floor/iron/kitchen/small,
-/area/station/service/kitchen)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "jwC" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible/layer2{
 	dir = 5
@@ -32015,23 +31786,6 @@
 /obj/effect/landmark/start/cargo_technician,
 /turf/open/floor/iron/dark,
 /area/station/cargo/office)
-<<<<<<< HEAD
-=======
-"lEs" = (
-/obj/structure/extinguisher_cabinet/directional/east,
-/obj/effect/turf_decal/tile/neutral/opposingcorners{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 4
-	},
-/obj/machinery/computer/order_console/cook{
-	dir = 8
-	},
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron/small,
-/area/station/hallway/secondary/service)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "lEJ" = (
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
@@ -33559,26 +33313,12 @@
 	pixel_x = -16;
 	pixel_y = 3
 	},
-<<<<<<< HEAD
 /obj/item/flashlight/lamp/green{
 	pixel_x = 8;
 	pixel_y = 3
 	},
 /turf/open/floor/wood/parquet,
 /area/station/service/library)
-=======
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/fore)
-"mae" = (
-/obj/structure/table/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/obj/machinery/chem_dispenser/drinks,
-/turf/open/floor/iron/dark/textured,
-/area/station/service/bar)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "maf" = (
 /turf/closed/wall/rust,
 /area/station/hallway/primary/fore)
@@ -37558,23 +37298,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
-<<<<<<< HEAD
-=======
-"nxy" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 9
-	},
-/obj/effect/turf_decal/weather/snow,
-/obj/structure/closet/secure_closet/freezer/meat,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 2
-	},
-/obj/item/food/meat/slab/monkey,
-/obj/item/food/meat/slab/monkey,
-/obj/item/food/meat/slab/monkey,
-/turf/open/floor/iron/freezer,
-/area/station/service/kitchen/coldroom)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "nxD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -40995,15 +40718,10 @@
 /obj/item/circuitboard/machine/biogenerator,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/aft)
-<<<<<<< HEAD
 "oJl" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Main Engineering"
 	},
-=======
-"oIY" = (
-/obj/effect/turf_decal/delivery,
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/construction,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -41678,21 +41396,7 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/security/evidence)
-<<<<<<< HEAD
 "oUO" = (
-=======
-"oUV" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/right/directional/east,
-/turf/open/floor/iron/textured_half{
-	dir = 8
-	},
-/area/station/service/hydroponics)
-"oVl" = (
-/obj/machinery/vending/wardrobe/bar_wardrobe,
-/obj/machinery/power/apc/auto_name/directional/north,
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -45118,16 +44822,6 @@
 	},
 /turf/open/floor/iron/dark/side,
 /area/station/science/xenobiology)
-<<<<<<< HEAD
-=======
-"pWj" = (
-/obj/machinery/door/airlock{
-	name = "Kitchen"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
-/turf/open/floor/plating,
-/area/station/maintenance/central/greater)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "pWl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -45287,17 +44981,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
-<<<<<<< HEAD
-=======
-"pXH" = (
-/obj/effect/landmark/event_spawn,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/obj/structure/table,
-/turf/open/floor/iron/kitchen/small,
-/area/station/service/kitchen)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "pXL" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -49021,16 +48704,9 @@
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 1
 	},
-<<<<<<< HEAD
 /obj/effect/turf_decal/trimline/neutral/line,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
-=======
-/obj/effect/mapping_helpers/airlock/access/any/security/general,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "rce" = (
 /obj/machinery/camera{
 	c_tag = "Xenobiology - Cell 3";
@@ -53854,7 +53530,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
-<<<<<<< HEAD
 "sxd" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -53872,22 +53547,6 @@
 	pixel_x = 7
 	},
 /turf/open/floor/iron/cafeteria,
-=======
-"swW" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/obj/machinery/restaurant_portal/bar,
-/turf/open/floor/stone,
-/area/station/service/bar)
-"sxl" = (
-/obj/machinery/oven/range,
-/obj/machinery/airalarm/directional/north,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/turf/open/floor/iron/kitchen/small,
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 /area/station/service/kitchen)
 "sxm" = (
 /turf/closed/wall,
@@ -58421,17 +58080,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
-<<<<<<< HEAD
-=======
-"tQC" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/seed_extractor,
-/obj/machinery/door/window/right/directional/east,
-/turf/open/floor/iron/textured_half{
-	dir = 8
-	},
-/area/station/service/hydroponics)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "tQQ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -61869,13 +61517,10 @@
 /obj/machinery/shower/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/station/engineering/break_room)
-<<<<<<< HEAD
 "uNn" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/spacebridge)
-=======
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "uNz" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/dark_red{
@@ -69364,23 +69009,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-<<<<<<< HEAD
-=======
-"wRO" = (
-/obj/machinery/door/airlock{
-	name = "Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/central/greater)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "wRP" = (
 /obj/machinery/camera/directional/south{
 	c_tag = "Atmospherics - South"
@@ -69679,27 +69307,6 @@
 	dir = 1
 	},
 /area/station/hallway/secondary/construction)
-<<<<<<< HEAD
-=======
-"wWC" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
-/obj/effect/landmark/start/librarian,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/grimy,
-/area/station/service/library)
-"wWD" = (
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/landmark/start/hangover,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central/fore)
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 "wWP" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
@@ -95436,7 +95043,6 @@ lkZ
 xeO
 lpa
 iTv
-<<<<<<< HEAD
 xeO
 izB
 jFY
@@ -95466,29 +95072,6 @@ kev
 qtl
 qtl
 qtl
-=======
-wMg
-wKr
-vtr
-mcV
-iGq
-uTE
-eKD
-oCi
-wFd
-wFd
-wFd
-nEq
-qie
-oCV
-kuk
-iuR
-iuR
-dDB
-dDB
-dDB
-dDB
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 dDB
 dDB
 dDB
@@ -95972,7 +95555,6 @@ vrn
 ncL
 wQB
 wMg
-<<<<<<< HEAD
 wKr
 eUW
 xeO
@@ -96004,28 +95586,6 @@ hyl
 wlf
 qTM
 qtl
-=======
-iZM
-fEX
-fkF
-jLS
-jkT
-oxn
-saL
-iLh
-hEJ
-hEJ
-aIi
-qWV
-eZi
-kHX
-tYX
-dDB
-dDB
-dDB
-dDB
-dDB
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 dDB
 dDB
 dDB
@@ -100115,7 +99675,6 @@ jVM
 qhp
 rpy
 jVM
-<<<<<<< HEAD
 gTV
 oXt
 xCu
@@ -100131,26 +99690,6 @@ vVw
 lJc
 wEp
 tIL
-=======
-ruS
-sem
-bxl
-uZy
-tGq
-fvK
-aTg
-pXH
-wKX
-nDm
-tOK
-aTg
-aTg
-xUp
-bIN
-bVJ
-sTb
-kUL
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 tYX
 dDB
 dDB
@@ -102444,7 +101983,6 @@ tgl
 iSi
 fLn
 mLU
-<<<<<<< HEAD
 jVM
 jVM
 jVM
@@ -102473,36 +102011,6 @@ mVY
 sDT
 wHX
 mVY
-=======
-tgl
-tgl
-tgl
-vkh
-kXC
-omk
-hsx
-pJc
-bKO
-eGU
-xQE
-vkI
-cIX
-ofU
-omb
-ycS
-lJm
-vkh
-elN
-dPp
-sFs
-fZZ
-tYX
-dDB
-dDB
-dDB
-dDB
-dDB
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 dDB
 dDB
 qIf
@@ -102734,7 +102242,6 @@ pbd
 wtv
 hxp
 qhs
-<<<<<<< HEAD
 qIg
 jVM
 jVM
@@ -102761,34 +102268,6 @@ npY
 qTM
 qTM
 qtl
-=======
-oRv
-vkh
-cWB
-ccv
-tVp
-ioa
-fBB
-eGU
-eTJ
-wAa
-oDX
-bFd
-iBa
-grI
-ejX
-ove
-nUd
-dPp
-jjZ
-bje
-tYX
-dDB
-dDB
-dDB
-dDB
-dDB
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 dDB
 dDB
 qIf
@@ -103018,7 +102497,6 @@ tgl
 lvA
 nyy
 diK
-<<<<<<< HEAD
 rTt
 xkW
 nAO
@@ -103047,36 +102525,6 @@ vOh
 qTM
 qTM
 qtl
-=======
-xvK
-jgb
-hRc
-vkh
-mkD
-mpB
-dxV
-bKO
-bKO
-eGU
-eTJ
-wAa
-cQN
-bXR
-cmB
-ycS
-swW
-ove
-nUd
-eXZ
-qBn
-sMt
-tYX
-dDB
-dDB
-dDB
-dDB
-dDB
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 dDB
 dDB
 qIf
@@ -103563,7 +103011,6 @@ tgl
 tgl
 tgl
 tgl
-<<<<<<< HEAD
 wRD
 hRc
 hoU
@@ -103587,31 +103034,6 @@ mpO
 ubf
 oEr
 yeh
-=======
-uIP
-dsK
-pHY
-vkh
-blB
-wKH
-lso
-wOt
-wOt
-gGx
-xtD
-gIv
-cAl
-wOt
-wOt
-wOt
-cvX
-vkh
-aWf
-vip
-duE
-aOh
-xli
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 blb
 blb
 blb
@@ -109254,18 +108676,10 @@ kAJ
 qUt
 umM
 tNs
-<<<<<<< HEAD
 umM
 qNz
 umM
 rSj
-=======
-tNs
-tNs
-tNs
-tNs
-rbW
->>>>>>> 42e65e9d559 (Birdshot Service Fixes (#84387))
 spP
 bRt
 wsb
