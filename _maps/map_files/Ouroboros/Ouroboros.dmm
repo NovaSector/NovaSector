@@ -1652,6 +1652,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 4
 	},
+/obj/machinery/computer/security/telescreen/engine/directional/south,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/engineering)
 "aAm" = (
@@ -2098,12 +2099,7 @@
 	},
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for the Auxiliary Mining Base.";
-	name = "Auxiliary Base Monitor";
-	network = list("auxbase");
-	pixel_y = 28
-	},
+/obj/machinery/computer/security/telescreen/auxbase/directional/north,
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "aGz" = (
@@ -6816,11 +6812,6 @@
 /area/station/engineering/supermatter/room)
 "caw" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen{
-	name = "Cargo Camera Monitor";
-	network = list("cargo");
-	pixel_y = 3
-	},
 /obj/machinery/requests_console/auto_name/directional/north,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/information,
@@ -8323,11 +8314,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/box,
-/obj/machinery/computer/security/telescreen/cmo{
-	pixel_y = -26;
-	pixel_x = -26;
-	dir = 1
-	},
 /obj/machinery/camera/directional/south{
 	c_tag = "Medbay - Chief Medical Officer's Office";
 	network = list("ss13","medbay")
@@ -10985,11 +10971,7 @@
 "dkR" = (
 /obj/effect/turf_decal/lunar_sand,
 /obj/structure/railing/corner,
-/obj/machinery/computer/security/telescreen{
-	dir = 1;
-	network = list("xeno");
-	pixel_y = -26
-	},
+/obj/machinery/computer/security/telescreen/xeno/directional/south,
 /obj/machinery/holopad,
 /obj/machinery/camera/directional/south{
 	c_tag = "Xenobiology Lab - Secure Cell Exterior";
@@ -11832,6 +11814,7 @@
 	},
 /obj/effect/landmark/start/orderly,
 /obj/effect/turf_decal/tile/blue,
+/obj/machinery/computer/security/telescreen/cmo/directional/north,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "dyr" = (
@@ -13280,14 +13263,10 @@
 /obj/machinery/computer/records/security/laptop,
 /obj/structure/table/reinforced,
 /obj/structure/cable,
-/obj/machinery/computer/security/telescreen{
-	name = "Prisoner Telescreen";
-	network = list("prison");
-	pixel_x = -32
-	},
 /obj/machinery/camera/directional/west{
 	c_tag = "Security - Corrections Officer Watch"
 	},
+/obj/machinery/computer/security/telescreen/prison/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/corrections_officer)
 "dTU" = (
@@ -19522,9 +19501,6 @@
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/entry)
 "fJx" = (
-/obj/machinery/computer/security/telescreen/bar{
-	dir = 8
-	},
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/pickles_jar,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -24214,9 +24190,7 @@
 /obj/structure/chair/office{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen/minisat{
-	pixel_y = 24
-	},
+/obj/machinery/computer/security/telescreen/minisat/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/foyer)
 "hea" = (
@@ -34782,13 +34756,6 @@
 /area/space/nearstation)
 "keT" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring the engine.";
-	name = "Engine Monitor";
-	network = list("engine");
-	dir = 1;
-	pixel_y = 4
-	},
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/firealarm/directional/east,
 /obj/item/radio/intercom/directional/south{
@@ -42736,6 +42703,7 @@
 "mob" = (
 /obj/structure/cable,
 /obj/effect/landmark/start/customs_agent,
+/obj/machinery/computer/security/telescreen/cargo/directional/north,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/security/checkpoint/supply)
 "mow" = (
@@ -47066,6 +47034,7 @@
 /obj/item/toy/figure/cmo{
 	pixel_y = 15
 	},
+/obj/machinery/computer/security/telescreen/cmo/directional/south,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/cmo)
 "nwA" = (
@@ -49810,10 +49779,7 @@
 /turf/open/openspace,
 /area/station/engineering/atmos/hfr_room)
 "opx" = (
-/obj/machinery/computer/security/telescreen{
-	network = list("xeno");
-	pixel_y = 26
-	},
+/obj/machinery/computer/security/telescreen/xeno/directional/north,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
@@ -50830,10 +50796,6 @@
 "oGh" = (
 /obj/structure/table/reinforced,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
-/obj/machinery/computer/security/telescreen/research{
-	pixel_y = 2;
-	dir = 4
-	},
 /obj/machinery/light/cold/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -54387,6 +54349,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "pKw" = (
+/obj/machinery/computer/security/telescreen/research/directional/south,
 /turf/open/floor/glass/reinforced,
 /area/station/command/heads_quarters/rd)
 "pLt" = (
@@ -54636,10 +54599,7 @@
 /turf/open/floor/wood/large,
 /area/station/service/library)
 "pOi" = (
-/obj/machinery/computer/security/telescreen/ordnance{
-	pixel_y = -24;
-	dir = 1
-	},
+/obj/machinery/computer/security/telescreen/ordnance/directional/south,
 /obj/structure/railing/corner{
 	dir = 1
 	},
@@ -57359,10 +57319,6 @@
 /area/station/service/kitchen/diner)
 "qDl" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen{
-	name = "Medbay Monitor";
-	network = list("medbay")
-	},
 /obj/item/reagent_containers/cup/glass/bottle/beer/light{
 	pixel_y = 6;
 	pixel_x = 15
@@ -57488,13 +57444,7 @@
 /obj/structure/railing/corner/end/flip{
 	dir = 1
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for the Auxiliary Mining Base.";
-	name = "Auxiliary Base Monitor";
-	network = list("auxbase");
-	dir = 8;
-	pixel_x = 28
-	},
+/obj/machinery/computer/security/telescreen/auxbase/directional/east,
 /obj/machinery/camera/directional/east{
 	c_tag = "Auxillary Base - Construction";
 	network = list("ss13","auxbase")
@@ -67465,9 +67415,6 @@
 /area/space/nearstation)
 "tDr" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen/research{
-	dir = 1
-	},
 /turf/open/floor/glass/reinforced,
 /area/station/command/heads_quarters/rd)
 "tDz" = (
@@ -72216,6 +72163,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/computer/security/telescreen/bar/directional/east,
 /turf/open/floor/wood/large,
 /area/station/security/checkpoint/service)
 "uXw" = (
@@ -80490,6 +80438,7 @@
 /obj/machinery/light/cold/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/start/science_guard,
+/obj/machinery/computer/security/telescreen/research/directional/west,
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/science/research)
 "xlZ" = (
@@ -82240,10 +82189,7 @@
 /obj/item/binoculars{
 	pixel_x = 16
 	},
-/obj/machinery/computer/security/telescreen/interrogation{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/computer/security/telescreen/interrogation/directional/south,
 /obj/item/toy/figure/warden{
 	pixel_x = 4;
 	pixel_y = 16
