@@ -545,8 +545,6 @@
 	},
 /turf/open/floor/wood/tile,
 /area/station/command/bridge)
-<<<<<<< HEAD
-=======
 "ani" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -566,7 +564,6 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
->>>>>>> 037dbca459a (Uses ancient dark-mapper knowledge to correctly fix all science burn chambers' power (#84374))
 "anJ" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 8
@@ -19993,8 +19990,6 @@
 /obj/structure/sign/departments/telecomms/directional/south,
 /turf/open/floor/iron,
 /area/station/science/lobby)
-<<<<<<< HEAD
-=======
 "hHj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -20021,7 +20016,6 @@
 	},
 /turf/open/floor/stone,
 /area/station/service/chapel)
->>>>>>> 037dbca459a (Uses ancient dark-mapper knowledge to correctly fix all science burn chambers' power (#84374))
 "hHE" = (
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/engine,
@@ -37308,8 +37302,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
-<<<<<<< HEAD
-=======
 "nxy" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -37322,7 +37314,6 @@
 /obj/item/food/meat/slab/monkey,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
->>>>>>> 037dbca459a (Uses ancient dark-mapper knowledge to correctly fix all science burn chambers' power (#84374))
 "nxD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -62249,8 +62240,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/brig/entrance)
-<<<<<<< HEAD
-=======
 "uZy" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -62260,7 +62249,6 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
->>>>>>> 037dbca459a (Uses ancient dark-mapper knowledge to correctly fix all science burn chambers' power (#84374))
 "uZA" = (
 /obj/structure/chair{
 	dir = 1;
