@@ -636,7 +636,7 @@
 /area/station/engineering/atmos/pumproom)
 "aim" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /turf/open/floor/wood/large,
 /area/station/service/bar)
 "ait" = (
@@ -22702,9 +22702,9 @@
 /area/station/engineering/atmos)
 "gBV" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/cigar,
-/obj/item/clothing/mask/cigarette/cigar,
-/obj/item/clothing/mask/cigarette/cigar,
+/obj/item/cigarette/cigar,
+/obj/item/cigarette/cigar,
+/obj/item/cigarette/cigar,
 /obj/item/storage/photo_album,
 /obj/item/toy/figure/captain,
 /obj/item/camera{
