@@ -154,14 +154,12 @@
 		GLOB.deathmatch_game.modifiers[modifier].apply(new_player, src)
 
 	// register death handling.
-<<<<<<< HEAD
 	RegisterSignals(new_player, list(COMSIG_LIVING_DEATH, COMSIG_MOB_GHOSTIZED, COMSIG_QDELETING), PROC_REF(player_died))
 	// NOVA EDIT ADDITION START - Synth brains don't drop here - let them delete with the mob
 	var/obj/item/organ/internal/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(synth_brain))
 		synth_brain.drop_when_organ_spilling = FALSE
 	// NOVA EDIT ADDITION END
-=======
 	register_player_signals(new_player)
 
 /datum/deathmatch_lobby/proc/register_player_signals(new_player)
@@ -170,7 +168,6 @@
 
 /datum/deathmatch_lobby/proc/unregister_player_signals(new_player)
 	UnregisterSignal(new_player, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING, COMSIG_MOB_GHOSTIZED, COMSIG_LIVING_ON_WABBAJACKED))
->>>>>>> 539bc1bf8dc (some deathmatch fixes (#84472))
 
 /datum/deathmatch_lobby/proc/game_took_too_long()
 	if (!location || QDELING(src))
