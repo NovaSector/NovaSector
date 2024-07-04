@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - rscadd: "A station trait that fills maintenance with glowsticks."
