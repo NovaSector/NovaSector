@@ -10,4 +10,6 @@
 	return "Default"
 
 /datum/preference/choiced/footstep_sound/apply_to_human(mob/living/carbon/human/target, value)
+	if(value == "Default")
+		return
 	target.footstep_type = lowertext(value)

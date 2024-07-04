@@ -30,4 +30,4 @@
 	/// Chronological age.
 	var/chrono_age = 30
 	/// The footstep sound type to use when barefoot.
-	var/footstep_type = "default"
+	var/footstep_type
