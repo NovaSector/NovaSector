@@ -13684,13 +13684,7 @@
 /obj/machinery/modular_computer/preset/id{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the ai_upload.";
-	dir = 4;
-	name = "AI Upload Monitor";
-	network = list("aiupload");
-	pixel_x = -29
-	},
+/obj/machinery/computer/security/telescreen/aiupload/directional/west,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/rd)
 "dVr" = (
@@ -17089,13 +17083,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching Prison Wing holding areas.";
-	dir = 1;
-	name = "Prison Monitor";
-	network = list("prison");
-	pixel_y = -29
-	},
+/obj/machinery/computer/security/telescreen/prison/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "eWz" = (
@@ -23695,12 +23683,9 @@
 /area/station/commons/dorms)
 "gOQ" = (
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/computer/security/telescreen/ordnance{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/computer/security/telescreen/ordnance/directional/west,
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
 "gOR" = (
@@ -46274,10 +46259,7 @@
 /obj/machinery/keycard_auth/directional/north{
 	pixel_x = -27
 	},
-/obj/machinery/computer/security/telescreen/vault{
-	dir = 4;
-	pixel_x = -29
-	},
+/obj/machinery/computer/security/telescreen/vault/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/qm)
 "nqT" = (
@@ -48012,16 +47994,10 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	dir = 8;
-	name = "Science Monitor";
-	network = list("rd","toxins","minisat","xeno","test");
-	pixel_x = 32
-	},
 /obj/item/radio/intercom/directional/east{
 	pixel_y = 25
 	},
+/obj/machinery/computer/security/telescreen/research/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science/research)
 "nVg" = (
@@ -51956,14 +51932,11 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/computer/security/telescreen/minisat{
-	dir = 1;
-	pixel_y = -29
-	},
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/thinplating/dark,
+/obj/machinery/computer/security/telescreen/minisat/directional/south,
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "peo" = (
@@ -55696,16 +55669,10 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/light/directional/west,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching Prison Wing holding areas.";
-	dir = 1;
-	name = "Prison Monitor";
-	network = list("prison");
-	pixel_y = -30
-	},
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
+/obj/machinery/computer/security/telescreen/prison/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/corrections_officer)
 "qmm" = (
@@ -61116,12 +61083,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "rRM" = (
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	name = "Medbay Monitor";
-	network = list("medbay");
-	pixel_y = 32
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
@@ -61133,6 +61094,9 @@
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/machinery/computer/med_data{
 	dir = 8
+	},
+/obj/machinery/computer/security/telescreen/cmo/directional/north{
+	name = "Medbay Monitor"
 	},
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
@@ -69849,18 +69813,12 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/rd)
 "uqN" = (
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the turbine vent.";
-	dir = 8;
-	name = "turbine vent monitor";
-	network = list("turbine");
-	pixel_x = 29
-	},
 /obj/structure/cable,
 /obj/machinery/camera/directional/east{
 	c_tag = "Atmospherics - Turbine";
 	name = "atmospherics camera"
 	},
+/obj/machinery/computer/security/telescreen/turbine/directional/east,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
 "uqT" = (
@@ -70337,12 +70295,7 @@
 /area/station/engineering/main)
 "uyN" = (
 /obj/machinery/computer/apc_control,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring the engine.";
-	name = "Engine Monitor";
-	network = list("engine");
-	pixel_y = 32
-	},
+/obj/machinery/computer/security/telescreen/engine/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/ce)
 "uyP" = (
@@ -72801,10 +72754,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/computer/security/telescreen/minisat{
-	dir = 4;
-	pixel_x = -32
-	},
+/obj/machinery/computer/security/telescreen/minisat/directional/west,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/rd)
 "vjg" = (
@@ -76717,13 +76667,6 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the ai_upload.";
-	dir = 1;
-	name = "AI Upload Monitor";
-	network = list("aiupload");
-	pixel_y = -29
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera/directional/south{
@@ -76731,6 +76674,7 @@
 	name = "science camera";
 	network = list("ss13","rd")
 	},
+/obj/machinery/computer/security/telescreen/aiupload/directional/south,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/science/lower)
 "wqv" = (
@@ -79874,17 +79818,12 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 5
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring the engine.";
-	name = "Engine Monitor";
-	network = list("engine");
-	pixel_y = 32
-	},
 /obj/structure/chair/office{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/computer/security/telescreen/engine/directional/north,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/engineering)
 "xlX" = (
