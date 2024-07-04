@@ -8081,7 +8081,7 @@
 "cvG" = (
 /obj/structure/sign/warning/biohazard/directional/east,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "cvH" = (
 /turf/closed/wall,
 /area/station/medical/psychology)
@@ -20588,7 +20588,7 @@
 "fYK" = (
 /obj/structure/sign/warning/biohazard/directional/south,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "fYR" = (
 /obj/machinery/light/small/directional/east,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -29397,7 +29397,7 @@
 	pixel_x = 32
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "iuZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -41954,7 +41954,7 @@
 "lPC" = (
 /obj/structure/sign/warning/secure_area/directional/north,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "lPJ" = (
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -69312,7 +69312,7 @@
 	pixel_x = -32
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "tmb" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/light/small/directional/west,
