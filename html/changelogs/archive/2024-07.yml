@@ -200,3 +200,34 @@
   Viralmilk22:
   - rscadd: Shifted up the service departments on Birdshot.
   - rscadd: Added an arcade.
+2024-07-04:
+  FlufflesTheDog:
+  - bugfix: wall heaters use an appropriate amount of power
+  - bugfix: wall heaters don't offset your height when walking past them
+  - bugfix: wall heaters don't drop free frames and batteries when deconstructed
+  - qol: wall heater frames save the cell that was in the heater
+  - qol: cells can be replaced in wall heater frames, before placement
+  - qol: tarkon now has access to NT Frontier for advancing their tech tree, and a
+      tank dispenser in engi
+  - bugfix: tarkon ORM has been rotated the right way around
+  - bugfix: one of tarkon's possible dorms has lights now
+  - balance: tarkon has an ice cream vat, fear their power
+  NovaBot13:
+  - image: Some gloves have received new sprites
+  - bugfix: Fixed disconnected APC on birdshot and other minor service fixes.
+  - rscadd: 'Added a bitrunning deathmatch map: Island Brawl. Both ghosts and runners
+      get many more spawns than normal.'
+  - bugfix: Lowered the static vision time in domain load in.
+  RuinedTrickster:
+  - rscadd: Added 'Shihakusho' and 'White Robe' to autodrobe and clothesmate
+  - rscadd: '''Shihakusho'' and ''White Robe'' added to loadout options'
+  Vekter:
+  - bugfix: Fixes the door-bolting buttons in the dorms and bathrooms on Birdshot.
+  Zergspower:
+  - rscadd: 'Added a new ritual for Ashwalkers: Attunement to the land. Pacify yourself
+      to have the general fauna ignore you and even try to save you.'
+  - qol: Returned the speed modifier Age Ritual for Ashwalkers, granting the Ash Storm
+      immunity trait from the start.
+  - bugfix: fixes faction gunk relating to lavaland mobs and Ashwalkers, they should
+      behave normally once again
+  - code_imp: Ash Ritual code is now in one file for OCD reasons
