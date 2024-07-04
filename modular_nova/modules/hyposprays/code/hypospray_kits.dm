@@ -97,9 +97,9 @@
 			var/mutable_appearance/hypo_overlay = mutable_appearance(initial(icon), attached_hypo.icon_state)
 			. += hypo_overlay
 
-/obj/item/storage/hypospraykit/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
-	if(!istype(tool, /obj/item/hypospray/mkii))
-		return NONE
+/obj/item/storage/hypospraykit/tool_act(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/hypospray/mkii) || !LAZYACCESS(modifiers, RIGHT_CLICK))
+		return ..()
 	if(!isnull(attached_hypo))
 		balloon_alert(user, "Mount point full!  Remove [attached_hypo] first!")
 		return ITEM_INTERACT_BLOCKING
@@ -276,8 +276,3 @@
 		/obj/item/reagent_containers/cup/vial
 	))
 	can_hold = hypokit_holdable
-
-/datum/storage/hypospray_kit/on_item_interact_secondary(datum/source, mob/user, atom/weapon)
-	if(istype(weapon, /obj/item/hypospray/mkii))
-		return NONE //handled by item secondary interact
-	return ..()
