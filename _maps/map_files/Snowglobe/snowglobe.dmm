@@ -10262,7 +10262,7 @@
 /obj/item/toy/plush/lizard_plushie/green{
 	name = "Has-The-Moves";
 	desc = "This stuffed lizard OOZES charisma. Somehow. Holy shit is she checking you out? Dude I think she's checking you out. Go on ask for her number!";
-	color = 6fbeff;
+	color = "6fbeff";
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/smooth_half,
@@ -17588,7 +17588,7 @@
 	pixel_y = 12;
 	name = "Sets-High-Scores";
 	desc = "This lil guy will fuck you up in street fighter. Cries at the drop of a hat otherwise. Adorable.";
-	color = 4ed300
+	color = "f5d34a"
 	},
 /obj/item/pen{
 	pixel_x = 12
@@ -19628,7 +19628,7 @@
 /area/station/science/xenobiology)
 "fJu" = (
 /obj/item/toy/plush/lizard_plushie/green{
-	color = fb000f;
+	color = "fb000f";
 	name = "Wears-The-Boot";
 	desc = "Oh no this one's a warhawk thats posted some nasty shit on ntnet. Just... smile and nod and maybe he'll get bored?"
 	},
@@ -26635,7 +26635,7 @@
 	},
 /obj/item/toy/crayon/spraycan,
 /obj/item/toy/plush/lizard_plushie/green{
-	color = 43c800;
+	color = "43c800";
 	name = "Knows-No-Peace";
 	desc = "...ok you ever read the giver? no no, stay with me here. Ok so this dude takes all the bad vibes when you sleep near it and locks it away in their soul. Yes, this makes it a literal torment nexus but its fi- look just go read the giver. youll get it.";
 	pixel_x = -14
@@ -66383,7 +66383,7 @@
 "tpf" = (
 /obj/item/toy/plush/lizard_plushie/green{
 	name = "Wont-Go-Back";
-	color = b658c8;
+	color = "b658c8";
 	desc = "Oh this one appears to have broken out of sci. I'm sure it was treated with the same dignity and test subject would be!"
 	},
 /turf/open/misc/asteroid/snow/icemoon,
@@ -69956,7 +69956,8 @@
 /obj/structure/chair/office,
 /obj/item/toy/plush/lizard_plushie/green{
 	desc = "This poor bastard hasn't gotten to leave the office in decades. What a work ethic!";
-	name = "Misses-His-Wife"
+	name = "Misses-His-Wife";
+	color = "bfbfbf"
 	},
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_office)
@@ -81440,7 +81441,7 @@
 /area/station/maintenance/fore)
 "xDf" = (
 /obj/item/toy/plush/lizard_plushie/green{
-	color = 0f55db;
+	color = "0f55db";
 	name = "Buries-The-Dead";
 	desc = "This one scares me. Put it down. Don't break eye contact, back away slowly."
 	},
