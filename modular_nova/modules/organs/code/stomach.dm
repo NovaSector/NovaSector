@@ -51,11 +51,3 @@
 	organ_flags = ORGAN_MINERAL
 	organ_traits = list(TRAIT_ROCK_EATER)
 	hunger_modifier = 7 //adjusted so you're not eating stacks of metal every 10 minutes
-
-//actual code, makes sure u don't get the fancy 'golem rocks' from eating the material type. also makes food eaten normally give u similar nutrients
-/obj/item/organ/internal/stomach/lithovore/on_life(delta_time, times_fired)
-	for(var/datum/reagent/consumable/food in reagents.reagent_list)
-		if (istype(food, /datum/reagent/consumable/nutriment/mineral))
-			continue
-		food.nutriment_factor = 5 // adjusts to mid-baseline food for non-mineral items
-	return ..()
