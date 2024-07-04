@@ -222,12 +222,12 @@
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
-/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	return
 
-/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE
+/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, consistent = FALSE, client/player_client, consistent = FALSE)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.get_outfit(), used_pref, visual_only, equipping) //NOVA EDIT CHANGE : ORIGINAL equipOutfit(equipping.get_outfit(), visual_only)
+	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping) // NOVA EDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
 
 /// tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 /datum/job/proc/announce_head(mob/living/carbon/human/H, channels, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_head(mob/living/carbon/human/H, channels)
