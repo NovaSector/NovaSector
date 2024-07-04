@@ -207,15 +207,11 @@
 	name = "Diagonal Bangs"
 	icon_state = "hair_diagonal_bangs"
 
-<<<<<<< Updated upstream
-/datum/sprite_accessory/hair/nova/gloomy_medium
-=======
-/datum/sprite_accessory/hair/skyrat/diagonal_bangs_alt
+/datum/sprite_accessory/hair/nova/diagonal_bangs_alt
 	name = "Diagonal Bangs Alt"
 	icon_state = "hair_diagonal_bangs_alt"
 
-/datum/sprite_accessory/hair/skyrat/gloomy_medium
->>>>>>> Stashed changes
+/datum/sprite_accessory/hair/nova/gloomy_medium
 	name = "Medium Gloomy Bangs"
 	icon_state = "hair_gloomy_medium"
 
@@ -543,15 +539,11 @@
 	name = "Fluffy"
 	icon_state = "hair_fluffy"
 
-<<<<<<< Updated upstream
-/datum/sprite_accessory/hair/nova/fluffy_long
-=======
-/datum/sprite_accessory/hair/skyrat/fluffy_bangs
+/datum/sprite_accessory/hair/nova/fluffy_bangs
 	name = "Fluffy Bangs"
 	icon_state = "hair_fluffy_bangs"
 
-/datum/sprite_accessory/hair/skyrat/fluffy_long
->>>>>>> Stashed changes
+/datum/sprite_accessory/hair/nova/fluffy_long
 	name = "Fluffy long"
 	icon_state = "hair_fluffy_long"
 
