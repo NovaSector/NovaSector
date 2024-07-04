@@ -173,6 +173,15 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/suit/jacket/white_robe
+	name = "white robe"
+	desc = "A white long robe."
+	icon_state = "white_robe"
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"
 	desc = "A simple varsity jacket with no obvious sources."

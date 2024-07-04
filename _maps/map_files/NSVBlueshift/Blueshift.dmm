@@ -503,12 +503,7 @@
 	pixel_x = -10;
 	pixel_y = -24
 	},
-/obj/machinery/computer/security/telescreen/interrogation{
-	dir = 1;
-	name = "isolation room monitor";
-	network = list("isolation");
-	pixel_y = -36
-	},
+/obj/machinery/computer/security/telescreen/isolation/directional/south,
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 8
 	},
@@ -1765,13 +1760,7 @@
 /obj/machinery/computer/station_alert{
 	dir = 1
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the RD's goons and the AI's satellite from the safety of his office.";
-	dir = 1;
-	name = "Research Monitor";
-	network = list("rd","minisat");
-	pixel_y = -29
-	},
+/obj/machinery/computer/security/telescreen/research/directional/south,
 /turf/open/floor/iron/grimy,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "arX" = (
@@ -8481,7 +8470,7 @@
 "bIU" = (
 /obj/machinery/power/shuttle_engine/large,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "bIW" = (
 /obj/machinery/dish_drive/bullet,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -13115,9 +13104,7 @@
 /area/station/service/cafeteria)
 "czu" = (
 /obj/structure/table/glass,
-/obj/machinery/computer/security/telescreen/minisat{
-	pixel_y = 28
-	},
+/obj/machinery/computer/security/telescreen/minisat/directional/north,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/transit_tube)
@@ -14864,6 +14851,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/computer/security/telescreen/interrogation/directional/east,
 /turf/open/floor/iron,
 /area/station/security/interrogation)
 "cOS" = (
@@ -16560,10 +16548,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen/minisat{
-	dir = 1;
-	pixel_y = -29
-	},
+/obj/machinery/computer/security/telescreen/minisat/directional/south,
 /turf/open/floor/iron/grimy,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "dha" = (
@@ -21247,7 +21232,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "ecR" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -23050,10 +23035,7 @@
 "euL" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/security/telescreen/turbine{
-	dir = 8;
-	pixel_x = 32
-	},
+/obj/machinery/computer/security/telescreen/turbine/directional/east,
 /obj/machinery/modular_computer/preset/engineering,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -24290,10 +24272,7 @@
 "eFs" = (
 /obj/structure/window/spawner/directional/south,
 /obj/effect/turf_decal/siding/wood/corner,
-/obj/machinery/computer/security/telescreen/vault{
-	dir = 4;
-	pixel_x = -26
-	},
+/obj/machinery/computer/security/telescreen/vault/directional/west,
 /obj/machinery/computer/records/security{
 	dir = 4
 	},
@@ -24982,7 +24961,7 @@
 "eMh" = (
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "eMi" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/cobweb,
@@ -27916,10 +27895,7 @@
 /obj/machinery/computer/station_alert{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen/ce{
-	dir = 4;
-	pixel_x = -28
-	},
+/obj/machinery/computer/security/telescreen/ce/directional/west,
 /obj/machinery/camera/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/ce)
@@ -28772,7 +28748,7 @@
 "fwM" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "fwU" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Bow Solar Access"
@@ -31903,6 +31879,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron/smooth_edge,
 /area/station/command/secure_bunker)
+"gdI" = (
+/turf/open/space/openspace,
+/area/space/nearstation)
 "gdJ" = (
 /obj/machinery/photocopier,
 /obj/machinery/power/apc/auto_name/directional/south,
@@ -33554,6 +33533,7 @@
 /area/station/medical/medbay/central)
 "guo" = (
 /obj/structure/chair/stool/directional/west,
+/obj/machinery/computer/security/telescreen/disposals/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "guu" = (
@@ -34963,10 +34943,6 @@
 /obj/item/pen{
 	pixel_x = 18;
 	pixel_y = 3
-	},
-/obj/machinery/computer/security/telescreen{
-	dir = 1;
-	network = list("xeno")
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology/control)
@@ -36718,7 +36694,7 @@
 "haT" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "haZ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -43680,7 +43656,7 @@
 "itJ" = (
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "itP" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -48471,17 +48447,11 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	dir = 1;
-	name = "Medbay Monitor";
-	network = list("medbay");
-	pixel_y = -28
-	},
 /obj/effect/landmark/start/psychologist,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/machinery/computer/security/telescreen/cmo/directional/south,
 /turf/open/floor/iron,
 /area/station/medical/psychology)
 "jqe" = (
@@ -50089,6 +50059,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/machinery/computer/security/telescreen/ordnance/directional/south,
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
 "jFN" = (
@@ -62346,7 +62317,7 @@
 "lWy" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "lWz" = (
 /obj/structure/trash_pile,
 /turf/open/floor/plating,
@@ -62870,10 +62841,7 @@
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "maG" = (
-/obj/machinery/computer/security/telescreen/minisat{
-	dir = 1;
-	pixel_y = -29
-	},
+/obj/machinery/computer/security/telescreen/minisat/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -66807,12 +66775,6 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/structure/table,
-/obj/machinery/computer/security/telescreen{
-	dir = 8;
-	name = "Disposal Driver Monitor";
-	network = list("Trash");
-	pixel_y = 7
-	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "mPv" = (
@@ -75578,9 +75540,6 @@
 /area/station/engineering/atmos)
 "oyb" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen/ordnance{
-	dir = 1
-	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
 "oyh" = (
@@ -78797,10 +78756,7 @@
 /obj/effect/turf_decal/siding/purple{
 	dir = 1
 	},
-/obj/machinery/computer/security/telescreen/rd{
-	dir = 1;
-	pixel_y = -27
-	},
+/obj/machinery/computer/security/telescreen/rd/directional/south,
 /obj/machinery/camera/directional/south{
 	c_tag = "Science - Research Director's Office";
 	name = "science camera";
@@ -87074,10 +87030,7 @@
 /obj/item/wallframe/camera,
 /obj/item/wallframe/camera,
 /obj/item/assault_pod/mining,
-/obj/machinery/computer/security/telescreen/auxbase{
-	dir = 8;
-	pixel_x = 30
-	},
+/obj/machinery/computer/security/telescreen/auxbase/directional/east,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
 	},
@@ -88272,9 +88225,6 @@
 /area/station/security/prison)
 "qUm" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen/interrogation{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/station/security/interrogation)
@@ -88660,7 +88610,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "qXV" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -95929,7 +95879,7 @@
 "stn" = (
 /obj/machinery/power/shuttle_engine/large,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "sto" = (
 /obj/structure/chair/sofa/corp/left,
 /obj/structure/cable,
@@ -97112,10 +97062,7 @@
 /area/station/science/ordnance/testlab)
 "sEy" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/computer/security/telescreen/cmo{
-	dir = 1;
-	pixel_y = -32
-	},
+/obj/machinery/computer/security/telescreen/cmo/directional/south,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/cmo)
 "sEz" = (
@@ -99049,6 +98996,7 @@
 "sXb" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
+/obj/machinery/computer/security/telescreen/xeno/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology/control)
 "sXk" = (
@@ -101998,11 +101946,6 @@
 /area/station/hallway/primary/upper)
 "tzO" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen{
-	dir = 1;
-	name = "Relay monitoring";
-	network = list("tcomms")
-	},
 /turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "tzR" = (
@@ -103017,7 +102960,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "tJJ" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -108577,13 +108520,7 @@
 	name = "AI Upload turret control";
 	pixel_y = 32
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the AI Upload.";
-	dir = 4;
-	name = "AI Upload Monitor";
-	network = list("aiupload");
-	pixel_x = -29
-	},
+/obj/machinery/computer/security/telescreen/aiupload/directional/west,
 /obj/item/radio/intercom/directional/north{
 	broadcasting = 1;
 	frequency = 1447;
@@ -110760,7 +110697,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "vhK" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -113308,6 +113245,9 @@
 "vEE" = (
 /obj/structure/chair/office/light,
 /obj/machinery/light/floor,
+/obj/machinery/computer/security/telescreen/tcomms/directional/south{
+	name = "Relay monitoring"
+	},
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "vEF" = (
@@ -144883,7 +144823,7 @@ xJH
 fZI
 rUF
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -145140,8 +145080,8 @@ ojX
 ojX
 iBx
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -145397,8 +145337,8 @@ ojX
 ojX
 kSt
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -145912,7 +145852,7 @@ vPM
 jtq
 tfY
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -146169,8 +146109,8 @@ vPM
 daD
 eqS
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -146426,8 +146366,8 @@ vPM
 xDN
 rus
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -148495,7 +148435,7 @@ uUZ
 lKJ
 wMq
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -149527,7 +149467,7 @@ eqS
 eqS
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -149784,7 +149724,7 @@ xDN
 jxA
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -150300,7 +150240,7 @@ wVX
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -150557,8 +150497,8 @@ hvs
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -150814,8 +150754,8 @@ kmr
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -151329,7 +151269,7 @@ hvs
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -151586,8 +151526,8 @@ dom
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -151843,8 +151783,8 @@ hvs
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -152357,7 +152297,7 @@ vko
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -152614,8 +152554,8 @@ wyt
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -152871,8 +152811,8 @@ vhy
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -153388,7 +153328,7 @@ gpv
 sAe
 pDz
 ojX
-fZI
+nuU
 itJ
 fZI
 fZI
@@ -153645,8 +153585,8 @@ xNy
 hDr
 hDr
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -153902,8 +153842,8 @@ rFD
 dNq
 wzb
 ojX
-fZI
-fZI
+nuU
+nuU
 fZI
 fZI
 fZI
@@ -154676,7 +154616,7 @@ hDr
 hDr
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -154933,7 +154873,7 @@ dNq
 wzb
 ojX
 ojX
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -156749,7 +156689,7 @@ qBd
 eFZ
 hIY
 aML
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -161118,7 +161058,7 @@ rbL
 eFZ
 hIY
 aML
-fZI
+nuU
 fZI
 fZI
 fZI
@@ -210678,7 +210618,7 @@ tcq
 tcq
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -210935,7 +210875,7 @@ mkZ
 rkF
 ojX
 ojX
-fZI
+nuU
 ulx
 ulx
 ulx
@@ -211707,7 +211647,7 @@ tcq
 tcq
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -211964,7 +211904,7 @@ mkZ
 rkF
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -212736,7 +212676,7 @@ tcq
 tcq
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -212993,7 +212933,7 @@ mkZ
 rkF
 ojX
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -214032,7 +213972,7 @@ iVF
 sXD
 wVE
 ojX
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -226668,7 +226608,7 @@ haT
 haT
 haT
 haT
-ulx
+fZI
 ulx
 ulx
 ulx
@@ -234338,7 +234278,7 @@ kta
 lQX
 tvm
 bqk
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -235110,7 +235050,7 @@ tzf
 tzf
 hMF
 hMF
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -235367,7 +235307,7 @@ rnF
 rnF
 bqk
 hMF
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -236137,7 +236077,7 @@ aqy
 cIB
 tvm
 bqk
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -238698,7 +238638,7 @@ soz
 soz
 soz
 nvJ
-ulx
+gdI
 ulx
 ulx
 ulx
@@ -238955,7 +238895,7 @@ nvJ
 nvJ
 nvJ
 nvJ
-ulx
+gdI
 ulx
 ulx
 ulx
