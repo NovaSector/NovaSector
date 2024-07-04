@@ -456,18 +456,6 @@
 		addtimer(TRAIT_CALLBACK_REMOVE(target, TRAIT_NO_SIDE_KICK, REF(src)), 1 SECONDS)
 
 		var/old_color = target.color
-<<<<<<< HEAD
-		target.color = rgb(0, 128, 0)
-		animate(target, color = old_color, time = 1 SECONDS, easing = EASE_IN)
-	// NOVA EDIT ADDITION START
-	if(IS_CLOCK(target))
-		to_chat(user, span_warning("Some force greater than you intervenes! [target] is protected by the heretic Ratvar!"))
-		to_chat(target, span_warning("You are protected by your faith to Ratvar!"))
-		var/old_color = target.color
-		target.color = rgb(190, 135, 0)
-		animate(target, color = old_color, time = 1 SECONDS, easing = EASE_IN)
-	// NOVA EDIT ADDITION END
-=======
 		target.color = COLOR_HERETIC_GREEN
 		animate(target, color = old_color, time = 4 SECONDS, easing = EASE_IN)
 		target.mob_light(range = 1.5, power = 2.5, color = COLOR_HERETIC_GREEN, duration = 0.5 SECONDS)
@@ -476,7 +464,14 @@
 		to_chat(user, span_warning("An eldritch force intervenes as you touch [target], absorbing most of the effects!"))
 		to_chat(target, span_warning("As [user] touches you with vile magicks, the Mansus absorbs most of the effects!"))
 		target.balloon_alert_to_viewers("absorbed!")
->>>>>>> 4eaa299c0b2 (Cult Vs. Heretic: 7 Months Later Edition (#82877))
+	// NOVA EDIT ADDITION START
+	else if(IS_CLOCK(target))
+		to_chat(user, span_warning("Some force greater than you intervenes! [target] is protected by the heretic Ratvar!"))
+		to_chat(target, span_warning("You are protected by your faith to Ratvar!"))
+		var/old_color = target.color
+		target.color = rgb(190, 135, 0)
+		animate(target, color = old_color, time = 1 SECONDS, easing = EASE_IN)
+	// NOVA EDIT ADDITION END
 	else if(target.can_block_magic())
 		to_chat(user, span_warning("The spell had no effect!"))
 	else
