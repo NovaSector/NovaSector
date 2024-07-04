@@ -18,7 +18,7 @@
 
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
-/obj/item/gun/energy/recharge/ebow/add_bayonet_point()
+/obj/item/gun/ballistic/rifle/boltaction/sporterized/add_bayonet_point()
 	AddComponent(/datum/component/bayonet_attachable, offset_x = 35)
 
 /obj/item/gun/ballistic/rifle/boltaction/sporterized/give_manufacturer_examine()
