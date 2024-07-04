@@ -481,7 +481,7 @@
  *
  * returns 0 if it cannot, 1 if successful
  */
-/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE)
+/mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE, blacklist, initial) // NOVA EDIT CHANGE - ORIGINAL: /mob/proc/equip_to_appropriate_slot(obj/item/W, qdel_on_fail = FALSE, indirect_action = FALSE)
 	if(!istype(W))
 		return FALSE
 	var/slot_priority = W.slot_equipment_priority
@@ -498,8 +498,12 @@
 			ITEM_SLOT_DEX_STORAGE\
 		)
 
+	// NOVA EDIT ADDITION START - CUSTOMIZATION
+	if (blacklist)
+		slot_priority -= blacklist
+	// NOVA EDIT ADDITION END
 	for(var/slot in slot_priority)
-		if(equip_to_slot_if_possible(W, slot, disable_warning = TRUE, redraw_mob = TRUE, indirect_action = indirect_action))
+		if(equip_to_slot_if_possible(W, slot, disable_warning = TRUE, redraw_mob = TRUE, initial = initial, indirect_action = indirect_action)) // NOVA EDIT CHANGE - ORIGINAL: if(equip_to_slot_if_possible(W, slot, disable_warning = TRUE, redraw_mob = TRUE, indirect_action = indirect_action))
 			return TRUE
 
 	if(qdel_on_fail)
