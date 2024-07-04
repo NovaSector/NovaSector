@@ -36844,12 +36844,6 @@
 "lVi" = (
 /turf/closed/wall,
 /area/station/maintenance/department/science)
-"lVm" = (
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 5
-	},
-/turf/open/floor/iron/airless,
-/area/space)
 "lVu" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/floor,
@@ -48260,6 +48254,12 @@
 /obj/structure/sign/calendar/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
+"qcE" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Civilian - Restroom North"
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet)
 "qcG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/smooth,
@@ -53748,12 +53748,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
-<<<<<<< HEAD
-=======
 "rYE" = (
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
->>>>>>> 1aade91a186 (Unit tests for stuff accidentally placed in space by mappers (#84453))
 "rYL" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -54224,10 +54221,6 @@
 /obj/machinery/telecomms/server/presets/engineering,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
-"siq" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "siu" = (
 /turf/closed/mineral/random/stationside/asteroid/porus,
 /area/station/engineering/main)
@@ -54276,15 +54269,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/science/lower)
-<<<<<<< HEAD
-=======
 "siX" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 5
 	},
 /turf/open/floor/iron/airless,
 /area/space/nearstation)
->>>>>>> 1aade91a186 (Unit tests for stuff accidentally placed in space by mappers (#84453))
 "siZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -69280,6 +69270,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"xut" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Civilian - Restroom South"
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/toilet)
 "xuA" = (
 /obj/structure/closet/secure_closet/medical2,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -70421,13 +70417,10 @@
 /obj/machinery/light/small/dim/directional/west,
 /turf/open/floor/iron,
 /area/station/maintenance/tram/left)
-<<<<<<< HEAD
-=======
 "xRm" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
->>>>>>> 1aade91a186 (Unit tests for stuff accidentally placed in space by mappers (#84453))
 "xRn" = (
 /turf/open/floor/plating,
 /area/station/hallway/secondary/service)
@@ -71150,9 +71143,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
-"yfz" = (
-/turf/open/floor/plating/airless,
-/area/space)
 "yfE" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
@@ -85063,12 +85053,12 @@ apC
 apC
 veV
 veV
-hAD
+qcE
 hAD
 veV
 pdr
 kMD
-hAD
+xut
 veV
 veV
 apC
@@ -130868,8 +130858,8 @@ vXM
 vXM
 vXM
 vXM
-siq
-yfz
+xRm
+rYE
 vXM
 vXM
 vXM
@@ -131124,9 +131114,9 @@ vXM
 vXM
 vXM
 vXM
-siq
-yfz
-yfz
+xRm
+rYE
+rYE
 vXM
 vXM
 vXM
@@ -131381,9 +131371,9 @@ vXM
 vXM
 vXM
 vXM
-siq
-lVm
-siq
+xRm
+siX
+xRm
 vXM
 vXM
 vXM
@@ -131639,7 +131629,7 @@ vXM
 vXM
 vXM
 vXM
-siq
+xRm
 vXM
 vXM
 vXM
