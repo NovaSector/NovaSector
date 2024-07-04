@@ -23,7 +23,7 @@
 	/// Currently attached bayonet
 	var/obj/item/bayonet
 	/// Static typecache of all knives that can become bayonets
-	var/static/list/valid_bayonets = typecacheof(list(/obj/item/knife/combat))
+	var/static/list/valid_bayonets = typecacheof(list(/obj/item/knife/combat)) - /obj/item/knife/combat/throwing // NOVA EDIT CHANGE - ORIGINAL: var/static/list/valid_bayonets = typecacheof(list(/obj/item/knife/combat))
 
 /datum/component/bayonet_attachable/Initialize(
 	obj/item/starting_bayonet,
