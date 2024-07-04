@@ -469,9 +469,12 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-// We don't want to burn down the create_and_destroy test area
+// Just in case of fires, do this after mapload.
 /obj/effect/decal/cleanable/fuel_pool/LateInitialize()
+// We don't want to burn down the create_and_destroy test area
+#ifndef UNIT_TESTS
 	RegisterSignal(src, COMSIG_ATOM_TOUCHED_SPARKS, PROC_REF(ignition_trigger))
+#endif
 
 /obj/effect/decal/cleanable/fuel_pool/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
