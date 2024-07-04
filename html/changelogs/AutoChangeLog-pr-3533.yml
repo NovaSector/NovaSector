@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "Ashwalker Factions now apply properly"
+  - bugfix: "Lavaland Tendril factions now apply the Mining Fauna Faction properly"

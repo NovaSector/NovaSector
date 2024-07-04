@@ -122,7 +122,6 @@
 	throwforce = 30 // 38 force on embed? compare contrast with throwing stars.
 	throw_speed = 4
 	embedding = list("pain_mult" = 4, "embed_chance" = 75, "fall_chance" = 10) // +10 embed chance up from combat knife's 65
-	bayonet = FALSE // throwing knives probably aren't made for use as bayonets
 
 /obj/item/storage/pouch/ammo/marksman
 	name = "marksman's knife pouch"

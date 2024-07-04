@@ -11,14 +11,16 @@
 
 /datum/species/lizard/ashwalker/on_species_gain(mob/living/carbon/carbon_target, datum/species/old_species)
 	. = ..()
+	ADD_TRAIT(carbon_target, TRAIT_ASHSTORM_IMMUNE, SPECIES_TRAIT)
 	RegisterSignal(carbon_target, COMSIG_MOB_ITEM_ATTACK, PROC_REF(mob_attack))
 	carbon_target.AddComponent(/datum/component/ash_age)
-	carbon_target.faction |= FACTION_ASHWALKER
+	carbon_target.faction |= list(FACTION_ASHWALKER,FACTION_NEUTRAL)
 
 /datum/species/lizard/ashwalker/on_species_loss(mob/living/carbon/carbon_target)
 	. = ..()
+	REMOVE_TRAIT(carbon_target, TRAIT_ASHSTORM_IMMUNE, SPECIES_TRAIT)
 	UnregisterSignal(carbon_target, COMSIG_MOB_ITEM_ATTACK)
-	carbon_target.faction &= FACTION_ASHWALKER
+	carbon_target.faction &= list(FACTION_ASHWALKER,FACTION_NEUTRAL)
 
 /datum/species/lizard/ashwalker/proc/mob_attack(datum/source, mob/mob_target, mob/user)
 	SIGNAL_HANDLER
@@ -32,9 +34,9 @@
 	ashie_damage.register_mob_damage(living_target)
 
 /**
- * 20 minutes = ash storm immunity
- * 40 minutes = armor
- * 60 minutes = base punch
+ * 20 minutes = armor
+ * 40 minutes = base punch
+ * 60 minutes = speed
  * 80 minutes = lavaproof
  * 100 minutes = firebreath
  */
@@ -60,6 +62,8 @@
 	RegisterSignal(human_target, COMSIG_RUNE_EVOLUTION, PROC_REF(check_evolution))
 	RegisterSignal(human_target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
+
+/// Age Ritual handler
 /datum/component/ash_age/proc/check_evolution()
 	SIGNAL_HANDLER
 	// if the world time hasn't yet passed the time required for evolution
@@ -73,12 +77,9 @@
 	var/datum/species/species_target = human_target.dna.species
 	switch(current_stage)
 		if(1)
-			ADD_TRAIT(human_target, TRAIT_ASHSTORM_IMMUNE, REF(src))
-			to_chat(human_target, span_notice("The biting wind seems to sting less..."))
-		if(2)
 			species_target.damage_modifier += 10
 			to_chat(human_target, span_notice("Your body seems to be sturdier..."))
-		if(3)
+		if(2)
 			var/obj/item/bodypart/arm/left/left_arm = human_target.get_bodypart(BODY_ZONE_L_ARM)
 			if(left_arm)
 				left_arm.unarmed_damage_low += 5
@@ -90,6 +91,9 @@
 				right_arm.unarmed_damage_high += 5
 
 			to_chat(human_target, span_notice("Your arms seem denser..."))
+		if(3)
+			human_target.add_movespeed_modifier(/datum/movespeed_modifier/ash_aged)
+			to_chat(human_target, span_notice("Your body seems lighter..."))
 		if(4)
 			ADD_TRAIT(human_target, TRAIT_LAVA_IMMUNE, REF(src))
 			to_chat(human_target, span_notice("Your body feels hotter..."))
@@ -101,7 +105,11 @@
 		if(6 to INFINITY)
 			to_chat(human_target, span_warning("You have already reached the pinnacle of your current body!"))
 
+/// Speed mod
+/datum/movespeed_modifier/ash_aged
+	multiplicative_slowdown = -0.2
 
+/// Examines
 /datum/component/ash_age/proc/on_examine(atom/target_atom, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(world.time < (evo_time + stage_time))
