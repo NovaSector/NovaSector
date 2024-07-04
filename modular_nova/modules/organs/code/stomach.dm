@@ -50,4 +50,3 @@
 	color = COLOR_GOLEM_GRAY
 	organ_flags = ORGAN_MINERAL
 	organ_traits = list(TRAIT_ROCK_EATER)
-	hunger_modifier = 7 //adjusted so you're not eating stacks of metal every 10 minutes
