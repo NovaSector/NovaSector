@@ -23353,9 +23353,7 @@
 /turf/open/floor/iron/white/side,
 /area/station/science/ordnance/office)
 "gRB" = (
-/obj/structure/window/reinforced/spawner/directional/west{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/chair{
 	dir = 8
 	},
@@ -45596,7 +45594,6 @@
 "ndA" = (
 /obj/machinery/button/door/directional/west{
 	id = "Xtestlab";
-	layer = 4;
 	name = "Secure Creature Pen Blast Door";
 	req_access = list("xenobiology")
 	},
@@ -70202,9 +70199,7 @@
 /turf/open/openspace,
 /area/station/medical/paramedic)
 "uui" = (
-/obj/machinery/chem_dispenser{
-	layer = 2.7
-	},
+/obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
 	dir = 1
 	},
@@ -74166,9 +74161,7 @@
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/exit/departure_lounge)
 "vAK" = (
-/obj/structure/window/reinforced/spawner/directional/west{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/chair{
 	dir = 8
 	},
