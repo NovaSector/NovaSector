@@ -885,8 +885,7 @@
 /area/station/engineering/supermatter/room)
 "amf" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/light/directional/west,
 /obj/machinery/status_display/evac/directional/west,
@@ -7415,8 +7414,7 @@
 	dir = 5
 	},
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms/room6)
@@ -11103,8 +11101,7 @@
 /area/station/science/ordnance)
 "dfr" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/dark/smooth_edge{
@@ -15812,8 +15809,7 @@
 /area/station/security/lockers)
 "eyL" = (
 /obj/structure/chair/wood{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -16730,9 +16726,7 @@
 /turf/closed/wall,
 /area/station/medical/medbay/lobby)
 "eOm" = (
-/obj/machinery/chem_dispenser{
-	layer = 2.7
-	},
+/obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
@@ -17929,8 +17923,7 @@
 /area/station/cargo/miningoffice)
 "fgD" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/smooth_edge{
@@ -19432,8 +19425,7 @@
 	dir = 1
 	},
 /obj/structure/chair/wood{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -20084,8 +20076,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /turf/open/floor/iron/dark/diagonal,
@@ -22193,8 +22184,7 @@
 /area/station/engineering/atmos/hallway)
 "grQ" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -22387,8 +22377,7 @@
 /area/station/maintenance/department/science/ordnance_maint_lesser)
 "gtY" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/dark,
@@ -25267,8 +25256,7 @@
 /area/station/medical/medbay/central)
 "hjz" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -26726,8 +26714,7 @@
 /area/station/maintenance/fore)
 "hEk" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/camera/autoname/directional/west{
 	network = list("ss13","prison")
@@ -27085,9 +27072,7 @@
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/primary/aft)
 "hKw" = (
-/obj/machinery/chem_dispenser{
-	layer = 2.7
-	},
+/obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
 	},
@@ -31033,8 +31018,7 @@
 /area/station/security/courtroom)
 "iSw" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/open/floor/wood/tile,
 /area/station/service/lawoffice)
@@ -37716,8 +37700,7 @@
 /area/station/maintenance/condemnedroom)
 "kJp" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
@@ -48970,8 +48953,7 @@
 /area/station/common/night_club/back_stage)
 "nYc" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /obj/effect/turf_decal/siding/dark{
@@ -59749,9 +59731,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "reR" = (
-/obj/machinery/chem_dispenser{
-	layer = 2.7
-	},
+/obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/bot_blue,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/chemistry)
@@ -61962,8 +61942,7 @@
 /area/station/commons/lounge)
 "rPE" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/open/floor/carpet/purple,
 /area/station/science/lab)
@@ -65945,8 +65924,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/chair/wood{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -74343,8 +74321,7 @@
 /area/station/command/gateway)
 "vmJ" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/structure/sign/painting/library_private{
 	pixel_x = -32
@@ -77270,8 +77247,7 @@
 /area/station/science/xenobiology)
 "wgn" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/structure/window/reinforced/tinted/spawner/directional/west,
 /obj/effect/landmark/start/hangover,
@@ -77583,8 +77559,7 @@
 /area/station/hallway/primary/fore)
 "wkT" = (
 /obj/structure/chair/sofa/corp{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark/smooth_edge{
@@ -83195,8 +83170,7 @@
 /area/station/maintenance/condemned_med)
 "xKX" = (
 /obj/structure/chair/sofa/corp/left{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison/rec)
