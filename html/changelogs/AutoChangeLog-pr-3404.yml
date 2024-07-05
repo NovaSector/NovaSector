@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - qol: "You can now choose which footstep sound you make when barefoot."
