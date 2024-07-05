@@ -101,15 +101,14 @@
 
 	triggering = TRUE
 
-<<<<<<< HEAD
-	// We sleep HERE, in pre-event setup (because there's no sense doing it in run_event() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round.
-	if(alert_observers)
-		// message_admins("Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (<a href='?src=[REF(src)];cancel=1'>CANCEL</a>) (<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)") // NOVA EDIT REMOVAL
-		var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
-		if(!can_spawn_event(players_amt))
-			message_admins("Second pre-condition check for [name] failed, rerolling...")
-			SSevents.spawnEvent(excluded_event = src)
-			return EVENT_INTERRUPTED
+	// We sleep HERE, in pre-event setup (because there's no sense doing it in run_event() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round or at least reroll it.
+	//message_admins("Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (<a href='?src=[REF(src)];cancel=1'>CANCEL</a>) (<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)") // NOVA EDIT REMOVAL
+	sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)
+	var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
+	if(!can_spawn_event(players_amt))
+		message_admins("Second pre-condition check for [name] failed, rerolling...")
+		SSevents.spawnEvent(excluded_event = src)
+		return EVENT_INTERRUPTED
 		// NOVA EDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
 		message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
 			<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
@@ -125,17 +124,6 @@
 			<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
 			sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
 		// NOVA EDIT ADDITION END - Event notification
-=======
-	// We sleep HERE, in pre-event setup (because there's no sense doing it in run_event() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round or at least reroll it.
-	message_admins("Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (<a href='?src=[REF(src)];cancel=1'>CANCEL</a>) (<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)")
-	sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)
-	var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE, human_check = TRUE)
-	if(!can_spawn_event(players_amt))
-		message_admins("Second pre-condition check for [name] failed, rerolling...")
-		SSevents.spawnEvent(excluded_event = src)
-		return EVENT_INTERRUPTED
->>>>>>> 3ea8723188b ([NO GBP] Silent events will now announce themselves to admins before rolling (#84567))
-
 	if(!triggering)
 		return EVENT_CANCELLED //admin cancelled
 	triggering = FALSE
