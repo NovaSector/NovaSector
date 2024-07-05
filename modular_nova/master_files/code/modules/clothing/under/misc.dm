@@ -21,7 +21,12 @@
 	body_parts_covered = NONE
 	attachment_slot_override = CHEST
 	can_adjust = FALSE
+	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/misc/nova/gear_harness/Initialize(mapload)
+	. = ..()
+	allowed += GLOB.colonist_suit_allowed
 
 /obj/item/clothing/under/misc/nova/gear_harness/eve
 	name = "collection of leaves"
