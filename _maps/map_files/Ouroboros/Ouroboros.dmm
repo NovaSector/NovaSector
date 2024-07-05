@@ -36533,6 +36533,10 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/bot,
 /obj/machinery/portable_atmospherics/scrubber,
+/obj/machinery/power/apc/auto_name/directional/east{
+	areastring = "/area/station/science/ordnance/burnchamber"
+	},
+/obj/structure/cable,
 /turf/open/floor/iron/half,
 /area/station/science/ordnance)
 "kBT" = (
