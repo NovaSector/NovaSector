@@ -29282,13 +29282,6 @@
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/carpet/green,
 /area/station/commons/dorms/room7)
-"ixM" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 10
-	},
-/obj/structure/marker_beacon/yellow,
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/underground/explored)
 "ixO" = (
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/engine,
@@ -30214,13 +30207,6 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/carpet,
 /area/station/command/bridge)
-"iMm" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/obj/structure/marker_beacon/yellow,
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "iMp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -36163,6 +36149,10 @@
 	},
 /turf/open/floor/wood/tile,
 /area/station/security/courtroom)
+"kvh" = (
+/obj/machinery/light/floor,
+/turf/open/floor/plating,
+/area/station/cargo/storage)
 "kvj" = (
 /obj/machinery/defibrillator_mount/directional/south,
 /obj/structure/table/reinforced/rglass,
@@ -39335,13 +39325,6 @@
 	dir = 1
 	},
 /area/station/hallway/primary/aft)
-"lqJ" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/obj/structure/marker_beacon/yellow,
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/underground/explored)
 "lqM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -58308,13 +58291,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/station/service/hydroponics)
-"qUN" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/obj/structure/marker_beacon/yellow,
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "qUR" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/button/door/directional/south{
@@ -69926,11 +69902,6 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
 /area/station/commons/lounge)
-"ukV" = (
-/obj/effect/mapping_helpers/no_atoms_ontop,
-/obj/structure/marker_beacon/yellow,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
 "ukW" = (
 /turf/open/floor/iron,
 /area/station/command/secure_bunker)
@@ -82495,12 +82466,6 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/hos)
-"xQC" = (
-/obj/effect/turf_decal/weather/snow/corner,
-/obj/structure/marker_beacon/yellow,
-/obj/effect/mapping_helpers/no_atoms_ontop,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
 "xQN" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
@@ -167566,7 +167531,7 @@ tPn
 tPn
 tPn
 tPn
-nFi
+tPn
 tPn
 gRX
 aTZ
@@ -167609,7 +167574,7 @@ tPn
 tPn
 tPn
 tPn
-nFi
+tPn
 iJx
 tPn
 lKM
@@ -168108,9 +168073,9 @@ lKM
 tPn
 tPn
 dCI
-nFi
 tPn
-lKM
+tPn
+tPn
 tPn
 tPn
 tPn
@@ -168365,8 +168330,8 @@ vBO
 occ
 tPn
 dCI
-tPn
-rGV
+lKM
+lKM
 tPn
 tPn
 tPn
@@ -168578,10 +168543,10 @@ qQA
 qQA
 tPn
 tPn
-nFi
 tPn
 tPn
-nFi
+tPn
+tPn
 tPn
 tPn
 tPn
@@ -168622,9 +168587,9 @@ vBO
 vBO
 tPn
 dCI
-lKM
-lKM
 tPn
+rGV
+lKM
 tPn
 tPn
 lKM
@@ -168879,7 +168844,7 @@ vBO
 vBO
 vBO
 pie
-tPn
+nFi
 tPn
 tPn
 tPn
@@ -170638,8 +170603,8 @@ tPn
 oml
 tVo
 tPn
-tPn
 lvf
+tPn
 tPn
 vBO
 kel
@@ -171403,7 +171368,7 @@ hJF
 tPn
 oml
 tVo
-nFi
+tPn
 tPn
 lKM
 lKM
@@ -171917,7 +171882,7 @@ hJF
 ajj
 oml
 tVo
-lKM
+nFi
 tPn
 occ
 vBO
@@ -173459,7 +173424,7 @@ hJF
 tPn
 oml
 tVo
-tPn
+nFi
 lKM
 tPn
 tPn
@@ -174230,7 +174195,7 @@ qQA
 hJF
 oml
 tVo
-nFi
+tPn
 tPn
 tPn
 tPn
@@ -175769,7 +175734,7 @@ eqm
 jVT
 jVT
 jVT
-ixM
+xmy
 tPn
 oml
 tVo
@@ -176797,7 +176762,7 @@ eyU
 mcK
 mcK
 mcK
-lqJ
+jLV
 tPn
 oml
 tVo
@@ -177655,7 +177620,7 @@ vBO
 occ
 tPn
 tPn
-nFi
+tPn
 tPn
 tPn
 tPn
@@ -178167,9 +178132,9 @@ jdO
 jdO
 jdO
 jdO
-tPn
-tPn
 nFi
+tPn
+tPn
 tPn
 tPn
 kJq
@@ -178681,7 +178646,7 @@ jdO
 jdO
 jdO
 jdO
-tPn
+nFi
 tPn
 dCI
 tPn
@@ -179460,7 +179425,7 @@ lKM
 tPn
 tPn
 tPn
-nFi
+tPn
 iJx
 tPn
 tPn
@@ -179969,7 +179934,7 @@ tPn
 tPn
 tPn
 iJx
-nFi
+tPn
 lKM
 tPn
 tPn
@@ -180654,7 +180619,7 @@ jYN
 aTZ
 dlX
 tdX
-nFi
+tPn
 tPn
 tPn
 rGV
@@ -181931,7 +181896,7 @@ qQA
 qQA
 tPn
 iJx
-nFi
+tPn
 tPn
 tPn
 tPn
@@ -182282,7 +182247,7 @@ qKb
 jdO
 tPn
 iJx
-nFi
+tPn
 tPn
 tPn
 qQA
@@ -184338,7 +184303,7 @@ mJj
 jdO
 tPn
 iJx
-nFi
+tPn
 tPn
 lKM
 qQA
@@ -188948,8 +188913,8 @@ gBt
 gBt
 gBt
 gBt
-tPn
 nFi
+tPn
 tPn
 lKM
 tPn
@@ -189462,7 +189427,7 @@ gBt
 gBt
 gBt
 gBt
-tPn
+nFi
 tPn
 tPn
 iJx
@@ -191272,7 +191237,7 @@ tPn
 tPn
 rGV
 tPn
-nFi
+tPn
 tPn
 tPn
 tPn
@@ -195072,9 +195037,9 @@ tPn
 tPn
 tPn
 tPn
-tPn
+nFi
 iJx
-tPn
+nFi
 tPn
 tPn
 vBO
@@ -195586,7 +195551,7 @@ tPn
 lKM
 tPn
 tPn
-nFi
+tPn
 iJx
 tPn
 lKM
@@ -196349,7 +196314,7 @@ tPn
 tPn
 iJx
 tPn
-nFi
+tPn
 jYN
 mvA
 tdX
@@ -196877,7 +196842,7 @@ occ
 tPn
 fEt
 tPn
-nFi
+tPn
 tPn
 vBO
 vBO
@@ -197182,7 +197147,7 @@ tPn
 tPn
 tPn
 tPn
-nFi
+tPn
 iJx
 tPn
 tPn
@@ -197616,7 +197581,6 @@ qQA
 qQA
 tPn
 lKM
-nFi
 tPn
 tPn
 tPn
@@ -197627,7 +197591,8 @@ tPn
 tPn
 tPn
 tPn
-nFi
+tPn
+tPn
 tPn
 tPn
 qQA
@@ -200263,7 +200228,7 @@ tPn
 tPn
 tPn
 tPn
-xQC
+xmN
 iJx
 tPn
 tPn
@@ -205375,7 +205340,7 @@ qQA
 qQA
 tPn
 iJx
-nFi
+tPn
 tPn
 tPn
 tPn
@@ -205399,7 +205364,7 @@ tPn
 tPn
 tPn
 tPn
-nFi
+tPn
 iJx
 tPn
 hJF
@@ -206156,7 +206121,7 @@ tPn
 tPn
 tPn
 tPn
-ukV
+tPn
 tPn
 lKM
 tPn
@@ -231827,9 +231792,9 @@ mtN
 otf
 vJn
 uIP
-wdt
+kvh
 urT
-wdt
+kvh
 fGF
 vJn
 otf
@@ -247572,11 +247537,11 @@ hgL
 tir
 eoO
 eoO
-qfq
-qfq
-qfq
 eoO
 eoO
+qfq
+qfq
+qfq
 eac
 nTw
 vMu
@@ -247829,11 +247794,11 @@ tuk
 tir
 eoO
 eoO
-qfq
-qfq
-qfq
 eoO
 eoO
+qfq
+qfq
+qfq
 eac
 nTw
 vMu
@@ -266282,7 +266247,7 @@ wTk
 kVT
 kVT
 kVT
-qUN
+fWY
 jcZ
 jcZ
 jcZ
@@ -267563,7 +267528,7 @@ lEX
 gbX
 kVT
 kVT
-qUN
+fWY
 jcZ
 jcZ
 jcZ
@@ -267839,9 +267804,9 @@ jcZ
 jcZ
 hsH
 jcZ
-iMm
+gbX
 kVT
-qUN
+fWY
 jcZ
 jcZ
 gbX
