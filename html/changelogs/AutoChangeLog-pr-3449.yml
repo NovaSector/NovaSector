@@ -1,0 +1,6 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Added the ability for Gear Harness to be used on the Exo Suit slot in addition to the under slot. They can be used as our Colonist forefathers intended, with clips for a variety number of equipment, but, they offer no protection."
+  - rscadd: "Added the recipe for Leaf/Leaves based gear harness, no longer this fashion call will be restricted to those bold enough to arrive as their creator intended."
+  - qol: "Purple Vendors now have 20 gear harnesses in them to accomodate to the new demand."
