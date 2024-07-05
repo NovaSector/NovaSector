@@ -39178,6 +39178,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science/ordnance)
 "hBq" = (
@@ -45240,6 +45241,10 @@
 	dir = 4
 	},
 /area/station/commons/fitness)
+"iJc" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/science/ordnance)
 "iJe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -110790,6 +110795,10 @@
 /area/station/common/wrestling/lobby)
 "viz" = (
 /obj/machinery/light/directional/east,
+/obj/machinery/power/apc/auto_name/directional/east{
+	areastring = "/area/station/science/ordnance/burnchamber"
+	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science/ordnance)
 "viC" = (
@@ -230402,7 +230411,7 @@ lDr
 kUp
 lDr
 obm
-lDr
+iJc
 xbd
 deB
 nQB
