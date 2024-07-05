@@ -1,6 +1,0 @@
-author: "Jolly"
-delete-after: True
-changes:
-  - rscadd: "[Blueshift] Added more powernet redundancy as compensation."
-  - rscdel: "[Blueshift] There department power stations have been removed. Departments are now powered by the main powernet."
-  - rscdel: "[Blueshift] Removed the notice paper about the power stations in Engineering."

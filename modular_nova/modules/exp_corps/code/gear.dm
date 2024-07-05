@@ -40,7 +40,7 @@
 	righthand_file = 'modular_nova/modules/exp_corps/icons/bonesaw_r.dmi'
 	inhand_icon_state = "bonesaw"
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	toolspeed = 0.2
+	toolspeed = 2
 	throw_range = 3
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -122,7 +122,6 @@
 	throwforce = 30 // 38 force on embed? compare contrast with throwing stars.
 	throw_speed = 4
 	embedding = list("pain_mult" = 4, "embed_chance" = 75, "fall_chance" = 10) // +10 embed chance up from combat knife's 65
-	bayonet = FALSE // throwing knives probably aren't made for use as bayonets
 
 /obj/item/storage/pouch/ammo/marksman
 	name = "marksman's knife pouch"
