@@ -51,7 +51,7 @@
 	icon_state = "cypherkey_security"
 	channels = list(RADIO_CHANNEL_SECURITY = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_security
-	greyscale_colors = "#820a16#280b1a"
+	greyscale_colors = "#2C5185#1E2447"
 
 /obj/item/encryptionkey/headset_eng
 	name = "engineering radio encryption key"
