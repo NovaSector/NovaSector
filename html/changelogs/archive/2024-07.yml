@@ -231,3 +231,100 @@
   - bugfix: fixes faction gunk relating to lavaland mobs and Ashwalkers, they should
       behave normally once again
   - code_imp: Ash Ritual code is now in one file for OCD reasons
+2024-07-05:
+  Bisar:
+  - bugfix: Dastardly clowns will no longer be able to get counted for three times
+      the steps by moving diagonally.
+  CliffracerX:
+  - image: GAGS piercing hypos now look capable of piercing.
+  DATA_, with sounds made by Beebblie:
+  - sound: You will now be able to hear your muffled breathing while using internals.
+      This can be turned off in the game settings.
+  LT3:
+  - sound: Changed blood filter cycle sound
+  - qol: Crew monitor defaults to sort by vitals
+  NovaBot13:
+  - bugfix: Birdshot's AI core no longer has windoors concealed under open shutters.
+  - qol: You no longer need to reach the very edge of the game screen to reach the
+      maximum zoom range when scoped.
+  - image: Updated diamond stacks to fit its "unstacked" version.
+  - bugfix: fixes mansus grasp not clearing runes
+  - image: Fixed the cargo crate having wrong stripe width in open state
+  - rscadd: A station trait that fills maintenance with glowsticks.
+  - rscadd: Heretics can now sacrifice Cultists for sweet loot.
+  - rscadd: Cultists can now sacrifice Heretics for sick trinkets.
+  - rscdel: Removed Bastard Blade from the game, code, and life
+  - balance: Aggressive Spread now rusts non-turfs next to you as well
+  - balance: Raise Construction cd raised to 7, now breaks rust walls as well, improved
+      autoaim making it actually usable midfight
+  - refactor: Auto-aim code now works on any atoms if configured
+  - qol: Data disks are now printed in lathes instead of circuit imprinter
+  - bugfix: plumbing machinery should have consistent volumes throughout the course
+      of its operations
+  - bugfix: plumbing iv drop now only accepts reagents from ducts but won't put reagents
+      back into it i.e. it only has a input pipe
+  - qol: Transhumanist and prosthetic limb no longer conflict. If you pick the same
+      limb for both it uses the weaker prosthetic (dumbass)
+  - code_imp: Made the name for prosthetic limb global list more intelligible
+  - balance: Facehuggers dont make people go to sleep but muffles speech
+  - code_imp: Very very minor xenomorph code cleanup
+  - refactor: Muzzles are now an element
+  - bugfix: Mending touch no longer damages non-humans
+  - balance: removed tasers, the unfirable turret gun, death wand, polymorph wands
+      and the enchanted modsuit from lootbox loot tables
+  - bugfix: lootbox guns should now mostly not have syndicate firing pins so you can
+      actually use them
+  - code_imp: Moved bedsheet interactions to the item interaction code. Please report
+      any issues.
+  - bugfix: Bedsheets adjust their offset to match that of the living they're tucking
+      in.
+  - sound: Bedsheets use the cloth drop/pickup sounds instead of being silent.
+  - qol: You can tuck someone in telekinetically.
+  - rscadd: Added a new UI for heretic research.
+  - code_imp: improved mouse drag & drop code
+  - bugfix: Reverts the fully interactive lootpanel, please just refresh it if you
+      want to see new contents
+  - rscadd: mecha wire that shoots you or anyone nearby if pulsed or cut
+  - bugfix: mecha shock wire shocks you
+  - qol: Linked speech now prevents messages from highlighting if its a message you
+      sent, or if you are the owner of said link..
+  - qol: Linked speech messages are now marked as radio messages, for chat tab purposes.
+  - bugfix: material container won't consume the contents of an item if that item
+      itself is rejected for any reason
+  - qol: you can use any storage medium & not just bags/boxes to dump stuff into material
+      containers
+  - bugfix: Instruments enhanced with portable tuning can perform the rites that have
+      been granted
+  - rscdel: You can no longer get turned into a dullahan by a genetic meltdown
+  - refactor: Refactored genetic meltdown code into datums, making it more extendable.
+  - rscadd: updated Icebox's lavaland ruin. The incursion grows...
+  - refactor: Bayonet attachment is now a component.
+  - rscadd: The Illumination Applications technode now includes a gunkit for a new
+      gun, the Photon Cannon.
+  - rscadd: 254 new vox lines
+  - code_imp: Improves cpu performance of transferring & removing reagents
+  - rscadd: You can now microwave station pets that you can pick up, with predictable
+      outcomes
+  - bugfix: you can hold your wound while resting via ctrl click
+  - bugfix: deathmatch OSHA Violator map has actually functioning field gens now
+  - bugfix: being polymorphed in deathmatch does not count you dead
+  - bugfix: deathmatch cyborgs may not talk in binary
+  - qol: deathmatch map names are sorted alphabetically
+  - spellcheck: deathmatch final destination clown and chef loadouts have been renamed
+      to avoid confusion
+  - image: The sprites for the projectile dampener field have been updated
+  - bugfix: Bitrunning hacker aliases are now much more permissive
+  - rscadd: the Feast of Owls now leaves more dramatic messages in your chat
+  - sound: the Feast of Owls now has a little theme
+  - bugfix: omni crowbar tool interaction for replacing tiles has been fixed
+  - bugfix: techfab screentip does not runtime when you hover over it with an omnitool
+      multitool
+  - bugfix: medi borgs can do brain surgery again
+  - code_imp: improved multitool & general tool code for some machines
+  - bugfix: fixes not being able to clean microwaves
+  Varoxus:
+  - rscadd: increased maximum penis and testicle size.
+  Zergspower:
+  - bugfix: Ashwalker Factions now apply properly
+  - bugfix: Lavaland Tendril factions now apply the Mining Fauna Faction properly
+  - bugfix: fixes borgs ability to climb
