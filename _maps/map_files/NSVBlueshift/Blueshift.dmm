@@ -13580,10 +13580,6 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
-"cEh" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "cEl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -57817,13 +57813,6 @@
 	dir = 1
 	},
 /area/station/engineering/atmos/hfr_room)
-"lcD" = (
-/obj/structure/lattice,
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/space/basic,
-/area/space/nearstation)
 "lcE" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -106654,7 +106643,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "usb" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/bush/sunny,
@@ -117818,7 +117807,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "www" = (
 /turf/closed/wall,
 /area/station/maintenance/department/security/lesser)
@@ -122031,12 +122020,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"xnC" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/space/basic,
-/area/space)
 "xnF" = (
 /obj/structure/table/glass,
 /obj/machinery/reagentgrinder{
@@ -163462,12 +163445,12 @@ fZI
 fZI
 xJH
 xOu
-lcD
-xnC
-xnC
-xnC
+xJH
+fZI
+fZI
+fZI
 gJW
-cEh
+xJH
 fZI
 fZI
 xJH
@@ -163724,7 +163707,7 @@ fZI
 fZI
 fZI
 sSF
-cEh
+xJH
 fZI
 fZI
 xJH
@@ -163981,7 +163964,7 @@ fZI
 fZI
 fZI
 tci
-cEh
+xJH
 fZI
 fZI
 xJH
