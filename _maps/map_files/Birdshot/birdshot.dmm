@@ -5447,7 +5447,7 @@
 	pixel_y = 9;
 	pixel_x = 14
 	},
-/obj/item/clothing/mask/cigarette{
+/obj/item/cigarette{
 	pixel_y = 2
 	},
 /turf/open/floor/iron/small,
@@ -10566,7 +10566,7 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/cigarette{
+/obj/item/cigarette{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -28888,7 +28888,7 @@
 /turf/open/floor/iron,
 /area/station/security/prison/rec)
 "jUr" = (
-/obj/item/clothing/mask/cigarette,
+/obj/item/cigarette,
 /obj/item/storage/fancy/cigarettes/cigpack_robust{
 	pixel_y = 5;
 	pixel_x = 6
@@ -51418,7 +51418,7 @@
 	pixel_y = -3;
 	pixel_x = -2
 	},
-/obj/item/clothing/mask/cigarette{
+/obj/item/cigarette{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -51685,7 +51685,7 @@
 	dir = 10
 	},
 /obj/structure/table,
-/obj/item/clothing/mask/cigarette,
+/obj/item/cigarette,
 /obj/item/toy/toy_dagger,
 /obj/item/clothing/head/collectable/paper,
 /obj/item/toy/figure/roboticist{
