@@ -1,7 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - qol: "tarkon now has access to NT Frontier for advancing their tech tree, and a tank dispenser in engi"
-  - bugfix: "tarkon ORM has been rotated the right way around"
-  - bugfix: "one of tarkon's possible dorms has lights now"
-  - balance: "tarkon has an ice cream vat, fear their power"
