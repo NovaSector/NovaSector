@@ -3368,11 +3368,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain)
-"baU" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/space)
 "bbg" = (
 /turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
@@ -79473,9 +79468,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/cargo/office)
-"wVj" = (
-/turf/closed/mineral/random/stationside/moon,
-/area/space)
 "wVn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -87340,7 +87332,7 @@ xuB
 laO
 laO
 laO
-wVj
+xuB
 xuB
 xuB
 xuB
@@ -169923,9 +169915,9 @@ rSI
 fac
 fac
 fac
-fac
-fac
-fac
+pvg
+pvg
+pvg
 fac
 fac
 fac
@@ -170178,11 +170170,11 @@ uzt
 hfb
 rSI
 rSI
-fac
-fac
-fac
-fac
-fac
+pvg
+pvg
+pvg
+pvg
+pvg
 fac
 fac
 fac
@@ -170435,11 +170427,11 @@ rUy
 fff
 mIL
 rSI
-fac
-fac
-fac
-fac
-fac
+pvg
+pvg
+pvg
+pvg
+pvg
 fac
 fac
 fac
@@ -170694,8 +170686,8 @@ vZZ
 rSI
 qsX
 qsX
-fac
-fac
+pvg
+pvg
 kMZ
 ikB
 ikB
@@ -195331,7 +195323,7 @@ ikB
 dNm
 fac
 fac
-baU
+woZ
 iCn
 rsC
 qAz
