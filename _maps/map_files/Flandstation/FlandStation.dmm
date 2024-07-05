@@ -1610,7 +1610,7 @@
 /turf/open/floor/plating,
 /area/station/medical/treatment_center)
 "aBt" = (
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -6265,7 +6265,7 @@
 	},
 /obj/item/stack/cable_coil,
 /obj/item/multitool,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
@@ -8724,8 +8724,8 @@
 /area/station/science/ordnance)
 "cST" = (
 /obj/structure/table/reinforced,
-/obj/item/stock_parts/cell/high,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/machinery/cell_charger,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light/directional/north,
@@ -8819,8 +8819,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/item/stock_parts/cell/high,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -9586,13 +9586,13 @@
 /area/station/commons/storage/primary)
 "did" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_x = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar/havana{
 	pixel_x = -3
 	},
-/obj/item/clothing/mask/cigarette/cigar,
+/obj/item/cigarette/cigar,
 /obj/machinery/button/door{
 	id = "heads_meeting";
 	name = "Security Shutters";
@@ -11568,7 +11568,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "dSO" = (
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -17981,15 +17981,15 @@
 "fOp" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -22640,7 +22640,7 @@
 "hlv" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -23032,11 +23032,11 @@
 	dir = 1;
 	pixel_y = -29
 	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_x = 3
 	},
-/obj/item/clothing/mask/cigarette/cigar,
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar,
+/obj/item/cigarette/cigar/havana{
 	pixel_x = -3
 	},
 /obj/machinery/light/small/directional/south,
@@ -24799,7 +24799,7 @@
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/obj/item/clothing/mask/cigarette/cigar,
+/obj/item/cigarette/cigar,
 /obj/item/reagent_containers/cup/glass/flask/gold,
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain/private)
@@ -24999,10 +24999,10 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar/havana{
 	pixel_x = -3
 	},
-/obj/item/clothing/mask/cigarette/cigar,
+/obj/item/cigarette/cigar,
 /obj/item/lighter,
 /obj/machinery/camera/directional/east{
 	c_tag = "Detective's Office"
@@ -31285,7 +31285,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -31511,7 +31511,7 @@
 "kie" = (
 /obj/machinery/cell_charger,
 /obj/structure/table/reinforced,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "kio" = (
@@ -31547,7 +31547,7 @@
 "kiU" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "kiV" = (
@@ -33424,7 +33424,7 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light/small/directional/west,
 /obj/effect/landmark/start/prisoner,
-/obj/item/clothing/mask/cigarette/pipe/crackpipe,
+/obj/item/cigarette/pipe/crackpipe,
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
@@ -35629,7 +35629,7 @@
 	pixel_y = 4
 	},
 /obj/item/folder/yellow,
-/obj/item/clothing/mask/cigarette/cigar/cohiba,
+/obj/item/cigarette/cigar/cohiba,
 /obj/item/lighter,
 /obj/effect/turf_decal/bot,
 /obj/item/phone{
@@ -37516,7 +37516,7 @@
 "mbS" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/hyper,
+/obj/item/stock_parts/power_store/cell/hyper,
 /obj/item/stack/cable_coil,
 /obj/effect/turf_decal/bot,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -39008,7 +39008,7 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
 /obj/item/electronics/airlock,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -39572,8 +39572,8 @@
 /obj/structure/table,
 /obj/effect/turf_decal/bot,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
@@ -43255,7 +43255,7 @@
 /obj/machinery/light/directional/west{
 	dir = 4
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = -8;
 	pixel_y = 7
 	},
@@ -47829,7 +47829,7 @@
 	},
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -51660,7 +51660,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance/two,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -52558,7 +52558,7 @@
 /area/station/command/heads_quarters/blueshield)
 "qRm" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/mask/cigarette/cigar,
+/obj/item/cigarette/cigar,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 1
 	},
@@ -52824,9 +52824,9 @@
 "qUO" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/hyper,
+/obj/item/stock_parts/power_store/cell/hyper,
 /obj/machinery/light/directional/north,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/tile/neutral/opposingcorners{
 	dir = 1
 	},
@@ -54532,7 +54532,7 @@
 /obj/structure/desk_bell{
 	pixel_x = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000;
 	pixel_x = 1;
@@ -54751,7 +54751,7 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/sorting)
 "rAq" = (
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -57025,7 +57025,7 @@
 "skj" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/lights/mixed,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/sepia,
 /area/station/construction/mining/aux_base)
@@ -60346,7 +60346,7 @@
 	req_access = list("command")
 	},
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/crap,
+/obj/item/stock_parts/power_store/cell/crap,
 /turf/open/floor/wood,
 /area/station/command/corporate_showroom)
 "toB" = (
@@ -60794,7 +60794,7 @@
 /area/station/maintenance/port/central)
 "tvr" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/cigar,
+/obj/item/cigarette/cigar,
 /turf/open/floor/carpet,
 /area/station/commons/lounge)
 "tvs" = (
@@ -60868,7 +60868,7 @@
 "tvH" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -60921,13 +60921,13 @@
 /area/station/science/ordnance)
 "twv" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
+/obj/item/cigarette/cigar/cohiba{
 	pixel_x = 6
 	},
-/obj/item/clothing/mask/cigarette/cigar/havana{
+/obj/item/cigarette/cigar/havana{
 	pixel_x = 2
 	},
-/obj/item/clothing/mask/cigarette/cigar{
+/obj/item/cigarette/cigar{
 	pixel_x = 4.5
 	},
 /obj/item/phone{
@@ -62319,7 +62319,7 @@
 "tTr" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -62981,7 +62981,7 @@
 /turf/open/floor/grass,
 /area/station/hallway/primary/port)
 "ufs" = (
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -63072,7 +63072,7 @@
 "uhm" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/potato{
+/obj/item/stock_parts/power_store/cell/potato{
 	name = "\improper Beepsky's emergency battery"
 	},
 /obj/item/paper/fluff/jobs/security/beepsky_mom,
@@ -63932,7 +63932,7 @@
 "uuM" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -64283,8 +64283,8 @@
 "uzH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/bot,
 /obj/structure/railing{
 	dir = 8
@@ -64924,7 +64924,7 @@
 /area/station/maintenance/aft)
 "uJh" = (
 /obj/structure/table/wood,
-/obj/item/clothing/mask/cigarette/pipe,
+/obj/item/cigarette/pipe,
 /turf/open/floor/carpet,
 /area/station/commons/lounge)
 "uJk" = (
@@ -68039,7 +68039,7 @@
 "vFA" = (
 /obj/structure/rack,
 /obj/item/electronics/apc,
-/obj/item/stock_parts/cell{
+/obj/item/stock_parts/power_store/cell{
 	maxcharge = 2000
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -72145,7 +72145,7 @@
 /obj/structure/table/reinforced,
 /obj/item/electronics/firelock,
 /obj/item/electronics/firelock,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/iron/sepia,
 /area/station/maintenance/department/engine)
 "wVJ" = (
@@ -75467,7 +75467,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/stock_parts/cell/potato,
+/obj/item/stock_parts/power_store/cell/potato,
 /obj/item/stack/cable_coil,
 /obj/item/stack/package_wrap,
 /obj/item/radio/intercom{
@@ -76780,8 +76780,8 @@
 	},
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high,
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 4;
 	pixel_y = 4
 	},
