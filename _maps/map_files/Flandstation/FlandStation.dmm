@@ -12992,7 +12992,7 @@
 /area/station/medical/cryo)
 "esF" = (
 /obj/effect/spawner/random/vending/colavend,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark,
 /area/station/hallway/secondary/command)
 "esQ" = (
 /obj/effect/spawner/random/trash,
@@ -13672,9 +13672,6 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/command)
 "eDa" = (
-/obj/machinery/door/airlock/command/glass{
-	name = "Bridge Dock"
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "bridgedoors";
 	name = "Bridge Access Blast Door"
@@ -13683,6 +13680,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/machinery/door/airlock/corporate{
+	name = "Central Command Wing"
+	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/command)
 "eDs" = (
@@ -18445,9 +18445,6 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningdock)
 "fWB" = (
-/obj/machinery/computer/security/telescreen/vault{
-	pixel_y = 30
-	},
 /obj/machinery/pdapainter,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -21745,9 +21742,6 @@
 /turf/open/floor/grass,
 /area/station/service/hydroponics)
 "gVN" = (
-/obj/machinery/computer/security/telescreen/minisat{
-	pixel_y = 28
-	},
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 8
 	},
@@ -31882,13 +31876,8 @@
 /obj/machinery/computer/records/medical{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen{
-	dir = 8;
-	name = "Station Monitor";
-	network = list("ss13");
-	pixel_x = 24
-	},
 /obj/machinery/light/small/directional/east,
+/obj/machinery/computer/security/telescreen/prison/directional/east,
 /turf/open/floor/carpet/green,
 /area/station/security/detectives_office)
 "kpU" = (
@@ -36833,9 +36822,6 @@
 /obj/machinery/keycard_auth{
 	pixel_x = 26;
 	pixel_y = 24
-	},
-/obj/machinery/computer/security/telescreen/cmo{
-	pixel_y = 30
 	},
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/mapping_helpers/requests_console/assistance,
@@ -47364,17 +47350,12 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "poD" = (
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the RD's goons and the AI's satellite from the safety of his office.";
-	name = "Research Monitor";
-	network = list("rd","minisat");
-	pixel_y = 30
-	},
 /obj/effect/turf_decal/tile/purple/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/modular_computer/preset/research,
 /obj/machinery/light/directional/north,
+/obj/machinery/computer/security/telescreen/minisat/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "poJ" = (
@@ -47497,13 +47478,6 @@
 "pqo" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching Prison Wing holding areas.";
-	dir = 4;
-	name = "Prison Monitor";
-	network = list("prison");
-	pixel_x = -30
-	},
 /obj/machinery/light/directional/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -49538,6 +49512,7 @@
 /obj/machinery/status_display/evac{
 	pixel_x = 32
 	},
+/obj/machinery/computer/security/telescreen/cmo/directional/south,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/cmo)
 "pYX" = (
@@ -53473,17 +53448,10 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/central)
 "rgo" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/purple/opposingcorners,
-/obj/machinery/door/poddoor/shutters{
-	id = "commissaryshutters2";
-	name = "Vacant Commissary Shutters #2"
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "commissaryshutters2"
 	},
 /turf/open/floor/iron/vaporwave,
 /area/station/service/barber)
@@ -59364,13 +59332,11 @@
 /turf/open/floor/wood,
 /area/station/maintenance/port/central)
 "sWK" = (
-/obj/machinery/light_switch{
-	pixel_y = -24
-	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/computer/mecha{
 	dir = 1
 	},
+/obj/machinery/computer/security/telescreen/minisat/directional/south,
 /turf/open/floor/vault,
 /area/station/command/heads_quarters/rd)
 "sWT" = (
@@ -63435,6 +63401,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/cargo/sorting)
+"ukU" = (
+/obj/effect/turf_decal/box/red,
+/obj/machinery/porta_turret/ai,
+/obj/machinery/computer/security/telescreen/minisat/directional/south,
+/turf/open/floor/plating,
+/area/station/ai_monitored/turret_protected/ai_upload)
 "ukX" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/bot,
@@ -71258,13 +71230,6 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the RD's goons and the AI's satellite from the safety of his office.";
-	dir = 4;
-	name = "Research Monitor";
-	network = list("rd","minisat");
-	pixel_x = -26
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -71905,9 +71870,6 @@
 /obj/machinery/light/directional/north,
 /obj/item/folder/blue,
 /obj/item/assembly/flash/handheld,
-/obj/machinery/computer/security/telescreen/vault{
-	pixel_y = 30
-	},
 /obj/structure/table/wood/poker,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hop)
@@ -74004,6 +73966,7 @@
 /obj/machinery/computer/records/security{
 	dir = 8
 	},
+/obj/machinery/computer/security/telescreen/prison/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "xrO" = (
@@ -76901,6 +76864,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/warehouse/upper)
+"yel" = (
+/obj/machinery/computer/security/telescreen/vault/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/command)
 "yew" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue/opposingcorners,
@@ -125318,7 +125285,7 @@ tbx
 mza
 eCZ
 eJx
-tpZ
+yel
 cyb
 aiV
 aiV
@@ -128925,7 +128892,7 @@ wOP
 dNo
 wOP
 wOP
-gDV
+ukU
 sEU
 gVN
 jxz
