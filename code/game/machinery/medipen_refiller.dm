@@ -19,6 +19,8 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival = /datum/reagent/medicine/c2/libital,
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = /datum/reagent/medicine/c2/penthrite,
 		/obj/item/reagent_containers/hypospray/medipen/invisibility = /datum/reagent/drug/saturnx,
+		// NOVA EDIT - Custom medipen
+		/obj/item/reagent_containers/hypospray/medipen/universal = null,
 	)
 
 /obj/machinery/medipen_refiller/Initialize(mapload)
@@ -76,14 +78,25 @@
 		if(medipen.reagents?.reagent_list.len)
 			balloon_alert(user, "medipen full!")
 			return
+		// NOVA EDIT BEGIN - Custom medipen
+		var/is_custom = istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal)
+		if(is_custom && !reagents.has_reagent(null, medipen.volume))
+			balloon_alert(user, "not enough reagents!")
+			return
+		// NOVA EDIT END
 		if(!reagents.has_reagent(allowed_pens[medipen.type], 10))
 			balloon_alert(user, "not enough reagents!")
 			return
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
 			medipen.used_up = FALSE
-			medipen.add_initial_reagents()
-			reagents.remove_reagent(allowed_pens[medipen.type], 10)
+			// NOVA EDIT BEGIN - Custom medipen
+			if(is_custom)
+				reagents.trans_to(medipen, medipen.volume)
+			else
+				medipen.add_initial_reagents()
+				reagents.remove_reagent(allowed_pens[medipen.type], medipen.volume)
+			// NOVA EDIT END
 			balloon_alert(user, "refilled")
 			use_energy(active_power_usage)
 		cut_overlays()
