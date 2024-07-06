@@ -94636,6 +94636,10 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
+/obj/item/flatpack{
+	pixel_x = 0;
+	pixel_y = 13
+	},
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "sfd" = (

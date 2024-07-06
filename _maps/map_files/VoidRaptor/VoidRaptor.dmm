@@ -25864,14 +25864,18 @@
 	},
 /obj/item/stock_parts/matter_bin{
 	pixel_x = -10;
-	pixel_y = 4
+	pixel_y = 9
 	},
 /obj/item/stock_parts/matter_bin{
-	pixel_x = 2;
-	pixel_y = 7
+	pixel_x = 6;
+	pixel_y = 10
 	},
 /obj/item/stock_parts/micro_laser{
-	pixel_x = 4;
+	pixel_x = 10;
+	pixel_y = 4
+	},
+/obj/item/flatpack{
+	pixel_x = -2;
 	pixel_y = 4
 	},
 /turf/open/floor/iron/white/smooth_edge,
