@@ -328,3 +328,88 @@
   - bugfix: Ashwalker Factions now apply properly
   - bugfix: Lavaland Tendril factions now apply the Mining Fauna Faction properly
   - bugfix: fixes borgs ability to climb
+2024-07-06:
+  Jolly:
+  - code_imp: Behind the scenes, maps had a little bit of tweaking. If you see things
+      rendering in weird ways, or they don't look like how they used to/supposed to,
+      please report them on GitHub!
+  Neocloudy:
+  - qol: You can now choose which footstep sound you make when barefoot.
+  NovaBot13:
+  - bugfix: Fixed temp n space adaptations not conflicting
+  - bugfix: Fixed toggleable screen colors for glasses.
+  - code_imp: De-hardcoded, refactored the above, now-fixed feature.
+  - rscadd: Pumpkin hardhats and the hood of the flash suit now affect the color of
+      your screen.
+  - rscadd: Prism glasses, obtainable through xenobiology crossbreeding, now also
+      affect the color of your screen.
+  - bugfix: Reagent containers are no longer mysteriously fireproof.
+  - qol: CE and Engineer start with their hardhat as the respective welding hard hat
+      variant
+  - balance: Settlers are a bit slower on their steeds.
+  - bugfix: Binary devices no longer ignore the volume of the output pipe network
+  - rscadd: 'New traitor mech: Justice. Emag fabricator to get it.'
+  - image: Goody case locked/unlocked sprites have been swapped again, having a gap
+      for unlocked and no gap for locked.
+  - qol: Increased view_range on the Psyker Bounty Hunters' Shuttle navigation console.
+  - bugfix: 'Fixed the shuttle navigation console camera eye being incorrectly offset
+      on: the SpacePol van, the Russian bounty hunters, the default bounty hunters,
+      the Psyker bounty hunters, and the MI13 Foodtruck.'
+  - bugfix: Fixed the SpacePol van, Russian bounty hunters, default bounty hunters,
+      and Psyker bounty hunters' shuttles all flying in incorrect directions.
+  - qol: Examining a windoor will now provide the construction steps, like other standard
+      buildable objects.
+  - bugfix: Autolathe won't eat the borg omni tool
+  - rscadd: You can now craft a singularity hammer using all nine anomaly cores and
+      the supermatter.
+  - code_imp: Cleaned up relic code.
+  - image: Added necrotech themed relics.
+  - image: fixed and touched up the icons for the Doorjack and Cryptographic Sequencer
+      (EMAG)
+  - rscadd: Projectile Dampener field now reduces stuns and stamina damage from incoming
+      projectiles
+  - balance: 'Techweb: High yield explosive is now a discount experiment for Exotic
+      Ammo node, giving more free points'
+  - balance: 'Techweb: Replaced the botany/xenobio discount experiments with a new
+      mutant scan experiment for the Gene Engineering node'
+  - balance: 'Techweb: Damaged mech scan is a discount experiment for tier 4 Mech
+      Energy Guns node, giving twice more free points'
+  - balance: 'Techweb: Added a new anomaly scan experiment that gives full discount
+      for the Advanced Anomaly Shells, also moving the node to tier 5'
+  - balance: 'Techweb: Moved mech RCD to the Experimental Tools node'
+  - balance: 'Techweb: Moved handcuffs to T2 security node, leaving only zipties in
+      T1'
+  - balance: 'Techweb: Non-human Autopsy is a discount experiment instead of a required
+      one now'
+  - balance: 'Techweb: Parts scan experiments require 6 machines instead of 4'
+  - rscdel: 'Techweb: Removed the New Toys node moving contents to sec and medbay
+      trees'
+  - qol: Made air horn craftable from a spraycan and a bikehorn
+  - qol: 'Techweb: Better wording on the slime scan experiment'
+  OrbisAnima:
+  - rscadd: Added the ability for Gear Harness to be used on the Exo Suit slot in
+      addition to the under slot. They can be used as our Colonist forefathers intended,
+      with clips for a variety number of equipment, but, they offer no protection.
+  - rscadd: Added the recipe for Leaf/Leaves based gear harness, no longer this fashion
+      call will be restricted to those bold enough to arrive as their creator intended.
+  - qol: Purple Vendors now have 20 gear harnesses in them to accomodate to the new
+      demand.
+  Seven:
+  - balance: Bloody footprint trails go a longer distance now.
+  ShizCalev:
+  - bugfix: Fixed a number of shuttles having parts (such as lattices) completely
+      disappearing.
+  - bugfix: Fixed the ceilings above shuttles on station maps being full-bright.
+  - bugfix: Fixed lattices sometimes appearing at random locations in space on station
+      maps.
+  - bugfix: Cleaned up a number of accidentally placed objects in space across all
+      station maps.
+  - bugfix: Fixed a false positive with the mapload_space_verification unit test failing
+      on turfs that weren't actually part of shuttles.
+  - code_imp: Added a unit test that automatically finds all base space turfs with
+      objects on them, as well as non-space turfs that are set to space areas (meaning
+      that these squares weren't lit properly.)
+  - bugfix: The power for all science burn chambers across all maps now works properly.
+  zeroisthebiggay:
+  - bugfix: the warm and heart sweater now have `body_parts_covered = CHEST|ARMS`
+      so your boobs don't hang out
