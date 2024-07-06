@@ -3368,11 +3368,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain)
-"baU" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/space)
 "bbg" = (
 /turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
@@ -23370,9 +23365,7 @@
 /turf/open/floor/iron/white/side,
 /area/station/science/ordnance/office)
 "gRB" = (
-/obj/structure/window/reinforced/spawner/directional/west{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/chair{
 	dir = 8
 	},
@@ -45621,7 +45614,6 @@
 "ndA" = (
 /obj/machinery/button/door/directional/west{
 	id = "Xtestlab";
-	layer = 4;
 	name = "Secure Creature Pen Blast Door";
 	req_access = list("xenobiology")
 	},
@@ -70230,9 +70222,7 @@
 /turf/open/openspace,
 /area/station/medical/paramedic)
 "uui" = (
-/obj/machinery/chem_dispenser{
-	layer = 2.7
-	},
+/obj/machinery/chem_dispenser,
 /obj/effect/turf_decal/tile/yellow/opposingcorners{
 	dir = 1
 	},
@@ -74194,9 +74184,7 @@
 /turf/open/floor/wood/tile,
 /area/station/hallway/secondary/exit/departure_lounge)
 "vAK" = (
-/obj/structure/window/reinforced/spawner/directional/west{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/chair{
 	dir = 8
 	},
@@ -79473,9 +79461,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/cargo/office)
-"wVj" = (
-/turf/closed/mineral/random/stationside/moon,
-/area/space)
 "wVn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -87340,7 +87325,7 @@ xuB
 laO
 laO
 laO
-wVj
+xuB
 xuB
 xuB
 xuB
@@ -169923,9 +169908,9 @@ rSI
 fac
 fac
 fac
-fac
-fac
-fac
+pvg
+pvg
+pvg
 fac
 fac
 fac
@@ -170178,11 +170163,11 @@ uzt
 hfb
 rSI
 rSI
-fac
-fac
-fac
-fac
-fac
+pvg
+pvg
+pvg
+pvg
+pvg
 fac
 fac
 fac
@@ -170435,11 +170420,11 @@ rUy
 fff
 mIL
 rSI
-fac
-fac
-fac
-fac
-fac
+pvg
+pvg
+pvg
+pvg
+pvg
 fac
 fac
 fac
@@ -170694,8 +170679,8 @@ vZZ
 rSI
 qsX
 qsX
-fac
-fac
+pvg
+pvg
 kMZ
 ikB
 ikB
@@ -195331,7 +195316,7 @@ ikB
 dNm
 fac
 fac
-baU
+woZ
 iCn
 rsC
 qAz
