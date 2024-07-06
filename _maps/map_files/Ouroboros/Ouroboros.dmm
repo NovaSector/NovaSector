@@ -76906,16 +76906,29 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/cmo)
 "wko" = (
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/plasteel{
-	amount = 20
-	},
-/obj/item/stack/sheet/iron/fifty,
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
 /obj/structure/table,
+/obj/item/flatpack{
+	board = /obj/item/circuitboard/machine/flatpacker;
+	pixel_x = 7;
+	pixel_y = 12
+	},
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = -9;
+	pixel_y = 6
+	},
+/obj/item/stack/sheet/plasteel{
+	amount = 20;
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -7;
+	pixel_y = 11
+	},
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
