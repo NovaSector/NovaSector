@@ -684,3 +684,6 @@
 	name = "Tentacle Beard"
 	icon_state = "facial_squid"
 
+/datum/sprite_accessory/facial_hair/nova/selleckreceeded
+	name = "Moustache (Selleck - Alt)"
+	icon_state = "facial_selleckreceeded"
