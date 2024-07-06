@@ -19,7 +19,7 @@
 	easy_deploy_timer = 0.5 SECONDS
 	turret_safety = FALSE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/toy
+		/obj/item/ammo_box/magazine/toy,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled/PopulateContents()
@@ -27,7 +27,7 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy
 	name = "\improper Cubicle Point-Defense Turret"
-	desc = "A small deployable turret designed to expand after being thrown. It is chambered in the most frightening of rounds: foam darts."
+	desc = "A small deployable turret designed to expand after being thrown. Chambered inside of it are the most frightening of rounds: foam darts."
 	max_integrity = 10 //small weak thing
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/cargo.dmi'
 	icon_state = "toy_off"

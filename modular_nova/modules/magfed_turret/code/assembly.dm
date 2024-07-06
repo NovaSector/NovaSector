@@ -42,7 +42,7 @@
 		if(TURRET_ASSEMBLY_SEC_3)
 			display_text = "The supports' bolts seem <b>loose</b>..."
 		if(TURRET_ASSEMBLY_WRAPUP)
-			display_text = "The circuitboard's CPU needs <b>activated</b>..."
+			display_text = "The circuitboard's CPU needs to be <b>activated</b>..."
 	. += span_notice(display_text)
 
 /obj/item/turret_assembly/attackby(obj/item/part, mob/user, params)

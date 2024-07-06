@@ -31,7 +31,7 @@
 	id = "tarkonturret"
 	display_name = "Tarkon Industries Technology"
 	description = "Tarkon Industries Blackrust Salvage division's defense designs."
-	prereq_ids = list("tarkontech", "basic_arms", "ai")
+	prereq_ids = list(TECHWEB_NODE_TARKON, TECHWEB_NODE_BASIC_ARMS, TECHWEB_NODE_AI)
 	design_ids = list(
 		"hoplite_assembly",
 		"cerberus_assembly",
@@ -112,11 +112,11 @@
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 20,
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 10,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 3
-		)
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 3,
+	)
 	build_path = /obj/item/turret_assembly/cerberus
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS,
 	)
 
 /datum/design/target_designator
@@ -130,11 +130,11 @@
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT
-		)
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/target_designator
 	category = list(
-		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS,
 	)
 
 ///// Now we make the physical server /////

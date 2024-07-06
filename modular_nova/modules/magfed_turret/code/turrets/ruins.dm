@@ -50,7 +50,7 @@
 	easy_deploy = TRUE
 	turret_safety = TRUE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/c40sol_rifle
+		/obj/item/ammo_box/magazine/c40sol_rifle,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled/PopulateContents()
@@ -92,7 +92,7 @@
 	mag_slots = 1
 	turret_safety = TRUE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/c35sol_pistol
+		/obj/item/ammo_box/magazine/c35sol_pistol,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled/PopulateContents()
@@ -115,7 +115,6 @@
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf/pre_filled
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf
-
 	name = "odd spider turret kit"
 	desc = "A deployable turret kit used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition. This one seems to have some odd lights flashing on it."
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/malf
@@ -134,7 +133,7 @@
 	mag_slots = 1
 	turret_safety = FALSE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/miecz
+		/obj/item/ammo_box/magazine/miecz,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled/PopulateContents()
@@ -163,7 +162,6 @@
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf/pre_filled
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf
-
 	name = "odd twinfang turret kit"
 	desc = "A throw-deployable turret capsule designed for securing areas within hostile fauna held zones. It is chambered in .27-54 Cesarzowa ammunition. This one seems to have some odd lights flashing on it."
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang/malf
@@ -174,7 +172,7 @@
 ////// Shotgun Turret. Surprisingly nothing new added as the firing proc will handle pellet clouds. Note however that shotgun rounds CANT smart-gun around allies.
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster
 	name = "duster emergent turret kit"
-	desc = "A quick-deployable turret kit designed for sudden deployment in emergent situations, having warnings to \"Not stand infront of the barrel. Friendly Fire Isn't\". It is fitted to use handfuls of loose Shotgun Shells or M12g Magazines."
+	desc = "A quick-deployable turret kit designed for sudden deployment in emergent situations, having warnings to \"Not stand in front of the barrel. Friendly Fire Isn't\". It is fitted to use handfuls of loose shotgun shells or M12g magazines."
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_toolbox"
 	righthand_file = 'modular_nova/modules/magfed_turret/icons/inhands/righthand.dmi'
@@ -186,7 +184,7 @@
 	turret_safety = FALSE
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/ammo_stack/s12gauge, //Easy to get actually. Quite Nice
-		/obj/item/ammo_box/magazine/m12g
+		/obj/item/ammo_box/magazine/m12g,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster/pre_filled/PopulateContents()
@@ -196,7 +194,7 @@
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
 	name = "\improper Duster Emergent Turret"
-	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is fitted to use handfuls of loose Shotgun Shells or M12g Magazines."
+	desc = "A quick-deployable turret used for emergent situations and retreating deployment, incapable of using smart-projectile targeting. It is fitted to use handfuls of loose shotgun shells or M12g magazines."
 	max_integrity = 100
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "duster_off"
