@@ -9194,7 +9194,7 @@
 /obj/machinery/airalarm/directional/north{
 	pixel_y = 22
 	},
-/obj/machinery/plumbing/growing_vat,
+/obj/machinery/vatgrower,
 /obj/item/plunger{
 	pixel_x = -7;
 	pixel_y = 20
@@ -78818,7 +78818,6 @@
 	pixel_y = 3
 	},
 /obj/item/storage/box/petridish,
-/obj/item/construction/plumbing/research,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
