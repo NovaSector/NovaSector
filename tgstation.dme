@@ -7701,6 +7701,7 @@
 #include "modular_nova\modules\mapping\code\automatic_respawner.dm"
 #include "modular_nova\modules\mapping\code\buttons.dm"
 #include "modular_nova\modules\mapping\code\color.dm"
+#include "modular_nova\modules\mapping\code\dead_bodies.dm"
 #include "modular_nova\modules\mapping\code\doors.dm"
 #include "modular_nova\modules\mapping\code\dungeon.dm"
 #include "modular_nova\modules\mapping\code\fence.dm"
