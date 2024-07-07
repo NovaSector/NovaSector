@@ -124,6 +124,7 @@
 		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
 		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
 	// NOVA EDIT ADDITION END - Event notification
+
 	if(!triggering)
 		return EVENT_CANCELLED //admin cancelled
 	triggering = FALSE
