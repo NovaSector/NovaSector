@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - qol: "flashbangs will now give a warning if you attempt to trigger them during green alert as sec/command. Company policy forbids their use below blue alert but you can CTRL+Click to blatantly disobey this and face IC consequences. There is a hotkey for this as well, CTRL+Z."
-  - bugfix: "fixed detective's id not imprinting onto pda at roundstart, same with bouncer and departmental security officers"
