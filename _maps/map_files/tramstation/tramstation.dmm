@@ -2957,10 +2957,6 @@
 /area/station/security/checkpoint/engineering)
 "aoN" = (
 /obj/machinery/elevator_control_panel{
-<<<<<<< HEAD
-	layer = 3.1;
-=======
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 	pixel_y = 2;
 	linked_elevator_id = "tram_xeno_lift";
 	preset_destination_names = list("2"="Lower                                                                Deck", "3"="Upper                                                                Deck")
@@ -6453,12 +6449,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/station/engineering/atmospherics_engine)
-"bhf" = (
-/obj/effect/spawner/random/engineering/tracking_beacon,
-/obj/effect/landmark/event_spawn,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
-/turf/open/floor/engine,
-/area/station/science/xenobiology)
 "bhr" = (
 /turf/closed/wall/rock/porous,
 /area/station/security/prison/workout)
@@ -6789,14 +6779,6 @@
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
-"bpl" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/scrubber,
-/turf/open/floor/iron,
-/area/station/engineering/atmos)
 "bpn" = (
 /mob/living/carbon/human/species/monkey,
 /turf/open/misc/grass/jungle,
@@ -9190,16 +9172,6 @@
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "cdM" = (
-<<<<<<< HEAD
-/obj/structure/table,
-/obj/machinery/cell_charger{
-	pixel_y = 5
-	},
-/obj/item/stack/cable_coil,
-/obj/item/multitool,
-/obj/item/stock_parts/power_store/cell/high,
-/turf/open/floor/engine,
-=======
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
@@ -9208,7 +9180,6 @@
 	},
 /obj/structure/sign/warning/gas_mask/directional/north,
 /turf/open/floor/plating,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "cdN" = (
 /obj/machinery/button/ignition/incinerator/atmos,
@@ -10533,11 +10504,7 @@
 /obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
 /obj/machinery/light/directional/north,
-<<<<<<< HEAD
-/turf/open/floor/engine,
-=======
 /turf/open/floor/engine/xenobio,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "cBo" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -26431,11 +26398,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-<<<<<<< HEAD
-/area/space)
-=======
 /area/space/nearstation)
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 "ixO" = (
 /obj/structure/chair/comfy/brown{
 	dir = 8;
@@ -32151,10 +32114,7 @@
 	},
 /obj/effect/turf_decal/siding/thinplating,
 /obj/effect/landmark/event_spawn,
-<<<<<<< HEAD
-=======
 /obj/effect/spawner/random/engineering/tracking_beacon,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "ksm" = (
@@ -32903,11 +32863,7 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/trunk,
-<<<<<<< HEAD
-/turf/open/floor/engine,
-=======
 /turf/open/floor/engine/xenobio,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "kGA" = (
 /obj/structure/railing,
@@ -36883,12 +36839,6 @@
 "lVi" = (
 /turf/closed/wall,
 /area/station/maintenance/department/science)
-"lVm" = (
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 5
-	},
-/turf/open/floor/iron/airless,
-/area/space)
 "lVu" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/floor,
@@ -37219,11 +37169,7 @@
 	c_tag = "Secure - AI Lower External North"
 	},
 /turf/open/space/basic,
-<<<<<<< HEAD
-/area/space)
-=======
 /area/space/nearstation)
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 "mbk" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -38790,11 +38736,7 @@
 /obj/machinery/sparker/directional/west{
 	id = "Xenobio"
 	},
-<<<<<<< HEAD
-/turf/open/floor/engine,
-=======
 /turf/open/floor/engine/xenobio,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "mFo" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -41510,13 +41452,10 @@
 	},
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/micro_laser,
-<<<<<<< HEAD
-=======
 /obj/item/multitool,
 /obj/item/flatpack{
 	board = /obj/item/circuitboard/machine/flatpacker
 	},
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "nDX" = (
@@ -50799,26 +50738,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/left)
-"qVL" = (
-/obj/structure/table,
-/obj/item/assembly/igniter{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/assembly/igniter{
-	pixel_x = 5;
-	pixel_y = -4
-	},
-/obj/item/assembly/igniter{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/item/assembly/igniter{
-	pixel_x = 2;
-	pixel_y = -1
-	},
-/turf/open/floor/engine,
-/area/station/science/xenobiology)
 "qVN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -54268,10 +54187,6 @@
 /obj/machinery/telecomms/server/presets/engineering,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
-"siq" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "siu" = (
 /turf/closed/mineral/random/stationside/asteroid/porus,
 /area/station/engineering/main)
@@ -57802,11 +57717,7 @@
 /area/station/command/heads_quarters/captain/private)
 "ttj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
-<<<<<<< HEAD
-/turf/open/floor/engine,
-=======
 /turf/open/floor/engine/xenobio,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "tto" = (
 /obj/machinery/hydroponics/constructable,
@@ -58268,16 +58179,7 @@
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "tBo" = (
-<<<<<<< HEAD
-/obj/structure/table,
-/obj/item/stack/sheet/iron{
-	amount = 10
-	},
-/obj/item/electropack,
-/turf/open/floor/engine,
-=======
 /turf/open/floor/engine/xenobio,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "tBu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -58342,9 +58244,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"tCf" = (
-/turf/open/misc/asteroid/airless,
-/area/space)
 "tCi" = (
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
@@ -58445,11 +58344,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 4
 	},
-<<<<<<< HEAD
-/turf/open/floor/engine,
-=======
 /turf/open/floor/engine/xenobio,
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 /area/station/science/xenobiology)
 "tED" = (
 /obj/effect/turf_decal/tile/neutral/tram,
@@ -66575,12 +66470,7 @@
 /area/station/science/explab)
 "wrJ" = (
 /obj/structure/railing{
-<<<<<<< HEAD
-	dir = 4;
-	layer = 3.1
-=======
 	dir = 4
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 	},
 /obj/machinery/netpod,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -67535,11 +67425,7 @@
 "wIP" = (
 /obj/structure/lattice,
 /turf/open/space/openspace,
-<<<<<<< HEAD
-/area/space)
-=======
 /area/space/nearstation)
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 "wIT" = (
 /obj/structure/chair/wood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -68469,13 +68355,6 @@
 /obj/structure/railing,
 /turf/open/floor/iron,
 /area/station/cargo/miningfoundry)
-<<<<<<< HEAD
-"xdw" = (
-/obj/machinery/portable_atmospherics/scrubber,
-/turf/open/floor/iron/dark,
-/area/station/science/ordnance/storage)
-=======
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 "xdx" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -69678,10 +69557,6 @@
 /area/station/cargo/storage)
 "xAM" = (
 /obj/machinery/elevator_control_panel{
-<<<<<<< HEAD
-	layer = 3.1;
-=======
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 	pixel_y = 2;
 	linked_elevator_id = "tram_xeno_lift";
 	preset_destination_names = list("2"="Lower                                                                Deck", "3"="Upper                                                                Deck")
@@ -71221,9 +71096,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
-"yfz" = (
-/turf/open/floor/plating/airless,
-/area/space)
 "yfE" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
@@ -104171,11 +104043,7 @@ sHH
 sHH
 hZr
 hZr
-<<<<<<< HEAD
-bpl
-=======
 coB
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 mRs
 jaW
 mAx
@@ -104432,11 +104300,7 @@ rvh
 jUz
 ivk
 hZr
-<<<<<<< HEAD
-bpl
-=======
 coB
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 mRs
 woR
 mAx
@@ -122926,11 +122790,7 @@ aaa
 aaa
 aaa
 dfz
-<<<<<<< HEAD
-xdw
-=======
 wrn
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 ure
 bKT
 bqU
@@ -130951,13 +130811,8 @@ vXM
 vXM
 vXM
 vXM
-<<<<<<< HEAD
-siq
-yfz
-=======
 xRm
 rYE
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 vXM
 vXM
 vXM
@@ -131212,15 +131067,9 @@ vXM
 vXM
 vXM
 vXM
-<<<<<<< HEAD
-siq
-yfz
-yfz
-=======
 xRm
 rYE
 rYE
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 vXM
 vXM
 vXM
@@ -131475,15 +131324,9 @@ vXM
 vXM
 vXM
 vXM
-<<<<<<< HEAD
-siq
-lVm
-siq
-=======
 xRm
 siX
 xRm
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 vXM
 vXM
 vXM
@@ -131739,11 +131582,7 @@ vXM
 vXM
 vXM
 vXM
-<<<<<<< HEAD
-siq
-=======
 xRm
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 vXM
 vXM
 vXM
@@ -182073,13 +181912,8 @@ umu
 qVr
 qVr
 mFh
-<<<<<<< HEAD
-bfH
-bfH
-=======
 tBo
 tBo
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 qVr
 gYw
 cHY
@@ -182334,19 +182168,11 @@ mAL
 nKU
 qVr
 tEx
-<<<<<<< HEAD
-bfH
-bfH
-bfH
-qVr
-pNa
-=======
 tBo
 tBo
 tBo
 qVr
 cdM
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 eiy
 itq
 qyQ
@@ -182599,17 +182425,10 @@ bmz
 pIx
 qVr
 ttj
-<<<<<<< HEAD
-bfH
-bfH
-bfH
-bfH
-=======
 tBo
 tBo
 tBo
 tBo
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 pNa
 qNk
 xmY
@@ -182864,11 +182683,7 @@ pHX
 qVr
 cAK
 ttj
-<<<<<<< HEAD
-bhf
-=======
 ttj
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 ttj
 ttj
 nzg
@@ -183123,17 +182938,10 @@ pbH
 kBo
 kJA
 qVr
-<<<<<<< HEAD
-bfH
-bfH
-bfH
-bfH
-=======
 tBo
 tBo
 tBo
 tBo
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 kGv
 qSS
 cFQ
@@ -183387,17 +183195,10 @@ pbH
 mAL
 nKU
 qVr
-<<<<<<< HEAD
-bfH
-bfH
-bfH
-bfH
-=======
 tBo
 tBo
 tBo
 tBo
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 qVr
 jqK
 ijR
@@ -183652,13 +183453,8 @@ vSa
 cJR
 qVr
 qVr
-<<<<<<< HEAD
-cdM
-qVL
-=======
 tBo
 tBo
->>>>>>> d4765c0657f (Cytology without plumbing (#84235))
 tBo
 qVr
 gYw
@@ -191102,7 +190898,7 @@ pMW
 pMW
 pMW
 iLP
-tCf
+aac
 iLP
 pMW
 pMW
