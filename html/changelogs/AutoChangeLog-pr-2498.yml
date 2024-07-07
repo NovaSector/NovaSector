@@ -1,0 +1,7 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - balance: "Characters now start with 10 paychecks in their bank account instead of 5, functionally doubling the credits people enter the round with."
+  - balance: "It is no longer possible to sell materials to the Galactic Materials Market. Purchasing remains untouched."
+  - rscadd: "The crates of 50 iron, 50 glass, and 20/50 plasteel have returned to cargo terminals to help cover materials shortages during low population rounds and facilitate construction projects for the rest of the crew."
+  - code_imp: "Price minimum/maximum magic numbers in the GMM subsystem have been pulled out into defines to make tweaking buy/sell prices easier in the future."
