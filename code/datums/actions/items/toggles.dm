@@ -118,12 +118,11 @@
 /datum/action/item_action/call_link
 	name = "Call MODlink"
 
-<<<<<<< HEAD
 // NOVA EDIT ADDITION START
 /datum/action/item_action/toggle_hide_face
 	name = "Toggle Face Hiding"
 // NOVA EDIT ADDITION END
-=======
+
 /datum/action/item_action/toggle_nv
 	name = "Toggle Night Vision"
 	var/stored_cutoffs
@@ -157,4 +156,3 @@
 		playsound(goggles, 'sound/machines/click.ogg', 30, TRUE, -3)
 	holder?.update_sight()
 	goggles.update_appearance()
->>>>>>> a1366fc905a (Night Vision Goggles update (#84594))
