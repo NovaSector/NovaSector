@@ -651,21 +651,21 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/pod/dark,
 /area/ruin/space/has_grav/infested_frigate)
-"kg" = (
-/obj/effect/decal/cleanable/blood/gibs{
-	icon_state = "drip1"
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/obj/item/ammo_casing/spent,
-/turf/open/floor/mineral/plastitanium,
-/area/ruin/space/has_grav/infested_frigate)
-"kh" = (
+"kc" = (
 /obj/effect/turf_decal{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/robot_debris/limb,
 /obj/structure/fluff/broken_canister_frame,
 /obj/item/ammo_casing/spent,
+/obj/item/ammo_casing/spent,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/infested_frigate)
+"kg" = (
+/obj/effect/decal/cleanable/blood/gibs{
+	icon_state = "drip1"
+	},
+/obj/effect/mapping_helpers/broken_floor,
 /obj/item/ammo_casing/spent,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/infested_frigate)
@@ -4265,7 +4265,7 @@ fl
 wP
 qb
 cB
-kh
+kc
 mn
 hK
 LO

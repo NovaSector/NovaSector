@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes rodstoppers leaving a permanent (inert) bag of holding tear effect"
