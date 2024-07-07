@@ -33,7 +33,7 @@
 		initial(underturf_path.icon),
 		initial(underturf_path.icon_state),
 		offset_spokesman = src,
-		layer = TURF_LAYER - 0.02,
+		layer = LOW_FLOOR_LAYER - 0.02,
 		plane = initial(underturf_path.plane))
 	underlay_appearance.appearance_flags = RESET_ALPHA | RESET_COLOR
 	underlays += underlay_appearance

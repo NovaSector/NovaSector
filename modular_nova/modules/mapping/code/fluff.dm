@@ -118,7 +118,7 @@
 	desc = "A metal pole, the likes of which are commonly used as an antennae, structural support, or simply to maneuver in zero-g."
 	icon_state = "pole"
 	layer = ABOVE_OPEN_TURF_LAYER
-	plane = FLOOR_PLANE
+	plane = GAME_PLANE
 	deconstructible = TRUE
 
 /obj/structure/fluff/metalpole/end
