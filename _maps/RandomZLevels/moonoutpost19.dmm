@@ -2160,15 +2160,6 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/moonoutpost19/arrivals)
-"ob" = (
-/mob/living/basic/pet/cat/space{
-	desc = "With survival instincts like these, it's no wonder cats survived to the 26th century.";
-	name = "Jones"
-	},
-/turf/open/misc/asteroid/moon{
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251"
-	},
-/area/awaymission/moonoutpost19/main)
 "od" = (
 /obj/effect/decal/cleanable/xenoblood/xgibs/larva/body,
 /turf/open/misc/asteroid/moon{
@@ -5123,6 +5114,15 @@
 	dir = 8
 	},
 /area/awaymission/moonoutpost19/research)
+"HP" = (
+/mob/living/basic/pet/cat/space{
+	desc = "With survival instincts like these, it's no wonder cats survived to the 26th century.";
+	name = "Jones"
+	},
+/turf/open/misc/asteroid/moon{
+	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251"
+	},
+/area/awaymission/moonoutpost19/main)
 "HS" = (
 /obj/structure/chair/stool/directional/east{
 	pixel_x = 9
@@ -29300,7 +29300,7 @@ ac
 ac
 My
 My
-ob
+HP
 My
 My
 My
