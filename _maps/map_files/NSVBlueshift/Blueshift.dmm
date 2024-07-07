@@ -17700,7 +17700,7 @@
 /turf/open/floor/iron,
 /area/station/command/gateway)
 "dsy" = (
-/obj/machinery/space_heater,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
@@ -55840,7 +55840,7 @@
 /area/station/medical/medbay/lobby)
 "kHp" = (
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/portable_atmospherics/scrubber/huge,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/storage)

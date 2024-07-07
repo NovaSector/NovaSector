@@ -19143,11 +19143,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/box/red,
-/obj/machinery/portable_atmospherics/canister,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 10
 	},
 /obj/machinery/status_display/evac/directional/south,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /turf/open/floor/iron/smooth,
 /area/station/science/ordnance)
 "fAP" = (
@@ -77980,7 +77980,7 @@
 /area/station/cargo/warehouse)
 "vHh" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/scrubber,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/effect/turf_decal/box,
 /obj/structure/sign/poster/official/moth_piping/directional/north,
 /obj/effect/turf_decal/stripes/line,

@@ -36536,7 +36536,7 @@
 "kBL" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/bot,
-/obj/machinery/portable_atmospherics/scrubber,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/machinery/power/apc/auto_name/directional/east{
 	areastring = "/area/station/science/ordnance/burnchamber"
 	},
@@ -52736,7 +52736,7 @@
 /area/station/hallway/primary/central/aft)
 "pnh" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/portable_atmospherics/scrubber,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/machinery/light/warm/directional/south,
 /obj/item/radio/intercom/directional/south,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible/layer4{
