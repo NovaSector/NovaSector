@@ -1,6 +1,6 @@
-// Medipen design basetype for developer usage only
+// Basetype for developer usage only. Shouldn't be visible ingame.
 /datum/design/medipen
-	name = "Medipen"
+	name = "Medipen Basetype"
 	id = DESIGN_ID_IGNORE
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -20,6 +20,11 @@
 	name = "Universal Medipen"
 	id = "medipen_universal"
 	build_path = /obj/item/reagent_containers/hypospray/medipen/universal
+
+/datum/design/medipen/universal_lowpressure
+	name = "Universal Low-Pressure Medipen"
+	id = "medipen_universal_lowpressure"
+	build_path = /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure
 
 /datum/design/medipen/epinephrine
 	name = "Epinephrine Medipen"
