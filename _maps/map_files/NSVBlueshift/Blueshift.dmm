@@ -14693,6 +14693,7 @@
 	},
 /area/station/cargo/miningdock)
 "cNw" = (
+/obj/effect/spawner/random/structure/twelve_percent_spirit_board,
 /turf/open/floor/wood,
 /area/station/service/chapel/office)
 "cNB" = (
