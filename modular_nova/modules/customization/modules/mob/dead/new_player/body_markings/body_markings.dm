@@ -61,6 +61,13 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
+/datum/body_marking/other/bellyslimtoned
+	name = "Belly Slim (Alt) + Tonage"
+	icon_state = "bellyslimtoned"
+	default_color = "#555555"
+	affected_bodyparts = CHEST
+	gendered = FALSE
+
 /datum/body_marking/other/flushed_cheeks
 	name = "Flushed Cheeks"
 	icon_state = "flushed_cheeks"
@@ -243,6 +250,16 @@
 	name = "Protogen Chest"
 	icon_state = "protogen"
 	affected_bodyparts = CHEST
+
+/datum/body_marking/other/jackalfur
+	name = "Jackal back fur"
+	icon_state = "jackalfur"
+	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
+
+/datum/body_marking/other/jackalback
+	name = "Jackal back fur accents"
+	icon_state = "jackalback"
+	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
 
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
