@@ -1,5 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - rscadd: "mecha wire that shoots you or anyone nearby if pulsed or cut"
-  - bugfix: "mecha shock wire shocks you"
