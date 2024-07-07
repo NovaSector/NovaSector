@@ -109,21 +109,21 @@
 		message_admins("Second pre-condition check for [name] failed, rerolling...")
 		SSevents.spawnEvent(excluded_event = src)
 		return EVENT_INTERRUPTED
-		// NOVA EDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
-		message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
-			<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
-			<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
-		for(var/client/staff as anything in GLOB.admins)
-			if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
-				SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
-		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
+	// NOVA EDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
+	message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
+		<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
+		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
+	for(var/client/staff as anything in GLOB.admins)
+		if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
+			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
+	sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
 
-		if(triggering)
-			message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)]: [name]. (\
-			<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
-			<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
-			sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
-		// NOVA EDIT ADDITION END - Event notification
+	if(triggering)
+		message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)]: [name]. (\
+		<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
+		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
+		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
+	// NOVA EDIT ADDITION END - Event notification
 	if(!triggering)
 		return EVENT_CANCELLED //admin cancelled
 	triggering = FALSE
