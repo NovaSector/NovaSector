@@ -9194,7 +9194,7 @@
 /obj/machinery/airalarm/directional/north{
 	pixel_y = 22
 	},
-/obj/machinery/plumbing/growing_vat,
+/obj/machinery/vatgrower,
 /obj/item/plunger{
 	pixel_x = -7;
 	pixel_y = 20
@@ -17700,7 +17700,7 @@
 /turf/open/floor/iron,
 /area/station/command/gateway)
 "dsy" = (
-/obj/machinery/space_heater,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
@@ -26728,7 +26728,7 @@
 /area/station/security/prison/shower)
 "fcE" = (
 /obj/machinery/light/directional/south,
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "fcK" = (
 /obj/structure/cable,
@@ -32996,7 +32996,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "goT" = (
 /obj/structure/railing/corner{
@@ -39990,7 +39990,7 @@
 /obj/machinery/sparker/directional/north{
 	id = "Xenobio"
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "hJf" = (
 /obj/structure/table,
@@ -43830,7 +43830,7 @@
 /area/station/hallway/secondary/entry)
 "ivy" = (
 /obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner,
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "ivB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -49021,7 +49021,7 @@
 	name = "xenobiology camera";
 	network = list("ss13","xeno","rd")
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "jvQ" = (
 /obj/structure/cable,
@@ -55840,7 +55840,7 @@
 /area/station/medical/medbay/lobby)
 "kHp" = (
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/portable_atmospherics/scrubber/huge,
+/obj/machinery/portable_atmospherics/pipe_scrubber,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/storage)
@@ -62384,7 +62384,7 @@
 "lXo" = (
 /obj/item/beacon,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "lXp" = (
 /obj/effect/spawner/random/trash/mess,
@@ -65071,7 +65071,7 @@
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "mzC" = (
 /obj/machinery/power/shieldwallgen/anchored{
@@ -78818,7 +78818,6 @@
 	pixel_y = 3
 	},
 /obj/item/storage/box/petridish,
-/obj/item/construction/plumbing/research,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -81617,6 +81616,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
+"pJC" = (
+/turf/open/floor/engine/xenobio,
+/area/station/science/xenobiology)
 "pJI" = (
 /obj/effect/spawner/random/trash/moisture,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -83447,7 +83449,7 @@
 /area/station/cargo/bitrunning/den)
 "qaH" = (
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/circuit/green,
+/turf/open/floor/circuit/green/xenobio,
 /area/station/science/xenobiology)
 "qaJ" = (
 /obj/effect/decal/cleanable/dirt{
@@ -93761,7 +93763,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 8
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "rXO" = (
 /obj/machinery/light/directional/west,
@@ -94556,6 +94558,10 @@
 /obj/structure/filingcabinet/chestdrawer/wheeled,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
+	},
+/obj/item/flatpack{
+	pixel_x = 0;
+	pixel_y = 13
 	},
 /turf/open/floor/iron/white,
 /area/station/science/lab)
@@ -123963,7 +123969,7 @@
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/miningoffice)
 "xHP" = (
-/turf/open/floor/circuit/green,
+/turf/open/floor/circuit/green/xenobio,
 /area/station/science/xenobiology)
 "xHQ" = (
 /obj/structure/table/reinforced,
@@ -220866,11 +220872,11 @@ bDn
 xoO
 qgS
 fDT
-euU
-euU
+pJC
+pJC
 jvA
-euU
-euU
+pJC
+pJC
 fDT
 gLc
 gLc
@@ -221127,7 +221133,7 @@ goS
 xHP
 xHP
 xHP
-euU
+pJC
 fDT
 gLc
 gLc
@@ -221641,7 +221647,7 @@ rXM
 xHP
 xHP
 xHP
-euU
+pJC
 fDT
 gLc
 gLc
@@ -221895,9 +221901,9 @@ xoO
 icO
 fDT
 hJb
-euU
-euU
-euU
+pJC
+pJC
+pJC
 ivy
 fDT
 gLc

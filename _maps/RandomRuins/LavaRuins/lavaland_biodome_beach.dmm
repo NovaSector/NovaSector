@@ -1176,6 +1176,16 @@
 	dir = 8
 	},
 /area/ruin/powered/beach)
+"RB" = (
+/obj/structure/closet/cabinet,
+/obj/item/storage/backpack/duffelbag,
+/obj/item/clothing/under/shorts/blue,
+/obj/item/clothing/suit/costume/wellworn_shirt/graphic/ian,
+/obj/item/clothing/shoes/sandal/beach,
+/obj/item/clothing/glasses/sunglasses,
+/obj/item/clothing/neck/beads,
+/turf/open/floor/wood,
+/area/ruin/powered/beach)
 "RE" = (
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/ruin/powered/beach)
@@ -1272,16 +1282,6 @@
 "Up" = (
 /obj/structure/noticeboard/staff,
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/ruin/powered/beach)
-"UI" = (
-/obj/structure/closet/cabinet,
-/obj/item/storage/backpack/duffelbag,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/suit/costume/wellworn_shirt/graphic/ian,
-/obj/item/clothing/shoes/sandal/beach,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/neck/beads,
-/turf/open/floor/wood,
 /area/ruin/powered/beach)
 "UT" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -2202,7 +2202,7 @@ aC
 aj
 EE
 Rk
-UI
+RB
 aj
 tB
 aC

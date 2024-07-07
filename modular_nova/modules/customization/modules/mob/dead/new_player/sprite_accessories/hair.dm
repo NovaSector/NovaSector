@@ -207,6 +207,10 @@
 	name = "Diagonal Bangs"
 	icon_state = "hair_diagonal_bangs"
 
+/datum/sprite_accessory/hair/nova/diagonal_bangs_alt
+	name = "Diagonal Bangs Alt"
+	icon_state = "hair_diagonal_bangs_alt"
+
 /datum/sprite_accessory/hair/nova/gloomy_medium
 	name = "Medium Gloomy Bangs"
 	icon_state = "hair_gloomy_medium"
@@ -535,6 +539,10 @@
 	name = "Fluffy"
 	icon_state = "hair_fluffy"
 
+/datum/sprite_accessory/hair/nova/fluffy_bangs
+	name = "Fluffy Bangs"
+	icon_state = "hair_fluffy_bangs"
+
 /datum/sprite_accessory/hair/nova/fluffy_long
 	name = "Fluffy long"
 	icon_state = "hair_fluffy_long"
@@ -684,3 +692,6 @@
 	name = "Tentacle Beard"
 	icon_state = "facial_squid"
 
+/datum/sprite_accessory/facial_hair/nova/selleckreceeded
+	name = "Moustache (Selleck - Alt)"
+	icon_state = "facial_selleckreceeded"

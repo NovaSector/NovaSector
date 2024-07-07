@@ -413,3 +413,52 @@
   zeroisthebiggay:
   - bugfix: the warm and heart sweater now have `body_parts_covered = CHEST|ARMS`
       so your boobs don't hang out
+2024-07-07:
+  CandleJaxx:
+  - rscadd: Hairstylists across the Frontier have figured out how to use their trimmers
+      more effectively!
+  NovaBot13:
+  - bugfix: Fixed the augmented organs experiment
+  - bugfix: 'Techweb: Moved upgraded cyber organs to tier 3 from tier 4'
+  - qol: 'Techweb: Added fully augmented android scan discount experiment for Advanced
+      Cybernetic Organs techweb node'
+  - rscadd: Added Pipe Scrubber portable atmos machine
+  - bugfix: fixed ninja's adrenaline boost module not being rechargable
+  - bugfix: Firefighting backpack tank nozzle can be used to hit objects and destroy
+      atmos resin again.
+  - rscadd: Added flatpacker & multitool to all R&D labs
+  - bugfix: 'Fixed the following shuttles flying in unexpected directions: Pubby escape
+      pod,  Humpback emergency shuttle, Pubby monastery shuttle, Birdboat emergency
+      shuttle, Birdshot emergency shuttle'
+  - bugfix: you can craft the singulo hammer with either a supermatter engine/shard
+      again
+  - bugfix: fixed Birdshot bar and surrounding areas not properly connected to the
+      power grid.
+  - qol: portable scubber, pump and pipe scrubber are buildable as any other machines
+  Sosmaster9000:
+  - balance: 'Xenobiologists now have a BZ-filled containment pen. Don''t breathe
+      that!
+
+      balance:Some items which either cannot be printed elsewhere or are part of game
+      progression (e.g. teleporter endpoints and, of course, Nanners) have been moved.
+      Alien Spawnpoints are in the same spot.'
+  vinylspiders:
+  - bugfix: fixes rodstoppers leaving a permanent (inert) bag of holding tear effect
+  - qol: flashbangs will now give a warning if you attempt to trigger them during
+      green alert as sec/command. Company policy forbids their use below blue alert
+      but you can CTRL+Click to blatantly disobey this and face IC consequences. There
+      is a hotkey for this as well, CTRL+Z.
+  - bugfix: fixed detective's id not imprinting onto pda at roundstart, same with
+      bouncer and departmental security officers
+  wivernshy:
+  - rscadd: '2 new (alt) hairstyles: Fluffy Bangs and Diagonal Bangs Alt'
+  yooriss:
+  - balance: Characters now start with 10 paychecks in their bank account instead
+      of 5, functionally doubling the credits people enter the round with.
+  - balance: It is no longer possible to sell materials to the Galactic Materials
+      Market. Purchasing remains untouched.
+  - rscadd: The crates of 50 iron, 50 glass, and 20/50 plasteel have returned to cargo
+      terminals to help cover materials shortages during low population rounds and
+      facilitate construction projects for the rest of the crew.
+  - code_imp: Price minimum/maximum magic numbers in the GMM subsystem have been pulled
+      out into defines to make tweaking buy/sell prices easier in the future.
