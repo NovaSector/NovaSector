@@ -23,6 +23,17 @@
 		/obj/item/reagent_containers/hypospray/medipen/universal = null,
 	)
 
+	///List containing chemicals which custom medipens can contain.
+	var/static/list/allowed_pen_medicine = list(
+		/datum/reagent/medicine,
+		/datum/reagent/vaccine,
+	)
+	///Blacklist containing medicines which custom medipens can't contain.
+	var/static/list/disallowed_pen_medicine = list(
+		/datum/reagent/inverse/,
+		/datum/reagent/medicine/morphine,
+	)
+
 /obj/machinery/medipen_refiller/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_demand)
@@ -80,9 +91,14 @@
 			return
 		// NOVA EDIT BEGIN - Custom medipen
 		var/is_custom = istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal)
-		if(is_custom && !reagents.has_reagent(null, medipen.volume))
-			balloon_alert(user, "not enough reagents!")
-			return
+		if(is_custom)
+			for(var/datum/reagent/meds in reagents.reagent_list)
+				if(!is_type_in_list(meds, allowed_pen_medicine))
+					balloon_alert(user, "not enough reagents!")
+					return
+				if(is_type_in_list(meds, disallowed_pen_medicine))
+					balloon_alert(user, "medipen incompatible!")
+					return
 		// NOVA EDIT END
 		if(!reagents.has_reagent(allowed_pens[medipen.type], 10))
 			balloon_alert(user, "not enough reagents!")
