@@ -30220,7 +30220,7 @@
 "iNT" = (
 /obj/structure/rack{
 	name = "pallet";
-	desc = "Totally not a rack with the label "pallet" taped to the side."
+	desc = "Totally not a rack with the label 'pallet' taped to the side."
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/greater)
