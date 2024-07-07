@@ -255,11 +255,13 @@
 	name = "Jackal back fur"
 	icon_state = "jackalfur"
 	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
+	gendered = FALSE
 
 /datum/body_marking/other/jackalback
 	name = "Jackal back fur accents"
 	icon_state = "jackalback"
 	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
+	gendered = FALSE
 
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'
