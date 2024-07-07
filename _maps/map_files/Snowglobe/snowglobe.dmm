@@ -4233,6 +4233,7 @@
 	},
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/stripes,
+/obj/structure/sign/warning/radiation/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "bfe" = (
@@ -13449,7 +13450,6 @@
 	network = list("ss13","rd")
 	},
 /obj/machinery/airalarm/directional/north,
-/obj/effect/mapping_helpers/airalarm/mixingchamber_access,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/xenobiology)
@@ -14551,7 +14551,6 @@
 /obj/effect/turf_decal/trimline/dark/filled/warning{
 	dir = 1
 	},
-/obj/structure/sign/departments/restroom/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "dWs" = (
@@ -21311,7 +21310,6 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/blue/full,
 /obj/machinery/light/directional/south,
-/obj/machinery/digital_clock/directional/south,
 /obj/machinery/fax{
 	fax_name = "Medical Lobby";
 	name = "Medical Fax Machine";
@@ -32138,6 +32136,7 @@
 	},
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/stripes,
+/obj/structure/sign/warning/radiation/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "iOo" = (
@@ -33272,7 +33271,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes,
-/obj/structure/sign/warning/radiation/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "jeh" = (
@@ -45886,6 +45884,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/start/hangover,
+/obj/structure/sign/departments/restroom/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "mCs" = (
@@ -49913,14 +49912,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/primary/fore)
-"nIP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes,
-/obj/structure/sign/warning/radiation/directional/south,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "nJd" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -84360,8 +84351,6 @@
 /obj/machinery/light_switch/directional/east{
 	pixel_y = 6
 	},
-/obj/machinery/digital_clock/directional/south,
-/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "xgw" = (
@@ -88342,6 +88331,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/starboard)
 "yjL" = (
@@ -193301,7 +193291,7 @@ vBO
 vBO
 tPn
 tPn
-mUY
+tPn
 tPn
 tPn
 tPn
@@ -195110,7 +195100,7 @@ tPn
 tPn
 tPn
 tPn
-tPn
+nFi
 tPn
 tPn
 tPn
@@ -195367,7 +195357,7 @@ tPn
 tPn
 tPn
 tPn
-tPn
+mUY
 tPn
 tPn
 tPn
@@ -195624,7 +195614,7 @@ rGV
 lKM
 lKM
 tPn
-tPn
+nFi
 tPn
 tPn
 tPn
@@ -251652,7 +251642,7 @@ uVN
 vNz
 aRH
 tir
-nIP
+iRo
 smC
 tpp
 dUh
@@ -260903,7 +260893,7 @@ vMu
 otf
 vMu
 vMu
-dKk
+eUS
 dKk
 vMu
 vMu
