@@ -46377,13 +46377,13 @@
 /turf/open/floor/wood,
 /area/station/service/bar)
 "nqP" = (
-/obj/machinery/plumbing/growing_vat,
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/camera/directional/north{
 	c_tag = "Science - Cytology Lab";
 	name = "science camera";
 	network = list("ss13","rd")
 	},
+/obj/machinery/vatgrower,
 /turf/open/floor/engine,
 /area/station/science/cytology)
 "nqR" = (
@@ -62652,7 +62652,6 @@
 /obj/structure/table/glass,
 /obj/item/book/manual/wiki/cytology,
 /obj/item/biopsy_tool,
-/obj/item/construction/plumbing/research,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
