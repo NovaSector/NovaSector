@@ -9133,7 +9133,6 @@
 	name = "Defense"
 	},
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/wood/large,
 /area/station/security/courtroom)
 "cEo" = (
