@@ -71,6 +71,7 @@
 /obj/machinery/light/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "Dp" = (
@@ -193,6 +194,7 @@
 "VM" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "Yp" = (

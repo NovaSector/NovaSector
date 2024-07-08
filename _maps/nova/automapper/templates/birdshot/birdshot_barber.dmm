@@ -83,6 +83,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/assistant,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/wood/large,
 /area/station/service/barber/spa)
 "yz" = (
