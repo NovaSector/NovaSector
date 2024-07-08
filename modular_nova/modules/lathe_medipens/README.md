@@ -21,7 +21,7 @@ Local to `hypospray.dm`:
 
 ### Master file additions
 
-- N/A
+- Empty medipen subtypes: `modular_nova\master_files\code\modules\reagents\reagent_containers\hypospray.dm`
 
 ### Included files that are not contained in this module:
 
