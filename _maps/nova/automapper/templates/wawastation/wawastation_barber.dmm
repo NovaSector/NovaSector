@@ -20,7 +20,7 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/navigate_destination{
-	location = "Cryopods"
+	location = "Barbershop"
 	},
 /turf/open/floor/wood/parquet,
 /area/station/service/barber)
