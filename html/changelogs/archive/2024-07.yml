@@ -462,3 +462,73 @@
       facilitate construction projects for the rest of the crew.
   - code_imp: Price minimum/maximum magic numbers in the GMM subsystem have been pulled
       out into defines to make tweaking buy/sell prices easier in the future.
+2024-07-08:
+  CliffracerX:
+  - image: tiny adjustment to GAGS hyposprays - buttons on color 1
+  Jolly:
+  - rscadd: '[Ouroboros] Something writhes deep within Ouroboros.. but what is it?'
+  - bugfix: Our maps (Ouroboros, Blueshift, Voidraptor) now have pipe scrubbers in
+      atmos and ordnance!
+  LT3:
+  - balance: Advanced Medbay Equipment research node lowered to tier 3
+  - balance: Advanced Medbay Equipment now requires haloperidol scan experiment
+  - balance: Haloperidol and cryostylane experiments can be performed roundstart
+  - balance: Cryostasis research node raised to tier 4
+  - balance: Cryostasis now has Fusion instead of Controlled Plasma as a prerequisite
+  - balance: Cryostasis cryostylane scan is now a discount experiment
+  - balance: Crystallizer moved from Controlled Plasma to Fusion
+  Melbert:
+  - qol: Vending Machines have a search bar
+  NovaBot13:
+  - bugfix: You require breathing once more.
+  - bugfix: raptors don't easily stress out in lavaland environments
+  - bugfix: ' Birdshot botany is resized. bar is also smaller.'
+  - bugfix: Birdshot public shrine now uses the correct dirt. (Goodbye chasms)
+  - bugfix: defibrillator no longer has an abstract cell
+  - code_imp: defibrillator attackby replaced with item_interaction
+  - rscadd: 12% chance of a ouija board spawning in the chaplain office. Wawastation
+      always has one.
+  - bugfix: Fixed the bluescreen while setting a custom font in tgui panel
+  - rscadd: Added the designer EVA suit, a unique pirate hardsuit for Silverscales.
+  - balance: Increased the equipment available to Silverscales
+  - image: Sprites for the designer EVA suit
+  - bugfix: Fixes hacker alias name preference not working.
+  - bugfix: ' Examining a fishing spot twice with sufficiently high fishing skill
+      (or the skillchip) will get you a list of fishes that can ACTUALLY be caught'
+  - bugfix: Fixed the orbit icons scrolling sometimes
+  - qol: Mood more promptly reacts to the beauty of an area as it changes, and not
+      just when changing areas.
+  - rscadd: Coroners (and potentially other mobs with the morbid trait), now like
+      degradated-looking rooms.
+  - spellcheck: Renamed the organ thrower module to the 'organizer'
+  - spellcheck: Made its description more accurate. Did you know it instantly replaces
+      up to 5 organs in active surgery?
+  - balance: All jetpacks are now modsuit jetpack speed
+  - rscdel: Adv. Ion Jetpack module has been removed
+  - bugfix: Knight helmets no longer burn as though made of cloth.
+  - bugfix: Hoverboards properly dysfunction in space without any kind of support
+      underneath them.
+  - rscadd: There's a previously undiscovered variant of a nullrod, recently revealed
+      from the depths of the skating rink..
+  - balance: You can only stun someone with a shove if they have been shoved into
+      objects or people, or have been hit by telescopic batons, contractor batons
+      or the Mansus Grasp.
+  - balance: If someone is knocked to the floor, however, you can still disarm them
+      of any object with a shove.
+  - bugfix: Added a forgotten firelock on second floor of wawa
+  - refactor: Vat grower is a normal machine now that doesn't need plumbing
+  - qol: Cytology petri dish smartfridge starts with 3 random samples
+  - rscadd: Added protein powder condiment bottle, available in the cytology supplies
+      locker and the cargo pack
+  - rscdel: Removed science variant of plumbing RCD
+  - bugfix: Fixed a bug when machines without stock parts didn't spawn frames on deconstruction
+  - bugfix: Fixed vat grower not growing
+  - rscadd: Aquariums now influence the beauty score of an area based on their contents.
+  - rscadd: Morbid people now get a positive moodlet when admiring an aquarium full
+      of dead fish, and a negative one when fish are alive.
+  - bugfix: you may now use a legion core on an elite tumor
+  Rhials:
+  - admin: Quiet-announce random events still announce to admins and can therefore
+      be rerolled.
+  lorwp:
+  - rscadd: using 'skibidi' as a chaplain deity now gives you brain damage
