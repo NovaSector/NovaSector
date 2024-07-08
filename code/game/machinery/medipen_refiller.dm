@@ -19,8 +19,10 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival = /datum/reagent/medicine/c2/libital,
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = /datum/reagent/medicine/c2/penthrite,
 		/obj/item/reagent_containers/hypospray/medipen/invisibility = /datum/reagent/drug/saturnx,
-		// NOVA EDIT - Custom medipen
+		// NOVA EDIT BEGIN - Custom medipen
 		/obj/item/reagent_containers/hypospray/medipen/universal = null,
+		/obj/item/reagent_containers/hypospray/medipen/universal/lowpressure = null,
+		// NOVA EDIT END
 	)
 
 	///List containing chemicals which custom medipens can contain.
@@ -28,7 +30,7 @@
 		/datum/reagent/medicine,
 		/datum/reagent/vaccine,
 	)
-	///Blacklist containing medicines which custom medipens can't contain.
+	///Blacklist containing chemicals which custom medipens can't contain.
 	var/static/list/disallowed_pen_medicine = list(
 		/datum/reagent/inverse/,
 		/datum/reagent/medicine/morphine,
@@ -92,9 +94,12 @@
 		// NOVA EDIT BEGIN - Custom medipen
 		var/is_custom = istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal)
 		if(is_custom)
+			if(reagents.total_volume < medipen.volume)
+				balloon_alert(user, "not enough reagents!")
+				return
 			for(var/datum/reagent/meds in reagents.reagent_list)
 				if(!is_type_in_list(meds, allowed_pen_medicine))
-					balloon_alert(user, "not enough reagents!")
+					balloon_alert(user, "medipen incompatible!")
 					return
 				if(is_type_in_list(meds, disallowed_pen_medicine))
 					balloon_alert(user, "medipen incompatible!")
