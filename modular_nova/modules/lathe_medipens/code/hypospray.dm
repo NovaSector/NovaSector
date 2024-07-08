@@ -8,18 +8,23 @@
 } \
 
 /obj/item/reagent_containers/hypospray/medipen
-	/// If TRUE, the medipen will initialize without reagents.
+	/// If TRUE, the medipen will initialize without reagents
 	var/init_empty = FALSE
 
-// Allows medipens to initialize without reagents if init_empty is TRUE.
+// Allows medipens to initialize without reagents if init_empty is TRUE
 /obj/item/reagent_containers/hypospray/medipen/Initialize(mapload)
-	if(init_reagents)
+	if(init_empty != TRUE)
 		return ..()
 
+	// Temporarily sets list_reagents to null to avoid filling the medipen
 	var/initial_reagents = list_reagents
 	list_reagents = null
 	. = ..()
 	list_reagents = initial_reagents
+
+	if(label_examine)
+		// Set label text via list_reagents, due to actual reagents being empty
+		label_text = span_notice("There is a sticker pasted onto the side which reads, 'WARNING: This medipen contains [pretty_string_from_reagent_list(list_reagents, names_only = TRUE, join_text = ", ", final_and = TRUE, capitalize_names = TRUE)], do not use if allergic to any listed chemicals.")
 
 /obj/item/reagent_containers/hypospray/medipen/empty
 	init_empty = TRUE
@@ -79,36 +84,43 @@ EMPTY_MEDIPEN_HELPER(penacid)
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_icon_state()
 	. = ..()
-	if(reagents.total_volume <= (volume * 0.5))
-		icon_state = "[base_icon_state]15"
-	else if(reagents.total_volume == 0)
+	if(reagents.total_volume == 0)
 		icon_state = "[base_icon_state]0"
-	else
+	else if(reagents.total_volume > (volume * 0.5))
 		icon_state = base_icon_state
+	else
+		icon_state = "[base_icon_state]15"
 
 /// Returns a list of overlays to add that relate to the reagents inside the syringe
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_reagent_overlay()
-	if(reagents.total_volume == 0)
+	if(!reagents?.total_volume)
 		return
 	var/overlay_icon = "medipen"
-	if(reagents.total_volume <= (volume * 0.5))
+	if(reagents.total_volume > (volume * 0.5))
+		icon_state = base_icon_state
+	else
 		overlay_icon = "medipen_half"
 	var/mutable_appearance/filling_overlay = mutable_appearance('modular_nova/modules/lathe_medipens/icons/reagent_fillings.dmi', overlay_icon)
 	filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 	. += filling_overlay
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/inject(mob/living/affected_mob, mob/user)
+	// Calculate quantity to inject, depending on if the user is on lavaland.
 	if(lavaland_equipment_pressure_check(get_turf(user)))
 		amount_per_transfer_from_this = initial(amount_per_transfer_from_this)
-		return ..()
+	else
+		if(DOING_INTERACTION(user, DOAFTER_SOURCE_SURVIVALPEN))
+			to_chat(user,span_notice("You are too busy to use \the [src]!"))
+			return
 
-	if(DOING_INTERACTION(user, DOAFTER_SOURCE_SURVIVALPEN))
-		to_chat(user,span_notice("You are too busy to use \the [src]!"))
-		return
+		to_chat(user,span_notice("You start manually releasing the low-pressure gauge..."))
+		if(!do_after(user, 10 SECONDS, affected_mob, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
+			return
 
-	to_chat(user,span_notice("You start manually releasing the low-pressure gauge..."))
-	if(!do_after(user, 10 SECONDS, affected_mob, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
-		return
+		amount_per_transfer_from_this = initial(amount_per_transfer_from_this) * 0.5
 
-	amount_per_transfer_from_this = initial(amount_per_transfer_from_this) * 0.5
+	// Attempt the injection
 	. = ..()
+	// Workaround to update icon and overlay after partial injection
+	if(. && !used_up)
+		update_appearance()
