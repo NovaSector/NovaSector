@@ -19,12 +19,13 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival = /datum/reagent/medicine/c2/libital,
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = /datum/reagent/medicine/c2/penthrite,
 		/obj/item/reagent_containers/hypospray/medipen/invisibility = /datum/reagent/drug/saturnx,
-		// NOVA EDIT BEGIN - Custom medipen
+		// NOVA EDIT BEGIN - Universal medipen
 		/obj/item/reagent_containers/hypospray/medipen/universal = null,
 		/obj/item/reagent_containers/hypospray/medipen/universal/lowpressure = null,
 		// NOVA EDIT END
 	)
 
+	// NOVA EDIT BEGIN - Universal medipen
 	///List containing chemicals which custom medipens can contain.
 	var/static/list/allowed_pen_medicine = list(
 		/datum/reagent/medicine,
@@ -35,6 +36,7 @@
 		/datum/reagent/inverse/,
 		/datum/reagent/medicine/morphine,
 	)
+	// NOVA EDIT END
 
 /obj/machinery/medipen_refiller/Initialize(mapload)
 	. = ..()
@@ -91,7 +93,7 @@
 		if(medipen.reagents?.reagent_list.len)
 			balloon_alert(user, "medipen full!")
 			return
-		// NOVA EDIT BEGIN - Custom medipen
+		// NOVA EDIT BEGIN - Universal medipen
 		var/is_custom = istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal)
 		if(is_custom)
 			if(reagents.total_volume < medipen.volume)
@@ -111,7 +113,7 @@
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
 			medipen.used_up = FALSE
-			// NOVA EDIT BEGIN - Custom medipen
+			// NOVA EDIT BEGIN - Universal medipen
 			if(is_custom)
 				reagents.trans_to(medipen, medipen.volume)
 			else
