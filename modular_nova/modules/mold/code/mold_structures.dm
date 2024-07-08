@@ -131,7 +131,7 @@
 	icon = 'modular_nova/modules/mold/icons/blob_resin.dmi'
 	icon_state = "blob_floor"
 	density = FALSE
-	plane = FLOOR_PLANE
+	plane = GAME_PLANE
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER + 0.001
 	max_integrity = 50
 	var/blooming = FALSE
