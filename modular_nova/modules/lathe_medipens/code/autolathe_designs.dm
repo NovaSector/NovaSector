@@ -29,29 +29,29 @@
 /datum/design/medipen/epinephrine
 	name = "Epinephrine Medipen"
 	id = "medipen_epinephrine"
-	build_path = /obj/item/reagent_containers/hypospray/medipen
+	build_path = /obj/item/reagent_containers/hypospray/medipen/empty
 
 /datum/design/medipen/atropine
 	name = "Atropine Medipen"
 	id = "medipen_atropine"
-	build_path = /obj/item/reagent_containers/hypospray/medipen/atropine
+	build_path = /obj/item/reagent_containers/hypospray/medipen/atropine/empty
 
-/datum/design/medipen/atropine
+/datum/design/medipen/salbutamol
 	name = "Salbutamol Medipen"
 	id = "medipen_salbutamol"
-	build_path = /obj/item/reagent_containers/hypospray/medipen/salbutamol
+	build_path = /obj/item/reagent_containers/hypospray/medipen/salbutamol/empty
 
-/datum/design/medipen/atropine
+/datum/design/medipen/oxandrolone
 	name = "Oxandrolone Medipen"
 	id = "medipen_oxandrolone"
-	build_path = /obj/item/reagent_containers/hypospray/medipen/oxandrolone
+	build_path = /obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty
 
-/datum/design/medipen/atropine
+/datum/design/medipen/salacid
 	name = "Salicylic Acid Medipen"
 	id = "medipen_salacid"
-	build_path = /obj/item/reagent_containers/hypospray/medipen/salacid
+	build_path = /obj/item/reagent_containers/hypospray/medipen/salacid/empty
 
-/datum/design/medipen/atropine
+/datum/design/medipen/penacid
 	name = "Pentetic Acid Medipen"
 	id = "medipen_penacid"
-	build_path = /obj/item/reagent_containers/hypospray/medipen/penacid
+	build_path = /obj/item/reagent_containers/hypospray/medipen/penacid/empty
