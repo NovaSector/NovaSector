@@ -6045,6 +6045,10 @@
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
+"bFR" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
+/turf/open/floor/iron/large,
+/area/station/engineering/atmos)
 "bFS" = (
 /obj/structure/railing/wrestling{
 	dir = 4
@@ -32507,6 +32511,9 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
+	dir = 4
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/atmos/pumproom)
@@ -69438,6 +69445,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/bridge_pipe/orange/visible{
+	dir = 4
+	},
 /turf/open/floor/iron/edge{
 	dir = 4
 	},
@@ -71550,6 +71560,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/machinery/meter,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/atmos/pumproom)
 "tFe" = (
@@ -81920,10 +81931,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
-	dir = 4
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 4;
+	name = "Engine Line"
 	},
-/obj/machinery/meter,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/atmos/pumproom)
 "wzI" = (
@@ -185058,7 +185069,7 @@ dLo
 krP
 jth
 jth
-jth
+bFR
 rTu
 aTP
 jdX
@@ -188134,7 +188145,7 @@ xef
 cMH
 qbc
 jth
-jth
+oYM
 jth
 ovH
 jXA
