@@ -33,7 +33,7 @@
 	)
 	///Blacklist containing chemicals which custom medipens can't contain.
 	var/static/list/disallowed_pen_medicine = list(
-		/datum/reagent/inverse/,
+		/datum/reagent/inverse,
 		/datum/reagent/medicine/morphine,
 	)
 	// NOVA EDIT END
