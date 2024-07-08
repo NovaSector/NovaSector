@@ -69,26 +69,20 @@
 /area/station/ai_monitored/security/armory)
 
 (1,1,1) = {"
-a
-a
-a
+m
 a
 a
 a
 a
 "}
 (2,1,1) = {"
-a
-m
-a
+Z
 a
 a
 a
 a
 "}
 (3,1,1) = {"
-a
-Z
 a
 a
 a
@@ -100,26 +94,20 @@ a
 a
 a
 a
-a
-a
-a
+x
 "}
 (5,1,1) = {"
 a
 a
 a
 a
-a
-x
-a
+t
 "}
 (6,1,1) = {"
 a
 a
 a
 a
-a
-t
 a
 "}
 (7,1,1) = {"
@@ -128,33 +116,11 @@ a
 a
 a
 a
-a
-a
 "}
 (8,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-"}
-(9,1,1) = {"
-a
 w
 F
 b
-a
-a
-a
-"}
-(10,1,1) = {"
-a
-a
-a
-a
-a
 a
 a
 "}

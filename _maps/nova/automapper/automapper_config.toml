@@ -385,36 +385,12 @@ coordinates = [203, 223, 1]
 trait_name = "Mining"
 
 # WAWASTATION MAP EDITS
-# Wawastation Lockers
-[templates.wawastation_lockers]
-map_files = ["wawastation_lockers.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [111, 93, 1]
-trait_name = "Station"
-
 # Wawastation Arrivals
 [templates.wawastation_arrivals]
 map_files = ["wawastation_arrivals.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
-coordinates = [69, 81, 2]
-trait_name = "Station"
-
-# Wawastation Corridor
-[templates.wawastation_corridor]
-map_files = ["wawastation_corridor.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [81, 101, 2]
-trait_name = "Station"
-
-# Wawastation Commons
-[templates.wawastation_commons]
-map_files = ["wawastation_commons.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [109, 88, 2]
+coordinates = [79, 81, 2]
 trait_name = "Station"
 
 # Wawastation NTR Office
@@ -423,14 +399,6 @@ map_files = ["wawastation_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [108, 122, 1]
-trait_name = "Station"
-
-# Wawastation Elevator
-[templates.wawastation_elevator]
-map_files = ["wawastation_elevator.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [86, 89, 1]
 trait_name = "Station"
 
 # Wawastation Supermatter
@@ -446,15 +414,7 @@ trait_name = "Station"
 map_files = ["wawastation_barber.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
-coordinates = [116, 111, 2]
-trait_name = "Station"
-
-# Wawastation Kiosk
-[templates.wawastation_kiosk]
-map_files = ["wawastation_kiosk.dmm"]
-directory = "_maps/nova/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [133, 94, 2]
+coordinates = [87, 102, 1]
 trait_name = "Station"
 
 # Wawastation Armory
@@ -462,5 +422,13 @@ trait_name = "Station"
 map_files = ["wawastation_armory.dmm"]
 directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
-coordinates = [63, 127, 2]
+coordinates = [64, 128, 2]
+trait_name = "Station"
+
+# Wawastation Cryo
+[templates.wawastation_cryo]
+map_files = ["wawastation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [83, 92, 1]
 trait_name = "Station"
