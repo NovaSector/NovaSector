@@ -3,15 +3,15 @@
 
 /// Create empty subtype of medipen
 #define EMPTY_MEDIPEN_HELPER(typename) HYPOSPRAY_PATH_HELPER(medipen/##typename/empty) {\
-	init_reagents = FALSE; \
+	init_empty = TRUE; \
 	used_up = TRUE; \
 } \
 
 /obj/item/reagent_containers/hypospray/medipen
-	/// If FALSE, the medipen will initialize without reagents.
-	var/init_reagents = TRUE
+	/// If TRUE, the medipen will initialize without reagents.
+	var/init_empty = FALSE
 
-// Allows medipens to initialize without reagents if init_reagents is FALSE.
+// Allows medipens to initialize without reagents if init_empty is TRUE.
 /obj/item/reagent_containers/hypospray/medipen/Initialize(mapload)
 	if(init_reagents)
 		return ..()
@@ -22,17 +22,22 @@
 	list_reagents = initial_reagents
 
 /obj/item/reagent_containers/hypospray/medipen/empty
-	list_reagents = FALSE
+	init_empty = TRUE
+	used_up = TRUE
 
-// Creates /obj/item/reagent_containers/hypospray/medipen/atropine/empty etc...
+// Creates /obj/item/reagent_containers/hypospray/medipen/atropine/empty
 EMPTY_MEDIPEN_HELPER(atropine)
 
+// Creates /obj/item/reagent_containers/hypospray/medipen/salbutamol/empty
 EMPTY_MEDIPEN_HELPER(salbutamol)
 
+// Creates /obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty
 EMPTY_MEDIPEN_HELPER(oxandrolone)
 
+// Creates /obj/item/reagent_containers/hypospray/medipen/salacid/empty
 EMPTY_MEDIPEN_HELPER(salacid)
 
+// Creates /obj/item/reagent_containers/hypospray/medipen/penacid/empty
 EMPTY_MEDIPEN_HELPER(penacid)
 
 #undef HYPOSPRAY_PATH_HELPER
@@ -74,9 +79,8 @@ EMPTY_MEDIPEN_HELPER(penacid)
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_icon_state()
 	. = ..()
-	if(reagents.total_volume <= volume * 0.5)
+	if(reagents.total_volume <= (volume * 0.5))
 		icon_state = "[base_icon_state]15"
-		icon_state = base_icon_state
 	else if(reagents.total_volume == 0)
 		icon_state = "[base_icon_state]0"
 	else
@@ -84,10 +88,10 @@ EMPTY_MEDIPEN_HELPER(penacid)
 
 /// Returns a list of overlays to add that relate to the reagents inside the syringe
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_reagent_overlay()
-	if(!reagents?.total_volume)
+	if(reagents.total_volume == 0)
 		return
 	var/overlay_icon = "medipen"
-	if(reagents.total_volume <= volume * 0.5)
+	if(reagents.total_volume <= (volume * 0.5))
 		overlay_icon = "medipen_half"
 	var/mutable_appearance/filling_overlay = mutable_appearance('modular_nova/modules/lathe_medipens/icons/reagent_fillings.dmi', overlay_icon)
 	filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
