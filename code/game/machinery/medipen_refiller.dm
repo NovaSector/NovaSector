@@ -109,11 +109,8 @@
 				balloon_alert(user, "not enough reagents!")
 				return
 			for(var/datum/reagent/meds in reagents.reagent_list)
-				if(!is_type_in_list(meds, allowed_pen_medicine))
-					balloon_alert(user, "medipen incompatible!")
-					return
-				if(is_type_in_list(meds, disallowed_pen_medicine))
-					balloon_alert(user, "medipen incompatible!")
+				if(!is_type_in_list(meds, allowed_pen_medicine) || is_type_in_list(meds, disallowed_pen_medicine))
+					balloon_alert(user, "reagents incompatible!")
 					return
 		// NOVA EDIT END
 		if(!reagents.has_reagent(allowed_pens[medipen.type], 10))
