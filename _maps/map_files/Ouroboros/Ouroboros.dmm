@@ -74516,7 +74516,7 @@
 /area/station/ai_monitored/turret_protected/aisat/equipment)
 "vDN" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4{
 	dir = 8
 	},
 /obj/machinery/firealarm/directional/east,
