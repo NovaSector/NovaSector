@@ -10,10 +10,10 @@ Contains empty subtypes of several medipens, custom/universal medipen subtypes w
 
 ### TG Proc Changes:
 
-Overridden to implement medipens which spawn without reagents:
-
 - `/obj/item/reagent_containers/hypospray/medipen/Initialize()`
 - `/obj/item/reagent_containers/hypospray/medipen/inject()`
+- `/obj/machinery/medipen_refiller/add_context()`
+- `/obj/machinery/medipen_refiller/attackby()`
 
 ### Defines:
 
