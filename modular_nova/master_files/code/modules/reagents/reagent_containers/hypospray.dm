@@ -1,15 +1,8 @@
-/// Create subtype path for hypospray
-#define HYPOSPRAY_PATH_HELPER(typename) /obj/item/reagent_containers/hypospray/##typename
-
-/// Create empty subtype of medipen
-#define EMPTY_MEDIPEN_HELPER(typename) HYPOSPRAY_PATH_HELPER(medipen/##typename/empty) {\
-	init_empty = TRUE; \
-	used_up = TRUE; \
-} \
-
 /obj/item/reagent_containers/hypospray/medipen
 	/// If TRUE, the medipen will initialize without reagents
 	var/init_empty = FALSE
+	/// If TRUE, indicates that the medipen hasn't been injected by a mob yet
+	var/unused = TRUE
 
 // Allows medipens to initialize without reagents if init_empty is TRUE
 /obj/item/reagent_containers/hypospray/medipen/Initialize(mapload)
@@ -26,24 +19,39 @@
 		// Set label text via list_reagents, due to actual reagents being empty
 		label_text = span_notice("There is a sticker pasted onto the side which reads, 'WARNING: This medipen contains [pretty_string_from_reagent_list(list_reagents, names_only = TRUE, join_text = ", ", final_and = TRUE, capitalize_names = TRUE)], do not use if allergic to any listed chemicals.")
 
+// Sends a more generic chat message when an unused medipen is empty
+/obj/item/reagent_containers/hypospray/medipen/inject(mob/living/affected_mob, mob/user)
+	if(init_empty && used_up && unused)
+		to_chat(user, span_warning("You push [src]'s button, but nothing happens. It's empty!"))
+		return FALSE
+
+	// Attempt the injection
+	. = ..()
+
+	// If the injection succeeded, then the medipen is not unused anymore
+	if(unused && .)
+		unused = FALSE
+
 /obj/item/reagent_containers/hypospray/medipen/empty
 	init_empty = TRUE
 	used_up = TRUE
 
-// Creates /obj/item/reagent_containers/hypospray/medipen/atropine/empty
-EMPTY_MEDIPEN_HELPER(atropine)
+/obj/item/reagent_containers/hypospray/medipen/atropine/empty
+	init_empty = TRUE
+	used_up = TRUE
 
-// Creates /obj/item/reagent_containers/hypospray/medipen/salbutamol/empty
-EMPTY_MEDIPEN_HELPER(salbutamol)
+/obj/item/reagent_containers/hypospray/medipen/salbutamol/empty
+	init_empty = TRUE
+	used_up = TRUE
 
-// Creates /obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty
-EMPTY_MEDIPEN_HELPER(oxandrolone)
+/obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty
+	init_empty = TRUE
+	used_up = TRUE
 
-// Creates /obj/item/reagent_containers/hypospray/medipen/salacid/empty
-EMPTY_MEDIPEN_HELPER(salacid)
+/obj/item/reagent_containers/hypospray/medipen/salacid/empty
+	init_empty = TRUE
+	used_up = TRUE
 
-// Creates /obj/item/reagent_containers/hypospray/medipen/penacid/empty
-EMPTY_MEDIPEN_HELPER(penacid)
-
-#undef HYPOSPRAY_PATH_HELPER
-#undef EMPTY_MEDIPEN_HELPER
+/obj/item/reagent_containers/hypospray/medipen/penacid/empty
+	init_empty = TRUE
+	used_up = TRUE
