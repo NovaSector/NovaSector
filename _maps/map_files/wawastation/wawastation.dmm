@@ -3761,6 +3761,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/interrogation)
+"bqs" = (
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/xenobio,
+/area/station/science/xenobiology)
 "bqz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2,
@@ -4442,9 +4446,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/iron/white/textured_corner{
-	dir = 4
-	},
+/turf/open/openspace/xenobio,
 /area/station/science/xenobiology)
 "bBX" = (
 /obj/structure/window/spawner/directional/north,
@@ -4941,6 +4943,10 @@
 /obj/effect/turf_decal/bot_red,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/white/textured_large,
+/area/station/science/xenobiology)
+"bLJ" = (
+/obj/structure/cable,
+/turf/open/openspace/xenobio,
 /area/station/science/xenobiology)
 "bLS" = (
 /obj/effect/turf_decal/stripes/box,
@@ -8436,9 +8442,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/iron/white/smooth_half{
-	dir = 8
-	},
+/turf/open/openspace/xenobio,
 /area/station/science/xenobiology)
 "dcl" = (
 /obj/effect/turf_decal/sand/plating,
@@ -23414,7 +23418,7 @@
 	dir = 1
 	},
 /obj/item/storage/box/monkeycubes,
-/turf/open/floor/iron/white/textured_half,
+/turf/open/openspace/xenobio,
 /area/station/science/xenobiology)
 "ioL" = (
 /obj/item/radio/intercom/directional/east,
@@ -27959,6 +27963,16 @@
 /obj/structure/cable/layer3,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
+"jTw" = (
+/obj/machinery/door/airlock/research{
+	glass = 1;
+	name = "Slime Euthanization Chamber";
+	opacity = 0
+	},
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
+/turf/open/openspace/xenobio,
+/area/station/science/xenobiology)
 "jTB" = (
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance/storage)
@@ -34906,6 +34920,10 @@
 "mog" = (
 /turf/open/openspace,
 /area/station/engineering/main)
+"mol" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/openspace/xenobio,
+/area/station/science/xenobiology)
 "mor" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -40341,6 +40359,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
+"orY" = (
+/turf/open/openspace/xenobio,
+/area/station/science/xenobiology)
 "osd" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -41227,9 +41248,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/iron/white/textured_corner{
-	dir = 1
-	},
+/turf/open/openspace/xenobio,
 /area/station/science/xenobiology)
 "oID" = (
 /obj/structure/lattice,
@@ -186113,9 +186132,9 @@ tIs
 tPE
 lKY
 bBJ
-wmO
-uHz
-uHz
+mol
+bqs
+bqs
 uHz
 wmO
 rmi
@@ -186370,9 +186389,9 @@ uVe
 tPE
 avA
 iox
-wmO
-uHz
-uHz
+mol
+bqs
+bqs
 uHz
 wmO
 xGG
@@ -186627,9 +186646,9 @@ qZX
 tPE
 lKY
 oIu
-wmO
-uHz
-uHz
+mol
+bqs
+bqs
 uHz
 wmO
 bLI
@@ -186883,10 +186902,10 @@ jQS
 iXn
 ieU
 cWL
-tMz
-jQS
-wmO
-inz
+mol
+orY
+mol
+jTw
 jgA
 jQS
 tMz
@@ -187141,9 +187160,9 @@ jEt
 gdM
 rdn
 dck
-wnA
-wnA
-wnA
+orY
+orY
+orY
 wnA
 viT
 bUl
@@ -187397,10 +187416,10 @@ fSi
 fXW
 jej
 krO
-krO
-krO
-krO
-krO
+bLJ
+bLJ
+bLJ
+bLJ
 krO
 krO
 krO
@@ -188425,13 +188444,13 @@ hhX
 hhX
 fZF
 jQS
-gQq
-gQq
-gQq
-ybO
-gQq
-gQq
-gQq
+orY
+orY
+orY
+bqs
+orY
+orY
+orY
 jQS
 fZF
 hhX
@@ -188682,13 +188701,13 @@ hhX
 hhX
 fZF
 jQS
-gQq
-gQq
-gQq
-ybO
-gQq
-gQq
-gQq
+orY
+orY
+orY
+bqs
+orY
+orY
+orY
 jQS
 fZF
 hhX
@@ -188939,13 +188958,13 @@ hhX
 hhX
 fZF
 jQS
-gQq
-gQq
-gQq
-gQq
-gQq
-gQq
-gQq
+orY
+orY
+orY
+orY
+orY
+orY
+orY
 jQS
 fZF
 hhX
@@ -189196,13 +189215,13 @@ hhX
 hhX
 fZF
 jQS
-gQq
-gQq
-gQq
-gQq
-gQq
-gQq
-gQq
+orY
+orY
+orY
+orY
+orY
+orY
+orY
 jQS
 fZF
 hhX
@@ -189454,11 +189473,11 @@ hhX
 fZF
 jQS
 jQS
-gQq
-gQq
-gQq
-gQq
-gQq
+orY
+orY
+orY
+orY
+orY
 jQS
 jQS
 fZF
