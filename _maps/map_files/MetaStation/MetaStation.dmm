@@ -7643,10 +7643,9 @@
 /turf/open/floor/wood,
 /area/station/service/library)
 "cLN" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/firealarm/directional/west,
+/obj/structure/sign/departments/exodrone/directional/east,
 /turf/open/floor/plating,
-/area/station/cargo/drone_bay)
+/area/station/maintenance/port/fore)
 "cMb" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
@@ -88188,7 +88187,7 @@ hTG
 gJM
 srk
 qGP
-sHu
+cLN
 pkT
 sHu
 eMY
@@ -88702,7 +88701,7 @@ aaa
 tdg
 hkj
 sQp
-cLN
+kuW
 qHa
 ujT
 dYi

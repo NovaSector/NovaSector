@@ -41976,6 +41976,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/sign/departments/exodrone/directional/west,
 /turf/open/floor/iron/stairs/old,
 /area/station/cargo/warehouse)
 "ica" = (
