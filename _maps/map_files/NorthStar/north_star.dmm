@@ -39009,9 +39009,8 @@
 	},
 /area/station/hallway/floor1/aft)
 "kfg" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater{
-	dir = 1;
-	piping_layer = 2
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/layer2{
+	dir = 1
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
@@ -53376,9 +53375,8 @@
 	},
 /area/station/hallway/floor3/aft)
 "nJb" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater{
-	dir = 1;
-	piping_layer = 2
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/layer2{
+	dir = 1
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
@@ -78116,9 +78114,8 @@
 /turf/open/floor/iron/checker,
 /area/station/commons/vacant_room/commissary)
 "uhC" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 1;
-	piping_layer = 2
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer2{
+	dir = 1
 	},
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
@@ -78260,9 +78257,8 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/surgery/fore)
 "ujl" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 1;
-	piping_layer = 4
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4{
+	dir = 1
 	},
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark,
@@ -78587,9 +78583,8 @@
 /turf/open/floor/iron/dark,
 /area/station/science/breakroom)
 "unQ" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 4;
-	piping_layer = 2
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer2{
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
