@@ -33,19 +33,23 @@
 	ambience_index = AMBIENCE_MUSHROOM
 	sound_environment = SOUND_AREA_MUSHROOM_CAVES
 	/// The theme song to play every once in a while.
-	var/static/theme_song = 'modular_nova/master_files/sound/ambience/mushroom/mushroom_theme.ogg'
+	var/theme_song = 'modular_nova/master_files/sound/ambience/mushroom/mushroom_theme.ogg'
 	/// The additional cooldown to add if the theme song is being played.
-	var/static/theme_song_additional_cooldown = 115 // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
+	var/theme_song_additional_cooldown = 115 // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
 
 
 /area/forestplanet/outdoors/unexplored/deep/play_ambience(mob/listener, sound/override_sound, volume)
 	var/play_theme = prob(1/6) // We handle the theme song separately because it's pretty long, and we don't want it to be cut up by another ambience track.
 
-	if(play_theme)
-		override_sound = theme_song
-		min_ambience_cooldown += theme_song_additional_cooldown
+	if(!play_theme)
+		return ..()
+
+	// Time to play the theme song!
+	override_sound = theme_song
+	min_ambience_cooldown += theme_song_additional_cooldown
+	max_ambience_cooldown += theme_song_additional_cooldown
 
 	. = ..()
 
 	min_ambience_cooldown = initial(min_ambience_cooldown)
-
+	max_ambience_cooldown = initial(max_ambience_cooldown)
