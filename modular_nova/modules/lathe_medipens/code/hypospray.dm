@@ -4,7 +4,6 @@
 	icon = 'modular_nova/modules/lathe_medipens/icons/syringe.dmi'
 	icon_state = "medipen_blue_unused"
 	base_icon_state = "medipen_blue"
-	worn_icon_state = "dnainjector0"
 	inhand_icon_state = "dnainjector0"
 	list_reagents = null
 	label_examine = FALSE
