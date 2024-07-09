@@ -58,6 +58,7 @@ const BASEICONS = {
   'Veteran Security Advisor': 'ribbon',
   Warden: 'handcuffs',
   // NOVA EDIT START - Nova-exclusive jobs have icons too
+  'Telecomms Specialist': 'tower-cell',
   Virologist: 'virus',
   Barber: 'scissors',
   Blueshield: 'shield-dog',
@@ -270,6 +271,11 @@ const ALTTITLES = {
   Mechanic: BASEICONS['Station Engineer'],
   'Apprentice Engineer': BASEICONS['Station Engineer'],
   'Engineering Trainee': BASEICONS['Station Engineer'],
+  // Telecomms Specialist - tower-cell
+  'Network Engineer': BASEICONS['Telecomms Specialist'],
+  'Wireless Operator': BASEICONS['Telecomms Specialist'],
+  'Tram Technician': BASEICONS['Telecomms Specialist'],
+  Sysadmin: BASEICONS['Telecomms Specialist'],
   // Virologist - virus
   Pathologist: BASEICONS['Virologist'],
   'Junior Pathologist': BASEICONS['Virologist'],

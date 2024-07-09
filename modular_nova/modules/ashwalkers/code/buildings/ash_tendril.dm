@@ -12,6 +12,9 @@
 
 	var/obj/item/organ/internal/monster_core/regenerative_core/regen_core = attacking_item
 
+	if(!regen_core.decay_timer)
+		balloon_alert(user, "organ already revitalized!")
+		return
 	if(!regen_core.preserve())
 		balloon_alert(user, "organ decayed!")
 		return

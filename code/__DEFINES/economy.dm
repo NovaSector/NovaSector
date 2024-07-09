@@ -1,5 +1,5 @@
 /// Number of paychecks jobs start with at the creation of a new bank account for a player (So at shift-start or game join, but not a blank new account.)
-#define STARTING_PAYCHECKS 5
+#define STARTING_PAYCHECKS 10 // NOVA EDIT: increase from 5 to 10
 /// How much mail the Economy SS will create per minute, regardless of firing time.
 #define MAX_MAIL_PER_MINUTE 3
 /// Probability of using letters of envelope sprites on all letters.
@@ -64,7 +64,8 @@
 #define CIV_JOB_MED 11
 #define CIV_JOB_GROW 12
 #define CIV_JOB_ATMOS 13
-#define CIV_JOB_RANDOM 14
+#define CIV_JOB_BITRUN 14
+#define CIV_JOB_RANDOM 15
 
 //These defines are to be used to with the payment component, determines which lines will be used during a transaction. If in doubt, go with clinical.
 #define PAYMENT_CLINICAL "clinical"
