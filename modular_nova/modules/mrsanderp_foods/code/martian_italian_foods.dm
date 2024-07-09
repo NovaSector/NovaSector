@@ -40,7 +40,7 @@
 		/datum/reagent/consumable/coco = 2
 	)
 	tastes = list("coffee" = 1, "pastry" =1 , "sugar" = 1)
-	foodtypes = SUGAR | GRAIN
+	foodtypes = SUGAR | GRAIN | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -56,7 +56,7 @@
 		/datum/reagent/consumable/nutriment/fat/oil = 2
 	)
 	tastes = list("rice dough" = 1, "chicken" = 1, "tomatoes" = 1, "cheese" = 1)
-	foodtypes = MEAT | GRAIN | DAIRY
+	foodtypes = MEAT | GRAIN | DAIRY | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
 
@@ -85,6 +85,6 @@
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
 	tastes = list("coffee" = 1, "pastry" =1 , "sugar" = 1)
-	foodtypes = SUGAR | GRAIN | FRUIT
+	foodtypes = SUGAR | GRAIN | FRUIT | DAIRY | PINEAPPLE
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
