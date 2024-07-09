@@ -9,6 +9,7 @@
 	list_reagents = null
 	label_examine = FALSE
 	used_up = TRUE
+	init_empty = TRUE
 
 /obj/item/reagent_containers/hypospray/medipen/universal/update_overlays()
 	. = ..()
