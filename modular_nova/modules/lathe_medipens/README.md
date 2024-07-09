@@ -10,7 +10,10 @@ Contains empty subtypes of several medipens, custom/universal medipen subtypes w
 
 ### TG Proc Changes:
 
-- `/obj/item/reagent_containers/hypospray/medipen/Initialize` is overridden by this module to implement medipens which spawn without reagents.
+Overridden to implement medipens which spawn without reagents:
+
+- `/obj/item/reagent_containers/hypospray/medipen/Initialize()`
+- `/obj/item/reagent_containers/hypospray/medipen/inject()`
 
 ### Defines:
 
@@ -18,9 +21,9 @@ Contains empty subtypes of several medipens, custom/universal medipen subtypes w
 
 ### Master file additions
 
-Implements variables `init_empty` and `unused` on `/obj/item/reagent_containers/hypospray/medipen`:
-
 - `modular_nova\master_files\code\modules\reagents\reagent_containers\hypospray.dm`
+  - Overrides `Initialize()` and `inject()`.
+  - Adds new variables `medipen/var/init_empty` and `medipen/var/unused`.
 
 ### Included files that are not contained in this module:
 
