@@ -14,18 +14,19 @@ Contains empty subtypes of several medipens, custom/universal medipen subtypes w
 
 ### Defines:
 
-Local to `hypospray.dm`:
-
-- Macro `HYPOSPRAY_PATH_HELPER` creates a hypospray subtype.
-- Macro `EMPTY_MEDIPEN_HELPER` creates an empty medipen subtype.
+- N/A
 
 ### Master file additions
 
-- Empty medipen subtypes: `modular_nova\master_files\code\modules\reagents\reagent_containers\hypospray.dm`
+Implements variables `init_empty` and `unused` on `/obj/item/reagent_containers/hypospray/medipen`:
+
+- `modular_nova\master_files\code\modules\reagents\reagent_containers\hypospray.dm`
 
 ### Included files that are not contained in this module:
 
-- N/A
+Dependent to avoid runtime errors:
+
+- `modular_nova\master_files\code\modules\reagents\reagent_containers\hypospray.dm`
 
 ### Credits:
 - [@Floofies](https://github.com/Floofies)
