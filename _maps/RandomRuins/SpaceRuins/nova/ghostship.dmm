@@ -503,9 +503,8 @@
 	name = "Fuel canister"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 4;
-	piping_layer = 1
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer1{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
@@ -751,9 +750,8 @@
 	desc = "Plasma gas. Highly fuel efficient. Highly volatile. Highly toxic.";
 	name = "Fuel canister"
 	},
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 4;
-	piping_layer = 1
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer1{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
