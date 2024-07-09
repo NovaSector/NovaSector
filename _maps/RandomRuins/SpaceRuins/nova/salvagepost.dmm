@@ -624,7 +624,7 @@
 	desc = "Plasma gas. Highly fuel efficient. Highly volatile. Highly toxic.";
 	name = "Fuel canister"
 	},
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer1{
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
 /turf/open/floor/plating/plasma,
@@ -735,6 +735,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/red,
 /area/ruin/powered)
+"Kg" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/orange/visible{
+	dir = 4
+	},
+/turf/open/floor/plating/plasma,
+/area/template_noop)
 "Km" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer4{
 	dir = 4
@@ -3763,13 +3769,13 @@ Eu
 Eu
 Eu
 PD
-Lx
+Kg
 Ps
 bW
 bW
 bW
 AC
-Lx
+Kg
 PD
 Eu
 Eu
