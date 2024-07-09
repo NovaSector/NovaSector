@@ -19,9 +19,15 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival = /datum/reagent/medicine/c2/libital,
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = /datum/reagent/medicine/c2/penthrite,
 		/obj/item/reagent_containers/hypospray/medipen/invisibility = /datum/reagent/drug/saturnx,
-		// NOVA EDIT BEGIN - Universal medipen
+		// NOVA EDIT BEGIN - Universal medipen and lathe medipens
 		/obj/item/reagent_containers/hypospray/medipen/universal = null,
 		/obj/item/reagent_containers/hypospray/medipen/universal/lowpressure = null,
+		/obj/item/reagent_containers/hypospray/medipen/empty = /datum/reagent/medicine/epinephrine,
+		/obj/item/reagent_containers/hypospray/medipen/atropine/empty = /datum/reagent/medicine/atropine,
+		/obj/item/reagent_containers/hypospray/medipen/salbutamol/empty = /datum/reagent/medicine/salbutamol,
+		/obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty = /datum/reagent/medicine/oxandrolone,
+		/obj/item/reagent_containers/hypospray/medipen/salacid/empty = /datum/reagent/medicine/sal_acid,
+		/obj/item/reagent_containers/hypospray/medipen/penacid/empty = /datum/reagent/medicine/pen_acid,
 		// NOVA EDIT END
 	)
 
@@ -54,7 +60,10 @@
 			context[SCREENTIP_CONTEXT_LMB] = panel_open ? "Close panel" : "Open panel"
 		else if(is_reagent_container(held_item) && held_item.is_open_container())
 			context[SCREENTIP_CONTEXT_LMB] = "Refill machine"
-		else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type]))
+		// NOVA EDIT - Universal medipen
+		// ORIGINAL: else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type]))
+		else if(istype(held_item, /obj/item/reagent_containers/hypospray/medipen/universal) || istype(held_item, /obj/item/reagent_containers/hypospray/medipen) && reagents.has_reagent(allowed_pens[held_item.type]))
+		// NOVA EDIT END
 			context[SCREENTIP_CONTEXT_LMB] = "Refill medipen"
 		else if(istype(held_item, /obj/item/plunger))
 			context[SCREENTIP_CONTEXT_LMB] = "Plunge machine"
