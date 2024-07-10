@@ -39,7 +39,7 @@
 
 
 /area/forestplanet/outdoors/unexplored/deep/play_ambience(mob/listener, sound/override_sound, volume)
-	var/play_theme = prob(1/6) // We handle the theme song separately because it's pretty long, and we don't want it to be cut up by another ambience track.
+	var/play_theme = prob(1/6 * 100) // We handle the theme song separately because it's pretty long, and we don't want it to be cut up by another ambience track.
 
 	if(!play_theme)
 		return ..()
