@@ -1,5 +1,0 @@
-author: "Jolly"
-delete-after: True
-changes:
-  - bugfix: "[Birdshot] There are no longer two barbershops on Birdshot."
-  - rscdel: "[Birdshot] The NTC office is no longer next to the Captain's office, instead, its near the HoPs office!"

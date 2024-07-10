@@ -571,3 +571,60 @@
       want to use before you send them, if any.
   grungussuss:
   - sound: scalpel cutting sound now has a clean sound.
+2024-07-10:
+  Jolly:
+  - bugfix: '[Birdshot] There are no longer two barbershops on Birdshot.'
+  - rscdel: '[Birdshot] The NTC office is no longer next to the Captain''s office,
+      instead, its near the HoPs office!'
+  - code_imp: Behind the scenes, atmos machines (freezers/mixers) in maps were tweaked
+      a bit. If you see them no longer connected to specific pipenets, please make
+      an issue report, this is not intended behavior!!
+  NovaBot13:
+  - bugfix: Missing janitor access restrictions have been added to Birdshot's custodial
+      closet doors.
+  - sound: Added audible zipping to winter coats.
+  - bugfix: Living limbs can no longer make you touch ghosts or abstract concepts
+      of start, landmark, influence or job
+  - spellcheck: Fixed improper word usage and improved grammar for living limbs
+  - bugfix: fixed CNS rebooter/Changeling adrenaline not preventing/fixing stamina
+      crit
+  - bugfix: Ore vents that are caught in the cross-fire of a lavaland tendril collapsing
+      will now spare the ore vent and it's associated turf.
+  - bugfix: hydroponic trays take in all reagents "proportionally" from plumbing ducts
+      without leaving any behind
+  - bugfix: plumbing bottler pumps out all reagents "proportionally" into output beakers
+  - qol: the disposal unit has been added to the cargo bay and miner's office.
+  - bugfix: missed disposal pipe returned at QM's office
+  - bugfix: Embedding now properly changes its values.
+  - qol: You can now use a spoon or ladle on an ice cream vat to spill a reagent,
+      ridding the machine of all reagent of that type.
+  - bugfix: Exosuit Stress Failure experiment now works
+  - balance: Jetpacks are now briefly disabled by EMP.
+  - balance: Mirage module has been removed from Sec modsuits.
+  - balance: Security modsuits now spawn with a better cell and the jetpack module
+      preinstalled.
+  - bugfix: fixed dubious chem dispenser feedback when the beaker is full
+  - bugfix: Welding helmet and hardhat will now properly protect against pepperspray
+      while its down
+  - qol: Using a multitool inhand tells you where the area APC is
+  - bugfix: Bloody footprints no longer bloody your shoes even more when walked over.
+  - bugfix: Blood filters should filter out reagents completely now instead of leaving
+      a small amount no matter what.
+  Rhials:
+  - bugfix: Certain items can no longer be purchased or be offered with a discount
+      on a loneop uplink. This is stuff like base cards (functionally useless) or
+      Overwatch Intel Agents (which break the role).
+  - balance: Loneops may now purchase chameleon noslips, station blackout triggers,
+      and station comms failure triggers.
+  Thlumyn for the map and sprites, GoldenAlpharex for most of the code:
+  - rscadd: Added SerenityStation map.
+  - rscadd: Added lightshroom, mushroom bush, mushroom tree, and colored ash flora
+      mushroom plants.
+  - rscadd: Added Stillcap and Mega Deer mobs.
+  - rscadd: Add forest cave generation and mushroom cave biome generation.
+  - config: Add SerenityStation to the map config.
+  grungussuss:
+  - bugfix: fixed an unrestricted airlock in metastation brig maints
+  - sound: pen click now has a proper sound
+  grungussuss, ported from Beestation:
+  - sound: abductee, hypnotized and brainwashed now have sound when becoming one.
