@@ -80,7 +80,10 @@ map ouroboros
 	votable
 endmap
 
+map serenitystation
+	votable
+endmap
+
 map snowglobe
-	minplayers 50
 	votable
 endmap

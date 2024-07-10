@@ -1,0 +1,8 @@
+author: "Thlumyn for the map and sprites, GoldenAlpharex for most of the code"
+delete-after: True
+changes:
+  - rscadd: "Added SerenityStation map."
+  - rscadd: "Added lightshroom, mushroom bush, mushroom tree, and colored ash flora mushroom plants."
+  - rscadd: "Added Stillcap and Mega Deer mobs."
+  - rscadd: "Add forest cave generation and mushroom cave biome generation."
+  - config: "Add SerenityStation to the map config."

@@ -3185,6 +3185,7 @@
 	dir = 10
 	},
 /obj/structure/sign/poster/contraband/random/directional/west,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/drone_bay)
 "aUC" = (
@@ -27677,9 +27678,7 @@
 /area/station/service/chapel)
 "hXI" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	piping_layer = 2
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer2,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_edge,
 /area/station/science/ordnance)
@@ -31537,6 +31536,7 @@
 	},
 /obj/effect/landmark/start/shaft_miner,
 /obj/machinery/light/directional/east,
+/obj/structure/sign/departments/exodrone/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/miningoffice)
 "jaz" = (
@@ -51354,7 +51354,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},

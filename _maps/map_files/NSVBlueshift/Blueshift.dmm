@@ -41976,6 +41976,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/sign/departments/exodrone/directional/west,
 /turf/open/floor/iron/stairs/old,
 /area/station/cargo/warehouse)
 "ica" = (
@@ -59325,9 +59326,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	piping_layer = 4
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "lsb" = (
