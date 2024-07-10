@@ -36,6 +36,10 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/crowbar/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 /datum/design/tscanner/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
