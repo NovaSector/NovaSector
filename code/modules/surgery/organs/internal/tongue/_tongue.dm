@@ -191,6 +191,7 @@
 		new /regex("s+", "g") = "sss",
 		new /regex("S+", "g") = "SSS",
 		new /regex(@"(\w)x", "g") = "$1kss",
+<<<<<<< HEAD
 		//new /regex(@"(\w)X", "g") = "$1KSSS", // NOVA EDIT REMOVAL
 		new /regex(@"\bx([\-|r|R]|\b)", "g") = "ecks$1",
 		new /regex(@"\bX([\-|r|R]|\b)", "g") = "ECKS$1",
@@ -210,6 +211,12 @@
 		"Ж" = "Ш",
 	)
 	// NOVA EDIT ADDITION END
+=======
+		new /regex(@"(\w)X", "g") = "$1KSSS",
+		new /regex(@"\bx([\-|r|R]|\b)", "g") = "ecks$1",
+		new /regex(@"\bX([\-|r|R]|\b)", "g") = "ECKS$1",
+	)
+>>>>>>> 36c8b9964617 (Multilines this static list (#84872))
 
 /obj/item/organ/internal/tongue/lizard/New(class, timer, datum/mutation/human/copymut)
 	. = ..()
