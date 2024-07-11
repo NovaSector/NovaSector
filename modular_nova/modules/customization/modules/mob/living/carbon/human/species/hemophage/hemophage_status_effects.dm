@@ -50,7 +50,7 @@
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
 	alert_type = /atom/movable/screen/alert/status_effect/blood_regen_active
 	/// Current multiplier for how much blood they spend healing themselves for every point of damage healed.
-	var/blood_to_health_multiplier = 1
+	var/blood_to_health_multiplier = 0.25
 
 
 /datum/status_effect/blood_regen_active/on_apply()
