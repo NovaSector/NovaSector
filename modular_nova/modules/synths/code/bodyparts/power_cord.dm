@@ -46,7 +46,7 @@
 		to_chat(user, span_warning("You plug into [target], but nothing happens! It seems you don't have an internal cell to charge."))
 		return
 
-	if(nutrition_level_joules >= SYNTH_CHARGE_ALMOST_FULL)
+	if(nutrition_level_joules > SYNTH_CHARGE_ALMOST_FULL)
 		user.balloon_alert(user, "cell fully charged!")
 		return
 
@@ -86,14 +86,6 @@
 	var/wait = SSmachines.wait / (1 SECONDS)
 	var/energy_needed
 	while(TRUE)
-		// Check if the user is nearly fully charged.
-		// Ensures minimum draw is always lower than this margin.
-		var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
-		energy_needed = SYNTH_CHARGE_MAX - nutrition_level_joules
-		if(energy_needed < SYNTH_CHARGE_MAX)
-			user.balloon_alert(user, "cell fully charged!")
-			break
-
 		// Check if the charge level of the cell is below the minimum.
 		// Prevents synths from overloading the cell.
 		if(target_cell.percent() < minimum_cell_charge)
@@ -101,8 +93,13 @@
 			break
 
 		// Attempt to drain charge from the cell.
-		if(!do_after(user, SSmachines.wait, target))
+		if(!do_after(user, wait SECONDS, target))
 			break
+
+		// Check if the user is nearly fully charged.
+		// Ensures minimum draw is always lower than this margin.
+		var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
+		energy_needed = SYNTH_CHARGE_MAX - nutrition_level_joules
 
 		// Calculate how much to draw from the cell this cycle.
 		var/current_draw = min(energy_needed, SYNTH_CHARGE_RATE * wait)
@@ -116,6 +113,10 @@
 			break
 
 		// If charging was successful, then increase user nutrition and emit sparks.
-		var/nutrition_gained = (energy_delivered / SYNTH_JOULES_PER_NUTRITION) / wait
+		var/nutrition_gained = energy_delivered / SYNTH_JOULES_PER_NUTRITION
 		user.nutrition += nutrition_gained
 		do_sparks(1, FALSE, target_cell.loc)
+		if(nutrition_level_joules > SYNTH_CHARGE_ALMOST_FULL)
+			user.balloon_alert(user, "fully charged")
+			break
+
