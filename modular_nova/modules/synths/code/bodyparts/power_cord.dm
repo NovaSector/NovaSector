@@ -1,7 +1,7 @@
 #define SYNTH_CHARGE_MAX (STANDARD_CELL_CHARGE * 20) //Takes two high capacity cells to go from 0 to 100
 #define SYNTH_JOULES_PER_NUTRITION (SYNTH_CHARGE_MAX / NUTRITION_LEVEL_FULL)
 #define SYNTH_CHARGE_ALMOST_FULL (NUTRITION_LEVEL_ALMOST_FULL * SYNTH_JOULES_PER_NUTRITION)
-#define SYNTH_CHARGE_RATE (STANDARD_CELL_RATE * 5)
+#define SYNTH_CHARGE_RATE (STANDARD_CELL_RATE * 2.5)
 #define SYNTH_APC_MINIMUM_PERCENT 20
 #define SSMACHINES_SECONDS_PER_TICK 2
 
@@ -79,8 +79,6 @@
  * * user - The human mob draining the power cell.
  */
 /obj/item/synth_powercord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
-	/// The current user's nutrition level in joules.
-	var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
 	// Draw power from an APC if one was given.
 	var/obj/machinery/power/apc/target_apc
 	if(istype(target, /obj/machinery/power/apc))
@@ -97,9 +95,9 @@
 	while(TRUE)
 		// Check if the user is nearly fully charged.
 		// Ensures minimum draw is always lower than this margin.
-		nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
+		var/nutrition_level_joules = user.nutrition * SYNTH_JOULES_PER_NUTRITION
 		energy_needed = SYNTH_CHARGE_MAX - nutrition_level_joules
-		if(energy_needed < SYNTH_CHARGE_MAX - SYNTH_CHARGE_ALMOST_FULL - 125 KILO JOULES)
+		if(energy_needed < SYNTH_CHARGE_MAX)
 			user.balloon_alert(user, "cell fully charged!")
 			break
 
@@ -121,18 +119,13 @@
 			// The cell could be sabotaged, which causes it to explode and qdelete.
 			if(QDELETED(target_cell))
 				return
-			user.balloon_alert(user, "APC failure!")
+			user.balloon_alert(user, "[target_apc ? "APC" : "Cell"] failure!")
 			break
 
 		// If charging was successful, then increase user nutrition and emit sparks.
 		var/nutrition_gained = (energy_delivered / SYNTH_JOULES_PER_NUTRITION) / SSMACHINES_SECONDS_PER_TICK
 		user.nutrition += nutrition_gained
 		do_sparks(1, FALSE, target_cell.loc)
-
-	// Start APC recharging if power was used and the APC has power available.
-	if(target_apc && !QDELETED(target_apc) && !QDELETED(target_apc.cell) && target_apc.main_status > APC_NO_POWER)
-		target_apc.charging = APC_CHARGING
-		target_apc.update_appearance()
 
 #undef SYNTH_CHARGE_MAX
 #undef SYNTH_JOULES_PER_NUTRITION
