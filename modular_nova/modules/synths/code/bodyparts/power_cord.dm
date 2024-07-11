@@ -115,9 +115,9 @@
 
 		// If charging was successful, then increase user nutrition and emit sparks.
 		var/nutrition_gained = energy_delivered / SYNTH_JOULES_PER_NUTRITION
-		user.nutrition += nutrition_gained
+		user.nutrition = min(user.nutrition + nutrition_gained, NUTRITION_LEVEL_FULL)
 		do_sparks(1, FALSE, target_cell.loc)
-		if(nutrition_level_joules > SYNTH_CHARGE_ALMOST_FULL)
+		if(user.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
 			user.balloon_alert(user, "fully charged")
 			break
 
