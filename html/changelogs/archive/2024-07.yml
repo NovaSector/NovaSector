@@ -628,3 +628,28 @@
   - sound: pen click now has a proper sound
   grungussuss, ported from Beestation:
   - sound: abductee, hypnotized and brainwashed now have sound when becoming one.
+2024-07-11:
+  NovaBot13:
+  - bugfix: stacking machines can be linked with its console via multitool
+  - bugfix: humanoid species featured are randomized correctly once again
+  - bugfix: Amputating a paraplegic's leg no longer miraculously allows them to walk.
+  - bugfix: Fixed a whoopsie with bait-related calculations for fishing.
+  - rscadd: Living flesh arms have a chance to actually touch the thing they're targeting
+      instead of pulling it. Careful with supermatter!
+  - qol: Docked emergency shuttles will always reset their departure timer when a
+      hostile environment is stopped, regardless of if the timer displays ETD or ERR.
+  - bugfix: Fixed lights stopping emitting light in some situations
+  - rscdel: 'Removed the shuttle manipulator entries for the following shuttles: Northstar
+      ferry, Omegastation arrivals shuttle, and Donutstation cargo ferry. (These shuttles
+      didn''t actually exist but they still had entries in the manipulator.)'
+  - bugfix: 'Fixed the following shuttles flying in unexpected directions: Basic CC
+      Ferry, Meat Ferry, Lighthouse Ferry, ERT bounty shuttle, Kilo cargo shuttle,
+      Pubby cargo shuttle, and Delta cargo shuttle.'
+  - bugfix: Fixed the ERT bounty shuttle having incorrect offsets in the shuttle navigation
+      console.
+  OrbisAnima:
+  - rscadd: Adds stone bricks to the trading goods you can order from cargo.
+  grungussuss:
+  - sound: Zippos, Lighters and cigarettes now have sound
+  honkpocket:
+  - rscadd: Added 'Contractor' alt title for assistant
