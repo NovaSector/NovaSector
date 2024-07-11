@@ -105,6 +105,7 @@
 		var/current_draw = min(energy_needed, SYNTH_CHARGE_RATE * wait)
 
 		var/energy_delivered = target_cell.use(current_draw, force = TRUE)
+		target_cell.update_appearance()
 		if(!energy_delivered)
 			// The cell could be sabotaged, which causes it to explode and qdelete.
 			if(QDELETED(target_cell))
