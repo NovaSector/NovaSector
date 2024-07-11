@@ -109,7 +109,7 @@
 			// The cell could be sabotaged, which causes it to explode and qdelete.
 			if(QDELETED(target_cell))
 				return
-			user.balloon_alert(user, "[target_apc ? "APC" : "Cell"] failure!")
+			user.balloon_alert(user, "[target_apc ? "APC" : "Cell"] empty!")
 			break
 
 		// If charging was successful, then increase user nutrition and emit sparks.
