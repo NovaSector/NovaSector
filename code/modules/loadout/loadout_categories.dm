@@ -45,6 +45,12 @@
 			continue
 
 		var/datum/loadout_item/spawned_type = new found_type(src)
+
+		// Let's sanitize in case somebody inserted the player's byond name instead of ckey in canonical form
+		if(spawned_type.ckeywhitelist)
+			for (var/i = 1, i <= length(spawned_type.ckeywhitelist), i++)
+				spawned_type.ckeywhitelist[i] = ckey(spawned_type.ckeywhitelist[i])
+
 		all_items += spawned_type
 
 	return all_items
