@@ -116,7 +116,7 @@
 		// Calculate how much to draw from the cell this cycle.
 		var/current_draw = min(energy_needed, SYNTH_CHARGE_RATE * SSMACHINES_SECONDS_PER_TICK)
 
-		var/energy_delivered = target_cell.use(current_draw)
+		var/energy_delivered = target_cell.use(current_draw, force = TRUE)
 		if(!energy_delivered)
 			// The cell could be sabotaged, which causes it to explode and qdelete.
 			if(QDELETED(target_cell))
