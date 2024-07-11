@@ -2272,7 +2272,8 @@
 "aMc" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
 	dir = 1;
-	piping_layer = 2
+	piping_layer = 2;
+	layer = null
 	},
 /obj/machinery/light/directional/south{
 	dir = 8
@@ -14617,13 +14618,9 @@
 /area/station/science/robotics/lab)
 "eQi" = (
 /obj/structure/table,
-/obj/machinery/computer/security/telescreen/minisat{
-	dir = 4
-	},
-/obj/machinery/status_display/ai{
-	pixel_x = -32
-	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/status_display/ai/directional/west,
+/obj/machinery/computer/security/telescreen/minisat/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/teleporter)
 "eQj" = (
@@ -41828,6 +41825,7 @@
 	name = "Bridge Fax Machine";
 	pixel_y = 3
 	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "nwF" = (
@@ -45051,11 +45049,9 @@
 /turf/open/floor/iron/sepia,
 /area/station/engineering/main)
 "ozC" = (
-/obj/machinery/computer/security/telescreen/entertainment{
-	pixel_y = 32
-	},
-/turf/closed/wall/r_wall,
-/area/station/hallway/secondary/command)
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/medical/patients_rooms/room_a)
 "ozD" = (
 /obj/effect/landmark/blobstart,
 /obj/effect/spawner/random/trash/botanical_waste,
@@ -71317,7 +71313,8 @@
 "wIb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 4
+	dir = 4;
+	layer = null
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
@@ -104448,7 +104445,7 @@ nTs
 aPd
 nbL
 bpY
-edm
+ozC
 vqt
 fTX
 cRI
@@ -104962,7 +104959,7 @@ nTs
 bHq
 nbL
 irn
-edm
+ozC
 vqt
 fTX
 cRI
@@ -122958,7 +122955,7 @@ sex
 sex
 sex
 cyb
-ozC
+cyb
 cyb
 dXB
 qqi
