@@ -1,5 +1,5 @@
 /// Minimum amount of light for Hemophages to be considered in pure darkness, and therefore be allowed to heal just like in a closet.
-#define MINIMUM_LIGHT_THRESHOLD_FOR_REGEN 0.2
+#define MINIMUM_LIGHT_THRESHOLD_FOR_REGEN 0.1
 
 /// How high should the damage multiplier to the Hemophage be when they're in a dormant state?
 #define DORMANT_DAMAGE_MULTIPLIER 3
