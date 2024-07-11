@@ -58,16 +58,7 @@
 			balloon_alert(user, "receiver inserted")
 			receiver = part
 			step = TURRET_ASSEMBLY_RECEIVER
-		if(TURRET_ASSEMBLY_RECEIVER)
-			if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "receiver secured")
-				step = TURRET_ASSEMBLY_SEC_1
-			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					receiver.forceMove(drop_location())
-					balloon_alert(user, "receiver taken out")
-				step = TURRET_ASSEMBLY_START
+
 		if(TURRET_ASSEMBLY_SEC_1)
 			if(istype(part, /obj/item/stock_parts/servo)) //Construct
 				if(!user.transferItemToLoc(part, src))
@@ -77,21 +68,7 @@
 				balloon_alert(user, "servo added")
 				servo = part
 				step = TURRET_ASSEMBLY_SERVO
-			else if(part.tool_behaviour == TOOL_SCREWDRIVER) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "receiver unsecured")
-					step = TURRET_ASSEMBLY_RECEIVER
-		if(TURRET_ASSEMBLY_SERVO)
-			if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "servo secured")
-				step = TURRET_ASSEMBLY_SEC_2
-			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					servo.forceMove(drop_location())
-					balloon_alert(user, "servo removed")
-					servo = null
-					step = TURRET_ASSEMBLY_SEC_1
+
 		if(TURRET_ASSEMBLY_SEC_2)
 			if(istype(part, /obj/item/assembly/prox_sensor)) //Construct
 				if(!user.transferItemToLoc(part, src))
@@ -101,42 +78,85 @@
 				balloon_alert(user, "sensor added")
 				sensor = part
 				step = TURRET_ASSEMBLY_SENSOR
-			else if(part.tool_behaviour == TOOL_SCREWDRIVER) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "sensor unsecured")
-					step = TURRET_ASSEMBLY_SERVO
-		if(TURRET_ASSEMBLY_SENSOR)
-			if(part.tool_behaviour == TOOL_SCREWDRIVER) //Construct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "sensor secured")
-					step = TURRET_ASSEMBLY_SEC_3
-			else if(part.tool_behaviour == TOOL_CROWBAR) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					sensor.forceMove(drop_location())
-					balloon_alert(user, "sensor removed")
-					sensor = null
-					step = TURRET_ASSEMBLY_SEC_2
+
+/obj/item/turret_assembly/multitool_act(mob/living/user, obj/item/tool)
+	if(step == TURRET_ASSEMBLY_WRAPUP)
+		if(tool.use_tool(src, user, 0, volume=30))
+			playsound(src, 'sound/machines/click.ogg', 30, TRUE)
+			var/obj/item/turretling = new design(drop_location())
+			qdel(src)
+			user.put_in_hands(turretling)
+			turretling.balloon_alert(user, "suit finished")
+
+/obj/item/turret_assembly/wrench_act(mob/living/user, obj/item/tool)
+	switch(step)
 		if(TURRET_ASSEMBLY_SEC_3)
-			if(part.tool_behaviour == TOOL_WRENCH) //Construct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "assembly secured")
-					step = TURRET_ASSEMBLY_WRAPUP
-			else if(part.tool_behaviour == TOOL_SCREWDRIVER) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "sensor unsecured")
-					step = TURRET_ASSEMBLY_SENSOR
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "assembly secured")
+				step = TURRET_ASSEMBLY_WRAPUP
+				return // Last step leads to the next step
 		if(TURRET_ASSEMBLY_WRAPUP)
-			if(part.tool_behaviour == TOOL_MULTITOOL) //Construct
-				if(part.use_tool(src, user, 0, volume=30))
-					playsound(src, 'sound/machines/click.ogg', 30, TRUE)
-					var/obj/item/turretling = new design(drop_location())
-					qdel(src)
-					user.put_in_hands(turretling)
-					turretling.balloon_alert(user, "suit finished")
-			else if(part.tool_behaviour == TOOL_WRENCH) //Deconstruct
-				if(part.use_tool(src, user, 0, volume=30))
-					balloon_alert(user, "assembly unsecured")
-					step = TURRET_ASSEMBLY_SEC_3
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "assembly unsecured")
+				step = TURRET_ASSEMBLY_SEC_3
+				return
+
+/obj/item/turret_assembly/screwdriver_act(mob/living/user, obj/item/tool)
+	switch(step)
+		if(TURRET_ASSEMBLY_RECEIVER) //Construct
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "receiver secured")
+				step = TURRET_ASSEMBLY_SEC_1
+				return //same as wrench
+		if(TURRET_ASSEMBLY_SEC_1) //Deconstruct
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "receiver unsecured")
+				step = TURRET_ASSEMBLY_RECEIVER
+				return
+		if(TURRET_ASSEMBLY_SERVO) //Construct
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "servo secured")
+				step = TURRET_ASSEMBLY_SEC_2
+				return
+		if(TURRET_ASSEMBLY_SEC_2) //Deconstruct
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "sensor unsecured")
+				step = TURRET_ASSEMBLY_SERVO
+				return
+		if(TURRET_ASSEMBLY_SENSOR)//Construct
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "sensor secured")
+				step = TURRET_ASSEMBLY_SEC_3
+				return
+		if(TURRET_ASSEMBLY_SEC_3) //Deconstruct
+			if(tool.use_tool(src, user, 0, volume=30))
+				balloon_alert(user, "sensor unsecured")
+				step = TURRET_ASSEMBLY_SENSOR
+				return
+
+/obj/item/turret_assembly/crowbar_act(mob/living/user, obj/item/tool)
+	switch(step)
+		if(TURRET_ASSEMBLY_RECEIVER)
+			if(tool.use_tool(src, user, 0, volume=30))
+				receiver.forceMove(drop_location())
+				balloon_alert(user, "receiver taken out")
+				receiver = null
+				step = TURRET_ASSEMBLY_START
+				return
+		if(TURRET_ASSEMBLY_SERVO)
+			if(tool.use_tool(src, user, 0, volume=30))
+				servo.forceMove(drop_location())
+				balloon_alert(user, "servo removed")
+				servo = null
+				step = TURRET_ASSEMBLY_SEC_1
+				return
+		if(TURRET_ASSEMBLY_SENSOR)
+			if(tool.use_tool(src, user, 0, volume=30))
+				sensor.forceMove(drop_location())
+				balloon_alert(user, "sensor removed")
+				sensor = null
+				step = TURRET_ASSEMBLY_SEC_2
+				return
 
 /obj/item/turret_assembly/Destroy()
 	QDEL_NULL(receiver)
