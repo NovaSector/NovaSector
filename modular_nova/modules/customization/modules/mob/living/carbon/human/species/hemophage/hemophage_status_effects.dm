@@ -140,8 +140,8 @@
 
 /datum/movespeed_modifier/hemophage_dormant_state
 	id = "hemophage_dormant_state"
-	multiplicative_slowdown = 3 // Yeah, they'll be quite significantly slower when in their dormant state.
-	blacklisted_movetypes = FLOATING
+	multiplicative_slowdown = 2 // Yeah, they'll be quite significantly slower when in their dormant state.
+	blacklisted_movetypes = FLOATING|FLYING
 
 
 /atom/movable/screen/alert/status_effect/blood_thirst_satiated
