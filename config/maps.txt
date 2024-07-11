@@ -79,3 +79,7 @@ map ouroboros
 	maxplayers 80
 	votable
 endmap
+
+map serenitystation
+	votable
+endmap
