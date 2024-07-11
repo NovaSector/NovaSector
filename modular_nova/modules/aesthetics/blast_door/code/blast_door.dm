@@ -6,9 +6,9 @@
 	var/door_open_sound = 'modular_nova/modules/aesthetics/blast_door/sound/shutters_open.ogg'
 	var/door_close_sound = 'modular_nova/modules/aesthetics/blast_door/sound/shutters_close.ogg'
 
-/obj/machinery/door/poddoor/shutters/run_animation(animation)
+/obj/machinery/door/poddoor/shutters/animation_effects(animation)
 	switch(animation)
 		if(DOOR_OPENING_ANIMATION)
 			playsound(src, door_open_sound, 30, TRUE)
-		if(DOOR_OPENING_ANIMATION)
+		if(DOOR_CLOSING_ANIMATION)
 			playsound(src, door_close_sound, 30, TRUE)

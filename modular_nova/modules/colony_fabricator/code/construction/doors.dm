@@ -9,11 +9,11 @@
 	density = FALSE
 	opacity = FALSE
 
-/obj/machinery/door/poddoor/shutters/colony_fabricator/run_animation(animation)
+/obj/machinery/door/poddoor/shutters/colony_fabricator/animation_effects(animation)
 	switch(animation)
 		if(DOOR_OPENING_ANIMATION)
 			playsound(src, animation_sound, 30, TRUE)
-		if(DOOR_OPENING_ANIMATION)
+		if(DOOR_CLOSING_ANIMATION)
 			playsound(src, animation_sound, 30, TRUE)
 
 /obj/item/flatpacked_machine/shutter_kit
