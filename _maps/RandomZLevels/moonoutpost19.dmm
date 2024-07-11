@@ -112,7 +112,6 @@
 "aJ" = (
 /obj/machinery/door/poddoor{
 	id = "AwayRD";
-	layer = 2.9;
 	name = "Privacy Shutter"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -929,7 +928,6 @@
 /obj/machinery/door/poddoor{
 	desc = "A heavy duty blast door that opens mechanically. This one has been applied with an acid-proof coating.";
 	id = "Awaybiohazard";
-	layer = 2.9;
 	name = "Acid-Proof Biohazard Containment Door"
 	},
 /obj/effect/turf_decal/delivery,
@@ -2162,15 +2160,6 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/moonoutpost19/arrivals)
-"ob" = (
-/mob/living/basic/pet/cat/space{
-	desc = "With survival instincts like these, it's no wonder cats survived to the 26th century.";
-	name = "Jones"
-	},
-/turf/open/misc/asteroid/moon{
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251"
-	},
-/area/awaymission/moonoutpost19/main)
 "od" = (
 /obj/effect/decal/cleanable/xenoblood/xgibs/larva/body,
 /turf/open/misc/asteroid/moon{
@@ -2242,7 +2231,6 @@
 /obj/machinery/door/poddoor{
 	desc = "A heavy duty blast door that opens mechanically. This one has been applied with an acid-proof coating.";
 	id = "Awaybiohazard";
-	layer = 2.9;
 	name = "Acid-Proof Biohazard Containment Door"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -2386,9 +2374,7 @@
 /area/awaymission/moonoutpost19/syndicate)
 "pF" = (
 /obj/machinery/light/small/directional/north,
-/obj/structure/window/reinforced/spawner/directional/east{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/table,
 /obj/structure/bedsheetbin,
 /obj/item/clothing/neck/tie/black,
@@ -3464,8 +3450,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet,
 /obj/effect/decal/remains/human{
-	desc = "They look like human remains. The skeleton is laid out on its side and there seems to have been no sign of struggle.";
-	layer = 4.1
+	desc = "They look like human remains. The skeleton is laid out on its side and there seems to have been no sign of struggle."
 	},
 /obj/machinery/button/door/directional/west{
 	id = "awaydorm3";
@@ -3782,7 +3767,6 @@
 "yx" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "awaysyndie";
-	layer = 3.1;
 	name = "mining conveyor"
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -4131,7 +4115,6 @@
 	dir = 1
 	},
 /obj/item/crowbar{
-	layer = 2.9;
 	pixel_x = 7;
 	pixel_y = -13
 	},
@@ -4760,7 +4743,6 @@
 /area/awaymission/moonoutpost19/research)
 "Fw" = (
 /obj/item/pickaxe{
-	layer = 2.9;
 	pixel_x = -12;
 	pixel_y = 6
 	},
@@ -5132,6 +5114,15 @@
 	dir = 8
 	},
 /area/awaymission/moonoutpost19/research)
+"HP" = (
+/mob/living/basic/pet/cat/space{
+	desc = "With survival instincts like these, it's no wonder cats survived to the 26th century.";
+	name = "Jones"
+	},
+/turf/open/misc/asteroid/moon{
+	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251"
+	},
+/area/awaymission/moonoutpost19/main)
 "HS" = (
 /obj/structure/chair/stool/directional/east{
 	pixel_x = 9
@@ -29309,7 +29300,7 @@ ac
 ac
 My
 My
-ob
+HP
 My
 My
 My

@@ -334,6 +334,7 @@
 	name = "warm sweater"
 	desc = "A comfortable warm-looking sweater."
 	icon_state = "warm_sweater"
+	body_parts_covered = CHEST|ARMS
 	greyscale_config = /datum/greyscale_config/warm_sweater
 	greyscale_config_worn = /datum/greyscale_config/warm_sweater/worn
 	greyscale_colors = "#867361"
@@ -345,6 +346,7 @@
 	name = "heart sweater"
 	desc = "A comfortable warm-looking sweater. It even has a heart pattern on it, how cute."
 	icon_state = "heart_sweater"
+	body_parts_covered = CHEST|ARMS
 	greyscale_config = /datum/greyscale_config/heart_sweater
 	greyscale_config_worn = /datum/greyscale_config/heart_sweater/worn
 	greyscale_colors = "#867361#8f3a3a"
