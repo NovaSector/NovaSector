@@ -141,7 +141,7 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security(src)
+	new /obj/item/melee/baton/security/loaded/departmental/science(src)
 
 /obj/item/storage/belt/security/department_guard/medical
 	name = "medical guard belt"
@@ -153,7 +153,7 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security(src)
+	new /obj/item/melee/baton/security/loaded/departmental/medical(src)
 
 /obj/item/storage/belt/security/department_guard/engineering
 	name = "engineer guard belt"
@@ -165,7 +165,7 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security(src)
+	new /obj/item/melee/baton/security/loaded/departmental/engineering(src)
 
 /obj/item/storage/belt/security/department_guard/cargo
 	name = "cargo guard belt"
@@ -177,7 +177,7 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security(src)
+	new /obj/item/melee/baton/security/loaded/departmental/cargo(src)
 
 /obj/item/storage/belt/security/department_guard/service
 	name = "service guard belt"
@@ -189,7 +189,7 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/ammo_box/magazine/pepperball(src)
 	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security(src)
+	new /obj/item/melee/baton/security/loaded/departmental/service(src)
 
 /*
 	LANDMARKS
@@ -245,10 +245,7 @@
 		/datum/job_department/science,
 		)
 
-	family_heirlooms = list(
-		/obj/item/book/manual/wiki/security_space_law,
-		/obj/item/clothing/head/beret/sec/science,
-	)
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/beret/sec/science)
 
 	mail_goodies = list(
 		/obj/item/food/donut/caramel = 10,
@@ -319,11 +316,7 @@
 		ACCESS_WEAPONS,
 		ACCESS_XENOBIOLOGY,
 	)
-	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_RD,
-		ACCESS_CHANGE_IDS,
-	)
+	template_access = list(ACCESS_CAPTAIN, ACCESS_RD, ACCESS_CHANGE_IDS)
 	job = /datum/job/science_guard
 
 /*
@@ -352,10 +345,7 @@
 		/datum/job_department/medical,
 		)
 
-	family_heirlooms = list(
-		/obj/item/book/manual/wiki/security_space_law,
-		/obj/item/clothing/head/beret/sec/medical,
-	)
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/beret/sec/medical)
 
 	mail_goodies = list(
 		/obj/item/food/donut/caramel = 10,
@@ -716,6 +706,146 @@
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
 	job = /datum/job/bouncer
 
+/*
+	Departmental Batons
+*/
+/obj/item/melee/baton/security/loaded/departmental
+	name = "departmental stun baton"
+	desc = "A stun baton fitted with a departmental area-lock, based off the station's blueprint layout - outside of its department, it only has three uses."
+	icon = 'modular_nova/modules/goofsec/icons/departmental_batons.dmi'
+	icon_state = "prison_baton"
+	belt_icon_state = "stunbaton"
+	var/list/valid_areas = list()
+	var/emagged = FALSE
+	var/non_departmental_uses_left = 4
+
+/obj/item/melee/baton/security/loaded/departmental/baton_attack(mob/living/target, mob/living/user, modifiers)
+	if(active && !emagged && cooldown_check <= world.time)
+		var/area/current_area = get_area(user)
+		if(!is_type_in_list(current_area, valid_areas))
+			if(non_departmental_uses_left)
+				non_departmental_uses_left--
+				if(non_departmental_uses_left)
+					say("[non_departmental_uses_left] non-departmental uses left!")
+				else
+					say("[src] is out of non-departmental uses! Return to your department and reactivate the baton to refresh it!")
+			else
+				target.visible_message(span_warning("[user] prods [target] with [src]. Luckily, it shut off due to being in the wrong area."), \
+					span_warning("[user] prods you with [src]. Luckily, it shut off due to being in the wrong area."))
+				active = FALSE
+				balloon_alert(user, "wrong department")
+				playsound(src, SFX_SPARKS, 75, TRUE, -1)
+				update_appearance()
+				return BATON_ATTACK_DONE
+	. = ..()
+
+/obj/item/melee/baton/security/loaded/departmental/attack_self(mob/user)
+	. = ..()
+	if(active) // just turned on
+		var/area/current_area = get_area(user)
+		if(!is_type_in_list(current_area, valid_areas))
+			return
+		if(non_departmental_uses_left < 4)
+			say("Non-departmental uses refreshed!")
+			non_departmental_uses_left = 4
+
+/obj/item/melee/baton/security/loaded/departmental/emag_act(mob/user)
+	if(!emagged)
+		if(user)
+			user.visible_message(span_warning("Sparks fly from [src]!"),
+							span_warning("You scramble [src]'s departmental lock, allowing it to be used freely!"),
+							span_hear("You hear a faint electrical spark."))
+		balloon_alert(user, "emagged")
+		playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		obj_flags |= EMAGGED
+		emagged = TRUE
+		return TRUE
+	return FALSE
+
+/obj/item/melee/baton/security/loaded/departmental/medical
+	name = "medical stun baton"
+	desc = "A stun baton that doesn't operate outside of the Medical department, based off the station's blueprint layout. Can be used outside of Medical up to three times before needing to return!"
+	icon_state = "medical_baton"
+	valid_areas = list(/area/station/medical, /area/station/maintenance/department/medical, /area/shuttle/escape)
+
+/obj/item/melee/baton/security/loaded/departmental/engineering
+	name = "engineering stun baton"
+	desc = "A stun baton that doesn't operate outside of the Engineering department, based off the station's blueprint layout. Can be used outside of Engineering up to three times before needing to return!"
+	icon_state = "engineering_baton"
+	valid_areas = list(/area/station/engineering, /area/station/maintenance/department/engine, /area/shuttle/escape)
+
+/obj/item/melee/baton/security/loaded/departmental/science
+	name = "science stun baton"
+	desc = "A stun baton that doesn't operate outside of the Science department, based off the station's blueprint layout. Can be used outside of Science up to three times before needing to return!"
+	icon_state = "science_baton"
+	valid_areas = list(/area/station/science, /area/station/maintenance/department/science, /area/shuttle/escape)
+
+/obj/item/melee/baton/security/loaded/departmental/cargo
+	name = "cargo stun baton"
+	desc = "A stun baton that doesn't operate outside of the Cargo department, based off the station's blueprint layout. Can be used outside of Cargo up to three times before needing to return!"
+	icon_state = "cargo_baton"
+	valid_areas = list(/area/station/cargo, /area/station/maintenance/department/cargo, /area/shuttle/escape)
+
+/obj/item/melee/baton/security/loaded/departmental/service
+	name = "service stun baton"
+	desc = "A stun baton that doesn't operate outside of the Service department, based off the station's blueprint layout. Can be used outside of Service up to three times before needing to return!"
+	icon_state = "service_baton"
+	valid_areas = list(/area/station/service, /area/station/maintenance/department/chapel, /area/station/maintenance/department/crew_quarters, /area/shuttle/escape)
+
+/obj/item/melee/baton/security/loaded/departmental/prison
+	name = "prison stun baton"
+	desc = "A stun baton that doesn't operate outside of the Prison, based off the station's blueprint layout. Can be used outside of the Prison up to three times before needing to return!"
+	icon_state = "prison_baton"
+	valid_areas = list(/area/station/security/prison, /area/station/security/processing, /area/shuttle/escape)
+
+/datum/supply_pack/security/baton_prison
+	name = "Prison Baton Crate"
+	desc = "Contains an extra baton for Corrections Officers. \
+		Just in case you hated the idea of a normal baton in their hands."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/prison)
+
+/datum/supply_pack/service/baton_service
+	name = "Service Baton Crate"
+	desc = "Contains an extra baton for Service Guards."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/service)
+
+/datum/supply_pack/medical/baton_medical
+	name = "Medical Baton Crate"
+	desc = "Contains an extra baton for Orderlies."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/medical)
+
+/datum/supply_pack/engineering/baton_engineering
+	name = "Engineering Baton Crate"
+	desc = "Contains an extra baton for Engineering Guards."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/engineering)
+
+/datum/supply_pack/science/baton_science
+	name = "Science Baton Crate"
+	desc = "Contains an extra baton for Science Guards."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/science)
+
+/datum/supply_pack/misc/baton_cargo
+	name = "Cargo Baton Crate"
+	desc = "Contains an extra baton for Customs Agents."
+	cost = CARGO_CRATE_VALUE * 2
+	access_view = ACCESS_SECURITY
+	access = ACCESS_SECURITY
+	contains = list(/obj/item/melee/baton/security/loaded/departmental/cargo)
 /*
 * Garment Bags
 */
