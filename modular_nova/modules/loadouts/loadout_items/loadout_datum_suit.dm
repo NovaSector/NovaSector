@@ -128,6 +128,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Pharmacist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
 
+/datum/loadout_item/suit/labcoat_custom
+	name = "Custom Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/custom
+
 /*
 *	PONCHOS
 */
@@ -776,6 +780,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/crop_jacket
 	name = "Colourable Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket
+
+/datum/loadout_item/suit/shortsleeve_crop_jacket
+	name = "Colourable Short-Sleeved Crop-Top Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve
 
 /datum/loadout_item/suit/sleeveless_crop_jacket
 	name = "Colourable Sleeveless Crop-Top Jacket"

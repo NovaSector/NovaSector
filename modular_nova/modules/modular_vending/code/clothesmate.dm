@@ -133,6 +133,8 @@
 				/obj/item/clothing/suit/warm_sweater = 5,
 				/obj/item/clothing/suit/heart_sweater = 5,
 				/obj/item/clothing/suit/crop_jacket = 5,
+				/obj/item/clothing/suit/crop_jacket/shortsleeve = 5,
+				/obj/item/clothing/suit/crop_jacket/sleeveless = 5,
 				/obj/item/clothing/suit/big_jacket = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
 			),
