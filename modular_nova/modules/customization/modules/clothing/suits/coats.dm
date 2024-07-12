@@ -295,7 +295,7 @@
 	desc = "A jacket that probably makes quite the effective outdoors wear."
 	icon_state = "jacket"
 
-/obj/item/clothing/suit/crop_jacket/shortsleeve/loing
+/obj/item/clothing/suit/crop_jacket/shortsleeve/long
 	name = "short-sleeved sports jacket"
 	desc = "A jacket that probably makes quite the effective outdoors wear. However, \
 		some barbarian has cut the sleeves in half."
