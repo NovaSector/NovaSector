@@ -187,38 +187,33 @@
 	liked_foodtypes = GORE | MEAT | SEAFOOD | NUTS | BUGS
 	disliked_foodtypes = GRAIN | DAIRY | CLOTH | GROSS
 	voice_filter = @{"[0:a] asplit [out0][out2]; [out0] asetrate=%SAMPLE_RATE%*0.9,aresample=%SAMPLE_RATE%,atempo=1/0.9,aformat=channel_layouts=mono,volume=0.2 [p0]; [out2] asetrate=%SAMPLE_RATE%*1.1,aresample=%SAMPLE_RATE%,atempo=1/1.1,aformat=channel_layouts=mono,volume=0.2[p2]; [p0][0][p2] amix=inputs=3"}
+	var/static/list/speech_replacements = list(
+		new /regex("s+", "g") = "sss",
+		new /regex("S+", "g") = "SSS",
+		new /regex(@"(\w)x", "g") = "$1kss",
+		//new /regex(@"(\w)X", "g") = "$1KSSS", // NOVA EDIT REMOVAL
+		new /regex(@"\bx([\-|r|R]|\b)", "g") = "ecks$1",
+		new /regex(@"\bX([\-|r|R]|\b)", "g") = "ECKS$1",
+	)
+	// NOVA EDIT ADDITION START - Russian version - yes copy pasted from above because static lists are great.
+	var/static/list/russian_speech_replacements = list(
+		new /regex("s+", "g") = "sss",
+		new /regex("S+", "g") = "SSS",
+		new /regex(@"(\w)x", "g") = "$1kss",
+		new /regex(@"\bx([\-|r|R]|\b)", "g") = "ecks$1",
+		new /regex(@"\bX([\-|r|R]|\b)", "g") = "ECKS$1",
+		new /regex("с+", "g") = "ссс",
+		new /regex("С+", "g") = "ССС",
+		"з" = "с",
+		"З" = "С",
+		"ж" = "ш",
+		"Ж" = "Ш",
+	)
+	// NOVA EDIT ADDITION END
 
-/obj/item/organ/internal/tongue/lizard/modify_speech(datum/source, list/speech_args)
-	var/static/regex/lizard_hiss = new("s+", "g")
-	var/static/regex/lizard_hiSS = new("S+", "g")
-	var/static/regex/lizard_kss = new(@"(\w)x", "g")
-	/* // NOVA EDIT: REMOVAL
-	var/static/regex/lizard_kSS = new(@"(\w)X", "g")
-	*/
-	var/static/regex/lizard_ecks = new(@"\bx([\-|r|R]|\b)", "g")
-	var/static/regex/lizard_eckS = new(@"\bX([\-|r|R]|\b)", "g")
-	var/message = speech_args[SPEECH_MESSAGE]
-	if(message[1] != "*")
-		message = lizard_hiss.Replace(message, "sss")
-		message = lizard_hiSS.Replace(message, "SSS")
-		message = lizard_kss.Replace(message, "$1kss")
-		/* // NOVA EDIT: REMOVAL
-		message = lizard_kSS.Replace(message, "$1KSS")
-		*/
-		message = lizard_ecks.Replace(message, "ecks$1")
-		message = lizard_eckS.Replace(message, "ECKS$1")
-		//NOVA EDIT START: Adding russian version to autohiss
-		if(CONFIG_GET(flag/russian_text_formation))
-			var/static/regex/lizard_hiss_ru = new("с+", "g")
-			var/static/regex/lizard_hiSS_ru = new("С+", "g")
-			message = replacetext(message, "з", "с")
-			message = replacetext(message, "З", "С")
-			message = replacetext(message, "ж", "ш")
-			message = replacetext(message, "Ж", "Ш")
-			message = lizard_hiss_ru.Replace(message, "ссс")
-			message = lizard_hiSS_ru.Replace(message, "ССС")
-		//NOVA EDIT END: Adding russian version to autohiss
-	speech_args[SPEECH_MESSAGE] = message
+/obj/item/organ/internal/tongue/lizard/New(class, timer, datum/mutation/human/copymut)
+	. = ..()
+	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements) // NOVA EDIT CHANGE - ORIGINAL: AddComponent(/datum/component/speechmod, replacements = speech_replacements)
 
 /obj/item/organ/internal/tongue/lizard/silver
 	name = "silver tongue"
@@ -462,7 +457,7 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 		var/list/message_word_list = splittext(message, " ")
 		var/list/translated_word_list = list()
 		for(var/word in message_word_list)
-			word = GLOB.english_to_zombie[lowertext(word)]
+			word = GLOB.english_to_zombie[LOWER_TEXT(word)]
 			translated_word_list += word ? word : FALSE
 
 		// all occurrences of characters "eiou" (case-insensitive) are replaced with "r"
@@ -617,6 +612,7 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	say_mod = "meows"
 	liked_foodtypes = SEAFOOD | ORANGES | BUGS | GORE
 	disliked_foodtypes = GROSS | CLOTH | RAW
+	organ_traits = list(TRAIT_WOUND_LICKER)
 
 /obj/item/organ/internal/tongue/jelly
 	name = "jelly tongue"

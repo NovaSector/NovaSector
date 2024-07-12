@@ -120,6 +120,15 @@ LORECASTER_DELAY 18000
 ## If uncommented, suicide will be disabled.
 # DISABLE_SUICIDE
 
+## If uncommented, the initial (stationary) singulo created by insterting one bag of holding into another will be disabled.
+# DISABLE_STATIONARY_BOH_SINGULARITY
+
+## The gravitational pull of the stationary singularity created by bag of holding tears. TG's default is 21.
+STATIONARY_BOH_SINGULARITY_GRAV_PULL 4
+
+## If uncommented, bagulo (the roaming singulo created by inserting one bag of holding into another) will be disabled.
+DISABLE_ROAMING_BOH_SINGULARITY
+
 ## The link to the policy wiki page for primitive catgirls
 ICECATS_POLICY_LINK "https://wiki.novasector13.com/index.php/Ghost_Role_policy#Icewalkers"
 
@@ -149,3 +158,12 @@ ARRIVALS_WAIT 150
 
 ## Uncomment to completely disable the opt-in system, which is a system that forces objectives to only roll on individuals who consent to it.
 #DISABLE_ANTAG_OPT_IN_PREFERENCES
+
+## Uncomment to enable the replacing of flashbangs in secbelts with energy bolas
+REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
+
+## Uncomment to block borgs/silicons from going through gateways
+#BORG_GATEWAY_BLACKLIST
+
+## Uncomment to make flashbangs forbidden during green alerts
+FLASHBANGS_FORBIDDEN_DURING_GREEN

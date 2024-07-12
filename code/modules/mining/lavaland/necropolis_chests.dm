@@ -127,7 +127,7 @@
 	var/loot = rand(1,2)
 	switch(loot)
 		if(1)
-			new /obj/item/bloodcrawl_bottle(src) //NOVA EDIT ORIGINAL : new /obj/item/mayhem(src)
+			new /obj/item/bloodcrawl_bottle(src) //NOVA EDIT CHANGE - ORIGINAL : new /obj/item/mayhem(src)
 		if(2)
 			new /obj/item/soulscythe(src)
 
@@ -147,7 +147,7 @@
 	return ..()
 
 /obj/structure/closet/crate/necropolis/colossus/PopulateContents()
-	var/list/choices = subtypesof(/obj/machinery/anomalous_crystal)
+	var/list/choices = subtypesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/theme_warp // NOVA EDIT CHANGE - Less griefing - ORIGINAL: var/list/choices = subtypesof(/obj/machinery/anomalous_crystal)
 	var/random_crystal = pick(choices)
 	new random_crystal(src)
 	new /obj/item/organ/internal/vocal_cords/colossus(src)

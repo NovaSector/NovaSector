@@ -9,7 +9,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	return DNR_trait_overlay
 
 
-// SKYRAT NEUTRAL TRAITS
+// NOVA NEUTRAL TRAITS
 /datum/quirk/excitable
 	name = "Excitable!"
 	desc = "Head patting makes your tail wag! You're very excitable! WAG WAG."
@@ -205,7 +205,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	..()
 	icon_state = "joker"
 
-/obj/item/paper/joker/AltClick(mob/living/carbon/user, obj/item/card)
+/obj/item/paper/joker/click_alt(mob/user)
 	var/list/datum/paper_input/old_raw_text_inputs = raw_text_inputs
 	var/list/datum/paper_stamp/old_raw_stamp_data = raw_stamp_data
 	var/list/datum/paper_stamp/old_raw_field_input_data = raw_field_input_data
@@ -225,45 +225,90 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	update_static_data()
 
 	balloon_alert(user, "card flipped")
+	return CLICK_ACTION_SUCCESS
 
 /datum/quirk/feline_aspect
 	name = "Feline Traits"
-	desc = "You happen to act like a feline, for whatever reason."
+	desc = "You happen to act like a feline, for whatever reason. This will replace most other tongue-based speech quirks."
 	gain_text = span_notice("Nya could go for some catnip right about now...")
 	lose_text = span_notice("You feel less attracted to lasers.")
 	medical_record_text = "Patient seems to possess behavior much like a feline."
 	mob_trait = TRAIT_FELINE
 	icon = FA_ICON_CAT
 
-/datum/quirk/item_quirk/canine
+/datum/quirk/feline_aspect/add_unique(client/client_source)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/item/organ/internal/tongue/cat/new_tongue = new(get_turf(human_holder))
+
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+/datum/quirk/feline_aspect/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/item/organ/internal/tongue/new_tongue = new human_holder.dna.species.mutanttongue
+
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+/datum/quirk/canine_aspect
 	name = "Canidae Traits"
 	desc = "Bark. You seem to act like a canine for whatever reason. This will replace most other tongue-based speech quirks."
+	gain_text = span_notice("B-.. Bacon strips...")
+	lose_text = span_notice("You feel less abandonment issues.")
 	mob_trait = TRAIT_CANINE
 	icon = FA_ICON_DOG
 	value = 0
 	medical_record_text = "Patient was seen digging through the trash can. Keep an eye on them."
 
-/datum/quirk/item_quirk/canine/add_unique(client/client_source)
+/datum/quirk/canine_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/dog/new_tongue = new(get_turf(human_holder))
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-/datum/quirk/item_quirk/avian
+/datum/quirk/canine_aspect/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/item/organ/internal/tongue/new_tongue = new human_holder.dna.species.mutanttongue
+
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+/datum/quirk/avian_aspect
 	name = "Avian Traits"
 	desc = "You're a birdbrain, or you've got a bird's brain. This will replace most other tongue-based speech quirks."
+	gain_text = span_notice("BAWWWWWK LEAVE THE HEADSET BAWKKKKK!")
+	lose_text = span_notice("You feel less inclined to sit on eggs.")
 	mob_trait = TRAIT_AVIAN
 	icon = FA_ICON_KIWI_BIRD
 	value = 0
 	medical_record_text = "Patient exhibits avian-adjacent mannerisms."
 
-/datum/quirk/item_quirk/avian/add_unique(client/client_source)
+/datum/quirk/avian_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/avian/new_tongue = new(get_turf(human_holder))
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+/datum/quirk/avian_aspect/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/item/organ/internal/tongue/new_tongue = new human_holder.dna.species.mutanttongue
+
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+#define SEVERITY_STUN 1
+#define SEVERITY_SNEEZE 2
+#define SEVERITY_KNOCKDOWN 3
+#define SEVERITY_BLEP 4
+
+GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
+	"Stun" = SEVERITY_STUN,
+	"Sneeze" = SEVERITY_SNEEZE, //Includes a stun
+	"Collapse" = SEVERITY_KNOCKDOWN,
+	"Blep" = SEVERITY_BLEP,
+))
 
 /datum/quirk/sensitivesnout
 	name = "Sensitive Snout"
@@ -274,6 +319,47 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	mob_trait = TRAIT_SENSITIVESNOUT
 	icon = FA_ICON_FINGERPRINT
+	var/severity = SEVERITY_KNOCKDOWN
+	COOLDOWN_DECLARE(emote_cooldown)
+
+/datum/quirk_constant_data/sensitive_snout
+	associated_typepath = /datum/quirk/sensitivesnout
+	customization_options = list(/datum/preference/choiced/snout_sensitivity)
+
+/datum/quirk/sensitivesnout/add(client/client_source)
+	var/desired_severity = GLOB.possible_snout_sensitivities[client_source?.prefs?.read_preference(/datum/preference/choiced/snout_sensitivity)]
+	severity = isnum(desired_severity) ? desired_severity : 1
+
+/datum/quirk/sensitivesnout/proc/get_booped(attacker)
+	var/can_emote = FALSE
+	if(COOLDOWN_FINISHED(src, emote_cooldown))
+		can_emote = TRUE
+		COOLDOWN_START(src, emote_cooldown, 5 SECONDS)
+	if (ishuman(quirk_holder) && can_emote)
+		var/mob/living/carbon/human/human_holder = quirk_holder
+		human_holder.force_say()
+	switch(severity)
+		if(SEVERITY_STUN)
+			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, freezing you in place!"))
+			quirk_holder.Stun(1 SECONDS)
+		if(SEVERITY_SNEEZE)
+			quirk_holder.Stun(1 SECONDS)
+			if(can_emote)
+				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
+				quirk_holder.emote("sneeze")
+		if(SEVERITY_KNOCKDOWN)
+			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
+			quirk_holder.Knockdown(1 SECONDS)
+			quirk_holder.apply_damage(30, STAMINA)
+		if(SEVERITY_BLEP)
+			if(can_emote)
+				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You stick your tongue out on reflex!"))
+				quirk_holder.emote("blep")
+
+#undef SEVERITY_STUN
+#undef SEVERITY_SNEEZE
+#undef SEVERITY_KNOCKDOWN
+#undef SEVERITY_BLEP
 
 /datum/quirk/overweight
 	name = "Overweight"

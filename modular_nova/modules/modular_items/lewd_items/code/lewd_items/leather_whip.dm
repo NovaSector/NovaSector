@@ -14,8 +14,8 @@
 	hitsound = 'sound/weapons/whip.ogg'
 	clothing_flags = INEDIBLE_CLOTHING
 	//When taking that thing in mouth
-	modifies_speech = TRUE
 	flags_cover = MASKCOVERSMOUTH
+	var/modifies_speech = TRUE
 	/// If the color of the toy has been changed before
 	var/color_changed = FALSE
 	/// If the form (or size) of the toy has been changed before
@@ -50,8 +50,21 @@
 	if(!isinhands)
 		. += whip_overlay
 
+/obj/item/clothing/mask/leatherwhip/equipped(mob/equipper, slot)
+	. = ..()
+	if ((slot & ITEM_SLOT_MASK) && modifies_speech)
+		RegisterSignal(equipper, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	else
+		UnregisterSignal(equipper, COMSIG_MOB_SAY)
+
+/obj/item/clothing/mask/leatherwhip/dropped(mob/dropper)
+	. = ..()
+	UnregisterSignal(dropper, COMSIG_MOB_SAY)
+
 // Speech handler for moansing when talking
-/obj/item/clothing/mask/leatherwhip/handle_speech(datum/source, list/speech_args)
+/obj/item/clothing/mask/leatherwhip/proc/handle_speech(datum/source, list/speech_args)
+	SIGNAL_HANDLER
+
 	speech_args[SPEECH_MESSAGE] = pick((prob(moans_alt_probability) && LAZYLEN(moans_alt)) ? moans_alt : moans)
 	play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f1.ogg',
 						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
@@ -88,32 +101,27 @@
 	update_overlays()
 
 //to change color
-/obj/item/clothing/mask/leatherwhip/AltClick(mob/user)
+/obj/item/clothing/mask/leatherwhip/click_alt(mob/user)
 	if(!color_changed)
-		. = ..()
-		if(.)
-			return
 		var/choice = show_radial_menu(user, src, whip_designs, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE)
 		if(!choice)
-			return FALSE
+			return CLICK_ACTION_BLOCKING
 		current_whip_color = choice
 		update_icon()
 		update_icon_state()
 		color_changed = TRUE
-
+		return CLICK_ACTION_SUCCESS
 	else
 		if(form_changed)
-			return
-		. = ..()
-		if(.)
-			return
+			return CLICK_ACTION_BLOCKING
 		var/choice = show_radial_menu(user, src, whip_forms, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE)
 		if(!choice)
-			return FALSE
+			return CLICK_ACTION_BLOCKING
 		current_whip_form = choice
 		update_icon()
 		update_icon_state()
 		form_changed = TRUE
+		return CLICK_ACTION_SUCCESS
 
 /// A check to see if the radial menu can be used
 /obj/item/clothing/mask/leatherwhip/proc/check_menu(mob/living/user)

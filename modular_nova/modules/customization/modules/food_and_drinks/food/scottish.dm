@@ -41,7 +41,7 @@
 
 /obj/item/food/raw_sausage/battered
 	name = "raw battered sausage"
-	desc = "A raw sausage coated in thick beer batter."
+	desc = "A raw sausage coated in thick beer batter. Mix oil, beer, and flour in equal parts to make the batter."
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "batteredsausage"
 	food_reagents = list(

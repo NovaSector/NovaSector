@@ -51,6 +51,10 @@
 /// The trait which is applied when a `slick skin` trait haver actually gets wet_stacks
 #define TRAIT_SLIPPERY "slippery"
 
+/// When someone is fixing electrical damage, this trait is set and prevents the wound from worsening.
+// We use a trait to avoid erronous setting of a variable to false if two people are repairing and one stops.
+#define TRAIT_ELECTRICAL_DAMAGE_REPAIRING "electrical_damage_repairing"
+
 // felinid traits
 #define TRAIT_FELINE "feline_aspect"
 
@@ -68,6 +72,9 @@
 
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
+
+/// The trait that determines if someone has the system shock quirk.
+#define TRAIT_SYSTEM_SHOCK "trait_system_shock"
 
 /// The trait that determines if someone has the robotic limb reattachment quirk.
 #define TRAIT_ROBOTIC_LIMBATTACHMENT "trait_robotic_limbattachment"
@@ -150,5 +157,8 @@
 
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"
+
+/// If a slimeperson is currently protecting themselves from water
+#define TRAIT_SLIME_HYDROPHOBIA "slime_hydrophobia"
 
 // END TRAIT DEFINES

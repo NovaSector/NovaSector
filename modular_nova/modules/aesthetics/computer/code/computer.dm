@@ -8,5 +8,5 @@
 	. = ..()
 	if(clicksound && world.time > next_clicksound && isliving(user))
 		next_clicksound = world.time + 5
-		playsound(src, get_sfx_skyrat(clicksound), clickvol)
+		playsound(src, get_sfx_nova(clicksound), clickvol)
 

@@ -4,8 +4,6 @@
 
 /obj/machinery/light
 	brightness = 7.5
-	fire_brightness = 6
-	fire_colour = COLOR_FIRE_LIGHT_RED
 	bulb_colour = COLOR_OFF_WHITE
 	bulb_power = 0.9
 	nightshift_light_color = null // Let the dynamic night shift color code handle this.

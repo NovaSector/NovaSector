@@ -13,11 +13,11 @@
 		else
 			. += "It could be arc shielded with a <b>sheet of bronze</b>."
 
-/obj/machinery/power/apc/process()
+/obj/machinery/power/apc/late_process(seconds_per_tick)
 	. = ..()
-	var/excess = surplus()
 	if(!cell || shorted)
 		return
+	var/excess = energy_to_power(surplus())
 	if(((excess < APC_ARC_LOWERLIMIT) && !force_arcing) || arc_shielded)
 		return
 	var/shock_chance = 5
@@ -25,28 +25,58 @@
 		shock_chance = 15
 	else if(excess >= APC_ARC_MEDIUMLIMIT)
 		shock_chance = 10
-	if(prob(shock_chance))
-		var/list/shock_mobs = list()
-		for(var/mob/living/creature in viewers(get_turf(src), 5)) // We only want to shock a single random mob in range, not all.
-			shock_mobs += creature
-		if(length(shock_mobs))
-			var/mob/living/living_target = pick(shock_mobs)
-			living_target.electrocute_act(rand(5, 25), "electrical arc")
-			playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
-			Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
+	if(prob(shock_chance)) // sometimes arc, otherwise give the players a hint something is amiss
+		// pick a random person in range to shock
+		#define SHOCK_SOMEONE 1
+		// create some sparks
+		#define MAKE_SPARKS 2
+		// cut the power for 2-4 seconds
+		#define CAUSE_BROWNOUT 3
 
-/obj/machinery/power/apc/attackby(obj/item/attacking_object, mob/living/user, params)
+		var/effect = pick(list(
+			SHOCK_SOMEONE,
+			MAKE_SPARKS,
+			CAUSE_BROWNOUT,
+		))
+		switch(effect)
+			if(SHOCK_SOMEONE)
+				var/list/shock_mobs = list()
+				for(var/mob/living/creature in viewers(get_turf(src), 5)) // We only want to shock a single random mob in range, not all.
+					shock_mobs += creature
+				if(length(shock_mobs))
+					var/mob/living/living_target = pick(shock_mobs)
+					do_sparks(number = 3, cardinal_only = FALSE, source = living_target)
+					living_target.electrocute_act(rand(5, 25), "electrical arc")
+					playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
+					Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
+					energy_fail(2)
+			if(MAKE_SPARKS)
+				do_sparks(number = 3, cardinal_only = FALSE, source = src)
+			if(CAUSE_BROWNOUT)
+				energy_fail(rand(2, 4)) // energy_fail does not use the SECONDS macro, so it's deliberately not used here in the arg. don't add it.
+		#undef SHOCK_SOMEONE
+		#undef MAKE_SPARKS
+		#undef CAUSE_BROWNOUT
+
+
+/obj/machinery/power/apc/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
-	if(istype(attacking_object, /obj/item/stack/sheet/bronze) && panel_open)
-		if(arc_shielded)
-			balloon_alert(user, "already arc shielded!")
-			return
-		var/obj/item/stack/sheet/bronze/bronze = attacking_object
-		bronze.use(1)
-		balloon_alert(user, "installed arc shielding")
-		arc_shielded = TRUE
-		playsound(src, 'sound/items/rped.ogg', 20)
-		return
+	if(.)
+		return .
+
+	if(istype(tool, /obj/item/stack/sheet/bronze) && panel_open)
+		. = bronze_act(user, tool)
+
+/// Handles interaction of adding arc shielding to apc with bronze
+/obj/machinery/power/apc/proc/bronze_act(mob/living/user, obj/item/stack/sheet/bronze/bronze)
+	if(arc_shielded)
+		balloon_alert(user, "already arc shielded!")
+		return ITEM_INTERACT_BLOCKING
+	bronze.use(1)
+	balloon_alert(user, "installed arc shielding")
+	arc_shielded = TRUE
+	playsound(src, 'sound/items/rped.ogg', 20)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/apc/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()

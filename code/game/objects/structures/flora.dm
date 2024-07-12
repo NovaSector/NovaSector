@@ -263,13 +263,11 @@
 	var/matrix/M = matrix(transform)
 	transform = M.Turn(-previous_rotation)
 
-/obj/structure/flora/deconstruct()
-	if(!(obj_flags & NO_DECONSTRUCTION))
-		if(harvested)
-			return ..()
+/obj/structure/flora/atom_deconstruct(disassembled = TRUE)
+	if(harvested)
+		return ..()
 
-		harvest(product_amount_multiplier = 0.6)
-	. = ..()
+	harvest(product_amount_multiplier = 0.6)
 
 /*********
  * Trees *
@@ -307,7 +305,7 @@
 	. = ..()
 	var/turf/my_turf = get_turf(src)
 	playsound(my_turf, 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
-	var/obj/structure/flora/tree/stump/new_stump = new(my_turf)
+	var/obj/structure/flora/tree/stump/new_stump = new stump_type(my_turf) // NOVA EDIT CHANGE - Variable tree stumps - ORIGINAL: var/obj/structure/flora/tree/stump/new_stump = new(my_turf)
 	new_stump.name = "[name] stump"
 
 /obj/structure/flora/tree/uproot(mob/living/user)
@@ -451,7 +449,6 @@
 	icon_state = "pinepresents"
 	desc = "A wondrous decorated Christmas tree. It has presents!"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF //protected by the christmas spirit
-	obj_flags = parent_type::obj_flags | NO_DECONSTRUCTION
 	var/gift_type = /obj/item/gift/anything
 	var/unlimited = FALSE
 	var/static/list/took_presents //shared between all xmas trees
@@ -502,13 +499,13 @@
 /obj/structure/flora/coconuts
 	gender = PLURAL
 	name = "coconuts"
-	icon = 'icons/misc/beach.dmi'
+	icon = 'icons/obj/fluff/beach.dmi'
 	icon_state = "coconuts"
 
 /obj/structure/flora/tree/palm
 	name = "palm tree"
 	desc = "A tree straight from the tropics."
-	icon = 'icons/misc/beach2.dmi'
+	icon = 'icons/obj/fluff/beach2.dmi'
 	icon_state = "palm1"
 	pixel_x = 0
 

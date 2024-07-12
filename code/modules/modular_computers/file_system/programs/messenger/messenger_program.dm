@@ -9,7 +9,7 @@
 	filename = "nt_messenger"
 	filedesc = "Direct Messenger"
 	downloader_category = PROGRAM_CATEGORY_DEVICE
-	program_open_overlay = "command"
+	program_open_overlay = "text"
 	extended_desc = "This program allows old-school communication with other modular devices."
 	size = 0
 	undeletable = TRUE // It comes by default in tablets, can't be downloaded, takes no space and should obviously not be able to be deleted.
@@ -166,7 +166,8 @@
 		if("PDA_ringSet")
 			var/mob/living/user = usr
 			var/new_ringtone = tgui_input_text(user, "Enter a new ringtone", "Ringtone", ringtone, encode = FALSE)
-			if(!in_range(computer, user) || computer.loc != user)
+			if(!computer.can_interact(user))
+				computer.balloon_alert(user, "can't reach!")
 				return FALSE
 			return set_ringtone(new_ringtone, user)
 
@@ -293,7 +294,7 @@
 
 				return disk.send_virus(computer, target_messenger.computer, usr, params["message"])
 
-			return send_message(usr, params["message"], list(target))
+			return send_message(usr, params["message"], list(target), subtle = params["subtle"]) // NOVA EDIT CHANGE - ORIGINAL: return send_message(usr, params["message"], list(target))
 
 		if("PDA_clearPhoto")
 			selected_image = null
@@ -381,12 +382,16 @@
 		data["sending_virus"] = sending_virus
 	return data
 
+/datum/computer_file/program/messenger/ui_assets(mob/user)
+	. = ..()
+	. += get_asset_datum(/datum/asset/spritesheet/chat)
+
 //////////////////////
 // MESSAGE HANDLING //
 //////////////////////
 
 /// Brings up the quick reply prompt to send a message.
-/datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat)
+/datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat, subtle = FALSE) // NOVA EDIT ADDITION - ORIGINAL: /datum/computer_file/program/messenger/proc/quick_reply_prompt(mob/living/user, datum/pda_chat/chat)
 	if(!istype(chat))
 		return
 	var/datum/computer_file/program/messenger/target = chat.recipient?.resolve()
@@ -397,7 +402,7 @@
 		return
 	var/target_name = target.computer.saved_identification
 	var/input_message = tgui_input_text(user, "Enter [mime_mode ? "emojis":"a message"]", "NT Messaging[target_name ? " ([target_name])" : ""]", encode = FALSE)
-	send_message(user, input_message, list(chat))
+	send_message(user, input_message, list(chat), subtle = subtle)
 
 /// Helper proc that sends a message to everyone
 /datum/computer_file/program/messenger/proc/send_message_to_all(mob/living/user, message)
@@ -463,10 +468,10 @@
 	if(sender && !check_pda_message_against_filter(message, sender))
 		return null
 
-	return message
+	return emoji_parse(message)
 
 /// Sends a message to targets via PDA. When sending to everyone, set `everyone` to true so the message is formatted accordingly
-/datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE)
+/datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE, subtle = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /datum/computer_file/program/messenger/proc/send_message(atom/source, message, list/targets, everyone = FALSE)
 	var/mob/living/sender
 	if(isliving(source))
 		sender = source
@@ -474,6 +479,13 @@
 	if(!message)
 		return FALSE
 
+	// NOVA ADDITION BEGIN
+	// If "subtle" it wont be sent to ghostchats.
+	// A message is "subtle" if it begins with "#", the below code also removes it from the sent message.
+	if(findtext(message,"#") == 1)
+		subtle = TRUE
+		message = copytext(message,2,0)
+	// NOVA ADDITION END
 
 	// upgrade the image asset to a permanent key
 	var/photo_asset_key = selected_image
@@ -535,11 +547,12 @@
 		target_chats += target_chat
 		target_messengers += target_messenger
 
-	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
+
+	if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone, FALSE, null, null, subtle)) // NOVA EDIT CHANGE - ORIGINAL: if(!send_message_signal(source, message, target_messengers, photo_asset_key, everyone))
 		return FALSE
 
 	// Log it in our logs
-	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
+	var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone, subtle = subtle) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message_datum = new(message, TRUE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), photo_asset_key, everyone)
 	for(var/datum/pda_chat/target_chat as anything in target_chats)
 		target_chat.add_message(message_datum, show_in_recents = !everyone)
 		target_chat.unread_messages = 0
@@ -565,7 +578,7 @@
 
 	return send_message_signal(sender, message, targets, fake_photo, FALSE, TRUE, fake_name, fake_job)
 
-/datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
+/datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null, subtle = FALSE) // NOVA EDIT ADDITION - ORIGINAL: /datum/computer_file/program/messenger/proc/send_message_signal(atom/source, message, list/datum/computer_file/program/messenger/targets, photo_path = null, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
 	var/mob/sender
 	if(ismob(source))
 		sender = source
@@ -601,6 +614,7 @@
 		"everyone" = everyone,
 		"photo" = photo_path,
 		"automated" = FALSE,
+		"subtle" = subtle, // NOVA EDIT ADDITION
 	))
 	if(rigged) //Will skip the message server and go straight to the hub so it can't be cheesed by disabling the message server machine
 		signal.data["fakename"] = fake_name
@@ -628,19 +642,25 @@
 		shell_addendum = "[circuit.parent.get_creator()] "
 
 	// Log in the talk log
-	source.log_talk(message, LOG_PDA, tag="[shell_addendum][rigged ? "Rigged" : ""] PDA: [computer.saved_identification] to [signal.format_target()]")
+	source.log_talk(message, LOG_PDA, tag="[shell_addendum][rigged ? "Rigged" : ""] PDA[subtle ? "(Subtle)" : ""]: [computer.saved_identification] to [signal.format_target()]") // NOVA EDIT CHANGE - ORIGINAL: source.log_talk(message, LOG_PDA, tag="[shell_addendum][rigged ? "Rigged" : ""] PDA: [computer.saved_identification] to [signal.format_target()]")
 	if(rigged)
 		log_bomber(sender, "sent a rigged PDA message (Name: [fake_name]. Job: [fake_job]) to [english_list(stringified_targets)] [!is_special_character(sender) ? "(SENT BY NON-ANTAG)" : ""]")
 
-	message = emoji_parse(message) //already sent- this just shows the sent emoji as one to the sender in the to_chat
-
 	// Show it to ghosts
-	var/ghost_message = span_game_say("[span_name("[source]")] [rigged ? "(as [span_name(fake_name)]) Rigged " : ""]PDA Message --> [span_name("[signal.format_target()]")]: \"[signal.format_message()]\"")
+	var/ghost_message = span_game_say("[span_name(signal.format_sender())] [rigged ? "(as [span_name(fake_name)]) Rigged " : ""]PDA Message --> [span_name("[signal.format_target()]")]: \"[signal.format_message()]\"")
 	var/list/message_listeners = GLOB.dead_player_list + GLOB.current_observers_list
-	for(var/mob/listener as anything in message_listeners)
-		if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
-			continue
-		to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	/** NOVA EDIT CHANGE BEGIN - ORIGINAL:
+	//	for(var/mob/listener as anything in message_listeners)
+	//	if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
+	//		continue
+	//	to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	*/
+	if(!subtle)
+		for(var/mob/listener as anything in message_listeners)
+			if(!(get_chat_toggles(listener) & CHAT_GHOSTPDA))
+				continue
+			to_chat(listener, "[FOLLOW_LINK(listener, source)] [ghost_message]")
+	// NOVA EDIT CHANGE END
 
 	if(sender)
 		to_chat(sender, span_info("PDA message sent to [signal.format_target()]: \"[message]\""))
@@ -669,7 +689,7 @@
 
 	// don't create a new chat for rigged messages, make it a one off notif
 	if(!is_rigged)
-		var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"])
+		var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"], signal.data["subtle"]) // NOVA EDIT ADDITION - ORIGINAL: var/datum/pda_message/message = new(signal.data["message"], FALSE, station_time_timestamp(PDA_MESSAGE_TIMESTAMP_FORMAT), signal.data["photo"], signal.data["everyone"])
 
 		chat = find_chat_by_recipient(is_fake_user ? fake_name : sender_ref, is_fake_user)
 		if(!istype(chat))
@@ -682,7 +702,7 @@
 			viewing_messages_of = REF(chat)
 
 	var/list/mob/living/receievers = list()
-	if(computer.inserted_pai)
+	if(computer.inserted_pai && computer.inserted_pai.pai)
 		receievers += computer.inserted_pai.pai
 	if(computer.loc && isliving(computer.loc))
 		receievers += computer.loc
@@ -712,12 +732,11 @@
 			sender_title = "<a href='?src=[REF(messaged_mob)];track=[html_encode(sender_name)]'>[sender_title]</a>"
 
 		var/inbound_message = "[signal.format_message()]"
-		inbound_message = emoji_parse(inbound_message)
 
 		var/photo_message = signal.data["photo"] ? " (<a href='byond://?src=[REF(src)];choice=[photo_href];skiprefresh=1;target=[REF(chat)]'>Photo Attached</a>)" : ""
 		to_chat(messaged_mob, span_infoplain("[icon2html(computer, messaged_mob)] <b>PDA message from [sender_title], </b>\"[inbound_message]\"[photo_message] [reply]"))
 
-		SEND_SIGNAL(computer, COMSIG_COMPUTER_RECIEVED_MESSAGE, sender_title, inbound_message, photo_message)
+		SEND_SIGNAL(computer, COMSIG_COMPUTER_RECEIVED_MESSAGE, sender_title, inbound_message, photo_message)
 
 	if (alert_able && (!alert_silenced || is_rigged))
 		computer.ring(ringtone)
@@ -731,7 +750,7 @@
 
 	if(QDELETED(src))
 		return
-	if(!usr.can_perform_action(computer, FORBID_TELEKINESIS_REACH))
+	if(!usr.can_perform_action(computer, FORBID_TELEKINESIS_REACH | ALLOW_RESTING))
 		return
 
 	// send an activation message and open the messenger

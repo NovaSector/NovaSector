@@ -14,18 +14,22 @@
 	can_be_shoved_into = TRUE
 	initial_language_holder = /datum/language_holder/empty // We get stuff from our species
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
-
-	maxHealth = HUMAN_MAXHEALTH //NOVA EDIT ADDITION
-	health = HUMAN_MAXHEALTH //NOVA EDIT ADDITION
+	max_grab = GRAB_KILL
 
 	//Hair colour and style
 	var/hair_color = COLOR_BLACK
 	var/hairstyle = "Bald"
 
 	///Colours used for hair and facial hair gradients.
-	var/list/grad_color
+	var/list/grad_color = list(
+		COLOR_BLACK,	//Hair Gradient Color
+		COLOR_BLACK,	//Facial Hair Gradient Color
+	)
 	///Styles used for hair and facial hair gradients.
-	var/list/grad_style
+	var/list/grad_style = list(
+		"None",	//Hair Gradient Style
+		"None",	//Facial Hair Gradient Style
+	)
 
 	//Facial hair colour and style
 	var/facial_hair_color = COLOR_BLACK
@@ -43,7 +47,6 @@
 	var/lip_color = COLOR_WHITE
 
 	var/age = 30 //Player's age
-	var/chrono_age = 30 // NOVA EDIT ADDITION - Chronological age
 
 	/// Which body type to use
 	var/physique = MALE
@@ -56,8 +59,8 @@
 	var/backpack = DBACKPACK //Which backpack type the player has chosen.
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 
-	var/datum/scream_type/selected_scream //SKRYAT EDIT ADDITION
-	var/datum/laugh_type/selected_laugh //NOVA EDIT ADDITION
+	var/datum/scream_type/selected_scream // NOVA EDIT ADDITION
+	var/datum/laugh_type/selected_laugh // NOVA EDIT ADDITION
 
 	//Equipment slots
 	var/obj/item/clothing/wear_suit = null
@@ -76,9 +79,9 @@
 	var/static/list/can_ride_typecache = typecacheof(list(
 		/mob/living/basic/parrot,
 		/mob/living/carbon/human,
-		/mob/living/simple_animal/slime,
+		/mob/living/basic/slime,
 	))
-	var/lastpuke = 0
+
 	var/account_id
 
 	var/hardcore_survival_score = 0

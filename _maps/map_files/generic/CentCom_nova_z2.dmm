@@ -2337,7 +2337,6 @@
 /area/centcom/holding/cafepark)
 "aEf" = (
 /obj/structure/water_source/puddle{
-	layer = 2.89;
 	pixel_x = 14;
 	pixel_y = 9
 	},
@@ -2577,9 +2576,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/structure/window/reinforced/spawner/directional/east{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/grass/fairy,
 /area/centcom/holding/cafepark)
@@ -3363,7 +3360,6 @@
 "aQD" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/reagent_containers/condiment/enzyme{
-	layer = 5;
 	name = "universally-sized universal enzyme";
 	pixel_x = -4;
 	volume = 2000
@@ -4957,10 +4953,10 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "bWy" = (
-/obj/machinery/button/door/directional/east{
+/obj/machinery/button/door/indestructible/no_telekinesis/directional/east{
+	pixel_y = -8;
 	id = "arr_hall_lookout";
 	name = "Lookout Shutters Control";
-	pixel_y = -8;
 	req_access = list("command")
 	},
 /turf/open/floor/iron/dark,
@@ -5129,8 +5125,7 @@
 /area/centcom/interlink)
 "cna" = (
 /obj/structure/chair/wood{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /turf/open/floor/wood,
@@ -5244,6 +5239,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
+"cyQ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "czd" = (
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 4
@@ -5344,13 +5348,8 @@
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "cHy" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "cHY" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -5390,10 +5389,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "cMd" = (
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/obj/structure/disposalpipe/trunk,
+/obj/structure/sign/poster/random/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "cMh" = (
@@ -5593,6 +5589,14 @@
 /obj/structure/closet/secure_closet/freezer/kitchen/all_access,
 /turf/open/floor/iron/showroomfloor,
 /area/centcom/holding/cafe)
+"dda" = (
+/obj/machinery/disposal/bin,
+/obj/effect/turf_decal/delivery,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/interlink)
 "ddp" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -5685,6 +5689,10 @@
 "doA" = (
 /turf/open/floor/wood/large,
 /area/centcom/holding/cafe)
+"dpn" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "drE" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -6125,11 +6133,8 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
+/obj/machinery/vending/hotdog/museum{
+	onstation = 0
 	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
@@ -6314,7 +6319,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "intersposals"
+	id = "interdisposals"
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -6492,7 +6497,7 @@
 "eXn" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "intersposals"
+	id = "interdisposals"
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -6899,12 +6904,10 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "fLG" = (
-/obj/machinery/disposal/bin,
-/obj/effect/turf_decal/delivery,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "fMM" = (
 /obj/machinery/duct,
@@ -7706,7 +7709,7 @@
 /area/centcom/interlink)
 "hjK" = (
 /obj/machinery/light/directional/north,
-/turf/closed/indestructible/riveted,
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "hkQ" = (
 /obj/effect/turf_decal/siding/wood{
@@ -7861,8 +7864,8 @@
 /turf/open/floor/mineral/titanium,
 /area/centcom/interlink)
 "huK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -8288,13 +8291,12 @@
 /turf/open/floor/carpet,
 /area/centcom/holding/cafe)
 "ikj" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 4
+/obj/effect/turf_decal/delivery,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/turf/open/floor/iron,
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "ikl" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -8457,6 +8459,11 @@
 	smoothing_flags = 0
 	},
 /area/centcom/holding/cafepark)
+"iuy" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "iuK" = (
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/carpet/red,
@@ -8852,8 +8859,9 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "jfB" = (
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/conveyor_switch/oneway{
-	id = "cargodisposals";
+	id = "interdisposals";
 	name = "disposals conveyor switch"
 	},
 /turf/open/floor/plating,
@@ -8933,25 +8941,20 @@
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/paper/fluff/junkmail_redpill/true,
-/obj/item/paper/fluff/junkmail_redpill{
-	pixel_x = 1;
-	pixel_y = 8
-	},
 /obj/item/paper/fluff/jobs/prisoner/letter,
 /obj/item/paper/fluff/jobs/security/court_judgement{
 	pixel_x = -5;
 	pixel_y = 1
 	},
 /obj/machinery/light/cold/directional/east,
-/obj/machinery/button/door/directional/east{
-	id = "arriv_hall";
-	name = "Arrivals Access Shutter Control";
-	pixel_y = 8;
-	req_access = list("security")
-	},
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/button/door/indestructible/no_telekinesis/directional/east{
+	pixel_y = 8;
+	id = "arriv_hall";
+	name = "Arrivals Access Shutter Control";
+	req_access = list("security")
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "joj" = (
@@ -9067,7 +9070,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/window/indestructible{
 	id = "arriv_hall";
-	name = "Windowed Interlink Access Shutters"
+	name = "Windowed Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -9257,20 +9261,13 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "jTQ" = (
-/obj/structure/closet/crate/bin,
-/obj/item/paper/pamphlet/centcom/visitor_info,
-/obj/item/paper/pamphlet/centcom/visitor_info{
-	pixel_x = -9
-	},
-/obj/item/paper/pamphlet/centcom/visitor_info{
-	pixel_x = -3
-	},
-/obj/item/paper/pamphlet/centcom/visitor_info{
-	pixel_x = 3
-	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
 	dir = 6
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
@@ -9949,6 +9946,11 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"laK" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/chair/stool/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "laX" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/railing/corner{
@@ -10266,9 +10268,7 @@
 /area/centcom/interlink)
 "lCi" = (
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/chair/stool/directional/south{
 	dir = 1
 	},
@@ -11720,6 +11720,11 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
+"nYN" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "nZP" = (
 /obj/machinery/light/cold/directional/west,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -11832,7 +11837,8 @@
 "onb" = (
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arriv_hall";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -11998,9 +12004,7 @@
 	pixel_y = 3
 	},
 /obj/structure/flora/bush/ferny,
-/obj/structure/window/reinforced/spawner/directional/east{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/grass/fairy,
 /area/centcom/holding/cafepark)
 "oyi" = (
@@ -12216,6 +12220,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/holding/cafe)
+"oPO" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/trimline/dark_green/filled/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "oQW" = (
 /obj/structure/chair/sofa/right/brown{
 	dir = 1
@@ -12618,6 +12632,12 @@
 	},
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
+"ptB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "puo" = (
 /obj/effect/turf_decal/sand,
 /obj/machinery/light/directional/east,
@@ -12754,6 +12774,15 @@
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
+"pFm" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "pFr" = (
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/airlock/security{
@@ -12802,7 +12831,8 @@
 /obj/effect/turf_decal/trimline/dark_green/corner,
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arr_hall_lookout";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
@@ -13080,6 +13110,14 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
+"pYA" = (
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "pYF" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -13113,7 +13151,8 @@
 	},
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arriv_hall";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -13209,12 +13248,11 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "qjL" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "Danger: Conveyor Access"
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "qkZ" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
@@ -13965,13 +14003,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
-"rCG" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "rDg" = (
 /obj/effect/light_emitter/interlink,
 /obj/effect/turf_decal/weather/dirt{
@@ -14533,6 +14564,13 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"sqk" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "sqZ" = (
 /obj/structure/chair/sofa/bench/left,
 /turf/open/floor/iron/cafeteria,
@@ -14990,6 +15028,10 @@
 /obj/item/food/grown/wheat,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/freezer,
+/area/centcom/interlink)
+"sYV" = (
+/obj/machinery/door/poddoor/ert,
+/turf/closed/indestructible/riveted,
 /area/centcom/interlink)
 "sYY" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
@@ -15633,9 +15675,7 @@
 /area/centcom/holding/cafe)
 "ueC" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/condiment/enzyme{
-	layer = 5
-	},
+/obj/item/reagent_containers/condiment/enzyme,
 /obj/machinery/light/directional/south,
 /obj/item/reagent_containers/cup/beaker/bluespace{
 	luminosity = 3;
@@ -15847,7 +15887,9 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "uxo" = (
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "uxW" = (
@@ -16875,13 +16917,9 @@
 /turf/open/floor/grass,
 /area/centcom/interlink)
 "wwF" = (
-/obj/effect/turf_decal/trimline/dark_green/filled/line{
-	dir = 5
+/turf/closed/indestructible/fakedoor{
+	name = "Interlink Disposal Access"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/turf/open/floor/iron,
 /area/centcom/interlink)
 "wyd" = (
 /obj/structure/railing/wooden_fencing{
@@ -17296,13 +17334,11 @@
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
 "xkb" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 4
+/obj/machinery/mass_driver/trash{
+	dir = 1;
+	id = "interlinkdriver"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "xkO" = (
 /obj/structure/railing{
@@ -17683,7 +17719,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/indestructible{
 	id = "arr_hall_lookout";
-	name = "Interlink Access Shutters"
+	name = "Interlink Access Shutters";
+	move_resist = 3001
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -17752,13 +17789,13 @@
 	req_access = list("security")
 	},
 /obj/machinery/light/cold/directional/west,
-/obj/machinery/button/door/directional/west{
-	id = "arriv_hall";
-	name = "Arrivals Access Shutter Control";
-	pixel_y = 8;
-	req_access = list("security")
-	},
 /obj/effect/turf_decal/tile/red/opposingcorners,
+/obj/machinery/button/door/indestructible/no_telekinesis/directional/west{
+	pixel_y = 8;
+	req_access = list("security");
+	id = "arriv_hall";
+	name = "Arrivals Access Shutter Control"
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "xVV" = (
@@ -25239,8 +25276,8 @@ aWb
 dkE
 tvw
 tvw
+tvw
 hjK
-aXG
 aXG
 ubn
 sci
@@ -33939,8 +33976,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-tvw
+wwF
+aqG
 cMd
 uxo
 fov
@@ -34196,10 +34233,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-eXn
+nYN
 aqG
+fLG
 tvw
 mtv
 eOx
@@ -34208,7 +34245,7 @@ pZh
 jtl
 aXG
 huK
-xyz
+ikj
 pHQ
 pZh
 pZh
@@ -34453,10 +34490,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-eGs
-aqG
+pYA
+iuy
+ptB
 tvw
 bjh
 cAI
@@ -34464,7 +34501,7 @@ mDs
 xqq
 tUz
 uYo
-cHy
+pFm
 uYo
 eNn
 xqq
@@ -34710,10 +34747,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
 eXn
-aqG
+dpn
+cHy
 tvw
 aXG
 aXG
@@ -34967,10 +35004,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-eXn
+eGs
 jfB
+aqG
 tvw
 aDg
 uTg
@@ -34987,9 +35024,9 @@ alx
 aDg
 tvw
 tvw
-ukp
-lrp
-eYX
+oPO
+bIs
+eXw
 jTQ
 tvw
 aFe
@@ -35224,10 +35261,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
 tvw
-tvw
-tvw
+eXn
+laK
+aqG
 tvw
 aXG
 bdI
@@ -35244,7 +35281,7 @@ cal
 aXG
 tvw
 oAn
-uUo
+oOC
 nJp
 tvw
 tvw
@@ -35481,10 +35518,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+tvw
+eXn
+qjL
+aqG
 tvw
 dLq
 lsV
@@ -35501,7 +35538,7 @@ dHD
 aXG
 tvw
 fGC
-bIG
+hvQ
 nJp
 tvw
 iVr
@@ -35738,10 +35775,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+tvw
+eXn
+tvw
+tvw
 tvw
 aXG
 alO
@@ -35758,7 +35795,7 @@ wYH
 aXG
 tvw
 fGC
-bIG
+hvQ
 nJp
 tvw
 tfe
@@ -35995,9 +36032,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+sYV
+xkb
+tvw
 aaa
 tvw
 aXG
@@ -36015,7 +36052,7 @@ aXG
 aXG
 tvw
 vsB
-bIG
+hvQ
 nJp
 tvw
 tvw
@@ -36252,9 +36289,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+tvw
+tvw
+tvw
 aaa
 ckV
 hES
@@ -36263,7 +36300,7 @@ eHo
 amv
 tvw
 aDg
-rCG
+sqk
 aDg
 tvw
 amv
@@ -36272,7 +36309,7 @@ aXG
 aXG
 tvw
 iMY
-bIG
+hvQ
 pSt
 kOZ
 sga
@@ -36520,7 +36557,7 @@ inr
 nrl
 rYR
 rYR
-xkb
+cyQ
 rYR
 rYR
 ojv
@@ -36528,8 +36565,8 @@ liU
 aXG
 gAj
 tvw
-wwF
-ikj
+iIb
+eYX
 eYX
 eYX
 aPe
@@ -36785,7 +36822,7 @@ aXG
 aXG
 aXG
 tvw
-qjL
+xyz
 dAM
 dmR
 tvw
@@ -37034,7 +37071,7 @@ aXG
 aXG
 aXG
 aXG
-fLG
+dda
 aXG
 aXG
 aXG

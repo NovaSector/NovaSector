@@ -14,6 +14,7 @@
 		CATEGORY_CONSUMABLES,
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
+		CATEGORY_INTERDYNE,
 	)
 
 // This is honestly quite terrible but, replaces voucher spawned mining drones with the interdyne subtype at this console
@@ -30,4 +31,4 @@
 
 /mob/living/basic/mining_drone/interdyne
 	name = "\improper Interdyne minebot"
-	faction = list(FACTION_NEUTRAL, ROLE_SYNDICATE)
+	faction = list(FACTION_NEUTRAL, ROLE_INTERDYNE_PLANETARY_BASE)

@@ -45,7 +45,7 @@
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	coldmod = 1.2
 	heatmod = 2 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us.
-	siemens_coeff = 1.4 // Not more because some shocks will outright crit you, which is very unfun
+	siemens_coeff = 1 // Puts you in deep crit and near death but not outright dead
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
@@ -110,8 +110,8 @@
 	if(!chassis && !head)
 		return
 
-	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = GLOB.sprite_accessories[MUTANT_SYNTH_CHASSIS][chassis[MUTANT_INDEX_NAME]]
-	var/datum/sprite_accessory/synth_head/head_of_choice = GLOB.sprite_accessories[MUTANT_SYNTH_HEAD][head[MUTANT_INDEX_NAME]]
+	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[MUTANT_SYNTH_CHASSIS][chassis[MUTANT_INDEX_NAME]]
+	var/datum/sprite_accessory/synth_head/head_of_choice = SSaccessories.sprite_accessories[MUTANT_SYNTH_HEAD][head[MUTANT_INDEX_NAME]]
 	if(!chassis_of_choice && !head_of_choice)
 		return
 
@@ -149,6 +149,18 @@
 		screen.Remove(human)
 		UnregisterSignal(human, COMSIG_LIVING_DEATH)
 
+/datum/species/synthetic/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
+
+	var/obj/item/organ/internal/stomach/synth/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	oversized_quirk.old_organs += list(old_stomach)
+
+	if(new_synth_stomach.Insert(human_holder, special = TRUE))
+		to_chat(human_holder, span_warning("You feel your massive engine rumble!"))
+		if(old_stomach)
+			old_stomach.moveToNullspace()
+			STOP_PROCESSING(SSobj, old_stomach)
+
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen
  *
@@ -180,11 +192,6 @@
 	transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN][MUTANT_INDEX_NAME] = screen_name
 	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna)
 	transformer.update_body()
-
-/datum/species/synthetic/random_name(gender, unique, lastname)
-	var/randname = pick(GLOB.posibrain_names)
-	randname = "[randname]-[rand(100, 999)]"
-	return randname
 
 /datum/species/synthetic/get_types_to_preload()
 	return ..() - typesof(/obj/item/organ/internal/cyberimp/arm/power_cord) // Don't cache things that lead to hard deletions.

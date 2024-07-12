@@ -84,3 +84,6 @@
 
 /// Whenever we need to get the soul of the mob inside of the soulcatcher.
 #define COMSIG_SOULCATCHER_SCAN_BODY "soulcatcher_scan_body"
+
+/// Whenever a baton successfully executes its nonlethal attack. WARNING HORRIBLE FUCKING CODE THIS IS ASS AAAAAAAAAAAAH
+#define COMSIG_PRE_BATON_FINALIZE_ATTACK "pre_baton_finalize_attack"

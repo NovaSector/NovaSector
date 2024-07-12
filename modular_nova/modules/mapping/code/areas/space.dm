@@ -1,14 +1,5 @@
 // Nova Sector space area defines - Mostly for ruins
 
-///Cybersun, Forgotten Ship
-/area/ruin/space/has_grav/cybersun
-	name = "Cybersun"
-	icon_state = "spacecontent1"
-
-/area/ruin/space/has_grav/cybersun/atmospherics
-	name = "Abandoned Atmospherics Wing"
-	icon_state = "atmos"
-
 ///Generic Nova Sector Ruins
 
 /area/ruin/space/has_grav/powered/nova/smugglies
@@ -20,7 +11,7 @@
 /area/ruin/space/has_grav/powered/nova/luna
 	name = "Unexplored Location"
 
-/area/ruin/space/has_grav/powered/nova/blackmarket
+/area/ruin/space/has_grav/nova/blackmarket
 	name = "Shady Market"
 
 /area/ruin/space/has_grav/powered/nova/alien_tool_lab
@@ -28,93 +19,6 @@
 
 /area/ruin/space/has_grav/powered/nova/scrapheap
 	name = "Scrap Heap"
-
-///Syndicate Deep Space Two
-/area/ruin/space/has_grav/nova/des_two
-	name = "DS-2" //If DS-1 is so great...
-	icon = 'icons/area/areas_centcom.dmi'
-	icon_state = "syndie-ship"
-
-//Cargo
-/area/ruin/space/has_grav/nova/des_two/cargo
-	name = "DS-2 Warehouse"
-
-/area/ruin/space/has_grav/nova/des_two/cargo/hangar
-	name = "DS-2 Hangar"
-
-//Bridge
-/area/ruin/space/has_grav/nova/des_two/bridge
-	name = "DS-2 Bridge"
-	icon_state = "syndie-control"
-
-/area/ruin/space/has_grav/nova/des_two/bridge/cl
-	name = "DS-2 Corporate Liaison's Office"
-	sound_environment = SOUND_AREA_WOODFLOOR
-
-/area/ruin/space/has_grav/nova/des_two/bridge/admiral
-	name = "DS-2 Station Admiral's Office"
-	sound_environment = SOUND_AREA_WOODFLOOR
-
-/area/ruin/space/has_grav/nova/des_two/bridge/vault
-	name = "DS-2 Vault"
-
-/area/ruin/space/has_grav/nova/des_two/bridge/eva
-	name = "DS-2 E.V.A."
-
-//Security
-/area/ruin/space/has_grav/nova/des_two/security
-	name = "DS-2 Security"
-	ambience_index = AMBIENCE_DANGER
-
-/area/ruin/space/has_grav/nova/des_two/security/armory
-	name = "DS-2 Armory"
-
-/area/ruin/space/has_grav/nova/des_two/security/lawyer
-	name = "DS-2 Interrogation Office"
-
-/area/ruin/space/has_grav/nova/des_two/security/prison
-	name = "DS-2 Long-Term Brig"
-
-//Service
-/area/ruin/space/has_grav/nova/des_two/service
-	name = "DS-2 Service Wing"
-
-/area/ruin/space/has_grav/nova/des_two/service/diner
-	name = "DS-2 Diner"
-
-/area/ruin/space/has_grav/nova/des_two/service/dorms
-	name = "DS-2 Dormitories"
-
-/area/ruin/space/has_grav/nova/des_two/service/dorms/fitness
-	name = "DS-2 Fitness Room"
-
-/area/ruin/space/has_grav/nova/des_two/service/lounge
-	name = "DS-2 Lounge"
-
-/area/ruin/space/has_grav/nova/des_two/service/hydroponics
-	name = "DS-2 Hydroponics"
-
-//Hallways
-/area/ruin/space/has_grav/nova/des_two/halls
-	name = "DS-2 Central Halls"
-
-//Engineering
-/area/ruin/space/has_grav/nova/des_two/engineering
-	name = "DS-2 Engineering"
-
-//Research
-/area/ruin/space/has_grav/nova/des_two/research
-	name = "DS-2 Research"
-
-/area/ruin/space/has_grav/nova/des_two/research/robotics
-	name = "DS-2 Robotics Bay"
-
-//Medbay
-/area/ruin/space/has_grav/nova/des_two/medbay
-	name = "DS-2 Medical Bay"
-
-/area/ruin/space/has_grav/nova/des_two/medbay/chem
-	name = "DS-2 Chemistry"
 
 /area/ruin/space/has_grav/shuttle8532engineering
 	name = "Shuttle 8532 Engine Room"
@@ -239,7 +143,98 @@
 	has_gravity = STANDARD_GRAVITY
 	outdoors = TRUE
 
-// Cargodise Lost Freighter
+/**
+ * DS2 Syndie Areas
+ */
+/area/ruin/space/has_grav/nova/des_two
+	name = "DS-2" //If DS-1 is so great...
+	icon = 'icons/area/areas_centcom.dmi'
+	icon_state = "syndie-ship"
+
+//Cargo
+/area/ruin/space/has_grav/nova/des_two/cargo
+	name = "DS-2 Warehouse"
+
+/area/ruin/space/has_grav/nova/des_two/cargo/hangar
+	name = "DS-2 Hangar"
+
+//Bridge
+/area/ruin/space/has_grav/nova/des_two/bridge
+	name = "DS-2 Bridge"
+	icon_state = "syndie-control"
+
+/area/ruin/space/has_grav/nova/des_two/bridge/cl
+	name = "DS-2 Corporate Liaison's Office"
+	sound_environment = SOUND_AREA_WOODFLOOR
+
+/area/ruin/space/has_grav/nova/des_two/bridge/admiral
+	name = "DS-2 Station Admiral's Office"
+	sound_environment = SOUND_AREA_WOODFLOOR
+
+/area/ruin/space/has_grav/nova/des_two/bridge/vault
+	name = "DS-2 Vault"
+
+/area/ruin/space/has_grav/nova/des_two/bridge/eva
+	name = "DS-2 E.V.A."
+
+//Security
+/area/ruin/space/has_grav/nova/des_two/security
+	name = "DS-2 Security"
+	ambience_index = AMBIENCE_DANGER
+
+/area/ruin/space/has_grav/nova/des_two/security/armory
+	name = "DS-2 Armory"
+
+/area/ruin/space/has_grav/nova/des_two/security/lawyer
+	name = "DS-2 Interrogation Office"
+
+/area/ruin/space/has_grav/nova/des_two/security/prison
+	name = "DS-2 Long-Term Brig"
+
+//Service
+/area/ruin/space/has_grav/nova/des_two/service
+	name = "DS-2 Service Wing"
+
+/area/ruin/space/has_grav/nova/des_two/service/diner
+	name = "DS-2 Diner"
+
+/area/ruin/space/has_grav/nova/des_two/service/dorms
+	name = "DS-2 Dormitories"
+
+/area/ruin/space/has_grav/nova/des_two/service/dorms/fitness
+	name = "DS-2 Fitness Room"
+
+/area/ruin/space/has_grav/nova/des_two/service/lounge
+	name = "DS-2 Lounge"
+
+/area/ruin/space/has_grav/nova/des_two/service/hydroponics
+	name = "DS-2 Hydroponics"
+
+//Hallways
+/area/ruin/space/has_grav/nova/des_two/halls
+	name = "DS-2 Central Halls"
+
+//Engineering
+/area/ruin/space/has_grav/nova/des_two/engineering
+	name = "DS-2 Engineering"
+
+//Research
+/area/ruin/space/has_grav/nova/des_two/research
+	name = "DS-2 Research"
+
+/area/ruin/space/has_grav/nova/des_two/research/robotics
+	name = "DS-2 Robotics Bay"
+
+//Medbay
+/area/ruin/space/has_grav/nova/des_two/medbay
+	name = "DS-2 Medical Bay"
+
+/area/ruin/space/has_grav/nova/des_two/medbay/chem
+	name = "DS-2 Chemistry"
+
+/**
+ * Cargodise Lost Freighter defines
+ */
 
 /area/ruin/space/has_grav/cargodise_freighter/primaryhall
 	name = "Freighter Primary Hall"

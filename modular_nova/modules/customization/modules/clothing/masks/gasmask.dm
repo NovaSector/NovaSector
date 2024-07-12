@@ -98,14 +98,15 @@
 	. = ..()
 	. += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
 
-/obj/item/clothing/mask/gas/respirator/CtrlClick(mob/living/user)
+/obj/item/clothing/mask/gas/respirator/item_ctrl_click(mob/user)
 	if(!isliving(user))
-		return
+		return CLICK_ACTION_BLOCKING
 	if(user.get_active_held_item() != src)
 		to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
-		return
+		return CLICK_ACTION_BLOCKING
 	voice_filter = voice_filter ? null : initial(voice_filter)
 	to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/clown_hat/vox
 	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask. This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."

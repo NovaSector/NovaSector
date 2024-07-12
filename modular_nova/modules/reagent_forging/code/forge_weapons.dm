@@ -6,6 +6,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME
 	obj_flags_nova = ANVIL_REPAIR
+	toolspeed = 0.9 //Slightly better than avg. - A forged hammer or knife is probably better than a standard one
 
 /obj/item/forging/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -67,7 +68,7 @@
 	belt_icon_state = "dagger_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throw_speed = 4
-	embedding = list("pain_mult" = 2, "embed_chance" = 50, "fall_chance" = 1)
+	embed_type = /datum/embed_data/forged_dagger
 	throwforce = 15
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_SMALL
@@ -75,6 +76,12 @@
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
+	tool_behaviour = TOOL_KNIFE
+
+/datum/embed_data/forged_dagger
+	embed_chance = 50
+	fall_chance = 1
+	pain_mult = 2
 
 //what a cute gimmick
 /obj/item/forging/reagent_weapon/dagger/attack(mob/living/M, mob/living/user, params)
@@ -107,7 +114,7 @@
 	worn_icon_state = "spear_back"
 	throwforce = 22
 	throw_speed = 4
-	embedding = list("pain_mult" = 6, "embed_chance" = 75, "fall_chance" = 0)
+	embed_data = /datum/embed_data/forged_spear
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
@@ -118,6 +125,11 @@
 	bare_wound_bonus = 15
 	reach = 2
 	sharpness = SHARP_EDGED
+
+/datum/embed_data/forged_spear
+	embed_chance = 75
+	fall_chance = 0
+	pain_mult = 6
 
 //this is 1:1 with the bonespear, lets use this as a 'balance anchor'. weapons that blatantly outclass this are powercrept.
 /obj/item/forging/reagent_weapon/spear/Initialize(mapload)
@@ -135,13 +147,18 @@
 	worn_icon_state = "axe_back"
 	throwforce = 18
 	throw_speed = 4
-	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10)
+	embed_type = /datum/embed_data/forged_axe
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FIRE_PROOF
 	attack_verb_continuous = list("slashes", "bashes")
 	attack_verb_simple = list("slash", "bash")
 	sharpness = SHARP_EDGED
+
+/datum/embed_data/forged_axe
+	embed_chance = 65
+	fall_chance = 10
+	pain_mult = 4
 
 //Boring option for doing the most raw damage
 /obj/item/forging/reagent_weapon/hammer
@@ -212,7 +229,7 @@
 		var/obj/item/forging/hammer/attacking_hammer = attacking_item
 		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * attacking_hammer.toolspeed
 		while(atom_integrity < max_integrity)
-			if(!do_after(user, skill_modifier, src))
+			if(!do_after(user, skill_modifier SECONDS, src))
 				return
 			var/fixing_amount = min(max_integrity - atom_integrity, 5)
 			atom_integrity += fixing_amount

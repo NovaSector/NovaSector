@@ -41,35 +41,43 @@
 	icon_state = "peace"
 	product_ads = "Beat perps in style!;The stains wash right out!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	vend_reply = "Good luck, Peacekeeper!"
-	products = list(/obj/item/clothing/suit/hooded/wintercoat/security = 5,
-					/obj/item/clothing/suit/toggle/jacket/sec = 5,
-					/obj/item/clothing/suit/armor/vest/peacekeeper/brit = 5,
-					/obj/item/clothing/suit/armor/vest/peacekeeper/jacket = 5,
-					/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge = 5,
-					/obj/item/clothing/neck/security_cape = 5,
-					/obj/item/clothing/neck/security_cape/armplate = 5,
-					/obj/item/storage/backpack/security = 5,
-					/obj/item/storage/backpack/satchel/sec = 5,
-					/obj/item/storage/backpack/duffelbag/sec = 5,
-					/obj/item/storage/backpack/duffelbag/sec = 5,
-					/obj/item/clothing/under/rank/security/officer = 10,
-					/obj/item/clothing/under/rank/security/officer/skirt = 10,
-					/obj/item/clothing/under/rank/security/peacekeeper = 10,
-					/obj/item/clothing/under/rank/security/nova/utility = 3,
-					/obj/item/clothing/under/rank/security/peacekeeper/trousers = 10,
-					/obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts = 10,
-					/obj/item/clothing/shoes/jackboots/sec = 10,
-					/obj/item/clothing/head/security_garrison = 10,
-					/obj/item/clothing/head/security_cap = 10,
-					/obj/item/clothing/head/beret/sec/peacekeeper = 5,
-					/obj/item/clothing/head/helmet/sec/sol = 5,
-					/obj/item/clothing/head/hats/warden/police/patrol = 5,
-					/obj/item/clothing/head/costume/ushanka/sec = 10,
-					/obj/item/clothing/gloves/color/black/security = 10,
-					)
-	premium = list( /obj/item/clothing/under/rank/security/officer/formal = 3,
-					/obj/item/clothing/suit/jacket/officer/blue = 3,
-					/obj/item/clothing/head/beret/sec/navyofficer = 3)
+	products = list(
+		/obj/item/clothing/suit/hooded/wintercoat/security = 5,
+		/obj/item/clothing/suit/toggle/jacket/sec = 5,
+		/obj/item/clothing/suit/armor/vest/peacekeeper/brit = 5,
+		/obj/item/clothing/suit/armor/vest/peacekeeper/jacket = 5,
+		/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge = 5,
+		/obj/item/clothing/neck/security_cape = 5,
+		/obj/item/clothing/neck/security_cape/armplate = 5,
+		/obj/item/storage/backpack/security = 5,
+		/obj/item/storage/backpack/satchel/sec = 5,
+		/obj/item/storage/backpack/duffelbag/sec = 5,
+		/obj/item/storage/backpack/duffelbag/sec = 5,
+		/obj/item/clothing/under/rank/security/officer = 10,
+		/obj/item/clothing/under/rank/security/officer/skirt = 10,
+		/obj/item/clothing/under/rank/security/peacekeeper/dress = 10,
+		/obj/item/clothing/under/rank/security/peacekeeper/plain_skirt = 10,
+		/obj/item/clothing/under/rank/security/peacekeeper/miniskirt = 10,
+		/obj/item/clothing/under/rank/security/peacekeeper/jumpsuit = 10,
+		/obj/item/clothing/under/rank/security/peacekeeper = 10,
+		/obj/item/clothing/under/rank/security/nova/utility = 3,
+		/obj/item/clothing/under/rank/security/peacekeeper/trousers = 10,
+		/obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts = 10,
+		/obj/item/clothing/shoes/jackboots/sec = 10,
+		/obj/item/clothing/head/security_garrison = 10,
+		/obj/item/clothing/head/security_cap = 10,
+		/obj/item/clothing/head/beret/sec/peacekeeper = 5,
+		/obj/item/clothing/head/helmet/sec/sol = 5,
+		/obj/item/clothing/head/hats/warden/police/patrol = 5,
+		/obj/item/clothing/head/costume/ushanka/sec = 10,
+		/obj/item/clothing/gloves/color/black/security = 10,
+	)
+	premium = list(
+		/obj/item/clothing/under/rank/security/officer/formal = 3,
+		/obj/item/clothing/suit/jacket/officer/blue = 3,
+		/obj/item/clothing/head/beret/sec/navyofficer = 3,
+		/obj/item/riding_saddle/leather/peacekeeper = 3,
+	)
 	payment_department = ACCOUNT_SEC
 	light_color = COLOR_MODERATE_BLUE
 
@@ -84,20 +92,23 @@
 	vend_reply = "Thank you for using the SecDrobe!"
 	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "secdrobe"
-	products = list(/obj/item/clothing/suit/hooded/wintercoat/security/redsec = 3,
-					/obj/item/storage/backpack/security/redsec = 3,
-					/obj/item/storage/backpack/satchel/sec/redsec = 3,
-					/obj/item/storage/backpack/duffelbag/sec/redsec = 3,
-					/obj/item/clothing/under/rank/security/officer/redsec = 3,
-					/obj/item/clothing/shoes/jackboots = 3,
-					/obj/item/clothing/head/beret/sec = 3,
-					/obj/item/clothing/head/soft/sec = 3,
-					/obj/item/clothing/mask/bandana/red = 3,
-					/obj/item/clothing/gloves/color/black = 3,
-					/obj/item/clothing/under/rank/security/officer/skirt = 3,
-					/obj/item/clothing/under/rank/security/nova/utility/redsec = 3,
-					/obj/item/clothing/suit/toggle/jacket/sec/old = 3,
-					)
-	premium = list( /obj/item/clothing/under/rank/security/officer/formal = 5,
-					/obj/item/clothing/suit/jacket/officer/tan = 5,
-					/obj/item/clothing/head/beret/sec/navyofficer = 5)
+	products = list(
+		/obj/item/clothing/suit/hooded/wintercoat/security/redsec = 3,
+		/obj/item/storage/backpack/security/redsec = 3,
+		/obj/item/storage/backpack/satchel/sec/redsec = 3,
+		/obj/item/storage/backpack/duffelbag/sec/redsec = 3,
+		/obj/item/clothing/under/rank/security/officer/redsec = 3,
+		/obj/item/clothing/shoes/jackboots = 3,
+		/obj/item/clothing/head/beret/sec = 3,
+		/obj/item/clothing/head/soft/sec = 3,
+		/obj/item/clothing/mask/bandana/red = 3,
+		/obj/item/clothing/gloves/color/black = 3,
+		/obj/item/clothing/under/rank/security/officer/skirt = 3,
+		/obj/item/clothing/under/rank/security/nova/utility/redsec = 3,
+		/obj/item/clothing/suit/toggle/jacket/sec/old = 3,
+	)
+	premium = list(
+		/obj/item/clothing/under/rank/security/officer/formal = 5,
+		/obj/item/clothing/suit/jacket/officer/tan = 5,
+		/obj/item/clothing/head/beret/sec/navyofficer = 5,
+	)

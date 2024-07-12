@@ -27,7 +27,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/docking_port/mobile/arrivals_nova/LateInitialize()
-	. = ..()
 	console = get_control_console()
 
 /obj/docking_port/mobile/arrivals_nova/check()
@@ -120,12 +119,13 @@
 	who_can_purchase = null
 
 /datum/map_template/shuttle/cargo/nova
-	name = "NLV Consign (Cargo)"
+	name = "Supply Shuttle (Cargo)"
 	prefix = "_maps/shuttles/nova/"
 	port_id = "cargo"
 	suffix = "nova"
 
 /datum/map_template/shuttle/cargo/nova/delta
+	name = "Supply Shuttle (Delta)"
 	prefix = "_maps/shuttles/nova/"
 	suffix = "nova_delta"	//I hate this. Delta station is one tile different docking-wise, which fucks it ALL up unless we either a) change the map (this would be nonmodular and also press the engine against disposals) or b) this (actually easy, just dumb)
 
@@ -135,6 +135,17 @@
 	prefix = "_maps/shuttles/nova/"
 	port_id = "whiteship"
 	suffix = "blueshift"
+
+/datum/map_template/shuttle/cargo/nova/ouroboros
+	name = "Supply Shuttle (Ouroboros)"
+	suffix = "ouroboros"
+
+/datum/map_template/shuttle/whiteship/ouroboros
+	name = "JN Chasse-Galerie"
+	description = "A small Jim Nortons shuttle meant to be a mobile cafe. No hostiles onboard, but multiple corpses of Jim Nortons employees."
+	prefix = "_maps/shuttles/nova/"
+	port_id = "whiteship"
+	suffix = "ouroboros"
 
 /datum/map_template/shuttle/arrivals_nova
 	name = "NTV Relay (Arrivals)"

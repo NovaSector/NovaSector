@@ -10,7 +10,7 @@ It also ports:
     Japanese and Victorian costumes;
     Two short dresses;
     Several departmental/head-of-staff berets;
-All items are avaliable through either the Loadout, Vendors, or Both. 
+All items are avaliable through either the Loadout, Vendors, or Both.
 
 
 PART 2!
@@ -30,8 +30,8 @@ To show items in vendors:
 ### Master file additions
 
 To add digitigrade variants:
-- Skyrat-tg/modular_nova/master_files/icons/mob/clothing/uniform_digi.dmi
-- Skyrat-tg/modular_nova/master_files/icons/mob/clothing/under/uniform_digi.dmi
+- modular_nova/master_files/icons/mob/clothing/uniform_digi.dmi
+- modular_nova/master_files/icons/mob/clothing/under/uniform_digi.dmi
 
 ### Included files that are not contained in this module:
 

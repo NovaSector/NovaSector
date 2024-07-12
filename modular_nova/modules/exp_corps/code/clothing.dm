@@ -16,7 +16,7 @@
 
 /obj/item/storage/belt/military/expeditionary_corps
 	name = "expeditionary corps chest rig"
-	desc = "A set of tactical webbing worn by expeditionary corps."
+	desc = "A set of tactical webbing worn by the now-defunct Vanguard Expeditionary Corps."
 	icon_state = "webbing_exp_corps"
 	worn_icon_state = "webbing_exp_corps"
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
@@ -92,6 +92,8 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
+	uses_advanced_reskins = FALSE
+	unique_reskin = NONE
 
 /obj/item/clothing/gloves/chief_engineer/expeditionary_corps
 	name = "expeditionary corps insulated gloves"
@@ -99,12 +101,9 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	worn_icon_state = "exp_corps"
-	cold_protection = HANDS
-	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	heat_protection = HANDS
-	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
 	armor_type = /datum/armor/chief_engineer_expeditionary_corps
+	clothing_traits = list(TRAIT_FAST_CUFFING) // parity with other black-gloves-likes
 
 /datum/armor/chief_engineer_expeditionary_corps
 	fire = 80
@@ -148,7 +147,7 @@
 
 /obj/item/clothing/suit/armor/vest/expeditionary_corps
 	name = "expeditionary corps armor vest"
-	desc = "An armored vest that provides okay protection against most types of damage."
+	desc = "An armored vest that provides okay protection against most types of damage. Includes concealable sleeves for your arms."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "exp_corps"
@@ -167,7 +166,8 @@
 		/obj/item/reagent_containers,
 		/obj/item/restraints/handcuffs,
 		/obj/item/tank/internals/emergency_oxygen,
-		/obj/item/tank/internals/plasmaman
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/storage/belt/holster,
 		)
 
 
@@ -191,7 +191,7 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	var/nightvision = FALSE
 	var/mob/living/carbon/current_user
-	actions_types = list(/datum/action/item_action/toggle_nv)
+	actions_types = list(/datum/action/item_action/toggle_nv_helmet)
 
 /datum/armor/helmet_expeditionary_corps
 	melee = 20
@@ -203,10 +203,10 @@
 	acid = 100
 	wound = 10
 
-/datum/action/item_action/toggle_nv
+/datum/action/item_action/toggle_nv_helmet
 	name = "Toggle Nightvision"
 
-/datum/action/item_action/toggle_nv/Trigger(trigger_flags)
+/datum/action/item_action/toggle_nv_helmet/Trigger(trigger_flags)
 	var/obj/item/clothing/head/helmet/expeditionary_corps/my_helmet = target
 	if(!my_helmet.current_user)
 		return
@@ -240,11 +240,8 @@
 		current_user.remove_client_colour(/datum/client_colour/glass_colour/lightgreen)
 		current_user.update_sight()
 
-/obj/item/clothing/head/helmet/expeditionary_corps/AltClick(mob/user)
-	. = ..()
+/obj/item/clothing/head/helmet/expeditionary_corps/click_alt(mob/user)
 	if(!current_user)
-		return
-	if(!can_interact(user))
 		return
 
 	nightvision = !nightvision
@@ -255,6 +252,7 @@
 		to_chat(user, span_notice("You flip the NV goggles up."))
 		disable_nv()
 	update_appearance()
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/head/helmet/expeditionary_corps/dropped(mob/user)
 	. = ..()

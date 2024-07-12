@@ -2,8 +2,8 @@
 /obj/item/modular_computer/pda/synth
 	name = "virtual persocom"
 
-	base_active_power_usage = 0
-	base_idle_power_usage = 0
+	base_active_power_usage = 0 WATTS
+	base_idle_power_usage = 0 WATTS
 
 	long_ranged = TRUE //Synths have good antennae
 
@@ -17,6 +17,9 @@
 	// prevent these from being created outside of synth brains
 	if(!istype(loc, /obj/item/organ/internal/brain/synth))
 		return INITIALIZE_HINT_QDEL
+
+/obj/item/modular_computer/pda/synth/check_power_override()
+	return TRUE
 
 /datum/action/item_action/synth/open_internal_computer
 	name = "Open persocom emulation"

@@ -22,6 +22,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /datum/gateway_destination/proc/get_available_reason()
 	. = "Unreachable"
 	if(world.time - SSticker.round_start_time < wait)
+		playsound(src, 'sound/effects/gateway_calibrating.ogg', 80, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		. = "Connection desynchronized. Recalibration in progress."
 
 /* Check if the movable is allowed to arrive at this destination (exile implants mostly) */
@@ -29,9 +30,11 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /datum/gateway_destination/proc/incoming_pass_check(atom/movable/AM)
 	return TRUE
 **/
-// Just a reminder that the home gateway overrides this proc so if a borg someone finds themself in an away mission they can still leave
 /datum/gateway_destination/proc/incoming_pass_check(atom/movable/AM)
-	return !iscyborg(AM)
+	if (CONFIG_GET(flag/borg_gateway_blacklist))
+		return !iscyborg(AM)
+	else
+		return TRUE
 // NOVA EDIT - END
 /* Get the actual turf we'll arrive at */
 /datum/gateway_destination/proc/get_target_turf()
@@ -90,11 +93,11 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 		. = "Exit gateway unpowered."
 
 /datum/gateway_destination/gateway/get_target_turf()
-	return get_step(target_gateway.portal,SOUTH)
+	return get_step(target_gateway.portal, target_gateway.dir)
 
 /datum/gateway_destination/gateway/post_transfer(atom/movable/AM)
 	. = ..()
-	addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, setDir),SOUTH),0)
+	addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, setDir), target_gateway.dir),0)
 
 /* Special home destination, so we can check exile implants */
 /datum/gateway_destination/gateway/home
@@ -139,19 +142,21 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
 	//NOVA EDIT ADDITION
-	var/list/type_blacklist = list(
-		/obj/item/mmi,
-		/mob/living/silicon,
-	)
-	if(is_type_in_list(AM, type_blacklist))
-		return
-	for(var/atom/movable/content_item as anything in AM.get_all_contents())
-		if(!is_type_in_list(content_item, type_blacklist))
-			continue
-		to_chat(AM, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
-		return
+	if (CONFIG_GET(flag/borg_gateway_blacklist))
+		var/list/type_blacklist = list(
+			/obj/item/mmi,
+			/mob/living/silicon,
+		)
+		if(is_type_in_list(AM, type_blacklist))
+			return
+		for(var/atom/movable/content_item as anything in AM.get_all_contents())
+			if(!is_type_in_list(content_item, type_blacklist))
+				continue
+			to_chat(AM, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
+			return
 	//NOVA EDIT END
 	if(get_dir(src,AM) == SOUTH)
+		playsound(src, 'sound/effects/gateway_travel.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		gateway.Transfer(AM)
 
 /obj/effect/gateway_portal_bumper/Destroy(force)
@@ -229,6 +234,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/gateway/proc/deactivate()
 	var/datum/gateway_destination/dest = target
 	target = null
+	playsound(src, 'sound/effects/gateway_close.ogg', 140, TRUE, TRUE, SOUND_RANGE)
 	dest.deactivate(src)
 	QDEL_NULL(portal)
 	update_use_power(IDLE_POWER_USE)
@@ -295,6 +301,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	target.activate(destination)
 	portal_visuals.setup_visuals(target)
 	transport_active = TRUE
+	playsound(src, 'sound/effects/gateway_open.ogg', 140, TRUE, TRUE, SOUND_RANGE)
 	generate_bumper()
 	update_use_power(ACTIVE_POWER_USE)
 	update_appearance()
@@ -337,6 +344,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	if(calibrated)
 		to_chat(user, span_alert("The gate is already calibrated, there is no work for you to do here."))
 	else
+		playsound(src, 'sound/effects/gateway_calibrated.ogg', 80, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		to_chat(user, "[span_boldnotice("Recalibration successful!")]: \black This gate's systems have been fine tuned. Travel to this gate will now be on target.")
 		calibrated = TRUE
 	return TRUE
@@ -349,18 +357,19 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/gateway/away/interact(mob/user)
 	. = ..()
 	//NOVA EDIT ADDITION
-	var/list/type_blacklist = list(
-		/obj/item/mmi,
-		/mob/living/silicon,
-		/obj/item/borg/upgrade/ai,
-	)
-	if(is_type_in_list(user, type_blacklist))
-		return
-	for(var/atom/movable/content_item as anything in user.get_contents())
-		if(!is_type_in_list(content_item, type_blacklist))
-			continue
-		to_chat(user, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
-		return
+	if (CONFIG_GET(flag/borg_gateway_blacklist))
+		var/list/type_blacklist = list(
+			/obj/item/mmi,
+			/mob/living/silicon,
+			/obj/item/borg/upgrade/ai,
+		)
+		if(is_type_in_list(user, type_blacklist))
+			return
+		for(var/atom/movable/content_item as anything in user.get_contents())
+			if(!is_type_in_list(content_item, type_blacklist))
+				continue
+			to_chat(user, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
+			return
 	//NOVA EDIT END
 	if(!target)
 		if(!GLOB.the_gateway)

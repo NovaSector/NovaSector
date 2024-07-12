@@ -25,5 +25,6 @@
 		/obj/item/stack/sheet/sinew = 2,
 		/obj/item/stack/sheet/animalhide/goliath_hide = 2,
 	)
-	always_available = FALSE
+
 	category = CAT_WEAPON_MELEE
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED

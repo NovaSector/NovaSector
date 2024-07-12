@@ -24,7 +24,7 @@
 	set_wires(new /datum/wires/rnd(src))
 	register_context()
 
-/obj/machinery/rnd/LateInitialize()
+/obj/machinery/rnd/post_machine_initialize()
 	. = ..()
 	if(!CONFIG_GET(flag/no_default_techweb_link) && !stored_research)
 		CONNECT_TO_RND_SERVER_ROUNDSTART(stored_research, src)
@@ -72,7 +72,7 @@
 			return CONTEXTUAL_SCREENTIP_SET
 	else
 		if(held_item.tool_behaviour == TOOL_MULTITOOL)
-			var/obj/item/multitool/tool = held_item
+			var/obj/item/multitool/tool = held_item.get_proxy_attacker_for(src, user)
 			if(!QDELETED(tool.buffer) && istype(tool.buffer, /datum/techweb))
 				context[SCREENTIP_CONTEXT_LMB] = "Upload Techweb"
 				context[SCREENTIP_CONTEXT_RMB] = "Upload Techweb"
@@ -107,7 +107,6 @@
 	return screwdriver_act(user, tool)
 
 /obj/machinery/rnd/multitool_act(mob/living/user, obj/item/multitool/tool)
-	. = ITEM_INTERACT_BLOCKING
 	if(panel_open)
 		wires.interact(user)
 		return ITEM_INTERACT_SUCCESS

@@ -27,7 +27,7 @@
 		pet_type = pick(flatten_list(GLOB.possible_player_pet))
 
 	var/obj/item/pet_carrier/carrier = new /obj/item/pet_carrier(get_turf(quirk_holder))
-	var/mob/living/simple_animal/pet/pet = new pet_type(carrier)
+	var/mob/living/basic/pet/pet = new pet_type(carrier)
 	var/new_name = client_source?.prefs.read_preference(/datum/preference/text/pet_name)
 	if (new_name)
 		pet.name = new_name
@@ -72,6 +72,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Crab" = /mob/living/basic/crab,
 	"Deer" = /mob/living/basic/deer,
 	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
+	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
 	"Frog" = /mob/living/basic/frog,
 	"Giant ant" = /mob/living/basic/ant,

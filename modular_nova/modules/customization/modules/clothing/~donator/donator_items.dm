@@ -1,5 +1,5 @@
 //Donator reward for UltramariFox
-/obj/item/clothing/mask/cigarette/khi
+/obj/item/cigarette/khi
 	name = "\improper Kitsuhana Singularity cigarette"
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
@@ -18,7 +18,7 @@
 	icon = 'modular_nova/master_files/icons/obj/cigarettes_khi.dmi'
 	icon_state = "khi_cig_packet"
 	base_icon_state = "khi_cig_packet"
-	spawn_type = /obj/item/clothing/mask/cigarette/khi
+	spawn_type = /obj/item/cigarette/khi
 
 //Donator reward for Stonetear
 /obj/item/hairbrush/switchblade
@@ -256,12 +256,62 @@
 		else
 			icon_state = "catear_headphone[song?.playing ? "_on" : null]"
 
-/obj/item/instrument/piano_synth/headphones/catear_headphone/AltClick(mob/user)
-	. = ..()
+/obj/item/instrument/piano_synth/headphones/catear_headphone/click_alt(mob/user)
 	catTailToggled = !catTailToggled
 	user.update_worn_head()
 	update_icon(UPDATE_OVERLAYS)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/instrument/piano_synth/headphones/catear_headphone/update_overlays()
 	. = ..()
 	. += emissive_appearance('modular_nova/modules/GAGS/icons/head/catear_headphone.dmi', "catearphones_obj_lights_emissive", src, alpha = src.alpha)
+
+/obj/item/mod/skin_applier/akari
+	name = "nanite MODsuit refitter"
+	desc = "A small kit full of nanites designed to refit a MODsuit to Akari's personal design. Only compatible with fused MODsuits due to the refit's reliance on a symbiote."
+	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
+	icon_state = "skinapplier"
+	skin = "akari"
+
+/obj/item/mod/skin_applier/akari/pre_attack(atom/attacked_atom, mob/living/user, params)
+	if(!istype(attacked_atom, /obj/item/mod/control/pre_equipped/entombed))
+		return ..()
+	var/obj/item/mod/control/mod = attacked_atom
+	mod.theme.variants += list("akari" = list(
+		MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/obj/clothing/modsuit.dmi',
+		MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/donator/mob/clothing/modsuit.dmi',
+		/obj/item/clothing/head/mod = list(
+			UNSEALED_LAYER = HEAD_LAYER,
+			UNSEALED_CLOTHING = SNUG_FIT,
+			UNSEALED_COVER = HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_INVISIBILITY = HIDEHAIR|HIDEEYES|HIDESNOUT,
+			SEALED_CLOTHING = THICKMATERIAL|STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY =  HIDEFACIALHAIR|HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT,
+			SEALED_COVER = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF,
+			UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/suit/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			SEALED_INVISIBILITY = HIDEJUMPSUIT|HIDETAIL,
+			UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/gloves/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
+		),
+		/obj/item/clothing/shoes/mod = list(
+			UNSEALED_CLOTHING = THICKMATERIAL,
+			SEALED_CLOTHING = STOPSPRESSUREDAMAGE,
+			CAN_OVERSLOT = TRUE,
+			UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+			SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
+		),
+	))
+	return ..()
+

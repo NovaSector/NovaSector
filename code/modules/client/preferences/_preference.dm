@@ -107,6 +107,10 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	/// will show the feature as selectable.
 	var/relevant_mutant_bodypart = null
 
+	/// If the selected species has this in its /datum/species/body_markings,
+	/// will show the feature as selectable.
+	var/relevant_body_markings = null
+
 	/// If the selected species has this in its /datum/species/inherent_traits,
 	/// will show the feature as selectable.
 	var/relevant_inherent_trait = null
@@ -325,10 +329,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 		|| !isnull(relevant_inherent_trait) \
 		|| !isnull(relevant_external_organ) \
 		|| !isnull(relevant_head_flag) \
+		|| !isnull(relevant_body_markings) \
 	)
 		var/species_type = preferences.read_preference(/datum/preference/choiced/species)
 
-		var/datum/species/species = new species_type
+		var/datum/species/species = GLOB.species_prototypes[species_type]
 		if (!(savefile_key in species.get_features()))
 			return FALSE
 

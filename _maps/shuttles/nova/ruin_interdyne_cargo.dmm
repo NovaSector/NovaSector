@@ -128,7 +128,6 @@
 /obj/docking_port/mobile{
 	dir = 4;
 	shuttle_id = "interdyne_cargo";
-	launch_status = 0;
 	name = "Interdyne Cargo Shuttle";
 	port_direction = 2;
 	preferred_direction = 4
@@ -155,6 +154,10 @@
 /area/shuttle/interdyne_cargo)
 "Q" = (
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
+/area/shuttle/interdyne_cargo)
+"S" = (
+/obj/machinery/suit_storage_unit/interdyne/nerfed,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/interdyne_cargo)
 "V" = (
 /obj/effect/spawner/structure/window/survival_pod,
@@ -234,8 +237,8 @@ Z
 Y
 Y
 Y
-z
-z
+S
+S
 a
 v
 "}

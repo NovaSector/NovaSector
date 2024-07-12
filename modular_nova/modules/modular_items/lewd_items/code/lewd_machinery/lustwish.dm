@@ -60,7 +60,7 @@
 				/obj/item/clothing/shoes/latex_heels/domina_heels = 4,
 				/obj/item/clothing/gloves/evening = 5,
 
-				/obj/item/clothing/under/misc/nova/gear_harness = 6,//Important "not-nude" outfit
+				/obj/item/clothing/under/misc/nova/gear_harness = 20,//Important "not-nude" outfit
 				/obj/item/clothing/shoes/jackboots/knee = 3,
 
 				/obj/item/clothing/under/misc/latex_catsuit = 8,
@@ -101,6 +101,7 @@
 
 				//neck
 				/obj/item/key/collar = 48,
+				/obj/item/clothing/erp_leash = 8,
 				/obj/item/clothing/neck/kink_collar = 8,
 				/obj/item/clothing/neck/human_petcollar = 8,
 				/obj/item/clothing/neck/human_petcollar/choker = 8,

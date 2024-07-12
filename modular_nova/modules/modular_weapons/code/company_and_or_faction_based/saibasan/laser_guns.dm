@@ -22,7 +22,7 @@
 	inhand_icon_state = "hyeseong_kill"
 	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_worn.dmi'
 	worn_icon_state = "hyeseong_kill"
-	cell_type = /obj/item/stock_parts/cell/hyeseong_internal_cell
+	cell_type = /obj/item/stock_parts/power_store/cell/hyeseong_internal_cell
 	modifystate = FALSE
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_big_kill)
 	can_select = FALSE
@@ -103,9 +103,9 @@
 	QDEL_NULL(tracked_soulcatcher)
 	return ..()
 
-/obj/item/gun/energy/modular_laser_rifle/AltClick(mob/user)
-	. = ..()
+/obj/item/gun/energy/modular_laser_rifle/click_alt(mob/user)
 	tracked_soulcatcher?.ui_interact(user)
+	return CLICK_ACTION_SUCCESS
 
 /// Handles filling out all of the lists regarding weapon modes and radials around that
 /obj/item/gun/energy/modular_laser_rifle/proc/create_weapon_mode_stuff()
@@ -239,7 +239,7 @@
 	return ..()
 
 // Power cell for the big rifle
-/obj/item/stock_parts/cell/hyeseong_internal_cell
+/obj/item/stock_parts/power_store/cell/hyeseong_internal_cell
 	name = "\improper Hyeseong modular laser rifle internal cell"
 	desc = "These are usually supposed to be inside of the gun, you know."
 	maxcharge = STANDARD_CELL_CHARGE * 2
@@ -262,7 +262,7 @@
 	worn_icon_state = "hoshi_kill"
 	base_icon_state = "hoshi"
 	charge_sections = 3
-	cell_type = /obj/item/stock_parts/cell
+	cell_type = /obj/item/stock_parts/power_store/cell
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	SET_BASE_PIXEL(0, 0)

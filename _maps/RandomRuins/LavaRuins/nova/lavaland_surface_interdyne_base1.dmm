@@ -18,18 +18,22 @@
 	},
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/light/small/directional/west,
+/obj/effect/turf_decal/tile/dark_green/half{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/dark_green/warning{
+	dir = 1
+	},
+/obj/item/healthanalyzer/advanced{
+	pixel_y = 11;
+	pixel_x = 5
+	},
 /obj/item/stack/medical/bone_gel{
 	pixel_x = -6;
 	pixel_y = 4
 	},
 /obj/item/stack/sticky_tape/surgical{
 	pixel_x = 6
-	},
-/obj/effect/turf_decal/tile/dark_green/half{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_green/warning{
-	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -49,14 +53,9 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "aG" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdynedisp"
-	},
-/turf/open/floor/iron/pool,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/engine/n2,
 /area/ruin/interdyne_planetary_base/eng)
 "aI" = (
 /obj/effect/turf_decal/siding/thinplating{
@@ -75,15 +74,11 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "aS" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdynedisp"
-	},
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/siding/thinplating/corner,
+/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
 	dir = 1
 	},
-/obj/structure/drain/big,
-/turf/open/floor/iron/pool,
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "aU" = (
 /obj/machinery/light/floor{
@@ -188,22 +183,7 @@
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "bB" = (
-/obj/machinery/conveyor_switch/oneway{
-	dir = 4;
-	id = "interdynedisp";
-	name = "disposal conveyor";
-	pixel_y = 8
-	},
-/obj/effect/turf_decal/box/corners{
-	dir = 1
-	},
-/obj/effect/turf_decal/box/corners{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/vg_decals/atmos/oxygen,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "bJ" = (
@@ -216,15 +196,11 @@
 /turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/interdyne_planetary_base/main)
 "bN" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/meter/layer2,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/mapping_helpers/apc/syndicate_access,
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/turf/open/floor/plating,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "bO" = (
 /obj/effect/turf_decal/tile/dark_green/half{
@@ -309,10 +285,8 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "cD" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "cE" = (
@@ -326,19 +300,21 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "cK" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
-/obj/machinery/light/warm/directional/east,
-/obj/structure/cable,
-/obj/machinery/door/window/survival_pod/left/directional/west{
-	req_access = list("syndicate");
-	pixel_x = -4
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/catwalk_floor/iron_dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/effect/turf_decal/siding/thinplating,
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "cL" = (
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/turf/open/floor/iron/diagonal,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "cO" = (
 /obj/machinery/hydroponics/constructable,
@@ -349,7 +325,7 @@
 /turf/open/floor/grass,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "cQ" = (
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
+/obj/structure/cable,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "cR" = (
@@ -391,8 +367,13 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "de" = (
-/obj/machinery/atmospherics/miner/nitrogen,
-/turf/open/floor/engine/n2,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/eng)
 "df" = (
 /obj/effect/turf_decal/stripes/line{
@@ -405,10 +386,9 @@
 /turf/open/floor/plating/airless,
 /area/ruin/interdyne_planetary_base)
 "dk" = (
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/obj/structure/railing,
-/obj/machinery/space_heater,
-/turf/open/floor/iron/diagonal,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "dn" = (
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -428,11 +408,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/ruin/interdyne_planetary_base/main/dorms)
-"dz" = (
-/obj/structure/cable,
-/obj/structure/lattice/catwalk,
-/turf/open/lava/smooth/lava_land_surface,
-/area/ruin/interdyne_planetary_base)
 "dB" = (
 /obj/machinery/door/window/survival_pod/left/directional/east{
 	req_access = list("syndicate")
@@ -586,9 +561,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "fn" = (
-/obj/machinery/airalarm/directional/east,
-/obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/structure/reagent_dispensers/fueltank/large,
+/obj/effect/turf_decal/vg_decals/atmos/nitrogen,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "fo" = (
@@ -941,13 +914,12 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/viro)
 "is" = (
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/structure/closet/secure_closet/ds2atmos{
-	anchorable = 0;
-	anchored = 1
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "interdynedisp"
 	},
-/obj/item/wrench/bolter,
-/turf/open/floor/iron/diagonal,
+/obj/structure/drain/big,
+/turf/open/floor/iron/pool,
 /area/ruin/interdyne_planetary_base/eng)
 "iz" = (
 /obj/effect/turf_decal/siding/dark{
@@ -978,9 +950,11 @@
 /turf/open/floor/plating/airless,
 /area/ruin/interdyne_planetary_base)
 "iO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/firealarm/directional/west,
-/turf/open/floor/plating,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "iP" = (
 /obj/effect/turf_decal/siding/dark_green{
@@ -1050,10 +1024,16 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "jf" = (
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/machinery/light/small/directional/north,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/open/floor/iron/diagonal,
+/obj/effect/turf_decal/tile/neutral/diagonal_centre,
+/obj/machinery/conveyor{
+	dir = 6;
+	id = "interdynedisp"
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/drain/big,
+/turf/open/floor/iron/pool,
 /area/ruin/interdyne_planetary_base/eng)
 "jh" = (
 /obj/machinery/door/window/survival_pod/left/directional/south{
@@ -1067,7 +1047,6 @@
 /obj/machinery/computer/camera_advanced/xenobio{
 	dir = 1
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan,
 /obj/effect/turf_decal/tile/dark_green/half,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1098,7 +1077,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
-/area/ruin/interdyne_planetary_base/med)
+/area/ruin/interdyne_planetary_base/med/pharm)
 "js" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/bookcase/random,
@@ -1136,12 +1115,14 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "jx" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/meter,
 /obj/machinery/camera/autoname/directional/west{
 	network = list("intd13")
 	},
-/turf/open/floor/plating,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "jG" = (
 /obj/effect/turf_decal/siding/thinplating{
@@ -1318,8 +1299,10 @@
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/med)
 "kX" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 8;
+	name = "Air to Distro"
+	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "lc" = (
@@ -1389,6 +1372,12 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/ruin/interdyne_planetary_base/serv/bar)
+"lt" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "lw" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/machinery/door/window/survival_pod/left/directional/south{
@@ -1473,11 +1462,16 @@
 /obj/structure/closet/secure_closet/interdynefob/deckofficer_locker,
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"mm" = (
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "mp" = (
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "mz" = (
@@ -1558,24 +1552,13 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "nb" = (
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/structure/table/reinforced,
-/obj/item/grenade/chem_grenade/smart_metal_foam{
-	pixel_y = 5;
-	pixel_x = 4
+/obj/machinery/conveyor_switch/oneway{
+	dir = 4;
+	id = "interdynedisp";
+	name = "disposal conveyor";
+	pixel_y = 8
 	},
-/obj/item/grenade/chem_grenade/smart_metal_foam{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/obj/item/storage/toolbox/syndicate,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = -4;
-	pixel_x = 1
-	},
-/obj/machinery/light/small/directional/west,
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/turf/open/floor/iron/diagonal,
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "nd" = (
 /obj/docking_port/stationary{
@@ -1786,7 +1769,6 @@
 /area/ruin/interdyne_planetary_base/eng)
 "pd" = (
 /obj/machinery/smartfridge/extract/preloaded,
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/effect/turf_decal/tile/dark_green/half,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
@@ -1833,11 +1815,6 @@
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med/viro)
-"pp" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "pq" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/eng)
@@ -1923,9 +1900,10 @@
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "pT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "pX" = (
 /obj/effect/turf_decal/delivery,
@@ -1933,8 +1911,20 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "pZ" = (
-/obj/machinery/atmospherics/miner/oxygen,
-/turf/open/floor/engine/o2,
+/obj/structure/table/reinforced,
+/obj/item/construction/rtd{
+	pixel_y = 8
+	},
+/obj/item/construction/rld{
+	pixel_x = -5
+	},
+/obj/item/construction/rcd{
+	pixel_y = -3
+	},
+/obj/item/inducer{
+	pixel_y = -4
+	},
+/turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "ql" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
@@ -1996,10 +1986,14 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med)
 "qv" = (
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/structure/railing,
-/obj/machinery/space_heater,
-/turf/open/floor/iron/diagonal,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "qw" = (
 /obj/structure/table/reinforced/rglass,
@@ -2067,6 +2061,9 @@
 "qV" = (
 /obj/item/circuitboard/machine/stacking_machine,
 /obj/structure/frame/machine/secured,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "qX" = (
@@ -2097,6 +2094,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
+"ri" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/eng)
 "rj" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
@@ -2131,6 +2135,12 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"rJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "rR" = (
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
@@ -2272,8 +2282,8 @@
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "tq" = (
-/obj/machinery/light/small/directional/east,
-/obj/effect/turf_decal/box,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "tt" = (
@@ -2361,15 +2371,23 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/med)
 "uf" = (
-/turf/open/floor/engine/o2,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "ug" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/structure/cable,
-/turf/open/floor/iron/diagonal,
+/obj/effect/turf_decal/siding/thinplating,
+/obj/machinery/light/cold/directional/east,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "ui" = (
 /obj/structure/drain,
@@ -2547,7 +2565,7 @@
 	req_access = list("syndicate")
 	},
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/suit_storage_unit/medical,
+/obj/machinery/suit_storage_unit/interdyne/nerfed,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "vO" = (
@@ -2575,11 +2593,15 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/cargo)
 "wf" = (
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/obj/structure/railing/corner{
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
 	dir = 8
 	},
-/turf/open/floor/iron/diagonal,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "wi" = (
 /obj/machinery/door/airlock{
@@ -2679,11 +2701,7 @@
 /area/ruin/interdyne_planetary_base/serv/bar)
 "xe" = (
 /obj/structure/cable,
-/obj/machinery/door/window/survival_pod/left/directional/west{
-	req_access = list("syndicate");
-	pixel_x = -4
-	},
-/obj/machinery/power/rtg/advanced,
+/obj/machinery/power/terminal,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "xk" = (
@@ -2890,11 +2908,10 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "yY" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
-/obj/machinery/processor/slime,
 /obj/effect/turf_decal/tile/dark_green/anticorner{
 	dir = 8
 	},
+/obj/machinery/processor/slime/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "ze" = (
@@ -3016,16 +3033,16 @@
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Am" = (
-/obj/item/circuitboard/machine/recycler,
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdynedisp"
+/obj/structure/cable,
+/obj/machinery/computer/monitor{
+	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
+/obj/item/paper{
+	default_raw_text = "<h1>Note from Interdyne Engineering:</h1><p>As the shuttle is significantly more power hungry than the previous installation, auxiliary power setup is required for whenever it's planetside. A stock of radiation emitting RTGs has been provided for your convenience, as well as the PPE needed to set them up. These are located on the balcony in engineering.<p></p>Lay wires on the catwalks, then stand in front of where you'd like the RTGs to be unpacked to and press the button on the flatpacked equipment to deploy it. It will immediately begin producing power and radiation. If you take too many rads, administer toxin-healing medication.</p>";
+	name = "paper- 'Note from Interdyne Engineering'"
 	},
-/obj/structure/frame/machine/secured,
-/turf/open/floor/iron/pool,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "Ao" = (
 /obj/structure/sign/poster/contraband/moffuchis_pizza/directional/south,
@@ -3055,8 +3072,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "At" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
-/turf/open/floor/plating,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "Av" = (
 /obj/effect/turf_decal/siding/thinplating,
@@ -3236,16 +3253,17 @@
 /turf/open/floor/wood,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "BJ" = (
+/obj/structure/table/reinforced,
 /obj/item/pipe_dispenser{
 	pixel_y = 8
 	},
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/item/construction/rcd{
-	pixel_y = -3
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/syndicate{
+	pixel_y = -4;
+	pixel_x = 2
 	},
-/obj/structure/railing,
-/turf/open/floor/iron/diagonal,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "BL" = (
 /obj/machinery/door/airlock/external{
@@ -3349,6 +3367,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/main)
+"Cx" = (
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "CF" = (
 /obj/machinery/atmospherics/components/binary/volume_pump,
 /turf/open/floor/iron/dark/smooth_large,
@@ -3542,17 +3566,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "DW" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "interdynedisp"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/iron/pool,
+/obj/machinery/atmospherics/miner/nitrogen,
+/turf/open/floor/engine/n2,
 /area/ruin/interdyne_planetary_base/eng)
 "DZ" = (
 /turf/closed/wall/mineral/titanium,
@@ -3660,6 +3675,13 @@
 "Eu" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/main)
+"Ew" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/eng)
 "Ex" = (
 /obj/structure/chair/office/light,
 /turf/open/floor/iron/dark/smooth_large,
@@ -3701,16 +3723,8 @@
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
 "EG" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "interdynedisp"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/spawner/random/trash/botanical_waste,
-/obj/structure/drain/big,
-/turf/open/floor/iron/pool,
+/obj/machinery/atmospherics/miner/oxygen,
+/turf/open/floor/engine/o2,
 /area/ruin/interdyne_planetary_base/eng)
 "EH" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -3776,7 +3790,9 @@
 /turf/open/floor/plating/lavaland_atmos,
 /area/ruin/interdyne_planetary_base)
 "Fh" = (
-/turf/open/floor/engine/n2,
+/obj/structure/cable,
+/obj/machinery/power/micro_reactor,
+/turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/eng)
 "Fj" = (
 /obj/machinery/camera/directional/east{
@@ -3799,6 +3815,7 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
+/obj/item/xenoarch/handheld_recoverer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Fv" = (
@@ -3830,8 +3847,8 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "FL" = (
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/obj/machinery/button/door/directional/north{
+/obj/structure/cable,
+/obj/machinery/button/door/directional/east{
 	id = "syndie_lavaland_construction";
 	specialfunctions = 4;
 	req_access = list("syndicate");
@@ -4059,12 +4076,14 @@
 "Hy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /obj/machinery/meter/layer4,
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 9
 	},
-/turf/open/floor/plating,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "HB" = (
 /obj/structure/reagent_dispensers/plumbed,
@@ -4106,13 +4125,12 @@
 /turf/open/floor/iron/white/small,
 /area/ruin/interdyne_planetary_base/med)
 "HS" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/door/window/survival_pod/left/directional/west{
-	req_access = list("syndicate");
-	pixel_x = -4
+/obj/machinery/power/smes/engineering{
+	charge = 4.5e+006;
+	input_level = 150000;
+	output_level = 60000
 	},
-/obj/machinery/power/rtg/advanced,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "HV" = (
@@ -4258,7 +4276,7 @@
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 1
 	},
-/obj/machinery/monkey_recycler,
+/obj/machinery/monkey_recycler/fullupgrade,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "Jz" = (
@@ -4284,6 +4302,9 @@
 	},
 /obj/effect/turf_decal/tile/dark_green/full,
 /obj/machinery/door/firedoor,
+/obj/item/storage/box/syndie_kit/sansufentanyl{
+	pixel_x = -3
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "JU" = (
@@ -4359,14 +4380,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
-"KC" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/turf/open/floor/iron/diagonal,
-/area/ruin/interdyne_planetary_base/eng)
 "KD" = (
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 1
@@ -4415,6 +4428,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
+"KL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "KN" = (
 /obj/structure/cable,
 /turf/open/floor/iron/white,
@@ -4480,13 +4500,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"LE" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	name = "Air to Distro"
-	},
-/obj/machinery/light_switch/directional/west,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "LF" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -4554,16 +4567,6 @@
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"Mb" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/computer/monitor,
-/obj/item/paper{
-	default_raw_text = "<h1>Note from Interdyne Engineering:</h1><p>As the shuttle is significantly more power hungry than the previous installation, auxiliary power setup is required for whenever it's planetside. A stock of radiation emitting RTGs has been provided for your convenience, as well as the PPE needed to set them up. These are located on the balcony in engineering.<p></p>Lay wires on the catwalks, then stand in front of where you'd like the RTGs to be unpacked to and press the button on the flatpacked equipment to deploy it. It will immediately begin producing power and radiation. If you take too many rads, administer toxin-healing medication.</p>";
-	name = "paper- 'Note from Interdyne Engineering'"
-	},
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "Mc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4641,14 +4644,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/interdyne_planetary_base/science/xeno)
 "MV" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 1
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 8
 	},
-/obj/machinery/atmospherics/components/binary/valve/digital/layer2{
-	dir = 4;
-	name = "Waste Valve"
-	},
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "MY" = (
 /obj/machinery/door/airlock/virology/glass,
@@ -4808,11 +4809,14 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "Oo" = (
-/obj/effect/turf_decal/vg_decals/atmos/nitrogen{
-	dir = 8
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
 	},
-/obj/machinery/light/warm/directional/east,
-/turf/open/floor/engine/n2,
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "Os" = (
 /obj/effect/turf_decal/tile/dark_green/half/contrasted{
@@ -4843,6 +4847,14 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/ruin/interdyne_planetary_base/serv/hydr)
+"Ox" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/meter/layer2,
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "OB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -4943,6 +4955,11 @@
 	},
 /turf/open/floor/plating/lavaland_atmos,
 /area/ruin/interdyne_planetary_base)
+"Pt" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/engine/o2,
+/area/ruin/interdyne_planetary_base/eng)
 "Pu" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/siding/wood{
@@ -4998,7 +5015,6 @@
 /area/ruin/interdyne_planetary_base/med)
 "PH" = (
 /obj/machinery/light/cold/directional/west,
-/obj/machinery/light_switch/directional/west,
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 8
 	},
@@ -5034,18 +5050,6 @@
 /obj/machinery/door/window/survival_pod/left/directional/east,
 /turf/open/floor/grass,
 /area/ruin/interdyne_planetary_base/serv/hydr)
-"Qa" = (
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/obj/effect/turf_decal/box,
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 8
-	},
-/obj/structure/disposalpipe/trunk,
-/obj/structure/drain/big,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "Qd" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/main/vault)
@@ -5099,14 +5103,17 @@
 "Ra" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/eng)
 "Ri" = (
-/obj/machinery/biogenerator,
 /obj/effect/turf_decal/siding/dark_green{
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/north,
+/obj/machinery/biogenerator/fullupgrade,
 /turf/open/floor/iron/dark/herringbone,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "Rk" = (
@@ -5166,16 +5173,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/cargo/ware)
-"RB" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/machinery/door/window/survival_pod/left/directional/west{
-	req_access = list("syndicate");
-	pixel_x = -4
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/ruin/interdyne_planetary_base/eng)
 "RD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5206,9 +5203,13 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/interdyne_planetary_base)
 "RT" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/turf/open/floor/iron/diagonal,
+/obj/item/circuitboard/machine/recycler,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "interdynedisp"
+	},
+/obj/structure/frame/machine/secured,
+/turf/open/floor/iron/pool,
 /area/ruin/interdyne_planetary_base/eng)
 "RX" = (
 /obj/effect/turf_decal/siding/dark_green{
@@ -5319,6 +5320,14 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
+"SO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/space_heater,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/ruin/interdyne_planetary_base/eng)
 "SP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5532,10 +5541,10 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/machinery/chem_master,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/machinery/door/firedoor,
+/obj/machinery/chem_master/fullupgrade,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
 "TV" = (
@@ -5657,6 +5666,7 @@
 /area/ruin/interdyne_planetary_base/med)
 "UE" = (
 /obj/structure/table/reinforced,
+/obj/item/folder/syndicate/red/secretformula,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (
@@ -5787,12 +5797,12 @@
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "Vr" = (
-/obj/effect/turf_decal/siding/thinplating{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning,
+/obj/machinery/door/window/survival_pod/left/directional/north,
+/turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/eng)
 "VA" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -5814,10 +5824,23 @@
 /turf/closed/wall/mineral/titanium,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "VQ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 1
+	},
+/obj/machinery/light/warm/directional/south,
+/turf/open/floor/engine,
+/area/ruin/interdyne_planetary_base/eng)
+"VR" = (
+/obj/machinery/light/cold/directional/south,
+/obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/turf/open/floor/engine/n2,
+/obj/machinery/atmospherics/components/binary/valve/digital/layer2{
+	dir = 4;
+	name = "Waste Valve"
+	},
+/turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
 "VV" = (
 /obj/effect/turf_decal/siding/thinplating,
@@ -5865,31 +5888,22 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Wk" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/turf/open/floor/iron/diagonal,
+/area/ruin/interdyne_planetary_base/eng)
+"Wn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/interdyne_planetary_base/eng)
-"Wn" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/power/smes/engineering{
-	charge = 4.5e+006;
-	input_level = 150000;
-	output_level = 60000
-	},
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "Wx" = (
-/obj/structure/railing/corner{
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/turf_decal/trimline/dark_red/filled/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/dark_green/diagonal_centre,
-/obj/structure/cable,
-/turf/open/floor/iron/diagonal,
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "Wy" = (
 /obj/structure/cable,
@@ -6104,33 +6118,24 @@
 /turf/open/floor/iron/dark/smooth_edge,
 /area/ruin/interdyne_planetary_base/main)
 "XK" = (
-/obj/effect/turf_decal/vg_decals/atmos/oxygen{
-	dir = 8
+/obj/structure/closet/secure_closet/ds2atmos{
+	anchorable = 0;
+	anchored = 1
 	},
-/obj/machinery/light/warm/directional/east,
-/turf/open/floor/engine/o2,
+/obj/item/wrench/bolter,
+/obj/item/grenade/chem_grenade/smart_metal_foam,
+/obj/item/grenade/chem_grenade/smart_metal_foam,
+/turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "XL" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "XM" = (
-/obj/item/construction/rtd{
-	pixel_y = 8
-	},
-/obj/structure/table/reinforced,
-/obj/item/construction/rld{
-	pixel_x = -5
-	},
-/obj/item/inducer{
-	pixel_x = 12;
-	pixel_y = -4
-	},
-/obj/structure/railing,
-/obj/effect/turf_decal/tile/neutral/diagonal_centre,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/diagonal,
-/area/ruin/interdyne_planetary_base/eng)
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/interdyne_planetary_base)
 "XU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6138,15 +6143,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/stairs/right,
 /area/ruin/interdyne_planetary_base/main)
-"XV" = (
-/obj/effect/turf_decal/siding/thinplating/corner{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ruin/interdyne_planetary_base/eng)
 "XZ" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 8
@@ -6314,10 +6310,15 @@
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/med)
 "ZU" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+/obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/engine/o2,
+/obj/effect/turf_decal/trimline/dark_red/filled/warning{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/structure/cable,
+/turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/eng)
 "ZV" = (
 /turf/open/floor/iron/dark/side{
@@ -6803,7 +6804,7 @@ NW
 jY
 Un
 TH
-Pn
+Mv
 Ey
 uP
 GB
@@ -6844,7 +6845,7 @@ ea
 Uj
 Vf
 DF
-Pn
+Mv
 aA
 Ma
 Ma
@@ -6926,7 +6927,7 @@ vN
 IJ
 Vf
 ED
-Pn
+Mv
 ZE
 LJ
 AU
@@ -6967,7 +6968,7 @@ HB
 Zy
 gO
 LN
-Pn
+Mv
 BN
 aM
 aM
@@ -7008,7 +7009,7 @@ Pn
 Pn
 Pn
 MJ
-Pn
+Mv
 qm
 LC
 NM
@@ -7823,7 +7824,7 @@ fm
 kk
 pq
 nb
-XM
+Wn
 cD
 Ih
 iQ
@@ -7863,9 +7864,9 @@ fm
 fm
 pq
 is
-cL
-BJ
-cD
+uf
+rJ
+SO
 Ih
 vO
 oT
@@ -7904,9 +7905,9 @@ sy
 gL
 pq
 RT
-cQ
-dk
-cD
+qV
+wu
+VR
 Ih
 vO
 oT
@@ -7946,8 +7947,8 @@ Tc
 pq
 jf
 cL
-qv
-cD
+Cx
+Ox
 Ih
 Io
 Tx
@@ -7983,11 +7984,11 @@ ja
 ja
 fm
 Gj
-Tc
-pq
+XM
+pb
 FL
 cQ
-wf
+Ew
 MV
 pq
 pq
@@ -8024,16 +8025,16 @@ ja
 ja
 fm
 Gj
-dz
-pb
-ug
-KC
-Wx
-Vr
+Tc
+pq
+pq
+pq
+mm
+Ra
 jx
 iO
-LE
-At
+ri
+pT
 Hy
 pq
 oW
@@ -8068,13 +8069,13 @@ Gj
 Tc
 pq
 EG
-Qa
+cq
 bB
-XV
+wu
 mp
-pp
-Wn
-Mb
+wu
+At
+wu
 bN
 pq
 jv
@@ -8108,15 +8109,15 @@ fm
 Gj
 Tc
 pq
-aS
+Pt
+ct
+tq
 wu
-wu
-Ra
 kX
-pT
-Wk
-pT
-pT
+wu
+At
+wu
+Am
 pq
 nY
 Ai
@@ -8149,13 +8150,13 @@ fm
 Gj
 pJ
 pq
-Am
-qV
-wu
-cK
-RB
-xe
-xe
+pq
+pq
+BJ
+aS
+KL
+lt
+At
 xe
 HS
 pq
@@ -8191,14 +8192,14 @@ Gj
 RR
 pq
 aG
-wu
-wu
-pq
-ct
-cq
-pq
-cq
 UN
+dk
+cK
+Wk
+Wk
+qv
+ZU
+Wx
 pq
 fW
 fW
@@ -8232,12 +8233,12 @@ Gj
 Tc
 pq
 DW
-tq
+cq
 fn
-pq
-ZU
-uf
-pq
+ug
+Wk
+Wk
+Vr
 Fh
 VQ
 pq
@@ -8278,7 +8279,7 @@ pq
 pq
 XK
 pZ
-pq
+wf
 de
 Oo
 pq

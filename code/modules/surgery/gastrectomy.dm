@@ -33,6 +33,7 @@
 	preop_sound = 'sound/surgery/scalpel1.ogg'
 	success_sound = 'sound/surgery/organ1.ogg'
 	failure_sound = 'sound/surgery/organ2.ogg'
+	surgery_effects_mood = TRUE
 
 /datum/surgery_step/gastrectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -48,8 +49,13 @@
 	var/mob/living/carbon/human/target_human = target
 	var/obj/item/organ/internal/stomach/target_stomach = target.get_organ_slot(ORGAN_SLOT_STOMACH)
 	target_human.setOrganLoss(ORGAN_SLOT_STOMACH, 20) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
+	//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
 	if(target_stomach)
-		target_stomach.operated = TRUE
+		if(istype(target_stomach, /obj/item/organ/internal/stomach/slime))
+			addtimer(VARSET_CALLBACK(target_stomach, operated, FALSE), 30 SECONDS)
+		else
+			target_stomach.operated = TRUE
+	//NOVA EDIT ADDITION END
 	display_results(
 		user,
 		target,

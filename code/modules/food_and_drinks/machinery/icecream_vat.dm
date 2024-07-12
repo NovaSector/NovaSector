@@ -95,6 +95,8 @@
 			context[SCREENTIP_CONTEXT_RMB] = "Transfer beaker reagents"
 		else if(istype(held_item, /obj/item/food/icecream))
 			context[SCREENTIP_CONTEXT_LMB] = "Take scoop of [selected_flavour] ice cream"
+		else if(istype(held_item, /obj/item/kitchen/spoon) || istype(held_item, /obj/item/kitchen/spoon/soup_ladle))
+			context[SCREENTIP_CONTEXT_RMB] = "Spill reagent"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	switch(vat_mode)
@@ -106,30 +108,41 @@
 			context[SCREENTIP_CONTEXT_RMB] = "Change mode to flavors"
 	return CONTEXTUAL_SCREENTIP_SET
 
-/obj/machinery/icecream_vat/attackby(obj/item/reagent_containers/beaker, mob/user, params)
+/obj/machinery/icecream_vat/examine(mob/user)
+	. = ..()
+	. += "You can use a [EXAMINE_HINT("spoon")] or [EXAMINE_HINT("soup ladle")] to spill reagents."
+
+/obj/machinery/icecream_vat/attackby(obj/item/weapon, mob/user, params)
 	. = ..()
 	if(.)
 		return
-	if(!beaker || !istype(beaker) || !beaker.reagents || (beaker.item_flags & ABSTRACT) || !beaker.is_open_container())
+
+	if(istype(weapon, /obj/item/kitchen/spoon) || istype(weapon, /obj/item/kitchen/spoon/soup_ladle))
+		spill_reagents(user)
+		return TRUE
+
+	var/obj/item/reagent_containers/beaker = weapon
+	if(!istype(beaker) || !beaker.reagents || (beaker.item_flags & ABSTRACT) || !beaker.is_open_container())
 		return
 
 	if(custom_ice_cream_beaker)
-		if(beaker.forceMove(src))
+		if(user.transferItemToLoc(beaker, src))
 			try_put_in_hand(custom_ice_cream_beaker, user)
 			balloon_alert(user, "beakers swapped")
 			custom_ice_cream_beaker = beaker
 		else
 			balloon_alert(user, "beaker slot full!")
 		return
-	if(beaker.forceMove(src))
-		balloon_alert(user, "beaker inserted")
-		custom_ice_cream_beaker = beaker
+	if(!user.transferItemToLoc(beaker, src))
+		return
+	balloon_alert(user, "beaker inserted")
+	custom_ice_cream_beaker = beaker
 
 /obj/machinery/icecream_vat/attackby_secondary(obj/item/reagent_containers/beaker, mob/user, params)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
-	if(!beaker || !istype(beaker) || !beaker.reagents || (beaker.item_flags & ABSTRACT) || !beaker.is_open_container())
+	if(!istype(beaker) || !beaker.reagents || (beaker.item_flags & ABSTRACT) || !beaker.is_open_container())
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	var/added_reagents = FALSE
 	for(var/datum/reagent/beaker_reagents in beaker.reagents.reagent_list)
@@ -154,13 +167,12 @@
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
-/obj/machinery/icecream_vat/AltClick(mob/user)
-	if(!user.can_interact_with(src))
-		return FALSE
-	if(custom_ice_cream_beaker)
-		balloon_alert(user, "removed beaker")
-		try_put_in_hand(custom_ice_cream_beaker, user)
-	return ..()
+/obj/machinery/icecream_vat/click_alt(mob/user)
+	if(!custom_ice_cream_beaker)
+		return CLICK_ACTION_BLOCKING
+	balloon_alert(user, "removed beaker")
+	try_put_in_hand(custom_ice_cream_beaker, user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/machinery/icecream_vat/interact(mob/living/user)
 	. = ..()
@@ -204,6 +216,14 @@
 	if(cone)
 		make_cone(user, choice, cone.ingredients)
 
+///Lets the user select a reagent in the vat to spill out.
+/obj/machinery/icecream_vat/proc/spill_reagents(mob/living/user)
+	var/datum/reagent/reagent_to_remove = tgui_input_list(user, "Select a reagent to purge from the vat.", "Remove reagent", reagents.reagent_list, ui_state = GLOB.conscious_state)
+	if(isnull(reagent_to_remove) || !user.can_perform_action(src, action_bitflags = ALLOW_RESTING))
+		return
+	balloon_alert(user, "spilled [reagent_to_remove.name]")
+	reagents.remove_reagent(reagent_to_remove.type, reagent_to_remove.volume)
+
 /obj/machinery/icecream_vat/proc/make_ice_cream_color(datum/ice_cream_flavour/flavor)
 	if(!flavor.color)
 		return
@@ -212,9 +232,10 @@
 	return ice_cream_icon
 
 /obj/machinery/icecream_vat/on_deconstruction(disassembled = TRUE)
-	new /obj/item/stack/sheet/iron(loc, 4)
-	if(custom_ice_cream_beaker)
-		custom_ice_cream_beaker.forceMove(loc)
+	var/atom/drop_location = drop_location()
+
+	new /obj/item/stack/sheet/iron(drop_location, 4)
+	custom_ice_cream_beaker?.forceMove(drop_location)
 
 ///Makes an ice cream cone of the make_type, using ingredients list as reagents used to make it. Puts in user's hand if possible.
 /obj/machinery/icecream_vat/proc/make_cone(mob/user, make_type, list/ingredients)

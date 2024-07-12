@@ -47,10 +47,14 @@
 	new /obj/item/clothing/head/syndicatefake(src)
 	new /obj/item/clothing/suit/syndicatefake(src)
 
-/obj/item/storage/box/syndie_kit/space_dragon/PopulateContents()
-	new /obj/item/dna_probe/carp_scanner(src)
-	new /obj/item/clothing/suit/hooded/carp_costume/spaceproof/old(src)
-	new /obj/item/clothing/mask/gas/carp(src)
+/obj/item/storage/box/syndie_kit/battle_royale
+	name = "rumble royale broadcast kit"
+	desc = "Contains everything you need to host the galaxy's greatest show; Rumble Royale."
+
+/obj/item/storage/box/syndie_kit/battle_royale/PopulateContents()
+	var/obj/item/royale_implanter/implanter = new(src)
+	var/obj/item/royale_remote/remote = new(src)
+	remote.link_implanter(implanter)
 
 /obj/item/storage/box/deputy
 	name = "box of deputy armbands"
@@ -219,3 +223,16 @@
 /obj/item/storage/box/collar_bomb/PopulateContents()
 	var/obj/item/collar_bomb_button/button = new(src)
 	new /obj/item/clothing/neck/collar_bomb(src, button)
+	
+/obj/item/storage/box/lewd_toys
+	name = "lewd toys box"
+	desc = "Contains lewd impliments for spending time alone, or together with someone! Try to hide it better next time."
+
+/obj/item/storage/box/lewd_toys/PopulateContents()
+	new /obj/item/clothing/sextoy/dildo(src)
+	new /obj/item/clothing/sextoy/buttplug(src)
+	new /obj/item/stack/shibari_rope/full(src)
+	new /obj/item/spanking_pad(src)
+	new /obj/item/clothing/mask/ballgag(src)
+	new /obj/item/clothing/suit/straight_jacket/shackles(src)
+	new /obj/item/clothing/glasses/blindfold/kinky(src)

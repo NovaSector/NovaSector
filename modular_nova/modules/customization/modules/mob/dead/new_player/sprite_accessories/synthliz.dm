@@ -146,7 +146,7 @@
 	taur_mode = STYLE_TAUR_PAW
 	recommended_species = list()
 	genetic = FALSE
-	organ_type = /obj/item/organ/external/taur_body/synth
+	organ_type = /obj/item/organ/external/taur_body/horselike/synth
 
 /datum/sprite_accessory/taur/synthliz/inv
 	name = "Cybernetic Lizard (Inverted)"
@@ -182,3 +182,4 @@
 	name = "Cybernetic Naga"
 	icon_state = "synthnaga"
 	taur_mode = STYLE_TAUR_SNAKE
+	organ_type = /obj/item/organ/external/taur_body/serpentine/synth

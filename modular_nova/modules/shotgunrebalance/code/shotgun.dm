@@ -97,7 +97,6 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	name = "buckshot pellet"
 	damage = 6
-	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
@@ -109,7 +108,6 @@
 	harmful = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
-	weak_against_armour = TRUE
 	stamina = 10
 
 /obj/item/ammo_casing/shotgun/magnum
@@ -232,7 +230,17 @@
 	eyeblur = 1 SECONDS
 	sharpness = NONE
 	range = 8
-	embedding = list(embed_chance=70, pain_chance=25, fall_chance=15, jostle_chance=80, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.9, pain_mult=2, rip_time=10)
+	embed_type = /datum/embed_data/shotgun_buckshot/antitide
+
+/datum/embed_data/shotgun_buckshot/antitide
+	embed_chance = 70
+	pain_chance = 25
+	fall_chance = 15
+	jostle_chance = 80
+	ignore_throwspeed_threshold = TRUE
+	pain_stam_pct = 0.9
+	pain_mult = 2
+	rip_time = 1 SECONDS
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/antitide/on_range()
 	do_sparks(1, TRUE, src)

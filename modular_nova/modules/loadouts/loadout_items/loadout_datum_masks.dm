@@ -140,11 +140,11 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 
 /datum/loadout_item/mask/pipe
 	name = "Pipe"
-	item_path = /obj/item/clothing/mask/cigarette/pipe
+	item_path = /obj/item/cigarette/pipe
 
 /datum/loadout_item/mask/corn_pipe
 	name = "Corn Cob Pipe"
-	item_path = /obj/item/clothing/mask/cigarette/pipe/cobpipe
+	item_path = /obj/item/cigarette/pipe/cobpipe
 
 /datum/loadout_item/mask/plague_doctor
 	name = "Plague Doctor Mask"

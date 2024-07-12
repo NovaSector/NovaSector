@@ -9,6 +9,7 @@
 				/obj/item/clothing/head/costume/kabuto = 5,
 				/obj/item/clothing/suit/costume/samurai = 5,
 				/obj/item/clothing/suit/dutchjacketsr = 5,
+				/obj/item/clothing/head/costume/sombrero = 5,
 			),
 		),
 		list(
@@ -17,8 +18,8 @@
 			"products" = list(
 				/obj/item/clothing/mask/gas/clownbald = 1,
 				/obj/item/clothing/mask/gas/clown_colourable = 1,
-				/obj/item/clothing/head/costume/jester/alt = 1,
-				/obj/item/clothing/under/rank/civilian/clown/jester/alt = 1,
+				/obj/item/clothing/head/costume/jesteralt = 1,
+				/obj/item/clothing/under/rank/civilian/clown/jesteralt = 1,
 			),
 		),
 		list(
@@ -29,6 +30,7 @@
 				/obj/item/clothing/under/costume/nova/kamishimo = 5,
 				/obj/item/clothing/under/costume/nova/yukata = 5,
 				/obj/item/clothing/under/costume/nova/kimono = 5,
+				/obj/item/clothing/under/costume/nova/shihakusho = 5,
 				/obj/item/clothing/head/beret/badge = 5,
 				/obj/item/clothing/mask/masquerade = 25,
 				/obj/item/clothing/mask/masquerade/two_colors = 25,

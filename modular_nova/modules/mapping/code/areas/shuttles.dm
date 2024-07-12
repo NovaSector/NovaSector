@@ -8,8 +8,8 @@
 	suffix = "nova"
 	name = "Prison Transporter NSS-74"
 
-/area/shuttle/blackmarket_chevvy
-	name = "Blackmarket Chevvy"
+/area/shuttle/blackmarket_burst
+	name = "Blackmarket Burst"
 
 /area/shuttle/interdyne_cargo
 	name = "Interdyne Cargo Shuttle"
@@ -63,3 +63,6 @@
 
 /area/shuttle/labor/advanced
 	name = "NMC Drudge"
+
+/area/shuttle/planetary_ferry
+	name = "Planetary Ferry"

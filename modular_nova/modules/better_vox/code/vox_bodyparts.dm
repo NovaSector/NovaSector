@@ -8,6 +8,8 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	limb_id = SPECIES_VOX_PRIMALIS
+	eyes_icon = 'modular_nova/modules/better_vox/icons/bodyparts/vox_eyes.dmi'
+	teeth_count = 72
 
 /obj/item/bodypart/chest/mutant/vox_primalis
 	icon_static = 'modular_nova/modules/better_vox/icons/bodyparts/vox_bodyparts.dmi'

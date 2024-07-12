@@ -132,7 +132,7 @@
 /obj/item/forging/tongs/integrated
 	name = "heat-sheathed fingertip tongs"
 	desc = "Hardy heat-treated metal and integrated heatsinks allow these two fingertip replacement augs to act as one might use ordinary metallurgical tongs, resisting burns from all but the most raging forges."
-	toolspeed = 2 SECONDS
+	toolspeed = 2
 
 /obj/item/forging/tongs/integrated/Initialize(mapload)
 	. = ..()
@@ -141,7 +141,7 @@
 /obj/item/forging/billow/integrated
 	name = "motorized mini-bellows"
 	desc = "Let not its size deceive you, for the gale this hinged accordion-like aug can produce when activated is enough to stoke even the most timid fires into a frenzy. Has a health and safety warning on it which reads: 'DO NOT INSERT INTO MOUTH'."
-	toolspeed = 2 SECONDS
+	toolspeed = 2
 
 /obj/item/forging/billow/integrated/Initialize(mapload)
 	. = ..()

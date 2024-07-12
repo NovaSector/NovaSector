@@ -45,7 +45,10 @@ GLOBAL_LIST_INIT(balls_size_translation, list(
 	"0" = "Small",
 	"1" = "Average",
 	"2" = "Big",
-	"3" = "Enormous"
+	"3" = "Very Big",
+	"4" = "Enormous",
+	"5" = "Immense",
+	"6" = "Gargantuan"
 	))
 
 GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
@@ -74,7 +77,10 @@ GLOBAL_LIST_INIT(preference_balls_sizes, list(
 	"Small",
 	"Average",
 	"Big",
+	"Very Big",
 	"Enormous",
+	"Immense",
+	"Gargantuan"
 	))
 
 GLOBAL_LIST_INIT(robotic_styles_list, list(
@@ -96,6 +102,7 @@ GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"Zeng-Hu Pharmaceuticals" = 'modular_nova/master_files/icons/mob/augmentation/zhpipc.dmi',
 	"Mariinsky Ballet Company" = 'modular_nova/master_files/icons/mob/augmentation/mariinskyipc.dmi',
 	"Zhenkov & Co. Foundries" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc.dmi',
+	"Zhenkov & Co. Foundries - Dark" = 'modular_nova/master_files/icons/mob/augmentation/zhenkovipc_dark.dmi',
 	))
 
 //ghoul colors
@@ -105,11 +112,3 @@ GLOBAL_LIST_INIT(color_list_ghoul, list( \
 	"Plutonium Blue" = "a5cfcc", \
 	"Marked Red" = "f05b68" \
 ))
-
-//Bras
-/// Stores all /datum/sprite_accessory/bra indexed by name.
-GLOBAL_LIST_EMPTY(bra_list)
-/// Stores only the bra names for male-compatible bras.
-GLOBAL_LIST_EMPTY(bra_m)
-/// Stores only the bra names for female-compatible bras.
-GLOBAL_LIST_EMPTY(bra_f)

@@ -7,6 +7,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	breakouttime = 1 SECONDS
+	resist_cooldown = CLICK_CD_SLOW
 
 //That part allows reinforcing this item with handcuffs
 /obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, params)

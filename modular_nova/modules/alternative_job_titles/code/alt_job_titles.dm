@@ -30,6 +30,7 @@
 		"Off-Duty Crew",
 		"Off-Duty Staff",
 		"Colonist",
+		"Contractor",
 	)
 
 /datum/job/atmospheric_technician
@@ -112,6 +113,7 @@
 
 /datum/job/cargo_technician
 	alt_titles = list(
+		"Cargo Technician",
 		"Warehouse Technician",
 		"Commodities Trader",
 		"Deck Worker",
@@ -388,6 +390,7 @@
 
 /datum/job/shaft_miner
 	alt_titles = list(
+		"Shaft Miner",
 		"Union Miner",
 		"Excavator",
 		"Drill Technician",
@@ -405,6 +408,15 @@
 		"EVA Technician",
 		"Mechanic",
 		"Apprentice Engineer",
+	)
+
+/datum/job/telecomms_specialist
+	alt_titles = list(
+		"Telecomms Specialist",
+		"Wireless Operator",
+		"Network Engineer",
+		"Sysadmin",
+		"Tram Technician",
 	)
 
 /datum/job/virologist

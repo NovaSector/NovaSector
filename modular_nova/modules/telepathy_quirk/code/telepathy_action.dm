@@ -44,7 +44,7 @@
 	if(. & SPELL_CANCEL_CAST || blocked)
 		return
 
-	message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]")))
+	message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]", null)))
 	if(QDELETED(src) || QDELETED(owner) || QDELETED(cast_on) || !can_cast_spell())
 		return . | SPELL_CANCEL_CAST
 
@@ -52,7 +52,7 @@
 		owner.balloon_alert(owner, "they're too far!")
 		return . | SPELL_CANCEL_CAST
 
-	if(!message)
+	if(!message || length(message) == 0)
 		reset_spell_cooldown()
 		return . | SPELL_CANCEL_CAST
 

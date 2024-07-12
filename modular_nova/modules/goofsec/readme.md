@@ -4,7 +4,7 @@ MODULE ID: GoofSec
 
 ### Description:
 
-Fixing Security for Skyrat. Includes the defines for Security guns, the new Departmental Guards, and the new SSC Sheriff/Deputies.
+Fixing Security for Nova. Includes the defines for Security guns, the new Departmental Guards, and the new SSC Sheriff/Deputies.
 
 ### TG Proc Changes:
 

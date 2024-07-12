@@ -136,3 +136,32 @@
 /datum/sprite_accessory/horns/broadcurls
 	name = "Broad Curls"
 	icon_state = "broadcurls"
+
+/datum/sprite_accessory/horns/moogle_pom
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moogle_pom.dmi'
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/horns/moogle_pom/small_front
+	name = "Moogle Pom (Small, Front)"
+	icon_state = "mpom1"
+
+/datum/sprite_accessory/horns/moogle_pom/small_back
+	name = "Moogle Pom (Small, Back)"
+	icon_state = "mpom1alt"
+
+/datum/sprite_accessory/horns/moogle_pom/medium_front
+	name = "Moogle Pom (Medium, Front)"
+	icon_state = "mpom2"
+
+/datum/sprite_accessory/horns/moogle_pom/medium_back
+	name = "Moogle Pom (Medium, Back)"
+	icon_state = "mpom2alt"
+
+/datum/sprite_accessory/horns/moogle_pom/large_front
+	name = "Moogle Pom (Large, Front)"
+	icon_state = "mpom3"
+
+/datum/sprite_accessory/horns/moogle_pom/large_back
+	name = "Moogle Pom (Large, Back)"
+	icon_state = "mpom3alt"
+

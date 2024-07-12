@@ -23,6 +23,11 @@
 	item_path = /obj/item/clothing/under/syndicate/tacticool/black
 	ckeywhitelist = list("thedragmeme")
 
+/datum/loadout_item/under/jumpsuit/long_skirtleneck
+	name = "Tacticool Skirtleneck (Long)"
+	item_path = /obj/item/clothing/under/syndicate/tacticool/skirt/long
+	ckeywhitelist = list("HollandaiseSauce", "Latinfishy", "Tf4")
+
 /datum/loadout_item/suit/ryddid
 	name = "The Ryddid"
 	item_path = /obj/item/clothing/suit/jacket/ryddid
@@ -109,7 +114,7 @@
 /datum/loadout_item/mask/composite_filtration
 	name = "Composite Filtration Mask"
 	item_path = /obj/item/clothing/mask/gas/psycho_malice
-	ckeywhitelist = list("snakebittenn", "chillylobster", "candlejax", "theooz")
+	ckeywhitelist = list("snakebittenn", "chillylobster", "candlejax", "theooz", "alvcyktor")
 
 /datum/loadout_item/suit/jacket/cherno
 	name = "Blue-Silvered Coat"
@@ -275,7 +280,7 @@
 
 /datum/loadout_item/pocket_items/brightcosmos
 	name = "Bright Cosmos cigar"
-	item_path = /obj/item/clothing/mask/holocigarette/cigar
+	item_path = /obj/item/holocigarette/cigar
 	ckeywhitelist = list("lyricalpaws")
 
 /datum/loadout_item/under/jumpsuit/lannese
@@ -665,7 +670,7 @@
 
 /datum/loadout_item/head/somerandomowl
 	name = "Starry Witch Hat"
-	item_path = /obj/item/clothing/head/costume/strigihat
+	item_path = /obj/item/clothing/head/costume/owlhat
 	ckeywhitelist = list("somerandomowl")
 
 /datum/loadout_item/head/razurathhat
@@ -680,7 +685,7 @@
 
 /datum/loadout_item/pocket_items/masvedishcigar
 	name = "Holocigar"
-	item_path = /obj/item/clothing/mask/holocigarette/masvedishcigar
+	item_path = /obj/item/holocigarette/masvedishcigar
 	// Asked it to be public, and as such has no whitelist.
 
 /datum/loadout_item/suit/lt3_armor
@@ -788,3 +793,35 @@
 	name = "Mr. Fluff"
 	item_path = /obj/item/clothing/head/mob_holder/pet/donator/centralsmith
 	ckeywhitelist = list("centralsmith")
+
+/datum/loadout_item/under/jumpsuit/techpants
+    name = "Techwear Pants"
+    item_path = /obj/item/clothing/under/techpants
+    ckeywhitelist = list("alvcyktor", "snakebittenn")
+
+/datum/loadout_item/inhand/drop_pouch
+    name = "Drop Pouch"
+    item_path = /obj/item/storage/backpack/satchel/drop_pouch
+    ckeywhitelist = list("alvcyktor", "snakebittenn")
+
+/datum/loadout_item/inhand/melonseva
+	name = "Sundowner SEVA"
+	item_path = /obj/item/clothing/suit/hooded/seva/melon
+	ckeywhitelist = list("deadmonwonderland")
+	restricted_roles = list(JOB_SHAFT_MINER)
+
+
+/datum/loadout_item/suit/desminus
+	name = "Jómsvíking Coat"
+	item_path = /obj/item/clothing/suit/toggle/desminus
+	ckeywhitelist = list("desminus", "junglerat", "deadmonwonderland")
+
+/datum/loadout_item/suit/desminus2
+	name = "Elderwood Garment"
+	item_path = /obj/item/clothing/suit/toggle/desminus2
+	ckeywhitelist = list("desminus", "junglerat", "deadmonwonderland")
+
+/datum/loadout_item/pocket_items/akarimod
+	name = "Akari's MOD Refitter"
+	item_path = /obj/item/mod/skin_applier/akari
+	ckeywhitelist = list("samman166", "cainedclxvi")

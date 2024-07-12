@@ -92,7 +92,6 @@
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "bp" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/decal/cleanable/cobweb,
 /obj/structure/chair/plastic{
 	dir = 4
 	},
@@ -513,11 +512,6 @@
 "jQ" = (
 /turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
-"kp" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/template_noop,
-/area/ruin/space/has_grav/shuttle8532crewquarters)
 "ks" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /turf/open/floor/iron/airless,
@@ -534,7 +528,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/cell/bluespace
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace
 	},
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,
@@ -730,9 +724,6 @@
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
-"pu" = (
-/turf/closed/wall/r_wall/syndicate,
-/area/ruin/space/has_grav/shuttle8532bridge)
 "py" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -913,9 +904,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "tP" = (
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "uf" = (
@@ -974,9 +963,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "uS" = (
-/obj/structure/window/reinforced/spawner/directional/east{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
@@ -1130,7 +1117,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south{
-	cell_type = /obj/item/stock_parts/cell/bluespace;
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace;
 	start_charge = 63
 	},
 /turf/open/floor/iron/airless,
@@ -1190,7 +1177,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east{
-	cell_type = /obj/item/stock_parts/cell/bluespace;
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace;
 	start_charge = 94
 	},
 /turf/open/floor/iron/airless,
@@ -1233,12 +1220,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/structure/window/reinforced/spawner/directional/east{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/cell/bluespace
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace
 	},
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,
@@ -1392,7 +1377,7 @@
 /obj/machinery/light/dim/directional/north,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/cell/bluespace
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace
 	},
 /obj/effect/mapping_helpers/apc/no_charge,
 /turf/open/floor/iron/airless,
@@ -1485,9 +1470,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532crewquarters)
 "DZ" = (
-/obj/structure/window/reinforced/spawner/directional/east{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/shuttle8532researchbay)
 "Ei" = (
@@ -1749,7 +1732,6 @@
 /area/ruin/space/has_grav/shuttle8532bridge)
 "JN" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/chair/plastic{
 	dir = 8
 	},
@@ -2155,9 +2137,7 @@
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
 "Tt" = (
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532engineering)
@@ -2216,9 +2196,6 @@
 	dir = 1
 	},
 /turf/open/floor/iron/airless,
-/area/ruin/space/has_grav/shuttle8532bridge)
-"Uy" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/shuttle8532bridge)
 "UN" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -2501,9 +2478,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ZN" = (
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/shuttle8532bridge)
@@ -2962,8 +2937,8 @@ qb
 qb
 "}
 (8,1,1) = {"
-pu
-Uy
+xO
+xO
 XQ
 fp
 HK
@@ -2972,7 +2947,7 @@ cg
 Hs
 oR
 jQ
-kp
+ou
 ou
 ou
 ou
@@ -3025,7 +3000,7 @@ qb
 qb
 "}
 (9,1,1) = {"
-pu
+xO
 zA
 ZU
 Vi

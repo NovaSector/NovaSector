@@ -21,16 +21,13 @@
 /obj/machinery/botpad/crowbar_act(mob/user, obj/item/tool)
 	return default_deconstruction_crowbar(tool)
 
-/obj/machinery/botpad/multitool_act(mob/living/user, obj/item/tool)
+/obj/machinery/botpad/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(!panel_open)
-		return
-	if(!multitool_check_buffer(user, tool))
-		return
+		return NONE
 	var/obj/item/multitool/multitool = tool
 	multitool.set_buffer(src)
 	balloon_alert(user, "saved to multitool buffer")
 	return ITEM_INTERACT_SUCCESS
-
 
 // Checks the turf for a bot and launches it if it's the only mob on the pad.
 /obj/machinery/botpad/proc/launch(mob/living/user)
@@ -44,6 +41,10 @@
 			user.balloon_alert(user, "too many bots on the pad!")
 			return
 		possible_bot = robot  // We don't change the launched_bot var here because we are not sure if there is another bot on the pad.
+
+	if(!use_energy(active_power_usage, force = FALSE))
+		balloon_alert(user, "not enough energy!")
+		return
 	launched_bot = WEAKREF(possible_bot)
 	podspawn(list(
 		"target" = get_turf(src),
@@ -51,7 +52,6 @@
 		"style" = STYLE_SEETHROUGH,
 		"reverse_dropoff_coords" = list(reverse_turf.x, reverse_turf.y, reverse_turf.z)
 	))
-	use_power(active_power_usage)
 
 /obj/machinery/botpad/proc/recall(mob/living/user)
 	var/atom/our_bot = launched_bot?.resolve()

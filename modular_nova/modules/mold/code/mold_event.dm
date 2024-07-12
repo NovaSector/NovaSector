@@ -39,7 +39,43 @@
 
 	var/obj/structure/mold/resin/test/test_resin = new()
 
-	var/list/possible_spawn_areas = typecacheof(typesof(/area/station/maintenance, /area/station/security/prison, /area/station/construction))
+	var/list/possible_spawn_areas = typecacheof(typesof(
+		/area/station/maintenance/aft/greater,
+		/area/station/maintenance/central/greater,
+		/area/station/maintenance/starboard/greater,
+		/area/station/maintenance/port/greater,
+		/area/station/maintenance/disposal,
+		/area/station/maintenance/wrestle,
+		/area/station/maintenance/library,
+		/area/station/maintenance/night_club,
+		/area/station/maintenance/aux_eva,
+		/area/station/maintenance/department/eva/abandoned,
+		/area/station/maintenance/department/science/xenobiology,
+		/area/station/security/prison,
+		/area/station/security/courtroom,
+		/area/station/engineering/atmos/hfr_room,
+		/area/station/engineering/gravity_generator,
+		/area/station/science/xenobiology,
+		/area/station/science/ordnance/testlab,
+		/area/station/science/auxlab/firing_range,
+		/area/station/science/research/abandoned,
+		/area/station/medical/chemistry,
+		/area/station/medical/aslyum,
+		/area/station/medical/abandoned,
+		/area/station/command/gateway,
+		/area/station/cargo/drone_bay,
+		/area/station/cargo/warehouse,
+		/area/station/commons/toilet,
+		/area/station/commons/fitness,
+		/area/station/commons/vacant_room/office,
+		/area/station/common/wrestling/arena,
+		/area/station/service/chapel,
+		/area/station/service/abandoned_gambling_den,
+		/area/station/service/library/abandoned,
+		/area/station/maintenance/tram/left,
+		/area/station/maintenance/tram/mid,
+		/area/station/maintenance/tram/right,
+		))
 
 	for(var/area/checked_area as anything in GLOB.areas)
 		if(!is_station_level(checked_area.z))

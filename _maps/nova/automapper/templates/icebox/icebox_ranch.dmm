@@ -1,0 +1,379 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"d" = (
+/obj/structure/table/wood,
+/obj/item/soap/deluxe{
+	pixel_y = 11
+	},
+/obj/item/soap/deluxe{
+	pixel_y = 6
+	},
+/obj/item/soap/deluxe,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"f" = (
+/obj/structure/railing/wooden_fence{
+	dir = 1
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"h" = (
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"j" = (
+/obj/item/flashlight/lantern/on,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"l" = (
+/obj/structure/railing/wooden_fence{
+	dir = 5
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"o" = (
+/obj/structure/railing/wooden_fence{
+	dir = 10
+	},
+/obj/item/flashlight/lantern/on,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"q" = (
+/obj/structure/railing/wooden_fence{
+	dir = 10
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"s" = (
+/obj/structure/railing/wooden_fence{
+	dir = 4
+	},
+/obj/structure/ore_container/food_trough/raptor_trough,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"w" = (
+/obj/structure/railing/wooden_fence{
+	dir = 1
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"x" = (
+/obj/structure/railing/wooden_fence{
+	dir = 9
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"z" = (
+/obj/item/flashlight/lantern/on,
+/obj/structure/table/wood,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface)
+"A" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"B" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lantern/on,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"E" = (
+/turf/open/floor/plating/snowed/smoothed/icemoon,
+/area/icemoon/surface)
+"H" = (
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface)
+"I" = (
+/obj/structure/railing/wooden_fence{
+	dir = 8
+	},
+/obj/structure/ore_container/food_trough/raptor_trough,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"J" = (
+/obj/structure/flora/grass/green/style_random,
+/turf/open/floor/plating/snowed/smoothed/icemoon,
+/area/icemoon/surface)
+"K" = (
+/obj/effect/spawner/random/lavaland_mob/raptor,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"M" = (
+/obj/structure/railing/wooden_fence{
+	dir = 6
+	},
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"R" = (
+/obj/structure/railing/wooden_fence,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"S" = (
+/turf/open/openspace/icemoon/keep_below,
+/area/icemoon/underground/explored)
+"T" = (
+/obj/structure/lattice,
+/turf/open/openspace/icemoon/keep_below,
+/area/icemoon/underground/explored)
+"U" = (
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"W" = (
+/obj/structure/flora/grass/green/style_random,
+/obj/structure/railing/wooden_fence,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface)
+"X" = (
+/obj/structure/railing/wooden_fence,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface)
+"Y" = (
+/obj/structure/railing/wooden_fence{
+	dir = 6
+	},
+/obj/item/flashlight/lantern/on,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+"Z" = (
+/obj/structure/table/wood,
+/obj/item/raptor_dex{
+	pixel_y = 13
+	},
+/obj/item/raptor_dex{
+	pixel_y = 7
+	},
+/obj/item/raptor_dex,
+/turf/open/misc/hay/icemoon,
+/area/icemoon/surface)
+
+(1,1,1) = {"
+S
+T
+S
+S
+S
+S
+w
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+T
+x
+A
+A
+A
+o
+E
+E
+x
+A
+A
+q
+a
+"}
+(3,1,1) = {"
+S
+f
+U
+U
+U
+U
+E
+H
+U
+U
+K
+R
+a
+"}
+(4,1,1) = {"
+S
+f
+U
+U
+K
+U
+H
+H
+j
+U
+U
+R
+a
+"}
+(5,1,1) = {"
+S
+l
+h
+h
+s
+M
+H
+H
+l
+s
+h
+M
+a
+"}
+(6,1,1) = {"
+S
+f
+U
+U
+U
+U
+E
+H
+H
+H
+H
+X
+a
+"}
+(7,1,1) = {"
+S
+f
+U
+U
+U
+U
+E
+H
+E
+H
+H
+X
+a
+"}
+(8,1,1) = {"
+S
+f
+B
+d
+Z
+B
+H
+H
+H
+E
+z
+X
+a
+"}
+(9,1,1) = {"
+S
+f
+U
+U
+U
+U
+E
+H
+H
+H
+H
+X
+a
+"}
+(10,1,1) = {"
+T
+f
+U
+U
+U
+U
+H
+H
+H
+H
+H
+W
+a
+"}
+(11,1,1) = {"
+S
+x
+A
+A
+I
+q
+H
+E
+x
+I
+A
+q
+a
+"}
+(12,1,1) = {"
+S
+f
+U
+U
+U
+U
+E
+H
+j
+U
+U
+R
+a
+"}
+(13,1,1) = {"
+S
+f
+U
+K
+U
+U
+H
+J
+U
+U
+U
+R
+a
+"}
+(14,1,1) = {"
+T
+l
+h
+h
+h
+Y
+E
+E
+l
+h
+h
+M
+a
+"}
+(15,1,1) = {"
+S
+T
+S
+S
+S
+w
+a
+a
+a
+a
+a
+a
+a
+"}

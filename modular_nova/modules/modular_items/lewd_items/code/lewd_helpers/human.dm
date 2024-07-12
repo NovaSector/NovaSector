@@ -359,11 +359,11 @@
 // Handles breaking out of gloves that restrain people.
 /mob/living/carbon/human/resist_restraints()
 	if(gloves?.breakouttime)
-		changeNext_move(CLICK_CD_BREAKOUT)
-		last_special = world.time + CLICK_CD_BREAKOUT
+		changeNext_move(gloves.resist_cooldown)
+		last_special = world.time + gloves.resist_cooldown
 		cuff_resist(gloves)
 	else
-		..()
+		return ..()
 
 /// Checks if the human is wearing a condom, and also hasn't broken it.
 /mob/living/carbon/human/proc/is_wearing_condom()

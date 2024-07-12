@@ -16,44 +16,56 @@
 
 /obj/item/device/traitor_announcer/attack_self(mob/living/user, modifiers)
 	. = ..()
+
 	//can we use this?
 	if(!isliving(user) || (uses == 0))
 		balloon_alert(user, "no uses left!")
 		return
+
 	//build our announcement
-	var/origin = sanitize_text(reject_bad_text(tgui_input_text(user, "Who is announcing, or where is the announcement coming from?", "Announcement Origin", get_area_name(user), max_length = 28)))
+	var/origin = sanitize_text(reject_bad_text(tgui_input_text(user, "Who is announcing, or where is the announcement coming from?", "Announcement Origin", get_area_name(user), max_length = 56), ascii_only = FALSE))
 	if(!origin)
 		balloon_alert(user, "bad origin!")
 		return
+
 	var/audio_key = tgui_input_list(user, "Which announcement audio key should play? ('Intercept' is default)", "Announcement Audio", GLOB.announcer_keys, ANNOUNCER_INTERCEPT)
 	if(!audio_key)
 		balloon_alert(user, "bad audio!")
 		return
+
 	var/color = tgui_input_list(user, "Which color should the announcement be?", "Announcement Hue", ANNOUNCEMENT_COLORS, "default")
 	if(!color)
 		balloon_alert(user, "bad color!")
 		return
-	var/title = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the title of the announcement.", "Announcement Title", max_length = 42)))
+
+	var/title = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the title of the announcement.", "Announcement Title", max_length = 84), ascii_only = FALSE))
 	if(!title)
 		balloon_alert(user, "bad title!")
 		return
-	var/input = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the bodytext of the announcement.", "Announcement Text", max_length = 512, multiline = TRUE)))
+
+	var/input = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the bodytext of the announcement.", "Announcement Text", multiline = TRUE), ascii_only = FALSE))
 	if(!input)
 		balloon_alert(user, "bad text!")
 		return
+
 	//treat voice
 	var/list/message_data = user.treat_message(input)
+
 	//send
 	priority_announce(
-	text = message_data["message"],
-	title = title,
-	sound = audio_key,
-	has_important_message = TRUE,
-	sender_override = origin,
-	color_override = color,
+		text = message_data["message"],
+		title = title,
+		sound = audio_key,
+		sender_override = origin,
+		color_override = color,
+		has_important_message = TRUE,
+		encode_title = FALSE,
+		encode_text = FALSE,
 	)
+
 	if(uses != INFINITE_CHARGES)
 		uses--
+
 	deadchat_broadcast(" made a fake priority announcement from [span_name("[get_area_name(usr, TRUE)]")].", span_name("[user.real_name]"), user, message_type=DEADCHAT_ANNOUNCEMENT)
 	user.log_talk("\[Message title\]: [title], \[Message\]: [input], \[Audio key\]: [audio_key]", LOG_TELECOMMS, tag = "priority announcement")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has used [src] to make a fake announcement of [input].")

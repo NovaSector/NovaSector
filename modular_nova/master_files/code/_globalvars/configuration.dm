@@ -15,7 +15,7 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 /datum/config_entry/string/icecats_policy_link
 	config_entry_value = "(It appears we have forgotten to set this link)" // "in config.txt" but the players don't need to see that
 
-/// Whether or not we log game logs to the SQL database. Requires the SQL database to function, as well as our Skyrat-only table, `game_log`.
+/// Whether or not we log game logs to the SQL database. Requires the SQL database to function, as well as our Nova-only table, `game_log`.
 /datum/config_entry/flag/sql_game_log
 	protection = CONFIG_ENTRY_LOCKED
 
@@ -69,3 +69,6 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 
 // How much time arrivals shuttle should stay at station after its engines recharged before returning to interlink. In deciseconds. 150 - 15 seconds. 0 - disables autoreturn
 /datum/config_entry/number/arrivals_wait
+
+// Are borgs/silicons blacklisted from entering the gateway
+/datum/config_entry/flag/borg_gateway_blacklist

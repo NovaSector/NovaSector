@@ -38,6 +38,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/akula.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/akula.dmi'
 	icon_state = "skinsuithelmet"
+	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/space/skinsuit_helmet/Initialize(mapload)
 	. = ..()
@@ -59,6 +60,9 @@
 	icon_state = "skinsuitarmor"
 	base_icon_state = "skinsuitarmor"
 
+/obj/item/clothing/suit/armor/riot/skinsuit_armor/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/tank/internals/oxygen
 
 /obj/item/clothing/suit/armor/riot/skinsuit_armor/equipped(mob/user, slot)
 	. = ..()

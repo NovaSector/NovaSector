@@ -39,7 +39,7 @@
 	CES.name = "[job_name] cryogenic sleeper"
 	if(prompt_players)
 		for(var/mob/dead/observer/ghost in GLOB.player_list)
-			if(length(ckey_whitelist) && !(lowertext(ghost.ckey) in ckey_whitelist))
+			if(length(ckey_whitelist) && !(LOWER_TEXT(ghost.ckey) in ckey_whitelist))
 				continue
 			ghost.playsound_local(ghost, 'sound/effects/ghost2.ogg', 75, FALSE)
 			var/turf_link = TURF_LINK(ghost, spawn_loc)
@@ -267,7 +267,7 @@
 			if("add_ckey")
 				var/msg = input(usr, "Add allowed CKEY to the spawner.", "Add CKEY", "") as text|null
 				if(msg)
-					ESI.ckey_whitelist += lowertext(msg)
+					ESI.ckey_whitelist += LOWER_TEXT(msg)
 			if("add_species")
 				var/result = input(usr, "Select a species", "Add species") as null|anything in GLOB.roundstart_races
 				if(result)
@@ -366,13 +366,7 @@
 		ShowPanel(usr, null)
 		return
 
-/client/proc/admin_open_event_spawners_menu()
-	set category = "Admin.Events"
-	set name = "Event Spawners Menu"
-
-	if(!check_rights(R_ADMIN))
-		return
-
+ADMIN_VERB(admin_open_event_spawners_menu, R_ADMIN, "Event Spawners Menu", "Event Spawners Menu.", ADMIN_CATEGORY_EVENTS)
 	var/datum/event_spawner_manager/ESM = GLOB.event_spawner_manager
 	ESM.ShowPanel(usr, null)
 

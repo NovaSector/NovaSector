@@ -98,7 +98,7 @@
 		. += "[t_He] [t_has] [gloves.get_examine_string(user)] on [t_his] hands."
 	else if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(num_hands)
-			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a"] blood-stained hand[num_hands > 1 ? "s" : ""]!")
+			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "]blood-stained hand[num_hands > 1 ? "s" : ""]!")
 
 	//handcuffed?
 	if(handcuffed)
@@ -179,7 +179,7 @@
 			disabled += body_part
 		missing -= body_part.body_zone
 		for(var/obj/item/I in body_part.embedded_objects)
-			if(I.isEmbedHarmless())
+			if(I.is_embed_harmless())
 				msg += "<B>[t_He] [t_has] [icon2html(I, user)] \a [I] stuck to [t_his] [body_part.name]!</B>\n"
 			else
 				msg += "<B>[t_He] [t_has] [icon2html(I, user)] \a [I] embedded in [t_his] [body_part.name]!</B>\n"
@@ -362,7 +362,7 @@
 			if(CONSCIOUS)
 				if(HAS_TRAIT(src, TRAIT_DUMB))
 					msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
-		if(get_organ_by_type(/obj/item/organ/internal/brain))
+		if(get_organ_by_type(/obj/item/organ/internal/brain) && isnull(ai_controller))
 			if(!key)
 				msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
 			else if(!client)
@@ -393,18 +393,20 @@
 		. += trait_exam
 
 	if(isliving(user))
-		var/mob/living/morbid_weirdo = user
-		if(HAS_MIND_TRAIT(morbid_weirdo, TRAIT_MORBID))
+		var/mob/living/privacy_invader = user
+		if(HAS_MIND_TRAIT(privacy_invader, TRAIT_MORBID))
 			if(HAS_TRAIT(src, TRAIT_DISSECTED))
 				msg += "[span_notice("[t_He] appears to have been dissected. Useless for examination... <b><i>for now.</i></b>")]\n"
 			if(HAS_TRAIT(src, TRAIT_SURGICALLY_ANALYZED))
 				msg += "[span_notice("A skilled hand has mapped this one's internal intricacies. It will be far easier to perform future experimentations upon [t_him]. <b><i>Exquisite.</i></b>")]\n"
+		if(HAS_MIND_TRAIT(privacy_invader, TRAIT_EXAMINE_FITNESS))
+			. += compare_fitness(user)
 
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		var/datum/record/crew/target_record = find_record(perpname)
 		if(target_record)
-			. += "<span class='deptradio'>Rank:</span> [target_record.rank]\n<a href='?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Front photo\]</a><a href='?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Side photo\]</a>"
+			. += "Rank: [target_record.rank]\n<a href='?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Front photo\]</a><a href='?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Side photo\]</a>"
 		if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
 			var/cyberimp_detect
 			for(var/obj/item/organ/internal/cyberimp/cyberimp in organs)
@@ -425,7 +427,7 @@
 			//NOVA EDIT ADDITION BEGIN - EXAMINE RECORDS
 			if(target_record && length(target_record.past_medical_records) > RECORDS_INVISIBLE_THRESHOLD)
 				. += "<a href='?src=[REF(src)];hud=m;medrecords=1;examine_time=[world.time]'>\[View medical records\]</a>"
-			//NOVA EDIT ADDITION END
+			//NOVA EDIT ADDITION END - EXAMINE RECORDS
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if((user.stat == CONSCIOUS || isobserver(user)) && user != src)
@@ -439,11 +441,11 @@
 					if(target_record.security_note)
 						security_note = target_record.security_note
 				if(ishuman(user))
-					. += "<span class='deptradio'>Criminal status:</span> <a href='?src=[REF(src)];hud=s;status=1;examine_time=[world.time]'>\[[wanted_status]\]</a>"
+					. += "Criminal status: <a href='?src=[REF(src)];hud=s;status=1;examine_time=[world.time]'>\[[wanted_status]\]</a>"
 				else
-					. += "<span class='deptradio'>Criminal status:</span> [wanted_status]"
-				. += "<span class='deptradio'>Important Notes: [security_note]"
-				. += "<span class='deptradio'>Security record:</span> <a href='?src=[REF(src)];hud=s;view=1;examine_time=[world.time]'>\[View\]</a>"
+					. += "Criminal status: [wanted_status]"
+				. += "Important Notes: [security_note]"
+				. += "Security record: <a href='?src=[REF(src)];hud=s;view=1;examine_time=[world.time]'>\[View\]</a>"
 				if(ishuman(user))
 					. += jointext(list("<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>",
 						"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>",
@@ -454,9 +456,11 @@
 
 		if(target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
-	else if(isobserver(user))
-		. += span_info("<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
+		// NOVA EDIT ADDITION END - EXAMINE RECORDS
+	if(isobserver(user))
+		. += span_info("\n<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 
+	// NOVA EDIT ADDITION START
 	if(isobserver(user) || user.mind?.can_see_exploitables || user.mind?.has_exploitables_override)
 		var/datum/record/crew/target_records = find_record(perpname)
 		if(target_records)
@@ -468,19 +472,16 @@
 				. += "<a href='?src=[REF(src)];exprecords=1'>\[View exploitable info\]</a>"
 
 	. += EXAMINE_SECTION_BREAK
-	//NOVA EDIT ADDITION END
-	//NOVA EDIT ADDITION BEGIN - GUNPOINT
+
 	if(gunpointing)
 		. += "<span class='warning'><b>[t_He] [t_is] holding [gunpointing.target.name] at gunpoint with [gunpointing.aimed_gun.name]!</b></span>\n"
 	if(length(gunpointed))
 		for(var/datum/gunpoint/GP in gunpointed)
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
-	//NOVA EDIT ADDITION END
 
-	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	for(var/genital in GLOB.possible_genitals)
 		if(dna.species.mutant_bodyparts[genital])
-			var/datum/sprite_accessory/genital/G = GLOB.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
+			var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
 			if(G)
 				if(!(G.is_hidden(src)))
 					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
@@ -498,6 +499,8 @@
 		flavor_text_link = span_notice("<a href='?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine closely...\]</a>")
 	if (flavor_text_link)
 		. += flavor_text_link
+	if (!face_obscured && !HAS_TRAIT(src, TRAIT_UNKNOWN) && client?.prefs.read_preference(/datum/preference/text/character_ad))
+		. += span_notice("[t_He] [t_has] an ad in the character directory... <a href='?src=[REF(src)];lookup_info=open_character_ad'>\[Open directory?\]</a>")
 
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)
@@ -518,8 +521,7 @@
 		if (!isnull(opt_in_status))
 			var/stringified_optin = GLOB.antag_opt_in_strings["[opt_in_status]"]
 			. += span_info("Antag Opt-in Status: <b><font color='[GLOB.antag_opt_in_colors[stringified_optin]]'>[stringified_optin]</font></b>")
-	//NOVA EDIT ADDITION END
-
+	// NOVA EDIT ADDITION END
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 
 /**

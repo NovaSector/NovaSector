@@ -23,6 +23,14 @@
 	item_type = /obj/item/storage/medkit/combat_surgeon/stocked
 	cost = PAYCHECK_COMMAND * 3.5
 
+/datum/armament_entry/company_import/deforest/first_aid_kit/robo_repair
+	item_type = /obj/item/storage/medkit/robotic_repair/stocked
+	cost = PAYCHECK_COMMAND * 3.5
+
+/datum/armament_entry/company_import/deforest/first_aid_kit/robo_repair_super
+	item_type = /obj/item/storage/medkit/robotic_repair/preemo/stocked
+	cost = PAYCHECK_COMMAND * 8
+
 /datum/armament_entry/company_import/deforest/first_aid_kit/first_responder
 	item_type = /obj/item/storage/backpack/duffelbag/deforest_surgical/stocked
 	cost = PAYCHECK_COMMAND * 10
@@ -30,6 +38,10 @@
 /datum/armament_entry/company_import/deforest/first_aid_kit/orange_satchel
 	item_type = /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked
 	cost = PAYCHECK_COMMAND * 10
+
+/datum/armament_entry/company_import/deforest/first_aid_kit/technician_satchel
+	item_type = /obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked
+	cost = PAYCHECK_COMMAND * 7
 
 // Basic first aid supplies like gauze, sutures, mesh, so on
 
@@ -64,6 +76,10 @@
 	item_type = /obj/item/storage/pill_bottle/painkiller
 	cost = PAYCHECK_CREW
 
+/datum/armament_entry/company_import/deforest/first_aid/robo_patch
+	item_type = /obj/item/reagent_containers/pill/robotic_patch/synth_repair
+	cost = PAYCHECK_CREW
+
 /datum/armament_entry/company_import/deforest/first_aid/bandaid
 	item_type = /obj/item/storage/box/bandages
 	cost = PAYCHECK_CREW * 1.5
@@ -75,6 +91,14 @@
 /datum/armament_entry/company_import/deforest/first_aid/rapid_coagulant
 	item_type = /obj/item/stack/medical/wound_recovery/rapid_coagulant
 	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/deforest/first_aid/robofoam
+	item_type = /obj/item/stack/medical/wound_recovery/robofoam
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/deforest/first_aid/super_robofoam
+	item_type = /obj/item/stack/medical/wound_recovery/robofoam_super
+	cost = PAYCHECK_COMMAND * 4
 
 // Autoinjectors for healing
 
@@ -108,6 +132,12 @@
 
 /datum/armament_entry/company_import/deforest/medpens/halobinin
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/halobinin
+
+/datum/armament_entry/company_import/deforest/medpens/robo_solder
+	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder
+
+/datum/armament_entry/company_import/deforest/medpens/robo_cleaner
+	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner
 
 /datum/armament_entry/company_import/deforest/medpens/pentibinin
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin
@@ -191,6 +221,10 @@
 	item_type = /obj/item/device/custom_kit/medigun_fastcharge
 	cost = PAYCHECK_COMMAND * 2
 
+/datum/armament_entry/company_import/deforest/equipment/hypospray_upgrade
+	item_type = /obj/item/device/custom_kit/deluxe_hypo2
+	cost = PAYCHECK_COMMAND * 2
+
 /datum/armament_entry/company_import/deforest/equipment/afad
 	item_type = /obj/item/gun/medbeam/afad
 	cost = PAYCHECK_COMMAND * 5
@@ -233,9 +267,9 @@
 	name = "MOD injector module"
 	item_type = /obj/item/mod/module/injector
 
-/datum/armament_entry/company_import/deforest/medical_modules/organ_thrower
-	name = "MOD organ thrower module"
-	item_type = /obj/item/mod/module/organ_thrower
+/datum/armament_entry/company_import/deforest/medical_modules/organizer
+	name = "MOD organizer module"
+	item_type = /obj/item/mod/module/organizer
 
 /datum/armament_entry/company_import/deforest/medical_modules/patient_transport
 	name = "MOD patient transport module"

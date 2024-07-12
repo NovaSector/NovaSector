@@ -1,5 +1,6 @@
 #define MOVES_HITSCAN -1 //Not actually hitscan but close as we get without actual hitscan.
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 17 //How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
+#define MAX_RANGE_HIT_PRONE_TARGETS 10 //How far do the projectile hits the prone mob
 
 /obj/projectile
 	name = "projectile"
@@ -189,9 +190,13 @@
 	///If defined, on hit we create an item of this type then call hitby() on the hit target with this, mainly used for embedding items (bullets) in targets
 	var/shrapnel_type
 	///If we have a shrapnel_type defined, these embedding stats will be passed to the spawned shrapnel type, which will roll for embedding on the target
-	var/list/embedding
-	///If TRUE, hit mobs even if they're on the floor and not our target
+	var/embed_type
+	///Saves embedding data
+	var/datum/embed_data/embed_data
+	///If TRUE, hit mobs, even if they are lying on the floor and are not our target within MAX_RANGE_HIT_PRONE_TARGETS tiles
 	var/hit_prone_targets = FALSE
+	///if TRUE, ignores the range of MAX_RANGE_HIT_PRONE_TARGETS tiles of hit_prone_targets
+	var/ignore_range_hit_prone_targets = FALSE
 	///For what kind of brute wounds we're rolling for, if we're doing such a thing. Lasers obviously don't care since they do burn instead.
 	var/sharpness = NONE
 	///How much we want to drop damage per tile as it travels through the air
@@ -206,10 +211,10 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 		COMSIG_ATOM_ATTACK_HAND = PROC_REF(attempt_parry),
 	)
-	//SKYRAT ADDITION START
+	// NOVA EDIT ADDITION START
 	/// If this should be able to hit the target even on direct firing when `ignored_factions` applies
 	var/ignore_direct_target = FALSE
-	//SKYRAT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
@@ -219,8 +224,8 @@
 /obj/projectile/Initialize(mapload)
 	. = ..()
 	decayedRange = range
-	if(embedding)
-		updateEmbedding()
+	if(get_embed())
+		AddElement(/datum/element/embed)
 	AddElement(/datum/element/connect_loc, projectile_connections)
 
 /obj/projectile/proc/Range()
@@ -228,8 +233,8 @@
 	if(wound_bonus != CANT_WOUND)
 		wound_bonus += wound_falloff_tile
 		bare_wound_bonus = max(0, bare_wound_bonus + wound_falloff_tile)
-	if(embedding)
-		embedding["embed_chance"] += embed_falloff_tile
+	if(get_embed())
+		set_embed(embed_data.generate_with_values(embed_data.embed_chance + embed_falloff_tile)) // Should be rewritten in projecitle refactor
 	if(damage_falloff_tile && damage >= 0)
 		damage += damage_falloff_tile
 	if(stamina_falloff_tile && stamina >= 0)
@@ -306,7 +311,7 @@
 	else
 		impact_sound = target.impact_sound
 		get_sfx()
-	playsound(src, get_sfx_skyrat(impact_sound), vol_by_damage(), TRUE, -1)
+	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
@@ -358,9 +363,10 @@
 
 		var/organ_hit_text = ""
 		if(hit_limb_zone)
-			organ_hit_text = " in \the [parse_zone(hit_limb_zone)]"
+			organ_hit_text = " in \the [living_target.parse_zone_with_bodypart(hit_limb_zone)]"
 		if(suppressed == SUPPRESSED_VERY)
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
+			organ_hit_text = organ_hit_text // NOVA EDIT ADDITION -- this is just so we don't have to nova edit the TG control statements. Otherwise will error in linters for being an empty block
 		else if(suppressed)
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 			to_chat(living_target, span_userdanger("You're shot by \a [src][organ_hit_text]!"))
@@ -475,7 +481,7 @@
 	if(!trajectory)
 		qdel(src)
 		return FALSE
-	if(impacted[A]) // NEVER doublehit
+	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
 	var/datum/point/point_cache = trajectory.copy_to()
 	var/turf/T = get_turf(A)
@@ -528,7 +534,7 @@
 	if(QDELETED(src) || !T || !target)
 		return
 	// 2.
-	impacted[target] = TRUE //hash lookup > in for performance in hit-checking
+	impacted[WEAKREF(target)] = TRUE //hash lookup > in for performance in hit-checking
 	// 3.
 	var/mode = prehit_pierce(target)
 	if(mode == PROJECTILE_DELETE_WITHOUT_HITTING)
@@ -605,7 +611,7 @@
 //Returns true if the target atom is on our current turf and above the right layer
 //If direct target is true it's the originally clicked target.
 /obj/projectile/proc/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
-	if(QDELETED(target) || impacted[target])
+	if(QDELETED(target) || impacted[target.weak_reference])
 		return FALSE
 	if(!ignore_loc && (loc != target.loc) && !(can_hit_turfs && direct_target && loc == target))
 		return FALSE
@@ -639,12 +645,17 @@
 			return FALSE
 		if(HAS_TRAIT(living_target, TRAIT_IMMOBILIZED) && HAS_TRAIT(living_target, TRAIT_FLOORED) && HAS_TRAIT(living_target, TRAIT_HANDS_BLOCKED))
 			return FALSE
-		if(!hit_prone_targets)
+		if(hit_prone_targets)
 			var/mob/living/buckled_to = living_target.lowest_buckled_mob()
-			if(!buckled_to.density) // Will just be us if we're not buckled to another mob
-				return FALSE
-			if(living_target.body_position != LYING_DOWN)
+			if((decayedRange - range) <= MAX_RANGE_HIT_PRONE_TARGETS) // after MAX_RANGE_HIT_PRONE_TARGETS tiles, auto-aim hit for mobs on the floor turns off
 				return TRUE
+			if(ignore_range_hit_prone_targets) // doesn't apply to projectiles that must hit the target in combat mode or something else, no matter what
+				return TRUE
+			if(buckled_to.density) // Will just be us if we're not buckled to another mob
+				return TRUE
+			return FALSE
+		else if(living_target.body_position == LYING_DOWN)
+			return FALSE
 	return TRUE
 
 /**
@@ -693,7 +704,7 @@
  * Used to not even attempt to Bump() or fail to Cross() anything we already hit.
  */
 /obj/projectile/CanPassThrough(atom/blocker, movement_dir, blocker_opinion)
-	return impacted[blocker] ? TRUE : ..()
+	return ..() || impacted[blocker.weak_reference]
 
 /**
  * Projectile moved:
@@ -827,6 +838,8 @@
 	RegisterSignal(src, COMSIG_ATOM_ATTACK_HAND, PROC_REF(attempt_parry))
 	if(hitscan)
 		process_hitscan()
+		if(QDELETED(src))
+			return
 	if(!(datum_flags & DF_ISPROCESSING))
 		START_PROCESSING(SSprojectiles, src)
 	pixel_move(pixel_speed_multiplier, FALSE) //move it now!
@@ -921,6 +934,9 @@
 				qdel(src)
 			return //Kill!
 		pixel_move(1, TRUE)
+		// No kevinz I do not care that this is a hitscan weapon, it is not allowed to travel 100 turfs in a tick
+		if(CHECK_TICK && QDELETED(src))
+			return
 
 /obj/projectile/proc/pixel_move(trajectory_multiplier, hitscanning = FALSE)
 	if(!loc || !trajectory)
@@ -935,6 +951,8 @@
 		trajectory.increment(trajectory_multiplier)
 		var/turf/T = trajectory.return_turf()
 		if(!istype(T))
+			// step back to the last valid turf before we Destroy
+			trajectory.increment(-trajectory_multiplier)
 			qdel(src)
 			return
 		if(T.z != loc.z)
@@ -1133,26 +1151,6 @@
 /obj/projectile/experience_pressure_difference()
 	return
 
-///Like [/obj/item/proc/updateEmbedding] but for projectiles instead, call this when you want to add embedding or update the stats on the embedding element
-/obj/projectile/proc/updateEmbedding()
-	if(!shrapnel_type || !LAZYLEN(embedding))
-		return
-
-	AddElement(/datum/element/embed,\
-		embed_chance = (!isnull(embedding["embed_chance"]) ? embedding["embed_chance"] : EMBED_CHANCE),\
-		fall_chance = (!isnull(embedding["fall_chance"]) ? embedding["fall_chance"] : EMBEDDED_ITEM_FALLOUT),\
-		pain_chance = (!isnull(embedding["pain_chance"]) ? embedding["pain_chance"] : EMBEDDED_PAIN_CHANCE),\
-		pain_mult = (!isnull(embedding["pain_mult"]) ? embedding["pain_mult"] : EMBEDDED_PAIN_MULTIPLIER),\
-		remove_pain_mult = (!isnull(embedding["remove_pain_mult"]) ? embedding["remove_pain_mult"] : EMBEDDED_UNSAFE_REMOVAL_PAIN_MULTIPLIER),\
-		rip_time = (!isnull(embedding["rip_time"]) ? embedding["rip_time"] : EMBEDDED_UNSAFE_REMOVAL_TIME),\
-		ignore_throwspeed_threshold = (!isnull(embedding["ignore_throwspeed_threshold"]) ? embedding["ignore_throwspeed_threshold"] : FALSE),\
-		impact_pain_mult = (!isnull(embedding["impact_pain_mult"]) ? embedding["impact_pain_mult"] : EMBEDDED_IMPACT_PAIN_MULTIPLIER),\
-		jostle_chance = (!isnull(embedding["jostle_chance"]) ? embedding["jostle_chance"] : EMBEDDED_JOSTLE_CHANCE),\
-		jostle_pain_mult = (!isnull(embedding["jostle_pain_mult"]) ? embedding["jostle_pain_mult"] : EMBEDDED_JOSTLE_PAIN_MULTIPLIER),\
-		pain_stam_pct = (!isnull(embedding["pain_stam_pct"]) ? embedding["pain_stam_pct"] : EMBEDDED_PAIN_STAM_PCT),\
-		projectile_payload = shrapnel_type)
-	return TRUE
-
 /**
  * Is this projectile considered "hostile"?
  *
@@ -1172,7 +1170,7 @@
 
 ///Checks if the projectile can embed into someone
 /obj/projectile/proc/can_embed_into(atom/hit)
-	return embedding && shrapnel_type && iscarbon(hit) && !HAS_TRAIT(hit, TRAIT_PIERCEIMMUNE)
+	return get_embed() && shrapnel_type && iscarbon(hit) && !HAS_TRAIT(hit, TRAIT_PIERCEIMMUNE)
 
 /// Reflects the projectile off of something
 /obj/projectile/proc/reflect(atom/hit_atom)
@@ -1195,6 +1193,7 @@
 
 #undef MOVES_HITSCAN
 #undef MUZZLE_EFFECT_PIXEL_INCREMENT
+#undef MAX_RANGE_HIT_PRONE_TARGETS
 
 /// Fire a projectile from this atom at another atom
 /atom/proc/fire_projectile(projectile_type, atom/target, sound, firer, list/ignore_targets = list())
@@ -1204,10 +1203,8 @@
 	var/turf/startloc = get_turf(src)
 	var/obj/projectile/bullet = new projectile_type(startloc)
 	bullet.starting = startloc
-	var/list/ignore = list()
 	for (var/atom/thing as anything in ignore_targets)
-		ignore[thing] = TRUE
-	bullet.impacted += ignore
+		bullet.impacted[WEAKREF(thing)] = TRUE
 	bullet.firer = firer || src
 	bullet.fired_from = src
 	bullet.yo = target.y - startloc.y
@@ -1216,3 +1213,17 @@
 	bullet.preparePixelProjectile(target, src)
 	bullet.fire()
 	return bullet
+
+/// Fetches embedding data
+/obj/projectile/proc/get_embed()
+	RETURN_TYPE(/datum/embed_data)
+	return embed_type ? (embed_data ||= get_embed_by_type(embed_type)) : embed_data
+
+/obj/projectile/proc/set_embed(datum/embed_data/embed)
+	if(embed_data == embed)
+		return
+	// GLOB.embed_by_type stores shared "default" embedding values of datums
+	// Dynamically generated embeds use the base class and thus are not present in there, and should be qdeleted upon being discarded
+	if(!isnull(embed_data) && !GLOB.embed_by_type[embed_data.type])
+		qdel(embed_data)
+	embed_data = ispath(embed) ? get_embed_by_type(armor) : embed

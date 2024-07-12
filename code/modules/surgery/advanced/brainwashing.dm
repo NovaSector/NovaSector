@@ -3,7 +3,7 @@
 	desc = "The disk provides instructions on some kind of surgery, but the label has been scratched off..." //NOVA EDIT: Moved to Special Desc.
 	surgeries = list(/datum/surgery/advanced/brainwashing)
 	special_desc_requirement = EXAMINE_CHECK_JOB // NOVA EDIT
-	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist") //SKYRAT CHANGE //You mean to tell me the roles that get this role-exclusive item know what it does?
+	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist") // NOVA EDIT CHANGE //You mean to tell me the roles that get this role-exclusive item know what it does?
 	special_desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
 
 /datum/surgery/advanced/brainwashing

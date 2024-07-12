@@ -7,6 +7,7 @@
 		TRAIT_LITERATE,
 		TRAIT_HATED_BY_DOGS,
 		TRAIT_MUTANT_COLORS,
+		TRAIT_CATLIKE_GRACE,
 	)
 	mutanttongue = /obj/item/organ/internal/tongue/cat/tajaran
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -72,22 +73,6 @@
 		markings = assemble_body_markings_from_set(BMS, passed_features, src)
 	return markings
 
-/*	Runtime in tajaran.dm,76: pick() from empty list
-/datum/species/tajaran/random_name(gender,unique,lastname)
-	var/randname
-	if(gender == MALE)
-		randname = pick(GLOB.first_names_male_taj)
-	else
-		randname = pick(GLOB.first_names_female_taj)
-
-	if(lastname)
-		randname += " [lastname]"
-	else
-		randname += " [pick(GLOB.last_names_taj)]"
-
-	return randname
-*/
-
 /datum/species/tajaran/get_species_description()
 	return placeholder_description
 
@@ -106,3 +91,15 @@
 	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, normal", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
 	regenerate_organs(cat, src, visual_only = TRUE)
 	cat.update_body(TRUE)
+
+/datum/species/tajaran/create_pref_unique_perks()
+	var/list/to_add = list()
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+		SPECIES_PERK_ICON = FA_ICON_PERSON_FALLING,
+		SPECIES_PERK_NAME = "Soft Landing",
+		SPECIES_PERK_DESC = "Tajarans are unhurt by high falls, and land on their feet.",
+	))
+
+	return to_add

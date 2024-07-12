@@ -30,6 +30,7 @@
 	preop_sound = 'sound/surgery/scalpel1.ogg'
 	success_sound = 'sound/surgery/organ1.ogg'
 	failure_sound = 'sound/surgery/organ2.ogg'
+	surgery_effects_mood = TRUE
 
 /datum/surgery_step/lobectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -45,7 +46,12 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		var/obj/item/organ/internal/lungs/target_lungs = human_target.get_organ_slot(ORGAN_SLOT_LUNGS)
-		target_lungs.operated = TRUE
+		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
+		if(istype(target_lungs, /obj/item/organ/internal/lungs/slime))
+			addtimer(VARSET_CALLBACK(target_lungs, operated, FALSE), 30 SECONDS)
+		else
+			target_lungs.operated = TRUE
+		//NOVA EDIT ADDITION END
 		human_target.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
 		display_results(
 			user,

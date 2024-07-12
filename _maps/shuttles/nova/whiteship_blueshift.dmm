@@ -282,9 +282,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
 /obj/machinery/iv_drip,
-/obj/structure/curtain{
-	layer = 4.1
-	},
+/obj/structure/curtain,
 /obj/structure/alien/weeds/node,
 /turf/open/floor/iron/white,
 /area/shuttle/abandoned/medbay)
@@ -387,7 +385,7 @@
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/super,
+/obj/item/stock_parts/power_store/cell/super,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bridge)
 "ei" = (
@@ -470,7 +468,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/structure/alien/weeds,
-/mob/living/simple_animal/hostile/alien/drone,
+/mob/living/basic/alien/drone,
 /obj/machinery/duct,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/crew)
@@ -494,7 +492,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/alien/weeds,
-/mob/living/simple_animal/hostile/alien/maid/barmaid,
+/mob/living/basic/alien/maid/barmaid,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
 "fq" = (
@@ -1406,7 +1404,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/alien/sentinel,
+/mob/living/basic/alien/sentinel,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
 "ne" = (
@@ -1654,7 +1652,7 @@
 	dir = 8
 	},
 /obj/structure/alien/weeds,
-/mob/living/simple_animal/hostile/alien/sentinel,
+/mob/living/basic/alien/sentinel,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bridge)
 "pl" = (
@@ -2013,7 +2011,6 @@
 	},
 /obj/structure/barricade/security,
 /obj/machinery/door/airlock/highsecurity{
-	layer = 3.0;
 	name = "Armory"
 	},
 /turf/open/floor/iron/dark,
@@ -2298,7 +2295,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/alien/weeds/node,
-/mob/living/simple_animal/hostile/alien/sentinel,
+/mob/living/basic/alien/sentinel,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "vh" = (
@@ -2850,7 +2847,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden,
 /obj/structure/alien/weeds,
-/mob/living/simple_animal/hostile/alien,
+/mob/living/basic/alien,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/crew)
@@ -3446,7 +3443,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/alien/weeds,
-/mob/living/simple_animal/hostile/alien,
+/mob/living/basic/alien,
 /obj/machinery/duct,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/medbay)
@@ -3574,7 +3571,7 @@
 "Ir" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/alien/weeds/node,
-/mob/living/simple_animal/hostile/alien,
+/mob/living/basic/alien,
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/abandoned/crew)
 "Iy" = (
@@ -4058,9 +4055,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/table/glass,
-/obj/structure/curtain{
-	layer = 4.1
-	},
+/obj/structure/curtain,
 /obj/item/reagent_containers/syringe,
 /obj/structure/alien/weeds,
 /obj/item/clothing/gloves/latex/nitrile,
@@ -4639,7 +4634,7 @@
 	dir = 4
 	},
 /obj/structure/alien/weeds/node,
-/mob/living/simple_animal/hostile/alien/drone,
+/mob/living/basic/alien/drone,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden,
 /turf/open/floor/iron/dark,
@@ -5052,9 +5047,7 @@
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/obj/item/stock_parts/cell/high{
-	charge = 100;
-	maxcharge = 15000;
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 3;
 	pixel_y = -1
 	},
@@ -5144,7 +5137,7 @@
 	dir = 4
 	},
 /obj/structure/alien/weeds,
-/mob/living/simple_animal/hostile/alien/drone,
+/mob/living/basic/alien/drone,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/engine)
 "WP" = (
@@ -5204,11 +5197,11 @@
 /obj/structure/table,
 /obj/effect/turf_decal/bot,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/item/multitool,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/alien/weeds,
-/obj/item/stock_parts/cell/super,
+/obj/item/stock_parts/power_store/cell/super,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "Xj" = (
@@ -5520,7 +5513,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/alien/queen/large,
+/mob/living/basic/alien/queen/large,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
 "ZN" = (

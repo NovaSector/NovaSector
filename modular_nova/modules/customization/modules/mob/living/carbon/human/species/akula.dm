@@ -17,7 +17,6 @@
 		OFFSET_HEAD = list(0, 2),
 		OFFSET_HAIR = list(0, 1),
 	)
-	eyes_icon = 'modular_nova/modules/organs/icons/akula_eyes.dmi'
 	mutanteyes = /obj/item/organ/internal/eyes/akula
 	mutanttongue = /obj/item/organ/internal/tongue/akula
 	inherent_traits = list(
@@ -62,6 +61,34 @@
 	"These generations split apart by distance are known for their animosity towards the other. To those in the New Principalities, their coreward cousins have lost the 'Azulean spirit;' rotting apart in their palaces, sitting in waters choked with ennui. Their forever expansion into the frontier colonies, their use of every useful material and lifeform is what they believe their Kingdom is fueled by. But to those in the Old Principalities, their edgeward descendants have lost their minds. They believe the spiritual and societal importance of their Homeworld has fallen on deaf ears, and the lackadaisical attitude about the core mechanisms and noble structures holding the Kingdom together has become nothing short of infuriating. It is the belief of many high-ranking members of the Monarchy that the ongoing terraforming processes in the frontiers are proof of the arrogance of the 'border princes' controlling them; each and every world made in the image of a planet the King himself is meant to protect.",
 	"Yet, despite their differences, all Agurkrral citizens swim freely in their kingdom's waters. Even the most controlling border princes, even those in the Old Principalities working the slave trade, know better than to openly erode a citizen's right to life, property, and speech. Any alien species can become an Agurkrral citizen, and even non-citizens enjoy the right to life, with executions outright banned. The aristocracy remains well-educated, even the edgerunner warlords of the New Principalities, and the Kingdom as a whole enjoys its status as a nation that's now a true rival to Sol. Larger, more populated, and better developed; though, having to 'integrate' Solarian technologies, goods, and peoples to fully succeed. The Azuleans are even known as an environmentally-focused people; although they hold no care for lands they cannot make use of, modern nobles are still in charge of maintaining the biosphere of lands they control, to allow their strangely engineered flora and fauna to thrive, and for the people to have healthy and clean waters to live in.",
 	)
+
+/datum/species/akula/create_pref_unique_perks()
+	var/list/perks = list()
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_HAND,
+		SPECIES_PERK_NAME = "Slippery Skin",
+		SPECIES_PERK_DESC = "When sufficiently wet, you have a bonus chance to escape from grabs."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+		SPECIES_PERK_ICON = FA_ICON_SHIRT,
+		SPECIES_PERK_NAME = "Wetsuits",
+		SPECIES_PERK_DESC = "You spawn with clothing that will keep you perpetually wet if not removed."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_WATER,
+		SPECIES_PERK_NAME = "Aqua Affinity",
+		SPECIES_PERK_DESC = "If you are dry for more than five minutes, you begin to feel sad."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_PERSON_FALLING,
+		SPECIES_PERK_NAME = "Slippery Soles",
+		SPECIES_PERK_DESC = "When sufficiently wet, all slips will send you flying, even just a wet floor.",
+	))
+	return perks
 
 /datum/species/akula/randomize_features()
 	var/list/features = ..()
