@@ -777,6 +777,8 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
 
+// Fancy crop-top jackets
+
 /datum/loadout_item/suit/crop_jacket
 	name = "Colourable Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket
@@ -788,6 +790,18 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/sleeveless_crop_jacket
 	name = "Colourable Sleeveless Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless
+
+/datum/loadout_item/suit/sports_jacket
+	name = "Colourable Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/long
+
+/datum/loadout_item/suit/shortsleeve_sports_jacket
+	name = "Colourable Short-Sleeved Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve/long
+
+/datum/loadout_item/suit/sleeveless_sports_jacket
+	name = "Colourable Sleeveless Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless/long
 
 /*
 *	CHAPLAIN

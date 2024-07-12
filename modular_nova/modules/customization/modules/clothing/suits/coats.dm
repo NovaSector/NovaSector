@@ -290,6 +290,23 @@
 	greyscale_colors = "#ebebeb#a52f29"
 	body_parts_covered = CHEST
 
+/obj/item/clothing/suit/crop_jacket/long
+	name = "sports jacket"
+	desc = "A jacket that probably makes quite the effective outdoors wear."
+	icon_state = "jacket"
+
+/obj/item/clothing/suit/crop_jacket/shortsleeve/loing
+	name = "short-sleeved sports jacket"
+	desc = "A jacket that probably makes quite the effective outdoors wear. However, \
+		some barbarian has cut the sleeves in half."
+	icon_state = "jacket_short"
+
+/obj/item/clothing/suit/crop_jacket/sleeveless/long
+	name = "sleeveless sports jacket"
+	desc = "A jacket that probably makes quite the effective outdoors wear. However, \
+		some barbarian has cut the sleeves off."
+	icon_state = "jacket_sleeveless"
+
 /obj/item/clothing/suit/big_jacket
 	name = "\improper Alpha Atelier pilot jacket"
 	desc = "An exacting reproduction of the pilot jackets worn in the infancy of faster than light travel, \
