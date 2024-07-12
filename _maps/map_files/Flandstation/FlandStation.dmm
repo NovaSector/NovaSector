@@ -1631,9 +1631,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
 	},
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "aBN" = (
@@ -2272,9 +2270,7 @@
 /area/station/maintenance/port/central)
 "aMc" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 1;
-	piping_layer = 2;
-	layer = null
+	dir = 1
 	},
 /obj/machinery/light/directional/south{
 	dir = 8
@@ -3352,9 +3348,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/curtain{
-	layer = 4.5
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "aZL" = (
@@ -4244,9 +4238,7 @@
 "bqE" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/directional/east,
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/item/storage/medkit/toxin{
 	pixel_x = -3;
 	pixel_y = -3
@@ -7758,9 +7750,7 @@
 /area/station/science/robotics/mechbay)
 "cDP" = (
 /obj/structure/cable,
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "cEg" = (
@@ -11938,7 +11928,6 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/command)
 "dXD" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 5
 	},
@@ -13504,9 +13493,7 @@
 /turf/open/floor/iron,
 /area/station/science/lab)
 "eBc" = (
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "eBe" = (
@@ -22388,7 +22375,8 @@
 /obj/machinery/requests_console/directional/north,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom{
-	layer = null
+	layer = null;
+	piping_layer = null
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
@@ -24905,9 +24893,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "hZG" = (
-/obj/structure/sign/map/left,
-/turf/closed/wall/r_wall,
-/area/station/ai_monitored/turret_protected/aisat_interior)
+/obj/structure/sign/directions/cryo/directional/north{
+	icon_state = "map-right-fland"
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/primary/starboard)
 "hZI" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -49061,10 +49051,8 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
 "pQf" = (
-/obj/structure/curtain{
-	layer = null
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "pQg" = (
@@ -50939,6 +50927,12 @@
 	},
 /turf/open/floor/iron/checker,
 /area/station/commons/dorms/laundry)
+"qsm" = (
+/obj/structure/sign/directions/cryo/directional/north{
+	icon_state = "map-left-fland"
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/primary/starboard)
 "qsn" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig"
@@ -57819,10 +57813,8 @@
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "sxe" = (
-/obj/structure/curtain{
-	layer = null
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "sxf" = (
@@ -67478,7 +67470,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "vwz" = (
@@ -70129,9 +70120,11 @@
 /turf/open/floor/iron,
 /area/station/maintenance/port)
 "wou" = (
-/obj/structure/sign/map/right,
+/obj/structure/sign/directions/cryo/directional/north{
+	icon_state = "map-left-fland"
+	},
 /turf/closed/wall/r_wall,
-/area/station/ai_monitored/turret_protected/aisat_interior)
+/area/station/command/heads_quarters/captain)
 "wov" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -71298,10 +71291,10 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "wIb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
 	dir = 4;
-	layer = null
+	layer = null;
+	piping_layer = null
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
@@ -117373,7 +117366,7 @@ dyG
 gzH
 kpg
 jjR
-ktZ
+twn
 vIH
 ktZ
 ktZ
@@ -122697,7 +122690,7 @@ aNS
 jwg
 dBk
 kSF
-tar
+wou
 iyl
 sKM
 jzN
@@ -122954,7 +122947,7 @@ dSZ
 iVZ
 rvQ
 hvr
-tar
+wou
 kHV
 ojo
 mqi
@@ -127837,8 +127830,8 @@ kMN
 gVx
 wDK
 hyZ
-hZG
-taC
+sEU
+qsm
 dLx
 lSU
 xTa
@@ -128094,8 +128087,8 @@ iyP
 gBs
 hfN
 nfz
-wou
-taC
+sEU
+hZG
 dLx
 ioe
 joS
