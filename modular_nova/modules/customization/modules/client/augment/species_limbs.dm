@@ -324,42 +324,42 @@
 
 /datum/augment_item/limb/l_arm/slime
 	name = "slime left arm"
-	path = /obj/item/bodypart/arm/left/slime/roundstart
+	path = /obj/item/bodypart/arm/left/jelly/slime/roundstart
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
 /datum/augment_item/limb/r_arm/slime
 	name = "slime right arm"
-	path = /obj/item/bodypart/arm/right/slime/roundstart
+	path = /obj/item/bodypart/arm/right/jelly/slime/roundstart
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
 /datum/augment_item/limb/head/slime
 	name = "slime head"
-	path = /obj/item/bodypart/head/slime/roundstart
+	path = /obj/item/bodypart/head/jelly/slime/roundstart
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
 /datum/augment_item/limb/l_leg/slime
 	name = "slime left leg"
-	path = /obj/item/bodypart/leg/left/slime/roundstart
+	path = /obj/item/bodypart/leg/left/jelly/slime/roundstart
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
 /datum/augment_item/limb/r_leg/slime
 	name = "slime right leg"
-	path = /obj/item/bodypart/leg/right/slime/roundstart
+	path = /obj/item/bodypart/leg/right/jelly/slime/roundstart
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
 /datum/augment_item/limb/chest/slime
 	name = "slime chest"
-	path = /obj/item/bodypart/chest/slime/roundstart
+	path = /obj/item/bodypart/chest/jelly/slime/roundstart
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
@@ -490,39 +490,39 @@
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/skeleton
-	name = "skeleton left arm"
-	path = /obj/item/bodypart/arm/left/skeleton
+/datum/augment_item/limb/l_arm/human
+	name = "human left arm"
+	path = /obj/item/bodypart/arm/left
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/r_arm/skeleton
-	name = "skeleton right arm"
-	path = /obj/item/bodypart/arm/right/skeleton
+/datum/augment_item/limb/r_arm/human
+	name = "human right arm"
+	path = /obj/item/bodypart/arm/right
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/head/skeleton
-	name = "skeleton head"
-	path = /obj/item/bodypart/head/skeleton
+/datum/augment_item/limb/head/human
+	name = "human head"
+	path = /obj/item/bodypart/head
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/l_leg/skeleton
-	name = "skeleton left leg"
-	path = /obj/item/bodypart/leg/left/skeleton
+/datum/augment_item/limb/l_leg/human
+	name = "human left leg"
+	path = /obj/item/bodypart/leg/left
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/r_leg/skeleton
-	name = "skeleton right leg"
-	path = /obj/item/bodypart/leg/right/skeleton
+/datum/augment_item/limb/r_leg/human
+	name = "human right leg"
+	path = /obj/item/bodypart/leg/right
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/chest/skeleton
-	name = "skeleton chest"
-	path = /obj/item/bodypart/chest/skeleton
+/datum/augment_item/limb/chest/human
+	name = "human chest"
+	path = /obj/item/bodypart/chest
 	cost = 0
 	uses_robotic_styles = FALSE
 
@@ -567,42 +567,6 @@
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
-
-/datum/augment_item/limb/head/abductor
-	name = "abductor head"
-	path = /obj/item/bodypart/head/abductor
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/chest/abductor
-	name = "abductor chest"
-	path = /obj/item/bodypart/chest/abductor
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/l_arm/abductor
-	name = "abductor left arm"
-	path = /obj/item/bodypart/arm/left/abductor
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/r_arm/abductor
-	name = "abductor right arm"
-	path = /obj/item/bodypart/arm/right/abductor
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/l_leg/abductor
-	name = "abductor left leg"
-	path = /obj/item/bodypart/leg/left/abductor
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/r_leg/abductor
-	name = "abductor right leg"
-	path = /obj/item/bodypart/leg/right/abductor
-	cost = 0
-	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/head/skrell
 	name = "skrell head"
