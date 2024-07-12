@@ -468,7 +468,11 @@
 /obj/machinery/door/proc/run_animation(animation)
 	set_animation(animation)
 	addtimer(CALLBACK(src, PROC_REF(set_animation), null), animation_length(animation), TIMER_UNIQUE|TIMER_OVERRIDE)
+<<<<<<< HEAD
 	animation_effects(animation) // NOVA EDIT ADDITION - until this is un-broken
+=======
+	animation_effects(animation)
+>>>>>>> e9e82b9344f6 (Fixes password doors and shutters not playing their sound effects (#84868))
 
 // React to our animation changing
 /obj/machinery/door/proc/set_animation(animation)
