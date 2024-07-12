@@ -61,7 +61,7 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
-/datum/body_marking/other/bellyslimtoned
+/datum/body_marking/other/belly_slim_toned
 	name = "Belly Slim (Alt) + Tonage"
 	icon_state = "bellyslimtoned"
 	default_color = "#555555"
@@ -251,14 +251,14 @@
 	icon_state = "protogen"
 	affected_bodyparts = CHEST
 
-/datum/body_marking/other/jackalfur
-	name = "Jackal back fur"
+/datum/body_marking/other/jackal_fur
+	name = "Jackal Back Fur"
 	icon_state = "jackalfur"
 	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
 	gendered = FALSE
 
-/datum/body_marking/other/jackalback
-	name = "Jackal back fur accents"
+/datum/body_marking/other/jackal_back
+	name = "Jackal Back Fur Accents"
 	icon_state = "jackalback"
 	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
 	gendered = FALSE
