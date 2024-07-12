@@ -1,16 +1,16 @@
 // mrsanderp's donator item
 /obj/item/book/granter/crafting_recipe/mrsanderp_donator_cookbook
 	name = "Riva Family Cookbook"
-	desc = "An old dusty notebook that is filled with several recipes, some more recent than others. There is a hand-written note scrawled behind the front cover which says \"Current Holder: Pasquale\""
+	desc = "An old dusty notebook that is filled with several recipes, some more recent than others. There is a hand-written note scrawled behind the front cover which says \"Current Holder: Pasquale\"."
 	icon_state = "book1"
 	uses = INFINITY
 	crafting_recipe_types = list(
-		/datum/crafting_recipe/food/misopasta,
-		/datum/crafting_recipe/food/redbaychickenmeatballs,
+		/datum/crafting_recipe/food/miso_pasta,
+		/datum/crafting_recipe/food/red_bay_chicken_meatballs,
 		/datum/crafting_recipe/food/tiramisu,
-		/datum/crafting_recipe/food/redplanetparm,
-		/datum/crafting_recipe/food/auberginerolls,
-		/datum/crafting_recipe/food/pineappletrifle
+		/datum/crafting_recipe/food/red_planet_parm,
+		/datum/crafting_recipe/food/aubergine_rolls,
+		/datum/crafting_recipe/food/pineapple_trifle
 	)
 	remarks = list(
 		"Reispan and chicken? Do they work together?",
