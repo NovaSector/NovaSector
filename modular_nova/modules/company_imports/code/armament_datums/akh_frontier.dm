@@ -24,7 +24,7 @@
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab/rapid_construction_fabricator
 	item_type = /obj/item/flatpacked_machine
-	cost = CARGO_CRATE_VALUE * 6
+	cost = CARGO_CRATE_VALUE * 8
 	restricted = TRUE
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab/foodricator
