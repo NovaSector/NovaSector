@@ -11336,7 +11336,6 @@
 "cYv" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/machinery/digital_clock/directional/south,
-/obj/machinery/incident_display/directional/south,
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -13881,10 +13880,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security)
 "dJC" = (
@@ -17831,14 +17830,6 @@
 /obj/item/gps/mining,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
-"eOR" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/trimline/blue/line,
-/obj/machinery/incident_display/directional/south,
-/turf/open/floor/iron/edge,
-/area/station/engineering/atmos/hallway)
 "ePb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -47985,6 +47976,16 @@
 /obj/machinery/status_display/evac/directional/west,
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms/room5)
+"mUA" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/station/maintenance/department/security)
 "mUI" = (
 /obj/structure/table,
 /obj/item/pai_card,
@@ -49823,6 +49824,13 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/aisat/hallway)
+"nvx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/incident_display/bridge/directional/south,
+/turf/open/floor/iron/dark/smooth_edge,
+/area/station/command/bridge)
 "nvA" = (
 /obj/structure/table,
 /obj/item/soap,
@@ -59126,11 +59134,12 @@
 /area/station/maintenance/hiddengarden)
 "pXk" = (
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/sorting/mail/flip{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/mail_sorting/supply/disposals,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security)
 "pXm" = (
@@ -62128,7 +62137,7 @@
 "qMl" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/disposalpipe/segment{
-	dir = 10
+	dir = 6
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/security)
@@ -78275,10 +78284,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/sorting/mail{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/mail_sorting/supply/disposals,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "vei" = (
@@ -240774,7 +240780,7 @@ pDE
 ouy
 sbP
 wmi
-kHw
+mUA
 pXk
 tyc
 uVc
@@ -252909,7 +252915,7 @@ nCl
 qIL
 uIC
 wCP
-eOR
+liY
 uZu
 qqX
 vMP
@@ -256929,7 +256935,7 @@ uFj
 smX
 hXU
 npC
-vZo
+nvx
 xHO
 pSj
 cTu
