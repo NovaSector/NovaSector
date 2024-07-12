@@ -4699,7 +4699,7 @@
 	id = "rdoffice";
 	name = "Research Director's Shutters"
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/cubicle)
 "bOa" = (
 /obj/effect/turf_decal/sand/plating,
@@ -11608,7 +11608,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/security/checkpoint/science)
 "eqz" = (
 /obj/effect/turf_decal/siding/white/corner{
@@ -16523,7 +16523,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/mechbay)
 "gaF" = (
 /obj/machinery/stasis{
@@ -19446,7 +19446,7 @@
 /area/station/maintenance/starboard/greater)
 "gYH" = (
 /obj/machinery/vending/wardrobe/robo_wardrobe,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/augments)
 "gZf" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
@@ -28769,7 +28769,7 @@
 	name = "Cytology Lab"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "jQv" = (
 /obj/structure/cable,
@@ -32029,7 +32029,7 @@
 	id = "rdoffice";
 	name = "Research Director's Shutters"
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/command/heads_quarters/rd)
 "kSv" = (
 /obj/structure/disposalpipe/segment{
@@ -37677,7 +37677,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/lab)
 "mEq" = (
 /obj/structure/closet/crate/wooden{
@@ -41799,7 +41799,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/cubicle)
 "nYk" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -43075,7 +43075,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/cytology)
 "ovt" = (
 /obj/machinery/door/airlock/maintenance{
@@ -47191,7 +47191,7 @@
 	name = "Gun Lab"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/auxlab/firing_range)
 "pLj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -47269,7 +47269,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/science/genetics,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "pML" = (
 /obj/structure/lattice/catwalk,
@@ -48630,7 +48630,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "qiz" = (
 /obj/effect/spawner/structure/window,
@@ -49573,7 +49573,7 @@
 	name = "Break Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "qzL" = (
 /obj/structure/disposalpipe/segment{
@@ -49702,7 +49702,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/light/small/directional/north,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/augments)
 "qBi" = (
 /obj/effect/decal/cleanable/dirt,
@@ -52632,7 +52632,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/genetics,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "rwl" = (
 /obj/structure/lattice/catwalk,
@@ -54450,7 +54450,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/augments)
 "rZq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -58011,7 +58011,7 @@
 	name = "Research Division Server Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/rd,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/server)
 "tfy" = (
 /obj/structure/closet/firecloset,
@@ -61304,7 +61304,7 @@
 	name = "Augment Corridor"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/augments)
 "uhe" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -62740,7 +62740,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/firealarm/directional/south,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/augments)
 "uEC" = (
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -64379,7 +64379,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/augments)
 "veA" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
@@ -64745,7 +64745,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "vkh" = (
 /turf/closed/wall,
@@ -64761,7 +64761,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/lab)
 "vkr" = (
 /obj/structure/cable,
@@ -68048,7 +68048,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "wfE" = (
 /obj/effect/turf_decal/tile/brown/opposingcorners,
@@ -69091,7 +69091,7 @@
 	id = "rdoffice";
 	name = "Research Director's Shutters"
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/research)
 "wwY" = (
 /obj/effect/spawner/random/trash/mess,
@@ -71505,7 +71505,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/rd,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/server)
 "xfm" = (
 /obj/structure/cable,
@@ -73350,7 +73350,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/robotics/mechbay)
 "xEd" = (
 /obj/structure/cable,
@@ -74006,7 +74006,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/auxlab/firing_range)
 "xOm" = (
 /obj/effect/turf_decal/delivery,
@@ -74518,7 +74518,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/cubicle)
 "xTV" = (
 /obj/machinery/ai_slipper{
