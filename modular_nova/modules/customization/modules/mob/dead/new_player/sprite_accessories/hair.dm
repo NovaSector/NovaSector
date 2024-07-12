@@ -695,3 +695,11 @@
 /datum/sprite_accessory/facial_hair/nova/selleckreceeded
 	name = "Moustache (Selleck - Alt)"
 	icon_state = "facial_selleckreceeded"
+
+/datum/sprite_accessory/facial_hair/nova/lizardlick
+	name = "Lizard Lick"
+	icon_state = "facial_lizardlick"
+
+/datum/sprite_accessory/facial_hair/nova/noselick
+	name = "Nose Lick"
+	icon_state = "facial_noselick"
