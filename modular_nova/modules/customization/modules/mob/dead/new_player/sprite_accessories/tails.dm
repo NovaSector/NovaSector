@@ -106,7 +106,7 @@
 	name = "Bat (Short)"
 	icon_state = "bats"
 
-/datum/sprite_accessory/tails/mammal/wagging/blackjackal
+/datum/sprite_accessory/tails/mammal/wagging/black_jackal
 	name = "Black-backed Jackal"
 	icon_state = "blackjackal"
 
