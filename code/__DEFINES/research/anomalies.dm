@@ -1,6 +1,11 @@
 // Max amounts of cores you can make
+<<<<<<< HEAD
 #define MAX_CORES_BLUESPACE 16 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_CORES_BLUESPACE 3 - Higher pop + longer rounds means we probably could use a lot more of these as they are used for a lot of things.
 #define MAX_CORES_GRAVITATIONAL 8
+=======
+#define MAX_CORES_BLUESPACE 3
+#define MAX_CORES_GRAVITATIONAL 6
+>>>>>>> eaa4d71c3c7 (Adds the Herculean Gravitronic Spinal Implant; An Athletics focused implant. (#84532))
 #define MAX_CORES_FLUX 8
 #define MAX_CORES_VORTEX 1
 #define MAX_CORES_PYRO 8
