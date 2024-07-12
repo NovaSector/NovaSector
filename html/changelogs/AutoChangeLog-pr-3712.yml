@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - balance: "Experimentor will no longer duplicate Bags of Holding"
