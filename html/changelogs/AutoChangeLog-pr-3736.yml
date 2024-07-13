@@ -1,0 +1,4 @@
+author: "Merek2"
+delete-after: True
+changes:
+  - qol: "Grammar fix for a few of the quirks."
