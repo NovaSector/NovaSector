@@ -58,6 +58,13 @@ GLOBAL_LIST_EMPTY(dynamic_human_appearances)
 /proc/set_dynamic_human_appearance(list/arguments)
 	var/atom/target = arguments[1] //1st argument is the target
 	var/dynamic_appearance = get_dynamic_human_appearance(arglist(arguments.Copy(2))) //the rest of the arguments starting from 2 matter to the proc
+	/* NOVA EDIT REMOVAL START: lord forgive my sins, im debugging
 	target.icon = 'icons/blanks/32x32.dmi'
 	target.icon_state = "nothing"
+	*/ // NOVA EDIT REMOVAL END: debugging
+	// NOVA EDIT ADDITION START
+	target.icon = 'icons/mob/human/human.dmi'
+	target.icon_state = ""
+	target.appearance_flags |= KEEP_TOGETHER
+	// NOVA EDIT ADDITION END
 	target.copy_overlays(dynamic_appearance, cut_old = TRUE)
