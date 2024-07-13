@@ -699,3 +699,49 @@
   - qol: Since those are gone, removed pepper proof from it as well.
   - bugfix: The modsuit paint kit is no longer broken.
   - bugfix: gave tram's primary tool storage functional disposals
+2024-07-13:
+  Melbert:
+  - qol: Roundstart Mannitol pills are 15u (up from 14u)
+  NovaBot13:
+  - bugfix: Other mobs no longer hear your breathing
+  - balance: War declaration gives 600 research points to the station
+  - bugfix: french berets will no longer force the user to speak spanish
+  - bugfix: makes outpost45 cause less lag
+  - bugfix: Fixed dead slime icon not showing when cores are extracted
+  - qol: Slime core removal surgery extracts all cores on completion
+  - qol: adds an oxygen chamber for wawastation ordnance
+  - qol: adds some missing critical items needed to do ordnance and xenobiology
+  - bugfix: Fixes Icemoon syndie listening station APC's from being affected by station-side
+      events
+  - bugfix: H.A.R.S. will no longer disable your skillchips or show you text reserved
+      for total brain removal.
+  - balance: Cryokinesis and pyrokinesis more severely adjust temperature.
+  - balance: Cryokinesis forces a target to slow down on hit for a few seconds.
+  - balance: Pyrokinesis can ignite objects.
+  - balance: Temperature projectiles change the temperature of the target's contained
+      reagents.
+  - qol: Heads of staff PDAs start with twice as much disk space
+  - balance: If you remove a security officer's mindshield, then you can flash them
+      to make them your blood brother.
+  - qol: Clothing now tells you if it is pressure-proof and insulated enough for spacewalking
+      when examining it.
+  - rscadd: Add the National Ice Cream Day holiday, which falls on the third Sunday
+      of July.
+  - bugfix: Added a Mechbay power console to the Metastation cargo warehouse so that
+      the cargo ripley is able to be charged.
+  - balance: Experimentor's reduction chance is multiplicative, and chance to copy
+      an object has been slightly lowered.
+  - image: MOD hyposprays no longer use syringe fill sprites
+  - bugfix: Fixed a bluescreen in the heretic research ui
+  - bugfix: password doors and shutters will now play their sound effects again instead
+      of just silently opening/closing
+  - balance: Moves XL beaker from Chemical Synthesis to Medbay Equipment
+  - balance: Removes Plumbing node and moves most items to Chemical synthesis node
+  - balance: Moves piercing syringe from Plumbing node to Advanced Medbay Equipment
+  - balance: Tetrodotoxin can now be synthesized (bees, the odysseus mech, strange
+      seeds...)
+  - balance: Upped the amount of tetrodotoxin you can harvest from pufferfishes (or
+      any fish with the trait).
+  - spellcheck: Fixed some typos with the toxin.
+  - balance: Experimentor will no longer duplicate Bags of Holding
+  - image: re-sprited Catwalk Floor Tiles to fit with TG floor tiles
