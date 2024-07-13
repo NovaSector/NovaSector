@@ -6866,7 +6866,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "cnS" = (
 /obj/structure/disposalpipe/segment{
@@ -8036,7 +8036,10 @@
 /area/station/service/chapel)
 "cIV" = (
 /obj/structure/closet/l3closet/scientist,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "cIX" = (
 /obj/effect/turf_decal/tile/red/half/contrasted{
@@ -15751,7 +15754,10 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/closet/l3closet/scientist,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "fhv" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -21434,7 +21440,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "gRy" = (
 /obj/structure/chair/office{
@@ -22250,7 +22256,10 @@
 "heS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/closet/emcloset,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "heZ" = (
 /obj/structure/cable,
@@ -24671,7 +24680,8 @@
 /area/station/science/xenobiology)
 "hVW" = (
 /obj/machinery/light/small/directional/north,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "hWh" = (
 /obj/machinery/light/small/directional/south,
@@ -31655,7 +31665,10 @@
 	network = list("ss13","xeno","rd")
 	},
 /obj/effect/landmark/atmospheric_sanity/start_area,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "kmo" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -35923,7 +35936,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "lBV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -50562,7 +50575,8 @@
 /area/station/security/brig)
 "qoF" = (
 /obj/machinery/atmospherics/components/tank/air,
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "qoM" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -56009,7 +56023,10 @@
 /obj/machinery/light_switch/directional/south{
 	pixel_x = 9
 	},
-/turf/open/floor/iron/white,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "rVg" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrous_output{
@@ -56583,7 +56600,7 @@
 	name = "Observation Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "seE" = (
 /obj/effect/turf_decal/bot,
@@ -61114,7 +61131,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "tBf" = (
 /obj/structure/table/wood,
@@ -68059,7 +68076,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "vHa" = (
 /obj/effect/decal/cleanable/vomit/old,
@@ -76553,7 +76570,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "yaT" = (
 /obj/item/clothing/suit/jacket/straight_jacket,
