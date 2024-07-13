@@ -1103,6 +1103,7 @@
 /obj/item/seeds/bamboo,
 /obj/item/seeds/ambrosia,
 /obj/item/seeds/grass,
+/obj/item/seeds/honeysuckle,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "wF" = (

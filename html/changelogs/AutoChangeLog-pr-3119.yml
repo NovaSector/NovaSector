@@ -1,4 +1,0 @@
-author: "00-Steven"
-delete-after: True
-changes:
-  - bugfix: "Latejoiners' alt titles, general/medical/security records, backgrounds, and exploitable information are actually saved to the manifest data. This means your general/medical/security records actually show up in the records console again."

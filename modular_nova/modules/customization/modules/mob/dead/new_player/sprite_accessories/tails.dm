@@ -54,7 +54,8 @@
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/tails/monkey/default
-	icon_state = "monkey_default"
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
+	icon_state = "monkey"
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_MONKEY, SPECIES_GHOUL)
 	organ_type = /obj/item/organ/external/tail/monkey
 

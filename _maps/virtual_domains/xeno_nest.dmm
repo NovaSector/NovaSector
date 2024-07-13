@@ -96,7 +96,7 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/space/has_grav/powered/virtual_domain)
-"w" = (
+"v" = (
 /obj/modular_map_root/safehouse{
 	key = "shuttle"
 	},
@@ -140,7 +140,7 @@
 /area/ruin/space/has_grav/powered/virtual_domain)
 "F" = (
 /obj/structure/table/greyscale,
-/obj/item/gun/energy/beam_rifle,
+/obj/item/gun/energy/xray,
 /obj/item/gun/energy/laser{
 	pixel_x = 4;
 	pixel_y = -6
@@ -1326,7 +1326,7 @@ n
 n
 n
 n
-w
+v
 A
 E
 "}
