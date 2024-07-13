@@ -11051,9 +11051,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/machinery/hydroponics/constructable,
 /obj/machinery/light/directional/north,
-/obj/machinery/status_display/ai{
-	pixel_y = 32
-	},
+/obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "dIB" = (
@@ -17195,9 +17193,7 @@
 "fCM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/directional/south,
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "fCY" = (
@@ -22138,9 +22134,7 @@
 /area/station/science/research)
 "hdc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "hdf" = (
@@ -22374,10 +22368,7 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/requests_console/directional/north,
 /obj/effect/mapping_helpers/requests_console/supplies,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom{
-	layer = null;
-	piping_layer = null
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "hhk" = (
@@ -28109,9 +28100,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "iXj" = (
-/obj/machinery/status_display/ai{
-	pixel_y = 32
-	},
+/obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom)
 "iXu" = (
@@ -31372,11 +31361,9 @@
 /turf/open/floor/carpet/green,
 /area/station/service/library/artgallery)
 "kfp" = (
-/obj/machinery/status_display/evac{
-	pixel_y = 32
-	},
-/turf/open/floor/iron/dark,
-/area/station/security/courtroom)
+/obj/machinery/status_display/ai/directional/south,
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "kfs" = (
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
@@ -34020,9 +34007,7 @@
 /area/station/command/bridge)
 "kXc" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/curtain{
-	layer = 4.5
-	},
+/obj/structure/curtain,
 /turf/open/floor/plating,
 /area/station/medical/cryo)
 "kXh" = (
@@ -36327,9 +36312,7 @@
 "lHz" = (
 /obj/machinery/light/directional/south,
 /obj/item/kirbyplants/random,
-/obj/machinery/status_display/evac{
-	pixel_y = -32
-	},
+/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom)
 "lHA" = (
@@ -36956,9 +36939,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "lRC" = (
-/obj/machinery/status_display/evac{
-	pixel_y = -32
-	},
+/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "lSo" = (
@@ -52617,19 +52598,14 @@
 /turf/closed/wall,
 /area/station/service/lawoffice)
 "qRF" = (
-/obj/machinery/status_display/ai{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom)
 "qRG" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/status_display/ai{
-	pixel_y = -32
-	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/door/window/left/directional/west{
 	name = "Court Cell";
@@ -56656,7 +56632,7 @@
 	name = "Observation Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "seE" = (
 /obj/effect/turf_decal/bot,
@@ -57524,9 +57500,7 @@
 	dir = 5;
 	name = "hallway camera"
 	},
-/obj/machinery/status_display/ai{
-	pixel_y = -32
-	},
+/obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "ssW" = (
@@ -57708,12 +57682,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching Prison Wing holding areas.";
-	name = "Prison Monitor";
-	network = list("prison");
-	pixel_y = 30
-	},
+/obj/machinery/computer/security/telescreen/prison/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/transfer)
 "svQ" = (
@@ -118838,9 +118807,9 @@ hpZ
 kBC
 ljq
 efo
-mqi
-rPR
 kfp
+rPR
+lCN
 nuM
 lCN
 lCN
