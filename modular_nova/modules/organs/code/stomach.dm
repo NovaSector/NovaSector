@@ -57,4 +57,14 @@
 	color = COLOR_GOLEM_GRAY
 	organ_flags = ORGAN_MINERAL
 	organ_traits = list(TRAIT_ROCK_EATER)
+
+//i eat MORE ROCKS. WORSE.
+/obj/item/organ/internal/stomach/lithovore/oversized
+	name = "huge litho-adapted stomach"
+	icon_state = "stomach_big_p"
+	desc = "A massive and unfamiliar digestive organ that excels in material deconstruction."
+	color = COLOR_GOLEM_GRAY
+	organ_flags = ORGAN_MINERAL
+	organ_traits = list(TRAIT_ROCK_EATER)
+	metabolism_efficiency = 0.07
 	is_oversized = TRUE
