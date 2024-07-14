@@ -745,3 +745,20 @@
   - spellcheck: Fixed some typos with the toxin.
   - balance: Experimentor will no longer duplicate Bags of Holding
   - image: re-sprited Catwalk Floor Tiles to fit with TG floor tiles
+2024-07-14:
+  LT3, distributivgesetz, unit0016:
+  - bugfix: Several liquids rendering issues have been tackled.
+  Merek2:
+  - qol: Grammar fix for a few of the quirks.
+  NovaBot13:
+  - qol: Using ctrl + your quick MOD button now opens module selector on your mouse
+      position
+  - bugfix: Fixed tables and racks being climbable from half a mile away
+  - refactor: request managers have been refactored to typescript
+  - bugfix: request manager type filter now works
+  - image: the smoking pipe's directional looks have been altered to make it less
+      ugly
+  Vishenka0704:
+  - qol: With voting turned off for the dead, you can now understand why you can't
+      vote (being dead).
+  - admin: Voting switch for the dead players
