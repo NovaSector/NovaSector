@@ -68,7 +68,7 @@
 	path = /obj/item/organ/internal/stomach/lithovore
 
 /datum/augment_item/organ/stomach/lithovore/apply(mob/living/carbon/human/H, character_setup = FALSE, datum/preferences/prefs)
-	if(prefs && "Oversized" in prefs.all_quirks)
+	if(H.has_quirk(/datum/quirk/item_quirk/oversized))
 		path = /obj/item/organ/internal/stomach/lithovore/oversized
 	return ..()
 
