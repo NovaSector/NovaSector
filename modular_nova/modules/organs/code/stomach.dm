@@ -61,6 +61,7 @@
 //i eat MORE ROCKS. WORSE.
 /obj/item/organ/internal/stomach/lithovore/oversized
 	name = "huge litho-adapted stomach"
+	icon = 'modular_nova/modules/organs/icons/stomach.dmi'
 	icon_state = "stomach_big_p"
 	desc = "A massive and unfamiliar digestive organ that excels in material deconstruction."
 	color = COLOR_GOLEM_GRAY
