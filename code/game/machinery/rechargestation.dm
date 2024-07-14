@@ -77,6 +77,7 @@
 		repairs += servo.tier - 1
 	for(var/obj/item/stock_parts/power_store/cell in component_parts)
 		recharge_speed *= cell.maxcharge
+	recharge_speed *= 4 //NOVA EDIT ADDITION
 
 /obj/machinery/recharge_station/examine(mob/user)
 	. = ..()
