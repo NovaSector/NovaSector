@@ -156,7 +156,6 @@
 
 	var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
 
-	var/obj/item/organ/internal/stomach/synth/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	oversized_quirk.old_organs += list(old_stomach)
 
 	if(new_synth_stomach.Insert(human_holder, special = TRUE))
