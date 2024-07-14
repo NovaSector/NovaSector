@@ -467,7 +467,7 @@
 /datum/controller/subsystem/persistence/proc/reset_delam_counter()
 	delam_highscore = rounds_since_engine_exploded
 	rounds_since_engine_exploded = -1
-	for(var/obj/machinery/incident_display/sign as anything in GLOB.map_delamination_counters)
+	for(var/obj/machinery/incident_display/sign as anything in GLOB.map_incident_displays)
 		sign.update_delam_count(rounds_since_engine_exploded)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/atmospherics/components/unary/delam_scram, 0)

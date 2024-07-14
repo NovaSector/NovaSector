@@ -155,7 +155,7 @@
 
 		if(source.dna.species.special_step_sounds)
 			heard_clients = playsound(source.loc, pick(source.dna.species.special_step_sounds), 50, TRUE, falloff_distance = 1, vary = sound_vary)
-		else
+		else if(isnull(source.footstep_type)) // NOVA EDIT CHANGE - ORIGINAL: else
 			var/barefoot_type = prepared_steps[FOOTSTEP_MOB_BAREFOOT]
 			var/bare_footstep_sounds = GLOB.barefootstep
 			if(!isnull(barefoot_type) && bare_footstep_sounds[barefoot_type]) // barefoot_type can be null
@@ -163,6 +163,20 @@
 					bare_footstep_sounds[barefoot_type][2] * volume * volume_multiplier,
 					TRUE,
 					bare_footstep_sounds[barefoot_type][3] + e_range + range_adjustment, falloff_distance = 1, vary = sound_vary)
+		//NOVA EDIT ADDITION BEGIN - CUSTOMIZABLE FOOTSTEP SOUNDS
+		else if(source.footstep_type == "claws")
+			var/barefoot_type = prepared_steps[FOOTSTEP_MOB_CLAW]
+			heard_clients = playsound(source.loc, pick(GLOB.clawfootstep[barefoot_type][1]),
+				GLOB.clawfootstep[barefoot_type][2] * volume * volume_multiplier,
+				TRUE,
+				GLOB.clawfootstep[barefoot_type][3] + e_range + range_adjustment, falloff_distance = 1, vary = sound_vary)
+		else if(source.footstep_type == "shoes")
+			var/barefoot_type = prepared_steps[FOOTSTEP_MOB_SHOE]
+			heard_clients = playsound(source.loc, pick(GLOB.footstep[barefoot_type][1]),
+				GLOB.footstep[barefoot_type][2] * volume * volume_multiplier,
+				TRUE,
+				GLOB.footstep[barefoot_type][3] + e_range + range_adjustment, falloff_distance = 1, vary = sound_vary)
+		//NOVA EDIT ADDITION END
 
 	if(heard_clients)
 		play_fov_effect(source, 5, "footstep", direction, ignore_self = TRUE, override_list = heard_clients)
