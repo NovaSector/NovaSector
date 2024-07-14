@@ -431,8 +431,12 @@
 				ROLE_SYNDICATE,
 				ROLE_TRAITOR,
 				ROLE_WIZARD,
+<<<<<<< HEAD
 				ROLE_BORER, // NOVA EDIT ADDITION
 				ROLE_ASSAULT_OPERATIVE, // NOVA EDIT ADDITION
+=======
+				ROLE_VOIDWALKER,
+>>>>>>> 89cf4c77870 (The Voidwalker | New Midround Antagonist (#84674))
 			),
 			"Nova Ban Options" = list(
 				BAN_PACIFICATION,

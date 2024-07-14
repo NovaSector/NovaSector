@@ -41,6 +41,7 @@
 #define ROLE_SPACE_DRAGON "Space Dragon"
 #define ROLE_SPIDER "Spider"
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
+<<<<<<< HEAD
 //NOVA EDIT ADDITION START
 #define ROLE_BORER "Borer"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
@@ -48,6 +49,9 @@
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
 // NOVA EDIT ADDITION END
+=======
+#define ROLE_VOIDWALKER "Voidwalker"
+>>>>>>> 89cf4c77870 (The Voidwalker | New Midround Antagonist (#84674))
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -174,12 +178,16 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPACE_DRAGON = 0,
 	ROLE_SPIDER = 0,
 	ROLE_WIZARD_MIDROUND = 14,
+<<<<<<< HEAD
 	// NOVA EDIT ADDITION START
 	ROLE_LONE_INFILTRATOR = 0,
 	ROLE_BORER = 0,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
 	// NOVA EDIT ADDITION END
+=======
+	ROLE_VOIDWALKER = 0,
+>>>>>>> 89cf4c77870 (The Voidwalker | New Midround Antagonist (#84674))
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,
