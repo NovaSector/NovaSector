@@ -11,7 +11,7 @@
 	research_node_id("tarkontech", TRUE, TRUE, FALSE)
 
 /datum/techweb_node/tarkon
-	id = "tarkontech"
+	id = TECHWEB_NODE_TARKON
 	display_name = "Tarkon Industries Technology"
 	description = "Tools used by Tarkon Industries."
 	required_items_to_unlock = list(

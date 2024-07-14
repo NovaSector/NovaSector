@@ -34,6 +34,20 @@
 	time = 15
 	category = CAT_CLOTHING
 
+/datum/crafting_recipe/single_leaf
+	name = "Single Leaf"
+	result = /obj/item/clothing/under/misc/nova/gear_harness/adam
+	reqs = list(/obj/item/food/grown/grass = 1, /obj/item/stack/sheet/leather = 2)
+	time = 3 SECONDS
+	category = CAT_CLOTHING
+
+/datum/crafting_recipe/collection_leaves
+	name = "Collection of Leaves"
+	result = /obj/item/clothing/under/misc/nova/gear_harness/eve
+	reqs = list(/obj/item/food/grown/grass = 3, /obj/item/stack/sheet/leather = 2)
+	time = 6 SECONDS
+	category = CAT_CLOTHING
+
 //Eyepatches//
 /datum/crafting_recipe/secpatch
 	name = "Security Eyepatch HUD"

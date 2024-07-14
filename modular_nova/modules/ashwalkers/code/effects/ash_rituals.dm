@@ -1,3 +1,96 @@
+/datum/ash_ritual
+	/// the name of the ritual
+	var/name = "Summon Coders"
+	/// the description of the ritual
+	var/desc
+
+	/// the components necessary for a successful ritual
+	var/list/required_components = list()
+
+	/// the list that checks whether the components will be consumed
+	var/list/consumed_components = list()
+
+	/// if the ritual is successful, it will go through each item in the list to be spawned
+	var/list/ritual_success_items
+
+	/// the effect that is spawned when the components are consumed, etc.
+	var/ritual_effect = /obj/effect/particle_effect/sparks
+
+	/// the time it takes to process each stage of the ritual
+	var/ritual_time = 5 SECONDS
+
+	/// whether the ritual is in use
+	var/in_use = FALSE
+
+/datum/ash_ritual/proc/ritual_start(obj/effect/ash_rune/rune)
+
+	if(in_use)
+		return
+	in_use = TRUE
+
+	rune.balloon_alert_to_viewers("ritual has begun...")
+	new ritual_effect(rune.loc)
+
+	// it is entirely possible to have your own effects here... this is just a suggestion
+	var/atom/movable/warp_effect/warp = new(rune)
+	rune.vis_contents += warp
+
+	sleep(ritual_time)
+
+	if(!check_component_list(rune))
+		rune.vis_contents -= warp
+		warp = null
+		return
+
+	ritual_success(rune)
+
+	// make sure to remove your effects at the end
+	rune.vis_contents -= warp
+	warp = null
+
+/datum/ash_ritual/proc/check_component_list(obj/effect/ash_rune/checked_rune)
+	for(var/checked_component in required_components)
+		var/set_direction = text2dir(checked_component)
+		var/turf/checked_turf = get_step(checked_rune, set_direction)
+		var/atom_check = locate(required_components[checked_component]) in checked_turf.contents
+		if(!atom_check)
+			ritual_fail(checked_rune)
+			return FALSE
+
+		if(is_type_in_list(atom_check, consumed_components))
+			qdel(atom_check)
+			checked_rune.balloon_alert_to_viewers("[checked_component] component has been consumed...")
+
+		else
+			checked_rune.balloon_alert_to_viewers("[checked_component] component has been checked...")
+
+		new ritual_effect(checked_rune.loc)
+		sleep(ritual_time)
+
+	return TRUE
+
+/datum/ash_ritual/proc/ritual_fail(obj/effect/ash_rune/failed_rune)
+	new ritual_effect(failed_rune.loc)
+	failed_rune.balloon_alert_to_viewers("ritual has failed...")
+	failed_rune.current_ritual = null
+	in_use = FALSE
+	return
+
+/datum/ash_ritual/proc/ritual_success(obj/effect/ash_rune/success_rune)
+	new ritual_effect(success_rune.loc)
+	success_rune.balloon_alert_to_viewers("ritual has been successful...")
+	log_game("[name] ritual has been successfully activated.")
+
+	var/turf/rune_turf = get_turf(success_rune)
+	if(length(ritual_success_items))
+		for(var/type in ritual_success_items)
+			new type(rune_turf)
+
+	success_rune.current_ritual = null
+	in_use = FALSE
+	return TRUE
+
+/// Staff Summon
 /datum/ash_ritual/summon_staff
 	name = "Summon Ash Staff"
 	desc = "Summon a staff that is imbued with the power of the tendril. Requires permission from the mother tendril."
@@ -13,6 +106,7 @@
 		/obj/item/ash_staff,
 	)
 
+/// Translation Necklace
 /datum/ash_ritual/summon_necklace
 	name = "Summon Draconic Necklace"
 	desc = "Summons a necklace that imbues the wearer with the knowledge of our tongue."
@@ -31,6 +125,7 @@
 		/obj/item/clothing/neck/necklace/translator,
 	)
 
+/// Skeleton Key
 /datum/ash_ritual/summon_key
 	name = "Summon Skeleton Key"
 	desc = "Summons a key that opens the chests from fallen tendrils."
@@ -47,6 +142,7 @@
 		/obj/item/skeleton_key,
 	)
 
+/// THIS IS A KNOIF
 /datum/ash_ritual/summon_cursed_knife
 	name = "Summon Cursed Ash Knife"
 	desc = "Summons a knife that places a tracking curse on unsuspecting miners who destroy our marked tendrils."
@@ -66,6 +162,7 @@
 		/obj/item/cursed_dagger,
 	)
 
+/// Impregnate the ground with a Tendril
 /datum/ash_ritual/summon_tendril_seed
 	name = "Summon Tendril Seed"
 	desc = "Summons a seed that, when used in the hand, will cause a tendril to come through at your location."
@@ -85,6 +182,7 @@
 		/obj/item/tendril_seed,
 	)
 
+/// Spawns a new megafauna randomly in the ashen wastes
 /datum/ash_ritual/incite_megafauna
 	name = "Incite Megafauna"
 	desc = "Causes a horrible, unrecognizable sound that will attract the large fauna from around the planet."
@@ -133,6 +231,7 @@
 /datum/ash_ritual/incite_megafauna/proc/spawn_megafauna(chosen_megafauna, turf/spawning_turf)
 	new chosen_megafauna(spawning_turf)
 
+/// Age specific buffs - 20 minutes per 'maturation' period
 /datum/ash_ritual/ash_ceremony
 	name = "Ashen Age Ceremony"
 	desc = "Those who partake in the ceremony and are ready will age, increasing their value to the kin."
@@ -154,6 +253,7 @@
 	for(var/mob/living/carbon/human/human_target in range(2, get_turf(success_rune)))
 		SEND_SIGNAL(human_target, COMSIG_RUNE_EVOLUTION)
 
+/// Summon specific lavaland critter
 /datum/ash_ritual/summon_lavaland_creature
 	name = "Summon Lavaland Creature"
 	desc = "Summons a random, wild monster from another region in space."
@@ -180,6 +280,7 @@
 	)
 	new mob_type(success_rune.loc)
 
+/// Colder versions of critters to summon
 /datum/ash_ritual/summon_icemoon_creature
 	name = "Summon Icemoon Creature"
 	desc = "Summons a random, wild monster from another region in space."
@@ -206,6 +307,7 @@
 	)
 	new mob_type(success_rune.loc)
 
+/// Xenobio Ritual
 /datum/ash_ritual/uncover_rocks
 	name = "Uncover Strange Rocks"
 	desc = "All the mysterious rocks that are in the center of the rune will try to uncover themselves."
@@ -270,6 +372,7 @@
 
 	human_victim.heal_overall_damage(human_victim.getBruteLoss(), human_victim.getFireLoss())
 
+/// Bye Felicia
 /datum/ash_ritual/banish_kin
 	name = "Banish Kin"
 	desc = "Some kin are not fit for the tribe, this can solve that issue through democracy."
@@ -314,6 +417,7 @@
 	new /obj/effect/particle_effect/sparks(teleport_turf)
 	find_banished.forceMove(teleport_turf)
 
+/// Friend : )
 /datum/ash_ritual/revive_animal
 	name = "Revive Animal"
 	desc = "Revives a simple animal that will then become friendly."
@@ -375,3 +479,25 @@
 
 	find_animal.revive(HEAL_ALL)
 	return TRUE
+
+/// Pacification
+/datum/ash_ritual/pacification
+	name = "Attune your body to the land"
+	desc = "Pacifies creatures in the wastes to come to your aide instead, the tradeoff being your ability to fight."
+	required_components = list(
+		"north" = /obj/item/food/grown/ash_flora/fireblossom,
+		"south" = /obj/item/organ/internal/monster_core/regenerative_core,
+		"east" = /obj/item/stack/sheet/sinew,
+		"west" = /obj/item/stack/sheet/sinew,
+	)
+	consumed_components = list(
+		/obj/item/food/grown/ash_flora/fireblossom,
+		/obj/item/organ/internal/monster_core/regenerative_core,
+		/obj/item/stack/sheet/sinew,
+	)
+
+/datum/ash_ritual/pacification/ritual_success(obj/effect/ash_rune/success_rune)
+	. = ..()
+	for(var/mob/living/carbon/human/lizard_target in range(2, get_turf(success_rune)))
+		lizard_target.faction.Add(FACTION_MINING_FAUNA)
+		ADD_TRAIT(lizard_target, TRAIT_PACIFISM, SPECIES_TRAIT)

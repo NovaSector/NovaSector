@@ -372,6 +372,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
 
+/datum/loadout_item/suit/white_robe
+	name = "White Robe"
+	item_path = /obj/item/clothing/suit/jacket/white_robe
+
 /*
 *	FLANNELS
 */
@@ -747,6 +751,11 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/donator/replica_parade_jacket
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
+// All-donators donator item for BlindPoet
+/datum/loadout_item/suit/donator/chokha
+	name = "Iseurian Chokha"
+	item_path = /obj/item/clothing/suit/chokha
 
 /datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
