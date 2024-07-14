@@ -1,3 +1,7 @@
+/obj/item/organ/internal/stomach/
+	/// Whether the organ is an oversized version
+	var/is_oversized
+
 /obj/item/organ/internal/stomach/oversized
 	name = "huge guts"
 	desc = "Typically found in huge creatures, this monstrous engine has developed to be highly efficient, made to get an enormous amount of nutrients to an enormous eater."
@@ -5,6 +9,7 @@
 	icon_state = "stomach_big"
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_efficiency = 0.07
+	is_oversized = TRUE
 
 /obj/item/organ/internal/stomach/synth/oversized
 	name = "huge synthetic bio-reactor"
@@ -13,12 +18,14 @@
 	icon_state = "stomach_big_synth" //ugly placeholder sorry im not an artist hehe
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_efficiency = 0.07
+	is_oversized = TRUE
 
 /obj/item/organ/internal/stomach/slime/oversized
 	name = "huge golgi apparatus"
 	desc = "Typically found in huge slimes, this monstrous organelle has been developed to be highly efficient, made to provide an enormous amount of nutrients to an enormous ooze."
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	metabolism_efficiency = 0.07
+	is_oversized = TRUE
 
 // Not a stomach, but suitable for where we keep oversized schtuff.
 /obj/item/organ/internal/brain/slime/oversized
@@ -50,3 +57,4 @@
 	color = COLOR_GOLEM_GRAY
 	organ_flags = ORGAN_MINERAL
 	organ_traits = list(TRAIT_ROCK_EATER)
+	is_oversized = TRUE
