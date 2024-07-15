@@ -97,7 +97,7 @@
 
 
 /datum/bodypart_overlay/mutant/genital
-	layers = EXTERNAL_FRONT
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 	color_source = ORGAN_COLOR_OVERRIDE
 	/// The suffix appended to the feature_key for the overlays.
 	var/sprite_suffix
@@ -133,6 +133,12 @@
 
 	return sprite_datum.color_layer_names
 
+/datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
+	if(layer == -BODY_FRONT_UNDER_CLOTHES)
+		return "FRONT"
+	else
+		return ..()
+
 
 /obj/item/organ/external/genital/penis
 	name = "penis"
@@ -150,7 +156,7 @@
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
 
 
 /obj/item/organ/external/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
@@ -322,7 +328,7 @@
 
 /datum/bodypart_overlay/mutant/genital/vagina
 	feature_key = ORGAN_SLOT_VAGINA
-	layers = EXTERNAL_FRONT
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 
 /obj/item/organ/external/genital/vagina/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see a [LOWER_TEXT(genital_name)] vagina."
@@ -425,7 +431,7 @@
 
 /datum/bodypart_overlay/mutant/genital/breasts
 	feature_key = ORGAN_SLOT_BREASTS
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
 
 /obj/item/organ/external/genital/breasts/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see a [LOWER_TEXT(genital_name)] of breasts."
