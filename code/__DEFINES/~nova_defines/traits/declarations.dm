@@ -73,6 +73,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait that determines if someone has the system shock quirk.
+#define TRAIT_SYSTEM_SHOCK "trait_system_shock"
+
 /// The trait that determines if someone has the robotic limb reattachment quirk.
 #define TRAIT_ROBOTIC_LIMBATTACHMENT "trait_robotic_limbattachment"
 

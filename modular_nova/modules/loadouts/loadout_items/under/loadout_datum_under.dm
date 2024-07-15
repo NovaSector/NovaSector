@@ -580,6 +580,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Fancy Kimono"
 	item_path =  /obj/item/clothing/under/costume/nova/kimono
 
+/datum/loadout_item/under/miscellaneous/shihakusho
+	name = "Shihakusho"
+	item_path = /obj/item/clothing/under/costume/nova/shihakusho
+
 /datum/loadout_item/under/miscellaneous/chaps
 	name = "Black Chaps"
 	item_path = /obj/item/clothing/under/pants/nova/chaps

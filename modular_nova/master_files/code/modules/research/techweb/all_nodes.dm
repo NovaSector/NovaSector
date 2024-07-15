@@ -2,10 +2,10 @@
 // NEW NODES
 
 /datum/techweb_node/adv_vision
-	id = "adv_vision"
+	id = TECHWEB_NODE_ADVANCED_VISION
 	display_name = "Combat Cybernetic Eyes"
 	description = "Military grade combat implants to improve vision."
-	prereq_ids = list("combat_implants", "alien_surgery")
+	prereq_ids = list(TECHWEB_NODE_COMBAT_IMPLANTS, TECHWEB_NODE_ALIEN_SURGERY)
 	design_ids = list(
 		"ci-thermals",
 		"ci-xray",
@@ -15,10 +15,10 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/borg_shapeshifter
-	id = "borg_shapeshifter"
+	id = TECHWEB_NODE_BORG_SHAPESHIFTER
 	display_name = "Illegal Cyborg Addition"
 	description = "Some sort of experimental tool that was once used by an rival company."
-	prereq_ids = list("syndicate_basic")
+	prereq_ids = list(TECHWEB_NODE_SYNDICATE_BASIC)
 	design_ids = list("borg_shapeshifter_module")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
@@ -236,7 +236,7 @@
 	)
 	return ..()
 
-/datum/techweb_node/plumbing/New()
+/datum/techweb_node/chem_synthesis/New()
 	design_ids += list(
 		"plumbing_eng",
 	)
@@ -275,7 +275,6 @@
 /datum/techweb_node/borg_engi/New()
 	design_ids += list(
 		"advanced_materials",
-		"inducer_module",
 		"borg_upgrade_welding",
 	)
 	return ..()

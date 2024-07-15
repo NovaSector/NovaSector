@@ -971,6 +971,18 @@
 	name = "Replica Parade Jacket (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/r_parade_jacket/r_parade_jacket_worn.json'
 
+
+// ISEURIAN CHOKHA
+/datum/greyscale_config/chokha
+	name = "Chokha"
+	icon_file = 'modular_nova/modules/GAGS/icons/chokha.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha.json'
+
+/datum/greyscale_config/chokha/worn
+	name = "Chokha (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/chokha_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/chokha/chokha_worn.json'
+
 //BIG JACKET
 /datum/greyscale_config/big_jacket
 	name = "Alpha Atelier pilot jacket"
