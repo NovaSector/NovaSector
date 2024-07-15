@@ -139,6 +139,12 @@
 	else
 		return ..()
 
+/datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
+	if(EXTERNAL_FRONT_UNDER_CLOTHES)
+		return -(UNIFORM_LAYER + 0.01)
+	else
+		return ..()
+
 
 /obj/item/organ/external/genital/penis
 	name = "penis"
