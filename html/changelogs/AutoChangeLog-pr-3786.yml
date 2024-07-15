@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - rscadd: "Megaphones now affect text-to-speech."
