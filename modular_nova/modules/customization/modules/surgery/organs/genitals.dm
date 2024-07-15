@@ -134,14 +134,14 @@
 	return sprite_datum.color_layer_names
 
 /datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	if(layer == -(UNIFORM_LAYER + 0.01))
+	if(layer == -(UNIFORM_LAYER - 0.01))
 		return "FRONT"
 	else
 		return ..()
 
 /datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
 	if(EXTERNAL_FRONT_UNDER_CLOTHES)
-		return -(UNIFORM_LAYER + 0.01)
+		return -(UNIFORM_LAYER - 0.01)
 	else
 		return ..()
 
