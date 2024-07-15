@@ -30,8 +30,8 @@ ADMIN_VERB(revokebunkerbypass, R_ADMIN, "Revoke PB Bypass", "Revoke's a ckey's p
 	message_admins("[key_name_admin(usr)] has removed [ckeytobypass] from the current round's bunker bypass list.")
 
 /datum/tgs_chat_command/addbunkerbypass
-	name = "whitelist"
-	help_text = "whitelist <ckey>"
+	name = "bypass_panic_bunker"
+	help_text = "bypass_panic_bunker <ckey>"
 	admin_only = TRUE
 
 /datum/tgs_chat_command/addbunkerbypass/Run(datum/tgs_chat_user/sender, params)
