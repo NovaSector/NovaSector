@@ -7969,7 +7969,6 @@
 "cIr" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
-	layer = 2.9;
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -44379,9 +44378,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/structure/curtain{
-	layer = 4.5
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "onT" = (
@@ -44984,9 +44981,7 @@
 /turf/open/floor/iron/sepia,
 /area/station/engineering/main)
 "ozC" = (
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/station/medical/patients_rooms/room_a)
 "ozD" = (
@@ -45458,9 +45453,7 @@
 /area/station/maintenance/department/engine)
 "oIx" = (
 /obj/effect/turf_decal/trimline/blue/line,
-/obj/structure/curtain{
-	layer = null
-	},
+/obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "oIz" = (
@@ -46016,7 +46009,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/folder/red{
-	layer = 2.9;
 	pixel_x = 8
 	},
 /obj/item/flashlight/seclite,
