@@ -762,3 +762,7 @@
   - qol: With voting turned off for the dead, you can now understand why you can't
       vote (being dead).
   - admin: Voting switch for the dead players
+2024-07-15:
+  NovaBot13:
+  - rscadd: A new ork mutation which can be acquired by mixing hulk and clumsy.
+  - rscadd: Added airlock pump atmos device to create cycling airlocks
