@@ -609,7 +609,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	SSping.currentrun -= src
 	QDEL_NULL(view_size)
 	QDEL_NULL(void)
-	QDEL_NULL(open_loadout_ui) //NOVA EDIT ADDITION
 	QDEL_NULL(loot_panel)
 	QDEL_NULL(parallax_rock)
 	QDEL_LIST(parallax_layers_cached)
