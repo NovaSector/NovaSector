@@ -1,5 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - sound: "Announcements should now be a little quieter across the board, ESPECIALLY for sounds such as the BSA that were forcing a much higher volume for some reason."
-  - code_imp: "Improved the code for alert_sound_to_playing(). Single-letter variables begone."
