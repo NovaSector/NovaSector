@@ -7,8 +7,8 @@
 
 /datum/techweb/tarkon/New()
 	. = ..()
-	research_node_id("oldstation_surgery", TRUE, TRUE, FALSE)
-	research_node_id("tarkontech", TRUE, TRUE, FALSE)
+	research_node_id(TECHWEB_NODE_OLDSTATION_SURGERY, TRUE, TRUE, FALSE)
+	research_node_id(TECHWEB_NODE_TARKON, TRUE, TRUE, FALSE)
 
 /datum/techweb_node/tarkon
 	id = TECHWEB_NODE_TARKON
@@ -28,7 +28,7 @@
 	hidden = TRUE
 
 /datum/techweb_node/tarkonturret //Yes. Tarkon does not start with this unlocked.
-	id = "tarkonturret"
+	id = TECHWEB_NODE_TARKON_DEFENSE
 	display_name = "Tarkon Industries Technology"
 	description = "Tarkon Industries Blackrust Salvage division's defense designs."
 	prereq_ids = list(TECHWEB_NODE_TARKON, TECHWEB_NODE_BASIC_ARMS, TECHWEB_NODE_AI)
