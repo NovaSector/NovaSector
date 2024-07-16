@@ -231,6 +231,30 @@
 	ammo_type = /obj/item/ammo_casing/c585trappiste/hollowpoint
 	icon_state = "stack_spec"
 
+// 40nr
+
+/obj/item/ammo_casing
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/fortynr
+
+/obj/item/ammo_box/magazine/ammo_stack/fortynr
+	name = "40nr casings"
+	desc = "A stack of 40nr casings."
+	caliber = CALIBER_40NR
+	ammo_type = /obj/item/ammo_casing/fortynr
+	casing_x_positions = list(
+		-6,
+		-4,
+		-2,
+		0,
+		2,
+		4,
+		6,
+	)
+	casing_y_padding = 6
+
+/obj/item/ammo_box/magazine/ammo_stack/fortynr
+	prefilled = FALSE
+
 // Rifle ammo
 
 // .40 sol long

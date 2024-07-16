@@ -17,3 +17,6 @@
 
 /// Caliber used by the pepperball gun
 #define CALIBER_PEPPERBALL "pepperball"
+
+/// Caliber used by SP-8, warden's gun
+#define CALIBER_40NR "fortynr"

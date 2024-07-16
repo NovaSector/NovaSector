@@ -300,6 +300,17 @@
 	desc = "One of countless obsolete ballistic rifles that still sees use as a cheap deterrent. Uses 10mm ammo and its bulky frame prevents one-hand firing."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
+//Warden's gun
+/obj/item/gun/ballistic/automatic/pistol/sp8
+	name = "SP-8"
+	desc = "Basic version of the latest pistol of security. Use 40nr ammo. It has good stopping power."
+	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
+	icon_state = "sp8"
+	fire_sound_volume = 80
+	accepted_magazine_type = /obj/item/ammo_box/magazine/sp8
+	can_suppress = TRUE
+	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/sp8.ogg'
+
 // GUBMAN3 - FULL BULLET RENAME
 // i loathe the above
 

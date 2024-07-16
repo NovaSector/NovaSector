@@ -103,3 +103,18 @@
 	damage = 40
 	damage_type = STAMINA
 	embedding = list(embed_chance=0, fall_chance=3, jostle_chance=4, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.4, pain_mult=5, jostle_pain_mult=6, rip_time=10)
+
+/*
+*	40N&R ammo
+*/
+
+/obj/item/ammo_casing/fortynr
+	name = "40nr bullet casing."
+	desc = "A 40nr bullet casing."
+	caliber = CALIBER_40NR
+	projectile_type = /obj/projectile/bullet/fortynr
+
+/obj/projectile/bullet/fortynr
+	name = "40nr bullet"
+	damage = 20
+	stamina = 30
