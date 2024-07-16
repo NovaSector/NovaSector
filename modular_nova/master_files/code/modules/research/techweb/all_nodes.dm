@@ -236,7 +236,7 @@
 	)
 	return ..()
 
-/datum/techweb_node/plumbing/New()
+/datum/techweb_node/chem_synthesis/New()
 	design_ids += list(
 		"plumbing_eng",
 	)
