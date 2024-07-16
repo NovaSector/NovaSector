@@ -96,8 +96,8 @@
 /obj/item/pointman_broken/Initialize(mapload)
 	. = ..()
 	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/pointman_repair)
-	AddComponent(
-		/datum/component/slapcrafting,\
+	AddElement(
+		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
 
@@ -121,8 +121,11 @@
 	force = 12 // don't stab with this
 	throwforce = 30 // 38 force on embed? compare contrast with throwing stars.
 	throw_speed = 4
-	embedding = list("pain_mult" = 4, "embed_chance" = 75, "fall_chance" = 10) // +10 embed chance up from combat knife's 65
-	bayonet = FALSE // throwing knives probably aren't made for use as bayonets
+	embed_type = /datum/embed_data/combat_knife/throwing
+
+ // +10 embed chance up from combat knife's 65
+/datum/embed_data/combat_knife/throwing
+	embed_chance = parent_type::embed_chance + 10
 
 /obj/item/storage/pouch/ammo/marksman
 	name = "marksman's knife pouch"

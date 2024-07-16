@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 5
+#define MODULAR_SAVEFILE_VERSION_MAX 6
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -12,6 +12,7 @@
 #define VERSION_SYNTH_REFACTOR 3
 #define VERSION_UNDERSHIRT_BRA_SPLIT 4
 #define VERSION_CHRONOLOGICAL_AGE 5
+#define VERSION_TG_LOADOUT 6
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -65,16 +66,6 @@
 	medical_record = sanitize_text(medical_record)
 	background_info = sanitize_text(background_info)
 	exploitable_info = sanitize_text(exploitable_info)
-
-	var/list/save_loadout = SANITIZE_LIST(save_data["loadout_list"])
-	for(var/loadout in save_loadout)
-		var/entry = save_loadout[loadout]
-		save_loadout -= loadout
-
-		if(istext(loadout))
-			loadout = _text2path(loadout)
-		save_loadout[loadout] = entry
-	loadout_list = sanitize_loadout_list(save_loadout)
 
 	var/list/save_languages = SANITIZE_LIST(save_data["languages"])
 	for(var/language in save_languages)
@@ -260,6 +251,21 @@
 	if(current_version < VERSION_CHRONOLOGICAL_AGE)
 		write_preference(GLOB.preference_entries[/datum/preference/numeric/chronological_age], read_preference(/datum/preference/numeric/age))
 
+	if(current_version < VERSION_TG_LOADOUT)
+		var/list/save_loadout = SANITIZE_LIST(save_data["loadout_list"])
+		for(var/loadout in save_loadout)
+			var/entry = save_loadout[loadout]
+			save_loadout -= loadout
+
+			if(istext(loadout))
+				loadout = _text2path(loadout)
+			save_loadout[loadout] = entry
+
+		var/loadout_list = sanitize_loadout_list(save_loadout)
+
+		if (length(loadout_list)) // We only want to write these changes down if we're certain that there was anything in that.
+			write_preference(GLOB.preference_entries[/datum/preference/loadout], loadout_list)
+
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
@@ -269,7 +275,6 @@
 
 /// Saves the modular customizations of a character on the savefile
 /datum/preferences/proc/save_character_nova(list/save_data)
-	save_data["loadout_list"] = loadout_list
 	save_data["augments"] = augments
 	save_data["augment_limb_styles"] = augment_limb_styles
 	save_data["features"] = features

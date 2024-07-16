@@ -1,8 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "wall heaters use an appropriate amount of power"
-  - bugfix: "wall heaters don't offset your height when walking past them"
-  - bugfix: "wall heaters don't drop free frames and batteries when deconstructed"
-  - qol: "wall heater frames save the cell that was in the heater"
-  - qol: "cells can be replaced in wall heater frames, before placement"

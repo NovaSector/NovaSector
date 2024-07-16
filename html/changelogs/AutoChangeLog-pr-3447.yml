@@ -1,7 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - rscadd: "Added a new ritual for Ashwalkers: Attunement to the land. Pacify yourself to have the general fauna ignore you and even try to save you."
-  - qol: "Returned the speed modifier Age Ritual for Ashwalkers, granting the Ash Storm immunity trait from the start."
-  - bugfix: "fixes faction gunk relating to lavaland mobs and Ashwalkers, they should behave normally once again"
-  - code_imp: "Ash Ritual code is now in one file for OCD reasons"

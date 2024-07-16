@@ -163,4 +163,7 @@ ARRIVALS_WAIT 150
 REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
 
 ## Uncomment to block borgs/silicons from going through gateways
-BORG_GATEWAY_BLACKLIST
+#BORG_GATEWAY_BLACKLIST
+
+## Uncomment to make flashbangs forbidden during green alerts
+FLASHBANGS_FORBIDDEN_DURING_GREEN
