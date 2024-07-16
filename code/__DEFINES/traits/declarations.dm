@@ -138,6 +138,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Prevents plasmamen from self-igniting if only their helmet is missing
 #define TRAIT_NOSELFIGNITION_HEAD_ONLY "no_selfignition_head_only"
 #define TRAIT_NOGUNS "no_guns"
+///Can toss a guns like a badass, causing additional damage/effect to their enemies
+#define TRAIT_TOSS_GUN_HARD "toss_gun_hard"
 /// Species with this trait are genderless
 #define TRAIT_AGENDER "agender"
 /// Species with this trait have a blood clan mechanic
@@ -1182,6 +1184,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_BEAST_EMPATHY "beast_empathy" // you're good with animals, such as with taming them
 #define TRAIT_STURDY_FRAME "sturdy_frame" // you suffer much lesser effects from equipment that slows you down
 
+/// This item cannot be selected for or used by a theft objective (Spies, Traitors, etc.)
+#define TRAIT_ITEM_OBJECTIVE_BLOCKED "item_objective_blocked"
 /// This trait lets you attach limbs to any player without surgery.
 #define TRAIT_EASY_ATTACH "easy_attach"
 
