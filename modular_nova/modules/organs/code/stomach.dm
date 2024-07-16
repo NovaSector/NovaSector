@@ -1,4 +1,4 @@
-/obj/item/organ/internal/stomach/
+/obj/item/organ/internal/stomach
 	/// Whether the organ is an oversized version
 	var/is_oversized
 
