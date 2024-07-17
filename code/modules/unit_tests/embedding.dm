@@ -8,6 +8,7 @@
 	TEST_ASSERT_EQUAL(bullet.get_embed().embed_chance, 100, "embed_chance failed to modify")
 	bullet.preparePixelProjectile(victim, firer)
 	bullet.fire(get_angle(firer, victim), victim)
+	sleep(0.1 SECONDS) // NOVA EDIT ADDITION - Maybe this needs some time to register
 	var/list/components = victim.GetComponents(/datum/component/embedded)
 	TEST_ASSERT_EQUAL(components.len, 1, "Projectile with 100% embed chance didn't embed, or embedded multiple times")
 	var/datum/component/embedded/comp = components[1]
