@@ -762,3 +762,103 @@
   - qol: With voting turned off for the dead, you can now understand why you can't
       vote (being dead).
   - admin: Voting switch for the dead players
+2024-07-15:
+  NovaBot13:
+  - rscadd: A new ork mutation which can be acquired by mixing hulk and clumsy.
+  - rscadd: Added airlock pump atmos device to create cycling airlocks
+2024-07-16:
+  GoldenAlpharex:
+  - sound: Announcements should now be a little quieter across the board, ESPECIALLY
+      for sounds such as the BSA that were forcing a much higher volume for some reason.
+  - code_imp: Improved the code for alert_sound_to_playing(). Single-letter variables
+      begone.
+  Melbert:
+  - qol: Lattices now make the same footstep sound as catwalks
+  - rscadd: Character Loadouts
+  - rscdel: Pride Pin quirk (it's in the Loadout menu now)
+  - qol: If you're in oxycrit (>50 oxy damage) or otherwise made unconscious through
+      other means, blood loss will only kill you if you're *actually* missing a lethal
+      amount of blood.
+  MrDas:
+  - bugfix: Clown operative reinforcements' uplink no longer break the syndicates'
+      economy by creating TC from nothingness.
+  NovaBot13:
+  - bugfix: borgs have alt right click functionality
+  - bugfix: You can't attach guns/drills/etc. to the Justice traitor mech anymore.
+  - bugfix: You can no longer fit an infinite amount of drivers into a clown car -
+      making spy-acquired clown cars usable!
+  - rscadd: Love is now stored in the heart.
+  - balance: Characters with the Friendly quirk now have physically bigger hearts.
+  - spellcheck: Firelocks no longer output their full name in their balloon alert.
+  - spellcheck: Failure message when a xenomorph tries to force open a welded firelock
+      is now a balloon alert.
+  - bugfix: mothroaches will no longer be crawling out of bags every minute
+  - rscadd: Examining high-value paintings now can give a positive moodlet.
+  - qol: Observers can now zoom paintings in and out in the UI.
+  - bugfix: ACTUALLY fixed hoverboards being able to be used in space.
+  - balance: However, you can soar space with the holy skateboard. at a slower speed.
+  - rscadd: Pipe pistols now magdump their entire magazine when fired.
+  - rscadd: Pipeguns and their subtypes have a knockback effect.
+  - bugfix: Pipe pistols cannot be bayoneted, as intended.
+  - bugfix: Junk rounds now actually do their extra damage effects against certain
+      mob types. Borgs across the Spinward tremble at the knowledge that these junk
+      weapons can obliterate them with ease.
+  - qol: Research nodes can be queued, one per player. RDs can place their node at
+      the beginning of the queue.
+  - rscadd: If you can't shoot a gun, then... JUST TOSS IT AT THEM (for 0.5 seconds
+      of knockdown and 10-20 an additional brute damage)
+  - balance: tweaked the Linked Closets station trait.
+  - qol: Pathfinder MODule can now be triggered while wearing the MODsuit to implant
+      yourself without having to pull it out of the suit.
+  - balance: Grinding fish no longer gives you uselessly high amount of blood and
+      gibs (unless they're very big)
+  - bugfix: Destroying the jungle grass tiles in Tramstation's science wing should
+      no longer open a chasm.
+  - admin: Outfit manager UI no longer harddels after closing and thus is usable more
+      than once
+  - bugfix: Accelerator cannon projectiles no longer grow to absurd sizes after a
+      bit of travel.
+  - qol: removed a redundant, annoying reach check that prevents casting a fishing
+      rod before the projectile is generated.
+  - qol: You can now unhook the currently hooked item of a fishing rod with right-click.
+  - bugfix: Correct emote plays when a human scream. Should have sound now.
+  - rscadd: Cytology Lab has been added to Icebox
+  - rscadd: Delta now has soy seeds on the Cytology Lab
+  - bugfix: Cytology is playable again on Icebox
+  - sound: all materials now have a sound for picking up and dropping
+  - code_imp: items now have pitch vary sound support for dropping and picking up
+      items
+  - sound: added pickup, dropping and opening sound for pill bottle
+  - bugfix: Attachment points on toolset implants have been improved, to prevent against
+      recycler related decouplings.
+  - rscadd: Megaphones now affect text-to-speech.
+  - bugfix: Atmosphere can no longer flow through closed necropolis gates.
+  - admin: Ghosts can no longer create deathmatch lobbies or join existing ones when
+      admins disable minigames
+  - bugfix: fixing speech modifiers being applied to a tongue's native languages.
+  - bugfix: Fixes overwatch glasses not adding HUDs
+  Thedragmeme:
+  - bugfix: Fixes the Plague hat having what the Plague mask should have
+2024-07-17:
+  Hardly3D:
+  - bugfix: Added a preview assistant outfit, allowing assistant jumpskirts to be
+      previewed again on character preferences.
+  Melbert:
+  - rscadd: Humonkeys and random corpse spawns now look more... human.
+  - qol: Random player characters now look less like rainbow vomit and more like some
+      of the most average people you know.
+  NovaBot13:
+  - image: Changed some default options in the character creator.
+  - refactor: move `status_display_bottom_text` and `fire_alarm_light_color` to security
+      level prototypes
+  - bugfix: The Icebox ordnance lab is now once again a habitable temperature.
+  - bugfix: Icebox cytology now has cameras in it.
+  - bugfix: Style meter text is no longer blurry and doesnt overlap with UI anymore.
+  - rscadd: Changed the layout of birdshot engineering atmos and SM, added a proper
+      engineering storage area.
+  - rscadd: new wizard spells category - perks.
+  - rscadd: adds 9 wizard perks.
+  - bugfix: You can no longer cause a bluescreen by attempting to recolor non-recolorable
+      loadout items.
+  - bugfix: Fixes dead raptors getting excited when petted or groomed
+  - bugfix: Wawastation xenobio is no longer filled with BZ

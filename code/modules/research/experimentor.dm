@@ -17,7 +17,7 @@
 #define EFFECT_PROB_VERYHIGH 95
 
 #define FAIL 8
-/obj/machinery/rnd/experimentor//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/rnd/experimentor
 	name = "\improper E.X.P.E.R.I-MENTOR"
 	desc = "A \"replacement\" for the destructive analyzer with a slight tendency to catastrophically fail."
 	icon = 'icons/obj/machines/experimentator.dmi'
@@ -616,6 +616,12 @@
 			PROC_REF(uncontrolled_teleport),
 			PROC_REF(heat_and_explode),
 			PROC_REF(rapid_self_dupe),
+			PROC_REF(drink_dispenser),
+			PROC_REF(tummy_ache),
+			PROC_REF(charger),
+			PROC_REF(hugger),
+			PROC_REF(dimensional_shift),
+			PROC_REF(disguiser),
 			)
 
 /obj/item/relic/attack_self(mob/user)
@@ -721,8 +727,6 @@
 		throw_smoke(get_turf(user))
 		warn_admins(user, "Teleport", 0)
 
-<<<<<<< HEAD
-=======
 // Creates a glass and fills it up with a drink.
 /obj/item/relic/proc/drink_dispenser(mob/user)
 	var/obj/item/reagent_containers/cup/glass/drinkingglass/freebie = new(get_step_rand(user))
@@ -884,7 +888,6 @@
 	new_costume.item_flags |= DROPDEL
 	return new_costume
 
->>>>>>> 89cf4c77870 (The Voidwalker | New Midround Antagonist (#84674))
 //Admin Warning proc for relics
 /obj/item/relic/proc/warn_admins(mob/user, relic_type, priority = 1)
 	var/turf/location = get_turf(src)

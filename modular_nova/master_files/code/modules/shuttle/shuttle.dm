@@ -6,7 +6,7 @@
 	/// The landing sound to be played
 	var/landing_sound = sound('modular_nova/modules/advanced_shuttles/sound/engine_landing.ogg')
 	/// The sound range coeff for the landing and take off sound effect
-	var/sound_range = 20
+	var/sound_range = 11
 
 /obj/docking_port/mobile/proc/bolt_all_doors() // Expensive procs :(
 	var/list/turfs = return_ordered_turfs(x, y, z, dir)
@@ -30,7 +30,7 @@
 		for(var/mob/hearing_mob in range(sound_range, distant_source))
 			if(hearing_mob?.client)
 				var/dist = get_dist(hearing_mob.loc, distant_source.loc)
-				var/vol = clamp(50 - ((dist - 7) * 5), 10, 50) // Every tile decreases sound volume by 5
+				var/vol = clamp(40 - ((dist - 3) * 5), 0, 40) // Every tile decreases sound volume by 5
 				if(takeoff)
 					if(hearing_mob.client?.prefs?.read_preference(/datum/preference/toggle/sound_ship_ambience))
 						hearing_mob.playsound_local(distant_source, takeoff_sound, vol)
