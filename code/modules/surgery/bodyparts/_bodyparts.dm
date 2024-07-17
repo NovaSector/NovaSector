@@ -1108,6 +1108,8 @@
 			for(var/external_layer in overlay.all_layers)
 				if(overlay.layers & external_layer)
 					. += overlay.get_overlay(external_layer, src)
+			for(var/datum/layer in .)
+				overlay.modify_bodypart_appearance(layer)
 
 	// NOVA EDIT ADDITION BEGIN - MARKINGS CODE
 	var/override_color
@@ -1165,9 +1167,6 @@
 				if (emissive)
 					. += emissive
 	// NOVA EDIT END - MARKINGS CODE END
-
-			for(var/datum/layer in .)
-				overlay.modify_bodypart_appearance(layer)
 	return .
 
 /obj/item/bodypart/proc/huskify_image(image/thing_to_husk, draw_blood = TRUE)
