@@ -839,3 +839,26 @@
   - bugfix: Fixes overwatch glasses not adding HUDs
   Thedragmeme:
   - bugfix: Fixes the Plague hat having what the Plague mask should have
+2024-07-17:
+  Hardly3D:
+  - bugfix: Added a preview assistant outfit, allowing assistant jumpskirts to be
+      previewed again on character preferences.
+  Melbert:
+  - rscadd: Humonkeys and random corpse spawns now look more... human.
+  - qol: Random player characters now look less like rainbow vomit and more like some
+      of the most average people you know.
+  NovaBot13:
+  - image: Changed some default options in the character creator.
+  - refactor: move `status_display_bottom_text` and `fire_alarm_light_color` to security
+      level prototypes
+  - bugfix: The Icebox ordnance lab is now once again a habitable temperature.
+  - bugfix: Icebox cytology now has cameras in it.
+  - bugfix: Style meter text is no longer blurry and doesnt overlap with UI anymore.
+  - rscadd: Changed the layout of birdshot engineering atmos and SM, added a proper
+      engineering storage area.
+  - rscadd: new wizard spells category - perks.
+  - rscadd: adds 9 wizard perks.
+  - bugfix: You can no longer cause a bluescreen by attempting to recolor non-recolorable
+      loadout items.
+  - bugfix: Fixes dead raptors getting excited when petted or groomed
+  - bugfix: Wawastation xenobio is no longer filled with BZ
