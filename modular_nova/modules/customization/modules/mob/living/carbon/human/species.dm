@@ -161,9 +161,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					icon_state += "_d"
 					female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
-					underwear_overlay = wear_female_version(icon_state, underwear.icon, BODY_LAYER, female_sprite_flags)
+					underwear_overlay = wear_female_version(icon_state, underwear.icon, (UNIFORM_LAYER - 0.01), female_sprite_flags)
 				else
-					underwear_overlay = mutable_appearance(underwear.icon, icon_state, -BODY_LAYER)
+					underwear_overlay = mutable_appearance(underwear.icon, icon_state, -(UNIFORM_LAYER + 0.01))
 				if(!underwear.use_static)
 					underwear_overlay.color = species_human.underwear_color
 				standing += underwear_overlay
@@ -174,7 +174,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(bra)
 				var/mutable_appearance/bra_overlay
 				var/icon_state = bra.icon_state
-				bra_overlay = mutable_appearance(bra.icon, icon_state, -BODY_LAYER)
+				bra_overlay = mutable_appearance(bra.icon, icon_state, -(UNIFORM_LAYER + 0.01))
 				if(!bra.use_static)
 					bra_overlay.color = species_human.bra_color
 				standing += bra_overlay
@@ -186,7 +186,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE)
 					undershirt_overlay = wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
 				else
-					undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+					undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, -(UNIFORM_LAYER + 0.01))
 				if(!undershirt.use_static)
 					undershirt_overlay.color = species_human.undershirt_color
 				standing += undershirt_overlay
@@ -198,7 +198,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				var/icon_state = socks.icon_state
 				if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 					icon_state += "_d"
-				socks_overlay = mutable_appearance(socks.icon, icon_state, -BODY_LAYER)
+				socks_overlay = mutable_appearance(socks.icon, icon_state, -(UNIFORM_LAYER + 0.01))
 				if(!socks.use_static)
 					socks_overlay.color = species_human.socks_color
 				standing += socks_overlay

@@ -31,6 +31,7 @@
 	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
 
 	our_overlay.sprite_suffix = sprite_suffix
+	our_overlay.owner = owner
 
 
 /obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
@@ -70,6 +71,7 @@
 	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
 
 	our_overlay.color_source = uses_skin_color ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
+	our_overlay.owner = owner
 
 /// for specific build_from_dna behavior that also checks the genital accessory.
 /obj/item/organ/external/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
@@ -101,6 +103,8 @@
 	color_source = ORGAN_COLOR_OVERRIDE
 	/// The suffix appended to the feature_key for the overlays.
 	var/sprite_suffix
+	/// Owning human.  Used to adjust layers depending on underwear
+	var/mob/living/carbon/human/owner
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
@@ -134,14 +138,21 @@
 	return sprite_datum.color_layer_names
 
 /datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	if(layer == -(UNIFORM_LAYER - 0.01))
+	if(layer == -(UNIFORM_LAYER - 0.01) || layer == -(UNIFORM_LAYER + 0.02))
 		return "FRONT"
 	else
 		return ..()
 
+/// Return TRUE if this should overlay below underwear, otherwise it'll layer above it and the uniform.
+/datum/bodypart_overlay/mutant/genital/proc/underwear_check()
+	return TRUE
+
 /datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
 	if(EXTERNAL_FRONT_UNDER_CLOTHES)
-		return -(UNIFORM_LAYER - 0.01)
+		if(underwear_check() == FALSE)
+			return -(UNIFORM_LAYER - 0.01)
+		else
+			return -(UNIFORM_LAYER + 0.02)
 	else
 		return ..()
 
@@ -163,6 +174,15 @@
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/penis/underwear_check()
+	if(!istype(owner))
+		return TRUE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
 
 
 /obj/item/organ/external/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
@@ -270,6 +290,15 @@
 	feature_key = ORGAN_SLOT_TESTICLES
 	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
+/datum/bodypart_overlay/mutant/genital/testicles/underwear_check()
+	if(!istype(owner))
+		return TRUE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
+
 /obj/item/organ/external/genital/testicles/update_genital_icon_state()
 	var/measured_size = clamp(genital_size, 1, 6)
 	var/passed_string = "testicles_[genital_type]_[measured_size]"
@@ -336,6 +365,15 @@
 	feature_key = ORGAN_SLOT_VAGINA
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 
+/datum/bodypart_overlay/mutant/genital/vagina/underwear_check()
+	if(!istype(owner))
+		return TRUE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
+
 /obj/item/organ/external/genital/vagina/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see a [LOWER_TEXT(genital_name)] vagina."
 	if(LOWER_TEXT(genital_name) == "cloaca")
@@ -387,6 +425,16 @@
 	feature_key = ORGAN_SLOT_WOMB
 	layers = NONE
 
+/// Maybe a little bit unnecessary since this is always hidden, but completeness demands such
+/datum/bodypart_overlay/mutant/genital/womb/underwear_check()
+	if(!istype(owner))
+		return TRUE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT)
+			return FALSE
+		else
+			return TRUE
+
 /datum/bodypart_overlay/mutant/genital/womb/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_WOMB]
 
@@ -407,6 +455,16 @@
 /datum/bodypart_overlay/mutant/genital/anus
 	feature_key = ORGAN_SLOT_ANUS
 	layers = NONE
+
+/// See above, here for completeness if a sprite is ever added
+/datum/bodypart_overlay/mutant/genital/anus/underwear_check()
+	if(!istype(owner))
+		return TRUE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
 
 /obj/item/organ/external/genital/anus/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see an [LOWER_TEXT(genital_name)]."
@@ -438,6 +496,15 @@
 /datum/bodypart_overlay/mutant/genital/breasts
 	feature_key = ORGAN_SLOT_BREASTS
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/breasts/underwear_check()
+	if(!istype(owner))
+		return TRUE
+	else
+		if((owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT) && (owner.underwear_visibility & UNDERWEAR_HIDE_BRA))
+			return FALSE
+		else
+			return TRUE
 
 /obj/item/organ/external/genital/breasts/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see a [LOWER_TEXT(genital_name)] of breasts."
