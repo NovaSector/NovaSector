@@ -844,3 +844,8 @@
 	name = "Akari's MOD Refitter"
 	item_path = /obj/item/mod/skin_applier/akari
 	ckeywhitelist = list("samman166", "cainedclxvi")
+
+/datum/loadout_item/pocket_items/mrsanderp_cookbook
+	name = "Riva Family Cookbook"
+	item_path = /obj/item/book/granter/crafting_recipe/mrsanderp_donator_cookbook
+	ckeywhitelist = list("mrsanderp")
