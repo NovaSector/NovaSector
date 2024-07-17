@@ -47,6 +47,7 @@
 #define ROLE_LONE_INFILTRATOR "Lone Infiltrator"
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
+// NOVA EDIT ADDITION END
 #define ROLE_VOIDWALKER "Voidwalker"
 
 // Latejoin roles
