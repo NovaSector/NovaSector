@@ -1,192 +1,557 @@
-# CONTRIBUTING
-
-1. [Reporting Issues](#reporting-issues)
-2. [Introduction](#introduction)
-3. [Getting Started](#getting-started)
-4. [Meet the Team](#meet-the-team)
-	1. [Headcoder](#headcoder)
-	2. [Maintainers](#maintainers)
-	3. [Issue Managers](#issue-managers)
-5. [Development Guides](#development-guides)
-6. [Pull Request Process](#pull-request-process)
-7. [Good Boy Points](#good-boy-points)
-8. [Porting features/sprites/sounds/tools from other codebases](#porting-featuresspritessoundstools-from-other-codebases)
-9. [Banned content](#banned-content)
-10. [A word on Git](#a-word-on-git)
-
-## Reporting Issues
-
-If you ever encounter a bug in-game, the best way to let a coder know about it is with our GitHub Issue Tracker. Please make sure you use the supplied issue template, and include the round ID for the server.
-
-(If you don't have an account, making a new one takes only one minute.)
-
-If you have difficulty, ask for help in the #coding-general channel on our discord.
-
-## Introduction
-
-Hello and welcome to /tg/station's contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at /tg/station, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
-
-First things first, we want to make it clear how you can contribute (if you've never contributed before), as well as the kinds of powers the team has over your additions, to avoid any unpleasant surprises if your pull request is closed for a reason you didn't foresee.
-
-## Getting Started
-
-/tg/station doesn't have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. That doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
-
-If you want to contribute the first thing you'll need to do is [set up Git](https://hackmd.io/@tgstation/HJ8OdjNBc) so you can download the source code.
-After setting it up, optionally navigate your git commandline to the project folder and run the command: `git config blame.ignoreRevsFile .git-blame-ignore-revs`.
-
-We have a [list of guides on the wiki](http://www.tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to /tg/station with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
-
-There is an open list of approachable issues for [your inspiration here](https://github.com/tgstation/tgstation/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).
-
-You can of course, as always, ask for help on the Discord channels or the forums. We're just here to have fun and help out, so please don't expect professional support.
-
-## Meet the Team
-
-### Headcoder
-
-The Headcoder is responsible for controlling, adding, and removing maintainers from the project. In addition to filling the role of a normal maintainer, they have sole authority on who becomes a maintainer, as well as who remains a maintainer and who does not.
-
-### Maintainers
-
-Maintainers are quality control. If a proposed pull request doesn't meet the following specifications, they can request you to change it, or simply just close the pull request. Maintainers are required to give a reason for closing the pull request.
-
-Maintainers can revert your changes if they feel they are not worth maintaining or if they did not live up to the quality specifications.
+# Contributing
 
 <details>
-<summary>Maintainer Guidelines</summary>
+<summary>Содержание</summary>
 
-These are the few directives we have for project maintainers.
-
-- Do not merge PRs you create.
-- Do not merge PRs until 24 hours have passed since it was opened. Exceptions include:
-  - Emergency fixes.
-    - Try to get secondary maintainer approval before merging if you are able to.
-  - PRs with empty commits intended to generate a changelog.
-- Do not merge PRs that contain content from the [banned content list](./CONTRIBUTING.md#banned-content).
-- Do not close PRs purely for breaking a template if the same information is contained without it.
-
-These are not steadfast rules as maintainers are expected to use their best judgement when operating.
+- [Основное](#основное)
+- [Создание PR](#создание-pull-request)
+- [Continuous Integration](#continuous-integration)
+- [Процесс прохождения Code Review](#процесс-прохождения-code-review)
+- [Договоренности по написанию кода](#договоренности-по-написанию-кода)
+  - [Правила именования переменных и функций](#правила-именования-переменных-и-функций)
+  - [Написание функций](#написание-функций)
+  - [Общие правила](#общие-правила)
+- [Разработка безопасного кода](#разработка-безопасного-кода)
+- [Файлы](#файлы)
+- [Фишки и лайфхаки Dream Maker](#фишки-и-лайфхаки-dream-maker)
 
 </details>
 
-### Issue Managers
+# Основное
 
-Issue Managers help out the project by labelling bug reports and PRs and closing bug reports which are duplicates or are no longer applicable.
+- Официальный язык нашего сообщества - русский. Коммиты, пулл реквесты и ишью стоит писать на нём, либо на английском. Однако в исходных кодах русский язык запрещен в связи с проблемами, связанными с кодировками.
+- Мы ожидаем, что вы поможете нам поддерживать код, который вы добавили. Скорее всего мы к вам обратимся в случае возникновения каких-то проблем, связанных с вашими изменениями, в том числе рантаймами или багами.
 
-<details>
-<summary>What You Can and Can't Do as an Issue Manager</summary>
+# Создание Pull Request
 
-This should help you understand what you can and can't do with your newfound github permissions.
+Здесь приведен небольшой чек-лист важных вещей, на которые обязательно нужно обращать внимание при открытии PR'а. Пренебрежение этим разделом может увеличить время проверки ваших изменений и принятия в сборку вплоть до бесконечности!
 
-Things you **CAN** do:
-* Label issues appropriately
-* Close issues when appropriate
-* Label PRs, unless you are goofball.
+- **Заголовок PR'а - цель его изменений.**
+  У любого PR'а должна быть конкретная цель, которая должна быть указана в заголовке. PR не должен содержать изменений, которые не относятся к указанной цели. Если цель PR'а слишком большая, чтобы уместить её в одном заголовке - подумайте над тем, чтобы разбить свой PR на более мелкие части.
+- **Изменения востребованы.**
+  Перед началом разработки убедитесь, что то, что вы хотите сделать - востребовано и будет принято. Для этого нужно создать предложку в дискорде и дождаться её прохождения. Также изменения очевидно востребованы, если на них есть соответствующий ишью. Чтобы ваши изменения ТОЧНО были приняты - лучше убедиться в том, что у вас есть соответстующий ишью с подтверждением, либо предложка, так как любые договоренности в дискорде могут потеряться или оказаться неактуальными.
+- **Подробное описание.**
+  В описании PR'а должно быть подробное описание того, зачем он нужен и что в нем происходит. PR не должен содержать изменений, о которых ничего не написано в описании.
+- **Привяжите ишью.**
+  Если PR решает какие-то ишью, то они должны быть указаны в описании специальным образом, например, `close #23`, чтобы Github смог их автоматически привязать к вашим изменениям. Подробнее можно почитать тут: https://help.github.com/articles/closing-issues-via-commit-messages.
+- **Проверьте свой код.**
+  Открывайте PR только если вы уверены в его работоспособности. Это означает, что вы проверили каждую строчку своих изменений, а также **проверили свои изменения локально**, запустив сервер на своем компьютере. Если что-то невозможно проверить полностью или вы считаете, что на какую-то часть изменений нужно обратить пристальное внимание проверяющих, то укажите это отдельно в описании. Конечно мы также будем проверять ваши изменения, но вы не должны полагаться на то, что ваши баги заметит кто-то другой и исправит за вас.
+- **Ваш код соответствует принятым договоренностям по написанию кода.**
+  Подробнее смотрите раздел "[Договоренности по написанию кода](#договоренности-по-написанию-кода)" ниже.
+- **Ваш код - модульный.** Изменения в кода игры вне модов очень не приветствуются и скорее всего будут отклонены. Код обязан соотвествовать [руководству по модуляризации](/modular_bluemoon/README.md).
 
-Things you **CAN'T** do:
-* [Close PRs](https://imgur.com/w2RqpX8.png): Only maintainers are allowed to close PRs. Do not hit that button.
-* Close issues purely for breaking a template if the same information is contained without it.
+# Continuous Integration
 
-For more information reference the [Issue Manager Guide](.github/guides/ISSUE_MANAGER.md).
+Каждый PR проходит проверку на несколько вещей:
 
-</details>
+- Наличие и корректность чейнджлога.
+- Наличие ошибок найденные статическим анализатором DreamChecker.
+- Наличие нарушений стиля кода.
+- Соответствие [руководству по модуляризации](/modular_bluemoon/README.md).
 
----
+Наличие и корректность чейнджлога проверяется при каждом открытии PR'а, редактировании текста в теле PR'а, добавлении и удаления меток на PR.
 
-Our team is entirely voluntary, as such we extend our thanks to maintainers, issue managers, and contributors alike for helping keep the project alive.
+# Процесс прохождения Code Review
 
-## Development Guides
+- **Аппрув разработчиков.**
+	Чтобы PR был принят - он должен быть аппрувнут активными разработчиками сервера.
+- **Аппрув администрации и игроков.**
+	Если в PR есть изменения игровой логики, то он должен быть аппрувнут голосованием, либо администрацией. Аппрув не нужен, если PR выполнен в рамках ишью, который был ранее аппрувнут голосованием/администрацией. Также аппрув не нужен для фикса багов и любых изменений, которые не затрагивают игровой опыт игроков (рефакторинг, оптимизации, фичи для администраторов и подобное).
+- **Проверка на локальной сборке.**
+	Принимаются только PR'ы, проверенные локально. Если сам разработчик не проверяет свои изменения, то проверка проходит тщательнее, из-за чего принятие изменений затягивается.
+- **Вливание изменений в основную ветку.**
+	Если коммиты в PR соответствуют правилам именования, при мерже не возникает конфликтов и каждый коммит по отдельности не ломает сборку, то принимать следует с помощью rebase. Если коммиты в PR соответствуют правилам именования, но принять её с помощью rebase невозможно т.к. на каких-то коммитах из PR сборка сломана, или же из-за конфликтов, то принимать нужно с помощью merge. Если хотя бы один коммит в PR не соответствует правилам именования, то весь PR может быть принят только через squash с названием, соответствующим правилам.
+- **Вливание изменений на сервер.**
+	Ветка разработки называется `master`. На сервер изменения должны попадать вместе с чейнжлогом для максимального оповещения игроков о статусе разработки.
 
-#### Writing readable code 
-[Style guide](./guides/STYLE.md)
+# Договоренности по написанию кода
 
-#### Writing sane code 
-[Code standards](./guides/STANDARDS.md)
+> By ChaoticOnyx
 
-#### Writing understandable code 
-[Autodocumenting code](./guides/AUTODOC.md)
+## Правила именования переменных и функций
 
-#### Misc
+### Имена должны передавать намерения программиста
 
-- [AI Datums](../code/datums/ai/learn_ai.md)
-- [Embedding TGUI Components in Chat](../tgui/docs/chat-embedded-components.md)
-- [Hard Deletes](./guides/HARDDELETES.md)
-- [MC Tab Guide](./guides/MC_tab.md)
-- [Policy Configuration System](./guides/POLICYCONFIG.md)
-- [Quickly setting up a development database with ezdb](./guides/EZDB.md)
-- [Required Tests (Continuous Integration)](./guides/CI.md)
-- [Splitting up pull requests, aka atomization](./guides/ATOMIZATION.md)
-- [UI Development](../tgui/README.md)
-- [Visual Effects and Systems](./guides/VISUALS.md)
+Имя переменной, функции или типа должно сообщить, почему эта переменная существует, что она делает и как используется. Если имя требует дополнительных комментариев, значит, оно не передает намерений программиста. Лучше написать, что именно измеряется и в каких именно единицах.
 
-## Pull Request Process
+Не бойтесь использовать длинные имена: длинное содержательное имя лучше короткого невразумительного.
 
-There is no strict process when it comes to merging pull requests. Pull requests will sometimes take a while before they are looked at by a maintainer; the bigger the change, the more time it will take before they are accepted into the code. Every team member is a volunteer who is giving up their own time to help maintain and contribute, so please be courteous and respectful. Here are some helpful ways to make it easier for you and for the maintainers when making a pull request.
+Пример хорошего названия переменной: days_since_creation;
+Цель: убрать неочевидность.
 
-* Make sure your pull request complies to the requirements outlined here
+### Избегайте неинформативных слов в названиях
 
-* You are expected to have tested your pull requests if it is anything that would warrant testing. Text only changes, single number balance changes, and similar generally don't need testing, but anything else does. This means by extension web edits are disallowed for larger changes.
+Неинформативные слова избыточны. Слово variable никогда не должно встречаться в именах переменных. Слово object никогда не должно встречаться в именах объектов. Чем имя name_string лучше name? Разве имя может быть, скажем, вещественным числом?
 
-* You are going to be expected to document all your changes in the pull request. Failing to do so will mean delaying it as we will have to question why you made the change. On the other hand, you can speed up the process by making the pull request readable and easy to understand, with diagrams or before/after data. Should you be optimizing a routine you must provide proof by way of profiling that your changes are faster.
+### Избегайте сокращений, старайтесь выбирать удобопроизносимые имена
 
-* We ask that you use the changelog system to document your player facing changes, which prevents our players from being caught unaware by said changes - you can find more information about this [on this wiki page](http://tgstation13.org/wiki/Guide_to_Changelogs).
+russian_to_utf намного лучше rustoutf.
 
-* If you are proposing multiple changes, which change many different aspects of the code, you are expected to section them off into different pull requests in order to make it easier to review them and to deny/accept the changes that are deemed acceptable.
+### Выбирайте имена, удобные для поиска
 
-* If your pull request is accepted, the code you add no longer belongs exclusively to you but to everyone; everyone is free to work on it, but you are also free to support or object to any changes being made, which will likely hold more weight, as you're the one who added the feature. It is a shame this has to be explicitly said, but there have been cases where this would've saved some trouble.
+Чем дольше время жизни переменной - тем длиннее должно быть её название. Однобуквенные имена могут использоваться только для локальных переменных в коротких методах.
 
-* Please explain why you are submitting the pull request, and how you think your change will be beneficial to the game. Failure to do so will be grounds for rejecting the PR.
+### Имена типов
 
-* If your pull request is not finished, you may open it as a draft for potential review. If you open it as a full-fledged PR make sure it is at least testable in a live environment. Pull requests that do not at least meet this requirement will be closed. You may request a maintainer reopen the pull request when you're ready, or make a new one.
+Имена типов должны представлять собой существительные и их комбинации: traitor, profession, id_card и request_parser. Старайтесь не использовать в именах классов такие слова, как manager, processor, data или info. Имя класса не должно быть глаголом.
 
-* While we have no issue helping contributors (and especially new contributors) bring reasonably sized contributions up to standards via the pull request review process, larger contributions are expected to pass a higher bar of completeness and code quality *before* you open a pull request. Maintainers may close such pull requests that are deemed to be substantially flawed. You should take some time to discuss with maintainers or other contributors on how to improve the changes.
+### Имена функций
 
-* After leaving reviews on an open pull request, maintainers may convert it to a draft. Once you have addressed all their comments to the best of your ability, feel free to mark the pull as `Ready for Review` again.
+Имена методов представляют собой глаголы или глагольные словосочетания: explode_station, delete_ian, save и т. д. Методы чтения/записи образуются из значения и префикса get, set и is.
 
-* **Pull requests that include sprites must have in-game screenshots that were taken on your own test-server in the PR body.** For instance, if you're adding new clothes, a screenshot of those clothes being worn is expected in the PR body. Not every single direction needs to be displayed, but each icon that's actually being used in-game should be showcased.
+### Используйте абсолютные пути
 
-## Good Boy Points
+DM позволяет писать код блоками:
 
-Each GitHub account has a score known as Good Boy Points, or GBP. This is a system we use to ensure that the codebase stays maintained and that contributors fix bugs as well as add features.
+```DM
+datum
+	datum1
+		var
+			varname1 = 1
+			varname2
+			static
+				varname3
+				varname4
+		proc
+			proc1()
+				code
+			proc2()
+				code
 
-The GBP gain or loss for a PR depends on the type of changes the PR makes, represented by the tags assigned to the PR by the tgstation github bot or maintainers. Generally speaking, fixing bugs, updating sprites, or improving maps increases your GBP score, while adding mechanics, or rebalancing things will cost you GBP.
+		datum2
+			varname1 = 0
+			proc
+				proc3()
+					code
+			proc2()
+				..()
+				code
+```
 
-The GBP change of a PR is the sum of greatest positive and lowest negative values it has. For example, a PR that has tags worth +10, +4, -1, -7, will net 3 GBP (10 - 7).
+Такой способ написания делает невозможным текстовый поиск функции или типа по коду. Единственное исключение - внутри блока описания типа можно определять переменные.
 
-Negative GBP increases the likelihood of a maintainer closing your PR. With that chance being higher the lower your GBP is. Be sure to use the proper tags in the changelog to prevent unnecessary GBP loss. Maintainers reserve the right to change tags as they deem appropriate.
+Тот же код, написанный правильно:
 
-There is no benefit to having a higher positive GBP score, since GBP only comes into consideration when it is negative.
+```DM
+/datum/datum1
+	var/varname1
+	var/varname2
+	var/static/varname3
+	var/static/varname4
 
-You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml). 
+/datum/datum1/proc/proc1()
+	code
+/datum/datum1/proc/proc2()
+	code
+/datum/datum1/datum2
+	varname1 = 0
+/datum/datum1/datum2/proc/proc3()
+	code
+/datum/datum1/datum2/proc2()
+	..()
+	code
+```
 
-## Porting features/sprites/sounds/tools from other codebases
+## Написание функций
 
-If you are porting features/tools from other codebases, you must give them credit where it's due. Typically, crediting them in your pull request and the changelog is the recommended way of doing it. Take note of what license they use though, porting stuff from AGPLv3 and GPLv3 codebases are allowed.
+### Компактность
 
-Regarding sprites & sounds, you must credit the artist and possibly the codebase. All /tg/station assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
+- **Первое правило:** функции должны быть компактными.
+- **Второе правило:** функции должны быть еще компактнее.
 
-Regarding sprites in particular, you still need to take your own screenshots of the sprites in-game on your Nova Sector code in your PR body, not just re-use the screenshots provided in the original PR.
+Серьезные программисты работающие в реальном мире ценой многих проб и ошибок вывели, что функции должны быть очень маленькими. Желательно, чтобы длина фукнции не превышала 20 строк. В условиях разработки SS13 кому-то это может показаться излишним, но даже в наших проектах можно заметить, что чем длиннее функция тем сложнее её поддерживать, тем больше в ней багов и тем меньшее количество людей хочет в неё лезть и с ней разбираться.
 
-## Banned content
-Do not add any of the following in a Pull Request or risk getting the PR closed:
-* National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references
-* Code adding, removing, or updating the availability of alien races/species/human mutants without prior approval. Pull requests attempting to add or remove features from said races/species/mutants require prior approval as well.
-* Code which violates GitHub's [terms of service](https://github.com/site/terms).
+### Правило одной операции
 
-Just because something isn't on this list doesn't mean that it's acceptable. Use common sense above all else.
+Функция должна выполнять только одну операцию. Она должна выполнять ее хорошо. И ничего другого она делать не должна. Если функция выполняет только те действия, которые находятся на одном уровне под объявленным именем функции, то эта функция выполняет одну операцию.
 
-## A word on Git
-This repository uses `LF` line endings for all code as specified in the **.gitattributes** and **.editorconfig** files.
+### Функция не должна разбиваться на секции
 
-Unless overridden or a non standard git binary is used the line ending settings should be applied to your clone automatically.
+Функцию, выполняющую только одну операцию, невозможно осмысленно разделить на секции.
 
-Note: VSC requires an [extension](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) to take advantage of editorconfig.
+### Разделение команд и запросов
 
-Github actions that require additional configuration are disabled on the repository until ACTION_ENABLER secret is created with non-empty value.
+Функция должна что-то делать или отвечать на какой-то вопрос, но не одновременно. Либо функция изменяет состояние объекта, либо возвращает информацию об этом объекте. Совмещение двух операций часто создает путаницу.
 
-## Using the Maintainer Role Ping in Discord
+## Общие правила
 
-This role `@Maintainer` is pingable as a compromise reached with the server host MrStonedOne over the auto-stale system we presently have in the codebase. It should be used only to ping Maintainers when your PR has had the "Stale" label applied. Using it before then can be met with escalating timeouts and referral to /tg/station's Discord moderators for further infractions.
+### Комментарии
 
-Feel free to engage and obtain general feedback in the Coding General channel without the role ping before your PR goes stale to build interest and get reviews.
+Закомметированный код запрещен.
+
+Запрещены комментарии отвечающие на вопрос "Что делает этот код?". Вместо этого используете методы для увеличения читаемости кода выше, чтобы код объяснял себя сам. Разрешены комментарии отвечающие на вопрос "Зачем этот код нужен?".
+
+Также можно писать комментарии типа "TODO" и "FIXME".
+
+### Не избавляйтесь от проверки типов
+
+Запрещено использовать оператор `:`. Всегда явно преобразуйте переменную к конкретному типу.
+
+Плохой пример:
+
+```DM
+var/something_general_object = ...
+something_general_object:specific_type_func()
+```
+
+Мы узнаем, что у something_general_object нет такой функции только когда запустим сервер. Более того, когда мы это узнаем - будет непонятным что это за тип, почему у него было этой функции и какой тип на самом деле ожидался. С другой стороны, в коде:
+
+```DM
+var/something_general_object
+var/more/specified/type/O = object
+ASSERT(istype(O)) // bad argument
+O.specific_type_funс()
+```
+
+Мы явно указываем какой тип мы ожидаем и статически проверяем, что у этого типа есть такая функция.
+
+### Используйте ASSERT для проверок аргументов функций
+
+Если ваша функция расчитана на то, чтобы работать только с аргументами определенного типа или какими-то конкретными значениями - используйте ASSERT, чтобы явно это указать. Если, вдруг, случится так, что откуда-то в функцию приедет неожиданный аргумент - лучше сразу зарепортить об этом рантаймом и выйти из функции, чем пойти дальше, сделать что-то неожиданное и, может быть, даже не оставить следа о том, что фукнция сработала не так, как нужно.
+
+Имейте в виду, что ASSERT генерирует рантайм, что ведет к выходу из функции с возвратом null. Функция выше по стеку продолжит свое выполнение с полученным null.
+
+Плохой пример:
+
+```DM
+/datum/controller/subsystem/open_space/proc/add_turf(turf/T, ...)
+	if(!isturf(T))
+		return
+	...
+```
+
+Если мы в функцию `add_turf` передали аргументом не turf - это очевидный баг. С таким вариантом реализации этот баг останется незамеченным и он может привести к неожиданным проблемам. Но если мы напишем так:
+
+```DM
+/datum/controller/subsystem/open_space/proc/add_turf(turf/T, ...)
+	ASSERT(isturf(T))
+	...
+```
+
+То мы все также выйдем из функции, вернув null, но при этом запишем рантайм, который мы увидим в логах, благодаря чему сможем обнаружить и пофиксить изначальный баг, который приводит к тому, что сюда аргументом передается неверный тип.
+
+### Пути типов всегда должны начинаться с /
+
+Например: `/datum/thing`, вместо `datum/thing`
+
+### Пути типов всегда должны быть в нижнем регистре
+
+Например: `/datum/thing/blue`, вместо `datum/thing/BLUE` или `datum/thing/Blue`
+
+### Использование ключевого слова `var`
+
+Локальные переменные всегда определяйте в формате `var/type/name`, вместо `var type/name`. В аргументах функций оно избыточно, поэтому всегда опускаем и пишем просто `type/name`.
+
+### Табы vs пробелы
+
+Для индентации (отступ до текущего блока кода) всегда используем только табы. После индентации может быть выравнивание пробелами (не выравнивайте табами - иначе разъедется в редакторах с разной длиной таба).
+
+### Избегайте дублирования кода
+
+Когда вы копируете один и тот же код в разные места - появляется необходимость одинаково поддерживать этот код в двух местах. При любом изменении оригинального кода надо помнить о копии этого кода в другом месте и зачастую вносить изменения и туда.
+
+Чтобы избежать подобных проблем используйте наследование объектов друг от друга или же просто вынесите необходимую логику в отдельную функцию.
+
+### Предпочитайте `Initialize()` вместо `New()` для atom (объектов, размещаемых на карте).
+
+Контроллеры, используемые в нашей сборке, должны справляться с длительными операциями и лагами, но они не могут контролировать то, что происходит во время загрузки карты, когда для всех объектов вызывается New. Для любых новых объектов, без явной необходимости, используйте `Initialize`, чтобы сделать все, что вы хотели сделать в `New`. Это уменьшает количество функций вызываемых на этапе загрузки карты. Чтобы узнать больше про то, как работает `Initialize`, смотрите [`code/game/atoms.dm`](https://github.com/BlueMoon-Labs/BluemoonSector/blob/master/code/game/atoms_movable.dm)
+
+**NB:** Важно понимать то, как работают Initialize и последовательность их выполнения относительно New, иначе можно [словить приколы](https://github.com/ChaoticOnyx/OnyxBay/issues/3817). Initialize вызывается в /atom/New. Соответственно при создании объекта сначала вызывается New последнего типа в иерархии наследования. Дальше через ..() (если они, конечно, есть) последовательно вызываются New более ранних по иерархии типов вплоть до /atom/New, где вызывается /atom/Initialize, который точно также начинает выполняться с последнего переопределения в иерархии наследования объектов.
+
+Таким образом получается, что в любом New, все что находится после ..() - вызывается после всех Initialize в цепочке наследования, а все что написано до ..() - работает перед всеми Initialize в цепочке наследования. Из этого следует, что если в вашей иерархии типов перемешиваются New и Initialize, то порядок их вызова может быть немного непредсказуемым, что вызывает приколы вроде перезаписи переменной, которая определяется в чайлдовом типе, в Initialize, значением из родителького объекта, из New. Пример и подробный разбор такой баги можно [посмотреть здесь](https://github.com/ChaoticOnyx/OnyxBay/issues/3817).
+
+Если вы не очень поняли что написано выше, то просто следуйте одному простому правилу:
+
+**Старайтесь не перемешивать New и Initialize в иерархиях объектов. Если меняете один New на Initialize - меняйте сразу всей иерархии. Если в иерархии используются New, то проще использовать New в новом объекте этой иерархии**, однако в плане производительности - лучше переписать всю иерархию на Initialize.
+
+### Удаление объектов
+
+Все объекты должны всегда помечаться к удалению с помощью `qdel`.
+
+Использование `del` запрещено, так как эта функция запускает довольно требовательную процедуру поиска и обнуления ссылок на объект по всему коду.
+
+Просто "бросать" объекты без вызова `qdel` не рекомендуется, так как в таком случае не будет вызван Destroy, который, даже если еще не реализован для конкретного объекта, кто-то может захотеть добавить позже.
+
+Отдельно важно помнить про случаи с циклическими зависимостями, когда объекты хранят ссылки друг на друга циклически. Если такие объекты просто пометить к удалению через `qdel`, то объекты никогда не будут удалены, так как сборщик мусора будет ждать, пока ссылки на объекты закончатся (а наши объекты циклически указывают друг на друга - поэтому ссылки никогда не закончатся). В таком случае нужно делать не только помечать объекты к удалению через `qdel`, но и занулять какую-то часть ссылок так, чтобы избавиться от цикла. С помощью макроса `QDEL_NULL(obj)` можно одной строчкой пометить `obj` к удалению и занулить ссылку.
+
+Пример реализации циклических объектов:
+
+```DM
+/mob/living/simple_animal
+	...
+	var/datum/mob_ai/mob_ai
+
+/mob/living/simple_animal/Initialize()
+	. = ..()
+	mob_ai = new()		// simple_mob создает и владеет своим искусственным интеллектом
+	mob_ai.holder = src	// искусственному интеллекту нужно знать кем он управляет
+				// получили циклическую ссылку simple_mob <-> mob_ai объектов друг на друга
+
+/mob/living/simple_animal/Destroy()
+	QDEL_NULL(mob_ai)	// когда моба удаляют с карты нам нужно разорвать циклическую ссылку. Убиваем ссылку на mob_ai.
+				// в итоге на mob_ai больше никто в мире не ссылается, сборщик мусора его собирает, а следом собирает simple_mob.
+	// the same as:
+	// 	qdel(mob_ai)	// тоже самое, что делает макрос QDEL_NULL в раскрытом виде
+	// 	mob_ai = null
+
+	return ..()
+```
+
+### Перемещайте объекты с помощью forceMove(newpos)
+
+В отличие от `loc = newpos`, `forceMove` может переопределяться и в нем написано много важной логики, которая нужна при перемещении объектов из одного места в другое.
+
+### Не используйте магические значения
+
+В коде не должно быть "брошенных" числовых/строчных или каких-либо еще значений, смысл которых неясен из контекста или которые могут быть переиспользованы. Определяйте их через макрос, если они нужны в глобальном скоупе, или создавайте локальную переменную с понятным названием.
+
+Пример:
+
+```DM
+/datum/proc/do_the_thing(thing_to_do)
+	switch(thing_to_do)
+		if(1)
+			(...)
+		if(2)
+			(...)
+```
+
+Здесь неясно, что означают "1" и "2"! Вместо этого можно было бы написать:
+
+```DM
+#define DO_THE_THING_REALLY_HARD 1
+#define DO_THE_THING_EFFICIENTLY 2
+/datum/proc/do_the_thing(thing_to_do)
+	switch(thing_to_do)
+		if(DO_THE_THING_REALLY_HARD)
+			(...)
+		if(DO_THE_THING_EFFICIENTLY)
+			(...)
+```
+
+Так получается гораздо понятнее, что увеличивает читаемость вашего кода.
+
+Еще пример:
+
+```DM
+/datun/gamemode/proc/create_events()
+	events.Add(new /datum/event(90, list(/datum/role/hos)))
+	events.Add(new /datum/event(50, list(/datum/role/officer)))
+```
+
+В примере понятно, что мы задаем ивенты для какого-то игрового режима, однако непонятно что за аргументы передаются внутрь - это как раз "магические" значения. Чтобы сделать понятнее, можно, например, явно указать переменные, которые мы присваиваем:
+
+```DM
+/datun/gamemode/proc/create_events()
+	events.Add(new /datum/event(chance=90, requires_roles=list(/datum/role/hos)))
+	events.Add(new /datum/event(chance=50, requires_roles=list(/datum/role/officer)))
+```
+
+### Операторы контроля выполнения
+
+(if, while, for и другие)
+
+- Все операторы контроля выполнения не должны содержать другого кода на той же строчке (`if (blah) return`)
+- Все операторы контроля выполнения, сравнивающие переменную с каким-то значением, должны использовать формулу `переменная` `оператор` `значение`, не наоборот (например: `if (count <= 10)`, вместо `if (10 >= count)`)
+
+### Оператор in
+
+Оператор in имеет наименьший приоритет (это не указано в рефе), поэтому его всегда нужно заключать в скобки: `if(A && (A in foo_list))`.
+
+### Оператор as запрещено использовать в проках, не использующихся как verb
+
+Потому что не имеет смысла
+
+### Используйте макросы оформления текста SPAN_NOTICE, SPAN_WARNING, SPAN_DANGER и другие
+
+Вместо `to_chat(usr, "<span class="warning">[text]</span>")` используйте `to_chat(usr, SPAN_WARNING(text))`.
+
+### Используйте ранний return
+
+Не стоит строчить многоуровневые конструкции из блоков if, когда того же результата можно достичь ранним возвратом из функции
+
+Вот так делать не стоит:
+
+```DM
+/datum/datum1/proc/proc1()
+	if (thing1)
+		do stuff
+		if (!thing2)
+			do more stuff
+			if (thing3 == 30)
+				do extra stuff
+```
+
+А так уже лучше:
+
+```DM
+/datum/datum1/proc/proc1()
+	if (!thing1)
+		return
+	do stuff
+	if (thing2)
+		return
+	do more stuff
+	if (thing3 != 30)
+		return
+	do extra stuff
+```
+
+### TRUE/FALSE для логических значений
+
+Во всех случаях, когда нужно логическое значение, вместо 1/0 используйте TRUE/FALSE.
+
+### Global против static
+
+В DM есть ключевое слово global, которое используется в двух случаях:
+
+1. Внутри типа (или внутри функции) мы хотим определить переменную общую для всех объектов этого типа (для всех вызовов этой функции). (http://www.byond.com/docs/ref/#/var/global).
+2. Внутри функции мы хотим использовать переменную из глобального скоупа, когда у нас в локальном скоупе уже есть переменная с таким же названием. (http://www.byond.com/docs/ref/#/proc/var/global) Так использовать global не стоит! См. следующее правило.
+
+Так как в первом случае речь идет не о видимости переменной, а том, что она общая для разных экземпляров типа (вызовов функции), то название ключевого слова global может кого-то запутать. Поэтому вместо него в первом случае мы стараемся использовать ключевое слово static, которое отсутствует в документации, но полностью заменяет global в этом случае и лучше описывает суть происходящего.
+
+Отдельно обратите внимание, что все переменные в BYOND имеют глобальную видимость с точки зрения доступа, поэтому global (и static) в глобальном скоупе не имеет смысла и запрещено.
+
+### Избегайте глобальных переменных
+
+Главная проблема глобальных переменных в том, что чем больше они используются, тем сложнее понять логику их изменения и поведения процессов, которые от них зависят. Поэтому глобальные переменные лучше вовсе не использовать. Однако, если вам все-таки очень нужна глобальная переменная, то, как минимум, создавайте их на контроллере глобальных переменных, что даст чуть больше возможностей для их дебага:
+
+Там все просто - вместо глобальных перменных нужно всегда использовать макросы (ну и конечно же лучше всего вообще не использовать глобальные переменные). Пример с тг:
+
+Вместо:
+
+```DM
+var/X
+var/list/Y
+var/datum/genitalia/Z
+var/A = 42
+var/list/B = list(burn = "witch")
+var/datum/genitalia/C = MakeAPenis()
+var/hub_password
+```
+
+Используйте:
+
+```DM
+GLOBAL_VAR(X)
+GLOBAL_LIST(Y)
+GLOBAL_DATUM(Z, /datum/genitalia)
+GLOBAL_VAR_INIT(A, 42)
+GLOBAL_LIST_INIT(B, list(burn = "witch"))
+GLOBAL_DATUM_INIT(C, /datum/genitalia, MakeAPenis())
+GLOBAL_PROTECT(hub_password)
+```
+
+### Избегайте использования генераторов списков
+
+`range()`, `view()`, `hearers()`, `locate() [in world]`, `for(... [in world])` и подобные операции очень требовательные в плане производительности, поэтому должны импользоваться как можно реже. Зачастую их можно заменить глобальным списком объектов нужного типа.
+
+### alert() и input(): изменение контекста после вызова
+
+`alert()` и `input()` ждут реакции пользователя и пока они ждут, все окружение может поменяться: поля объекта, переменные вокруг и т.д. Учитывайте это и добавляйте дополнительные проверки по необходимости.
+
+### addtimer() вместо spawn()/sleep()
+
+Практика показывает, что `addtimer` лучше оптимизирован, чем встроенные spawn и sleep, плюс код, написанный с его использованием, гораздо проще дебажить.
+
+## Разработка безопасного кода
+
+- Всегда относитель к пользовательскому вводу так, как будто он намеренно пытается все сломать. Проверяйте пользовательский ввод на все случаи, которые не соответсвуют ожиданиям вашего кода. Для чисел проверяйте границы, для строк используйте escape-функции. Обратите внимание на функцию `sanitize`, которой удобно эскейпить вообще любой `input`, чтобы избежать ввод какого-то кода, который выполнится в браузере.
+- Обязательно эскейптьте все команды к базе данных - используйте `sql_query` чтобы обработать весь текст от игроков и админов перед тем как передавать его в базу данных. Для чисел используйте `isnum`.
+- Все вызовы топиков обязательно нужно проверять на их корректность. Такие вызовы могут быть подделаны со стороны клиента, поэтому их содержимым может быть что угодно!
+- Скрывайте от игроков любую информацию, которая может быть использована для метагейма (даже такую простую, как количество игроков, которые нажали Declare, так как даже она может быть использована, чтобы вычислить текущий режим).
+- Когда вы пишите код, который может каким-то образом влиять на раунд и генерировать _ВЕСЕЛЬЕ_, дважды проверьте, что такой функционал будет доступен только админам соответствующего ранга.
+- Не используйте `locate()` для глобального поиска экземпляра типа который может быть удалён в процессе игры. Эта функция может вернуть экземпляр который находится в процессе удаления но не до конца удалён. Вместо этого лучше держать список с ещё не удаленными объектами и искать в нём (`locate() in objects_list`).
+
+## Файлы
+
+- Рантаймы не содержат полного пути до файла - поэтому избегайте одинаковых названий файлов даже в разных папках.
+- Названия файлов не должны содержать пробелов или символов, которые придется эскейпить, указывая uri.
+- Названия файлов и все пути всегда должны быть в нижнем регистре, чтобы избежать проблем, связанных с разным отношением к регистру в разных операционных системах.
+
+## Фишки и лайфхаки Dream Maker
+
+Как и любые другие языки, в BYOND есть свои особенности, которые стоит учитывать, чтобы писать более эффективный код. Тут описаны некоторые из них.
+
+### In-To for-loops
+
+`for(var/i = 1, i <= some_value, i++)` является стандартным способом писать циклы во многих языках программирования, однако в BYOND, внезапно, `for(var/i in 1 to some_value)` оказывается быстрее в плане производительности. (Обратите внимание, что `to` включает и левую, и правую границу).
+
+ОДНАКО, если `some_value` или `i` меняются в течение цикла, или вы итерируете по элементам списка, длина которого изменяется, вы НЕ можете использовать этот тип цикла for.
+
+### "Объединение переменных" с помощью оператора ||
+
+Оператор (A || B) возвращает выражение A или B без изменений их значений. Этот факт можно использовать, чтобы кратким образом подставить B вместо нулевого (или ложного) A.
+
+Пример:
+
+```dm
+obj.name = some_name || "Unknown"
+```
+
+Этот код полностью аналогичен следующему:
+
+```dm
+if (some_name):
+    obj.name = some_name
+else
+    obj.name = "Unknown"
+```
+
+Если some_name - это имеет ложное значение, то obj.name будет присвоено значение "Unknown".
+
+Начиная с версии 514 в BYOND добавили сокращенную версию оператора: A ||= B.
+
+### "Краткое условное выражение" через оператор &&
+
+Аналогичным образом работает и оператор &&, благодаря чему можно писать условия в одну строчку. Такое сокращение не настолько полезно, как предыдущее, но тоже может использоваться в разных ситуациях.
+
+Пример:
+
+```dm
+var/obj/a = some_object
+istype(a) && a.foo()
+```
+
+Этот пример равнозначен коду:
+
+```dm
+var/obj/a = some_object
+if(istype(a))
+    a.foo()
+```
+
+Начиная с версии 514 в BYOND добавили сокращенную версию оператора: A &&= B.
+
+### Циклы с "as anything()" или "as()"
+
+По дефолту BYOND проверяет в рантайме тип элемента при итерации по списку:
+
+```dm
+for(var/obj/item/projectile/O in weapon.content)
+```
+
+В этом примере из списка `content` будут отобраны только объекты типа `/obj/item/projectile` (объекты других типов будут пропущены), но ради такого поведения BYOND будет неявно проверять тип в каждой итерации, что влияет на перфоманс. Обычно это не очень критично, но если цикл вызывается часто или в нем много элементов, то такие циклы есть смысл оптимизировать.
+
+**as anything()** позволяет избавиться от неявной проверки типа:
+
+```dm
+for(var/obj/item/projectile/O as anything() in weapon.content)
+```
+
+Теперь проверки на тип не будет и обрабатываться будут все объекты из списка. Если случайно в списке окажется объект не являющийся `/obj/item/projectile`, то если вы попытаетесь вызывать методы `/obj/item/projectile` у такого объекта, то вы получите runtime ошибку. Таким образом следить за типом объектов в списке нужно самостоятельно, но цикл будет работать быстрее.
+
+Заметим, что следующие циклы равнозначны по своей логике работы:
+
+```dm
+for(var/obj/item/projectile/O in weapon.content)
+    ...
+
+for(var/obj/item/projectile/O as anything() in weapon.content)
+    if(!istype(O))  // "лишняя" проверка, от которой можно избавиться,
+                    // если мы знаем, что в weapon.content могут храниться только /obj/item/projectile
+        continue
+    ...
+```
+
+Также вместо **as anything()** можно писать просто **as()**.

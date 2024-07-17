@@ -1,0 +1,8 @@
+#ifndef MODPACK_BLUEMOON_EXAMPLE
+#define MODPACK_BLUEMOON_EXAMPLE
+
+#include "_example.dm"
+
+#include "code/example.dm"
+
+#endif

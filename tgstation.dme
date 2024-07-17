@@ -393,6 +393,7 @@
 #include "code\__DEFINES\traits\declarations.dm"
 #include "code\__DEFINES\traits\macros.dm"
 #include "code\__DEFINES\traits\sources.dm"
+#include "code\__DEFINES\~bluemoon_defines\example.dm"
 #include "code\__DEFINES\~nova_defines\_organ_defines.dm"
 #include "code\__DEFINES\~nova_defines\access.dm"
 #include "code\__DEFINES\~nova_defines\actionspeed_modification.dm"
@@ -8506,3 +8507,6 @@
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\spitter.dm"
 #include "modular_nova\modules\xenos_nova_redo\code\xeno_types\warrior.dm"
 // END_INCLUDE
+
+// MODULAR_BLUEMOON
+#include "modular_bluemoon\modular_bluemoon.dme"
