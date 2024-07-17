@@ -1110,7 +1110,6 @@
 					. += overlay.get_overlay(external_layer, src)
 			for(var/datum/layer in .)
 				overlay.modify_bodypart_appearance(layer)
-
 	// NOVA EDIT ADDITION BEGIN - MARKINGS CODE
 	var/override_color
 	var/atom/offset_spokesman = owner || src
@@ -1166,7 +1165,7 @@
 				. += accessory_overlay
 				if (emissive)
 					. += emissive
-	// NOVA EDIT END - MARKINGS CODE END
+	// NOVA EDIT ADDITION END - MARKINGS CODE END
 	return .
 
 /obj/item/bodypart/proc/huskify_image(image/thing_to_husk, draw_blood = TRUE)
