@@ -202,10 +202,6 @@
 
 //Changing color of shibari stand
 /obj/structure/chair/shibari_stand/click_ctrl(mob/user)
-	. = ..()
-	if(. == FALSE)
-		return FALSE
-
 	var/list/allowed_configs = list()
 	allowed_configs += "[greyscale_config]"
 	var/datum/greyscale_modify_menu/menu = new(
@@ -216,7 +212,7 @@
 	)
 	menu.ui_interact(usr)
 	to_chat(user, span_notice("You switch the frame's plastic fittings color."))
-	return TRUE
+	return CLICK_ACTION_SUCCESS
 
 /obj/structure/chair/shibari_stand/examine(mob/user)
 	. = ..()
