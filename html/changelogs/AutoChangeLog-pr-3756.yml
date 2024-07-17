@@ -1,0 +1,4 @@
+author: "Kocma-san"
+delete-after: True
+changes:
+  - qol: "added disposal unit to medbay storage on voidraptor"
