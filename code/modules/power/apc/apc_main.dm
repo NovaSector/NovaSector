@@ -595,7 +595,7 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD)
+		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD) // turn off equipment // NOVA EDIT CHANGE - turns off lighting
 			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - orig: AUTOSET_OFF
 			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - orig: AUTOSET_ON
 			environ = autoset(environ, AUTOSET_ON)
@@ -657,11 +657,11 @@
 	var/need_charge_for_channel
 	switch(channel)
 		if(SSMACHINES_APCS_ENVIRONMENT)
-			need_charge_for_channel = (cell.maxcharge * 0.05) - cell.charge
+			need_charge_for_channel = (cell.maxcharge * 0.03) - cell.charge // NOVA EDIT CHANGE - Original: (cell.maxcharge * 0.05) - cell.charge
 		if(SSMACHINES_APCS_LIGHTS)
-			need_charge_for_channel = (cell.maxcharge * (APC_CHANNEL_LIGHT_TRESHOLD + 5) * 0.01) - cell.charge
+			need_charge_for_channel = (cell.maxcharge * (APC_CHANNEL_LIGHT_TRESHOLD + 3) * 0.01) - cell.charge // NOVA EDIT CHANGE - Original: (cell.maxcharge * (APC_CHANNEL_LIGHT_TRESHOLD + 5) * 0.01) - cell.charge
 		if(SSMACHINES_APCS_EQUIPMENT)
-			need_charge_for_channel = (cell.maxcharge * (APC_CHANNEL_EQUIP_TRESHOLD + 5) * 0.01) - cell.charge
+			need_charge_for_channel = (cell.maxcharge * (APC_CHANNEL_EQUIP_TRESHOLD + 3) * 0.01) - cell.charge // NOVA EDIT CHANGE - Original: (cell.maxcharge * (APC_CHANNEL_LIGHT_TRESHOLD + 5) * 0.01) - cell.charge
 		else
 			need_charge_for_channel = cell.used_charge()
 
