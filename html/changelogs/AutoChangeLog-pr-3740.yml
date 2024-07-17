@@ -1,0 +1,6 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "some things such as towels can once again be ctrl clicked"
+  - bugfix: "certain togglable clothes properly update their appearance while worn"
+  - bugfix: "frontier jumpsuit sensors work properly, they're enabled to max by default"
