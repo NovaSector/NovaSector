@@ -334,6 +334,7 @@
 
 */
 // NOVA EDIT REMOVAL END
+/* // NOVA EDIT REMOVAL START
 /datum/uplink_item/role_restricted/blastcannon
 	name = "Blast Cannon"
 	desc = "A highly specialized weapon, the Blast Cannon is actually relatively simple. It contains an attachment for a tank transfer valve mounted to an angled pipe specially constructed \
@@ -345,6 +346,8 @@
 	cost = 14 //High cost because of the potential for extreme damage in the hands of a skilled scientist.
 	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
 	surplus = 5
+*/
+// NOVA EDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/evil_seedling
 	name = "Evil Seedling"
