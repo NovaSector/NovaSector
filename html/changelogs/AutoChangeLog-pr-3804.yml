@@ -1,0 +1,4 @@
+author: "dis-integrates-the-integration-tests"
+delete-after: True
+changes:
+  - bugfix: "Minor Hotdoggo-Vend typo fix"

@@ -17,7 +17,7 @@
 #define EFFECT_PROB_VERYHIGH 95
 
 #define FAIL 8
-/obj/machinery/rnd/experimentor//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/rnd/experimentor
 	name = "\improper E.X.P.E.R.I-MENTOR"
 	desc = "A \"replacement\" for the destructive analyzer with a slight tendency to catastrophically fail."
 	icon = 'icons/obj/machines/experimentator.dmi'
@@ -616,6 +616,12 @@
 			PROC_REF(uncontrolled_teleport),
 			PROC_REF(heat_and_explode),
 			PROC_REF(rapid_self_dupe),
+			PROC_REF(drink_dispenser),
+			PROC_REF(tummy_ache),
+			PROC_REF(charger),
+			PROC_REF(hugger),
+			PROC_REF(dimensional_shift),
+			PROC_REF(disguiser),
 			)
 
 /obj/item/relic/attack_self(mob/user)
@@ -721,8 +727,6 @@
 		throw_smoke(get_turf(user))
 		warn_admins(user, "Teleport", 0)
 
-<<<<<<< HEAD
-=======
 // Creates a glass and fills it up with a drink.
 /obj/item/relic/proc/drink_dispenser(mob/user)
 	var/obj/item/reagent_containers/cup/glass/drinkingglass/freebie = new(get_step_rand(user))
@@ -736,12 +740,12 @@
 
 // Scrambles your organs. 33% chance to delete after use.
 /obj/item/relic/proc/tummy_ache(mob/user)
-	new /obj/effect/temp_visual/bioscrambler_wave/light(get_turf(src))
+	new /obj/effect/temp_visual/circle_wave/bioscrambler/light(get_turf(src))
 	to_chat(user, span_notice("Your stomach starts growling..."))
 	addtimer(CALLBACK(src, PROC_REF(scrambliticus), user), rand(1 SECONDS, 3 SECONDS)) // throw it away!
 
 /obj/item/relic/proc/scrambliticus(mob/user)
-	new /obj/effect/temp_visual/bioscrambler_wave(get_turf(src))
+	new /obj/effect/temp_visual/circle_wave/bioscrambler/light(get_turf(src))
 	playsound(src, 'sound/magic/cosmic_energy.ogg', vol = 50, vary = TRUE)
 	for(var/mob/living/carbon/nearby in hearers(2, src))
 		nearby.bioscramble(name)
@@ -884,7 +888,6 @@
 	new_costume.item_flags |= DROPDEL
 	return new_costume
 
->>>>>>> 0863a5d7dfc (Fixed new charger power not working (#84897))
 //Admin Warning proc for relics
 /obj/item/relic/proc/warn_admins(mob/user, relic_type, priority = 1)
 	var/turf/location = get_turf(src)
