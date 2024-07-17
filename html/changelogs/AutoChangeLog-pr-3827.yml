@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - bugfix: "Plug tails (and scorpion plug) no longer enter stealth mode when they wag. (They dont wag anymore)."
