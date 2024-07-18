@@ -138,7 +138,7 @@
 	return sprite_datum.color_layer_names
 
 /datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	if(layer == -(UNIFORM_LAYER - 0.01) || layer == -(UNIFORM_LAYER + 0.02))
+	if(layer == -(UNIFORM_LAYER - 0.01) || layer == -(UNIFORM_LAYER + 0.03))
 		return "FRONT"
 	else
 		return ..()
@@ -152,7 +152,7 @@
 		if(underwear_check() == FALSE)
 			return -(UNIFORM_LAYER - 0.01)
 		else
-			return -(UNIFORM_LAYER + 0.02)
+			return -(UNIFORM_LAYER + 0.03)
 	else
 		return ..()
 
