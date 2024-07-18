@@ -217,6 +217,62 @@
 	can_adjust = FALSE //There wasnt an adjustable sprite anyways
 	has_sensor = HAS_SENSORS	//Actually has sensors, to balance the new lack of armor
 
+// Donation reward for Thedragmeme
+/obj/item/clothing/neck/padded
+	name = "feathered serenity cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design embodies the philosophies of the followers of Univitarium"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	icon_state = "paddedscarf"
+	inhand_icon_state = "paddedscarf"
+
+/obj/item/clothing/neck/padded/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/toggle_attached_clothing,\
+		deployable_type = /obj/item/clothing/head/hooded/padded,\
+		equipped_slot = ITEM_SLOT_HEAD,\
+		action_name = "Toggle Hood",\
+		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
+	)
+//Bandaid fix because obscurity is broken D:
+/obj/item/clothing/neck/padded/proc/on_deployed()
+	var/mob/wearer = loc
+	wearer.update_body()
+
+/obj/item/clothing/head/hooded/padded
+	name = "feathered serenity hood"
+	icon_state = "paddedhood"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	clothing_flags = SNUG_FIT
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+
+// Donation reward for Thedragmeme
+/obj/item/clothing/under/padded
+	name = "feathered serenity suit"
+	desc = "A meticulously handcrafted suit that is lined on the inside with feathers and down."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	icon_state = "paddedsuit"
+	inhand_icon_state = "paddedsuit"
+
+/obj/item/clothing/shoes/jackboots/padded
+	name = "serenity jackboots"
+	desc = "Thick boots that is lined with feathers and down. Good footwear almost anticipating harsh weather."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	icon_state = "paddedboots"
+	inhand_icon_state = "paddedboots"
+
+obj/item/clothing/gloves/padded
+	name = "serenity gloves"
+	desc = ""
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	icon_state = "paddedgloves"
+	inhand_icon_state = "paddedgloves"
+
 /datum/armor/clothing_under/none
 
 /obj/item/clothing/shoes/jackboots/heel
