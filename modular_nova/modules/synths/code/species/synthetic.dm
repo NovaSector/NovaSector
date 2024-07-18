@@ -150,9 +150,12 @@
 		UnregisterSignal(human, COMSIG_LIVING_DEATH)
 
 /datum/species/synthetic/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(old_stomach.is_oversized) // don't override augments that are already oversized
+		return
+
 	var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
 
-	var/obj/item/organ/internal/stomach/synth/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	oversized_quirk.old_organs += list(old_stomach)
 
 	if(new_synth_stomach.Insert(human_holder, special = TRUE))

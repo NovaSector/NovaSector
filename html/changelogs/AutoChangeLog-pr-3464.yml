@@ -1,0 +1,10 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - rscadd: "Added 5 unique turrets and one \"better\" reskin of a turret"
+  - rscadd: "Added 1 new target designator."
+  - rscadd: "Added 5 turret assemblies to make existing and new turrets when found."
+  - rscadd: "Added 2 new ruins for turrets, Available on icemap and in space!"
+  - rscadd: "Added a research node locked behind tarkon tech to print tarkon turrets."
+  - bugfix: "Deployable Magfed turrets are deployable again."
+  - image: "added sprites for added items."
