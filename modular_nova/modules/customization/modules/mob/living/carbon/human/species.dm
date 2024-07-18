@@ -174,7 +174,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(bra)
 				var/mutable_appearance/bra_overlay
 				var/icon_state = bra.icon_state
-				bra_overlay = mutable_appearance(bra.icon, icon_state, -(UNIFORM_LAYER + 0.01))
+				bra_overlay = mutable_appearance(bra.icon, icon_state, -(UNIFORM_LAYER + 0.015))
 				if(!bra.use_static)
 					bra_overlay.color = species_human.bra_color
 				standing += bra_overlay
@@ -198,7 +198,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				var/icon_state = socks.icon_state
 				if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 					icon_state += "_d"
-				socks_overlay = mutable_appearance(socks.icon, icon_state, -(UNIFORM_LAYER + 0.01))
+				socks_overlay = mutable_appearance(socks.icon, icon_state, -(UNIFORM_LAYER + 0.015))
 				if(!socks.use_static)
 					socks_overlay.color = species_human.socks_color
 				standing += socks_overlay
