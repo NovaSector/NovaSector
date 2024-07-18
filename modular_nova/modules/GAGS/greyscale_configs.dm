@@ -1875,3 +1875,16 @@ TREK
 /datum/greyscale_config/loincloth_alt/worn
 	name = "Shorter Loincloth (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/loincloth_alt_worn.json'
+
+/*
+*	DONKSOFT TURRET
+*/
+
+/datum/greyscale_config/turret
+	name = "Donksoft Turret (Deployed)"
+	icon_file = 'modular_nova/modules/magfed_turret/icons/turrets/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/turret/turret.json'
+
+/datum/greyscale_config/turret/toolbox
+	name = "Donksoft Turret"
+	json_config = 'modular_nova/modules/GAGS/json_configs/turret/turret_toolbox.json'
