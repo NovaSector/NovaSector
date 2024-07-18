@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - rscadd: "standing on a closed crate now gives loud mode"

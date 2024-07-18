@@ -1,9 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - balance: "synthetics now have about the capacity of a tier two power cell (200 kj)"
-  - balance: "borg rechargers are 4x faster (to bring them in-line with normal cell chargers again)"
-  - bugfix: "synthetics can charge from cells and borg chargers again"
-  - bugfix: "synthetics will be able to fully deplete cells (not APCs) they try to charge from"
-  - qol: "synth charging has been reshuffled to act more logically with better feedback"
-  - bugfix: "wall space heaters have been adjusted in scale with normal space heaters again"
