@@ -443,6 +443,9 @@
 	var/obj/item/tickle_feather/tickler = new /obj/item/tickle_feather()
 	borg.model.basic_modules += tickler
 	borg.model.add_module(tickler, FALSE, TRUE)
+	var/obj/item/clothing/sextoy/fleshlight/fleshlight = new /obj/item/clothing/sextoy/fleshlight()
+	borg.model.basic_modules += fleshlight
+	borg.model.add_module(fleshlight, FALSE, TRUE)
 
 /obj/item/borg/upgrade/dominatrixmodule/deactivate(mob/living/silicon/robot/borg, user = usr)
 	. = ..()
@@ -457,3 +460,5 @@
 		borg.model.remove_module(spanker, TRUE)
 	for(var/obj/item/tickle_feather/tickler in borg.model.modules)
 		borg.model.remove_module(tickler, TRUE)
+	for(var/obj/item/clothing/sextoy/fleshlight/fleshlight in borg.model.modules)
+		borg.model.remove_module(fleshlight, TRUE)
