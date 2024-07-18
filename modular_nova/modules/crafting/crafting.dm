@@ -64,7 +64,7 @@
 /datum/crafting_recipe/armband/blue
 	name = "Blue Armband"
 	reqs = list(/obj/item/stack/sheet/cloth = 1,)
-	result = /datum/loadout_item/accessory/armband_security_nonsec
+	result = /obj/item/clothing/accessory/armband/deputy/lopland/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
 	category = CAT_CLOTHING
