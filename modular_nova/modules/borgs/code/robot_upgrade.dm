@@ -8,7 +8,7 @@
 /obj/item/borg/upgrade/surgerytools
 	name = "medical cyborg advanced surgery tools"
 	desc = "An upgrade to the Medical model cyborg's surgery loadout, replacing non-advanced tools with their advanced counterpart."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_medical"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/medical)
 	model_flags = BORG_MODEL_MEDICAL
@@ -108,7 +108,7 @@
 /obj/item/borg/upgrade/advanced_materials
 	name = "engineering advanced materials processor"
 	desc = "allows a cyborg to synthesize and store advanced materials"
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_engineer"
 	model_type = list(/obj/item/robot_model/engineering)
 	model_flags = BORG_MODEL_ENGINEERING
 
@@ -150,7 +150,7 @@
 /obj/item/borg/upgrade/welder
 	name = "mining cyborg welder upgrade"
 	desc = "A normal welder with a larger tank for cyborgs."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_engineering"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/miner)
 	model_flags = BORG_MODEL_MINER
@@ -228,7 +228,7 @@
 /obj/item/borg/upgrade/better_clamp
 	name = "improved integrated hydraulic clamp"
 	desc = "An improved hydraulic clamp to allow for bigger packages to be picked up as well!"
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_cargo"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/cargo)
 	model_flags = BORG_MODEL_CARGO
@@ -264,7 +264,7 @@
 /obj/item/borg/upgrade/borg_shapeshifter
 	name = "Cyborg Shapeshifter Module"
 	desc = "An experimental device which allows a cyborg to disguise themself into another type of cyborg."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_general"
 
 /obj/item/borg/upgrade/borg_shapeshifter/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -283,7 +283,7 @@
 /obj/item/borg/upgrade/affectionmodule
 	name = "borg affection module"
 	desc = "A module that upgrades the ability of borgs to display affection."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_peace"
 
 /obj/item/borg/upgrade/affectionmodule/action(mob/living/silicon/robot/borg)
 	. = ..()
@@ -367,7 +367,7 @@
 /obj/item/borg/upgrade/shrink
 	name = "borg shrinker"
 	desc = "A cyborg resizer, it makes a cyborg small."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_general"
 
 /obj/item/borg/upgrade/shrink/action(mob/living/silicon/robot/borg, user = usr)
 	. = ..()
@@ -408,7 +408,7 @@
 /obj/item/borg/upgrade/transform/syndicatejack
 	name = "borg module picker (Syndicate)"
 	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/syndicatejack
 
 /obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
@@ -419,7 +419,7 @@
 /obj/item/borg/upgrade/dominatrixmodule
 	name = "borg dominatrix module"
 	desc = "A module that greatly upgrades the ability of borgs to display affection."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_lust"
 	custom_price = 0
 
 /obj/item/borg/upgrade/dominatrixmodule/action(mob/living/silicon/robot/borg)
