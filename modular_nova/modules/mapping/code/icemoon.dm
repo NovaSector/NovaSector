@@ -29,7 +29,7 @@
 /datum/map_template/ruin/icemoon/nova/turret_bunker
 	name = "Ice-ruin Surface Geological Research Bunker"
 	id = "turret_bunker"
-	description = "A ramshackled research bunker for geological survey on the icemoon. Its inhabitants, however, forgot to scrub their turret's AI after an electrical event."
+	description = "A ramshackle research bunker for geological survey on the icemoon. Its inhabitants, however, forgot to scrub their turret's AI after an electrical event."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_turretbunker.dmm"
 	allow_duplicates = FALSE

@@ -35,7 +35,7 @@
 	design_ids = list(
 		"hoplite_assembly",
 		"cerberus_assembly",
-		"target_designator"
+		"target_designator",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
 
@@ -95,7 +95,7 @@
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 10,
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4,
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
 		)
 	build_path = /obj/item/turret_assembly/hoplite
 	category = list(
