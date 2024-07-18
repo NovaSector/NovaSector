@@ -111,8 +111,8 @@
 	vision_flags = initial(glasses_type.vision_flags)
 	//initial does not currently work on lists so we must do this
 	var/obj/item/clothing/glasses/hud/ar/glasses_object = new glasses_type // make a temporary glasses obj
-	hud_types = glasses_object.hud_types
 	clothing_traits = glasses_object.clothing_traits // pull the list from the created obj
+	hud_types = glasses_object.hud_types // same here
 	qdel(glasses_object) // delete the object
 
 /obj/item/clothing/glasses/hud/ar/proc/disable_vars(mob/user)
