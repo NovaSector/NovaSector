@@ -595,9 +595,9 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD) // turn off equipment // NOVA EDIT CHANGE - turns off lighting
-			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - orig: AUTOSET_OFF
-			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - orig: AUTOSET_ON
+		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD) // turn off equipment // NOVA EDIT COMMENT - Changed to turn off lighting instead
+			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - Original: equipment = autoset(equipment, AUTOSET_OFF)
+			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - Original: lighting = autoset(lighting, AUTOSET_ON)
 			environ = autoset(environ, AUTOSET_ON)
 			alarm_manager.send_alarm(ALARM_POWER)
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
