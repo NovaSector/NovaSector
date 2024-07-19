@@ -15,7 +15,7 @@
 
 /datum/crafting_recipe/armband/cargo
 	name = "Brown Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/cargo/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
@@ -23,7 +23,7 @@
 
 /datum/crafting_recipe/armband/purple
 	name = "Purple Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/science/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
@@ -31,7 +31,7 @@
 
 /datum/crafting_recipe/armband/orange
 	name = "Orange Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/engine/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
@@ -39,7 +39,7 @@
 
 /datum/crafting_recipe/armband/green
 	name = "Green-Blue Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/hydro/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
@@ -47,7 +47,7 @@
 
 /datum/crafting_recipe/armband/white
 	name = "White Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/med/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
@@ -55,7 +55,7 @@
 
 /datum/crafting_recipe/armband/white_blue
 	name = "White-Blue Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/medblue/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
@@ -63,7 +63,7 @@
 
 /datum/crafting_recipe/armband/blue
 	name = "Blue Armband"
-	reqs = list(/obj/item/stack/sheet/cloth = 1,)
+	reqs = list(/obj/item/stack/sheet/cloth = 1)
 	result = /obj/item/clothing/accessory/armband/deputy/lopland/nonsec
 	tool_paths = list(/obj/item/toy/crayon/spraycan)
 	time = 3 SECONDS
