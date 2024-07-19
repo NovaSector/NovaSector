@@ -82,6 +82,10 @@
 		if(old_brain)
 			old_brain.moveToNullspace()
 			STOP_PROCESSING(SSobj, old_brain)
+	if(old_stomach.is_oversized) // don't override augments that are already oversized
+		oversized_quirk.old_organs -= old_stomach
+		qdel(new_slime_stomach)
+		return
 	if(new_slime_stomach.Insert(human_holder, special = TRUE))
 		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
 		if(old_stomach)
