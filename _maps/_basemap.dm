@@ -18,6 +18,7 @@
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
 		#include "map_files\Ouroboros\Ouroboros.dmm"
+		#include "map_files\SerenityStation\SerenityStation.dmm"
 		// NOVA EDIT END
 		#ifdef CIBUILDING
 			#include "templates.dm"

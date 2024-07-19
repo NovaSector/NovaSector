@@ -3185,6 +3185,7 @@
 	dir = 10
 	},
 /obj/structure/sign/poster/contraband/random/directional/west,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/drone_bay)
 "aUC" = (
@@ -27677,9 +27678,7 @@
 /area/station/service/chapel)
 "hXI" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	piping_layer = 2
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer2,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_edge,
 /area/station/science/ordnance)
@@ -31537,6 +31536,7 @@
 	},
 /obj/effect/landmark/start/shaft_miner,
 /obj/machinery/light/directional/east,
+/obj/structure/sign/departments/exodrone/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/miningoffice)
 "jaz" = (
@@ -36867,6 +36867,10 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/bot,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/storage)
 "kyQ" = (
@@ -41814,6 +41818,9 @@
 "lOd" = (
 /obj/effect/spawner/random/maintenance/four,
 /obj/effect/spawner/random/entertainment/money,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
 "lOi" = (
@@ -49848,7 +49855,7 @@
 	pixel_x = -32;
 	pixel_y = 27
 	},
-/obj/machinery/incident_display/delam/directional/south,
+/obj/machinery/incident_display/bridge/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "nYj" = (
@@ -50410,6 +50417,12 @@
 /obj/structure/table/wood,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/blueshield)
+"ohl" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/closed/wall,
+/area/station/maintenance/department/medical)
 "ohz" = (
 /obj/machinery/light/cold/directional/north,
 /obj/effect/turf_decal/trimline/white/end,
@@ -51354,7 +51367,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},
@@ -54744,6 +54756,12 @@
 	dir = 8
 	},
 /area/station/hallway/primary/central/aft)
+"pol" = (
+/obj/structure/disposalpipe/junction/flip{
+	dir = 2
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/department/medical)
 "por" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 9
@@ -110468,7 +110486,7 @@ xtu
 hkM
 hkM
 xtu
-xtu
+pol
 xtu
 fpl
 gqB
@@ -110982,7 +111000,7 @@ gJm
 eiV
 sAM
 sAM
-sAM
+ohl
 kOq
 uyk
 tNX

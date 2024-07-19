@@ -3708,9 +3708,7 @@
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "bfT" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	piping_layer = 2
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer2,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance)
@@ -74518,9 +74516,8 @@
 /area/station/ai_monitored/turret_protected/aisat/equipment)
 "vDN" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 8;
-	piping_layer = 4
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4{
+	dir = 8
 	},
 /obj/machinery/firealarm/directional/east,
 /obj/effect/turf_decal/tile/blue{
