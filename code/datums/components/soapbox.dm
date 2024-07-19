@@ -16,13 +16,8 @@
 ///Applies loud speech to our movable when entering the turf our parent is on
 /datum/component/soapbox/proc/on_loc_entered(datum/source, atom/movable/soapbox_arrive)
 	SIGNAL_HANDLER
-<<<<<<< HEAD
-	if(QDELETED(soapbox_arrive)) // nova edit addition
-		return // nova edit addition
-=======
 	if(QDELETED(soapbox_arrive))
 		return
->>>>>>> 2ca8d592477 (Fixes soapbox hard dels (#85044))
 	RegisterSignal(soapbox_arrive, COMSIG_MOB_SAY, PROC_REF(soapbox_speech))
 	soapboxers += soapbox_arrive
 
