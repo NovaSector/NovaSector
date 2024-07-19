@@ -168,7 +168,6 @@
 	icon_state = "aviator_sec"
 	off_state = "aviator_sec_flash"
 	flash_protect = FLASH_PROTECTION_NONE
-	hud_types = list(DATA_HUD_SECURITY_ADVANCED)
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
 	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
@@ -180,7 +179,6 @@
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_med"
 	flash_protect = FLASH_PROTECTION_NONE
-	hud_types = list(DATA_HUD_MEDICAL_ADVANCED)
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
@@ -201,8 +199,7 @@
 	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_diagnostic"
 	flash_protect = FLASH_PROTECTION_NONE
-	hud_types = list(DATA_HUD_DIAGNOSTIC_BASIC)
-	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
+	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_BOT_PATH_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
 // Science Aviators
@@ -267,20 +264,17 @@
 /obj/item/clothing/glasses/hud/ar/projector/health
 	name = "retinal projector health HUD"
 	icon_state = "projector_med"
-	hud_types = list(DATA_HUD_MEDICAL_ADVANCED)
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/security
 	name = "retinal projector security HUD"
 	icon_state = "projector_sec"
-	hud_types = list(DATA_HUD_SECURITY_ADVANCED)
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 	name = "retinal projector diagnostic HUD"
 	icon_state = "projector_diagnostic"
-	hud_types = list(DATA_HUD_DIAGNOSTIC_BASIC)
-	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
+	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_BOT_PATH_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/science
 	name = "science retinal projector"

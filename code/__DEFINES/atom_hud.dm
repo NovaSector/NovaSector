@@ -76,7 +76,6 @@
 #define DATA_HUD_FAN 10
 #define DATA_HUD_MALF_APC 11
 #define DATA_HUD_PERMIT 12 //NOVA EDIT
-#define DATA_HUD_DNR 13 // NOVA EDIT
 
 /// cooldown for being shown the images for any particular data hud
 #define ADD_HUD_TO_COOLDOWN 20
