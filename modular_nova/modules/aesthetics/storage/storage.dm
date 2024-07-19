@@ -3,6 +3,7 @@
 
 /obj/item/borg/upgrade/rped
 	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon_state = "borgrped"
 
 /obj/item/storage/part_replacer
 	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
