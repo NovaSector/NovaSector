@@ -150,7 +150,7 @@
 /obj/item/borg/upgrade/welder
 	name = "mining cyborg welder upgrade"
 	desc = "A normal welder with a larger tank for cyborgs."
-	icon_state = "module_engineering"
+	icon_state = "module_engineer"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/miner)
 	model_flags = BORG_MODEL_MINER
@@ -228,6 +228,7 @@
 /obj/item/borg/upgrade/better_clamp
 	name = "improved integrated hydraulic clamp"
 	desc = "An improved hydraulic clamp to allow for bigger packages to be picked up as well!"
+	icon = "modular_nova/modules/borgs/icons/robot_items.dmi"
 	icon_state = "module_cargo"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/cargo)
@@ -419,6 +420,7 @@
 /obj/item/borg/upgrade/dominatrixmodule
 	name = "borg dominatrix module"
 	desc = "A module that greatly upgrades the ability of borgs to display affection."
+	icon = "modular_nova/modules/borgs/icons/robot_items.dmi"
 	icon_state = "module_lust"
 	custom_price = 0
 
