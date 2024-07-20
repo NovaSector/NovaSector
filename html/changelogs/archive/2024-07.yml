@@ -997,3 +997,61 @@
   - rscadd: Added a research node locked behind tarkon tech to print tarkon turrets.
   - bugfix: Deployable Magfed turrets are deployable again.
   - image: added sprites for added items.
+2024-07-20:
+  DrDiasyl aka DrTuxedo:
+  - rscadd: Security and Engineering holosigns can now be opened with their projector
+      by clicking them from afar
+  - rscadd: SecVendor starts with 2 Security holosigns
+  - qol: Holosigns don't block projectiles anymore
+  - qol: Security holosigns now take 2 seconds to create instead of 3
+  - image: Janitor, Security, Medical, and Engineering holosigns now have cleaner
+      sprites
+  - code_imp: Holosigns now use proper cooldowns instead of the world.time
+  - spellcheck: Holosigns and holosign creators' descriptions give more information
+      now
+  Melbert:
+  - bugfix: Fixes xenos being able to do that one mechanic that involves mouse-dragging
+      people to you
+  - bugfix: Non-humans should look less transparent while in space
+  - qol: Monkeys that pray are given bonana
+  - bugfix: When Monkified or Humanified, you are no longer knocked down.
+  - bugfix: When cured of Monkified, you get the cure text now.
+  - bugfix: The text shown when cured / given Monkification now has color.
+  - bugfix: Being humanified now tells you what species you become rather than assuming
+      you are a human.
+  NovaBot13:
+  - qol: Holofan and two thermomachine and emitter boards in lavaland syndicate base.
+  - image: New deep fryer sprite
+  - image: Added new unique sprites for cyborg upgrade modules
+  - qol: Allow custom borg hat placement for custom borg skins
+  - bugfix: Revenge of the Pun Pun no longer runtimes on init
+  - bugfix: Fixed a signal reg error caused by add_occupant being called twice
+  - bugfix: Removed some rogue decals and added a wall to Birdshot atmos storage,
+      and added cycling to upload/telecommunication entrances.
+  - qol: secmods jetpacks are now pinned by default
+  - bugfix: Sentient floorbots can now rip up tiles when emagged
+  - code_imp: Slight cleanup in floorbot code
+  - bugfix: Fixed kinesis runtime due to un-unregistered signals
+  - bugfix: Blob victory no longer spams spore zombie notifications to ghosts
+  - bugfix: Announcement subheader will no longer overlap the header if the second
+      one is very long
+  - bugfix: fixed a hard del with soapboxes
+  - bugfix: fixed megaphone tts filter.
+  - qol: chem dispenser displays units instead of kilowatts
+  - rscadd: Bitrunning and (spawn) Miner jumpsuits are now in their drobe.
+  - qol: The Coroner Drobe got sorted into less 'shove everything in' and more 'in
+      a sane format'.
+  - admin: Ticking "Job Playtime Exempt" on a player's Job Playtime Tracker panel
+      will also exempt them from BYOND Account Age restrictions now. It previously
+      only exempted them from actual living playtime minutes - this is for the BYOND
+      Account Age in days.
+  - image: Brainwashing victims now have smoothed out brain sprites without those
+      pesky wrinkles
+  - qol: Tweaked the colour of orange atmos pipes to be more distinct from the red
+      pipes, especially in darkness.
+  - qol: Moths that pray get a moffin
+  - bugfix: Elevator music no longer haunts you endlessly if you step off mid-transit
+  - bugfix: fixed a table in the mining office at the metastation
+  Thedragmeme:
+  - rscadd: Gives all donators the ability to use the drawing tablet
+  - rscdel: My old donor items I don't use anymore
