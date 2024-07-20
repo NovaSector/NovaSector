@@ -199,6 +199,8 @@
 	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedscarf"
 	inhand_icon_state = "paddedscarf"
 
