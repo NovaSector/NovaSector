@@ -232,6 +232,8 @@
 	desc = "A meticulously handcrafted suit that is lined on the inside with feathers and down."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedunder"
 	inhand_icon_state = "paddedunder"
 
@@ -241,6 +243,8 @@
 	desc = "Thick boots that is lined with feathers and down. Good footwear almost anticipating harsh weather."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedboots"
 	inhand_icon_state = "paddedboots"
 
@@ -251,6 +255,8 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/thedragmeme.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/thedragmeme.dmi'
 	icon_state = "paddedgloves"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	inhand_icon_state = "paddedgloves"
 
 // Donation reward for snailomi
