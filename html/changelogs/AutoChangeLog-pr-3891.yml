@@ -1,0 +1,5 @@
+author: "FeenieRU"
+delete-after: True
+changes:
+  - image: "Updated forgotten IDs for SolFed, NRI Police and DS-2 Prisoner."
+  - code_imp: "Changed SolFed color for better trim visibility."
