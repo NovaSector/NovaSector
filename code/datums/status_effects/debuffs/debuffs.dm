@@ -358,13 +358,8 @@
 	boosted = was_boosted
 
 /datum/status_effect/crusher_mark/on_apply()
-<<<<<<< HEAD
 	if(owner.mob_size >= MOB_SIZE_LARGE  && !HAS_TRAIT(owner, TRAIT_OVERSIZED)) // NOVA EDIT CHANGE - Original: if(owner.mob_size >= MOB_SIZE_LARGE)
-		marked_underlay = mutable_appearance('icons/effects/effects.dmi', "shield2")
-=======
-	if(owner.mob_size >= MOB_SIZE_LARGE)
 		marked_underlay = mutable_appearance('icons/effects/effects.dmi', boosted ? "shield" : "shield2")
->>>>>>> 9cdea961cc3 (Refactors projectile parrying and makes it actually possible. (#84973))
 		marked_underlay.pixel_x = -owner.pixel_x
 		marked_underlay.pixel_y = -owner.pixel_y
 		owner.underlays += marked_underlay
