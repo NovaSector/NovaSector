@@ -194,31 +194,6 @@
 	button_icon_state = "drawingtablet"
 
 // Donation reward for Thedragmeme
-/obj/item/clothing/suit/furcoat
-	name = "leather coat"
-	desc = "A thick, comfy looking leather coat. It's got some fluffy fur at the collar and sleeves."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
-	icon_state = "furcoat"
-	inhand_icon_state = "hostrench"
-	blood_overlay_type = "coat"
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	cold_protection = CHEST|GROIN|LEGS|ARMS
-	supports_variations_flags = NONE
-
-// Donation reward for Thedragmeme
-/obj/item/clothing/under/syndicate/tacticool/black
-	name = "black turtleneck"
-	desc = "Tacticool as fug. Comfy too."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
-	icon_state = "black_turtleneck"
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
-	supports_variations_flags = NONE
-	armor_type = /datum/armor/clothing_under/none
-	can_adjust = FALSE //There wasnt an adjustable sprite anyways
-	has_sensor = HAS_SENSORS	//Actually has sensors, to balance the new lack of armor
-
-// Donation reward for Thedragmeme
 /obj/item/clothing/neck/padded
 	name = "feathered serenity cloak"
 	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
