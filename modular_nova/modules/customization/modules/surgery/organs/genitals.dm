@@ -106,6 +106,11 @@
 	/// Owning human.  Used to adjust layers depending on underwear
 	var/mob/living/carbon/human/owner
 
+	/// Layer used when ABOVE UNDERWEAR
+	var/layer_above_undies = -(UNIFORM_LAYER - 0.06)
+	/// Ditto, but for BELOW UNDERWEAR
+	var/layer_below_undies = -(UNIFORM_LAYER + 0.06)
+
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
 
@@ -138,7 +143,7 @@
 	return sprite_datum.color_layer_names
 
 /datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	if(layer == -(UNIFORM_LAYER - 0.01) || layer == -(UNIFORM_LAYER + 0.03))
+	if(layer == layer_below_undies || layer == layer_below_undies)
 		return "FRONT"
 	else
 		return ..()
@@ -150,9 +155,9 @@
 /datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
 	if(EXTERNAL_FRONT_UNDER_CLOTHES)
 		if(underwear_check() == FALSE)
-			return -(UNIFORM_LAYER - 0.01)
+			return layer_below_undies
 		else
-			return -(UNIFORM_LAYER + 0.03)
+			return layer_below_undies
 	else
 		return ..()
 
@@ -174,6 +179,10 @@
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+
+	/// Layer as high as possible
+	layer_above_undies = -(UNIFORM_LAYER - 0.01)
+	layer_below_undies = -(UNIFORM_LAYER + 0.03)
 
 /datum/bodypart_overlay/mutant/genital/penis/underwear_check()
 	if(!istype(owner))
@@ -290,6 +299,10 @@
 	feature_key = ORGAN_SLOT_TESTICLES
 	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
+	/// Layer a bit lower, but still close to as high as possible
+	layer_above_undies = -(UNIFORM_LAYER - 0.02)
+	layer_below_undies = -(UNIFORM_LAYER + 0.04)
+
 /datum/bodypart_overlay/mutant/genital/testicles/underwear_check()
 	if(!istype(owner))
 		return TRUE
@@ -364,6 +377,10 @@
 /datum/bodypart_overlay/mutant/genital/vagina
 	feature_key = ORGAN_SLOT_VAGINA
 	layers = EXTERNAL_FRONT_UNDER_CLOTHES
+
+	/// Lowest-layering thing that affects the crotch
+	layer_above_undies = -(UNIFORM_LAYER - 0.03)
+	layer_below_undies = -(UNIFORM_LAYER + 0.05)
 
 /datum/bodypart_overlay/mutant/genital/vagina/underwear_check()
 	if(!istype(owner))
