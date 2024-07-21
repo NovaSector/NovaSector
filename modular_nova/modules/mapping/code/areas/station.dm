@@ -242,10 +242,6 @@
 	name = "\improper Vacant Dorms Room"
 	icon_state = "vacant_room"
 
-/area/station/commons/kiosk
-	name = "Kiosk"
-	icon_state = "commons"
-
 /area/station/common/wrestling/beverage
 	name = "\improper Arena Beverage Stand"
 	icon_state = "wrestle_maint"

@@ -1055,3 +1055,24 @@
   Thedragmeme:
   - rscadd: Gives all donators the ability to use the drawing tablet
   - rscdel: My old donor items I don't use anymore
+2024-07-21:
+  FeenieRU:
+  - image: Updated forgotten IDs for SolFed, NRI Police and DS-2 Prisoner.
+  - code_imp: Changed SolFed color for better trim visibility.
+  Melbert:
+  - bugfix: Fixed roundstart monkeys not having monkified
+  - bugfix: Fixed being "de-monkified" while dead making it difficult to actually
+      de-monkey you going forward
+  - bugfix: Fixed genetic scanner showing dead mobs as "transforming"
+  NovaBot13:
+  - bugfix: Fixes organizer sometimes deleting brains
+  - bugfix: APC icon properly turns green on full charge
+  - bugfix: APC shows correct charging rate in UI
+  - code_imp: Added early machine process for shield generators and emitters to prioritize
+      power draw
+  - code_imp: Added late machine process for power monitors to gather accurate powernet
+      load
+  - bugfix: Recalling lantern wisp now properly removes its effects from you
+  - bugfix: Context maptext now properly dynamically adjusts itself instead of using
+      hardcoded pixel values
+  - bugfix: Fixed null description in cerulean regenerative extract
