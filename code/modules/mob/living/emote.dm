@@ -693,11 +693,7 @@
 /datum/emote/living/custom/run_emote(mob/user, params, type_override = null, intentional = FALSE)
 	if(params && type_override)
 		emote_type = type_override
-<<<<<<< HEAD
 	message = user.say_emphasis(message) // NOVA EDIT ADDITION - EMOTES
-
-=======
->>>>>>> 196a631ab8...  [NO GBP] Fixing beyblade flipping (also an already borked comsig) (#84902)
 	. = ..()
 	///Reset the message and emote type after it's run.
 	message = null

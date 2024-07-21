@@ -31,13 +31,6 @@
 		if(!emote.check_cooldown(src, intentional))
 			silenced = TRUE
 			continue
-<<<<<<< HEAD
-		if(P.run_emote(src, param, m_type, intentional))
-			SEND_SIGNAL(src, COMSIG_MOB_EMOTE, P, act, m_type, message, intentional)
-			SEND_SIGNAL(src, COMSIG_MOB_EMOTED(P.key))
-			return TRUE
-		src.nextsoundemote = world.time // NOVA EDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
-=======
 		if(!emote.can_run_emote(src, TRUE, intentional, param))
 			continue
 		if(SEND_SIGNAL(src, COMSIG_MOB_PRE_EMOTED, emote.key, param, m_type, intentional, emote) & COMPONENT_CANT_EMOTE)
@@ -46,8 +39,8 @@
 		emote.run_emote(src, param, m_type, intentional)
 		SEND_SIGNAL(src, COMSIG_MOB_EMOTE, emote, act, m_type, message, intentional)
 		SEND_SIGNAL(src, COMSIG_MOB_EMOTED(emote.key))
+		src.nextsoundemote = world.time // NOVA EDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
 		return TRUE
->>>>>>> 196a631ab8...  [NO GBP] Fixing beyblade flipping (also an already borked comsig) (#84902)
 	if(intentional && !silenced && !force_silence)
 		to_chat(src, span_notice("Unusable emote '[act]'. Say *help for a list."))
 	return FALSE
@@ -91,16 +84,11 @@
 
 /datum/emote/flip/run_emote(mob/user, params , type_override, intentional)
 	. = ..()
-<<<<<<< HEAD
 	// NOVA EDIT ADDITION START - flips for everyone, but freerunners do it faster
 	if(intentional && !HAS_TRAIT(user, TRAIT_FREERUNNING) && !HAS_TRAIT(user, TRAIT_STYLISH) && !do_after(user, 0.5 SECONDS, target = user, hidden = TRUE))
 		return
 	// NOVA EDIT ADDITION END
-	if(.)
-		user.SpinAnimation(HAS_TRAIT(user, TRAIT_SLOW_FLIP) ? FLIP_EMOTE_DURATION * 2 : FLIP_EMOTE_DURATION, 1)
-=======
 	user.SpinAnimation(HAS_TRAIT(user, TRAIT_SLOW_FLIP) ? FLIP_EMOTE_DURATION * 2 : FLIP_EMOTE_DURATION, 1)
->>>>>>> 196a631ab8...  [NO GBP] Fixing beyblade flipping (also an already borked comsig) (#84902)
 
 /datum/emote/flip/check_cooldown(mob/user, intentional)
 	var/slow_flipper = HAS_TRAIT(user, TRAIT_SLOW_FLIP)
