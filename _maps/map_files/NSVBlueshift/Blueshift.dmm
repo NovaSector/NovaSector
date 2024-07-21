@@ -107272,7 +107272,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_holding_cell)
 "uyx" = (
-/obj/item/toy/plush/nova/plushie_syntax1112,
 /obj/item/paper/fluff{
 	default_raw_text = "if yor readin this!! its 2 late! it has been unleahsed";
 	name = "Ominous Note"
