@@ -222,7 +222,7 @@
 
 /datum/loadout_item/toys/snow_owl
 	name = "Snowy Owl Plush"
-	item_path = /obj/item/toy/plush/nova/dono/snow_owl
+	item_path = /obj/item/toy/plush/nova/donator/snow_owl
 
 /datum/loadout_item/toys/breakdancing_bird
 	name = "Breakdancing Bird Plushie"
@@ -274,27 +274,27 @@
 
 /datum/loadout_item/toys/derg_plushie
 	name = "Wingless Dragon Plushie"
-	item_path = /obj/item/toy/plush/nova/dono/derg_plushie
+	item_path = /obj/item/toy/plush/nova/donator/derg_plushie
 
 /datum/loadout_item/toys/tracy
 	name = "Creature Plushie"
-	item_path = /obj/item/toy/plush/nova/dono/tracy
+	item_path = /obj/item/toy/plush/nova/donator/tracy
 
 /datum/loadout_item/toys/adventurous_synth
 	name = "Adventurous Synth Plushie"
-	item_path = /obj/item/toy/plush/nova/dono/plushie_synthia
+	item_path = /obj/item/toy/plush/nova/donator/plushie_synthia
 
 /datum/loadout_item/toys/jecca
 	name = "Sexy Snoodle Plushie"
-	item_path = /obj/item/toy/plush/nova/dono/jecca
+	item_path = /obj/item/toy/plush/nova/donator/jecca
 
 /datum/loadout_item/toys/courier_synth
 	name = "Courier Synth Plushie"
-	item_path = /obj/item/toy/plush/nova/dono/courier_synth
+	item_path = /obj/item/toy/plush/nova/donator/courier_synth
 
 /datum/loadout_item/toys/plush_janiborg
 	name = "Friendly Janiborg Plush"
-	item_path = /obj/item/toy/plush/nova/dono/plush_janiborg
+	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
 
 /*
 *	CARDS
