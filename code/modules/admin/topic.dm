@@ -1766,7 +1766,6 @@
 		if(!paper_to_show)
 			return
 		paper_to_show.ui_interact(usr)
-<<<<<<< HEAD
 	// NOVA EDIT ADDITION START
 	else if(href_list["pass_opfor_candidate"])
 		if(!check_rights(R_ADMIN))
@@ -1776,8 +1775,6 @@
 			message_admins("An OPFOR candidate could not be selected.")
 
 	// NOVA EDIT ADDITION END
-=======
-
 	else if (href_list["print_fax"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1787,7 +1784,6 @@
 				continue
 
 			FAX.receive(locate(href_list["print_fax"]), href_list["fax_name"])
->>>>>>> 232a9fe18adb (Centcom fax (#84885))
 	else if(href_list["play_internet"])
 		if(!check_rights(R_SOUND))
 			return
