@@ -107276,6 +107276,7 @@
 	default_raw_text = "if yor readin this!! its 2 late! it has been unleahsed";
 	name = "Ominous Note"
 	},
+/obj/item/toy/plush/narplush,
 /turf/open/floor/plating,
 /area/station/medical/pharmacy)
 "uyC" = (
