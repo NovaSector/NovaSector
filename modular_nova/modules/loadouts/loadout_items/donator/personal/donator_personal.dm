@@ -387,7 +387,7 @@
 
 /datum/loadout_item/toys/voodooplush
 	name = "Voodoo Doll"
-	item_path = /obj/item/toy/plush/nova/voodoo
+	item_path = /obj/item/toy/plush/nova/dono/voodoo
 	ckeywhitelist = list("gamerguy14948")
 
 /datum/loadout_item/mask/octusvox
@@ -452,12 +452,12 @@
 
 /datum/loadout_item/toys/immovable_rod_plush
 	name = "Immovable Rod Plushie"
-	item_path = /obj/item/toy/plush/nova/immovable_rod
+	item_path = /obj/item/toy/plush/nova/dono/immovable_rod
 	ckeywhitelist = list("tobjv")
 
 /datum/loadout_item/toys/tesh_plush
 	name = "Squish-Me-Tesh Plush"
-	item_path = /obj/item/toy/plush/nova/tesh
+	item_path = /obj/item/toy/plush/nova/dono/tesh
 	ckeywhitelist = list("tobjv")
 
 /datum/loadout_item/under/jumpsuit/redhosneck
@@ -484,11 +484,11 @@
 
 /datum/loadout_item/toys/plushe_winrow
 	name = "Dark and Brooding Lizard Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_winrow
+	item_path = /obj/item/toy/plush/nova/dono/plushie_winrow
 
 /datum/loadout_item/toys/plushie_star
 	name = "Star Angel Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_star
+	item_path = /obj/item/toy/plush/nova/dono/plushie_star
 
 /datum/loadout_item/suit/rainbowcoat
 	name = "Rainbow Coat"
@@ -540,12 +540,12 @@
 
 /datum/loadout_item/toys/plushie_chiara
 	name = "Commanding Fox Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_chiara
+	item_path = /obj/item/toy/plush/nova/dono/plushie_chiara
 	ckeywhitelist = list("srq", "superlagg")
 
 /datum/loadout_item/toys/plushie_dan
 	name = "Comfy Fox Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_dan
+	item_path = /obj/item/toy/plush/nova/dono/plushie_dan
 	ckeywhitelist = list("srq", "superlagg")
 
 /datum/loadout_item/under/jumpsuit/bubbly_clown
@@ -576,7 +576,7 @@
 
 /datum/loadout_item/toys/plushie_azyre
 	name = "Handsome Chef Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_azyre
+	item_path = /obj/item/toy/plush/nova/dono/plushie_azyre
 	ckeywhitelist = list("dalaoazure")
 
 /datum/loadout_item/pocket_items/khicigs
@@ -597,17 +597,17 @@
 
 /datum/loadout_item/toys/plushie_razurath
 	name = "Science Shark Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_razurath
+	item_path = /obj/item/toy/plush/nova/dono/plushie_razurath
 	ckeywhitelist = list("razurath")
 
 /datum/loadout_item/toys/plushie_razurath/second
 	name = "Dwarf Shark Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_razurath/second
+	item_path = /obj/item/toy/plush/nova/dono/plushie_razurath/second
 	ckeywhitelist = list("razurath")
 
 /datum/loadout_item/toys/plushie_elofy
 	name = "Bumbling Wolfgirl Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_elofy
+	item_path = /obj/item/toy/plush/nova/dono/plushie_elofy
 	//ckeywhitelist = list("october23") // Asked it to be public.
 
 /datum/loadout_item/suit/elofy
@@ -655,7 +655,7 @@
 
 /datum/loadout_item/toys/plushy_syntax1112
 	name = "Lop Bunny Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_syntax1112
+	item_path = /obj/item/toy/plush/nova/dono/plushie_syntax1112
 	ckeywhitelist = list("syntax1112")
 
 /datum/loadout_item/gloves/hypnoring_nuke

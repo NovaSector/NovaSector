@@ -496,37 +496,37 @@
 	responses = list("The human body can survive three weeks without skiiiiiiiiiiin.", "The thigh bone is connected to the hip boooooooooone.", "Yeeeessss?", "Helloooooo.", "Don't be such a baby, ribs grow baaaaaaaaaack.",)
 
 // Donation reward for tobjv
-/obj/item/toy/plush/nova/tesh
+/obj/item/toy/plush/nova/dono/tesh
 	name = "Squish-Me-Tesh"
 	desc = "Winner of Be Made Into A Plushy by ClownCo!"
 	icon_state = "plushie_tobjv2"
 
 // Donation reward for tobjv
-/obj/item/toy/plush/nova/immovable_rod
+/obj/item/toy/plush/nova/dono/immovable_rod
 	name = "immovable rod"
 	desc = "Realistic! But also squishy and certainly not as dangerous as its real counterpart."
 	icon_state = "plushie_tobjv"
 
-/obj/item/toy/plush/nova/immovable_rod/Bump(atom/clong)
+/obj/item/toy/plush/nova/dono/immovable_rod/Bump(atom/clong)
 	. = ..()
 	if(isliving(clong))
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
 		return
 
 // Donation reward for gamerguy14948
-/obj/item/toy/plush/nova/voodoo
+/obj/item/toy/plush/nova/dono/voodoo
 	name = "voodoo doll"
 	desc = "A not so small voodoo doll made out of cut and sewn potato bags. It almost looks cute."
 	icon_state = "plushie_gamerguy"
 
 // Donation reward for shyshadow
-/obj/item/toy/plush/nova/plushie_winrow
+/obj/item/toy/plush/nova/dono/plushie_winrow
 	name = "dark and brooding lizard plush"
 	desc = "An almost intimidating black lizard plush, this one's got a little beret to come with it! Best not to separate the two. Its eyes shine with suggestion, no maidens?"
 	icon_state = "plushie_shyshadow"
 
 // Donation reward for Dudewithatude
-/obj/item/toy/plush/nova/plushie_star
+/obj/item/toy/plush/nova/dono/plushie_star
 	name = "star angel plush"
 	desc = "The plushie of a celestial in the known universe."
 	icon_state = "plushie_star"
@@ -534,13 +534,13 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/trills.ogg' = 1)
 
 // Donation reward for SRQ
-/obj/item/toy/plush/nova/plushie_chiara
+/obj/item/toy/plush/nova/dono/plushie_chiara
 	name = "commanding fox plush"
 	desc = "A large stuffed fox which radiates confidence and vigor from their emerald eyes."
 	icon_state = "plushie_chiara"
 
 // Donation reward for Superlagg
-/obj/item/toy/plush/nova/plushie_dan
+/obj/item/toy/plush/nova/dono/plushie_dan
 	name = "comfy fox plush"
 	desc = "A stuffed fox with an aura of endearment leaking from their soft exterior."
 	icon_state = "plushie_dan"
@@ -554,13 +554,13 @@
 	attack_verb_simple = list("cuddle", "squish", "blush")
 
 //Donation reward for Dalao Azure
-/obj/item/toy/plush/nova/plushie_azyre
+/obj/item/toy/plush/nova/dono/plushie_azyre
 	name = "handsome chef plushie"
 	desc = "A need to cook only rivaled by a hunger for fox tail."
 	icon_state = "plushie_azyre"
 
 //Donation reward for Razurath
-/obj/item/toy/plush/nova/plushie_razurath
+/obj/item/toy/plush/nova/dono/plushie_razurath
 	name = "science shark plushie"
 	desc = "A determined scientist with a hint of mischief in her smile."
 	icon_state = "plush_scishark"
@@ -569,13 +569,13 @@
 	squeak_override = list('sound/weapons/bite.ogg'=1)
 
 //Other donation reward for Razurath
-/obj/item/toy/plush/nova/plushie_razurath/second
+/obj/item/toy/plush/nova/dono/plushie_razurath/second
 	name = "dwarf shark plushie"
 	desc = "Despite her height, the plushie regards you with keen and frankly unamused eyes; the look on her face, and the elegance of her little tiny coat tell you that she knows something you don't."
 	icon_state = "plushie_nedilla"
 
 //Donation reward for October23
-/obj/item/toy/plush/nova/plushie_elofy
+/obj/item/toy/plush/nova/dono/plushie_elofy
 	name = "bumbling wolfgirl plushie"
 	desc = "A white-haired wolfgirl in a stylish red security skirt. Despite her scary cybernetic arm, she is soft to hug and only wishes to be praised and comforted."
 	icon_state = "plush_lonie"
@@ -584,7 +584,7 @@
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
 
 //Donation reward for syntax1112
-/obj/item/toy/plush/nova/plushie_syntax1112
+/obj/item/toy/plush/nova/dono/plushie_syntax1112
 	name = "lop bunny plushie"
 	desc = "A floppy-eared rabbit in marketable plushie form. Complete with an internal self-inflating squeaker device!"
 	icon_state = "fuzz_bunny"
@@ -593,7 +593,7 @@
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 // Donation reward for SomeRandomOwl
-/obj/item/toy/plush/nova/snow_owl
+/obj/item/toy/plush/nova/dono/snow_owl
 	name = "snowy owl plush"
 	desc = "A very soft plush resembling a feathery snow owl. It has a cute witch like hat and hoots every time you squeeze it. It smells faintly of oreo cookies."
 	icon_state = "plushie_owl"
@@ -602,7 +602,7 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/hoot.ogg' = 1)
 
 // Donation reward for Jolly66
-/obj/item/toy/plush/nova/derg_plushie
+/obj/item/toy/plush/nova/dono/derg_plushie
 	name = "wingless dragon plush"
 	desc = "A cute green-and-yellow wingless dragon plushie! For what its worth, it does have a comically large tail. \
 		Comes with an additional paramedic cap."
@@ -612,7 +612,7 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
 
 // Donation reward for Gofawful5
-/obj/item/toy/plush/nova/tracy
+/obj/item/toy/plush/nova/dono/tracy
 	name = "creature plushie"
 	desc = "An astonishingly well-endowed catfox plushie... It seems content."
 	icon_state = "plush_tracy"
@@ -622,7 +622,7 @@
 	gender = FEMALE
 
 //Donation reward for Frixit
-/obj/item/toy/plush/nova/plushie_synthia
+/obj/item/toy/plush/nova/dono/plushie_synthia
 	name = "adventurous synth plushie"
 	desc = "This plush is perfect For adventures in space and in bed, a cuddly purple Synth, their scarf is extra soft!"
 	icon_state = "plushie_synthia"
@@ -631,7 +631,7 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
 //Donation reward for Kitsun
-/obj/item/toy/plush/nova/jecca
+/obj/item/toy/plush/nova/dono/jecca
 	name = "sexy snoodle plushie"
 	desc = "For some reason, this plushie is rather shiny, with glistening, glittering scales, and its ruby colored eyes seem to be rather enticing and full of mischievous, lewd thoughts behind them."
 	icon_state = "plushie_jecca"
@@ -641,7 +641,7 @@
 	gender = FEMALE
 
 //Donation reward for BriareosBlue
-/obj/item/toy/plush/nova/courier_synth
+/obj/item/toy/plush/nova/dono/courier_synth
 	name = "courier synth plushie"
 	desc = "This synth plushie looks about ready to deliver hugs and beeps straight to the heart! The tag seems to have an advertisement for a delivery company on it..."
 	icon_state = "plushie_courier"
@@ -650,7 +650,7 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
 //Donation reward for olirant
-/obj/item/toy/plush/nova/plush_janiborg
+/obj/item/toy/plush/nova/dono/plush_janiborg
 	name = "Friendly Janiborg Plush"
 	desc = "A miniature omnidroid toy straight from the Lockstep Enterprises Corporation marketing department in handsome janitorial purple. Now with real squirting action!"
 	icon_state = "plush_janiborg"
