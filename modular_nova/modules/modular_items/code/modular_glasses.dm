@@ -88,8 +88,9 @@
 	if(ishuman(user)) // Make sure they're a human wearing the glasses first
 		var/mob/living/carbon/human/human = user
 		if(human.glasses == src)
-			var/datum/atom_hud/our_hud = GLOB.huds[initial(glasses_type.hud_type)]
-			our_hud.show_to(human)
+			for(var/hud_type in initial(glasses_type.hud_types))
+				var/datum/atom_hud/our_hud = GLOB.huds[initial(hud_type)]
+				our_hud.show_to(human)
 			for(var/trait in initial(glasses_type.clothing_traits))
 				ADD_TRAIT(human, trait, GLASSES_TRAIT)
 
@@ -97,8 +98,9 @@
 	if(ishuman(user)) // Make sure they're a human wearing the glasses first
 		var/mob/living/carbon/human/human = user
 		if(human.glasses == src)
-			var/datum/atom_hud/our_hud = GLOB.huds[initial(glasses_type.hud_type)]
-			our_hud.hide_from(human)
+			for(var/hud_type in initial(glasses_type.hud_types))
+				var/datum/atom_hud/our_hud = GLOB.huds[initial(hud_types)]
+				our_hud.hide_from(human)
 			for(var/trait in initial(glasses_type.clothing_traits))
 				REMOVE_TRAIT(human, trait, GLASSES_TRAIT)
 
