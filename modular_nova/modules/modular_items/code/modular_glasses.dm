@@ -89,7 +89,7 @@
 		var/mob/living/carbon/human/human = user
 		if(human.glasses == src)
 			for(var/hud_type in initial(glasses_type.hud_types))
-				var/datum/atom_hud/our_hud = GLOB.huds[initial(hud_type)]
+				var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
 				our_hud.show_to(human)
 			for(var/trait in initial(glasses_type.clothing_traits))
 				ADD_TRAIT(human, trait, GLASSES_TRAIT)
@@ -99,7 +99,7 @@
 		var/mob/living/carbon/human/human = user
 		if(human.glasses == src)
 			for(var/hud_type in initial(glasses_type.hud_types))
-				var/datum/atom_hud/our_hud = GLOB.huds[initial(hud_types)]
+				var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
 				our_hud.hide_from(human)
 			for(var/trait in initial(glasses_type.clothing_traits))
 				REMOVE_TRAIT(human, trait, GLASSES_TRAIT)
