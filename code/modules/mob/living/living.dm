@@ -62,6 +62,12 @@
 	. = SEND_SIGNAL(src, COMSIG_LIVING_Z_IMPACT, levels, impacted_turf)
 	if(. & ZIMPACT_CANCEL_DAMAGE)
 		return .
+	// multiplier for the damage taken from falling
+	var/damage_softening_multiplier = 1
+
+	var/obj/item/organ/internal/cyberimp/chest/spine/potential_spine = get_organ_slot(ORGAN_SLOT_SPINE)
+	if(istype(potential_spine))
+		damage_softening_multiplier *= potential_spine.athletics_boost_multiplier
 
 	//NOVA EDIT ADDITION START - Landing in liquids
 	if(impacted_turf.liquids && impacted_turf.liquids.liquid_state >= LIQUID_STATE_WAIST)
@@ -113,7 +119,7 @@
 		new /obj/effect/temp_visual/mook_dust(impacted_turf)
 
 	if(body_position == STANDING_UP)
-		var/damage_for_each_leg = round(incoming_damage / 2)
+		var/damage_for_each_leg = round((incoming_damage / 2) * damage_softening_multiplier)
 		apply_damage(damage_for_each_leg, BRUTE, BODY_ZONE_L_LEG, wound_bonus = -2.5 * levels)
 		apply_damage(damage_for_each_leg, BRUTE, BODY_ZONE_R_LEG, wound_bonus = -2.5 * levels)
 	else
@@ -706,24 +712,32 @@
 
 /mob/living/proc/get_up(instant = FALSE)
 	set waitfor = FALSE
+
+	var/get_up_time = 1 SECONDS
+
+	var/obj/item/organ/internal/cyberimp/chest/spine/potential_spine = get_organ_slot(ORGAN_SLOT_SPINE)
+	if(istype(potential_spine))
+		get_up_time *= potential_spine.athletics_boost_multiplier
+
 	// if(!instant && !do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE)) // NOVA EDIT REMOVAL
 	// NOVA EDIT ADDITION START
-	var/get_up_speed = GET_UP_FAST
 	var/stam = getStaminaLoss()
 	switch(FLOOR(stam,1))
-		if(STAMINA_THRESHOLD_MEDIUM_GET_UP to STAMINA_THRESHOLD_SLOW_GET_UP)
-			get_up_speed = GET_UP_MEDIUM
-		if(STAMINA_THRESHOLD_SLOW_GET_UP+1 to INFINITY)
-			get_up_speed = GET_UP_SLOW
+		if(0 to STAMINA_THRESHOLD_MEDIUM_GET_UP)
+			get_up_time *= GET_UP_FAST
+		if(STAMINA_THRESHOLD_MEDIUM_GET_UP + 1 to STAMINA_THRESHOLD_SLOW_GET_UP)
+			get_up_time *= GET_UP_MEDIUM
+		if(STAMINA_THRESHOLD_SLOW_GET_UP + 1 to INFINITY)
+			get_up_time *= GET_UP_SLOW
 	if(!instant)
-		if(get_up_speed == GET_UP_SLOW) //Slow getups are easily noticable
+		if(get_up_time > GET_UP_MEDIUM SECONDS) //Slow getups are easily noticable
 			visible_message(span_notice("[src] weakly attempts to stand up."), span_notice("You weakly attempt to stand up."))
-			if(!do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
+			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
 				if(!body_position == STANDING_UP)
 					visible_message(span_warning("[src] fails to stand up."), span_warning("You fail to stand up."))
 				return
 		else
-			if(!do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
+			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
 				return
 	if(pulledby && pulledby.grab_state)
 		to_chat(src, span_warning("You fail to stand up, you're restrained!"))
