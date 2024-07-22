@@ -62,14 +62,11 @@
 	var/light_fail = FALSE
 	///Does the scanner ignore light_pass and light_fail for sending signals?
 	var/ignore_signals = FALSE
-<<<<<<< HEAD
-	var/detect_gender = "male" //NOVA EDIT - MORE SCANNER GATE OPTIONS
-=======
+	var/detect_gender = "male" //NOVA EDIT ADDITION - MORE SCANNER GATE OPTIONS
 	///Modifier to the chance of scanner being false positive/negative
 	var/minus_false_beep = 0
 	///Base false positive/negative chance
 	var/base_false_beep = 5
->>>>>>> 63e2f45ed3d5 (TSA: Scanner Gates and N-Spector update (#85077))
 	///Is an n-spect scanner attached to the gate? Enables contraband scanning.
 	var/obj/item/inspector/n_spect = null
 
@@ -301,18 +298,15 @@
 					detected_thing = "Starvation"
 				if(H.nutrition >= detect_nutrition && detect_nutrition == NUTRITION_LEVEL_FAT)
 					beep = TRUE
-<<<<<<< HEAD
-		//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
+		//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
 		if(SCANGATE_GENDER)
 			if(ishuman(M))
 				var/mob/living/carbon/human/scanned_human = M
 				if((scanned_human.gender in list("male", "female"))) //funny thing: nb people will always get by the scan B)
 					if(scanned_human.gender == detect_gender)
 						beep = TRUE
-		//NOVA EDIT END - MORE SCANNER GATE OPTIONS
-=======
+		//NOVA EDIT ADDITION END - MORE SCANNER GATE OPTIONS
 					detected_thing = "Obesity"
->>>>>>> 63e2f45ed3d5 (TSA: Scanner Gates and N-Spector update (#85077))
 		if(SCANGATE_CONTRABAND)
 			for(var/obj/item/content in M.get_all_contents_skipping_traits(TRAIT_CONTRABAND_BLOCKER))
 				detected_thing = "Contraband"
