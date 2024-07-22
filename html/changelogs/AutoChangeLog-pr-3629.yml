@@ -1,6 +1,0 @@
-author: "Jolly"
-delete-after: True
-changes:
-  - rscadd: "[WawaStation] The barbershop and cryo rooms were moved."
-  - bugfix: "[WawaStation] Fixed the egregious 2x2 walls in the bathroom."
-  - rscdel: "[WawaStation] The tram, elevator and kiosk have been removed."
