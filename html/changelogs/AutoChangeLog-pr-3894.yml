@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - rscdel: "removed \"Die a glorious death\" as a possible traitor objective, for real this time"

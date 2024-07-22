@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - rscadd: "Added the ability to craft armbands, with cloth and a spraycan."
