@@ -19,7 +19,7 @@
 	if(isalien(user))
 		return 'sound/voice/hiss6.ogg'
 
-/datum/emote/living/scream/can_run_emote(mob/living/user, status_check, intentional)
+/datum/emote/living/scream/can_run_emote(mob/living/user, status_check, intentional, params)
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/robot_user = user
 

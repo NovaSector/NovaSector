@@ -275,7 +275,7 @@
 				'modular_nova/modules/emotes/sound/emotes/clap3.ogg',
 				'modular_nova/modules/emotes/sound/emotes/clap4.ogg')
 
-/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
@@ -293,7 +293,7 @@
 	return pick('modular_nova/modules/emotes/sound/emotes/claponce1.ogg',
 				'modular_nova/modules/emotes/sound/emotes/claponce2.ogg')
 
-/datum/emote/living/clap1/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/clap1/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
