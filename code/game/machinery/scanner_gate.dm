@@ -254,28 +254,40 @@
 						scan_species = /datum/species/zombie
 					//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 					if(SCANGATE_MAMMAL)
+						detected_thing = "Mammal"
 						scan_species = /datum/species/mammal
 					if(SCANGATE_VOX)
+						detected_thing = "Vox"
 						scan_species = /datum/species/vox
 					if(SCANGATE_AQUATIC)
+						detected_thing = "Aquatic"
 						scan_species = /datum/species/aquatic
 					if(SCANGATE_INSECT)
+						detected_thing = "Insect"
 						scan_species = /datum/species/insect
 					if(SCANGATE_XENO)
+						detected_thing = "Xeno"
 						scan_species = /datum/species/xeno
 					if(SCANGATE_UNATHI)
+						detected_thing = "Unathi"
 						scan_species = /datum/species/unathi
 					if(SCANGATE_TAJARAN)
+						detected_thing = "Tajaran"
 						scan_species = /datum/species/tajaran
 					if(SCANGATE_VULPKANIN)
+						detected_thing = "Vulpkanin"
 						scan_species = /datum/species/vulpkanin
 					if(SCANGATE_SYNTH)
+						detected_thing = "Synthetic"
 						scan_species = /datum/species/synthetic
 					if(SCANGATE_TESHARI)
+						detected_thing = "Teshari"
 						scan_species = /datum/species/teshari
 					if(SCANGATE_HEMOPHAGE)
+						detected_thing = "Hemophage"
 						scan_species = /datum/species/hemophage
 					if(SCANGATE_SNAIL)
+						detected_thing = "Snail"
 						scan_species = /datum/species/snail
 					//NOVA EDIT END - MORE SCANNER GATE OPTIONS
 				if(is_species(H, scan_species))
