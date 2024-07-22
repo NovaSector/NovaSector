@@ -712,30 +712,6 @@
 
 /mob/living/proc/get_up(instant = FALSE)
 	set waitfor = FALSE
-<<<<<<< HEAD
-	// if(!instant && !do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE)) // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START
-	var/get_up_speed = GET_UP_FAST
-	var/stam = getStaminaLoss()
-	switch(FLOOR(stam,1))
-		if(STAMINA_THRESHOLD_MEDIUM_GET_UP to STAMINA_THRESHOLD_SLOW_GET_UP)
-			get_up_speed = GET_UP_MEDIUM
-		if(STAMINA_THRESHOLD_SLOW_GET_UP+1 to INFINITY)
-			get_up_speed = GET_UP_SLOW
-	if(!instant)
-		if(get_up_speed == GET_UP_SLOW) //Slow getups are easily noticable
-			visible_message(span_notice("[src] weakly attempts to stand up."), span_notice("You weakly attempt to stand up."))
-			if(!do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
-				if(!body_position == STANDING_UP)
-					visible_message(span_warning("[src] fails to stand up."), span_warning("You fail to stand up."))
-				return
-		else
-			if(!do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
-				return
-	if(pulledby && pulledby.grab_state)
-		to_chat(src, span_warning("You fail to stand up, you're restrained!"))
-	// NOVA EDIT ADDITION END
-=======
 
 	var/get_up_time = 1 SECONDS
 
@@ -743,8 +719,29 @@
 	if(istype(potential_spine))
 		get_up_time *= potential_spine.athletics_boost_multiplier
 
-	if(!instant && !do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
->>>>>>> eaa4d71c3c7 (Adds the Herculean Gravitronic Spinal Implant; An Athletics focused implant. (#84532))
+	// if(!instant && !do_after(src, 1 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE)) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START
+	var/stam = getStaminaLoss()
+	switch(FLOOR(stam,1))
+		if(0 to STAMINA_THRESHOLD_MEDIUM_GET_UP)
+			get_up_time *= GET_UP_FAST
+		if(STAMINA_THRESHOLD_MEDIUM_GET_UP + 1 to STAMINA_THRESHOLD_SLOW_GET_UP)
+			get_up_time *= GET_UP_MEDIUM
+		if(STAMINA_THRESHOLD_SLOW_GET_UP + 1 to INFINITY)
+			get_up_time *= GET_UP_SLOW
+	if(!instant)
+		if(get_up_time > GET_UP_MEDIUM SECONDS) //Slow getups are easily noticable
+			visible_message(span_notice("[src] weakly attempts to stand up."), span_notice("You weakly attempt to stand up."))
+			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
+				if(!body_position == STANDING_UP)
+					visible_message(span_warning("[src] fails to stand up."), span_warning("You fail to stand up."))
+				return
+		else
+			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
+				return
+	if(pulledby && pulledby.grab_state)
+		to_chat(src, span_warning("You fail to stand up, you're restrained!"))
+	// NOVA EDIT ADDITION END
 		return
 	if(resting || body_position == STANDING_UP || HAS_TRAIT(src, TRAIT_FLOORED))
 		return
