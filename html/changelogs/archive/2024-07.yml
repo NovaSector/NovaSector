@@ -997,3 +997,111 @@
   - rscadd: Added a research node locked behind tarkon tech to print tarkon turrets.
   - bugfix: Deployable Magfed turrets are deployable again.
   - image: added sprites for added items.
+2024-07-20:
+  DrDiasyl aka DrTuxedo:
+  - rscadd: Security and Engineering holosigns can now be opened with their projector
+      by clicking them from afar
+  - rscadd: SecVendor starts with 2 Security holosigns
+  - qol: Holosigns don't block projectiles anymore
+  - qol: Security holosigns now take 2 seconds to create instead of 3
+  - image: Janitor, Security, Medical, and Engineering holosigns now have cleaner
+      sprites
+  - code_imp: Holosigns now use proper cooldowns instead of the world.time
+  - spellcheck: Holosigns and holosign creators' descriptions give more information
+      now
+  Melbert:
+  - bugfix: Fixes xenos being able to do that one mechanic that involves mouse-dragging
+      people to you
+  - bugfix: Non-humans should look less transparent while in space
+  - qol: Monkeys that pray are given bonana
+  - bugfix: When Monkified or Humanified, you are no longer knocked down.
+  - bugfix: When cured of Monkified, you get the cure text now.
+  - bugfix: The text shown when cured / given Monkification now has color.
+  - bugfix: Being humanified now tells you what species you become rather than assuming
+      you are a human.
+  NovaBot13:
+  - qol: Holofan and two thermomachine and emitter boards in lavaland syndicate base.
+  - image: New deep fryer sprite
+  - image: Added new unique sprites for cyborg upgrade modules
+  - qol: Allow custom borg hat placement for custom borg skins
+  - bugfix: Revenge of the Pun Pun no longer runtimes on init
+  - bugfix: Fixed a signal reg error caused by add_occupant being called twice
+  - bugfix: Removed some rogue decals and added a wall to Birdshot atmos storage,
+      and added cycling to upload/telecommunication entrances.
+  - qol: secmods jetpacks are now pinned by default
+  - bugfix: Sentient floorbots can now rip up tiles when emagged
+  - code_imp: Slight cleanup in floorbot code
+  - bugfix: Fixed kinesis runtime due to un-unregistered signals
+  - bugfix: Blob victory no longer spams spore zombie notifications to ghosts
+  - bugfix: Announcement subheader will no longer overlap the header if the second
+      one is very long
+  - bugfix: fixed a hard del with soapboxes
+  - bugfix: fixed megaphone tts filter.
+  - qol: chem dispenser displays units instead of kilowatts
+  - rscadd: Bitrunning and (spawn) Miner jumpsuits are now in their drobe.
+  - qol: The Coroner Drobe got sorted into less 'shove everything in' and more 'in
+      a sane format'.
+  - admin: Ticking "Job Playtime Exempt" on a player's Job Playtime Tracker panel
+      will also exempt them from BYOND Account Age restrictions now. It previously
+      only exempted them from actual living playtime minutes - this is for the BYOND
+      Account Age in days.
+  - image: Brainwashing victims now have smoothed out brain sprites without those
+      pesky wrinkles
+  - qol: Tweaked the colour of orange atmos pipes to be more distinct from the red
+      pipes, especially in darkness.
+  - qol: Moths that pray get a moffin
+  - bugfix: Elevator music no longer haunts you endlessly if you step off mid-transit
+  - bugfix: fixed a table in the mining office at the metastation
+  Thedragmeme:
+  - rscadd: Gives all donators the ability to use the drawing tablet
+  - rscdel: My old donor items I don't use anymore
+2024-07-21:
+  FeenieRU:
+  - image: Updated forgotten IDs for SolFed, NRI Police and DS-2 Prisoner.
+  - code_imp: Changed SolFed color for better trim visibility.
+  Melbert:
+  - bugfix: Fixed roundstart monkeys not having monkified
+  - bugfix: Fixed being "de-monkified" while dead making it difficult to actually
+      de-monkey you going forward
+  - bugfix: Fixed genetic scanner showing dead mobs as "transforming"
+  NovaBot13:
+  - bugfix: Fixes organizer sometimes deleting brains
+  - bugfix: APC icon properly turns green on full charge
+  - bugfix: APC shows correct charging rate in UI
+  - code_imp: Added early machine process for shield generators and emitters to prioritize
+      power draw
+  - code_imp: Added late machine process for power monitors to gather accurate powernet
+      load
+  - bugfix: Recalling lantern wisp now properly removes its effects from you
+  - bugfix: Context maptext now properly dynamically adjusts itself instead of using
+      hardcoded pixel values
+  - bugfix: Fixed null description in cerulean regenerative extract
+2024-07-22:
+  FlufflesTheDog:
+  - rscdel: removed "Die a glorious death" as a possible traitor objective, for real
+      this time
+  Jolly:
+  - rscadd: '[WawaStation] The barbershop and cryo rooms were moved.'
+  - bugfix: '[WawaStation] Fixed the egregious 2x2 walls in the bathroom.'
+  - rscdel: '[WawaStation] The tram, elevator and kiosk have been removed.'
+  NovaBot13:
+  - qol: Moving the light bulb removal function from the left mouse button to the
+      right one.
+  - qol: Added & improved tips related to the light fixture
+  - spellcheck: Fixed a typo in the description for the Syndicate Rebar Crossbow in
+      the Uplink.
+  - qol: Self-respiration no longer sends misleading messages and instead tells about
+      lack of need to breathe once it actually gives you the effect
+  - rscadd: Having a robotic voicebox installed now lets you use silicon emotes.
+  - balance: MMI'd brains/posibrains can now use silicon emotes.
+  - balance: Simple and basic bots can actually beep.
+  - bugfix: MMI'd brains/posibrains are no longer both allowed AND blocked from beeping,
+      now just being allowed to beep.
+  - qol: Mod UI is narrow again
+  - bugfix: HONK mech now waddles
+  - rscadd: Adds Untie Shoes, a 1-point wizard spell. It can be upgraded to untie
+      jackboots, summon shoes to untie, and become completely silent!
+  - qol: There is a larger stock of roundstart clothing availalbe in the clothing
+      vendors. Now you can get your entire gang in matching outfits!
+  RatFromTheJungle:
+  - rscadd: Added the ability to craft armbands, with cloth and a spraycan.
