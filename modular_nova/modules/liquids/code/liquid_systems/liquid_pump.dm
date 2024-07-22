@@ -42,9 +42,9 @@
 
 /obj/structure/liquid_pump/examine(mob/user)
 	. = ..()
-	. += span_notice("It's anchor bolts are [anchored ? "down and secured" : "up"].")
-	. += span_notice("It's currently [turned_on ? "ON" : "OFF"].")
-	. += span_notice("It's mode currently is set to [spewing_mode ? "SPEWING" : "SIPHONING"]. (Alt-click to switch)")
+	. += span_notice("Its anchor bolts are [anchored ? "down and secured" : "up"].")
+	. += span_notice("Its currently [turned_on ? "ON" : "OFF"].")
+	. += span_notice("Its mode currently is set to [spewing_mode ? "SPEWING" : "SIPHONING"]. (Alt-click to switch)")
 	. += span_notice("The pressure gauge shows [reagents.total_volume]/[reagents.maximum_volume].")
 
 /obj/structure/liquid_pump/process()
