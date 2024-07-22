@@ -1055,3 +1055,53 @@
   Thedragmeme:
   - rscadd: Gives all donators the ability to use the drawing tablet
   - rscdel: My old donor items I don't use anymore
+2024-07-21:
+  FeenieRU:
+  - image: Updated forgotten IDs for SolFed, NRI Police and DS-2 Prisoner.
+  - code_imp: Changed SolFed color for better trim visibility.
+  Melbert:
+  - bugfix: Fixed roundstart monkeys not having monkified
+  - bugfix: Fixed being "de-monkified" while dead making it difficult to actually
+      de-monkey you going forward
+  - bugfix: Fixed genetic scanner showing dead mobs as "transforming"
+  NovaBot13:
+  - bugfix: Fixes organizer sometimes deleting brains
+  - bugfix: APC icon properly turns green on full charge
+  - bugfix: APC shows correct charging rate in UI
+  - code_imp: Added early machine process for shield generators and emitters to prioritize
+      power draw
+  - code_imp: Added late machine process for power monitors to gather accurate powernet
+      load
+  - bugfix: Recalling lantern wisp now properly removes its effects from you
+  - bugfix: Context maptext now properly dynamically adjusts itself instead of using
+      hardcoded pixel values
+  - bugfix: Fixed null description in cerulean regenerative extract
+2024-07-22:
+  FlufflesTheDog:
+  - rscdel: removed "Die a glorious death" as a possible traitor objective, for real
+      this time
+  Jolly:
+  - rscadd: '[WawaStation] The barbershop and cryo rooms were moved.'
+  - bugfix: '[WawaStation] Fixed the egregious 2x2 walls in the bathroom.'
+  - rscdel: '[WawaStation] The tram, elevator and kiosk have been removed.'
+  NovaBot13:
+  - qol: Moving the light bulb removal function from the left mouse button to the
+      right one.
+  - qol: Added & improved tips related to the light fixture
+  - spellcheck: Fixed a typo in the description for the Syndicate Rebar Crossbow in
+      the Uplink.
+  - qol: Self-respiration no longer sends misleading messages and instead tells about
+      lack of need to breathe once it actually gives you the effect
+  - rscadd: Having a robotic voicebox installed now lets you use silicon emotes.
+  - balance: MMI'd brains/posibrains can now use silicon emotes.
+  - balance: Simple and basic bots can actually beep.
+  - bugfix: MMI'd brains/posibrains are no longer both allowed AND blocked from beeping,
+      now just being allowed to beep.
+  - qol: Mod UI is narrow again
+  - bugfix: HONK mech now waddles
+  - rscadd: Adds Untie Shoes, a 1-point wizard spell. It can be upgraded to untie
+      jackboots, summon shoes to untie, and become completely silent!
+  - qol: There is a larger stock of roundstart clothing availalbe in the clothing
+      vendors. Now you can get your entire gang in matching outfits!
+  RatFromTheJungle:
+  - rscadd: Added the ability to craft armbands, with cloth and a spraycan.
