@@ -7,7 +7,7 @@
 		/obj/machinery/vending/deforest_medvend,
 	)
 
-/obj/effect/spawner/random/vending/colavend //These can serve both snacks AND drinks so its kinda both of them?
+/obj/effect/spawner/random/vending/colavend //These can serve both snacks AND drinks so it's kinda both of them?
 	loot = list(
 		/obj/machinery/vending/imported/nt,
 		/obj/machinery/vending/imported/yangyu,

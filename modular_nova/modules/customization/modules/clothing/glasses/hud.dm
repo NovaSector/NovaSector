@@ -78,7 +78,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
 	name = "diagnostic HUD eyepatch"
-	desc = "Lost your eyeball to a rogue borg? Dare to tell a Dogborg to do it's job? Got bored? Whatever the reason, this bit of tech will help you still repair borgs, they'll never need it since they usually do it themselves, but its the thought that counts."
+	desc = "Lost your eyeball to a rogue borg? Dare to tell a Dogborg to do its job? Got bored? Whatever the reason, this bit of tech will help you still repair borgs, they'll never need it since they usually do it themselves, but it's the thought that counts."
 	icon_state = "robopatch"
 	base_icon_state = "robopatch"
 	hud_type = DATA_HUD_DIAGNOSTIC_BASIC

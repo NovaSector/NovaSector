@@ -23,9 +23,9 @@
 	species_language_holder = /datum/language_holder/primitive_felinid
 	language_prefs_whitelist = list(/datum/language/primitive_catgirl)
 
-	bodytemp_normal = 270 // If a normal human gets hugged by one its gonna feel cold
+	bodytemp_normal = 270 // If a normal human gets hugged by one it's gonna feel cold
 	bodytemp_heat_damage_limit = 283 // To them normal station atmos would be sweltering
-	bodytemp_cold_damage_limit = 213 // Man up bro its not even that cold out here
+	bodytemp_cold_damage_limit = 213 // Man up bro it's not even that cold out here
 
 	inherent_traits = list(
 		TRAIT_CATLIKE_GRACE,
