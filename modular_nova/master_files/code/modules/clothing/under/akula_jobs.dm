@@ -60,7 +60,7 @@
 
 	update_appearance()
 
-/// This will check the wearer's bodytype and change the wetsuit worn sprite according to if its male/female
+/// This will check the wearer's bodytype and change the wetsuit worn sprite according to if it's male/female
 /obj/item/clothing/under/akula_wetsuit/proc/check_physique(mob/living/carbon/human/user)
 	icon_state = base_icon_state
 	if(user.physique == FEMALE)

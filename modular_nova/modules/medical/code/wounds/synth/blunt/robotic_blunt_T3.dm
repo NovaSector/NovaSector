@@ -135,7 +135,7 @@
  * High chance to work, very high with robo/engi wires and diag hud.
  * Can be sabotaged by switching to combat mode.
  * Deals brute to the limb on failure.
- * Burns the hand of the user if its not insulated.
+ * Burns the hand of the user if it's not insulated.
  */
 /datum/wound/blunt/robotic/secures_internals/critical/proc/mold_metal(mob/living/carbon/human/user)
 	var/chance = 60
@@ -347,7 +347,7 @@
 	else if (HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))
 		success_chance *= 1.1
 	if (HAS_TRAIT(user, TRAIT_DIAGNOSTIC_HUD))
-		success_chance *= 1.25 // its kinda alien to do this, so even people with the wires get the full bonus of diag huds
+		success_chance *= 1.25 // it's kinda alien to do this, so even people with the wires get the full bonus of diag huds
 	if (HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		success_chance *= 1.5
 

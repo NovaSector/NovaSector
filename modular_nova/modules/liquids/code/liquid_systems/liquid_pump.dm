@@ -13,7 +13,7 @@
 	var/max_volume = 10000
 	/// Whether spewing reagents out, instead of siphoning them
 	var/spewing_mode = FALSE
-	/// Whether its turned on and processing
+	/// Whether it's turned on and processing
 	var/turned_on = FALSE
 	/// How fast does the pump work, in percentages relative to the volume we're working with
 	var/pump_speed_percentage = 0.4
