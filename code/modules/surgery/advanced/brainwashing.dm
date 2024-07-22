@@ -1,19 +1,13 @@
 /obj/item/disk/surgery/brainwashing
-<<<<<<< HEAD
 	name = "Surgery Disk" //NOVA EDIT: Formerly "Brainwashing Surgery Disk" //Finally I can upload the funny surgery disk without letting everyone in the room know about it!
 	desc = "The disk provides instructions on some kind of surgery, but the label has been scratched off..." //NOVA EDIT: Moved to Special Desc.
-	surgeries = list(/datum/surgery/advanced/brainwashing)
-	special_desc_requirement = EXAMINE_CHECK_JOB // NOVA EDIT
-	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist") // NOVA EDIT CHANGE //You mean to tell me the roles that get this role-exclusive item know what it does?
-	special_desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
-=======
-	name = "Brainwashing Surgery Disk"
-	desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
 	surgeries = list(
 		/datum/surgery/advanced/brainwashing,
 		/datum/surgery/advanced/brainwashing/mechanic,
 	)
->>>>>>> 7088097eb842 ([NO SELF SURGERY] Cybernetically augmented humanoids have alternative surgeries (both standard and advanced) [NO SELF SURGERY], as well as other misc additions (#84980))
+	special_desc_requirement = EXAMINE_CHECK_JOB // NOVA EDIT
+	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist") // NOVA EDIT CHANGE //You mean to tell me the roles that get this role-exclusive item know what it does?
+	special_desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
 
 /datum/surgery/advanced/brainwashing
 	name = "Brainwashing"
