@@ -310,6 +310,7 @@
 					detected_thing = "Starvation"
 				if(H.nutrition >= detect_nutrition && detect_nutrition == NUTRITION_LEVEL_FAT)
 					beep = TRUE
+					detected_thing = "Obesity"
 		//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
 		if(SCANGATE_GENDER)
 			if(ishuman(M))
@@ -318,7 +319,6 @@
 					if(scanned_human.gender == detect_gender)
 						beep = TRUE
 		//NOVA EDIT ADDITION END - MORE SCANNER GATE OPTIONS
-					detected_thing = "Obesity"
 		if(SCANGATE_CONTRABAND)
 			for(var/obj/item/content in M.get_all_contents_skipping_traits(TRAIT_CONTRABAND_BLOCKER))
 				detected_thing = "Contraband"
