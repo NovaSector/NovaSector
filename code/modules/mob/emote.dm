@@ -33,13 +33,14 @@
 			continue
 		if(!emote.can_run_emote(src, TRUE, intentional, param))
 			continue
+			src.nextsoundemote = world.time // NOVA EDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
 		if(SEND_SIGNAL(src, COMSIG_MOB_PRE_EMOTED, emote.key, param, m_type, intentional, emote) & COMPONENT_CANT_EMOTE)
 			silenced = TRUE
 			continue
+			src.nextsoundemote = world.time // NOVA EDIT ADDITION
 		emote.run_emote(src, param, m_type, intentional)
 		SEND_SIGNAL(src, COMSIG_MOB_EMOTE, emote, act, m_type, message, intentional)
 		SEND_SIGNAL(src, COMSIG_MOB_EMOTED(emote.key))
-		src.nextsoundemote = world.time // NOVA EDIT ADDITION - Since the cooldown is global and not specific to each emote, we need to reset it on an unsuccessful emote
 		return TRUE
 	if(intentional && !silenced && !force_silence)
 		to_chat(src, span_notice("Unusable emote '[act]'. Say *help for a list."))
