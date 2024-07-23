@@ -11,10 +11,6 @@
 		"ci-lighter",
 		"ci-razor",
 		"ci-drill",
-		"combat_implant_sandy",
-		"combat_implant_hackerman",
-		"combat_implant_razorwire",
-		"combat_implant_shell_launcher",
 	)
 	// thrusters in combat_implants
 	design_ids -= list(
