@@ -5182,10 +5182,14 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/aft)
 "bIx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "bIL" = (
@@ -16999,6 +17003,7 @@
 /obj/machinery/light/small/directional/north,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "fzl" = (
@@ -127058,7 +127063,7 @@ xvl
 rSe
 edg
 bJj
-ekA
+bIx
 bpV
 kpF
 aLR
@@ -128591,7 +128596,7 @@ cqa
 pGc
 chO
 eRT
-bIx
+eRT
 bpV
 bpV
 glD
