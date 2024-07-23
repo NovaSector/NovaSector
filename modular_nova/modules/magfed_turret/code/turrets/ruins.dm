@@ -10,12 +10,12 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	mag_slots = 2
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/c40sol_rifle
+		/obj/item/ammo_box/magazine/m556
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	name = "\improper Outpost Point-Defense Turret"
@@ -50,12 +50,12 @@
 	easy_deploy = TRUE
 	turret_safety = TRUE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/c40sol_rifle,
+		/obj/item/ammo_box/magazine/m556,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist
 	name = "\improper Colonist Point-Defense Turret"
@@ -92,11 +92,11 @@
 	mag_slots = 1
 	turret_safety = TRUE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/ammo_box/magazine/wt550m9,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider
 	name = "\improper Stinger Spider Turret"
@@ -120,7 +120,7 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/malf
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/m9mm(src)
 
 ////// Twin-Fang turret. Spider Turret's nastier cousin. Slightly less durable but more vitriol. Chambered in .27-54
 
@@ -133,11 +133,11 @@
 	mag_slots = 1
 	turret_safety = FALSE
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/miecz,
+		/obj/item/ammo_box/magazine/wt550m9,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/miecz(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
 	name = "\improper Twin-Fang Spider Turret"
@@ -167,7 +167,7 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang/malf
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/miecz(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
 
 ////// Shotgun Turret. Surprisingly nothing new added as the firing proc will handle pellet clouds. Note however that shotgun rounds CANT smart-gun around allies.
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster

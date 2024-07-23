@@ -98,9 +98,7 @@
 
 /obj/item/choice_beacon/blueshield/generate_display_names()
 	var/static/list/selectable_gun_types = list(
-		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
 		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
-		"Bogseo Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/bogseo,
 	)
 
 	return selectable_gun_types

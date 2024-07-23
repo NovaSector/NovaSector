@@ -88,8 +88,8 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
 
 
 ///Grabs a mag to load into the turret

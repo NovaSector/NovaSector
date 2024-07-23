@@ -127,8 +127,8 @@
 
 /obj/item/storage/backpack/ert/odst/hecu/sol_militant/PopulateContents()
 	new /obj/item/clothing/under/sol_peacekeeper(src)
-	new /obj/item/clothing/suit/armor/sf_peacekeeper(src)
-	new /obj/item/clothing/head/helmet/sf_peacekeeper(src)
+	new /obj/item/clothing/suit/armor/bulletproof(src)
+	new /obj/item/clothing/head/helmet/alt(src)
 	new /obj/item/storage/belt/military/assault(src)
 	new /obj/item/clothing/mask/gas/hecu2(src)
 	new /obj/item/clothing/shoes/combat(src)

@@ -823,9 +823,6 @@
 		/obj/item/gun/energy/recharge/ebow,
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
-		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
-		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
-		/obj/item/ammo_box/magazine/recharge/plasma_battery,
 	))
 /*
 *	HEAD

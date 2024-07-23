@@ -29,4 +29,3 @@
 	new /obj/item/clothing/suit/armor/vest/expeditionary_corps(src)
 	new /obj/item/storage/belt/military/expeditionary_corps/marksman(src)
 	new /obj/item/storage/backpack/duffelbag/expeditionary_corps(src)
-	new /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild(src)

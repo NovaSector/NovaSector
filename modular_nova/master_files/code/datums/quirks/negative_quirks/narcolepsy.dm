@@ -16,10 +16,6 @@
 	var/mob/living/carbon/human/user = quirk_holder
 	user.gain_trauma(/datum/brain_trauma/severe/narcolepsy/permanent, TRAUMA_RESILIENCE_ABSOLUTE)
 
-	var/obj/item/storage/medkit/civil_defense/comfort/stocked/stimmies = new()
-	if(quirk_holder.equip_to_slot_if_possible(stimmies, ITEM_SLOT_BACKPACK, qdel_on_fail = TRUE, initial = TRUE, indirect_action = TRUE))
-		to_chat(quirk_holder, span_info("You have been given a company-issued symptom support kit containing mild stimulants to assist in staying awake this shift. Dose responsibly. Consult your allocated care provider if you experience any side-effects."))
-
 /datum/quirk/narcolepsy/remove()
 	. = ..()
 	var/mob/living/carbon/human/user = quirk_holder
