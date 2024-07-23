@@ -34,7 +34,7 @@
 
 	our_overlay.sprite_suffix = sprite_suffix
 	our_overlay.owner = owner
-	our_overlay.owning_organ = src
+	our_overlay.organ_slot = src.slot
 
 
 /obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
@@ -75,7 +75,7 @@
 
 	our_overlay.color_source = uses_skin_color ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
 	our_overlay.owner = owner
-	our_overlay.owning_organ = src
+	our_overlay.organ_slot = src.slot
 
 /// for specific build_from_dna behavior that also checks the genital accessory.
 /obj/item/organ/external/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
@@ -109,8 +109,8 @@
 	var/sprite_suffix
 	/// Owning human.  Used to adjust layers depending on underwear
 	var/mob/living/carbon/human/owner
-	/// Owning organ.  Used to force layers higher if
-	var/obj/item/organ/external/genital/owning_organ
+	/// Organ slot, used to get reference to the actual organ this is attached to without angering the CI gods.
+	var/organ_slot
 
 	/// Layer used when FORCED ABOVE ALL CLOTHING.
 	var/layer_above_all = -(BODY_FRONT_LAYER - 0.06)
@@ -160,9 +160,16 @@
 /datum/bodypart_overlay/mutant/genital/proc/underwear_check()
 	return TRUE
 
+/datum/bodypart_overlay/mutant/genital/proc/layer_mode_check()
+	var/obj/item/organ/external/genital/owning_organ = owner.get_organ_slot(organ_slot)
+	if(istype(owning_organ))
+		if(owning_organ.layer_mode == GENITAL_LAYER_HIGH)
+			return TRUE
+	return FALSE
+
 /datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
 	if(EXTERNAL_FRONT_UNDER_CLOTHES)
-		if(owning_organ.layer_mode == GENITAL_LAYER_HIGH)
+		if(layer_mode_check() == TRUE)
 			return layer_above_all
 		else if(underwear_check() == FALSE)
 			return layer_below_undies
