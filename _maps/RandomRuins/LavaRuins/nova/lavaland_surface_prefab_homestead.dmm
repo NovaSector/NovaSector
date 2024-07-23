@@ -2,10 +2,10 @@
 "a" = (
 /obj/item/weldingtool/electric/arc_welder,
 /obj/item/clothing/head/utility/hardhat/welding/orange,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "c" = (
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "d" = (
 /obj/structure/cable,
@@ -15,16 +15,16 @@
 /obj/machinery/light_switch/directional/north{
 	pixel_x = -5
 	},
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "i" = (
 /obj/structure/cable,
 /obj/machinery/power/solar_control,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "j" = (
 /obj/machinery/biogenerator/food_replicator,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "k" = (
 /obj/structure/cable,
@@ -36,16 +36,16 @@
 	},
 /obj/item/plate,
 /obj/item/kitchen/fork/plastic,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "n" = (
 /obj/effect/spawner/random/bedsheet,
 /obj/structure/bed/pod,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "o" = (
 /obj/item/trash/can/food/desert_snails,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "p" = (
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -57,15 +57,15 @@
 "s" = (
 /obj/item/storage/box/tiziran_cans,
 /obj/item/spess_knife,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "t" = (
 /obj/machinery/smartfridge/wooden/ration_shelf,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "u" = (
 /obj/structure/sink/directional/east,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "v" = (
 /obj/structure/rack/wooden,
@@ -87,7 +87,7 @@
 /obj/effect/mapping_helpers/apc/no_charge,
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/structure/closet/crate/wooden,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "x" = (
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -111,9 +111,9 @@
 /turf/template_noop,
 /area/template_noop)
 "D" = (
-/obj/machinery/door/airlock/colony_prefab,
+/obj/machinery/door/airlock,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "E" = (
 /obj/structure/rack/wooden,
@@ -133,7 +133,7 @@
 /obj/item/storage/belt/utility/frontier_colonist,
 /obj/item/crowbar/hammer,
 /obj/item/circuitboard/machine/cell_charger,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "H" = (
 /obj/structure/holosign/barrier/atmos,
@@ -150,21 +150,21 @@
 	corpse_description = "Named after one of Tizira's first extraplanetary colonists, but clearly not as successful.";
 	naive_corpse_description = "I'd be napping too if I thought mining would wake up a bunch of angry bugs."
 	},
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "J" = (
 /obj/structure/cable,
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "K" = (
 /turf/open/floor/plating,
 /area/ruin/colonist_homestead)
 "L" = (
-/obj/machinery/door/airlock/colony_prefab,
+/obj/machinery/door/airlock,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "M" = (
 /obj/machinery/button/door{
@@ -184,7 +184,7 @@
 /obj/item/kinetic_crusher,
 /obj/item/storage/medkit/frontier/stocked,
 /obj/item/pickaxe/drill/compact,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "Q" = (
 /obj/structure/cable,
@@ -202,11 +202,11 @@
 /obj/item/stock_parts/matter_bin/adv,
 /obj/item/stock_parts/matter_bin/adv,
 /obj/item/stock_parts/servo/nano,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "V" = (
-/obj/machinery/door/airlock/colony_prefab,
-/turf/open/floor/iron/colony/bolts,
+/obj/machinery/door/airlock,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "W" = (
 /turf/closed/wall/prefab_plastic,
@@ -225,11 +225,11 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "Z" = (
-/obj/structure/window/fulltile/colony_fabricator,
-/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
+/obj/structure/window/fulltile,
+/obj/machinery/door/poddoor/shutters/preopen{
 	id = "prefabcolonywindows"
 	},
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 
 (1,1,1) = {"

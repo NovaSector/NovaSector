@@ -4,24 +4,23 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/iron/colony/white/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "aO" = (
-/obj/item/flatpacked_machine/station_battery,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "aT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "aZ" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/engineering/material_cheap,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "br" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "bs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -35,22 +34,22 @@
 /obj/machinery/button/door/directional/west{
 	id = "turretbunk1"
 	},
-/obj/machinery/microwave/frontier_printed,
+/obj/machinery/microwave,
 /obj/structure/table/reinforced,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "cw" = (
 /obj/structure/table/reinforced,
 /obj/item/knife/butcher,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "da" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "dt" = (
 /obj/machinery/light_switch/directional/south,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "eo" = (
 /obj/structure/cable,
@@ -62,41 +61,41 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "fa" = (
-/obj/machinery/colony_recycler,
-/turf/open/floor/iron/colony,
+
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "fj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "fC" = (
 /obj/machinery/button/door/directional/north{
 	id = "turretbunk2"
 	},
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "fO" = (
 /obj/structure/table/reinforced,
 /obj/item/kitchen/rollingpin,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "gy" = (
-/obj/machinery/door/airlock/colony_prefab,
-/turf/open/floor/iron/colony/white/texture,
+/obj/machinery/door/airlock,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "gQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "hf" = (
-/obj/structure/window/fulltile/colony_fabricator,
-/obj/machinery/door/poddoor/shutters/colony_fabricator{
+/obj/structure/window/fulltile,
+/obj/machinery/door/poddoor/shutters{
 	id = "turretbunk3"
 	},
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "hE" = (
 /obj/machinery/power/colony_wind_turbine,
@@ -110,11 +109,11 @@
 /area/icemoon/surface/outdoors/nospawn)
 "iF" = (
 /obj/machinery/space_heater/wall_mounted/directional/north,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "iW" = (
 /obj/structure/cable,
-/turf/open/floor/iron/colony/white/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "jR" = (
 /obj/structure/cable,
@@ -124,30 +123,30 @@
 /obj/effect/mapping_helpers/apc/cell_5k,
 /obj/machinery/hydroponics/constructable,
 /obj/effect/mapping_helpers/apc/no_charge,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "ka" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "ku" = (
 /obj/machinery/light/directional/west,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "lN" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "mk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "mu" = (
 /obj/structure/table/reinforced,
@@ -157,22 +156,22 @@
 /obj/item/seeds/corn,
 /obj/item/seeds/carrot,
 /obj/item/seeds/whitebeet,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "mF" = (
 /obj/machinery/space_heater/wall_mounted/directional/east,
 /obj/machinery/biogenerator,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "mI" = (
 /obj/structure/table/reinforced,
 /obj/item/xenoarch/hammer/cm1,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "mT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/biogenerator/foodricator,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "nN" = (
 /obj/structure/flora/rock/pile/icy/style_random,
@@ -180,7 +179,7 @@
 /area/icemoon/surface/outdoors/nospawn)
 "on" = (
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "pj" = (
 /turf/open/misc/asteroid/snow/icemoon,
@@ -191,12 +190,12 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "qA" = (
-/obj/machinery/door/airlock/colony_prefab,
+/obj/machinery/door/airlock,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/barricade/wooden/crude/snow,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/iron/colony/white/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "rA" = (
 /obj/structure/fence{
@@ -209,15 +208,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mob_spawn/corpse/human/minesite,
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "sa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "sn" = (
 /obj/effect/spawner/random/throwturret,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "sX" = (
 /obj/structure/fence/corner{
@@ -229,11 +228,11 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "tt" = (
 /obj/machinery/biogenerator/organic_printer,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "wy" = (
 /obj/structure/table/reinforced,
@@ -242,177 +241,177 @@
 /obj/machinery/light/dim/directional/south,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "wZ" = (
 /obj/structure/rack/shelf,
 /obj/effect/spawner/random/engineering/material,
 /obj/machinery/light/directional/east,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "xp" = (
 /obj/item/stack/cable_coil/thirty,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "yf" = (
 /obj/machinery/oven/range_frontier,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "yE" = (
 /obj/structure/table/reinforced,
 /obj/item/construction/plumbing/mining,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "zb" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/bag/plants/portaseeder,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "As" = (
-/obj/structure/window/fulltile/colony_fabricator,
-/obj/machinery/door/poddoor/shutters/colony_fabricator{
+/obj/structure/window/fulltile,
+/obj/machinery/door/poddoor/shutters{
 	id = "turretbunk1"
 	},
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "AJ" = (
 /obj/structure/table/reinforced,
 /obj/item/xenoarch/hammer/cm10,
 /obj/item/storage/bag/xenoarch,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "AP" = (
 /obj/machinery/light_switch/directional/north,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Bk" = (
 /obj/structure/table/reinforced,
 /obj/item/t_scanner/adv_mining_scanner/lesser,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Bt" = (
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "BQ" = (
 /obj/machinery/griddle/frontier_tabletop,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "BX" = (
 /obj/machinery/light/directional/south,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Cz" = (
 /obj/effect/spawner/random/magturret,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "CG" = (
 /obj/machinery/space_heater/wall_mounted/directional/west,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "CZ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Dc" = (
-/obj/structure/window/fulltile/colony_fabricator,
-/obj/machinery/door/poddoor/shutters/colony_fabricator{
+/obj/structure/window/fulltile,
+/obj/machinery/door/poddoor/shutters{
 	id = "turretbunk3"
 	},
 /obj/effect/decal/cleanable/blood/splatter/over_window,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Di" = (
 /obj/structure/table/reinforced,
 /obj/item/xenoarch/tape_measure,
 /obj/machinery/light/directional/east,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "DH" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
 	dir = 4
 	},
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "DK" = (
 /obj/machinery/recharge_station,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Ey" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist/malf,
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Gn" = (
 /obj/structure/cable,
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Go" = (
 /obj/structure/table/reinforced,
 /obj/item/target_designator/sniper,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "GX" = (
-/turf/open/floor/iron/colony/white,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Ij" = (
 /obj/machinery/atmospherics/components/binary/valve/on/layer4,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Jd" = (
 /obj/machinery/suit_storage_unit/open,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Lb" = (
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "LR" = (
 /obj/machinery/hydroponics/constructable,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "MH" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/bag/ore,
 /obj/machinery/light/directional/west,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "NF" = (
 /obj/structure/flora/tree/pine/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "NP" = (
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "NQ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Oj" = (
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "OF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/colony/white/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "QG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "RW" = (
 /obj/machinery/light_switch/directional/north,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Td" = (
 /obj/machinery/atmospherics/components/unary/passive_vent/layer2{
@@ -424,14 +423,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/components/tank/air,
 /obj/machinery/light/dim/directional/south,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "TE" = (
-/obj/structure/window/fulltile/colony_fabricator,
-/obj/machinery/door/poddoor/shutters/colony_fabricator{
+/obj/structure/window/fulltile,
+/obj/machinery/door/poddoor/shutters{
 	id = "turretbunk2"
 	},
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "TK" = (
 /turf/closed/wall/prefab_plastic,
@@ -439,7 +438,7 @@
 "UV" = (
 /obj/structure/table/reinforced,
 /obj/item/xenoarch/brush,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "VR" = (
 /obj/effect/decal/cleanable/blood/tracks,
@@ -448,14 +447,14 @@
 "Wx" = (
 /obj/effect/mob_spawn/corpse/human/minesite,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/iron/colony/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Yn" = (
-/obj/machinery/door/airlock/colony_prefab,
+/obj/machinery/door/airlock,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/colony/white/texture,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "YB" = (
 /obj/machinery/button/door/directional/east{
@@ -464,12 +463,12 @@
 /obj/machinery/light/dim/directional/north,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/iron/colony/bolts,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "Zu" = (
 /obj/structure/table/reinforced,
 /obj/item/pickaxe/mini,
-/turf/open/floor/iron/colony,
+/turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 
 (1,1,1) = {"
