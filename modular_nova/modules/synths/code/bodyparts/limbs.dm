@@ -65,7 +65,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_IPC
 	icon = BODYPART_ICON_IPC
-	limb_id = BODYPART_ID_ROBOTIC
+	limb_id = SPECIES_SYNTH
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "synth_chest"
 	is_dimorphic = FALSE
@@ -207,7 +207,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_IPC
 	icon = BODYPART_ICON_IPC
-	limb_id = BODYPART_ID_ROBOTIC
+	limb_id = SPECIES_SYNTH
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "synth_l_leg"
 	is_dimorphic = FALSE
