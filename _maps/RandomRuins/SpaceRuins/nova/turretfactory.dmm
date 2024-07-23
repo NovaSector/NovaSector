@@ -628,7 +628,6 @@
 "Cc" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/reinforced,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
@@ -808,7 +807,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/item/ammo_box/magazine/c40sol_rifle,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "Lq" = (

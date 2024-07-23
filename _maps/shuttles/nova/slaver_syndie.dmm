@@ -248,8 +248,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/item/ammo_box/magazine/c585trappiste_pistol,
-/obj/item/ammo_box/magazine/c585trappiste_pistol,
 /obj/item/mod/control/pre_equipped/responsory,
 /obj/machinery/light/directional/west,
 /obj/structure/closet/secure_closet{
