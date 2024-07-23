@@ -1,5 +1,0 @@
-author: "00-Steven"
-delete-after: True
-changes:
-  - bugfix: "Fixes silicon/synth emotes not showing up in the emote panels for synths, bots, or robotic voicebox users."
-  - bugfix: "Fixes silicon/synth emotes showing up in the emote panels for every human that CAN'T use them."

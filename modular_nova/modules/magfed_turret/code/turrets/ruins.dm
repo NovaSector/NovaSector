@@ -60,7 +60,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist
 	name = "\improper Colonist Point-Defense Turret"
 	desc = "A deployable turret used for protection of colonists during construction or expeditionary trips. It is chambered to fire .40 Sol ammunition."
-	max_integrity = 150 //bit more health since its ment for mobs only. Malf version is one of a kind to use.
+	max_integrity = 150 //bit more health since it's ment for mobs only. Malf version is one of a kind to use.
 	icon = 'modular_nova/modules/magfed_turret/icons/turrets/ruins.dmi'
 	icon_state = "colonist_off"
 	base_icon_state = "colonist"

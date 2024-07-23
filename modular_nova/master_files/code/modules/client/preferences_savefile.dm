@@ -157,7 +157,7 @@
 				new_color = save_data["mutant_colors_color"]
 				if(islist(new_color) && new_color.len > 0)
 					new_color = sanitize_hexcolor(new_color[1])
-				// Just let validation pick it's own value.
+				// Just let validation pick its own value.
 
 			if(new_color)
 				write_preference(GLOB.preference_entries[/datum/preference/color/mutant/synth_chassis], new_color)

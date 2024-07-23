@@ -493,7 +493,7 @@
 		. += span_info("It has [barricade_upgrade_type] installed.")
 
 	if(portable_type)
-		. += span_info("Alt+click to fold it up into it's portable form.")
+		. += span_info("Alt+click to fold it up into its portable form.")
 
 /obj/structure/deployable_barricade/metal/welder_act(mob/living/user, obj/item/I)
 	var/obj/item/weldingtool/welding_tool = I
