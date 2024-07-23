@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - code_imp: "Removed 8 cases of double indentation"
