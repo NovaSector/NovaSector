@@ -439,3 +439,7 @@
 /datum/sprite_accessory/tails/mammal/wagging/rattlesnake
 	name = "Rattlesnake"
 	icon_state = "rattlesnake"
+
+/datum/sprite_accessory/tails/mammal/black_jackal
+	name = "Black-backed Jackal"
+	icon_state = "blackjackal"
