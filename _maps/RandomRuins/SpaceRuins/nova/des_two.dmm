@@ -4961,10 +4961,6 @@
 	dir = 8
 	},
 /obj/structure/rack,
-/obj/item/crowbar/large/doorforcer,
-/obj/item/weldingtool/electric/arc_welder,
-/obj/item/weldingtool/electric/arc_welder,
-/obj/item/weldingtool/electric/arc_welder,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},

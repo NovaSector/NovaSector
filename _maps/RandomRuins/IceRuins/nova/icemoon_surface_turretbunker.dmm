@@ -98,7 +98,6 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "hE" = (
-/obj/machinery/power/colony_wind_turbine,
 /obj/structure/cable,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
@@ -108,7 +107,6 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "iF" = (
-/obj/machinery/space_heater/wall_mounted/directional/north,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "iW" = (
@@ -159,7 +157,6 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "mF" = (
-/obj/machinery/space_heater/wall_mounted/directional/east,
 /obj/machinery/biogenerator,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
@@ -170,7 +167,6 @@
 /area/ruin/turretbunker)
 "mT" = (
 /obj/structure/table/reinforced,
-/obj/machinery/biogenerator/foodricator,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "nN" = (
@@ -231,7 +227,6 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "tt" = (
-/obj/machinery/biogenerator/organic_printer,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "wy" = (
@@ -254,7 +249,6 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "yf" = (
-/obj/machinery/oven/range_frontier,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "yE" = (
@@ -295,7 +289,6 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "BQ" = (
-/obj/machinery/griddle/frontier_tabletop,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "BX" = (
@@ -307,7 +300,6 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "CG" = (
-/obj/machinery/space_heater/wall_mounted/directional/west,
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "CZ" = (

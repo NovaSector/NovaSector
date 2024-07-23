@@ -45650,7 +45650,7 @@
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "ndH" = (
-/obj/machinery/power/smes/battery_pack/large,
+/obj/machinery/power/smes,
 /turf/open/floor/plating,
 /area/station/maintenance/department/electrical)
 "ndJ" = (
