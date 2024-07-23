@@ -4961,17 +4961,6 @@
 	dir = 8
 	},
 /obj/structure/rack,
-/obj/item/screwdriver/omni_drill{
-	pixel_x = -2
-	},
-/obj/item/screwdriver/omni_drill{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/screwdriver/omni_drill{
-	pixel_y = 2;
-	pixel_x = 3
-	},
 /obj/item/crowbar/large/doorforcer,
 /obj/item/weldingtool/electric/arc_welder,
 /obj/item/weldingtool/electric/arc_welder,

@@ -125,12 +125,9 @@
 /area/lavaland/surface/outdoors)
 "F" = (
 /obj/structure/cable,
-/obj/machinery/power/port_gen/pacman/solid_fuel,
 /turf/open/floor/plating,
 /area/ruin/colonist_homestead)
 "G" = (
-/obj/item/screwdriver/omni_drill,
-/obj/item/storage/belt/utility/frontier_colonist,
 /obj/item/crowbar/hammer,
 /obj/item/circuitboard/machine/cell_charger,
 /turf/open/floor/iron/large,
@@ -172,7 +169,7 @@
 	pixel_x = 5;
 	id = "prefabcolonywindows"
 	},
-/turf/closed/wall/prefab_plastic,
+/turf/closed/wall,
 /area/ruin/colonist_homestead)
 "N" = (
 /obj/item/stack/cable_coil/five,
@@ -182,8 +179,6 @@
 "O" = (
 /obj/structure/rack/wooden,
 /obj/item/kinetic_crusher,
-/obj/item/storage/medkit/frontier/stocked,
-/obj/item/pickaxe/drill/compact,
 /turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "Q" = (
@@ -209,7 +204,7 @@
 /turf/open/floor/iron/large,
 /area/ruin/colonist_homestead)
 "W" = (
-/turf/closed/wall/prefab_plastic,
+/turf/closed/wall,
 /area/ruin/colonist_homestead)
 "X" = (
 /obj/structure/rack/wooden,

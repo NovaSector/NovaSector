@@ -824,8 +824,6 @@
 /area/virtual_domain/ancient_milsim/hallway)
 "xa" = (
 /obj/structure/closet/crate/freezer/blood,
-/obj/item/storage/medkit/civil_defense/stocked,
-/obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "xe" = (
@@ -971,7 +969,6 @@
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "Cg" = (
-/obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "Cr" = (
@@ -1113,8 +1110,6 @@
 /area/virtual_domain/ancient_milsim/atrium)
 "Ey" = (
 /obj/structure/closet/crate/freezer/blood,
-/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked,
-/obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "EB" = (

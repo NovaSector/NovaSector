@@ -433,7 +433,7 @@
 /turf/open/floor/iron/large,
 /area/ruin/turretbunker)
 "TK" = (
-/turf/closed/wall/prefab_plastic,
+/turf/closed/wall,
 /area/ruin/turretbunker)
 "UV" = (
 /obj/structure/table/reinforced,
