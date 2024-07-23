@@ -265,7 +265,6 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "kI" = (
@@ -532,7 +531,6 @@
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/table/reinforced,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/turretfactory)
 "xh" = (

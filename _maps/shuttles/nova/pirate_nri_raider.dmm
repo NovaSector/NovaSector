@@ -141,14 +141,6 @@
 /obj/structure/rack/shelf,
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small/red/directional/north,
-/obj/item/ammo_box/c27_54cesarzowa,
-/obj/item/ammo_box/c27_54cesarzowa,
-/obj/item/ammo_box/c27_54cesarzowa/rubber{
-	pixel_y = 6
-	},
-/obj/item/ammo_box/c27_54cesarzowa/rubber{
-	pixel_y = 6
-	},
 /obj/item/ammo_box/magazine/miecz,
 /obj/item/ammo_box/magazine/miecz,
 /obj/item/ammo_box/magazine/miecz,

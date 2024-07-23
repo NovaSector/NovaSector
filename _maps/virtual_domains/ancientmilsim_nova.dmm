@@ -199,7 +199,6 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/janitor)
 "gP" = (
-/obj/item/storage/medkit/civil_defense/stocked,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "hj" = (
@@ -461,9 +460,6 @@
 /area/virtual_domain/ancient_milsim/loot_camp)
 "nZ" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
 /obj/item/storage/toolbox/ammobox/full/mosin,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
@@ -617,13 +613,6 @@
 "td" = (
 /obj/item/storage/box/utensils,
 /obj/structure/table/wood,
-/obj/item/ammo_box/c310_cargo_box/piercing{
-	pixel_x = 6;
-	pixel_y = 9
-	},
-/obj/item/ammo_box/c27_54cesarzowa/rubber{
-	pixel_x = 12
-	},
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "te" = (
@@ -757,7 +746,6 @@
 "vA" = (
 /obj/structure/closet/crate/trashcart/filled,
 /obj/item/flamethrower/full/tank,
-/obj/item/storage/medkit/civil_defense/stocked,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "vL" = (
@@ -1497,15 +1485,6 @@
 /area/virtual_domain/ancient_milsim/snpc_ground)
 "Qn" = (
 /obj/structure/table,
-/obj/item/storage/medkit/civil_defense/stocked{
-	pixel_x = 8
-	},
-/obj/item/storage/medkit/civil_defense/stocked{
-	pixel_x = -8
-	},
-/obj/item/storage/medkit/civil_defense/stocked{
-	pixel_y = 4
-	},
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "QF" = (
@@ -1520,15 +1499,6 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "Rl" = (
-/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
-/obj/item/ammo_box/magazine/recharge/plasma_battery{
-	pixel_x = -3;
-	pixel_y = -14
-	},
-/obj/item/ammo_box/magazine/recharge/plasma_battery{
-	pixel_x = 8;
-	pixel_y = -12
-	},
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "Rn" = (
@@ -1547,11 +1517,6 @@
 /area/virtual_domain/ancient_milsim/maintenance)
 "RA" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "RC" = (
