@@ -920,6 +920,7 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "anV" = (
@@ -5438,6 +5439,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "bCt" = (
@@ -17883,7 +17885,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos)
 "fiR" = (
-/obj/effect/turf_decal/tile/dark/full,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/smes/full,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "fiT" = (
@@ -20312,6 +20316,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark/half/contrasted,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "fWb" = (
@@ -35144,6 +35149,7 @@
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "kjn" = (
@@ -36363,6 +36369,10 @@
 	c_tag = "MiniSat Telecomms Right";
 	network = list("minisat")
 	},
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "kyR" = (
@@ -38009,6 +38019,10 @@
 /obj/effect/turf_decal/tile/dark/half/contrasted{
 	dir = 1
 	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "kWo" = (
@@ -59525,6 +59539,7 @@
 /obj/effect/turf_decal/tile/dark{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "rmw" = (
@@ -72689,6 +72704,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "vcr" = (
@@ -75390,9 +75406,6 @@
 	c_tag = "MiniSat Telecomms Left";
 	network = list("tcomms")
 	},
-/obj/structure/cable,
-/obj/effect/mapping_helpers/apc/cell_10k,
-/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "vPj" = (
