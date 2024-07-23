@@ -49,7 +49,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
 	head = /obj/item/clothing/head/helmet/rus_helmet
-	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
+	back = /obj/item/storage/backpack/security
 	backpack_contents = list(
 		/obj/item/storage/box/nri_survival_pack/raider,
 		/obj/item/gun/ballistic/automatic/pistol,

@@ -298,7 +298,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/item/ammo_box/magazine/miecz/spawns_empty,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/turretfactory)
 "nY" = (

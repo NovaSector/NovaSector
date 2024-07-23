@@ -210,9 +210,9 @@
 /datum/opposing_force_equipment/clothing_pirate/nri_soldier
 	name = "NRI Soldier"
 	description = "The station failed the inspection, now they have to deal with you."
-	item_type = /obj/item/storage/backpack/industrial/cin_surplus/forest/nri_soldier
+	item_type = /obj/item/storage/backpack/security/nri_soldier
 
-/obj/item/storage/backpack/industrial/cin_surplus/forest/nri_soldier/PopulateContents()
+/obj/item/storage/backpack/security/nri_soldier/PopulateContents()
 	new /obj/item/clothing/under/syndicate/rus_army(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/tackler/combat(src)

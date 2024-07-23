@@ -84,8 +84,6 @@
 "cF" = (
 /obj/structure/sign/poster/random/directional/west,
 /obj/structure/rack/gunrack,
-/obj/item/gun/ballistic/automatic/wylom,
-/obj/item/gun/ballistic/automatic/miecz,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "cV" = (
@@ -592,8 +590,6 @@
 "ss" = (
 /obj/machinery/light/floor,
 /obj/structure/table,
-/obj/item/ammo_box/c310_cargo_box/piercing,
-/obj/item/ammo_box/c310_cargo_box/piercing,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "sG" = (
@@ -760,25 +756,6 @@
 /area/virtual_domain/ancient_milsim/janitor)
 "wr" = (
 /obj/structure/rack/shelf,
-/obj/item/ammo_box/magazine/wylom{
-	pixel_y = 4;
-	pixel_x = -8
-	},
-/obj/item/ammo_box/magazine/wylom{
-	pixel_y = 4;
-	pixel_x = 4
-	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_x = -5;
-	pixel_y = -9
-	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_y = -9
-	},
-/obj/item/ammo_box/magazine/miecz{
-	pixel_x = 5;
-	pixel_y = -9
-	},
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "ws" = (
@@ -1034,7 +1011,6 @@
 /turf/open/floor/iron/smooth_large,
 /area/virtual_domain/ancient_milsim/snpc_exit)
 "Dt" = (
-/obj/item/gun/ballistic/automatic/wylom,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "Dy" = (
@@ -1656,7 +1632,6 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "Vr" = (
-/obj/item/ammo_box/magazine/wylom,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "VA" = (
@@ -1718,7 +1693,6 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "Xh" = (
-/obj/item/ammo_box/c310_cargo_box/piercing,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "XK" = (
