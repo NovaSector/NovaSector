@@ -9981,7 +9981,6 @@
 /turf/open/floor/wood,
 /area/station/commons/dorms/room5)
 "bWo" = (
-/obj/item/flatpacked_machine/rtg,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engineering/atmos_aux_port)
 "bWr" = (
@@ -117127,10 +117126,6 @@
 /obj/structure/closet/crate/secure/engineering{
 	name = "surplus equipment crate"
 	},
-/obj/item/flatpacked_machine/fuel_generator,
-/obj/item/flatpacked_machine/large_station_battery,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/thermomachine,
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/circulator,
 /obj/item/circuitboard/machine/thermoelectric_generator,

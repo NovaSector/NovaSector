@@ -381,12 +381,6 @@
 /obj/structure/closet/crate/secure/weapon{
 	name = "Surplus Firearms"
 	},
-/obj/item/gun/ballistic/automatic/lanca,
-/obj/item/gun/ballistic/automatic/lanca,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
 "fl" = (
@@ -886,7 +880,6 @@
 /area/ruin/space/has_grav/cargodise_freighter/cargo)
 "nv" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/ballistic/automatic/pistol/sol,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "nw" = (
@@ -1271,7 +1264,6 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/structure/table/reinforced,
-/obj/item/gun/ballistic/automatic/pistol/sol,
 /obj/item/gun/energy/e_gun/mini{
 	pixel_y = 5
 	},
@@ -1597,7 +1589,6 @@
 	name = "Delivery - Free Trade Union";
 	req_access = list("cargo")
 	},
-/obj/item/crafting_conversion_kit/mosin_pro,
 /obj/item/storage/box/shipping,
 /obj/item/cargo_teleporter,
 /obj/item/clothing/gloves/cargo_gauntlet,
@@ -2003,7 +1994,6 @@
 /area/ruin/space/has_grav/cargodise_freighter/bridge)
 "ES" = (
 /obj/structure/rack/gunrack,
-/obj/item/gun/ballistic/automatic/lanca,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/cargodise_freighter/vault)
 "Fb" = (

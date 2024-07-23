@@ -531,7 +531,6 @@
 /area/shuttle/pirate/nri)
 "uh" = (
 /obj/structure/rack/gunrack,
-/obj/item/gun/ballistic/automatic/lanca,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -918,11 +917,6 @@
 	pixel_x = -1;
 	pixel_y = -1
 	},
-/obj/item/ammo_box/c310_cargo_box,
-/obj/item/ammo_box/c310_cargo_box,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca,
 /turf/open/floor/pod/light,
 /area/shuttle/pirate/nri)
 "Hl" = (

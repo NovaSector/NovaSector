@@ -808,11 +808,6 @@
 /area/virtual_domain/ancient_milsim/atrium)
 "wy" = (
 /obj/structure/table/wood,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/gun/ballistic/automatic/lanca{
-	pixel_y = 6;
-	pixel_x = 7
-	},
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "wz" = (
@@ -1391,11 +1386,6 @@
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "MW" = (
 /obj/structure/table/wood,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca{
-	pixel_x = 4;
-	pixel_y = 4
-	},
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "MY" = (
@@ -1524,7 +1514,6 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "QF" = (
-/obj/item/ammo_box/magazine/lanca,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "QP" = (
@@ -1676,8 +1665,6 @@
 /area/virtual_domain/ancient_milsim/snpc_cave)
 "Ux" = (
 /obj/structure/closet/crate/trashcart/filled,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/c35sol,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/janitor)
 "Uz" = (
@@ -1768,7 +1755,6 @@
 /turf/closed/wall/r_wall,
 /area/virtual_domain/ancient_milsim/hallway)
 "WY" = (
-/obj/item/gun/ballistic/automatic/lanca,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "Xh" = (
