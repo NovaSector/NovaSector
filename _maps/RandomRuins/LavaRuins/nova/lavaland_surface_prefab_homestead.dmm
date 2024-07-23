@@ -87,13 +87,6 @@
 /obj/effect/mapping_helpers/apc/no_charge,
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/structure/closet/crate/wooden,
-/obj/item/flatpacked_machine/solar_tracker,
-/obj/item/flatpacked_machine/solar,
-/obj/item/flatpacked_machine/solar,
-/obj/item/flatpacked_machine/solar,
-/obj/item/flatpacked_machine/solar,
-/obj/item/flatpacked_machine/solar,
-/obj/item/flatpacked_machine/solar,
 /turf/open/floor/iron/colony/bolts,
 /area/ruin/colonist_homestead)
 "x" = (

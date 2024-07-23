@@ -24,7 +24,6 @@
 "g" = (
 /obj/effect/turf_decal/bot_blue,
 /obj/machinery/firealarm/directional/east,
-/obj/structure/closet/secure_closet/armory_kiboko,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "h" = (

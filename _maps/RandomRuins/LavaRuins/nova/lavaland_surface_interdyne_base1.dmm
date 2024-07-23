@@ -669,7 +669,6 @@
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/west,
-/obj/machinery/vending/imported/mothic,
 /turf/open/floor/iron/dark/textured,
 /area/ruin/interdyne_planetary_base/cargo)
 "gv" = (
@@ -994,9 +993,6 @@
 "iT" = (
 /obj/machinery/camera/autoname/directional/west{
 	network = list("intd13")
-	},
-/obj/machinery/vending/imported/tiziran{
-	onstation = 0
 	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
@@ -1857,16 +1853,6 @@
 "pJ" = (
 /obj/structure/closet/crate/engineering,
 /obj/item/stack/cable_coil,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
-/obj/item/flatpacked_machine/rtg,
 /obj/item/clothing/gloves/color/yellow,
 /obj/structure/lattice/catwalk,
 /turf/open/lava/smooth/lava_land_surface,
@@ -3178,9 +3164,6 @@
 "AY" = (
 /obj/effect/turf_decal/tile/dark_green{
 	dir = 4
-	},
-/obj/machinery/vending/imported/yangyu{
-	onstation = 0
 	},
 /turf/open/floor/iron/dark/textured,
 /area/ruin/interdyne_planetary_base/cargo)

@@ -15945,7 +15945,6 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner,
 /obj/structure/sign/poster/official/twelve_gauge/directional/east,
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/secure_closet/armory_kiboko,
 /turf/open/floor/engine,
 /area/station/ai_monitored/security/armory)
 "eEp" = (
@@ -76239,7 +76238,6 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
 "vhq" = (
-/obj/machinery/vending/imported/mothic,
 /obj/structure/sign/poster/contraband/random/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/kitchen,

@@ -9327,12 +9327,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported/mothic{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
-	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -10448,12 +10442,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/imported/yangyu{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
-	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -15514,12 +15502,6 @@
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/light,
-/obj/machinery/vending/imported/tiziran{
-	default_price = 0;
-	extended_inventory = 1;
-	extra_price = 0;
-	fair_market_price = 0
-	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},

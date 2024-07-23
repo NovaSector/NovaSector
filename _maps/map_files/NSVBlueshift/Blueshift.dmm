@@ -26101,7 +26101,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/structure/sign/poster/official/carwo_magazine/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/blueshield)
 "eWJ" = (
@@ -49901,7 +49900,6 @@
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 8
 	},
-/obj/machinery/cell_charger_multi/wall_mounted/directional/west,
 /obj/structure/table,
 /obj/item/circuitboard/computer/mech_bay_power_console,
 /obj/item/stack/sheet/glass{
@@ -56000,7 +55998,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
 "kIL" = (
-/obj/structure/closet/secure_closet/armory_kiboko,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
@@ -71899,7 +71896,6 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
-/obj/structure/sign/poster/official/carwo_magazine/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -74422,7 +74418,6 @@
 /obj/item/clothing/head/helmet/toggleable/riot{
 	pixel_y = 6
 	},
-/obj/structure/sign/poster/official/carwo_grenade/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/blueshield)
 "onB" = (
@@ -95588,7 +95583,6 @@
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/stripes/red/box,
 /obj/vehicle/ridden/secway,
-/obj/structure/sign/poster/official/carwo_grenade/directional/north,
 /turf/open/floor/iron/recharge_floor,
 /area/station/ai_monitored/security/armory)
 "sqo" = (

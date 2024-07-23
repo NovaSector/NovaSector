@@ -2480,7 +2480,6 @@
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/armory_kiboko_but_evil,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "kt" = (
@@ -3504,7 +3503,6 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
 	},
-/obj/machinery/vending/imported/tiziran,
 /turf/open/floor/iron/cafeteria,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "oX" = (
@@ -3952,7 +3950,6 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "qR" = (
-/obj/machinery/vending/imported/mothic,
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
 	},
@@ -10933,7 +10930,6 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "Xl" = (
-/obj/machinery/vending/imported/yangyu,
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
 	},
