@@ -264,12 +264,12 @@
 	name = "Engineering Locker Room"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/engine_equipment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 8
 	},
@@ -12377,6 +12377,7 @@
 "drI" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "drL" = (
@@ -17750,12 +17751,6 @@
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /turf/open/floor/iron,
 /area/station/security/prison/visit)
-"eRx" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 5
-	},
-/turf/closed/wall/r_wall,
-/area/station/command/heads_quarters/nt_rep)
 "eRG" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -26257,6 +26252,7 @@
 /area/station/hallway/primary/port)
 "hgx" = (
 /obj/item/kirbyplants/random,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
 /turf/open/floor/carpet/red,
 /area/station/security/office)
 "hgz" = (
@@ -28677,6 +28673,9 @@
 	},
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/forestarboardhall)
+"hPe" = (
+/turf/open/floor/circuit,
+/area/station/tcommsat/server)
 "hPn" = (
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
@@ -36719,6 +36718,7 @@
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -52434,10 +52434,6 @@
 /obj/machinery/door/window/right/directional/east{
 	name = "Hop Desk"
 	},
-/obj/machinery/door/window/brigdoor/left/directional/west{
-	name = "Access Desk";
-	req_access = list("hop")
-	},
 /obj/item/folder/blue,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -58244,6 +58240,10 @@
 /obj/machinery/computer/upload/ai,
 /turf/open/floor/iron/large,
 /area/station/ai_monitored/turret_protected/ai_upload)
+"pOZ" = (
+/obj/machinery/announcement_system,
+/turf/open/floor/circuit,
+/area/station/tcommsat/server)
 "pPL" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/carpet,
@@ -59247,6 +59247,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/port/aft)
+"qgl" = (
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
+/turf/open/floor/iron/dark/smooth_edge{
+	dir = 4
+	},
+/area/station/security/breakroom)
 "qgo" = (
 /obj/effect/turf_decal/tile/dark_green/diagonal_edge,
 /obj/effect/turf_decal/tile/green/diagonal_centre,
@@ -76324,6 +76333,9 @@
 /area/station/hallway/primary/forestarboardhall)
 "uNb" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "uNd" = (
@@ -244618,7 +244630,7 @@ tBx
 eLv
 tXD
 eoV
-mJA
+qgl
 mls
 lUG
 tfP
@@ -245218,7 +245230,7 @@ uhT
 uhT
 nTq
 plB
-plB
+pOZ
 nwL
 vMu
 vMu
@@ -246760,7 +246772,7 @@ pAo
 pAo
 lcv
 plB
-plB
+hPe
 nwL
 vMu
 vMu
@@ -264639,7 +264651,7 @@ uHq
 jcZ
 jcZ
 qNN
-eRx
+sMj
 mGR
 fOJ
 tbh
