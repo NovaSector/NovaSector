@@ -683,7 +683,7 @@
 // Donation reward for asky / Zulie
 /obj/item/clothing/suit/hooded/cloak/zuliecloak
 	name = "Project: Zul-E"
-	desc = "A standard version of a prototype cloak given out by Nanotrasen higher ups. It's surprisingly thick and heavy for a cloak despite having most of it's tech stripped. It also comes with a bluespace trinket which calls it's accompanying hat onto the user. A worn inscription on the inside of the cloak reads 'Fleuret' ...the rest is faded away."
+	desc = "A standard version of a prototype cloak given out by Nanotrasen higher ups. It's surprisingly thick and heavy for a cloak despite having most of its tech stripped. It also comes with a bluespace trinket which calls its accompanying hat onto the user. A worn inscription on the inside of the cloak reads 'Fleuret' ...the rest is faded away."
 	icon_state = "zuliecloak"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
@@ -1806,7 +1806,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		but is pleasant on the skin.\nWhile extremely well made, it seems quite \
 		fragile, and rather <i>expensive</i>. You get the feeling it might not \
 		<b>survive a washing machine</b> without specialized treatment."
-	special_desc = "It's buttons are pressed with some kind of sigil - which, to those knowledgeable in \
+	special_desc = "Its buttons are pressed with some kind of sigil - which, to those knowledgeable in \
 		Tiziran politics or nobility, would be recognizable as the <b>Kor'Yesh emblem</b>, \
 		a relatively <i>minor house of nobility</i> within <i>Tizira</i>.\n\n\
 		On a closer inspection, it would appear the interior is modified with protective material and mounting points \
@@ -2029,7 +2029,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 // donation reward for deadmon
 /obj/item/clothing/suit/hooded/seva/melon
 	name = "sundowner SEVA suit"
-	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had it's typical armor plating and anti-radiation lining removed in favor of movement. "
+	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'

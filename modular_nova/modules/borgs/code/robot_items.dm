@@ -134,7 +134,7 @@
 
 /obj/item/borg/hydraulic_clamp/examine(mob/user)
 	. = ..()
-	. += span_notice("It's cargo hold has a capacity of [storage_capacity] and is currently holding <b>[contents.len ? contents.len : 0]</b> items in it!")
+	. += span_notice("Its cargo hold has a capacity of [storage_capacity] and is currently holding <b>[contents.len ? contents.len : 0]</b> items in it!")
 	if(storage_capacity > 1)
 		. += span_notice("Use in hand to select an item you want to prioritize taking out of the storage.")
 

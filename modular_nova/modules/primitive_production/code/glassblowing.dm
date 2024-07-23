@@ -63,7 +63,7 @@
 	name = "molten glass"
 	desc = "A glob of molten glass, ready to be shaped into art."
 	icon_state = "molten_glass"
-	///the cooldown if its still molten / requires heating up
+	///the cooldown if it's still molten / requires heating up
 	COOLDOWN_DECLARE(remaining_heat)
 	///the typepath of the item that will be produced when the required actions are met
 	var/chosen_item

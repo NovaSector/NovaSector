@@ -1,4 +1,4 @@
-// Its modsuiting time
+// It's modsuiting time
 
 /datum/mod_theme/frontier_colonist
 	name = "frontier hazard protective"

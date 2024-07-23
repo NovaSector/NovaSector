@@ -36,7 +36,7 @@
 
 /datum/market_item/misc/dehydrated_carp
 	name = "Dehydrated Space Carp"
-	desc = "A plushie of a space carp, the seller states its too mean for their son - so now its for sale."
+	desc = "A plushie of a space carp, the seller states it's too mean for their son - so now it's for sale."
 	item = /obj/item/toy/plush/carpplushie/dehy_carp
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE

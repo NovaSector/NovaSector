@@ -1,5 +1,5 @@
 /obj/item/clothing/glasses	//Code to let you switch the side your eyepatch is on! Woo! Just an explanation, this is added to the base glasses so it works on eyepatch-huds too
-	var/can_switch_eye = FALSE	//Having this default to false means that its easy to make sure this doesnt apply to any pre-existing items
+	var/can_switch_eye = FALSE	//Having this default to false means that it's easy to make sure this doesnt apply to any pre-existing items
 
 
 /obj/item/clothing/glasses/examine(mob/user)
