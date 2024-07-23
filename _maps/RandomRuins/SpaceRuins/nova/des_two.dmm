@@ -8381,9 +8381,6 @@
 "LE" = (
 /obj/machinery/light/cold/directional/west,
 /obj/structure/table,
-/obj/item/trash/empty_food_tray{
-	pixel_y = 7
-	},
 /obj/item/newspaper{
 	pixel_x = 5;
 	pixel_y = -1
