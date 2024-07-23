@@ -1,4 +1,6 @@
-The following sounds have been recorded, edited and added by Paxilmaniac:
+The following sounds have been recorded, edited and added by
+a contributor who no longer wishes to be named
+specifically for free open source use from the novasector codebase, so don't worry about it.
 
 modular_nova/modules/colony_fabricator/sound/arc_furnace/arc_furnace_mid_(1 - 4).wav
 modular_nova/modules/colony_fabricator/sound/fabricator/fabricator_mid_(1 - 4).wav
