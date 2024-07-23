@@ -1,13 +1,13 @@
 /datum/outfit/solfed_bitrun
 	name = "Bitrunning SolFed Marine"
 
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/syndicate/camo
 	head = null
 	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
-	gloves = /obj/item/clothing/gloves/frontier_colonist
+	gloves = /obj/item/clothing/gloves/color/black
 	suit = null
-	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
-	back = /obj/item/storage/backpack/industrial/frontier_colonist
+	shoes = /obj/item/clothing/shoes/jackboots
+	back = /obj/item/storage/backpack/security
 	glasses = null
 	ears = /obj/item/radio/headset/headset_faction/bowman
 	id = /obj/item/card/id/advanced/solfed
@@ -27,37 +27,37 @@
 
 /datum/outfit/cin_soldier_corpse
 	name = "Coalition Operative Corpse"
-	uniform = /obj/item/clothing/under/syndicate/rus_army/cin_surplus/forest
-	suit = /obj/item/clothing/suit/armor/vest/cin_surplus_vest
+	uniform = /obj/item/clothing/under/syndicate/rus_army
+	suit = /obj/item/clothing/suit/armor/vest/russian
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/cybersun
 	mask = /obj/item/clothing/mask/balaclavaadjust
-	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
-	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
-	belt = /obj/item/storage/belt/military/cin_surplus/forest
+	head = /obj/item/clothing/head/helmet/rus_helmet
+	back = /obj/item/storage/backpack/security
+	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/nri_raider/cin
 
 /datum/outfit/cin_soldier_player
 	name = "Coalition Operative SNPC"
-	uniform = /obj/item/clothing/under/syndicate/rus_army/cin_surplus/forest
-	suit = /obj/item/clothing/suit/armor/vest/cin_surplus_vest
+	uniform = /obj/item/clothing/under/syndicate/rus_army
+	suit = /obj/item/clothing/suit/armor/vest/russian
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/cybersun
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
-	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
+	head = /obj/item/clothing/head/helmet/rus_helmet
 	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
 	backpack_contents = list(
 		/obj/item/storage/box/nri_survival_pack/raider,
-		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
-		/obj/item/ammo_box/magazine/recharge/plasma_battery = 2,
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/ammo_box/magazine/m9mm = 2,
 	)
 	r_hand = null
 	l_hand = null
-	belt = /obj/item/storage/belt/military/cin_surplus/forest
+	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/nri_raider/cin
 

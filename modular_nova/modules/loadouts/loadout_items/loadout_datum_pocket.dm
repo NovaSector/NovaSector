@@ -223,18 +223,6 @@
 	name = "First-Aid Kit"
 	item_path = /obj/item/storage/medkit/regular
 
-/datum/loadout_item/pocket_items/deforest_cheesekit
-	name = "Civil Defense Medical Kit"
-	item_path = /obj/item/storage/medkit/civil_defense/stocked
-
-/datum/loadout_item/pocket_items/deforest_frontiermedkit
-	name = "Frontier Medical Kit"
-	item_path = /obj/item/storage/medkit/frontier/stocked
-
-/datum/loadout_item/pocket_items/synthetic_medkit
-	name = "Robotic Repair Equipment Kit"
-	item_path = /obj/item/storage/medkit/robotic_repair/stocked
-
 /datum/loadout_item/pocket_items/ingredients
 	name = "Wildcard Ingredient Box"
 	item_path = /obj/item/storage/box/ingredients/wildcard

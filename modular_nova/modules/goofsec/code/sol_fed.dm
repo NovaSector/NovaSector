@@ -327,8 +327,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/police
 	name = "911 Response: Marshal"
 	back = /obj/item/storage/backpack/satchel
-	uniform = /obj/item/clothing/under/sol_peacekeeper
-	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol
+	uniform = /obj/item/clothing/under/rank/security/officer
+	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_sec/alt
@@ -435,18 +435,17 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/emt
 	name = "911 Response: EMT"
 	back = /obj/item/storage/backpack/medic
-	uniform = /obj/item/clothing/under/sol_emt
+	uniform = /obj/item/clothing/under/rank/medical/paramedic
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/med
 	mask = /obj/item/clothing/mask/gas/alt
-	head = /obj/item/clothing/head/helmet/toggleable/sf_hardened/emt
+	head = /obj/item/clothing/head/soft/paramedic
 	id = /obj/item/card/id/advanced/solfed
-	suit = /obj/item/clothing/suit/armor/sf_hardened/emt
+	suit = /obj/item/clothing/suit/hazardvest
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	belt = /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked
+	belt = /obj/item/storage/belt/medical/paramedic
 	suit_store = /obj/item/tank/internals/emergency_oxygen/engi
 	r_pocket = /obj/item/flashlight/seclite
-	l_pocket = /obj/item/storage/medkit/civil_defense
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/emergency_bed = 1,
@@ -481,17 +480,17 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/condom_destroyer
 	name = "911 Response: Armed S.W.A.T. Officer"
 	back = /obj/item/storage/backpack
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/rank/security/peacekeeper
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_solfed/sec
-	head = /obj/item/clothing/head/helmet/sf_peacekeeper
+	head = /obj/item/clothing/head/helmet/alt
 	belt = /obj/item/gun/energy/disabler
-	suit = /obj/item/clothing/suit/armor/sf_peacekeeper
+	suit = /obj/item/clothing/suit/armor/bulletproof
 	r_pocket = /obj/item/flashlight/seclite
 	l_pocket = /obj/item/restraints/handcuffs
 	id = /obj/item/card/id/advanced/solfed
-	l_hand = /obj/item/gun/ballistic/shotgun/riot/sol
+	l_hand = /obj/item/gun/ballistic/shotgun
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/handcuffs = 1,
@@ -526,11 +525,11 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/treason_destroyer
 	name = "911 Response: SolFed Military"
 
-	uniform = /obj/item/clothing/under/sol_peacekeeper
-	head = /obj/item/clothing/head/helmet/sf_sacrificial
+	uniform = /obj/item/clothing/under/syndicate/camo
+	head = /obj/item/clothing/head/helmet/alt
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/sf_sacrificial
+	suit = /obj/item/clothing/suit/armor/bulletproof
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	back = /obj/item/storage/backpack
@@ -539,12 +538,11 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/flashlight/seclite
 	id = /obj/item/card/id/advanced/solfed
-	r_hand = /obj/item/gun/ballistic/automatic/sol_rifle
+	r_hand = /obj/item/gun/ballistic/automatic/ar
 	backpack_contents = list(
 		/obj/item/storage/box/handcuffs = 1,
-		/obj/item/sacrificial_face_shield = 1,
 		/obj/item/melee/baton/security/loaded = 1,
-		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
+		/obj/item/ammo_box/magazine/m556 = 4,
 	)
 
 	id_trim = /datum/id_trim/solfed

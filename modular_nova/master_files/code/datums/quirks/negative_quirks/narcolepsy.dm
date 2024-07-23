@@ -8,7 +8,6 @@
 	mail_goodies = list(
 		/obj/item/reagent_containers/cup/glass/coffee,
 		/obj/item/reagent_containers/cup/soda_cans/space_mountain_wind,
-		/obj/item/storage/pill_bottle/prescription_stimulant,
 	)
 
 /datum/quirk/narcolepsy/post_add()

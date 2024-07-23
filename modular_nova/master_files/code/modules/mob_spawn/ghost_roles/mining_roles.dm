@@ -138,7 +138,7 @@
 	ears = /obj/item/radio/headset/interdyne/green
 	shoes = /obj/item/clothing/shoes/combat
 	l_pocket = /obj/item/gun/ballistic/automatic/pistol
-	r_hand = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
+	r_hand = /obj/item/gun/ballistic/automatic/c20r/unrestricted
 	implants = list(/obj/item/implant/weapons_auth)
 	var/jobtype = /datum/job/interdyne_planetary_base
 

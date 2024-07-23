@@ -11,10 +11,7 @@
 	quirk_flags = QUIRK_HUMAN_ONLY
 	mail_goodies = list(
 		/obj/item/food/chips,
-		/obj/item/paper/paperslip/ration_ticket/luxury,
-		/obj/item/paper/paperslip/ration_ticket,
 		/obj/item/food/chocolatebar,
-		/obj/item/storage/box/spaceman_ration/meats,
 		/obj/item/reagent_containers/cup/glass/dry_ramen,
 	)
 

@@ -25,12 +25,12 @@
 /obj/item/storage/toolbox/ammobox/full/krinkov
 	name = "ammo box (Krinkov)"
 	desc = "It contains a few magazines."
-	ammo_type = /obj/item/ammo_box/magazine/lanca
+	ammo_type = /obj/item/ammo_box/strilka310
 	amount = 7
 
 /obj/item/storage/toolbox/ammobox/full/nri_smg
 	name = "ammo box (QLP/04)"
-	ammo_type = /obj/item/ammo_box/magazine/miecz
+	ammo_type = /obj/item/ammo_box/magazine/wt550m9
 	amount = 7
 
 /obj/item/storage/toolbox/ammobox/full/l6_saw

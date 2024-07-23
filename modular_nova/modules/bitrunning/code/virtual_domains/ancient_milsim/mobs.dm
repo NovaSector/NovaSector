@@ -26,11 +26,11 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged
-	r_hand = /obj/item/gun/ballistic/automatic/miecz
+	r_hand = /obj/item/gun/ballistic/automatic/pistol/aps
 	/// Type of bullet we use
-	var/casingtype = /obj/item/ammo_casing/c27_54cesarzowa
+	var/casingtype = /obj/item/ammo_casing/c9mm
 	/// Sound to play when firing weapon
-	var/projectilesound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
+	var/projectilesound = 'sound/weapons/gun/pistol/shot_alt.ogg'
 	/// number of burst shots
 	var/burst_shots = 1
 	/// Time between taking shots

@@ -121,8 +121,8 @@
 	icon = 'modular_nova/modules/novaya_ert/icons/turret_deployable.dmi'
 	icon_state = "living"
 	base_icon_state = "living"
-	stun_projectile = /obj/projectile/bullet/c27_54cesarzowa/rubber
-	lethal_projectile = /obj/projectile/bullet/c27_54cesarzowa
+	stun_projectile = /obj/projectile/bullet/c46x30mm_rubber
+	lethal_projectile = /obj/projectile/bullet/c46x30mm
 	max_integrity = 150
 	req_access = list(ACCESS_CENT_GENERAL)
 	faction = list(FACTION_NEUTRAL, FACTION_ERT)

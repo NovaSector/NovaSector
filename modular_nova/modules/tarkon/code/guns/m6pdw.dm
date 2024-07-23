@@ -10,7 +10,7 @@
 	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	spawnwithmagazine = FALSE
-	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_pistol
+	accepted_magazine_type = /obj/item/ammo_box/magazine/m9mm
 	can_suppress = FALSE
 	fire_sound = 'sound/weapons/gun/pistol/shot_alt.ogg'
 	rack_sound = 'sound/weapons/gun/pistol/rack.ogg'

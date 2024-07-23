@@ -121,14 +121,6 @@
 	name = "Mothic Softcap"
 	item_path = /obj/item/clothing/head/mothcap
 
-/datum/loadout_item/head/frontiercap
-	name = "Frontier Cap"
-	item_path = /obj/item/clothing/head/soft/frontier_colonist
-
-/datum/loadout_item/head/frontiercap/medic
-	name = "Frontier Medical Cap"
-	item_path = /obj/item/clothing/head/soft/frontier_colonist/medic
-
 /datum/loadout_item/head/tarkon
 	name = "Tarkon Welder's Cap"
 	item_path = /obj/item/clothing/head/utility/welding/hat

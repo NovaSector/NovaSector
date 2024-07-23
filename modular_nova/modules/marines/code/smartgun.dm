@@ -9,7 +9,7 @@
 	icon_state = "smartgun"
 	worn_icon_state = "module_smartgun_off" // just in case. You shouldn't be able to do this, though
 	inhand_icon_state = "smartgun"
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/rifle_heavy.ogg'
+	fire_sound = 'sound/weapons/gun/l6/shot.ogg'
 	rack_sound = 'sound/weapons/gun/l6/l6_rack.ogg'
 	suppressed_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
 	fire_sound_volume = 70

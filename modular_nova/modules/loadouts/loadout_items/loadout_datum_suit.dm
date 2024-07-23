@@ -420,10 +420,6 @@
 	name = "Blue Trenchcoat"
 	item_path = /obj/item/clothing/suit/frenchtrench
 
-/datum/loadout_item/suit/frontiertrench
-	name = "Frontier Trenchcoat"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist
-
 /datum/loadout_item/suit/cossak
 	name = "Ukrainian Coat"
 	item_path = /obj/item/clothing/suit/cossack
@@ -466,14 +462,6 @@
 
 /datum/loadout_item/suit/frontierjacket
 	abstract_type = /datum/loadout_item/suit/frontierjacket
-
-/datum/loadout_item/suit/frontierjacket/short
-	name = "Frontier Jacket (Short)"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
-
-/datum/loadout_item/suit/frontierjacket/short/medical
-	name = "Frontier Medical Jacket (Short)"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
 
 /datum/loadout_item/suit/woolcoat
 	name = "Leather Overcoat"

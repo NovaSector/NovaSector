@@ -126,7 +126,7 @@
 	item_type = /obj/item/storage/backpack/ert/odst/hecu/sol_militant
 
 /obj/item/storage/backpack/ert/odst/hecu/sol_militant/PopulateContents()
-	new /obj/item/clothing/under/sol_peacekeeper(src)
+	new /obj/item/clothing/under/syndicate/camo(src)
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 	new /obj/item/clothing/head/helmet/alt(src)
 	new /obj/item/storage/belt/military/assault(src)

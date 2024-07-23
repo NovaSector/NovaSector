@@ -17,14 +17,14 @@
 		/obj/item/beamout_tool,
 		/obj/item/crucifix,
 		/obj/item/reagent_containers/cup/glass/waterbottle/large/cryptobiolin,
-		/obj/item/ammo_box/magazine/recharge/plasma_battery,
-		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/ammo_box/magazine/m9mm,
+		/obj/item/gun/ballistic/automatic/pistol,
 	)
 	l_pocket = /obj/item/knife/combat/survival
-	r_pocket = /obj/item/ammo_box/magazine/recharge/plasma_battery
+	r_pocket = /obj/item/ammo_box/magazine/m9mm
 	shoes = /obj/item/clothing/shoes/combat
 
-	l_hand = /obj/item/gun/ballistic/automatic/lanca
+	l_hand = /obj/item/gun/ballistic/rifle/boltaction/prime
 
 	id = /obj/item/card/id/advanced/centcom/ert/nri
 	id_trim = /datum/id_trim/nri
@@ -44,13 +44,13 @@
 							/obj/item/megaphone,
 							/obj/item/binoculars,
 							/obj/item/clothing/head/beret/sec/nri,
-							/obj/item/ammo_box/magazine/recharge/plasma_battery,
-							/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
+							/obj/item/ammo_box/magazine/m9mm,
+							/obj/item/gun/ballistic/automatic/pistol,
 							/obj/item/beamout_tool,
 							/obj/item/crucifix,
 							/obj/item/reagent_containers/cup/glass/waterbottle/large/cryptobiolin)
 
-	l_hand = /obj/item/gun/ballistic/automatic/lanca
+	l_hand = /obj/item/gun/ballistic/rifle/boltaction/prime
 
 	id_trim = /datum/id_trim/nri/commander
 
@@ -76,7 +76,7 @@
 							/obj/item/reagent_containers/cup/glass/waterbottle/large/cryptobiolin)
 
 	l_hand = /obj/item/shield/riot/pointman/nri
-	r_hand = /obj/item/gun/ballistic/automatic/miecz
+	r_hand = /obj/item/gun/ballistic/automatic/wt550
 
 	id_trim = /datum/id_trim/nri/medic
 
@@ -98,7 +98,7 @@
 							/obj/item/reagent_containers/cup/glass/waterbottle/large/cryptobiolin)
 
 	l_hand = /obj/item/storage/belt/utility/full/powertools
-	r_hand = /obj/item/gun/ballistic/automatic/miecz
+	r_hand = /obj/item/gun/ballistic/automatic/wt550
 
 	id_trim = /datum/id_trim/nri/engineer
 
@@ -160,9 +160,9 @@
 	belt = /obj/item/clipboard
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(/obj/item/storage/box/nri_survival_pack,
-							/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
-							/obj/item/ammo_box/magazine/recharge/plasma_battery,
-							/obj/item/ammo_box/magazine/recharge/plasma_battery,
+							/obj/item/gun/ballistic/automatic/pistol,
+							/obj/item/ammo_box/magazine/m9mm,
+							/obj/item/ammo_box/magazine/m9mm,
 							/obj/item/storage/medkit/expeditionary,
 							/obj/item/melee/baton/telescopic,
 							/obj/item/beamout_tool)

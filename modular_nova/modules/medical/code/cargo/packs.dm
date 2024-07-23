@@ -34,15 +34,3 @@
 	access_view = FALSE
 	access = FALSE
 	access_any = FALSE
-
-/datum/supply_pack/science/synth_medkits
-	name = "Mechanical Repair Kits"
-	desc = "Contains a few low-grade portable synthetic medkits, useful for distributing to the crew."
-	cost = CARGO_CRATE_VALUE * 4.5 // same as treatment kits
-	contains = list(/obj/item/storage/medkit/robotic_repair/stocked = 4)
-
-	crate_name = "synthetic repair kits crate"
-
-	access_view = FALSE
-	access = FALSE
-	access_any = FALSE

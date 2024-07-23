@@ -38,14 +38,6 @@
 	item_type = /obj/item/gun/energy/e_gun
 	cost = PAYCHECK_COMMAND * 4
 
-/datum/armament_entry/company_import/microstar/basic_energy_long_weapons/mod_laser_small
-	item_type = /obj/item/gun/energy/modular_laser_rifle/carbine
-	cost = PAYCHECK_COMMAND * 5
-
-/datum/armament_entry/company_import/microstar/basic_energy_long_weapons/mod_laser_large
-	item_type = /obj/item/gun/energy/modular_laser_rifle
-	cost = PAYCHECK_COMMAND * 8
-
 // More expensive, unique energy weapons
 /datum/armament_entry/company_import/microstar/experimental_energy
 	subcategory = "Experimental Energy Weapons"

@@ -86,27 +86,6 @@
 
 // RIGS/WEBBING (for military larpers)
 
-/datum/loadout_item/belts/cin_surplus_chestrig
-	name = "CIN Surplus Chest Rig (Standard)"
-	item_path = /obj/item/storage/belt/military/cin_surplus
-
-/datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "CIN Surplus Chest Rig (Desert)"
-	item_path = /obj/item/storage/belt/military/cin_surplus/desert
-
-/datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "CIN Surplus Chest Rig (Forest)"
-	item_path = /obj/item/storage/belt/military/cin_surplus/forest
-
-/datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "CIN Surplus Chest Rig (Marine)"
-	item_path = /obj/item/storage/belt/military/cin_surplus/marine
-
 /datum/loadout_item/belts/expeditionary_chestrig_belt
 	name = "Expeditionary Chest Rig/Webbing Belt"
 	item_path = /obj/item/storage/belt/military/expeditionary_corps
-
-/datum/loadout_item/belts/frontier_chestrig
-	name = "Frontier Chest Rig"
-	item_path = /obj/item/storage/belt/utility/frontier_colonist
-

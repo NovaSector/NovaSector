@@ -266,8 +266,8 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,
-		/obj/item/gun/ballistic/automatic/pistol/sol/evil = 1,
-		/obj/item/ammo_box/magazine/c35sol_pistol = 1,
+		/obj/item/gun/ballistic/automatic/pistol/clandestine = 1,
+		/obj/item/ammo_box/magazine/m9mm = 1,
 		)
 	r_pocket = /obj/item/flashlight/seclite
 	mask = /obj/item/clothing/mask/gas/syndicate

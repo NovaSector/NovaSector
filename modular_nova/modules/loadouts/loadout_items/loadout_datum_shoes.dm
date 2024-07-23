@@ -44,10 +44,6 @@
 	name = "Recolorable Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
-/datum/loadout_item/shoes/jackboots/frontier
-	name = "Heavy Frontier Boots"
-	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
-
 /*
 *	MISC BOOTS
 */

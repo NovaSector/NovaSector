@@ -50,10 +50,6 @@
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
 	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
 
-/datum/loadout_item/under/jumpsuit/frontier
-	name = "Frontier Jumpsuit"
-	item_path = /obj/item/clothing/under/frontier_colonist
-
 /datum/loadout_item/under/jumpsuit/rainbow
 	name = "Rainbow Jumpsuit"
 	item_path = /obj/item/clothing/under/color/rainbow
@@ -161,10 +157,6 @@
 	name = "Imperial Police Uniform"
 	item_path = /obj/item/clothing/under/colonial/nri_police
 
-/datum/loadout_item/under/jumpsuit/cin_surplus_uniform
-	name = "CIN Combat Uniform"
-	item_path = /obj/item/clothing/under/syndicate/rus_army/cin_surplus
-
 /datum/loadout_item/under/jumpsuit/disco
 	name = "Superstar Cop Uniform"
 	item_path = /obj/item/clothing/under/rank/security/detective/disco
@@ -172,14 +164,6 @@
 /datum/loadout_item/under/jumpsuit/kim
 	name = "Aerostatic Suit"
 	item_path = /obj/item/clothing/under/rank/security/detective/kim
-
-/datum/loadout_item/under/jumpsuit/sol_peacekeeper
-	name = "Sol Peacekeeper Uniform"
-	item_path = /obj/item/clothing/under/sol_peacekeeper
-
-/datum/loadout_item/under/jumpsuit/sol_emt
-	name = "Sol Emergency Medical Uniform"
-	item_path = /obj/item/clothing/under/sol_emt
 
 /datum/loadout_item/under/jumpsuit/paramed_light
 	name = "Light Paramedic Uniform"

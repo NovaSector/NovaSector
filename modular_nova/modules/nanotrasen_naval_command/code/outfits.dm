@@ -31,7 +31,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/lieutenant
@@ -49,7 +48,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/lieutenant_commander
@@ -69,7 +67,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/commander
@@ -89,7 +86,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/captain
@@ -109,7 +105,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/rear_admiral
@@ -125,7 +120,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/admiral
@@ -143,7 +137,6 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 /datum/outfit/centcom/naval/fleet_admiral
@@ -161,5 +154,4 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/security,
-		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)

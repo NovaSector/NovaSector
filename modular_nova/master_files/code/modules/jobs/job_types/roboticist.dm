@@ -7,8 +7,6 @@
 	glasses = /obj/item/clothing/glasses/hud/diagnostic
 	gloves = /obj/item/clothing/gloves/color/black
 
-	l_hand = /obj/item/storage/medkit/robotic_repair/preemo/stocked
-
 /datum/job/roboticist
 	description = "Build cyborgs, mechs, AIs, and maintain them all. Create MODsuits for those that wish. Try to remind medical that you're \
 	actually a lot better at treating synthetic crew members than them."
