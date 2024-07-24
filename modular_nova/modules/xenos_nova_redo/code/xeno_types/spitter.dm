@@ -2,7 +2,7 @@
 
 /mob/living/carbon/alien/adult/nova/spitter
 	name = "alien spitter"
-	desc = "A fairly heavy looking alien with prominent acid glands, it's mouth dripping with... some kind of toxin or acid."
+	desc = "A fairly heavy looking alien with prominent acid glands, its mouth dripping with... some kind of toxin or acid."
 	caste = "spitter"
 	maxHealth = 300
 	health = 300

@@ -62,6 +62,6 @@
 
 /obj/item/organ/internal/brain/synth/mmi
 	name = "compact man-machine interface"
-	desc = "A compact man-machine interface, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. Unfortunately, the brain seems to be permanently attached to the circuitry, and it seems relatively sensitive to it's environment. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact man-machine interface, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. Unfortunately, the brain seems to be permanently attached to the circuitry, and it seems relatively sensitive to its environment. It is usually slotted into the chest of synthetic crewmembers."
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "mmi-ipc"

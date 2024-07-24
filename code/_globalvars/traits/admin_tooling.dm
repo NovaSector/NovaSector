@@ -1,6 +1,6 @@
 // This file contains any stuff related to admin-visible traits.
 // There's likely more than a few traits missing from this file, do consult the `_traits.dm` file in this folder to see every global trait that exists.
-// quirks have it's own panel so we don't need them here.
+// quirks have their own panel so we don't need them here.
 
 GLOBAL_LIST_INIT(admin_visible_traits, list(
 	/atom = list(
@@ -60,6 +60,7 @@ GLOBAL_LIST_INIT(admin_visible_traits, list(
 		"TRAIT_DEFIB_BLACKLISTED" = TRAIT_DEFIB_BLACKLISTED,
 		"TRAIT_DEPRESSION" = TRAIT_DEPRESSION,
 		"TRAIT_DIAGNOSTIC_HUD" = TRAIT_DIAGNOSTIC_HUD,
+		"TRAIT_BOT_PATH_HUD" = TRAIT_BOT_PATH_HUD,
 		"TRAIT_DISCOORDINATED_TOOL_USER" = TRAIT_DISCOORDINATED_TOOL_USER,
 		"TRAIT_DISFIGURED" = TRAIT_DISFIGURED,
 		"TRAIT_DISK_VERIFIER" = TRAIT_DISK_VERIFIER,
@@ -329,6 +330,7 @@ GLOBAL_LIST_INIT(admin_visible_traits, list(
 		"TRAIT_NORUNNING" = TRAIT_NORUNNING,
 		"TRAIT_OVERSIZED" = TRAIT_OVERSIZED,
 		"TRAIT_OXYIMMUNE" = TRAIT_OXYIMMUNE,
+		"TRAIT_PERMIT_HUD" = TRAIT_PERMIT_HUD,
 		"TRAIT_PERSONALSPACE" = TRAIT_PERSONALSPACE,
 		"TRAIT_QUICKREFLEXES" = TRAIT_QUICKREFLEXES,
 		"TRAIT_PET_OWNER" = TRAIT_PET_OWNER,

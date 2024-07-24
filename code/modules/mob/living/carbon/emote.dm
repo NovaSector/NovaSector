@@ -47,7 +47,7 @@
 	hands_use_check = TRUE
 	cooldown = 6 SECONDS
 
-/datum/emote/living/carbon/crack/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/carbon/crack/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(!iscarbon(user) || user.usable_hands < 2)
 		return FALSE
 	return ..()
@@ -102,8 +102,6 @@
 
 /datum/emote/living/carbon/noogie/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(!.)
-		return
 	var/obj/item/hand_item/noogie/noogie = new(user)
 	if(user.put_in_hands(noogie))
 		to_chat(user, span_notice("You ready your noogie'ing hand."))
@@ -152,8 +150,6 @@
 
 /datum/emote/living/carbon/slap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(!.)
-		return
 	var/obj/item/hand_item/slapper/N = new(user)
 	if(user.put_in_hands(N))
 		to_chat(user, span_notice("You ready your slapping hand."))
@@ -170,9 +166,6 @@
 
 /datum/emote/living/carbon/hand/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(!.)
-		return
-
 	var/obj/item/hand_item/hand/hand = new(user)
 	if(user.put_in_hands(hand))
 		to_chat(user, span_notice("You ready your hand."))
@@ -202,8 +195,6 @@
 
 /datum/emote/living/carbon/shoesteal/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if (!.)
-		return
 	var/obj/item/hand_item/stealer/stealing_hand = new(user)
 	if (user.put_in_hands(stealing_hand))
 		user.balloon_alert(user, "preparing to steal shoes...")

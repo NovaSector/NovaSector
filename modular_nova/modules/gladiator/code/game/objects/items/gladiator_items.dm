@@ -68,7 +68,7 @@
 
 /obj/item/clothing/head/hooded/berserker/gatsu
 	name = "berserker helmet"
-	desc = "A uniquely styled helmet with ghastly red eyes that seals it's user inside."
+	desc = "A uniquely styled helmet with ghastly red eyes that seals its user inside."
 	icon_state = "berk_helm"
 	icon = 'modular_nova/modules/gladiator/icons/berserk_icons.dmi'
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
