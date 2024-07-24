@@ -36,7 +36,7 @@
 	var/list/available_hardcore_quirks = SSquirks.hardcore_quirks.Copy()
 
 	while(quirk_budget > 0)
-		for(var/i in available_hardcore_quirks) //Remove from available quirks if its too expensive.
+		for(var/i in available_hardcore_quirks) //Remove from available quirks if it's too expensive.
 			var/datum/quirk/available_quirk = i
 			if(available_hardcore_quirks[available_quirk] > quirk_budget)
 				available_hardcore_quirks -= available_quirk
@@ -90,7 +90,7 @@
 			parent.show_character_previews(image('icons/mob/robots.dmi', icon_state = "robot", dir = SOUTH))
 			return
 
-	// Set up the dummy for its photoshoot
+	// Set up the dummy for it's photoshoot
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	apply_prefs_to(mannequin, TRUE)
 

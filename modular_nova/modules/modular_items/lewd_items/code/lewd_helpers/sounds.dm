@@ -35,7 +35,7 @@
 	if(!turf_source || !soundin || !vol || !ispath(pref_to_check))
 		return
 
-	//allocate a channel if necessary now so its the same for everyone
+	//allocate a channel if necessary now so it's the same for everyone
 	channel = channel || SSsounds.random_available_channel()
 
 	var/sound/sound_to_play = sound(get_sfx(soundin))

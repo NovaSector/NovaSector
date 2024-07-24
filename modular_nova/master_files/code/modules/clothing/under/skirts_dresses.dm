@@ -16,7 +16,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-//TG's icons only have a dress.dmi, but that means its not ABC-sorted to be beside shorts_pants_shirts.dmi. So its skirts_dresses for us.
+//TG's icons only have a dress.dmi, but that means it's not ABC-sorted to be beside shorts_pants_shirts.dmi. So it's skirts_dresses for us.
 
 /*
  *	TG DIGI VERSION DRESSES

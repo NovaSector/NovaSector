@@ -81,7 +81,7 @@
 	name = new_name
 	return TRUE
 
-/// Attempts to reset the soul's name to it's name in prefs. Returns `TRUE` if the name is reset, otherwise returns `FALSE`.
+/// Attempts to reset the soul's name to its name in prefs. Returns `TRUE` if the name is reset, otherwise returns `FALSE`.
 /mob/living/soulcatcher_soul/proc/reset_name()
 	if(!mind?.name || change_name(mind.name))
 		return FALSE

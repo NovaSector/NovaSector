@@ -8318,7 +8318,7 @@
 	pixel_y = -26;
 	req_access = list("cmo")
 	},
-/obj/machinery/keycard_auth/directional/south{
+/obj/machinery/keycard_auth/wall_mounted/directional/south{
 	pixel_x = -5
 	},
 /obj/machinery/modular_computer/preset/id{
@@ -16990,7 +16990,7 @@
 	dir = 9
 	},
 /obj/structure/bed/dogbed/ian,
-/obj/machinery/keycard_auth/directional/west,
+/obj/machinery/keycard_auth/wall_mounted/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -21697,8 +21697,8 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "gqq" = (
-/obj/machinery/deepfryer,
 /obj/effect/turf_decal/bot,
+/obj/machinery/smartfridge/drying,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/kitchen)
 "gqu" = (
@@ -31917,7 +31917,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/box,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/keycard_auth/directional/east,
+/obj/machinery/keycard_auth/wall_mounted/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/qm)
 "jlW" = (
@@ -36352,7 +36352,7 @@
 	req_one_access = list("engine_equip");
 	pixel_x = -30
 	},
-/obj/machinery/keycard_auth/directional/west{
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
 	pixel_y = -10
 	},
 /turf/open/floor/carpet/black,
@@ -53148,6 +53148,9 @@
 	name = "Brig Entrance"
 	},
 /obj/effect/landmark/navigate_destination,
+/obj/machinery/scanner_gate/preset_guns{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -54918,7 +54921,7 @@
 	pixel_x = -5;
 	pixel_y = 13
 	},
-/obj/machinery/keycard_auth/directional/west,
+/obj/machinery/keycard_auth/wall_mounted/directional/west,
 /obj/item/lighter,
 /obj/item/cigarette/cigar{
 	pixel_x = 4.5
@@ -58190,7 +58193,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "qQt" = (
-/obj/machinery/keycard_auth/directional/west{
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
 	pixel_y = -8
 	},
 /obj/structure/filingcabinet/filingcabinet,
@@ -62876,6 +62879,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/interrogation)
 "sli" = (
@@ -68971,6 +68975,9 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/entrance,
 /obj/effect/turf_decal/trimline/red/filled/warning,
+/obj/machinery/scanner_gate/preset_guns{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},

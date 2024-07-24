@@ -113,7 +113,7 @@
 		if(RADIAL_CHOICE_USE)
 			smelt_it_up(user)
 
-/// Removes the first item in the contents list which should only ever be ore and if its not, we have problems
+/// Removes the first item in the contents list which should only ever be ore and if it's not, we have problems
 /obj/machinery/arc_furnace/proc/eject_contents()
 	if(operating)
 		return
@@ -127,7 +127,7 @@
 	thing_inside.forceMove(drop_location())
 	update_appearance()
 
-/// Starts the smelting process, checking if the machine has power or if its broken at all
+/// Starts the smelting process, checking if the machine has power or if it's broken at all
 /obj/machinery/arc_furnace/proc/smelt_it_up(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN))
 		balloon_alert(user, "button doesn't respond")
