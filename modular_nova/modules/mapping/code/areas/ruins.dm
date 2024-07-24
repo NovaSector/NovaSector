@@ -21,3 +21,7 @@
 
 /area/ruin/turretbunker
 	name = "Geological Research Bunker" //yes, code is "Turret bunker", But this is more for immersion reasons
+
+/area/ruin/unpowered/magic_hotsprings
+	name = "Magical Hotsprings"
+	icon_state = "ruins"
