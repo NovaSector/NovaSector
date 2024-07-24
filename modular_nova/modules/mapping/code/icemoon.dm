@@ -24,6 +24,22 @@
 	never_spawn_with = list(/datum/map_template/ruin/lavaland/nova/interdyne_base)
 	always_place = TRUE
 
+/datum/map_template/ruin/icemoon/underground/nova/magic_hotsprings
+	name = "Magic Hotsprings"
+	id = "magic_hotsprings"
+	description = "A beautiful hot springs spot, surrounded by unnatural fairy grass, and exotic trees. Something doesn't seem quite right about that moonicorn though."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "magic_hotsprings.dmm"
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/underground/nova/abandoned_hearth
+	name = "Abandoned Hearth"
+	id = "abandoned_hearth"
+	description = "Something went terribly wrong in this hearth, if the signs of struggle are anything to go by."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "abandoned_hearth.dmm"
+	allow_duplicates = FALSE
+
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_sacred_temple
 	name = "Sacred Temple"
 	id = "abandoned_sacred_temple"
