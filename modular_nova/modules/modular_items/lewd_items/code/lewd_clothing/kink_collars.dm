@@ -56,15 +56,12 @@
 /obj/item/clothing/neck/kink_collar/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = /datum/storage/pockets/small/kink_collar)
-	var/obj/item/key/kink_collar/key
 	if(!treat_path)
 		return
-	key = new treat_path(src)
+	var/obj/item/key/kink_collar/key = new treat_path(src)
 	if(!istype(key))
 		return
-	var/id = REF(src)
-	var/obj/item/key/kink_collar/collar_key = key
-	collar_key.key_id = id
+	key.key_id = REF(src)
 
 /*
 *	LOCKED COLLAR
@@ -97,6 +94,17 @@
 /obj/item/clothing/neck/kink_collar/locked/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = /datum/storage/pockets/small/kink_collar/locked)
+	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(can_unequip))
+
+/obj/item/clothing/neck/kink_collar/locked/proc/can_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
+	var/mob/living/carbon/wearer = source.loc
+	if(istype(wearer) && wearer.wear_neck == source && locked)
+		to_chat(wearer, "The collar is locked! You'll need to unlock it before you can take it off!")
+		return COMPONENT_ITEM_BLOCK_UNEQUIP
+	return NONE
+
+/obj/item/clothing/neck/kink_collar/locked/canStrip(mob/stripper, mob/owner)
+	return !locked && ..()
 
 //spawn thing in collar
 
@@ -106,45 +114,23 @@
 	if(!broken)
 		to_chat(user, span_warning("[to_lock ? "The collar locks with a resounding click!" : "The collar unlocks with a small clunk."]"))
 		locked = to_lock
-		if(!to_lock)
-			REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_NODROP)
 		return
 	to_chat(user, span_warning("It looks like the lock is broken - now it's just an ordinary old collar."))
 	locked = FALSE
-	REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_NODROP)
 
 /obj/item/clothing/neck/kink_collar/locked/attackby(obj/item/key/kink_collar/attack_item, mob/user, params)
 	if(!istype(attack_item))
 		return
 	if(attack_item.key_id == REF(src))
-		set_lock((locked ? FALSE : TRUE), user)
+		set_lock((!locked), user)
 		return
 	to_chat(user, span_warning("This isn't the correct key!"))
 
 /obj/item/clothing/neck/kink_collar/locked/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(!(locked && src == user.wear_neck))
+	if(!(locked && src == user.get_item_by_slot(ITEM_SLOT_NECK)))
 		return
-	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_NODROP)
 	to_chat(user, span_warning("You hear a suspicious click around your neck - it seems the collar is now locked!"))
-
-//this code prevents wearer from taking collar off if it's locked. Have fun!
-
-/obj/item/clothing/neck/kink_collar/locked/attack_hand(mob/user)
-	if(loc == user && user.get_item_by_slot(ITEM_SLOT_NECK) && locked)
-		to_chat(user, span_warning("The collar is locked! You'll need to unlock it before you can take it off!"))
-		return
-	add_fingerprint(usr)
-	return ..()
-
-/obj/item/clothing/neck/kink_collar/locked/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(loc == user && user.get_item_by_slot(ITEM_SLOT_NECK) && locked && istype(over, /atom/movable/screen/inventory/hand))
-		to_chat(user, span_warning("The collar is locked! You'll need to unlock it before you can take it off!"))
-		return
-	var/atom/movable/screen/inventory/hand/inv_hand = over
-	if(user.putItemFromInventoryInHandIfPossible(src, inv_hand.held_index))
-		add_fingerprint(user)
-	return ..()
 
 //This is a KEY moment of this code. You got it. Key.
 //...
@@ -183,7 +169,7 @@
 		return
 	var/obj/item/clothing/neck/kink_collar/locked/collar = target.wear_neck
 	if(REF(collar) == src.key_id)
-		collar.set_lock((collar.locked ? FALSE : TRUE), user)
+		collar.set_lock(!collar.locked, user)
 	else
 		to_chat(user, span_warning("This isn't the correct key!"))
 
