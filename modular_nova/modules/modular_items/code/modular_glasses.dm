@@ -37,12 +37,9 @@
 	if(mode != MODE_OFF || slot != slot_flags)
 		return ..()
 	// when off: don't apply any huds or traits. but keep the list as-is so that we can still add them later
-	var/huds = hud_types
 	var/traits = clothing_traits
-	hud_types = null
 	clothing_traits = null
 	. = ..()
-	hud_types = huds
 	clothing_traits = traits
 
 /obj/item/clothing/glasses/hud/ar/proc/toggle_mode(mob/user, voluntary)
@@ -97,9 +94,6 @@
 	var/mob/living/carbon/human/human = user
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
-	for(var/hud_type in hud_types)
-		var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
-		our_hud.show_to(human)
 	for(var/trait in clothing_traits)
 		ADD_CLOTHING_TRAIT(human, trait)
 
@@ -107,9 +101,6 @@
 	var/mob/living/carbon/human/human = user
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
-	for(var/hud_type in hud_types)
-		var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
-		our_hud.hide_from(human)
 	for(var/trait in clothing_traits)
 		REMOVE_CLOTHING_TRAIT(human, trait)
 
