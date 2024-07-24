@@ -467,7 +467,6 @@
 		. += "ammobench_loaded"
 
 /obj/machinery/ammo_workbench/Destroy()
-	QDEL_NULL(wires)
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
