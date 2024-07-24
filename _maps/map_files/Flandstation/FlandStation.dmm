@@ -17003,7 +17003,6 @@
 /obj/machinery/light/small/directional/north,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "fzl" = (
@@ -37787,10 +37786,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/evidence)
-"mhC" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "mhK" = (
 /obj/effect/landmark/start/atmospheric_technician,
 /obj/structure/chair/office{
@@ -45547,10 +45542,6 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/gravity_generator)
-"oJM" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space/basic,
-/area/space)
 "oKb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -64892,7 +64883,7 @@
 /obj/structure/marker_beacon/burgundy,
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "uJm" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/chair/office{
@@ -111073,11 +111064,11 @@ aIJ
 hWh
 kHY
 uJk
-oJM
-oJM
-oJM
-oJM
-oJM
+bif
+bif
+bif
+bif
+bif
 uJk
 ipf
 lir
@@ -111329,13 +111320,13 @@ jID
 rvn
 sSb
 kHY
-oJM
+bif
 rbr
 rbr
 rbr
 rbr
 rbr
-oJM
+bif
 ipf
 ipf
 ipf
@@ -111586,7 +111577,7 @@ ghe
 gxo
 idZ
 kHY
-oJM
+bif
 rbr
 rbr
 rbr
@@ -111843,7 +111834,7 @@ cFE
 lLM
 uAI
 kHY
-oJM
+bif
 rbr
 rbr
 rbr
@@ -112100,7 +112091,7 @@ aIJ
 mNG
 mNG
 kHY
-oJM
+bif
 rbr
 rbr
 rbr
@@ -112357,13 +112348,13 @@ ghp
 vLy
 lLM
 kHY
-oJM
+bif
 rbr
 rbr
 rbr
 rbr
 rbr
-oJM
+bif
 ipf
 kAj
 qct
@@ -112614,7 +112605,7 @@ vgI
 vLy
 fTH
 ipf
-oJM
+bif
 rbr
 rbr
 rbr
@@ -112737,7 +112728,7 @@ rbr
 sex
 sex
 bif
-mhC
+sex
 wYL
 rbr
 rbr
@@ -112871,7 +112862,7 @@ jID
 vLy
 tpS
 ipf
-oJM
+bif
 rbr
 rbr
 rbr
@@ -112993,7 +112984,7 @@ siW
 rbr
 sex
 rbr
-mhC
+sex
 rbr
 wYL
 rbr
@@ -113128,7 +113119,7 @@ qPk
 vLy
 qkU
 ipf
-oJM
+bif
 rbr
 rbr
 rbr
@@ -113385,13 +113376,13 @@ lLM
 vLy
 qPk
 kHY
-oJM
+bif
 rbr
 rbr
 rbr
 rbr
 rbr
-oJM
+bif
 ipf
 kTc
 tzC
@@ -113643,11 +113634,11 @@ vLy
 qzt
 kHY
 uJk
-oJM
-oJM
-oJM
-oJM
-oJM
+bif
+bif
+bif
+bif
+bif
 uJk
 ipf
 pfy
@@ -113763,7 +113754,7 @@ siW
 siW
 sex
 bif
-mhC
+sex
 wYL
 rbr
 rbr
