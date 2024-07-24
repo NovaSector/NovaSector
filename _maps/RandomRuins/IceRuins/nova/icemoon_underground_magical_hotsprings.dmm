@@ -1,4 +1,5 @@
 "a" = (/turf/open/misc/asteroid/snow/icemoon,/area/icemoon/surface/outdoors/nospawn)
+"b" = (/mob/living/basic/cow/moonicorn,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "d" = (/obj/structure/flora/bush/lavendergrass/style_random,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "i" = (/obj/item/gun/magic/wand/resurrection/inert,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "p" = (/obj/structure/flora/bush/lavendergrass/style_random,/obj/structure/flora/tree/mushroom/blue/reverse{desc = "An exotic tree from other lands. It's a mistery how it came to sprout here."},/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
@@ -31,7 +32,7 @@ aQQqdqYqWWWWqqqyqQQa
 aQQrqNqWWWWWWWqqYQQa
 aQQYqUdWWWWSWWqdQQQa
 aQQQqCqWWWWWWWqqQQQa
-aQQXQqqqWWWWWWqqqQQa
+aQQXQbqqWWWWWWqqqQQa
 aQQXLyYqqWWWWqqqYQQa
 aQQXLIqqWWWWWqOqqQQa
 aQQXqXQqqSWWqCqdQQQa

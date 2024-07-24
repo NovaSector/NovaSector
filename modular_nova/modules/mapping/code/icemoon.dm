@@ -29,7 +29,7 @@
 	id = "magic_hotsprings"
 	description = "A beautiful hot springs spot, surrounded by unnatural fairy grass, and exotic trees. Something doesn't seem quite right about that moonicorn though."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
-	suffix = "magic_hotsprings.dmm"
+	suffix = "icemoon_underground_magic_hotsprings.dmm"
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_hearth
@@ -37,7 +37,7 @@
 	id = "abandoned_hearth"
 	description = "Something went terribly wrong in this hearth, if the signs of struggle are anything to go by."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
-	suffix = "abandoned_hearth.dmm"
+	suffix = "icemoon_underground_abandoned_hearth.dmm"
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_sacred_temple
@@ -45,7 +45,7 @@
 	id = "abandoned_sacred_temple"
 	description = "The dusty remains of a temple, sacred in nature."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
-	suffix = "abandoned_sacred_temple.dmm"
+	suffix = "icemoon_underground_abandoned_sacred_temple.dmm"
 	allow_duplicates = FALSE
 
 //Code for the Abandoned Sacred Temple
