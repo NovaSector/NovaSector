@@ -17632,10 +17632,8 @@
 /turf/open/floor/iron,
 /area/station/maintenance/disposal)
 "fIr" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "fIx" = (
@@ -20883,6 +20881,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/iron/sepia,
 /area/station/maintenance/department/engine)
@@ -126541,7 +126540,7 @@ mPq
 eIy
 unR
 qmx
-fIr
+vsv
 bpV
 pHW
 jhg
@@ -128339,7 +128338,7 @@ nsW
 cgJ
 mRW
 txW
-skP
+fIr
 skP
 bpV
 nmD
