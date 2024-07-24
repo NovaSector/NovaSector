@@ -43614,7 +43614,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/light/directional/north,
 /obj/machinery/firealarm/directional/north,
-/obj/machinery/syndicatebomb/training,
 /turf/open/floor/iron/checker,
 /area/station/security/range)
 "oaH" = (
