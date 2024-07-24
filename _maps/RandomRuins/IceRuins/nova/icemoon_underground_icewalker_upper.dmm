@@ -225,6 +225,12 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"hQ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/rack/wooden,
+/obj/item/food/grown/poppy/geranium/fraxinella,
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "im" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -430,6 +436,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"qF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/rack/wooden,
+/obj/item/food/grown/poppy/geranium,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qQ" = (
@@ -1681,7 +1693,7 @@ qQ
 JT
 Ak
 Ak
-Cn
+hQ
 qQ
 cy
 ki
@@ -1761,7 +1773,7 @@ Yn
 (12,1,1) = {"
 Ez
 Vv
-cv
+Ak
 cv
 wl
 Bt
@@ -1849,7 +1861,7 @@ rC
 rC
 rC
 Bt
-Ut
+qF
 qQ
 Sl
 kO

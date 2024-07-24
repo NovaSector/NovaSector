@@ -455,7 +455,12 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "le" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/food/raw_headcheese{
+	pixel_y = -2
+	},
+/obj/item/food/raw_headcheese,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "lf" = (
@@ -492,6 +497,7 @@
 "lZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/wall_torch/spawns_lit/directional/east,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "mh" = (
@@ -593,8 +599,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "nn" = (
-/obj/machinery/smartfridge/wooden/ration_shelf,
-/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "no" = (
@@ -662,13 +667,9 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oW" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/food/raw_headcheese{
-	pixel_y = -2
-	},
-/obj/item/food/raw_headcheese,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oX" = (
@@ -2023,9 +2024,8 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "SG" = (
-/obj/structure/fermenting_barrel,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Te" = (
@@ -3555,7 +3555,7 @@ uw
 lF
 yE
 MX
-Oy
+SG
 oW
 yp
 Ob
@@ -3597,8 +3597,8 @@ Ju
 yE
 Vs
 yE
-lF
-II
+yE
+SG
 gi
 rv
 wF
@@ -3640,7 +3640,7 @@ BO
 JX
 yE
 yE
-PO
+nn
 gi
 Ob
 wF
@@ -3804,9 +3804,9 @@ jV
 no
 RY
 yp
-nn
+Oy
 yE
-SG
+II
 yp
 tn
 yp
@@ -3848,7 +3848,7 @@ aA
 yp
 le
 lZ
-le
+PO
 yp
 wF
 RW
