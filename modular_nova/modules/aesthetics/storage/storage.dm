@@ -122,7 +122,7 @@
 
 /obj/item/storage/box/large_dart
 	icon_state = "secbox_xl"
-	illustration = "breacherslug"
+	illustration = "shotdart"
 
 /obj/item/storage/box/evidence
 	icon_state = "secbox"
