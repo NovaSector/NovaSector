@@ -3265,6 +3265,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/east,
+/obj/machinery/keycard_auth/wall_mounted/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
 "aYu" = (
@@ -10903,6 +10904,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "dFG" = (
@@ -11477,6 +11479,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "dPU" = (
@@ -14734,12 +14737,10 @@
 /area/station/maintenance/port/central)
 "eRR" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/keycard_auth{
-	pixel_y = -24
-	},
 /obj/machinery/computer/rdconsole{
 	dir = 1
 	},
+/obj/machinery/keycard_auth/wall_mounted/directional/south,
 /turf/open/floor/vault,
 /area/station/command/heads_quarters/rd)
 "eRT" = (
@@ -17570,6 +17571,7 @@
 	name = "Fore Brig Entrance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "fHJ" = (
@@ -20416,10 +20418,6 @@
 "gBa" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/obj/machinery/keycard_auth{
-	pixel_x = 26;
-	pixel_y = 8
-	},
 /obj/item/pen/fourcolor,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
@@ -23772,6 +23770,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/machinery/keycard_auth/wall_mounted/directional/north,
 /turf/open/floor/iron/chapel{
 	dir = 8
 	},
@@ -24420,6 +24419,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "hQX" = (
@@ -28470,10 +28470,8 @@
 "jeD" = (
 /obj/machinery/light/directional/west,
 /obj/structure/table/reinforced,
-/obj/machinery/keycard_auth{
-	pixel_x = -24
-	},
 /obj/item/storage/wallet/random,
+/obj/machinery/keycard_auth/wall_mounted/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "jeG" = (
@@ -28639,7 +28637,6 @@
 "jja" = (
 /obj/machinery/light/directional/east,
 /obj/item/kirbyplants/random,
-/obj/machinery/keycard_auth/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "jjd" = (
@@ -31388,6 +31385,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security/telescreen/minisat/directional/south,
+/obj/machinery/keycard_auth/wall_mounted/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/captain)
 "kfS" = (
@@ -36785,10 +36783,6 @@
 /turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "lOy" = (
-/obj/machinery/keycard_auth{
-	pixel_x = 26;
-	pixel_y = 24
-	},
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/announcement,
@@ -43619,8 +43613,8 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/light/directional/north,
-/obj/machinery/syndicatebomb/training,
 /obj/machinery/firealarm/directional/north,
+/obj/machinery/syndicatebomb/training,
 /turf/open/floor/iron/checker,
 /area/station/security/range)
 "oaH" = (
@@ -59675,6 +59669,7 @@
 /area/station/command/heads_quarters/hos)
 "tcP" = (
 /obj/machinery/computer/cargo,
+/obj/machinery/keycard_auth/wall_mounted/directional/west,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
 "tcQ" = (
@@ -64148,6 +64143,7 @@
 /obj/machinery/computer/prisoner/management{
 	dir = 8
 	},
+/obj/machinery/keycard_auth/wall_mounted/directional/east,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/hos)
 "uye" = (
