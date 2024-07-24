@@ -109,7 +109,6 @@
 	time = 20 SECONDS
 	category = CAT_WEAPON_RANGED
 
-
 /datum/crafting_recipe/torch
 	name = "Torch"
 	reqs = list(/obj/item/grown/log = 1)
@@ -117,3 +116,13 @@
 	category = CAT_MISC
 	non_craftable = TRUE
 	steps = list("Use any dried leaf-like plant on a towercap log! (Ambrosia, cannabis, tobacco, etc!)")
+
+/datum/crafting_recipe/bonedice
+	name = "Bone Die"
+	result = /obj/item/dice/d6/bone
+	time = 5 SECONDS
+	reqs = list(
+		/obj/item/stack/sheet/bone = 1,
+	)
+	category = CAT_EQUIPMENT
+
