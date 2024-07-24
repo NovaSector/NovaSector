@@ -705,7 +705,7 @@
 	worn_icon = 'icons/mob/clothing/eyes.dmi'
 	icon_state = "sunhudsec"
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
-	current_skin = "sunhudsec" //prevents reskinning; a bit hacky to say its already reskinned but its better than a code rewrite
+	current_skin = "sunhudsec" //prevents reskinning; a bit hacky to say it's already reskinned but it's better than a code rewrite
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec
 	icon = 'icons/obj/clothing/glasses.dmi'

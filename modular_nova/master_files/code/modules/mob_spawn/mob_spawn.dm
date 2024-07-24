@@ -13,7 +13,7 @@
 
 /obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname)
 	var/load_prefs = FALSE
-	//if we can load our own appearance and its not restricted, try
+	//if we can load our own appearance and it's not restricted, try
 	if(!random_appearance && mob_possessor?.client)
 		//if we have gotten to this point, they have already waived their species pref.-- they were told they need to use the specific species already
 		if((restricted_species && (mob_possessor?.client?.prefs?.read_preference(/datum/preference/choiced/species) in restricted_species)) || !restricted_species)

@@ -249,6 +249,10 @@
 	name = "WahCoon ALT"
 	icon_state = "wahalt"
 
+/datum/sprite_accessory/snouts/mammal/canine_alt
+	name = "Canine (Alt)"
+	icon_state = "caninealt"
+
 /******************************************
 **************** Snouts *******************
 *************but higher up*****************/

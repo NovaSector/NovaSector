@@ -104,7 +104,7 @@
 /mob/living/simple_animal/hostile/megafauna/gladiator/examine()
 	if(stat >= DEAD)
 		. = ..()
-		. += span_boldwarning("Unearthly energies bind the body to it's place of defeat. You cannot move it.")
+		. += span_boldwarning("Unearthly energies bind the body to its place of defeat. You cannot move it.")
 	else
 		. = ..()
 		. += span_boldwarning("They are currently in Phase [phase].")
