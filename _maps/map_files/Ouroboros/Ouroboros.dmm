@@ -21697,8 +21697,8 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "gqq" = (
-/obj/machinery/deepfryer,
 /obj/effect/turf_decal/bot,
+/obj/machinery/smartfridge/drying,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/kitchen)
 "gqu" = (

@@ -933,9 +933,9 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "uw" = (
-/obj/machinery/smartfridge/drying_rack,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/machinery/smartfridge/drying/rack,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "uH" = (
