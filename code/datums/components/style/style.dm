@@ -108,23 +108,7 @@
 	RegisterSignal(parent, COMSIG_LIVING_DEFUSED_GIBTONITE, PROC_REF(on_gibtonite_defuse))
 	RegisterSignal(parent, COMSIG_LIVING_CRUSHER_DETONATE, PROC_REF(on_crusher_detonate))
 	RegisterSignal(parent, COMSIG_LIVING_DISCOVERED_GEYSER, PROC_REF(on_geyser_discover))
-<<<<<<< HEAD
-
-	projectile_parry = WEAKREF(parent.AddComponent(\
-		/datum/component/projectile_parry,\
-		list(\
-			/obj/projectile/colossus,\
-			/obj/projectile/temp/watcher,\
-			/obj/projectile/kinetic,\
-			/obj/projectile/bileworm_acid,\
-			/obj/projectile/herald,\
-			/obj/projectile/kiss,\
-			)\
-		)
-	)
-=======
 	ADD_TRAIT(parent, TRAIT_MINING_PARRYING, STYLE_TRAIT)
->>>>>>> 9cdea961cc3 (Refactors projectile parrying and makes it actually possible. (#84973))
 
 /datum/component/style/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_USER_ITEM_INTERACTION)
