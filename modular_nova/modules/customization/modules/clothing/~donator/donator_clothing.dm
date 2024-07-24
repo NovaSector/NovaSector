@@ -197,8 +197,8 @@
 /obj/item/clothing/neck/padded
 	name = "feathered serenity cloak"
 	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/padded.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/padded.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedscarf"
@@ -221,8 +221,8 @@
 /obj/item/clothing/head/hooded/padded
 	name = "feathered serenity hood"
 	icon_state = "paddedhood"
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/padded.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/padded.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
@@ -230,8 +230,8 @@
 /obj/item/clothing/under/padded
 	name = "feathered serenity suit"
 	desc = "A meticulously handcrafted suit that is lined on the inside with feathers and down."
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/padded.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/padded.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedunder"
@@ -241,8 +241,8 @@
 /obj/item/clothing/shoes/jackboots/padded
 	name = "serenity jackboots"
 	desc = "Thick boots that is lined with feathers and down. Good footwear almost anticipating harsh weather."
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/padded.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/padded.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedboots"
@@ -252,8 +252,8 @@
 /obj/item/clothing/gloves/padded
 	name = "serenity gloves"
 	desc = "A pair of gloves lined with soft to the touch fur."
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/padded.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/padded.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
 	icon_state = "paddedgloves"
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
