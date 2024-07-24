@@ -225,12 +225,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"hQ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/rack/wooden,
-/obj/item/food/grown/poppy/geranium/fraxinella,
-/turf/open/floor/stone/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "im" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -272,6 +266,10 @@
 /obj/structure/curtain/bounty,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"kd" = (
+/obj/structure/mirror/directional/east,
+/turf/open/openspace/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ki" = (
 /obj/structure/railing/wooden_fencing,
@@ -438,12 +436,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"qF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/rack/wooden,
-/obj/item/food/grown/poppy/geranium,
-/turf/open/floor/wood/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
 "qQ" = (
 /turf/closed/wall/mineral/stone,
 /area/ruin/unpowered/primitive_catgirl_den)
@@ -461,6 +453,16 @@
 	dir = 4
 	},
 /turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"rA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/rack/wooden,
+/obj/item/hhmirror,
+/obj/item/food/grown/poppy/geranium,
+/obj/item/hhmirror,
+/obj/item/hhmirror,
+/obj/item/hhmirror,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "rC" = (
 /obj/structure/railing/wooden_fencing{
@@ -671,6 +673,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "BW" = (
 /obj/structure/dresser,
+/obj/structure/mirror/directional/south,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Cn" = (
@@ -970,6 +973,12 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "Ou" = (
 /obj/structure/curtain/bounty,
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"OG" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/rack/wooden,
+/obj/item/food/grown/poppy/geranium/fraxinella,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Pe" = (
@@ -1693,7 +1702,7 @@ qQ
 JT
 Ak
 Ak
-hQ
+OG
 qQ
 cy
 ki
@@ -1861,7 +1870,7 @@ rC
 rC
 rC
 Bt
-qF
+rA
 qQ
 Sl
 kO
@@ -1901,7 +1910,7 @@ Ez
 qQ
 qQ
 Ez
-Ez
+kd
 Hg
 qQ
 qQ

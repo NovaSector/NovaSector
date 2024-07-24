@@ -109,6 +109,7 @@
 	pixel_y = -7;
 	pixel_x = -5
 	},
+/obj/structure/mirror/directional/south,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "bY" = (
@@ -599,6 +600,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "nn" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
@@ -632,6 +634,7 @@
 	pixel_x = 6;
 	pixel_y = -6
 	},
+/obj/structure/mirror/directional/north,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oA" = (
@@ -1048,6 +1051,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"xe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mirror/directional/west,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xp" = (
 /obj/structure/rack/wooden,
@@ -2024,9 +2032,8 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "SG" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/table/wood,
-/turf/open/floor/stone/icemoon,
+/obj/structure/mirror/directional/west,
+/turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Te" = (
 /obj/effect/turf_decal/siding/wood{
@@ -2078,6 +2085,10 @@
 	},
 /obj/structure/reagent_anvil,
 /obj/item/forging/hammer/primitive,
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"UL" = (
+/obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "UV" = (
@@ -3177,7 +3188,7 @@ rS
 mu
 HD
 HD
-mu
+xe
 Xv
 yp
 oA
@@ -3555,7 +3566,7 @@ uw
 lF
 yE
 MX
-SG
+nn
 oW
 yp
 Ob
@@ -3598,7 +3609,7 @@ yE
 Vs
 yE
 yE
-SG
+nn
 gi
 rv
 wF
@@ -3640,7 +3651,7 @@ BO
 JX
 yE
 yE
-nn
+UL
 gi
 Ob
 wF
@@ -3853,7 +3864,7 @@ yp
 wF
 RW
 tI
-tI
+SG
 fY
 yp
 zh
