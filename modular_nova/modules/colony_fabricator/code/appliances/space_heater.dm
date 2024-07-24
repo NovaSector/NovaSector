@@ -10,7 +10,7 @@
 	efficiency = parent_type::efficiency * 2
 	display_panel = TRUE
 	cell = null
-	/// What this repacks into when its wrenched off a wall
+	/// What this repacks into when it's wrenched off a wall
 	var/repacked_type = /obj/item/wallframe/wall_heater
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)

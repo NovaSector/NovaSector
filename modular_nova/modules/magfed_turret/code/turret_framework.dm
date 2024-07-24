@@ -358,7 +358,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/auto_mag_drop = FALSE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/datum/weakref/target_override
-	//////Target Assessment System. Whether or not its targeting according to flags or even ignoring everyone.
+	//////Target Assessment System. Whether or not it's targeting according to flags or even ignoring everyone.
 	var/target_assessment = TURRET_FLAG_SHOOT_EVERYONE
 	//////Ally system.
 	var/allies = list()
@@ -366,7 +366,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/claptrap_moment = TRUE
 	////// Do we want it to eject casings?
 	var/casing_ejector = TRUE
-	//////what box should this spawn with if its map_spawned?
+	//////what box should this spawn with if it's map_spawned?
 	var/mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled
 	//////To stop runtimes x1
 	var/staminaloss = 0
@@ -479,7 +479,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		chambered = null
 
 	if(magazine_ref)
-		if(!disassembled) //This is to stop one specific runtime, and if its being broken its probably gonna malf eject
+		if(!disassembled) //This is to stop one specific runtime, and if it's being broken it's probably gonna malf eject
 			mag.forceMove(drop_location())
 		else if(auto_loader) //if the magazine is being kept this long, it might aswell be shoved back in.
 			auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
@@ -592,7 +592,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(istype(casing)) //there's a chambered round
 		if(casing_ejector) //To handle casing ejection (Previous version didn't account for caseless ammo and threw runtimes with new system)
 			if(!claptrap_moment)
-				balloon_alert_to_viewers("ejecting cartridge") // will proc even on caseless cartridges, but its a debug message.
+				balloon_alert_to_viewers("ejecting cartridge") // will proc even on caseless cartridges, but it's a debug message.
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			chambered = null
 			casing.bounce_away(TRUE)
@@ -620,7 +620,7 @@ DEFINE_BITFIELD(turret_flags, list(
 				burst_target = null
 				volley_count = initial(volley_count)
 				return
-			trytoshootfucker(burst_target) //we send _this_ one because its the weakref. Same with the one below. I've had several runtimes before figuring this out.
+			trytoshootfucker(burst_target) //we send _this_ one because it's the weakref. Same with the one below. I've had several runtimes before figuring this out.
 			return
 		if(target_override) //Forces turret to shoot
 			var/atom/movable/overridden_target = target_override.resolve()
@@ -691,7 +691,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	return FALSE
 
 /// toggles between whether things are inside the ally system
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/toggle_ally(mob/living/target) //leave these since its kinda important to know which is being done.
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/proc/toggle_ally(mob/living/target) //leave these since it's kinda important to know which is being done.
 	if(REF(target) in allies)
 		allies -= REF(target)
 		balloon_alert_to_viewers("ally removed!")
@@ -758,7 +758,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		burst_target = null
 		return
 	while(overridden_target)
-		if(target(overridden_target)) //ok. Its trying to shoot a weakref. Thats the issue.
+		if(target(overridden_target)) //ok. It's trying to shoot a weakref. Thats the issue.
 			return TRUE
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/shootAt(atom/movable/target)
@@ -773,7 +773,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		if(last_fired + shot_delay > world.time)
 			return
 		last_fired = world.time
-		if(burst_target && volley_count >= 1) // we put this here so its somewhat in-sync. i hope.
+		if(burst_target && volley_count >= 1) // we put this here so it's somewhat in-sync. i hope.
 			volley_count -= 1
 			if(volley_count == 0)
 				end_burst()
@@ -886,7 +886,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		if(!claptrap_moment)
 			balloon_alert(user, "repaired!")
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby_secondary(obj/item/attacking_item, mob/living/user, params) //IM TIRED OF MISMATCHED VAR NAMES. ITS ATTACK_ITEM ON MAIN, WHY WEAPON HERE?
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby_secondary(obj/item/attacking_item, mob/living/user, params) //IM TIRED OF MISMATCHED VAR NAMES. IT'S ATTACK_ITEM ON MAIN, WHY WEAPON HERE?
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
