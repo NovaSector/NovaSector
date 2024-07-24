@@ -1,0 +1,229 @@
+"aA" = (/obj/structure/millstone,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"aQ" = (/obj/structure/water_source/puddle,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"aR" = (/obj/machinery/smartfridge/wooden/produce_bin,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"aU" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb/cobweb2,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"ba" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/item/stack/sheet/mineral/wood/fifty,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"bC" = (/obj/structure/fluff/minepost,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb/cobweb2,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"bS" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/effect/decal/cleanable/blood/tracks,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"bU" = (/obj/structure/bed/maint,/obj/item/bedsheet{dir = 1},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"cl" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"cD" = (/obj/structure/falsewall/wood,/obj/effect/turf_decal/weather/snow/corner{dir = 1},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"di" = (/obj/machinery/smartfridge/wooden/ration_shelf,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"do" = (/obj/effect/turf_decal/siding/wood,/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"dF" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/blood/tracks,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"dJ" = (/obj/effect/turf_decal/siding/wood{dir = 9},/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"es" = (/obj/structure/flora/tree/jungle/small/style_3,/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"et" = (/obj/machinery/cauldron,/obj/effect/turf_decal/siding/wood,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"eH" = (/obj/structure/chair/wood/wings{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"eK" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/effect/mob_spawn/corpse/human/skeleton,/obj/effect/decal/cleanable/blood/gibs/down,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"eN" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/ferny/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"eQ" = (/obj/structure/spacevine{name = "thick vines"; opacity = 1},/obj/structure/spacevine{name = "thick vines"; opacity = 1},/obj/structure/spacevine{name = "thick vines"; opacity = 1},/obj/effect/turf_decal/weather/snow/corner{dir = 6},/obj/effect/turf_decal/weather/snow/corner{dir = 8},/obj/structure/flora/bush/sparsegrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"eX" = (/obj/effect/decal/cleanable/dirt/dust,/obj/structure/table/wood,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"fc" = (/obj/structure/table/wood,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"fG" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/lavendergrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"fZ" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/grassy/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"gZ" = (/obj/effect/turf_decal/siding/wood,/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"hh" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"hk" = (/obj/effect/turf_decal/siding/wood,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"hs" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"hC" = (/obj/structure/flora/tree/jungle/small/style_6,/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"iw" = (/obj/effect/turf_decal/weather/snow/corner{dir = 6},/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"jj" = (/obj/machinery/primitive_stove,/obj/effect/turf_decal/siding/wood,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"jw" = (/obj/structure/closet/cabinet,/obj/effect/decal/cleanable/dirt/dust,/obj/item/reagent_containers/cup/bottle/curare,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"jE" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/forging/reagent_weapon/dagger,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"jW" = (/obj/machinery/griddle/stone,/obj/effect/turf_decal/siding/wood,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb/cobweb2,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"kb" = (/obj/structure/spacevine{name = "thick vines"; opacity = 1},/obj/structure/flora/bush/sparsegrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"ke" = (/obj/effect/turf_decal/siding/wood{dir = 5},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"kq" = (/obj/structure/wall_torch/spawns_lit/directional/east,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"kE" = (/obj/effect/decal/cleanable/dirt/dust,/obj/structure/wall_torch/directional/north,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"kS" = (/turf/template_noop,/area/template_noop)
+"lc" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_yw/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"lD" = (/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"lY" = (/obj/structure/wall_torch/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"mc" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"mW" = (/obj/effect/turf_decal/weather/snow/corner{dir = 4},/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"no" = (/obj/structure/closet/crate/wooden/storage_barrel,/obj/item/seeds/wheat,/obj/item/seeds/wheat/meat,/obj/item/seeds/wheat/oat,/obj/item/seeds/wheat/rice,/obj/item/seeds/potato,/obj/item/seeds/potato/sweet,/obj/item/seeds/carrot,/obj/item/seeds/honeysuckle,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"nr" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"nz" = (/obj/effect/turf_decal/siding/wood/corner,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"nP" = (/obj/structure/flora/bush/fullgrass/style_random,/mob/living/basic/ghost/swarm,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"ox" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/mob/living/basic/ghost/swarm,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"oC" = (/obj/structure/wall_torch/spawns_lit/directional/west,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"oG" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/blood/tracks{dir = 4},/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"py" = (/obj/structure/closet/crate/grave/filled,/mob/living/basic/blankbody,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"pG" = (/obj/structure/table/wood,/obj/item/cutting_board,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"pM" = (/obj/structure/mineral_door/wood/large_gate{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"pN" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/forging/reagent_weapon/sword,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"pU" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/forging/reagent_weapon/staff,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"pV" = (/obj/effect/turf_decal/siding/wood,/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/lavendergrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"qD" = (/obj/structure/chair/wood/wings{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"qT" = (/obj/structure/table/wood,/obj/item/soap/homemade,/obj/item/reagent_containers/cup/rag{pixel_y = -3},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb/cobweb2,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"rh" = (/obj/structure/table/wood,/obj/structure/large_mortar,/obj/item/pestle,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"ro" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"rq" = (/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"rJ" = (/obj/effect/turf_decal/siding/wood{dir = 4},/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"rO" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"rP" = (/obj/effect/turf_decal/siding/wood{dir = 6},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/grassy/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"sf" = (/obj/structure/spacevine{name = "thick vines"; opacity = 1},/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"sy" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/effect/decal/cleanable/blood,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"sB" = (/turf/closed/wall/mineral/wood/nonmetal,/area/ruin/unpowered/abandoned_sacred_temple)
+"sI" = (/obj/structure/wall_torch/directional/east,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"tD" = (/turf/closed/wall/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"tL" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_yw/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"tO" = (/obj/structure/mineral_door/wood/large_gate{dir = 1},/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"tZ" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/structure/flora/bush/flowers_yw/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"ub" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/obj/structure/table/wood,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"uH" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/effect/decal/cleanable/dirt,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"uU" = (/obj/structure/dresser,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"uY" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb/cobweb2,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"uZ" = (/obj/structure/bed/maint,/obj/item/bedsheet{dir = 1},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"vw" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"vX" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"wV" = (/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"xt" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"xy" = (/obj/structure/rack/wooden,/obj/item/plate/blowing_glass{pixel_y = -9; pixel_x = -2},/obj/item/plate/blowing_glass{pixel_y = -6; pixel_x = -1},/obj/item/plate/ceramic{pixel_y = 6; pixel_x = -2},/obj/item/plate/ceramic{pixel_y = 8; pixel_x = -3},/obj/item/plate/ceramic{pixel_y = 11; pixel_x = -1},/obj/item/reagent_containers/cup/beaker/large/blowing_glass{pixel_y = 9; pixel_x = -5},/obj/item/reagent_containers/cup/beaker/large/blowing_glass{pixel_y = 9; pixel_x = 5},/obj/item/reagent_containers/cup/beaker/large/ceramic{pixel_y = -5; pixel_x = 7},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"xE" = (/obj/structure/closet/crate/grave/filled,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"yB" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/mob/living/basic/ghost/swarm,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"yV" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"yW" = (/obj/structure/wall_torch/directional/north,/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"zu" = (/obj/structure/reagent_water_basin,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Bm" = (/obj/structure/spacevine{name = "thick vines"; opacity = 1},/obj/effect/turf_decal/weather/snow/corner,/obj/structure/flora/bush/sparsegrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"BY" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/effect/decal/cleanable/blood/tracks{dir = 4},/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Cs" = (/obj/structure/table/wood,/obj/item/reagent_containers/cup/primitive_centrifuge,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"CA" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"CX" = (/obj/effect/turf_decal/weather/snow/corner{dir = 10},/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"CY" = (/obj/effect/turf_decal/siding/wood{dir = 5},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/grassy/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Da" = (/obj/machinery/oven/stone,/obj/effect/turf_decal/siding/wood,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Do" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Dt" = (/turf/closed/wall/mineral/stone,/area/ruin/unpowered/abandoned_sacred_temple)
+"Ec" = (/obj/item/reagent_containers/cup/bucket/wooden,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Es" = (/obj/structure/flora/tree/jungle/style_6,/obj/structure/flora/bush/sparsegrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"EE" = (/obj/structure/rack/wooden,/obj/item/reagent_containers/cup/soup_pot{pixel_y = 12; pixel_x = 6},/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{pixel_y = 14; pixel_x = -6},/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{pixel_x = -3},/obj/item/reagent_containers/cup/glass/bottle/small{pixel_x = 7; pixel_y = -2},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"EJ" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/grassy/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"FB" = (/obj/structure/fireplace{dir = 4; pixel_y = -15},/obj/effect/turf_decal/siding/wood{dir = 1},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"FC" = (/obj/structure/closet/cabinet,/obj/effect/decal/cleanable/dirt/dust,/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/sacred_temple,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"FV" = (/obj/effect/decal/cleanable/dirt/dust,/turf/closed/wall/mineral/wood/nonmetal,/area/ruin/unpowered/abandoned_sacred_temple)
+"FY" = (/turf/closed/mineral/snowmountain/cavern/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Go" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/ferny/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"GA" = (/obj/item/reagent_containers/cup/bucket/wooden,/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"GH" = (/obj/effect/turf_decal/weather/snow/corner{dir = 9},/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"GR" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Ho" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/lavendergrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"HQ" = (/obj/structure/reagent_water_basin,/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"HS" = (/obj/structure/table/wood,/obj/item/food/meat/slab/human/mutant/zombie{pixel_y = -10},/obj/item/food/meat/slab/human/mutant/zombie,/obj/item/food/meat/slab/human/mutant/zombie{pixel_y = 10},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Jm" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_yw/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Jo" = (/obj/structure/flora/bush/sparsegrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Jr" = (/obj/structure/chair/wood/wings{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"JA" = (/obj/structure/wall_torch/spawns_lit/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"KK" = (/obj/structure/mineral_door/wood/large_gate{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"KQ" = (/obj/structure/table/wood,/obj/item/plate/oven_tray/material/fake_copper,/obj/item/reagent_containers/cup/soup_pot{pixel_y = 5; pixel_x = 4},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Ll" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"LA" = (/obj/structure/flora/tree/jungle/small/style_5,/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"LR" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/structure/window/reinforced/plasma/spawner/directional/east,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Mh" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/structure/window/reinforced/plasma/spawner/directional/west,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"MB" = (/obj/structure/window/green_glass_pane,/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"MK" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/grassy/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"NE" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/lavendergrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"NI" = (/obj/structure/fluff/minepost,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"NO" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/mjollnir,/obj/structure/window/reinforced/plasma/spawner/directional/north,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Ow" = (/obj/effect/turf_decal/siding/wood/corner{dir = 8},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"Oz" = (/turf/closed/mineral/snowmountain/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"OM" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/mob_spawn/corpse/human/skeleton,/obj/effect/decal/cleanable/blood/gibs/down,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"OV" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/ferny/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"OX" = (/obj/structure/wall_torch/spawns_lit/directional/north,/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Pq" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb/cobweb2,/obj/structure/table/wood,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"PB" = (/obj/effect/turf_decal/siding/wood,/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"PL" = (/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Qd" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/lavendergrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Qx" = (/obj/effect/decal/cleanable/dirt/dust,/obj/structure/wall_torch/directional/south,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"QH" = (/obj/effect/decal/cleanable/dirt/dust,/mob/living/basic/ghost/swarm,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Rj" = (/obj/effect/turf_decal/siding/wood{dir = 8},/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Sa" = (/obj/structure/wall_torch/directional/west,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"SB" = (/obj/structure/mineral_door/wood/large_gate,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"SH" = (/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"SJ" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"SW" = (/obj/effect/decal/cleanable/dirt/dust,/turf/closed/wall/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"SY" = (/obj/effect/turf_decal/siding/wood{dir = 8},/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Th" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Uc" = (/obj/structure/mineral_door/wood/large_gate{dir = 1},/obj/effect/turf_decal/weather/snow/corner,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Ul" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Uu" = (/obj/effect/turf_decal/weather/snow/corner{dir = 5},/obj/effect/turf_decal/weather/snow/corner{dir = 8},/obj/effect/turf_decal/weather/snow/corner,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"UC" = (/obj/effect/decal/cleanable/dirt/dust,/obj/structure/statue/hearthkin/odin{anchored = 1; can_be_unanchored = 1},/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Wa" = (/obj/structure/table/wood/fancy/orange,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Wy" = (/obj/structure/chair/wood/wings,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"WU" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/cobweb,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+"XA" = (/obj/structure/bed/maint,/obj/item/bedsheet{dir = 1},/obj/effect/decal/cleanable/dirt/dust,/mob/living/basic/ghost/swarm,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"XL" = (/obj/effect/turf_decal/siding/wood{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"XN" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"XP" = (/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/cobweb,/obj/structure/table/wood,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Yl" = (/obj/effect/decal/cleanable/dirt/dust,/turf/closed/wall/mineral/stone,/area/ruin/unpowered/abandoned_sacred_temple)
+"Yo" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Yy" = (/obj/structure/flora/bush/sparsegrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"Ze" = (/obj/structure/wall_torch/directional/west,/obj/effect/decal/cleanable/dirt/dust,/mob/living/basic/ghost/swarm,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Zh" = (/obj/structure/closet/cabinet,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Zm" = (/obj/structure/table/wood,/obj/item/knife/butcher,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"Zt" = (/obj/effect/turf_decal/siding/wood{dir = 10},/obj/structure/flora/bush/fullgrass/style_random,/obj/effect/decal/cleanable/dirt/dust,/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/abandoned_sacred_temple)
+"ZO" = (/obj/structure/curtain/bounty/start_closed{name = "curtain"},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/wood/icemoon,/area/ruin/unpowered/abandoned_sacred_temple)
+"ZW" = (/obj/effect/decal/cleanable/dirt/dust,/obj/structure/wall_torch/spawns_lit/directional/north,/turf/open/floor/mineral/gold,/area/ruin/unpowered/abandoned_sacred_temple)
+
+(1,1,1) = {"
+kSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkS
+kSkSkSkSkSkSOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzkSkSkSkSkSkSkSkSkS
+kSkSkSkSkSOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzkSkSkSkS
+kSkSkSkSkSOzOzFYFYFYFYOzOzOzOzOzFYFYFYFYFYFYFYFYFYOzOzkSkSkS
+kSkSkSkSkSOzOzFYxEXNFYFYFYFYFYFYFYXNxEXNXNQdXNXNFYFYOzOzkSkS
+kSkSkSkSkSOzOzFYXNGoXNxEXNxEXNxEXNXNXNnPXNXNXNXNXNFYFYOzOzkS
+kSkSkSkSkSOzOzFYXNXNlcXNXNThXNXNQdlcdFOMoGoGoGOMdFXNFYOzOzkS
+kSkSkSkSkSOzOzFYxEQdXNXNXNXNGoXNXNJoeKJoJoJosyJoOMXNFYFYOzkS
+kSkSkSkSOzOzOzFYUlXNXNxEnPxEXNxEJorObSYysyEsJoJodFXNXNFYOzkS
+kSkSkSkSOzOzOzFYXNXNxEXNXNXNXNXNJoJoeKbSJoJosyBYOMXNxEFYOzkS
+kSkSkSkSOzOzOzFYXNlcXNXNCAXNFYFYkbkbJoBYeKBYeKJoXNXNXNFYOzkS
+kSkSkSkSOzOzOzFYGoXNThXNxEFYFYkbkbFYXNtZJouHJoXNXNThXNFYOzkS
+kSkSkSkSOzOzOzFYXNnPXNXNFYFYkbkbFYFYXNXNXNnPxEXNXNXNQdFYOzkS
+kSkSkSOzOzOzOzFYXNQdxEXNFYBmkbBmFYXNXNGoXNQdXNXNGoXNXNFYOzkS
+kSkSkSOzOzFYFYFYCAXNXNXNFYsfeQsfFYXNxEXNlcXNXNCAXNXNFYOzOzkS
+kSkSkSOzOzFYpyXNXNGoFYFYFYFYsfFYFYFYFYFYFYFYFYXNXNQdFYOzOzkS
+kSkSkSOzOzFYFYFYFYFYFYFYwVwVwVwVwVwVwVwVwVwVFYFYFYFYFYOzOzkS
+kSkSkSOzOzOzFYFYFYFYDtDtsBsBsBcDcDsBsBsBDtDtFYFYFYFYOzOzOzkS
+kSkSkSOzOzOzwVwVwVwVtDWUZWlDrqlDlDrqlDZWaUtDwVwVwVwVOzOzOzkS
+kSkSkSOzOzOzwVwVwVwVtDlDlDlDUClDlDUClDlDlDtDwVwVwVwVOzOzOzkS
+kSkSkSOzOzOzwVDtsBsBDthkhkhkhkOwnzhkhkhkhkDtsBsBDtwVwVOzOzkS
+kSkSkSOzOzOzwVDtvXkESHSHSHSHSHyVXLSHSHSHSHSHkEuYDtwVwVOzOzkS
+kSkSkSOzOzOzwVsBSHSHSHyBSHSHSHyVXLSHSHSHSJSHSHSHsBwVwVOzOzkS
+kSkSkSOzOzOzwVMBeHWaqDSHdJMKGRHoGRGRGRCYQHeHWaqDMBwVwVOzOzkS
+kSkSkSOzOzOzwVMBeHWaqDSHOVtLfGYoDoesmcxtSHeHWaqDMBwVwVOzOzkS
+kSkSkSOzOzOzwVMBJrWaqDSHnrDoDoDoDofGDoclSHeHWaqDMBwVwVOzOzkS
+kSkSkSOzOzOzwVMBeHWaqDSHNEDohCDooxeNfGxtSHeHWaqDMBwVwVOzOzkS
+kSkSkSOzOzOzwVMBeHWaqDSHSYYofGfZDoDoDoJmSHeHWaqDMBwVwVOzOzkS
+kSkSkSOzOzOzwVMBeHWaqDSHEJDoeNDotLfGLAxtSHeHWaqDMBwVOzOzOzkS
+kSkSkSOzOzwVwVsBSHQHSHSHZtpVgZdodoPBdorPSHyBSHSHsBwVOzOzOzkS
+kSkSOzOzOzwVwVDtSHQxSHSJSHSHSHvwLlSHSHSHSHSHQxSHDtwVOzOzOzkS
+kSkSOzOzOzwVwVDtsBsBDtSHSHSHSJvwhhSHSHSHSHDtsBsBDtwVOzOzOzkS
+kSkSOzOzOzwVwVwVwVwVDthsNOpULRvwLlMhpNjEhsDtwVwVwVwVOzOzOzkS
+kSkSOzOzOzwVwVDtsBsBDtSWSWFVFVRjrJFVFVSWSWDtsBsBDtwVOzOzOzkS
+kSkSOzOzwVwVwVDtbUQHZOWyqTFVNIvwLlbCFVetjjDajjjWDtwVOzOzOzkS
+kSkSOzOzOzwVwVsBuUSHZOQHEcFVSavwLlkqFVSHSHSHSHSHsBwVOzOzOzkS
+kSkSOzOzOzwVwVMBXASHZOZOZOFVSHroLlSHFVSHSHZmHSSHMBwVOzOzOzkS
+kSkSOzOzOzwVwVMBuUSHSHSHsIFVSHvwLlSHFVZeSHpGSHSHMBwVOzOzOzkS
+kSkSOzOzOzwVwVMBuZSHSHSHSHpMSHvwLlSHpMSHSHzuSHSJMBwVOzOzOzkS
+kSkSOzOzOzwVwVMBuUQHSJSHSHKKSHvwLlSHKKSHSHfcSHSHMBwVwVOzOzkS
+kSkSOzOzOzwVwVMBuZSHSHSHsIFVSHvwLlSHFVSaSHfcSHSHMBwVwVOzOzkS
+kSkSOzOzOzwVwVMBSHSHSHSHZhFVSHvwLlSHFVSHSHCsrhSHMBwVwVOzOzkS
+kSkSOzOzOzwVwVsBFBkeSHSHjwFVoCvwhhsIFVEESHSHSHSHsBwVwVOzOzkS
+kSkSOzOzOzwVwVDtrqbaFCZhSWFVSHvwLlSHFVSWaRxyKQdiDtwVwVOzOzkS
+kSkSOzOzOzwVwVDtsBsBDtSWSWNISHvwLlSHbCSWSWYlsBsBDtwVwVOzOzkS
+kSkSkSOzOzwVwVGHnoaAtDXPJASHSHvwLlSHSHlYPqtDwVwVwVwVwVOzOzkS
+kSkSkSOzOzwVGHPLaQPLtDeXSHSHSHroLlSHSHSHubtDwVFVFVFVwVOzOzkS
+kSkSkSOzOzOzPLPLPLPLDtDtMBMBDtSBtODtMBMBDtDtwVFVSHFVwVOzOzkS
+kSkSkSOzOzOzPLPLPLmWOXwVwVwVwVCXiwwVwVwVwVyWwVFVUcFVOzOzOzkS
+kSkSkSOzOzOzPLPLPLiwwVwVwVwVwVwVwVwVwVwVwVwVwVyWwVHQOzOzOzkS
+kSkSkSOzOzOzOzPLiwwVwVwVwVwVwVwVUuwVwVwVwVwVwVwVGAOzOzOzOzkS
+kSkSkSOzOzOzOzOzOzOzOzOzOzOzOzwVwVwVOzOzOzOzOzOzOzOzOzOzkSkS
+kSkSkSOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzkSkSkSkS
+kSkSkSOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzkSkSkSkS
+kSkSkSkSOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzkSkSkSkS
+kSkSkSkSkSOzOzOzkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkS
+kSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkS
+kSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkS
+kSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkS
+kSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkSkS
+"}
