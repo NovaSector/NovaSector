@@ -25306,7 +25306,7 @@
 /area/station/maintenance/central/greater)
 "hmi" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/smartfridge/drying_rack,
+/obj/machinery/smartfridge/drying/rack,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
 "hml" = (
@@ -73133,14 +73133,7 @@
 /turf/open/floor/iron,
 /area/station/science/lab)
 "vjS" = (
-/obj/structure/table,
-/obj/item/clothing/suit/apron/chef{
-	pixel_y = 11
-	},
-/obj/item/book/manual/wiki/cooking_to_serve_man{
-	pixel_x = 3;
-	pixel_y = 2
-	},
+/obj/machinery/smartfridge/drying,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "vjV" = (
@@ -73403,6 +73396,13 @@
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/obj/item/clothing/suit/apron/chef{
+	pixel_y = 11
+	},
+/obj/item/book/manual/wiki/cooking_to_serve_man{
+	pixel_x = 3;
+	pixel_y = 2
 	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)

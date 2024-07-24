@@ -1169,3 +1169,24 @@
   - code_imp: Removed 8 cases of double indentation
   - bugfix: general bitrunning fixes and 102% faster loading times
   - bugfix: bitrunning domains are no longer affected by nebulas in the real world
+2024-07-24:
+  Dragonfruits:
+  - image: Added Black-backed Jackal tail & matching markings
+  - image: Added Canine (Alt) snout
+  - image: Added "Belly Slim (Alt) + Body Tonage" marking
+  FlufflesTheDog:
+  - bugfix: the space-ban on station-side screaming has been lifted, We hope you enjoyed
+      the peace and quiet.
+  NovaBot13:
+  - bugfix: Animal/people skin is no longer metallic sounding
+  - bugfix: Alexander no longer causes harddels
+  - bugfix: Removed a theoretical infinite block exploit from alexander
+  - spellcheck: Renamed the Crimson Focus to the Crimson Medallion
+  - bugfix: Fixed harvesters not being properly bound to their master, nor dying when
+      they do
+  - bugfix: Fixed heads totally overriding cultist sacrifice rewards
+  - rscadd: Heretic blade now converts to a nullblade
+  - rscadd: Added wooshing, shaking, and glowing to flinging around with the heretic
+      blade
+  - balance: Removed the probability to not gain a reward when sacrificing a cultist
+  - bugfix: You can now put dead mice into mortars/grinders properly
