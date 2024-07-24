@@ -4778,12 +4778,6 @@
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/central)
-"bBh" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/structure/sign/directions/dorms/directional/east,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "bBi" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -13519,6 +13513,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/robotics/mechbay)
+"eBh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/landmark/start/telecomms_specialist,
+/turf/open/floor/iron/dark,
+/area/station/tcommsat/computer)
 "eBi" = (
 /obj/machinery/holopad{
 	pixel_x = 16;
@@ -17639,10 +17641,11 @@
 /turf/open/floor/iron,
 /area/station/maintenance/disposal)
 "fIr" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
+/obj/structure/sign/directions/dorms/directional/east,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "fIx" = (
 /obj/machinery/airalarm/directional/west{
 	pixel_x = -22
@@ -60378,14 +60381,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/green,
 /area/station/commons/dorms)
-"tpM" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/neutral/opposingcorners,
-/obj/effect/landmark/start/telecomms_specialist,
-/turf/open/floor/iron/dark,
-/area/station/tcommsat/computer)
 "tpO" = (
 /obj/machinery/button/door{
 	desc = "A remote control switch for the Auxiliary medbay foyer.";
@@ -116512,7 +116507,7 @@ weK
 szi
 wSZ
 mfX
-bBh
+fIr
 xSt
 elm
 elm
@@ -124454,7 +124449,7 @@ taC
 mUv
 mUa
 grv
-tpM
+eBh
 jpD
 huk
 oEn
@@ -124710,7 +124705,7 @@ gmE
 iph
 xTa
 rrL
-tpM
+eBh
 bgS
 jpH
 grv
@@ -128353,7 +128348,7 @@ nsW
 cgJ
 mRW
 txW
-fIr
+skP
 skP
 bpV
 nmD
