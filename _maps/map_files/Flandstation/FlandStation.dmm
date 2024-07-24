@@ -3747,6 +3747,7 @@
 	pixel_x = 28
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "bgU" = (
@@ -4777,6 +4778,12 @@
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/maintenance/central)
+"bBh" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/structure/sign/directions/dorms/directional/east,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "bBi" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -60371,6 +60378,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/green,
 /area/station/commons/dorms)
+"tpM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/effect/landmark/start/telecomms_specialist,
+/turf/open/floor/iron/dark,
+/area/station/tcommsat/computer)
 "tpO" = (
 /obj/machinery/button/door{
 	desc = "A remote control switch for the Auxiliary medbay foyer.";
@@ -116497,7 +116512,7 @@ weK
 szi
 wSZ
 mfX
-kQJ
+bBh
 xSt
 elm
 elm
@@ -124439,7 +124454,7 @@ taC
 mUv
 mUa
 grv
-grv
+tpM
 jpD
 huk
 oEn
@@ -124695,7 +124710,7 @@ gmE
 iph
 xTa
 rrL
-grv
+tpM
 bgS
 jpH
 grv
