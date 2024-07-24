@@ -79,7 +79,7 @@
 	desc = "Lost your eyeball to a rogue borg? Dare to tell a Dogborg to do its job? Got bored? Whatever the reason, this bit of tech will help you still repair borgs, they'll never need it since they usually do it themselves, but it's the thought that counts."
 	icon_state = "robopatch"
 	base_icon_state = "robopatch"
-	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_BOT_PATH_HUD)
+	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
 	unique_reskin = list(

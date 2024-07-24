@@ -190,7 +190,7 @@
 	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_diagnostic"
 	flash_protect = FLASH_PROTECTION_NONE
-	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_BOT_PATH_HUD)
+	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
 // Science Aviators
@@ -265,7 +265,7 @@
 /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 	name = "retinal projector diagnostic HUD"
 	icon_state = "projector_diagnostic"
-	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_BOT_PATH_HUD)
+	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/science
 	name = "science retinal projector"
