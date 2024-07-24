@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(ticker)
 
 	var/list/datum/mind/minds = list() //The characters in the game. Used for objective tracking.
 
-	var/delay_end = FALSE //if set true, the round will not restart on it's own
+	var/delay_end = FALSE //if set true, the round will not restart on its own
 	var/admin_delay_notice = "" //a message to display to anyone who tries to restart the world after a delay
 	var/ready_for_reboot = FALSE //all roundend preparation done with, all that's left is reboot
 
@@ -451,7 +451,8 @@ SUBSYSTEM_DEF(ticker)
 
 		//NOVA EDIT ADDITION
 		if(ishuman(new_player_living))
-			for(var/datum/loadout_item/item as anything in loadout_list_to_datums(new_player_mob.client?.prefs?.loadout_list))
+			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))
+			for(var/datum/loadout_item/item as anything in loadout)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)

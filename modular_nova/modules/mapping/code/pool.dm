@@ -71,7 +71,7 @@
 /**
  * Planetside water, indestructible.
  *
- * Use this for outdoors. It normalises to it's initial airmix over time!
+ * Use this for outdoors. It normalises to its initial airmix over time!
  */
 /turf/open/water/overlay/outdoors
 	baseturfs = /turf/open/water/overlay/outdoors

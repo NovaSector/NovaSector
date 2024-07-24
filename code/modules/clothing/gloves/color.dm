@@ -26,7 +26,6 @@
 		)
 	)
 	// NOVA EDIT ADDITION END
-	clothing_traits = list(TRAIT_FAST_CUFFING)
 
 /obj/item/clothing/gloves/color/black/Initialize(mapload)
 	. = ..()
@@ -36,6 +35,15 @@
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
+
+/obj/item/clothing/gloves/color/black/security
+	name = "security gloves"
+	desc = "These security gloves come with microchips that help the user quickly restrain suspects."
+	icon_state = "sec"
+	clothing_traits = list(TRAIT_FAST_CUFFING)
+
+/obj/item/clothing/gloves/color/black/security/blu
+	icon_state = "sec_blu"
 
 /obj/item/clothing/gloves/fingerless
 	name = "fingerless gloves"

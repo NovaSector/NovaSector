@@ -1768,13 +1768,13 @@
 	id = "interdynemedhall";
 	req_access = list("syndicate")
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "eM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "eN" = (
 /obj/structure/cable,
@@ -1786,7 +1786,7 @@
 	id = "interdynemedhall";
 	req_access = list("syndicate")
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "eO" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -1804,7 +1804,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "eP" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -1899,7 +1899,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "ff" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -1913,7 +1913,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "fg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2133,7 +2133,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "fP" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -2148,7 +2148,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "fQ" = (
 /obj/structure/railing{
@@ -2263,7 +2263,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "gf" = (
 /obj/structure/sign/warning/chem_diamond/directional/south,
@@ -7224,7 +7224,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "JM" = (
 /obj/structure/marker_beacon/burgundy,
@@ -7542,7 +7542,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/catwalk_floor/flat_white,
+/turf/open/floor/catwalk_floor/iron_white,
 /area/ruin/interdyne_planetary_base/med)
 "Zd" = (
 /obj/structure/marker_beacon/burgundy,

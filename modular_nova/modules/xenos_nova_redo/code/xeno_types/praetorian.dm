@@ -80,7 +80,7 @@
 /obj/item/ammo_casing/xenospit/tk_firing(mob/living/user, atom/fired_from)
 	return FALSE
 
-/obj/projectile/neurotoxin/nova/spitter_spread //Slightly nerfed because its a shotgun spread of these
+/obj/projectile/neurotoxin/nova/spitter_spread //Slightly nerfed because it's a shotgun spread of these
 	name = "neurotoxin spit"
 	icon_state = "neurotoxin"
 	damage = 25

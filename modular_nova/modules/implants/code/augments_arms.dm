@@ -16,7 +16,7 @@
 
 /obj/item/melee/implantarmblade
 	name = "implanted arm blade"
-	desc = "A long, sharp, mantis-like blade implanted into someones arm. Cleaves through flesh like its particularly strong butter."
+	desc = "A long, sharp, mantis-like blade implanted into someones arm. Cleaves through flesh like it's particularly strong butter."
 	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	righthand_file = 'modular_nova/modules/implants/icons/implanted_blade_righthand.dmi'
 	lefthand_file = 'modular_nova/modules/implants/icons/implanted_blade_lefthand.dmi'
@@ -226,6 +226,7 @@
 
 /obj/item/pickaxe/drill/implant/click_alt(mob/user)
 	spin()
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/pickaxe/drill/implant/verb/spin()
 	set name = "Spin Drillbit"

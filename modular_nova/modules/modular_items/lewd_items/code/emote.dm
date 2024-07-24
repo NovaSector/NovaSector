@@ -12,7 +12,7 @@
 	if(!user.client?.prefs.read_preference(pref_to_check))
 		return FALSE
 
-/datum/emote/living/lewd/can_run_emote(mob/living/carbon/user, status_check = TRUE, intentional)
+/datum/emote/living/lewd/can_run_emote(mob/living/carbon/user, status_check = TRUE, intentional, params)
 	return ..() && user.client?.prefs?.read_preference(pref_to_check)
 
 /datum/emote/living/lewd/lewdmoan

@@ -27,3 +27,10 @@
 	cost = CARGO_CRATE_VALUE * 33
 	contains = list(/obj/item/stack/sheet/plasteel/fifty)
 	crate_name = "plasteel sheets crate"
+
+/datum/supply_pack/materials/stone_fifty
+	name = "50 Stone Bricks"
+	desc = "Too busy to go down to mine your own rock? We got you!"
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(/obj/item/stack/sheet/mineral/stone/fifty)
+	crate_name = "stone bricks crate"

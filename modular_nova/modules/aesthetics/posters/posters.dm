@@ -27,7 +27,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/icebox_moment,
 
 /obj/structure/sign/poster/contraband/shipstation
 	name = "Flight Services - Enlist"
-	desc = "This poster depicts the long deprecated 'Ship' class 'station' in it's hayday. Surprisingly, the poster seems to be Nanotrasen official; though with how hush they've been on the topic..." //A disaster as big as Ship deserves a scandalous coverup.
+	desc = "This poster depicts the long deprecated 'Ship' class 'station' in its hayday. Surprisingly, the poster seems to be Nanotrasen official; though with how hush they've been on the topic..." //A disaster as big as Ship deserves a scandalous coverup.
 	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
 	icon_state = "poster_sr_shipstation"
 

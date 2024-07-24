@@ -3185,6 +3185,7 @@
 	dir = 10
 	},
 /obj/structure/sign/poster/contraband/random/directional/west,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/cargo/drone_bay)
 "aUC" = (
@@ -4442,7 +4443,7 @@
 	dir = 4
 	},
 /obj/structure/sign/calendar/directional/north,
-/obj/machinery/keycard_auth/directional/north{
+/obj/machinery/keycard_auth/wall_mounted/directional/north{
 	pixel_x = -27
 	},
 /obj/machinery/status_display/supply{
@@ -20331,6 +20332,7 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/entrance,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/office)
 "fVz" = (
@@ -25685,7 +25687,7 @@
 /obj/machinery/firealarm/directional/east{
 	pixel_y = 5
 	},
-/obj/machinery/keycard_auth/directional/east{
+/obj/machinery/keycard_auth/wall_mounted/directional/east{
 	pixel_y = -7
 	},
 /obj/machinery/camera/directional/east{
@@ -27352,7 +27354,7 @@
 /turf/open/floor/wood/large,
 /area/station/service/theater)
 "hSX" = (
-/obj/machinery/keycard_auth/directional/south{
+/obj/machinery/keycard_auth/wall_mounted/directional/south{
 	pixel_x = -5
 	},
 /obj/machinery/button/door/directional/south{
@@ -27677,9 +27679,7 @@
 /area/station/service/chapel)
 "hXI" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	piping_layer = 2
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer2,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_edge,
 /area/station/science/ordnance)
@@ -31537,6 +31537,7 @@
 	},
 /obj/effect/landmark/start/shaft_miner,
 /obj/machinery/light/directional/east,
+/obj/structure/sign/departments/exodrone/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/miningoffice)
 "jaz" = (
@@ -36867,6 +36868,10 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/bot,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/storage)
 "kyQ" = (
@@ -41814,6 +41819,9 @@
 "lOd" = (
 /obj/effect/spawner/random/maintenance/four,
 /obj/effect/spawner/random/entertainment/money,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
 "lOi" = (
@@ -49848,7 +49856,7 @@
 	pixel_x = -32;
 	pixel_y = 27
 	},
-/obj/machinery/incident_display/delam/directional/south,
+/obj/machinery/incident_display/bridge/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/bridge)
 "nYj" = (
@@ -50410,6 +50418,12 @@
 /obj/structure/table/wood,
 /turf/open/floor/carpet/cyan,
 /area/station/command/heads_quarters/blueshield)
+"ohl" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/closed/wall,
+/area/station/maintenance/department/medical)
 "ohz" = (
 /obj/machinery/light/cold/directional/north,
 /obj/effect/turf_decal/trimline/white/end,
@@ -51354,7 +51368,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},
@@ -54062,6 +54075,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/navigate_destination/sec,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/brig)
 "pfJ" = (
@@ -54744,6 +54758,12 @@
 	dir = 8
 	},
 /area/station/hallway/primary/central/aft)
+"pol" = (
+/obj/structure/disposalpipe/junction/flip{
+	dir = 2
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/department/medical)
 "por" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 9
@@ -56253,7 +56273,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/machinery/keycard_auth/directional/west{
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
 	pixel_y = 25
 	},
 /obj/machinery/button/ticket_machine{
@@ -60514,20 +60534,8 @@
 	},
 /area/station/commons/fitness/recreation)
 "qSs" = (
-/obj/structure/table,
-/obj/item/plate/large,
-/obj/item/plate,
-/obj/item/plate/small{
-	pixel_y = 1
-	},
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/item/reagent_containers/condiment/enzyme{
-	pixel_x = 10;
-	pixel_y = 18
-	},
-/obj/item/knife/butcher{
-	pixel_x = 5
-	},
+/obj/machinery/smartfridge/drying,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "qSu" = (
@@ -69302,6 +69310,7 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/entrance,
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/office)
 "tnl" = (
@@ -70273,7 +70282,7 @@
 /obj/machinery/modular_computer/preset/id{
 	dir = 8
 	},
-/obj/machinery/keycard_auth/directional/east{
+/obj/machinery/keycard_auth/wall_mounted/directional/east{
 	pixel_x = 21;
 	pixel_y = -25
 	},
@@ -70606,6 +70615,18 @@
 "tDA" = (
 /obj/structure/table,
 /obj/machinery/light/directional/north,
+/obj/item/plate/large,
+/obj/item/plate,
+/obj/item/plate/small{
+	pixel_y = 1
+	},
+/obj/item/knife/butcher{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/condiment/enzyme{
+	pixel_x = 10;
+	pixel_y = 18
+	},
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "tDI" = (
@@ -72123,6 +72144,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/scanner_gate/preset_guns,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/brig)
 "ubZ" = (
@@ -83042,7 +83064,7 @@
 /obj/machinery/modular_computer/preset/id{
 	dir = 4
 	},
-/obj/machinery/keycard_auth/directional/north{
+/obj/machinery/keycard_auth/wall_mounted/directional/north{
 	pixel_x = -27
 	},
 /obj/effect/turf_decal/bot,
@@ -110468,7 +110490,7 @@ xtu
 hkM
 hkM
 xtu
-xtu
+pol
 xtu
 fpl
 gqB
@@ -110982,7 +111004,7 @@ gJm
 eiV
 sAM
 sAM
-sAM
+ohl
 kOq
 uyk
 tNX

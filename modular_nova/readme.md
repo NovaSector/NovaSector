@@ -9,7 +9,7 @@ It's not necessarily the fault of lack of skill of the people maintaining it, me
 
 One of the solutions for such, is to base our server on a solid codebase, that is primarily maintained by somebody else, in this case tgstation, and insert our content in a modular fashion, while following the general code (but not gameplay) direction of the upstream, mirroring any changes they do for parity.
 
-Git, as a version control system, is very useful, however it is just a very methodical thing, that follows its many algorithms, that sadly cannot always intelligently resolve certain changes in the code in an unambiguous way, giving us conflicts, that need to be resolved in a manual fashion.
+Git, as a version control system, is very useful, however it is just a very methodical thing, that follows it's many algorithms, that sadly cannot always intelligently resolve certain changes in the code in an unambiguous way, giving us conflicts, that need to be resolved in a manual fashion.
 
 Due to maintainability being one of the main reasons behind our rebase to another codebase, **this protocol will seriously be enforced.**
 A well organized, documented and atomized code saves our maintainers a lot of headache, when being reviewed.
@@ -119,7 +119,7 @@ You should always put any modular overrides of icons, sound, code, etc. inside t
 
 Example: `code/modules/mob/living/living.dm` -> `modular_nova/master_files/code/modules/mob/living/living.dm`
 
-This is to make it easier to figure out what changed about a base file without having to search through proc definitions. 
+This is to make it easier to figure out what changed about a base file without having to search through proc definitions.
 
 It also helps prevent modules needlessly overriding the same proc multiple times. More information on these types of edits come later.
 
@@ -343,17 +343,17 @@ In general try to keep your edit comments on the same line as the change. Prefer
 <SomeThing someProp="whatever" /* it also works in self-closing tags */ />
 ```
 
-If that is not possible, you can wrap your edit in curly brackets e.g. 
+If that is not possible, you can wrap your edit in curly brackets e.g.
 
 ```js
-{/* NOVA EDIT ADDITION START */} 
+{/* NOVA EDIT ADDITION START */}
 <SomeThing>
 	someProp="whatever"
 </SomeThing>
 {/* NOVA EDIT ADDITION END */}
 ```
 
-### Creating new TGUI files 
+### Creating new TGUI files
 
 **IMPORTANT! When creating a new TGUI file from scratch, please add the following at the very top of the file (line 1):**
 ```js

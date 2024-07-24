@@ -60,7 +60,7 @@
  */
 /mob/living/carbon/human/proc/can_be_ridden_by(mob/living/to_buckle, mob/living/user, silent = FALSE)
 	if (!HAS_TRAIT(src, TRAIT_SADDLED))
-		return FALSE // no feedback as its very very common
+		return FALSE // no feedback as it's very very common
 
 	if (user == src) // would open the inventory screen otherwise
 		return FALSE // no feedback as you get your answer via the inventory screen
