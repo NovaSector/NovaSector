@@ -212,7 +212,7 @@
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 0.1
 	incompatible_modules = list(/obj/item/mod/module/status_readout)
 	tgui_id = "status_readout"
-	required_slots = list(ITEM_SLOT_BACK)
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT) // NOVA EDIT - original: list(ITEM_SLOT_BACK)
 	/// Does this show damage types, body temp, satiety
 	var/display_detailed_vitals = TRUE
 	/// Does this show DNA data

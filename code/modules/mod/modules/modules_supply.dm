@@ -35,7 +35,7 @@
 	cooldown_time = 0.5 SECONDS
 	overlay_state_inactive = "module_clamp"
 	overlay_state_active = "module_clamp_on"
-	required_slots = list(ITEM_SLOT_GLOVES, ITEM_SLOT_BACK)
+	required_slots = list(ITEM_SLOT_GLOVES, ITEM_SLOT_BACK|ITEM_SLOT_BELT) // NOVA EDIT - original: list(ITEM_SLOT_GLOVES, ITEM_SLOT_BACK)
 	/// Time it takes to load a crate.
 	var/load_time = 3 SECONDS
 	/// The max amount of crates you can carry.
@@ -108,7 +108,7 @@
 	load_time = 1 SECONDS
 	max_crates = 5
 	use_mod_colors = TRUE
-	required_slots = list(ITEM_SLOT_BACK)
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT) // NOVA EDIT - original: list(ITEM_SLOT_BACK)
 
 ///Drill - Lets you dig through rock and basalt.
 /obj/item/mod/module/drill
@@ -220,7 +220,7 @@
 	overlay_state_inactive = "module_hydraulic"
 	overlay_state_active = "module_hydraulic_active"
 	use_mod_colors = TRUE
-	required_slots = list(ITEM_SLOT_BACK)
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT) // NOVA EDIT - original: list(ITEM_SLOT_BACK)
 	/// Time it takes to launch
 	var/launch_time = 2 SECONDS
 	/// User overlay
@@ -309,7 +309,7 @@
 	cooldown_time = 1.5 SECONDS
 	overlay_state_active = "module_magnet"
 	use_mod_colors = TRUE
-	required_slots = list(ITEM_SLOT_BACK)
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT) // NOVA EDIT - original: list(ITEM_SLOT_BACK)
 
 /obj/item/mod/module/magnet/on_select_use(atom/target)
 	. = ..()
