@@ -32,6 +32,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "collar_cyan"
+	item_flags = parent_type::item_flags & UNIQUE_RENAME
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_SMALL
@@ -47,8 +48,6 @@
 						"Black" = "collar_black",
 						"Black-teal" = "collar_tealblack",
 						"Spike" = "collar_spike")
-	/// What the name on the tag is
-	var/tagname = null
 	/// Item path of on-init creation in the collar's storage
 	var/treat_path = /obj/item/food/cookie
 
@@ -66,12 +65,6 @@
 	var/id = REF(src)
 	var/obj/item/key/kink_collar/collar_key = key
 	collar_key.key_id = id
-
-//rename collar code
-
-/obj/item/clothing/neck/kink_collar/attack_self(mob/user)
-	tagname = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", "Spot", MAX_NAME_LEN)
-	name = "[initial(name)] - [tagname]"
 
 /*
 *	LOCKED COLLAR
@@ -163,6 +156,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "collar_key_metal"
 	base_icon_state = "collar_key"
+	item_flags = parent_type::item_flags & UNIQUE_RENAME
 	interaction_flags_click = NEED_DEXTERITY
 	/// The name inscribed on the key
 	var/keyname = null
@@ -179,11 +173,6 @@
 						"Black" = "collar_key_black",
 						"Metal" = "collar_key_metal",
 						"Black-teal" = "collar_key_tealblack")
-
-//changing name of key in case if we using multiple collars with same color
-/obj/item/key/kink_collar/attack_self(mob/user)
-	keyname = stripped_input(user, "Would you like to change the name on the key?", "Renaming key", "Key", MAX_NAME_LEN)
-	name = "[initial(name)] - [keyname]"
 
 //we checking if we can open collar with THAT KEY with SAME ID as the collar.
 /obj/item/key/kink_collar/attack(mob/living/carbon/human/target, mob/living/user, params)

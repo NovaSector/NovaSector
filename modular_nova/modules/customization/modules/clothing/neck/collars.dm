@@ -19,6 +19,7 @@
 	greyscale_config = /datum/greyscale_config/collar/pet
 	greyscale_config_worn = /datum/greyscale_config/collar/pet/worn
 	greyscale_colors = "#44BBEE#FFCC00"
+	item_flags = parent_type::item_flags & UNIQUE_RENAME
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = UNDER_SUIT_LAYER
 	/// What's the name on the tag, if any?
@@ -31,11 +32,6 @@
 	create_storage(storage_type = /datum/storage/pockets/small/collar)
 	if(treat_path)
 		new treat_path(src)
-
-/obj/item/clothing/neck/human_petcollar/attack_self(mob/user)
-	tagname = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", "Spot", MAX_NAME_LEN)
-	if(tagname)
-		name = "[initial(name)] - [tagname]"
 
 /obj/item/clothing/neck/human_petcollar/leather
 	name = "leather pet collar"
