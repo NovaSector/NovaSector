@@ -538,7 +538,7 @@
 "uO" = (
 /obj/structure/window/green_glass_pane,
 /obj/structure/curtain/bounty,
-/turf/closed/wall/mineral/wood/nonmetal,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "vW" = (
 /obj/item/food/grown/aloe{

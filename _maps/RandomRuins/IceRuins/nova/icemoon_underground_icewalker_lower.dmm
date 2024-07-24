@@ -760,7 +760,7 @@
 /obj/structure/rack/wooden,
 /obj/item/dice/d20{
 	name = "Scratched Dice";
-	desc = "A die with twenty sides. The preferred die to throw at the GM.""A die with twenty sides. Useful for all sort of social games- this one was clearly rescued from the wastes though, considering how scratched it is."
+	desc = "A die with twenty sides. Useful for all sort of social games- this one was clearly rescued from the wastes though, considering how scratched it is."
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
