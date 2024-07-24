@@ -118,13 +118,15 @@
 	to_chat(user, span_warning("It looks like the lock is broken - now it's just an ordinary old collar."))
 	locked = FALSE
 
-/obj/item/clothing/neck/kink_collar/locked/attackby(obj/item/key/kink_collar/attack_item, mob/user, params)
-	if(!istype(attack_item))
-		return
-	if(attack_item.key_id == REF(src))
+/obj/item/clothing/neck/kink_collar/locked/tool_act(mob/living/user, obj/item/tool, list/modifiers)
+	var/obj/item/key/kink_collar/key = tool
+	if(!istype(key))
+		return ..()
+	if(key.key_id == REF(src))
 		set_lock((!locked), user)
-		return
+		return ITEM_INTERACT_SUCCESS
 	to_chat(user, span_warning("This isn't the correct key!"))
+	return ITEM_INTERACT_BLOCKING
 
 /obj/item/clothing/neck/kink_collar/locked/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -161,17 +163,16 @@
 						"Black-teal" = "collar_key_tealblack")
 
 //we checking if we can open collar with THAT KEY with SAME ID as the collar.
-/obj/item/key/kink_collar/attack(mob/living/carbon/human/target, mob/living/user, params)
-	if(!istype(target))
-		return
-	. = ..()
-	if(!istype(target.wear_neck, /obj/item/clothing/neck/kink_collar/locked))
-		return
-	var/obj/item/clothing/neck/kink_collar/locked/collar = target.wear_neck
+/obj/item/key/kink_collar/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	var/mob/living/carbon/pet = interacting_with
+	if(!istype(pet) || !istype(pet.wear_neck, /obj/item/clothing/neck/kink_collar/locked))
+		return NONE
+	var/obj/item/clothing/neck/kink_collar/locked/collar = pet.wear_neck
 	if(REF(collar) == src.key_id)
 		collar.set_lock(!collar.locked, user)
-	else
-		to_chat(user, span_warning("This isn't the correct key!"))
+		return ITEM_INTERACT_SUCCESS
+	to_chat(user, span_warning("This isn't the correct key!"))
+	return ITEM_INTERACT_BLOCKING
 
 /obj/item/circular_saw/attack(mob/living/carbon/target, mob/living/user, params)
 	if(!istype(target))
