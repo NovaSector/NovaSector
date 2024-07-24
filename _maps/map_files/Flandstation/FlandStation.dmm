@@ -17003,6 +17003,7 @@
 /obj/machinery/light/small/directional/north,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "fzl" = (
@@ -18085,7 +18086,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/spawner/random/aimodule/harmless,
 /turf/open/floor/iron/dark,
-/area/space)
+/area/station/ai_monitored/turret_protected/ai_upload)
 "fQc" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
