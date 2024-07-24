@@ -109,10 +109,10 @@
 
 //locking or unlocking collar code
 
-/obj/item/clothing/neck/kink_collar/locked/proc/IsLocked(to_lock, mob/user)
+/obj/item/clothing/neck/kink_collar/locked/proc/set_lock(to_lock, mob/user)
 	if(!broken)
 		to_chat(user, span_warning("[to_lock ? "The collar locks with a resounding click!" : "The collar unlocks with a small clunk."]"))
-		locked = (to_lock ? TRUE : FALSE)
+		locked = to_lock
 		if(!to_lock)
 			REMOVE_TRAIT(src, TRAIT_NODROP, TRAIT_NODROP)
 		return
@@ -124,7 +124,7 @@
 	if(!istype(attack_item))
 		return
 	if(attack_item.key_id == REF(src))
-		IsLocked((locked ? FALSE : TRUE), user)
+		set_lock((locked ? FALSE : TRUE), user)
 		return
 	to_chat(user, span_warning("This isn't the correct key!"))
 
@@ -194,7 +194,7 @@
 		return
 	var/obj/item/clothing/neck/kink_collar/locked/collar = target.wear_neck
 	if(REF(collar) == src.key_id)
-		collar.IsLocked((collar.locked ? FALSE : TRUE), user)
+		collar.set_lock((collar.locked ? FALSE : TRUE), user)
 	else
 		to_chat(user, span_warning("This isn't the correct key!"))
 
@@ -212,7 +212,7 @@
 		if(!do_after(user, 2 SECONDS, target))
 			return
 		collar.broken = TRUE
-		collar.IsLocked(FALSE, user)
+		collar.set_lock(FALSE, user)
 		if(prob(33)) //chance to get damage
 			to_chat(user, span_warning("You successfully cut away the lock, but gave [target.name] several cuts in the process!"))
 			target.apply_damage(rand(1, 4), BRUTE, BODY_ZONE_HEAD, wound_bonus = 10)
@@ -224,7 +224,7 @@
 		if(prob(33))
 			to_chat(user, span_warning("You successfully cut away the lock, but gave yourself several cuts in the process!"))
 			collar.broken = TRUE
-			collar.IsLocked(FALSE, user)
+			collar.set_lock(FALSE, user)
 			target.apply_damage(rand(2, 4), BRUTE, BODY_ZONE_HEAD, wound_bonus = 10)
 		else
 			to_chat(user, span_warning("You fail to cut away the lock, cutting yourself in the process!"))
