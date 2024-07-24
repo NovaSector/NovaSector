@@ -90,7 +90,7 @@
 /obj/structure/decorative/fluff/ai_node //Budding AI's way of interfacing with stuff it couldn't normally do so with. Needed to be placed by a willing human, before borgs were created. Used in any ruins regarding pre-bluespace, self-aware AIs
 	icon = 'modular_nova/modules/mapping/icons/obj/fluff.dmi'
 	name = "ai node"
-	desc = "A mysterious, blinking device, attached straight to a surface. It's function is beyond you."
+	desc = "A mysterious, blinking device, attached straight to a surface. Its function is beyond you."
 	icon_state = "ai_node"	//credit to @Hay#7679 on the SR Discord
 
 	max_integrity = 100

@@ -49,7 +49,7 @@
 		if (DEFIB_FAIL_TISSUE_DAMAGE, DEFIB_FAIL_HUSK)
 			fail_reason = "[carbon_target]'s body seems way too damaged for this to work..."
 		if (DEFIB_FAIL_NO_BRAIN)
-			fail_reason = "[carbon_target]'s head looks like its missing something important."
+			fail_reason = "[carbon_target]'s head looks like it's missing something important."
 
 	if(carbon_target.health <= HEALTH_THRESHOLD_FULLCRIT)
 		fail_reason = "[carbon_target]'s body seems just a little too damaged for this to work..."

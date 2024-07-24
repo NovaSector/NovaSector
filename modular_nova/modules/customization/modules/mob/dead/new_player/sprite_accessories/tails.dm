@@ -256,11 +256,11 @@
 	name = "Otusian"
 	icon_state = "otie"
 
-/datum/sprite_accessory/tails/mammal/wagging/plug
+/datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"
 	icon_state = "plugtail"
 
-/datum/sprite_accessory/tails/mammal/wagging/plug/scorpion
+/datum/sprite_accessory/tails/mammal/plug/scorpion
 	name = "Scorpion Plug"
 	icon_state = "scorptail"
 
@@ -439,3 +439,7 @@
 /datum/sprite_accessory/tails/mammal/wagging/rattlesnake
 	name = "Rattlesnake"
 	icon_state = "rattlesnake"
+
+/datum/sprite_accessory/tails/mammal/black_jackal
+	name = "Black-backed Jackal"
+	icon_state = "blackjackal"

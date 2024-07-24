@@ -172,7 +172,7 @@
 /// This proc is called when a mob with TRAIT_SLICK_SKIN gains over 10 wet_stacks
 /datum/species/akula/proc/wetted(mob/living/carbon/akula)
 	SIGNAL_HANDLER
-	// Apply the slippery trait if its not there yet
+	// Apply the slippery trait if it's not there yet
 	if(!HAS_TRAIT(akula, TRAIT_SLIPPERY))
 		ADD_TRAIT(akula, TRAIT_SLIPPERY, SPECIES_TRAIT)
 

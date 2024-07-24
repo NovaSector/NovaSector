@@ -22,4 +22,3 @@ Tells you what company made what item this component is attached to, originally 
 
 ### Credits:
 Zonespace - Did the whole manufacturer thing originally I think
-Paxilmaniac - Turned it into a component
