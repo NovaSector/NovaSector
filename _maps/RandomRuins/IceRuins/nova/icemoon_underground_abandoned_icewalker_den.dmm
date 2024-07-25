@@ -15,9 +15,6 @@
 /obj/item/retractor/ashwalker{
 	pixel_y = -9
 	},
-/obj/item/hemostat/ashwalker{
-	pixel_y = 6
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
@@ -152,7 +149,6 @@
 /area/ruin/unpowered/abandoned_hearth)
 "dR" = (
 /obj/structure/reagent_crafting_bench,
-/obj/item/forging/tongs/primitive,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "ed" = (
@@ -208,18 +204,6 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
-"gq" = (
-/obj/item/storage/box/matches{
-	pixel_y = 7;
-	pixel_x = 3
-	},
-/obj/item/stack/sheet/cloth/ten{
-	pixel_y = -5
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/stone/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "gD" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -239,9 +223,6 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "hJ" = (
-/obj/item/forging/billow/primitive{
-	pixel_y = 4
-	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "hY" = (
@@ -267,10 +248,6 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "jh" = (
-/obj/item/reagent_containers/cup/glass/bottle/moonshine{
-	pixel_x = 5;
-	pixel_y = -1
-	},
 /obj/item/reagent_containers/cup/glass/bottle/lizardwine{
 	pixel_y = 8;
 	pixel_x = -5
@@ -346,9 +323,6 @@
 "lP" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/food/cheese/firm_cheese{
-	pixel_y = -2
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
@@ -421,14 +395,8 @@
 	},
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/stack/medical/aloe{
-	pixel_y = -2
-	},
-/obj/item/stack/medical/aloe{
 	pixel_y = 2;
 	pixel_x = 2
-	},
-/obj/item/stack/medical/gauze/improvised{
-	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/misc/dirt/icemoon,
@@ -624,10 +592,6 @@
 /area/ruin/unpowered/abandoned_hearth)
 "tw" = (
 /obj/item/forging/reagent_weapon/axe/fake_copper{
-	pixel_x = -8;
-	pixel_y = -4
-	},
-/obj/item/forging/reagent_weapon/axe/fake_copper{
 	pixel_x = 4;
 	pixel_y = -4
 	},
@@ -663,7 +627,6 @@
 /obj/structure/chem_separator,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/forging/reagent_weapon/staff,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "vN" = (
@@ -785,14 +748,8 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/wooden,
-/obj/item/reagent_containers/cup/glass/bottle/hooch{
-	pixel_y = 8
-	},
 /obj/item/reagent_containers/cup/glass/bottle/moonshine{
 	pixel_x = 8
-	},
-/obj/item/reagent_containers/cup/glass/bottle/moonshine{
-	pixel_x = -6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/misc/dirt/icemoon,
@@ -1097,16 +1054,6 @@
 /obj/item/cautery/ashwalker{
 	pixel_y = 10
 	},
-/obj/item/scalpel/ashwalker{
-	pixel_y = 6
-	},
-/obj/item/circular_saw/ashwalker{
-	pixel_y = -9
-	},
-/obj/item/surgicaldrill/ashwalker{
-	pixel_y = -7;
-	pixel_x = 7
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
@@ -1154,9 +1101,6 @@
 	pixel_y = -8;
 	pixel_x = -3
 	},
-/obj/item/soap/homemade{
-	pixel_y = 7
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/dirt/icemoon,
@@ -1188,10 +1132,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
-"Mz" = (
-/obj/item/forging/reagent_weapon/hammer,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "Nb" = (
 /obj/structure/bed/maint{
 	pixel_y = 13
@@ -1216,12 +1156,6 @@
 /area/ruin/unpowered/abandoned_hearth)
 "Nj" = (
 /obj/structure/punji_sticks/spikes,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
-"Ny" = (
-/obj/item/storage/bag/quiver{
-	pixel_x = -5
-	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "Nz" = (
@@ -1261,21 +1195,9 @@
 	pixel_y = 7;
 	pixel_x = -3
 	},
-/obj/item/shield/buckler{
-	pixel_y = -5;
-	pixel_x = 5
-	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "Oi" = (
-/obj/item/smelling_salts{
-	pixel_y = -9;
-	pixel_x = -5
-	},
-/obj/item/smelling_salts{
-	pixel_y = -9;
-	pixel_x = 6
-	},
 /obj/item/reagent_containers/cup/mortar{
 	pixel_y = 9;
 	pixel_x = 5
@@ -1386,10 +1308,6 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/food/raw_headcheese{
-	pixel_y = -2
-	},
-/obj/item/food/raw_headcheese,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/dirt/icemoon,
@@ -1424,10 +1342,6 @@
 "Tw" = (
 /obj/structure/table/wood,
 /obj/item/plate/oven_tray,
-/obj/item/food/rootdoughslice{
-	pixel_y = 6;
-	pixel_x = 2
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/dirt/icemoon,
@@ -1488,18 +1402,6 @@
 /area/ruin/unpowered/abandoned_hearth)
 "Xh" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/food/raw_sausage{
-	pixel_y = -5
-	},
-/obj/item/food/raw_sausage{
-	pixel_y = -2
-	},
-/obj/item/food/raw_sausage{
-	pixel_y = 1
-	},
-/obj/item/food/raw_sausage{
-	pixel_y = 4
-	},
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/misc/dirt/icemoon,
@@ -1642,7 +1544,7 @@ Yf
 gV
 Pg
 oa
-rB
+Pg
 Vz
 lz
 Ib
@@ -1688,7 +1590,7 @@ xG
 KZ
 Xt
 Pg
-Ny
+Pg
 Jn
 uS
 DQ
@@ -1777,14 +1679,14 @@ Yf
 (9,1,1) = {"
 Gy
 hJ
-Mz
+Pg
 WR
 Pg
 Pl
 rC
 pf
 ty
-gq
+CX
 qU
 Nc
 xG
