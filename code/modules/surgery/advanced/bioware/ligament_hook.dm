@@ -31,6 +31,16 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
+/// Nova Edit Addition START: Synths already have this by default
+/datum/surgery/advanced/bioware/ligament_hook/mechanic(mob/user, mob/living/carbon/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!issynthetic(target))
+		return TRUE
+	return TRUE
+/// Nova Edit Addition END
+
 /datum/surgery_step/apply_bioware/reshape_ligaments
 	name = "reshape ligaments (hand)"
 

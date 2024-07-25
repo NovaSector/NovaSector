@@ -23,6 +23,16 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
+/// Nova Edit Addition START: Runtime due to brain location
+/datum/surgery/brain_surgery/mechanic(mob/user, mob/living/carbon/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!issynthetic(target))
+		return TRUE
+	return TRUE
+/// Nova Edit Addition END
+
 /datum/surgery_step/fix_brain
 	name = "fix brain (hemostat)"
 	implements = list(

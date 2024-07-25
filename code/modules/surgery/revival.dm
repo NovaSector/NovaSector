@@ -28,6 +28,16 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
+/// Nova Edit Addition START: Synth Runtime aversion
+/datum/surgery/revival/mechanic(mob/user, mob/living/carbon/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!issynthetic(target))
+		return TRUE
+	return TRUE
+/// Nova Edit Addition END
+
 /datum/surgery/revival/can_start(mob/user, mob/living/target)
 	if(!..())
 		return FALSE

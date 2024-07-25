@@ -13,7 +13,7 @@
 	)
 
 /datum/surgery/gastrectomy/mechanic
-	name = "Engine Diagnostic"
+	name = "Engine Diagnostic (Heart)" // Nova Edit: Original name = "Engine Diagnostic"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
@@ -24,6 +24,16 @@
 		/datum/surgery_step/mechanic_wrench,
 		/datum/surgery_step/mechanic_close,
 	)
+
+/// Nova Edit Addition START: Moving to Modular version
+/datum/surgery/gastrectomy/mechanic(mob/user, mob/living/carbon/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!issynthetic(target))
+		return TRUE
+	return TRUE
+/// Nova Edit Addition END
 
 /datum/surgery/coronary_bypass/can_start(mob/user, mob/living/carbon/target)
 	var/obj/item/organ/internal/heart/target_heart = target.get_organ_slot(ORGAN_SLOT_HEART)
