@@ -26,23 +26,23 @@
 
 /datum/map_template/ruin/icemoon/underground/nova/magic_hotsprings
 	name = "Magic Hotsprings"
-	id = "magic_hotsprings"
-	description = "A beautiful hot springs spot, surrounded by unnatural fairy grass, and exotic trees. Something doesn't seem quite right about that moonicorn though."
+	id = "magic-hotsprings"
+	description = "A beautiful hot springs spot, surrounded by unnatural fairy grass, and exotic trees."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
-	suffix = "icemoon_underground_magic_hotsprings.dmm"
+	suffix = "icemoon_underground_magical_hotsprings.dmm"
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_hearth
 	name = "Abandoned Hearth"
-	id = "abandoned_hearth"
+	id = "abandoned-hearth"
 	description = "Something went terribly wrong in this hearth, if the signs of struggle are anything to go by."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
-	suffix = "icemoon_underground_abandoned_hearth.dmm"
+	suffix = "icemoon_underground_abandoned_icewalker_den.dmm"
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_sacred_temple
 	name = "Sacred Temple"
-	id = "abandoned_sacred_temple"
+	id = "abandoned-sacred-temple"
 	description = "The dusty remains of a temple, sacred in nature."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_underground_abandoned_sacred_temple.dmm"
@@ -60,10 +60,10 @@
 	desc = "A note written in Ættmál. It seems to have been ripped from a diary of some sort."
 	default_raw_text = "<i>I refuse to believe we're reduced to this- to sacrifice our own in hopes of our gods taking pity and rescuing us. We've lost too many already... I regret not joining with the rest. But I won't sit here and wait for my turn to be sacrificed, moping about like some sort of useless bastard. Me, my husband, and my sibling Halko will soon make our move, once the grand priest goes to sleep.</i>"
 
-/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/sacred_temple/examine(mob/user)
+/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/sacred_temple/ui_status(mob/user, datum/ui_state/state)
     if(!user.has_language(/datum/language/primitive_catgirl))
-        to_chat(user, span_warning("This piece of paper makes zero sense to you."))
-        return
+        to_chat(user, span_warning("This seems to be in a language you do not understand!"))
+        return UI_CLOSE
 
     . = ..()
 

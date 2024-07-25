@@ -368,12 +368,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
-"mF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/basic/ghost/swarm,
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "ng" = (
 /obj/structure/deployable_barricade/wooden{
 	dir = 8;
@@ -625,7 +619,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/miner/mod,
-/mob/living/basic/ghost/swarm,
 /obj/item/forging/reagent_weapon/spear,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
@@ -866,11 +859,6 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/ruin/unpowered/abandoned_hearth)
-"Co" = (
-/mob/living/basic/ghost/swarm,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
 "Cp" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -917,7 +905,6 @@
 "CX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/blood/hitsplatter,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "Dc" = (
@@ -1067,12 +1054,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/misc/dirt/icemoon,
-/area/ruin/unpowered/abandoned_hearth)
-"FR" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/basic/ghost/swarm,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "FS" = (
@@ -1751,7 +1732,7 @@ Yf
 PT
 iJ
 Pg
-Co
+mr
 Pg
 ci
 cq
@@ -1916,7 +1897,7 @@ Pg
 Xt
 Pg
 Uz
-mF
+Ym
 Fu
 EC
 rl
@@ -2125,7 +2106,7 @@ Gy
 wA
 wN
 Fu
-FR
+Fu
 Tw
 Bm
 xG

@@ -1,7 +1,5 @@
 "a" = (/turf/open/misc/asteroid/snow/icemoon,/area/icemoon/surface/outdoors/nospawn)
-"b" = (/mob/living/basic/cow/moonicorn,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "d" = (/obj/structure/flora/bush/lavendergrass/style_random,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
-"i" = (/obj/item/gun/magic/wand/resurrection/inert,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "p" = (/obj/structure/flora/bush/lavendergrass/style_random,/obj/structure/flora/tree/mushroom/blue/reverse{desc = "An exotic tree from other lands. It's a mistery how it came to sprout here."},/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "q" = (/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "r" = (/obj/item/food/grown/mushroom/libertycap,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
@@ -11,7 +9,7 @@
 "L" = (/obj/structure/spacevine{name = "thick vines"; opacity = 1},/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "N" = (/obj/structure/flora/tree/mushroom/blue/reverse,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "O" = (/obj/structure/flora/bush/lavendergrass/style_random,/obj/structure/flora/tree/mushroom/blue{desc = "An exotic tree from other lands. It's a mistery how it came to sprout here."},/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
-"Q" = (/turf/closed/mineral/snowmountain/cavern{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
+"Q" = (/turf/closed/mineral/snowmountain/icemoon{icon_state = "icerock"},/area/ruin/unpowered/magic_hotsprings)
 "S" = (/mob/living/basic/lightgeist{light_color = "#42ECFF"},/turf/open/water/hot_spring,/area/ruin/unpowered/magic_hotsprings)
 "U" = (/obj/item/food/grown/bluecherries,/turf/open/floor/grass/fairy{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/magic_hotsprings)
 "W" = (/turf/open/water/hot_spring,/area/ruin/unpowered/magic_hotsprings)
@@ -32,11 +30,11 @@ aQQqdqYqWWWWqqqyqQQa
 aQQrqNqWWWWWWWqqYQQa
 aQQYqUdWWWWSWWqdQQQa
 aQQQqCqWWWWWWWqqQQQa
-aQQXQbqqWWWWWWqqqQQa
-aQQXLyYqqWWWWqqqYQQa
-aQQXLIqqWWWWWqOqqQQa
-aQQXqXQqqSWWqCqdQQQa
-aQQXiXQQdqqUqqqQQQQa
+aQQXXqqqWWWWWWqqqQQa
+aXXXLyYqqWWWWqqqYQQa
+aXqqLIqqWWWWWqOqqQQa
+aQXqqXQqqSWWqCqdQQQa
+aQQXqXQQdqqUqqqQQQQa
 aaQXXXQQqqYqdrQQQQaa
 aaaQQQQQQQQQQQQQQaaa
 "}
