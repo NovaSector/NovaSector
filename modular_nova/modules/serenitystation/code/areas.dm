@@ -1,14 +1,13 @@
 /area/forestplanet
+	name = "Forest Planet"
 	icon = 'icons/area/areas_station.dmi'
-	icon_state = "mining"
+	icon_state = "explored"
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
-	ambience_index = AMBIENCE_ICEMOON
-	sound_environment = SOUND_AREA_ICEMOON
+	ambience_index = AMBIENCE_FOREST
+	sound_environment = SOUND_AREA_FOREST
 	ambient_buzz = 'sound/ambience/magma.ogg'
-	name = "Forest Planet"
-	icon_state = "explored"
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
@@ -31,4 +30,26 @@
 /area/forestplanet/outdoors/unexplored/deep
 	name = "Mushroom Caves"
 	map_generator = /datum/map_generator/cave_generator/forest/mushroom
+	ambience_index = AMBIENCE_MUSHROOM
+	sound_environment = SOUND_AREA_MUSHROOM_CAVES
+	/// The theme song to play every once in a while.
+	var/theme_song = 'modular_nova/master_files/sound/ambience/mushroom/mushroom_theme.ogg'
+	/// The additional cooldown to add if the theme song is being played.
+	var/theme_song_additional_cooldown = 115 SECONDS // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
 
+
+/area/forestplanet/outdoors/unexplored/deep/play_ambience(mob/listener, sound/override_sound, volume)
+	var/play_theme = prob(1/6 * 100) // We handle the theme song separately because it's pretty long, and we don't want it to be cut up by another ambience track.
+
+	if(!play_theme)
+		return ..()
+
+	// Time to play the theme song!
+	override_sound = theme_song
+	min_ambience_cooldown += theme_song_additional_cooldown
+	max_ambience_cooldown += theme_song_additional_cooldown
+
+	. = ..()
+
+	min_ambience_cooldown = initial(min_ambience_cooldown)
+	max_ambience_cooldown = initial(max_ambience_cooldown)

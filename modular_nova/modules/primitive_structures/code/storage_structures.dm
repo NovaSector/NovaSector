@@ -58,20 +58,26 @@
 	resistance_flags = FLAMMABLE
 	base_build_path = /obj/machinery/smartfridge/wooden
 	icon_state = "producebin"
-	base_icon_state = "produce" // This is used to decide which overlay to display. Blame upstream.
+	base_icon_state = "producebin"
 	use_power = NO_POWER_USE
 	light_power = 0
 	idle_power_usage = 0
 	circuit = null
 	has_emissive = FALSE
+	integrity_failure = 0
 	can_atmos_pass = ATMOS_PASS_YES
 	visible_contents = TRUE
+	can_be_welded_down = FALSE
+	has_emissive = FALSE
+	vend_sound = null
 
 /obj/machinery/smartfridge/wooden/Initialize(mapload)
 	. = ..()
-	welded_down = FALSE
 	if(type == /obj/machinery/smartfridge/wooden) // don't even let these prototypes exist
 		return INITIALIZE_HINT_QDEL
+
+/obj/machinery/smartfridge/wooden/visible_items()
+	return contents.len
 
 // formerly NO_DECONSTRUCTION
 /obj/machinery/smartfridge/wooden/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
@@ -101,8 +107,9 @@
 	name = "produce bin"
 	desc = "A wooden hamper, used to hold plant products and try to keep them safe from pests."
 	icon_state = "producebin"
+	base_icon_state = "producebin"
+	contents_overlay_icon = "produce"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_bin
-	base_icon_state = "produce" // This is used to decide which overlay to display. Blame upstream.
 
 /obj/machinery/smartfridge/wooden/produce_bin/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
@@ -117,8 +124,9 @@
 	name = "seed shelf"
 	desc = "A wooden shelf, used to hold seeds, preventing them from germinating early."
 	icon_state = "seedshelf"
+	base_icon_state = "seedshelf"
+	contents_overlay_icon = "seed"
 	base_build_path = /obj/machinery/smartfridge/wooden/seed_shelf
-	base_icon_state = "seed"
 
 /obj/machinery/smartfridge/wooden/seed_shelf/accept_check(obj/item/item_to_check)
 	return istype(item_to_check, /obj/item/seeds)
@@ -127,8 +135,9 @@
 	name = "ration shelf"
 	desc = "A wooden shelf, used to store food... Preferably preserved."
 	icon_state = "rationshelf"
+	base_icon_state = "rationshelf"
+	contents_overlay_icon = "ration"
 	base_build_path = /obj/machinery/smartfridge/wooden/ration_shelf
-	base_icon_state = "ration"
 
 /obj/machinery/smartfridge/wooden/ration_shelf/accept_check(obj/item/item_to_check)
 	return (IS_EDIBLE(item_to_check) || (istype(item_to_check,/obj/item/reagent_containers/cup/bowl) && length(item_to_check.reagents?.reagent_list)))
@@ -137,8 +146,9 @@
 	name = "produce display"
 	desc = "A wooden table with awning, used to display produce items."
 	icon_state = "producedisplay"
+	base_icon_state = "producedisplay"
+	contents_overlay_icon = "nonfood"
 	base_build_path = /obj/machinery/smartfridge/wooden/produce_display
-	base_icon_state = "nonfood"
 
 /obj/machinery/smartfridge/wooden/produce_display/accept_check(obj/item/item_to_check)
 	var/static/list/accepted_items = list(
@@ -146,5 +156,5 @@
 		/obj/item/bouquet,
 		/obj/item/clothing/head/costume/garland,
 	)
-
-	return is_type_in_list(item_to_check, accepted_items)
+	var/fancy_food = istype(item_to_check, /obj/item/food/grown) && item_to_check.slot_flags != NONE // mostly things like flowers
+	return fancy_food || is_type_in_list(item_to_check, accepted_items)
