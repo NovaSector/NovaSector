@@ -53457,10 +53457,6 @@
 	dir = 8
 	},
 /area/station/science/lab)
-"ouH" = (
-/obj/machinery/keycard_auth/wall_mounted/directional/east,
-/turf/open/floor/iron/large,
-/area/station/cargo/storage)
 "ouQ" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/air_sensor/carbon_tank,
@@ -242034,7 +242030,7 @@ nAL
 rRA
 mXQ
 gxY
-ouH
+ofE
 ofE
 tUZ
 nYN
