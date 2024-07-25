@@ -37,12 +37,9 @@
 	if(mode != MODE_OFF || slot != slot_flags)
 		return ..()
 	// when off: don't apply any huds or traits. but keep the list as-is so that we can still add them later
-	var/huds = hud_types
 	var/traits = clothing_traits
-	hud_types = null
 	clothing_traits = null
 	. = ..()
-	hud_types = huds
 	clothing_traits = traits
 
 /obj/item/clothing/glasses/hud/ar/proc/toggle_mode(mob/user, voluntary)
@@ -97,9 +94,6 @@
 	var/mob/living/carbon/human/human = user
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
-	for(var/hud_type in hud_types)
-		var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
-		our_hud.show_to(human)
 	for(var/trait in clothing_traits)
 		ADD_CLOTHING_TRAIT(human, trait)
 
@@ -107,9 +101,6 @@
 	var/mob/living/carbon/human/human = user
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
-	for(var/hud_type in hud_types)
-		var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
-		our_hud.hide_from(human)
 	for(var/trait in clothing_traits)
 		REMOVE_CLOTHING_TRAIT(human, trait)
 
@@ -168,7 +159,6 @@
 	icon_state = "aviator_sec"
 	off_state = "aviator_sec_flash"
 	flash_protect = FLASH_PROTECTION_NONE
-	hud_types = list(DATA_HUD_SECURITY_ADVANCED)
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
 	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
@@ -180,7 +170,6 @@
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_med"
 	flash_protect = FLASH_PROTECTION_NONE
-	hud_types = list(DATA_HUD_MEDICAL_ADVANCED)
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
@@ -201,7 +190,6 @@
 	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_diagnostic"
 	flash_protect = FLASH_PROTECTION_NONE
-	hud_types = list(DATA_HUD_DIAGNOSTIC_BASIC)
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
@@ -267,19 +255,16 @@
 /obj/item/clothing/glasses/hud/ar/projector/health
 	name = "retinal projector health HUD"
 	icon_state = "projector_med"
-	hud_types = list(DATA_HUD_MEDICAL_ADVANCED)
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/security
 	name = "retinal projector security HUD"
 	icon_state = "projector_sec"
-	hud_types = list(DATA_HUD_SECURITY_ADVANCED)
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 	name = "retinal projector diagnostic HUD"
 	icon_state = "projector_diagnostic"
-	hud_types = list(DATA_HUD_DIAGNOSTIC_BASIC)
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/science
