@@ -211,7 +211,7 @@
 /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
 	name = "prescription security HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting which. Has lenses that help correct eye sight."
-	clothing_traits = list(TRAIT_SEC_HUD, TRAIT_NEARSIGHTED_CORRECTED)
+	clothing_traits = list(TRAIT_SECURITY_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
 	name = "prescription medical HUD aviators"

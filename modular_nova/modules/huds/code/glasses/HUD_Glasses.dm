@@ -20,7 +20,7 @@
 	icon = 'modular_nova/modules/huds/icons/huds.dmi'
 	icon_state = "glasses_securityhud"
 	worn_icon = 'modular_nova/modules/huds/icons/hudeyes.dmi'
-	clothing_traits = list(TRAIT_SEC_HUD, TRAIT_NEARSIGHTED_CORRECTED)
+	clothing_traits = list(TRAIT_SECURITY_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/science/prescription
 	name = "prescription science glasses"
