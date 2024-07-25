@@ -193,8 +193,6 @@
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 3
 	slowdown_inactive = 0.5
 	slowdown_active = 0
-	slot_flags = ITEM_SLOT_BELT // NOVA EDIT
-	inbuilt_modules = list(/obj/item/mod/module/storage/civilian) // NOVA EDIT
 	variants = list(
 		"civilian" = list(
 			/obj/item/clothing/head/mod = list(
@@ -570,14 +568,13 @@
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
 	slowdown_inactive = 0.5
 	slowdown_active = 0
-	slot_flags = ITEM_SLOT_BELT // NOVA EDIT
 	allowed_suit_storage = list(
 		/obj/item/mail,
 		/obj/item/delivery/small,
 		/obj/item/paper,
 		/obj/item/storage/bag/mail,
 	)
-	inbuilt_modules = list(/obj/item/mod/module/hydraulic, /obj/item/mod/module/clamp/loader, /obj/item/mod/module/magnet, /obj/item/mod/module/storage/civilian) // NOVA EDIT - original: list(/obj/item/mod/module/hydraulic, /obj/item/mod/module/clamp/loader, /obj/item/mod/module/magnet)
+	inbuilt_modules = list(/obj/item/mod/module/hydraulic, /obj/item/mod/module/clamp/loader, /obj/item/mod/module/magnet)
 	variants = list(
 		"loader" = list(
 			/obj/item/clothing/head/mod = list(

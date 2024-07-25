@@ -6798,6 +6798,7 @@
 #include "modular_nova\master_files\code\modules\mob_spawn\mob_spawn.dm"
 #include "modular_nova\master_files\code\modules\mob_spawn\ghost_roles\mining_roles.dm"
 #include "modular_nova\master_files\code\modules\mod\mod_clothes.dm"
+#include "modular_nova\master_files\code\modules\mod\mod_theme.dm"
 #include "modular_nova\master_files\code\modules\mod\mod_types.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\_module.dm"
 #include "modular_nova\master_files\code\modules\mod\modules\modules_antag.dm"
