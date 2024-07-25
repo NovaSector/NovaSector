@@ -484,6 +484,7 @@
 #include "code\__DEFINES\~nova_defines\_globalvars\bitfields.dm"
 #include "code\__DEFINES\~nova_defines\_globalvars\food.dm"
 #include "code\__DEFINES\~nova_defines\_globalvars\logging.dm"
+#include "code\__DEFINES\~nova_defines\_globalvars\lists\ambience.dm"
 #include "code\__DEFINES\~nova_defines\_globalvars\lists\mapping.dm"
 #include "code\__DEFINES\~nova_defines\_HELPERS\atmos_mapping_helpers.dm"
 #include "code\__DEFINES\~nova_defines\_HELPERS\lighting.dm"
