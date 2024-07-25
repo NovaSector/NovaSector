@@ -4331,12 +4331,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/science/xenobiology)
-"blU" = (
-/obj/effect/turf_decal/trimline/purple/filled/warning{
-	dir = 10
-	},
-/turf/closed/wall,
-/area/station/science/robotics/mechbay)
 "blY" = (
 /obj/structure/lattice,
 /obj/docking_port/stationary/random{
@@ -5543,6 +5537,9 @@
 	space_dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
@@ -10343,7 +10340,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/portable_atmospherics/scrubber/huge,
+/obj/machinery/vending/wardrobe/atmos_wardrobe,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "cWy" = (
@@ -11693,6 +11690,7 @@
 /obj/structure/desk_bell{
 	pixel_x = 7
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "dqx" = (
@@ -12793,6 +12791,9 @@
 	space_dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
@@ -15102,6 +15103,7 @@
 "esE" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/oven/range,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "esJ" = (
@@ -23234,6 +23236,7 @@
 	id = "kitchen_counter";
 	name = "Kitchen Counter Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "gGZ" = (
@@ -25306,7 +25309,7 @@
 /area/station/maintenance/central/greater)
 "hmi" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/smartfridge/drying_rack,
+/obj/machinery/smartfridge/drying/rack,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
 "hml" = (
@@ -28039,7 +28042,7 @@
 	pixel_y = -11;
 	req_access = list("cmo")
 	},
-/obj/machinery/keycard_auth/directional/south{
+/obj/machinery/keycard_auth/wall_mounted/directional/south{
 	pixel_x = -5
 	},
 /obj/machinery/modular_computer/preset/id{
@@ -29131,7 +29134,7 @@
 	pixel_x = -22;
 	pixel_y = -8
 	},
-/obj/machinery/keycard_auth/directional/west{
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
 	pixel_y = 5
 	},
 /turf/open/floor/iron/white,
@@ -37175,7 +37178,7 @@
 /area/station/command/heads_quarters/rd)
 "kDR" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/keycard_auth/directional/south,
+/obj/machinery/keycard_auth/wall_mounted/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -42241,6 +42244,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/airalarm/directional/south,
+/obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/central/lesser)
 "mcX" = (
@@ -46389,7 +46393,7 @@
 /area/station/science/cytology)
 "nqR" = (
 /obj/machinery/computer/cargo,
-/obj/machinery/keycard_auth/directional/north{
+/obj/machinery/keycard_auth/wall_mounted/directional/north{
 	pixel_x = -27
 	},
 /obj/machinery/computer/security/telescreen/vault/directional/west,
@@ -49138,7 +49142,6 @@
 /turf/open/floor/catwalk_floor,
 /area/station/engineering/supermatter/room)
 "ohL" = (
-/obj/machinery/light/small/directional/north,
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
 /obj/machinery/button/door/directional/north{
@@ -51638,11 +51641,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood,
 /area/station/service/theater)
-"oXG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/station/maintenance/central/lesser)
 "oXP" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/cable,
@@ -71905,7 +71903,7 @@
 	name = "Captain's Desk Door";
 	req_access = list("captain")
 	},
-/obj/machinery/keycard_auth/directional/south,
+/obj/machinery/keycard_auth/wall_mounted/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -73133,14 +73131,7 @@
 /turf/open/floor/iron,
 /area/station/science/lab)
 "vjS" = (
-/obj/structure/table,
-/obj/item/clothing/suit/apron/chef{
-	pixel_y = 11
-	},
-/obj/item/book/manual/wiki/cooking_to_serve_man{
-	pixel_x = 3;
-	pixel_y = 2
-	},
+/obj/machinery/smartfridge/drying,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "vjV" = (
@@ -73403,6 +73394,13 @@
 /obj/structure/table,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
+	},
+/obj/item/clothing/suit/apron/chef{
+	pixel_y = 11
+	},
+/obj/item/book/manual/wiki/cooking_to_serve_man{
+	pixel_x = 3;
+	pixel_y = 2
 	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)
@@ -76850,7 +76848,7 @@
 /obj/machinery/firealarm/directional/east{
 	pixel_y = -5
 	},
-/obj/machinery/keycard_auth/directional/east{
+/obj/machinery/keycard_auth/wall_mounted/directional/east{
 	pixel_y = 7;
 	pixel_x = 30
 	},
@@ -176491,7 +176489,7 @@ eMM
 eMM
 aDp
 eMM
-blU
+frt
 frt
 frt
 frt
@@ -176748,7 +176746,7 @@ ntz
 ntz
 ntz
 sBI
-blU
+frt
 nqe
 qsv
 hHe
@@ -180110,7 +180108,7 @@ oRQ
 cNN
 vWE
 oti
-oXG
+yaa
 dDQ
 gtT
 gNC

@@ -65,12 +65,12 @@
 
 // MISCELLANEOUS
 
-/datum/market_item/misc/Clear_PDA
+/datum/market_item/misc/clear_pda
 	desc = "Clearly show your appreciation for style with this limited edition clear PDA!"
 	price_min = PAYCHECK_CREW
 	price_max = PAYCHECK_CREW * 2
 
-/datum/market_item/misc/jade_Lantern
+/datum/market_item/misc/jade_lantern
 	price_min = PAYCHECK_CREW * 0.5
 	price_max = PAYCHECK_CREW
 
@@ -165,14 +165,9 @@
 	price_max = PAYCHECK_CREW * 8
 
 /datum/market_item/tool/thermite_bottle
-	desc = "Thirty galactic units of an incendiary compound that will burn through just about anything."
+	desc = "Fifty galactic units of an incendiary compound that will burn through just about anything."
 	price_min = PAYCHECK_CREW * 2
 	price_max = PAYCHECK_CREW * 6
-
-/datum/market_item/tool/science_goggles
-	price_min = PAYCHECK_CREW * 0.5
-	price_max = PAYCHECK_CREW * 2
-	availability_prob = 100 // for people who want to make illicit drugs in maint
 
 /datum/market_item/tool/fake_scanner
 	price_min = PAYCHECK_CREW * 0.5
