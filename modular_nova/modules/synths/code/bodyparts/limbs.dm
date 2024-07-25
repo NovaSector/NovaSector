@@ -57,6 +57,22 @@
 	head_flags = HEAD_ALL_FEATURES
 	bodypart_flags = BODYPART_UNHUSKABLE
 
+/datum/design/synth_head
+	name = "Android Head Base"
+	id = "synth_head"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/head/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /// Synth Chest, custom EMP effects go here to avoid stacking multiple. If they're alive they'll always have this, the rest go to organs.
 // Restrict to Synths only to avoid Mind related issues
 /obj/item/bodypart/chest/synth
@@ -99,6 +115,22 @@
 		/obj/item/organ/external/wings/functional/robotic,
 	)
 
+/datum/design/synth_chest
+	name = "Android Torso Base"
+	id = "synth_chest"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/chest/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /obj/item/bodypart/chest/synth/proc/check_limbs()
 	SIGNAL_HANDLER
 
@@ -125,7 +157,7 @@
 
 /obj/item/bodypart/arm/left/synth
 	name = "android left arm"
-	desc = "A custom limb designed for androids, it looks expensive!"
+	desc = "A custom limb designed for androids, customizable to a degree your wallet agrees with."
 	limb_id = SPECIES_SYNTH
 	attack_verb_simple = list("slapped", "punched")
 	inhand_icon_state = "buildpipe"
@@ -161,9 +193,24 @@
 	disabling_threshold_percentage = 1
 	bodypart_flags = BODYPART_UNHUSKABLE
 
+/datum/design/synth_l_arm
+	name = "Android Left Arm Base"
+	id = "synth_l_arm"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/arm/left/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /obj/item/bodypart/arm/right/synth
 	name = "android right arm"
-	desc = "A custom limb designed for androids, it looks expensive!"
+	desc = "A custom limb designed for androids, customizable to a degree your wallet agrees with."
 	attack_verb_simple = list("slapped", "punched")
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_IPC
@@ -199,6 +246,21 @@
 		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
 	)
 	bodypart_flags = BODYPART_UNHUSKABLE
+
+/datum/design/synth_r_arm
+	name = "Android Right Arm Base"
+	id = "synth_r_arm"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/arm/right/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /obj/item/bodypart/leg/left/synth
 	name = "android left leg"
@@ -240,6 +302,21 @@
 	)
 	bodypart_flags = BODYPART_UNHUSKABLE
 
+/datum/design/synth_l_leg
+	name = "Android Plantigrade Left Leg Base"
+	id = "synth_l_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/bodypart/leg/left/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /obj/item/bodypart/leg/right/synth
 	name = "android right leg"
 	desc = "A custom leg designed for androids, customizable to a degree your wallet agrees with."
@@ -280,6 +357,21 @@
 	)
 	bodypart_flags = BODYPART_UNHUSKABLE
 
+/datum/design/synth_r_leg
+	name = "Android Plantigrade Right Leg Base"
+	id = "synth_r_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/bodypart/leg/right/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /obj/item/bodypart/leg/left/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
 	limb_id = BODYPART_ID_DIGITIGRADE
@@ -290,16 +382,45 @@
 	. = ..()
 	check_mutant_compatability()
 
+/datum/design/synth_l_d_leg
+	name = "Android Digitigrade Left Leg Base"
+	id = "synth_l_d_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/bodypart/leg/left/synth/digitigrade
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /obj/item/bodypart/leg/right/synth/digitigrade
 	icon_greyscale = BODYPART_ICON_SYNTHLIZARD
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
-
 /obj/item/bodypart/leg/right/synth/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 	check_mutant_compatability()
+
+/datum/design/synth_r_d_leg
+	name = "Android Digitigrade Right Leg Base"
+	id = "synth_r_d_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/bodypart/leg/right/synth/digitigrade
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 #undef SYNTH_BRUTE_MODIFIER
 #undef SYNTH_BURN_MODIFIER
