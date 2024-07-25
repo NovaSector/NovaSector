@@ -28042,7 +28042,7 @@
 	pixel_y = -11;
 	req_access = list("cmo")
 	},
-/obj/machinery/keycard_auth/directional/south{
+/obj/machinery/keycard_auth/wall_mounted/directional/south{
 	pixel_x = -5
 	},
 /obj/machinery/modular_computer/preset/id{
@@ -29134,7 +29134,7 @@
 	pixel_x = -22;
 	pixel_y = -8
 	},
-/obj/machinery/keycard_auth/directional/west{
+/obj/machinery/keycard_auth/wall_mounted/directional/west{
 	pixel_y = 5
 	},
 /turf/open/floor/iron/white,
@@ -37178,7 +37178,7 @@
 /area/station/command/heads_quarters/rd)
 "kDR" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/keycard_auth/directional/south,
+/obj/machinery/keycard_auth/wall_mounted/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -46393,7 +46393,7 @@
 /area/station/science/cytology)
 "nqR" = (
 /obj/machinery/computer/cargo,
-/obj/machinery/keycard_auth/directional/north{
+/obj/machinery/keycard_auth/wall_mounted/directional/north{
 	pixel_x = -27
 	},
 /obj/machinery/computer/security/telescreen/vault/directional/west,
@@ -71903,7 +71903,7 @@
 	name = "Captain's Desk Door";
 	req_access = list("captain")
 	},
-/obj/machinery/keycard_auth/directional/south,
+/obj/machinery/keycard_auth/wall_mounted/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -76848,7 +76848,7 @@
 /obj/machinery/firealarm/directional/east{
 	pixel_y = -5
 	},
-/obj/machinery/keycard_auth/directional/east{
+/obj/machinery/keycard_auth/wall_mounted/directional/east{
 	pixel_y = 7;
 	pixel_x = 30
 	},
