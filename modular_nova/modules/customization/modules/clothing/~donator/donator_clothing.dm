@@ -193,6 +193,91 @@
 	button_icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	button_icon_state = "drawingtablet"
 
+// Donation reward for Thedragmeme
+/obj/item/clothing/neck/padded
+	name = "feathered serenity cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "paddedscarf"
+	inhand_icon_state = "paddedscarf"
+
+/obj/item/clothing/neck/padded/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/toggle_attached_clothing,\
+		deployable_type = /obj/item/clothing/head/hooded/padded,\
+		equipped_slot = ITEM_SLOT_HEAD,\
+		action_name = "Toggle Hood",\
+		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
+	)
+
+//Bandaid fix because obscurity is broken D:
+/obj/item/clothing/neck/padded/proc/on_deployed()
+	var/mob/wearer = loc
+	wearer.update_body()
+
+/obj/item/clothing/head/hooded/padded
+	name = "feathered serenity hood"
+	icon_state = "paddedhood"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	clothing_flags = SNUG_FIT
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+
+// Donation reward for Thedragmeme
+/obj/item/clothing/under/padded
+	name = "feathered serenity suit"
+	desc = "A meticulously handcrafted suit that is lined on the inside with feathers and down."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "paddedunder"
+	inhand_icon_state = "paddedunder"
+
+// Donation reward for Thedragmeme
+/obj/item/clothing/shoes/jackboots/padded
+	name = "serenity jackboots"
+	desc = "Thick boots that is lined with feathers and down. Good footwear almost anticipating harsh weather."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "paddedboots"
+	inhand_icon_state = "paddedboots"
+
+// Donation reward for Thedragmeme and snailomi
+/obj/item/clothing/gloves/padded
+	name = "serenity gloves"
+	desc = "A pair of gloves lined with soft to the touch fur."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
+	icon_state = "paddedgloves"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	inhand_icon_state = "paddedgloves"
+
+// Donation reward for snailomi
+/obj/item/clothing/under/padded/alt
+	name = "feathered serenity dress"
+	desc = "A meticulously handcrafted dress that is lined on the inside with feathers and down. Twirling in this dress provides a satisfying result!"
+	icon_state = "paddeddress"
+	inhand_icon_state = "paddeddress"
+
+// Donation reward for snailomi
+/obj/item/clothing/neck/padded/alt
+	name = "feathered serenity cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
+	icon_state = "paddedscarfalt"
+	inhand_icon_state = "paddedscarfalt"
+
+/obj/item/clothing/head/hooded/padded/alt
+	name = "feathered serenity hood"
+	icon_state = "paddedhoodalt"
+
 /datum/armor/clothing_under/none
 
 /obj/item/clothing/shoes/jackboots/heel
@@ -1511,7 +1596,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tactichill"
 
-// Donation reward for thedragmeme
+// Donation reward for thedragmeme and snailom
 /obj/item/clothing/shoes/fancy_heels/drag
 	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
 

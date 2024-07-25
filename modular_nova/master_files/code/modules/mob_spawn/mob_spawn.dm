@@ -48,9 +48,8 @@
 		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
-
-	var/mutable_appearance/character_appearance = new(spawned_human.appearance)
-	GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
+		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
+		GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
 
 	return spawned_mob
 

@@ -35,15 +35,17 @@
 	time = 12 SECONDS
 
 /datum/surgery_step/repair_nif/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("You begin to restore the integrity of [target]'s NIF..."),
-		"[user] begins to fix [target]'s NIF.",
-		"[user] begins to perform repairs on [target]'s NIF."
+	display_results(user, target,
+		span_notice("You begin to restore the integrity of [target]'s NIF..."),
+		span_notice("[user] begins to fix [target]'s NIF."),
+		span_notice("[user] begins to perform repairs on [target]'s NIF."),
 	)
 
 /datum/surgery_step/repair_nif/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("You succeed in restoring the integrity of [target]'s NIF."),
-		"[user] successfully repairs [target]'s NIF!",
-		"[user] completes the repair on [target]'s NIF."
+	display_results(user, target,
+		span_notice("You succeed in restoring the integrity of [target]'s NIF."),
+		span_notice("[user] successfully repairs [target]'s NIF!"),
+		span_notice("[user] completes the repair on [target]'s NIF."),
 	)
 
 	var/mob/living/carbon/human/nif_patient = target
@@ -57,9 +59,11 @@
 
 /datum/surgery_step/repair_nif/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, span_warning("You screw up, causing [target] brain damage!"),
+		display_results(user, target,
+			span_warning("You screw up, causing [target] brain damage!"),
 			span_warning("[user] screws up, while trying to repair [target]'s NIF!"),
-			"[user] fails to complete the repair on [target]'s NIF.")
+			span_notice("[user] completes the repair on [target]'s NIF."),
+		)
 
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
 	return FALSE

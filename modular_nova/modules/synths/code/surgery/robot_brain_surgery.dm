@@ -37,16 +37,16 @@
 		user,
 		target,
 		span_notice("You begin to clear system corruption from [target]'s posibrain..."),
-		"[user] begins to fix [target]'s posibrain.",
-		"[user] begins to perform surgery on [target]'s posibrain.",
+		span_notice("[user] begins to fix [target]'s posibrain."),
+		span_notice("[user] begins to perform surgery on [target]'s posibrain."),
 	)
 
 /datum/surgery_step/fix_robot_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user,
 		target,
 		span_notice("You succeed in clearing system corruption from [target]'s posibrain."),
-		"[user] successfully fixes [target]'s posibrain!",
-		"[user] completes the surgery on [target]'s posibrain.",
+		span_notice("[user] successfully fixes [target]'s posibrain!"),
+		span_notice("[user] completes the surgery on [target]'s posibrain."),
 	)
 
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
@@ -67,7 +67,7 @@
 			target,
 			span_warning("You screw up, fragmenting their data!"),
 			span_warning("[user] screws up, causing damage to the circuits!"),
-			"[user] completes the surgery on [target]'s posibrain.",
+			span_notice("[user] completes the surgery on [target]'s posibrain."),
 		)
 
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
