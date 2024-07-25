@@ -149,11 +149,25 @@
 			TRAIT_RESISTHIGHPRESSURE,
 		))
 
-/// Add: Slowdown, Confusion - Thing Watchers Gaze flash
+/// Add: Slowdown, Confusion - Think Watchers Gaze flash
 /obj/item/bodypart/chest/synth/emp_effect(severity, protection)
 	. = ..()
 	if(!. || isnull(owner))
 		return
+
+	switch(severity)
+		if(EMP_HEAVY)
+			owner.set_jitter_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_dizzy_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_derpspeech_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_confusion_if_lower(SYNTH_BAD_EFFECT_DURATION * 0.5)
+
+		if(EMP_LIGHT)
+			owner.set_jitter_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_dizzy_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_derpspeech_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_confusion_if_lower(SYNTH_BAD_EFFECT_DURATION * 0.25)
+
 
 /obj/item/bodypart/arm/left/synth
 	name = "android left arm"
