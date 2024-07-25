@@ -213,6 +213,7 @@
 		action_name = "Toggle Hood",\
 		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
 	)
+
 //Bandaid fix because obscurity is broken D:
 /obj/item/clothing/neck/padded/proc/on_deployed()
 	var/mob/wearer = loc
