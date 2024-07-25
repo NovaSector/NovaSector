@@ -28,19 +28,11 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: Synth Runtime aversion
-/datum/surgery/revival/mechanic(mob/user, mob/living/carbon/target)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(!issynthetic(target))
-		return TRUE
-	return TRUE
-/// Nova Edit Addition END
-
 /datum/surgery/revival/can_start(mob/user, mob/living/target)
 	if(!..())
 		return FALSE
+	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
+		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	if(target.stat != DEAD)
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_SUICIDED) || HAS_TRAIT(target, TRAIT_HUSK) || HAS_TRAIT(target, TRAIT_DEFIB_BLACKLISTED))

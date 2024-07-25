@@ -32,7 +32,7 @@
 	)
 
 /// Nova Edit Addition START: Synths already have this by default
-/datum/surgery/advanced/bioware/ligament_hook/mechanic(mob/user, mob/living/carbon/target)
+/datum/surgery/advanced/bioware/ligament_hook/mechanic/can_start(mob/user, mob/living/carbon/human/target)
 	. = ..()
 	if(!.)
 		return FALSE

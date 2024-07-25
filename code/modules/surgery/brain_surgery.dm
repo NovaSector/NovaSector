@@ -24,7 +24,7 @@
 	)
 
 /// Nova Edit Addition START: Runtime due to brain location
-/datum/surgery/brain_surgery/mechanic(mob/user, mob/living/carbon/target)
+/datum/surgery/brain_surgery/mechanic/can_start(mob/user, mob/living/patien)
 	. = ..()
 	if(!.)
 		return FALSE

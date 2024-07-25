@@ -30,7 +30,7 @@
 	)
 
 /// Nova Edit Addition START: what blood?
-/datum/surgery/advanced/bioware/muscled_veins/mechanic(mob/user, mob/living/carbon/target)
+/datum/surgery/advanced/bioware/muscled_veins/mechanic/can_start(mob/user, mob/living/carbon/human/target)
 	. = ..()
 	if(!.)
 		return FALSE

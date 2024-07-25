@@ -23,17 +23,9 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: Moving Synths to modular version
-/datum/surgery/lobectomy/mechanic(mob/user, mob/living/carbon/target)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(!issynthetic(target))
-		return TRUE
-	return TRUE
-/// Nova Edit Addition END
-
 /datum/surgery/lobectomy/can_start(mob/user, mob/living/carbon/target)
+	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
+		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	var/obj/item/organ/internal/lungs/target_lungs = target.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(isnull(target_lungs) || target_lungs.damage < 60 || target_lungs.operated)
 		return FALSE

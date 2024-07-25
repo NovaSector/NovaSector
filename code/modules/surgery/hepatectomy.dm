@@ -25,17 +25,9 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: Moving Synths to modular version
-/datum/surgery/hepatectomy/mechanic(mob/user, mob/living/carbon/target)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(!issynthetic(target))
-		return TRUE
-	return TRUE
-/// Nova Edit Addition END
-
 /datum/surgery/hepatectomy/can_start(mob/user, mob/living/carbon/target)
+	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
+		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(isnull(target_liver) || target_liver.damage < 50 || target_liver.operated)
 		return FALSE

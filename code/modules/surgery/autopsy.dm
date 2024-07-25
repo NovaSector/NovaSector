@@ -19,19 +19,11 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: Moving Synths to modular version
-/datum/surgery/autopsy/mechanic(mob/user, mob/living/carbon/target)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(!issynthetic(target))
-		return TRUE
-	return TRUE
-/// Nova Edit Addition END
-
 /datum/surgery/autopsy/can_start(mob/user, mob/living/patient)
 	if(!..())
 		return FALSE
+	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
+		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	if(patient.stat != DEAD)
 		return FALSE
 	if(HAS_TRAIT_FROM(patient, TRAIT_DISSECTED, AUTOPSY_TRAIT))

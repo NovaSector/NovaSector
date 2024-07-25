@@ -70,7 +70,7 @@
 	)
 
 /// Nova Edit Addition START: Moving Synths to modular version
-/datum/surgery/organ_manipulation/mechanic(mob/user, mob/living/carbon/target)
+/datum/surgery/organ_manipulation/mechanic/can_start(mob/user, mob/living/carbon/human/target)
 	. = ..()
 	if(!.)
 		return FALSE
