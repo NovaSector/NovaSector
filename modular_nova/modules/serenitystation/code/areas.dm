@@ -35,7 +35,7 @@
 	/// The theme song to play every once in a while.
 	var/theme_song = 'modular_nova/master_files/sound/ambience/mushroom/mushroom_theme.ogg'
 	/// The additional cooldown to add if the theme song is being played.
-	var/theme_song_additional_cooldown = 115 // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
+	var/theme_song_additional_cooldown = 115 SECONDS // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
 
 
 /area/forestplanet/outdoors/unexplored/deep/play_ambience(mob/listener, sound/override_sound, volume)
