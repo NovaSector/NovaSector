@@ -51981,11 +51981,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage)
-"qIh" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/engineering/supermatter/room)
 "qIi" = (
 /obj/effect/landmark/start/assistant,
 /obj/structure/chair/stool/bar/directional/west,
@@ -129458,7 +129453,7 @@ mfT
 mfT
 mfT
 lns
-qIh
+gvo
 lOm
 dCc
 xCJ
