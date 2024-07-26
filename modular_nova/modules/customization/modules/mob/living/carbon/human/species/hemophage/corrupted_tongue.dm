@@ -106,14 +106,14 @@
 	if(ismonkey(victim))
 		is_target_human_with_client = FALSE // Sorry, not going to get the status effect from monkeys, even if they have a client in them.
 		hemophage.add_mood_event("gross_food", /datum/mood_event/disgust/hemophage_feed_monkey) // drinking from a monkey is inherently gross, like, REALLY gross
-		hemophage.adjust_disgust(DISGUST_LEVEL_GROSS + 15, DISGUST_LEVEL_MAXEDOUT)
+		hemophage.adjust_disgust(TUMOR_DISLIKED_FOOD_DISGUST, TUMOR_DISLIKED_FOOD_DISGUST)
 		blood_volume_difference = BLOOD_VOLUME_NORMAL - hemophage.blood_volume
 		horrible_feeding = TRUE
 
 	if(istype(victim, /mob/living/carbon/human/species/monkey))
 		is_target_human_with_client = FALSE // yep you're still not getting the status effect from humonkeys either. your tumour knows.
 		hemophage.add_mood_event("gross_food", /datum/mood_event/disgust/hemophage_feed_humonkey)
-		hemophage.adjust_disgust(DISGUST_LEVEL_GROSS / 4, DISGUST_LEVEL_GROSS) // it's still gross but nowhere near as bad, though.
+		hemophage.adjust_disgust(DISGUST_LEVEL_GROSS / 4, TUMOR_DISLIKED_FOOD_DISGUST) // it's still gross but nowhere near as bad, though.
 		horrible_feeding = TRUE
 
 	StartCooldown()
