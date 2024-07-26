@@ -4438,17 +4438,6 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
-"buX" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/red/line{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter)
 "buY" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/carpet/red,
@@ -12255,6 +12244,8 @@
 "edg" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "edm" = (
@@ -19026,7 +19017,6 @@
 	name = "engineering camera";
 	network = list("ss13","engine")
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "geJ" = (
@@ -22023,7 +22013,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "gZS" = (
@@ -23573,11 +23562,16 @@
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "hCX" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/red/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 1
+	},
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
+/obj/structure/cable,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
+/area/station/engineering/supermatter)
 "hDl" = (
 /obj/machinery/computer/prisoner/management{
 	dir = 4
@@ -25067,7 +25061,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/caution/stand_clear,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "ibk" = (
@@ -28871,6 +28864,8 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
 /obj/machinery/light/small/directional/east,
+/obj/structure/cable,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "jlJ" = (
@@ -29374,12 +29369,12 @@
 /turf/open/floor/iron,
 /area/station/medical/break_room)
 "jvW" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "jwb" = (
@@ -32011,7 +32006,6 @@
 "kru" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "krD" = (
@@ -32044,7 +32038,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/delivery/red,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "ksx" = (
@@ -33240,6 +33233,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "kLD" = (
@@ -57633,12 +57627,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/cafeteria)
-"sup" = (
-/obj/machinery/meter,
-/obj/effect/turf_decal/trimline/yellow/warning,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/engineering/supermatter/room)
 "sus" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -57786,6 +57774,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "swO" = (
@@ -58530,7 +58519,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "sJq" = (
@@ -59195,12 +59183,12 @@
 /turf/open/floor/plating,
 /area/station/engineering/main)
 "sVt" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "sVA" = (
@@ -59933,7 +59921,6 @@
 /area/station/hallway/primary/central)
 "thS" = (
 /obj/effect/turf_decal/delivery/red,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "thU" = (
@@ -61803,7 +61790,6 @@
 /obj/item/radio/intercom{
 	pixel_y = -28
 	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "tLg" = (
@@ -63643,12 +63629,12 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "upJ" = (
@@ -72401,7 +72387,6 @@
 /turf/open/floor/carpet/royalblack,
 /area/station/command/corporate_showroom)
 "wYF" = (
-/obj/structure/cable,
 /obj/structure/reflector/box{
 	dir = 8
 	},
@@ -72478,7 +72463,6 @@
 /area/station/engineering/supermatter/room)
 "wZm" = (
 /obj/machinery/light/directional/south,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "wZn" = (
@@ -73107,6 +73091,8 @@
 	dir = 1
 	},
 /obj/machinery/light/small/directional/east,
+/obj/structure/cable,
+/obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "xhx" = (
@@ -126363,7 +126349,7 @@ aRL
 wIh
 uaB
 rGj
-gdJ
+mfV
 qEJ
 byn
 sVZ
@@ -126620,7 +126606,7 @@ aRL
 hQD
 uaB
 nvd
-gdJ
+mfV
 qEJ
 sug
 chP
@@ -126877,7 +126863,7 @@ lXl
 wGC
 uaB
 uuS
-gdJ
+mfV
 jbb
 eIy
 eIy
@@ -127134,10 +127120,10 @@ riA
 jIo
 uaB
 dme
-gdJ
+mfV
+gcM
+pWu
 hCX
-bJj
-uxR
 vqc
 qmU
 wNG
@@ -127391,10 +127377,10 @@ lXl
 yhx
 uaB
 bOW
-gdJ
+bpV
 gcM
-pWu
-buX
+bJj
+uxR
 rOa
 txe
 apy
@@ -127403,7 +127389,7 @@ uww
 ver
 pWu
 rJD
-mfV
+bpV
 nmD
 rtF
 cOZ
@@ -127649,8 +127635,8 @@ ryd
 uaB
 xih
 mfV
-hCX
-bJj
+gcM
+pWu
 xht
 vDj
 bfG
@@ -127660,7 +127646,7 @@ rSe
 jlC
 bJj
 ekA
-mfV
+bpV
 nmD
 xCg
 iqz
@@ -128174,7 +128160,7 @@ gfr
 aWg
 pOM
 kIj
-mfV
+bpV
 nmD
 kaQ
 pGc
@@ -128431,7 +128417,7 @@ mRW
 txW
 skP
 skP
-mfV
+bpV
 nmD
 xCg
 iqz
@@ -128679,14 +128665,14 @@ pGc
 chO
 eRT
 eRT
-mfV
+bpV
 mfV
 glD
 kss
 ibg
-mfV
-mfV
-mfV
+bpV
+bpV
+bpV
 sJh
 kru
 vwG
@@ -129453,7 +129439,7 @@ mfT
 mfT
 mfT
 lns
-gvo
+mfT
 lOm
 dCc
 xCJ
@@ -129710,7 +129696,7 @@ mfT
 mfT
 mfT
 ukB
-gvo
+mfT
 rXm
 wVx
 xCJ
@@ -130738,7 +130724,7 @@ mfT
 mfT
 mfT
 ukB
-gvo
+mfT
 fJG
 gvA
 uoB
@@ -130991,11 +130977,11 @@ mfT
 pGc
 mfT
 bJG
-gvo
+mfT
 geA
-gvo
-sup
-gvo
+mfT
+ukB
+mfT
 fJG
 fxR
 eob
