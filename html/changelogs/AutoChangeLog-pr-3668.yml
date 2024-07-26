@@ -1,0 +1,6 @@
+author: "rick hick/tommy for the amazing music tracks, GoldenAlpharex for the code"
+delete-after: True
+changes:
+  - sound: "Added some new ambience tracks to SerenityStation's Mushroom Caves, including the absolute banger that is Mushroom Theme, all composed by rick hick/tommy!"
+  - sound: "Added a few ambience tracks to SerenityStation's forest, all composed by rick hick/tommy!"
+  - code_imp: "Added some functionality to make it so the mushroom theme song doesn't get cut in the middle while it's played."
