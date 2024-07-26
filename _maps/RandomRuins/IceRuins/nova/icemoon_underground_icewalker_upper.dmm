@@ -24,12 +24,6 @@
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"aS" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/turf/closed/wall/mineral/wood/nonmetal,
-/area/ruin/unpowered/primitive_catgirl_den)
 "bc" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1070,12 +1064,6 @@
 "Kq" = (
 /obj/structure/mineral_door/wood/large_gate,
 /turf/open/floor/wood/icemoon,
-/area/ruin/unpowered/primitive_catgirl_den)
-"KJ" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
-/turf/closed/wall/mineral/wood/nonmetal,
 /area/ruin/unpowered/primitive_catgirl_den)
 "La" = (
 /obj/structure/rack/wooden,
@@ -2470,7 +2458,7 @@ Vw
 nd
 cq
 GH
-KJ
+Uo
 Uo
 Go
 vW
@@ -2596,7 +2584,7 @@ Gw
 Gw
 Lf
 jt
-aS
+Uo
 Uo
 Uo
 Uo
