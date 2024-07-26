@@ -1,0 +1,11 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - qol: "Hemophages no longer taste food when their tumor is dormant, reducing the reliance on Taste Suppressor in order to let them eat food."
+  - bugfix: "Hemophages no longer get hurt from vomiting when eating something rejected by their tumor."
+  - balance: "Hemophages passive blood drain lowered from 0.125 u/s to 0.05 u/s."
+  - balance: "Tumor dormancy toggle cooldown lowered from 3 minutes to 2 minutes."
+  - balance: "Dormant tumor slowdown lowered from 3 to 2 (making them move a little faster than before when their tumor is dormant)."
+  - balance: "Blood consumed per 1 damage healed by tumor regen lowered from 1u to 0.25u."
+  - balance: "Slightly increased the minimum luminosity required for healing using the tumor regen (0 -> 0.1)."
+  - bugfix: "The Toggle Dormant State action button should now update its name and description at the right moment, instead of being reversed on accident."

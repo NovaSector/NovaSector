@@ -45,9 +45,9 @@
 
 	var/list/loadout_list = preference_source?.read_preference(/datum/preference/loadout)
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
-
+	var/obj/item/storage/briefcase/empty/briefcase
 	if(override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only)
-		var/obj/item/storage/briefcase/empty/briefcase = new(loc)
+		briefcase = new(loc)
 
 		for(var/datum/loadout_item/item as anything in loadout_datums)
 			if (!item.can_be_applied_to(src, preference_source, equipping_job))
@@ -69,13 +69,18 @@
 
 		equipOutfit(equipped_outfit, visuals_only)
 
-	var/list/new_contents = get_all_gear()
+	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.contents
 
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
 			continue
 
 		var/obj/item/equipped = locate(item.item_path) in new_contents
+		for(var/atom/equipped_item in new_contents)
+			if(equipped_item.type == item.item_path)
+				equipped = equipped_item
+				break
+
 		if(isnull(equipped))
 			continue
 

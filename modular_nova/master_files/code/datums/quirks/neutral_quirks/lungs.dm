@@ -39,7 +39,9 @@
 		return
 	var/obj/item/clothing/accessory/breathing/acc = equipped
 	acc.breath_type = breath_type
-	if (acc.can_attach_accessory(human_holder?.w_uniform, human_holder))
+
+	var/obj/item/clothing/under/attach_to = human_holder?.w_uniform
+	if (attach_to && acc.can_attach_accessory(attach_to, human_holder))
 		acc.attach(human_holder.w_uniform, human_holder)
 
 /obj/item/clothing/accessory/breathing
