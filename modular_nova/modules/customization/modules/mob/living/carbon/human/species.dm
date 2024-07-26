@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /// Replacing organs with oversized versions, for the oversized quirk. Add implementation for species-specific oversized organs as needed
 /datum/species/proc/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
 	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
-	if(old_stomach.is_oversized) // don't override augments that are already oversized. Need to do this because augments get applied first, so quirks will overwrite them. TODO: Maybe the augments middleware should be renamed so it gets applied last.
+	if(old_stomach?.is_oversized) // don't override augments that are already oversized. Need to do this because augments get applied first, so quirks will overwrite them. TODO: Maybe the augments middleware should be renamed so it gets applied last.
 		return
 
 	var/obj/item/organ/internal/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!

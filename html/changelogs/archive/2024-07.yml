@@ -1268,3 +1268,70 @@
       access
   - bugfix: Serenity station bridge maintenance has more redundancy
   - bugfix: Serenity station extra lightbulb in a bathroom stall has been removed
+2024-07-26:
+  00-Steven:
+  - bugfix: Fixes a half-port accidentally causing the Dwoop emote to be usable by
+      not just synths and silicons, but every single living entity except non-synth
+      humans. It is now fully ported to the new silicon emotes system, allowing it
+      to be used by everything that can use silicon emotes.
+  - bugfix: Robotic lizard voicebox allows silicon emotes parallel to the stock robotic
+      voicebox.
+  FlufflesTheDog:
+  - bugfix: prescription huds work
+  - bugfix: venus human traps properly despawn when used
+  - bugfix: loadout briefcases will still customize your items if they can't spawn
+      in your hand
+  - bugfix: produce bins & friends render properly
+  - qol: produce displays can now hold all sorts of flowers
+  GoldenAlpharex:
+  - qol: Hemophages no longer taste food when their tumor is dormant, reducing the
+      reliance on Taste Suppressor in order to let them eat food.
+  - bugfix: Hemophages no longer get hurt from vomiting when eating something rejected
+      by their tumor.
+  - balance: Hemophages passive blood drain lowered from 0.125 u/s to 0.05 u/s.
+  - balance: Tumor dormancy toggle cooldown lowered from 3 minutes to 2 minutes.
+  - balance: Dormant tumor slowdown lowered from 3 to 2 (making them move a little
+      faster than before when their tumor is dormant).
+  - balance: Blood consumed per 1 damage healed by tumor regen lowered from 1u to
+      0.25u.
+  - balance: Slightly increased the minimum luminosity required for healing using
+      the tumor regen (0 -> 0.1).
+  - bugfix: The Toggle Dormant State action button should now update its name and
+      description at the right moment, instead of being reversed on accident.
+  LT3:
+  - bugfix: Fixed elevator panel allowing conflicting inputs
+  - bugfix: Fixed elevator sound being out of sync with movement
+  NovaBot13:
+  - rscadd: You can raise lobstrosities from chasm chrabs inside an aquarium with
+      the 'allow breeding' setting on. Keep the fish well fed, healthy and not lonely
+      if you don't want an hostile one.
+  - rscadd: Juveline lobstrosities (from chasms, plasma rivers, or aquariums, xenobio
+      too) can be tamed with arms and lavaloop fishes.
+  - rscadd: For lobstrosities grown from aquariums, they can have additional effects
+      based on the fish traits they had in the aquarium, like being venomous or even
+      flying.
+  - config: Added an entry for TRAITOR_SCALING_MULTIPLIER, disabled by default
+  - bugfix: Xenomorphs and door pryer basic mobs can now attack airlocks in combat
+      mode
+  - rscadd: Adds the Haunted Trading Post space ruin.
+  - rscadd: Adds 10+ unique items for the Haunted Trading Post
+  - rscadd: Adds 5 dangerous mobs for the Haunted Trading Post
+  - rscadd: Adds 4 new types of hazardous traps for the Haunted Trading Post.
+  - balance: Quality cybernetic hearts combat bleeds and restore blood, rather than
+      inject you with epinephrine when you enter crit. This can result in mild toxin
+      buildup, however.
+  - balance: Upgraded cybernetic hearts give an extremely brief amount of action when
+      you enter softcrit (but not hardcrit).
+  - bugfix: Borgs now unequip their equipment upon module change like they should
+  - bugfix: Fixes bulldog shotgun unique mag display not working on the sprite
+  - image: resprites the bulldog shotgun along with inhands and new worn sprites
+  - code_imp: cleans up a little of the code surrounding the bulldog
+  Thedragmeme:
+  - rscadd: donator sets for Thedragmeme and Snailomi
+  rick hick/tommy for the amazing music tracks, GoldenAlpharex for the code:
+  - sound: Added some new ambience tracks to SerenityStation's Mushroom Caves, including
+      the absolute banger that is Mushroom Theme, all composed by rick hick/tommy!
+  - sound: Added a few ambience tracks to SerenityStation's forest, all composed by
+      rick hick/tommy!
+  - code_imp: Added some functionality to make it so the mushroom theme song doesn't
+      get cut in the middle while it's played.
