@@ -1,5 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "venus human traps properly despawn when used"
-  - bugfix: "loadout briefcases will still customize your items if they can't spawn in your hand"
