@@ -2,16 +2,14 @@
 "ak" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
+	dir = 4
 	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ap" = (
-/obj/effect/turf_decal/siding/wood/corner,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/bounty,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "au" = (
 /obj/structure/ore_container/food_trough/raptor_trough,
@@ -42,11 +40,19 @@
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "aP" = (
-/obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
+/obj/structure/rack/wooden,
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_y = 14;
+	pixel_x = -6
 	},
-/turf/open/misc/dirt/icemoon,
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/cup/glass/bottle/moonshine{
+	pixel_y = -3;
+	pixel_x = 7
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "aW" = (
 /obj/structure/curtain/bounty,
@@ -70,6 +76,14 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
+/obj/item/pickaxe{
+	pixel_x = -5
+	},
+/obj/item/pickaxe{
+	pixel_x = 5
+	},
+/obj/item/pickaxe,
+/obj/effect/turf_decal/siding/wood,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "bg" = (
@@ -127,9 +141,9 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "cs" = (
-/obj/structure/chair/sofa/bamboo/right,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/icemoon,
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "cv" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -195,6 +209,14 @@
 	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"fb" = (
+/obj/structure/railing/wooden_fencing,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/obj/structure/flora/ash/seraka,
+/turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "fd" = (
 /obj/item/ammo_casing/arrow/bone,
 /obj/item/ammo_casing/arrow/bone,
@@ -207,9 +229,7 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "fk" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/mineral_door/wood/large_gate,
-/obj/effect/turf_decal/weather/dirt,
+/obj/structure/chair/sofa/bamboo/right,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "fo" = (
@@ -236,10 +256,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "gd" = (
-/obj/structure/chair/sofa/bamboo/right{
-	dir = 8
-	},
-/turf/open/water/hot_spring,
+/obj/machinery/smartfridge/wooden/seed_shelf,
+/turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "gi" = (
 /obj/structure/window/green_glass_pane,
@@ -275,11 +293,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "gU" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood,
-/turf/open/misc/dirt/icemoon,
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "gW" = (
 /obj/machinery/cauldron{
@@ -317,9 +332,17 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "iJ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/chair/wood,
-/turf/open/floor/wood/icemoon,
+/obj/structure/closet/crate/wooden/storage_barrel,
+/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter{
+	pixel_y = 1
+	},
+/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter{
+	pixel_y = -4;
+	pixel_x = 4
+	},
+/obj/item/clothing/neck/infinity_scarf/primitive_catgirl_blue,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "je" = (
 /obj/structure/chair/wood{
@@ -398,9 +421,11 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "jO" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/stack/sheet/mineral/coal/ten,
-/turf/open/misc/asteroid/snow/icemoon,
+/obj/effect/turf_decal/weather/snow/corner,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "jV" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -409,7 +434,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ka" = (
-/obj/structure/wall_torch/spawns_lit/directional/south,
+/obj/machinery/smartfridge/wooden/produce_bin,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
@@ -425,10 +450,9 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ks" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "kM" = (
 /obj/structure/rack/wooden,
@@ -536,6 +560,12 @@
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"mp" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "mq" = (
 /obj/structure/rack/wooden,
 /obj/item/forging/reagent_weapon/axe/fake_copper{
@@ -587,8 +617,7 @@
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ne" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/structure/flora/ash/seraka,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "nl" = (
@@ -676,13 +705,8 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oX" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/structure/mineral_door/wood/large_gate{
-	dir = 1
-	},
-/turf/open/floor/wood/icemoon,
+/obj/structure/flora/ash/cap_shroom,
+/turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "pa" = (
 /obj/structure/railing/wooden_fencing/gate,
@@ -735,26 +759,21 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qh" = (
-/obj/structure/chair/sofa/bamboo/left{
+/obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/open/water/hot_spring,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qi" = (
 /obj/structure/fluff/minepost,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qm" = (
-/obj/structure/mineral_door/wood/large_gate{
-	dir = 8
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
 	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/turf/open/floor/wood/icemoon,
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qq" = (
 /obj/structure/rack/wooden,
@@ -783,8 +802,14 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qK" = (
-/obj/effect/turf_decal/siding/wood,
-/turf/open/misc/dirt/icemoon,
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/pollution_scrubber{
+	on = 1;
+	use_power = 0;
+	alpha = 0
+	},
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "qM" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
@@ -829,8 +854,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "rv" = (
-/obj/effect/turf_decal/weather/snow/corner,
-/obj/structure/flora/ash/chilly,
+/obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "rA" = (
@@ -925,16 +949,10 @@
 /turf/open/misc/hay/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ut" = (
-/obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter{
-	pixel_y = 1
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
 	},
-/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter{
-	pixel_y = -4;
-	pixel_x = 4
-	},
-/obj/item/clothing/neck/infinity_scarf/primitive_catgirl_blue,
-/turf/open/misc/dirt/icemoon,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "uw" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -973,18 +991,16 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "vs" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood,
+/obj/structure/railing/wooden_fencing,
+/obj/structure/flora/ash/leaf_shroom,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "vu" = (
-/obj/structure/railing/wooden_fencing{
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/structure/fluff/minepost,
-/turf/open/misc/asteroid/snow/icemoon,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "vx" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -1026,8 +1042,9 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "wt" = (
-/obj/structure/chair/sofa/bamboo,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "wF" = (
@@ -1035,13 +1052,28 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "wM" = (
 /obj/structure/rack/wooden,
-/obj/item/shield/buckler{
+/obj/item/restraints/legcuffs/bola{
 	pixel_y = 7;
-	pixel_x = -3
+	pixel_x = 4
+	},
+/obj/item/restraints/legcuffs/bola{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/item/restraints/legcuffs/bola{
+	pixel_y = -7;
+	pixel_x = 5
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
 	},
 /obj/item/shield/buckler{
 	pixel_y = -5;
 	pixel_x = 5
+	},
+/obj/item/shield/buckler{
+	pixel_y = 7;
+	pixel_x = -3
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
@@ -1075,17 +1107,15 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xI" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/structure/mineral_door/wood/large_gate{
-	dir = 1
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
 	},
-/obj/effect/turf_decal/weather/dirt,
-/turf/open/floor/wood/icemoon,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xW" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/misc/dirt/icemoon,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xZ" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
@@ -1095,8 +1125,8 @@
 /turf/closed/wall/mineral/stone,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yD" = (
-/obj/structure/ore_vein/gold,
-/turf/open/misc/asteroid/snow/icemoon,
+/obj/structure/chair/sofa/bamboo/left,
+/turf/open/water/hot_spring,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yE" = (
 /turf/open/floor/stone/icemoon,
@@ -1117,15 +1147,9 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yK" = (
-/obj/structure/rack/wooden,
-/obj/item/pickaxe{
-	pixel_x = 5
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
 	},
-/obj/item/pickaxe,
-/obj/item/pickaxe{
-	pixel_x = -5
-	},
-/obj/effect/turf_decal/siding/wood/end,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yM" = (
@@ -1136,11 +1160,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yR" = (
-/obj/structure/wall_torch/spawns_lit/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/misc/dirt/icemoon,
+/obj/structure/curtain/bounty,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "zh" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
@@ -1232,11 +1253,15 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Cs" = (
-/obj/structure/railing/wooden_fencing{
+/obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/asteroid/snow/icemoon,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/bounty,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "CQ" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -1378,18 +1403,6 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "DY" = (
 /obj/structure/rack/wooden,
-/obj/item/restraints/legcuffs/bola{
-	pixel_y = 7;
-	pixel_x = 4
-	},
-/obj/item/restraints/legcuffs/bola{
-	pixel_y = 7;
-	pixel_x = -5
-	},
-/obj/item/restraints/legcuffs/bola{
-	pixel_y = -7;
-	pixel_x = 5
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -1495,17 +1508,10 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Gc" = (
-/obj/structure/mineral_door/wood/large_gate{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wood{
-	dir = 8
+	dir = 1
 	},
-/obj/effect/turf_decal/weather/dirt{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/icemoon,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Ge" = (
 /obj/structure/rack/wooden,
@@ -1550,10 +1556,12 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "GZ" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
+/obj/machinery/smartfridge/wooden/produce_bin,
 /turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"Hd" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Hv" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -1605,11 +1613,10 @@
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Iq" = (
-/obj/effect/turf_decal/siding/wood{
+/obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
-/obj/structure/mineral_door/wood/large_gate,
-/turf/open/floor/wood/icemoon,
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "IC" = (
 /obj/structure/millstone,
@@ -1643,10 +1650,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Jl" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/flora/ash/leaf_shroom,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Js" = (
@@ -1706,6 +1710,12 @@
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"JO" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/misc/dirt/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "JX" = (
 /obj/machinery/primitive_stove,
 /turf/open/floor/stone/icemoon,
@@ -1716,8 +1726,25 @@
 	},
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
+"Kr" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
 "KE" = (
 /obj/structure/chair/sofa/bamboo/left,
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"Le" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Lj" = (
@@ -1811,9 +1838,9 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "NJ" = (
 /obj/effect/turf_decal/siding/wood{
-	dir = 6
+	dir = 4
 	},
-/turf/open/misc/dirt/icemoon,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "NR" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1879,6 +1906,13 @@
 /obj/item/paint_palette,
 /obj/item/chisel/ashwalker,
 /turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"Py" = (
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/obj/structure/ore_vein/gold,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "PB" = (
 /obj/structure/rack/wooden,
@@ -1984,10 +2018,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "RE" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/turf/open/misc/dirt/icemoon,
+/obj/structure/chair/sofa/bamboo/right,
+/turf/open/water/hot_spring,
 /area/ruin/unpowered/primitive_catgirl_den)
 "RG" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -2214,8 +2246,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "XK" = (
-/obj/structure/wall_torch/spawns_lit/directional/north,
-/turf/closed/mineral/snowmountain/icemoon/unscrapeable,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Yj" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -2235,9 +2267,7 @@
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "YE" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8
-	},
+/obj/structure/flora/ash/tall_shroom,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Zq" = (
@@ -2264,19 +2294,9 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Zy" = (
-/obj/structure/rack/wooden,
-/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
-	pixel_y = 14;
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/cup/glass/bottle/moonshine{
-	pixel_y = -3;
-	pixel_x = 7
-	},
-/turf/open/misc/dirt/icemoon,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/bonfire/grill_pre_attached,
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ZJ" = (
 /obj/structure/chair/sofa/bamboo/left{
@@ -2285,8 +2305,10 @@
 /turf/open/water/hot_spring,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ZY" = (
-/obj/effect/turf_decal/siding/wood/corner,
-/turf/open/misc/dirt/icemoon,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 
 (1,1,1) = {"
@@ -2523,7 +2545,7 @@ jV
 yp
 RW
 yp
-wF
+TK
 yp
 JD
 Dz
@@ -2564,7 +2586,7 @@ tn
 yM
 DH
 zu
-bt
+Py
 wF
 gt
 wp
@@ -2636,7 +2658,7 @@ yp
 yp
 Nt
 bH
-wF
+gU
 wF
 Yk
 wF
@@ -2685,7 +2707,7 @@ ch
 IZ
 ch
 Yk
-wF
+gU
 wF
 Yk
 wF
@@ -2693,9 +2715,9 @@ Yk
 wF
 wF
 jV
+ne
 tI
 tI
-oK
 tI
 tI
 tI
@@ -2736,9 +2758,9 @@ wF
 Kd
 tI
 tI
-Ob
-wF
-Uk
+tI
+tI
+oK
 tI
 jw
 tI
@@ -2775,11 +2797,11 @@ jV
 bT
 oK
 op
-tI
+oK
 yp
 ak
-eS
-yD
+tI
+Ob
 wF
 jV
 Da
@@ -2817,15 +2839,15 @@ eS
 wF
 wF
 wF
-Uk
-Ob
-TK
 wF
 aK
 wF
+jV
+Ob
+gU
 Uk
 bf
-yK
+tI
 yp
 kM
 fd
@@ -2860,15 +2882,15 @@ wF
 wF
 tn
 wF
-Yk
-wF
-wF
-wF
-wF
-wF
-jO
-yp
-yp
+RW
+RW
+Le
+Cs
+RW
+RW
+RW
+tI
+tI
 yp
 yp
 yp
@@ -2887,7 +2909,7 @@ yp
 yp
 yp
 oA
-tI
+gd
 tI
 tI
 tI
@@ -2898,22 +2920,22 @@ tI
 oK
 Ob
 wF
+gU
 wF
 wF
 wF
-wF
-jV
-GU
-GU
-qu
-wF
-tn
 yp
+rS
+mu
+HD
+HD
+xe
+Xv
 yp
-oJ
-oJ
-RO
-oJ
+tI
+tI
+rv
+ne
 RW
 wF
 wF
@@ -2944,18 +2966,18 @@ yp
 kN
 qu
 wF
-Yk
-oA
-yp
-jN
-qu
-wF
-yp
-cW
-oJ
-oJ
-oJ
-oJ
+RW
+hn
+HD
+Pm
+gD
+HD
+Yn
+RW
+RW
+tI
+tI
+Zu
 RW
 wF
 wF
@@ -2971,7 +2993,7 @@ yp
 yp
 yp
 oA
-oA
+ka
 tI
 qi
 tI
@@ -2986,18 +3008,18 @@ yp
 ru
 eS
 wF
-Yk
-oA
-oA
-yp
-qK
-yp
-yp
-cW
-yp
-oJ
-oJ
-oJ
+yR
+Pm
+hb
+hb
+hb
+Mr
+mu
+Pn
+RW
+oX
+tI
+tI
 RW
 wF
 wF
@@ -3016,30 +3038,30 @@ xZ
 yp
 tI
 tI
-aP
 tI
-tI
+oK
+oK
 MP
-wF
-wF
-wF
+oA
+oA
+oA
 Uk
 oK
 qu
 wF
 wF
-Yk
-oA
-oA
+ap
+fk
+hb
 Zy
 qK
-oJ
-yp
-cW
-yp
-yp
-yp
-yp
+Pm
+HD
+HD
+yR
+tI
+tI
+tI
 yp
 yp
 yp
@@ -3055,34 +3077,34 @@ vZ
 hp
 iI
 bT
+GU
+jN
 tI
-tI
-eS
-yp
-tI
-tI
-yp
-wF
+Ob
 tn
-wF
-wF
-wF
+oA
+yp
+yp
+yp
+yp
+yp
+oA
 Uk
 op
-op
-Ob
-oA
-oA
-yp
-ne
-oJ
-oJ
-oJ
-RO
-oJ
-oJ
-yp
-oA
+GU
+yR
+KE
+hb
+Zy
+qK
+Mr
+HD
+mu
+yR
+tI
+tI
+tI
+tI
 RW
 wF
 Lp
@@ -3098,33 +3120,33 @@ NR
 yp
 fC
 jV
-oA
+yp
+mm
+jO
 oA
 yp
+cW
+oJ
+oJ
+RO
+oJ
+oA
+wF
+wF
+jV
+yR
+Pm
+hb
+hb
+hb
+Mr
+HD
+nb
+RW
+oX
 tI
 tI
-yp
-oA
-oA
-oA
-oA
-aK
-wF
-wF
-wF
-Yk
-oA
-oA
-CQ
-YE
-RE
-oJ
-oJ
-oJ
-oJ
-oJ
-ZJ
-yp
+tI
 RW
 wF
 Lp
@@ -3141,32 +3163,32 @@ yp
 kV
 jV
 oA
-RW
-RW
-qm
-Gc
-RW
-RW
-RW
 yp
+bH
+yp
+yp
+cW
+yp
+oJ
+oJ
+oJ
 oA
-wF
 tn
 wF
-wF
-Yk
-oA
-yp
-JN
+Iq
+RW
+hn
+HD
+Pm
+Pm
+HD
+Yn
+RW
+RW
 tI
-qK
-oJ
-oJ
-oJ
-oJ
-oJ
-rY
-oA
+tI
+tI
+tI
 RW
 wF
 Lp
@@ -3183,32 +3205,32 @@ wF
 wF
 jV
 oA
+aP
+bH
+oJ
 yp
-rS
-mu
-HD
-HD
-xe
-Xv
+cW
 yp
-oA
-oA
+yp
+yp
+yp
+yp
 wF
 oA
-oA
-Zu
+jV
 yp
-xW
-tI
-tI
-YE
-GZ
-GZ
+OI
+HD
+HD
+of
+HD
+qq
+yp
 GZ
 Jl
-vs
-mm
-yp
+tI
+tI
+Zu
 RW
 wF
 Lp
@@ -3224,33 +3246,33 @@ qt
 GN
 wF
 jV
-RW
-RW
-hn
-HD
-Pm
-gD
-HD
-Yn
-RW
-RW
 oA
-oA
-oA
-tI
-tI
-tI
-tI
-tI
-tI
 yp
-xW
-ZY
-ks
-ks
-gU
-mm
+cs
+oJ
+oJ
+oJ
+RO
+oJ
+oJ
 yp
+oA
+oA
+oA
+tI
+RW
+yp
+yp
+FI
+Sc
+yp
+yp
+yp
+tI
+tI
+tI
+tI
+tI
 RW
 wF
 Lp
@@ -3264,35 +3286,35 @@ yp
 yp
 xZ
 wF
-wF
-ka
-yp
-HD
-HD
-cs
-hb
-hb
-Mr
-mu
-Pn
-RW
+gU
+jV
+oA
+CQ
+yK
+gY
+RE
+oJ
+oJ
+oJ
+oJ
+ZJ
 yp
 yp
 xW
 tI
-tI
 yp
+uw
+lF
+yE
+MX
+nn
+oW
 yp
-Vb
 tI
 tI
 tI
-qK
-oJ
-oJ
-ZJ
-oA
-oA
+tI
+ne
 RW
 wF
 Lp
@@ -3308,31 +3330,31 @@ tn
 wF
 Kd
 tI
-Iq
-mu
-HD
-wt
-hb
-hb
-Pm
-HD
-HD
-fk
-tI
-tI
-tI
-tI
-tI
-tI
-oA
-Nw
-tI
-ZY
-ap
-NJ
+yp
+JN
+yE
+bH
+yD
+oJ
+oJ
 oJ
 oJ
 rY
+oA
+mm
+tI
+yE
+gi
+Ju
+yE
+Vs
+yE
+yE
+nn
+gi
+tI
+tI
+Zu
 yp
 yp
 yp
@@ -3348,32 +3370,32 @@ lM
 tI
 op
 bT
-tI
-oK
-oX
-HD
-HD
-KE
-hb
-hb
-Mr
-HD
-mu
-xI
-fY
-tI
-tI
-oA
-oA
-tI
-oA
+Zu
 yp
-yR
-NJ
-oJ
-oJ
-oJ
-lf
+yp
+ej
+yE
+yK
+qh
+qh
+qh
+qh
+qh
+xI
+xI
+JO
+tI
+tI
+gi
+FV
+BO
+JX
+yE
+yE
+UL
+gi
+tI
+tI
 oA
 oA
 RW
@@ -3390,31 +3412,31 @@ yp
 yp
 mB
 wF
-Yk
-vq
+jV
+tI
+mp
+yE
+yE
+yE
+ks
+Hd
+NJ
+NJ
+NJ
+Yj
 yp
-HD
-HD
-iJ
-hb
-hb
-Mr
-HD
-nb
-RW
 yp
-yp
-XK
-oA
 oA
 tI
-oA
-oA
-PB
-aB
-oJ
-oJ
-oJ
+gi
+gW
+yE
+MX
+lF
+yE
+zS
+gi
+tI
 yp
 yp
 yp
@@ -3433,30 +3455,30 @@ RW
 gK
 GU
 Ob
-vu
-RW
-RW
-hn
+yp
+yp
+Vb
+yE
+yE
 HD
-Pm
-Pm
-HD
-Yn
-RW
-RW
+XK
+RE
+oJ
+ZJ
+Gc
 oA
 oA
 oA
-oA
+jV
+yp
+Ve
+vW
+lF
+Ry
+vp
+Ge
+yp
 tI
-fY
-tI
-oA
-oA
-lf
-oJ
-oJ
-oJ
 oA
 RW
 wF
@@ -3475,30 +3497,30 @@ yp
 vb
 tI
 tI
-no
-RY
-yp
-OI
-HD
-HD
-of
-HD
-qq
-yp
-kV
-Kd
+YE
+oA
+Nw
+yE
+wp
+Kr
+wt
+yD
+oJ
+rY
+Gc
+tI
 op
 op
 tI
-tI
-tI
-tI
-tI
-oA
+RW
 yp
-gd
-qh
-oA
+yp
+aW
+yp
+yp
+yp
+RW
+tI
 oA
 yp
 yp
@@ -3517,30 +3539,30 @@ RY
 pa
 tI
 tI
-zW
-aA
-RW
-yp
-yp
-FI
-Sc
-yp
-yp
-yp
-Kd
-eS
-wF
-oA
-oA
 tI
 oA
+yp
+vu
+NR
+oJ
+oJ
+oJ
+lf
+yp
+ZY
+yp
 oA
+yp
+qm
 tI
+yp
+Oy
+yE
+II
+yp
 tI
-oA
-oA
-oA
-oA
+oK
+tI
 RW
 RW
 wF
@@ -3559,28 +3581,28 @@ us
 EA
 tI
 tI
-no
-au
+Jl
+oA
+oA
+PB
+aB
+oJ
+oJ
+oJ
 yp
-uw
-lF
-yE
-MX
-nn
-oW
 yp
-Ob
-wF
-wF
+tI
+oA
+oA
 oA
 yp
 su
 yp
-oA
-oA
-tI
-qu
-wF
+le
+lZ
+PO
+yp
+Ob
 cw
 yp
 yp
@@ -3600,29 +3622,29 @@ RW
 ed
 ed
 jV
-eS
-Cs
-Rq
-gi
-Ju
+oK
+fY
+ne
+oA
+oA
+oJ
+oJ
+oJ
+oJ
+oA
+RW
+tI
 yE
-Vs
-yE
-yE
-nn
-gi
-rv
-wF
 oA
 yp
 Bc
 tI
-ut
 yp
-oA
-oA
+yp
+yp
+yp
+yp
 tI
-bT
 fz
 RW
 oA
@@ -3642,19 +3664,19 @@ yp
 RY
 EA
 Ob
-wF
-wF
-wF
-gi
-FV
-BO
-JX
-yE
-yE
-UL
-gi
-Ob
-wF
+ut
+Uk
+oK
+eS
+oA
+oJ
+oJ
+oJ
+oA
+oA
+yp
+tI
+oA
 oA
 RW
 oF
@@ -3663,8 +3685,8 @@ tI
 AB
 yp
 oA
+oX
 Ob
-tn
 PD
 yp
 yp
@@ -3687,16 +3709,16 @@ Ob
 aK
 wF
 wF
-gi
-gW
+oA
+oA
+oJ
+oJ
+oJ
+oJ
+oA
+yp
 yE
-MX
-lF
-yE
-zS
-gi
-eS
-tn
+tI
 oA
 RW
 ou
@@ -3706,7 +3728,7 @@ DR
 RW
 oA
 tI
-GU
+tI
 qu
 wF
 mh
@@ -3728,17 +3750,17 @@ EA
 Ob
 wF
 wF
-wF
+gU
+oA
+oA
 yp
-Ve
-vW
-lF
-Ry
-vp
-Ge
+cW
+cW
+oA
+oA
 yp
-wF
-wF
+tI
+oA
 oA
 RW
 RC
@@ -3771,15 +3793,15 @@ jV
 op
 qu
 cw
+oA
+oA
+cW
+cW
+oJ
+oJ
+oA
 RW
-yp
-yp
-aW
-yp
-yp
-yp
-RW
-kV
+su
 yp
 RW
 yp
@@ -3814,14 +3836,14 @@ wF
 jV
 no
 RY
+oA
+oJ
+oJ
+lf
+oA
+oA
 yp
-Oy
-yE
-II
-yp
-tn
-yp
-RW
+tI
 RW
 tI
 dS
@@ -3856,25 +3878,25 @@ wF
 jV
 zW
 aA
+oA
+oJ
+oJ
 yp
-le
-lZ
-PO
-yp
-wF
+oA
+tn
 RW
 tI
 SG
 fY
 yp
-zh
+iJ
 tI
 fY
 yp
 oA
 oA
 Ob
-wF
+gU
 Rq
 yp
 yp
@@ -3898,11 +3920,11 @@ wF
 jV
 no
 au
-yp
-yp
-yp
-yp
-yp
+oA
+oA
+oA
+oA
+oA
 wF
 RW
 zh
@@ -3995,7 +4017,7 @@ yp
 Kd
 tI
 tI
-tI
+rv
 oK
 oK
 eS
@@ -4060,11 +4082,11 @@ wF
 yp
 yp
 vb
-uH
+vs
 RY
 CV
 au
-Js
+fb
 RY
 CV
 au
@@ -4082,7 +4104,7 @@ wF
 wF
 wF
 wF
-wF
+aK
 wF
 wF
 pW
@@ -4118,7 +4140,7 @@ wF
 jM
 wF
 wF
-wF
+gU
 wF
 wF
 wF
