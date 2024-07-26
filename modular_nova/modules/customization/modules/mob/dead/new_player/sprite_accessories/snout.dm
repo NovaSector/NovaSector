@@ -120,7 +120,7 @@
 	organ_type = /obj/item/organ/external/snout/top_adj
 
 /datum/sprite_accessory/snouts/mammal/bug_no_ant
-	name = "Bug (No Antennae)"
+	name = "Bug (No Antennae, Below Hair)"
 	icon_state = "bug_no_ant"
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
@@ -286,7 +286,7 @@
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/snouts/mammal/top/bug_no_ant
-	name = "Bug (Top, No Antennae)"
+	name = "Bug (No Antennae)"
 	icon_state = "fbug_no_ant"
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
