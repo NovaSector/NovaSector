@@ -19,7 +19,7 @@
 	ckeywhitelist = list("thedragmeme")
 
 /datum/loadout_item/under/jumpsuit/paddedunder/alt
-	name = "Feathered Serenity Suit"
+	name = "Feathered Serenity Dress"
 	item_path = /obj/item/clothing/under/padded/alt
 	ckeywhitelist = list("snailomi")
 
@@ -32,12 +32,6 @@
 	name = "Feathered Serenity Cloak"
 	item_path = /obj/item/clothing/neck/padded/alt
 	ckeywhitelist = list("snailomi")
-
-/datum/loadout_item/neck/padded/alt
-	name = "Feathered Serenity Cloak"
-	item_path = /obj/item/clothing/neck/padded/alt
-	ckeywhitelist = list("thedragmeme")
-
 
 /datum/loadout_item/gloves/padded
 	name = "Serenity Gloves"
