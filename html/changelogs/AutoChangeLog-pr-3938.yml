@@ -1,5 +1,0 @@
-author: "00-Steven"
-delete-after: True
-changes:
-  - bugfix: "Fixes a half-port accidentally causing the Dwoop emote to be usable by not just synths and silicons, but every single living entity except non-synth humans. It is now fully ported to the new silicon emotes system, allowing it to be used by everything that can use silicon emotes."
-  - bugfix: "Robotic lizard voicebox allows silicon emotes parallel to the stock robotic voicebox."
