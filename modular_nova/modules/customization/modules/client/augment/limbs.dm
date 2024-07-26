@@ -25,7 +25,7 @@
 			if(!uses_greyscale)
 				old_limb.set_icon_static(initial(new_limb.icon))
 			else
-				old_limb.set_icon_greyscale(UNLINT(initial(new_limb.icon_greyscale))) // stupid var_protected memes
+				old_limb.set_icon_greyscale(initial(new_limb.icon_greyscale)) // stupid var_protected memes
 		old_limb.should_draw_greyscale = uses_greyscale
 
 		return body_zone

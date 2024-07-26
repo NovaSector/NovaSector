@@ -1,254 +1,161 @@
-/datum/augment_item/limb/head/mutant
+//Subtype for most custom species that use GAGS.  Also provides Anthromorphs.
+/datum/augment_item/limb/head/species
 	name = "anthromorph head"
 	path = /obj/item/bodypart/head/mutant
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/mutant
+/datum/augment_item/limb/chest/species
 	name = "anthromorph chest"
 	path = /obj/item/bodypart/chest/mutant
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/mutant
+/datum/augment_item/limb/l_arm/species
 	name = "anthromorph left arm"
 	path = /obj/item/bodypart/arm/left/mutant
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/mutant
+/datum/augment_item/limb/r_arm/species
 	name = "anthromorph right arm"
 	path = /obj/item/bodypart/arm/right/mutant
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/mutant
+/datum/augment_item/limb/l_leg/species
 	name = "anthromorph left leg"
 	path = /obj/item/bodypart/leg/left/mutant
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/mutant
+/datum/augment_item/limb/r_leg/species
 	name = "anthromorph right leg"
 	path = /obj/item/bodypart/leg/right/mutant
 	cost = 0
 	uses_robotic_styles = FALSE
 	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/akula
+
+
+/// ACTUAL CONTENT ZONE BEGINS HERE
+//Akula
+/datum/augment_item/limb/head/species/akula
 	name = "akula head"
 	path = /obj/item/bodypart/head/mutant/akula
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/akula
+/datum/augment_item/limb/chest/species/akula
 	name = "akula chest"
 	path = /obj/item/bodypart/chest/mutant/akula
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/akula
+/datum/augment_item/limb/l_arm/species/akula
 	name = "akula left arm"
 	path = /obj/item/bodypart/arm/left/mutant/akula
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/akula
+/datum/augment_item/limb/r_arm/species/akula
 	name = "akula right arm"
 	path = /obj/item/bodypart/arm/right/mutant/akula
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/akula
+/datum/augment_item/limb/l_leg/species/akula
 	name = "akula left leg"
 	path = /obj/item/bodypart/leg/left/mutant/akula
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/akula
+/datum/augment_item/limb/r_leg/species/akula
 	name = "akula right leg"
 	path = /obj/item/bodypart/leg/right/mutant/akula
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/aquatic
+//Aquatic
+/datum/augment_item/limb/head/species/aquatic
 	name = "aquatic head"
 	path = /obj/item/bodypart/head/mutant/aquatic
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/aquatic
+/datum/augment_item/limb/chest/species/aquatic
 	name = "aquatic chest"
 	path = /obj/item/bodypart/chest/mutant/aquatic
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/aquatic
+/datum/augment_item/limb/l_arm/species/aquatic
 	name = "aquatic left arm"
 	path = /obj/item/bodypart/arm/left/mutant/aquatic
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/aquatic
+/datum/augment_item/limb/r_arm/species/aquatic
 	name = "aquatic right arm"
 	path = /obj/item/bodypart/arm/right/mutant/aquatic
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/aquatic
+/datum/augment_item/limb/l_leg/species/aquatic
 	name = "aquatic left leg"
 	path = /obj/item/bodypart/leg/left/mutant/aquatic
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/aquatic
+/datum/augment_item/limb/r_leg/species/aquatic
 	name = "aquatic right leg"
 	path = /obj/item/bodypart/leg/right/mutant/aquatic
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/ghoul
-	name = "ghoul left arm"
-	path = /obj/item/bodypart/arm/left/mutant/ghoul
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_arm/ghoul
-	name = "ghoul right arm"
-	path = /obj/item/bodypart/arm/right/mutant/ghoul
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/head/ghoul
-	name = "ghoul head"
-	path = /obj/item/bodypart/head/mutant/ghoul
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/l_leg/ghoul
-	name = "ghoul left leg"
-	path = /obj/item/bodypart/leg/left/mutant/ghoul
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_leg/ghoul
-	name = "ghoul right leg"
-	path = /obj/item/bodypart/leg/right/mutant/ghoul
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/chest/ghoul
-	name = "ghoul chest"
-	path = /obj/item/bodypart/chest/mutant/ghoul
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/head/insect
+//Insect
+/datum/augment_item/limb/head/species/insect
 	name = "insect head"
 	path = /obj/item/bodypart/head/mutant/insect
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/insect
+/datum/augment_item/limb/chest/species/insect
 	name = "insect chest"
 	path = /obj/item/bodypart/chest/mutant/insect
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/insect
+/datum/augment_item/limb/l_arm/species/insect
 	name = "insect left arm"
 	path = /obj/item/bodypart/arm/left/mutant/insect
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/insect
+/datum/augment_item/limb/r_arm/species/insect
 	name = "insect right arm"
 	path = /obj/item/bodypart/arm/right/mutant/insect
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/insect
+/datum/augment_item/limb/l_leg/species/insect
 	name = "insect left leg"
 	path = /obj/item/bodypart/leg/left/mutant/insect
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/insect
+/datum/augment_item/limb/r_leg/species/insect
 	name = "insect right leg"
 	path = /obj/item/bodypart/leg/right/mutant/insect
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/lizard
+//Lizard
+/datum/augment_item/limb/head/species/lizard
 	name = "lizard head"
 	path = /obj/item/bodypart/head/lizard
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/lizard
+/datum/augment_item/limb/chest/species/lizard
 	name = "lizard chest"
 	path = /obj/item/bodypart/chest/lizard
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/lizard
+/datum/augment_item/limb/l_arm/species/lizard
 	name = "lizard left arm"
 	path = /obj/item/bodypart/arm/left/lizard
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/lizard
+/datum/augment_item/limb/r_arm/species/lizard
 	name = "lizard right arm"
 	path = /obj/item/bodypart/arm/right/lizard
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/lizard
+/datum/augment_item/limb/l_leg/species/lizard
 	name = "lizard left leg"
 	path = /obj/item/bodypart/leg/left/lizard
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/lizard
+/datum/augment_item/limb/r_leg/species/lizard
 	name = "lizard right leg"
 	path = /obj/item/bodypart/leg/right/lizard
+
+//Flies
+/datum/augment_item/limb/head/fly
+	name = "fly head"
+	path = /obj/item/bodypart/head/fly
 	cost = 0
 	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
+
+/datum/augment_item/limb/chest/fly
+	name = "fly chest"
+	path = /obj/item/bodypart/chest/fly
+	cost = 0
+	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/l_arm/fly
 	name = "fly left arm"
@@ -259,12 +166,6 @@
 /datum/augment_item/limb/r_arm/fly
 	name = "fly right arm"
 	path = /obj/item/bodypart/arm/right/fly
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/head/fly
-	name = "fly head"
-	path = /obj/item/bodypart/head/fly
 	cost = 0
 	uses_robotic_styles = FALSE
 
@@ -280,9 +181,16 @@
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/chest/fly
-	name = "fly chest"
-	path = /obj/item/bodypart/chest/fly
+//Golems
+/datum/augment_item/limb/head/golem
+	name = "golem head"
+	path = /obj/item/bodypart/head/golem
+	cost = 0
+	uses_robotic_styles = FALSE
+
+/datum/augment_item/limb/chest/golem
+	name = "golem chest"
+	path = /obj/item/bodypart/chest/golem
 	cost = 0
 	uses_robotic_styles = FALSE
 
@@ -298,12 +206,6 @@
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/head/golem
-	name = "golem head"
-	path = /obj/item/bodypart/head/golem
-	cost = 0
-	uses_robotic_styles = FALSE
-
 /datum/augment_item/limb/l_leg/golem
 	name = "golem left leg"
 	path = /obj/item/bodypart/leg/left/golem
@@ -316,179 +218,118 @@
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/chest/golem
-	name = "golem chest"
-	path = /obj/item/bodypart/chest/golem
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/l_arm/slime
-	name = "slime left arm"
-	path = /obj/item/bodypart/arm/left/jelly/slime/roundstart
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_arm/slime
-	name = "slime right arm"
-	path = /obj/item/bodypart/arm/right/jelly/slime/roundstart
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/head/slime
+//Slimes
+/datum/augment_item/limb/head/species/slime
 	name = "slime head"
 	path = /obj/item/bodypart/head/jelly/slime/roundstart
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/slime
-	name = "slime left leg"
-	path = /obj/item/bodypart/leg/left/jelly/slime/roundstart
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_leg/slime
-	name = "slime right leg"
-	path = /obj/item/bodypart/leg/right/jelly/slime/roundstart
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/chest/slime
+/datum/augment_item/limb/chest/species/slime
 	name = "slime chest"
 	path = /obj/item/bodypart/chest/jelly/slime/roundstart
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/moth
+/datum/augment_item/limb/l_arm/species/slime
+	name = "slime left arm"
+	path = /obj/item/bodypart/arm/left/jelly/slime/roundstart
+
+/datum/augment_item/limb/r_arm/species/slime
+	name = "slime right arm"
+	path = /obj/item/bodypart/arm/right/jelly/slime/roundstart
+
+/datum/augment_item/limb/l_leg/species/slime
+	name = "slime left leg"
+	path = /obj/item/bodypart/leg/left/jelly/slime/roundstart
+
+/datum/augment_item/limb/r_leg/species/slime
+	name = "slime right leg"
+	path = /obj/item/bodypart/leg/right/jelly/slime/roundstart
+
+//Moths
+/datum/augment_item/limb/head/species/moth
 	name = "moth head"
 	path = /obj/item/bodypart/head/moth
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/moth
+/datum/augment_item/limb/chest/species/moth
 	name = "moth chest"
 	path = /obj/item/bodypart/chest/moth
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/moth
+/datum/augment_item/limb/l_arm/species/moth
 	name = "moth left arm"
 	path = /obj/item/bodypart/arm/left/moth
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/moth
+/datum/augment_item/limb/r_arm/species/moth
 	name = "moth right arm"
 	path = /obj/item/bodypart/arm/right/moth
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/moth
+/datum/augment_item/limb/l_leg/species/moth
 	name = "moth left leg"
 	path = /obj/item/bodypart/leg/left/moth
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/moth
+/datum/augment_item/limb/r_leg/species/moth
 	name = "moth right leg"
 	path = /obj/item/bodypart/leg/right/moth
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/mushroom
-	name = "mushroom left arm"
-	path = /obj/item/bodypart/arm/left/mushroom
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_arm/mushroom
-	name = "mushroom right arm"
-	path = /obj/item/bodypart/arm/right/mushroom
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/head/mushroom
+//Mushroompeople
+/datum/augment_item/limb/head/species/mushroom
 	name = "mushroom head"
 	path = /obj/item/bodypart/head/mushroom
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/mushroom
-	name = "mushroom left leg"
-	path = /obj/item/bodypart/leg/left/mushroom
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_leg/mushroom
-	name = "mushroom right leg"
-	path = /obj/item/bodypart/leg/right/mushroom
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/chest/mushroom
+/datum/augment_item/limb/chest/species/mushroom
 	name = "mushroom chest"
 	path = /obj/item/bodypart/chest/mushroom
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/pod
-	name = "pod left arm"
-	path = /obj/item/bodypart/arm/left/pod
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
+/datum/augment_item/limb/l_arm/species/mushroom
+	name = "mushroom left arm"
+	path = /obj/item/bodypart/arm/left/mushroom
 
-/datum/augment_item/limb/r_arm/pod
-	name = "pod right arm"
-	path = /obj/item/bodypart/arm/right/pod
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
+/datum/augment_item/limb/r_arm/species/mushroom
+	name = "mushroom right arm"
+	path = /obj/item/bodypart/arm/right/mushroom
 
-/datum/augment_item/limb/head/pod
+/datum/augment_item/limb/l_leg/species/mushroom
+	name = "mushroom left leg"
+	path = /obj/item/bodypart/leg/left/mushroom
+
+/datum/augment_item/limb/r_leg/species/mushroom
+	name = "mushroom right leg"
+	path = /obj/item/bodypart/leg/right/mushroom
+
+//Podpeople
+/datum/augment_item/limb/head/species/pod
 	name = "pod head"
 	path = /obj/item/bodypart/head/pod
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/pod
-	name = "pod left leg"
-	path = /obj/item/bodypart/leg/left/pod
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_leg/pod
-	name = "pod right leg"
-	path = /obj/item/bodypart/leg/right/pod
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/chest/pod
+/datum/augment_item/limb/chest/species/pod
 	name = "pod chest"
 	path = /obj/item/bodypart/chest/pod
+
+/datum/augment_item/limb/l_arm/species/pod
+	name = "pod left arm"
+	path = /obj/item/bodypart/arm/left/pod
+
+/datum/augment_item/limb/r_arm/species/pod
+	name = "pod right arm"
+	path = /obj/item/bodypart/arm/right/pod
+
+/datum/augment_item/limb/l_leg/species/pod
+	name = "pod left leg"
+	path = /obj/item/bodypart/leg/left/pod
+
+/datum/augment_item/limb/r_leg/species/pod
+	name = "pod right leg"
+	path = /obj/item/bodypart/leg/right/pod
+
+//STINKIN' ZOGGIN' 'UMIES!!
+/datum/augment_item/limb/head/human
+	name = "human head"
+	path = /obj/item/bodypart/head
 	cost = 0
 	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
+
+/datum/augment_item/limb/chest/human
+	name = "human chest"
+	path = /obj/item/bodypart/chest
+	cost = 0
+	uses_robotic_styles = FALSE
 
 /datum/augment_item/limb/l_arm/human
 	name = "human left arm"
@@ -499,12 +340,6 @@
 /datum/augment_item/limb/r_arm/human
 	name = "human right arm"
 	path = /obj/item/bodypart/arm/right
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/head/human
-	name = "human head"
-	path = /obj/item/bodypart/head
 	cost = 0
 	uses_robotic_styles = FALSE
 
@@ -520,177 +355,103 @@
 	cost = 0
 	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/chest/human
-	name = "human chest"
-	path = /obj/item/bodypart/chest
-	cost = 0
-	uses_robotic_styles = FALSE
-
-/datum/augment_item/limb/l_arm/ethereal
-	name = "ethereal left arm"
-	path = /obj/item/bodypart/arm/left/ethereal
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_arm/ethereal
-	name = "ethereal right arm"
-	path = /obj/item/bodypart/arm/right/ethereal
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/head/ethereal
+//Ethereals
+/datum/augment_item/limb/head/species/ethereal
 	name = "ethereal head"
 	path = /obj/item/bodypart/head/ethereal
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/ethereal
-	name = "ethereal left leg"
-	path = /obj/item/bodypart/leg/left/ethereal
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/r_leg/ethereal
-	name = "ethereal right leg"
-	path = /obj/item/bodypart/leg/right/ethereal
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
-
-/datum/augment_item/limb/chest/ethereal
+/datum/augment_item/limb/chest/species/ethereal
 	name = "ethereal chest"
 	path = /obj/item/bodypart/chest/ethereal
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/skrell
+/datum/augment_item/limb/l_arm/species/ethereal
+	name = "ethereal left arm"
+	path = /obj/item/bodypart/arm/left/ethereal
+
+/datum/augment_item/limb/r_arm/species/ethereal
+	name = "ethereal right arm"
+	path = /obj/item/bodypart/arm/right/ethereal
+
+/datum/augment_item/limb/l_leg/species/ethereal
+	name = "ethereal left leg"
+	path = /obj/item/bodypart/leg/left/ethereal
+
+/datum/augment_item/limb/r_leg/species/ethereal
+	name = "ethereal right leg"
+	path = /obj/item/bodypart/leg/right/ethereal
+
+//Skrell
+/datum/augment_item/limb/head/species/skrell
 	name = "skrell head"
 	path = /obj/item/bodypart/head/mutant/skrell
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/skrell
+/datum/augment_item/limb/chest/species/skrell
 	name = "skrell chest"
 	path = /obj/item/bodypart/chest/mutant/skrell
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/skrell
+/datum/augment_item/limb/l_arm/species/skrell
 	name = "skrell left arm"
 	path = /obj/item/bodypart/arm/left/mutant/skrell
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/skrell
+/datum/augment_item/limb/r_arm/species/skrell
 	name = "skrell right arm"
 	path = /obj/item/bodypart/arm/right/mutant/skrell
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/skrell
+/datum/augment_item/limb/l_leg/species/skrell
 	name = "skrell left leg"
 	path = /obj/item/bodypart/leg/left/mutant/skrell
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/skrell
+/datum/augment_item/limb/r_leg/species/skrell
 	name = "skrell right leg"
 	path = /obj/item/bodypart/leg/right/mutant/skrell
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/vox
+//Standard Vox
+/datum/augment_item/limb/head/species/vox
 	name = "vox head"
 	path = /obj/item/bodypart/head/mutant/vox
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/vox
+/datum/augment_item/limb/chest/species/vox
 	name = "vox chest"
 	path = /obj/item/bodypart/chest/mutant/vox
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/vox
+/datum/augment_item/limb/l_arm/species/vox
 	name = "vox left arm"
 	path = /obj/item/bodypart/arm/left/mutant/vox
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/vox
+/datum/augment_item/limb/r_arm/species/vox
 	name = "vox right arm"
 	path = /obj/item/bodypart/arm/right/mutant/vox
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/vox
+/datum/augment_item/limb/l_leg/species/vox
 	name = "vox left leg"
 	path = /obj/item/bodypart/leg/left/mutant/vox
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/vox
+/datum/augment_item/limb/r_leg/species/vox
 	name = "vox right leg"
 	path = /obj/item/bodypart/leg/right/mutant/vox
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/xenohybrid
+//Xenomorph Hybrids
+/datum/augment_item/limb/head/species/xenohybrid
 	name = "xenohybrid head"
 	path = /obj/item/bodypart/head/mutant/xenohybrid
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/chest/xenohybrid
+/datum/augment_item/limb/chest/species/xenohybrid
 	name = "xenohybrid chest"
 	path = /obj/item/bodypart/chest/mutant/xenohybrid
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/xenohybrid
+/datum/augment_item/limb/l_arm/species/xenohybrid
 	name = "xenohybrid left arm"
 	path = /obj/item/bodypart/arm/left/mutant/xenohybrid
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/xenohybrid
+/datum/augment_item/limb/r_arm/species/xenohybrid
 	name = "xenohybrid right arm"
 	path = /obj/item/bodypart/arm/right/mutant/xenohybrid
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/xenohybrid
+/datum/augment_item/limb/l_leg/species/xenohybrid
 	name = "xenohybrid left leg"
 	path = /obj/item/bodypart/leg/left/digitigrade/xenohybrid
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/xenohybrid
+/datum/augment_item/limb/r_leg/species/xenohybrid
 	name = "xenohybrid right leg"
 	path = /obj/item/bodypart/leg/right/digitigrade/xenohybrid
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
