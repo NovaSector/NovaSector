@@ -1074,11 +1074,18 @@
 	dir = 8
 	},
 /obj/structure/wall_torch/spawns_lit/directional/east,
+/obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xW" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xZ" = (
@@ -1544,6 +1551,12 @@
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Iq" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
+	},
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
@@ -1630,10 +1643,13 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "JO" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
+/obj/effect/turf_decal/weather/dirt{
+	dir = 10
 	},
-/turf/open/misc/dirt/icemoon,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 5
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "JX" = (
 /obj/machinery/primitive_stove,
@@ -1880,6 +1896,13 @@
 	pixel_y = 7
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_catgirl_den)
+"Ql" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Qo" = (
@@ -2228,6 +2251,9 @@
 "ZY" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 6
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
@@ -3264,7 +3290,7 @@ rY
 oA
 oA
 tI
-yE
+JO
 gi
 Ju
 yE
@@ -3304,7 +3330,7 @@ qh
 qh
 Hs
 xI
-JO
+tI
 tI
 tI
 gi
@@ -3428,7 +3454,7 @@ wt
 yD
 oJ
 rY
-Gc
+Ql
 tI
 op
 op
@@ -3555,7 +3581,7 @@ oJ
 oA
 RW
 tI
-yE
+JO
 oA
 yp
 Bc
@@ -3638,7 +3664,7 @@ oJ
 oJ
 oA
 yp
-yE
+JO
 tI
 oA
 RW
