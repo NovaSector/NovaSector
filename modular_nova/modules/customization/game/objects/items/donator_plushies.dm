@@ -1,8 +1,8 @@
 /*
 * Donation reward plushies go in this file
 * Plushies in this file are not usable in maps, so if you WISH for your plushie to /maybe/ be used in maps
-* don't put in this file
-* As long as its not a balatant OOC refernce it can probably get used
+* don't put in this file.
+* Please contact Golden if you want your plushie(s) usable on maps.
 */
 
 
@@ -65,12 +65,12 @@
 	attack_verb_continuous = list(
 		"cuddles",
 		"squishes",
-		"blushes"
+		"blushes",
 		)
 	attack_verb_simple = list(
 		"cuddle",
 		"squish",
-		"blush"
+		"blush",
 		)
 
 //Donation reward for Dalao Azure
@@ -87,12 +87,12 @@
 	attack_verb_continuous = list(
 		"bites",
 		"eats",
-		"fin slaps"
+		"fin slaps",
 		)
 	attack_verb_simple = list(
 		"bite",
 		"eat",
-		"fin slap"
+		"fin slap",
 		)
 	squeak_override = list('sound/weapons/bite.ogg' = 1)
 
@@ -112,13 +112,13 @@
 		"snuggles",
 		"nibbles",
 		"awoos",
-		"tail whaps"
+		"tail whaps",
 		)
 	attack_verb_simple = list(
 		"snuggle",
 		"nibble",
 		"awoo",
-		"tail whap"
+		"tail whap",
 		)
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/merowr.ogg' = 1)
 
@@ -132,14 +132,14 @@
 		"squeaks",
 		"nose twitches",
 		"thumps",
-		"whops"
+		"whops",
 		)
 	attack_verb_simple = list(
 		"nibble",
 		"squeak",
 		"nose twitch",
 		"thump",
-		"whop"
+		"whop",
 		)
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
@@ -151,12 +151,12 @@
 	attack_verb_continuous = list(
 		"nuzzles",
 		"hoots",
-		"hugs"
+		"hugs",
 		)
 	attack_verb_simple = list(
 		"nuzzle",
 		"hoot",
-		"hug"
+		"hug",
 		)
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/hoot.ogg' = 1)
 
@@ -169,12 +169,12 @@
 	attack_verb_continuous = list(
 		"wehs",
 		"wehs softly",
-		"stutters"
+		"stutters",
 		)
 	attack_verb_simple = list(
 		"weh",
 		"weh softly",
-		"stutter"
+		"stutter",
 		)
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)
 
@@ -196,12 +196,12 @@
 	attack_verb_continuous = list(
 		"blushes",
 		"hugs",
-		"whips"
+		"whips",
 		)
 	attack_verb_simple = list(
 		"blush",
 		"hug",
-		"whip"
+		"whip",
 		)
 	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
@@ -226,13 +226,14 @@
 		"export scans",
 		"dwoops",
 		"bwuhs",
-		"stamps")
+		"stamps",
+		)
 	attack_verb_simple = list(
 		"deliver",
 		"export scan",
 		"dwoop",
 		"bwuh",
-		"stamp"
+		"stamp",
 		)
 	squeak_override = list('modular_nova/modules/emotes/sound/emotes/twobeep.ogg' = 1)
 
@@ -246,13 +247,13 @@
 		"washes",
 		"mops",
 		"squirts",
-		"soaps"
+		"soaps",
 		)
 	attack_verb_simple = list(
 		"beep",
 		"wash",
 		"mop",
 		"squirt",
-		"soap"
+		"soap",
 		)
 	squeak_override = list('sound/machines/twobeep.ogg' = 1)
