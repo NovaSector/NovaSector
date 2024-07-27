@@ -29,6 +29,15 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
+/// Nova Edit Addition START: Moving Synths to modular version
+/datum/surgery/advanced/bioware/nerve_grounding/can_start(mob/user, mob/living/carbon/target)
+	if(!issynthetic(target))
+		return TRUE
+	if(!..())
+		return FALSE
+	return
+/// Nova Edit Addition END
+
 /datum/surgery_step/apply_bioware/ground_nerves
 	name = "ground nerves (hand)"
 	time = 15.5 SECONDS

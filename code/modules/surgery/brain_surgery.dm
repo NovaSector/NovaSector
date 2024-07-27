@@ -24,13 +24,12 @@
 	)
 
 /// Nova Edit Addition START: Runtime due to brain location
-/datum/surgery/brain_surgery/mechanic/can_start(mob/user, mob/living/patien)
-	. = ..()
-	if(!.)
-		return FALSE
+/datum/surgery/brain_surgery/can_start(mob/user, mob/living/carbon/target)
 	if(!issynthetic(target))
 		return TRUE
-	return TRUE
+	if(!..())
+		return FALSE
+	return
 /// Nova Edit Addition END
 
 /datum/surgery_step/fix_brain

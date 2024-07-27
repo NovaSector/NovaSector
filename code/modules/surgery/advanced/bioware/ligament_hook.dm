@@ -31,14 +31,13 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: Synths already have this by default
-/datum/surgery/advanced/bioware/ligament_hook/mechanic/can_start(mob/user, mob/living/carbon/human/target)
-	. = ..()
-	if(!.)
-		return FALSE
+/// Nova Edit Addition START: Moving Synths to modular version
+/datum/surgery/advanced/bioware/ligament_hook/can_start(mob/user, mob/living/carbon/target)
 	if(!issynthetic(target))
 		return TRUE
-	return TRUE
+	if(!..())
+		return FALSE
+	return
 /// Nova Edit Addition END
 
 /datum/surgery_step/apply_bioware/reshape_ligaments

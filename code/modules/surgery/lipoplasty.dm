@@ -23,6 +23,8 @@
 	)
 
 /datum/surgery/lipoplasty/can_start(mob/user, mob/living/carbon/target)
+	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
+		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	if(!HAS_TRAIT_FROM(target, TRAIT_FAT, OBESITY) || target.nutrition < NUTRITION_LEVEL_WELL_FED)
 		return FALSE
 	return ..()

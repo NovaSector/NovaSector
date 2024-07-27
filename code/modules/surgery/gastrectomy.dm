@@ -27,10 +27,13 @@
 	)
 
 /datum/surgery/gastrectomy/can_start(mob/user, mob/living/carbon/target)
+	. = ..()
+	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
+		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	var/obj/item/organ/internal/stomach/target_stomach = target.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(isnull(target_stomach) || target_stomach.damage < 50 || target_stomach.operated)
 		return FALSE
-	return ..()
+	return
 
 ////Gastrectomy, because we truly needed a way to repair stomachs.
 //95% chance of success to be consistent with most organ-repairing surgeries.
