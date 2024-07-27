@@ -1,11 +1,11 @@
 /datum/loadout_item/toys/miafoxplush
 	name = "Mia's fox plushie"
-	item_path = /obj/item/toy/plush/nova/fox/mia
+	item_path = /obj/item/toy/plush/nova/donator/fox/mia
 	ckeywhitelist = list("fuzlet")
 
 /datum/loadout_item/toys/teasefoxplush
 	name = "Teasable fox plushie"
-	item_path = /obj/item/toy/plush/nova/fox/kailyn
+	item_path = /obj/item/toy/plush/nova/donator/fox/kailyn
 	ckeywhitelist = list("ratraus")
 
 /datum/loadout_item/pocket_items/drawingtablet
@@ -437,7 +437,7 @@
 
 /datum/loadout_item/toys/zappplush
 	name = "Lil' Zapp Plushie"
-	item_path = /obj/item/toy/plush/nova/zapp
+	item_path = /obj/item/toy/plush/nova/donator/zapp
 	donator_only = TRUE
 
 /datum/loadout_item/pocket_items/tacticalbrush
@@ -474,7 +474,7 @@
 
 /datum/loadout_item/toys/roselia_plush
 	name = "Obscene Sergal Plushie"
-	item_path = /obj/item/toy/plush/nova/roselia
+	item_path = /obj/item/toy/plush/nova/donator/roselia
 	ckeywhitelist = list("ultimarifox")
 
 /datum/loadout_item/accessory/mercbadge
@@ -525,17 +525,17 @@
 
 /datum/loadout_item/toys/CFBonnie
 	name = "Chunko Fop: Blue Bunny Plushie"
-	item_path = /obj/item/toy/plush/nova/chunko/bonnie
+	item_path = /obj/item/toy/plush/nova/donator/chunko/bonnie
 	donator_only = TRUE
 
 /datum/loadout_item/toys/CFAndrew
 	name = "Chunko Fop: Green Bunny Plushie"
-	item_path = /obj/item/toy/plush/nova/chunko/andrew
+	item_path = /obj/item/toy/plush/nova/donator/chunko/andrew
 	donator_only = TRUE
 
 /datum/loadout_item/toys/CFInessa
 	name = "Chunko Fop: Medical Bear Plushie"
-	item_path = /obj/item/toy/plush/nova/chunko/inessa
+	item_path = /obj/item/toy/plush/nova/donator/chunko/inessa
 	donator_only = TRUE
 
 /datum/loadout_item/toys/plushie_chiara
@@ -561,7 +561,7 @@
 
 /datum/loadout_item/toys/plushie_jeanne
 	name = "Masked Roboticist Plushie"
-	item_path = /obj/item/toy/plush/nova/fox/plushie_jeanne
+	item_path = /obj/item/toy/plush/nova/donator/plushie_jeanne
 //	ckeywhitelist = list("klb100") // Asked it to be public.
 
 /datum/loadout_item/under/jumpsuit/tactichill
