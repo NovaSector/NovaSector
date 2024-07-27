@@ -1335,3 +1335,31 @@
       rick hick/tommy!
   - code_imp: Added some functionality to make it so the mushroom theme song doesn't
       get cut in the middle while it's played.
+2024-07-27:
+  LT3:
+  - bugfix: Tram will no longer eat its own rails as it travels
+  - bugfix: Fixed delam counter stuck in window near Ice Box bridge
+  - bugfix: False supermatter surge announcements are now identical to real ones
+  - bugfix: Fixed disease outbreak announcement sometimes missing the disease name
+  NovaBot13:
+  - bugfix: Fixes projectiles facing north if ricocheting, deflected or homing
+  - rscdel: Removed a janky fish bounty
+  - rscadd: introduced exporting fish through cargo.
+  - balance: reduced the average weight of the jumpercable. Conversely, eased up the
+      requirements for the bone fish evolution.
+  - bugfix: wawastation engineering water tanks are now highcap
+  - bugfix: Fixed possessed blades being broken
+  - code_imp: If testing is enabled everyone is polled in ghost polls.
+  - bugfix: Firelocks will once again respect fire alarm's thermal sensors being disabled.
+  - balance: If a bluespace cookie fails to teleport you then you will trip over.
+  - bugfix: Fixes borgs not being able to place apparatus-held items on tables. As
+      a side-effect, they can now combat mode right click splash containers as normal
+      instead of having their own right-click floor splash.
+  - image: Updated gas flow meter sprites
+  - refactor: Refactored table item interactions, please report any issues.
+  - bugfix: Fixed being unable to use decks to draw cards directly onto tables.
+  - qol: Right clicking a table with a tray puts it down regardless of it having contents.
+  - bugfix: Janicart inserts items into the attached trash bag again (manual and vacuumed)
+  - bugfix: Tram's Tool Storage now has proper lighting
+  Thlumyn:
+  - bugfix: self-resp viruses don't spam messages as often
