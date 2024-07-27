@@ -1,0 +1,4 @@
+author: "yooriss"
+delete-after: True
+changes:
+  - balance: "The GMM's prices are now much narrower, making arbitrage harder and initial purchases a little more expensive."
