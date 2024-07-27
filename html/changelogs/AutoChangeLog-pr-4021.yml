@@ -1,0 +1,4 @@
+author: "MortoSasye"
+delete-after: True
+changes:
+  - bugfix: "The Hearthkin's armor now inherits from the forged variety."
