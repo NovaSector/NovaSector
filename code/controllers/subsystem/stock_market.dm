@@ -1,5 +1,5 @@
-#define MINIMUM_VALUE_MULT 0.5 // NOVA EDIT: used in price_minimum declarations, /tg/ default is 0.5
-#define MAXIMUM_VALUE_MULT 3 // NOVA EDIT: used in prixe_maximum declarations, /tg/ default is 3
+#define MINIMUM_VALUE_MULT 0.95 // NOVA EDIT: used in price_minimum declarations, /tg/ default is 0.5
+#define MAXIMUM_VALUE_MULT 1.05 // NOVA EDIT: used in prixe_maximum declarations, /tg/ default is 3
 
 SUBSYSTEM_DEF(stock_market)
 	name = "Stock Market"
