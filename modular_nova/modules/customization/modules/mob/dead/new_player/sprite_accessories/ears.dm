@@ -42,7 +42,7 @@
 	uses_emissives = TRUE
 
 /datum/sprite_accessory/ears/mutant/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
