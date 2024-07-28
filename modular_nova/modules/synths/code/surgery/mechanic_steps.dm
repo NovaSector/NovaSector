@@ -14,8 +14,8 @@
 		user,
 		target,
 		span_notice("You begin to cut loose wires in [target]'s [parse_zone(target_zone)]..."),
-		"[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)].",
-		"[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)].",
+		span_notice("[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)]."),
+		span_notice("[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)]."),
 	)
 
 /datum/surgery_step/cut_wires/tool_check(mob/user, obj/item/tool)
@@ -41,8 +41,8 @@
 		user,
 		target,
 		span_notice("You begin to pry off [target]'s [parse_zone(target_zone)] plating..."),
-		"[user] begins to pry off [target]'s [parse_zone(target_zone)] plating.",
-		"[user] begins to pry off [target]'s [parse_zone(target_zone)] plating.",
+		span_notice("[user] begins to pry off [target]'s [parse_zone(target_zone)] plating."),
+		span_notice("[user] begins to pry off [target]'s plating."),
 	)
 
 //weld plating
@@ -63,8 +63,8 @@
 		user,
 		target,
 		span_notice("You begin to weld [target]'s [parse_zone(target_zone)] plating..."),
-		"[user] begins to weld [target]'s [parse_zone(target_zone)] plating.",
-		"[user] begins to weld [target]'s [parse_zone(target_zone)] plating.",
+		span_notice("[user] begins to weld [target]'s [parse_zone(target_zone)] plating."),
+		span_notice("[user] begins to weld [target]'s plating."),
 	)
 
 //replace wires
@@ -92,8 +92,8 @@
 		user,
 		target,
 		span_notice("You begin to replace [target]'s [parse_zone(target_zone)] wiring..."),
-		"[user] begins to replace [target]'s [parse_zone(target_zone)] wiring.",
-		"[user] begins to replace [target]'s [parse_zone(target_zone)] wiring.",
+		span_notice("[user] begins to replace [target]'s [parse_zone(target_zone)] wiring."),
+		span_notice("[user] begins to replace [target]'s wiring."),
 	)
 
 //add plating
@@ -119,8 +119,8 @@
 		user,
 		target,
 		span_notice("You begin to add plating to [target]'s [parse_zone(target_zone)]..."),
-		"[user] begins to add plating to [target]'s [parse_zone(target_zone)].",
-		"[user] begins to add plating to [target]'s [parse_zone(target_zone)].",
+		span_notice("[user] begins to add plating to [target]'s [parse_zone(target_zone)]."),
+		span_notice("[user] begins to add plating to [target]'s [parse_zone(target_zone)]."),
 	)
 
 // overridden 3rd arg

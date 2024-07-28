@@ -281,7 +281,7 @@
 *	MISC
 */
 
-/datum/supply_pack/misc/speedbike //If you see this bought in game, its time to nerf a cargo exploit.
+/datum/supply_pack/misc/speedbike //If you see this bought in game, it's time to nerf a cargo exploit.
 	name = "Speedbike"
 	desc = "Put your shades on, saddle up, and ride off directly into the sun on this turbo deluxe space-cruising speedbike."
 	cost = 1000000 //Special case, we don't want to make this in terms of crates because having bikes be a million credits is the whole meme.

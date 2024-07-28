@@ -149,7 +149,7 @@
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun/no_mag
 	spawnwithmagazine = FALSE
 
-// Evil version of the rifle (nothing different its just black)
+// Evil version of the rifle (nothing different it's just black)
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil
 	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."

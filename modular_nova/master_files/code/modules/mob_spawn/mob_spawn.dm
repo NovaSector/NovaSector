@@ -13,7 +13,7 @@
 
 /obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname)
 	var/load_prefs = FALSE
-	//if we can load our own appearance and its not restricted, try
+	//if we can load our own appearance and it's not restricted, try
 	if(!random_appearance && mob_possessor?.client)
 		//if we have gotten to this point, they have already waived their species pref.-- they were told they need to use the specific species already
 		if((restricted_species && (mob_possessor?.client?.prefs?.read_preference(/datum/preference/choiced/species) in restricted_species)) || !restricted_species)
@@ -48,9 +48,8 @@
 		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
 		equip(spawned_human)
-
-	var/mutable_appearance/character_appearance = new(spawned_human.appearance)
-	GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
+		var/mutable_appearance/character_appearance = new(spawned_human.appearance)
+		GLOB.name_to_appearance[spawned_human.real_name] = character_appearance // Cache this for Character Directory
 
 	return spawned_mob
 
