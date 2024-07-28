@@ -6,11 +6,6 @@
 	tab_order = /datum/loadout_category/pocket::tab_order + 1
 	VAR_PRIVATE/max_allowed = 7
 
-datum/loadout_item/erp
-	//abstract_type = datum/loadout_item/erp
-	erp_item = TRUE
-
-
 /datum/loadout_category/erp/New()
 	. = ..()
 	category_info = "([max_allowed] allowed)"
@@ -31,6 +26,10 @@ datum/loadout_item/erp
 
 /datum/loadout_item/erp/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // need to figure a way to put them all in a box
 	return FALSE
+
+/datum/loadout_item/erp
+	abstract_type = /datum/loadout_item/erp
+	erp_item = TRUE
 
 /*
 *	SEX TOYS
