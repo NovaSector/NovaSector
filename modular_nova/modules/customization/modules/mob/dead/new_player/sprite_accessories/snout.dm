@@ -119,6 +119,13 @@
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/external/snout/top_adj
 
+/datum/sprite_accessory/snouts/mammal/bug_no_ant
+	name = "Bug (No Antennae, Below Hair)"
+	icon_state = "bug_no_ant"
+	flags_for_organ = NONE
+	color_src = USE_MATRIXED_COLORS
+	organ_type = /obj/item/organ/external/snout/top_adj
+
 /datum/sprite_accessory/snouts/mammal/bug_no_eyes
 	name = "Bug (No eyes)"
 	icon_state = "bug_no_eyes"
