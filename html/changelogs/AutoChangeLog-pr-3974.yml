@@ -1,0 +1,4 @@
+author: "unit0016"
+delete-after: True
+changes:
+  - bugfix: "Icedyne's fire alarms are now rotated the right way around."
