@@ -161,6 +161,10 @@
 	generic = "Body Markings"
 	default_color = DEFAULT_TERTIARY
 
+/datum/sprite_accessory/lizard_markings/none
+	name = "None"
+	icon_state = "none"
+
 /datum/sprite_accessory/legs
 	key = "legs"
 	generic = "Leg Type"
