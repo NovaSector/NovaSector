@@ -27,7 +27,7 @@
 /datum/map_template/ruin/icemoon/underground/nova/magic_hotsprings
 	name = "Magic Hotsprings"
 	id = "magic-hotsprings"
-	description = "A beautiful hot springs spot, surrounded by unnatural fairy grass, and exotic trees."
+	description = "A beautiful hot springs spot, surrounded by unnatural fairy grass and exotic trees."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_underground_magical_hotsprings.dmm"
 	allow_duplicates = FALSE
