@@ -72,12 +72,16 @@
 	icon_state = "suit_pants"
 	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
 	inhand_icon_state = "engi_suit"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	has_sensor = NO_SENSORS
 	armor_type = /datum/armor/clothing_under/sapper
 	can_adjust = FALSE
 
 /obj/item/clothing/under/sapper/skirt
 	icon_state = "suit_skirt"
+	body_parts_covered = CHEST|GROIN|ARMS
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
 
 /datum/armor/clothing_under/sapper
 	melee = 25
@@ -127,6 +131,7 @@
 	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
 	inhand_icon_state = null
 	uses_advanced_reskins = FALSE
+	unique_reskin = null
 	var/hit_reflect_chance = 50
 
 /obj/item/clothing/neck/security_cape/sapper/IsReflect(def_zone)

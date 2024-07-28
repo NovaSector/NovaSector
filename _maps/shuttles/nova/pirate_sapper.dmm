@@ -423,10 +423,29 @@
 /obj/item/stack/sheet/mineral/wood{
 	amount = 20
 	},
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled,
+/turf/open/floor/catwalk_floor/iron_white,
+/area/shuttle/pirate/sapper)
+"JD" = (
+/obj/structure/cable/layer1,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/ammo_box/magazine/c35sol_pistol{
+	pixel_x = -5;
+	pixel_y = -8
+	},
+/obj/item/ammo_box/magazine/c35sol_pistol{
+	pixel_y = 3
+	},
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "JF" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/c35sol_pistol{
+	pixel_x = -6;
+	pixel_y = -5
+	},
+/obj/item/ammo_box/magazine/c35sol_pistol,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "Mi" = (
@@ -493,6 +512,7 @@
 /obj/item/stack/sheet/mineral/wood{
 	amount = 20
 	},
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "Sa" = (
@@ -611,7 +631,7 @@ Ih
 nt
 IH
 hV
-Zc
+JD
 hV
 Ml
 Xr

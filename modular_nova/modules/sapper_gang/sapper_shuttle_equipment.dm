@@ -36,25 +36,32 @@
 	faction = list(FACTION_SAPPER)
 	req_access = list(ACCESS_SAPPER_SHIP)
 	on = FALSE
-/*
-/obj/item/storage/toolbox/emergency/turret/sapper
-	name = "portable turret toolbox"
 
-/obj/item/storage/toolbox/emergency/turret/sapper/PopulateContents()
-	//we don't need the combat wrench, we already spawn with it in our belt
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper
+	name = "offensive turret capsule"
+	desc = ""
+	icon_state = "sapper_toolbox"
+	inhand_icon_state = null
+	mag_slots = 2
+	turret_safety = FALSE
+	faction = list(FACTION_SAPPER)
+	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
+	mag_types_allowed = list(
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+	)
 
-/obj/item/storage/toolbox/emergency/turret/sapper/set_faction(obj/machinery/porta_turret/turret, mob/user) //a nice proc to hook into
-	turret.faction = list(FACTION_SAPPER)
-	turret.lethal_projectile = /obj/projectile/beam/laser/sapper_turret
-	turret.lethal_projectile_sound = 'sound/weapons/laser2.ogg'
-	turret.max_integrity = 150
-	turret.shot_delay = 2 SECONDS
+/obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled/PopulateContents()
+	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
 
-/obj/projectile/beam/laser/sapper_turret
-	damage = 10
-	speed = 0.6
-	light_color = COLOR_VIVID_YELLOW
-*/
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
+	name = "\improper Sapper Spider Turret"
+	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition."
+	max_integrity = 115
+	shot_delay = 2 SECONDS
+	faction = list(FACTION_SAPPER)
+	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled
+
 /mob/living/basic/bot/medbot/sapper
 	name = "\proper Manon"
 	medkit_type = /obj/item/storage/medkit/fire
