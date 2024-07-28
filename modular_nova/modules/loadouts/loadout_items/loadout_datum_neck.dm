@@ -297,46 +297,6 @@
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
 /*
-*	COLLARS
-*/
-
-/datum/loadout_item/neck/erp
-	abstract_type = /datum/loadout_item/neck/erp
-	erp_item = TRUE
-
-/datum/loadout_item/neck/erp/kink_collar
-	name = "Collar"
-	item_path = /obj/item/clothing/neck/kink_collar
-
-/datum/loadout_item/neck/erp/collar
-	name = "Pet Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar
-
-/datum/loadout_item/neck/erp/collar
-	name = "Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/choker
-
-/datum/loadout_item/neck/erp/collar
-	name = "Thin Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/thinchoker
-
-/datum/loadout_item/neck/erp/collar
-	name = "Bell Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/bell
-
-/datum/loadout_item/neck/erp/collar
-	name = "Cowbell Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/cow
-
-/datum/loadout_item/neck/erp/collar
-	name = "Cross Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/cross
-
-/datum/loadout_item/neck/erp/collar
-	name = "Spiked Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/spike
-
-/*
 *	DONATOR
 */
 
