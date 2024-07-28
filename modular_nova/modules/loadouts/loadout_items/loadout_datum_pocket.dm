@@ -1,12 +1,5 @@
-/*
-*	LOADOUT ITEM DATUMS FOR BACKPACK/POCKET SLOTS
-*/
-
-/// Pocket items (Moved to backpack)
-GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_item/pocket_items))
-
-/datum/loadout_item/pocket_items
-	category = LOADOUT_ITEM_MISC
+/datum/loadout_category/pocket
+	tab_order = /datum/loadout_category/toys::tab_order + 1
 
 /datum/loadout_item/pocket_items/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // these go in the backpack
 	return FALSE
@@ -15,14 +8,20 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 /datum/loadout_item/pocket_items/wallet
 	name = "Wallet"
 	item_path = /obj/item/storage/wallet
-	additional_tooltip_contents = list("FILLS AUTOMATICALLY - This item will populate itself with your ID card and other small items you may have on spawn.")
+	additional_displayed_text = list("Auto-Filled")
 
 // We add our wallet manually, later, so no need to put it in any outfits.
 /datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)
 	return FALSE
 
 // We didn't spawn any item yet, so nothing to call here.
-/datum/loadout_item/pocket_items/wallet/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only)
+/datum/loadout_item/pocket_items/wallet/on_equip_item(
+	obj/item/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only = FALSE,
+)
 	return FALSE
 
 // We add our wallet at the very end of character initialization (after quirks, etc) to ensure the backpack / their ID is all set by now.
@@ -138,7 +137,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/cigar //smoking is bad mkay
 	name = "Cigar"
-	item_path = /obj/item/clothing/mask/cigarette/cigar
+	item_path = /obj/item/cigarette/cigar
 
 /datum/loadout_item/pocket_items/flask
 	name = "Flask"
@@ -250,7 +249,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/power_cell
 	name = "Standard Power Cell"
-	item_path = /obj/item/stock_parts/cell
+	item_path = /obj/item/stock_parts/power_store/cell
 
 /datum/loadout_item/pocket_items/soap
 	name = "Bar of Soap"
@@ -334,6 +333,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 */
 
 /datum/loadout_item/pocket_items/donator
+	abstract_type = /datum/loadout_item/pocket_items/donator
 	donator_only = TRUE
 
 /datum/loadout_item/pocket_items/donator/coin
@@ -346,4 +346,4 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/donator/vape
 	name = "E-Cigarette"
-	item_path = /obj/item/clothing/mask/vape
+	item_path = /obj/item/vape

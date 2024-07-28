@@ -24,12 +24,12 @@
 /obj/structure/railing/wooden_fencing/atom_deconstruct(disassembled)
 	var/obj/plank = new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 	transfer_fingerprints_to(plank)
-  
+
 // formerly NO_DECONSTRUCTION
-/obj/structure/railing/wirecutter_act(mob/living/user, obj/item/tool)
+/obj/structure/railing/wooden_fencing/wirecutter_act(mob/living/user, obj/item/tool)
 	return NONE
 
-/obj/structure/railing/crowbar_act(mob/living/user, obj/item/tool)
+/obj/structure/railing/wooden_fencing/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
 	to_chat(user, span_warning("You pry apart the railing."))
 	tool.play_tool_sound(src, 100)

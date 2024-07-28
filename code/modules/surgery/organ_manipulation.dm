@@ -128,7 +128,7 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-///Organ manipulation base class. Do not use, it wont work. Use it's subtypes
+///Organ manipulation base class. Do not use, it wont work. Use its subtypes
 /datum/surgery_step/manipulate_organs
 	name = "manipulate organs"
 	repeatable = TRUE
@@ -267,8 +267,12 @@
 			)
 			display_pain(target, "Your [target.parse_zone_with_bodypart(target_zone)] throbs with pain, you can't feel your [target_organ.name] anymore!")
 			log_combat(user, target, "surgically removed [target_organ.name] from", addition="COMBAT MODE: [uppertext(user.combat_mode)]")
+			///NOVA EDIT BEGIN - Makes slime core ejection properly work.
+			var/atom/drop_loc = target.drop_location()
 			target_organ.Remove(target)
-			target_organ.forceMove(get_turf(target))
+			if(drop_loc)
+				target_organ.forceMove(drop_loc)
+			///NOVA EDIT END
 			target_organ.on_surgical_removal(user, target, target_zone, tool)
 		else
 			display_results(

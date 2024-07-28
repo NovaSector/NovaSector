@@ -148,6 +148,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
+	interaction_flags_mouse_drop = NEED_DEXTERITY
 
 	var/open_icon_state = "cryopod-open"
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
@@ -358,9 +359,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	else
 		control_computer.frozen_crew += list(list("name" = occupant_name, "job" = occupant_rank))
 
-	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
-	if(!quiet)
-		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
+		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
+		if(!quiet)
+			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
@@ -388,8 +389,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	open_machine()
 	name = initial(name)
 
-/obj/machinery/cryopod/MouseDrop_T(mob/living/target, mob/user)
-	if(!istype(target) || !can_interact(user) || !target.Adjacent(user) || !ismob(target) || isanimal(target) || !istype(user.loc, /turf) || target.buckled)
+/obj/machinery/cryopod/mouse_drop_receive(mob/living/target, mob/user, params)
+	if(!istype(target) || !ismob(target) || isanimal(target) || !istype(user.loc, /turf) || target.buckled)
 		return
 
 	if(occupant)

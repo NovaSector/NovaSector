@@ -173,6 +173,15 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/suit/jacket/white_robe
+	name = "white robe"
+	desc = "A white long robe."
+	icon_state = "white_robe"
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"
 	desc = "A simple varsity jacket with no obvious sources."
@@ -257,23 +266,76 @@
 	body_parts_covered = CHEST|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	/// Whether or not this gets the /datum/component/toggle_icon component added (for rolling up sleeves)
-	var/has_sleeves = TRUE
 
 /obj/item/clothing/suit/crop_jacket/Initialize(mapload)
 	. = ..()
 	allowed += STUFF_WINTER_COATS_HOLD
-	if(has_sleeves)
-		AddComponent(/datum/component/toggle_icon, "sleeves")
-	
+	AddComponent(/datum/component/toggle_icon)
+
+/obj/item/clothing/suit/crop_jacket/shortsleeve
+	name = "short-sleeved crop-top jacket"
+	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
+		some barbarian has cut the entire bottom half out, as well as half the sleeves."
+	icon_state = "crop_jacket_short"
+	greyscale_config = /datum/greyscale_config/shortsleeve_crop_jacket
+	greyscale_config_worn = /datum/greyscale_config/shortsleeve_crop_jacket/worn
+
 /obj/item/clothing/suit/crop_jacket/sleeveless
 	name = "sleeveless crop-top jacket"
 	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
 		some barbarian has cut the entire bottom half out, as well as the sleeves."
+	icon_state = "crop_jacket_sleeveless"
 	greyscale_config = /datum/greyscale_config/sleeveless_crop_jacket
 	greyscale_config_worn = /datum/greyscale_config/sleeveless_crop_jacket/worn
 	greyscale_colors = "#ebebeb#a52f29"
 	body_parts_covered = CHEST
-	has_sleeves = FALSE
+
+/obj/item/clothing/suit/crop_jacket/long
+	name = "sports jacket"
+	desc = "A jacket that probably makes quite the effective outdoors wear."
+	icon_state = "jacket"
+
+/obj/item/clothing/suit/crop_jacket/shortsleeve/long
+	name = "short-sleeved sports jacket"
+	desc = "A jacket that probably makes quite the effective outdoors wear. However, \
+		some barbarian has cut the sleeves in half."
+	icon_state = "jacket_short"
+
+/obj/item/clothing/suit/crop_jacket/sleeveless/long
+	name = "sleeveless sports jacket"
+	desc = "A jacket that probably makes quite the effective outdoors wear. However, \
+		some barbarian has cut the sleeves off."
+	icon_state = "jacket_sleeveless"
+
+/obj/item/clothing/suit/big_jacket
+	name = "\improper Alpha Atelier pilot jacket"
+	desc = "An exacting reproduction of the pilot jackets worn in the infancy of faster than light travel, \
+		right down the precise tension of thread spun on the precisely correct looms. The pilots it pays homage \
+		to worked in small ships and in close proximity to their supercooled drives and needed extreme insulation, \
+		hence the bulk."
+	icon_state = "big_jacket"
+	greyscale_config = /datum/greyscale_config/big_jacket
+	greyscale_config_worn = /datum/greyscale_config/big_jacket/worn
+	greyscale_colors = "#666633#333300#666633"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+
+/obj/item/clothing/suit/big_jacket/Initialize(mapload)
+	. = ..()
+	allowed += STUFF_WINTER_COATS_HOLD
+
+/obj/item/clothing/suit/toggle/labcoat/nova/custom
+	name = "custom labcoat"
+	desc = "A suit that protects against minor chemical spills.  This one has custom stripes & coloration."
+	icon_state = "labcoat_job"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	greyscale_config = /datum/greyscale_config/labcoat
+	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
+	greyscale_colors = "#EEEEEE#FF0000#FF0000#333333"
 
 #undef STUFF_WINTER_COATS_HOLD

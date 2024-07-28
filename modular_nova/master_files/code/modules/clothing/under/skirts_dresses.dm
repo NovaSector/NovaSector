@@ -16,7 +16,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-//TG's icons only have a dress.dmi, but that means its not ABC-sorted to be beside shorts_pants_shirts.dmi. So its skirts_dresses for us.
+//TG's icons only have a dress.dmi, but that means it's not ABC-sorted to be beside shorts_pants_shirts.dmi. So it's skirts_dresses for us.
 
 /*
  *	TG DIGI VERSION DRESSES
@@ -195,3 +195,26 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/*
+ *	Others
+ */
+
+/obj/item/clothing/under/dress/skirt/nova/loincloth
+	name = "loincloth"
+	desc = "A simple elegant cloth, to use wrapped around your waist and groin."
+	icon_state = "loincloth"
+	greyscale_config = /datum/greyscale_config/loincloth
+	greyscale_config_worn = /datum/greyscale_config/loincloth/worn
+	greyscale_colors = "#413069"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = GROIN|LEGS
+	has_sensor = NO_SENSORS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt
+	name = "shorter loincloth"
+	desc = "A simple elegant cloth, to use wrapped around your waist and groin. This one uses a shorter cloth."
+	icon_state = "loincloth_alt"
+	greyscale_config = /datum/greyscale_config/loincloth_alt
+	greyscale_config_worn = /datum/greyscale_config/loincloth_alt/worn

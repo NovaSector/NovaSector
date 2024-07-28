@@ -95,6 +95,10 @@
 	item_type = /obj/item/gun/ballistic/automatic/c20r/toy/unrestricted
 	cost = PAYCHECK_COMMAND * 3
 
+/datum/armament_entry/company_import/donk/foamforce/foam_turret
+	item_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled
+	cost = PAYCHECK_COMMAND * 4
+
 /datum/armament_entry/company_import/donk/foamforce/foam_lmg
 	item_type = /obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted
 	cost = PAYCHECK_COMMAND * 5

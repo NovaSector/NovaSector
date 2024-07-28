@@ -179,7 +179,7 @@
 			disabled += body_part
 		missing -= body_part.body_zone
 		for(var/obj/item/I in body_part.embedded_objects)
-			if(I.isEmbedHarmless())
+			if(I.is_embed_harmless())
 				msg += "<B>[t_He] [t_has] [icon2html(I, user)] \a [I] stuck to [t_his] [body_part.name]!</B>\n"
 			else
 				msg += "<B>[t_He] [t_has] [icon2html(I, user)] \a [I] embedded in [t_his] [body_part.name]!</B>\n"
@@ -481,7 +481,7 @@
 
 	for(var/genital in GLOB.possible_genitals)
 		if(dna.species.mutant_bodyparts[genital])
-			var/datum/sprite_accessory/genital/G = GLOB.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
+			var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
 			if(G)
 				if(!(G.is_hidden(src)))
 					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
@@ -499,6 +499,8 @@
 		flavor_text_link = span_notice("<a href='?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine closely...\]</a>")
 	if (flavor_text_link)
 		. += flavor_text_link
+	if (!face_obscured && !HAS_TRAIT(src, TRAIT_UNKNOWN) && client?.prefs.read_preference(/datum/preference/text/character_ad))
+		. += span_notice("[t_He] [t_has] an ad in the character directory... <a href='?src=[REF(src)];lookup_info=open_character_ad'>\[Open directory?\]</a>")
 
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)

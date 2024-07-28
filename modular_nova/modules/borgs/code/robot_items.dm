@@ -22,7 +22,7 @@
 	/// How long is the integrated printer's cooldown?
 	var/printer_cooldown_time = 10 SECONDS
 	/// How much charge is required to print a piece of paper?
-	var/paper_charge_cost = 50
+	var/paper_charge_cost = STANDARD_CELL_CHARGE * 0.05
 
 
 /obj/item/clipboard/cyborg/Initialize(mapload)
@@ -81,7 +81,7 @@
 	icon = 'icons/obj/devices/mecha_equipment.dmi' // Just some temporary sprites because I don't have any unique one yet
 	icon_state = "mecha_clamp"
 	/// How much power does it draw per operation?
-	var/charge_cost = 20
+	var/charge_cost = STANDARD_CELL_CHARGE * 0.02
 	/// How many items can it hold at once in its internal storage?
 	var/storage_capacity = 5
 	/// Does it require the items it takes in to be wrapped in paper wrap? Can have unforeseen consequences, change to FALSE at your own risks.
@@ -134,7 +134,7 @@
 
 /obj/item/borg/hydraulic_clamp/examine(mob/user)
 	. = ..()
-	. += span_notice("It's cargo hold has a capacity of [storage_capacity] and is currently holding <b>[contents.len ? contents.len : 0]</b> items in it!")
+	. += span_notice("Its cargo hold has a capacity of [storage_capacity] and is currently holding <b>[contents.len ? contents.len : 0]</b> items in it!")
 	if(storage_capacity > 1)
 		. += span_notice("Use in hand to select an item you want to prioritize taking out of the storage.")
 
@@ -355,12 +355,12 @@
 
 
 /// A proc for shooting a projectile at the target, it's just that simple, really.
-/obj/item/borg/paperplane_crossbow/proc/shoot(atom/target, mob/living/user, params)
+/obj/item/borg/paperplane_crossbow/proc/shoot(atom/target, mob/living/user)
 	if(!COOLDOWN_FINISHED(src, shooting_cooldown))
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(planes <= 0)
 		to_chat(user, span_warning("Not enough paper planes left!"))
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 	planes--
 
 	var/obj/item/paperplane/syndicate/hardlight/plane_to_fire = new /obj/item/paperplane/syndicate/hardlight(get_turf(src.loc))
@@ -370,18 +370,19 @@
 	COOLDOWN_START(src, shooting_cooldown, shooting_delay)
 	user.visible_message(span_warning("[user] shoots a paper plane at [target]!"))
 	check_amount()
+	return ITEM_INTERACT_SUCCESS
 
 
-/obj/item/borg/paperplane_crossbow/afterattack(atom/target, mob/living/user, proximity, click_params)
-	. = ..()
+/obj/item/borg/paperplane_crossbow/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	check_amount()
-	if(iscyborg(user))
-		var/mob/living/silicon/robot/robot_user = user
-		if(!robot_user.cell.use(10))
-			to_chat(user, span_warning("Not enough power."))
-			return FALSE
-		shoot(target, user, click_params)
+	if(!iscyborg(user))
+		return ITEM_INTERACT_BLOCKING
 
+	var/mob/living/silicon/robot/robot_user = user
+	if(!robot_user.cell.use(STANDARD_CELL_CHARGE * 0.1))
+		to_chat(user, span_warning("Not enough power."))
+		return ITEM_INTERACT_BLOCKING
+	return shoot(interacting_with, user)
 
 /// Holders for the package wrap and the wrapping paper synthetizers.
 
@@ -527,8 +528,8 @@
 	var/saved_special_light_key
 	var/saved_hat_offset
 	var/active = FALSE
-	var/activationCost = 100
-	var/activationUpkeep = 5
+	var/activationCost = STANDARD_CELL_CHARGE * 0.1
+	var/activationUpkeep = STANDARD_CELL_CHARGE * 0.005
 	var/disguise_model_name
 	var/disguise
 	var/disguise_icon_override
@@ -729,7 +730,7 @@
 		return
 	if(listeningTo)
 		UnregisterSignal(listeningTo, signalCache)
-	RegisterSignal(user, signalCache, PROC_REF(disrupt))
+	RegisterSignals(user, signalCache, PROC_REF(disrupt))
 	listeningTo = user
 
 /obj/item/borg_shapeshifter/proc/deactivate(mob/living/silicon/robot/user)

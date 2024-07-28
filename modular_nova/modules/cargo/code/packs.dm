@@ -281,7 +281,7 @@
 *	MISC
 */
 
-/datum/supply_pack/misc/speedbike //If you see this bought in game, its time to nerf a cargo exploit.
+/datum/supply_pack/misc/speedbike //If you see this bought in game, it's time to nerf a cargo exploit.
 	name = "Speedbike"
 	desc = "Put your shades on, saddle up, and ride off directly into the sun on this turbo deluxe space-cruising speedbike."
 	cost = 1000000 //Special case, we don't want to make this in terms of crates because having bikes be a million credits is the whole meme.
@@ -536,8 +536,8 @@
 		/obj/item/storage/part_replacer/cargo,
 		/obj/item/stack/sheet/iron/ten,
 		/obj/item/stack/sheet/iron/five,
-		/obj/item/stock_parts/cell/high,
-		/obj/item/stock_parts/cell/high,
+		/obj/item/stock_parts/power_store/cell/high,
+		/obj/item/stock_parts/power_store/cell/high,
 		/obj/item/stack/cable_coil,
 		/obj/item/book/manual/wiki/barman_recipes,
 		/obj/item/reagent_containers/cup/glass/shaker,

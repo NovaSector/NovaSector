@@ -30,6 +30,7 @@
 	preop_sound = 'sound/surgery/scalpel1.ogg'
 	success_sound = 'sound/surgery/organ1.ogg'
 	failure_sound = 'sound/surgery/organ2.ogg'
+	surgery_effects_mood = TRUE
 
 /datum/surgery_step/lobectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -39,13 +40,18 @@
 		span_notice("[user] begins to make an incision in [target]."),
 		span_notice("[user] begins to make an incision in [target]."),
 	)
-	display_pain(target, "You feel a stabbing pain in your chest!", mood_event_type = /datum/mood_event/surgery)
+	display_pain(target, "You feel a stabbing pain in your chest!")
 
 /datum/surgery_step/lobectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		var/obj/item/organ/internal/lungs/target_lungs = human_target.get_organ_slot(ORGAN_SLOT_LUNGS)
-		target_lungs.operated = TRUE
+		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
+		if(istype(target_lungs, /obj/item/organ/internal/lungs/slime))
+			addtimer(VARSET_CALLBACK(target_lungs, operated, FALSE), 30 SECONDS)
+		else
+			target_lungs.operated = TRUE
+		//NOVA EDIT ADDITION END
 		human_target.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
 		display_results(
 			user,
@@ -54,7 +60,7 @@
 			span_notice("Successfully removes a piece of [human_target]'s lungs."),
 			"",
 		)
-		display_pain(target, "Your chest hurts like hell, but breathing becomes slightly easier.", mood_event_type = /datum/mood_event/surgery/success)
+		display_pain(target, "Your chest hurts like hell, but breathing becomes slightly easier.")
 	return ..()
 
 /datum/surgery_step/lobectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -67,7 +73,7 @@
 			span_warning("[user] screws up!"),
 			span_warning("[user] screws up!"),
 		)
-		display_pain(target, "You feel a sharp stab in your chest; the wind is knocked out of you and it hurts to catch your breath!", mood_event_type = /datum/mood_event/surgery/failure)
+		display_pain(target, "You feel a sharp stab in your chest; the wind is knocked out of you and it hurts to catch your breath!")
 		human_target.losebreath += 4
 		human_target.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
 	return FALSE

@@ -25,6 +25,8 @@
 
 	///Are our wings open or closed?
 	var/wings_open = FALSE
+	///We cant hide this wings in suit
+	var/cant_hide = FALSE
 
 	// grind_results = list(/datum/reagent/flightpotion = 5)
 	food_reagents = list(/datum/reagent/flightpotion = 5)
@@ -66,7 +68,7 @@
 	if(human.stat || human.body_position == LYING_DOWN)
 		return FALSE
 	//Jumpsuits have tail holes, so it makes sense they have wing holes too
-	if(human.wear_suit && ((human.wear_suit.flags_inv & HIDEJUMPSUIT) && (!human.wear_suit.species_exception || !is_type_in_list(src, human.wear_suit.species_exception))))
+	if(!cant_hide && human.wear_suit && ((human.wear_suit.flags_inv & HIDEJUMPSUIT) && (!human.wear_suit.species_exception || !is_type_in_list(src, human.wear_suit.species_exception))))
 		to_chat(human, span_warning("Your suit blocks your wings from extending!"))
 		return FALSE
 	var/turf/location = get_turf(human)
@@ -144,18 +146,18 @@
 	var/open_feature_key = "wingsopen"
 
 /datum/bodypart_overlay/mutant/wings/functional/get_global_feature_list()
-	/* NOVA EDIT - CUSTOMIZATION - ORIGINAL:
+	/* NOVA EDIT REMOVAL - CUSTOMIZATION
 	if(wings_open)
-		return GLOB.wings_open_list
+		return SSaccessories.wings_open_list
 	else
-		return GLOB.wings_list
-	*/ // ORIGINAL END - NOVA EDIT START - CUSTOMIZATION - TODO: Add support for wings_open
+		return SSaccessories.wings_list
+	*/ // NOVA EDIT REMOVAL END
+	// NOVA EDIT ADDITION START
 	if(wings_open)
-		return GLOB.sprite_accessories["wings_open"]
+		return SSaccessories.sprite_accessories["wings_open"]
 
-	return GLOB.sprite_accessories["wings"]
-	// NOVA EDIT END
-
+	return SSaccessories.sprite_accessories["wings"]
+	// NOVA EDIT ADDITION END
 ///Update our wingsprite to the open wings variant
 /datum/bodypart_overlay/mutant/wings/functional/proc/open_wings()
 	wings_open = TRUE

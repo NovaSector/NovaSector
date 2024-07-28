@@ -47,6 +47,11 @@ map tramstation
 	votable
 endmap
 
+map wawastation
+	votable
+	minplayers 40
+endmap
+
 # Debug-only maps.
 
 map gateway_test
@@ -72,5 +77,9 @@ endmap
 
 map ouroboros
 	maxplayers 80
+	votable
+endmap
+
+map serenitystation
 	votable
 endmap

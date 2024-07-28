@@ -234,11 +234,11 @@
 /area/ruin/unpowered)
 "mx" = (
 /obj/structure/table,
-/obj/item/stock_parts/cell/hyper{
+/obj/item/stock_parts/power_store/cell/hyper{
 	pixel_x = -3;
 	pixel_y = -2
 	},
-/obj/item/stock_parts/cell/hyper{
+/obj/item/stock_parts/power_store/cell/hyper{
 	pixel_y = 7
 	},
 /obj/item/stack/cable_coil,
@@ -356,6 +356,12 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"vt" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "wp" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -430,7 +436,7 @@
 "yU" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stock_parts/cell/hyper{
+/obj/item/stock_parts/power_store/cell/hyper{
 	pixel_y = -10
 	},
 /turf/open/floor/plating,
@@ -470,6 +476,14 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"Cp" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/orange/visible{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium/spaceship/nodiagonal{
+	color = "#8ab1ec"
+	},
+/area/ruin/unpowered)
 "Ct" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -504,8 +518,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 4;
-	piping_layer = 1
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
@@ -752,8 +765,7 @@
 	name = "Fuel canister"
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 4;
-	piping_layer = 1
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
@@ -1049,7 +1061,7 @@ TW
 "}
 (12,1,1) = {"
 TW
-TW
+vt
 TW
 tz
 xP
@@ -1208,14 +1220,14 @@ tz
 tz
 xP
 fo
-qW
+Cp
 Xr
 Xr
 MY
 hf
 fM
 Xr
-qW
+Cp
 fo
 xP
 tz

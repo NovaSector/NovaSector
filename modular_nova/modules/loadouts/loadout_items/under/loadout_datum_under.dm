@@ -1,17 +1,15 @@
 
 // --- Loadout item datums for under suits ---
 
-/// Underslot - Jumpsuit Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/under/jumpsuit))
+/datum/loadout_category/undersuit
+	category_name = "Undersuit"
+	category_ui_icon = FA_ICON_SHIRT
+	type_to_generate = /datum/loadout_item/under
+	tab_order = /datum/loadout_category/suit::tab_order + 1
 
-/// Underslot - Formal Suit Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_undersuits, generate_loadout_items(/datum/loadout_item/under/formal))
-
-/// Underslot - Misc. Under Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/under/miscellaneous))
 
 /datum/loadout_item/under
-	category = LOADOUT_ITEM_UNIFORM
+	abstract_type = /datum/loadout_item/under
 
 /datum/loadout_item/under/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.uniform))
@@ -32,6 +30,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
  */
 
 /datum/loadout_item/under/jumpsuit
+	abstract_type = /datum/loadout_item/under/jumpsuit
 
 /datum/loadout_item/under/jumpsuit/greyscale
 	name = "Greyscale Jumpsuit"
@@ -44,12 +43,12 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/random
 	name = "Random Jumpsuit"
 	item_path = /obj/item/clothing/under/color/random
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
+	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/under/jumpsuit/random_skirt
 	name = "Random Jumpskirt"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
+	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/under/jumpsuit/frontier
 	name = "Frontier Jumpsuit"
@@ -289,6 +288,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
  */
 
 /datum/loadout_item/under/miscellaneous
+	abstract_type = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous/christmas
 	name = "Christmas Suit"
@@ -333,6 +333,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/jeansripped
 	name = "Recolorable Ripped Jeans"
 	item_path = /obj/item/clothing/under/pants/nova/jeans_ripped
+
+/datum/loadout_item/under/miscellaneous/big_pants
+	name = "'JUNCO' Megacargo Pants"
+	item_path = /obj/item/clothing/under/pants/nova/big_pants
 
 /datum/loadout_item/under/miscellaneous/yoga
 	name = "Recolorable Yoga Pants"
@@ -460,6 +464,14 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Long Colourable Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/long
 
+/datum/loadout_item/under/miscellaneous/loincloth
+	name = "Loincloth"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/loincloth
+
+/datum/loadout_item/under/miscellaneous/loincloth_alt
+	name = "Shorter Loincloth"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt
+
 /datum/loadout_item/under/miscellaneous/denim_skirt
 	name = "Jean Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/jean
@@ -567,6 +579,10 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/kimono
 	name = "Fancy Kimono"
 	item_path =  /obj/item/clothing/under/costume/nova/kimono
+
+/datum/loadout_item/under/miscellaneous/shihakusho
+	name = "Shihakusho"
+	item_path = /obj/item/clothing/under/costume/nova/shihakusho
 
 /datum/loadout_item/under/miscellaneous/chaps
 	name = "Black Chaps"
@@ -768,6 +784,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 */
 
 /datum/loadout_item/under/formal
+	abstract_type = /datum/loadout_item/under/formal
 
 /datum/loadout_item/under/formal/amish_suit
 	name = "White Buttondown Shirt with Black Slacks"
@@ -1076,6 +1093,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /// DONATOR
 /datum/loadout_item/under/donator
+	abstract_type = /datum/loadout_item/under/donator
 	donator_only = TRUE
 
 /datum/loadout_item/under/donator/captain_black

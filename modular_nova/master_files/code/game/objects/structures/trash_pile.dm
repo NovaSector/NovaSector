@@ -74,13 +74,12 @@
 	var/obj/item/hidden_item = new lootspawn(get_turf(src))
 	return hidden_item
 
-/obj/structure/trash_pile/MouseDrop_T(atom/movable/dropped_atom, mob/user)
-	if(user == dropped_atom && iscarbon(dropped_atom))
-		var/mob/living/dropped_mob = dropped_atom
+/obj/structure/trash_pile/mouse_drop_receive(atom/dropping, mob/user, params)
+	if(user == dropping && iscarbon(dropping))
+		var/mob/living/dropped_mob = dropping
 		if(dropped_mob.mobility_flags & MOBILITY_MOVE)
 			dive_in_pile(user)
 			return
-	. = ..()
 
 /obj/structure/trash_pile/proc/eject_mob(mob/living/hidden_mob)
 	hidden_mob.forceMove(src.loc)

@@ -8,7 +8,7 @@
 /obj/item/borg/upgrade/surgerytools
 	name = "medical cyborg advanced surgery tools"
 	desc = "An upgrade to the Medical model cyborg's surgery loadout, replacing non-advanced tools with their advanced counterpart."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_medical"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/medical)
 	model_flags = BORG_MODEL_MEDICAL
@@ -108,7 +108,7 @@
 /obj/item/borg/upgrade/advanced_materials
 	name = "engineering advanced materials processor"
 	desc = "allows a cyborg to synthesize and store advanced materials"
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_engineer"
 	model_type = list(/obj/item/robot_model/engineering)
 	model_flags = BORG_MODEL_ENGINEERING
 
@@ -142,35 +142,6 @@
 	for(var/datum/robot_energy_storage/titanium/titanium_energy in borgo.model.storages)
 		qdel(titanium_energy)
 
-/// funny borg inducer upgrade
-/obj/item/borg/upgrade/inducer
-	name = "engineering cyborg inducer upgrade"
-	desc = "An inducer device for the engineering cyborg."
-	icon_state = "cyborg_upgrade3"
-	require_model = TRUE
-	model_type = list(/obj/item/robot_model/engineering, /obj/item/robot_model/saboteur)
-	model_flags = BORG_MODEL_ENGINEERING
-
-/obj/item/borg/upgrade/inducer/action(mob/living/silicon/robot/target_robot, user = usr)
-	. = ..()
-	if(.)
-
-		var/obj/item/inducer/cyborg/inducer = locate() in target_robot
-		if(inducer)
-			to_chat(user, span_warning("This unit is already equipped with an inducer module!"))
-			return FALSE
-
-		inducer = new(target_robot.model)
-		target_robot.model.basic_modules += inducer
-		target_robot.model.add_module(inducer, FALSE, TRUE)
-
-/obj/item/borg/upgrade/inducer/deactivate(mob/living/silicon/robot/target_robot, user = usr)
-	. = ..()
-	if (.)
-		var/obj/item/inducer/cyborg/inducer = locate() in target_robot.model
-		if (inducer)
-			target_robot.model.remove_module(inducer, TRUE)
-
 /*
 *	ADVANCED MINING CYBORG UPGRADES
 */
@@ -179,7 +150,7 @@
 /obj/item/borg/upgrade/welder
 	name = "mining cyborg welder upgrade"
 	desc = "A normal welder with a larger tank for cyborgs."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_engineer"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/miner)
 	model_flags = BORG_MODEL_MINER
@@ -257,7 +228,8 @@
 /obj/item/borg/upgrade/better_clamp
 	name = "improved integrated hydraulic clamp"
 	desc = "An improved hydraulic clamp to allow for bigger packages to be picked up as well!"
-	icon_state = "cyborg_upgrade3"
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
+	icon_state = "module_cargo"
 	require_model = TRUE
 	model_type = list(/obj/item/robot_model/cargo)
 	model_flags = BORG_MODEL_CARGO
@@ -293,7 +265,7 @@
 /obj/item/borg/upgrade/borg_shapeshifter
 	name = "Cyborg Shapeshifter Module"
 	desc = "An experimental device which allows a cyborg to disguise themself into another type of cyborg."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_general"
 
 /obj/item/borg/upgrade/borg_shapeshifter/action(mob/living/silicon/robot/R, user = usr)
 	. = ..()
@@ -312,7 +284,7 @@
 /obj/item/borg/upgrade/affectionmodule
 	name = "borg affection module"
 	desc = "A module that upgrades the ability of borgs to display affection."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_peace"
 
 /obj/item/borg/upgrade/affectionmodule/action(mob/living/silicon/robot/borg)
 	. = ..()
@@ -353,22 +325,20 @@
 	desc = "For giving affectionate kisses."
 	item_flags = NOBLUDGEON
 
-/obj/item/quadborg_tongue/afterattack(atom/target, mob/user, proximity)
-	. = ..()
-	if(!proximity || !isliving(target))
-		return
+/obj/item/quadborg_tongue/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	var/mob/living/silicon/robot/borg = user
-	var/mob/living/mob = target
-
-	if(!HAS_TRAIT(target, TRAIT_AFFECTION_AVERSION)) // Checks for Affection Aversion trait
-		if(check_zone(borg.zone_selected) == "head")
-			borg.visible_message(span_warning("\the [borg] affectionally licks \the [mob]'s face!"), span_notice("You affectionally lick \the [mob]'s face!"))
-			playsound(borg, 'sound/effects/attackblob.ogg', 50, 1)
-		else
-			borg.visible_message(span_warning("\the [borg] affectionally licks \the [mob]!"), span_notice("You affectionally lick \the [mob]!"))
-			playsound(borg, 'sound/effects/attackblob.ogg', 50, 1)
+	var/mob/living/mob = interacting_with
+	if(!istype(mob))
+		return ITEM_INTERACT_BLOCKING
+	if(HAS_TRAIT(interacting_with, TRAIT_AFFECTION_AVERSION)) // Checks for Affection Aversion trait
+		to_chat(user, span_warning("ERROR: [interacting_with] is on the Do Not Lick registry!"))
+		return ITEM_INTERACT_BLOCKING
+	if(check_zone(borg.zone_selected) == "head")
+		borg.visible_message(span_warning("\the [borg] affectionally licks \the [mob]'s face!"), span_notice("You affectionally lick \the [mob]'s face!"))
 	else
-		to_chat(user, span_warning("ERROR: [target] is on the Do Not Lick registry!"))
+		borg.visible_message(span_warning("\the [borg] affectionally licks \the [mob]!"), span_notice("You affectionally lick \the [mob]!"))
+	playsound(borg, 'sound/effects/attackblob.ogg', 50, 1)
+	return ITEM_INTERACT_SUCCESS
 
 // Quadruped nose - Boop
 /obj/item/quadborg_nose
@@ -380,16 +350,14 @@
 	item_flags = NOBLUDGEON
 	force = 0
 
-/obj/item/quadborg_nose/afterattack(atom/target, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
+/obj/item/quadborg_nose/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(HAS_TRAIT(interacting_with, TRAIT_AFFECTION_AVERSION)) // Checks for Affection Aversion trait
+		to_chat(user, span_warning("ERROR: [interacting_with] is on the No Nosing registry!"))
+		return ITEM_INTERACT_BLOCKING
 
-	if(!HAS_TRAIT(target, TRAIT_AFFECTION_AVERSION)) // Checks for Affection Aversion trait
-		do_attack_animation(target, null, src)
-		user.visible_message(span_notice("[user] [pick("nuzzles", "pushes", "boops")] \the [target.name] with their nose!"))
-	else
-		to_chat(user, span_warning("ERROR: [target] is on the No Nosing registry!"))
+	do_attack_animation(interacting_with, null, src)
+	user.visible_message(span_notice("[user] [pick("nuzzles", "pushes", "boops")] \the [interacting_with.name] with their nose!"))
+	return ITEM_INTERACT_SUCCESS
 
 /// The Shrinkening
 /mob/living/silicon/robot
@@ -400,7 +368,7 @@
 /obj/item/borg/upgrade/shrink
 	name = "borg shrinker"
 	desc = "A cyborg resizer, it makes a cyborg small."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_general"
 
 /obj/item/borg/upgrade/shrink/action(mob/living/silicon/robot/borg, user = usr)
 	. = ..()
@@ -441,7 +409,7 @@
 /obj/item/borg/upgrade/transform/syndicatejack
 	name = "borg module picker (Syndicate)"
 	desc = "Allows you to to turn a cyborg into a experimental syndicate cyborg."
-	icon_state = "cyborg_upgrade3"
+	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/syndicatejack
 
 /obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
@@ -452,7 +420,8 @@
 /obj/item/borg/upgrade/dominatrixmodule
 	name = "borg dominatrix module"
 	desc = "A module that greatly upgrades the ability of borgs to display affection."
-	icon_state = "cyborg_upgrade3"
+	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
+	icon_state = "module_lust"
 	custom_price = 0
 
 /obj/item/borg/upgrade/dominatrixmodule/action(mob/living/silicon/robot/borg)
@@ -476,6 +445,9 @@
 	var/obj/item/tickle_feather/tickler = new /obj/item/tickle_feather()
 	borg.model.basic_modules += tickler
 	borg.model.add_module(tickler, FALSE, TRUE)
+	var/obj/item/clothing/sextoy/fleshlight/fleshlight = new /obj/item/clothing/sextoy/fleshlight()
+	borg.model.basic_modules += fleshlight
+	borg.model.add_module(fleshlight, FALSE, TRUE)
 
 /obj/item/borg/upgrade/dominatrixmodule/deactivate(mob/living/silicon/robot/borg, user = usr)
 	. = ..()
@@ -490,3 +462,5 @@
 		borg.model.remove_module(spanker, TRUE)
 	for(var/obj/item/tickle_feather/tickler in borg.model.modules)
 		borg.model.remove_module(tickler, TRUE)
+	for(var/obj/item/clothing/sextoy/fleshlight/fleshlight in borg.model.modules)
+		borg.model.remove_module(fleshlight, TRUE)

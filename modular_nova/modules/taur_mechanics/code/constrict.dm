@@ -215,7 +215,7 @@
 	//coloring
 	var/list/finished_list = list()
 	var/list/color_list = owner.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_COLOR_LIST] //identify color
-	var/datum/sprite_accessory/sprite_type = GLOB.sprite_accessories["taur"][owner.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]] //identify type
+	var/datum/sprite_accessory/sprite_type = SSaccessories.sprite_accessories["taur"][owner.dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]] //identify type
 
 	switch(sprite_type.color_src)
 		if(USE_MATRIXED_COLORS)
@@ -508,13 +508,13 @@
 		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_ATOM_POST_DIR_CHANGE))
 
 	if (owner)
-		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in owner.organs
+		var/obj/item/organ/external/taur_body/taur_body = owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 		taur_body.hide_self = FALSE
 
 	owner = new_owner
 
 	if (owner)
-		var/obj/item/organ/external/taur_body/taur_body = locate(/obj/item/organ/external/taur_body) in owner.organs
+		var/obj/item/organ/external/taur_body/taur_body = owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 		taur_body.hide_self = TRUE
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(owner_moved))

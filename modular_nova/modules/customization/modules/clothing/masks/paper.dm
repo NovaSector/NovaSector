@@ -69,9 +69,9 @@
 /obj/item/clothing/mask/paper/click_alt_secondary(mob/user)
 	adjust_mask(user)
 
-/obj/item/clothing/mask/paper/CtrlClick(mob/user)
-	if(user.can_perform_action(src, NEED_DEXTERITY))
-		adjust_strap(user)
+/obj/item/clothing/mask/paper/item_ctrl_click(mob/user)
+	adjust_strap(user)
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/paper/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()

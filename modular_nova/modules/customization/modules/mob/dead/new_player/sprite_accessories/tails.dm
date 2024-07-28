@@ -54,7 +54,8 @@
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/tails/monkey/default
-	icon_state = "monkey_default"
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
+	icon_state = "monkey"
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_MONKEY, SPECIES_GHOUL)
 	organ_type = /obj/item/organ/external/tail/monkey
 
@@ -255,11 +256,11 @@
 	name = "Otusian"
 	icon_state = "otie"
 
-/datum/sprite_accessory/tails/mammal/wagging/plug
+/datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"
 	icon_state = "plugtail"
 
-/datum/sprite_accessory/tails/mammal/wagging/plug/scorpion
+/datum/sprite_accessory/tails/mammal/plug/scorpion
 	name = "Scorpion Plug"
 	icon_state = "scorptail"
 
@@ -438,3 +439,7 @@
 /datum/sprite_accessory/tails/mammal/wagging/rattlesnake
 	name = "Rattlesnake"
 	icon_state = "rattlesnake"
+
+/datum/sprite_accessory/tails/mammal/black_jackal
+	name = "Black-backed Jackal"
+	icon_state = "blackjackal"

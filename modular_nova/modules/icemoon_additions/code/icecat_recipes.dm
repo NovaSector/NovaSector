@@ -1,8 +1,8 @@
 /obj/item/anointing_oil
 	name = "anointing bloodresin"
 	desc = "And so Helgar Knife-Arm spoke to the Hearth, and decreed that all of the Kin who gave name to beasts would do so with conquest and blood."
-	icon = 'icons/obj/medical/chemical.dmi'
-	icon_state = "potred"
+	icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
+	icon_state = "anointingbloodresin"
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 
@@ -58,22 +58,19 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 	reqs = list(
-		/datum/reagent/consumable/liquidgibs = 80,
+		/datum/reagent/consumable/liquidgibs = 20,
 		/datum/reagent/blood = 20,
 	)
 
 	result = /obj/item/anointing_oil
 
-/obj/item/clothing/suit/armor/handcrafted_hearthkin_armor
+/obj/item/clothing/suit/armor/forging_plate_armor/hearthkin
 	name = "handcrafted hearthkin armor"
 	desc = "An armor obviously crafted by the expertise of a hearthkin. It has leather shoulder pads and a chain mail underneath."
 	icon_state = "chained_leather_armor"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-	resistance_flags = FIRE_PROOF
 	body_parts_covered = GROIN|CHEST
-	obj_flags_nova = ANVIL_REPAIR
-	armor_type = /datum/armor/armor_forging_plate_armor
 
 /datum/crafting_recipe/handcrafted_hearthkin_armor
 	name = "Handcrafted Hearthkin Armor"
@@ -87,7 +84,7 @@
 		/obj/item/stack/sheet/leather = 2,
 	)
 
-	result = /obj/item/clothing/suit/armor/handcrafted_hearthkin_armor
+	result = /obj/item/clothing/suit/armor/forging_plate_armor/hearthkin
 
 // Hearthkin Exclusive Beds
 /obj/structure/bed/double/pelt
@@ -142,3 +139,49 @@
 	)
 
 	result = /obj/structure/bed/double/pelt/black
+
+// Hearthkin exclusive object to make their special lungs.
+/obj/item/frozen_breath
+    name = "Frozen Breath"
+    desc = "A strange brew, it smells minty and is extremely cold to the touch. It is rumored that a cold-hearted witch managed to make this, to mend the breath of her kindred."
+    icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
+    icon_state = "frozenbreath"
+    throwforce = 0
+    w_class = WEIGHT_CLASS_TINY
+
+/obj/item/frozen_breath/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+    if (!is_species(user, /datum/species/human/felinid/primitive))
+        to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
+        return
+
+    if(istype(interacting_with, /obj/item/organ/internal/lungs))
+        var/obj/item/organ/internal/lungs/target_lungs = interacting_with
+        if(IS_ROBOTIC_ORGAN(target_lungs))
+            user.balloon_alert(user, "The lungs have to be organic!")
+            return
+        var/location = get_turf(target_lungs)
+        playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)
+        user.visible_message(span_notice("[user] pours a strange blue liquid over the set of lungs. The flesh starts glistening in a strange cyan light, transforming before your very eyes!"),
+            span_notice("Recalling the instructions for the lung transfiguration ritual, you pour the liquid over the flesh of the organ. Soon, the lungs glow in a mute cyan light, before they turn dim and change form before your very eyes!"))
+        var/obj/item/organ/internal/lungs/icebox_adapted/new_lungs = new(location)
+        new_lungs.damage = target_lungs.damage
+        qdel(target_lungs)
+        qdel(src)
+
+/obj/item/frozen_breath/examine(mob/user)
+    . = ..()
+    if(is_species(user, /datum/species/human/felinid/primitive))
+        . += span_info("Using this on a pair of organic lungs transforms them into hardy lungs. This will remove any other special features from the old lungs, if there were any.")
+
+/datum/crafting_recipe/frozen_breath
+    name = "Frozen Breath"
+    category = CAT_MISC
+    //recipe given to icecats as part of their spawner/team setting
+    crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+
+    reqs = list(
+        /datum/reagent/consumable/frostoil = 50,
+        /datum/reagent/medicine/c2/synthflesh = 50,
+    )
+
+    result = /obj/item/frozen_breath

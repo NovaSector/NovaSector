@@ -33,11 +33,15 @@
 
 /datum/armament_entry/company_import/deforest/first_aid_kit/first_responder
 	item_type = /obj/item/storage/backpack/duffelbag/deforest_surgical/stocked
-	cost = PAYCHECK_COMMAND * 10
+	cost = PAYCHECK_COMMAND * 10.5
 
 /datum/armament_entry/company_import/deforest/first_aid_kit/orange_satchel
 	item_type = /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked
-	cost = PAYCHECK_COMMAND * 10
+	cost = PAYCHECK_COMMAND * 9.5
+
+/datum/armament_entry/company_import/deforest/first_aid_kit/technician_satchel
+	item_type = /obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked
+	cost = PAYCHECK_COMMAND * 11.75
 
 // Basic first aid supplies like gauze, sutures, mesh, so on
 
@@ -263,9 +267,9 @@
 	name = "MOD injector module"
 	item_type = /obj/item/mod/module/injector
 
-/datum/armament_entry/company_import/deforest/medical_modules/organ_thrower
-	name = "MOD organ thrower module"
-	item_type = /obj/item/mod/module/organ_thrower
+/datum/armament_entry/company_import/deforest/medical_modules/organizer
+	name = "MOD organizer module"
+	item_type = /obj/item/mod/module/organizer
 
 /datum/armament_entry/company_import/deforest/medical_modules/patient_transport
 	name = "MOD patient transport module"

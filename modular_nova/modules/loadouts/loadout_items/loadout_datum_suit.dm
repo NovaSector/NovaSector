@@ -1,12 +1,15 @@
+/datum/loadout_category/suit
+	category_name = "Suit"
+	category_ui_icon = FA_ICON_VEST
+	type_to_generate = /datum/loadout_item/suit
+	tab_order = /datum/loadout_category/neck::tab_order + 1
+
 /*
 *	LOADOUT ITEM DATUMS FOR THE (EXO/OUTER)SUIT SLOT
 */
 
-/// Exosuit / Outersuit Slot Items (Moves items to backpack)
-GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/suit))
-
 /datum/loadout_item/suit
-	category = LOADOUT_ITEM_SUIT
+	abstract_type = /datum/loadout_item/suit
 
 /datum/loadout_item/suit/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // don't bother storing in backpack, can't fit
 	if(initial(outfit_important_for_life.suit))
@@ -128,6 +131,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Pharmacist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
 
+/datum/loadout_item/suit/labcoat_custom
+	name = "Custom Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/custom
+
 /*
 *	PONCHOS
 */
@@ -144,6 +151,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Red Poncho"
 	item_path = /obj/item/clothing/suit/costume/poncho/red
 
+/datum/loadout_item/suit/dagger_mantle
+	name = "'Dagger' Designer Mantle"
+	item_path = /obj/item/clothing/suit/dagger_mantle
 
 /*
 *	JACKETS
@@ -204,6 +214,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/mothcoat
 	name = "Mothic Flightsuit"
 	item_path = /obj/item/clothing/suit/mothcoat
+
+/datum/loadout_item/suit/big_jacket
+	name = "Alpha Atelier Pilot Jacket"
+	item_path = /obj/item/clothing/suit/big_jacket
 
 /*
 *	VARSITY JACKET
@@ -365,6 +379,10 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
 
+/datum/loadout_item/suit/white_robe
+	name = "White Robe"
+	item_path = /obj/item/clothing/suit/jacket/white_robe
+
 /*
 *	FLANNELS
 */
@@ -450,6 +468,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Colourable Leather Jacket"
 	item_path = /obj/item/clothing/suit/jacket/leather/colourable
 
+/datum/loadout_item/suit/frontierjacket
+	abstract_type = /datum/loadout_item/suit/frontierjacket
+
 /datum/loadout_item/suit/frontierjacket/short
 	name = "Frontier Jacket (Short)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
@@ -498,6 +519,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /*
 *	HOODIES
 */
+/datum/loadout_item/suit/hoodie
+	abstract_type = /datum/loadout_item/suit/hoodie
+
 
 /datum/loadout_item/suit/hoodie/greyscale
 	name = "Greyscale Hoodie"
@@ -707,6 +731,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 */
 
 /datum/loadout_item/suit/donator
+	abstract_type = /datum/loadout_item/suit/donator
 	donator_only = TRUE
 
 /datum/loadout_item/suit/donator/furredjacket
@@ -729,6 +754,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Cowboy Vest"
 	item_path = /obj/item/clothing/suit/cowboyvest
 
+/datum/loadout_item/suit/donator/digicoat
+	abstract_type = /datum/loadout_item/suit/donator/digicoat
+
 /datum/loadout_item/suit/donator/digicoat/nanotrasen
 	name = "nanotrasen digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/nanotrasen
@@ -740,6 +768,11 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/donator/replica_parade_jacket
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
+// All-donators donator item for BlindPoet
+/datum/loadout_item/suit/donator/chokha
+	name = "Iseurian Chokha"
+	item_path = /obj/item/clothing/suit/chokha
 
 /datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
@@ -757,13 +790,31 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
 
+// Fancy crop-top jackets
+
 /datum/loadout_item/suit/crop_jacket
 	name = "Colourable Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket
-	
+
+/datum/loadout_item/suit/shortsleeve_crop_jacket
+	name = "Colourable Short-Sleeved Crop-Top Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve
+
 /datum/loadout_item/suit/sleeveless_crop_jacket
 	name = "Colourable Sleeveless Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless
+
+/datum/loadout_item/suit/sports_jacket
+	name = "Colourable Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/long
+
+/datum/loadout_item/suit/shortsleeve_sports_jacket
+	name = "Colourable Short-Sleeved Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve/long
+
+/datum/loadout_item/suit/sleeveless_sports_jacket
+	name = "Colourable Sleeveless Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless/long
 
 /*
 *	CHAPLAIN

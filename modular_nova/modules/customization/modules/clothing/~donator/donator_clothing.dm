@@ -96,8 +96,9 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	supports_variations_flags = NONE
 
-// Donation reward for Thedragmeme
+// Donation reward
 // might make it have some flavour functionality in future, a'la rewritable piece of paper - JOKES ON YOU I'M MAKING IT DRAW
+// Note from thedragmeme- The fact this can actually draw is epic, Im making this an item accessable to all donors so if an actual coder could make it print out drawings or make it save the drawings to the library that would be epic
 /obj/item/canvas/drawingtablet
 	name = "drawing tablet"
 	desc = "A portable tablet that allows you to draw. Legends say these can earn the owner a fortune in some sectors of space."
@@ -193,29 +194,89 @@
 	button_icon_state = "drawingtablet"
 
 // Donation reward for Thedragmeme
-/obj/item/clothing/suit/furcoat
-	name = "leather coat"
-	desc = "A thick, comfy looking leather coat. It's got some fluffy fur at the collar and sleeves."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
-	icon_state = "furcoat"
-	inhand_icon_state = "hostrench"
-	blood_overlay_type = "coat"
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	cold_protection = CHEST|GROIN|LEGS|ARMS
-	supports_variations_flags = NONE
+/obj/item/clothing/neck/padded
+	name = "feathered serenity cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "paddedscarf"
+	inhand_icon_state = "paddedscarf"
+
+/obj/item/clothing/neck/padded/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/toggle_attached_clothing,\
+		deployable_type = /obj/item/clothing/head/hooded/padded,\
+		equipped_slot = ITEM_SLOT_HEAD,\
+		action_name = "Toggle Hood",\
+		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
+	)
+
+//Bandaid fix because obscurity is broken D:
+/obj/item/clothing/neck/padded/proc/on_deployed()
+	var/mob/wearer = loc
+	wearer.update_body()
+
+/obj/item/clothing/head/hooded/padded
+	name = "feathered serenity hood"
+	icon_state = "paddedhood"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	clothing_flags = SNUG_FIT
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 // Donation reward for Thedragmeme
-/obj/item/clothing/under/syndicate/tacticool/black
-	name = "black turtleneck"
-	desc = "Tacticool as fug. Comfy too."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
-	icon_state = "black_turtleneck"
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
-	supports_variations_flags = NONE
-	armor_type = /datum/armor/clothing_under/none
-	can_adjust = FALSE //There wasnt an adjustable sprite anyways
-	has_sensor = HAS_SENSORS	//Actually has sensors, to balance the new lack of armor
+/obj/item/clothing/under/padded
+	name = "feathered serenity suit"
+	desc = "A meticulously handcrafted suit that is lined on the inside with feathers and down."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "paddedunder"
+	inhand_icon_state = "paddedunder"
+
+// Donation reward for Thedragmeme
+/obj/item/clothing/shoes/jackboots/padded
+	name = "serenity jackboots"
+	desc = "Thick boots that is lined with feathers and down. Good footwear almost anticipating harsh weather."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "paddedboots"
+	inhand_icon_state = "paddedboots"
+
+// Donation reward for Thedragmeme and snailomi
+/obj/item/clothing/gloves/padded
+	name = "serenity gloves"
+	desc = "A pair of gloves lined with soft to the touch fur."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
+	icon_state = "paddedgloves"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	inhand_icon_state = "paddedgloves"
+
+// Donation reward for snailomi
+/obj/item/clothing/under/padded/alt
+	name = "feathered serenity dress"
+	desc = "A meticulously handcrafted dress that is lined on the inside with feathers and down. Twirling in this dress provides a satisfying result!"
+	icon_state = "paddeddress"
+	inhand_icon_state = "paddeddress"
+
+// Donation reward for snailomi
+/obj/item/clothing/neck/padded/alt
+	name = "feathered serenity cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
+	icon_state = "paddedscarfalt"
+	inhand_icon_state = "paddedscarfalt"
+
+/obj/item/clothing/head/hooded/padded/alt
+	name = "feathered serenity hood"
+	icon_state = "paddedhoodalt"
 
 /datum/armor/clothing_under/none
 
@@ -707,7 +768,7 @@
 // Donation reward for asky / Zulie
 /obj/item/clothing/suit/hooded/cloak/zuliecloak
 	name = "Project: Zul-E"
-	desc = "A standard version of a prototype cloak given out by Nanotrasen higher ups. It's surprisingly thick and heavy for a cloak despite having most of it's tech stripped. It also comes with a bluespace trinket which calls it's accompanying hat onto the user. A worn inscription on the inside of the cloak reads 'Fleuret' ...the rest is faded away."
+	desc = "A standard version of a prototype cloak given out by Nanotrasen higher ups. It's surprisingly thick and heavy for a cloak despite having most of its tech stripped. It also comes with a bluespace trinket which calls its accompanying hat onto the user. A worn inscription on the inside of the cloak reads 'Fleuret' ...the rest is faded away."
 	icon_state = "zuliecloak"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
@@ -950,17 +1011,18 @@
 	var/wear_hair_over
 
 /obj/item/clothing/mask/gas/psycho_malice/examine(mob/user)
-    . = ..()
-    . += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
+	. = ..()
+	. += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
 
-/obj/item/clothing/mask/gas/psycho_malice/CtrlClick(mob/living/user)
-    if(!isliving(user))
-        return
-    if(user.get_active_held_item() != src)
-        to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
-        return
-    voice_filter = voice_filter ? null : initial(voice_filter)
-    to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+/obj/item/clothing/mask/gas/psycho_malice/item_ctrl_click(mob/user)
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
+	if(user.get_active_held_item() != src)
+		to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
+		return CLICK_ACTION_BLOCKING
+	voice_filter = voice_filter ? null : initial(voice_filter)
+	to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/psycho_malice/Initialize(mapload)
 	. = ..()
@@ -1534,7 +1596,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tactichill"
 
-// Donation reward for thedragmeme
+// Donation reward for thedragmeme and snailom
 /obj/item/clothing/shoes/fancy_heels/drag
 	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
 
@@ -1559,30 +1621,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/eyes.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/glasses.dmi'
 	icon_state = "goldaviator"
-
-// Donation reward for Thedragmeme
-/obj/item/clothing/under/caged_dress/skirt
-	name = "Caged Purple Dress"
-	desc = "A silky purple dress with a partially exposed crinoline underneath."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
-	icon_state = "caged_dress"
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
-
-// Donation reward for Thedragmeme
-/obj/item/clothing/suit/short_coat
-	name = "Short Purple Coat"
-	desc = "A short black and purple coat, mostly used for asthetics then insulating the person wearing it."
-	icon_state = "short_coat"
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
-
-// Donation reward for Thedragmeme
-/obj/item/clothing/neck/flower_collar
-	name = "Flower Collar"
-	desc = "A purple collar with a dainty red flower attached to the right side of the item."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/necklaces.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
-	icon_state = "flower_collar"
 
 // Donation reward for Sigmar Alkahest
 /obj/item/clothing/under/costume/nova/kimono/sigmar
@@ -1647,7 +1685,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "razurath_coat"
 
 // Donation reward for MaSvedish
-/obj/item/clothing/mask/holocigarette/masvedishcigar
+/obj/item/holocigarette/masvedishcigar
 	name = "holocigar"
 	desc = "A soft buzzing device that, using holodeck technology, replicates a slow burn cigar. Now with less-shock technology. It has a small inscription of 'MG' on the golden label."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
@@ -1853,7 +1891,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		but is pleasant on the skin.\nWhile extremely well made, it seems quite \
 		fragile, and rather <i>expensive</i>. You get the feeling it might not \
 		<b>survive a washing machine</b> without specialized treatment."
-	special_desc = "It's buttons are pressed with some kind of sigil - which, to those knowledgeable in \
+	special_desc = "Its buttons are pressed with some kind of sigil - which, to those knowledgeable in \
 		Tiziran politics or nobility, would be recognizable as the <b>Kor'Yesh emblem</b>, \
 		a relatively <i>minor house of nobility</i> within <i>Tizira</i>.\n\n\
 		On a closer inspection, it would appear the interior is modified with protective material and mounting points \
@@ -2076,7 +2114,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 // donation reward for deadmon
 /obj/item/clothing/suit/hooded/seva/melon
 	name = "sundowner SEVA suit"
-	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had it's typical armor plating and anti-radiation lining removed in favor of movement. "
+	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
@@ -2091,3 +2129,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
 	icon_state = "seva_melon"
+
+/obj/item/clothing/suit/chokha
+	name = "\improper Iseurian chokha"
+	desc = "A ceremonial woolen coat sporting a high neck and decorative gunpowder cases on the breast. The label on this one bears the Iseurian Revolutionary flag."
+	icon_state = "chokha"
+	greyscale_config = /datum/greyscale_config/chokha
+	greyscale_config_worn = /datum/greyscale_config/chokha/worn
+	greyscale_colors = "#1c1c1c#491618#1c1c1c#491618"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+//donator reward for Desminus
+
+/obj/item/clothing/suit/toggle/desminus
+	name = "jómsvíking coat"
+	desc = "A long, woolen coat. Made for those who pillaged and plundered countless people in their age. It was built to stand the test of time. This one is white as pure snow, adorned with the whiskers of a black drake and with every silken stitch hand woven."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+	icon_state = "jomcoat"
+
+/obj/item/clothing/suit/toggle/desminus2
+	name = "elderwood garment"
+	desc = "A cloak forged from the finest strands of elderwood trees. It is woven in an old elven style, with reinforced hides to keep nomadic tribes warm in bitter winters. It can be opened up to keep cool in the more temperate summers. On the collar is a silken weave with the engraving: Ad Avalon Infinitum."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+	icon_state = "eldercoat"

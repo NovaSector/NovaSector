@@ -119,10 +119,10 @@
 		if(bs_miner != src)
 			mining_stat = mining_stat | BLUESPACE_MINER_TOO_CLOSE
 			return // This is allmighty
-	// if its hotter than (or equal to) room temp, don't work
+	// if it's hotter than (or equal to) room temp, don't work
 	if(environment.temperature >= T20C)
 		mining_stat = mining_stat | BLUESPACE_MINER_TOO_HOT
-	// if its lesser than(or equal to) normal pressure, don't work. Same goes for over(or equal to) 150% pressure
+	// if it's lesser than(or equal to) normal pressure, don't work. Same goes for over(or equal to) 150% pressure
 	if(environment.return_pressure() <= ONE_ATMOSPHERE)
 		mining_stat = mining_stat | BLUESPACE_MINER_LOW_PRESSURE
 	else if(environment.return_pressure() >= (ONE_ATMOSPHERE * 1.5))
@@ -217,11 +217,11 @@
 	id = "bluespace_miner"
 	display_name = "Bluespace Miner"
 	description = "The future is here, where we can mine ores from the great bluespace sea."
-	prereq_ids = list("anomaly_research", "bluespace_power")
+	prereq_ids = list("anomaly_research", "applied_bluespace")
 	design_ids = list(
 		"bluespace_miner",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/points/bluespace_miner = 5000)
 */
 

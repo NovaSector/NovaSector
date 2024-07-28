@@ -16,7 +16,7 @@
 
 /obj/item/melee/implantarmblade
 	name = "implanted arm blade"
-	desc = "A long, sharp, mantis-like blade implanted into someones arm. Cleaves through flesh like its particularly strong butter."
+	desc = "A long, sharp, mantis-like blade implanted into someones arm. Cleaves through flesh like it's particularly strong butter."
 	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	righthand_file = 'modular_nova/modules/implants/icons/implanted_blade_righthand.dmi'
 	lefthand_file = 'modular_nova/modules/implants/icons/implanted_blade_lefthand.dmi'
@@ -72,7 +72,6 @@
 	var/cutter_bare_wound_bonus = CUTTER_WOUND_BONUS
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 1
-	item_flags = NEEDS_PERMIT //Beepers gets angry if you get caught with this.
 
 /obj/item/knife/razor_claws/attack_self(mob/user)
 	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
@@ -110,6 +109,7 @@
 	knife_force = ENHANCED_KNIFE_FORCE
 	knife_wound_bonus = ENHANCED_KNIFE_WOUND_BONUS
 	armour_penetration = ENHANCED_KNIFE_ARMOR_PENETRATION //Let's give them some AP for the trouble.
+	item_flags |= NEEDS_PERMIT
 
 	if(tool_behaviour == TOOL_KNIFE)
 		force = knife_force
@@ -226,6 +226,7 @@
 
 /obj/item/pickaxe/drill/implant/click_alt(mob/user)
 	spin()
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/pickaxe/drill/implant/verb/spin()
 	set name = "Spin Drillbit"

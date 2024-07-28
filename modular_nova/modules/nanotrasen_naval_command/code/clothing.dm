@@ -48,6 +48,20 @@
 	desc = "A cap worn by the Nanotrasen Fleet Admiral."
 	icon_state = "naval_fleet_admiral"
 
+/obj/item/clothing/head/hats/caphat/naval/custom
+	icon_state = "naval_silver"
+	greyscale_config = /datum/greyscale_config/naval
+	greyscale_config_worn = /datum/greyscale_config/naval/worn
+	greyscale_colors = "#FF0000#333333#FFFFFF"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	armor_type = /datum/armor/none
+
+/obj/item/clothing/head/hats/caphat/naval/custom/gold
+	icon_state = "naval_gold"
+	greyscale_config = /datum/greyscale_config/naval_gold
+	greyscale_config_worn = /datum/greyscale_config/naval_gold/worn
+	greyscale_colors = "#FF0000#333333"
+
 
 // NECK
 /obj/item/clothing/neck/pauldron

@@ -12,7 +12,7 @@
 	id = "mothership_main"
 	},
 /obj/machinery/recycler{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/ruin/cyborg_mothership)
@@ -43,9 +43,7 @@
 /area/shuttle/ruin/cyborg_mothership)
 "dI" = (
 /obj/machinery/power/shuttle_engine/heater,
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/template_noop,
 /area/shuttle/ruin/cyborg_mothership)
 "dO" = (
@@ -59,7 +57,7 @@
 	pixel_y = 10
 	},
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/circuit/green/airless,
 /area/shuttle/ruin/cyborg_mothership)
 "eO" = (
@@ -215,17 +213,6 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/shuttle/ruin/cyborg_mothership)
-"mG" = (
-/obj/structure/table,
-/obj/item/surgery_tray/full,
-/obj/effect/turf_decal/bot,
-/obj/structure/sink/directional/east,
-/obj/item/toy/figure/borg{
-	pixel_x = 7;
-	pixel_y = 12
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/ruin/cyborg_mothership)
 "mN" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -243,9 +230,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/ruin/cyborg_mothership)
 "nM" = (
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/closet/crate/preopen,
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 8
@@ -722,6 +707,17 @@
 /obj/structure/cable,
 /turf/open/floor/circuit/airless,
 /area/shuttle/ruin/cyborg_mothership)
+"Oq" = (
+/obj/structure/table,
+/obj/item/surgery_tray/full,
+/obj/effect/turf_decal/bot,
+/obj/structure/sink/directional/east,
+/obj/item/toy/figure/borg{
+	pixel_x = 7;
+	pixel_y = 12
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/ruin/cyborg_mothership)
 "Ou" = (
 /obj/machinery/camera/directional/west,
 /obj/structure/cable,
@@ -733,9 +729,7 @@
 /area/shuttle/ruin/cyborg_mothership)
 "OY" = (
 /obj/machinery/power/shuttle_engine/heater,
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/template_noop,
 /area/shuttle/ruin/cyborg_mothership)
@@ -796,9 +790,7 @@
 /area/shuttle/ruin/cyborg_mothership)
 "SV" = (
 /obj/machinery/power/shuttle_engine/heater,
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/template_noop,
 /area/shuttle/ruin/cyborg_mothership)
@@ -809,9 +801,7 @@
 /area/shuttle/ruin/cyborg_mothership)
 "TH" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/reinforced/spawner/directional/north{
-	layer = 2.9
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 4
 	},
@@ -1161,7 +1151,7 @@ zZ
 zZ
 mN
 iN
-mG
+Oq
 zZ
 kz
 kz
