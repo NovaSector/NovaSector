@@ -23,8 +23,6 @@
 	)
 
 /datum/surgery/blood_filter/can_start(mob/user, mob/living/carbon/target)
-	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
-		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	if(HAS_TRAIT(target, TRAIT_HUSK)) //You can filter the blood of a dead person just not husked
 		return FALSE
 	return ..()

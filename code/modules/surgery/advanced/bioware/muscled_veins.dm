@@ -29,15 +29,6 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: what blood?
-/datum/surgery/advanced/bioware/muscled_veins/can_start(mob/user, mob/living/carbon/human/target)
-	if(!issynthetic(target))
-		return TRUE
-	if(!..())
-		return FALSE
-	return
-/// Nova Edit Addition END
-
 /datum/surgery_step/apply_bioware/muscled_veins
 	name = "shape vein muscles (hand)"
 

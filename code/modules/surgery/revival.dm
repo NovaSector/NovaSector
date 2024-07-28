@@ -29,8 +29,6 @@
 	)
 
 /datum/surgery/revival/can_start(mob/user, mob/living/target)
-	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
-		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	if(!..())
 		return FALSE
 	if(target.stat != DEAD)

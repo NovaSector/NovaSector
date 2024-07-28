@@ -26,8 +26,6 @@
 	)
 
 /datum/surgery/hepatectomy/can_start(mob/user, mob/living/carbon/target)
-	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
-		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(isnull(target_liver) || target_liver.damage < 50 || target_liver.operated)
 		return FALSE
@@ -73,13 +71,13 @@
 	var/mob/living/carbon/human/human_target = target
 	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	human_target.setOrganLoss(ORGAN_SLOT_LIVER, 10) //not bad, not great
-	//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
 	if(target_liver)
+	//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
 		if(istype(target_liver, /obj/item/organ/internal/liver/slime))
 			addtimer(VARSET_CALLBACK(target_liver, operated, FALSE), 30 SECONDS)
 		else
-			target_liver.operated = TRUE
 	//NOVA EDIT ADDITION END
+		target_liver.operated = TRUE
 		if(target_liver.organ_flags & ORGAN_EMP) //If our organ is failing due to an EMP, fix that
 			target_liver.organ_flags &= ~ORGAN_EMP
 	display_results(

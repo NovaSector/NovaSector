@@ -24,8 +24,6 @@
 	)
 
 /datum/surgery/lobectomy/can_start(mob/user, mob/living/carbon/target)
-	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
-		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	var/obj/item/organ/internal/lungs/target_lungs = target.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(isnull(target_lungs) || target_lungs.damage < 60 || target_lungs.operated)
 		return FALSE
@@ -70,14 +68,12 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		var/obj/item/organ/internal/lungs/target_lungs = human_target.get_organ_slot(ORGAN_SLOT_LUNGS)
-		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
-		if(istype(target_lungs, /obj/item/organ/internal/lungs/slime))
-			addtimer(VARSET_CALLBACK(target_lungs, operated, FALSE), 30 SECONDS)
-		else
-			target_lungs.operated = TRUE
-		//NOVA EDIT ADDITION END
 		human_target.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
 		if(target_lungs)
+			//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
+			if(istype(target_lungs, /obj/item/organ/internal/lungs/slime))
+				addtimer(VARSET_CALLBACK(target_lungs, operated, FALSE), 30 SECONDS)
+			//NOVA EDIT ADDITION END
 			target_lungs.operated = TRUE
 			if(target_lungs.organ_flags & ORGAN_EMP) //If our organ is failing due to an EMP, fix that
 				target_lungs.organ_flags &= ~ORGAN_EMP

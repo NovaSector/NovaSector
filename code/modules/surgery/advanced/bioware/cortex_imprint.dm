@@ -31,13 +31,10 @@
 	)
 
 /datum/surgery/advanced/bioware/cortex_imprint/can_start(mob/user, mob/living/carbon/target)
-	. = ..()
-	if(!issynthetic(target)) // Nova Edit Addition: Moving Synths to modular version
-		return TRUE // Nova Edit Addition: Moving Synths to modular version
 	var/obj/item/organ/internal/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!target_brain)
 		return FALSE
-	return
+	return ..()
 
 /datum/surgery_step/apply_bioware/imprint_cortex
 	name = "imprint cortex (hand)"

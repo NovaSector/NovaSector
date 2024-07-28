@@ -69,15 +69,6 @@
 		/datum/surgery_step/mechanic_close,
 	)
 
-/// Nova Edit Addition START: Moving Synths to modular version
-/datum/surgery/organ_manipulation/can_start(mob/user, mob/living/carbon/target)
-	if(!issynthetic(target))
-		return TRUE
-	if(!..())
-		return FALSE
-	return ..()
-/// Nova Edit Addition END
-
 /datum/surgery/organ_manipulation/mechanic/next_step(mob/living/user, modifiers)
 	if(location != user.zone_selected)
 		return FALSE

@@ -5,9 +5,11 @@
 		/datum/surgery/advanced/brainwashing,
 		/datum/surgery/advanced/brainwashing/mechanic,
 	)
-	special_desc_requirement = EXAMINE_CHECK_JOB // NOVA EDIT
-	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist") // NOVA EDIT CHANGE //You mean to tell me the roles that get this role-exclusive item know what it does?
+	// NOVA EDIT START - Job specific descriptions
+	special_desc_requirement = EXAMINE_CHECK_JOB
+	special_desc_jobs = list("Medical Doctor, Chief Medical Officer, Roboticist")
 	special_desc = "The disk provides instructions on how to impress an order on a brain, making it the primary objective of the patient."
+	// NOVA EDIT END
 
 /datum/surgery/advanced/brainwashing
 	name = "Brainwashing"
