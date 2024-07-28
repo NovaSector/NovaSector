@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Blast Cannons are no longer obtainable via the traitor uplink. They still exist in the code."

@@ -1,0 +1,5 @@
+author: "MortoSasye"
+delete-after: True
+changes:
+  - rscadd: "The hearthkin have decided to construct yet another new hearth, similar in some aspects to the previous one."
+  - rscadd: "Archery targets are now an available crafting object. Try to flex your archery master with others, and accidentally shot your friend who stepped in too close to watch."

@@ -1,8 +1,0 @@
-author: "grungussuss"
-delete-after: True
-changes:
-  - bugfix: "Serenity station kitchen now has all fire safety-equipment"
-  - bugfix: "Serenity station robotics stray decals have been removed"
-  - bugfix: "Serenity station Arrivals Transport Airlocks now have correct unrestricted access"
-  - bugfix: "Serenity station bridge maintenance has more redundancy"
-  - bugfix: "Serenity station extra lightbulb in a bathroom stall has been removed"

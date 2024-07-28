@@ -37,6 +37,8 @@ To rerun the cutting tool move the relevant .dmi .png and .png.toml files to the
 - modular_nova/modules/mapping/code/vgdecals.dm -> added BZ floor decals
 - modular_nova/modules/mapping/icons/areas/areas_station.dmi -> added icons for new station areas (cargo projects room, orbital areas, cyborg storage)
 - modular_nova/modules/mapping/icons/turf/decals/vgstation_decals.dmi -> added BZ floor decals
+- modular_nova/master_files/sound/ambience/mushroom -> Added ambience tracks for the Mushroom Caves.
+- modular_nova/master_files/sound/ambience/forest -> Added ambience tracks for the forest.
 
 ### Defines:
 
@@ -55,3 +57,4 @@ To rerun the cutting tool move the relevant .dmi .png and .png.toml files to the
 
 Credits to SableSteel (sable.steel on Discord, thlumyn on Github) for the map and sprites
 Credits to GoldenAlpharex for the biome generation and other code
+Credits to rick hick/tommy for all of the amazing ambience tracks that are found in modular_nova/master_files/sound/ambience/mushroom and /forest!

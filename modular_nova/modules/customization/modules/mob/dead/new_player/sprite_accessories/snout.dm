@@ -53,7 +53,7 @@
 
 
 /datum/sprite_accessory/snouts/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	flags_for_organ = NONE
 	factual = FALSE
@@ -115,6 +115,13 @@
 /datum/sprite_accessory/snouts/mammal/bug
 	name = "Bug"
 	icon_state = "bug"
+	flags_for_organ = NONE
+	color_src = USE_MATRIXED_COLORS
+	organ_type = /obj/item/organ/external/snout/top_adj
+
+/datum/sprite_accessory/snouts/mammal/bug_no_ant
+	name = "Bug (No Antennae, Below Hair)"
+	icon_state = "bug_no_ant"
 	flags_for_organ = NONE
 	color_src = USE_MATRIXED_COLORS
 	organ_type = /obj/item/organ/external/snout/top_adj

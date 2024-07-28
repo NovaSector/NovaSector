@@ -505,6 +505,22 @@
 	name = "Officer's Cap (Red)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/sec
 
+/datum/loadout_item/head/trekcapcustom
+	name = "Officer's Cap (Custom)"
+	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/custom
+
+/datum/loadout_item/head/trekcapcustom_gold
+	name = "Officer's Cap (Custom, Gold Badge)"
+	item_path = /obj/item/clothing/head/hats/caphat/parade/fedcap/custom/gold
+
+/datum/loadout_item/head/navalcap
+	name = "Custom Naval Cap"
+	item_path = /obj/item/clothing/head/hats/caphat/naval/custom
+
+/datum/loadout_item/head/navalcap_gold
+	name = "Custom Naval Cap (Gold Badge)"
+	item_path = /obj/item/clothing/head/hats/caphat/naval/custom/gold
+
 /*
 *	JOB-LOCKED
 */

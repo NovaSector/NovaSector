@@ -185,8 +185,7 @@
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
 
-	wag_flags = WAG_ABLE
-	//dna_block = DNA_MONKEY_TAIL_BLOCK NOVA EDIT REMOVAL
+	dna_block = null
 
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey
