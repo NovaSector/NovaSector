@@ -102,17 +102,13 @@
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, type))
 		TIMER_COOLDOWN_START(user, type, audio_cooldown)
-<<<<<<< HEAD
-		//NOVA EDIT CHANGE BEGIN
-		//playsound(user, tmp_sound, 50, vary) - NOVA EDIT - ORIGINAL
+		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore) // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION BEGIN
 		if(istype(src, /datum/emote/living/lewd))
-			play_lewd_sound(user, tmp_sound, sound_volume, vary, pref_to_check = /datum/preference/toggle/erp/sounds)
+			play_lewd_sound(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, pref_to_check = /datum/preference/toggle/erp/sounds)
 		else
-			playsound(user, tmp_sound, sound_volume, vary)
-		//NOVA EDIT CHANGE END
-=======
-		playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore)
->>>>>>> 2c36cbc6a4d (Emotes by default will not be heard through walls (#85245))
+			playsound(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, ignore_walls = sound_wall_ignore)
+		// NOVA EDIT ADDITION END
 
 	var/is_important = emote_type & EMOTE_IMPORTANT
 	var/is_visual = emote_type & EMOTE_VISIBLE
