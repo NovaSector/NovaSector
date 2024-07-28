@@ -76,7 +76,7 @@
 	name = "Credit-miner"
 	result = /obj/item/powersink/creditminer
 	time = 10 SECONDS
-	always_available = FALSE
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_IS_FULLTILE | CRAFT_ONE_PER_TURF| CRAFT_MUST_BE_LEARNED
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
 	reqs = list(
 		/obj/item/stack/cable_coil = 5,
