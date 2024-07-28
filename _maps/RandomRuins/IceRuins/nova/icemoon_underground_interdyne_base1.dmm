@@ -282,7 +282,6 @@
 "aZ" = (
 /obj/structure/closet/secure_closet/personal/wall{
 	pixel_y = 30;
-	pixel_w = 0;
 	icon_door = "locker_wall"
 	},
 /turf/open/floor/iron/smooth_edge,
@@ -572,9 +571,7 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "bK" = (
 /obj/structure/table/glass,
-/obj/item/reagent_containers/dropper{
-	pixel_y = 0
-	},
+/obj/item/reagent_containers/dropper,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/structure/cable,
@@ -904,9 +901,7 @@
 /obj/effect/turf_decal/siding/brown{
 	dir = 1
 	},
-/obj/machinery/firealarm/directional/south{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "cC" = (
@@ -943,9 +938,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/cargo)
 "cG" = (
-/obj/machinery/firealarm/directional/south{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/south,
 /obj/effect/turf_decal/siding/brown{
 	dir = 9
 	},
@@ -1351,18 +1344,14 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "dE" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 2
-	},
+/obj/effect/turf_decal/siding/thinplating,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "dF" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 2
-	},
+/obj/effect/turf_decal/siding/thinplating,
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -1370,12 +1359,9 @@
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "dG" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 2
-	},
+/obj/effect/turf_decal/siding/thinplating,
 /obj/machinery/button/door/directional/north{
 	name = "window security button";
-	pixel_x = 0;
 	id = "interdyneobservation"
 	},
 /turf/open/floor/iron/smooth_large,
@@ -1428,9 +1414,7 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dO" = (
-/obj/machinery/firealarm/directional/south{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dP" = (
@@ -1440,9 +1424,7 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/viro)
 "dQ" = (
-/obj/structure/weightmachine{
-	dir = 2
-	},
+/obj/structure/weightmachine,
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
@@ -2188,9 +2170,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/firealarm/directional/south{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "fV" = (
@@ -2281,9 +2261,7 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gh" = (
-/obj/machinery/firealarm/directional/north{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -2301,9 +2279,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/firealarm/directional/north{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "gk" = (
@@ -2536,9 +2512,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "gM" = (
-/obj/machinery/firealarm/directional/east{
-	dir = 8
-	},
+/obj/machinery/firealarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2571,9 +2545,7 @@
 	},
 /area/ruin/interdyne_planetary_base/main)
 "gR" = (
-/obj/machinery/firealarm/directional/west{
-	dir = 4
-	},
+/obj/machinery/firealarm/directional/west,
 /obj/machinery/vending/medical/syndicate_access{
 	onstation = 0;
 	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/mmi/syndie/interdyne=3);
@@ -2966,7 +2938,6 @@
 /obj/machinery/button/door/directional/south{
 	name = "window security button";
 	pixel_x = -24;
-	pixel_w = 0;
 	id = "interdynesciencehall";
 	req_access = list("syndicate")
 	},
@@ -3033,9 +3004,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/firealarm/directional/west{
-	dir = 4
-	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main)
 "ie" = (
@@ -3048,9 +3017,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
 "if" = (
-/obj/machinery/firealarm/directional/east{
-	dir = 8
-	},
+/obj/machinery/firealarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_large,
@@ -3229,9 +3196,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/machinery/firealarm/directional/north{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/north,
 /obj/machinery/light/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -3455,9 +3420,7 @@
 /area/ruin/interdyne_planetary_base/med/morgue)
 "jj" = (
 /obj/structure/table/glass,
-/obj/machinery/firealarm/directional/west{
-	dir = 4
-	},
+/obj/machinery/firealarm/directional/west,
 /obj/item/storage/box/beakers/bluespace{
 	pixel_x = -5;
 	pixel_y = 3
@@ -4072,7 +4035,6 @@
 /obj/machinery/button/door/directional/south{
 	name = "window security button";
 	pixel_x = 24;
-	pixel_w = 0;
 	id = "interdynesciencehall";
 	req_access = list("syndicate")
 	},
@@ -4723,7 +4685,6 @@
 	pixel_x = 30
 	},
 /obj/machinery/button/door/directional/north{
-	pixel_x = 0;
 	id = "interdynecabin6";
 	name = "door bolt control";
 	specialfunctions = 4;
@@ -4805,9 +4766,7 @@
 	dir = 4
 	},
 /obj/machinery/duct,
-/obj/machinery/firealarm/directional/south{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "ms" = (
@@ -5014,7 +4973,6 @@
 "mS" = (
 /obj/machinery/camera/autoname/directional/east{
 	pixel_x = -32;
-	pixel_y = 0;
 	network = list("intd13")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -5049,9 +5007,7 @@
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1
 	},
-/obj/machinery/firealarm/directional/west{
-	dir = 4
-	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng)
 "mZ" = (
@@ -5121,9 +5077,7 @@
 /area/ruin/interdyne_planetary_base/eng)
 "ni" = (
 /obj/effect/turf_decal/stripes/white/line,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 2
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
 "nj" = (
@@ -5556,9 +5510,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/machinery/firealarm/directional/west{
-	dir = 4
-	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "ok" = (
@@ -5907,8 +5859,7 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "oU" = (
 /obj/machinery/vending/dorms{
-	onstation = 0;
-	extended_inventory = 0
+	onstation = 0
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -6169,7 +6120,6 @@
 "pE" = (
 /obj/machinery/camera/autoname/directional/east{
 	pixel_x = -32;
-	pixel_y = 0;
 	network = list("intd13")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -6186,9 +6136,7 @@
 /obj/effect/turf_decal/siding/thinplating/corner{
 	dir = 4
 	},
-/obj/machinery/firealarm/directional/south{
-	dir = 1
-	},
+/obj/machinery/firealarm/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
@@ -6227,7 +6175,6 @@
 "pL" = (
 /obj/machinery/camera/autoname/directional/west{
 	pixel_x = 32;
-	pixel_y = 0;
 	network = list("intd13")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -6243,7 +6190,6 @@
 "pN" = (
 /obj/machinery/camera/autoname/directional/east{
 	pixel_x = -32;
-	pixel_y = 0;
 	network = list("intd13")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -6266,7 +6212,6 @@
 "pP" = (
 /obj/machinery/camera/autoname/directional/west{
 	pixel_x = 32;
-	pixel_y = 0;
 	network = list("intd13")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -6488,9 +6433,7 @@
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "qx" = (
-/obj/machinery/processor{
-	pixel_z = 0
-	},
+/obj/machinery/processor,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/kitchen)
@@ -6760,7 +6703,6 @@
 "rh" = (
 /obj/machinery/camera/autoname/directional/west{
 	pixel_x = 32;
-	pixel_y = 0;
 	network = list("intd13")
 	},
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -7085,7 +7027,6 @@
 	pixel_x = 30
 	},
 /obj/machinery/button/door/directional/north{
-	pixel_x = 0;
 	id = "interdynecabin5";
 	name = "door bolt control";
 	specialfunctions = 4;
@@ -7467,7 +7408,6 @@
 	pixel_x = 30
 	},
 /obj/machinery/button/door/directional/north{
-	pixel_x = 0;
 	id = "interdynecabin8";
 	name = "door bolt control";
 	specialfunctions = 4;
@@ -7508,7 +7448,6 @@
 	pixel_x = 30
 	},
 /obj/machinery/button/door/directional/north{
-	pixel_x = 0;
 	id = "interdynecabin7";
 	name = "door bolt control";
 	specialfunctions = 4;
