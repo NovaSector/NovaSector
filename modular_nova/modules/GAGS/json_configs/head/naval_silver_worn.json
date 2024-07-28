@@ -1,0 +1,22 @@
+{
+	"naval_silver": [
+		{
+			"type": "icon_state",
+			"icon_state": "naval_worn_body",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "naval_worn_trim",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "naval_worn_silver",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

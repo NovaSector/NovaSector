@@ -1,5 +1,5 @@
 {
-	"crop_jacket": [
+	"crop_jacket_short": [
 		{
 			"type": "icon_state",
 			"icon_state": "crop_jacket",
@@ -14,12 +14,12 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "crop_jacket_sleeve",
+			"icon_state": "crop_jacket_sleeve_short",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
 	],
-	"crop_jacket_t": [
+	"crop_jacket_short_t": [
 		{
 			"type": "icon_state",
 			"icon_state": "crop_jacket_open",
@@ -34,12 +34,12 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "crop_jacket_sleeve",
+			"icon_state": "crop_jacket_sleeve_short",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
 	],
-	"jacket": [
+	"jacket_short": [
 		{
 			"type": "icon_state",
 			"icon_state": "jacket",
@@ -54,12 +54,12 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "crop_jacket_sleeve",
+			"icon_state": "crop_jacket_sleeve_short",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
 	],
-	"jacket_t": [
+	"jacket_short_t": [
 		{
 			"type": "icon_state",
 			"icon_state": "jacket_open",
@@ -74,7 +74,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "crop_jacket_sleeve",
+			"icon_state": "crop_jacket_sleeve_short",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
