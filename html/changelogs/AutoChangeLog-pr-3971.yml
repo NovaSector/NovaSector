@@ -1,4 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - bugfix: "Assistant jumpsuits/jumpskirts no longer override the undersuit loadout item in the character preview."

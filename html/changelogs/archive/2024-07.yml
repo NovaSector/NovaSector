@@ -1363,3 +1363,34 @@
   - bugfix: Tram's Tool Storage now has proper lighting
   Thlumyn:
   - bugfix: self-resp viruses don't spam messages as often
+2024-07-28:
+  GoldenAlpharex:
+  - bugfix: Assistant jumpsuits/jumpskirts no longer override the undersuit loadout
+      item in the character preview.
+  LT3:
+  - balance: SMES throughput is now a multiplier based on capacitor tier
+  MortoSasye:
+  - image: Resprited the hairstyles for Jessica, Gently Brushed, Spicy and Curly.
+  - bugfix: The Hearthkin's armor now inherits from the forged variety.
+  NovaBot13:
+  - bugfix: Centcom technicians have been trained to recognize cargo-bought fish.
+      You will no longer be able to trick the economy system by buying fish and sending
+      it right back. Also nerfed fish selling price very slightly.
+  - bugfix: Clicking on a table in the lootpanel with an item in-hand tries to place
+      it in the center again.
+  - bugfix: Voidwalker should not run on planetary maps.
+  Rhials:
+  - bugfix: Monkey wizards can now interact with grand ritual runes.
+  - bugfix: Clown Ops gear has been returned to being available only to clown ops.
+      Whoops!
+  Thedragmeme:
+  - bugfix: Fixes a duplicate item left by my donor PR and fixes a typo
+  grungussuss:
+  - sound: gas tanks now have sound
+  - sound: the default metal sound has been changed
+  - sound: the sneeze projectile no longer makes a sound when making contact.
+  rutek-code:
+  - rscadd: Adds a below-hair variant to the antenna-less bug snout.
+  yooriss:
+  - balance: The GMM's prices are now much narrower, making arbitrage harder and initial
+      purchases a little more expensive.
