@@ -36,7 +36,7 @@
 	faction = list(FACTION_SAPPER)
 	req_access = list(ACCESS_SAPPER_SHIP)
 	on = FALSE
-
+/*
 /obj/item/storage/toolbox/emergency/turret/sapper
 	name = "portable turret toolbox"
 
@@ -54,7 +54,7 @@
 	damage = 10
 	speed = 0.6
 	light_color = COLOR_VIVID_YELLOW
-
+*/
 /mob/living/basic/bot/medbot/sapper
 	name = "\proper Manon"
 	medkit_type = /obj/item/storage/medkit/fire
