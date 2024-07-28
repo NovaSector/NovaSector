@@ -95,10 +95,6 @@
 	name = "Strap-On"
 	item_path = /obj/item/clothing/strapon
 
-/datum/loadout_item/erp/belt
-	name = "Special Belt"
-	item_path = /obj/item/storage/belt/erpbelt
-
 /*
 *	MULTI USE
 */
