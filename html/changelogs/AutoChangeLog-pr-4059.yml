@@ -1,0 +1,4 @@
+author: "MortoSasye"
+delete-after: True
+changes:
+  - bugfix: "An oversight in the building of the hearthkin's hearth has been corrected, to ensure privacy."
