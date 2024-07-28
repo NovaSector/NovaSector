@@ -660,9 +660,6 @@
 /obj/structure/mirror/directional/north,
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
-"oA" = (
-/turf/closed/mineral/snowmountain/icemoon/unscrapeable,
-/area/ruin/unpowered/primitive_catgirl_den)
 "oC" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -3038,7 +3035,7 @@ yp
 yp
 yp
 yp
-JQ
+yp
 Uk
 op
 GU
@@ -3080,7 +3077,7 @@ oJ
 oJ
 RO
 oJ
-oA
+yp
 wF
 tn
 jV
@@ -3122,7 +3119,7 @@ yp
 oJ
 oJ
 oJ
-oA
+yp
 JQ
 wF
 Iq
@@ -3702,11 +3699,11 @@ wF
 wF
 gU
 JQ
-JQ
+yp
 yp
 cW
 cW
-oA
+yp
 JQ
 yp
 tI
@@ -3744,12 +3741,12 @@ op
 qu
 wF
 JQ
-oA
+yp
 cW
 cW
 oJ
 oJ
-oA
+yp
 RW
 su
 yp
@@ -3786,11 +3783,11 @@ wF
 yM
 wF
 wF
-oA
+yp
 oJ
 oJ
 lf
-oA
+yp
 JQ
 yp
 tI
@@ -3828,11 +3825,11 @@ wF
 yM
 wF
 wF
-oA
+yp
 oJ
 oJ
 yp
-JQ
+yp
 tn
 RW
 tI
@@ -3871,9 +3868,9 @@ yM
 wF
 wF
 yp
-oA
-oA
-JQ
+yp
+yp
+yp
 JQ
 wF
 RW
