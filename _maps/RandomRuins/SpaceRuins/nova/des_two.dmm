@@ -1994,8 +1994,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/security)
 "iK" = (
@@ -7281,8 +7279,7 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "GQ" = (
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood/tile,

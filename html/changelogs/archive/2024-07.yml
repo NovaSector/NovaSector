@@ -1335,3 +1335,62 @@
       rick hick/tommy!
   - code_imp: Added some functionality to make it so the mushroom theme song doesn't
       get cut in the middle while it's played.
+2024-07-27:
+  LT3:
+  - bugfix: Tram will no longer eat its own rails as it travels
+  - bugfix: Fixed delam counter stuck in window near Ice Box bridge
+  - bugfix: False supermatter surge announcements are now identical to real ones
+  - bugfix: Fixed disease outbreak announcement sometimes missing the disease name
+  NovaBot13:
+  - bugfix: Fixes projectiles facing north if ricocheting, deflected or homing
+  - rscdel: Removed a janky fish bounty
+  - rscadd: introduced exporting fish through cargo.
+  - balance: reduced the average weight of the jumpercable. Conversely, eased up the
+      requirements for the bone fish evolution.
+  - bugfix: wawastation engineering water tanks are now highcap
+  - bugfix: Fixed possessed blades being broken
+  - code_imp: If testing is enabled everyone is polled in ghost polls.
+  - bugfix: Firelocks will once again respect fire alarm's thermal sensors being disabled.
+  - balance: If a bluespace cookie fails to teleport you then you will trip over.
+  - bugfix: Fixes borgs not being able to place apparatus-held items on tables. As
+      a side-effect, they can now combat mode right click splash containers as normal
+      instead of having their own right-click floor splash.
+  - image: Updated gas flow meter sprites
+  - refactor: Refactored table item interactions, please report any issues.
+  - bugfix: Fixed being unable to use decks to draw cards directly onto tables.
+  - qol: Right clicking a table with a tray puts it down regardless of it having contents.
+  - bugfix: Janicart inserts items into the attached trash bag again (manual and vacuumed)
+  - bugfix: Tram's Tool Storage now has proper lighting
+  Thlumyn:
+  - bugfix: self-resp viruses don't spam messages as often
+2024-07-28:
+  GoldenAlpharex:
+  - bugfix: Assistant jumpsuits/jumpskirts no longer override the undersuit loadout
+      item in the character preview.
+  LT3:
+  - balance: SMES throughput is now a multiplier based on capacitor tier
+  MortoSasye:
+  - image: Resprited the hairstyles for Jessica, Gently Brushed, Spicy and Curly.
+  - bugfix: The Hearthkin's armor now inherits from the forged variety.
+  NovaBot13:
+  - bugfix: Centcom technicians have been trained to recognize cargo-bought fish.
+      You will no longer be able to trick the economy system by buying fish and sending
+      it right back. Also nerfed fish selling price very slightly.
+  - bugfix: Clicking on a table in the lootpanel with an item in-hand tries to place
+      it in the center again.
+  - bugfix: Voidwalker should not run on planetary maps.
+  Rhials:
+  - bugfix: Monkey wizards can now interact with grand ritual runes.
+  - bugfix: Clown Ops gear has been returned to being available only to clown ops.
+      Whoops!
+  Thedragmeme:
+  - bugfix: Fixes a duplicate item left by my donor PR and fixes a typo
+  grungussuss:
+  - sound: gas tanks now have sound
+  - sound: the default metal sound has been changed
+  - sound: the sneeze projectile no longer makes a sound when making contact.
+  rutek-code:
+  - rscadd: Adds a below-hair variant to the antenna-less bug snout.
+  yooriss:
+  - balance: The GMM's prices are now much narrower, making arbitrage harder and initial
+      purchases a little more expensive.
