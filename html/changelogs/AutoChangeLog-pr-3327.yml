@@ -1,6 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - rscadd: "New DeForest heavy medical kit, technician satchel"
-  - rscadd: "Small capacity piercing hypospray"
-  - bugfix: "Hyposprays that are supposed to have a starting vial now actually start with the vial"

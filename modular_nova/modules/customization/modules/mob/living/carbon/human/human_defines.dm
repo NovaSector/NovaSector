@@ -1,4 +1,6 @@
 /mob/living/carbon/human
+	maxHealth = HUMAN_MAXHEALTH
+	health = HUMAN_MAXHEALTH
 	/// Color of the undershirt
 	var/undershirt_color = "#FFFFFF"
 	/// Color of the socks
@@ -25,3 +27,7 @@
 	var/bra = "Nude"
 	/// Color of the bra.
 	var/bra_color = "#FFFFFF"
+	/// Chronological age.
+	var/chrono_age = 30
+	/// The footstep sound type to use when barefoot.
+	var/footstep_type

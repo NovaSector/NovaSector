@@ -106,7 +106,7 @@
 	id = "salvagepost"
 	suffix = "salvagepost.dmm"
 	name = "Space-Ruin Pre-Bluespace Salvage Post"
-	description = "An extremely old, long forgotten post used to salvage damaged or decommissioned ships before bluespace transportation. Surprising its stayed intact so long."
+	description = "An extremely old, long forgotten post used to salvage damaged or decommissioned ships before bluespace transportation. Surprising it's stayed intact so long."
 
 /datum/map_template/ruin/space/nova/vaulttango
 	id = "vaulttango"
@@ -161,6 +161,12 @@
 	suffix = "shuttlescrap.dmm"
 	name = "Space-Ruin Broken Shuttle"
 	description = "A small shuttle that clearly got clipped by something."
+
+/datum/map_template/ruin/space/nova/turretfactory
+	id = "turretfactory"
+	suffix = "turretfactory.dmm"
+	name = "Turret Factory"
+	description = "A turret factory that was forgotten. Maybe abandoned. Idk. Goodluck."
 
 /datum/map_template/ruin/space/nova/escapefromtarkon
 	id = "escapefromtarkon"

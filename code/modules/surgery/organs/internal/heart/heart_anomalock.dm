@@ -7,6 +7,8 @@
 	name = "Voltaic Combat Cyberheart"
 	desc = "A cutting-edge cyberheart, originally designed for Nanotrasen killsquad usage but later declassified for normal research. Voltaic technology allows the heart to keep the body upright in dire circumstances, alongside redirecting anomalous flux energy to fully shield the user from shocks and electro-magnetic pulses. Requires a refined Flux core as a power source."
 	icon_state = "anomalock_heart"
+	bleed_prevention = TRUE
+	toxification_probability = 0
 
 	COOLDOWN_DECLARE(survival_cooldown)
 	///Cooldown for the activation of the organ
@@ -114,19 +116,20 @@
 /obj/item/organ/internal/heart/cybernetic/anomalock/proc/get_held_mob()
 	return owner
 
-/obj/item/organ/internal/heart/cybernetic/anomalock/attackby(obj/item/item, mob/living/user, params)
-	if(!istype(item.type, required_anomaly))
-		return ..()
+/obj/item/organ/internal/heart/cybernetic/anomalock/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, required_anomaly))
+		return NONE
 	if(core)
 		balloon_alert(user, "core already in!")
-		return
-	if(!user.transferItemToLoc(item, src))
-		return
-	core = item
+		return ITEM_INTERACT_BLOCKING
+	if(!user.transferItemToLoc(tool, src))
+		return ITEM_INTERACT_BLOCKING
+	core = tool
 	balloon_alert(user, "core installed")
 	playsound(src, 'sound/machines/click.ogg', 30, TRUE)
 	add_organ_trait(TRAIT_SHOCKIMMUNE)
 	update_icon_state()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/organ/internal/heart/cybernetic/anomalock/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()

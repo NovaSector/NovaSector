@@ -44,7 +44,7 @@
 		)))
 		if(KIT_RECON)
 			new /obj/item/clothing/glasses/thermal/xray(src) // ~8 tc?
-//			new /obj/item/storage/briefcase/launchpad(src) //6 tc // NOVA EDIT REMOVAL
+			//new /obj/item/storage/briefcase/launchpad(src) //6 tc // NOVA EDIT REMOVAL
 			new /obj/item/binoculars(src) // 2 tc?
 			new /obj/item/encryptionkey/syndicate(src) // 2 tc
 			new /obj/item/storage/box/syndie_kit/space(src) //4 tc
@@ -267,7 +267,7 @@
 
 		if(KIT_MR_FREEZE)
 			new /obj/item/clothing/glasses/cold(src)
-			new /obj/item/clothing/gloves/color/black(src)
+			new /obj/item/clothing/gloves/color/black/security/blu(src)
 			new /obj/item/clothing/mask/chameleon(src)
 			new /obj/item/clothing/suit/hooded/wintercoat(src)
 			new /obj/item/clothing/shoes/winterboots(src)
@@ -300,7 +300,7 @@
 			new /obj/item/clothing/suit/armor/vest/marine/pmc(src) //The armor kit is comparable to the infiltrator, 6 TC
 			new /obj/item/clothing/head/helmet/marine/pmc(src)
 			new /obj/item/clothing/mask/gas/sechailer(src)
-			new /obj/item/clothing/glasses/night(src) // 3~ TC
+			new /obj/item/clothing/glasses/night/colorless(src) // 3~ TC
 			new /obj/item/clothing/gloves/krav_maga/combatglovesplus(src) //5TC
 			new /obj/item/clothing/shoes/jackboots(src)
 			new /obj/item/storage/belt/military/assault/fisher(src) //items in this belt easily costs 18 TC

@@ -1,6 +1,6 @@
 /obj/item/organ/internal/lungs/synth
 	name = "heatsink"
-	desc = "A device that transfers generated heat to a fluid medium to cool it down. Required to keep your synthetics cool-headed. It's shape resembles lungs." //Purposefully left the 'fluid medium' ambigious for interpretation of the character, whether it be air or fluid cooling
+	desc = "A device that transfers generated heat to a fluid medium to cool it down. Required to keep your synthetics cool-headed. Its shape resembles lungs." //Purposefully left the 'fluid medium' ambigious for interpretation of the character, whether it be air or fluid cooling
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "lungs-ipc"
 	safe_nitro_min = 0
@@ -34,7 +34,7 @@
 
 /datum/design/synth_heatsink
 	name = "Heatsink"
-	desc = "A device that transfers generated heat to a fluid medium to cool it down. Required to keep your synthetics cool-headed. It's shape resembles lungs."
+	desc = "A device that transfers generated heat to a fluid medium to cool it down. Required to keep your synthetics cool-headed. Its shape resembles lungs."
 	id = "synth_lungs"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS

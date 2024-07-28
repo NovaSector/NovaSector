@@ -41,10 +41,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/template_noop)
 "o" = (
-/obj/machinery/airalarm/directional/south,
-/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/directional/south,
 /turf/open/floor/wood/large,
 /area/template_noop)
 "q" = (
@@ -67,6 +66,7 @@
 /obj/effect/spawner/random/entertainment/lighter,
 /obj/item/bong,
 /obj/item/reagent_containers/hash,
+/obj/item/flashlight/lamp,
 /turf/open/floor/carpet/royalblack,
 /area/template_noop)
 "t" = (
@@ -91,9 +91,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/obj/item/clothing/mask/cigarette/candy,
-/obj/item/clothing/mask/cigarette,
+/obj/item/cigarette/candy,
+/obj/item/cigarette,
 /obj/effect/spawner/random/entertainment/lighter,
+/obj/item/flashlight/lamp,
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 "z" = (

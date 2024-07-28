@@ -34,6 +34,10 @@
 	item_type = /obj/item/mod/control/pre_equipped/frontier_colonist
 	cost = PAYCHECK_COMMAND * 6.5
 
+/datum/armament_entry/company_import/kahraman/ppe/civilian_mod
+	item_type = /obj/item/mod/control/pre_equipped/civilian
+	cost = PAYCHECK_COMMAND * 5
+
 /datum/armament_entry/company_import/kahraman/ppe/gas_mask
 	item_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	cost = PAYCHECK_COMMAND

@@ -1,4 +1,4 @@
-// Its modsuiting time
+// It's modsuiting time
 
 /datum/mod_theme/frontier_colonist
 	name = "frontier hazard protective"
@@ -81,7 +81,7 @@
 
 /obj/item/mod/control/pre_equipped/frontier_colonist
 	theme = /datum/mod_theme/frontier_colonist
-	applied_cell = /obj/item/stock_parts/cell/high
+	applied_cell = /obj/item/stock_parts/power_store/cell/high
 	applied_modules = list(
 		/obj/item/mod/module/welding,
 		/obj/item/mod/module/magboot,

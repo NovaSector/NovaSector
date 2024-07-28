@@ -16,9 +16,6 @@
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 	max_grab = GRAB_KILL
 
-	maxHealth = HUMAN_MAXHEALTH //NOVA EDIT ADDITION
-	health = HUMAN_MAXHEALTH //NOVA EDIT ADDITION
-
 	//Hair colour and style
 	var/hair_color = COLOR_BLACK
 	var/hairstyle = "Bald"
@@ -50,7 +47,6 @@
 	var/lip_color = COLOR_WHITE
 
 	var/age = 30 //Player's age
-	var/chrono_age = 30 // NOVA EDIT ADDITION - Chronological age
 
 	/// Which body type to use
 	var/physique = MALE

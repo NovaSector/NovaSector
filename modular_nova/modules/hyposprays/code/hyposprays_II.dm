@@ -24,8 +24,6 @@
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
-	/// Is the hypospray only able to use small vials. Relates to the loaded overlays
-	var/small_only = TRUE
 	/// The presently-inserted vial.
 	var/obj/item/reagent_containers/cup/vial/vial
 	/// If the Hypospray starts with a vial, which vial does it start with?
@@ -48,16 +46,14 @@
 	var/gags_bodystate = "hypo2_normal"
 
 /obj/item/hypospray/mkii/deluxe
-	name = "hypospray mk.II deluxe"
+	name = "hypospray Mk.II deluxe"
 	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small, /obj/item/reagent_containers/cup/vial/large)
 	icon_state = "bighypo2"
 	gags_bodystate = "hypo2_deluxe"
 	desc = "The deluxe variant in the DeForest Hypospray Mk. II series, able to take both 100u and 50u vials."
-	small_only = FALSE
 
 /obj/item/hypospray/mkii/piercing
 	name = "hypospray Mk.II advanced"
-	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
 	icon_state = "piercinghypo2"
 	gags_bodystate = "hypo2_piercing"
 	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor and quickly inject the chemicals."
@@ -72,7 +68,7 @@
 
 // Deluxe hypo upgrade Kit
 /obj/item/device/custom_kit/deluxe_hypo2
-	name = "\improper DeForest Hypospray Mk. II Deluxe Bodykit"
+	name = "hypospray Mk.II deluxe bodykit"
 	desc = "Upgrades the DeForest Hypospray Mk. II to support larger vials."
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
@@ -126,7 +122,7 @@
 		return
 	if(vial.reagents.total_volume)
 		var/vial_spritetype = "chem-color"
-		if(!small_only)
+		if(istype(vial, /obj/item/reagent_containers/cup/vial/large))
 			vial_spritetype += "[vial.type_suffix]"
 		else
 			vial_spritetype += "-s"
@@ -240,10 +236,10 @@
 	if(istype(interacting_with, /obj/item/reagent_containers/cup/vial))
 		insert_vial(interacting_with, user)
 		return ITEM_INTERACT_SUCCESS
-	return do_inject(interacting_with, user, mode=HYPO_INJECT)
+	return do_inject(interacting_with, user, mode=HYPO_SPRAY)
 
 /obj/item/hypospray/mkii/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	return do_inject(interacting_with, user, mode=HYPO_SPRAY)
+	return do_inject(interacting_with, user, mode=HYPO_INJECT)
 
 /obj/item/hypospray/mkii/proc/do_inject(mob/living/injectee, mob/living/user, mode)
 	if(!isliving(injectee))
@@ -317,7 +313,7 @@
 
 /obj/item/hypospray/mkii/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Left-Click</b> on patients to inject, <b>Right-Click</b> to spray.")
+	. += span_notice("<b>Left-Click</b> on patients to spray, <b>Right-Click</b> to inject.")
 
 #undef HYPO_INJECT
 #undef HYPO_SPRAY

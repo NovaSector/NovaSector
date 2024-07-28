@@ -1323,3 +1323,75 @@
   - balance: Damage dealt by travelling through the disposal tubes has been reduced
       by 60%. You can now (sort of) safely use them as an escape method again without
       dosing yourself to the eyeballs on anti-brute medicine.
+2024-06-30:
+  00-Steven:
+  - bugfix: Fixes chronological age resetting.
+  EvenInDeathIStillServe:
+  - rscadd: Adds donator item for BlindPoet.
+  LT3:
+  - bugfix: Advanced hypospray is no longer available to security and Tarkon
+  - bugfix: Advanced hypospray is available to medical
+  - spellcheck: More hypospray text consistency
+  - spellcheck: Empty hypospray kits are now called cases, case/hypospray combos remain
+      kits
+  - qol: Hypospray application method is spray by default
+  - code_imp: Blood filter only pings and says finished when it's actually finished
+  - rscadd: New DeForest heavy medical kit, technician satchel
+  - rscadd: Small capacity piercing hypospray
+  - bugfix: Hyposprays that are supposed to have a starting vial now actually start
+      with the vial
+  NovaBot13:
+  - bugfix: both engineers and roboticists may now access the controls of a firebot
+  - bugfix: Holodeck closet & crate items are marked as holograms as well
+  - bugfix: Holodeck closet & crate items delete themselves when the program is changed
+  - bugfix: There's now a limit to how many dental implants you can cram into your
+      mouth, which is governed by your species' teeth limit.
+  - refactor: Most species have 32 teeth, due to being based on humans, weirding me
+      out when thinking about their teeth, or lack of enough information
+  - refactor: Moths and flypeople have NO teeth. They CAN'T get dental implants. I'm
+      NERFING moths.
+  - refactor: Lizards have seventy-five (!!!) teeth. Lizards are weird.
+  - bugfix: Fix being unable to add a flux core to new the combat heart cybernetic
+  - image: Ripley and Ripley-based mechs now have consistent outlines
+  - balance: Changelings regenerate chemicals faster when not on fire
+  - balance: Changelings regenerate chemicals slower when on fire
+  - bugfix: you can access your inventory when lying down
+  - spellcheck: Syndicate jaws of life are now jaws of death!
+  - spellcheck: Made its desc. more descriptive, stating that its faster.
+  - bugfix: alt click runtime no more when using style meter
+  - code_imp: improved alt & ctrl click code
+  - spellcheck: Fixed two typos in the heretic lore
+  - code_imp: Rewrote a portion of storage UI code to allow it to be influenced by
+      UI style.
+  - image: Prettified storage UI and made it affected by UI theme.
+  - bugfix: fixed cyborgs and monkeys not being able to buckle to chairs
+  - qol: The "Dental Implant" surgery no longer forces itself to restart after implanting
+      one pill. Now implanting pills in the surgery has another step to either search
+      the patient's mouth for another tooth to implant, or cauterization to end the
+      surgery.
+  - bugfix: Storage no longer deletes all of its viewers upon being deleted
+  - bugfix: Storage UI now renders properly
+  - bugfix: Fixed gas canister shields turning themselves off in unpowered areas when
+      they weren't drawing any cell power.
+  - qol: Punching bags are now a equal method of training to the fitness machinery.
+  - qol: Boxing grants more experience overall for participation.
+  - bugfix: Mood buffs/penalties are now properly equal on both positive/negative
+      sides.
+  - bugfix: Guns no longer can be overfilled by 1 bullet
+  - bugfix: Russian revolvers now spawn with only 1 live round as originally intended,
+      and click when firing a blank.
+  - bugfix: peg legs can't bleed
+  RuinedTrickster:
+  - rscadd: Make monkey tails waggable
+  ShizCalev:
+  - bugfix: Monkeys that become sentient through the sentience helmet will no longer
+      be notified that they can ventcrawl.
+  - bugfix: Toggling ambient ship sounds will now instantly turn it on/off.
+  - bugfix: Airlocks will now correctly said what other airlock they are cyclelinked
+      with.
+  - bugfix: The soups wiki page no longer has error icons for soups that don't have
+      unique sprites.
+  - bugfix: Portaturrets no longer go invisible when unwrenched from the ground.
+  grungussuss , Kayozz:
+  - sound: exosuit fabricators, Autolathes and Techfabs will now produce sounds when
+      printing items

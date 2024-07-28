@@ -56,7 +56,7 @@
 
 	return ..()
 
-/// This does the same as it's parent, but it also tracks organ damage.
+/// This does the same as its parent, but it also tracks organ damage.
 /datum/component/damage_tracker/human
 	/// How much damage does the owner's heart currently have?
 	var/heart_damage

@@ -9,7 +9,7 @@
 	var/genital_location = GROIN
 
 /datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
-	var/obj/item/organ/external/genital/badonkers = target_mob.get_organ_slot(associated_organ_slot)
+	var/obj/item/organ/external/genital/badonkers = target_mob?.get_organ_slot(associated_organ_slot)
 	if(!badonkers)
 		return TRUE
 	switch(badonkers.visibility_preference)

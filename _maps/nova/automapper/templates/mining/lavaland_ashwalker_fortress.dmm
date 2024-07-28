@@ -48,9 +48,7 @@
 /area/ruin/unpowered/ash_walkers)
 "aE" = (
 /obj/structure/falsewall/wood,
-/obj/item/storage/box/lewd_toys{
-	layer = 2.4
-	},
+/obj/item/storage/box/lewd_toys,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -2599,7 +2597,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Lm" = (
-/obj/machinery/smartfridge/drying_rack,
+/obj/machinery/smartfridge/drying/rack,
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
 	},
