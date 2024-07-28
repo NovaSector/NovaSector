@@ -9,7 +9,7 @@
 
 /datum/sprite_accessory/hair/nova/bedhead_long
 	name = "Floorlength Bedhead (Alt)"
-	icon_state = "hair_longer_bedhead"
+	icon_state = "hair_floorlength_bedhead_alt"
 
 /datum/sprite_accessory/hair/nova/dave
 	name = "Dave"
