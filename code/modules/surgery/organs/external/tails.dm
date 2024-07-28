@@ -185,12 +185,7 @@
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
 
-<<<<<<< HEAD
-	wag_flags = WAG_ABLE
-	//dna_block = DNA_MONKEY_TAIL_BLOCK NOVA EDIT REMOVAL
-=======
 	dna_block = null
->>>>>>> 8df2c4bee12 (Deletes monkey tail DNA block, minor sprite accessory cleanup, monkeys (and lizardpeople) will no longer random spawn without tails (#85112))
 
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey
