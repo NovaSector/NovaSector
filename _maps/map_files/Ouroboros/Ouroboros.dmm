@@ -11845,7 +11845,7 @@
 	},
 /obj/effect/landmark/start/orderly,
 /obj/effect/turf_decal/tile/blue,
-/obj/machinery/computer/security/telescreen/cmo/directional/north,
+/obj/machinery/computer/security/telescreen/med_sec/directional/north,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "dyr" = (
