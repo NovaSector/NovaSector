@@ -121,10 +121,10 @@
 	name = "Long Bedhead"
 	icon_state = "hair_long_bedhead"
 
-/*/datum/sprite_accessory/hair/bedheadfloorlength //NOVA EDIT - Removal - Duplicate of Longer Bedhead, now has a better sprite anyway.
+/datum/sprite_accessory/hair/bedheadfloorlength
 	name = "Floorlength Bedhead"
 	icon_state = "hair_floorlength_bedhead"
-	natural_spawn = FALSE*/
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/hair/badlycut
 	name = "Shorter Long Bedhead"

@@ -8,7 +8,7 @@
 	icon_state = "hair_pigtailss"
 
 /datum/sprite_accessory/hair/nova/bedhead_long
-	name = "Longer Bedhead"
+	name = "Floorlength Bedhead (Alt)"
 	icon_state = "hair_longer_bedhead"
 
 /datum/sprite_accessory/hair/nova/dave
