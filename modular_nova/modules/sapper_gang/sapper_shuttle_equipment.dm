@@ -77,7 +77,6 @@
 	faction = list(FACTION_SAPPER)
 	heal_threshold = 0
 	heal_amount = 5
-	additional_access = /datum/id_trim/sapper
 
 /mob/living/basic/bot/medbot/sapper/Initialize(mapload, new_skin)
 	. = ..()
