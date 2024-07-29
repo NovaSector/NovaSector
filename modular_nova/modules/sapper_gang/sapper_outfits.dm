@@ -11,10 +11,11 @@
 	gloves = /obj/item/clothing/gloves/color/yellow
 	shoes = /obj/item/clothing/shoes/workboots/sapper
 
-	box = /obj/item/storage/box/smart_metal_foam
+	box = /obj/item/storage/box/survival/engineer
 	back = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	backpack_contents = list(
-		/obj/item/storage/backpack/satchel/flat/empty = 1,
+		/obj/item/storage/box/smart_metal_foam = 1,
+		/obj/item/mod/control/pre_equipped/frontier_colonist = 1,
 		/obj/item/fireaxe = 1,
 		/obj/item/stack/cable_coil/thirty = 2,
 		)
@@ -115,10 +116,10 @@
 	preload = FALSE
 
 /obj/item/storage/belt/utility/sapper/PopulateContents() //its just a complete mishmash
+	new /obj/item/forcefield_projector(src)
 	new /obj/item/multitool(src)
-	new /obj/item/crowbar/power(src)
 	new /obj/item/wrench/combat(src)
-	new /obj/item/construction/rcd/improved(src)
+	new /obj/item/construction/rcd(src)
 	new /obj/item/screwdriver/caravan(src)
 	new /obj/item/inducer/syndicate(src)
 	new /obj/item/weldingtool/abductor(src)
