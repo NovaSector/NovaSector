@@ -1,9 +1,7 @@
 /datum/round_event_control/sappers
 	name = "Space Sappers"
 	typepath = /datum/round_event/sappers
-	weight = 10
 	earliest_start = 60 MINUTES //Gives the station time to work on their powernet
-	max_occurrences = 1
 	min_players = 20
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_INVASION

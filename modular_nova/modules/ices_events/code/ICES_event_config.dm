@@ -396,6 +396,13 @@
 	max_occurrences = 0
 
 /**
+ * Sappers
+ */
+/datum/round_event_control/sappers
+	max_occurrences = 1
+	weight = LOW_EVENT_FREQ
+
+/**
  * Pirates
  *
  * Disabled: Controlled by Dynamic
