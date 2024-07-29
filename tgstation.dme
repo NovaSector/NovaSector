@@ -8017,6 +8017,7 @@
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\shibari.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\size_items.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\spanking_pad.dm"
+#include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\storage.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\torture_candle.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\vibrator.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_items\vibroring.dm"

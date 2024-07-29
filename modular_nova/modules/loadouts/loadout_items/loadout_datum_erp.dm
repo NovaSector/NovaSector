@@ -4,7 +4,7 @@
 	erp_category = TRUE
 	type_to_generate = /datum/loadout_item/erp
 	tab_order = /datum/loadout_category/pocket::tab_order + 1
-	VAR_PRIVATE/max_allowed = 7
+	VAR_PRIVATE/max_allowed = MAX_ALLOWED_ERP_ITEMS
 
 /datum/loadout_category/erp/New()
 	. = ..()
@@ -24,12 +24,13 @@
 		manager.deselect_item(other_items[1])
 	return TRUE
 
-/datum/loadout_item/erp/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // need to figure a way to put them all in a box
+/datum/loadout_item/erp/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	return FALSE
 
 /datum/loadout_item/erp
 	abstract_type = /datum/loadout_item/erp
 	erp_item = TRUE
+	erp_box = TRUE
 
 /*
 *	SEX TOYS

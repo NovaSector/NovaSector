@@ -46,6 +46,16 @@
 	var/list/loadout_list = preference_source?.read_preference(/datum/preference/loadout)
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
 	var/obj/item/storage/briefcase/empty/briefcase
+	var/obj/item/storage/box/erp/erpbox
+	var/emptybox = TRUE
+	if (!CONFIG_GET(flag/disable_erp_preferences))
+		for(var/datum/loadout_item/item as anything in loadout_datums)
+			if (item.erp_box == TRUE)
+				if (emptybox)
+					emptybox = FALSE
+					erpbox = new(loc)
+				new item.item_path(erpbox)
+				loadout_datums -= item
 	if(override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only)
 		briefcase = new(loc)
 
@@ -53,6 +63,8 @@
 			if (!item.can_be_applied_to(src, preference_source, equipping_job))
 				continue
 			new item.item_path(briefcase)
+		if (!emptybox)
+			briefcase.contents += erpbox
 
 		briefcase.name = "[preference_source.read_preference(/datum/preference/name/real_name)]'s travel suitcase"
 		equipOutfit(equipped_outfit, visuals_only)
@@ -66,7 +78,8 @@
 			var/datum/outfit/outfit_important_for_life = dna.species.outfit_important_for_life
 			if(!outfit_important_for_life || !item.pre_equip_item(equipped_outfit, outfit_important_for_life, src, visuals_only))
 				item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
-
+		if (!emptybox)
+			LAZYADD(equipped_outfit.backpack_contents, erpbox)
 		equipOutfit(equipped_outfit, visuals_only)
 
 	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.contents

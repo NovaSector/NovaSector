@@ -19,6 +19,7 @@
 
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3
+#define MAX_ALLOWED_ERP_ITEMS 7
 
 /// Defines for extra info blurbs, for loadout items.
 #define TOOLTIP_NO_ARMOR "Armorless"
