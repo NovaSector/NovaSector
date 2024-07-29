@@ -55,23 +55,23 @@
 /obj/item/clothing/mask/gas/sapper_one
 	name = "sapper gas mask"
 	desc = ""
-	icon = 'modular_nova/modules/sapper_gang/icon/obj/sapper.dmi'
+	icon = 'modular_nova/modules/sapper_gang/git/obj/sapper.dmi'
 	icon_state = "mask_one"
-	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
+	worn_icon = 'modular_nova/modules/sapper_gang/git/mob/sapper.dmi'
 
 /obj/item/clothing/mask/gas/sapper_two
 	name = "sapper gas mask"
 	desc = ""
-	icon = 'modular_nova/modules/sapper_gang/icon/obj/sapper.dmi'
+	icon = 'modular_nova/modules/sapper_gang/git/obj/sapper.dmi'
 	icon_state = "mask_two"
-	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
+	worn_icon = 'modular_nova/modules/sapper_gang/git/mob/sapper.dmi'
 
 /obj/item/clothing/under/sapper
 	name = "sapper outfit"
 	desc = ""
-	icon = 'modular_nova/modules/sapper_gang/icon/obj/sapper.dmi'
+	icon = 'modular_nova/modules/sapper_gang/git/obj/sapper.dmi'
 	icon_state = "suit_pants"
-	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
+	worn_icon = 'modular_nova/modules/sapper_gang/git/mob/sapper.dmi'
 	inhand_icon_state = "engi_suit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	has_sensor = NO_SENSORS
@@ -95,9 +95,9 @@
 /obj/item/clothing/shoes/workboots/sapper
 	name = "\improper black Work boots"
 	desc = "Lace-up steel-tipped shiny black workboots, nice."
-	icon = 'modular_nova/modules/sapper_gang/icon/obj/sapper.dmi'
+	icon = 'modular_nova/modules/sapper_gang/git/obj/sapper.dmi'
 	icon_state = "boots"
-	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
+	worn_icon = 'modular_nova/modules/sapper_gang/git/mob/sapper.dmi'
 	inhand_icon_state = "jackboots"
 	armor_type = /datum/armor/shoes_combat
 
@@ -108,9 +108,9 @@
 /obj/item/storage/belt/utility/sapper
 	name = "\improper black Toolbelt"
 	desc = "A tactical toolbelt."
-	icon = 'modular_nova/modules/sapper_gang/icon/obj/sapper.dmi'
+	icon = 'modular_nova/modules/sapper_gang/git/obj/sapper.dmi'
 	icon_state = "belt"
-	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
+	worn_icon = 'modular_nova/modules/sapper_gang/git/mob/sapper.dmi'
 	inhand_icon_state = "security"
 	worn_icon_state = "belt"
 	preload = FALSE
@@ -127,9 +127,9 @@
 /obj/item/clothing/neck/security_cape/sapper
 	name = "ablative cloak"
 	desc = ""
-	icon = 'modular_nova/modules/sapper_gang/icon/obj/sapper.dmi'
+	icon = 'modular_nova/modules/sapper_gang/git/obj/sapper.dmi'
 	icon_state = "cloak"
-	worn_icon = 'modular_nova/modules/sapper_gang/icon/mob/sapper.dmi'
+	worn_icon = 'modular_nova/modules/sapper_gang/git/mob/sapper.dmi'
 	inhand_icon_state = null
 	uses_advanced_reskins = FALSE
 	unique_reskin = null
