@@ -39,7 +39,7 @@
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper
 	name = "offensive turret capsule"
-	desc = ""
+	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition."
 	icon_state = "sapper_toolbox"
 	inhand_icon_state = null
 	mag_slots = 2

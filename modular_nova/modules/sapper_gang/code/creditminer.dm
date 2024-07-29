@@ -41,7 +41,7 @@
 	if(internal_heat > max_heat * RADIO_ALERT / 100)
 		if(next_warning < world.time && prob(15))
 			var/area/hazardous_area = get_area(loc)
-			var/message = "I'm about to explode in [initial(hazardous_area.name)]!!"
+			var/message = "OVERHEAT IMMINENT at [initial(hazardous_area.name)]!!"
 			radio.talk_into(src, message, radio_channel)
 			next_warning = world.time + minimum_time_between_warnings
 

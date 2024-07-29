@@ -14,9 +14,10 @@
 	box = /obj/item/storage/box/survival/engineer
 	back = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	backpack_contents = list(
-		/obj/item/mod/control/pre_equipped/frontier_colonist = 1,
+		/obj/item/storage/backpack/satchel/flat/empty =1,
+		/obj/item/grenade/chem_grenade/smart_metal_foam = 1,
+		/obj/item/stack/cable_coil/thirty = 1,
 		/obj/item/fireaxe = 1,
-		/obj/item/stack/cable_coil/thirty = 2,
 		)
 
 	l_pocket = /obj/item/paper/fluff/sapper_intro
@@ -51,23 +52,26 @@
 	SSquirks.AssignQuirks(equipped, equipped.client, TRUE, TRUE, null, FALSE, equipped)
 
 
-/obj/item/clothing/mask/gas/sapper_one
-	name = "sapper gas mask"
-	desc = ""
+/obj/item/clothing/mask/gas/atmos/sapper
+	name = "\improper Sapper gas mask"
+	desc = "A modified black gas mask with a yellow painted bottom and digitally expressive eyes, its framing is laser reflective."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "mask_one"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
+	var/hit_reflect_chance = 35
 
-/obj/item/clothing/mask/gas/sapper_two
-	name = "sapper gas mask"
-	desc = ""
-	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
+/obj/item/clothing/mask/gas/atmos/sapper/partner
 	icon_state = "mask_two"
-	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
+
+/obj/item/clothing/mask/gas/atmos/sapper/IsReflect(def_zone)
+	if(def_zone in list(BODY_ZONE_HEAD)) //If not shot where ablative is covering you, you don't get the reflection bonus!
+		return FALSE
+	if (prob(hit_reflect_chance))
+		return TRUE
 
 /obj/item/clothing/under/sapper
-	name = "sapper outfit"
-	desc = ""
+	name = "\improper Sapper slacks"
+	desc = "A sleek black jacket with fireproof lining and a high-visibility pair of slacks, comfortable, safe, efficient."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "suit_pants"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
@@ -78,6 +82,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/sapper/skirt
+	name = "\improper Sapper skirt"
+	desc = "A sleek black jacket with fireproof lining and a high-visibility skirt, comfortable, safe, efficient."
 	icon_state = "suit_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -92,8 +98,8 @@
 	acid = 35
 
 /obj/item/clothing/shoes/workboots/sapper
-	name = "\improper black Work boots"
-	desc = "Lace-up steel-tipped shiny black workboots, nice."
+	name = "\improper black work boots"
+	desc = "Lace-up steel-tipped shiny black workboots, nothing can get through these."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "boots"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
@@ -105,8 +111,8 @@
 	contents += new /obj/item/screwdriver
 
 /obj/item/storage/belt/utility/sapper
-	name = "\improper black Toolbelt"
-	desc = "A tactical toolbelt."
+	name = "\improper black toolbelt"
+	desc = "A tactical toolbelt, what makes it tactical? The color."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "belt"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
@@ -124,15 +130,15 @@
 	new /obj/item/weldingtool/abductor(src)
 
 /obj/item/clothing/neck/security_cape/sapper
-	name = "ablative cloak"
-	desc = ""
+	name = "ablative Sapper cloak"
+	desc = "A highly advanced nano-fiber cloak, it slowly pulses with light. It offers high laser reflectivity for the wearer's upper-body."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "cloak"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
 	inhand_icon_state = null
 	uses_advanced_reskins = FALSE
 	unique_reskin = null
-	var/hit_reflect_chance = 50
+	var/hit_reflect_chance = 65
 
 /obj/item/clothing/neck/security_cape/sapper/IsReflect(def_zone)
 	if(!(def_zone in list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))) //If not shot where ablative is covering you, you don't get the reflection bonus!
