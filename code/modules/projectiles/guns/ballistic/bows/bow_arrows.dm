@@ -59,8 +59,6 @@
 	name = "holy arrow"
 	desc = "Here it comes, cultist scum!"
 	icon_state = "holy_arrow_projectile"
-<<<<<<< HEAD
-=======
 	damage = 20 //still a lot but this is roundstart gear so far less
 	embed_type = /datum/embed_data/holy_arrow
 
@@ -72,7 +70,6 @@
 	pain_stam_pct = 0.5
 	pain_mult = 3
 	rip_time = 1 SECONDS
->>>>>>> master
 
 /obj/projectile/bullet/arrow/holy/Initialize(mapload)
 	. = ..()
