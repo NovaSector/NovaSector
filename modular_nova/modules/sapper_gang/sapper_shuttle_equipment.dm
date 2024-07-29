@@ -57,6 +57,7 @@
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
 	name = "\improper Sapper Spider Turret"
 	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition."
+	base_icon_state = "sapper"
 	max_integrity = 115
 	shot_delay = 2 SECONDS
 	faction = list(FACTION_SAPPER)
