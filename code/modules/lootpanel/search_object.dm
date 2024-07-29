@@ -62,7 +62,6 @@
 
 /datum/search_object/Destroy(force)
 	item = null
-	icon = null // NOVA EDIT ADDITION
 
 	return ..()
 

@@ -21,10 +21,6 @@
 		if(!istype(thing))
 			stack_trace("Non-atom in the contents of [source_turf]!")
 			continue
-		// NOVA EDIT ADDITION START
-		if(QDELETED(thing))
-			continue
-		// NOVA EDIT ADDITION END
 		if(thing.mouse_opacity == MOUSE_OPACITY_TRANSPARENT)
 			continue
 		if(thing.IsObscured())
