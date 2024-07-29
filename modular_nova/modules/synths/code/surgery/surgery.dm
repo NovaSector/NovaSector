@@ -45,9 +45,6 @@
 /datum/surgery/lobectomy/mechanic/can_start(mob/user, mob/living/carbon/target)
 	return !issynthetic(target) && ..()
 
-/datum/surgery/organ_manipulation/mechanic/can_start(mob/user, mob/living/carbon/target)
-	return !issynthetic(target) && ..()
-
 //Disable both normal and mechanical for synths. Makes some sense on augmented people so lacks a biotype check.
 /datum/surgery/revival/can_start(mob/user, mob/living/carbon/target)
 	return !issynthetic(target) && ..()
