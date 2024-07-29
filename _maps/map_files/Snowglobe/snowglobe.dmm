@@ -38009,7 +38009,6 @@
 	name = "Waste Disposal"
 	},
 /obj/effect/landmark/navigate_destination/disposals,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
@@ -44211,8 +44210,7 @@
 /area/station/engineering/atmospherics_engine)
 "lVM" = (
 /obj/machinery/door/poddoor/massdriver_trash{
-	id_tag = "trash";
-	id = null
+	id_tag = "trash"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
