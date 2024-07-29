@@ -107,8 +107,9 @@
 	for(var/obj/item/part as anything in modsuit.get_parts())
 		part.name = "[modsuit.theme.name] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
-		part.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
-		part.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
+		if(modsuit.skin == "colonist")
+			part.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
+			part.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
 
 	install_racial_features()
 
