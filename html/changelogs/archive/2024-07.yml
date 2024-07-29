@@ -1394,3 +1394,75 @@
   yooriss:
   - balance: The GMM's prices are now much narrower, making arbitrage harder and initial
       purchases a little more expensive.
+2024-07-29:
+  CliffracerX:
+  - qol: You can now open crop-top jackets!
+  - rscadd: GAGS Officer's Caps, Naval Caps, and Labcoats.
+  FlufflesTheDog:
+  - bugfix: Backpack internals can be toggled from the strip menu
+  LT3:
+  - bugfix: Players now receive a notification when trying to perform surgery steps
+      that involve chemicals
+  Melbert:
+  - qol: All randomly spawned monkeys (and lizardpeople) will spawn with tails. You
+      can still select to be tailless.
+  - code_imp: Cleaned up some code relating to species features (like tails, markings,
+      etc). Report any oddities
+  MortoSasye:
+  - rscadd: The hearthkin have decided to construct yet another new hearth, similar
+      in some aspects to the previous one.
+  - rscadd: Archery targets are now an available crafting object. Try to flex your
+      archery master with others, and accidentally shot your friend who stepped in
+      too close to watch.
+  - rscadd: 'Three new ruins have been unearthed on the icemoon: an ancient temple
+      sacred to the natives, an old hearth ravaged by battle, and an especially magical
+      hot springs spot.'
+  - bugfix: An oversight in the building of the hearthkin's hearth has been corrected,
+      to ensure privacy.
+  Nerev4r:
+  - image: Replaces the Longer Bedhead sprite with a better one. Floorlength Bedhead
+      has been deprecated.
+  NovaBot13:
+  - bugfix: wawastation ordnance no longer has a light fixture on a window and looks
+      objectively slightly better
+  - bugfix: Recyclers no longer recycle contents of indestructible items
+  - qol: If you have auto fit viewport enabled, it will trigger upon entering or exiting
+      fullscreen
+  - bugfix: People with tooltips enabled no longer lag the server when they move their
+      mouse. Oops.
+  - bugfix: '[Mafia] The show_help button no longer shows you who the Obsessed''s
+      target is.'
+  - bugfix: Fixes void eater not refreshing
+  - bugfix: Fixes planetary gravity not killing voidwalkers and voideds
+  - rscadd: Cosmic Skull glows purple.
+  - bugfix: now Justice invisibility turns off in non combat mode as it supposed to
+  - bugfix: VIM no longer requires hands to enter
+  - bugfix: Mirage grenade dispensers and ionic jump jets now work
+  - spellcheck: military javelin's name is now fully uncapitalised
+  - rscadd: Emergency climbing hooks now spawn in emergency boxes on all of the multi-z
+      level stations.
+  - rscadd: Mining headsets now allow you to make callouts via pointing. You can use
+      them to communicate with fellow miners or order your army of bots and raptors!
+  - rscadd: Mining headsets keep your voice loud and clear in low-pressure environments
+      (not vacuum!)
+  OrbisAnima:
+  - balance: Blast Cannons are no longer obtainable via the traitor uplink. They still
+      exist in the code.
+  - rscadd: Cargo and Civilian Modsuits Control units were miniaturized to belt versions,
+      while they dont hold as much as their old counterparts, and some functionality
+      like the use of jetpacks was lost, Users can now use their backpack of choice
+      along these practical modsuits!
+  - rscadd: 'The following modparts were adapted to both regular and miniaturized
+      modsuits: Hydraulic Clamps, Hydraulic Arms, Hydraulic Magnet and the Status
+      Monitor.'
+  - rscadd: Following their success with the frontier modsuits, Kahraman Industries
+      decided to expand their line of products to offer Civilian grade modsuits, a
+      lightweight modsuit that while not spaceproof, can be used as an entry level
+      tool to modsuits.
+  grungussuss:
+  - bugfix: birdshot holodeck's lighting has been fixed.
+  - sound: medkits now have sounds
+  - bugfix: Med sec telescreens are no longer the same item as the CMO telescreen.
+  - spellcheck: correcte name for the CMO telescreen mount
+  unit0016:
+  - bugfix: Icedyne's fire alarms are now rotated the right way around.
