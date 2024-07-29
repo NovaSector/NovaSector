@@ -109,14 +109,22 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	// let's clear those out, we always want a new one when calling this proc anyway.
 	var/old_view = user.client?.screen_maps[assigned_view]
 	if(old_view)
-		character_preview_views -= old_view
+		character_preview_views -= user.ckey
 		user.client.screen_maps -= old_view
 		qdel(old_view)
 
 	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
+	RegisterSignal(new_view, COMSIG_QDELETING, PROC_REF(on_char_preview_view_qdeleted))
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user)
 	return new_view
+
+/datum/character_directory/proc/on_char_preview_view_qdeleted(atom/movable/screen/map_view/char_preview/source)
+	SIGNAL_HANDLER
+
+	for(var/key in character_preview_views)
+		if(character_preview_views[key] == source)
+			character_preview_views -= key
 
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
