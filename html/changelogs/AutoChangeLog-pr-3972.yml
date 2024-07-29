@@ -1,5 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscadd: "Cargo and Civilian Modsuits Control units were miniaturized to belt versions, while they dont hold as much as their old counterparts, and some functionality like the use of jetpacks was lost, Users can now use their backpack of choice along these practical modsuits!"
-  - rscadd: "The following modparts were adapted to both regular and miniaturized modsuits: Hydraulic Clamps, Hydraulic Arms, Hydraulic Magnet and the Status Monitor."
