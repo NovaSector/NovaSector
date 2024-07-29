@@ -75,7 +75,11 @@
 /datum/search_object/proc/on_item_moved(atom/source)
 	SIGNAL_HANDLER
 
-	qdel(src)
+ 	// NOVA EDIT ADDITION START - TESTING TO SEE IF THIS FIXES HARD DEL ISSUE
+	if(QDELETED(src))
+		return
+	// NOVA EDIT ADDITION END
+	qdel(src) // NOVA EDIT CHANGE - INDENTS
 
 
 /// Parent tile has been altered, entire search needs reset
