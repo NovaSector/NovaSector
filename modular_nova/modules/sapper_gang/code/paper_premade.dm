@@ -1,31 +1,24 @@
 /obj/item/paper/fluff/sapper_intro
 	name = "A Space Sapper's Modus Operandi"
 	default_raw_text = {"
-Greetings operative.
+Remember employee,
 
-<br>As you may be aware, since your financial backers do not wish to provide our collective enemies access to any trace of you or your physical form, we've had to augment
-you with an explosive located in the base of your neck: a microbomb implant. This implant activates a blood-based explosive the moment your heart stops beating, destroying all
-evidence of your physical body and brain, eradicating you permanently so those freaks at Nanotrasen can't interrogate your brain. Or worse, clone you and mindwipe you.
-We much prefer you free to die red than a slave to the corporation. I'm sure you agree. <B><i>Right, comrade?</i></B>
+<br>The work-day starts with preparation, and breakfast. You are currently in deep-space nearby a Nanotrasen researching outpost, <b>once you enter their sector there is no turning back.</b> Before you set sail a small check-list should be completed:
+<br>1. Meet with your partner and decide who wears which mask.
+2. Sort out your equipment, including the contents of the lockers and crates.
+3. Fill and link the portable ore-silo and flat-pack fabricator.
+4. Wrench the air tank on its north side to attach it to the air distribution pipeline.
+5. Prepare the PACMAN and SMES according to your shuttle's powerdraw (5kw).
+
+Completed that list? Great, then its time for breakfast and formulating a gameplan. There are many ways to tackle the work-day, and each has their own level of threat and heat it brings.
+You may greatly post-pone your credit-miner's activation to build a secure and remote environment for it to work in. Working sloppily and hastefully is not ideal, our material is too expensive and fragile.
+In some cases it may even be wise to completely leave the shuttle for a better suited environment to protect the credit-miner; remember that it works in space and doing so will avoid <i>external</i> heating complications.
+
+If you and your partner <i>do decide</i> to outpost inside the shuttle, <b>make sure that you have control of the temperature.</b> Space-coolers are incredibly power inefficient,
+and you may leave your shuttle completely uninhabitable!
+<br>Remember to make use of your portable turrets <i>and</i> shuttle turrets, but expect retaliation when you do; <i>they do not have a safe-mode!</i>
 <br>
-<br>Now, don't fret. While this is beneficial for our needs, we understand that operatives sometimes would prefer themselves to be able to have more
-precise control over their own total oblivion. This is why our microbomb implants come equipped with a few useful features.
-<br>
-<br><B>Firstly, the bombs autodetonation is neutralized by atropine</B>. So, if you have atropine in your system when your heart stops beating, your implant does not automatically detonate.
-This is why you are equipped with an atropine autoinjector. If you see a fellow operative fall, immediately inject them with the autoinjector before they expire. If you're lucky,
-you'll potentially be able to recover their body for revival. Atropine also just so happens to be an incredibly powerful stablizer, so maybe use it before you fall. You might just
-be able to save yourself for a few seconds and keep fighting.
-<br>
-<br><B>Secondly, the bomb can be activated posthumously</B>. There is a small onboard, low-level AI built into the microbomb. Based on a series of arbitrary factors, the bomb can still be activated
-despite the presence of atropine by releasing a failsafe vial of monkey blood (notoriously volatile), the timing of which is determined by the onboard AI.
-<br>The only factor is whether or not, and for give me for what I'm about to write, your 'animating spirit' still resides within your body to guide the AI and activate the bomb manually.
-<br>Please, do not ask your fellow operatives what this means.
-<br>
-<br>They'll probably say something absurd like <B>'your ghost needs to still be in your body to use the microbomb'</B>. That's stupid, do not listen to these ridiculous assertions. It is likely Nanotrasen propaganda.
-<br>
-<br>Ghosts are not real. Necromancy is <B>bullshit</B>.
-<br>
-<br>Anyway, best of luck on your mission, operative.
+Have a good day at work.
 	"}
 
 /obj/item/paper/fluff/sapper_recovery_instructions
@@ -33,29 +26,16 @@ despite the presence of atropine by releasing a failsafe vial of monkey blood (n
 	color = "#ffcc26"
 	desc = "A yellow sticky note..."
 	default_raw_text = {"
-Greetings operative.
+IMPORTANT, make sure to understand the following:
 
-<br>As you may be aware, since your financial backers do not wish to provide our collective enemies access to any trace of you or your physical form, we've had to augment
-you with an explosive located in the base of your neck: a microbomb implant. This implant activates a blood-based explosive the moment your heart stops beating, destroying all
-evidence of your physical body and brain, eradicating you permanently so those freaks at Nanotrasen can't interrogate your brain. Or worse, clone you and mindwipe you.
-We much prefer you free to die red than a slave to the corporation. I'm sure you agree. <B><i>Right, comrade?</i></B>
+<br>While this machine may work wonders, it is an incredibly volatile piece of technology. The more power it converts, the hotter it gets; makes sense right?
+You may be considering plugging it straight into an engine, which is a great strategy to a succesful day at work. <i>If</i> you are prepared to siphon such large pulses of energy.
+Temperature control is key, both in the work environment and of the miner's hardware. Set up space-coolers and <b>don't leave the miner unattended for a long time!</b>
+
+What happens if you or your partner forget to manage the temperature? Besides the catastrophic consequence of blowing a giant crater into Nanotrasen assets, the significant loss of profits, or the very likely odds of employee casualty, it <i>isn't</i> the end of the work day.
+
+A truly committed sapper can continue by re-building the credit-miner, the knowledge of doing so being a data-fragment uploaded into the mind of each employee.
+Don't get to celebrating just yet, though. The recipe to crafting the machine is complex, and after what you've likely caused to nearby civilization; these materials won't be easy to come by.
 <br>
-<br>Now, don't fret. While this is beneficial for our needs, we understand that operatives sometimes would prefer themselves to be able to have more
-precise control over their own total oblivion. This is why our microbomb implants come equipped with a few useful features.
-<br>
-<br><B>Firstly, the bombs autodetonation is neutralized by atropine</B>. So, if you have atropine in your system when your heart stops beating, your implant does not automatically detonate.
-This is why you are equipped with an atropine autoinjector. If you see a fellow operative fall, immediately inject them with the autoinjector before they expire. If you're lucky,
-you'll potentially be able to recover their body for revival. Atropine also just so happens to be an incredibly powerful stablizer, so maybe use it before you fall. You might just
-be able to save yourself for a few seconds and keep fighting.
-<br>
-<br><B>Secondly, the bomb can be activated posthumously</B>. There is a small onboard, low-level AI built into the microbomb. Based on a series of arbitrary factors, the bomb can still be activated
-despite the presence of atropine by releasing a failsafe vial of monkey blood (notoriously volatile), the timing of which is determined by the onboard AI.
-<br>The only factor is whether or not, and for give me for what I'm about to write, your 'animating spirit' still resides within your body to guide the AI and activate the bomb manually.
-<br>Please, do not ask your fellow operatives what this means.
-<br>
-<br>They'll probably say something absurd like <B>'your ghost needs to still be in your body to use the microbomb'</B>. That's stupid, do not listen to these ridiculous assertions. It is likely Nanotrasen propaganda.
-<br>
-<br>Ghosts are not real. Necromancy is <B>bullshit</B>.
-<br>
-<br>Anyway, best of luck on your mission, operative.
+But you're not going to return empty-handed, <i>right?</i>
 	"}

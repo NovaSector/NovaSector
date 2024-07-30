@@ -5,7 +5,7 @@
 	min_players = 20
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_INVASION
-	description = "A gang of outlaws are sapping the powernet with their credit miners."
+	description = "A gang of outlaws are sapping the powernet with their credit-miners."
 	map_flags = EVENT_SPACE_ONLY
 
 /datum/round_event_control/sappers/preRunEvent()

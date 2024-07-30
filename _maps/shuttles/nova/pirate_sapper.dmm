@@ -4,10 +4,10 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/pirate/sapper)
 "dZ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/pirate/sapper)
 "fn" = (
@@ -121,7 +121,6 @@
 "pt" = (
 /obj/structure/cable/layer1,
 /obj/machinery/light/cold/directional/east,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
 /obj/structure/sign/warning/directional/south,
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/stack/cable_coil/thirty,
@@ -210,8 +209,8 @@
 /area/shuttle/pirate/sapper)
 "tM" = (
 /obj/structure/cable/layer1,
-/obj/machinery/atmospherics/components/tank/air,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
 /area/shuttle/pirate/sapper)
 "ua" = (
@@ -365,10 +364,10 @@
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "DZ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/pirate/sapper)
 "EE" = (
@@ -463,6 +462,7 @@
 	pixel_y = 13
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "Mz" = (
@@ -581,6 +581,10 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/plating,
 /area/shuttle/pirate/sapper)
+"Yo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_white,
+/area/shuttle/pirate/sapper)
 "Yx" = (
 /turf/open/space/basic,
 /area/template_noop)
@@ -690,7 +694,7 @@ Xc
 DZ
 Sa
 pH
-xA
+Yo
 tM
 NX
 Tb

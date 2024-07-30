@@ -1,12 +1,13 @@
 #define RADIO_ALERT 80 // Precentage near explosion to begin announcing on radio
 #define POWER_FOR_PAYOUT (20 KILO WATTS) // How much do we draw for a payout
 #define PAYOUT 100 // How much is the energy worth
+#define DRAIN_FORMULA (0.1 * STANDARD_CELL_CHARGE) //How much % per tick gets drained from the powernet. standard cell because thats what APCs start with
 
 /obj/item/powersink/creditminer
-	name = "credit-miner"
-	desc = "An altered version of the Syndicate power-sink, this one converts energy into credits."
+	name = "converted power sink"
+	desc = "A highly modified power sink, functionally the same on one exception, it transforms the power into minted holo credit - still gets extremely hot while working; keep the temperature in check or suffer the explosive consequence."
 	w_class = WEIGHT_CLASS_HUGE
-	max_heat = 1e8 // double the heat of its parent type
+	max_heat = 1e8 // double the heat of its parent type, can last a long time unless the station is running a God engine
 	/// The amount of power the machine has converted to credits.
 	var/cash_out = 0
 	///The machine's internal radio, used to broadcast alerts.
@@ -30,11 +31,14 @@
 /obj/item/powersink/creditminer/examine(mob/user)
 	. = ..()
 	if(cash_out)
-		. += span_blue("[src] has mined [trunc(cash_out)] credits, <b>Alt-click</b> to print a holochip.")
+		. += span_blue("[src] has mined [trunc(cash_out)] credits, <b>Ctrl-click</b> to print a holochip.")
 
-/obj/item/powersink/creditminer/click_alt(mob/user)
+/obj/item/powersink/creditminer/item_ctrl_click(mob/user)
 	. = ..()
+	if(!mode) // Unwrenched
+		return CLICK_ACTION_BLOCKING
 	print()
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/powersink/creditminer/process()
 	. = ..()
@@ -48,7 +52,7 @@
 /obj/item/powersink/creditminer/proc/print()
 	if(cash_out > 0)
 		playsound(src.loc, 'sound/items/poster_being_created.ogg', 100, TRUE)
-		balloon_alert_to_viewers("Printed [trunc(cash_out)] credits")
+		balloon_alert_to_viewers("printed [trunc(cash_out)] credits")
 		new /obj/item/holochip(drop_location(), trunc(cash_out)) //get the loot
 		cash_out = 0
 
@@ -67,16 +71,19 @@
 		if(istype(terminal.master, /obj/machinery/power/apc))
 			var/obj/machinery/power/apc/apc = terminal.master
 			if(apc.operating && apc.cell)
-				drained += 0.001 * apc.cell.use(0.05 * STANDARD_CELL_CHARGE, force = TRUE)
+				drained += apc.cell.use(DRAIN_FORMULA, force = TRUE)
 	internal_heat += drained
-	cash_out += min(energy_to_power(drained) / POWER_FOR_PAYOUT, PAYOUT)
+	var/cash_pulse = min(energy_to_power(drained) / POWER_FOR_PAYOUT, PAYOUT)
+	if(cash_pulse >= 1)
+		cash_out += cash_pulse
+		balloon_alert_to_viewers("mined [trunc(cash_pulse)]cr")
 
 /// Credit Miner crafting recipe (Incase the intial one explodes)
 /datum/crafting_recipe/credit_miner
 	name = "Credit-miner"
 	result = /obj/item/powersink/creditminer
 	time = 10 SECONDS
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_IS_FULLTILE | CRAFT_ONE_PER_TURF| CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
 	reqs = list(
 		/obj/item/stack/cable_coil = 5,
@@ -91,3 +98,4 @@
 #undef RADIO_ALERT
 #undef POWER_FOR_PAYOUT
 #undef PAYOUT
+#undef DRAIN_FORMULA
