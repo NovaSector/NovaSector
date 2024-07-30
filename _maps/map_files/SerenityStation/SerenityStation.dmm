@@ -61268,9 +61268,7 @@
 /obj/machinery/computer/med_data{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen/cmo/directional/north{
-	name = "Medbay Monitor"
-	},
+/obj/machinery/computer/security/telescreen/med_sec/directional/north,
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
 "rRR" = (

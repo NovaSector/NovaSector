@@ -134,11 +134,11 @@
 
 /datum/loadout_item/toys/fermis
 	name = "Medcat Plushie"
-	item_path = /obj/item/toy/plush/nova/fermis
+	item_path = /obj/item/toy/plush/nova/donator/fermis
 
 /datum/loadout_item/toys/chen
 	name = "Securicat Plushie"
-	item_path = /obj/item/toy/plush/nova/fermis/chen
+	item_path = /obj/item/toy/plush/nova/donator/fermis/chen
 
 /datum/loadout_item/toys/fox
 	name = "Fox Plushie"
@@ -146,7 +146,7 @@
 
 /datum/loadout_item/toys/duffmoff
 	name = "Suspicious Moth Plushie"
-	item_path = /obj/item/toy/plush/nova/duffmoth
+	item_path = /obj/item/toy/plush/nova/donator/duffmoth
 
 /datum/loadout_item/toys/musicalduffy
 	name = "Suspicious Musical moth"
@@ -154,27 +154,27 @@
 
 /datum/loadout_item/toys/leaplush
 	name = "Suspicious Deer Plushie"
-	item_path = /obj/item/toy/plush/nova/leaplush
+	item_path = /obj/item/toy/plush/nova/donator/leaplush
 
 /datum/loadout_item/toys/sarmie
 	name = "Cosplayer Plushie"
-	item_path = /obj/item/toy/plush/nova/sarmieplush
+	item_path = /obj/item/toy/plush/nova/donator/sarmieplush
 
 /datum/loadout_item/toys/sharknet
 	name = "Gluttonous Shark Plushie"
-	item_path = /obj/item/toy/plush/nova/sharknet
+	item_path = /obj/item/toy/plush/nova/donator/sharknet
 
 /datum/loadout_item/toys/pintaplush
 	name = "Smaller Deer Plushie"
-	item_path = /obj/item/toy/plush/nova/pintaplush
+	item_path = /obj/item/toy/plush/nova/donator/pintaplush
 
 /datum/loadout_item/toys/szaplush
 	name = "Suspicious Spider Plushie"
-	item_path = /obj/item/toy/plush/nova/szaplush
+	item_path = /obj/item/toy/plush/nova/donator/szaplush
 
 /datum/loadout_item/toys/riffplush
 	name = "Valid Plushie"
-	item_path = /obj/item/toy/plush/nova/riffplush
+	item_path = /obj/item/toy/plush/nova/donator/riffplush
 
 /datum/loadout_item/toys/ianbastardman
 	name = "Ian Plushie"
@@ -202,99 +202,95 @@
 
 /datum/loadout_item/toys/seaduplush
 	name = "Sneed Plushie"
-	item_path = /obj/item/toy/plush/nova/seaduplush
+	item_path = /obj/item/toy/plush/nova/donator/seaduplush
 
 /datum/loadout_item/toys/lizzyplush
 	name = "Odd Yoga lizzy Plushie"
-	item_path = /obj/item/toy/plush/nova/lizzyplush
+	item_path = /obj/item/toy/plush/nova/donator/lizzyplush
 
 /datum/loadout_item/toys/mechanic_fox
 	name = "Mechanist Fox Plushie"
-	item_path = /obj/item/toy/plush/nova/mechanic_fox
+	item_path = /obj/item/toy/plush/nova/donator/mechanic_fox
 
 /datum/loadout_item/toys/tribal_salamander
 	name = "Tribal Salamander Plushie"
-	item_path = /obj/item/toy/plush/nova/tribal_salamander
+	item_path = /obj/item/toy/plush/nova/donator/tribal_salamander
 
 /datum/loadout_item/toys/commanding_teshari
 	name = "Commanding Teshari Plushy"
-	item_path = /obj/item/toy/plush/nova/commanding_teshari
+	item_path = /obj/item/toy/plush/nova/donator/commanding_teshari
 
 /datum/loadout_item/toys/snow_owl
 	name = "Snowy Owl Plush"
-	item_path = /obj/item/toy/plush/nova/snow_owl
+	item_path = /obj/item/toy/plush/nova/donator/snow_owl
 
 /datum/loadout_item/toys/breakdancing_bird
 	name = "Breakdancing Bird Plushie"
-	item_path = /obj/item/toy/plush/nova/breakdancing_bird
+	item_path = /obj/item/toy/plush/nova/donator/breakdancing_bird
 
 /datum/loadout_item/toys/skreking_vox
 	name = "Skreking Vox Plushie"
-	item_path = /obj/item/toy/plush/nova/skreking_vox
-
-/datum/loadout_item/toys/blue_dog
-	name = "Blue Dog Plushie"
-	item_path = /obj/item/toy/plush/nova/blue_dog
+	item_path = /obj/item/toy/plush/nova/donator/skreking_vox
 
 /datum/loadout_item/toys/engi_snek
 	name = "Engineering Snek Plushie"
-	item_path = /obj/item/toy/plush/nova/engi_snek
+	item_path = /obj/item/toy/plush/nova/donator/engi_snek
 
 /datum/loadout_item/toys/glitch_synth
 	name = "Glitching Synthetic Plushie"
-	item_path = /obj/item/toy/plush/nova/glitch_synth
+	item_path = /obj/item/toy/plush/nova/donator/glitch_synth
 
 /datum/loadout_item/toys/boom_bird
 	name = "Boom Bird Plushie"
-	item_path = /obj/item/toy/plush/nova/boom_bird
+	item_path = /obj/item/toy/plush/nova/donator/boom_bird
 
 /datum/loadout_item/toys/blue_cat
 	name = "Blue Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/blue_cat
+	item_path = /obj/item/toy/plush/nova/donator/blue_cat
 
 /datum/loadout_item/toys/igneous_synth
 	name = "Igneous Synth Plushie"
-	item_path = /obj/item/toy/plush/nova/igneous_synth
+	item_path = /obj/item/toy/plush/nova/donator/igneous_synth
 
 /datum/loadout_item/toys/edgy_bird
 	name = "Edgy Bird Plushie"
-	item_path = /obj/item/toy/plush/nova/edgy_bird
+	item_path = /obj/item/toy/plush/nova/donator/edgy_bird
 
 /datum/loadout_item/toys/tree_ferret
 	name = "Tree Ferret Plushie"
-	item_path = /obj/item/toy/plush/nova/tree_ferret
+	item_path = /obj/item/toy/plush/nova/donator/tree_ferret
 
 /datum/loadout_item/toys/xixi
 	name = "Familiar Harpy Plushie"
-	item_path = /obj/item/toy/plush/nova/xixi
+	item_path = /obj/item/toy/plush/nova/donator/xixi
 
 /datum/loadout_item/toys/rubi_plush
 	name = "Huggable Bee Plushie"
-	item_path = /obj/item/toy/plush/nova/rubi
+	item_path = /obj/item/toy/plush/nova/donator/rubi
 
 /datum/loadout_item/toys/derg_plushie
 	name = "Wingless Dragon Plushie"
-	item_path = /obj/item/toy/plush/nova/derg_plushie
+	item_path = /obj/item/toy/plush/nova/donator/derg_plushie
 
 /datum/loadout_item/toys/tracy
 	name = "Creature Plushie"
-	item_path = /obj/item/toy/plush/nova/tracy
+	item_path = /obj/item/toy/plush/nova/donator/tracy
 
 /datum/loadout_item/toys/adventurous_synth
 	name = "Adventurous Synth Plushie"
-	item_path = /obj/item/toy/plush/nova/plushie_synthia
+	item_path = /obj/item/toy/plush/nova/donator/plushie_synthia
 
 /datum/loadout_item/toys/jecca
 	name = "Sexy Snoodle Plushie"
-	item_path = /obj/item/toy/plush/nova/jecca
+	item_path = /obj/item/toy/plush/nova/donator/jecca
 
 /datum/loadout_item/toys/courier_synth
 	name = "Courier Synth Plushie"
-	item_path = /obj/item/toy/plush/nova/courier_synth
+	item_path = /obj/item/toy/plush/nova/donator/courier_synth
 
 /datum/loadout_item/toys/plush_janiborg
 	name = "Friendly Janiborg Plush"
-	item_path = /obj/item/toy/plush/nova/plush_janiborg
+	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
 
 /*
 *	CARDS

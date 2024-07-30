@@ -74,3 +74,16 @@
 		mod.wearer.update_equipment_speed_mods()
 
 	traveled_tiles = 0
+
+/obj/item/mod/module/clamp
+	required_slots = list(ITEM_SLOT_GLOVES, ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+
+/obj/item/mod/module/clamp/loader
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+
+/obj/item/mod/module/hydraulic
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+
+/obj/item/mod/module/magnet
+	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
+
