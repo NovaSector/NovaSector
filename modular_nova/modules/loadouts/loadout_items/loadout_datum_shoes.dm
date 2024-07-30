@@ -236,6 +236,10 @@
 	name = "Jester Shoes"
 	item_path = /obj/item/clothing/shoes/jester_shoes
 
+/datum/loadout_item/shoes/sandals_black
+	name = "Black Sandals"
+	item_path = /obj/item/clothing/shoes/sandal/alt
+
 /*
 *	SEASONAL
 */
