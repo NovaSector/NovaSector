@@ -65118,7 +65118,6 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/disposal/bin,
-/obj/machinery/light/directional/south,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
