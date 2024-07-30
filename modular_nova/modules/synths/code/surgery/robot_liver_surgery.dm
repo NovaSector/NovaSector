@@ -38,7 +38,7 @@
 	display_results(
 		user,
 		target,
-		span_notice("You start to descale minerals built up in  [target]'s reagent processor..."),
+		span_notice("You start to descale minerals built up in [target]'s reagent processor..."),
 		span_notice("[user] begins to fix [target]'s reagent processor."),
 		span_notice("[user] begins to fix [target]'s reagent processor."),
 	)
@@ -66,8 +66,8 @@
 	display_results(
 		user,
 		target,
-		span_warning("You adjust [target]'s reagent pump out of spec!"),
-		span_warning("[user] follows the wrong guide for [target]'s reagent pump!"),
-		span_warning("[user] follows the wrong guide for [target]'s reagent pump!"),
+		span_warning("You adjust [target]'s reagent processor out of spec!"),
+		span_warning("[user] follows the wrong guide for [target]'s reagent processor!"),
+		span_warning("[user] follows the wrong guide for [target]'s reagent processor!"),
 	)
 	display_pain(target, "You see errors flow across your vision!")

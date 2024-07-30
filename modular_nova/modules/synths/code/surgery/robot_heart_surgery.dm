@@ -30,16 +30,16 @@
 		TOOL_WIRECUTTER = 35,
 		/obj/item/stack/package_wrap = 15,
 	)
-	preop_sound = 'sound/items/ratchet.ogg'
+	preop_sound = 'sound/items/ratchet_slow.ogg'
 	success_sound = 'sound/machines/doorclick.ogg'
 
 /datum/surgery_step/hydraulic/repair/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
 		user,
 		target,
-		span_notice("You begin to graft a bypass onto [target]'s heart..."),
-		span_notice("[user] begins to graft something onto [target]'s heart!"),
-		span_notice("[user] begins to graft something onto [target]'s heart!"),
+		span_notice("You begin to tighten the clamps around [target]'s hydraulic pump..."),
+		span_notice("[user] begins to repair [target]'s hydraulic pump!"),
+		span_notice("[user] begins to repair [target]'s hydraulic pump!"),
 	)
 	display_pain(target, "The pain in your chest is unbearable! You can barely take it anymore!")
 
@@ -52,11 +52,11 @@
 	display_results(
 		user,
 		target,
-		span_notice("You successfully graft a bypass onto [target]'s heart."),
-		span_notice("[user] finishes grafting something onto [target]'s heart."),
-		span_notice("[user] finishes grafting something onto [target]'s heart."),
+		span_notice("You successfully repair [target]'s hydraulic pump."),
+		span_notice("[user] finishes clamping tubing down around [target]'s hydraulic pump."),
+		span_notice("[user] finishes clamping tubing down around [target]'s hydraulic pump."),
 	)
-	display_pain(target, "The pain in your chest throbs, but your heart feels better than ever!")
+	display_pain(target, "The warnings, but your pump is as strong as ever!")
 	return ..()
 
 /datum/surgery_step/hydraulic/repair/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -65,10 +65,10 @@
 		display_results(
 			user,
 			target,
-			span_warning("You screw up in attaching the graft, and it tears off, tearing part of the heart!"),
-			span_warning("[user] screws up, causing blood to spurt out of [target]'s chest profusely!"),
-			span_warning("[user] screws up, causing blood to spurt out of [target]'s chest profusely!"),
+			span_warning("You screw up and slip your [tool] into their pump, tearing part of the pump off!"),
+			span_warning("[user] screws up, causing high pressure oil to spurt out of [target]'s chest profusely!"),
+			span_warning("[user] screws up, causing high pressure oil to spurt out of [target]'s chest profusely!"),
 		)
-		display_pain(target, "Your chest burns; you feel like you're going insane!")
+		display_pain(target, "Your chest burns; you feel oil flooding your chest cavity!")
 		patient.adjustOrganLoss(ORGAN_SLOT_HEART, 20)
 	return FALSE

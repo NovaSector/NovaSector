@@ -54,8 +54,8 @@
 		user,
 		target,
 		span_notice("You successfully repair the damaged part of [target]'s bioreactor."),
-		span_notice("[user] successfully repoairs the damaged part of [target]'s bioreactor."),
-		span_notice("[user] successfully repoairs the damaged part of [target]'s bioreactor."),
+		span_notice("[user] successfully repairs the damaged part of [target]'s bioreactor."),
+		span_notice("[user] successfully repairs the damaged part of [target]'s bioreactor."),
 	)
 	display_pain(target, "The errors clear from your bioreactor.")
 	return ..()
