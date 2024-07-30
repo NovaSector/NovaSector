@@ -53,9 +53,9 @@
 		display_results(
 			user,
 			target,
-			span_notice("You successfully tighten [patient]'s bolts on their heatsink."),
-			span_notice("Successfully tightened [patient]'s heatsink."),
-			span_notice("Successfully tightened [patient]'s heatsink."),
+			span_notice("You successfully tighten [target]'s bolts on their heatsink."),
+			span_notice("Successfully tightened [target]'s heatsink."),
+			span_notice("Successfully tightened [target]'s heatsink."),
 		)
 		display_pain(target, "Your internal errors clear for your temperature regulation.")
 	return ..()
@@ -66,9 +66,9 @@
 		display_results(
 			user,
 			target,
-			span_warning("You slip and barely catch the wrench before it falls, failing to tighten [patient]'s heatsink down!"),
-			span_warning("[user] screws up, nearly dropping the wrench into [patient]'s chest!"),
-			span_warning("[user] screws up, nearly dropping the wrench into [patient]'s chest!"),
+			span_warning("You slip and barely catch the wrench before it falls, failing to tighten [target]'s heatsink down!"),
+			span_warning("[user] screws up, nearly dropping the wrench into [target]'s chest!"),
+			span_warning("[user] screws up, nearly dropping the wrench into [target]'s chest!"),
 		)
 		display_pain(target, "You feel a dull thud in your chest; it feels like a wrench fell into your chest cavity!")
 		patient.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10) // better find your wrench!

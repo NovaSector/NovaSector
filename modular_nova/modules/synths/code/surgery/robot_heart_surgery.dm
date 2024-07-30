@@ -66,8 +66,8 @@
 			user,
 			target,
 			span_warning("You screw up in attaching the graft, and it tears off, tearing part of the heart!"),
-			span_warning("[user] screws up, causing blood to spurt out of [patient]'s chest profusely!"),
-			span_warning("[user] screws up, causing blood to spurt out of [patient]'s chest profusely!"),
+			span_warning("[user] screws up, causing blood to spurt out of [target]'s chest profusely!"),
+			span_warning("[user] screws up, causing blood to spurt out of [target]'s chest profusely!"),
 		)
 		display_pain(target, "Your chest burns; you feel like you're going insane!")
 		patient.adjustOrganLoss(ORGAN_SLOT_HEART, 20)
