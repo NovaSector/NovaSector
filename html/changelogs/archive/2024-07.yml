@@ -1522,3 +1522,17 @@
   - sound: more maintenance ambience has been added
   vinylspiders:
   - rscadd: Colonist modsuit skin can now be selected for the Entombed quirk
+2024-07-31:
+  NovaBot13:
+  - bugfix: Fixes getting permanently hot or cold if wearing thermal insulation as
+      a lizard
+  - image: Big balls are now much rounder, to more easily slide down into a cannon.
+  - image: All implants have received a fresh coat of paint
+  - bugfix: 'fix a bug where botany reagents would dissapear from existing plants
+
+      :cl:'
+  OrbisAnima:
+  - qol: Kahraman Heavy Industries revised their adverts for their Modsuits, to make
+      it more clear what they do and what they are used for.
+  - qol: Integrated to the Loadout system the Yukata, Kimonos and accesories that
+      were introduced before in clothesmate.
