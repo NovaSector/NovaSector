@@ -1,5 +1,5 @@
 /obj/item/disk/surgery/brainwashing
-	name = "Surgery Disk" //NOVA EDIT: Formerly "Brainwashing Surgery Disk" //Finally I can upload the funny surgery disk without letting everyone in the room know about it!
+	name = "Surgery Disk" // NOVA EDIT CHANGE - ORIGINAL: name = "Brainwashing Surgery Disk" - Finally I can upload the funny surgery disk without letting everyone in the room know about it!
 	desc = "The disk provides instructions on some kind of surgery, but the label has been scratched off..." //NOVA EDIT: Moved to Special Desc.
 	surgeries = list(
 		/datum/surgery/advanced/brainwashing,
