@@ -89,7 +89,7 @@
 		user,
 		target,
 		span_notice("You begin to weld into [target]'s [parse_zone(target_zone)] plating to open it..."),
-		"[user] begins to weld into [target]'s [parse_zone(target_zone)] plating.",
+		"[user] begins to weld into [target]'s [parse_zone(target_zone)] plating with [tool].",
 		"[user] begins to weld into [target]'s [parse_zone(target_zone)] plating.",
 	)
 

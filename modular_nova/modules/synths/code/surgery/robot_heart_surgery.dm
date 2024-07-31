@@ -38,7 +38,7 @@
 		user,
 		target,
 		span_notice("You begin to tighten the clamps around [target]'s hydraulic pump..."),
-		span_notice("[user] begins to repair [target]'s hydraulic pump!"),
+		span_notice("[user] begins to repair [target]'s hydraulic pump with [tool]!"),
 		span_notice("[user] begins to repair [target]'s hydraulic pump!"),
 	)
 	display_pain(target, "The pain in your chest is unbearable! You can barely take it anymore!")
@@ -53,7 +53,7 @@
 		user,
 		target,
 		span_notice("You successfully repair [target]'s hydraulic pump."),
-		span_notice("[user] finishes clamping tubing down around [target]'s hydraulic pump."),
+		span_notice("[user] finishes clamping tubing down around [target]'s hydraulic pump with [tool]."),
 		span_notice("[user] finishes clamping tubing down around [target]'s hydraulic pump."),
 	)
 	display_pain(target, "The warnings, but your pump is as strong as ever!")
@@ -67,7 +67,7 @@
 			target,
 			span_warning("You screw up and slip your [tool] into their pump, tearing part of the pump off!"),
 			span_warning("[user] screws up, causing high pressure oil to spurt out of [target]'s chest profusely!"),
-			span_warning("[user] screws up, causing high pressure oil to spurt out of [target]'s chest profusely!"),
+			span_warning("[user] completes the surgery, but is that oil supposed to be squirting out of [target]'s chest like that?"),
 		)
 		display_pain(target, "Your chest burns; you feel oil flooding your chest cavity!")
 		patient.adjustOrganLoss(ORGAN_SLOT_HEART, 20)

@@ -38,7 +38,7 @@
 		user,
 		target,
 		span_notice("You begin to tighten the bolts on [target]'s heatsink..."),
-		span_notice("[user] begins to tighten the bolts on [target]'s heatsink."),
+		span_notice("[user] begins to tighten the bolts on [target]'s heatsink using [tool]."),
 		span_notice("[user] begins to tighten the bolts on [target]'s heatsink."),
 	)
 	display_pain(target, "You feel a metal clank inside your chest as [user] starts to work.")
@@ -54,8 +54,8 @@
 			user,
 			target,
 			span_notice("You successfully tighten [target]'s bolts on their heatsink."),
-			span_notice("Successfully tightened [target]'s heatsink."),
-			span_notice("Successfully tightened [target]'s heatsink."),
+			span_notice("[user] successfully tightened [target]'s heatsink using [tool]."),
+			span_notice("[user] finishes tightening [target]'s heatsink."),
 		)
 		display_pain(target, "Your internal errors clear for your temperature regulation.")
 	return ..()

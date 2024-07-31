@@ -39,7 +39,7 @@
 		user,
 		target,
 		span_notice("You begin to patch the damaged section of [target]'s bioreactor..."),
-		span_notice("[user] begins to delicately repair [target]'s bioreactor."),
+		span_notice("[user] begins to delicately repair [target]'s bioreactor using [tool]."),
 		span_notice("[user] begins to delicately repair [target]'s bioreactor."),
 	)
 	display_pain(target, "You feel a horrible stab in your gut!")
@@ -54,7 +54,7 @@
 		user,
 		target,
 		span_notice("You successfully repair the damaged part of [target]'s bioreactor."),
-		span_notice("[user] successfully repairs the damaged part of [target]'s bioreactor."),
+		span_notice("[user] successfully repairs the damaged part of [target]'s bioreactor using [tool]."),
 		span_notice("[user] successfully repairs the damaged part of [target]'s bioreactor."),
 	)
 	display_pain(target, "The errors clear from your bioreactor.")
@@ -67,7 +67,7 @@
 		user,
 		target,
 		span_warning("You slip and puncture [target]'s bioreactor!"),
-		span_warning("[user] slips and punctures [target]'s bioreactor!"),
+		span_warning("[user] slips and punctures [target]'s bioreactor with the [tool]!"),
 		span_warning("[user] slips and punctures [target]'s bioreactor!"),
 	)
 	display_pain(target, "Your midsection throws additional errors; that's not right!")
