@@ -67,7 +67,7 @@
 			user,
 			target,
 			span_warning("You slip and barely catch the [tool] before it falls, failing to tighten [target]'s heatsink down!"),
-			span_warning("[user] screws up, nearly dropping the [tool] into [target]'s chest!"),
+			span_warning("[user]'s butterfingers barely catches the [tool] before it falls into [target]'s chest!"),
 			span_warning("[user] screws up, nearly dropping the [tool] into [target]'s chest!"),
 		)
 		display_pain(target, "You feel a dull thud in your chest; it feels like a [tool] fell into your chest cavity!")

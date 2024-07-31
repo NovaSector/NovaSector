@@ -54,7 +54,7 @@
 		user,
 		target,
 		span_notice("You successfully descale [target]'s reagent processor, restoring factory settings and removing built up minerals."),
-		span_notice("[user] successfully resets [target]'s reagent processor."),
+		span_notice("[user] successfully descales [target]'s reagent processor, restoring factory settings and removing built up minerals."),
 		span_notice("[user] successfully resets [target]'s reagent processor."),
 	)
 	display_pain(target, "Flow rate restored.")
@@ -68,6 +68,6 @@
 		target,
 		span_warning("You adjust [target]'s reagent processor out of spec!"),
 		span_warning("[user] follows the wrong guide for [target]'s reagent processor!"),
-		span_warning("[user] finishes adjusting [target]'s reagent processor."),
+		span_warning("[user] finishes adjusting [target]'s reagent processor... wait that isn't right..."),
 	)
 	display_pain(target, "You see errors flow across your vision!")
