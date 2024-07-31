@@ -77,7 +77,7 @@
 			addtimer(VARSET_CALLBACK(target_liver, operated, FALSE), 30 SECONDS)
 		else
 		//NOVA EDIT ADDITION END
-		target_liver.operated = TRUE // NOVA EDIT CHANGE - Not for slimepeople - Indents for else block
+			target_liver.operated = TRUE // NOVA EDIT CHANGE - Not for slimepeople - Indents for else block
 		if(target_liver.organ_flags & ORGAN_EMP) //If our organ is failing due to an EMP, fix that
 			target_liver.organ_flags &= ~ORGAN_EMP
 	display_results(
