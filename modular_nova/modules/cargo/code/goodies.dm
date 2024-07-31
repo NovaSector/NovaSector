@@ -204,7 +204,7 @@
 
 /datum/supply_pack/goody/wetmaker
 	name = "wetmaker"
-	desc = ""
+	desc = "A device that makes the wearer wet."
 	cost = PAYCHECK_CREW
 	contains = list(
 		/obj/item/clothing/accessory/wetmaker,

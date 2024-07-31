@@ -197,8 +197,9 @@
 // Akula wet making accessory
 /obj/item/clothing/accessory/wetmaker
 	name = "wetmaker"
-	desc = "A device that makes the wearer wet."
-	icon_state = "green"
+	desc = "A device that makes the wearer wet. <B>ctrl-click</B> to hide while worn."
+	icon_state = "wetmaker"
+	base_icon_state = "wetmaker"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	obj_flags = UNIQUE_RENAME
@@ -208,19 +209,32 @@
 	. = ..()
 	AddComponent(/datum/component/wetsuit)
 
-/obj/item/clothing/accessory/wetmaker/Destroy()
+/obj/item/clothing/accessory/wetmaker/item_ctrl_click(mob/user)
 	. = ..()
-	qdel(GetComponent(/datum/component/wetsuit))
+	if(!ishuman(user))
+		return CLICK_ACTION_BLOCKING
+	var/mob/living/carbon/human/wearer = user
+	if(wearer.get_active_held_item() != src)
+		to_chat(wearer, span_warning("You must hold the [src] in your hand to do this!"))
+		return CLICK_ACTION_BLOCKING
+	if(icon_state == "[base_icon_state]")
+		icon_state = "[base_icon_state]_hidden"
+		worn_icon_state = "[base_icon_state]_hidden"
+		balloon_alert(wearer, "hidden")
+	else
+		icon_state = "[base_icon_state]"
+		worn_icon_state = "[base_icon_state]"
+		balloon_alert(wearer, "shown")
+	update_icon() // update that mf
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/accessory/wetmaker/emp_act(severity)
 	. = ..()
-	var/mob/living/wearer = loc.loc
-	var/obj/item/clothing/attached_to = loc
-	if(!istype(wearer, /mob/living/carbon/human))
+	var/obj/item/clothing/under/attached_to = loc
+	var/mob/living/carbon/human/wearer = attached_to.loc
+	if(!istype(wearer) || !istype(attached_to))
 		return
-	if(!istype(attached_to, /obj/item/clothing/under))
 	var/turf/open/tile = get_turf(wearer)
-		return
 	if(istype(tile))
 		tile.atmos_spawn_air("[GAS_WATER_VAPOR]=50;[TURF_TEMPERATURE(1000)]")
 	wearer.balloon_alert(wearer, "overloaded!")
