@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "AI mech control beacons and malf AI dominate mech work again."
