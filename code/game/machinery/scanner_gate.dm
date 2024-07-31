@@ -249,7 +249,6 @@
 					if(SCANGATE_ZOMBIE)
 						detected_thing = "Zombie"
 						scan_species = /datum/species/zombie
-<<<<<<< HEAD
 					//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
 					if(SCANGATE_MAMMAL)
 						detected_thing = "Mammal"
@@ -288,10 +287,7 @@
 						detected_thing = "Snail"
 						scan_species = /datum/species/snail
 					//NOVA EDIT END - MORE SCANNER GATE OPTIONS
-				if(is_species(H, scan_species))
-=======
 				if(is_species(scanned_human, scan_species))
->>>>>>> eb77b29352d (Scanner gate fixes (#85436))
 					beep = TRUE
 				if(detect_species == SCANGATE_ZOMBIE) //Can detect dormant zombies
 					detected_thing = "Romerol infection"
