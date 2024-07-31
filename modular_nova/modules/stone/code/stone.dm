@@ -145,3 +145,6 @@ GLOBAL_LIST_INIT(stone_recipes, list ( \
 		new /obj/item/stack/stone(src)
 
 	return ..()
+
+/obj/item/stack/sheet/mineral/stone/fifty
+	amount = 50

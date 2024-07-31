@@ -532,6 +532,11 @@
 	desc = "An adorable stuffed toy that resembles a green lizardperson. This one fills you with nostalgia and soul."
 	greyscale_colors = "#66ff33#000000"
 
+/obj/item/toy/plush/lizard_plushie/greyscale
+	desc = "An adorable stuffed toy that resembles a lizardperson. This one has been custom made."
+	greyscale_colors = "#d3d3d3#000000"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/toy/plush/lizard_plushie/space
 	name = "space lizard plushie"
 	desc = "An adorable stuffed toy that resembles a very determined spacefaring lizardperson. To infinity and beyond, little guy."
@@ -788,3 +793,10 @@
 	inhand_icon_state = "blahaj"
 	attack_verb_continuous = list("gnaws", "gnashes", "chews")
 	attack_verb_simple = list("gnaw", "gnash", "chew")
+
+/obj/item/toy/plush/donkpocket
+	name = "donk pocket plushie"
+	desc = "The stuffed companion of choice for the seasoned traitor."
+	icon_state = "donkpocket"
+	attack_verb_continuous = list("donks")
+	attack_verb_simple = list("donk")

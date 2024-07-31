@@ -1,4 +1,4 @@
-// For now its just Akulas
+// For now it's just Akulas
 /datum/job/assistant
 	akula_outfit = /datum/outfit/akula/assistant
 

@@ -84,7 +84,7 @@
 /obj/item/vending_refill/wardrobe/sec_wardrobe
 	machine_name = "Peacekeeper Outfitting Station"
 
-//List for the old one, for when its mapped in; curates it nicely, adds /redsec to the items, and also prevents some conflicts with the above vendor
+//List for the old one, for when it's mapped in; curates it nicely, adds /redsec to the items, and also prevents some conflicts with the above vendor
 /obj/machinery/vending/wardrobe/sec_wardrobe/red
 	name = "\improper SecDrobe"
 	desc = "A vending machine for security and security-related clothing!"

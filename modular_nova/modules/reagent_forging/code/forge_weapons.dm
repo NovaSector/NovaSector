@@ -16,7 +16,7 @@
 	. = ..()
 	. += span_notice("Using a hammer on [src] will repair its damage!")
 
-//vanilla sword with no quirks, at least its good versus other melees :)
+//vanilla sword with no quirks, at least it's good versus other melees :)
 /obj/item/forging/reagent_weapon/sword
 	name = "forged sword"
 	desc = "A sharp, one-handed sword most adept at blocking opposing melee strikes."

@@ -286,7 +286,7 @@
 	if (crowbarred_open)
 		chance *= 4 // even self-tends get a high chance of success if torn open!
 	if (HAS_TRAIT(user, TRAIT_KNOW_ROBO_WIRES))
-		chance *= 8 // almost guaranteed if its not self surgery - guaranteed with diag hud
+		chance *= 8 // almost guaranteed if it's not self surgery - guaranteed with diag hud
 		delay_mult *= 0.75
 		knows_wires = TRUE
 	else if (HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))

@@ -3,14 +3,14 @@
 /obj/item/clothing/under/frontier_colonist
 	name = "frontier jumpsuit"
 	desc = "A heavy grey jumpsuit with extra padding around the joints. Two massive pockets included. \
-		No matter what you do to adjust it, its always just slightly too large."
+		No matter what you do to adjust it, it's always just slightly too large."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "jumpsuit"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
 	worn_icon_digi = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi'
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "jumpsuit"
-	has_sensor = SENSOR_COORDS
+	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 
 /obj/item/clothing/under/frontier_colonist/Initialize(mapload)
@@ -198,7 +198,7 @@
 /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	name = "frontier gas mask"
 	desc = "An improved gas mask commonly seen in places where the atmosphere is less than breathable, \
-		but otherwise more or less habitable. Its certified to protect against most biological hazards \
+		but otherwise more or less habitable. It's certified to protect against most biological hazards \
 		to boot."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "mask"

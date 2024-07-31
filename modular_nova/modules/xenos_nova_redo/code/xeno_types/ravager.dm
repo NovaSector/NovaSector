@@ -57,7 +57,7 @@
 
 	sparkle_path = /obj/effect/temp_visual/dir_setting/tailsweep/ravager
 
-	sound = 'modular_nova/modules/xenos_nova_redo/sound/alien_tail_swipe.ogg' //The defender's tail sound isn't changed because its big and heavy, this isn't
+	sound = 'modular_nova/modules/xenos_nova_redo/sound/alien_tail_swipe.ogg' //The defender's tail sound isn't changed because it's big and heavy, this isn't
 
 	impact_sound = 'modular_nova/master_files/sound/weapons/bloodyslice.ogg'
 	impact_damage = 40

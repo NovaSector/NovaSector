@@ -145,7 +145,9 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 #define SMOOTH_GROUP_FISSURE S_TURF(63)
 
-#define MAX_S_TURF 63 //Always match this value with the one above it.
+#define SMOOTH_GROUP_MUSHROOM S_TURF(64)
+
+#define MAX_S_TURF 64 //Always match this value with the one above it.
 //NOVA EDIT END
 
 
