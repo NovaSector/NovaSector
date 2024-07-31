@@ -278,6 +278,10 @@
 	name = "Colourable Maid Headband"
 	item_path = /obj/item/clothing/head/maid_headband
 
+/datum/loadout_item/head/hairpin
+	name = "Fancy Hairpin"
+	item_path = /obj/item/clothing/head/costume/hairpin
+
 /*
 *	CHRISTMAS
 */
