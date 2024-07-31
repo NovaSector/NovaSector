@@ -194,10 +194,14 @@
 		"Aromantic Pride" = "pride_aromantic",
 	)
 
-// Akula wet making accessory
-/obj/item/clothing/accessory/wetmaker
-	name = "wetmaker"
-	desc = "A device that makes the wearer wet. <B>ctrl-click</B> to hide while worn."
+// Accessory for Akula species, it makes them wet and happy! :)
+/obj/item/clothing/accessory/vaporizer
+	name = "\improper Stardress hydro-vaporizer"
+	desc = "An expensive device manufactured for the civilian work-force of the Azulean military power. \
+	Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
+	which can then be used to moisturize the wearer's skin. \n\n\
+	<i>A label on its back warns about the potential dangers of electro-magnetic pulses. \
+	<b>ctrl-click</b> in-hand to hide the device while worn."
 	icon_state = "wetmaker"
 	base_icon_state = "wetmaker"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
@@ -205,11 +209,11 @@
 	obj_flags = UNIQUE_RENAME
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/wetmaker/Initialize(mapload)
+/obj/item/clothing/accessory/vaporizer/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wetsuit)
 
-/obj/item/clothing/accessory/wetmaker/item_ctrl_click(mob/user)
+/obj/item/clothing/accessory/vaporizer/item_ctrl_click(mob/user)
 	. = ..()
 	if(!ishuman(user))
 		return CLICK_ACTION_BLOCKING
@@ -228,7 +232,7 @@
 	update_icon() // update that mf
 	return CLICK_ACTION_SUCCESS
 
-/obj/item/clothing/accessory/wetmaker/emp_act(severity)
+/obj/item/clothing/accessory/vaporizer/emp_act(severity)
 	. = ..()
 	var/obj/item/clothing/under/attached_to = loc
 	var/mob/living/carbon/human/wearer = attached_to.loc
