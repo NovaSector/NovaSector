@@ -69,3 +69,6 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 
 // How much time arrivals shuttle should stay at station after its engines recharged before returning to interlink. In deciseconds. 150 - 15 seconds. 0 - disables autoreturn
 /datum/config_entry/number/arrivals_wait
+
+// Are borgs/silicons blacklisted from entering the gateway
+/datum/config_entry/flag/borg_gateway_blacklist

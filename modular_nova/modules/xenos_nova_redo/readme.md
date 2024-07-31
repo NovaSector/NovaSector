@@ -35,7 +35,5 @@ IN: code/__DEFINES/~nova_defines/traits.dm
 - N/A
 
 ### Credits:
-
-@Paxilmaniac - Porting the xenos from TGMC, adopting their stuff to work with our code
 TGMC - Where the sprites, sound, and ideas for caste abilities came from
 Those two rounds where xenos curbstomped the whole station - Inspiration for doing this in the first place

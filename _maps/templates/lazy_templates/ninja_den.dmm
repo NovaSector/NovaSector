@@ -706,20 +706,6 @@
 	initial_gas_mix = "TEMP=2.7"
 	},
 /area/centcom/central_command_areas/holding)
-"pU" = (
-/obj/structure/closet,
-/obj/item/surgery_tray/full,
-/obj/machinery/iv_drip,
-/obj/item/emergency_bed,
-/obj/item/storage/medkit/regular,
-/obj/item/reagent_containers/medigel/synthflesh,
-/obj/item/reagent_containers/medigel/synthflesh,
-/obj/item/reagent_containers/medigel/synthflesh,
-/obj/item/organ/internal/heart/cybernetic/tier2,
-/obj/item/organ/internal/heart/cybernetic/tier2,
-/obj/item/defibrillator,
-/turf/open/floor/iron/sepia,
-/area/centcom/central_command_areas/holding)
 "pX" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/bamboo/tatami/black{
@@ -1662,6 +1648,20 @@
 	},
 /turf/open/floor/iron/sepia,
 /area/centcom/central_command_areas/holding)
+"Mz" = (
+/obj/structure/closet,
+/obj/item/surgery_tray/full,
+/obj/machinery/iv_drip,
+/obj/item/emergency_bed,
+/obj/item/storage/medkit/regular,
+/obj/item/reagent_containers/medigel/synthflesh,
+/obj/item/reagent_containers/medigel/synthflesh,
+/obj/item/reagent_containers/medigel/synthflesh,
+/obj/item/organ/internal/heart/cybernetic/tier2,
+/obj/item/organ/internal/heart/cybernetic/tier2,
+/obj/item/defibrillator,
+/turf/open/floor/iron/sepia,
+/area/centcom/central_command_areas/holding)
 "ML" = (
 /obj/structure/window/paperframe{
 	can_atmos_pass = 0
@@ -1691,7 +1691,6 @@
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/condiment/enzyme{
-	layer = 5;
 	pixel_x = 10;
 	pixel_y = 2
 	},
@@ -2040,9 +2039,7 @@
 /obj/item/food/grown/cabbage,
 /obj/item/food/grown/cherries,
 /obj/item/food/grown/cherries,
-/obj/item/reagent_containers/condiment/enzyme{
-	layer = 5
-	},
+/obj/item/reagent_containers/condiment/enzyme,
 /obj/item/food/grown/redbeet,
 /turf/open/floor/catwalk_floor,
 /area/centcom/central_command_areas/holding)
@@ -3754,7 +3751,7 @@ bl
 xM
 DF
 dg
-pU
+Mz
 DI
 dv
 dg
@@ -3766,7 +3763,7 @@ EC
 dg
 Od
 Wm
-pU
+Mz
 dg
 uL
 hO

@@ -8,14 +8,15 @@
 		/obj/item = 10,
 	) // 10% success with any sharp item.
 	time = 2.4 SECONDS
+	preop_sound = 'sound/items/wirecutter.ogg'
 
 /datum/surgery_step/cut_wires/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
 		user,
 		target,
 		span_notice("You begin to cut loose wires in [target]'s [parse_zone(target_zone)]..."),
-		"[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)].",
-		"[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)].",
+		span_notice("[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)]."),
+		span_notice("[user] begins to cut loose wires in [target]'s [parse_zone(target_zone)]."),
 	)
 
 /datum/surgery_step/cut_wires/tool_check(mob/user, obj/item/tool)
@@ -31,6 +32,7 @@
 		TOOL_HEMOSTAT = 10,
 	)
 	time = 2.4 SECONDS
+	preop_sound = 'sound/items/crowbar.ogg'
 
 /datum/surgery_step/pry_off_plating/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	do_sparks(rand(5, 9), FALSE, target.loc)
@@ -41,8 +43,8 @@
 		user,
 		target,
 		span_notice("You begin to pry off [target]'s [parse_zone(target_zone)] plating..."),
-		"[user] begins to pry off [target]'s [parse_zone(target_zone)] plating.",
-		"[user] begins to pry off [target]'s [parse_zone(target_zone)] plating.",
+		span_notice("[user] begins to pry off [target]'s [parse_zone(target_zone)] plating."),
+		span_notice("[user] begins to pry off [target]'s plating."),
 	)
 
 //weld plating
@@ -52,6 +54,7 @@
 		TOOL_WELDER = 100,
 	)
 	time = 2.4 SECONDS
+	preop_sound = 'sound/items/welder.ogg'
 
 /datum/surgery_step/weld_plating/tool_check(mob/user, obj/item/tool)
 	if(implement_type == TOOL_WELDER && !tool.use_tool(user, user, 0, volume=50, amount=1))
@@ -63,8 +66,31 @@
 		user,
 		target,
 		span_notice("You begin to weld [target]'s [parse_zone(target_zone)] plating..."),
-		"[user] begins to weld [target]'s [parse_zone(target_zone)] plating.",
-		"[user] begins to weld [target]'s [parse_zone(target_zone)] plating.",
+		span_notice("[user] begins to weld [target]'s [parse_zone(target_zone)] plating."),
+		span_notice("[user] begins to weld [target]'s plating."),
+	)
+
+//weld plating - Act
+/datum/surgery_step/weld_plating_slice
+	name = "weld plating"
+	implements = list(
+		TOOL_WELDER = 100,
+	)
+	time = 2.4 SECONDS
+	preop_sound = 'sound/items/welder.ogg'
+
+/datum/surgery_step/weld_plating/tool_check(mob/user, obj/item/tool)
+	if(implement_type == TOOL_WELDER && !tool.use_tool(user, user, 0, volume=50, amount=1))
+		return FALSE
+	return TRUE
+
+/datum/surgery_step/weld_plating/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	display_results(
+		user,
+		target,
+		span_notice("You begin to weld into [target]'s [parse_zone(target_zone)] plating to open it..."),
+		"[user] begins to weld into [target]'s [parse_zone(target_zone)] plating with [tool].",
+		"[user] begins to weld into [target]'s [parse_zone(target_zone)] plating.",
 	)
 
 //replace wires
@@ -92,8 +118,8 @@
 		user,
 		target,
 		span_notice("You begin to replace [target]'s [parse_zone(target_zone)] wiring..."),
-		"[user] begins to replace [target]'s [parse_zone(target_zone)] wiring.",
-		"[user] begins to replace [target]'s [parse_zone(target_zone)] wiring.",
+		span_notice("[user] begins to replace [target]'s [parse_zone(target_zone)] wiring."),
+		span_notice("[user] begins to replace [target]'s wiring."),
 	)
 
 //add plating
@@ -119,8 +145,8 @@
 		user,
 		target,
 		span_notice("You begin to add plating to [target]'s [parse_zone(target_zone)]..."),
-		"[user] begins to add plating to [target]'s [parse_zone(target_zone)].",
-		"[user] begins to add plating to [target]'s [parse_zone(target_zone)].",
+		span_notice("[user] begins to add plating to [target]'s [parse_zone(target_zone)]."),
+		span_notice("[user] begins to add plating to [target]'s [parse_zone(target_zone)]."),
 	)
 
 // overridden 3rd arg

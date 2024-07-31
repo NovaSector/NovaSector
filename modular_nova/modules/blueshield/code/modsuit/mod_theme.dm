@@ -2,10 +2,10 @@
 	name = "praetorian"
 	desc = "A prototype of the Magnate-class suit issued to station Blueshields, still boasting exceptional protection worthy of an honor guard."
 	extended_desc = "A prototype of the Magnate-class suit issued for use with the station Blueshields, \
-		it boasts the exceptional protection of it's successor, while sacrificing some of the module capacity.\
+		it boasts the exceptional protection of its successor, while sacrificing some of the module capacity.\
 		All of the protection of the Magnate, with none of the comfort! The visor uses blue-light to obscure \
-		the face of it's wearer, adding to it's imposing figure. Compared to the sleek and luxurious design \
-		that came after it, this suit does nothing to hide it's purpose, the reinforced plating layered \
+		the face of its wearer, adding to its imposing figure. Compared to the sleek and luxurious design \
+		that came after it, this suit does nothing to hide its purpose, the reinforced plating layered \
 		over the insulated inner armor granting it protection against corrosive liquids, explosive blasts, \
 		fires, electrical shocks, and contempt from the rest of the crew."
 

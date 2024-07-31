@@ -179,21 +179,20 @@
 /obj/item/clothing/accessory/pride
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-
-GLOBAL_LIST_INIT(pride_pin_reskins, list(
-	"Rainbow Pride" = "pride",
-	"Bisexual Pride" = "pride_bi",
-	"Pansexual Pride" = "pride_pan",
-	"Asexual Pride" = "pride_ace",
-	"Non-binary Pride" = "pride_enby",
-	"Transgender Pride" = "pride_trans",
-	"Intersex Pride" = "pride_intersex",
-	"Lesbian Pride" = "pride_lesbian",
-	"Man-Loving-Man / Gay Pride" = "pride_mlm",
-	"Genderfluid Pride" = "pride_genderfluid",
-	"Genderqueer Pride" = "pride_genderqueer",
-	"Aromantic Pride" = "pride_aromantic",
-))
+	unique_reskin = list(
+		"Rainbow Pride" = "pride",
+		"Bisexual Pride" = "pride_bi",
+		"Pansexual Pride" = "pride_pan",
+		"Asexual Pride" = "pride_ace",
+		"Non-binary Pride" = "pride_enby",
+		"Transgender Pride" = "pride_trans",
+		"Intersex Pride" = "pride_intersex",
+		"Lesbian Pride" = "pride_lesbian",
+		"Man-Loving-Man / Gay Pride" = "pride_mlm",
+		"Genderfluid Pride" = "pride_genderfluid",
+		"Genderqueer Pride" = "pride_genderqueer",
+		"Aromantic Pride" = "pride_aromantic",
+	)
 
 // Akula wet making accessory
 /obj/item/clothing/accessory/wetmaker
@@ -220,13 +219,13 @@ GLOBAL_LIST_INIT(pride_pin_reskins, list(
 	if(!istype(wearer, /mob/living/carbon/human))
 		return
 	if(!istype(attached_to, /obj/item/clothing/under))
-		return
 	var/turf/open/tile = get_turf(wearer)
+		return
 	if(istype(tile))
 		tile.atmos_spawn_air("[GAS_WATER_VAPOR]=50;[TURF_TEMPERATURE(1000)]")
 	wearer.balloon_alert(wearer, "overloaded!")
 	wearer.visible_message("<span class='danger'>[wearer] [wearer.p_their()] [src] overloads, exploding in a cloud of hot steam!</span>")
 	wearer.set_jitter_if_lower(10 SECONDS)
 	playsound(wearer, 'sound/effects/spray.ogg', 80)
-	detach(attached_to) // safely remove wetsuit status effect
 	qdel(src)
+	detach(attached_to) // safely remove wetsuit status effect

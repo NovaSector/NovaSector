@@ -62,7 +62,7 @@
 
 
 /datum/sprite_accessory/taur/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	dimension_x = 32
 	center = FALSE
 	factual = FALSE

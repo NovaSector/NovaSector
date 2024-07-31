@@ -215,7 +215,7 @@
 	wing_types = list(/obj/item/organ/external/wings/functional/robotic)
 
 	var/wired = FALSE
-	var/obj/item/stock_parts/cell/cell = null
+	var/obj/item/stock_parts/power_store/cell = null
 
 /obj/item/bodypart/chest/robot/emp_effect(severity, protection)
 	. = ..()
@@ -277,7 +277,7 @@
 
 	if(all_robotic)
 		owner.add_traits(list(
-			/* NOVA EDIT REMOVAL BEGIN - Synths are not immune to temperature
+			/* NOVA EDIT REMOVAL BEGIN - You are not immune to temperature
 			TRAIT_RESISTCOLD,
 			TRAIT_RESISTHEAT,
 			NOVA EDIT REMOVAL END */
@@ -286,7 +286,7 @@
 			), AUGMENTATION_TRAIT)
 	else
 		owner.remove_traits(list(
-			/* NOVA EDIT REMOVAL BEGIN - Synths are not immune to temperature
+			/* NOVA EDIT REMOVAL BEGIN - You are not immune to temperature
 			TRAIT_RESISTCOLD,
 			TRAIT_RESISTHEAT,
 			NOVA EDIT REMOVAL END */
@@ -295,7 +295,7 @@
 			), AUGMENTATION_TRAIT)
 
 /obj/item/bodypart/chest/robot/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/stock_parts/cell))
+	if(istype(weapon, /obj/item/stock_parts/power_store/cell))
 		if(cell)
 			to_chat(user, span_warning("You have already inserted a cell!"))
 			return

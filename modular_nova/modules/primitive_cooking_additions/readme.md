@@ -21,5 +21,3 @@ Adds several ways to cook and prepare foods without the use of powered machines
 -   N/A
 
 ### Credits:
-
-Paxilmaniac

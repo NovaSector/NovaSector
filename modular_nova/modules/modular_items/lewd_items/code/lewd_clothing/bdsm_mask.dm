@@ -17,6 +17,8 @@
 	base_icon_state = "mask"
 	slot_flags = ITEM_SLOT_MASK
 	starting_filter_type = null
+	w_class = WEIGHT_CLASS_SMALL
+	flags_cover = MASKCOVERSMOUTH
 	var/mask_on = FALSE
 	var/current_mask_color = "pink"
 	var/breath_status = TRUE
@@ -37,9 +39,7 @@
 	var/temp_check = TRUE //Used to check if user unconsious to prevent choking him until he wakes up
 	/// Does the gasmask impede the user's ability to talk?
 	var/speech_disabled
-	w_class = WEIGHT_CLASS_SMALL
-	modifies_speech = TRUE
-	flags_cover = MASKCOVERSMOUTH
+	var/modifies_speech = TRUE
 
 /obj/item/clothing/mask/gas/bdsm_mask/Initialize(mapload)
 	. = ..()
@@ -70,7 +70,20 @@
 			button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 	update_icon()
 
-/obj/item/clothing/mask/gas/bdsm_mask/handle_speech(datum/source, list/speech_args)
+/obj/item/clothing/mask/gas/bdsm_mask/equipped(mob/equipper, slot)
+	. = ..()
+	if ((slot & ITEM_SLOT_MASK) && modifies_speech)
+		RegisterSignal(equipper, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	else
+		UnregisterSignal(equipper, COMSIG_MOB_SAY)
+
+/obj/item/clothing/mask/gas/bdsm_mask/dropped(mob/dropper)
+	. = ..()
+	UnregisterSignal(dropper, COMSIG_MOB_SAY)
+
+/obj/item/clothing/mask/gas/bdsm_mask/proc/handle_speech(datum/source, list/speech_args)
+	SIGNAL_HANDLER
+
 	if(speech_disabled)
 		return
 
