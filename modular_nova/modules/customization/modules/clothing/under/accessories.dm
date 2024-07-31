@@ -200,7 +200,7 @@
 	desc = "An expensive device manufactured for the civilian work-force of the Azulean military power. \
 	Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
 	which can then be used to moisturize the wearer's skin. \n\n\
-	<i>A label on its back warns about the potential dangers of electro-magnetic pulses. \
+	<i>A label on its back warns about the potential dangers of electro-magnetic pulses.</i> \
 	<b>ctrl-click</b> in-hand to hide the device while worn."
 	icon_state = "wetmaker"
 	base_icon_state = "wetmaker"
