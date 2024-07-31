@@ -9,7 +9,7 @@
 
 /datum/market_item/tool/doorforcer
 	name = "Akhter Company Prybar"
-	desc = "The infamous colonial crowbar, despite recent blacklisting by the Nanotrasen board of safety, still readily available on the black market. "
+	desc = "The infamous colonial crowbar, despite attempts at blacklisting by the Nanotrasen board of safety, still humbly available on the black market. "
 	item = /obj/item/crowbar/large/doorforcer
 	stock = 4
 	price_min = CARGO_CRATE_VALUE * 0.5
