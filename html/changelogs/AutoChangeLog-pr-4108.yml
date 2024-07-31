@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - admin: "Subtype vendor no longer requries an ID"
