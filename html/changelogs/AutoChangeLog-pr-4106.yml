@@ -1,0 +1,4 @@
+author: "NovaBot13"
+delete-after: True
+changes:
+  - bugfix: "fix a bug where botany reagents would dissapear from existing plants\n:cl:"
