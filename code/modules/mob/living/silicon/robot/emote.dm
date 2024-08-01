@@ -63,6 +63,7 @@
 	message = "blares an alarm!"
 	emote_type = EMOTE_AUDIBLE
 	sound = 'sound/machines/warning-buzzer.ogg'
+	sound_wall_ignore = TRUE // NOVA EDIT ADDITION
 
 /datum/emote/silicon/slowclap
 	key = "slowclap"
