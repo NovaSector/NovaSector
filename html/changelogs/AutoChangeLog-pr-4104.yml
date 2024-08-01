@@ -1,0 +1,4 @@
+author: "rutek-code"
+delete-after: True
+changes:
+  - image: "Tweaks the bee wings to fix some transparency issues."
