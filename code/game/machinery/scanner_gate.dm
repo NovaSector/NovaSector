@@ -17,7 +17,7 @@
 #define SCANGATE_POD "pod"
 #define SCANGATE_GOLEM "golem"
 #define SCANGATE_ZOMBIE "zombie"
-//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
+//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
 #define SCANGATE_MAMMAL "mammal"
 #define SCANGATE_VOX "vox"
 #define SCANGATE_AQUATIC "aquatic"
@@ -30,9 +30,8 @@
 #define SCANGATE_TESHARI "teshari"
 #define SCANGATE_HEMOPHAGE "hemophage"
 #define SCANGATE_SNAIL "snail"
-
 #define SCANGATE_GENDER "Gender"
-//NOVA EDIT END - MORE SCANNER GATE OPTIONS
+//NOVA EDIT ADDITION END - MORE SCANNER GATE OPTIONS
 
 /obj/machinery/scanner_gate
 	name = "scanner gate"
@@ -62,13 +61,13 @@
 	var/light_fail = FALSE
 	///Does the scanner ignore light_pass and light_fail for sending signals?
 	var/ignore_signals = FALSE
-	var/detect_gender = "male" //NOVA EDIT ADDITION - MORE SCANNER GATE OPTIONS
 	///Modifier to the chance of scanner being false positive/negative
 	var/minus_false_beep = 0
 	///Base false positive/negative chance
 	var/base_false_beep = 5
 	///Is an n-spect scanner attached to the gate? Enables contraband scanning.
 	var/obj/item/inspector/n_spect = null
+	var/detect_gender = "male" //NOVA EDIT ADDITION - MORE SCANNER GATE OPTIONS
 
 
 /obj/machinery/scanner_gate/Initialize(mapload)
@@ -249,9 +248,9 @@
 					if(SCANGATE_ZOMBIE)
 						detected_thing = "Zombie"
 						scan_species = /datum/species/zombie
-					//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
+					//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
 					if(SCANGATE_MAMMAL)
-						detected_thing = "Mammal"
+						detected_thing = "Anthromorph"
 						scan_species = /datum/species/mammal
 					if(SCANGATE_VOX)
 						detected_thing = "Vox"
@@ -275,7 +274,7 @@
 						detected_thing = "Vulpkanin"
 						scan_species = /datum/species/vulpkanin
 					if(SCANGATE_SYNTH)
-						detected_thing = "Synthetic"
+						detected_thing = "Synth"
 						scan_species = /datum/species/synthetic
 					if(SCANGATE_TESHARI)
 						detected_thing = "Teshari"
@@ -286,7 +285,7 @@
 					if(SCANGATE_SNAIL)
 						detected_thing = "Snail"
 						scan_species = /datum/species/snail
-					//NOVA EDIT END - MORE SCANNER GATE OPTIONS
+					//NOVA EDIT ADDITION END - MORE SCANNER GATE OPTIONS
 				if(is_species(scanned_human, scan_species))
 					beep = TRUE
 				if(detect_species == SCANGATE_ZOMBIE) //Can detect dormant zombies
@@ -323,8 +322,9 @@
 					detected_thing = "Obesity"
 		//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
 		if(SCANGATE_GENDER)
-			if(ishuman(M))
-				var/mob/living/carbon/human/scanned_human = M
+			detected_thing = detect_gender
+			if(ishuman(thing))
+				var/mob/living/carbon/human/scanned_human = thing
 				if((scanned_human.gender in list("male", "female"))) //funny thing: nb people will always get by the scan B)
 					if(scanned_human.gender == detect_gender)
 						beep = TRUE
