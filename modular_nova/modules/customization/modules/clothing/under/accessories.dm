@@ -245,5 +245,5 @@
 	wearer.visible_message("<span class='danger'>[wearer] [wearer.p_their()] [src] overloads, exploding in a cloud of hot steam!</span>")
 	wearer.set_jitter_if_lower(10 SECONDS)
 	playsound(wearer, 'sound/effects/spray.ogg', 80)
-	qdel(src)
 	detach(attached_to) // safely remove wetsuit status effect
+	qdel(src)
