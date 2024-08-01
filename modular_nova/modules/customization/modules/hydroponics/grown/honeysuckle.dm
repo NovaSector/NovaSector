@@ -1,6 +1,6 @@
 // Honeysuckle
 /obj/item/seeds/honeysuckle
-	name = "pack of honeysuckle seeds"
+	name = "honeysuckle seed pack"
 	desc = "These seeds grow into honeysuckle flowers."
 	icon = 'modular_nova/master_files/icons/obj/hydroponics/seeds.dmi'
 	icon_state = "seed-honeysuckle"
