@@ -11,11 +11,7 @@
 ///The loop that calculates the value of stuff on a pad, or plain sell them if dry_run is FALSE.
 /obj/machinery/computer/piratepad_control/sapper/pirate_export_loop(obj/machinery/piratepad/pad, dry_run = TRUE)
 	var/datum/export_report/report = new
-	for(var/atom/movable/item_on_pad as anything in get_turf(pad))
-		if(item_on_pad == pad)
-			continue
-		if(!istype(item_on_pad, /obj/item/holochip))
-			continue
+	for(var/obj/item/holochip/item_on_pad in get_turf(pad))
 		export_item_and_contents(item_on_pad, apply_elastic = FALSE, dry_run = dry_run, delete_unsold = FALSE, external_report = report, ignore_typecache = nosell_typecache)
 	return report
 
