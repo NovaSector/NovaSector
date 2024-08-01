@@ -102,7 +102,7 @@
 	premium = list(
 		/obj/item/reagent_containers/medigel/synthflesh = 2,
 		/obj/item/storage/pill_bottle/psicodine = 2,
-		/obj/item/storage/pill_bottle/sansufentanyl = 1,
+		// /obj/item/storage/pill_bottle/sansufentanyl = 1, // NovaSector edit: Interdyne patents
 		)
 	default_price = 50
 	extra_price = 100
