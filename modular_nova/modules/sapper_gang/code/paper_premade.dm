@@ -29,7 +29,7 @@ Have a good day at work.
 IMPORTANT, make sure to understand the following:
 
 <br>While this machine may work wonders, it is an incredibly volatile piece of technology. The more power it converts, the hotter it gets; makes sense right?
-You may be considering plugging it straight into an engine, which is a great strategy to a succesful day at work. <i>If</i> you are prepared to siphon such large pulses of energy.
+You may be considering plugging it straight into an engine, which is a great strategy to a successful day at work; <i>if</i> you are prepared to siphon such large pulses of energy.
 Temperature control is key, both in the work environment and of the miner's hardware. Set up space-coolers and <b>don't leave the miner unattended for a long time!</b>
 
 What happens if you or your partner forget to manage the temperature? Besides the catastrophic consequence of blowing a giant crater into Nanotrasen assets, the significant loss of profits, or the very likely odds of employee casualty, it <i>isn't</i> the end of the work day.

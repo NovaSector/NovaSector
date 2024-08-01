@@ -103,7 +103,7 @@
 	acid = 45
 
 /obj/item/clothing/shoes/workboots/sapper
-	name = "\improper black work boots"
+	name = "black work boots"
 	desc = "Lace-up steel-tipped shiny black workboots, nothing can get through these."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "boots"
@@ -116,7 +116,7 @@
 	contents += new /obj/item/screwdriver
 
 /obj/item/storage/belt/utility/sapper
-	name = "\improper black toolbelt"
+	name = "black toolbelt"
 	desc = "A tactical toolbelt, what makes it tactical? The color."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "belt"
@@ -135,7 +135,7 @@
 	new /obj/item/weldingtool/abductor(src)
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sapper
-	name = "\improper compact tool case"
+	name = "compact tool case"
 	desc = "A wide yellow tool case with foam inserts laid out to fit a fire axe, tools, cable coils and even grenades."
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sapper/PopulateContents()

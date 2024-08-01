@@ -66,7 +66,7 @@
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled
 
 /mob/living/basic/bot/medbot/sapper
-	name = "\proper Manon"
+	name = "Manon"
 	medkit_type = /obj/item/storage/medkit/fire
 	skin = "ointment"
 	health = 40

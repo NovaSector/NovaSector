@@ -22,7 +22,7 @@
 
 /datum/antagonist/sapper/greet()
 	. = ..()
-	to_chat(owner, "<B>You're an illegal credits miner, build to defend your mining machines and your ship to harvest as many credits as you can!</B>")
+	to_chat(owner, "<B>You're an illegal credits miner, build your defenses to protect your mining machines and your ship, and harvest as many credits as you can!</B>")
 	owner.announce_objectives()
 
 /datum/antagonist/sapper/get_team()
@@ -75,7 +75,7 @@
 /datum/objective/sapper/update_explanation_text()
 	if(cargo_hold)
 		var/area/storage_area = get_area(cargo_hold)
-		explanation_text = "Acquire as much credits as you can from the station's powernet and cash it out into the [storage_area.name] cargo hold."
+		explanation_text = "Acquire as many credits as you can from the station's powernet and cash it out into the [storage_area.name] cargo hold."
 
 /datum/objective/sapper/proc/get_loot_value()
 	return cargo_hold ? cargo_hold.points : 0
