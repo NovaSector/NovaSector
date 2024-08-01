@@ -201,3 +201,11 @@
 	contains = list(
 		/obj/item/storage/pouch/medical/firstaid/stabilizer,
 	)
+
+/datum/supply_pack/goody/wetmaker
+	name = "Stardress hydro-vaporizer"
+	desc = "Interesting Azulean technology, allowing the wearer to stay relatively moisturized at all times."
+	cost = PAYCHECK_CREW
+	contains = list(
+		/obj/item/clothing/accessory/vaporizer,
+	)
