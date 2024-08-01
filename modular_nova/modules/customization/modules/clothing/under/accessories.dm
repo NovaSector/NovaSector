@@ -221,12 +221,10 @@
 	if(wearer.get_active_held_item() != src)
 		to_chat(wearer, span_warning("You must hold the [src] in your hand to do this!"))
 		return CLICK_ACTION_BLOCKING
-	if(icon_state == "[base_icon_state]")
-		icon_state = "[base_icon_state]_hidden"
+	if(worn_icon_state == "[base_icon_state]")
 		worn_icon_state = "[base_icon_state]_hidden"
 		balloon_alert(wearer, "hidden")
 	else
-		icon_state = "[base_icon_state]"
 		worn_icon_state = "[base_icon_state]"
 		balloon_alert(wearer, "shown")
 	update_icon() // update that mf
