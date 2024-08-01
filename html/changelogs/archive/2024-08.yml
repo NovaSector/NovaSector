@@ -1,0 +1,68 @@
+2024-08-01:
+  Hardly:
+  - bugfix: Removes unusable sustenance machine in NT Rep's maintenance in Icebox
+      Station
+  - bugfix: Adds missing air alarms in Blueshift's Engineering Room and Transit Tube
+  NovaBot13:
+  - bugfix: fixes a way of duplicating iron with wallmounted sparklers and light switches
+  - balance: Discounts now pick 4-6 items each from a unique category
+  - balance: Items that cost below 4 TC cannot get discounted anymore
+  - balance: Elite syndicate MODs for traitors can no longer get discounted
+  - bugfix: The clown planet domain is now completable
+  - bugfix: Justice design no longer disappears
+  - bugfix: Mechs can attack other mechs in melee
+  - bugfix: Fixed NT Frontier discounts not applying
+  - bugfix: Heart eater wizard perk no longer works activates on organs that haven't
+      been used before
+  - bugfix: Fixed advanced pods showing up as cultist pods
+  - bugfix: AI mech control beacons and malf AI dominate mech work again.
+  - bugfix: Emergency climbing hooks now shouldn't spawn on non multi-z stations.
+  - rscadd: RD can emag mech fabricator(like roboticist).
+  - qol: You no longer goofily swap with others trying to move in the same direction
+      as you if you're not faster than them
+  - code_imp: Moved mobswap check logic into a separate proc and made it more readable
+  - rscdel: Revert "Heretic spell invocations now use one dead language per path"
+  - bugfix: You no longer render on top of tall enough objects that get vertically
+      offset when anchored to a table when standing on the tile directly to the north
+      of them. Examples are soda and booze dispensers.
+  - bugfix: Removing the vertical offset some objects get when anchored to a table
+      can be done by unanchoring it at any point, rather than only on a table.
+  - bugfix: Silicons and simplemobs can also hear radio chatter now
+  - bugfix: Bank cards speak once more
+  - bugfix: Removed a rogue wall grinder on icebox
+  - bugfix: spray can face spraying will no longer work on light-sensitives with eyewear
+      and people wearing eye covering masks
+  - balance: Mining MODsuits are now considered thick clothing and gained expanded
+      storage.
+  - image: Mining MODsuits got a slight glowup and hide belts now
+  - rscadd: Carps, frogs and young lobstrosities now fear people wearing fishing hats!
+      Adults and megacarp favour the 'fight' part of the fear reflex however.
+  - bugfix: The hat stabilizer module now inherits the clothing traits of the attached
+      hat.
+  - bugfix: The charge indicators on power cells now work properly.
+  - code_imp: Removed some now redundant power cell appearance updates
+  - bugfix: Portable atmos machine circuit boards list correct components
+  - bugfix: Portable atmos machine circuit boards accept unwrenched fittings
+  - bugfix: Portable atmos machines are movable on construction
+  - qol: smart fridge UI now groups items by type+name instead of just type
+  - qol: smart fridge UI now shows item names next to the images
+  - qol: smart fridge UI has a list view option (default for chem and viro versions)
+  - bugfix: fixed smart fridge stacking sounds when dispensing multiple items
+  - admin: Subtype vendor no longer requries an ID
+  - qol: You can now reorder items inside storages by dragging them
+  grungussuss:
+  - bugfix: the abandoned plasma research facility on icemoon no longer has an item
+      that shouldn't exist
+  necromanceranne:
+  - rscadd: Robotic variants of many of the standard and advanced humanoid surgeries.
+      You cannot perform self surgery with these surgeries.
+  - balance: It is easier to do robotic surgeries with normal surgery tools.
+  - qol: It is now possible to detect EMP organ failure cascades via health scanners.
+  - qol: EMP organ failure cascades can be reversed by doing organ repair surgeries
+      targeting the failing organ.
+  - balance: Synth EMP effects have been refactored to be direct and without stacking
+      multiples
+  - balance: Synth EMP Hardstun has been replaced with a less instant-win condition
+  - bugfix: You can no longer build borgs from synth corpses
+  - rscadd: Synths and IPC's rejoice! You can now print bases of your entire body!
+  - rscadd: Synthetic Organ surgeries are now present! But only when they have damage
