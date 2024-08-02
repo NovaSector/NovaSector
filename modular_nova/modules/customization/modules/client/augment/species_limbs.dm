@@ -319,41 +319,29 @@
 	path = /obj/item/bodypart/leg/right/pod
 
 //STINKIN' ZOGGIN' 'UMIES!!
-/datum/augment_item/limb/head/human
+/datum/augment_item/limb/head/species/human
 	name = "human head"
 	path = /obj/item/bodypart/head
-	cost = 0
-	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/chest/human
+/datum/augment_item/limb/chest/species/human
 	name = "human chest"
 	path = /obj/item/bodypart/chest
-	cost = 0
-	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/l_arm/human
+/datum/augment_item/limb/l_arm/species/human
 	name = "human left arm"
 	path = /obj/item/bodypart/arm/left
-	cost = 0
-	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/r_arm/human
+/datum/augment_item/limb/r_arm/species/human
 	name = "human right arm"
 	path = /obj/item/bodypart/arm/right
-	cost = 0
-	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/l_leg/human
+/datum/augment_item/limb/l_leg/species/human
 	name = "human left leg"
 	path = /obj/item/bodypart/leg/left
-	cost = 0
-	uses_robotic_styles = FALSE
 
-/datum/augment_item/limb/r_leg/human
+/datum/augment_item/limb/r_leg/species/human
 	name = "human right leg"
 	path = /obj/item/bodypart/leg/right
-	cost = 0
-	uses_robotic_styles = FALSE
 
 //Ethereals
 /datum/augment_item/limb/head/species/ethereal
