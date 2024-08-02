@@ -31,12 +31,14 @@ From here Simply go to any merged TG PR and you need to grab two hashs to do two
 Using this Pull Request as an [Example](https://github.com/tgstation/tgstation/pull/85448)
 
 You would want to scroll down to the bottom of the page and look for the merge commit. It would look like this:
+
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/firefox_mkROS7ApgD.png)
 
 Simply click on the random string of letters/numbers, and in the url address bar copy the large random string thats just after /commit/
 In this example it should look like this. `281dac4ed0e2976cdecb4777c93a19bc9b787db4`
 
 Then look for the Automatic Changelog for the PR as pictured below.
+
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/firefox_OfwBeopgiw.png)
 
 On that you can click on the words automatic changelog or the random hash at the far right, both works.
@@ -66,6 +68,7 @@ Open up Git-fork, and using open up the directory containing your cloned fork (o
 
 On the left side panel there should be a list that has all of the repo's remotes, right click on it and click on add new remote.
 From there, name the remote as you want I.E. 'tgstation' and for the repository URL put `https://github.com/tgstation/tgstation`
+
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_oqKYvSerNP.png)
 ![Screenshot2](http://files.byondhome.com/SomeRandomOwl/Fork_F2LtlwBlFA.png)
 
@@ -76,9 +79,11 @@ Create a nw branch using either the Repository dropdown on the title bar -> New 
 
 From here it is super simple to add in the the Pull requests from TG you wish to add to your pull request to merge into Nova.
 On the side panel where it lists remotes, click on the button with the tooltip `show branches from here only`
+
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_8L4ULsFpcP.png)
 
 And then from the main view, simply hold Ctrl and click on the PR + its changelog for each and every Pull Request you wish to copy over to Nova. Then right click on oneand then click on Cherry Pick and then click Cerrypick commits on the resulting dialog.
+
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_ElARfHdxH1.png)
 ![Screenshot2](http://files.byondhome.com/SomeRandomOwl/Fork_08HRCEw9cF.png)
 
