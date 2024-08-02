@@ -188,10 +188,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/deathmatch)
-"xi" = (
-/obj/structure/lattice,
-/turf/closed/wall/r_wall/syndicate,
-/area/deathmatch)
 "zA" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
@@ -377,7 +373,7 @@ Ke
 NR
 NR
 NR
-xi
+NR
 NR
 NR
 NR
