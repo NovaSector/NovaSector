@@ -53,7 +53,7 @@
 /obj/structure/fluff/fake_camera{
 	dir = 4
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "hY" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -67,7 +67,7 @@
 /area/deathmatch)
 "iL" = (
 /obj/machinery/light/directional/east,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "jp" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
@@ -86,15 +86,40 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "lg" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/shrink_cw,
 /turf/open/floor/mineral/plastitanium,
 /area/deathmatch)
+"mq" = (
+/obj/structure/emergency_shield/timer,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "mv" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
 /turf/open/floor/mineral/plastitanium/red,
+/area/deathmatch)
+"ne" = (
+/obj/structure/emergency_shield/timer,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "nf" = (
 /obj/structure/lattice,
@@ -108,7 +133,22 @@
 /obj/item/forging/reagent_weapon/hammer{
 	pixel_x = -3
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
+/area/deathmatch)
+"of" = (
+/obj/structure/emergency_shield/timer,
+/obj/effect/light_emitter{
+	set_cap = 2;
+	light_color = "#DEEFFF";
+	set_luminosity = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "ot" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/warning,
@@ -129,7 +169,7 @@
 /obj/item/forging/reagent_weapon/dagger{
 	pixel_y = -3
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "pM" = (
 /obj/structure/emergency_shield/timer,
@@ -138,7 +178,11 @@
 	light_color = "#DEEFFF";
 	set_luminosity = 4
 	},
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "qz" = (
 /obj/structure/lattice,
@@ -165,7 +209,7 @@
 /obj/item/forging/reagent_weapon/sword{
 	pixel_x = 6
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "sN" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/shrink_ccw{
@@ -186,13 +230,21 @@
 /obj/structure/fluff/fake_camera{
 	dir = 9
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "zA" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/deathmatch)
+"zZ" = (
+/obj/structure/emergency_shield/timer,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "Bg" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/right,
@@ -205,7 +257,7 @@
 /area/deathmatch)
 "CG" = (
 /obj/machinery/light/directional/south,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "CW" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/shrink_ccw{
@@ -215,7 +267,13 @@
 /area/deathmatch)
 "Ec" = (
 /obj/structure/emergency_shield/timer,
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "Fe" = (
 /obj/effect/turf_decal/stripes/red/line{
@@ -231,7 +289,10 @@
 /area/deathmatch)
 "Gy" = (
 /obj/effect/landmark/deathmatch_player_spawn,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
+/area/deathmatch)
+"HH" = (
+/turf/open/floor/engine,
 /area/deathmatch)
 "IG" = (
 /obj/effect/turf_decal/nova_decals/syndicate/top/middle,
@@ -261,7 +322,7 @@
 /obj/structure/fluff/fake_camera{
 	dir = 10
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "Mj" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/shrink_ccw{
@@ -290,7 +351,7 @@
 /area/deathmatch)
 "PI" = (
 /obj/machinery/light/directional/north,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "PK" = (
 /turf/template_noop,
@@ -312,7 +373,7 @@
 /area/deathmatch)
 "Vi" = (
 /obj/machinery/light/directional/west,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "WB" = (
 /obj/structure/table/reinforced/ctf,
@@ -321,7 +382,7 @@
 	pixel_x = 1
 	},
 /obj/structure/fluff/fake_camera,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/engine,
 /area/deathmatch)
 "Xt" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/warning{
@@ -418,9 +479,9 @@ PK
 nf
 NR
 PI
-Ro
+HH
 Gy
-Ro
+HH
 CG
 Zf
 nf
@@ -440,11 +501,11 @@ jp
 jp
 jp
 NR
-Ec
-Ec
-pM
-Ec
-Ec
+ne
+ne
+mq
+ne
+ne
 NR
 jp
 jp
@@ -528,7 +589,7 @@ Ke
 NR
 sn
 Vi
-Ec
+zZ
 Mj
 Ro
 Ro
@@ -540,7 +601,7 @@ NM
 Ro
 Ro
 lg
-Ec
+zZ
 Vi
 pp
 NR
@@ -550,8 +611,8 @@ Ke
 Ke
 NR
 od
-Ro
-Ec
+HH
+zZ
 Fw
 cB
 Ro
@@ -563,8 +624,8 @@ Fe
 Ro
 aZ
 ot
-Ec
-Ro
+zZ
+HH
 kY
 NR
 Ke
@@ -596,8 +657,8 @@ Ke
 Ke
 NR
 kY
-Ro
-Ec
+HH
+zZ
 Fw
 aZ
 Ro
@@ -609,8 +670,8 @@ Fe
 Ro
 cB
 ot
-Ec
-Ro
+zZ
+HH
 od
 NR
 Ke
@@ -620,7 +681,7 @@ Ke
 NR
 pp
 iL
-Ec
+zZ
 hZ
 Ro
 Ro
@@ -632,7 +693,7 @@ eP
 Ro
 Ro
 te
-Ec
+zZ
 iL
 sn
 NR
@@ -718,7 +779,7 @@ jp
 NR
 Ec
 Ec
-pM
+of
 Ec
 Ec
 NR
@@ -740,9 +801,9 @@ PK
 nf
 NR
 PI
-Ro
+HH
 Gy
-Ro
+HH
 CG
 NR
 nf
