@@ -12157,7 +12157,7 @@
 /area/station/command/heads_quarters/hos)
 "dEd" = (
 /obj/item/radio/intercom/directional/north,
-/obj/machinery/hydroponics/soil,
+/obj/structure/water_source/puddle,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden)
 "dEm" = (
@@ -59589,7 +59589,7 @@
 /area/station/maintenance/starboard/fore)
 "rnp" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/obj/machinery/hydroponics/constructable,
+/obj/structure/water_source/puddle,
 /turf/open/misc/dirt/planet,
 /area/station/security/prison)
 "rnq" = (

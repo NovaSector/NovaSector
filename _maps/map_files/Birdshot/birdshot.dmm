@@ -20183,8 +20183,8 @@
 	},
 /area/station/science/lobby)
 "hqH" = (
-/obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/cup/watering_can/wood,
+/obj/structure/table,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/greater)
 "hqM" = (
@@ -32218,6 +32218,10 @@
 /obj/item/camera,
 /turf/open/floor/iron,
 /area/station/security/prison/workout)
+"lhd" = (
+/obj/structure/water_source/puddle,
+/turf/open/floor/grass,
+/area/station/security/prison/garden)
 "lhi" = (
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/button/door/directional/north{
@@ -33953,7 +33957,6 @@
 "lGO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/sink/directional/west,
 /turf/open/floor/iron,
 /area/station/security/prison/garden)
 "lGT" = (
@@ -54456,6 +54459,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/grimy,
 /area/station/commons/vacant_room/office)
+"sJf" = (
+/obj/structure/water_source/puddle,
+/turf/open/misc/asteroid,
+/area/station/maintenance/starboard/greater)
 "sJg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/machinery/door/airlock/command{
@@ -86214,7 +86221,7 @@ xjz
 xjz
 xjz
 xjz
-dDB
+xjz
 dDB
 blb
 blb
@@ -86470,7 +86477,7 @@ hJC
 aHJ
 wmy
 tBm
-xjz
+tBm
 xjz
 blb
 blb
@@ -86727,7 +86734,7 @@ aWt
 sis
 sis
 sis
-tBm
+lhd
 xjz
 blb
 dDB
@@ -129074,7 +129081,7 @@ ylD
 hqH
 vzv
 brz
-cgM
+sJf
 ylD
 wyj
 dYR

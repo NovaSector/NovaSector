@@ -47415,6 +47415,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/storage)
 "nKw" = (
+/obj/structure/water_source/puddle,
 /turf/open/floor/grass,
 /area/station/maintenance/department/crew_quarters/dorms)
 "nKz" = (
@@ -60425,6 +60426,10 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"rDw" = (
+/obj/structure/water_source/puddle,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
 "rDy" = (
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/flora/grass/jungle,
@@ -109760,7 +109765,7 @@ sBE
 qCm
 sBE
 kxB
-kxB
+rDw
 iMY
 iMY
 iMY

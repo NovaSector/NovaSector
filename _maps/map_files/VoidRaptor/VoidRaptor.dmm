@@ -29518,6 +29518,10 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/command)
+"iwY" = (
+/obj/structure/water_source/puddle,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden/abandoned)
 "iwZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -65992,6 +65996,10 @@
 	},
 /turf/open/floor/iron/smooth_edge,
 /area/station/engineering/atmos)
+"svR" = (
+/obj/structure/water_source/puddle,
+/turf/open/floor/grass,
+/area/station/security/prison/garden)
 "svT" = (
 /obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 1
@@ -117749,7 +117757,7 @@ cGZ
 lCg
 czg
 pqO
-pqO
+iwY
 gmz
 ngt
 pkp
@@ -135344,7 +135352,7 @@ dKK
 xbD
 fkx
 wpp
-uZu
+svR
 jDe
 qhJ
 dFp
