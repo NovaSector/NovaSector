@@ -63674,6 +63674,10 @@
 /obj/structure/chair/stool/bar/directional/west,
 /turf/open/floor/iron,
 /area/station/command/captain_dining)
+"mkr" = (
+/obj/structure/water_source/puddle,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden/abandoned)
 "mky" = (
 /obj/structure/chair,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -214865,7 +214869,7 @@ hDM
 wQE
 vXK
 vXK
-sPI
+mkr
 tGh
 gVx
 ipb
