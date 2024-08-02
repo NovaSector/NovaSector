@@ -2,7 +2,7 @@
 
 This guide will help you in pulling Pull requests from TG and adding them into a PR to be merged here in Nova. This guide will teach you two methods of doing such, one slow and one faster one though both do the Job in the end one requires additional software as it helps make the process faster and easier to acomplish.
 
-### *DO NOTE ALL OF THIS SHOULD BE DONE ON A FORK OF NOVA's REPO, IF YOU DIRECTLY CLONED THE REPO YOU WILL NOT BE ABLE TO DO THIS*
+## *DO NOTE ALL OF THIS SHOULD BE DONE ON A FORK OF NOVA's REPO, IF YOU DIRECTLY CLONED THE REPO YOU WILL NOT BE ABLE TO DO THIS*
 
 ## Software
 
