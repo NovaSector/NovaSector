@@ -137,6 +137,7 @@
 	icon_state = "half_mask"
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
 	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
