@@ -66,3 +66,106 @@
   - bugfix: You can no longer build borgs from synth corpses
   - rscadd: Synths and IPC's rejoice! You can now print bases of your entire body!
   - rscadd: Synthetic Organ surgeries are now present! But only when they have damage
+2024-08-02:
+  Bisar:
+  - qol: Machines check their parts during initialization now; this will usually apply
+      in cases such as a machine in a prefab having been varedited to be upgraded.
+  - code_imp: All machines check their parts during initialization.
+  FlufflesTheDog:
+  - admin: Admin lua scripting uses a new library that (probably) will not break when
+      BYOND updates.
+  Hardly:
+  - bugfix: Replaced the N2O canister in the plasma chamber with a correct one.
+  Honkpocket, Crumpaloo:
+  - rscadd: Added the 'Stardress hydro-vaporizer' accessory, attach to your clothes
+      to stay soaked!
+  LT3:
+  - bugfix: Scanner gate now detects items thrown through it
+  - bugfix: Scanner gate does not alarm for guns on players with mindshield
+  - bugfix: Scanner gate does not alarm for guns on players with weapons ID card access
+  - sound: Reduced volume of scanner gate alarm
+  NovaBot13:
+  - bugfix: peg limbs can now be amputated
+  - qol: new uplink UI
+  - qol: made it possible to buy a custom amount of TC, instead of bundles with fixed
+      amounts
+  - bugfix: birdshot engineering feedback has been applied
+  - qol: NODE drones summoned to tap a vent within ore vents now display a green status
+      light to show how much longer they need the vent defended for.
+  - rscadd: Adds a bronze dimensional theme
+  - rscadd: All the melons are now sliceable, and have inhands, instead of just watermelon
+      and holymelon respectively.
+  - rscadd: You can now hollow out melons of all kinds with a spoon to make helmets
+      or chestplates, based on the potency! If you are unlucky, you can tie up three
+      helmets into a chestplate with durathread using the crafting menu.
+  - rscadd: You can now make a bo staff out of bamboo and steelcap logs.
+  - rscadd: You can now make a moonflower buckler out of moonflowers and steelcap
+      logs.
+  - rscadd: You can also hollow out chantarelle to make mock-up wizard hat.
+  - rscadd: Parsnips, as mutation of carrots, become equaly able to be sharpaned,
+      turning into shivs, or with potency and luck, sabres.
+  - rscadd: You can now craft a durathread robe, and customize it into different variants
+      using specific plants in crafting menu.
+  - rscadd: Carrots gain a new possible mutation; cahn'root, brewable into root beer
+      and sharpanable into shivs or daggers!
+  - rscadd: Rice hat, made from bamboo, now has an alternative style, allowing you
+      to wear it in reverse and be much cooler.
+  - rscadd: Two new arrow variants appear in the crafting menu; sticky and poisonous
+      ones! If you want to make arrows at all though, remember to order bow-maker's
+      crate at cargo.
+  - bugfix: wawastation pharmacy now has a hand labeller
+  - admin: Adds some missing traits to the mob trait list in VV
+  - rscadd: Fletching starter kit! Make your own bow, shoot your friends in an unfortunate
+      workplace accident. Replace all those holy arrows you lost.
+  - bugfix: Bows now properly undraw once they have fired an arrow.
+  - code_imp: Bows now utilize overlays in order to display loaded arrows. Unique
+      overlays per arrow.
+  - bugfix: Stop clientless lobstrosities from fishing other lobstrosities, which
+      in turn can fish other lobstrosities and so on.
+  - balance: Stop clientless lobstrosities from fishing the lavaland fishing spot
+      chest.
+  - bugfix: Flashdarks now broduce darkness upon toggling
+  - bugfix: Fixes SS13.wait not working when called multiple times before it finishes
+      waiting.
+  - bugfix: Bamboo staves can now be wielded
+  - bugfix: Bostaff no longer disappears forever when wielded
+  - bugfix: Putting people you're fireman carrying into contractor pods no longer
+      sends both of you to zelda's shadow realm
+  - bugfix: Rice hat no longer disappears upon being toggled and can be raised back
+      up. Toggling sprites is now done by alt-clicking
+  - bugfix: Fixes the echolocation screen overlay not appearing with default arguments
+      due to using the wrong icon state
+  - qol: Skills are passed down to bitrunning avatars and then back to the original
+      body.
+  - rscadd: 'durathread robes can now store botany gear
+
+      :cl:'
+  - bugfix: rod sounds will now vary in pitch
+  - qol: Renamed seed packs to have the plant name at the beginning
+  - admin: The layout of the lua editor has been tweaked slightly.
+  - admin: In the lua editor, you can now toggle whether to log runtimes the viewed
+      state is involved in.
+  - bugfix: Existing gas flow meters have been recalled and replaced due to a faulty
+      screen connection, and once again convey pressure and temperature
+  - image: Made chem master container icons not blurry
+  - admin: Turfs in lua will no longer become invalid on deletion.
+  - bugfix: Grass sheath now holds parsnip sabres like its supposed to
+  - spellcheck: Fixed up parsnip sabre description grammar
+  - bugfix: Shoving someone onto a table now causes them to become vulnerable to being
+      stunned.
+  RatFromTheJungle:
+  - spellcheck: Description of the 'Colony Core Board' in the izlishek company to
+      be much easier to read.
+  Rhials:
+  - qol: Sentience potions can now be used without a provided summon reason.
+  - rscadd: Spies can now pick their own custom objectives, if they so choose.
+  Tattle:
+  - qol: dead cyborgs now blink yellow lights
+  - qol: damaged cyborgs have smoke particles when they've taken brute damage, and
+      sparks for burn
+  grungussuss:
+  - sound: only the scream emote can be heard through walls
+  rutek-code:
+  - image: Adds variants of the bug snout with the eyes below hair.
+  - image: Brightened the bug snouts to play better with coloration.
+  - image: Tweaks the bee wings to fix some transparency issues.

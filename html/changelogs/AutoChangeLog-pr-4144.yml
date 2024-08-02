@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Replaced the N2O canister in the plasma chamber with a correct one."
