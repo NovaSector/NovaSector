@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Adds missing air alarms in Blueshift's Engineering Room and Transit Tube"

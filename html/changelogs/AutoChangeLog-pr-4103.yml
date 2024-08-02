@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Removes unusable sustenance machine in NT Rep's maintenance in Icebox Station"
