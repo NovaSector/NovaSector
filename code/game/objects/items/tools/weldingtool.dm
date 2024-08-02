@@ -160,17 +160,11 @@
 		span_notice("You start fixing some of the dents on [attacked_humanoid == user ? "your" : "[attacked_humanoid]'s"] [affecting.name]."))
 	var/use_delay = repeating ? 1 SECONDS : 0
 	if(user == attacked_humanoid)
-<<<<<<< HEAD
-		user.visible_message(span_notice("[user] starts to fix some of the dents on [attacked_humanoid]'s [affecting.name]."),
-			span_notice("You start fixing some of the dents on [attacked_humanoid == user ? "your" : "[attacked_humanoid]'s"] [affecting.name]."))
 		use_delay = self_delay // NOVA EDIT CHANGE - ORIGINAL: use_delay = 5 SECONDS
 	// NOVA EDIT ADDITION START
 	else
 		use_delay = other_delay
 	// NOVA EDIT ADDITION END
-=======
-		use_delay = 5 SECONDS
->>>>>>> 5639f9b6d3e (Cable coil and welding tool healing now loops. Fixed heal message not displaying when healing someone else (#85377))
 
 	if(!use_tool(attacked_humanoid, user, use_delay, volume=50, amount=1))
 		return ITEM_INTERACT_BLOCKING
