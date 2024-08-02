@@ -1,20 +1,16 @@
-import { useState } from 'react';
-
-import { useBackend } from '../../backend';
+import { useBackend, useLocalState } from '../../backend';
 import { Button, Input, Modal, Section, Stack } from '../../components';
-import { LuaEditorData, LuaEditorModal } from './types';
 
-type StateSelectModalProps = {
-  setModal: (modal: LuaEditorModal) => void;
-};
-
-export const StateSelectModal = (props: StateSelectModalProps) => {
-  const { act, data } = useBackend<LuaEditorData>();
-  const { setModal } = props;
-  const [input, setInput] = useState<string>();
+export const StateSelectModal = (props) => {
+  const { act, data } = useBackend();
+  const [, setModal] = useLocalState('modal', 'states');
+  const [input, setInput] = useLocalState('newStateName', '');
   const { states } = data;
   return (
-    <Modal position="absolute" width="30%" height="50%" top="25%" left="35%">
+    <Modal
+      height={`${window.innerHeight * 0.5}px`}
+      width={`${window.innerWidth * 0.3}px`}
+    >
       <Section
         fill
         title="States"
@@ -23,7 +19,7 @@ export const StateSelectModal = (props: StateSelectModalProps) => {
             color="red"
             icon="window-close"
             onClick={() => {
-              setModal(undefined);
+              setModal(null);
             }}
           >
             Cancel
@@ -34,7 +30,7 @@ export const StateSelectModal = (props: StateSelectModalProps) => {
           <Button
             key={i}
             onClick={() => {
-              setModal(undefined);
+              setModal(null);
               act('switchState', { index: i + 1 });
             }}
           >
@@ -42,7 +38,7 @@ export const StateSelectModal = (props: StateSelectModalProps) => {
           </Button>
         ))}
         <Stack fill>
-          <Stack.Item grow>
+          <Stack.Item shrink basis="100%">
             <Input
               fluid
               placeholder="New State"
@@ -56,7 +52,7 @@ export const StateSelectModal = (props: StateSelectModalProps) => {
             <Button
               icon="plus"
               onClick={() => {
-                setModal(undefined);
+                setModal(null);
                 act('newState', { name: input });
               }}
             />

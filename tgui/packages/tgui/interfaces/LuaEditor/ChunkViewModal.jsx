@@ -1,20 +1,17 @@
 import hljs from 'highlight.js/lib/core';
-import { Dispatch, SetStateAction } from 'react';
 
+import { useLocalState } from '../../backend';
 import { Box, Button, Modal, Section } from '../../components';
 import { sanitizeText } from '../../sanitize';
-import { LuaEditorModal } from './types';
 
-type ChunkViewModalProps = {
-  setModal: Dispatch<SetStateAction<LuaEditorModal>>;
-  viewedChunk: string;
-  setViewedChunk: Dispatch<SetStateAction<string | undefined>>;
-};
-
-export const ChunkViewModal = (props: ChunkViewModalProps) => {
-  const { setModal, viewedChunk, setViewedChunk } = props;
+export const ChunkViewModal = (props) => {
+  const [, setModal] = useLocalState('modal');
+  const [viewedChunk, setViewedChunk] = useLocalState('viewedChunk');
   return (
-    <Modal position="absolute" width="50%" height="80%" top="10%" left="25%">
+    <Modal
+      height={`${window.innerHeight * 0.8}px`}
+      width={`${window.innerWidth * 0.5}px`}
+    >
       <Section
         fill
         scrollable
@@ -25,8 +22,8 @@ export const ChunkViewModal = (props: ChunkViewModalProps) => {
             color="red"
             icon="window-close"
             onClick={() => {
-              setModal(undefined);
-              setViewedChunk(undefined);
+              setModal(null);
+              setViewedChunk(null);
             }}
           >
             Close
