@@ -20,14 +20,6 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/shrink_cw,
 /turf/open/floor/mineral/plastitanium,
 /area/deathmatch)
-"dC" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/table/reinforced/ctf,
-/obj/structure/table/reinforced/ctf,
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/table/reinforced/plastitaniumglass,
-/turf/open/floor/plating/airless,
-/area/deathmatch)
 "dH" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/deathmatch)
@@ -296,8 +288,6 @@
 /area/deathmatch)
 "QA" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/structure/table/reinforced/ctf,
-/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "Rc" = (
@@ -463,7 +453,7 @@ es
 eo
 sc
 QA
-dC
+QA
 QA
 tT
 aK
@@ -471,7 +461,7 @@ tT
 DG
 tT
 QA
-dC
+QA
 QA
 sc
 eo
@@ -631,7 +621,7 @@ es
 eo
 sc
 QA
-dC
+QA
 QA
 tT
 DG
@@ -639,7 +629,7 @@ tT
 aK
 tT
 QA
-dC
+QA
 QA
 sc
 eo
