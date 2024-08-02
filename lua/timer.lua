@@ -60,9 +60,8 @@ __Timer_timer_process = function(seconds_per_tick)
 end
 
 function Timer.wait(time)
-	local yieldIndex = _exec.next_yield_index
 	__add_internal_timer(function()
-		SSlua:queue_resume(state.state, yieldIndex)
+		SSlua:queue_resume(state.state, _exec.next_yield_index)
 	end, time * 10, false)
 	coroutine.yield()
 end
