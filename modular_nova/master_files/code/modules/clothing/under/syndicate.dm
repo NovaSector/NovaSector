@@ -129,7 +129,7 @@
 	. = ..()
 	. += span_notice("The armor has been removed from the fabric.")
 
-/obj/item/clothing/mask/gas/sechailer/half_mask
+/obj/item/clothing/mask/half_mask
 	name = "tacticool neck gaiter"
 	desc = "A black techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
 	actions_types = list(/datum/action/item_action/adjust)
@@ -137,9 +137,21 @@
 	icon_state = "half_mask"
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
-	voice_filter = null
-	use_radio_beeps_tts = FALSE
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
+	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
+	w_class = WEIGHT_CLASS_SMALL
+	visor_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
+	visor_flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
+	flags_cover = MASKCOVERSMOUTH
+	visor_flags_cover = MASKCOVERSMOUTH
+	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
+
+/obj/item/clothing/mask/half_mask/attack_self(mob/user)
+	adjust_visor(user)
+
+/obj/item/clothing/mask/half_mask/click_alt(mob/user)
+	adjust_visor(user)
+	return CLICK_ACTION_SUCCESS
 
 /*
 *	TACTICAL (Real)

@@ -93,7 +93,7 @@
 
 /datum/loadout_item/mask/sechailer_half_mask
 	name = "Tacticool Neck Gaiter"
-	item_path = /obj/item/clothing/mask/gas/sechailer/half_mask
+	item_path = /obj/item/clothing/mask/half_mask
 
 /*
 *	JOB-LOCKED
