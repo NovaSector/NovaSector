@@ -2,6 +2,8 @@
 
 This guide will help you in pulling Pull requests from TG and adding them into a PR to be merged here in Nova. This guide will teach you two methods of doing such, one slow and one faster one though both do the Job in the end one requires additional software as it helps make the process faster and easier to acomplish.
 
+### *DO NOTE ALL OF THIS SHOULD BE DONE ON A FORK OF NOVA's REPO, IF YOU DIRECTLY CLONED THE REPO YOU WILL NOT BE ABLE TO DO THIS*
+
 ## Software
 
 [Git-Scm](https://git-scm.com/) - This is required to basically do anything Git related, as this is git commandline and can do practically anything. It does come with a rather basic barebones GUI but I will not be covering that in here.
@@ -15,8 +17,6 @@ This guide will help you in pulling Pull requests from TG and adding them into a
 ## Command line Guide
 
 This portion will cover command line commands you need to execute, relativly simple and easy but takes some time and copy pasting hashs. You need to add TG as a remote for tracking so git knows where to pull the PR's from as well as being able to fetch all the changed pushed to their repo.
-
-### *DO NOTE ALL OF THIS SHOULD BE DONE ON A FORK OF NOVA's REPO, IF YOU DIRECTLY CLONED THE REPO YOU WILL NOT BE ABLE TO DO THIS*
 
 First Command to run
 `git remote add tgstation https://github.com/tgstation/tgstation`
