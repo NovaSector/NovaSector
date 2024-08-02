@@ -1,6 +1,4 @@
-#ifndef DREAMLUAU
 #define DREAMLUAU (world.system_type == MS_WINDOWS ? "dreamluau.dll" : "libdreamluau.so")
-#endif
 
 #define DREAMLUAU_CALL(func) call_ext(DREAMLUAU, "byond:[#func]")
 
@@ -294,3 +292,4 @@
  * @return null on success
  */
 #define DREAMLUAU_CLEAR_REF_USERDATA(object) DREAMLUAU_CALL(clear_ref_userdata)((object))
+
