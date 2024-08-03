@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aQ" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "aZ" = (
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/mineral/plastitanium,
@@ -44,6 +51,12 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/deathmatch)
+"fS" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/deathmatch)
 "gQ" = (
 /obj/structure/table/reinforced/ctf,
 /obj/item/storage/medkit{
@@ -54,6 +67,13 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
+/area/deathmatch)
+"hm" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "hY" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -69,6 +89,10 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/engine,
 /area/deathmatch)
+"iO" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/closed/wall/r_wall/syndicate,
+/area/deathmatch)
 "jp" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating/airless,
@@ -76,6 +100,13 @@
 "jH" = (
 /obj/effect/turf_decal/nova_decals/syndicate/middle/right,
 /turf/open/floor/mineral/plastitanium/red,
+/area/deathmatch)
+"kB" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "kY" = (
 /obj/structure/rack/shelf,
@@ -111,6 +142,12 @@
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
 /turf/open/floor/mineral/plastitanium/red,
 /area/deathmatch)
+"mH" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/deathmatch)
 "ne" = (
 /obj/structure/emergency_shield/timer,
 /obj/effect/turf_decal/siding/dark{
@@ -124,6 +161,13 @@
 "nf" = (
 /obj/structure/lattice,
 /turf/template_noop,
+/area/deathmatch)
+"nr" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "od" = (
 /obj/structure/rack,
@@ -246,13 +290,36 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/plating/airless,
 /area/deathmatch)
+"AS" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
+"Bc" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "Bg" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/right,
 /turf/open/floor/mineral/plastitanium/red,
 /area/deathmatch)
 "BI" = (
 /obj/machinery/light/floor,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
+"Cz" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
 /turf/open/floor/plating/airless,
 /area/deathmatch)
 "CG" = (
@@ -305,6 +372,11 @@
 "Ji" = (
 /obj/effect/turf_decal/nova_decals/syndicate/top/left,
 /turf/open/floor/mineral/plastitanium/red,
+/area/deathmatch)
+"Jy" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "Ke" = (
 /turf/open/ai_visible,
@@ -363,6 +435,13 @@
 "Ro" = (
 /turf/open/floor/mineral/plastitanium,
 /area/deathmatch)
+"Rx" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/deathmatch)
 "Tw" = (
 /obj/effect/turf_decal/nova_decals/syndicate/middle/left,
 /turf/open/floor/mineral/plastitanium/red,
@@ -389,6 +468,24 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/deathmatch)
+"Yl" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/deathmatch)
+"YG" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating/airless,
+/area/deathmatch)
+"YZ" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
 /area/deathmatch)
 "Zf" = (
 /turf/closed/indestructible/syndicate,
@@ -500,13 +597,13 @@ PK
 jp
 jp
 jp
-NR
+iO
 ne
 ne
 mq
 ne
 ne
-NR
+fS
 jp
 jp
 jp
@@ -523,13 +620,13 @@ PK
 jp
 hY
 hY
-BI
+Jy
 qM
 ds
 Zs
 ds
 sN
-BI
+YZ
 hY
 hY
 jp
@@ -546,13 +643,13 @@ nf
 jp
 hY
 hY
-hY
+YG
 Ro
 aZ
 Ro
 cB
 Ro
-hY
+Rx
 hY
 hY
 jp
@@ -566,19 +663,19 @@ Ke
 NR
 NR
 NR
-NR
-BI
-hY
-hY
+iO
+hm
+aQ
+Cz
 Ro
 Ro
 KB
 Ro
 Ro
-hY
-hY
-BI
-NR
+AS
+aQ
+hm
+fS
 Zf
 Zf
 NR
@@ -704,19 +801,19 @@ Ke
 NR
 NR
 NR
-NR
+mH
 BI
-hY
-hY
+kB
+Bc
 Ro
 Ro
 KB
 Ro
 Ro
-hY
-hY
+nr
+kB
 BI
-NR
+Yl
 NR
 NR
 NR
@@ -730,13 +827,13 @@ nf
 jp
 hY
 hY
-hY
+YG
 Ro
 cB
 Ro
 aZ
 Ro
-hY
+Rx
 hY
 hY
 jp
@@ -753,13 +850,13 @@ PK
 jp
 hY
 hY
-BI
+Jy
 CW
 Xt
 bA
 Xt
 dQ
-BI
+YZ
 hY
 hY
 jp
@@ -776,13 +873,13 @@ PK
 jp
 jp
 jp
-NR
+mH
 Ec
 Ec
 of
 Ec
 Ec
-NR
+Yl
 jp
 jp
 jp
