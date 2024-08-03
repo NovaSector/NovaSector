@@ -71,18 +71,23 @@
 	. = ..()
 
 	create_storage(storage_type = /datum/storage/pockets/small/collar/locked)
+	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(can_unequip))
 
-/obj/item/clothing/neck/human_petcollar/locked/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/key/collar))
-		to_chat(user, span_warning("With a click, the collar [locked ? "unlocks" : "locks"]!"))
-		locked = !locked
-	return
+/obj/item/clothing/neck/human_petcollar/locked/proc/can_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
+	var/mob/living/carbon/wearer = source.loc
+	if(istype(wearer) && wearer.wear_neck == source && locked)
+		to_chat(wearer, "The collar is locked! You'll need to unlock it before you can take it off!")
+		return COMPONENT_ITEM_BLOCK_UNEQUIP
+	return NONE
 
-/obj/item/clothing/neck/human_petcollar/locked/attack_hand(mob/user)
-	if(loc == user && user.get_item_by_slot(ITEM_SLOT_NECK) && locked)
-		to_chat(user, span_warning("The collar is locked! You'll need unlock the collar before you can take it off!"))
-		return
-	..()
+/obj/item/clothing/neck/human_petcollar/locked/canStrip(mob/stripper, mob/owner)
+	return !locked && ..()
+
+/obj/item/clothing/neck/human_petcollar/locked/tool_act(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/key/collar))
+		return ..()
+	to_chat(user, span_warning("With a click, the collar [locked ? "unlocks" : "locks"]!"))
+	locked = !locked
 
 /obj/item/clothing/neck/human_petcollar/locked/examine(mob/user)
 	. = ..()
