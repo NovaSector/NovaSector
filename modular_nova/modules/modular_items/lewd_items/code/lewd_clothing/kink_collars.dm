@@ -44,10 +44,6 @@
 /obj/item/clothing/neck/kink_collar/storage_insert_on_interacted_with(datum/storage/storage, obj/item/inserted, mob/living/user)
 	return is_type_in_typecache(inserted, storage.can_hold)
 
-/*
-*	LOCKED COLLAR
-*/
-
 /obj/item/clothing/neck/kink_collar/locked
 	name = "locked collar"
 	desc = "A tight collar. It appears to have some kind of lock."

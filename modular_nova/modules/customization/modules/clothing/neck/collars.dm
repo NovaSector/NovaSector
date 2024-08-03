@@ -53,7 +53,6 @@
 	desc = "A key for a tiny lock on a collar or bag."
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 
-
 /obj/item/clothing/neck/human_petcollar/locked
 	name = "locked collar"
 	desc = "A collar that has a small lock on it to keep it from being removed."
