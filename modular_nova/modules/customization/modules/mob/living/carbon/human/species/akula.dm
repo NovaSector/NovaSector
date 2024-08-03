@@ -17,8 +17,11 @@
 		OFFSET_HEAD = list(0, 2),
 		OFFSET_HAIR = list(0, 1),
 	)
+	mutantbrain = /obj/item/organ/internal/brain/carp/akula
+	mutantheart = /obj/item/organ/internal/heart/carp/akula
+	mutantlungs = /obj/item/organ/internal/lungs/carp/akula
+	mutanttongue = /obj/item/organ/internal/tongue/carp/akula
 	mutanteyes = /obj/item/organ/internal/eyes/akula
-	mutanttongue = /obj/item/organ/internal/tongue/akula
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -130,16 +133,51 @@
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)
 
+///Organ overwrites
+//Eyes
 /obj/item/organ/internal/eyes/akula
 	// Eyes over hair as bandaid for the low amounts of head matching hair
 	eyes_layer = HAIR_LAYER-0.1
 
+//Brain
+/obj/item/organ/internal/brain/carp/akula
 
-/obj/item/organ/internal/tongue/akula
+/obj/item/organ/internal/brain/carp/akula/Initialize(mapload)
+	. = ..()
+	RemoveElement(/datum/element/noticable_organ)
+
+//Heart
+/obj/item/organ/internal/heart/carp/akula
+	organ_traits = list()
+
+/obj/item/organ/internal/heart/carp/akula/Initialize(mapload)
+	. = ..()
+	RemoveElement(/datum/element/noticable_organ)
+
+//Tongue
+/obj/item/organ/internal/tongue/carp/akula
 	liked_foodtypes = SEAFOOD | RAW
 	disliked_foodtypes = CLOTH | DAIRY
 	toxic_foodtypes = TOXIC
 
+/obj/item/organ/internal/tongue/carp/akula/Initialize(mapload)
+	. = ..()
+	RemoveElement(/datum/element/noticable_organ)
+
+//Lungs
+/obj/item/organ/internal/lungs/carp/akula
+	safe_oxygen_min = /obj/item/organ/internal/lungs::safe_oxygen_min
+	safe_oxygen_max = /obj/item/organ/internal/lungs::safe_oxygen_max
+
+/obj/item/organ/internal/lungs/carp/akula/Initialize(mapload)
+	. = ..()
+	RemoveElement(/datum/element/noticable_organ)
+	REMOVE_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
+
+/obj/item/organ/internal/lungs/carp/akula/check_breath(datum/gas_mixture/breath, mob/living/carbon/human/breather)
+	if(!breather.has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
+		breath.gases &= ~/datum/gas/oxygen //be wet or choke
+	return ..()
 
 /datum/species/akula/get_random_body_markings(list/passed_features)
 	var/datum/body_marking_set/body_marking_set = GLOB.body_marking_sets["Akula"]
@@ -153,6 +191,7 @@
 		equipping.equipOutfit(job.akula_outfit, visuals_only)
 	else
 		give_important_for_life(equipping)
+
 
 // Wet_stacks handling
 // more about grab_resists in `code\modules\mob\living\living.dm` at li 1119
