@@ -79,37 +79,34 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/structure/reagent_anvil/hammer_act(mob/living/user, obj/item/tool)
-	//regardless, we will make a sound
-	playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
-
 	//do we have an incomplete item to hammer out? if so, here is our block of code
 	var/obj/item/forging/incomplete/locate_incomplete = locate() in contents
 	if(locate_incomplete)
-		if(COOLDOWN_FINISHED(locate_incomplete, heating_remainder))
-			balloon_alert(user, "metal too cool")
-			locate_incomplete.times_hit -= 3
-			return ITEM_INTERACT_SUCCESS
+		var/obj/item/forging/forge_item = tool
+		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * locate_incomplete.average_wait
+		while(locate_incomplete.times_hit < locate_incomplete.average_hits)
+			if(!do_after(user, skill_modifier * forge_item.toolspeed, src))
+				balloon_alert(user, "stopped hammering")
+				return ITEM_INTERACT_SUCCESS
 
-		if(COOLDOWN_FINISHED(locate_incomplete, striking_cooldown))
-			var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * locate_incomplete.average_wait
-			COOLDOWN_START(locate_incomplete, striking_cooldown, skill_modifier)
+			if(!locate(locate_incomplete) in contents)
+				balloon_alert(user, "[locate_incomplete] was moved away!")
+				return ITEM_INTERACT_SUCCESS
+
+			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
+			if(COOLDOWN_FINISHED(locate_incomplete, heating_remainder))
+				balloon_alert(user, "metal too cool")
+				locate_incomplete.times_hit -= 3
+				if(locate_incomplete.times_hit <= -locate_incomplete.average_hits)
+					balloon_alert_to_viewers("[locate_incomplete] breaks")
+					qdel(locate_incomplete)
+					update_appearance()
+				return ITEM_INTERACT_SUCCESS
+
 			locate_incomplete.times_hit++
-			balloon_alert(user, "good hit")
 			user.mind.adjust_experience(/datum/skill/smithing, 1) //A good hit gives minimal experience
 
-			if(locate_incomplete.times_hit >= locate_incomplete.average_hits)
-				user.balloon_alert(user, "[locate_incomplete] sounds ready")
-
-			return ITEM_INTERACT_SUCCESS
-
-		locate_incomplete.times_hit -= 3
-		balloon_alert(user, "bad hit")
-
-		if(locate_incomplete.times_hit <= -locate_incomplete.average_hits)
-			balloon_alert_to_viewers("[locate_incomplete] breaks")
-			qdel(locate_incomplete)
-			update_appearance()
-
+		user.balloon_alert(user, "[locate_incomplete] sounds ready")
 		return ITEM_INTERACT_SUCCESS
 
 	//okay, so we didn't find an incomplete item to hammer, do we have a hammerable item?
