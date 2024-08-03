@@ -16,7 +16,7 @@
 	greyscale_config = /datum/greyscale_config/collar/pet
 	greyscale_config_worn = /datum/greyscale_config/collar/pet/worn
 	greyscale_colors = "#44BBEE#FFCC00"
-	item_flags = parent_type::item_flags & UNIQUE_RENAME
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = UNDER_SUIT_LAYER
 	/// What treat item spawns inside the collar?
@@ -58,6 +58,8 @@
 /obj/item/key/collar
 	name = "collar key"
 	desc = "A key for a tiny lock on a collar or bag."
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
+
 
 /obj/item/clothing/neck/human_petcollar/locked
 	name = "locked collar"

@@ -9,7 +9,7 @@
 	slot_flags = ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_SMALL
 	strip_delay = 60
-	item_flags = parent_type::item_flags & UNIQUE_RENAME
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	// equip_delay_other = 60
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,

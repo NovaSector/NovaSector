@@ -27,7 +27,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "collar_cyan"
-	item_flags = parent_type::item_flags & UNIQUE_RENAME
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_SMALL
@@ -145,7 +145,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "collar_key_metal"
 	base_icon_state = "collar_key"
-	item_flags = parent_type::item_flags & UNIQUE_RENAME
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	interaction_flags_click = NEED_DEXTERITY
 	/// The ID of the key to pair with a collar. Will normally be the ref of the collar
 	var/key_id = null //Adding same unique id to key
