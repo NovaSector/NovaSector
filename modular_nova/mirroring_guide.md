@@ -46,13 +46,13 @@ In this example the hash for the changelog is this. `66bc14224557ad041d4a146cf1b
 
 Once you have both of those hashs copied down somewhere it is back to doing git commands.
 
-* Make a new branch on your fork with the command `git checkout -b [Insert name of branch here]`
+* Make a new branch on your fork with the command `git switch -c [Insert name of branch here]`
 * Publish the branch to your fork with this command `git push origin [The name of the branch]`
 
 This will make a new branch and ensure you are editing it now to add the PR in do the following
 
-* The PR itself `git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4`
-* The PR changelog `git cherry-pick -m 1 66bc14224557ad041d4a146cf1bb079994740787`
+* The PR itself `git cherry-pick 281dac4ed0e2976cdecb4777c93a19bc9b787db4`
+* The PR changelog `git cherry-pick 66bc14224557ad041d4a146cf1bb079994740787`
 
 This will pull the pr and changelog into your branch from there you can either add more PR's into it or fix conflicts and errors.
 
