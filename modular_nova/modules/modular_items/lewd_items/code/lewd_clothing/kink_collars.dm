@@ -9,16 +9,11 @@
 
 /datum/storage/pockets/small/kink_collar/New()
 	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie,
-	/obj/item/food/cookie/sugar))
-
-/datum/storage/pockets/small/kink_collar/locked/New()
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie,
-	/obj/item/food/cookie/sugar,
-	/obj/item/key/kink_collar))
+	var/static/list/holdables = typecacheof(list(
+		/obj/item/food/cookie,
+		/obj/item/key/kink_collar,
+	))
+	can_hold = holdables
 
 /datum/storage/pockets/small/kink_collar/mind_collar/New()
 	. = ..()
@@ -93,7 +88,6 @@
 
 /obj/item/clothing/neck/kink_collar/locked/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/kink_collar/locked)
 	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(can_unequip))
 
 /obj/item/clothing/neck/kink_collar/locked/proc/can_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)

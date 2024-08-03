@@ -3,14 +3,11 @@
 
 /datum/storage/pockets/small/collar/New()
 	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie))
-
-/datum/storage/pockets/small/collar/locked/New()
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie,
-	/obj/item/key/collar))
+	var/static/list/holdables = typecacheof(list(
+		/obj/item/food/cookie,
+		/obj/item/key/collar,
+	))
+	can_hold = holdables
 
 /obj/item/clothing/neck/human_petcollar
 	name = "pet collar"
@@ -69,8 +66,6 @@
 
 /obj/item/clothing/neck/human_petcollar/locked/Initialize(mapload)
 	. = ..()
-
-	create_storage(storage_type = /datum/storage/pockets/small/collar/locked)
 	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(can_unequip))
 
 /obj/item/clothing/neck/human_petcollar/locked/proc/can_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
@@ -88,6 +83,7 @@
 		return ..()
 	to_chat(user, span_warning("With a click, the collar [locked ? "unlocks" : "locks"]!"))
 	locked = !locked
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/clothing/neck/human_petcollar/locked/examine(mob/user)
 	. = ..()
