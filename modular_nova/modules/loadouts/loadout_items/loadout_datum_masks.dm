@@ -93,7 +93,7 @@
 
 /datum/loadout_item/mask/half_mask
 	name = "Tacticool Neck Gaiter"
-	item_path = /obj/item/clothing/mask/half_mask
+	item_path = /obj/item/clothing/mask/neck_gaiter
 
 /*
 *	JOB-LOCKED
