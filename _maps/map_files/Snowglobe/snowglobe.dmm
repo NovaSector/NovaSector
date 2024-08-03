@@ -462,12 +462,20 @@
 "afG" = (
 /obj/structure/cable,
 /obj/structure/table/wood,
-/obj/item/pen/fountain{
-	pixel_y = 8;
-	pixel_x = 7
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/stamp/centcom{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/stamp/denied{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/stamp/granted{
+	pixel_x = 4;
+	pixel_y = 10
+	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "afH" = (
@@ -538,6 +546,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/corner,
 /area/station/hallway/primary/forestarboardhall)
 "agu" = (
@@ -731,8 +740,17 @@
 	},
 /obj/effect/turf_decal/trimline/dark_blue/filled/warning,
 /obj/structure/sign/poster/official/love_ian/directional/south,
+/obj/item/stamp/denied{
+	pixel_x = 10;
+	pixel_y = 13
+	},
+/obj/item/stamp/granted{
+	pixel_x = 10;
+	pixel_y = 6
+	},
 /obj/item/stamp/head/hop{
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = -1
 	},
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/command/heads_quarters/hop)
@@ -1611,6 +1629,14 @@
 /obj/item/newspaper{
 	pixel_x = -3;
 	pixel_y = 3
+	},
+/obj/item/stamp/granted{
+	pixel_x = -2;
+	pixel_y = -6
+	},
+/obj/item/stamp/denied{
+	pixel_x = 7;
+	pixel_y = -6
 	},
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/blueshield)
@@ -4052,9 +4078,20 @@
 /turf/open/floor/carpet/red,
 /area/station/commons/dorms)
 "baG" = (
-/obj/item/stamp/head/captain,
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/item/stamp/granted{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/stamp/denied{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/item/stamp/head/captain{
+	pixel_x = 1;
+	pixel_y = 1
+	},
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain)
 "baJ" = (
@@ -28395,6 +28432,14 @@
 "hKp" = (
 /obj/effect/turf_decal/trimline/dark_red/corner,
 /obj/structure/table/reinforced,
+/obj/item/stamp/granted{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/stamp/denied{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
@@ -82665,6 +82710,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/pen/fountain{
+	pixel_y = -4;
+	pixel_x = 4
+	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/nt_rep)
 "wup" = (
