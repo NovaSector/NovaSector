@@ -46789,6 +46789,12 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"mGt" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Virology Trash"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/fore/greater)
 "mGx" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue/half,
@@ -197662,7 +197668,7 @@ fxz
 oHg
 mqz
 bsx
-lgE
+mGt
 ulc
 mLI
 tXH
