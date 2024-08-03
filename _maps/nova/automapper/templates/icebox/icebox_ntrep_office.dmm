@@ -390,11 +390,6 @@
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
-"CN" = (
-/obj/machinery/vending/sustenance,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/station/maintenance/central/greater)
 "DJ" = (
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
@@ -1206,7 +1201,7 @@ uy
 uy
 uy
 uK
-CN
+Jj
 Jj
 Jj
 uK

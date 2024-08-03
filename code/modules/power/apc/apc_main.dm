@@ -8,9 +8,9 @@
 ///Cap for how fast cells charge, as a percentage per second (.01 means cellcharge is capped to 1% per second)
 #define CHARGELEVEL 0.01
 ///Charge percentage at which the lights channel stops working
-#define APC_CHANNEL_LIGHT_TRESHOLD 7 // NOVA EDIT CHANGE - orig: 15
+#define APC_CHANNEL_LIGHT_TRESHOLD 10 // NOVA EDIT CHANGE - orig: 15
 ///Charge percentage at which the equipment channel stops working
-#define APC_CHANNEL_EQUIP_TRESHOLD 17 // NOVA EDIT CHANGE - orig: 30
+#define APC_CHANNEL_EQUIP_TRESHOLD 20 // NOVA EDIT CHANGE - orig: 30
 ///Charge percentage at which the APC icon indicates discharging
 #define APC_CHANNEL_ALARM_TRESHOLD 75
 
@@ -308,7 +308,6 @@
 /obj/machinery/power/apc/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(gone == cell)
-		cell.update_appearance()
 		cell = null
 		charging = APC_NOT_CHARGING
 		update_appearance()
@@ -598,9 +597,9 @@
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))
 				low_power_nightshift_lights = TRUE
 				INVOKE_ASYNC(src, PROC_REF(set_nightshift), TRUE)
-		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD)
-			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - orig: AUTOSET_OFF
-			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - orig: AUTOSET_ON
+		else if(cell.percent() < APC_CHANNEL_EQUIP_TRESHOLD) // turn off equipment // NOVA EDIT COMMENT - Changed to turn off lighting instead
+			equipment = autoset(equipment, AUTOSET_ON) // NOVA EDIT CHANGE - Original: equipment = autoset(equipment, AUTOSET_OFF)
+			lighting = autoset(lighting, AUTOSET_OFF) // NOVA EDIT CHANGE - Original: lighting = autoset(lighting, AUTOSET_ON)
 			environ = autoset(environ, AUTOSET_ON)
 			alarm_manager.send_alarm(ALARM_POWER)
 			if(!nightshift_lights || (nightshift_lights && !low_power_nightshift_lights))

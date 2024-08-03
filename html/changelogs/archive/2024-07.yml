@@ -1268,3 +1268,271 @@
       access
   - bugfix: Serenity station bridge maintenance has more redundancy
   - bugfix: Serenity station extra lightbulb in a bathroom stall has been removed
+2024-07-26:
+  00-Steven:
+  - bugfix: Fixes a half-port accidentally causing the Dwoop emote to be usable by
+      not just synths and silicons, but every single living entity except non-synth
+      humans. It is now fully ported to the new silicon emotes system, allowing it
+      to be used by everything that can use silicon emotes.
+  - bugfix: Robotic lizard voicebox allows silicon emotes parallel to the stock robotic
+      voicebox.
+  FlufflesTheDog:
+  - bugfix: prescription huds work
+  - bugfix: venus human traps properly despawn when used
+  - bugfix: loadout briefcases will still customize your items if they can't spawn
+      in your hand
+  - bugfix: produce bins & friends render properly
+  - qol: produce displays can now hold all sorts of flowers
+  GoldenAlpharex:
+  - qol: Hemophages no longer taste food when their tumor is dormant, reducing the
+      reliance on Taste Suppressor in order to let them eat food.
+  - bugfix: Hemophages no longer get hurt from vomiting when eating something rejected
+      by their tumor.
+  - balance: Hemophages passive blood drain lowered from 0.125 u/s to 0.05 u/s.
+  - balance: Tumor dormancy toggle cooldown lowered from 3 minutes to 2 minutes.
+  - balance: Dormant tumor slowdown lowered from 3 to 2 (making them move a little
+      faster than before when their tumor is dormant).
+  - balance: Blood consumed per 1 damage healed by tumor regen lowered from 1u to
+      0.25u.
+  - balance: Slightly increased the minimum luminosity required for healing using
+      the tumor regen (0 -> 0.1).
+  - bugfix: The Toggle Dormant State action button should now update its name and
+      description at the right moment, instead of being reversed on accident.
+  LT3:
+  - bugfix: Fixed elevator panel allowing conflicting inputs
+  - bugfix: Fixed elevator sound being out of sync with movement
+  NovaBot13:
+  - rscadd: You can raise lobstrosities from chasm chrabs inside an aquarium with
+      the 'allow breeding' setting on. Keep the fish well fed, healthy and not lonely
+      if you don't want an hostile one.
+  - rscadd: Juveline lobstrosities (from chasms, plasma rivers, or aquariums, xenobio
+      too) can be tamed with arms and lavaloop fishes.
+  - rscadd: For lobstrosities grown from aquariums, they can have additional effects
+      based on the fish traits they had in the aquarium, like being venomous or even
+      flying.
+  - config: Added an entry for TRAITOR_SCALING_MULTIPLIER, disabled by default
+  - bugfix: Xenomorphs and door pryer basic mobs can now attack airlocks in combat
+      mode
+  - rscadd: Adds the Haunted Trading Post space ruin.
+  - rscadd: Adds 10+ unique items for the Haunted Trading Post
+  - rscadd: Adds 5 dangerous mobs for the Haunted Trading Post
+  - rscadd: Adds 4 new types of hazardous traps for the Haunted Trading Post.
+  - balance: Quality cybernetic hearts combat bleeds and restore blood, rather than
+      inject you with epinephrine when you enter crit. This can result in mild toxin
+      buildup, however.
+  - balance: Upgraded cybernetic hearts give an extremely brief amount of action when
+      you enter softcrit (but not hardcrit).
+  - bugfix: Borgs now unequip their equipment upon module change like they should
+  - bugfix: Fixes bulldog shotgun unique mag display not working on the sprite
+  - image: resprites the bulldog shotgun along with inhands and new worn sprites
+  - code_imp: cleans up a little of the code surrounding the bulldog
+  Thedragmeme:
+  - rscadd: donator sets for Thedragmeme and Snailomi
+  rick hick/tommy for the amazing music tracks, GoldenAlpharex for the code:
+  - sound: Added some new ambience tracks to SerenityStation's Mushroom Caves, including
+      the absolute banger that is Mushroom Theme, all composed by rick hick/tommy!
+  - sound: Added a few ambience tracks to SerenityStation's forest, all composed by
+      rick hick/tommy!
+  - code_imp: Added some functionality to make it so the mushroom theme song doesn't
+      get cut in the middle while it's played.
+2024-07-27:
+  LT3:
+  - bugfix: Tram will no longer eat its own rails as it travels
+  - bugfix: Fixed delam counter stuck in window near Ice Box bridge
+  - bugfix: False supermatter surge announcements are now identical to real ones
+  - bugfix: Fixed disease outbreak announcement sometimes missing the disease name
+  NovaBot13:
+  - bugfix: Fixes projectiles facing north if ricocheting, deflected or homing
+  - rscdel: Removed a janky fish bounty
+  - rscadd: introduced exporting fish through cargo.
+  - balance: reduced the average weight of the jumpercable. Conversely, eased up the
+      requirements for the bone fish evolution.
+  - bugfix: wawastation engineering water tanks are now highcap
+  - bugfix: Fixed possessed blades being broken
+  - code_imp: If testing is enabled everyone is polled in ghost polls.
+  - bugfix: Firelocks will once again respect fire alarm's thermal sensors being disabled.
+  - balance: If a bluespace cookie fails to teleport you then you will trip over.
+  - bugfix: Fixes borgs not being able to place apparatus-held items on tables. As
+      a side-effect, they can now combat mode right click splash containers as normal
+      instead of having their own right-click floor splash.
+  - image: Updated gas flow meter sprites
+  - refactor: Refactored table item interactions, please report any issues.
+  - bugfix: Fixed being unable to use decks to draw cards directly onto tables.
+  - qol: Right clicking a table with a tray puts it down regardless of it having contents.
+  - bugfix: Janicart inserts items into the attached trash bag again (manual and vacuumed)
+  - bugfix: Tram's Tool Storage now has proper lighting
+  Thlumyn:
+  - bugfix: self-resp viruses don't spam messages as often
+2024-07-28:
+  GoldenAlpharex:
+  - bugfix: Assistant jumpsuits/jumpskirts no longer override the undersuit loadout
+      item in the character preview.
+  LT3:
+  - balance: SMES throughput is now a multiplier based on capacitor tier
+  MortoSasye:
+  - image: Resprited the hairstyles for Jessica, Gently Brushed, Spicy and Curly.
+  - bugfix: The Hearthkin's armor now inherits from the forged variety.
+  NovaBot13:
+  - bugfix: Centcom technicians have been trained to recognize cargo-bought fish.
+      You will no longer be able to trick the economy system by buying fish and sending
+      it right back. Also nerfed fish selling price very slightly.
+  - bugfix: Clicking on a table in the lootpanel with an item in-hand tries to place
+      it in the center again.
+  - bugfix: Voidwalker should not run on planetary maps.
+  Rhials:
+  - bugfix: Monkey wizards can now interact with grand ritual runes.
+  - bugfix: Clown Ops gear has been returned to being available only to clown ops.
+      Whoops!
+  Thedragmeme:
+  - bugfix: Fixes a duplicate item left by my donor PR and fixes a typo
+  grungussuss:
+  - sound: gas tanks now have sound
+  - sound: the default metal sound has been changed
+  - sound: the sneeze projectile no longer makes a sound when making contact.
+  rutek-code:
+  - rscadd: Adds a below-hair variant to the antenna-less bug snout.
+  yooriss:
+  - balance: The GMM's prices are now much narrower, making arbitrage harder and initial
+      purchases a little more expensive.
+2024-07-29:
+  CliffracerX:
+  - qol: You can now open crop-top jackets!
+  - rscadd: GAGS Officer's Caps, Naval Caps, and Labcoats.
+  FlufflesTheDog:
+  - bugfix: Backpack internals can be toggled from the strip menu
+  LT3:
+  - bugfix: Players now receive a notification when trying to perform surgery steps
+      that involve chemicals
+  Melbert:
+  - qol: All randomly spawned monkeys (and lizardpeople) will spawn with tails. You
+      can still select to be tailless.
+  - code_imp: Cleaned up some code relating to species features (like tails, markings,
+      etc). Report any oddities
+  MortoSasye:
+  - rscadd: The hearthkin have decided to construct yet another new hearth, similar
+      in some aspects to the previous one.
+  - rscadd: Archery targets are now an available crafting object. Try to flex your
+      archery master with others, and accidentally shot your friend who stepped in
+      too close to watch.
+  - rscadd: 'Three new ruins have been unearthed on the icemoon: an ancient temple
+      sacred to the natives, an old hearth ravaged by battle, and an especially magical
+      hot springs spot.'
+  - bugfix: An oversight in the building of the hearthkin's hearth has been corrected,
+      to ensure privacy.
+  Nerev4r:
+  - image: Replaces the Longer Bedhead sprite with a better one. Floorlength Bedhead
+      has been deprecated.
+  NovaBot13:
+  - bugfix: wawastation ordnance no longer has a light fixture on a window and looks
+      objectively slightly better
+  - bugfix: Recyclers no longer recycle contents of indestructible items
+  - qol: If you have auto fit viewport enabled, it will trigger upon entering or exiting
+      fullscreen
+  - bugfix: People with tooltips enabled no longer lag the server when they move their
+      mouse. Oops.
+  - bugfix: '[Mafia] The show_help button no longer shows you who the Obsessed''s
+      target is.'
+  - bugfix: Fixes void eater not refreshing
+  - bugfix: Fixes planetary gravity not killing voidwalkers and voideds
+  - rscadd: Cosmic Skull glows purple.
+  - bugfix: now Justice invisibility turns off in non combat mode as it supposed to
+  - bugfix: VIM no longer requires hands to enter
+  - bugfix: Mirage grenade dispensers and ionic jump jets now work
+  - spellcheck: military javelin's name is now fully uncapitalised
+  - rscadd: Emergency climbing hooks now spawn in emergency boxes on all of the multi-z
+      level stations.
+  - rscadd: Mining headsets now allow you to make callouts via pointing. You can use
+      them to communicate with fellow miners or order your army of bots and raptors!
+  - rscadd: Mining headsets keep your voice loud and clear in low-pressure environments
+      (not vacuum!)
+  OrbisAnima:
+  - balance: Blast Cannons are no longer obtainable via the traitor uplink. They still
+      exist in the code.
+  - rscadd: Cargo and Civilian Modsuits Control units were miniaturized to belt versions,
+      while they dont hold as much as their old counterparts, and some functionality
+      like the use of jetpacks was lost, Users can now use their backpack of choice
+      along these practical modsuits!
+  - rscadd: 'The following modparts were adapted to both regular and miniaturized
+      modsuits: Hydraulic Clamps, Hydraulic Arms, Hydraulic Magnet and the Status
+      Monitor.'
+  - rscadd: Following their success with the frontier modsuits, Kahraman Industries
+      decided to expand their line of products to offer Civilian grade modsuits, a
+      lightweight modsuit that while not spaceproof, can be used as an entry level
+      tool to modsuits.
+  grungussuss:
+  - bugfix: birdshot holodeck's lighting has been fixed.
+  - sound: medkits now have sounds
+  - bugfix: Med sec telescreens are no longer the same item as the CMO telescreen.
+  - spellcheck: correcte name for the CMO telescreen mount
+  unit0016:
+  - bugfix: Icedyne's fire alarms are now rotated the right way around.
+2024-07-30:
+  Bisar:
+  - bugfix: All mining mobs now properly listen to the signals sent by attackers and
+      will respond appropriately.
+  NovaBot13:
+  - refactor: moves the create_all_lighting_objects proc to the lighting subsystem
+  - bugfix: You can no longer tear peoples arms off with non-killer clamps
+  - rscadd: Stat Panel now scales like a chat, depends on the font size. Defaults
+      from the chat font size, but you can separate it.
+  - refactor: Refactored Stat Panel styles and Byond skin theme applying. Stat Panel
+      now looks more like a TGUI
+  - bugfix: Fixed mapload circuit floors not drawing power and deconstructing circuit
+      floors not reducing power load
+  - qol: drones now have soap in their internal storage!
+  - qol: Aquariums start unanchored and don't autoconnect to plumbing. Their reproduction
+      prevention is also disabled by default.
+  - balance: Made it a tad easier to control the bait during the minigame. Buffed
+      the fishing skill. No fishing duds at all when using ANY bait.
+  - balance: Chasm Chrabs take less time to grow into Lobstrosities but need food
+      a bit more frequently.
+  - balance: '"Profound fisher" mobs will have less RNG-dependant time fishing.'
+  - bugfix: You can now ACTUALLY interact with other things while fishing if the fishing
+      rod isn't in your active hand.
+  - rscadd: The heretic's ritual of knowledge no longer requires binoculars
+  - rscadd: Clipboards are craftable using a wood plank, an iron rod and wirecutters
+  - config: Added a config for specific gateway delays so locations like the beach
+      and the museum don't have to take 30 minutes to become available like the rest.
+  - balance: TTV bombs can be implanted into people's chest once again
+  - bugfix: Mechs can no longer equip infinite amount of weapons
+  - balance: The nukeops surplus smg, the pp-95, has been reworked into the Abielle
+      Smart-SMG. It performs nearly identically to the pp-95, however it's projectiles
+      get a slight homing ability towards whatever you click on.
+  - sound: New firing sounds for the surplus smg, credit to the m41 sound effects
+      from tgmc
+  - image: New sprites for the surplus smg, made by me
+  - bugfix: plants no longer select reagent genes they already have while cross pollinating
+  - code_imp: 'improves reagent cross pollination code
+
+      :cl:'
+  - bugfix: Mining MODsuits now can store everything that explorer suits can
+  - bugfix: Projectile dampener, recycler and ninja stealth MOD modules now work properly
+  - refactor: replace some copypaste code for pod spawn to use `podspawn` proc instead
+  - code_imp: modify  `podspawn` proc to accept amount of item type to spawn in `spawn`
+      specification
+  Vekter:
+  - bugfix: Fixes an exploit that allowed players to open a Bag of Holding rift in
+      the Heretic dimension.
+  grungussuss:
+  - bugfix: smuggler satchels will no longer spawn in space
+  - sound: leather, skins and cardboard have their own sound now
+  - sound: added sniff sounds
+  - sound: added sigh sounds
+  grungussuss and Kayozz:
+  - sound: more maintenance ambience has been added
+  vinylspiders:
+  - rscadd: Colonist modsuit skin can now be selected for the Entombed quirk
+2024-07-31:
+  NovaBot13:
+  - bugfix: Fixes getting permanently hot or cold if wearing thermal insulation as
+      a lizard
+  - image: Big balls are now much rounder, to more easily slide down into a cannon.
+  - image: All implants have received a fresh coat of paint
+  - bugfix: 'fix a bug where botany reagents would dissapear from existing plants
+
+      :cl:'
+  OrbisAnima:
+  - qol: Kahraman Heavy Industries revised their adverts for their Modsuits, to make
+      it more clear what they do and what they are used for.
+  - qol: Integrated to the Loadout system the Yukata, Kimonos and accesories that
+      were introduced before in clothesmate.

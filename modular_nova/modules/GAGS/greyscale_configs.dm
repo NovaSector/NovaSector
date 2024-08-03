@@ -133,6 +133,44 @@
 	icon_file = 'modular_nova/modules/GAGS/icons/hats.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/flatcap/flatcap_worn.json'
 
+// FEDCAPS & NAVAL CAPS
+
+/datum/greyscale_config/fedcap
+	name = "Fedcap (Custom Badge)"
+	icon_file = 'modular_nova/modules/GAGS/icons/hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/fedcap_silver.json'
+
+/datum/greyscale_config/fedcap/worn
+	name = "Fedcap (Custom Badge, Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/fedcap_silver_worn.json'
+
+/datum/greyscale_config/fedcap_gold
+	name = "Fedcap (Gold Badge)"
+	icon_file = 'modular_nova/modules/GAGS/icons/hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/fedcap_gold.json'
+
+/datum/greyscale_config/fedcap_gold/worn
+	name = "Fedcap (Gold Badge, Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/fedcap_gold_worn.json'
+
+/datum/greyscale_config/naval
+	name = "Naval Cap (Custom Badge)"
+	icon_file = 'modular_nova/modules/GAGS/icons/hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/naval_silver.json'
+
+/datum/greyscale_config/naval/worn
+	name = "Naval Cap (Custom Badge, Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/naval_silver_worn.json'
+
+/datum/greyscale_config/naval_gold
+	name = "Naval Cap (Gold Badge)"
+	icon_file = 'modular_nova/modules/GAGS/icons/hats.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/naval_gold.json'
+
+/datum/greyscale_config/naval_gold/worn
+	name = "Naval Cap (Gold Badge, Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/naval_gold_worn.json'
+
 // FLOWER PIN
 
 /datum/greyscale_config/flowerpin
@@ -949,16 +987,27 @@
 	name = "Tailored Jacket (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
 
+// SHORT-SLEEVED CROPPED JACKET
+
+/datum/greyscale_config/shortsleeve_crop_jacket
+	name = "Tailored Jacket (Short-Sleeved)"
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/crop_jacket/crop_jacket_short.json'
+
+/datum/greyscale_config/shortsleeve_crop_jacket/worn
+	name = "Tailored Jacket (Short-Sleeved, Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
+
 // SLEEVELESS CROPPED JACKET
 
 /datum/greyscale_config/sleeveless_crop_jacket
-	name = "Tailored Jacket"
-	icon_file = 'modular_nova/modules/GAGS/icons/sleeveless_crop_jacket.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/sleeveless_crop_jacket/sleeveless_crop_jacket.json'
+	name = "Tailored Jacket (Sleeveless)"
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/crop_jacket/crop_jacket_none.json'
 
 /datum/greyscale_config/sleeveless_crop_jacket/worn
-	name = "Tailored Jacket (Worn)"
-	icon_file = 'modular_nova/modules/GAGS/icons/sleeveless_crop_jacket_worn.dmi'
+	name = "Tailored Jacket (Sleeveless, Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/crop_jacket_worn.dmi'
 
 
 // PARADE JACKET

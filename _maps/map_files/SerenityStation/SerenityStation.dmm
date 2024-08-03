@@ -21743,7 +21743,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "gmv" = (
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/engine/plasma,
 /area/station/engineering/atmos)
 "gmB" = (
@@ -47415,6 +47415,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/storage)
 "nKw" = (
+/obj/structure/water_source/puddle,
 /turf/open/floor/grass,
 /area/station/maintenance/department/crew_quarters/dorms)
 "nKz" = (
@@ -60425,6 +60426,10 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"rDw" = (
+/obj/structure/water_source/puddle,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
 "rDy" = (
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/flora/grass/jungle,
@@ -61268,9 +61273,7 @@
 /obj/machinery/computer/med_data{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen/cmo/directional/north{
-	name = "Medbay Monitor"
-	},
+/obj/machinery/computer/security/telescreen/med_sec/directional/north,
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
 "rRR" = (
@@ -109762,7 +109765,7 @@ sBE
 qCm
 sBE
 kxB
-kxB
+rDw
 iMY
 iMY
 iMY

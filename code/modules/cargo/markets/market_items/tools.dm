@@ -12,7 +12,7 @@
 	stock_min = 2
 	stock_max = 4
 	price_min = CARGO_CRATE_VALUE * 2.5
-	price_max = CARGO_CRATE_VALUE * 3.75
+	price_max = CARGO_CRATE_VALUE * 3.25
 	availability_prob = 100
 	NOVA EDIT REMOVAL END */
 
