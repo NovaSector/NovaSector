@@ -1,26 +1,3 @@
-/*
-*	NORMAL COLLAR
-*/
-
-//To determine what kind of stuff we can put in collar.
-
-/datum/storage/pockets/small/kink_collar
-	max_slots = 1
-
-/datum/storage/pockets/small/kink_collar/New()
-	. = ..()
-	var/static/list/holdables = typecacheof(list(
-		/obj/item/food/cookie,
-		/obj/item/key/kink_collar,
-	))
-	can_hold = holdables
-
-/datum/storage/pockets/small/kink_collar/mind_collar/New()
-	. = ..()
-	can_hold = typecacheof(/obj/item/mind_controller)
-
-//Here goes code for normal collar
-
 /obj/item/clothing/neck/kink_collar
 	name = "collar"
 	desc = "A nice, tight collar. It fits snug to your skin"
@@ -50,7 +27,12 @@
 
 /obj/item/clothing/neck/kink_collar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/kink_collar)
+	create_storage(storage_type = /datum/storage/pockets/small)
+	atom_storage.set_holdable(list(
+		/obj/item/food/cookie,
+		/obj/item/key/kink_collar,
+	))
+
 	if(!treat_path)
 		return
 	var/obj/item/key/kink_collar/key = new treat_path(src)
@@ -205,10 +187,6 @@
 			to_chat(user, span_warning("You fail to cut away the lock, cutting yourself in the process!"))
 			target.apply_damage(rand(3, 5), BRUTE, BODY_ZONE_HEAD, wound_bonus = 30)
 
-/*
-*	MIND CONTROL COLLAR
-*/
-
 //Ok, first - it's not mind control. Just forcing someone to do emotes that user added to remote thingy. Just a funny illegal ERP toy.
 
 //Controller stuff
@@ -252,7 +230,8 @@
 
 /obj/item/clothing/neck/mind_collar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/kink_collar/mind_collar)
+	create_storage(storage_type = /datum/storage/pockets/small)
+	atom_storage.set_holdable(/obj/item/mind_controller)
 	remote = new /obj/item/mind_controller(src, src)
 	remote.forceMove(src)
 

@@ -1,14 +1,3 @@
-/datum/storage/pockets/small/collar
-	max_slots = 1
-
-/datum/storage/pockets/small/collar/New()
-	. = ..()
-	var/static/list/holdables = typecacheof(list(
-		/obj/item/food/cookie,
-		/obj/item/key/collar,
-	))
-	can_hold = holdables
-
 /obj/item/clothing/neck/human_petcollar
 	name = "pet collar"
 	desc = "It's for pets. Though you probably could wear it yourself, you'd doubtless be the subject of ridicule."
@@ -24,7 +13,11 @@
 
 /obj/item/clothing/neck/human_petcollar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/collar)
+	create_storage(storage_type = /datum/storage/pockets/small)
+	atom_storage.set_holdable(list(
+		/obj/item/food/cookie,
+		/obj/item/key/collar,
+	))
 	if(treat_path)
 		new treat_path(src)
 
