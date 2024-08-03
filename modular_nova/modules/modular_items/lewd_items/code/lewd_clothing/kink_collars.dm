@@ -98,7 +98,10 @@
 	return NONE
 
 /obj/item/clothing/neck/kink_collar/locked/canStrip(mob/stripper, mob/owner)
-	return !locked && ..()
+	if(!locked)
+		return ..()
+	owner.balloon_alert(stripper, "locked!")
+	return FALSE
 
 //spawn thing in collar
 

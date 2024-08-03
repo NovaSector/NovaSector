@@ -74,7 +74,10 @@
 	return NONE
 
 /obj/item/clothing/neck/human_petcollar/locked/canStrip(mob/stripper, mob/owner)
-	return !locked && ..()
+	if(!locked)
+		return ..()
+	owner.balloon_alert(stripper, "locked!")
+	return FALSE
 
 /obj/item/clothing/neck/human_petcollar/locked/tool_act(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/key/collar))
