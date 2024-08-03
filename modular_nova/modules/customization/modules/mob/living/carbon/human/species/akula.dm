@@ -69,6 +69,18 @@
 	var/list/perks = list()
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_TOOTH,
+		SPECIES_PERK_NAME = "Big Bites",
+		SPECIES_PERK_DESC = "Instead of throwing punches, you use your sharp teeth to bite for more damage."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_PERSON_WALKING,
+		SPECIES_PERK_NAME = "Space Walking",
+		SPECIES_PERK_DESC = "You can move around in zero-gravity environments, just like your ancestors."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_HAND,
 		SPECIES_PERK_NAME = "Slippery Skin",
 		SPECIES_PERK_DESC = "When sufficiently wet, you have a bonus chance to escape from grabs."
@@ -81,9 +93,15 @@
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-		SPECIES_PERK_ICON = FA_ICON_WATER,
-		SPECIES_PERK_NAME = "Aqua Affinity",
-		SPECIES_PERK_DESC = "If you are dry for more than five minutes, you begin to feel sad."
+		SPECIES_PERK_ICON = FA_ICON_LUNGS,
+		SPECIES_PERK_NAME = "Gills",
+		SPECIES_PERK_DESC = "If you are not wet, you will not be able to breathe oxygen!",
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_ARROW_DOWN,
+		SPECIES_PERK_NAME = "Nomadic DNA",
+		SPECIES_PERK_DESC = "You never want to stay in one place."
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
@@ -133,6 +151,20 @@
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)
 
+/datum/species/akula/get_random_body_markings(list/passed_features)
+	var/datum/body_marking_set/body_marking_set = GLOB.body_marking_sets["Akula"]
+	var/list/markings = list()
+	if(body_marking_set)
+		markings = assemble_body_markings_from_set(body_marking_set, passed_features, src)
+	return markings
+
+/datum/species/akula/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	. = ..()
+	if(job?.akula_outfit)
+		equipping.equipOutfit(job.akula_outfit, visuals_only)
+	else
+		give_important_for_life(equipping)
+
 ///Organ overwrites
 //Eyes
 /obj/item/organ/internal/eyes/akula
@@ -178,19 +210,6 @@
 	if(!breather.has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
 		breath.gases &= ~/datum/gas/oxygen //be wet or choke
 	return ..()
-
-/datum/species/akula/get_random_body_markings(list/passed_features)
-	var/datum/body_marking_set/body_marking_set = GLOB.body_marking_sets["Akula"]
-	var/list/markings = list()
-	if(body_marking_set)
-		markings = assemble_body_markings_from_set(body_marking_set, passed_features, src)
-	return markings
-
-/datum/species/akula/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
-	if(job?.akula_outfit)
-		equipping.equipOutfit(job.akula_outfit, visuals_only)
-	else
-		give_important_for_life(equipping)
 
 
 // Wet_stacks handling
