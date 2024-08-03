@@ -4,11 +4,10 @@
 	erp_category = TRUE
 	type_to_generate = /datum/loadout_item/erp
 	tab_order = /datum/loadout_category/pocket::tab_order + 1
-	VAR_PRIVATE/max_allowed = MAX_ALLOWED_ERP_ITEMS
 
 /datum/loadout_category/erp/New()
 	. = ..()
-	category_info = "([max_allowed] allowed)"
+	category_info = "([MAX_ALLOWED_ERP_ITEMS] allowed)"
 
 /datum/loadout_category/erp/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
@@ -20,7 +19,7 @@
 	for(var/datum/loadout_item/erp/other_item in all_loadout_items)
 		other_items += other_item
 
-	if(length(other_items) >= max_allowed)
+	if(length(other_items) >= MAX_ALLOWED_ERP_ITEMS)
 		manager.deselect_item(other_items[1])
 	return TRUE
 
@@ -275,7 +274,3 @@
 /datum/loadout_item/erp/incubus_draft
 	name = "Incubus Draft Bottle"
 	item_path = /obj/item/reagent_containers/cup/bottle/incubus_draft
-
-
-
-
