@@ -47,14 +47,14 @@
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
 	var/obj/item/storage/briefcase/empty/briefcase
 	var/obj/item/storage/box/erp/erpbox
+	var/erp_enabled = !CONFIG_GET(flag/disable_erp_preferences)
 	if(override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only)
 		briefcase = new(loc)
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if (item.erp_box == TRUE)
+			if (erp_enabled && item.erp_box == TRUE)
 				if (isnull(erpbox))
 					erpbox = new(loc)
 				new item.item_path(erpbox)
-				loadout_datums -= item
 			else
 				if (!item.can_be_applied_to(src, preference_source, equipping_job))
 					continue
@@ -65,11 +65,10 @@
 		put_in_hands(briefcase)
 	else
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if (item.erp_box == TRUE)
+			if (erp_enabled && item.erp_box == TRUE)
 				if (isnull(erpbox))
 					erpbox = new(loc)
 				new item.item_path(erpbox)
-				loadout_datums -= item
 			else
 				if (!item.can_be_applied_to(src, preference_source, equipping_job))
 					continue
