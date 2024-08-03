@@ -140,8 +140,6 @@
 	base_icon_state = "collar_key"
 	item_flags = parent_type::item_flags & UNIQUE_RENAME
 	interaction_flags_click = NEED_DEXTERITY
-	/// The name inscribed on the key
-	var/keyname = null
 	/// The ID of the key to pair with a collar. Will normally be the ref of the collar
 	var/key_id = null //Adding same unique id to key
 	unique_reskin = list("Cyan" = "collar_key_blue",

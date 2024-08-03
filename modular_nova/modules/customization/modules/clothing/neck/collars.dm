@@ -19,8 +19,6 @@
 	item_flags = parent_type::item_flags & UNIQUE_RENAME
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = UNDER_SUIT_LAYER
-	/// What's the name on the tag, if any?
-	var/tagname = null
 	/// What treat item spawns inside the collar?
 	var/treat_path = /obj/item/food/cookie
 
