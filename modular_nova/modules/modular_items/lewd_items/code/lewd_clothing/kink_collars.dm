@@ -58,6 +58,10 @@
 		return
 	key.key_id = REF(src)
 
+// incompatible storage by default stops attack chain, but this does not, allows pen renaming
+/obj/item/clothing/neck/kink_collar/storage_insert_on_interacted_with(datum/storage/storage, obj/item/inserted, mob/living/user)
+	return is_type_in_typecache(inserted, storage.can_hold)
+
 /*
 *	LOCKED COLLAR
 */
